@@ -56,8 +56,8 @@ data ListConfigurationRevisions = ListConfigurationRevisions'
   { -- | The token that specifies the next page of results Amazon MQ should
     -- return. To request the first page, leave nextToken empty.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of configurations that Amazon MQ can return per page
-    -- (20 by default). This value must be an integer from 5 to 100.
+    -- | The maximum number of brokers that Amazon MQ can return per page (20 by
+    -- default). This value must be an integer from 5 to 100.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The unique ID that Amazon MQ generates for the configuration.
     configurationId :: Prelude.Text
@@ -75,8 +75,8 @@ data ListConfigurationRevisions = ListConfigurationRevisions'
 -- 'nextToken', 'listConfigurationRevisions_nextToken' - The token that specifies the next page of results Amazon MQ should
 -- return. To request the first page, leave nextToken empty.
 --
--- 'maxResults', 'listConfigurationRevisions_maxResults' - The maximum number of configurations that Amazon MQ can return per page
--- (20 by default). This value must be an integer from 5 to 100.
+-- 'maxResults', 'listConfigurationRevisions_maxResults' - The maximum number of brokers that Amazon MQ can return per page (20 by
+-- default). This value must be an integer from 5 to 100.
 --
 -- 'configurationId', 'listConfigurationRevisions_configurationId' - The unique ID that Amazon MQ generates for the configuration.
 newListConfigurationRevisions ::
@@ -96,8 +96,8 @@ newListConfigurationRevisions pConfigurationId_ =
 listConfigurationRevisions_nextToken :: Lens.Lens' ListConfigurationRevisions (Prelude.Maybe Prelude.Text)
 listConfigurationRevisions_nextToken = Lens.lens (\ListConfigurationRevisions' {nextToken} -> nextToken) (\s@ListConfigurationRevisions' {} a -> s {nextToken = a} :: ListConfigurationRevisions)
 
--- | The maximum number of configurations that Amazon MQ can return per page
--- (20 by default). This value must be an integer from 5 to 100.
+-- | The maximum number of brokers that Amazon MQ can return per page (20 by
+-- default). This value must be an integer from 5 to 100.
 listConfigurationRevisions_maxResults :: Lens.Lens' ListConfigurationRevisions (Prelude.Maybe Prelude.Natural)
 listConfigurationRevisions_maxResults = Lens.lens (\ListConfigurationRevisions' {maxResults} -> maxResults) (\s@ListConfigurationRevisions' {} a -> s {maxResults = a} :: ListConfigurationRevisions)
 

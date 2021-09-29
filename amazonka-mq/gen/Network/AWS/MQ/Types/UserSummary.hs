@@ -24,7 +24,7 @@ import qualified Network.AWS.Lens as Lens
 import Network.AWS.MQ.Types.ChangeType
 import qualified Network.AWS.Prelude as Prelude
 
--- | Returns a list of all broker users.
+-- | Returns a list of all broker users. Does not apply to RabbitMQ brokers.
 --
 -- /See:/ 'newUserSummary' smart constructor.
 data UserSummary = UserSummary'
@@ -33,7 +33,7 @@ data UserSummary = UserSummary'
     -- | Required. The username of the broker user. This value can contain only
     -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
     -- ~). This value must be 2-100 characters long.
-    username :: Prelude.Maybe Prelude.Text
+    username :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -51,11 +51,13 @@ data UserSummary = UserSummary'
 -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
 -- ~). This value must be 2-100 characters long.
 newUserSummary ::
+  -- | 'username'
+  Prelude.Text ->
   UserSummary
-newUserSummary =
+newUserSummary pUsername_ =
   UserSummary'
     { pendingChange = Prelude.Nothing,
-      username = Prelude.Nothing
+      username = pUsername_
     }
 
 -- | The type of change pending for the broker user.
@@ -65,7 +67,7 @@ userSummary_pendingChange = Lens.lens (\UserSummary' {pendingChange} -> pendingC
 -- | Required. The username of the broker user. This value can contain only
 -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
 -- ~). This value must be 2-100 characters long.
-userSummary_username :: Lens.Lens' UserSummary (Prelude.Maybe Prelude.Text)
+userSummary_username :: Lens.Lens' UserSummary Prelude.Text
 userSummary_username = Lens.lens (\UserSummary' {username} -> username) (\s@UserSummary' {} a -> s {username = a} :: UserSummary)
 
 instance Core.FromJSON UserSummary where
@@ -75,7 +77,7 @@ instance Core.FromJSON UserSummary where
       ( \x ->
           UserSummary'
             Prelude.<$> (x Core..:? "pendingChange")
-            Prelude.<*> (x Core..:? "username")
+            Prelude.<*> (x Core..: "username")
       )
 
 instance Prelude.Hashable UserSummary

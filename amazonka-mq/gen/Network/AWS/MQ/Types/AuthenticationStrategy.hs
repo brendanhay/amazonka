@@ -29,7 +29,8 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
--- | The authentication strategy used to secure the broker.
+-- | Optional. The authentication strategy used to secure the broker. The
+-- default is SIMPLE.
 newtype AuthenticationStrategy = AuthenticationStrategy'
   { fromAuthenticationStrategy ::
       Core.Text

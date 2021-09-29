@@ -28,9 +28,9 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newConfigurations' smart constructor.
 data Configurations = Configurations'
-  { -- | The pending configuration of the broker.
+  { -- | The broker\'s pending configuration.
     pending :: Prelude.Maybe ConfigurationId,
-    -- | The current configuration of the broker.
+    -- | The broker\'s current configuration.
     current :: Prelude.Maybe ConfigurationId,
     -- | The history of configurations applied to the broker.
     history :: Prelude.Maybe [ConfigurationId]
@@ -45,9 +45,9 @@ data Configurations = Configurations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'pending', 'configurations_pending' - The pending configuration of the broker.
+-- 'pending', 'configurations_pending' - The broker\'s pending configuration.
 --
--- 'current', 'configurations_current' - The current configuration of the broker.
+-- 'current', 'configurations_current' - The broker\'s current configuration.
 --
 -- 'history', 'configurations_history' - The history of configurations applied to the broker.
 newConfigurations ::
@@ -59,11 +59,11 @@ newConfigurations =
       history = Prelude.Nothing
     }
 
--- | The pending configuration of the broker.
+-- | The broker\'s pending configuration.
 configurations_pending :: Lens.Lens' Configurations (Prelude.Maybe ConfigurationId)
 configurations_pending = Lens.lens (\Configurations' {pending} -> pending) (\s@Configurations' {} a -> s {pending = a} :: Configurations)
 
--- | The current configuration of the broker.
+-- | The broker\'s current configuration.
 configurations_current :: Lens.Lens' Configurations (Prelude.Maybe ConfigurationId)
 configurations_current = Lens.lens (\Configurations' {current} -> current) (\s@Configurations' {} a -> s {current = a} :: Configurations)
 

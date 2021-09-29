@@ -26,29 +26,29 @@ import Network.AWS.MQ.Types.DeploymentMode
 import Network.AWS.MQ.Types.EngineType
 import qualified Network.AWS.Prelude as Prelude
 
--- | The Amazon Resource Name (ARN) of the broker.
+-- | Returns information about all brokers.
 --
 -- /See:/ 'newBrokerSummary' smart constructor.
 data BrokerSummary = BrokerSummary'
-  { -- | The name of the broker. This value must be unique in your AWS account,
-    -- 1-50 characters long, must contain only letters, numbers, dashes, and
-    -- underscores, and must not contain whitespaces, brackets, wildcard
+  { -- | The broker\'s name. This value is unique in your AWS account, 1-50
+    -- characters long, and containing only letters, numbers, dashes, and
+    -- underscores, and must not contain white spaces, brackets, wildcard
     -- characters, or special characters.
     brokerName :: Prelude.Maybe Prelude.Text,
     -- | The unique ID that Amazon MQ generates for the broker.
     brokerId :: Prelude.Maybe Prelude.Text,
-    -- | Required. The type of broker engine.
-    engineType :: Prelude.Maybe EngineType,
-    -- | The status of the broker.
+    -- | The broker\'s status.
     brokerState :: Prelude.Maybe BrokerState,
     -- | The broker\'s instance type.
     hostInstanceType :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the broker.
+    -- | The broker\'s Amazon Resource Name (ARN).
     brokerArn :: Prelude.Maybe Prelude.Text,
     -- | The time when the broker was created.
     created :: Prelude.Maybe Core.POSIX,
-    -- | Required. The deployment mode of the broker.
-    deploymentMode :: Prelude.Maybe DeploymentMode
+    -- | The broker\'s deployment mode.
+    deploymentMode :: DeploymentMode,
+    -- | The type of broker engine.
+    engineType :: EngineType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,41 +60,45 @@ data BrokerSummary = BrokerSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'brokerName', 'brokerSummary_brokerName' - The name of the broker. This value must be unique in your AWS account,
--- 1-50 characters long, must contain only letters, numbers, dashes, and
--- underscores, and must not contain whitespaces, brackets, wildcard
+-- 'brokerName', 'brokerSummary_brokerName' - The broker\'s name. This value is unique in your AWS account, 1-50
+-- characters long, and containing only letters, numbers, dashes, and
+-- underscores, and must not contain white spaces, brackets, wildcard
 -- characters, or special characters.
 --
 -- 'brokerId', 'brokerSummary_brokerId' - The unique ID that Amazon MQ generates for the broker.
 --
--- 'engineType', 'brokerSummary_engineType' - Required. The type of broker engine.
---
--- 'brokerState', 'brokerSummary_brokerState' - The status of the broker.
+-- 'brokerState', 'brokerSummary_brokerState' - The broker\'s status.
 --
 -- 'hostInstanceType', 'brokerSummary_hostInstanceType' - The broker\'s instance type.
 --
--- 'brokerArn', 'brokerSummary_brokerArn' - The Amazon Resource Name (ARN) of the broker.
+-- 'brokerArn', 'brokerSummary_brokerArn' - The broker\'s Amazon Resource Name (ARN).
 --
 -- 'created', 'brokerSummary_created' - The time when the broker was created.
 --
--- 'deploymentMode', 'brokerSummary_deploymentMode' - Required. The deployment mode of the broker.
+-- 'deploymentMode', 'brokerSummary_deploymentMode' - The broker\'s deployment mode.
+--
+-- 'engineType', 'brokerSummary_engineType' - The type of broker engine.
 newBrokerSummary ::
+  -- | 'deploymentMode'
+  DeploymentMode ->
+  -- | 'engineType'
+  EngineType ->
   BrokerSummary
-newBrokerSummary =
+newBrokerSummary pDeploymentMode_ pEngineType_ =
   BrokerSummary'
     { brokerName = Prelude.Nothing,
       brokerId = Prelude.Nothing,
-      engineType = Prelude.Nothing,
       brokerState = Prelude.Nothing,
       hostInstanceType = Prelude.Nothing,
       brokerArn = Prelude.Nothing,
       created = Prelude.Nothing,
-      deploymentMode = Prelude.Nothing
+      deploymentMode = pDeploymentMode_,
+      engineType = pEngineType_
     }
 
--- | The name of the broker. This value must be unique in your AWS account,
--- 1-50 characters long, must contain only letters, numbers, dashes, and
--- underscores, and must not contain whitespaces, brackets, wildcard
+-- | The broker\'s name. This value is unique in your AWS account, 1-50
+-- characters long, and containing only letters, numbers, dashes, and
+-- underscores, and must not contain white spaces, brackets, wildcard
 -- characters, or special characters.
 brokerSummary_brokerName :: Lens.Lens' BrokerSummary (Prelude.Maybe Prelude.Text)
 brokerSummary_brokerName = Lens.lens (\BrokerSummary' {brokerName} -> brokerName) (\s@BrokerSummary' {} a -> s {brokerName = a} :: BrokerSummary)
@@ -103,11 +107,7 @@ brokerSummary_brokerName = Lens.lens (\BrokerSummary' {brokerName} -> brokerName
 brokerSummary_brokerId :: Lens.Lens' BrokerSummary (Prelude.Maybe Prelude.Text)
 brokerSummary_brokerId = Lens.lens (\BrokerSummary' {brokerId} -> brokerId) (\s@BrokerSummary' {} a -> s {brokerId = a} :: BrokerSummary)
 
--- | Required. The type of broker engine.
-brokerSummary_engineType :: Lens.Lens' BrokerSummary (Prelude.Maybe EngineType)
-brokerSummary_engineType = Lens.lens (\BrokerSummary' {engineType} -> engineType) (\s@BrokerSummary' {} a -> s {engineType = a} :: BrokerSummary)
-
--- | The status of the broker.
+-- | The broker\'s status.
 brokerSummary_brokerState :: Lens.Lens' BrokerSummary (Prelude.Maybe BrokerState)
 brokerSummary_brokerState = Lens.lens (\BrokerSummary' {brokerState} -> brokerState) (\s@BrokerSummary' {} a -> s {brokerState = a} :: BrokerSummary)
 
@@ -115,7 +115,7 @@ brokerSummary_brokerState = Lens.lens (\BrokerSummary' {brokerState} -> brokerSt
 brokerSummary_hostInstanceType :: Lens.Lens' BrokerSummary (Prelude.Maybe Prelude.Text)
 brokerSummary_hostInstanceType = Lens.lens (\BrokerSummary' {hostInstanceType} -> hostInstanceType) (\s@BrokerSummary' {} a -> s {hostInstanceType = a} :: BrokerSummary)
 
--- | The Amazon Resource Name (ARN) of the broker.
+-- | The broker\'s Amazon Resource Name (ARN).
 brokerSummary_brokerArn :: Lens.Lens' BrokerSummary (Prelude.Maybe Prelude.Text)
 brokerSummary_brokerArn = Lens.lens (\BrokerSummary' {brokerArn} -> brokerArn) (\s@BrokerSummary' {} a -> s {brokerArn = a} :: BrokerSummary)
 
@@ -123,9 +123,13 @@ brokerSummary_brokerArn = Lens.lens (\BrokerSummary' {brokerArn} -> brokerArn) (
 brokerSummary_created :: Lens.Lens' BrokerSummary (Prelude.Maybe Prelude.UTCTime)
 brokerSummary_created = Lens.lens (\BrokerSummary' {created} -> created) (\s@BrokerSummary' {} a -> s {created = a} :: BrokerSummary) Prelude.. Lens.mapping Core._Time
 
--- | Required. The deployment mode of the broker.
-brokerSummary_deploymentMode :: Lens.Lens' BrokerSummary (Prelude.Maybe DeploymentMode)
+-- | The broker\'s deployment mode.
+brokerSummary_deploymentMode :: Lens.Lens' BrokerSummary DeploymentMode
 brokerSummary_deploymentMode = Lens.lens (\BrokerSummary' {deploymentMode} -> deploymentMode) (\s@BrokerSummary' {} a -> s {deploymentMode = a} :: BrokerSummary)
+
+-- | The type of broker engine.
+brokerSummary_engineType :: Lens.Lens' BrokerSummary EngineType
+brokerSummary_engineType = Lens.lens (\BrokerSummary' {engineType} -> engineType) (\s@BrokerSummary' {} a -> s {engineType = a} :: BrokerSummary)
 
 instance Core.FromJSON BrokerSummary where
   parseJSON =
@@ -135,12 +139,12 @@ instance Core.FromJSON BrokerSummary where
           BrokerSummary'
             Prelude.<$> (x Core..:? "brokerName")
             Prelude.<*> (x Core..:? "brokerId")
-            Prelude.<*> (x Core..:? "engineType")
             Prelude.<*> (x Core..:? "brokerState")
             Prelude.<*> (x Core..:? "hostInstanceType")
             Prelude.<*> (x Core..:? "brokerArn")
             Prelude.<*> (x Core..:? "created")
-            Prelude.<*> (x Core..:? "deploymentMode")
+            Prelude.<*> (x Core..: "deploymentMode")
+            Prelude.<*> (x Core..: "engineType")
       )
 
 instance Prelude.Hashable BrokerSummary

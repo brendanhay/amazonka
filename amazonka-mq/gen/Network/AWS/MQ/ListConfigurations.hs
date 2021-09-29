@@ -54,8 +54,8 @@ data ListConfigurations = ListConfigurations'
   { -- | The token that specifies the next page of results Amazon MQ should
     -- return. To request the first page, leave nextToken empty.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of configurations that Amazon MQ can return per page
-    -- (20 by default). This value must be an integer from 5 to 100.
+    -- | The maximum number of brokers that Amazon MQ can return per page (20 by
+    -- default). This value must be an integer from 5 to 100.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,8 +71,8 @@ data ListConfigurations = ListConfigurations'
 -- 'nextToken', 'listConfigurations_nextToken' - The token that specifies the next page of results Amazon MQ should
 -- return. To request the first page, leave nextToken empty.
 --
--- 'maxResults', 'listConfigurations_maxResults' - The maximum number of configurations that Amazon MQ can return per page
--- (20 by default). This value must be an integer from 5 to 100.
+-- 'maxResults', 'listConfigurations_maxResults' - The maximum number of brokers that Amazon MQ can return per page (20 by
+-- default). This value must be an integer from 5 to 100.
 newListConfigurations ::
   ListConfigurations
 newListConfigurations =
@@ -86,8 +86,8 @@ newListConfigurations =
 listConfigurations_nextToken :: Lens.Lens' ListConfigurations (Prelude.Maybe Prelude.Text)
 listConfigurations_nextToken = Lens.lens (\ListConfigurations' {nextToken} -> nextToken) (\s@ListConfigurations' {} a -> s {nextToken = a} :: ListConfigurations)
 
--- | The maximum number of configurations that Amazon MQ can return per page
--- (20 by default). This value must be an integer from 5 to 100.
+-- | The maximum number of brokers that Amazon MQ can return per page (20 by
+-- default). This value must be an integer from 5 to 100.
 listConfigurations_maxResults :: Lens.Lens' ListConfigurations (Prelude.Maybe Prelude.Natural)
 listConfigurations_maxResults = Lens.lens (\ListConfigurations' {maxResults} -> maxResults) (\s@ListConfigurations' {} a -> s {maxResults = a} :: ListConfigurations)
 

@@ -33,6 +33,7 @@ module Network.AWS.MQ.UpdateBroker
     updateBroker_securityGroups,
     updateBroker_logs,
     updateBroker_engineVersion,
+    updateBroker_maintenanceWindowStartTime,
     updateBroker_hostInstanceType,
     updateBroker_autoMinorVersionUpgrade,
     updateBroker_brokerId,
@@ -49,6 +50,7 @@ module Network.AWS.MQ.UpdateBroker
     updateBrokerResponse_securityGroups,
     updateBrokerResponse_logs,
     updateBrokerResponse_engineVersion,
+    updateBrokerResponse_maintenanceWindowStartTime,
     updateBrokerResponse_hostInstanceType,
     updateBrokerResponse_autoMinorVersionUpgrade,
     updateBrokerResponse_httpStatus,
@@ -66,10 +68,11 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newUpdateBroker' smart constructor.
 data UpdateBroker = UpdateBroker'
-  { -- | The metadata of the LDAP server used to authenticate and authorize
-    -- connections to the broker.
+  { -- | Optional. The metadata of the LDAP server used to authenticate and
+    -- authorize connections to the broker. Does not apply to RabbitMQ brokers.
     ldapServerMetadata :: Prelude.Maybe LdapServerMetadataInput,
-    -- | The authentication strategy used to secure the broker.
+    -- | Optional. The authentication strategy used to secure the broker. The
+    -- default is SIMPLE.
     authenticationStrategy :: Prelude.Maybe AuthenticationStrategy,
     -- | A list of information about the configuration.
     configuration :: Prelude.Maybe ConfigurationId,
@@ -78,17 +81,19 @@ data UpdateBroker = UpdateBroker'
     securityGroups :: Prelude.Maybe [Prelude.Text],
     -- | Enables Amazon CloudWatch logging for brokers.
     logs :: Prelude.Maybe Logs,
-    -- | The version of the broker engine. For a list of supported engine
-    -- versions, see
-    -- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/broker-engine.html
+    -- | The broker engine version. For a list of supported engine versions, see
+    -- <https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html Supported engines>.
     engineVersion :: Prelude.Maybe Prelude.Text,
-    -- | The host instance type of the broker to upgrade to. For a list of
-    -- supported instance types, see
-    -- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/\/broker.html#broker-instance-types
+    -- | The parameters that determine the WeeklyStartTime.
+    maintenanceWindowStartTime :: Prelude.Maybe WeeklyStartTime,
+    -- | The broker\'s host instance type to upgrade to. For a list of supported
+    -- instance types, see
+    -- <https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker.html#broker-instance-types Broker instance types>.
     hostInstanceType :: Prelude.Maybe Prelude.Text,
-    -- | Enables automatic upgrades to new minor versions for brokers, as Apache
-    -- releases the versions. The automatic upgrades occur during the
-    -- maintenance window of the broker or after a manual broker reboot.
+    -- | Enables automatic upgrades to new minor versions for brokers, as new
+    -- versions are released and supported by Amazon MQ. Automatic upgrades
+    -- occur during the scheduled maintenance window of the broker or after a
+    -- manual broker reboot.
     autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | The unique ID that Amazon MQ generates for the broker.
     brokerId :: Prelude.Text
@@ -103,10 +108,11 @@ data UpdateBroker = UpdateBroker'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ldapServerMetadata', 'updateBroker_ldapServerMetadata' - The metadata of the LDAP server used to authenticate and authorize
--- connections to the broker.
+-- 'ldapServerMetadata', 'updateBroker_ldapServerMetadata' - Optional. The metadata of the LDAP server used to authenticate and
+-- authorize connections to the broker. Does not apply to RabbitMQ brokers.
 --
--- 'authenticationStrategy', 'updateBroker_authenticationStrategy' - The authentication strategy used to secure the broker.
+-- 'authenticationStrategy', 'updateBroker_authenticationStrategy' - Optional. The authentication strategy used to secure the broker. The
+-- default is SIMPLE.
 --
 -- 'configuration', 'updateBroker_configuration' - A list of information about the configuration.
 --
@@ -115,17 +121,19 @@ data UpdateBroker = UpdateBroker'
 --
 -- 'logs', 'updateBroker_logs' - Enables Amazon CloudWatch logging for brokers.
 --
--- 'engineVersion', 'updateBroker_engineVersion' - The version of the broker engine. For a list of supported engine
--- versions, see
--- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/broker-engine.html
+-- 'engineVersion', 'updateBroker_engineVersion' - The broker engine version. For a list of supported engine versions, see
+-- <https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html Supported engines>.
 --
--- 'hostInstanceType', 'updateBroker_hostInstanceType' - The host instance type of the broker to upgrade to. For a list of
--- supported instance types, see
--- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/\/broker.html#broker-instance-types
+-- 'maintenanceWindowStartTime', 'updateBroker_maintenanceWindowStartTime' - The parameters that determine the WeeklyStartTime.
 --
--- 'autoMinorVersionUpgrade', 'updateBroker_autoMinorVersionUpgrade' - Enables automatic upgrades to new minor versions for brokers, as Apache
--- releases the versions. The automatic upgrades occur during the
--- maintenance window of the broker or after a manual broker reboot.
+-- 'hostInstanceType', 'updateBroker_hostInstanceType' - The broker\'s host instance type to upgrade to. For a list of supported
+-- instance types, see
+-- <https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker.html#broker-instance-types Broker instance types>.
+--
+-- 'autoMinorVersionUpgrade', 'updateBroker_autoMinorVersionUpgrade' - Enables automatic upgrades to new minor versions for brokers, as new
+-- versions are released and supported by Amazon MQ. Automatic upgrades
+-- occur during the scheduled maintenance window of the broker or after a
+-- manual broker reboot.
 --
 -- 'brokerId', 'updateBroker_brokerId' - The unique ID that Amazon MQ generates for the broker.
 newUpdateBroker ::
@@ -140,17 +148,19 @@ newUpdateBroker pBrokerId_ =
       securityGroups = Prelude.Nothing,
       logs = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
+      maintenanceWindowStartTime = Prelude.Nothing,
       hostInstanceType = Prelude.Nothing,
       autoMinorVersionUpgrade = Prelude.Nothing,
       brokerId = pBrokerId_
     }
 
--- | The metadata of the LDAP server used to authenticate and authorize
--- connections to the broker.
+-- | Optional. The metadata of the LDAP server used to authenticate and
+-- authorize connections to the broker. Does not apply to RabbitMQ brokers.
 updateBroker_ldapServerMetadata :: Lens.Lens' UpdateBroker (Prelude.Maybe LdapServerMetadataInput)
 updateBroker_ldapServerMetadata = Lens.lens (\UpdateBroker' {ldapServerMetadata} -> ldapServerMetadata) (\s@UpdateBroker' {} a -> s {ldapServerMetadata = a} :: UpdateBroker)
 
--- | The authentication strategy used to secure the broker.
+-- | Optional. The authentication strategy used to secure the broker. The
+-- default is SIMPLE.
 updateBroker_authenticationStrategy :: Lens.Lens' UpdateBroker (Prelude.Maybe AuthenticationStrategy)
 updateBroker_authenticationStrategy = Lens.lens (\UpdateBroker' {authenticationStrategy} -> authenticationStrategy) (\s@UpdateBroker' {} a -> s {authenticationStrategy = a} :: UpdateBroker)
 
@@ -167,21 +177,25 @@ updateBroker_securityGroups = Lens.lens (\UpdateBroker' {securityGroups} -> secu
 updateBroker_logs :: Lens.Lens' UpdateBroker (Prelude.Maybe Logs)
 updateBroker_logs = Lens.lens (\UpdateBroker' {logs} -> logs) (\s@UpdateBroker' {} a -> s {logs = a} :: UpdateBroker)
 
--- | The version of the broker engine. For a list of supported engine
--- versions, see
--- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/broker-engine.html
+-- | The broker engine version. For a list of supported engine versions, see
+-- <https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html Supported engines>.
 updateBroker_engineVersion :: Lens.Lens' UpdateBroker (Prelude.Maybe Prelude.Text)
 updateBroker_engineVersion = Lens.lens (\UpdateBroker' {engineVersion} -> engineVersion) (\s@UpdateBroker' {} a -> s {engineVersion = a} :: UpdateBroker)
 
--- | The host instance type of the broker to upgrade to. For a list of
--- supported instance types, see
--- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/\/broker.html#broker-instance-types
+-- | The parameters that determine the WeeklyStartTime.
+updateBroker_maintenanceWindowStartTime :: Lens.Lens' UpdateBroker (Prelude.Maybe WeeklyStartTime)
+updateBroker_maintenanceWindowStartTime = Lens.lens (\UpdateBroker' {maintenanceWindowStartTime} -> maintenanceWindowStartTime) (\s@UpdateBroker' {} a -> s {maintenanceWindowStartTime = a} :: UpdateBroker)
+
+-- | The broker\'s host instance type to upgrade to. For a list of supported
+-- instance types, see
+-- <https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker.html#broker-instance-types Broker instance types>.
 updateBroker_hostInstanceType :: Lens.Lens' UpdateBroker (Prelude.Maybe Prelude.Text)
 updateBroker_hostInstanceType = Lens.lens (\UpdateBroker' {hostInstanceType} -> hostInstanceType) (\s@UpdateBroker' {} a -> s {hostInstanceType = a} :: UpdateBroker)
 
--- | Enables automatic upgrades to new minor versions for brokers, as Apache
--- releases the versions. The automatic upgrades occur during the
--- maintenance window of the broker or after a manual broker reboot.
+-- | Enables automatic upgrades to new minor versions for brokers, as new
+-- versions are released and supported by Amazon MQ. Automatic upgrades
+-- occur during the scheduled maintenance window of the broker or after a
+-- manual broker reboot.
 updateBroker_autoMinorVersionUpgrade :: Lens.Lens' UpdateBroker (Prelude.Maybe Prelude.Bool)
 updateBroker_autoMinorVersionUpgrade = Lens.lens (\UpdateBroker' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@UpdateBroker' {} a -> s {autoMinorVersionUpgrade = a} :: UpdateBroker)
 
@@ -203,6 +217,7 @@ instance Core.AWSRequest UpdateBroker where
             Prelude.<*> (x Core..?> "securityGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "logs")
             Prelude.<*> (x Core..?> "engineVersion")
+            Prelude.<*> (x Core..?> "maintenanceWindowStartTime")
             Prelude.<*> (x Core..?> "hostInstanceType")
             Prelude.<*> (x Core..?> "autoMinorVersionUpgrade")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -236,6 +251,8 @@ instance Core.ToJSON UpdateBroker where
               Prelude.<$> securityGroups,
             ("logs" Core..=) Prelude.<$> logs,
             ("engineVersion" Core..=) Prelude.<$> engineVersion,
+            ("maintenanceWindowStartTime" Core..=)
+              Prelude.<$> maintenanceWindowStartTime,
             ("hostInstanceType" Core..=)
               Prelude.<$> hostInstanceType,
             ("autoMinorVersionUpgrade" Core..=)
@@ -253,12 +270,13 @@ instance Core.ToQuery UpdateBroker where
 
 -- | /See:/ 'newUpdateBrokerResponse' smart constructor.
 data UpdateBrokerResponse = UpdateBrokerResponse'
-  { -- | The metadata of the LDAP server used to authenticate and authorize
-    -- connections to the broker.
+  { -- | Optional. The metadata of the LDAP server used to authenticate and
+    -- authorize connections to the broker. Does not apply to RabbitMQ brokers.
     ldapServerMetadata :: Prelude.Maybe LdapServerMetadataOutput,
     -- | Required. The unique ID that Amazon MQ generates for the broker.
     brokerId :: Prelude.Maybe Prelude.Text,
-    -- | The authentication strategy used to secure the broker.
+    -- | Optional. The authentication strategy used to secure the broker. The
+    -- default is SIMPLE.
     authenticationStrategy :: Prelude.Maybe AuthenticationStrategy,
     -- | The ID of the updated configuration.
     configuration :: Prelude.Maybe ConfigurationId,
@@ -268,15 +286,19 @@ data UpdateBrokerResponse = UpdateBrokerResponse'
     -- | The list of information about logs to be enabled for the specified
     -- broker.
     logs :: Prelude.Maybe Logs,
-    -- | The version of the broker engine to upgrade to. For a list of supported
-    -- engine versions, see
-    -- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/broker-engine.html
+    -- | The broker engine version to upgrade to. For a list of supported engine
+    -- versions, see
+    -- <https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html Supported engines>.
     engineVersion :: Prelude.Maybe Prelude.Text,
-    -- | The host instance type of the broker to upgrade to. For a list of
-    -- supported instance types, see
-    -- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/\/broker.html#broker-instance-types
+    -- | The parameters that determine the WeeklyStartTime.
+    maintenanceWindowStartTime :: Prelude.Maybe WeeklyStartTime,
+    -- | The broker\'s host instance type to upgrade to. For a list of supported
+    -- instance types, see
+    -- <https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker.html#broker-instance-types Broker instance types>.
     hostInstanceType :: Prelude.Maybe Prelude.Text,
-    -- | The new value of automatic upgrades to new minor version for brokers.
+    -- | The new boolean value that specifies whether broker engines
+    -- automatically upgrade to new minor versions as new versions are released
+    -- and supported by Amazon MQ.
     autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -291,12 +313,13 @@ data UpdateBrokerResponse = UpdateBrokerResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ldapServerMetadata', 'updateBrokerResponse_ldapServerMetadata' - The metadata of the LDAP server used to authenticate and authorize
--- connections to the broker.
+-- 'ldapServerMetadata', 'updateBrokerResponse_ldapServerMetadata' - Optional. The metadata of the LDAP server used to authenticate and
+-- authorize connections to the broker. Does not apply to RabbitMQ brokers.
 --
 -- 'brokerId', 'updateBrokerResponse_brokerId' - Required. The unique ID that Amazon MQ generates for the broker.
 --
--- 'authenticationStrategy', 'updateBrokerResponse_authenticationStrategy' - The authentication strategy used to secure the broker.
+-- 'authenticationStrategy', 'updateBrokerResponse_authenticationStrategy' - Optional. The authentication strategy used to secure the broker. The
+-- default is SIMPLE.
 --
 -- 'configuration', 'updateBrokerResponse_configuration' - The ID of the updated configuration.
 --
@@ -306,15 +329,19 @@ data UpdateBrokerResponse = UpdateBrokerResponse'
 -- 'logs', 'updateBrokerResponse_logs' - The list of information about logs to be enabled for the specified
 -- broker.
 --
--- 'engineVersion', 'updateBrokerResponse_engineVersion' - The version of the broker engine to upgrade to. For a list of supported
--- engine versions, see
--- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/broker-engine.html
+-- 'engineVersion', 'updateBrokerResponse_engineVersion' - The broker engine version to upgrade to. For a list of supported engine
+-- versions, see
+-- <https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html Supported engines>.
 --
--- 'hostInstanceType', 'updateBrokerResponse_hostInstanceType' - The host instance type of the broker to upgrade to. For a list of
--- supported instance types, see
--- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/\/broker.html#broker-instance-types
+-- 'maintenanceWindowStartTime', 'updateBrokerResponse_maintenanceWindowStartTime' - The parameters that determine the WeeklyStartTime.
 --
--- 'autoMinorVersionUpgrade', 'updateBrokerResponse_autoMinorVersionUpgrade' - The new value of automatic upgrades to new minor version for brokers.
+-- 'hostInstanceType', 'updateBrokerResponse_hostInstanceType' - The broker\'s host instance type to upgrade to. For a list of supported
+-- instance types, see
+-- <https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker.html#broker-instance-types Broker instance types>.
+--
+-- 'autoMinorVersionUpgrade', 'updateBrokerResponse_autoMinorVersionUpgrade' - The new boolean value that specifies whether broker engines
+-- automatically upgrade to new minor versions as new versions are released
+-- and supported by Amazon MQ.
 --
 -- 'httpStatus', 'updateBrokerResponse_httpStatus' - The response's http status code.
 newUpdateBrokerResponse ::
@@ -331,13 +358,14 @@ newUpdateBrokerResponse pHttpStatus_ =
       securityGroups = Prelude.Nothing,
       logs = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
+      maintenanceWindowStartTime = Prelude.Nothing,
       hostInstanceType = Prelude.Nothing,
       autoMinorVersionUpgrade = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The metadata of the LDAP server used to authenticate and authorize
--- connections to the broker.
+-- | Optional. The metadata of the LDAP server used to authenticate and
+-- authorize connections to the broker. Does not apply to RabbitMQ brokers.
 updateBrokerResponse_ldapServerMetadata :: Lens.Lens' UpdateBrokerResponse (Prelude.Maybe LdapServerMetadataOutput)
 updateBrokerResponse_ldapServerMetadata = Lens.lens (\UpdateBrokerResponse' {ldapServerMetadata} -> ldapServerMetadata) (\s@UpdateBrokerResponse' {} a -> s {ldapServerMetadata = a} :: UpdateBrokerResponse)
 
@@ -345,7 +373,8 @@ updateBrokerResponse_ldapServerMetadata = Lens.lens (\UpdateBrokerResponse' {lda
 updateBrokerResponse_brokerId :: Lens.Lens' UpdateBrokerResponse (Prelude.Maybe Prelude.Text)
 updateBrokerResponse_brokerId = Lens.lens (\UpdateBrokerResponse' {brokerId} -> brokerId) (\s@UpdateBrokerResponse' {} a -> s {brokerId = a} :: UpdateBrokerResponse)
 
--- | The authentication strategy used to secure the broker.
+-- | Optional. The authentication strategy used to secure the broker. The
+-- default is SIMPLE.
 updateBrokerResponse_authenticationStrategy :: Lens.Lens' UpdateBrokerResponse (Prelude.Maybe AuthenticationStrategy)
 updateBrokerResponse_authenticationStrategy = Lens.lens (\UpdateBrokerResponse' {authenticationStrategy} -> authenticationStrategy) (\s@UpdateBrokerResponse' {} a -> s {authenticationStrategy = a} :: UpdateBrokerResponse)
 
@@ -363,19 +392,25 @@ updateBrokerResponse_securityGroups = Lens.lens (\UpdateBrokerResponse' {securit
 updateBrokerResponse_logs :: Lens.Lens' UpdateBrokerResponse (Prelude.Maybe Logs)
 updateBrokerResponse_logs = Lens.lens (\UpdateBrokerResponse' {logs} -> logs) (\s@UpdateBrokerResponse' {} a -> s {logs = a} :: UpdateBrokerResponse)
 
--- | The version of the broker engine to upgrade to. For a list of supported
--- engine versions, see
--- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/broker-engine.html
+-- | The broker engine version to upgrade to. For a list of supported engine
+-- versions, see
+-- <https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html Supported engines>.
 updateBrokerResponse_engineVersion :: Lens.Lens' UpdateBrokerResponse (Prelude.Maybe Prelude.Text)
 updateBrokerResponse_engineVersion = Lens.lens (\UpdateBrokerResponse' {engineVersion} -> engineVersion) (\s@UpdateBrokerResponse' {} a -> s {engineVersion = a} :: UpdateBrokerResponse)
 
--- | The host instance type of the broker to upgrade to. For a list of
--- supported instance types, see
--- https:\/\/docs.aws.amazon.com\/amazon-mq\/latest\/developer-guide\/\/broker.html#broker-instance-types
+-- | The parameters that determine the WeeklyStartTime.
+updateBrokerResponse_maintenanceWindowStartTime :: Lens.Lens' UpdateBrokerResponse (Prelude.Maybe WeeklyStartTime)
+updateBrokerResponse_maintenanceWindowStartTime = Lens.lens (\UpdateBrokerResponse' {maintenanceWindowStartTime} -> maintenanceWindowStartTime) (\s@UpdateBrokerResponse' {} a -> s {maintenanceWindowStartTime = a} :: UpdateBrokerResponse)
+
+-- | The broker\'s host instance type to upgrade to. For a list of supported
+-- instance types, see
+-- <https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker.html#broker-instance-types Broker instance types>.
 updateBrokerResponse_hostInstanceType :: Lens.Lens' UpdateBrokerResponse (Prelude.Maybe Prelude.Text)
 updateBrokerResponse_hostInstanceType = Lens.lens (\UpdateBrokerResponse' {hostInstanceType} -> hostInstanceType) (\s@UpdateBrokerResponse' {} a -> s {hostInstanceType = a} :: UpdateBrokerResponse)
 
--- | The new value of automatic upgrades to new minor version for brokers.
+-- | The new boolean value that specifies whether broker engines
+-- automatically upgrade to new minor versions as new versions are released
+-- and supported by Amazon MQ.
 updateBrokerResponse_autoMinorVersionUpgrade :: Lens.Lens' UpdateBrokerResponse (Prelude.Maybe Prelude.Bool)
 updateBrokerResponse_autoMinorVersionUpgrade = Lens.lens (\UpdateBrokerResponse' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@UpdateBrokerResponse' {} a -> s {autoMinorVersionUpgrade = a} :: UpdateBrokerResponse)
 

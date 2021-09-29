@@ -60,11 +60,11 @@ data UpdateUser = UpdateUser'
     groups :: Prelude.Maybe [Prelude.Text],
     -- | The password of the user. This value must be at least 12 characters
     -- long, must contain at least 4 unique characters, and must not contain
-    -- commas.
+    -- commas, colons, or equal signs (,:=).
     password :: Prelude.Maybe Prelude.Text,
     -- | Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
     consoleAccess :: Prelude.Maybe Prelude.Bool,
-    -- | Required. The username of the ActiveMQ user. This value can contain only
+    -- | The username of the ActiveMQ user. This value can contain only
     -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
     -- ~). This value must be 2-100 characters long.
     username :: Prelude.Text,
@@ -88,11 +88,11 @@ data UpdateUser = UpdateUser'
 --
 -- 'password', 'updateUser_password' - The password of the user. This value must be at least 12 characters
 -- long, must contain at least 4 unique characters, and must not contain
--- commas.
+-- commas, colons, or equal signs (,:=).
 --
 -- 'consoleAccess', 'updateUser_consoleAccess' - Enables access to the the ActiveMQ Web Console for the ActiveMQ user.
 --
--- 'username', 'updateUser_username' - Required. The username of the ActiveMQ user. This value can contain only
+-- 'username', 'updateUser_username' - The username of the ActiveMQ user. This value can contain only
 -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
 -- ~). This value must be 2-100 characters long.
 --
@@ -121,7 +121,7 @@ updateUser_groups = Lens.lens (\UpdateUser' {groups} -> groups) (\s@UpdateUser' 
 
 -- | The password of the user. This value must be at least 12 characters
 -- long, must contain at least 4 unique characters, and must not contain
--- commas.
+-- commas, colons, or equal signs (,:=).
 updateUser_password :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Text)
 updateUser_password = Lens.lens (\UpdateUser' {password} -> password) (\s@UpdateUser' {} a -> s {password = a} :: UpdateUser)
 
@@ -129,7 +129,7 @@ updateUser_password = Lens.lens (\UpdateUser' {password} -> password) (\s@Update
 updateUser_consoleAccess :: Lens.Lens' UpdateUser (Prelude.Maybe Prelude.Bool)
 updateUser_consoleAccess = Lens.lens (\UpdateUser' {consoleAccess} -> consoleAccess) (\s@UpdateUser' {} a -> s {consoleAccess = a} :: UpdateUser)
 
--- | Required. The username of the ActiveMQ user. This value can contain only
+-- | The username of the ActiveMQ user. This value can contain only
 -- alphanumeric characters, dashes, periods, underscores, and tildes (- . _
 -- ~). This value must be 2-100 characters long.
 updateUser_username :: Lens.Lens' UpdateUser Prelude.Text

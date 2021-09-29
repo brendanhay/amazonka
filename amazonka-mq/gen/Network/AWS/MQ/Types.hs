@@ -81,32 +81,32 @@ module Network.AWS.MQ.Types
     newBrokerSummary,
     brokerSummary_brokerName,
     brokerSummary_brokerId,
-    brokerSummary_engineType,
     brokerSummary_brokerState,
     brokerSummary_hostInstanceType,
     brokerSummary_brokerArn,
     brokerSummary_created,
     brokerSummary_deploymentMode,
+    brokerSummary_engineType,
 
     -- * Configuration
     Configuration (..),
     newConfiguration,
-    configuration_engineType,
-    configuration_authenticationStrategy,
-    configuration_latestRevision,
-    configuration_arn,
-    configuration_id,
-    configuration_name,
-    configuration_engineVersion,
     configuration_tags,
     configuration_description,
+    configuration_engineVersion,
+    configuration_latestRevision,
+    configuration_authenticationStrategy,
+    configuration_engineType,
+    configuration_id,
+    configuration_arn,
+    configuration_name,
     configuration_created,
 
     -- * ConfigurationId
     ConfigurationId (..),
     newConfigurationId,
-    configurationId_id,
     configurationId_revision,
+    configurationId_id,
 
     -- * ConfigurationRevision
     ConfigurationRevision (..),
@@ -136,31 +136,31 @@ module Network.AWS.MQ.Types
     -- * LdapServerMetadataInput
     LdapServerMetadataInput (..),
     newLdapServerMetadataInput,
-    ldapServerMetadataInput_userBase,
-    ldapServerMetadataInput_userSearchMatching,
     ldapServerMetadataInput_roleName,
-    ldapServerMetadataInput_serviceAccountPassword,
     ldapServerMetadataInput_userSearchSubtree,
-    ldapServerMetadataInput_serviceAccountUsername,
     ldapServerMetadataInput_userRoleName,
-    ldapServerMetadataInput_roleBase,
-    ldapServerMetadataInput_roleSearchMatching,
-    ldapServerMetadataInput_hosts,
     ldapServerMetadataInput_roleSearchSubtree,
+    ldapServerMetadataInput_hosts,
+    ldapServerMetadataInput_userSearchMatching,
+    ldapServerMetadataInput_userBase,
+    ldapServerMetadataInput_roleSearchMatching,
+    ldapServerMetadataInput_serviceAccountUsername,
+    ldapServerMetadataInput_roleBase,
+    ldapServerMetadataInput_serviceAccountPassword,
 
     -- * LdapServerMetadataOutput
     LdapServerMetadataOutput (..),
     newLdapServerMetadataOutput,
-    ldapServerMetadataOutput_userBase,
-    ldapServerMetadataOutput_userSearchMatching,
     ldapServerMetadataOutput_roleName,
     ldapServerMetadataOutput_userSearchSubtree,
-    ldapServerMetadataOutput_serviceAccountUsername,
     ldapServerMetadataOutput_userRoleName,
-    ldapServerMetadataOutput_roleBase,
-    ldapServerMetadataOutput_roleSearchMatching,
-    ldapServerMetadataOutput_hosts,
     ldapServerMetadataOutput_roleSearchSubtree,
+    ldapServerMetadataOutput_hosts,
+    ldapServerMetadataOutput_userSearchMatching,
+    ldapServerMetadataOutput_userBase,
+    ldapServerMetadataOutput_roleSearchMatching,
+    ldapServerMetadataOutput_serviceAccountUsername,
+    ldapServerMetadataOutput_roleBase,
 
     -- * Logs
     Logs (..),
@@ -171,11 +171,11 @@ module Network.AWS.MQ.Types
     -- * LogsSummary
     LogsSummary (..),
     newLogsSummary,
-    logsSummary_general,
     logsSummary_audit,
     logsSummary_pending,
     logsSummary_auditLogGroup,
     logsSummary_generalLogGroup,
+    logsSummary_general,
 
     -- * PendingLogs
     PendingLogs (..),
@@ -194,16 +194,16 @@ module Network.AWS.MQ.Types
     User (..),
     newUser,
     user_groups,
-    user_password,
-    user_username,
     user_consoleAccess,
+    user_username,
+    user_password,
 
     -- * UserPendingChanges
     UserPendingChanges (..),
     newUserPendingChanges,
     userPendingChanges_groups,
-    userPendingChanges_pendingChange,
     userPendingChanges_consoleAccess,
+    userPendingChanges_pendingChange,
 
     -- * UserSummary
     UserSummary (..),
@@ -214,9 +214,9 @@ module Network.AWS.MQ.Types
     -- * WeeklyStartTime
     WeeklyStartTime (..),
     newWeeklyStartTime,
-    weeklyStartTime_dayOfWeek,
-    weeklyStartTime_timeOfDay,
     weeklyStartTime_timeZone,
+    weeklyStartTime_timeOfDay,
+    weeklyStartTime_dayOfWeek,
   )
 where
 

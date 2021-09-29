@@ -29,9 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newLogsSummary' smart constructor.
 data LogsSummary = LogsSummary'
-  { -- | Enables general logging.
-    general :: Prelude.Maybe Prelude.Bool,
-    -- | Enables audit logging. Every user management action made using JMX or
+  { -- | Enables audit logging. Every user management action made using JMX or
     -- the ActiveMQ Web Console is logged.
     audit :: Prelude.Maybe Prelude.Bool,
     -- | The list of information about logs pending to be deployed for the
@@ -41,7 +39,9 @@ data LogsSummary = LogsSummary'
     auditLogGroup :: Prelude.Maybe Prelude.Text,
     -- | The location of the CloudWatch Logs log group where general logs are
     -- sent.
-    generalLogGroup :: Prelude.Maybe Prelude.Text
+    generalLogGroup :: Prelude.Text,
+    -- | Enables general logging.
+    general :: Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,8 +53,6 @@ data LogsSummary = LogsSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'general', 'logsSummary_general' - Enables general logging.
---
 -- 'audit', 'logsSummary_audit' - Enables audit logging. Every user management action made using JMX or
 -- the ActiveMQ Web Console is logged.
 --
@@ -65,20 +63,22 @@ data LogsSummary = LogsSummary'
 --
 -- 'generalLogGroup', 'logsSummary_generalLogGroup' - The location of the CloudWatch Logs log group where general logs are
 -- sent.
+--
+-- 'general', 'logsSummary_general' - Enables general logging.
 newLogsSummary ::
+  -- | 'generalLogGroup'
+  Prelude.Text ->
+  -- | 'general'
+  Prelude.Bool ->
   LogsSummary
-newLogsSummary =
+newLogsSummary pGeneralLogGroup_ pGeneral_ =
   LogsSummary'
-    { general = Prelude.Nothing,
-      audit = Prelude.Nothing,
+    { audit = Prelude.Nothing,
       pending = Prelude.Nothing,
       auditLogGroup = Prelude.Nothing,
-      generalLogGroup = Prelude.Nothing
+      generalLogGroup = pGeneralLogGroup_,
+      general = pGeneral_
     }
-
--- | Enables general logging.
-logsSummary_general :: Lens.Lens' LogsSummary (Prelude.Maybe Prelude.Bool)
-logsSummary_general = Lens.lens (\LogsSummary' {general} -> general) (\s@LogsSummary' {} a -> s {general = a} :: LogsSummary)
 
 -- | Enables audit logging. Every user management action made using JMX or
 -- the ActiveMQ Web Console is logged.
@@ -96,8 +96,12 @@ logsSummary_auditLogGroup = Lens.lens (\LogsSummary' {auditLogGroup} -> auditLog
 
 -- | The location of the CloudWatch Logs log group where general logs are
 -- sent.
-logsSummary_generalLogGroup :: Lens.Lens' LogsSummary (Prelude.Maybe Prelude.Text)
+logsSummary_generalLogGroup :: Lens.Lens' LogsSummary Prelude.Text
 logsSummary_generalLogGroup = Lens.lens (\LogsSummary' {generalLogGroup} -> generalLogGroup) (\s@LogsSummary' {} a -> s {generalLogGroup = a} :: LogsSummary)
+
+-- | Enables general logging.
+logsSummary_general :: Lens.Lens' LogsSummary Prelude.Bool
+logsSummary_general = Lens.lens (\LogsSummary' {general} -> general) (\s@LogsSummary' {} a -> s {general = a} :: LogsSummary)
 
 instance Core.FromJSON LogsSummary where
   parseJSON =
@@ -105,11 +109,11 @@ instance Core.FromJSON LogsSummary where
       "LogsSummary"
       ( \x ->
           LogsSummary'
-            Prelude.<$> (x Core..:? "general")
-            Prelude.<*> (x Core..:? "audit")
+            Prelude.<$> (x Core..:? "audit")
             Prelude.<*> (x Core..:? "pending")
             Prelude.<*> (x Core..:? "auditLogGroup")
-            Prelude.<*> (x Core..:? "generalLogGroup")
+            Prelude.<*> (x Core..: "generalLogGroup")
+            Prelude.<*> (x Core..: "general")
       )
 
 instance Prelude.Hashable LogsSummary

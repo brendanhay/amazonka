@@ -43,20 +43,20 @@ module Network.AWS.Comprehend
     -- ** InvalidRequestException
     _InvalidRequestException,
 
-    -- ** ResourceInUseException
-    _ResourceInUseException,
-
     -- ** TextSizeLimitExceededException
     _TextSizeLimitExceededException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- ** KmsKeyValidationException
     _KmsKeyValidationException,
 
-    -- ** TooManyTagKeysException
-    _TooManyTagKeysException,
-
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** TooManyTagKeysException
+    _TooManyTagKeysException,
 
     -- ** JobNotFoundException
     _JobNotFoundException,
@@ -76,6 +76,24 @@ module Network.AWS.Comprehend
     -- * Operations
     -- $operations
 
+    -- ** StartSentimentDetectionJob
+    StartSentimentDetectionJob (StartSentimentDetectionJob'),
+    newStartSentimentDetectionJob,
+    StartSentimentDetectionJobResponse (StartSentimentDetectionJobResponse'),
+    newStartSentimentDetectionJobResponse,
+
+    -- ** CreateEndpoint
+    CreateEndpoint (CreateEndpoint'),
+    newCreateEndpoint,
+    CreateEndpointResponse (CreateEndpointResponse'),
+    newCreateEndpointResponse,
+
+    -- ** StopEventsDetectionJob
+    StopEventsDetectionJob (StopEventsDetectionJob'),
+    newStopEventsDetectionJob,
+    StopEventsDetectionJobResponse (StopEventsDetectionJobResponse'),
+    newStopEventsDetectionJobResponse,
+
     -- ** StopSentimentDetectionJob
     StopSentimentDetectionJob (StopSentimentDetectionJob'),
     newStopSentimentDetectionJob,
@@ -88,23 +106,11 @@ module Network.AWS.Comprehend
     StartEventsDetectionJobResponse (StartEventsDetectionJobResponse'),
     newStartEventsDetectionJobResponse,
 
-    -- ** CreateEndpoint
-    CreateEndpoint (CreateEndpoint'),
-    newCreateEndpoint,
-    CreateEndpointResponse (CreateEndpointResponse'),
-    newCreateEndpointResponse,
-
-    -- ** StartSentimentDetectionJob
-    StartSentimentDetectionJob (StartSentimentDetectionJob'),
-    newStartSentimentDetectionJob,
-    StartSentimentDetectionJobResponse (StartSentimentDetectionJobResponse'),
-    newStartSentimentDetectionJobResponse,
-
-    -- ** StopEventsDetectionJob
-    StopEventsDetectionJob (StopEventsDetectionJob'),
-    newStopEventsDetectionJob,
-    StopEventsDetectionJobResponse (StopEventsDetectionJobResponse'),
-    newStopEventsDetectionJobResponse,
+    -- ** DescribeKeyPhrasesDetectionJob
+    DescribeKeyPhrasesDetectionJob (DescribeKeyPhrasesDetectionJob'),
+    newDescribeKeyPhrasesDetectionJob,
+    DescribeKeyPhrasesDetectionJobResponse (DescribeKeyPhrasesDetectionJobResponse'),
+    newDescribeKeyPhrasesDetectionJobResponse,
 
     -- ** ListEntityRecognizers (Paginated)
     ListEntityRecognizers (ListEntityRecognizers'),
@@ -112,29 +118,17 @@ module Network.AWS.Comprehend
     ListEntityRecognizersResponse (ListEntityRecognizersResponse'),
     newListEntityRecognizersResponse,
 
-    -- ** BatchDetectSentiment
-    BatchDetectSentiment (BatchDetectSentiment'),
-    newBatchDetectSentiment,
-    BatchDetectSentimentResponse (BatchDetectSentimentResponse'),
-    newBatchDetectSentimentResponse,
-
     -- ** DeleteEntityRecognizer
     DeleteEntityRecognizer (DeleteEntityRecognizer'),
     newDeleteEntityRecognizer,
     DeleteEntityRecognizerResponse (DeleteEntityRecognizerResponse'),
     newDeleteEntityRecognizerResponse,
 
-    -- ** DescribeKeyPhrasesDetectionJob
-    DescribeKeyPhrasesDetectionJob (DescribeKeyPhrasesDetectionJob'),
-    newDescribeKeyPhrasesDetectionJob,
-    DescribeKeyPhrasesDetectionJobResponse (DescribeKeyPhrasesDetectionJobResponse'),
-    newDescribeKeyPhrasesDetectionJobResponse,
-
-    -- ** ListDominantLanguageDetectionJobs (Paginated)
-    ListDominantLanguageDetectionJobs (ListDominantLanguageDetectionJobs'),
-    newListDominantLanguageDetectionJobs,
-    ListDominantLanguageDetectionJobsResponse (ListDominantLanguageDetectionJobsResponse'),
-    newListDominantLanguageDetectionJobsResponse,
+    -- ** BatchDetectSentiment
+    BatchDetectSentiment (BatchDetectSentiment'),
+    newBatchDetectSentiment,
+    BatchDetectSentimentResponse (BatchDetectSentimentResponse'),
+    newBatchDetectSentimentResponse,
 
     -- ** StopKeyPhrasesDetectionJob
     StopKeyPhrasesDetectionJob (StopKeyPhrasesDetectionJob'),
@@ -160,23 +154,11 @@ module Network.AWS.Comprehend
     StartKeyPhrasesDetectionJobResponse (StartKeyPhrasesDetectionJobResponse'),
     newStartKeyPhrasesDetectionJobResponse,
 
-    -- ** ListEventsDetectionJobs
-    ListEventsDetectionJobs (ListEventsDetectionJobs'),
-    newListEventsDetectionJobs,
-    ListEventsDetectionJobsResponse (ListEventsDetectionJobsResponse'),
-    newListEventsDetectionJobsResponse,
-
-    -- ** ListSentimentDetectionJobs (Paginated)
-    ListSentimentDetectionJobs (ListSentimentDetectionJobs'),
-    newListSentimentDetectionJobs,
-    ListSentimentDetectionJobsResponse (ListSentimentDetectionJobsResponse'),
-    newListSentimentDetectionJobsResponse,
-
-    -- ** DetectSyntax
-    DetectSyntax (DetectSyntax'),
-    newDetectSyntax,
-    DetectSyntaxResponse (DetectSyntaxResponse'),
-    newDetectSyntaxResponse,
+    -- ** ListDominantLanguageDetectionJobs (Paginated)
+    ListDominantLanguageDetectionJobs (ListDominantLanguageDetectionJobs'),
+    newListDominantLanguageDetectionJobs,
+    ListDominantLanguageDetectionJobsResponse (ListDominantLanguageDetectionJobsResponse'),
+    newListDominantLanguageDetectionJobsResponse,
 
     -- ** StartDocumentClassificationJob
     StartDocumentClassificationJob (StartDocumentClassificationJob'),
@@ -190,11 +172,17 @@ module Network.AWS.Comprehend
     DetectKeyPhrasesResponse (DetectKeyPhrasesResponse'),
     newDetectKeyPhrasesResponse,
 
-    -- ** DescribeEndpoint
-    DescribeEndpoint (DescribeEndpoint'),
-    newDescribeEndpoint,
-    DescribeEndpointResponse (DescribeEndpointResponse'),
-    newDescribeEndpointResponse,
+    -- ** ListSentimentDetectionJobs (Paginated)
+    ListSentimentDetectionJobs (ListSentimentDetectionJobs'),
+    newListSentimentDetectionJobs,
+    ListSentimentDetectionJobsResponse (ListSentimentDetectionJobsResponse'),
+    newListSentimentDetectionJobsResponse,
+
+    -- ** ListEventsDetectionJobs
+    ListEventsDetectionJobs (ListEventsDetectionJobs'),
+    newListEventsDetectionJobs,
+    ListEventsDetectionJobsResponse (ListEventsDetectionJobsResponse'),
+    newListEventsDetectionJobsResponse,
 
     -- ** BatchDetectEntities
     BatchDetectEntities (BatchDetectEntities'),
@@ -202,17 +190,23 @@ module Network.AWS.Comprehend
     BatchDetectEntitiesResponse (BatchDetectEntitiesResponse'),
     newBatchDetectEntitiesResponse,
 
-    -- ** ListTopicsDetectionJobs (Paginated)
-    ListTopicsDetectionJobs (ListTopicsDetectionJobs'),
-    newListTopicsDetectionJobs,
-    ListTopicsDetectionJobsResponse (ListTopicsDetectionJobsResponse'),
-    newListTopicsDetectionJobsResponse,
+    -- ** DetectSyntax
+    DetectSyntax (DetectSyntax'),
+    newDetectSyntax,
+    DetectSyntaxResponse (DetectSyntaxResponse'),
+    newDetectSyntaxResponse,
 
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
+    -- ** DescribeEndpoint
+    DescribeEndpoint (DescribeEndpoint'),
+    newDescribeEndpoint,
+    DescribeEndpointResponse (DescribeEndpointResponse'),
+    newDescribeEndpointResponse,
+
+    -- ** ContainsPiiEntities
+    ContainsPiiEntities (ContainsPiiEntities'),
+    newContainsPiiEntities,
+    ContainsPiiEntitiesResponse (ContainsPiiEntitiesResponse'),
+    newContainsPiiEntitiesResponse,
 
     -- ** BatchDetectDominantLanguage
     BatchDetectDominantLanguage (BatchDetectDominantLanguage'),
@@ -220,23 +214,17 @@ module Network.AWS.Comprehend
     BatchDetectDominantLanguageResponse (BatchDetectDominantLanguageResponse'),
     newBatchDetectDominantLanguageResponse,
 
-    -- ** StopTrainingDocumentClassifier
-    StopTrainingDocumentClassifier (StopTrainingDocumentClassifier'),
-    newStopTrainingDocumentClassifier,
-    StopTrainingDocumentClassifierResponse (StopTrainingDocumentClassifierResponse'),
-    newStopTrainingDocumentClassifierResponse,
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
 
-    -- ** DescribeEntityRecognizer
-    DescribeEntityRecognizer (DescribeEntityRecognizer'),
-    newDescribeEntityRecognizer,
-    DescribeEntityRecognizerResponse (DescribeEntityRecognizerResponse'),
-    newDescribeEntityRecognizerResponse,
-
-    -- ** DescribePiiEntitiesDetectionJob
-    DescribePiiEntitiesDetectionJob (DescribePiiEntitiesDetectionJob'),
-    newDescribePiiEntitiesDetectionJob,
-    DescribePiiEntitiesDetectionJobResponse (DescribePiiEntitiesDetectionJobResponse'),
-    newDescribePiiEntitiesDetectionJobResponse,
+    -- ** ListTopicsDetectionJobs (Paginated)
+    ListTopicsDetectionJobs (ListTopicsDetectionJobs'),
+    newListTopicsDetectionJobs,
+    ListTopicsDetectionJobsResponse (ListTopicsDetectionJobsResponse'),
+    newListTopicsDetectionJobsResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -244,11 +232,35 @@ module Network.AWS.Comprehend
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
 
+    -- ** StopTrainingDocumentClassifier
+    StopTrainingDocumentClassifier (StopTrainingDocumentClassifier'),
+    newStopTrainingDocumentClassifier,
+    StopTrainingDocumentClassifierResponse (StopTrainingDocumentClassifierResponse'),
+    newStopTrainingDocumentClassifierResponse,
+
     -- ** ListKeyPhrasesDetectionJobs (Paginated)
     ListKeyPhrasesDetectionJobs (ListKeyPhrasesDetectionJobs'),
     newListKeyPhrasesDetectionJobs,
     ListKeyPhrasesDetectionJobsResponse (ListKeyPhrasesDetectionJobsResponse'),
     newListKeyPhrasesDetectionJobsResponse,
+
+    -- ** DescribeEntityRecognizer
+    DescribeEntityRecognizer (DescribeEntityRecognizer'),
+    newDescribeEntityRecognizer,
+    DescribeEntityRecognizerResponse (DescribeEntityRecognizerResponse'),
+    newDescribeEntityRecognizerResponse,
+
+    -- ** ListDocumentClassifierSummaries
+    ListDocumentClassifierSummaries (ListDocumentClassifierSummaries'),
+    newListDocumentClassifierSummaries,
+    ListDocumentClassifierSummariesResponse (ListDocumentClassifierSummariesResponse'),
+    newListDocumentClassifierSummariesResponse,
+
+    -- ** DescribePiiEntitiesDetectionJob
+    DescribePiiEntitiesDetectionJob (DescribePiiEntitiesDetectionJob'),
+    newDescribePiiEntitiesDetectionJob,
+    DescribePiiEntitiesDetectionJobResponse (DescribePiiEntitiesDetectionJobResponse'),
+    newDescribePiiEntitiesDetectionJobResponse,
 
     -- ** DescribeDominantLanguageDetectionJob
     DescribeDominantLanguageDetectionJob (DescribeDominantLanguageDetectionJob'),
@@ -262,17 +274,17 @@ module Network.AWS.Comprehend
     StopEntitiesDetectionJobResponse (StopEntitiesDetectionJobResponse'),
     newStopEntitiesDetectionJobResponse,
 
-    -- ** StopPiiEntitiesDetectionJob
-    StopPiiEntitiesDetectionJob (StopPiiEntitiesDetectionJob'),
-    newStopPiiEntitiesDetectionJob,
-    StopPiiEntitiesDetectionJobResponse (StopPiiEntitiesDetectionJobResponse'),
-    newStopPiiEntitiesDetectionJobResponse,
-
     -- ** DescribeDocumentClassifier
     DescribeDocumentClassifier (DescribeDocumentClassifier'),
     newDescribeDocumentClassifier,
     DescribeDocumentClassifierResponse (DescribeDocumentClassifierResponse'),
     newDescribeDocumentClassifierResponse,
+
+    -- ** StopPiiEntitiesDetectionJob
+    StopPiiEntitiesDetectionJob (StopPiiEntitiesDetectionJob'),
+    newStopPiiEntitiesDetectionJob,
+    StopPiiEntitiesDetectionJobResponse (StopPiiEntitiesDetectionJobResponse'),
+    newStopPiiEntitiesDetectionJobResponse,
 
     -- ** StopTrainingEntityRecognizer
     StopTrainingEntityRecognizer (StopTrainingEntityRecognizer'),
@@ -292,11 +304,11 @@ module Network.AWS.Comprehend
     StartPiiEntitiesDetectionJobResponse (StartPiiEntitiesDetectionJobResponse'),
     newStartPiiEntitiesDetectionJobResponse,
 
-    -- ** ListEndpoints
-    ListEndpoints (ListEndpoints'),
-    newListEndpoints,
-    ListEndpointsResponse (ListEndpointsResponse'),
-    newListEndpointsResponse,
+    -- ** DetectPiiEntities
+    DetectPiiEntities (DetectPiiEntities'),
+    newDetectPiiEntities,
+    DetectPiiEntitiesResponse (DetectPiiEntitiesResponse'),
+    newDetectPiiEntitiesResponse,
 
     -- ** DeleteEndpoint
     DeleteEndpoint (DeleteEndpoint'),
@@ -304,29 +316,23 @@ module Network.AWS.Comprehend
     DeleteEndpointResponse (DeleteEndpointResponse'),
     newDeleteEndpointResponse,
 
-    -- ** UpdateEndpoint
-    UpdateEndpoint (UpdateEndpoint'),
-    newUpdateEndpoint,
-    UpdateEndpointResponse (UpdateEndpointResponse'),
-    newUpdateEndpointResponse,
-
     -- ** DescribeEventsDetectionJob
     DescribeEventsDetectionJob (DescribeEventsDetectionJob'),
     newDescribeEventsDetectionJob,
     DescribeEventsDetectionJobResponse (DescribeEventsDetectionJobResponse'),
     newDescribeEventsDetectionJobResponse,
 
-    -- ** DetectPiiEntities
-    DetectPiiEntities (DetectPiiEntities'),
-    newDetectPiiEntities,
-    DetectPiiEntitiesResponse (DetectPiiEntitiesResponse'),
-    newDetectPiiEntitiesResponse,
+    -- ** UpdateEndpoint
+    UpdateEndpoint (UpdateEndpoint'),
+    newUpdateEndpoint,
+    UpdateEndpointResponse (UpdateEndpointResponse'),
+    newUpdateEndpointResponse,
 
-    -- ** ClassifyDocument
-    ClassifyDocument (ClassifyDocument'),
-    newClassifyDocument,
-    ClassifyDocumentResponse (ClassifyDocumentResponse'),
-    newClassifyDocumentResponse,
+    -- ** ListEndpoints
+    ListEndpoints (ListEndpoints'),
+    newListEndpoints,
+    ListEndpointsResponse (ListEndpointsResponse'),
+    newListEndpointsResponse,
 
     -- ** DetectDominantLanguage
     DetectDominantLanguage (DetectDominantLanguage'),
@@ -346,6 +352,18 @@ module Network.AWS.Comprehend
     DescribeTopicsDetectionJobResponse (DescribeTopicsDetectionJobResponse'),
     newDescribeTopicsDetectionJobResponse,
 
+    -- ** ClassifyDocument
+    ClassifyDocument (ClassifyDocument'),
+    newClassifyDocument,
+    ClassifyDocumentResponse (ClassifyDocumentResponse'),
+    newClassifyDocumentResponse,
+
+    -- ** ListPiiEntitiesDetectionJobs
+    ListPiiEntitiesDetectionJobs (ListPiiEntitiesDetectionJobs'),
+    newListPiiEntitiesDetectionJobs,
+    ListPiiEntitiesDetectionJobsResponse (ListPiiEntitiesDetectionJobsResponse'),
+    newListPiiEntitiesDetectionJobsResponse,
+
     -- ** ListEntitiesDetectionJobs (Paginated)
     ListEntitiesDetectionJobs (ListEntitiesDetectionJobs'),
     newListEntitiesDetectionJobs,
@@ -357,12 +375,6 @@ module Network.AWS.Comprehend
     newCreateDocumentClassifier,
     CreateDocumentClassifierResponse (CreateDocumentClassifierResponse'),
     newCreateDocumentClassifierResponse,
-
-    -- ** ListPiiEntitiesDetectionJobs
-    ListPiiEntitiesDetectionJobs (ListPiiEntitiesDetectionJobs'),
-    newListPiiEntitiesDetectionJobs,
-    ListPiiEntitiesDetectionJobsResponse (ListPiiEntitiesDetectionJobsResponse'),
-    newListPiiEntitiesDetectionJobsResponse,
 
     -- ** DeleteDocumentClassifier
     DeleteDocumentClassifier (DeleteDocumentClassifier'),
@@ -376,23 +388,17 @@ module Network.AWS.Comprehend
     DescribeDocumentClassificationJobResponse (DescribeDocumentClassificationJobResponse'),
     newDescribeDocumentClassificationJobResponse,
 
-    -- ** StopDominantLanguageDetectionJob
-    StopDominantLanguageDetectionJob (StopDominantLanguageDetectionJob'),
-    newStopDominantLanguageDetectionJob,
-    StopDominantLanguageDetectionJobResponse (StopDominantLanguageDetectionJobResponse'),
-    newStopDominantLanguageDetectionJobResponse,
-
     -- ** DescribeEntitiesDetectionJob
     DescribeEntitiesDetectionJob (DescribeEntitiesDetectionJob'),
     newDescribeEntitiesDetectionJob,
     DescribeEntitiesDetectionJobResponse (DescribeEntitiesDetectionJobResponse'),
     newDescribeEntitiesDetectionJobResponse,
 
-    -- ** StartDominantLanguageDetectionJob
-    StartDominantLanguageDetectionJob (StartDominantLanguageDetectionJob'),
-    newStartDominantLanguageDetectionJob,
-    StartDominantLanguageDetectionJobResponse (StartDominantLanguageDetectionJobResponse'),
-    newStartDominantLanguageDetectionJobResponse,
+    -- ** StopDominantLanguageDetectionJob
+    StopDominantLanguageDetectionJob (StopDominantLanguageDetectionJob'),
+    newStopDominantLanguageDetectionJob,
+    StopDominantLanguageDetectionJobResponse (StopDominantLanguageDetectionJobResponse'),
+    newStopDominantLanguageDetectionJobResponse,
 
     -- ** DetectSentiment
     DetectSentiment (DetectSentiment'),
@@ -400,29 +406,17 @@ module Network.AWS.Comprehend
     DetectSentimentResponse (DetectSentimentResponse'),
     newDetectSentimentResponse,
 
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** StartDominantLanguageDetectionJob
+    StartDominantLanguageDetectionJob (StartDominantLanguageDetectionJob'),
+    newStartDominantLanguageDetectionJob,
+    StartDominantLanguageDetectionJobResponse (StartDominantLanguageDetectionJobResponse'),
+    newStartDominantLanguageDetectionJobResponse,
 
-    -- ** DetectEntities
-    DetectEntities (DetectEntities'),
-    newDetectEntities,
-    DetectEntitiesResponse (DetectEntitiesResponse'),
-    newDetectEntitiesResponse,
-
-    -- ** DescribeSentimentDetectionJob
-    DescribeSentimentDetectionJob (DescribeSentimentDetectionJob'),
-    newDescribeSentimentDetectionJob,
-    DescribeSentimentDetectionJobResponse (DescribeSentimentDetectionJobResponse'),
-    newDescribeSentimentDetectionJobResponse,
-
-    -- ** BatchDetectSyntax
-    BatchDetectSyntax (BatchDetectSyntax'),
-    newBatchDetectSyntax,
-    BatchDetectSyntaxResponse (BatchDetectSyntaxResponse'),
-    newBatchDetectSyntaxResponse,
+    -- ** ListEntityRecognizerSummaries
+    ListEntityRecognizerSummaries (ListEntityRecognizerSummaries'),
+    newListEntityRecognizerSummaries,
+    ListEntityRecognizerSummariesResponse (ListEntityRecognizerSummariesResponse'),
+    newListEntityRecognizerSummariesResponse,
 
     -- ** BatchDetectKeyPhrases
     BatchDetectKeyPhrases (BatchDetectKeyPhrases'),
@@ -430,19 +424,55 @@ module Network.AWS.Comprehend
     BatchDetectKeyPhrasesResponse (BatchDetectKeyPhrasesResponse'),
     newBatchDetectKeyPhrasesResponse,
 
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** BatchDetectSyntax
+    BatchDetectSyntax (BatchDetectSyntax'),
+    newBatchDetectSyntax,
+    BatchDetectSyntaxResponse (BatchDetectSyntaxResponse'),
+    newBatchDetectSyntaxResponse,
+
+    -- ** DetectEntities
+    DetectEntities (DetectEntities'),
+    newDetectEntities,
+    DetectEntitiesResponse (DetectEntitiesResponse'),
+    newDetectEntitiesResponse,
+
     -- ** StartTopicsDetectionJob
     StartTopicsDetectionJob (StartTopicsDetectionJob'),
     newStartTopicsDetectionJob,
     StartTopicsDetectionJobResponse (StartTopicsDetectionJobResponse'),
     newStartTopicsDetectionJobResponse,
 
+    -- ** DescribeSentimentDetectionJob
+    DescribeSentimentDetectionJob (DescribeSentimentDetectionJob'),
+    newDescribeSentimentDetectionJob,
+    DescribeSentimentDetectionJobResponse (DescribeSentimentDetectionJobResponse'),
+    newDescribeSentimentDetectionJobResponse,
+
     -- * Types
+
+    -- ** AugmentedManifestsDocumentTypeFormat
+    AugmentedManifestsDocumentTypeFormat (..),
 
     -- ** DocumentClassifierDataFormat
     DocumentClassifierDataFormat (..),
 
     -- ** DocumentClassifierMode
     DocumentClassifierMode (..),
+
+    -- ** DocumentReadAction
+    DocumentReadAction (..),
+
+    -- ** DocumentReadFeatureTypes
+    DocumentReadFeatureTypes (..),
+
+    -- ** DocumentReadMode
+    DocumentReadMode (..),
 
     -- ** EndpointStatus
     EndpointStatus (..),
@@ -479,6 +509,9 @@ module Network.AWS.Comprehend
 
     -- ** SentimentType
     SentimentType (..),
+
+    -- ** Split
+    Split (..),
 
     -- ** SyntaxLanguageCode
     SyntaxLanguageCode (..),
@@ -547,9 +580,17 @@ module Network.AWS.Comprehend
     DocumentClassifierProperties (DocumentClassifierProperties'),
     newDocumentClassifierProperties,
 
+    -- ** DocumentClassifierSummary
+    DocumentClassifierSummary (DocumentClassifierSummary'),
+    newDocumentClassifierSummary,
+
     -- ** DocumentLabel
     DocumentLabel (DocumentLabel'),
     newDocumentLabel,
+
+    -- ** DocumentReaderConfig
+    DocumentReaderConfig (DocumentReaderConfig'),
+    newDocumentReaderConfig,
 
     -- ** DominantLanguage
     DominantLanguage (DominantLanguage'),
@@ -582,6 +623,10 @@ module Network.AWS.Comprehend
     -- ** Entity
     Entity (Entity'),
     newEntity,
+
+    -- ** EntityLabel
+    EntityLabel (EntityLabel'),
+    newEntityLabel,
 
     -- ** EntityRecognizerAnnotations
     EntityRecognizerAnnotations (EntityRecognizerAnnotations'),
@@ -618,6 +663,10 @@ module Network.AWS.Comprehend
     -- ** EntityRecognizerProperties
     EntityRecognizerProperties (EntityRecognizerProperties'),
     newEntityRecognizerProperties,
+
+    -- ** EntityRecognizerSummary
+    EntityRecognizerSummary (EntityRecognizerSummary'),
+    newEntityRecognizerSummary,
 
     -- ** EntityTypesEvaluationMetrics
     EntityTypesEvaluationMetrics (EntityTypesEvaluationMetrics'),
@@ -719,6 +768,7 @@ import Network.AWS.Comprehend.BatchDetectKeyPhrases
 import Network.AWS.Comprehend.BatchDetectSentiment
 import Network.AWS.Comprehend.BatchDetectSyntax
 import Network.AWS.Comprehend.ClassifyDocument
+import Network.AWS.Comprehend.ContainsPiiEntities
 import Network.AWS.Comprehend.CreateDocumentClassifier
 import Network.AWS.Comprehend.CreateEndpoint
 import Network.AWS.Comprehend.CreateEntityRecognizer
@@ -744,10 +794,12 @@ import Network.AWS.Comprehend.DetectSentiment
 import Network.AWS.Comprehend.DetectSyntax
 import Network.AWS.Comprehend.Lens
 import Network.AWS.Comprehend.ListDocumentClassificationJobs
+import Network.AWS.Comprehend.ListDocumentClassifierSummaries
 import Network.AWS.Comprehend.ListDocumentClassifiers
 import Network.AWS.Comprehend.ListDominantLanguageDetectionJobs
 import Network.AWS.Comprehend.ListEndpoints
 import Network.AWS.Comprehend.ListEntitiesDetectionJobs
+import Network.AWS.Comprehend.ListEntityRecognizerSummaries
 import Network.AWS.Comprehend.ListEntityRecognizers
 import Network.AWS.Comprehend.ListEventsDetectionJobs
 import Network.AWS.Comprehend.ListKeyPhrasesDetectionJobs

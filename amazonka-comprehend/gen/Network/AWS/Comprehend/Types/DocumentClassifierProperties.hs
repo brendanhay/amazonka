@@ -34,14 +34,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDocumentClassifierProperties' smart constructor.
 data DocumentClassifierProperties = DocumentClassifierProperties'
-  { -- | Configuration parameters for a private Virtual Private Cloud (VPC)
+  { -- | The language code for the language of the documents that the classifier
+    -- was trained on.
+    languageCode :: Prelude.Maybe LanguageCode,
+    -- | Configuration parameters for a private Virtual Private Cloud (VPC)
     -- containing the resources you are using for your custom classifier. For
     -- more information, see
     -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
     vpcConfig :: Prelude.Maybe VpcConfig,
-    -- | The language code for the language of the documents that the classifier
-    -- was trained on.
-    languageCode :: Prelude.Maybe LanguageCode,
     -- | The status of the document classifier. If the status is @TRAINED@ the
     -- classifier is ready to use. If the status is @FAILED@ you can see
     -- additional information about why the classifier wasn\'t trained in the
@@ -50,18 +50,20 @@ data DocumentClassifierProperties = DocumentClassifierProperties'
     -- | The input data configuration that you supplied when you created the
     -- document classifier for training.
     inputDataConfig :: Prelude.Maybe DocumentClassifierInputDataConfig,
+    -- | Additional information about the status of the classifier.
+    message :: Prelude.Maybe Prelude.Text,
     -- | Indicates the mode in which the specific classifier was trained. This
     -- also indicates the format of input documents and the format of the
     -- confusion matrix. Each classifier can only be trained in one mode and
     -- this cannot be changed once the classifier is trained.
     mode :: Prelude.Maybe DocumentClassifierMode,
-    -- | Additional information about the status of the classifier.
-    message :: Prelude.Maybe Prelude.Text,
     -- | Provides output results configuration parameters for custom classifier
     -- jobs.
     outputDataConfig :: Prelude.Maybe DocumentClassifierOutputDataConfig,
     -- | The Amazon Resource Name (ARN) that identifies the document classifier.
     documentClassifierArn :: Prelude.Maybe Prelude.Text,
+    -- | The version name that you assigned to the document classifier.
+    versionName :: Prelude.Maybe Prelude.Text,
     -- | The time that training the document classifier completed.
     endTime :: Prelude.Maybe Core.POSIX,
     -- | Information about the document classifier, including the number of
@@ -80,6 +82,15 @@ data DocumentClassifierProperties = DocumentClassifierProperties'
     volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The time that the document classifier was submitted for training.
     submitTime :: Prelude.Maybe Core.POSIX,
+    -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
+    -- uses to encrypt trained custom models. The ModelKmsKeyId can be either
+    -- of the following formats:
+    --
+    -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
+    --
+    -- -   Amazon Resource Name (ARN) of a KMS Key:
+    --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
+    modelKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Indicates the time when the training starts on documentation
     -- classifiers. You are billed for the time interval between this time and
     -- the value of TrainingEndTime.
@@ -103,13 +114,13 @@ data DocumentClassifierProperties = DocumentClassifierProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'languageCode', 'documentClassifierProperties_languageCode' - The language code for the language of the documents that the classifier
+-- was trained on.
+--
 -- 'vpcConfig', 'documentClassifierProperties_vpcConfig' - Configuration parameters for a private Virtual Private Cloud (VPC)
 -- containing the resources you are using for your custom classifier. For
 -- more information, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
---
--- 'languageCode', 'documentClassifierProperties_languageCode' - The language code for the language of the documents that the classifier
--- was trained on.
 --
 -- 'status', 'documentClassifierProperties_status' - The status of the document classifier. If the status is @TRAINED@ the
 -- classifier is ready to use. If the status is @FAILED@ you can see
@@ -119,17 +130,19 @@ data DocumentClassifierProperties = DocumentClassifierProperties'
 -- 'inputDataConfig', 'documentClassifierProperties_inputDataConfig' - The input data configuration that you supplied when you created the
 -- document classifier for training.
 --
+-- 'message', 'documentClassifierProperties_message' - Additional information about the status of the classifier.
+--
 -- 'mode', 'documentClassifierProperties_mode' - Indicates the mode in which the specific classifier was trained. This
 -- also indicates the format of input documents and the format of the
 -- confusion matrix. Each classifier can only be trained in one mode and
 -- this cannot be changed once the classifier is trained.
 --
--- 'message', 'documentClassifierProperties_message' - Additional information about the status of the classifier.
---
 -- 'outputDataConfig', 'documentClassifierProperties_outputDataConfig' - Provides output results configuration parameters for custom classifier
 -- jobs.
 --
 -- 'documentClassifierArn', 'documentClassifierProperties_documentClassifierArn' - The Amazon Resource Name (ARN) that identifies the document classifier.
+--
+-- 'versionName', 'documentClassifierProperties_versionName' - The version name that you assigned to the document classifier.
 --
 -- 'endTime', 'documentClassifierProperties_endTime' - The time that training the document classifier completed.
 --
@@ -149,6 +162,15 @@ data DocumentClassifierProperties = DocumentClassifierProperties'
 --
 -- 'submitTime', 'documentClassifierProperties_submitTime' - The time that the document classifier was submitted for training.
 --
+-- 'modelKmsKeyId', 'documentClassifierProperties_modelKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
+-- uses to encrypt trained custom models. The ModelKmsKeyId can be either
+-- of the following formats:
+--
+-- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
+--
+-- -   Amazon Resource Name (ARN) of a KMS Key:
+--     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
+--
 -- 'trainingStartTime', 'documentClassifierProperties_trainingStartTime' - Indicates the time when the training starts on documentation
 -- classifiers. You are billed for the time interval between this time and
 -- the value of TrainingEndTime.
@@ -164,23 +186,30 @@ newDocumentClassifierProperties ::
   DocumentClassifierProperties
 newDocumentClassifierProperties =
   DocumentClassifierProperties'
-    { vpcConfig =
+    { languageCode =
         Prelude.Nothing,
-      languageCode = Prelude.Nothing,
+      vpcConfig = Prelude.Nothing,
       status = Prelude.Nothing,
       inputDataConfig = Prelude.Nothing,
-      mode = Prelude.Nothing,
       message = Prelude.Nothing,
+      mode = Prelude.Nothing,
       outputDataConfig = Prelude.Nothing,
       documentClassifierArn = Prelude.Nothing,
+      versionName = Prelude.Nothing,
       endTime = Prelude.Nothing,
       classifierMetadata = Prelude.Nothing,
       volumeKmsKeyId = Prelude.Nothing,
       submitTime = Prelude.Nothing,
+      modelKmsKeyId = Prelude.Nothing,
       trainingStartTime = Prelude.Nothing,
       dataAccessRoleArn = Prelude.Nothing,
       trainingEndTime = Prelude.Nothing
     }
+
+-- | The language code for the language of the documents that the classifier
+-- was trained on.
+documentClassifierProperties_languageCode :: Lens.Lens' DocumentClassifierProperties (Prelude.Maybe LanguageCode)
+documentClassifierProperties_languageCode = Lens.lens (\DocumentClassifierProperties' {languageCode} -> languageCode) (\s@DocumentClassifierProperties' {} a -> s {languageCode = a} :: DocumentClassifierProperties)
 
 -- | Configuration parameters for a private Virtual Private Cloud (VPC)
 -- containing the resources you are using for your custom classifier. For
@@ -188,11 +217,6 @@ newDocumentClassifierProperties =
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
 documentClassifierProperties_vpcConfig :: Lens.Lens' DocumentClassifierProperties (Prelude.Maybe VpcConfig)
 documentClassifierProperties_vpcConfig = Lens.lens (\DocumentClassifierProperties' {vpcConfig} -> vpcConfig) (\s@DocumentClassifierProperties' {} a -> s {vpcConfig = a} :: DocumentClassifierProperties)
-
--- | The language code for the language of the documents that the classifier
--- was trained on.
-documentClassifierProperties_languageCode :: Lens.Lens' DocumentClassifierProperties (Prelude.Maybe LanguageCode)
-documentClassifierProperties_languageCode = Lens.lens (\DocumentClassifierProperties' {languageCode} -> languageCode) (\s@DocumentClassifierProperties' {} a -> s {languageCode = a} :: DocumentClassifierProperties)
 
 -- | The status of the document classifier. If the status is @TRAINED@ the
 -- classifier is ready to use. If the status is @FAILED@ you can see
@@ -206,16 +230,16 @@ documentClassifierProperties_status = Lens.lens (\DocumentClassifierProperties' 
 documentClassifierProperties_inputDataConfig :: Lens.Lens' DocumentClassifierProperties (Prelude.Maybe DocumentClassifierInputDataConfig)
 documentClassifierProperties_inputDataConfig = Lens.lens (\DocumentClassifierProperties' {inputDataConfig} -> inputDataConfig) (\s@DocumentClassifierProperties' {} a -> s {inputDataConfig = a} :: DocumentClassifierProperties)
 
+-- | Additional information about the status of the classifier.
+documentClassifierProperties_message :: Lens.Lens' DocumentClassifierProperties (Prelude.Maybe Prelude.Text)
+documentClassifierProperties_message = Lens.lens (\DocumentClassifierProperties' {message} -> message) (\s@DocumentClassifierProperties' {} a -> s {message = a} :: DocumentClassifierProperties)
+
 -- | Indicates the mode in which the specific classifier was trained. This
 -- also indicates the format of input documents and the format of the
 -- confusion matrix. Each classifier can only be trained in one mode and
 -- this cannot be changed once the classifier is trained.
 documentClassifierProperties_mode :: Lens.Lens' DocumentClassifierProperties (Prelude.Maybe DocumentClassifierMode)
 documentClassifierProperties_mode = Lens.lens (\DocumentClassifierProperties' {mode} -> mode) (\s@DocumentClassifierProperties' {} a -> s {mode = a} :: DocumentClassifierProperties)
-
--- | Additional information about the status of the classifier.
-documentClassifierProperties_message :: Lens.Lens' DocumentClassifierProperties (Prelude.Maybe Prelude.Text)
-documentClassifierProperties_message = Lens.lens (\DocumentClassifierProperties' {message} -> message) (\s@DocumentClassifierProperties' {} a -> s {message = a} :: DocumentClassifierProperties)
 
 -- | Provides output results configuration parameters for custom classifier
 -- jobs.
@@ -225,6 +249,10 @@ documentClassifierProperties_outputDataConfig = Lens.lens (\DocumentClassifierPr
 -- | The Amazon Resource Name (ARN) that identifies the document classifier.
 documentClassifierProperties_documentClassifierArn :: Lens.Lens' DocumentClassifierProperties (Prelude.Maybe Prelude.Text)
 documentClassifierProperties_documentClassifierArn = Lens.lens (\DocumentClassifierProperties' {documentClassifierArn} -> documentClassifierArn) (\s@DocumentClassifierProperties' {} a -> s {documentClassifierArn = a} :: DocumentClassifierProperties)
+
+-- | The version name that you assigned to the document classifier.
+documentClassifierProperties_versionName :: Lens.Lens' DocumentClassifierProperties (Prelude.Maybe Prelude.Text)
+documentClassifierProperties_versionName = Lens.lens (\DocumentClassifierProperties' {versionName} -> versionName) (\s@DocumentClassifierProperties' {} a -> s {versionName = a} :: DocumentClassifierProperties)
 
 -- | The time that training the document classifier completed.
 documentClassifierProperties_endTime :: Lens.Lens' DocumentClassifierProperties (Prelude.Maybe Prelude.UTCTime)
@@ -252,6 +280,17 @@ documentClassifierProperties_volumeKmsKeyId = Lens.lens (\DocumentClassifierProp
 documentClassifierProperties_submitTime :: Lens.Lens' DocumentClassifierProperties (Prelude.Maybe Prelude.UTCTime)
 documentClassifierProperties_submitTime = Lens.lens (\DocumentClassifierProperties' {submitTime} -> submitTime) (\s@DocumentClassifierProperties' {} a -> s {submitTime = a} :: DocumentClassifierProperties) Prelude.. Lens.mapping Core._Time
 
+-- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
+-- uses to encrypt trained custom models. The ModelKmsKeyId can be either
+-- of the following formats:
+--
+-- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
+--
+-- -   Amazon Resource Name (ARN) of a KMS Key:
+--     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
+documentClassifierProperties_modelKmsKeyId :: Lens.Lens' DocumentClassifierProperties (Prelude.Maybe Prelude.Text)
+documentClassifierProperties_modelKmsKeyId = Lens.lens (\DocumentClassifierProperties' {modelKmsKeyId} -> modelKmsKeyId) (\s@DocumentClassifierProperties' {} a -> s {modelKmsKeyId = a} :: DocumentClassifierProperties)
+
 -- | Indicates the time when the training starts on documentation
 -- classifiers. You are billed for the time interval between this time and
 -- the value of TrainingEndTime.
@@ -276,18 +315,20 @@ instance Core.FromJSON DocumentClassifierProperties where
       "DocumentClassifierProperties"
       ( \x ->
           DocumentClassifierProperties'
-            Prelude.<$> (x Core..:? "VpcConfig")
-            Prelude.<*> (x Core..:? "LanguageCode")
+            Prelude.<$> (x Core..:? "LanguageCode")
+            Prelude.<*> (x Core..:? "VpcConfig")
             Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "InputDataConfig")
-            Prelude.<*> (x Core..:? "Mode")
             Prelude.<*> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "Mode")
             Prelude.<*> (x Core..:? "OutputDataConfig")
             Prelude.<*> (x Core..:? "DocumentClassifierArn")
+            Prelude.<*> (x Core..:? "VersionName")
             Prelude.<*> (x Core..:? "EndTime")
             Prelude.<*> (x Core..:? "ClassifierMetadata")
             Prelude.<*> (x Core..:? "VolumeKmsKeyId")
             Prelude.<*> (x Core..:? "SubmitTime")
+            Prelude.<*> (x Core..:? "ModelKmsKeyId")
             Prelude.<*> (x Core..:? "TrainingStartTime")
             Prelude.<*> (x Core..:? "DataAccessRoleArn")
             Prelude.<*> (x Core..:? "TrainingEndTime")

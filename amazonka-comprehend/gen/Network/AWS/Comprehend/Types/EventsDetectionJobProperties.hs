@@ -45,6 +45,16 @@ data EventsDetectionJobProperties = EventsDetectionJobProperties'
     outputDataConfig :: Prelude.Maybe OutputDataConfig,
     -- | The time that the events detection job completed.
     endTime :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name (ARN) of the events detection job. It is a
+    -- unique, fully qualified identifier for the job. It includes the AWS
+    -- account, Region, and the job ID. The format of the ARN is as follows:
+    --
+    -- @arn:\<partition>:comprehend:\<region>:\<account-id>:events-detection-job\/\<job-id>@
+    --
+    -- The following is an example job ARN:
+    --
+    -- @arn:aws:comprehend:us-west-2:111122223333:events-detection-job\/1234abcd12ab34cd56ef1234567890ab@
+    jobArn :: Prelude.Maybe Prelude.Text,
     -- | The time that the events detection job was submitted for processing.
     submitTime :: Prelude.Maybe Core.POSIX,
     -- | The types of events that are detected by the job.
@@ -81,6 +91,16 @@ data EventsDetectionJobProperties = EventsDetectionJobProperties'
 --
 -- 'endTime', 'eventsDetectionJobProperties_endTime' - The time that the events detection job completed.
 --
+-- 'jobArn', 'eventsDetectionJobProperties_jobArn' - The Amazon Resource Name (ARN) of the events detection job. It is a
+-- unique, fully qualified identifier for the job. It includes the AWS
+-- account, Region, and the job ID. The format of the ARN is as follows:
+--
+-- @arn:\<partition>:comprehend:\<region>:\<account-id>:events-detection-job\/\<job-id>@
+--
+-- The following is an example job ARN:
+--
+-- @arn:aws:comprehend:us-west-2:111122223333:events-detection-job\/1234abcd12ab34cd56ef1234567890ab@
+--
 -- 'submitTime', 'eventsDetectionJobProperties_submitTime' - The time that the events detection job was submitted for processing.
 --
 -- 'targetEventTypes', 'eventsDetectionJobProperties_targetEventTypes' - The types of events that are detected by the job.
@@ -102,6 +122,7 @@ newEventsDetectionJobProperties =
       jobStatus = Prelude.Nothing,
       outputDataConfig = Prelude.Nothing,
       endTime = Prelude.Nothing,
+      jobArn = Prelude.Nothing,
       submitTime = Prelude.Nothing,
       targetEventTypes = Prelude.Nothing,
       jobName = Prelude.Nothing,
@@ -134,6 +155,18 @@ eventsDetectionJobProperties_outputDataConfig = Lens.lens (\EventsDetectionJobPr
 -- | The time that the events detection job completed.
 eventsDetectionJobProperties_endTime :: Lens.Lens' EventsDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
 eventsDetectionJobProperties_endTime = Lens.lens (\EventsDetectionJobProperties' {endTime} -> endTime) (\s@EventsDetectionJobProperties' {} a -> s {endTime = a} :: EventsDetectionJobProperties) Prelude.. Lens.mapping Core._Time
+
+-- | The Amazon Resource Name (ARN) of the events detection job. It is a
+-- unique, fully qualified identifier for the job. It includes the AWS
+-- account, Region, and the job ID. The format of the ARN is as follows:
+--
+-- @arn:\<partition>:comprehend:\<region>:\<account-id>:events-detection-job\/\<job-id>@
+--
+-- The following is an example job ARN:
+--
+-- @arn:aws:comprehend:us-west-2:111122223333:events-detection-job\/1234abcd12ab34cd56ef1234567890ab@
+eventsDetectionJobProperties_jobArn :: Lens.Lens' EventsDetectionJobProperties (Prelude.Maybe Prelude.Text)
+eventsDetectionJobProperties_jobArn = Lens.lens (\EventsDetectionJobProperties' {jobArn} -> jobArn) (\s@EventsDetectionJobProperties' {} a -> s {jobArn = a} :: EventsDetectionJobProperties)
 
 -- | The time that the events detection job was submitted for processing.
 eventsDetectionJobProperties_submitTime :: Lens.Lens' EventsDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
@@ -168,6 +201,7 @@ instance Core.FromJSON EventsDetectionJobProperties where
             Prelude.<*> (x Core..:? "JobStatus")
             Prelude.<*> (x Core..:? "OutputDataConfig")
             Prelude.<*> (x Core..:? "EndTime")
+            Prelude.<*> (x Core..:? "JobArn")
             Prelude.<*> (x Core..:? "SubmitTime")
             Prelude.<*> (x Core..:? "TargetEventTypes")
             Prelude.<*> (x Core..:? "JobName")

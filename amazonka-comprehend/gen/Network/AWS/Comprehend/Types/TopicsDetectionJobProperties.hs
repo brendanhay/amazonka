@@ -49,6 +49,16 @@ data TopicsDetectionJobProperties = TopicsDetectionJobProperties'
     outputDataConfig :: Prelude.Maybe OutputDataConfig,
     -- | The time that the topic detection job was completed.
     endTime :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name (ARN) of the topics detection job. It is a
+    -- unique, fully qualified identifier for the job. It includes the AWS
+    -- account, Region, and the job ID. The format of the ARN is as follows:
+    --
+    -- @arn:\<partition>:comprehend:\<region>:\<account-id>:topics-detection-job\/\<job-id>@
+    --
+    -- The following is an example job ARN:
+    --
+    -- @arn:aws:comprehend:us-west-2:111122223333:topics-detection-job\/1234abcd12ab34cd56ef1234567890ab@
+    jobArn :: Prelude.Maybe Prelude.Text,
     -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
     -- uses to encrypt data on the storage volume attached to the ML compute
     -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
@@ -100,6 +110,16 @@ data TopicsDetectionJobProperties = TopicsDetectionJobProperties'
 --
 -- 'endTime', 'topicsDetectionJobProperties_endTime' - The time that the topic detection job was completed.
 --
+-- 'jobArn', 'topicsDetectionJobProperties_jobArn' - The Amazon Resource Name (ARN) of the topics detection job. It is a
+-- unique, fully qualified identifier for the job. It includes the AWS
+-- account, Region, and the job ID. The format of the ARN is as follows:
+--
+-- @arn:\<partition>:comprehend:\<region>:\<account-id>:topics-detection-job\/\<job-id>@
+--
+-- The following is an example job ARN:
+--
+-- @arn:aws:comprehend:us-west-2:111122223333:topics-detection-job\/1234abcd12ab34cd56ef1234567890ab@
+--
 -- 'volumeKmsKeyId', 'topicsDetectionJobProperties_volumeKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt data on the storage volume attached to the ML compute
 -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
@@ -132,6 +152,7 @@ newTopicsDetectionJobProperties =
       jobStatus = Prelude.Nothing,
       outputDataConfig = Prelude.Nothing,
       endTime = Prelude.Nothing,
+      jobArn = Prelude.Nothing,
       volumeKmsKeyId = Prelude.Nothing,
       submitTime = Prelude.Nothing,
       numberOfTopics = Prelude.Nothing,
@@ -169,6 +190,18 @@ topicsDetectionJobProperties_outputDataConfig = Lens.lens (\TopicsDetectionJobPr
 -- | The time that the topic detection job was completed.
 topicsDetectionJobProperties_endTime :: Lens.Lens' TopicsDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
 topicsDetectionJobProperties_endTime = Lens.lens (\TopicsDetectionJobProperties' {endTime} -> endTime) (\s@TopicsDetectionJobProperties' {} a -> s {endTime = a} :: TopicsDetectionJobProperties) Prelude.. Lens.mapping Core._Time
+
+-- | The Amazon Resource Name (ARN) of the topics detection job. It is a
+-- unique, fully qualified identifier for the job. It includes the AWS
+-- account, Region, and the job ID. The format of the ARN is as follows:
+--
+-- @arn:\<partition>:comprehend:\<region>:\<account-id>:topics-detection-job\/\<job-id>@
+--
+-- The following is an example job ARN:
+--
+-- @arn:aws:comprehend:us-west-2:111122223333:topics-detection-job\/1234abcd12ab34cd56ef1234567890ab@
+topicsDetectionJobProperties_jobArn :: Lens.Lens' TopicsDetectionJobProperties (Prelude.Maybe Prelude.Text)
+topicsDetectionJobProperties_jobArn = Lens.lens (\TopicsDetectionJobProperties' {jobArn} -> jobArn) (\s@TopicsDetectionJobProperties' {} a -> s {jobArn = a} :: TopicsDetectionJobProperties)
 
 -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt data on the storage volume attached to the ML compute
@@ -216,6 +249,7 @@ instance Core.FromJSON TopicsDetectionJobProperties where
             Prelude.<*> (x Core..:? "JobStatus")
             Prelude.<*> (x Core..:? "OutputDataConfig")
             Prelude.<*> (x Core..:? "EndTime")
+            Prelude.<*> (x Core..:? "JobArn")
             Prelude.<*> (x Core..:? "VolumeKmsKeyId")
             Prelude.<*> (x Core..:? "SubmitTime")
             Prelude.<*> (x Core..:? "NumberOfTopics")

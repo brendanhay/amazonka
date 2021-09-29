@@ -32,13 +32,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newKeyPhrasesDetectionJobProperties' smart constructor.
 data KeyPhrasesDetectionJobProperties = KeyPhrasesDetectionJobProperties'
-  { -- | Configuration parameters for a private Virtual Private Cloud (VPC)
+  { -- | The language code of the input documents.
+    languageCode :: Prelude.Maybe LanguageCode,
+    -- | Configuration parameters for a private Virtual Private Cloud (VPC)
     -- containing the resources you are using for your key phrases detection
     -- job. For more information, see
     -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
     vpcConfig :: Prelude.Maybe VpcConfig,
-    -- | The language code of the input documents.
-    languageCode :: Prelude.Maybe LanguageCode,
     -- | The input data configuration that you supplied when you created the key
     -- phrases detection job.
     inputDataConfig :: Prelude.Maybe InputDataConfig,
@@ -52,6 +52,16 @@ data KeyPhrasesDetectionJobProperties = KeyPhrasesDetectionJobProperties'
     outputDataConfig :: Prelude.Maybe OutputDataConfig,
     -- | The time that the key phrases detection job completed.
     endTime :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name (ARN) of the key phrases detection job. It is a
+    -- unique, fully qualified identifier for the job. It includes the AWS
+    -- account, Region, and the job ID. The format of the ARN is as follows:
+    --
+    -- @arn:\<partition>:comprehend:\<region>:\<account-id>:key-phrases-detection-job\/\<job-id>@
+    --
+    -- The following is an example job ARN:
+    --
+    -- @arn:aws:comprehend:us-west-2:111122223333:key-phrases-detection-job\/1234abcd12ab34cd56ef1234567890ab@
+    jobArn :: Prelude.Maybe Prelude.Text,
     -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
     -- uses to encrypt data on the storage volume attached to the ML compute
     -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
@@ -83,12 +93,12 @@ data KeyPhrasesDetectionJobProperties = KeyPhrasesDetectionJobProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'languageCode', 'keyPhrasesDetectionJobProperties_languageCode' - The language code of the input documents.
+--
 -- 'vpcConfig', 'keyPhrasesDetectionJobProperties_vpcConfig' - Configuration parameters for a private Virtual Private Cloud (VPC)
 -- containing the resources you are using for your key phrases detection
 -- job. For more information, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
---
--- 'languageCode', 'keyPhrasesDetectionJobProperties_languageCode' - The language code of the input documents.
 --
 -- 'inputDataConfig', 'keyPhrasesDetectionJobProperties_inputDataConfig' - The input data configuration that you supplied when you created the key
 -- phrases detection job.
@@ -102,6 +112,16 @@ data KeyPhrasesDetectionJobProperties = KeyPhrasesDetectionJobProperties'
 -- phrases detection job.
 --
 -- 'endTime', 'keyPhrasesDetectionJobProperties_endTime' - The time that the key phrases detection job completed.
+--
+-- 'jobArn', 'keyPhrasesDetectionJobProperties_jobArn' - The Amazon Resource Name (ARN) of the key phrases detection job. It is a
+-- unique, fully qualified identifier for the job. It includes the AWS
+-- account, Region, and the job ID. The format of the ARN is as follows:
+--
+-- @arn:\<partition>:comprehend:\<region>:\<account-id>:key-phrases-detection-job\/\<job-id>@
+--
+-- The following is an example job ARN:
+--
+-- @arn:aws:comprehend:us-west-2:111122223333:key-phrases-detection-job\/1234abcd12ab34cd56ef1234567890ab@
 --
 -- 'volumeKmsKeyId', 'keyPhrasesDetectionJobProperties_volumeKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt data on the storage volume attached to the ML compute
@@ -126,14 +146,15 @@ newKeyPhrasesDetectionJobProperties ::
   KeyPhrasesDetectionJobProperties
 newKeyPhrasesDetectionJobProperties =
   KeyPhrasesDetectionJobProperties'
-    { vpcConfig =
+    { languageCode =
         Prelude.Nothing,
-      languageCode = Prelude.Nothing,
+      vpcConfig = Prelude.Nothing,
       inputDataConfig = Prelude.Nothing,
       message = Prelude.Nothing,
       jobStatus = Prelude.Nothing,
       outputDataConfig = Prelude.Nothing,
       endTime = Prelude.Nothing,
+      jobArn = Prelude.Nothing,
       volumeKmsKeyId = Prelude.Nothing,
       submitTime = Prelude.Nothing,
       jobName = Prelude.Nothing,
@@ -141,16 +162,16 @@ newKeyPhrasesDetectionJobProperties =
       jobId = Prelude.Nothing
     }
 
+-- | The language code of the input documents.
+keyPhrasesDetectionJobProperties_languageCode :: Lens.Lens' KeyPhrasesDetectionJobProperties (Prelude.Maybe LanguageCode)
+keyPhrasesDetectionJobProperties_languageCode = Lens.lens (\KeyPhrasesDetectionJobProperties' {languageCode} -> languageCode) (\s@KeyPhrasesDetectionJobProperties' {} a -> s {languageCode = a} :: KeyPhrasesDetectionJobProperties)
+
 -- | Configuration parameters for a private Virtual Private Cloud (VPC)
 -- containing the resources you are using for your key phrases detection
 -- job. For more information, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
 keyPhrasesDetectionJobProperties_vpcConfig :: Lens.Lens' KeyPhrasesDetectionJobProperties (Prelude.Maybe VpcConfig)
 keyPhrasesDetectionJobProperties_vpcConfig = Lens.lens (\KeyPhrasesDetectionJobProperties' {vpcConfig} -> vpcConfig) (\s@KeyPhrasesDetectionJobProperties' {} a -> s {vpcConfig = a} :: KeyPhrasesDetectionJobProperties)
-
--- | The language code of the input documents.
-keyPhrasesDetectionJobProperties_languageCode :: Lens.Lens' KeyPhrasesDetectionJobProperties (Prelude.Maybe LanguageCode)
-keyPhrasesDetectionJobProperties_languageCode = Lens.lens (\KeyPhrasesDetectionJobProperties' {languageCode} -> languageCode) (\s@KeyPhrasesDetectionJobProperties' {} a -> s {languageCode = a} :: KeyPhrasesDetectionJobProperties)
 
 -- | The input data configuration that you supplied when you created the key
 -- phrases detection job.
@@ -174,6 +195,18 @@ keyPhrasesDetectionJobProperties_outputDataConfig = Lens.lens (\KeyPhrasesDetect
 -- | The time that the key phrases detection job completed.
 keyPhrasesDetectionJobProperties_endTime :: Lens.Lens' KeyPhrasesDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
 keyPhrasesDetectionJobProperties_endTime = Lens.lens (\KeyPhrasesDetectionJobProperties' {endTime} -> endTime) (\s@KeyPhrasesDetectionJobProperties' {} a -> s {endTime = a} :: KeyPhrasesDetectionJobProperties) Prelude.. Lens.mapping Core._Time
+
+-- | The Amazon Resource Name (ARN) of the key phrases detection job. It is a
+-- unique, fully qualified identifier for the job. It includes the AWS
+-- account, Region, and the job ID. The format of the ARN is as follows:
+--
+-- @arn:\<partition>:comprehend:\<region>:\<account-id>:key-phrases-detection-job\/\<job-id>@
+--
+-- The following is an example job ARN:
+--
+-- @arn:aws:comprehend:us-west-2:111122223333:key-phrases-detection-job\/1234abcd12ab34cd56ef1234567890ab@
+keyPhrasesDetectionJobProperties_jobArn :: Lens.Lens' KeyPhrasesDetectionJobProperties (Prelude.Maybe Prelude.Text)
+keyPhrasesDetectionJobProperties_jobArn = Lens.lens (\KeyPhrasesDetectionJobProperties' {jobArn} -> jobArn) (\s@KeyPhrasesDetectionJobProperties' {} a -> s {jobArn = a} :: KeyPhrasesDetectionJobProperties)
 
 -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt data on the storage volume attached to the ML compute
@@ -214,13 +247,14 @@ instance
       "KeyPhrasesDetectionJobProperties"
       ( \x ->
           KeyPhrasesDetectionJobProperties'
-            Prelude.<$> (x Core..:? "VpcConfig")
-            Prelude.<*> (x Core..:? "LanguageCode")
+            Prelude.<$> (x Core..:? "LanguageCode")
+            Prelude.<*> (x Core..:? "VpcConfig")
             Prelude.<*> (x Core..:? "InputDataConfig")
             Prelude.<*> (x Core..:? "Message")
             Prelude.<*> (x Core..:? "JobStatus")
             Prelude.<*> (x Core..:? "OutputDataConfig")
             Prelude.<*> (x Core..:? "EndTime")
+            Prelude.<*> (x Core..:? "JobArn")
             Prelude.<*> (x Core..:? "VolumeKmsKeyId")
             Prelude.<*> (x Core..:? "SubmitTime")
             Prelude.<*> (x Core..:? "JobName")

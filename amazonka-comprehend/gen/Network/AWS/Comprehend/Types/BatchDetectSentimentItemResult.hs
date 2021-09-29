@@ -30,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBatchDetectSentimentItemResult' smart constructor.
 data BatchDetectSentimentItemResult = BatchDetectSentimentItemResult'
-  { -- | The level of confidence that Amazon Comprehend has in the accuracy of
+  { -- | The sentiment detected in the document.
+    sentiment :: Prelude.Maybe SentimentType,
+    -- | The level of confidence that Amazon Comprehend has in the accuracy of
     -- its sentiment detection.
     sentimentScore :: Prelude.Maybe SentimentScore,
-    -- | The sentiment detected in the document.
-    sentiment :: Prelude.Maybe SentimentType,
     -- | The zero-based index of the document in the input list.
     index :: Prelude.Maybe Prelude.Int
   }
@@ -48,30 +48,30 @@ data BatchDetectSentimentItemResult = BatchDetectSentimentItemResult'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'sentiment', 'batchDetectSentimentItemResult_sentiment' - The sentiment detected in the document.
+--
 -- 'sentimentScore', 'batchDetectSentimentItemResult_sentimentScore' - The level of confidence that Amazon Comprehend has in the accuracy of
 -- its sentiment detection.
---
--- 'sentiment', 'batchDetectSentimentItemResult_sentiment' - The sentiment detected in the document.
 --
 -- 'index', 'batchDetectSentimentItemResult_index' - The zero-based index of the document in the input list.
 newBatchDetectSentimentItemResult ::
   BatchDetectSentimentItemResult
 newBatchDetectSentimentItemResult =
   BatchDetectSentimentItemResult'
-    { sentimentScore =
+    { sentiment =
         Prelude.Nothing,
-      sentiment = Prelude.Nothing,
+      sentimentScore = Prelude.Nothing,
       index = Prelude.Nothing
     }
+
+-- | The sentiment detected in the document.
+batchDetectSentimentItemResult_sentiment :: Lens.Lens' BatchDetectSentimentItemResult (Prelude.Maybe SentimentType)
+batchDetectSentimentItemResult_sentiment = Lens.lens (\BatchDetectSentimentItemResult' {sentiment} -> sentiment) (\s@BatchDetectSentimentItemResult' {} a -> s {sentiment = a} :: BatchDetectSentimentItemResult)
 
 -- | The level of confidence that Amazon Comprehend has in the accuracy of
 -- its sentiment detection.
 batchDetectSentimentItemResult_sentimentScore :: Lens.Lens' BatchDetectSentimentItemResult (Prelude.Maybe SentimentScore)
 batchDetectSentimentItemResult_sentimentScore = Lens.lens (\BatchDetectSentimentItemResult' {sentimentScore} -> sentimentScore) (\s@BatchDetectSentimentItemResult' {} a -> s {sentimentScore = a} :: BatchDetectSentimentItemResult)
-
--- | The sentiment detected in the document.
-batchDetectSentimentItemResult_sentiment :: Lens.Lens' BatchDetectSentimentItemResult (Prelude.Maybe SentimentType)
-batchDetectSentimentItemResult_sentiment = Lens.lens (\BatchDetectSentimentItemResult' {sentiment} -> sentiment) (\s@BatchDetectSentimentItemResult' {} a -> s {sentiment = a} :: BatchDetectSentimentItemResult)
 
 -- | The zero-based index of the document in the input list.
 batchDetectSentimentItemResult_index :: Lens.Lens' BatchDetectSentimentItemResult (Prelude.Maybe Prelude.Int)
@@ -83,8 +83,8 @@ instance Core.FromJSON BatchDetectSentimentItemResult where
       "BatchDetectSentimentItemResult"
       ( \x ->
           BatchDetectSentimentItemResult'
-            Prelude.<$> (x Core..:? "SentimentScore")
-            Prelude.<*> (x Core..:? "Sentiment")
+            Prelude.<$> (x Core..:? "Sentiment")
+            Prelude.<*> (x Core..:? "SentimentScore")
             Prelude.<*> (x Core..:? "Index")
       )
 

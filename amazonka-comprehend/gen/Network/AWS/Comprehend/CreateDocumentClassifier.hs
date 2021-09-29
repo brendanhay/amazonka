@@ -35,9 +35,11 @@ module Network.AWS.Comprehend.CreateDocumentClassifier
     createDocumentClassifier_vpcConfig,
     createDocumentClassifier_mode,
     createDocumentClassifier_outputDataConfig,
+    createDocumentClassifier_versionName,
     createDocumentClassifier_volumeKmsKeyId,
     createDocumentClassifier_tags,
     createDocumentClassifier_clientRequestToken,
+    createDocumentClassifier_modelKmsKeyId,
     createDocumentClassifier_documentClassifierName,
     createDocumentClassifier_dataAccessRoleArn,
     createDocumentClassifier_inputDataConfig,
@@ -77,6 +79,12 @@ data CreateDocumentClassifier = CreateDocumentClassifier'
     -- | Enables the addition of output results configuration parameters for
     -- custom classifier jobs.
     outputDataConfig :: Prelude.Maybe DocumentClassifierOutputDataConfig,
+    -- | The version name given to the newly created classifier. Version names
+    -- can have a maximum of 256 characters. Alphanumeric characters, hyphens
+    -- (-) and underscores (_) are allowed. The version name must be unique
+    -- among all models with the same classifier name in the account\/AWS
+    -- Region.
+    versionName :: Prelude.Maybe Prelude.Text,
     -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
     -- uses to encrypt data on the storage volume attached to the ML compute
     -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
@@ -95,6 +103,15 @@ data CreateDocumentClassifier = CreateDocumentClassifier'
     -- | A unique identifier for the request. If you don\'t set the client
     -- request token, Amazon Comprehend generates one.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
+    -- uses to encrypt trained custom models. The ModelKmsKeyId can be either
+    -- of the following formats:
+    --
+    -- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
+    --
+    -- -   Amazon Resource Name (ARN) of a KMS Key:
+    --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
+    modelKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The name of the document classifier.
     documentClassifierName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the AWS Identity and Management (IAM)
@@ -133,6 +150,12 @@ data CreateDocumentClassifier = CreateDocumentClassifier'
 -- 'outputDataConfig', 'createDocumentClassifier_outputDataConfig' - Enables the addition of output results configuration parameters for
 -- custom classifier jobs.
 --
+-- 'versionName', 'createDocumentClassifier_versionName' - The version name given to the newly created classifier. Version names
+-- can have a maximum of 256 characters. Alphanumeric characters, hyphens
+-- (-) and underscores (_) are allowed. The version name must be unique
+-- among all models with the same classifier name in the account\/AWS
+-- Region.
+--
 -- 'volumeKmsKeyId', 'createDocumentClassifier_volumeKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt data on the storage volume attached to the ML compute
 -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
@@ -150,6 +173,15 @@ data CreateDocumentClassifier = CreateDocumentClassifier'
 --
 -- 'clientRequestToken', 'createDocumentClassifier_clientRequestToken' - A unique identifier for the request. If you don\'t set the client
 -- request token, Amazon Comprehend generates one.
+--
+-- 'modelKmsKeyId', 'createDocumentClassifier_modelKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
+-- uses to encrypt trained custom models. The ModelKmsKeyId can be either
+-- of the following formats:
+--
+-- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
+--
+-- -   Amazon Resource Name (ARN) of a KMS Key:
+--     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
 -- 'documentClassifierName', 'createDocumentClassifier_documentClassifierName' - The name of the document classifier.
 --
@@ -182,9 +214,11 @@ newCreateDocumentClassifier
           Prelude.Nothing,
         mode = Prelude.Nothing,
         outputDataConfig = Prelude.Nothing,
+        versionName = Prelude.Nothing,
         volumeKmsKeyId = Prelude.Nothing,
         tags = Prelude.Nothing,
         clientRequestToken = Prelude.Nothing,
+        modelKmsKeyId = Prelude.Nothing,
         documentClassifierName = pDocumentClassifierName_,
         dataAccessRoleArn = pDataAccessRoleArn_,
         inputDataConfig = pInputDataConfig_,
@@ -212,6 +246,14 @@ createDocumentClassifier_mode = Lens.lens (\CreateDocumentClassifier' {mode} -> 
 createDocumentClassifier_outputDataConfig :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe DocumentClassifierOutputDataConfig)
 createDocumentClassifier_outputDataConfig = Lens.lens (\CreateDocumentClassifier' {outputDataConfig} -> outputDataConfig) (\s@CreateDocumentClassifier' {} a -> s {outputDataConfig = a} :: CreateDocumentClassifier)
 
+-- | The version name given to the newly created classifier. Version names
+-- can have a maximum of 256 characters. Alphanumeric characters, hyphens
+-- (-) and underscores (_) are allowed. The version name must be unique
+-- among all models with the same classifier name in the account\/AWS
+-- Region.
+createDocumentClassifier_versionName :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe Prelude.Text)
+createDocumentClassifier_versionName = Lens.lens (\CreateDocumentClassifier' {versionName} -> versionName) (\s@CreateDocumentClassifier' {} a -> s {versionName = a} :: CreateDocumentClassifier)
+
 -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt data on the storage volume attached to the ML compute
 -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
@@ -235,6 +277,17 @@ createDocumentClassifier_tags = Lens.lens (\CreateDocumentClassifier' {tags} -> 
 -- request token, Amazon Comprehend generates one.
 createDocumentClassifier_clientRequestToken :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe Prelude.Text)
 createDocumentClassifier_clientRequestToken = Lens.lens (\CreateDocumentClassifier' {clientRequestToken} -> clientRequestToken) (\s@CreateDocumentClassifier' {} a -> s {clientRequestToken = a} :: CreateDocumentClassifier)
+
+-- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
+-- uses to encrypt trained custom models. The ModelKmsKeyId can be either
+-- of the following formats:
+--
+-- -   KMS Key ID: @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
+--
+-- -   Amazon Resource Name (ARN) of a KMS Key:
+--     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
+createDocumentClassifier_modelKmsKeyId :: Lens.Lens' CreateDocumentClassifier (Prelude.Maybe Prelude.Text)
+createDocumentClassifier_modelKmsKeyId = Lens.lens (\CreateDocumentClassifier' {modelKmsKeyId} -> modelKmsKeyId) (\s@CreateDocumentClassifier' {} a -> s {modelKmsKeyId = a} :: CreateDocumentClassifier)
 
 -- | The name of the document classifier.
 createDocumentClassifier_documentClassifierName :: Lens.Lens' CreateDocumentClassifier Prelude.Text
@@ -296,11 +349,13 @@ instance Core.ToJSON CreateDocumentClassifier where
             ("Mode" Core..=) Prelude.<$> mode,
             ("OutputDataConfig" Core..=)
               Prelude.<$> outputDataConfig,
+            ("VersionName" Core..=) Prelude.<$> versionName,
             ("VolumeKmsKeyId" Core..=)
               Prelude.<$> volumeKmsKeyId,
             ("Tags" Core..=) Prelude.<$> tags,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
+            ("ModelKmsKeyId" Core..=) Prelude.<$> modelKmsKeyId,
             Prelude.Just
               ( "DocumentClassifierName"
                   Core..= documentClassifierName

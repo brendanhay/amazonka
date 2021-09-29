@@ -33,21 +33,21 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPiiEntitiesDetectionJobProperties' smart constructor.
 data PiiEntitiesDetectionJobProperties = PiiEntitiesDetectionJobProperties'
-  { -- | Provides configuration parameters for PII entity redaction.
+  { -- | The language code of the input documents
+    languageCode :: Prelude.Maybe LanguageCode,
+    -- | Provides configuration parameters for PII entity redaction.
     --
     -- This parameter is required if you set the @Mode@ parameter to
     -- @ONLY_REDACTION@. In that case, you must provide a @RedactionConfig@
     -- definition that includes the @PiiEntityTypes@ parameter.
     redactionConfig :: Prelude.Maybe RedactionConfig,
-    -- | The language code of the input documents
-    languageCode :: Prelude.Maybe LanguageCode,
     -- | The input properties for a PII entities detection job.
     inputDataConfig :: Prelude.Maybe InputDataConfig,
+    -- | A description of the status of a job.
+    message :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the output provides the locations (offsets) of PII
     -- entities or a file in which PII entities are redacted.
     mode :: Prelude.Maybe PiiEntitiesDetectionMode,
-    -- | A description of the status of a job.
-    message :: Prelude.Maybe Prelude.Text,
     -- | The current status of the PII entities detection job. If the status is
     -- @FAILED@, the @Message@ field shows the reason for the failure.
     jobStatus :: Prelude.Maybe JobStatus,
@@ -56,6 +56,16 @@ data PiiEntitiesDetectionJobProperties = PiiEntitiesDetectionJobProperties'
     outputDataConfig :: Prelude.Maybe PiiOutputDataConfig,
     -- | The time that the PII entities detection job completed.
     endTime :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name (ARN) of the PII entities detection job. It is
+    -- a unique, fully qualified identifier for the job. It includes the AWS
+    -- account, Region, and the job ID. The format of the ARN is as follows:
+    --
+    -- @arn:\<partition>:comprehend:\<region>:\<account-id>:pii-entities-detection-job\/\<job-id>@
+    --
+    -- The following is an example job ARN:
+    --
+    -- @arn:aws:comprehend:us-west-2:111122223333:pii-entities-detection-job\/1234abcd12ab34cd56ef1234567890ab@
+    jobArn :: Prelude.Maybe Prelude.Text,
     -- | The time that the PII entities detection job was submitted for
     -- processing.
     submitTime :: Prelude.Maybe Core.POSIX,
@@ -77,20 +87,20 @@ data PiiEntitiesDetectionJobProperties = PiiEntitiesDetectionJobProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'languageCode', 'piiEntitiesDetectionJobProperties_languageCode' - The language code of the input documents
+--
 -- 'redactionConfig', 'piiEntitiesDetectionJobProperties_redactionConfig' - Provides configuration parameters for PII entity redaction.
 --
 -- This parameter is required if you set the @Mode@ parameter to
 -- @ONLY_REDACTION@. In that case, you must provide a @RedactionConfig@
 -- definition that includes the @PiiEntityTypes@ parameter.
 --
--- 'languageCode', 'piiEntitiesDetectionJobProperties_languageCode' - The language code of the input documents
---
 -- 'inputDataConfig', 'piiEntitiesDetectionJobProperties_inputDataConfig' - The input properties for a PII entities detection job.
+--
+-- 'message', 'piiEntitiesDetectionJobProperties_message' - A description of the status of a job.
 --
 -- 'mode', 'piiEntitiesDetectionJobProperties_mode' - Specifies whether the output provides the locations (offsets) of PII
 -- entities or a file in which PII entities are redacted.
---
--- 'message', 'piiEntitiesDetectionJobProperties_message' - A description of the status of a job.
 --
 -- 'jobStatus', 'piiEntitiesDetectionJobProperties_jobStatus' - The current status of the PII entities detection job. If the status is
 -- @FAILED@, the @Message@ field shows the reason for the failure.
@@ -99,6 +109,16 @@ data PiiEntitiesDetectionJobProperties = PiiEntitiesDetectionJobProperties'
 -- entities detection job.
 --
 -- 'endTime', 'piiEntitiesDetectionJobProperties_endTime' - The time that the PII entities detection job completed.
+--
+-- 'jobArn', 'piiEntitiesDetectionJobProperties_jobArn' - The Amazon Resource Name (ARN) of the PII entities detection job. It is
+-- a unique, fully qualified identifier for the job. It includes the AWS
+-- account, Region, and the job ID. The format of the ARN is as follows:
+--
+-- @arn:\<partition>:comprehend:\<region>:\<account-id>:pii-entities-detection-job\/\<job-id>@
+--
+-- The following is an example job ARN:
+--
+-- @arn:aws:comprehend:us-west-2:111122223333:pii-entities-detection-job\/1234abcd12ab34cd56ef1234567890ab@
 --
 -- 'submitTime', 'piiEntitiesDetectionJobProperties_submitTime' - The time that the PII entities detection job was submitted for
 -- processing.
@@ -113,20 +133,25 @@ newPiiEntitiesDetectionJobProperties ::
   PiiEntitiesDetectionJobProperties
 newPiiEntitiesDetectionJobProperties =
   PiiEntitiesDetectionJobProperties'
-    { redactionConfig =
+    { languageCode =
         Prelude.Nothing,
-      languageCode = Prelude.Nothing,
+      redactionConfig = Prelude.Nothing,
       inputDataConfig = Prelude.Nothing,
-      mode = Prelude.Nothing,
       message = Prelude.Nothing,
+      mode = Prelude.Nothing,
       jobStatus = Prelude.Nothing,
       outputDataConfig = Prelude.Nothing,
       endTime = Prelude.Nothing,
+      jobArn = Prelude.Nothing,
       submitTime = Prelude.Nothing,
       jobName = Prelude.Nothing,
       dataAccessRoleArn = Prelude.Nothing,
       jobId = Prelude.Nothing
     }
+
+-- | The language code of the input documents
+piiEntitiesDetectionJobProperties_languageCode :: Lens.Lens' PiiEntitiesDetectionJobProperties (Prelude.Maybe LanguageCode)
+piiEntitiesDetectionJobProperties_languageCode = Lens.lens (\PiiEntitiesDetectionJobProperties' {languageCode} -> languageCode) (\s@PiiEntitiesDetectionJobProperties' {} a -> s {languageCode = a} :: PiiEntitiesDetectionJobProperties)
 
 -- | Provides configuration parameters for PII entity redaction.
 --
@@ -136,22 +161,18 @@ newPiiEntitiesDetectionJobProperties =
 piiEntitiesDetectionJobProperties_redactionConfig :: Lens.Lens' PiiEntitiesDetectionJobProperties (Prelude.Maybe RedactionConfig)
 piiEntitiesDetectionJobProperties_redactionConfig = Lens.lens (\PiiEntitiesDetectionJobProperties' {redactionConfig} -> redactionConfig) (\s@PiiEntitiesDetectionJobProperties' {} a -> s {redactionConfig = a} :: PiiEntitiesDetectionJobProperties)
 
--- | The language code of the input documents
-piiEntitiesDetectionJobProperties_languageCode :: Lens.Lens' PiiEntitiesDetectionJobProperties (Prelude.Maybe LanguageCode)
-piiEntitiesDetectionJobProperties_languageCode = Lens.lens (\PiiEntitiesDetectionJobProperties' {languageCode} -> languageCode) (\s@PiiEntitiesDetectionJobProperties' {} a -> s {languageCode = a} :: PiiEntitiesDetectionJobProperties)
-
 -- | The input properties for a PII entities detection job.
 piiEntitiesDetectionJobProperties_inputDataConfig :: Lens.Lens' PiiEntitiesDetectionJobProperties (Prelude.Maybe InputDataConfig)
 piiEntitiesDetectionJobProperties_inputDataConfig = Lens.lens (\PiiEntitiesDetectionJobProperties' {inputDataConfig} -> inputDataConfig) (\s@PiiEntitiesDetectionJobProperties' {} a -> s {inputDataConfig = a} :: PiiEntitiesDetectionJobProperties)
+
+-- | A description of the status of a job.
+piiEntitiesDetectionJobProperties_message :: Lens.Lens' PiiEntitiesDetectionJobProperties (Prelude.Maybe Prelude.Text)
+piiEntitiesDetectionJobProperties_message = Lens.lens (\PiiEntitiesDetectionJobProperties' {message} -> message) (\s@PiiEntitiesDetectionJobProperties' {} a -> s {message = a} :: PiiEntitiesDetectionJobProperties)
 
 -- | Specifies whether the output provides the locations (offsets) of PII
 -- entities or a file in which PII entities are redacted.
 piiEntitiesDetectionJobProperties_mode :: Lens.Lens' PiiEntitiesDetectionJobProperties (Prelude.Maybe PiiEntitiesDetectionMode)
 piiEntitiesDetectionJobProperties_mode = Lens.lens (\PiiEntitiesDetectionJobProperties' {mode} -> mode) (\s@PiiEntitiesDetectionJobProperties' {} a -> s {mode = a} :: PiiEntitiesDetectionJobProperties)
-
--- | A description of the status of a job.
-piiEntitiesDetectionJobProperties_message :: Lens.Lens' PiiEntitiesDetectionJobProperties (Prelude.Maybe Prelude.Text)
-piiEntitiesDetectionJobProperties_message = Lens.lens (\PiiEntitiesDetectionJobProperties' {message} -> message) (\s@PiiEntitiesDetectionJobProperties' {} a -> s {message = a} :: PiiEntitiesDetectionJobProperties)
 
 -- | The current status of the PII entities detection job. If the status is
 -- @FAILED@, the @Message@ field shows the reason for the failure.
@@ -166,6 +187,18 @@ piiEntitiesDetectionJobProperties_outputDataConfig = Lens.lens (\PiiEntitiesDete
 -- | The time that the PII entities detection job completed.
 piiEntitiesDetectionJobProperties_endTime :: Lens.Lens' PiiEntitiesDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
 piiEntitiesDetectionJobProperties_endTime = Lens.lens (\PiiEntitiesDetectionJobProperties' {endTime} -> endTime) (\s@PiiEntitiesDetectionJobProperties' {} a -> s {endTime = a} :: PiiEntitiesDetectionJobProperties) Prelude.. Lens.mapping Core._Time
+
+-- | The Amazon Resource Name (ARN) of the PII entities detection job. It is
+-- a unique, fully qualified identifier for the job. It includes the AWS
+-- account, Region, and the job ID. The format of the ARN is as follows:
+--
+-- @arn:\<partition>:comprehend:\<region>:\<account-id>:pii-entities-detection-job\/\<job-id>@
+--
+-- The following is an example job ARN:
+--
+-- @arn:aws:comprehend:us-west-2:111122223333:pii-entities-detection-job\/1234abcd12ab34cd56ef1234567890ab@
+piiEntitiesDetectionJobProperties_jobArn :: Lens.Lens' PiiEntitiesDetectionJobProperties (Prelude.Maybe Prelude.Text)
+piiEntitiesDetectionJobProperties_jobArn = Lens.lens (\PiiEntitiesDetectionJobProperties' {jobArn} -> jobArn) (\s@PiiEntitiesDetectionJobProperties' {} a -> s {jobArn = a} :: PiiEntitiesDetectionJobProperties)
 
 -- | The time that the PII entities detection job was submitted for
 -- processing.
@@ -194,14 +227,15 @@ instance
       "PiiEntitiesDetectionJobProperties"
       ( \x ->
           PiiEntitiesDetectionJobProperties'
-            Prelude.<$> (x Core..:? "RedactionConfig")
-            Prelude.<*> (x Core..:? "LanguageCode")
+            Prelude.<$> (x Core..:? "LanguageCode")
+            Prelude.<*> (x Core..:? "RedactionConfig")
             Prelude.<*> (x Core..:? "InputDataConfig")
-            Prelude.<*> (x Core..:? "Mode")
             Prelude.<*> (x Core..:? "Message")
+            Prelude.<*> (x Core..:? "Mode")
             Prelude.<*> (x Core..:? "JobStatus")
             Prelude.<*> (x Core..:? "OutputDataConfig")
             Prelude.<*> (x Core..:? "EndTime")
+            Prelude.<*> (x Core..:? "JobArn")
             Prelude.<*> (x Core..:? "SubmitTime")
             Prelude.<*> (x Core..:? "JobName")
             Prelude.<*> (x Core..:? "DataAccessRoleArn")

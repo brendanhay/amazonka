@@ -27,7 +27,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEntityRecognizerAnnotations' smart constructor.
 data EntityRecognizerAnnotations = EntityRecognizerAnnotations'
-  { -- | Specifies the Amazon S3 location where the annotations for an entity
+  { -- | This specifies the Amazon S3 location where the test annotations for an
+    -- entity recognizer are located. The URI must be in the same AWS Region as
+    -- the API endpoint that you are calling.
+    testS3Uri :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the Amazon S3 location where the annotations for an entity
     -- recognizer are located. The URI must be in the same region as the API
     -- endpoint that you are calling.
     s3Uri :: Prelude.Text
@@ -42,6 +46,10 @@ data EntityRecognizerAnnotations = EntityRecognizerAnnotations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'testS3Uri', 'entityRecognizerAnnotations_testS3Uri' - This specifies the Amazon S3 location where the test annotations for an
+-- entity recognizer are located. The URI must be in the same AWS Region as
+-- the API endpoint that you are calling.
+--
 -- 's3Uri', 'entityRecognizerAnnotations_s3Uri' - Specifies the Amazon S3 location where the annotations for an entity
 -- recognizer are located. The URI must be in the same region as the API
 -- endpoint that you are calling.
@@ -50,7 +58,17 @@ newEntityRecognizerAnnotations ::
   Prelude.Text ->
   EntityRecognizerAnnotations
 newEntityRecognizerAnnotations pS3Uri_ =
-  EntityRecognizerAnnotations' {s3Uri = pS3Uri_}
+  EntityRecognizerAnnotations'
+    { testS3Uri =
+        Prelude.Nothing,
+      s3Uri = pS3Uri_
+    }
+
+-- | This specifies the Amazon S3 location where the test annotations for an
+-- entity recognizer are located. The URI must be in the same AWS Region as
+-- the API endpoint that you are calling.
+entityRecognizerAnnotations_testS3Uri :: Lens.Lens' EntityRecognizerAnnotations (Prelude.Maybe Prelude.Text)
+entityRecognizerAnnotations_testS3Uri = Lens.lens (\EntityRecognizerAnnotations' {testS3Uri} -> testS3Uri) (\s@EntityRecognizerAnnotations' {} a -> s {testS3Uri = a} :: EntityRecognizerAnnotations)
 
 -- | Specifies the Amazon S3 location where the annotations for an entity
 -- recognizer are located. The URI must be in the same region as the API
@@ -64,7 +82,8 @@ instance Core.FromJSON EntityRecognizerAnnotations where
       "EntityRecognizerAnnotations"
       ( \x ->
           EntityRecognizerAnnotations'
-            Prelude.<$> (x Core..: "S3Uri")
+            Prelude.<$> (x Core..:? "TestS3Uri")
+            Prelude.<*> (x Core..: "S3Uri")
       )
 
 instance Prelude.Hashable EntityRecognizerAnnotations
@@ -75,5 +94,7 @@ instance Core.ToJSON EntityRecognizerAnnotations where
   toJSON EntityRecognizerAnnotations' {..} =
     Core.object
       ( Prelude.catMaybes
-          [Prelude.Just ("S3Uri" Core..= s3Uri)]
+          [ ("TestS3Uri" Core..=) Prelude.<$> testS3Uri,
+            Prelude.Just ("S3Uri" Core..= s3Uri)
+          ]
       )

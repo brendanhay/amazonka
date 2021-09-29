@@ -27,8 +27,10 @@ module Network.AWS.Comprehend.UpdateEndpoint
     newUpdateEndpoint,
 
     -- * Request Lenses
-    updateEndpoint_endpointArn,
     updateEndpoint_desiredInferenceUnits,
+    updateEndpoint_desiredDataAccessRoleArn,
+    updateEndpoint_desiredModelArn,
+    updateEndpoint_endpointArn,
 
     -- * Destructuring the Response
     UpdateEndpointResponse (..),
@@ -48,12 +50,17 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateEndpoint' smart constructor.
 data UpdateEndpoint = UpdateEndpoint'
-  { -- | The Amazon Resource Number (ARN) of the endpoint being updated.
-    endpointArn :: Prelude.Text,
-    -- | The desired number of inference units to be used by the model using this
+  { -- | The desired number of inference units to be used by the model using this
     -- endpoint. Each inference unit represents of a throughput of 100
     -- characters per second.
-    desiredInferenceUnits :: Prelude.Natural
+    desiredInferenceUnits :: Prelude.Maybe Prelude.Natural,
+    -- | Data access role ARN to use in case the new model is encrypted with a
+    -- customer CMK.
+    desiredDataAccessRoleArn :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the new model to use when updating an existing endpoint.
+    desiredModelArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Number (ARN) of the endpoint being updated.
+    endpointArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,34 +72,47 @@ data UpdateEndpoint = UpdateEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'endpointArn', 'updateEndpoint_endpointArn' - The Amazon Resource Number (ARN) of the endpoint being updated.
---
 -- 'desiredInferenceUnits', 'updateEndpoint_desiredInferenceUnits' - The desired number of inference units to be used by the model using this
 -- endpoint. Each inference unit represents of a throughput of 100
 -- characters per second.
+--
+-- 'desiredDataAccessRoleArn', 'updateEndpoint_desiredDataAccessRoleArn' - Data access role ARN to use in case the new model is encrypted with a
+-- customer CMK.
+--
+-- 'desiredModelArn', 'updateEndpoint_desiredModelArn' - The ARN of the new model to use when updating an existing endpoint.
+--
+-- 'endpointArn', 'updateEndpoint_endpointArn' - The Amazon Resource Number (ARN) of the endpoint being updated.
 newUpdateEndpoint ::
   -- | 'endpointArn'
   Prelude.Text ->
-  -- | 'desiredInferenceUnits'
-  Prelude.Natural ->
   UpdateEndpoint
-newUpdateEndpoint
-  pEndpointArn_
-  pDesiredInferenceUnits_ =
-    UpdateEndpoint'
-      { endpointArn = pEndpointArn_,
-        desiredInferenceUnits = pDesiredInferenceUnits_
-      }
-
--- | The Amazon Resource Number (ARN) of the endpoint being updated.
-updateEndpoint_endpointArn :: Lens.Lens' UpdateEndpoint Prelude.Text
-updateEndpoint_endpointArn = Lens.lens (\UpdateEndpoint' {endpointArn} -> endpointArn) (\s@UpdateEndpoint' {} a -> s {endpointArn = a} :: UpdateEndpoint)
+newUpdateEndpoint pEndpointArn_ =
+  UpdateEndpoint'
+    { desiredInferenceUnits =
+        Prelude.Nothing,
+      desiredDataAccessRoleArn = Prelude.Nothing,
+      desiredModelArn = Prelude.Nothing,
+      endpointArn = pEndpointArn_
+    }
 
 -- | The desired number of inference units to be used by the model using this
 -- endpoint. Each inference unit represents of a throughput of 100
 -- characters per second.
-updateEndpoint_desiredInferenceUnits :: Lens.Lens' UpdateEndpoint Prelude.Natural
+updateEndpoint_desiredInferenceUnits :: Lens.Lens' UpdateEndpoint (Prelude.Maybe Prelude.Natural)
 updateEndpoint_desiredInferenceUnits = Lens.lens (\UpdateEndpoint' {desiredInferenceUnits} -> desiredInferenceUnits) (\s@UpdateEndpoint' {} a -> s {desiredInferenceUnits = a} :: UpdateEndpoint)
+
+-- | Data access role ARN to use in case the new model is encrypted with a
+-- customer CMK.
+updateEndpoint_desiredDataAccessRoleArn :: Lens.Lens' UpdateEndpoint (Prelude.Maybe Prelude.Text)
+updateEndpoint_desiredDataAccessRoleArn = Lens.lens (\UpdateEndpoint' {desiredDataAccessRoleArn} -> desiredDataAccessRoleArn) (\s@UpdateEndpoint' {} a -> s {desiredDataAccessRoleArn = a} :: UpdateEndpoint)
+
+-- | The ARN of the new model to use when updating an existing endpoint.
+updateEndpoint_desiredModelArn :: Lens.Lens' UpdateEndpoint (Prelude.Maybe Prelude.Text)
+updateEndpoint_desiredModelArn = Lens.lens (\UpdateEndpoint' {desiredModelArn} -> desiredModelArn) (\s@UpdateEndpoint' {} a -> s {desiredModelArn = a} :: UpdateEndpoint)
+
+-- | The Amazon Resource Number (ARN) of the endpoint being updated.
+updateEndpoint_endpointArn :: Lens.Lens' UpdateEndpoint Prelude.Text
+updateEndpoint_endpointArn = Lens.lens (\UpdateEndpoint' {endpointArn} -> endpointArn) (\s@UpdateEndpoint' {} a -> s {endpointArn = a} :: UpdateEndpoint)
 
 instance Core.AWSRequest UpdateEndpoint where
   type
@@ -129,11 +149,13 @@ instance Core.ToJSON UpdateEndpoint where
   toJSON UpdateEndpoint' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("EndpointArn" Core..= endpointArn),
-            Prelude.Just
-              ( "DesiredInferenceUnits"
-                  Core..= desiredInferenceUnits
-              )
+          [ ("DesiredInferenceUnits" Core..=)
+              Prelude.<$> desiredInferenceUnits,
+            ("DesiredDataAccessRoleArn" Core..=)
+              Prelude.<$> desiredDataAccessRoleArn,
+            ("DesiredModelArn" Core..=)
+              Prelude.<$> desiredModelArn,
+            Prelude.Just ("EndpointArn" Core..= endpointArn)
           ]
       )
 

@@ -19,16 +19,24 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Comprehend.Types.InputDataConfig where
 
+import Network.AWS.Comprehend.Types.DocumentReaderConfig
 import Network.AWS.Comprehend.Types.InputFormat
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The input properties for a topic detection job.
+-- | The input properties for an inference job.
 --
 -- /See:/ 'newInputDataConfig' smart constructor.
 data InputDataConfig = InputDataConfig'
-  { -- | Specifies how the text in an input file should be processed:
+  { -- | The document reader config field applies only for InputDataConfig of
+    -- StartEntitiesDetectionJob.
+    --
+    -- Use DocumentReaderConfig to provide specifications about how you want
+    -- your inference documents read. Currently it applies for PDF documents in
+    -- StartEntitiesDetectionJob custom inference.
+    documentReaderConfig :: Prelude.Maybe DocumentReaderConfig,
+    -- | Specifies how the text in an input file should be processed:
     --
     -- -   @ONE_DOC_PER_FILE@ - Each file is considered a separate document.
     --     Use this option when you are processing large documents, such as
@@ -58,6 +66,13 @@ data InputDataConfig = InputDataConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'documentReaderConfig', 'inputDataConfig_documentReaderConfig' - The document reader config field applies only for InputDataConfig of
+-- StartEntitiesDetectionJob.
+--
+-- Use DocumentReaderConfig to provide specifications about how you want
+-- your inference documents read. Currently it applies for PDF documents in
+-- StartEntitiesDetectionJob custom inference.
+--
 -- 'inputFormat', 'inputDataConfig_inputFormat' - Specifies how the text in an input file should be processed:
 --
 -- -   @ONE_DOC_PER_FILE@ - Each file is considered a separate document.
@@ -82,9 +97,20 @@ newInputDataConfig ::
   InputDataConfig
 newInputDataConfig pS3Uri_ =
   InputDataConfig'
-    { inputFormat = Prelude.Nothing,
+    { documentReaderConfig =
+        Prelude.Nothing,
+      inputFormat = Prelude.Nothing,
       s3Uri = pS3Uri_
     }
+
+-- | The document reader config field applies only for InputDataConfig of
+-- StartEntitiesDetectionJob.
+--
+-- Use DocumentReaderConfig to provide specifications about how you want
+-- your inference documents read. Currently it applies for PDF documents in
+-- StartEntitiesDetectionJob custom inference.
+inputDataConfig_documentReaderConfig :: Lens.Lens' InputDataConfig (Prelude.Maybe DocumentReaderConfig)
+inputDataConfig_documentReaderConfig = Lens.lens (\InputDataConfig' {documentReaderConfig} -> documentReaderConfig) (\s@InputDataConfig' {} a -> s {documentReaderConfig = a} :: InputDataConfig)
 
 -- | Specifies how the text in an input file should be processed:
 --
@@ -115,7 +141,8 @@ instance Core.FromJSON InputDataConfig where
       "InputDataConfig"
       ( \x ->
           InputDataConfig'
-            Prelude.<$> (x Core..:? "InputFormat")
+            Prelude.<$> (x Core..:? "DocumentReaderConfig")
+            Prelude.<*> (x Core..:? "InputFormat")
             Prelude.<*> (x Core..: "S3Uri")
       )
 
@@ -127,7 +154,9 @@ instance Core.ToJSON InputDataConfig where
   toJSON InputDataConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("InputFormat" Core..=) Prelude.<$> inputFormat,
+          [ ("DocumentReaderConfig" Core..=)
+              Prelude.<$> documentReaderConfig,
+            ("InputFormat" Core..=) Prelude.<$> inputFormat,
             Prelude.Just ("S3Uri" Core..= s3Uri)
           ]
       )

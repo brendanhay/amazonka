@@ -32,13 +32,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSentimentDetectionJobProperties' smart constructor.
 data SentimentDetectionJobProperties = SentimentDetectionJobProperties'
-  { -- | Configuration parameters for a private Virtual Private Cloud (VPC)
+  { -- | The language code of the input documents.
+    languageCode :: Prelude.Maybe LanguageCode,
+    -- | Configuration parameters for a private Virtual Private Cloud (VPC)
     -- containing the resources you are using for your sentiment detection job.
     -- For more information, see
     -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
     vpcConfig :: Prelude.Maybe VpcConfig,
-    -- | The language code of the input documents.
-    languageCode :: Prelude.Maybe LanguageCode,
     -- | The input data configuration that you supplied when you created the
     -- sentiment detection job.
     inputDataConfig :: Prelude.Maybe InputDataConfig,
@@ -52,6 +52,16 @@ data SentimentDetectionJobProperties = SentimentDetectionJobProperties'
     outputDataConfig :: Prelude.Maybe OutputDataConfig,
     -- | The time that the sentiment detection job ended.
     endTime :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name (ARN) of the sentiment detection job. It is a
+    -- unique, fully qualified identifier for the job. It includes the AWS
+    -- account, Region, and the job ID. The format of the ARN is as follows:
+    --
+    -- @arn:\<partition>:comprehend:\<region>:\<account-id>:sentiment-detection-job\/\<job-id>@
+    --
+    -- The following is an example job ARN:
+    --
+    -- @arn:aws:comprehend:us-west-2:111122223333:sentiment-detection-job\/1234abcd12ab34cd56ef1234567890ab@
+    jobArn :: Prelude.Maybe Prelude.Text,
     -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
     -- uses to encrypt data on the storage volume attached to the ML compute
     -- instance(s) that process the analysis job. The VolumeKmsKeyId can be
@@ -82,12 +92,12 @@ data SentimentDetectionJobProperties = SentimentDetectionJobProperties'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'languageCode', 'sentimentDetectionJobProperties_languageCode' - The language code of the input documents.
+--
 -- 'vpcConfig', 'sentimentDetectionJobProperties_vpcConfig' - Configuration parameters for a private Virtual Private Cloud (VPC)
 -- containing the resources you are using for your sentiment detection job.
 -- For more information, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
---
--- 'languageCode', 'sentimentDetectionJobProperties_languageCode' - The language code of the input documents.
 --
 -- 'inputDataConfig', 'sentimentDetectionJobProperties_inputDataConfig' - The input data configuration that you supplied when you created the
 -- sentiment detection job.
@@ -101,6 +111,16 @@ data SentimentDetectionJobProperties = SentimentDetectionJobProperties'
 -- sentiment detection job.
 --
 -- 'endTime', 'sentimentDetectionJobProperties_endTime' - The time that the sentiment detection job ended.
+--
+-- 'jobArn', 'sentimentDetectionJobProperties_jobArn' - The Amazon Resource Name (ARN) of the sentiment detection job. It is a
+-- unique, fully qualified identifier for the job. It includes the AWS
+-- account, Region, and the job ID. The format of the ARN is as follows:
+--
+-- @arn:\<partition>:comprehend:\<region>:\<account-id>:sentiment-detection-job\/\<job-id>@
+--
+-- The following is an example job ARN:
+--
+-- @arn:aws:comprehend:us-west-2:111122223333:sentiment-detection-job\/1234abcd12ab34cd56ef1234567890ab@
 --
 -- 'volumeKmsKeyId', 'sentimentDetectionJobProperties_volumeKmsKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt data on the storage volume attached to the ML compute
@@ -124,14 +144,15 @@ newSentimentDetectionJobProperties ::
   SentimentDetectionJobProperties
 newSentimentDetectionJobProperties =
   SentimentDetectionJobProperties'
-    { vpcConfig =
+    { languageCode =
         Prelude.Nothing,
-      languageCode = Prelude.Nothing,
+      vpcConfig = Prelude.Nothing,
       inputDataConfig = Prelude.Nothing,
       message = Prelude.Nothing,
       jobStatus = Prelude.Nothing,
       outputDataConfig = Prelude.Nothing,
       endTime = Prelude.Nothing,
+      jobArn = Prelude.Nothing,
       volumeKmsKeyId = Prelude.Nothing,
       submitTime = Prelude.Nothing,
       jobName = Prelude.Nothing,
@@ -139,16 +160,16 @@ newSentimentDetectionJobProperties =
       jobId = Prelude.Nothing
     }
 
+-- | The language code of the input documents.
+sentimentDetectionJobProperties_languageCode :: Lens.Lens' SentimentDetectionJobProperties (Prelude.Maybe LanguageCode)
+sentimentDetectionJobProperties_languageCode = Lens.lens (\SentimentDetectionJobProperties' {languageCode} -> languageCode) (\s@SentimentDetectionJobProperties' {} a -> s {languageCode = a} :: SentimentDetectionJobProperties)
+
 -- | Configuration parameters for a private Virtual Private Cloud (VPC)
 -- containing the resources you are using for your sentiment detection job.
 -- For more information, see
 -- <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC>.
 sentimentDetectionJobProperties_vpcConfig :: Lens.Lens' SentimentDetectionJobProperties (Prelude.Maybe VpcConfig)
 sentimentDetectionJobProperties_vpcConfig = Lens.lens (\SentimentDetectionJobProperties' {vpcConfig} -> vpcConfig) (\s@SentimentDetectionJobProperties' {} a -> s {vpcConfig = a} :: SentimentDetectionJobProperties)
-
--- | The language code of the input documents.
-sentimentDetectionJobProperties_languageCode :: Lens.Lens' SentimentDetectionJobProperties (Prelude.Maybe LanguageCode)
-sentimentDetectionJobProperties_languageCode = Lens.lens (\SentimentDetectionJobProperties' {languageCode} -> languageCode) (\s@SentimentDetectionJobProperties' {} a -> s {languageCode = a} :: SentimentDetectionJobProperties)
 
 -- | The input data configuration that you supplied when you created the
 -- sentiment detection job.
@@ -172,6 +193,18 @@ sentimentDetectionJobProperties_outputDataConfig = Lens.lens (\SentimentDetectio
 -- | The time that the sentiment detection job ended.
 sentimentDetectionJobProperties_endTime :: Lens.Lens' SentimentDetectionJobProperties (Prelude.Maybe Prelude.UTCTime)
 sentimentDetectionJobProperties_endTime = Lens.lens (\SentimentDetectionJobProperties' {endTime} -> endTime) (\s@SentimentDetectionJobProperties' {} a -> s {endTime = a} :: SentimentDetectionJobProperties) Prelude.. Lens.mapping Core._Time
+
+-- | The Amazon Resource Name (ARN) of the sentiment detection job. It is a
+-- unique, fully qualified identifier for the job. It includes the AWS
+-- account, Region, and the job ID. The format of the ARN is as follows:
+--
+-- @arn:\<partition>:comprehend:\<region>:\<account-id>:sentiment-detection-job\/\<job-id>@
+--
+-- The following is an example job ARN:
+--
+-- @arn:aws:comprehend:us-west-2:111122223333:sentiment-detection-job\/1234abcd12ab34cd56ef1234567890ab@
+sentimentDetectionJobProperties_jobArn :: Lens.Lens' SentimentDetectionJobProperties (Prelude.Maybe Prelude.Text)
+sentimentDetectionJobProperties_jobArn = Lens.lens (\SentimentDetectionJobProperties' {jobArn} -> jobArn) (\s@SentimentDetectionJobProperties' {} a -> s {jobArn = a} :: SentimentDetectionJobProperties)
 
 -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend
 -- uses to encrypt data on the storage volume attached to the ML compute
@@ -211,13 +244,14 @@ instance
       "SentimentDetectionJobProperties"
       ( \x ->
           SentimentDetectionJobProperties'
-            Prelude.<$> (x Core..:? "VpcConfig")
-            Prelude.<*> (x Core..:? "LanguageCode")
+            Prelude.<$> (x Core..:? "LanguageCode")
+            Prelude.<*> (x Core..:? "VpcConfig")
             Prelude.<*> (x Core..:? "InputDataConfig")
             Prelude.<*> (x Core..:? "Message")
             Prelude.<*> (x Core..:? "JobStatus")
             Prelude.<*> (x Core..:? "OutputDataConfig")
             Prelude.<*> (x Core..:? "EndTime")
+            Prelude.<*> (x Core..:? "JobArn")
             Prelude.<*> (x Core..:? "VolumeKmsKeyId")
             Prelude.<*> (x Core..:? "SubmitTime")
             Prelude.<*> (x Core..:? "JobName")

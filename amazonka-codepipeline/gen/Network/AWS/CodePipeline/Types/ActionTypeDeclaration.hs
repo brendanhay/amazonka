@@ -34,11 +34,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newActionTypeDeclaration' smart constructor.
 data ActionTypeDeclaration = ActionTypeDeclaration'
-  { -- | Details identifying the accounts with permissions to use the action
+  { -- | The links associated with the action type to be updated.
+    urls :: Prelude.Maybe ActionTypeUrls,
+    -- | Details identifying the accounts with permissions to use the action
     -- type.
     permissions :: Prelude.Maybe ActionTypePermissions,
-    -- | The links associated with the action type to be updated.
-    urls :: Prelude.Maybe ActionTypeUrls,
     -- | The properties of the action type to be updated.
     properties :: Prelude.Maybe [ActionTypeProperty],
     -- | The description for the action type to be updated.
@@ -68,10 +68,10 @@ data ActionTypeDeclaration = ActionTypeDeclaration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'urls', 'actionTypeDeclaration_urls' - The links associated with the action type to be updated.
+--
 -- 'permissions', 'actionTypeDeclaration_permissions' - Details identifying the accounts with permissions to use the action
 -- type.
---
--- 'urls', 'actionTypeDeclaration_urls' - The links associated with the action type to be updated.
 --
 -- 'properties', 'actionTypeDeclaration_properties' - The properties of the action type to be updated.
 --
@@ -106,9 +106,8 @@ newActionTypeDeclaration
   pInputArtifactDetails_
   pOutputArtifactDetails_ =
     ActionTypeDeclaration'
-      { permissions =
-          Prelude.Nothing,
-        urls = Prelude.Nothing,
+      { urls = Prelude.Nothing,
+        permissions = Prelude.Nothing,
         properties = Prelude.Nothing,
         description = Prelude.Nothing,
         executor = pExecutor_,
@@ -117,14 +116,14 @@ newActionTypeDeclaration
         outputArtifactDetails = pOutputArtifactDetails_
       }
 
+-- | The links associated with the action type to be updated.
+actionTypeDeclaration_urls :: Lens.Lens' ActionTypeDeclaration (Prelude.Maybe ActionTypeUrls)
+actionTypeDeclaration_urls = Lens.lens (\ActionTypeDeclaration' {urls} -> urls) (\s@ActionTypeDeclaration' {} a -> s {urls = a} :: ActionTypeDeclaration)
+
 -- | Details identifying the accounts with permissions to use the action
 -- type.
 actionTypeDeclaration_permissions :: Lens.Lens' ActionTypeDeclaration (Prelude.Maybe ActionTypePermissions)
 actionTypeDeclaration_permissions = Lens.lens (\ActionTypeDeclaration' {permissions} -> permissions) (\s@ActionTypeDeclaration' {} a -> s {permissions = a} :: ActionTypeDeclaration)
-
--- | The links associated with the action type to be updated.
-actionTypeDeclaration_urls :: Lens.Lens' ActionTypeDeclaration (Prelude.Maybe ActionTypeUrls)
-actionTypeDeclaration_urls = Lens.lens (\ActionTypeDeclaration' {urls} -> urls) (\s@ActionTypeDeclaration' {} a -> s {urls = a} :: ActionTypeDeclaration)
 
 -- | The properties of the action type to be updated.
 actionTypeDeclaration_properties :: Lens.Lens' ActionTypeDeclaration (Prelude.Maybe [ActionTypeProperty])
@@ -162,8 +161,8 @@ instance Core.FromJSON ActionTypeDeclaration where
       "ActionTypeDeclaration"
       ( \x ->
           ActionTypeDeclaration'
-            Prelude.<$> (x Core..:? "permissions")
-            Prelude.<*> (x Core..:? "urls")
+            Prelude.<$> (x Core..:? "urls")
+            Prelude.<*> (x Core..:? "permissions")
             Prelude.<*> (x Core..:? "properties" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..: "executor")
@@ -180,8 +179,8 @@ instance Core.ToJSON ActionTypeDeclaration where
   toJSON ActionTypeDeclaration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("permissions" Core..=) Prelude.<$> permissions,
-            ("urls" Core..=) Prelude.<$> urls,
+          [ ("urls" Core..=) Prelude.<$> urls,
+            ("permissions" Core..=) Prelude.<$> permissions,
             ("properties" Core..=) Prelude.<$> properties,
             ("description" Core..=) Prelude.<$> description,
             Prelude.Just ("executor" Core..= executor),

@@ -53,12 +53,12 @@ data ActionDeclaration = ActionDeclaration'
     configuration :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The order in which actions are run.
     runOrder :: Prelude.Maybe Prelude.Natural,
-    -- | The variable namespace associated with the action. All variables
-    -- produced as output by this action fall under this namespace.
-    namespace :: Prelude.Maybe Prelude.Text,
     -- | The name or ID of the artifact consumed by the action, such as a test or
     -- build artifact.
     inputArtifacts :: Prelude.Maybe [InputArtifact],
+    -- | The variable namespace associated with the action. All variables
+    -- produced as output by this action fall under this namespace.
+    namespace :: Prelude.Maybe Prelude.Text,
     -- | The action declaration\'s AWS Region, such as us-east-1.
     region :: Prelude.Maybe Prelude.Text,
     -- | The name or ID of the result of the action declaration, such as a test
@@ -102,11 +102,11 @@ data ActionDeclaration = ActionDeclaration'
 --
 -- 'runOrder', 'actionDeclaration_runOrder' - The order in which actions are run.
 --
--- 'namespace', 'actionDeclaration_namespace' - The variable namespace associated with the action. All variables
--- produced as output by this action fall under this namespace.
---
 -- 'inputArtifacts', 'actionDeclaration_inputArtifacts' - The name or ID of the artifact consumed by the action, such as a test or
 -- build artifact.
+--
+-- 'namespace', 'actionDeclaration_namespace' - The variable namespace associated with the action. All variables
+-- produced as output by this action fall under this namespace.
 --
 -- 'region', 'actionDeclaration_region' - The action declaration\'s AWS Region, such as us-east-1.
 --
@@ -127,8 +127,8 @@ newActionDeclaration pName_ pActionTypeId_ =
     { roleArn = Prelude.Nothing,
       configuration = Prelude.Nothing,
       runOrder = Prelude.Nothing,
-      namespace = Prelude.Nothing,
       inputArtifacts = Prelude.Nothing,
+      namespace = Prelude.Nothing,
       region = Prelude.Nothing,
       outputArtifacts = Prelude.Nothing,
       name = pName_,
@@ -164,15 +164,15 @@ actionDeclaration_configuration = Lens.lens (\ActionDeclaration' {configuration}
 actionDeclaration_runOrder :: Lens.Lens' ActionDeclaration (Prelude.Maybe Prelude.Natural)
 actionDeclaration_runOrder = Lens.lens (\ActionDeclaration' {runOrder} -> runOrder) (\s@ActionDeclaration' {} a -> s {runOrder = a} :: ActionDeclaration)
 
--- | The variable namespace associated with the action. All variables
--- produced as output by this action fall under this namespace.
-actionDeclaration_namespace :: Lens.Lens' ActionDeclaration (Prelude.Maybe Prelude.Text)
-actionDeclaration_namespace = Lens.lens (\ActionDeclaration' {namespace} -> namespace) (\s@ActionDeclaration' {} a -> s {namespace = a} :: ActionDeclaration)
-
 -- | The name or ID of the artifact consumed by the action, such as a test or
 -- build artifact.
 actionDeclaration_inputArtifacts :: Lens.Lens' ActionDeclaration (Prelude.Maybe [InputArtifact])
 actionDeclaration_inputArtifacts = Lens.lens (\ActionDeclaration' {inputArtifacts} -> inputArtifacts) (\s@ActionDeclaration' {} a -> s {inputArtifacts = a} :: ActionDeclaration) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The variable namespace associated with the action. All variables
+-- produced as output by this action fall under this namespace.
+actionDeclaration_namespace :: Lens.Lens' ActionDeclaration (Prelude.Maybe Prelude.Text)
+actionDeclaration_namespace = Lens.lens (\ActionDeclaration' {namespace} -> namespace) (\s@ActionDeclaration' {} a -> s {namespace = a} :: ActionDeclaration)
 
 -- | The action declaration\'s AWS Region, such as us-east-1.
 actionDeclaration_region :: Lens.Lens' ActionDeclaration (Prelude.Maybe Prelude.Text)
@@ -200,8 +200,8 @@ instance Core.FromJSON ActionDeclaration where
             Prelude.<$> (x Core..:? "roleArn")
             Prelude.<*> (x Core..:? "configuration" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "runOrder")
-            Prelude.<*> (x Core..:? "namespace")
             Prelude.<*> (x Core..:? "inputArtifacts" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "namespace")
             Prelude.<*> (x Core..:? "region")
             Prelude.<*> ( x Core..:? "outputArtifacts"
                             Core..!= Prelude.mempty
@@ -221,9 +221,9 @@ instance Core.ToJSON ActionDeclaration where
           [ ("roleArn" Core..=) Prelude.<$> roleArn,
             ("configuration" Core..=) Prelude.<$> configuration,
             ("runOrder" Core..=) Prelude.<$> runOrder,
-            ("namespace" Core..=) Prelude.<$> namespace,
             ("inputArtifacts" Core..=)
               Prelude.<$> inputArtifacts,
+            ("namespace" Core..=) Prelude.<$> namespace,
             ("region" Core..=) Prelude.<$> region,
             ("outputArtifacts" Core..=)
               Prelude.<$> outputArtifacts,

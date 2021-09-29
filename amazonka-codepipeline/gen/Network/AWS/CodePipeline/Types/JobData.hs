@@ -44,19 +44,19 @@ data JobData = JobData'
     encryptionKey :: Prelude.Maybe EncryptionKey,
     -- | Represents information about an action configuration.
     actionConfiguration :: Prelude.Maybe ActionConfiguration,
-    -- | Represents information about an action type.
-    actionTypeId :: Prelude.Maybe ActionTypeId,
     -- | The artifact supplied to the job.
     inputArtifacts :: Prelude.Maybe [Artifact],
+    -- | Represents information about an action type.
+    actionTypeId :: Prelude.Maybe ActionTypeId,
     -- | Represents information about a pipeline to a job worker.
     --
     -- Includes @pipelineArn@ and @pipelineExecutionId@ for custom jobs.
     pipelineContext :: Prelude.Maybe PipelineContext,
+    -- | The output of the job.
+    outputArtifacts :: Prelude.Maybe [Artifact],
     -- | A system-generated token, such as a AWS CodeDeploy deployment ID,
     -- required by a job to continue the job asynchronously.
-    continuationToken :: Prelude.Maybe Prelude.Text,
-    -- | The output of the job.
-    outputArtifacts :: Prelude.Maybe [Artifact]
+    continuationToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -78,18 +78,18 @@ data JobData = JobData'
 --
 -- 'actionConfiguration', 'jobData_actionConfiguration' - Represents information about an action configuration.
 --
--- 'actionTypeId', 'jobData_actionTypeId' - Represents information about an action type.
---
 -- 'inputArtifacts', 'jobData_inputArtifacts' - The artifact supplied to the job.
+--
+-- 'actionTypeId', 'jobData_actionTypeId' - Represents information about an action type.
 --
 -- 'pipelineContext', 'jobData_pipelineContext' - Represents information about a pipeline to a job worker.
 --
 -- Includes @pipelineArn@ and @pipelineExecutionId@ for custom jobs.
 --
+-- 'outputArtifacts', 'jobData_outputArtifacts' - The output of the job.
+--
 -- 'continuationToken', 'jobData_continuationToken' - A system-generated token, such as a AWS CodeDeploy deployment ID,
 -- required by a job to continue the job asynchronously.
---
--- 'outputArtifacts', 'jobData_outputArtifacts' - The output of the job.
 newJobData ::
   JobData
 newJobData =
@@ -97,11 +97,11 @@ newJobData =
     { artifactCredentials = Prelude.Nothing,
       encryptionKey = Prelude.Nothing,
       actionConfiguration = Prelude.Nothing,
-      actionTypeId = Prelude.Nothing,
       inputArtifacts = Prelude.Nothing,
+      actionTypeId = Prelude.Nothing,
       pipelineContext = Prelude.Nothing,
-      continuationToken = Prelude.Nothing,
-      outputArtifacts = Prelude.Nothing
+      outputArtifacts = Prelude.Nothing,
+      continuationToken = Prelude.Nothing
     }
 
 -- | Represents an AWS session credentials object. These credentials are
@@ -120,13 +120,13 @@ jobData_encryptionKey = Lens.lens (\JobData' {encryptionKey} -> encryptionKey) (
 jobData_actionConfiguration :: Lens.Lens' JobData (Prelude.Maybe ActionConfiguration)
 jobData_actionConfiguration = Lens.lens (\JobData' {actionConfiguration} -> actionConfiguration) (\s@JobData' {} a -> s {actionConfiguration = a} :: JobData)
 
--- | Represents information about an action type.
-jobData_actionTypeId :: Lens.Lens' JobData (Prelude.Maybe ActionTypeId)
-jobData_actionTypeId = Lens.lens (\JobData' {actionTypeId} -> actionTypeId) (\s@JobData' {} a -> s {actionTypeId = a} :: JobData)
-
 -- | The artifact supplied to the job.
 jobData_inputArtifacts :: Lens.Lens' JobData (Prelude.Maybe [Artifact])
 jobData_inputArtifacts = Lens.lens (\JobData' {inputArtifacts} -> inputArtifacts) (\s@JobData' {} a -> s {inputArtifacts = a} :: JobData) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Represents information about an action type.
+jobData_actionTypeId :: Lens.Lens' JobData (Prelude.Maybe ActionTypeId)
+jobData_actionTypeId = Lens.lens (\JobData' {actionTypeId} -> actionTypeId) (\s@JobData' {} a -> s {actionTypeId = a} :: JobData)
 
 -- | Represents information about a pipeline to a job worker.
 --
@@ -134,14 +134,14 @@ jobData_inputArtifacts = Lens.lens (\JobData' {inputArtifacts} -> inputArtifacts
 jobData_pipelineContext :: Lens.Lens' JobData (Prelude.Maybe PipelineContext)
 jobData_pipelineContext = Lens.lens (\JobData' {pipelineContext} -> pipelineContext) (\s@JobData' {} a -> s {pipelineContext = a} :: JobData)
 
+-- | The output of the job.
+jobData_outputArtifacts :: Lens.Lens' JobData (Prelude.Maybe [Artifact])
+jobData_outputArtifacts = Lens.lens (\JobData' {outputArtifacts} -> outputArtifacts) (\s@JobData' {} a -> s {outputArtifacts = a} :: JobData) Prelude.. Lens.mapping Lens._Coerce
+
 -- | A system-generated token, such as a AWS CodeDeploy deployment ID,
 -- required by a job to continue the job asynchronously.
 jobData_continuationToken :: Lens.Lens' JobData (Prelude.Maybe Prelude.Text)
 jobData_continuationToken = Lens.lens (\JobData' {continuationToken} -> continuationToken) (\s@JobData' {} a -> s {continuationToken = a} :: JobData)
-
--- | The output of the job.
-jobData_outputArtifacts :: Lens.Lens' JobData (Prelude.Maybe [Artifact])
-jobData_outputArtifacts = Lens.lens (\JobData' {outputArtifacts} -> outputArtifacts) (\s@JobData' {} a -> s {outputArtifacts = a} :: JobData) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON JobData where
   parseJSON =
@@ -152,13 +152,13 @@ instance Core.FromJSON JobData where
             Prelude.<$> (x Core..:? "artifactCredentials")
             Prelude.<*> (x Core..:? "encryptionKey")
             Prelude.<*> (x Core..:? "actionConfiguration")
-            Prelude.<*> (x Core..:? "actionTypeId")
             Prelude.<*> (x Core..:? "inputArtifacts" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "actionTypeId")
             Prelude.<*> (x Core..:? "pipelineContext")
-            Prelude.<*> (x Core..:? "continuationToken")
             Prelude.<*> ( x Core..:? "outputArtifacts"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "continuationToken")
       )
 
 instance Prelude.Hashable JobData

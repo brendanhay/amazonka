@@ -38,11 +38,11 @@ data ActionExecutionDetail = ActionExecutionDetail'
     actionName :: Prelude.Maybe Prelude.Text,
     -- | The action execution ID.
     actionExecutionId :: Prelude.Maybe Prelude.Text,
+    -- | The last update time of the action execution.
+    lastUpdateTime :: Prelude.Maybe Core.POSIX,
     -- | Input details for the action execution, such as role ARN, Region, and
     -- input artifacts.
     input :: Prelude.Maybe ActionExecutionInput,
-    -- | The last update time of the action execution.
-    lastUpdateTime :: Prelude.Maybe Core.POSIX,
     -- | The name of the stage that contains the action.
     stageName :: Prelude.Maybe Prelude.Text,
     -- | The start time of the action execution.
@@ -72,10 +72,10 @@ data ActionExecutionDetail = ActionExecutionDetail'
 --
 -- 'actionExecutionId', 'actionExecutionDetail_actionExecutionId' - The action execution ID.
 --
+-- 'lastUpdateTime', 'actionExecutionDetail_lastUpdateTime' - The last update time of the action execution.
+--
 -- 'input', 'actionExecutionDetail_input' - Input details for the action execution, such as role ARN, Region, and
 -- input artifacts.
---
--- 'lastUpdateTime', 'actionExecutionDetail_lastUpdateTime' - The last update time of the action execution.
 --
 -- 'stageName', 'actionExecutionDetail_stageName' - The name of the stage that contains the action.
 --
@@ -94,8 +94,8 @@ newActionExecutionDetail =
     { status = Prelude.Nothing,
       actionName = Prelude.Nothing,
       actionExecutionId = Prelude.Nothing,
-      input = Prelude.Nothing,
       lastUpdateTime = Prelude.Nothing,
+      input = Prelude.Nothing,
       stageName = Prelude.Nothing,
       startTime = Prelude.Nothing,
       output = Prelude.Nothing,
@@ -116,14 +116,14 @@ actionExecutionDetail_actionName = Lens.lens (\ActionExecutionDetail' {actionNam
 actionExecutionDetail_actionExecutionId :: Lens.Lens' ActionExecutionDetail (Prelude.Maybe Prelude.Text)
 actionExecutionDetail_actionExecutionId = Lens.lens (\ActionExecutionDetail' {actionExecutionId} -> actionExecutionId) (\s@ActionExecutionDetail' {} a -> s {actionExecutionId = a} :: ActionExecutionDetail)
 
+-- | The last update time of the action execution.
+actionExecutionDetail_lastUpdateTime :: Lens.Lens' ActionExecutionDetail (Prelude.Maybe Prelude.UTCTime)
+actionExecutionDetail_lastUpdateTime = Lens.lens (\ActionExecutionDetail' {lastUpdateTime} -> lastUpdateTime) (\s@ActionExecutionDetail' {} a -> s {lastUpdateTime = a} :: ActionExecutionDetail) Prelude.. Lens.mapping Core._Time
+
 -- | Input details for the action execution, such as role ARN, Region, and
 -- input artifacts.
 actionExecutionDetail_input :: Lens.Lens' ActionExecutionDetail (Prelude.Maybe ActionExecutionInput)
 actionExecutionDetail_input = Lens.lens (\ActionExecutionDetail' {input} -> input) (\s@ActionExecutionDetail' {} a -> s {input = a} :: ActionExecutionDetail)
-
--- | The last update time of the action execution.
-actionExecutionDetail_lastUpdateTime :: Lens.Lens' ActionExecutionDetail (Prelude.Maybe Prelude.UTCTime)
-actionExecutionDetail_lastUpdateTime = Lens.lens (\ActionExecutionDetail' {lastUpdateTime} -> lastUpdateTime) (\s@ActionExecutionDetail' {} a -> s {lastUpdateTime = a} :: ActionExecutionDetail) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the stage that contains the action.
 actionExecutionDetail_stageName :: Lens.Lens' ActionExecutionDetail (Prelude.Maybe Prelude.Text)
@@ -155,8 +155,8 @@ instance Core.FromJSON ActionExecutionDetail where
             Prelude.<$> (x Core..:? "status")
             Prelude.<*> (x Core..:? "actionName")
             Prelude.<*> (x Core..:? "actionExecutionId")
-            Prelude.<*> (x Core..:? "input")
             Prelude.<*> (x Core..:? "lastUpdateTime")
+            Prelude.<*> (x Core..:? "input")
             Prelude.<*> (x Core..:? "stageName")
             Prelude.<*> (x Core..:? "startTime")
             Prelude.<*> (x Core..:? "output")

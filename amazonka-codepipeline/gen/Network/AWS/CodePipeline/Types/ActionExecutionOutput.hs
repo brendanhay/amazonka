@@ -33,12 +33,12 @@ data ActionExecutionOutput = ActionExecutionOutput'
   { -- | Execution result information listed in the output details for an action
     -- execution.
     executionResult :: Prelude.Maybe ActionExecutionResult,
-    -- | The outputVariables field shows the key-value pairs that were output as
-    -- part of that execution.
-    outputVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Details of output artifacts of the action that correspond to the action
     -- execution.
-    outputArtifacts :: Prelude.Maybe [ArtifactDetail]
+    outputArtifacts :: Prelude.Maybe [ArtifactDetail],
+    -- | The outputVariables field shows the key-value pairs that were output as
+    -- part of that execution.
+    outputVariables :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,19 +53,19 @@ data ActionExecutionOutput = ActionExecutionOutput'
 -- 'executionResult', 'actionExecutionOutput_executionResult' - Execution result information listed in the output details for an action
 -- execution.
 --
--- 'outputVariables', 'actionExecutionOutput_outputVariables' - The outputVariables field shows the key-value pairs that were output as
--- part of that execution.
---
 -- 'outputArtifacts', 'actionExecutionOutput_outputArtifacts' - Details of output artifacts of the action that correspond to the action
 -- execution.
+--
+-- 'outputVariables', 'actionExecutionOutput_outputVariables' - The outputVariables field shows the key-value pairs that were output as
+-- part of that execution.
 newActionExecutionOutput ::
   ActionExecutionOutput
 newActionExecutionOutput =
   ActionExecutionOutput'
     { executionResult =
         Prelude.Nothing,
-      outputVariables = Prelude.Nothing,
-      outputArtifacts = Prelude.Nothing
+      outputArtifacts = Prelude.Nothing,
+      outputVariables = Prelude.Nothing
     }
 
 -- | Execution result information listed in the output details for an action
@@ -73,15 +73,15 @@ newActionExecutionOutput =
 actionExecutionOutput_executionResult :: Lens.Lens' ActionExecutionOutput (Prelude.Maybe ActionExecutionResult)
 actionExecutionOutput_executionResult = Lens.lens (\ActionExecutionOutput' {executionResult} -> executionResult) (\s@ActionExecutionOutput' {} a -> s {executionResult = a} :: ActionExecutionOutput)
 
--- | The outputVariables field shows the key-value pairs that were output as
--- part of that execution.
-actionExecutionOutput_outputVariables :: Lens.Lens' ActionExecutionOutput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-actionExecutionOutput_outputVariables = Lens.lens (\ActionExecutionOutput' {outputVariables} -> outputVariables) (\s@ActionExecutionOutput' {} a -> s {outputVariables = a} :: ActionExecutionOutput) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Details of output artifacts of the action that correspond to the action
 -- execution.
 actionExecutionOutput_outputArtifacts :: Lens.Lens' ActionExecutionOutput (Prelude.Maybe [ArtifactDetail])
 actionExecutionOutput_outputArtifacts = Lens.lens (\ActionExecutionOutput' {outputArtifacts} -> outputArtifacts) (\s@ActionExecutionOutput' {} a -> s {outputArtifacts = a} :: ActionExecutionOutput) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The outputVariables field shows the key-value pairs that were output as
+-- part of that execution.
+actionExecutionOutput_outputVariables :: Lens.Lens' ActionExecutionOutput (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+actionExecutionOutput_outputVariables = Lens.lens (\ActionExecutionOutput' {outputVariables} -> outputVariables) (\s@ActionExecutionOutput' {} a -> s {outputVariables = a} :: ActionExecutionOutput) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON ActionExecutionOutput where
   parseJSON =
@@ -90,10 +90,10 @@ instance Core.FromJSON ActionExecutionOutput where
       ( \x ->
           ActionExecutionOutput'
             Prelude.<$> (x Core..:? "executionResult")
-            Prelude.<*> ( x Core..:? "outputVariables"
+            Prelude.<*> ( x Core..:? "outputArtifacts"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "outputArtifacts"
+            Prelude.<*> ( x Core..:? "outputVariables"
                             Core..!= Prelude.mempty
                         )
       )

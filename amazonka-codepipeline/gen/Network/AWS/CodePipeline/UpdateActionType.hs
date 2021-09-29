@@ -48,7 +48,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newUpdateActionType' smart constructor.
 data UpdateActionType = UpdateActionType'
   { -- | The action type definition for the action type to be updated.
-    actionType :: Prelude.Maybe ActionTypeDeclaration
+    actionType :: ActionTypeDeclaration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -62,12 +62,14 @@ data UpdateActionType = UpdateActionType'
 --
 -- 'actionType', 'updateActionType_actionType' - The action type definition for the action type to be updated.
 newUpdateActionType ::
+  -- | 'actionType'
+  ActionTypeDeclaration ->
   UpdateActionType
-newUpdateActionType =
-  UpdateActionType' {actionType = Prelude.Nothing}
+newUpdateActionType pActionType_ =
+  UpdateActionType' {actionType = pActionType_}
 
 -- | The action type definition for the action type to be updated.
-updateActionType_actionType :: Lens.Lens' UpdateActionType (Prelude.Maybe ActionTypeDeclaration)
+updateActionType_actionType :: Lens.Lens' UpdateActionType ActionTypeDeclaration
 updateActionType_actionType = Lens.lens (\UpdateActionType' {actionType} -> actionType) (\s@UpdateActionType' {} a -> s {actionType = a} :: UpdateActionType)
 
 instance Core.AWSRequest UpdateActionType where
@@ -101,7 +103,7 @@ instance Core.ToJSON UpdateActionType where
   toJSON UpdateActionType' {..} =
     Core.object
       ( Prelude.catMaybes
-          [("actionType" Core..=) Prelude.<$> actionType]
+          [Prelude.Just ("actionType" Core..= actionType)]
       )
 
 instance Core.ToPath UpdateActionType where

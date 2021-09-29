@@ -30,23 +30,26 @@ import Test.Tasty
 --         [ requestListActionTypes $
 --             newListActionTypes
 --
+--         , requestPutJobSuccessResult $
+--             newPutJobSuccessResult
+--
 --         , requestDeregisterWebhookWithThirdParty $
 --             newDeregisterWebhookWithThirdParty
 --
 --         , requestPutActionRevision $
 --             newPutActionRevision
 --
---         , requestPutJobSuccessResult $
---             newPutJobSuccessResult
---
 --         , requestPutThirdPartyJobSuccessResult $
 --             newPutThirdPartyJobSuccessResult
+--
+--         , requestRetryStageExecution $
+--             newRetryStageExecution
 --
 --         , requestCreatePipeline $
 --             newCreatePipeline
 --
---         , requestRetryStageExecution $
---             newRetryStageExecution
+--         , requestDeletePipeline $
+--             newDeletePipeline
 --
 --         , requestUpdatePipeline $
 --             newUpdatePipeline
@@ -57,11 +60,8 @@ import Test.Tasty
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestDeletePipeline $
---             newDeletePipeline
---
---         , requestStartPipelineExecution $
---             newStartPipelineExecution
+--         , requestStopPipelineExecution $
+--             newStopPipelineExecution
 --
 --         , requestGetActionType $
 --             newGetActionType
@@ -69,41 +69,41 @@ import Test.Tasty
 --         , requestTagResource $
 --             newTagResource
 --
---         , requestStopPipelineExecution $
---             newStopPipelineExecution
---
---         , requestRegisterWebhookWithThirdParty $
---             newRegisterWebhookWithThirdParty
---
---         , requestListActionExecutions $
---             newListActionExecutions
+--         , requestStartPipelineExecution $
+--             newStartPipelineExecution
 --
 --         , requestPollForThirdPartyJobs $
 --             newPollForThirdPartyJobs
 --
+--         , requestListActionExecutions $
+--             newListActionExecutions
+--
+--         , requestRegisterWebhookWithThirdParty $
+--             newRegisterWebhookWithThirdParty
+--
 --         , requestEnableStageTransition $
 --             newEnableStageTransition
---
---         , requestDeleteWebhook $
---             newDeleteWebhook
 --
 --         , requestAcknowledgeThirdPartyJob $
 --             newAcknowledgeThirdPartyJob
 --
---         , requestAcknowledgeJob $
---             newAcknowledgeJob
+--         , requestDeleteWebhook $
+--             newDeleteWebhook
 --
---         , requestDisableStageTransition $
---             newDisableStageTransition
---
---         , requestUpdateActionType $
---             newUpdateActionType
+--         , requestPutJobFailureResult $
+--             newPutJobFailureResult
 --
 --         , requestPutApprovalResult $
 --             newPutApprovalResult
 --
---         , requestPutJobFailureResult $
---             newPutJobFailureResult
+--         , requestAcknowledgeJob $
+--             newAcknowledgeJob
+--
+--         , requestUpdateActionType $
+--             newUpdateActionType
+--
+--         , requestDisableStageTransition $
+--             newDisableStageTransition
 --
 --         , requestDeleteCustomActionType $
 --             newDeleteCustomActionType
@@ -117,11 +117,11 @@ import Test.Tasty
 --         , requestListPipelineExecutions $
 --             newListPipelineExecutions
 --
---         , requestGetThirdPartyJobDetails $
---             newGetThirdPartyJobDetails
---
 --         , requestGetPipelineExecution $
 --             newGetPipelineExecution
+--
+--         , requestGetThirdPartyJobDetails $
+--             newGetThirdPartyJobDetails
 --
 --         , requestGetJobDetails $
 --             newGetJobDetails
@@ -132,17 +132,17 @@ import Test.Tasty
 --         , requestPollForJobs $
 --             newPollForJobs
 --
---         , requestListTagsForResource $
---             newListTagsForResource
---
---         , requestPutWebhook $
---             newPutWebhook
---
 --         , requestPutThirdPartyJobFailureResult $
 --             newPutThirdPartyJobFailureResult
 --
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
 --         , requestListWebhooks $
 --             newListWebhooks
+--
+--         , requestPutWebhook $
+--             newPutWebhook
 --
 --           ]
 
@@ -150,23 +150,26 @@ import Test.Tasty
 --         [ responseListActionTypes $
 --             newListActionTypesResponse
 --
+--         , responsePutJobSuccessResult $
+--             newPutJobSuccessResultResponse
+--
 --         , responseDeregisterWebhookWithThirdParty $
 --             newDeregisterWebhookWithThirdPartyResponse
 --
 --         , responsePutActionRevision $
 --             newPutActionRevisionResponse
 --
---         , responsePutJobSuccessResult $
---             newPutJobSuccessResultResponse
---
 --         , responsePutThirdPartyJobSuccessResult $
 --             newPutThirdPartyJobSuccessResultResponse
+--
+--         , responseRetryStageExecution $
+--             newRetryStageExecutionResponse
 --
 --         , responseCreatePipeline $
 --             newCreatePipelineResponse
 --
---         , responseRetryStageExecution $
---             newRetryStageExecutionResponse
+--         , responseDeletePipeline $
+--             newDeletePipelineResponse
 --
 --         , responseUpdatePipeline $
 --             newUpdatePipelineResponse
@@ -177,11 +180,8 @@ import Test.Tasty
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseDeletePipeline $
---             newDeletePipelineResponse
---
---         , responseStartPipelineExecution $
---             newStartPipelineExecutionResponse
+--         , responseStopPipelineExecution $
+--             newStopPipelineExecutionResponse
 --
 --         , responseGetActionType $
 --             newGetActionTypeResponse
@@ -189,41 +189,41 @@ import Test.Tasty
 --         , responseTagResource $
 --             newTagResourceResponse
 --
---         , responseStopPipelineExecution $
---             newStopPipelineExecutionResponse
---
---         , responseRegisterWebhookWithThirdParty $
---             newRegisterWebhookWithThirdPartyResponse
---
---         , responseListActionExecutions $
---             newListActionExecutionsResponse
+--         , responseStartPipelineExecution $
+--             newStartPipelineExecutionResponse
 --
 --         , responsePollForThirdPartyJobs $
 --             newPollForThirdPartyJobsResponse
 --
+--         , responseListActionExecutions $
+--             newListActionExecutionsResponse
+--
+--         , responseRegisterWebhookWithThirdParty $
+--             newRegisterWebhookWithThirdPartyResponse
+--
 --         , responseEnableStageTransition $
 --             newEnableStageTransitionResponse
---
---         , responseDeleteWebhook $
---             newDeleteWebhookResponse
 --
 --         , responseAcknowledgeThirdPartyJob $
 --             newAcknowledgeThirdPartyJobResponse
 --
---         , responseAcknowledgeJob $
---             newAcknowledgeJobResponse
+--         , responseDeleteWebhook $
+--             newDeleteWebhookResponse
 --
---         , responseDisableStageTransition $
---             newDisableStageTransitionResponse
---
---         , responseUpdateActionType $
---             newUpdateActionTypeResponse
+--         , responsePutJobFailureResult $
+--             newPutJobFailureResultResponse
 --
 --         , responsePutApprovalResult $
 --             newPutApprovalResultResponse
 --
---         , responsePutJobFailureResult $
---             newPutJobFailureResultResponse
+--         , responseAcknowledgeJob $
+--             newAcknowledgeJobResponse
+--
+--         , responseUpdateActionType $
+--             newUpdateActionTypeResponse
+--
+--         , responseDisableStageTransition $
+--             newDisableStageTransitionResponse
 --
 --         , responseDeleteCustomActionType $
 --             newDeleteCustomActionTypeResponse
@@ -237,11 +237,11 @@ import Test.Tasty
 --         , responseListPipelineExecutions $
 --             newListPipelineExecutionsResponse
 --
---         , responseGetThirdPartyJobDetails $
---             newGetThirdPartyJobDetailsResponse
---
 --         , responseGetPipelineExecution $
 --             newGetPipelineExecutionResponse
+--
+--         , responseGetThirdPartyJobDetails $
+--             newGetThirdPartyJobDetailsResponse
 --
 --         , responseGetJobDetails $
 --             newGetJobDetailsResponse
@@ -252,17 +252,17 @@ import Test.Tasty
 --         , responsePollForJobs $
 --             newPollForJobsResponse
 --
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
---         , responsePutWebhook $
---             newPutWebhookResponse
---
 --         , responsePutThirdPartyJobFailureResult $
 --             newPutThirdPartyJobFailureResultResponse
 --
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
 --         , responseListWebhooks $
 --             newListWebhooksResponse
+--
+--         , responsePutWebhook $
+--             newPutWebhookResponse
 --
 --           ]
 --     ]
@@ -274,6 +274,12 @@ requestListActionTypes =
   req
     "ListActionTypes"
     "fixture/ListActionTypes.yaml"
+
+requestPutJobSuccessResult :: PutJobSuccessResult -> TestTree
+requestPutJobSuccessResult =
+  req
+    "PutJobSuccessResult"
+    "fixture/PutJobSuccessResult.yaml"
 
 requestDeregisterWebhookWithThirdParty :: DeregisterWebhookWithThirdParty -> TestTree
 requestDeregisterWebhookWithThirdParty =
@@ -287,17 +293,17 @@ requestPutActionRevision =
     "PutActionRevision"
     "fixture/PutActionRevision.yaml"
 
-requestPutJobSuccessResult :: PutJobSuccessResult -> TestTree
-requestPutJobSuccessResult =
-  req
-    "PutJobSuccessResult"
-    "fixture/PutJobSuccessResult.yaml"
-
 requestPutThirdPartyJobSuccessResult :: PutThirdPartyJobSuccessResult -> TestTree
 requestPutThirdPartyJobSuccessResult =
   req
     "PutThirdPartyJobSuccessResult"
     "fixture/PutThirdPartyJobSuccessResult.yaml"
+
+requestRetryStageExecution :: RetryStageExecution -> TestTree
+requestRetryStageExecution =
+  req
+    "RetryStageExecution"
+    "fixture/RetryStageExecution.yaml"
 
 requestCreatePipeline :: CreatePipeline -> TestTree
 requestCreatePipeline =
@@ -305,11 +311,11 @@ requestCreatePipeline =
     "CreatePipeline"
     "fixture/CreatePipeline.yaml"
 
-requestRetryStageExecution :: RetryStageExecution -> TestTree
-requestRetryStageExecution =
+requestDeletePipeline :: DeletePipeline -> TestTree
+requestDeletePipeline =
   req
-    "RetryStageExecution"
-    "fixture/RetryStageExecution.yaml"
+    "DeletePipeline"
+    "fixture/DeletePipeline.yaml"
 
 requestUpdatePipeline :: UpdatePipeline -> TestTree
 requestUpdatePipeline =
@@ -329,17 +335,11 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestDeletePipeline :: DeletePipeline -> TestTree
-requestDeletePipeline =
+requestStopPipelineExecution :: StopPipelineExecution -> TestTree
+requestStopPipelineExecution =
   req
-    "DeletePipeline"
-    "fixture/DeletePipeline.yaml"
-
-requestStartPipelineExecution :: StartPipelineExecution -> TestTree
-requestStartPipelineExecution =
-  req
-    "StartPipelineExecution"
-    "fixture/StartPipelineExecution.yaml"
+    "StopPipelineExecution"
+    "fixture/StopPipelineExecution.yaml"
 
 requestGetActionType :: GetActionType -> TestTree
 requestGetActionType =
@@ -353,23 +353,11 @@ requestTagResource =
     "TagResource"
     "fixture/TagResource.yaml"
 
-requestStopPipelineExecution :: StopPipelineExecution -> TestTree
-requestStopPipelineExecution =
+requestStartPipelineExecution :: StartPipelineExecution -> TestTree
+requestStartPipelineExecution =
   req
-    "StopPipelineExecution"
-    "fixture/StopPipelineExecution.yaml"
-
-requestRegisterWebhookWithThirdParty :: RegisterWebhookWithThirdParty -> TestTree
-requestRegisterWebhookWithThirdParty =
-  req
-    "RegisterWebhookWithThirdParty"
-    "fixture/RegisterWebhookWithThirdParty.yaml"
-
-requestListActionExecutions :: ListActionExecutions -> TestTree
-requestListActionExecutions =
-  req
-    "ListActionExecutions"
-    "fixture/ListActionExecutions.yaml"
+    "StartPipelineExecution"
+    "fixture/StartPipelineExecution.yaml"
 
 requestPollForThirdPartyJobs :: PollForThirdPartyJobs -> TestTree
 requestPollForThirdPartyJobs =
@@ -377,17 +365,23 @@ requestPollForThirdPartyJobs =
     "PollForThirdPartyJobs"
     "fixture/PollForThirdPartyJobs.yaml"
 
+requestListActionExecutions :: ListActionExecutions -> TestTree
+requestListActionExecutions =
+  req
+    "ListActionExecutions"
+    "fixture/ListActionExecutions.yaml"
+
+requestRegisterWebhookWithThirdParty :: RegisterWebhookWithThirdParty -> TestTree
+requestRegisterWebhookWithThirdParty =
+  req
+    "RegisterWebhookWithThirdParty"
+    "fixture/RegisterWebhookWithThirdParty.yaml"
+
 requestEnableStageTransition :: EnableStageTransition -> TestTree
 requestEnableStageTransition =
   req
     "EnableStageTransition"
     "fixture/EnableStageTransition.yaml"
-
-requestDeleteWebhook :: DeleteWebhook -> TestTree
-requestDeleteWebhook =
-  req
-    "DeleteWebhook"
-    "fixture/DeleteWebhook.yaml"
 
 requestAcknowledgeThirdPartyJob :: AcknowledgeThirdPartyJob -> TestTree
 requestAcknowledgeThirdPartyJob =
@@ -395,23 +389,17 @@ requestAcknowledgeThirdPartyJob =
     "AcknowledgeThirdPartyJob"
     "fixture/AcknowledgeThirdPartyJob.yaml"
 
-requestAcknowledgeJob :: AcknowledgeJob -> TestTree
-requestAcknowledgeJob =
+requestDeleteWebhook :: DeleteWebhook -> TestTree
+requestDeleteWebhook =
   req
-    "AcknowledgeJob"
-    "fixture/AcknowledgeJob.yaml"
+    "DeleteWebhook"
+    "fixture/DeleteWebhook.yaml"
 
-requestDisableStageTransition :: DisableStageTransition -> TestTree
-requestDisableStageTransition =
+requestPutJobFailureResult :: PutJobFailureResult -> TestTree
+requestPutJobFailureResult =
   req
-    "DisableStageTransition"
-    "fixture/DisableStageTransition.yaml"
-
-requestUpdateActionType :: UpdateActionType -> TestTree
-requestUpdateActionType =
-  req
-    "UpdateActionType"
-    "fixture/UpdateActionType.yaml"
+    "PutJobFailureResult"
+    "fixture/PutJobFailureResult.yaml"
 
 requestPutApprovalResult :: PutApprovalResult -> TestTree
 requestPutApprovalResult =
@@ -419,11 +407,23 @@ requestPutApprovalResult =
     "PutApprovalResult"
     "fixture/PutApprovalResult.yaml"
 
-requestPutJobFailureResult :: PutJobFailureResult -> TestTree
-requestPutJobFailureResult =
+requestAcknowledgeJob :: AcknowledgeJob -> TestTree
+requestAcknowledgeJob =
   req
-    "PutJobFailureResult"
-    "fixture/PutJobFailureResult.yaml"
+    "AcknowledgeJob"
+    "fixture/AcknowledgeJob.yaml"
+
+requestUpdateActionType :: UpdateActionType -> TestTree
+requestUpdateActionType =
+  req
+    "UpdateActionType"
+    "fixture/UpdateActionType.yaml"
+
+requestDisableStageTransition :: DisableStageTransition -> TestTree
+requestDisableStageTransition =
+  req
+    "DisableStageTransition"
+    "fixture/DisableStageTransition.yaml"
 
 requestDeleteCustomActionType :: DeleteCustomActionType -> TestTree
 requestDeleteCustomActionType =
@@ -449,17 +449,17 @@ requestListPipelineExecutions =
     "ListPipelineExecutions"
     "fixture/ListPipelineExecutions.yaml"
 
-requestGetThirdPartyJobDetails :: GetThirdPartyJobDetails -> TestTree
-requestGetThirdPartyJobDetails =
-  req
-    "GetThirdPartyJobDetails"
-    "fixture/GetThirdPartyJobDetails.yaml"
-
 requestGetPipelineExecution :: GetPipelineExecution -> TestTree
 requestGetPipelineExecution =
   req
     "GetPipelineExecution"
     "fixture/GetPipelineExecution.yaml"
+
+requestGetThirdPartyJobDetails :: GetThirdPartyJobDetails -> TestTree
+requestGetThirdPartyJobDetails =
+  req
+    "GetThirdPartyJobDetails"
+    "fixture/GetThirdPartyJobDetails.yaml"
 
 requestGetJobDetails :: GetJobDetails -> TestTree
 requestGetJobDetails =
@@ -479,29 +479,29 @@ requestPollForJobs =
     "PollForJobs"
     "fixture/PollForJobs.yaml"
 
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
-requestPutWebhook :: PutWebhook -> TestTree
-requestPutWebhook =
-  req
-    "PutWebhook"
-    "fixture/PutWebhook.yaml"
-
 requestPutThirdPartyJobFailureResult :: PutThirdPartyJobFailureResult -> TestTree
 requestPutThirdPartyJobFailureResult =
   req
     "PutThirdPartyJobFailureResult"
     "fixture/PutThirdPartyJobFailureResult.yaml"
 
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
 requestListWebhooks :: ListWebhooks -> TestTree
 requestListWebhooks =
   req
     "ListWebhooks"
     "fixture/ListWebhooks.yaml"
+
+requestPutWebhook :: PutWebhook -> TestTree
+requestPutWebhook =
+  req
+    "PutWebhook"
+    "fixture/PutWebhook.yaml"
 
 -- Responses
 
@@ -512,6 +512,14 @@ responseListActionTypes =
     "fixture/ListActionTypesResponse.proto"
     defaultService
     (Proxy :: Proxy ListActionTypes)
+
+responsePutJobSuccessResult :: PutJobSuccessResultResponse -> TestTree
+responsePutJobSuccessResult =
+  res
+    "PutJobSuccessResultResponse"
+    "fixture/PutJobSuccessResultResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutJobSuccessResult)
 
 responseDeregisterWebhookWithThirdParty :: DeregisterWebhookWithThirdPartyResponse -> TestTree
 responseDeregisterWebhookWithThirdParty =
@@ -529,14 +537,6 @@ responsePutActionRevision =
     defaultService
     (Proxy :: Proxy PutActionRevision)
 
-responsePutJobSuccessResult :: PutJobSuccessResultResponse -> TestTree
-responsePutJobSuccessResult =
-  res
-    "PutJobSuccessResultResponse"
-    "fixture/PutJobSuccessResultResponse.proto"
-    defaultService
-    (Proxy :: Proxy PutJobSuccessResult)
-
 responsePutThirdPartyJobSuccessResult :: PutThirdPartyJobSuccessResultResponse -> TestTree
 responsePutThirdPartyJobSuccessResult =
   res
@@ -544,6 +544,14 @@ responsePutThirdPartyJobSuccessResult =
     "fixture/PutThirdPartyJobSuccessResultResponse.proto"
     defaultService
     (Proxy :: Proxy PutThirdPartyJobSuccessResult)
+
+responseRetryStageExecution :: RetryStageExecutionResponse -> TestTree
+responseRetryStageExecution =
+  res
+    "RetryStageExecutionResponse"
+    "fixture/RetryStageExecutionResponse.proto"
+    defaultService
+    (Proxy :: Proxy RetryStageExecution)
 
 responseCreatePipeline :: CreatePipelineResponse -> TestTree
 responseCreatePipeline =
@@ -553,13 +561,13 @@ responseCreatePipeline =
     defaultService
     (Proxy :: Proxy CreatePipeline)
 
-responseRetryStageExecution :: RetryStageExecutionResponse -> TestTree
-responseRetryStageExecution =
+responseDeletePipeline :: DeletePipelineResponse -> TestTree
+responseDeletePipeline =
   res
-    "RetryStageExecutionResponse"
-    "fixture/RetryStageExecutionResponse.proto"
+    "DeletePipelineResponse"
+    "fixture/DeletePipelineResponse.proto"
     defaultService
-    (Proxy :: Proxy RetryStageExecution)
+    (Proxy :: Proxy DeletePipeline)
 
 responseUpdatePipeline :: UpdatePipelineResponse -> TestTree
 responseUpdatePipeline =
@@ -585,21 +593,13 @@ responseUntagResource =
     defaultService
     (Proxy :: Proxy UntagResource)
 
-responseDeletePipeline :: DeletePipelineResponse -> TestTree
-responseDeletePipeline =
+responseStopPipelineExecution :: StopPipelineExecutionResponse -> TestTree
+responseStopPipelineExecution =
   res
-    "DeletePipelineResponse"
-    "fixture/DeletePipelineResponse.proto"
+    "StopPipelineExecutionResponse"
+    "fixture/StopPipelineExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePipeline)
-
-responseStartPipelineExecution :: StartPipelineExecutionResponse -> TestTree
-responseStartPipelineExecution =
-  res
-    "StartPipelineExecutionResponse"
-    "fixture/StartPipelineExecutionResponse.proto"
-    defaultService
-    (Proxy :: Proxy StartPipelineExecution)
+    (Proxy :: Proxy StopPipelineExecution)
 
 responseGetActionType :: GetActionTypeResponse -> TestTree
 responseGetActionType =
@@ -617,29 +617,13 @@ responseTagResource =
     defaultService
     (Proxy :: Proxy TagResource)
 
-responseStopPipelineExecution :: StopPipelineExecutionResponse -> TestTree
-responseStopPipelineExecution =
+responseStartPipelineExecution :: StartPipelineExecutionResponse -> TestTree
+responseStartPipelineExecution =
   res
-    "StopPipelineExecutionResponse"
-    "fixture/StopPipelineExecutionResponse.proto"
+    "StartPipelineExecutionResponse"
+    "fixture/StartPipelineExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy StopPipelineExecution)
-
-responseRegisterWebhookWithThirdParty :: RegisterWebhookWithThirdPartyResponse -> TestTree
-responseRegisterWebhookWithThirdParty =
-  res
-    "RegisterWebhookWithThirdPartyResponse"
-    "fixture/RegisterWebhookWithThirdPartyResponse.proto"
-    defaultService
-    (Proxy :: Proxy RegisterWebhookWithThirdParty)
-
-responseListActionExecutions :: ListActionExecutionsResponse -> TestTree
-responseListActionExecutions =
-  res
-    "ListActionExecutionsResponse"
-    "fixture/ListActionExecutionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListActionExecutions)
+    (Proxy :: Proxy StartPipelineExecution)
 
 responsePollForThirdPartyJobs :: PollForThirdPartyJobsResponse -> TestTree
 responsePollForThirdPartyJobs =
@@ -649,6 +633,22 @@ responsePollForThirdPartyJobs =
     defaultService
     (Proxy :: Proxy PollForThirdPartyJobs)
 
+responseListActionExecutions :: ListActionExecutionsResponse -> TestTree
+responseListActionExecutions =
+  res
+    "ListActionExecutionsResponse"
+    "fixture/ListActionExecutionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListActionExecutions)
+
+responseRegisterWebhookWithThirdParty :: RegisterWebhookWithThirdPartyResponse -> TestTree
+responseRegisterWebhookWithThirdParty =
+  res
+    "RegisterWebhookWithThirdPartyResponse"
+    "fixture/RegisterWebhookWithThirdPartyResponse.proto"
+    defaultService
+    (Proxy :: Proxy RegisterWebhookWithThirdParty)
+
 responseEnableStageTransition :: EnableStageTransitionResponse -> TestTree
 responseEnableStageTransition =
   res
@@ -656,14 +656,6 @@ responseEnableStageTransition =
     "fixture/EnableStageTransitionResponse.proto"
     defaultService
     (Proxy :: Proxy EnableStageTransition)
-
-responseDeleteWebhook :: DeleteWebhookResponse -> TestTree
-responseDeleteWebhook =
-  res
-    "DeleteWebhookResponse"
-    "fixture/DeleteWebhookResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteWebhook)
 
 responseAcknowledgeThirdPartyJob :: AcknowledgeThirdPartyJobResponse -> TestTree
 responseAcknowledgeThirdPartyJob =
@@ -673,29 +665,21 @@ responseAcknowledgeThirdPartyJob =
     defaultService
     (Proxy :: Proxy AcknowledgeThirdPartyJob)
 
-responseAcknowledgeJob :: AcknowledgeJobResponse -> TestTree
-responseAcknowledgeJob =
+responseDeleteWebhook :: DeleteWebhookResponse -> TestTree
+responseDeleteWebhook =
   res
-    "AcknowledgeJobResponse"
-    "fixture/AcknowledgeJobResponse.proto"
+    "DeleteWebhookResponse"
+    "fixture/DeleteWebhookResponse.proto"
     defaultService
-    (Proxy :: Proxy AcknowledgeJob)
+    (Proxy :: Proxy DeleteWebhook)
 
-responseDisableStageTransition :: DisableStageTransitionResponse -> TestTree
-responseDisableStageTransition =
+responsePutJobFailureResult :: PutJobFailureResultResponse -> TestTree
+responsePutJobFailureResult =
   res
-    "DisableStageTransitionResponse"
-    "fixture/DisableStageTransitionResponse.proto"
+    "PutJobFailureResultResponse"
+    "fixture/PutJobFailureResultResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableStageTransition)
-
-responseUpdateActionType :: UpdateActionTypeResponse -> TestTree
-responseUpdateActionType =
-  res
-    "UpdateActionTypeResponse"
-    "fixture/UpdateActionTypeResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateActionType)
+    (Proxy :: Proxy PutJobFailureResult)
 
 responsePutApprovalResult :: PutApprovalResultResponse -> TestTree
 responsePutApprovalResult =
@@ -705,13 +689,29 @@ responsePutApprovalResult =
     defaultService
     (Proxy :: Proxy PutApprovalResult)
 
-responsePutJobFailureResult :: PutJobFailureResultResponse -> TestTree
-responsePutJobFailureResult =
+responseAcknowledgeJob :: AcknowledgeJobResponse -> TestTree
+responseAcknowledgeJob =
   res
-    "PutJobFailureResultResponse"
-    "fixture/PutJobFailureResultResponse.proto"
+    "AcknowledgeJobResponse"
+    "fixture/AcknowledgeJobResponse.proto"
     defaultService
-    (Proxy :: Proxy PutJobFailureResult)
+    (Proxy :: Proxy AcknowledgeJob)
+
+responseUpdateActionType :: UpdateActionTypeResponse -> TestTree
+responseUpdateActionType =
+  res
+    "UpdateActionTypeResponse"
+    "fixture/UpdateActionTypeResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateActionType)
+
+responseDisableStageTransition :: DisableStageTransitionResponse -> TestTree
+responseDisableStageTransition =
+  res
+    "DisableStageTransitionResponse"
+    "fixture/DisableStageTransitionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DisableStageTransition)
 
 responseDeleteCustomActionType :: DeleteCustomActionTypeResponse -> TestTree
 responseDeleteCustomActionType =
@@ -745,14 +745,6 @@ responseListPipelineExecutions =
     defaultService
     (Proxy :: Proxy ListPipelineExecutions)
 
-responseGetThirdPartyJobDetails :: GetThirdPartyJobDetailsResponse -> TestTree
-responseGetThirdPartyJobDetails =
-  res
-    "GetThirdPartyJobDetailsResponse"
-    "fixture/GetThirdPartyJobDetailsResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetThirdPartyJobDetails)
-
 responseGetPipelineExecution :: GetPipelineExecutionResponse -> TestTree
 responseGetPipelineExecution =
   res
@@ -760,6 +752,14 @@ responseGetPipelineExecution =
     "fixture/GetPipelineExecutionResponse.proto"
     defaultService
     (Proxy :: Proxy GetPipelineExecution)
+
+responseGetThirdPartyJobDetails :: GetThirdPartyJobDetailsResponse -> TestTree
+responseGetThirdPartyJobDetails =
+  res
+    "GetThirdPartyJobDetailsResponse"
+    "fixture/GetThirdPartyJobDetailsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetThirdPartyJobDetails)
 
 responseGetJobDetails :: GetJobDetailsResponse -> TestTree
 responseGetJobDetails =
@@ -785,22 +785,6 @@ responsePollForJobs =
     defaultService
     (Proxy :: Proxy PollForJobs)
 
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListTagsForResource)
-
-responsePutWebhook :: PutWebhookResponse -> TestTree
-responsePutWebhook =
-  res
-    "PutWebhookResponse"
-    "fixture/PutWebhookResponse.proto"
-    defaultService
-    (Proxy :: Proxy PutWebhook)
-
 responsePutThirdPartyJobFailureResult :: PutThirdPartyJobFailureResultResponse -> TestTree
 responsePutThirdPartyJobFailureResult =
   res
@@ -809,6 +793,14 @@ responsePutThirdPartyJobFailureResult =
     defaultService
     (Proxy :: Proxy PutThirdPartyJobFailureResult)
 
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTagsForResource)
+
 responseListWebhooks :: ListWebhooksResponse -> TestTree
 responseListWebhooks =
   res
@@ -816,3 +808,11 @@ responseListWebhooks =
     "fixture/ListWebhooksResponse.proto"
     defaultService
     (Proxy :: Proxy ListWebhooks)
+
+responsePutWebhook :: PutWebhookResponse -> TestTree
+responsePutWebhook =
+  res
+    "PutWebhookResponse"
+    "fixture/PutWebhookResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutWebhook)

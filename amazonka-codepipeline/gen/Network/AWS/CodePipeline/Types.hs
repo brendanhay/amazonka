@@ -22,28 +22,28 @@ module Network.AWS.CodePipeline.Types
     _NotLatestPipelineExecutionException,
     _PipelineNameInUseException,
     _ApprovalAlreadyCompletedException,
-    _OutputVariablesSizeExceededException,
-    _InvalidArnException,
     _InvalidStructureException,
+    _InvalidArnException,
+    _OutputVariablesSizeExceededException,
     _InvalidBlockerDeclarationException,
     _PipelineExecutionNotStoppableException,
     _InvalidActionDeclarationException,
-    _InvalidWebhookFilterPatternException,
     _DuplicatedStopRequestException,
+    _InvalidWebhookFilterPatternException,
     _ConcurrentModificationException,
     _ActionTypeNotFoundException,
     _InvalidNextTokenException,
     _InvalidTagsException,
-    _InvalidNonceException,
     _ActionTypeAlreadyExistsException,
+    _InvalidNonceException,
     _WebhookNotFoundException,
+    _InvalidClientTokenException,
+    _PipelineExecutionNotFoundException,
     _PipelineVersionNotFoundException,
     _ValidationException,
     _StageNotRetryableException,
-    _InvalidClientTokenException,
-    _PipelineExecutionNotFoundException,
-    _LimitExceededException,
     _ConflictException,
+    _LimitExceededException,
     _InvalidJobException,
     _InvalidJobStateException,
     _ResourceNotFoundException,
@@ -51,9 +51,9 @@ module Network.AWS.CodePipeline.Types
     _JobNotFoundException,
     _StageNotFoundException,
     _RequestFailedException,
-    _ActionNotFoundException,
     _InvalidStageDeclarationException,
     _InvalidApprovalTokenException,
+    _ActionNotFoundException,
 
     -- * ActionCategory
     ActionCategory (..),
@@ -144,8 +144,8 @@ module Network.AWS.CodePipeline.Types
     actionDeclaration_roleArn,
     actionDeclaration_configuration,
     actionDeclaration_runOrder,
-    actionDeclaration_namespace,
     actionDeclaration_inputArtifacts,
+    actionDeclaration_namespace,
     actionDeclaration_region,
     actionDeclaration_outputArtifacts,
     actionDeclaration_name,
@@ -171,8 +171,8 @@ module Network.AWS.CodePipeline.Types
     actionExecutionDetail_status,
     actionExecutionDetail_actionName,
     actionExecutionDetail_actionExecutionId,
-    actionExecutionDetail_input,
     actionExecutionDetail_lastUpdateTime,
+    actionExecutionDetail_input,
     actionExecutionDetail_stageName,
     actionExecutionDetail_startTime,
     actionExecutionDetail_output,
@@ -188,19 +188,19 @@ module Network.AWS.CodePipeline.Types
     ActionExecutionInput (..),
     newActionExecutionInput,
     actionExecutionInput_roleArn,
-    actionExecutionInput_configuration,
     actionExecutionInput_resolvedConfiguration,
-    actionExecutionInput_namespace,
-    actionExecutionInput_actionTypeId,
+    actionExecutionInput_configuration,
     actionExecutionInput_inputArtifacts,
+    actionExecutionInput_actionTypeId,
+    actionExecutionInput_namespace,
     actionExecutionInput_region,
 
     -- * ActionExecutionOutput
     ActionExecutionOutput (..),
     newActionExecutionOutput,
     actionExecutionOutput_executionResult,
-    actionExecutionOutput_outputVariables,
     actionExecutionOutput_outputArtifacts,
+    actionExecutionOutput_outputVariables,
 
     -- * ActionExecutionResult
     ActionExecutionResult (..),
@@ -222,8 +222,8 @@ module Network.AWS.CodePipeline.Types
     actionState_actionName,
     actionState_latestExecution,
     actionState_currentRevision,
-    actionState_entityUrl,
     actionState_revisionUrl,
+    actionState_entityUrl,
 
     -- * ActionType
     ActionType (..),
@@ -243,8 +243,8 @@ module Network.AWS.CodePipeline.Types
     -- * ActionTypeDeclaration
     ActionTypeDeclaration (..),
     newActionTypeDeclaration,
-    actionTypeDeclaration_permissions,
     actionTypeDeclaration_urls,
+    actionTypeDeclaration_permissions,
     actionTypeDeclaration_properties,
     actionTypeDeclaration_description,
     actionTypeDeclaration_executor,
@@ -295,16 +295,16 @@ module Network.AWS.CodePipeline.Types
     ActionTypeSettings (..),
     newActionTypeSettings,
     actionTypeSettings_executionUrlTemplate,
-    actionTypeSettings_entityUrlTemplate,
     actionTypeSettings_revisionUrlTemplate,
+    actionTypeSettings_entityUrlTemplate,
     actionTypeSettings_thirdPartyConfigurationUrl,
 
     -- * ActionTypeUrls
     ActionTypeUrls (..),
     newActionTypeUrls,
     actionTypeUrls_executionUrlTemplate,
-    actionTypeUrls_entityUrlTemplate,
     actionTypeUrls_revisionUrlTemplate,
+    actionTypeUrls_entityUrlTemplate,
     actionTypeUrls_configurationUrl,
 
     -- * ApprovalResult
@@ -341,12 +341,12 @@ module Network.AWS.CodePipeline.Types
     -- * ArtifactRevision
     ArtifactRevision (..),
     newArtifactRevision,
-    artifactRevision_revisionId,
     artifactRevision_revisionChangeIdentifier,
-    artifactRevision_name,
+    artifactRevision_revisionId,
     artifactRevision_revisionSummary,
-    artifactRevision_created,
+    artifactRevision_name,
     artifactRevision_revisionUrl,
+    artifactRevision_created,
 
     -- * ArtifactStore
     ArtifactStore (..),
@@ -426,11 +426,11 @@ module Network.AWS.CodePipeline.Types
     jobData_artifactCredentials,
     jobData_encryptionKey,
     jobData_actionConfiguration,
-    jobData_actionTypeId,
     jobData_inputArtifacts,
+    jobData_actionTypeId,
     jobData_pipelineContext,
-    jobData_continuationToken,
     jobData_outputArtifacts,
+    jobData_continuationToken,
 
     -- * JobDetails
     JobDetails (..),
@@ -591,11 +591,11 @@ module Network.AWS.CodePipeline.Types
     thirdPartyJobData_artifactCredentials,
     thirdPartyJobData_encryptionKey,
     thirdPartyJobData_actionConfiguration,
-    thirdPartyJobData_actionTypeId,
     thirdPartyJobData_inputArtifacts,
+    thirdPartyJobData_actionTypeId,
     thirdPartyJobData_pipelineContext,
-    thirdPartyJobData_continuationToken,
     thirdPartyJobData_outputArtifacts,
+    thirdPartyJobData_continuationToken,
 
     -- * ThirdPartyJobDetails
     ThirdPartyJobDetails (..),
@@ -834,12 +834,12 @@ _ApprovalAlreadyCompletedException =
     defaultService
     "ApprovalAlreadyCompletedException"
 
--- | Exceeded the total size limit for all variables in the pipeline.
-_OutputVariablesSizeExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OutputVariablesSizeExceededException =
+-- | The structure was specified in an invalid format.
+_InvalidStructureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidStructureException =
   Core._MatchServiceError
     defaultService
-    "OutputVariablesSizeExceededException"
+    "InvalidStructureException"
 
 -- | The specified resource ARN is invalid.
 _InvalidArnException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -848,12 +848,12 @@ _InvalidArnException =
     defaultService
     "InvalidArnException"
 
--- | The structure was specified in an invalid format.
-_InvalidStructureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidStructureException =
+-- | Exceeded the total size limit for all variables in the pipeline.
+_OutputVariablesSizeExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OutputVariablesSizeExceededException =
   Core._MatchServiceError
     defaultService
-    "InvalidStructureException"
+    "OutputVariablesSizeExceededException"
 
 -- | Reserved for future use.
 _InvalidBlockerDeclarationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -877,13 +877,6 @@ _InvalidActionDeclarationException =
     defaultService
     "InvalidActionDeclarationException"
 
--- | The specified event filter rule is in an invalid format.
-_InvalidWebhookFilterPatternException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidWebhookFilterPatternException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidWebhookFilterPatternException"
-
 -- | The pipeline execution is already in a @Stopping@ state. If you already
 -- chose to stop and wait, you cannot make that request again. You can
 -- choose to stop and abandon now, but be aware that this option can lead
@@ -894,6 +887,13 @@ _DuplicatedStopRequestException =
   Core._MatchServiceError
     defaultService
     "DuplicatedStopRequestException"
+
+-- | The specified event filter rule is in an invalid format.
+_InvalidWebhookFilterPatternException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidWebhookFilterPatternException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidWebhookFilterPatternException"
 
 -- | Unable to modify the tag due to a simultaneous update request.
 _ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -924,19 +924,19 @@ _InvalidTagsException =
     defaultService
     "InvalidTagsException"
 
--- | The nonce was specified in an invalid format.
-_InvalidNonceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidNonceException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidNonceException"
-
 -- | The specified action type already exists with a different definition.
 _ActionTypeAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ActionTypeAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "ActionTypeAlreadyExistsException"
+
+-- | The nonce was specified in an invalid format.
+_InvalidNonceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNonceException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidNonceException"
 
 -- | The specified webhook was entered in an invalid format or cannot be
 -- found.
@@ -945,6 +945,21 @@ _WebhookNotFoundException =
   Core._MatchServiceError
     defaultService
     "WebhookNotFoundException"
+
+-- | The client token was specified in an invalid format
+_InvalidClientTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidClientTokenException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidClientTokenException"
+
+-- | The pipeline execution was specified in an invalid format or cannot be
+-- found, or an execution ID does not belong to the specified pipeline.
+_PipelineExecutionNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PipelineExecutionNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "PipelineExecutionNotFoundException"
 
 -- | The pipeline version was specified in an invalid format or cannot be
 -- found.
@@ -970,20 +985,13 @@ _StageNotRetryableException =
     defaultService
     "StageNotRetryableException"
 
--- | The client token was specified in an invalid format
-_InvalidClientTokenException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidClientTokenException =
+-- | Your request cannot be handled because the pipeline is busy handling
+-- ongoing activities. Try again later.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
   Core._MatchServiceError
     defaultService
-    "InvalidClientTokenException"
-
--- | The pipeline execution was specified in an invalid format or cannot be
--- found, or an execution ID does not belong to the specified pipeline.
-_PipelineExecutionNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PipelineExecutionNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "PipelineExecutionNotFoundException"
+    "ConflictException"
 
 -- | The number of pipelines associated with the AWS account has exceeded the
 -- limit allowed for the account.
@@ -992,14 +1000,6 @@ _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
-
--- | Your request cannot be handled because the pipeline is busy handling
--- ongoing activities. Try again later.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
 
 -- | The job was specified in an invalid format or cannot be found.
 _InvalidJobException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1050,13 +1050,6 @@ _RequestFailedException =
     defaultService
     "RequestFailedException"
 
--- | The specified action cannot be found.
-_ActionNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ActionNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ActionNotFoundException"
-
 -- | The stage declaration was specified in an invalid format.
 _InvalidStageDeclarationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidStageDeclarationException =
@@ -1070,3 +1063,10 @@ _InvalidApprovalTokenException =
   Core._MatchServiceError
     defaultService
     "InvalidApprovalTokenException"
+
+-- | The specified action cannot be found.
+_ActionNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ActionNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ActionNotFoundException"

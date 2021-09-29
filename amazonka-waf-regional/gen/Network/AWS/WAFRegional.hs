@@ -42,14 +42,14 @@ module Network.AWS.WAFRegional
     -- * Errors
     -- $errors
 
+    -- ** WAFSubscriptionNotFoundException
+    _WAFSubscriptionNotFoundException,
+
     -- ** WAFTagOperationInternalErrorException
     _WAFTagOperationInternalErrorException,
 
     -- ** WAFInvalidAccountException
     _WAFInvalidAccountException,
-
-    -- ** WAFSubscriptionNotFoundException
-    _WAFSubscriptionNotFoundException,
 
     -- ** WAFBadRequestException
     _WAFBadRequestException,
@@ -108,12 +108,6 @@ module Network.AWS.WAFRegional
     -- * Operations
     -- $operations
 
-    -- ** DeleteWebACL
-    DeleteWebACL (DeleteWebACL'),
-    newDeleteWebACL,
-    DeleteWebACLResponse (DeleteWebACLResponse'),
-    newDeleteWebACLResponse,
-
     -- ** GetChangeTokenStatus
     GetChangeTokenStatus (GetChangeTokenStatus'),
     newGetChangeTokenStatus,
@@ -126,17 +120,23 @@ module Network.AWS.WAFRegional
     UpdateRuleResponse (UpdateRuleResponse'),
     newUpdateRuleResponse,
 
+    -- ** DeleteRule
+    DeleteRule (DeleteRule'),
+    newDeleteRule,
+    DeleteRuleResponse (DeleteRuleResponse'),
+    newDeleteRuleResponse,
+
     -- ** GetRuleGroup
     GetRuleGroup (GetRuleGroup'),
     newGetRuleGroup,
     GetRuleGroupResponse (GetRuleGroupResponse'),
     newGetRuleGroupResponse,
 
-    -- ** DeleteRule
-    DeleteRule (DeleteRule'),
-    newDeleteRule,
-    DeleteRuleResponse (DeleteRuleResponse'),
-    newDeleteRuleResponse,
+    -- ** DeleteWebACL
+    DeleteWebACL (DeleteWebACL'),
+    newDeleteWebACL,
+    DeleteWebACLResponse (DeleteWebACLResponse'),
+    newDeleteWebACLResponse,
 
     -- ** UpdateWebACL
     UpdateWebACL (UpdateWebACL'),
@@ -144,17 +144,17 @@ module Network.AWS.WAFRegional
     UpdateWebACLResponse (UpdateWebACLResponse'),
     newUpdateWebACLResponse,
 
-    -- ** ListRateBasedRules
-    ListRateBasedRules (ListRateBasedRules'),
-    newListRateBasedRules,
-    ListRateBasedRulesResponse (ListRateBasedRulesResponse'),
-    newListRateBasedRulesResponse,
-
     -- ** GetSizeConstraintSet
     GetSizeConstraintSet (GetSizeConstraintSet'),
     newGetSizeConstraintSet,
     GetSizeConstraintSetResponse (GetSizeConstraintSetResponse'),
     newGetSizeConstraintSetResponse,
+
+    -- ** ListRateBasedRules
+    ListRateBasedRules (ListRateBasedRules'),
+    newListRateBasedRules,
+    ListRateBasedRulesResponse (ListRateBasedRulesResponse'),
+    newListRateBasedRulesResponse,
 
     -- ** GetWebACLForResource
     GetWebACLForResource (GetWebACLForResource'),
@@ -162,17 +162,17 @@ module Network.AWS.WAFRegional
     GetWebACLForResourceResponse (GetWebACLForResourceResponse'),
     newGetWebACLForResourceResponse,
 
-    -- ** ListSqlInjectionMatchSets
-    ListSqlInjectionMatchSets (ListSqlInjectionMatchSets'),
-    newListSqlInjectionMatchSets,
-    ListSqlInjectionMatchSetsResponse (ListSqlInjectionMatchSetsResponse'),
-    newListSqlInjectionMatchSetsResponse,
-
     -- ** CreateRateBasedRule
     CreateRateBasedRule (CreateRateBasedRule'),
     newCreateRateBasedRule,
     CreateRateBasedRuleResponse (CreateRateBasedRuleResponse'),
     newCreateRateBasedRuleResponse,
+
+    -- ** ListSqlInjectionMatchSets
+    ListSqlInjectionMatchSets (ListSqlInjectionMatchSets'),
+    newListSqlInjectionMatchSets,
+    ListSqlInjectionMatchSetsResponse (ListSqlInjectionMatchSetsResponse'),
+    newListSqlInjectionMatchSetsResponse,
 
     -- ** ListRegexPatternSets
     ListRegexPatternSets (ListRegexPatternSets'),
@@ -186,11 +186,11 @@ module Network.AWS.WAFRegional
     GetSqlInjectionMatchSetResponse (GetSqlInjectionMatchSetResponse'),
     newGetSqlInjectionMatchSetResponse,
 
-    -- ** CreateRegexPatternSet
-    CreateRegexPatternSet (CreateRegexPatternSet'),
-    newCreateRegexPatternSet,
-    CreateRegexPatternSetResponse (CreateRegexPatternSetResponse'),
-    newCreateRegexPatternSetResponse,
+    -- ** ListSizeConstraintSets
+    ListSizeConstraintSets (ListSizeConstraintSets'),
+    newListSizeConstraintSets,
+    ListSizeConstraintSetsResponse (ListSizeConstraintSetsResponse'),
+    newListSizeConstraintSetsResponse,
 
     -- ** UpdateSizeConstraintSet
     UpdateSizeConstraintSet (UpdateSizeConstraintSet'),
@@ -198,23 +198,11 @@ module Network.AWS.WAFRegional
     UpdateSizeConstraintSetResponse (UpdateSizeConstraintSetResponse'),
     newUpdateSizeConstraintSetResponse,
 
-    -- ** GetChangeToken
-    GetChangeToken (GetChangeToken'),
-    newGetChangeToken,
-    GetChangeTokenResponse (GetChangeTokenResponse'),
-    newGetChangeTokenResponse,
-
-    -- ** ListSizeConstraintSets
-    ListSizeConstraintSets (ListSizeConstraintSets'),
-    newListSizeConstraintSets,
-    ListSizeConstraintSetsResponse (ListSizeConstraintSetsResponse'),
-    newListSizeConstraintSetsResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
+    -- ** CreateRegexPatternSet
+    CreateRegexPatternSet (CreateRegexPatternSet'),
+    newCreateRegexPatternSet,
+    CreateRegexPatternSetResponse (CreateRegexPatternSetResponse'),
+    newCreateRegexPatternSetResponse,
 
     -- ** DeleteSizeConstraintSet
     DeleteSizeConstraintSet (DeleteSizeConstraintSet'),
@@ -222,23 +210,17 @@ module Network.AWS.WAFRegional
     DeleteSizeConstraintSetResponse (DeleteSizeConstraintSetResponse'),
     newDeleteSizeConstraintSetResponse,
 
-    -- ** ListXssMatchSets
-    ListXssMatchSets (ListXssMatchSets'),
-    newListXssMatchSets,
-    ListXssMatchSetsResponse (ListXssMatchSetsResponse'),
-    newListXssMatchSetsResponse,
+    -- ** GetChangeToken
+    GetChangeToken (GetChangeToken'),
+    newGetChangeToken,
+    GetChangeTokenResponse (GetChangeTokenResponse'),
+    newGetChangeTokenResponse,
 
-    -- ** DeleteRuleGroup
-    DeleteRuleGroup (DeleteRuleGroup'),
-    newDeleteRuleGroup,
-    DeleteRuleGroupResponse (DeleteRuleGroupResponse'),
-    newDeleteRuleGroupResponse,
-
-    -- ** UpdateRuleGroup
-    UpdateRuleGroup (UpdateRuleGroup'),
-    newUpdateRuleGroup,
-    UpdateRuleGroupResponse (UpdateRuleGroupResponse'),
-    newUpdateRuleGroupResponse,
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -252,6 +234,24 @@ module Network.AWS.WAFRegional
     CreateWebACLMigrationStackResponse (CreateWebACLMigrationStackResponse'),
     newCreateWebACLMigrationStackResponse,
 
+    -- ** UpdateRuleGroup
+    UpdateRuleGroup (UpdateRuleGroup'),
+    newUpdateRuleGroup,
+    UpdateRuleGroupResponse (UpdateRuleGroupResponse'),
+    newUpdateRuleGroupResponse,
+
+    -- ** ListXssMatchSets
+    ListXssMatchSets (ListXssMatchSets'),
+    newListXssMatchSets,
+    ListXssMatchSetsResponse (ListXssMatchSetsResponse'),
+    newListXssMatchSetsResponse,
+
+    -- ** DeleteRuleGroup
+    DeleteRuleGroup (DeleteRuleGroup'),
+    newDeleteRuleGroup,
+    DeleteRuleGroupResponse (DeleteRuleGroupResponse'),
+    newDeleteRuleGroupResponse,
+
     -- ** CreateRegexMatchSet
     CreateRegexMatchSet (CreateRegexMatchSet'),
     newCreateRegexMatchSet,
@@ -264,23 +264,17 @@ module Network.AWS.WAFRegional
     CreateRuleGroupResponse (CreateRuleGroupResponse'),
     newCreateRuleGroupResponse,
 
-    -- ** ListRegexMatchSets
-    ListRegexMatchSets (ListRegexMatchSets'),
-    newListRegexMatchSets,
-    ListRegexMatchSetsResponse (ListRegexMatchSetsResponse'),
-    newListRegexMatchSetsResponse,
-
-    -- ** UpdateRegexMatchSet
-    UpdateRegexMatchSet (UpdateRegexMatchSet'),
-    newUpdateRegexMatchSet,
-    UpdateRegexMatchSetResponse (UpdateRegexMatchSetResponse'),
-    newUpdateRegexMatchSetResponse,
-
     -- ** DeleteRegexMatchSet
     DeleteRegexMatchSet (DeleteRegexMatchSet'),
     newDeleteRegexMatchSet,
     DeleteRegexMatchSetResponse (DeleteRegexMatchSetResponse'),
     newDeleteRegexMatchSetResponse,
+
+    -- ** ListRegexMatchSets
+    ListRegexMatchSets (ListRegexMatchSets'),
+    newListRegexMatchSets,
+    ListRegexMatchSetsResponse (ListRegexMatchSetsResponse'),
+    newListRegexMatchSetsResponse,
 
     -- ** GetLoggingConfiguration
     GetLoggingConfiguration (GetLoggingConfiguration'),
@@ -288,11 +282,11 @@ module Network.AWS.WAFRegional
     GetLoggingConfigurationResponse (GetLoggingConfigurationResponse'),
     newGetLoggingConfigurationResponse,
 
-    -- ** AssociateWebACL
-    AssociateWebACL (AssociateWebACL'),
-    newAssociateWebACL,
-    AssociateWebACLResponse (AssociateWebACLResponse'),
-    newAssociateWebACLResponse,
+    -- ** UpdateRegexMatchSet
+    UpdateRegexMatchSet (UpdateRegexMatchSet'),
+    newUpdateRegexMatchSet,
+    UpdateRegexMatchSetResponse (UpdateRegexMatchSetResponse'),
+    newUpdateRegexMatchSetResponse,
 
     -- ** DeleteLoggingConfiguration
     DeleteLoggingConfiguration (DeleteLoggingConfiguration'),
@@ -300,23 +294,17 @@ module Network.AWS.WAFRegional
     DeleteLoggingConfigurationResponse (DeleteLoggingConfigurationResponse'),
     newDeleteLoggingConfigurationResponse,
 
-    -- ** PutPermissionPolicy
-    PutPermissionPolicy (PutPermissionPolicy'),
-    newPutPermissionPolicy,
-    PutPermissionPolicyResponse (PutPermissionPolicyResponse'),
-    newPutPermissionPolicyResponse,
-
-    -- ** DeleteIPSet
-    DeleteIPSet (DeleteIPSet'),
-    newDeleteIPSet,
-    DeleteIPSetResponse (DeleteIPSetResponse'),
-    newDeleteIPSetResponse,
-
     -- ** CreateRule
     CreateRule (CreateRule'),
     newCreateRule,
     CreateRuleResponse (CreateRuleResponse'),
     newCreateRuleResponse,
+
+    -- ** AssociateWebACL
+    AssociateWebACL (AssociateWebACL'),
+    newAssociateWebACL,
+    AssociateWebACLResponse (AssociateWebACLResponse'),
+    newAssociateWebACLResponse,
 
     -- ** ListLoggingConfigurations
     ListLoggingConfigurations (ListLoggingConfigurations'),
@@ -330,11 +318,23 @@ module Network.AWS.WAFRegional
     UpdateIPSetResponse (UpdateIPSetResponse'),
     newUpdateIPSetResponse,
 
-    -- ** GetRateBasedRuleManagedKeys
-    GetRateBasedRuleManagedKeys (GetRateBasedRuleManagedKeys'),
-    newGetRateBasedRuleManagedKeys,
-    GetRateBasedRuleManagedKeysResponse (GetRateBasedRuleManagedKeysResponse'),
-    newGetRateBasedRuleManagedKeysResponse,
+    -- ** CreateWebACL
+    CreateWebACL (CreateWebACL'),
+    newCreateWebACL,
+    CreateWebACLResponse (CreateWebACLResponse'),
+    newCreateWebACLResponse,
+
+    -- ** PutPermissionPolicy
+    PutPermissionPolicy (PutPermissionPolicy'),
+    newPutPermissionPolicy,
+    PutPermissionPolicyResponse (PutPermissionPolicyResponse'),
+    newPutPermissionPolicyResponse,
+
+    -- ** DeleteIPSet
+    DeleteIPSet (DeleteIPSet'),
+    newDeleteIPSet,
+    DeleteIPSetResponse (DeleteIPSetResponse'),
+    newDeleteIPSetResponse,
 
     -- ** GetGeoMatchSet
     GetGeoMatchSet (GetGeoMatchSet'),
@@ -342,23 +342,29 @@ module Network.AWS.WAFRegional
     GetGeoMatchSetResponse (GetGeoMatchSetResponse'),
     newGetGeoMatchSetResponse,
 
-    -- ** CreateWebACL
-    CreateWebACL (CreateWebACL'),
-    newCreateWebACL,
-    CreateWebACLResponse (CreateWebACLResponse'),
-    newCreateWebACLResponse,
+    -- ** GetRateBasedRuleManagedKeys
+    GetRateBasedRuleManagedKeys (GetRateBasedRuleManagedKeys'),
+    newGetRateBasedRuleManagedKeys,
+    GetRateBasedRuleManagedKeysResponse (GetRateBasedRuleManagedKeysResponse'),
+    newGetRateBasedRuleManagedKeysResponse,
 
-    -- ** ListWebACLs
-    ListWebACLs (ListWebACLs'),
-    newListWebACLs,
-    ListWebACLsResponse (ListWebACLsResponse'),
-    newListWebACLsResponse,
+    -- ** CreateIPSet
+    CreateIPSet (CreateIPSet'),
+    newCreateIPSet,
+    CreateIPSetResponse (CreateIPSetResponse'),
+    newCreateIPSetResponse,
 
     -- ** ListRules
     ListRules (ListRules'),
     newListRules,
     ListRulesResponse (ListRulesResponse'),
     newListRulesResponse,
+
+    -- ** ListWebACLs
+    ListWebACLs (ListWebACLs'),
+    newListWebACLs,
+    ListWebACLsResponse (ListWebACLsResponse'),
+    newListWebACLsResponse,
 
     -- ** CreateByteMatchSet
     CreateByteMatchSet (CreateByteMatchSet'),
@@ -372,29 +378,11 @@ module Network.AWS.WAFRegional
     GetXssMatchSetResponse (GetXssMatchSetResponse'),
     newGetXssMatchSetResponse,
 
-    -- ** CreateIPSet
-    CreateIPSet (CreateIPSet'),
-    newCreateIPSet,
-    CreateIPSetResponse (CreateIPSetResponse'),
-    newCreateIPSetResponse,
-
-    -- ** ListSubscribedRuleGroups
-    ListSubscribedRuleGroups (ListSubscribedRuleGroups'),
-    newListSubscribedRuleGroups,
-    ListSubscribedRuleGroupsResponse (ListSubscribedRuleGroupsResponse'),
-    newListSubscribedRuleGroupsResponse,
-
-    -- ** ListActivatedRulesInRuleGroup
-    ListActivatedRulesInRuleGroup (ListActivatedRulesInRuleGroup'),
-    newListActivatedRulesInRuleGroup,
-    ListActivatedRulesInRuleGroupResponse (ListActivatedRulesInRuleGroupResponse'),
-    newListActivatedRulesInRuleGroupResponse,
-
-    -- ** DisassociateWebACL
-    DisassociateWebACL (DisassociateWebACL'),
-    newDisassociateWebACL,
-    DisassociateWebACLResponse (DisassociateWebACLResponse'),
-    newDisassociateWebACLResponse,
+    -- ** UpdateRateBasedRule
+    UpdateRateBasedRule (UpdateRateBasedRule'),
+    newUpdateRateBasedRule,
+    UpdateRateBasedRuleResponse (UpdateRateBasedRuleResponse'),
+    newUpdateRateBasedRuleResponse,
 
     -- ** DeleteRateBasedRule
     DeleteRateBasedRule (DeleteRateBasedRule'),
@@ -402,17 +390,35 @@ module Network.AWS.WAFRegional
     DeleteRateBasedRuleResponse (DeleteRateBasedRuleResponse'),
     newDeleteRateBasedRuleResponse,
 
-    -- ** UpdateRateBasedRule
-    UpdateRateBasedRule (UpdateRateBasedRule'),
-    newUpdateRateBasedRule,
-    UpdateRateBasedRuleResponse (UpdateRateBasedRuleResponse'),
-    newUpdateRateBasedRuleResponse,
+    -- ** ListActivatedRulesInRuleGroup
+    ListActivatedRulesInRuleGroup (ListActivatedRulesInRuleGroup'),
+    newListActivatedRulesInRuleGroup,
+    ListActivatedRulesInRuleGroupResponse (ListActivatedRulesInRuleGroupResponse'),
+    newListActivatedRulesInRuleGroupResponse,
+
+    -- ** ListSubscribedRuleGroups
+    ListSubscribedRuleGroups (ListSubscribedRuleGroups'),
+    newListSubscribedRuleGroups,
+    ListSubscribedRuleGroupsResponse (ListSubscribedRuleGroupsResponse'),
+    newListSubscribedRuleGroupsResponse,
 
     -- ** CreateSqlInjectionMatchSet
     CreateSqlInjectionMatchSet (CreateSqlInjectionMatchSet'),
     newCreateSqlInjectionMatchSet,
     CreateSqlInjectionMatchSetResponse (CreateSqlInjectionMatchSetResponse'),
     newCreateSqlInjectionMatchSetResponse,
+
+    -- ** DisassociateWebACL
+    DisassociateWebACL (DisassociateWebACL'),
+    newDisassociateWebACL,
+    DisassociateWebACLResponse (DisassociateWebACLResponse'),
+    newDisassociateWebACLResponse,
+
+    -- ** DeleteSqlInjectionMatchSet
+    DeleteSqlInjectionMatchSet (DeleteSqlInjectionMatchSet'),
+    newDeleteSqlInjectionMatchSet,
+    DeleteSqlInjectionMatchSetResponse (DeleteSqlInjectionMatchSetResponse'),
+    newDeleteSqlInjectionMatchSetResponse,
 
     -- ** GetRegexPatternSet
     GetRegexPatternSet (GetRegexPatternSet'),
@@ -426,35 +432,11 @@ module Network.AWS.WAFRegional
     UpdateSqlInjectionMatchSetResponse (UpdateSqlInjectionMatchSetResponse'),
     newUpdateSqlInjectionMatchSetResponse,
 
-    -- ** DeleteSqlInjectionMatchSet
-    DeleteSqlInjectionMatchSet (DeleteSqlInjectionMatchSet'),
-    newDeleteSqlInjectionMatchSet,
-    DeleteSqlInjectionMatchSetResponse (DeleteSqlInjectionMatchSetResponse'),
-    newDeleteSqlInjectionMatchSetResponse,
-
-    -- ** UpdateRegexPatternSet
-    UpdateRegexPatternSet (UpdateRegexPatternSet'),
-    newUpdateRegexPatternSet,
-    UpdateRegexPatternSetResponse (UpdateRegexPatternSetResponse'),
-    newUpdateRegexPatternSetResponse,
-
     -- ** DeleteRegexPatternSet
     DeleteRegexPatternSet (DeleteRegexPatternSet'),
     newDeleteRegexPatternSet,
     DeleteRegexPatternSetResponse (DeleteRegexPatternSetResponse'),
     newDeleteRegexPatternSetResponse,
-
-    -- ** GetSampledRequests
-    GetSampledRequests (GetSampledRequests'),
-    newGetSampledRequests,
-    GetSampledRequestsResponse (GetSampledRequestsResponse'),
-    newGetSampledRequestsResponse,
-
-    -- ** ListResourcesForWebACL
-    ListResourcesForWebACL (ListResourcesForWebACL'),
-    newListResourcesForWebACL,
-    ListResourcesForWebACLResponse (ListResourcesForWebACLResponse'),
-    newListResourcesForWebACLResponse,
 
     -- ** CreateSizeConstraintSet
     CreateSizeConstraintSet (CreateSizeConstraintSet'),
@@ -462,17 +444,29 @@ module Network.AWS.WAFRegional
     CreateSizeConstraintSetResponse (CreateSizeConstraintSetResponse'),
     newCreateSizeConstraintSetResponse,
 
+    -- ** UpdateRegexPatternSet
+    UpdateRegexPatternSet (UpdateRegexPatternSet'),
+    newUpdateRegexPatternSet,
+    UpdateRegexPatternSetResponse (UpdateRegexPatternSetResponse'),
+    newUpdateRegexPatternSetResponse,
+
+    -- ** ListResourcesForWebACL
+    ListResourcesForWebACL (ListResourcesForWebACL'),
+    newListResourcesForWebACL,
+    ListResourcesForWebACLResponse (ListResourcesForWebACLResponse'),
+    newListResourcesForWebACLResponse,
+
+    -- ** GetSampledRequests
+    GetSampledRequests (GetSampledRequests'),
+    newGetSampledRequests,
+    GetSampledRequestsResponse (GetSampledRequestsResponse'),
+    newGetSampledRequestsResponse,
+
     -- ** GetRateBasedRule
     GetRateBasedRule (GetRateBasedRule'),
     newGetRateBasedRule,
     GetRateBasedRuleResponse (GetRateBasedRuleResponse'),
     newGetRateBasedRuleResponse,
-
-    -- ** CreateGeoMatchSet
-    CreateGeoMatchSet (CreateGeoMatchSet'),
-    newCreateGeoMatchSet,
-    CreateGeoMatchSetResponse (CreateGeoMatchSetResponse'),
-    newCreateGeoMatchSetResponse,
 
     -- ** DeleteXssMatchSet
     DeleteXssMatchSet (DeleteXssMatchSet'),
@@ -480,23 +474,11 @@ module Network.AWS.WAFRegional
     DeleteXssMatchSetResponse (DeleteXssMatchSetResponse'),
     newDeleteXssMatchSetResponse,
 
-    -- ** GetRule
-    GetRule (GetRule'),
-    newGetRule,
-    GetRuleResponse (GetRuleResponse'),
-    newGetRuleResponse,
-
     -- ** ListRuleGroups
     ListRuleGroups (ListRuleGroups'),
     newListRuleGroups,
     ListRuleGroupsResponse (ListRuleGroupsResponse'),
     newListRuleGroupsResponse,
-
-    -- ** UpdateXssMatchSet
-    UpdateXssMatchSet (UpdateXssMatchSet'),
-    newUpdateXssMatchSet,
-    UpdateXssMatchSetResponse (UpdateXssMatchSetResponse'),
-    newUpdateXssMatchSetResponse,
 
     -- ** GetWebACL
     GetWebACL (GetWebACL'),
@@ -504,35 +486,23 @@ module Network.AWS.WAFRegional
     GetWebACLResponse (GetWebACLResponse'),
     newGetWebACLResponse,
 
-    -- ** UpdateGeoMatchSet
-    UpdateGeoMatchSet (UpdateGeoMatchSet'),
-    newUpdateGeoMatchSet,
-    UpdateGeoMatchSetResponse (UpdateGeoMatchSetResponse'),
-    newUpdateGeoMatchSetResponse,
+    -- ** GetRule
+    GetRule (GetRule'),
+    newGetRule,
+    GetRuleResponse (GetRuleResponse'),
+    newGetRuleResponse,
 
-    -- ** GetPermissionPolicy
-    GetPermissionPolicy (GetPermissionPolicy'),
-    newGetPermissionPolicy,
-    GetPermissionPolicyResponse (GetPermissionPolicyResponse'),
-    newGetPermissionPolicyResponse,
+    -- ** CreateGeoMatchSet
+    CreateGeoMatchSet (CreateGeoMatchSet'),
+    newCreateGeoMatchSet,
+    CreateGeoMatchSetResponse (CreateGeoMatchSetResponse'),
+    newCreateGeoMatchSetResponse,
 
-    -- ** ListGeoMatchSets
-    ListGeoMatchSets (ListGeoMatchSets'),
-    newListGeoMatchSets,
-    ListGeoMatchSetsResponse (ListGeoMatchSetsResponse'),
-    newListGeoMatchSetsResponse,
-
-    -- ** GetByteMatchSet
-    GetByteMatchSet (GetByteMatchSet'),
-    newGetByteMatchSet,
-    GetByteMatchSetResponse (GetByteMatchSetResponse'),
-    newGetByteMatchSetResponse,
-
-    -- ** CreateXssMatchSet
-    CreateXssMatchSet (CreateXssMatchSet'),
-    newCreateXssMatchSet,
-    CreateXssMatchSetResponse (CreateXssMatchSetResponse'),
-    newCreateXssMatchSetResponse,
+    -- ** UpdateXssMatchSet
+    UpdateXssMatchSet (UpdateXssMatchSet'),
+    newUpdateXssMatchSet,
+    UpdateXssMatchSetResponse (UpdateXssMatchSetResponse'),
+    newUpdateXssMatchSetResponse,
 
     -- ** GetIPSet
     GetIPSet (GetIPSet'),
@@ -540,11 +510,59 @@ module Network.AWS.WAFRegional
     GetIPSetResponse (GetIPSetResponse'),
     newGetIPSetResponse,
 
+    -- ** CreateXssMatchSet
+    CreateXssMatchSet (CreateXssMatchSet'),
+    newCreateXssMatchSet,
+    CreateXssMatchSetResponse (CreateXssMatchSetResponse'),
+    newCreateXssMatchSetResponse,
+
+    -- ** GetByteMatchSet
+    GetByteMatchSet (GetByteMatchSet'),
+    newGetByteMatchSet,
+    GetByteMatchSetResponse (GetByteMatchSetResponse'),
+    newGetByteMatchSetResponse,
+
+    -- ** UpdateGeoMatchSet
+    UpdateGeoMatchSet (UpdateGeoMatchSet'),
+    newUpdateGeoMatchSet,
+    UpdateGeoMatchSetResponse (UpdateGeoMatchSetResponse'),
+    newUpdateGeoMatchSetResponse,
+
+    -- ** ListGeoMatchSets
+    ListGeoMatchSets (ListGeoMatchSets'),
+    newListGeoMatchSets,
+    ListGeoMatchSetsResponse (ListGeoMatchSetsResponse'),
+    newListGeoMatchSetsResponse,
+
     -- ** DeleteGeoMatchSet
     DeleteGeoMatchSet (DeleteGeoMatchSet'),
     newDeleteGeoMatchSet,
     DeleteGeoMatchSetResponse (DeleteGeoMatchSetResponse'),
     newDeleteGeoMatchSetResponse,
+
+    -- ** GetPermissionPolicy
+    GetPermissionPolicy (GetPermissionPolicy'),
+    newGetPermissionPolicy,
+    GetPermissionPolicyResponse (GetPermissionPolicyResponse'),
+    newGetPermissionPolicyResponse,
+
+    -- ** DeleteByteMatchSet
+    DeleteByteMatchSet (DeleteByteMatchSet'),
+    newDeleteByteMatchSet,
+    DeleteByteMatchSetResponse (DeleteByteMatchSetResponse'),
+    newDeleteByteMatchSetResponse,
+
+    -- ** DeletePermissionPolicy
+    DeletePermissionPolicy (DeletePermissionPolicy'),
+    newDeletePermissionPolicy,
+    DeletePermissionPolicyResponse (DeletePermissionPolicyResponse'),
+    newDeletePermissionPolicyResponse,
+
+    -- ** GetRegexMatchSet
+    GetRegexMatchSet (GetRegexMatchSet'),
+    newGetRegexMatchSet,
+    GetRegexMatchSetResponse (GetRegexMatchSetResponse'),
+    newGetRegexMatchSetResponse,
 
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
@@ -558,29 +576,11 @@ module Network.AWS.WAFRegional
     UpdateByteMatchSetResponse (UpdateByteMatchSetResponse'),
     newUpdateByteMatchSetResponse,
 
-    -- ** DeleteByteMatchSet
-    DeleteByteMatchSet (DeleteByteMatchSet'),
-    newDeleteByteMatchSet,
-    DeleteByteMatchSetResponse (DeleteByteMatchSetResponse'),
-    newDeleteByteMatchSetResponse,
-
-    -- ** GetRegexMatchSet
-    GetRegexMatchSet (GetRegexMatchSet'),
-    newGetRegexMatchSet,
-    GetRegexMatchSetResponse (GetRegexMatchSetResponse'),
-    newGetRegexMatchSetResponse,
-
-    -- ** ListByteMatchSets
-    ListByteMatchSets (ListByteMatchSets'),
-    newListByteMatchSets,
-    ListByteMatchSetsResponse (ListByteMatchSetsResponse'),
-    newListByteMatchSetsResponse,
-
-    -- ** DeletePermissionPolicy
-    DeletePermissionPolicy (DeletePermissionPolicy'),
-    newDeletePermissionPolicy,
-    DeletePermissionPolicyResponse (DeletePermissionPolicyResponse'),
-    newDeletePermissionPolicyResponse,
+    -- ** PutLoggingConfiguration
+    PutLoggingConfiguration (PutLoggingConfiguration'),
+    newPutLoggingConfiguration,
+    PutLoggingConfigurationResponse (PutLoggingConfigurationResponse'),
+    newPutLoggingConfigurationResponse,
 
     -- ** ListIPSets
     ListIPSets (ListIPSets'),
@@ -588,11 +588,11 @@ module Network.AWS.WAFRegional
     ListIPSetsResponse (ListIPSetsResponse'),
     newListIPSetsResponse,
 
-    -- ** PutLoggingConfiguration
-    PutLoggingConfiguration (PutLoggingConfiguration'),
-    newPutLoggingConfiguration,
-    PutLoggingConfigurationResponse (PutLoggingConfigurationResponse'),
-    newPutLoggingConfigurationResponse,
+    -- ** ListByteMatchSets
+    ListByteMatchSets (ListByteMatchSets'),
+    newListByteMatchSets,
+    ListByteMatchSetsResponse (ListByteMatchSetsResponse'),
+    newListByteMatchSetsResponse,
 
     -- * Types
 

@@ -30,12 +30,12 @@
 -- in the /IAM User Guide/.
 --
 -- When you pass an access key ID to this operation, it returns the ID of
--- the AWS account to which the keys belong. Access key IDs beginning with
--- @AKIA@ are long-term credentials for an IAM user or the AWS account root
--- user. Access key IDs beginning with @ASIA@ are temporary credentials
--- that are created using STS operations. If the account in the response
--- belongs to you, you can sign in as the root user and review your root
--- user access keys. Then, you can pull a
+-- the Amazon Web Services account to which the keys belong. Access key IDs
+-- beginning with @AKIA@ are long-term credentials for an IAM user or the
+-- Amazon Web Services account root user. Access key IDs beginning with
+-- @ASIA@ are temporary credentials that are created using STS operations.
+-- If the account in the response belongs to you, you can sign in as the
+-- root user and review your root user access keys. Then, you can pull a
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html credentials report>
 -- to learn which IAM user owns the keys. To learn who requested the
 -- temporary credentials for an @ASIA@ access key, view the STS events in
@@ -144,7 +144,7 @@ instance Core.ToQuery GetAccessKeyInfo where
 
 -- | /See:/ 'newGetAccessKeyInfoResponse' smart constructor.
 data GetAccessKeyInfoResponse = GetAccessKeyInfoResponse'
-  { -- | The number used to identify the AWS account.
+  { -- | The number used to identify the Amazon Web Services account.
     account :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -159,7 +159,7 @@ data GetAccessKeyInfoResponse = GetAccessKeyInfoResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'account', 'getAccessKeyInfoResponse_account' - The number used to identify the AWS account.
+-- 'account', 'getAccessKeyInfoResponse_account' - The number used to identify the Amazon Web Services account.
 --
 -- 'httpStatus', 'getAccessKeyInfoResponse_httpStatus' - The response's http status code.
 newGetAccessKeyInfoResponse ::
@@ -173,7 +173,7 @@ newGetAccessKeyInfoResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The number used to identify the AWS account.
+-- | The number used to identify the Amazon Web Services account.
 getAccessKeyInfoResponse_account :: Lens.Lens' GetAccessKeyInfoResponse (Prelude.Maybe Prelude.Text)
 getAccessKeyInfoResponse_account = Lens.lens (\GetAccessKeyInfoResponse' {account} -> account) (\s@GetAccessKeyInfoResponse' {} a -> s {account = a} :: GetAccessKeyInfoResponse)
 

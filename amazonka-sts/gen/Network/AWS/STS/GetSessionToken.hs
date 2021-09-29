@@ -20,11 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a set of temporary credentials for an AWS account or IAM user.
--- The credentials consist of an access key ID, a secret access key, and a
--- security token. Typically, you use @GetSessionToken@ if you want to use
--- MFA to protect programmatic calls to specific AWS API operations like
--- Amazon EC2 @StopInstances@. MFA-enabled IAM users would need to call
+-- Returns a set of temporary credentials for an Amazon Web Services
+-- account or IAM user. The credentials consist of an access key ID, a
+-- secret access key, and a security token. Typically, you use
+-- @GetSessionToken@ if you want to use MFA to protect programmatic calls
+-- to specific Amazon Web Services API operations like Amazon EC2
+-- @StopInstances@. MFA-enabled IAM users would need to call
 -- @GetSessionToken@ and submit an MFA code that is associated with their
 -- MFA device. Using the temporary security credentials that are returned
 -- from the call, IAM users can then make programmatic calls to API
@@ -34,24 +35,25 @@
 -- produce temporary credentials, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html Requesting Temporary Security Credentials>
 -- and
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison Comparing the AWS STS API operations>
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison Comparing the STS API operations>
 -- in the /IAM User Guide/.
 --
 -- __Session Duration__
 --
 -- The @GetSessionToken@ operation must be called by using the long-term
--- AWS security credentials of the AWS account root user or an IAM user.
--- Credentials that are created by IAM users are valid for the duration
--- that you specify. This duration can range from 900 seconds (15 minutes)
--- up to a maximum of 129,600 seconds (36 hours), with a default of 43,200
--- seconds (12 hours). Credentials based on account credentials can range
--- from 900 seconds (15 minutes) up to 3,600 seconds (1 hour), with a
--- default of 1 hour.
+-- Amazon Web Services security credentials of the Amazon Web Services
+-- account root user or an IAM user. Credentials that are created by IAM
+-- users are valid for the duration that you specify. This duration can
+-- range from 900 seconds (15 minutes) up to a maximum of 129,600 seconds
+-- (36 hours), with a default of 43,200 seconds (12 hours). Credentials
+-- based on account credentials can range from 900 seconds (15 minutes) up
+-- to 3,600 seconds (1 hour), with a default of 1 hour.
 --
 -- __Permissions__
 --
 -- The temporary security credentials created by @GetSessionToken@ can be
--- used to make API calls to any AWS service with the following exceptions:
+-- used to make API calls to any Amazon Web Services service with the
+-- following exceptions:
 --
 -- -   You cannot call any IAM API operations unless MFA authentication
 --     information is included in the request.
@@ -59,19 +61,20 @@
 -- -   You cannot call any STS API /except/ @AssumeRole@ or
 --     @GetCallerIdentity@.
 --
--- We recommend that you do not call @GetSessionToken@ with AWS account
--- root user credentials. Instead, follow our
+-- We recommend that you do not call @GetSessionToken@ with Amazon Web
+-- Services account root user credentials. Instead, follow our
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#create-iam-users best practices>
 -- by creating one or more IAM users, giving them the necessary
--- permissions, and using IAM users for everyday interaction with AWS.
+-- permissions, and using IAM users for everyday interaction with Amazon
+-- Web Services.
 --
 -- The credentials that are returned by @GetSessionToken@ are based on
 -- permissions associated with the user whose credentials were used to call
--- the operation. If @GetSessionToken@ is called using AWS account root
--- user credentials, the temporary credentials have root user permissions.
--- Similarly, if @GetSessionToken@ is called using the credentials of an
--- IAM user, the temporary credentials have the same permissions as the IAM
--- user.
+-- the operation. If @GetSessionToken@ is called using Amazon Web Services
+-- account root user credentials, the temporary credentials have root user
+-- permissions. Similarly, if @GetSessionToken@ is called using the
+-- credentials of an IAM user, the temporary credentials have the same
+-- permissions as the IAM user.
 --
 -- For more information about using @GetSessionToken@ to create temporary
 -- credentials, go to
@@ -122,7 +125,7 @@ data GetSessionToken = GetSessionToken'
     -- either the serial number for a hardware device (such as @GAHT12345678@)
     -- or an Amazon Resource Name (ARN) for a virtual device (such as
     -- @arn:aws:iam::123456789012:mfa\/user@). You can find the device for an
-    -- IAM user by going to the AWS Management Console and viewing the user\'s
+    -- IAM user by going to the Management Console and viewing the user\'s
     -- security credentials.
     --
     -- The regex used to validate this parameter is a string of characters
@@ -133,9 +136,10 @@ data GetSessionToken = GetSessionToken'
     -- | The duration, in seconds, that the credentials should remain valid.
     -- Acceptable durations for IAM user sessions range from 900 seconds (15
     -- minutes) to 129,600 seconds (36 hours), with 43,200 seconds (12 hours)
-    -- as the default. Sessions for AWS account owners are restricted to a
-    -- maximum of 3,600 seconds (one hour). If the duration is longer than one
-    -- hour, the session for AWS account owners defaults to one hour.
+    -- as the default. Sessions for Amazon Web Services account owners are
+    -- restricted to a maximum of 3,600 seconds (one hour). If the duration is
+    -- longer than one hour, the session for Amazon Web Services account owners
+    -- defaults to one hour.
     durationSeconds :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -164,7 +168,7 @@ data GetSessionToken = GetSessionToken'
 -- either the serial number for a hardware device (such as @GAHT12345678@)
 -- or an Amazon Resource Name (ARN) for a virtual device (such as
 -- @arn:aws:iam::123456789012:mfa\/user@). You can find the device for an
--- IAM user by going to the AWS Management Console and viewing the user\'s
+-- IAM user by going to the Management Console and viewing the user\'s
 -- security credentials.
 --
 -- The regex used to validate this parameter is a string of characters
@@ -175,9 +179,10 @@ data GetSessionToken = GetSessionToken'
 -- 'durationSeconds', 'getSessionToken_durationSeconds' - The duration, in seconds, that the credentials should remain valid.
 -- Acceptable durations for IAM user sessions range from 900 seconds (15
 -- minutes) to 129,600 seconds (36 hours), with 43,200 seconds (12 hours)
--- as the default. Sessions for AWS account owners are restricted to a
--- maximum of 3,600 seconds (one hour). If the duration is longer than one
--- hour, the session for AWS account owners defaults to one hour.
+-- as the default. Sessions for Amazon Web Services account owners are
+-- restricted to a maximum of 3,600 seconds (one hour). If the duration is
+-- longer than one hour, the session for Amazon Web Services account owners
+-- defaults to one hour.
 newGetSessionToken ::
   GetSessionToken
 newGetSessionToken =
@@ -205,7 +210,7 @@ getSessionToken_tokenCode = Lens.lens (\GetSessionToken' {tokenCode} -> tokenCod
 -- either the serial number for a hardware device (such as @GAHT12345678@)
 -- or an Amazon Resource Name (ARN) for a virtual device (such as
 -- @arn:aws:iam::123456789012:mfa\/user@). You can find the device for an
--- IAM user by going to the AWS Management Console and viewing the user\'s
+-- IAM user by going to the Management Console and viewing the user\'s
 -- security credentials.
 --
 -- The regex used to validate this parameter is a string of characters
@@ -218,9 +223,10 @@ getSessionToken_serialNumber = Lens.lens (\GetSessionToken' {serialNumber} -> se
 -- | The duration, in seconds, that the credentials should remain valid.
 -- Acceptable durations for IAM user sessions range from 900 seconds (15
 -- minutes) to 129,600 seconds (36 hours), with 43,200 seconds (12 hours)
--- as the default. Sessions for AWS account owners are restricted to a
--- maximum of 3,600 seconds (one hour). If the duration is longer than one
--- hour, the session for AWS account owners defaults to one hour.
+-- as the default. Sessions for Amazon Web Services account owners are
+-- restricted to a maximum of 3,600 seconds (one hour). If the duration is
+-- longer than one hour, the session for Amazon Web Services account owners
+-- defaults to one hour.
 getSessionToken_durationSeconds :: Lens.Lens' GetSessionToken (Prelude.Maybe Prelude.Natural)
 getSessionToken_durationSeconds = Lens.lens (\GetSessionToken' {durationSeconds} -> durationSeconds) (\s@GetSessionToken' {} a -> s {durationSeconds = a} :: GetSessionToken)
 
@@ -261,7 +267,8 @@ instance Core.ToQuery GetSessionToken where
       ]
 
 -- | Contains the response to a successful GetSessionToken request, including
--- temporary AWS credentials that can be used to make AWS requests.
+-- temporary Amazon Web Services credentials that can be used to make
+-- Amazon Web Services requests.
 --
 -- /See:/ 'newGetSessionTokenResponse' smart constructor.
 data GetSessionTokenResponse = GetSessionTokenResponse'

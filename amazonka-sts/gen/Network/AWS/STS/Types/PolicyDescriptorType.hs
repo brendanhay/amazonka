@@ -30,8 +30,8 @@ import qualified Network.AWS.Prelude as Prelude
 data PolicyDescriptorType = PolicyDescriptorType'
   { -- | The Amazon Resource Name (ARN) of the IAM managed policy to use as a
     -- session policy for the role. For more information about ARNs, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
-    -- in the /AWS General Reference/.
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
+    -- in the /Amazon Web Services General Reference/.
     arn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,8 +46,8 @@ data PolicyDescriptorType = PolicyDescriptorType'
 --
 -- 'arn', 'policyDescriptorType_arn' - The Amazon Resource Name (ARN) of the IAM managed policy to use as a
 -- session policy for the role. For more information about ARNs, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
--- in the /AWS General Reference/.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
+-- in the /Amazon Web Services General Reference/.
 newPolicyDescriptorType ::
   PolicyDescriptorType
 newPolicyDescriptorType =
@@ -55,8 +55,8 @@ newPolicyDescriptorType =
 
 -- | The Amazon Resource Name (ARN) of the IAM managed policy to use as a
 -- session policy for the role. For more information about ARNs, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
--- in the /AWS General Reference/.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
+-- in the /Amazon Web Services General Reference/.
 policyDescriptorType_arn :: Lens.Lens' PolicyDescriptorType (Prelude.Maybe Prelude.Text)
 policyDescriptorType_arn = Lens.lens (\PolicyDescriptorType' {arn} -> arn) (\s@PolicyDescriptorType' {} a -> s {arn = a} :: PolicyDescriptorType)
 

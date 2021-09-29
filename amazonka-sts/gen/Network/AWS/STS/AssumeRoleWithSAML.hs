@@ -23,18 +23,18 @@
 -- Returns a set of temporary security credentials for users who have been
 -- authenticated via a SAML authentication response. This operation
 -- provides a mechanism for tying an enterprise identity store or directory
--- to role-based AWS access without user-specific credentials or
--- configuration. For a comparison of @AssumeRoleWithSAML@ with the other
--- API operations that produce temporary credentials, see
+-- to role-based Amazon Web Services access without user-specific
+-- credentials or configuration. For a comparison of @AssumeRoleWithSAML@
+-- with the other API operations that produce temporary credentials, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html Requesting Temporary Security Credentials>
 -- and
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison Comparing the AWS STS API operations>
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison Comparing the STS API operations>
 -- in the /IAM User Guide/.
 --
 -- The temporary security credentials returned by this operation consist of
 -- an access key ID, a secret access key, and a security token.
 -- Applications can use these temporary security credentials to sign calls
--- to AWS services.
+-- to Amazon Web Services services.
 --
 -- __Session Duration__
 --
@@ -56,37 +56,48 @@
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html Using IAM Roles>
 -- in the /IAM User Guide/.
 --
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-role-chaining Role chaining>
+-- limits your CLI or Amazon Web Services API role session to a maximum of
+-- one hour. When you use the @AssumeRole@ API operation to assume a role,
+-- you can specify the duration of your role session with the
+-- @DurationSeconds@ parameter. You can specify a parameter value of up to
+-- 43200 seconds (12 hours), depending on the maximum session duration
+-- setting for your role. However, if you assume a role using role chaining
+-- and provide a @DurationSeconds@ parameter value greater than one hour,
+-- the operation fails.
+--
 -- __Permissions__
 --
 -- The temporary security credentials created by @AssumeRoleWithSAML@ can
--- be used to make API calls to any AWS service with the following
--- exception: you cannot call the STS @GetFederationToken@ or
+-- be used to make API calls to any Amazon Web Services service with the
+-- following exception: you cannot call the STS @GetFederationToken@ or
 -- @GetSessionToken@ API operations.
 --
 -- (Optional) You can pass inline or managed
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session session policies>
 -- to this operation. You can pass a single JSON policy document to use as
 -- an inline session policy. You can also specify up to 10 managed policies
--- to use as managed session policies. The plain text that you use for both
+-- to use as managed session policies. The plaintext that you use for both
 -- inline and managed session policies can\'t exceed 2,048 characters.
 -- Passing policies to this operation returns new temporary credentials.
 -- The resulting session\'s permissions are the intersection of the role\'s
 -- identity-based policy and the session policies. You can use the role\'s
--- temporary credentials in subsequent AWS API calls to access resources in
--- the account that owns the role. You cannot use session policies to grant
--- more permissions than those allowed by the identity-based policy of the
--- role that is being assumed. For more information, see
+-- temporary credentials in subsequent Amazon Web Services API calls to
+-- access resources in the account that owns the role. You cannot use
+-- session policies to grant more permissions than those allowed by the
+-- identity-based policy of the role that is being assumed. For more
+-- information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
 -- in the /IAM User Guide/.
 --
--- Calling @AssumeRoleWithSAML@ does not require the use of AWS security
--- credentials. The identity of the caller is validated by using keys in
--- the metadata document that is uploaded for the SAML provider entity for
--- your identity provider.
+-- Calling @AssumeRoleWithSAML@ does not require the use of Amazon Web
+-- Services security credentials. The identity of the caller is validated
+-- by using keys in the metadata document that is uploaded for the SAML
+-- provider entity for your identity provider.
 --
--- Calling @AssumeRoleWithSAML@ can result in an entry in your AWS
--- CloudTrail logs. The entry includes the value in the @NameID@ element of
--- the SAML assertion. We recommend that you use a @NameIDType@ that is not
+-- Calling @AssumeRoleWithSAML@ can result in an entry in your CloudTrail
+-- logs. The entry includes the value in the @NameID@ element of the SAML
+-- assertion. We recommend that you use a @NameIDType@ that is not
 -- associated with any personally identifiable information (PII). For
 -- example, you could instead use the persistent identifier
 -- (@urn:oasis:names:tc:SAML:2.0:nameid-format:persistent@).
@@ -99,16 +110,16 @@
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html Passing Session Tags in STS>
 -- in the /IAM User Guide/.
 --
--- You can pass up to 50 session tags. The plain text session tag keys
--- can’t exceed 128 characters and the values can’t exceed 256 characters.
--- For these and additional limits, see
+-- You can pass up to 50 session tags. The plaintext session tag keys can’t
+-- exceed 128 characters and the values can’t exceed 256 characters. For
+-- these and additional limits, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length IAM and STS Character Limits>
 -- in the /IAM User Guide/.
 --
--- An AWS conversion compresses the passed session policies and session
--- tags into a packed binary format that has a separate limit. Your request
--- can fail for this limit even if your plain text meets the other
--- requirements. The @PackedPolicySize@ response element indicates by
+-- An Amazon Web Services conversion compresses the passed session policies
+-- and session tags into a packed binary format that has a separate limit.
+-- Your request can fail for this limit even if your plaintext meets the
+-- other requirements. The @PackedPolicySize@ response element indicates by
 -- percentage how close the policies and tags for your request are to the
 -- upper size limit.
 --
@@ -131,10 +142,11 @@
 --
 -- Before your application can call @AssumeRoleWithSAML@, you must
 -- configure your SAML identity provider (IdP) to issue the claims required
--- by AWS. Additionally, you must use AWS Identity and Access Management
--- (IAM) to create a SAML provider entity in your AWS account that
--- represents your identity provider. You must also create an IAM role that
--- specifies this SAML provider in its trust policy.
+-- by Amazon Web Services. Additionally, you must use Identity and Access
+-- Management (IAM) to create a SAML provider entity in your Amazon Web
+-- Services account that represents your identity provider. You must also
+-- create an IAM role that specifies this SAML provider in its trust
+-- policy.
 --
 -- For more information, see the following resources:
 --
@@ -171,6 +183,7 @@ module Network.AWS.STS.AssumeRoleWithSAML
     assumeRoleWithSAMLResponse_audience,
     assumeRoleWithSAMLResponse_subjectType,
     assumeRoleWithSAMLResponse_subject,
+    assumeRoleWithSAMLResponse_sourceIdentity,
     assumeRoleWithSAMLResponse_issuer,
     assumeRoleWithSAMLResponse_credentials,
     assumeRoleWithSAMLResponse_assumedRoleUser,
@@ -193,26 +206,27 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML'
     -- same account as the role.
     --
     -- This parameter is optional. You can provide up to 10 managed policy
-    -- ARNs. However, the plain text that you use for both inline and managed
+    -- ARNs. However, the plaintext that you use for both inline and managed
     -- session policies can\'t exceed 2,048 characters. For more information
     -- about ARNs, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
-    -- in the AWS General Reference.
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
+    -- in the Amazon Web Services General Reference.
     --
-    -- An AWS conversion compresses the passed session policies and session
-    -- tags into a packed binary format that has a separate limit. Your request
-    -- can fail for this limit even if your plain text meets the other
-    -- requirements. The @PackedPolicySize@ response element indicates by
+    -- An Amazon Web Services conversion compresses the passed session policies
+    -- and session tags into a packed binary format that has a separate limit.
+    -- Your request can fail for this limit even if your plaintext meets the
+    -- other requirements. The @PackedPolicySize@ response element indicates by
     -- percentage how close the policies and tags for your request are to the
     -- upper size limit.
     --
     -- Passing policies to this operation returns new temporary credentials.
     -- The resulting session\'s permissions are the intersection of the role\'s
     -- identity-based policy and the session policies. You can use the role\'s
-    -- temporary credentials in subsequent AWS API calls to access resources in
-    -- the account that owns the role. You cannot use session policies to grant
-    -- more permissions than those allowed by the identity-based policy of the
-    -- role that is being assumed. For more information, see
+    -- temporary credentials in subsequent Amazon Web Services API calls to
+    -- access resources in the account that owns the role. You cannot use
+    -- session policies to grant more permissions than those allowed by the
+    -- identity-based policy of the role that is being assumed. For more
+    -- information, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
     -- in the /IAM User Guide/.
     policyArns :: Prelude.Maybe [PolicyDescriptorType],
@@ -223,23 +237,23 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML'
     -- new temporary credentials. The resulting session\'s permissions are the
     -- intersection of the role\'s identity-based policy and the session
     -- policies. You can use the role\'s temporary credentials in subsequent
-    -- AWS API calls to access resources in the account that owns the role. You
-    -- cannot use session policies to grant more permissions than those allowed
-    -- by the identity-based policy of the role that is being assumed. For more
-    -- information, see
+    -- Amazon Web Services API calls to access resources in the account that
+    -- owns the role. You cannot use session policies to grant more permissions
+    -- than those allowed by the identity-based policy of the role that is
+    -- being assumed. For more information, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
     -- in the /IAM User Guide/.
     --
-    -- The plain text that you use for both inline and managed session policies
+    -- The plaintext that you use for both inline and managed session policies
     -- can\'t exceed 2,048 characters. The JSON policy characters can be any
     -- ASCII character from the space character to the end of the valid
     -- character list (\\u0020 through \\u00FF). It can also include the tab
     -- (\\u0009), linefeed (\\u000A), and carriage return (\\u000D) characters.
     --
-    -- An AWS conversion compresses the passed session policies and session
-    -- tags into a packed binary format that has a separate limit. Your request
-    -- can fail for this limit even if your plain text meets the other
-    -- requirements. The @PackedPolicySize@ response element indicates by
+    -- An Amazon Web Services conversion compresses the passed session policies
+    -- and session tags into a packed binary format that has a separate limit.
+    -- Your request can fail for this limit even if your plaintext meets the
+    -- other requirements. The @PackedPolicySize@ response element indicates by
     -- percentage how close the policies and tags for your request are to the
     -- upper size limit.
     policy :: Prelude.Maybe Prelude.Text,
@@ -264,7 +278,7 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML'
     -- The request to the federation endpoint for a console sign-in token takes
     -- a @SessionDuration@ parameter that specifies the maximum length of the
     -- console session. For more information, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the AWS Management Console>
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Management Console>
     -- in the /IAM User Guide/.
     durationSeconds :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) of the role that the caller is assuming.
@@ -272,7 +286,7 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML'
     -- | The Amazon Resource Name (ARN) of the SAML provider in IAM that
     -- describes the IdP.
     principalArn :: Prelude.Text,
-    -- | The base-64 encoded SAML authentication response provided by the IdP.
+    -- | The base64 encoded SAML authentication response provided by the IdP.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/create-role-saml-IdP-tasks.html Configuring a Relying Party and Adding Claims>
@@ -294,26 +308,27 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML'
 -- same account as the role.
 --
 -- This parameter is optional. You can provide up to 10 managed policy
--- ARNs. However, the plain text that you use for both inline and managed
+-- ARNs. However, the plaintext that you use for both inline and managed
 -- session policies can\'t exceed 2,048 characters. For more information
 -- about ARNs, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
--- in the AWS General Reference.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
+-- in the Amazon Web Services General Reference.
 --
--- An AWS conversion compresses the passed session policies and session
--- tags into a packed binary format that has a separate limit. Your request
--- can fail for this limit even if your plain text meets the other
--- requirements. The @PackedPolicySize@ response element indicates by
+-- An Amazon Web Services conversion compresses the passed session policies
+-- and session tags into a packed binary format that has a separate limit.
+-- Your request can fail for this limit even if your plaintext meets the
+-- other requirements. The @PackedPolicySize@ response element indicates by
 -- percentage how close the policies and tags for your request are to the
 -- upper size limit.
 --
 -- Passing policies to this operation returns new temporary credentials.
 -- The resulting session\'s permissions are the intersection of the role\'s
 -- identity-based policy and the session policies. You can use the role\'s
--- temporary credentials in subsequent AWS API calls to access resources in
--- the account that owns the role. You cannot use session policies to grant
--- more permissions than those allowed by the identity-based policy of the
--- role that is being assumed. For more information, see
+-- temporary credentials in subsequent Amazon Web Services API calls to
+-- access resources in the account that owns the role. You cannot use
+-- session policies to grant more permissions than those allowed by the
+-- identity-based policy of the role that is being assumed. For more
+-- information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
 -- in the /IAM User Guide/.
 --
@@ -324,23 +339,23 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML'
 -- new temporary credentials. The resulting session\'s permissions are the
 -- intersection of the role\'s identity-based policy and the session
 -- policies. You can use the role\'s temporary credentials in subsequent
--- AWS API calls to access resources in the account that owns the role. You
--- cannot use session policies to grant more permissions than those allowed
--- by the identity-based policy of the role that is being assumed. For more
--- information, see
+-- Amazon Web Services API calls to access resources in the account that
+-- owns the role. You cannot use session policies to grant more permissions
+-- than those allowed by the identity-based policy of the role that is
+-- being assumed. For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
 -- in the /IAM User Guide/.
 --
--- The plain text that you use for both inline and managed session policies
+-- The plaintext that you use for both inline and managed session policies
 -- can\'t exceed 2,048 characters. The JSON policy characters can be any
 -- ASCII character from the space character to the end of the valid
 -- character list (\\u0020 through \\u00FF). It can also include the tab
 -- (\\u0009), linefeed (\\u000A), and carriage return (\\u000D) characters.
 --
--- An AWS conversion compresses the passed session policies and session
--- tags into a packed binary format that has a separate limit. Your request
--- can fail for this limit even if your plain text meets the other
--- requirements. The @PackedPolicySize@ response element indicates by
+-- An Amazon Web Services conversion compresses the passed session policies
+-- and session tags into a packed binary format that has a separate limit.
+-- Your request can fail for this limit even if your plaintext meets the
+-- other requirements. The @PackedPolicySize@ response element indicates by
 -- percentage how close the policies and tags for your request are to the
 -- upper size limit.
 --
@@ -365,7 +380,7 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML'
 -- The request to the federation endpoint for a console sign-in token takes
 -- a @SessionDuration@ parameter that specifies the maximum length of the
 -- console session. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the AWS Management Console>
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Management Console>
 -- in the /IAM User Guide/.
 --
 -- 'roleArn', 'assumeRoleWithSAML_roleArn' - The Amazon Resource Name (ARN) of the role that the caller is assuming.
@@ -373,7 +388,7 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML'
 -- 'principalArn', 'assumeRoleWithSAML_principalArn' - The Amazon Resource Name (ARN) of the SAML provider in IAM that
 -- describes the IdP.
 --
--- 'sAMLAssertion', 'assumeRoleWithSAML_sAMLAssertion' - The base-64 encoded SAML authentication response provided by the IdP.
+-- 'sAMLAssertion', 'assumeRoleWithSAML_sAMLAssertion' - The base64 encoded SAML authentication response provided by the IdP.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/create-role-saml-IdP-tasks.html Configuring a Relying Party and Adding Claims>
@@ -404,26 +419,27 @@ newAssumeRoleWithSAML
 -- same account as the role.
 --
 -- This parameter is optional. You can provide up to 10 managed policy
--- ARNs. However, the plain text that you use for both inline and managed
+-- ARNs. However, the plaintext that you use for both inline and managed
 -- session policies can\'t exceed 2,048 characters. For more information
 -- about ARNs, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>
--- in the AWS General Reference.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces>
+-- in the Amazon Web Services General Reference.
 --
--- An AWS conversion compresses the passed session policies and session
--- tags into a packed binary format that has a separate limit. Your request
--- can fail for this limit even if your plain text meets the other
--- requirements. The @PackedPolicySize@ response element indicates by
+-- An Amazon Web Services conversion compresses the passed session policies
+-- and session tags into a packed binary format that has a separate limit.
+-- Your request can fail for this limit even if your plaintext meets the
+-- other requirements. The @PackedPolicySize@ response element indicates by
 -- percentage how close the policies and tags for your request are to the
 -- upper size limit.
 --
 -- Passing policies to this operation returns new temporary credentials.
 -- The resulting session\'s permissions are the intersection of the role\'s
 -- identity-based policy and the session policies. You can use the role\'s
--- temporary credentials in subsequent AWS API calls to access resources in
--- the account that owns the role. You cannot use session policies to grant
--- more permissions than those allowed by the identity-based policy of the
--- role that is being assumed. For more information, see
+-- temporary credentials in subsequent Amazon Web Services API calls to
+-- access resources in the account that owns the role. You cannot use
+-- session policies to grant more permissions than those allowed by the
+-- identity-based policy of the role that is being assumed. For more
+-- information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
 -- in the /IAM User Guide/.
 assumeRoleWithSAML_policyArns :: Lens.Lens' AssumeRoleWithSAML (Prelude.Maybe [PolicyDescriptorType])
@@ -436,23 +452,23 @@ assumeRoleWithSAML_policyArns = Lens.lens (\AssumeRoleWithSAML' {policyArns} -> 
 -- new temporary credentials. The resulting session\'s permissions are the
 -- intersection of the role\'s identity-based policy and the session
 -- policies. You can use the role\'s temporary credentials in subsequent
--- AWS API calls to access resources in the account that owns the role. You
--- cannot use session policies to grant more permissions than those allowed
--- by the identity-based policy of the role that is being assumed. For more
--- information, see
+-- Amazon Web Services API calls to access resources in the account that
+-- owns the role. You cannot use session policies to grant more permissions
+-- than those allowed by the identity-based policy of the role that is
+-- being assumed. For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session Session Policies>
 -- in the /IAM User Guide/.
 --
--- The plain text that you use for both inline and managed session policies
+-- The plaintext that you use for both inline and managed session policies
 -- can\'t exceed 2,048 characters. The JSON policy characters can be any
 -- ASCII character from the space character to the end of the valid
 -- character list (\\u0020 through \\u00FF). It can also include the tab
 -- (\\u0009), linefeed (\\u000A), and carriage return (\\u000D) characters.
 --
--- An AWS conversion compresses the passed session policies and session
--- tags into a packed binary format that has a separate limit. Your request
--- can fail for this limit even if your plain text meets the other
--- requirements. The @PackedPolicySize@ response element indicates by
+-- An Amazon Web Services conversion compresses the passed session policies
+-- and session tags into a packed binary format that has a separate limit.
+-- Your request can fail for this limit even if your plaintext meets the
+-- other requirements. The @PackedPolicySize@ response element indicates by
 -- percentage how close the policies and tags for your request are to the
 -- upper size limit.
 assumeRoleWithSAML_policy :: Lens.Lens' AssumeRoleWithSAML (Prelude.Maybe Prelude.Text)
@@ -479,7 +495,7 @@ assumeRoleWithSAML_policy = Lens.lens (\AssumeRoleWithSAML' {policy} -> policy) 
 -- The request to the federation endpoint for a console sign-in token takes
 -- a @SessionDuration@ parameter that specifies the maximum length of the
 -- console session. For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the AWS Management Console>
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html Creating a URL that Enables Federated Users to Access the Management Console>
 -- in the /IAM User Guide/.
 assumeRoleWithSAML_durationSeconds :: Lens.Lens' AssumeRoleWithSAML (Prelude.Maybe Prelude.Natural)
 assumeRoleWithSAML_durationSeconds = Lens.lens (\AssumeRoleWithSAML' {durationSeconds} -> durationSeconds) (\s@AssumeRoleWithSAML' {} a -> s {durationSeconds = a} :: AssumeRoleWithSAML)
@@ -493,7 +509,7 @@ assumeRoleWithSAML_roleArn = Lens.lens (\AssumeRoleWithSAML' {roleArn} -> roleAr
 assumeRoleWithSAML_principalArn :: Lens.Lens' AssumeRoleWithSAML Prelude.Text
 assumeRoleWithSAML_principalArn = Lens.lens (\AssumeRoleWithSAML' {principalArn} -> principalArn) (\s@AssumeRoleWithSAML' {} a -> s {principalArn = a} :: AssumeRoleWithSAML)
 
--- | The base-64 encoded SAML authentication response provided by the IdP.
+-- | The base64 encoded SAML authentication response provided by the IdP.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/create-role-saml-IdP-tasks.html Configuring a Relying Party and Adding Claims>
@@ -515,6 +531,7 @@ instance Core.AWSRequest AssumeRoleWithSAML where
             Prelude.<*> (x Core..@? "Audience")
             Prelude.<*> (x Core..@? "SubjectType")
             Prelude.<*> (x Core..@? "Subject")
+            Prelude.<*> (x Core..@? "SourceIdentity")
             Prelude.<*> (x Core..@? "Issuer")
             Prelude.<*> (x Core..@? "Credentials")
             Prelude.<*> (x Core..@? "AssumedRoleUser")
@@ -550,15 +567,22 @@ instance Core.ToQuery AssumeRoleWithSAML where
       ]
 
 -- | Contains the response to a successful AssumeRoleWithSAML request,
--- including temporary AWS credentials that can be used to make AWS
--- requests.
+-- including temporary Amazon Web Services credentials that can be used to
+-- make Amazon Web Services requests.
 --
 -- /See:/ 'newAssumeRoleWithSAMLResponse' smart constructor.
 data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
-  { -- | A hash value based on the concatenation of the @Issuer@ response value,
-    -- the AWS account ID, and the friendly name (the last part of the ARN) of
-    -- the SAML provider in IAM. The combination of @NameQualifier@ and
-    -- @Subject@ can be used to uniquely identify a federated user.
+  { -- | A hash value based on the concatenation of the following:
+    --
+    -- -   The @Issuer@ response value.
+    --
+    -- -   The Amazon Web Services account ID.
+    --
+    -- -   The friendly name (the last part of the ARN) of the SAML provider in
+    --     IAM.
+    --
+    -- The combination of @NameQualifier@ and @Subject@ can be used to uniquely
+    -- identify a federated user.
     --
     -- The following pseudocode shows how the hash value is calculated:
     --
@@ -580,6 +604,28 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
     -- | The value of the @NameID@ element in the @Subject@ element of the SAML
     -- assertion.
     subject :: Prelude.Maybe Prelude.Text,
+    -- | The value in the @SourceIdentity@ attribute in the SAML assertion.
+    --
+    -- You can require users to set a source identity value when they assume a
+    -- role. You do this by using the @sts:SourceIdentity@ condition key in a
+    -- role trust policy. That way, actions that are taken with the role are
+    -- associated with that user. After the source identity is set, the value
+    -- cannot be changed. It is present in the request for all actions that are
+    -- taken by the role and persists across
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts#iam-term-role-chaining chained role>
+    -- sessions. You can configure your SAML identity provider to use an
+    -- attribute associated with your users, like user name or email, as the
+    -- source identity when calling @AssumeRoleWithSAML@. You do this by adding
+    -- an attribute to the SAML assertion. For more information about using
+    -- source identity, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html Monitor and control actions taken with assumed roles>
+    -- in the /IAM User Guide/.
+    --
+    -- The regex used to validate this parameter is a string of characters
+    -- consisting of upper- and lower-case alphanumeric characters with no
+    -- spaces. You can also include underscores or any of the following
+    -- characters: =,.\@-
+    sourceIdentity :: Prelude.Maybe Prelude.Text,
     -- | The value of the @Issuer@ element of the SAML assertion.
     issuer :: Prelude.Maybe Prelude.Text,
     -- | The temporary security credentials, which include an access key ID, a
@@ -610,10 +656,17 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nameQualifier', 'assumeRoleWithSAMLResponse_nameQualifier' - A hash value based on the concatenation of the @Issuer@ response value,
--- the AWS account ID, and the friendly name (the last part of the ARN) of
--- the SAML provider in IAM. The combination of @NameQualifier@ and
--- @Subject@ can be used to uniquely identify a federated user.
+-- 'nameQualifier', 'assumeRoleWithSAMLResponse_nameQualifier' - A hash value based on the concatenation of the following:
+--
+-- -   The @Issuer@ response value.
+--
+-- -   The Amazon Web Services account ID.
+--
+-- -   The friendly name (the last part of the ARN) of the SAML provider in
+--     IAM.
+--
+-- The combination of @NameQualifier@ and @Subject@ can be used to uniquely
+-- identify a federated user.
 --
 -- The following pseudocode shows how the hash value is calculated:
 --
@@ -634,6 +687,28 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
 --
 -- 'subject', 'assumeRoleWithSAMLResponse_subject' - The value of the @NameID@ element in the @Subject@ element of the SAML
 -- assertion.
+--
+-- 'sourceIdentity', 'assumeRoleWithSAMLResponse_sourceIdentity' - The value in the @SourceIdentity@ attribute in the SAML assertion.
+--
+-- You can require users to set a source identity value when they assume a
+-- role. You do this by using the @sts:SourceIdentity@ condition key in a
+-- role trust policy. That way, actions that are taken with the role are
+-- associated with that user. After the source identity is set, the value
+-- cannot be changed. It is present in the request for all actions that are
+-- taken by the role and persists across
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts#iam-term-role-chaining chained role>
+-- sessions. You can configure your SAML identity provider to use an
+-- attribute associated with your users, like user name or email, as the
+-- source identity when calling @AssumeRoleWithSAML@. You do this by adding
+-- an attribute to the SAML assertion. For more information about using
+-- source identity, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html Monitor and control actions taken with assumed roles>
+-- in the /IAM User Guide/.
+--
+-- The regex used to validate this parameter is a string of characters
+-- consisting of upper- and lower-case alphanumeric characters with no
+-- spaces. You can also include underscores or any of the following
+-- characters: =,.\@-
 --
 -- 'issuer', 'assumeRoleWithSAMLResponse_issuer' - The value of the @Issuer@ element of the SAML assertion.
 --
@@ -664,6 +739,7 @@ newAssumeRoleWithSAMLResponse pHttpStatus_ =
       audience = Prelude.Nothing,
       subjectType = Prelude.Nothing,
       subject = Prelude.Nothing,
+      sourceIdentity = Prelude.Nothing,
       issuer = Prelude.Nothing,
       credentials = Prelude.Nothing,
       assumedRoleUser = Prelude.Nothing,
@@ -671,10 +747,17 @@ newAssumeRoleWithSAMLResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A hash value based on the concatenation of the @Issuer@ response value,
--- the AWS account ID, and the friendly name (the last part of the ARN) of
--- the SAML provider in IAM. The combination of @NameQualifier@ and
--- @Subject@ can be used to uniquely identify a federated user.
+-- | A hash value based on the concatenation of the following:
+--
+-- -   The @Issuer@ response value.
+--
+-- -   The Amazon Web Services account ID.
+--
+-- -   The friendly name (the last part of the ARN) of the SAML provider in
+--     IAM.
+--
+-- The combination of @NameQualifier@ and @Subject@ can be used to uniquely
+-- identify a federated user.
 --
 -- The following pseudocode shows how the hash value is calculated:
 --
@@ -703,6 +786,30 @@ assumeRoleWithSAMLResponse_subjectType = Lens.lens (\AssumeRoleWithSAMLResponse'
 -- assertion.
 assumeRoleWithSAMLResponse_subject :: Lens.Lens' AssumeRoleWithSAMLResponse (Prelude.Maybe Prelude.Text)
 assumeRoleWithSAMLResponse_subject = Lens.lens (\AssumeRoleWithSAMLResponse' {subject} -> subject) (\s@AssumeRoleWithSAMLResponse' {} a -> s {subject = a} :: AssumeRoleWithSAMLResponse)
+
+-- | The value in the @SourceIdentity@ attribute in the SAML assertion.
+--
+-- You can require users to set a source identity value when they assume a
+-- role. You do this by using the @sts:SourceIdentity@ condition key in a
+-- role trust policy. That way, actions that are taken with the role are
+-- associated with that user. After the source identity is set, the value
+-- cannot be changed. It is present in the request for all actions that are
+-- taken by the role and persists across
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts#iam-term-role-chaining chained role>
+-- sessions. You can configure your SAML identity provider to use an
+-- attribute associated with your users, like user name or email, as the
+-- source identity when calling @AssumeRoleWithSAML@. You do this by adding
+-- an attribute to the SAML assertion. For more information about using
+-- source identity, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html Monitor and control actions taken with assumed roles>
+-- in the /IAM User Guide/.
+--
+-- The regex used to validate this parameter is a string of characters
+-- consisting of upper- and lower-case alphanumeric characters with no
+-- spaces. You can also include underscores or any of the following
+-- characters: =,.\@-
+assumeRoleWithSAMLResponse_sourceIdentity :: Lens.Lens' AssumeRoleWithSAMLResponse (Prelude.Maybe Prelude.Text)
+assumeRoleWithSAMLResponse_sourceIdentity = Lens.lens (\AssumeRoleWithSAMLResponse' {sourceIdentity} -> sourceIdentity) (\s@AssumeRoleWithSAMLResponse' {} a -> s {sourceIdentity = a} :: AssumeRoleWithSAMLResponse)
 
 -- | The value of the @Issuer@ element of the SAML assertion.
 assumeRoleWithSAMLResponse_issuer :: Lens.Lens' AssumeRoleWithSAMLResponse (Prelude.Maybe Prelude.Text)

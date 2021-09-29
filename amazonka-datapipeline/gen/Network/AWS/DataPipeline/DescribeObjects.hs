@@ -31,8 +31,8 @@ module Network.AWS.DataPipeline.DescribeObjects
     newDescribeObjects,
 
     -- * Request Lenses
-    describeObjects_marker,
     describeObjects_evaluateExpressions,
+    describeObjects_marker,
     describeObjects_pipelineId,
     describeObjects_objectIds,
 
@@ -59,14 +59,14 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeObjects' smart constructor.
 data DescribeObjects = DescribeObjects'
-  { -- | The starting point for the results to be returned. For the first call,
+  { -- | Indicates whether any expressions in the object should be evaluated when
+    -- the object descriptions are returned.
+    evaluateExpressions :: Prelude.Maybe Prelude.Bool,
+    -- | The starting point for the results to be returned. For the first call,
     -- this value should be empty. As long as there are more results, continue
     -- to call @DescribeObjects@ with the marker value from the previous call
     -- to retrieve the next set of results.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether any expressions in the object should be evaluated when
-    -- the object descriptions are returned.
-    evaluateExpressions :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the pipeline that contains the object definitions.
     pipelineId :: Prelude.Text,
     -- | The IDs of the pipeline objects that contain the definitions to be
@@ -84,13 +84,13 @@ data DescribeObjects = DescribeObjects'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'evaluateExpressions', 'describeObjects_evaluateExpressions' - Indicates whether any expressions in the object should be evaluated when
+-- the object descriptions are returned.
+--
 -- 'marker', 'describeObjects_marker' - The starting point for the results to be returned. For the first call,
 -- this value should be empty. As long as there are more results, continue
 -- to call @DescribeObjects@ with the marker value from the previous call
 -- to retrieve the next set of results.
---
--- 'evaluateExpressions', 'describeObjects_evaluateExpressions' - Indicates whether any expressions in the object should be evaluated when
--- the object descriptions are returned.
 --
 -- 'pipelineId', 'describeObjects_pipelineId' - The ID of the pipeline that contains the object definitions.
 --
@@ -103,11 +103,17 @@ newDescribeObjects ::
   DescribeObjects
 newDescribeObjects pPipelineId_ =
   DescribeObjects'
-    { marker = Prelude.Nothing,
-      evaluateExpressions = Prelude.Nothing,
+    { evaluateExpressions =
+        Prelude.Nothing,
+      marker = Prelude.Nothing,
       pipelineId = pPipelineId_,
       objectIds = Prelude.mempty
     }
+
+-- | Indicates whether any expressions in the object should be evaluated when
+-- the object descriptions are returned.
+describeObjects_evaluateExpressions :: Lens.Lens' DescribeObjects (Prelude.Maybe Prelude.Bool)
+describeObjects_evaluateExpressions = Lens.lens (\DescribeObjects' {evaluateExpressions} -> evaluateExpressions) (\s@DescribeObjects' {} a -> s {evaluateExpressions = a} :: DescribeObjects)
 
 -- | The starting point for the results to be returned. For the first call,
 -- this value should be empty. As long as there are more results, continue
@@ -115,11 +121,6 @@ newDescribeObjects pPipelineId_ =
 -- to retrieve the next set of results.
 describeObjects_marker :: Lens.Lens' DescribeObjects (Prelude.Maybe Prelude.Text)
 describeObjects_marker = Lens.lens (\DescribeObjects' {marker} -> marker) (\s@DescribeObjects' {} a -> s {marker = a} :: DescribeObjects)
-
--- | Indicates whether any expressions in the object should be evaluated when
--- the object descriptions are returned.
-describeObjects_evaluateExpressions :: Lens.Lens' DescribeObjects (Prelude.Maybe Prelude.Bool)
-describeObjects_evaluateExpressions = Lens.lens (\DescribeObjects' {evaluateExpressions} -> evaluateExpressions) (\s@DescribeObjects' {} a -> s {evaluateExpressions = a} :: DescribeObjects)
 
 -- | The ID of the pipeline that contains the object definitions.
 describeObjects_pipelineId :: Lens.Lens' DescribeObjects Prelude.Text
@@ -191,9 +192,9 @@ instance Core.ToJSON DescribeObjects where
   toJSON DescribeObjects' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("marker" Core..=) Prelude.<$> marker,
-            ("evaluateExpressions" Core..=)
+          [ ("evaluateExpressions" Core..=)
               Prelude.<$> evaluateExpressions,
+            ("marker" Core..=) Prelude.<$> marker,
             Prelude.Just ("pipelineId" Core..= pipelineId),
             Prelude.Just ("objectIds" Core..= objectIds)
           ]

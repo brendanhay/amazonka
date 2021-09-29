@@ -29,8 +29,8 @@ module Network.AWS.CloudDirectory.CreateIndex
     newCreateIndex,
 
     -- * Request Lenses
-    createIndex_parentReference,
     createIndex_linkName,
+    createIndex_parentReference,
     createIndex_directoryArn,
     createIndex_orderedIndexedAttributeList,
     createIndex_isUnique,
@@ -54,10 +54,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateIndex' smart constructor.
 data CreateIndex = CreateIndex'
-  { -- | A reference to the parent object that contains the index object.
-    parentReference :: Prelude.Maybe ObjectReference,
-    -- | The name of the link between the parent object and the index object.
+  { -- | The name of the link between the parent object and the index object.
     linkName :: Prelude.Maybe Prelude.Text,
+    -- | A reference to the parent object that contains the index object.
+    parentReference :: Prelude.Maybe ObjectReference,
     -- | The ARN of the directory where the index should be created.
     directoryArn :: Prelude.Text,
     -- | Specifies the attributes that should be indexed on. Currently only a
@@ -77,9 +77,9 @@ data CreateIndex = CreateIndex'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'parentReference', 'createIndex_parentReference' - A reference to the parent object that contains the index object.
---
 -- 'linkName', 'createIndex_linkName' - The name of the link between the parent object and the index object.
+--
+-- 'parentReference', 'createIndex_parentReference' - A reference to the parent object that contains the index object.
 --
 -- 'directoryArn', 'createIndex_directoryArn' - The ARN of the directory where the index should be created.
 --
@@ -96,20 +96,20 @@ newCreateIndex ::
   CreateIndex
 newCreateIndex pDirectoryArn_ pIsUnique_ =
   CreateIndex'
-    { parentReference = Prelude.Nothing,
-      linkName = Prelude.Nothing,
+    { linkName = Prelude.Nothing,
+      parentReference = Prelude.Nothing,
       directoryArn = pDirectoryArn_,
       orderedIndexedAttributeList = Prelude.mempty,
       isUnique = pIsUnique_
     }
 
--- | A reference to the parent object that contains the index object.
-createIndex_parentReference :: Lens.Lens' CreateIndex (Prelude.Maybe ObjectReference)
-createIndex_parentReference = Lens.lens (\CreateIndex' {parentReference} -> parentReference) (\s@CreateIndex' {} a -> s {parentReference = a} :: CreateIndex)
-
 -- | The name of the link between the parent object and the index object.
 createIndex_linkName :: Lens.Lens' CreateIndex (Prelude.Maybe Prelude.Text)
 createIndex_linkName = Lens.lens (\CreateIndex' {linkName} -> linkName) (\s@CreateIndex' {} a -> s {linkName = a} :: CreateIndex)
+
+-- | A reference to the parent object that contains the index object.
+createIndex_parentReference :: Lens.Lens' CreateIndex (Prelude.Maybe ObjectReference)
+createIndex_parentReference = Lens.lens (\CreateIndex' {parentReference} -> parentReference) (\s@CreateIndex' {} a -> s {parentReference = a} :: CreateIndex)
 
 -- | The ARN of the directory where the index should be created.
 createIndex_directoryArn :: Lens.Lens' CreateIndex Prelude.Text
@@ -149,9 +149,9 @@ instance Core.ToJSON CreateIndex where
   toJSON CreateIndex' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ParentReference" Core..=)
+          [ ("LinkName" Core..=) Prelude.<$> linkName,
+            ("ParentReference" Core..=)
               Prelude.<$> parentReference,
-            ("LinkName" Core..=) Prelude.<$> linkName,
             Prelude.Just
               ( "OrderedIndexedAttributeList"
                   Core..= orderedIndexedAttributeList

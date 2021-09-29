@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBatchCreateIndex' smart constructor.
 data BatchCreateIndex = BatchCreateIndex'
-  { -- | A reference to the parent object that contains the index object.
-    parentReference :: Prelude.Maybe ObjectReference,
-    -- | The name of the link between the parent object and the index object.
+  { -- | The name of the link between the parent object and the index object.
     linkName :: Prelude.Maybe Prelude.Text,
+    -- | A reference to the parent object that contains the index object.
+    parentReference :: Prelude.Maybe ObjectReference,
     -- | The batch reference name. See
     -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html Transaction Support>
     -- for more information.
@@ -55,9 +55,9 @@ data BatchCreateIndex = BatchCreateIndex'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'parentReference', 'batchCreateIndex_parentReference' - A reference to the parent object that contains the index object.
---
 -- 'linkName', 'batchCreateIndex_linkName' - The name of the link between the parent object and the index object.
+--
+-- 'parentReference', 'batchCreateIndex_parentReference' - A reference to the parent object that contains the index object.
 --
 -- 'batchReferenceName', 'batchCreateIndex_batchReferenceName' - The batch reference name. See
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html Transaction Support>
@@ -74,21 +74,20 @@ newBatchCreateIndex ::
   BatchCreateIndex
 newBatchCreateIndex pIsUnique_ =
   BatchCreateIndex'
-    { parentReference =
-        Prelude.Nothing,
-      linkName = Prelude.Nothing,
+    { linkName = Prelude.Nothing,
+      parentReference = Prelude.Nothing,
       batchReferenceName = Prelude.Nothing,
       orderedIndexedAttributeList = Prelude.mempty,
       isUnique = pIsUnique_
     }
 
--- | A reference to the parent object that contains the index object.
-batchCreateIndex_parentReference :: Lens.Lens' BatchCreateIndex (Prelude.Maybe ObjectReference)
-batchCreateIndex_parentReference = Lens.lens (\BatchCreateIndex' {parentReference} -> parentReference) (\s@BatchCreateIndex' {} a -> s {parentReference = a} :: BatchCreateIndex)
-
 -- | The name of the link between the parent object and the index object.
 batchCreateIndex_linkName :: Lens.Lens' BatchCreateIndex (Prelude.Maybe Prelude.Text)
 batchCreateIndex_linkName = Lens.lens (\BatchCreateIndex' {linkName} -> linkName) (\s@BatchCreateIndex' {} a -> s {linkName = a} :: BatchCreateIndex)
+
+-- | A reference to the parent object that contains the index object.
+batchCreateIndex_parentReference :: Lens.Lens' BatchCreateIndex (Prelude.Maybe ObjectReference)
+batchCreateIndex_parentReference = Lens.lens (\BatchCreateIndex' {parentReference} -> parentReference) (\s@BatchCreateIndex' {} a -> s {parentReference = a} :: BatchCreateIndex)
 
 -- | The batch reference name. See
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html Transaction Support>
@@ -114,9 +113,9 @@ instance Core.ToJSON BatchCreateIndex where
   toJSON BatchCreateIndex' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ParentReference" Core..=)
+          [ ("LinkName" Core..=) Prelude.<$> linkName,
+            ("ParentReference" Core..=)
               Prelude.<$> parentReference,
-            ("LinkName" Core..=) Prelude.<$> linkName,
             ("BatchReferenceName" Core..=)
               Prelude.<$> batchReferenceName,
             Prelude.Just

@@ -31,8 +31,8 @@ module Network.AWS.CloudDirectory.CreateObject
     newCreateObject,
 
     -- * Request Lenses
-    createObject_parentReference,
     createObject_linkName,
+    createObject_parentReference,
     createObject_objectAttributeList,
     createObject_directoryArn,
     createObject_schemaFacets,
@@ -56,11 +56,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateObject' smart constructor.
 data CreateObject = CreateObject'
-  { -- | If specified, the parent reference to which this object will be
+  { -- | The name of link that is used to attach this object to a parent.
+    linkName :: Prelude.Maybe Prelude.Text,
+    -- | If specified, the parent reference to which this object will be
     -- attached.
     parentReference :: Prelude.Maybe ObjectReference,
-    -- | The name of link that is used to attach this object to a parent.
-    linkName :: Prelude.Maybe Prelude.Text,
     -- | The attribute map whose attribute ARN contains the key and attribute
     -- value as the map value.
     objectAttributeList :: Prelude.Maybe [AttributeKeyAndValue],
@@ -81,10 +81,10 @@ data CreateObject = CreateObject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'linkName', 'createObject_linkName' - The name of link that is used to attach this object to a parent.
+--
 -- 'parentReference', 'createObject_parentReference' - If specified, the parent reference to which this object will be
 -- attached.
---
--- 'linkName', 'createObject_linkName' - The name of link that is used to attach this object to a parent.
 --
 -- 'objectAttributeList', 'createObject_objectAttributeList' - The attribute map whose attribute ARN contains the key and attribute
 -- value as the map value.
@@ -100,21 +100,21 @@ newCreateObject ::
   CreateObject
 newCreateObject pDirectoryArn_ =
   CreateObject'
-    { parentReference = Prelude.Nothing,
-      linkName = Prelude.Nothing,
+    { linkName = Prelude.Nothing,
+      parentReference = Prelude.Nothing,
       objectAttributeList = Prelude.Nothing,
       directoryArn = pDirectoryArn_,
       schemaFacets = Prelude.mempty
     }
 
+-- | The name of link that is used to attach this object to a parent.
+createObject_linkName :: Lens.Lens' CreateObject (Prelude.Maybe Prelude.Text)
+createObject_linkName = Lens.lens (\CreateObject' {linkName} -> linkName) (\s@CreateObject' {} a -> s {linkName = a} :: CreateObject)
+
 -- | If specified, the parent reference to which this object will be
 -- attached.
 createObject_parentReference :: Lens.Lens' CreateObject (Prelude.Maybe ObjectReference)
 createObject_parentReference = Lens.lens (\CreateObject' {parentReference} -> parentReference) (\s@CreateObject' {} a -> s {parentReference = a} :: CreateObject)
-
--- | The name of link that is used to attach this object to a parent.
-createObject_linkName :: Lens.Lens' CreateObject (Prelude.Maybe Prelude.Text)
-createObject_linkName = Lens.lens (\CreateObject' {linkName} -> linkName) (\s@CreateObject' {} a -> s {linkName = a} :: CreateObject)
 
 -- | The attribute map whose attribute ARN contains the key and attribute
 -- value as the map value.
@@ -155,9 +155,9 @@ instance Core.ToJSON CreateObject where
   toJSON CreateObject' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ParentReference" Core..=)
+          [ ("LinkName" Core..=) Prelude.<$> linkName,
+            ("ParentReference" Core..=)
               Prelude.<$> parentReference,
-            ("LinkName" Core..=) Prelude.<$> linkName,
             ("ObjectAttributeList" Core..=)
               Prelude.<$> objectAttributeList,
             Prelude.Just ("SchemaFacets" Core..= schemaFacets)

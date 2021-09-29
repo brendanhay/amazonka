@@ -14,11 +14,6 @@
 module Network.AWS.CloudDirectory.Lens
   ( -- * Operations
 
-    -- ** GetDirectory
-    getDirectory_directoryArn,
-    getDirectoryResponse_httpStatus,
-    getDirectoryResponse_directory,
-
     -- ** ListTypedLinkFacetNames
     listTypedLinkFacetNames_nextToken,
     listTypedLinkFacetNames_maxResults,
@@ -27,13 +22,10 @@ module Network.AWS.CloudDirectory.Lens
     listTypedLinkFacetNamesResponse_facetNames,
     listTypedLinkFacetNamesResponse_httpStatus,
 
-    -- ** GetObjectInformation
-    getObjectInformation_consistencyLevel,
-    getObjectInformation_directoryArn,
-    getObjectInformation_objectReference,
-    getObjectInformationResponse_schemaFacets,
-    getObjectInformationResponse_objectIdentifier,
-    getObjectInformationResponse_httpStatus,
+    -- ** GetDirectory
+    getDirectory_directoryArn,
+    getDirectoryResponse_httpStatus,
+    getDirectoryResponse_directory,
 
     -- ** AttachTypedLink
     attachTypedLink_directoryArn,
@@ -44,10 +36,18 @@ module Network.AWS.CloudDirectory.Lens
     attachTypedLinkResponse_typedLinkSpecifier,
     attachTypedLinkResponse_httpStatus,
 
-    -- ** DeleteFacet
-    deleteFacet_schemaArn,
-    deleteFacet_name,
-    deleteFacetResponse_httpStatus,
+    -- ** GetObjectInformation
+    getObjectInformation_consistencyLevel,
+    getObjectInformation_directoryArn,
+    getObjectInformation_objectReference,
+    getObjectInformationResponse_schemaFacets,
+    getObjectInformationResponse_objectIdentifier,
+    getObjectInformationResponse_httpStatus,
+
+    -- ** DeleteObject
+    deleteObject_directoryArn,
+    deleteObject_objectReference,
+    deleteObjectResponse_httpStatus,
 
     -- ** UpdateFacet
     updateFacet_attributeUpdates,
@@ -73,10 +73,10 @@ module Network.AWS.CloudDirectory.Lens
     upgradeAppliedSchemaResponse_upgradedSchemaArn,
     upgradeAppliedSchemaResponse_httpStatus,
 
-    -- ** DeleteObject
-    deleteObject_directoryArn,
-    deleteObject_objectReference,
-    deleteObjectResponse_httpStatus,
+    -- ** DeleteFacet
+    deleteFacet_schemaArn,
+    deleteFacet_name,
+    deleteFacetResponse_httpStatus,
 
     -- ** ListTypedLinkFacetAttributes
     listTypedLinkFacetAttributes_nextToken,
@@ -87,9 +87,17 @@ module Network.AWS.CloudDirectory.Lens
     listTypedLinkFacetAttributesResponse_attributes,
     listTypedLinkFacetAttributesResponse_httpStatus,
 
+    -- ** UpgradePublishedSchema
+    upgradePublishedSchema_dryRun,
+    upgradePublishedSchema_developmentSchemaArn,
+    upgradePublishedSchema_publishedSchemaArn,
+    upgradePublishedSchema_minorVersion,
+    upgradePublishedSchemaResponse_upgradedSchemaArn,
+    upgradePublishedSchemaResponse_httpStatus,
+
     -- ** CreateObject
-    createObject_parentReference,
     createObject_linkName,
+    createObject_parentReference,
     createObject_objectAttributeList,
     createObject_directoryArn,
     createObject_schemaFacets,
@@ -102,13 +110,11 @@ module Network.AWS.CloudDirectory.Lens
     batchWriteResponse_responses,
     batchWriteResponse_httpStatus,
 
-    -- ** UpgradePublishedSchema
-    upgradePublishedSchema_dryRun,
-    upgradePublishedSchema_developmentSchemaArn,
-    upgradePublishedSchema_publishedSchemaArn,
-    upgradePublishedSchema_minorVersion,
-    upgradePublishedSchemaResponse_upgradedSchemaArn,
-    upgradePublishedSchemaResponse_httpStatus,
+    -- ** UpdateLinkAttributes
+    updateLinkAttributes_directoryArn,
+    updateLinkAttributes_typedLinkSpecifier,
+    updateLinkAttributes_attributeUpdates,
+    updateLinkAttributesResponse_httpStatus,
 
     -- ** ListDevelopmentSchemaArns
     listDevelopmentSchemaArns_nextToken,
@@ -117,11 +123,11 @@ module Network.AWS.CloudDirectory.Lens
     listDevelopmentSchemaArnsResponse_nextToken,
     listDevelopmentSchemaArnsResponse_httpStatus,
 
-    -- ** UpdateLinkAttributes
-    updateLinkAttributes_directoryArn,
-    updateLinkAttributes_typedLinkSpecifier,
-    updateLinkAttributes_attributeUpdates,
-    updateLinkAttributesResponse_httpStatus,
+    -- ** GetTypedLinkFacetInformation
+    getTypedLinkFacetInformation_schemaArn,
+    getTypedLinkFacetInformation_name,
+    getTypedLinkFacetInformationResponse_identityAttributeOrder,
+    getTypedLinkFacetInformationResponse_httpStatus,
 
     -- ** DetachTypedLink
     detachTypedLink_directoryArn,
@@ -132,12 +138,6 @@ module Network.AWS.CloudDirectory.Lens
     getFacet_name,
     getFacetResponse_facet,
     getFacetResponse_httpStatus,
-
-    -- ** GetTypedLinkFacetInformation
-    getTypedLinkFacetInformation_schemaArn,
-    getTypedLinkFacetInformation_name,
-    getTypedLinkFacetInformationResponse_identityAttributeOrder,
-    getTypedLinkFacetInformationResponse_httpStatus,
 
     -- ** UntagResource
     untagResource_resourceArn,
@@ -156,21 +156,6 @@ module Network.AWS.CloudDirectory.Lens
     listIncomingTypedLinksResponse_nextToken,
     listIncomingTypedLinksResponse_httpStatus,
 
-    -- ** PublishSchema
-    publishSchema_name,
-    publishSchema_minorVersion,
-    publishSchema_developmentSchemaArn,
-    publishSchema_version,
-    publishSchemaResponse_publishedSchemaArn,
-    publishSchemaResponse_httpStatus,
-
-    -- ** UpdateTypedLinkFacet
-    updateTypedLinkFacet_schemaArn,
-    updateTypedLinkFacet_name,
-    updateTypedLinkFacet_attributeUpdates,
-    updateTypedLinkFacet_identityAttributeOrder,
-    updateTypedLinkFacetResponse_httpStatus,
-
     -- ** ListObjectParents
     listObjectParents_nextToken,
     listObjectParents_maxResults,
@@ -178,8 +163,8 @@ module Network.AWS.CloudDirectory.Lens
     listObjectParents_consistencyLevel,
     listObjectParents_directoryArn,
     listObjectParents_objectReference,
-    listObjectParentsResponse_parents,
     listObjectParentsResponse_parentLinks,
+    listObjectParentsResponse_parents,
     listObjectParentsResponse_nextToken,
     listObjectParentsResponse_httpStatus,
 
@@ -192,6 +177,11 @@ module Network.AWS.CloudDirectory.Lens
     listPolicyAttachmentsResponse_nextToken,
     listPolicyAttachmentsResponse_objectIdentifiers,
     listPolicyAttachmentsResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
 
     -- ** ListObjectAttributes
     listObjectAttributes_nextToken,
@@ -209,15 +199,50 @@ module Network.AWS.CloudDirectory.Lens
     deleteTypedLinkFacet_name,
     deleteTypedLinkFacetResponse_httpStatus,
 
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
+    -- ** PublishSchema
+    publishSchema_name,
+    publishSchema_minorVersion,
+    publishSchema_developmentSchemaArn,
+    publishSchema_version,
+    publishSchemaResponse_publishedSchemaArn,
+    publishSchemaResponse_httpStatus,
 
     -- ** DeleteDirectory
     deleteDirectory_directoryArn,
     deleteDirectoryResponse_httpStatus,
     deleteDirectoryResponse_directoryArn,
+
+    -- ** UpdateTypedLinkFacet
+    updateTypedLinkFacet_schemaArn,
+    updateTypedLinkFacet_name,
+    updateTypedLinkFacet_attributeUpdates,
+    updateTypedLinkFacet_identityAttributeOrder,
+    updateTypedLinkFacetResponse_httpStatus,
+
+    -- ** CreateDirectory
+    createDirectory_name,
+    createDirectory_schemaArn,
+    createDirectoryResponse_httpStatus,
+    createDirectoryResponse_directoryArn,
+    createDirectoryResponse_name,
+    createDirectoryResponse_objectIdentifier,
+    createDirectoryResponse_appliedSchemaArn,
+
+    -- ** ListPublishedSchemaArns
+    listPublishedSchemaArns_nextToken,
+    listPublishedSchemaArns_schemaArn,
+    listPublishedSchemaArns_maxResults,
+    listPublishedSchemaArnsResponse_schemaArns,
+    listPublishedSchemaArnsResponse_nextToken,
+    listPublishedSchemaArnsResponse_httpStatus,
+
+    -- ** ListDirectories
+    listDirectories_nextToken,
+    listDirectories_maxResults,
+    listDirectories_state,
+    listDirectoriesResponse_nextToken,
+    listDirectoriesResponse_httpStatus,
+    listDirectoriesResponse_directories,
 
     -- ** ListObjectParentPaths
     listObjectParentPaths_nextToken,
@@ -233,31 +258,6 @@ module Network.AWS.CloudDirectory.Lens
     createSchemaResponse_schemaArn,
     createSchemaResponse_httpStatus,
 
-    -- ** ListPublishedSchemaArns
-    listPublishedSchemaArns_schemaArn,
-    listPublishedSchemaArns_nextToken,
-    listPublishedSchemaArns_maxResults,
-    listPublishedSchemaArnsResponse_schemaArns,
-    listPublishedSchemaArnsResponse_nextToken,
-    listPublishedSchemaArnsResponse_httpStatus,
-
-    -- ** ListDirectories
-    listDirectories_nextToken,
-    listDirectories_maxResults,
-    listDirectories_state,
-    listDirectoriesResponse_nextToken,
-    listDirectoriesResponse_httpStatus,
-    listDirectoriesResponse_directories,
-
-    -- ** CreateDirectory
-    createDirectory_name,
-    createDirectory_schemaArn,
-    createDirectoryResponse_httpStatus,
-    createDirectoryResponse_directoryArn,
-    createDirectoryResponse_name,
-    createDirectoryResponse_objectIdentifier,
-    createDirectoryResponse_appliedSchemaArn,
-
     -- ** LookupPolicy
     lookupPolicy_nextToken,
     lookupPolicy_maxResults,
@@ -268,13 +268,20 @@ module Network.AWS.CloudDirectory.Lens
     lookupPolicyResponse_httpStatus,
 
     -- ** CreateIndex
-    createIndex_parentReference,
     createIndex_linkName,
+    createIndex_parentReference,
     createIndex_directoryArn,
     createIndex_orderedIndexedAttributeList,
     createIndex_isUnique,
     createIndexResponse_objectIdentifier,
     createIndexResponse_httpStatus,
+
+    -- ** DetachFromIndex
+    detachFromIndex_directoryArn,
+    detachFromIndex_indexReference,
+    detachFromIndex_targetReference,
+    detachFromIndexResponse_detachedObjectIdentifier,
+    detachFromIndexResponse_httpStatus,
 
     -- ** ListAttachedIndices
     listAttachedIndices_nextToken,
@@ -292,12 +299,15 @@ module Network.AWS.CloudDirectory.Lens
     detachPolicy_objectReference,
     detachPolicyResponse_httpStatus,
 
-    -- ** DetachFromIndex
-    detachFromIndex_directoryArn,
-    detachFromIndex_indexReference,
-    detachFromIndex_targetReference,
-    detachFromIndexResponse_detachedObjectIdentifier,
-    detachFromIndexResponse_httpStatus,
+    -- ** ListObjectChildren
+    listObjectChildren_nextToken,
+    listObjectChildren_maxResults,
+    listObjectChildren_consistencyLevel,
+    listObjectChildren_directoryArn,
+    listObjectChildren_objectReference,
+    listObjectChildrenResponse_nextToken,
+    listObjectChildrenResponse_children,
+    listObjectChildrenResponse_httpStatus,
 
     -- ** ListIndex
     listIndex_nextToken,
@@ -309,16 +319,6 @@ module Network.AWS.CloudDirectory.Lens
     listIndexResponse_nextToken,
     listIndexResponse_indexAttachments,
     listIndexResponse_httpStatus,
-
-    -- ** ListObjectChildren
-    listObjectChildren_nextToken,
-    listObjectChildren_maxResults,
-    listObjectChildren_consistencyLevel,
-    listObjectChildren_directoryArn,
-    listObjectChildren_objectReference,
-    listObjectChildrenResponse_nextToken,
-    listObjectChildrenResponse_children,
-    listObjectChildrenResponse_httpStatus,
 
     -- ** ListObjectPolicies
     listObjectPolicies_nextToken,
@@ -346,6 +346,12 @@ module Network.AWS.CloudDirectory.Lens
     createFacet_name,
     createFacetResponse_httpStatus,
 
+    -- ** PutSchemaFromJson
+    putSchemaFromJson_schemaArn,
+    putSchemaFromJson_document,
+    putSchemaFromJsonResponse_arn,
+    putSchemaFromJsonResponse_httpStatus,
+
     -- ** BatchRead
     batchRead_consistencyLevel,
     batchRead_directoryArn,
@@ -367,19 +373,6 @@ module Network.AWS.CloudDirectory.Lens
     attachToIndex_targetReference,
     attachToIndexResponse_attachedObjectIdentifier,
     attachToIndexResponse_httpStatus,
-
-    -- ** PutSchemaFromJson
-    putSchemaFromJson_schemaArn,
-    putSchemaFromJson_document,
-    putSchemaFromJsonResponse_arn,
-    putSchemaFromJsonResponse_httpStatus,
-
-    -- ** UpdateObjectAttributes
-    updateObjectAttributes_directoryArn,
-    updateObjectAttributes_objectReference,
-    updateObjectAttributes_attributeUpdates,
-    updateObjectAttributesResponse_objectIdentifier,
-    updateObjectAttributesResponse_httpStatus,
 
     -- ** AttachPolicy
     attachPolicy_directoryArn,
@@ -407,14 +400,16 @@ module Network.AWS.CloudDirectory.Lens
     listOutgoingTypedLinksResponse_typedLinkSpecifiers,
     listOutgoingTypedLinksResponse_httpStatus,
 
-    -- ** EnableDirectory
-    enableDirectory_directoryArn,
-    enableDirectoryResponse_httpStatus,
-    enableDirectoryResponse_directoryArn,
+    -- ** UpdateObjectAttributes
+    updateObjectAttributes_directoryArn,
+    updateObjectAttributes_objectReference,
+    updateObjectAttributes_attributeUpdates,
+    updateObjectAttributesResponse_objectIdentifier,
+    updateObjectAttributesResponse_httpStatus,
 
     -- ** ListAppliedSchemaArns
-    listAppliedSchemaArns_schemaArn,
     listAppliedSchemaArns_nextToken,
+    listAppliedSchemaArns_schemaArn,
     listAppliedSchemaArns_maxResults,
     listAppliedSchemaArns_directoryArn,
     listAppliedSchemaArnsResponse_schemaArns,
@@ -422,28 +417,29 @@ module Network.AWS.CloudDirectory.Lens
     listAppliedSchemaArnsResponse_httpStatus,
 
     -- ** ListManagedSchemaArns
-    listManagedSchemaArns_schemaArn,
     listManagedSchemaArns_nextToken,
+    listManagedSchemaArns_schemaArn,
     listManagedSchemaArns_maxResults,
     listManagedSchemaArnsResponse_schemaArns,
     listManagedSchemaArnsResponse_nextToken,
     listManagedSchemaArnsResponse_httpStatus,
 
-    -- ** GetAppliedSchemaVersion
-    getAppliedSchemaVersion_schemaArn,
-    getAppliedSchemaVersionResponse_appliedSchemaArn,
-    getAppliedSchemaVersionResponse_httpStatus,
+    -- ** DeleteSchema
+    deleteSchema_schemaArn,
+    deleteSchemaResponse_schemaArn,
+    deleteSchemaResponse_httpStatus,
+
+    -- ** UpdateSchema
+    updateSchema_schemaArn,
+    updateSchema_name,
+    updateSchemaResponse_schemaArn,
+    updateSchemaResponse_httpStatus,
 
     -- ** RemoveFacetFromObject
     removeFacetFromObject_directoryArn,
     removeFacetFromObject_schemaFacet,
     removeFacetFromObject_objectReference,
     removeFacetFromObjectResponse_httpStatus,
-
-    -- ** DeleteSchema
-    deleteSchema_schemaArn,
-    deleteSchemaResponse_schemaArn,
-    deleteSchemaResponse_httpStatus,
 
     -- ** ListFacetAttributes
     listFacetAttributes_nextToken,
@@ -454,17 +450,15 @@ module Network.AWS.CloudDirectory.Lens
     listFacetAttributesResponse_attributes,
     listFacetAttributesResponse_httpStatus,
 
-    -- ** UpdateSchema
-    updateSchema_schemaArn,
-    updateSchema_name,
-    updateSchemaResponse_schemaArn,
-    updateSchemaResponse_httpStatus,
+    -- ** GetAppliedSchemaVersion
+    getAppliedSchemaVersion_schemaArn,
+    getAppliedSchemaVersionResponse_appliedSchemaArn,
+    getAppliedSchemaVersionResponse_httpStatus,
 
-    -- ** GetSchemaAsJson
-    getSchemaAsJson_schemaArn,
-    getSchemaAsJsonResponse_name,
-    getSchemaAsJsonResponse_document,
-    getSchemaAsJsonResponse_httpStatus,
+    -- ** EnableDirectory
+    enableDirectory_directoryArn,
+    enableDirectoryResponse_httpStatus,
+    enableDirectoryResponse_directoryArn,
 
     -- ** ApplySchema
     applySchema_publishedSchemaArn,
@@ -483,13 +477,18 @@ module Network.AWS.CloudDirectory.Lens
     createTypedLinkFacet_facet,
     createTypedLinkFacetResponse_httpStatus,
 
-    -- ** ListTagsForResource
-    listTagsForResource_nextToken,
-    listTagsForResource_maxResults,
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_nextToken,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
+    -- ** GetSchemaAsJson
+    getSchemaAsJson_schemaArn,
+    getSchemaAsJsonResponse_name,
+    getSchemaAsJsonResponse_document,
+    getSchemaAsJsonResponse_httpStatus,
+
+    -- ** DetachObject
+    detachObject_directoryArn,
+    detachObject_parentReference,
+    detachObject_linkName,
+    detachObjectResponse_detachedObjectIdentifier,
+    detachObjectResponse_httpStatus,
 
     -- ** AddFacetToObject
     addFacetToObject_objectAttributeList,
@@ -498,12 +497,13 @@ module Network.AWS.CloudDirectory.Lens
     addFacetToObject_objectReference,
     addFacetToObjectResponse_httpStatus,
 
-    -- ** DetachObject
-    detachObject_directoryArn,
-    detachObject_parentReference,
-    detachObject_linkName,
-    detachObjectResponse_detachedObjectIdentifier,
-    detachObjectResponse_httpStatus,
+    -- ** ListTagsForResource
+    listTagsForResource_nextToken,
+    listTagsForResource_maxResults,
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_nextToken,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
 
     -- * Types
 
@@ -558,8 +558,8 @@ module Network.AWS.CloudDirectory.Lens
     batchAttachTypedLinkResponse_typedLinkSpecifier,
 
     -- ** BatchCreateIndex
-    batchCreateIndex_parentReference,
     batchCreateIndex_linkName,
+    batchCreateIndex_parentReference,
     batchCreateIndex_batchReferenceName,
     batchCreateIndex_orderedIndexedAttributeList,
     batchCreateIndex_isUnique,
@@ -568,8 +568,8 @@ module Network.AWS.CloudDirectory.Lens
     batchCreateIndexResponse_objectIdentifier,
 
     -- ** BatchCreateObject
-    batchCreateObject_parentReference,
     batchCreateObject_linkName,
+    batchCreateObject_parentReference,
     batchCreateObject_batchReferenceName,
     batchCreateObject_schemaFacet,
     batchCreateObject_objectAttributeList,
@@ -749,8 +749,8 @@ module Network.AWS.CloudDirectory.Lens
     batchReadOperation_listObjectParentPaths,
     batchReadOperation_lookupPolicy,
     batchReadOperation_listAttachedIndices,
-    batchReadOperation_listIndex,
     batchReadOperation_listObjectChildren,
+    batchReadOperation_listIndex,
     batchReadOperation_listObjectPolicies,
     batchReadOperation_getLinkAttributes,
     batchReadOperation_listOutgoingTypedLinks,
@@ -769,8 +769,8 @@ module Network.AWS.CloudDirectory.Lens
     batchReadSuccessfulResponse_listObjectParentPaths,
     batchReadSuccessfulResponse_lookupPolicy,
     batchReadSuccessfulResponse_listAttachedIndices,
-    batchReadSuccessfulResponse_listIndex,
     batchReadSuccessfulResponse_listObjectChildren,
+    batchReadSuccessfulResponse_listIndex,
     batchReadSuccessfulResponse_listObjectPolicies,
     batchReadSuccessfulResponse_getLinkAttributes,
     batchReadSuccessfulResponse_listOutgoingTypedLinks,
@@ -801,15 +801,15 @@ module Network.AWS.CloudDirectory.Lens
     batchWriteOperation_updateLinkAttributes,
     batchWriteOperation_detachTypedLink,
     batchWriteOperation_createIndex,
-    batchWriteOperation_detachPolicy,
     batchWriteOperation_detachFromIndex,
+    batchWriteOperation_detachPolicy,
     batchWriteOperation_attachObject,
     batchWriteOperation_attachToIndex,
-    batchWriteOperation_updateObjectAttributes,
     batchWriteOperation_attachPolicy,
+    batchWriteOperation_updateObjectAttributes,
     batchWriteOperation_removeFacetFromObject,
-    batchWriteOperation_addFacetToObject,
     batchWriteOperation_detachObject,
+    batchWriteOperation_addFacetToObject,
 
     -- ** BatchWriteOperationResponse
     batchWriteOperationResponse_attachTypedLink,
@@ -818,20 +818,20 @@ module Network.AWS.CloudDirectory.Lens
     batchWriteOperationResponse_updateLinkAttributes,
     batchWriteOperationResponse_detachTypedLink,
     batchWriteOperationResponse_createIndex,
-    batchWriteOperationResponse_detachPolicy,
     batchWriteOperationResponse_detachFromIndex,
+    batchWriteOperationResponse_detachPolicy,
     batchWriteOperationResponse_attachObject,
     batchWriteOperationResponse_attachToIndex,
-    batchWriteOperationResponse_updateObjectAttributes,
     batchWriteOperationResponse_attachPolicy,
+    batchWriteOperationResponse_updateObjectAttributes,
     batchWriteOperationResponse_removeFacetFromObject,
-    batchWriteOperationResponse_addFacetToObject,
     batchWriteOperationResponse_detachObject,
+    batchWriteOperationResponse_addFacetToObject,
 
     -- ** Directory
     directory_directoryArn,
-    directory_state,
     directory_name,
+    directory_state,
     directory_creationDateTime,
 
     -- ** Facet

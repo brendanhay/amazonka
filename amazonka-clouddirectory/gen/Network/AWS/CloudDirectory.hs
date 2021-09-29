@@ -55,17 +55,17 @@ module Network.AWS.CloudDirectory
     -- ** InternalServiceException
     _InternalServiceException,
 
-    -- ** NotPolicyException
-    _NotPolicyException,
-
-    -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
+    -- ** LinkNameAlreadyInUseException
+    _LinkNameAlreadyInUseException,
 
     -- ** InvalidTaggingRequestException
     _InvalidTaggingRequestException,
 
-    -- ** LinkNameAlreadyInUseException
-    _LinkNameAlreadyInUseException,
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** NotPolicyException
+    _NotPolicyException,
 
     -- ** CannotListParentOfRootException
     _CannotListParentOfRootException,
@@ -73,32 +73,32 @@ module Network.AWS.CloudDirectory
     -- ** InvalidSchemaDocException
     _InvalidSchemaDocException,
 
+    -- ** UnsupportedIndexTypeException
+    _UnsupportedIndexTypeException,
+
     -- ** AccessDeniedException
     _AccessDeniedException,
-
-    -- ** ValidationException
-    _ValidationException,
-
-    -- ** FacetAlreadyExistsException
-    _FacetAlreadyExistsException,
 
     -- ** NotIndexException
     _NotIndexException,
 
-    -- ** UnsupportedIndexTypeException
-    _UnsupportedIndexTypeException,
+    -- ** FacetAlreadyExistsException
+    _FacetAlreadyExistsException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** ValidationException
+    _ValidationException,
 
     -- ** ObjectNotDetachedException
     _ObjectNotDetachedException,
 
-    -- ** StillContainsLinksException
-    _StillContainsLinksException,
-
     -- ** FacetNotFoundException
     _FacetNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** StillContainsLinksException
+    _StillContainsLinksException,
 
     -- ** DirectoryNotEnabledException
     _DirectoryNotEnabledException,
@@ -106,23 +106,23 @@ module Network.AWS.CloudDirectory
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
 
-    -- ** DirectoryNotDisabledException
-    _DirectoryNotDisabledException,
-
     -- ** RetryableConflictException
     _RetryableConflictException,
 
-    -- ** DirectoryAlreadyExistsException
-    _DirectoryAlreadyExistsException,
-
-    -- ** IndexedAttributeMissingException
-    _IndexedAttributeMissingException,
+    -- ** DirectoryNotDisabledException
+    _DirectoryNotDisabledException,
 
     -- ** SchemaAlreadyExistsException
     _SchemaAlreadyExistsException,
 
+    -- ** DirectoryAlreadyExistsException
+    _DirectoryAlreadyExistsException,
+
     -- ** SchemaAlreadyPublishedException
     _SchemaAlreadyPublishedException,
+
+    -- ** IndexedAttributeMissingException
+    _IndexedAttributeMissingException,
 
     -- ** NotNodeException
     _NotNodeException,
@@ -139,23 +139,17 @@ module Network.AWS.CloudDirectory
     -- * Operations
     -- $operations
 
-    -- ** GetDirectory
-    GetDirectory (GetDirectory'),
-    newGetDirectory,
-    GetDirectoryResponse (GetDirectoryResponse'),
-    newGetDirectoryResponse,
-
     -- ** ListTypedLinkFacetNames (Paginated)
     ListTypedLinkFacetNames (ListTypedLinkFacetNames'),
     newListTypedLinkFacetNames,
     ListTypedLinkFacetNamesResponse (ListTypedLinkFacetNamesResponse'),
     newListTypedLinkFacetNamesResponse,
 
-    -- ** GetObjectInformation
-    GetObjectInformation (GetObjectInformation'),
-    newGetObjectInformation,
-    GetObjectInformationResponse (GetObjectInformationResponse'),
-    newGetObjectInformationResponse,
+    -- ** GetDirectory
+    GetDirectory (GetDirectory'),
+    newGetDirectory,
+    GetDirectoryResponse (GetDirectoryResponse'),
+    newGetDirectoryResponse,
 
     -- ** AttachTypedLink
     AttachTypedLink (AttachTypedLink'),
@@ -163,11 +157,17 @@ module Network.AWS.CloudDirectory
     AttachTypedLinkResponse (AttachTypedLinkResponse'),
     newAttachTypedLinkResponse,
 
-    -- ** DeleteFacet
-    DeleteFacet (DeleteFacet'),
-    newDeleteFacet,
-    DeleteFacetResponse (DeleteFacetResponse'),
-    newDeleteFacetResponse,
+    -- ** GetObjectInformation
+    GetObjectInformation (GetObjectInformation'),
+    newGetObjectInformation,
+    GetObjectInformationResponse (GetObjectInformationResponse'),
+    newGetObjectInformationResponse,
+
+    -- ** DeleteObject
+    DeleteObject (DeleteObject'),
+    newDeleteObject,
+    DeleteObjectResponse (DeleteObjectResponse'),
+    newDeleteObjectResponse,
 
     -- ** UpdateFacet
     UpdateFacet (UpdateFacet'),
@@ -187,17 +187,23 @@ module Network.AWS.CloudDirectory
     UpgradeAppliedSchemaResponse (UpgradeAppliedSchemaResponse'),
     newUpgradeAppliedSchemaResponse,
 
-    -- ** DeleteObject
-    DeleteObject (DeleteObject'),
-    newDeleteObject,
-    DeleteObjectResponse (DeleteObjectResponse'),
-    newDeleteObjectResponse,
+    -- ** DeleteFacet
+    DeleteFacet (DeleteFacet'),
+    newDeleteFacet,
+    DeleteFacetResponse (DeleteFacetResponse'),
+    newDeleteFacetResponse,
 
     -- ** ListTypedLinkFacetAttributes (Paginated)
     ListTypedLinkFacetAttributes (ListTypedLinkFacetAttributes'),
     newListTypedLinkFacetAttributes,
     ListTypedLinkFacetAttributesResponse (ListTypedLinkFacetAttributesResponse'),
     newListTypedLinkFacetAttributesResponse,
+
+    -- ** UpgradePublishedSchema
+    UpgradePublishedSchema (UpgradePublishedSchema'),
+    newUpgradePublishedSchema,
+    UpgradePublishedSchemaResponse (UpgradePublishedSchemaResponse'),
+    newUpgradePublishedSchemaResponse,
 
     -- ** CreateObject
     CreateObject (CreateObject'),
@@ -211,11 +217,11 @@ module Network.AWS.CloudDirectory
     BatchWriteResponse (BatchWriteResponse'),
     newBatchWriteResponse,
 
-    -- ** UpgradePublishedSchema
-    UpgradePublishedSchema (UpgradePublishedSchema'),
-    newUpgradePublishedSchema,
-    UpgradePublishedSchemaResponse (UpgradePublishedSchemaResponse'),
-    newUpgradePublishedSchemaResponse,
+    -- ** UpdateLinkAttributes
+    UpdateLinkAttributes (UpdateLinkAttributes'),
+    newUpdateLinkAttributes,
+    UpdateLinkAttributesResponse (UpdateLinkAttributesResponse'),
+    newUpdateLinkAttributesResponse,
 
     -- ** ListDevelopmentSchemaArns (Paginated)
     ListDevelopmentSchemaArns (ListDevelopmentSchemaArns'),
@@ -223,11 +229,11 @@ module Network.AWS.CloudDirectory
     ListDevelopmentSchemaArnsResponse (ListDevelopmentSchemaArnsResponse'),
     newListDevelopmentSchemaArnsResponse,
 
-    -- ** UpdateLinkAttributes
-    UpdateLinkAttributes (UpdateLinkAttributes'),
-    newUpdateLinkAttributes,
-    UpdateLinkAttributesResponse (UpdateLinkAttributesResponse'),
-    newUpdateLinkAttributesResponse,
+    -- ** GetTypedLinkFacetInformation
+    GetTypedLinkFacetInformation (GetTypedLinkFacetInformation'),
+    newGetTypedLinkFacetInformation,
+    GetTypedLinkFacetInformationResponse (GetTypedLinkFacetInformationResponse'),
+    newGetTypedLinkFacetInformationResponse,
 
     -- ** DetachTypedLink
     DetachTypedLink (DetachTypedLink'),
@@ -241,12 +247,6 @@ module Network.AWS.CloudDirectory
     GetFacetResponse (GetFacetResponse'),
     newGetFacetResponse,
 
-    -- ** GetTypedLinkFacetInformation
-    GetTypedLinkFacetInformation (GetTypedLinkFacetInformation'),
-    newGetTypedLinkFacetInformation,
-    GetTypedLinkFacetInformationResponse (GetTypedLinkFacetInformationResponse'),
-    newGetTypedLinkFacetInformationResponse,
-
     -- ** UntagResource
     UntagResource (UntagResource'),
     newUntagResource,
@@ -258,18 +258,6 @@ module Network.AWS.CloudDirectory
     newListIncomingTypedLinks,
     ListIncomingTypedLinksResponse (ListIncomingTypedLinksResponse'),
     newListIncomingTypedLinksResponse,
-
-    -- ** PublishSchema
-    PublishSchema (PublishSchema'),
-    newPublishSchema,
-    PublishSchemaResponse (PublishSchemaResponse'),
-    newPublishSchemaResponse,
-
-    -- ** UpdateTypedLinkFacet
-    UpdateTypedLinkFacet (UpdateTypedLinkFacet'),
-    newUpdateTypedLinkFacet,
-    UpdateTypedLinkFacetResponse (UpdateTypedLinkFacetResponse'),
-    newUpdateTypedLinkFacetResponse,
 
     -- ** ListObjectParents
     ListObjectParents (ListObjectParents'),
@@ -283,6 +271,12 @@ module Network.AWS.CloudDirectory
     ListPolicyAttachmentsResponse (ListPolicyAttachmentsResponse'),
     newListPolicyAttachmentsResponse,
 
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
     -- ** ListObjectAttributes (Paginated)
     ListObjectAttributes (ListObjectAttributes'),
     newListObjectAttributes,
@@ -295,11 +289,11 @@ module Network.AWS.CloudDirectory
     DeleteTypedLinkFacetResponse (DeleteTypedLinkFacetResponse'),
     newDeleteTypedLinkFacetResponse,
 
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
+    -- ** PublishSchema
+    PublishSchema (PublishSchema'),
+    newPublishSchema,
+    PublishSchemaResponse (PublishSchemaResponse'),
+    newPublishSchemaResponse,
 
     -- ** DeleteDirectory
     DeleteDirectory (DeleteDirectory'),
@@ -307,17 +301,17 @@ module Network.AWS.CloudDirectory
     DeleteDirectoryResponse (DeleteDirectoryResponse'),
     newDeleteDirectoryResponse,
 
-    -- ** ListObjectParentPaths (Paginated)
-    ListObjectParentPaths (ListObjectParentPaths'),
-    newListObjectParentPaths,
-    ListObjectParentPathsResponse (ListObjectParentPathsResponse'),
-    newListObjectParentPathsResponse,
+    -- ** UpdateTypedLinkFacet
+    UpdateTypedLinkFacet (UpdateTypedLinkFacet'),
+    newUpdateTypedLinkFacet,
+    UpdateTypedLinkFacetResponse (UpdateTypedLinkFacetResponse'),
+    newUpdateTypedLinkFacetResponse,
 
-    -- ** CreateSchema
-    CreateSchema (CreateSchema'),
-    newCreateSchema,
-    CreateSchemaResponse (CreateSchemaResponse'),
-    newCreateSchemaResponse,
+    -- ** CreateDirectory
+    CreateDirectory (CreateDirectory'),
+    newCreateDirectory,
+    CreateDirectoryResponse (CreateDirectoryResponse'),
+    newCreateDirectoryResponse,
 
     -- ** ListPublishedSchemaArns (Paginated)
     ListPublishedSchemaArns (ListPublishedSchemaArns'),
@@ -331,11 +325,17 @@ module Network.AWS.CloudDirectory
     ListDirectoriesResponse (ListDirectoriesResponse'),
     newListDirectoriesResponse,
 
-    -- ** CreateDirectory
-    CreateDirectory (CreateDirectory'),
-    newCreateDirectory,
-    CreateDirectoryResponse (CreateDirectoryResponse'),
-    newCreateDirectoryResponse,
+    -- ** ListObjectParentPaths (Paginated)
+    ListObjectParentPaths (ListObjectParentPaths'),
+    newListObjectParentPaths,
+    ListObjectParentPathsResponse (ListObjectParentPathsResponse'),
+    newListObjectParentPathsResponse,
+
+    -- ** CreateSchema
+    CreateSchema (CreateSchema'),
+    newCreateSchema,
+    CreateSchemaResponse (CreateSchemaResponse'),
+    newCreateSchemaResponse,
 
     -- ** LookupPolicy (Paginated)
     LookupPolicy (LookupPolicy'),
@@ -349,6 +349,12 @@ module Network.AWS.CloudDirectory
     CreateIndexResponse (CreateIndexResponse'),
     newCreateIndexResponse,
 
+    -- ** DetachFromIndex
+    DetachFromIndex (DetachFromIndex'),
+    newDetachFromIndex,
+    DetachFromIndexResponse (DetachFromIndexResponse'),
+    newDetachFromIndexResponse,
+
     -- ** ListAttachedIndices (Paginated)
     ListAttachedIndices (ListAttachedIndices'),
     newListAttachedIndices,
@@ -361,23 +367,17 @@ module Network.AWS.CloudDirectory
     DetachPolicyResponse (DetachPolicyResponse'),
     newDetachPolicyResponse,
 
-    -- ** DetachFromIndex
-    DetachFromIndex (DetachFromIndex'),
-    newDetachFromIndex,
-    DetachFromIndexResponse (DetachFromIndexResponse'),
-    newDetachFromIndexResponse,
+    -- ** ListObjectChildren
+    ListObjectChildren (ListObjectChildren'),
+    newListObjectChildren,
+    ListObjectChildrenResponse (ListObjectChildrenResponse'),
+    newListObjectChildrenResponse,
 
     -- ** ListIndex (Paginated)
     ListIndex (ListIndex'),
     newListIndex,
     ListIndexResponse (ListIndexResponse'),
     newListIndexResponse,
-
-    -- ** ListObjectChildren
-    ListObjectChildren (ListObjectChildren'),
-    newListObjectChildren,
-    ListObjectChildrenResponse (ListObjectChildrenResponse'),
-    newListObjectChildrenResponse,
 
     -- ** ListObjectPolicies (Paginated)
     ListObjectPolicies (ListObjectPolicies'),
@@ -397,6 +397,12 @@ module Network.AWS.CloudDirectory
     CreateFacetResponse (CreateFacetResponse'),
     newCreateFacetResponse,
 
+    -- ** PutSchemaFromJson
+    PutSchemaFromJson (PutSchemaFromJson'),
+    newPutSchemaFromJson,
+    PutSchemaFromJsonResponse (PutSchemaFromJsonResponse'),
+    newPutSchemaFromJsonResponse,
+
     -- ** BatchRead
     BatchRead (BatchRead'),
     newBatchRead,
@@ -414,18 +420,6 @@ module Network.AWS.CloudDirectory
     newAttachToIndex,
     AttachToIndexResponse (AttachToIndexResponse'),
     newAttachToIndexResponse,
-
-    -- ** PutSchemaFromJson
-    PutSchemaFromJson (PutSchemaFromJson'),
-    newPutSchemaFromJson,
-    PutSchemaFromJsonResponse (PutSchemaFromJsonResponse'),
-    newPutSchemaFromJsonResponse,
-
-    -- ** UpdateObjectAttributes
-    UpdateObjectAttributes (UpdateObjectAttributes'),
-    newUpdateObjectAttributes,
-    UpdateObjectAttributesResponse (UpdateObjectAttributesResponse'),
-    newUpdateObjectAttributesResponse,
 
     -- ** AttachPolicy
     AttachPolicy (AttachPolicy'),
@@ -445,11 +439,11 @@ module Network.AWS.CloudDirectory
     ListOutgoingTypedLinksResponse (ListOutgoingTypedLinksResponse'),
     newListOutgoingTypedLinksResponse,
 
-    -- ** EnableDirectory
-    EnableDirectory (EnableDirectory'),
-    newEnableDirectory,
-    EnableDirectoryResponse (EnableDirectoryResponse'),
-    newEnableDirectoryResponse,
+    -- ** UpdateObjectAttributes
+    UpdateObjectAttributes (UpdateObjectAttributes'),
+    newUpdateObjectAttributes,
+    UpdateObjectAttributesResponse (UpdateObjectAttributesResponse'),
+    newUpdateObjectAttributesResponse,
 
     -- ** ListAppliedSchemaArns (Paginated)
     ListAppliedSchemaArns (ListAppliedSchemaArns'),
@@ -463,29 +457,11 @@ module Network.AWS.CloudDirectory
     ListManagedSchemaArnsResponse (ListManagedSchemaArnsResponse'),
     newListManagedSchemaArnsResponse,
 
-    -- ** GetAppliedSchemaVersion
-    GetAppliedSchemaVersion (GetAppliedSchemaVersion'),
-    newGetAppliedSchemaVersion,
-    GetAppliedSchemaVersionResponse (GetAppliedSchemaVersionResponse'),
-    newGetAppliedSchemaVersionResponse,
-
-    -- ** RemoveFacetFromObject
-    RemoveFacetFromObject (RemoveFacetFromObject'),
-    newRemoveFacetFromObject,
-    RemoveFacetFromObjectResponse (RemoveFacetFromObjectResponse'),
-    newRemoveFacetFromObjectResponse,
-
     -- ** DeleteSchema
     DeleteSchema (DeleteSchema'),
     newDeleteSchema,
     DeleteSchemaResponse (DeleteSchemaResponse'),
     newDeleteSchemaResponse,
-
-    -- ** ListFacetAttributes (Paginated)
-    ListFacetAttributes (ListFacetAttributes'),
-    newListFacetAttributes,
-    ListFacetAttributesResponse (ListFacetAttributesResponse'),
-    newListFacetAttributesResponse,
 
     -- ** UpdateSchema
     UpdateSchema (UpdateSchema'),
@@ -493,11 +469,29 @@ module Network.AWS.CloudDirectory
     UpdateSchemaResponse (UpdateSchemaResponse'),
     newUpdateSchemaResponse,
 
-    -- ** GetSchemaAsJson
-    GetSchemaAsJson (GetSchemaAsJson'),
-    newGetSchemaAsJson,
-    GetSchemaAsJsonResponse (GetSchemaAsJsonResponse'),
-    newGetSchemaAsJsonResponse,
+    -- ** RemoveFacetFromObject
+    RemoveFacetFromObject (RemoveFacetFromObject'),
+    newRemoveFacetFromObject,
+    RemoveFacetFromObjectResponse (RemoveFacetFromObjectResponse'),
+    newRemoveFacetFromObjectResponse,
+
+    -- ** ListFacetAttributes (Paginated)
+    ListFacetAttributes (ListFacetAttributes'),
+    newListFacetAttributes,
+    ListFacetAttributesResponse (ListFacetAttributesResponse'),
+    newListFacetAttributesResponse,
+
+    -- ** GetAppliedSchemaVersion
+    GetAppliedSchemaVersion (GetAppliedSchemaVersion'),
+    newGetAppliedSchemaVersion,
+    GetAppliedSchemaVersionResponse (GetAppliedSchemaVersionResponse'),
+    newGetAppliedSchemaVersionResponse,
+
+    -- ** EnableDirectory
+    EnableDirectory (EnableDirectory'),
+    newEnableDirectory,
+    EnableDirectoryResponse (EnableDirectoryResponse'),
+    newEnableDirectoryResponse,
 
     -- ** ApplySchema
     ApplySchema (ApplySchema'),
@@ -517,11 +511,17 @@ module Network.AWS.CloudDirectory
     CreateTypedLinkFacetResponse (CreateTypedLinkFacetResponse'),
     newCreateTypedLinkFacetResponse,
 
-    -- ** ListTagsForResource (Paginated)
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** GetSchemaAsJson
+    GetSchemaAsJson (GetSchemaAsJson'),
+    newGetSchemaAsJson,
+    GetSchemaAsJsonResponse (GetSchemaAsJsonResponse'),
+    newGetSchemaAsJsonResponse,
+
+    -- ** DetachObject
+    DetachObject (DetachObject'),
+    newDetachObject,
+    DetachObjectResponse (DetachObjectResponse'),
+    newDetachObjectResponse,
 
     -- ** AddFacetToObject
     AddFacetToObject (AddFacetToObject'),
@@ -529,11 +529,11 @@ module Network.AWS.CloudDirectory
     AddFacetToObjectResponse (AddFacetToObjectResponse'),
     newAddFacetToObjectResponse,
 
-    -- ** DetachObject
-    DetachObject (DetachObject'),
-    newDetachObject,
-    DetachObjectResponse (DetachObjectResponse'),
-    newDetachObjectResponse,
+    -- ** ListTagsForResource (Paginated)
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- * Types
 

@@ -60,25 +60,25 @@ data BatchWriteOperationResponse = BatchWriteOperationResponse'
     -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.htm Indexing and search>
     -- for more information.
     createIndex :: Prelude.Maybe BatchCreateIndexResponse,
-    -- | Detaches a policy from a Directory.
-    detachPolicy :: Prelude.Maybe BatchDetachPolicyResponse,
     -- | Detaches the specified object from the specified index.
     detachFromIndex :: Prelude.Maybe BatchDetachFromIndexResponse,
+    -- | Detaches a policy from a Directory.
+    detachPolicy :: Prelude.Maybe BatchDetachPolicyResponse,
     -- | Attaches an object to a Directory.
     attachObject :: Prelude.Maybe BatchAttachObjectResponse,
     -- | Attaches the specified object to the specified index.
     attachToIndex :: Prelude.Maybe BatchAttachToIndexResponse,
-    -- | Updates a given object’s attributes.
-    updateObjectAttributes :: Prelude.Maybe BatchUpdateObjectAttributesResponse,
     -- | Attaches a policy object to a regular object. An object can have a
     -- limited number of attached policies.
     attachPolicy :: Prelude.Maybe BatchAttachPolicyResponse,
+    -- | Updates a given object’s attributes.
+    updateObjectAttributes :: Prelude.Maybe BatchUpdateObjectAttributesResponse,
     -- | The result of a batch remove facet from object operation.
     removeFacetFromObject :: Prelude.Maybe BatchRemoveFacetFromObjectResponse,
-    -- | The result of an add facet to object batch operation.
-    addFacetToObject :: Prelude.Maybe BatchAddFacetToObjectResponse,
     -- | Detaches an object from a Directory.
-    detachObject :: Prelude.Maybe BatchDetachObjectResponse
+    detachObject :: Prelude.Maybe BatchDetachObjectResponse,
+    -- | The result of an add facet to object batch operation.
+    addFacetToObject :: Prelude.Maybe BatchAddFacetToObjectResponse
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -108,24 +108,24 @@ data BatchWriteOperationResponse = BatchWriteOperationResponse'
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.htm Indexing and search>
 -- for more information.
 --
--- 'detachPolicy', 'batchWriteOperationResponse_detachPolicy' - Detaches a policy from a Directory.
---
 -- 'detachFromIndex', 'batchWriteOperationResponse_detachFromIndex' - Detaches the specified object from the specified index.
+--
+-- 'detachPolicy', 'batchWriteOperationResponse_detachPolicy' - Detaches a policy from a Directory.
 --
 -- 'attachObject', 'batchWriteOperationResponse_attachObject' - Attaches an object to a Directory.
 --
 -- 'attachToIndex', 'batchWriteOperationResponse_attachToIndex' - Attaches the specified object to the specified index.
 --
--- 'updateObjectAttributes', 'batchWriteOperationResponse_updateObjectAttributes' - Updates a given object’s attributes.
---
 -- 'attachPolicy', 'batchWriteOperationResponse_attachPolicy' - Attaches a policy object to a regular object. An object can have a
 -- limited number of attached policies.
 --
+-- 'updateObjectAttributes', 'batchWriteOperationResponse_updateObjectAttributes' - Updates a given object’s attributes.
+--
 -- 'removeFacetFromObject', 'batchWriteOperationResponse_removeFacetFromObject' - The result of a batch remove facet from object operation.
 --
--- 'addFacetToObject', 'batchWriteOperationResponse_addFacetToObject' - The result of an add facet to object batch operation.
---
 -- 'detachObject', 'batchWriteOperationResponse_detachObject' - Detaches an object from a Directory.
+--
+-- 'addFacetToObject', 'batchWriteOperationResponse_addFacetToObject' - The result of an add facet to object batch operation.
 newBatchWriteOperationResponse ::
   BatchWriteOperationResponse
 newBatchWriteOperationResponse =
@@ -137,15 +137,15 @@ newBatchWriteOperationResponse =
       updateLinkAttributes = Prelude.Nothing,
       detachTypedLink = Prelude.Nothing,
       createIndex = Prelude.Nothing,
-      detachPolicy = Prelude.Nothing,
       detachFromIndex = Prelude.Nothing,
+      detachPolicy = Prelude.Nothing,
       attachObject = Prelude.Nothing,
       attachToIndex = Prelude.Nothing,
-      updateObjectAttributes = Prelude.Nothing,
       attachPolicy = Prelude.Nothing,
+      updateObjectAttributes = Prelude.Nothing,
       removeFacetFromObject = Prelude.Nothing,
-      addFacetToObject = Prelude.Nothing,
-      detachObject = Prelude.Nothing
+      detachObject = Prelude.Nothing,
+      addFacetToObject = Prelude.Nothing
     }
 
 -- | Attaches a typed link to a specified source and target object. For more
@@ -178,13 +178,13 @@ batchWriteOperationResponse_detachTypedLink = Lens.lens (\BatchWriteOperationRes
 batchWriteOperationResponse_createIndex :: Lens.Lens' BatchWriteOperationResponse (Prelude.Maybe BatchCreateIndexResponse)
 batchWriteOperationResponse_createIndex = Lens.lens (\BatchWriteOperationResponse' {createIndex} -> createIndex) (\s@BatchWriteOperationResponse' {} a -> s {createIndex = a} :: BatchWriteOperationResponse)
 
--- | Detaches a policy from a Directory.
-batchWriteOperationResponse_detachPolicy :: Lens.Lens' BatchWriteOperationResponse (Prelude.Maybe BatchDetachPolicyResponse)
-batchWriteOperationResponse_detachPolicy = Lens.lens (\BatchWriteOperationResponse' {detachPolicy} -> detachPolicy) (\s@BatchWriteOperationResponse' {} a -> s {detachPolicy = a} :: BatchWriteOperationResponse)
-
 -- | Detaches the specified object from the specified index.
 batchWriteOperationResponse_detachFromIndex :: Lens.Lens' BatchWriteOperationResponse (Prelude.Maybe BatchDetachFromIndexResponse)
 batchWriteOperationResponse_detachFromIndex = Lens.lens (\BatchWriteOperationResponse' {detachFromIndex} -> detachFromIndex) (\s@BatchWriteOperationResponse' {} a -> s {detachFromIndex = a} :: BatchWriteOperationResponse)
+
+-- | Detaches a policy from a Directory.
+batchWriteOperationResponse_detachPolicy :: Lens.Lens' BatchWriteOperationResponse (Prelude.Maybe BatchDetachPolicyResponse)
+batchWriteOperationResponse_detachPolicy = Lens.lens (\BatchWriteOperationResponse' {detachPolicy} -> detachPolicy) (\s@BatchWriteOperationResponse' {} a -> s {detachPolicy = a} :: BatchWriteOperationResponse)
 
 -- | Attaches an object to a Directory.
 batchWriteOperationResponse_attachObject :: Lens.Lens' BatchWriteOperationResponse (Prelude.Maybe BatchAttachObjectResponse)
@@ -194,26 +194,26 @@ batchWriteOperationResponse_attachObject = Lens.lens (\BatchWriteOperationRespon
 batchWriteOperationResponse_attachToIndex :: Lens.Lens' BatchWriteOperationResponse (Prelude.Maybe BatchAttachToIndexResponse)
 batchWriteOperationResponse_attachToIndex = Lens.lens (\BatchWriteOperationResponse' {attachToIndex} -> attachToIndex) (\s@BatchWriteOperationResponse' {} a -> s {attachToIndex = a} :: BatchWriteOperationResponse)
 
--- | Updates a given object’s attributes.
-batchWriteOperationResponse_updateObjectAttributes :: Lens.Lens' BatchWriteOperationResponse (Prelude.Maybe BatchUpdateObjectAttributesResponse)
-batchWriteOperationResponse_updateObjectAttributes = Lens.lens (\BatchWriteOperationResponse' {updateObjectAttributes} -> updateObjectAttributes) (\s@BatchWriteOperationResponse' {} a -> s {updateObjectAttributes = a} :: BatchWriteOperationResponse)
-
 -- | Attaches a policy object to a regular object. An object can have a
 -- limited number of attached policies.
 batchWriteOperationResponse_attachPolicy :: Lens.Lens' BatchWriteOperationResponse (Prelude.Maybe BatchAttachPolicyResponse)
 batchWriteOperationResponse_attachPolicy = Lens.lens (\BatchWriteOperationResponse' {attachPolicy} -> attachPolicy) (\s@BatchWriteOperationResponse' {} a -> s {attachPolicy = a} :: BatchWriteOperationResponse)
 
+-- | Updates a given object’s attributes.
+batchWriteOperationResponse_updateObjectAttributes :: Lens.Lens' BatchWriteOperationResponse (Prelude.Maybe BatchUpdateObjectAttributesResponse)
+batchWriteOperationResponse_updateObjectAttributes = Lens.lens (\BatchWriteOperationResponse' {updateObjectAttributes} -> updateObjectAttributes) (\s@BatchWriteOperationResponse' {} a -> s {updateObjectAttributes = a} :: BatchWriteOperationResponse)
+
 -- | The result of a batch remove facet from object operation.
 batchWriteOperationResponse_removeFacetFromObject :: Lens.Lens' BatchWriteOperationResponse (Prelude.Maybe BatchRemoveFacetFromObjectResponse)
 batchWriteOperationResponse_removeFacetFromObject = Lens.lens (\BatchWriteOperationResponse' {removeFacetFromObject} -> removeFacetFromObject) (\s@BatchWriteOperationResponse' {} a -> s {removeFacetFromObject = a} :: BatchWriteOperationResponse)
 
--- | The result of an add facet to object batch operation.
-batchWriteOperationResponse_addFacetToObject :: Lens.Lens' BatchWriteOperationResponse (Prelude.Maybe BatchAddFacetToObjectResponse)
-batchWriteOperationResponse_addFacetToObject = Lens.lens (\BatchWriteOperationResponse' {addFacetToObject} -> addFacetToObject) (\s@BatchWriteOperationResponse' {} a -> s {addFacetToObject = a} :: BatchWriteOperationResponse)
-
 -- | Detaches an object from a Directory.
 batchWriteOperationResponse_detachObject :: Lens.Lens' BatchWriteOperationResponse (Prelude.Maybe BatchDetachObjectResponse)
 batchWriteOperationResponse_detachObject = Lens.lens (\BatchWriteOperationResponse' {detachObject} -> detachObject) (\s@BatchWriteOperationResponse' {} a -> s {detachObject = a} :: BatchWriteOperationResponse)
+
+-- | The result of an add facet to object batch operation.
+batchWriteOperationResponse_addFacetToObject :: Lens.Lens' BatchWriteOperationResponse (Prelude.Maybe BatchAddFacetToObjectResponse)
+batchWriteOperationResponse_addFacetToObject = Lens.lens (\BatchWriteOperationResponse' {addFacetToObject} -> addFacetToObject) (\s@BatchWriteOperationResponse' {} a -> s {addFacetToObject = a} :: BatchWriteOperationResponse)
 
 instance Core.FromJSON BatchWriteOperationResponse where
   parseJSON =
@@ -227,15 +227,15 @@ instance Core.FromJSON BatchWriteOperationResponse where
             Prelude.<*> (x Core..:? "UpdateLinkAttributes")
             Prelude.<*> (x Core..:? "DetachTypedLink")
             Prelude.<*> (x Core..:? "CreateIndex")
-            Prelude.<*> (x Core..:? "DetachPolicy")
             Prelude.<*> (x Core..:? "DetachFromIndex")
+            Prelude.<*> (x Core..:? "DetachPolicy")
             Prelude.<*> (x Core..:? "AttachObject")
             Prelude.<*> (x Core..:? "AttachToIndex")
-            Prelude.<*> (x Core..:? "UpdateObjectAttributes")
             Prelude.<*> (x Core..:? "AttachPolicy")
+            Prelude.<*> (x Core..:? "UpdateObjectAttributes")
             Prelude.<*> (x Core..:? "RemoveFacetFromObject")
-            Prelude.<*> (x Core..:? "AddFacetToObject")
             Prelude.<*> (x Core..:? "DetachObject")
+            Prelude.<*> (x Core..:? "AddFacetToObject")
       )
 
 instance Prelude.Hashable BatchWriteOperationResponse

@@ -50,6 +50,8 @@ data BatchReadOperation = BatchReadOperation'
     -- facet and identity attributes. For more information, see
     -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links>.
     listIncomingTypedLinks :: Prelude.Maybe BatchListIncomingTypedLinks,
+    -- | Lists parent objects that are associated with a given object in
+    -- pagination fashion.
     listObjectParents :: Prelude.Maybe BatchListObjectParents,
     -- | Returns all of the @ObjectIdentifiers@ to which a given policy is
     -- attached.
@@ -72,11 +74,11 @@ data BatchReadOperation = BatchReadOperation'
     lookupPolicy :: Prelude.Maybe BatchLookupPolicy,
     -- | Lists indices attached to an object.
     listAttachedIndices :: Prelude.Maybe BatchListAttachedIndices,
-    -- | Lists objects attached to the specified index.
-    listIndex :: Prelude.Maybe BatchListIndex,
     -- | Returns a paginated list of child objects that are associated with a
     -- given object.
     listObjectChildren :: Prelude.Maybe BatchListObjectChildren,
+    -- | Lists objects attached to the specified index.
+    listIndex :: Prelude.Maybe BatchListIndex,
     -- | Returns policies attached to an object in pagination fashion.
     listObjectPolicies :: Prelude.Maybe BatchListObjectPolicies,
     -- | Retrieves attributes that are associated with a typed link.
@@ -106,7 +108,8 @@ data BatchReadOperation = BatchReadOperation'
 -- facet and identity attributes. For more information, see
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links>.
 --
--- 'listObjectParents', 'batchReadOperation_listObjectParents' - Undocumented member.
+-- 'listObjectParents', 'batchReadOperation_listObjectParents' - Lists parent objects that are associated with a given object in
+-- pagination fashion.
 --
 -- 'listPolicyAttachments', 'batchReadOperation_listPolicyAttachments' - Returns all of the @ObjectIdentifiers@ to which a given policy is
 -- attached.
@@ -129,10 +132,10 @@ data BatchReadOperation = BatchReadOperation'
 --
 -- 'listAttachedIndices', 'batchReadOperation_listAttachedIndices' - Lists indices attached to an object.
 --
--- 'listIndex', 'batchReadOperation_listIndex' - Lists objects attached to the specified index.
---
 -- 'listObjectChildren', 'batchReadOperation_listObjectChildren' - Returns a paginated list of child objects that are associated with a
 -- given object.
+--
+-- 'listIndex', 'batchReadOperation_listIndex' - Lists objects attached to the specified index.
 --
 -- 'listObjectPolicies', 'batchReadOperation_listObjectPolicies' - Returns policies attached to an object in pagination fashion.
 --
@@ -156,8 +159,8 @@ newBatchReadOperation =
       listObjectParentPaths = Prelude.Nothing,
       lookupPolicy = Prelude.Nothing,
       listAttachedIndices = Prelude.Nothing,
-      listIndex = Prelude.Nothing,
       listObjectChildren = Prelude.Nothing,
+      listIndex = Prelude.Nothing,
       listObjectPolicies = Prelude.Nothing,
       getLinkAttributes = Prelude.Nothing,
       listOutgoingTypedLinks = Prelude.Nothing
@@ -178,7 +181,8 @@ batchReadOperation_getObjectAttributes = Lens.lens (\BatchReadOperation' {getObj
 batchReadOperation_listIncomingTypedLinks :: Lens.Lens' BatchReadOperation (Prelude.Maybe BatchListIncomingTypedLinks)
 batchReadOperation_listIncomingTypedLinks = Lens.lens (\BatchReadOperation' {listIncomingTypedLinks} -> listIncomingTypedLinks) (\s@BatchReadOperation' {} a -> s {listIncomingTypedLinks = a} :: BatchReadOperation)
 
--- | Undocumented member.
+-- | Lists parent objects that are associated with a given object in
+-- pagination fashion.
 batchReadOperation_listObjectParents :: Lens.Lens' BatchReadOperation (Prelude.Maybe BatchListObjectParents)
 batchReadOperation_listObjectParents = Lens.lens (\BatchReadOperation' {listObjectParents} -> listObjectParents) (\s@BatchReadOperation' {} a -> s {listObjectParents = a} :: BatchReadOperation)
 
@@ -213,14 +217,14 @@ batchReadOperation_lookupPolicy = Lens.lens (\BatchReadOperation' {lookupPolicy}
 batchReadOperation_listAttachedIndices :: Lens.Lens' BatchReadOperation (Prelude.Maybe BatchListAttachedIndices)
 batchReadOperation_listAttachedIndices = Lens.lens (\BatchReadOperation' {listAttachedIndices} -> listAttachedIndices) (\s@BatchReadOperation' {} a -> s {listAttachedIndices = a} :: BatchReadOperation)
 
--- | Lists objects attached to the specified index.
-batchReadOperation_listIndex :: Lens.Lens' BatchReadOperation (Prelude.Maybe BatchListIndex)
-batchReadOperation_listIndex = Lens.lens (\BatchReadOperation' {listIndex} -> listIndex) (\s@BatchReadOperation' {} a -> s {listIndex = a} :: BatchReadOperation)
-
 -- | Returns a paginated list of child objects that are associated with a
 -- given object.
 batchReadOperation_listObjectChildren :: Lens.Lens' BatchReadOperation (Prelude.Maybe BatchListObjectChildren)
 batchReadOperation_listObjectChildren = Lens.lens (\BatchReadOperation' {listObjectChildren} -> listObjectChildren) (\s@BatchReadOperation' {} a -> s {listObjectChildren = a} :: BatchReadOperation)
+
+-- | Lists objects attached to the specified index.
+batchReadOperation_listIndex :: Lens.Lens' BatchReadOperation (Prelude.Maybe BatchListIndex)
+batchReadOperation_listIndex = Lens.lens (\BatchReadOperation' {listIndex} -> listIndex) (\s@BatchReadOperation' {} a -> s {listIndex = a} :: BatchReadOperation)
 
 -- | Returns policies attached to an object in pagination fashion.
 batchReadOperation_listObjectPolicies :: Lens.Lens' BatchReadOperation (Prelude.Maybe BatchListObjectPolicies)
@@ -262,9 +266,9 @@ instance Core.ToJSON BatchReadOperation where
             ("LookupPolicy" Core..=) Prelude.<$> lookupPolicy,
             ("ListAttachedIndices" Core..=)
               Prelude.<$> listAttachedIndices,
-            ("ListIndex" Core..=) Prelude.<$> listIndex,
             ("ListObjectChildren" Core..=)
               Prelude.<$> listObjectChildren,
+            ("ListIndex" Core..=) Prelude.<$> listIndex,
             ("ListObjectPolicies" Core..=)
               Prelude.<$> listObjectPolicies,
             ("GetLinkAttributes" Core..=)

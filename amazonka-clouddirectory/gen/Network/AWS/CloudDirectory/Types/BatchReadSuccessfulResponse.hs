@@ -50,6 +50,7 @@ data BatchReadSuccessfulResponse = BatchReadSuccessfulResponse'
     -- facet and identity attributes. For more information, see
     -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links>.
     listIncomingTypedLinks :: Prelude.Maybe BatchListIncomingTypedLinksResponse,
+    -- | The list of parent objects to retrieve.
     listObjectParents :: Prelude.Maybe BatchListObjectParentsResponse,
     -- | Returns all of the @ObjectIdentifiers@ to which a given policy is
     -- attached.
@@ -72,11 +73,11 @@ data BatchReadSuccessfulResponse = BatchReadSuccessfulResponse'
     lookupPolicy :: Prelude.Maybe BatchLookupPolicyResponse,
     -- | Lists indices attached to an object.
     listAttachedIndices :: Prelude.Maybe BatchListAttachedIndicesResponse,
-    -- | Lists objects attached to the specified index.
-    listIndex :: Prelude.Maybe BatchListIndexResponse,
     -- | Returns a paginated list of child objects that are associated with a
     -- given object.
     listObjectChildren :: Prelude.Maybe BatchListObjectChildrenResponse,
+    -- | Lists objects attached to the specified index.
+    listIndex :: Prelude.Maybe BatchListIndexResponse,
     -- | Returns policies attached to an object in pagination fashion.
     listObjectPolicies :: Prelude.Maybe BatchListObjectPoliciesResponse,
     -- | The list of attributes to retrieve from the typed link.
@@ -106,7 +107,7 @@ data BatchReadSuccessfulResponse = BatchReadSuccessfulResponse'
 -- facet and identity attributes. For more information, see
 -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links>.
 --
--- 'listObjectParents', 'batchReadSuccessfulResponse_listObjectParents' - Undocumented member.
+-- 'listObjectParents', 'batchReadSuccessfulResponse_listObjectParents' - The list of parent objects to retrieve.
 --
 -- 'listPolicyAttachments', 'batchReadSuccessfulResponse_listPolicyAttachments' - Returns all of the @ObjectIdentifiers@ to which a given policy is
 -- attached.
@@ -129,10 +130,10 @@ data BatchReadSuccessfulResponse = BatchReadSuccessfulResponse'
 --
 -- 'listAttachedIndices', 'batchReadSuccessfulResponse_listAttachedIndices' - Lists indices attached to an object.
 --
--- 'listIndex', 'batchReadSuccessfulResponse_listIndex' - Lists objects attached to the specified index.
---
 -- 'listObjectChildren', 'batchReadSuccessfulResponse_listObjectChildren' - Returns a paginated list of child objects that are associated with a
 -- given object.
+--
+-- 'listIndex', 'batchReadSuccessfulResponse_listIndex' - Lists objects attached to the specified index.
 --
 -- 'listObjectPolicies', 'batchReadSuccessfulResponse_listObjectPolicies' - Returns policies attached to an object in pagination fashion.
 --
@@ -156,8 +157,8 @@ newBatchReadSuccessfulResponse =
       listObjectParentPaths = Prelude.Nothing,
       lookupPolicy = Prelude.Nothing,
       listAttachedIndices = Prelude.Nothing,
-      listIndex = Prelude.Nothing,
       listObjectChildren = Prelude.Nothing,
+      listIndex = Prelude.Nothing,
       listObjectPolicies = Prelude.Nothing,
       getLinkAttributes = Prelude.Nothing,
       listOutgoingTypedLinks = Prelude.Nothing
@@ -178,7 +179,7 @@ batchReadSuccessfulResponse_getObjectAttributes = Lens.lens (\BatchReadSuccessfu
 batchReadSuccessfulResponse_listIncomingTypedLinks :: Lens.Lens' BatchReadSuccessfulResponse (Prelude.Maybe BatchListIncomingTypedLinksResponse)
 batchReadSuccessfulResponse_listIncomingTypedLinks = Lens.lens (\BatchReadSuccessfulResponse' {listIncomingTypedLinks} -> listIncomingTypedLinks) (\s@BatchReadSuccessfulResponse' {} a -> s {listIncomingTypedLinks = a} :: BatchReadSuccessfulResponse)
 
--- | Undocumented member.
+-- | The list of parent objects to retrieve.
 batchReadSuccessfulResponse_listObjectParents :: Lens.Lens' BatchReadSuccessfulResponse (Prelude.Maybe BatchListObjectParentsResponse)
 batchReadSuccessfulResponse_listObjectParents = Lens.lens (\BatchReadSuccessfulResponse' {listObjectParents} -> listObjectParents) (\s@BatchReadSuccessfulResponse' {} a -> s {listObjectParents = a} :: BatchReadSuccessfulResponse)
 
@@ -213,14 +214,14 @@ batchReadSuccessfulResponse_lookupPolicy = Lens.lens (\BatchReadSuccessfulRespon
 batchReadSuccessfulResponse_listAttachedIndices :: Lens.Lens' BatchReadSuccessfulResponse (Prelude.Maybe BatchListAttachedIndicesResponse)
 batchReadSuccessfulResponse_listAttachedIndices = Lens.lens (\BatchReadSuccessfulResponse' {listAttachedIndices} -> listAttachedIndices) (\s@BatchReadSuccessfulResponse' {} a -> s {listAttachedIndices = a} :: BatchReadSuccessfulResponse)
 
--- | Lists objects attached to the specified index.
-batchReadSuccessfulResponse_listIndex :: Lens.Lens' BatchReadSuccessfulResponse (Prelude.Maybe BatchListIndexResponse)
-batchReadSuccessfulResponse_listIndex = Lens.lens (\BatchReadSuccessfulResponse' {listIndex} -> listIndex) (\s@BatchReadSuccessfulResponse' {} a -> s {listIndex = a} :: BatchReadSuccessfulResponse)
-
 -- | Returns a paginated list of child objects that are associated with a
 -- given object.
 batchReadSuccessfulResponse_listObjectChildren :: Lens.Lens' BatchReadSuccessfulResponse (Prelude.Maybe BatchListObjectChildrenResponse)
 batchReadSuccessfulResponse_listObjectChildren = Lens.lens (\BatchReadSuccessfulResponse' {listObjectChildren} -> listObjectChildren) (\s@BatchReadSuccessfulResponse' {} a -> s {listObjectChildren = a} :: BatchReadSuccessfulResponse)
+
+-- | Lists objects attached to the specified index.
+batchReadSuccessfulResponse_listIndex :: Lens.Lens' BatchReadSuccessfulResponse (Prelude.Maybe BatchListIndexResponse)
+batchReadSuccessfulResponse_listIndex = Lens.lens (\BatchReadSuccessfulResponse' {listIndex} -> listIndex) (\s@BatchReadSuccessfulResponse' {} a -> s {listIndex = a} :: BatchReadSuccessfulResponse)
 
 -- | Returns policies attached to an object in pagination fashion.
 batchReadSuccessfulResponse_listObjectPolicies :: Lens.Lens' BatchReadSuccessfulResponse (Prelude.Maybe BatchListObjectPoliciesResponse)
@@ -252,8 +253,8 @@ instance Core.FromJSON BatchReadSuccessfulResponse where
             Prelude.<*> (x Core..:? "ListObjectParentPaths")
             Prelude.<*> (x Core..:? "LookupPolicy")
             Prelude.<*> (x Core..:? "ListAttachedIndices")
-            Prelude.<*> (x Core..:? "ListIndex")
             Prelude.<*> (x Core..:? "ListObjectChildren")
+            Prelude.<*> (x Core..:? "ListIndex")
             Prelude.<*> (x Core..:? "ListObjectPolicies")
             Prelude.<*> (x Core..:? "GetLinkAttributes")
             Prelude.<*> (x Core..:? "ListOutgoingTypedLinks")

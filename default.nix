@@ -18,13 +18,8 @@ let
   inherit (pkgs.haskell-nix) haskellLib;
 
   packages = haskellLib.selectProjectPackages pkgs.cabalProject;
-  botocore = "${pkgs.sources.botocore}/botocore/data";
 
 in pkgs.cabalProject // {
-  models = (builtins.attrNames
-    (pkgs.lib.filterAttrs (_path: type: type == "directory")
-      (builtins.readDir botocore)));
-
   ci = {
     libraries = haskellLib.collectComponents' "library" packages;
     checks = builtins.mapAttrs (_: p: p.checks) packages;
@@ -44,17 +39,18 @@ in pkgs.cabalProject // {
     };
 
     buildInputs = [
+      pkgs.coreutils
       pkgs.nixfmt
-      pkgs.shfmt
-      pkgs.shellcheck
       pkgs.ormolu
       pkgs.parallel
+      pkgs.shellcheck
+      pkgs.shfmt
 
       (import pkgs.sources.niv { }).niv
     ];
 
     shellHook = ''
-      export BOTOCORE_PATH='${botocore}'
+      export BOTOCORE_PATH='${pkgs.sources.botocore}/botocore/data';
     '';
   };
 }

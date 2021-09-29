@@ -34,17 +34,17 @@
 --
 -- CloudWatch Logs ingestion, archive storage, and data scanning rates
 -- apply to exported control plane logs. For more information, see
--- <http://aws.amazon.com/cloudwatch/pricing/ Amazon CloudWatch Pricing>.
+-- <http://aws.amazon.com/cloudwatch/pricing/ CloudWatch Pricing>.
 --
 -- You can also use this API operation to enable or disable public and
 -- private access to your cluster\'s Kubernetes API server endpoint. By
 -- default, public access is enabled, and private access is disabled. For
 -- more information, see
--- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS Cluster Endpoint Access Control>
+-- <https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control>
 -- in the //Amazon EKS User Guide// .
 --
--- At this time, you can not update the subnets or security group IDs for
--- an existing cluster.
+-- You can\'t update the subnets or security group IDs for an existing
+-- cluster.
 --
 -- Cluster updates are asynchronous, and they should finish within a few
 -- minutes. During an update, the cluster status moves to @UPDATING@ (this
@@ -84,12 +84,12 @@ data UpdateClusterConfig = UpdateClusterConfig'
     -- | Enable or disable exporting the Kubernetes control plane logs for your
     -- cluster to CloudWatch Logs. By default, cluster control plane logs
     -- aren\'t exported to CloudWatch Logs. For more information, see
-    -- <https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html Amazon EKS Cluster Control Plane Logs>
+    -- <https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html Amazon EKS cluster control plane logs>
     -- in the //Amazon EKS User Guide// .
     --
     -- CloudWatch Logs ingestion, archive storage, and data scanning rates
     -- apply to exported control plane logs. For more information, see
-    -- <http://aws.amazon.com/cloudwatch/pricing/ Amazon CloudWatch Pricing>.
+    -- <http://aws.amazon.com/cloudwatch/pricing/ CloudWatch Pricing>.
     logging :: Prelude.Maybe Logging,
     -- | Unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
@@ -112,12 +112,12 @@ data UpdateClusterConfig = UpdateClusterConfig'
 -- 'logging', 'updateClusterConfig_logging' - Enable or disable exporting the Kubernetes control plane logs for your
 -- cluster to CloudWatch Logs. By default, cluster control plane logs
 -- aren\'t exported to CloudWatch Logs. For more information, see
--- <https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html Amazon EKS Cluster Control Plane Logs>
+-- <https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html Amazon EKS cluster control plane logs>
 -- in the //Amazon EKS User Guide// .
 --
 -- CloudWatch Logs ingestion, archive storage, and data scanning rates
 -- apply to exported control plane logs. For more information, see
--- <http://aws.amazon.com/cloudwatch/pricing/ Amazon CloudWatch Pricing>.
+-- <http://aws.amazon.com/cloudwatch/pricing/ CloudWatch Pricing>.
 --
 -- 'clientRequestToken', 'updateClusterConfig_clientRequestToken' - Unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
@@ -143,12 +143,12 @@ updateClusterConfig_resourcesVpcConfig = Lens.lens (\UpdateClusterConfig' {resou
 -- | Enable or disable exporting the Kubernetes control plane logs for your
 -- cluster to CloudWatch Logs. By default, cluster control plane logs
 -- aren\'t exported to CloudWatch Logs. For more information, see
--- <https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html Amazon EKS Cluster Control Plane Logs>
+-- <https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html Amazon EKS cluster control plane logs>
 -- in the //Amazon EKS User Guide// .
 --
 -- CloudWatch Logs ingestion, archive storage, and data scanning rates
 -- apply to exported control plane logs. For more information, see
--- <http://aws.amazon.com/cloudwatch/pricing/ Amazon CloudWatch Pricing>.
+-- <http://aws.amazon.com/cloudwatch/pricing/ CloudWatch Pricing>.
 updateClusterConfig_logging :: Lens.Lens' UpdateClusterConfig (Prelude.Maybe Logging)
 updateClusterConfig_logging = Lens.lens (\UpdateClusterConfig' {logging} -> logging) (\s@UpdateClusterConfig' {} a -> s {logging = a} :: UpdateClusterConfig)
 

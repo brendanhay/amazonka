@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the AWS Fargate profiles associated with the specified cluster in
--- your AWS account in the specified Region.
+-- Lists the Fargate profiles associated with the specified cluster in your
+-- Amazon Web Services account in the specified Region.
 --
 -- This operation returns paginated results.
 module Network.AWS.EKS.ListFargateProfiles
@@ -68,7 +68,7 @@ data ListFargateProfiles = ListFargateProfiles'
     -- and 100. If you don\'t use this parameter, @ListFargateProfiles@ returns
     -- up to 100 results and a @nextToken@ value if applicable.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The name of the Amazon EKS cluster that you would like to listFargate
+    -- | The name of the Amazon EKS cluster that you would like to list Fargate
     -- profiles in.
     clusterName :: Prelude.Text
   }
@@ -96,7 +96,7 @@ data ListFargateProfiles = ListFargateProfiles'
 -- and 100. If you don\'t use this parameter, @ListFargateProfiles@ returns
 -- up to 100 results and a @nextToken@ value if applicable.
 --
--- 'clusterName', 'listFargateProfiles_clusterName' - The name of the Amazon EKS cluster that you would like to listFargate
+-- 'clusterName', 'listFargateProfiles_clusterName' - The name of the Amazon EKS cluster that you would like to list Fargate
 -- profiles in.
 newListFargateProfiles ::
   -- | 'clusterName'
@@ -127,7 +127,7 @@ listFargateProfiles_nextToken = Lens.lens (\ListFargateProfiles' {nextToken} -> 
 listFargateProfiles_maxResults :: Lens.Lens' ListFargateProfiles (Prelude.Maybe Prelude.Natural)
 listFargateProfiles_maxResults = Lens.lens (\ListFargateProfiles' {maxResults} -> maxResults) (\s@ListFargateProfiles' {} a -> s {maxResults = a} :: ListFargateProfiles)
 
--- | The name of the Amazon EKS cluster that you would like to listFargate
+-- | The name of the Amazon EKS cluster that you would like to list Fargate
 -- profiles in.
 listFargateProfiles_clusterName :: Lens.Lens' ListFargateProfiles Prelude.Text
 listFargateProfiles_clusterName = Lens.lens (\ListFargateProfiles' {clusterName} -> clusterName) (\s@ListFargateProfiles' {} a -> s {clusterName = a} :: ListFargateProfiles)

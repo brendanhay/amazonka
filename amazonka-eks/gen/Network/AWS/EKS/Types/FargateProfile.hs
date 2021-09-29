@@ -25,7 +25,7 @@ import Network.AWS.EKS.Types.FargateProfileStatus
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | An object representing an AWS Fargate profile.
+-- | An object representing an Fargate profile.
 --
 -- /See:/ 'newFargateProfile' smart constructor.
 data FargateProfile = FargateProfile'

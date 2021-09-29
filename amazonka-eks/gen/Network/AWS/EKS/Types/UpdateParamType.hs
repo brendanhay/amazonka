@@ -29,13 +29,19 @@ module Network.AWS.EKS.Types.UpdateParamType
         UpdateParamType_IdentityProviderConfig,
         UpdateParamType_LabelsToAdd,
         UpdateParamType_LabelsToRemove,
+        UpdateParamType_LaunchTemplateName,
+        UpdateParamType_LaunchTemplateVersion,
         UpdateParamType_MaxSize,
+        UpdateParamType_MaxUnavailable,
+        UpdateParamType_MaxUnavailablePercentage,
         UpdateParamType_MinSize,
         UpdateParamType_PlatformVersion,
         UpdateParamType_PublicAccessCidrs,
         UpdateParamType_ReleaseVersion,
         UpdateParamType_ResolveConflicts,
         UpdateParamType_ServiceAccountRoleArn,
+        UpdateParamType_TaintsToAdd,
+        UpdateParamType_TaintsToRemove,
         UpdateParamType_Version
       ),
   )
@@ -99,8 +105,20 @@ pattern UpdateParamType_LabelsToAdd = UpdateParamType' "LabelsToAdd"
 pattern UpdateParamType_LabelsToRemove :: UpdateParamType
 pattern UpdateParamType_LabelsToRemove = UpdateParamType' "LabelsToRemove"
 
+pattern UpdateParamType_LaunchTemplateName :: UpdateParamType
+pattern UpdateParamType_LaunchTemplateName = UpdateParamType' "LaunchTemplateName"
+
+pattern UpdateParamType_LaunchTemplateVersion :: UpdateParamType
+pattern UpdateParamType_LaunchTemplateVersion = UpdateParamType' "LaunchTemplateVersion"
+
 pattern UpdateParamType_MaxSize :: UpdateParamType
 pattern UpdateParamType_MaxSize = UpdateParamType' "MaxSize"
+
+pattern UpdateParamType_MaxUnavailable :: UpdateParamType
+pattern UpdateParamType_MaxUnavailable = UpdateParamType' "MaxUnavailable"
+
+pattern UpdateParamType_MaxUnavailablePercentage :: UpdateParamType
+pattern UpdateParamType_MaxUnavailablePercentage = UpdateParamType' "MaxUnavailablePercentage"
 
 pattern UpdateParamType_MinSize :: UpdateParamType
 pattern UpdateParamType_MinSize = UpdateParamType' "MinSize"
@@ -120,6 +138,12 @@ pattern UpdateParamType_ResolveConflicts = UpdateParamType' "ResolveConflicts"
 pattern UpdateParamType_ServiceAccountRoleArn :: UpdateParamType
 pattern UpdateParamType_ServiceAccountRoleArn = UpdateParamType' "ServiceAccountRoleArn"
 
+pattern UpdateParamType_TaintsToAdd :: UpdateParamType
+pattern UpdateParamType_TaintsToAdd = UpdateParamType' "TaintsToAdd"
+
+pattern UpdateParamType_TaintsToRemove :: UpdateParamType
+pattern UpdateParamType_TaintsToRemove = UpdateParamType' "TaintsToRemove"
+
 pattern UpdateParamType_Version :: UpdateParamType
 pattern UpdateParamType_Version = UpdateParamType' "Version"
 
@@ -133,13 +157,19 @@ pattern UpdateParamType_Version = UpdateParamType' "Version"
   UpdateParamType_IdentityProviderConfig,
   UpdateParamType_LabelsToAdd,
   UpdateParamType_LabelsToRemove,
+  UpdateParamType_LaunchTemplateName,
+  UpdateParamType_LaunchTemplateVersion,
   UpdateParamType_MaxSize,
+  UpdateParamType_MaxUnavailable,
+  UpdateParamType_MaxUnavailablePercentage,
   UpdateParamType_MinSize,
   UpdateParamType_PlatformVersion,
   UpdateParamType_PublicAccessCidrs,
   UpdateParamType_ReleaseVersion,
   UpdateParamType_ResolveConflicts,
   UpdateParamType_ServiceAccountRoleArn,
+  UpdateParamType_TaintsToAdd,
+  UpdateParamType_TaintsToRemove,
   UpdateParamType_Version,
   UpdateParamType'
   #-}

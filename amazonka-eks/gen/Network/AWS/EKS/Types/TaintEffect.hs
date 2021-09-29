@@ -11,21 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EKS.Types.ClusterStatus
+-- Module      : Network.AWS.EKS.Types.TaintEffect
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EKS.Types.ClusterStatus
-  ( ClusterStatus
+module Network.AWS.EKS.Types.TaintEffect
+  ( TaintEffect
       ( ..,
-        ClusterStatus_ACTIVE,
-        ClusterStatus_CREATING,
-        ClusterStatus_DELETING,
-        ClusterStatus_FAILED,
-        ClusterStatus_PENDING,
-        ClusterStatus_UPDATING
+        TaintEffect_NO_EXECUTE,
+        TaintEffect_NO_SCHEDULE,
+        TaintEffect_PREFER_NO_SCHEDULE
       ),
   )
 where
@@ -33,8 +30,8 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
-newtype ClusterStatus = ClusterStatus'
-  { fromClusterStatus ::
+newtype TaintEffect = TaintEffect'
+  { fromTaintEffect ::
       Core.Text
   }
   deriving stock
@@ -61,30 +58,18 @@ newtype ClusterStatus = ClusterStatus'
       Core.ToXML
     )
 
-pattern ClusterStatus_ACTIVE :: ClusterStatus
-pattern ClusterStatus_ACTIVE = ClusterStatus' "ACTIVE"
+pattern TaintEffect_NO_EXECUTE :: TaintEffect
+pattern TaintEffect_NO_EXECUTE = TaintEffect' "NO_EXECUTE"
 
-pattern ClusterStatus_CREATING :: ClusterStatus
-pattern ClusterStatus_CREATING = ClusterStatus' "CREATING"
+pattern TaintEffect_NO_SCHEDULE :: TaintEffect
+pattern TaintEffect_NO_SCHEDULE = TaintEffect' "NO_SCHEDULE"
 
-pattern ClusterStatus_DELETING :: ClusterStatus
-pattern ClusterStatus_DELETING = ClusterStatus' "DELETING"
-
-pattern ClusterStatus_FAILED :: ClusterStatus
-pattern ClusterStatus_FAILED = ClusterStatus' "FAILED"
-
-pattern ClusterStatus_PENDING :: ClusterStatus
-pattern ClusterStatus_PENDING = ClusterStatus' "PENDING"
-
-pattern ClusterStatus_UPDATING :: ClusterStatus
-pattern ClusterStatus_UPDATING = ClusterStatus' "UPDATING"
+pattern TaintEffect_PREFER_NO_SCHEDULE :: TaintEffect
+pattern TaintEffect_PREFER_NO_SCHEDULE = TaintEffect' "PREFER_NO_SCHEDULE"
 
 {-# COMPLETE
-  ClusterStatus_ACTIVE,
-  ClusterStatus_CREATING,
-  ClusterStatus_DELETING,
-  ClusterStatus_FAILED,
-  ClusterStatus_PENDING,
-  ClusterStatus_UPDATING,
-  ClusterStatus'
+  TaintEffect_NO_EXECUTE,
+  TaintEffect_NO_SCHEDULE,
+  TaintEffect_PREFER_NO_SCHEDULE,
+  TaintEffect'
   #-}

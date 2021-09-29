@@ -21,11 +21,11 @@ module Network.AWS.EKS.Types
     _BadRequestException,
     _ResourceLimitExceededException,
     _ServiceUnavailableException,
-    _InvalidRequestException,
     _InvalidParameterException,
+    _InvalidRequestException,
     _ResourceInUseException,
-    _ClientException,
     _ResourceNotFoundException,
+    _ClientException,
     _UnsupportedAvailabilityZoneException,
     _ServerException,
 
@@ -47,6 +47,9 @@ module Network.AWS.EKS.Types
     -- * ConfigStatus
     ConfigStatus (..),
 
+    -- * ConnectorConfigProvider
+    ConnectorConfigProvider (..),
+
     -- * EKSErrorCode
     EKSErrorCode (..),
 
@@ -65,6 +68,9 @@ module Network.AWS.EKS.Types
     -- * ResolveConflicts
     ResolveConflicts (..),
 
+    -- * TaintEffect
+    TaintEffect (..),
+
     -- * UpdateParamType
     UpdateParamType (..),
 
@@ -77,11 +83,11 @@ module Network.AWS.EKS.Types
     -- * Addon
     Addon (..),
     newAddon,
-    addon_modifiedAt,
     addon_status,
-    addon_addonArn,
+    addon_modifiedAt,
     addon_serviceAccountRoleArn,
     addon_createdAt,
+    addon_addonArn,
     addon_addonVersion,
     addon_addonName,
     addon_health,
@@ -129,17 +135,18 @@ module Network.AWS.EKS.Types
     newCluster,
     cluster_status,
     cluster_roleArn,
-    cluster_resourcesVpcConfig,
-    cluster_kubernetesNetworkConfig,
     cluster_identity,
+    cluster_kubernetesNetworkConfig,
+    cluster_resourcesVpcConfig,
     cluster_logging,
+    cluster_encryptionConfig,
     cluster_createdAt,
     cluster_platformVersion,
     cluster_arn,
-    cluster_encryptionConfig,
     cluster_version,
     cluster_name,
     cluster_certificateAuthority,
+    cluster_connectorConfig,
     cluster_tags,
     cluster_endpoint,
     cluster_clientRequestToken,
@@ -150,6 +157,21 @@ module Network.AWS.EKS.Types
     compatibility_defaultVersion,
     compatibility_platformVersions,
     compatibility_clusterVersion,
+
+    -- * ConnectorConfigRequest
+    ConnectorConfigRequest (..),
+    newConnectorConfigRequest,
+    connectorConfigRequest_roleArn,
+    connectorConfigRequest_provider,
+
+    -- * ConnectorConfigResponse
+    ConnectorConfigResponse (..),
+    newConnectorConfigResponse,
+    connectorConfigResponse_activationCode,
+    connectorConfigResponse_roleArn,
+    connectorConfigResponse_activationId,
+    connectorConfigResponse_provider,
+    connectorConfigResponse_activationExpiry,
 
     -- * EncryptionConfig
     EncryptionConfig (..),
@@ -238,26 +260,28 @@ module Network.AWS.EKS.Types
     Nodegroup (..),
     newNodegroup,
     nodegroup_scalingConfig,
-    nodegroup_modifiedAt,
-    nodegroup_status,
     nodegroup_capacityType,
+    nodegroup_status,
+    nodegroup_modifiedAt,
     nodegroup_releaseVersion,
-    nodegroup_diskSize,
     nodegroup_nodegroupName,
     nodegroup_remoteAccess,
+    nodegroup_diskSize,
     nodegroup_createdAt,
-    nodegroup_launchTemplate,
     nodegroup_labels,
+    nodegroup_launchTemplate,
     nodegroup_version,
     nodegroup_nodeRole,
     nodegroup_health,
     nodegroup_resources,
     nodegroup_tags,
+    nodegroup_updateConfig,
     nodegroup_subnets,
-    nodegroup_amiType,
     nodegroup_clusterName,
-    nodegroup_nodegroupArn,
+    nodegroup_amiType,
+    nodegroup_taints,
     nodegroup_instanceTypes,
+    nodegroup_nodegroupArn,
 
     -- * NodegroupHealth
     NodegroupHealth (..),
@@ -277,6 +301,12 @@ module Network.AWS.EKS.Types
     nodegroupScalingConfig_desiredSize,
     nodegroupScalingConfig_maxSize,
 
+    -- * NodegroupUpdateConfig
+    NodegroupUpdateConfig (..),
+    newNodegroupUpdateConfig,
+    nodegroupUpdateConfig_maxUnavailablePercentage,
+    nodegroupUpdateConfig_maxUnavailable,
+
     -- * OIDC
     OIDC (..),
     newOIDC,
@@ -285,17 +315,17 @@ module Network.AWS.EKS.Types
     -- * OidcIdentityProviderConfig
     OidcIdentityProviderConfig (..),
     newOidcIdentityProviderConfig,
-    oidcIdentityProviderConfig_clientId,
     oidcIdentityProviderConfig_groupsPrefix,
     oidcIdentityProviderConfig_status,
+    oidcIdentityProviderConfig_clientId,
     oidcIdentityProviderConfig_groupsClaim,
     oidcIdentityProviderConfig_requiredClaims,
     oidcIdentityProviderConfig_identityProviderConfigName,
     oidcIdentityProviderConfig_usernameClaim,
     oidcIdentityProviderConfig_tags,
     oidcIdentityProviderConfig_usernamePrefix,
-    oidcIdentityProviderConfig_issuerUrl,
     oidcIdentityProviderConfig_identityProviderConfigArn,
+    oidcIdentityProviderConfig_issuerUrl,
     oidcIdentityProviderConfig_clusterName,
 
     -- * OidcIdentityProviderConfigRequest
@@ -321,12 +351,19 @@ module Network.AWS.EKS.Types
     remoteAccessConfig_ec2SshKey,
     remoteAccessConfig_sourceSecurityGroups,
 
+    -- * Taint
+    Taint (..),
+    newTaint,
+    taint_effect,
+    taint_key,
+    taint_value,
+
     -- * Update
     Update (..),
     newUpdate,
     update_status,
-    update_createdAt,
     update_id,
+    update_createdAt,
     update_params,
     update_errors,
     update_type,
@@ -342,6 +379,12 @@ module Network.AWS.EKS.Types
     newUpdateParam,
     updateParam_value,
     updateParam_type,
+
+    -- * UpdateTaintsPayload
+    UpdateTaintsPayload (..),
+    newUpdateTaintsPayload,
+    updateTaintsPayload_removeTaints,
+    updateTaintsPayload_addOrUpdateTaints,
 
     -- * VpcConfigRequest
     VpcConfigRequest (..),
@@ -381,6 +424,9 @@ import Network.AWS.EKS.Types.Cluster
 import Network.AWS.EKS.Types.ClusterStatus
 import Network.AWS.EKS.Types.Compatibility
 import Network.AWS.EKS.Types.ConfigStatus
+import Network.AWS.EKS.Types.ConnectorConfigProvider
+import Network.AWS.EKS.Types.ConnectorConfigRequest
+import Network.AWS.EKS.Types.ConnectorConfigResponse
 import Network.AWS.EKS.Types.EKSErrorCode
 import Network.AWS.EKS.Types.EncryptionConfig
 import Network.AWS.EKS.Types.ErrorDetail
@@ -403,17 +449,21 @@ import Network.AWS.EKS.Types.NodegroupIssueCode
 import Network.AWS.EKS.Types.NodegroupResources
 import Network.AWS.EKS.Types.NodegroupScalingConfig
 import Network.AWS.EKS.Types.NodegroupStatus
+import Network.AWS.EKS.Types.NodegroupUpdateConfig
 import Network.AWS.EKS.Types.OIDC
 import Network.AWS.EKS.Types.OidcIdentityProviderConfig
 import Network.AWS.EKS.Types.OidcIdentityProviderConfigRequest
 import Network.AWS.EKS.Types.Provider
 import Network.AWS.EKS.Types.RemoteAccessConfig
 import Network.AWS.EKS.Types.ResolveConflicts
+import Network.AWS.EKS.Types.Taint
+import Network.AWS.EKS.Types.TaintEffect
 import Network.AWS.EKS.Types.Update
 import Network.AWS.EKS.Types.UpdateLabelsPayload
 import Network.AWS.EKS.Types.UpdateParam
 import Network.AWS.EKS.Types.UpdateParamType
 import Network.AWS.EKS.Types.UpdateStatus
+import Network.AWS.EKS.Types.UpdateTaintsPayload
 import Network.AWS.EKS.Types.UpdateType
 import Network.AWS.EKS.Types.VpcConfigRequest
 import Network.AWS.EKS.Types.VpcConfigResponse
@@ -526,15 +576,6 @@ _ServiceUnavailableException =
     "ServiceUnavailableException"
     Prelude.. Core.hasStatus 503
 
--- | The request is invalid given the state of the cluster. Check the state
--- of the cluster and the associated operations.
-_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidRequestException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidRequestException"
-    Prelude.. Core.hasStatus 400
-
 -- | The specified parameter is invalid. Review the available parameters for
 -- the API request.
 _InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -544,6 +585,15 @@ _InvalidParameterException =
     "InvalidParameterException"
     Prelude.. Core.hasStatus 400
 
+-- | The request is invalid given the state of the cluster. Check the state
+-- of the cluster and the associated operations.
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidRequestException"
+    Prelude.. Core.hasStatus 400
+
 -- | The specified resource is in use.
 _ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceInUseException =
@@ -551,17 +601,6 @@ _ResourceInUseException =
     defaultService
     "ResourceInUseException"
     Prelude.. Core.hasStatus 409
-
--- | These errors are usually caused by a client action. Actions can include
--- using an action or resource on behalf of a user that doesn\'t have
--- permissions to use the action or resource or specifying an identifier
--- that is not valid.
-_ClientException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ClientException =
-  Core._MatchServiceError
-    defaultService
-    "ClientException"
-    Prelude.. Core.hasStatus 400
 
 -- | The specified resource could not be found. You can view your available
 -- clusters with ListClusters. You can view your available managed node
@@ -573,6 +612,17 @@ _ResourceNotFoundException =
     defaultService
     "ResourceNotFoundException"
     Prelude.. Core.hasStatus 404
+
+-- | These errors are usually caused by a client action. Actions can include
+-- using an action or resource on behalf of a user that doesn\'t have
+-- permissions to use the action or resource or specifying an identifier
+-- that is not valid.
+_ClientException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ClientException =
+  Core._MatchServiceError
+    defaultService
+    "ClientException"
+    Prelude.. Core.hasStatus 400
 
 -- | At least one of your specified cluster subnets is in an Availability
 -- Zone that does not support Amazon EKS. The exception output specifies

@@ -22,7 +22,8 @@ module Network.AWS.EKS.Types.AMITypes
       ( ..,
         AMITypes_AL2_ARM_64,
         AMITypes_AL2_x86_64,
-        AMITypes_AL2_x86_64_GPU
+        AMITypes_AL2_x86_64_GPU,
+        AMITypes_CUSTOM
       ),
   )
 where
@@ -67,9 +68,13 @@ pattern AMITypes_AL2_x86_64 = AMITypes' "AL2_x86_64"
 pattern AMITypes_AL2_x86_64_GPU :: AMITypes
 pattern AMITypes_AL2_x86_64_GPU = AMITypes' "AL2_x86_64_GPU"
 
+pattern AMITypes_CUSTOM :: AMITypes
+pattern AMITypes_CUSTOM = AMITypes' "CUSTOM"
+
 {-# COMPLETE
   AMITypes_AL2_ARM_64,
   AMITypes_AL2_x86_64,
   AMITypes_AL2_x86_64_GPU,
+  AMITypes_CUSTOM,
   AMITypes'
   #-}

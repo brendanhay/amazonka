@@ -23,7 +23,7 @@
 -- Disassociates an identity provider configuration from a cluster. If you
 -- disassociate an identity provider from your cluster, users included in
 -- the provider can no longer access the cluster. However, you can still
--- access the cluster with AWS IAM users.
+-- access the cluster with Amazon Web Services IAM users.
 module Network.AWS.EKS.DisassociateIdentityProviderConfig
   ( -- * Creating a Request
     DisassociateIdentityProviderConfig (..),

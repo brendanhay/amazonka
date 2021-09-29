@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the updates associated with an Amazon EKS cluster or managed node
--- group in your AWS account, in the specified Region.
+-- group in your Amazon Web Services account, in the specified Region.
 --
 -- This operation returns paginated results.
 module Network.AWS.EKS.ListUpdates

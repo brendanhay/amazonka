@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns descriptive information about an AWS Fargate profile.
+-- Returns descriptive information about an Fargate profile.
 module Network.AWS.EKS.DescribeFargateProfile
   ( -- * Creating a Request
     DescribeFargateProfile (..),

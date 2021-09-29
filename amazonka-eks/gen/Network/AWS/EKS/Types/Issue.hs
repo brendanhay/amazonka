@@ -80,9 +80,10 @@ data Issue = Issue'
     --     managed node group. You may be able to recreate an IAM role with the
     --     same settings to recover.
     --
-    -- -   __InstanceLimitExceeded__: Your AWS account is unable to launch any
-    --     more instances of the specified instance type. You may be able to
-    --     request an Amazon EC2 instance limit increase to recover.
+    -- -   __InstanceLimitExceeded__: Your Amazon Web Services account is
+    --     unable to launch any more instances of the specified instance type.
+    --     You may be able to request an Amazon EC2 instance limit increase to
+    --     recover.
     --
     -- -   __InsufficientFreeAddresses__: One or more of the subnets associated
     --     with your managed node group does not have enough available IP
@@ -97,7 +98,7 @@ data Issue = Issue'
     --     <https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html node IAM role>
     --     permissions or lack of outbound internet access for the nodes.
     code :: Prelude.Maybe NodegroupIssueCode,
-    -- | The AWS resources that are afflicted by this issue.
+    -- | The Amazon Web Services resources that are afflicted by this issue.
     resourceIds :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -162,9 +163,10 @@ data Issue = Issue'
 --     managed node group. You may be able to recreate an IAM role with the
 --     same settings to recover.
 --
--- -   __InstanceLimitExceeded__: Your AWS account is unable to launch any
---     more instances of the specified instance type. You may be able to
---     request an Amazon EC2 instance limit increase to recover.
+-- -   __InstanceLimitExceeded__: Your Amazon Web Services account is
+--     unable to launch any more instances of the specified instance type.
+--     You may be able to request an Amazon EC2 instance limit increase to
+--     recover.
 --
 -- -   __InsufficientFreeAddresses__: One or more of the subnets associated
 --     with your managed node group does not have enough available IP
@@ -179,7 +181,7 @@ data Issue = Issue'
 --     <https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html node IAM role>
 --     permissions or lack of outbound internet access for the nodes.
 --
--- 'resourceIds', 'issue_resourceIds' - The AWS resources that are afflicted by this issue.
+-- 'resourceIds', 'issue_resourceIds' - The Amazon Web Services resources that are afflicted by this issue.
 newIssue ::
   Issue
 newIssue =
@@ -243,9 +245,10 @@ issue_message = Lens.lens (\Issue' {message} -> message) (\s@Issue' {} a -> s {m
 --     managed node group. You may be able to recreate an IAM role with the
 --     same settings to recover.
 --
--- -   __InstanceLimitExceeded__: Your AWS account is unable to launch any
---     more instances of the specified instance type. You may be able to
---     request an Amazon EC2 instance limit increase to recover.
+-- -   __InstanceLimitExceeded__: Your Amazon Web Services account is
+--     unable to launch any more instances of the specified instance type.
+--     You may be able to request an Amazon EC2 instance limit increase to
+--     recover.
 --
 -- -   __InsufficientFreeAddresses__: One or more of the subnets associated
 --     with your managed node group does not have enough available IP
@@ -262,7 +265,7 @@ issue_message = Lens.lens (\Issue' {message} -> message) (\s@Issue' {} a -> s {m
 issue_code :: Lens.Lens' Issue (Prelude.Maybe NodegroupIssueCode)
 issue_code = Lens.lens (\Issue' {code} -> code) (\s@Issue' {} a -> s {code = a} :: Issue)
 
--- | The AWS resources that are afflicted by this issue.
+-- | The Amazon Web Services resources that are afflicted by this issue.
 issue_resourceIds :: Lens.Lens' Issue (Prelude.Maybe [Prelude.Text])
 issue_resourceIds = Lens.lens (\Issue' {resourceIds} -> resourceIds) (\s@Issue' {} a -> s {resourceIds = a} :: Issue) Prelude.. Lens.mapping Lens._Coerce
 

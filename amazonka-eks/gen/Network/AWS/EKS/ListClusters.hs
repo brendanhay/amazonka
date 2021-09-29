@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the Amazon EKS clusters in your AWS account in the specified
--- Region.
+-- Lists the Amazon EKS clusters in your Amazon Web Services account in the
+-- specified Region.
 --
 -- This operation returns paginated results.
 module Network.AWS.EKS.ListClusters
@@ -32,6 +32,7 @@ module Network.AWS.EKS.ListClusters
     -- * Request Lenses
     listClusters_nextToken,
     listClusters_maxResults,
+    listClusters_include,
 
     -- * Destructuring the Response
     ListClustersResponse (..),
@@ -70,7 +71,10 @@ data ListClusters = ListClusters'
     -- @nextToken@ value. This value can be between 1 and 100. If you don\'t
     -- use this parameter, @ListClusters@ returns up to 100 results and a
     -- @nextToken@ value if applicable.
-    maxResults :: Prelude.Maybe Prelude.Natural
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Indicates whether connected clusters are included in the returned list.
+    -- Default value is \'ALL\'.
+    include :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -99,12 +103,16 @@ data ListClusters = ListClusters'
 -- @nextToken@ value. This value can be between 1 and 100. If you don\'t
 -- use this parameter, @ListClusters@ returns up to 100 results and a
 -- @nextToken@ value if applicable.
+--
+-- 'include', 'listClusters_include' - Indicates whether connected clusters are included in the returned list.
+-- Default value is \'ALL\'.
 newListClusters ::
   ListClusters
 newListClusters =
   ListClusters'
     { nextToken = Prelude.Nothing,
-      maxResults = Prelude.Nothing
+      maxResults = Prelude.Nothing,
+      include = Prelude.Nothing
     }
 
 -- | The @nextToken@ value returned from a previous paginated @ListClusters@
@@ -128,6 +136,11 @@ listClusters_nextToken = Lens.lens (\ListClusters' {nextToken} -> nextToken) (\s
 -- @nextToken@ value if applicable.
 listClusters_maxResults :: Lens.Lens' ListClusters (Prelude.Maybe Prelude.Natural)
 listClusters_maxResults = Lens.lens (\ListClusters' {maxResults} -> maxResults) (\s@ListClusters' {} a -> s {maxResults = a} :: ListClusters)
+
+-- | Indicates whether connected clusters are included in the returned list.
+-- Default value is \'ALL\'.
+listClusters_include :: Lens.Lens' ListClusters (Prelude.Maybe [Prelude.Text])
+listClusters_include = Lens.lens (\ListClusters' {include} -> include) (\s@ListClusters' {} a -> s {include = a} :: ListClusters) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager ListClusters where
   page rq rs
@@ -182,7 +195,10 @@ instance Core.ToQuery ListClusters where
   toQuery ListClusters' {..} =
     Prelude.mconcat
       [ "nextToken" Core.=: nextToken,
-        "maxResults" Core.=: maxResults
+        "maxResults" Core.=: maxResults,
+        "include"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> include)
       ]
 
 -- | /See:/ 'newListClustersResponse' smart constructor.

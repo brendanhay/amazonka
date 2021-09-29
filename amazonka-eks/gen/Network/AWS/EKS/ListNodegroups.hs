@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the Amazon EKS managed node groups associated with the specified
--- cluster in your AWS account in the specified Region. Self-managed node
--- groups are not listed.
+-- cluster in your Amazon Web Services account in the specified Region.
+-- Self-managed node groups are not listed.
 --
 -- This operation returns paginated results.
 module Network.AWS.EKS.ListNodegroups

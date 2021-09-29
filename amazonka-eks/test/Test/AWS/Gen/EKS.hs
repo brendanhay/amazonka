@@ -27,29 +27,20 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDescribeAddonVersions $
---             newDescribeAddonVersions
---
---         , requestDescribeUpdate $
+--         [ requestDescribeUpdate $
 --             newDescribeUpdate
---
---         , requestListIdentityProviderConfigs $
---             newListIdentityProviderConfigs
 --
 --         , requestDescribeFargateProfile $
 --             newDescribeFargateProfile
 --
---         , requestUpdateAddon $
---             newUpdateAddon
+--         , requestDescribeAddonVersions $
+--             newDescribeAddonVersions
 --
---         , requestAssociateEncryptionConfig $
---             newAssociateEncryptionConfig
+--         , requestListIdentityProviderConfigs $
+--             newListIdentityProviderConfigs
 --
 --         , requestListAddons $
 --             newListAddons
---
---         , requestDeleteAddon $
---             newDeleteAddon
 --
 --         , requestAssociateIdentityProviderConfig $
 --             newAssociateIdentityProviderConfig
@@ -57,17 +48,29 @@ import Test.Tasty
 --         , requestUpdateClusterVersion $
 --             newUpdateClusterVersion
 --
+--         , requestDeleteAddon $
+--             newDeleteAddon
+--
+--         , requestAssociateEncryptionConfig $
+--             newAssociateEncryptionConfig
+--
+--         , requestUpdateAddon $
+--             newUpdateAddon
+--
 --         , requestListNodegroups $
 --             newListNodegroups
 --
 --         , requestCreateCluster $
 --             newCreateCluster
 --
---         , requestCreateNodegroup $
---             newCreateNodegroup
+--         , requestRegisterCluster $
+--             newRegisterCluster
 --
 --         , requestUntagResource $
 --             newUntagResource
+--
+--         , requestCreateNodegroup $
+--             newCreateNodegroup
 --
 --         , requestDescribeIdentityProviderConfig $
 --             newDescribeIdentityProviderConfig
@@ -75,14 +78,14 @@ import Test.Tasty
 --         , requestDeleteFargateProfile $
 --             newDeleteFargateProfile
 --
---         , requestListUpdates $
---             newListUpdates
---
 --         , requestTagResource $
 --             newTagResource
 --
 --         , requestListFargateProfiles $
 --             newListFargateProfiles
+--
+--         , requestListUpdates $
+--             newListUpdates
 --
 --         , requestDisassociateIdentityProviderConfig $
 --             newDisassociateIdentityProviderConfig
@@ -90,14 +93,14 @@ import Test.Tasty
 --         , requestDescribeCluster $
 --             newDescribeCluster
 --
+--         , requestUpdateNodegroupVersion $
+--             newUpdateNodegroupVersion
+--
 --         , requestCreateAddon $
 --             newCreateAddon
 --
 --         , requestUpdateNodegroupConfig $
 --             newUpdateNodegroupConfig
---
---         , requestUpdateNodegroupVersion $
---             newUpdateNodegroupVersion
 --
 --         , requestUpdateClusterConfig $
 --             newUpdateClusterConfig
@@ -105,50 +108,44 @@ import Test.Tasty
 --         , requestDeleteNodegroup $
 --             newDeleteNodegroup
 --
---         , requestDeleteCluster $
---             newDeleteCluster
---
 --         , requestListClusters $
 --             newListClusters
 --
---         , requestDescribeAddon $
---             newDescribeAddon
+--         , requestDeleteCluster $
+--             newDeleteCluster
 --
 --         , requestCreateFargateProfile $
 --             newCreateFargateProfile
 --
---         , requestListTagsForResource $
---             newListTagsForResource
+--         , requestDescribeAddon $
+--             newDescribeAddon
 --
 --         , requestDescribeNodegroup $
 --             newDescribeNodegroup
 --
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestDeregisterCluster $
+--             newDeregisterCluster
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseDescribeAddonVersions $
---             newDescribeAddonVersionsResponse
---
---         , responseDescribeUpdate $
+--         [ responseDescribeUpdate $
 --             newDescribeUpdateResponse
---
---         , responseListIdentityProviderConfigs $
---             newListIdentityProviderConfigsResponse
 --
 --         , responseDescribeFargateProfile $
 --             newDescribeFargateProfileResponse
 --
---         , responseUpdateAddon $
---             newUpdateAddonResponse
+--         , responseDescribeAddonVersions $
+--             newDescribeAddonVersionsResponse
 --
---         , responseAssociateEncryptionConfig $
---             newAssociateEncryptionConfigResponse
+--         , responseListIdentityProviderConfigs $
+--             newListIdentityProviderConfigsResponse
 --
 --         , responseListAddons $
 --             newListAddonsResponse
---
---         , responseDeleteAddon $
---             newDeleteAddonResponse
 --
 --         , responseAssociateIdentityProviderConfig $
 --             newAssociateIdentityProviderConfigResponse
@@ -156,17 +153,29 @@ import Test.Tasty
 --         , responseUpdateClusterVersion $
 --             newUpdateClusterVersionResponse
 --
+--         , responseDeleteAddon $
+--             newDeleteAddonResponse
+--
+--         , responseAssociateEncryptionConfig $
+--             newAssociateEncryptionConfigResponse
+--
+--         , responseUpdateAddon $
+--             newUpdateAddonResponse
+--
 --         , responseListNodegroups $
 --             newListNodegroupsResponse
 --
 --         , responseCreateCluster $
 --             newCreateClusterResponse
 --
---         , responseCreateNodegroup $
---             newCreateNodegroupResponse
+--         , responseRegisterCluster $
+--             newRegisterClusterResponse
 --
 --         , responseUntagResource $
 --             newUntagResourceResponse
+--
+--         , responseCreateNodegroup $
+--             newCreateNodegroupResponse
 --
 --         , responseDescribeIdentityProviderConfig $
 --             newDescribeIdentityProviderConfigResponse
@@ -174,14 +183,14 @@ import Test.Tasty
 --         , responseDeleteFargateProfile $
 --             newDeleteFargateProfileResponse
 --
---         , responseListUpdates $
---             newListUpdatesResponse
---
 --         , responseTagResource $
 --             newTagResourceResponse
 --
 --         , responseListFargateProfiles $
 --             newListFargateProfilesResponse
+--
+--         , responseListUpdates $
+--             newListUpdatesResponse
 --
 --         , responseDisassociateIdentityProviderConfig $
 --             newDisassociateIdentityProviderConfigResponse
@@ -189,14 +198,14 @@ import Test.Tasty
 --         , responseDescribeCluster $
 --             newDescribeClusterResponse
 --
+--         , responseUpdateNodegroupVersion $
+--             newUpdateNodegroupVersionResponse
+--
 --         , responseCreateAddon $
 --             newCreateAddonResponse
 --
 --         , responseUpdateNodegroupConfig $
 --             newUpdateNodegroupConfigResponse
---
---         , responseUpdateNodegroupVersion $
---             newUpdateNodegroupVersionResponse
 --
 --         , responseUpdateClusterConfig $
 --             newUpdateClusterConfigResponse
@@ -204,34 +213,31 @@ import Test.Tasty
 --         , responseDeleteNodegroup $
 --             newDeleteNodegroupResponse
 --
---         , responseDeleteCluster $
---             newDeleteClusterResponse
---
 --         , responseListClusters $
 --             newListClustersResponse
 --
---         , responseDescribeAddon $
---             newDescribeAddonResponse
+--         , responseDeleteCluster $
+--             newDeleteClusterResponse
 --
 --         , responseCreateFargateProfile $
 --             newCreateFargateProfileResponse
 --
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
+--         , responseDescribeAddon $
+--             newDescribeAddonResponse
 --
 --         , responseDescribeNodegroup $
 --             newDescribeNodegroupResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseDeregisterCluster $
+--             newDeregisterClusterResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestDescribeAddonVersions :: DescribeAddonVersions -> TestTree
-requestDescribeAddonVersions =
-  req
-    "DescribeAddonVersions"
-    "fixture/DescribeAddonVersions.yaml"
 
 requestDescribeUpdate :: DescribeUpdate -> TestTree
 requestDescribeUpdate =
@@ -239,41 +245,29 @@ requestDescribeUpdate =
     "DescribeUpdate"
     "fixture/DescribeUpdate.yaml"
 
-requestListIdentityProviderConfigs :: ListIdentityProviderConfigs -> TestTree
-requestListIdentityProviderConfigs =
-  req
-    "ListIdentityProviderConfigs"
-    "fixture/ListIdentityProviderConfigs.yaml"
-
 requestDescribeFargateProfile :: DescribeFargateProfile -> TestTree
 requestDescribeFargateProfile =
   req
     "DescribeFargateProfile"
     "fixture/DescribeFargateProfile.yaml"
 
-requestUpdateAddon :: UpdateAddon -> TestTree
-requestUpdateAddon =
+requestDescribeAddonVersions :: DescribeAddonVersions -> TestTree
+requestDescribeAddonVersions =
   req
-    "UpdateAddon"
-    "fixture/UpdateAddon.yaml"
+    "DescribeAddonVersions"
+    "fixture/DescribeAddonVersions.yaml"
 
-requestAssociateEncryptionConfig :: AssociateEncryptionConfig -> TestTree
-requestAssociateEncryptionConfig =
+requestListIdentityProviderConfigs :: ListIdentityProviderConfigs -> TestTree
+requestListIdentityProviderConfigs =
   req
-    "AssociateEncryptionConfig"
-    "fixture/AssociateEncryptionConfig.yaml"
+    "ListIdentityProviderConfigs"
+    "fixture/ListIdentityProviderConfigs.yaml"
 
 requestListAddons :: ListAddons -> TestTree
 requestListAddons =
   req
     "ListAddons"
     "fixture/ListAddons.yaml"
-
-requestDeleteAddon :: DeleteAddon -> TestTree
-requestDeleteAddon =
-  req
-    "DeleteAddon"
-    "fixture/DeleteAddon.yaml"
 
 requestAssociateIdentityProviderConfig :: AssociateIdentityProviderConfig -> TestTree
 requestAssociateIdentityProviderConfig =
@@ -287,6 +281,24 @@ requestUpdateClusterVersion =
     "UpdateClusterVersion"
     "fixture/UpdateClusterVersion.yaml"
 
+requestDeleteAddon :: DeleteAddon -> TestTree
+requestDeleteAddon =
+  req
+    "DeleteAddon"
+    "fixture/DeleteAddon.yaml"
+
+requestAssociateEncryptionConfig :: AssociateEncryptionConfig -> TestTree
+requestAssociateEncryptionConfig =
+  req
+    "AssociateEncryptionConfig"
+    "fixture/AssociateEncryptionConfig.yaml"
+
+requestUpdateAddon :: UpdateAddon -> TestTree
+requestUpdateAddon =
+  req
+    "UpdateAddon"
+    "fixture/UpdateAddon.yaml"
+
 requestListNodegroups :: ListNodegroups -> TestTree
 requestListNodegroups =
   req
@@ -299,17 +311,23 @@ requestCreateCluster =
     "CreateCluster"
     "fixture/CreateCluster.yaml"
 
-requestCreateNodegroup :: CreateNodegroup -> TestTree
-requestCreateNodegroup =
+requestRegisterCluster :: RegisterCluster -> TestTree
+requestRegisterCluster =
   req
-    "CreateNodegroup"
-    "fixture/CreateNodegroup.yaml"
+    "RegisterCluster"
+    "fixture/RegisterCluster.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
   req
     "UntagResource"
     "fixture/UntagResource.yaml"
+
+requestCreateNodegroup :: CreateNodegroup -> TestTree
+requestCreateNodegroup =
+  req
+    "CreateNodegroup"
+    "fixture/CreateNodegroup.yaml"
 
 requestDescribeIdentityProviderConfig :: DescribeIdentityProviderConfig -> TestTree
 requestDescribeIdentityProviderConfig =
@@ -323,12 +341,6 @@ requestDeleteFargateProfile =
     "DeleteFargateProfile"
     "fixture/DeleteFargateProfile.yaml"
 
-requestListUpdates :: ListUpdates -> TestTree
-requestListUpdates =
-  req
-    "ListUpdates"
-    "fixture/ListUpdates.yaml"
-
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
   req
@@ -340,6 +352,12 @@ requestListFargateProfiles =
   req
     "ListFargateProfiles"
     "fixture/ListFargateProfiles.yaml"
+
+requestListUpdates :: ListUpdates -> TestTree
+requestListUpdates =
+  req
+    "ListUpdates"
+    "fixture/ListUpdates.yaml"
 
 requestDisassociateIdentityProviderConfig :: DisassociateIdentityProviderConfig -> TestTree
 requestDisassociateIdentityProviderConfig =
@@ -353,6 +371,12 @@ requestDescribeCluster =
     "DescribeCluster"
     "fixture/DescribeCluster.yaml"
 
+requestUpdateNodegroupVersion :: UpdateNodegroupVersion -> TestTree
+requestUpdateNodegroupVersion =
+  req
+    "UpdateNodegroupVersion"
+    "fixture/UpdateNodegroupVersion.yaml"
+
 requestCreateAddon :: CreateAddon -> TestTree
 requestCreateAddon =
   req
@@ -364,12 +388,6 @@ requestUpdateNodegroupConfig =
   req
     "UpdateNodegroupConfig"
     "fixture/UpdateNodegroupConfig.yaml"
-
-requestUpdateNodegroupVersion :: UpdateNodegroupVersion -> TestTree
-requestUpdateNodegroupVersion =
-  req
-    "UpdateNodegroupVersion"
-    "fixture/UpdateNodegroupVersion.yaml"
 
 requestUpdateClusterConfig :: UpdateClusterConfig -> TestTree
 requestUpdateClusterConfig =
@@ -383,23 +401,17 @@ requestDeleteNodegroup =
     "DeleteNodegroup"
     "fixture/DeleteNodegroup.yaml"
 
-requestDeleteCluster :: DeleteCluster -> TestTree
-requestDeleteCluster =
-  req
-    "DeleteCluster"
-    "fixture/DeleteCluster.yaml"
-
 requestListClusters :: ListClusters -> TestTree
 requestListClusters =
   req
     "ListClusters"
     "fixture/ListClusters.yaml"
 
-requestDescribeAddon :: DescribeAddon -> TestTree
-requestDescribeAddon =
+requestDeleteCluster :: DeleteCluster -> TestTree
+requestDeleteCluster =
   req
-    "DescribeAddon"
-    "fixture/DescribeAddon.yaml"
+    "DeleteCluster"
+    "fixture/DeleteCluster.yaml"
 
 requestCreateFargateProfile :: CreateFargateProfile -> TestTree
 requestCreateFargateProfile =
@@ -407,11 +419,11 @@ requestCreateFargateProfile =
     "CreateFargateProfile"
     "fixture/CreateFargateProfile.yaml"
 
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
+requestDescribeAddon :: DescribeAddon -> TestTree
+requestDescribeAddon =
   req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
+    "DescribeAddon"
+    "fixture/DescribeAddon.yaml"
 
 requestDescribeNodegroup :: DescribeNodegroup -> TestTree
 requestDescribeNodegroup =
@@ -419,15 +431,19 @@ requestDescribeNodegroup =
     "DescribeNodegroup"
     "fixture/DescribeNodegroup.yaml"
 
--- Responses
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
-responseDescribeAddonVersions :: DescribeAddonVersionsResponse -> TestTree
-responseDescribeAddonVersions =
-  res
-    "DescribeAddonVersionsResponse"
-    "fixture/DescribeAddonVersionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeAddonVersions)
+requestDeregisterCluster :: DeregisterCluster -> TestTree
+requestDeregisterCluster =
+  req
+    "DeregisterCluster"
+    "fixture/DeregisterCluster.yaml"
+
+-- Responses
 
 responseDescribeUpdate :: DescribeUpdateResponse -> TestTree
 responseDescribeUpdate =
@@ -437,14 +453,6 @@ responseDescribeUpdate =
     defaultService
     (Proxy :: Proxy DescribeUpdate)
 
-responseListIdentityProviderConfigs :: ListIdentityProviderConfigsResponse -> TestTree
-responseListIdentityProviderConfigs =
-  res
-    "ListIdentityProviderConfigsResponse"
-    "fixture/ListIdentityProviderConfigsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListIdentityProviderConfigs)
-
 responseDescribeFargateProfile :: DescribeFargateProfileResponse -> TestTree
 responseDescribeFargateProfile =
   res
@@ -453,21 +461,21 @@ responseDescribeFargateProfile =
     defaultService
     (Proxy :: Proxy DescribeFargateProfile)
 
-responseUpdateAddon :: UpdateAddonResponse -> TestTree
-responseUpdateAddon =
+responseDescribeAddonVersions :: DescribeAddonVersionsResponse -> TestTree
+responseDescribeAddonVersions =
   res
-    "UpdateAddonResponse"
-    "fixture/UpdateAddonResponse.proto"
+    "DescribeAddonVersionsResponse"
+    "fixture/DescribeAddonVersionsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateAddon)
+    (Proxy :: Proxy DescribeAddonVersions)
 
-responseAssociateEncryptionConfig :: AssociateEncryptionConfigResponse -> TestTree
-responseAssociateEncryptionConfig =
+responseListIdentityProviderConfigs :: ListIdentityProviderConfigsResponse -> TestTree
+responseListIdentityProviderConfigs =
   res
-    "AssociateEncryptionConfigResponse"
-    "fixture/AssociateEncryptionConfigResponse.proto"
+    "ListIdentityProviderConfigsResponse"
+    "fixture/ListIdentityProviderConfigsResponse.proto"
     defaultService
-    (Proxy :: Proxy AssociateEncryptionConfig)
+    (Proxy :: Proxy ListIdentityProviderConfigs)
 
 responseListAddons :: ListAddonsResponse -> TestTree
 responseListAddons =
@@ -476,14 +484,6 @@ responseListAddons =
     "fixture/ListAddonsResponse.proto"
     defaultService
     (Proxy :: Proxy ListAddons)
-
-responseDeleteAddon :: DeleteAddonResponse -> TestTree
-responseDeleteAddon =
-  res
-    "DeleteAddonResponse"
-    "fixture/DeleteAddonResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteAddon)
 
 responseAssociateIdentityProviderConfig :: AssociateIdentityProviderConfigResponse -> TestTree
 responseAssociateIdentityProviderConfig =
@@ -501,6 +501,30 @@ responseUpdateClusterVersion =
     defaultService
     (Proxy :: Proxy UpdateClusterVersion)
 
+responseDeleteAddon :: DeleteAddonResponse -> TestTree
+responseDeleteAddon =
+  res
+    "DeleteAddonResponse"
+    "fixture/DeleteAddonResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteAddon)
+
+responseAssociateEncryptionConfig :: AssociateEncryptionConfigResponse -> TestTree
+responseAssociateEncryptionConfig =
+  res
+    "AssociateEncryptionConfigResponse"
+    "fixture/AssociateEncryptionConfigResponse.proto"
+    defaultService
+    (Proxy :: Proxy AssociateEncryptionConfig)
+
+responseUpdateAddon :: UpdateAddonResponse -> TestTree
+responseUpdateAddon =
+  res
+    "UpdateAddonResponse"
+    "fixture/UpdateAddonResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateAddon)
+
 responseListNodegroups :: ListNodegroupsResponse -> TestTree
 responseListNodegroups =
   res
@@ -517,13 +541,13 @@ responseCreateCluster =
     defaultService
     (Proxy :: Proxy CreateCluster)
 
-responseCreateNodegroup :: CreateNodegroupResponse -> TestTree
-responseCreateNodegroup =
+responseRegisterCluster :: RegisterClusterResponse -> TestTree
+responseRegisterCluster =
   res
-    "CreateNodegroupResponse"
-    "fixture/CreateNodegroupResponse.proto"
+    "RegisterClusterResponse"
+    "fixture/RegisterClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateNodegroup)
+    (Proxy :: Proxy RegisterCluster)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -532,6 +556,14 @@ responseUntagResource =
     "fixture/UntagResourceResponse.proto"
     defaultService
     (Proxy :: Proxy UntagResource)
+
+responseCreateNodegroup :: CreateNodegroupResponse -> TestTree
+responseCreateNodegroup =
+  res
+    "CreateNodegroupResponse"
+    "fixture/CreateNodegroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateNodegroup)
 
 responseDescribeIdentityProviderConfig :: DescribeIdentityProviderConfigResponse -> TestTree
 responseDescribeIdentityProviderConfig =
@@ -549,14 +581,6 @@ responseDeleteFargateProfile =
     defaultService
     (Proxy :: Proxy DeleteFargateProfile)
 
-responseListUpdates :: ListUpdatesResponse -> TestTree
-responseListUpdates =
-  res
-    "ListUpdatesResponse"
-    "fixture/ListUpdatesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListUpdates)
-
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
   res
@@ -572,6 +596,14 @@ responseListFargateProfiles =
     "fixture/ListFargateProfilesResponse.proto"
     defaultService
     (Proxy :: Proxy ListFargateProfiles)
+
+responseListUpdates :: ListUpdatesResponse -> TestTree
+responseListUpdates =
+  res
+    "ListUpdatesResponse"
+    "fixture/ListUpdatesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListUpdates)
 
 responseDisassociateIdentityProviderConfig :: DisassociateIdentityProviderConfigResponse -> TestTree
 responseDisassociateIdentityProviderConfig =
@@ -589,6 +621,14 @@ responseDescribeCluster =
     defaultService
     (Proxy :: Proxy DescribeCluster)
 
+responseUpdateNodegroupVersion :: UpdateNodegroupVersionResponse -> TestTree
+responseUpdateNodegroupVersion =
+  res
+    "UpdateNodegroupVersionResponse"
+    "fixture/UpdateNodegroupVersionResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateNodegroupVersion)
+
 responseCreateAddon :: CreateAddonResponse -> TestTree
 responseCreateAddon =
   res
@@ -604,14 +644,6 @@ responseUpdateNodegroupConfig =
     "fixture/UpdateNodegroupConfigResponse.proto"
     defaultService
     (Proxy :: Proxy UpdateNodegroupConfig)
-
-responseUpdateNodegroupVersion :: UpdateNodegroupVersionResponse -> TestTree
-responseUpdateNodegroupVersion =
-  res
-    "UpdateNodegroupVersionResponse"
-    "fixture/UpdateNodegroupVersionResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateNodegroupVersion)
 
 responseUpdateClusterConfig :: UpdateClusterConfigResponse -> TestTree
 responseUpdateClusterConfig =
@@ -629,14 +661,6 @@ responseDeleteNodegroup =
     defaultService
     (Proxy :: Proxy DeleteNodegroup)
 
-responseDeleteCluster :: DeleteClusterResponse -> TestTree
-responseDeleteCluster =
-  res
-    "DeleteClusterResponse"
-    "fixture/DeleteClusterResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteCluster)
-
 responseListClusters :: ListClustersResponse -> TestTree
 responseListClusters =
   res
@@ -645,13 +669,13 @@ responseListClusters =
     defaultService
     (Proxy :: Proxy ListClusters)
 
-responseDescribeAddon :: DescribeAddonResponse -> TestTree
-responseDescribeAddon =
+responseDeleteCluster :: DeleteClusterResponse -> TestTree
+responseDeleteCluster =
   res
-    "DescribeAddonResponse"
-    "fixture/DescribeAddonResponse.proto"
+    "DeleteClusterResponse"
+    "fixture/DeleteClusterResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAddon)
+    (Proxy :: Proxy DeleteCluster)
 
 responseCreateFargateProfile :: CreateFargateProfileResponse -> TestTree
 responseCreateFargateProfile =
@@ -661,13 +685,13 @@ responseCreateFargateProfile =
     defaultService
     (Proxy :: Proxy CreateFargateProfile)
 
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
+responseDescribeAddon :: DescribeAddonResponse -> TestTree
+responseDescribeAddon =
   res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
+    "DescribeAddonResponse"
+    "fixture/DescribeAddonResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy :: Proxy DescribeAddon)
 
 responseDescribeNodegroup :: DescribeNodegroupResponse -> TestTree
 responseDescribeNodegroup =
@@ -676,3 +700,19 @@ responseDescribeNodegroup =
     "fixture/DescribeNodegroupResponse.proto"
     defaultService
     (Proxy :: Proxy DescribeNodegroup)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTagsForResource)
+
+responseDeregisterCluster :: DeregisterClusterResponse -> TestTree
+responseDeregisterCluster =
+  res
+    "DeregisterClusterResponse"
+    "fixture/DeregisterClusterResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeregisterCluster)

@@ -25,7 +25,9 @@ module Network.AWS.EKS.Types.AddonIssueCode
         AddonIssueCode_ClusterUnreachable,
         AddonIssueCode_ConfigurationConflict,
         AddonIssueCode_InsufficientNumberOfReplicas,
-        AddonIssueCode_InternalFailure
+        AddonIssueCode_InternalFailure,
+        AddonIssueCode_K8sResourceNotFound,
+        AddonIssueCode_UnsupportedAddonModification
       ),
   )
 where
@@ -79,6 +81,12 @@ pattern AddonIssueCode_InsufficientNumberOfReplicas = AddonIssueCode' "Insuffici
 pattern AddonIssueCode_InternalFailure :: AddonIssueCode
 pattern AddonIssueCode_InternalFailure = AddonIssueCode' "InternalFailure"
 
+pattern AddonIssueCode_K8sResourceNotFound :: AddonIssueCode
+pattern AddonIssueCode_K8sResourceNotFound = AddonIssueCode' "K8sResourceNotFound"
+
+pattern AddonIssueCode_UnsupportedAddonModification :: AddonIssueCode
+pattern AddonIssueCode_UnsupportedAddonModification = AddonIssueCode' "UnsupportedAddonModification"
+
 {-# COMPLETE
   AddonIssueCode_AccessDenied,
   AddonIssueCode_AdmissionRequestDenied,
@@ -86,5 +94,7 @@ pattern AddonIssueCode_InternalFailure = AddonIssueCode' "InternalFailure"
   AddonIssueCode_ConfigurationConflict,
   AddonIssueCode_InsufficientNumberOfReplicas,
   AddonIssueCode_InternalFailure,
+  AddonIssueCode_K8sResourceNotFound,
+  AddonIssueCode_UnsupportedAddonModification,
   AddonIssueCode'
   #-}

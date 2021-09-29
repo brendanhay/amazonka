@@ -36,13 +36,16 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newReportDefinition' smart constructor.
 data ReportDefinition = ReportDefinition'
-  { -- | A list of manifests that you want Amazon Web Services to create for this
-    -- report.
-    additionalArtifacts :: Prelude.Maybe [AdditionalArtifact],
-    -- | Whether you want Amazon Web Services to overwrite the previous version
+  { -- | Whether you want Amazon Web Services to overwrite the previous version
     -- of each report or to deliver the report in addition to the previous
     -- versions.
     reportVersioning :: Prelude.Maybe ReportVersioning,
+    -- | A list of manifests that you want Amazon Web Services to create for this
+    -- report.
+    additionalArtifacts :: Prelude.Maybe [AdditionalArtifact],
+    -- | The Amazon resource name of the billing view. You can get this value by
+    -- using the billing view service public APIs.
+    billingViewArn :: Prelude.Maybe Prelude.Text,
     -- | Whether you want Amazon Web Services to update your reports after they
     -- have been finalized if Amazon Web Services detects charges related to
     -- previous months. These charges can include refunds, credits, or support
@@ -69,12 +72,15 @@ data ReportDefinition = ReportDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'additionalArtifacts', 'reportDefinition_additionalArtifacts' - A list of manifests that you want Amazon Web Services to create for this
--- report.
---
 -- 'reportVersioning', 'reportDefinition_reportVersioning' - Whether you want Amazon Web Services to overwrite the previous version
 -- of each report or to deliver the report in addition to the previous
 -- versions.
+--
+-- 'additionalArtifacts', 'reportDefinition_additionalArtifacts' - A list of manifests that you want Amazon Web Services to create for this
+-- report.
+--
+-- 'billingViewArn', 'reportDefinition_billingViewArn' - The Amazon resource name of the billing view. You can get this value by
+-- using the billing view service public APIs.
 --
 -- 'refreshClosedReports', 'reportDefinition_refreshClosedReports' - Whether you want Amazon Web Services to update your reports after they
 -- have been finalized if Amazon Web Services detects charges related to
@@ -122,9 +128,10 @@ newReportDefinition
   pS3Prefix_
   pS3Region_ =
     ReportDefinition'
-      { additionalArtifacts =
+      { reportVersioning =
           Prelude.Nothing,
-        reportVersioning = Prelude.Nothing,
+        additionalArtifacts = Prelude.Nothing,
+        billingViewArn = Prelude.Nothing,
         refreshClosedReports = Prelude.Nothing,
         reportName = pReportName_,
         timeUnit = pTimeUnit_,
@@ -136,16 +143,21 @@ newReportDefinition
         s3Region = pS3Region_
       }
 
--- | A list of manifests that you want Amazon Web Services to create for this
--- report.
-reportDefinition_additionalArtifacts :: Lens.Lens' ReportDefinition (Prelude.Maybe [AdditionalArtifact])
-reportDefinition_additionalArtifacts = Lens.lens (\ReportDefinition' {additionalArtifacts} -> additionalArtifacts) (\s@ReportDefinition' {} a -> s {additionalArtifacts = a} :: ReportDefinition) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Whether you want Amazon Web Services to overwrite the previous version
 -- of each report or to deliver the report in addition to the previous
 -- versions.
 reportDefinition_reportVersioning :: Lens.Lens' ReportDefinition (Prelude.Maybe ReportVersioning)
 reportDefinition_reportVersioning = Lens.lens (\ReportDefinition' {reportVersioning} -> reportVersioning) (\s@ReportDefinition' {} a -> s {reportVersioning = a} :: ReportDefinition)
+
+-- | A list of manifests that you want Amazon Web Services to create for this
+-- report.
+reportDefinition_additionalArtifacts :: Lens.Lens' ReportDefinition (Prelude.Maybe [AdditionalArtifact])
+reportDefinition_additionalArtifacts = Lens.lens (\ReportDefinition' {additionalArtifacts} -> additionalArtifacts) (\s@ReportDefinition' {} a -> s {additionalArtifacts = a} :: ReportDefinition) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The Amazon resource name of the billing view. You can get this value by
+-- using the billing view service public APIs.
+reportDefinition_billingViewArn :: Lens.Lens' ReportDefinition (Prelude.Maybe Prelude.Text)
+reportDefinition_billingViewArn = Lens.lens (\ReportDefinition' {billingViewArn} -> billingViewArn) (\s@ReportDefinition' {} a -> s {billingViewArn = a} :: ReportDefinition)
 
 -- | Whether you want Amazon Web Services to update your reports after they
 -- have been finalized if Amazon Web Services detects charges related to
@@ -193,10 +205,11 @@ instance Core.FromJSON ReportDefinition where
       "ReportDefinition"
       ( \x ->
           ReportDefinition'
-            Prelude.<$> ( x Core..:? "AdditionalArtifacts"
+            Prelude.<$> (x Core..:? "ReportVersioning")
+            Prelude.<*> ( x Core..:? "AdditionalArtifacts"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ReportVersioning")
+            Prelude.<*> (x Core..:? "BillingViewArn")
             Prelude.<*> (x Core..:? "RefreshClosedReports")
             Prelude.<*> (x Core..: "ReportName")
             Prelude.<*> (x Core..: "TimeUnit")
@@ -218,10 +231,12 @@ instance Core.ToJSON ReportDefinition where
   toJSON ReportDefinition' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AdditionalArtifacts" Core..=)
-              Prelude.<$> additionalArtifacts,
-            ("ReportVersioning" Core..=)
+          [ ("ReportVersioning" Core..=)
               Prelude.<$> reportVersioning,
+            ("AdditionalArtifacts" Core..=)
+              Prelude.<$> additionalArtifacts,
+            ("BillingViewArn" Core..=)
+              Prelude.<$> billingViewArn,
             ("RefreshClosedReports" Core..=)
               Prelude.<$> refreshClosedReports,
             Prelude.Just ("ReportName" Core..= reportName),

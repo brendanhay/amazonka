@@ -30,11 +30,11 @@ import Test.Tasty
 --         [ requestCreatePublicDnsNamespace $
 --             newCreatePublicDnsNamespace
 --
---         , requestListServices $
---             newListServices
---
 --         , requestListOperations $
 --             newListOperations
+--
+--         , requestListServices $
+--             newListServices
 --
 --         , requestCreateService $
 --             newCreateService
@@ -45,23 +45,29 @@ import Test.Tasty
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestListInstances $
---             newListInstances
---
 --         , requestTagResource $
 --             newTagResource
+--
+--         , requestListInstances $
+--             newListInstances
 --
 --         , requestGetNamespace $
 --             newGetNamespace
 --
+--         , requestUpdatePublicDnsNamespace $
+--             newUpdatePublicDnsNamespace
+--
 --         , requestListNamespaces $
 --             newListNamespaces
 --
---         , requestCreateHttpNamespace $
---             newCreateHttpNamespace
+--         , requestUpdateHttpNamespace $
+--             newUpdateHttpNamespace
 --
 --         , requestGetInstance $
 --             newGetInstance
+--
+--         , requestCreateHttpNamespace $
+--             newCreateHttpNamespace
 --
 --         , requestGetInstancesHealthStatus $
 --             newGetInstancesHealthStatus
@@ -78,14 +84,17 @@ import Test.Tasty
 --         , requestDeregisterInstance $
 --             newDeregisterInstance
 --
+--         , requestUpdatePrivateDnsNamespace $
+--             newUpdatePrivateDnsNamespace
+--
 --         , requestGetOperation $
 --             newGetOperation
 --
---         , requestGetService $
---             newGetService
---
 --         , requestUpdateInstanceCustomHealthStatus $
 --             newUpdateInstanceCustomHealthStatus
+--
+--         , requestGetService $
+--             newGetService
 --
 --         , requestRegisterInstance $
 --             newRegisterInstance
@@ -102,11 +111,11 @@ import Test.Tasty
 --         [ responseCreatePublicDnsNamespace $
 --             newCreatePublicDnsNamespaceResponse
 --
---         , responseListServices $
---             newListServicesResponse
---
 --         , responseListOperations $
 --             newListOperationsResponse
+--
+--         , responseListServices $
+--             newListServicesResponse
 --
 --         , responseCreateService $
 --             newCreateServiceResponse
@@ -117,23 +126,29 @@ import Test.Tasty
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseListInstances $
---             newListInstancesResponse
---
 --         , responseTagResource $
 --             newTagResourceResponse
+--
+--         , responseListInstances $
+--             newListInstancesResponse
 --
 --         , responseGetNamespace $
 --             newGetNamespaceResponse
 --
+--         , responseUpdatePublicDnsNamespace $
+--             newUpdatePublicDnsNamespaceResponse
+--
 --         , responseListNamespaces $
 --             newListNamespacesResponse
 --
---         , responseCreateHttpNamespace $
---             newCreateHttpNamespaceResponse
+--         , responseUpdateHttpNamespace $
+--             newUpdateHttpNamespaceResponse
 --
 --         , responseGetInstance $
 --             newGetInstanceResponse
+--
+--         , responseCreateHttpNamespace $
+--             newCreateHttpNamespaceResponse
 --
 --         , responseGetInstancesHealthStatus $
 --             newGetInstancesHealthStatusResponse
@@ -150,14 +165,17 @@ import Test.Tasty
 --         , responseDeregisterInstance $
 --             newDeregisterInstanceResponse
 --
+--         , responseUpdatePrivateDnsNamespace $
+--             newUpdatePrivateDnsNamespaceResponse
+--
 --         , responseGetOperation $
 --             newGetOperationResponse
 --
---         , responseGetService $
---             newGetServiceResponse
---
 --         , responseUpdateInstanceCustomHealthStatus $
 --             newUpdateInstanceCustomHealthStatusResponse
+--
+--         , responseGetService $
+--             newGetServiceResponse
 --
 --         , responseRegisterInstance $
 --             newRegisterInstanceResponse
@@ -179,17 +197,17 @@ requestCreatePublicDnsNamespace =
     "CreatePublicDnsNamespace"
     "fixture/CreatePublicDnsNamespace.yaml"
 
-requestListServices :: ListServices -> TestTree
-requestListServices =
-  req
-    "ListServices"
-    "fixture/ListServices.yaml"
-
 requestListOperations :: ListOperations -> TestTree
 requestListOperations =
   req
     "ListOperations"
     "fixture/ListOperations.yaml"
+
+requestListServices :: ListServices -> TestTree
+requestListServices =
+  req
+    "ListServices"
+    "fixture/ListServices.yaml"
 
 requestCreateService :: CreateService -> TestTree
 requestCreateService =
@@ -209,17 +227,17 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestListInstances :: ListInstances -> TestTree
-requestListInstances =
-  req
-    "ListInstances"
-    "fixture/ListInstances.yaml"
-
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
   req
     "TagResource"
     "fixture/TagResource.yaml"
+
+requestListInstances :: ListInstances -> TestTree
+requestListInstances =
+  req
+    "ListInstances"
+    "fixture/ListInstances.yaml"
 
 requestGetNamespace :: GetNamespace -> TestTree
 requestGetNamespace =
@@ -227,23 +245,35 @@ requestGetNamespace =
     "GetNamespace"
     "fixture/GetNamespace.yaml"
 
+requestUpdatePublicDnsNamespace :: UpdatePublicDnsNamespace -> TestTree
+requestUpdatePublicDnsNamespace =
+  req
+    "UpdatePublicDnsNamespace"
+    "fixture/UpdatePublicDnsNamespace.yaml"
+
 requestListNamespaces :: ListNamespaces -> TestTree
 requestListNamespaces =
   req
     "ListNamespaces"
     "fixture/ListNamespaces.yaml"
 
-requestCreateHttpNamespace :: CreateHttpNamespace -> TestTree
-requestCreateHttpNamespace =
+requestUpdateHttpNamespace :: UpdateHttpNamespace -> TestTree
+requestUpdateHttpNamespace =
   req
-    "CreateHttpNamespace"
-    "fixture/CreateHttpNamespace.yaml"
+    "UpdateHttpNamespace"
+    "fixture/UpdateHttpNamespace.yaml"
 
 requestGetInstance :: GetInstance -> TestTree
 requestGetInstance =
   req
     "GetInstance"
     "fixture/GetInstance.yaml"
+
+requestCreateHttpNamespace :: CreateHttpNamespace -> TestTree
+requestCreateHttpNamespace =
+  req
+    "CreateHttpNamespace"
+    "fixture/CreateHttpNamespace.yaml"
 
 requestGetInstancesHealthStatus :: GetInstancesHealthStatus -> TestTree
 requestGetInstancesHealthStatus =
@@ -275,23 +305,29 @@ requestDeregisterInstance =
     "DeregisterInstance"
     "fixture/DeregisterInstance.yaml"
 
+requestUpdatePrivateDnsNamespace :: UpdatePrivateDnsNamespace -> TestTree
+requestUpdatePrivateDnsNamespace =
+  req
+    "UpdatePrivateDnsNamespace"
+    "fixture/UpdatePrivateDnsNamespace.yaml"
+
 requestGetOperation :: GetOperation -> TestTree
 requestGetOperation =
   req
     "GetOperation"
     "fixture/GetOperation.yaml"
 
-requestGetService :: GetService -> TestTree
-requestGetService =
-  req
-    "GetService"
-    "fixture/GetService.yaml"
-
 requestUpdateInstanceCustomHealthStatus :: UpdateInstanceCustomHealthStatus -> TestTree
 requestUpdateInstanceCustomHealthStatus =
   req
     "UpdateInstanceCustomHealthStatus"
     "fixture/UpdateInstanceCustomHealthStatus.yaml"
+
+requestGetService :: GetService -> TestTree
+requestGetService =
+  req
+    "GetService"
+    "fixture/GetService.yaml"
 
 requestRegisterInstance :: RegisterInstance -> TestTree
 requestRegisterInstance =
@@ -321,14 +357,6 @@ responseCreatePublicDnsNamespace =
     defaultService
     (Proxy :: Proxy CreatePublicDnsNamespace)
 
-responseListServices :: ListServicesResponse -> TestTree
-responseListServices =
-  res
-    "ListServicesResponse"
-    "fixture/ListServicesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListServices)
-
 responseListOperations :: ListOperationsResponse -> TestTree
 responseListOperations =
   res
@@ -336,6 +364,14 @@ responseListOperations =
     "fixture/ListOperationsResponse.proto"
     defaultService
     (Proxy :: Proxy ListOperations)
+
+responseListServices :: ListServicesResponse -> TestTree
+responseListServices =
+  res
+    "ListServicesResponse"
+    "fixture/ListServicesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListServices)
 
 responseCreateService :: CreateServiceResponse -> TestTree
 responseCreateService =
@@ -361,14 +397,6 @@ responseUntagResource =
     defaultService
     (Proxy :: Proxy UntagResource)
 
-responseListInstances :: ListInstancesResponse -> TestTree
-responseListInstances =
-  res
-    "ListInstancesResponse"
-    "fixture/ListInstancesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListInstances)
-
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
   res
@@ -376,6 +404,14 @@ responseTagResource =
     "fixture/TagResourceResponse.proto"
     defaultService
     (Proxy :: Proxy TagResource)
+
+responseListInstances :: ListInstancesResponse -> TestTree
+responseListInstances =
+  res
+    "ListInstancesResponse"
+    "fixture/ListInstancesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListInstances)
 
 responseGetNamespace :: GetNamespaceResponse -> TestTree
 responseGetNamespace =
@@ -385,6 +421,14 @@ responseGetNamespace =
     defaultService
     (Proxy :: Proxy GetNamespace)
 
+responseUpdatePublicDnsNamespace :: UpdatePublicDnsNamespaceResponse -> TestTree
+responseUpdatePublicDnsNamespace =
+  res
+    "UpdatePublicDnsNamespaceResponse"
+    "fixture/UpdatePublicDnsNamespaceResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdatePublicDnsNamespace)
+
 responseListNamespaces :: ListNamespacesResponse -> TestTree
 responseListNamespaces =
   res
@@ -393,13 +437,13 @@ responseListNamespaces =
     defaultService
     (Proxy :: Proxy ListNamespaces)
 
-responseCreateHttpNamespace :: CreateHttpNamespaceResponse -> TestTree
-responseCreateHttpNamespace =
+responseUpdateHttpNamespace :: UpdateHttpNamespaceResponse -> TestTree
+responseUpdateHttpNamespace =
   res
-    "CreateHttpNamespaceResponse"
-    "fixture/CreateHttpNamespaceResponse.proto"
+    "UpdateHttpNamespaceResponse"
+    "fixture/UpdateHttpNamespaceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateHttpNamespace)
+    (Proxy :: Proxy UpdateHttpNamespace)
 
 responseGetInstance :: GetInstanceResponse -> TestTree
 responseGetInstance =
@@ -408,6 +452,14 @@ responseGetInstance =
     "fixture/GetInstanceResponse.proto"
     defaultService
     (Proxy :: Proxy GetInstance)
+
+responseCreateHttpNamespace :: CreateHttpNamespaceResponse -> TestTree
+responseCreateHttpNamespace =
+  res
+    "CreateHttpNamespaceResponse"
+    "fixture/CreateHttpNamespaceResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateHttpNamespace)
 
 responseGetInstancesHealthStatus :: GetInstancesHealthStatusResponse -> TestTree
 responseGetInstancesHealthStatus =
@@ -449,6 +501,14 @@ responseDeregisterInstance =
     defaultService
     (Proxy :: Proxy DeregisterInstance)
 
+responseUpdatePrivateDnsNamespace :: UpdatePrivateDnsNamespaceResponse -> TestTree
+responseUpdatePrivateDnsNamespace =
+  res
+    "UpdatePrivateDnsNamespaceResponse"
+    "fixture/UpdatePrivateDnsNamespaceResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdatePrivateDnsNamespace)
+
 responseGetOperation :: GetOperationResponse -> TestTree
 responseGetOperation =
   res
@@ -457,14 +517,6 @@ responseGetOperation =
     defaultService
     (Proxy :: Proxy GetOperation)
 
-responseGetService :: GetServiceResponse -> TestTree
-responseGetService =
-  res
-    "GetServiceResponse"
-    "fixture/GetServiceResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetService)
-
 responseUpdateInstanceCustomHealthStatus :: UpdateInstanceCustomHealthStatusResponse -> TestTree
 responseUpdateInstanceCustomHealthStatus =
   res
@@ -472,6 +524,14 @@ responseUpdateInstanceCustomHealthStatus =
     "fixture/UpdateInstanceCustomHealthStatusResponse.proto"
     defaultService
     (Proxy :: Proxy UpdateInstanceCustomHealthStatus)
+
+responseGetService :: GetServiceResponse -> TestTree
+responseGetService =
+  res
+    "GetServiceResponse"
+    "fixture/GetServiceResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetService)
 
 responseRegisterInstance :: RegisterInstanceResponse -> TestTree
 responseRegisterInstance =

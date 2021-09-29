@@ -35,10 +35,10 @@ data Namespace = Namespace'
     -- Friday, January 26, 2018 12:11:30.087 AM.
     createDate :: Prelude.Maybe Core.POSIX,
     -- | A unique string that identifies the request and that allows failed
-    -- requests to be retried without the risk of executing an operation twice.
+    -- requests to be retried without the risk of running an operation twice.
     creatorRequestId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the
-    -- namespace when you create it.
+    -- | The Amazon Resource Name (ARN) that Cloud Map assigns to the namespace
+    -- when you create it.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of a namespace.
     id :: Prelude.Maybe Prelude.Text,
@@ -47,21 +47,24 @@ data Namespace = Namespace'
     -- | A complex type that contains information that\'s specific to the type of
     -- the namespace.
     properties :: Prelude.Maybe NamespaceProperties,
-    -- | The number of services that are associated with the namespace.
-    serviceCount :: Prelude.Maybe Prelude.Int,
     -- | The description that you specify for the namespace when you create it.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The number of services that are associated with the namespace.
+    serviceCount :: Prelude.Maybe Prelude.Int,
     -- | The type of the namespace. The methods for discovering instances depends
     -- on the value that you specify:
     --
-    -- -   @HTTP@: Instances can be discovered only programmatically, using the
-    --     AWS Cloud Map @DiscoverInstances@ API.
+    -- [HTTP]
+    --     Instances can be discovered only programmatically, using the Cloud
+    --     Map @DiscoverInstances@ API.
     --
-    -- -   @DNS_PUBLIC@: Instances can be discovered using public DNS queries
-    --     and using the @DiscoverInstances@ API.
+    -- [DNS_PUBLIC]
+    --     Instances can be discovered using public DNS queries and using the
+    --     @DiscoverInstances@ API.
     --
-    -- -   @DNS_PRIVATE@: Instances can be discovered using DNS queries in VPCs
-    --     and using the @DiscoverInstances@ API.
+    -- [DNS_PRIVATE]
+    --     Instances can be discovered using DNS queries in VPCs and using the
+    --     @DiscoverInstances@ API.
     type' :: Prelude.Maybe NamespaceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -80,10 +83,10 @@ data Namespace = Namespace'
 -- Friday, January 26, 2018 12:11:30.087 AM.
 --
 -- 'creatorRequestId', 'namespace_creatorRequestId' - A unique string that identifies the request and that allows failed
--- requests to be retried without the risk of executing an operation twice.
+-- requests to be retried without the risk of running an operation twice.
 --
--- 'arn', 'namespace_arn' - The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the
--- namespace when you create it.
+-- 'arn', 'namespace_arn' - The Amazon Resource Name (ARN) that Cloud Map assigns to the namespace
+-- when you create it.
 --
 -- 'id', 'namespace_id' - The ID of a namespace.
 --
@@ -92,21 +95,24 @@ data Namespace = Namespace'
 -- 'properties', 'namespace_properties' - A complex type that contains information that\'s specific to the type of
 -- the namespace.
 --
--- 'serviceCount', 'namespace_serviceCount' - The number of services that are associated with the namespace.
---
 -- 'description', 'namespace_description' - The description that you specify for the namespace when you create it.
+--
+-- 'serviceCount', 'namespace_serviceCount' - The number of services that are associated with the namespace.
 --
 -- 'type'', 'namespace_type' - The type of the namespace. The methods for discovering instances depends
 -- on the value that you specify:
 --
--- -   @HTTP@: Instances can be discovered only programmatically, using the
---     AWS Cloud Map @DiscoverInstances@ API.
+-- [HTTP]
+--     Instances can be discovered only programmatically, using the Cloud
+--     Map @DiscoverInstances@ API.
 --
--- -   @DNS_PUBLIC@: Instances can be discovered using public DNS queries
---     and using the @DiscoverInstances@ API.
+-- [DNS_PUBLIC]
+--     Instances can be discovered using public DNS queries and using the
+--     @DiscoverInstances@ API.
 --
--- -   @DNS_PRIVATE@: Instances can be discovered using DNS queries in VPCs
---     and using the @DiscoverInstances@ API.
+-- [DNS_PRIVATE]
+--     Instances can be discovered using DNS queries in VPCs and using the
+--     @DiscoverInstances@ API.
 newNamespace ::
   Namespace
 newNamespace =
@@ -117,8 +123,8 @@ newNamespace =
       id = Prelude.Nothing,
       name = Prelude.Nothing,
       properties = Prelude.Nothing,
-      serviceCount = Prelude.Nothing,
       description = Prelude.Nothing,
+      serviceCount = Prelude.Nothing,
       type' = Prelude.Nothing
     }
 
@@ -130,12 +136,12 @@ namespace_createDate :: Lens.Lens' Namespace (Prelude.Maybe Prelude.UTCTime)
 namespace_createDate = Lens.lens (\Namespace' {createDate} -> createDate) (\s@Namespace' {} a -> s {createDate = a} :: Namespace) Prelude.. Lens.mapping Core._Time
 
 -- | A unique string that identifies the request and that allows failed
--- requests to be retried without the risk of executing an operation twice.
+-- requests to be retried without the risk of running an operation twice.
 namespace_creatorRequestId :: Lens.Lens' Namespace (Prelude.Maybe Prelude.Text)
 namespace_creatorRequestId = Lens.lens (\Namespace' {creatorRequestId} -> creatorRequestId) (\s@Namespace' {} a -> s {creatorRequestId = a} :: Namespace)
 
--- | The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the
--- namespace when you create it.
+-- | The Amazon Resource Name (ARN) that Cloud Map assigns to the namespace
+-- when you create it.
 namespace_arn :: Lens.Lens' Namespace (Prelude.Maybe Prelude.Text)
 namespace_arn = Lens.lens (\Namespace' {arn} -> arn) (\s@Namespace' {} a -> s {arn = a} :: Namespace)
 
@@ -152,25 +158,28 @@ namespace_name = Lens.lens (\Namespace' {name} -> name) (\s@Namespace' {} a -> s
 namespace_properties :: Lens.Lens' Namespace (Prelude.Maybe NamespaceProperties)
 namespace_properties = Lens.lens (\Namespace' {properties} -> properties) (\s@Namespace' {} a -> s {properties = a} :: Namespace)
 
--- | The number of services that are associated with the namespace.
-namespace_serviceCount :: Lens.Lens' Namespace (Prelude.Maybe Prelude.Int)
-namespace_serviceCount = Lens.lens (\Namespace' {serviceCount} -> serviceCount) (\s@Namespace' {} a -> s {serviceCount = a} :: Namespace)
-
 -- | The description that you specify for the namespace when you create it.
 namespace_description :: Lens.Lens' Namespace (Prelude.Maybe Prelude.Text)
 namespace_description = Lens.lens (\Namespace' {description} -> description) (\s@Namespace' {} a -> s {description = a} :: Namespace)
 
+-- | The number of services that are associated with the namespace.
+namespace_serviceCount :: Lens.Lens' Namespace (Prelude.Maybe Prelude.Int)
+namespace_serviceCount = Lens.lens (\Namespace' {serviceCount} -> serviceCount) (\s@Namespace' {} a -> s {serviceCount = a} :: Namespace)
+
 -- | The type of the namespace. The methods for discovering instances depends
 -- on the value that you specify:
 --
--- -   @HTTP@: Instances can be discovered only programmatically, using the
---     AWS Cloud Map @DiscoverInstances@ API.
+-- [HTTP]
+--     Instances can be discovered only programmatically, using the Cloud
+--     Map @DiscoverInstances@ API.
 --
--- -   @DNS_PUBLIC@: Instances can be discovered using public DNS queries
---     and using the @DiscoverInstances@ API.
+-- [DNS_PUBLIC]
+--     Instances can be discovered using public DNS queries and using the
+--     @DiscoverInstances@ API.
 --
--- -   @DNS_PRIVATE@: Instances can be discovered using DNS queries in VPCs
---     and using the @DiscoverInstances@ API.
+-- [DNS_PRIVATE]
+--     Instances can be discovered using DNS queries in VPCs and using the
+--     @DiscoverInstances@ API.
 namespace_type :: Lens.Lens' Namespace (Prelude.Maybe NamespaceType)
 namespace_type = Lens.lens (\Namespace' {type'} -> type') (\s@Namespace' {} a -> s {type' = a} :: Namespace)
 
@@ -186,8 +195,8 @@ instance Core.FromJSON Namespace where
             Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "Properties")
-            Prelude.<*> (x Core..:? "ServiceCount")
             Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "ServiceCount")
             Prelude.<*> (x Core..:? "Type")
       )
 

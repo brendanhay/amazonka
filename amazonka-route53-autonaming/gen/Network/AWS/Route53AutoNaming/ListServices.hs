@@ -60,15 +60,15 @@ data ListServices = ListServices'
     -- request to get the next group of results. Specify the value of
     -- @NextToken@ from the previous response in the next request.
     --
-    -- AWS Cloud Map gets @MaxResults@ services and then filters them based on
-    -- the specified criteria. It\'s possible that no services in the first
+    -- Cloud Map gets @MaxResults@ services and then filters them based on the
+    -- specified criteria. It\'s possible that no services in the first
     -- @MaxResults@ services matched the specified criteria but that subsequent
     -- groups of @MaxResults@ services do contain services that match the
     -- criteria.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of services that you want AWS Cloud Map to return in
-    -- the response to a @ListServices@ request. If you don\'t specify a value
-    -- for @MaxResults@, AWS Cloud Map returns up to 100 services.
+    -- | The maximum number of services that you want Cloud Map to return in the
+    -- response to a @ListServices@ request. If you don\'t specify a value for
+    -- @MaxResults@, Cloud Map returns up to 100 services.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A complex type that contains specifications for the namespaces that you
     -- want to list services for.
@@ -93,15 +93,15 @@ data ListServices = ListServices'
 -- request to get the next group of results. Specify the value of
 -- @NextToken@ from the previous response in the next request.
 --
--- AWS Cloud Map gets @MaxResults@ services and then filters them based on
--- the specified criteria. It\'s possible that no services in the first
+-- Cloud Map gets @MaxResults@ services and then filters them based on the
+-- specified criteria. It\'s possible that no services in the first
 -- @MaxResults@ services matched the specified criteria but that subsequent
 -- groups of @MaxResults@ services do contain services that match the
 -- criteria.
 --
--- 'maxResults', 'listServices_maxResults' - The maximum number of services that you want AWS Cloud Map to return in
--- the response to a @ListServices@ request. If you don\'t specify a value
--- for @MaxResults@, AWS Cloud Map returns up to 100 services.
+-- 'maxResults', 'listServices_maxResults' - The maximum number of services that you want Cloud Map to return in the
+-- response to a @ListServices@ request. If you don\'t specify a value for
+-- @MaxResults@, Cloud Map returns up to 100 services.
 --
 -- 'filters', 'listServices_filters' - A complex type that contains specifications for the namespaces that you
 -- want to list services for.
@@ -123,17 +123,17 @@ newListServices =
 -- request to get the next group of results. Specify the value of
 -- @NextToken@ from the previous response in the next request.
 --
--- AWS Cloud Map gets @MaxResults@ services and then filters them based on
--- the specified criteria. It\'s possible that no services in the first
+-- Cloud Map gets @MaxResults@ services and then filters them based on the
+-- specified criteria. It\'s possible that no services in the first
 -- @MaxResults@ services matched the specified criteria but that subsequent
 -- groups of @MaxResults@ services do contain services that match the
 -- criteria.
 listServices_nextToken :: Lens.Lens' ListServices (Prelude.Maybe Prelude.Text)
 listServices_nextToken = Lens.lens (\ListServices' {nextToken} -> nextToken) (\s@ListServices' {} a -> s {nextToken = a} :: ListServices)
 
--- | The maximum number of services that you want AWS Cloud Map to return in
--- the response to a @ListServices@ request. If you don\'t specify a value
--- for @MaxResults@, AWS Cloud Map returns up to 100 services.
+-- | The maximum number of services that you want Cloud Map to return in the
+-- response to a @ListServices@ request. If you don\'t specify a value for
+-- @MaxResults@, Cloud Map returns up to 100 services.
 listServices_maxResults :: Lens.Lens' ListServices (Prelude.Maybe Prelude.Natural)
 listServices_maxResults = Lens.lens (\ListServices' {maxResults} -> maxResults) (\s@ListServices' {} a -> s {maxResults = a} :: ListServices)
 
@@ -217,8 +217,8 @@ data ListServicesResponse = ListServicesResponse'
     -- request to get the next group of results. Specify the value of
     -- @NextToken@ from the previous response in the next request.
     --
-    -- AWS Cloud Map gets @MaxResults@ services and then filters them based on
-    -- the specified criteria. It\'s possible that no services in the first
+    -- Cloud Map gets @MaxResults@ services and then filters them based on the
+    -- specified criteria. It\'s possible that no services in the first
     -- @MaxResults@ services matched the specified criteria but that subsequent
     -- groups of @MaxResults@ services do contain services that match the
     -- criteria.
@@ -243,8 +243,8 @@ data ListServicesResponse = ListServicesResponse'
 -- request to get the next group of results. Specify the value of
 -- @NextToken@ from the previous response in the next request.
 --
--- AWS Cloud Map gets @MaxResults@ services and then filters them based on
--- the specified criteria. It\'s possible that no services in the first
+-- Cloud Map gets @MaxResults@ services and then filters them based on the
+-- specified criteria. It\'s possible that no services in the first
 -- @MaxResults@ services matched the specified criteria but that subsequent
 -- groups of @MaxResults@ services do contain services that match the
 -- criteria.
@@ -268,8 +268,8 @@ newListServicesResponse pHttpStatus_ =
 -- request to get the next group of results. Specify the value of
 -- @NextToken@ from the previous response in the next request.
 --
--- AWS Cloud Map gets @MaxResults@ services and then filters them based on
--- the specified criteria. It\'s possible that no services in the first
+-- Cloud Map gets @MaxResults@ services and then filters them based on the
+-- specified criteria. It\'s possible that no services in the first
 -- @MaxResults@ services matched the specified criteria but that subsequent
 -- groups of @MaxResults@ services do contain services that match the
 -- criteria.

@@ -1,0 +1,70 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.Route53AutoNaming.Types.SOA
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+module Network.AWS.Route53AutoNaming.Types.SOA where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+
+-- | Start of Authority (SOA) properties for a public or private DNS
+-- namespace.
+--
+-- /See:/ 'newSOA' smart constructor.
+data SOA = SOA'
+  { -- | The time to live (TTL) for purposes of negative caching.
+    ttl :: Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'SOA' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'ttl', 'soa_ttl' - The time to live (TTL) for purposes of negative caching.
+newSOA ::
+  -- | 'ttl'
+  Prelude.Natural ->
+  SOA
+newSOA pTTL_ = SOA' {ttl = pTTL_}
+
+-- | The time to live (TTL) for purposes of negative caching.
+soa_ttl :: Lens.Lens' SOA Prelude.Natural
+soa_ttl = Lens.lens (\SOA' {ttl} -> ttl) (\s@SOA' {} a -> s {ttl = a} :: SOA)
+
+instance Core.FromJSON SOA where
+  parseJSON =
+    Core.withObject
+      "SOA"
+      (\x -> SOA' Prelude.<$> (x Core..: "TTL"))
+
+instance Prelude.Hashable SOA
+
+instance Prelude.NFData SOA
+
+instance Core.ToJSON SOA where
+  toJSON SOA' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("TTL" Core..= ttl)]
+      )

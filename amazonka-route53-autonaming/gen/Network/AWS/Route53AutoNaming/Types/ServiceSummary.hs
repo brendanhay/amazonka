@@ -31,19 +31,41 @@ import Network.AWS.Route53AutoNaming.Types.ServiceType
 --
 -- /See:/ 'newServiceSummary' smart constructor.
 data ServiceSummary = ServiceSummary'
-  { dnsConfig :: Prelude.Maybe DnsConfig,
+  { -- | Information about the Route 53 DNS records that you want Cloud Map to
+    -- create when you register an instance.
+    dnsConfig :: Prelude.Maybe DnsConfig,
     -- | The date and time that the service was created.
     createDate :: Prelude.Maybe Core.POSIX,
-    -- | The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the service
+    -- | The Amazon Resource Name (ARN) that Cloud Map assigns to the service
     -- when you create it.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The ID that AWS Cloud Map assigned to the service when you created it.
+    -- | The ID that Cloud Map assigned to the service when you created it.
     id :: Prelude.Maybe Prelude.Text,
     -- | The name of the service.
     name :: Prelude.Maybe Prelude.Text,
     -- | The description that you specify when you create the service.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Information about an optional custom health check. A custom health
+    -- check, which requires that you use a third-party health checker to
+    -- evaluate the health of your resources, is useful in the following
+    -- circumstances:
+    --
+    -- -   You can\'t use a health check that\'s defined by @HealthCheckConfig@
+    --     because the resource isn\'t available over the internet. For
+    --     example, you can use a custom health check when the instance is in
+    --     an Amazon VPC. (To check the health of resources in a VPC, the
+    --     health checker must also be in the VPC.)
+    --
+    -- -   You want to use a third-party health checker regardless of where
+    --     your resources are located.
+    --
+    -- If you specify a health check configuration, you can specify either
+    -- @HealthCheckCustomConfig@ or @HealthCheckConfig@ but not both.
     healthCheckCustomConfig :: Prelude.Maybe HealthCheckCustomConfig,
+    -- | /Public DNS and HTTP namespaces only./ Settings for an optional health
+    -- check. If you specify settings for a health check, Cloud Map associates
+    -- the health check with the records that you specify in @DnsConfig@.
+    healthCheckConfig :: Prelude.Maybe HealthCheckConfig,
     -- | Describes the systems that can be used to discover the service
     -- instances.
     --
@@ -58,10 +80,9 @@ data ServiceSummary = ServiceSummary'
     -- [DNS]
     --     Reserved.
     type' :: Prelude.Maybe ServiceType,
-    healthCheckConfig :: Prelude.Maybe HealthCheckConfig,
     -- | The number of instances that are currently associated with the service.
-    -- Instances that were previously associated with the service but that have
-    -- been deleted are not included in the count. The count might not reflect
+    -- Instances that were previously associated with the service but that are
+    -- deleted aren\'t included in the count. The count might not reflect
     -- pending registrations and deregistrations.
     instanceCount :: Prelude.Maybe Prelude.Int
   }
@@ -75,20 +96,40 @@ data ServiceSummary = ServiceSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dnsConfig', 'serviceSummary_dnsConfig' - Undocumented member.
+-- 'dnsConfig', 'serviceSummary_dnsConfig' - Information about the Route 53 DNS records that you want Cloud Map to
+-- create when you register an instance.
 --
 -- 'createDate', 'serviceSummary_createDate' - The date and time that the service was created.
 --
--- 'arn', 'serviceSummary_arn' - The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the service
+-- 'arn', 'serviceSummary_arn' - The Amazon Resource Name (ARN) that Cloud Map assigns to the service
 -- when you create it.
 --
--- 'id', 'serviceSummary_id' - The ID that AWS Cloud Map assigned to the service when you created it.
+-- 'id', 'serviceSummary_id' - The ID that Cloud Map assigned to the service when you created it.
 --
 -- 'name', 'serviceSummary_name' - The name of the service.
 --
 -- 'description', 'serviceSummary_description' - The description that you specify when you create the service.
 --
--- 'healthCheckCustomConfig', 'serviceSummary_healthCheckCustomConfig' - Undocumented member.
+-- 'healthCheckCustomConfig', 'serviceSummary_healthCheckCustomConfig' - Information about an optional custom health check. A custom health
+-- check, which requires that you use a third-party health checker to
+-- evaluate the health of your resources, is useful in the following
+-- circumstances:
+--
+-- -   You can\'t use a health check that\'s defined by @HealthCheckConfig@
+--     because the resource isn\'t available over the internet. For
+--     example, you can use a custom health check when the instance is in
+--     an Amazon VPC. (To check the health of resources in a VPC, the
+--     health checker must also be in the VPC.)
+--
+-- -   You want to use a third-party health checker regardless of where
+--     your resources are located.
+--
+-- If you specify a health check configuration, you can specify either
+-- @HealthCheckCustomConfig@ or @HealthCheckConfig@ but not both.
+--
+-- 'healthCheckConfig', 'serviceSummary_healthCheckConfig' - /Public DNS and HTTP namespaces only./ Settings for an optional health
+-- check. If you specify settings for a health check, Cloud Map associates
+-- the health check with the records that you specify in @DnsConfig@.
 --
 -- 'type'', 'serviceSummary_type' - Describes the systems that can be used to discover the service
 -- instances.
@@ -104,11 +145,9 @@ data ServiceSummary = ServiceSummary'
 -- [DNS]
 --     Reserved.
 --
--- 'healthCheckConfig', 'serviceSummary_healthCheckConfig' - Undocumented member.
---
 -- 'instanceCount', 'serviceSummary_instanceCount' - The number of instances that are currently associated with the service.
--- Instances that were previously associated with the service but that have
--- been deleted are not included in the count. The count might not reflect
+-- Instances that were previously associated with the service but that are
+-- deleted aren\'t included in the count. The count might not reflect
 -- pending registrations and deregistrations.
 newServiceSummary ::
   ServiceSummary
@@ -121,12 +160,13 @@ newServiceSummary =
       name = Prelude.Nothing,
       description = Prelude.Nothing,
       healthCheckCustomConfig = Prelude.Nothing,
-      type' = Prelude.Nothing,
       healthCheckConfig = Prelude.Nothing,
+      type' = Prelude.Nothing,
       instanceCount = Prelude.Nothing
     }
 
--- | Undocumented member.
+-- | Information about the Route 53 DNS records that you want Cloud Map to
+-- create when you register an instance.
 serviceSummary_dnsConfig :: Lens.Lens' ServiceSummary (Prelude.Maybe DnsConfig)
 serviceSummary_dnsConfig = Lens.lens (\ServiceSummary' {dnsConfig} -> dnsConfig) (\s@ServiceSummary' {} a -> s {dnsConfig = a} :: ServiceSummary)
 
@@ -134,12 +174,12 @@ serviceSummary_dnsConfig = Lens.lens (\ServiceSummary' {dnsConfig} -> dnsConfig)
 serviceSummary_createDate :: Lens.Lens' ServiceSummary (Prelude.Maybe Prelude.UTCTime)
 serviceSummary_createDate = Lens.lens (\ServiceSummary' {createDate} -> createDate) (\s@ServiceSummary' {} a -> s {createDate = a} :: ServiceSummary) Prelude.. Lens.mapping Core._Time
 
--- | The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the service
+-- | The Amazon Resource Name (ARN) that Cloud Map assigns to the service
 -- when you create it.
 serviceSummary_arn :: Lens.Lens' ServiceSummary (Prelude.Maybe Prelude.Text)
 serviceSummary_arn = Lens.lens (\ServiceSummary' {arn} -> arn) (\s@ServiceSummary' {} a -> s {arn = a} :: ServiceSummary)
 
--- | The ID that AWS Cloud Map assigned to the service when you created it.
+-- | The ID that Cloud Map assigned to the service when you created it.
 serviceSummary_id :: Lens.Lens' ServiceSummary (Prelude.Maybe Prelude.Text)
 serviceSummary_id = Lens.lens (\ServiceSummary' {id} -> id) (\s@ServiceSummary' {} a -> s {id = a} :: ServiceSummary)
 
@@ -151,9 +191,30 @@ serviceSummary_name = Lens.lens (\ServiceSummary' {name} -> name) (\s@ServiceSum
 serviceSummary_description :: Lens.Lens' ServiceSummary (Prelude.Maybe Prelude.Text)
 serviceSummary_description = Lens.lens (\ServiceSummary' {description} -> description) (\s@ServiceSummary' {} a -> s {description = a} :: ServiceSummary)
 
--- | Undocumented member.
+-- | Information about an optional custom health check. A custom health
+-- check, which requires that you use a third-party health checker to
+-- evaluate the health of your resources, is useful in the following
+-- circumstances:
+--
+-- -   You can\'t use a health check that\'s defined by @HealthCheckConfig@
+--     because the resource isn\'t available over the internet. For
+--     example, you can use a custom health check when the instance is in
+--     an Amazon VPC. (To check the health of resources in a VPC, the
+--     health checker must also be in the VPC.)
+--
+-- -   You want to use a third-party health checker regardless of where
+--     your resources are located.
+--
+-- If you specify a health check configuration, you can specify either
+-- @HealthCheckCustomConfig@ or @HealthCheckConfig@ but not both.
 serviceSummary_healthCheckCustomConfig :: Lens.Lens' ServiceSummary (Prelude.Maybe HealthCheckCustomConfig)
 serviceSummary_healthCheckCustomConfig = Lens.lens (\ServiceSummary' {healthCheckCustomConfig} -> healthCheckCustomConfig) (\s@ServiceSummary' {} a -> s {healthCheckCustomConfig = a} :: ServiceSummary)
+
+-- | /Public DNS and HTTP namespaces only./ Settings for an optional health
+-- check. If you specify settings for a health check, Cloud Map associates
+-- the health check with the records that you specify in @DnsConfig@.
+serviceSummary_healthCheckConfig :: Lens.Lens' ServiceSummary (Prelude.Maybe HealthCheckConfig)
+serviceSummary_healthCheckConfig = Lens.lens (\ServiceSummary' {healthCheckConfig} -> healthCheckConfig) (\s@ServiceSummary' {} a -> s {healthCheckConfig = a} :: ServiceSummary)
 
 -- | Describes the systems that can be used to discover the service
 -- instances.
@@ -171,13 +232,9 @@ serviceSummary_healthCheckCustomConfig = Lens.lens (\ServiceSummary' {healthChec
 serviceSummary_type :: Lens.Lens' ServiceSummary (Prelude.Maybe ServiceType)
 serviceSummary_type = Lens.lens (\ServiceSummary' {type'} -> type') (\s@ServiceSummary' {} a -> s {type' = a} :: ServiceSummary)
 
--- | Undocumented member.
-serviceSummary_healthCheckConfig :: Lens.Lens' ServiceSummary (Prelude.Maybe HealthCheckConfig)
-serviceSummary_healthCheckConfig = Lens.lens (\ServiceSummary' {healthCheckConfig} -> healthCheckConfig) (\s@ServiceSummary' {} a -> s {healthCheckConfig = a} :: ServiceSummary)
-
 -- | The number of instances that are currently associated with the service.
--- Instances that were previously associated with the service but that have
--- been deleted are not included in the count. The count might not reflect
+-- Instances that were previously associated with the service but that are
+-- deleted aren\'t included in the count. The count might not reflect
 -- pending registrations and deregistrations.
 serviceSummary_instanceCount :: Lens.Lens' ServiceSummary (Prelude.Maybe Prelude.Int)
 serviceSummary_instanceCount = Lens.lens (\ServiceSummary' {instanceCount} -> instanceCount) (\s@ServiceSummary' {} a -> s {instanceCount = a} :: ServiceSummary)
@@ -195,8 +252,8 @@ instance Core.FromJSON ServiceSummary where
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "HealthCheckCustomConfig")
-            Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "HealthCheckConfig")
+            Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "InstanceCount")
       )
 

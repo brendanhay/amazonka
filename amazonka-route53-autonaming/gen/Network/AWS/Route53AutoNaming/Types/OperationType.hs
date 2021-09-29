@@ -24,6 +24,7 @@ module Network.AWS.Route53AutoNaming.Types.OperationType
         OperationType_DELETE_NAMESPACE,
         OperationType_DEREGISTER_INSTANCE,
         OperationType_REGISTER_INSTANCE,
+        OperationType_UPDATE_NAMESPACE,
         OperationType_UPDATE_SERVICE
       ),
   )
@@ -72,6 +73,9 @@ pattern OperationType_DEREGISTER_INSTANCE = OperationType' "DEREGISTER_INSTANCE"
 pattern OperationType_REGISTER_INSTANCE :: OperationType
 pattern OperationType_REGISTER_INSTANCE = OperationType' "REGISTER_INSTANCE"
 
+pattern OperationType_UPDATE_NAMESPACE :: OperationType
+pattern OperationType_UPDATE_NAMESPACE = OperationType' "UPDATE_NAMESPACE"
+
 pattern OperationType_UPDATE_SERVICE :: OperationType
 pattern OperationType_UPDATE_SERVICE = OperationType' "UPDATE_SERVICE"
 
@@ -80,6 +84,7 @@ pattern OperationType_UPDATE_SERVICE = OperationType' "UPDATE_SERVICE"
   OperationType_DELETE_NAMESPACE,
   OperationType_DEREGISTER_INSTANCE,
   OperationType_REGISTER_INSTANCE,
+  OperationType_UPDATE_NAMESPACE,
   OperationType_UPDATE_SERVICE,
   OperationType'
   #-}

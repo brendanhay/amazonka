@@ -33,8 +33,8 @@ import Network.AWS.Route53AutoNaming.Types.ServiceType
 data ServiceInfo = ServiceInfo'
   { -- | The ID of the namespace that was used to create the service.
     namespaceId :: Prelude.Maybe Prelude.Text,
-    -- | A complex type that contains information about the Route 53 DNS records
-    -- that you want AWS Cloud Map to create when you register an instance.
+    -- | A complex type that contains information about the Route 53 DNS records
+    -- that you want Cloud Map to create when you register an instance.
     dnsConfig :: Prelude.Maybe DnsConfig,
     -- | The date and time that the service was created, in Unix format and
     -- Coordinated Universal Time (UTC). The value of @CreateDate@ is accurate
@@ -42,14 +42,14 @@ data ServiceInfo = ServiceInfo'
     -- Friday, January 26, 2018 12:11:30.087 AM.
     createDate :: Prelude.Maybe Core.POSIX,
     -- | A unique string that identifies the request and that allows failed
-    -- requests to be retried without the risk of executing the operation
-    -- twice. @CreatorRequestId@ can be any unique string, for example, a
-    -- date\/time stamp.
+    -- requests to be retried without the risk of running the operation twice.
+    -- @CreatorRequestId@ can be any unique string (for example, a
+    -- date\/timestamp).
     creatorRequestId :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the service
+    -- | The Amazon Resource Name (ARN) that Cloud Map assigns to the service
     -- when you create it.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The ID that AWS Cloud Map assigned to the service when you created it.
+    -- | The ID that Cloud Map assigned to the service when you created it.
     id :: Prelude.Maybe Prelude.Text,
     -- | The name of the service.
     name :: Prelude.Maybe Prelude.Text,
@@ -61,6 +61,14 @@ data ServiceInfo = ServiceInfo'
     -- If you specify a health check configuration, you can specify either
     -- @HealthCheckCustomConfig@ or @HealthCheckConfig@ but not both.
     healthCheckCustomConfig :: Prelude.Maybe HealthCheckCustomConfig,
+    -- | /Public DNS and HTTP namespaces only./ A complex type that contains
+    -- settings for an optional health check. If you specify settings for a
+    -- health check, Cloud Map associates the health check with the records
+    -- that you specify in @DnsConfig@.
+    --
+    -- For information about the charges for health checks, see
+    -- <http://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing>.
+    healthCheckConfig :: Prelude.Maybe HealthCheckConfig,
     -- | Describes the systems that can be used to discover the service
     -- instances.
     --
@@ -75,17 +83,9 @@ data ServiceInfo = ServiceInfo'
     -- [DNS]
     --     Reserved.
     type' :: Prelude.Maybe ServiceType,
-    -- | /Public DNS and HTTP namespaces only./ A complex type that contains
-    -- settings for an optional health check. If you specify settings for a
-    -- health check, AWS Cloud Map associates the health check with the records
-    -- that you specify in @DnsConfig@.
-    --
-    -- For information about the charges for health checks, see
-    -- <http://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing>.
-    healthCheckConfig :: Prelude.Maybe HealthCheckConfig,
     -- | The number of instances that are currently associated with the service.
-    -- Instances that were previously associated with the service but that have
-    -- been deleted are not included in the count. The count might not reflect
+    -- Instances that were previously associated with the service but that are
+    -- deleted aren\'t included in the count. The count might not reflect
     -- pending registrations and deregistrations.
     instanceCount :: Prelude.Maybe Prelude.Int
   }
@@ -101,8 +101,8 @@ data ServiceInfo = ServiceInfo'
 --
 -- 'namespaceId', 'serviceInfo_namespaceId' - The ID of the namespace that was used to create the service.
 --
--- 'dnsConfig', 'serviceInfo_dnsConfig' - A complex type that contains information about the Route 53 DNS records
--- that you want AWS Cloud Map to create when you register an instance.
+-- 'dnsConfig', 'serviceInfo_dnsConfig' - A complex type that contains information about the Route 53 DNS records
+-- that you want Cloud Map to create when you register an instance.
 --
 -- 'createDate', 'serviceInfo_createDate' - The date and time that the service was created, in Unix format and
 -- Coordinated Universal Time (UTC). The value of @CreateDate@ is accurate
@@ -110,14 +110,14 @@ data ServiceInfo = ServiceInfo'
 -- Friday, January 26, 2018 12:11:30.087 AM.
 --
 -- 'creatorRequestId', 'serviceInfo_creatorRequestId' - A unique string that identifies the request and that allows failed
--- requests to be retried without the risk of executing the operation
--- twice. @CreatorRequestId@ can be any unique string, for example, a
--- date\/time stamp.
+-- requests to be retried without the risk of running the operation twice.
+-- @CreatorRequestId@ can be any unique string (for example, a
+-- date\/timestamp).
 --
--- 'arn', 'serviceInfo_arn' - The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the service
+-- 'arn', 'serviceInfo_arn' - The Amazon Resource Name (ARN) that Cloud Map assigns to the service
 -- when you create it.
 --
--- 'id', 'serviceInfo_id' - The ID that AWS Cloud Map assigned to the service when you created it.
+-- 'id', 'serviceInfo_id' - The ID that Cloud Map assigned to the service when you created it.
 --
 -- 'name', 'serviceInfo_name' - The name of the service.
 --
@@ -128,6 +128,14 @@ data ServiceInfo = ServiceInfo'
 --
 -- If you specify a health check configuration, you can specify either
 -- @HealthCheckCustomConfig@ or @HealthCheckConfig@ but not both.
+--
+-- 'healthCheckConfig', 'serviceInfo_healthCheckConfig' - /Public DNS and HTTP namespaces only./ A complex type that contains
+-- settings for an optional health check. If you specify settings for a
+-- health check, Cloud Map associates the health check with the records
+-- that you specify in @DnsConfig@.
+--
+-- For information about the charges for health checks, see
+-- <http://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing>.
 --
 -- 'type'', 'serviceInfo_type' - Describes the systems that can be used to discover the service
 -- instances.
@@ -143,17 +151,9 @@ data ServiceInfo = ServiceInfo'
 -- [DNS]
 --     Reserved.
 --
--- 'healthCheckConfig', 'serviceInfo_healthCheckConfig' - /Public DNS and HTTP namespaces only./ A complex type that contains
--- settings for an optional health check. If you specify settings for a
--- health check, AWS Cloud Map associates the health check with the records
--- that you specify in @DnsConfig@.
---
--- For information about the charges for health checks, see
--- <http://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing>.
---
 -- 'instanceCount', 'serviceInfo_instanceCount' - The number of instances that are currently associated with the service.
--- Instances that were previously associated with the service but that have
--- been deleted are not included in the count. The count might not reflect
+-- Instances that were previously associated with the service but that are
+-- deleted aren\'t included in the count. The count might not reflect
 -- pending registrations and deregistrations.
 newServiceInfo ::
   ServiceInfo
@@ -168,8 +168,8 @@ newServiceInfo =
       name = Prelude.Nothing,
       description = Prelude.Nothing,
       healthCheckCustomConfig = Prelude.Nothing,
-      type' = Prelude.Nothing,
       healthCheckConfig = Prelude.Nothing,
+      type' = Prelude.Nothing,
       instanceCount = Prelude.Nothing
     }
 
@@ -177,8 +177,8 @@ newServiceInfo =
 serviceInfo_namespaceId :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Text)
 serviceInfo_namespaceId = Lens.lens (\ServiceInfo' {namespaceId} -> namespaceId) (\s@ServiceInfo' {} a -> s {namespaceId = a} :: ServiceInfo)
 
--- | A complex type that contains information about the Route 53 DNS records
--- that you want AWS Cloud Map to create when you register an instance.
+-- | A complex type that contains information about the Route 53 DNS records
+-- that you want Cloud Map to create when you register an instance.
 serviceInfo_dnsConfig :: Lens.Lens' ServiceInfo (Prelude.Maybe DnsConfig)
 serviceInfo_dnsConfig = Lens.lens (\ServiceInfo' {dnsConfig} -> dnsConfig) (\s@ServiceInfo' {} a -> s {dnsConfig = a} :: ServiceInfo)
 
@@ -190,18 +190,18 @@ serviceInfo_createDate :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.UTCTime)
 serviceInfo_createDate = Lens.lens (\ServiceInfo' {createDate} -> createDate) (\s@ServiceInfo' {} a -> s {createDate = a} :: ServiceInfo) Prelude.. Lens.mapping Core._Time
 
 -- | A unique string that identifies the request and that allows failed
--- requests to be retried without the risk of executing the operation
--- twice. @CreatorRequestId@ can be any unique string, for example, a
--- date\/time stamp.
+-- requests to be retried without the risk of running the operation twice.
+-- @CreatorRequestId@ can be any unique string (for example, a
+-- date\/timestamp).
 serviceInfo_creatorRequestId :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Text)
 serviceInfo_creatorRequestId = Lens.lens (\ServiceInfo' {creatorRequestId} -> creatorRequestId) (\s@ServiceInfo' {} a -> s {creatorRequestId = a} :: ServiceInfo)
 
--- | The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the service
+-- | The Amazon Resource Name (ARN) that Cloud Map assigns to the service
 -- when you create it.
 serviceInfo_arn :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Text)
 serviceInfo_arn = Lens.lens (\ServiceInfo' {arn} -> arn) (\s@ServiceInfo' {} a -> s {arn = a} :: ServiceInfo)
 
--- | The ID that AWS Cloud Map assigned to the service when you created it.
+-- | The ID that Cloud Map assigned to the service when you created it.
 serviceInfo_id :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Text)
 serviceInfo_id = Lens.lens (\ServiceInfo' {id} -> id) (\s@ServiceInfo' {} a -> s {id = a} :: ServiceInfo)
 
@@ -221,6 +221,16 @@ serviceInfo_description = Lens.lens (\ServiceInfo' {description} -> description)
 serviceInfo_healthCheckCustomConfig :: Lens.Lens' ServiceInfo (Prelude.Maybe HealthCheckCustomConfig)
 serviceInfo_healthCheckCustomConfig = Lens.lens (\ServiceInfo' {healthCheckCustomConfig} -> healthCheckCustomConfig) (\s@ServiceInfo' {} a -> s {healthCheckCustomConfig = a} :: ServiceInfo)
 
+-- | /Public DNS and HTTP namespaces only./ A complex type that contains
+-- settings for an optional health check. If you specify settings for a
+-- health check, Cloud Map associates the health check with the records
+-- that you specify in @DnsConfig@.
+--
+-- For information about the charges for health checks, see
+-- <http://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing>.
+serviceInfo_healthCheckConfig :: Lens.Lens' ServiceInfo (Prelude.Maybe HealthCheckConfig)
+serviceInfo_healthCheckConfig = Lens.lens (\ServiceInfo' {healthCheckConfig} -> healthCheckConfig) (\s@ServiceInfo' {} a -> s {healthCheckConfig = a} :: ServiceInfo)
+
 -- | Describes the systems that can be used to discover the service
 -- instances.
 --
@@ -237,19 +247,9 @@ serviceInfo_healthCheckCustomConfig = Lens.lens (\ServiceInfo' {healthCheckCusto
 serviceInfo_type :: Lens.Lens' ServiceInfo (Prelude.Maybe ServiceType)
 serviceInfo_type = Lens.lens (\ServiceInfo' {type'} -> type') (\s@ServiceInfo' {} a -> s {type' = a} :: ServiceInfo)
 
--- | /Public DNS and HTTP namespaces only./ A complex type that contains
--- settings for an optional health check. If you specify settings for a
--- health check, AWS Cloud Map associates the health check with the records
--- that you specify in @DnsConfig@.
---
--- For information about the charges for health checks, see
--- <http://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing>.
-serviceInfo_healthCheckConfig :: Lens.Lens' ServiceInfo (Prelude.Maybe HealthCheckConfig)
-serviceInfo_healthCheckConfig = Lens.lens (\ServiceInfo' {healthCheckConfig} -> healthCheckConfig) (\s@ServiceInfo' {} a -> s {healthCheckConfig = a} :: ServiceInfo)
-
 -- | The number of instances that are currently associated with the service.
--- Instances that were previously associated with the service but that have
--- been deleted are not included in the count. The count might not reflect
+-- Instances that were previously associated with the service but that are
+-- deleted aren\'t included in the count. The count might not reflect
 -- pending registrations and deregistrations.
 serviceInfo_instanceCount :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Int)
 serviceInfo_instanceCount = Lens.lens (\ServiceInfo' {instanceCount} -> instanceCount) (\s@ServiceInfo' {} a -> s {instanceCount = a} :: ServiceInfo)
@@ -269,8 +269,8 @@ instance Core.FromJSON ServiceInfo where
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "HealthCheckCustomConfig")
-            Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "HealthCheckConfig")
+            Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "InstanceCount")
       )
 

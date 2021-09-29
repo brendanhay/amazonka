@@ -59,15 +59,15 @@ data ListOperations = ListOperations'
     -- request to get the next group of results. Specify the value of
     -- @NextToken@ from the previous response in the next request.
     --
-    -- AWS Cloud Map gets @MaxResults@ operations and then filters them based
-    -- on the specified criteria. It\'s possible that no operations in the
-    -- first @MaxResults@ operations matched the specified criteria but that
+    -- Cloud Map gets @MaxResults@ operations and then filters them based on
+    -- the specified criteria. It\'s possible that no operations in the first
+    -- @MaxResults@ operations matched the specified criteria but that
     -- subsequent groups of @MaxResults@ operations do contain operations that
     -- match the criteria.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of items that you want AWS Cloud Map to return in the
+    -- | The maximum number of items that you want Cloud Map to return in the
     -- response to a @ListOperations@ request. If you don\'t specify a value
-    -- for @MaxResults@, AWS Cloud Map returns up to 100 operations.
+    -- for @MaxResults@, Cloud Map returns up to 100 operations.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A complex type that contains specifications for the operations that you
     -- want to list, for example, operations that you started between a
@@ -93,15 +93,15 @@ data ListOperations = ListOperations'
 -- request to get the next group of results. Specify the value of
 -- @NextToken@ from the previous response in the next request.
 --
--- AWS Cloud Map gets @MaxResults@ operations and then filters them based
--- on the specified criteria. It\'s possible that no operations in the
--- first @MaxResults@ operations matched the specified criteria but that
+-- Cloud Map gets @MaxResults@ operations and then filters them based on
+-- the specified criteria. It\'s possible that no operations in the first
+-- @MaxResults@ operations matched the specified criteria but that
 -- subsequent groups of @MaxResults@ operations do contain operations that
 -- match the criteria.
 --
--- 'maxResults', 'listOperations_maxResults' - The maximum number of items that you want AWS Cloud Map to return in the
+-- 'maxResults', 'listOperations_maxResults' - The maximum number of items that you want Cloud Map to return in the
 -- response to a @ListOperations@ request. If you don\'t specify a value
--- for @MaxResults@, AWS Cloud Map returns up to 100 operations.
+-- for @MaxResults@, Cloud Map returns up to 100 operations.
 --
 -- 'filters', 'listOperations_filters' - A complex type that contains specifications for the operations that you
 -- want to list, for example, operations that you started between a
@@ -124,17 +124,17 @@ newListOperations =
 -- request to get the next group of results. Specify the value of
 -- @NextToken@ from the previous response in the next request.
 --
--- AWS Cloud Map gets @MaxResults@ operations and then filters them based
--- on the specified criteria. It\'s possible that no operations in the
--- first @MaxResults@ operations matched the specified criteria but that
+-- Cloud Map gets @MaxResults@ operations and then filters them based on
+-- the specified criteria. It\'s possible that no operations in the first
+-- @MaxResults@ operations matched the specified criteria but that
 -- subsequent groups of @MaxResults@ operations do contain operations that
 -- match the criteria.
 listOperations_nextToken :: Lens.Lens' ListOperations (Prelude.Maybe Prelude.Text)
 listOperations_nextToken = Lens.lens (\ListOperations' {nextToken} -> nextToken) (\s@ListOperations' {} a -> s {nextToken = a} :: ListOperations)
 
--- | The maximum number of items that you want AWS Cloud Map to return in the
+-- | The maximum number of items that you want Cloud Map to return in the
 -- response to a @ListOperations@ request. If you don\'t specify a value
--- for @MaxResults@, AWS Cloud Map returns up to 100 operations.
+-- for @MaxResults@, Cloud Map returns up to 100 operations.
 listOperations_maxResults :: Lens.Lens' ListOperations (Prelude.Maybe Prelude.Natural)
 listOperations_maxResults = Lens.lens (\ListOperations' {maxResults} -> maxResults) (\s@ListOperations' {} a -> s {maxResults = a} :: ListOperations)
 
@@ -223,9 +223,9 @@ data ListOperationsResponse = ListOperationsResponse'
     -- request to get the next group of results. Specify the value of
     -- @NextToken@ from the previous response in the next request.
     --
-    -- AWS Cloud Map gets @MaxResults@ operations and then filters them based
-    -- on the specified criteria. It\'s possible that no operations in the
-    -- first @MaxResults@ operations matched the specified criteria but that
+    -- Cloud Map gets @MaxResults@ operations and then filters them based on
+    -- the specified criteria. It\'s possible that no operations in the first
+    -- @MaxResults@ operations matched the specified criteria but that
     -- subsequent groups of @MaxResults@ operations do contain operations that
     -- match the criteria.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -249,9 +249,9 @@ data ListOperationsResponse = ListOperationsResponse'
 -- request to get the next group of results. Specify the value of
 -- @NextToken@ from the previous response in the next request.
 --
--- AWS Cloud Map gets @MaxResults@ operations and then filters them based
--- on the specified criteria. It\'s possible that no operations in the
--- first @MaxResults@ operations matched the specified criteria but that
+-- Cloud Map gets @MaxResults@ operations and then filters them based on
+-- the specified criteria. It\'s possible that no operations in the first
+-- @MaxResults@ operations matched the specified criteria but that
 -- subsequent groups of @MaxResults@ operations do contain operations that
 -- match the criteria.
 --
@@ -275,9 +275,9 @@ newListOperationsResponse pHttpStatus_ =
 -- request to get the next group of results. Specify the value of
 -- @NextToken@ from the previous response in the next request.
 --
--- AWS Cloud Map gets @MaxResults@ operations and then filters them based
--- on the specified criteria. It\'s possible that no operations in the
--- first @MaxResults@ operations matched the specified criteria but that
+-- Cloud Map gets @MaxResults@ operations and then filters them based on
+-- the specified criteria. It\'s possible that no operations in the first
+-- @MaxResults@ operations matched the specified criteria but that
 -- subsequent groups of @MaxResults@ operations do contain operations that
 -- match the criteria.
 listOperationsResponse_nextToken :: Lens.Lens' ListOperationsResponse (Prelude.Maybe Prelude.Text)

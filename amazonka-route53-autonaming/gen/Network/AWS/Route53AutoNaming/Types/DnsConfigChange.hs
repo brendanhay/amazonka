@@ -24,13 +24,13 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Route53AutoNaming.Types.DnsRecord
 
--- | A complex type that contains information about changes to the Route 53
--- DNS records that AWS Cloud Map creates when you register an instance.
+-- | A complex type that contains information about changes to the Route 53
+-- DNS records that Cloud Map creates when you register an instance.
 --
 -- /See:/ 'newDnsConfigChange' smart constructor.
 data DnsConfigChange = DnsConfigChange'
-  { -- | An array that contains one @DnsRecord@ object for each Route 53 record
-    -- that you want AWS Cloud Map to create when you register an instance.
+  { -- | An array that contains one @DnsRecord@ object for each Route 53 record
+    -- that you want Cloud Map to create when you register an instance.
     dnsRecords :: [DnsRecord]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,15 +43,15 @@ data DnsConfigChange = DnsConfigChange'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'dnsRecords', 'dnsConfigChange_dnsRecords' - An array that contains one @DnsRecord@ object for each Route 53 record
--- that you want AWS Cloud Map to create when you register an instance.
+-- 'dnsRecords', 'dnsConfigChange_dnsRecords' - An array that contains one @DnsRecord@ object for each Route 53 record
+-- that you want Cloud Map to create when you register an instance.
 newDnsConfigChange ::
   DnsConfigChange
 newDnsConfigChange =
   DnsConfigChange' {dnsRecords = Prelude.mempty}
 
--- | An array that contains one @DnsRecord@ object for each Route 53 record
--- that you want AWS Cloud Map to create when you register an instance.
+-- | An array that contains one @DnsRecord@ object for each Route 53 record
+-- that you want Cloud Map to create when you register an instance.
 dnsConfigChange_dnsRecords :: Lens.Lens' DnsConfigChange [DnsRecord]
 dnsConfigChange_dnsRecords = Lens.lens (\DnsConfigChange' {dnsRecords} -> dnsRecords) (\s@DnsConfigChange' {} a -> s {dnsRecords = a} :: DnsConfigChange) Prelude.. Lens._Coerce
 

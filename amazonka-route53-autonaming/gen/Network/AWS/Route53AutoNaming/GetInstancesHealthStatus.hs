@@ -23,7 +23,7 @@
 -- Gets the current health status (@Healthy@, @Unhealthy@, or @Unknown@) of
 -- one or more instances that are associated with a specified service.
 --
--- There is a brief delay between when you register an instance and when
+-- There\'s a brief delay between when you register an instance and when
 -- the health status for the instance is available.
 module Network.AWS.Route53AutoNaming.GetInstancesHealthStatus
   ( -- * Creating a Request
@@ -63,16 +63,15 @@ data GetInstancesHealthStatus = GetInstancesHealthStatus'
     -- group of results. Specify the value of @NextToken@ from the previous
     -- response in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of instances that you want AWS Cloud Map to return in
-    -- the response to a @GetInstancesHealthStatus@ request. If you don\'t
-    -- specify a value for @MaxResults@, AWS Cloud Map returns up to 100
-    -- instances.
+    -- | The maximum number of instances that you want Cloud Map to return in the
+    -- response to a @GetInstancesHealthStatus@ request. If you don\'t specify
+    -- a value for @MaxResults@, Cloud Map returns up to 100 instances.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | An array that contains the IDs of all the instances that you want to get
     -- the health status for.
     --
-    -- If you omit @Instances@, AWS Cloud Map returns the health status for all
-    -- the instances that are associated with the specified service.
+    -- If you omit @Instances@, Cloud Map returns the health status for all the
+    -- instances that are associated with the specified service.
     --
     -- To get the IDs for the instances that you\'ve registered by using a
     -- specified service, submit a
@@ -99,16 +98,15 @@ data GetInstancesHealthStatus = GetInstancesHealthStatus'
 -- group of results. Specify the value of @NextToken@ from the previous
 -- response in the next request.
 --
--- 'maxResults', 'getInstancesHealthStatus_maxResults' - The maximum number of instances that you want AWS Cloud Map to return in
--- the response to a @GetInstancesHealthStatus@ request. If you don\'t
--- specify a value for @MaxResults@, AWS Cloud Map returns up to 100
--- instances.
+-- 'maxResults', 'getInstancesHealthStatus_maxResults' - The maximum number of instances that you want Cloud Map to return in the
+-- response to a @GetInstancesHealthStatus@ request. If you don\'t specify
+-- a value for @MaxResults@, Cloud Map returns up to 100 instances.
 --
 -- 'instances', 'getInstancesHealthStatus_instances' - An array that contains the IDs of all the instances that you want to get
 -- the health status for.
 --
--- If you omit @Instances@, AWS Cloud Map returns the health status for all
--- the instances that are associated with the specified service.
+-- If you omit @Instances@, Cloud Map returns the health status for all the
+-- instances that are associated with the specified service.
 --
 -- To get the IDs for the instances that you\'ve registered by using a
 -- specified service, submit a
@@ -138,18 +136,17 @@ newGetInstancesHealthStatus pServiceId_ =
 getInstancesHealthStatus_nextToken :: Lens.Lens' GetInstancesHealthStatus (Prelude.Maybe Prelude.Text)
 getInstancesHealthStatus_nextToken = Lens.lens (\GetInstancesHealthStatus' {nextToken} -> nextToken) (\s@GetInstancesHealthStatus' {} a -> s {nextToken = a} :: GetInstancesHealthStatus)
 
--- | The maximum number of instances that you want AWS Cloud Map to return in
--- the response to a @GetInstancesHealthStatus@ request. If you don\'t
--- specify a value for @MaxResults@, AWS Cloud Map returns up to 100
--- instances.
+-- | The maximum number of instances that you want Cloud Map to return in the
+-- response to a @GetInstancesHealthStatus@ request. If you don\'t specify
+-- a value for @MaxResults@, Cloud Map returns up to 100 instances.
 getInstancesHealthStatus_maxResults :: Lens.Lens' GetInstancesHealthStatus (Prelude.Maybe Prelude.Natural)
 getInstancesHealthStatus_maxResults = Lens.lens (\GetInstancesHealthStatus' {maxResults} -> maxResults) (\s@GetInstancesHealthStatus' {} a -> s {maxResults = a} :: GetInstancesHealthStatus)
 
 -- | An array that contains the IDs of all the instances that you want to get
 -- the health status for.
 --
--- If you omit @Instances@, AWS Cloud Map returns the health status for all
--- the instances that are associated with the specified service.
+-- If you omit @Instances@, Cloud Map returns the health status for all the
+-- instances that are associated with the specified service.
 --
 -- To get the IDs for the instances that you\'ve registered by using a
 -- specified service, submit a

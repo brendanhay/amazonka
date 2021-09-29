@@ -31,12 +31,14 @@ import Network.AWS.Route53AutoNaming.Types.HealthStatus
 --
 -- /See:/ 'newHttpInstanceSummary' smart constructor.
 data HttpInstanceSummary = HttpInstanceSummary'
-  { -- | The name of the namespace that you specified when you registered the
-    -- instance.
-    namespaceName :: Prelude.Maybe Prelude.Text,
-    -- | The ID of an instance that matches the values that you specified in the
+  { -- | The ID of an instance that matches the values that you specified in the
     -- request.
     instanceId :: Prelude.Maybe Prelude.Text,
+    -- | @@ @@ @@
+    --
+    -- The @HttpName@ name of the namespace. It\'s found in the
+    -- @HttpProperties@ member of the @Properties@ member of the namespace.
+    namespaceName :: Prelude.Maybe Prelude.Text,
     -- | The name of the service that you specified when you registered the
     -- instance.
     serviceName :: Prelude.Maybe Prelude.Text,
@@ -57,11 +59,13 @@ data HttpInstanceSummary = HttpInstanceSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'namespaceName', 'httpInstanceSummary_namespaceName' - The name of the namespace that you specified when you registered the
--- instance.
---
 -- 'instanceId', 'httpInstanceSummary_instanceId' - The ID of an instance that matches the values that you specified in the
 -- request.
+--
+-- 'namespaceName', 'httpInstanceSummary_namespaceName' - @@ @@ @@
+--
+-- The @HttpName@ name of the namespace. It\'s found in the
+-- @HttpProperties@ member of the @Properties@ member of the namespace.
 --
 -- 'serviceName', 'httpInstanceSummary_serviceName' - The name of the service that you specified when you registered the
 -- instance.
@@ -75,23 +79,24 @@ newHttpInstanceSummary ::
   HttpInstanceSummary
 newHttpInstanceSummary =
   HttpInstanceSummary'
-    { namespaceName =
-        Prelude.Nothing,
-      instanceId = Prelude.Nothing,
+    { instanceId = Prelude.Nothing,
+      namespaceName = Prelude.Nothing,
       serviceName = Prelude.Nothing,
       attributes = Prelude.Nothing,
       healthStatus = Prelude.Nothing
     }
 
--- | The name of the namespace that you specified when you registered the
--- instance.
-httpInstanceSummary_namespaceName :: Lens.Lens' HttpInstanceSummary (Prelude.Maybe Prelude.Text)
-httpInstanceSummary_namespaceName = Lens.lens (\HttpInstanceSummary' {namespaceName} -> namespaceName) (\s@HttpInstanceSummary' {} a -> s {namespaceName = a} :: HttpInstanceSummary)
-
 -- | The ID of an instance that matches the values that you specified in the
 -- request.
 httpInstanceSummary_instanceId :: Lens.Lens' HttpInstanceSummary (Prelude.Maybe Prelude.Text)
 httpInstanceSummary_instanceId = Lens.lens (\HttpInstanceSummary' {instanceId} -> instanceId) (\s@HttpInstanceSummary' {} a -> s {instanceId = a} :: HttpInstanceSummary)
+
+-- | @@ @@ @@
+--
+-- The @HttpName@ name of the namespace. It\'s found in the
+-- @HttpProperties@ member of the @Properties@ member of the namespace.
+httpInstanceSummary_namespaceName :: Lens.Lens' HttpInstanceSummary (Prelude.Maybe Prelude.Text)
+httpInstanceSummary_namespaceName = Lens.lens (\HttpInstanceSummary' {namespaceName} -> namespaceName) (\s@HttpInstanceSummary' {} a -> s {namespaceName = a} :: HttpInstanceSummary)
 
 -- | The name of the service that you specified when you registered the
 -- instance.
@@ -114,8 +119,8 @@ instance Core.FromJSON HttpInstanceSummary where
       "HttpInstanceSummary"
       ( \x ->
           HttpInstanceSummary'
-            Prelude.<$> (x Core..:? "NamespaceName")
-            Prelude.<*> (x Core..:? "InstanceId")
+            Prelude.<$> (x Core..:? "InstanceId")
+            Prelude.<*> (x Core..:? "NamespaceName")
             Prelude.<*> (x Core..:? "ServiceName")
             Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "HealthStatus")

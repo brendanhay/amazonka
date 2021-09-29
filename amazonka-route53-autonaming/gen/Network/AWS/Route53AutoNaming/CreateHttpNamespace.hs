@@ -20,14 +20,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an HTTP namespace. Service instances that you register using an
--- HTTP namespace can be discovered using a @DiscoverInstances@ request but
+-- Creates an HTTP namespace. Service instances registered using an HTTP
+-- namespace can be discovered using a @DiscoverInstances@ request but
 -- can\'t be discovered using DNS.
 --
 -- For the current quota on the number of namespaces that you can create
--- using the same AWS account, see
--- <https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html AWS Cloud Map quotas>
--- in the /AWS Cloud Map Developer Guide/.
+-- using the same account, see
+-- <https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html Cloud Map quotas>
+-- in the /Cloud Map Developer Guide/.
 module Network.AWS.Route53AutoNaming.CreateHttpNamespace
   ( -- * Creating a Request
     CreateHttpNamespace (..),
@@ -59,14 +59,13 @@ import Network.AWS.Route53AutoNaming.Types
 -- | /See:/ 'newCreateHttpNamespace' smart constructor.
 data CreateHttpNamespace = CreateHttpNamespace'
   { -- | A unique string that identifies the request and that allows failed
-    -- @CreateHttpNamespace@ requests to be retried without the risk of
-    -- executing the operation twice. @CreatorRequestId@ can be any unique
-    -- string, for example, a date\/time stamp.
+    -- @CreateHttpNamespace@ requests to be retried without the risk of running
+    -- the operation twice. @CreatorRequestId@ can be any unique string (for
+    -- example, a date\/time stamp).
     creatorRequestId :: Prelude.Maybe Prelude.Text,
     -- | The tags to add to the namespace. Each tag consists of a key and an
-    -- optional value, both of which you define. Tag keys can have a maximum
-    -- character length of 128 characters, and tag values can have a maximum
-    -- length of 256 characters.
+    -- optional value that you define. Tags keys can be up to 128 characters in
+    -- length, and tag values can be up to 256 characters in length.
     tags :: Prelude.Maybe [Tag],
     -- | A description for the namespace.
     description :: Prelude.Maybe Prelude.Text,
@@ -84,14 +83,13 @@ data CreateHttpNamespace = CreateHttpNamespace'
 -- for backwards compatibility:
 --
 -- 'creatorRequestId', 'createHttpNamespace_creatorRequestId' - A unique string that identifies the request and that allows failed
--- @CreateHttpNamespace@ requests to be retried without the risk of
--- executing the operation twice. @CreatorRequestId@ can be any unique
--- string, for example, a date\/time stamp.
+-- @CreateHttpNamespace@ requests to be retried without the risk of running
+-- the operation twice. @CreatorRequestId@ can be any unique string (for
+-- example, a date\/time stamp).
 --
 -- 'tags', 'createHttpNamespace_tags' - The tags to add to the namespace. Each tag consists of a key and an
--- optional value, both of which you define. Tag keys can have a maximum
--- character length of 128 characters, and tag values can have a maximum
--- length of 256 characters.
+-- optional value that you define. Tags keys can be up to 128 characters in
+-- length, and tag values can be up to 256 characters in length.
 --
 -- 'description', 'createHttpNamespace_description' - A description for the namespace.
 --
@@ -110,16 +108,15 @@ newCreateHttpNamespace pName_ =
     }
 
 -- | A unique string that identifies the request and that allows failed
--- @CreateHttpNamespace@ requests to be retried without the risk of
--- executing the operation twice. @CreatorRequestId@ can be any unique
--- string, for example, a date\/time stamp.
+-- @CreateHttpNamespace@ requests to be retried without the risk of running
+-- the operation twice. @CreatorRequestId@ can be any unique string (for
+-- example, a date\/time stamp).
 createHttpNamespace_creatorRequestId :: Lens.Lens' CreateHttpNamespace (Prelude.Maybe Prelude.Text)
 createHttpNamespace_creatorRequestId = Lens.lens (\CreateHttpNamespace' {creatorRequestId} -> creatorRequestId) (\s@CreateHttpNamespace' {} a -> s {creatorRequestId = a} :: CreateHttpNamespace)
 
 -- | The tags to add to the namespace. Each tag consists of a key and an
--- optional value, both of which you define. Tag keys can have a maximum
--- character length of 128 characters, and tag values can have a maximum
--- length of 256 characters.
+-- optional value that you define. Tags keys can be up to 128 characters in
+-- length, and tag values can be up to 256 characters in length.
 createHttpNamespace_tags :: Lens.Lens' CreateHttpNamespace (Prelude.Maybe [Tag])
 createHttpNamespace_tags = Lens.lens (\CreateHttpNamespace' {tags} -> tags) (\s@CreateHttpNamespace' {} a -> s {tags = a} :: CreateHttpNamespace) Prelude.. Lens.mapping Lens._Coerce
 

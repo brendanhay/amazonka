@@ -32,8 +32,8 @@ module Network.AWS.Route53AutoNaming.DiscoverInstances
     -- * Request Lenses
     discoverInstances_maxResults,
     discoverInstances_optionalParameters,
-    discoverInstances_healthStatus,
     discoverInstances_queryParameters,
+    discoverInstances_healthStatus,
     discoverInstances_namespaceName,
     discoverInstances_serviceName,
 
@@ -56,24 +56,41 @@ import Network.AWS.Route53AutoNaming.Types
 
 -- | /See:/ 'newDiscoverInstances' smart constructor.
 data DiscoverInstances = DiscoverInstances'
-  { -- | The maximum number of instances that you want AWS Cloud Map to return in
-    -- the response to a @DiscoverInstances@ request. If you don\'t specify a
-    -- value for @MaxResults@, AWS Cloud Map returns up to 100 instances.
+  { -- | The maximum number of instances that you want Cloud Map to return in the
+    -- response to a @DiscoverInstances@ request. If you don\'t specify a value
+    -- for @MaxResults@, Cloud Map returns up to 100 instances.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Opportunistic filters to scope the results based on custom attributes.
     -- If there are instances that match both the filters specified in both the
-    -- @QueryParameters@ parameter and this parameter, they are returned.
-    -- Otherwise, these filters are ignored and only instances that match the
-    -- filters specified in the @QueryParameters@ parameter are returned.
+    -- @QueryParameters@ parameter and this parameter, all of these instances
+    -- are returned. Otherwise, the filters are ignored, and only instances
+    -- that match the filters that are specified in the @QueryParameters@
+    -- parameter are returned.
     optionalParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The health status of the instances that you want to discover.
-    healthStatus :: Prelude.Maybe HealthStatusFilter,
-    -- | Filters to scope the results based on custom attributes for the
-    -- instance. For example, @{version=v1, az=1a}@. Only instances that match
-    -- all the specified key-value pairs will be returned.
+    -- | Filters to scope the results based on custom attributes for the instance
+    -- (for example, @{version=v1, az=1a}@). Only instances that match all the
+    -- specified key-value pairs are returned.
     queryParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The name of the namespace that you specified when you registered the
-    -- instance.
+    -- | The health status of the instances that you want to discover. This
+    -- parameter is ignored for services that don\'t have a health check
+    -- configured, and all instances are returned.
+    --
+    -- [HEALTHY]
+    --     Returns healthy instances.
+    --
+    -- [UNHEALTHY]
+    --     Returns unhealthy instances.
+    --
+    -- [ALL]
+    --     Returns all instances.
+    --
+    -- [HEALTHY_OR_ELSE_ALL]
+    --     Returns healthy instances, unless none are reporting a healthy
+    --     state. In that case, return all instances. This is also called
+    --     failing open.
+    healthStatus :: Prelude.Maybe HealthStatusFilter,
+    -- | The @HttpName@ name of the namespace. It\'s found in the
+    -- @HttpProperties@ member of the @Properties@ member of the namespace.
     namespaceName :: Prelude.Text,
     -- | The name of the service that you specified when you registered the
     -- instance.
@@ -89,24 +106,41 @@ data DiscoverInstances = DiscoverInstances'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxResults', 'discoverInstances_maxResults' - The maximum number of instances that you want AWS Cloud Map to return in
--- the response to a @DiscoverInstances@ request. If you don\'t specify a
--- value for @MaxResults@, AWS Cloud Map returns up to 100 instances.
+-- 'maxResults', 'discoverInstances_maxResults' - The maximum number of instances that you want Cloud Map to return in the
+-- response to a @DiscoverInstances@ request. If you don\'t specify a value
+-- for @MaxResults@, Cloud Map returns up to 100 instances.
 --
 -- 'optionalParameters', 'discoverInstances_optionalParameters' - Opportunistic filters to scope the results based on custom attributes.
 -- If there are instances that match both the filters specified in both the
--- @QueryParameters@ parameter and this parameter, they are returned.
--- Otherwise, these filters are ignored and only instances that match the
--- filters specified in the @QueryParameters@ parameter are returned.
+-- @QueryParameters@ parameter and this parameter, all of these instances
+-- are returned. Otherwise, the filters are ignored, and only instances
+-- that match the filters that are specified in the @QueryParameters@
+-- parameter are returned.
 --
--- 'healthStatus', 'discoverInstances_healthStatus' - The health status of the instances that you want to discover.
+-- 'queryParameters', 'discoverInstances_queryParameters' - Filters to scope the results based on custom attributes for the instance
+-- (for example, @{version=v1, az=1a}@). Only instances that match all the
+-- specified key-value pairs are returned.
 --
--- 'queryParameters', 'discoverInstances_queryParameters' - Filters to scope the results based on custom attributes for the
--- instance. For example, @{version=v1, az=1a}@. Only instances that match
--- all the specified key-value pairs will be returned.
+-- 'healthStatus', 'discoverInstances_healthStatus' - The health status of the instances that you want to discover. This
+-- parameter is ignored for services that don\'t have a health check
+-- configured, and all instances are returned.
 --
--- 'namespaceName', 'discoverInstances_namespaceName' - The name of the namespace that you specified when you registered the
--- instance.
+-- [HEALTHY]
+--     Returns healthy instances.
+--
+-- [UNHEALTHY]
+--     Returns unhealthy instances.
+--
+-- [ALL]
+--     Returns all instances.
+--
+-- [HEALTHY_OR_ELSE_ALL]
+--     Returns healthy instances, unless none are reporting a healthy
+--     state. In that case, return all instances. This is also called
+--     failing open.
+--
+-- 'namespaceName', 'discoverInstances_namespaceName' - The @HttpName@ name of the namespace. It\'s found in the
+-- @HttpProperties@ member of the @Properties@ member of the namespace.
 --
 -- 'serviceName', 'discoverInstances_serviceName' - The name of the service that you specified when you registered the
 -- instance.
@@ -120,38 +154,55 @@ newDiscoverInstances pNamespaceName_ pServiceName_ =
   DiscoverInstances'
     { maxResults = Prelude.Nothing,
       optionalParameters = Prelude.Nothing,
-      healthStatus = Prelude.Nothing,
       queryParameters = Prelude.Nothing,
+      healthStatus = Prelude.Nothing,
       namespaceName = pNamespaceName_,
       serviceName = pServiceName_
     }
 
--- | The maximum number of instances that you want AWS Cloud Map to return in
--- the response to a @DiscoverInstances@ request. If you don\'t specify a
--- value for @MaxResults@, AWS Cloud Map returns up to 100 instances.
+-- | The maximum number of instances that you want Cloud Map to return in the
+-- response to a @DiscoverInstances@ request. If you don\'t specify a value
+-- for @MaxResults@, Cloud Map returns up to 100 instances.
 discoverInstances_maxResults :: Lens.Lens' DiscoverInstances (Prelude.Maybe Prelude.Natural)
 discoverInstances_maxResults = Lens.lens (\DiscoverInstances' {maxResults} -> maxResults) (\s@DiscoverInstances' {} a -> s {maxResults = a} :: DiscoverInstances)
 
 -- | Opportunistic filters to scope the results based on custom attributes.
 -- If there are instances that match both the filters specified in both the
--- @QueryParameters@ parameter and this parameter, they are returned.
--- Otherwise, these filters are ignored and only instances that match the
--- filters specified in the @QueryParameters@ parameter are returned.
+-- @QueryParameters@ parameter and this parameter, all of these instances
+-- are returned. Otherwise, the filters are ignored, and only instances
+-- that match the filters that are specified in the @QueryParameters@
+-- parameter are returned.
 discoverInstances_optionalParameters :: Lens.Lens' DiscoverInstances (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 discoverInstances_optionalParameters = Lens.lens (\DiscoverInstances' {optionalParameters} -> optionalParameters) (\s@DiscoverInstances' {} a -> s {optionalParameters = a} :: DiscoverInstances) Prelude.. Lens.mapping Lens._Coerce
 
--- | The health status of the instances that you want to discover.
-discoverInstances_healthStatus :: Lens.Lens' DiscoverInstances (Prelude.Maybe HealthStatusFilter)
-discoverInstances_healthStatus = Lens.lens (\DiscoverInstances' {healthStatus} -> healthStatus) (\s@DiscoverInstances' {} a -> s {healthStatus = a} :: DiscoverInstances)
-
--- | Filters to scope the results based on custom attributes for the
--- instance. For example, @{version=v1, az=1a}@. Only instances that match
--- all the specified key-value pairs will be returned.
+-- | Filters to scope the results based on custom attributes for the instance
+-- (for example, @{version=v1, az=1a}@). Only instances that match all the
+-- specified key-value pairs are returned.
 discoverInstances_queryParameters :: Lens.Lens' DiscoverInstances (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 discoverInstances_queryParameters = Lens.lens (\DiscoverInstances' {queryParameters} -> queryParameters) (\s@DiscoverInstances' {} a -> s {queryParameters = a} :: DiscoverInstances) Prelude.. Lens.mapping Lens._Coerce
 
--- | The name of the namespace that you specified when you registered the
--- instance.
+-- | The health status of the instances that you want to discover. This
+-- parameter is ignored for services that don\'t have a health check
+-- configured, and all instances are returned.
+--
+-- [HEALTHY]
+--     Returns healthy instances.
+--
+-- [UNHEALTHY]
+--     Returns unhealthy instances.
+--
+-- [ALL]
+--     Returns all instances.
+--
+-- [HEALTHY_OR_ELSE_ALL]
+--     Returns healthy instances, unless none are reporting a healthy
+--     state. In that case, return all instances. This is also called
+--     failing open.
+discoverInstances_healthStatus :: Lens.Lens' DiscoverInstances (Prelude.Maybe HealthStatusFilter)
+discoverInstances_healthStatus = Lens.lens (\DiscoverInstances' {healthStatus} -> healthStatus) (\s@DiscoverInstances' {} a -> s {healthStatus = a} :: DiscoverInstances)
+
+-- | The @HttpName@ name of the namespace. It\'s found in the
+-- @HttpProperties@ member of the @Properties@ member of the namespace.
 discoverInstances_namespaceName :: Lens.Lens' DiscoverInstances Prelude.Text
 discoverInstances_namespaceName = Lens.lens (\DiscoverInstances' {namespaceName} -> namespaceName) (\s@DiscoverInstances' {} a -> s {namespaceName = a} :: DiscoverInstances)
 
@@ -199,9 +250,9 @@ instance Core.ToJSON DiscoverInstances where
           [ ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("OptionalParameters" Core..=)
               Prelude.<$> optionalParameters,
-            ("HealthStatus" Core..=) Prelude.<$> healthStatus,
             ("QueryParameters" Core..=)
               Prelude.<$> queryParameters,
+            ("HealthStatus" Core..=) Prelude.<$> healthStatus,
             Prelude.Just ("NamespaceName" Core..= namespaceName),
             Prelude.Just ("ServiceName" Core..= serviceName)
           ]

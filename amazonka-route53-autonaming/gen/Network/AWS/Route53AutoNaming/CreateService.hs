@@ -20,11 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a service, which defines the configuration for the following
--- entities:
+-- Creates a service. This action defines the configuration for the
+-- following entities:
 --
 -- -   For public and private DNS namespaces, one of the following
---     combinations of DNS records in Amazon Route 53:
+--     combinations of DNS records in Amazon Route 53:
 --
 --     -   @A@
 --
@@ -40,13 +40,13 @@
 --
 -- After you create the service, you can submit a
 -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_RegisterInstance.html RegisterInstance>
--- request, and AWS Cloud Map uses the values in the configuration to
--- create the specified entities.
+-- request, and Cloud Map uses the values in the configuration to create
+-- the specified entities.
 --
 -- For the current quota on the number of instances that you can register
 -- using the same namespace and using the same service, see
--- <https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html AWS Cloud Map Limits>
--- in the /AWS Cloud Map Developer Guide/.
+-- <https://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html Cloud Map quotas>
+-- in the /Cloud Map Developer Guide/.
 module Network.AWS.Route53AutoNaming.CreateService
   ( -- * Creating a Request
     CreateService (..),
@@ -59,8 +59,8 @@ module Network.AWS.Route53AutoNaming.CreateService
     createService_tags,
     createService_description,
     createService_healthCheckCustomConfig,
-    createService_type,
     createService_healthCheckConfig,
+    createService_type,
     createService_name,
 
     -- * Destructuring the Response
@@ -82,21 +82,21 @@ import Network.AWS.Route53AutoNaming.Types
 
 -- | /See:/ 'newCreateService' smart constructor.
 data CreateService = CreateService'
-  { -- | The ID of the namespace that you want to use to create the service.
+  { -- | The ID of the namespace that you want to use to create the service. The
+    -- namespace ID must be specified, but it can be specified either here or
+    -- in the @DnsConfig@ object.
     namespaceId :: Prelude.Maybe Prelude.Text,
-    -- | A complex type that contains information about the Amazon Route 53
-    -- records that you want AWS Cloud Map to create when you register an
-    -- instance.
+    -- | A complex type that contains information about the Amazon Route 53
+    -- records that you want Cloud Map to create when you register an instance.
     dnsConfig :: Prelude.Maybe DnsConfig,
     -- | A unique string that identifies the request and that allows failed
-    -- @CreateService@ requests to be retried without the risk of executing the
-    -- operation twice. @CreatorRequestId@ can be any unique string, for
-    -- example, a date\/time stamp.
+    -- @CreateService@ requests to be retried without the risk of running the
+    -- operation twice. @CreatorRequestId@ can be any unique string (for
+    -- example, a date\/timestamp).
     creatorRequestId :: Prelude.Maybe Prelude.Text,
     -- | The tags to add to the service. Each tag consists of a key and an
-    -- optional value, both of which you define. Tag keys can have a maximum
-    -- character length of 128 characters, and tag values can have a maximum
-    -- length of 256 characters.
+    -- optional value that you define. Tags keys can be up to 128 characters in
+    -- length, and tag values can be up to 256 characters in length.
     tags :: Prelude.Maybe [Tag],
     -- | A description for the service.
     description :: Prelude.Maybe Prelude.Text,
@@ -109,43 +109,44 @@ data CreateService = CreateService'
     -- You can\'t add, update, or delete a @HealthCheckCustomConfig@
     -- configuration from an existing service.
     healthCheckCustomConfig :: Prelude.Maybe HealthCheckCustomConfig,
-    -- | If present, specifies that the service instances are only discoverable
-    -- using the @DiscoverInstances@ API operation. No DNS records will be
-    -- registered for the service instances. The only valid value is @HTTP@.
-    type' :: Prelude.Maybe ServiceTypeOption,
     -- | /Public DNS and HTTP namespaces only./ A complex type that contains
-    -- settings for an optional Route 53 health check. If you specify settings
-    -- for a health check, AWS Cloud Map associates the health check with all
-    -- the Route 53 DNS records that you specify in @DnsConfig@.
+    -- settings for an optional Route 53 health check. If you specify settings
+    -- for a health check, Cloud Map associates the health check with all the
+    -- Route 53 DNS records that you specify in @DnsConfig@.
     --
     -- If you specify a health check configuration, you can specify either
     -- @HealthCheckCustomConfig@ or @HealthCheckConfig@ but not both.
     --
     -- For information about the charges for health checks, see
-    -- <http://aws.amazon.com/cloud-map/pricing/ AWS Cloud Map Pricing>.
+    -- <http://aws.amazon.com/cloud-map/pricing/ Cloud Map Pricing>.
     healthCheckConfig :: Prelude.Maybe HealthCheckConfig,
+    -- | If present, specifies that the service instances are only discoverable
+    -- using the @DiscoverInstances@ API operation. No DNS records is
+    -- registered for the service instances. The only valid value is @HTTP@.
+    type' :: Prelude.Maybe ServiceTypeOption,
     -- | The name that you want to assign to the service.
     --
-    -- If you want AWS Cloud Map to create an @SRV@ record when you register an
-    -- instance, and if you\'re using a system that requires a specific @SRV@
+    -- If you want Cloud Map to create an @SRV@ record when you register an
+    -- instance and you\'re using a system that requires a specific @SRV@
     -- format, such as <http://www.haproxy.org/ HAProxy>, specify the following
     -- for @Name@:
     --
-    -- -   Start the name with an underscore (_), such as @_exampleservice@
+    -- -   Start the name with an underscore (_), such as @_exampleservice@.
     --
-    -- -   End the name with /._protocol/, such as @._tcp@
+    -- -   End the name with /._protocol/, such as @._tcp@.
     --
-    -- When you register an instance, AWS Cloud Map creates an @SRV@ record and
+    -- When you register an instance, Cloud Map creates an @SRV@ record and
     -- assigns a name to the record by concatenating the service name and the
-    -- namespace name, for example:
+    -- namespace name (for example,
     --
-    -- @_exampleservice._tcp.example.com@
+    -- @_exampleservice._tcp.example.com@).
     --
-    -- For a single DNS namespace, you cannot create two services with names
-    -- that differ only by case (such as EXAMPLE and example). Otherwise, these
-    -- services will have the same DNS name. However, you can create multiple
-    -- HTTP services with names that differ only by case because HTTP services
-    -- are case sensitive.
+    -- For services that are accessible by DNS queries, you can\'t create
+    -- multiple services with names that differ only by case (such as EXAMPLE
+    -- and example). Otherwise, these services have the same DNS name and
+    -- can\'t be distinguished. However, if you use a namespace that\'s only
+    -- accessible by API calls, then you can create services that with names
+    -- that differ only by case.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -158,21 +159,21 @@ data CreateService = CreateService'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'namespaceId', 'createService_namespaceId' - The ID of the namespace that you want to use to create the service.
+-- 'namespaceId', 'createService_namespaceId' - The ID of the namespace that you want to use to create the service. The
+-- namespace ID must be specified, but it can be specified either here or
+-- in the @DnsConfig@ object.
 --
--- 'dnsConfig', 'createService_dnsConfig' - A complex type that contains information about the Amazon Route 53
--- records that you want AWS Cloud Map to create when you register an
--- instance.
+-- 'dnsConfig', 'createService_dnsConfig' - A complex type that contains information about the Amazon Route 53
+-- records that you want Cloud Map to create when you register an instance.
 --
 -- 'creatorRequestId', 'createService_creatorRequestId' - A unique string that identifies the request and that allows failed
--- @CreateService@ requests to be retried without the risk of executing the
--- operation twice. @CreatorRequestId@ can be any unique string, for
--- example, a date\/time stamp.
+-- @CreateService@ requests to be retried without the risk of running the
+-- operation twice. @CreatorRequestId@ can be any unique string (for
+-- example, a date\/timestamp).
 --
 -- 'tags', 'createService_tags' - The tags to add to the service. Each tag consists of a key and an
--- optional value, both of which you define. Tag keys can have a maximum
--- character length of 128 characters, and tag values can have a maximum
--- length of 256 characters.
+-- optional value that you define. Tags keys can be up to 128 characters in
+-- length, and tag values can be up to 256 characters in length.
 --
 -- 'description', 'createService_description' - A description for the service.
 --
@@ -185,43 +186,44 @@ data CreateService = CreateService'
 -- You can\'t add, update, or delete a @HealthCheckCustomConfig@
 -- configuration from an existing service.
 --
--- 'type'', 'createService_type' - If present, specifies that the service instances are only discoverable
--- using the @DiscoverInstances@ API operation. No DNS records will be
--- registered for the service instances. The only valid value is @HTTP@.
---
 -- 'healthCheckConfig', 'createService_healthCheckConfig' - /Public DNS and HTTP namespaces only./ A complex type that contains
--- settings for an optional Route 53 health check. If you specify settings
--- for a health check, AWS Cloud Map associates the health check with all
--- the Route 53 DNS records that you specify in @DnsConfig@.
+-- settings for an optional Route 53 health check. If you specify settings
+-- for a health check, Cloud Map associates the health check with all the
+-- Route 53 DNS records that you specify in @DnsConfig@.
 --
 -- If you specify a health check configuration, you can specify either
 -- @HealthCheckCustomConfig@ or @HealthCheckConfig@ but not both.
 --
 -- For information about the charges for health checks, see
--- <http://aws.amazon.com/cloud-map/pricing/ AWS Cloud Map Pricing>.
+-- <http://aws.amazon.com/cloud-map/pricing/ Cloud Map Pricing>.
+--
+-- 'type'', 'createService_type' - If present, specifies that the service instances are only discoverable
+-- using the @DiscoverInstances@ API operation. No DNS records is
+-- registered for the service instances. The only valid value is @HTTP@.
 --
 -- 'name', 'createService_name' - The name that you want to assign to the service.
 --
--- If you want AWS Cloud Map to create an @SRV@ record when you register an
--- instance, and if you\'re using a system that requires a specific @SRV@
+-- If you want Cloud Map to create an @SRV@ record when you register an
+-- instance and you\'re using a system that requires a specific @SRV@
 -- format, such as <http://www.haproxy.org/ HAProxy>, specify the following
 -- for @Name@:
 --
--- -   Start the name with an underscore (_), such as @_exampleservice@
+-- -   Start the name with an underscore (_), such as @_exampleservice@.
 --
--- -   End the name with /._protocol/, such as @._tcp@
+-- -   End the name with /._protocol/, such as @._tcp@.
 --
--- When you register an instance, AWS Cloud Map creates an @SRV@ record and
+-- When you register an instance, Cloud Map creates an @SRV@ record and
 -- assigns a name to the record by concatenating the service name and the
--- namespace name, for example:
+-- namespace name (for example,
 --
--- @_exampleservice._tcp.example.com@
+-- @_exampleservice._tcp.example.com@).
 --
--- For a single DNS namespace, you cannot create two services with names
--- that differ only by case (such as EXAMPLE and example). Otherwise, these
--- services will have the same DNS name. However, you can create multiple
--- HTTP services with names that differ only by case because HTTP services
--- are case sensitive.
+-- For services that are accessible by DNS queries, you can\'t create
+-- multiple services with names that differ only by case (such as EXAMPLE
+-- and example). Otherwise, these services have the same DNS name and
+-- can\'t be distinguished. However, if you use a namespace that\'s only
+-- accessible by API calls, then you can create services that with names
+-- that differ only by case.
 newCreateService ::
   -- | 'name'
   Prelude.Text ->
@@ -234,32 +236,32 @@ newCreateService pName_ =
       tags = Prelude.Nothing,
       description = Prelude.Nothing,
       healthCheckCustomConfig = Prelude.Nothing,
-      type' = Prelude.Nothing,
       healthCheckConfig = Prelude.Nothing,
+      type' = Prelude.Nothing,
       name = pName_
     }
 
--- | The ID of the namespace that you want to use to create the service.
+-- | The ID of the namespace that you want to use to create the service. The
+-- namespace ID must be specified, but it can be specified either here or
+-- in the @DnsConfig@ object.
 createService_namespaceId :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Text)
 createService_namespaceId = Lens.lens (\CreateService' {namespaceId} -> namespaceId) (\s@CreateService' {} a -> s {namespaceId = a} :: CreateService)
 
--- | A complex type that contains information about the Amazon Route 53
--- records that you want AWS Cloud Map to create when you register an
--- instance.
+-- | A complex type that contains information about the Amazon Route 53
+-- records that you want Cloud Map to create when you register an instance.
 createService_dnsConfig :: Lens.Lens' CreateService (Prelude.Maybe DnsConfig)
 createService_dnsConfig = Lens.lens (\CreateService' {dnsConfig} -> dnsConfig) (\s@CreateService' {} a -> s {dnsConfig = a} :: CreateService)
 
 -- | A unique string that identifies the request and that allows failed
--- @CreateService@ requests to be retried without the risk of executing the
--- operation twice. @CreatorRequestId@ can be any unique string, for
--- example, a date\/time stamp.
+-- @CreateService@ requests to be retried without the risk of running the
+-- operation twice. @CreatorRequestId@ can be any unique string (for
+-- example, a date\/timestamp).
 createService_creatorRequestId :: Lens.Lens' CreateService (Prelude.Maybe Prelude.Text)
 createService_creatorRequestId = Lens.lens (\CreateService' {creatorRequestId} -> creatorRequestId) (\s@CreateService' {} a -> s {creatorRequestId = a} :: CreateService)
 
 -- | The tags to add to the service. Each tag consists of a key and an
--- optional value, both of which you define. Tag keys can have a maximum
--- character length of 128 characters, and tag values can have a maximum
--- length of 256 characters.
+-- optional value that you define. Tags keys can be up to 128 characters in
+-- length, and tag values can be up to 256 characters in length.
 createService_tags :: Lens.Lens' CreateService (Prelude.Maybe [Tag])
 createService_tags = Lens.lens (\CreateService' {tags} -> tags) (\s@CreateService' {} a -> s {tags = a} :: CreateService) Prelude.. Lens.mapping Lens._Coerce
 
@@ -278,47 +280,48 @@ createService_description = Lens.lens (\CreateService' {description} -> descript
 createService_healthCheckCustomConfig :: Lens.Lens' CreateService (Prelude.Maybe HealthCheckCustomConfig)
 createService_healthCheckCustomConfig = Lens.lens (\CreateService' {healthCheckCustomConfig} -> healthCheckCustomConfig) (\s@CreateService' {} a -> s {healthCheckCustomConfig = a} :: CreateService)
 
--- | If present, specifies that the service instances are only discoverable
--- using the @DiscoverInstances@ API operation. No DNS records will be
--- registered for the service instances. The only valid value is @HTTP@.
-createService_type :: Lens.Lens' CreateService (Prelude.Maybe ServiceTypeOption)
-createService_type = Lens.lens (\CreateService' {type'} -> type') (\s@CreateService' {} a -> s {type' = a} :: CreateService)
-
 -- | /Public DNS and HTTP namespaces only./ A complex type that contains
--- settings for an optional Route 53 health check. If you specify settings
--- for a health check, AWS Cloud Map associates the health check with all
--- the Route 53 DNS records that you specify in @DnsConfig@.
+-- settings for an optional Route 53 health check. If you specify settings
+-- for a health check, Cloud Map associates the health check with all the
+-- Route 53 DNS records that you specify in @DnsConfig@.
 --
 -- If you specify a health check configuration, you can specify either
 -- @HealthCheckCustomConfig@ or @HealthCheckConfig@ but not both.
 --
 -- For information about the charges for health checks, see
--- <http://aws.amazon.com/cloud-map/pricing/ AWS Cloud Map Pricing>.
+-- <http://aws.amazon.com/cloud-map/pricing/ Cloud Map Pricing>.
 createService_healthCheckConfig :: Lens.Lens' CreateService (Prelude.Maybe HealthCheckConfig)
 createService_healthCheckConfig = Lens.lens (\CreateService' {healthCheckConfig} -> healthCheckConfig) (\s@CreateService' {} a -> s {healthCheckConfig = a} :: CreateService)
 
+-- | If present, specifies that the service instances are only discoverable
+-- using the @DiscoverInstances@ API operation. No DNS records is
+-- registered for the service instances. The only valid value is @HTTP@.
+createService_type :: Lens.Lens' CreateService (Prelude.Maybe ServiceTypeOption)
+createService_type = Lens.lens (\CreateService' {type'} -> type') (\s@CreateService' {} a -> s {type' = a} :: CreateService)
+
 -- | The name that you want to assign to the service.
 --
--- If you want AWS Cloud Map to create an @SRV@ record when you register an
--- instance, and if you\'re using a system that requires a specific @SRV@
+-- If you want Cloud Map to create an @SRV@ record when you register an
+-- instance and you\'re using a system that requires a specific @SRV@
 -- format, such as <http://www.haproxy.org/ HAProxy>, specify the following
 -- for @Name@:
 --
--- -   Start the name with an underscore (_), such as @_exampleservice@
+-- -   Start the name with an underscore (_), such as @_exampleservice@.
 --
--- -   End the name with /._protocol/, such as @._tcp@
+-- -   End the name with /._protocol/, such as @._tcp@.
 --
--- When you register an instance, AWS Cloud Map creates an @SRV@ record and
+-- When you register an instance, Cloud Map creates an @SRV@ record and
 -- assigns a name to the record by concatenating the service name and the
--- namespace name, for example:
+-- namespace name (for example,
 --
--- @_exampleservice._tcp.example.com@
+-- @_exampleservice._tcp.example.com@).
 --
--- For a single DNS namespace, you cannot create two services with names
--- that differ only by case (such as EXAMPLE and example). Otherwise, these
--- services will have the same DNS name. However, you can create multiple
--- HTTP services with names that differ only by case because HTTP services
--- are case sensitive.
+-- For services that are accessible by DNS queries, you can\'t create
+-- multiple services with names that differ only by case (such as EXAMPLE
+-- and example). Otherwise, these services have the same DNS name and
+-- can\'t be distinguished. However, if you use a namespace that\'s only
+-- accessible by API calls, then you can create services that with names
+-- that differ only by case.
 createService_name :: Lens.Lens' CreateService Prelude.Text
 createService_name = Lens.lens (\CreateService' {name} -> name) (\s@CreateService' {} a -> s {name = a} :: CreateService)
 
@@ -366,9 +369,9 @@ instance Core.ToJSON CreateService where
             ("Description" Core..=) Prelude.<$> description,
             ("HealthCheckCustomConfig" Core..=)
               Prelude.<$> healthCheckCustomConfig,
-            ("Type" Core..=) Prelude.<$> type',
             ("HealthCheckConfig" Core..=)
               Prelude.<$> healthCheckConfig,
+            ("Type" Core..=) Prelude.<$> type',
             Prelude.Just ("Name" Core..= name)
           ]
       )

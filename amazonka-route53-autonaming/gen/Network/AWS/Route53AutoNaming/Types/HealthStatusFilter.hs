@@ -22,6 +22,7 @@ module Network.AWS.Route53AutoNaming.Types.HealthStatusFilter
       ( ..,
         HealthStatusFilter_ALL,
         HealthStatusFilter_HEALTHY,
+        HealthStatusFilter_HEALTHY_OR_ELSE_ALL,
         HealthStatusFilter_UNHEALTHY
       ),
   )
@@ -64,12 +65,16 @@ pattern HealthStatusFilter_ALL = HealthStatusFilter' "ALL"
 pattern HealthStatusFilter_HEALTHY :: HealthStatusFilter
 pattern HealthStatusFilter_HEALTHY = HealthStatusFilter' "HEALTHY"
 
+pattern HealthStatusFilter_HEALTHY_OR_ELSE_ALL :: HealthStatusFilter
+pattern HealthStatusFilter_HEALTHY_OR_ELSE_ALL = HealthStatusFilter' "HEALTHY_OR_ELSE_ALL"
+
 pattern HealthStatusFilter_UNHEALTHY :: HealthStatusFilter
 pattern HealthStatusFilter_UNHEALTHY = HealthStatusFilter' "UNHEALTHY"
 
 {-# COMPLETE
   HealthStatusFilter_ALL,
   HealthStatusFilter_HEALTHY,
+  HealthStatusFilter_HEALTHY_OR_ELSE_ALL,
   HealthStatusFilter_UNHEALTHY,
   HealthStatusFilter'
   #-}

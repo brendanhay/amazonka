@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists summary information about the namespaces that were created by the
--- current AWS account.
+-- current account.
 --
 -- This operation returns paginated results.
 module Network.AWS.Route53AutoNaming.ListNamespaces
@@ -60,15 +60,15 @@ data ListNamespaces = ListNamespaces'
     -- request to get the next group of results. Specify the value of
     -- @NextToken@ from the previous response in the next request.
     --
-    -- AWS Cloud Map gets @MaxResults@ namespaces and then filters them based
-    -- on the specified criteria. It\'s possible that no namespaces in the
-    -- first @MaxResults@ namespaces matched the specified criteria but that
+    -- Cloud Map gets @MaxResults@ namespaces and then filters them based on
+    -- the specified criteria. It\'s possible that no namespaces in the first
+    -- @MaxResults@ namespaces matched the specified criteria but that
     -- subsequent groups of @MaxResults@ namespaces do contain namespaces that
     -- match the criteria.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of namespaces that you want AWS Cloud Map to return
-    -- in the response to a @ListNamespaces@ request. If you don\'t specify a
-    -- value for @MaxResults@, AWS Cloud Map returns up to 100 namespaces.
+    -- | The maximum number of namespaces that you want Cloud Map to return in
+    -- the response to a @ListNamespaces@ request. If you don\'t specify a
+    -- value for @MaxResults@, Cloud Map returns up to 100 namespaces.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A complex type that contains specifications for the namespaces that you
     -- want to list.
@@ -93,15 +93,15 @@ data ListNamespaces = ListNamespaces'
 -- request to get the next group of results. Specify the value of
 -- @NextToken@ from the previous response in the next request.
 --
--- AWS Cloud Map gets @MaxResults@ namespaces and then filters them based
--- on the specified criteria. It\'s possible that no namespaces in the
--- first @MaxResults@ namespaces matched the specified criteria but that
+-- Cloud Map gets @MaxResults@ namespaces and then filters them based on
+-- the specified criteria. It\'s possible that no namespaces in the first
+-- @MaxResults@ namespaces matched the specified criteria but that
 -- subsequent groups of @MaxResults@ namespaces do contain namespaces that
 -- match the criteria.
 --
--- 'maxResults', 'listNamespaces_maxResults' - The maximum number of namespaces that you want AWS Cloud Map to return
--- in the response to a @ListNamespaces@ request. If you don\'t specify a
--- value for @MaxResults@, AWS Cloud Map returns up to 100 namespaces.
+-- 'maxResults', 'listNamespaces_maxResults' - The maximum number of namespaces that you want Cloud Map to return in
+-- the response to a @ListNamespaces@ request. If you don\'t specify a
+-- value for @MaxResults@, Cloud Map returns up to 100 namespaces.
 --
 -- 'filters', 'listNamespaces_filters' - A complex type that contains specifications for the namespaces that you
 -- want to list.
@@ -123,17 +123,17 @@ newListNamespaces =
 -- request to get the next group of results. Specify the value of
 -- @NextToken@ from the previous response in the next request.
 --
--- AWS Cloud Map gets @MaxResults@ namespaces and then filters them based
--- on the specified criteria. It\'s possible that no namespaces in the
--- first @MaxResults@ namespaces matched the specified criteria but that
+-- Cloud Map gets @MaxResults@ namespaces and then filters them based on
+-- the specified criteria. It\'s possible that no namespaces in the first
+-- @MaxResults@ namespaces matched the specified criteria but that
 -- subsequent groups of @MaxResults@ namespaces do contain namespaces that
 -- match the criteria.
 listNamespaces_nextToken :: Lens.Lens' ListNamespaces (Prelude.Maybe Prelude.Text)
 listNamespaces_nextToken = Lens.lens (\ListNamespaces' {nextToken} -> nextToken) (\s@ListNamespaces' {} a -> s {nextToken = a} :: ListNamespaces)
 
--- | The maximum number of namespaces that you want AWS Cloud Map to return
--- in the response to a @ListNamespaces@ request. If you don\'t specify a
--- value for @MaxResults@, AWS Cloud Map returns up to 100 namespaces.
+-- | The maximum number of namespaces that you want Cloud Map to return in
+-- the response to a @ListNamespaces@ request. If you don\'t specify a
+-- value for @MaxResults@, Cloud Map returns up to 100 namespaces.
 listNamespaces_maxResults :: Lens.Lens' ListNamespaces (Prelude.Maybe Prelude.Natural)
 listNamespaces_maxResults = Lens.lens (\ListNamespaces' {maxResults} -> maxResults) (\s@ListNamespaces' {} a -> s {maxResults = a} :: ListNamespaces)
 
@@ -221,9 +221,9 @@ data ListNamespacesResponse = ListNamespacesResponse'
     -- request to get the next group of results. Specify the value of
     -- @NextToken@ from the previous response in the next request.
     --
-    -- AWS Cloud Map gets @MaxResults@ namespaces and then filters them based
-    -- on the specified criteria. It\'s possible that no namespaces in the
-    -- first @MaxResults@ namespaces matched the specified criteria but that
+    -- Cloud Map gets @MaxResults@ namespaces and then filters them based on
+    -- the specified criteria. It\'s possible that no namespaces in the first
+    -- @MaxResults@ namespaces matched the specified criteria but that
     -- subsequent groups of @MaxResults@ namespaces do contain namespaces that
     -- match the criteria.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -247,9 +247,9 @@ data ListNamespacesResponse = ListNamespacesResponse'
 -- request to get the next group of results. Specify the value of
 -- @NextToken@ from the previous response in the next request.
 --
--- AWS Cloud Map gets @MaxResults@ namespaces and then filters them based
--- on the specified criteria. It\'s possible that no namespaces in the
--- first @MaxResults@ namespaces matched the specified criteria but that
+-- Cloud Map gets @MaxResults@ namespaces and then filters them based on
+-- the specified criteria. It\'s possible that no namespaces in the first
+-- @MaxResults@ namespaces matched the specified criteria but that
 -- subsequent groups of @MaxResults@ namespaces do contain namespaces that
 -- match the criteria.
 --
@@ -273,9 +273,9 @@ newListNamespacesResponse pHttpStatus_ =
 -- request to get the next group of results. Specify the value of
 -- @NextToken@ from the previous response in the next request.
 --
--- AWS Cloud Map gets @MaxResults@ namespaces and then filters them based
--- on the specified criteria. It\'s possible that no namespaces in the
--- first @MaxResults@ namespaces matched the specified criteria but that
+-- Cloud Map gets @MaxResults@ namespaces and then filters them based on
+-- the specified criteria. It\'s possible that no namespaces in the first
+-- @MaxResults@ namespaces matched the specified criteria but that
 -- subsequent groups of @MaxResults@ namespaces do contain namespaces that
 -- match the criteria.
 listNamespacesResponse_nextToken :: Lens.Lens' ListNamespacesResponse (Prelude.Maybe Prelude.Text)

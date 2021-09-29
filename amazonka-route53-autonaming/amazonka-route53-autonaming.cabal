@@ -80,6 +80,7 @@ library
     Network.AWS.Route53AutoNaming.Types.HealthStatus
     Network.AWS.Route53AutoNaming.Types.HealthStatusFilter
     Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary
+    Network.AWS.Route53AutoNaming.Types.HttpNamespaceChange
     Network.AWS.Route53AutoNaming.Types.HttpProperties
     Network.AWS.Route53AutoNaming.Types.Instance
     Network.AWS.Route53AutoNaming.Types.InstanceSummary
@@ -96,6 +97,16 @@ library
     Network.AWS.Route53AutoNaming.Types.OperationSummary
     Network.AWS.Route53AutoNaming.Types.OperationTargetType
     Network.AWS.Route53AutoNaming.Types.OperationType
+    Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespaceChange
+    Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespaceProperties
+    Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange
+    Network.AWS.Route53AutoNaming.Types.PrivateDnsPropertiesMutable
+    Network.AWS.Route53AutoNaming.Types.PrivateDnsPropertiesMutableChange
+    Network.AWS.Route53AutoNaming.Types.PublicDnsNamespaceChange
+    Network.AWS.Route53AutoNaming.Types.PublicDnsNamespaceProperties
+    Network.AWS.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange
+    Network.AWS.Route53AutoNaming.Types.PublicDnsPropertiesMutable
+    Network.AWS.Route53AutoNaming.Types.PublicDnsPropertiesMutableChange
     Network.AWS.Route53AutoNaming.Types.RecordType
     Network.AWS.Route53AutoNaming.Types.RoutingPolicy
     Network.AWS.Route53AutoNaming.Types.ServiceChange
@@ -105,9 +116,14 @@ library
     Network.AWS.Route53AutoNaming.Types.ServiceSummary
     Network.AWS.Route53AutoNaming.Types.ServiceType
     Network.AWS.Route53AutoNaming.Types.ServiceTypeOption
+    Network.AWS.Route53AutoNaming.Types.SOA
+    Network.AWS.Route53AutoNaming.Types.SOAChange
     Network.AWS.Route53AutoNaming.Types.Tag
     Network.AWS.Route53AutoNaming.UntagResource
+    Network.AWS.Route53AutoNaming.UpdateHttpNamespace
     Network.AWS.Route53AutoNaming.UpdateInstanceCustomHealthStatus
+    Network.AWS.Route53AutoNaming.UpdatePrivateDnsNamespace
+    Network.AWS.Route53AutoNaming.UpdatePublicDnsNamespace
     Network.AWS.Route53AutoNaming.UpdateService
     Network.AWS.Route53AutoNaming.Waiters
 

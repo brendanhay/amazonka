@@ -23,11 +23,11 @@ module Network.AWS.Route53AutoNaming.Types
     _ResourceInUse,
     _ServiceAlreadyExists,
     _RequestLimitExceeded,
-    _ResourceLimitExceeded,
     _CustomHealthNotFound,
+    _ResourceLimitExceeded,
+    _ResourceNotFoundException,
     _OperationNotFound,
     _ServiceNotFound,
-    _ResourceNotFoundException,
     _NamespaceNotFound,
     _NamespaceAlreadyExists,
     _InstanceNotFound,
@@ -96,6 +96,7 @@ module Network.AWS.Route53AutoNaming.Types
     DnsProperties (..),
     newDnsProperties,
     dnsProperties_hostedZoneId,
+    dnsProperties_soa,
 
     -- * DnsRecord
     DnsRecord (..),
@@ -118,11 +119,16 @@ module Network.AWS.Route53AutoNaming.Types
     -- * HttpInstanceSummary
     HttpInstanceSummary (..),
     newHttpInstanceSummary,
-    httpInstanceSummary_namespaceName,
     httpInstanceSummary_instanceId,
+    httpInstanceSummary_namespaceName,
     httpInstanceSummary_serviceName,
     httpInstanceSummary_attributes,
     httpInstanceSummary_healthStatus,
+
+    -- * HttpNamespaceChange
+    HttpNamespaceChange (..),
+    newHttpNamespaceChange,
+    httpNamespaceChange_description,
 
     -- * HttpProperties
     HttpProperties (..),
@@ -151,8 +157,8 @@ module Network.AWS.Route53AutoNaming.Types
     namespace_id,
     namespace_name,
     namespace_properties,
-    namespace_serviceCount,
     namespace_description,
+    namespace_serviceCount,
     namespace_type,
 
     -- * NamespaceFilter
@@ -176,8 +182,8 @@ module Network.AWS.Route53AutoNaming.Types
     namespaceSummary_id,
     namespaceSummary_name,
     namespaceSummary_properties,
-    namespaceSummary_serviceCount,
     namespaceSummary_description,
+    namespaceSummary_serviceCount,
     namespaceSummary_type,
 
     -- * Operation
@@ -205,6 +211,68 @@ module Network.AWS.Route53AutoNaming.Types
     operationSummary_status,
     operationSummary_id,
 
+    -- * PrivateDnsNamespaceChange
+    PrivateDnsNamespaceChange (..),
+    newPrivateDnsNamespaceChange,
+    privateDnsNamespaceChange_properties,
+    privateDnsNamespaceChange_description,
+
+    -- * PrivateDnsNamespaceProperties
+    PrivateDnsNamespaceProperties (..),
+    newPrivateDnsNamespaceProperties,
+    privateDnsNamespaceProperties_dnsProperties,
+
+    -- * PrivateDnsNamespacePropertiesChange
+    PrivateDnsNamespacePropertiesChange (..),
+    newPrivateDnsNamespacePropertiesChange,
+    privateDnsNamespacePropertiesChange_dnsProperties,
+
+    -- * PrivateDnsPropertiesMutable
+    PrivateDnsPropertiesMutable (..),
+    newPrivateDnsPropertiesMutable,
+    privateDnsPropertiesMutable_soa,
+
+    -- * PrivateDnsPropertiesMutableChange
+    PrivateDnsPropertiesMutableChange (..),
+    newPrivateDnsPropertiesMutableChange,
+    privateDnsPropertiesMutableChange_soa,
+
+    -- * PublicDnsNamespaceChange
+    PublicDnsNamespaceChange (..),
+    newPublicDnsNamespaceChange,
+    publicDnsNamespaceChange_properties,
+    publicDnsNamespaceChange_description,
+
+    -- * PublicDnsNamespaceProperties
+    PublicDnsNamespaceProperties (..),
+    newPublicDnsNamespaceProperties,
+    publicDnsNamespaceProperties_dnsProperties,
+
+    -- * PublicDnsNamespacePropertiesChange
+    PublicDnsNamespacePropertiesChange (..),
+    newPublicDnsNamespacePropertiesChange,
+    publicDnsNamespacePropertiesChange_dnsProperties,
+
+    -- * PublicDnsPropertiesMutable
+    PublicDnsPropertiesMutable (..),
+    newPublicDnsPropertiesMutable,
+    publicDnsPropertiesMutable_soa,
+
+    -- * PublicDnsPropertiesMutableChange
+    PublicDnsPropertiesMutableChange (..),
+    newPublicDnsPropertiesMutableChange,
+    publicDnsPropertiesMutableChange_soa,
+
+    -- * SOA
+    SOA (..),
+    newSOA,
+    soa_ttl,
+
+    -- * SOAChange
+    SOAChange (..),
+    newSOAChange,
+    sOAChange_ttl,
+
     -- * ServiceChange
     ServiceChange (..),
     newServiceChange,
@@ -231,8 +299,8 @@ module Network.AWS.Route53AutoNaming.Types
     serviceInfo_name,
     serviceInfo_description,
     serviceInfo_healthCheckCustomConfig,
-    serviceInfo_type,
     serviceInfo_healthCheckConfig,
+    serviceInfo_type,
     serviceInfo_instanceCount,
 
     -- * ServiceSummary
@@ -245,8 +313,8 @@ module Network.AWS.Route53AutoNaming.Types
     serviceSummary_name,
     serviceSummary_description,
     serviceSummary_healthCheckCustomConfig,
-    serviceSummary_type,
     serviceSummary_healthCheckConfig,
+    serviceSummary_type,
     serviceSummary_instanceCount,
 
     -- * Tag
@@ -272,6 +340,7 @@ import Network.AWS.Route53AutoNaming.Types.HealthCheckType
 import Network.AWS.Route53AutoNaming.Types.HealthStatus
 import Network.AWS.Route53AutoNaming.Types.HealthStatusFilter
 import Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary
+import Network.AWS.Route53AutoNaming.Types.HttpNamespaceChange
 import Network.AWS.Route53AutoNaming.Types.HttpProperties
 import Network.AWS.Route53AutoNaming.Types.Instance
 import Network.AWS.Route53AutoNaming.Types.InstanceSummary
@@ -288,8 +357,20 @@ import Network.AWS.Route53AutoNaming.Types.OperationStatus
 import Network.AWS.Route53AutoNaming.Types.OperationSummary
 import Network.AWS.Route53AutoNaming.Types.OperationTargetType
 import Network.AWS.Route53AutoNaming.Types.OperationType
+import Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespaceChange
+import Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespaceProperties
+import Network.AWS.Route53AutoNaming.Types.PrivateDnsNamespacePropertiesChange
+import Network.AWS.Route53AutoNaming.Types.PrivateDnsPropertiesMutable
+import Network.AWS.Route53AutoNaming.Types.PrivateDnsPropertiesMutableChange
+import Network.AWS.Route53AutoNaming.Types.PublicDnsNamespaceChange
+import Network.AWS.Route53AutoNaming.Types.PublicDnsNamespaceProperties
+import Network.AWS.Route53AutoNaming.Types.PublicDnsNamespacePropertiesChange
+import Network.AWS.Route53AutoNaming.Types.PublicDnsPropertiesMutable
+import Network.AWS.Route53AutoNaming.Types.PublicDnsPropertiesMutableChange
 import Network.AWS.Route53AutoNaming.Types.RecordType
 import Network.AWS.Route53AutoNaming.Types.RoutingPolicy
+import Network.AWS.Route53AutoNaming.Types.SOA
+import Network.AWS.Route53AutoNaming.Types.SOAChange
 import Network.AWS.Route53AutoNaming.Types.ServiceChange
 import Network.AWS.Route53AutoNaming.Types.ServiceFilter
 import Network.AWS.Route53AutoNaming.Types.ServiceFilterName
@@ -415,13 +496,21 @@ _ServiceAlreadyExists =
 
 -- | The operation can\'t be completed because you\'ve reached the quota for
 -- the number of requests. For more information, see
--- <https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html AWS Cloud Map API request throttling quota>
--- in the /AWS Cloud Map Developer Guide/.
+-- <https://docs.aws.amazon.com/cloud-map/latest/dg/throttling.html Cloud Map API request throttling quota>
+-- in the /Cloud Map Developer Guide/.
 _RequestLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _RequestLimitExceeded =
   Core._MatchServiceError
     defaultService
     "RequestLimitExceeded"
+
+-- | The health check for the instance that\'s specified by @ServiceId@ and
+-- @InstanceId@ isn\'t a custom health check.
+_CustomHealthNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CustomHealthNotFound =
+  Core._MatchServiceError
+    defaultService
+    "CustomHealthNotFound"
 
 -- | The resource can\'t be created because you\'ve reached the quota on the
 -- number of resources.
@@ -431,13 +520,12 @@ _ResourceLimitExceeded =
     defaultService
     "ResourceLimitExceeded"
 
--- | The health check for the instance that is specified by @ServiceId@ and
--- @InstanceId@ is not a custom health check.
-_CustomHealthNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CustomHealthNotFound =
+-- | The operation can\'t be completed because the resource was not found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
-    "CustomHealthNotFound"
+    "ResourceNotFoundException"
 
 -- | No operation exists with the specified ID.
 _OperationNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -452,13 +540,6 @@ _ServiceNotFound =
   Core._MatchServiceError
     defaultService
     "ServiceNotFound"
-
--- | The operation can\'t be completed because the resource was not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
 
 -- | No namespace exists with the specified ID.
 _NamespaceNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

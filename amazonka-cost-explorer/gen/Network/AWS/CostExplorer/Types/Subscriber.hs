@@ -31,7 +31,7 @@ import qualified Network.AWS.Prelude as Prelude
 data Subscriber = Subscriber'
   { -- | Indicates if the subscriber accepts the notifications.
     status :: Prelude.Maybe SubscriberStatus,
-    -- | The email address or SNS Amazon Resource Name (ARN), depending on the
+    -- | The email address or SNS Amazon Resource Name (ARN). This depends on the
     -- @Type@.
     address :: Prelude.Maybe Prelude.Text,
     -- | The notification delivery channel.
@@ -49,7 +49,7 @@ data Subscriber = Subscriber'
 --
 -- 'status', 'subscriber_status' - Indicates if the subscriber accepts the notifications.
 --
--- 'address', 'subscriber_address' - The email address or SNS Amazon Resource Name (ARN), depending on the
+-- 'address', 'subscriber_address' - The email address or SNS Amazon Resource Name (ARN). This depends on the
 -- @Type@.
 --
 -- 'type'', 'subscriber_type' - The notification delivery channel.
@@ -66,7 +66,7 @@ newSubscriber =
 subscriber_status :: Lens.Lens' Subscriber (Prelude.Maybe SubscriberStatus)
 subscriber_status = Lens.lens (\Subscriber' {status} -> status) (\s@Subscriber' {} a -> s {status = a} :: Subscriber)
 
--- | The email address or SNS Amazon Resource Name (ARN), depending on the
+-- | The email address or SNS Amazon Resource Name (ARN). This depends on the
 -- @Type@.
 subscriber_address :: Lens.Lens' Subscriber (Prelude.Maybe Prelude.Text)
 subscriber_address = Lens.lens (\Subscriber' {address} -> address) (\s@Subscriber' {} a -> s {address = a} :: Subscriber)

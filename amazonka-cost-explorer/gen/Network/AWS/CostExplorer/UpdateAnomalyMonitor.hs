@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates an existing cost anomaly monitor. The changes made are applied
--- going forward, and does not change anomalies detected in the past.
+-- going forward, and doesn\'tt change anomalies detected in the past.
 module Network.AWS.CostExplorer.UpdateAnomalyMonitor
   ( -- * Creating a Request
     UpdateAnomalyMonitor (..),

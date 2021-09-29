@@ -29,8 +29,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newServiceSpecification' smart constructor.
 data ServiceSpecification = ServiceSpecification'
-  { -- | The Amazon EC2 hardware specifications that you want AWS to provide
-    -- recommendations for.
+  { -- | The Amazon EC2 hardware specifications that you want Amazon Web Services
+    -- to provide recommendations for.
     eC2Specification :: Prelude.Maybe EC2Specification
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,8 +43,8 @@ data ServiceSpecification = ServiceSpecification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eC2Specification', 'serviceSpecification_eC2Specification' - The Amazon EC2 hardware specifications that you want AWS to provide
--- recommendations for.
+-- 'eC2Specification', 'serviceSpecification_eC2Specification' - The Amazon EC2 hardware specifications that you want Amazon Web Services
+-- to provide recommendations for.
 newServiceSpecification ::
   ServiceSpecification
 newServiceSpecification =
@@ -53,8 +53,8 @@ newServiceSpecification =
         Prelude.Nothing
     }
 
--- | The Amazon EC2 hardware specifications that you want AWS to provide
--- recommendations for.
+-- | The Amazon EC2 hardware specifications that you want Amazon Web Services
+-- to provide recommendations for.
 serviceSpecification_eC2Specification :: Lens.Lens' ServiceSpecification (Prelude.Maybe EC2Specification)
 serviceSpecification_eC2Specification = Lens.lens (\ServiceSpecification' {eC2Specification} -> eC2Specification) (\s@ServiceSpecification' {} a -> s {eC2Specification = a} :: ServiceSpecification)
 

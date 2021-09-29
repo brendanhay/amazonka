@@ -27,6 +27,8 @@ module Network.AWS.CostExplorer.CreateCostCategoryDefinition
     newCreateCostCategoryDefinition,
 
     -- * Request Lenses
+    createCostCategoryDefinition_splitChargeRules,
+    createCostCategoryDefinition_defaultValue,
     createCostCategoryDefinition_name,
     createCostCategoryDefinition_ruleVersion,
     createCostCategoryDefinition_rules,
@@ -51,7 +53,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateCostCategoryDefinition' smart constructor.
 data CreateCostCategoryDefinition = CreateCostCategoryDefinition'
-  { name :: Prelude.Text,
+  { -- | The split charge rules used to allocate your charges between your Cost
+    -- Category values.
+    splitChargeRules :: Prelude.Maybe (Prelude.NonEmpty CostCategorySplitChargeRule),
+    defaultValue :: Prelude.Maybe Prelude.Text,
+    name :: Prelude.Text,
     ruleVersion :: CostCategoryRuleVersion,
     -- | The Cost Category rules used to categorize costs. For more information,
     -- see
@@ -67,6 +73,11 @@ data CreateCostCategoryDefinition = CreateCostCategoryDefinition'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'splitChargeRules', 'createCostCategoryDefinition_splitChargeRules' - The split charge rules used to allocate your charges between your Cost
+-- Category values.
+--
+-- 'defaultValue', 'createCostCategoryDefinition_defaultValue' - Undocumented member.
 --
 -- 'name', 'createCostCategoryDefinition_name' - Undocumented member.
 --
@@ -88,10 +99,22 @@ newCreateCostCategoryDefinition
   pRuleVersion_
   pRules_ =
     CreateCostCategoryDefinition'
-      { name = pName_,
+      { splitChargeRules =
+          Prelude.Nothing,
+        defaultValue = Prelude.Nothing,
+        name = pName_,
         ruleVersion = pRuleVersion_,
         rules = Lens._Coerce Lens.# pRules_
       }
+
+-- | The split charge rules used to allocate your charges between your Cost
+-- Category values.
+createCostCategoryDefinition_splitChargeRules :: Lens.Lens' CreateCostCategoryDefinition (Prelude.Maybe (Prelude.NonEmpty CostCategorySplitChargeRule))
+createCostCategoryDefinition_splitChargeRules = Lens.lens (\CreateCostCategoryDefinition' {splitChargeRules} -> splitChargeRules) (\s@CreateCostCategoryDefinition' {} a -> s {splitChargeRules = a} :: CreateCostCategoryDefinition) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Undocumented member.
+createCostCategoryDefinition_defaultValue :: Lens.Lens' CreateCostCategoryDefinition (Prelude.Maybe Prelude.Text)
+createCostCategoryDefinition_defaultValue = Lens.lens (\CreateCostCategoryDefinition' {defaultValue} -> defaultValue) (\s@CreateCostCategoryDefinition' {} a -> s {defaultValue = a} :: CreateCostCategoryDefinition)
 
 -- | Undocumented member.
 createCostCategoryDefinition_name :: Lens.Lens' CreateCostCategoryDefinition Prelude.Text
@@ -146,7 +169,10 @@ instance Core.ToJSON CreateCostCategoryDefinition where
   toJSON CreateCostCategoryDefinition' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Name" Core..= name),
+          [ ("SplitChargeRules" Core..=)
+              Prelude.<$> splitChargeRules,
+            ("DefaultValue" Core..=) Prelude.<$> defaultValue,
+            Prelude.Just ("Name" Core..= name),
             Prelude.Just ("RuleVersion" Core..= ruleVersion),
             Prelude.Just ("Rules" Core..= rules)
           ]

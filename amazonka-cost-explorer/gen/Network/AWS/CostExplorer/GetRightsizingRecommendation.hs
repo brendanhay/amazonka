@@ -27,7 +27,7 @@
 -- along with providing savings detail and metrics. For details on
 -- calculation and function, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-rightsizing.html Optimizing Your Cost with Rightsizing Recommendations>
--- in the /AWS Billing and Cost Management User Guide/.
+-- in the /Billing and Cost Management User Guide/.
 module Network.AWS.CostExplorer.GetRightsizingRecommendation
   ( -- * Creating a Request
     GetRightsizingRecommendation (..),

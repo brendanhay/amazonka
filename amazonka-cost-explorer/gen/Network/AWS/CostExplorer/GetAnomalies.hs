@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves all of the cost anomalies detected on your account, during the
--- time period specified by the @DateInterval@ object.
+-- Retrieves all of the cost anomalies detected on your account during the
+-- time period that\'s specified by the @DateInterval@ object.
 module Network.AWS.CostExplorer.GetAnomalies
   ( -- * Creating a Request
     GetAnomalies (..),
@@ -57,9 +57,9 @@ import qualified Network.AWS.Response as Response
 data GetAnomalies = GetAnomalies'
   { -- | The number of entries a paginated response contains.
     maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The token to retrieve the next set of results. AWS provides the token
-    -- when the response from a previous call has more results than the maximum
-    -- page size.
+    -- | The token to retrieve the next set of results. Amazon Web Services
+    -- provides the token when the response from a previous call has more
+    -- results than the maximum page size.
     nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | Retrieves all of the cost anomalies detected for a specific cost anomaly
     -- monitor Amazon Resource Name (ARN).
@@ -87,9 +87,9 @@ data GetAnomalies = GetAnomalies'
 --
 -- 'maxResults', 'getAnomalies_maxResults' - The number of entries a paginated response contains.
 --
--- 'nextPageToken', 'getAnomalies_nextPageToken' - The token to retrieve the next set of results. AWS provides the token
--- when the response from a previous call has more results than the maximum
--- page size.
+-- 'nextPageToken', 'getAnomalies_nextPageToken' - The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 --
 -- 'monitorArn', 'getAnomalies_monitorArn' - Retrieves all of the cost anomalies detected for a specific cost anomaly
 -- monitor Amazon Resource Name (ARN).
@@ -121,9 +121,9 @@ newGetAnomalies pDateInterval_ =
 getAnomalies_maxResults :: Lens.Lens' GetAnomalies (Prelude.Maybe Prelude.Int)
 getAnomalies_maxResults = Lens.lens (\GetAnomalies' {maxResults} -> maxResults) (\s@GetAnomalies' {} a -> s {maxResults = a} :: GetAnomalies)
 
--- | The token to retrieve the next set of results. AWS provides the token
--- when the response from a previous call has more results than the maximum
--- page size.
+-- | The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 getAnomalies_nextPageToken :: Lens.Lens' GetAnomalies (Prelude.Maybe Prelude.Text)
 getAnomalies_nextPageToken = Lens.lens (\GetAnomalies' {nextPageToken} -> nextPageToken) (\s@GetAnomalies' {} a -> s {nextPageToken = a} :: GetAnomalies)
 
@@ -200,9 +200,9 @@ instance Core.ToQuery GetAnomalies where
 
 -- | /See:/ 'newGetAnomaliesResponse' smart constructor.
 data GetAnomaliesResponse = GetAnomaliesResponse'
-  { -- | The token to retrieve the next set of results. AWS provides the token
-    -- when the response from a previous call has more results than the maximum
-    -- page size.
+  { -- | The token to retrieve the next set of results. Amazon Web Services
+    -- provides the token when the response from a previous call has more
+    -- results than the maximum page size.
     nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
@@ -219,9 +219,9 @@ data GetAnomaliesResponse = GetAnomaliesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextPageToken', 'getAnomaliesResponse_nextPageToken' - The token to retrieve the next set of results. AWS provides the token
--- when the response from a previous call has more results than the maximum
--- page size.
+-- 'nextPageToken', 'getAnomaliesResponse_nextPageToken' - The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 --
 -- 'httpStatus', 'getAnomaliesResponse_httpStatus' - The response's http status code.
 --
@@ -238,9 +238,9 @@ newGetAnomaliesResponse pHttpStatus_ =
       anomalies = Prelude.mempty
     }
 
--- | The token to retrieve the next set of results. AWS provides the token
--- when the response from a previous call has more results than the maximum
--- page size.
+-- | The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 getAnomaliesResponse_nextPageToken :: Lens.Lens' GetAnomaliesResponse (Prelude.Maybe Prelude.Text)
 getAnomaliesResponse_nextPageToken = Lens.lens (\GetAnomaliesResponse' {nextPageToken} -> nextPageToken) (\s@GetAnomaliesResponse' {} a -> s {nextPageToken = a} :: GetAnomaliesResponse)
 

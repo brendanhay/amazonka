@@ -23,15 +23,15 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The amount of savings you\'re accumulating, against the public On-Demand
--- rate of the usage accrued in an account.
+-- | The amount of savings that you\'re accumulating, against the public
+-- On-Demand rate of the usage accrued in an account.
 --
 -- /See:/ 'newSavingsPlansSavings' smart constructor.
 data SavingsPlansSavings = SavingsPlansSavings'
   { -- | How much the amount that the usage would have cost if it was accrued at
     -- the On-Demand rate.
     onDemandCostEquivalent :: Prelude.Maybe Prelude.Text,
-    -- | The savings amount that you are accumulating for the usage that is
+    -- | The savings amount that you\'re accumulating for the usage that\'s
     -- covered by a Savings Plans, when compared to the On-Demand equivalent of
     -- the same usage.
     netSavings :: Prelude.Maybe Prelude.Text
@@ -49,7 +49,7 @@ data SavingsPlansSavings = SavingsPlansSavings'
 -- 'onDemandCostEquivalent', 'savingsPlansSavings_onDemandCostEquivalent' - How much the amount that the usage would have cost if it was accrued at
 -- the On-Demand rate.
 --
--- 'netSavings', 'savingsPlansSavings_netSavings' - The savings amount that you are accumulating for the usage that is
+-- 'netSavings', 'savingsPlansSavings_netSavings' - The savings amount that you\'re accumulating for the usage that\'s
 -- covered by a Savings Plans, when compared to the On-Demand equivalent of
 -- the same usage.
 newSavingsPlansSavings ::
@@ -66,7 +66,7 @@ newSavingsPlansSavings =
 savingsPlansSavings_onDemandCostEquivalent :: Lens.Lens' SavingsPlansSavings (Prelude.Maybe Prelude.Text)
 savingsPlansSavings_onDemandCostEquivalent = Lens.lens (\SavingsPlansSavings' {onDemandCostEquivalent} -> onDemandCostEquivalent) (\s@SavingsPlansSavings' {} a -> s {onDemandCostEquivalent = a} :: SavingsPlansSavings)
 
--- | The savings amount that you are accumulating for the usage that is
+-- | The savings amount that you\'re accumulating for the usage that\'s
 -- covered by a Savings Plans, when compared to the On-Demand equivalent of
 -- the same usage.
 savingsPlansSavings_netSavings :: Lens.Lens' SavingsPlansSavings (Prelude.Maybe Prelude.Text)

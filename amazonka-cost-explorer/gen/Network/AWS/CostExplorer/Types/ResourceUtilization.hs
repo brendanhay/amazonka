@@ -28,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newResourceUtilization' smart constructor.
 data ResourceUtilization = ResourceUtilization'
-  { -- | Utilization of current Amazon EC2 instance.
+  { -- | The utilization of current Amazon EC2 instance.
     eC2ResourceUtilization :: Prelude.Maybe EC2ResourceUtilization
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,7 +41,7 @@ data ResourceUtilization = ResourceUtilization'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eC2ResourceUtilization', 'resourceUtilization_eC2ResourceUtilization' - Utilization of current Amazon EC2 instance.
+-- 'eC2ResourceUtilization', 'resourceUtilization_eC2ResourceUtilization' - The utilization of current Amazon EC2 instance.
 newResourceUtilization ::
   ResourceUtilization
 newResourceUtilization =
@@ -50,7 +50,7 @@ newResourceUtilization =
         Prelude.Nothing
     }
 
--- | Utilization of current Amazon EC2 instance.
+-- | The utilization of current Amazon EC2 instance.
 resourceUtilization_eC2ResourceUtilization :: Lens.Lens' ResourceUtilization (Prelude.Maybe EC2ResourceUtilization)
 resourceUtilization_eC2ResourceUtilization = Lens.lens (\ResourceUtilization' {eC2ResourceUtilization} -> eC2ResourceUtilization) (\s@ResourceUtilization' {} a -> s {eC2ResourceUtilization = a} :: ResourceUtilization)
 

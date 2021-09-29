@@ -55,11 +55,11 @@ import qualified Network.AWS.Response as Response
 data UpdateAnomalySubscription = UpdateAnomalySubscription'
   { -- | The update to the threshold value for receiving notifications.
     threshold :: Prelude.Maybe Prelude.Double,
-    -- | The subscription\'s new name.
+    -- | The new name of the subscription.
     subscriptionName :: Prelude.Maybe Prelude.Text,
     -- | The update to the subscriber list.
     subscribers :: Prelude.Maybe [Subscriber],
-    -- | The update to the frequency value at which subscribers will receive
+    -- | The update to the frequency value that subscribers receive
     -- notifications.
     frequency :: Prelude.Maybe AnomalySubscriptionFrequency,
     -- | A list of cost anomaly monitor ARNs.
@@ -79,11 +79,11 @@ data UpdateAnomalySubscription = UpdateAnomalySubscription'
 --
 -- 'threshold', 'updateAnomalySubscription_threshold' - The update to the threshold value for receiving notifications.
 --
--- 'subscriptionName', 'updateAnomalySubscription_subscriptionName' - The subscription\'s new name.
+-- 'subscriptionName', 'updateAnomalySubscription_subscriptionName' - The new name of the subscription.
 --
 -- 'subscribers', 'updateAnomalySubscription_subscribers' - The update to the subscriber list.
 --
--- 'frequency', 'updateAnomalySubscription_frequency' - The update to the frequency value at which subscribers will receive
+-- 'frequency', 'updateAnomalySubscription_frequency' - The update to the frequency value that subscribers receive
 -- notifications.
 --
 -- 'monitorArnList', 'updateAnomalySubscription_monitorArnList' - A list of cost anomaly monitor ARNs.
@@ -108,7 +108,7 @@ newUpdateAnomalySubscription pSubscriptionArn_ =
 updateAnomalySubscription_threshold :: Lens.Lens' UpdateAnomalySubscription (Prelude.Maybe Prelude.Double)
 updateAnomalySubscription_threshold = Lens.lens (\UpdateAnomalySubscription' {threshold} -> threshold) (\s@UpdateAnomalySubscription' {} a -> s {threshold = a} :: UpdateAnomalySubscription)
 
--- | The subscription\'s new name.
+-- | The new name of the subscription.
 updateAnomalySubscription_subscriptionName :: Lens.Lens' UpdateAnomalySubscription (Prelude.Maybe Prelude.Text)
 updateAnomalySubscription_subscriptionName = Lens.lens (\UpdateAnomalySubscription' {subscriptionName} -> subscriptionName) (\s@UpdateAnomalySubscription' {} a -> s {subscriptionName = a} :: UpdateAnomalySubscription)
 
@@ -116,7 +116,7 @@ updateAnomalySubscription_subscriptionName = Lens.lens (\UpdateAnomalySubscripti
 updateAnomalySubscription_subscribers :: Lens.Lens' UpdateAnomalySubscription (Prelude.Maybe [Subscriber])
 updateAnomalySubscription_subscribers = Lens.lens (\UpdateAnomalySubscription' {subscribers} -> subscribers) (\s@UpdateAnomalySubscription' {} a -> s {subscribers = a} :: UpdateAnomalySubscription) Prelude.. Lens.mapping Lens._Coerce
 
--- | The update to the frequency value at which subscribers will receive
+-- | The update to the frequency value that subscribers receive
 -- notifications.
 updateAnomalySubscription_frequency :: Lens.Lens' UpdateAnomalySubscription (Prelude.Maybe AnomalySubscriptionFrequency)
 updateAnomalySubscription_frequency = Lens.lens (\UpdateAnomalySubscription' {frequency} -> frequency) (\s@UpdateAnomalySubscription' {} a -> s {frequency = a} :: UpdateAnomalySubscription)

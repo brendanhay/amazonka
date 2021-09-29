@@ -20,6 +20,7 @@
 module Network.AWS.CostExplorer.Types.TargetInstance where
 
 import qualified Network.AWS.Core as Core
+import Network.AWS.CostExplorer.Types.PlatformDifference
 import Network.AWS.CostExplorer.Types.ResourceDetails
 import Network.AWS.CostExplorer.Types.ResourceUtilization
 import qualified Network.AWS.Lens as Lens
@@ -29,17 +30,21 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTargetInstance' smart constructor.
 data TargetInstance = TargetInstance'
-  { -- | Estimated savings resulting from modification, on a monthly basis.
+  { -- | The estimated savings that result from modification, on a monthly basis.
     estimatedMonthlySavings :: Prelude.Maybe Prelude.Text,
-    -- | The currency code that AWS used to calculate the costs for this
-    -- instance.
+    -- | The currency code that Amazon Web Services used to calculate the costs
+    -- for this instance.
     currencyCode :: Prelude.Maybe Prelude.Text,
-    -- | Expected cost to operate this instance type on a monthly basis.
+    -- | The expected cost to operate this instance type on a monthly basis.
     estimatedMonthlyCost :: Prelude.Maybe Prelude.Text,
-    -- | Expected utilization metrics for target instance type.
+    -- | The expected utilization metrics for target instance type.
     expectedResourceUtilization :: Prelude.Maybe ResourceUtilization,
-    -- | Indicates whether this recommendation is the defaulted AWS
-    -- recommendation.
+    -- | Explains the actions you might need to take in order to successfully
+    -- migrate your workloads from the current instance type to the recommended
+    -- instance type.
+    platformDifferences :: Prelude.Maybe [PlatformDifference],
+    -- | Determines whether this recommendation is the defaulted Amazon Web
+    -- Services recommendation.
     defaultTargetInstance :: Prelude.Maybe Prelude.Bool,
     -- | Details on the target instance type.
     resourceDetails :: Prelude.Maybe ResourceDetails
@@ -54,17 +59,21 @@ data TargetInstance = TargetInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'estimatedMonthlySavings', 'targetInstance_estimatedMonthlySavings' - Estimated savings resulting from modification, on a monthly basis.
+-- 'estimatedMonthlySavings', 'targetInstance_estimatedMonthlySavings' - The estimated savings that result from modification, on a monthly basis.
 --
--- 'currencyCode', 'targetInstance_currencyCode' - The currency code that AWS used to calculate the costs for this
--- instance.
+-- 'currencyCode', 'targetInstance_currencyCode' - The currency code that Amazon Web Services used to calculate the costs
+-- for this instance.
 --
--- 'estimatedMonthlyCost', 'targetInstance_estimatedMonthlyCost' - Expected cost to operate this instance type on a monthly basis.
+-- 'estimatedMonthlyCost', 'targetInstance_estimatedMonthlyCost' - The expected cost to operate this instance type on a monthly basis.
 --
--- 'expectedResourceUtilization', 'targetInstance_expectedResourceUtilization' - Expected utilization metrics for target instance type.
+-- 'expectedResourceUtilization', 'targetInstance_expectedResourceUtilization' - The expected utilization metrics for target instance type.
 --
--- 'defaultTargetInstance', 'targetInstance_defaultTargetInstance' - Indicates whether this recommendation is the defaulted AWS
--- recommendation.
+-- 'platformDifferences', 'targetInstance_platformDifferences' - Explains the actions you might need to take in order to successfully
+-- migrate your workloads from the current instance type to the recommended
+-- instance type.
+--
+-- 'defaultTargetInstance', 'targetInstance_defaultTargetInstance' - Determines whether this recommendation is the defaulted Amazon Web
+-- Services recommendation.
 --
 -- 'resourceDetails', 'targetInstance_resourceDetails' - Details on the target instance type.
 newTargetInstance ::
@@ -76,29 +85,36 @@ newTargetInstance =
       currencyCode = Prelude.Nothing,
       estimatedMonthlyCost = Prelude.Nothing,
       expectedResourceUtilization = Prelude.Nothing,
+      platformDifferences = Prelude.Nothing,
       defaultTargetInstance = Prelude.Nothing,
       resourceDetails = Prelude.Nothing
     }
 
--- | Estimated savings resulting from modification, on a monthly basis.
+-- | The estimated savings that result from modification, on a monthly basis.
 targetInstance_estimatedMonthlySavings :: Lens.Lens' TargetInstance (Prelude.Maybe Prelude.Text)
 targetInstance_estimatedMonthlySavings = Lens.lens (\TargetInstance' {estimatedMonthlySavings} -> estimatedMonthlySavings) (\s@TargetInstance' {} a -> s {estimatedMonthlySavings = a} :: TargetInstance)
 
--- | The currency code that AWS used to calculate the costs for this
--- instance.
+-- | The currency code that Amazon Web Services used to calculate the costs
+-- for this instance.
 targetInstance_currencyCode :: Lens.Lens' TargetInstance (Prelude.Maybe Prelude.Text)
 targetInstance_currencyCode = Lens.lens (\TargetInstance' {currencyCode} -> currencyCode) (\s@TargetInstance' {} a -> s {currencyCode = a} :: TargetInstance)
 
--- | Expected cost to operate this instance type on a monthly basis.
+-- | The expected cost to operate this instance type on a monthly basis.
 targetInstance_estimatedMonthlyCost :: Lens.Lens' TargetInstance (Prelude.Maybe Prelude.Text)
 targetInstance_estimatedMonthlyCost = Lens.lens (\TargetInstance' {estimatedMonthlyCost} -> estimatedMonthlyCost) (\s@TargetInstance' {} a -> s {estimatedMonthlyCost = a} :: TargetInstance)
 
--- | Expected utilization metrics for target instance type.
+-- | The expected utilization metrics for target instance type.
 targetInstance_expectedResourceUtilization :: Lens.Lens' TargetInstance (Prelude.Maybe ResourceUtilization)
 targetInstance_expectedResourceUtilization = Lens.lens (\TargetInstance' {expectedResourceUtilization} -> expectedResourceUtilization) (\s@TargetInstance' {} a -> s {expectedResourceUtilization = a} :: TargetInstance)
 
--- | Indicates whether this recommendation is the defaulted AWS
--- recommendation.
+-- | Explains the actions you might need to take in order to successfully
+-- migrate your workloads from the current instance type to the recommended
+-- instance type.
+targetInstance_platformDifferences :: Lens.Lens' TargetInstance (Prelude.Maybe [PlatformDifference])
+targetInstance_platformDifferences = Lens.lens (\TargetInstance' {platformDifferences} -> platformDifferences) (\s@TargetInstance' {} a -> s {platformDifferences = a} :: TargetInstance) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Determines whether this recommendation is the defaulted Amazon Web
+-- Services recommendation.
 targetInstance_defaultTargetInstance :: Lens.Lens' TargetInstance (Prelude.Maybe Prelude.Bool)
 targetInstance_defaultTargetInstance = Lens.lens (\TargetInstance' {defaultTargetInstance} -> defaultTargetInstance) (\s@TargetInstance' {} a -> s {defaultTargetInstance = a} :: TargetInstance)
 
@@ -116,6 +132,9 @@ instance Core.FromJSON TargetInstance where
             Prelude.<*> (x Core..:? "CurrencyCode")
             Prelude.<*> (x Core..:? "EstimatedMonthlyCost")
             Prelude.<*> (x Core..:? "ExpectedResourceUtilization")
+            Prelude.<*> ( x Core..:? "PlatformDifferences"
+                            Core..!= Prelude.mempty
+                        )
             Prelude.<*> (x Core..:? "DefaultTargetInstance")
             Prelude.<*> (x Core..:? "ResourceDetails")
       )

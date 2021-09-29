@@ -43,8 +43,8 @@ module Network.AWS.CostExplorer.GetSavingsPlansCoverage
     newGetSavingsPlansCoverage,
 
     -- * Request Lenses
-    getSavingsPlansCoverage_nextToken,
     getSavingsPlansCoverage_granularity,
+    getSavingsPlansCoverage_nextToken,
     getSavingsPlansCoverage_maxResults,
     getSavingsPlansCoverage_metrics,
     getSavingsPlansCoverage_groupBy,
@@ -72,16 +72,16 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetSavingsPlansCoverage' smart constructor.
 data GetSavingsPlansCoverage = GetSavingsPlansCoverage'
-  { -- | The token to retrieve the next set of results. Amazon Web Services
-    -- provides the token when the response from a previous call has more
-    -- results than the maximum page size.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The granularity of the Amazon Web Services cost data for your Savings
+  { -- | The granularity of the Amazon Web Services cost data for your Savings
     -- Plans. @Granularity@ can\'t be set if @GroupBy@ is set.
     --
     -- The @GetSavingsPlansCoverage@ operation supports only @DAILY@ and
     -- @MONTHLY@ granularities.
     granularity :: Prelude.Maybe Granularity,
+    -- | The token to retrieve the next set of results. Amazon Web Services
+    -- provides the token when the response from a previous call has more
+    -- results than the maximum page size.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The number of items to be returned in a response. The default is @20@,
     -- with a minimum value of @1@.
     maxResults :: Prelude.Maybe Prelude.Natural,
@@ -146,15 +146,15 @@ data GetSavingsPlansCoverage = GetSavingsPlansCoverage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getSavingsPlansCoverage_nextToken' - The token to retrieve the next set of results. Amazon Web Services
--- provides the token when the response from a previous call has more
--- results than the maximum page size.
---
 -- 'granularity', 'getSavingsPlansCoverage_granularity' - The granularity of the Amazon Web Services cost data for your Savings
 -- Plans. @Granularity@ can\'t be set if @GroupBy@ is set.
 --
 -- The @GetSavingsPlansCoverage@ operation supports only @DAILY@ and
 -- @MONTHLY@ granularities.
+--
+-- 'nextToken', 'getSavingsPlansCoverage_nextToken' - The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
 --
 -- 'maxResults', 'getSavingsPlansCoverage_maxResults' - The number of items to be returned in a response. The default is @20@,
 -- with a minimum value of @1@.
@@ -214,9 +214,9 @@ newGetSavingsPlansCoverage ::
   GetSavingsPlansCoverage
 newGetSavingsPlansCoverage pTimePeriod_ =
   GetSavingsPlansCoverage'
-    { nextToken =
+    { granularity =
         Prelude.Nothing,
-      granularity = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       metrics = Prelude.Nothing,
       groupBy = Prelude.Nothing,
@@ -225,12 +225,6 @@ newGetSavingsPlansCoverage pTimePeriod_ =
       timePeriod = pTimePeriod_
     }
 
--- | The token to retrieve the next set of results. Amazon Web Services
--- provides the token when the response from a previous call has more
--- results than the maximum page size.
-getSavingsPlansCoverage_nextToken :: Lens.Lens' GetSavingsPlansCoverage (Prelude.Maybe Prelude.Text)
-getSavingsPlansCoverage_nextToken = Lens.lens (\GetSavingsPlansCoverage' {nextToken} -> nextToken) (\s@GetSavingsPlansCoverage' {} a -> s {nextToken = a} :: GetSavingsPlansCoverage)
-
 -- | The granularity of the Amazon Web Services cost data for your Savings
 -- Plans. @Granularity@ can\'t be set if @GroupBy@ is set.
 --
@@ -238,6 +232,12 @@ getSavingsPlansCoverage_nextToken = Lens.lens (\GetSavingsPlansCoverage' {nextTo
 -- @MONTHLY@ granularities.
 getSavingsPlansCoverage_granularity :: Lens.Lens' GetSavingsPlansCoverage (Prelude.Maybe Granularity)
 getSavingsPlansCoverage_granularity = Lens.lens (\GetSavingsPlansCoverage' {granularity} -> granularity) (\s@GetSavingsPlansCoverage' {} a -> s {granularity = a} :: GetSavingsPlansCoverage)
+
+-- | The token to retrieve the next set of results. Amazon Web Services
+-- provides the token when the response from a previous call has more
+-- results than the maximum page size.
+getSavingsPlansCoverage_nextToken :: Lens.Lens' GetSavingsPlansCoverage (Prelude.Maybe Prelude.Text)
+getSavingsPlansCoverage_nextToken = Lens.lens (\GetSavingsPlansCoverage' {nextToken} -> nextToken) (\s@GetSavingsPlansCoverage' {} a -> s {nextToken = a} :: GetSavingsPlansCoverage)
 
 -- | The number of items to be returned in a response. The default is @20@,
 -- with a minimum value of @1@.
@@ -343,8 +343,8 @@ instance Core.ToJSON GetSavingsPlansCoverage where
   toJSON GetSavingsPlansCoverage' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Granularity" Core..=) Prelude.<$> granularity,
+          [ ("Granularity" Core..=) Prelude.<$> granularity,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("Metrics" Core..=) Prelude.<$> metrics,
             ("GroupBy" Core..=) Prelude.<$> groupBy,

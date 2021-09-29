@@ -11,18 +11,16 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CostExplorer.Types.SupportedSavingsPlansType
+-- Module      : Network.AWS.CostExplorer.Types.CostCategorySplitChargeRuleParameterType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.SupportedSavingsPlansType
-  ( SupportedSavingsPlansType
+module Network.AWS.CostExplorer.Types.CostCategorySplitChargeRuleParameterType
+  ( CostCategorySplitChargeRuleParameterType
       ( ..,
-        SupportedSavingsPlansType_COMPUTE_SP,
-        SupportedSavingsPlansType_EC2_INSTANCE_SP,
-        SupportedSavingsPlansType_SAGEMAKER_SP
+        CostCategorySplitChargeRuleParameterType_ALLOCATION_PERCENTAGES
       ),
   )
 where
@@ -30,8 +28,8 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
-newtype SupportedSavingsPlansType = SupportedSavingsPlansType'
-  { fromSupportedSavingsPlansType ::
+newtype CostCategorySplitChargeRuleParameterType = CostCategorySplitChargeRuleParameterType'
+  { fromCostCategorySplitChargeRuleParameterType ::
       Core.Text
   }
   deriving stock
@@ -58,18 +56,10 @@ newtype SupportedSavingsPlansType = SupportedSavingsPlansType'
       Core.ToXML
     )
 
-pattern SupportedSavingsPlansType_COMPUTE_SP :: SupportedSavingsPlansType
-pattern SupportedSavingsPlansType_COMPUTE_SP = SupportedSavingsPlansType' "COMPUTE_SP"
-
-pattern SupportedSavingsPlansType_EC2_INSTANCE_SP :: SupportedSavingsPlansType
-pattern SupportedSavingsPlansType_EC2_INSTANCE_SP = SupportedSavingsPlansType' "EC2_INSTANCE_SP"
-
-pattern SupportedSavingsPlansType_SAGEMAKER_SP :: SupportedSavingsPlansType
-pattern SupportedSavingsPlansType_SAGEMAKER_SP = SupportedSavingsPlansType' "SAGEMAKER_SP"
+pattern CostCategorySplitChargeRuleParameterType_ALLOCATION_PERCENTAGES :: CostCategorySplitChargeRuleParameterType
+pattern CostCategorySplitChargeRuleParameterType_ALLOCATION_PERCENTAGES = CostCategorySplitChargeRuleParameterType' "ALLOCATION_PERCENTAGES"
 
 {-# COMPLETE
-  SupportedSavingsPlansType_COMPUTE_SP,
-  SupportedSavingsPlansType_EC2_INSTANCE_SP,
-  SupportedSavingsPlansType_SAGEMAKER_SP,
-  SupportedSavingsPlansType'
+  CostCategorySplitChargeRuleParameterType_ALLOCATION_PERCENTAGES,
+  CostCategorySplitChargeRuleParameterType'
   #-}

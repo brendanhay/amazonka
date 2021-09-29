@@ -27,12 +27,12 @@ import qualified Network.AWS.Prelude as Prelude
 -- | The Cost Categories values used for filtering the costs.
 --
 -- If @Values@ and @Key@ are not specified, the @ABSENT@ @MatchOption@ is
--- applied to all Cost Categories. That is, filtering on resources that are
--- not mapped to any Cost Categories.
+-- applied to all Cost Categories. That is, it filters on resources that
+-- aren\'t mapped to any Cost Categories.
 --
--- If @Values@ is provided and @Key@ is not specified, the @ABSENT@
--- @MatchOption@ is applied to the Cost Categories @Key@ only. That is,
--- filtering on resources without the given Cost Categories key.
+-- If @Values@ is provided and @Key@ isn\'t specified, the @ABSENT@
+-- @MatchOption@ is applied to the Cost Categories @Key@ only. That is, it
+-- filters on resources without the given Cost Categories key.
 --
 -- /See:/ 'newCostCategoryValues' smart constructor.
 data CostCategoryValues = CostCategoryValues'

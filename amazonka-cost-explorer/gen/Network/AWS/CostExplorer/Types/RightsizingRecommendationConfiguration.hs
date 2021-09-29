@@ -24,15 +24,16 @@ import Network.AWS.CostExplorer.Types.RecommendationTarget
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Enables you to customize recommendations across two attributes. You can
--- choose to view recommendations for instances within the same instance
--- families or across different instance families. You can also choose to
--- view your estimated savings associated with recommendations with
+-- | You can use @RightsizingRecommendationConfiguration@ to customize
+-- recommendations across two attributes. You can choose to view
+-- recommendations for instances within the same instance families or
+-- across different instance families. You can also choose to view your
+-- estimated savings that are associated with recommendations with
 -- consideration of existing Savings Plans or RI benefits, or neither.
 --
 -- /See:/ 'newRightsizingRecommendationConfiguration' smart constructor.
 data RightsizingRecommendationConfiguration = RightsizingRecommendationConfiguration'
-  { -- | The option to see recommendations within the same instance family, or
+  { -- | The option to see recommendations within the same instance family or
     -- recommendations for instances across other families. The default value
     -- is @SAME_INSTANCE_FAMILY@.
     recommendationTarget :: RecommendationTarget,
@@ -50,7 +51,7 @@ data RightsizingRecommendationConfiguration = RightsizingRecommendationConfigura
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'recommendationTarget', 'rightsizingRecommendationConfiguration_recommendationTarget' - The option to see recommendations within the same instance family, or
+-- 'recommendationTarget', 'rightsizingRecommendationConfiguration_recommendationTarget' - The option to see recommendations within the same instance family or
 -- recommendations for instances across other families. The default value
 -- is @SAME_INSTANCE_FAMILY@.
 --
@@ -72,7 +73,7 @@ newRightsizingRecommendationConfiguration
           pBenefitsConsidered_
       }
 
--- | The option to see recommendations within the same instance family, or
+-- | The option to see recommendations within the same instance family or
 -- recommendations for instances across other families. The default value
 -- is @SAME_INSTANCE_FAMILY@.
 rightsizingRecommendationConfiguration_recommendationTarget :: Lens.Lens' RightsizingRecommendationConfiguration RecommendationTarget

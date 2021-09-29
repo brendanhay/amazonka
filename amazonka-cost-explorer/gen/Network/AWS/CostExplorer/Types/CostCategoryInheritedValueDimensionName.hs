@@ -11,18 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CostExplorer.Types.SupportedSavingsPlansType
+-- Module      : Network.AWS.CostExplorer.Types.CostCategoryInheritedValueDimensionName
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.SupportedSavingsPlansType
-  ( SupportedSavingsPlansType
+module Network.AWS.CostExplorer.Types.CostCategoryInheritedValueDimensionName
+  ( CostCategoryInheritedValueDimensionName
       ( ..,
-        SupportedSavingsPlansType_COMPUTE_SP,
-        SupportedSavingsPlansType_EC2_INSTANCE_SP,
-        SupportedSavingsPlansType_SAGEMAKER_SP
+        CostCategoryInheritedValueDimensionName_LINKED_ACCOUNT_NAME,
+        CostCategoryInheritedValueDimensionName_TAG
       ),
   )
 where
@@ -30,8 +29,8 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
-newtype SupportedSavingsPlansType = SupportedSavingsPlansType'
-  { fromSupportedSavingsPlansType ::
+newtype CostCategoryInheritedValueDimensionName = CostCategoryInheritedValueDimensionName'
+  { fromCostCategoryInheritedValueDimensionName ::
       Core.Text
   }
   deriving stock
@@ -58,18 +57,14 @@ newtype SupportedSavingsPlansType = SupportedSavingsPlansType'
       Core.ToXML
     )
 
-pattern SupportedSavingsPlansType_COMPUTE_SP :: SupportedSavingsPlansType
-pattern SupportedSavingsPlansType_COMPUTE_SP = SupportedSavingsPlansType' "COMPUTE_SP"
+pattern CostCategoryInheritedValueDimensionName_LINKED_ACCOUNT_NAME :: CostCategoryInheritedValueDimensionName
+pattern CostCategoryInheritedValueDimensionName_LINKED_ACCOUNT_NAME = CostCategoryInheritedValueDimensionName' "LINKED_ACCOUNT_NAME"
 
-pattern SupportedSavingsPlansType_EC2_INSTANCE_SP :: SupportedSavingsPlansType
-pattern SupportedSavingsPlansType_EC2_INSTANCE_SP = SupportedSavingsPlansType' "EC2_INSTANCE_SP"
-
-pattern SupportedSavingsPlansType_SAGEMAKER_SP :: SupportedSavingsPlansType
-pattern SupportedSavingsPlansType_SAGEMAKER_SP = SupportedSavingsPlansType' "SAGEMAKER_SP"
+pattern CostCategoryInheritedValueDimensionName_TAG :: CostCategoryInheritedValueDimensionName
+pattern CostCategoryInheritedValueDimensionName_TAG = CostCategoryInheritedValueDimensionName' "TAG"
 
 {-# COMPLETE
-  SupportedSavingsPlansType_COMPUTE_SP,
-  SupportedSavingsPlansType_EC2_INSTANCE_SP,
-  SupportedSavingsPlansType_SAGEMAKER_SP,
-  SupportedSavingsPlansType'
+  CostCategoryInheritedValueDimensionName_LINKED_ACCOUNT_NAME,
+  CostCategoryInheritedValueDimensionName_TAG,
+  CostCategoryInheritedValueDimensionName'
   #-}

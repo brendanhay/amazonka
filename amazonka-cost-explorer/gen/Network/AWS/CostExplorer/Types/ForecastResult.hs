@@ -24,7 +24,7 @@ import Network.AWS.CostExplorer.Types.DateInterval
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The forecast created for your query.
+-- | The forecast that\'s created for your query.
 --
 -- /See:/ 'newForecastResult' smart constructor.
 data ForecastResult = ForecastResult'

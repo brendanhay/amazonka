@@ -14,14 +14,6 @@
 module Network.AWS.CostExplorer.Lens
   ( -- * Operations
 
-    -- ** ListCostCategoryDefinitions
-    listCostCategoryDefinitions_nextToken,
-    listCostCategoryDefinitions_maxResults,
-    listCostCategoryDefinitions_effectiveOn,
-    listCostCategoryDefinitionsResponse_nextToken,
-    listCostCategoryDefinitionsResponse_costCategoryReferences,
-    listCostCategoryDefinitionsResponse_httpStatus,
-
     -- ** GetRightsizingRecommendation
     getRightsizingRecommendation_pageSize,
     getRightsizingRecommendation_configuration,
@@ -43,6 +35,14 @@ module Network.AWS.CostExplorer.Lens
     getAnomalySubscriptionsResponse_nextPageToken,
     getAnomalySubscriptionsResponse_httpStatus,
     getAnomalySubscriptionsResponse_anomalySubscriptions,
+
+    -- ** ListCostCategoryDefinitions
+    listCostCategoryDefinitions_nextToken,
+    listCostCategoryDefinitions_maxResults,
+    listCostCategoryDefinitions_effectiveOn,
+    listCostCategoryDefinitionsResponse_nextToken,
+    listCostCategoryDefinitionsResponse_costCategoryReferences,
+    listCostCategoryDefinitionsResponse_httpStatus,
 
     -- ** GetAnomalies
     getAnomalies_maxResults,
@@ -78,16 +78,30 @@ module Network.AWS.CostExplorer.Lens
     getCostForecastResponse_total,
     getCostForecastResponse_httpStatus,
 
+    -- ** DeleteAnomalySubscription
+    deleteAnomalySubscription_subscriptionArn,
+    deleteAnomalySubscriptionResponse_httpStatus,
+
+    -- ** UpdateAnomalySubscription
+    updateAnomalySubscription_threshold,
+    updateAnomalySubscription_subscriptionName,
+    updateAnomalySubscription_subscribers,
+    updateAnomalySubscription_frequency,
+    updateAnomalySubscription_monitorArnList,
+    updateAnomalySubscription_subscriptionArn,
+    updateAnomalySubscriptionResponse_httpStatus,
+    updateAnomalySubscriptionResponse_subscriptionArn,
+
     -- ** GetCostAndUsage
-    getCostAndUsage_granularity,
     getCostAndUsage_nextPageToken,
     getCostAndUsage_groupBy,
     getCostAndUsage_filter,
     getCostAndUsage_timePeriod,
+    getCostAndUsage_granularity,
     getCostAndUsage_metrics,
     getCostAndUsageResponse_nextPageToken,
-    getCostAndUsageResponse_resultsByTime,
     getCostAndUsageResponse_dimensionValueAttributes,
+    getCostAndUsageResponse_resultsByTime,
     getCostAndUsageResponse_groupDefinitions,
     getCostAndUsageResponse_httpStatus,
 
@@ -105,19 +119,28 @@ module Network.AWS.CostExplorer.Lens
     getSavingsPlansPurchaseRecommendationResponse_savingsPlansPurchaseRecommendation,
     getSavingsPlansPurchaseRecommendationResponse_httpStatus,
 
-    -- ** UpdateAnomalySubscription
-    updateAnomalySubscription_threshold,
-    updateAnomalySubscription_subscriptionName,
-    updateAnomalySubscription_subscribers,
-    updateAnomalySubscription_frequency,
-    updateAnomalySubscription_monitorArnList,
-    updateAnomalySubscription_subscriptionArn,
-    updateAnomalySubscriptionResponse_httpStatus,
-    updateAnomalySubscriptionResponse_subscriptionArn,
+    -- ** GetUsageForecast
+    getUsageForecast_predictionIntervalLevel,
+    getUsageForecast_filter,
+    getUsageForecast_timePeriod,
+    getUsageForecast_metric,
+    getUsageForecast_granularity,
+    getUsageForecastResponse_forecastResultsByTime,
+    getUsageForecastResponse_total,
+    getUsageForecastResponse_httpStatus,
 
-    -- ** DeleteAnomalySubscription
-    deleteAnomalySubscription_subscriptionArn,
-    deleteAnomalySubscriptionResponse_httpStatus,
+    -- ** GetCostAndUsageWithResources
+    getCostAndUsageWithResources_nextPageToken,
+    getCostAndUsageWithResources_metrics,
+    getCostAndUsageWithResources_groupBy,
+    getCostAndUsageWithResources_timePeriod,
+    getCostAndUsageWithResources_granularity,
+    getCostAndUsageWithResources_filter,
+    getCostAndUsageWithResourcesResponse_nextPageToken,
+    getCostAndUsageWithResourcesResponse_dimensionValueAttributes,
+    getCostAndUsageWithResourcesResponse_resultsByTime,
+    getCostAndUsageWithResourcesResponse_groupDefinitions,
+    getCostAndUsageWithResourcesResponse_httpStatus,
 
     -- ** GetReservationCoverage
     getReservationCoverage_granularity,
@@ -133,29 +156,6 @@ module Network.AWS.CostExplorer.Lens
     getReservationCoverageResponse_httpStatus,
     getReservationCoverageResponse_coveragesByTime,
 
-    -- ** GetUsageForecast
-    getUsageForecast_predictionIntervalLevel,
-    getUsageForecast_filter,
-    getUsageForecast_timePeriod,
-    getUsageForecast_metric,
-    getUsageForecast_granularity,
-    getUsageForecastResponse_forecastResultsByTime,
-    getUsageForecastResponse_total,
-    getUsageForecastResponse_httpStatus,
-
-    -- ** GetCostAndUsageWithResources
-    getCostAndUsageWithResources_granularity,
-    getCostAndUsageWithResources_nextPageToken,
-    getCostAndUsageWithResources_metrics,
-    getCostAndUsageWithResources_groupBy,
-    getCostAndUsageWithResources_timePeriod,
-    getCostAndUsageWithResources_filter,
-    getCostAndUsageWithResourcesResponse_nextPageToken,
-    getCostAndUsageWithResourcesResponse_resultsByTime,
-    getCostAndUsageWithResourcesResponse_dimensionValueAttributes,
-    getCostAndUsageWithResourcesResponse_groupDefinitions,
-    getCostAndUsageWithResourcesResponse_httpStatus,
-
     -- ** GetTags
     getTags_maxResults,
     getTags_searchString,
@@ -170,13 +170,9 @@ module Network.AWS.CostExplorer.Lens
     getTagsResponse_returnSize,
     getTagsResponse_totalSize,
 
-    -- ** DeleteCostCategoryDefinition
-    deleteCostCategoryDefinition_costCategoryArn,
-    deleteCostCategoryDefinitionResponse_costCategoryArn,
-    deleteCostCategoryDefinitionResponse_effectiveEnd,
-    deleteCostCategoryDefinitionResponse_httpStatus,
-
     -- ** UpdateCostCategoryDefinition
+    updateCostCategoryDefinition_splitChargeRules,
+    updateCostCategoryDefinition_defaultValue,
     updateCostCategoryDefinition_costCategoryArn,
     updateCostCategoryDefinition_ruleVersion,
     updateCostCategoryDefinition_rules,
@@ -184,9 +180,15 @@ module Network.AWS.CostExplorer.Lens
     updateCostCategoryDefinitionResponse_effectiveStart,
     updateCostCategoryDefinitionResponse_httpStatus,
 
+    -- ** DeleteCostCategoryDefinition
+    deleteCostCategoryDefinition_costCategoryArn,
+    deleteCostCategoryDefinitionResponse_costCategoryArn,
+    deleteCostCategoryDefinitionResponse_effectiveEnd,
+    deleteCostCategoryDefinitionResponse_httpStatus,
+
     -- ** GetSavingsPlansCoverage
-    getSavingsPlansCoverage_nextToken,
     getSavingsPlansCoverage_granularity,
+    getSavingsPlansCoverage_nextToken,
     getSavingsPlansCoverage_maxResults,
     getSavingsPlansCoverage_metrics,
     getSavingsPlansCoverage_groupBy,
@@ -196,10 +198,6 @@ module Network.AWS.CostExplorer.Lens
     getSavingsPlansCoverageResponse_nextToken,
     getSavingsPlansCoverageResponse_httpStatus,
     getSavingsPlansCoverageResponse_savingsPlansCoverages,
-
-    -- ** DeleteAnomalyMonitor
-    deleteAnomalyMonitor_monitorArn,
-    deleteAnomalyMonitorResponse_httpStatus,
 
     -- ** GetReservationUtilization
     getReservationUtilization_granularity,
@@ -213,6 +211,16 @@ module Network.AWS.CostExplorer.Lens
     getReservationUtilizationResponse_nextPageToken,
     getReservationUtilizationResponse_httpStatus,
     getReservationUtilizationResponse_utilizationsByTime,
+
+    -- ** DeleteAnomalyMonitor
+    deleteAnomalyMonitor_monitorArn,
+    deleteAnomalyMonitorResponse_httpStatus,
+
+    -- ** UpdateAnomalyMonitor
+    updateAnomalyMonitor_monitorName,
+    updateAnomalyMonitor_monitorArn,
+    updateAnomalyMonitorResponse_httpStatus,
+    updateAnomalyMonitorResponse_monitorArn,
 
     -- ** GetReservationPurchaseRecommendation
     getReservationPurchaseRecommendation_accountId,
@@ -230,22 +238,21 @@ module Network.AWS.CostExplorer.Lens
     getReservationPurchaseRecommendationResponse_nextPageToken,
     getReservationPurchaseRecommendationResponse_httpStatus,
 
-    -- ** UpdateAnomalyMonitor
-    updateAnomalyMonitor_monitorName,
-    updateAnomalyMonitor_monitorArn,
-    updateAnomalyMonitorResponse_httpStatus,
-    updateAnomalyMonitorResponse_monitorArn,
-
     -- ** CreateAnomalyMonitor
     createAnomalyMonitor_anomalyMonitor,
     createAnomalyMonitorResponse_httpStatus,
     createAnomalyMonitorResponse_monitorArn,
 
+    -- ** CreateAnomalySubscription
+    createAnomalySubscription_anomalySubscription,
+    createAnomalySubscriptionResponse_httpStatus,
+    createAnomalySubscriptionResponse_subscriptionArn,
+
     -- ** GetDimensionValues
     getDimensionValues_maxResults,
     getDimensionValues_searchString,
-    getDimensionValues_nextPageToken,
     getDimensionValues_context,
+    getDimensionValues_nextPageToken,
     getDimensionValues_sortBy,
     getDimensionValues_filter,
     getDimensionValues_timePeriod,
@@ -256,16 +263,26 @@ module Network.AWS.CostExplorer.Lens
     getDimensionValuesResponse_returnSize,
     getDimensionValuesResponse_totalSize,
 
-    -- ** CreateAnomalySubscription
-    createAnomalySubscription_anomalySubscription,
-    createAnomalySubscriptionResponse_httpStatus,
-    createAnomalySubscriptionResponse_subscriptionArn,
+    -- ** GetSavingsPlansUtilization
+    getSavingsPlansUtilization_granularity,
+    getSavingsPlansUtilization_sortBy,
+    getSavingsPlansUtilization_filter,
+    getSavingsPlansUtilization_timePeriod,
+    getSavingsPlansUtilizationResponse_savingsPlansUtilizationsByTime,
+    getSavingsPlansUtilizationResponse_httpStatus,
+    getSavingsPlansUtilizationResponse_total,
 
     -- ** DescribeCostCategoryDefinition
     describeCostCategoryDefinition_effectiveOn,
     describeCostCategoryDefinition_costCategoryArn,
     describeCostCategoryDefinitionResponse_costCategory,
     describeCostCategoryDefinitionResponse_httpStatus,
+
+    -- ** ProvideAnomalyFeedback
+    provideAnomalyFeedback_anomalyId,
+    provideAnomalyFeedback_feedback,
+    provideAnomalyFeedbackResponse_httpStatus,
+    provideAnomalyFeedbackResponse_anomalyId,
 
     -- ** GetCostCategories
     getCostCategories_maxResults,
@@ -282,21 +299,6 @@ module Network.AWS.CostExplorer.Lens
     getCostCategoriesResponse_returnSize,
     getCostCategoriesResponse_totalSize,
 
-    -- ** GetSavingsPlansUtilization
-    getSavingsPlansUtilization_granularity,
-    getSavingsPlansUtilization_sortBy,
-    getSavingsPlansUtilization_filter,
-    getSavingsPlansUtilization_timePeriod,
-    getSavingsPlansUtilizationResponse_savingsPlansUtilizationsByTime,
-    getSavingsPlansUtilizationResponse_httpStatus,
-    getSavingsPlansUtilizationResponse_total,
-
-    -- ** ProvideAnomalyFeedback
-    provideAnomalyFeedback_anomalyId,
-    provideAnomalyFeedback_feedback,
-    provideAnomalyFeedbackResponse_httpStatus,
-    provideAnomalyFeedbackResponse_anomalyId,
-
     -- ** GetAnomalyMonitors
     getAnomalyMonitors_maxResults,
     getAnomalyMonitors_nextPageToken,
@@ -306,6 +308,8 @@ module Network.AWS.CostExplorer.Lens
     getAnomalyMonitorsResponse_anomalyMonitors,
 
     -- ** CreateCostCategoryDefinition
+    createCostCategoryDefinition_splitChargeRules,
+    createCostCategoryDefinition_defaultValue,
     createCostCategoryDefinition_name,
     createCostCategoryDefinition_ruleVersion,
     createCostCategoryDefinition_rules,
@@ -334,8 +338,8 @@ module Network.AWS.CostExplorer.Lens
     anomalyMonitor_lastEvaluatedDate,
     anomalyMonitor_monitorSpecification,
     anomalyMonitor_lastUpdatedDate,
-    anomalyMonitor_creationDate,
     anomalyMonitor_dimensionalValueCount,
+    anomalyMonitor_creationDate,
     anomalyMonitor_monitorDimension,
     anomalyMonitor_monitorArn,
     anomalyMonitor_monitorName,
@@ -355,13 +359,19 @@ module Network.AWS.CostExplorer.Lens
     anomalySubscription_subscriptionName,
 
     -- ** CostCategory
+    costCategory_splitChargeRules,
     costCategory_processingStatus,
+    costCategory_defaultValue,
     costCategory_effectiveEnd,
     costCategory_costCategoryArn,
     costCategory_effectiveStart,
     costCategory_name,
     costCategory_ruleVersion,
     costCategory_rules,
+
+    -- ** CostCategoryInheritedValueDimension
+    costCategoryInheritedValueDimension_dimensionName,
+    costCategoryInheritedValueDimension_dimensionKey,
 
     -- ** CostCategoryProcessingStatus
     costCategoryProcessingStatus_status,
@@ -371,14 +381,27 @@ module Network.AWS.CostExplorer.Lens
     costCategoryReference_numberOfRules,
     costCategoryReference_costCategoryArn,
     costCategoryReference_values,
-    costCategoryReference_processingStatus,
     costCategoryReference_name,
+    costCategoryReference_processingStatus,
+    costCategoryReference_defaultValue,
     costCategoryReference_effectiveStart,
     costCategoryReference_effectiveEnd,
 
     -- ** CostCategoryRule
-    costCategoryRule_value,
+    costCategoryRule_inheritedValue,
     costCategoryRule_rule,
+    costCategoryRule_value,
+    costCategoryRule_type,
+
+    -- ** CostCategorySplitChargeRule
+    costCategorySplitChargeRule_parameters,
+    costCategorySplitChargeRule_source,
+    costCategorySplitChargeRule_targets,
+    costCategorySplitChargeRule_method,
+
+    -- ** CostCategorySplitChargeRuleParameter
+    costCategorySplitChargeRuleParameter_type,
+    costCategorySplitChargeRuleParameter_values,
 
     -- ** CostCategoryValues
     costCategoryValues_key,
@@ -405,15 +428,15 @@ module Network.AWS.CostExplorer.Lens
     coverageHours_coverageHoursPercentage,
 
     -- ** CoverageNormalizedUnits
-    coverageNormalizedUnits_onDemandNormalizedUnits,
     coverageNormalizedUnits_coverageNormalizedUnitsPercentage,
+    coverageNormalizedUnits_onDemandNormalizedUnits,
     coverageNormalizedUnits_totalRunningNormalizedUnits,
     coverageNormalizedUnits_reservedNormalizedUnits,
 
     -- ** CurrentInstance
     currentInstance_resourceId,
-    currentInstance_instanceName,
     currentInstance_savingsPlansCoveredHoursInLookbackPeriod,
+    currentInstance_instanceName,
     currentInstance_onDemandHoursInLookbackPeriod,
     currentInstance_currencyCode,
     currentInstance_tags,
@@ -436,6 +459,12 @@ module Network.AWS.CostExplorer.Lens
     dimensionValuesWithAttributes_attributes,
     dimensionValuesWithAttributes_value,
 
+    -- ** DiskResourceUtilization
+    diskResourceUtilization_diskReadOpsPerSecond,
+    diskResourceUtilization_diskReadBytesPerSecond,
+    diskResourceUtilization_diskWriteBytesPerSecond,
+    diskResourceUtilization_diskWriteOpsPerSecond,
+
     -- ** EBSResourceUtilization
     eBSResourceUtilization_ebsWriteBytesPerSecond,
     eBSResourceUtilization_ebsReadOpsPerSecond,
@@ -446,19 +475,19 @@ module Network.AWS.CostExplorer.Lens
     eC2InstanceDetails_platform,
     eC2InstanceDetails_instanceType,
     eC2InstanceDetails_tenancy,
-    eC2InstanceDetails_currentGeneration,
     eC2InstanceDetails_sizeFlexEligible,
+    eC2InstanceDetails_currentGeneration,
     eC2InstanceDetails_availabilityZone,
     eC2InstanceDetails_family,
     eC2InstanceDetails_region,
 
     -- ** EC2ResourceDetails
     eC2ResourceDetails_platform,
-    eC2ResourceDetails_instanceType,
     eC2ResourceDetails_memory,
+    eC2ResourceDetails_instanceType,
     eC2ResourceDetails_vcpu,
-    eC2ResourceDetails_hourlyOnDemandRate,
     eC2ResourceDetails_storage,
+    eC2ResourceDetails_hourlyOnDemandRate,
     eC2ResourceDetails_networkPerformance,
     eC2ResourceDetails_region,
     eC2ResourceDetails_sku,
@@ -467,30 +496,32 @@ module Network.AWS.CostExplorer.Lens
     eC2ResourceUtilization_maxStorageUtilizationPercentage,
     eC2ResourceUtilization_maxMemoryUtilizationPercentage,
     eC2ResourceUtilization_eBSResourceUtilization,
+    eC2ResourceUtilization_networkResourceUtilization,
     eC2ResourceUtilization_maxCpuUtilizationPercentage,
+    eC2ResourceUtilization_diskResourceUtilization,
 
     -- ** EC2Specification
     eC2Specification_offeringClass,
 
     -- ** ESInstanceDetails
-    eSInstanceDetails_instanceClass,
-    eSInstanceDetails_currentGeneration,
     eSInstanceDetails_sizeFlexEligible,
+    eSInstanceDetails_currentGeneration,
+    eSInstanceDetails_instanceClass,
     eSInstanceDetails_instanceSize,
     eSInstanceDetails_region,
 
     -- ** ElastiCacheInstanceDetails
-    elastiCacheInstanceDetails_currentGeneration,
     elastiCacheInstanceDetails_sizeFlexEligible,
+    elastiCacheInstanceDetails_currentGeneration,
     elastiCacheInstanceDetails_family,
-    elastiCacheInstanceDetails_nodeType,
     elastiCacheInstanceDetails_region,
+    elastiCacheInstanceDetails_nodeType,
     elastiCacheInstanceDetails_productDescription,
 
     -- ** Expression
+    expression_costCategories,
     expression_not,
     expression_or,
-    expression_costCategories,
     expression_tags,
     expression_and,
     expression_dimensions,
@@ -527,23 +558,29 @@ module Network.AWS.CostExplorer.Lens
     -- ** ModifyRecommendationDetail
     modifyRecommendationDetail_targetInstances,
 
+    -- ** NetworkResourceUtilization
+    networkResourceUtilization_networkInBytesPerSecond,
+    networkResourceUtilization_networkPacketsOutPerSecond,
+    networkResourceUtilization_networkOutBytesPerSecond,
+    networkResourceUtilization_networkPacketsInPerSecond,
+
     -- ** RDSInstanceDetails
-    rDSInstanceDetails_instanceType,
     rDSInstanceDetails_databaseEdition,
+    rDSInstanceDetails_instanceType,
     rDSInstanceDetails_deploymentOption,
-    rDSInstanceDetails_currentGeneration,
     rDSInstanceDetails_sizeFlexEligible,
+    rDSInstanceDetails_currentGeneration,
     rDSInstanceDetails_licenseModel,
     rDSInstanceDetails_family,
     rDSInstanceDetails_databaseEngine,
     rDSInstanceDetails_region,
 
     -- ** RedshiftInstanceDetails
-    redshiftInstanceDetails_currentGeneration,
     redshiftInstanceDetails_sizeFlexEligible,
+    redshiftInstanceDetails_currentGeneration,
     redshiftInstanceDetails_family,
-    redshiftInstanceDetails_nodeType,
     redshiftInstanceDetails_region,
+    redshiftInstanceDetails_nodeType,
 
     -- ** ReservationAggregates
     reservationAggregates_unusedHours,
@@ -557,12 +594,12 @@ module Network.AWS.CostExplorer.Lens
     reservationAggregates_unusedUnits,
     reservationAggregates_totalActualUnits,
     reservationAggregates_totalPotentialRISavings,
-    reservationAggregates_netRISavings,
     reservationAggregates_totalAmortizedFee,
+    reservationAggregates_netRISavings,
     reservationAggregates_utilizationPercentageInUnits,
     reservationAggregates_amortizedUpfrontFee,
-    reservationAggregates_utilizationPercentage,
     reservationAggregates_purchasedUnits,
+    reservationAggregates_utilizationPercentage,
 
     -- ** ReservationCoverageGroup
     reservationCoverageGroup_attributes,
@@ -570,8 +607,8 @@ module Network.AWS.CostExplorer.Lens
 
     -- ** ReservationPurchaseRecommendation
     reservationPurchaseRecommendation_paymentOption,
-    reservationPurchaseRecommendation_accountScope,
     reservationPurchaseRecommendation_recommendationDetails,
+    reservationPurchaseRecommendation_accountScope,
     reservationPurchaseRecommendation_serviceSpecification,
     reservationPurchaseRecommendation_termInYears,
     reservationPurchaseRecommendation_recommendationSummary,
@@ -580,13 +617,13 @@ module Network.AWS.CostExplorer.Lens
     -- ** ReservationPurchaseRecommendationDetail
     reservationPurchaseRecommendationDetail_upfrontCost,
     reservationPurchaseRecommendationDetail_accountId,
-    reservationPurchaseRecommendationDetail_estimatedMonthlySavingsAmount,
     reservationPurchaseRecommendationDetail_recurringStandardMonthlyCost,
-    reservationPurchaseRecommendationDetail_recommendedNormalizedUnitsToPurchase,
+    reservationPurchaseRecommendationDetail_estimatedMonthlySavingsAmount,
     reservationPurchaseRecommendationDetail_averageUtilization,
+    reservationPurchaseRecommendationDetail_recommendedNormalizedUnitsToPurchase,
     reservationPurchaseRecommendationDetail_averageNumberOfInstancesUsedPerHour,
-    reservationPurchaseRecommendationDetail_estimatedReservationCostForLookbackPeriod,
     reservationPurchaseRecommendationDetail_instanceDetails,
+    reservationPurchaseRecommendationDetail_estimatedReservationCostForLookbackPeriod,
     reservationPurchaseRecommendationDetail_maximumNumberOfInstancesUsedPerHour,
     reservationPurchaseRecommendationDetail_recommendedNumberOfInstancesToPurchase,
     reservationPurchaseRecommendationDetail_currencyCode,
@@ -628,8 +665,9 @@ module Network.AWS.CostExplorer.Lens
     -- ** RightsizingRecommendation
     rightsizingRecommendation_accountId,
     rightsizingRecommendation_terminateRecommendationDetail,
-    rightsizingRecommendation_rightsizingType,
     rightsizingRecommendation_currentInstance,
+    rightsizingRecommendation_rightsizingType,
+    rightsizingRecommendation_findingReasonCodes,
     rightsizingRecommendation_modifyRecommendationDetail,
 
     -- ** RightsizingRecommendationConfiguration
@@ -651,8 +689,8 @@ module Network.AWS.CostExplorer.Lens
     -- ** RootCause
     rootCause_service,
     rootCause_usageType,
-    rootCause_linkedAccount,
     rootCause_region,
+    rootCause_linkedAccount,
 
     -- ** SavingsPlansAmortizedCommitment
     savingsPlansAmortizedCommitment_amortizedUpfrontCommitment,
@@ -680,8 +718,8 @@ module Network.AWS.CostExplorer.Lens
     savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationSummary,
     savingsPlansPurchaseRecommendation_accountScope,
     savingsPlansPurchaseRecommendation_termInYears,
-    savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationDetails,
     savingsPlansPurchaseRecommendation_savingsPlansType,
+    savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationDetails,
     savingsPlansPurchaseRecommendation_lookbackPeriodInDays,
 
     -- ** SavingsPlansPurchaseRecommendationDetail
@@ -693,9 +731,9 @@ module Network.AWS.CostExplorer.Lens
     savingsPlansPurchaseRecommendationDetail_currentMaximumHourlyOnDemandSpend,
     savingsPlansPurchaseRecommendationDetail_hourlyCommitmentToPurchase,
     savingsPlansPurchaseRecommendationDetail_estimatedAverageUtilization,
-    savingsPlansPurchaseRecommendationDetail_currentAverageHourlyOnDemandSpend,
-    savingsPlansPurchaseRecommendationDetail_estimatedSavingsPercentage,
     savingsPlansPurchaseRecommendationDetail_savingsPlansDetails,
+    savingsPlansPurchaseRecommendationDetail_estimatedSavingsPercentage,
+    savingsPlansPurchaseRecommendationDetail_currentAverageHourlyOnDemandSpend,
     savingsPlansPurchaseRecommendationDetail_currencyCode,
     savingsPlansPurchaseRecommendationDetail_estimatedSPCost,
     savingsPlansPurchaseRecommendationDetail_estimatedOnDemandCostWithCurrentCommitment,
@@ -770,6 +808,7 @@ module Network.AWS.CostExplorer.Lens
     targetInstance_currencyCode,
     targetInstance_estimatedMonthlyCost,
     targetInstance_expectedResourceUtilization,
+    targetInstance_platformDifferences,
     targetInstance_defaultTargetInstance,
     targetInstance_resourceDetails,
 
@@ -822,9 +861,12 @@ import Network.AWS.CostExplorer.Types.AnomalyMonitor
 import Network.AWS.CostExplorer.Types.AnomalyScore
 import Network.AWS.CostExplorer.Types.AnomalySubscription
 import Network.AWS.CostExplorer.Types.CostCategory
+import Network.AWS.CostExplorer.Types.CostCategoryInheritedValueDimension
 import Network.AWS.CostExplorer.Types.CostCategoryProcessingStatus
 import Network.AWS.CostExplorer.Types.CostCategoryReference
 import Network.AWS.CostExplorer.Types.CostCategoryRule
+import Network.AWS.CostExplorer.Types.CostCategorySplitChargeRule
+import Network.AWS.CostExplorer.Types.CostCategorySplitChargeRuleParameter
 import Network.AWS.CostExplorer.Types.CostCategoryValues
 import Network.AWS.CostExplorer.Types.Coverage
 import Network.AWS.CostExplorer.Types.CoverageByTime
@@ -835,6 +877,7 @@ import Network.AWS.CostExplorer.Types.CurrentInstance
 import Network.AWS.CostExplorer.Types.DateInterval
 import Network.AWS.CostExplorer.Types.DimensionValues
 import Network.AWS.CostExplorer.Types.DimensionValuesWithAttributes
+import Network.AWS.CostExplorer.Types.DiskResourceUtilization
 import Network.AWS.CostExplorer.Types.EBSResourceUtilization
 import Network.AWS.CostExplorer.Types.EC2InstanceDetails
 import Network.AWS.CostExplorer.Types.EC2ResourceDetails
@@ -850,6 +893,7 @@ import Network.AWS.CostExplorer.Types.Impact
 import Network.AWS.CostExplorer.Types.InstanceDetails
 import Network.AWS.CostExplorer.Types.MetricValue
 import Network.AWS.CostExplorer.Types.ModifyRecommendationDetail
+import Network.AWS.CostExplorer.Types.NetworkResourceUtilization
 import Network.AWS.CostExplorer.Types.RDSInstanceDetails
 import Network.AWS.CostExplorer.Types.RedshiftInstanceDetails
 import Network.AWS.CostExplorer.Types.ReservationAggregates

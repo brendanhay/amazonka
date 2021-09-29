@@ -43,7 +43,7 @@ data AnomalySubscription = AnomalySubscription'
     -- | The dollar value that triggers a notification if the threshold is
     -- exceeded.
     threshold :: Prelude.Double,
-    -- | The frequency at which anomaly reports are sent over email.
+    -- | The frequency that anomaly reports are sent over email.
     frequency :: AnomalySubscriptionFrequency,
     -- | The name for the subscription.
     subscriptionName :: Prelude.Text
@@ -69,7 +69,7 @@ data AnomalySubscription = AnomalySubscription'
 -- 'threshold', 'anomalySubscription_threshold' - The dollar value that triggers a notification if the threshold is
 -- exceeded.
 --
--- 'frequency', 'anomalySubscription_frequency' - The frequency at which anomaly reports are sent over email.
+-- 'frequency', 'anomalySubscription_frequency' - The frequency that anomaly reports are sent over email.
 --
 -- 'subscriptionName', 'anomalySubscription_subscriptionName' - The name for the subscription.
 newAnomalySubscription ::
@@ -115,7 +115,7 @@ anomalySubscription_subscribers = Lens.lens (\AnomalySubscription' {subscribers}
 anomalySubscription_threshold :: Lens.Lens' AnomalySubscription Prelude.Double
 anomalySubscription_threshold = Lens.lens (\AnomalySubscription' {threshold} -> threshold) (\s@AnomalySubscription' {} a -> s {threshold = a} :: AnomalySubscription)
 
--- | The frequency at which anomaly reports are sent over email.
+-- | The frequency that anomaly reports are sent over email.
 anomalySubscription_frequency :: Lens.Lens' AnomalySubscription AnomalySubscriptionFrequency
 anomalySubscription_frequency = Lens.lens (\AnomalySubscription' {frequency} -> frequency) (\s@AnomalySubscription' {} a -> s {frequency = a} :: AnomalySubscription)
 

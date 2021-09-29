@@ -77,9 +77,9 @@ data GetCostCategories = GetCostCategories'
     -- filter Cost Category values that match the @SearchString@ pattern.
     searchString :: Prelude.Maybe Prelude.Text,
     -- | If the number of objects that are still available for retrieval exceeds
-    -- the limit, AWS returns a NextPageToken value in the response. To
-    -- retrieve the next batch of objects, provide the NextPageToken from the
-    -- prior call in your next request.
+    -- the limit, Amazon Web Services returns a NextPageToken value in the
+    -- response. To retrieve the next batch of objects, provide the
+    -- NextPageToken from the prior call in your next request.
     nextPageToken :: Prelude.Maybe Prelude.Text,
     costCategoryName :: Prelude.Maybe Prelude.Text,
     -- | The value by which you want to sort the data.
@@ -135,9 +135,9 @@ data GetCostCategories = GetCostCategories'
 -- filter Cost Category values that match the @SearchString@ pattern.
 --
 -- 'nextPageToken', 'getCostCategories_nextPageToken' - If the number of objects that are still available for retrieval exceeds
--- the limit, AWS returns a NextPageToken value in the response. To
--- retrieve the next batch of objects, provide the NextPageToken from the
--- prior call in your next request.
+-- the limit, Amazon Web Services returns a NextPageToken value in the
+-- response. To retrieve the next batch of objects, provide the
+-- NextPageToken from the prior call in your next request.
 --
 -- 'costCategoryName', 'getCostCategories_costCategoryName' - Undocumented member.
 --
@@ -203,9 +203,9 @@ getCostCategories_searchString :: Lens.Lens' GetCostCategories (Prelude.Maybe Pr
 getCostCategories_searchString = Lens.lens (\GetCostCategories' {searchString} -> searchString) (\s@GetCostCategories' {} a -> s {searchString = a} :: GetCostCategories)
 
 -- | If the number of objects that are still available for retrieval exceeds
--- the limit, AWS returns a NextPageToken value in the response. To
--- retrieve the next batch of objects, provide the NextPageToken from the
--- prior call in your next request.
+-- the limit, Amazon Web Services returns a NextPageToken value in the
+-- response. To retrieve the next batch of objects, provide the
+-- NextPageToken from the prior call in your next request.
 getCostCategories_nextPageToken :: Lens.Lens' GetCostCategories (Prelude.Maybe Prelude.Text)
 getCostCategories_nextPageToken = Lens.lens (\GetCostCategories' {nextPageToken} -> nextPageToken) (\s@GetCostCategories' {} a -> s {nextPageToken = a} :: GetCostCategories)
 
@@ -316,9 +316,9 @@ data GetCostCategoriesResponse = GetCostCategoriesResponse'
     -- specified in the request.
     costCategoryValues :: Prelude.Maybe [Prelude.Text],
     -- | If the number of objects that are still available for retrieval exceeds
-    -- the limit, AWS returns a NextPageToken value in the response. To
-    -- retrieve the next batch of objects, provide the marker from the prior
-    -- call in your next request.
+    -- the limit, Amazon Web Services returns a NextPageToken value in the
+    -- response. To retrieve the next batch of objects, provide the marker from
+    -- the prior call in your next request.
     nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | The names of the Cost Categories.
     costCategoryNames :: Prelude.Maybe [Prelude.Text],
@@ -345,9 +345,9 @@ data GetCostCategoriesResponse = GetCostCategoriesResponse'
 -- specified in the request.
 --
 -- 'nextPageToken', 'getCostCategoriesResponse_nextPageToken' - If the number of objects that are still available for retrieval exceeds
--- the limit, AWS returns a NextPageToken value in the response. To
--- retrieve the next batch of objects, provide the marker from the prior
--- call in your next request.
+-- the limit, Amazon Web Services returns a NextPageToken value in the
+-- response. To retrieve the next batch of objects, provide the marker from
+-- the prior call in your next request.
 --
 -- 'costCategoryNames', 'getCostCategoriesResponse_costCategoryNames' - The names of the Cost Categories.
 --
@@ -386,9 +386,9 @@ getCostCategoriesResponse_costCategoryValues :: Lens.Lens' GetCostCategoriesResp
 getCostCategoriesResponse_costCategoryValues = Lens.lens (\GetCostCategoriesResponse' {costCategoryValues} -> costCategoryValues) (\s@GetCostCategoriesResponse' {} a -> s {costCategoryValues = a} :: GetCostCategoriesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If the number of objects that are still available for retrieval exceeds
--- the limit, AWS returns a NextPageToken value in the response. To
--- retrieve the next batch of objects, provide the marker from the prior
--- call in your next request.
+-- the limit, Amazon Web Services returns a NextPageToken value in the
+-- response. To retrieve the next batch of objects, provide the marker from
+-- the prior call in your next request.
 getCostCategoriesResponse_nextPageToken :: Lens.Lens' GetCostCategoriesResponse (Prelude.Maybe Prelude.Text)
 getCostCategoriesResponse_nextPageToken = Lens.lens (\GetCostCategoriesResponse' {nextPageToken} -> nextPageToken) (\s@GetCostCategoriesResponse' {} a -> s {nextPageToken = a} :: GetCostCategoriesResponse)
 

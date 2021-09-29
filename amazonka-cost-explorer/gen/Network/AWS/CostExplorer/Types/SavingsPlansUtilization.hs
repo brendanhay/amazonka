@@ -23,11 +23,11 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The measurement of how well you are using your existing Savings Plans.
+-- | The measurement of how well you\'re using your existing Savings Plans.
 --
 -- /See:/ 'newSavingsPlansUtilization' smart constructor.
 data SavingsPlansUtilization = SavingsPlansUtilization'
-  { -- | The amount of your Savings Plans commitment that was not consumed from
+  { -- | The amount of your Savings Plans commitment that wasn\'t consumed from
     -- Savings Plans eligible usage in a specific period.
     unusedCommitment :: Prelude.Maybe Prelude.Text,
     -- | The amount of your Savings Plans commitment that was consumed from
@@ -50,7 +50,7 @@ data SavingsPlansUtilization = SavingsPlansUtilization'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'unusedCommitment', 'savingsPlansUtilization_unusedCommitment' - The amount of your Savings Plans commitment that was not consumed from
+-- 'unusedCommitment', 'savingsPlansUtilization_unusedCommitment' - The amount of your Savings Plans commitment that wasn\'t consumed from
 -- Savings Plans eligible usage in a specific period.
 --
 -- 'usedCommitment', 'savingsPlansUtilization_usedCommitment' - The amount of your Savings Plans commitment that was consumed from
@@ -72,7 +72,7 @@ newSavingsPlansUtilization =
       utilizationPercentage = Prelude.Nothing
     }
 
--- | The amount of your Savings Plans commitment that was not consumed from
+-- | The amount of your Savings Plans commitment that wasn\'t consumed from
 -- Savings Plans eligible usage in a specific period.
 savingsPlansUtilization_unusedCommitment :: Lens.Lens' SavingsPlansUtilization (Prelude.Maybe Prelude.Text)
 savingsPlansUtilization_unusedCommitment = Lens.lens (\SavingsPlansUtilization' {unusedCommitment} -> unusedCommitment) (\s@SavingsPlansUtilization' {} a -> s {unusedCommitment = a} :: SavingsPlansUtilization)

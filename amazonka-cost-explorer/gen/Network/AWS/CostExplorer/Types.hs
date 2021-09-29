@@ -40,8 +40,20 @@ module Network.AWS.CostExplorer.Types
     -- * Context
     Context (..),
 
+    -- * CostCategoryInheritedValueDimensionName
+    CostCategoryInheritedValueDimensionName (..),
+
+    -- * CostCategoryRuleType
+    CostCategoryRuleType (..),
+
     -- * CostCategoryRuleVersion
     CostCategoryRuleVersion (..),
+
+    -- * CostCategorySplitChargeMethod
+    CostCategorySplitChargeMethod (..),
+
+    -- * CostCategorySplitChargeRuleParameterType
+    CostCategorySplitChargeRuleParameterType (..),
 
     -- * CostCategoryStatus
     CostCategoryStatus (..),
@@ -51,6 +63,9 @@ module Network.AWS.CostExplorer.Types
 
     -- * Dimension
     Dimension (..),
+
+    -- * FindingReasonCode
+    FindingReasonCode (..),
 
     -- * Granularity
     Granularity (..),
@@ -81,6 +96,9 @@ module Network.AWS.CostExplorer.Types
 
     -- * PaymentOption
     PaymentOption (..),
+
+    -- * PlatformDifference
+    PlatformDifference (..),
 
     -- * RecommendationTarget
     RecommendationTarget (..),
@@ -131,8 +149,8 @@ module Network.AWS.CostExplorer.Types
     anomalyMonitor_lastEvaluatedDate,
     anomalyMonitor_monitorSpecification,
     anomalyMonitor_lastUpdatedDate,
-    anomalyMonitor_creationDate,
     anomalyMonitor_dimensionalValueCount,
+    anomalyMonitor_creationDate,
     anomalyMonitor_monitorDimension,
     anomalyMonitor_monitorArn,
     anomalyMonitor_monitorName,
@@ -158,13 +176,21 @@ module Network.AWS.CostExplorer.Types
     -- * CostCategory
     CostCategory (..),
     newCostCategory,
+    costCategory_splitChargeRules,
     costCategory_processingStatus,
+    costCategory_defaultValue,
     costCategory_effectiveEnd,
     costCategory_costCategoryArn,
     costCategory_effectiveStart,
     costCategory_name,
     costCategory_ruleVersion,
     costCategory_rules,
+
+    -- * CostCategoryInheritedValueDimension
+    CostCategoryInheritedValueDimension (..),
+    newCostCategoryInheritedValueDimension,
+    costCategoryInheritedValueDimension_dimensionName,
+    costCategoryInheritedValueDimension_dimensionKey,
 
     -- * CostCategoryProcessingStatus
     CostCategoryProcessingStatus (..),
@@ -178,16 +204,33 @@ module Network.AWS.CostExplorer.Types
     costCategoryReference_numberOfRules,
     costCategoryReference_costCategoryArn,
     costCategoryReference_values,
-    costCategoryReference_processingStatus,
     costCategoryReference_name,
+    costCategoryReference_processingStatus,
+    costCategoryReference_defaultValue,
     costCategoryReference_effectiveStart,
     costCategoryReference_effectiveEnd,
 
     -- * CostCategoryRule
     CostCategoryRule (..),
     newCostCategoryRule,
-    costCategoryRule_value,
+    costCategoryRule_inheritedValue,
     costCategoryRule_rule,
+    costCategoryRule_value,
+    costCategoryRule_type,
+
+    -- * CostCategorySplitChargeRule
+    CostCategorySplitChargeRule (..),
+    newCostCategorySplitChargeRule,
+    costCategorySplitChargeRule_parameters,
+    costCategorySplitChargeRule_source,
+    costCategorySplitChargeRule_targets,
+    costCategorySplitChargeRule_method,
+
+    -- * CostCategorySplitChargeRuleParameter
+    CostCategorySplitChargeRuleParameter (..),
+    newCostCategorySplitChargeRuleParameter,
+    costCategorySplitChargeRuleParameter_type,
+    costCategorySplitChargeRuleParameter_values,
 
     -- * CostCategoryValues
     CostCategoryValues (..),
@@ -226,8 +269,8 @@ module Network.AWS.CostExplorer.Types
     -- * CoverageNormalizedUnits
     CoverageNormalizedUnits (..),
     newCoverageNormalizedUnits,
-    coverageNormalizedUnits_onDemandNormalizedUnits,
     coverageNormalizedUnits_coverageNormalizedUnitsPercentage,
+    coverageNormalizedUnits_onDemandNormalizedUnits,
     coverageNormalizedUnits_totalRunningNormalizedUnits,
     coverageNormalizedUnits_reservedNormalizedUnits,
 
@@ -235,8 +278,8 @@ module Network.AWS.CostExplorer.Types
     CurrentInstance (..),
     newCurrentInstance,
     currentInstance_resourceId,
-    currentInstance_instanceName,
     currentInstance_savingsPlansCoveredHoursInLookbackPeriod,
+    currentInstance_instanceName,
     currentInstance_onDemandHoursInLookbackPeriod,
     currentInstance_currencyCode,
     currentInstance_tags,
@@ -265,6 +308,14 @@ module Network.AWS.CostExplorer.Types
     dimensionValuesWithAttributes_attributes,
     dimensionValuesWithAttributes_value,
 
+    -- * DiskResourceUtilization
+    DiskResourceUtilization (..),
+    newDiskResourceUtilization,
+    diskResourceUtilization_diskReadOpsPerSecond,
+    diskResourceUtilization_diskReadBytesPerSecond,
+    diskResourceUtilization_diskWriteBytesPerSecond,
+    diskResourceUtilization_diskWriteOpsPerSecond,
+
     -- * EBSResourceUtilization
     EBSResourceUtilization (..),
     newEBSResourceUtilization,
@@ -279,8 +330,8 @@ module Network.AWS.CostExplorer.Types
     eC2InstanceDetails_platform,
     eC2InstanceDetails_instanceType,
     eC2InstanceDetails_tenancy,
-    eC2InstanceDetails_currentGeneration,
     eC2InstanceDetails_sizeFlexEligible,
+    eC2InstanceDetails_currentGeneration,
     eC2InstanceDetails_availabilityZone,
     eC2InstanceDetails_family,
     eC2InstanceDetails_region,
@@ -289,11 +340,11 @@ module Network.AWS.CostExplorer.Types
     EC2ResourceDetails (..),
     newEC2ResourceDetails,
     eC2ResourceDetails_platform,
-    eC2ResourceDetails_instanceType,
     eC2ResourceDetails_memory,
+    eC2ResourceDetails_instanceType,
     eC2ResourceDetails_vcpu,
-    eC2ResourceDetails_hourlyOnDemandRate,
     eC2ResourceDetails_storage,
+    eC2ResourceDetails_hourlyOnDemandRate,
     eC2ResourceDetails_networkPerformance,
     eC2ResourceDetails_region,
     eC2ResourceDetails_sku,
@@ -304,7 +355,9 @@ module Network.AWS.CostExplorer.Types
     eC2ResourceUtilization_maxStorageUtilizationPercentage,
     eC2ResourceUtilization_maxMemoryUtilizationPercentage,
     eC2ResourceUtilization_eBSResourceUtilization,
+    eC2ResourceUtilization_networkResourceUtilization,
     eC2ResourceUtilization_maxCpuUtilizationPercentage,
+    eC2ResourceUtilization_diskResourceUtilization,
 
     -- * EC2Specification
     EC2Specification (..),
@@ -314,28 +367,28 @@ module Network.AWS.CostExplorer.Types
     -- * ESInstanceDetails
     ESInstanceDetails (..),
     newESInstanceDetails,
-    eSInstanceDetails_instanceClass,
-    eSInstanceDetails_currentGeneration,
     eSInstanceDetails_sizeFlexEligible,
+    eSInstanceDetails_currentGeneration,
+    eSInstanceDetails_instanceClass,
     eSInstanceDetails_instanceSize,
     eSInstanceDetails_region,
 
     -- * ElastiCacheInstanceDetails
     ElastiCacheInstanceDetails (..),
     newElastiCacheInstanceDetails,
-    elastiCacheInstanceDetails_currentGeneration,
     elastiCacheInstanceDetails_sizeFlexEligible,
+    elastiCacheInstanceDetails_currentGeneration,
     elastiCacheInstanceDetails_family,
-    elastiCacheInstanceDetails_nodeType,
     elastiCacheInstanceDetails_region,
+    elastiCacheInstanceDetails_nodeType,
     elastiCacheInstanceDetails_productDescription,
 
     -- * Expression
     Expression (..),
     newExpression,
+    expression_costCategories,
     expression_not,
     expression_or,
-    expression_costCategories,
     expression_tags,
     expression_and,
     expression_dimensions,
@@ -386,14 +439,22 @@ module Network.AWS.CostExplorer.Types
     newModifyRecommendationDetail,
     modifyRecommendationDetail_targetInstances,
 
+    -- * NetworkResourceUtilization
+    NetworkResourceUtilization (..),
+    newNetworkResourceUtilization,
+    networkResourceUtilization_networkInBytesPerSecond,
+    networkResourceUtilization_networkPacketsOutPerSecond,
+    networkResourceUtilization_networkOutBytesPerSecond,
+    networkResourceUtilization_networkPacketsInPerSecond,
+
     -- * RDSInstanceDetails
     RDSInstanceDetails (..),
     newRDSInstanceDetails,
-    rDSInstanceDetails_instanceType,
     rDSInstanceDetails_databaseEdition,
+    rDSInstanceDetails_instanceType,
     rDSInstanceDetails_deploymentOption,
-    rDSInstanceDetails_currentGeneration,
     rDSInstanceDetails_sizeFlexEligible,
+    rDSInstanceDetails_currentGeneration,
     rDSInstanceDetails_licenseModel,
     rDSInstanceDetails_family,
     rDSInstanceDetails_databaseEngine,
@@ -402,11 +463,11 @@ module Network.AWS.CostExplorer.Types
     -- * RedshiftInstanceDetails
     RedshiftInstanceDetails (..),
     newRedshiftInstanceDetails,
-    redshiftInstanceDetails_currentGeneration,
     redshiftInstanceDetails_sizeFlexEligible,
+    redshiftInstanceDetails_currentGeneration,
     redshiftInstanceDetails_family,
-    redshiftInstanceDetails_nodeType,
     redshiftInstanceDetails_region,
+    redshiftInstanceDetails_nodeType,
 
     -- * ReservationAggregates
     ReservationAggregates (..),
@@ -422,12 +483,12 @@ module Network.AWS.CostExplorer.Types
     reservationAggregates_unusedUnits,
     reservationAggregates_totalActualUnits,
     reservationAggregates_totalPotentialRISavings,
-    reservationAggregates_netRISavings,
     reservationAggregates_totalAmortizedFee,
+    reservationAggregates_netRISavings,
     reservationAggregates_utilizationPercentageInUnits,
     reservationAggregates_amortizedUpfrontFee,
-    reservationAggregates_utilizationPercentage,
     reservationAggregates_purchasedUnits,
+    reservationAggregates_utilizationPercentage,
 
     -- * ReservationCoverageGroup
     ReservationCoverageGroup (..),
@@ -439,8 +500,8 @@ module Network.AWS.CostExplorer.Types
     ReservationPurchaseRecommendation (..),
     newReservationPurchaseRecommendation,
     reservationPurchaseRecommendation_paymentOption,
-    reservationPurchaseRecommendation_accountScope,
     reservationPurchaseRecommendation_recommendationDetails,
+    reservationPurchaseRecommendation_accountScope,
     reservationPurchaseRecommendation_serviceSpecification,
     reservationPurchaseRecommendation_termInYears,
     reservationPurchaseRecommendation_recommendationSummary,
@@ -451,13 +512,13 @@ module Network.AWS.CostExplorer.Types
     newReservationPurchaseRecommendationDetail,
     reservationPurchaseRecommendationDetail_upfrontCost,
     reservationPurchaseRecommendationDetail_accountId,
-    reservationPurchaseRecommendationDetail_estimatedMonthlySavingsAmount,
     reservationPurchaseRecommendationDetail_recurringStandardMonthlyCost,
-    reservationPurchaseRecommendationDetail_recommendedNormalizedUnitsToPurchase,
+    reservationPurchaseRecommendationDetail_estimatedMonthlySavingsAmount,
     reservationPurchaseRecommendationDetail_averageUtilization,
+    reservationPurchaseRecommendationDetail_recommendedNormalizedUnitsToPurchase,
     reservationPurchaseRecommendationDetail_averageNumberOfInstancesUsedPerHour,
-    reservationPurchaseRecommendationDetail_estimatedReservationCostForLookbackPeriod,
     reservationPurchaseRecommendationDetail_instanceDetails,
+    reservationPurchaseRecommendationDetail_estimatedReservationCostForLookbackPeriod,
     reservationPurchaseRecommendationDetail_maximumNumberOfInstancesUsedPerHour,
     reservationPurchaseRecommendationDetail_recommendedNumberOfInstancesToPurchase,
     reservationPurchaseRecommendationDetail_currencyCode,
@@ -513,8 +574,9 @@ module Network.AWS.CostExplorer.Types
     newRightsizingRecommendation,
     rightsizingRecommendation_accountId,
     rightsizingRecommendation_terminateRecommendationDetail,
-    rightsizingRecommendation_rightsizingType,
     rightsizingRecommendation_currentInstance,
+    rightsizingRecommendation_rightsizingType,
+    rightsizingRecommendation_findingReasonCodes,
     rightsizingRecommendation_modifyRecommendationDetail,
 
     -- * RightsizingRecommendationConfiguration
@@ -544,8 +606,8 @@ module Network.AWS.CostExplorer.Types
     newRootCause,
     rootCause_service,
     rootCause_usageType,
-    rootCause_linkedAccount,
     rootCause_region,
+    rootCause_linkedAccount,
 
     -- * SavingsPlansAmortizedCommitment
     SavingsPlansAmortizedCommitment (..),
@@ -583,8 +645,8 @@ module Network.AWS.CostExplorer.Types
     savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationSummary,
     savingsPlansPurchaseRecommendation_accountScope,
     savingsPlansPurchaseRecommendation_termInYears,
-    savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationDetails,
     savingsPlansPurchaseRecommendation_savingsPlansType,
+    savingsPlansPurchaseRecommendation_savingsPlansPurchaseRecommendationDetails,
     savingsPlansPurchaseRecommendation_lookbackPeriodInDays,
 
     -- * SavingsPlansPurchaseRecommendationDetail
@@ -598,9 +660,9 @@ module Network.AWS.CostExplorer.Types
     savingsPlansPurchaseRecommendationDetail_currentMaximumHourlyOnDemandSpend,
     savingsPlansPurchaseRecommendationDetail_hourlyCommitmentToPurchase,
     savingsPlansPurchaseRecommendationDetail_estimatedAverageUtilization,
-    savingsPlansPurchaseRecommendationDetail_currentAverageHourlyOnDemandSpend,
-    savingsPlansPurchaseRecommendationDetail_estimatedSavingsPercentage,
     savingsPlansPurchaseRecommendationDetail_savingsPlansDetails,
+    savingsPlansPurchaseRecommendationDetail_estimatedSavingsPercentage,
+    savingsPlansPurchaseRecommendationDetail_currentAverageHourlyOnDemandSpend,
     savingsPlansPurchaseRecommendationDetail_currencyCode,
     savingsPlansPurchaseRecommendationDetail_estimatedSPCost,
     savingsPlansPurchaseRecommendationDetail_estimatedOnDemandCostWithCurrentCommitment,
@@ -699,6 +761,7 @@ module Network.AWS.CostExplorer.Types
     targetInstance_currencyCode,
     targetInstance_estimatedMonthlyCost,
     targetInstance_expectedResourceUtilization,
+    targetInstance_platformDifferences,
     targetInstance_defaultTargetInstance,
     targetInstance_resourceDetails,
 
@@ -735,10 +798,17 @@ import Network.AWS.CostExplorer.Types.AnomalySubscription
 import Network.AWS.CostExplorer.Types.AnomalySubscriptionFrequency
 import Network.AWS.CostExplorer.Types.Context
 import Network.AWS.CostExplorer.Types.CostCategory
+import Network.AWS.CostExplorer.Types.CostCategoryInheritedValueDimension
+import Network.AWS.CostExplorer.Types.CostCategoryInheritedValueDimensionName
 import Network.AWS.CostExplorer.Types.CostCategoryProcessingStatus
 import Network.AWS.CostExplorer.Types.CostCategoryReference
 import Network.AWS.CostExplorer.Types.CostCategoryRule
+import Network.AWS.CostExplorer.Types.CostCategoryRuleType
 import Network.AWS.CostExplorer.Types.CostCategoryRuleVersion
+import Network.AWS.CostExplorer.Types.CostCategorySplitChargeMethod
+import Network.AWS.CostExplorer.Types.CostCategorySplitChargeRule
+import Network.AWS.CostExplorer.Types.CostCategorySplitChargeRuleParameter
+import Network.AWS.CostExplorer.Types.CostCategorySplitChargeRuleParameterType
 import Network.AWS.CostExplorer.Types.CostCategoryStatus
 import Network.AWS.CostExplorer.Types.CostCategoryStatusComponent
 import Network.AWS.CostExplorer.Types.CostCategoryValues
@@ -752,6 +822,7 @@ import Network.AWS.CostExplorer.Types.DateInterval
 import Network.AWS.CostExplorer.Types.Dimension
 import Network.AWS.CostExplorer.Types.DimensionValues
 import Network.AWS.CostExplorer.Types.DimensionValuesWithAttributes
+import Network.AWS.CostExplorer.Types.DiskResourceUtilization
 import Network.AWS.CostExplorer.Types.EBSResourceUtilization
 import Network.AWS.CostExplorer.Types.EC2InstanceDetails
 import Network.AWS.CostExplorer.Types.EC2ResourceDetails
@@ -760,6 +831,7 @@ import Network.AWS.CostExplorer.Types.EC2Specification
 import Network.AWS.CostExplorer.Types.ESInstanceDetails
 import Network.AWS.CostExplorer.Types.ElastiCacheInstanceDetails
 import Network.AWS.CostExplorer.Types.Expression
+import Network.AWS.CostExplorer.Types.FindingReasonCode
 import Network.AWS.CostExplorer.Types.ForecastResult
 import Network.AWS.CostExplorer.Types.Granularity
 import Network.AWS.CostExplorer.Types.Group
@@ -774,9 +846,11 @@ import Network.AWS.CostExplorer.Types.MetricValue
 import Network.AWS.CostExplorer.Types.ModifyRecommendationDetail
 import Network.AWS.CostExplorer.Types.MonitorDimension
 import Network.AWS.CostExplorer.Types.MonitorType
+import Network.AWS.CostExplorer.Types.NetworkResourceUtilization
 import Network.AWS.CostExplorer.Types.NumericOperator
 import Network.AWS.CostExplorer.Types.OfferingClass
 import Network.AWS.CostExplorer.Types.PaymentOption
+import Network.AWS.CostExplorer.Types.PlatformDifference
 import Network.AWS.CostExplorer.Types.RDSInstanceDetails
 import Network.AWS.CostExplorer.Types.RecommendationTarget
 import Network.AWS.CostExplorer.Types.RedshiftInstanceDetails

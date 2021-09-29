@@ -23,8 +23,8 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The EBS field that contains a list of EBS metrics associated with the
--- current instance.
+-- | The EBS field that contains a list of EBS metrics that are associated
+-- with the current instance.
 --
 -- /See:/ 'newEBSResourceUtilization' smart constructor.
 data EBSResourceUtilization = EBSResourceUtilization'

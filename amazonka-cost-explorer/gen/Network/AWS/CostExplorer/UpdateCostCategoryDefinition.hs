@@ -29,6 +29,8 @@ module Network.AWS.CostExplorer.UpdateCostCategoryDefinition
     newUpdateCostCategoryDefinition,
 
     -- * Request Lenses
+    updateCostCategoryDefinition_splitChargeRules,
+    updateCostCategoryDefinition_defaultValue,
     updateCostCategoryDefinition_costCategoryArn,
     updateCostCategoryDefinition_ruleVersion,
     updateCostCategoryDefinition_rules,
@@ -53,7 +55,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateCostCategoryDefinition' smart constructor.
 data UpdateCostCategoryDefinition = UpdateCostCategoryDefinition'
-  { -- | The unique identifier for your Cost Category.
+  { -- | The split charge rules used to allocate your charges between your Cost
+    -- Category values.
+    splitChargeRules :: Prelude.Maybe (Prelude.NonEmpty CostCategorySplitChargeRule),
+    defaultValue :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for your Cost Category.
     costCategoryArn :: Prelude.Text,
     ruleVersion :: CostCategoryRuleVersion,
     -- | The @Expression@ object used to categorize costs. For more information,
@@ -71,6 +77,11 @@ data UpdateCostCategoryDefinition = UpdateCostCategoryDefinition'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'splitChargeRules', 'updateCostCategoryDefinition_splitChargeRules' - The split charge rules used to allocate your charges between your Cost
+-- Category values.
+--
+-- 'defaultValue', 'updateCostCategoryDefinition_defaultValue' - Undocumented member.
 --
 -- 'costCategoryArn', 'updateCostCategoryDefinition_costCategoryArn' - The unique identifier for your Cost Category.
 --
@@ -93,11 +104,22 @@ newUpdateCostCategoryDefinition
   pRuleVersion_
   pRules_ =
     UpdateCostCategoryDefinition'
-      { costCategoryArn =
-          pCostCategoryArn_,
+      { splitChargeRules =
+          Prelude.Nothing,
+        defaultValue = Prelude.Nothing,
+        costCategoryArn = pCostCategoryArn_,
         ruleVersion = pRuleVersion_,
         rules = Lens._Coerce Lens.# pRules_
       }
+
+-- | The split charge rules used to allocate your charges between your Cost
+-- Category values.
+updateCostCategoryDefinition_splitChargeRules :: Lens.Lens' UpdateCostCategoryDefinition (Prelude.Maybe (Prelude.NonEmpty CostCategorySplitChargeRule))
+updateCostCategoryDefinition_splitChargeRules = Lens.lens (\UpdateCostCategoryDefinition' {splitChargeRules} -> splitChargeRules) (\s@UpdateCostCategoryDefinition' {} a -> s {splitChargeRules = a} :: UpdateCostCategoryDefinition) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Undocumented member.
+updateCostCategoryDefinition_defaultValue :: Lens.Lens' UpdateCostCategoryDefinition (Prelude.Maybe Prelude.Text)
+updateCostCategoryDefinition_defaultValue = Lens.lens (\UpdateCostCategoryDefinition' {defaultValue} -> defaultValue) (\s@UpdateCostCategoryDefinition' {} a -> s {defaultValue = a} :: UpdateCostCategoryDefinition)
 
 -- | The unique identifier for your Cost Category.
 updateCostCategoryDefinition_costCategoryArn :: Lens.Lens' UpdateCostCategoryDefinition Prelude.Text
@@ -153,7 +175,10 @@ instance Core.ToJSON UpdateCostCategoryDefinition where
   toJSON UpdateCostCategoryDefinition' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just
+          [ ("SplitChargeRules" Core..=)
+              Prelude.<$> splitChargeRules,
+            ("DefaultValue" Core..=) Prelude.<$> defaultValue,
+            Prelude.Just
               ("CostCategoryArn" Core..= costCategoryArn),
             Prelude.Just ("RuleVersion" Core..= ruleVersion),
             Prelude.Just ("Rules" Core..= rules)

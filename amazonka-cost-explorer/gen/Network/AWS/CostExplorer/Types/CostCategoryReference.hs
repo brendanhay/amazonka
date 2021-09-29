@@ -32,16 +32,17 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCostCategoryReference' smart constructor.
 data CostCategoryReference = CostCategoryReference'
-  { -- | The number of rules associated with a specific Cost Category.
+  { -- | The number of rules that are associated with a specific Cost Category.
     numberOfRules :: Prelude.Maybe Prelude.Natural,
     -- | The unique identifier for your Cost Category.
     costCategoryArn :: Prelude.Maybe Prelude.Text,
     -- | A list of unique cost category values in a specific cost category.
     values :: Prelude.Maybe [Prelude.Text],
+    name :: Prelude.Maybe Prelude.Text,
     -- | The list of processing statuses for Cost Management products for a
     -- specific cost category.
     processingStatus :: Prelude.Maybe [CostCategoryProcessingStatus],
-    name :: Prelude.Maybe Prelude.Text,
+    defaultValue :: Prelude.Maybe Prelude.Text,
     -- | The Cost Category\'s effective start date.
     effectiveStart :: Prelude.Maybe Prelude.Text,
     -- | The Cost Category\'s effective end date.
@@ -57,16 +58,18 @@ data CostCategoryReference = CostCategoryReference'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'numberOfRules', 'costCategoryReference_numberOfRules' - The number of rules associated with a specific Cost Category.
+-- 'numberOfRules', 'costCategoryReference_numberOfRules' - The number of rules that are associated with a specific Cost Category.
 --
 -- 'costCategoryArn', 'costCategoryReference_costCategoryArn' - The unique identifier for your Cost Category.
 --
 -- 'values', 'costCategoryReference_values' - A list of unique cost category values in a specific cost category.
 --
+-- 'name', 'costCategoryReference_name' - Undocumented member.
+--
 -- 'processingStatus', 'costCategoryReference_processingStatus' - The list of processing statuses for Cost Management products for a
 -- specific cost category.
 --
--- 'name', 'costCategoryReference_name' - Undocumented member.
+-- 'defaultValue', 'costCategoryReference_defaultValue' - Undocumented member.
 --
 -- 'effectiveStart', 'costCategoryReference_effectiveStart' - The Cost Category\'s effective start date.
 --
@@ -79,13 +82,14 @@ newCostCategoryReference =
         Prelude.Nothing,
       costCategoryArn = Prelude.Nothing,
       values = Prelude.Nothing,
-      processingStatus = Prelude.Nothing,
       name = Prelude.Nothing,
+      processingStatus = Prelude.Nothing,
+      defaultValue = Prelude.Nothing,
       effectiveStart = Prelude.Nothing,
       effectiveEnd = Prelude.Nothing
     }
 
--- | The number of rules associated with a specific Cost Category.
+-- | The number of rules that are associated with a specific Cost Category.
 costCategoryReference_numberOfRules :: Lens.Lens' CostCategoryReference (Prelude.Maybe Prelude.Natural)
 costCategoryReference_numberOfRules = Lens.lens (\CostCategoryReference' {numberOfRules} -> numberOfRules) (\s@CostCategoryReference' {} a -> s {numberOfRules = a} :: CostCategoryReference)
 
@@ -97,14 +101,18 @@ costCategoryReference_costCategoryArn = Lens.lens (\CostCategoryReference' {cost
 costCategoryReference_values :: Lens.Lens' CostCategoryReference (Prelude.Maybe [Prelude.Text])
 costCategoryReference_values = Lens.lens (\CostCategoryReference' {values} -> values) (\s@CostCategoryReference' {} a -> s {values = a} :: CostCategoryReference) Prelude.. Lens.mapping Lens._Coerce
 
+-- | Undocumented member.
+costCategoryReference_name :: Lens.Lens' CostCategoryReference (Prelude.Maybe Prelude.Text)
+costCategoryReference_name = Lens.lens (\CostCategoryReference' {name} -> name) (\s@CostCategoryReference' {} a -> s {name = a} :: CostCategoryReference)
+
 -- | The list of processing statuses for Cost Management products for a
 -- specific cost category.
 costCategoryReference_processingStatus :: Lens.Lens' CostCategoryReference (Prelude.Maybe [CostCategoryProcessingStatus])
 costCategoryReference_processingStatus = Lens.lens (\CostCategoryReference' {processingStatus} -> processingStatus) (\s@CostCategoryReference' {} a -> s {processingStatus = a} :: CostCategoryReference) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
-costCategoryReference_name :: Lens.Lens' CostCategoryReference (Prelude.Maybe Prelude.Text)
-costCategoryReference_name = Lens.lens (\CostCategoryReference' {name} -> name) (\s@CostCategoryReference' {} a -> s {name = a} :: CostCategoryReference)
+costCategoryReference_defaultValue :: Lens.Lens' CostCategoryReference (Prelude.Maybe Prelude.Text)
+costCategoryReference_defaultValue = Lens.lens (\CostCategoryReference' {defaultValue} -> defaultValue) (\s@CostCategoryReference' {} a -> s {defaultValue = a} :: CostCategoryReference)
 
 -- | The Cost Category\'s effective start date.
 costCategoryReference_effectiveStart :: Lens.Lens' CostCategoryReference (Prelude.Maybe Prelude.Text)
@@ -123,10 +131,11 @@ instance Core.FromJSON CostCategoryReference where
             Prelude.<$> (x Core..:? "NumberOfRules")
             Prelude.<*> (x Core..:? "CostCategoryArn")
             Prelude.<*> (x Core..:? "Values" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Name")
             Prelude.<*> ( x Core..:? "ProcessingStatus"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "DefaultValue")
             Prelude.<*> (x Core..:? "EffectiveStart")
             Prelude.<*> (x Core..:? "EffectiveEnd")
       )

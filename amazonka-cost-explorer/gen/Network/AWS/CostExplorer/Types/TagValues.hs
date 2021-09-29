@@ -26,12 +26,12 @@ import qualified Network.AWS.Prelude as Prelude
 
 -- | The values that are available for a tag.
 --
--- If @Values@ and @Key@ are not specified, the @ABSENT@ @MatchOption@ is
--- applied to all tags. That is, filtering on resources with no tags.
+-- If @Values@ and @Key@ aren\'t specified, the @ABSENT@ @MatchOption@ is
+-- applied to all tags. That is, it\'s filtered on resources with no tags.
 --
--- If @Values@ is provided and @Key@ is not specified, the @ABSENT@
--- @MatchOption@ is applied to the tag @Key@ only. That is, filtering on
--- resources without the given tag key.
+-- If @Values@ is provided and @Key@ isn\'t specified, the @ABSENT@
+-- @MatchOption@ is applied to the tag @Key@ only. That is, it\'s filtered
+-- on resources without the given tag key.
 --
 -- /See:/ 'newTagValues' smart constructor.
 data TagValues = TagValues'

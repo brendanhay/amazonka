@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CostExplorer.Types.SupportedSavingsPlansType
+-- Module      : Network.AWS.CostExplorer.Types.CostCategorySplitChargeMethod
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CostExplorer.Types.SupportedSavingsPlansType
-  ( SupportedSavingsPlansType
+module Network.AWS.CostExplorer.Types.CostCategorySplitChargeMethod
+  ( CostCategorySplitChargeMethod
       ( ..,
-        SupportedSavingsPlansType_COMPUTE_SP,
-        SupportedSavingsPlansType_EC2_INSTANCE_SP,
-        SupportedSavingsPlansType_SAGEMAKER_SP
+        CostCategorySplitChargeMethod_EVEN,
+        CostCategorySplitChargeMethod_FIXED,
+        CostCategorySplitChargeMethod_PROPORTIONAL
       ),
   )
 where
@@ -30,8 +30,8 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
-newtype SupportedSavingsPlansType = SupportedSavingsPlansType'
-  { fromSupportedSavingsPlansType ::
+newtype CostCategorySplitChargeMethod = CostCategorySplitChargeMethod'
+  { fromCostCategorySplitChargeMethod ::
       Core.Text
   }
   deriving stock
@@ -58,18 +58,18 @@ newtype SupportedSavingsPlansType = SupportedSavingsPlansType'
       Core.ToXML
     )
 
-pattern SupportedSavingsPlansType_COMPUTE_SP :: SupportedSavingsPlansType
-pattern SupportedSavingsPlansType_COMPUTE_SP = SupportedSavingsPlansType' "COMPUTE_SP"
+pattern CostCategorySplitChargeMethod_EVEN :: CostCategorySplitChargeMethod
+pattern CostCategorySplitChargeMethod_EVEN = CostCategorySplitChargeMethod' "EVEN"
 
-pattern SupportedSavingsPlansType_EC2_INSTANCE_SP :: SupportedSavingsPlansType
-pattern SupportedSavingsPlansType_EC2_INSTANCE_SP = SupportedSavingsPlansType' "EC2_INSTANCE_SP"
+pattern CostCategorySplitChargeMethod_FIXED :: CostCategorySplitChargeMethod
+pattern CostCategorySplitChargeMethod_FIXED = CostCategorySplitChargeMethod' "FIXED"
 
-pattern SupportedSavingsPlansType_SAGEMAKER_SP :: SupportedSavingsPlansType
-pattern SupportedSavingsPlansType_SAGEMAKER_SP = SupportedSavingsPlansType' "SAGEMAKER_SP"
+pattern CostCategorySplitChargeMethod_PROPORTIONAL :: CostCategorySplitChargeMethod
+pattern CostCategorySplitChargeMethod_PROPORTIONAL = CostCategorySplitChargeMethod' "PROPORTIONAL"
 
 {-# COMPLETE
-  SupportedSavingsPlansType_COMPUTE_SP,
-  SupportedSavingsPlansType_EC2_INSTANCE_SP,
-  SupportedSavingsPlansType_SAGEMAKER_SP,
-  SupportedSavingsPlansType'
+  CostCategorySplitChargeMethod_EVEN,
+  CostCategorySplitChargeMethod_FIXED,
+  CostCategorySplitChargeMethod_PROPORTIONAL,
+  CostCategorySplitChargeMethod'
   #-}

@@ -23,13 +23,13 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The anomaly\'s dollar value.
+-- | The dollar value of the anomaly.
 --
 -- /See:/ 'newImpact' smart constructor.
 data Impact = Impact'
-  { -- | The cumulative dollar value observed for an anomaly.
+  { -- | The cumulative dollar value that\'s observed for an anomaly.
     totalImpact :: Prelude.Maybe Prelude.Double,
-    -- | The maximum dollar value observed for an anomaly.
+    -- | The maximum dollar value that\'s observed for an anomaly.
     maxImpact :: Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,9 +42,9 @@ data Impact = Impact'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'totalImpact', 'impact_totalImpact' - The cumulative dollar value observed for an anomaly.
+-- 'totalImpact', 'impact_totalImpact' - The cumulative dollar value that\'s observed for an anomaly.
 --
--- 'maxImpact', 'impact_maxImpact' - The maximum dollar value observed for an anomaly.
+-- 'maxImpact', 'impact_maxImpact' - The maximum dollar value that\'s observed for an anomaly.
 newImpact ::
   -- | 'maxImpact'
   Prelude.Double ->
@@ -55,11 +55,11 @@ newImpact pMaxImpact_ =
       maxImpact = pMaxImpact_
     }
 
--- | The cumulative dollar value observed for an anomaly.
+-- | The cumulative dollar value that\'s observed for an anomaly.
 impact_totalImpact :: Lens.Lens' Impact (Prelude.Maybe Prelude.Double)
 impact_totalImpact = Lens.lens (\Impact' {totalImpact} -> totalImpact) (\s@Impact' {} a -> s {totalImpact = a} :: Impact)
 
--- | The maximum dollar value observed for an anomaly.
+-- | The maximum dollar value that\'s observed for an anomaly.
 impact_maxImpact :: Lens.Lens' Impact Prelude.Double
 impact_maxImpact = Lens.lens (\Impact' {maxImpact} -> maxImpact) (\s@Impact' {} a -> s {maxImpact = a} :: Impact)
 

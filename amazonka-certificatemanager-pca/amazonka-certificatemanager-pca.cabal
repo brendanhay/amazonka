@@ -92,7 +92,9 @@ library
     Network.AWS.CertificateManagerPCA.Types.FailureReason
     Network.AWS.CertificateManagerPCA.Types.GeneralName
     Network.AWS.CertificateManagerPCA.Types.KeyAlgorithm
+    Network.AWS.CertificateManagerPCA.Types.KeyStorageSecurityStandard
     Network.AWS.CertificateManagerPCA.Types.KeyUsage
+    Network.AWS.CertificateManagerPCA.Types.OcspConfiguration
     Network.AWS.CertificateManagerPCA.Types.OtherName
     Network.AWS.CertificateManagerPCA.Types.Permission
     Network.AWS.CertificateManagerPCA.Types.PolicyInformation
@@ -102,6 +104,7 @@ library
     Network.AWS.CertificateManagerPCA.Types.ResourceOwner
     Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration
     Network.AWS.CertificateManagerPCA.Types.RevocationReason
+    Network.AWS.CertificateManagerPCA.Types.S3ObjectAcl
     Network.AWS.CertificateManagerPCA.Types.SigningAlgorithm
     Network.AWS.CertificateManagerPCA.Types.Tag
     Network.AWS.CertificateManagerPCA.Types.Validity

@@ -23,6 +23,7 @@ import Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration
 import Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityStatus
 import Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityType
 import Network.AWS.CertificateManagerPCA.Types.FailureReason
+import Network.AWS.CertificateManagerPCA.Types.KeyStorageSecurityStandard
 import Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
@@ -49,16 +50,29 @@ data CertificateAuthority = CertificateAuthority'
     status :: Prelude.Maybe CertificateAuthorityStatus,
     -- | Date and time before which your private CA certificate is not valid.
     notBefore :: Prelude.Maybe Core.POSIX,
-    -- | Information about the certificate revocation list (CRL) created and
+    -- | Defines a cryptographic key management compliance standard used for
+    -- handling CA keys.
+    --
+    -- Default: FIPS_140_2_LEVEL_3_OR_HIGHER
+    --
+    -- Note: AWS Region ap-northeast-3 supports only
+    -- FIPS_140_2_LEVEL_2_OR_HIGHER. You must explicitly specify this parameter
+    -- and value when creating a CA in that Region. Specifying a different
+    -- value (or no value) results in an @InvalidArgsException@ with the
+    -- message \"A certificate authority cannot be created in this region with
+    -- the specified security standard.\"
+    keyStorageSecurityStandard :: Prelude.Maybe KeyStorageSecurityStandard,
+    -- | Information about the Online Certificate Status Protocol (OCSP)
+    -- configuration or certificate revocation list (CRL) created and
     -- maintained by your private CA.
     revocationConfiguration :: Prelude.Maybe RevocationConfiguration,
     -- | Serial number of your private CA.
     serial :: Prelude.Maybe Prelude.Text,
+    -- | Date and time at which your private CA was created.
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | Amazon Resource Name (ARN) for your private certificate authority (CA).
     -- The format is @ 12345678-1234-1234-1234-123456789012 @.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | Date and time at which your private CA was created.
-    createdAt :: Prelude.Maybe Core.POSIX,
     -- | Your private CA configuration.
     certificateAuthorityConfiguration :: Prelude.Maybe CertificateAuthorityConfiguration,
     -- | Reason the request to create your private CA failed.
@@ -91,15 +105,28 @@ data CertificateAuthority = CertificateAuthority'
 --
 -- 'notBefore', 'certificateAuthority_notBefore' - Date and time before which your private CA certificate is not valid.
 --
--- 'revocationConfiguration', 'certificateAuthority_revocationConfiguration' - Information about the certificate revocation list (CRL) created and
+-- 'keyStorageSecurityStandard', 'certificateAuthority_keyStorageSecurityStandard' - Defines a cryptographic key management compliance standard used for
+-- handling CA keys.
+--
+-- Default: FIPS_140_2_LEVEL_3_OR_HIGHER
+--
+-- Note: AWS Region ap-northeast-3 supports only
+-- FIPS_140_2_LEVEL_2_OR_HIGHER. You must explicitly specify this parameter
+-- and value when creating a CA in that Region. Specifying a different
+-- value (or no value) results in an @InvalidArgsException@ with the
+-- message \"A certificate authority cannot be created in this region with
+-- the specified security standard.\"
+--
+-- 'revocationConfiguration', 'certificateAuthority_revocationConfiguration' - Information about the Online Certificate Status Protocol (OCSP)
+-- configuration or certificate revocation list (CRL) created and
 -- maintained by your private CA.
 --
 -- 'serial', 'certificateAuthority_serial' - Serial number of your private CA.
 --
+-- 'createdAt', 'certificateAuthority_createdAt' - Date and time at which your private CA was created.
+--
 -- 'arn', 'certificateAuthority_arn' - Amazon Resource Name (ARN) for your private certificate authority (CA).
 -- The format is @ 12345678-1234-1234-1234-123456789012 @.
---
--- 'createdAt', 'certificateAuthority_createdAt' - Date and time at which your private CA was created.
 --
 -- 'certificateAuthorityConfiguration', 'certificateAuthority_certificateAuthorityConfiguration' - Your private CA configuration.
 --
@@ -123,10 +150,11 @@ newCertificateAuthority =
   CertificateAuthority'
     { status = Prelude.Nothing,
       notBefore = Prelude.Nothing,
+      keyStorageSecurityStandard = Prelude.Nothing,
       revocationConfiguration = Prelude.Nothing,
       serial = Prelude.Nothing,
-      arn = Prelude.Nothing,
       createdAt = Prelude.Nothing,
+      arn = Prelude.Nothing,
       certificateAuthorityConfiguration = Prelude.Nothing,
       failureReason = Prelude.Nothing,
       notAfter = Prelude.Nothing,
@@ -144,7 +172,22 @@ certificateAuthority_status = Lens.lens (\CertificateAuthority' {status} -> stat
 certificateAuthority_notBefore :: Lens.Lens' CertificateAuthority (Prelude.Maybe Prelude.UTCTime)
 certificateAuthority_notBefore = Lens.lens (\CertificateAuthority' {notBefore} -> notBefore) (\s@CertificateAuthority' {} a -> s {notBefore = a} :: CertificateAuthority) Prelude.. Lens.mapping Core._Time
 
--- | Information about the certificate revocation list (CRL) created and
+-- | Defines a cryptographic key management compliance standard used for
+-- handling CA keys.
+--
+-- Default: FIPS_140_2_LEVEL_3_OR_HIGHER
+--
+-- Note: AWS Region ap-northeast-3 supports only
+-- FIPS_140_2_LEVEL_2_OR_HIGHER. You must explicitly specify this parameter
+-- and value when creating a CA in that Region. Specifying a different
+-- value (or no value) results in an @InvalidArgsException@ with the
+-- message \"A certificate authority cannot be created in this region with
+-- the specified security standard.\"
+certificateAuthority_keyStorageSecurityStandard :: Lens.Lens' CertificateAuthority (Prelude.Maybe KeyStorageSecurityStandard)
+certificateAuthority_keyStorageSecurityStandard = Lens.lens (\CertificateAuthority' {keyStorageSecurityStandard} -> keyStorageSecurityStandard) (\s@CertificateAuthority' {} a -> s {keyStorageSecurityStandard = a} :: CertificateAuthority)
+
+-- | Information about the Online Certificate Status Protocol (OCSP)
+-- configuration or certificate revocation list (CRL) created and
 -- maintained by your private CA.
 certificateAuthority_revocationConfiguration :: Lens.Lens' CertificateAuthority (Prelude.Maybe RevocationConfiguration)
 certificateAuthority_revocationConfiguration = Lens.lens (\CertificateAuthority' {revocationConfiguration} -> revocationConfiguration) (\s@CertificateAuthority' {} a -> s {revocationConfiguration = a} :: CertificateAuthority)
@@ -153,14 +196,14 @@ certificateAuthority_revocationConfiguration = Lens.lens (\CertificateAuthority'
 certificateAuthority_serial :: Lens.Lens' CertificateAuthority (Prelude.Maybe Prelude.Text)
 certificateAuthority_serial = Lens.lens (\CertificateAuthority' {serial} -> serial) (\s@CertificateAuthority' {} a -> s {serial = a} :: CertificateAuthority)
 
+-- | Date and time at which your private CA was created.
+certificateAuthority_createdAt :: Lens.Lens' CertificateAuthority (Prelude.Maybe Prelude.UTCTime)
+certificateAuthority_createdAt = Lens.lens (\CertificateAuthority' {createdAt} -> createdAt) (\s@CertificateAuthority' {} a -> s {createdAt = a} :: CertificateAuthority) Prelude.. Lens.mapping Core._Time
+
 -- | Amazon Resource Name (ARN) for your private certificate authority (CA).
 -- The format is @ 12345678-1234-1234-1234-123456789012 @.
 certificateAuthority_arn :: Lens.Lens' CertificateAuthority (Prelude.Maybe Prelude.Text)
 certificateAuthority_arn = Lens.lens (\CertificateAuthority' {arn} -> arn) (\s@CertificateAuthority' {} a -> s {arn = a} :: CertificateAuthority)
-
--- | Date and time at which your private CA was created.
-certificateAuthority_createdAt :: Lens.Lens' CertificateAuthority (Prelude.Maybe Prelude.UTCTime)
-certificateAuthority_createdAt = Lens.lens (\CertificateAuthority' {createdAt} -> createdAt) (\s@CertificateAuthority' {} a -> s {createdAt = a} :: CertificateAuthority) Prelude.. Lens.mapping Core._Time
 
 -- | Your private CA configuration.
 certificateAuthority_certificateAuthorityConfiguration :: Lens.Lens' CertificateAuthority (Prelude.Maybe CertificateAuthorityConfiguration)
@@ -201,10 +244,11 @@ instance Core.FromJSON CertificateAuthority where
           CertificateAuthority'
             Prelude.<$> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "NotBefore")
+            Prelude.<*> (x Core..:? "KeyStorageSecurityStandard")
             Prelude.<*> (x Core..:? "RevocationConfiguration")
             Prelude.<*> (x Core..:? "Serial")
-            Prelude.<*> (x Core..:? "Arn")
             Prelude.<*> (x Core..:? "CreatedAt")
+            Prelude.<*> (x Core..:? "Arn")
             Prelude.<*> (x Core..:? "CertificateAuthorityConfiguration")
             Prelude.<*> (x Core..:? "FailureReason")
             Prelude.<*> (x Core..:? "NotAfter")

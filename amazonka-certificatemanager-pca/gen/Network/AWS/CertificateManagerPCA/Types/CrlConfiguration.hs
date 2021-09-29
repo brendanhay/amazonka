@@ -19,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CertificateManagerPCA.Types.CrlConfiguration where
 
+import Network.AWS.CertificateManagerPCA.Types.S3ObjectAcl
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
@@ -34,8 +35,8 @@ import qualified Network.AWS.Prelude as Prelude
 -- certificate it issues. Your S3 bucket policy must give write permission
 -- to ACM Private CA.
 --
--- ACM Private CAA assets that are stored in Amazon S3 can be protected
--- with encryption. For more information, see
+-- ACM Private CA assets that are stored in Amazon S3 can be protected with
+-- encryption. For more information, see
 -- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#crl-encryption Encrypting Your CRLs>.
 --
 -- Your private CA uses the value in the __ExpirationInDays__ parameter to
@@ -44,6 +45,10 @@ import qualified Network.AWS.Prelude as Prelude
 -- certificate is revoked, it is recorded in the next CRL that is generated
 -- and in the next audit report. Only time valid certificates are listed in
 -- the CRL. Expired certificates are not included.
+--
+-- A CRL is typically updated approximately 30 minutes after a certificate
+-- is revoked. If for any reason a CRL update fails, ACM Private CA makes
+-- further attempts every 15 minutes.
 --
 -- CRLs contain the following fields:
 --
@@ -91,19 +96,44 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- @openssl crl -inform DER -text -in crl_path -noout@
 --
+-- For more information, see
+-- <https://docs.aws.amazon.com/acm-pca/latest/userguide/crl-planning.html Planning a certificate revocation list (CRL)>
+-- in the /AWS Certificate Manager Private Certificate Authority (PCA) User
+-- Guide/
+--
 -- /See:/ 'newCrlConfiguration' smart constructor.
 data CrlConfiguration = CrlConfiguration'
   { -- | Name inserted into the certificate __CRL Distribution Points__ extension
     -- that enables the use of an alias for the CRL distribution point. Use
     -- this value if you don\'t want the name of your S3 bucket to be public.
     customCname :: Prelude.Maybe Prelude.Text,
+    -- | Determines whether the CRL will be publicly readable or privately held
+    -- in the CRL Amazon S3 bucket. If you choose PUBLIC_READ, the CRL will be
+    -- accessible over the public internet. If you choose
+    -- BUCKET_OWNER_FULL_CONTROL, only the owner of the CRL S3 bucket can
+    -- access the CRL, and your PKI clients may need an alternative method of
+    -- access.
+    --
+    -- If no value is specified, the default is @PUBLIC_READ@.
+    --
+    -- /Note:/ This default can cause CA creation to fail in some
+    -- circumstances. If you have have enabled the Block Public Access (BPA)
+    -- feature in your S3 account, then you must specify the value of this
+    -- parameter as @BUCKET_OWNER_FULL_CONTROL@, and not doing so results in an
+    -- error. If you have disabled BPA in S3, then you can specify either
+    -- @BUCKET_OWNER_FULL_CONTROL@ or @PUBLIC_READ@ as the value.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#s3-bpa Blocking public access to the S3 bucket>.
+    s3ObjectAcl :: Prelude.Maybe S3ObjectAcl,
     -- | Name of the S3 bucket that contains the CRL. If you do not provide a
     -- value for the __CustomCname__ argument, the name of your S3 bucket is
     -- placed into the __CRL Distribution Points__ extension of the issued
     -- certificate. You can change the name of your bucket by calling the
     -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UpdateCertificateAuthority.html UpdateCertificateAuthority>
-    -- action. You must specify a bucket policy that allows ACM Private CA to
-    -- write the CRL to your bucket.
+    -- operation. You must specify a
+    -- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#s3-policies bucket policy>
+    -- that allows ACM Private CA to write the CRL to your bucket.
     s3BucketName :: Prelude.Maybe Prelude.Text,
     -- | Validity period of the CRL in days.
     expirationInDays :: Prelude.Maybe Prelude.Natural,
@@ -130,13 +160,33 @@ data CrlConfiguration = CrlConfiguration'
 -- that enables the use of an alias for the CRL distribution point. Use
 -- this value if you don\'t want the name of your S3 bucket to be public.
 --
+-- 's3ObjectAcl', 'crlConfiguration_s3ObjectAcl' - Determines whether the CRL will be publicly readable or privately held
+-- in the CRL Amazon S3 bucket. If you choose PUBLIC_READ, the CRL will be
+-- accessible over the public internet. If you choose
+-- BUCKET_OWNER_FULL_CONTROL, only the owner of the CRL S3 bucket can
+-- access the CRL, and your PKI clients may need an alternative method of
+-- access.
+--
+-- If no value is specified, the default is @PUBLIC_READ@.
+--
+-- /Note:/ This default can cause CA creation to fail in some
+-- circumstances. If you have have enabled the Block Public Access (BPA)
+-- feature in your S3 account, then you must specify the value of this
+-- parameter as @BUCKET_OWNER_FULL_CONTROL@, and not doing so results in an
+-- error. If you have disabled BPA in S3, then you can specify either
+-- @BUCKET_OWNER_FULL_CONTROL@ or @PUBLIC_READ@ as the value.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#s3-bpa Blocking public access to the S3 bucket>.
+--
 -- 's3BucketName', 'crlConfiguration_s3BucketName' - Name of the S3 bucket that contains the CRL. If you do not provide a
 -- value for the __CustomCname__ argument, the name of your S3 bucket is
 -- placed into the __CRL Distribution Points__ extension of the issued
 -- certificate. You can change the name of your bucket by calling the
 -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UpdateCertificateAuthority.html UpdateCertificateAuthority>
--- action. You must specify a bucket policy that allows ACM Private CA to
--- write the CRL to your bucket.
+-- operation. You must specify a
+-- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#s3-policies bucket policy>
+-- that allows ACM Private CA to write the CRL to your bucket.
 --
 -- 'expirationInDays', 'crlConfiguration_expirationInDays' - Validity period of the CRL in days.
 --
@@ -154,6 +204,7 @@ newCrlConfiguration ::
 newCrlConfiguration pEnabled_ =
   CrlConfiguration'
     { customCname = Prelude.Nothing,
+      s3ObjectAcl = Prelude.Nothing,
       s3BucketName = Prelude.Nothing,
       expirationInDays = Prelude.Nothing,
       enabled = pEnabled_
@@ -165,13 +216,35 @@ newCrlConfiguration pEnabled_ =
 crlConfiguration_customCname :: Lens.Lens' CrlConfiguration (Prelude.Maybe Prelude.Text)
 crlConfiguration_customCname = Lens.lens (\CrlConfiguration' {customCname} -> customCname) (\s@CrlConfiguration' {} a -> s {customCname = a} :: CrlConfiguration)
 
+-- | Determines whether the CRL will be publicly readable or privately held
+-- in the CRL Amazon S3 bucket. If you choose PUBLIC_READ, the CRL will be
+-- accessible over the public internet. If you choose
+-- BUCKET_OWNER_FULL_CONTROL, only the owner of the CRL S3 bucket can
+-- access the CRL, and your PKI clients may need an alternative method of
+-- access.
+--
+-- If no value is specified, the default is @PUBLIC_READ@.
+--
+-- /Note:/ This default can cause CA creation to fail in some
+-- circumstances. If you have have enabled the Block Public Access (BPA)
+-- feature in your S3 account, then you must specify the value of this
+-- parameter as @BUCKET_OWNER_FULL_CONTROL@, and not doing so results in an
+-- error. If you have disabled BPA in S3, then you can specify either
+-- @BUCKET_OWNER_FULL_CONTROL@ or @PUBLIC_READ@ as the value.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#s3-bpa Blocking public access to the S3 bucket>.
+crlConfiguration_s3ObjectAcl :: Lens.Lens' CrlConfiguration (Prelude.Maybe S3ObjectAcl)
+crlConfiguration_s3ObjectAcl = Lens.lens (\CrlConfiguration' {s3ObjectAcl} -> s3ObjectAcl) (\s@CrlConfiguration' {} a -> s {s3ObjectAcl = a} :: CrlConfiguration)
+
 -- | Name of the S3 bucket that contains the CRL. If you do not provide a
 -- value for the __CustomCname__ argument, the name of your S3 bucket is
 -- placed into the __CRL Distribution Points__ extension of the issued
 -- certificate. You can change the name of your bucket by calling the
 -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_UpdateCertificateAuthority.html UpdateCertificateAuthority>
--- action. You must specify a bucket policy that allows ACM Private CA to
--- write the CRL to your bucket.
+-- operation. You must specify a
+-- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#s3-policies bucket policy>
+-- that allows ACM Private CA to write the CRL to your bucket.
 crlConfiguration_s3BucketName :: Lens.Lens' CrlConfiguration (Prelude.Maybe Prelude.Text)
 crlConfiguration_s3BucketName = Lens.lens (\CrlConfiguration' {s3BucketName} -> s3BucketName) (\s@CrlConfiguration' {} a -> s {s3BucketName = a} :: CrlConfiguration)
 
@@ -196,6 +269,7 @@ instance Core.FromJSON CrlConfiguration where
       ( \x ->
           CrlConfiguration'
             Prelude.<$> (x Core..:? "CustomCname")
+            Prelude.<*> (x Core..:? "S3ObjectAcl")
             Prelude.<*> (x Core..:? "S3BucketName")
             Prelude.<*> (x Core..:? "ExpirationInDays")
             Prelude.<*> (x Core..: "Enabled")
@@ -210,6 +284,7 @@ instance Core.ToJSON CrlConfiguration where
     Core.object
       ( Prelude.catMaybes
           [ ("CustomCname" Core..=) Prelude.<$> customCname,
+            ("S3ObjectAcl" Core..=) Prelude.<$> s3ObjectAcl,
             ("S3BucketName" Core..=) Prelude.<$> s3BucketName,
             ("ExpirationInDays" Core..=)
               Prelude.<$> expirationInDays,

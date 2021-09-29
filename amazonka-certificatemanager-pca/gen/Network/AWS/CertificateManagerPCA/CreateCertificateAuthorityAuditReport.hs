@@ -34,8 +34,8 @@
 -- more information, see
 -- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuthAccess.html Configure Access to ACM Private CA>.
 --
--- ACM Private CAA assets that are stored in Amazon S3 can be protected
--- with encryption. For more information, see
+-- ACM Private CA assets that are stored in Amazon S3 can be protected with
+-- encryption. For more information, see
 -- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaAuditReport.html#audit-report-encryption Encrypting Your Audit Reports>.
 module Network.AWS.CertificateManagerPCA.CreateCertificateAuthorityAuditReport
   ( -- * Creating a Request

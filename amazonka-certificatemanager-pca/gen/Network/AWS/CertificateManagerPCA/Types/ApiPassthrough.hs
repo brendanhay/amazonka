@@ -30,7 +30,8 @@ import qualified Network.AWS.Prelude as Prelude
 -- must be selected, or else this parameter is ignored.
 --
 -- If conflicting or duplicate certificate information is supplied from
--- other sources, ACM Private CA applies <xxxxx order of operation rules>
+-- other sources, ACM Private CA applies
+-- <https://docs.aws.amazon.com/acm-pca/latest/userguide/UsingTemplates.html#template-order-of-operations order of operation rules>
 -- to determine what information is used.
 --
 -- /See:/ 'newApiPassthrough' smart constructor.

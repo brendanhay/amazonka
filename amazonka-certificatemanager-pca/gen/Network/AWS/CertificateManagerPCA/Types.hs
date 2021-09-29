@@ -23,16 +23,16 @@ module Network.AWS.CertificateManagerPCA.Types
     _InvalidPolicyException,
     _InvalidArnException,
     _MalformedCertificateException,
-    _RequestAlreadyProcessedException,
-    _ConcurrentModificationException,
-    _InvalidNextTokenException,
     _PermissionAlreadyExistsException,
+    _ConcurrentModificationException,
+    _RequestAlreadyProcessedException,
+    _InvalidNextTokenException,
     _InvalidRequestException,
     _InvalidTagException,
     _RequestInProgressException,
     _LimitExceededException,
-    _CertificateMismatchException,
     _ResourceNotFoundException,
+    _CertificateMismatchException,
     _RequestFailedException,
     _LockoutPreventedException,
     _MalformedCSRException,
@@ -64,6 +64,9 @@ module Network.AWS.CertificateManagerPCA.Types
     -- * KeyAlgorithm
     KeyAlgorithm (..),
 
+    -- * KeyStorageSecurityStandard
+    KeyStorageSecurityStandard (..),
+
     -- * PolicyQualifierId
     PolicyQualifierId (..),
 
@@ -72,6 +75,9 @@ module Network.AWS.CertificateManagerPCA.Types
 
     -- * RevocationReason
     RevocationReason (..),
+
+    -- * S3ObjectAcl
+    S3ObjectAcl (..),
 
     -- * SigningAlgorithm
     SigningAlgorithm (..),
@@ -85,16 +91,16 @@ module Network.AWS.CertificateManagerPCA.Types
     aSN1Subject_locality,
     aSN1Subject_generationQualifier,
     aSN1Subject_surname,
-    aSN1Subject_title,
     aSN1Subject_organizationalUnit,
+    aSN1Subject_title,
     aSN1Subject_initials,
-    aSN1Subject_pseudonym,
     aSN1Subject_commonName,
+    aSN1Subject_pseudonym,
     aSN1Subject_state,
     aSN1Subject_givenName,
-    aSN1Subject_organization,
-    aSN1Subject_distinguishedNameQualifier,
     aSN1Subject_serialNumber,
+    aSN1Subject_distinguishedNameQualifier,
+    aSN1Subject_organization,
     aSN1Subject_country,
 
     -- * AccessDescription
@@ -120,10 +126,11 @@ module Network.AWS.CertificateManagerPCA.Types
     newCertificateAuthority,
     certificateAuthority_status,
     certificateAuthority_notBefore,
+    certificateAuthority_keyStorageSecurityStandard,
     certificateAuthority_revocationConfiguration,
     certificateAuthority_serial,
-    certificateAuthority_arn,
     certificateAuthority_createdAt,
+    certificateAuthority_arn,
     certificateAuthority_certificateAuthorityConfiguration,
     certificateAuthority_failureReason,
     certificateAuthority_notAfter,
@@ -144,6 +151,7 @@ module Network.AWS.CertificateManagerPCA.Types
     CrlConfiguration (..),
     newCrlConfiguration,
     crlConfiguration_customCname,
+    crlConfiguration_s3ObjectAcl,
     crlConfiguration_s3BucketName,
     crlConfiguration_expirationInDays,
     crlConfiguration_enabled,
@@ -199,6 +207,12 @@ module Network.AWS.CertificateManagerPCA.Types
     keyUsage_decipherOnly,
     keyUsage_nonRepudiation,
 
+    -- * OcspConfiguration
+    OcspConfiguration (..),
+    newOcspConfiguration,
+    ocspConfiguration_ocspCustomCname,
+    ocspConfiguration_enabled,
+
     -- * OtherName
     OtherName (..),
     newOtherName,
@@ -235,6 +249,7 @@ module Network.AWS.CertificateManagerPCA.Types
     -- * RevocationConfiguration
     RevocationConfiguration (..),
     newRevocationConfiguration,
+    revocationConfiguration_ocspConfiguration,
     revocationConfiguration_crlConfiguration,
 
     -- * Tag
@@ -272,7 +287,9 @@ import Network.AWS.CertificateManagerPCA.Types.Extensions
 import Network.AWS.CertificateManagerPCA.Types.FailureReason
 import Network.AWS.CertificateManagerPCA.Types.GeneralName
 import Network.AWS.CertificateManagerPCA.Types.KeyAlgorithm
+import Network.AWS.CertificateManagerPCA.Types.KeyStorageSecurityStandard
 import Network.AWS.CertificateManagerPCA.Types.KeyUsage
+import Network.AWS.CertificateManagerPCA.Types.OcspConfiguration
 import Network.AWS.CertificateManagerPCA.Types.OtherName
 import Network.AWS.CertificateManagerPCA.Types.Permission
 import Network.AWS.CertificateManagerPCA.Types.PolicyInformation
@@ -282,6 +299,7 @@ import Network.AWS.CertificateManagerPCA.Types.Qualifier
 import Network.AWS.CertificateManagerPCA.Types.ResourceOwner
 import Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration
 import Network.AWS.CertificateManagerPCA.Types.RevocationReason
+import Network.AWS.CertificateManagerPCA.Types.S3ObjectAcl
 import Network.AWS.CertificateManagerPCA.Types.SigningAlgorithm
 import Network.AWS.CertificateManagerPCA.Types.Tag
 import Network.AWS.CertificateManagerPCA.Types.Validity
@@ -409,12 +427,12 @@ _MalformedCertificateException =
     defaultService
     "MalformedCertificateException"
 
--- | Your request has already been completed.
-_RequestAlreadyProcessedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_RequestAlreadyProcessedException =
+-- | The designated permission has already been given to the user.
+_PermissionAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_PermissionAlreadyExistsException =
   Core._MatchServiceError
     defaultService
-    "RequestAlreadyProcessedException"
+    "PermissionAlreadyExistsException"
 
 -- | A previous update to your private CA is still ongoing.
 _ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -422,6 +440,13 @@ _ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
     "ConcurrentModificationException"
+
+-- | Your request has already been completed.
+_RequestAlreadyProcessedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RequestAlreadyProcessedException =
+  Core._MatchServiceError
+    defaultService
+    "RequestAlreadyProcessedException"
 
 -- | The token specified in the @NextToken@ argument is not valid. Use the
 -- token returned from your previous call to
@@ -431,13 +456,6 @@ _InvalidNextTokenException =
   Core._MatchServiceError
     defaultService
     "InvalidNextTokenException"
-
--- | The designated permission has already been given to the user.
-_PermissionAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_PermissionAlreadyExistsException =
-  Core._MatchServiceError
-    defaultService
-    "PermissionAlreadyExistsException"
 
 -- | The request action cannot be performed or is prohibited.
 _InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -469,14 +487,6 @@ _LimitExceededException =
     defaultService
     "LimitExceededException"
 
--- | The certificate authority certificate you are importing does not comply
--- with conditions specified in the certificate that signed it.
-_CertificateMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CertificateMismatchException =
-  Core._MatchServiceError
-    defaultService
-    "CertificateMismatchException"
-
 -- | A resource such as a private CA, S3 bucket, certificate, audit report,
 -- or policy cannot be found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -484,6 +494,14 @@ _ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
     "ResourceNotFoundException"
+
+-- | The certificate authority certificate you are importing does not comply
+-- with conditions specified in the certificate that signed it.
+_CertificateMismatchException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CertificateMismatchException =
+  Core._MatchServiceError
+    defaultService
+    "CertificateMismatchException"
 
 -- | The request has failed for an unspecified reason.
 _RequestFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

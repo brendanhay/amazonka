@@ -21,19 +21,21 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a root or subordinate private certificate authority (CA). You
--- must specify the CA configuration, the certificate revocation list (CRL)
--- configuration, the CA type, and an optional idempotency token to avoid
+-- must specify the CA configuration, an optional configuration for Online
+-- Certificate Status Protocol (OCSP) and\/or a certificate revocation list
+-- (CRL), the CA type, and an optional idempotency token to avoid
 -- accidental creation of multiple CAs. The CA configuration specifies the
 -- name of the algorithm and key size to be used to create the CA private
 -- key, the type of signing algorithm that the CA uses, and X.500 subject
--- information. The CRL configuration specifies the CRL expiration period
--- in days (the validity period of the CRL), the Amazon S3 bucket that will
--- contain the CRL, and a CNAME alias for the S3 bucket that is included in
--- certificates issued by the CA. If successful, this action returns the
--- Amazon Resource Name (ARN) of the CA.
+-- information. The OCSP configuration can optionally specify a custom URL
+-- for the OCSP responder. The CRL configuration specifies the CRL
+-- expiration period in days (the validity period of the CRL), the Amazon
+-- S3 bucket that will contain the CRL, and a CNAME alias for the S3 bucket
+-- that is included in certificates issued by the CA. If successful, this
+-- action returns the Amazon Resource Name (ARN) of the CA.
 --
--- ACM Private CAA assets that are stored in Amazon S3 can be protected
--- with encryption. For more information, see
+-- ACM Private CA assets that are stored in Amazon S3 can be protected with
+-- encryption. For more information, see
 -- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaCreateCa.html#crl-encryption Encrypting Your CRLs>.
 --
 -- Both PCA and the IAM principal must have permission to write to the S3
@@ -48,6 +50,7 @@ module Network.AWS.CertificateManagerPCA.CreateCertificateAuthority
 
     -- * Request Lenses
     createCertificateAuthority_idempotencyToken,
+    createCertificateAuthority_keyStorageSecurityStandard,
     createCertificateAuthority_revocationConfiguration,
     createCertificateAuthority_tags,
     createCertificateAuthority_certificateAuthorityConfiguration,
@@ -81,13 +84,26 @@ data CreateCertificateAuthority = CreateCertificateAuthority'
     -- If you change the idempotency token for each call, PCA recognizes that
     -- you are requesting multiple certificate authorities.
     idempotencyToken :: Prelude.Maybe Prelude.Text,
-    -- | Contains a Boolean value that you can use to enable a certification
-    -- revocation list (CRL) for the CA, the name of the S3 bucket to which ACM
-    -- Private CA will write the CRL, and an optional CNAME alias that you can
-    -- use to hide the name of your bucket in the __CRL Distribution Points__
-    -- extension of your CA certificate. For more information, see the
+    -- | Specifies a cryptographic key management compliance standard used for
+    -- handling CA keys.
+    --
+    -- Default: FIPS_140_2_LEVEL_3_OR_HIGHER
+    --
+    -- Note: @FIPS_140_2_LEVEL_3_OR_HIGHER@ is not supported in Region
+    -- ap-northeast-3. When creating a CA in the ap-northeast-3, you must
+    -- provide @FIPS_140_2_LEVEL_2_OR_HIGHER@ as the argument for
+    -- @KeyStorageSecurityStandard@. Failure to do this results in an
+    -- @InvalidArgsException@ with the message, \"A certificate authority
+    -- cannot be created in this region with the specified security standard.\"
+    keyStorageSecurityStandard :: Prelude.Maybe KeyStorageSecurityStandard,
+    -- | Contains information to enable Online Certificate Status Protocol (OCSP)
+    -- support, to enable a certificate revocation list (CRL), to enable both,
+    -- or to enable neither. The default is for both certificate validation
+    -- mechanisms to be disabled. For more information, see the
+    -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_OcspConfiguration.html OcspConfiguration>
+    -- and
     -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CrlConfiguration.html CrlConfiguration>
-    -- structure.
+    -- types.
     revocationConfiguration :: Prelude.Maybe RevocationConfiguration,
     -- | Key-value pairs that will be attached to the new private CA. You can
     -- associate up to 50 tags with a private CA. For information using tags
@@ -119,13 +135,26 @@ data CreateCertificateAuthority = CreateCertificateAuthority'
 -- If you change the idempotency token for each call, PCA recognizes that
 -- you are requesting multiple certificate authorities.
 --
--- 'revocationConfiguration', 'createCertificateAuthority_revocationConfiguration' - Contains a Boolean value that you can use to enable a certification
--- revocation list (CRL) for the CA, the name of the S3 bucket to which ACM
--- Private CA will write the CRL, and an optional CNAME alias that you can
--- use to hide the name of your bucket in the __CRL Distribution Points__
--- extension of your CA certificate. For more information, see the
+-- 'keyStorageSecurityStandard', 'createCertificateAuthority_keyStorageSecurityStandard' - Specifies a cryptographic key management compliance standard used for
+-- handling CA keys.
+--
+-- Default: FIPS_140_2_LEVEL_3_OR_HIGHER
+--
+-- Note: @FIPS_140_2_LEVEL_3_OR_HIGHER@ is not supported in Region
+-- ap-northeast-3. When creating a CA in the ap-northeast-3, you must
+-- provide @FIPS_140_2_LEVEL_2_OR_HIGHER@ as the argument for
+-- @KeyStorageSecurityStandard@. Failure to do this results in an
+-- @InvalidArgsException@ with the message, \"A certificate authority
+-- cannot be created in this region with the specified security standard.\"
+--
+-- 'revocationConfiguration', 'createCertificateAuthority_revocationConfiguration' - Contains information to enable Online Certificate Status Protocol (OCSP)
+-- support, to enable a certificate revocation list (CRL), to enable both,
+-- or to enable neither. The default is for both certificate validation
+-- mechanisms to be disabled. For more information, see the
+-- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_OcspConfiguration.html OcspConfiguration>
+-- and
 -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CrlConfiguration.html CrlConfiguration>
--- structure.
+-- types.
 --
 -- 'tags', 'createCertificateAuthority_tags' - Key-value pairs that will be attached to the new private CA. You can
 -- associate up to 50 tags with a private CA. For information using tags
@@ -148,6 +177,7 @@ newCreateCertificateAuthority
     CreateCertificateAuthority'
       { idempotencyToken =
           Prelude.Nothing,
+        keyStorageSecurityStandard = Prelude.Nothing,
         revocationConfiguration = Prelude.Nothing,
         tags = Prelude.Nothing,
         certificateAuthorityConfiguration =
@@ -167,13 +197,28 @@ newCreateCertificateAuthority
 createCertificateAuthority_idempotencyToken :: Lens.Lens' CreateCertificateAuthority (Prelude.Maybe Prelude.Text)
 createCertificateAuthority_idempotencyToken = Lens.lens (\CreateCertificateAuthority' {idempotencyToken} -> idempotencyToken) (\s@CreateCertificateAuthority' {} a -> s {idempotencyToken = a} :: CreateCertificateAuthority)
 
--- | Contains a Boolean value that you can use to enable a certification
--- revocation list (CRL) for the CA, the name of the S3 bucket to which ACM
--- Private CA will write the CRL, and an optional CNAME alias that you can
--- use to hide the name of your bucket in the __CRL Distribution Points__
--- extension of your CA certificate. For more information, see the
+-- | Specifies a cryptographic key management compliance standard used for
+-- handling CA keys.
+--
+-- Default: FIPS_140_2_LEVEL_3_OR_HIGHER
+--
+-- Note: @FIPS_140_2_LEVEL_3_OR_HIGHER@ is not supported in Region
+-- ap-northeast-3. When creating a CA in the ap-northeast-3, you must
+-- provide @FIPS_140_2_LEVEL_2_OR_HIGHER@ as the argument for
+-- @KeyStorageSecurityStandard@. Failure to do this results in an
+-- @InvalidArgsException@ with the message, \"A certificate authority
+-- cannot be created in this region with the specified security standard.\"
+createCertificateAuthority_keyStorageSecurityStandard :: Lens.Lens' CreateCertificateAuthority (Prelude.Maybe KeyStorageSecurityStandard)
+createCertificateAuthority_keyStorageSecurityStandard = Lens.lens (\CreateCertificateAuthority' {keyStorageSecurityStandard} -> keyStorageSecurityStandard) (\s@CreateCertificateAuthority' {} a -> s {keyStorageSecurityStandard = a} :: CreateCertificateAuthority)
+
+-- | Contains information to enable Online Certificate Status Protocol (OCSP)
+-- support, to enable a certificate revocation list (CRL), to enable both,
+-- or to enable neither. The default is for both certificate validation
+-- mechanisms to be disabled. For more information, see the
+-- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_OcspConfiguration.html OcspConfiguration>
+-- and
 -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CrlConfiguration.html CrlConfiguration>
--- structure.
+-- types.
 createCertificateAuthority_revocationConfiguration :: Lens.Lens' CreateCertificateAuthority (Prelude.Maybe RevocationConfiguration)
 createCertificateAuthority_revocationConfiguration = Lens.lens (\CreateCertificateAuthority' {revocationConfiguration} -> revocationConfiguration) (\s@CreateCertificateAuthority' {} a -> s {revocationConfiguration = a} :: CreateCertificateAuthority)
 
@@ -231,6 +276,8 @@ instance Core.ToJSON CreateCertificateAuthority where
       ( Prelude.catMaybes
           [ ("IdempotencyToken" Core..=)
               Prelude.<$> idempotencyToken,
+            ("KeyStorageSecurityStandard" Core..=)
+              Prelude.<$> keyStorageSecurityStandard,
             ("RevocationConfiguration" Core..=)
               Prelude.<$> revocationConfiguration,
             ("Tags" Core..=) Prelude.<$> tags,

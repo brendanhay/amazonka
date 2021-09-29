@@ -57,7 +57,14 @@ import qualified Network.AWS.Response as Response
 data UpdateCertificateAuthority = UpdateCertificateAuthority'
   { -- | Status of your private CA.
     status :: Prelude.Maybe CertificateAuthorityStatus,
-    -- | Revocation information for your private CA.
+    -- | Contains information to enable Online Certificate Status Protocol (OCSP)
+    -- support, to enable a certificate revocation list (CRL), to enable both,
+    -- or to enable neither. If this parameter is not supplied, existing
+    -- capibilites remain unchanged. For more information, see the
+    -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_OcspConfiguration.html OcspConfiguration>
+    -- and
+    -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CrlConfiguration.html CrlConfiguration>
+    -- types.
     revocationConfiguration :: Prelude.Maybe RevocationConfiguration,
     -- | Amazon Resource Name (ARN) of the private CA that issued the certificate
     -- to be revoked. This must be of the form:
@@ -77,7 +84,14 @@ data UpdateCertificateAuthority = UpdateCertificateAuthority'
 --
 -- 'status', 'updateCertificateAuthority_status' - Status of your private CA.
 --
--- 'revocationConfiguration', 'updateCertificateAuthority_revocationConfiguration' - Revocation information for your private CA.
+-- 'revocationConfiguration', 'updateCertificateAuthority_revocationConfiguration' - Contains information to enable Online Certificate Status Protocol (OCSP)
+-- support, to enable a certificate revocation list (CRL), to enable both,
+-- or to enable neither. If this parameter is not supplied, existing
+-- capibilites remain unchanged. For more information, see the
+-- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_OcspConfiguration.html OcspConfiguration>
+-- and
+-- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CrlConfiguration.html CrlConfiguration>
+-- types.
 --
 -- 'certificateAuthorityArn', 'updateCertificateAuthority_certificateAuthorityArn' - Amazon Resource Name (ARN) of the private CA that issued the certificate
 -- to be revoked. This must be of the form:
@@ -101,7 +115,14 @@ newUpdateCertificateAuthority
 updateCertificateAuthority_status :: Lens.Lens' UpdateCertificateAuthority (Prelude.Maybe CertificateAuthorityStatus)
 updateCertificateAuthority_status = Lens.lens (\UpdateCertificateAuthority' {status} -> status) (\s@UpdateCertificateAuthority' {} a -> s {status = a} :: UpdateCertificateAuthority)
 
--- | Revocation information for your private CA.
+-- | Contains information to enable Online Certificate Status Protocol (OCSP)
+-- support, to enable a certificate revocation list (CRL), to enable both,
+-- or to enable neither. If this parameter is not supplied, existing
+-- capibilites remain unchanged. For more information, see the
+-- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_OcspConfiguration.html OcspConfiguration>
+-- and
+-- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CrlConfiguration.html CrlConfiguration>
+-- types.
 updateCertificateAuthority_revocationConfiguration :: Lens.Lens' UpdateCertificateAuthority (Prelude.Maybe RevocationConfiguration)
 updateCertificateAuthority_revocationConfiguration = Lens.lens (\UpdateCertificateAuthority' {revocationConfiguration} -> revocationConfiguration) (\s@UpdateCertificateAuthority' {} a -> s {revocationConfiguration = a} :: UpdateCertificateAuthority)
 

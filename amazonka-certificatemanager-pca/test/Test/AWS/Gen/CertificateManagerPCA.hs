@@ -51,11 +51,11 @@ import Test.Tasty
 --         , requestCreateCertificateAuthority $
 --             newCreateCertificateAuthority
 --
---         , requestGetCertificateAuthorityCsr $
---             newGetCertificateAuthorityCsr
---
 --         , requestListCertificateAuthorities $
 --             newListCertificateAuthorities
+--
+--         , requestGetCertificateAuthorityCsr $
+--             newGetCertificateAuthorityCsr
 --
 --         , requestRevokeCertificate $
 --             newRevokeCertificate
@@ -87,11 +87,11 @@ import Test.Tasty
 --         , requestDeleteCertificateAuthority $
 --             newDeleteCertificateAuthority
 --
---         , requestUpdateCertificateAuthority $
---             newUpdateCertificateAuthority
---
 --         , requestUntagCertificateAuthority $
 --             newUntagCertificateAuthority
+--
+--         , requestUpdateCertificateAuthority $
+--             newUpdateCertificateAuthority
 --
 --         , requestDescribeCertificateAuthorityAuditReport $
 --             newDescribeCertificateAuthorityAuditReport
@@ -123,11 +123,11 @@ import Test.Tasty
 --         , responseCreateCertificateAuthority $
 --             newCreateCertificateAuthorityResponse
 --
---         , responseGetCertificateAuthorityCsr $
---             newGetCertificateAuthorityCsrResponse
---
 --         , responseListCertificateAuthorities $
 --             newListCertificateAuthoritiesResponse
+--
+--         , responseGetCertificateAuthorityCsr $
+--             newGetCertificateAuthorityCsrResponse
 --
 --         , responseRevokeCertificate $
 --             newRevokeCertificateResponse
@@ -159,11 +159,11 @@ import Test.Tasty
 --         , responseDeleteCertificateAuthority $
 --             newDeleteCertificateAuthorityResponse
 --
---         , responseUpdateCertificateAuthority $
---             newUpdateCertificateAuthorityResponse
---
 --         , responseUntagCertificateAuthority $
 --             newUntagCertificateAuthorityResponse
+--
+--         , responseUpdateCertificateAuthority $
+--             newUpdateCertificateAuthorityResponse
 --
 --         , responseDescribeCertificateAuthorityAuditReport $
 --             newDescribeCertificateAuthorityAuditReportResponse
@@ -221,17 +221,17 @@ requestCreateCertificateAuthority =
     "CreateCertificateAuthority"
     "fixture/CreateCertificateAuthority.yaml"
 
-requestGetCertificateAuthorityCsr :: GetCertificateAuthorityCsr -> TestTree
-requestGetCertificateAuthorityCsr =
-  req
-    "GetCertificateAuthorityCsr"
-    "fixture/GetCertificateAuthorityCsr.yaml"
-
 requestListCertificateAuthorities :: ListCertificateAuthorities -> TestTree
 requestListCertificateAuthorities =
   req
     "ListCertificateAuthorities"
     "fixture/ListCertificateAuthorities.yaml"
+
+requestGetCertificateAuthorityCsr :: GetCertificateAuthorityCsr -> TestTree
+requestGetCertificateAuthorityCsr =
+  req
+    "GetCertificateAuthorityCsr"
+    "fixture/GetCertificateAuthorityCsr.yaml"
 
 requestRevokeCertificate :: RevokeCertificate -> TestTree
 requestRevokeCertificate =
@@ -293,17 +293,17 @@ requestDeleteCertificateAuthority =
     "DeleteCertificateAuthority"
     "fixture/DeleteCertificateAuthority.yaml"
 
-requestUpdateCertificateAuthority :: UpdateCertificateAuthority -> TestTree
-requestUpdateCertificateAuthority =
-  req
-    "UpdateCertificateAuthority"
-    "fixture/UpdateCertificateAuthority.yaml"
-
 requestUntagCertificateAuthority :: UntagCertificateAuthority -> TestTree
 requestUntagCertificateAuthority =
   req
     "UntagCertificateAuthority"
     "fixture/UntagCertificateAuthority.yaml"
+
+requestUpdateCertificateAuthority :: UpdateCertificateAuthority -> TestTree
+requestUpdateCertificateAuthority =
+  req
+    "UpdateCertificateAuthority"
+    "fixture/UpdateCertificateAuthority.yaml"
 
 requestDescribeCertificateAuthorityAuditReport :: DescribeCertificateAuthorityAuditReport -> TestTree
 requestDescribeCertificateAuthorityAuditReport =
@@ -377,14 +377,6 @@ responseCreateCertificateAuthority =
     defaultService
     (Proxy :: Proxy CreateCertificateAuthority)
 
-responseGetCertificateAuthorityCsr :: GetCertificateAuthorityCsrResponse -> TestTree
-responseGetCertificateAuthorityCsr =
-  res
-    "GetCertificateAuthorityCsrResponse"
-    "fixture/GetCertificateAuthorityCsrResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetCertificateAuthorityCsr)
-
 responseListCertificateAuthorities :: ListCertificateAuthoritiesResponse -> TestTree
 responseListCertificateAuthorities =
   res
@@ -392,6 +384,14 @@ responseListCertificateAuthorities =
     "fixture/ListCertificateAuthoritiesResponse.proto"
     defaultService
     (Proxy :: Proxy ListCertificateAuthorities)
+
+responseGetCertificateAuthorityCsr :: GetCertificateAuthorityCsrResponse -> TestTree
+responseGetCertificateAuthorityCsr =
+  res
+    "GetCertificateAuthorityCsrResponse"
+    "fixture/GetCertificateAuthorityCsrResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetCertificateAuthorityCsr)
 
 responseRevokeCertificate :: RevokeCertificateResponse -> TestTree
 responseRevokeCertificate =
@@ -473,14 +473,6 @@ responseDeleteCertificateAuthority =
     defaultService
     (Proxy :: Proxy DeleteCertificateAuthority)
 
-responseUpdateCertificateAuthority :: UpdateCertificateAuthorityResponse -> TestTree
-responseUpdateCertificateAuthority =
-  res
-    "UpdateCertificateAuthorityResponse"
-    "fixture/UpdateCertificateAuthorityResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateCertificateAuthority)
-
 responseUntagCertificateAuthority :: UntagCertificateAuthorityResponse -> TestTree
 responseUntagCertificateAuthority =
   res
@@ -488,6 +480,14 @@ responseUntagCertificateAuthority =
     "fixture/UntagCertificateAuthorityResponse.proto"
     defaultService
     (Proxy :: Proxy UntagCertificateAuthority)
+
+responseUpdateCertificateAuthority :: UpdateCertificateAuthorityResponse -> TestTree
+responseUpdateCertificateAuthority =
+  res
+    "UpdateCertificateAuthorityResponse"
+    "fixture/UpdateCertificateAuthorityResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateCertificateAuthority)
 
 responseDescribeCertificateAuthorityAuditReport :: DescribeCertificateAuthorityAuditReportResponse -> TestTree
 responseDescribeCertificateAuthorityAuditReport =

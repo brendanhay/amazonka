@@ -17,15 +17,15 @@ module Network.AWS.SQS.Types
     defaultService,
 
     -- * Errors
-    _InvalidIdFormat,
     _TooManyEntriesInBatchRequest,
+    _InvalidIdFormat,
     _QueueNameExists,
     _EmptyBatchRequest,
-    _InvalidMessageContents,
     _UnsupportedOperation,
+    _InvalidMessageContents,
     _ReceiptHandleIsInvalid,
-    _InvalidAttributeName,
     _QueueDeletedRecently,
+    _InvalidAttributeName,
     _InvalidBatchEntryId,
     _BatchEntryIdsNotDistinct,
     _MessageNotInflight,
@@ -108,8 +108,8 @@ module Network.AWS.SQS.Types
     newSendMessageBatchRequestEntry,
     sendMessageBatchRequestEntry_messageDeduplicationId,
     sendMessageBatchRequestEntry_messageAttributes,
-    sendMessageBatchRequestEntry_messageSystemAttributes,
     sendMessageBatchRequestEntry_messageGroupId,
+    sendMessageBatchRequestEntry_messageSystemAttributes,
     sendMessageBatchRequestEntry_delaySeconds,
     sendMessageBatchRequestEntry_id,
     sendMessageBatchRequestEntry_messageBody,
@@ -220,13 +220,6 @@ defaultService =
         Prelude.Just "throttling"
       | Prelude.otherwise = Prelude.Nothing
 
--- | The specified receipt handle isn\'t valid for the current version.
-_InvalidIdFormat :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidIdFormat =
-  Core._MatchServiceError
-    defaultService
-    "InvalidIdFormat"
-
 -- | The batch request contains more entries than permissible.
 _TooManyEntriesInBatchRequest :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TooManyEntriesInBatchRequest =
@@ -234,6 +227,13 @@ _TooManyEntriesInBatchRequest =
     defaultService
     "AWS.SimpleQueueService.TooManyEntriesInBatchRequest"
     Prelude.. Core.hasStatus 400
+
+-- | The specified receipt handle isn\'t valid for the current version.
+_InvalidIdFormat :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidIdFormat =
+  Core._MatchServiceError
+    defaultService
+    "InvalidIdFormat"
 
 -- | A queue with this name already exists. Amazon SQS returns this error
 -- only if the request includes attributes whose values differ from those
@@ -253,13 +253,6 @@ _EmptyBatchRequest =
     "AWS.SimpleQueueService.EmptyBatchRequest"
     Prelude.. Core.hasStatus 400
 
--- | The message contains characters outside the allowed set.
-_InvalidMessageContents :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidMessageContents =
-  Core._MatchServiceError
-    defaultService
-    "InvalidMessageContents"
-
 -- | Error code 400. Unsupported operation.
 _UnsupportedOperation :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UnsupportedOperation =
@@ -268,19 +261,19 @@ _UnsupportedOperation =
     "AWS.SimpleQueueService.UnsupportedOperation"
     Prelude.. Core.hasStatus 400
 
+-- | The message contains characters outside the allowed set.
+_InvalidMessageContents :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidMessageContents =
+  Core._MatchServiceError
+    defaultService
+    "InvalidMessageContents"
+
 -- | The specified receipt handle isn\'t valid.
 _ReceiptHandleIsInvalid :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ReceiptHandleIsInvalid =
   Core._MatchServiceError
     defaultService
     "ReceiptHandleIsInvalid"
-
--- | The specified attribute doesn\'t exist.
-_InvalidAttributeName :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidAttributeName =
-  Core._MatchServiceError
-    defaultService
-    "InvalidAttributeName"
 
 -- | You must wait 60 seconds after deleting a queue before you can create
 -- another queue with the same name.
@@ -290,6 +283,13 @@ _QueueDeletedRecently =
     defaultService
     "AWS.SimpleQueueService.QueueDeletedRecently"
     Prelude.. Core.hasStatus 400
+
+-- | The specified attribute doesn\'t exist.
+_InvalidAttributeName :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidAttributeName =
+  Core._MatchServiceError
+    defaultService
+    "InvalidAttributeName"
 
 -- | The @Id@ of a batch entry in a batch request doesn\'t abide by the
 -- specification.

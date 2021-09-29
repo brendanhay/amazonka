@@ -51,7 +51,7 @@ data MessageAttributeValue = MessageAttributeValue'
     --
     -- You can also append custom labels. For more information, see
     -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes Amazon SQS Message Attributes>
-    -- in the /Amazon Simple Queue Service Developer Guide/.
+    -- in the /Amazon SQS Developer Guide/.
     dataType :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -85,7 +85,7 @@ data MessageAttributeValue = MessageAttributeValue'
 --
 -- You can also append custom labels. For more information, see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes Amazon SQS Message Attributes>
--- in the /Amazon Simple Queue Service Developer Guide/.
+-- in the /Amazon SQS Developer Guide/.
 newMessageAttributeValue ::
   -- | 'dataType'
   Prelude.Text ->
@@ -129,7 +129,7 @@ messageAttributeValue_binaryValue = Lens.lens (\MessageAttributeValue' {binaryVa
 --
 -- You can also append custom labels. For more information, see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes Amazon SQS Message Attributes>
--- in the /Amazon Simple Queue Service Developer Guide/.
+-- in the /Amazon SQS Developer Guide/.
 messageAttributeValue_dataType :: Lens.Lens' MessageAttributeValue Prelude.Text
 messageAttributeValue_dataType = Lens.lens (\MessageAttributeValue' {dataType} -> dataType) (\s@MessageAttributeValue' {} a -> s {dataType = a} :: MessageAttributeValue)
 

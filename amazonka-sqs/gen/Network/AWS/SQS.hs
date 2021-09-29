@@ -11,20 +11,20 @@
 --
 -- Derived from API version @2012-11-05@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- Welcome to the /Amazon Simple Queue Service API Reference/.
+-- Welcome to the /Amazon SQS API Reference/.
 --
--- Amazon Simple Queue Service (Amazon SQS) is a reliable, highly-scalable
--- hosted queue for storing messages as they travel between applications or
--- microservices. Amazon SQS moves data between distributed application
--- components and helps you decouple these components.
+-- Amazon SQS is a reliable, highly-scalable hosted queue for storing
+-- messages as they travel between applications or microservices. Amazon
+-- SQS moves data between distributed application components and helps you
+-- decouple these components.
 --
 -- For information on the permissions you need to use this API, see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-authentication-and-access-control.html Identity and access management>
--- in the /Amazon Simple Queue Service Developer Guide./
+-- in the /Amazon SQS Developer Guide./
 --
--- You can use <http://aws.amazon.com/tools/#sdk AWS SDKs> to access Amazon
--- SQS using your favorite programming language. The SDKs perform tasks
--- such as the following automatically:
+-- You can use <http://aws.amazon.com/tools/#sdk Amazon Web Services SDKs>
+-- to access Amazon SQS using your favorite programming language. The SDKs
+-- perform tasks such as the following automatically:
 --
 -- -   Cryptographically sign your service requests
 --
@@ -32,11 +32,11 @@
 --
 -- -   Handle error responses
 --
--- __Additional Information__
+-- __Additional information__
 --
 -- -   <http://aws.amazon.com/sqs/ Amazon SQS Product Page>
 --
--- -   /Amazon Simple Queue Service Developer Guide/
+-- -   /Amazon SQS Developer Guide/
 --
 --     -   <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-making-api-requests.html Making API Requests>
 --
@@ -44,7 +44,7 @@
 --
 --     -   <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html Amazon SQS Dead-Letter Queues>
 --
--- -   <http://docs.aws.amazon.com/cli/latest/reference/sqs/index.html Amazon SQS in the AWS CLI Command Reference>
+-- -   <http://docs.aws.amazon.com/cli/latest/reference/sqs/index.html Amazon SQS in the Command Line Interface>
 --
 -- -   /Amazon Web Services General Reference/
 --
@@ -56,11 +56,11 @@ module Network.AWS.SQS
     -- * Errors
     -- $errors
 
-    -- ** InvalidIdFormat
-    _InvalidIdFormat,
-
     -- ** TooManyEntriesInBatchRequest
     _TooManyEntriesInBatchRequest,
+
+    -- ** InvalidIdFormat
+    _InvalidIdFormat,
 
     -- ** QueueNameExists
     _QueueNameExists,
@@ -68,20 +68,20 @@ module Network.AWS.SQS
     -- ** EmptyBatchRequest
     _EmptyBatchRequest,
 
-    -- ** InvalidMessageContents
-    _InvalidMessageContents,
-
     -- ** UnsupportedOperation
     _UnsupportedOperation,
+
+    -- ** InvalidMessageContents
+    _InvalidMessageContents,
 
     -- ** ReceiptHandleIsInvalid
     _ReceiptHandleIsInvalid,
 
-    -- ** InvalidAttributeName
-    _InvalidAttributeName,
-
     -- ** QueueDeletedRecently
     _QueueDeletedRecently,
+
+    -- ** InvalidAttributeName
+    _InvalidAttributeName,
 
     -- ** InvalidBatchEntryId
     _InvalidBatchEntryId,
@@ -122,17 +122,23 @@ module Network.AWS.SQS
     PurgeQueueResponse (PurgeQueueResponse'),
     newPurgeQueueResponse,
 
+    -- ** TagQueue
+    TagQueue (TagQueue'),
+    newTagQueue,
+    TagQueueResponse (TagQueueResponse'),
+    newTagQueueResponse,
+
     -- ** ChangeMessageVisibility
     ChangeMessageVisibility (ChangeMessageVisibility'),
     newChangeMessageVisibility,
     ChangeMessageVisibilityResponse (ChangeMessageVisibilityResponse'),
     newChangeMessageVisibilityResponse,
 
-    -- ** TagQueue
-    TagQueue (TagQueue'),
-    newTagQueue,
-    TagQueueResponse (TagQueueResponse'),
-    newTagQueueResponse,
+    -- ** GetQueueAttributes
+    GetQueueAttributes (GetQueueAttributes'),
+    newGetQueueAttributes,
+    GetQueueAttributesResponse (GetQueueAttributesResponse'),
+    newGetQueueAttributesResponse,
 
     -- ** ListQueues (Paginated)
     ListQueues (ListQueues'),
@@ -146,11 +152,11 @@ module Network.AWS.SQS
     ReceiveMessageResponse (ReceiveMessageResponse'),
     newReceiveMessageResponse,
 
-    -- ** GetQueueAttributes
-    GetQueueAttributes (GetQueueAttributes'),
-    newGetQueueAttributes,
-    GetQueueAttributesResponse (GetQueueAttributesResponse'),
-    newGetQueueAttributesResponse,
+    -- ** AddPermission
+    AddPermission (AddPermission'),
+    newAddPermission,
+    AddPermissionResponse (AddPermissionResponse'),
+    newAddPermissionResponse,
 
     -- ** DeleteMessage
     DeleteMessage (DeleteMessage'),
@@ -158,29 +164,23 @@ module Network.AWS.SQS
     DeleteMessageResponse (DeleteMessageResponse'),
     newDeleteMessageResponse,
 
-    -- ** AddPermission
-    AddPermission (AddPermission'),
-    newAddPermission,
-    AddPermissionResponse (AddPermissionResponse'),
-    newAddPermissionResponse,
-
     -- ** ListQueueTags
     ListQueueTags (ListQueueTags'),
     newListQueueTags,
     ListQueueTagsResponse (ListQueueTagsResponse'),
     newListQueueTagsResponse,
 
-    -- ** SendMessage
-    SendMessage (SendMessage'),
-    newSendMessage,
-    SendMessageResponse (SendMessageResponse'),
-    newSendMessageResponse,
-
     -- ** ListDeadLetterSourceQueues (Paginated)
     ListDeadLetterSourceQueues (ListDeadLetterSourceQueues'),
     newListDeadLetterSourceQueues,
     ListDeadLetterSourceQueuesResponse (ListDeadLetterSourceQueuesResponse'),
     newListDeadLetterSourceQueuesResponse,
+
+    -- ** SendMessage
+    SendMessage (SendMessage'),
+    newSendMessage,
+    SendMessageResponse (SendMessageResponse'),
+    newSendMessageResponse,
 
     -- ** GetQueueUrl
     GetQueueUrl (GetQueueUrl'),

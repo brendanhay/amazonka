@@ -34,7 +34,7 @@
 --
 -- For more information about using dead-letter queues, see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html Using Amazon SQS Dead-Letter Queues>
--- in the /Amazon Simple Queue Service Developer Guide/.
+-- in the /Amazon SQS Developer Guide/.
 --
 -- This operation returns paginated results.
 module Network.AWS.SQS.ListDeadLetterSourceQueues

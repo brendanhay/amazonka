@@ -23,7 +23,7 @@
 -- Add cost allocation tags to the specified Amazon SQS queue. For an
 -- overview, see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html Tagging Your Amazon SQS Queues>
--- in the /Amazon Simple Queue Service Developer Guide/.
+-- in the /Amazon SQS Developer Guide/.
 --
 -- When you use queue tags, keep the following guidelines in mind:
 --
@@ -38,13 +38,13 @@
 --     the existing tag.
 --
 -- For a full list of tag restrictions, see
--- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-limits.html#limits-queues Limits Related to Queues>
--- in the /Amazon Simple Queue Service Developer Guide/.
+-- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-limits.html#limits-queues Quotas related to queues>
+-- in the /Amazon SQS Developer Guide/.
 --
 -- Cross-account permissions don\'t apply to this action. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name Grant cross-account permissions to a role and a user name>
--- in the /Amazon Simple Queue Service Developer Guide/.
+-- in the /Amazon SQS Developer Guide/.
 module Network.AWS.SQS.TagQueue
   ( -- * Creating a Request
     TagQueue (..),

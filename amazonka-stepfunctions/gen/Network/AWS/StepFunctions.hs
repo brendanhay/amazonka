@@ -64,17 +64,14 @@ module Network.AWS.StepFunctions
     -- ** InvalidExecutionInput
     _InvalidExecutionInput,
 
-    -- ** InvalidLoggingConfiguration
-    _InvalidLoggingConfiguration,
-
     -- ** TaskTimedOut
     _TaskTimedOut,
 
-    -- ** StateMachineLimitExceeded
-    _StateMachineLimitExceeded,
+    -- ** InvalidLoggingConfiguration
+    _InvalidLoggingConfiguration,
 
-    -- ** InvalidArn
-    _InvalidArn,
+    -- ** StateMachineAlreadyExists
+    _StateMachineAlreadyExists,
 
     -- ** InvalidDefinition
     _InvalidDefinition,
@@ -82,14 +79,20 @@ module Network.AWS.StepFunctions
     -- ** MissingRequiredParameter
     _MissingRequiredParameter,
 
-    -- ** StateMachineAlreadyExists
-    _StateMachineAlreadyExists,
+    -- ** StateMachineLimitExceeded
+    _StateMachineLimitExceeded,
+
+    -- ** InvalidArn
+    _InvalidArn,
+
+    -- ** StateMachineDoesNotExist
+    _StateMachineDoesNotExist,
 
     -- ** ResourceNotFound
     _ResourceNotFound,
 
-    -- ** StateMachineDoesNotExist
-    _StateMachineDoesNotExist,
+    -- ** TooManyTags
+    _TooManyTags,
 
     -- ** TaskDoesNotExist
     _TaskDoesNotExist,
@@ -99,9 +102,6 @@ module Network.AWS.StepFunctions
 
     -- ** ActivityDoesNotExist
     _ActivityDoesNotExist,
-
-    -- ** TooManyTags
-    _TooManyTags,
 
     -- ** ActivityWorkerLimitExceeded
     _ActivityWorkerLimitExceeded,
@@ -136,17 +136,17 @@ module Network.AWS.StepFunctions
     DeleteActivityResponse (DeleteActivityResponse'),
     newDeleteActivityResponse,
 
-    -- ** CreateActivity
-    CreateActivity (CreateActivity'),
-    newCreateActivity,
-    CreateActivityResponse (CreateActivityResponse'),
-    newCreateActivityResponse,
-
     -- ** ListActivities (Paginated)
     ListActivities (ListActivities'),
     newListActivities,
     ListActivitiesResponse (ListActivitiesResponse'),
     newListActivitiesResponse,
+
+    -- ** CreateActivity
+    CreateActivity (CreateActivity'),
+    newCreateActivity,
+    CreateActivityResponse (CreateActivityResponse'),
+    newCreateActivityResponse,
 
     -- ** CreateStateMachine
     CreateStateMachine (CreateStateMachine'),
@@ -160,6 +160,12 @@ module Network.AWS.StepFunctions
     GetActivityTaskResponse (GetActivityTaskResponse'),
     newGetActivityTaskResponse,
 
+    -- ** DeleteStateMachine
+    DeleteStateMachine (DeleteStateMachine'),
+    newDeleteStateMachine,
+    DeleteStateMachineResponse (DeleteStateMachineResponse'),
+    newDeleteStateMachineResponse,
+
     -- ** UpdateStateMachine
     UpdateStateMachine (UpdateStateMachine'),
     newUpdateStateMachine,
@@ -171,12 +177,6 @@ module Network.AWS.StepFunctions
     newListExecutions,
     ListExecutionsResponse (ListExecutionsResponse'),
     newListExecutionsResponse,
-
-    -- ** DeleteStateMachine
-    DeleteStateMachine (DeleteStateMachine'),
-    newDeleteStateMachine,
-    DeleteStateMachineResponse (DeleteStateMachineResponse'),
-    newDeleteStateMachineResponse,
 
     -- ** UntagResource
     UntagResource (UntagResource'),
@@ -208,17 +208,17 @@ module Network.AWS.StepFunctions
     SendTaskSuccessResponse (SendTaskSuccessResponse'),
     newSendTaskSuccessResponse,
 
-    -- ** SendTaskHeartbeat
-    SendTaskHeartbeat (SendTaskHeartbeat'),
-    newSendTaskHeartbeat,
-    SendTaskHeartbeatResponse (SendTaskHeartbeatResponse'),
-    newSendTaskHeartbeatResponse,
-
     -- ** SendTaskFailure
     SendTaskFailure (SendTaskFailure'),
     newSendTaskFailure,
     SendTaskFailureResponse (SendTaskFailureResponse'),
     newSendTaskFailureResponse,
+
+    -- ** SendTaskHeartbeat
+    SendTaskHeartbeat (SendTaskHeartbeat'),
+    newSendTaskHeartbeat,
+    SendTaskHeartbeatResponse (SendTaskHeartbeatResponse'),
+    newSendTaskHeartbeatResponse,
 
     -- ** DescribeStateMachineForExecution
     DescribeStateMachineForExecution (DescribeStateMachineForExecution'),
@@ -238,6 +238,12 @@ module Network.AWS.StepFunctions
     ListStateMachinesResponse (ListStateMachinesResponse'),
     newListStateMachinesResponse,
 
+    -- ** StartExecution
+    StartExecution (StartExecution'),
+    newStartExecution,
+    StartExecutionResponse (StartExecutionResponse'),
+    newStartExecutionResponse,
+
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
     newListTagsForResource,
@@ -249,12 +255,6 @@ module Network.AWS.StepFunctions
     newStopExecution,
     StopExecutionResponse (StopExecutionResponse'),
     newStopExecutionResponse,
-
-    -- ** StartExecution
-    StartExecution (StartExecution'),
-    newStartExecution,
-    StartExecutionResponse (StartExecutionResponse'),
-    newStartExecutionResponse,
 
     -- * Types
 

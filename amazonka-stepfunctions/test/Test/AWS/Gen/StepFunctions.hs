@@ -36,11 +36,11 @@ import Test.Tasty
 --         , requestDeleteActivity $
 --             newDeleteActivity
 --
---         , requestCreateActivity $
---             newCreateActivity
---
 --         , requestListActivities $
 --             newListActivities
+--
+--         , requestCreateActivity $
+--             newCreateActivity
 --
 --         , requestCreateStateMachine $
 --             newCreateStateMachine
@@ -48,14 +48,14 @@ import Test.Tasty
 --         , requestGetActivityTask $
 --             newGetActivityTask
 --
+--         , requestDeleteStateMachine $
+--             newDeleteStateMachine
+--
 --         , requestUpdateStateMachine $
 --             newUpdateStateMachine
 --
 --         , requestListExecutions $
 --             newListExecutions
---
---         , requestDeleteStateMachine $
---             newDeleteStateMachine
 --
 --         , requestUntagResource $
 --             newUntagResource
@@ -72,11 +72,11 @@ import Test.Tasty
 --         , requestSendTaskSuccess $
 --             newSendTaskSuccess
 --
---         , requestSendTaskHeartbeat $
---             newSendTaskHeartbeat
---
 --         , requestSendTaskFailure $
 --             newSendTaskFailure
+--
+--         , requestSendTaskHeartbeat $
+--             newSendTaskHeartbeat
 --
 --         , requestDescribeStateMachineForExecution $
 --             newDescribeStateMachineForExecution
@@ -87,14 +87,14 @@ import Test.Tasty
 --         , requestListStateMachines $
 --             newListStateMachines
 --
+--         , requestStartExecution $
+--             newStartExecution
+--
 --         , requestListTagsForResource $
 --             newListTagsForResource
 --
 --         , requestStopExecution $
 --             newStopExecution
---
---         , requestStartExecution $
---             newStartExecution
 --
 --           ]
 
@@ -108,11 +108,11 @@ import Test.Tasty
 --         , responseDeleteActivity $
 --             newDeleteActivityResponse
 --
---         , responseCreateActivity $
---             newCreateActivityResponse
---
 --         , responseListActivities $
 --             newListActivitiesResponse
+--
+--         , responseCreateActivity $
+--             newCreateActivityResponse
 --
 --         , responseCreateStateMachine $
 --             newCreateStateMachineResponse
@@ -120,14 +120,14 @@ import Test.Tasty
 --         , responseGetActivityTask $
 --             newGetActivityTaskResponse
 --
+--         , responseDeleteStateMachine $
+--             newDeleteStateMachineResponse
+--
 --         , responseUpdateStateMachine $
 --             newUpdateStateMachineResponse
 --
 --         , responseListExecutions $
 --             newListExecutionsResponse
---
---         , responseDeleteStateMachine $
---             newDeleteStateMachineResponse
 --
 --         , responseUntagResource $
 --             newUntagResourceResponse
@@ -144,11 +144,11 @@ import Test.Tasty
 --         , responseSendTaskSuccess $
 --             newSendTaskSuccessResponse
 --
---         , responseSendTaskHeartbeat $
---             newSendTaskHeartbeatResponse
---
 --         , responseSendTaskFailure $
 --             newSendTaskFailureResponse
+--
+--         , responseSendTaskHeartbeat $
+--             newSendTaskHeartbeatResponse
 --
 --         , responseDescribeStateMachineForExecution $
 --             newDescribeStateMachineForExecutionResponse
@@ -159,14 +159,14 @@ import Test.Tasty
 --         , responseListStateMachines $
 --             newListStateMachinesResponse
 --
+--         , responseStartExecution $
+--             newStartExecutionResponse
+--
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
 --
 --         , responseStopExecution $
 --             newStopExecutionResponse
---
---         , responseStartExecution $
---             newStartExecutionResponse
 --
 --           ]
 --     ]
@@ -191,17 +191,17 @@ requestDeleteActivity =
     "DeleteActivity"
     "fixture/DeleteActivity.yaml"
 
-requestCreateActivity :: CreateActivity -> TestTree
-requestCreateActivity =
-  req
-    "CreateActivity"
-    "fixture/CreateActivity.yaml"
-
 requestListActivities :: ListActivities -> TestTree
 requestListActivities =
   req
     "ListActivities"
     "fixture/ListActivities.yaml"
+
+requestCreateActivity :: CreateActivity -> TestTree
+requestCreateActivity =
+  req
+    "CreateActivity"
+    "fixture/CreateActivity.yaml"
 
 requestCreateStateMachine :: CreateStateMachine -> TestTree
 requestCreateStateMachine =
@@ -215,6 +215,12 @@ requestGetActivityTask =
     "GetActivityTask"
     "fixture/GetActivityTask.yaml"
 
+requestDeleteStateMachine :: DeleteStateMachine -> TestTree
+requestDeleteStateMachine =
+  req
+    "DeleteStateMachine"
+    "fixture/DeleteStateMachine.yaml"
+
 requestUpdateStateMachine :: UpdateStateMachine -> TestTree
 requestUpdateStateMachine =
   req
@@ -226,12 +232,6 @@ requestListExecutions =
   req
     "ListExecutions"
     "fixture/ListExecutions.yaml"
-
-requestDeleteStateMachine :: DeleteStateMachine -> TestTree
-requestDeleteStateMachine =
-  req
-    "DeleteStateMachine"
-    "fixture/DeleteStateMachine.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
@@ -263,17 +263,17 @@ requestSendTaskSuccess =
     "SendTaskSuccess"
     "fixture/SendTaskSuccess.yaml"
 
-requestSendTaskHeartbeat :: SendTaskHeartbeat -> TestTree
-requestSendTaskHeartbeat =
-  req
-    "SendTaskHeartbeat"
-    "fixture/SendTaskHeartbeat.yaml"
-
 requestSendTaskFailure :: SendTaskFailure -> TestTree
 requestSendTaskFailure =
   req
     "SendTaskFailure"
     "fixture/SendTaskFailure.yaml"
+
+requestSendTaskHeartbeat :: SendTaskHeartbeat -> TestTree
+requestSendTaskHeartbeat =
+  req
+    "SendTaskHeartbeat"
+    "fixture/SendTaskHeartbeat.yaml"
 
 requestDescribeStateMachineForExecution :: DescribeStateMachineForExecution -> TestTree
 requestDescribeStateMachineForExecution =
@@ -293,6 +293,12 @@ requestListStateMachines =
     "ListStateMachines"
     "fixture/ListStateMachines.yaml"
 
+requestStartExecution :: StartExecution -> TestTree
+requestStartExecution =
+  req
+    "StartExecution"
+    "fixture/StartExecution.yaml"
+
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
   req
@@ -304,12 +310,6 @@ requestStopExecution =
   req
     "StopExecution"
     "fixture/StopExecution.yaml"
-
-requestStartExecution :: StartExecution -> TestTree
-requestStartExecution =
-  req
-    "StartExecution"
-    "fixture/StartExecution.yaml"
 
 -- Responses
 
@@ -337,14 +337,6 @@ responseDeleteActivity =
     defaultService
     (Proxy :: Proxy DeleteActivity)
 
-responseCreateActivity :: CreateActivityResponse -> TestTree
-responseCreateActivity =
-  res
-    "CreateActivityResponse"
-    "fixture/CreateActivityResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateActivity)
-
 responseListActivities :: ListActivitiesResponse -> TestTree
 responseListActivities =
   res
@@ -352,6 +344,14 @@ responseListActivities =
     "fixture/ListActivitiesResponse.proto"
     defaultService
     (Proxy :: Proxy ListActivities)
+
+responseCreateActivity :: CreateActivityResponse -> TestTree
+responseCreateActivity =
+  res
+    "CreateActivityResponse"
+    "fixture/CreateActivityResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateActivity)
 
 responseCreateStateMachine :: CreateStateMachineResponse -> TestTree
 responseCreateStateMachine =
@@ -369,6 +369,14 @@ responseGetActivityTask =
     defaultService
     (Proxy :: Proxy GetActivityTask)
 
+responseDeleteStateMachine :: DeleteStateMachineResponse -> TestTree
+responseDeleteStateMachine =
+  res
+    "DeleteStateMachineResponse"
+    "fixture/DeleteStateMachineResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteStateMachine)
+
 responseUpdateStateMachine :: UpdateStateMachineResponse -> TestTree
 responseUpdateStateMachine =
   res
@@ -384,14 +392,6 @@ responseListExecutions =
     "fixture/ListExecutionsResponse.proto"
     defaultService
     (Proxy :: Proxy ListExecutions)
-
-responseDeleteStateMachine :: DeleteStateMachineResponse -> TestTree
-responseDeleteStateMachine =
-  res
-    "DeleteStateMachineResponse"
-    "fixture/DeleteStateMachineResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteStateMachine)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -433,14 +433,6 @@ responseSendTaskSuccess =
     defaultService
     (Proxy :: Proxy SendTaskSuccess)
 
-responseSendTaskHeartbeat :: SendTaskHeartbeatResponse -> TestTree
-responseSendTaskHeartbeat =
-  res
-    "SendTaskHeartbeatResponse"
-    "fixture/SendTaskHeartbeatResponse.proto"
-    defaultService
-    (Proxy :: Proxy SendTaskHeartbeat)
-
 responseSendTaskFailure :: SendTaskFailureResponse -> TestTree
 responseSendTaskFailure =
   res
@@ -448,6 +440,14 @@ responseSendTaskFailure =
     "fixture/SendTaskFailureResponse.proto"
     defaultService
     (Proxy :: Proxy SendTaskFailure)
+
+responseSendTaskHeartbeat :: SendTaskHeartbeatResponse -> TestTree
+responseSendTaskHeartbeat =
+  res
+    "SendTaskHeartbeatResponse"
+    "fixture/SendTaskHeartbeatResponse.proto"
+    defaultService
+    (Proxy :: Proxy SendTaskHeartbeat)
 
 responseDescribeStateMachineForExecution :: DescribeStateMachineForExecutionResponse -> TestTree
 responseDescribeStateMachineForExecution =
@@ -473,6 +473,14 @@ responseListStateMachines =
     defaultService
     (Proxy :: Proxy ListStateMachines)
 
+responseStartExecution :: StartExecutionResponse -> TestTree
+responseStartExecution =
+  res
+    "StartExecutionResponse"
+    "fixture/StartExecutionResponse.proto"
+    defaultService
+    (Proxy :: Proxy StartExecution)
+
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
   res
@@ -488,11 +496,3 @@ responseStopExecution =
     "fixture/StopExecutionResponse.proto"
     defaultService
     (Proxy :: Proxy StopExecution)
-
-responseStartExecution :: StartExecutionResponse -> TestTree
-responseStartExecution =
-  res
-    "StartExecutionResponse"
-    "fixture/StartExecutionResponse.proto"
-    defaultService
-    (Proxy :: Proxy StartExecution)

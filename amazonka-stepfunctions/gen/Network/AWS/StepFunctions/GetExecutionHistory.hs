@@ -43,8 +43,8 @@ module Network.AWS.StepFunctions.GetExecutionHistory
     -- * Request Lenses
     getExecutionHistory_nextToken,
     getExecutionHistory_maxResults,
-    getExecutionHistory_reverseOrder,
     getExecutionHistory_includeExecutionData,
+    getExecutionHistory_reverseOrder,
     getExecutionHistory_executionArn,
 
     -- * Destructuring the Response
@@ -81,11 +81,11 @@ data GetExecutionHistory = GetExecutionHistory'
     -- This is only an upper limit. The actual number of results returned per
     -- call might be fewer than the specified maximum.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Lists events in descending order of their @timeStamp@.
-    reverseOrder :: Prelude.Maybe Prelude.Bool,
     -- | You can select whether execution data (input or output of a history
     -- event) is returned. The default is @true@.
     includeExecutionData :: Prelude.Maybe Prelude.Bool,
+    -- | Lists events in descending order of their @timeStamp@.
+    reverseOrder :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the execution.
     executionArn :: Prelude.Text
   }
@@ -113,10 +113,10 @@ data GetExecutionHistory = GetExecutionHistory'
 -- This is only an upper limit. The actual number of results returned per
 -- call might be fewer than the specified maximum.
 --
--- 'reverseOrder', 'getExecutionHistory_reverseOrder' - Lists events in descending order of their @timeStamp@.
---
 -- 'includeExecutionData', 'getExecutionHistory_includeExecutionData' - You can select whether execution data (input or output of a history
 -- event) is returned. The default is @true@.
+--
+-- 'reverseOrder', 'getExecutionHistory_reverseOrder' - Lists events in descending order of their @timeStamp@.
 --
 -- 'executionArn', 'getExecutionHistory_executionArn' - The Amazon Resource Name (ARN) of the execution.
 newGetExecutionHistory ::
@@ -127,8 +127,8 @@ newGetExecutionHistory pExecutionArn_ =
   GetExecutionHistory'
     { nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      reverseOrder = Prelude.Nothing,
       includeExecutionData = Prelude.Nothing,
+      reverseOrder = Prelude.Nothing,
       executionArn = pExecutionArn_
     }
 
@@ -150,14 +150,14 @@ getExecutionHistory_nextToken = Lens.lens (\GetExecutionHistory' {nextToken} -> 
 getExecutionHistory_maxResults :: Lens.Lens' GetExecutionHistory (Prelude.Maybe Prelude.Natural)
 getExecutionHistory_maxResults = Lens.lens (\GetExecutionHistory' {maxResults} -> maxResults) (\s@GetExecutionHistory' {} a -> s {maxResults = a} :: GetExecutionHistory)
 
--- | Lists events in descending order of their @timeStamp@.
-getExecutionHistory_reverseOrder :: Lens.Lens' GetExecutionHistory (Prelude.Maybe Prelude.Bool)
-getExecutionHistory_reverseOrder = Lens.lens (\GetExecutionHistory' {reverseOrder} -> reverseOrder) (\s@GetExecutionHistory' {} a -> s {reverseOrder = a} :: GetExecutionHistory)
-
 -- | You can select whether execution data (input or output of a history
 -- event) is returned. The default is @true@.
 getExecutionHistory_includeExecutionData :: Lens.Lens' GetExecutionHistory (Prelude.Maybe Prelude.Bool)
 getExecutionHistory_includeExecutionData = Lens.lens (\GetExecutionHistory' {includeExecutionData} -> includeExecutionData) (\s@GetExecutionHistory' {} a -> s {includeExecutionData = a} :: GetExecutionHistory)
+
+-- | Lists events in descending order of their @timeStamp@.
+getExecutionHistory_reverseOrder :: Lens.Lens' GetExecutionHistory (Prelude.Maybe Prelude.Bool)
+getExecutionHistory_reverseOrder = Lens.lens (\GetExecutionHistory' {reverseOrder} -> reverseOrder) (\s@GetExecutionHistory' {} a -> s {reverseOrder = a} :: GetExecutionHistory)
 
 -- | The Amazon Resource Name (ARN) of the execution.
 getExecutionHistory_executionArn :: Lens.Lens' GetExecutionHistory Prelude.Text
@@ -221,9 +221,9 @@ instance Core.ToJSON GetExecutionHistory where
       ( Prelude.catMaybes
           [ ("nextToken" Core..=) Prelude.<$> nextToken,
             ("maxResults" Core..=) Prelude.<$> maxResults,
-            ("reverseOrder" Core..=) Prelude.<$> reverseOrder,
             ("includeExecutionData" Core..=)
               Prelude.<$> includeExecutionData,
+            ("reverseOrder" Core..=) Prelude.<$> reverseOrder,
             Prelude.Just ("executionArn" Core..= executionArn)
           ]
       )

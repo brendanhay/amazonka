@@ -42,8 +42,8 @@ module Network.AWS.StepFunctions.DescribeExecution
     describeExecutionResponse_stopDate,
     describeExecutionResponse_inputDetails,
     describeExecutionResponse_input,
-    describeExecutionResponse_name,
     describeExecutionResponse_output,
+    describeExecutionResponse_name,
     describeExecutionResponse_traceHeader,
     describeExecutionResponse_outputDetails,
     describeExecutionResponse_httpStatus,
@@ -100,8 +100,8 @@ instance Core.AWSRequest DescribeExecution where
             Prelude.<$> (x Core..?> "stopDate")
             Prelude.<*> (x Core..?> "inputDetails")
             Prelude.<*> (x Core..?> "input")
-            Prelude.<*> (x Core..?> "name")
             Prelude.<*> (x Core..?> "output")
+            Prelude.<*> (x Core..?> "name")
             Prelude.<*> (x Core..?> "traceHeader")
             Prelude.<*> (x Core..?> "outputDetails")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -152,6 +152,12 @@ data DescribeExecutionResponse = DescribeExecutionResponse'
     -- constraints apply to the payload size, and are expressed as bytes in
     -- UTF-8 encoding.
     input :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The JSON output data of the execution. Length constraints apply to the
+    -- payload size, and are expressed as bytes in UTF-8 encoding.
+    --
+    -- This field is set only if the execution succeeds. If the execution
+    -- fails, this field is null.
+    output :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The name of the execution.
     --
     -- A name must /not/ contain:
@@ -169,12 +175,6 @@ data DescribeExecutionResponse = DescribeExecutionResponse'
     -- To enable logging with CloudWatch Logs, the name should only contain
     -- 0-9, A-Z, a-z, - and _.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The JSON output data of the execution. Length constraints apply to the
-    -- payload size, and are expressed as bytes in UTF-8 encoding.
-    --
-    -- This field is set only if the execution succeeds. If the execution
-    -- fails, this field is null.
-    output :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The AWS X-Ray trace header that was passed to the execution.
     traceHeader :: Prelude.Maybe Prelude.Text,
     outputDetails :: Prelude.Maybe CloudWatchEventsExecutionDataDetails,
@@ -207,6 +207,12 @@ data DescribeExecutionResponse = DescribeExecutionResponse'
 -- constraints apply to the payload size, and are expressed as bytes in
 -- UTF-8 encoding.
 --
+-- 'output', 'describeExecutionResponse_output' - The JSON output data of the execution. Length constraints apply to the
+-- payload size, and are expressed as bytes in UTF-8 encoding.
+--
+-- This field is set only if the execution succeeds. If the execution
+-- fails, this field is null.
+--
 -- 'name', 'describeExecutionResponse_name' - The name of the execution.
 --
 -- A name must /not/ contain:
@@ -223,12 +229,6 @@ data DescribeExecutionResponse = DescribeExecutionResponse'
 --
 -- To enable logging with CloudWatch Logs, the name should only contain
 -- 0-9, A-Z, a-z, - and _.
---
--- 'output', 'describeExecutionResponse_output' - The JSON output data of the execution. Length constraints apply to the
--- payload size, and are expressed as bytes in UTF-8 encoding.
---
--- This field is set only if the execution succeeds. If the execution
--- fails, this field is null.
 --
 -- 'traceHeader', 'describeExecutionResponse_traceHeader' - The AWS X-Ray trace header that was passed to the execution.
 --
@@ -266,8 +266,8 @@ newDescribeExecutionResponse
           Prelude.Nothing,
         inputDetails = Prelude.Nothing,
         input = Prelude.Nothing,
-        name = Prelude.Nothing,
         output = Prelude.Nothing,
+        name = Prelude.Nothing,
         traceHeader = Prelude.Nothing,
         outputDetails = Prelude.Nothing,
         httpStatus = pHttpStatus_,
@@ -291,6 +291,14 @@ describeExecutionResponse_inputDetails = Lens.lens (\DescribeExecutionResponse' 
 describeExecutionResponse_input :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.Text)
 describeExecutionResponse_input = Lens.lens (\DescribeExecutionResponse' {input} -> input) (\s@DescribeExecutionResponse' {} a -> s {input = a} :: DescribeExecutionResponse) Prelude.. Lens.mapping Core._Sensitive
 
+-- | The JSON output data of the execution. Length constraints apply to the
+-- payload size, and are expressed as bytes in UTF-8 encoding.
+--
+-- This field is set only if the execution succeeds. If the execution
+-- fails, this field is null.
+describeExecutionResponse_output :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.Text)
+describeExecutionResponse_output = Lens.lens (\DescribeExecutionResponse' {output} -> output) (\s@DescribeExecutionResponse' {} a -> s {output = a} :: DescribeExecutionResponse) Prelude.. Lens.mapping Core._Sensitive
+
 -- | The name of the execution.
 --
 -- A name must /not/ contain:
@@ -309,14 +317,6 @@ describeExecutionResponse_input = Lens.lens (\DescribeExecutionResponse' {input}
 -- 0-9, A-Z, a-z, - and _.
 describeExecutionResponse_name :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.Text)
 describeExecutionResponse_name = Lens.lens (\DescribeExecutionResponse' {name} -> name) (\s@DescribeExecutionResponse' {} a -> s {name = a} :: DescribeExecutionResponse)
-
--- | The JSON output data of the execution. Length constraints apply to the
--- payload size, and are expressed as bytes in UTF-8 encoding.
---
--- This field is set only if the execution succeeds. If the execution
--- fails, this field is null.
-describeExecutionResponse_output :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.Text)
-describeExecutionResponse_output = Lens.lens (\DescribeExecutionResponse' {output} -> output) (\s@DescribeExecutionResponse' {} a -> s {output = a} :: DescribeExecutionResponse) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The AWS X-Ray trace header that was passed to the execution.
 describeExecutionResponse_traceHeader :: Lens.Lens' DescribeExecutionResponse (Prelude.Maybe Prelude.Text)

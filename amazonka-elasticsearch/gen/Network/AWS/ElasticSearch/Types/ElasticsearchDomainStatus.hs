@@ -56,11 +56,11 @@ data ElasticsearchDomainStatus = ElasticsearchDomainStatus'
     -- and search requests. Example @key, value@:
     -- @\'vpc\',\'vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com\'@.
     endpoints :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The current status of the Elasticsearch domain\'s Auto-Tune options.
+    autoTuneOptions :: Prelude.Maybe AutoTuneOptionsOutput,
     -- | The @VPCOptions@ for the specified domain. For more information, see
     -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html VPC Endpoints for Amazon Elasticsearch Service Domains>.
     vPCOptions :: Prelude.Maybe VPCDerivedInfo,
-    -- | The current status of the Elasticsearch domain\'s Auto-Tune options.
-    autoTuneOptions :: Prelude.Maybe AutoTuneOptionsOutput,
     -- | IAM access policy as a JSON-formatted string.
     accessPolicies :: Prelude.Maybe Prelude.Text,
     -- | Specifies the status of the @EncryptionAtRestOptions@.
@@ -75,13 +75,13 @@ data ElasticsearchDomainStatus = ElasticsearchDomainStatus'
     elasticsearchVersion :: Prelude.Maybe Prelude.Text,
     -- | Specifies the status of the @AdvancedOptions@
     advancedOptions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The Elasticsearch domain endpoint that you use to submit index and
+    -- search requests.
+    endpoint :: Prelude.Maybe Prelude.Text,
     -- | The status of the Elasticsearch domain configuration. @True@ if Amazon
     -- Elasticsearch Service is processing configuration changes. @False@ if
     -- the configuration is active.
     processing :: Prelude.Maybe Prelude.Bool,
-    -- | The Elasticsearch domain endpoint that you use to submit index and
-    -- search requests.
-    endpoint :: Prelude.Maybe Prelude.Text,
     -- | The domain creation status. @True@ if the creation of an Elasticsearch
     -- domain is complete. @False@ if domain creation is still in progress.
     created :: Prelude.Maybe Prelude.Bool,
@@ -135,10 +135,10 @@ data ElasticsearchDomainStatus = ElasticsearchDomainStatus'
 -- and search requests. Example @key, value@:
 -- @\'vpc\',\'vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com\'@.
 --
+-- 'autoTuneOptions', 'elasticsearchDomainStatus_autoTuneOptions' - The current status of the Elasticsearch domain\'s Auto-Tune options.
+--
 -- 'vPCOptions', 'elasticsearchDomainStatus_vPCOptions' - The @VPCOptions@ for the specified domain. For more information, see
 -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html VPC Endpoints for Amazon Elasticsearch Service Domains>.
---
--- 'autoTuneOptions', 'elasticsearchDomainStatus_autoTuneOptions' - The current status of the Elasticsearch domain\'s Auto-Tune options.
 --
 -- 'accessPolicies', 'elasticsearchDomainStatus_accessPolicies' - IAM access policy as a JSON-formatted string.
 --
@@ -155,12 +155,12 @@ data ElasticsearchDomainStatus = ElasticsearchDomainStatus'
 --
 -- 'advancedOptions', 'elasticsearchDomainStatus_advancedOptions' - Specifies the status of the @AdvancedOptions@
 --
+-- 'endpoint', 'elasticsearchDomainStatus_endpoint' - The Elasticsearch domain endpoint that you use to submit index and
+-- search requests.
+--
 -- 'processing', 'elasticsearchDomainStatus_processing' - The status of the Elasticsearch domain configuration. @True@ if Amazon
 -- Elasticsearch Service is processing configuration changes. @False@ if
 -- the configuration is active.
---
--- 'endpoint', 'elasticsearchDomainStatus_endpoint' - The Elasticsearch domain endpoint that you use to submit index and
--- search requests.
 --
 -- 'created', 'elasticsearchDomainStatus_created' - The domain creation status. @True@ if the creation of an Elasticsearch
 -- domain is complete. @False@ if domain creation is still in progress.
@@ -209,8 +209,8 @@ newElasticsearchDomainStatus
         domainEndpointOptions = Prelude.Nothing,
         upgradeProcessing = Prelude.Nothing,
         endpoints = Prelude.Nothing,
-        vPCOptions = Prelude.Nothing,
         autoTuneOptions = Prelude.Nothing,
+        vPCOptions = Prelude.Nothing,
         accessPolicies = Prelude.Nothing,
         encryptionAtRestOptions = Prelude.Nothing,
         serviceSoftwareOptions = Prelude.Nothing,
@@ -218,8 +218,8 @@ newElasticsearchDomainStatus
         nodeToNodeEncryptionOptions = Prelude.Nothing,
         elasticsearchVersion = Prelude.Nothing,
         advancedOptions = Prelude.Nothing,
-        processing = Prelude.Nothing,
         endpoint = Prelude.Nothing,
+        processing = Prelude.Nothing,
         created = Prelude.Nothing,
         advancedSecurityOptions = Prelude.Nothing,
         logPublishingOptions = Prelude.Nothing,
@@ -257,14 +257,14 @@ elasticsearchDomainStatus_upgradeProcessing = Lens.lens (\ElasticsearchDomainSta
 elasticsearchDomainStatus_endpoints :: Lens.Lens' ElasticsearchDomainStatus (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 elasticsearchDomainStatus_endpoints = Lens.lens (\ElasticsearchDomainStatus' {endpoints} -> endpoints) (\s@ElasticsearchDomainStatus' {} a -> s {endpoints = a} :: ElasticsearchDomainStatus) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The current status of the Elasticsearch domain\'s Auto-Tune options.
+elasticsearchDomainStatus_autoTuneOptions :: Lens.Lens' ElasticsearchDomainStatus (Prelude.Maybe AutoTuneOptionsOutput)
+elasticsearchDomainStatus_autoTuneOptions = Lens.lens (\ElasticsearchDomainStatus' {autoTuneOptions} -> autoTuneOptions) (\s@ElasticsearchDomainStatus' {} a -> s {autoTuneOptions = a} :: ElasticsearchDomainStatus)
+
 -- | The @VPCOptions@ for the specified domain. For more information, see
 -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html VPC Endpoints for Amazon Elasticsearch Service Domains>.
 elasticsearchDomainStatus_vPCOptions :: Lens.Lens' ElasticsearchDomainStatus (Prelude.Maybe VPCDerivedInfo)
 elasticsearchDomainStatus_vPCOptions = Lens.lens (\ElasticsearchDomainStatus' {vPCOptions} -> vPCOptions) (\s@ElasticsearchDomainStatus' {} a -> s {vPCOptions = a} :: ElasticsearchDomainStatus)
-
--- | The current status of the Elasticsearch domain\'s Auto-Tune options.
-elasticsearchDomainStatus_autoTuneOptions :: Lens.Lens' ElasticsearchDomainStatus (Prelude.Maybe AutoTuneOptionsOutput)
-elasticsearchDomainStatus_autoTuneOptions = Lens.lens (\ElasticsearchDomainStatus' {autoTuneOptions} -> autoTuneOptions) (\s@ElasticsearchDomainStatus' {} a -> s {autoTuneOptions = a} :: ElasticsearchDomainStatus)
 
 -- | IAM access policy as a JSON-formatted string.
 elasticsearchDomainStatus_accessPolicies :: Lens.Lens' ElasticsearchDomainStatus (Prelude.Maybe Prelude.Text)
@@ -295,16 +295,16 @@ elasticsearchDomainStatus_elasticsearchVersion = Lens.lens (\ElasticsearchDomain
 elasticsearchDomainStatus_advancedOptions :: Lens.Lens' ElasticsearchDomainStatus (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 elasticsearchDomainStatus_advancedOptions = Lens.lens (\ElasticsearchDomainStatus' {advancedOptions} -> advancedOptions) (\s@ElasticsearchDomainStatus' {} a -> s {advancedOptions = a} :: ElasticsearchDomainStatus) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The Elasticsearch domain endpoint that you use to submit index and
+-- search requests.
+elasticsearchDomainStatus_endpoint :: Lens.Lens' ElasticsearchDomainStatus (Prelude.Maybe Prelude.Text)
+elasticsearchDomainStatus_endpoint = Lens.lens (\ElasticsearchDomainStatus' {endpoint} -> endpoint) (\s@ElasticsearchDomainStatus' {} a -> s {endpoint = a} :: ElasticsearchDomainStatus)
+
 -- | The status of the Elasticsearch domain configuration. @True@ if Amazon
 -- Elasticsearch Service is processing configuration changes. @False@ if
 -- the configuration is active.
 elasticsearchDomainStatus_processing :: Lens.Lens' ElasticsearchDomainStatus (Prelude.Maybe Prelude.Bool)
 elasticsearchDomainStatus_processing = Lens.lens (\ElasticsearchDomainStatus' {processing} -> processing) (\s@ElasticsearchDomainStatus' {} a -> s {processing = a} :: ElasticsearchDomainStatus)
-
--- | The Elasticsearch domain endpoint that you use to submit index and
--- search requests.
-elasticsearchDomainStatus_endpoint :: Lens.Lens' ElasticsearchDomainStatus (Prelude.Maybe Prelude.Text)
-elasticsearchDomainStatus_endpoint = Lens.lens (\ElasticsearchDomainStatus' {endpoint} -> endpoint) (\s@ElasticsearchDomainStatus' {} a -> s {endpoint = a} :: ElasticsearchDomainStatus)
 
 -- | The domain creation status. @True@ if the creation of an Elasticsearch
 -- domain is complete. @False@ if domain creation is still in progress.
@@ -359,8 +359,8 @@ instance Core.FromJSON ElasticsearchDomainStatus where
             Prelude.<*> (x Core..:? "DomainEndpointOptions")
             Prelude.<*> (x Core..:? "UpgradeProcessing")
             Prelude.<*> (x Core..:? "Endpoints" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "VPCOptions")
             Prelude.<*> (x Core..:? "AutoTuneOptions")
+            Prelude.<*> (x Core..:? "VPCOptions")
             Prelude.<*> (x Core..:? "AccessPolicies")
             Prelude.<*> (x Core..:? "EncryptionAtRestOptions")
             Prelude.<*> (x Core..:? "ServiceSoftwareOptions")
@@ -370,8 +370,8 @@ instance Core.FromJSON ElasticsearchDomainStatus where
             Prelude.<*> ( x Core..:? "AdvancedOptions"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Processing")
             Prelude.<*> (x Core..:? "Endpoint")
+            Prelude.<*> (x Core..:? "Processing")
             Prelude.<*> (x Core..:? "Created")
             Prelude.<*> (x Core..:? "AdvancedSecurityOptions")
             Prelude.<*> ( x Core..:? "LogPublishingOptions"

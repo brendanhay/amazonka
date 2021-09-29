@@ -35,10 +35,10 @@ data SAMLOptionsInput = SAMLOptionsInput'
     -- | The duration, in minutes, after which a user session becomes inactive.
     -- Acceptable values are between 1 and 1440, and the default value is 60.
     sessionTimeoutMinutes :: Prelude.Maybe Prelude.Int,
-    -- | Specifies the SAML Identity Provider\'s information.
-    idp :: Prelude.Maybe SAMLIdp,
     -- | True if SAML is enabled.
     enabled :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies the SAML Identity Provider\'s information.
+    idp :: Prelude.Maybe SAMLIdp,
     -- | The SAML master username, which is stored in the Amazon Elasticsearch
     -- Service domain\'s internal database.
     masterUserName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
@@ -62,9 +62,9 @@ data SAMLOptionsInput = SAMLOptionsInput'
 -- 'sessionTimeoutMinutes', 'sAMLOptionsInput_sessionTimeoutMinutes' - The duration, in minutes, after which a user session becomes inactive.
 -- Acceptable values are between 1 and 1440, and the default value is 60.
 --
--- 'idp', 'sAMLOptionsInput_idp' - Specifies the SAML Identity Provider\'s information.
---
 -- 'enabled', 'sAMLOptionsInput_enabled' - True if SAML is enabled.
+--
+-- 'idp', 'sAMLOptionsInput_idp' - Specifies the SAML Identity Provider\'s information.
 --
 -- 'masterUserName', 'sAMLOptionsInput_masterUserName' - The SAML master username, which is stored in the Amazon Elasticsearch
 -- Service domain\'s internal database.
@@ -78,8 +78,8 @@ newSAMLOptionsInput =
         Prelude.Nothing,
       rolesKey = Prelude.Nothing,
       sessionTimeoutMinutes = Prelude.Nothing,
-      idp = Prelude.Nothing,
       enabled = Prelude.Nothing,
+      idp = Prelude.Nothing,
       masterUserName = Prelude.Nothing,
       subjectKey = Prelude.Nothing
     }
@@ -97,13 +97,13 @@ sAMLOptionsInput_rolesKey = Lens.lens (\SAMLOptionsInput' {rolesKey} -> rolesKey
 sAMLOptionsInput_sessionTimeoutMinutes :: Lens.Lens' SAMLOptionsInput (Prelude.Maybe Prelude.Int)
 sAMLOptionsInput_sessionTimeoutMinutes = Lens.lens (\SAMLOptionsInput' {sessionTimeoutMinutes} -> sessionTimeoutMinutes) (\s@SAMLOptionsInput' {} a -> s {sessionTimeoutMinutes = a} :: SAMLOptionsInput)
 
--- | Specifies the SAML Identity Provider\'s information.
-sAMLOptionsInput_idp :: Lens.Lens' SAMLOptionsInput (Prelude.Maybe SAMLIdp)
-sAMLOptionsInput_idp = Lens.lens (\SAMLOptionsInput' {idp} -> idp) (\s@SAMLOptionsInput' {} a -> s {idp = a} :: SAMLOptionsInput)
-
 -- | True if SAML is enabled.
 sAMLOptionsInput_enabled :: Lens.Lens' SAMLOptionsInput (Prelude.Maybe Prelude.Bool)
 sAMLOptionsInput_enabled = Lens.lens (\SAMLOptionsInput' {enabled} -> enabled) (\s@SAMLOptionsInput' {} a -> s {enabled = a} :: SAMLOptionsInput)
+
+-- | Specifies the SAML Identity Provider\'s information.
+sAMLOptionsInput_idp :: Lens.Lens' SAMLOptionsInput (Prelude.Maybe SAMLIdp)
+sAMLOptionsInput_idp = Lens.lens (\SAMLOptionsInput' {idp} -> idp) (\s@SAMLOptionsInput' {} a -> s {idp = a} :: SAMLOptionsInput)
 
 -- | The SAML master username, which is stored in the Amazon Elasticsearch
 -- Service domain\'s internal database.
@@ -127,8 +127,8 @@ instance Core.ToJSON SAMLOptionsInput where
             ("RolesKey" Core..=) Prelude.<$> rolesKey,
             ("SessionTimeoutMinutes" Core..=)
               Prelude.<$> sessionTimeoutMinutes,
-            ("Idp" Core..=) Prelude.<$> idp,
             ("Enabled" Core..=) Prelude.<$> enabled,
+            ("Idp" Core..=) Prelude.<$> idp,
             ("MasterUserName" Core..=)
               Prelude.<$> masterUserName,
             ("SubjectKey" Core..=) Prelude.<$> subjectKey

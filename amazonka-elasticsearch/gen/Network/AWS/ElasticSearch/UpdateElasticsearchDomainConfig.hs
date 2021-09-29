@@ -33,8 +33,8 @@ module Network.AWS.ElasticSearch.UpdateElasticsearchDomainConfig
     updateElasticsearchDomainConfig_snapshotOptions,
     updateElasticsearchDomainConfig_elasticsearchClusterConfig,
     updateElasticsearchDomainConfig_domainEndpointOptions,
-    updateElasticsearchDomainConfig_vPCOptions,
     updateElasticsearchDomainConfig_autoTuneOptions,
+    updateElasticsearchDomainConfig_vPCOptions,
     updateElasticsearchDomainConfig_accessPolicies,
     updateElasticsearchDomainConfig_encryptionAtRestOptions,
     updateElasticsearchDomainConfig_cognitoOptions,
@@ -77,13 +77,13 @@ data UpdateElasticsearchDomainConfig = UpdateElasticsearchDomainConfig'
     -- | Options to specify configuration that will be applied to the domain
     -- endpoint.
     domainEndpointOptions :: Prelude.Maybe DomainEndpointOptions,
+    -- | Specifies Auto-Tune options.
+    autoTuneOptions :: Prelude.Maybe AutoTuneOptions,
     -- | Options to specify the subnets and security groups for VPC endpoint. For
     -- more information, see
     -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc Creating a VPC>
     -- in /VPC Endpoints for Amazon Elasticsearch Service Domains/
     vPCOptions :: Prelude.Maybe VPCOptions,
-    -- | Specifies Auto-Tune options.
-    autoTuneOptions :: Prelude.Maybe AutoTuneOptions,
     -- | IAM access policy as a JSON-formatted string.
     accessPolicies :: Prelude.Maybe Prelude.Text,
     -- | Specifies the Encryption At Rest Options.
@@ -128,12 +128,12 @@ data UpdateElasticsearchDomainConfig = UpdateElasticsearchDomainConfig'
 -- 'domainEndpointOptions', 'updateElasticsearchDomainConfig_domainEndpointOptions' - Options to specify configuration that will be applied to the domain
 -- endpoint.
 --
+-- 'autoTuneOptions', 'updateElasticsearchDomainConfig_autoTuneOptions' - Specifies Auto-Tune options.
+--
 -- 'vPCOptions', 'updateElasticsearchDomainConfig_vPCOptions' - Options to specify the subnets and security groups for VPC endpoint. For
 -- more information, see
 -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc Creating a VPC>
 -- in /VPC Endpoints for Amazon Elasticsearch Service Domains/
---
--- 'autoTuneOptions', 'updateElasticsearchDomainConfig_autoTuneOptions' - Specifies Auto-Tune options.
 --
 -- 'accessPolicies', 'updateElasticsearchDomainConfig_accessPolicies' - IAM access policy as a JSON-formatted string.
 --
@@ -169,8 +169,8 @@ newUpdateElasticsearchDomainConfig pDomainName_ =
       elasticsearchClusterConfig =
         Prelude.Nothing,
       domainEndpointOptions = Prelude.Nothing,
-      vPCOptions = Prelude.Nothing,
       autoTuneOptions = Prelude.Nothing,
+      vPCOptions = Prelude.Nothing,
       accessPolicies = Prelude.Nothing,
       encryptionAtRestOptions = Prelude.Nothing,
       cognitoOptions = Prelude.Nothing,
@@ -200,16 +200,16 @@ updateElasticsearchDomainConfig_elasticsearchClusterConfig = Lens.lens (\UpdateE
 updateElasticsearchDomainConfig_domainEndpointOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Prelude.Maybe DomainEndpointOptions)
 updateElasticsearchDomainConfig_domainEndpointOptions = Lens.lens (\UpdateElasticsearchDomainConfig' {domainEndpointOptions} -> domainEndpointOptions) (\s@UpdateElasticsearchDomainConfig' {} a -> s {domainEndpointOptions = a} :: UpdateElasticsearchDomainConfig)
 
+-- | Specifies Auto-Tune options.
+updateElasticsearchDomainConfig_autoTuneOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Prelude.Maybe AutoTuneOptions)
+updateElasticsearchDomainConfig_autoTuneOptions = Lens.lens (\UpdateElasticsearchDomainConfig' {autoTuneOptions} -> autoTuneOptions) (\s@UpdateElasticsearchDomainConfig' {} a -> s {autoTuneOptions = a} :: UpdateElasticsearchDomainConfig)
+
 -- | Options to specify the subnets and security groups for VPC endpoint. For
 -- more information, see
 -- <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc Creating a VPC>
 -- in /VPC Endpoints for Amazon Elasticsearch Service Domains/
 updateElasticsearchDomainConfig_vPCOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Prelude.Maybe VPCOptions)
 updateElasticsearchDomainConfig_vPCOptions = Lens.lens (\UpdateElasticsearchDomainConfig' {vPCOptions} -> vPCOptions) (\s@UpdateElasticsearchDomainConfig' {} a -> s {vPCOptions = a} :: UpdateElasticsearchDomainConfig)
-
--- | Specifies Auto-Tune options.
-updateElasticsearchDomainConfig_autoTuneOptions :: Lens.Lens' UpdateElasticsearchDomainConfig (Prelude.Maybe AutoTuneOptions)
-updateElasticsearchDomainConfig_autoTuneOptions = Lens.lens (\UpdateElasticsearchDomainConfig' {autoTuneOptions} -> autoTuneOptions) (\s@UpdateElasticsearchDomainConfig' {} a -> s {autoTuneOptions = a} :: UpdateElasticsearchDomainConfig)
 
 -- | IAM access policy as a JSON-formatted string.
 updateElasticsearchDomainConfig_accessPolicies :: Lens.Lens' UpdateElasticsearchDomainConfig (Prelude.Maybe Prelude.Text)
@@ -291,9 +291,9 @@ instance Core.ToJSON UpdateElasticsearchDomainConfig where
               Prelude.<$> elasticsearchClusterConfig,
             ("DomainEndpointOptions" Core..=)
               Prelude.<$> domainEndpointOptions,
-            ("VPCOptions" Core..=) Prelude.<$> vPCOptions,
             ("AutoTuneOptions" Core..=)
               Prelude.<$> autoTuneOptions,
+            ("VPCOptions" Core..=) Prelude.<$> vPCOptions,
             ("AccessPolicies" Core..=)
               Prelude.<$> accessPolicies,
             ("EncryptionAtRestOptions" Core..=)

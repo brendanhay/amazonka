@@ -104,6 +104,7 @@ library
     Network.AWS.ElasticSearch.Types.AutoTuneType
     Network.AWS.ElasticSearch.Types.CognitoOptions
     Network.AWS.ElasticSearch.Types.CognitoOptionsStatus
+    Network.AWS.ElasticSearch.Types.ColdStorageOptions
     Network.AWS.ElasticSearch.Types.CompatibleVersionsMap
     Network.AWS.ElasticSearch.Types.DeploymentStatus
     Network.AWS.ElasticSearch.Types.DescribePackagesFilter
@@ -124,6 +125,7 @@ library
     Network.AWS.ElasticSearch.Types.ElasticsearchVersionStatus
     Network.AWS.ElasticSearch.Types.EncryptionAtRestOptions
     Network.AWS.ElasticSearch.Types.EncryptionAtRestOptionsStatus
+    Network.AWS.ElasticSearch.Types.EngineType
     Network.AWS.ElasticSearch.Types.ErrorDetails
     Network.AWS.ElasticSearch.Types.ESPartitionInstanceType
     Network.AWS.ElasticSearch.Types.ESWarmPartitionInstanceType

@@ -34,10 +34,10 @@ data EBSOptions = EBSOptions'
     eBSEnabled :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the volume type for EBS-based storage.
     volumeType :: Prelude.Maybe VolumeType,
-    -- | Integer to specify the size of an EBS volume.
-    volumeSize :: Prelude.Maybe Prelude.Int,
     -- | Specifies the IOPD for a Provisioned IOPS EBS volume (SSD).
-    iops :: Prelude.Maybe Prelude.Int
+    iops :: Prelude.Maybe Prelude.Int,
+    -- | Integer to specify the size of an EBS volume.
+    volumeSize :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,17 +53,17 @@ data EBSOptions = EBSOptions'
 --
 -- 'volumeType', 'eBSOptions_volumeType' - Specifies the volume type for EBS-based storage.
 --
--- 'volumeSize', 'eBSOptions_volumeSize' - Integer to specify the size of an EBS volume.
---
 -- 'iops', 'eBSOptions_iops' - Specifies the IOPD for a Provisioned IOPS EBS volume (SSD).
+--
+-- 'volumeSize', 'eBSOptions_volumeSize' - Integer to specify the size of an EBS volume.
 newEBSOptions ::
   EBSOptions
 newEBSOptions =
   EBSOptions'
     { eBSEnabled = Prelude.Nothing,
       volumeType = Prelude.Nothing,
-      volumeSize = Prelude.Nothing,
-      iops = Prelude.Nothing
+      iops = Prelude.Nothing,
+      volumeSize = Prelude.Nothing
     }
 
 -- | Specifies whether EBS-based storage is enabled.
@@ -74,13 +74,13 @@ eBSOptions_eBSEnabled = Lens.lens (\EBSOptions' {eBSEnabled} -> eBSEnabled) (\s@
 eBSOptions_volumeType :: Lens.Lens' EBSOptions (Prelude.Maybe VolumeType)
 eBSOptions_volumeType = Lens.lens (\EBSOptions' {volumeType} -> volumeType) (\s@EBSOptions' {} a -> s {volumeType = a} :: EBSOptions)
 
--- | Integer to specify the size of an EBS volume.
-eBSOptions_volumeSize :: Lens.Lens' EBSOptions (Prelude.Maybe Prelude.Int)
-eBSOptions_volumeSize = Lens.lens (\EBSOptions' {volumeSize} -> volumeSize) (\s@EBSOptions' {} a -> s {volumeSize = a} :: EBSOptions)
-
 -- | Specifies the IOPD for a Provisioned IOPS EBS volume (SSD).
 eBSOptions_iops :: Lens.Lens' EBSOptions (Prelude.Maybe Prelude.Int)
 eBSOptions_iops = Lens.lens (\EBSOptions' {iops} -> iops) (\s@EBSOptions' {} a -> s {iops = a} :: EBSOptions)
+
+-- | Integer to specify the size of an EBS volume.
+eBSOptions_volumeSize :: Lens.Lens' EBSOptions (Prelude.Maybe Prelude.Int)
+eBSOptions_volumeSize = Lens.lens (\EBSOptions' {volumeSize} -> volumeSize) (\s@EBSOptions' {} a -> s {volumeSize = a} :: EBSOptions)
 
 instance Core.FromJSON EBSOptions where
   parseJSON =
@@ -90,8 +90,8 @@ instance Core.FromJSON EBSOptions where
           EBSOptions'
             Prelude.<$> (x Core..:? "EBSEnabled")
             Prelude.<*> (x Core..:? "VolumeType")
-            Prelude.<*> (x Core..:? "VolumeSize")
             Prelude.<*> (x Core..:? "Iops")
+            Prelude.<*> (x Core..:? "VolumeSize")
       )
 
 instance Prelude.Hashable EBSOptions
@@ -104,7 +104,7 @@ instance Core.ToJSON EBSOptions where
       ( Prelude.catMaybes
           [ ("EBSEnabled" Core..=) Prelude.<$> eBSEnabled,
             ("VolumeType" Core..=) Prelude.<$> volumeType,
-            ("VolumeSize" Core..=) Prelude.<$> volumeSize,
-            ("Iops" Core..=) Prelude.<$> iops
+            ("Iops" Core..=) Prelude.<$> iops,
+            ("VolumeSize" Core..=) Prelude.<$> volumeSize
           ]
       )

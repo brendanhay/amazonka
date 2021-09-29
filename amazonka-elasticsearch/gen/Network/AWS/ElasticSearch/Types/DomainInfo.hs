@@ -20,12 +20,15 @@
 module Network.AWS.ElasticSearch.Types.DomainInfo where
 
 import qualified Network.AWS.Core as Core
+import Network.AWS.ElasticSearch.Types.EngineType
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newDomainInfo' smart constructor.
 data DomainInfo = DomainInfo'
-  { -- | Specifies the @DomainName@.
+  { -- | Specifies the @EngineType@ of the domain.
+    engineType :: Prelude.Maybe EngineType,
+    -- | Specifies the @DomainName@.
     domainName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -38,11 +41,20 @@ data DomainInfo = DomainInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'engineType', 'domainInfo_engineType' - Specifies the @EngineType@ of the domain.
+--
 -- 'domainName', 'domainInfo_domainName' - Specifies the @DomainName@.
 newDomainInfo ::
   DomainInfo
 newDomainInfo =
-  DomainInfo' {domainName = Prelude.Nothing}
+  DomainInfo'
+    { engineType = Prelude.Nothing,
+      domainName = Prelude.Nothing
+    }
+
+-- | Specifies the @EngineType@ of the domain.
+domainInfo_engineType :: Lens.Lens' DomainInfo (Prelude.Maybe EngineType)
+domainInfo_engineType = Lens.lens (\DomainInfo' {engineType} -> engineType) (\s@DomainInfo' {} a -> s {engineType = a} :: DomainInfo)
 
 -- | Specifies the @DomainName@.
 domainInfo_domainName :: Lens.Lens' DomainInfo (Prelude.Maybe Prelude.Text)
@@ -53,7 +65,9 @@ instance Core.FromJSON DomainInfo where
     Core.withObject
       "DomainInfo"
       ( \x ->
-          DomainInfo' Prelude.<$> (x Core..:? "DomainName")
+          DomainInfo'
+            Prelude.<$> (x Core..:? "EngineType")
+            Prelude.<*> (x Core..:? "DomainName")
       )
 
 instance Prelude.Hashable DomainInfo

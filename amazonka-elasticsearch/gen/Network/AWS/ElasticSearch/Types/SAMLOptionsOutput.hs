@@ -32,10 +32,10 @@ data SAMLOptionsOutput = SAMLOptionsOutput'
     rolesKey :: Prelude.Maybe Prelude.Text,
     -- | The duration, in minutes, after which a user session becomes inactive.
     sessionTimeoutMinutes :: Prelude.Maybe Prelude.Int,
-    -- | Describes the SAML Identity Provider\'s information.
-    idp :: Prelude.Maybe SAMLIdp,
     -- | True if SAML is enabled.
     enabled :: Prelude.Maybe Prelude.Bool,
+    -- | Describes the SAML Identity Provider\'s information.
+    idp :: Prelude.Maybe SAMLIdp,
     -- | The key used for matching the SAML Subject attribute.
     subjectKey :: Prelude.Maybe Prelude.Text
   }
@@ -53,9 +53,9 @@ data SAMLOptionsOutput = SAMLOptionsOutput'
 --
 -- 'sessionTimeoutMinutes', 'sAMLOptionsOutput_sessionTimeoutMinutes' - The duration, in minutes, after which a user session becomes inactive.
 --
--- 'idp', 'sAMLOptionsOutput_idp' - Describes the SAML Identity Provider\'s information.
---
 -- 'enabled', 'sAMLOptionsOutput_enabled' - True if SAML is enabled.
+--
+-- 'idp', 'sAMLOptionsOutput_idp' - Describes the SAML Identity Provider\'s information.
 --
 -- 'subjectKey', 'sAMLOptionsOutput_subjectKey' - The key used for matching the SAML Subject attribute.
 newSAMLOptionsOutput ::
@@ -64,8 +64,8 @@ newSAMLOptionsOutput =
   SAMLOptionsOutput'
     { rolesKey = Prelude.Nothing,
       sessionTimeoutMinutes = Prelude.Nothing,
-      idp = Prelude.Nothing,
       enabled = Prelude.Nothing,
+      idp = Prelude.Nothing,
       subjectKey = Prelude.Nothing
     }
 
@@ -77,13 +77,13 @@ sAMLOptionsOutput_rolesKey = Lens.lens (\SAMLOptionsOutput' {rolesKey} -> rolesK
 sAMLOptionsOutput_sessionTimeoutMinutes :: Lens.Lens' SAMLOptionsOutput (Prelude.Maybe Prelude.Int)
 sAMLOptionsOutput_sessionTimeoutMinutes = Lens.lens (\SAMLOptionsOutput' {sessionTimeoutMinutes} -> sessionTimeoutMinutes) (\s@SAMLOptionsOutput' {} a -> s {sessionTimeoutMinutes = a} :: SAMLOptionsOutput)
 
--- | Describes the SAML Identity Provider\'s information.
-sAMLOptionsOutput_idp :: Lens.Lens' SAMLOptionsOutput (Prelude.Maybe SAMLIdp)
-sAMLOptionsOutput_idp = Lens.lens (\SAMLOptionsOutput' {idp} -> idp) (\s@SAMLOptionsOutput' {} a -> s {idp = a} :: SAMLOptionsOutput)
-
 -- | True if SAML is enabled.
 sAMLOptionsOutput_enabled :: Lens.Lens' SAMLOptionsOutput (Prelude.Maybe Prelude.Bool)
 sAMLOptionsOutput_enabled = Lens.lens (\SAMLOptionsOutput' {enabled} -> enabled) (\s@SAMLOptionsOutput' {} a -> s {enabled = a} :: SAMLOptionsOutput)
+
+-- | Describes the SAML Identity Provider\'s information.
+sAMLOptionsOutput_idp :: Lens.Lens' SAMLOptionsOutput (Prelude.Maybe SAMLIdp)
+sAMLOptionsOutput_idp = Lens.lens (\SAMLOptionsOutput' {idp} -> idp) (\s@SAMLOptionsOutput' {} a -> s {idp = a} :: SAMLOptionsOutput)
 
 -- | The key used for matching the SAML Subject attribute.
 sAMLOptionsOutput_subjectKey :: Lens.Lens' SAMLOptionsOutput (Prelude.Maybe Prelude.Text)
@@ -97,8 +97,8 @@ instance Core.FromJSON SAMLOptionsOutput where
           SAMLOptionsOutput'
             Prelude.<$> (x Core..:? "RolesKey")
             Prelude.<*> (x Core..:? "SessionTimeoutMinutes")
-            Prelude.<*> (x Core..:? "Idp")
             Prelude.<*> (x Core..:? "Enabled")
+            Prelude.<*> (x Core..:? "Idp")
             Prelude.<*> (x Core..:? "SubjectKey")
       )
 

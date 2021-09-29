@@ -24,8 +24,8 @@ module Network.AWS.ElasticSearch.Types
     _BaseException,
     _AccessDeniedException,
     _ValidationException,
-    _LimitExceededException,
     _ConflictException,
+    _LimitExceededException,
     _ResourceNotFoundException,
     _DisabledOperationException,
 
@@ -52,6 +52,9 @@ module Network.AWS.ElasticSearch.Types
 
     -- * ESWarmPartitionInstanceType
     ESWarmPartitionInstanceType (..),
+
+    -- * EngineType
+    EngineType (..),
 
     -- * InboundCrossClusterSearchConnectionStatusCode
     InboundCrossClusterSearchConnectionStatusCode (..),
@@ -204,6 +207,11 @@ module Network.AWS.ElasticSearch.Types
     cognitoOptionsStatus_options,
     cognitoOptionsStatus_status,
 
+    -- * ColdStorageOptions
+    ColdStorageOptions (..),
+    newColdStorageOptions,
+    coldStorageOptions_enabled,
+
     -- * CompatibleVersionsMap
     CompatibleVersionsMap (..),
     newCompatibleVersionsMap,
@@ -219,11 +227,11 @@ module Network.AWS.ElasticSearch.Types
     -- * DomainEndpointOptions
     DomainEndpointOptions (..),
     newDomainEndpointOptions,
-    domainEndpointOptions_customEndpointCertificateArn,
     domainEndpointOptions_customEndpoint,
-    domainEndpointOptions_enforceHTTPS,
-    domainEndpointOptions_tLSSecurityPolicy,
+    domainEndpointOptions_customEndpointCertificateArn,
     domainEndpointOptions_customEndpointEnabled,
+    domainEndpointOptions_tLSSecurityPolicy,
+    domainEndpointOptions_enforceHTTPS,
 
     -- * DomainEndpointOptionsStatus
     DomainEndpointOptionsStatus (..),
@@ -234,6 +242,7 @@ module Network.AWS.ElasticSearch.Types
     -- * DomainInfo
     DomainInfo (..),
     newDomainInfo,
+    domainInfo_engineType,
     domainInfo_domainName,
 
     -- * DomainInformation
@@ -249,9 +258,9 @@ module Network.AWS.ElasticSearch.Types
     domainPackageDetails_domainPackageStatus,
     domainPackageDetails_packageVersion,
     domainPackageDetails_packageName,
-    domainPackageDetails_lastUpdated,
     domainPackageDetails_packageID,
     domainPackageDetails_domainName,
+    domainPackageDetails_lastUpdated,
     domainPackageDetails_referencePath,
     domainPackageDetails_packageType,
     domainPackageDetails_errorDetails,
@@ -267,8 +276,8 @@ module Network.AWS.ElasticSearch.Types
     newEBSOptions,
     eBSOptions_eBSEnabled,
     eBSOptions_volumeType,
-    eBSOptions_volumeSize,
     eBSOptions_iops,
+    eBSOptions_volumeSize,
 
     -- * EBSOptionsStatus
     EBSOptionsStatus (..),
@@ -288,6 +297,7 @@ module Network.AWS.ElasticSearch.Types
     elasticsearchClusterConfig_warmCount,
     elasticsearchClusterConfig_dedicatedMasterType,
     elasticsearchClusterConfig_warmType,
+    elasticsearchClusterConfig_coldStorageOptions,
     elasticsearchClusterConfig_instanceCount,
 
     -- * ElasticsearchClusterConfigStatus
@@ -303,8 +313,8 @@ module Network.AWS.ElasticSearch.Types
     elasticsearchDomainConfig_snapshotOptions,
     elasticsearchDomainConfig_elasticsearchClusterConfig,
     elasticsearchDomainConfig_domainEndpointOptions,
-    elasticsearchDomainConfig_vPCOptions,
     elasticsearchDomainConfig_autoTuneOptions,
+    elasticsearchDomainConfig_vPCOptions,
     elasticsearchDomainConfig_accessPolicies,
     elasticsearchDomainConfig_encryptionAtRestOptions,
     elasticsearchDomainConfig_cognitoOptions,
@@ -322,8 +332,8 @@ module Network.AWS.ElasticSearch.Types
     elasticsearchDomainStatus_domainEndpointOptions,
     elasticsearchDomainStatus_upgradeProcessing,
     elasticsearchDomainStatus_endpoints,
-    elasticsearchDomainStatus_vPCOptions,
     elasticsearchDomainStatus_autoTuneOptions,
+    elasticsearchDomainStatus_vPCOptions,
     elasticsearchDomainStatus_accessPolicies,
     elasticsearchDomainStatus_encryptionAtRestOptions,
     elasticsearchDomainStatus_serviceSoftwareOptions,
@@ -331,8 +341,8 @@ module Network.AWS.ElasticSearch.Types
     elasticsearchDomainStatus_nodeToNodeEncryptionOptions,
     elasticsearchDomainStatus_elasticsearchVersion,
     elasticsearchDomainStatus_advancedOptions,
-    elasticsearchDomainStatus_processing,
     elasticsearchDomainStatus_endpoint,
+    elasticsearchDomainStatus_processing,
     elasticsearchDomainStatus_created,
     elasticsearchDomainStatus_advancedSecurityOptions,
     elasticsearchDomainStatus_logPublishingOptions,
@@ -377,8 +387,8 @@ module Network.AWS.ElasticSearch.Types
     newInboundCrossClusterSearchConnection,
     inboundCrossClusterSearchConnection_crossClusterSearchConnectionId,
     inboundCrossClusterSearchConnection_sourceDomainInfo,
-    inboundCrossClusterSearchConnection_destinationDomainInfo,
     inboundCrossClusterSearchConnection_connectionStatus,
+    inboundCrossClusterSearchConnection_destinationDomainInfo,
 
     -- * InboundCrossClusterSearchConnectionStatus
     InboundCrossClusterSearchConnectionStatus (..),
@@ -449,8 +459,8 @@ module Network.AWS.ElasticSearch.Types
     outboundCrossClusterSearchConnection_crossClusterSearchConnectionId,
     outboundCrossClusterSearchConnection_sourceDomainInfo,
     outboundCrossClusterSearchConnection_connectionAlias,
-    outboundCrossClusterSearchConnection_destinationDomainInfo,
     outboundCrossClusterSearchConnection_connectionStatus,
+    outboundCrossClusterSearchConnection_destinationDomainInfo,
 
     -- * OutboundCrossClusterSearchConnectionStatus
     OutboundCrossClusterSearchConnectionStatus (..),
@@ -463,8 +473,8 @@ module Network.AWS.ElasticSearch.Types
     newPackageDetails,
     packageDetails_availablePackageVersion,
     packageDetails_packageStatus,
-    packageDetails_packageName,
     packageDetails_createdAt,
+    packageDetails_packageName,
     packageDetails_packageID,
     packageDetails_packageDescription,
     packageDetails_lastUpdatedAt,
@@ -531,8 +541,8 @@ module Network.AWS.ElasticSearch.Types
     sAMLOptionsInput_masterBackendRole,
     sAMLOptionsInput_rolesKey,
     sAMLOptionsInput_sessionTimeoutMinutes,
-    sAMLOptionsInput_idp,
     sAMLOptionsInput_enabled,
+    sAMLOptionsInput_idp,
     sAMLOptionsInput_masterUserName,
     sAMLOptionsInput_subjectKey,
 
@@ -541,8 +551,8 @@ module Network.AWS.ElasticSearch.Types
     newSAMLOptionsOutput,
     sAMLOptionsOutput_rolesKey,
     sAMLOptionsOutput_sessionTimeoutMinutes,
-    sAMLOptionsOutput_idp,
     sAMLOptionsOutput_enabled,
+    sAMLOptionsOutput_idp,
     sAMLOptionsOutput_subjectKey,
 
     -- * ScheduledAutoTuneDetails
@@ -558,8 +568,8 @@ module Network.AWS.ElasticSearch.Types
     newServiceSoftwareOptions,
     serviceSoftwareOptions_newVersion,
     serviceSoftwareOptions_currentVersion,
-    serviceSoftwareOptions_updateAvailable,
     serviceSoftwareOptions_cancellable,
+    serviceSoftwareOptions_updateAvailable,
     serviceSoftwareOptions_updateStatus,
     serviceSoftwareOptions_optionalDeployment,
     serviceSoftwareOptions_description,
@@ -658,6 +668,7 @@ import Network.AWS.ElasticSearch.Types.AutoTuneStatus
 import Network.AWS.ElasticSearch.Types.AutoTuneType
 import Network.AWS.ElasticSearch.Types.CognitoOptions
 import Network.AWS.ElasticSearch.Types.CognitoOptionsStatus
+import Network.AWS.ElasticSearch.Types.ColdStorageOptions
 import Network.AWS.ElasticSearch.Types.CompatibleVersionsMap
 import Network.AWS.ElasticSearch.Types.DeploymentStatus
 import Network.AWS.ElasticSearch.Types.DescribePackagesFilter
@@ -680,6 +691,7 @@ import Network.AWS.ElasticSearch.Types.ElasticsearchDomainStatus
 import Network.AWS.ElasticSearch.Types.ElasticsearchVersionStatus
 import Network.AWS.ElasticSearch.Types.EncryptionAtRestOptions
 import Network.AWS.ElasticSearch.Types.EncryptionAtRestOptionsStatus
+import Network.AWS.ElasticSearch.Types.EngineType
 import Network.AWS.ElasticSearch.Types.ErrorDetails
 import Network.AWS.ElasticSearch.Types.Filter
 import Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnection
@@ -869,15 +881,6 @@ _ValidationException =
     "ValidationException"
     Prelude.. Core.hasStatus 400
 
--- | An exception for trying to create more than allowed resources or
--- sub-resources. Gives http status code of 409.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
-    Prelude.. Core.hasStatus 409
-
 -- | An error occurred because the client attempts to remove a resource that
 -- is currently in use. Returns HTTP status code 409.
 _ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -885,6 +888,15 @@ _ConflictException =
   Core._MatchServiceError
     defaultService
     "ConflictException"
+    Prelude.. Core.hasStatus 409
+
+-- | An exception for trying to create more than allowed resources or
+-- sub-resources. Gives http status code of 409.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
     Prelude.. Core.hasStatus 409
 
 -- | An exception for accessing or deleting a resource that does not exist.

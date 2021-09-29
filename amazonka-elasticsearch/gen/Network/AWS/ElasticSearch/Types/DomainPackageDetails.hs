@@ -36,12 +36,12 @@ data DomainPackageDetails = DomainPackageDetails'
     packageVersion :: Prelude.Maybe Prelude.Text,
     -- | User specified name of the package.
     packageName :: Prelude.Maybe Prelude.Text,
-    -- | Timestamp of the most-recent update to the association status.
-    lastUpdated :: Prelude.Maybe Core.POSIX,
     -- | Internal ID of the package.
     packageID :: Prelude.Maybe Prelude.Text,
     -- | Name of the domain you\'ve associated a package with.
     domainName :: Prelude.Maybe Prelude.Text,
+    -- | Timestamp of the most-recent update to the association status.
+    lastUpdated :: Prelude.Maybe Core.POSIX,
     -- | The relative path on Amazon ES nodes, which can be used as synonym_path
     -- when the package is synonym file.
     referencePath :: Prelude.Maybe Prelude.Text,
@@ -68,11 +68,11 @@ data DomainPackageDetails = DomainPackageDetails'
 --
 -- 'packageName', 'domainPackageDetails_packageName' - User specified name of the package.
 --
--- 'lastUpdated', 'domainPackageDetails_lastUpdated' - Timestamp of the most-recent update to the association status.
---
 -- 'packageID', 'domainPackageDetails_packageID' - Internal ID of the package.
 --
 -- 'domainName', 'domainPackageDetails_domainName' - Name of the domain you\'ve associated a package with.
+--
+-- 'lastUpdated', 'domainPackageDetails_lastUpdated' - Timestamp of the most-recent update to the association status.
 --
 -- 'referencePath', 'domainPackageDetails_referencePath' - The relative path on Amazon ES nodes, which can be used as synonym_path
 -- when the package is synonym file.
@@ -89,9 +89,9 @@ newDomainPackageDetails =
         Prelude.Nothing,
       packageVersion = Prelude.Nothing,
       packageName = Prelude.Nothing,
-      lastUpdated = Prelude.Nothing,
       packageID = Prelude.Nothing,
       domainName = Prelude.Nothing,
+      lastUpdated = Prelude.Nothing,
       referencePath = Prelude.Nothing,
       packageType = Prelude.Nothing,
       errorDetails = Prelude.Nothing
@@ -110,10 +110,6 @@ domainPackageDetails_packageVersion = Lens.lens (\DomainPackageDetails' {package
 domainPackageDetails_packageName :: Lens.Lens' DomainPackageDetails (Prelude.Maybe Prelude.Text)
 domainPackageDetails_packageName = Lens.lens (\DomainPackageDetails' {packageName} -> packageName) (\s@DomainPackageDetails' {} a -> s {packageName = a} :: DomainPackageDetails)
 
--- | Timestamp of the most-recent update to the association status.
-domainPackageDetails_lastUpdated :: Lens.Lens' DomainPackageDetails (Prelude.Maybe Prelude.UTCTime)
-domainPackageDetails_lastUpdated = Lens.lens (\DomainPackageDetails' {lastUpdated} -> lastUpdated) (\s@DomainPackageDetails' {} a -> s {lastUpdated = a} :: DomainPackageDetails) Prelude.. Lens.mapping Core._Time
-
 -- | Internal ID of the package.
 domainPackageDetails_packageID :: Lens.Lens' DomainPackageDetails (Prelude.Maybe Prelude.Text)
 domainPackageDetails_packageID = Lens.lens (\DomainPackageDetails' {packageID} -> packageID) (\s@DomainPackageDetails' {} a -> s {packageID = a} :: DomainPackageDetails)
@@ -121,6 +117,10 @@ domainPackageDetails_packageID = Lens.lens (\DomainPackageDetails' {packageID} -
 -- | Name of the domain you\'ve associated a package with.
 domainPackageDetails_domainName :: Lens.Lens' DomainPackageDetails (Prelude.Maybe Prelude.Text)
 domainPackageDetails_domainName = Lens.lens (\DomainPackageDetails' {domainName} -> domainName) (\s@DomainPackageDetails' {} a -> s {domainName = a} :: DomainPackageDetails)
+
+-- | Timestamp of the most-recent update to the association status.
+domainPackageDetails_lastUpdated :: Lens.Lens' DomainPackageDetails (Prelude.Maybe Prelude.UTCTime)
+domainPackageDetails_lastUpdated = Lens.lens (\DomainPackageDetails' {lastUpdated} -> lastUpdated) (\s@DomainPackageDetails' {} a -> s {lastUpdated = a} :: DomainPackageDetails) Prelude.. Lens.mapping Core._Time
 
 -- | The relative path on Amazon ES nodes, which can be used as synonym_path
 -- when the package is synonym file.
@@ -145,9 +145,9 @@ instance Core.FromJSON DomainPackageDetails where
             Prelude.<$> (x Core..:? "DomainPackageStatus")
             Prelude.<*> (x Core..:? "PackageVersion")
             Prelude.<*> (x Core..:? "PackageName")
-            Prelude.<*> (x Core..:? "LastUpdated")
             Prelude.<*> (x Core..:? "PackageID")
             Prelude.<*> (x Core..:? "DomainName")
+            Prelude.<*> (x Core..:? "LastUpdated")
             Prelude.<*> (x Core..:? "ReferencePath")
             Prelude.<*> (x Core..:? "PackageType")
             Prelude.<*> (x Core..:? "ErrorDetails")

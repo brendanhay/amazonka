@@ -27,6 +27,9 @@ module Network.AWS.ElasticSearch.ListDomainNames
     ListDomainNames (..),
     newListDomainNames,
 
+    -- * Request Lenses
+    listDomainNames_engineType,
+
     -- * Destructuring the Response
     ListDomainNamesResponse (..),
     newListDomainNamesResponse,
@@ -44,9 +47,13 @@ import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
--- | /See:/ 'newListDomainNames' smart constructor.
+-- | Container for the parameters to the @ListDomainNames@ operation.
+--
+-- /See:/ 'newListDomainNames' smart constructor.
 data ListDomainNames = ListDomainNames'
-  {
+  { -- | Optional parameter to filter the output by domain engine type.
+    -- Acceptable values are \'Elasticsearch\' and \'OpenSearch\'.
+    engineType :: Prelude.Maybe EngineType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,9 +61,21 @@ data ListDomainNames = ListDomainNames'
 -- Create a value of 'ListDomainNames' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'engineType', 'listDomainNames_engineType' - Optional parameter to filter the output by domain engine type.
+-- Acceptable values are \'Elasticsearch\' and \'OpenSearch\'.
 newListDomainNames ::
   ListDomainNames
-newListDomainNames = ListDomainNames'
+newListDomainNames =
+  ListDomainNames' {engineType = Prelude.Nothing}
+
+-- | Optional parameter to filter the output by domain engine type.
+-- Acceptable values are \'Elasticsearch\' and \'OpenSearch\'.
+listDomainNames_engineType :: Lens.Lens' ListDomainNames (Prelude.Maybe EngineType)
+listDomainNames_engineType = Lens.lens (\ListDomainNames' {engineType} -> engineType) (\s@ListDomainNames' {} a -> s {engineType = a} :: ListDomainNames)
 
 instance Core.AWSRequest ListDomainNames where
   type
@@ -82,14 +101,15 @@ instance Core.ToPath ListDomainNames where
   toPath = Prelude.const "/2015-01-01/domain"
 
 instance Core.ToQuery ListDomainNames where
-  toQuery = Prelude.const Prelude.mempty
+  toQuery ListDomainNames' {..} =
+    Prelude.mconcat ["engineType" Core.=: engineType]
 
 -- | The result of a @ListDomainNames@ operation. Contains the names of all
--- Elasticsearch domains owned by this account.
+-- domains owned by this account and their respective engine types.
 --
 -- /See:/ 'newListDomainNamesResponse' smart constructor.
 data ListDomainNamesResponse = ListDomainNamesResponse'
-  { -- | List of Elasticsearch domain names.
+  { -- | List of domain names and respective engine types.
     domainNames :: Prelude.Maybe [DomainInfo],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -104,7 +124,7 @@ data ListDomainNamesResponse = ListDomainNamesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'domainNames', 'listDomainNamesResponse_domainNames' - List of Elasticsearch domain names.
+-- 'domainNames', 'listDomainNamesResponse_domainNames' - List of domain names and respective engine types.
 --
 -- 'httpStatus', 'listDomainNamesResponse_httpStatus' - The response's http status code.
 newListDomainNamesResponse ::
@@ -118,7 +138,7 @@ newListDomainNamesResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | List of Elasticsearch domain names.
+-- | List of domain names and respective engine types.
 listDomainNamesResponse_domainNames :: Lens.Lens' ListDomainNamesResponse (Prelude.Maybe [DomainInfo])
 listDomainNamesResponse_domainNames = Lens.lens (\ListDomainNamesResponse' {domainNames} -> domainNames) (\s@ListDomainNamesResponse' {} a -> s {domainNames = a} :: ListDomainNamesResponse) Prelude.. Lens.mapping Lens._Coerce
 

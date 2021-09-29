@@ -42,10 +42,10 @@ data AgentInfo = AgentInfo'
     agentType :: Prelude.Maybe Prelude.Text,
     -- | The ID of the connector.
     connectorId :: Prelude.Maybe Prelude.Text,
-    -- | Network details about the host where the agent or connector resides.
-    agentNetworkInfoList :: Prelude.Maybe [AgentNetworkInfo],
     -- | Time since agent or connector health was reported.
     lastHealthPingTime :: Prelude.Maybe Prelude.Text,
+    -- | Network details about the host where the agent or connector resides.
+    agentNetworkInfoList :: Prelude.Maybe [AgentNetworkInfo],
     -- | Agent\'s first registration timestamp in UTC.
     registeredTime :: Prelude.Maybe Prelude.Text,
     -- | The agent or connector version.
@@ -74,9 +74,9 @@ data AgentInfo = AgentInfo'
 --
 -- 'connectorId', 'agentInfo_connectorId' - The ID of the connector.
 --
--- 'agentNetworkInfoList', 'agentInfo_agentNetworkInfoList' - Network details about the host where the agent or connector resides.
---
 -- 'lastHealthPingTime', 'agentInfo_lastHealthPingTime' - Time since agent or connector health was reported.
+--
+-- 'agentNetworkInfoList', 'agentInfo_agentNetworkInfoList' - Network details about the host where the agent or connector resides.
 --
 -- 'registeredTime', 'agentInfo_registeredTime' - Agent\'s first registration timestamp in UTC.
 --
@@ -93,8 +93,8 @@ newAgentInfo =
       agentId = Prelude.Nothing,
       agentType = Prelude.Nothing,
       connectorId = Prelude.Nothing,
-      agentNetworkInfoList = Prelude.Nothing,
       lastHealthPingTime = Prelude.Nothing,
+      agentNetworkInfoList = Prelude.Nothing,
       registeredTime = Prelude.Nothing,
       version = Prelude.Nothing,
       health = Prelude.Nothing,
@@ -118,13 +118,13 @@ agentInfo_agentType = Lens.lens (\AgentInfo' {agentType} -> agentType) (\s@Agent
 agentInfo_connectorId :: Lens.Lens' AgentInfo (Prelude.Maybe Prelude.Text)
 agentInfo_connectorId = Lens.lens (\AgentInfo' {connectorId} -> connectorId) (\s@AgentInfo' {} a -> s {connectorId = a} :: AgentInfo)
 
--- | Network details about the host where the agent or connector resides.
-agentInfo_agentNetworkInfoList :: Lens.Lens' AgentInfo (Prelude.Maybe [AgentNetworkInfo])
-agentInfo_agentNetworkInfoList = Lens.lens (\AgentInfo' {agentNetworkInfoList} -> agentNetworkInfoList) (\s@AgentInfo' {} a -> s {agentNetworkInfoList = a} :: AgentInfo) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Time since agent or connector health was reported.
 agentInfo_lastHealthPingTime :: Lens.Lens' AgentInfo (Prelude.Maybe Prelude.Text)
 agentInfo_lastHealthPingTime = Lens.lens (\AgentInfo' {lastHealthPingTime} -> lastHealthPingTime) (\s@AgentInfo' {} a -> s {lastHealthPingTime = a} :: AgentInfo)
+
+-- | Network details about the host where the agent or connector resides.
+agentInfo_agentNetworkInfoList :: Lens.Lens' AgentInfo (Prelude.Maybe [AgentNetworkInfo])
+agentInfo_agentNetworkInfoList = Lens.lens (\AgentInfo' {agentNetworkInfoList} -> agentNetworkInfoList) (\s@AgentInfo' {} a -> s {agentNetworkInfoList = a} :: AgentInfo) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Agent\'s first registration timestamp in UTC.
 agentInfo_registeredTime :: Lens.Lens' AgentInfo (Prelude.Maybe Prelude.Text)
@@ -152,10 +152,10 @@ instance Core.FromJSON AgentInfo where
             Prelude.<*> (x Core..:? "agentId")
             Prelude.<*> (x Core..:? "agentType")
             Prelude.<*> (x Core..:? "connectorId")
+            Prelude.<*> (x Core..:? "lastHealthPingTime")
             Prelude.<*> ( x Core..:? "agentNetworkInfoList"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "lastHealthPingTime")
             Prelude.<*> (x Core..:? "registeredTime")
             Prelude.<*> (x Core..:? "version")
             Prelude.<*> (x Core..:? "health")

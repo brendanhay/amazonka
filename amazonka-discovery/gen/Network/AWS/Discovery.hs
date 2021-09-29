@@ -117,17 +117,17 @@ module Network.AWS.Discovery
     -- ** ServerInternalErrorException
     _ServerInternalErrorException,
 
-    -- ** HomeRegionNotSetException
-    _HomeRegionNotSetException,
-
     -- ** InvalidParameterException
     _InvalidParameterException,
 
-    -- ** InvalidParameterValueException
-    _InvalidParameterValueException,
+    -- ** HomeRegionNotSetException
+    _HomeRegionNotSetException,
 
     -- ** AuthorizationErrorException
     _AuthorizationErrorException,
+
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
 
     -- ** ResourceInUseException
     _ResourceInUseException,
@@ -153,23 +153,17 @@ module Network.AWS.Discovery
     DescribeTagsResponse (DescribeTagsResponse'),
     newDescribeTagsResponse,
 
-    -- ** StartExportTask
-    StartExportTask (StartExportTask'),
-    newStartExportTask,
-    StartExportTaskResponse (StartExportTaskResponse'),
-    newStartExportTaskResponse,
-
     -- ** ListConfigurations (Paginated)
     ListConfigurations (ListConfigurations'),
     newListConfigurations,
     ListConfigurationsResponse (ListConfigurationsResponse'),
     newListConfigurationsResponse,
 
-    -- ** CreateApplication
-    CreateApplication (CreateApplication'),
-    newCreateApplication,
-    CreateApplicationResponse (CreateApplicationResponse'),
-    newCreateApplicationResponse,
+    -- ** StartExportTask
+    StartExportTask (StartExportTask'),
+    newStartExportTask,
+    StartExportTaskResponse (StartExportTaskResponse'),
+    newStartExportTaskResponse,
 
     -- ** DescribeImportTasks
     DescribeImportTasks (DescribeImportTasks'),
@@ -177,23 +171,11 @@ module Network.AWS.Discovery
     DescribeImportTasksResponse (DescribeImportTasksResponse'),
     newDescribeImportTasksResponse,
 
-    -- ** DeleteApplications
-    DeleteApplications (DeleteApplications'),
-    newDeleteApplications,
-    DeleteApplicationsResponse (DeleteApplicationsResponse'),
-    newDeleteApplicationsResponse,
-
-    -- ** GetDiscoverySummary
-    GetDiscoverySummary (GetDiscoverySummary'),
-    newGetDiscoverySummary,
-    GetDiscoverySummaryResponse (GetDiscoverySummaryResponse'),
-    newGetDiscoverySummaryResponse,
-
-    -- ** DeleteTags
-    DeleteTags (DeleteTags'),
-    newDeleteTags,
-    DeleteTagsResponse (DeleteTagsResponse'),
-    newDeleteTagsResponse,
+    -- ** CreateApplication
+    CreateApplication (CreateApplication'),
+    newCreateApplication,
+    CreateApplicationResponse (CreateApplicationResponse'),
+    newCreateApplicationResponse,
 
     -- ** DisassociateConfigurationItemsFromApplication
     DisassociateConfigurationItemsFromApplication (DisassociateConfigurationItemsFromApplication'),
@@ -201,11 +183,23 @@ module Network.AWS.Discovery
     DisassociateConfigurationItemsFromApplicationResponse (DisassociateConfigurationItemsFromApplicationResponse'),
     newDisassociateConfigurationItemsFromApplicationResponse,
 
-    -- ** StopDataCollectionByAgentIds
-    StopDataCollectionByAgentIds (StopDataCollectionByAgentIds'),
-    newStopDataCollectionByAgentIds,
-    StopDataCollectionByAgentIdsResponse (StopDataCollectionByAgentIdsResponse'),
-    newStopDataCollectionByAgentIdsResponse,
+    -- ** DeleteTags
+    DeleteTags (DeleteTags'),
+    newDeleteTags,
+    DeleteTagsResponse (DeleteTagsResponse'),
+    newDeleteTagsResponse,
+
+    -- ** GetDiscoverySummary
+    GetDiscoverySummary (GetDiscoverySummary'),
+    newGetDiscoverySummary,
+    GetDiscoverySummaryResponse (GetDiscoverySummaryResponse'),
+    newGetDiscoverySummaryResponse,
+
+    -- ** DeleteApplications
+    DeleteApplications (DeleteApplications'),
+    newDeleteApplications,
+    DeleteApplicationsResponse (DeleteApplicationsResponse'),
+    newDeleteApplicationsResponse,
 
     -- ** StartDataCollectionByAgentIds
     StartDataCollectionByAgentIds (StartDataCollectionByAgentIds'),
@@ -213,11 +207,11 @@ module Network.AWS.Discovery
     StartDataCollectionByAgentIdsResponse (StartDataCollectionByAgentIdsResponse'),
     newStartDataCollectionByAgentIdsResponse,
 
-    -- ** DescribeAgents (Paginated)
-    DescribeAgents (DescribeAgents'),
-    newDescribeAgents,
-    DescribeAgentsResponse (DescribeAgentsResponse'),
-    newDescribeAgentsResponse,
+    -- ** StopDataCollectionByAgentIds
+    StopDataCollectionByAgentIds (StopDataCollectionByAgentIds'),
+    newStopDataCollectionByAgentIds,
+    StopDataCollectionByAgentIdsResponse (StopDataCollectionByAgentIdsResponse'),
+    newStopDataCollectionByAgentIdsResponse,
 
     -- ** DescribeContinuousExports (Paginated)
     DescribeContinuousExports (DescribeContinuousExports'),
@@ -225,11 +219,11 @@ module Network.AWS.Discovery
     DescribeContinuousExportsResponse (DescribeContinuousExportsResponse'),
     newDescribeContinuousExportsResponse,
 
-    -- ** StopContinuousExport
-    StopContinuousExport (StopContinuousExport'),
-    newStopContinuousExport,
-    StopContinuousExportResponse (StopContinuousExportResponse'),
-    newStopContinuousExportResponse,
+    -- ** DescribeAgents (Paginated)
+    DescribeAgents (DescribeAgents'),
+    newDescribeAgents,
+    DescribeAgentsResponse (DescribeAgentsResponse'),
+    newDescribeAgentsResponse,
 
     -- ** StartContinuousExport
     StartContinuousExport (StartContinuousExport'),
@@ -237,17 +231,23 @@ module Network.AWS.Discovery
     StartContinuousExportResponse (StartContinuousExportResponse'),
     newStartContinuousExportResponse,
 
-    -- ** DescribeConfigurations
-    DescribeConfigurations (DescribeConfigurations'),
-    newDescribeConfigurations,
-    DescribeConfigurationsResponse (DescribeConfigurationsResponse'),
-    newDescribeConfigurationsResponse,
+    -- ** StopContinuousExport
+    StopContinuousExport (StopContinuousExport'),
+    newStopContinuousExport,
+    StopContinuousExportResponse (StopContinuousExportResponse'),
+    newStopContinuousExportResponse,
 
     -- ** ListServerNeighbors
     ListServerNeighbors (ListServerNeighbors'),
     newListServerNeighbors,
     ListServerNeighborsResponse (ListServerNeighborsResponse'),
     newListServerNeighborsResponse,
+
+    -- ** DescribeConfigurations
+    DescribeConfigurations (DescribeConfigurations'),
+    newDescribeConfigurations,
+    DescribeConfigurationsResponse (DescribeConfigurationsResponse'),
+    newDescribeConfigurationsResponse,
 
     -- ** AssociateConfigurationItemsToApplication
     AssociateConfigurationItemsToApplication (AssociateConfigurationItemsToApplication'),

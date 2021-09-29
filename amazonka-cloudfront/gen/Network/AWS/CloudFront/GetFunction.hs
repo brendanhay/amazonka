@@ -100,7 +100,7 @@ instance Core.AWSRequest GetFunction where
           GetFunctionResponse'
             Prelude.<$> (h Core..#? "ETag")
             Prelude.<*> (h Core..#? "Content-Type")
-            Prelude.<*> (Prelude.pure (Prelude.Just x))
+            Prelude.<*> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 

@@ -11,17 +11,12 @@
 --
 -- Derived from API version @2020-05-31@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- Amazon CloudFront is a web service that speeds up distribution of your
--- static and dynamic web content, for example, .html, .css, .php, image,
--- and media files, to end users. CloudFront delivers your content through
--- a worldwide network of edge locations. When an end user requests content
--- that you\'re serving with CloudFront, the user is routed to the edge
--- location that provides the lowest latency, so content is delivered with
--- the best possible performance. If the content is already in that edge
--- location, CloudFront delivers it immediately. If the content is not
--- currently in that edge location, CloudFront retrieves it from an Amazon
--- S3 bucket or an HTTP server (for example, a web server) that you have
--- identified as the source for the definitive version of your content.
+-- Amazon CloudFront
+--
+-- This is the /Amazon CloudFront API Reference/. This guide is for
+-- developers who need detailed information about CloudFront API actions,
+-- data types, and errors. For detailed information about CloudFront
+-- features, see the /Amazon CloudFront Developer Guide/.
 module Network.AWS.CloudFront
   ( -- * Service Configuration
     defaultService,

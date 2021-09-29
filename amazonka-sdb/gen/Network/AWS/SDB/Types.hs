@@ -30,10 +30,10 @@ module Network.AWS.SDB.Types
     _NumberSubmittedAttributesExceeded,
     _InvalidParameterValue,
     _TooManyRequestedAttributes,
-    _MissingParameter,
     _InvalidNextToken,
-    _RequestTimeout,
+    _MissingParameter,
     _NumberItemAttributesExceeded,
+    _RequestTimeout,
 
     -- * Attribute
     Attribute (..),
@@ -263,6 +263,14 @@ _TooManyRequestedAttributes =
     "TooManyRequestedAttributes"
     Prelude.. Core.hasStatus 400
 
+-- | The specified NextToken is not valid.
+_InvalidNextToken :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidNextToken =
+  Core._MatchServiceError
+    defaultService
+    "InvalidNextToken"
+    Prelude.. Core.hasStatus 400
+
 -- | The request must contain the specified missing parameter.
 _MissingParameter :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _MissingParameter =
@@ -271,13 +279,13 @@ _MissingParameter =
     "MissingParameter"
     Prelude.. Core.hasStatus 400
 
--- | The specified NextToken is not valid.
-_InvalidNextToken :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidNextToken =
+-- | Too many attributes in this item.
+_NumberItemAttributesExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NumberItemAttributesExceeded =
   Core._MatchServiceError
     defaultService
-    "InvalidNextToken"
-    Prelude.. Core.hasStatus 400
+    "NumberItemAttributesExceeded"
+    Prelude.. Core.hasStatus 409
 
 -- | A timeout occurred when attempting to query the specified domain with
 -- specified query expression.
@@ -287,11 +295,3 @@ _RequestTimeout =
     defaultService
     "RequestTimeout"
     Prelude.. Core.hasStatus 408
-
--- | Too many attributes in this item.
-_NumberItemAttributesExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NumberItemAttributesExceeded =
-  Core._MatchServiceError
-    defaultService
-    "NumberItemAttributesExceeded"
-    Prelude.. Core.hasStatus 409

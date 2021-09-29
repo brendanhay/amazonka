@@ -42,11 +42,11 @@ import Test.Tasty
 --         , requestCreateDomain $
 --             newCreateDomain
 --
---         , requestGetAttributes $
---             newGetAttributes
---
 --         , requestDeleteDomain $
 --             newDeleteDomain
+--
+--         , requestGetAttributes $
+--             newGetAttributes
 --
 --         , requestPutAttributes $
 --             newPutAttributes
@@ -75,11 +75,11 @@ import Test.Tasty
 --         , responseCreateDomain $
 --             newCreateDomainResponse
 --
---         , responseGetAttributes $
---             newGetAttributesResponse
---
 --         , responseDeleteDomain $
 --             newDeleteDomainResponse
+--
+--         , responseGetAttributes $
+--             newGetAttributesResponse
 --
 --         , responsePutAttributes $
 --             newPutAttributesResponse
@@ -125,17 +125,17 @@ requestCreateDomain =
     "CreateDomain"
     "fixture/CreateDomain.yaml"
 
-requestGetAttributes :: GetAttributes -> TestTree
-requestGetAttributes =
-  req
-    "GetAttributes"
-    "fixture/GetAttributes.yaml"
-
 requestDeleteDomain :: DeleteDomain -> TestTree
 requestDeleteDomain =
   req
     "DeleteDomain"
     "fixture/DeleteDomain.yaml"
+
+requestGetAttributes :: GetAttributes -> TestTree
+requestGetAttributes =
+  req
+    "GetAttributes"
+    "fixture/GetAttributes.yaml"
 
 requestPutAttributes :: PutAttributes -> TestTree
 requestPutAttributes =
@@ -197,14 +197,6 @@ responseCreateDomain =
     defaultService
     (Proxy :: Proxy CreateDomain)
 
-responseGetAttributes :: GetAttributesResponse -> TestTree
-responseGetAttributes =
-  res
-    "GetAttributesResponse"
-    "fixture/GetAttributesResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetAttributes)
-
 responseDeleteDomain :: DeleteDomainResponse -> TestTree
 responseDeleteDomain =
   res
@@ -212,6 +204,14 @@ responseDeleteDomain =
     "fixture/DeleteDomainResponse.proto"
     defaultService
     (Proxy :: Proxy DeleteDomain)
+
+responseGetAttributes :: GetAttributesResponse -> TestTree
+responseGetAttributes =
+  res
+    "GetAttributesResponse"
+    "fixture/GetAttributesResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetAttributes)
 
 responsePutAttributes :: PutAttributesResponse -> TestTree
 responsePutAttributes =

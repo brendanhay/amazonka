@@ -32,9 +32,9 @@ module Network.AWS.DeviceFarm.PurchaseOffering
     newPurchaseOffering,
 
     -- * Request Lenses
-    purchaseOffering_quantity,
-    purchaseOffering_offeringId,
     purchaseOffering_offeringPromotionId,
+    purchaseOffering_offeringId,
+    purchaseOffering_quantity,
 
     -- * Destructuring the Response
     PurchaseOfferingResponse (..),
@@ -57,12 +57,12 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newPurchaseOffering' smart constructor.
 data PurchaseOffering = PurchaseOffering'
-  { -- | The number of device slots to purchase in an offering request.
-    quantity :: Prelude.Maybe Prelude.Int,
+  { -- | The ID of the offering promotion to be applied to the purchase.
+    offeringPromotionId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the offering.
-    offeringId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the offering promotion to be applied to the purchase.
-    offeringPromotionId :: Prelude.Maybe Prelude.Text
+    offeringId :: Prelude.Text,
+    -- | The number of device slots to purchase in an offering request.
+    quantity :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -74,31 +74,36 @@ data PurchaseOffering = PurchaseOffering'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'quantity', 'purchaseOffering_quantity' - The number of device slots to purchase in an offering request.
+-- 'offeringPromotionId', 'purchaseOffering_offeringPromotionId' - The ID of the offering promotion to be applied to the purchase.
 --
 -- 'offeringId', 'purchaseOffering_offeringId' - The ID of the offering.
 --
--- 'offeringPromotionId', 'purchaseOffering_offeringPromotionId' - The ID of the offering promotion to be applied to the purchase.
+-- 'quantity', 'purchaseOffering_quantity' - The number of device slots to purchase in an offering request.
 newPurchaseOffering ::
+  -- | 'offeringId'
+  Prelude.Text ->
+  -- | 'quantity'
+  Prelude.Int ->
   PurchaseOffering
-newPurchaseOffering =
+newPurchaseOffering pOfferingId_ pQuantity_ =
   PurchaseOffering'
-    { quantity = Prelude.Nothing,
-      offeringId = Prelude.Nothing,
-      offeringPromotionId = Prelude.Nothing
+    { offeringPromotionId =
+        Prelude.Nothing,
+      offeringId = pOfferingId_,
+      quantity = pQuantity_
     }
-
--- | The number of device slots to purchase in an offering request.
-purchaseOffering_quantity :: Lens.Lens' PurchaseOffering (Prelude.Maybe Prelude.Int)
-purchaseOffering_quantity = Lens.lens (\PurchaseOffering' {quantity} -> quantity) (\s@PurchaseOffering' {} a -> s {quantity = a} :: PurchaseOffering)
-
--- | The ID of the offering.
-purchaseOffering_offeringId :: Lens.Lens' PurchaseOffering (Prelude.Maybe Prelude.Text)
-purchaseOffering_offeringId = Lens.lens (\PurchaseOffering' {offeringId} -> offeringId) (\s@PurchaseOffering' {} a -> s {offeringId = a} :: PurchaseOffering)
 
 -- | The ID of the offering promotion to be applied to the purchase.
 purchaseOffering_offeringPromotionId :: Lens.Lens' PurchaseOffering (Prelude.Maybe Prelude.Text)
 purchaseOffering_offeringPromotionId = Lens.lens (\PurchaseOffering' {offeringPromotionId} -> offeringPromotionId) (\s@PurchaseOffering' {} a -> s {offeringPromotionId = a} :: PurchaseOffering)
+
+-- | The ID of the offering.
+purchaseOffering_offeringId :: Lens.Lens' PurchaseOffering Prelude.Text
+purchaseOffering_offeringId = Lens.lens (\PurchaseOffering' {offeringId} -> offeringId) (\s@PurchaseOffering' {} a -> s {offeringId = a} :: PurchaseOffering)
+
+-- | The number of device slots to purchase in an offering request.
+purchaseOffering_quantity :: Lens.Lens' PurchaseOffering Prelude.Int
+purchaseOffering_quantity = Lens.lens (\PurchaseOffering' {quantity} -> quantity) (\s@PurchaseOffering' {} a -> s {quantity = a} :: PurchaseOffering)
 
 instance Core.AWSRequest PurchaseOffering where
   type
@@ -136,10 +141,10 @@ instance Core.ToJSON PurchaseOffering where
   toJSON PurchaseOffering' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("quantity" Core..=) Prelude.<$> quantity,
-            ("offeringId" Core..=) Prelude.<$> offeringId,
-            ("offeringPromotionId" Core..=)
-              Prelude.<$> offeringPromotionId
+          [ ("offeringPromotionId" Core..=)
+              Prelude.<$> offeringPromotionId,
+            Prelude.Just ("offeringId" Core..= offeringId),
+            Prelude.Just ("quantity" Core..= quantity)
           ]
       )
 

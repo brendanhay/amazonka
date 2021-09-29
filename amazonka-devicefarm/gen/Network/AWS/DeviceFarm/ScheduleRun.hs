@@ -28,8 +28,8 @@ module Network.AWS.DeviceFarm.ScheduleRun
 
     -- * Request Lenses
     scheduleRun_devicePoolArn,
-    scheduleRun_deviceSelectionConfiguration,
     scheduleRun_configuration,
+    scheduleRun_deviceSelectionConfiguration,
     scheduleRun_executionConfiguration,
     scheduleRun_name,
     scheduleRun_appArn,
@@ -59,14 +59,14 @@ import qualified Network.AWS.Response as Response
 data ScheduleRun = ScheduleRun'
   { -- | The ARN of the device pool for the run to be scheduled.
     devicePoolArn :: Prelude.Maybe Prelude.Text,
+    -- | Information about the settings for the run to be scheduled.
+    configuration :: Prelude.Maybe ScheduleRunConfiguration,
     -- | The filter criteria used to dynamically select a set of devices for a
     -- test run and the maximum number of devices to be included in the run.
     --
     -- Either __@devicePoolArn@__ or __@deviceSelectionConfiguration@__ is
     -- required in a request.
     deviceSelectionConfiguration :: Prelude.Maybe DeviceSelectionConfiguration,
-    -- | Information about the settings for the run to be scheduled.
-    configuration :: Prelude.Maybe ScheduleRunConfiguration,
     -- | Specifies configuration information about a test run, such as the
     -- execution timeout (in minutes).
     executionConfiguration :: Prelude.Maybe ExecutionConfiguration,
@@ -92,13 +92,13 @@ data ScheduleRun = ScheduleRun'
 --
 -- 'devicePoolArn', 'scheduleRun_devicePoolArn' - The ARN of the device pool for the run to be scheduled.
 --
+-- 'configuration', 'scheduleRun_configuration' - Information about the settings for the run to be scheduled.
+--
 -- 'deviceSelectionConfiguration', 'scheduleRun_deviceSelectionConfiguration' - The filter criteria used to dynamically select a set of devices for a
 -- test run and the maximum number of devices to be included in the run.
 --
 -- Either __@devicePoolArn@__ or __@deviceSelectionConfiguration@__ is
 -- required in a request.
---
--- 'configuration', 'scheduleRun_configuration' - Information about the settings for the run to be scheduled.
 --
 -- 'executionConfiguration', 'scheduleRun_executionConfiguration' - Specifies configuration information about a test run, such as the
 -- execution timeout (in minutes).
@@ -120,8 +120,8 @@ newScheduleRun ::
 newScheduleRun pProjectArn_ pTest_ =
   ScheduleRun'
     { devicePoolArn = Prelude.Nothing,
-      deviceSelectionConfiguration = Prelude.Nothing,
       configuration = Prelude.Nothing,
+      deviceSelectionConfiguration = Prelude.Nothing,
       executionConfiguration = Prelude.Nothing,
       name = Prelude.Nothing,
       appArn = Prelude.Nothing,
@@ -133,6 +133,10 @@ newScheduleRun pProjectArn_ pTest_ =
 scheduleRun_devicePoolArn :: Lens.Lens' ScheduleRun (Prelude.Maybe Prelude.Text)
 scheduleRun_devicePoolArn = Lens.lens (\ScheduleRun' {devicePoolArn} -> devicePoolArn) (\s@ScheduleRun' {} a -> s {devicePoolArn = a} :: ScheduleRun)
 
+-- | Information about the settings for the run to be scheduled.
+scheduleRun_configuration :: Lens.Lens' ScheduleRun (Prelude.Maybe ScheduleRunConfiguration)
+scheduleRun_configuration = Lens.lens (\ScheduleRun' {configuration} -> configuration) (\s@ScheduleRun' {} a -> s {configuration = a} :: ScheduleRun)
+
 -- | The filter criteria used to dynamically select a set of devices for a
 -- test run and the maximum number of devices to be included in the run.
 --
@@ -140,10 +144,6 @@ scheduleRun_devicePoolArn = Lens.lens (\ScheduleRun' {devicePoolArn} -> devicePo
 -- required in a request.
 scheduleRun_deviceSelectionConfiguration :: Lens.Lens' ScheduleRun (Prelude.Maybe DeviceSelectionConfiguration)
 scheduleRun_deviceSelectionConfiguration = Lens.lens (\ScheduleRun' {deviceSelectionConfiguration} -> deviceSelectionConfiguration) (\s@ScheduleRun' {} a -> s {deviceSelectionConfiguration = a} :: ScheduleRun)
-
--- | Information about the settings for the run to be scheduled.
-scheduleRun_configuration :: Lens.Lens' ScheduleRun (Prelude.Maybe ScheduleRunConfiguration)
-scheduleRun_configuration = Lens.lens (\ScheduleRun' {configuration} -> configuration) (\s@ScheduleRun' {} a -> s {configuration = a} :: ScheduleRun)
 
 -- | Specifies configuration information about a test run, such as the
 -- execution timeout (in minutes).
@@ -202,9 +202,9 @@ instance Core.ToJSON ScheduleRun where
     Core.object
       ( Prelude.catMaybes
           [ ("devicePoolArn" Core..=) Prelude.<$> devicePoolArn,
+            ("configuration" Core..=) Prelude.<$> configuration,
             ("deviceSelectionConfiguration" Core..=)
               Prelude.<$> deviceSelectionConfiguration,
-            ("configuration" Core..=) Prelude.<$> configuration,
             ("executionConfiguration" Core..=)
               Prelude.<$> executionConfiguration,
             ("name" Core..=) Prelude.<$> name,

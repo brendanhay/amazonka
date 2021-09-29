@@ -31,8 +31,8 @@ module Network.AWS.DeviceFarm.RenewOffering
     newRenewOffering,
 
     -- * Request Lenses
-    renewOffering_quantity,
     renewOffering_offeringId,
+    renewOffering_quantity,
 
     -- * Destructuring the Response
     RenewOfferingResponse (..),
@@ -55,10 +55,10 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newRenewOffering' smart constructor.
 data RenewOffering = RenewOffering'
-  { -- | The quantity requested in an offering renewal.
-    quantity :: Prelude.Maybe Prelude.Int,
-    -- | The ID of a request to renew an offering.
-    offeringId :: Prelude.Maybe Prelude.Text
+  { -- | The ID of a request to renew an offering.
+    offeringId :: Prelude.Text,
+    -- | The quantity requested in an offering renewal.
+    quantity :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,24 +70,28 @@ data RenewOffering = RenewOffering'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'quantity', 'renewOffering_quantity' - The quantity requested in an offering renewal.
---
 -- 'offeringId', 'renewOffering_offeringId' - The ID of a request to renew an offering.
+--
+-- 'quantity', 'renewOffering_quantity' - The quantity requested in an offering renewal.
 newRenewOffering ::
+  -- | 'offeringId'
+  Prelude.Text ->
+  -- | 'quantity'
+  Prelude.Int ->
   RenewOffering
-newRenewOffering =
+newRenewOffering pOfferingId_ pQuantity_ =
   RenewOffering'
-    { quantity = Prelude.Nothing,
-      offeringId = Prelude.Nothing
+    { offeringId = pOfferingId_,
+      quantity = pQuantity_
     }
 
--- | The quantity requested in an offering renewal.
-renewOffering_quantity :: Lens.Lens' RenewOffering (Prelude.Maybe Prelude.Int)
-renewOffering_quantity = Lens.lens (\RenewOffering' {quantity} -> quantity) (\s@RenewOffering' {} a -> s {quantity = a} :: RenewOffering)
-
 -- | The ID of a request to renew an offering.
-renewOffering_offeringId :: Lens.Lens' RenewOffering (Prelude.Maybe Prelude.Text)
+renewOffering_offeringId :: Lens.Lens' RenewOffering Prelude.Text
 renewOffering_offeringId = Lens.lens (\RenewOffering' {offeringId} -> offeringId) (\s@RenewOffering' {} a -> s {offeringId = a} :: RenewOffering)
+
+-- | The quantity requested in an offering renewal.
+renewOffering_quantity :: Lens.Lens' RenewOffering Prelude.Int
+renewOffering_quantity = Lens.lens (\RenewOffering' {quantity} -> quantity) (\s@RenewOffering' {} a -> s {quantity = a} :: RenewOffering)
 
 instance Core.AWSRequest RenewOffering where
   type
@@ -125,8 +129,8 @@ instance Core.ToJSON RenewOffering where
   toJSON RenewOffering' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("quantity" Core..=) Prelude.<$> quantity,
-            ("offeringId" Core..=) Prelude.<$> offeringId
+          [ Prelude.Just ("offeringId" Core..= offeringId),
+            Prelude.Just ("quantity" Core..= quantity)
           ]
       )
 

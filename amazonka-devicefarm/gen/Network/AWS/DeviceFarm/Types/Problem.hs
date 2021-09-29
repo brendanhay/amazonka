@@ -56,10 +56,10 @@ data Problem = Problem'
     device :: Prelude.Maybe Device,
     -- | Information about the associated run.
     run :: Prelude.Maybe ProblemDetail,
-    -- | Information about the associated test.
-    test :: Prelude.Maybe ProblemDetail,
     -- | Information about the associated suite.
-    suite :: Prelude.Maybe ProblemDetail
+    suite :: Prelude.Maybe ProblemDetail,
+    -- | Information about the associated test.
+    test :: Prelude.Maybe ProblemDetail
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -97,9 +97,9 @@ data Problem = Problem'
 --
 -- 'run', 'problem_run' - Information about the associated run.
 --
--- 'test', 'problem_test' - Information about the associated test.
---
 -- 'suite', 'problem_suite' - Information about the associated suite.
+--
+-- 'test', 'problem_test' - Information about the associated test.
 newProblem ::
   Problem
 newProblem =
@@ -109,8 +109,8 @@ newProblem =
       message = Prelude.Nothing,
       device = Prelude.Nothing,
       run = Prelude.Nothing,
-      test = Prelude.Nothing,
-      suite = Prelude.Nothing
+      suite = Prelude.Nothing,
+      test = Prelude.Nothing
     }
 
 -- | Information about the associated job.
@@ -149,13 +149,13 @@ problem_device = Lens.lens (\Problem' {device} -> device) (\s@Problem' {} a -> s
 problem_run :: Lens.Lens' Problem (Prelude.Maybe ProblemDetail)
 problem_run = Lens.lens (\Problem' {run} -> run) (\s@Problem' {} a -> s {run = a} :: Problem)
 
--- | Information about the associated test.
-problem_test :: Lens.Lens' Problem (Prelude.Maybe ProblemDetail)
-problem_test = Lens.lens (\Problem' {test} -> test) (\s@Problem' {} a -> s {test = a} :: Problem)
-
 -- | Information about the associated suite.
 problem_suite :: Lens.Lens' Problem (Prelude.Maybe ProblemDetail)
 problem_suite = Lens.lens (\Problem' {suite} -> suite) (\s@Problem' {} a -> s {suite = a} :: Problem)
+
+-- | Information about the associated test.
+problem_test :: Lens.Lens' Problem (Prelude.Maybe ProblemDetail)
+problem_test = Lens.lens (\Problem' {test} -> test) (\s@Problem' {} a -> s {test = a} :: Problem)
 
 instance Core.FromJSON Problem where
   parseJSON =
@@ -168,8 +168,8 @@ instance Core.FromJSON Problem where
             Prelude.<*> (x Core..:? "message")
             Prelude.<*> (x Core..:? "device")
             Prelude.<*> (x Core..:? "run")
-            Prelude.<*> (x Core..:? "test")
             Prelude.<*> (x Core..:? "suite")
+            Prelude.<*> (x Core..:? "test")
       )
 
 instance Prelude.Hashable Problem

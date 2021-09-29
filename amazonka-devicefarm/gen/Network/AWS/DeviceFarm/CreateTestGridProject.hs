@@ -28,6 +28,7 @@ module Network.AWS.DeviceFarm.CreateTestGridProject
     newCreateTestGridProject,
 
     -- * Request Lenses
+    createTestGridProject_vpcConfig,
     createTestGridProject_description,
     createTestGridProject_name,
 
@@ -50,7 +51,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateTestGridProject' smart constructor.
 data CreateTestGridProject = CreateTestGridProject'
-  { -- | Human-readable description of the project.
+  { -- | The VPC security groups and subnets that are attached to a project.
+    vpcConfig :: Prelude.Maybe TestGridVpcConfig,
+    -- | Human-readable description of the project.
     description :: Prelude.Maybe Prelude.Text,
     -- | Human-readable name of the Selenium testing project.
     name :: Prelude.Text
@@ -65,6 +68,8 @@ data CreateTestGridProject = CreateTestGridProject'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'vpcConfig', 'createTestGridProject_vpcConfig' - The VPC security groups and subnets that are attached to a project.
+--
 -- 'description', 'createTestGridProject_description' - Human-readable description of the project.
 --
 -- 'name', 'createTestGridProject_name' - Human-readable name of the Selenium testing project.
@@ -74,10 +79,14 @@ newCreateTestGridProject ::
   CreateTestGridProject
 newCreateTestGridProject pName_ =
   CreateTestGridProject'
-    { description =
-        Prelude.Nothing,
+    { vpcConfig = Prelude.Nothing,
+      description = Prelude.Nothing,
       name = pName_
     }
+
+-- | The VPC security groups and subnets that are attached to a project.
+createTestGridProject_vpcConfig :: Lens.Lens' CreateTestGridProject (Prelude.Maybe TestGridVpcConfig)
+createTestGridProject_vpcConfig = Lens.lens (\CreateTestGridProject' {vpcConfig} -> vpcConfig) (\s@CreateTestGridProject' {} a -> s {vpcConfig = a} :: CreateTestGridProject)
 
 -- | Human-readable description of the project.
 createTestGridProject_description :: Lens.Lens' CreateTestGridProject (Prelude.Maybe Prelude.Text)
@@ -123,7 +132,8 @@ instance Core.ToJSON CreateTestGridProject where
   toJSON CreateTestGridProject' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("description" Core..=) Prelude.<$> description,
+          [ ("vpcConfig" Core..=) Prelude.<$> vpcConfig,
+            ("description" Core..=) Prelude.<$> description,
             Prelude.Just ("name" Core..= name)
           ]
       )

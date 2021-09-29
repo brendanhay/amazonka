@@ -36,10 +36,10 @@ data TestGridSession = TestGridSession'
     -- | A JSON object of options and parameters passed to the Selenium
     -- WebDriver.
     seleniumProperties :: Prelude.Maybe Prelude.Text,
-    -- | The number of billed minutes that were used for this session.
-    billingMinutes :: Prelude.Maybe Prelude.Double,
     -- | The time the session ended.
     ended :: Prelude.Maybe Core.POSIX,
+    -- | The number of billed minutes that were used for this session.
+    billingMinutes :: Prelude.Maybe Prelude.Double,
     -- | The time that the session was started.
     created :: Prelude.Maybe Core.POSIX
   }
@@ -60,9 +60,9 @@ data TestGridSession = TestGridSession'
 -- 'seleniumProperties', 'testGridSession_seleniumProperties' - A JSON object of options and parameters passed to the Selenium
 -- WebDriver.
 --
--- 'billingMinutes', 'testGridSession_billingMinutes' - The number of billed minutes that were used for this session.
---
 -- 'ended', 'testGridSession_ended' - The time the session ended.
+--
+-- 'billingMinutes', 'testGridSession_billingMinutes' - The number of billed minutes that were used for this session.
 --
 -- 'created', 'testGridSession_created' - The time that the session was started.
 newTestGridSession ::
@@ -72,8 +72,8 @@ newTestGridSession =
     { status = Prelude.Nothing,
       arn = Prelude.Nothing,
       seleniumProperties = Prelude.Nothing,
-      billingMinutes = Prelude.Nothing,
       ended = Prelude.Nothing,
+      billingMinutes = Prelude.Nothing,
       created = Prelude.Nothing
     }
 
@@ -90,13 +90,13 @@ testGridSession_arn = Lens.lens (\TestGridSession' {arn} -> arn) (\s@TestGridSes
 testGridSession_seleniumProperties :: Lens.Lens' TestGridSession (Prelude.Maybe Prelude.Text)
 testGridSession_seleniumProperties = Lens.lens (\TestGridSession' {seleniumProperties} -> seleniumProperties) (\s@TestGridSession' {} a -> s {seleniumProperties = a} :: TestGridSession)
 
--- | The number of billed minutes that were used for this session.
-testGridSession_billingMinutes :: Lens.Lens' TestGridSession (Prelude.Maybe Prelude.Double)
-testGridSession_billingMinutes = Lens.lens (\TestGridSession' {billingMinutes} -> billingMinutes) (\s@TestGridSession' {} a -> s {billingMinutes = a} :: TestGridSession)
-
 -- | The time the session ended.
 testGridSession_ended :: Lens.Lens' TestGridSession (Prelude.Maybe Prelude.UTCTime)
 testGridSession_ended = Lens.lens (\TestGridSession' {ended} -> ended) (\s@TestGridSession' {} a -> s {ended = a} :: TestGridSession) Prelude.. Lens.mapping Core._Time
+
+-- | The number of billed minutes that were used for this session.
+testGridSession_billingMinutes :: Lens.Lens' TestGridSession (Prelude.Maybe Prelude.Double)
+testGridSession_billingMinutes = Lens.lens (\TestGridSession' {billingMinutes} -> billingMinutes) (\s@TestGridSession' {} a -> s {billingMinutes = a} :: TestGridSession)
 
 -- | The time that the session was started.
 testGridSession_created :: Lens.Lens' TestGridSession (Prelude.Maybe Prelude.UTCTime)
@@ -111,8 +111,8 @@ instance Core.FromJSON TestGridSession where
             Prelude.<$> (x Core..:? "status")
             Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "seleniumProperties")
-            Prelude.<*> (x Core..:? "billingMinutes")
             Prelude.<*> (x Core..:? "ended")
+            Prelude.<*> (x Core..:? "billingMinutes")
             Prelude.<*> (x Core..:? "created")
       )
 

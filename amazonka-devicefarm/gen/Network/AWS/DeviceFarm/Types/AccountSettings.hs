@@ -47,14 +47,14 @@ data AccountSettings = AccountSettings'
     skipAppResign :: Prelude.Maybe Prelude.Bool,
     -- | The maximum number of minutes a test run executes before it times out.
     maxJobTimeoutMinutes :: Prelude.Maybe Prelude.Int,
-    -- | The default number of minutes (at the account level) a test run executes
-    -- before it times out. The default value is 150 minutes.
-    defaultJobTimeoutMinutes :: Prelude.Maybe Prelude.Int,
     -- | Returns the unmetered devices you have purchased or want to purchase.
     unmeteredDevices :: Prelude.Maybe (Prelude.HashMap DevicePlatform Prelude.Int),
     -- | Returns the unmetered remote access devices you have purchased or want
     -- to purchase.
-    unmeteredRemoteAccessDevices :: Prelude.Maybe (Prelude.HashMap DevicePlatform Prelude.Int)
+    unmeteredRemoteAccessDevices :: Prelude.Maybe (Prelude.HashMap DevicePlatform Prelude.Int),
+    -- | The default number of minutes (at the account level) a test run executes
+    -- before it times out. The default value is 150 minutes.
+    defaultJobTimeoutMinutes :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -84,13 +84,13 @@ data AccountSettings = AccountSettings'
 --
 -- 'maxJobTimeoutMinutes', 'accountSettings_maxJobTimeoutMinutes' - The maximum number of minutes a test run executes before it times out.
 --
--- 'defaultJobTimeoutMinutes', 'accountSettings_defaultJobTimeoutMinutes' - The default number of minutes (at the account level) a test run executes
--- before it times out. The default value is 150 minutes.
---
 -- 'unmeteredDevices', 'accountSettings_unmeteredDevices' - Returns the unmetered devices you have purchased or want to purchase.
 --
 -- 'unmeteredRemoteAccessDevices', 'accountSettings_unmeteredRemoteAccessDevices' - Returns the unmetered remote access devices you have purchased or want
 -- to purchase.
+--
+-- 'defaultJobTimeoutMinutes', 'accountSettings_defaultJobTimeoutMinutes' - The default number of minutes (at the account level) a test run executes
+-- before it times out. The default value is 150 minutes.
 newAccountSettings ::
   AccountSettings
 newAccountSettings =
@@ -101,9 +101,9 @@ newAccountSettings =
       trialMinutes = Prelude.Nothing,
       skipAppResign = Prelude.Nothing,
       maxJobTimeoutMinutes = Prelude.Nothing,
-      defaultJobTimeoutMinutes = Prelude.Nothing,
       unmeteredDevices = Prelude.Nothing,
-      unmeteredRemoteAccessDevices = Prelude.Nothing
+      unmeteredRemoteAccessDevices = Prelude.Nothing,
+      defaultJobTimeoutMinutes = Prelude.Nothing
     }
 
 -- | The AWS account number specified in the @AccountSettings@ container.
@@ -134,11 +134,6 @@ accountSettings_skipAppResign = Lens.lens (\AccountSettings' {skipAppResign} -> 
 accountSettings_maxJobTimeoutMinutes :: Lens.Lens' AccountSettings (Prelude.Maybe Prelude.Int)
 accountSettings_maxJobTimeoutMinutes = Lens.lens (\AccountSettings' {maxJobTimeoutMinutes} -> maxJobTimeoutMinutes) (\s@AccountSettings' {} a -> s {maxJobTimeoutMinutes = a} :: AccountSettings)
 
--- | The default number of minutes (at the account level) a test run executes
--- before it times out. The default value is 150 minutes.
-accountSettings_defaultJobTimeoutMinutes :: Lens.Lens' AccountSettings (Prelude.Maybe Prelude.Int)
-accountSettings_defaultJobTimeoutMinutes = Lens.lens (\AccountSettings' {defaultJobTimeoutMinutes} -> defaultJobTimeoutMinutes) (\s@AccountSettings' {} a -> s {defaultJobTimeoutMinutes = a} :: AccountSettings)
-
 -- | Returns the unmetered devices you have purchased or want to purchase.
 accountSettings_unmeteredDevices :: Lens.Lens' AccountSettings (Prelude.Maybe (Prelude.HashMap DevicePlatform Prelude.Int))
 accountSettings_unmeteredDevices = Lens.lens (\AccountSettings' {unmeteredDevices} -> unmeteredDevices) (\s@AccountSettings' {} a -> s {unmeteredDevices = a} :: AccountSettings) Prelude.. Lens.mapping Lens._Coerce
@@ -147,6 +142,11 @@ accountSettings_unmeteredDevices = Lens.lens (\AccountSettings' {unmeteredDevice
 -- to purchase.
 accountSettings_unmeteredRemoteAccessDevices :: Lens.Lens' AccountSettings (Prelude.Maybe (Prelude.HashMap DevicePlatform Prelude.Int))
 accountSettings_unmeteredRemoteAccessDevices = Lens.lens (\AccountSettings' {unmeteredRemoteAccessDevices} -> unmeteredRemoteAccessDevices) (\s@AccountSettings' {} a -> s {unmeteredRemoteAccessDevices = a} :: AccountSettings) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The default number of minutes (at the account level) a test run executes
+-- before it times out. The default value is 150 minutes.
+accountSettings_defaultJobTimeoutMinutes :: Lens.Lens' AccountSettings (Prelude.Maybe Prelude.Int)
+accountSettings_defaultJobTimeoutMinutes = Lens.lens (\AccountSettings' {defaultJobTimeoutMinutes} -> defaultJobTimeoutMinutes) (\s@AccountSettings' {} a -> s {defaultJobTimeoutMinutes = a} :: AccountSettings)
 
 instance Core.FromJSON AccountSettings where
   parseJSON =
@@ -159,13 +159,13 @@ instance Core.FromJSON AccountSettings where
             Prelude.<*> (x Core..:? "trialMinutes")
             Prelude.<*> (x Core..:? "skipAppResign")
             Prelude.<*> (x Core..:? "maxJobTimeoutMinutes")
-            Prelude.<*> (x Core..:? "defaultJobTimeoutMinutes")
             Prelude.<*> ( x Core..:? "unmeteredDevices"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> ( x Core..:? "unmeteredRemoteAccessDevices"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "defaultJobTimeoutMinutes")
       )
 
 instance Prelude.Hashable AccountSettings

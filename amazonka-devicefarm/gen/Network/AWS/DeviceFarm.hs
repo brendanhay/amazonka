@@ -58,11 +58,11 @@ module Network.AWS.DeviceFarm
     -- ** IdempotencyException
     _IdempotencyException,
 
-    -- ** InternalServiceException
-    _InternalServiceException,
-
     -- ** TagPolicyException
     _TagPolicyException,
+
+    -- ** InternalServiceException
+    _InternalServiceException,
 
     -- ** CannotDeleteException
     _CannotDeleteException,
@@ -82,23 +82,11 @@ module Network.AWS.DeviceFarm
     CreateUploadResponse (CreateUploadResponse'),
     newCreateUploadResponse,
 
-    -- ** ListTestGridSessionActions
-    ListTestGridSessionActions (ListTestGridSessionActions'),
-    newListTestGridSessionActions,
-    ListTestGridSessionActionsResponse (ListTestGridSessionActionsResponse'),
-    newListTestGridSessionActionsResponse,
-
     -- ** CreateTestGridProject
     CreateTestGridProject (CreateTestGridProject'),
     newCreateTestGridProject,
     CreateTestGridProjectResponse (CreateTestGridProjectResponse'),
     newCreateTestGridProjectResponse,
-
-    -- ** ListSamples (Paginated)
-    ListSamples (ListSamples'),
-    newListSamples,
-    ListSamplesResponse (ListSamplesResponse'),
-    newListSamplesResponse,
 
     -- ** ListTestGridSessionArtifacts
     ListTestGridSessionArtifacts (ListTestGridSessionArtifacts'),
@@ -106,11 +94,17 @@ module Network.AWS.DeviceFarm
     ListTestGridSessionArtifactsResponse (ListTestGridSessionArtifactsResponse'),
     newListTestGridSessionArtifactsResponse,
 
-    -- ** ListNetworkProfiles (Paginated)
-    ListNetworkProfiles (ListNetworkProfiles'),
-    newListNetworkProfiles,
-    ListNetworkProfilesResponse (ListNetworkProfilesResponse'),
-    newListNetworkProfilesResponse,
+    -- ** ListTestGridSessionActions
+    ListTestGridSessionActions (ListTestGridSessionActions'),
+    newListTestGridSessionActions,
+    ListTestGridSessionActionsResponse (ListTestGridSessionActionsResponse'),
+    newListTestGridSessionActionsResponse,
+
+    -- ** ListSamples (Paginated)
+    ListSamples (ListSamples'),
+    newListSamples,
+    ListSamplesResponse (ListSamplesResponse'),
+    newListSamplesResponse,
 
     -- ** ScheduleRun
     ScheduleRun (ScheduleRun'),
@@ -118,23 +112,11 @@ module Network.AWS.DeviceFarm
     ScheduleRunResponse (ScheduleRunResponse'),
     newScheduleRunResponse,
 
-    -- ** UpdateNetworkProfile
-    UpdateNetworkProfile (UpdateNetworkProfile'),
-    newUpdateNetworkProfile,
-    UpdateNetworkProfileResponse (UpdateNetworkProfileResponse'),
-    newUpdateNetworkProfileResponse,
-
-    -- ** InstallToRemoteAccessSession
-    InstallToRemoteAccessSession (InstallToRemoteAccessSession'),
-    newInstallToRemoteAccessSession,
-    InstallToRemoteAccessSessionResponse (InstallToRemoteAccessSessionResponse'),
-    newInstallToRemoteAccessSessionResponse,
-
-    -- ** DeleteNetworkProfile
-    DeleteNetworkProfile (DeleteNetworkProfile'),
-    newDeleteNetworkProfile,
-    DeleteNetworkProfileResponse (DeleteNetworkProfileResponse'),
-    newDeleteNetworkProfileResponse,
+    -- ** ListProjects (Paginated)
+    ListProjects (ListProjects'),
+    newListProjects,
+    ListProjectsResponse (ListProjectsResponse'),
+    newListProjectsResponse,
 
     -- ** GetDevicePoolCompatibility
     GetDevicePoolCompatibility (GetDevicePoolCompatibility'),
@@ -148,35 +130,29 @@ module Network.AWS.DeviceFarm
     CreateVPCEConfigurationResponse (CreateVPCEConfigurationResponse'),
     newCreateVPCEConfigurationResponse,
 
-    -- ** ListProjects (Paginated)
-    ListProjects (ListProjects'),
-    newListProjects,
-    ListProjectsResponse (ListProjectsResponse'),
-    newListProjectsResponse,
+    -- ** UpdateNetworkProfile
+    UpdateNetworkProfile (UpdateNetworkProfile'),
+    newUpdateNetworkProfile,
+    UpdateNetworkProfileResponse (UpdateNetworkProfileResponse'),
+    newUpdateNetworkProfileResponse,
 
-    -- ** CreateProject
-    CreateProject (CreateProject'),
-    newCreateProject,
-    CreateProjectResponse (CreateProjectResponse'),
-    newCreateProjectResponse,
+    -- ** ListNetworkProfiles (Paginated)
+    ListNetworkProfiles (ListNetworkProfiles'),
+    newListNetworkProfiles,
+    ListNetworkProfilesResponse (ListNetworkProfilesResponse'),
+    newListNetworkProfilesResponse,
 
-    -- ** CreateTestGridUrl
-    CreateTestGridUrl (CreateTestGridUrl'),
-    newCreateTestGridUrl,
-    CreateTestGridUrlResponse (CreateTestGridUrlResponse'),
-    newCreateTestGridUrlResponse,
+    -- ** DeleteNetworkProfile
+    DeleteNetworkProfile (DeleteNetworkProfile'),
+    newDeleteNetworkProfile,
+    DeleteNetworkProfileResponse (DeleteNetworkProfileResponse'),
+    newDeleteNetworkProfileResponse,
 
-    -- ** ListOfferings (Paginated)
-    ListOfferings (ListOfferings'),
-    newListOfferings,
-    ListOfferingsResponse (ListOfferingsResponse'),
-    newListOfferingsResponse,
-
-    -- ** ListDevices (Paginated)
-    ListDevices (ListDevices'),
-    newListDevices,
-    ListDevicesResponse (ListDevicesResponse'),
-    newListDevicesResponse,
+    -- ** InstallToRemoteAccessSession
+    InstallToRemoteAccessSession (InstallToRemoteAccessSession'),
+    newInstallToRemoteAccessSession,
+    InstallToRemoteAccessSessionResponse (InstallToRemoteAccessSessionResponse'),
+    newInstallToRemoteAccessSessionResponse,
 
     -- ** StopRun
     StopRun (StopRun'),
@@ -184,11 +160,17 @@ module Network.AWS.DeviceFarm
     StopRunResponse (StopRunResponse'),
     newStopRunResponse,
 
-    -- ** CreateNetworkProfile
-    CreateNetworkProfile (CreateNetworkProfile'),
-    newCreateNetworkProfile,
-    CreateNetworkProfileResponse (CreateNetworkProfileResponse'),
-    newCreateNetworkProfileResponse,
+    -- ** ListOfferings (Paginated)
+    ListOfferings (ListOfferings'),
+    newListOfferings,
+    ListOfferingsResponse (ListOfferingsResponse'),
+    newListOfferingsResponse,
+
+    -- ** CreateProject
+    CreateProject (CreateProject'),
+    newCreateProject,
+    CreateProjectResponse (CreateProjectResponse'),
+    newCreateProjectResponse,
 
     -- ** GetJob
     GetJob (GetJob'),
@@ -196,17 +178,35 @@ module Network.AWS.DeviceFarm
     GetJobResponse (GetJobResponse'),
     newGetJobResponse,
 
-    -- ** CreateInstanceProfile
-    CreateInstanceProfile (CreateInstanceProfile'),
-    newCreateInstanceProfile,
-    CreateInstanceProfileResponse (CreateInstanceProfileResponse'),
-    newCreateInstanceProfileResponse,
+    -- ** ListDevices (Paginated)
+    ListDevices (ListDevices'),
+    newListDevices,
+    ListDevicesResponse (ListDevicesResponse'),
+    newListDevicesResponse,
+
+    -- ** CreateTestGridUrl
+    CreateTestGridUrl (CreateTestGridUrl'),
+    newCreateTestGridUrl,
+    CreateTestGridUrlResponse (CreateTestGridUrlResponse'),
+    newCreateTestGridUrlResponse,
+
+    -- ** CreateNetworkProfile
+    CreateNetworkProfile (CreateNetworkProfile'),
+    newCreateNetworkProfile,
+    CreateNetworkProfileResponse (CreateNetworkProfileResponse'),
+    newCreateNetworkProfileResponse,
 
     -- ** GetDevice
     GetDevice (GetDevice'),
     newGetDevice,
     GetDeviceResponse (GetDeviceResponse'),
     newGetDeviceResponse,
+
+    -- ** CreateInstanceProfile
+    CreateInstanceProfile (CreateInstanceProfile'),
+    newCreateInstanceProfile,
+    CreateInstanceProfileResponse (CreateInstanceProfileResponse'),
+    newCreateInstanceProfileResponse,
 
     -- ** StopRemoteAccessSession
     StopRemoteAccessSession (StopRemoteAccessSession'),
@@ -220,11 +220,11 @@ module Network.AWS.DeviceFarm
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** ListDeviceInstances (Paginated)
-    ListDeviceInstances (ListDeviceInstances'),
-    newListDeviceInstances,
-    ListDeviceInstancesResponse (ListDeviceInstancesResponse'),
-    newListDeviceInstancesResponse,
+    -- ** ListRuns (Paginated)
+    ListRuns (ListRuns'),
+    newListRuns,
+    ListRunsResponse (ListRunsResponse'),
+    newListRunsResponse,
 
     -- ** UpdateDeviceInstance
     UpdateDeviceInstance (UpdateDeviceInstance'),
@@ -232,29 +232,29 @@ module Network.AWS.DeviceFarm
     UpdateDeviceInstanceResponse (UpdateDeviceInstanceResponse'),
     newUpdateDeviceInstanceResponse,
 
-    -- ** CreateDevicePool
-    CreateDevicePool (CreateDevicePool'),
-    newCreateDevicePool,
-    CreateDevicePoolResponse (CreateDevicePoolResponse'),
-    newCreateDevicePoolResponse,
-
     -- ** TagResource
     TagResource (TagResource'),
     newTagResource,
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
 
-    -- ** ListRuns (Paginated)
-    ListRuns (ListRuns'),
-    newListRuns,
-    ListRunsResponse (ListRunsResponse'),
-    newListRunsResponse,
+    -- ** ListDeviceInstances (Paginated)
+    ListDeviceInstances (ListDeviceInstances'),
+    newListDeviceInstances,
+    ListDeviceInstancesResponse (ListDeviceInstancesResponse'),
+    newListDeviceInstancesResponse,
 
-    -- ** GetUpload
-    GetUpload (GetUpload'),
-    newGetUpload,
-    GetUploadResponse (GetUploadResponse'),
-    newGetUploadResponse,
+    -- ** CreateDevicePool
+    CreateDevicePool (CreateDevicePool'),
+    newCreateDevicePool,
+    CreateDevicePoolResponse (CreateDevicePoolResponse'),
+    newCreateDevicePoolResponse,
+
+    -- ** ListDevicePools (Paginated)
+    ListDevicePools (ListDevicePools'),
+    newListDevicePools,
+    ListDevicePoolsResponse (ListDevicePoolsResponse'),
+    newListDevicePoolsResponse,
 
     -- ** GetTestGridProject
     GetTestGridProject (GetTestGridProject'),
@@ -262,11 +262,17 @@ module Network.AWS.DeviceFarm
     GetTestGridProjectResponse (GetTestGridProjectResponse'),
     newGetTestGridProjectResponse,
 
-    -- ** ListDevicePools (Paginated)
-    ListDevicePools (ListDevicePools'),
-    newListDevicePools,
-    ListDevicePoolsResponse (ListDevicePoolsResponse'),
-    newListDevicePoolsResponse,
+    -- ** GetUpload
+    GetUpload (GetUpload'),
+    newGetUpload,
+    GetUploadResponse (GetUploadResponse'),
+    newGetUploadResponse,
+
+    -- ** UpdateUpload
+    UpdateUpload (UpdateUpload'),
+    newUpdateUpload,
+    UpdateUploadResponse (UpdateUploadResponse'),
+    newUpdateUploadResponse,
 
     -- ** GetOfferingStatus (Paginated)
     GetOfferingStatus (GetOfferingStatus'),
@@ -280,23 +286,11 @@ module Network.AWS.DeviceFarm
     DeleteUploadResponse (DeleteUploadResponse'),
     newDeleteUploadResponse,
 
-    -- ** ListUploads (Paginated)
-    ListUploads (ListUploads'),
-    newListUploads,
-    ListUploadsResponse (ListUploadsResponse'),
-    newListUploadsResponse,
-
     -- ** CreateRemoteAccessSession
     CreateRemoteAccessSession (CreateRemoteAccessSession'),
     newCreateRemoteAccessSession,
     CreateRemoteAccessSessionResponse (CreateRemoteAccessSessionResponse'),
     newCreateRemoteAccessSessionResponse,
-
-    -- ** UpdateUpload
-    UpdateUpload (UpdateUpload'),
-    newUpdateUpload,
-    UpdateUploadResponse (UpdateUploadResponse'),
-    newUpdateUploadResponse,
 
     -- ** ListTestGridProjects
     ListTestGridProjects (ListTestGridProjects'),
@@ -304,11 +298,17 @@ module Network.AWS.DeviceFarm
     ListTestGridProjectsResponse (ListTestGridProjectsResponse'),
     newListTestGridProjectsResponse,
 
-    -- ** ListArtifacts (Paginated)
-    ListArtifacts (ListArtifacts'),
-    newListArtifacts,
-    ListArtifactsResponse (ListArtifactsResponse'),
-    newListArtifactsResponse,
+    -- ** ListUploads (Paginated)
+    ListUploads (ListUploads'),
+    newListUploads,
+    ListUploadsResponse (ListUploadsResponse'),
+    newListUploadsResponse,
+
+    -- ** ListTests (Paginated)
+    ListTests (ListTests'),
+    newListTests,
+    ListTestsResponse (ListTestsResponse'),
+    newListTestsResponse,
 
     -- ** ListRemoteAccessSessions (Paginated)
     ListRemoteAccessSessions (ListRemoteAccessSessions'),
@@ -322,6 +322,12 @@ module Network.AWS.DeviceFarm
     GetRunResponse (GetRunResponse'),
     newGetRunResponse,
 
+    -- ** DeleteRemoteAccessSession
+    DeleteRemoteAccessSession (DeleteRemoteAccessSession'),
+    newDeleteRemoteAccessSession,
+    DeleteRemoteAccessSessionResponse (DeleteRemoteAccessSessionResponse'),
+    newDeleteRemoteAccessSessionResponse,
+
     -- ** GetDeviceInstance
     GetDeviceInstance (GetDeviceInstance'),
     newGetDeviceInstance,
@@ -334,23 +340,23 @@ module Network.AWS.DeviceFarm
     ListSuitesResponse (ListSuitesResponse'),
     newListSuitesResponse,
 
+    -- ** ListArtifacts (Paginated)
+    ListArtifacts (ListArtifacts'),
+    newListArtifacts,
+    ListArtifactsResponse (ListArtifactsResponse'),
+    newListArtifactsResponse,
+
     -- ** StopJob
     StopJob (StopJob'),
     newStopJob,
     StopJobResponse (StopJobResponse'),
     newStopJobResponse,
 
-    -- ** ListTests (Paginated)
-    ListTests (ListTests'),
-    newListTests,
-    ListTestsResponse (ListTestsResponse'),
-    newListTestsResponse,
-
-    -- ** DeleteRemoteAccessSession
-    DeleteRemoteAccessSession (DeleteRemoteAccessSession'),
-    newDeleteRemoteAccessSession,
-    DeleteRemoteAccessSessionResponse (DeleteRemoteAccessSessionResponse'),
-    newDeleteRemoteAccessSessionResponse,
+    -- ** UpdateProject
+    UpdateProject (UpdateProject'),
+    newUpdateProject,
+    UpdateProjectResponse (UpdateProjectResponse'),
+    newUpdateProjectResponse,
 
     -- ** DeleteProject
     DeleteProject (DeleteProject'),
@@ -364,30 +370,6 @@ module Network.AWS.DeviceFarm
     GetInstanceProfileResponse (GetInstanceProfileResponse'),
     newGetInstanceProfileResponse,
 
-    -- ** UpdateProject
-    UpdateProject (UpdateProject'),
-    newUpdateProject,
-    UpdateProjectResponse (UpdateProjectResponse'),
-    newUpdateProjectResponse,
-
-    -- ** ListTestGridSessions
-    ListTestGridSessions (ListTestGridSessions'),
-    newListTestGridSessions,
-    ListTestGridSessionsResponse (ListTestGridSessionsResponse'),
-    newListTestGridSessionsResponse,
-
-    -- ** ListUniqueProblems (Paginated)
-    ListUniqueProblems (ListUniqueProblems'),
-    newListUniqueProblems,
-    ListUniqueProblemsResponse (ListUniqueProblemsResponse'),
-    newListUniqueProblemsResponse,
-
-    -- ** DeleteVPCEConfiguration
-    DeleteVPCEConfiguration (DeleteVPCEConfiguration'),
-    newDeleteVPCEConfiguration,
-    DeleteVPCEConfigurationResponse (DeleteVPCEConfigurationResponse'),
-    newDeleteVPCEConfigurationResponse,
-
     -- ** UpdateVPCEConfiguration
     UpdateVPCEConfiguration (UpdateVPCEConfiguration'),
     newUpdateVPCEConfiguration,
@@ -400,17 +382,29 @@ module Network.AWS.DeviceFarm
     ListVPCEConfigurationsResponse (ListVPCEConfigurationsResponse'),
     newListVPCEConfigurationsResponse,
 
+    -- ** ListTestGridSessions
+    ListTestGridSessions (ListTestGridSessions'),
+    newListTestGridSessions,
+    ListTestGridSessionsResponse (ListTestGridSessionsResponse'),
+    newListTestGridSessionsResponse,
+
+    -- ** DeleteVPCEConfiguration
+    DeleteVPCEConfiguration (DeleteVPCEConfiguration'),
+    newDeleteVPCEConfiguration,
+    DeleteVPCEConfigurationResponse (DeleteVPCEConfigurationResponse'),
+    newDeleteVPCEConfigurationResponse,
+
+    -- ** ListUniqueProblems (Paginated)
+    ListUniqueProblems (ListUniqueProblems'),
+    newListUniqueProblems,
+    ListUniqueProblemsResponse (ListUniqueProblemsResponse'),
+    newListUniqueProblemsResponse,
+
     -- ** GetVPCEConfiguration
     GetVPCEConfiguration (GetVPCEConfiguration'),
     newGetVPCEConfiguration,
     GetVPCEConfigurationResponse (GetVPCEConfigurationResponse'),
     newGetVPCEConfigurationResponse,
-
-    -- ** ListJobs (Paginated)
-    ListJobs (ListJobs'),
-    newListJobs,
-    ListJobsResponse (ListJobsResponse'),
-    newListJobsResponse,
 
     -- ** GetTestGridSession
     GetTestGridSession (GetTestGridSession'),
@@ -418,23 +412,11 @@ module Network.AWS.DeviceFarm
     GetTestGridSessionResponse (GetTestGridSessionResponse'),
     newGetTestGridSessionResponse,
 
-    -- ** PurchaseOffering
-    PurchaseOffering (PurchaseOffering'),
-    newPurchaseOffering,
-    PurchaseOfferingResponse (PurchaseOfferingResponse'),
-    newPurchaseOfferingResponse,
-
-    -- ** GetProject
-    GetProject (GetProject'),
-    newGetProject,
-    GetProjectResponse (GetProjectResponse'),
-    newGetProjectResponse,
-
-    -- ** ListInstanceProfiles (Paginated)
-    ListInstanceProfiles (ListInstanceProfiles'),
-    newListInstanceProfiles,
-    ListInstanceProfilesResponse (ListInstanceProfilesResponse'),
-    newListInstanceProfilesResponse,
+    -- ** ListJobs (Paginated)
+    ListJobs (ListJobs'),
+    newListJobs,
+    ListJobsResponse (ListJobsResponse'),
+    newListJobsResponse,
 
     -- ** GetNetworkProfile
     GetNetworkProfile (GetNetworkProfile'),
@@ -442,11 +424,23 @@ module Network.AWS.DeviceFarm
     GetNetworkProfileResponse (GetNetworkProfileResponse'),
     newGetNetworkProfileResponse,
 
+    -- ** GetProject
+    GetProject (GetProject'),
+    newGetProject,
+    GetProjectResponse (GetProjectResponse'),
+    newGetProjectResponse,
+
     -- ** UpdateInstanceProfile
     UpdateInstanceProfile (UpdateInstanceProfile'),
     newUpdateInstanceProfile,
     UpdateInstanceProfileResponse (UpdateInstanceProfileResponse'),
     newUpdateInstanceProfileResponse,
+
+    -- ** ListInstanceProfiles (Paginated)
+    ListInstanceProfiles (ListInstanceProfiles'),
+    newListInstanceProfiles,
+    ListInstanceProfilesResponse (ListInstanceProfilesResponse'),
+    newListInstanceProfilesResponse,
 
     -- ** DeleteInstanceProfile
     DeleteInstanceProfile (DeleteInstanceProfile'),
@@ -460,6 +454,18 @@ module Network.AWS.DeviceFarm
     RenewOfferingResponse (RenewOfferingResponse'),
     newRenewOfferingResponse,
 
+    -- ** PurchaseOffering
+    PurchaseOffering (PurchaseOffering'),
+    newPurchaseOffering,
+    PurchaseOfferingResponse (PurchaseOfferingResponse'),
+    newPurchaseOfferingResponse,
+
+    -- ** DeleteRun
+    DeleteRun (DeleteRun'),
+    newDeleteRun,
+    DeleteRunResponse (DeleteRunResponse'),
+    newDeleteRunResponse,
+
     -- ** GetRemoteAccessSession
     GetRemoteAccessSession (GetRemoteAccessSession'),
     newGetRemoteAccessSession,
@@ -472,23 +478,11 @@ module Network.AWS.DeviceFarm
     GetSuiteResponse (GetSuiteResponse'),
     newGetSuiteResponse,
 
-    -- ** DeleteRun
-    DeleteRun (DeleteRun'),
-    newDeleteRun,
-    DeleteRunResponse (DeleteRunResponse'),
-    newDeleteRunResponse,
-
     -- ** GetTest
     GetTest (GetTest'),
     newGetTest,
     GetTestResponse (GetTestResponse'),
     newGetTestResponse,
-
-    -- ** DeleteDevicePool
-    DeleteDevicePool (DeleteDevicePool'),
-    newDeleteDevicePool,
-    DeleteDevicePoolResponse (DeleteDevicePoolResponse'),
-    newDeleteDevicePoolResponse,
 
     -- ** ListOfferingTransactions (Paginated)
     ListOfferingTransactions (ListOfferingTransactions'),
@@ -496,35 +490,17 @@ module Network.AWS.DeviceFarm
     ListOfferingTransactionsResponse (ListOfferingTransactionsResponse'),
     newListOfferingTransactionsResponse,
 
+    -- ** DeleteDevicePool
+    DeleteDevicePool (DeleteDevicePool'),
+    newDeleteDevicePool,
+    DeleteDevicePoolResponse (DeleteDevicePoolResponse'),
+    newDeleteDevicePoolResponse,
+
     -- ** UpdateDevicePool
     UpdateDevicePool (UpdateDevicePool'),
     newUpdateDevicePool,
     UpdateDevicePoolResponse (UpdateDevicePoolResponse'),
     newUpdateDevicePoolResponse,
-
-    -- ** UpdateTestGridProject
-    UpdateTestGridProject (UpdateTestGridProject'),
-    newUpdateTestGridProject,
-    UpdateTestGridProjectResponse (UpdateTestGridProjectResponse'),
-    newUpdateTestGridProjectResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** DeleteTestGridProject
-    DeleteTestGridProject (DeleteTestGridProject'),
-    newDeleteTestGridProject,
-    DeleteTestGridProjectResponse (DeleteTestGridProjectResponse'),
-    newDeleteTestGridProjectResponse,
-
-    -- ** ListOfferingPromotions (Paginated)
-    ListOfferingPromotions (ListOfferingPromotions'),
-    newListOfferingPromotions,
-    ListOfferingPromotionsResponse (ListOfferingPromotionsResponse'),
-    newListOfferingPromotionsResponse,
 
     -- ** GetDevicePool
     GetDevicePool (GetDevicePool'),
@@ -532,11 +508,35 @@ module Network.AWS.DeviceFarm
     GetDevicePoolResponse (GetDevicePoolResponse'),
     newGetDevicePoolResponse,
 
+    -- ** DeleteTestGridProject
+    DeleteTestGridProject (DeleteTestGridProject'),
+    newDeleteTestGridProject,
+    DeleteTestGridProjectResponse (DeleteTestGridProjectResponse'),
+    newDeleteTestGridProjectResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** UpdateTestGridProject
+    UpdateTestGridProject (UpdateTestGridProject'),
+    newUpdateTestGridProject,
+    UpdateTestGridProjectResponse (UpdateTestGridProjectResponse'),
+    newUpdateTestGridProjectResponse,
+
     -- ** GetAccountSettings
     GetAccountSettings (GetAccountSettings'),
     newGetAccountSettings,
     GetAccountSettingsResponse (GetAccountSettingsResponse'),
     newGetAccountSettingsResponse,
+
+    -- ** ListOfferingPromotions (Paginated)
+    ListOfferingPromotions (ListOfferingPromotions'),
+    newListOfferingPromotions,
+    ListOfferingPromotionsResponse (ListOfferingPromotionsResponse'),
+    newListOfferingPromotionsResponse,
 
     -- * Types
 
@@ -799,6 +799,10 @@ module Network.AWS.DeviceFarm
     -- ** TestGridSessionArtifact
     TestGridSessionArtifact (TestGridSessionArtifact'),
     newTestGridSessionArtifact,
+
+    -- ** TestGridVpcConfig
+    TestGridVpcConfig (TestGridVpcConfig'),
+    newTestGridVpcConfig,
 
     -- ** TrialMinutes
     TrialMinutes (TrialMinutes'),

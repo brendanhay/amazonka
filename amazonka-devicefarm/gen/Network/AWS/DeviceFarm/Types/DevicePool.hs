@@ -29,12 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDevicePool' smart constructor.
 data DevicePool = DevicePool'
-  { -- | Information about the device pool\'s rules.
-    rules :: Prelude.Maybe [Rule],
-    -- | The device pool\'s ARN.
+  { -- | The device pool\'s ARN.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The device pool\'s name.
-    name :: Prelude.Maybe Prelude.Text,
+    -- | Information about the device pool\'s rules.
+    rules :: Prelude.Maybe [Rule],
     -- | The number of devices that Device Farm can add to your device pool.
     -- Device Farm adds devices that are available and meet the criteria that
     -- you assign for the @rules@ parameter. Depending on how many devices meet
@@ -44,6 +42,8 @@ data DevicePool = DevicePool'
     -- By specifying the maximum number of devices, you can control the costs
     -- that you incur by running tests.
     maxDevices :: Prelude.Maybe Prelude.Int,
+    -- | The device pool\'s name.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The device pool\'s description.
     description :: Prelude.Maybe Prelude.Text,
     -- | The device pool\'s type.
@@ -67,11 +67,9 @@ data DevicePool = DevicePool'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'rules', 'devicePool_rules' - Information about the device pool\'s rules.
---
 -- 'arn', 'devicePool_arn' - The device pool\'s ARN.
 --
--- 'name', 'devicePool_name' - The device pool\'s name.
+-- 'rules', 'devicePool_rules' - Information about the device pool\'s rules.
 --
 -- 'maxDevices', 'devicePool_maxDevices' - The number of devices that Device Farm can add to your device pool.
 -- Device Farm adds devices that are available and meet the criteria that
@@ -81,6 +79,8 @@ data DevicePool = DevicePool'
 --
 -- By specifying the maximum number of devices, you can control the costs
 -- that you incur by running tests.
+--
+-- 'name', 'devicePool_name' - The device pool\'s name.
 --
 -- 'description', 'devicePool_description' - The device pool\'s description.
 --
@@ -97,25 +97,21 @@ newDevicePool ::
   DevicePool
 newDevicePool =
   DevicePool'
-    { rules = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      name = Prelude.Nothing,
+    { arn = Prelude.Nothing,
+      rules = Prelude.Nothing,
       maxDevices = Prelude.Nothing,
+      name = Prelude.Nothing,
       description = Prelude.Nothing,
       type' = Prelude.Nothing
     }
-
--- | Information about the device pool\'s rules.
-devicePool_rules :: Lens.Lens' DevicePool (Prelude.Maybe [Rule])
-devicePool_rules = Lens.lens (\DevicePool' {rules} -> rules) (\s@DevicePool' {} a -> s {rules = a} :: DevicePool) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The device pool\'s ARN.
 devicePool_arn :: Lens.Lens' DevicePool (Prelude.Maybe Prelude.Text)
 devicePool_arn = Lens.lens (\DevicePool' {arn} -> arn) (\s@DevicePool' {} a -> s {arn = a} :: DevicePool)
 
--- | The device pool\'s name.
-devicePool_name :: Lens.Lens' DevicePool (Prelude.Maybe Prelude.Text)
-devicePool_name = Lens.lens (\DevicePool' {name} -> name) (\s@DevicePool' {} a -> s {name = a} :: DevicePool)
+-- | Information about the device pool\'s rules.
+devicePool_rules :: Lens.Lens' DevicePool (Prelude.Maybe [Rule])
+devicePool_rules = Lens.lens (\DevicePool' {rules} -> rules) (\s@DevicePool' {} a -> s {rules = a} :: DevicePool) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The number of devices that Device Farm can add to your device pool.
 -- Device Farm adds devices that are available and meet the criteria that
@@ -127,6 +123,10 @@ devicePool_name = Lens.lens (\DevicePool' {name} -> name) (\s@DevicePool' {} a -
 -- that you incur by running tests.
 devicePool_maxDevices :: Lens.Lens' DevicePool (Prelude.Maybe Prelude.Int)
 devicePool_maxDevices = Lens.lens (\DevicePool' {maxDevices} -> maxDevices) (\s@DevicePool' {} a -> s {maxDevices = a} :: DevicePool)
+
+-- | The device pool\'s name.
+devicePool_name :: Lens.Lens' DevicePool (Prelude.Maybe Prelude.Text)
+devicePool_name = Lens.lens (\DevicePool' {name} -> name) (\s@DevicePool' {} a -> s {name = a} :: DevicePool)
 
 -- | The device pool\'s description.
 devicePool_description :: Lens.Lens' DevicePool (Prelude.Maybe Prelude.Text)
@@ -150,10 +150,10 @@ instance Core.FromJSON DevicePool where
       "DevicePool"
       ( \x ->
           DevicePool'
-            Prelude.<$> (x Core..:? "rules" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "name")
+            Prelude.<$> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "rules" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "maxDevices")
+            Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..:? "type")
       )

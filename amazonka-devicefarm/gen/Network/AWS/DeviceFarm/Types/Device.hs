@@ -33,9 +33,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDevice' smart constructor.
 data Device = Device'
-  { -- | The device\'s manufacturer name.
-    manufacturer :: Prelude.Maybe Prelude.Text,
-    -- | The device\'s platform.
+  { -- | The device\'s platform.
     --
     -- Allowed values include:
     --
@@ -43,15 +41,17 @@ data Device = Device'
     --
     -- -   IOS
     platform :: Prelude.Maybe DevicePlatform,
+    -- | The device\'s manufacturer name.
+    manufacturer :: Prelude.Maybe Prelude.Text,
     -- | The device\'s model name.
     model :: Prelude.Maybe Prelude.Text,
-    -- | The name of the fleet to which this device belongs.
-    fleetName :: Prelude.Maybe Prelude.Text,
     -- | The device\'s total memory size, expressed in bytes.
     memory :: Prelude.Maybe Prelude.Integer,
     -- | Indicates how likely a device is available for a test run. Currently
     -- available in the ListDevices and GetDevice API methods.
     availability :: Prelude.Maybe DeviceAvailability,
+    -- | The name of the fleet to which this device belongs.
+    fleetName :: Prelude.Maybe Prelude.Text,
     -- | The type of fleet to which this device belongs. Possible values are
     -- PRIVATE and PUBLIC.
     fleetType :: Prelude.Maybe Prelude.Text,
@@ -63,11 +63,11 @@ data Device = Device'
     --
     -- -   TABLET
     formFactor :: Prelude.Maybe DeviceFormFactor,
+    -- | The device\'s ARN.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether remote access has been enabled for the specified
     -- device.
     remoteAccessEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The device\'s ARN.
-    arn :: Prelude.Maybe Prelude.Text,
     -- | The instances that belong to this device.
     instances :: Prelude.Maybe [DeviceInstance],
     -- | The device\'s display name.
@@ -105,8 +105,6 @@ data Device = Device'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'manufacturer', 'device_manufacturer' - The device\'s manufacturer name.
---
 -- 'platform', 'device_platform' - The device\'s platform.
 --
 -- Allowed values include:
@@ -115,14 +113,16 @@ data Device = Device'
 --
 -- -   IOS
 --
--- 'model', 'device_model' - The device\'s model name.
+-- 'manufacturer', 'device_manufacturer' - The device\'s manufacturer name.
 --
--- 'fleetName', 'device_fleetName' - The name of the fleet to which this device belongs.
+-- 'model', 'device_model' - The device\'s model name.
 --
 -- 'memory', 'device_memory' - The device\'s total memory size, expressed in bytes.
 --
 -- 'availability', 'device_availability' - Indicates how likely a device is available for a test run. Currently
 -- available in the ListDevices and GetDevice API methods.
+--
+-- 'fleetName', 'device_fleetName' - The name of the fleet to which this device belongs.
 --
 -- 'fleetType', 'device_fleetType' - The type of fleet to which this device belongs. Possible values are
 -- PRIVATE and PUBLIC.
@@ -135,10 +135,10 @@ data Device = Device'
 --
 -- -   TABLET
 --
+-- 'arn', 'device_arn' - The device\'s ARN.
+--
 -- 'remoteAccessEnabled', 'device_remoteAccessEnabled' - Specifies whether remote access has been enabled for the specified
 -- device.
---
--- 'arn', 'device_arn' - The device\'s ARN.
 --
 -- 'instances', 'device_instances' - The instances that belong to this device.
 --
@@ -169,16 +169,16 @@ newDevice ::
   Device
 newDevice =
   Device'
-    { manufacturer = Prelude.Nothing,
-      platform = Prelude.Nothing,
+    { platform = Prelude.Nothing,
+      manufacturer = Prelude.Nothing,
       model = Prelude.Nothing,
-      fleetName = Prelude.Nothing,
       memory = Prelude.Nothing,
       availability = Prelude.Nothing,
+      fleetName = Prelude.Nothing,
       fleetType = Prelude.Nothing,
       formFactor = Prelude.Nothing,
-      remoteAccessEnabled = Prelude.Nothing,
       arn = Prelude.Nothing,
+      remoteAccessEnabled = Prelude.Nothing,
       instances = Prelude.Nothing,
       name = Prelude.Nothing,
       image = Prelude.Nothing,
@@ -192,10 +192,6 @@ newDevice =
       modelId = Prelude.Nothing
     }
 
--- | The device\'s manufacturer name.
-device_manufacturer :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
-device_manufacturer = Lens.lens (\Device' {manufacturer} -> manufacturer) (\s@Device' {} a -> s {manufacturer = a} :: Device)
-
 -- | The device\'s platform.
 --
 -- Allowed values include:
@@ -206,13 +202,13 @@ device_manufacturer = Lens.lens (\Device' {manufacturer} -> manufacturer) (\s@De
 device_platform :: Lens.Lens' Device (Prelude.Maybe DevicePlatform)
 device_platform = Lens.lens (\Device' {platform} -> platform) (\s@Device' {} a -> s {platform = a} :: Device)
 
+-- | The device\'s manufacturer name.
+device_manufacturer :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
+device_manufacturer = Lens.lens (\Device' {manufacturer} -> manufacturer) (\s@Device' {} a -> s {manufacturer = a} :: Device)
+
 -- | The device\'s model name.
 device_model :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
 device_model = Lens.lens (\Device' {model} -> model) (\s@Device' {} a -> s {model = a} :: Device)
-
--- | The name of the fleet to which this device belongs.
-device_fleetName :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
-device_fleetName = Lens.lens (\Device' {fleetName} -> fleetName) (\s@Device' {} a -> s {fleetName = a} :: Device)
 
 -- | The device\'s total memory size, expressed in bytes.
 device_memory :: Lens.Lens' Device (Prelude.Maybe Prelude.Integer)
@@ -222,6 +218,10 @@ device_memory = Lens.lens (\Device' {memory} -> memory) (\s@Device' {} a -> s {m
 -- available in the ListDevices and GetDevice API methods.
 device_availability :: Lens.Lens' Device (Prelude.Maybe DeviceAvailability)
 device_availability = Lens.lens (\Device' {availability} -> availability) (\s@Device' {} a -> s {availability = a} :: Device)
+
+-- | The name of the fleet to which this device belongs.
+device_fleetName :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
+device_fleetName = Lens.lens (\Device' {fleetName} -> fleetName) (\s@Device' {} a -> s {fleetName = a} :: Device)
 
 -- | The type of fleet to which this device belongs. Possible values are
 -- PRIVATE and PUBLIC.
@@ -238,14 +238,14 @@ device_fleetType = Lens.lens (\Device' {fleetType} -> fleetType) (\s@Device' {} 
 device_formFactor :: Lens.Lens' Device (Prelude.Maybe DeviceFormFactor)
 device_formFactor = Lens.lens (\Device' {formFactor} -> formFactor) (\s@Device' {} a -> s {formFactor = a} :: Device)
 
+-- | The device\'s ARN.
+device_arn :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
+device_arn = Lens.lens (\Device' {arn} -> arn) (\s@Device' {} a -> s {arn = a} :: Device)
+
 -- | Specifies whether remote access has been enabled for the specified
 -- device.
 device_remoteAccessEnabled :: Lens.Lens' Device (Prelude.Maybe Prelude.Bool)
 device_remoteAccessEnabled = Lens.lens (\Device' {remoteAccessEnabled} -> remoteAccessEnabled) (\s@Device' {} a -> s {remoteAccessEnabled = a} :: Device)
-
--- | The device\'s ARN.
-device_arn :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
-device_arn = Lens.lens (\Device' {arn} -> arn) (\s@Device' {} a -> s {arn = a} :: Device)
 
 -- | The instances that belong to this device.
 device_instances :: Lens.Lens' Device (Prelude.Maybe [DeviceInstance])
@@ -301,16 +301,16 @@ instance Core.FromJSON Device where
       "Device"
       ( \x ->
           Device'
-            Prelude.<$> (x Core..:? "manufacturer")
-            Prelude.<*> (x Core..:? "platform")
+            Prelude.<$> (x Core..:? "platform")
+            Prelude.<*> (x Core..:? "manufacturer")
             Prelude.<*> (x Core..:? "model")
-            Prelude.<*> (x Core..:? "fleetName")
             Prelude.<*> (x Core..:? "memory")
             Prelude.<*> (x Core..:? "availability")
+            Prelude.<*> (x Core..:? "fleetName")
             Prelude.<*> (x Core..:? "fleetType")
             Prelude.<*> (x Core..:? "formFactor")
-            Prelude.<*> (x Core..:? "remoteAccessEnabled")
             Prelude.<*> (x Core..:? "arn")
+            Prelude.<*> (x Core..:? "remoteAccessEnabled")
             Prelude.<*> (x Core..:? "instances" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "image")

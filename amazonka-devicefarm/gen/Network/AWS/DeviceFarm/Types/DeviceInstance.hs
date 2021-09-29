@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDeviceInstance' smart constructor.
 data DeviceInstance = DeviceInstance'
-  { -- | Unique device identifier for the device instance.
-    udid :: Prelude.Maybe Prelude.Text,
-    -- | The status of the device instance. Valid values are listed here.
+  { -- | The status of the device instance. Valid values are listed here.
     status :: Prelude.Maybe InstanceStatus,
+    -- | Unique device identifier for the device instance.
+    udid :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the device.
     deviceArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the device instance.
@@ -52,9 +52,9 @@ data DeviceInstance = DeviceInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'udid', 'deviceInstance_udid' - Unique device identifier for the device instance.
---
 -- 'status', 'deviceInstance_status' - The status of the device instance. Valid values are listed here.
+--
+-- 'udid', 'deviceInstance_udid' - Unique device identifier for the device instance.
 --
 -- 'deviceArn', 'deviceInstance_deviceArn' - The ARN of the device.
 --
@@ -67,21 +67,21 @@ newDeviceInstance ::
   DeviceInstance
 newDeviceInstance =
   DeviceInstance'
-    { udid = Prelude.Nothing,
-      status = Prelude.Nothing,
+    { status = Prelude.Nothing,
+      udid = Prelude.Nothing,
       deviceArn = Prelude.Nothing,
       arn = Prelude.Nothing,
       labels = Prelude.Nothing,
       instanceProfile = Prelude.Nothing
     }
 
--- | Unique device identifier for the device instance.
-deviceInstance_udid :: Lens.Lens' DeviceInstance (Prelude.Maybe Prelude.Text)
-deviceInstance_udid = Lens.lens (\DeviceInstance' {udid} -> udid) (\s@DeviceInstance' {} a -> s {udid = a} :: DeviceInstance)
-
 -- | The status of the device instance. Valid values are listed here.
 deviceInstance_status :: Lens.Lens' DeviceInstance (Prelude.Maybe InstanceStatus)
 deviceInstance_status = Lens.lens (\DeviceInstance' {status} -> status) (\s@DeviceInstance' {} a -> s {status = a} :: DeviceInstance)
+
+-- | Unique device identifier for the device instance.
+deviceInstance_udid :: Lens.Lens' DeviceInstance (Prelude.Maybe Prelude.Text)
+deviceInstance_udid = Lens.lens (\DeviceInstance' {udid} -> udid) (\s@DeviceInstance' {} a -> s {udid = a} :: DeviceInstance)
 
 -- | The ARN of the device.
 deviceInstance_deviceArn :: Lens.Lens' DeviceInstance (Prelude.Maybe Prelude.Text)
@@ -105,8 +105,8 @@ instance Core.FromJSON DeviceInstance where
       "DeviceInstance"
       ( \x ->
           DeviceInstance'
-            Prelude.<$> (x Core..:? "udid")
-            Prelude.<*> (x Core..:? "status")
+            Prelude.<$> (x Core..:? "status")
+            Prelude.<*> (x Core..:? "udid")
             Prelude.<*> (x Core..:? "deviceArn")
             Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "labels" Core..!= Prelude.mempty)

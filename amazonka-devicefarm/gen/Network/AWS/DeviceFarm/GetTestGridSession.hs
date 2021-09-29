@@ -35,8 +35,8 @@ module Network.AWS.DeviceFarm.GetTestGridSession
     newGetTestGridSession,
 
     -- * Request Lenses
-    getTestGridSession_sessionId,
     getTestGridSession_sessionArn,
+    getTestGridSession_sessionId,
     getTestGridSession_projectArn,
 
     -- * Destructuring the Response
@@ -58,10 +58,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetTestGridSession' smart constructor.
 data GetTestGridSession = GetTestGridSession'
-  { -- | An ID associated with this session.
-    sessionId :: Prelude.Maybe Prelude.Text,
-    -- | An ARN that uniquely identifies a TestGridSession.
+  { -- | An ARN that uniquely identifies a TestGridSession.
     sessionArn :: Prelude.Maybe Prelude.Text,
+    -- | An ID associated with this session.
+    sessionId :: Prelude.Maybe Prelude.Text,
     -- | The ARN for the project that this session belongs to. See
     -- CreateTestGridProject and ListTestGridProjects.
     projectArn :: Prelude.Maybe Prelude.Text
@@ -76,9 +76,9 @@ data GetTestGridSession = GetTestGridSession'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sessionId', 'getTestGridSession_sessionId' - An ID associated with this session.
---
 -- 'sessionArn', 'getTestGridSession_sessionArn' - An ARN that uniquely identifies a TestGridSession.
+--
+-- 'sessionId', 'getTestGridSession_sessionId' - An ID associated with this session.
 --
 -- 'projectArn', 'getTestGridSession_projectArn' - The ARN for the project that this session belongs to. See
 -- CreateTestGridProject and ListTestGridProjects.
@@ -86,18 +86,18 @@ newGetTestGridSession ::
   GetTestGridSession
 newGetTestGridSession =
   GetTestGridSession'
-    { sessionId = Prelude.Nothing,
-      sessionArn = Prelude.Nothing,
+    { sessionArn = Prelude.Nothing,
+      sessionId = Prelude.Nothing,
       projectArn = Prelude.Nothing
     }
-
--- | An ID associated with this session.
-getTestGridSession_sessionId :: Lens.Lens' GetTestGridSession (Prelude.Maybe Prelude.Text)
-getTestGridSession_sessionId = Lens.lens (\GetTestGridSession' {sessionId} -> sessionId) (\s@GetTestGridSession' {} a -> s {sessionId = a} :: GetTestGridSession)
 
 -- | An ARN that uniquely identifies a TestGridSession.
 getTestGridSession_sessionArn :: Lens.Lens' GetTestGridSession (Prelude.Maybe Prelude.Text)
 getTestGridSession_sessionArn = Lens.lens (\GetTestGridSession' {sessionArn} -> sessionArn) (\s@GetTestGridSession' {} a -> s {sessionArn = a} :: GetTestGridSession)
+
+-- | An ID associated with this session.
+getTestGridSession_sessionId :: Lens.Lens' GetTestGridSession (Prelude.Maybe Prelude.Text)
+getTestGridSession_sessionId = Lens.lens (\GetTestGridSession' {sessionId} -> sessionId) (\s@GetTestGridSession' {} a -> s {sessionId = a} :: GetTestGridSession)
 
 -- | The ARN for the project that this session belongs to. See
 -- CreateTestGridProject and ListTestGridProjects.
@@ -140,8 +140,8 @@ instance Core.ToJSON GetTestGridSession where
   toJSON GetTestGridSession' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("sessionId" Core..=) Prelude.<$> sessionId,
-            ("sessionArn" Core..=) Prelude.<$> sessionArn,
+          [ ("sessionArn" Core..=) Prelude.<$> sessionArn,
+            ("sessionId" Core..=) Prelude.<$> sessionId,
             ("projectArn" Core..=) Prelude.<$> projectArn
           ]
       )

@@ -29,8 +29,8 @@ module Network.AWS.DeviceFarm.ListTestGridSessions
     -- * Request Lenses
     listTestGridSessions_nextToken,
     listTestGridSessions_status,
-    listTestGridSessions_maxResult,
     listTestGridSessions_creationTimeBefore,
+    listTestGridSessions_maxResult,
     listTestGridSessions_endTimeAfter,
     listTestGridSessions_endTimeBefore,
     listTestGridSessions_creationTimeAfter,
@@ -60,10 +60,10 @@ data ListTestGridSessions = ListTestGridSessions'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Return only sessions in this state.
     status :: Prelude.Maybe TestGridSessionStatus,
-    -- | Return only this many results at a time.
-    maxResult :: Prelude.Maybe Prelude.Natural,
     -- | Return only sessions created before this time.
     creationTimeBefore :: Prelude.Maybe Core.POSIX,
+    -- | Return only this many results at a time.
+    maxResult :: Prelude.Maybe Prelude.Natural,
     -- | Return only sessions that ended after this time.
     endTimeAfter :: Prelude.Maybe Core.POSIX,
     -- | Return only sessions that ended before this time.
@@ -87,9 +87,9 @@ data ListTestGridSessions = ListTestGridSessions'
 --
 -- 'status', 'listTestGridSessions_status' - Return only sessions in this state.
 --
--- 'maxResult', 'listTestGridSessions_maxResult' - Return only this many results at a time.
---
 -- 'creationTimeBefore', 'listTestGridSessions_creationTimeBefore' - Return only sessions created before this time.
+--
+-- 'maxResult', 'listTestGridSessions_maxResult' - Return only this many results at a time.
 --
 -- 'endTimeAfter', 'listTestGridSessions_endTimeAfter' - Return only sessions that ended after this time.
 --
@@ -106,8 +106,8 @@ newListTestGridSessions pProjectArn_ =
   ListTestGridSessions'
     { nextToken = Prelude.Nothing,
       status = Prelude.Nothing,
-      maxResult = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
+      maxResult = Prelude.Nothing,
       endTimeAfter = Prelude.Nothing,
       endTimeBefore = Prelude.Nothing,
       creationTimeAfter = Prelude.Nothing,
@@ -122,13 +122,13 @@ listTestGridSessions_nextToken = Lens.lens (\ListTestGridSessions' {nextToken} -
 listTestGridSessions_status :: Lens.Lens' ListTestGridSessions (Prelude.Maybe TestGridSessionStatus)
 listTestGridSessions_status = Lens.lens (\ListTestGridSessions' {status} -> status) (\s@ListTestGridSessions' {} a -> s {status = a} :: ListTestGridSessions)
 
--- | Return only this many results at a time.
-listTestGridSessions_maxResult :: Lens.Lens' ListTestGridSessions (Prelude.Maybe Prelude.Natural)
-listTestGridSessions_maxResult = Lens.lens (\ListTestGridSessions' {maxResult} -> maxResult) (\s@ListTestGridSessions' {} a -> s {maxResult = a} :: ListTestGridSessions)
-
 -- | Return only sessions created before this time.
 listTestGridSessions_creationTimeBefore :: Lens.Lens' ListTestGridSessions (Prelude.Maybe Prelude.UTCTime)
 listTestGridSessions_creationTimeBefore = Lens.lens (\ListTestGridSessions' {creationTimeBefore} -> creationTimeBefore) (\s@ListTestGridSessions' {} a -> s {creationTimeBefore = a} :: ListTestGridSessions) Prelude.. Lens.mapping Core._Time
+
+-- | Return only this many results at a time.
+listTestGridSessions_maxResult :: Lens.Lens' ListTestGridSessions (Prelude.Maybe Prelude.Natural)
+listTestGridSessions_maxResult = Lens.lens (\ListTestGridSessions' {maxResult} -> maxResult) (\s@ListTestGridSessions' {} a -> s {maxResult = a} :: ListTestGridSessions)
 
 -- | Return only sessions that ended after this time.
 listTestGridSessions_endTimeAfter :: Lens.Lens' ListTestGridSessions (Prelude.Maybe Prelude.UTCTime)
@@ -187,9 +187,9 @@ instance Core.ToJSON ListTestGridSessions where
       ( Prelude.catMaybes
           [ ("nextToken" Core..=) Prelude.<$> nextToken,
             ("status" Core..=) Prelude.<$> status,
-            ("maxResult" Core..=) Prelude.<$> maxResult,
             ("creationTimeBefore" Core..=)
               Prelude.<$> creationTimeBefore,
+            ("maxResult" Core..=) Prelude.<$> maxResult,
             ("endTimeAfter" Core..=) Prelude.<$> endTimeAfter,
             ("endTimeBefore" Core..=) Prelude.<$> endTimeBefore,
             ("creationTimeAfter" Core..=)

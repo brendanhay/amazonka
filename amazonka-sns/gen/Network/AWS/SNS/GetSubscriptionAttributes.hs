@@ -136,7 +136,7 @@ data GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'
     --     <https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html Amazon SNS Message Filtering>
     --     in the /Amazon SNS Developer Guide/.
     --
-    -- -   @Owner@ – The AWS account ID of the subscription\'s owner.
+    -- -   @Owner@ – The account ID of the subscription\'s owner.
     --
     -- -   @PendingConfirmation@ – @true@ if the subscription hasn\'t been
     --     confirmed. To confirm a pending subscription, call the
@@ -170,7 +170,7 @@ data GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'
     --     Specifying a valid ARN for this attribute is required for Kinesis
     --     Data Firehose delivery stream subscriptions. For more information,
     --     see
-    --     <https://docs.aws.amazon.com/sns/latest/dg/sns-kinesis-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
+    --     <https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
     --     in the /Amazon SNS Developer Guide/.
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
@@ -204,7 +204,7 @@ data GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'
 --     <https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html Amazon SNS Message Filtering>
 --     in the /Amazon SNS Developer Guide/.
 --
--- -   @Owner@ – The AWS account ID of the subscription\'s owner.
+-- -   @Owner@ – The account ID of the subscription\'s owner.
 --
 -- -   @PendingConfirmation@ – @true@ if the subscription hasn\'t been
 --     confirmed. To confirm a pending subscription, call the
@@ -238,7 +238,7 @@ data GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'
 --     Specifying a valid ARN for this attribute is required for Kinesis
 --     Data Firehose delivery stream subscriptions. For more information,
 --     see
---     <https://docs.aws.amazon.com/sns/latest/dg/sns-kinesis-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
+--     <https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
 --     in the /Amazon SNS Developer Guide/.
 --
 -- 'httpStatus', 'getSubscriptionAttributesResponse_httpStatus' - The response's http status code.
@@ -271,7 +271,7 @@ newGetSubscriptionAttributesResponse pHttpStatus_ =
 --     <https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html Amazon SNS Message Filtering>
 --     in the /Amazon SNS Developer Guide/.
 --
--- -   @Owner@ – The AWS account ID of the subscription\'s owner.
+-- -   @Owner@ – The account ID of the subscription\'s owner.
 --
 -- -   @PendingConfirmation@ – @true@ if the subscription hasn\'t been
 --     confirmed. To confirm a pending subscription, call the
@@ -305,7 +305,7 @@ newGetSubscriptionAttributesResponse pHttpStatus_ =
 --     Specifying a valid ARN for this attribute is required for Kinesis
 --     Data Firehose delivery stream subscriptions. For more information,
 --     see
---     <https://docs.aws.amazon.com/sns/latest/dg/sns-kinesis-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
+--     <https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
 --     in the /Amazon SNS Developer Guide/.
 getSubscriptionAttributesResponse_attributes :: Lens.Lens' GetSubscriptionAttributesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getSubscriptionAttributesResponse_attributes = Lens.lens (\GetSubscriptionAttributesResponse' {attributes} -> attributes) (\s@GetSubscriptionAttributesResponse' {} a -> s {attributes = a} :: GetSubscriptionAttributesResponse) Prelude.. Lens.mapping Lens._Coerce

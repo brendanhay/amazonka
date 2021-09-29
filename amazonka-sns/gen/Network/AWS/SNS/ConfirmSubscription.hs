@@ -57,9 +57,10 @@ import Network.AWS.SNS.Types
 -- /See:/ 'newConfirmSubscription' smart constructor.
 data ConfirmSubscription = ConfirmSubscription'
   { -- | Disallows unauthenticated unsubscribes of the subscription. If the value
-    -- of this parameter is @true@ and the request has an AWS signature, then
-    -- only the topic owner and the subscription owner can unsubscribe the
-    -- endpoint. The unsubscribe action requires AWS authentication.
+    -- of this parameter is @true@ and the request has an Amazon Web Services
+    -- signature, then only the topic owner and the subscription owner can
+    -- unsubscribe the endpoint. The unsubscribe action requires Amazon Web
+    -- Services authentication.
     authenticateOnUnsubscribe :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the topic for which you wish to confirm a subscription.
     topicArn :: Prelude.Text,
@@ -77,9 +78,10 @@ data ConfirmSubscription = ConfirmSubscription'
 -- for backwards compatibility:
 --
 -- 'authenticateOnUnsubscribe', 'confirmSubscription_authenticateOnUnsubscribe' - Disallows unauthenticated unsubscribes of the subscription. If the value
--- of this parameter is @true@ and the request has an AWS signature, then
--- only the topic owner and the subscription owner can unsubscribe the
--- endpoint. The unsubscribe action requires AWS authentication.
+-- of this parameter is @true@ and the request has an Amazon Web Services
+-- signature, then only the topic owner and the subscription owner can
+-- unsubscribe the endpoint. The unsubscribe action requires Amazon Web
+-- Services authentication.
 --
 -- 'topicArn', 'confirmSubscription_topicArn' - The ARN of the topic for which you wish to confirm a subscription.
 --
@@ -99,9 +101,10 @@ newConfirmSubscription pTopicArn_ pToken_ =
     }
 
 -- | Disallows unauthenticated unsubscribes of the subscription. If the value
--- of this parameter is @true@ and the request has an AWS signature, then
--- only the topic owner and the subscription owner can unsubscribe the
--- endpoint. The unsubscribe action requires AWS authentication.
+-- of this parameter is @true@ and the request has an Amazon Web Services
+-- signature, then only the topic owner and the subscription owner can
+-- unsubscribe the endpoint. The unsubscribe action requires Amazon Web
+-- Services authentication.
 confirmSubscription_authenticateOnUnsubscribe :: Lens.Lens' ConfirmSubscription (Prelude.Maybe Prelude.Text)
 confirmSubscription_authenticateOnUnsubscribe = Lens.lens (\ConfirmSubscription' {authenticateOnUnsubscribe} -> authenticateOnUnsubscribe) (\s@ConfirmSubscription' {} a -> s {authenticateOnUnsubscribe = a} :: ConfirmSubscription)
 

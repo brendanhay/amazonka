@@ -18,28 +18,44 @@ module Network.AWS.SNS.Types
 
     -- * Errors
     _KMSThrottlingException,
-    _NotFoundException,
     _KMSInvalidStateException,
+    _NotFoundException,
     _KMSNotFoundException,
+    _UserErrorException,
     _ThrottledException,
     _TagLimitExceededException,
+    _OptedOutException,
     _InternalErrorException,
-    _TopicLimitExceededException,
     _KMSOptInRequired,
     _ConcurrentAccessException,
+    _TopicLimitExceededException,
     _TagPolicyException,
     _PlatformApplicationDisabledException,
     _SubscriptionLimitExceededException,
     _StaleTagException,
     _InvalidParameterException,
+    _AuthorizationErrorException,
     _EndpointDisabledException,
     _InvalidParameterValueException,
-    _AuthorizationErrorException,
-    _FilterPolicyLimitExceededException,
+    _ValidationException,
     _KMSAccessDeniedException,
+    _FilterPolicyLimitExceededException,
+    _VerificationException,
     _ResourceNotFoundException,
     _InvalidSecurityException,
     _KMSDisabledException,
+
+    -- * LanguageCodeString
+    LanguageCodeString (..),
+
+    -- * NumberCapability
+    NumberCapability (..),
+
+    -- * RouteType
+    RouteType (..),
+
+    -- * SMSSandboxPhoneNumberVerificationStatus
+    SMSSandboxPhoneNumberVerificationStatus (..),
 
     -- * Endpoint
     Endpoint (..),
@@ -54,19 +70,35 @@ module Network.AWS.SNS.Types
     messageAttributeValue_binaryValue,
     messageAttributeValue_dataType,
 
+    -- * PhoneNumberInformation
+    PhoneNumberInformation (..),
+    newPhoneNumberInformation,
+    phoneNumberInformation_phoneNumber,
+    phoneNumberInformation_status,
+    phoneNumberInformation_routeType,
+    phoneNumberInformation_createdAt,
+    phoneNumberInformation_numberCapabilities,
+    phoneNumberInformation_iso2CountryCode,
+
     -- * PlatformApplication
     PlatformApplication (..),
     newPlatformApplication,
     platformApplication_platformApplicationArn,
     platformApplication_attributes,
 
+    -- * SMSSandboxPhoneNumber
+    SMSSandboxPhoneNumber (..),
+    newSMSSandboxPhoneNumber,
+    sMSSandboxPhoneNumber_phoneNumber,
+    sMSSandboxPhoneNumber_status,
+
     -- * Subscription
     Subscription (..),
     newSubscription,
     subscription_topicArn,
     subscription_owner,
-    subscription_subscriptionArn,
     subscription_protocol,
+    subscription_subscriptionArn,
     subscription_endpoint,
 
     -- * Tag
@@ -86,8 +118,14 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SNS.Types.Endpoint
+import Network.AWS.SNS.Types.LanguageCodeString
 import Network.AWS.SNS.Types.MessageAttributeValue
+import Network.AWS.SNS.Types.NumberCapability
+import Network.AWS.SNS.Types.PhoneNumberInformation
 import Network.AWS.SNS.Types.PlatformApplication
+import Network.AWS.SNS.Types.RouteType
+import Network.AWS.SNS.Types.SMSSandboxPhoneNumber
+import Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus
 import Network.AWS.SNS.Types.Subscription
 import Network.AWS.SNS.Types.Tag
 import Network.AWS.SNS.Types.Topic
@@ -166,12 +204,23 @@ defaultService =
 -- | The request was denied due to request throttling. For more information
 -- about throttling, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/limits.html#requests-per-second Limits>
--- in the /AWS Key Management Service Developer Guide./
+-- in the /Key Management Service Developer Guide./
 _KMSThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _KMSThrottlingException =
   Core._MatchServiceError
     defaultService
     "KMSThrottling"
+    Prelude.. Core.hasStatus 400
+
+-- | The request was rejected because the state of the specified resource
+-- isn\'t valid for this request. For more information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key>
+-- in the /Key Management Service Developer Guide/.
+_KMSInvalidStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_KMSInvalidStateException =
+  Core._MatchServiceError
+    defaultService
+    "KMSInvalidState"
     Prelude.. Core.hasStatus 400
 
 -- | Indicates that the requested resource does not exist.
@@ -180,17 +229,6 @@ _NotFoundException =
   Core._MatchServiceError defaultService "NotFound"
     Prelude.. Core.hasStatus 404
 
--- | The request was rejected because the state of the specified resource
--- isn\'t valid for this request. For more information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key>
--- in the /AWS Key Management Service Developer Guide/.
-_KMSInvalidStateException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_KMSInvalidStateException =
-  Core._MatchServiceError
-    defaultService
-    "KMSInvalidState"
-    Prelude.. Core.hasStatus 400
-
 -- | The request was rejected because the specified entity or resource can\'t
 -- be found.
 _KMSNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -198,6 +236,13 @@ _KMSNotFoundException =
   Core._MatchServiceError
     defaultService
     "KMSNotFound"
+    Prelude.. Core.hasStatus 400
+
+-- | Indicates that a request parameter does not comply with the associated
+-- constraints.
+_UserErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UserErrorException =
+  Core._MatchServiceError defaultService "UserError"
     Prelude.. Core.hasStatus 400
 
 -- | Indicates that the rate at which requests have been submitted for this
@@ -215,6 +260,14 @@ _TagLimitExceededException =
     "TagLimitExceeded"
     Prelude.. Core.hasStatus 400
 
+-- | Indicates that the specified phone number opted out of receiving SMS
+-- messages from your account. You can\'t send SMS messages to phone
+-- numbers that opt out.
+_OptedOutException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OptedOutException =
+  Core._MatchServiceError defaultService "OptedOut"
+    Prelude.. Core.hasStatus 400
+
 -- | Indicates an internal service error.
 _InternalErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalErrorException =
@@ -223,16 +276,8 @@ _InternalErrorException =
     "InternalError"
     Prelude.. Core.hasStatus 500
 
--- | Indicates that the customer already owns the maximum allowed number of
--- topics.
-_TopicLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TopicLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "TopicLimitExceeded"
-    Prelude.. Core.hasStatus 403
-
--- | The AWS access key ID needs a subscription for the service.
+-- | The Amazon Web Services access key ID needs a subscription for the
+-- service.
 _KMSOptInRequired :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _KMSOptInRequired =
   Core._MatchServiceError
@@ -248,6 +293,15 @@ _ConcurrentAccessException =
     defaultService
     "ConcurrentAccess"
     Prelude.. Core.hasStatus 400
+
+-- | Indicates that the customer already owns the maximum allowed number of
+-- topics.
+_TopicLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TopicLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "TopicLimitExceeded"
+    Prelude.. Core.hasStatus 403
 
 -- | The request doesn\'t comply with the IAM tag policy. Correct your
 -- request and then retry it.
@@ -289,6 +343,15 @@ _InvalidParameterException =
     "InvalidParameter"
     Prelude.. Core.hasStatus 400
 
+-- | Indicates that the user has been denied access to the requested
+-- resource.
+_AuthorizationErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AuthorizationErrorException =
+  Core._MatchServiceError
+    defaultService
+    "AuthorizationError"
+    Prelude.. Core.hasStatus 403
+
 -- | Exception error indicating endpoint disabled.
 _EndpointDisabledException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _EndpointDisabledException =
@@ -306,24 +369,13 @@ _InvalidParameterValueException =
     "ParameterValueInvalid"
     Prelude.. Core.hasStatus 400
 
--- | Indicates that the user has been denied access to the requested
--- resource.
-_AuthorizationErrorException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AuthorizationErrorException =
+-- | Indicates that a parameter in the request is invalid.
+_ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ValidationException =
   Core._MatchServiceError
     defaultService
-    "AuthorizationError"
-    Prelude.. Core.hasStatus 403
-
--- | Indicates that the number of filter polices in your AWS account exceeds
--- the limit. To add more filter polices, submit an SNS Limit Increase case
--- in the AWS Support Center.
-_FilterPolicyLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_FilterPolicyLimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "FilterPolicyLimitExceeded"
-    Prelude.. Core.hasStatus 403
+    "ValidationException"
+    Prelude.. Core.hasStatus 400
 
 -- | The ciphertext references a key that doesn\'t exist or that you don\'t
 -- have access to.
@@ -334,7 +386,26 @@ _KMSAccessDeniedException =
     "KMSAccessDenied"
     Prelude.. Core.hasStatus 400
 
--- | Can\'t tag resource. Verify that the topic exists.
+-- | Indicates that the number of filter polices in your account exceeds the
+-- limit. To add more filter polices, submit an SNS Limit Increase case in
+-- the Amazon Web Services Support Center.
+_FilterPolicyLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_FilterPolicyLimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "FilterPolicyLimitExceeded"
+    Prelude.. Core.hasStatus 403
+
+-- | Indicates that the one-time password (OTP) used for verification is
+-- invalid.
+_VerificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_VerificationException =
+  Core._MatchServiceError
+    defaultService
+    "VerificationException"
+
+-- | Can’t perform the action on the specified resource. Make sure that the
+-- resource exists.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceNotFoundException =
   Core._MatchServiceError

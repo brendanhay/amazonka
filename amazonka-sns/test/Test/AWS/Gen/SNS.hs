@@ -36,41 +36,47 @@ import Test.Tasty
 --         , requestPublish $
 --             newPublish
 --
+--         , requestDeleteSMSSandboxPhoneNumber $
+--             newDeleteSMSSandboxPhoneNumber
+--
 --         , requestOptInPhoneNumber $
 --             newOptInPhoneNumber
---
---         , requestUntagResource $
---             newUntagResource
 --
 --         , requestUnsubscribe $
 --             newUnsubscribe
 --
---         , requestListSubscriptionsByTopic $
---             newListSubscriptionsByTopic
---
---         , requestGetTopicAttributes $
---             newGetTopicAttributes
---
---         , requestSetSMSAttributes $
---             newSetSMSAttributes
---
---         , requestSetPlatformApplicationAttributes $
---             newSetPlatformApplicationAttributes
+--         , requestUntagResource $
+--             newUntagResource
 --
 --         , requestTagResource $
 --             newTagResource
 --
---         , requestCreatePlatformEndpoint $
---             newCreatePlatformEndpoint
+--         , requestListSubscriptionsByTopic $
+--             newListSubscriptionsByTopic
+--
+--         , requestSetSMSAttributes $
+--             newSetSMSAttributes
 --
 --         , requestSubscribe $
 --             newSubscribe
 --
+--         , requestSetPlatformApplicationAttributes $
+--             newSetPlatformApplicationAttributes
+--
+--         , requestGetTopicAttributes $
+--             newGetTopicAttributes
+--
+--         , requestCreatePlatformEndpoint $
+--             newCreatePlatformEndpoint
+--
 --         , requestListTopics $
 --             newListTopics
 --
---         , requestListSubscriptions $
---             newListSubscriptions
+--         , requestAddPermission $
+--             newAddPermission
+--
+--         , requestGetEndpointAttributes $
+--             newGetEndpointAttributes
 --
 --         , requestGetSubscriptionAttributes $
 --             newGetSubscriptionAttributes
@@ -78,29 +84,26 @@ import Test.Tasty
 --         , requestDeleteEndpoint $
 --             newDeleteEndpoint
 --
---         , requestAddPermission $
---             newAddPermission
+--         , requestListSubscriptions $
+--             newListSubscriptions
 --
 --         , requestListPhoneNumbersOptedOut $
 --             newListPhoneNumbersOptedOut
 --
---         , requestGetEndpointAttributes $
---             newGetEndpointAttributes
+--         , requestSetTopicAttributes $
+--             newSetTopicAttributes
+--
+--         , requestListPlatformApplications $
+--             newListPlatformApplications
 --
 --         , requestGetPlatformApplicationAttributes $
 --             newGetPlatformApplicationAttributes
---
---         , requestSetTopicAttributes $
---             newSetTopicAttributes
 --
 --         , requestListEndpointsByPlatformApplication $
 --             newListEndpointsByPlatformApplication
 --
 --         , requestGetSMSAttributes $
 --             newGetSMSAttributes
---
---         , requestListPlatformApplications $
---             newListPlatformApplications
 --
 --         , requestCreatePlatformApplication $
 --             newCreatePlatformApplication
@@ -111,8 +114,23 @@ import Test.Tasty
 --         , requestSetSubscriptionAttributes $
 --             newSetSubscriptionAttributes
 --
+--         , requestListSMSSandboxPhoneNumbers $
+--             newListSMSSandboxPhoneNumbers
+--
+--         , requestListOriginationNumbers $
+--             newListOriginationNumbers
+--
+--         , requestCreateSMSSandboxPhoneNumber $
+--             newCreateSMSSandboxPhoneNumber
+--
+--         , requestGetSMSSandboxAccountStatus $
+--             newGetSMSSandboxAccountStatus
+--
 --         , requestCheckIfPhoneNumberIsOptedOut $
 --             newCheckIfPhoneNumberIsOptedOut
+--
+--         , requestVerifySMSSandboxPhoneNumber $
+--             newVerifySMSSandboxPhoneNumber
 --
 --         , requestDeleteTopic $
 --             newDeleteTopic
@@ -138,41 +156,47 @@ import Test.Tasty
 --         , responsePublish $
 --             newPublishResponse
 --
+--         , responseDeleteSMSSandboxPhoneNumber $
+--             newDeleteSMSSandboxPhoneNumberResponse
+--
 --         , responseOptInPhoneNumber $
 --             newOptInPhoneNumberResponse
---
---         , responseUntagResource $
---             newUntagResourceResponse
 --
 --         , responseUnsubscribe $
 --             newUnsubscribeResponse
 --
---         , responseListSubscriptionsByTopic $
---             newListSubscriptionsByTopicResponse
---
---         , responseGetTopicAttributes $
---             newGetTopicAttributesResponse
---
---         , responseSetSMSAttributes $
---             newSetSMSAttributesResponse
---
---         , responseSetPlatformApplicationAttributes $
---             newSetPlatformApplicationAttributesResponse
+--         , responseUntagResource $
+--             newUntagResourceResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
 --
---         , responseCreatePlatformEndpoint $
---             newCreatePlatformEndpointResponse
+--         , responseListSubscriptionsByTopic $
+--             newListSubscriptionsByTopicResponse
+--
+--         , responseSetSMSAttributes $
+--             newSetSMSAttributesResponse
 --
 --         , responseSubscribe $
 --             newSubscribeResponse
 --
+--         , responseSetPlatformApplicationAttributes $
+--             newSetPlatformApplicationAttributesResponse
+--
+--         , responseGetTopicAttributes $
+--             newGetTopicAttributesResponse
+--
+--         , responseCreatePlatformEndpoint $
+--             newCreatePlatformEndpointResponse
+--
 --         , responseListTopics $
 --             newListTopicsResponse
 --
---         , responseListSubscriptions $
---             newListSubscriptionsResponse
+--         , responseAddPermission $
+--             newAddPermissionResponse
+--
+--         , responseGetEndpointAttributes $
+--             newGetEndpointAttributesResponse
 --
 --         , responseGetSubscriptionAttributes $
 --             newGetSubscriptionAttributesResponse
@@ -180,29 +204,26 @@ import Test.Tasty
 --         , responseDeleteEndpoint $
 --             newDeleteEndpointResponse
 --
---         , responseAddPermission $
---             newAddPermissionResponse
+--         , responseListSubscriptions $
+--             newListSubscriptionsResponse
 --
 --         , responseListPhoneNumbersOptedOut $
 --             newListPhoneNumbersOptedOutResponse
 --
---         , responseGetEndpointAttributes $
---             newGetEndpointAttributesResponse
+--         , responseSetTopicAttributes $
+--             newSetTopicAttributesResponse
+--
+--         , responseListPlatformApplications $
+--             newListPlatformApplicationsResponse
 --
 --         , responseGetPlatformApplicationAttributes $
 --             newGetPlatformApplicationAttributesResponse
---
---         , responseSetTopicAttributes $
---             newSetTopicAttributesResponse
 --
 --         , responseListEndpointsByPlatformApplication $
 --             newListEndpointsByPlatformApplicationResponse
 --
 --         , responseGetSMSAttributes $
 --             newGetSMSAttributesResponse
---
---         , responseListPlatformApplications $
---             newListPlatformApplicationsResponse
 --
 --         , responseCreatePlatformApplication $
 --             newCreatePlatformApplicationResponse
@@ -213,8 +234,23 @@ import Test.Tasty
 --         , responseSetSubscriptionAttributes $
 --             newSetSubscriptionAttributesResponse
 --
+--         , responseListSMSSandboxPhoneNumbers $
+--             newListSMSSandboxPhoneNumbersResponse
+--
+--         , responseListOriginationNumbers $
+--             newListOriginationNumbersResponse
+--
+--         , responseCreateSMSSandboxPhoneNumber $
+--             newCreateSMSSandboxPhoneNumberResponse
+--
+--         , responseGetSMSSandboxAccountStatus $
+--             newGetSMSSandboxAccountStatusResponse
+--
 --         , responseCheckIfPhoneNumberIsOptedOut $
 --             newCheckIfPhoneNumberIsOptedOutResponse
+--
+--         , responseVerifySMSSandboxPhoneNumber $
+--             newVerifySMSSandboxPhoneNumberResponse
 --
 --         , responseDeleteTopic $
 --             newDeleteTopicResponse
@@ -251,17 +287,17 @@ requestPublish =
     "Publish"
     "fixture/Publish.yaml"
 
+requestDeleteSMSSandboxPhoneNumber :: DeleteSMSSandboxPhoneNumber -> TestTree
+requestDeleteSMSSandboxPhoneNumber =
+  req
+    "DeleteSMSSandboxPhoneNumber"
+    "fixture/DeleteSMSSandboxPhoneNumber.yaml"
+
 requestOptInPhoneNumber :: OptInPhoneNumber -> TestTree
 requestOptInPhoneNumber =
   req
     "OptInPhoneNumber"
     "fixture/OptInPhoneNumber.yaml"
-
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
 
 requestUnsubscribe :: Unsubscribe -> TestTree
 requestUnsubscribe =
@@ -269,29 +305,11 @@ requestUnsubscribe =
     "Unsubscribe"
     "fixture/Unsubscribe.yaml"
 
-requestListSubscriptionsByTopic :: ListSubscriptionsByTopic -> TestTree
-requestListSubscriptionsByTopic =
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
   req
-    "ListSubscriptionsByTopic"
-    "fixture/ListSubscriptionsByTopic.yaml"
-
-requestGetTopicAttributes :: GetTopicAttributes -> TestTree
-requestGetTopicAttributes =
-  req
-    "GetTopicAttributes"
-    "fixture/GetTopicAttributes.yaml"
-
-requestSetSMSAttributes :: SetSMSAttributes -> TestTree
-requestSetSMSAttributes =
-  req
-    "SetSMSAttributes"
-    "fixture/SetSMSAttributes.yaml"
-
-requestSetPlatformApplicationAttributes :: SetPlatformApplicationAttributes -> TestTree
-requestSetPlatformApplicationAttributes =
-  req
-    "SetPlatformApplicationAttributes"
-    "fixture/SetPlatformApplicationAttributes.yaml"
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -299,11 +317,17 @@ requestTagResource =
     "TagResource"
     "fixture/TagResource.yaml"
 
-requestCreatePlatformEndpoint :: CreatePlatformEndpoint -> TestTree
-requestCreatePlatformEndpoint =
+requestListSubscriptionsByTopic :: ListSubscriptionsByTopic -> TestTree
+requestListSubscriptionsByTopic =
   req
-    "CreatePlatformEndpoint"
-    "fixture/CreatePlatformEndpoint.yaml"
+    "ListSubscriptionsByTopic"
+    "fixture/ListSubscriptionsByTopic.yaml"
+
+requestSetSMSAttributes :: SetSMSAttributes -> TestTree
+requestSetSMSAttributes =
+  req
+    "SetSMSAttributes"
+    "fixture/SetSMSAttributes.yaml"
 
 requestSubscribe :: Subscribe -> TestTree
 requestSubscribe =
@@ -311,17 +335,41 @@ requestSubscribe =
     "Subscribe"
     "fixture/Subscribe.yaml"
 
+requestSetPlatformApplicationAttributes :: SetPlatformApplicationAttributes -> TestTree
+requestSetPlatformApplicationAttributes =
+  req
+    "SetPlatformApplicationAttributes"
+    "fixture/SetPlatformApplicationAttributes.yaml"
+
+requestGetTopicAttributes :: GetTopicAttributes -> TestTree
+requestGetTopicAttributes =
+  req
+    "GetTopicAttributes"
+    "fixture/GetTopicAttributes.yaml"
+
+requestCreatePlatformEndpoint :: CreatePlatformEndpoint -> TestTree
+requestCreatePlatformEndpoint =
+  req
+    "CreatePlatformEndpoint"
+    "fixture/CreatePlatformEndpoint.yaml"
+
 requestListTopics :: ListTopics -> TestTree
 requestListTopics =
   req
     "ListTopics"
     "fixture/ListTopics.yaml"
 
-requestListSubscriptions :: ListSubscriptions -> TestTree
-requestListSubscriptions =
+requestAddPermission :: AddPermission -> TestTree
+requestAddPermission =
   req
-    "ListSubscriptions"
-    "fixture/ListSubscriptions.yaml"
+    "AddPermission"
+    "fixture/AddPermission.yaml"
+
+requestGetEndpointAttributes :: GetEndpointAttributes -> TestTree
+requestGetEndpointAttributes =
+  req
+    "GetEndpointAttributes"
+    "fixture/GetEndpointAttributes.yaml"
 
 requestGetSubscriptionAttributes :: GetSubscriptionAttributes -> TestTree
 requestGetSubscriptionAttributes =
@@ -335,11 +383,11 @@ requestDeleteEndpoint =
     "DeleteEndpoint"
     "fixture/DeleteEndpoint.yaml"
 
-requestAddPermission :: AddPermission -> TestTree
-requestAddPermission =
+requestListSubscriptions :: ListSubscriptions -> TestTree
+requestListSubscriptions =
   req
-    "AddPermission"
-    "fixture/AddPermission.yaml"
+    "ListSubscriptions"
+    "fixture/ListSubscriptions.yaml"
 
 requestListPhoneNumbersOptedOut :: ListPhoneNumbersOptedOut -> TestTree
 requestListPhoneNumbersOptedOut =
@@ -347,23 +395,23 @@ requestListPhoneNumbersOptedOut =
     "ListPhoneNumbersOptedOut"
     "fixture/ListPhoneNumbersOptedOut.yaml"
 
-requestGetEndpointAttributes :: GetEndpointAttributes -> TestTree
-requestGetEndpointAttributes =
+requestSetTopicAttributes :: SetTopicAttributes -> TestTree
+requestSetTopicAttributes =
   req
-    "GetEndpointAttributes"
-    "fixture/GetEndpointAttributes.yaml"
+    "SetTopicAttributes"
+    "fixture/SetTopicAttributes.yaml"
+
+requestListPlatformApplications :: ListPlatformApplications -> TestTree
+requestListPlatformApplications =
+  req
+    "ListPlatformApplications"
+    "fixture/ListPlatformApplications.yaml"
 
 requestGetPlatformApplicationAttributes :: GetPlatformApplicationAttributes -> TestTree
 requestGetPlatformApplicationAttributes =
   req
     "GetPlatformApplicationAttributes"
     "fixture/GetPlatformApplicationAttributes.yaml"
-
-requestSetTopicAttributes :: SetTopicAttributes -> TestTree
-requestSetTopicAttributes =
-  req
-    "SetTopicAttributes"
-    "fixture/SetTopicAttributes.yaml"
 
 requestListEndpointsByPlatformApplication :: ListEndpointsByPlatformApplication -> TestTree
 requestListEndpointsByPlatformApplication =
@@ -376,12 +424,6 @@ requestGetSMSAttributes =
   req
     "GetSMSAttributes"
     "fixture/GetSMSAttributes.yaml"
-
-requestListPlatformApplications :: ListPlatformApplications -> TestTree
-requestListPlatformApplications =
-  req
-    "ListPlatformApplications"
-    "fixture/ListPlatformApplications.yaml"
 
 requestCreatePlatformApplication :: CreatePlatformApplication -> TestTree
 requestCreatePlatformApplication =
@@ -401,11 +443,41 @@ requestSetSubscriptionAttributes =
     "SetSubscriptionAttributes"
     "fixture/SetSubscriptionAttributes.yaml"
 
+requestListSMSSandboxPhoneNumbers :: ListSMSSandboxPhoneNumbers -> TestTree
+requestListSMSSandboxPhoneNumbers =
+  req
+    "ListSMSSandboxPhoneNumbers"
+    "fixture/ListSMSSandboxPhoneNumbers.yaml"
+
+requestListOriginationNumbers :: ListOriginationNumbers -> TestTree
+requestListOriginationNumbers =
+  req
+    "ListOriginationNumbers"
+    "fixture/ListOriginationNumbers.yaml"
+
+requestCreateSMSSandboxPhoneNumber :: CreateSMSSandboxPhoneNumber -> TestTree
+requestCreateSMSSandboxPhoneNumber =
+  req
+    "CreateSMSSandboxPhoneNumber"
+    "fixture/CreateSMSSandboxPhoneNumber.yaml"
+
+requestGetSMSSandboxAccountStatus :: GetSMSSandboxAccountStatus -> TestTree
+requestGetSMSSandboxAccountStatus =
+  req
+    "GetSMSSandboxAccountStatus"
+    "fixture/GetSMSSandboxAccountStatus.yaml"
+
 requestCheckIfPhoneNumberIsOptedOut :: CheckIfPhoneNumberIsOptedOut -> TestTree
 requestCheckIfPhoneNumberIsOptedOut =
   req
     "CheckIfPhoneNumberIsOptedOut"
     "fixture/CheckIfPhoneNumberIsOptedOut.yaml"
+
+requestVerifySMSSandboxPhoneNumber :: VerifySMSSandboxPhoneNumber -> TestTree
+requestVerifySMSSandboxPhoneNumber =
+  req
+    "VerifySMSSandboxPhoneNumber"
+    "fixture/VerifySMSSandboxPhoneNumber.yaml"
 
 requestDeleteTopic :: DeleteTopic -> TestTree
 requestDeleteTopic =
@@ -457,6 +529,14 @@ responsePublish =
     defaultService
     (Proxy :: Proxy Publish)
 
+responseDeleteSMSSandboxPhoneNumber :: DeleteSMSSandboxPhoneNumberResponse -> TestTree
+responseDeleteSMSSandboxPhoneNumber =
+  res
+    "DeleteSMSSandboxPhoneNumberResponse"
+    "fixture/DeleteSMSSandboxPhoneNumberResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteSMSSandboxPhoneNumber)
+
 responseOptInPhoneNumber :: OptInPhoneNumberResponse -> TestTree
 responseOptInPhoneNumber =
   res
@@ -464,14 +544,6 @@ responseOptInPhoneNumber =
     "fixture/OptInPhoneNumberResponse.proto"
     defaultService
     (Proxy :: Proxy OptInPhoneNumber)
-
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy UntagResource)
 
 responseUnsubscribe :: UnsubscribeResponse -> TestTree
 responseUnsubscribe =
@@ -481,37 +553,13 @@ responseUnsubscribe =
     defaultService
     (Proxy :: Proxy Unsubscribe)
 
-responseListSubscriptionsByTopic :: ListSubscriptionsByTopicResponse -> TestTree
-responseListSubscriptionsByTopic =
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
   res
-    "ListSubscriptionsByTopicResponse"
-    "fixture/ListSubscriptionsByTopicResponse.proto"
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSubscriptionsByTopic)
-
-responseGetTopicAttributes :: GetTopicAttributesResponse -> TestTree
-responseGetTopicAttributes =
-  res
-    "GetTopicAttributesResponse"
-    "fixture/GetTopicAttributesResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetTopicAttributes)
-
-responseSetSMSAttributes :: SetSMSAttributesResponse -> TestTree
-responseSetSMSAttributes =
-  res
-    "SetSMSAttributesResponse"
-    "fixture/SetSMSAttributesResponse.proto"
-    defaultService
-    (Proxy :: Proxy SetSMSAttributes)
-
-responseSetPlatformApplicationAttributes :: SetPlatformApplicationAttributesResponse -> TestTree
-responseSetPlatformApplicationAttributes =
-  res
-    "SetPlatformApplicationAttributesResponse"
-    "fixture/SetPlatformApplicationAttributesResponse.proto"
-    defaultService
-    (Proxy :: Proxy SetPlatformApplicationAttributes)
+    (Proxy :: Proxy UntagResource)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -521,13 +569,21 @@ responseTagResource =
     defaultService
     (Proxy :: Proxy TagResource)
 
-responseCreatePlatformEndpoint :: CreatePlatformEndpointResponse -> TestTree
-responseCreatePlatformEndpoint =
+responseListSubscriptionsByTopic :: ListSubscriptionsByTopicResponse -> TestTree
+responseListSubscriptionsByTopic =
   res
-    "CreatePlatformEndpointResponse"
-    "fixture/CreatePlatformEndpointResponse.proto"
+    "ListSubscriptionsByTopicResponse"
+    "fixture/ListSubscriptionsByTopicResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePlatformEndpoint)
+    (Proxy :: Proxy ListSubscriptionsByTopic)
+
+responseSetSMSAttributes :: SetSMSAttributesResponse -> TestTree
+responseSetSMSAttributes =
+  res
+    "SetSMSAttributesResponse"
+    "fixture/SetSMSAttributesResponse.proto"
+    defaultService
+    (Proxy :: Proxy SetSMSAttributes)
 
 responseSubscribe :: SubscribeResponse -> TestTree
 responseSubscribe =
@@ -537,6 +593,30 @@ responseSubscribe =
     defaultService
     (Proxy :: Proxy Subscribe)
 
+responseSetPlatformApplicationAttributes :: SetPlatformApplicationAttributesResponse -> TestTree
+responseSetPlatformApplicationAttributes =
+  res
+    "SetPlatformApplicationAttributesResponse"
+    "fixture/SetPlatformApplicationAttributesResponse.proto"
+    defaultService
+    (Proxy :: Proxy SetPlatformApplicationAttributes)
+
+responseGetTopicAttributes :: GetTopicAttributesResponse -> TestTree
+responseGetTopicAttributes =
+  res
+    "GetTopicAttributesResponse"
+    "fixture/GetTopicAttributesResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetTopicAttributes)
+
+responseCreatePlatformEndpoint :: CreatePlatformEndpointResponse -> TestTree
+responseCreatePlatformEndpoint =
+  res
+    "CreatePlatformEndpointResponse"
+    "fixture/CreatePlatformEndpointResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreatePlatformEndpoint)
+
 responseListTopics :: ListTopicsResponse -> TestTree
 responseListTopics =
   res
@@ -545,13 +625,21 @@ responseListTopics =
     defaultService
     (Proxy :: Proxy ListTopics)
 
-responseListSubscriptions :: ListSubscriptionsResponse -> TestTree
-responseListSubscriptions =
+responseAddPermission :: AddPermissionResponse -> TestTree
+responseAddPermission =
   res
-    "ListSubscriptionsResponse"
-    "fixture/ListSubscriptionsResponse.proto"
+    "AddPermissionResponse"
+    "fixture/AddPermissionResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSubscriptions)
+    (Proxy :: Proxy AddPermission)
+
+responseGetEndpointAttributes :: GetEndpointAttributesResponse -> TestTree
+responseGetEndpointAttributes =
+  res
+    "GetEndpointAttributesResponse"
+    "fixture/GetEndpointAttributesResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetEndpointAttributes)
 
 responseGetSubscriptionAttributes :: GetSubscriptionAttributesResponse -> TestTree
 responseGetSubscriptionAttributes =
@@ -569,13 +657,13 @@ responseDeleteEndpoint =
     defaultService
     (Proxy :: Proxy DeleteEndpoint)
 
-responseAddPermission :: AddPermissionResponse -> TestTree
-responseAddPermission =
+responseListSubscriptions :: ListSubscriptionsResponse -> TestTree
+responseListSubscriptions =
   res
-    "AddPermissionResponse"
-    "fixture/AddPermissionResponse.proto"
+    "ListSubscriptionsResponse"
+    "fixture/ListSubscriptionsResponse.proto"
     defaultService
-    (Proxy :: Proxy AddPermission)
+    (Proxy :: Proxy ListSubscriptions)
 
 responseListPhoneNumbersOptedOut :: ListPhoneNumbersOptedOutResponse -> TestTree
 responseListPhoneNumbersOptedOut =
@@ -585,13 +673,21 @@ responseListPhoneNumbersOptedOut =
     defaultService
     (Proxy :: Proxy ListPhoneNumbersOptedOut)
 
-responseGetEndpointAttributes :: GetEndpointAttributesResponse -> TestTree
-responseGetEndpointAttributes =
+responseSetTopicAttributes :: SetTopicAttributesResponse -> TestTree
+responseSetTopicAttributes =
   res
-    "GetEndpointAttributesResponse"
-    "fixture/GetEndpointAttributesResponse.proto"
+    "SetTopicAttributesResponse"
+    "fixture/SetTopicAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetEndpointAttributes)
+    (Proxy :: Proxy SetTopicAttributes)
+
+responseListPlatformApplications :: ListPlatformApplicationsResponse -> TestTree
+responseListPlatformApplications =
+  res
+    "ListPlatformApplicationsResponse"
+    "fixture/ListPlatformApplicationsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListPlatformApplications)
 
 responseGetPlatformApplicationAttributes :: GetPlatformApplicationAttributesResponse -> TestTree
 responseGetPlatformApplicationAttributes =
@@ -600,14 +696,6 @@ responseGetPlatformApplicationAttributes =
     "fixture/GetPlatformApplicationAttributesResponse.proto"
     defaultService
     (Proxy :: Proxy GetPlatformApplicationAttributes)
-
-responseSetTopicAttributes :: SetTopicAttributesResponse -> TestTree
-responseSetTopicAttributes =
-  res
-    "SetTopicAttributesResponse"
-    "fixture/SetTopicAttributesResponse.proto"
-    defaultService
-    (Proxy :: Proxy SetTopicAttributes)
 
 responseListEndpointsByPlatformApplication :: ListEndpointsByPlatformApplicationResponse -> TestTree
 responseListEndpointsByPlatformApplication =
@@ -624,14 +712,6 @@ responseGetSMSAttributes =
     "fixture/GetSMSAttributesResponse.proto"
     defaultService
     (Proxy :: Proxy GetSMSAttributes)
-
-responseListPlatformApplications :: ListPlatformApplicationsResponse -> TestTree
-responseListPlatformApplications =
-  res
-    "ListPlatformApplicationsResponse"
-    "fixture/ListPlatformApplicationsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListPlatformApplications)
 
 responseCreatePlatformApplication :: CreatePlatformApplicationResponse -> TestTree
 responseCreatePlatformApplication =
@@ -657,6 +737,38 @@ responseSetSubscriptionAttributes =
     defaultService
     (Proxy :: Proxy SetSubscriptionAttributes)
 
+responseListSMSSandboxPhoneNumbers :: ListSMSSandboxPhoneNumbersResponse -> TestTree
+responseListSMSSandboxPhoneNumbers =
+  res
+    "ListSMSSandboxPhoneNumbersResponse"
+    "fixture/ListSMSSandboxPhoneNumbersResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListSMSSandboxPhoneNumbers)
+
+responseListOriginationNumbers :: ListOriginationNumbersResponse -> TestTree
+responseListOriginationNumbers =
+  res
+    "ListOriginationNumbersResponse"
+    "fixture/ListOriginationNumbersResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListOriginationNumbers)
+
+responseCreateSMSSandboxPhoneNumber :: CreateSMSSandboxPhoneNumberResponse -> TestTree
+responseCreateSMSSandboxPhoneNumber =
+  res
+    "CreateSMSSandboxPhoneNumberResponse"
+    "fixture/CreateSMSSandboxPhoneNumberResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateSMSSandboxPhoneNumber)
+
+responseGetSMSSandboxAccountStatus :: GetSMSSandboxAccountStatusResponse -> TestTree
+responseGetSMSSandboxAccountStatus =
+  res
+    "GetSMSSandboxAccountStatusResponse"
+    "fixture/GetSMSSandboxAccountStatusResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetSMSSandboxAccountStatus)
+
 responseCheckIfPhoneNumberIsOptedOut :: CheckIfPhoneNumberIsOptedOutResponse -> TestTree
 responseCheckIfPhoneNumberIsOptedOut =
   res
@@ -664,6 +776,14 @@ responseCheckIfPhoneNumberIsOptedOut =
     "fixture/CheckIfPhoneNumberIsOptedOutResponse.proto"
     defaultService
     (Proxy :: Proxy CheckIfPhoneNumberIsOptedOut)
+
+responseVerifySMSSandboxPhoneNumber :: VerifySMSSandboxPhoneNumberResponse -> TestTree
+responseVerifySMSSandboxPhoneNumber =
+  res
+    "VerifySMSSandboxPhoneNumberResponse"
+    "fixture/VerifySMSSandboxPhoneNumberResponse.proto"
+    defaultService
+    (Proxy :: Proxy VerifySMSSandboxPhoneNumber)
 
 responseDeleteTopic :: DeleteTopicResponse -> TestTree
 responseDeleteTopic =

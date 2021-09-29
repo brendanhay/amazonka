@@ -90,7 +90,7 @@ data SetSubscriptionAttributes = SetSubscriptionAttributes'
     --     Specifying a valid ARN for this attribute is required for Kinesis
     --     Data Firehose delivery stream subscriptions. For more information,
     --     see
-    --     <https://docs.aws.amazon.com/sns/latest/dg/sns-kinesis-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
+    --     <https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
     --     in the /Amazon SNS Developer Guide/.
     attributeName :: Prelude.Text
   }
@@ -145,7 +145,7 @@ data SetSubscriptionAttributes = SetSubscriptionAttributes'
 --     Specifying a valid ARN for this attribute is required for Kinesis
 --     Data Firehose delivery stream subscriptions. For more information,
 --     see
---     <https://docs.aws.amazon.com/sns/latest/dg/sns-kinesis-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
+--     <https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
 --     in the /Amazon SNS Developer Guide/.
 newSetSubscriptionAttributes ::
   -- | 'subscriptionArn'
@@ -208,7 +208,7 @@ setSubscriptionAttributes_subscriptionArn = Lens.lens (\SetSubscriptionAttribute
 --     Specifying a valid ARN for this attribute is required for Kinesis
 --     Data Firehose delivery stream subscriptions. For more information,
 --     see
---     <https://docs.aws.amazon.com/sns/latest/dg/sns-kinesis-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
+--     <https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html Fanout to Kinesis Data Firehose delivery streams>
 --     in the /Amazon SNS Developer Guide/.
 setSubscriptionAttributes_attributeName :: Lens.Lens' SetSubscriptionAttributes Prelude.Text
 setSubscriptionAttributes_attributeName = Lens.lens (\SetSubscriptionAttributes' {attributeName} -> attributeName) (\s@SetSubscriptionAttributes' {} a -> s {attributeName = a} :: SetSubscriptionAttributes)

@@ -131,7 +131,7 @@ data SetSMSAttributes = SetSMSAttributes'
     -- -   Total number of parts
     --
     -- To receive the report, the bucket must have a policy that allows the
-    -- Amazon SNS service principle to perform the @s3:PutObject@ and
+    -- Amazon SNS service principal to perform the @s3:PutObject@ and
     -- @s3:GetBucketLocation@ actions.
     --
     -- For an example bucket policy and usage report, see
@@ -221,7 +221,7 @@ data SetSMSAttributes = SetSMSAttributes'
 -- -   Total number of parts
 --
 -- To receive the report, the bucket must have a policy that allows the
--- Amazon SNS service principle to perform the @s3:PutObject@ and
+-- Amazon SNS service principal to perform the @s3:PutObject@ and
 -- @s3:GetBucketLocation@ actions.
 --
 -- For an example bucket policy and usage report, see
@@ -304,7 +304,7 @@ newSetSMSAttributes =
 -- -   Total number of parts
 --
 -- To receive the report, the bucket must have a policy that allows the
--- Amazon SNS service principle to perform the @s3:PutObject@ and
+-- Amazon SNS service principal to perform the @s3:PutObject@ and
 -- @s3:GetBucketLocation@ actions.
 --
 -- For an example bucket policy and usage report, see

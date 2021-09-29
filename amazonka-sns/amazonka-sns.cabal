@@ -51,19 +51,24 @@ library
     Network.AWS.SNS.ConfirmSubscription
     Network.AWS.SNS.CreatePlatformApplication
     Network.AWS.SNS.CreatePlatformEndpoint
+    Network.AWS.SNS.CreateSMSSandboxPhoneNumber
     Network.AWS.SNS.CreateTopic
     Network.AWS.SNS.DeleteEndpoint
     Network.AWS.SNS.DeletePlatformApplication
+    Network.AWS.SNS.DeleteSMSSandboxPhoneNumber
     Network.AWS.SNS.DeleteTopic
     Network.AWS.SNS.GetEndpointAttributes
     Network.AWS.SNS.GetPlatformApplicationAttributes
     Network.AWS.SNS.GetSMSAttributes
+    Network.AWS.SNS.GetSMSSandboxAccountStatus
     Network.AWS.SNS.GetSubscriptionAttributes
     Network.AWS.SNS.GetTopicAttributes
     Network.AWS.SNS.Lens
     Network.AWS.SNS.ListEndpointsByPlatformApplication
+    Network.AWS.SNS.ListOriginationNumbers
     Network.AWS.SNS.ListPhoneNumbersOptedOut
     Network.AWS.SNS.ListPlatformApplications
+    Network.AWS.SNS.ListSMSSandboxPhoneNumbers
     Network.AWS.SNS.ListSubscriptions
     Network.AWS.SNS.ListSubscriptionsByTopic
     Network.AWS.SNS.ListTagsForResource
@@ -80,13 +85,20 @@ library
     Network.AWS.SNS.TagResource
     Network.AWS.SNS.Types
     Network.AWS.SNS.Types.Endpoint
+    Network.AWS.SNS.Types.LanguageCodeString
     Network.AWS.SNS.Types.MessageAttributeValue
+    Network.AWS.SNS.Types.NumberCapability
+    Network.AWS.SNS.Types.PhoneNumberInformation
     Network.AWS.SNS.Types.PlatformApplication
+    Network.AWS.SNS.Types.RouteType
+    Network.AWS.SNS.Types.SMSSandboxPhoneNumber
+    Network.AWS.SNS.Types.SMSSandboxPhoneNumberVerificationStatus
     Network.AWS.SNS.Types.Subscription
     Network.AWS.SNS.Types.Tag
     Network.AWS.SNS.Types.Topic
     Network.AWS.SNS.Unsubscribe
     Network.AWS.SNS.UntagResource
+    Network.AWS.SNS.VerifySMSSandboxPhoneNumber
     Network.AWS.SNS.Waiters
 
   reexported-modules: Network.AWS

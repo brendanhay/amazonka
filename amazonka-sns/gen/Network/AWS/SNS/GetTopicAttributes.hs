@@ -125,7 +125,7 @@ data GetTopicAttributesResponse = GetTopicAttributesResponse'
     -- -   @DisplayName@ – The human-readable name used in the @From@ field for
     --     notifications to @email@ and @email-json@ endpoints.
     --
-    -- -   @Owner@ – The AWS account ID of the topic\'s owner.
+    -- -   @Owner@ – The account ID of the topic\'s owner.
     --
     -- -   @Policy@ – The JSON serialization of the topic\'s access control
     --     policy.
@@ -147,12 +147,13 @@ data GetTopicAttributesResponse = GetTopicAttributesResponse'
     -- The following attribute applies only to
     -- <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html server-side-encryption>:
     --
-    -- -   @KmsMasterKeyId@ - The ID of an AWS-managed customer master key
-    --     (CMK) for Amazon SNS or a custom CMK. For more information, see
+    -- -   @KmsMasterKeyId@ - The ID of an Amazon Web Services managed customer
+    --     master key (CMK) for Amazon SNS or a custom CMK. For more
+    --     information, see
     --     <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms Key Terms>.
     --     For more examples, see
     --     <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters KeyId>
-    --     in the /AWS Key Management Service API Reference/.
+    --     in the /Key Management Service API Reference/.
     --
     -- The following attributes apply only to
     -- <https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html FIFO topics>:
@@ -175,7 +176,7 @@ data GetTopicAttributesResponse = GetTopicAttributesResponse'
     --         message).
     --
     --         (Optional) To override the generated value, you can specify a
-    --         value for the the @MessageDeduplicationId@ parameter for the
+    --         value for the @MessageDeduplicationId@ parameter for the
     --         @Publish@ action.
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
@@ -200,7 +201,7 @@ data GetTopicAttributesResponse = GetTopicAttributesResponse'
 -- -   @DisplayName@ – The human-readable name used in the @From@ field for
 --     notifications to @email@ and @email-json@ endpoints.
 --
--- -   @Owner@ – The AWS account ID of the topic\'s owner.
+-- -   @Owner@ – The account ID of the topic\'s owner.
 --
 -- -   @Policy@ – The JSON serialization of the topic\'s access control
 --     policy.
@@ -222,12 +223,13 @@ data GetTopicAttributesResponse = GetTopicAttributesResponse'
 -- The following attribute applies only to
 -- <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html server-side-encryption>:
 --
--- -   @KmsMasterKeyId@ - The ID of an AWS-managed customer master key
---     (CMK) for Amazon SNS or a custom CMK. For more information, see
+-- -   @KmsMasterKeyId@ - The ID of an Amazon Web Services managed customer
+--     master key (CMK) for Amazon SNS or a custom CMK. For more
+--     information, see
 --     <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms Key Terms>.
 --     For more examples, see
 --     <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters KeyId>
---     in the /AWS Key Management Service API Reference/.
+--     in the /Key Management Service API Reference/.
 --
 -- The following attributes apply only to
 -- <https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html FIFO topics>:
@@ -250,7 +252,7 @@ data GetTopicAttributesResponse = GetTopicAttributesResponse'
 --         message).
 --
 --         (Optional) To override the generated value, you can specify a
---         value for the the @MessageDeduplicationId@ parameter for the
+--         value for the @MessageDeduplicationId@ parameter for the
 --         @Publish@ action.
 --
 -- 'httpStatus', 'getTopicAttributesResponse_httpStatus' - The response's http status code.
@@ -274,7 +276,7 @@ newGetTopicAttributesResponse pHttpStatus_ =
 -- -   @DisplayName@ – The human-readable name used in the @From@ field for
 --     notifications to @email@ and @email-json@ endpoints.
 --
--- -   @Owner@ – The AWS account ID of the topic\'s owner.
+-- -   @Owner@ – The account ID of the topic\'s owner.
 --
 -- -   @Policy@ – The JSON serialization of the topic\'s access control
 --     policy.
@@ -296,12 +298,13 @@ newGetTopicAttributesResponse pHttpStatus_ =
 -- The following attribute applies only to
 -- <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html server-side-encryption>:
 --
--- -   @KmsMasterKeyId@ - The ID of an AWS-managed customer master key
---     (CMK) for Amazon SNS or a custom CMK. For more information, see
+-- -   @KmsMasterKeyId@ - The ID of an Amazon Web Services managed customer
+--     master key (CMK) for Amazon SNS or a custom CMK. For more
+--     information, see
 --     <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms Key Terms>.
 --     For more examples, see
 --     <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters KeyId>
---     in the /AWS Key Management Service API Reference/.
+--     in the /Key Management Service API Reference/.
 --
 -- The following attributes apply only to
 -- <https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html FIFO topics>:
@@ -324,7 +327,7 @@ newGetTopicAttributesResponse pHttpStatus_ =
 --         message).
 --
 --         (Optional) To override the generated value, you can specify a
---         value for the the @MessageDeduplicationId@ parameter for the
+--         value for the @MessageDeduplicationId@ parameter for the
 --         @Publish@ action.
 getTopicAttributesResponse_attributes :: Lens.Lens' GetTopicAttributesResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 getTopicAttributesResponse_attributes = Lens.lens (\GetTopicAttributesResponse' {attributes} -> attributes) (\s@GetTopicAttributesResponse' {} a -> s {attributes = a} :: GetTopicAttributesResponse) Prelude.. Lens.mapping Lens._Coerce

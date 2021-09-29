@@ -43,14 +43,17 @@ module Network.AWS.SNS
     -- ** KMSThrottlingException
     _KMSThrottlingException,
 
-    -- ** NotFoundException
-    _NotFoundException,
-
     -- ** KMSInvalidStateException
     _KMSInvalidStateException,
 
+    -- ** NotFoundException
+    _NotFoundException,
+
     -- ** KMSNotFoundException
     _KMSNotFoundException,
+
+    -- ** UserErrorException
+    _UserErrorException,
 
     -- ** ThrottledException
     _ThrottledException,
@@ -58,17 +61,20 @@ module Network.AWS.SNS
     -- ** TagLimitExceededException
     _TagLimitExceededException,
 
+    -- ** OptedOutException
+    _OptedOutException,
+
     -- ** InternalErrorException
     _InternalErrorException,
-
-    -- ** TopicLimitExceededException
-    _TopicLimitExceededException,
 
     -- ** KMSOptInRequired
     _KMSOptInRequired,
 
     -- ** ConcurrentAccessException
     _ConcurrentAccessException,
+
+    -- ** TopicLimitExceededException
+    _TopicLimitExceededException,
 
     -- ** TagPolicyException
     _TagPolicyException,
@@ -85,20 +91,26 @@ module Network.AWS.SNS
     -- ** InvalidParameterException
     _InvalidParameterException,
 
+    -- ** AuthorizationErrorException
+    _AuthorizationErrorException,
+
     -- ** EndpointDisabledException
     _EndpointDisabledException,
 
     -- ** InvalidParameterValueException
     _InvalidParameterValueException,
 
-    -- ** AuthorizationErrorException
-    _AuthorizationErrorException,
+    -- ** ValidationException
+    _ValidationException,
+
+    -- ** KMSAccessDeniedException
+    _KMSAccessDeniedException,
 
     -- ** FilterPolicyLimitExceededException
     _FilterPolicyLimitExceededException,
 
-    -- ** KMSAccessDeniedException
-    _KMSAccessDeniedException,
+    -- ** VerificationException
+    _VerificationException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
@@ -133,17 +145,17 @@ module Network.AWS.SNS
     PublishResponse (PublishResponse'),
     newPublishResponse,
 
+    -- ** DeleteSMSSandboxPhoneNumber
+    DeleteSMSSandboxPhoneNumber (DeleteSMSSandboxPhoneNumber'),
+    newDeleteSMSSandboxPhoneNumber,
+    DeleteSMSSandboxPhoneNumberResponse (DeleteSMSSandboxPhoneNumberResponse'),
+    newDeleteSMSSandboxPhoneNumberResponse,
+
     -- ** OptInPhoneNumber
     OptInPhoneNumber (OptInPhoneNumber'),
     newOptInPhoneNumber,
     OptInPhoneNumberResponse (OptInPhoneNumberResponse'),
     newOptInPhoneNumberResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
 
     -- ** Unsubscribe
     Unsubscribe (Unsubscribe'),
@@ -151,29 +163,11 @@ module Network.AWS.SNS
     UnsubscribeResponse (UnsubscribeResponse'),
     newUnsubscribeResponse,
 
-    -- ** ListSubscriptionsByTopic (Paginated)
-    ListSubscriptionsByTopic (ListSubscriptionsByTopic'),
-    newListSubscriptionsByTopic,
-    ListSubscriptionsByTopicResponse (ListSubscriptionsByTopicResponse'),
-    newListSubscriptionsByTopicResponse,
-
-    -- ** GetTopicAttributes
-    GetTopicAttributes (GetTopicAttributes'),
-    newGetTopicAttributes,
-    GetTopicAttributesResponse (GetTopicAttributesResponse'),
-    newGetTopicAttributesResponse,
-
-    -- ** SetSMSAttributes
-    SetSMSAttributes (SetSMSAttributes'),
-    newSetSMSAttributes,
-    SetSMSAttributesResponse (SetSMSAttributesResponse'),
-    newSetSMSAttributesResponse,
-
-    -- ** SetPlatformApplicationAttributes
-    SetPlatformApplicationAttributes (SetPlatformApplicationAttributes'),
-    newSetPlatformApplicationAttributes,
-    SetPlatformApplicationAttributesResponse (SetPlatformApplicationAttributesResponse'),
-    newSetPlatformApplicationAttributesResponse,
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -181,11 +175,17 @@ module Network.AWS.SNS
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
 
-    -- ** CreatePlatformEndpoint
-    CreatePlatformEndpoint (CreatePlatformEndpoint'),
-    newCreatePlatformEndpoint,
-    CreatePlatformEndpointResponse (CreatePlatformEndpointResponse'),
-    newCreatePlatformEndpointResponse,
+    -- ** ListSubscriptionsByTopic (Paginated)
+    ListSubscriptionsByTopic (ListSubscriptionsByTopic'),
+    newListSubscriptionsByTopic,
+    ListSubscriptionsByTopicResponse (ListSubscriptionsByTopicResponse'),
+    newListSubscriptionsByTopicResponse,
+
+    -- ** SetSMSAttributes
+    SetSMSAttributes (SetSMSAttributes'),
+    newSetSMSAttributes,
+    SetSMSAttributesResponse (SetSMSAttributesResponse'),
+    newSetSMSAttributesResponse,
 
     -- ** Subscribe
     Subscribe (Subscribe'),
@@ -193,17 +193,41 @@ module Network.AWS.SNS
     SubscribeResponse (SubscribeResponse'),
     newSubscribeResponse,
 
+    -- ** SetPlatformApplicationAttributes
+    SetPlatformApplicationAttributes (SetPlatformApplicationAttributes'),
+    newSetPlatformApplicationAttributes,
+    SetPlatformApplicationAttributesResponse (SetPlatformApplicationAttributesResponse'),
+    newSetPlatformApplicationAttributesResponse,
+
+    -- ** GetTopicAttributes
+    GetTopicAttributes (GetTopicAttributes'),
+    newGetTopicAttributes,
+    GetTopicAttributesResponse (GetTopicAttributesResponse'),
+    newGetTopicAttributesResponse,
+
+    -- ** CreatePlatformEndpoint
+    CreatePlatformEndpoint (CreatePlatformEndpoint'),
+    newCreatePlatformEndpoint,
+    CreatePlatformEndpointResponse (CreatePlatformEndpointResponse'),
+    newCreatePlatformEndpointResponse,
+
     -- ** ListTopics (Paginated)
     ListTopics (ListTopics'),
     newListTopics,
     ListTopicsResponse (ListTopicsResponse'),
     newListTopicsResponse,
 
-    -- ** ListSubscriptions (Paginated)
-    ListSubscriptions (ListSubscriptions'),
-    newListSubscriptions,
-    ListSubscriptionsResponse (ListSubscriptionsResponse'),
-    newListSubscriptionsResponse,
+    -- ** AddPermission
+    AddPermission (AddPermission'),
+    newAddPermission,
+    AddPermissionResponse (AddPermissionResponse'),
+    newAddPermissionResponse,
+
+    -- ** GetEndpointAttributes
+    GetEndpointAttributes (GetEndpointAttributes'),
+    newGetEndpointAttributes,
+    GetEndpointAttributesResponse (GetEndpointAttributesResponse'),
+    newGetEndpointAttributesResponse,
 
     -- ** GetSubscriptionAttributes
     GetSubscriptionAttributes (GetSubscriptionAttributes'),
@@ -217,11 +241,11 @@ module Network.AWS.SNS
     DeleteEndpointResponse (DeleteEndpointResponse'),
     newDeleteEndpointResponse,
 
-    -- ** AddPermission
-    AddPermission (AddPermission'),
-    newAddPermission,
-    AddPermissionResponse (AddPermissionResponse'),
-    newAddPermissionResponse,
+    -- ** ListSubscriptions (Paginated)
+    ListSubscriptions (ListSubscriptions'),
+    newListSubscriptions,
+    ListSubscriptionsResponse (ListSubscriptionsResponse'),
+    newListSubscriptionsResponse,
 
     -- ** ListPhoneNumbersOptedOut (Paginated)
     ListPhoneNumbersOptedOut (ListPhoneNumbersOptedOut'),
@@ -229,23 +253,23 @@ module Network.AWS.SNS
     ListPhoneNumbersOptedOutResponse (ListPhoneNumbersOptedOutResponse'),
     newListPhoneNumbersOptedOutResponse,
 
-    -- ** GetEndpointAttributes
-    GetEndpointAttributes (GetEndpointAttributes'),
-    newGetEndpointAttributes,
-    GetEndpointAttributesResponse (GetEndpointAttributesResponse'),
-    newGetEndpointAttributesResponse,
+    -- ** SetTopicAttributes
+    SetTopicAttributes (SetTopicAttributes'),
+    newSetTopicAttributes,
+    SetTopicAttributesResponse (SetTopicAttributesResponse'),
+    newSetTopicAttributesResponse,
+
+    -- ** ListPlatformApplications (Paginated)
+    ListPlatformApplications (ListPlatformApplications'),
+    newListPlatformApplications,
+    ListPlatformApplicationsResponse (ListPlatformApplicationsResponse'),
+    newListPlatformApplicationsResponse,
 
     -- ** GetPlatformApplicationAttributes
     GetPlatformApplicationAttributes (GetPlatformApplicationAttributes'),
     newGetPlatformApplicationAttributes,
     GetPlatformApplicationAttributesResponse (GetPlatformApplicationAttributesResponse'),
     newGetPlatformApplicationAttributesResponse,
-
-    -- ** SetTopicAttributes
-    SetTopicAttributes (SetTopicAttributes'),
-    newSetTopicAttributes,
-    SetTopicAttributesResponse (SetTopicAttributesResponse'),
-    newSetTopicAttributesResponse,
 
     -- ** ListEndpointsByPlatformApplication (Paginated)
     ListEndpointsByPlatformApplication (ListEndpointsByPlatformApplication'),
@@ -258,12 +282,6 @@ module Network.AWS.SNS
     newGetSMSAttributes,
     GetSMSAttributesResponse (GetSMSAttributesResponse'),
     newGetSMSAttributesResponse,
-
-    -- ** ListPlatformApplications (Paginated)
-    ListPlatformApplications (ListPlatformApplications'),
-    newListPlatformApplications,
-    ListPlatformApplicationsResponse (ListPlatformApplicationsResponse'),
-    newListPlatformApplicationsResponse,
 
     -- ** CreatePlatformApplication
     CreatePlatformApplication (CreatePlatformApplication'),
@@ -283,11 +301,41 @@ module Network.AWS.SNS
     SetSubscriptionAttributesResponse (SetSubscriptionAttributesResponse'),
     newSetSubscriptionAttributesResponse,
 
+    -- ** ListSMSSandboxPhoneNumbers (Paginated)
+    ListSMSSandboxPhoneNumbers (ListSMSSandboxPhoneNumbers'),
+    newListSMSSandboxPhoneNumbers,
+    ListSMSSandboxPhoneNumbersResponse (ListSMSSandboxPhoneNumbersResponse'),
+    newListSMSSandboxPhoneNumbersResponse,
+
+    -- ** ListOriginationNumbers (Paginated)
+    ListOriginationNumbers (ListOriginationNumbers'),
+    newListOriginationNumbers,
+    ListOriginationNumbersResponse (ListOriginationNumbersResponse'),
+    newListOriginationNumbersResponse,
+
+    -- ** CreateSMSSandboxPhoneNumber
+    CreateSMSSandboxPhoneNumber (CreateSMSSandboxPhoneNumber'),
+    newCreateSMSSandboxPhoneNumber,
+    CreateSMSSandboxPhoneNumberResponse (CreateSMSSandboxPhoneNumberResponse'),
+    newCreateSMSSandboxPhoneNumberResponse,
+
+    -- ** GetSMSSandboxAccountStatus
+    GetSMSSandboxAccountStatus (GetSMSSandboxAccountStatus'),
+    newGetSMSSandboxAccountStatus,
+    GetSMSSandboxAccountStatusResponse (GetSMSSandboxAccountStatusResponse'),
+    newGetSMSSandboxAccountStatusResponse,
+
     -- ** CheckIfPhoneNumberIsOptedOut
     CheckIfPhoneNumberIsOptedOut (CheckIfPhoneNumberIsOptedOut'),
     newCheckIfPhoneNumberIsOptedOut,
     CheckIfPhoneNumberIsOptedOutResponse (CheckIfPhoneNumberIsOptedOutResponse'),
     newCheckIfPhoneNumberIsOptedOutResponse,
+
+    -- ** VerifySMSSandboxPhoneNumber
+    VerifySMSSandboxPhoneNumber (VerifySMSSandboxPhoneNumber'),
+    newVerifySMSSandboxPhoneNumber,
+    VerifySMSSandboxPhoneNumberResponse (VerifySMSSandboxPhoneNumberResponse'),
+    newVerifySMSSandboxPhoneNumberResponse,
 
     -- ** DeleteTopic
     DeleteTopic (DeleteTopic'),
@@ -315,6 +363,18 @@ module Network.AWS.SNS
 
     -- * Types
 
+    -- ** LanguageCodeString
+    LanguageCodeString (..),
+
+    -- ** NumberCapability
+    NumberCapability (..),
+
+    -- ** RouteType
+    RouteType (..),
+
+    -- ** SMSSandboxPhoneNumberVerificationStatus
+    SMSSandboxPhoneNumberVerificationStatus (..),
+
     -- ** Endpoint
     Endpoint (Endpoint'),
     newEndpoint,
@@ -323,9 +383,17 @@ module Network.AWS.SNS
     MessageAttributeValue (MessageAttributeValue'),
     newMessageAttributeValue,
 
+    -- ** PhoneNumberInformation
+    PhoneNumberInformation (PhoneNumberInformation'),
+    newPhoneNumberInformation,
+
     -- ** PlatformApplication
     PlatformApplication (PlatformApplication'),
     newPlatformApplication,
+
+    -- ** SMSSandboxPhoneNumber
+    SMSSandboxPhoneNumber (SMSSandboxPhoneNumber'),
+    newSMSSandboxPhoneNumber,
 
     -- ** Subscription
     Subscription (Subscription'),
@@ -346,19 +414,24 @@ import Network.AWS.SNS.CheckIfPhoneNumberIsOptedOut
 import Network.AWS.SNS.ConfirmSubscription
 import Network.AWS.SNS.CreatePlatformApplication
 import Network.AWS.SNS.CreatePlatformEndpoint
+import Network.AWS.SNS.CreateSMSSandboxPhoneNumber
 import Network.AWS.SNS.CreateTopic
 import Network.AWS.SNS.DeleteEndpoint
 import Network.AWS.SNS.DeletePlatformApplication
+import Network.AWS.SNS.DeleteSMSSandboxPhoneNumber
 import Network.AWS.SNS.DeleteTopic
 import Network.AWS.SNS.GetEndpointAttributes
 import Network.AWS.SNS.GetPlatformApplicationAttributes
 import Network.AWS.SNS.GetSMSAttributes
+import Network.AWS.SNS.GetSMSSandboxAccountStatus
 import Network.AWS.SNS.GetSubscriptionAttributes
 import Network.AWS.SNS.GetTopicAttributes
 import Network.AWS.SNS.Lens
 import Network.AWS.SNS.ListEndpointsByPlatformApplication
+import Network.AWS.SNS.ListOriginationNumbers
 import Network.AWS.SNS.ListPhoneNumbersOptedOut
 import Network.AWS.SNS.ListPlatformApplications
+import Network.AWS.SNS.ListSMSSandboxPhoneNumbers
 import Network.AWS.SNS.ListSubscriptions
 import Network.AWS.SNS.ListSubscriptionsByTopic
 import Network.AWS.SNS.ListTagsForResource
@@ -376,6 +449,7 @@ import Network.AWS.SNS.TagResource
 import Network.AWS.SNS.Types
 import Network.AWS.SNS.Unsubscribe
 import Network.AWS.SNS.UntagResource
+import Network.AWS.SNS.VerifySMSSandboxPhoneNumber
 import Network.AWS.SNS.Waiters
 
 -- $errors

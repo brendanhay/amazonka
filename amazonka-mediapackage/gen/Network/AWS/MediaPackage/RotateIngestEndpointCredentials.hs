@@ -37,9 +37,9 @@ module Network.AWS.MediaPackage.RotateIngestEndpointCredentials
 
     -- * Response Lenses
     rotateIngestEndpointCredentialsResponse_egressAccessLogs,
-    rotateIngestEndpointCredentialsResponse_hlsIngest,
     rotateIngestEndpointCredentialsResponse_arn,
     rotateIngestEndpointCredentialsResponse_id,
+    rotateIngestEndpointCredentialsResponse_hlsIngest,
     rotateIngestEndpointCredentialsResponse_ingressAccessLogs,
     rotateIngestEndpointCredentialsResponse_tags,
     rotateIngestEndpointCredentialsResponse_description,
@@ -110,9 +110,9 @@ instance
       ( \s h x ->
           RotateIngestEndpointCredentialsResponse'
             Prelude.<$> (x Core..?> "egressAccessLogs")
-            Prelude.<*> (x Core..?> "hlsIngest")
             Prelude.<*> (x Core..?> "arn")
             Prelude.<*> (x Core..?> "id")
+            Prelude.<*> (x Core..?> "hlsIngest")
             Prelude.<*> (x Core..?> "ingressAccessLogs")
             Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "description")
@@ -160,11 +160,11 @@ instance Core.ToQuery RotateIngestEndpointCredentials where
 -- | /See:/ 'newRotateIngestEndpointCredentialsResponse' smart constructor.
 data RotateIngestEndpointCredentialsResponse = RotateIngestEndpointCredentialsResponse'
   { egressAccessLogs :: Prelude.Maybe EgressAccessLogs,
-    hlsIngest :: Prelude.Maybe HlsIngest,
     -- | The Amazon Resource Name (ARN) assigned to the Channel.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Channel.
     id :: Prelude.Maybe Prelude.Text,
+    hlsIngest :: Prelude.Maybe HlsIngest,
     ingressAccessLogs :: Prelude.Maybe IngressAccessLogs,
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A short text description of the Channel.
@@ -184,11 +184,11 @@ data RotateIngestEndpointCredentialsResponse = RotateIngestEndpointCredentialsRe
 --
 -- 'egressAccessLogs', 'rotateIngestEndpointCredentialsResponse_egressAccessLogs' - Undocumented member.
 --
--- 'hlsIngest', 'rotateIngestEndpointCredentialsResponse_hlsIngest' - Undocumented member.
---
 -- 'arn', 'rotateIngestEndpointCredentialsResponse_arn' - The Amazon Resource Name (ARN) assigned to the Channel.
 --
 -- 'id', 'rotateIngestEndpointCredentialsResponse_id' - The ID of the Channel.
+--
+-- 'hlsIngest', 'rotateIngestEndpointCredentialsResponse_hlsIngest' - Undocumented member.
 --
 -- 'ingressAccessLogs', 'rotateIngestEndpointCredentialsResponse_ingressAccessLogs' - Undocumented member.
 --
@@ -206,9 +206,9 @@ newRotateIngestEndpointCredentialsResponse
     RotateIngestEndpointCredentialsResponse'
       { egressAccessLogs =
           Prelude.Nothing,
-        hlsIngest = Prelude.Nothing,
         arn = Prelude.Nothing,
         id = Prelude.Nothing,
+        hlsIngest = Prelude.Nothing,
         ingressAccessLogs =
           Prelude.Nothing,
         tags = Prelude.Nothing,
@@ -220,10 +220,6 @@ newRotateIngestEndpointCredentialsResponse
 rotateIngestEndpointCredentialsResponse_egressAccessLogs :: Lens.Lens' RotateIngestEndpointCredentialsResponse (Prelude.Maybe EgressAccessLogs)
 rotateIngestEndpointCredentialsResponse_egressAccessLogs = Lens.lens (\RotateIngestEndpointCredentialsResponse' {egressAccessLogs} -> egressAccessLogs) (\s@RotateIngestEndpointCredentialsResponse' {} a -> s {egressAccessLogs = a} :: RotateIngestEndpointCredentialsResponse)
 
--- | Undocumented member.
-rotateIngestEndpointCredentialsResponse_hlsIngest :: Lens.Lens' RotateIngestEndpointCredentialsResponse (Prelude.Maybe HlsIngest)
-rotateIngestEndpointCredentialsResponse_hlsIngest = Lens.lens (\RotateIngestEndpointCredentialsResponse' {hlsIngest} -> hlsIngest) (\s@RotateIngestEndpointCredentialsResponse' {} a -> s {hlsIngest = a} :: RotateIngestEndpointCredentialsResponse)
-
 -- | The Amazon Resource Name (ARN) assigned to the Channel.
 rotateIngestEndpointCredentialsResponse_arn :: Lens.Lens' RotateIngestEndpointCredentialsResponse (Prelude.Maybe Prelude.Text)
 rotateIngestEndpointCredentialsResponse_arn = Lens.lens (\RotateIngestEndpointCredentialsResponse' {arn} -> arn) (\s@RotateIngestEndpointCredentialsResponse' {} a -> s {arn = a} :: RotateIngestEndpointCredentialsResponse)
@@ -231,6 +227,10 @@ rotateIngestEndpointCredentialsResponse_arn = Lens.lens (\RotateIngestEndpointCr
 -- | The ID of the Channel.
 rotateIngestEndpointCredentialsResponse_id :: Lens.Lens' RotateIngestEndpointCredentialsResponse (Prelude.Maybe Prelude.Text)
 rotateIngestEndpointCredentialsResponse_id = Lens.lens (\RotateIngestEndpointCredentialsResponse' {id} -> id) (\s@RotateIngestEndpointCredentialsResponse' {} a -> s {id = a} :: RotateIngestEndpointCredentialsResponse)
+
+-- | Undocumented member.
+rotateIngestEndpointCredentialsResponse_hlsIngest :: Lens.Lens' RotateIngestEndpointCredentialsResponse (Prelude.Maybe HlsIngest)
+rotateIngestEndpointCredentialsResponse_hlsIngest = Lens.lens (\RotateIngestEndpointCredentialsResponse' {hlsIngest} -> hlsIngest) (\s@RotateIngestEndpointCredentialsResponse' {} a -> s {hlsIngest = a} :: RotateIngestEndpointCredentialsResponse)
 
 -- | Undocumented member.
 rotateIngestEndpointCredentialsResponse_ingressAccessLogs :: Lens.Lens' RotateIngestEndpointCredentialsResponse (Prelude.Maybe IngressAccessLogs)

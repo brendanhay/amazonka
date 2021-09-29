@@ -50,16 +50,16 @@ data DashPackage = DashPackage'
     adTriggers :: Prelude.Maybe [AdTriggersElement],
     -- | Time window (in seconds) contained in each manifest.
     manifestWindowSeconds :: Prelude.Maybe Prelude.Int,
+    -- | Minimum duration (in seconds) between potential changes to the Dynamic
+    -- Adaptive Streaming over HTTP (DASH) Media Presentation Description
+    -- (MPD).
+    minUpdatePeriodSeconds :: Prelude.Maybe Prelude.Int,
     -- | Determines the position of some tags in the Media Presentation
     -- Description (MPD). When set to FULL, elements like SegmentTemplate and
     -- ContentProtection are included in each Representation. When set to
     -- COMPACT, duplicate elements are combined and presented at the
     -- AdaptationSet level.
     manifestLayout :: Prelude.Maybe ManifestLayout,
-    -- | Minimum duration (in seconds) between potential changes to the Dynamic
-    -- Adaptive Streaming over HTTP (DASH) Media Presentation Description
-    -- (MPD).
-    minUpdatePeriodSeconds :: Prelude.Maybe Prelude.Int,
     encryption :: Prelude.Maybe DashEncryption,
     adsOnDeliveryRestrictions :: Prelude.Maybe AdsOnDeliveryRestrictions,
     -- | Specifies the value attribute of the UTCTiming field when utcTiming is
@@ -111,15 +111,15 @@ data DashPackage = DashPackage'
 --
 -- 'manifestWindowSeconds', 'dashPackage_manifestWindowSeconds' - Time window (in seconds) contained in each manifest.
 --
+-- 'minUpdatePeriodSeconds', 'dashPackage_minUpdatePeriodSeconds' - Minimum duration (in seconds) between potential changes to the Dynamic
+-- Adaptive Streaming over HTTP (DASH) Media Presentation Description
+-- (MPD).
+--
 -- 'manifestLayout', 'dashPackage_manifestLayout' - Determines the position of some tags in the Media Presentation
 -- Description (MPD). When set to FULL, elements like SegmentTemplate and
 -- ContentProtection are included in each Representation. When set to
 -- COMPACT, duplicate elements are combined and presented at the
 -- AdaptationSet level.
---
--- 'minUpdatePeriodSeconds', 'dashPackage_minUpdatePeriodSeconds' - Minimum duration (in seconds) between potential changes to the Dynamic
--- Adaptive Streaming over HTTP (DASH) Media Presentation Description
--- (MPD).
 --
 -- 'encryption', 'dashPackage_encryption' - Undocumented member.
 --
@@ -156,8 +156,8 @@ newDashPackage =
       periodTriggers = Prelude.Nothing,
       adTriggers = Prelude.Nothing,
       manifestWindowSeconds = Prelude.Nothing,
-      manifestLayout = Prelude.Nothing,
       minUpdatePeriodSeconds = Prelude.Nothing,
+      manifestLayout = Prelude.Nothing,
       encryption = Prelude.Nothing,
       adsOnDeliveryRestrictions = Prelude.Nothing,
       utcTimingUri = Prelude.Nothing,
@@ -194,6 +194,12 @@ dashPackage_adTriggers = Lens.lens (\DashPackage' {adTriggers} -> adTriggers) (\
 dashPackage_manifestWindowSeconds :: Lens.Lens' DashPackage (Prelude.Maybe Prelude.Int)
 dashPackage_manifestWindowSeconds = Lens.lens (\DashPackage' {manifestWindowSeconds} -> manifestWindowSeconds) (\s@DashPackage' {} a -> s {manifestWindowSeconds = a} :: DashPackage)
 
+-- | Minimum duration (in seconds) between potential changes to the Dynamic
+-- Adaptive Streaming over HTTP (DASH) Media Presentation Description
+-- (MPD).
+dashPackage_minUpdatePeriodSeconds :: Lens.Lens' DashPackage (Prelude.Maybe Prelude.Int)
+dashPackage_minUpdatePeriodSeconds = Lens.lens (\DashPackage' {minUpdatePeriodSeconds} -> minUpdatePeriodSeconds) (\s@DashPackage' {} a -> s {minUpdatePeriodSeconds = a} :: DashPackage)
+
 -- | Determines the position of some tags in the Media Presentation
 -- Description (MPD). When set to FULL, elements like SegmentTemplate and
 -- ContentProtection are included in each Representation. When set to
@@ -201,12 +207,6 @@ dashPackage_manifestWindowSeconds = Lens.lens (\DashPackage' {manifestWindowSeco
 -- AdaptationSet level.
 dashPackage_manifestLayout :: Lens.Lens' DashPackage (Prelude.Maybe ManifestLayout)
 dashPackage_manifestLayout = Lens.lens (\DashPackage' {manifestLayout} -> manifestLayout) (\s@DashPackage' {} a -> s {manifestLayout = a} :: DashPackage)
-
--- | Minimum duration (in seconds) between potential changes to the Dynamic
--- Adaptive Streaming over HTTP (DASH) Media Presentation Description
--- (MPD).
-dashPackage_minUpdatePeriodSeconds :: Lens.Lens' DashPackage (Prelude.Maybe Prelude.Int)
-dashPackage_minUpdatePeriodSeconds = Lens.lens (\DashPackage' {minUpdatePeriodSeconds} -> minUpdatePeriodSeconds) (\s@DashPackage' {} a -> s {minUpdatePeriodSeconds = a} :: DashPackage)
 
 -- | Undocumented member.
 dashPackage_encryption :: Lens.Lens' DashPackage (Prelude.Maybe DashEncryption)
@@ -261,8 +261,8 @@ instance Core.FromJSON DashPackage where
             Prelude.<*> (x Core..:? "periodTriggers" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "adTriggers" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "manifestWindowSeconds")
-            Prelude.<*> (x Core..:? "manifestLayout")
             Prelude.<*> (x Core..:? "minUpdatePeriodSeconds")
+            Prelude.<*> (x Core..:? "manifestLayout")
             Prelude.<*> (x Core..:? "encryption")
             Prelude.<*> (x Core..:? "adsOnDeliveryRestrictions")
             Prelude.<*> (x Core..:? "utcTimingUri")
@@ -290,10 +290,10 @@ instance Core.ToJSON DashPackage where
             ("adTriggers" Core..=) Prelude.<$> adTriggers,
             ("manifestWindowSeconds" Core..=)
               Prelude.<$> manifestWindowSeconds,
-            ("manifestLayout" Core..=)
-              Prelude.<$> manifestLayout,
             ("minUpdatePeriodSeconds" Core..=)
               Prelude.<$> minUpdatePeriodSeconds,
+            ("manifestLayout" Core..=)
+              Prelude.<$> manifestLayout,
             ("encryption" Core..=) Prelude.<$> encryption,
             ("adsOnDeliveryRestrictions" Core..=)
               Prelude.<$> adsOnDeliveryRestrictions,

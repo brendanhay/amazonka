@@ -74,6 +74,7 @@ library
     Network.AWS.MediaPackage.Types.DashEncryption
     Network.AWS.MediaPackage.Types.DashPackage
     Network.AWS.MediaPackage.Types.EgressAccessLogs
+    Network.AWS.MediaPackage.Types.EncryptionContractConfiguration
     Network.AWS.MediaPackage.Types.EncryptionMethod
     Network.AWS.MediaPackage.Types.HarvestJob
     Network.AWS.MediaPackage.Types.HlsEncryption
@@ -90,6 +91,8 @@ library
     Network.AWS.MediaPackage.Types.OriginEndpoint
     Network.AWS.MediaPackage.Types.PeriodTriggersElement
     Network.AWS.MediaPackage.Types.PlaylistType
+    Network.AWS.MediaPackage.Types.PresetSpeke20Audio
+    Network.AWS.MediaPackage.Types.PresetSpeke20Video
     Network.AWS.MediaPackage.Types.Profile
     Network.AWS.MediaPackage.Types.S3Destination
     Network.AWS.MediaPackage.Types.SegmentTemplateFormat

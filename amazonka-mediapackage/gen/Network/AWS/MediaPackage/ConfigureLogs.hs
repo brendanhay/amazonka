@@ -37,9 +37,9 @@ module Network.AWS.MediaPackage.ConfigureLogs
 
     -- * Response Lenses
     configureLogsResponse_egressAccessLogs,
-    configureLogsResponse_hlsIngest,
     configureLogsResponse_arn,
     configureLogsResponse_id,
+    configureLogsResponse_hlsIngest,
     configureLogsResponse_ingressAccessLogs,
     configureLogsResponse_tags,
     configureLogsResponse_description,
@@ -111,9 +111,9 @@ instance Core.AWSRequest ConfigureLogs where
       ( \s h x ->
           ConfigureLogsResponse'
             Prelude.<$> (x Core..?> "egressAccessLogs")
-            Prelude.<*> (x Core..?> "hlsIngest")
             Prelude.<*> (x Core..?> "arn")
             Prelude.<*> (x Core..?> "id")
+            Prelude.<*> (x Core..?> "hlsIngest")
             Prelude.<*> (x Core..?> "ingressAccessLogs")
             Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "description")
@@ -157,11 +157,11 @@ instance Core.ToQuery ConfigureLogs where
 -- | /See:/ 'newConfigureLogsResponse' smart constructor.
 data ConfigureLogsResponse = ConfigureLogsResponse'
   { egressAccessLogs :: Prelude.Maybe EgressAccessLogs,
-    hlsIngest :: Prelude.Maybe HlsIngest,
     -- | The Amazon Resource Name (ARN) assigned to the Channel.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Channel.
     id :: Prelude.Maybe Prelude.Text,
+    hlsIngest :: Prelude.Maybe HlsIngest,
     ingressAccessLogs :: Prelude.Maybe IngressAccessLogs,
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A short text description of the Channel.
@@ -181,11 +181,11 @@ data ConfigureLogsResponse = ConfigureLogsResponse'
 --
 -- 'egressAccessLogs', 'configureLogsResponse_egressAccessLogs' - Undocumented member.
 --
--- 'hlsIngest', 'configureLogsResponse_hlsIngest' - Undocumented member.
---
 -- 'arn', 'configureLogsResponse_arn' - The Amazon Resource Name (ARN) assigned to the Channel.
 --
 -- 'id', 'configureLogsResponse_id' - The ID of the Channel.
+--
+-- 'hlsIngest', 'configureLogsResponse_hlsIngest' - Undocumented member.
 --
 -- 'ingressAccessLogs', 'configureLogsResponse_ingressAccessLogs' - Undocumented member.
 --
@@ -202,9 +202,9 @@ newConfigureLogsResponse pHttpStatus_ =
   ConfigureLogsResponse'
     { egressAccessLogs =
         Prelude.Nothing,
-      hlsIngest = Prelude.Nothing,
       arn = Prelude.Nothing,
       id = Prelude.Nothing,
+      hlsIngest = Prelude.Nothing,
       ingressAccessLogs = Prelude.Nothing,
       tags = Prelude.Nothing,
       description = Prelude.Nothing,
@@ -215,10 +215,6 @@ newConfigureLogsResponse pHttpStatus_ =
 configureLogsResponse_egressAccessLogs :: Lens.Lens' ConfigureLogsResponse (Prelude.Maybe EgressAccessLogs)
 configureLogsResponse_egressAccessLogs = Lens.lens (\ConfigureLogsResponse' {egressAccessLogs} -> egressAccessLogs) (\s@ConfigureLogsResponse' {} a -> s {egressAccessLogs = a} :: ConfigureLogsResponse)
 
--- | Undocumented member.
-configureLogsResponse_hlsIngest :: Lens.Lens' ConfigureLogsResponse (Prelude.Maybe HlsIngest)
-configureLogsResponse_hlsIngest = Lens.lens (\ConfigureLogsResponse' {hlsIngest} -> hlsIngest) (\s@ConfigureLogsResponse' {} a -> s {hlsIngest = a} :: ConfigureLogsResponse)
-
 -- | The Amazon Resource Name (ARN) assigned to the Channel.
 configureLogsResponse_arn :: Lens.Lens' ConfigureLogsResponse (Prelude.Maybe Prelude.Text)
 configureLogsResponse_arn = Lens.lens (\ConfigureLogsResponse' {arn} -> arn) (\s@ConfigureLogsResponse' {} a -> s {arn = a} :: ConfigureLogsResponse)
@@ -226,6 +222,10 @@ configureLogsResponse_arn = Lens.lens (\ConfigureLogsResponse' {arn} -> arn) (\s
 -- | The ID of the Channel.
 configureLogsResponse_id :: Lens.Lens' ConfigureLogsResponse (Prelude.Maybe Prelude.Text)
 configureLogsResponse_id = Lens.lens (\ConfigureLogsResponse' {id} -> id) (\s@ConfigureLogsResponse' {} a -> s {id = a} :: ConfigureLogsResponse)
+
+-- | Undocumented member.
+configureLogsResponse_hlsIngest :: Lens.Lens' ConfigureLogsResponse (Prelude.Maybe HlsIngest)
+configureLogsResponse_hlsIngest = Lens.lens (\ConfigureLogsResponse' {hlsIngest} -> hlsIngest) (\s@ConfigureLogsResponse' {} a -> s {hlsIngest = a} :: ConfigureLogsResponse)
 
 -- | Undocumented member.
 configureLogsResponse_ingressAccessLogs :: Lens.Lens' ConfigureLogsResponse (Prelude.Maybe IngressAccessLogs)

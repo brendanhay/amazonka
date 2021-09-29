@@ -40,8 +40,8 @@ module Network.AWS.Greengrass.GetGroup
     getGroupResponse_arn,
     getGroupResponse_id,
     getGroupResponse_name,
-    getGroupResponse_lastUpdatedTimestamp,
     getGroupResponse_tags,
+    getGroupResponse_lastUpdatedTimestamp,
     getGroupResponse_httpStatus,
   )
 where
@@ -93,8 +93,8 @@ instance Core.AWSRequest GetGroup where
             Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (x Core..?> "Id")
             Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "LastUpdatedTimestamp")
             Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "LastUpdatedTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -136,11 +136,11 @@ data GetGroupResponse = GetGroupResponse'
     id :: Prelude.Maybe Prelude.Text,
     -- | The name of the definition.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Tag(s) attached to the resource arn.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The time, in milliseconds since the epoch, when the definition was last
     -- updated.
     lastUpdatedTimestamp :: Prelude.Maybe Prelude.Text,
-    -- | Tag(s) attached to the resource arn.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -167,10 +167,10 @@ data GetGroupResponse = GetGroupResponse'
 --
 -- 'name', 'getGroupResponse_name' - The name of the definition.
 --
+-- 'tags', 'getGroupResponse_tags' - Tag(s) attached to the resource arn.
+--
 -- 'lastUpdatedTimestamp', 'getGroupResponse_lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last
 -- updated.
---
--- 'tags', 'getGroupResponse_tags' - Tag(s) attached to the resource arn.
 --
 -- 'httpStatus', 'getGroupResponse_httpStatus' - The response's http status code.
 newGetGroupResponse ::
@@ -186,8 +186,8 @@ newGetGroupResponse pHttpStatus_ =
       arn = Prelude.Nothing,
       id = Prelude.Nothing,
       name = Prelude.Nothing,
-      lastUpdatedTimestamp = Prelude.Nothing,
       tags = Prelude.Nothing,
+      lastUpdatedTimestamp = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -216,14 +216,14 @@ getGroupResponse_id = Lens.lens (\GetGroupResponse' {id} -> id) (\s@GetGroupResp
 getGroupResponse_name :: Lens.Lens' GetGroupResponse (Prelude.Maybe Prelude.Text)
 getGroupResponse_name = Lens.lens (\GetGroupResponse' {name} -> name) (\s@GetGroupResponse' {} a -> s {name = a} :: GetGroupResponse)
 
+-- | Tag(s) attached to the resource arn.
+getGroupResponse_tags :: Lens.Lens' GetGroupResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getGroupResponse_tags = Lens.lens (\GetGroupResponse' {tags} -> tags) (\s@GetGroupResponse' {} a -> s {tags = a} :: GetGroupResponse) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The time, in milliseconds since the epoch, when the definition was last
 -- updated.
 getGroupResponse_lastUpdatedTimestamp :: Lens.Lens' GetGroupResponse (Prelude.Maybe Prelude.Text)
 getGroupResponse_lastUpdatedTimestamp = Lens.lens (\GetGroupResponse' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@GetGroupResponse' {} a -> s {lastUpdatedTimestamp = a} :: GetGroupResponse)
-
--- | Tag(s) attached to the resource arn.
-getGroupResponse_tags :: Lens.Lens' GetGroupResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getGroupResponse_tags = Lens.lens (\GetGroupResponse' {tags} -> tags) (\s@GetGroupResponse' {} a -> s {tags = a} :: GetGroupResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 getGroupResponse_httpStatus :: Lens.Lens' GetGroupResponse Prelude.Int

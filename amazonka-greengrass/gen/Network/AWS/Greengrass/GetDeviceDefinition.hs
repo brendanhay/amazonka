@@ -40,8 +40,8 @@ module Network.AWS.Greengrass.GetDeviceDefinition
     getDeviceDefinitionResponse_arn,
     getDeviceDefinitionResponse_id,
     getDeviceDefinitionResponse_name,
-    getDeviceDefinitionResponse_lastUpdatedTimestamp,
     getDeviceDefinitionResponse_tags,
+    getDeviceDefinitionResponse_lastUpdatedTimestamp,
     getDeviceDefinitionResponse_httpStatus,
   )
 where
@@ -98,8 +98,8 @@ instance Core.AWSRequest GetDeviceDefinition where
             Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (x Core..?> "Id")
             Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "LastUpdatedTimestamp")
             Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "LastUpdatedTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -143,11 +143,11 @@ data GetDeviceDefinitionResponse = GetDeviceDefinitionResponse'
     id :: Prelude.Maybe Prelude.Text,
     -- | The name of the definition.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Tag(s) attached to the resource arn.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The time, in milliseconds since the epoch, when the definition was last
     -- updated.
     lastUpdatedTimestamp :: Prelude.Maybe Prelude.Text,
-    -- | Tag(s) attached to the resource arn.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -174,10 +174,10 @@ data GetDeviceDefinitionResponse = GetDeviceDefinitionResponse'
 --
 -- 'name', 'getDeviceDefinitionResponse_name' - The name of the definition.
 --
+-- 'tags', 'getDeviceDefinitionResponse_tags' - Tag(s) attached to the resource arn.
+--
 -- 'lastUpdatedTimestamp', 'getDeviceDefinitionResponse_lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last
 -- updated.
---
--- 'tags', 'getDeviceDefinitionResponse_tags' - Tag(s) attached to the resource arn.
 --
 -- 'httpStatus', 'getDeviceDefinitionResponse_httpStatus' - The response's http status code.
 newGetDeviceDefinitionResponse ::
@@ -193,8 +193,8 @@ newGetDeviceDefinitionResponse pHttpStatus_ =
       arn = Prelude.Nothing,
       id = Prelude.Nothing,
       name = Prelude.Nothing,
-      lastUpdatedTimestamp = Prelude.Nothing,
       tags = Prelude.Nothing,
+      lastUpdatedTimestamp = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -223,14 +223,14 @@ getDeviceDefinitionResponse_id = Lens.lens (\GetDeviceDefinitionResponse' {id} -
 getDeviceDefinitionResponse_name :: Lens.Lens' GetDeviceDefinitionResponse (Prelude.Maybe Prelude.Text)
 getDeviceDefinitionResponse_name = Lens.lens (\GetDeviceDefinitionResponse' {name} -> name) (\s@GetDeviceDefinitionResponse' {} a -> s {name = a} :: GetDeviceDefinitionResponse)
 
+-- | Tag(s) attached to the resource arn.
+getDeviceDefinitionResponse_tags :: Lens.Lens' GetDeviceDefinitionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getDeviceDefinitionResponse_tags = Lens.lens (\GetDeviceDefinitionResponse' {tags} -> tags) (\s@GetDeviceDefinitionResponse' {} a -> s {tags = a} :: GetDeviceDefinitionResponse) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The time, in milliseconds since the epoch, when the definition was last
 -- updated.
 getDeviceDefinitionResponse_lastUpdatedTimestamp :: Lens.Lens' GetDeviceDefinitionResponse (Prelude.Maybe Prelude.Text)
 getDeviceDefinitionResponse_lastUpdatedTimestamp = Lens.lens (\GetDeviceDefinitionResponse' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@GetDeviceDefinitionResponse' {} a -> s {lastUpdatedTimestamp = a} :: GetDeviceDefinitionResponse)
-
--- | Tag(s) attached to the resource arn.
-getDeviceDefinitionResponse_tags :: Lens.Lens' GetDeviceDefinitionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getDeviceDefinitionResponse_tags = Lens.lens (\GetDeviceDefinitionResponse' {tags} -> tags) (\s@GetDeviceDefinitionResponse' {} a -> s {tags = a} :: GetDeviceDefinitionResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 getDeviceDefinitionResponse_httpStatus :: Lens.Lens' GetDeviceDefinitionResponse Prelude.Int

@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newConnectivityInfo' smart constructor.
 data ConnectivityInfo = ConnectivityInfo'
-  { -- | The ID of the connectivity information.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | Metadata for this endpoint.
+  { -- | Metadata for this endpoint.
     metadata :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the connectivity information.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The port of the Greengrass core. Usually 8883.
     portNumber :: Prelude.Maybe Prelude.Int,
     -- | The endpoint for the Greengrass core. Can be an IP address or DNS.
@@ -46,9 +46,9 @@ data ConnectivityInfo = ConnectivityInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'connectivityInfo_id' - The ID of the connectivity information.
---
 -- 'metadata', 'connectivityInfo_metadata' - Metadata for this endpoint.
+--
+-- 'id', 'connectivityInfo_id' - The ID of the connectivity information.
 --
 -- 'portNumber', 'connectivityInfo_portNumber' - The port of the Greengrass core. Usually 8883.
 --
@@ -57,19 +57,19 @@ newConnectivityInfo ::
   ConnectivityInfo
 newConnectivityInfo =
   ConnectivityInfo'
-    { id = Prelude.Nothing,
-      metadata = Prelude.Nothing,
+    { metadata = Prelude.Nothing,
+      id = Prelude.Nothing,
       portNumber = Prelude.Nothing,
       hostAddress = Prelude.Nothing
     }
 
--- | The ID of the connectivity information.
-connectivityInfo_id :: Lens.Lens' ConnectivityInfo (Prelude.Maybe Prelude.Text)
-connectivityInfo_id = Lens.lens (\ConnectivityInfo' {id} -> id) (\s@ConnectivityInfo' {} a -> s {id = a} :: ConnectivityInfo)
-
 -- | Metadata for this endpoint.
 connectivityInfo_metadata :: Lens.Lens' ConnectivityInfo (Prelude.Maybe Prelude.Text)
 connectivityInfo_metadata = Lens.lens (\ConnectivityInfo' {metadata} -> metadata) (\s@ConnectivityInfo' {} a -> s {metadata = a} :: ConnectivityInfo)
+
+-- | The ID of the connectivity information.
+connectivityInfo_id :: Lens.Lens' ConnectivityInfo (Prelude.Maybe Prelude.Text)
+connectivityInfo_id = Lens.lens (\ConnectivityInfo' {id} -> id) (\s@ConnectivityInfo' {} a -> s {id = a} :: ConnectivityInfo)
 
 -- | The port of the Greengrass core. Usually 8883.
 connectivityInfo_portNumber :: Lens.Lens' ConnectivityInfo (Prelude.Maybe Prelude.Int)
@@ -85,8 +85,8 @@ instance Core.FromJSON ConnectivityInfo where
       "ConnectivityInfo"
       ( \x ->
           ConnectivityInfo'
-            Prelude.<$> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "Metadata")
+            Prelude.<$> (x Core..:? "Metadata")
+            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "PortNumber")
             Prelude.<*> (x Core..:? "HostAddress")
       )
@@ -99,8 +99,8 @@ instance Core.ToJSON ConnectivityInfo where
   toJSON ConnectivityInfo' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Id" Core..=) Prelude.<$> id,
-            ("Metadata" Core..=) Prelude.<$> metadata,
+          [ ("Metadata" Core..=) Prelude.<$> metadata,
+            ("Id" Core..=) Prelude.<$> id,
             ("PortNumber" Core..=) Prelude.<$> portNumber,
             ("HostAddress" Core..=) Prelude.<$> hostAddress
           ]

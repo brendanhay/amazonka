@@ -81,8 +81,8 @@ module Network.AWS.Greengrass.Types
     newBulkDeploymentResult,
     bulkDeploymentResult_deploymentId,
     bulkDeploymentResult_deploymentType,
-    bulkDeploymentResult_deploymentStatus,
     bulkDeploymentResult_createdAt,
+    bulkDeploymentResult_deploymentStatus,
     bulkDeploymentResult_deploymentArn,
     bulkDeploymentResult_errorMessage,
     bulkDeploymentResult_groupArn,
@@ -91,8 +91,8 @@ module Network.AWS.Greengrass.Types
     -- * ConnectivityInfo
     ConnectivityInfo (..),
     newConnectivityInfo,
-    connectivityInfo_id,
     connectivityInfo_metadata,
+    connectivityInfo_id,
     connectivityInfo_portNumber,
     connectivityInfo_hostAddress,
 
@@ -171,12 +171,12 @@ module Network.AWS.Greengrass.Types
     -- * FunctionConfiguration
     FunctionConfiguration (..),
     newFunctionConfiguration,
-    functionConfiguration_execArgs,
     functionConfiguration_memorySize,
+    functionConfiguration_execArgs,
     functionConfiguration_timeout,
     functionConfiguration_encodingType,
-    functionConfiguration_pinned,
     functionConfiguration_executable,
+    functionConfiguration_pinned,
     functionConfiguration_environment,
 
     -- * FunctionConfigurationEnvironment
@@ -251,9 +251,9 @@ module Network.AWS.Greengrass.Types
     -- * GroupVersion
     GroupVersion (..),
     newGroupVersion,
+    groupVersion_subscriptionDefinitionVersionArn,
     groupVersion_coreDefinitionVersionArn,
     groupVersion_connectorDefinitionVersionArn,
-    groupVersion_subscriptionDefinitionVersionArn,
     groupVersion_loggerDefinitionVersionArn,
     groupVersion_resourceDefinitionVersionArn,
     groupVersion_functionDefinitionVersionArn,
@@ -295,8 +295,8 @@ module Network.AWS.Greengrass.Types
     newResourceDataContainer,
     resourceDataContainer_localVolumeResourceData,
     resourceDataContainer_localDeviceResourceData,
-    resourceDataContainer_sageMakerMachineLearningModelResourceData,
     resourceDataContainer_s3MachineLearningModelResourceData,
+    resourceDataContainer_sageMakerMachineLearningModelResourceData,
     resourceDataContainer_secretsManagerSecretResourceData,
 
     -- * ResourceDefinitionVersion

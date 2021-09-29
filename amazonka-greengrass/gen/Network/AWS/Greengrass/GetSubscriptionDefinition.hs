@@ -40,8 +40,8 @@ module Network.AWS.Greengrass.GetSubscriptionDefinition
     getSubscriptionDefinitionResponse_arn,
     getSubscriptionDefinitionResponse_id,
     getSubscriptionDefinitionResponse_name,
-    getSubscriptionDefinitionResponse_lastUpdatedTimestamp,
     getSubscriptionDefinitionResponse_tags,
+    getSubscriptionDefinitionResponse_lastUpdatedTimestamp,
     getSubscriptionDefinitionResponse_httpStatus,
   )
 where
@@ -99,8 +99,8 @@ instance Core.AWSRequest GetSubscriptionDefinition where
             Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (x Core..?> "Id")
             Prelude.<*> (x Core..?> "Name")
-            Prelude.<*> (x Core..?> "LastUpdatedTimestamp")
             Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "LastUpdatedTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -144,11 +144,11 @@ data GetSubscriptionDefinitionResponse = GetSubscriptionDefinitionResponse'
     id :: Prelude.Maybe Prelude.Text,
     -- | The name of the definition.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Tag(s) attached to the resource arn.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The time, in milliseconds since the epoch, when the definition was last
     -- updated.
     lastUpdatedTimestamp :: Prelude.Maybe Prelude.Text,
-    -- | Tag(s) attached to the resource arn.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -175,10 +175,10 @@ data GetSubscriptionDefinitionResponse = GetSubscriptionDefinitionResponse'
 --
 -- 'name', 'getSubscriptionDefinitionResponse_name' - The name of the definition.
 --
+-- 'tags', 'getSubscriptionDefinitionResponse_tags' - Tag(s) attached to the resource arn.
+--
 -- 'lastUpdatedTimestamp', 'getSubscriptionDefinitionResponse_lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last
 -- updated.
---
--- 'tags', 'getSubscriptionDefinitionResponse_tags' - Tag(s) attached to the resource arn.
 --
 -- 'httpStatus', 'getSubscriptionDefinitionResponse_httpStatus' - The response's http status code.
 newGetSubscriptionDefinitionResponse ::
@@ -194,8 +194,8 @@ newGetSubscriptionDefinitionResponse pHttpStatus_ =
       arn = Prelude.Nothing,
       id = Prelude.Nothing,
       name = Prelude.Nothing,
-      lastUpdatedTimestamp = Prelude.Nothing,
       tags = Prelude.Nothing,
+      lastUpdatedTimestamp = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -224,14 +224,14 @@ getSubscriptionDefinitionResponse_id = Lens.lens (\GetSubscriptionDefinitionResp
 getSubscriptionDefinitionResponse_name :: Lens.Lens' GetSubscriptionDefinitionResponse (Prelude.Maybe Prelude.Text)
 getSubscriptionDefinitionResponse_name = Lens.lens (\GetSubscriptionDefinitionResponse' {name} -> name) (\s@GetSubscriptionDefinitionResponse' {} a -> s {name = a} :: GetSubscriptionDefinitionResponse)
 
+-- | Tag(s) attached to the resource arn.
+getSubscriptionDefinitionResponse_tags :: Lens.Lens' GetSubscriptionDefinitionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getSubscriptionDefinitionResponse_tags = Lens.lens (\GetSubscriptionDefinitionResponse' {tags} -> tags) (\s@GetSubscriptionDefinitionResponse' {} a -> s {tags = a} :: GetSubscriptionDefinitionResponse) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The time, in milliseconds since the epoch, when the definition was last
 -- updated.
 getSubscriptionDefinitionResponse_lastUpdatedTimestamp :: Lens.Lens' GetSubscriptionDefinitionResponse (Prelude.Maybe Prelude.Text)
 getSubscriptionDefinitionResponse_lastUpdatedTimestamp = Lens.lens (\GetSubscriptionDefinitionResponse' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@GetSubscriptionDefinitionResponse' {} a -> s {lastUpdatedTimestamp = a} :: GetSubscriptionDefinitionResponse)
-
--- | Tag(s) attached to the resource arn.
-getSubscriptionDefinitionResponse_tags :: Lens.Lens' GetSubscriptionDefinitionResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-getSubscriptionDefinitionResponse_tags = Lens.lens (\GetSubscriptionDefinitionResponse' {tags} -> tags) (\s@GetSubscriptionDefinitionResponse' {} a -> s {tags = a} :: GetSubscriptionDefinitionResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 getSubscriptionDefinitionResponse_httpStatus :: Lens.Lens' GetSubscriptionDefinitionResponse Prelude.Int

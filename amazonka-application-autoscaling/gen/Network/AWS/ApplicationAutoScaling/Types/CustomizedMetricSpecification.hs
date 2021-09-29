@@ -29,7 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- scaling policy to use with Application Auto Scaling.
 --
 -- For information about the available metrics for a service, see
--- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html AWS Services That Publish CloudWatch Metrics>
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html Amazon Web Services Services That Publish CloudWatch Metrics>
 -- in the /Amazon CloudWatch User Guide/.
 --
 -- To create your customized metric specification:

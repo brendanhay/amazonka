@@ -48,8 +48,8 @@ data ScalingPolicy = ScalingPolicy'
     policyARN :: Prelude.Text,
     -- | The name of the scaling policy.
     policyName :: Prelude.Text,
-    -- | The namespace of the AWS service that provides the resource, or a
-    -- @custom-resource@.
+    -- | The namespace of the Amazon Web Services service that provides the
+    -- resource, or a @custom-resource@.
     serviceNamespace :: ServiceNamespace,
     -- | The identifier of the resource associated with the scaling policy. This
     -- string consists of the resource type and unique identifier.
@@ -111,6 +111,10 @@ data ScalingPolicy = ScalingPolicy'
     -- -   Amazon MSK cluster - The resource type and unique identifier are
     --     specified using the cluster ARN. Example:
     --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
+    --
+    -- -   Amazon ElastiCache replication group - The resource type is
+    --     @replication-group@ and the unique identifier is the replication
+    --     group name. Example: @replication-group\/mycluster@.
     resourceId :: Prelude.Text,
     -- | The scalable dimension. This string consists of the service namespace,
     -- resource type, and scaling property.
@@ -118,11 +122,11 @@ data ScalingPolicy = ScalingPolicy'
     -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
     --     service.
     --
-    -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
-    --     Spot Fleet request.
-    --
     -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
     --     of an EMR Instance Group.
+    --
+    -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+    --     Spot Fleet request.
     --
     -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
     --     AppStream 2.0 fleet.
@@ -168,6 +172,12 @@ data ScalingPolicy = ScalingPolicy'
     --
     -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
     --     GiB) for brokers in an Amazon MSK cluster.
+    --
+    -- -   @elasticache:replication-group:NodeGroups@ - The number of node
+    --     groups for an Amazon ElastiCache replication group.
+    --
+    -- -   @elasticache:replication-group:Replicas@ - The number of replicas
+    --     per node group for an Amazon ElastiCache replication group.
     scalableDimension :: ScalableDimension,
     -- | The scaling policy type.
     policyType :: PolicyType,
@@ -194,8 +204,8 @@ data ScalingPolicy = ScalingPolicy'
 --
 -- 'policyName', 'scalingPolicy_policyName' - The name of the scaling policy.
 --
--- 'serviceNamespace', 'scalingPolicy_serviceNamespace' - The namespace of the AWS service that provides the resource, or a
--- @custom-resource@.
+-- 'serviceNamespace', 'scalingPolicy_serviceNamespace' - The namespace of the Amazon Web Services service that provides the
+-- resource, or a @custom-resource@.
 --
 -- 'resourceId', 'scalingPolicy_resourceId' - The identifier of the resource associated with the scaling policy. This
 -- string consists of the resource type and unique identifier.
@@ -258,17 +268,21 @@ data ScalingPolicy = ScalingPolicy'
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
 --
+-- -   Amazon ElastiCache replication group - The resource type is
+--     @replication-group@ and the unique identifier is the replication
+--     group name. Example: @replication-group\/mycluster@.
+--
 -- 'scalableDimension', 'scalingPolicy_scalableDimension' - The scalable dimension. This string consists of the service namespace,
 -- resource type, and scaling property.
 --
 -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
 --     service.
 --
--- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
---     Spot Fleet request.
---
 -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
 --     of an EMR Instance Group.
+--
+-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+--     Spot Fleet request.
 --
 -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
 --     AppStream 2.0 fleet.
@@ -314,6 +328,12 @@ data ScalingPolicy = ScalingPolicy'
 --
 -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
 --     GiB) for brokers in an Amazon MSK cluster.
+--
+-- -   @elasticache:replication-group:NodeGroups@ - The number of node
+--     groups for an Amazon ElastiCache replication group.
+--
+-- -   @elasticache:replication-group:Replicas@ - The number of replicas
+--     per node group for an Amazon ElastiCache replication group.
 --
 -- 'policyType', 'scalingPolicy_policyType' - The scaling policy type.
 --
@@ -376,8 +396,8 @@ scalingPolicy_policyARN = Lens.lens (\ScalingPolicy' {policyARN} -> policyARN) (
 scalingPolicy_policyName :: Lens.Lens' ScalingPolicy Prelude.Text
 scalingPolicy_policyName = Lens.lens (\ScalingPolicy' {policyName} -> policyName) (\s@ScalingPolicy' {} a -> s {policyName = a} :: ScalingPolicy)
 
--- | The namespace of the AWS service that provides the resource, or a
--- @custom-resource@.
+-- | The namespace of the Amazon Web Services service that provides the
+-- resource, or a @custom-resource@.
 scalingPolicy_serviceNamespace :: Lens.Lens' ScalingPolicy ServiceNamespace
 scalingPolicy_serviceNamespace = Lens.lens (\ScalingPolicy' {serviceNamespace} -> serviceNamespace) (\s@ScalingPolicy' {} a -> s {serviceNamespace = a} :: ScalingPolicy)
 
@@ -441,6 +461,10 @@ scalingPolicy_serviceNamespace = Lens.lens (\ScalingPolicy' {serviceNamespace} -
 -- -   Amazon MSK cluster - The resource type and unique identifier are
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
+--
+-- -   Amazon ElastiCache replication group - The resource type is
+--     @replication-group@ and the unique identifier is the replication
+--     group name. Example: @replication-group\/mycluster@.
 scalingPolicy_resourceId :: Lens.Lens' ScalingPolicy Prelude.Text
 scalingPolicy_resourceId = Lens.lens (\ScalingPolicy' {resourceId} -> resourceId) (\s@ScalingPolicy' {} a -> s {resourceId = a} :: ScalingPolicy)
 
@@ -450,11 +474,11 @@ scalingPolicy_resourceId = Lens.lens (\ScalingPolicy' {resourceId} -> resourceId
 -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
 --     service.
 --
--- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
---     Spot Fleet request.
---
 -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
 --     of an EMR Instance Group.
+--
+-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+--     Spot Fleet request.
 --
 -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
 --     AppStream 2.0 fleet.
@@ -500,6 +524,12 @@ scalingPolicy_resourceId = Lens.lens (\ScalingPolicy' {resourceId} -> resourceId
 --
 -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
 --     GiB) for brokers in an Amazon MSK cluster.
+--
+-- -   @elasticache:replication-group:NodeGroups@ - The number of node
+--     groups for an Amazon ElastiCache replication group.
+--
+-- -   @elasticache:replication-group:Replicas@ - The number of replicas
+--     per node group for an Amazon ElastiCache replication group.
 scalingPolicy_scalableDimension :: Lens.Lens' ScalingPolicy ScalableDimension
 scalingPolicy_scalableDimension = Lens.lens (\ScalingPolicy' {scalableDimension} -> scalableDimension) (\s@ScalingPolicy' {} a -> s {scalableDimension = a} :: ScalingPolicy)
 

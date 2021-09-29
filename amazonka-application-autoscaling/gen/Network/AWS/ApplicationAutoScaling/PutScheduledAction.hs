@@ -121,9 +121,9 @@ data PutScheduledAction = PutScheduledAction'
     -- <https://docs.aws.amazon.com/autoscaling/application/userguide/examples-scheduled-actions.html Example scheduled actions for Application Auto Scaling>
     -- in the /Application Auto Scaling User Guide/.
     schedule :: Prelude.Maybe Prelude.Text,
-    -- | The namespace of the AWS service that provides the resource. For a
-    -- resource provided by your own application or service, use
-    -- @custom-resource@ instead.
+    -- | The namespace of the Amazon Web Services service that provides the
+    -- resource. For a resource provided by your own application or service,
+    -- use @custom-resource@ instead.
     serviceNamespace :: ServiceNamespace,
     -- | The name of the scheduled action. This name must be unique among all
     -- other scheduled actions on the specified scalable target.
@@ -188,6 +188,10 @@ data PutScheduledAction = PutScheduledAction'
     -- -   Amazon MSK cluster - The resource type and unique identifier are
     --     specified using the cluster ARN. Example:
     --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
+    --
+    -- -   Amazon ElastiCache replication group - The resource type is
+    --     @replication-group@ and the unique identifier is the replication
+    --     group name. Example: @replication-group\/mycluster@.
     resourceId :: Prelude.Text,
     -- | The scalable dimension. This string consists of the service namespace,
     -- resource type, and scaling property.
@@ -195,11 +199,11 @@ data PutScheduledAction = PutScheduledAction'
     -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
     --     service.
     --
-    -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
-    --     Spot Fleet request.
-    --
     -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
     --     of an EMR Instance Group.
+    --
+    -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+    --     Spot Fleet request.
     --
     -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
     --     AppStream 2.0 fleet.
@@ -245,6 +249,12 @@ data PutScheduledAction = PutScheduledAction'
     --
     -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
     --     GiB) for brokers in an Amazon MSK cluster.
+    --
+    -- -   @elasticache:replication-group:NodeGroups@ - The number of node
+    --     groups for an Amazon ElastiCache replication group.
+    --
+    -- -   @elasticache:replication-group:Replicas@ - The number of replicas
+    --     per node group for an Amazon ElastiCache replication group.
     scalableDimension :: ScalableDimension
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -300,9 +310,9 @@ data PutScheduledAction = PutScheduledAction'
 -- <https://docs.aws.amazon.com/autoscaling/application/userguide/examples-scheduled-actions.html Example scheduled actions for Application Auto Scaling>
 -- in the /Application Auto Scaling User Guide/.
 --
--- 'serviceNamespace', 'putScheduledAction_serviceNamespace' - The namespace of the AWS service that provides the resource. For a
--- resource provided by your own application or service, use
--- @custom-resource@ instead.
+-- 'serviceNamespace', 'putScheduledAction_serviceNamespace' - The namespace of the Amazon Web Services service that provides the
+-- resource. For a resource provided by your own application or service,
+-- use @custom-resource@ instead.
 --
 -- 'scheduledActionName', 'putScheduledAction_scheduledActionName' - The name of the scheduled action. This name must be unique among all
 -- other scheduled actions on the specified scalable target.
@@ -368,17 +378,21 @@ data PutScheduledAction = PutScheduledAction'
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
 --
+-- -   Amazon ElastiCache replication group - The resource type is
+--     @replication-group@ and the unique identifier is the replication
+--     group name. Example: @replication-group\/mycluster@.
+--
 -- 'scalableDimension', 'putScheduledAction_scalableDimension' - The scalable dimension. This string consists of the service namespace,
 -- resource type, and scaling property.
 --
 -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
 --     service.
 --
--- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
---     Spot Fleet request.
---
 -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
 --     of an EMR Instance Group.
+--
+-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+--     Spot Fleet request.
 --
 -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
 --     AppStream 2.0 fleet.
@@ -424,6 +438,12 @@ data PutScheduledAction = PutScheduledAction'
 --
 -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
 --     GiB) for brokers in an Amazon MSK cluster.
+--
+-- -   @elasticache:replication-group:NodeGroups@ - The number of node
+--     groups for an Amazon ElastiCache replication group.
+--
+-- -   @elasticache:replication-group:Replicas@ - The number of replicas
+--     per node group for an Amazon ElastiCache replication group.
 newPutScheduledAction ::
   -- | 'serviceNamespace'
   ServiceNamespace ->
@@ -504,9 +524,9 @@ putScheduledAction_scalableTargetAction = Lens.lens (\PutScheduledAction' {scala
 putScheduledAction_schedule :: Lens.Lens' PutScheduledAction (Prelude.Maybe Prelude.Text)
 putScheduledAction_schedule = Lens.lens (\PutScheduledAction' {schedule} -> schedule) (\s@PutScheduledAction' {} a -> s {schedule = a} :: PutScheduledAction)
 
--- | The namespace of the AWS service that provides the resource. For a
--- resource provided by your own application or service, use
--- @custom-resource@ instead.
+-- | The namespace of the Amazon Web Services service that provides the
+-- resource. For a resource provided by your own application or service,
+-- use @custom-resource@ instead.
 putScheduledAction_serviceNamespace :: Lens.Lens' PutScheduledAction ServiceNamespace
 putScheduledAction_serviceNamespace = Lens.lens (\PutScheduledAction' {serviceNamespace} -> serviceNamespace) (\s@PutScheduledAction' {} a -> s {serviceNamespace = a} :: PutScheduledAction)
 
@@ -575,6 +595,10 @@ putScheduledAction_scheduledActionName = Lens.lens (\PutScheduledAction' {schedu
 -- -   Amazon MSK cluster - The resource type and unique identifier are
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
+--
+-- -   Amazon ElastiCache replication group - The resource type is
+--     @replication-group@ and the unique identifier is the replication
+--     group name. Example: @replication-group\/mycluster@.
 putScheduledAction_resourceId :: Lens.Lens' PutScheduledAction Prelude.Text
 putScheduledAction_resourceId = Lens.lens (\PutScheduledAction' {resourceId} -> resourceId) (\s@PutScheduledAction' {} a -> s {resourceId = a} :: PutScheduledAction)
 
@@ -584,11 +608,11 @@ putScheduledAction_resourceId = Lens.lens (\PutScheduledAction' {resourceId} -> 
 -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
 --     service.
 --
--- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
---     Spot Fleet request.
---
 -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
 --     of an EMR Instance Group.
+--
+-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+--     Spot Fleet request.
 --
 -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
 --     AppStream 2.0 fleet.
@@ -634,6 +658,12 @@ putScheduledAction_resourceId = Lens.lens (\PutScheduledAction' {resourceId} -> 
 --
 -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
 --     GiB) for brokers in an Amazon MSK cluster.
+--
+-- -   @elasticache:replication-group:NodeGroups@ - The number of node
+--     groups for an Amazon ElastiCache replication group.
+--
+-- -   @elasticache:replication-group:Replicas@ - The number of replicas
+--     per node group for an Amazon ElastiCache replication group.
 putScheduledAction_scalableDimension :: Lens.Lens' PutScheduledAction ScalableDimension
 putScheduledAction_scalableDimension = Lens.lens (\PutScheduledAction' {scalableDimension} -> scalableDimension) (\s@PutScheduledAction' {} a -> s {scalableDimension = a} :: PutScheduledAction)
 

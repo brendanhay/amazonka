@@ -31,8 +31,8 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newScalableTarget' smart constructor.
 data ScalableTarget = ScalableTarget'
   { suspendedState :: Prelude.Maybe SuspendedState,
-    -- | The namespace of the AWS service that provides the resource, or a
-    -- @custom-resource@.
+    -- | The namespace of the Amazon Web Services service that provides the
+    -- resource, or a @custom-resource@.
     serviceNamespace :: ServiceNamespace,
     -- | The identifier of the resource associated with the scalable target. This
     -- string consists of the resource type and unique identifier.
@@ -94,6 +94,10 @@ data ScalableTarget = ScalableTarget'
     -- -   Amazon MSK cluster - The resource type and unique identifier are
     --     specified using the cluster ARN. Example:
     --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
+    --
+    -- -   Amazon ElastiCache replication group - The resource type is
+    --     @replication-group@ and the unique identifier is the replication
+    --     group name. Example: @replication-group\/mycluster@.
     resourceId :: Prelude.Text,
     -- | The scalable dimension associated with the scalable target. This string
     -- consists of the service namespace, resource type, and scaling property.
@@ -101,11 +105,11 @@ data ScalableTarget = ScalableTarget'
     -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
     --     service.
     --
-    -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
-    --     Spot Fleet request.
-    --
     -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
     --     of an EMR Instance Group.
+    --
+    -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+    --     Spot Fleet request.
     --
     -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
     --     AppStream 2.0 fleet.
@@ -151,6 +155,12 @@ data ScalableTarget = ScalableTarget'
     --
     -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
     --     GiB) for brokers in an Amazon MSK cluster.
+    --
+    -- -   @elasticache:replication-group:NodeGroups@ - The number of node
+    --     groups for an Amazon ElastiCache replication group.
+    --
+    -- -   @elasticache:replication-group:Replicas@ - The number of replicas
+    --     per node group for an Amazon ElastiCache replication group.
     scalableDimension :: ScalableDimension,
     -- | The minimum value to scale to in response to a scale-in activity.
     minCapacity :: Prelude.Int,
@@ -174,8 +184,8 @@ data ScalableTarget = ScalableTarget'
 --
 -- 'suspendedState', 'scalableTarget_suspendedState' - Undocumented member.
 --
--- 'serviceNamespace', 'scalableTarget_serviceNamespace' - The namespace of the AWS service that provides the resource, or a
--- @custom-resource@.
+-- 'serviceNamespace', 'scalableTarget_serviceNamespace' - The namespace of the Amazon Web Services service that provides the
+-- resource, or a @custom-resource@.
 --
 -- 'resourceId', 'scalableTarget_resourceId' - The identifier of the resource associated with the scalable target. This
 -- string consists of the resource type and unique identifier.
@@ -238,17 +248,21 @@ data ScalableTarget = ScalableTarget'
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
 --
+-- -   Amazon ElastiCache replication group - The resource type is
+--     @replication-group@ and the unique identifier is the replication
+--     group name. Example: @replication-group\/mycluster@.
+--
 -- 'scalableDimension', 'scalableTarget_scalableDimension' - The scalable dimension associated with the scalable target. This string
 -- consists of the service namespace, resource type, and scaling property.
 --
 -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
 --     service.
 --
--- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
---     Spot Fleet request.
---
 -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
 --     of an EMR Instance Group.
+--
+-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+--     Spot Fleet request.
 --
 -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
 --     AppStream 2.0 fleet.
@@ -294,6 +308,12 @@ data ScalableTarget = ScalableTarget'
 --
 -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
 --     GiB) for brokers in an Amazon MSK cluster.
+--
+-- -   @elasticache:replication-group:NodeGroups@ - The number of node
+--     groups for an Amazon ElastiCache replication group.
+--
+-- -   @elasticache:replication-group:Replicas@ - The number of replicas
+--     per node group for an Amazon ElastiCache replication group.
 --
 -- 'minCapacity', 'scalableTarget_minCapacity' - The minimum value to scale to in response to a scale-in activity.
 --
@@ -342,8 +362,8 @@ newScalableTarget
 scalableTarget_suspendedState :: Lens.Lens' ScalableTarget (Prelude.Maybe SuspendedState)
 scalableTarget_suspendedState = Lens.lens (\ScalableTarget' {suspendedState} -> suspendedState) (\s@ScalableTarget' {} a -> s {suspendedState = a} :: ScalableTarget)
 
--- | The namespace of the AWS service that provides the resource, or a
--- @custom-resource@.
+-- | The namespace of the Amazon Web Services service that provides the
+-- resource, or a @custom-resource@.
 scalableTarget_serviceNamespace :: Lens.Lens' ScalableTarget ServiceNamespace
 scalableTarget_serviceNamespace = Lens.lens (\ScalableTarget' {serviceNamespace} -> serviceNamespace) (\s@ScalableTarget' {} a -> s {serviceNamespace = a} :: ScalableTarget)
 
@@ -407,6 +427,10 @@ scalableTarget_serviceNamespace = Lens.lens (\ScalableTarget' {serviceNamespace}
 -- -   Amazon MSK cluster - The resource type and unique identifier are
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
+--
+-- -   Amazon ElastiCache replication group - The resource type is
+--     @replication-group@ and the unique identifier is the replication
+--     group name. Example: @replication-group\/mycluster@.
 scalableTarget_resourceId :: Lens.Lens' ScalableTarget Prelude.Text
 scalableTarget_resourceId = Lens.lens (\ScalableTarget' {resourceId} -> resourceId) (\s@ScalableTarget' {} a -> s {resourceId = a} :: ScalableTarget)
 
@@ -416,11 +440,11 @@ scalableTarget_resourceId = Lens.lens (\ScalableTarget' {resourceId} -> resource
 -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
 --     service.
 --
--- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
---     Spot Fleet request.
---
 -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
 --     of an EMR Instance Group.
+--
+-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+--     Spot Fleet request.
 --
 -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
 --     AppStream 2.0 fleet.
@@ -466,6 +490,12 @@ scalableTarget_resourceId = Lens.lens (\ScalableTarget' {resourceId} -> resource
 --
 -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
 --     GiB) for brokers in an Amazon MSK cluster.
+--
+-- -   @elasticache:replication-group:NodeGroups@ - The number of node
+--     groups for an Amazon ElastiCache replication group.
+--
+-- -   @elasticache:replication-group:Replicas@ - The number of replicas
+--     per node group for an Amazon ElastiCache replication group.
 scalableTarget_scalableDimension :: Lens.Lens' ScalableTarget ScalableDimension
 scalableTarget_scalableDimension = Lens.lens (\ScalableTarget' {scalableDimension} -> scalableDimension) (\s@ScalableTarget' {} a -> s {scalableDimension = a} :: ScalableTarget)
 

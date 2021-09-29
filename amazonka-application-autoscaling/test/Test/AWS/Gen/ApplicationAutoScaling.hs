@@ -36,14 +36,14 @@ import Test.Tasty
 --         , requestDescribeScheduledActions $
 --             newDescribeScheduledActions
 --
+--         , requestDeleteScheduledAction $
+--             newDeleteScheduledAction
+--
 --         , requestDescribeScalingPolicies $
 --             newDescribeScalingPolicies
 --
 --         , requestDeregisterScalableTarget $
 --             newDeregisterScalableTarget
---
---         , requestDeleteScheduledAction $
---             newDeleteScheduledAction
 --
 --         , requestDescribeScalingActivities $
 --             newDescribeScalingActivities
@@ -69,14 +69,14 @@ import Test.Tasty
 --         , responseDescribeScheduledActions $
 --             newDescribeScheduledActionsResponse
 --
+--         , responseDeleteScheduledAction $
+--             newDeleteScheduledActionResponse
+--
 --         , responseDescribeScalingPolicies $
 --             newDescribeScalingPoliciesResponse
 --
 --         , responseDeregisterScalableTarget $
 --             newDeregisterScalableTargetResponse
---
---         , responseDeleteScheduledAction $
---             newDeleteScheduledActionResponse
 --
 --         , responseDescribeScalingActivities $
 --             newDescribeScalingActivitiesResponse
@@ -113,6 +113,12 @@ requestDescribeScheduledActions =
     "DescribeScheduledActions"
     "fixture/DescribeScheduledActions.yaml"
 
+requestDeleteScheduledAction :: DeleteScheduledAction -> TestTree
+requestDeleteScheduledAction =
+  req
+    "DeleteScheduledAction"
+    "fixture/DeleteScheduledAction.yaml"
+
 requestDescribeScalingPolicies :: DescribeScalingPolicies -> TestTree
 requestDescribeScalingPolicies =
   req
@@ -124,12 +130,6 @@ requestDeregisterScalableTarget =
   req
     "DeregisterScalableTarget"
     "fixture/DeregisterScalableTarget.yaml"
-
-requestDeleteScheduledAction :: DeleteScheduledAction -> TestTree
-requestDeleteScheduledAction =
-  req
-    "DeleteScheduledAction"
-    "fixture/DeleteScheduledAction.yaml"
 
 requestDescribeScalingActivities :: DescribeScalingActivities -> TestTree
 requestDescribeScalingActivities =
@@ -181,6 +181,14 @@ responseDescribeScheduledActions =
     defaultService
     (Proxy :: Proxy DescribeScheduledActions)
 
+responseDeleteScheduledAction :: DeleteScheduledActionResponse -> TestTree
+responseDeleteScheduledAction =
+  res
+    "DeleteScheduledActionResponse"
+    "fixture/DeleteScheduledActionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteScheduledAction)
+
 responseDescribeScalingPolicies :: DescribeScalingPoliciesResponse -> TestTree
 responseDescribeScalingPolicies =
   res
@@ -196,14 +204,6 @@ responseDeregisterScalableTarget =
     "fixture/DeregisterScalableTargetResponse.proto"
     defaultService
     (Proxy :: Proxy DeregisterScalableTarget)
-
-responseDeleteScheduledAction :: DeleteScheduledActionResponse -> TestTree
-responseDeleteScheduledAction =
-  res
-    "DeleteScheduledActionResponse"
-    "fixture/DeleteScheduledActionResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteScheduledAction)
 
 responseDescribeScalingActivities :: DescribeScalingActivitiesResponse -> TestTree
 responseDescribeScalingActivities =

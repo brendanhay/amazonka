@@ -67,7 +67,8 @@ data StepScalingPolicyConfiguration = StepScalingPolicyConfiguration'
     -- immediately. In this case, the cooldown period for the scale-in activity
     -- stops and doesn\'t complete.
     --
-    -- Application Auto Scaling provides a default value of 300 for the
+    -- Application Auto Scaling provides a default value of 600 for Amazon
+    -- ElastiCache replication groups and a default value of 300 for the
     -- following scalable targets:
     --
     -- -   ECS services
@@ -163,7 +164,8 @@ data StepScalingPolicyConfiguration = StepScalingPolicyConfiguration'
 -- immediately. In this case, the cooldown period for the scale-in activity
 -- stops and doesn\'t complete.
 --
--- Application Auto Scaling provides a default value of 300 for the
+-- Application Auto Scaling provides a default value of 600 for Amazon
+-- ElastiCache replication groups and a default value of 300 for the
 -- following scalable targets:
 --
 -- -   ECS services
@@ -263,7 +265,8 @@ stepScalingPolicyConfiguration_metricAggregationType = Lens.lens (\StepScalingPo
 -- immediately. In this case, the cooldown period for the scale-in activity
 -- stops and doesn\'t complete.
 --
--- Application Auto Scaling provides a default value of 300 for the
+-- Application Auto Scaling provides a default value of 600 for Amazon
+-- ElastiCache replication groups and a default value of 300 for the
 -- following scalable targets:
 --
 -- -   ECS services

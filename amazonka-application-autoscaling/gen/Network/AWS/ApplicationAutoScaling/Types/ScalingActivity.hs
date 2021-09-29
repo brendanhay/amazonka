@@ -32,14 +32,14 @@ import qualified Network.AWS.Prelude as Prelude
 data ScalingActivity = ScalingActivity'
   { -- | A simple message about the current status of the scaling activity.
     statusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The details about the scaling activity.
-    details :: Prelude.Maybe Prelude.Text,
     -- | The Unix timestamp for when the scaling activity ended.
     endTime :: Prelude.Maybe Core.POSIX,
+    -- | The details about the scaling activity.
+    details :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the scaling activity.
     activityId :: Prelude.Text,
-    -- | The namespace of the AWS service that provides the resource, or a
-    -- @custom-resource@.
+    -- | The namespace of the Amazon Web Services service that provides the
+    -- resource, or a @custom-resource@.
     serviceNamespace :: ServiceNamespace,
     -- | The identifier of the resource associated with the scaling activity.
     -- This string consists of the resource type and unique identifier.
@@ -101,6 +101,10 @@ data ScalingActivity = ScalingActivity'
     -- -   Amazon MSK cluster - The resource type and unique identifier are
     --     specified using the cluster ARN. Example:
     --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
+    --
+    -- -   Amazon ElastiCache replication group - The resource type is
+    --     @replication-group@ and the unique identifier is the replication
+    --     group name. Example: @replication-group\/mycluster@.
     resourceId :: Prelude.Text,
     -- | The scalable dimension. This string consists of the service namespace,
     -- resource type, and scaling property.
@@ -108,11 +112,11 @@ data ScalingActivity = ScalingActivity'
     -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
     --     service.
     --
-    -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
-    --     Spot Fleet request.
-    --
     -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
     --     of an EMR Instance Group.
+    --
+    -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+    --     Spot Fleet request.
     --
     -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
     --     AppStream 2.0 fleet.
@@ -158,6 +162,12 @@ data ScalingActivity = ScalingActivity'
     --
     -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
     --     GiB) for brokers in an Amazon MSK cluster.
+    --
+    -- -   @elasticache:replication-group:NodeGroups@ - The number of node
+    --     groups for an Amazon ElastiCache replication group.
+    --
+    -- -   @elasticache:replication-group:Replicas@ - The number of replicas
+    --     per node group for an Amazon ElastiCache replication group.
     scalableDimension :: ScalableDimension,
     -- | A simple description of what action the scaling activity intends to
     -- accomplish.
@@ -181,14 +191,14 @@ data ScalingActivity = ScalingActivity'
 --
 -- 'statusMessage', 'scalingActivity_statusMessage' - A simple message about the current status of the scaling activity.
 --
--- 'details', 'scalingActivity_details' - The details about the scaling activity.
---
 -- 'endTime', 'scalingActivity_endTime' - The Unix timestamp for when the scaling activity ended.
+--
+-- 'details', 'scalingActivity_details' - The details about the scaling activity.
 --
 -- 'activityId', 'scalingActivity_activityId' - The unique identifier of the scaling activity.
 --
--- 'serviceNamespace', 'scalingActivity_serviceNamespace' - The namespace of the AWS service that provides the resource, or a
--- @custom-resource@.
+-- 'serviceNamespace', 'scalingActivity_serviceNamespace' - The namespace of the Amazon Web Services service that provides the
+-- resource, or a @custom-resource@.
 --
 -- 'resourceId', 'scalingActivity_resourceId' - The identifier of the resource associated with the scaling activity.
 -- This string consists of the resource type and unique identifier.
@@ -251,17 +261,21 @@ data ScalingActivity = ScalingActivity'
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
 --
+-- -   Amazon ElastiCache replication group - The resource type is
+--     @replication-group@ and the unique identifier is the replication
+--     group name. Example: @replication-group\/mycluster@.
+--
 -- 'scalableDimension', 'scalingActivity_scalableDimension' - The scalable dimension. This string consists of the service namespace,
 -- resource type, and scaling property.
 --
 -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
 --     service.
 --
--- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
---     Spot Fleet request.
---
 -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
 --     of an EMR Instance Group.
+--
+-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+--     Spot Fleet request.
 --
 -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
 --     AppStream 2.0 fleet.
@@ -308,6 +322,12 @@ data ScalingActivity = ScalingActivity'
 -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
 --     GiB) for brokers in an Amazon MSK cluster.
 --
+-- -   @elasticache:replication-group:NodeGroups@ - The number of node
+--     groups for an Amazon ElastiCache replication group.
+--
+-- -   @elasticache:replication-group:Replicas@ - The number of replicas
+--     per node group for an Amazon ElastiCache replication group.
+--
 -- 'description', 'scalingActivity_description' - A simple description of what action the scaling activity intends to
 -- accomplish.
 --
@@ -345,8 +365,8 @@ newScalingActivity
   pStatusCode_ =
     ScalingActivity'
       { statusMessage = Prelude.Nothing,
-        details = Prelude.Nothing,
         endTime = Prelude.Nothing,
+        details = Prelude.Nothing,
         activityId = pActivityId_,
         serviceNamespace = pServiceNamespace_,
         resourceId = pResourceId_,
@@ -361,20 +381,20 @@ newScalingActivity
 scalingActivity_statusMessage :: Lens.Lens' ScalingActivity (Prelude.Maybe Prelude.Text)
 scalingActivity_statusMessage = Lens.lens (\ScalingActivity' {statusMessage} -> statusMessage) (\s@ScalingActivity' {} a -> s {statusMessage = a} :: ScalingActivity)
 
--- | The details about the scaling activity.
-scalingActivity_details :: Lens.Lens' ScalingActivity (Prelude.Maybe Prelude.Text)
-scalingActivity_details = Lens.lens (\ScalingActivity' {details} -> details) (\s@ScalingActivity' {} a -> s {details = a} :: ScalingActivity)
-
 -- | The Unix timestamp for when the scaling activity ended.
 scalingActivity_endTime :: Lens.Lens' ScalingActivity (Prelude.Maybe Prelude.UTCTime)
 scalingActivity_endTime = Lens.lens (\ScalingActivity' {endTime} -> endTime) (\s@ScalingActivity' {} a -> s {endTime = a} :: ScalingActivity) Prelude.. Lens.mapping Core._Time
+
+-- | The details about the scaling activity.
+scalingActivity_details :: Lens.Lens' ScalingActivity (Prelude.Maybe Prelude.Text)
+scalingActivity_details = Lens.lens (\ScalingActivity' {details} -> details) (\s@ScalingActivity' {} a -> s {details = a} :: ScalingActivity)
 
 -- | The unique identifier of the scaling activity.
 scalingActivity_activityId :: Lens.Lens' ScalingActivity Prelude.Text
 scalingActivity_activityId = Lens.lens (\ScalingActivity' {activityId} -> activityId) (\s@ScalingActivity' {} a -> s {activityId = a} :: ScalingActivity)
 
--- | The namespace of the AWS service that provides the resource, or a
--- @custom-resource@.
+-- | The namespace of the Amazon Web Services service that provides the
+-- resource, or a @custom-resource@.
 scalingActivity_serviceNamespace :: Lens.Lens' ScalingActivity ServiceNamespace
 scalingActivity_serviceNamespace = Lens.lens (\ScalingActivity' {serviceNamespace} -> serviceNamespace) (\s@ScalingActivity' {} a -> s {serviceNamespace = a} :: ScalingActivity)
 
@@ -438,6 +458,10 @@ scalingActivity_serviceNamespace = Lens.lens (\ScalingActivity' {serviceNamespac
 -- -   Amazon MSK cluster - The resource type and unique identifier are
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
+--
+-- -   Amazon ElastiCache replication group - The resource type is
+--     @replication-group@ and the unique identifier is the replication
+--     group name. Example: @replication-group\/mycluster@.
 scalingActivity_resourceId :: Lens.Lens' ScalingActivity Prelude.Text
 scalingActivity_resourceId = Lens.lens (\ScalingActivity' {resourceId} -> resourceId) (\s@ScalingActivity' {} a -> s {resourceId = a} :: ScalingActivity)
 
@@ -447,11 +471,11 @@ scalingActivity_resourceId = Lens.lens (\ScalingActivity' {resourceId} -> resour
 -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
 --     service.
 --
--- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
---     Spot Fleet request.
---
 -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
 --     of an EMR Instance Group.
+--
+-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+--     Spot Fleet request.
 --
 -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
 --     AppStream 2.0 fleet.
@@ -497,6 +521,12 @@ scalingActivity_resourceId = Lens.lens (\ScalingActivity' {resourceId} -> resour
 --
 -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
 --     GiB) for brokers in an Amazon MSK cluster.
+--
+-- -   @elasticache:replication-group:NodeGroups@ - The number of node
+--     groups for an Amazon ElastiCache replication group.
+--
+-- -   @elasticache:replication-group:Replicas@ - The number of replicas
+--     per node group for an Amazon ElastiCache replication group.
 scalingActivity_scalableDimension :: Lens.Lens' ScalingActivity ScalableDimension
 scalingActivity_scalableDimension = Lens.lens (\ScalingActivity' {scalableDimension} -> scalableDimension) (\s@ScalingActivity' {} a -> s {scalableDimension = a} :: ScalingActivity)
 
@@ -524,8 +554,8 @@ instance Core.FromJSON ScalingActivity where
       ( \x ->
           ScalingActivity'
             Prelude.<$> (x Core..:? "StatusMessage")
-            Prelude.<*> (x Core..:? "Details")
             Prelude.<*> (x Core..:? "EndTime")
+            Prelude.<*> (x Core..:? "Details")
             Prelude.<*> (x Core..: "ActivityId")
             Prelude.<*> (x Core..: "ServiceNamespace")
             Prelude.<*> (x Core..: "ResourceId")

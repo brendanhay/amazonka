@@ -63,9 +63,9 @@ import qualified Network.AWS.Response as Response
 data DeleteScalingPolicy = DeleteScalingPolicy'
   { -- | The name of the scaling policy.
     policyName :: Prelude.Text,
-    -- | The namespace of the AWS service that provides the resource. For a
-    -- resource provided by your own application or service, use
-    -- @custom-resource@ instead.
+    -- | The namespace of the Amazon Web Services service that provides the
+    -- resource. For a resource provided by your own application or service,
+    -- use @custom-resource@ instead.
     serviceNamespace :: ServiceNamespace,
     -- | The identifier of the resource associated with the scalable target. This
     -- string consists of the resource type and unique identifier.
@@ -127,6 +127,10 @@ data DeleteScalingPolicy = DeleteScalingPolicy'
     -- -   Amazon MSK cluster - The resource type and unique identifier are
     --     specified using the cluster ARN. Example:
     --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
+    --
+    -- -   Amazon ElastiCache replication group - The resource type is
+    --     @replication-group@ and the unique identifier is the replication
+    --     group name. Example: @replication-group\/mycluster@.
     resourceId :: Prelude.Text,
     -- | The scalable dimension. This string consists of the service namespace,
     -- resource type, and scaling property.
@@ -134,11 +138,11 @@ data DeleteScalingPolicy = DeleteScalingPolicy'
     -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
     --     service.
     --
-    -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
-    --     Spot Fleet request.
-    --
     -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
     --     of an EMR Instance Group.
+    --
+    -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+    --     Spot Fleet request.
     --
     -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
     --     AppStream 2.0 fleet.
@@ -184,6 +188,12 @@ data DeleteScalingPolicy = DeleteScalingPolicy'
     --
     -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
     --     GiB) for brokers in an Amazon MSK cluster.
+    --
+    -- -   @elasticache:replication-group:NodeGroups@ - The number of node
+    --     groups for an Amazon ElastiCache replication group.
+    --
+    -- -   @elasticache:replication-group:Replicas@ - The number of replicas
+    --     per node group for an Amazon ElastiCache replication group.
     scalableDimension :: ScalableDimension
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -198,9 +208,9 @@ data DeleteScalingPolicy = DeleteScalingPolicy'
 --
 -- 'policyName', 'deleteScalingPolicy_policyName' - The name of the scaling policy.
 --
--- 'serviceNamespace', 'deleteScalingPolicy_serviceNamespace' - The namespace of the AWS service that provides the resource. For a
--- resource provided by your own application or service, use
--- @custom-resource@ instead.
+-- 'serviceNamespace', 'deleteScalingPolicy_serviceNamespace' - The namespace of the Amazon Web Services service that provides the
+-- resource. For a resource provided by your own application or service,
+-- use @custom-resource@ instead.
 --
 -- 'resourceId', 'deleteScalingPolicy_resourceId' - The identifier of the resource associated with the scalable target. This
 -- string consists of the resource type and unique identifier.
@@ -263,17 +273,21 @@ data DeleteScalingPolicy = DeleteScalingPolicy'
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
 --
+-- -   Amazon ElastiCache replication group - The resource type is
+--     @replication-group@ and the unique identifier is the replication
+--     group name. Example: @replication-group\/mycluster@.
+--
 -- 'scalableDimension', 'deleteScalingPolicy_scalableDimension' - The scalable dimension. This string consists of the service namespace,
 -- resource type, and scaling property.
 --
 -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
 --     service.
 --
--- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
---     Spot Fleet request.
---
 -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
 --     of an EMR Instance Group.
+--
+-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+--     Spot Fleet request.
 --
 -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
 --     AppStream 2.0 fleet.
@@ -319,6 +333,12 @@ data DeleteScalingPolicy = DeleteScalingPolicy'
 --
 -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
 --     GiB) for brokers in an Amazon MSK cluster.
+--
+-- -   @elasticache:replication-group:NodeGroups@ - The number of node
+--     groups for an Amazon ElastiCache replication group.
+--
+-- -   @elasticache:replication-group:Replicas@ - The number of replicas
+--     per node group for an Amazon ElastiCache replication group.
 newDeleteScalingPolicy ::
   -- | 'policyName'
   Prelude.Text ->
@@ -345,9 +365,9 @@ newDeleteScalingPolicy
 deleteScalingPolicy_policyName :: Lens.Lens' DeleteScalingPolicy Prelude.Text
 deleteScalingPolicy_policyName = Lens.lens (\DeleteScalingPolicy' {policyName} -> policyName) (\s@DeleteScalingPolicy' {} a -> s {policyName = a} :: DeleteScalingPolicy)
 
--- | The namespace of the AWS service that provides the resource. For a
--- resource provided by your own application or service, use
--- @custom-resource@ instead.
+-- | The namespace of the Amazon Web Services service that provides the
+-- resource. For a resource provided by your own application or service,
+-- use @custom-resource@ instead.
 deleteScalingPolicy_serviceNamespace :: Lens.Lens' DeleteScalingPolicy ServiceNamespace
 deleteScalingPolicy_serviceNamespace = Lens.lens (\DeleteScalingPolicy' {serviceNamespace} -> serviceNamespace) (\s@DeleteScalingPolicy' {} a -> s {serviceNamespace = a} :: DeleteScalingPolicy)
 
@@ -411,6 +431,10 @@ deleteScalingPolicy_serviceNamespace = Lens.lens (\DeleteScalingPolicy' {service
 -- -   Amazon MSK cluster - The resource type and unique identifier are
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
+--
+-- -   Amazon ElastiCache replication group - The resource type is
+--     @replication-group@ and the unique identifier is the replication
+--     group name. Example: @replication-group\/mycluster@.
 deleteScalingPolicy_resourceId :: Lens.Lens' DeleteScalingPolicy Prelude.Text
 deleteScalingPolicy_resourceId = Lens.lens (\DeleteScalingPolicy' {resourceId} -> resourceId) (\s@DeleteScalingPolicy' {} a -> s {resourceId = a} :: DeleteScalingPolicy)
 
@@ -420,11 +444,11 @@ deleteScalingPolicy_resourceId = Lens.lens (\DeleteScalingPolicy' {resourceId} -
 -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
 --     service.
 --
--- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
---     Spot Fleet request.
---
 -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
 --     of an EMR Instance Group.
+--
+-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+--     Spot Fleet request.
 --
 -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
 --     AppStream 2.0 fleet.
@@ -470,6 +494,12 @@ deleteScalingPolicy_resourceId = Lens.lens (\DeleteScalingPolicy' {resourceId} -
 --
 -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
 --     GiB) for brokers in an Amazon MSK cluster.
+--
+-- -   @elasticache:replication-group:NodeGroups@ - The number of node
+--     groups for an Amazon ElastiCache replication group.
+--
+-- -   @elasticache:replication-group:Replicas@ - The number of replicas
+--     per node group for an Amazon ElastiCache replication group.
 deleteScalingPolicy_scalableDimension :: Lens.Lens' DeleteScalingPolicy ScalableDimension
 deleteScalingPolicy_scalableDimension = Lens.lens (\DeleteScalingPolicy' {scalableDimension} -> scalableDimension) (\s@DeleteScalingPolicy' {} a -> s {scalableDimension = a} :: DeleteScalingPolicy)
 

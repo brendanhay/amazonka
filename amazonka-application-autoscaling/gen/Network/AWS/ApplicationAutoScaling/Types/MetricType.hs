@@ -32,6 +32,9 @@ module Network.AWS.ApplicationAutoScaling.Types.MetricType
         MetricType_EC2SpotFleetRequestAverageNetworkOut,
         MetricType_ECSServiceAverageCPUUtilization,
         MetricType_ECSServiceAverageMemoryUtilization,
+        MetricType_ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage,
+        MetricType_ElastiCachePrimaryEngineCPUUtilization,
+        MetricType_ElastiCacheReplicaEngineCPUUtilization,
         MetricType_KafkaBrokerStorageUtilization,
         MetricType_LambdaProvisionedConcurrencyUtilization,
         MetricType_RDSReaderAverageCPUUtilization,
@@ -108,6 +111,15 @@ pattern MetricType_ECSServiceAverageCPUUtilization = MetricType' "ECSServiceAver
 pattern MetricType_ECSServiceAverageMemoryUtilization :: MetricType
 pattern MetricType_ECSServiceAverageMemoryUtilization = MetricType' "ECSServiceAverageMemoryUtilization"
 
+pattern MetricType_ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage :: MetricType
+pattern MetricType_ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage = MetricType' "ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage"
+
+pattern MetricType_ElastiCachePrimaryEngineCPUUtilization :: MetricType
+pattern MetricType_ElastiCachePrimaryEngineCPUUtilization = MetricType' "ElastiCachePrimaryEngineCPUUtilization"
+
+pattern MetricType_ElastiCacheReplicaEngineCPUUtilization :: MetricType
+pattern MetricType_ElastiCacheReplicaEngineCPUUtilization = MetricType' "ElastiCacheReplicaEngineCPUUtilization"
+
 pattern MetricType_KafkaBrokerStorageUtilization :: MetricType
 pattern MetricType_KafkaBrokerStorageUtilization = MetricType' "KafkaBrokerStorageUtilization"
 
@@ -136,6 +148,9 @@ pattern MetricType_SageMakerVariantInvocationsPerInstance = MetricType' "SageMak
   MetricType_EC2SpotFleetRequestAverageNetworkOut,
   MetricType_ECSServiceAverageCPUUtilization,
   MetricType_ECSServiceAverageMemoryUtilization,
+  MetricType_ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage,
+  MetricType_ElastiCachePrimaryEngineCPUUtilization,
+  MetricType_ElastiCacheReplicaEngineCPUUtilization,
   MetricType_KafkaBrokerStorageUtilization,
   MetricType_LambdaProvisionedConcurrencyUtilization,
   MetricType_RDSReaderAverageCPUUtilization,

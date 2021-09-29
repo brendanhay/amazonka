@@ -126,6 +126,10 @@ data DescribeScheduledActions = DescribeScheduledActions'
     -- -   Amazon MSK cluster - The resource type and unique identifier are
     --     specified using the cluster ARN. Example:
     --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
+    --
+    -- -   Amazon ElastiCache replication group - The resource type is
+    --     @replication-group@ and the unique identifier is the replication
+    --     group name. Example: @replication-group\/mycluster@.
     resourceId :: Prelude.Maybe Prelude.Text,
     -- | The token for the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -145,11 +149,11 @@ data DescribeScheduledActions = DescribeScheduledActions'
     -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
     --     service.
     --
-    -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
-    --     Spot Fleet request.
-    --
     -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
     --     of an EMR Instance Group.
+    --
+    -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+    --     Spot Fleet request.
     --
     -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
     --     AppStream 2.0 fleet.
@@ -195,12 +199,18 @@ data DescribeScheduledActions = DescribeScheduledActions'
     --
     -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
     --     GiB) for brokers in an Amazon MSK cluster.
+    --
+    -- -   @elasticache:replication-group:NodeGroups@ - The number of node
+    --     groups for an Amazon ElastiCache replication group.
+    --
+    -- -   @elasticache:replication-group:Replicas@ - The number of replicas
+    --     per node group for an Amazon ElastiCache replication group.
     scalableDimension :: Prelude.Maybe ScalableDimension,
     -- | The names of the scheduled actions to describe.
     scheduledActionNames :: Prelude.Maybe [Prelude.Text],
-    -- | The namespace of the AWS service that provides the resource. For a
-    -- resource provided by your own application or service, use
-    -- @custom-resource@ instead.
+    -- | The namespace of the Amazon Web Services service that provides the
+    -- resource. For a resource provided by your own application or service,
+    -- use @custom-resource@ instead.
     serviceNamespace :: ServiceNamespace
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -274,6 +284,10 @@ data DescribeScheduledActions = DescribeScheduledActions'
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
 --
+-- -   Amazon ElastiCache replication group - The resource type is
+--     @replication-group@ and the unique identifier is the replication
+--     group name. Example: @replication-group\/mycluster@.
+--
 -- 'nextToken', 'describeScheduledActions_nextToken' - The token for the next set of results.
 --
 -- 'maxResults', 'describeScheduledActions_maxResults' - The maximum number of scheduled action results. This value can be
@@ -292,11 +306,11 @@ data DescribeScheduledActions = DescribeScheduledActions'
 -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
 --     service.
 --
--- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
---     Spot Fleet request.
---
 -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
 --     of an EMR Instance Group.
+--
+-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+--     Spot Fleet request.
 --
 -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
 --     AppStream 2.0 fleet.
@@ -343,11 +357,17 @@ data DescribeScheduledActions = DescribeScheduledActions'
 -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
 --     GiB) for brokers in an Amazon MSK cluster.
 --
+-- -   @elasticache:replication-group:NodeGroups@ - The number of node
+--     groups for an Amazon ElastiCache replication group.
+--
+-- -   @elasticache:replication-group:Replicas@ - The number of replicas
+--     per node group for an Amazon ElastiCache replication group.
+--
 -- 'scheduledActionNames', 'describeScheduledActions_scheduledActionNames' - The names of the scheduled actions to describe.
 --
--- 'serviceNamespace', 'describeScheduledActions_serviceNamespace' - The namespace of the AWS service that provides the resource. For a
--- resource provided by your own application or service, use
--- @custom-resource@ instead.
+-- 'serviceNamespace', 'describeScheduledActions_serviceNamespace' - The namespace of the Amazon Web Services service that provides the
+-- resource. For a resource provided by your own application or service,
+-- use @custom-resource@ instead.
 newDescribeScheduledActions ::
   -- | 'serviceNamespace'
   ServiceNamespace ->
@@ -423,6 +443,10 @@ newDescribeScheduledActions pServiceNamespace_ =
 -- -   Amazon MSK cluster - The resource type and unique identifier are
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
+--
+-- -   Amazon ElastiCache replication group - The resource type is
+--     @replication-group@ and the unique identifier is the replication
+--     group name. Example: @replication-group\/mycluster@.
 describeScheduledActions_resourceId :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe Prelude.Text)
 describeScheduledActions_resourceId = Lens.lens (\DescribeScheduledActions' {resourceId} -> resourceId) (\s@DescribeScheduledActions' {} a -> s {resourceId = a} :: DescribeScheduledActions)
 
@@ -448,11 +472,11 @@ describeScheduledActions_maxResults = Lens.lens (\DescribeScheduledActions' {max
 -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
 --     service.
 --
--- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
---     Spot Fleet request.
---
 -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
 --     of an EMR Instance Group.
+--
+-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+--     Spot Fleet request.
 --
 -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
 --     AppStream 2.0 fleet.
@@ -498,6 +522,12 @@ describeScheduledActions_maxResults = Lens.lens (\DescribeScheduledActions' {max
 --
 -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
 --     GiB) for brokers in an Amazon MSK cluster.
+--
+-- -   @elasticache:replication-group:NodeGroups@ - The number of node
+--     groups for an Amazon ElastiCache replication group.
+--
+-- -   @elasticache:replication-group:Replicas@ - The number of replicas
+--     per node group for an Amazon ElastiCache replication group.
 describeScheduledActions_scalableDimension :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe ScalableDimension)
 describeScheduledActions_scalableDimension = Lens.lens (\DescribeScheduledActions' {scalableDimension} -> scalableDimension) (\s@DescribeScheduledActions' {} a -> s {scalableDimension = a} :: DescribeScheduledActions)
 
@@ -505,9 +535,9 @@ describeScheduledActions_scalableDimension = Lens.lens (\DescribeScheduledAction
 describeScheduledActions_scheduledActionNames :: Lens.Lens' DescribeScheduledActions (Prelude.Maybe [Prelude.Text])
 describeScheduledActions_scheduledActionNames = Lens.lens (\DescribeScheduledActions' {scheduledActionNames} -> scheduledActionNames) (\s@DescribeScheduledActions' {} a -> s {scheduledActionNames = a} :: DescribeScheduledActions) Prelude.. Lens.mapping Lens._Coerce
 
--- | The namespace of the AWS service that provides the resource. For a
--- resource provided by your own application or service, use
--- @custom-resource@ instead.
+-- | The namespace of the Amazon Web Services service that provides the
+-- resource. For a resource provided by your own application or service,
+-- use @custom-resource@ instead.
 describeScheduledActions_serviceNamespace :: Lens.Lens' DescribeScheduledActions ServiceNamespace
 describeScheduledActions_serviceNamespace = Lens.lens (\DescribeScheduledActions' {serviceNamespace} -> serviceNamespace) (\s@DescribeScheduledActions' {} a -> s {serviceNamespace = a} :: DescribeScheduledActions)
 

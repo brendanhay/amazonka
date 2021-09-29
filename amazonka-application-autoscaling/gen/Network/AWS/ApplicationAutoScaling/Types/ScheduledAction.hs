@@ -40,11 +40,11 @@ data ScheduledAction = ScheduledAction'
     -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
     --     service.
     --
-    -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
-    --     Spot Fleet request.
-    --
     -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
     --     of an EMR Instance Group.
+    --
+    -- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+    --     Spot Fleet request.
     --
     -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
     --     AppStream 2.0 fleet.
@@ -90,6 +90,12 @@ data ScheduledAction = ScheduledAction'
     --
     -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
     --     GiB) for brokers in an Amazon MSK cluster.
+    --
+    -- -   @elasticache:replication-group:NodeGroups@ - The number of node
+    --     groups for an Amazon ElastiCache replication group.
+    --
+    -- -   @elasticache:replication-group:Replicas@ - The number of replicas
+    --     per node group for an Amazon ElastiCache replication group.
     scalableDimension :: Prelude.Maybe ScalableDimension,
     -- | The time zone used when referring to the date and time of a scheduled
     -- action, when the scheduled action uses an at or cron expression.
@@ -104,8 +110,8 @@ data ScheduledAction = ScheduledAction'
     scheduledActionName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the scheduled action.
     scheduledActionARN :: Prelude.Text,
-    -- | The namespace of the AWS service that provides the resource, or a
-    -- @custom-resource@.
+    -- | The namespace of the Amazon Web Services service that provides the
+    -- resource, or a @custom-resource@.
     serviceNamespace :: ServiceNamespace,
     -- | The schedule for this action. The following formats are supported:
     --
@@ -192,6 +198,10 @@ data ScheduledAction = ScheduledAction'
     -- -   Amazon MSK cluster - The resource type and unique identifier are
     --     specified using the cluster ARN. Example:
     --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
+    --
+    -- -   Amazon ElastiCache replication group - The resource type is
+    --     @replication-group@ and the unique identifier is the replication
+    --     group name. Example: @replication-group\/mycluster@.
     resourceId :: Prelude.Text,
     -- | The date and time that the scheduled action was created.
     creationTime :: Core.POSIX
@@ -216,11 +226,11 @@ data ScheduledAction = ScheduledAction'
 -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
 --     service.
 --
--- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
---     Spot Fleet request.
---
 -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
 --     of an EMR Instance Group.
+--
+-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+--     Spot Fleet request.
 --
 -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
 --     AppStream 2.0 fleet.
@@ -267,6 +277,12 @@ data ScheduledAction = ScheduledAction'
 -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
 --     GiB) for brokers in an Amazon MSK cluster.
 --
+-- -   @elasticache:replication-group:NodeGroups@ - The number of node
+--     groups for an Amazon ElastiCache replication group.
+--
+-- -   @elasticache:replication-group:Replicas@ - The number of replicas
+--     per node group for an Amazon ElastiCache replication group.
+--
 -- 'timezone', 'scheduledAction_timezone' - The time zone used when referring to the date and time of a scheduled
 -- action, when the scheduled action uses an at or cron expression.
 --
@@ -280,8 +296,8 @@ data ScheduledAction = ScheduledAction'
 --
 -- 'scheduledActionARN', 'scheduledAction_scheduledActionARN' - The Amazon Resource Name (ARN) of the scheduled action.
 --
--- 'serviceNamespace', 'scheduledAction_serviceNamespace' - The namespace of the AWS service that provides the resource, or a
--- @custom-resource@.
+-- 'serviceNamespace', 'scheduledAction_serviceNamespace' - The namespace of the Amazon Web Services service that provides the
+-- resource, or a @custom-resource@.
 --
 -- 'schedule', 'scheduledAction_schedule' - The schedule for this action. The following formats are supported:
 --
@@ -369,6 +385,10 @@ data ScheduledAction = ScheduledAction'
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
 --
+-- -   Amazon ElastiCache replication group - The resource type is
+--     @replication-group@ and the unique identifier is the replication
+--     group name. Example: @replication-group\/mycluster@.
+--
 -- 'creationTime', 'scheduledAction_creationTime' - The date and time that the scheduled action was created.
 newScheduledAction ::
   -- | 'scheduledActionName'
@@ -419,11 +439,11 @@ scheduledAction_endTime = Lens.lens (\ScheduledAction' {endTime} -> endTime) (\s
 -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
 --     service.
 --
--- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
---     Spot Fleet request.
---
 -- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count
 --     of an EMR Instance Group.
+--
+-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a
+--     Spot Fleet request.
 --
 -- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an
 --     AppStream 2.0 fleet.
@@ -469,6 +489,12 @@ scheduledAction_endTime = Lens.lens (\ScheduledAction' {endTime} -> endTime) (\s
 --
 -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
 --     GiB) for brokers in an Amazon MSK cluster.
+--
+-- -   @elasticache:replication-group:NodeGroups@ - The number of node
+--     groups for an Amazon ElastiCache replication group.
+--
+-- -   @elasticache:replication-group:Replicas@ - The number of replicas
+--     per node group for an Amazon ElastiCache replication group.
 scheduledAction_scalableDimension :: Lens.Lens' ScheduledAction (Prelude.Maybe ScalableDimension)
 scheduledAction_scalableDimension = Lens.lens (\ScheduledAction' {scalableDimension} -> scalableDimension) (\s@ScheduledAction' {} a -> s {scalableDimension = a} :: ScheduledAction)
 
@@ -493,8 +519,8 @@ scheduledAction_scheduledActionName = Lens.lens (\ScheduledAction' {scheduledAct
 scheduledAction_scheduledActionARN :: Lens.Lens' ScheduledAction Prelude.Text
 scheduledAction_scheduledActionARN = Lens.lens (\ScheduledAction' {scheduledActionARN} -> scheduledActionARN) (\s@ScheduledAction' {} a -> s {scheduledActionARN = a} :: ScheduledAction)
 
--- | The namespace of the AWS service that provides the resource, or a
--- @custom-resource@.
+-- | The namespace of the Amazon Web Services service that provides the
+-- resource, or a @custom-resource@.
 scheduledAction_serviceNamespace :: Lens.Lens' ScheduledAction ServiceNamespace
 scheduledAction_serviceNamespace = Lens.lens (\ScheduledAction' {serviceNamespace} -> serviceNamespace) (\s@ScheduledAction' {} a -> s {serviceNamespace = a} :: ScheduledAction)
 
@@ -585,6 +611,10 @@ scheduledAction_schedule = Lens.lens (\ScheduledAction' {schedule} -> schedule) 
 -- -   Amazon MSK cluster - The resource type and unique identifier are
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
+--
+-- -   Amazon ElastiCache replication group - The resource type is
+--     @replication-group@ and the unique identifier is the replication
+--     group name. Example: @replication-group\/mycluster@.
 scheduledAction_resourceId :: Lens.Lens' ScheduledAction Prelude.Text
 scheduledAction_resourceId = Lens.lens (\ScheduledAction' {resourceId} -> resourceId) (\s@ScheduledAction' {} a -> s {resourceId = a} :: ScheduledAction)
 

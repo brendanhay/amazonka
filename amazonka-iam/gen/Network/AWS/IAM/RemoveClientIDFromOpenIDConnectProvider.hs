@@ -56,7 +56,7 @@ data RemoveClientIDFromOpenIDConnectProvider = RemoveClientIDFromOpenIDConnectPr
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /Amazon Web Services General Reference/.
     openIDConnectProviderArn :: Prelude.Text,
     -- | The client ID (also known as audience) to remove from the IAM OIDC
     -- provider resource. For more information about client IDs, see
@@ -79,7 +79,7 @@ data RemoveClientIDFromOpenIDConnectProvider = RemoveClientIDFromOpenIDConnectPr
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 --
 -- 'clientID', 'removeClientIDFromOpenIDConnectProvider_clientID' - The client ID (also known as audience) to remove from the IAM OIDC
 -- provider resource. For more information about client IDs, see
@@ -105,7 +105,7 @@ newRemoveClientIDFromOpenIDConnectProvider
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 removeClientIDFromOpenIDConnectProvider_openIDConnectProviderArn :: Lens.Lens' RemoveClientIDFromOpenIDConnectProvider Prelude.Text
 removeClientIDFromOpenIDConnectProvider_openIDConnectProviderArn = Lens.lens (\RemoveClientIDFromOpenIDConnectProvider' {openIDConnectProviderArn} -> openIDConnectProviderArn) (\s@RemoveClientIDFromOpenIDConnectProvider' {} a -> s {openIDConnectProviderArn = a} :: RemoveClientIDFromOpenIDConnectProvider)
 

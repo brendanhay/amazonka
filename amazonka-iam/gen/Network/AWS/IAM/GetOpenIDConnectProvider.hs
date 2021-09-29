@@ -59,7 +59,7 @@ data GetOpenIDConnectProvider = GetOpenIDConnectProvider'
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /Amazon Web Services General Reference/.
     openIDConnectProviderArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,7 +78,7 @@ data GetOpenIDConnectProvider = GetOpenIDConnectProvider'
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 newGetOpenIDConnectProvider ::
   -- | 'openIDConnectProviderArn'
   Prelude.Text ->
@@ -96,7 +96,7 @@ newGetOpenIDConnectProvider
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 getOpenIDConnectProvider_openIDConnectProviderArn :: Lens.Lens' GetOpenIDConnectProvider Prelude.Text
 getOpenIDConnectProvider_openIDConnectProviderArn = Lens.lens (\GetOpenIDConnectProvider' {openIDConnectProviderArn} -> openIDConnectProviderArn) (\s@GetOpenIDConnectProvider' {} a -> s {openIDConnectProviderArn = a} :: GetOpenIDConnectProvider)
 
@@ -154,7 +154,7 @@ data GetOpenIDConnectProviderResponse = GetOpenIDConnectProviderResponse'
     -- see CreateOpenIDConnectProvider.
     clientIDList :: Prelude.Maybe [Prelude.Text],
     -- | The date and time when the IAM OIDC provider resource object was created
-    -- in the AWS account.
+    -- in the Amazon Web Services account.
     createDate :: Prelude.Maybe Core.ISO8601,
     -- | A list of certificate thumbprints that are associated with the specified
     -- IAM OIDC provider resource object. For more information, see
@@ -187,7 +187,7 @@ data GetOpenIDConnectProviderResponse = GetOpenIDConnectProviderResponse'
 -- see CreateOpenIDConnectProvider.
 --
 -- 'createDate', 'getOpenIDConnectProviderResponse_createDate' - The date and time when the IAM OIDC provider resource object was created
--- in the AWS account.
+-- in the Amazon Web Services account.
 --
 -- 'thumbprintList', 'getOpenIDConnectProviderResponse_thumbprintList' - A list of certificate thumbprints that are associated with the specified
 -- IAM OIDC provider resource object. For more information, see
@@ -225,7 +225,7 @@ getOpenIDConnectProviderResponse_clientIDList :: Lens.Lens' GetOpenIDConnectProv
 getOpenIDConnectProviderResponse_clientIDList = Lens.lens (\GetOpenIDConnectProviderResponse' {clientIDList} -> clientIDList) (\s@GetOpenIDConnectProviderResponse' {} a -> s {clientIDList = a} :: GetOpenIDConnectProviderResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The date and time when the IAM OIDC provider resource object was created
--- in the AWS account.
+-- in the Amazon Web Services account.
 getOpenIDConnectProviderResponse_createDate :: Lens.Lens' GetOpenIDConnectProviderResponse (Prelude.Maybe Prelude.UTCTime)
 getOpenIDConnectProviderResponse_createDate = Lens.lens (\GetOpenIDConnectProviderResponse' {createDate} -> createDate) (\s@GetOpenIDConnectProviderResponse' {} a -> s {createDate = a} :: GetOpenIDConnectProviderResponse) Prelude.. Lens.mapping Core._Time
 

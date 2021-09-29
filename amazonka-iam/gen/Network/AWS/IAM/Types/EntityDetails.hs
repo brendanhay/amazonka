@@ -25,7 +25,8 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that contains details about when the IAM entities (users or
--- roles) were last used in an attempt to access the specified AWS service.
+-- roles) were last used in an attempt to access the specified Amazon Web
+-- Services service.
 --
 -- This data type is a response element in the
 -- GetServiceLastAccessedDetailsWithEntities operation.
@@ -34,8 +35,8 @@ import qualified Network.AWS.Prelude as Prelude
 data EntityDetails = EntityDetails'
   { -- | The date and time,
     -- in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
-    -- authenticated entity last attempted to access AWS. AWS does not report
-    -- unauthenticated requests.
+    -- authenticated entity last attempted to access Amazon Web Services.
+    -- Amazon Web Services does not report unauthenticated requests.
     --
     -- This field is null if no IAM entities attempted to access the service
     -- within the
@@ -57,8 +58,8 @@ data EntityDetails = EntityDetails'
 --
 -- 'lastAuthenticated', 'entityDetails_lastAuthenticated' - The date and time,
 -- in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
--- authenticated entity last attempted to access AWS. AWS does not report
--- unauthenticated requests.
+-- authenticated entity last attempted to access Amazon Web Services.
+-- Amazon Web Services does not report unauthenticated requests.
 --
 -- This field is null if no IAM entities attempted to access the service
 -- within the
@@ -78,8 +79,8 @@ newEntityDetails pEntityInfo_ =
 
 -- | The date and time,
 -- in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
--- authenticated entity last attempted to access AWS. AWS does not report
--- unauthenticated requests.
+-- authenticated entity last attempted to access Amazon Web Services.
+-- Amazon Web Services does not report unauthenticated requests.
 --
 -- This field is null if no IAM entities attempted to access the service
 -- within the

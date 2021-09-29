@@ -52,10 +52,10 @@ data UntagMFADevice = UntagMFADevice'
     -- to remove tags. For virtual MFA devices, the serial number is the same
     -- as the ARN.
     --
-    -- This parameter accepts (through its
+    -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
-    -- that consist of upper and lowercase alphanumeric characters with no
-    -- spaces. You can also include any of the following characters: =,.\@-
+    -- consisting of upper and lowercase alphanumeric characters with no
+    -- spaces. You can also include any of the following characters: _+=,.\@-
     serialNumber :: Prelude.Text,
     -- | A list of key names as a simple array of strings. The tags with matching
     -- keys are removed from the specified instance profile.
@@ -75,10 +75,10 @@ data UntagMFADevice = UntagMFADevice'
 -- to remove tags. For virtual MFA devices, the serial number is the same
 -- as the ARN.
 --
--- This parameter accepts (through its
+-- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- that consist of upper and lowercase alphanumeric characters with no
--- spaces. You can also include any of the following characters: =,.\@-
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
 --
 -- 'tagKeys', 'untagMFADevice_tagKeys' - A list of key names as a simple array of strings. The tags with matching
 -- keys are removed from the specified instance profile.
@@ -96,10 +96,10 @@ newUntagMFADevice pSerialNumber_ =
 -- to remove tags. For virtual MFA devices, the serial number is the same
 -- as the ARN.
 --
--- This parameter accepts (through its
+-- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- that consist of upper and lowercase alphanumeric characters with no
--- spaces. You can also include any of the following characters: =,.\@-
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
 untagMFADevice_serialNumber :: Lens.Lens' UntagMFADevice Prelude.Text
 untagMFADevice_serialNumber = Lens.lens (\UntagMFADevice' {serialNumber} -> serialNumber) (\s@UntagMFADevice' {} a -> s {serialNumber = a} :: UntagMFADevice)
 

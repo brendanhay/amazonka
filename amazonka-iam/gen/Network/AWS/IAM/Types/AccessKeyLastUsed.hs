@@ -23,8 +23,9 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Contains information about the last time an AWS access key was used
--- since IAM began tracking this information on April 22, 2015.
+-- | Contains information about the last time an Amazon Web Services access
+-- key was used since IAM began tracking this information on April 22,
+-- 2015.
 --
 -- This data type is used as a response element in the GetAccessKeyLastUsed
 -- operation.
@@ -43,8 +44,9 @@ data AccessKeyLastUsed = AccessKeyLastUsed'
     --
     -- -   There is no sign-in data associated with the user.
     lastUsedDate :: Core.ISO8601,
-    -- | The name of the AWS service with which this access key was most recently
-    -- used. The value of this field is \"N\/A\" in the following situations:
+    -- | The name of the Amazon Web Services service with which this access key
+    -- was most recently used. The value of this field is \"N\/A\" in the
+    -- following situations:
     --
     -- -   The user does not have an access key.
     --
@@ -53,8 +55,8 @@ data AccessKeyLastUsed = AccessKeyLastUsed'
     --
     -- -   There is no sign-in data associated with the user.
     serviceName :: Prelude.Text,
-    -- | The AWS Region where this access key was most recently used. The value
-    -- for this field is \"N\/A\" in the following situations:
+    -- | The Amazon Web Services Region where this access key was most recently
+    -- used. The value for this field is \"N\/A\" in the following situations:
     --
     -- -   The user does not have an access key.
     --
@@ -63,7 +65,7 @@ data AccessKeyLastUsed = AccessKeyLastUsed'
     --
     -- -   There is no sign-in data associated with the user.
     --
-    -- For more information about AWS Regions, see
+    -- For more information about Amazon Web Services Regions, see
     -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and endpoints>
     -- in the Amazon Web Services General Reference.
     region :: Prelude.Text
@@ -90,8 +92,9 @@ data AccessKeyLastUsed = AccessKeyLastUsed'
 --
 -- -   There is no sign-in data associated with the user.
 --
--- 'serviceName', 'accessKeyLastUsed_serviceName' - The name of the AWS service with which this access key was most recently
--- used. The value of this field is \"N\/A\" in the following situations:
+-- 'serviceName', 'accessKeyLastUsed_serviceName' - The name of the Amazon Web Services service with which this access key
+-- was most recently used. The value of this field is \"N\/A\" in the
+-- following situations:
 --
 -- -   The user does not have an access key.
 --
@@ -100,8 +103,8 @@ data AccessKeyLastUsed = AccessKeyLastUsed'
 --
 -- -   There is no sign-in data associated with the user.
 --
--- 'region', 'accessKeyLastUsed_region' - The AWS Region where this access key was most recently used. The value
--- for this field is \"N\/A\" in the following situations:
+-- 'region', 'accessKeyLastUsed_region' - The Amazon Web Services Region where this access key was most recently
+-- used. The value for this field is \"N\/A\" in the following situations:
 --
 -- -   The user does not have an access key.
 --
@@ -110,7 +113,7 @@ data AccessKeyLastUsed = AccessKeyLastUsed'
 --
 -- -   There is no sign-in data associated with the user.
 --
--- For more information about AWS Regions, see
+-- For more information about Amazon Web Services Regions, see
 -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and endpoints>
 -- in the Amazon Web Services General Reference.
 newAccessKeyLastUsed ::
@@ -146,8 +149,9 @@ newAccessKeyLastUsed
 accessKeyLastUsed_lastUsedDate :: Lens.Lens' AccessKeyLastUsed Prelude.UTCTime
 accessKeyLastUsed_lastUsedDate = Lens.lens (\AccessKeyLastUsed' {lastUsedDate} -> lastUsedDate) (\s@AccessKeyLastUsed' {} a -> s {lastUsedDate = a} :: AccessKeyLastUsed) Prelude.. Core._Time
 
--- | The name of the AWS service with which this access key was most recently
--- used. The value of this field is \"N\/A\" in the following situations:
+-- | The name of the Amazon Web Services service with which this access key
+-- was most recently used. The value of this field is \"N\/A\" in the
+-- following situations:
 --
 -- -   The user does not have an access key.
 --
@@ -158,8 +162,8 @@ accessKeyLastUsed_lastUsedDate = Lens.lens (\AccessKeyLastUsed' {lastUsedDate} -
 accessKeyLastUsed_serviceName :: Lens.Lens' AccessKeyLastUsed Prelude.Text
 accessKeyLastUsed_serviceName = Lens.lens (\AccessKeyLastUsed' {serviceName} -> serviceName) (\s@AccessKeyLastUsed' {} a -> s {serviceName = a} :: AccessKeyLastUsed)
 
--- | The AWS Region where this access key was most recently used. The value
--- for this field is \"N\/A\" in the following situations:
+-- | The Amazon Web Services Region where this access key was most recently
+-- used. The value for this field is \"N\/A\" in the following situations:
 --
 -- -   The user does not have an access key.
 --
@@ -168,7 +172,7 @@ accessKeyLastUsed_serviceName = Lens.lens (\AccessKeyLastUsed' {serviceName} -> 
 --
 -- -   There is no sign-in data associated with the user.
 --
--- For more information about AWS Regions, see
+-- For more information about Amazon Web Services Regions, see
 -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and endpoints>
 -- in the Amazon Web Services General Reference.
 accessKeyLastUsed_region :: Lens.Lens' AccessKeyLastUsed Prelude.Text

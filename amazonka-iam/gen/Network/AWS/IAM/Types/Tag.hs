@@ -40,9 +40,10 @@ data Tag = Tag'
     -- your company. Typically, many resources have tags with the same key name
     -- but with different values.
     --
-    -- AWS always interprets the tag @Value@ as a single string. If you need to
-    -- store an array, you can store comma-separated values in the string.
-    -- However, you must interpret the value in your code.
+    -- Amazon Web Services always interprets the tag @Value@ as a single
+    -- string. If you need to store an array, you can store comma-separated
+    -- values in the string. However, you must interpret the value in your
+    -- code.
     value :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,9 +66,10 @@ data Tag = Tag'
 -- your company. Typically, many resources have tags with the same key name
 -- but with different values.
 --
--- AWS always interprets the tag @Value@ as a single string. If you need to
--- store an array, you can store comma-separated values in the string.
--- However, you must interpret the value in your code.
+-- Amazon Web Services always interprets the tag @Value@ as a single
+-- string. If you need to store an array, you can store comma-separated
+-- values in the string. However, you must interpret the value in your
+-- code.
 newTag ::
   -- | 'key'
   Prelude.Text ->
@@ -89,9 +91,10 @@ tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 -- your company. Typically, many resources have tags with the same key name
 -- but with different values.
 --
--- AWS always interprets the tag @Value@ as a single string. If you need to
--- store an array, you can store comma-separated values in the string.
--- However, you must interpret the value in your code.
+-- Amazon Web Services always interprets the tag @Value@ as a single
+-- string. If you need to store an array, you can store comma-separated
+-- values in the string. However, you must interpret the value in your
+-- code.
 tag_value :: Lens.Lens' Tag Prelude.Text
 tag_value = Lens.lens (\Tag' {value} -> value) (\s@Tag' {} a -> s {value = a} :: Tag)
 

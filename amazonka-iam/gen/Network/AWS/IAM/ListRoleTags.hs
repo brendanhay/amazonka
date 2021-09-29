@@ -56,16 +56,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListRoleTags' smart constructor.
 data ListRoleTags = ListRoleTags'
-  { -- | (Optional) Use this only when paginating results to indicate the maximum
-    -- number of items that you want in the response. If additional items exist
-    -- beyond the maximum that you specify, the @IsTruncated@ response element
-    -- is @true@.
+  { -- | Use this only when paginating results to indicate the maximum number of
+    -- items you want in the response. If additional items exist beyond the
+    -- maximum you specify, the @IsTruncated@ response element is @true@.
     --
-    -- If you do not include this parameter, it defaults to 100. Note that IAM
-    -- might return fewer results, even when more results are available. In
-    -- that case, the @IsTruncated@ response element returns @true@, and
-    -- @Marker@ contains a value to include in the subsequent call that tells
-    -- the service where to continue from.
+    -- If you do not include this parameter, the number of items defaults to
+    -- 100. Note that IAM might return fewer results, even when there are more
+    -- results available. In that case, the @IsTruncated@ response element
+    -- returns @true@, and @Marker@ contains a value to include in the
+    -- subsequent call that tells the service where to continue from.
     maxItems :: Prelude.Maybe Prelude.Natural,
     -- | Use this parameter only when paginating results and only after you
     -- receive a response indicating that the results are truncated. Set it to
@@ -90,16 +89,15 @@ data ListRoleTags = ListRoleTags'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxItems', 'listRoleTags_maxItems' - (Optional) Use this only when paginating results to indicate the maximum
--- number of items that you want in the response. If additional items exist
--- beyond the maximum that you specify, the @IsTruncated@ response element
--- is @true@.
+-- 'maxItems', 'listRoleTags_maxItems' - Use this only when paginating results to indicate the maximum number of
+-- items you want in the response. If additional items exist beyond the
+-- maximum you specify, the @IsTruncated@ response element is @true@.
 --
--- If you do not include this parameter, it defaults to 100. Note that IAM
--- might return fewer results, even when more results are available. In
--- that case, the @IsTruncated@ response element returns @true@, and
--- @Marker@ contains a value to include in the subsequent call that tells
--- the service where to continue from.
+-- If you do not include this parameter, the number of items defaults to
+-- 100. Note that IAM might return fewer results, even when there are more
+-- results available. In that case, the @IsTruncated@ response element
+-- returns @true@, and @Marker@ contains a value to include in the
+-- subsequent call that tells the service where to continue from.
 --
 -- 'marker', 'listRoleTags_marker' - Use this parameter only when paginating results and only after you
 -- receive a response indicating that the results are truncated. Set it to
@@ -123,16 +121,15 @@ newListRoleTags pRoleName_ =
       roleName = pRoleName_
     }
 
--- | (Optional) Use this only when paginating results to indicate the maximum
--- number of items that you want in the response. If additional items exist
--- beyond the maximum that you specify, the @IsTruncated@ response element
--- is @true@.
+-- | Use this only when paginating results to indicate the maximum number of
+-- items you want in the response. If additional items exist beyond the
+-- maximum you specify, the @IsTruncated@ response element is @true@.
 --
--- If you do not include this parameter, it defaults to 100. Note that IAM
--- might return fewer results, even when more results are available. In
--- that case, the @IsTruncated@ response element returns @true@, and
--- @Marker@ contains a value to include in the subsequent call that tells
--- the service where to continue from.
+-- If you do not include this parameter, the number of items defaults to
+-- 100. Note that IAM might return fewer results, even when there are more
+-- results available. In that case, the @IsTruncated@ response element
+-- returns @true@, and @Marker@ contains a value to include in the
+-- subsequent call that tells the service where to continue from.
 listRoleTags_maxItems :: Lens.Lens' ListRoleTags (Prelude.Maybe Prelude.Natural)
 listRoleTags_maxItems = Lens.lens (\ListRoleTags' {maxItems} -> maxItems) (\s@ListRoleTags' {} a -> s {maxItems = a} :: ListRoleTags)
 
@@ -193,11 +190,12 @@ instance Core.ToQuery ListRoleTags where
 -- | /See:/ 'newListRoleTagsResponse' smart constructor.
 data ListRoleTagsResponse = ListRoleTagsResponse'
   { -- | A flag that indicates whether there are more items to return. If your
-    -- results were truncated, you can use the @Marker@ request parameter to
-    -- make a subsequent pagination request that retrieves more items. Note
-    -- that IAM might return fewer than the @MaxItems@ number of results even
-    -- when more results are available. Check @IsTruncated@ after every call to
-    -- ensure that you receive all of your results.
+    -- results were truncated, you can make a subsequent pagination request
+    -- using the @Marker@ request parameter to retrieve more items. Note that
+    -- IAM might return fewer than the @MaxItems@ number of results even when
+    -- there are more results available. We recommend that you check
+    -- @IsTruncated@ after every call to ensure that you receive all your
+    -- results.
     isTruncated :: Prelude.Maybe Prelude.Bool,
     -- | When @IsTruncated@ is @true@, this element is present and contains the
     -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -221,11 +219,12 @@ data ListRoleTagsResponse = ListRoleTagsResponse'
 -- for backwards compatibility:
 --
 -- 'isTruncated', 'listRoleTagsResponse_isTruncated' - A flag that indicates whether there are more items to return. If your
--- results were truncated, you can use the @Marker@ request parameter to
--- make a subsequent pagination request that retrieves more items. Note
--- that IAM might return fewer than the @MaxItems@ number of results even
--- when more results are available. Check @IsTruncated@ after every call to
--- ensure that you receive all of your results.
+-- results were truncated, you can make a subsequent pagination request
+-- using the @Marker@ request parameter to retrieve more items. Note that
+-- IAM might return fewer than the @MaxItems@ number of results even when
+-- there are more results available. We recommend that you check
+-- @IsTruncated@ after every call to ensure that you receive all your
+-- results.
 --
 -- 'marker', 'listRoleTagsResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -250,11 +249,12 @@ newListRoleTagsResponse pHttpStatus_ =
     }
 
 -- | A flag that indicates whether there are more items to return. If your
--- results were truncated, you can use the @Marker@ request parameter to
--- make a subsequent pagination request that retrieves more items. Note
--- that IAM might return fewer than the @MaxItems@ number of results even
--- when more results are available. Check @IsTruncated@ after every call to
--- ensure that you receive all of your results.
+-- results were truncated, you can make a subsequent pagination request
+-- using the @Marker@ request parameter to retrieve more items. Note that
+-- IAM might return fewer than the @MaxItems@ number of results even when
+-- there are more results available. We recommend that you check
+-- @IsTruncated@ after every call to ensure that you receive all your
+-- results.
 listRoleTagsResponse_isTruncated :: Lens.Lens' ListRoleTagsResponse (Prelude.Maybe Prelude.Bool)
 listRoleTagsResponse_isTruncated = Lens.lens (\ListRoleTagsResponse' {isTruncated} -> isTruncated) (\s@ListRoleTagsResponse' {} a -> s {isTruncated = a} :: ListRoleTagsResponse)
 

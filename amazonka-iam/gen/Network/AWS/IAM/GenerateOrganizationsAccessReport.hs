@@ -20,16 +20,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Generates a report for service last accessed data for AWS Organizations.
--- You can generate a report for any entities (organization root,
+-- Generates a report for service last accessed data for Organizations. You
+-- can generate a report for any entities (organization root,
 -- organizational unit, or account) or policies in your organization.
 --
--- To call this operation, you must be signed in using your AWS
--- Organizations management account credentials. You can use your long-term
--- IAM user or root user credentials, or temporary credentials from
--- assuming an IAM role. SCPs must be enabled for your organization root.
--- You must have the required IAM and AWS Organizations permissions. For
--- more information, see
+-- To call this operation, you must be signed in using your Organizations
+-- management account credentials. You can use your long-term IAM user or
+-- root user credentials, or temporary credentials from assuming an IAM
+-- role. SCPs must be enabled for your organization root. You must have the
+-- required IAM and Organizations permissions. For more information, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html Refining permissions using service last accessed data>
 -- in the /IAM User Guide/.
 --
@@ -39,9 +38,9 @@
 -- apply to the entity.
 --
 -- You can generate a service last accessed data report for a policy by
--- specifying an entity\'s path and an optional AWS Organizations policy
--- ID. This data includes a list of services that are allowed by the
--- specified SCP.
+-- specifying an entity\'s path and an optional Organizations policy ID.
+-- This data includes a list of services that are allowed by the specified
+-- SCP.
 --
 -- For each service in both report types, the data includes the most recent
 -- account activity that the policy allows to account principals in the
@@ -51,14 +50,15 @@
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html Reducing permissions using service last accessed data>
 -- in the /IAM User Guide/.
 --
--- The data includes all attempts to access AWS, not just the successful
--- ones. This includes all attempts that were made using the AWS Management
--- Console, the AWS API through any of the SDKs, or any of the command line
--- tools. An unexpected entry in the service last accessed data does not
--- mean that an account has been compromised, because the request might
--- have been denied. Refer to your CloudTrail logs as the authoritative
--- source for information about all API calls and whether they were
--- successful or denied access. For more information,
+-- The data includes all attempts to access Amazon Web Services, not just
+-- the successful ones. This includes all attempts that were made using the
+-- Amazon Web Services Management Console, the Amazon Web Services API
+-- through any of the SDKs, or any of the command line tools. An unexpected
+-- entry in the service last accessed data does not mean that an account
+-- has been compromised, because the request might have been denied. Refer
+-- to your CloudTrail logs as the authoritative source for information
+-- about all API calls and whether they were successful or denied access.
+-- For more information,
 -- see <https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html Logging IAM events with CloudTrail>
 -- in the /IAM User Guide/.
 --
@@ -70,8 +70,8 @@
 -- retrieve the report.
 --
 -- To generate a service last accessed data report for entities, specify an
--- entity path without specifying the optional AWS Organizations policy ID.
--- The type of entity that you specify determines the data returned in the
+-- entity path without specifying the optional Organizations policy ID. The
+-- type of entity that you specify determines the data returned in the
 -- report.
 --
 -- -   __Root__ – When you specify the organizations root as the entity,
@@ -88,9 +88,9 @@
 --     not limited by SCPs.
 --
 -- -   __management account__ – When you specify the management account,
---     the resulting report lists all AWS services, because the management
---     account is not limited by SCPs. For each service, the report
---     includes data for only the management account.
+--     the resulting report lists all Amazon Web Services services, because
+--     the management account is not limited by SCPs. For each service, the
+--     report includes data for only the management account.
 --
 -- -   __Account__ – When you specify another account as the entity, the
 --     resulting report lists all of the services allowed by SCPs that are
@@ -98,8 +98,8 @@
 --     report includes data for only the specified account.
 --
 -- To generate a service last accessed data report for policies, specify an
--- entity path and the optional AWS Organizations policy ID. The type of
--- entity that you specify determines the data returned for each service.
+-- entity path and the optional Organizations policy ID. The type of entity
+-- that you specify determines the data returned for each service.
 --
 -- -   __Root__ – When you specify the root entity and a policy ID, the
 --     resulting report lists all of the services that are allowed by the
@@ -121,10 +121,10 @@
 --     the report will return a list of services with no data.
 --
 -- -   __management account__ – When you specify the management account,
---     the resulting report lists all AWS services, because the management
---     account is not limited by SCPs. If you specify a policy ID in the
---     CLI or API, the policy is ignored. For each service, the report
---     includes data for only the management account.
+--     the resulting report lists all Amazon Web Services services, because
+--     the management account is not limited by SCPs. If you specify a
+--     policy ID in the CLI or API, the policy is ignored. For each
+--     service, the report includes data for only the management account.
 --
 -- -   __Account__ – When you specify another account entity and a policy
 --     ID, the resulting report lists all of the services that are allowed
@@ -174,13 +174,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGenerateOrganizationsAccessReport' smart constructor.
 data GenerateOrganizationsAccessReport = GenerateOrganizationsAccessReport'
-  { -- | The identifier of the AWS Organizations service control policy (SCP).
-    -- This parameter is optional.
+  { -- | The identifier of the Organizations service control policy (SCP). This
+    -- parameter is optional.
     --
     -- This ID is used to generate information about when an account principal
-    -- that is limited by the SCP attempted to access an AWS service.
+    -- that is limited by the SCP attempted to access an Amazon Web Services
+    -- service.
     organizationsPolicyId :: Prelude.Maybe Prelude.Text,
-    -- | The path of the AWS Organizations entity (root, OU, or account). You can
+    -- | The path of the Organizations entity (root, OU, or account). You can
     -- build an entity path using the known structure of your organization. For
     -- example, assume that your account ID is @123456789012@ and its parent OU
     -- ID is @ou-rge0-awsabcde@. The organization root ID is
@@ -199,13 +200,14 @@ data GenerateOrganizationsAccessReport = GenerateOrganizationsAccessReport'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'organizationsPolicyId', 'generateOrganizationsAccessReport_organizationsPolicyId' - The identifier of the AWS Organizations service control policy (SCP).
--- This parameter is optional.
+-- 'organizationsPolicyId', 'generateOrganizationsAccessReport_organizationsPolicyId' - The identifier of the Organizations service control policy (SCP). This
+-- parameter is optional.
 --
 -- This ID is used to generate information about when an account principal
--- that is limited by the SCP attempted to access an AWS service.
+-- that is limited by the SCP attempted to access an Amazon Web Services
+-- service.
 --
--- 'entityPath', 'generateOrganizationsAccessReport_entityPath' - The path of the AWS Organizations entity (root, OU, or account). You can
+-- 'entityPath', 'generateOrganizationsAccessReport_entityPath' - The path of the Organizations entity (root, OU, or account). You can
 -- build an entity path using the known structure of your organization. For
 -- example, assume that your account ID is @123456789012@ and its parent OU
 -- ID is @ou-rge0-awsabcde@. The organization root ID is
@@ -223,15 +225,16 @@ newGenerateOrganizationsAccessReport pEntityPath_ =
       entityPath = pEntityPath_
     }
 
--- | The identifier of the AWS Organizations service control policy (SCP).
--- This parameter is optional.
+-- | The identifier of the Organizations service control policy (SCP). This
+-- parameter is optional.
 --
 -- This ID is used to generate information about when an account principal
--- that is limited by the SCP attempted to access an AWS service.
+-- that is limited by the SCP attempted to access an Amazon Web Services
+-- service.
 generateOrganizationsAccessReport_organizationsPolicyId :: Lens.Lens' GenerateOrganizationsAccessReport (Prelude.Maybe Prelude.Text)
 generateOrganizationsAccessReport_organizationsPolicyId = Lens.lens (\GenerateOrganizationsAccessReport' {organizationsPolicyId} -> organizationsPolicyId) (\s@GenerateOrganizationsAccessReport' {} a -> s {organizationsPolicyId = a} :: GenerateOrganizationsAccessReport)
 
--- | The path of the AWS Organizations entity (root, OU, or account). You can
+-- | The path of the Organizations entity (root, OU, or account). You can
 -- build an entity path using the known structure of your organization. For
 -- example, assume that your account ID is @123456789012@ and its parent OU
 -- ID is @ou-rge0-awsabcde@. The organization root ID is

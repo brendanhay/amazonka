@@ -27,8 +27,8 @@
 -- used as a principal in an IAM role\'s trust policy. Such a policy can
 -- enable federated users who sign in using the SAML IdP to assume the
 -- role. You can create an IAM role that supports Web-based single sign-on
--- (SSO) to the AWS Management Console or one that supports API access to
--- AWS.
+-- (SSO) to the Amazon Web Services Management Console or one that supports
+-- API access to Amazon Web Services.
 --
 -- When you create the SAML provider resource, you upload a SAML metadata
 -- document that you get from your IdP. That document includes the
@@ -41,7 +41,7 @@
 -- <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-saml.html Enabling SAML 2.0 federated users to access the AWS Management Console>
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-saml.html Enabling SAML 2.0 federated users to access the Amazon Web Services Management Console>
 -- and
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html About SAML 2.0-based federation>
 -- in the /IAM User Guide/.

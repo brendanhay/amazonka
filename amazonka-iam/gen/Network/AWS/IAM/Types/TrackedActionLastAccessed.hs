@@ -37,15 +37,15 @@ data TrackedActionLastAccessed = TrackedActionLastAccessed'
     -- | The date and time,
     -- in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when an
     -- authenticated entity most recently attempted to access the tracked
-    -- service. AWS does not report unauthenticated requests.
+    -- service. Amazon Web Services does not report unauthenticated requests.
     --
     -- This field is null if no IAM entities attempted to access the service
     -- within the
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period>.
     lastAccessedTime :: Prelude.Maybe Core.ISO8601,
     -- | The Region from which the authenticated entity (user or role) last
-    -- attempted to access the tracked action. AWS does not report
-    -- unauthenticated requests.
+    -- attempted to access the tracked action. Amazon Web Services does not
+    -- report unauthenticated requests.
     --
     -- This field is null if no IAM entities attempted to access the service
     -- within the
@@ -69,15 +69,15 @@ data TrackedActionLastAccessed = TrackedActionLastAccessed'
 -- 'lastAccessedTime', 'trackedActionLastAccessed_lastAccessedTime' - The date and time,
 -- in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when an
 -- authenticated entity most recently attempted to access the tracked
--- service. AWS does not report unauthenticated requests.
+-- service. Amazon Web Services does not report unauthenticated requests.
 --
 -- This field is null if no IAM entities attempted to access the service
 -- within the
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period>.
 --
 -- 'lastAccessedRegion', 'trackedActionLastAccessed_lastAccessedRegion' - The Region from which the authenticated entity (user or role) last
--- attempted to access the tracked action. AWS does not report
--- unauthenticated requests.
+-- attempted to access the tracked action. Amazon Web Services does not
+-- report unauthenticated requests.
 --
 -- This field is null if no IAM entities attempted to access the service
 -- within the
@@ -103,7 +103,7 @@ trackedActionLastAccessed_actionName = Lens.lens (\TrackedActionLastAccessed' {a
 -- | The date and time,
 -- in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when an
 -- authenticated entity most recently attempted to access the tracked
--- service. AWS does not report unauthenticated requests.
+-- service. Amazon Web Services does not report unauthenticated requests.
 --
 -- This field is null if no IAM entities attempted to access the service
 -- within the
@@ -112,8 +112,8 @@ trackedActionLastAccessed_lastAccessedTime :: Lens.Lens' TrackedActionLastAccess
 trackedActionLastAccessed_lastAccessedTime = Lens.lens (\TrackedActionLastAccessed' {lastAccessedTime} -> lastAccessedTime) (\s@TrackedActionLastAccessed' {} a -> s {lastAccessedTime = a} :: TrackedActionLastAccessed) Prelude.. Lens.mapping Core._Time
 
 -- | The Region from which the authenticated entity (user or role) last
--- attempted to access the tracked action. AWS does not report
--- unauthenticated requests.
+-- attempted to access the tracked action. Amazon Web Services does not
+-- report unauthenticated requests.
 --
 -- This field is null if no IAM entities attempted to access the service
 -- within the

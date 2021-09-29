@@ -20,10 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new virtual MFA device for the AWS account. After creating the
--- virtual MFA, use EnableMFADevice to attach the MFA device to an IAM
--- user. For more information about creating and working with virtual MFA
--- devices, see
+-- Creates a new virtual MFA device for the Amazon Web Services account.
+-- After creating the virtual MFA, use EnableMFADevice to attach the MFA
+-- device to an IAM user. For more information about creating and working
+-- with virtual MFA devices, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html Using a virtual MFA device>
 -- in the /IAM User Guide/.
 --
@@ -34,9 +34,10 @@
 --
 -- The seed information contained in the QR code and the Base32 string
 -- should be treated like any other secret access information. In other
--- words, protect the seed information as you would your AWS access keys or
--- your passwords. After you provision your virtual device, you should
--- ensure that the information is destroyed following secure procedures.
+-- words, protect the seed information as you would your Amazon Web
+-- Services access keys or your passwords. After you provision your virtual
+-- device, you should ensure that the information is destroyed following
+-- secure procedures.
 module Network.AWS.IAM.CreateVirtualMFADevice
   ( -- * Creating a Request
     CreateVirtualMFADevice (..),

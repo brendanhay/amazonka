@@ -51,10 +51,10 @@ data UntagPolicy = UntagPolicy'
   { -- | The ARN of the IAM customer managed policy from which you want to remove
     -- tags.
     --
-    -- This parameter accepts (through its
+    -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
-    -- that consist of upper and lowercase alphanumeric characters with no
-    -- spaces. You can also include any of the following characters: =,.\@-
+    -- consisting of upper and lowercase alphanumeric characters with no
+    -- spaces. You can also include any of the following characters: _+=,.\@-
     policyArn :: Prelude.Text,
     -- | A list of key names as a simple array of strings. The tags with matching
     -- keys are removed from the specified policy.
@@ -73,10 +73,10 @@ data UntagPolicy = UntagPolicy'
 -- 'policyArn', 'untagPolicy_policyArn' - The ARN of the IAM customer managed policy from which you want to remove
 -- tags.
 --
--- This parameter accepts (through its
+-- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- that consist of upper and lowercase alphanumeric characters with no
--- spaces. You can also include any of the following characters: =,.\@-
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
 --
 -- 'tagKeys', 'untagPolicy_tagKeys' - A list of key names as a simple array of strings. The tags with matching
 -- keys are removed from the specified policy.
@@ -93,10 +93,10 @@ newUntagPolicy pPolicyArn_ =
 -- | The ARN of the IAM customer managed policy from which you want to remove
 -- tags.
 --
--- This parameter accepts (through its
+-- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- that consist of upper and lowercase alphanumeric characters with no
--- spaces. You can also include any of the following characters: =,.\@-
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
 untagPolicy_policyArn :: Lens.Lens' UntagPolicy Prelude.Text
 untagPolicy_policyArn = Lens.lens (\UntagPolicy' {policyArn} -> policyArn) (\s@UntagPolicy' {} a -> s {policyArn = a} :: UntagPolicy)
 

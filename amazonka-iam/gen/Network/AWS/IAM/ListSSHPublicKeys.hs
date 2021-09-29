@@ -24,11 +24,11 @@
 -- specified IAM user. If none exists, the operation returns an empty list.
 --
 -- The SSH public keys returned by this operation are used only for
--- authenticating the IAM user to an AWS CodeCommit repository. For more
--- information about using SSH keys to authenticate to an AWS CodeCommit
+-- authenticating the IAM user to an CodeCommit repository. For more
+-- information about using SSH keys to authenticate to an CodeCommit
 -- repository, see
--- <https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html Set up AWS CodeCommit for SSH connections>
--- in the /AWS CodeCommit User Guide/.
+-- <https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html Set up CodeCommit for SSH connections>
+-- in the /CodeCommit User Guide/.
 --
 -- Although each user is limited to a small number of keys, you can still
 -- paginate the results using the @MaxItems@ and @Marker@ parameters.
@@ -67,7 +67,7 @@ import qualified Network.AWS.Response as Response
 data ListSSHPublicKeys = ListSSHPublicKeys'
   { -- | The name of the IAM user to list SSH public keys for. If none is
     -- specified, the @UserName@ field is determined implicitly based on the
-    -- AWS access key used to sign the request.
+    -- Amazon Web Services access key used to sign the request.
     --
     -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
@@ -102,7 +102,7 @@ data ListSSHPublicKeys = ListSSHPublicKeys'
 --
 -- 'userName', 'listSSHPublicKeys_userName' - The name of the IAM user to list SSH public keys for. If none is
 -- specified, the @UserName@ field is determined implicitly based on the
--- AWS access key used to sign the request.
+-- Amazon Web Services access key used to sign the request.
 --
 -- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
@@ -134,7 +134,7 @@ newListSSHPublicKeys =
 
 -- | The name of the IAM user to list SSH public keys for. If none is
 -- specified, the @UserName@ field is determined implicitly based on the
--- AWS access key used to sign the request.
+-- Amazon Web Services access key used to sign the request.
 --
 -- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters

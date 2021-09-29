@@ -25,10 +25,10 @@
 --
 -- This operation does not use other policy types when determining whether
 -- a resource could access a service. These other policy types include
--- resource-based policies, access control lists, AWS Organizations
--- policies, IAM permissions boundaries, and AWS STS assume role policies.
--- It only applies permissions policy logic. For more about the evaluation
--- of policy types, see
+-- resource-based policies, access control lists, Organizations policies,
+-- IAM permissions boundaries, and STS assume role policies. It only
+-- applies permissions policy logic. For more about the evaluation of
+-- policy types, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics Evaluating policies>
 -- in the /IAM User Guide/.
 --
@@ -97,17 +97,17 @@ data ListPoliciesGrantingServiceAccess = ListPoliciesGrantingServiceAccess'
     -- | The ARN of the IAM identity (user, group, or role) whose policies you
     -- want to list.
     arn :: Prelude.Text,
-    -- | The service namespace for the AWS services whose policies you want to
-    -- list.
+    -- | The service namespace for the Amazon Web Services services whose
+    -- policies you want to list.
     --
     -- To learn the service namespace for a service, see
-    -- <https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html Actions, resources, and condition keys for AWS services>
+    -- <https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html Actions, resources, and condition keys for Amazon Web Services services>
     -- in the /IAM User Guide/. Choose the name of the service to view details
     -- for that service. In the first paragraph, find the service prefix. For
     -- example, @(service prefix: a4b)@. For more information about service
     -- namespaces, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS service namespaces>
-    -- in the /AWS General Reference/.
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces Amazon Web Services service namespaces>
+    -- in the /Amazon Web Services General Reference/.
     serviceNamespaces :: Prelude.NonEmpty Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -128,17 +128,17 @@ data ListPoliciesGrantingServiceAccess = ListPoliciesGrantingServiceAccess'
 -- 'arn', 'listPoliciesGrantingServiceAccess_arn' - The ARN of the IAM identity (user, group, or role) whose policies you
 -- want to list.
 --
--- 'serviceNamespaces', 'listPoliciesGrantingServiceAccess_serviceNamespaces' - The service namespace for the AWS services whose policies you want to
--- list.
+-- 'serviceNamespaces', 'listPoliciesGrantingServiceAccess_serviceNamespaces' - The service namespace for the Amazon Web Services services whose
+-- policies you want to list.
 --
 -- To learn the service namespace for a service, see
--- <https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html Actions, resources, and condition keys for AWS services>
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html Actions, resources, and condition keys for Amazon Web Services services>
 -- in the /IAM User Guide/. Choose the name of the service to view details
 -- for that service. In the first paragraph, find the service prefix. For
 -- example, @(service prefix: a4b)@. For more information about service
 -- namespaces, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS service namespaces>
--- in the /AWS General Reference/.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces Amazon Web Services service namespaces>
+-- in the /Amazon Web Services General Reference/.
 newListPoliciesGrantingServiceAccess ::
   -- | 'arn'
   Prelude.Text ->
@@ -169,17 +169,17 @@ listPoliciesGrantingServiceAccess_marker = Lens.lens (\ListPoliciesGrantingServi
 listPoliciesGrantingServiceAccess_arn :: Lens.Lens' ListPoliciesGrantingServiceAccess Prelude.Text
 listPoliciesGrantingServiceAccess_arn = Lens.lens (\ListPoliciesGrantingServiceAccess' {arn} -> arn) (\s@ListPoliciesGrantingServiceAccess' {} a -> s {arn = a} :: ListPoliciesGrantingServiceAccess)
 
--- | The service namespace for the AWS services whose policies you want to
--- list.
+-- | The service namespace for the Amazon Web Services services whose
+-- policies you want to list.
 --
 -- To learn the service namespace for a service, see
--- <https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html Actions, resources, and condition keys for AWS services>
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html Actions, resources, and condition keys for Amazon Web Services services>
 -- in the /IAM User Guide/. Choose the name of the service to view details
 -- for that service. In the first paragraph, find the service prefix. For
 -- example, @(service prefix: a4b)@. For more information about service
 -- namespaces, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS service namespaces>
--- in the /AWS General Reference/.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces Amazon Web Services service namespaces>
+-- in the /Amazon Web Services General Reference/.
 listPoliciesGrantingServiceAccess_serviceNamespaces :: Lens.Lens' ListPoliciesGrantingServiceAccess (Prelude.NonEmpty Prelude.Text)
 listPoliciesGrantingServiceAccess_serviceNamespaces = Lens.lens (\ListPoliciesGrantingServiceAccess' {serviceNamespaces} -> serviceNamespaces) (\s@ListPoliciesGrantingServiceAccess' {} a -> s {serviceNamespaces = a} :: ListPoliciesGrantingServiceAccess) Prelude.. Lens._Coerce
 

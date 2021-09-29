@@ -25,9 +25,9 @@
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources>
 -- in the /IAM User Guide/.
 --
--- For certificates in a Region supported by AWS Certificate Manager (ACM),
--- we recommend that you don\'t use IAM server certificates. Instead, use
--- ACM to provision, manage, and deploy your server certificates. For more
+-- For certificates in a Region supported by Certificate Manager (ACM), we
+-- recommend that you don\'t use IAM server certificates. Instead, use ACM
+-- to provision, manage, and deploy your server certificates. For more
 -- information about IAM server certificates,
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Working with server certificates>
 -- in the /IAM User Guide/.
@@ -58,10 +58,10 @@ data UntagServerCertificate = UntagServerCertificate'
   { -- | The name of the IAM server certificate from which you want to remove
     -- tags.
     --
-    -- This parameter accepts (through its
+    -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
-    -- that consist of upper and lowercase alphanumeric characters with no
-    -- spaces. You can also include any of the following characters: =,.\@-
+    -- consisting of upper and lowercase alphanumeric characters with no
+    -- spaces. You can also include any of the following characters: _+=,.\@-
     serverCertificateName :: Prelude.Text,
     -- | A list of key names as a simple array of strings. The tags with matching
     -- keys are removed from the specified IAM server certificate.
@@ -80,10 +80,10 @@ data UntagServerCertificate = UntagServerCertificate'
 -- 'serverCertificateName', 'untagServerCertificate_serverCertificateName' - The name of the IAM server certificate from which you want to remove
 -- tags.
 --
--- This parameter accepts (through its
+-- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- that consist of upper and lowercase alphanumeric characters with no
--- spaces. You can also include any of the following characters: =,.\@-
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
 --
 -- 'tagKeys', 'untagServerCertificate_tagKeys' - A list of key names as a simple array of strings. The tags with matching
 -- keys are removed from the specified IAM server certificate.
@@ -101,10 +101,10 @@ newUntagServerCertificate pServerCertificateName_ =
 -- | The name of the IAM server certificate from which you want to remove
 -- tags.
 --
--- This parameter accepts (through its
+-- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- that consist of upper and lowercase alphanumeric characters with no
--- spaces. You can also include any of the following characters: =,.\@-
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
 untagServerCertificate_serverCertificateName :: Lens.Lens' UntagServerCertificate Prelude.Text
 untagServerCertificate_serverCertificateName = Lens.lens (\UntagServerCertificate' {serverCertificateName} -> serverCertificateName) (\s@UntagServerCertificate' {} a -> s {serverCertificateName = a} :: UntagServerCertificate)
 

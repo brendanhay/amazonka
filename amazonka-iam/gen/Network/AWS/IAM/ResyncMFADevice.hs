@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Synchronizes the specified MFA device with its IAM resource object on
--- the AWS servers.
+-- the Amazon Web Services servers.
 --
 -- For more information about creating and working with virtual MFA
 -- devices, see

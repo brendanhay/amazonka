@@ -25,8 +25,9 @@
 --
 -- For more information about working with server certificates, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html Working with server certificates>
--- in the /IAM User Guide/. This topic also includes a list of AWS services
--- that can use the server certificates that you manage with IAM.
+-- in the /IAM User Guide/. This topic also includes a list of Amazon Web
+-- Services services that can use the server certificates that you manage
+-- with IAM.
 --
 -- You should understand the implications of changing a server
 -- certificate\'s path or name. For more information, see

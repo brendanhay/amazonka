@@ -59,7 +59,7 @@ data SetDefaultPolicyVersion = SetDefaultPolicyVersion'
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /Amazon Web Services General Reference/.
     policyArn :: Prelude.Text,
     -- | The version of the policy to set as the default (operative) version.
     --
@@ -83,7 +83,7 @@ data SetDefaultPolicyVersion = SetDefaultPolicyVersion'
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 --
 -- 'versionId', 'setDefaultPolicyVersion_versionId' - The version of the policy to set as the default (operative) version.
 --
@@ -107,7 +107,7 @@ newSetDefaultPolicyVersion pPolicyArn_ pVersionId_ =
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 setDefaultPolicyVersion_policyArn :: Lens.Lens' SetDefaultPolicyVersion Prelude.Text
 setDefaultPolicyVersion_policyArn = Lens.lens (\SetDefaultPolicyVersion' {policyArn} -> policyArn) (\s@SetDefaultPolicyVersion' {} a -> s {policyArn = a} :: SetDefaultPolicyVersion)
 

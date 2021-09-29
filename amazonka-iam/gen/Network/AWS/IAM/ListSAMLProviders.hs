@@ -106,8 +106,8 @@ instance Core.ToQuery ListSAMLProviders where
 --
 -- /See:/ 'newListSAMLProvidersResponse' smart constructor.
 data ListSAMLProvidersResponse = ListSAMLProvidersResponse'
-  { -- | The list of SAML provider resource objects defined in IAM for this AWS
-    -- account.
+  { -- | The list of SAML provider resource objects defined in IAM for this
+    -- Amazon Web Services account.
     sAMLProviderList :: Prelude.Maybe [SAMLProviderListEntry],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -122,8 +122,8 @@ data ListSAMLProvidersResponse = ListSAMLProvidersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sAMLProviderList', 'listSAMLProvidersResponse_sAMLProviderList' - The list of SAML provider resource objects defined in IAM for this AWS
--- account.
+-- 'sAMLProviderList', 'listSAMLProvidersResponse_sAMLProviderList' - The list of SAML provider resource objects defined in IAM for this
+-- Amazon Web Services account.
 --
 -- 'httpStatus', 'listSAMLProvidersResponse_httpStatus' - The response's http status code.
 newListSAMLProvidersResponse ::
@@ -137,8 +137,8 @@ newListSAMLProvidersResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The list of SAML provider resource objects defined in IAM for this AWS
--- account.
+-- | The list of SAML provider resource objects defined in IAM for this
+-- Amazon Web Services account.
 listSAMLProvidersResponse_sAMLProviderList :: Lens.Lens' ListSAMLProvidersResponse (Prelude.Maybe [SAMLProviderListEntry])
 listSAMLProvidersResponse_sAMLProviderList = Lens.lens (\ListSAMLProvidersResponse' {sAMLProviderList} -> sAMLProviderList) (\s@ListSAMLProvidersResponse' {} a -> s {sAMLProviderList = a} :: ListSAMLProvidersResponse) Prelude.. Lens.mapping Lens._Coerce
 

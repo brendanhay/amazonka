@@ -62,7 +62,7 @@ data DetachRolePolicy = DetachRolePolicy'
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /Amazon Web Services General Reference/.
     policyArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -87,7 +87,7 @@ data DetachRolePolicy = DetachRolePolicy'
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 newDetachRolePolicy ::
   -- | 'roleName'
   Prelude.Text ->
@@ -114,7 +114,7 @@ detachRolePolicy_roleName = Lens.lens (\DetachRolePolicy' {roleName} -> roleName
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 detachRolePolicy_policyArn :: Lens.Lens' DetachRolePolicy Prelude.Text
 detachRolePolicy_policyArn = Lens.lens (\DetachRolePolicy' {policyArn} -> policyArn) (\s@DetachRolePolicy' {} a -> s {policyArn = a} :: DetachRolePolicy)
 

@@ -59,7 +59,7 @@ data DeletePolicyVersion = DeletePolicyVersion'
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /Amazon Web Services General Reference/.
     policyArn :: Prelude.Text,
     -- | The policy version to delete.
     --
@@ -89,7 +89,7 @@ data DeletePolicyVersion = DeletePolicyVersion'
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 --
 -- 'versionId', 'deletePolicyVersion_versionId' - The policy version to delete.
 --
@@ -119,7 +119,7 @@ newDeletePolicyVersion pPolicyArn_ pVersionId_ =
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 deletePolicyVersion_policyArn :: Lens.Lens' DeletePolicyVersion Prelude.Text
 deletePolicyVersion_policyArn = Lens.lens (\DeletePolicyVersion' {policyArn} -> policyArn) (\s@DeletePolicyVersion' {} a -> s {policyArn = a} :: DeletePolicyVersion)
 

@@ -37,8 +37,8 @@ data SSHPublicKeyMetadata = SSHPublicKeyMetadata'
     -- | The unique identifier for the SSH public key.
     sSHPublicKeyId :: Prelude.Text,
     -- | The status of the SSH public key. @Active@ means that the key can be
-    -- used for authentication with an AWS CodeCommit repository. @Inactive@
-    -- means that the key cannot be used.
+    -- used for authentication with an CodeCommit repository. @Inactive@ means
+    -- that the key cannot be used.
     status :: StatusType,
     -- | The date and time, in
     -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the SSH
@@ -60,8 +60,8 @@ data SSHPublicKeyMetadata = SSHPublicKeyMetadata'
 -- 'sSHPublicKeyId', 'sSHPublicKeyMetadata_sSHPublicKeyId' - The unique identifier for the SSH public key.
 --
 -- 'status', 'sSHPublicKeyMetadata_status' - The status of the SSH public key. @Active@ means that the key can be
--- used for authentication with an AWS CodeCommit repository. @Inactive@
--- means that the key cannot be used.
+-- used for authentication with an CodeCommit repository. @Inactive@ means
+-- that the key cannot be used.
 --
 -- 'uploadDate', 'sSHPublicKeyMetadata_uploadDate' - The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the SSH
@@ -97,8 +97,8 @@ sSHPublicKeyMetadata_sSHPublicKeyId :: Lens.Lens' SSHPublicKeyMetadata Prelude.T
 sSHPublicKeyMetadata_sSHPublicKeyId = Lens.lens (\SSHPublicKeyMetadata' {sSHPublicKeyId} -> sSHPublicKeyId) (\s@SSHPublicKeyMetadata' {} a -> s {sSHPublicKeyId = a} :: SSHPublicKeyMetadata)
 
 -- | The status of the SSH public key. @Active@ means that the key can be
--- used for authentication with an AWS CodeCommit repository. @Inactive@
--- means that the key cannot be used.
+-- used for authentication with an CodeCommit repository. @Inactive@ means
+-- that the key cannot be used.
 sSHPublicKeyMetadata_status :: Lens.Lens' SSHPublicKeyMetadata StatusType
 sSHPublicKeyMetadata_status = Lens.lens (\SSHPublicKeyMetadata' {status} -> status) (\s@SSHPublicKeyMetadata' {} a -> s {status = a} :: SSHPublicKeyMetadata)
 

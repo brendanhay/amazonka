@@ -25,9 +25,9 @@
 -- empty list. The service-specific credentials returned by this operation
 -- are used only for authenticating the IAM user to a specific service. For
 -- more information about using service-specific credentials to
--- authenticate to an AWS service, see
+-- authenticate to an Amazon Web Services service, see
 -- <https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-gc.html Set up service-specific credentials>
--- in the AWS CodeCommit User Guide.
+-- in the CodeCommit User Guide.
 module Network.AWS.IAM.ListServiceSpecificCredentials
   ( -- * Creating a Request
     ListServiceSpecificCredentials (..),
@@ -56,9 +56,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListServiceSpecificCredentials' smart constructor.
 data ListServiceSpecificCredentials = ListServiceSpecificCredentials'
-  { -- | Filters the returned results to only those for the specified AWS
-    -- service. If not specified, then AWS returns service-specific credentials
-    -- for all services.
+  { -- | Filters the returned results to only those for the specified Amazon Web
+    -- Services service. If not specified, then Amazon Web Services returns
+    -- service-specific credentials for all services.
     serviceName :: Prelude.Maybe Prelude.Text,
     -- | The name of the user whose service-specific credentials you want
     -- information about. If this value is not specified, then the operation
@@ -80,9 +80,9 @@ data ListServiceSpecificCredentials = ListServiceSpecificCredentials'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'serviceName', 'listServiceSpecificCredentials_serviceName' - Filters the returned results to only those for the specified AWS
--- service. If not specified, then AWS returns service-specific credentials
--- for all services.
+-- 'serviceName', 'listServiceSpecificCredentials_serviceName' - Filters the returned results to only those for the specified Amazon Web
+-- Services service. If not specified, then Amazon Web Services returns
+-- service-specific credentials for all services.
 --
 -- 'userName', 'listServiceSpecificCredentials_userName' - The name of the user whose service-specific credentials you want
 -- information about. If this value is not specified, then the operation
@@ -101,9 +101,9 @@ newListServiceSpecificCredentials =
       userName = Prelude.Nothing
     }
 
--- | Filters the returned results to only those for the specified AWS
--- service. If not specified, then AWS returns service-specific credentials
--- for all services.
+-- | Filters the returned results to only those for the specified Amazon Web
+-- Services service. If not specified, then Amazon Web Services returns
+-- service-specific credentials for all services.
 listServiceSpecificCredentials_serviceName :: Lens.Lens' ListServiceSpecificCredentials (Prelude.Maybe Prelude.Text)
 listServiceSpecificCredentials_serviceName = Lens.lens (\ListServiceSpecificCredentials' {serviceName} -> serviceName) (\s@ListServiceSpecificCredentials' {} a -> s {serviceName = a} :: ListServiceSpecificCredentials)
 

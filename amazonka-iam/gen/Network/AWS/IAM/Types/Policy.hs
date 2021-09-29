@@ -68,6 +68,15 @@ data Policy = Policy'
     -- This element is included in the response to the GetPolicy operation. It
     -- is not included in the response to the ListPolicies operation.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The date and time, in
+    -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
+    -- policy was last updated.
+    --
+    -- When a policy has only one version, this field contains the date and
+    -- time when the policy was created. When a policy has more than one
+    -- version, this field contains the date and time when the most recent
+    -- policy version was created.
+    updateDate :: Prelude.Maybe Core.ISO8601,
     -- | The path to the policy.
     --
     -- For more information about paths, see
@@ -79,16 +88,7 @@ data Policy = Policy'
     -- For more information about IDs, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
     -- in the /IAM User Guide/.
-    policyId :: Prelude.Maybe Prelude.Text,
-    -- | The date and time, in
-    -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
-    -- policy was last updated.
-    --
-    -- When a policy has only one version, this field contains the date and
-    -- time when the policy was created. When a policy has more than one
-    -- version, this field contains the date and time when the most recent
-    -- policy version was created.
-    updateDate :: Prelude.Maybe Core.ISO8601
+    policyId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -134,6 +134,15 @@ data Policy = Policy'
 -- This element is included in the response to the GetPolicy operation. It
 -- is not included in the response to the ListPolicies operation.
 --
+-- 'updateDate', 'policy_updateDate' - The date and time, in
+-- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
+-- policy was last updated.
+--
+-- When a policy has only one version, this field contains the date and
+-- time when the policy was created. When a policy has more than one
+-- version, this field contains the date and time when the most recent
+-- policy version was created.
+--
 -- 'path', 'policy_path' - The path to the policy.
 --
 -- For more information about paths, see
@@ -145,15 +154,6 @@ data Policy = Policy'
 -- For more information about IDs, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM identifiers>
 -- in the /IAM User Guide/.
---
--- 'updateDate', 'policy_updateDate' - The date and time, in
--- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
--- policy was last updated.
---
--- When a policy has only one version, this field contains the date and
--- time when the policy was created. When a policy has more than one
--- version, this field contains the date and time when the most recent
--- policy version was created.
 newPolicy ::
   Policy
 newPolicy =
@@ -167,9 +167,9 @@ newPolicy =
       defaultVersionId = Prelude.Nothing,
       tags = Prelude.Nothing,
       description = Prelude.Nothing,
+      updateDate = Prelude.Nothing,
       path = Prelude.Nothing,
-      policyId = Prelude.Nothing,
-      updateDate = Prelude.Nothing
+      policyId = Prelude.Nothing
     }
 
 -- | The friendly name (not ARN) identifying the policy.
@@ -224,6 +224,17 @@ policy_tags = Lens.lens (\Policy' {tags} -> tags) (\s@Policy' {} a -> s {tags = 
 policy_description :: Lens.Lens' Policy (Prelude.Maybe Prelude.Text)
 policy_description = Lens.lens (\Policy' {description} -> description) (\s@Policy' {} a -> s {description = a} :: Policy)
 
+-- | The date and time, in
+-- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
+-- policy was last updated.
+--
+-- When a policy has only one version, this field contains the date and
+-- time when the policy was created. When a policy has more than one
+-- version, this field contains the date and time when the most recent
+-- policy version was created.
+policy_updateDate :: Lens.Lens' Policy (Prelude.Maybe Prelude.UTCTime)
+policy_updateDate = Lens.lens (\Policy' {updateDate} -> updateDate) (\s@Policy' {} a -> s {updateDate = a} :: Policy) Prelude.. Lens.mapping Core._Time
+
 -- | The path to the policy.
 --
 -- For more information about paths, see
@@ -240,17 +251,6 @@ policy_path = Lens.lens (\Policy' {path} -> path) (\s@Policy' {} a -> s {path = 
 policy_policyId :: Lens.Lens' Policy (Prelude.Maybe Prelude.Text)
 policy_policyId = Lens.lens (\Policy' {policyId} -> policyId) (\s@Policy' {} a -> s {policyId = a} :: Policy)
 
--- | The date and time, in
--- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
--- policy was last updated.
---
--- When a policy has only one version, this field contains the date and
--- time when the policy was created. When a policy has more than one
--- version, this field contains the date and time when the most recent
--- policy version was created.
-policy_updateDate :: Lens.Lens' Policy (Prelude.Maybe Prelude.UTCTime)
-policy_updateDate = Lens.lens (\Policy' {updateDate} -> updateDate) (\s@Policy' {} a -> s {updateDate = a} :: Policy) Prelude.. Lens.mapping Core._Time
-
 instance Core.FromXML Policy where
   parseXML x =
     Policy'
@@ -265,9 +265,9 @@ instance Core.FromXML Policy where
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
       Prelude.<*> (x Core..@? "Description")
+      Prelude.<*> (x Core..@? "UpdateDate")
       Prelude.<*> (x Core..@? "Path")
       Prelude.<*> (x Core..@? "PolicyId")
-      Prelude.<*> (x Core..@? "UpdateDate")
 
 instance Prelude.Hashable Policy
 

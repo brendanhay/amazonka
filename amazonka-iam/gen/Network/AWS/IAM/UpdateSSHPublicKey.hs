@@ -26,11 +26,11 @@
 -- of a key rotation work flow.
 --
 -- The SSH public key affected by this operation is used only for
--- authenticating the associated IAM user to an AWS CodeCommit repository.
--- For more information about using SSH keys to authenticate to an AWS
--- CodeCommit repository, see
--- <https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html Set up AWS CodeCommit for SSH connections>
--- in the /AWS CodeCommit User Guide/.
+-- authenticating the associated IAM user to an CodeCommit repository. For
+-- more information about using SSH keys to authenticate to an CodeCommit
+-- repository, see
+-- <https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-credentials-ssh.html Set up CodeCommit for SSH connections>
+-- in the /CodeCommit User Guide/.
 module Network.AWS.IAM.UpdateSSHPublicKey
   ( -- * Creating a Request
     UpdateSSHPublicKey (..),
@@ -70,8 +70,8 @@ data UpdateSSHPublicKey = UpdateSSHPublicKey'
     -- that can consist of any upper or lowercased letter or digit.
     sSHPublicKeyId :: Prelude.Text,
     -- | The status to assign to the SSH public key. @Active@ means that the key
-    -- can be used for authentication with an AWS CodeCommit repository.
-    -- @Inactive@ means that the key cannot be used.
+    -- can be used for authentication with an CodeCommit repository. @Inactive@
+    -- means that the key cannot be used.
     status :: StatusType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -98,8 +98,8 @@ data UpdateSSHPublicKey = UpdateSSHPublicKey'
 -- that can consist of any upper or lowercased letter or digit.
 --
 -- 'status', 'updateSSHPublicKey_status' - The status to assign to the SSH public key. @Active@ means that the key
--- can be used for authentication with an AWS CodeCommit repository.
--- @Inactive@ means that the key cannot be used.
+-- can be used for authentication with an CodeCommit repository. @Inactive@
+-- means that the key cannot be used.
 newUpdateSSHPublicKey ::
   -- | 'userName'
   Prelude.Text ->
@@ -136,8 +136,8 @@ updateSSHPublicKey_sSHPublicKeyId :: Lens.Lens' UpdateSSHPublicKey Prelude.Text
 updateSSHPublicKey_sSHPublicKeyId = Lens.lens (\UpdateSSHPublicKey' {sSHPublicKeyId} -> sSHPublicKeyId) (\s@UpdateSSHPublicKey' {} a -> s {sSHPublicKeyId = a} :: UpdateSSHPublicKey)
 
 -- | The status to assign to the SSH public key. @Active@ means that the key
--- can be used for authentication with an AWS CodeCommit repository.
--- @Inactive@ means that the key cannot be used.
+-- can be used for authentication with an CodeCommit repository. @Inactive@
+-- means that the key cannot be used.
 updateSSHPublicKey_status :: Lens.Lens' UpdateSSHPublicKey StatusType
 updateSSHPublicKey_status = Lens.lens (\UpdateSSHPublicKey' {status} -> status) (\s@UpdateSSHPublicKey' {} a -> s {status = a} :: UpdateSSHPublicKey)
 

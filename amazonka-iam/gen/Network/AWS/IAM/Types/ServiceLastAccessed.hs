@@ -39,15 +39,16 @@ data ServiceLastAccessed = ServiceLastAccessed'
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period>.
     totalAuthenticatedEntities :: Prelude.Maybe Prelude.Int,
     -- | The Region from which the authenticated entity (user or role) last
-    -- attempted to access the service. AWS does not report unauthenticated
-    -- requests.
+    -- attempted to access the service. Amazon Web Services does not report
+    -- unauthenticated requests.
     --
     -- This field is null if no IAM entities attempted to access the service
     -- within the
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period>.
     lastAuthenticatedRegion :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the authenticated entity (user or role) that last attempted
-    -- to access the service. AWS does not report unauthenticated requests.
+    -- to access the service. Amazon Web Services does not report
+    -- unauthenticated requests.
     --
     -- This field is null if no IAM entities attempted to access the service
     -- within the
@@ -65,8 +66,8 @@ data ServiceLastAccessed = ServiceLastAccessed'
     trackedActionsLastAccessed :: Prelude.Maybe [TrackedActionLastAccessed],
     -- | The date and time,
     -- in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when an
-    -- authenticated entity most recently attempted to access the service. AWS
-    -- does not report unauthenticated requests.
+    -- authenticated entity most recently attempted to access the service.
+    -- Amazon Web Services does not report unauthenticated requests.
     --
     -- This field is null if no IAM entities attempted to access the service
     -- within the
@@ -77,13 +78,13 @@ data ServiceLastAccessed = ServiceLastAccessed'
     -- | The namespace of the service in which access was attempted.
     --
     -- To learn the service namespace of a service, see
-    -- <https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html Actions, resources, and condition keys for AWS services>
+    -- <https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html Actions, resources, and condition keys for Amazon Web Services services>
     -- in the /Service Authorization Reference/. Choose the name of the service
     -- to view details for that service. In the first paragraph, find the
     -- service prefix. For example, @(service prefix: a4b)@. For more
     -- information about service namespaces, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces>
-    -- in the /AWS General Reference/.
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces Amazon Web Services Service Namespaces>
+    -- in the /Amazon Web Services General Reference/.
     serviceNamespace :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -104,15 +105,16 @@ data ServiceLastAccessed = ServiceLastAccessed'
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period>.
 --
 -- 'lastAuthenticatedRegion', 'serviceLastAccessed_lastAuthenticatedRegion' - The Region from which the authenticated entity (user or role) last
--- attempted to access the service. AWS does not report unauthenticated
--- requests.
+-- attempted to access the service. Amazon Web Services does not report
+-- unauthenticated requests.
 --
 -- This field is null if no IAM entities attempted to access the service
 -- within the
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period>.
 --
 -- 'lastAuthenticatedEntity', 'serviceLastAccessed_lastAuthenticatedEntity' - The ARN of the authenticated entity (user or role) that last attempted
--- to access the service. AWS does not report unauthenticated requests.
+-- to access the service. Amazon Web Services does not report
+-- unauthenticated requests.
 --
 -- This field is null if no IAM entities attempted to access the service
 -- within the
@@ -130,8 +132,8 @@ data ServiceLastAccessed = ServiceLastAccessed'
 --
 -- 'lastAuthenticated', 'serviceLastAccessed_lastAuthenticated' - The date and time,
 -- in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when an
--- authenticated entity most recently attempted to access the service. AWS
--- does not report unauthenticated requests.
+-- authenticated entity most recently attempted to access the service.
+-- Amazon Web Services does not report unauthenticated requests.
 --
 -- This field is null if no IAM entities attempted to access the service
 -- within the
@@ -142,13 +144,13 @@ data ServiceLastAccessed = ServiceLastAccessed'
 -- 'serviceNamespace', 'serviceLastAccessed_serviceNamespace' - The namespace of the service in which access was attempted.
 --
 -- To learn the service namespace of a service, see
--- <https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html Actions, resources, and condition keys for AWS services>
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html Actions, resources, and condition keys for Amazon Web Services services>
 -- in the /Service Authorization Reference/. Choose the name of the service
 -- to view details for that service. In the first paragraph, find the
 -- service prefix. For example, @(service prefix: a4b)@. For more
 -- information about service namespaces, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces>
--- in the /AWS General Reference/.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces Amazon Web Services Service Namespaces>
+-- in the /Amazon Web Services General Reference/.
 newServiceLastAccessed ::
   -- | 'serviceName'
   Prelude.Text ->
@@ -179,8 +181,8 @@ serviceLastAccessed_totalAuthenticatedEntities :: Lens.Lens' ServiceLastAccessed
 serviceLastAccessed_totalAuthenticatedEntities = Lens.lens (\ServiceLastAccessed' {totalAuthenticatedEntities} -> totalAuthenticatedEntities) (\s@ServiceLastAccessed' {} a -> s {totalAuthenticatedEntities = a} :: ServiceLastAccessed)
 
 -- | The Region from which the authenticated entity (user or role) last
--- attempted to access the service. AWS does not report unauthenticated
--- requests.
+-- attempted to access the service. Amazon Web Services does not report
+-- unauthenticated requests.
 --
 -- This field is null if no IAM entities attempted to access the service
 -- within the
@@ -189,7 +191,8 @@ serviceLastAccessed_lastAuthenticatedRegion :: Lens.Lens' ServiceLastAccessed (P
 serviceLastAccessed_lastAuthenticatedRegion = Lens.lens (\ServiceLastAccessed' {lastAuthenticatedRegion} -> lastAuthenticatedRegion) (\s@ServiceLastAccessed' {} a -> s {lastAuthenticatedRegion = a} :: ServiceLastAccessed)
 
 -- | The ARN of the authenticated entity (user or role) that last attempted
--- to access the service. AWS does not report unauthenticated requests.
+-- to access the service. Amazon Web Services does not report
+-- unauthenticated requests.
 --
 -- This field is null if no IAM entities attempted to access the service
 -- within the
@@ -211,8 +214,8 @@ serviceLastAccessed_trackedActionsLastAccessed = Lens.lens (\ServiceLastAccessed
 
 -- | The date and time,
 -- in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when an
--- authenticated entity most recently attempted to access the service. AWS
--- does not report unauthenticated requests.
+-- authenticated entity most recently attempted to access the service.
+-- Amazon Web Services does not report unauthenticated requests.
 --
 -- This field is null if no IAM entities attempted to access the service
 -- within the
@@ -227,13 +230,13 @@ serviceLastAccessed_serviceName = Lens.lens (\ServiceLastAccessed' {serviceName}
 -- | The namespace of the service in which access was attempted.
 --
 -- To learn the service namespace of a service, see
--- <https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html Actions, resources, and condition keys for AWS services>
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html Actions, resources, and condition keys for Amazon Web Services services>
 -- in the /Service Authorization Reference/. Choose the name of the service
 -- to view details for that service. In the first paragraph, find the
 -- service prefix. For example, @(service prefix: a4b)@. For more
 -- information about service namespaces, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces>
--- in the /AWS General Reference/.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces Amazon Web Services Service Namespaces>
+-- in the /Amazon Web Services General Reference/.
 serviceLastAccessed_serviceNamespace :: Lens.Lens' ServiceLastAccessed Prelude.Text
 serviceLastAccessed_serviceNamespace = Lens.lens (\ServiceLastAccessed' {serviceNamespace} -> serviceNamespace) (\s@ServiceLastAccessed' {} a -> s {serviceNamespace = a} :: ServiceLastAccessed)
 

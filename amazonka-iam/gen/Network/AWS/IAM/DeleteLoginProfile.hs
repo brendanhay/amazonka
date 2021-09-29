@@ -21,19 +21,20 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the password for the specified IAM user, which terminates the
--- user\'s ability to access AWS services through the AWS Management
+-- user\'s ability to access Amazon Web Services services through the
+-- Amazon Web Services Management Console.
+--
+-- You can use the CLI, the Amazon Web Services API, or the __Users__ page
+-- in the IAM console to delete a password for any IAM user. You can use
+-- ChangePassword to update, but not delete, your own password in the __My
+-- Security Credentials__ page in the Amazon Web Services Management
 -- Console.
 --
--- You can use the AWS CLI, the AWS API, or the __Users__ page in the IAM
--- console to delete a password for any IAM user. You can use
--- ChangePassword to update, but not delete, your own password in the __My
--- Security Credentials__ page in the AWS Management Console.
---
--- Deleting a user\'s password does not prevent a user from accessing AWS
--- through the command line interface or the API. To prevent all user
--- access, you must also either make any access keys inactive or delete
--- them. For more information about making keys inactive or deleting them,
--- see UpdateAccessKey and DeleteAccessKey.
+-- Deleting a user\'s password does not prevent a user from accessing
+-- Amazon Web Services through the command line interface or the API. To
+-- prevent all user access, you must also either make any access keys
+-- inactive or delete them. For more information about making keys inactive
+-- or deleting them, see UpdateAccessKey and DeleteAccessKey.
 module Network.AWS.IAM.DeleteLoginProfile
   ( -- * Creating a Request
     DeleteLoginProfile (..),

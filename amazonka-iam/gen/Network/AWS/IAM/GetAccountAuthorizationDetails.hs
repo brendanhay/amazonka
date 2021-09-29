@@ -21,9 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves information about all IAM users, groups, roles, and policies
--- in your AWS account, including their relationships to one another. Use
--- this operation to obtain a snapshot of the configuration of IAM
--- permissions (users, groups, roles, and policies) in your account.
+-- in your Amazon Web Services account, including their relationships to
+-- one another. Use this operation to obtain a snapshot of the
+-- configuration of IAM permissions (users, groups, roles, and policies) in
+-- your account.
 --
 -- Policies returned by this operation are URL-encoded compliant with
 -- <https://tools.ietf.org/html/rfc3986 RFC 3986>. You can use a URL

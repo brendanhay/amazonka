@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the password policy settings for the AWS account.
+-- Updates the password policy settings for the Amazon Web Services
+-- account.
 --
 -- -   This operation does not support partial updates. No parameters are
 --     required, but if you do not specify a parameter, that parameter\'s
@@ -39,10 +40,10 @@ module Network.AWS.IAM.UpdateAccountPasswordPolicy
     newUpdateAccountPasswordPolicy,
 
     -- * Request Lenses
-    updateAccountPasswordPolicy_maxPasswordAge,
     updateAccountPasswordPolicy_requireLowercaseCharacters,
-    updateAccountPasswordPolicy_minimumPasswordLength,
+    updateAccountPasswordPolicy_maxPasswordAge,
     updateAccountPasswordPolicy_passwordReusePrevention,
+    updateAccountPasswordPolicy_minimumPasswordLength,
     updateAccountPasswordPolicy_requireUppercaseCharacters,
     updateAccountPasswordPolicy_allowUsersToChangePassword,
     updateAccountPasswordPolicy_hardExpiry,
@@ -64,24 +65,19 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateAccountPasswordPolicy' smart constructor.
 data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy'
-  { -- | The number of days that an IAM user password is valid.
-    --
-    -- If you do not specify a value for this parameter, then the operation
-    -- uses the default value of @0@. The result is that IAM user passwords
-    -- never expire.
-    maxPasswordAge :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies whether IAM user passwords must contain at least one lowercase
+  { -- | Specifies whether IAM user passwords must contain at least one lowercase
     -- character from the ISO basic Latin alphabet (a to z).
     --
     -- If you do not specify a value for this parameter, then the operation
     -- uses the default value of @false@. The result is that passwords do not
     -- require at least one lowercase character.
     requireLowercaseCharacters :: Prelude.Maybe Prelude.Bool,
-    -- | The minimum number of characters allowed in an IAM user password.
+    -- | The number of days that an IAM user password is valid.
     --
     -- If you do not specify a value for this parameter, then the operation
-    -- uses the default value of @6@.
-    minimumPasswordLength :: Prelude.Maybe Prelude.Natural,
+    -- uses the default value of @0@. The result is that IAM user passwords
+    -- never expire.
+    maxPasswordAge :: Prelude.Maybe Prelude.Natural,
     -- | Specifies the number of previous passwords that IAM users are prevented
     -- from reusing.
     --
@@ -89,6 +85,11 @@ data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy'
     -- uses the default value of @0@. The result is that IAM users are not
     -- prevented from reusing previous passwords.
     passwordReusePrevention :: Prelude.Maybe Prelude.Natural,
+    -- | The minimum number of characters allowed in an IAM user password.
+    --
+    -- If you do not specify a value for this parameter, then the operation
+    -- uses the default value of @6@.
+    minimumPasswordLength :: Prelude.Maybe Prelude.Natural,
     -- | Specifies whether IAM user passwords must contain at least one uppercase
     -- character from the ISO basic Latin alphabet (A to Z).
     --
@@ -96,8 +97,9 @@ data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy'
     -- uses the default value of @false@. The result is that passwords do not
     -- require at least one uppercase character.
     requireUppercaseCharacters :: Prelude.Maybe Prelude.Bool,
-    -- | Allows all IAM users in your account to use the AWS Management Console
-    -- to change their own passwords. For more information, see
+    -- | Allows all IAM users in your account to use the Amazon Web Services
+    -- Management Console to change their own passwords. For more information,
+    -- see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/HowToPwdIAMUser.html Letting IAM users change their own passwords>
     -- in the /IAM User Guide/.
     --
@@ -142,12 +144,6 @@ data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxPasswordAge', 'updateAccountPasswordPolicy_maxPasswordAge' - The number of days that an IAM user password is valid.
---
--- If you do not specify a value for this parameter, then the operation
--- uses the default value of @0@. The result is that IAM user passwords
--- never expire.
---
 -- 'requireLowercaseCharacters', 'updateAccountPasswordPolicy_requireLowercaseCharacters' - Specifies whether IAM user passwords must contain at least one lowercase
 -- character from the ISO basic Latin alphabet (a to z).
 --
@@ -155,10 +151,11 @@ data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy'
 -- uses the default value of @false@. The result is that passwords do not
 -- require at least one lowercase character.
 --
--- 'minimumPasswordLength', 'updateAccountPasswordPolicy_minimumPasswordLength' - The minimum number of characters allowed in an IAM user password.
+-- 'maxPasswordAge', 'updateAccountPasswordPolicy_maxPasswordAge' - The number of days that an IAM user password is valid.
 --
 -- If you do not specify a value for this parameter, then the operation
--- uses the default value of @6@.
+-- uses the default value of @0@. The result is that IAM user passwords
+-- never expire.
 --
 -- 'passwordReusePrevention', 'updateAccountPasswordPolicy_passwordReusePrevention' - Specifies the number of previous passwords that IAM users are prevented
 -- from reusing.
@@ -167,6 +164,11 @@ data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy'
 -- uses the default value of @0@. The result is that IAM users are not
 -- prevented from reusing previous passwords.
 --
+-- 'minimumPasswordLength', 'updateAccountPasswordPolicy_minimumPasswordLength' - The minimum number of characters allowed in an IAM user password.
+--
+-- If you do not specify a value for this parameter, then the operation
+-- uses the default value of @6@.
+--
 -- 'requireUppercaseCharacters', 'updateAccountPasswordPolicy_requireUppercaseCharacters' - Specifies whether IAM user passwords must contain at least one uppercase
 -- character from the ISO basic Latin alphabet (A to Z).
 --
@@ -174,8 +176,9 @@ data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy'
 -- uses the default value of @false@. The result is that passwords do not
 -- require at least one uppercase character.
 --
--- 'allowUsersToChangePassword', 'updateAccountPasswordPolicy_allowUsersToChangePassword' - Allows all IAM users in your account to use the AWS Management Console
--- to change their own passwords. For more information, see
+-- 'allowUsersToChangePassword', 'updateAccountPasswordPolicy_allowUsersToChangePassword' - Allows all IAM users in your account to use the Amazon Web Services
+-- Management Console to change their own passwords. For more information,
+-- see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/HowToPwdIAMUser.html Letting IAM users change their own passwords>
 -- in the /IAM User Guide/.
 --
@@ -212,25 +215,17 @@ newUpdateAccountPasswordPolicy ::
   UpdateAccountPasswordPolicy
 newUpdateAccountPasswordPolicy =
   UpdateAccountPasswordPolicy'
-    { maxPasswordAge =
+    { requireLowercaseCharacters =
         Prelude.Nothing,
-      requireLowercaseCharacters = Prelude.Nothing,
-      minimumPasswordLength = Prelude.Nothing,
+      maxPasswordAge = Prelude.Nothing,
       passwordReusePrevention = Prelude.Nothing,
+      minimumPasswordLength = Prelude.Nothing,
       requireUppercaseCharacters = Prelude.Nothing,
       allowUsersToChangePassword = Prelude.Nothing,
       hardExpiry = Prelude.Nothing,
       requireSymbols = Prelude.Nothing,
       requireNumbers = Prelude.Nothing
     }
-
--- | The number of days that an IAM user password is valid.
---
--- If you do not specify a value for this parameter, then the operation
--- uses the default value of @0@. The result is that IAM user passwords
--- never expire.
-updateAccountPasswordPolicy_maxPasswordAge :: Lens.Lens' UpdateAccountPasswordPolicy (Prelude.Maybe Prelude.Natural)
-updateAccountPasswordPolicy_maxPasswordAge = Lens.lens (\UpdateAccountPasswordPolicy' {maxPasswordAge} -> maxPasswordAge) (\s@UpdateAccountPasswordPolicy' {} a -> s {maxPasswordAge = a} :: UpdateAccountPasswordPolicy)
 
 -- | Specifies whether IAM user passwords must contain at least one lowercase
 -- character from the ISO basic Latin alphabet (a to z).
@@ -241,12 +236,13 @@ updateAccountPasswordPolicy_maxPasswordAge = Lens.lens (\UpdateAccountPasswordPo
 updateAccountPasswordPolicy_requireLowercaseCharacters :: Lens.Lens' UpdateAccountPasswordPolicy (Prelude.Maybe Prelude.Bool)
 updateAccountPasswordPolicy_requireLowercaseCharacters = Lens.lens (\UpdateAccountPasswordPolicy' {requireLowercaseCharacters} -> requireLowercaseCharacters) (\s@UpdateAccountPasswordPolicy' {} a -> s {requireLowercaseCharacters = a} :: UpdateAccountPasswordPolicy)
 
--- | The minimum number of characters allowed in an IAM user password.
+-- | The number of days that an IAM user password is valid.
 --
 -- If you do not specify a value for this parameter, then the operation
--- uses the default value of @6@.
-updateAccountPasswordPolicy_minimumPasswordLength :: Lens.Lens' UpdateAccountPasswordPolicy (Prelude.Maybe Prelude.Natural)
-updateAccountPasswordPolicy_minimumPasswordLength = Lens.lens (\UpdateAccountPasswordPolicy' {minimumPasswordLength} -> minimumPasswordLength) (\s@UpdateAccountPasswordPolicy' {} a -> s {minimumPasswordLength = a} :: UpdateAccountPasswordPolicy)
+-- uses the default value of @0@. The result is that IAM user passwords
+-- never expire.
+updateAccountPasswordPolicy_maxPasswordAge :: Lens.Lens' UpdateAccountPasswordPolicy (Prelude.Maybe Prelude.Natural)
+updateAccountPasswordPolicy_maxPasswordAge = Lens.lens (\UpdateAccountPasswordPolicy' {maxPasswordAge} -> maxPasswordAge) (\s@UpdateAccountPasswordPolicy' {} a -> s {maxPasswordAge = a} :: UpdateAccountPasswordPolicy)
 
 -- | Specifies the number of previous passwords that IAM users are prevented
 -- from reusing.
@@ -257,6 +253,13 @@ updateAccountPasswordPolicy_minimumPasswordLength = Lens.lens (\UpdateAccountPas
 updateAccountPasswordPolicy_passwordReusePrevention :: Lens.Lens' UpdateAccountPasswordPolicy (Prelude.Maybe Prelude.Natural)
 updateAccountPasswordPolicy_passwordReusePrevention = Lens.lens (\UpdateAccountPasswordPolicy' {passwordReusePrevention} -> passwordReusePrevention) (\s@UpdateAccountPasswordPolicy' {} a -> s {passwordReusePrevention = a} :: UpdateAccountPasswordPolicy)
 
+-- | The minimum number of characters allowed in an IAM user password.
+--
+-- If you do not specify a value for this parameter, then the operation
+-- uses the default value of @6@.
+updateAccountPasswordPolicy_minimumPasswordLength :: Lens.Lens' UpdateAccountPasswordPolicy (Prelude.Maybe Prelude.Natural)
+updateAccountPasswordPolicy_minimumPasswordLength = Lens.lens (\UpdateAccountPasswordPolicy' {minimumPasswordLength} -> minimumPasswordLength) (\s@UpdateAccountPasswordPolicy' {} a -> s {minimumPasswordLength = a} :: UpdateAccountPasswordPolicy)
+
 -- | Specifies whether IAM user passwords must contain at least one uppercase
 -- character from the ISO basic Latin alphabet (A to Z).
 --
@@ -266,8 +269,9 @@ updateAccountPasswordPolicy_passwordReusePrevention = Lens.lens (\UpdateAccountP
 updateAccountPasswordPolicy_requireUppercaseCharacters :: Lens.Lens' UpdateAccountPasswordPolicy (Prelude.Maybe Prelude.Bool)
 updateAccountPasswordPolicy_requireUppercaseCharacters = Lens.lens (\UpdateAccountPasswordPolicy' {requireUppercaseCharacters} -> requireUppercaseCharacters) (\s@UpdateAccountPasswordPolicy' {} a -> s {requireUppercaseCharacters = a} :: UpdateAccountPasswordPolicy)
 
--- | Allows all IAM users in your account to use the AWS Management Console
--- to change their own passwords. For more information, see
+-- | Allows all IAM users in your account to use the Amazon Web Services
+-- Management Console to change their own passwords. For more information,
+-- see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/HowToPwdIAMUser.html Letting IAM users change their own passwords>
 -- in the /IAM User Guide/.
 --
@@ -337,13 +341,13 @@ instance Core.ToQuery UpdateAccountPasswordPolicy where
                   ),
         "Version"
           Core.=: ("2010-05-08" :: Prelude.ByteString),
-        "MaxPasswordAge" Core.=: maxPasswordAge,
         "RequireLowercaseCharacters"
           Core.=: requireLowercaseCharacters,
-        "MinimumPasswordLength"
-          Core.=: minimumPasswordLength,
+        "MaxPasswordAge" Core.=: maxPasswordAge,
         "PasswordReusePrevention"
           Core.=: passwordReusePrevention,
+        "MinimumPasswordLength"
+          Core.=: minimumPasswordLength,
         "RequireUppercaseCharacters"
           Core.=: requireUppercaseCharacters,
         "AllowUsersToChangePassword"

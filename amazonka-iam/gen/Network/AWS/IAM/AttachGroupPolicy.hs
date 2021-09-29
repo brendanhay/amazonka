@@ -25,6 +25,11 @@
 -- You use this operation to attach a managed policy to a group. To embed
 -- an inline policy in a group, use PutGroupPolicy.
 --
+-- As a best practice, you can validate your IAM policies. To learn more,
+-- see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-validator.html Validating IAM policies>
+-- in the /IAM User Guide/.
+--
 -- For more information about policies, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed policies and inline policies>
 -- in the /IAM User Guide/.
@@ -63,7 +68,7 @@ data AttachGroupPolicy = AttachGroupPolicy'
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /Amazon Web Services General Reference/.
     policyArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -87,7 +92,7 @@ data AttachGroupPolicy = AttachGroupPolicy'
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 newAttachGroupPolicy ::
   -- | 'groupName'
   Prelude.Text ->
@@ -113,7 +118,7 @@ attachGroupPolicy_groupName = Lens.lens (\AttachGroupPolicy' {groupName} -> grou
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 attachGroupPolicy_policyArn :: Lens.Lens' AttachGroupPolicy Prelude.Text
 attachGroupPolicy_policyArn = Lens.lens (\AttachGroupPolicy' {policyArn} -> policyArn) (\s@AttachGroupPolicy' {} a -> s {policyArn = a} :: AttachGroupPolicy)
 

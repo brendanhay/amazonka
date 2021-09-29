@@ -33,8 +33,8 @@ data LoginProfile = LoginProfile'
   { -- | Specifies whether the user is required to set a new password on next
     -- sign-in.
     passwordResetRequired :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the user, which can be used for signing in to the AWS
-    -- Management Console.
+    -- | The name of the user, which can be used for signing in to the Amazon Web
+    -- Services Management Console.
     userName :: Prelude.Text,
     -- | The date when the password for the user was created.
     createDate :: Core.ISO8601
@@ -52,8 +52,8 @@ data LoginProfile = LoginProfile'
 -- 'passwordResetRequired', 'loginProfile_passwordResetRequired' - Specifies whether the user is required to set a new password on next
 -- sign-in.
 --
--- 'userName', 'loginProfile_userName' - The name of the user, which can be used for signing in to the AWS
--- Management Console.
+-- 'userName', 'loginProfile_userName' - The name of the user, which can be used for signing in to the Amazon Web
+-- Services Management Console.
 --
 -- 'createDate', 'loginProfile_createDate' - The date when the password for the user was created.
 newLoginProfile ::
@@ -75,8 +75,8 @@ newLoginProfile pUserName_ pCreateDate_ =
 loginProfile_passwordResetRequired :: Lens.Lens' LoginProfile (Prelude.Maybe Prelude.Bool)
 loginProfile_passwordResetRequired = Lens.lens (\LoginProfile' {passwordResetRequired} -> passwordResetRequired) (\s@LoginProfile' {} a -> s {passwordResetRequired = a} :: LoginProfile)
 
--- | The name of the user, which can be used for signing in to the AWS
--- Management Console.
+-- | The name of the user, which can be used for signing in to the Amazon Web
+-- Services Management Console.
 loginProfile_userName :: Lens.Lens' LoginProfile Prelude.Text
 loginProfile_userName = Lens.lens (\LoginProfile' {userName} -> userName) (\s@LoginProfile' {} a -> s {userName = a} :: LoginProfile)
 

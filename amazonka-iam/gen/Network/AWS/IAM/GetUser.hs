@@ -24,8 +24,8 @@
 -- user\'s creation date, path, unique ID, and ARN.
 --
 -- If you do not specify a user name, IAM determines the user name
--- implicitly based on the AWS access key ID used to sign the request to
--- this operation.
+-- implicitly based on the Amazon Web Services access key ID used to sign
+-- the request to this operation.
 module Network.AWS.IAM.GetUser
   ( -- * Creating a Request
     GetUser (..),
@@ -145,11 +145,11 @@ data GetUserResponse = GetUserResponse'
     --
     -- You can use password last used information to identify unused
     -- credentials for deletion. For example, you might delete users who did
-    -- not sign in to AWS in the last 90 days. In cases like this, we recommend
-    -- that you adjust your evaluation window to include dates after May 23,
-    -- 2018. Alternatively, if your users use access keys to access AWS
-    -- programmatically you can refer to access key last used information
-    -- because it is accurate for all dates.
+    -- not sign in to Amazon Web Services in the last 90 days. In cases like
+    -- this, we recommend that you adjust your evaluation window to include
+    -- dates after May 23, 2018. Alternatively, if your users use access keys
+    -- to access Amazon Web Services programmatically you can refer to access
+    -- key last used information because it is accurate for all dates.
     user :: User
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -179,11 +179,11 @@ data GetUserResponse = GetUserResponse'
 --
 -- You can use password last used information to identify unused
 -- credentials for deletion. For example, you might delete users who did
--- not sign in to AWS in the last 90 days. In cases like this, we recommend
--- that you adjust your evaluation window to include dates after May 23,
--- 2018. Alternatively, if your users use access keys to access AWS
--- programmatically you can refer to access key last used information
--- because it is accurate for all dates.
+-- not sign in to Amazon Web Services in the last 90 days. In cases like
+-- this, we recommend that you adjust your evaluation window to include
+-- dates after May 23, 2018. Alternatively, if your users use access keys
+-- to access Amazon Web Services programmatically you can refer to access
+-- key last used information because it is accurate for all dates.
 newGetUserResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -215,11 +215,11 @@ getUserResponse_httpStatus = Lens.lens (\GetUserResponse' {httpStatus} -> httpSt
 --
 -- You can use password last used information to identify unused
 -- credentials for deletion. For example, you might delete users who did
--- not sign in to AWS in the last 90 days. In cases like this, we recommend
--- that you adjust your evaluation window to include dates after May 23,
--- 2018. Alternatively, if your users use access keys to access AWS
--- programmatically you can refer to access key last used information
--- because it is accurate for all dates.
+-- not sign in to Amazon Web Services in the last 90 days. In cases like
+-- this, we recommend that you adjust your evaluation window to include
+-- dates after May 23, 2018. Alternatively, if your users use access keys
+-- to access Amazon Web Services programmatically you can refer to access
+-- key last used information because it is accurate for all dates.
 getUserResponse_user :: Lens.Lens' GetUserResponse User
 getUserResponse_user = Lens.lens (\GetUserResponse' {user} -> user) (\s@GetUserResponse' {} a -> s {user = a} :: GetUserResponse)
 

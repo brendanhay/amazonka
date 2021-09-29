@@ -28,14 +28,14 @@
 -- You can have a maximum of two sets of service-specific credentials for
 -- each supported service per user.
 --
--- You can create service-specific credentials for AWS CodeCommit and
--- Amazon Keyspaces (for Apache Cassandra).
+-- You can create service-specific credentials for CodeCommit and Amazon
+-- Keyspaces (for Apache Cassandra).
 --
 -- You can reset the password to a new service-generated value by calling
 -- ResetServiceSpecificCredential.
 --
 -- For more information about service-specific credentials, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html Using IAM with AWS CodeCommit: Git credentials, SSH keys, and AWS access keys>
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html Using IAM with CodeCommit: Git credentials, SSH keys, and Amazon Web Services access keys>
 -- in the /IAM User Guide/.
 module Network.AWS.IAM.CreateServiceSpecificCredential
   ( -- * Creating a Request
@@ -75,9 +75,9 @@ data CreateServiceSpecificCredential = CreateServiceSpecificCredential'
     -- consisting of upper and lowercase alphanumeric characters with no
     -- spaces. You can also include any of the following characters: _+=,.\@-
     userName :: Prelude.Text,
-    -- | The name of the AWS service that is to be associated with the
-    -- credentials. The service you specify here is the only service that can
-    -- be accessed using these credentials.
+    -- | The name of the Amazon Web Services service that is to be associated
+    -- with the credentials. The service you specify here is the only service
+    -- that can be accessed using these credentials.
     serviceName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -100,9 +100,9 @@ data CreateServiceSpecificCredential = CreateServiceSpecificCredential'
 -- consisting of upper and lowercase alphanumeric characters with no
 -- spaces. You can also include any of the following characters: _+=,.\@-
 --
--- 'serviceName', 'createServiceSpecificCredential_serviceName' - The name of the AWS service that is to be associated with the
--- credentials. The service you specify here is the only service that can
--- be accessed using these credentials.
+-- 'serviceName', 'createServiceSpecificCredential_serviceName' - The name of the Amazon Web Services service that is to be associated
+-- with the credentials. The service you specify here is the only service
+-- that can be accessed using these credentials.
 newCreateServiceSpecificCredential ::
   -- | 'userName'
   Prelude.Text ->
@@ -130,9 +130,9 @@ newCreateServiceSpecificCredential
 createServiceSpecificCredential_userName :: Lens.Lens' CreateServiceSpecificCredential Prelude.Text
 createServiceSpecificCredential_userName = Lens.lens (\CreateServiceSpecificCredential' {userName} -> userName) (\s@CreateServiceSpecificCredential' {} a -> s {userName = a} :: CreateServiceSpecificCredential)
 
--- | The name of the AWS service that is to be associated with the
--- credentials. The service you specify here is the only service that can
--- be accessed using these credentials.
+-- | The name of the Amazon Web Services service that is to be associated
+-- with the credentials. The service you specify here is the only service
+-- that can be accessed using these credentials.
 createServiceSpecificCredential_serviceName :: Lens.Lens' CreateServiceSpecificCredential Prelude.Text
 createServiceSpecificCredential_serviceName = Lens.lens (\CreateServiceSpecificCredential' {serviceName} -> serviceName) (\s@CreateServiceSpecificCredential' {} a -> s {serviceName = a} :: CreateServiceSpecificCredential)
 

@@ -63,7 +63,7 @@ data DetachGroupPolicy = DetachGroupPolicy'
     --
     -- For more information about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /Amazon Web Services General Reference/.
     policyArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -88,7 +88,7 @@ data DetachGroupPolicy = DetachGroupPolicy'
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 newDetachGroupPolicy ::
   -- | 'groupName'
   Prelude.Text ->
@@ -115,7 +115,7 @@ detachGroupPolicy_groupName = Lens.lens (\DetachGroupPolicy' {groupName} -> grou
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 detachGroupPolicy_policyArn :: Lens.Lens' DetachGroupPolicy Prelude.Text
 detachGroupPolicy_policyArn = Lens.lens (\DetachGroupPolicy' {policyArn} -> policyArn) (\s@DetachGroupPolicy' {} a -> s {policyArn = a} :: DetachGroupPolicy)
 

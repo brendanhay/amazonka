@@ -38,13 +38,13 @@ data ListPoliciesGrantingServiceAccessEntry = ListPoliciesGrantingServiceAccessE
     -- | The namespace of the service that was accessed.
     --
     -- To learn the service namespace of a service, see
-    -- <https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html Actions, resources, and condition keys for AWS services>
+    -- <https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html Actions, resources, and condition keys for Amazon Web Services services>
     -- in the /Service Authorization Reference/. Choose the name of the service
     -- to view details for that service. In the first paragraph, find the
     -- service prefix. For example, @(service prefix: a4b)@. For more
     -- information about service namespaces, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS service namespaces>
-    -- in the /AWS General Reference/.
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces Amazon Web Services service namespaces>
+    -- in the /Amazon Web Services General Reference/.
     serviceNamespace :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,13 +63,13 @@ data ListPoliciesGrantingServiceAccessEntry = ListPoliciesGrantingServiceAccessE
 -- 'serviceNamespace', 'listPoliciesGrantingServiceAccessEntry_serviceNamespace' - The namespace of the service that was accessed.
 --
 -- To learn the service namespace of a service, see
--- <https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html Actions, resources, and condition keys for AWS services>
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html Actions, resources, and condition keys for Amazon Web Services services>
 -- in the /Service Authorization Reference/. Choose the name of the service
 -- to view details for that service. In the first paragraph, find the
 -- service prefix. For example, @(service prefix: a4b)@. For more
 -- information about service namespaces, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS service namespaces>
--- in the /AWS General Reference/.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces Amazon Web Services service namespaces>
+-- in the /Amazon Web Services General Reference/.
 newListPoliciesGrantingServiceAccessEntry ::
   ListPoliciesGrantingServiceAccessEntry
 newListPoliciesGrantingServiceAccessEntry =
@@ -87,13 +87,13 @@ listPoliciesGrantingServiceAccessEntry_policies = Lens.lens (\ListPoliciesGranti
 -- | The namespace of the service that was accessed.
 --
 -- To learn the service namespace of a service, see
--- <https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html Actions, resources, and condition keys for AWS services>
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html Actions, resources, and condition keys for Amazon Web Services services>
 -- in the /Service Authorization Reference/. Choose the name of the service
 -- to view details for that service. In the first paragraph, find the
 -- service prefix. For example, @(service prefix: a4b)@. For more
 -- information about service namespaces, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS service namespaces>
--- in the /AWS General Reference/.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces Amazon Web Services service namespaces>
+-- in the /Amazon Web Services General Reference/.
 listPoliciesGrantingServiceAccessEntry_serviceNamespace :: Lens.Lens' ListPoliciesGrantingServiceAccessEntry (Prelude.Maybe Prelude.Text)
 listPoliciesGrantingServiceAccessEntry_serviceNamespace = Lens.lens (\ListPoliciesGrantingServiceAccessEntry' {serviceNamespace} -> serviceNamespace) (\s@ListPoliciesGrantingServiceAccessEntry' {} a -> s {serviceNamespace = a} :: ListPoliciesGrantingServiceAccessEntry)
 

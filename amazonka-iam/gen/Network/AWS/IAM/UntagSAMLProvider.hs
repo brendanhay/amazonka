@@ -54,10 +54,10 @@ data UntagSAMLProvider = UntagSAMLProvider'
   { -- | The ARN of the SAML identity provider in IAM from which you want to
     -- remove tags.
     --
-    -- This parameter accepts (through its
+    -- This parameter allows (through its
     -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
-    -- that consist of upper and lowercase alphanumeric characters with no
-    -- spaces. You can also include any of the following characters: =,.\@-
+    -- consisting of upper and lowercase alphanumeric characters with no
+    -- spaces. You can also include any of the following characters: _+=,.\@-
     sAMLProviderArn :: Prelude.Text,
     -- | A list of key names as a simple array of strings. The tags with matching
     -- keys are removed from the specified SAML identity provider.
@@ -76,10 +76,10 @@ data UntagSAMLProvider = UntagSAMLProvider'
 -- 'sAMLProviderArn', 'untagSAMLProvider_sAMLProviderArn' - The ARN of the SAML identity provider in IAM from which you want to
 -- remove tags.
 --
--- This parameter accepts (through its
+-- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- that consist of upper and lowercase alphanumeric characters with no
--- spaces. You can also include any of the following characters: =,.\@-
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
 --
 -- 'tagKeys', 'untagSAMLProvider_tagKeys' - A list of key names as a simple array of strings. The tags with matching
 -- keys are removed from the specified SAML identity provider.
@@ -97,10 +97,10 @@ newUntagSAMLProvider pSAMLProviderArn_ =
 -- | The ARN of the SAML identity provider in IAM from which you want to
 -- remove tags.
 --
--- This parameter accepts (through its
+-- This parameter allows (through its
 -- <http://wikipedia.org/wiki/regex regex pattern>) a string of characters
--- that consist of upper and lowercase alphanumeric characters with no
--- spaces. You can also include any of the following characters: =,.\@-
+-- consisting of upper and lowercase alphanumeric characters with no
+-- spaces. You can also include any of the following characters: _+=,.\@-
 untagSAMLProvider_sAMLProviderArn :: Lens.Lens' UntagSAMLProvider Prelude.Text
 untagSAMLProvider_sAMLProviderArn = Lens.lens (\UntagSAMLProvider' {sAMLProviderArn} -> sAMLProviderArn) (\s@UntagSAMLProvider' {} a -> s {sAMLProviderArn = a} :: UntagSAMLProvider)
 

@@ -80,10 +80,10 @@ data PutUserPolicy = PutUserPolicy'
     policyName :: Prelude.Text,
     -- | The policy document.
     --
-    -- You must provide policies in JSON format in IAM. However, for AWS
+    -- You must provide policies in JSON format in IAM. However, for
     -- CloudFormation templates formatted in YAML, you can provide the policy
-    -- in JSON or YAML format. AWS CloudFormation always converts a YAML policy
-    -- to JSON format before submitting it to IAM.
+    -- in JSON or YAML format. CloudFormation always converts a YAML policy to
+    -- JSON format before submitting it to IAM.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
     -- this parameter is a string of characters consisting of the following:
@@ -124,10 +124,10 @@ data PutUserPolicy = PutUserPolicy'
 --
 -- 'policyDocument', 'putUserPolicy_policyDocument' - The policy document.
 --
--- You must provide policies in JSON format in IAM. However, for AWS
+-- You must provide policies in JSON format in IAM. However, for
 -- CloudFormation templates formatted in YAML, you can provide the policy
--- in JSON or YAML format. AWS CloudFormation always converts a YAML policy
--- to JSON format before submitting it to IAM.
+-- in JSON or YAML format. CloudFormation always converts a YAML policy to
+-- JSON format before submitting it to IAM.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
 -- this parameter is a string of characters consisting of the following:
@@ -178,10 +178,10 @@ putUserPolicy_policyName = Lens.lens (\PutUserPolicy' {policyName} -> policyName
 
 -- | The policy document.
 --
--- You must provide policies in JSON format in IAM. However, for AWS
+-- You must provide policies in JSON format in IAM. However, for
 -- CloudFormation templates formatted in YAML, you can provide the policy
--- in JSON or YAML format. AWS CloudFormation always converts a YAML policy
--- to JSON format before submitting it to IAM.
+-- in JSON or YAML format. CloudFormation always converts a YAML policy to
+-- JSON format before submitting it to IAM.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> used to validate
 -- this parameter is a string of characters consisting of the following:

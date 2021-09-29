@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an alias for your AWS account. For information about using an
--- AWS account alias, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html Using an alias for your AWS account ID>
+-- Creates an alias for your Amazon Web Services account. For information
+-- about using an Amazon Web Services account alias, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html Using an alias for your Amazon Web Services account ID>
 -- in the /IAM User Guide/.
 module Network.AWS.IAM.CreateAccountAlias
   ( -- * Creating a Request

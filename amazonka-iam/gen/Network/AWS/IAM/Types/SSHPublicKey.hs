@@ -44,8 +44,8 @@ data SSHPublicKey = SSHPublicKey'
     -- | The SSH public key.
     sSHPublicKeyBody :: Prelude.Text,
     -- | The status of the SSH public key. @Active@ means that the key can be
-    -- used for authentication with an AWS CodeCommit repository. @Inactive@
-    -- means that the key cannot be used.
+    -- used for authentication with an CodeCommit repository. @Inactive@ means
+    -- that the key cannot be used.
     status :: StatusType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,8 +71,8 @@ data SSHPublicKey = SSHPublicKey'
 -- 'sSHPublicKeyBody', 'sSHPublicKey_sSHPublicKeyBody' - The SSH public key.
 --
 -- 'status', 'sSHPublicKey_status' - The status of the SSH public key. @Active@ means that the key can be
--- used for authentication with an AWS CodeCommit repository. @Inactive@
--- means that the key cannot be used.
+-- used for authentication with an CodeCommit repository. @Inactive@ means
+-- that the key cannot be used.
 newSSHPublicKey ::
   -- | 'userName'
   Prelude.Text ->
@@ -123,8 +123,8 @@ sSHPublicKey_sSHPublicKeyBody :: Lens.Lens' SSHPublicKey Prelude.Text
 sSHPublicKey_sSHPublicKeyBody = Lens.lens (\SSHPublicKey' {sSHPublicKeyBody} -> sSHPublicKeyBody) (\s@SSHPublicKey' {} a -> s {sSHPublicKeyBody = a} :: SSHPublicKey)
 
 -- | The status of the SSH public key. @Active@ means that the key can be
--- used for authentication with an AWS CodeCommit repository. @Inactive@
--- means that the key cannot be used.
+-- used for authentication with an CodeCommit repository. @Inactive@ means
+-- that the key cannot be used.
 sSHPublicKey_status :: Lens.Lens' SSHPublicKey StatusType
 sSHPublicKey_status = Lens.lens (\SSHPublicKey' {status} -> status) (\s@SSHPublicKey' {} a -> s {status = a} :: SSHPublicKey)
 

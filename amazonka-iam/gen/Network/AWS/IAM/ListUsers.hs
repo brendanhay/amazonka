@@ -21,8 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the IAM users that have the specified path prefix. If no path
--- prefix is specified, the operation returns all users in the AWS account.
--- If there are none, the operation returns an empty list.
+-- prefix is specified, the operation returns all users in the Amazon Web
+-- Services account. If there are none, the operation returns an empty
+-- list.
 --
 -- IAM resource-listing operations return a subset of the available
 -- attributes for the resource. For example, this operation does not return

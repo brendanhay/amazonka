@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new IAM user for your AWS account.
+-- Creates a new IAM user for your Amazon Web Services account.
 --
 -- For information about quotas for the number of IAM users you can create,
 -- see

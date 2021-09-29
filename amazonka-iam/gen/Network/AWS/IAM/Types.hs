@@ -19,28 +19,28 @@ module Network.AWS.IAM.Types
     -- * Errors
     _MalformedPolicyDocumentException,
     _PolicyEvaluationException,
-    _UnrecognizedPublicKeyEncodingException,
     _ServiceNotSupportedException,
     _ReportGenerationLimitExceededException,
-    _DuplicateSSHPublicKeyException,
+    _UnrecognizedPublicKeyEncodingException,
     _KeyPairMismatchException,
+    _DuplicateSSHPublicKeyException,
     _PolicyNotAttachableException,
     _InvalidInputException,
     _InvalidPublicKeyException,
     _UnmodifiableEntityException,
     _DuplicateCertificateException,
     _MalformedCertificateException,
-    _EntityAlreadyExistsException,
-    _ConcurrentModificationException,
     _ServiceFailureException,
+    _ConcurrentModificationException,
+    _EntityAlreadyExistsException,
     _InvalidUserTypeException,
-    _CredentialReportNotReadyException,
     _CredentialReportNotPresentException,
-    _LimitExceededException,
+    _CredentialReportNotReadyException,
     _PasswordPolicyViolationException,
-    _InvalidAuthenticationCodeException,
+    _LimitExceededException,
     _EntityTemporarilyUnmodifiableException,
     _InvalidCertificateException,
+    _InvalidAuthenticationCodeException,
     _NoSuchEntityException,
     _DeleteConflictException,
     _CredentialReportExpiredException,
@@ -109,8 +109,8 @@ module Network.AWS.IAM.Types
     AccessDetail (..),
     newAccessDetail,
     accessDetail_totalAuthenticatedEntities,
-    accessDetail_entityPath,
     accessDetail_lastAuthenticatedTime,
+    accessDetail_entityPath,
     accessDetail_region,
     accessDetail_serviceName,
     accessDetail_serviceNamespace,
@@ -136,8 +136,8 @@ module Network.AWS.IAM.Types
     newAccessKeyMetadata,
     accessKeyMetadata_status,
     accessKeyMetadata_createDate,
-    accessKeyMetadata_accessKeyId,
     accessKeyMetadata_userName,
+    accessKeyMetadata_accessKeyId,
 
     -- * AttachedPermissionsBoundary
     AttachedPermissionsBoundary (..),
@@ -189,8 +189,8 @@ module Network.AWS.IAM.Types
     EvaluationResult (..),
     newEvaluationResult,
     evaluationResult_evalDecisionDetails,
-    evaluationResult_permissionsBoundaryDecisionDetail,
     evaluationResult_organizationsDecisionDetail,
+    evaluationResult_permissionsBoundaryDecisionDetail,
     evaluationResult_resourceSpecificResults,
     evaluationResult_matchedStatements,
     evaluationResult_evalResourceName,
@@ -216,12 +216,12 @@ module Network.AWS.IAM.Types
     GroupDetail (..),
     newGroupDetail,
     groupDetail_attachedManagedPolicies,
-    groupDetail_groupName,
     groupDetail_createDate,
+    groupDetail_groupName,
     groupDetail_arn,
     groupDetail_groupId,
-    groupDetail_groupPolicyList,
     groupDetail_path,
+    groupDetail_groupPolicyList,
 
     -- * InstanceProfile
     InstanceProfile (..),
@@ -266,9 +266,9 @@ module Network.AWS.IAM.Types
     managedPolicyDetail_defaultVersionId,
     managedPolicyDetail_description,
     managedPolicyDetail_policyVersionList,
+    managedPolicyDetail_updateDate,
     managedPolicyDetail_path,
     managedPolicyDetail_policyId,
-    managedPolicyDetail_updateDate,
 
     -- * OpenIDConnectProviderListEntry
     OpenIDConnectProviderListEntry (..),
@@ -283,10 +283,10 @@ module Network.AWS.IAM.Types
     -- * PasswordPolicy
     PasswordPolicy (..),
     newPasswordPolicy,
-    passwordPolicy_maxPasswordAge,
     passwordPolicy_requireLowercaseCharacters,
-    passwordPolicy_minimumPasswordLength,
+    passwordPolicy_maxPasswordAge,
     passwordPolicy_passwordReusePrevention,
+    passwordPolicy_minimumPasswordLength,
     passwordPolicy_expirePasswords,
     passwordPolicy_requireUppercaseCharacters,
     passwordPolicy_allowUsersToChangePassword,
@@ -311,9 +311,9 @@ module Network.AWS.IAM.Types
     policy_defaultVersionId,
     policy_tags,
     policy_description,
+    policy_updateDate,
     policy_path,
     policy_policyId,
-    policy_updateDate,
 
     -- * PolicyDetail
     PolicyDetail (..),
@@ -391,13 +391,13 @@ module Network.AWS.IAM.Types
     RoleDetail (..),
     newRoleDetail,
     roleDetail_assumeRolePolicyDocument,
-    roleDetail_roleId,
     roleDetail_roleLastUsed,
+    roleDetail_roleId,
     roleDetail_attachedManagedPolicies,
     roleDetail_rolePolicyList,
     roleDetail_roleName,
-    roleDetail_permissionsBoundary,
     roleDetail_createDate,
+    roleDetail_permissionsBoundary,
     roleDetail_arn,
     roleDetail_tags,
     roleDetail_instanceProfileList,
@@ -544,8 +544,8 @@ module Network.AWS.IAM.Types
     UserDetail (..),
     newUserDetail,
     userDetail_attachedManagedPolicies,
-    userDetail_permissionsBoundary,
     userDetail_createDate,
+    userDetail_permissionsBoundary,
     userDetail_arn,
     userDetail_groupList,
     userDetail_userId,
@@ -733,15 +733,6 @@ _PolicyEvaluationException =
     "PolicyEvaluation"
     Prelude.. Core.hasStatus 500
 
--- | The request was rejected because the public key encoding format is
--- unsupported or unrecognized.
-_UnrecognizedPublicKeyEncodingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnrecognizedPublicKeyEncodingException =
-  Core._MatchServiceError
-    defaultService
-    "UnrecognizedPublicKeyEncoding"
-    Prelude.. Core.hasStatus 400
-
 -- | The specified service does not support service-specific credentials.
 _ServiceNotSupportedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ServiceNotSupportedException =
@@ -759,13 +750,13 @@ _ReportGenerationLimitExceededException =
     "ReportGenerationLimitExceeded"
     Prelude.. Core.hasStatus 409
 
--- | The request was rejected because the SSH public key is already
--- associated with the specified IAM user.
-_DuplicateSSHPublicKeyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DuplicateSSHPublicKeyException =
+-- | The request was rejected because the public key encoding format is
+-- unsupported or unrecognized.
+_UnrecognizedPublicKeyEncodingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnrecognizedPublicKeyEncodingException =
   Core._MatchServiceError
     defaultService
-    "DuplicateSSHPublicKey"
+    "UnrecognizedPublicKeyEncoding"
     Prelude.. Core.hasStatus 400
 
 -- | The request was rejected because the public key certificate and the
@@ -777,8 +768,17 @@ _KeyPairMismatchException =
     "KeyPairMismatch"
     Prelude.. Core.hasStatus 400
 
--- | The request failed because AWS service role policies can only be
--- attached to the service-linked role for that service.
+-- | The request was rejected because the SSH public key is already
+-- associated with the specified IAM user.
+_DuplicateSSHPublicKeyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateSSHPublicKeyException =
+  Core._MatchServiceError
+    defaultService
+    "DuplicateSSHPublicKey"
+    Prelude.. Core.hasStatus 400
+
+-- | The request failed because Amazon Web Services service role policies can
+-- only be attached to the service-linked role for that service.
 _PolicyNotAttachableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _PolicyNotAttachableException =
   Core._MatchServiceError
@@ -833,14 +833,14 @@ _MalformedCertificateException =
     "MalformedCertificate"
     Prelude.. Core.hasStatus 400
 
--- | The request was rejected because it attempted to create a resource that
--- already exists.
-_EntityAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_EntityAlreadyExistsException =
+-- | The request processing has failed because of an unknown error, exception
+-- or failure.
+_ServiceFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ServiceFailureException =
   Core._MatchServiceError
     defaultService
-    "EntityAlreadyExists"
-    Prelude.. Core.hasStatus 409
+    "ServiceFailure"
+    Prelude.. Core.hasStatus 500
 
 -- | The request was rejected because multiple requests to change this object
 -- were submitted simultaneously. Wait a few minutes and submit your
@@ -852,14 +852,14 @@ _ConcurrentModificationException =
     "ConcurrentModification"
     Prelude.. Core.hasStatus 409
 
--- | The request processing has failed because of an unknown error, exception
--- or failure.
-_ServiceFailureException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ServiceFailureException =
+-- | The request was rejected because it attempted to create a resource that
+-- already exists.
+_EntityAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_EntityAlreadyExistsException =
   Core._MatchServiceError
     defaultService
-    "ServiceFailure"
-    Prelude.. Core.hasStatus 500
+    "EntityAlreadyExists"
+    Prelude.. Core.hasStatus 409
 
 -- | The request was rejected because the type of user for the transaction
 -- was incorrect.
@@ -870,15 +870,6 @@ _InvalidUserTypeException =
     "InvalidUserType"
     Prelude.. Core.hasStatus 400
 
--- | The request was rejected because the credential report is still being
--- generated.
-_CredentialReportNotReadyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_CredentialReportNotReadyException =
-  Core._MatchServiceError
-    defaultService
-    "ReportInProgress"
-    Prelude.. Core.hasStatus 404
-
 -- | The request was rejected because the credential report does not exist.
 -- To generate a credential report, use GenerateCredentialReport.
 _CredentialReportNotPresentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -888,15 +879,14 @@ _CredentialReportNotPresentException =
     "ReportNotPresent"
     Prelude.. Core.hasStatus 410
 
--- | The request was rejected because it attempted to create resources beyond
--- the current AWS account limits. The error message describes the limit
--- exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
+-- | The request was rejected because the credential report is still being
+-- generated.
+_CredentialReportNotReadyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_CredentialReportNotReadyException =
   Core._MatchServiceError
     defaultService
-    "LimitExceeded"
-    Prelude.. Core.hasStatus 409
+    "ReportInProgress"
+    Prelude.. Core.hasStatus 404
 
 -- | The request was rejected because the provided password did not meet the
 -- requirements imposed by the account password policy.
@@ -907,14 +897,15 @@ _PasswordPolicyViolationException =
     "PasswordPolicyViolation"
     Prelude.. Core.hasStatus 400
 
--- | The request was rejected because the authentication code was not
--- recognized. The error message describes the specific error.
-_InvalidAuthenticationCodeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidAuthenticationCodeException =
+-- | The request was rejected because it attempted to create resources beyond
+-- the current Amazon Web Services account limits. The error message
+-- describes the limit exceeded.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
   Core._MatchServiceError
     defaultService
-    "InvalidAuthenticationCode"
-    Prelude.. Core.hasStatus 403
+    "LimitExceeded"
+    Prelude.. Core.hasStatus 409
 
 -- | The request was rejected because it referenced an entity that is
 -- temporarily unmodifiable, such as a user name that was deleted and then
@@ -935,6 +926,15 @@ _InvalidCertificateException =
     defaultService
     "InvalidCertificate"
     Prelude.. Core.hasStatus 400
+
+-- | The request was rejected because the authentication code was not
+-- recognized. The error message describes the specific error.
+_InvalidAuthenticationCodeException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidAuthenticationCodeException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidAuthenticationCode"
+    Prelude.. Core.hasStatus 403
 
 -- | The request was rejected because it referenced a resource entity that
 -- does not exist. The error message describes the resource.

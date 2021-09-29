@@ -24,7 +24,7 @@
 -- instance profile can contain only one role, and this quota cannot be
 -- increased. You can remove the existing role and then add a different
 -- role to an instance profile. You must then wait for the change to appear
--- across all of AWS because of
+-- across all of Amazon Web Services because of
 -- <https://en.wikipedia.org/wiki/Eventual_consistency eventual consistency>.
 -- To force the change, you must
 -- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateIamInstanceProfile.html disassociate the instance profile>

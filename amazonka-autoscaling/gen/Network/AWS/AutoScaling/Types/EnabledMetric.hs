@@ -56,6 +56,20 @@ data EnabledMetric = EnabledMetric'
     -- -   @GroupTerminatingCapacity@
     --
     -- -   @GroupTotalCapacity@
+    --
+    -- -   @WarmPoolDesiredCapacity@
+    --
+    -- -   @WarmPoolWarmedCapacity@
+    --
+    -- -   @WarmPoolPendingCapacity@
+    --
+    -- -   @WarmPoolTerminatingCapacity@
+    --
+    -- -   @WarmPoolTotalCapacity@
+    --
+    -- -   @GroupAndWarmPoolDesiredCapacity@
+    --
+    -- -   @GroupAndWarmPoolTotalCapacity@
     metric :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -97,6 +111,20 @@ data EnabledMetric = EnabledMetric'
 -- -   @GroupTerminatingCapacity@
 --
 -- -   @GroupTotalCapacity@
+--
+-- -   @WarmPoolDesiredCapacity@
+--
+-- -   @WarmPoolWarmedCapacity@
+--
+-- -   @WarmPoolPendingCapacity@
+--
+-- -   @WarmPoolTerminatingCapacity@
+--
+-- -   @WarmPoolTotalCapacity@
+--
+-- -   @GroupAndWarmPoolDesiredCapacity@
+--
+-- -   @GroupAndWarmPoolTotalCapacity@
 newEnabledMetric ::
   EnabledMetric
 newEnabledMetric =
@@ -136,6 +164,20 @@ enabledMetric_granularity = Lens.lens (\EnabledMetric' {granularity} -> granular
 -- -   @GroupTerminatingCapacity@
 --
 -- -   @GroupTotalCapacity@
+--
+-- -   @WarmPoolDesiredCapacity@
+--
+-- -   @WarmPoolWarmedCapacity@
+--
+-- -   @WarmPoolPendingCapacity@
+--
+-- -   @WarmPoolTerminatingCapacity@
+--
+-- -   @WarmPoolTotalCapacity@
+--
+-- -   @GroupAndWarmPoolDesiredCapacity@
+--
+-- -   @GroupAndWarmPoolTotalCapacity@
 enabledMetric_metric :: Lens.Lens' EnabledMetric (Prelude.Maybe Prelude.Text)
 enabledMetric_metric = Lens.lens (\EnabledMetric' {metric} -> metric) (\s@EnabledMetric' {} a -> s {metric = a} :: EnabledMetric)
 

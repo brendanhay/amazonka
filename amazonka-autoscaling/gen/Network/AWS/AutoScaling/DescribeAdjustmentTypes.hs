@@ -20,18 +20,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the available adjustment types for Amazon EC2 Auto Scaling
--- scaling policies. These settings apply to step scaling policies and
--- simple scaling policies; they do not apply to target tracking scaling
--- policies.
+-- Describes the available adjustment types for step scaling and simple
+-- scaling policies.
 --
 -- The following adjustment types are supported:
 --
--- -   ChangeInCapacity
+-- -   @ChangeInCapacity@
 --
--- -   ExactCapacity
+-- -   @ExactCapacity@
 --
--- -   PercentChangeInCapacity
+-- -   @PercentChangeInCapacity@
 module Network.AWS.AutoScaling.DescribeAdjustmentTypes
   ( -- * Creating a Request
     DescribeAdjustmentTypes (..),

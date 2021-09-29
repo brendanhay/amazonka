@@ -25,36 +25,25 @@ import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the state of a Classic Load Balancer.
 --
--- If you specify a load balancer when creating the Auto Scaling group, the
--- state of the load balancer is @InService@.
---
--- If you attach a load balancer to an existing Auto Scaling group, the
--- initial state is @Adding@. The state transitions to @Added@ after all
--- instances in the group are registered with the load balancer. If Elastic
--- Load Balancing health checks are enabled for the load balancer, the
--- state transitions to @InService@ after at least one instance in the
--- group passes the health check. If EC2 health checks are enabled instead,
--- the load balancer remains in the @Added@ state.
---
 -- /See:/ 'newLoadBalancerState' smart constructor.
 data LoadBalancerState = LoadBalancerState'
   { -- | One of the following load balancer states:
     --
-    -- -   @Adding@ - The instances in the group are being registered with the
+    -- -   @Adding@ - The Auto Scaling instances are being registered with the
     --     load balancer.
     --
-    -- -   @Added@ - All instances in the group are registered with the load
+    -- -   @Added@ - All Auto Scaling instances are registered with the load
     --     balancer.
     --
-    -- -   @InService@ - At least one instance in the group passed an ELB
+    -- -   @InService@ - At least one Auto Scaling instance passed an @ELB@
     --     health check.
     --
-    -- -   @Removing@ - The instances in the group are being deregistered from
+    -- -   @Removing@ - The Auto Scaling instances are being deregistered from
     --     the load balancer. If connection draining is enabled, Elastic Load
     --     Balancing waits for in-flight requests to complete before
     --     deregistering the instances.
     --
-    -- -   @Removed@ - All instances in the group are deregistered from the
+    -- -   @Removed@ - All Auto Scaling instances are deregistered from the
     --     load balancer.
     state :: Prelude.Maybe Prelude.Text,
     -- | The name of the load balancer.
@@ -72,21 +61,21 @@ data LoadBalancerState = LoadBalancerState'
 --
 -- 'state', 'loadBalancerState_state' - One of the following load balancer states:
 --
--- -   @Adding@ - The instances in the group are being registered with the
+-- -   @Adding@ - The Auto Scaling instances are being registered with the
 --     load balancer.
 --
--- -   @Added@ - All instances in the group are registered with the load
+-- -   @Added@ - All Auto Scaling instances are registered with the load
 --     balancer.
 --
--- -   @InService@ - At least one instance in the group passed an ELB
+-- -   @InService@ - At least one Auto Scaling instance passed an @ELB@
 --     health check.
 --
--- -   @Removing@ - The instances in the group are being deregistered from
+-- -   @Removing@ - The Auto Scaling instances are being deregistered from
 --     the load balancer. If connection draining is enabled, Elastic Load
 --     Balancing waits for in-flight requests to complete before
 --     deregistering the instances.
 --
--- -   @Removed@ - All instances in the group are deregistered from the
+-- -   @Removed@ - All Auto Scaling instances are deregistered from the
 --     load balancer.
 --
 -- 'loadBalancerName', 'loadBalancerState_loadBalancerName' - The name of the load balancer.
@@ -100,21 +89,21 @@ newLoadBalancerState =
 
 -- | One of the following load balancer states:
 --
--- -   @Adding@ - The instances in the group are being registered with the
+-- -   @Adding@ - The Auto Scaling instances are being registered with the
 --     load balancer.
 --
--- -   @Added@ - All instances in the group are registered with the load
+-- -   @Added@ - All Auto Scaling instances are registered with the load
 --     balancer.
 --
--- -   @InService@ - At least one instance in the group passed an ELB
+-- -   @InService@ - At least one Auto Scaling instance passed an @ELB@
 --     health check.
 --
--- -   @Removing@ - The instances in the group are being deregistered from
+-- -   @Removing@ - The Auto Scaling instances are being deregistered from
 --     the load balancer. If connection draining is enabled, Elastic Load
 --     Balancing waits for in-flight requests to complete before
 --     deregistering the instances.
 --
--- -   @Removed@ - All instances in the group are deregistered from the
+-- -   @Removed@ - All Auto Scaling instances are deregistered from the
 --     load balancer.
 loadBalancerState_state :: Lens.Lens' LoadBalancerState (Prelude.Maybe Prelude.Text)
 loadBalancerState_state = Lens.lens (\LoadBalancerState' {state} -> state) (\s@LoadBalancerState' {} a -> s {state = a} :: LoadBalancerState)

@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Terminates the specified instance and optionally adjusts the desired
--- group size.
+-- group size. This operation cannot be called on instances in a warm pool.
 --
 -- This call simply makes a termination request. The instance is not
 -- terminated immediately. When an instance is terminated, the instance

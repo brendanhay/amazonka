@@ -46,7 +46,7 @@
 --     action.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html Auto Scaling lifecycle>
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html Amazon EC2 Auto Scaling lifecycle hooks>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 module Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
   ( -- * Creating a Request

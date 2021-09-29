@@ -54,7 +54,10 @@ data AutoScalingInstanceDetails = AutoScalingInstanceDetails'
     -- Valid Values: @Pending@ | @Pending:Wait@ | @Pending:Proceed@ |
     -- @Quarantined@ | @InService@ | @Terminating@ | @Terminating:Wait@ |
     -- @Terminating:Proceed@ | @Terminated@ | @Detaching@ | @Detached@ |
-    -- @EnteringStandby@ | @Standby@
+    -- @EnteringStandby@ | @Standby@ | @Warmed:Pending@ | @Warmed:Pending:Wait@
+    -- | @Warmed:Pending:Proceed@ | @Warmed:Terminating@ |
+    -- @Warmed:Terminating:Wait@ | @Warmed:Terminating:Proceed@ |
+    -- @Warmed:Terminated@ | @Warmed:Stopped@ | @Warmed:Running@
     lifecycleState :: Prelude.Text,
     -- | The last reported health status of this instance. \"Healthy\" means that
     -- the instance is healthy and should remain in service. \"Unhealthy\"
@@ -101,7 +104,10 @@ data AutoScalingInstanceDetails = AutoScalingInstanceDetails'
 -- Valid Values: @Pending@ | @Pending:Wait@ | @Pending:Proceed@ |
 -- @Quarantined@ | @InService@ | @Terminating@ | @Terminating:Wait@ |
 -- @Terminating:Proceed@ | @Terminated@ | @Detaching@ | @Detached@ |
--- @EnteringStandby@ | @Standby@
+-- @EnteringStandby@ | @Standby@ | @Warmed:Pending@ | @Warmed:Pending:Wait@
+-- | @Warmed:Pending:Proceed@ | @Warmed:Terminating@ |
+-- @Warmed:Terminating:Wait@ | @Warmed:Terminating:Proceed@ |
+-- @Warmed:Terminated@ | @Warmed:Stopped@ | @Warmed:Running@
 --
 -- 'healthStatus', 'autoScalingInstanceDetails_healthStatus' - The last reported health status of this instance. \"Healthy\" means that
 -- the instance is healthy and should remain in service. \"Unhealthy\"
@@ -185,7 +191,10 @@ autoScalingInstanceDetails_availabilityZone = Lens.lens (\AutoScalingInstanceDet
 -- Valid Values: @Pending@ | @Pending:Wait@ | @Pending:Proceed@ |
 -- @Quarantined@ | @InService@ | @Terminating@ | @Terminating:Wait@ |
 -- @Terminating:Proceed@ | @Terminated@ | @Detaching@ | @Detached@ |
--- @EnteringStandby@ | @Standby@
+-- @EnteringStandby@ | @Standby@ | @Warmed:Pending@ | @Warmed:Pending:Wait@
+-- | @Warmed:Pending:Proceed@ | @Warmed:Terminating@ |
+-- @Warmed:Terminating:Wait@ | @Warmed:Terminating:Proceed@ |
+-- @Warmed:Terminated@ | @Warmed:Stopped@ | @Warmed:Running@
 autoScalingInstanceDetails_lifecycleState :: Lens.Lens' AutoScalingInstanceDetails Prelude.Text
 autoScalingInstanceDetails_lifecycleState = Lens.lens (\AutoScalingInstanceDetails' {lifecycleState} -> lifecycleState) (\s@AutoScalingInstanceDetails' {} a -> s {lifecycleState = a} :: AutoScalingInstanceDetails)
 

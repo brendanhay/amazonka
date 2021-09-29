@@ -20,10 +20,21 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes one or more instance refreshes.
+-- Gets information about the instance refreshes for the specified Auto
+-- Scaling group.
 --
--- You can determine the status of a request by looking at the @Status@
--- parameter. The following are the possible statuses:
+-- This operation is part of the
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html instance refresh feature>
+-- in Amazon EC2 Auto Scaling, which helps you update instances in your
+-- Auto Scaling group after you make configuration changes.
+--
+-- To help you determine the status of an instance refresh, this operation
+-- returns information about the instance refreshes you previously
+-- initiated, including their status, end time, the percentage of the
+-- instance refresh that is complete, and the number of instances remaining
+-- to update before the instance refresh is complete.
+--
+-- The following are the possible statuses:
 --
 -- -   @Pending@ - The request was created, but the operation has not
 --     started.
@@ -40,9 +51,6 @@
 --     completed, but it prevents new replacements from being started.
 --
 -- -   @Cancelled@ - The operation is cancelled.
---
--- For more information, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html Replacing Auto Scaling Instances Based on an Instance Refresh>.
 module Network.AWS.AutoScaling.DescribeInstanceRefreshes
   ( -- * Creating a Request
     DescribeInstanceRefreshes (..),

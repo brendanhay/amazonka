@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the policies for the specified Auto Scaling group.
+-- Gets information about the scaling policies in the account and Region.
 --
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribePolicies
@@ -32,8 +32,8 @@ module Network.AWS.AutoScaling.DescribePolicies
     describePolicies_nextToken,
     describePolicies_policyTypes,
     describePolicies_policyNames,
-    describePolicies_autoScalingGroupName,
     describePolicies_maxRecords,
+    describePolicies_autoScalingGroupName,
 
     -- * Destructuring the Response
     DescribePoliciesResponse (..),
@@ -59,18 +59,20 @@ data DescribePolicies = DescribePolicies'
     -- from a previous call.)
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | One or more policy types. The valid values are @SimpleScaling@,
-    -- @StepScaling@, and @TargetTrackingScaling@.
+    -- @StepScaling@, @TargetTrackingScaling@, and @PredictiveScaling@.
     policyTypes :: Prelude.Maybe [Prelude.Text],
     -- | The names of one or more policies. If you omit this parameter, all
     -- policies are described. If a group name is provided, the results are
-    -- limited to that group. This list is limited to 50 items. If you specify
-    -- an unknown policy name, it is ignored with no error.
+    -- limited to that group. If you specify an unknown policy name, it is
+    -- ignored with no error.
+    --
+    -- Array Members: Maximum number of 50 items.
     policyNames :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items to be returned with each call. The default
     -- value is @50@ and the maximum value is @100@.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,17 +88,19 @@ data DescribePolicies = DescribePolicies'
 -- from a previous call.)
 --
 -- 'policyTypes', 'describePolicies_policyTypes' - One or more policy types. The valid values are @SimpleScaling@,
--- @StepScaling@, and @TargetTrackingScaling@.
+-- @StepScaling@, @TargetTrackingScaling@, and @PredictiveScaling@.
 --
 -- 'policyNames', 'describePolicies_policyNames' - The names of one or more policies. If you omit this parameter, all
 -- policies are described. If a group name is provided, the results are
--- limited to that group. This list is limited to 50 items. If you specify
--- an unknown policy name, it is ignored with no error.
+-- limited to that group. If you specify an unknown policy name, it is
+-- ignored with no error.
 --
--- 'autoScalingGroupName', 'describePolicies_autoScalingGroupName' - The name of the Auto Scaling group.
+-- Array Members: Maximum number of 50 items.
 --
 -- 'maxRecords', 'describePolicies_maxRecords' - The maximum number of items to be returned with each call. The default
 -- value is @50@ and the maximum value is @100@.
+--
+-- 'autoScalingGroupName', 'describePolicies_autoScalingGroupName' - The name of the Auto Scaling group.
 newDescribePolicies ::
   DescribePolicies
 newDescribePolicies =
@@ -104,8 +108,8 @@ newDescribePolicies =
     { nextToken = Prelude.Nothing,
       policyTypes = Prelude.Nothing,
       policyNames = Prelude.Nothing,
-      autoScalingGroupName = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      autoScalingGroupName = Prelude.Nothing
     }
 
 -- | The token for the next set of items to return. (You received this token
@@ -114,25 +118,27 @@ describePolicies_nextToken :: Lens.Lens' DescribePolicies (Prelude.Maybe Prelude
 describePolicies_nextToken = Lens.lens (\DescribePolicies' {nextToken} -> nextToken) (\s@DescribePolicies' {} a -> s {nextToken = a} :: DescribePolicies)
 
 -- | One or more policy types. The valid values are @SimpleScaling@,
--- @StepScaling@, and @TargetTrackingScaling@.
+-- @StepScaling@, @TargetTrackingScaling@, and @PredictiveScaling@.
 describePolicies_policyTypes :: Lens.Lens' DescribePolicies (Prelude.Maybe [Prelude.Text])
 describePolicies_policyTypes = Lens.lens (\DescribePolicies' {policyTypes} -> policyTypes) (\s@DescribePolicies' {} a -> s {policyTypes = a} :: DescribePolicies) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The names of one or more policies. If you omit this parameter, all
 -- policies are described. If a group name is provided, the results are
--- limited to that group. This list is limited to 50 items. If you specify
--- an unknown policy name, it is ignored with no error.
+-- limited to that group. If you specify an unknown policy name, it is
+-- ignored with no error.
+--
+-- Array Members: Maximum number of 50 items.
 describePolicies_policyNames :: Lens.Lens' DescribePolicies (Prelude.Maybe [Prelude.Text])
 describePolicies_policyNames = Lens.lens (\DescribePolicies' {policyNames} -> policyNames) (\s@DescribePolicies' {} a -> s {policyNames = a} :: DescribePolicies) Prelude.. Lens.mapping Lens._Coerce
-
--- | The name of the Auto Scaling group.
-describePolicies_autoScalingGroupName :: Lens.Lens' DescribePolicies (Prelude.Maybe Prelude.Text)
-describePolicies_autoScalingGroupName = Lens.lens (\DescribePolicies' {autoScalingGroupName} -> autoScalingGroupName) (\s@DescribePolicies' {} a -> s {autoScalingGroupName = a} :: DescribePolicies)
 
 -- | The maximum number of items to be returned with each call. The default
 -- value is @50@ and the maximum value is @100@.
 describePolicies_maxRecords :: Lens.Lens' DescribePolicies (Prelude.Maybe Prelude.Int)
 describePolicies_maxRecords = Lens.lens (\DescribePolicies' {maxRecords} -> maxRecords) (\s@DescribePolicies' {} a -> s {maxRecords = a} :: DescribePolicies)
+
+-- | The name of the Auto Scaling group.
+describePolicies_autoScalingGroupName :: Lens.Lens' DescribePolicies (Prelude.Maybe Prelude.Text)
+describePolicies_autoScalingGroupName = Lens.lens (\DescribePolicies' {autoScalingGroupName} -> autoScalingGroupName) (\s@DescribePolicies' {} a -> s {autoScalingGroupName = a} :: DescribePolicies)
 
 instance Core.AWSPager DescribePolicies where
   page rq rs
@@ -197,8 +203,8 @@ instance Core.ToQuery DescribePolicies where
         "PolicyNames"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> policyNames),
-        "AutoScalingGroupName" Core.=: autoScalingGroupName,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "AutoScalingGroupName" Core.=: autoScalingGroupName
       ]
 
 -- | /See:/ 'newDescribePoliciesResponse' smart constructor.

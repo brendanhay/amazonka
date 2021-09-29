@@ -54,6 +54,20 @@ data MetricCollectionType = MetricCollectionType'
     -- -   @GroupTerminatingCapacity@
     --
     -- -   @GroupTotalCapacity@
+    --
+    -- -   @WarmPoolDesiredCapacity@
+    --
+    -- -   @WarmPoolWarmedCapacity@
+    --
+    -- -   @WarmPoolPendingCapacity@
+    --
+    -- -   @WarmPoolTerminatingCapacity@
+    --
+    -- -   @WarmPoolTotalCapacity@
+    --
+    -- -   @GroupAndWarmPoolDesiredCapacity@
+    --
+    -- -   @GroupAndWarmPoolTotalCapacity@
     metric :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -93,6 +107,20 @@ data MetricCollectionType = MetricCollectionType'
 -- -   @GroupTerminatingCapacity@
 --
 -- -   @GroupTotalCapacity@
+--
+-- -   @WarmPoolDesiredCapacity@
+--
+-- -   @WarmPoolWarmedCapacity@
+--
+-- -   @WarmPoolPendingCapacity@
+--
+-- -   @WarmPoolTerminatingCapacity@
+--
+-- -   @WarmPoolTotalCapacity@
+--
+-- -   @GroupAndWarmPoolDesiredCapacity@
+--
+-- -   @GroupAndWarmPoolTotalCapacity@
 newMetricCollectionType ::
   MetricCollectionType
 newMetricCollectionType =
@@ -125,6 +153,20 @@ newMetricCollectionType =
 -- -   @GroupTerminatingCapacity@
 --
 -- -   @GroupTotalCapacity@
+--
+-- -   @WarmPoolDesiredCapacity@
+--
+-- -   @WarmPoolWarmedCapacity@
+--
+-- -   @WarmPoolPendingCapacity@
+--
+-- -   @WarmPoolTerminatingCapacity@
+--
+-- -   @WarmPoolTotalCapacity@
+--
+-- -   @GroupAndWarmPoolDesiredCapacity@
+--
+-- -   @GroupAndWarmPoolTotalCapacity@
 metricCollectionType_metric :: Lens.Lens' MetricCollectionType (Prelude.Maybe Prelude.Text)
 metricCollectionType_metric = Lens.lens (\MetricCollectionType' {metric} -> metric) (\s@MetricCollectionType' {} a -> s {metric = a} :: MetricCollectionType)
 

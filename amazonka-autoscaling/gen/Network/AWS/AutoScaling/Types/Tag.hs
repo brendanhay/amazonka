@@ -29,7 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 data Tag = Tag'
   { -- | The tag key.
     key :: Prelude.Text,
-    -- | The name of the group.
+    -- | The name of the Auto Scaling group.
     resourceId :: Prelude.Text,
     -- | The type of resource. The only supported value is @auto-scaling-group@.
     resourceType :: Prelude.Text,
@@ -51,7 +51,7 @@ data Tag = Tag'
 --
 -- 'key', 'tag_key' - The tag key.
 --
--- 'resourceId', 'tag_resourceId' - The name of the group.
+-- 'resourceId', 'tag_resourceId' - The name of the Auto Scaling group.
 --
 -- 'resourceType', 'tag_resourceType' - The type of resource. The only supported value is @auto-scaling-group@.
 --
@@ -89,7 +89,7 @@ newTag
 tag_key :: Lens.Lens' Tag Prelude.Text
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 
--- | The name of the group.
+-- | The name of the Auto Scaling group.
 tag_resourceId :: Lens.Lens' Tag Prelude.Text
 tag_resourceId = Lens.lens (\Tag' {resourceId} -> resourceId) (\s@Tag' {} a -> s {resourceId = a} :: Tag)
 

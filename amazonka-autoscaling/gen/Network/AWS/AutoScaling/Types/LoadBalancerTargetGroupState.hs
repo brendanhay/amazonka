@@ -25,14 +25,6 @@ import qualified Network.AWS.Prelude as Prelude
 
 -- | Describes the state of a target group.
 --
--- If you attach a target group to an existing Auto Scaling group, the
--- initial state is @Adding@. The state transitions to @Added@ after all
--- Auto Scaling instances are registered with the target group. If Elastic
--- Load Balancing health checks are enabled, the state transitions to
--- @InService@ after at least one Auto Scaling instance passes the health
--- check. If EC2 health checks are enabled instead, the target group
--- remains in the @Added@ state.
---
 -- /See:/ 'newLoadBalancerTargetGroupState' smart constructor.
 data LoadBalancerTargetGroupState = LoadBalancerTargetGroupState'
   { -- | The state of the target group.
@@ -43,7 +35,7 @@ data LoadBalancerTargetGroupState = LoadBalancerTargetGroupState'
     -- -   @Added@ - All Auto Scaling instances are registered with the target
     --     group.
     --
-    -- -   @InService@ - At least one Auto Scaling instance passed an ELB
+    -- -   @InService@ - At least one Auto Scaling instance passed an @ELB@
     --     health check.
     --
     -- -   @Removing@ - The Auto Scaling instances are being deregistered from
@@ -75,7 +67,7 @@ data LoadBalancerTargetGroupState = LoadBalancerTargetGroupState'
 -- -   @Added@ - All Auto Scaling instances are registered with the target
 --     group.
 --
--- -   @InService@ - At least one Auto Scaling instance passed an ELB
+-- -   @InService@ - At least one Auto Scaling instance passed an @ELB@
 --     health check.
 --
 -- -   @Removing@ - The Auto Scaling instances are being deregistered from
@@ -104,7 +96,7 @@ newLoadBalancerTargetGroupState =
 -- -   @Added@ - All Auto Scaling instances are registered with the target
 --     group.
 --
--- -   @InService@ - At least one Auto Scaling instance passed an ELB
+-- -   @InService@ - At least one Auto Scaling instance passed an @ELB@
 --     health check.
 --
 -- -   @Removing@ - The Auto Scaling instances are being deregistered from

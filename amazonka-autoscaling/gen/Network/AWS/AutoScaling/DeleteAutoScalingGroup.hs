@@ -63,8 +63,8 @@ import qualified Network.AWS.Response as Response
 data DeleteAutoScalingGroup = DeleteAutoScalingGroup'
   { -- | Specifies that the group is to be deleted along with all instances
     -- associated with the group, without waiting for all instances to be
-    -- terminated. This parameter also deletes any lifecycle actions associated
-    -- with the group.
+    -- terminated. This parameter also deletes any outstanding lifecycle
+    -- actions associated with the group.
     forceDelete :: Prelude.Maybe Prelude.Bool,
     -- | The name of the Auto Scaling group.
     autoScalingGroupName :: Prelude.Text
@@ -81,8 +81,8 @@ data DeleteAutoScalingGroup = DeleteAutoScalingGroup'
 --
 -- 'forceDelete', 'deleteAutoScalingGroup_forceDelete' - Specifies that the group is to be deleted along with all instances
 -- associated with the group, without waiting for all instances to be
--- terminated. This parameter also deletes any lifecycle actions associated
--- with the group.
+-- terminated. This parameter also deletes any outstanding lifecycle
+-- actions associated with the group.
 --
 -- 'autoScalingGroupName', 'deleteAutoScalingGroup_autoScalingGroupName' - The name of the Auto Scaling group.
 newDeleteAutoScalingGroup ::
@@ -98,8 +98,8 @@ newDeleteAutoScalingGroup pAutoScalingGroupName_ =
 
 -- | Specifies that the group is to be deleted along with all instances
 -- associated with the group, without waiting for all instances to be
--- terminated. This parameter also deletes any lifecycle actions associated
--- with the group.
+-- terminated. This parameter also deletes any outstanding lifecycle
+-- actions associated with the group.
 deleteAutoScalingGroup_forceDelete :: Lens.Lens' DeleteAutoScalingGroup (Prelude.Maybe Prelude.Bool)
 deleteAutoScalingGroup_forceDelete = Lens.lens (\DeleteAutoScalingGroup' {forceDelete} -> forceDelete) (\s@DeleteAutoScalingGroup' {} a -> s {forceDelete = a} :: DeleteAutoScalingGroup)
 

@@ -36,11 +36,11 @@ data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction'
     -- | The date and time in UTC for this action to start. For example,
     -- @\"2019-06-01T00:00:00Z\"@.
     startTime :: Prelude.Maybe Core.ISO8601,
-    -- | The Amazon Resource Name (ARN) of the scheduled action.
-    scheduledActionARN :: Prelude.Maybe Prelude.Text,
     -- | The date and time in UTC for the recurring schedule to end. For example,
     -- @\"2019-06-01T00:00:00Z\"@.
     endTime :: Prelude.Maybe Core.ISO8601,
+    -- | The Amazon Resource Name (ARN) of the scheduled action.
+    scheduledActionARN :: Prelude.Maybe Prelude.Text,
     -- | The recurring schedule for the action, in Unix cron syntax format.
     --
     -- When @StartTime@ and @EndTime@ are specified with @Recurrence@, they
@@ -48,6 +48,8 @@ data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction'
     recurrence :: Prelude.Maybe Prelude.Text,
     -- | The maximum size of the Auto Scaling group.
     maxSize :: Prelude.Maybe Prelude.Int,
+    -- | The time zone for the cron expression.
+    timeZone :: Prelude.Maybe Prelude.Text,
     -- | The name of the scheduled action.
     scheduledActionName :: Prelude.Maybe Prelude.Text,
     -- | This parameter is no longer used.
@@ -74,10 +76,10 @@ data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction'
 -- 'startTime', 'scheduledUpdateGroupAction_startTime' - The date and time in UTC for this action to start. For example,
 -- @\"2019-06-01T00:00:00Z\"@.
 --
--- 'scheduledActionARN', 'scheduledUpdateGroupAction_scheduledActionARN' - The Amazon Resource Name (ARN) of the scheduled action.
---
 -- 'endTime', 'scheduledUpdateGroupAction_endTime' - The date and time in UTC for the recurring schedule to end. For example,
 -- @\"2019-06-01T00:00:00Z\"@.
+--
+-- 'scheduledActionARN', 'scheduledUpdateGroupAction_scheduledActionARN' - The Amazon Resource Name (ARN) of the scheduled action.
 --
 -- 'recurrence', 'scheduledUpdateGroupAction_recurrence' - The recurring schedule for the action, in Unix cron syntax format.
 --
@@ -85,6 +87,8 @@ data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction'
 -- form the boundaries of when the recurring action starts and stops.
 --
 -- 'maxSize', 'scheduledUpdateGroupAction_maxSize' - The maximum size of the Auto Scaling group.
+--
+-- 'timeZone', 'scheduledUpdateGroupAction_timeZone' - The time zone for the cron expression.
 --
 -- 'scheduledActionName', 'scheduledUpdateGroupAction_scheduledActionName' - The name of the scheduled action.
 --
@@ -99,10 +103,11 @@ newScheduledUpdateGroupAction =
         Prelude.Nothing,
       desiredCapacity = Prelude.Nothing,
       startTime = Prelude.Nothing,
-      scheduledActionARN = Prelude.Nothing,
       endTime = Prelude.Nothing,
+      scheduledActionARN = Prelude.Nothing,
       recurrence = Prelude.Nothing,
       maxSize = Prelude.Nothing,
+      timeZone = Prelude.Nothing,
       scheduledActionName = Prelude.Nothing,
       time = Prelude.Nothing,
       autoScalingGroupName = Prelude.Nothing
@@ -123,14 +128,14 @@ scheduledUpdateGroupAction_desiredCapacity = Lens.lens (\ScheduledUpdateGroupAct
 scheduledUpdateGroupAction_startTime :: Lens.Lens' ScheduledUpdateGroupAction (Prelude.Maybe Prelude.UTCTime)
 scheduledUpdateGroupAction_startTime = Lens.lens (\ScheduledUpdateGroupAction' {startTime} -> startTime) (\s@ScheduledUpdateGroupAction' {} a -> s {startTime = a} :: ScheduledUpdateGroupAction) Prelude.. Lens.mapping Core._Time
 
--- | The Amazon Resource Name (ARN) of the scheduled action.
-scheduledUpdateGroupAction_scheduledActionARN :: Lens.Lens' ScheduledUpdateGroupAction (Prelude.Maybe Prelude.Text)
-scheduledUpdateGroupAction_scheduledActionARN = Lens.lens (\ScheduledUpdateGroupAction' {scheduledActionARN} -> scheduledActionARN) (\s@ScheduledUpdateGroupAction' {} a -> s {scheduledActionARN = a} :: ScheduledUpdateGroupAction)
-
 -- | The date and time in UTC for the recurring schedule to end. For example,
 -- @\"2019-06-01T00:00:00Z\"@.
 scheduledUpdateGroupAction_endTime :: Lens.Lens' ScheduledUpdateGroupAction (Prelude.Maybe Prelude.UTCTime)
 scheduledUpdateGroupAction_endTime = Lens.lens (\ScheduledUpdateGroupAction' {endTime} -> endTime) (\s@ScheduledUpdateGroupAction' {} a -> s {endTime = a} :: ScheduledUpdateGroupAction) Prelude.. Lens.mapping Core._Time
+
+-- | The Amazon Resource Name (ARN) of the scheduled action.
+scheduledUpdateGroupAction_scheduledActionARN :: Lens.Lens' ScheduledUpdateGroupAction (Prelude.Maybe Prelude.Text)
+scheduledUpdateGroupAction_scheduledActionARN = Lens.lens (\ScheduledUpdateGroupAction' {scheduledActionARN} -> scheduledActionARN) (\s@ScheduledUpdateGroupAction' {} a -> s {scheduledActionARN = a} :: ScheduledUpdateGroupAction)
 
 -- | The recurring schedule for the action, in Unix cron syntax format.
 --
@@ -142,6 +147,10 @@ scheduledUpdateGroupAction_recurrence = Lens.lens (\ScheduledUpdateGroupAction' 
 -- | The maximum size of the Auto Scaling group.
 scheduledUpdateGroupAction_maxSize :: Lens.Lens' ScheduledUpdateGroupAction (Prelude.Maybe Prelude.Int)
 scheduledUpdateGroupAction_maxSize = Lens.lens (\ScheduledUpdateGroupAction' {maxSize} -> maxSize) (\s@ScheduledUpdateGroupAction' {} a -> s {maxSize = a} :: ScheduledUpdateGroupAction)
+
+-- | The time zone for the cron expression.
+scheduledUpdateGroupAction_timeZone :: Lens.Lens' ScheduledUpdateGroupAction (Prelude.Maybe Prelude.Text)
+scheduledUpdateGroupAction_timeZone = Lens.lens (\ScheduledUpdateGroupAction' {timeZone} -> timeZone) (\s@ScheduledUpdateGroupAction' {} a -> s {timeZone = a} :: ScheduledUpdateGroupAction)
 
 -- | The name of the scheduled action.
 scheduledUpdateGroupAction_scheduledActionName :: Lens.Lens' ScheduledUpdateGroupAction (Prelude.Maybe Prelude.Text)
@@ -161,10 +170,11 @@ instance Core.FromXML ScheduledUpdateGroupAction where
       Prelude.<$> (x Core..@? "MinSize")
       Prelude.<*> (x Core..@? "DesiredCapacity")
       Prelude.<*> (x Core..@? "StartTime")
-      Prelude.<*> (x Core..@? "ScheduledActionARN")
       Prelude.<*> (x Core..@? "EndTime")
+      Prelude.<*> (x Core..@? "ScheduledActionARN")
       Prelude.<*> (x Core..@? "Recurrence")
       Prelude.<*> (x Core..@? "MaxSize")
+      Prelude.<*> (x Core..@? "TimeZone")
       Prelude.<*> (x Core..@? "ScheduledActionName")
       Prelude.<*> (x Core..@? "Time")
       Prelude.<*> (x Core..@? "AutoScalingGroupName")

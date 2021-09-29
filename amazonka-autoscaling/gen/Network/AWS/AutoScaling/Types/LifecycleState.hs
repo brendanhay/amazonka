@@ -32,7 +32,16 @@ module Network.AWS.AutoScaling.Types.LifecycleState
         LifecycleState_Terminated,
         LifecycleState_Terminating,
         LifecycleState_Terminating_Proceed,
-        LifecycleState_Terminating_Wait
+        LifecycleState_Terminating_Wait,
+        LifecycleState_Warmed_Pending,
+        LifecycleState_Warmed_Pending_Proceed,
+        LifecycleState_Warmed_Pending_Wait,
+        LifecycleState_Warmed_Running,
+        LifecycleState_Warmed_Stopped,
+        LifecycleState_Warmed_Terminated,
+        LifecycleState_Warmed_Terminating,
+        LifecycleState_Warmed_Terminating_Proceed,
+        LifecycleState_Warmed_Terminating_Wait
       ),
   )
 where
@@ -107,6 +116,33 @@ pattern LifecycleState_Terminating_Proceed = LifecycleState' "Terminating:Procee
 pattern LifecycleState_Terminating_Wait :: LifecycleState
 pattern LifecycleState_Terminating_Wait = LifecycleState' "Terminating:Wait"
 
+pattern LifecycleState_Warmed_Pending :: LifecycleState
+pattern LifecycleState_Warmed_Pending = LifecycleState' "Warmed:Pending"
+
+pattern LifecycleState_Warmed_Pending_Proceed :: LifecycleState
+pattern LifecycleState_Warmed_Pending_Proceed = LifecycleState' "Warmed:Pending:Proceed"
+
+pattern LifecycleState_Warmed_Pending_Wait :: LifecycleState
+pattern LifecycleState_Warmed_Pending_Wait = LifecycleState' "Warmed:Pending:Wait"
+
+pattern LifecycleState_Warmed_Running :: LifecycleState
+pattern LifecycleState_Warmed_Running = LifecycleState' "Warmed:Running"
+
+pattern LifecycleState_Warmed_Stopped :: LifecycleState
+pattern LifecycleState_Warmed_Stopped = LifecycleState' "Warmed:Stopped"
+
+pattern LifecycleState_Warmed_Terminated :: LifecycleState
+pattern LifecycleState_Warmed_Terminated = LifecycleState' "Warmed:Terminated"
+
+pattern LifecycleState_Warmed_Terminating :: LifecycleState
+pattern LifecycleState_Warmed_Terminating = LifecycleState' "Warmed:Terminating"
+
+pattern LifecycleState_Warmed_Terminating_Proceed :: LifecycleState
+pattern LifecycleState_Warmed_Terminating_Proceed = LifecycleState' "Warmed:Terminating:Proceed"
+
+pattern LifecycleState_Warmed_Terminating_Wait :: LifecycleState
+pattern LifecycleState_Warmed_Terminating_Wait = LifecycleState' "Warmed:Terminating:Wait"
+
 {-# COMPLETE
   LifecycleState_Detached,
   LifecycleState_Detaching,
@@ -121,5 +157,14 @@ pattern LifecycleState_Terminating_Wait = LifecycleState' "Terminating:Wait"
   LifecycleState_Terminating,
   LifecycleState_Terminating_Proceed,
   LifecycleState_Terminating_Wait,
+  LifecycleState_Warmed_Pending,
+  LifecycleState_Warmed_Pending_Proceed,
+  LifecycleState_Warmed_Pending_Wait,
+  LifecycleState_Warmed_Running,
+  LifecycleState_Warmed_Stopped,
+  LifecycleState_Warmed_Terminated,
+  LifecycleState_Warmed_Terminating,
+  LifecycleState_Warmed_Terminating_Proceed,
+  LifecycleState_Warmed_Terminating_Wait,
   LifecycleState'
   #-}

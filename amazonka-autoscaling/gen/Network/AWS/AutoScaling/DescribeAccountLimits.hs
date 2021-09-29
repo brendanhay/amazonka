@@ -21,9 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the current Amazon EC2 Auto Scaling resource quotas for your
--- AWS account.
+-- account.
 --
--- For information about requesting an increase, see
+-- When you establish an account, the account has initial quotas on the
+-- maximum number of Auto Scaling groups and launch configurations that you
+-- can create in a given Region. For more information, see
 -- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html Amazon EC2 Auto Scaling service quotas>
 -- in the /Amazon EC2 Auto Scaling User Guide/.
 module Network.AWS.AutoScaling.DescribeAccountLimits
@@ -105,15 +107,15 @@ instance Core.ToQuery DescribeAccountLimits where
 
 -- | /See:/ 'newDescribeAccountLimitsResponse' smart constructor.
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
-  { -- | The current number of groups for your AWS account.
+  { -- | The current number of groups for your account.
     numberOfAutoScalingGroups :: Prelude.Maybe Prelude.Int,
-    -- | The maximum number of launch configurations allowed for your AWS
-    -- account. The default is 200 launch configurations per AWS Region.
+    -- | The maximum number of launch configurations allowed for your account.
+    -- The default is 200 launch configurations per Region.
     maxNumberOfLaunchConfigurations :: Prelude.Maybe Prelude.Int,
-    -- | The current number of launch configurations for your AWS account.
+    -- | The current number of launch configurations for your account.
     numberOfLaunchConfigurations :: Prelude.Maybe Prelude.Int,
-    -- | The maximum number of groups allowed for your AWS account. The default
-    -- is 200 groups per AWS Region.
+    -- | The maximum number of groups allowed for your account. The default is
+    -- 200 groups per Region.
     maxNumberOfAutoScalingGroups :: Prelude.Maybe Prelude.Int,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -128,15 +130,15 @@ data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'numberOfAutoScalingGroups', 'describeAccountLimitsResponse_numberOfAutoScalingGroups' - The current number of groups for your AWS account.
+-- 'numberOfAutoScalingGroups', 'describeAccountLimitsResponse_numberOfAutoScalingGroups' - The current number of groups for your account.
 --
--- 'maxNumberOfLaunchConfigurations', 'describeAccountLimitsResponse_maxNumberOfLaunchConfigurations' - The maximum number of launch configurations allowed for your AWS
--- account. The default is 200 launch configurations per AWS Region.
+-- 'maxNumberOfLaunchConfigurations', 'describeAccountLimitsResponse_maxNumberOfLaunchConfigurations' - The maximum number of launch configurations allowed for your account.
+-- The default is 200 launch configurations per Region.
 --
--- 'numberOfLaunchConfigurations', 'describeAccountLimitsResponse_numberOfLaunchConfigurations' - The current number of launch configurations for your AWS account.
+-- 'numberOfLaunchConfigurations', 'describeAccountLimitsResponse_numberOfLaunchConfigurations' - The current number of launch configurations for your account.
 --
--- 'maxNumberOfAutoScalingGroups', 'describeAccountLimitsResponse_maxNumberOfAutoScalingGroups' - The maximum number of groups allowed for your AWS account. The default
--- is 200 groups per AWS Region.
+-- 'maxNumberOfAutoScalingGroups', 'describeAccountLimitsResponse_maxNumberOfAutoScalingGroups' - The maximum number of groups allowed for your account. The default is
+-- 200 groups per Region.
 --
 -- 'httpStatus', 'describeAccountLimitsResponse_httpStatus' - The response's http status code.
 newDescribeAccountLimitsResponse ::
@@ -156,21 +158,21 @@ newDescribeAccountLimitsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The current number of groups for your AWS account.
+-- | The current number of groups for your account.
 describeAccountLimitsResponse_numberOfAutoScalingGroups :: Lens.Lens' DescribeAccountLimitsResponse (Prelude.Maybe Prelude.Int)
 describeAccountLimitsResponse_numberOfAutoScalingGroups = Lens.lens (\DescribeAccountLimitsResponse' {numberOfAutoScalingGroups} -> numberOfAutoScalingGroups) (\s@DescribeAccountLimitsResponse' {} a -> s {numberOfAutoScalingGroups = a} :: DescribeAccountLimitsResponse)
 
--- | The maximum number of launch configurations allowed for your AWS
--- account. The default is 200 launch configurations per AWS Region.
+-- | The maximum number of launch configurations allowed for your account.
+-- The default is 200 launch configurations per Region.
 describeAccountLimitsResponse_maxNumberOfLaunchConfigurations :: Lens.Lens' DescribeAccountLimitsResponse (Prelude.Maybe Prelude.Int)
 describeAccountLimitsResponse_maxNumberOfLaunchConfigurations = Lens.lens (\DescribeAccountLimitsResponse' {maxNumberOfLaunchConfigurations} -> maxNumberOfLaunchConfigurations) (\s@DescribeAccountLimitsResponse' {} a -> s {maxNumberOfLaunchConfigurations = a} :: DescribeAccountLimitsResponse)
 
--- | The current number of launch configurations for your AWS account.
+-- | The current number of launch configurations for your account.
 describeAccountLimitsResponse_numberOfLaunchConfigurations :: Lens.Lens' DescribeAccountLimitsResponse (Prelude.Maybe Prelude.Int)
 describeAccountLimitsResponse_numberOfLaunchConfigurations = Lens.lens (\DescribeAccountLimitsResponse' {numberOfLaunchConfigurations} -> numberOfLaunchConfigurations) (\s@DescribeAccountLimitsResponse' {} a -> s {numberOfLaunchConfigurations = a} :: DescribeAccountLimitsResponse)
 
--- | The maximum number of groups allowed for your AWS account. The default
--- is 200 groups per AWS Region.
+-- | The maximum number of groups allowed for your account. The default is
+-- 200 groups per Region.
 describeAccountLimitsResponse_maxNumberOfAutoScalingGroups :: Lens.Lens' DescribeAccountLimitsResponse (Prelude.Maybe Prelude.Int)
 describeAccountLimitsResponse_maxNumberOfAutoScalingGroups = Lens.lens (\DescribeAccountLimitsResponse' {maxNumberOfAutoScalingGroups} -> maxNumberOfAutoScalingGroups) (\s@DescribeAccountLimitsResponse' {} a -> s {maxNumberOfAutoScalingGroups = a} :: DescribeAccountLimitsResponse)
 

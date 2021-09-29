@@ -21,8 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates or updates one or more scheduled scaling actions for an Auto
--- Scaling group. If you leave a parameter unspecified when updating a
--- scheduled scaling action, the corresponding value remains unchanged.
+-- Scaling group.
 module Network.AWS.AutoScaling.BatchPutScheduledUpdateGroupAction
   ( -- * Creating a Request
     BatchPutScheduledUpdateGroupAction (..),

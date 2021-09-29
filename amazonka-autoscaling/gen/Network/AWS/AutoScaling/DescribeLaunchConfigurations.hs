@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes one or more launch configurations.
+-- Gets information about the launch configurations in the account and
+-- Region.
 --
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeLaunchConfigurations
@@ -58,6 +59,8 @@ data DescribeLaunchConfigurations = DescribeLaunchConfigurations'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The launch configuration names. If you omit this parameter, all launch
     -- configurations are described.
+    --
+    -- Array Members: Maximum number of 50 items.
     launchConfigurationNames :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of items to return with this call. The default value
     -- is @50@ and the maximum value is @100@.
@@ -79,6 +82,8 @@ data DescribeLaunchConfigurations = DescribeLaunchConfigurations'
 -- 'launchConfigurationNames', 'describeLaunchConfigurations_launchConfigurationNames' - The launch configuration names. If you omit this parameter, all launch
 -- configurations are described.
 --
+-- Array Members: Maximum number of 50 items.
+--
 -- 'maxRecords', 'describeLaunchConfigurations_maxRecords' - The maximum number of items to return with this call. The default value
 -- is @50@ and the maximum value is @100@.
 newDescribeLaunchConfigurations ::
@@ -98,6 +103,8 @@ describeLaunchConfigurations_nextToken = Lens.lens (\DescribeLaunchConfiguration
 
 -- | The launch configuration names. If you omit this parameter, all launch
 -- configurations are described.
+--
+-- Array Members: Maximum number of 50 items.
 describeLaunchConfigurations_launchConfigurationNames :: Lens.Lens' DescribeLaunchConfigurations (Prelude.Maybe [Prelude.Text])
 describeLaunchConfigurations_launchConfigurationNames = Lens.lens (\DescribeLaunchConfigurations' {launchConfigurationNames} -> launchConfigurationNames) (\s@DescribeLaunchConfigurations' {} a -> s {launchConfigurationNames = a} :: DescribeLaunchConfigurations) Prelude.. Lens.mapping Lens._Coerce
 

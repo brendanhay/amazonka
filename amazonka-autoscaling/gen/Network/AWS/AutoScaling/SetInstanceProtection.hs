@@ -21,6 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the instance protection settings of the specified instances.
+-- This operation cannot be called on instances in a warm pool.
 --
 -- For more information about preventing instances that are part of an Auto
 -- Scaling group from terminating on scale in, see

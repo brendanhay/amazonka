@@ -24,8 +24,10 @@
 -- roll back any replacements that have already been completed, but it
 -- prevents new replacements from being started.
 --
--- For more information, see
--- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html Replacing Auto Scaling Instances Based on an Instance Refresh>.
+-- This operation is part of the
+-- <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html instance refresh feature>
+-- in Amazon EC2 Auto Scaling, which helps you update instances in your
+-- Auto Scaling group after you make configuration changes.
 module Network.AWS.AutoScaling.CancelInstanceRefresh
   ( -- * Creating a Request
     CancelInstanceRefresh (..),

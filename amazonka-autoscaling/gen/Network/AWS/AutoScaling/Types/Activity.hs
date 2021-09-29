@@ -34,13 +34,13 @@ data Activity = Activity'
     statusMessage :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Auto Scaling group.
     autoScalingGroupARN :: Prelude.Maybe Prelude.Text,
-    -- | The details about the activity.
-    details :: Prelude.Maybe Prelude.Text,
     -- | The end time of the activity.
     endTime :: Prelude.Maybe Core.ISO8601,
     -- | The state of the Auto Scaling group, which is either @InService@ or
     -- @Deleted@.
     autoScalingGroupState :: Prelude.Maybe Prelude.Text,
+    -- | The details about the activity.
+    details :: Prelude.Maybe Prelude.Text,
     -- | A friendly, more verbose description of the activity.
     description :: Prelude.Maybe Prelude.Text,
     -- | A value between 0 and 100 that indicates the progress of the activity.
@@ -70,12 +70,12 @@ data Activity = Activity'
 --
 -- 'autoScalingGroupARN', 'activity_autoScalingGroupARN' - The Amazon Resource Name (ARN) of the Auto Scaling group.
 --
--- 'details', 'activity_details' - The details about the activity.
---
 -- 'endTime', 'activity_endTime' - The end time of the activity.
 --
 -- 'autoScalingGroupState', 'activity_autoScalingGroupState' - The state of the Auto Scaling group, which is either @InService@ or
 -- @Deleted@.
+--
+-- 'details', 'activity_details' - The details about the activity.
 --
 -- 'description', 'activity_description' - A friendly, more verbose description of the activity.
 --
@@ -111,9 +111,9 @@ newActivity
     Activity'
       { statusMessage = Prelude.Nothing,
         autoScalingGroupARN = Prelude.Nothing,
-        details = Prelude.Nothing,
         endTime = Prelude.Nothing,
         autoScalingGroupState = Prelude.Nothing,
+        details = Prelude.Nothing,
         description = Prelude.Nothing,
         progress = Prelude.Nothing,
         activityId = pActivityId_,
@@ -131,10 +131,6 @@ activity_statusMessage = Lens.lens (\Activity' {statusMessage} -> statusMessage)
 activity_autoScalingGroupARN :: Lens.Lens' Activity (Prelude.Maybe Prelude.Text)
 activity_autoScalingGroupARN = Lens.lens (\Activity' {autoScalingGroupARN} -> autoScalingGroupARN) (\s@Activity' {} a -> s {autoScalingGroupARN = a} :: Activity)
 
--- | The details about the activity.
-activity_details :: Lens.Lens' Activity (Prelude.Maybe Prelude.Text)
-activity_details = Lens.lens (\Activity' {details} -> details) (\s@Activity' {} a -> s {details = a} :: Activity)
-
 -- | The end time of the activity.
 activity_endTime :: Lens.Lens' Activity (Prelude.Maybe Prelude.UTCTime)
 activity_endTime = Lens.lens (\Activity' {endTime} -> endTime) (\s@Activity' {} a -> s {endTime = a} :: Activity) Prelude.. Lens.mapping Core._Time
@@ -143,6 +139,10 @@ activity_endTime = Lens.lens (\Activity' {endTime} -> endTime) (\s@Activity' {} 
 -- @Deleted@.
 activity_autoScalingGroupState :: Lens.Lens' Activity (Prelude.Maybe Prelude.Text)
 activity_autoScalingGroupState = Lens.lens (\Activity' {autoScalingGroupState} -> autoScalingGroupState) (\s@Activity' {} a -> s {autoScalingGroupState = a} :: Activity)
+
+-- | The details about the activity.
+activity_details :: Lens.Lens' Activity (Prelude.Maybe Prelude.Text)
+activity_details = Lens.lens (\Activity' {details} -> details) (\s@Activity' {} a -> s {details = a} :: Activity)
 
 -- | A friendly, more verbose description of the activity.
 activity_description :: Lens.Lens' Activity (Prelude.Maybe Prelude.Text)
@@ -177,9 +177,9 @@ instance Core.FromXML Activity where
     Activity'
       Prelude.<$> (x Core..@? "StatusMessage")
       Prelude.<*> (x Core..@? "AutoScalingGroupARN")
-      Prelude.<*> (x Core..@? "Details")
       Prelude.<*> (x Core..@? "EndTime")
       Prelude.<*> (x Core..@? "AutoScalingGroupState")
+      Prelude.<*> (x Core..@? "Details")
       Prelude.<*> (x Core..@? "Description")
       Prelude.<*> (x Core..@? "Progress")
       Prelude.<*> (x Core..@ "ActivityId")

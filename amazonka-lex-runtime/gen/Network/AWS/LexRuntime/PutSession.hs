@@ -48,10 +48,11 @@ module Network.AWS.LexRuntime.PutSession
     -- * Response Lenses
     putSessionResponse_dialogState,
     putSessionResponse_sessionAttributes,
+    putSessionResponse_encodedMessage,
     putSessionResponse_contentType,
+    putSessionResponse_intentName,
     putSessionResponse_message,
     putSessionResponse_sessionId,
-    putSessionResponse_intentName,
     putSessionResponse_messageFormat,
     putSessionResponse_slots,
     putSessionResponse_slotToElicit,
@@ -335,10 +336,11 @@ instance Core.AWSRequest PutSession where
           PutSessionResponse'
             Prelude.<$> (h Core..#? "x-amz-lex-dialog-state")
             Prelude.<*> (h Core..#? "x-amz-lex-session-attributes")
+            Prelude.<*> (h Core..#? "x-amz-lex-encoded-message")
             Prelude.<*> (h Core..#? "Content-Type")
+            Prelude.<*> (h Core..#? "x-amz-lex-intent-name")
             Prelude.<*> (h Core..#? "x-amz-lex-message")
             Prelude.<*> (h Core..#? "x-amz-lex-session-id")
-            Prelude.<*> (h Core..#? "x-amz-lex-intent-name")
             Prelude.<*> (h Core..#? "x-amz-lex-message-format")
             Prelude.<*> (h Core..#? "x-amz-lex-slots")
             Prelude.<*> (h Core..#? "x-amz-lex-slot-to-elicit")
@@ -412,14 +414,24 @@ data PutSessionResponse = PutSessionResponse'
     -- | Map of key\/value pairs representing session-specific context
     -- information.
     sessionAttributes :: Prelude.Maybe Prelude.Text,
+    -- | The next message that should be presented to the user.
+    --
+    -- The @encodedMessage@ field is base-64 encoded. You must decode the field
+    -- before you can use the value.
+    encodedMessage :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | Content type as specified in the @Accept@ HTTP header in the request.
     contentType :: Prelude.Maybe Prelude.Text,
+    -- | The name of the current intent.
+    intentName :: Prelude.Maybe Prelude.Text,
     -- | The next message that should be presented to the user.
+    --
+    -- You can only use this field in the de-DE, en-AU, en-GB, en-US, es-419,
+    -- es-ES, es-US, fr-CA, fr-FR, and it-IT locales. In all other locales, the
+    -- @message@ field is null. You should use the @encodedMessage@ field
+    -- instead.
     message :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | A unique identifier for the session.
     sessionId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the current intent.
-    intentName :: Prelude.Maybe Prelude.Text,
     -- | The format of the response message. One of the following values:
     --
     -- -   @PlainText@ - The message contains plain UTF-8 text.
@@ -487,13 +499,23 @@ data PutSessionResponse = PutSessionResponse'
 -- 'sessionAttributes', 'putSessionResponse_sessionAttributes' - Map of key\/value pairs representing session-specific context
 -- information.
 --
+-- 'encodedMessage', 'putSessionResponse_encodedMessage' - The next message that should be presented to the user.
+--
+-- The @encodedMessage@ field is base-64 encoded. You must decode the field
+-- before you can use the value.
+--
 -- 'contentType', 'putSessionResponse_contentType' - Content type as specified in the @Accept@ HTTP header in the request.
+--
+-- 'intentName', 'putSessionResponse_intentName' - The name of the current intent.
 --
 -- 'message', 'putSessionResponse_message' - The next message that should be presented to the user.
 --
--- 'sessionId', 'putSessionResponse_sessionId' - A unique identifier for the session.
+-- You can only use this field in the de-DE, en-AU, en-GB, en-US, es-419,
+-- es-ES, es-US, fr-CA, fr-FR, and it-IT locales. In all other locales, the
+-- @message@ field is null. You should use the @encodedMessage@ field
+-- instead.
 --
--- 'intentName', 'putSessionResponse_intentName' - The name of the current intent.
+-- 'sessionId', 'putSessionResponse_sessionId' - A unique identifier for the session.
 --
 -- 'messageFormat', 'putSessionResponse_messageFormat' - The format of the response message. One of the following values:
 --
@@ -538,10 +560,11 @@ newPutSessionResponse pHttpStatus_ pAudioStream_ =
   PutSessionResponse'
     { dialogState = Prelude.Nothing,
       sessionAttributes = Prelude.Nothing,
+      encodedMessage = Prelude.Nothing,
       contentType = Prelude.Nothing,
+      intentName = Prelude.Nothing,
       message = Prelude.Nothing,
       sessionId = Prelude.Nothing,
-      intentName = Prelude.Nothing,
       messageFormat = Prelude.Nothing,
       slots = Prelude.Nothing,
       slotToElicit = Prelude.Nothing,
@@ -576,21 +599,33 @@ putSessionResponse_dialogState = Lens.lens (\PutSessionResponse' {dialogState} -
 putSessionResponse_sessionAttributes :: Lens.Lens' PutSessionResponse (Prelude.Maybe Prelude.Text)
 putSessionResponse_sessionAttributes = Lens.lens (\PutSessionResponse' {sessionAttributes} -> sessionAttributes) (\s@PutSessionResponse' {} a -> s {sessionAttributes = a} :: PutSessionResponse)
 
+-- | The next message that should be presented to the user.
+--
+-- The @encodedMessage@ field is base-64 encoded. You must decode the field
+-- before you can use the value.
+putSessionResponse_encodedMessage :: Lens.Lens' PutSessionResponse (Prelude.Maybe Prelude.Text)
+putSessionResponse_encodedMessage = Lens.lens (\PutSessionResponse' {encodedMessage} -> encodedMessage) (\s@PutSessionResponse' {} a -> s {encodedMessage = a} :: PutSessionResponse) Prelude.. Lens.mapping Core._Sensitive
+
 -- | Content type as specified in the @Accept@ HTTP header in the request.
 putSessionResponse_contentType :: Lens.Lens' PutSessionResponse (Prelude.Maybe Prelude.Text)
 putSessionResponse_contentType = Lens.lens (\PutSessionResponse' {contentType} -> contentType) (\s@PutSessionResponse' {} a -> s {contentType = a} :: PutSessionResponse)
 
+-- | The name of the current intent.
+putSessionResponse_intentName :: Lens.Lens' PutSessionResponse (Prelude.Maybe Prelude.Text)
+putSessionResponse_intentName = Lens.lens (\PutSessionResponse' {intentName} -> intentName) (\s@PutSessionResponse' {} a -> s {intentName = a} :: PutSessionResponse)
+
 -- | The next message that should be presented to the user.
+--
+-- You can only use this field in the de-DE, en-AU, en-GB, en-US, es-419,
+-- es-ES, es-US, fr-CA, fr-FR, and it-IT locales. In all other locales, the
+-- @message@ field is null. You should use the @encodedMessage@ field
+-- instead.
 putSessionResponse_message :: Lens.Lens' PutSessionResponse (Prelude.Maybe Prelude.Text)
 putSessionResponse_message = Lens.lens (\PutSessionResponse' {message} -> message) (\s@PutSessionResponse' {} a -> s {message = a} :: PutSessionResponse) Prelude.. Lens.mapping Core._Sensitive
 
 -- | A unique identifier for the session.
 putSessionResponse_sessionId :: Lens.Lens' PutSessionResponse (Prelude.Maybe Prelude.Text)
 putSessionResponse_sessionId = Lens.lens (\PutSessionResponse' {sessionId} -> sessionId) (\s@PutSessionResponse' {} a -> s {sessionId = a} :: PutSessionResponse)
-
--- | The name of the current intent.
-putSessionResponse_intentName :: Lens.Lens' PutSessionResponse (Prelude.Maybe Prelude.Text)
-putSessionResponse_intentName = Lens.lens (\PutSessionResponse' {intentName} -> intentName) (\s@PutSessionResponse' {} a -> s {intentName = a} :: PutSessionResponse)
 
 -- | The format of the response message. One of the following values:
 --

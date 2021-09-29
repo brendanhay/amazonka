@@ -39,17 +39,17 @@ module Network.AWS.LexRuntime
     -- ** UnsupportedMediaTypeException
     _UnsupportedMediaTypeException,
 
-    -- ** BadGatewayException
-    _BadGatewayException,
-
     -- ** NotAcceptableException
     _NotAcceptableException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
+    -- ** BadGatewayException
+    _BadGatewayException,
 
     -- ** ConflictException
     _ConflictException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- ** DependencyFailedException
     _DependencyFailedException,

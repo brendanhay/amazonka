@@ -39,9 +39,9 @@ module Network.AWS.ELBv2.ModifyListener
     -- * Request Lenses
     modifyListener_sslPolicy,
     modifyListener_port,
-    modifyListener_defaultActions,
-    modifyListener_protocol,
     modifyListener_certificates,
+    modifyListener_protocol,
+    modifyListener_defaultActions,
     modifyListener_alpnPolicy,
     modifyListener_listenerArn,
 
@@ -76,18 +76,18 @@ data ModifyListener = ModifyListener'
     -- | The port for connections from clients to the load balancer. You cannot
     -- specify a port for a Gateway Load Balancer.
     port :: Prelude.Maybe Prelude.Natural,
-    -- | The actions for the default rule.
-    defaultActions :: Prelude.Maybe [Action],
+    -- | [HTTPS and TLS listeners] The default certificate for the listener. You
+    -- must provide exactly one certificate. Set @CertificateArn@ to the
+    -- certificate ARN but do not set @IsDefault@.
+    certificates :: Prelude.Maybe [Certificate],
     -- | The protocol for connections from clients to the load balancer.
     -- Application Load Balancers support the HTTP and HTTPS protocols. Network
     -- Load Balancers support the TCP, TLS, UDP, and TCP_UDP protocols. You
     -- can’t change the protocol to UDP or TCP_UDP if dual-stack mode is
     -- enabled. You cannot specify a protocol for a Gateway Load Balancer.
     protocol :: Prelude.Maybe ProtocolEnum,
-    -- | [HTTPS and TLS listeners] The default certificate for the listener. You
-    -- must provide exactly one certificate. Set @CertificateArn@ to the
-    -- certificate ARN but do not set @IsDefault@.
-    certificates :: Prelude.Maybe [Certificate],
+    -- | The actions for the default rule.
+    defaultActions :: Prelude.Maybe [Action],
     -- | [TLS listeners] The name of the Application-Layer Protocol Negotiation
     -- (ALPN) policy. You can specify one policy name. The following are the
     -- possible values:
@@ -131,7 +131,9 @@ data ModifyListener = ModifyListener'
 -- 'port', 'modifyListener_port' - The port for connections from clients to the load balancer. You cannot
 -- specify a port for a Gateway Load Balancer.
 --
--- 'defaultActions', 'modifyListener_defaultActions' - The actions for the default rule.
+-- 'certificates', 'modifyListener_certificates' - [HTTPS and TLS listeners] The default certificate for the listener. You
+-- must provide exactly one certificate. Set @CertificateArn@ to the
+-- certificate ARN but do not set @IsDefault@.
 --
 -- 'protocol', 'modifyListener_protocol' - The protocol for connections from clients to the load balancer.
 -- Application Load Balancers support the HTTP and HTTPS protocols. Network
@@ -139,9 +141,7 @@ data ModifyListener = ModifyListener'
 -- can’t change the protocol to UDP or TCP_UDP if dual-stack mode is
 -- enabled. You cannot specify a protocol for a Gateway Load Balancer.
 --
--- 'certificates', 'modifyListener_certificates' - [HTTPS and TLS listeners] The default certificate for the listener. You
--- must provide exactly one certificate. Set @CertificateArn@ to the
--- certificate ARN but do not set @IsDefault@.
+-- 'defaultActions', 'modifyListener_defaultActions' - The actions for the default rule.
 --
 -- 'alpnPolicy', 'modifyListener_alpnPolicy' - [TLS listeners] The name of the Application-Layer Protocol Negotiation
 -- (ALPN) policy. You can specify one policy name. The following are the
@@ -170,9 +170,9 @@ newModifyListener pListenerArn_ =
   ModifyListener'
     { sslPolicy = Prelude.Nothing,
       port = Prelude.Nothing,
-      defaultActions = Prelude.Nothing,
-      protocol = Prelude.Nothing,
       certificates = Prelude.Nothing,
+      protocol = Prelude.Nothing,
+      defaultActions = Prelude.Nothing,
       alpnPolicy = Prelude.Nothing,
       listenerArn = pListenerArn_
     }
@@ -193,9 +193,11 @@ modifyListener_sslPolicy = Lens.lens (\ModifyListener' {sslPolicy} -> sslPolicy)
 modifyListener_port :: Lens.Lens' ModifyListener (Prelude.Maybe Prelude.Natural)
 modifyListener_port = Lens.lens (\ModifyListener' {port} -> port) (\s@ModifyListener' {} a -> s {port = a} :: ModifyListener)
 
--- | The actions for the default rule.
-modifyListener_defaultActions :: Lens.Lens' ModifyListener (Prelude.Maybe [Action])
-modifyListener_defaultActions = Lens.lens (\ModifyListener' {defaultActions} -> defaultActions) (\s@ModifyListener' {} a -> s {defaultActions = a} :: ModifyListener) Prelude.. Lens.mapping Lens._Coerce
+-- | [HTTPS and TLS listeners] The default certificate for the listener. You
+-- must provide exactly one certificate. Set @CertificateArn@ to the
+-- certificate ARN but do not set @IsDefault@.
+modifyListener_certificates :: Lens.Lens' ModifyListener (Prelude.Maybe [Certificate])
+modifyListener_certificates = Lens.lens (\ModifyListener' {certificates} -> certificates) (\s@ModifyListener' {} a -> s {certificates = a} :: ModifyListener) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The protocol for connections from clients to the load balancer.
 -- Application Load Balancers support the HTTP and HTTPS protocols. Network
@@ -205,11 +207,9 @@ modifyListener_defaultActions = Lens.lens (\ModifyListener' {defaultActions} -> 
 modifyListener_protocol :: Lens.Lens' ModifyListener (Prelude.Maybe ProtocolEnum)
 modifyListener_protocol = Lens.lens (\ModifyListener' {protocol} -> protocol) (\s@ModifyListener' {} a -> s {protocol = a} :: ModifyListener)
 
--- | [HTTPS and TLS listeners] The default certificate for the listener. You
--- must provide exactly one certificate. Set @CertificateArn@ to the
--- certificate ARN but do not set @IsDefault@.
-modifyListener_certificates :: Lens.Lens' ModifyListener (Prelude.Maybe [Certificate])
-modifyListener_certificates = Lens.lens (\ModifyListener' {certificates} -> certificates) (\s@ModifyListener' {} a -> s {certificates = a} :: ModifyListener) Prelude.. Lens.mapping Lens._Coerce
+-- | The actions for the default rule.
+modifyListener_defaultActions :: Lens.Lens' ModifyListener (Prelude.Maybe [Action])
+modifyListener_defaultActions = Lens.lens (\ModifyListener' {defaultActions} -> defaultActions) (\s@ModifyListener' {} a -> s {defaultActions = a} :: ModifyListener) Prelude.. Lens.mapping Lens._Coerce
 
 -- | [TLS listeners] The name of the Application-Layer Protocol Negotiation
 -- (ALPN) policy. You can specify one policy name. The following are the
@@ -270,15 +270,15 @@ instance Core.ToQuery ModifyListener where
           Core.=: ("2015-12-01" :: Prelude.ByteString),
         "SslPolicy" Core.=: sslPolicy,
         "Port" Core.=: port,
+        "Certificates"
+          Core.=: Core.toQuery
+            (Core.toQueryList "member" Prelude.<$> certificates),
+        "Protocol" Core.=: protocol,
         "DefaultActions"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> defaultActions
             ),
-        "Protocol" Core.=: protocol,
-        "Certificates"
-          Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> certificates),
         "AlpnPolicy"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> alpnPolicy),

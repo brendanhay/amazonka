@@ -23,8 +23,8 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Information about an Elastic Load Balancing resource limit for your AWS
--- account.
+-- | Information about an Elastic Load Balancing resource limit for your
+-- Amazon Web Services account.
 --
 -- /See:/ 'newLimit' smart constructor.
 data Limit = Limit'

@@ -44,8 +44,8 @@ module Network.AWS.ELBv2.DescribeTargetGroups
     newDescribeTargetGroupsResponse,
 
     -- * Response Lenses
-    describeTargetGroupsResponse_targetGroups,
     describeTargetGroupsResponse_nextMarker,
+    describeTargetGroupsResponse_targetGroups,
     describeTargetGroupsResponse_httpStatus,
   )
 where
@@ -156,10 +156,10 @@ instance Core.AWSRequest DescribeTargetGroups where
       "DescribeTargetGroupsResult"
       ( \s h x ->
           DescribeTargetGroupsResponse'
-            Prelude.<$> ( x Core..@? "TargetGroups" Core..!@ Prelude.mempty
+            Prelude.<$> (x Core..@? "NextMarker")
+            Prelude.<*> ( x Core..@? "TargetGroups" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
-            Prelude.<*> (x Core..@? "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -195,11 +195,11 @@ instance Core.ToQuery DescribeTargetGroups where
 
 -- | /See:/ 'newDescribeTargetGroupsResponse' smart constructor.
 data DescribeTargetGroupsResponse = DescribeTargetGroupsResponse'
-  { -- | Information about the target groups.
-    targetGroups :: Prelude.Maybe [TargetGroup],
-    -- | If there are additional results, this is the marker for the next set of
+  { -- | If there are additional results, this is the marker for the next set of
     -- results. Otherwise, this is null.
     nextMarker :: Prelude.Maybe Prelude.Text,
+    -- | Information about the target groups.
+    targetGroups :: Prelude.Maybe [TargetGroup],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -213,10 +213,10 @@ data DescribeTargetGroupsResponse = DescribeTargetGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetGroups', 'describeTargetGroupsResponse_targetGroups' - Information about the target groups.
---
 -- 'nextMarker', 'describeTargetGroupsResponse_nextMarker' - If there are additional results, this is the marker for the next set of
 -- results. Otherwise, this is null.
+--
+-- 'targetGroups', 'describeTargetGroupsResponse_targetGroups' - Information about the target groups.
 --
 -- 'httpStatus', 'describeTargetGroupsResponse_httpStatus' - The response's http status code.
 newDescribeTargetGroupsResponse ::
@@ -225,20 +225,20 @@ newDescribeTargetGroupsResponse ::
   DescribeTargetGroupsResponse
 newDescribeTargetGroupsResponse pHttpStatus_ =
   DescribeTargetGroupsResponse'
-    { targetGroups =
+    { nextMarker =
         Prelude.Nothing,
-      nextMarker = Prelude.Nothing,
+      targetGroups = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Information about the target groups.
-describeTargetGroupsResponse_targetGroups :: Lens.Lens' DescribeTargetGroupsResponse (Prelude.Maybe [TargetGroup])
-describeTargetGroupsResponse_targetGroups = Lens.lens (\DescribeTargetGroupsResponse' {targetGroups} -> targetGroups) (\s@DescribeTargetGroupsResponse' {} a -> s {targetGroups = a} :: DescribeTargetGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If there are additional results, this is the marker for the next set of
 -- results. Otherwise, this is null.
 describeTargetGroupsResponse_nextMarker :: Lens.Lens' DescribeTargetGroupsResponse (Prelude.Maybe Prelude.Text)
 describeTargetGroupsResponse_nextMarker = Lens.lens (\DescribeTargetGroupsResponse' {nextMarker} -> nextMarker) (\s@DescribeTargetGroupsResponse' {} a -> s {nextMarker = a} :: DescribeTargetGroupsResponse)
+
+-- | Information about the target groups.
+describeTargetGroupsResponse_targetGroups :: Lens.Lens' DescribeTargetGroupsResponse (Prelude.Maybe [TargetGroup])
+describeTargetGroupsResponse_targetGroups = Lens.lens (\DescribeTargetGroupsResponse' {targetGroups} -> targetGroups) (\s@DescribeTargetGroupsResponse' {} a -> s {targetGroups = a} :: DescribeTargetGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 describeTargetGroupsResponse_httpStatus :: Lens.Lens' DescribeTargetGroupsResponse Prelude.Int

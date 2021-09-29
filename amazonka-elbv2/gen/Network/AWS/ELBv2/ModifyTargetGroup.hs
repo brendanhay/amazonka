@@ -61,9 +61,13 @@ data ModifyTargetGroup = ModifyTargetGroup'
   { -- | Indicates whether health checks are enabled.
     healthCheckEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The protocol the load balancer uses when performing health checks on
-    -- targets. The TCP protocol is supported for health checks only if the
-    -- protocol of the target group is TCP, TLS, UDP, or TCP_UDP. The GENEVE,
-    -- TLS, UDP, and TCP_UDP protocols are not supported for health checks.
+    -- targets. For Application Load Balancers, the default is HTTP. For
+    -- Network Load Balancers and Gateway Load Balancers, the default is TCP.
+    -- The TCP protocol is not supported for health checks if the protocol of
+    -- the target group is HTTP or HTTPS. It is supported for health checks
+    -- only if the protocol of the target group is TCP, TLS, UDP, or TCP_UDP.
+    -- The GENEVE, TLS, UDP, and TCP_UDP protocols are not supported for health
+    -- checks.
     --
     -- With Network Load Balancers, you can\'t modify this setting.
     healthCheckProtocol :: Prelude.Maybe ProtocolEnum,
@@ -81,8 +85,8 @@ data ModifyTargetGroup = ModifyTargetGroup'
     -- [HTTP1 or HTTP2 protocol version] The ping path. The default is \/.
     --
     -- [GRPC protocol version] The path of a custom health check method with
-    -- the format \/package.service\/method. The default is
-    -- \/AWS.ALB\/healthcheck.
+    -- the format \/package.service\/method. The default is \/Amazon Web
+    -- Services.ALB\/healthcheck.
     healthCheckPath :: Prelude.Maybe Prelude.Text,
     -- | [HTTP\/HTTPS health checks] The HTTP or gRPC codes to use when checking
     -- for a successful response from a target.
@@ -118,9 +122,13 @@ data ModifyTargetGroup = ModifyTargetGroup'
 -- 'healthCheckEnabled', 'modifyTargetGroup_healthCheckEnabled' - Indicates whether health checks are enabled.
 --
 -- 'healthCheckProtocol', 'modifyTargetGroup_healthCheckProtocol' - The protocol the load balancer uses when performing health checks on
--- targets. The TCP protocol is supported for health checks only if the
--- protocol of the target group is TCP, TLS, UDP, or TCP_UDP. The GENEVE,
--- TLS, UDP, and TCP_UDP protocols are not supported for health checks.
+-- targets. For Application Load Balancers, the default is HTTP. For
+-- Network Load Balancers and Gateway Load Balancers, the default is TCP.
+-- The TCP protocol is not supported for health checks if the protocol of
+-- the target group is HTTP or HTTPS. It is supported for health checks
+-- only if the protocol of the target group is TCP, TLS, UDP, or TCP_UDP.
+-- The GENEVE, TLS, UDP, and TCP_UDP protocols are not supported for health
+-- checks.
 --
 -- With Network Load Balancers, you can\'t modify this setting.
 --
@@ -138,8 +146,8 @@ data ModifyTargetGroup = ModifyTargetGroup'
 -- [HTTP1 or HTTP2 protocol version] The ping path. The default is \/.
 --
 -- [GRPC protocol version] The path of a custom health check method with
--- the format \/package.service\/method. The default is
--- \/AWS.ALB\/healthcheck.
+-- the format \/package.service\/method. The default is \/Amazon Web
+-- Services.ALB\/healthcheck.
 --
 -- 'matcher', 'modifyTargetGroup_matcher' - [HTTP\/HTTPS health checks] The HTTP or gRPC codes to use when checking
 -- for a successful response from a target.
@@ -184,9 +192,13 @@ modifyTargetGroup_healthCheckEnabled :: Lens.Lens' ModifyTargetGroup (Prelude.Ma
 modifyTargetGroup_healthCheckEnabled = Lens.lens (\ModifyTargetGroup' {healthCheckEnabled} -> healthCheckEnabled) (\s@ModifyTargetGroup' {} a -> s {healthCheckEnabled = a} :: ModifyTargetGroup)
 
 -- | The protocol the load balancer uses when performing health checks on
--- targets. The TCP protocol is supported for health checks only if the
--- protocol of the target group is TCP, TLS, UDP, or TCP_UDP. The GENEVE,
--- TLS, UDP, and TCP_UDP protocols are not supported for health checks.
+-- targets. For Application Load Balancers, the default is HTTP. For
+-- Network Load Balancers and Gateway Load Balancers, the default is TCP.
+-- The TCP protocol is not supported for health checks if the protocol of
+-- the target group is HTTP or HTTPS. It is supported for health checks
+-- only if the protocol of the target group is TCP, TLS, UDP, or TCP_UDP.
+-- The GENEVE, TLS, UDP, and TCP_UDP protocols are not supported for health
+-- checks.
 --
 -- With Network Load Balancers, you can\'t modify this setting.
 modifyTargetGroup_healthCheckProtocol :: Lens.Lens' ModifyTargetGroup (Prelude.Maybe ProtocolEnum)
@@ -210,8 +222,8 @@ modifyTargetGroup_healthCheckTimeoutSeconds = Lens.lens (\ModifyTargetGroup' {he
 -- [HTTP1 or HTTP2 protocol version] The ping path. The default is \/.
 --
 -- [GRPC protocol version] The path of a custom health check method with
--- the format \/package.service\/method. The default is
--- \/AWS.ALB\/healthcheck.
+-- the format \/package.service\/method. The default is \/Amazon Web
+-- Services.ALB\/healthcheck.
 modifyTargetGroup_healthCheckPath :: Lens.Lens' ModifyTargetGroup (Prelude.Maybe Prelude.Text)
 modifyTargetGroup_healthCheckPath = Lens.lens (\ModifyTargetGroup' {healthCheckPath} -> healthCheckPath) (\s@ModifyTargetGroup' {} a -> s {healthCheckPath = a} :: ModifyTargetGroup)
 

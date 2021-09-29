@@ -30,10 +30,10 @@ data LoadBalancerAddress = LoadBalancerAddress'
   { -- | [Network Load Balancers] The private IPv4 address for an internal load
     -- balancer.
     privateIPv4Address :: Prelude.Maybe Prelude.Text,
-    -- | The static IP address.
-    ipAddress :: Prelude.Maybe Prelude.Text,
     -- | [Network Load Balancers] The IPv6 address.
     iPv6Address :: Prelude.Maybe Prelude.Text,
+    -- | The static IP address.
+    ipAddress :: Prelude.Maybe Prelude.Text,
     -- | [Network Load Balancers] The allocation ID of the Elastic IP address for
     -- an internal-facing load balancer.
     allocationId :: Prelude.Maybe Prelude.Text
@@ -51,9 +51,9 @@ data LoadBalancerAddress = LoadBalancerAddress'
 -- 'privateIPv4Address', 'loadBalancerAddress_privateIPv4Address' - [Network Load Balancers] The private IPv4 address for an internal load
 -- balancer.
 --
--- 'ipAddress', 'loadBalancerAddress_ipAddress' - The static IP address.
---
 -- 'iPv6Address', 'loadBalancerAddress_iPv6Address' - [Network Load Balancers] The IPv6 address.
+--
+-- 'ipAddress', 'loadBalancerAddress_ipAddress' - The static IP address.
 --
 -- 'allocationId', 'loadBalancerAddress_allocationId' - [Network Load Balancers] The allocation ID of the Elastic IP address for
 -- an internal-facing load balancer.
@@ -63,8 +63,8 @@ newLoadBalancerAddress =
   LoadBalancerAddress'
     { privateIPv4Address =
         Prelude.Nothing,
-      ipAddress = Prelude.Nothing,
       iPv6Address = Prelude.Nothing,
+      ipAddress = Prelude.Nothing,
       allocationId = Prelude.Nothing
     }
 
@@ -73,13 +73,13 @@ newLoadBalancerAddress =
 loadBalancerAddress_privateIPv4Address :: Lens.Lens' LoadBalancerAddress (Prelude.Maybe Prelude.Text)
 loadBalancerAddress_privateIPv4Address = Lens.lens (\LoadBalancerAddress' {privateIPv4Address} -> privateIPv4Address) (\s@LoadBalancerAddress' {} a -> s {privateIPv4Address = a} :: LoadBalancerAddress)
 
--- | The static IP address.
-loadBalancerAddress_ipAddress :: Lens.Lens' LoadBalancerAddress (Prelude.Maybe Prelude.Text)
-loadBalancerAddress_ipAddress = Lens.lens (\LoadBalancerAddress' {ipAddress} -> ipAddress) (\s@LoadBalancerAddress' {} a -> s {ipAddress = a} :: LoadBalancerAddress)
-
 -- | [Network Load Balancers] The IPv6 address.
 loadBalancerAddress_iPv6Address :: Lens.Lens' LoadBalancerAddress (Prelude.Maybe Prelude.Text)
 loadBalancerAddress_iPv6Address = Lens.lens (\LoadBalancerAddress' {iPv6Address} -> iPv6Address) (\s@LoadBalancerAddress' {} a -> s {iPv6Address = a} :: LoadBalancerAddress)
+
+-- | The static IP address.
+loadBalancerAddress_ipAddress :: Lens.Lens' LoadBalancerAddress (Prelude.Maybe Prelude.Text)
+loadBalancerAddress_ipAddress = Lens.lens (\LoadBalancerAddress' {ipAddress} -> ipAddress) (\s@LoadBalancerAddress' {} a -> s {ipAddress = a} :: LoadBalancerAddress)
 
 -- | [Network Load Balancers] The allocation ID of the Elastic IP address for
 -- an internal-facing load balancer.
@@ -90,8 +90,8 @@ instance Core.FromXML LoadBalancerAddress where
   parseXML x =
     LoadBalancerAddress'
       Prelude.<$> (x Core..@? "PrivateIPv4Address")
-      Prelude.<*> (x Core..@? "IpAddress")
       Prelude.<*> (x Core..@? "IPv6Address")
+      Prelude.<*> (x Core..@? "IpAddress")
       Prelude.<*> (x Core..@? "AllocationId")
 
 instance Prelude.Hashable LoadBalancerAddress

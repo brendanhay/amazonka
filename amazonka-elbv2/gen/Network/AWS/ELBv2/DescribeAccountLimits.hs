@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the current Elastic Load Balancing resource limits for your
--- AWS account.
+-- Amazon Web Services account.
 --
 -- For more information, see the following:
 --

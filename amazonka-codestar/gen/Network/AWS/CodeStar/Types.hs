@@ -17,8 +17,8 @@ module Network.AWS.CodeStar.Types
     defaultService,
 
     -- * Errors
-    _ProjectAlreadyExistsException,
     _TeamMemberAlreadyAssociatedException,
+    _ProjectAlreadyExistsException,
     _ProjectNotFoundException,
     _UserProfileNotFoundException,
     _ProjectCreationFailedException,
@@ -27,8 +27,8 @@ module Network.AWS.CodeStar.Types
     _ProjectConfigurationException,
     _InvalidServiceRoleException,
     _ValidationException,
-    _LimitExceededException,
     _TeamMemberNotFoundException,
+    _LimitExceededException,
     _UserProfileAlreadyExistsException,
 
     -- * Code
@@ -204,6 +204,13 @@ defaultService =
         Prelude.Just "throttling"
       | Prelude.otherwise = Prelude.Nothing
 
+-- | The team member is already associated with a role in this project.
+_TeamMemberAlreadyAssociatedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TeamMemberAlreadyAssociatedException =
+  Core._MatchServiceError
+    defaultService
+    "TeamMemberAlreadyAssociatedException"
+
 -- | An AWS CodeStar project with the same ID already exists in this region
 -- for the AWS account. AWS CodeStar project IDs must be unique within a
 -- region for the AWS account.
@@ -212,13 +219,6 @@ _ProjectAlreadyExistsException =
   Core._MatchServiceError
     defaultService
     "ProjectAlreadyExistsException"
-
--- | The team member is already associated with a role in this project.
-_TeamMemberAlreadyAssociatedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TeamMemberAlreadyAssociatedException =
-  Core._MatchServiceError
-    defaultService
-    "TeamMemberAlreadyAssociatedException"
 
 -- | The specified AWS CodeStar project was not found.
 _ProjectNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -279,19 +279,19 @@ _ValidationException =
     defaultService
     "ValidationException"
 
--- | A resource limit has been exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
-
 -- | The specified team member was not found.
 _TeamMemberNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TeamMemberNotFoundException =
   Core._MatchServiceError
     defaultService
     "TeamMemberNotFoundException"
+
+-- | A resource limit has been exceeded.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
 
 -- | A user profile with that name already exists in this region for the AWS
 -- account. AWS CodeStar user profile names must be unique within a region

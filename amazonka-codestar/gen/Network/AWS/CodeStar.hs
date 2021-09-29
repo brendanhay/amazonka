@@ -74,11 +74,11 @@ module Network.AWS.CodeStar
     -- * Errors
     -- $errors
 
-    -- ** ProjectAlreadyExistsException
-    _ProjectAlreadyExistsException,
-
     -- ** TeamMemberAlreadyAssociatedException
     _TeamMemberAlreadyAssociatedException,
+
+    -- ** ProjectAlreadyExistsException
+    _ProjectAlreadyExistsException,
 
     -- ** ProjectNotFoundException
     _ProjectNotFoundException,
@@ -104,11 +104,11 @@ module Network.AWS.CodeStar
     -- ** ValidationException
     _ValidationException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
-
     -- ** TeamMemberNotFoundException
     _TeamMemberNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- ** UserProfileAlreadyExistsException
     _UserProfileAlreadyExistsException,
@@ -118,12 +118,6 @@ module Network.AWS.CodeStar
 
     -- * Operations
     -- $operations
-
-    -- ** DisassociateTeamMember
-    DisassociateTeamMember (DisassociateTeamMember'),
-    newDisassociateTeamMember,
-    DisassociateTeamMemberResponse (DisassociateTeamMemberResponse'),
-    newDisassociateTeamMemberResponse,
 
     -- ** DescribeUserProfile
     DescribeUserProfile (DescribeUserProfile'),
@@ -137,6 +131,12 @@ module Network.AWS.CodeStar
     TagProjectResponse (TagProjectResponse'),
     newTagProjectResponse,
 
+    -- ** DisassociateTeamMember
+    DisassociateTeamMember (DisassociateTeamMember'),
+    newDisassociateTeamMember,
+    DisassociateTeamMemberResponse (DisassociateTeamMemberResponse'),
+    newDisassociateTeamMemberResponse,
+
     -- ** ListProjects (Paginated)
     ListProjects (ListProjects'),
     newListProjects,
@@ -149,17 +149,17 @@ module Network.AWS.CodeStar
     CreateProjectResponse (CreateProjectResponse'),
     newCreateProjectResponse,
 
-    -- ** ListUserProfiles (Paginated)
-    ListUserProfiles (ListUserProfiles'),
-    newListUserProfiles,
-    ListUserProfilesResponse (ListUserProfilesResponse'),
-    newListUserProfilesResponse,
-
     -- ** UpdateUserProfile
     UpdateUserProfile (UpdateUserProfile'),
     newUpdateUserProfile,
     UpdateUserProfileResponse (UpdateUserProfileResponse'),
     newUpdateUserProfileResponse,
+
+    -- ** ListUserProfiles (Paginated)
+    ListUserProfiles (ListUserProfiles'),
+    newListUserProfiles,
+    ListUserProfilesResponse (ListUserProfilesResponse'),
+    newListUserProfilesResponse,
 
     -- ** DeleteUserProfile
     DeleteUserProfile (DeleteUserProfile'),
@@ -173,11 +173,17 @@ module Network.AWS.CodeStar
     ListTagsForProjectResponse (ListTagsForProjectResponse'),
     newListTagsForProjectResponse,
 
-    -- ** UpdateTeamMember
-    UpdateTeamMember (UpdateTeamMember'),
-    newUpdateTeamMember,
-    UpdateTeamMemberResponse (UpdateTeamMemberResponse'),
-    newUpdateTeamMemberResponse,
+    -- ** UpdateProject
+    UpdateProject (UpdateProject'),
+    newUpdateProject,
+    UpdateProjectResponse (UpdateProjectResponse'),
+    newUpdateProjectResponse,
+
+    -- ** DeleteProject
+    DeleteProject (DeleteProject'),
+    newDeleteProject,
+    DeleteProjectResponse (DeleteProjectResponse'),
+    newDeleteProjectResponse,
 
     -- ** UntagProject
     UntagProject (UntagProject'),
@@ -191,17 +197,11 @@ module Network.AWS.CodeStar
     ListTeamMembersResponse (ListTeamMembersResponse'),
     newListTeamMembersResponse,
 
-    -- ** DeleteProject
-    DeleteProject (DeleteProject'),
-    newDeleteProject,
-    DeleteProjectResponse (DeleteProjectResponse'),
-    newDeleteProjectResponse,
-
-    -- ** UpdateProject
-    UpdateProject (UpdateProject'),
-    newUpdateProject,
-    UpdateProjectResponse (UpdateProjectResponse'),
-    newUpdateProjectResponse,
+    -- ** UpdateTeamMember
+    UpdateTeamMember (UpdateTeamMember'),
+    newUpdateTeamMember,
+    UpdateTeamMemberResponse (UpdateTeamMemberResponse'),
+    newUpdateTeamMemberResponse,
 
     -- ** AssociateTeamMember
     AssociateTeamMember (AssociateTeamMember'),

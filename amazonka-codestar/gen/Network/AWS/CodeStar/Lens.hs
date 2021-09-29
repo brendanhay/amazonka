@@ -14,11 +14,6 @@
 module Network.AWS.CodeStar.Lens
   ( -- * Operations
 
-    -- ** DisassociateTeamMember
-    disassociateTeamMember_projectId,
-    disassociateTeamMember_userArn,
-    disassociateTeamMemberResponse_httpStatus,
-
     -- ** DescribeUserProfile
     describeUserProfile_userArn,
     describeUserProfileResponse_sshPublicKey,
@@ -34,6 +29,11 @@ module Network.AWS.CodeStar.Lens
     tagProject_tags,
     tagProjectResponse_tags,
     tagProjectResponse_httpStatus,
+
+    -- ** DisassociateTeamMember
+    disassociateTeamMember_projectId,
+    disassociateTeamMember_userArn,
+    disassociateTeamMemberResponse_httpStatus,
 
     -- ** ListProjects
     listProjects_nextToken,
@@ -56,13 +56,6 @@ module Network.AWS.CodeStar.Lens
     createProjectResponse_id,
     createProjectResponse_arn,
 
-    -- ** ListUserProfiles
-    listUserProfiles_nextToken,
-    listUserProfiles_maxResults,
-    listUserProfilesResponse_nextToken,
-    listUserProfilesResponse_httpStatus,
-    listUserProfilesResponse_userProfiles,
-
     -- ** UpdateUserProfile
     updateUserProfile_sshPublicKey,
     updateUserProfile_displayName,
@@ -75,6 +68,13 @@ module Network.AWS.CodeStar.Lens
     updateUserProfileResponse_emailAddress,
     updateUserProfileResponse_httpStatus,
     updateUserProfileResponse_userArn,
+
+    -- ** ListUserProfiles
+    listUserProfiles_nextToken,
+    listUserProfiles_maxResults,
+    listUserProfilesResponse_nextToken,
+    listUserProfilesResponse_httpStatus,
+    listUserProfilesResponse_userProfiles,
 
     -- ** DeleteUserProfile
     deleteUserProfile_userArn,
@@ -89,15 +89,19 @@ module Network.AWS.CodeStar.Lens
     listTagsForProjectResponse_tags,
     listTagsForProjectResponse_httpStatus,
 
-    -- ** UpdateTeamMember
-    updateTeamMember_projectRole,
-    updateTeamMember_remoteAccessAllowed,
-    updateTeamMember_projectId,
-    updateTeamMember_userArn,
-    updateTeamMemberResponse_userArn,
-    updateTeamMemberResponse_projectRole,
-    updateTeamMemberResponse_remoteAccessAllowed,
-    updateTeamMemberResponse_httpStatus,
+    -- ** UpdateProject
+    updateProject_name,
+    updateProject_description,
+    updateProject_id,
+    updateProjectResponse_httpStatus,
+
+    -- ** DeleteProject
+    deleteProject_deleteStack,
+    deleteProject_clientRequestToken,
+    deleteProject_id,
+    deleteProjectResponse_stackId,
+    deleteProjectResponse_projectArn,
+    deleteProjectResponse_httpStatus,
 
     -- ** UntagProject
     untagProject_id,
@@ -112,19 +116,15 @@ module Network.AWS.CodeStar.Lens
     listTeamMembersResponse_httpStatus,
     listTeamMembersResponse_teamMembers,
 
-    -- ** DeleteProject
-    deleteProject_deleteStack,
-    deleteProject_clientRequestToken,
-    deleteProject_id,
-    deleteProjectResponse_stackId,
-    deleteProjectResponse_projectArn,
-    deleteProjectResponse_httpStatus,
-
-    -- ** UpdateProject
-    updateProject_name,
-    updateProject_description,
-    updateProject_id,
-    updateProjectResponse_httpStatus,
+    -- ** UpdateTeamMember
+    updateTeamMember_projectRole,
+    updateTeamMember_remoteAccessAllowed,
+    updateTeamMember_projectId,
+    updateTeamMember_userArn,
+    updateTeamMemberResponse_userArn,
+    updateTeamMemberResponse_projectRole,
+    updateTeamMemberResponse_remoteAccessAllowed,
+    updateTeamMemberResponse_httpStatus,
 
     -- ** AssociateTeamMember
     associateTeamMember_remoteAccessAllowed,

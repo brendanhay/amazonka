@@ -51,7 +51,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newBatchDeleteConnection' smart constructor.
 data BatchDeleteConnection = BatchDeleteConnection'
   { -- | The ID of the Data Catalog in which the connections reside. If none is
-    -- provided, the AWS account ID is used by default.
+    -- provided, the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | A list of names of the connections to delete.
     connectionNameList :: [Prelude.Text]
@@ -67,7 +67,7 @@ data BatchDeleteConnection = BatchDeleteConnection'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'batchDeleteConnection_catalogId' - The ID of the Data Catalog in which the connections reside. If none is
--- provided, the AWS account ID is used by default.
+-- provided, the Amazon Web Services account ID is used by default.
 --
 -- 'connectionNameList', 'batchDeleteConnection_connectionNameList' - A list of names of the connections to delete.
 newBatchDeleteConnection ::
@@ -79,7 +79,7 @@ newBatchDeleteConnection =
     }
 
 -- | The ID of the Data Catalog in which the connections reside. If none is
--- provided, the AWS account ID is used by default.
+-- provided, the Amazon Web Services account ID is used by default.
 batchDeleteConnection_catalogId :: Lens.Lens' BatchDeleteConnection (Prelude.Maybe Prelude.Text)
 batchDeleteConnection_catalogId = Lens.lens (\BatchDeleteConnection' {catalogId} -> catalogId) (\s@BatchDeleteConnection' {} a -> s {catalogId = a} :: BatchDeleteConnection)
 

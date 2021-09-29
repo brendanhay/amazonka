@@ -33,13 +33,13 @@ data CrawlerMetrics = CrawlerMetrics'
     tablesDeleted :: Prelude.Maybe Prelude.Natural,
     -- | The number of tables updated by this crawler.
     tablesUpdated :: Prelude.Maybe Prelude.Natural,
-    -- | The number of tables created by this crawler.
-    tablesCreated :: Prelude.Maybe Prelude.Natural,
     -- | The median duration of this crawler\'s runs, in seconds.
     medianRuntimeSeconds :: Prelude.Maybe Prelude.Double,
     -- | True if the crawler is still estimating how long it will take to
     -- complete this run.
     stillEstimating :: Prelude.Maybe Prelude.Bool,
+    -- | The number of tables created by this crawler.
+    tablesCreated :: Prelude.Maybe Prelude.Natural,
     -- | The estimated time left to complete a running crawl.
     timeLeftSeconds :: Prelude.Maybe Prelude.Double,
     -- | The duration of the crawler\'s most recent run, in seconds.
@@ -61,12 +61,12 @@ data CrawlerMetrics = CrawlerMetrics'
 --
 -- 'tablesUpdated', 'crawlerMetrics_tablesUpdated' - The number of tables updated by this crawler.
 --
--- 'tablesCreated', 'crawlerMetrics_tablesCreated' - The number of tables created by this crawler.
---
 -- 'medianRuntimeSeconds', 'crawlerMetrics_medianRuntimeSeconds' - The median duration of this crawler\'s runs, in seconds.
 --
 -- 'stillEstimating', 'crawlerMetrics_stillEstimating' - True if the crawler is still estimating how long it will take to
 -- complete this run.
+--
+-- 'tablesCreated', 'crawlerMetrics_tablesCreated' - The number of tables created by this crawler.
 --
 -- 'timeLeftSeconds', 'crawlerMetrics_timeLeftSeconds' - The estimated time left to complete a running crawl.
 --
@@ -78,9 +78,9 @@ newCrawlerMetrics =
     { crawlerName = Prelude.Nothing,
       tablesDeleted = Prelude.Nothing,
       tablesUpdated = Prelude.Nothing,
-      tablesCreated = Prelude.Nothing,
       medianRuntimeSeconds = Prelude.Nothing,
       stillEstimating = Prelude.Nothing,
+      tablesCreated = Prelude.Nothing,
       timeLeftSeconds = Prelude.Nothing,
       lastRuntimeSeconds = Prelude.Nothing
     }
@@ -97,10 +97,6 @@ crawlerMetrics_tablesDeleted = Lens.lens (\CrawlerMetrics' {tablesDeleted} -> ta
 crawlerMetrics_tablesUpdated :: Lens.Lens' CrawlerMetrics (Prelude.Maybe Prelude.Natural)
 crawlerMetrics_tablesUpdated = Lens.lens (\CrawlerMetrics' {tablesUpdated} -> tablesUpdated) (\s@CrawlerMetrics' {} a -> s {tablesUpdated = a} :: CrawlerMetrics)
 
--- | The number of tables created by this crawler.
-crawlerMetrics_tablesCreated :: Lens.Lens' CrawlerMetrics (Prelude.Maybe Prelude.Natural)
-crawlerMetrics_tablesCreated = Lens.lens (\CrawlerMetrics' {tablesCreated} -> tablesCreated) (\s@CrawlerMetrics' {} a -> s {tablesCreated = a} :: CrawlerMetrics)
-
 -- | The median duration of this crawler\'s runs, in seconds.
 crawlerMetrics_medianRuntimeSeconds :: Lens.Lens' CrawlerMetrics (Prelude.Maybe Prelude.Double)
 crawlerMetrics_medianRuntimeSeconds = Lens.lens (\CrawlerMetrics' {medianRuntimeSeconds} -> medianRuntimeSeconds) (\s@CrawlerMetrics' {} a -> s {medianRuntimeSeconds = a} :: CrawlerMetrics)
@@ -109,6 +105,10 @@ crawlerMetrics_medianRuntimeSeconds = Lens.lens (\CrawlerMetrics' {medianRuntime
 -- complete this run.
 crawlerMetrics_stillEstimating :: Lens.Lens' CrawlerMetrics (Prelude.Maybe Prelude.Bool)
 crawlerMetrics_stillEstimating = Lens.lens (\CrawlerMetrics' {stillEstimating} -> stillEstimating) (\s@CrawlerMetrics' {} a -> s {stillEstimating = a} :: CrawlerMetrics)
+
+-- | The number of tables created by this crawler.
+crawlerMetrics_tablesCreated :: Lens.Lens' CrawlerMetrics (Prelude.Maybe Prelude.Natural)
+crawlerMetrics_tablesCreated = Lens.lens (\CrawlerMetrics' {tablesCreated} -> tablesCreated) (\s@CrawlerMetrics' {} a -> s {tablesCreated = a} :: CrawlerMetrics)
 
 -- | The estimated time left to complete a running crawl.
 crawlerMetrics_timeLeftSeconds :: Lens.Lens' CrawlerMetrics (Prelude.Maybe Prelude.Double)
@@ -127,9 +127,9 @@ instance Core.FromJSON CrawlerMetrics where
             Prelude.<$> (x Core..:? "CrawlerName")
             Prelude.<*> (x Core..:? "TablesDeleted")
             Prelude.<*> (x Core..:? "TablesUpdated")
-            Prelude.<*> (x Core..:? "TablesCreated")
             Prelude.<*> (x Core..:? "MedianRuntimeSeconds")
             Prelude.<*> (x Core..:? "StillEstimating")
+            Prelude.<*> (x Core..:? "TablesCreated")
             Prelude.<*> (x Core..:? "TimeLeftSeconds")
             Prelude.<*> (x Core..:? "LastRuntimeSeconds")
       )

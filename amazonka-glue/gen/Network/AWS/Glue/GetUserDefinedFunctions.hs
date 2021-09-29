@@ -30,8 +30,8 @@ module Network.AWS.Glue.GetUserDefinedFunctions
 
     -- * Request Lenses
     getUserDefinedFunctions_nextToken,
-    getUserDefinedFunctions_catalogId,
     getUserDefinedFunctions_maxResults,
+    getUserDefinedFunctions_catalogId,
     getUserDefinedFunctions_databaseName,
     getUserDefinedFunctions_pattern,
 
@@ -57,11 +57,12 @@ import qualified Network.AWS.Response as Response
 data GetUserDefinedFunctions = GetUserDefinedFunctions'
   { -- | A continuation token, if this is a continuation call.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Data Catalog where the functions to be retrieved are
-    -- located. If none is provided, the AWS account ID is used by default.
-    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of functions to return in one response.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The ID of the Data Catalog where the functions to be retrieved are
+    -- located. If none is provided, the Amazon Web Services account ID is used
+    -- by default.
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the catalog database where the functions are located. If
     -- none is provided, functions from all the databases across the catalog
     -- will be returned.
@@ -82,10 +83,11 @@ data GetUserDefinedFunctions = GetUserDefinedFunctions'
 --
 -- 'nextToken', 'getUserDefinedFunctions_nextToken' - A continuation token, if this is a continuation call.
 --
--- 'catalogId', 'getUserDefinedFunctions_catalogId' - The ID of the Data Catalog where the functions to be retrieved are
--- located. If none is provided, the AWS account ID is used by default.
---
 -- 'maxResults', 'getUserDefinedFunctions_maxResults' - The maximum number of functions to return in one response.
+--
+-- 'catalogId', 'getUserDefinedFunctions_catalogId' - The ID of the Data Catalog where the functions to be retrieved are
+-- located. If none is provided, the Amazon Web Services account ID is used
+-- by default.
 --
 -- 'databaseName', 'getUserDefinedFunctions_databaseName' - The name of the catalog database where the functions are located. If
 -- none is provided, functions from all the databases across the catalog
@@ -101,8 +103,8 @@ newGetUserDefinedFunctions pPattern_ =
   GetUserDefinedFunctions'
     { nextToken =
         Prelude.Nothing,
-      catalogId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      catalogId = Prelude.Nothing,
       databaseName = Prelude.Nothing,
       pattern' = pPattern_
     }
@@ -111,14 +113,15 @@ newGetUserDefinedFunctions pPattern_ =
 getUserDefinedFunctions_nextToken :: Lens.Lens' GetUserDefinedFunctions (Prelude.Maybe Prelude.Text)
 getUserDefinedFunctions_nextToken = Lens.lens (\GetUserDefinedFunctions' {nextToken} -> nextToken) (\s@GetUserDefinedFunctions' {} a -> s {nextToken = a} :: GetUserDefinedFunctions)
 
--- | The ID of the Data Catalog where the functions to be retrieved are
--- located. If none is provided, the AWS account ID is used by default.
-getUserDefinedFunctions_catalogId :: Lens.Lens' GetUserDefinedFunctions (Prelude.Maybe Prelude.Text)
-getUserDefinedFunctions_catalogId = Lens.lens (\GetUserDefinedFunctions' {catalogId} -> catalogId) (\s@GetUserDefinedFunctions' {} a -> s {catalogId = a} :: GetUserDefinedFunctions)
-
 -- | The maximum number of functions to return in one response.
 getUserDefinedFunctions_maxResults :: Lens.Lens' GetUserDefinedFunctions (Prelude.Maybe Prelude.Natural)
 getUserDefinedFunctions_maxResults = Lens.lens (\GetUserDefinedFunctions' {maxResults} -> maxResults) (\s@GetUserDefinedFunctions' {} a -> s {maxResults = a} :: GetUserDefinedFunctions)
+
+-- | The ID of the Data Catalog where the functions to be retrieved are
+-- located. If none is provided, the Amazon Web Services account ID is used
+-- by default.
+getUserDefinedFunctions_catalogId :: Lens.Lens' GetUserDefinedFunctions (Prelude.Maybe Prelude.Text)
+getUserDefinedFunctions_catalogId = Lens.lens (\GetUserDefinedFunctions' {catalogId} -> catalogId) (\s@GetUserDefinedFunctions' {} a -> s {catalogId = a} :: GetUserDefinedFunctions)
 
 -- | The name of the catalog database where the functions are located. If
 -- none is provided, functions from all the databases across the catalog
@@ -193,8 +196,8 @@ instance Core.ToJSON GetUserDefinedFunctions where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("CatalogId" Core..=) Prelude.<$> catalogId,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("CatalogId" Core..=) Prelude.<$> catalogId,
             ("DatabaseName" Core..=) Prelude.<$> databaseName,
             Prelude.Just ("Pattern" Core..= pattern')
           ]

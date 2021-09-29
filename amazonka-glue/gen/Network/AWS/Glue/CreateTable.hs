@@ -51,7 +51,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newCreateTable' smart constructor.
 data CreateTable = CreateTable'
   { -- | The ID of the Data Catalog in which to create the @Table@. If none is
-    -- supplied, the AWS account ID is used by default.
+    -- supplied, the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | A list of partition indexes, @PartitionIndex@ structures, to create in
     -- the table.
@@ -74,7 +74,7 @@ data CreateTable = CreateTable'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'createTable_catalogId' - The ID of the Data Catalog in which to create the @Table@. If none is
--- supplied, the AWS account ID is used by default.
+-- supplied, the Amazon Web Services account ID is used by default.
 --
 -- 'partitionIndexes', 'createTable_partitionIndexes' - A list of partition indexes, @PartitionIndex@ structures, to create in
 -- the table.
@@ -99,7 +99,7 @@ newCreateTable pDatabaseName_ pTableInput_ =
     }
 
 -- | The ID of the Data Catalog in which to create the @Table@. If none is
--- supplied, the AWS account ID is used by default.
+-- supplied, the Amazon Web Services account ID is used by default.
 createTable_catalogId :: Lens.Lens' CreateTable (Prelude.Maybe Prelude.Text)
 createTable_catalogId = Lens.lens (\CreateTable' {catalogId} -> catalogId) (\s@CreateTable' {} a -> s {catalogId = a} :: CreateTable)
 

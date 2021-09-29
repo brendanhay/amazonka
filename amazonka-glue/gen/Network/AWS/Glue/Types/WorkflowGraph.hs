@@ -25,14 +25,14 @@ import Network.AWS.Glue.Types.Node
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | A workflow graph represents the complete workflow containing all the AWS
+-- | A workflow graph represents the complete workflow containing all the
 -- Glue components present in the workflow and all the directed connections
 -- between them.
 --
 -- /See:/ 'newWorkflowGraph' smart constructor.
 data WorkflowGraph = WorkflowGraph'
-  { -- | A list of the the AWS Glue components belong to the workflow represented
-    -- as nodes.
+  { -- | A list of the the Glue components belong to the workflow represented as
+    -- nodes.
     nodes :: Prelude.Maybe [Node],
     -- | A list of all the directed connections between the nodes belonging to
     -- the workflow.
@@ -48,8 +48,8 @@ data WorkflowGraph = WorkflowGraph'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nodes', 'workflowGraph_nodes' - A list of the the AWS Glue components belong to the workflow represented
--- as nodes.
+-- 'nodes', 'workflowGraph_nodes' - A list of the the Glue components belong to the workflow represented as
+-- nodes.
 --
 -- 'edges', 'workflowGraph_edges' - A list of all the directed connections between the nodes belonging to
 -- the workflow.
@@ -61,8 +61,8 @@ newWorkflowGraph =
       edges = Prelude.Nothing
     }
 
--- | A list of the the AWS Glue components belong to the workflow represented
--- as nodes.
+-- | A list of the the Glue components belong to the workflow represented as
+-- nodes.
 workflowGraph_nodes :: Lens.Lens' WorkflowGraph (Prelude.Maybe [Node])
 workflowGraph_nodes = Lens.lens (\WorkflowGraph' {nodes} -> nodes) (\s@WorkflowGraph' {} a -> s {nodes = a} :: WorkflowGraph) Prelude.. Lens.mapping Lens._Coerce
 

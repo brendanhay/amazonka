@@ -39,8 +39,7 @@ data StorageDescriptor = StorageDescriptor'
     -- | The information about values that appear frequently in a column (skewed
     -- values).
     skewedInfo :: Prelude.Maybe SkewedInfo,
-    -- | An object that references a schema stored in the AWS Glue Schema
-    -- Registry.
+    -- | An object that references a schema stored in the Glue Schema Registry.
     --
     -- When creating a table, you can pass an empty list of columns for the
     -- schema, and instead use a schema reference.
@@ -59,15 +58,15 @@ data StorageDescriptor = StorageDescriptor'
     -- the warehouse location, followed by the database location in the
     -- warehouse, followed by the table name.
     location :: Prelude.Maybe Prelude.Text,
-    -- | A list of the @Columns@ in the table.
-    columns :: Prelude.Maybe [Column],
     -- | The input format: @SequenceFileInputFormat@ (binary), or
     -- @TextInputFormat@, or a custom format.
     inputFormat :: Prelude.Maybe Prelude.Text,
-    -- | The user-supplied properties in key-value form.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A list of the @Columns@ in the table.
+    columns :: Prelude.Maybe [Column],
     -- | @True@ if the table data is stored in subdirectories, or @False@ if not.
-    storedAsSubDirectories :: Prelude.Maybe Prelude.Bool
+    storedAsSubDirectories :: Prelude.Maybe Prelude.Bool,
+    -- | The user-supplied properties in key-value form.
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,8 +85,7 @@ data StorageDescriptor = StorageDescriptor'
 -- 'skewedInfo', 'storageDescriptor_skewedInfo' - The information about values that appear frequently in a column (skewed
 -- values).
 --
--- 'schemaReference', 'storageDescriptor_schemaReference' - An object that references a schema stored in the AWS Glue Schema
--- Registry.
+-- 'schemaReference', 'storageDescriptor_schemaReference' - An object that references a schema stored in the Glue Schema Registry.
 --
 -- When creating a table, you can pass an empty list of columns for the
 -- schema, and instead use a schema reference.
@@ -106,14 +104,14 @@ data StorageDescriptor = StorageDescriptor'
 -- the warehouse location, followed by the database location in the
 -- warehouse, followed by the table name.
 --
--- 'columns', 'storageDescriptor_columns' - A list of the @Columns@ in the table.
---
 -- 'inputFormat', 'storageDescriptor_inputFormat' - The input format: @SequenceFileInputFormat@ (binary), or
 -- @TextInputFormat@, or a custom format.
 --
--- 'parameters', 'storageDescriptor_parameters' - The user-supplied properties in key-value form.
+-- 'columns', 'storageDescriptor_columns' - A list of the @Columns@ in the table.
 --
 -- 'storedAsSubDirectories', 'storageDescriptor_storedAsSubDirectories' - @True@ if the table data is stored in subdirectories, or @False@ if not.
+--
+-- 'parameters', 'storageDescriptor_parameters' - The user-supplied properties in key-value form.
 newStorageDescriptor ::
   StorageDescriptor
 newStorageDescriptor =
@@ -127,10 +125,10 @@ newStorageDescriptor =
       bucketColumns = Prelude.Nothing,
       serdeInfo = Prelude.Nothing,
       location = Prelude.Nothing,
-      columns = Prelude.Nothing,
       inputFormat = Prelude.Nothing,
-      parameters = Prelude.Nothing,
-      storedAsSubDirectories = Prelude.Nothing
+      columns = Prelude.Nothing,
+      storedAsSubDirectories = Prelude.Nothing,
+      parameters = Prelude.Nothing
     }
 
 -- | @True@ if the data in the table is compressed, or @False@ if not.
@@ -146,8 +144,7 @@ storageDescriptor_numberOfBuckets = Lens.lens (\StorageDescriptor' {numberOfBuck
 storageDescriptor_skewedInfo :: Lens.Lens' StorageDescriptor (Prelude.Maybe SkewedInfo)
 storageDescriptor_skewedInfo = Lens.lens (\StorageDescriptor' {skewedInfo} -> skewedInfo) (\s@StorageDescriptor' {} a -> s {skewedInfo = a} :: StorageDescriptor)
 
--- | An object that references a schema stored in the AWS Glue Schema
--- Registry.
+-- | An object that references a schema stored in the Glue Schema Registry.
 --
 -- When creating a table, you can pass an empty list of columns for the
 -- schema, and instead use a schema reference.
@@ -178,22 +175,22 @@ storageDescriptor_serdeInfo = Lens.lens (\StorageDescriptor' {serdeInfo} -> serd
 storageDescriptor_location :: Lens.Lens' StorageDescriptor (Prelude.Maybe Prelude.Text)
 storageDescriptor_location = Lens.lens (\StorageDescriptor' {location} -> location) (\s@StorageDescriptor' {} a -> s {location = a} :: StorageDescriptor)
 
--- | A list of the @Columns@ in the table.
-storageDescriptor_columns :: Lens.Lens' StorageDescriptor (Prelude.Maybe [Column])
-storageDescriptor_columns = Lens.lens (\StorageDescriptor' {columns} -> columns) (\s@StorageDescriptor' {} a -> s {columns = a} :: StorageDescriptor) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The input format: @SequenceFileInputFormat@ (binary), or
 -- @TextInputFormat@, or a custom format.
 storageDescriptor_inputFormat :: Lens.Lens' StorageDescriptor (Prelude.Maybe Prelude.Text)
 storageDescriptor_inputFormat = Lens.lens (\StorageDescriptor' {inputFormat} -> inputFormat) (\s@StorageDescriptor' {} a -> s {inputFormat = a} :: StorageDescriptor)
 
--- | The user-supplied properties in key-value form.
-storageDescriptor_parameters :: Lens.Lens' StorageDescriptor (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-storageDescriptor_parameters = Lens.lens (\StorageDescriptor' {parameters} -> parameters) (\s@StorageDescriptor' {} a -> s {parameters = a} :: StorageDescriptor) Prelude.. Lens.mapping Lens._Coerce
+-- | A list of the @Columns@ in the table.
+storageDescriptor_columns :: Lens.Lens' StorageDescriptor (Prelude.Maybe [Column])
+storageDescriptor_columns = Lens.lens (\StorageDescriptor' {columns} -> columns) (\s@StorageDescriptor' {} a -> s {columns = a} :: StorageDescriptor) Prelude.. Lens.mapping Lens._Coerce
 
 -- | @True@ if the table data is stored in subdirectories, or @False@ if not.
 storageDescriptor_storedAsSubDirectories :: Lens.Lens' StorageDescriptor (Prelude.Maybe Prelude.Bool)
 storageDescriptor_storedAsSubDirectories = Lens.lens (\StorageDescriptor' {storedAsSubDirectories} -> storedAsSubDirectories) (\s@StorageDescriptor' {} a -> s {storedAsSubDirectories = a} :: StorageDescriptor)
+
+-- | The user-supplied properties in key-value form.
+storageDescriptor_parameters :: Lens.Lens' StorageDescriptor (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+storageDescriptor_parameters = Lens.lens (\StorageDescriptor' {parameters} -> parameters) (\s@StorageDescriptor' {} a -> s {parameters = a} :: StorageDescriptor) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON StorageDescriptor where
   parseJSON =
@@ -210,10 +207,10 @@ instance Core.FromJSON StorageDescriptor where
             Prelude.<*> (x Core..:? "BucketColumns" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "SerdeInfo")
             Prelude.<*> (x Core..:? "Location")
-            Prelude.<*> (x Core..:? "Columns" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "InputFormat")
-            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Columns" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "StoredAsSubDirectories")
+            Prelude.<*> (x Core..:? "Parameters" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable StorageDescriptor
@@ -235,10 +232,10 @@ instance Core.ToJSON StorageDescriptor where
             ("BucketColumns" Core..=) Prelude.<$> bucketColumns,
             ("SerdeInfo" Core..=) Prelude.<$> serdeInfo,
             ("Location" Core..=) Prelude.<$> location,
-            ("Columns" Core..=) Prelude.<$> columns,
             ("InputFormat" Core..=) Prelude.<$> inputFormat,
-            ("Parameters" Core..=) Prelude.<$> parameters,
+            ("Columns" Core..=) Prelude.<$> columns,
             ("StoredAsSubDirectories" Core..=)
-              Prelude.<$> storedAsSubDirectories
+              Prelude.<$> storedAsSubDirectories,
+            ("Parameters" Core..=) Prelude.<$> parameters
           ]
       )

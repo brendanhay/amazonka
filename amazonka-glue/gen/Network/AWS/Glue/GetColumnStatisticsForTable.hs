@@ -56,7 +56,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newGetColumnStatisticsForTable' smart constructor.
 data GetColumnStatisticsForTable = GetColumnStatisticsForTable'
   { -- | The ID of the Data Catalog where the partitions in question reside. If
-    -- none is supplied, the AWS account ID is used by default.
+    -- none is supplied, the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the catalog database where the partitions reside.
     databaseName :: Prelude.Text,
@@ -76,7 +76,7 @@ data GetColumnStatisticsForTable = GetColumnStatisticsForTable'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'getColumnStatisticsForTable_catalogId' - The ID of the Data Catalog where the partitions in question reside. If
--- none is supplied, the AWS account ID is used by default.
+-- none is supplied, the Amazon Web Services account ID is used by default.
 --
 -- 'databaseName', 'getColumnStatisticsForTable_databaseName' - The name of the catalog database where the partitions reside.
 --
@@ -101,7 +101,7 @@ newGetColumnStatisticsForTable
       }
 
 -- | The ID of the Data Catalog where the partitions in question reside. If
--- none is supplied, the AWS account ID is used by default.
+-- none is supplied, the Amazon Web Services account ID is used by default.
 getColumnStatisticsForTable_catalogId :: Lens.Lens' GetColumnStatisticsForTable (Prelude.Maybe Prelude.Text)
 getColumnStatisticsForTable_catalogId = Lens.lens (\GetColumnStatisticsForTable' {catalogId} -> catalogId) (\s@GetColumnStatisticsForTable' {} a -> s {catalogId = a} :: GetColumnStatisticsForTable)
 

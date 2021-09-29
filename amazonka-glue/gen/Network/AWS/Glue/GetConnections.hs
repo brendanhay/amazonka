@@ -30,8 +30,8 @@ module Network.AWS.Glue.GetConnections
 
     -- * Request Lenses
     getConnections_nextToken,
-    getConnections_catalogId,
     getConnections_maxResults,
+    getConnections_catalogId,
     getConnections_hidePassword,
     getConnections_filter,
 
@@ -57,17 +57,17 @@ import qualified Network.AWS.Response as Response
 data GetConnections = GetConnections'
   { -- | A continuation token, if this is a continuation call.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Data Catalog in which the connections reside. If none is
-    -- provided, the AWS account ID is used by default.
-    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of connections to return in one response.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The ID of the Data Catalog in which the connections reside. If none is
+    -- provided, the Amazon Web Services account ID is used by default.
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | Allows you to retrieve the connection metadata without returning the
     -- password. For instance, the AWS Glue console uses this flag to retrieve
     -- the connection, and does not display the password. Set this parameter
-    -- when the caller might not have permission to use the AWS KMS key to
-    -- decrypt the password, but it does have permission to access the rest of
-    -- the connection properties.
+    -- when the caller might not have permission to use the KMS key to decrypt
+    -- the password, but it does have permission to access the rest of the
+    -- connection properties.
     hidePassword :: Prelude.Maybe Prelude.Bool,
     -- | A filter that controls which connections are returned.
     filter' :: Prelude.Maybe GetConnectionsFilter
@@ -84,17 +84,17 @@ data GetConnections = GetConnections'
 --
 -- 'nextToken', 'getConnections_nextToken' - A continuation token, if this is a continuation call.
 --
--- 'catalogId', 'getConnections_catalogId' - The ID of the Data Catalog in which the connections reside. If none is
--- provided, the AWS account ID is used by default.
---
 -- 'maxResults', 'getConnections_maxResults' - The maximum number of connections to return in one response.
+--
+-- 'catalogId', 'getConnections_catalogId' - The ID of the Data Catalog in which the connections reside. If none is
+-- provided, the Amazon Web Services account ID is used by default.
 --
 -- 'hidePassword', 'getConnections_hidePassword' - Allows you to retrieve the connection metadata without returning the
 -- password. For instance, the AWS Glue console uses this flag to retrieve
 -- the connection, and does not display the password. Set this parameter
--- when the caller might not have permission to use the AWS KMS key to
--- decrypt the password, but it does have permission to access the rest of
--- the connection properties.
+-- when the caller might not have permission to use the KMS key to decrypt
+-- the password, but it does have permission to access the rest of the
+-- connection properties.
 --
 -- 'filter'', 'getConnections_filter' - A filter that controls which connections are returned.
 newGetConnections ::
@@ -102,8 +102,8 @@ newGetConnections ::
 newGetConnections =
   GetConnections'
     { nextToken = Prelude.Nothing,
-      catalogId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      catalogId = Prelude.Nothing,
       hidePassword = Prelude.Nothing,
       filter' = Prelude.Nothing
     }
@@ -112,21 +112,21 @@ newGetConnections =
 getConnections_nextToken :: Lens.Lens' GetConnections (Prelude.Maybe Prelude.Text)
 getConnections_nextToken = Lens.lens (\GetConnections' {nextToken} -> nextToken) (\s@GetConnections' {} a -> s {nextToken = a} :: GetConnections)
 
--- | The ID of the Data Catalog in which the connections reside. If none is
--- provided, the AWS account ID is used by default.
-getConnections_catalogId :: Lens.Lens' GetConnections (Prelude.Maybe Prelude.Text)
-getConnections_catalogId = Lens.lens (\GetConnections' {catalogId} -> catalogId) (\s@GetConnections' {} a -> s {catalogId = a} :: GetConnections)
-
 -- | The maximum number of connections to return in one response.
 getConnections_maxResults :: Lens.Lens' GetConnections (Prelude.Maybe Prelude.Natural)
 getConnections_maxResults = Lens.lens (\GetConnections' {maxResults} -> maxResults) (\s@GetConnections' {} a -> s {maxResults = a} :: GetConnections)
 
+-- | The ID of the Data Catalog in which the connections reside. If none is
+-- provided, the Amazon Web Services account ID is used by default.
+getConnections_catalogId :: Lens.Lens' GetConnections (Prelude.Maybe Prelude.Text)
+getConnections_catalogId = Lens.lens (\GetConnections' {catalogId} -> catalogId) (\s@GetConnections' {} a -> s {catalogId = a} :: GetConnections)
+
 -- | Allows you to retrieve the connection metadata without returning the
 -- password. For instance, the AWS Glue console uses this flag to retrieve
 -- the connection, and does not display the password. Set this parameter
--- when the caller might not have permission to use the AWS KMS key to
--- decrypt the password, but it does have permission to access the rest of
--- the connection properties.
+-- when the caller might not have permission to use the KMS key to decrypt
+-- the password, but it does have permission to access the rest of the
+-- connection properties.
 getConnections_hidePassword :: Lens.Lens' GetConnections (Prelude.Maybe Prelude.Bool)
 getConnections_hidePassword = Lens.lens (\GetConnections' {hidePassword} -> hidePassword) (\s@GetConnections' {} a -> s {hidePassword = a} :: GetConnections)
 
@@ -191,8 +191,8 @@ instance Core.ToJSON GetConnections where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("CatalogId" Core..=) Prelude.<$> catalogId,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("CatalogId" Core..=) Prelude.<$> catalogId,
             ("HidePassword" Core..=) Prelude.<$> hidePassword,
             ("Filter" Core..=) Prelude.<$> filter'
           ]

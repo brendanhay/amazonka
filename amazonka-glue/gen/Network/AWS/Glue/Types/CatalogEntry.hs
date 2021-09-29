@@ -23,7 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Specifies a table definition in the AWS Glue Data Catalog.
+-- | Specifies a table definition in the Glue Data Catalog.
 --
 -- /See:/ 'newCatalogEntry' smart constructor.
 data CatalogEntry = CatalogEntry'

@@ -20,10 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds tags to a resource. A tag is a label you can assign to an AWS
--- resource. In AWS Glue, you can tag only certain resources. For
+-- Adds tags to a resource. A tag is a label you can assign to an Amazon
+-- Web Services resource. In Glue, you can tag only certain resources. For
 -- information about what resources you can tag, see
--- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html AWS Tags in AWS Glue>.
+-- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html Amazon Web Services Tags in Glue>.
 module Network.AWS.Glue.TagResource
   ( -- * Creating a Request
     TagResource (..),
@@ -51,9 +51,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
-  { -- | The ARN of the AWS Glue resource to which to add the tags. For more
-    -- information about AWS Glue resource ARNs, see the
-    -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id AWS Glue ARN string pattern>.
+  { -- | The ARN of the Glue resource to which to add the tags. For more
+    -- information about Glue resource ARNs, see the
+    -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id Glue ARN string pattern>.
     resourceArn :: Prelude.Text,
     -- | Tags to add to this resource.
     tagsToAdd :: Prelude.HashMap Prelude.Text Prelude.Text
@@ -68,9 +68,9 @@ data TagResource = TagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'tagResource_resourceArn' - The ARN of the AWS Glue resource to which to add the tags. For more
--- information about AWS Glue resource ARNs, see the
--- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id AWS Glue ARN string pattern>.
+-- 'resourceArn', 'tagResource_resourceArn' - The ARN of the Glue resource to which to add the tags. For more
+-- information about Glue resource ARNs, see the
+-- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id Glue ARN string pattern>.
 --
 -- 'tagsToAdd', 'tagResource_tagsToAdd' - Tags to add to this resource.
 newTagResource ::
@@ -83,9 +83,9 @@ newTagResource pResourceArn_ =
       tagsToAdd = Prelude.mempty
     }
 
--- | The ARN of the AWS Glue resource to which to add the tags. For more
--- information about AWS Glue resource ARNs, see the
--- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id AWS Glue ARN string pattern>.
+-- | The ARN of the Glue resource to which to add the tags. For more
+-- information about Glue resource ARNs, see the
+-- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-aws-glue-arn-id Glue ARN string pattern>.
 tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)
 

@@ -52,7 +52,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newGetTable' smart constructor.
 data GetTable = GetTable'
   { -- | The ID of the Data Catalog where the table resides. If none is provided,
-    -- the AWS account ID is used by default.
+    -- the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the database in the catalog in which the table resides. For
     -- Hive compatibility, this name is entirely lowercase.
@@ -72,7 +72,7 @@ data GetTable = GetTable'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'getTable_catalogId' - The ID of the Data Catalog where the table resides. If none is provided,
--- the AWS account ID is used by default.
+-- the Amazon Web Services account ID is used by default.
 --
 -- 'databaseName', 'getTable_databaseName' - The name of the database in the catalog in which the table resides. For
 -- Hive compatibility, this name is entirely lowercase.
@@ -93,7 +93,7 @@ newGetTable pDatabaseName_ pName_ =
     }
 
 -- | The ID of the Data Catalog where the table resides. If none is provided,
--- the AWS account ID is used by default.
+-- the Amazon Web Services account ID is used by default.
 getTable_catalogId :: Lens.Lens' GetTable (Prelude.Maybe Prelude.Text)
 getTable_catalogId = Lens.lens (\GetTable' {catalogId} -> catalogId) (\s@GetTable' {} a -> s {catalogId = a} :: GetTable)
 

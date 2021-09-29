@@ -35,8 +35,8 @@ data MLUserDataEncryption = MLUserDataEncryption'
     --
     -- -   DISABLED: encryption is disabled
     --
-    -- -   SSEKMS: use of server-side encryption with AWS Key Management
-    --     Service (SSE-KMS) for user data stored in Amazon S3.
+    -- -   SSEKMS: use of server-side encryption with Key Management Service
+    --     (SSE-KMS) for user data stored in Amazon S3.
     mlUserDataEncryptionMode :: MLUserDataEncryptionModeString
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -55,8 +55,8 @@ data MLUserDataEncryption = MLUserDataEncryption'
 --
 -- -   DISABLED: encryption is disabled
 --
--- -   SSEKMS: use of server-side encryption with AWS Key Management
---     Service (SSE-KMS) for user data stored in Amazon S3.
+-- -   SSEKMS: use of server-side encryption with Key Management Service
+--     (SSE-KMS) for user data stored in Amazon S3.
 newMLUserDataEncryption ::
   -- | 'mlUserDataEncryptionMode'
   MLUserDataEncryptionModeString ->
@@ -76,8 +76,8 @@ mLUserDataEncryption_kmsKeyId = Lens.lens (\MLUserDataEncryption' {kmsKeyId} -> 
 --
 -- -   DISABLED: encryption is disabled
 --
--- -   SSEKMS: use of server-side encryption with AWS Key Management
---     Service (SSE-KMS) for user data stored in Amazon S3.
+-- -   SSEKMS: use of server-side encryption with Key Management Service
+--     (SSE-KMS) for user data stored in Amazon S3.
 mLUserDataEncryption_mlUserDataEncryptionMode :: Lens.Lens' MLUserDataEncryption MLUserDataEncryptionModeString
 mLUserDataEncryption_mlUserDataEncryptionMode = Lens.lens (\MLUserDataEncryption' {mlUserDataEncryptionMode} -> mlUserDataEncryptionMode) (\s@MLUserDataEncryption' {} a -> s {mlUserDataEncryptionMode = a} :: MLUserDataEncryption)
 

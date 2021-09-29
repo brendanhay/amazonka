@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newUserDefinedFunctionInput' smart constructor.
 data UserDefinedFunctionInput = UserDefinedFunctionInput'
-  { -- | The owner type.
-    ownerType :: Prelude.Maybe PrincipalType,
-    -- | The Java class that contains the function code.
+  { -- | The Java class that contains the function code.
     className :: Prelude.Maybe Prelude.Text,
+    -- | The owner type.
+    ownerType :: Prelude.Maybe PrincipalType,
     -- | The owner of the function.
     ownerName :: Prelude.Maybe Prelude.Text,
     -- | The name of the function.
@@ -50,9 +50,9 @@ data UserDefinedFunctionInput = UserDefinedFunctionInput'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ownerType', 'userDefinedFunctionInput_ownerType' - The owner type.
---
 -- 'className', 'userDefinedFunctionInput_className' - The Java class that contains the function code.
+--
+-- 'ownerType', 'userDefinedFunctionInput_ownerType' - The owner type.
 --
 -- 'ownerName', 'userDefinedFunctionInput_ownerName' - The owner of the function.
 --
@@ -63,21 +63,21 @@ newUserDefinedFunctionInput ::
   UserDefinedFunctionInput
 newUserDefinedFunctionInput =
   UserDefinedFunctionInput'
-    { ownerType =
+    { className =
         Prelude.Nothing,
-      className = Prelude.Nothing,
+      ownerType = Prelude.Nothing,
       ownerName = Prelude.Nothing,
       functionName = Prelude.Nothing,
       resourceUris = Prelude.Nothing
     }
 
--- | The owner type.
-userDefinedFunctionInput_ownerType :: Lens.Lens' UserDefinedFunctionInput (Prelude.Maybe PrincipalType)
-userDefinedFunctionInput_ownerType = Lens.lens (\UserDefinedFunctionInput' {ownerType} -> ownerType) (\s@UserDefinedFunctionInput' {} a -> s {ownerType = a} :: UserDefinedFunctionInput)
-
 -- | The Java class that contains the function code.
 userDefinedFunctionInput_className :: Lens.Lens' UserDefinedFunctionInput (Prelude.Maybe Prelude.Text)
 userDefinedFunctionInput_className = Lens.lens (\UserDefinedFunctionInput' {className} -> className) (\s@UserDefinedFunctionInput' {} a -> s {className = a} :: UserDefinedFunctionInput)
+
+-- | The owner type.
+userDefinedFunctionInput_ownerType :: Lens.Lens' UserDefinedFunctionInput (Prelude.Maybe PrincipalType)
+userDefinedFunctionInput_ownerType = Lens.lens (\UserDefinedFunctionInput' {ownerType} -> ownerType) (\s@UserDefinedFunctionInput' {} a -> s {ownerType = a} :: UserDefinedFunctionInput)
 
 -- | The owner of the function.
 userDefinedFunctionInput_ownerName :: Lens.Lens' UserDefinedFunctionInput (Prelude.Maybe Prelude.Text)
@@ -99,8 +99,8 @@ instance Core.ToJSON UserDefinedFunctionInput where
   toJSON UserDefinedFunctionInput' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("OwnerType" Core..=) Prelude.<$> ownerType,
-            ("ClassName" Core..=) Prelude.<$> className,
+          [ ("ClassName" Core..=) Prelude.<$> className,
+            ("OwnerType" Core..=) Prelude.<$> ownerType,
             ("OwnerName" Core..=) Prelude.<$> ownerName,
             ("FunctionName" Core..=) Prelude.<$> functionName,
             ("ResourceUris" Core..=) Prelude.<$> resourceUris

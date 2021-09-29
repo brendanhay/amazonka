@@ -11,9 +11,9 @@
 --
 -- Derived from API version @2017-03-31@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS Glue
+-- Glue
 --
--- Defines the public endpoint for the AWS Glue service.
+-- Defines the public endpoint for the Glue service.
 module Network.AWS.Glue
   ( -- * Service Configuration
     defaultService,
@@ -36,14 +36,14 @@ module Network.AWS.Glue
     -- ** InvalidInputException
     _InvalidInputException,
 
+    -- ** ConcurrentRunsExceededException
+    _ConcurrentRunsExceededException,
+
     -- ** InternalServiceException
     _InternalServiceException,
 
     -- ** IllegalWorkflowStateException
     _IllegalWorkflowStateException,
-
-    -- ** ConcurrentRunsExceededException
-    _ConcurrentRunsExceededException,
 
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
@@ -60,17 +60,14 @@ module Network.AWS.Glue
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** ValidationException
-    _ValidationException,
-
     -- ** CrawlerRunningException
     _CrawlerRunningException,
 
     -- ** MLTransformNotReadyException
     _MLTransformNotReadyException,
 
-    -- ** ConflictException
-    _ConflictException,
+    -- ** ValidationException
+    _ValidationException,
 
     -- ** AlreadyExistsException
     _AlreadyExistsException,
@@ -78,11 +75,17 @@ module Network.AWS.Glue
     -- ** OperationTimeoutException
     _OperationTimeoutException,
 
-    -- ** IdempotentParameterMismatchException
-    _IdempotentParameterMismatchException,
+    -- ** IllegalBlueprintStateException
+    _IllegalBlueprintStateException,
+
+    -- ** ConflictException
+    _ConflictException,
 
     -- ** CrawlerStoppingException
     _CrawlerStoppingException,
+
+    -- ** IdempotentParameterMismatchException
+    _IdempotentParameterMismatchException,
 
     -- ** NoScheduleException
     _NoScheduleException,
@@ -99,11 +102,11 @@ module Network.AWS.Glue
     -- * Operations
     -- $operations
 
-    -- ** GetDataCatalogEncryptionSettings
-    GetDataCatalogEncryptionSettings (GetDataCatalogEncryptionSettings'),
-    newGetDataCatalogEncryptionSettings,
-    GetDataCatalogEncryptionSettingsResponse (GetDataCatalogEncryptionSettingsResponse'),
-    newGetDataCatalogEncryptionSettingsResponse,
+    -- ** UpdateConnection
+    UpdateConnection (UpdateConnection'),
+    newUpdateConnection,
+    UpdateConnectionResponse (UpdateConnectionResponse'),
+    newUpdateConnectionResponse,
 
     -- ** UpdateColumnStatisticsForTable
     UpdateColumnStatisticsForTable (UpdateColumnStatisticsForTable'),
@@ -111,41 +114,11 @@ module Network.AWS.Glue
     UpdateColumnStatisticsForTableResponse (UpdateColumnStatisticsForTableResponse'),
     newUpdateColumnStatisticsForTableResponse,
 
-    -- ** StartMLLabelingSetGenerationTaskRun
-    StartMLLabelingSetGenerationTaskRun (StartMLLabelingSetGenerationTaskRun'),
-    newStartMLLabelingSetGenerationTaskRun,
-    StartMLLabelingSetGenerationTaskRunResponse (StartMLLabelingSetGenerationTaskRunResponse'),
-    newStartMLLabelingSetGenerationTaskRunResponse,
-
-    -- ** DeleteColumnStatisticsForTable
-    DeleteColumnStatisticsForTable (DeleteColumnStatisticsForTable'),
-    newDeleteColumnStatisticsForTable,
-    DeleteColumnStatisticsForTableResponse (DeleteColumnStatisticsForTableResponse'),
-    newDeleteColumnStatisticsForTableResponse,
-
-    -- ** GetSchema
-    GetSchema (GetSchema'),
-    newGetSchema,
-    GetSchemaResponse (GetSchemaResponse'),
-    newGetSchemaResponse,
-
-    -- ** DeleteConnection
-    DeleteConnection (DeleteConnection'),
-    newDeleteConnection,
-    DeleteConnectionResponse (DeleteConnectionResponse'),
-    newDeleteConnectionResponse,
-
-    -- ** UpdateConnection
-    UpdateConnection (UpdateConnection'),
-    newUpdateConnection,
-    UpdateConnectionResponse (UpdateConnectionResponse'),
-    newUpdateConnectionResponse,
-
-    -- ** CheckSchemaVersionValidity
-    CheckSchemaVersionValidity (CheckSchemaVersionValidity'),
-    newCheckSchemaVersionValidity,
-    CheckSchemaVersionValidityResponse (CheckSchemaVersionValidityResponse'),
-    newCheckSchemaVersionValidityResponse,
+    -- ** DeleteSecurityConfiguration
+    DeleteSecurityConfiguration (DeleteSecurityConfiguration'),
+    newDeleteSecurityConfiguration,
+    DeleteSecurityConfigurationResponse (DeleteSecurityConfigurationResponse'),
+    newDeleteSecurityConfigurationResponse,
 
     -- ** CreateWorkflow
     CreateWorkflow (CreateWorkflow'),
@@ -153,41 +126,53 @@ module Network.AWS.Glue
     CreateWorkflowResponse (CreateWorkflowResponse'),
     newCreateWorkflowResponse,
 
+    -- ** StartMLLabelingSetGenerationTaskRun
+    StartMLLabelingSetGenerationTaskRun (StartMLLabelingSetGenerationTaskRun'),
+    newStartMLLabelingSetGenerationTaskRun,
+    StartMLLabelingSetGenerationTaskRunResponse (StartMLLabelingSetGenerationTaskRunResponse'),
+    newStartMLLabelingSetGenerationTaskRunResponse,
+
     -- ** GetPartitions (Paginated)
     GetPartitions (GetPartitions'),
     newGetPartitions,
     GetPartitionsResponse (GetPartitionsResponse'),
     newGetPartitionsResponse,
 
-    -- ** DeleteSecurityConfiguration
-    DeleteSecurityConfiguration (DeleteSecurityConfiguration'),
-    newDeleteSecurityConfiguration,
-    DeleteSecurityConfigurationResponse (DeleteSecurityConfigurationResponse'),
-    newDeleteSecurityConfigurationResponse,
+    -- ** DeleteColumnStatisticsForTable
+    DeleteColumnStatisticsForTable (DeleteColumnStatisticsForTable'),
+    newDeleteColumnStatisticsForTable,
+    DeleteColumnStatisticsForTableResponse (DeleteColumnStatisticsForTableResponse'),
+    newDeleteColumnStatisticsForTableResponse,
 
-    -- ** GetPartition
-    GetPartition (GetPartition'),
-    newGetPartition,
-    GetPartitionResponse (GetPartitionResponse'),
-    newGetPartitionResponse,
+    -- ** GetDataCatalogEncryptionSettings
+    GetDataCatalogEncryptionSettings (GetDataCatalogEncryptionSettings'),
+    newGetDataCatalogEncryptionSettings,
+    GetDataCatalogEncryptionSettingsResponse (GetDataCatalogEncryptionSettingsResponse'),
+    newGetDataCatalogEncryptionSettingsResponse,
 
-    -- ** UpdateRegistry
-    UpdateRegistry (UpdateRegistry'),
-    newUpdateRegistry,
-    UpdateRegistryResponse (UpdateRegistryResponse'),
-    newUpdateRegistryResponse,
+    -- ** DeleteConnection
+    DeleteConnection (DeleteConnection'),
+    newDeleteConnection,
+    DeleteConnectionResponse (DeleteConnectionResponse'),
+    newDeleteConnectionResponse,
 
-    -- ** ListMLTransforms
-    ListMLTransforms (ListMLTransforms'),
-    newListMLTransforms,
-    ListMLTransformsResponse (ListMLTransformsResponse'),
-    newListMLTransformsResponse,
+    -- ** GetSchema
+    GetSchema (GetSchema'),
+    newGetSchema,
+    GetSchemaResponse (GetSchemaResponse'),
+    newGetSchemaResponse,
 
-    -- ** StopCrawler
-    StopCrawler (StopCrawler'),
-    newStopCrawler,
-    StopCrawlerResponse (StopCrawlerResponse'),
-    newStopCrawlerResponse,
+    -- ** CheckSchemaVersionValidity
+    CheckSchemaVersionValidity (CheckSchemaVersionValidity'),
+    newCheckSchemaVersionValidity,
+    CheckSchemaVersionValidityResponse (CheckSchemaVersionValidityResponse'),
+    newCheckSchemaVersionValidityResponse,
+
+    -- ** GetResourcePolicy
+    GetResourcePolicy (GetResourcePolicy'),
+    newGetResourcePolicy,
+    GetResourcePolicyResponse (GetResourcePolicyResponse'),
+    newGetResourcePolicyResponse,
 
     -- ** StartImportLabelsTaskRun
     StartImportLabelsTaskRun (StartImportLabelsTaskRun'),
@@ -195,11 +180,29 @@ module Network.AWS.Glue
     StartImportLabelsTaskRunResponse (StartImportLabelsTaskRunResponse'),
     newStartImportLabelsTaskRunResponse,
 
-    -- ** GetResourcePolicy
-    GetResourcePolicy (GetResourcePolicy'),
-    newGetResourcePolicy,
-    GetResourcePolicyResponse (GetResourcePolicyResponse'),
-    newGetResourcePolicyResponse,
+    -- ** GetPartitionIndexes (Paginated)
+    GetPartitionIndexes (GetPartitionIndexes'),
+    newGetPartitionIndexes,
+    GetPartitionIndexesResponse (GetPartitionIndexesResponse'),
+    newGetPartitionIndexesResponse,
+
+    -- ** GetCatalogImportStatus
+    GetCatalogImportStatus (GetCatalogImportStatus'),
+    newGetCatalogImportStatus,
+    GetCatalogImportStatusResponse (GetCatalogImportStatusResponse'),
+    newGetCatalogImportStatusResponse,
+
+    -- ** StopCrawler
+    StopCrawler (StopCrawler'),
+    newStopCrawler,
+    StopCrawlerResponse (StopCrawlerResponse'),
+    newStopCrawlerResponse,
+
+    -- ** UpdateRegistry
+    UpdateRegistry (UpdateRegistry'),
+    newUpdateRegistry,
+    UpdateRegistryResponse (UpdateRegistryResponse'),
+    newUpdateRegistryResponse,
 
     -- ** QuerySchemaVersionMetadata
     QuerySchemaVersionMetadata (QuerySchemaVersionMetadata'),
@@ -213,11 +216,17 @@ module Network.AWS.Glue
     DeleteRegistryResponse (DeleteRegistryResponse'),
     newDeleteRegistryResponse,
 
-    -- ** GetPartitionIndexes (Paginated)
-    GetPartitionIndexes (GetPartitionIndexes'),
-    newGetPartitionIndexes,
-    GetPartitionIndexesResponse (GetPartitionIndexesResponse'),
-    newGetPartitionIndexesResponse,
+    -- ** GetPartition
+    GetPartition (GetPartition'),
+    newGetPartition,
+    GetPartitionResponse (GetPartitionResponse'),
+    newGetPartitionResponse,
+
+    -- ** ListMLTransforms
+    ListMLTransforms (ListMLTransforms'),
+    newListMLTransforms,
+    ListMLTransformsResponse (ListMLTransformsResponse'),
+    newListMLTransformsResponse,
 
     -- ** StartCrawler
     StartCrawler (StartCrawler'),
@@ -225,17 +234,17 @@ module Network.AWS.Glue
     StartCrawlerResponse (StartCrawlerResponse'),
     newStartCrawlerResponse,
 
-    -- ** GetCatalogImportStatus
-    GetCatalogImportStatus (GetCatalogImportStatus'),
-    newGetCatalogImportStatus,
-    GetCatalogImportStatusResponse (GetCatalogImportStatusResponse'),
-    newGetCatalogImportStatusResponse,
-
     -- ** GetColumnStatisticsForPartition
     GetColumnStatisticsForPartition (GetColumnStatisticsForPartition'),
     newGetColumnStatisticsForPartition,
     GetColumnStatisticsForPartitionResponse (GetColumnStatisticsForPartitionResponse'),
     newGetColumnStatisticsForPartitionResponse,
+
+    -- ** ListRegistries (Paginated)
+    ListRegistries (ListRegistries'),
+    newListRegistries,
+    ListRegistriesResponse (ListRegistriesResponse'),
+    newListRegistriesResponse,
 
     -- ** CreateRegistry
     CreateRegistry (CreateRegistry'),
@@ -243,11 +252,23 @@ module Network.AWS.Glue
     CreateRegistryResponse (CreateRegistryResponse'),
     newCreateRegistryResponse,
 
-    -- ** ListTriggers
-    ListTriggers (ListTriggers'),
-    newListTriggers,
-    ListTriggersResponse (ListTriggersResponse'),
-    newListTriggersResponse,
+    -- ** StartCrawlerSchedule
+    StartCrawlerSchedule (StartCrawlerSchedule'),
+    newStartCrawlerSchedule,
+    StartCrawlerScheduleResponse (StartCrawlerScheduleResponse'),
+    newStartCrawlerScheduleResponse,
+
+    -- ** GetJob
+    GetJob (GetJob'),
+    newGetJob,
+    GetJobResponse (GetJobResponse'),
+    newGetJobResponse,
+
+    -- ** DeleteTrigger
+    DeleteTrigger (DeleteTrigger'),
+    newDeleteTrigger,
+    DeleteTriggerResponse (DeleteTriggerResponse'),
+    newDeleteTriggerResponse,
 
     -- ** CreateMLTransform
     CreateMLTransform (CreateMLTransform'),
@@ -267,41 +288,17 @@ module Network.AWS.Glue
     UpdateTriggerResponse (UpdateTriggerResponse'),
     newUpdateTriggerResponse,
 
+    -- ** ListTriggers
+    ListTriggers (ListTriggers'),
+    newListTriggers,
+    ListTriggersResponse (ListTriggersResponse'),
+    newListTriggersResponse,
+
     -- ** GetSchemaByDefinition
     GetSchemaByDefinition (GetSchemaByDefinition'),
     newGetSchemaByDefinition,
     GetSchemaByDefinitionResponse (GetSchemaByDefinitionResponse'),
     newGetSchemaByDefinitionResponse,
-
-    -- ** ListRegistries (Paginated)
-    ListRegistries (ListRegistries'),
-    newListRegistries,
-    ListRegistriesResponse (ListRegistriesResponse'),
-    newListRegistriesResponse,
-
-    -- ** StartCrawlerSchedule
-    StartCrawlerSchedule (StartCrawlerSchedule'),
-    newStartCrawlerSchedule,
-    StartCrawlerScheduleResponse (StartCrawlerScheduleResponse'),
-    newStartCrawlerScheduleResponse,
-
-    -- ** DeleteTrigger
-    DeleteTrigger (DeleteTrigger'),
-    newDeleteTrigger,
-    DeleteTriggerResponse (DeleteTriggerResponse'),
-    newDeleteTriggerResponse,
-
-    -- ** GetJob
-    GetJob (GetJob'),
-    newGetJob,
-    GetJobResponse (GetJobResponse'),
-    newGetJobResponse,
-
-    -- ** UpdateClassifier
-    UpdateClassifier (UpdateClassifier'),
-    newUpdateClassifier,
-    UpdateClassifierResponse (UpdateClassifierResponse'),
-    newUpdateClassifierResponse,
 
     -- ** DeleteClassifier
     DeleteClassifier (DeleteClassifier'),
@@ -309,17 +306,35 @@ module Network.AWS.Glue
     DeleteClassifierResponse (DeleteClassifierResponse'),
     newDeleteClassifierResponse,
 
-    -- ** DeleteJob
-    DeleteJob (DeleteJob'),
-    newDeleteJob,
-    DeleteJobResponse (DeleteJobResponse'),
-    newDeleteJobResponse,
+    -- ** StartBlueprintRun
+    StartBlueprintRun (StartBlueprintRun'),
+    newStartBlueprintRun,
+    StartBlueprintRunResponse (StartBlueprintRunResponse'),
+    newStartBlueprintRunResponse,
 
     -- ** UpdateJob
     UpdateJob (UpdateJob'),
     newUpdateJob,
     UpdateJobResponse (UpdateJobResponse'),
     newUpdateJobResponse,
+
+    -- ** DeleteJob
+    DeleteJob (DeleteJob'),
+    newDeleteJob,
+    DeleteJobResponse (DeleteJobResponse'),
+    newDeleteJobResponse,
+
+    -- ** UpdateClassifier
+    UpdateClassifier (UpdateClassifier'),
+    newUpdateClassifier,
+    UpdateClassifierResponse (UpdateClassifierResponse'),
+    newUpdateClassifierResponse,
+
+    -- ** ListBlueprints
+    ListBlueprints (ListBlueprints'),
+    newListBlueprints,
+    ListBlueprintsResponse (ListBlueprintsResponse'),
+    newListBlueprintsResponse,
 
     -- ** CreateUserDefinedFunction
     CreateUserDefinedFunction (CreateUserDefinedFunction'),
@@ -339,23 +354,41 @@ module Network.AWS.Glue
     BatchGetJobsResponse (BatchGetJobsResponse'),
     newBatchGetJobsResponse,
 
-    -- ** CreateClassifier
-    CreateClassifier (CreateClassifier'),
-    newCreateClassifier,
-    CreateClassifierResponse (CreateClassifierResponse'),
-    newCreateClassifierResponse,
-
-    -- ** GetSecurityConfigurations (Paginated)
-    GetSecurityConfigurations (GetSecurityConfigurations'),
-    newGetSecurityConfigurations,
-    GetSecurityConfigurationsResponse (GetSecurityConfigurationsResponse'),
-    newGetSecurityConfigurationsResponse,
+    -- ** GetDatabase
+    GetDatabase (GetDatabase'),
+    newGetDatabase,
+    GetDatabaseResponse (GetDatabaseResponse'),
+    newGetDatabaseResponse,
 
     -- ** PutResourcePolicy
     PutResourcePolicy (PutResourcePolicy'),
     newPutResourcePolicy,
     PutResourcePolicyResponse (PutResourcePolicyResponse'),
     newPutResourcePolicyResponse,
+
+    -- ** StartMLEvaluationTaskRun
+    StartMLEvaluationTaskRun (StartMLEvaluationTaskRun'),
+    newStartMLEvaluationTaskRun,
+    StartMLEvaluationTaskRunResponse (StartMLEvaluationTaskRunResponse'),
+    newStartMLEvaluationTaskRunResponse,
+
+    -- ** DeletePartition
+    DeletePartition (DeletePartition'),
+    newDeletePartition,
+    DeletePartitionResponse (DeletePartitionResponse'),
+    newDeletePartitionResponse,
+
+    -- ** CreateBlueprint
+    CreateBlueprint (CreateBlueprint'),
+    newCreateBlueprint,
+    CreateBlueprintResponse (CreateBlueprintResponse'),
+    newCreateBlueprintResponse,
+
+    -- ** BatchDeleteTable
+    BatchDeleteTable (BatchDeleteTable'),
+    newBatchDeleteTable,
+    BatchDeleteTableResponse (BatchDeleteTableResponse'),
+    newBatchDeleteTableResponse,
 
     -- ** UpdatePartition
     UpdatePartition (UpdatePartition'),
@@ -369,41 +402,41 @@ module Network.AWS.Glue
     GetSchemaVersionsDiffResponse (GetSchemaVersionsDiffResponse'),
     newGetSchemaVersionsDiffResponse,
 
+    -- ** GetJobRuns (Paginated)
+    GetJobRuns (GetJobRuns'),
+    newGetJobRuns,
+    GetJobRunsResponse (GetJobRunsResponse'),
+    newGetJobRunsResponse,
+
     -- ** UntagResource
     UntagResource (UntagResource'),
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** BatchDeleteTable
-    BatchDeleteTable (BatchDeleteTable'),
-    newBatchDeleteTable,
-    BatchDeleteTableResponse (BatchDeleteTableResponse'),
-    newBatchDeleteTableResponse,
+    -- ** GetSecurityConfigurations (Paginated)
+    GetSecurityConfigurations (GetSecurityConfigurations'),
+    newGetSecurityConfigurations,
+    GetSecurityConfigurationsResponse (GetSecurityConfigurationsResponse'),
+    newGetSecurityConfigurationsResponse,
 
-    -- ** StartMLEvaluationTaskRun
-    StartMLEvaluationTaskRun (StartMLEvaluationTaskRun'),
-    newStartMLEvaluationTaskRun,
-    StartMLEvaluationTaskRunResponse (StartMLEvaluationTaskRunResponse'),
-    newStartMLEvaluationTaskRunResponse,
+    -- ** CreateClassifier
+    CreateClassifier (CreateClassifier'),
+    newCreateClassifier,
+    CreateClassifierResponse (CreateClassifierResponse'),
+    newCreateClassifierResponse,
 
-    -- ** GetDatabase
-    GetDatabase (GetDatabase'),
-    newGetDatabase,
-    GetDatabaseResponse (GetDatabaseResponse'),
-    newGetDatabaseResponse,
+    -- ** CreatePartitionIndex
+    CreatePartitionIndex (CreatePartitionIndex'),
+    newCreatePartitionIndex,
+    CreatePartitionIndexResponse (CreatePartitionIndexResponse'),
+    newCreatePartitionIndexResponse,
 
-    -- ** DeletePartition
-    DeletePartition (DeletePartition'),
-    newDeletePartition,
-    DeletePartitionResponse (DeletePartitionResponse'),
-    newDeletePartitionResponse,
-
-    -- ** GetJobRuns (Paginated)
-    GetJobRuns (GetJobRuns'),
-    newGetJobRuns,
-    GetJobRunsResponse (GetJobRunsResponse'),
-    newGetJobRunsResponse,
+    -- ** GetSecurityConfiguration
+    GetSecurityConfiguration (GetSecurityConfiguration'),
+    newGetSecurityConfiguration,
+    GetSecurityConfigurationResponse (GetSecurityConfigurationResponse'),
+    newGetSecurityConfigurationResponse,
 
     -- ** GetMLTransforms
     GetMLTransforms (GetMLTransforms'),
@@ -417,29 +450,11 @@ module Network.AWS.Glue
     GetJobRunResponse (GetJobRunResponse'),
     newGetJobRunResponse,
 
-    -- ** CreateDevEndpoint
-    CreateDevEndpoint (CreateDevEndpoint'),
-    newCreateDevEndpoint,
-    CreateDevEndpointResponse (CreateDevEndpointResponse'),
-    newCreateDevEndpointResponse,
-
-    -- ** CreatePartitionIndex
-    CreatePartitionIndex (CreatePartitionIndex'),
-    newCreatePartitionIndex,
-    CreatePartitionIndexResponse (CreatePartitionIndexResponse'),
-    newCreatePartitionIndexResponse,
-
     -- ** TagResource
     TagResource (TagResource'),
     newTagResource,
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
-
-    -- ** GetSecurityConfiguration
-    GetSecurityConfiguration (GetSecurityConfiguration'),
-    newGetSecurityConfiguration,
-    GetSecurityConfigurationResponse (GetSecurityConfigurationResponse'),
-    newGetSecurityConfigurationResponse,
 
     -- ** CreateCrawler
     CreateCrawler (CreateCrawler'),
@@ -447,35 +462,17 @@ module Network.AWS.Glue
     CreateCrawlerResponse (CreateCrawlerResponse'),
     newCreateCrawlerResponse,
 
+    -- ** CreateDevEndpoint
+    CreateDevEndpoint (CreateDevEndpoint'),
+    newCreateDevEndpoint,
+    CreateDevEndpointResponse (CreateDevEndpointResponse'),
+    newCreateDevEndpointResponse,
+
     -- ** GetMLTaskRuns
     GetMLTaskRuns (GetMLTaskRuns'),
     newGetMLTaskRuns,
     GetMLTaskRunsResponse (GetMLTaskRunsResponse'),
     newGetMLTaskRunsResponse,
-
-    -- ** ListCrawlers
-    ListCrawlers (ListCrawlers'),
-    newListCrawlers,
-    ListCrawlersResponse (ListCrawlersResponse'),
-    newListCrawlersResponse,
-
-    -- ** UpdateDevEndpoint
-    UpdateDevEndpoint (UpdateDevEndpoint'),
-    newUpdateDevEndpoint,
-    UpdateDevEndpointResponse (UpdateDevEndpointResponse'),
-    newUpdateDevEndpointResponse,
-
-    -- ** CreateSchema
-    CreateSchema (CreateSchema'),
-    newCreateSchema,
-    CreateSchemaResponse (CreateSchemaResponse'),
-    newCreateSchemaResponse,
-
-    -- ** ListDevEndpoints
-    ListDevEndpoints (ListDevEndpoints'),
-    newListDevEndpoints,
-    ListDevEndpointsResponse (ListDevEndpointsResponse'),
-    newListDevEndpointsResponse,
 
     -- ** DeleteCrawler
     DeleteCrawler (DeleteCrawler'),
@@ -483,23 +480,23 @@ module Network.AWS.Glue
     DeleteCrawlerResponse (DeleteCrawlerResponse'),
     newDeleteCrawlerResponse,
 
+    -- ** ListDevEndpoints
+    ListDevEndpoints (ListDevEndpoints'),
+    newListDevEndpoints,
+    ListDevEndpointsResponse (ListDevEndpointsResponse'),
+    newListDevEndpointsResponse,
+
     -- ** DeleteDevEndpoint
     DeleteDevEndpoint (DeleteDevEndpoint'),
     newDeleteDevEndpoint,
     DeleteDevEndpointResponse (DeleteDevEndpointResponse'),
     newDeleteDevEndpointResponse,
 
-    -- ** GetWorkflow
-    GetWorkflow (GetWorkflow'),
-    newGetWorkflow,
-    GetWorkflowResponse (GetWorkflowResponse'),
-    newGetWorkflowResponse,
-
-    -- ** GetSchemaVersion
-    GetSchemaVersion (GetSchemaVersion'),
-    newGetSchemaVersion,
-    GetSchemaVersionResponse (GetSchemaVersionResponse'),
-    newGetSchemaVersionResponse,
+    -- ** UpdateDevEndpoint
+    UpdateDevEndpoint (UpdateDevEndpoint'),
+    newUpdateDevEndpoint,
+    UpdateDevEndpointResponse (UpdateDevEndpointResponse'),
+    newUpdateDevEndpointResponse,
 
     -- ** UpdateCrawler
     UpdateCrawler (UpdateCrawler'),
@@ -507,41 +504,29 @@ module Network.AWS.Glue
     UpdateCrawlerResponse (UpdateCrawlerResponse'),
     newUpdateCrawlerResponse,
 
-    -- ** DeleteWorkflow
-    DeleteWorkflow (DeleteWorkflow'),
-    newDeleteWorkflow,
-    DeleteWorkflowResponse (DeleteWorkflowResponse'),
-    newDeleteWorkflowResponse,
+    -- ** GetSchemaVersion
+    GetSchemaVersion (GetSchemaVersion'),
+    newGetSchemaVersion,
+    GetSchemaVersionResponse (GetSchemaVersionResponse'),
+    newGetSchemaVersionResponse,
 
-    -- ** RegisterSchemaVersion
-    RegisterSchemaVersion (RegisterSchemaVersion'),
-    newRegisterSchemaVersion,
-    RegisterSchemaVersionResponse (RegisterSchemaVersionResponse'),
-    newRegisterSchemaVersionResponse,
+    -- ** CreateSchema
+    CreateSchema (CreateSchema'),
+    newCreateSchema,
+    CreateSchemaResponse (CreateSchemaResponse'),
+    newCreateSchemaResponse,
 
-    -- ** GetMapping
-    GetMapping (GetMapping'),
-    newGetMapping,
-    GetMappingResponse (GetMappingResponse'),
-    newGetMappingResponse,
+    -- ** GetWorkflow
+    GetWorkflow (GetWorkflow'),
+    newGetWorkflow,
+    GetWorkflowResponse (GetWorkflowResponse'),
+    newGetWorkflowResponse,
 
-    -- ** StopWorkflowRun
-    StopWorkflowRun (StopWorkflowRun'),
-    newStopWorkflowRun,
-    StopWorkflowRunResponse (StopWorkflowRunResponse'),
-    newStopWorkflowRunResponse,
-
-    -- ** CreateConnection
-    CreateConnection (CreateConnection'),
-    newCreateConnection,
-    CreateConnectionResponse (CreateConnectionResponse'),
-    newCreateConnectionResponse,
-
-    -- ** BatchCreatePartition
-    BatchCreatePartition (BatchCreatePartition'),
-    newBatchCreatePartition,
-    BatchCreatePartitionResponse (BatchCreatePartitionResponse'),
-    newBatchCreatePartitionResponse,
+    -- ** ListCrawlers
+    ListCrawlers (ListCrawlers'),
+    newListCrawlers,
+    ListCrawlersResponse (ListCrawlersResponse'),
+    newListCrawlersResponse,
 
     -- ** CreateTable
     CreateTable (CreateTable'),
@@ -549,17 +534,11 @@ module Network.AWS.Glue
     CreateTableResponse (CreateTableResponse'),
     newCreateTableResponse,
 
-    -- ** UpdateWorkflow
-    UpdateWorkflow (UpdateWorkflow'),
-    newUpdateWorkflow,
-    UpdateWorkflowResponse (UpdateWorkflowResponse'),
-    newUpdateWorkflowResponse,
-
-    -- ** GetClassifiers (Paginated)
-    GetClassifiers (GetClassifiers'),
-    newGetClassifiers,
-    GetClassifiersResponse (GetClassifiersResponse'),
-    newGetClassifiersResponse,
+    -- ** GetMapping
+    GetMapping (GetMapping'),
+    newGetMapping,
+    GetMappingResponse (GetMappingResponse'),
+    newGetMappingResponse,
 
     -- ** BatchStopJobRun
     BatchStopJobRun (BatchStopJobRun'),
@@ -573,11 +552,53 @@ module Network.AWS.Glue
     StartWorkflowRunResponse (StartWorkflowRunResponse'),
     newStartWorkflowRunResponse,
 
+    -- ** CreateConnection
+    CreateConnection (CreateConnection'),
+    newCreateConnection,
+    CreateConnectionResponse (CreateConnectionResponse'),
+    newCreateConnectionResponse,
+
+    -- ** GetClassifiers (Paginated)
+    GetClassifiers (GetClassifiers'),
+    newGetClassifiers,
+    GetClassifiersResponse (GetClassifiersResponse'),
+    newGetClassifiersResponse,
+
+    -- ** BatchCreatePartition
+    BatchCreatePartition (BatchCreatePartition'),
+    newBatchCreatePartition,
+    BatchCreatePartitionResponse (BatchCreatePartitionResponse'),
+    newBatchCreatePartitionResponse,
+
     -- ** ListWorkflows
     ListWorkflows (ListWorkflows'),
     newListWorkflows,
     ListWorkflowsResponse (ListWorkflowsResponse'),
     newListWorkflowsResponse,
+
+    -- ** UpdateWorkflow
+    UpdateWorkflow (UpdateWorkflow'),
+    newUpdateWorkflow,
+    UpdateWorkflowResponse (UpdateWorkflowResponse'),
+    newUpdateWorkflowResponse,
+
+    -- ** RegisterSchemaVersion
+    RegisterSchemaVersion (RegisterSchemaVersion'),
+    newRegisterSchemaVersion,
+    RegisterSchemaVersionResponse (RegisterSchemaVersionResponse'),
+    newRegisterSchemaVersionResponse,
+
+    -- ** StopWorkflowRun
+    StopWorkflowRun (StopWorkflowRun'),
+    newStopWorkflowRun,
+    StopWorkflowRunResponse (StopWorkflowRunResponse'),
+    newStopWorkflowRunResponse,
+
+    -- ** DeleteWorkflow
+    DeleteWorkflow (DeleteWorkflow'),
+    newDeleteWorkflow,
+    DeleteWorkflowResponse (DeleteWorkflowResponse'),
+    newDeleteWorkflowResponse,
 
     -- ** ListSchemaVersions (Paginated)
     ListSchemaVersions (ListSchemaVersions'),
@@ -585,17 +606,17 @@ module Network.AWS.Glue
     ListSchemaVersionsResponse (ListSchemaVersionsResponse'),
     newListSchemaVersionsResponse,
 
+    -- ** BatchUpdatePartition
+    BatchUpdatePartition (BatchUpdatePartition'),
+    newBatchUpdatePartition,
+    BatchUpdatePartitionResponse (BatchUpdatePartitionResponse'),
+    newBatchUpdatePartitionResponse,
+
     -- ** BatchDeletePartition
     BatchDeletePartition (BatchDeletePartition'),
     newBatchDeletePartition,
     BatchDeletePartitionResponse (BatchDeletePartitionResponse'),
     newBatchDeletePartitionResponse,
-
-    -- ** PutSchemaVersionMetadata
-    PutSchemaVersionMetadata (PutSchemaVersionMetadata'),
-    newPutSchemaVersionMetadata,
-    PutSchemaVersionMetadataResponse (PutSchemaVersionMetadataResponse'),
-    newPutSchemaVersionMetadataResponse,
 
     -- ** GetWorkflowRuns
     GetWorkflowRuns (GetWorkflowRuns'),
@@ -609,18 +630,6 @@ module Network.AWS.Glue
     GetTagsResponse (GetTagsResponse'),
     newGetTagsResponse,
 
-    -- ** BatchUpdatePartition
-    BatchUpdatePartition (BatchUpdatePartition'),
-    newBatchUpdatePartition,
-    BatchUpdatePartitionResponse (BatchUpdatePartitionResponse'),
-    newBatchUpdatePartitionResponse,
-
-    -- ** GetUserDefinedFunctions (Paginated)
-    GetUserDefinedFunctions (GetUserDefinedFunctions'),
-    newGetUserDefinedFunctions,
-    GetUserDefinedFunctionsResponse (GetUserDefinedFunctionsResponse'),
-    newGetUserDefinedFunctionsResponse,
-
     -- ** UpdateTable
     UpdateTable (UpdateTable'),
     newUpdateTable,
@@ -633,11 +642,17 @@ module Network.AWS.Glue
     DeleteTableResponse (DeleteTableResponse'),
     newDeleteTableResponse,
 
-    -- ** DeleteDatabase
-    DeleteDatabase (DeleteDatabase'),
-    newDeleteDatabase,
-    DeleteDatabaseResponse (DeleteDatabaseResponse'),
-    newDeleteDatabaseResponse,
+    -- ** GetUserDefinedFunctions (Paginated)
+    GetUserDefinedFunctions (GetUserDefinedFunctions'),
+    newGetUserDefinedFunctions,
+    GetUserDefinedFunctionsResponse (GetUserDefinedFunctionsResponse'),
+    newGetUserDefinedFunctionsResponse,
+
+    -- ** PutSchemaVersionMetadata
+    PutSchemaVersionMetadata (PutSchemaVersionMetadata'),
+    newPutSchemaVersionMetadata,
+    PutSchemaVersionMetadataResponse (PutSchemaVersionMetadataResponse'),
+    newPutSchemaVersionMetadataResponse,
 
     -- ** UpdateDatabase
     UpdateDatabase (UpdateDatabase'),
@@ -651,17 +666,23 @@ module Network.AWS.Glue
     GetUserDefinedFunctionResponse (GetUserDefinedFunctionResponse'),
     newGetUserDefinedFunctionResponse,
 
+    -- ** CreateTrigger
+    CreateTrigger (CreateTrigger'),
+    newCreateTrigger,
+    CreateTriggerResponse (CreateTriggerResponse'),
+    newCreateTriggerResponse,
+
+    -- ** DeleteDatabase
+    DeleteDatabase (DeleteDatabase'),
+    newDeleteDatabase,
+    DeleteDatabaseResponse (DeleteDatabaseResponse'),
+    newDeleteDatabaseResponse,
+
     -- ** UpdateMLTransform
     UpdateMLTransform (UpdateMLTransform'),
     newUpdateMLTransform,
     UpdateMLTransformResponse (UpdateMLTransformResponse'),
     newUpdateMLTransformResponse,
-
-    -- ** GetWorkflowRun
-    GetWorkflowRun (GetWorkflowRun'),
-    newGetWorkflowRun,
-    GetWorkflowRunResponse (GetWorkflowRunResponse'),
-    newGetWorkflowRunResponse,
 
     -- ** DeleteMLTransform
     DeleteMLTransform (DeleteMLTransform'),
@@ -669,23 +690,17 @@ module Network.AWS.Glue
     DeleteMLTransformResponse (DeleteMLTransformResponse'),
     newDeleteMLTransformResponse,
 
-    -- ** CreateTrigger
-    CreateTrigger (CreateTrigger'),
-    newCreateTrigger,
-    CreateTriggerResponse (CreateTriggerResponse'),
-    newCreateTriggerResponse,
+    -- ** GetWorkflowRun
+    GetWorkflowRun (GetWorkflowRun'),
+    newGetWorkflowRun,
+    GetWorkflowRunResponse (GetWorkflowRunResponse'),
+    newGetWorkflowRunResponse,
 
-    -- ** CreateDatabase
-    CreateDatabase (CreateDatabase'),
-    newCreateDatabase,
-    CreateDatabaseResponse (CreateDatabaseResponse'),
-    newCreateDatabaseResponse,
-
-    -- ** GetClassifier
-    GetClassifier (GetClassifier'),
-    newGetClassifier,
-    GetClassifierResponse (GetClassifierResponse'),
-    newGetClassifierResponse,
+    -- ** GetTableVersions (Paginated)
+    GetTableVersions (GetTableVersions'),
+    newGetTableVersions,
+    GetTableVersionsResponse (GetTableVersionsResponse'),
+    newGetTableVersionsResponse,
 
     -- ** DeleteSchemaVersions
     DeleteSchemaVersions (DeleteSchemaVersions'),
@@ -699,17 +714,29 @@ module Network.AWS.Glue
     BatchGetTriggersResponse (BatchGetTriggersResponse'),
     newBatchGetTriggersResponse,
 
-    -- ** BatchDeleteTableVersion
-    BatchDeleteTableVersion (BatchDeleteTableVersion'),
-    newBatchDeleteTableVersion,
-    BatchDeleteTableVersionResponse (BatchDeleteTableVersionResponse'),
-    newBatchDeleteTableVersionResponse,
+    -- ** GetClassifier
+    GetClassifier (GetClassifier'),
+    newGetClassifier,
+    GetClassifierResponse (GetClassifierResponse'),
+    newGetClassifierResponse,
 
-    -- ** GetTableVersions (Paginated)
-    GetTableVersions (GetTableVersions'),
-    newGetTableVersions,
-    GetTableVersionsResponse (GetTableVersionsResponse'),
-    newGetTableVersionsResponse,
+    -- ** CreateDatabase
+    CreateDatabase (CreateDatabase'),
+    newCreateDatabase,
+    CreateDatabaseResponse (CreateDatabaseResponse'),
+    newCreateDatabaseResponse,
+
+    -- ** GetCrawlers (Paginated)
+    GetCrawlers (GetCrawlers'),
+    newGetCrawlers,
+    GetCrawlersResponse (GetCrawlersResponse'),
+    newGetCrawlersResponse,
+
+    -- ** GetBlueprint
+    GetBlueprint (GetBlueprint'),
+    newGetBlueprint,
+    GetBlueprintResponse (GetBlueprintResponse'),
+    newGetBlueprintResponse,
 
     -- ** GetDevEndpoints (Paginated)
     GetDevEndpoints (GetDevEndpoints'),
@@ -717,11 +744,17 @@ module Network.AWS.Glue
     GetDevEndpointsResponse (GetDevEndpointsResponse'),
     newGetDevEndpointsResponse,
 
-    -- ** GetCrawlers (Paginated)
-    GetCrawlers (GetCrawlers'),
-    newGetCrawlers,
-    GetCrawlersResponse (GetCrawlersResponse'),
-    newGetCrawlersResponse,
+    -- ** BatchDeleteTableVersion
+    BatchDeleteTableVersion (BatchDeleteTableVersion'),
+    newBatchDeleteTableVersion,
+    BatchDeleteTableVersionResponse (BatchDeleteTableVersionResponse'),
+    newBatchDeleteTableVersionResponse,
+
+    -- ** DeleteBlueprint
+    DeleteBlueprint (DeleteBlueprint'),
+    newDeleteBlueprint,
+    DeleteBlueprintResponse (DeleteBlueprintResponse'),
+    newDeleteBlueprintResponse,
 
     -- ** StartJobRun
     StartJobRun (StartJobRun'),
@@ -741,11 +774,11 @@ module Network.AWS.Glue
     CreatePartitionResponse (CreatePartitionResponse'),
     newCreatePartitionResponse,
 
-    -- ** ResetJobBookmark
-    ResetJobBookmark (ResetJobBookmark'),
-    newResetJobBookmark,
-    ResetJobBookmarkResponse (ResetJobBookmarkResponse'),
-    newResetJobBookmarkResponse,
+    -- ** UpdateBlueprint
+    UpdateBlueprint (UpdateBlueprint'),
+    newUpdateBlueprint,
+    UpdateBlueprintResponse (UpdateBlueprintResponse'),
+    newUpdateBlueprintResponse,
 
     -- ** ListJobs
     ListJobs (ListJobs'),
@@ -753,77 +786,17 @@ module Network.AWS.Glue
     ListJobsResponse (ListJobsResponse'),
     newListJobsResponse,
 
-    -- ** BatchDeleteConnection
-    BatchDeleteConnection (BatchDeleteConnection'),
-    newBatchDeleteConnection,
-    BatchDeleteConnectionResponse (BatchDeleteConnectionResponse'),
-    newBatchDeleteConnectionResponse,
+    -- ** ResetJobBookmark
+    ResetJobBookmark (ResetJobBookmark'),
+    newResetJobBookmark,
+    ResetJobBookmarkResponse (ResetJobBookmarkResponse'),
+    newResetJobBookmarkResponse,
 
-    -- ** GetTables (Paginated)
-    GetTables (GetTables'),
-    newGetTables,
-    GetTablesResponse (GetTablesResponse'),
-    newGetTablesResponse,
-
-    -- ** DeleteColumnStatisticsForPartition
-    DeleteColumnStatisticsForPartition (DeleteColumnStatisticsForPartition'),
-    newDeleteColumnStatisticsForPartition,
-    DeleteColumnStatisticsForPartitionResponse (DeleteColumnStatisticsForPartitionResponse'),
-    newDeleteColumnStatisticsForPartitionResponse,
-
-    -- ** DeleteResourcePolicy
-    DeleteResourcePolicy (DeleteResourcePolicy'),
-    newDeleteResourcePolicy,
-    DeleteResourcePolicyResponse (DeleteResourcePolicyResponse'),
-    newDeleteResourcePolicyResponse,
-
-    -- ** GetRegistry
-    GetRegistry (GetRegistry'),
-    newGetRegistry,
-    GetRegistryResponse (GetRegistryResponse'),
-    newGetRegistryResponse,
-
-    -- ** ResumeWorkflowRun
-    ResumeWorkflowRun (ResumeWorkflowRun'),
-    newResumeWorkflowRun,
-    ResumeWorkflowRunResponse (ResumeWorkflowRunResponse'),
-    newResumeWorkflowRunResponse,
-
-    -- ** CancelMLTaskRun
-    CancelMLTaskRun (CancelMLTaskRun'),
-    newCancelMLTaskRun,
-    CancelMLTaskRunResponse (CancelMLTaskRunResponse'),
-    newCancelMLTaskRunResponse,
-
-    -- ** CreateJob
-    CreateJob (CreateJob'),
-    newCreateJob,
-    CreateJobResponse (CreateJobResponse'),
-    newCreateJobResponse,
-
-    -- ** SearchTables
-    SearchTables (SearchTables'),
-    newSearchTables,
-    SearchTablesResponse (SearchTablesResponse'),
-    newSearchTablesResponse,
-
-    -- ** UpdateUserDefinedFunction
-    UpdateUserDefinedFunction (UpdateUserDefinedFunction'),
-    newUpdateUserDefinedFunction,
-    UpdateUserDefinedFunctionResponse (UpdateUserDefinedFunctionResponse'),
-    newUpdateUserDefinedFunctionResponse,
-
-    -- ** UpdateColumnStatisticsForPartition
-    UpdateColumnStatisticsForPartition (UpdateColumnStatisticsForPartition'),
-    newUpdateColumnStatisticsForPartition,
-    UpdateColumnStatisticsForPartitionResponse (UpdateColumnStatisticsForPartitionResponse'),
-    newUpdateColumnStatisticsForPartitionResponse,
-
-    -- ** GetConnections (Paginated)
-    GetConnections (GetConnections'),
-    newGetConnections,
-    GetConnectionsResponse (GetConnectionsResponse'),
-    newGetConnectionsResponse,
+    -- ** BatchGetBlueprints
+    BatchGetBlueprints (BatchGetBlueprints'),
+    newBatchGetBlueprints,
+    BatchGetBlueprintsResponse (BatchGetBlueprintsResponse'),
+    newBatchGetBlueprintsResponse,
 
     -- ** GetMLTransform
     GetMLTransform (GetMLTransform'),
@@ -837,11 +810,41 @@ module Network.AWS.Glue
     CreateScriptResponse (CreateScriptResponse'),
     newCreateScriptResponse,
 
+    -- ** DeleteResourcePolicy
+    DeleteResourcePolicy (DeleteResourcePolicy'),
+    newDeleteResourcePolicy,
+    DeleteResourcePolicyResponse (DeleteResourcePolicyResponse'),
+    newDeleteResourcePolicyResponse,
+
+    -- ** GetRegistry
+    GetRegistry (GetRegistry'),
+    newGetRegistry,
+    GetRegistryResponse (GetRegistryResponse'),
+    newGetRegistryResponse,
+
     -- ** GetMLTaskRun
     GetMLTaskRun (GetMLTaskRun'),
     newGetMLTaskRun,
     GetMLTaskRunResponse (GetMLTaskRunResponse'),
     newGetMLTaskRunResponse,
+
+    -- ** CreateJob
+    CreateJob (CreateJob'),
+    newCreateJob,
+    CreateJobResponse (CreateJobResponse'),
+    newCreateJobResponse,
+
+    -- ** UpdateUserDefinedFunction
+    UpdateUserDefinedFunction (UpdateUserDefinedFunction'),
+    newUpdateUserDefinedFunction,
+    UpdateUserDefinedFunctionResponse (UpdateUserDefinedFunctionResponse'),
+    newUpdateUserDefinedFunctionResponse,
+
+    -- ** DeleteColumnStatisticsForPartition
+    DeleteColumnStatisticsForPartition (DeleteColumnStatisticsForPartition'),
+    newDeleteColumnStatisticsForPartition,
+    DeleteColumnStatisticsForPartitionResponse (DeleteColumnStatisticsForPartitionResponse'),
+    newDeleteColumnStatisticsForPartitionResponse,
 
     -- ** DeleteUserDefinedFunction
     DeleteUserDefinedFunction (DeleteUserDefinedFunction'),
@@ -849,35 +852,53 @@ module Network.AWS.Glue
     DeleteUserDefinedFunctionResponse (DeleteUserDefinedFunctionResponse'),
     newDeleteUserDefinedFunctionResponse,
 
-    -- ** StartTrigger
-    StartTrigger (StartTrigger'),
-    newStartTrigger,
-    StartTriggerResponse (StartTriggerResponse'),
-    newStartTriggerResponse,
+    -- ** CancelMLTaskRun
+    CancelMLTaskRun (CancelMLTaskRun'),
+    newCancelMLTaskRun,
+    CancelMLTaskRunResponse (CancelMLTaskRunResponse'),
+    newCancelMLTaskRunResponse,
 
-    -- ** PutDataCatalogEncryptionSettings
-    PutDataCatalogEncryptionSettings (PutDataCatalogEncryptionSettings'),
-    newPutDataCatalogEncryptionSettings,
-    PutDataCatalogEncryptionSettingsResponse (PutDataCatalogEncryptionSettingsResponse'),
-    newPutDataCatalogEncryptionSettingsResponse,
+    -- ** SearchTables
+    SearchTables (SearchTables'),
+    newSearchTables,
+    SearchTablesResponse (SearchTablesResponse'),
+    newSearchTablesResponse,
 
-    -- ** RemoveSchemaVersionMetadata
-    RemoveSchemaVersionMetadata (RemoveSchemaVersionMetadata'),
-    newRemoveSchemaVersionMetadata,
-    RemoveSchemaVersionMetadataResponse (RemoveSchemaVersionMetadataResponse'),
-    newRemoveSchemaVersionMetadataResponse,
+    -- ** UpdateColumnStatisticsForPartition
+    UpdateColumnStatisticsForPartition (UpdateColumnStatisticsForPartition'),
+    newUpdateColumnStatisticsForPartition,
+    UpdateColumnStatisticsForPartitionResponse (UpdateColumnStatisticsForPartitionResponse'),
+    newUpdateColumnStatisticsForPartitionResponse,
 
-    -- ** BatchGetPartition
-    BatchGetPartition (BatchGetPartition'),
-    newBatchGetPartition,
-    BatchGetPartitionResponse (BatchGetPartitionResponse'),
-    newBatchGetPartitionResponse,
+    -- ** GetTables (Paginated)
+    GetTables (GetTables'),
+    newGetTables,
+    GetTablesResponse (GetTablesResponse'),
+    newGetTablesResponse,
 
-    -- ** GetTable
-    GetTable (GetTable'),
-    newGetTable,
-    GetTableResponse (GetTableResponse'),
-    newGetTableResponse,
+    -- ** BatchDeleteConnection
+    BatchDeleteConnection (BatchDeleteConnection'),
+    newBatchDeleteConnection,
+    BatchDeleteConnectionResponse (BatchDeleteConnectionResponse'),
+    newBatchDeleteConnectionResponse,
+
+    -- ** GetConnections (Paginated)
+    GetConnections (GetConnections'),
+    newGetConnections,
+    GetConnectionsResponse (GetConnectionsResponse'),
+    newGetConnectionsResponse,
+
+    -- ** GetBlueprintRuns
+    GetBlueprintRuns (GetBlueprintRuns'),
+    newGetBlueprintRuns,
+    GetBlueprintRunsResponse (GetBlueprintRunsResponse'),
+    newGetBlueprintRunsResponse,
+
+    -- ** ResumeWorkflowRun
+    ResumeWorkflowRun (ResumeWorkflowRun'),
+    newResumeWorkflowRun,
+    ResumeWorkflowRunResponse (ResumeWorkflowRunResponse'),
+    newResumeWorkflowRunResponse,
 
     -- ** UpdateCrawlerSchedule
     UpdateCrawlerSchedule (UpdateCrawlerSchedule'),
@@ -885,11 +906,53 @@ module Network.AWS.Glue
     UpdateCrawlerScheduleResponse (UpdateCrawlerScheduleResponse'),
     newUpdateCrawlerScheduleResponse,
 
-    -- ** GetColumnStatisticsForTable
-    GetColumnStatisticsForTable (GetColumnStatisticsForTable'),
-    newGetColumnStatisticsForTable,
-    GetColumnStatisticsForTableResponse (GetColumnStatisticsForTableResponse'),
-    newGetColumnStatisticsForTableResponse,
+    -- ** StartTrigger
+    StartTrigger (StartTrigger'),
+    newStartTrigger,
+    StartTriggerResponse (StartTriggerResponse'),
+    newStartTriggerResponse,
+
+    -- ** GetConnection
+    GetConnection (GetConnection'),
+    newGetConnection,
+    GetConnectionResponse (GetConnectionResponse'),
+    newGetConnectionResponse,
+
+    -- ** RemoveSchemaVersionMetadata
+    RemoveSchemaVersionMetadata (RemoveSchemaVersionMetadata'),
+    newRemoveSchemaVersionMetadata,
+    RemoveSchemaVersionMetadataResponse (RemoveSchemaVersionMetadataResponse'),
+    newRemoveSchemaVersionMetadataResponse,
+
+    -- ** GetTable
+    GetTable (GetTable'),
+    newGetTable,
+    GetTableResponse (GetTableResponse'),
+    newGetTableResponse,
+
+    -- ** DeleteSchema
+    DeleteSchema (DeleteSchema'),
+    newDeleteSchema,
+    DeleteSchemaResponse (DeleteSchemaResponse'),
+    newDeleteSchemaResponse,
+
+    -- ** PutDataCatalogEncryptionSettings
+    PutDataCatalogEncryptionSettings (PutDataCatalogEncryptionSettings'),
+    newPutDataCatalogEncryptionSettings,
+    PutDataCatalogEncryptionSettingsResponse (PutDataCatalogEncryptionSettingsResponse'),
+    newPutDataCatalogEncryptionSettingsResponse,
+
+    -- ** GetBlueprintRun
+    GetBlueprintRun (GetBlueprintRun'),
+    newGetBlueprintRun,
+    GetBlueprintRunResponse (GetBlueprintRunResponse'),
+    newGetBlueprintRunResponse,
+
+    -- ** UpdateSchema
+    UpdateSchema (UpdateSchema'),
+    newUpdateSchema,
+    UpdateSchemaResponse (UpdateSchemaResponse'),
+    newUpdateSchemaResponse,
 
     -- ** StopTrigger
     StopTrigger (StopTrigger'),
@@ -903,11 +966,23 @@ module Network.AWS.Glue
     ListSchemasResponse (ListSchemasResponse'),
     newListSchemasResponse,
 
-    -- ** GetConnection
-    GetConnection (GetConnection'),
-    newGetConnection,
-    GetConnectionResponse (GetConnectionResponse'),
-    newGetConnectionResponse,
+    -- ** GetDataflowGraph
+    GetDataflowGraph (GetDataflowGraph'),
+    newGetDataflowGraph,
+    GetDataflowGraphResponse (GetDataflowGraphResponse'),
+    newGetDataflowGraphResponse,
+
+    -- ** BatchGetPartition
+    BatchGetPartition (BatchGetPartition'),
+    newBatchGetPartition,
+    BatchGetPartitionResponse (BatchGetPartitionResponse'),
+    newBatchGetPartitionResponse,
+
+    -- ** GetColumnStatisticsForTable
+    GetColumnStatisticsForTable (GetColumnStatisticsForTable'),
+    newGetColumnStatisticsForTable,
+    GetColumnStatisticsForTableResponse (GetColumnStatisticsForTableResponse'),
+    newGetColumnStatisticsForTableResponse,
 
     -- ** GetDatabases (Paginated)
     GetDatabases (GetDatabases'),
@@ -915,35 +990,11 @@ module Network.AWS.Glue
     GetDatabasesResponse (GetDatabasesResponse'),
     newGetDatabasesResponse,
 
-    -- ** DeleteSchema
-    DeleteSchema (DeleteSchema'),
-    newDeleteSchema,
-    DeleteSchemaResponse (DeleteSchemaResponse'),
-    newDeleteSchemaResponse,
-
-    -- ** UpdateSchema
-    UpdateSchema (UpdateSchema'),
-    newUpdateSchema,
-    UpdateSchemaResponse (UpdateSchemaResponse'),
-    newUpdateSchemaResponse,
-
-    -- ** GetDataflowGraph
-    GetDataflowGraph (GetDataflowGraph'),
-    newGetDataflowGraph,
-    GetDataflowGraphResponse (GetDataflowGraphResponse'),
-    newGetDataflowGraphResponse,
-
-    -- ** BatchGetDevEndpoints
-    BatchGetDevEndpoints (BatchGetDevEndpoints'),
-    newBatchGetDevEndpoints,
-    BatchGetDevEndpointsResponse (BatchGetDevEndpointsResponse'),
-    newBatchGetDevEndpointsResponse,
-
-    -- ** StartExportLabelsTaskRun
-    StartExportLabelsTaskRun (StartExportLabelsTaskRun'),
-    newStartExportLabelsTaskRun,
-    StartExportLabelsTaskRunResponse (StartExportLabelsTaskRunResponse'),
-    newStartExportLabelsTaskRunResponse,
+    -- ** DeleteTableVersion
+    DeleteTableVersion (DeleteTableVersion'),
+    newDeleteTableVersion,
+    DeleteTableVersionResponse (DeleteTableVersionResponse'),
+    newDeleteTableVersionResponse,
 
     -- ** GetTriggers (Paginated)
     GetTriggers (GetTriggers'),
@@ -957,17 +1008,17 @@ module Network.AWS.Glue
     BatchGetCrawlersResponse (BatchGetCrawlersResponse'),
     newBatchGetCrawlersResponse,
 
-    -- ** GetPlan
-    GetPlan (GetPlan'),
-    newGetPlan,
-    GetPlanResponse (GetPlanResponse'),
-    newGetPlanResponse,
+    -- ** GetJobBookmark
+    GetJobBookmark (GetJobBookmark'),
+    newGetJobBookmark,
+    GetJobBookmarkResponse (GetJobBookmarkResponse'),
+    newGetJobBookmarkResponse,
 
-    -- ** GetCrawlerMetrics (Paginated)
-    GetCrawlerMetrics (GetCrawlerMetrics'),
-    newGetCrawlerMetrics,
-    GetCrawlerMetricsResponse (GetCrawlerMetricsResponse'),
-    newGetCrawlerMetricsResponse,
+    -- ** StartExportLabelsTaskRun
+    StartExportLabelsTaskRun (StartExportLabelsTaskRun'),
+    newStartExportLabelsTaskRun,
+    StartExportLabelsTaskRunResponse (StartExportLabelsTaskRunResponse'),
+    newStartExportLabelsTaskRunResponse,
 
     -- ** GetWorkflowRunProperties
     GetWorkflowRunProperties (GetWorkflowRunProperties'),
@@ -975,29 +1026,47 @@ module Network.AWS.Glue
     GetWorkflowRunPropertiesResponse (GetWorkflowRunPropertiesResponse'),
     newGetWorkflowRunPropertiesResponse,
 
+    -- ** GetCrawlerMetrics (Paginated)
+    GetCrawlerMetrics (GetCrawlerMetrics'),
+    newGetCrawlerMetrics,
+    GetCrawlerMetricsResponse (GetCrawlerMetricsResponse'),
+    newGetCrawlerMetricsResponse,
+
     -- ** DeletePartitionIndex
     DeletePartitionIndex (DeletePartitionIndex'),
     newDeletePartitionIndex,
     DeletePartitionIndexResponse (DeletePartitionIndexResponse'),
     newDeletePartitionIndexResponse,
 
-    -- ** GetJobBookmark
-    GetJobBookmark (GetJobBookmark'),
-    newGetJobBookmark,
-    GetJobBookmarkResponse (GetJobBookmarkResponse'),
-    newGetJobBookmarkResponse,
+    -- ** BatchGetDevEndpoints
+    BatchGetDevEndpoints (BatchGetDevEndpoints'),
+    newBatchGetDevEndpoints,
+    BatchGetDevEndpointsResponse (BatchGetDevEndpointsResponse'),
+    newBatchGetDevEndpointsResponse,
 
-    -- ** DeleteTableVersion
-    DeleteTableVersion (DeleteTableVersion'),
-    newDeleteTableVersion,
-    DeleteTableVersionResponse (DeleteTableVersionResponse'),
-    newDeleteTableVersionResponse,
+    -- ** GetPlan
+    GetPlan (GetPlan'),
+    newGetPlan,
+    GetPlanResponse (GetPlanResponse'),
+    newGetPlanResponse,
 
-    -- ** GetTableVersion
-    GetTableVersion (GetTableVersion'),
-    newGetTableVersion,
-    GetTableVersionResponse (GetTableVersionResponse'),
-    newGetTableVersionResponse,
+    -- ** CreateSecurityConfiguration
+    CreateSecurityConfiguration (CreateSecurityConfiguration'),
+    newCreateSecurityConfiguration,
+    CreateSecurityConfigurationResponse (CreateSecurityConfigurationResponse'),
+    newCreateSecurityConfigurationResponse,
+
+    -- ** GetResourcePolicies (Paginated)
+    GetResourcePolicies (GetResourcePolicies'),
+    newGetResourcePolicies,
+    GetResourcePoliciesResponse (GetResourcePoliciesResponse'),
+    newGetResourcePoliciesResponse,
+
+    -- ** GetDevEndpoint
+    GetDevEndpoint (GetDevEndpoint'),
+    newGetDevEndpoint,
+    GetDevEndpointResponse (GetDevEndpointResponse'),
+    newGetDevEndpointResponse,
 
     -- ** PutWorkflowRunProperties
     PutWorkflowRunProperties (PutWorkflowRunProperties'),
@@ -1011,11 +1080,11 @@ module Network.AWS.Glue
     BatchGetWorkflowsResponse (BatchGetWorkflowsResponse'),
     newBatchGetWorkflowsResponse,
 
-    -- ** GetResourcePolicies (Paginated)
-    GetResourcePolicies (GetResourcePolicies'),
-    newGetResourcePolicies,
-    GetResourcePoliciesResponse (GetResourcePoliciesResponse'),
-    newGetResourcePoliciesResponse,
+    -- ** GetTableVersion
+    GetTableVersion (GetTableVersion'),
+    newGetTableVersion,
+    GetTableVersionResponse (GetTableVersionResponse'),
+    newGetTableVersionResponse,
 
     -- ** GetJobs (Paginated)
     GetJobs (GetJobs'),
@@ -1023,28 +1092,22 @@ module Network.AWS.Glue
     GetJobsResponse (GetJobsResponse'),
     newGetJobsResponse,
 
-    -- ** GetDevEndpoint
-    GetDevEndpoint (GetDevEndpoint'),
-    newGetDevEndpoint,
-    GetDevEndpointResponse (GetDevEndpointResponse'),
-    newGetDevEndpointResponse,
-
     -- ** GetCrawler
     GetCrawler (GetCrawler'),
     newGetCrawler,
     GetCrawlerResponse (GetCrawlerResponse'),
     newGetCrawlerResponse,
 
-    -- ** CreateSecurityConfiguration
-    CreateSecurityConfiguration (CreateSecurityConfiguration'),
-    newCreateSecurityConfiguration,
-    CreateSecurityConfigurationResponse (CreateSecurityConfigurationResponse'),
-    newCreateSecurityConfigurationResponse,
-
     -- * Types
 
     -- ** BackfillErrorCode
     BackfillErrorCode (..),
+
+    -- ** BlueprintRunState
+    BlueprintRunState (..),
+
+    -- ** BlueprintStatus
+    BlueprintStatus (..),
 
     -- ** CatalogEncryptionMode
     CatalogEncryptionMode (..),
@@ -1217,6 +1280,18 @@ module Network.AWS.Glue
     -- ** BinaryColumnStatisticsData
     BinaryColumnStatisticsData (BinaryColumnStatisticsData'),
     newBinaryColumnStatisticsData,
+
+    -- ** Blueprint
+    Blueprint (Blueprint'),
+    newBlueprint,
+
+    -- ** BlueprintDetails
+    BlueprintDetails (BlueprintDetails'),
+    newBlueprintDetails,
+
+    -- ** BlueprintRun
+    BlueprintRun (BlueprintRun'),
+    newBlueprintRun,
 
     -- ** BooleanColumnStatisticsData
     BooleanColumnStatisticsData (BooleanColumnStatisticsData'),
@@ -1414,6 +1489,10 @@ module Network.AWS.Glue
     EvaluationMetrics (EvaluationMetrics'),
     newEvaluationMetrics,
 
+    -- ** EventBatchingCondition
+    EventBatchingCondition (EventBatchingCondition'),
+    newEventBatchingCondition,
+
     -- ** ExecutionProperty
     ExecutionProperty (ExecutionProperty'),
     newExecutionProperty,
@@ -1498,6 +1577,10 @@ module Network.AWS.Glue
     LabelingSetGenerationTaskRunProperties (LabelingSetGenerationTaskRunProperties'),
     newLabelingSetGenerationTaskRunProperties,
 
+    -- ** LastActiveDefinition
+    LastActiveDefinition (LastActiveDefinition'),
+    newLastActiveDefinition,
+
     -- ** LastCrawlInfo
     LastCrawlInfo (LastCrawlInfo'),
     newLastCrawlInfo,
@@ -1549,6 +1632,10 @@ module Network.AWS.Glue
     -- ** Order
     Order (Order'),
     newOrder,
+
+    -- ** OtherMetadataValueListItem
+    OtherMetadataValueListItem (OtherMetadataValueListItem'),
+    newOtherMetadataValueListItem,
 
     -- ** Partition
     Partition (Partition'),
@@ -1673,6 +1760,10 @@ module Network.AWS.Glue
     -- ** SortCriterion
     SortCriterion (SortCriterion'),
     newSortCriterion,
+
+    -- ** StartingEventBatchCondition
+    StartingEventBatchCondition (StartingEventBatchCondition'),
+    newStartingEventBatchCondition,
 
     -- ** StorageDescriptor
     StorageDescriptor (StorageDescriptor'),
@@ -1801,6 +1892,7 @@ import Network.AWS.Glue.BatchDeleteConnection
 import Network.AWS.Glue.BatchDeletePartition
 import Network.AWS.Glue.BatchDeleteTable
 import Network.AWS.Glue.BatchDeleteTableVersion
+import Network.AWS.Glue.BatchGetBlueprints
 import Network.AWS.Glue.BatchGetCrawlers
 import Network.AWS.Glue.BatchGetDevEndpoints
 import Network.AWS.Glue.BatchGetJobs
@@ -1811,6 +1903,7 @@ import Network.AWS.Glue.BatchStopJobRun
 import Network.AWS.Glue.BatchUpdatePartition
 import Network.AWS.Glue.CancelMLTaskRun
 import Network.AWS.Glue.CheckSchemaVersionValidity
+import Network.AWS.Glue.CreateBlueprint
 import Network.AWS.Glue.CreateClassifier
 import Network.AWS.Glue.CreateConnection
 import Network.AWS.Glue.CreateCrawler
@@ -1828,6 +1921,7 @@ import Network.AWS.Glue.CreateTable
 import Network.AWS.Glue.CreateTrigger
 import Network.AWS.Glue.CreateUserDefinedFunction
 import Network.AWS.Glue.CreateWorkflow
+import Network.AWS.Glue.DeleteBlueprint
 import Network.AWS.Glue.DeleteClassifier
 import Network.AWS.Glue.DeleteColumnStatisticsForPartition
 import Network.AWS.Glue.DeleteColumnStatisticsForTable
@@ -1849,6 +1943,9 @@ import Network.AWS.Glue.DeleteTableVersion
 import Network.AWS.Glue.DeleteTrigger
 import Network.AWS.Glue.DeleteUserDefinedFunction
 import Network.AWS.Glue.DeleteWorkflow
+import Network.AWS.Glue.GetBlueprint
+import Network.AWS.Glue.GetBlueprintRun
+import Network.AWS.Glue.GetBlueprintRuns
 import Network.AWS.Glue.GetCatalogImportStatus
 import Network.AWS.Glue.GetClassifier
 import Network.AWS.Glue.GetClassifiers
@@ -1903,6 +2000,7 @@ import Network.AWS.Glue.GetWorkflowRunProperties
 import Network.AWS.Glue.GetWorkflowRuns
 import Network.AWS.Glue.ImportCatalogToGlue
 import Network.AWS.Glue.Lens
+import Network.AWS.Glue.ListBlueprints
 import Network.AWS.Glue.ListCrawlers
 import Network.AWS.Glue.ListDevEndpoints
 import Network.AWS.Glue.ListJobs
@@ -1922,6 +2020,7 @@ import Network.AWS.Glue.RemoveSchemaVersionMetadata
 import Network.AWS.Glue.ResetJobBookmark
 import Network.AWS.Glue.ResumeWorkflowRun
 import Network.AWS.Glue.SearchTables
+import Network.AWS.Glue.StartBlueprintRun
 import Network.AWS.Glue.StartCrawler
 import Network.AWS.Glue.StartCrawlerSchedule
 import Network.AWS.Glue.StartExportLabelsTaskRun
@@ -1938,6 +2037,7 @@ import Network.AWS.Glue.StopWorkflowRun
 import Network.AWS.Glue.TagResource
 import Network.AWS.Glue.Types
 import Network.AWS.Glue.UntagResource
+import Network.AWS.Glue.UpdateBlueprint
 import Network.AWS.Glue.UpdateClassifier
 import Network.AWS.Glue.UpdateColumnStatisticsForPartition
 import Network.AWS.Glue.UpdateColumnStatisticsForTable

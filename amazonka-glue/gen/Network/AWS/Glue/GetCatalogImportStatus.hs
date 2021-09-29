@@ -48,8 +48,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetCatalogImportStatus' smart constructor.
 data GetCatalogImportStatus = GetCatalogImportStatus'
-  { -- | The ID of the catalog to migrate. Currently, this should be the AWS
-    -- account ID.
+  { -- | The ID of the catalog to migrate. Currently, this should be the Amazon
+    -- Web Services account ID.
     catalogId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,8 +62,8 @@ data GetCatalogImportStatus = GetCatalogImportStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'catalogId', 'getCatalogImportStatus_catalogId' - The ID of the catalog to migrate. Currently, this should be the AWS
--- account ID.
+-- 'catalogId', 'getCatalogImportStatus_catalogId' - The ID of the catalog to migrate. Currently, this should be the Amazon
+-- Web Services account ID.
 newGetCatalogImportStatus ::
   GetCatalogImportStatus
 newGetCatalogImportStatus =
@@ -72,8 +72,8 @@ newGetCatalogImportStatus =
         Prelude.Nothing
     }
 
--- | The ID of the catalog to migrate. Currently, this should be the AWS
--- account ID.
+-- | The ID of the catalog to migrate. Currently, this should be the Amazon
+-- Web Services account ID.
 getCatalogImportStatus_catalogId :: Lens.Lens' GetCatalogImportStatus (Prelude.Maybe Prelude.Text)
 getCatalogImportStatus_catalogId = Lens.lens (\GetCatalogImportStatus' {catalogId} -> catalogId) (\s@GetCatalogImportStatus' {} a -> s {catalogId = a} :: GetCatalogImportStatus)
 

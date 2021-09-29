@@ -49,7 +49,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newCreateDatabase' smart constructor.
 data CreateDatabase = CreateDatabase'
   { -- | The ID of the Data Catalog in which to create the database. If none is
-    -- provided, the AWS account ID is used by default.
+    -- provided, the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The metadata for the database.
     databaseInput :: DatabaseInput
@@ -65,7 +65,7 @@ data CreateDatabase = CreateDatabase'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'createDatabase_catalogId' - The ID of the Data Catalog in which to create the database. If none is
--- provided, the AWS account ID is used by default.
+-- provided, the Amazon Web Services account ID is used by default.
 --
 -- 'databaseInput', 'createDatabase_databaseInput' - The metadata for the database.
 newCreateDatabase ::
@@ -79,7 +79,7 @@ newCreateDatabase pDatabaseInput_ =
     }
 
 -- | The ID of the Data Catalog in which to create the database. If none is
--- provided, the AWS account ID is used by default.
+-- provided, the Amazon Web Services account ID is used by default.
 createDatabase_catalogId :: Lens.Lens' CreateDatabase (Prelude.Maybe Prelude.Text)
 createDatabase_catalogId = Lens.lens (\CreateDatabase' {catalogId} -> catalogId) (\s@CreateDatabase' {} a -> s {catalogId = a} :: CreateDatabase)
 

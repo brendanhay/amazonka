@@ -52,6 +52,9 @@ data FindMatchesParameters = FindMatchesParameters'
     -- Note that setting this value to true may increase the conflation
     -- execution time.
     enforceProvidedLabels :: Prelude.Maybe Prelude.Bool,
+    -- | The name of a column that uniquely identifies rows in the source table.
+    -- Used to help identify matching records.
+    primaryKeyColumnName :: Prelude.Maybe Prelude.Text,
     -- | The value selected when tuning your transform for a balance between
     -- precision and recall. A value of 0.5 means no preference; a value of 1.0
     -- means a bias purely for precision, and a value of 0.0 means a bias for
@@ -64,10 +67,7 @@ data FindMatchesParameters = FindMatchesParameters'
     --
     -- The recall metric indicates that for an actual match, how often your
     -- model predicts the match.
-    precisionRecallTradeoff :: Prelude.Maybe Prelude.Double,
-    -- | The name of a column that uniquely identifies rows in the source table.
-    -- Used to help identify matching records.
-    primaryKeyColumnName :: Prelude.Maybe Prelude.Text
+    precisionRecallTradeoff :: Prelude.Maybe Prelude.Double
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -104,6 +104,9 @@ data FindMatchesParameters = FindMatchesParameters'
 -- Note that setting this value to true may increase the conflation
 -- execution time.
 --
+-- 'primaryKeyColumnName', 'findMatchesParameters_primaryKeyColumnName' - The name of a column that uniquely identifies rows in the source table.
+-- Used to help identify matching records.
+--
 -- 'precisionRecallTradeoff', 'findMatchesParameters_precisionRecallTradeoff' - The value selected when tuning your transform for a balance between
 -- precision and recall. A value of 0.5 means no preference; a value of 1.0
 -- means a bias purely for precision, and a value of 0.0 means a bias for
@@ -116,9 +119,6 @@ data FindMatchesParameters = FindMatchesParameters'
 --
 -- The recall metric indicates that for an actual match, how often your
 -- model predicts the match.
---
--- 'primaryKeyColumnName', 'findMatchesParameters_primaryKeyColumnName' - The name of a column that uniquely identifies rows in the source table.
--- Used to help identify matching records.
 newFindMatchesParameters ::
   FindMatchesParameters
 newFindMatchesParameters =
@@ -126,8 +126,8 @@ newFindMatchesParameters =
     { accuracyCostTradeoff =
         Prelude.Nothing,
       enforceProvidedLabels = Prelude.Nothing,
-      precisionRecallTradeoff = Prelude.Nothing,
-      primaryKeyColumnName = Prelude.Nothing
+      primaryKeyColumnName = Prelude.Nothing,
+      precisionRecallTradeoff = Prelude.Nothing
     }
 
 -- | The value that is selected when tuning your transform for a balance
@@ -159,6 +159,11 @@ findMatchesParameters_accuracyCostTradeoff = Lens.lens (\FindMatchesParameters' 
 findMatchesParameters_enforceProvidedLabels :: Lens.Lens' FindMatchesParameters (Prelude.Maybe Prelude.Bool)
 findMatchesParameters_enforceProvidedLabels = Lens.lens (\FindMatchesParameters' {enforceProvidedLabels} -> enforceProvidedLabels) (\s@FindMatchesParameters' {} a -> s {enforceProvidedLabels = a} :: FindMatchesParameters)
 
+-- | The name of a column that uniquely identifies rows in the source table.
+-- Used to help identify matching records.
+findMatchesParameters_primaryKeyColumnName :: Lens.Lens' FindMatchesParameters (Prelude.Maybe Prelude.Text)
+findMatchesParameters_primaryKeyColumnName = Lens.lens (\FindMatchesParameters' {primaryKeyColumnName} -> primaryKeyColumnName) (\s@FindMatchesParameters' {} a -> s {primaryKeyColumnName = a} :: FindMatchesParameters)
+
 -- | The value selected when tuning your transform for a balance between
 -- precision and recall. A value of 0.5 means no preference; a value of 1.0
 -- means a bias purely for precision, and a value of 0.0 means a bias for
@@ -174,11 +179,6 @@ findMatchesParameters_enforceProvidedLabels = Lens.lens (\FindMatchesParameters'
 findMatchesParameters_precisionRecallTradeoff :: Lens.Lens' FindMatchesParameters (Prelude.Maybe Prelude.Double)
 findMatchesParameters_precisionRecallTradeoff = Lens.lens (\FindMatchesParameters' {precisionRecallTradeoff} -> precisionRecallTradeoff) (\s@FindMatchesParameters' {} a -> s {precisionRecallTradeoff = a} :: FindMatchesParameters)
 
--- | The name of a column that uniquely identifies rows in the source table.
--- Used to help identify matching records.
-findMatchesParameters_primaryKeyColumnName :: Lens.Lens' FindMatchesParameters (Prelude.Maybe Prelude.Text)
-findMatchesParameters_primaryKeyColumnName = Lens.lens (\FindMatchesParameters' {primaryKeyColumnName} -> primaryKeyColumnName) (\s@FindMatchesParameters' {} a -> s {primaryKeyColumnName = a} :: FindMatchesParameters)
-
 instance Core.FromJSON FindMatchesParameters where
   parseJSON =
     Core.withObject
@@ -187,8 +187,8 @@ instance Core.FromJSON FindMatchesParameters where
           FindMatchesParameters'
             Prelude.<$> (x Core..:? "AccuracyCostTradeoff")
             Prelude.<*> (x Core..:? "EnforceProvidedLabels")
-            Prelude.<*> (x Core..:? "PrecisionRecallTradeoff")
             Prelude.<*> (x Core..:? "PrimaryKeyColumnName")
+            Prelude.<*> (x Core..:? "PrecisionRecallTradeoff")
       )
 
 instance Prelude.Hashable FindMatchesParameters
@@ -203,9 +203,9 @@ instance Core.ToJSON FindMatchesParameters where
               Prelude.<$> accuracyCostTradeoff,
             ("EnforceProvidedLabels" Core..=)
               Prelude.<$> enforceProvidedLabels,
-            ("PrecisionRecallTradeoff" Core..=)
-              Prelude.<$> precisionRecallTradeoff,
             ("PrimaryKeyColumnName" Core..=)
-              Prelude.<$> primaryKeyColumnName
+              Prelude.<$> primaryKeyColumnName,
+            ("PrecisionRecallTradeoff" Core..=)
+              Prelude.<$> precisionRecallTradeoff
           ]
       )

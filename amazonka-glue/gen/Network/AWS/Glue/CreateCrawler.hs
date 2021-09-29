@@ -36,8 +36,8 @@ module Network.AWS.Glue.CreateCrawler
     createCrawler_configuration,
     createCrawler_lineageConfiguration,
     createCrawler_tags,
-    createCrawler_tablePrefix,
     createCrawler_description,
+    createCrawler_tablePrefix,
     createCrawler_schedule,
     createCrawler_crawlerSecurityConfiguration,
     createCrawler_databaseName,
@@ -81,14 +81,14 @@ data CreateCrawler = CreateCrawler'
     -- | Specifies data lineage configuration settings for the crawler.
     lineageConfiguration :: Prelude.Maybe LineageConfiguration,
     -- | The tags to use with this crawler request. You may use tags to limit
-    -- access to the crawler. For more information about tags in AWS Glue, see
-    -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html AWS Tags in AWS Glue>
+    -- access to the crawler. For more information about tags in Glue, see
+    -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html Amazon Web Services Tags in Glue>
     -- in the developer guide.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The table prefix used for catalog tables that are created.
-    tablePrefix :: Prelude.Maybe Prelude.Text,
     -- | A description of the new crawler.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The table prefix used for catalog tables that are created.
+    tablePrefix :: Prelude.Maybe Prelude.Text,
     -- | A @cron@ expression used to specify the schedule (see
     -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers>.
     -- For example, to run something every day at 12:15 UTC, you would specify:
@@ -97,7 +97,7 @@ data CreateCrawler = CreateCrawler'
     -- | The name of the @SecurityConfiguration@ structure to be used by this
     -- crawler.
     crawlerSecurityConfiguration :: Prelude.Maybe Prelude.Text,
-    -- | The AWS Glue database where results are written, such as:
+    -- | The Glue database where results are written, such as:
     -- @arn:aws:daylight:us-east-1::database\/sometable\/*@.
     databaseName :: Prelude.Maybe Prelude.Text,
     -- | Name of the new crawler.
@@ -136,13 +136,13 @@ data CreateCrawler = CreateCrawler'
 -- 'lineageConfiguration', 'createCrawler_lineageConfiguration' - Specifies data lineage configuration settings for the crawler.
 --
 -- 'tags', 'createCrawler_tags' - The tags to use with this crawler request. You may use tags to limit
--- access to the crawler. For more information about tags in AWS Glue, see
--- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html AWS Tags in AWS Glue>
+-- access to the crawler. For more information about tags in Glue, see
+-- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html Amazon Web Services Tags in Glue>
 -- in the developer guide.
 --
--- 'tablePrefix', 'createCrawler_tablePrefix' - The table prefix used for catalog tables that are created.
---
 -- 'description', 'createCrawler_description' - A description of the new crawler.
+--
+-- 'tablePrefix', 'createCrawler_tablePrefix' - The table prefix used for catalog tables that are created.
 --
 -- 'schedule', 'createCrawler_schedule' - A @cron@ expression used to specify the schedule (see
 -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers>.
@@ -152,7 +152,7 @@ data CreateCrawler = CreateCrawler'
 -- 'crawlerSecurityConfiguration', 'createCrawler_crawlerSecurityConfiguration' - The name of the @SecurityConfiguration@ structure to be used by this
 -- crawler.
 --
--- 'databaseName', 'createCrawler_databaseName' - The AWS Glue database where results are written, such as:
+-- 'databaseName', 'createCrawler_databaseName' - The Glue database where results are written, such as:
 -- @arn:aws:daylight:us-east-1::database\/sometable\/*@.
 --
 -- 'name', 'createCrawler_name' - Name of the new crawler.
@@ -178,8 +178,8 @@ newCreateCrawler pName_ pRole_ pTargets_ =
       configuration = Prelude.Nothing,
       lineageConfiguration = Prelude.Nothing,
       tags = Prelude.Nothing,
-      tablePrefix = Prelude.Nothing,
       description = Prelude.Nothing,
+      tablePrefix = Prelude.Nothing,
       schedule = Prelude.Nothing,
       crawlerSecurityConfiguration = Prelude.Nothing,
       databaseName = Prelude.Nothing,
@@ -216,19 +216,19 @@ createCrawler_lineageConfiguration :: Lens.Lens' CreateCrawler (Prelude.Maybe Li
 createCrawler_lineageConfiguration = Lens.lens (\CreateCrawler' {lineageConfiguration} -> lineageConfiguration) (\s@CreateCrawler' {} a -> s {lineageConfiguration = a} :: CreateCrawler)
 
 -- | The tags to use with this crawler request. You may use tags to limit
--- access to the crawler. For more information about tags in AWS Glue, see
--- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html AWS Tags in AWS Glue>
+-- access to the crawler. For more information about tags in Glue, see
+-- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html Amazon Web Services Tags in Glue>
 -- in the developer guide.
 createCrawler_tags :: Lens.Lens' CreateCrawler (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createCrawler_tags = Lens.lens (\CreateCrawler' {tags} -> tags) (\s@CreateCrawler' {} a -> s {tags = a} :: CreateCrawler) Prelude.. Lens.mapping Lens._Coerce
 
--- | The table prefix used for catalog tables that are created.
-createCrawler_tablePrefix :: Lens.Lens' CreateCrawler (Prelude.Maybe Prelude.Text)
-createCrawler_tablePrefix = Lens.lens (\CreateCrawler' {tablePrefix} -> tablePrefix) (\s@CreateCrawler' {} a -> s {tablePrefix = a} :: CreateCrawler)
-
 -- | A description of the new crawler.
 createCrawler_description :: Lens.Lens' CreateCrawler (Prelude.Maybe Prelude.Text)
 createCrawler_description = Lens.lens (\CreateCrawler' {description} -> description) (\s@CreateCrawler' {} a -> s {description = a} :: CreateCrawler)
+
+-- | The table prefix used for catalog tables that are created.
+createCrawler_tablePrefix :: Lens.Lens' CreateCrawler (Prelude.Maybe Prelude.Text)
+createCrawler_tablePrefix = Lens.lens (\CreateCrawler' {tablePrefix} -> tablePrefix) (\s@CreateCrawler' {} a -> s {tablePrefix = a} :: CreateCrawler)
 
 -- | A @cron@ expression used to specify the schedule (see
 -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html Time-Based Schedules for Jobs and Crawlers>.
@@ -242,7 +242,7 @@ createCrawler_schedule = Lens.lens (\CreateCrawler' {schedule} -> schedule) (\s@
 createCrawler_crawlerSecurityConfiguration :: Lens.Lens' CreateCrawler (Prelude.Maybe Prelude.Text)
 createCrawler_crawlerSecurityConfiguration = Lens.lens (\CreateCrawler' {crawlerSecurityConfiguration} -> crawlerSecurityConfiguration) (\s@CreateCrawler' {} a -> s {crawlerSecurityConfiguration = a} :: CreateCrawler)
 
--- | The AWS Glue database where results are written, such as:
+-- | The Glue database where results are written, such as:
 -- @arn:aws:daylight:us-east-1::database\/sometable\/*@.
 createCrawler_databaseName :: Lens.Lens' CreateCrawler (Prelude.Maybe Prelude.Text)
 createCrawler_databaseName = Lens.lens (\CreateCrawler' {databaseName} -> databaseName) (\s@CreateCrawler' {} a -> s {databaseName = a} :: CreateCrawler)
@@ -301,8 +301,8 @@ instance Core.ToJSON CreateCrawler where
             ("LineageConfiguration" Core..=)
               Prelude.<$> lineageConfiguration,
             ("Tags" Core..=) Prelude.<$> tags,
-            ("TablePrefix" Core..=) Prelude.<$> tablePrefix,
             ("Description" Core..=) Prelude.<$> description,
+            ("TablePrefix" Core..=) Prelude.<$> tablePrefix,
             ("Schedule" Core..=) Prelude.<$> schedule,
             ("CrawlerSecurityConfiguration" Core..=)
               Prelude.<$> crawlerSecurityConfiguration,

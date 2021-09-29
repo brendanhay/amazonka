@@ -31,8 +31,8 @@ module Network.AWS.Glue.GetTableVersions
 
     -- * Request Lenses
     getTableVersions_nextToken,
-    getTableVersions_catalogId,
     getTableVersions_maxResults,
+    getTableVersions_catalogId,
     getTableVersions_databaseName,
     getTableVersions_tableName,
 
@@ -58,11 +58,11 @@ import qualified Network.AWS.Response as Response
 data GetTableVersions = GetTableVersions'
   { -- | A continuation token, if this is not the first call.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Data Catalog where the tables reside. If none is provided,
-    -- the AWS account ID is used by default.
-    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of table versions to return in one response.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The ID of the Data Catalog where the tables reside. If none is provided,
+    -- the Amazon Web Services account ID is used by default.
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The database in the catalog in which the table resides. For Hive
     -- compatibility, this name is entirely lowercase.
     databaseName :: Prelude.Text,
@@ -82,10 +82,10 @@ data GetTableVersions = GetTableVersions'
 --
 -- 'nextToken', 'getTableVersions_nextToken' - A continuation token, if this is not the first call.
 --
--- 'catalogId', 'getTableVersions_catalogId' - The ID of the Data Catalog where the tables reside. If none is provided,
--- the AWS account ID is used by default.
---
 -- 'maxResults', 'getTableVersions_maxResults' - The maximum number of table versions to return in one response.
+--
+-- 'catalogId', 'getTableVersions_catalogId' - The ID of the Data Catalog where the tables reside. If none is provided,
+-- the Amazon Web Services account ID is used by default.
 --
 -- 'databaseName', 'getTableVersions_databaseName' - The database in the catalog in which the table resides. For Hive
 -- compatibility, this name is entirely lowercase.
@@ -101,8 +101,8 @@ newGetTableVersions ::
 newGetTableVersions pDatabaseName_ pTableName_ =
   GetTableVersions'
     { nextToken = Prelude.Nothing,
-      catalogId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      catalogId = Prelude.Nothing,
       databaseName = pDatabaseName_,
       tableName = pTableName_
     }
@@ -111,14 +111,14 @@ newGetTableVersions pDatabaseName_ pTableName_ =
 getTableVersions_nextToken :: Lens.Lens' GetTableVersions (Prelude.Maybe Prelude.Text)
 getTableVersions_nextToken = Lens.lens (\GetTableVersions' {nextToken} -> nextToken) (\s@GetTableVersions' {} a -> s {nextToken = a} :: GetTableVersions)
 
--- | The ID of the Data Catalog where the tables reside. If none is provided,
--- the AWS account ID is used by default.
-getTableVersions_catalogId :: Lens.Lens' GetTableVersions (Prelude.Maybe Prelude.Text)
-getTableVersions_catalogId = Lens.lens (\GetTableVersions' {catalogId} -> catalogId) (\s@GetTableVersions' {} a -> s {catalogId = a} :: GetTableVersions)
-
 -- | The maximum number of table versions to return in one response.
 getTableVersions_maxResults :: Lens.Lens' GetTableVersions (Prelude.Maybe Prelude.Natural)
 getTableVersions_maxResults = Lens.lens (\GetTableVersions' {maxResults} -> maxResults) (\s@GetTableVersions' {} a -> s {maxResults = a} :: GetTableVersions)
+
+-- | The ID of the Data Catalog where the tables reside. If none is provided,
+-- the Amazon Web Services account ID is used by default.
+getTableVersions_catalogId :: Lens.Lens' GetTableVersions (Prelude.Maybe Prelude.Text)
+getTableVersions_catalogId = Lens.lens (\GetTableVersions' {catalogId} -> catalogId) (\s@GetTableVersions' {} a -> s {catalogId = a} :: GetTableVersions)
 
 -- | The database in the catalog in which the table resides. For Hive
 -- compatibility, this name is entirely lowercase.
@@ -188,8 +188,8 @@ instance Core.ToJSON GetTableVersions where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("CatalogId" Core..=) Prelude.<$> catalogId,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("CatalogId" Core..=) Prelude.<$> catalogId,
             Prelude.Just ("DatabaseName" Core..= databaseName),
             Prelude.Just ("TableName" Core..= tableName)
           ]

@@ -20,13 +20,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the security configurations for the resource policies set on
--- individual resources, and also the account-level policy.
+-- Retrieves the resource policies set on individual resources by Resource
+-- Access Manager during cross-account permission grants. Also retrieves
+-- the Data Catalog resource policy.
 --
--- This operation also returns the Data Catalog resource policy. However,
--- if you enabled metadata encryption in Data Catalog settings, and you do
--- not have permission on the AWS KMS key, the operation can\'t return the
--- Data Catalog resource policy.
+-- If you enabled metadata encryption in Data Catalog settings, and you do
+-- not have permission on the KMS key, the operation can\'t return the Data
+-- Catalog resource policy.
 --
 -- This operation returns paginated results.
 module Network.AWS.Glue.GetResourcePolicies

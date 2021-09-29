@@ -24,8 +24,7 @@ import Network.AWS.Glue.Types.SchemaId
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | An object that references a schema stored in the AWS Glue Schema
--- Registry.
+-- | An object that references a schema stored in the Glue Schema Registry.
 --
 -- /See:/ 'newSchemaReference' smart constructor.
 data SchemaReference = SchemaReference'

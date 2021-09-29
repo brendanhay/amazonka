@@ -39,10 +39,10 @@ module Network.AWS.Glue.CreateJob
     createJob_workerType,
     createJob_description,
     createJob_defaultArguments,
-    createJob_allocatedCapacity,
     createJob_executionProperty,
-    createJob_maxRetries,
+    createJob_allocatedCapacity,
     createJob_logUri,
+    createJob_maxRetries,
     createJob_name,
     createJob_role,
     createJob_command,
@@ -75,11 +75,12 @@ data CreateJob = CreateJob'
     -- consume resources before it is terminated and enters @TIMEOUT@ status.
     -- The default is 2,880 minutes (48 hours).
     timeout :: Prelude.Maybe Prelude.Natural,
-    -- | The number of AWS Glue data processing units (DPUs) that can be
-    -- allocated when this job runs. A DPU is a relative measure of processing
-    -- power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
-    -- For more information, see the
-    -- <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page>.
+    -- | For Glue version 1.0 or earlier jobs, using the standard worker type,
+    -- the number of Glue data processing units (DPUs) that can be allocated
+    -- when this job runs. A DPU is a relative measure of processing power that
+    -- consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
+    -- information, see the
+    -- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
     --
     -- Do not set @Max Capacity@ if using @WorkerType@ and @NumberOfWorkers@.
     --
@@ -95,6 +96,10 @@ data CreateJob = CreateJob'
     --     (@JobCommand.Name@=\"gluestreaming\"), you can allocate from 2 to
     --     100 DPUs. The default is 10 DPUs. This job type cannot have a
     --     fractional DPU allocation.
+    --
+    -- For Glue version 2.0 jobs, you cannot instead specify a
+    -- @Maximum capacity@. Instead, you should specify a @Worker type@ and the
+    -- @Number of workers@.
     maxCapacity :: Prelude.Maybe Prelude.Double,
     -- | The connections used for this job.
     connections :: Prelude.Maybe ConnectionsList,
@@ -106,12 +111,12 @@ data CreateJob = CreateJob'
     -- The maximum number of workers you can define are 299 for @G.1X@, and 149
     -- for @G.2X@.
     numberOfWorkers :: Prelude.Maybe Prelude.Int,
-    -- | Glue version determines the versions of Apache Spark and Python that AWS
+    -- | Glue version determines the versions of Apache Spark and Python that
     -- Glue supports. The Python version indicates the version supported for
     -- jobs of type Spark.
     --
-    -- For more information about the available AWS Glue versions and
-    -- corresponding Spark and Python versions, see
+    -- For more information about the available Glue versions and corresponding
+    -- Spark and Python versions, see
     -- <https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version>
     -- in the developer guide.
     --
@@ -119,8 +124,8 @@ data CreateJob = CreateJob'
     -- 0.9.
     glueVersion :: Prelude.Maybe Prelude.Text,
     -- | The tags to use with this job. You may use tags to limit access to the
-    -- job. For more information about tags in AWS Glue, see
-    -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html AWS Tags in AWS Glue>
+    -- job. For more information about tags in Glue, see
+    -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html Amazon Web Services Tags in Glue>
     -- in the developer guide.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The type of predefined worker that is allocated when a job runs. Accepts
@@ -142,40 +147,40 @@ data CreateJob = CreateJob'
     -- | The default arguments for this job.
     --
     -- You can specify arguments here that your own job-execution script
-    -- consumes, as well as arguments that AWS Glue itself consumes.
+    -- consumes, as well as arguments that Glue itself consumes.
     --
     -- For information about how to specify and consume your own Job arguments,
     -- see the
-    -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling AWS Glue APIs in Python>
+    -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling Glue APIs in Python>
     -- topic in the developer guide.
     --
-    -- For information about the key-value pairs that AWS Glue consumes to set
-    -- up your job, see the
-    -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by AWS Glue>
+    -- For information about the key-value pairs that Glue consumes to set up
+    -- your job, see the
+    -- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by Glue>
     -- topic in the developer guide.
     defaultArguments :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | This parameter is deprecated. Use @MaxCapacity@ instead.
-    --
-    -- The number of AWS Glue data processing units (DPUs) to allocate to this
-    -- Job. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a
-    -- relative measure of processing power that consists of 4 vCPUs of compute
-    -- capacity and 16 GB of memory. For more information, see the
-    -- <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page>.
-    allocatedCapacity :: Prelude.Maybe Prelude.Int,
     -- | An @ExecutionProperty@ specifying the maximum number of concurrent runs
     -- allowed for this job.
     executionProperty :: Prelude.Maybe ExecutionProperty,
-    -- | The maximum number of times to retry this job if it fails.
-    maxRetries :: Prelude.Maybe Prelude.Int,
+    -- | This parameter is deprecated. Use @MaxCapacity@ instead.
+    --
+    -- The number of Glue data processing units (DPUs) to allocate to this Job.
+    -- You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a
+    -- relative measure of processing power that consists of 4 vCPUs of compute
+    -- capacity and 16 GB of memory. For more information, see the
+    -- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
+    allocatedCapacity :: Prelude.Maybe Prelude.Int,
     -- | This field is reserved for future use.
     logUri :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of times to retry this job if it fails.
+    maxRetries :: Prelude.Maybe Prelude.Int,
     -- | The name you assign to this job definition. It must be unique in your
     -- account.
     name :: Prelude.Text,
     -- | The name or Amazon Resource Name (ARN) of the IAM role associated with
     -- this job.
     role' :: Prelude.Text,
-    -- | The @JobCommand@ that executes this job.
+    -- | The @JobCommand@ that runs this job.
     command :: JobCommand
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -197,11 +202,12 @@ data CreateJob = CreateJob'
 -- consume resources before it is terminated and enters @TIMEOUT@ status.
 -- The default is 2,880 minutes (48 hours).
 --
--- 'maxCapacity', 'createJob_maxCapacity' - The number of AWS Glue data processing units (DPUs) that can be
--- allocated when this job runs. A DPU is a relative measure of processing
--- power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
--- For more information, see the
--- <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page>.
+-- 'maxCapacity', 'createJob_maxCapacity' - For Glue version 1.0 or earlier jobs, using the standard worker type,
+-- the number of Glue data processing units (DPUs) that can be allocated
+-- when this job runs. A DPU is a relative measure of processing power that
+-- consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
+-- information, see the
+-- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
 --
 -- Do not set @Max Capacity@ if using @WorkerType@ and @NumberOfWorkers@.
 --
@@ -218,6 +224,10 @@ data CreateJob = CreateJob'
 --     100 DPUs. The default is 10 DPUs. This job type cannot have a
 --     fractional DPU allocation.
 --
+-- For Glue version 2.0 jobs, you cannot instead specify a
+-- @Maximum capacity@. Instead, you should specify a @Worker type@ and the
+-- @Number of workers@.
+--
 -- 'connections', 'createJob_connections' - The connections used for this job.
 --
 -- 'notificationProperty', 'createJob_notificationProperty' - Specifies configuration properties of a job notification.
@@ -228,12 +238,12 @@ data CreateJob = CreateJob'
 -- The maximum number of workers you can define are 299 for @G.1X@, and 149
 -- for @G.2X@.
 --
--- 'glueVersion', 'createJob_glueVersion' - Glue version determines the versions of Apache Spark and Python that AWS
+-- 'glueVersion', 'createJob_glueVersion' - Glue version determines the versions of Apache Spark and Python that
 -- Glue supports. The Python version indicates the version supported for
 -- jobs of type Spark.
 --
--- For more information about the available AWS Glue versions and
--- corresponding Spark and Python versions, see
+-- For more information about the available Glue versions and corresponding
+-- Spark and Python versions, see
 -- <https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version>
 -- in the developer guide.
 --
@@ -241,8 +251,8 @@ data CreateJob = CreateJob'
 -- 0.9.
 --
 -- 'tags', 'createJob_tags' - The tags to use with this job. You may use tags to limit access to the
--- job. For more information about tags in AWS Glue, see
--- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html AWS Tags in AWS Glue>
+-- job. For more information about tags in Glue, see
+-- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html Amazon Web Services Tags in Glue>
 -- in the developer guide.
 --
 -- 'workerType', 'createJob_workerType' - The type of predefined worker that is allocated when a job runs. Accepts
@@ -264,32 +274,32 @@ data CreateJob = CreateJob'
 -- 'defaultArguments', 'createJob_defaultArguments' - The default arguments for this job.
 --
 -- You can specify arguments here that your own job-execution script
--- consumes, as well as arguments that AWS Glue itself consumes.
+-- consumes, as well as arguments that Glue itself consumes.
 --
 -- For information about how to specify and consume your own Job arguments,
 -- see the
--- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling AWS Glue APIs in Python>
+-- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling Glue APIs in Python>
 -- topic in the developer guide.
 --
--- For information about the key-value pairs that AWS Glue consumes to set
--- up your job, see the
--- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by AWS Glue>
+-- For information about the key-value pairs that Glue consumes to set up
+-- your job, see the
+-- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by Glue>
 -- topic in the developer guide.
---
--- 'allocatedCapacity', 'createJob_allocatedCapacity' - This parameter is deprecated. Use @MaxCapacity@ instead.
---
--- The number of AWS Glue data processing units (DPUs) to allocate to this
--- Job. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a
--- relative measure of processing power that consists of 4 vCPUs of compute
--- capacity and 16 GB of memory. For more information, see the
--- <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page>.
 --
 -- 'executionProperty', 'createJob_executionProperty' - An @ExecutionProperty@ specifying the maximum number of concurrent runs
 -- allowed for this job.
 --
--- 'maxRetries', 'createJob_maxRetries' - The maximum number of times to retry this job if it fails.
+-- 'allocatedCapacity', 'createJob_allocatedCapacity' - This parameter is deprecated. Use @MaxCapacity@ instead.
+--
+-- The number of Glue data processing units (DPUs) to allocate to this Job.
+-- You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a
+-- relative measure of processing power that consists of 4 vCPUs of compute
+-- capacity and 16 GB of memory. For more information, see the
+-- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
 --
 -- 'logUri', 'createJob_logUri' - This field is reserved for future use.
+--
+-- 'maxRetries', 'createJob_maxRetries' - The maximum number of times to retry this job if it fails.
 --
 -- 'name', 'createJob_name' - The name you assign to this job definition. It must be unique in your
 -- account.
@@ -297,7 +307,7 @@ data CreateJob = CreateJob'
 -- 'role'', 'createJob_role' - The name or Amazon Resource Name (ARN) of the IAM role associated with
 -- this job.
 --
--- 'command', 'createJob_command' - The @JobCommand@ that executes this job.
+-- 'command', 'createJob_command' - The @JobCommand@ that runs this job.
 newCreateJob ::
   -- | 'name'
   Prelude.Text ->
@@ -321,10 +331,10 @@ newCreateJob pName_ pRole_ pCommand_ =
       workerType = Prelude.Nothing,
       description = Prelude.Nothing,
       defaultArguments = Prelude.Nothing,
-      allocatedCapacity = Prelude.Nothing,
       executionProperty = Prelude.Nothing,
-      maxRetries = Prelude.Nothing,
+      allocatedCapacity = Prelude.Nothing,
       logUri = Prelude.Nothing,
+      maxRetries = Prelude.Nothing,
       name = pName_,
       role' = pRole_,
       command = pCommand_
@@ -345,11 +355,12 @@ createJob_securityConfiguration = Lens.lens (\CreateJob' {securityConfiguration}
 createJob_timeout :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Natural)
 createJob_timeout = Lens.lens (\CreateJob' {timeout} -> timeout) (\s@CreateJob' {} a -> s {timeout = a} :: CreateJob)
 
--- | The number of AWS Glue data processing units (DPUs) that can be
--- allocated when this job runs. A DPU is a relative measure of processing
--- power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
--- For more information, see the
--- <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page>.
+-- | For Glue version 1.0 or earlier jobs, using the standard worker type,
+-- the number of Glue data processing units (DPUs) that can be allocated
+-- when this job runs. A DPU is a relative measure of processing power that
+-- consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
+-- information, see the
+-- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
 --
 -- Do not set @Max Capacity@ if using @WorkerType@ and @NumberOfWorkers@.
 --
@@ -365,6 +376,10 @@ createJob_timeout = Lens.lens (\CreateJob' {timeout} -> timeout) (\s@CreateJob' 
 --     (@JobCommand.Name@=\"gluestreaming\"), you can allocate from 2 to
 --     100 DPUs. The default is 10 DPUs. This job type cannot have a
 --     fractional DPU allocation.
+--
+-- For Glue version 2.0 jobs, you cannot instead specify a
+-- @Maximum capacity@. Instead, you should specify a @Worker type@ and the
+-- @Number of workers@.
 createJob_maxCapacity :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Double)
 createJob_maxCapacity = Lens.lens (\CreateJob' {maxCapacity} -> maxCapacity) (\s@CreateJob' {} a -> s {maxCapacity = a} :: CreateJob)
 
@@ -384,12 +399,12 @@ createJob_notificationProperty = Lens.lens (\CreateJob' {notificationProperty} -
 createJob_numberOfWorkers :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Int)
 createJob_numberOfWorkers = Lens.lens (\CreateJob' {numberOfWorkers} -> numberOfWorkers) (\s@CreateJob' {} a -> s {numberOfWorkers = a} :: CreateJob)
 
--- | Glue version determines the versions of Apache Spark and Python that AWS
+-- | Glue version determines the versions of Apache Spark and Python that
 -- Glue supports. The Python version indicates the version supported for
 -- jobs of type Spark.
 --
--- For more information about the available AWS Glue versions and
--- corresponding Spark and Python versions, see
+-- For more information about the available Glue versions and corresponding
+-- Spark and Python versions, see
 -- <https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version>
 -- in the developer guide.
 --
@@ -399,8 +414,8 @@ createJob_glueVersion :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
 createJob_glueVersion = Lens.lens (\CreateJob' {glueVersion} -> glueVersion) (\s@CreateJob' {} a -> s {glueVersion = a} :: CreateJob)
 
 -- | The tags to use with this job. You may use tags to limit access to the
--- job. For more information about tags in AWS Glue, see
--- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html AWS Tags in AWS Glue>
+-- job. For more information about tags in Glue, see
+-- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html Amazon Web Services Tags in Glue>
 -- in the developer guide.
 createJob_tags :: Lens.Lens' CreateJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createJob_tags = Lens.lens (\CreateJob' {tags} -> tags) (\s@CreateJob' {} a -> s {tags = a} :: CreateJob) Prelude.. Lens.mapping Lens._Coerce
@@ -428,42 +443,42 @@ createJob_description = Lens.lens (\CreateJob' {description} -> description) (\s
 -- | The default arguments for this job.
 --
 -- You can specify arguments here that your own job-execution script
--- consumes, as well as arguments that AWS Glue itself consumes.
+-- consumes, as well as arguments that Glue itself consumes.
 --
 -- For information about how to specify and consume your own Job arguments,
 -- see the
--- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling AWS Glue APIs in Python>
+-- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html Calling Glue APIs in Python>
 -- topic in the developer guide.
 --
--- For information about the key-value pairs that AWS Glue consumes to set
--- up your job, see the
--- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by AWS Glue>
+-- For information about the key-value pairs that Glue consumes to set up
+-- your job, see the
+-- <https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html Special Parameters Used by Glue>
 -- topic in the developer guide.
 createJob_defaultArguments :: Lens.Lens' CreateJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createJob_defaultArguments = Lens.lens (\CreateJob' {defaultArguments} -> defaultArguments) (\s@CreateJob' {} a -> s {defaultArguments = a} :: CreateJob) Prelude.. Lens.mapping Lens._Coerce
-
--- | This parameter is deprecated. Use @MaxCapacity@ instead.
---
--- The number of AWS Glue data processing units (DPUs) to allocate to this
--- Job. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a
--- relative measure of processing power that consists of 4 vCPUs of compute
--- capacity and 16 GB of memory. For more information, see the
--- <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page>.
-createJob_allocatedCapacity :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Int)
-createJob_allocatedCapacity = Lens.lens (\CreateJob' {allocatedCapacity} -> allocatedCapacity) (\s@CreateJob' {} a -> s {allocatedCapacity = a} :: CreateJob)
 
 -- | An @ExecutionProperty@ specifying the maximum number of concurrent runs
 -- allowed for this job.
 createJob_executionProperty :: Lens.Lens' CreateJob (Prelude.Maybe ExecutionProperty)
 createJob_executionProperty = Lens.lens (\CreateJob' {executionProperty} -> executionProperty) (\s@CreateJob' {} a -> s {executionProperty = a} :: CreateJob)
 
--- | The maximum number of times to retry this job if it fails.
-createJob_maxRetries :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Int)
-createJob_maxRetries = Lens.lens (\CreateJob' {maxRetries} -> maxRetries) (\s@CreateJob' {} a -> s {maxRetries = a} :: CreateJob)
+-- | This parameter is deprecated. Use @MaxCapacity@ instead.
+--
+-- The number of Glue data processing units (DPUs) to allocate to this Job.
+-- You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a
+-- relative measure of processing power that consists of 4 vCPUs of compute
+-- capacity and 16 GB of memory. For more information, see the
+-- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
+createJob_allocatedCapacity :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Int)
+createJob_allocatedCapacity = Lens.lens (\CreateJob' {allocatedCapacity} -> allocatedCapacity) (\s@CreateJob' {} a -> s {allocatedCapacity = a} :: CreateJob)
 
 -- | This field is reserved for future use.
 createJob_logUri :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Text)
 createJob_logUri = Lens.lens (\CreateJob' {logUri} -> logUri) (\s@CreateJob' {} a -> s {logUri = a} :: CreateJob)
+
+-- | The maximum number of times to retry this job if it fails.
+createJob_maxRetries :: Lens.Lens' CreateJob (Prelude.Maybe Prelude.Int)
+createJob_maxRetries = Lens.lens (\CreateJob' {maxRetries} -> maxRetries) (\s@CreateJob' {} a -> s {maxRetries = a} :: CreateJob)
 
 -- | The name you assign to this job definition. It must be unique in your
 -- account.
@@ -475,7 +490,7 @@ createJob_name = Lens.lens (\CreateJob' {name} -> name) (\s@CreateJob' {} a -> s
 createJob_role :: Lens.Lens' CreateJob Prelude.Text
 createJob_role = Lens.lens (\CreateJob' {role'} -> role') (\s@CreateJob' {} a -> s {role' = a} :: CreateJob)
 
--- | The @JobCommand@ that executes this job.
+-- | The @JobCommand@ that runs this job.
 createJob_command :: Lens.Lens' CreateJob JobCommand
 createJob_command = Lens.lens (\CreateJob' {command} -> command) (\s@CreateJob' {} a -> s {command = a} :: CreateJob)
 
@@ -528,12 +543,12 @@ instance Core.ToJSON CreateJob where
             ("Description" Core..=) Prelude.<$> description,
             ("DefaultArguments" Core..=)
               Prelude.<$> defaultArguments,
-            ("AllocatedCapacity" Core..=)
-              Prelude.<$> allocatedCapacity,
             ("ExecutionProperty" Core..=)
               Prelude.<$> executionProperty,
-            ("MaxRetries" Core..=) Prelude.<$> maxRetries,
+            ("AllocatedCapacity" Core..=)
+              Prelude.<$> allocatedCapacity,
             ("LogUri" Core..=) Prelude.<$> logUri,
+            ("MaxRetries" Core..=) Prelude.<$> maxRetries,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("Role" Core..= role'),
             Prelude.Just ("Command" Core..= command)

@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTaskRunFilterCriteria' smart constructor.
 data TaskRunFilterCriteria = TaskRunFilterCriteria'
-  { -- | The current status of the task run.
-    status :: Prelude.Maybe TaskStatusType,
-    -- | The type of task run.
+  { -- | The type of task run.
     taskRunType :: Prelude.Maybe TaskType,
+    -- | The current status of the task run.
+    status :: Prelude.Maybe TaskStatusType,
     -- | Filter on task runs started before this date.
     startedBefore :: Prelude.Maybe Core.POSIX,
     -- | Filter on task runs started after this date.
@@ -49,9 +49,9 @@ data TaskRunFilterCriteria = TaskRunFilterCriteria'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'taskRunFilterCriteria_status' - The current status of the task run.
---
 -- 'taskRunType', 'taskRunFilterCriteria_taskRunType' - The type of task run.
+--
+-- 'status', 'taskRunFilterCriteria_status' - The current status of the task run.
 --
 -- 'startedBefore', 'taskRunFilterCriteria_startedBefore' - Filter on task runs started before this date.
 --
@@ -60,19 +60,20 @@ newTaskRunFilterCriteria ::
   TaskRunFilterCriteria
 newTaskRunFilterCriteria =
   TaskRunFilterCriteria'
-    { status = Prelude.Nothing,
-      taskRunType = Prelude.Nothing,
+    { taskRunType =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
       startedBefore = Prelude.Nothing,
       startedAfter = Prelude.Nothing
     }
 
--- | The current status of the task run.
-taskRunFilterCriteria_status :: Lens.Lens' TaskRunFilterCriteria (Prelude.Maybe TaskStatusType)
-taskRunFilterCriteria_status = Lens.lens (\TaskRunFilterCriteria' {status} -> status) (\s@TaskRunFilterCriteria' {} a -> s {status = a} :: TaskRunFilterCriteria)
-
 -- | The type of task run.
 taskRunFilterCriteria_taskRunType :: Lens.Lens' TaskRunFilterCriteria (Prelude.Maybe TaskType)
 taskRunFilterCriteria_taskRunType = Lens.lens (\TaskRunFilterCriteria' {taskRunType} -> taskRunType) (\s@TaskRunFilterCriteria' {} a -> s {taskRunType = a} :: TaskRunFilterCriteria)
+
+-- | The current status of the task run.
+taskRunFilterCriteria_status :: Lens.Lens' TaskRunFilterCriteria (Prelude.Maybe TaskStatusType)
+taskRunFilterCriteria_status = Lens.lens (\TaskRunFilterCriteria' {status} -> status) (\s@TaskRunFilterCriteria' {} a -> s {status = a} :: TaskRunFilterCriteria)
 
 -- | Filter on task runs started before this date.
 taskRunFilterCriteria_startedBefore :: Lens.Lens' TaskRunFilterCriteria (Prelude.Maybe Prelude.UTCTime)
@@ -90,8 +91,8 @@ instance Core.ToJSON TaskRunFilterCriteria where
   toJSON TaskRunFilterCriteria' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Status" Core..=) Prelude.<$> status,
-            ("TaskRunType" Core..=) Prelude.<$> taskRunType,
+          [ ("TaskRunType" Core..=) Prelude.<$> taskRunType,
+            ("Status" Core..=) Prelude.<$> status,
             ("StartedBefore" Core..=) Prelude.<$> startedBefore,
             ("StartedAfter" Core..=) Prelude.<$> startedAfter
           ]

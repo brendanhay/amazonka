@@ -52,7 +52,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newBatchDeletePartition' smart constructor.
 data BatchDeletePartition = BatchDeletePartition'
   { -- | The ID of the Data Catalog where the partition to be deleted resides. If
-    -- none is provided, the AWS account ID is used by default.
+    -- none is provided, the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the catalog database in which the table in question resides.
     databaseName :: Prelude.Text,
@@ -73,7 +73,7 @@ data BatchDeletePartition = BatchDeletePartition'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'batchDeletePartition_catalogId' - The ID of the Data Catalog where the partition to be deleted resides. If
--- none is provided, the AWS account ID is used by default.
+-- none is provided, the Amazon Web Services account ID is used by default.
 --
 -- 'databaseName', 'batchDeletePartition_databaseName' - The name of the catalog database in which the table in question resides.
 --
@@ -96,7 +96,7 @@ newBatchDeletePartition pDatabaseName_ pTableName_ =
     }
 
 -- | The ID of the Data Catalog where the partition to be deleted resides. If
--- none is provided, the AWS account ID is used by default.
+-- none is provided, the Amazon Web Services account ID is used by default.
 batchDeletePartition_catalogId :: Lens.Lens' BatchDeletePartition (Prelude.Maybe Prelude.Text)
 batchDeletePartition_catalogId = Lens.lens (\BatchDeletePartition' {catalogId} -> catalogId) (\s@BatchDeletePartition' {} a -> s {catalogId = a} :: BatchDeletePartition)
 

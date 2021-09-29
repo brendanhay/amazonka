@@ -53,7 +53,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newBatchGetPartition' smart constructor.
 data BatchGetPartition = BatchGetPartition'
   { -- | The ID of the Data Catalog where the partitions in question reside. If
-    -- none is supplied, the AWS account ID is used by default.
+    -- none is supplied, the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the catalog database where the partitions reside.
     databaseName :: Prelude.Text,
@@ -73,7 +73,7 @@ data BatchGetPartition = BatchGetPartition'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'batchGetPartition_catalogId' - The ID of the Data Catalog where the partitions in question reside. If
--- none is supplied, the AWS account ID is used by default.
+-- none is supplied, the Amazon Web Services account ID is used by default.
 --
 -- 'databaseName', 'batchGetPartition_databaseName' - The name of the catalog database where the partitions reside.
 --
@@ -95,7 +95,7 @@ newBatchGetPartition pDatabaseName_ pTableName_ =
     }
 
 -- | The ID of the Data Catalog where the partitions in question reside. If
--- none is supplied, the AWS account ID is used by default.
+-- none is supplied, the Amazon Web Services account ID is used by default.
 batchGetPartition_catalogId :: Lens.Lens' BatchGetPartition (Prelude.Maybe Prelude.Text)
 batchGetPartition_catalogId = Lens.lens (\BatchGetPartition' {catalogId} -> catalogId) (\s@BatchGetPartition' {} a -> s {catalogId = a} :: BatchGetPartition)
 

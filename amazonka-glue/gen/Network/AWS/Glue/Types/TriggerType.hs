@@ -21,6 +21,7 @@ module Network.AWS.Glue.Types.TriggerType
   ( TriggerType
       ( ..,
         TriggerType_CONDITIONAL,
+        TriggerType_EVENT,
         TriggerType_ON_DEMAND,
         TriggerType_SCHEDULED
       ),
@@ -61,6 +62,9 @@ newtype TriggerType = TriggerType'
 pattern TriggerType_CONDITIONAL :: TriggerType
 pattern TriggerType_CONDITIONAL = TriggerType' "CONDITIONAL"
 
+pattern TriggerType_EVENT :: TriggerType
+pattern TriggerType_EVENT = TriggerType' "EVENT"
+
 pattern TriggerType_ON_DEMAND :: TriggerType
 pattern TriggerType_ON_DEMAND = TriggerType' "ON_DEMAND"
 
@@ -69,6 +73,7 @@ pattern TriggerType_SCHEDULED = TriggerType' "SCHEDULED"
 
 {-# COMPLETE
   TriggerType_CONDITIONAL,
+  TriggerType_EVENT,
   TriggerType_ON_DEMAND,
   TriggerType_SCHEDULED,
   TriggerType'

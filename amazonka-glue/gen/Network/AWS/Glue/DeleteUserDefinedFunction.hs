@@ -50,7 +50,8 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newDeleteUserDefinedFunction' smart constructor.
 data DeleteUserDefinedFunction = DeleteUserDefinedFunction'
   { -- | The ID of the Data Catalog where the function to be deleted is located.
-    -- If none is supplied, the AWS account ID is used by default.
+    -- If none is supplied, the Amazon Web Services account ID is used by
+    -- default.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the catalog database where the function is located.
     databaseName :: Prelude.Text,
@@ -68,7 +69,8 @@ data DeleteUserDefinedFunction = DeleteUserDefinedFunction'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'deleteUserDefinedFunction_catalogId' - The ID of the Data Catalog where the function to be deleted is located.
--- If none is supplied, the AWS account ID is used by default.
+-- If none is supplied, the Amazon Web Services account ID is used by
+-- default.
 --
 -- 'databaseName', 'deleteUserDefinedFunction_databaseName' - The name of the catalog database where the function is located.
 --
@@ -90,7 +92,8 @@ newDeleteUserDefinedFunction
       }
 
 -- | The ID of the Data Catalog where the function to be deleted is located.
--- If none is supplied, the AWS account ID is used by default.
+-- If none is supplied, the Amazon Web Services account ID is used by
+-- default.
 deleteUserDefinedFunction_catalogId :: Lens.Lens' DeleteUserDefinedFunction (Prelude.Maybe Prelude.Text)
 deleteUserDefinedFunction_catalogId = Lens.lens (\DeleteUserDefinedFunction' {catalogId} -> catalogId) (\s@DeleteUserDefinedFunction' {} a -> s {catalogId = a} :: DeleteUserDefinedFunction)
 

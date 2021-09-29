@@ -39,8 +39,8 @@ module Network.AWS.Glue.SearchTables
     -- * Request Lenses
     searchTables_nextToken,
     searchTables_sortCriteria,
-    searchTables_catalogId,
     searchTables_maxResults,
+    searchTables_catalogId,
     searchTables_searchText,
     searchTables_resourceShareType,
     searchTables_filters,
@@ -70,10 +70,10 @@ data SearchTables = SearchTables'
     -- | A list of criteria for sorting the results by a field name, in an
     -- ascending or descending order.
     sortCriteria :: Prelude.Maybe [SortCriterion],
-    -- | A unique identifier, consisting of @ account_id @.
-    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of tables to return in a single response.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | A unique identifier, consisting of @ account_id @.
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | A string used for a text search.
     --
     -- Specifying a value in quotes filters based on an exact match to the
@@ -117,9 +117,9 @@ data SearchTables = SearchTables'
 -- 'sortCriteria', 'searchTables_sortCriteria' - A list of criteria for sorting the results by a field name, in an
 -- ascending or descending order.
 --
--- 'catalogId', 'searchTables_catalogId' - A unique identifier, consisting of @ account_id @.
---
 -- 'maxResults', 'searchTables_maxResults' - The maximum number of tables to return in a single response.
+--
+-- 'catalogId', 'searchTables_catalogId' - A unique identifier, consisting of @ account_id @.
 --
 -- 'searchText', 'searchTables_searchText' - A string used for a text search.
 --
@@ -153,8 +153,8 @@ newSearchTables =
   SearchTables'
     { nextToken = Prelude.Nothing,
       sortCriteria = Prelude.Nothing,
-      catalogId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      catalogId = Prelude.Nothing,
       searchText = Prelude.Nothing,
       resourceShareType = Prelude.Nothing,
       filters = Prelude.Nothing
@@ -169,13 +169,13 @@ searchTables_nextToken = Lens.lens (\SearchTables' {nextToken} -> nextToken) (\s
 searchTables_sortCriteria :: Lens.Lens' SearchTables (Prelude.Maybe [SortCriterion])
 searchTables_sortCriteria = Lens.lens (\SearchTables' {sortCriteria} -> sortCriteria) (\s@SearchTables' {} a -> s {sortCriteria = a} :: SearchTables) Prelude.. Lens.mapping Lens._Coerce
 
--- | A unique identifier, consisting of @ account_id @.
-searchTables_catalogId :: Lens.Lens' SearchTables (Prelude.Maybe Prelude.Text)
-searchTables_catalogId = Lens.lens (\SearchTables' {catalogId} -> catalogId) (\s@SearchTables' {} a -> s {catalogId = a} :: SearchTables)
-
 -- | The maximum number of tables to return in a single response.
 searchTables_maxResults :: Lens.Lens' SearchTables (Prelude.Maybe Prelude.Natural)
 searchTables_maxResults = Lens.lens (\SearchTables' {maxResults} -> maxResults) (\s@SearchTables' {} a -> s {maxResults = a} :: SearchTables)
+
+-- | A unique identifier, consisting of @ account_id @.
+searchTables_catalogId :: Lens.Lens' SearchTables (Prelude.Maybe Prelude.Text)
+searchTables_catalogId = Lens.lens (\SearchTables' {catalogId} -> catalogId) (\s@SearchTables' {} a -> s {catalogId = a} :: SearchTables)
 
 -- | A string used for a text search.
 --
@@ -245,8 +245,8 @@ instance Core.ToJSON SearchTables where
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("SortCriteria" Core..=) Prelude.<$> sortCriteria,
-            ("CatalogId" Core..=) Prelude.<$> catalogId,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("CatalogId" Core..=) Prelude.<$> catalogId,
             ("SearchText" Core..=) Prelude.<$> searchText,
             ("ResourceShareType" Core..=)
               Prelude.<$> resourceShareType,

@@ -20,9 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the names of all trigger resources in this AWS account, or the
--- resources with the specified tag. This operation allows you to see which
--- resources are available in your account, and their names.
+-- Retrieves the names of all trigger resources in this Amazon Web Services
+-- account, or the resources with the specified tag. This operation allows
+-- you to see which resources are available in your account, and their
+-- names.
 --
 -- This operation takes the optional @Tags@ field, which you can use as a
 -- filter on the response so that tagged resources can be retrieved as a
@@ -44,8 +45,8 @@ module Network.AWS.Glue.ListTriggers
     newListTriggersResponse,
 
     -- * Response Lenses
-    listTriggersResponse_nextToken,
     listTriggersResponse_triggerNames,
+    listTriggersResponse_nextToken,
     listTriggersResponse_httpStatus,
   )
 where
@@ -124,8 +125,8 @@ instance Core.AWSRequest ListTriggers where
     Response.receiveJSON
       ( \s h x ->
           ListTriggersResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "TriggerNames" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "TriggerNames" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -166,12 +167,12 @@ instance Core.ToQuery ListTriggers where
 
 -- | /See:/ 'newListTriggersResponse' smart constructor.
 data ListTriggersResponse = ListTriggersResponse'
-  { -- | A continuation token, if the returned list does not contain the last
-    -- metric available.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The names of all triggers in the account, or the triggers with the
+  { -- | The names of all triggers in the account, or the triggers with the
     -- specified tags.
     triggerNames :: Prelude.Maybe [Prelude.Text],
+    -- | A continuation token, if the returned list does not contain the last
+    -- metric available.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -185,11 +186,11 @@ data ListTriggersResponse = ListTriggersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listTriggersResponse_nextToken' - A continuation token, if the returned list does not contain the last
--- metric available.
---
 -- 'triggerNames', 'listTriggersResponse_triggerNames' - The names of all triggers in the account, or the triggers with the
 -- specified tags.
+--
+-- 'nextToken', 'listTriggersResponse_nextToken' - A continuation token, if the returned list does not contain the last
+-- metric available.
 --
 -- 'httpStatus', 'listTriggersResponse_httpStatus' - The response's http status code.
 newListTriggersResponse ::
@@ -198,20 +199,21 @@ newListTriggersResponse ::
   ListTriggersResponse
 newListTriggersResponse pHttpStatus_ =
   ListTriggersResponse'
-    { nextToken = Prelude.Nothing,
-      triggerNames = Prelude.Nothing,
+    { triggerNames =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A continuation token, if the returned list does not contain the last
--- metric available.
-listTriggersResponse_nextToken :: Lens.Lens' ListTriggersResponse (Prelude.Maybe Prelude.Text)
-listTriggersResponse_nextToken = Lens.lens (\ListTriggersResponse' {nextToken} -> nextToken) (\s@ListTriggersResponse' {} a -> s {nextToken = a} :: ListTriggersResponse)
 
 -- | The names of all triggers in the account, or the triggers with the
 -- specified tags.
 listTriggersResponse_triggerNames :: Lens.Lens' ListTriggersResponse (Prelude.Maybe [Prelude.Text])
 listTriggersResponse_triggerNames = Lens.lens (\ListTriggersResponse' {triggerNames} -> triggerNames) (\s@ListTriggersResponse' {} a -> s {triggerNames = a} :: ListTriggersResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | A continuation token, if the returned list does not contain the last
+-- metric available.
+listTriggersResponse_nextToken :: Lens.Lens' ListTriggersResponse (Prelude.Maybe Prelude.Text)
+listTriggersResponse_nextToken = Lens.lens (\ListTriggersResponse' {nextToken} -> nextToken) (\s@ListTriggersResponse' {} a -> s {nextToken = a} :: ListTriggersResponse)
 
 -- | The response's http status code.
 listTriggersResponse_httpStatus :: Lens.Lens' ListTriggersResponse Prelude.Int

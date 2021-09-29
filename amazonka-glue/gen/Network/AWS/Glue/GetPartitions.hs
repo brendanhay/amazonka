@@ -30,8 +30,8 @@ module Network.AWS.Glue.GetPartitions
 
     -- * Request Lenses
     getPartitions_nextToken,
-    getPartitions_catalogId,
     getPartitions_maxResults,
+    getPartitions_catalogId,
     getPartitions_segment,
     getPartitions_excludeColumnSchema,
     getPartitions_expression,
@@ -61,11 +61,11 @@ data GetPartitions = GetPartitions'
   { -- | A continuation token, if this is not the first call to retrieve these
     -- partitions.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Data Catalog where the partitions in question reside. If
-    -- none is provided, the AWS account ID is used by default.
-    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of partitions to return in a single response.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The ID of the Data Catalog where the partitions in question reside. If
+    -- none is provided, the Amazon Web Services account ID is used by default.
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The segment of the table\'s partitions to scan in this request.
     segment :: Prelude.Maybe Segment,
     excludeColumnSchema :: Prelude.Maybe Prelude.Bool,
@@ -143,7 +143,7 @@ data GetPartitions = GetPartitions'
     --
     -- -   @decimal@
     --
-    -- If an invalid type is encountered, an exception is thrown.
+    -- If an type is encountered that is not valid, an exception is thrown.
     --
     -- The following list shows the valid operators on each type. When you
     -- define a crawler, the @partitionKey@ type is created as a @STRING@, to
@@ -169,10 +169,10 @@ data GetPartitions = GetPartitions'
 -- 'nextToken', 'getPartitions_nextToken' - A continuation token, if this is not the first call to retrieve these
 -- partitions.
 --
--- 'catalogId', 'getPartitions_catalogId' - The ID of the Data Catalog where the partitions in question reside. If
--- none is provided, the AWS account ID is used by default.
---
 -- 'maxResults', 'getPartitions_maxResults' - The maximum number of partitions to return in a single response.
+--
+-- 'catalogId', 'getPartitions_catalogId' - The ID of the Data Catalog where the partitions in question reside. If
+-- none is provided, the Amazon Web Services account ID is used by default.
 --
 -- 'segment', 'getPartitions_segment' - The segment of the table\'s partitions to scan in this request.
 --
@@ -252,7 +252,7 @@ data GetPartitions = GetPartitions'
 --
 -- -   @decimal@
 --
--- If an invalid type is encountered, an exception is thrown.
+-- If an type is encountered that is not valid, an exception is thrown.
 --
 -- The following list shows the valid operators on each type. When you
 -- define a crawler, the @partitionKey@ type is created as a @STRING@, to
@@ -272,8 +272,8 @@ newGetPartitions ::
 newGetPartitions pDatabaseName_ pTableName_ =
   GetPartitions'
     { nextToken = Prelude.Nothing,
-      catalogId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      catalogId = Prelude.Nothing,
       segment = Prelude.Nothing,
       excludeColumnSchema = Prelude.Nothing,
       expression = Prelude.Nothing,
@@ -286,14 +286,14 @@ newGetPartitions pDatabaseName_ pTableName_ =
 getPartitions_nextToken :: Lens.Lens' GetPartitions (Prelude.Maybe Prelude.Text)
 getPartitions_nextToken = Lens.lens (\GetPartitions' {nextToken} -> nextToken) (\s@GetPartitions' {} a -> s {nextToken = a} :: GetPartitions)
 
--- | The ID of the Data Catalog where the partitions in question reside. If
--- none is provided, the AWS account ID is used by default.
-getPartitions_catalogId :: Lens.Lens' GetPartitions (Prelude.Maybe Prelude.Text)
-getPartitions_catalogId = Lens.lens (\GetPartitions' {catalogId} -> catalogId) (\s@GetPartitions' {} a -> s {catalogId = a} :: GetPartitions)
-
 -- | The maximum number of partitions to return in a single response.
 getPartitions_maxResults :: Lens.Lens' GetPartitions (Prelude.Maybe Prelude.Natural)
 getPartitions_maxResults = Lens.lens (\GetPartitions' {maxResults} -> maxResults) (\s@GetPartitions' {} a -> s {maxResults = a} :: GetPartitions)
+
+-- | The ID of the Data Catalog where the partitions in question reside. If
+-- none is provided, the Amazon Web Services account ID is used by default.
+getPartitions_catalogId :: Lens.Lens' GetPartitions (Prelude.Maybe Prelude.Text)
+getPartitions_catalogId = Lens.lens (\GetPartitions' {catalogId} -> catalogId) (\s@GetPartitions' {} a -> s {catalogId = a} :: GetPartitions)
 
 -- | The segment of the table\'s partitions to scan in this request.
 getPartitions_segment :: Lens.Lens' GetPartitions (Prelude.Maybe Segment)
@@ -377,7 +377,7 @@ getPartitions_excludeColumnSchema = Lens.lens (\GetPartitions' {excludeColumnSch
 --
 -- -   @decimal@
 --
--- If an invalid type is encountered, an exception is thrown.
+-- If an type is encountered that is not valid, an exception is thrown.
 --
 -- The following list shows the valid operators on each type. When you
 -- define a crawler, the @partitionKey@ type is created as a @STRING@, to
@@ -451,8 +451,8 @@ instance Core.ToJSON GetPartitions where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("CatalogId" Core..=) Prelude.<$> catalogId,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("CatalogId" Core..=) Prelude.<$> catalogId,
             ("Segment" Core..=) Prelude.<$> segment,
             ("ExcludeColumnSchema" Core..=)
               Prelude.<$> excludeColumnSchema,

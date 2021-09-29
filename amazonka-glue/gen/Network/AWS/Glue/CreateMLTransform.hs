@@ -20,16 +20,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an AWS Glue machine learning transform. This operation creates
--- the transform and all the necessary parameters to train it.
+-- Creates an Glue machine learning transform. This operation creates the
+-- transform and all the necessary parameters to train it.
 --
 -- Call this operation as the first step in the process of using a machine
 -- learning transform (such as the @FindMatches@ transform) for
 -- deduplicating data. You can provide an optional @Description@, in
 -- addition to the parameters that you want to use for your algorithm.
 --
--- You must also specify certain parameters for the tasks that AWS Glue
--- runs on your behalf as part of learning from your data and creating a
+-- You must also specify certain parameters for the tasks that Glue runs on
+-- your behalf as part of learning from your data and creating a
 -- high-quality machine learning transform. These parameters include
 -- @Role@, and optionally, @AllocatedCapacity@, @Timeout@, and
 -- @MaxRetries@. For more information, see
@@ -82,12 +82,12 @@ data CreateMLTransform = CreateMLTransform'
     -- before it is terminated and enters @TIMEOUT@ status. The default is
     -- 2,880 minutes (48 hours).
     timeout :: Prelude.Maybe Prelude.Natural,
-    -- | The number of AWS Glue data processing units (DPUs) that are allocated
-    -- to task runs for this transform. You can allocate from 2 to 100 DPUs;
-    -- the default is 10. A DPU is a relative measure of processing power that
+    -- | The number of Glue data processing units (DPUs) that are allocated to
+    -- task runs for this transform. You can allocate from 2 to 100 DPUs; the
+    -- default is 10. A DPU is a relative measure of processing power that
     -- consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
     -- information, see the
-    -- <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page>.
+    -- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
     --
     -- @MaxCapacity@ is a mutually exclusive option with @NumberOfWorkers@ and
     -- @WorkerType@.
@@ -115,17 +115,17 @@ data CreateMLTransform = CreateMLTransform'
     -- If @WorkerType@ is set, then @NumberOfWorkers@ is required (and vice
     -- versa).
     numberOfWorkers :: Prelude.Maybe Prelude.Int,
-    -- | This value determines which version of AWS Glue this machine learning
+    -- | This value determines which version of Glue this machine learning
     -- transform is compatible with. Glue 1.0 is recommended for most
     -- customers. If the value is not set, the Glue compatibility defaults to
     -- Glue 0.9. For more information, see
-    -- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions AWS Glue Versions>
+    -- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions Glue Versions>
     -- in the developer guide.
     glueVersion :: Prelude.Maybe Prelude.Text,
     -- | The tags to use with this machine learning transform. You may use tags
     -- to limit access to the machine learning transform. For more information
-    -- about tags in AWS Glue, see
-    -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html AWS Tags in AWS Glue>
+    -- about tags in Glue, see
+    -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html Amazon Web Services Tags in Glue>
     -- in the developer guide.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The type of predefined worker that is allocated when this task runs.
@@ -162,19 +162,19 @@ data CreateMLTransform = CreateMLTransform'
     maxRetries :: Prelude.Maybe Prelude.Int,
     -- | The unique name that you give the transform when you create it.
     name :: Prelude.Text,
-    -- | A list of AWS Glue table definitions used by the transform.
+    -- | A list of Glue table definitions used by the transform.
     inputRecordTables :: [GlueTable],
     -- | The algorithmic parameters that are specific to the transform type used.
     -- Conditionally dependent on the transform type.
     parameters :: TransformParameters,
     -- | The name or Amazon Resource Name (ARN) of the IAM role with the required
-    -- permissions. The required permissions include both AWS Glue service role
-    -- permissions to AWS Glue resources, and Amazon S3 permissions required by
-    -- the transform.
+    -- permissions. The required permissions include both Glue service role
+    -- permissions to Glue resources, and Amazon S3 permissions required by the
+    -- transform.
     --
-    -- -   This role needs AWS Glue service role permissions to allow access to
-    --     resources in AWS Glue. See
-    --     <https://docs.aws.amazon.com/glue/latest/dg/attach-policy-iam-user.html Attach a Policy to IAM Users That Access AWS Glue>.
+    -- -   This role needs Glue service role permissions to allow access to
+    --     resources in Glue. See
+    --     <https://docs.aws.amazon.com/glue/latest/dg/attach-policy-iam-user.html Attach a Policy to IAM Users That Access Glue>.
     --
     -- -   This role needs permission to your Amazon Simple Storage Service
     --     (Amazon S3) sources, targets, temporary directory, scripts, and any
@@ -200,12 +200,12 @@ data CreateMLTransform = CreateMLTransform'
 -- before it is terminated and enters @TIMEOUT@ status. The default is
 -- 2,880 minutes (48 hours).
 --
--- 'maxCapacity', 'createMLTransform_maxCapacity' - The number of AWS Glue data processing units (DPUs) that are allocated
--- to task runs for this transform. You can allocate from 2 to 100 DPUs;
--- the default is 10. A DPU is a relative measure of processing power that
+-- 'maxCapacity', 'createMLTransform_maxCapacity' - The number of Glue data processing units (DPUs) that are allocated to
+-- task runs for this transform. You can allocate from 2 to 100 DPUs; the
+-- default is 10. A DPU is a relative measure of processing power that
 -- consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
 -- information, see the
--- <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page>.
+-- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
 --
 -- @MaxCapacity@ is a mutually exclusive option with @NumberOfWorkers@ and
 -- @WorkerType@.
@@ -233,17 +233,17 @@ data CreateMLTransform = CreateMLTransform'
 -- If @WorkerType@ is set, then @NumberOfWorkers@ is required (and vice
 -- versa).
 --
--- 'glueVersion', 'createMLTransform_glueVersion' - This value determines which version of AWS Glue this machine learning
+-- 'glueVersion', 'createMLTransform_glueVersion' - This value determines which version of Glue this machine learning
 -- transform is compatible with. Glue 1.0 is recommended for most
 -- customers. If the value is not set, the Glue compatibility defaults to
 -- Glue 0.9. For more information, see
--- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions AWS Glue Versions>
+-- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions Glue Versions>
 -- in the developer guide.
 --
 -- 'tags', 'createMLTransform_tags' - The tags to use with this machine learning transform. You may use tags
 -- to limit access to the machine learning transform. For more information
--- about tags in AWS Glue, see
--- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html AWS Tags in AWS Glue>
+-- about tags in Glue, see
+-- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html Amazon Web Services Tags in Glue>
 -- in the developer guide.
 --
 -- 'workerType', 'createMLTransform_workerType' - The type of predefined worker that is allocated when this task runs.
@@ -280,19 +280,19 @@ data CreateMLTransform = CreateMLTransform'
 --
 -- 'name', 'createMLTransform_name' - The unique name that you give the transform when you create it.
 --
--- 'inputRecordTables', 'createMLTransform_inputRecordTables' - A list of AWS Glue table definitions used by the transform.
+-- 'inputRecordTables', 'createMLTransform_inputRecordTables' - A list of Glue table definitions used by the transform.
 --
 -- 'parameters', 'createMLTransform_parameters' - The algorithmic parameters that are specific to the transform type used.
 -- Conditionally dependent on the transform type.
 --
 -- 'role'', 'createMLTransform_role' - The name or Amazon Resource Name (ARN) of the IAM role with the required
--- permissions. The required permissions include both AWS Glue service role
--- permissions to AWS Glue resources, and Amazon S3 permissions required by
--- the transform.
+-- permissions. The required permissions include both Glue service role
+-- permissions to Glue resources, and Amazon S3 permissions required by the
+-- transform.
 --
--- -   This role needs AWS Glue service role permissions to allow access to
---     resources in AWS Glue. See
---     <https://docs.aws.amazon.com/glue/latest/dg/attach-policy-iam-user.html Attach a Policy to IAM Users That Access AWS Glue>.
+-- -   This role needs Glue service role permissions to allow access to
+--     resources in Glue. See
+--     <https://docs.aws.amazon.com/glue/latest/dg/attach-policy-iam-user.html Attach a Policy to IAM Users That Access Glue>.
 --
 -- -   This role needs permission to your Amazon Simple Storage Service
 --     (Amazon S3) sources, targets, temporary directory, scripts, and any
@@ -336,12 +336,12 @@ createMLTransform_transformEncryption = Lens.lens (\CreateMLTransform' {transfor
 createMLTransform_timeout :: Lens.Lens' CreateMLTransform (Prelude.Maybe Prelude.Natural)
 createMLTransform_timeout = Lens.lens (\CreateMLTransform' {timeout} -> timeout) (\s@CreateMLTransform' {} a -> s {timeout = a} :: CreateMLTransform)
 
--- | The number of AWS Glue data processing units (DPUs) that are allocated
--- to task runs for this transform. You can allocate from 2 to 100 DPUs;
--- the default is 10. A DPU is a relative measure of processing power that
+-- | The number of Glue data processing units (DPUs) that are allocated to
+-- task runs for this transform. You can allocate from 2 to 100 DPUs; the
+-- default is 10. A DPU is a relative measure of processing power that
 -- consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
 -- information, see the
--- <https://aws.amazon.com/glue/pricing/ AWS Glue pricing page>.
+-- <https://aws.amazon.com/glue/pricing/ Glue pricing page>.
 --
 -- @MaxCapacity@ is a mutually exclusive option with @NumberOfWorkers@ and
 -- @WorkerType@.
@@ -373,19 +373,19 @@ createMLTransform_maxCapacity = Lens.lens (\CreateMLTransform' {maxCapacity} -> 
 createMLTransform_numberOfWorkers :: Lens.Lens' CreateMLTransform (Prelude.Maybe Prelude.Int)
 createMLTransform_numberOfWorkers = Lens.lens (\CreateMLTransform' {numberOfWorkers} -> numberOfWorkers) (\s@CreateMLTransform' {} a -> s {numberOfWorkers = a} :: CreateMLTransform)
 
--- | This value determines which version of AWS Glue this machine learning
+-- | This value determines which version of Glue this machine learning
 -- transform is compatible with. Glue 1.0 is recommended for most
 -- customers. If the value is not set, the Glue compatibility defaults to
 -- Glue 0.9. For more information, see
--- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions AWS Glue Versions>
+-- <https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions Glue Versions>
 -- in the developer guide.
 createMLTransform_glueVersion :: Lens.Lens' CreateMLTransform (Prelude.Maybe Prelude.Text)
 createMLTransform_glueVersion = Lens.lens (\CreateMLTransform' {glueVersion} -> glueVersion) (\s@CreateMLTransform' {} a -> s {glueVersion = a} :: CreateMLTransform)
 
 -- | The tags to use with this machine learning transform. You may use tags
 -- to limit access to the machine learning transform. For more information
--- about tags in AWS Glue, see
--- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html AWS Tags in AWS Glue>
+-- about tags in Glue, see
+-- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html Amazon Web Services Tags in Glue>
 -- in the developer guide.
 createMLTransform_tags :: Lens.Lens' CreateMLTransform (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createMLTransform_tags = Lens.lens (\CreateMLTransform' {tags} -> tags) (\s@CreateMLTransform' {} a -> s {tags = a} :: CreateMLTransform) Prelude.. Lens.mapping Lens._Coerce
@@ -432,7 +432,7 @@ createMLTransform_maxRetries = Lens.lens (\CreateMLTransform' {maxRetries} -> ma
 createMLTransform_name :: Lens.Lens' CreateMLTransform Prelude.Text
 createMLTransform_name = Lens.lens (\CreateMLTransform' {name} -> name) (\s@CreateMLTransform' {} a -> s {name = a} :: CreateMLTransform)
 
--- | A list of AWS Glue table definitions used by the transform.
+-- | A list of Glue table definitions used by the transform.
 createMLTransform_inputRecordTables :: Lens.Lens' CreateMLTransform [GlueTable]
 createMLTransform_inputRecordTables = Lens.lens (\CreateMLTransform' {inputRecordTables} -> inputRecordTables) (\s@CreateMLTransform' {} a -> s {inputRecordTables = a} :: CreateMLTransform) Prelude.. Lens._Coerce
 
@@ -442,13 +442,13 @@ createMLTransform_parameters :: Lens.Lens' CreateMLTransform TransformParameters
 createMLTransform_parameters = Lens.lens (\CreateMLTransform' {parameters} -> parameters) (\s@CreateMLTransform' {} a -> s {parameters = a} :: CreateMLTransform)
 
 -- | The name or Amazon Resource Name (ARN) of the IAM role with the required
--- permissions. The required permissions include both AWS Glue service role
--- permissions to AWS Glue resources, and Amazon S3 permissions required by
--- the transform.
+-- permissions. The required permissions include both Glue service role
+-- permissions to Glue resources, and Amazon S3 permissions required by the
+-- transform.
 --
--- -   This role needs AWS Glue service role permissions to allow access to
---     resources in AWS Glue. See
---     <https://docs.aws.amazon.com/glue/latest/dg/attach-policy-iam-user.html Attach a Policy to IAM Users That Access AWS Glue>.
+-- -   This role needs Glue service role permissions to allow access to
+--     resources in Glue. See
+--     <https://docs.aws.amazon.com/glue/latest/dg/attach-policy-iam-user.html Attach a Policy to IAM Users That Access Glue>.
 --
 -- -   This role needs permission to your Amazon Simple Storage Service
 --     (Amazon S3) sources, targets, temporary directory, scripts, and any

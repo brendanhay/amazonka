@@ -23,7 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The unique ID of the schema in the AWS Glue schema registry.
+-- | The unique ID of the schema in the Glue schema registry.
 --
 -- /See:/ 'newSchemaId' smart constructor.
 data SchemaId = SchemaId'

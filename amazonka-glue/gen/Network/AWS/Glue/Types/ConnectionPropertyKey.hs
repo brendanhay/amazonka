@@ -27,6 +27,8 @@ module Network.AWS.Glue.Types.ConnectionPropertyKey
         ConnectionPropertyKey_CONNECTOR_URL,
         ConnectionPropertyKey_CUSTOM_JDBC_CERT,
         ConnectionPropertyKey_CUSTOM_JDBC_CERT_STRING,
+        ConnectionPropertyKey_ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD,
+        ConnectionPropertyKey_ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD,
         ConnectionPropertyKey_ENCRYPTED_PASSWORD,
         ConnectionPropertyKey_HOST,
         ConnectionPropertyKey_INSTANCE_ID,
@@ -37,6 +39,9 @@ module Network.AWS.Glue.Types.ConnectionPropertyKey
         ConnectionPropertyKey_JDBC_ENGINE,
         ConnectionPropertyKey_JDBC_ENGINE_VERSION,
         ConnectionPropertyKey_KAFKA_BOOTSTRAP_SERVERS,
+        ConnectionPropertyKey_KAFKA_CLIENT_KEYSTORE,
+        ConnectionPropertyKey_KAFKA_CLIENT_KEYSTORE_PASSWORD,
+        ConnectionPropertyKey_KAFKA_CLIENT_KEY_PASSWORD,
         ConnectionPropertyKey_KAFKA_CUSTOM_CERT,
         ConnectionPropertyKey_KAFKA_SKIP_CUSTOM_CERT_VALIDATION,
         ConnectionPropertyKey_KAFKA_SSL_ENABLED,
@@ -101,6 +106,12 @@ pattern ConnectionPropertyKey_CUSTOM_JDBC_CERT = ConnectionPropertyKey' "CUSTOM_
 pattern ConnectionPropertyKey_CUSTOM_JDBC_CERT_STRING :: ConnectionPropertyKey
 pattern ConnectionPropertyKey_CUSTOM_JDBC_CERT_STRING = ConnectionPropertyKey' "CUSTOM_JDBC_CERT_STRING"
 
+pattern ConnectionPropertyKey_ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD :: ConnectionPropertyKey
+pattern ConnectionPropertyKey_ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD = ConnectionPropertyKey' "ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD"
+
+pattern ConnectionPropertyKey_ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD :: ConnectionPropertyKey
+pattern ConnectionPropertyKey_ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD = ConnectionPropertyKey' "ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD"
+
 pattern ConnectionPropertyKey_ENCRYPTED_PASSWORD :: ConnectionPropertyKey
 pattern ConnectionPropertyKey_ENCRYPTED_PASSWORD = ConnectionPropertyKey' "ENCRYPTED_PASSWORD"
 
@@ -130,6 +141,15 @@ pattern ConnectionPropertyKey_JDBC_ENGINE_VERSION = ConnectionPropertyKey' "JDBC
 
 pattern ConnectionPropertyKey_KAFKA_BOOTSTRAP_SERVERS :: ConnectionPropertyKey
 pattern ConnectionPropertyKey_KAFKA_BOOTSTRAP_SERVERS = ConnectionPropertyKey' "KAFKA_BOOTSTRAP_SERVERS"
+
+pattern ConnectionPropertyKey_KAFKA_CLIENT_KEYSTORE :: ConnectionPropertyKey
+pattern ConnectionPropertyKey_KAFKA_CLIENT_KEYSTORE = ConnectionPropertyKey' "KAFKA_CLIENT_KEYSTORE"
+
+pattern ConnectionPropertyKey_KAFKA_CLIENT_KEYSTORE_PASSWORD :: ConnectionPropertyKey
+pattern ConnectionPropertyKey_KAFKA_CLIENT_KEYSTORE_PASSWORD = ConnectionPropertyKey' "KAFKA_CLIENT_KEYSTORE_PASSWORD"
+
+pattern ConnectionPropertyKey_KAFKA_CLIENT_KEY_PASSWORD :: ConnectionPropertyKey
+pattern ConnectionPropertyKey_KAFKA_CLIENT_KEY_PASSWORD = ConnectionPropertyKey' "KAFKA_CLIENT_KEY_PASSWORD"
 
 pattern ConnectionPropertyKey_KAFKA_CUSTOM_CERT :: ConnectionPropertyKey
 pattern ConnectionPropertyKey_KAFKA_CUSTOM_CERT = ConnectionPropertyKey' "KAFKA_CUSTOM_CERT"
@@ -163,6 +183,8 @@ pattern ConnectionPropertyKey_USERNAME = ConnectionPropertyKey' "USERNAME"
   ConnectionPropertyKey_CONNECTOR_URL,
   ConnectionPropertyKey_CUSTOM_JDBC_CERT,
   ConnectionPropertyKey_CUSTOM_JDBC_CERT_STRING,
+  ConnectionPropertyKey_ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD,
+  ConnectionPropertyKey_ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD,
   ConnectionPropertyKey_ENCRYPTED_PASSWORD,
   ConnectionPropertyKey_HOST,
   ConnectionPropertyKey_INSTANCE_ID,
@@ -173,6 +195,9 @@ pattern ConnectionPropertyKey_USERNAME = ConnectionPropertyKey' "USERNAME"
   ConnectionPropertyKey_JDBC_ENGINE,
   ConnectionPropertyKey_JDBC_ENGINE_VERSION,
   ConnectionPropertyKey_KAFKA_BOOTSTRAP_SERVERS,
+  ConnectionPropertyKey_KAFKA_CLIENT_KEYSTORE,
+  ConnectionPropertyKey_KAFKA_CLIENT_KEYSTORE_PASSWORD,
+  ConnectionPropertyKey_KAFKA_CLIENT_KEY_PASSWORD,
   ConnectionPropertyKey_KAFKA_CUSTOM_CERT,
   ConnectionPropertyKey_KAFKA_SKIP_CUSTOM_CERT_VALIDATION,
   ConnectionPropertyKey_KAFKA_SSL_ENABLED,

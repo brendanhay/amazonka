@@ -31,8 +31,8 @@ module Network.AWS.Glue.UpdateDevEndpoint
     updateDevEndpoint_updateEtlLibraries,
     updateDevEndpoint_addPublicKeys,
     updateDevEndpoint_deletePublicKeys,
-    updateDevEndpoint_addArguments,
     updateDevEndpoint_deleteArguments,
+    updateDevEndpoint_addArguments,
     updateDevEndpoint_customLibraries,
     updateDevEndpoint_endpointName,
 
@@ -63,6 +63,9 @@ data UpdateDevEndpoint = UpdateDevEndpoint'
     addPublicKeys :: Prelude.Maybe [Prelude.Text],
     -- | The list of public keys to be deleted from the @DevEndpoint@.
     deletePublicKeys :: Prelude.Maybe [Prelude.Text],
+    -- | The list of argument keys to be deleted from the map of arguments used
+    -- to configure the @DevEndpoint@.
+    deleteArguments :: Prelude.Maybe [Prelude.Text],
     -- | The map of arguments to add the map of arguments used to configure the
     -- @DevEndpoint@.
     --
@@ -70,18 +73,11 @@ data UpdateDevEndpoint = UpdateDevEndpoint'
     --
     -- -   @\"--enable-glue-datacatalog\": \"\"@
     --
-    -- -   @\"GLUE_PYTHON_VERSION\": \"3\"@
-    --
-    -- -   @\"GLUE_PYTHON_VERSION\": \"2\"@
-    --
     -- You can specify a version of Python support for development endpoints by
     -- using the @Arguments@ parameter in the @CreateDevEndpoint@ or
     -- @UpdateDevEndpoint@ APIs. If no arguments are provided, the version
     -- defaults to Python 2.
     addArguments :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The list of argument keys to be deleted from the map of arguments used
-    -- to configure the @DevEndpoint@.
-    deleteArguments :: Prelude.Maybe [Prelude.Text],
     -- | Custom Python or Java libraries to be loaded in the @DevEndpoint@.
     customLibraries :: Prelude.Maybe DevEndpointCustomLibraries,
     -- | The name of the @DevEndpoint@ to be updated.
@@ -106,6 +102,9 @@ data UpdateDevEndpoint = UpdateDevEndpoint'
 --
 -- 'deletePublicKeys', 'updateDevEndpoint_deletePublicKeys' - The list of public keys to be deleted from the @DevEndpoint@.
 --
+-- 'deleteArguments', 'updateDevEndpoint_deleteArguments' - The list of argument keys to be deleted from the map of arguments used
+-- to configure the @DevEndpoint@.
+--
 -- 'addArguments', 'updateDevEndpoint_addArguments' - The map of arguments to add the map of arguments used to configure the
 -- @DevEndpoint@.
 --
@@ -113,17 +112,10 @@ data UpdateDevEndpoint = UpdateDevEndpoint'
 --
 -- -   @\"--enable-glue-datacatalog\": \"\"@
 --
--- -   @\"GLUE_PYTHON_VERSION\": \"3\"@
---
--- -   @\"GLUE_PYTHON_VERSION\": \"2\"@
---
 -- You can specify a version of Python support for development endpoints by
 -- using the @Arguments@ parameter in the @CreateDevEndpoint@ or
 -- @UpdateDevEndpoint@ APIs. If no arguments are provided, the version
 -- defaults to Python 2.
---
--- 'deleteArguments', 'updateDevEndpoint_deleteArguments' - The list of argument keys to be deleted from the map of arguments used
--- to configure the @DevEndpoint@.
 --
 -- 'customLibraries', 'updateDevEndpoint_customLibraries' - Custom Python or Java libraries to be loaded in the @DevEndpoint@.
 --
@@ -138,8 +130,8 @@ newUpdateDevEndpoint pEndpointName_ =
       updateEtlLibraries = Prelude.Nothing,
       addPublicKeys = Prelude.Nothing,
       deletePublicKeys = Prelude.Nothing,
-      addArguments = Prelude.Nothing,
       deleteArguments = Prelude.Nothing,
+      addArguments = Prelude.Nothing,
       customLibraries = Prelude.Nothing,
       endpointName = pEndpointName_
     }
@@ -161,6 +153,11 @@ updateDevEndpoint_addPublicKeys = Lens.lens (\UpdateDevEndpoint' {addPublicKeys}
 updateDevEndpoint_deletePublicKeys :: Lens.Lens' UpdateDevEndpoint (Prelude.Maybe [Prelude.Text])
 updateDevEndpoint_deletePublicKeys = Lens.lens (\UpdateDevEndpoint' {deletePublicKeys} -> deletePublicKeys) (\s@UpdateDevEndpoint' {} a -> s {deletePublicKeys = a} :: UpdateDevEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The list of argument keys to be deleted from the map of arguments used
+-- to configure the @DevEndpoint@.
+updateDevEndpoint_deleteArguments :: Lens.Lens' UpdateDevEndpoint (Prelude.Maybe [Prelude.Text])
+updateDevEndpoint_deleteArguments = Lens.lens (\UpdateDevEndpoint' {deleteArguments} -> deleteArguments) (\s@UpdateDevEndpoint' {} a -> s {deleteArguments = a} :: UpdateDevEndpoint) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The map of arguments to add the map of arguments used to configure the
 -- @DevEndpoint@.
 --
@@ -168,21 +165,12 @@ updateDevEndpoint_deletePublicKeys = Lens.lens (\UpdateDevEndpoint' {deletePubli
 --
 -- -   @\"--enable-glue-datacatalog\": \"\"@
 --
--- -   @\"GLUE_PYTHON_VERSION\": \"3\"@
---
--- -   @\"GLUE_PYTHON_VERSION\": \"2\"@
---
 -- You can specify a version of Python support for development endpoints by
 -- using the @Arguments@ parameter in the @CreateDevEndpoint@ or
 -- @UpdateDevEndpoint@ APIs. If no arguments are provided, the version
 -- defaults to Python 2.
 updateDevEndpoint_addArguments :: Lens.Lens' UpdateDevEndpoint (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 updateDevEndpoint_addArguments = Lens.lens (\UpdateDevEndpoint' {addArguments} -> addArguments) (\s@UpdateDevEndpoint' {} a -> s {addArguments = a} :: UpdateDevEndpoint) Prelude.. Lens.mapping Lens._Coerce
-
--- | The list of argument keys to be deleted from the map of arguments used
--- to configure the @DevEndpoint@.
-updateDevEndpoint_deleteArguments :: Lens.Lens' UpdateDevEndpoint (Prelude.Maybe [Prelude.Text])
-updateDevEndpoint_deleteArguments = Lens.lens (\UpdateDevEndpoint' {deleteArguments} -> deleteArguments) (\s@UpdateDevEndpoint' {} a -> s {deleteArguments = a} :: UpdateDevEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Custom Python or Java libraries to be loaded in the @DevEndpoint@.
 updateDevEndpoint_customLibraries :: Lens.Lens' UpdateDevEndpoint (Prelude.Maybe DevEndpointCustomLibraries)
@@ -231,9 +219,9 @@ instance Core.ToJSON UpdateDevEndpoint where
             ("AddPublicKeys" Core..=) Prelude.<$> addPublicKeys,
             ("DeletePublicKeys" Core..=)
               Prelude.<$> deletePublicKeys,
-            ("AddArguments" Core..=) Prelude.<$> addArguments,
             ("DeleteArguments" Core..=)
               Prelude.<$> deleteArguments,
+            ("AddArguments" Core..=) Prelude.<$> addArguments,
             ("CustomLibraries" Core..=)
               Prelude.<$> customLibraries,
             Prelude.Just ("EndpointName" Core..= endpointName)

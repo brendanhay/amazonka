@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets a list of runs for a machine learning transform. Machine learning
--- task runs are asynchronous tasks that AWS Glue runs on your behalf as
--- part of various machine learning workflows. You can get a sortable,
+-- task runs are asynchronous tasks that Glue runs on your behalf as part
+-- of various machine learning workflows. You can get a sortable,
 -- filterable list of machine learning task runs by calling @GetMLTaskRuns@
 -- with their parent transform\'s @TransformID@ and other optional
 -- parameters as documented in this section.

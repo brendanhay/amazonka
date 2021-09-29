@@ -28,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEncryptionAtRest' smart constructor.
 data EncryptionAtRest = EncryptionAtRest'
-  { -- | The ID of the AWS KMS key to use for encryption at rest.
+  { -- | The ID of the KMS key to use for encryption at rest.
     sseAwsKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The encryption-at-rest mode for encrypting Data Catalog data.
     catalogEncryptionMode :: CatalogEncryptionMode
@@ -43,7 +43,7 @@ data EncryptionAtRest = EncryptionAtRest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sseAwsKmsKeyId', 'encryptionAtRest_sseAwsKmsKeyId' - The ID of the AWS KMS key to use for encryption at rest.
+-- 'sseAwsKmsKeyId', 'encryptionAtRest_sseAwsKmsKeyId' - The ID of the KMS key to use for encryption at rest.
 --
 -- 'catalogEncryptionMode', 'encryptionAtRest_catalogEncryptionMode' - The encryption-at-rest mode for encrypting Data Catalog data.
 newEncryptionAtRest ::
@@ -56,7 +56,7 @@ newEncryptionAtRest pCatalogEncryptionMode_ =
       catalogEncryptionMode = pCatalogEncryptionMode_
     }
 
--- | The ID of the AWS KMS key to use for encryption at rest.
+-- | The ID of the KMS key to use for encryption at rest.
 encryptionAtRest_sseAwsKmsKeyId :: Lens.Lens' EncryptionAtRest (Prelude.Maybe Prelude.Text)
 encryptionAtRest_sseAwsKmsKeyId = Lens.lens (\EncryptionAtRest' {sseAwsKmsKeyId} -> sseAwsKmsKeyId) (\s@EncryptionAtRest' {} a -> s {sseAwsKmsKeyId = a} :: EncryptionAtRest)
 

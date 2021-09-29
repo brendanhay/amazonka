@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSchemaVersionListItem' smart constructor.
 data SchemaVersionListItem = SchemaVersionListItem'
-  { -- | The Amazon Resource Name (ARN) of the schema.
-    schemaArn :: Prelude.Maybe Prelude.Text,
-    -- | The status of the schema version.
+  { -- | The status of the schema version.
     status :: Prelude.Maybe SchemaVersionStatus,
+    -- | The Amazon Resource Name (ARN) of the schema.
+    schemaArn :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of the schema version.
     schemaVersionId :: Prelude.Maybe Prelude.Text,
     -- | The date and time the schema version was created.
@@ -49,9 +49,9 @@ data SchemaVersionListItem = SchemaVersionListItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'schemaArn', 'schemaVersionListItem_schemaArn' - The Amazon Resource Name (ARN) of the schema.
---
 -- 'status', 'schemaVersionListItem_status' - The status of the schema version.
+--
+-- 'schemaArn', 'schemaVersionListItem_schemaArn' - The Amazon Resource Name (ARN) of the schema.
 --
 -- 'schemaVersionId', 'schemaVersionListItem_schemaVersionId' - The unique identifier of the schema version.
 --
@@ -62,20 +62,20 @@ newSchemaVersionListItem ::
   SchemaVersionListItem
 newSchemaVersionListItem =
   SchemaVersionListItem'
-    { schemaArn = Prelude.Nothing,
-      status = Prelude.Nothing,
+    { status = Prelude.Nothing,
+      schemaArn = Prelude.Nothing,
       schemaVersionId = Prelude.Nothing,
       createdTime = Prelude.Nothing,
       versionNumber = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the schema.
-schemaVersionListItem_schemaArn :: Lens.Lens' SchemaVersionListItem (Prelude.Maybe Prelude.Text)
-schemaVersionListItem_schemaArn = Lens.lens (\SchemaVersionListItem' {schemaArn} -> schemaArn) (\s@SchemaVersionListItem' {} a -> s {schemaArn = a} :: SchemaVersionListItem)
-
 -- | The status of the schema version.
 schemaVersionListItem_status :: Lens.Lens' SchemaVersionListItem (Prelude.Maybe SchemaVersionStatus)
 schemaVersionListItem_status = Lens.lens (\SchemaVersionListItem' {status} -> status) (\s@SchemaVersionListItem' {} a -> s {status = a} :: SchemaVersionListItem)
+
+-- | The Amazon Resource Name (ARN) of the schema.
+schemaVersionListItem_schemaArn :: Lens.Lens' SchemaVersionListItem (Prelude.Maybe Prelude.Text)
+schemaVersionListItem_schemaArn = Lens.lens (\SchemaVersionListItem' {schemaArn} -> schemaArn) (\s@SchemaVersionListItem' {} a -> s {schemaArn = a} :: SchemaVersionListItem)
 
 -- | The unique identifier of the schema version.
 schemaVersionListItem_schemaVersionId :: Lens.Lens' SchemaVersionListItem (Prelude.Maybe Prelude.Text)
@@ -95,8 +95,8 @@ instance Core.FromJSON SchemaVersionListItem where
       "SchemaVersionListItem"
       ( \x ->
           SchemaVersionListItem'
-            Prelude.<$> (x Core..:? "SchemaArn")
-            Prelude.<*> (x Core..:? "Status")
+            Prelude.<$> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "SchemaArn")
             Prelude.<*> (x Core..:? "SchemaVersionId")
             Prelude.<*> (x Core..:? "CreatedTime")
             Prelude.<*> (x Core..:? "VersionNumber")

@@ -51,14 +51,14 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newGetConnection' smart constructor.
 data GetConnection = GetConnection'
   { -- | The ID of the Data Catalog in which the connection resides. If none is
-    -- provided, the AWS account ID is used by default.
+    -- provided, the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | Allows you to retrieve the connection metadata without returning the
     -- password. For instance, the AWS Glue console uses this flag to retrieve
     -- the connection, and does not display the password. Set this parameter
-    -- when the caller might not have permission to use the AWS KMS key to
-    -- decrypt the password, but it does have permission to access the rest of
-    -- the connection properties.
+    -- when the caller might not have permission to use the KMS key to decrypt
+    -- the password, but it does have permission to access the rest of the
+    -- connection properties.
     hidePassword :: Prelude.Maybe Prelude.Bool,
     -- | The name of the connection definition to retrieve.
     name :: Prelude.Text
@@ -74,14 +74,14 @@ data GetConnection = GetConnection'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'getConnection_catalogId' - The ID of the Data Catalog in which the connection resides. If none is
--- provided, the AWS account ID is used by default.
+-- provided, the Amazon Web Services account ID is used by default.
 --
 -- 'hidePassword', 'getConnection_hidePassword' - Allows you to retrieve the connection metadata without returning the
 -- password. For instance, the AWS Glue console uses this flag to retrieve
 -- the connection, and does not display the password. Set this parameter
--- when the caller might not have permission to use the AWS KMS key to
--- decrypt the password, but it does have permission to access the rest of
--- the connection properties.
+-- when the caller might not have permission to use the KMS key to decrypt
+-- the password, but it does have permission to access the rest of the
+-- connection properties.
 --
 -- 'name', 'getConnection_name' - The name of the connection definition to retrieve.
 newGetConnection ::
@@ -96,16 +96,16 @@ newGetConnection pName_ =
     }
 
 -- | The ID of the Data Catalog in which the connection resides. If none is
--- provided, the AWS account ID is used by default.
+-- provided, the Amazon Web Services account ID is used by default.
 getConnection_catalogId :: Lens.Lens' GetConnection (Prelude.Maybe Prelude.Text)
 getConnection_catalogId = Lens.lens (\GetConnection' {catalogId} -> catalogId) (\s@GetConnection' {} a -> s {catalogId = a} :: GetConnection)
 
 -- | Allows you to retrieve the connection metadata without returning the
 -- password. For instance, the AWS Glue console uses this flag to retrieve
 -- the connection, and does not display the password. Set this parameter
--- when the caller might not have permission to use the AWS KMS key to
--- decrypt the password, but it does have permission to access the rest of
--- the connection properties.
+-- when the caller might not have permission to use the KMS key to decrypt
+-- the password, but it does have permission to access the rest of the
+-- connection properties.
 getConnection_hidePassword :: Lens.Lens' GetConnection (Prelude.Maybe Prelude.Bool)
 getConnection_hidePassword = Lens.lens (\GetConnection' {hidePassword} -> hidePassword) (\s@GetConnection' {} a -> s {hidePassword = a} :: GetConnection)
 

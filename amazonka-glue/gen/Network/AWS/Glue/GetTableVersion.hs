@@ -52,7 +52,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newGetTableVersion' smart constructor.
 data GetTableVersion = GetTableVersion'
   { -- | The ID of the Data Catalog where the tables reside. If none is provided,
-    -- the AWS account ID is used by default.
+    -- the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The ID value of the table version to be retrieved. A @VersionID@ is a
     -- string representation of an integer. Each version is incremented by 1.
@@ -75,7 +75,7 @@ data GetTableVersion = GetTableVersion'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'getTableVersion_catalogId' - The ID of the Data Catalog where the tables reside. If none is provided,
--- the AWS account ID is used by default.
+-- the Amazon Web Services account ID is used by default.
 --
 -- 'versionId', 'getTableVersion_versionId' - The ID value of the table version to be retrieved. A @VersionID@ is a
 -- string representation of an integer. Each version is incremented by 1.
@@ -100,7 +100,7 @@ newGetTableVersion pDatabaseName_ pTableName_ =
     }
 
 -- | The ID of the Data Catalog where the tables reside. If none is provided,
--- the AWS account ID is used by default.
+-- the Amazon Web Services account ID is used by default.
 getTableVersion_catalogId :: Lens.Lens' GetTableVersion (Prelude.Maybe Prelude.Text)
 getTableVersion_catalogId = Lens.lens (\GetTableVersion' {catalogId} -> catalogId) (\s@GetTableVersion' {} a -> s {catalogId = a} :: GetTableVersion)
 

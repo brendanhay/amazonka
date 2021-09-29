@@ -50,8 +50,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreatePartition' smart constructor.
 data CreatePartition = CreatePartition'
-  { -- | The AWS account ID of the catalog in which the partition is to be
-    -- created.
+  { -- | The Amazon Web Services account ID of the catalog in which the partition
+    -- is to be created.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the metadata database in which the partition is to be
     -- created.
@@ -71,8 +71,8 @@ data CreatePartition = CreatePartition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'catalogId', 'createPartition_catalogId' - The AWS account ID of the catalog in which the partition is to be
--- created.
+-- 'catalogId', 'createPartition_catalogId' - The Amazon Web Services account ID of the catalog in which the partition
+-- is to be created.
 --
 -- 'databaseName', 'createPartition_databaseName' - The name of the metadata database in which the partition is to be
 -- created.
@@ -99,8 +99,8 @@ newCreatePartition
         partitionInput = pPartitionInput_
       }
 
--- | The AWS account ID of the catalog in which the partition is to be
--- created.
+-- | The Amazon Web Services account ID of the catalog in which the partition
+-- is to be created.
 createPartition_catalogId :: Lens.Lens' CreatePartition (Prelude.Maybe Prelude.Text)
 createPartition_catalogId = Lens.lens (\CreatePartition' {catalogId} -> catalogId) (\s@CreatePartition' {} a -> s {catalogId = a} :: CreatePartition)
 

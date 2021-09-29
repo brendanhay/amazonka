@@ -39,6 +39,9 @@ data FindMatchesMetrics = FindMatchesMetrics'
     -- For more information, see
     -- <https://en.wikipedia.org/wiki/F1_score F1 score> in Wikipedia.
     f1 :: Prelude.Maybe Prelude.Double,
+    -- | A list of @ColumnImportance@ structures containing column importance
+    -- metrics, sorted in order of descending importance.
+    columnImportances :: Prelude.Maybe [ColumnImportance],
     -- | The confusion matrix shows you what your transform is predicting
     -- accurately and what types of errors it is making.
     --
@@ -46,9 +49,6 @@ data FindMatchesMetrics = FindMatchesMetrics'
     -- <https://en.wikipedia.org/wiki/Confusion_matrix Confusion matrix> in
     -- Wikipedia.
     confusionMatrix :: Prelude.Maybe ConfusionMatrix,
-    -- | A list of @ColumnImportance@ structures containing column importance
-    -- metrics, sorted in order of descending importance.
-    columnImportances :: Prelude.Maybe [ColumnImportance],
     -- | The precision metric indicates when often your transform is correct when
     -- it predicts a match. Specifically, it measures how well the transform
     -- finds true positives from the total true positives possible.
@@ -92,15 +92,15 @@ data FindMatchesMetrics = FindMatchesMetrics'
 -- For more information, see
 -- <https://en.wikipedia.org/wiki/F1_score F1 score> in Wikipedia.
 --
+-- 'columnImportances', 'findMatchesMetrics_columnImportances' - A list of @ColumnImportance@ structures containing column importance
+-- metrics, sorted in order of descending importance.
+--
 -- 'confusionMatrix', 'findMatchesMetrics_confusionMatrix' - The confusion matrix shows you what your transform is predicting
 -- accurately and what types of errors it is making.
 --
 -- For more information, see
 -- <https://en.wikipedia.org/wiki/Confusion_matrix Confusion matrix> in
 -- Wikipedia.
---
--- 'columnImportances', 'findMatchesMetrics_columnImportances' - A list of @ColumnImportance@ structures containing column importance
--- metrics, sorted in order of descending importance.
 --
 -- 'precision', 'findMatchesMetrics_precision' - The precision metric indicates when often your transform is correct when
 -- it predicts a match. Specifically, it measures how well the transform
@@ -132,8 +132,8 @@ newFindMatchesMetrics ::
 newFindMatchesMetrics =
   FindMatchesMetrics'
     { f1 = Prelude.Nothing,
-      confusionMatrix = Prelude.Nothing,
       columnImportances = Prelude.Nothing,
+      confusionMatrix = Prelude.Nothing,
       precision = Prelude.Nothing,
       areaUnderPRCurve = Prelude.Nothing,
       recall = Prelude.Nothing
@@ -147,6 +147,11 @@ newFindMatchesMetrics =
 findMatchesMetrics_f1 :: Lens.Lens' FindMatchesMetrics (Prelude.Maybe Prelude.Double)
 findMatchesMetrics_f1 = Lens.lens (\FindMatchesMetrics' {f1} -> f1) (\s@FindMatchesMetrics' {} a -> s {f1 = a} :: FindMatchesMetrics)
 
+-- | A list of @ColumnImportance@ structures containing column importance
+-- metrics, sorted in order of descending importance.
+findMatchesMetrics_columnImportances :: Lens.Lens' FindMatchesMetrics (Prelude.Maybe [ColumnImportance])
+findMatchesMetrics_columnImportances = Lens.lens (\FindMatchesMetrics' {columnImportances} -> columnImportances) (\s@FindMatchesMetrics' {} a -> s {columnImportances = a} :: FindMatchesMetrics) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The confusion matrix shows you what your transform is predicting
 -- accurately and what types of errors it is making.
 --
@@ -155,11 +160,6 @@ findMatchesMetrics_f1 = Lens.lens (\FindMatchesMetrics' {f1} -> f1) (\s@FindMatc
 -- Wikipedia.
 findMatchesMetrics_confusionMatrix :: Lens.Lens' FindMatchesMetrics (Prelude.Maybe ConfusionMatrix)
 findMatchesMetrics_confusionMatrix = Lens.lens (\FindMatchesMetrics' {confusionMatrix} -> confusionMatrix) (\s@FindMatchesMetrics' {} a -> s {confusionMatrix = a} :: FindMatchesMetrics)
-
--- | A list of @ColumnImportance@ structures containing column importance
--- metrics, sorted in order of descending importance.
-findMatchesMetrics_columnImportances :: Lens.Lens' FindMatchesMetrics (Prelude.Maybe [ColumnImportance])
-findMatchesMetrics_columnImportances = Lens.lens (\FindMatchesMetrics' {columnImportances} -> columnImportances) (\s@FindMatchesMetrics' {} a -> s {columnImportances = a} :: FindMatchesMetrics) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The precision metric indicates when often your transform is correct when
 -- it predicts a match. Specifically, it measures how well the transform
@@ -200,10 +200,10 @@ instance Core.FromJSON FindMatchesMetrics where
       ( \x ->
           FindMatchesMetrics'
             Prelude.<$> (x Core..:? "F1")
-            Prelude.<*> (x Core..:? "ConfusionMatrix")
             Prelude.<*> ( x Core..:? "ColumnImportances"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "ConfusionMatrix")
             Prelude.<*> (x Core..:? "Precision")
             Prelude.<*> (x Core..:? "AreaUnderPRCurve")
             Prelude.<*> (x Core..:? "Recall")

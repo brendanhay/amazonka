@@ -57,7 +57,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newGetColumnStatisticsForPartition' smart constructor.
 data GetColumnStatisticsForPartition = GetColumnStatisticsForPartition'
   { -- | The ID of the Data Catalog where the partitions in question reside. If
-    -- none is supplied, the AWS account ID is used by default.
+    -- none is supplied, the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the catalog database where the partitions reside.
     databaseName :: Prelude.Text,
@@ -79,7 +79,7 @@ data GetColumnStatisticsForPartition = GetColumnStatisticsForPartition'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'getColumnStatisticsForPartition_catalogId' - The ID of the Data Catalog where the partitions in question reside. If
--- none is supplied, the AWS account ID is used by default.
+-- none is supplied, the Amazon Web Services account ID is used by default.
 --
 -- 'databaseName', 'getColumnStatisticsForPartition_databaseName' - The name of the catalog database where the partitions reside.
 --
@@ -107,7 +107,7 @@ newGetColumnStatisticsForPartition
       }
 
 -- | The ID of the Data Catalog where the partitions in question reside. If
--- none is supplied, the AWS account ID is used by default.
+-- none is supplied, the Amazon Web Services account ID is used by default.
 getColumnStatisticsForPartition_catalogId :: Lens.Lens' GetColumnStatisticsForPartition (Prelude.Maybe Prelude.Text)
 getColumnStatisticsForPartition_catalogId = Lens.lens (\GetColumnStatisticsForPartition' {catalogId} -> catalogId) (\s@GetColumnStatisticsForPartition' {} a -> s {catalogId = a} :: GetColumnStatisticsForPartition)
 

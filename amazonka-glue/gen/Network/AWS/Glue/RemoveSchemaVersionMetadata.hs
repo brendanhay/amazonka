@@ -41,11 +41,11 @@ module Network.AWS.Glue.RemoveSchemaVersionMetadata
     removeSchemaVersionMetadataResponse_schemaArn,
     removeSchemaVersionMetadataResponse_latestVersion,
     removeSchemaVersionMetadataResponse_schemaVersionId,
-    removeSchemaVersionMetadataResponse_metadataKey,
     removeSchemaVersionMetadataResponse_registryName,
+    removeSchemaVersionMetadataResponse_metadataKey,
     removeSchemaVersionMetadataResponse_versionNumber,
-    removeSchemaVersionMetadataResponse_schemaName,
     removeSchemaVersionMetadataResponse_metadataValue,
+    removeSchemaVersionMetadataResponse_schemaName,
     removeSchemaVersionMetadataResponse_httpStatus,
   )
 where
@@ -129,11 +129,11 @@ instance Core.AWSRequest RemoveSchemaVersionMetadata where
             Prelude.<$> (x Core..?> "SchemaArn")
             Prelude.<*> (x Core..?> "LatestVersion")
             Prelude.<*> (x Core..?> "SchemaVersionId")
-            Prelude.<*> (x Core..?> "MetadataKey")
             Prelude.<*> (x Core..?> "RegistryName")
+            Prelude.<*> (x Core..?> "MetadataKey")
             Prelude.<*> (x Core..?> "VersionNumber")
-            Prelude.<*> (x Core..?> "SchemaName")
             Prelude.<*> (x Core..?> "MetadataValue")
+            Prelude.<*> (x Core..?> "SchemaName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -184,16 +184,16 @@ data RemoveSchemaVersionMetadataResponse = RemoveSchemaVersionMetadataResponse'
     latestVersion :: Prelude.Maybe Prelude.Bool,
     -- | The version ID for the schema version.
     schemaVersionId :: Prelude.Maybe Prelude.Text,
-    -- | The metadata key.
-    metadataKey :: Prelude.Maybe Prelude.Text,
     -- | The name of the registry.
     registryName :: Prelude.Maybe Prelude.Text,
+    -- | The metadata key.
+    metadataKey :: Prelude.Maybe Prelude.Text,
     -- | The version number of the schema.
     versionNumber :: Prelude.Maybe Prelude.Natural,
-    -- | The name of the schema.
-    schemaName :: Prelude.Maybe Prelude.Text,
     -- | The value of the metadata key.
     metadataValue :: Prelude.Maybe Prelude.Text,
+    -- | The name of the schema.
+    schemaName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -213,15 +213,15 @@ data RemoveSchemaVersionMetadataResponse = RemoveSchemaVersionMetadataResponse'
 --
 -- 'schemaVersionId', 'removeSchemaVersionMetadataResponse_schemaVersionId' - The version ID for the schema version.
 --
--- 'metadataKey', 'removeSchemaVersionMetadataResponse_metadataKey' - The metadata key.
---
 -- 'registryName', 'removeSchemaVersionMetadataResponse_registryName' - The name of the registry.
+--
+-- 'metadataKey', 'removeSchemaVersionMetadataResponse_metadataKey' - The metadata key.
 --
 -- 'versionNumber', 'removeSchemaVersionMetadataResponse_versionNumber' - The version number of the schema.
 --
--- 'schemaName', 'removeSchemaVersionMetadataResponse_schemaName' - The name of the schema.
---
 -- 'metadataValue', 'removeSchemaVersionMetadataResponse_metadataValue' - The value of the metadata key.
+--
+-- 'schemaName', 'removeSchemaVersionMetadataResponse_schemaName' - The name of the schema.
 --
 -- 'httpStatus', 'removeSchemaVersionMetadataResponse_httpStatus' - The response's http status code.
 newRemoveSchemaVersionMetadataResponse ::
@@ -234,11 +234,11 @@ newRemoveSchemaVersionMetadataResponse pHttpStatus_ =
         Prelude.Nothing,
       latestVersion = Prelude.Nothing,
       schemaVersionId = Prelude.Nothing,
-      metadataKey = Prelude.Nothing,
       registryName = Prelude.Nothing,
+      metadataKey = Prelude.Nothing,
       versionNumber = Prelude.Nothing,
-      schemaName = Prelude.Nothing,
       metadataValue = Prelude.Nothing,
+      schemaName = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -254,25 +254,25 @@ removeSchemaVersionMetadataResponse_latestVersion = Lens.lens (\RemoveSchemaVers
 removeSchemaVersionMetadataResponse_schemaVersionId :: Lens.Lens' RemoveSchemaVersionMetadataResponse (Prelude.Maybe Prelude.Text)
 removeSchemaVersionMetadataResponse_schemaVersionId = Lens.lens (\RemoveSchemaVersionMetadataResponse' {schemaVersionId} -> schemaVersionId) (\s@RemoveSchemaVersionMetadataResponse' {} a -> s {schemaVersionId = a} :: RemoveSchemaVersionMetadataResponse)
 
--- | The metadata key.
-removeSchemaVersionMetadataResponse_metadataKey :: Lens.Lens' RemoveSchemaVersionMetadataResponse (Prelude.Maybe Prelude.Text)
-removeSchemaVersionMetadataResponse_metadataKey = Lens.lens (\RemoveSchemaVersionMetadataResponse' {metadataKey} -> metadataKey) (\s@RemoveSchemaVersionMetadataResponse' {} a -> s {metadataKey = a} :: RemoveSchemaVersionMetadataResponse)
-
 -- | The name of the registry.
 removeSchemaVersionMetadataResponse_registryName :: Lens.Lens' RemoveSchemaVersionMetadataResponse (Prelude.Maybe Prelude.Text)
 removeSchemaVersionMetadataResponse_registryName = Lens.lens (\RemoveSchemaVersionMetadataResponse' {registryName} -> registryName) (\s@RemoveSchemaVersionMetadataResponse' {} a -> s {registryName = a} :: RemoveSchemaVersionMetadataResponse)
+
+-- | The metadata key.
+removeSchemaVersionMetadataResponse_metadataKey :: Lens.Lens' RemoveSchemaVersionMetadataResponse (Prelude.Maybe Prelude.Text)
+removeSchemaVersionMetadataResponse_metadataKey = Lens.lens (\RemoveSchemaVersionMetadataResponse' {metadataKey} -> metadataKey) (\s@RemoveSchemaVersionMetadataResponse' {} a -> s {metadataKey = a} :: RemoveSchemaVersionMetadataResponse)
 
 -- | The version number of the schema.
 removeSchemaVersionMetadataResponse_versionNumber :: Lens.Lens' RemoveSchemaVersionMetadataResponse (Prelude.Maybe Prelude.Natural)
 removeSchemaVersionMetadataResponse_versionNumber = Lens.lens (\RemoveSchemaVersionMetadataResponse' {versionNumber} -> versionNumber) (\s@RemoveSchemaVersionMetadataResponse' {} a -> s {versionNumber = a} :: RemoveSchemaVersionMetadataResponse)
 
--- | The name of the schema.
-removeSchemaVersionMetadataResponse_schemaName :: Lens.Lens' RemoveSchemaVersionMetadataResponse (Prelude.Maybe Prelude.Text)
-removeSchemaVersionMetadataResponse_schemaName = Lens.lens (\RemoveSchemaVersionMetadataResponse' {schemaName} -> schemaName) (\s@RemoveSchemaVersionMetadataResponse' {} a -> s {schemaName = a} :: RemoveSchemaVersionMetadataResponse)
-
 -- | The value of the metadata key.
 removeSchemaVersionMetadataResponse_metadataValue :: Lens.Lens' RemoveSchemaVersionMetadataResponse (Prelude.Maybe Prelude.Text)
 removeSchemaVersionMetadataResponse_metadataValue = Lens.lens (\RemoveSchemaVersionMetadataResponse' {metadataValue} -> metadataValue) (\s@RemoveSchemaVersionMetadataResponse' {} a -> s {metadataValue = a} :: RemoveSchemaVersionMetadataResponse)
+
+-- | The name of the schema.
+removeSchemaVersionMetadataResponse_schemaName :: Lens.Lens' RemoveSchemaVersionMetadataResponse (Prelude.Maybe Prelude.Text)
+removeSchemaVersionMetadataResponse_schemaName = Lens.lens (\RemoveSchemaVersionMetadataResponse' {schemaName} -> schemaName) (\s@RemoveSchemaVersionMetadataResponse' {} a -> s {schemaName = a} :: RemoveSchemaVersionMetadataResponse)
 
 -- | The response's http status code.
 removeSchemaVersionMetadataResponse_httpStatus :: Lens.Lens' RemoveSchemaVersionMetadataResponse Prelude.Int

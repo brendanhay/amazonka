@@ -24,9 +24,8 @@
 -- to improve the transform\'s quality by generating label sets and adding
 -- labels.
 --
--- When the @StartMLLabelingSetGenerationTaskRun@ finishes, AWS Glue will
--- have generated a \"labeling set\" or a set of questions for humans to
--- answer.
+-- When the @StartMLLabelingSetGenerationTaskRun@ finishes, Glue will have
+-- generated a \"labeling set\" or a set of questions for humans to answer.
 --
 -- In the case of the @FindMatches@ transform, these questions are of the
 -- form, “What is the correct way to group these rows together into groups

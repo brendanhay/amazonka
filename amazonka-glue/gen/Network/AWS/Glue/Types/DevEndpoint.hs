@@ -29,14 +29,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDevEndpoint' smart constructor.
 data DevEndpoint = DevEndpoint'
-  { -- | A list of security group identifiers used in this @DevEndpoint@.
-    securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The status of the last update.
+  { -- | The status of the last update.
     lastUpdateStatus :: Prelude.Maybe Prelude.Text,
     -- | The public IP address used by this @DevEndpoint@. The @PublicAddress@
     -- field is present only when you create a non-virtual private cloud (VPC)
     -- @DevEndpoint@.
     publicAddress :: Prelude.Maybe Prelude.Text,
+    -- | A list of security group identifiers used in this @DevEndpoint@.
+    securityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The current status of this @DevEndpoint@.
     status :: Prelude.Maybe Prelude.Text,
     -- | The name of the @DevEndpoint@.
@@ -61,6 +61,14 @@ data DevEndpoint = DevEndpoint'
     privateAddress :: Prelude.Maybe Prelude.Text,
     -- | The point in time at which this @DevEndpoint@ was last modified.
     lastModifiedTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | The number of workers of a defined @workerType@ that are allocated to
+    -- the development endpoint.
+    --
+    -- The maximum number of workers you can define are 299 for @G.1X@, and 149
+    -- for @G.2X@.
+    numberOfWorkers :: Prelude.Maybe Prelude.Int,
+    -- | The Apache Zeppelin port for the remote Apache Spark interpreter.
+    zeppelinRemoteSparkInterpreterPort :: Prelude.Maybe Prelude.Int,
     -- | The paths to one or more Python libraries in an Amazon S3 bucket that
     -- should be loaded in your @DevEndpoint@. Multiple values must be complete
     -- paths separated by a comma.
@@ -70,24 +78,16 @@ data DevEndpoint = DevEndpoint'
     -- <http://pandas.pydata.org/ pandas> Python data analysis library, are not
     -- currently supported.
     extraPythonLibsS3Path :: Prelude.Maybe Prelude.Text,
-    -- | The number of workers of a defined @workerType@ that are allocated to
-    -- the development endpoint.
-    --
-    -- The maximum number of workers you can define are 299 for @G.1X@, and 149
-    -- for @G.2X@.
-    numberOfWorkers :: Prelude.Maybe Prelude.Int,
-    -- | The Apache Zeppelin port for the remote Apache Spark interpreter.
-    zeppelinRemoteSparkInterpreterPort :: Prelude.Maybe Prelude.Int,
     -- | The AWS Availability Zone where this @DevEndpoint@ is located.
     availabilityZone :: Prelude.Maybe Prelude.Text,
     -- | The reason for a current failure in this @DevEndpoint@.
     failureReason :: Prelude.Maybe Prelude.Text,
-    -- | Glue version determines the versions of Apache Spark and Python that AWS
+    -- | Glue version determines the versions of Apache Spark and Python that
     -- Glue supports. The Python version indicates the version supported for
     -- running your ETL scripts on development endpoints.
     --
-    -- For more information about the available AWS Glue versions and
-    -- corresponding Spark and Python versions, see
+    -- For more information about the available Glue versions and corresponding
+    -- Spark and Python versions, see
     -- <https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version>
     -- in the developer guide.
     --
@@ -99,7 +99,7 @@ data DevEndpoint = DevEndpoint'
     -- @UpdateDevEndpoint@ APIs. If no arguments are provided, the version
     -- defaults to Python 2.
     glueVersion :: Prelude.Maybe Prelude.Text,
-    -- | The number of AWS Glue Data Processing Units (DPUs) allocated to this
+    -- | The number of Glue Data Processing Units (DPUs) allocated to this
     -- @DevEndpoint@.
     numberOfNodes :: Prelude.Maybe Prelude.Int,
     -- | The type of predefined worker that is allocated to the development
@@ -122,23 +122,24 @@ data DevEndpoint = DevEndpoint'
     workerType :: Prelude.Maybe WorkerType,
     -- | The subnet ID for this @DevEndpoint@.
     subnetId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the virtual private cloud (VPC) used by this @DevEndpoint@.
-    vpcId :: Prelude.Maybe Prelude.Text,
     -- | A map of arguments used to configure the @DevEndpoint@.
     --
     -- Valid arguments are:
     --
     -- -   @\"--enable-glue-datacatalog\": \"\"@
     --
-    -- -   @\"GLUE_PYTHON_VERSION\": \"3\"@
-    --
-    -- -   @\"GLUE_PYTHON_VERSION\": \"2\"@
-    --
     -- You can specify a version of Python support for development endpoints by
     -- using the @Arguments@ parameter in the @CreateDevEndpoint@ or
     -- @UpdateDevEndpoint@ APIs. If no arguments are provided, the version
     -- defaults to Python 2.
     arguments :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The ID of the virtual private cloud (VPC) used by this @DevEndpoint@.
+    vpcId :: Prelude.Maybe Prelude.Text,
+    -- | The path to one or more Java @.jar@ files in an S3 bucket that should be
+    -- loaded in your @DevEndpoint@.
+    --
+    -- You can only use pure Java\/Scala libraries with a @DevEndpoint@.
+    extraJarsS3Path :: Prelude.Maybe Prelude.Text,
     -- | A list of public keys to be used by the @DevEndpoints@ for
     -- authentication. Using this attribute is preferred over a single public
     -- key because the public keys allow you to have a different private key
@@ -149,12 +150,7 @@ data DevEndpoint = DevEndpoint'
     -- @UpdateDevEndpoint@ API operation with the public key content in the
     -- @deletePublicKeys@ attribute, and the list of new keys in the
     -- @addPublicKeys@ attribute.
-    publicKeys :: Prelude.Maybe [Prelude.Text],
-    -- | The path to one or more Java @.jar@ files in an S3 bucket that should be
-    -- loaded in your @DevEndpoint@.
-    --
-    -- You can only use pure Java\/Scala libraries with a @DevEndpoint@.
-    extraJarsS3Path :: Prelude.Maybe Prelude.Text
+    publicKeys :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -166,13 +162,13 @@ data DevEndpoint = DevEndpoint'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'securityGroupIds', 'devEndpoint_securityGroupIds' - A list of security group identifiers used in this @DevEndpoint@.
---
 -- 'lastUpdateStatus', 'devEndpoint_lastUpdateStatus' - The status of the last update.
 --
 -- 'publicAddress', 'devEndpoint_publicAddress' - The public IP address used by this @DevEndpoint@. The @PublicAddress@
 -- field is present only when you create a non-virtual private cloud (VPC)
 -- @DevEndpoint@.
+--
+-- 'securityGroupIds', 'devEndpoint_securityGroupIds' - A list of security group identifiers used in this @DevEndpoint@.
 --
 -- 'status', 'devEndpoint_status' - The current status of this @DevEndpoint@.
 --
@@ -198,6 +194,14 @@ data DevEndpoint = DevEndpoint'
 --
 -- 'lastModifiedTimestamp', 'devEndpoint_lastModifiedTimestamp' - The point in time at which this @DevEndpoint@ was last modified.
 --
+-- 'numberOfWorkers', 'devEndpoint_numberOfWorkers' - The number of workers of a defined @workerType@ that are allocated to
+-- the development endpoint.
+--
+-- The maximum number of workers you can define are 299 for @G.1X@, and 149
+-- for @G.2X@.
+--
+-- 'zeppelinRemoteSparkInterpreterPort', 'devEndpoint_zeppelinRemoteSparkInterpreterPort' - The Apache Zeppelin port for the remote Apache Spark interpreter.
+--
 -- 'extraPythonLibsS3Path', 'devEndpoint_extraPythonLibsS3Path' - The paths to one or more Python libraries in an Amazon S3 bucket that
 -- should be loaded in your @DevEndpoint@. Multiple values must be complete
 -- paths separated by a comma.
@@ -207,24 +211,16 @@ data DevEndpoint = DevEndpoint'
 -- <http://pandas.pydata.org/ pandas> Python data analysis library, are not
 -- currently supported.
 --
--- 'numberOfWorkers', 'devEndpoint_numberOfWorkers' - The number of workers of a defined @workerType@ that are allocated to
--- the development endpoint.
---
--- The maximum number of workers you can define are 299 for @G.1X@, and 149
--- for @G.2X@.
---
--- 'zeppelinRemoteSparkInterpreterPort', 'devEndpoint_zeppelinRemoteSparkInterpreterPort' - The Apache Zeppelin port for the remote Apache Spark interpreter.
---
 -- 'availabilityZone', 'devEndpoint_availabilityZone' - The AWS Availability Zone where this @DevEndpoint@ is located.
 --
 -- 'failureReason', 'devEndpoint_failureReason' - The reason for a current failure in this @DevEndpoint@.
 --
--- 'glueVersion', 'devEndpoint_glueVersion' - Glue version determines the versions of Apache Spark and Python that AWS
+-- 'glueVersion', 'devEndpoint_glueVersion' - Glue version determines the versions of Apache Spark and Python that
 -- Glue supports. The Python version indicates the version supported for
 -- running your ETL scripts on development endpoints.
 --
--- For more information about the available AWS Glue versions and
--- corresponding Spark and Python versions, see
+-- For more information about the available Glue versions and corresponding
+-- Spark and Python versions, see
 -- <https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version>
 -- in the developer guide.
 --
@@ -236,7 +232,7 @@ data DevEndpoint = DevEndpoint'
 -- @UpdateDevEndpoint@ APIs. If no arguments are provided, the version
 -- defaults to Python 2.
 --
--- 'numberOfNodes', 'devEndpoint_numberOfNodes' - The number of AWS Glue Data Processing Units (DPUs) allocated to this
+-- 'numberOfNodes', 'devEndpoint_numberOfNodes' - The number of Glue Data Processing Units (DPUs) allocated to this
 -- @DevEndpoint@.
 --
 -- 'workerType', 'devEndpoint_workerType' - The type of predefined worker that is allocated to the development
@@ -259,22 +255,23 @@ data DevEndpoint = DevEndpoint'
 --
 -- 'subnetId', 'devEndpoint_subnetId' - The subnet ID for this @DevEndpoint@.
 --
--- 'vpcId', 'devEndpoint_vpcId' - The ID of the virtual private cloud (VPC) used by this @DevEndpoint@.
---
 -- 'arguments', 'devEndpoint_arguments' - A map of arguments used to configure the @DevEndpoint@.
 --
 -- Valid arguments are:
 --
 -- -   @\"--enable-glue-datacatalog\": \"\"@
 --
--- -   @\"GLUE_PYTHON_VERSION\": \"3\"@
---
--- -   @\"GLUE_PYTHON_VERSION\": \"2\"@
---
 -- You can specify a version of Python support for development endpoints by
 -- using the @Arguments@ parameter in the @CreateDevEndpoint@ or
 -- @UpdateDevEndpoint@ APIs. If no arguments are provided, the version
 -- defaults to Python 2.
+--
+-- 'vpcId', 'devEndpoint_vpcId' - The ID of the virtual private cloud (VPC) used by this @DevEndpoint@.
+--
+-- 'extraJarsS3Path', 'devEndpoint_extraJarsS3Path' - The path to one or more Java @.jar@ files in an S3 bucket that should be
+-- loaded in your @DevEndpoint@.
+--
+-- You can only use pure Java\/Scala libraries with a @DevEndpoint@.
 --
 -- 'publicKeys', 'devEndpoint_publicKeys' - A list of public keys to be used by the @DevEndpoints@ for
 -- authentication. Using this attribute is preferred over a single public
@@ -286,18 +283,13 @@ data DevEndpoint = DevEndpoint'
 -- @UpdateDevEndpoint@ API operation with the public key content in the
 -- @deletePublicKeys@ attribute, and the list of new keys in the
 -- @addPublicKeys@ attribute.
---
--- 'extraJarsS3Path', 'devEndpoint_extraJarsS3Path' - The path to one or more Java @.jar@ files in an S3 bucket that should be
--- loaded in your @DevEndpoint@.
---
--- You can only use pure Java\/Scala libraries with a @DevEndpoint@.
 newDevEndpoint ::
   DevEndpoint
 newDevEndpoint =
   DevEndpoint'
-    { securityGroupIds = Prelude.Nothing,
-      lastUpdateStatus = Prelude.Nothing,
+    { lastUpdateStatus = Prelude.Nothing,
       publicAddress = Prelude.Nothing,
+      securityGroupIds = Prelude.Nothing,
       status = Prelude.Nothing,
       endpointName = Prelude.Nothing,
       roleArn = Prelude.Nothing,
@@ -307,24 +299,20 @@ newDevEndpoint =
       createdTimestamp = Prelude.Nothing,
       privateAddress = Prelude.Nothing,
       lastModifiedTimestamp = Prelude.Nothing,
-      extraPythonLibsS3Path = Prelude.Nothing,
       numberOfWorkers = Prelude.Nothing,
       zeppelinRemoteSparkInterpreterPort = Prelude.Nothing,
+      extraPythonLibsS3Path = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
       failureReason = Prelude.Nothing,
       glueVersion = Prelude.Nothing,
       numberOfNodes = Prelude.Nothing,
       workerType = Prelude.Nothing,
       subnetId = Prelude.Nothing,
-      vpcId = Prelude.Nothing,
       arguments = Prelude.Nothing,
-      publicKeys = Prelude.Nothing,
-      extraJarsS3Path = Prelude.Nothing
+      vpcId = Prelude.Nothing,
+      extraJarsS3Path = Prelude.Nothing,
+      publicKeys = Prelude.Nothing
     }
-
--- | A list of security group identifiers used in this @DevEndpoint@.
-devEndpoint_securityGroupIds :: Lens.Lens' DevEndpoint (Prelude.Maybe [Prelude.Text])
-devEndpoint_securityGroupIds = Lens.lens (\DevEndpoint' {securityGroupIds} -> securityGroupIds) (\s@DevEndpoint' {} a -> s {securityGroupIds = a} :: DevEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The status of the last update.
 devEndpoint_lastUpdateStatus :: Lens.Lens' DevEndpoint (Prelude.Maybe Prelude.Text)
@@ -335,6 +323,10 @@ devEndpoint_lastUpdateStatus = Lens.lens (\DevEndpoint' {lastUpdateStatus} -> la
 -- @DevEndpoint@.
 devEndpoint_publicAddress :: Lens.Lens' DevEndpoint (Prelude.Maybe Prelude.Text)
 devEndpoint_publicAddress = Lens.lens (\DevEndpoint' {publicAddress} -> publicAddress) (\s@DevEndpoint' {} a -> s {publicAddress = a} :: DevEndpoint)
+
+-- | A list of security group identifiers used in this @DevEndpoint@.
+devEndpoint_securityGroupIds :: Lens.Lens' DevEndpoint (Prelude.Maybe [Prelude.Text])
+devEndpoint_securityGroupIds = Lens.lens (\DevEndpoint' {securityGroupIds} -> securityGroupIds) (\s@DevEndpoint' {} a -> s {securityGroupIds = a} :: DevEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The current status of this @DevEndpoint@.
 devEndpoint_status :: Lens.Lens' DevEndpoint (Prelude.Maybe Prelude.Text)
@@ -378,17 +370,6 @@ devEndpoint_privateAddress = Lens.lens (\DevEndpoint' {privateAddress} -> privat
 devEndpoint_lastModifiedTimestamp :: Lens.Lens' DevEndpoint (Prelude.Maybe Prelude.UTCTime)
 devEndpoint_lastModifiedTimestamp = Lens.lens (\DevEndpoint' {lastModifiedTimestamp} -> lastModifiedTimestamp) (\s@DevEndpoint' {} a -> s {lastModifiedTimestamp = a} :: DevEndpoint) Prelude.. Lens.mapping Core._Time
 
--- | The paths to one or more Python libraries in an Amazon S3 bucket that
--- should be loaded in your @DevEndpoint@. Multiple values must be complete
--- paths separated by a comma.
---
--- You can only use pure Python libraries with a @DevEndpoint@. Libraries
--- that rely on C extensions, such as the
--- <http://pandas.pydata.org/ pandas> Python data analysis library, are not
--- currently supported.
-devEndpoint_extraPythonLibsS3Path :: Lens.Lens' DevEndpoint (Prelude.Maybe Prelude.Text)
-devEndpoint_extraPythonLibsS3Path = Lens.lens (\DevEndpoint' {extraPythonLibsS3Path} -> extraPythonLibsS3Path) (\s@DevEndpoint' {} a -> s {extraPythonLibsS3Path = a} :: DevEndpoint)
-
 -- | The number of workers of a defined @workerType@ that are allocated to
 -- the development endpoint.
 --
@@ -401,6 +382,17 @@ devEndpoint_numberOfWorkers = Lens.lens (\DevEndpoint' {numberOfWorkers} -> numb
 devEndpoint_zeppelinRemoteSparkInterpreterPort :: Lens.Lens' DevEndpoint (Prelude.Maybe Prelude.Int)
 devEndpoint_zeppelinRemoteSparkInterpreterPort = Lens.lens (\DevEndpoint' {zeppelinRemoteSparkInterpreterPort} -> zeppelinRemoteSparkInterpreterPort) (\s@DevEndpoint' {} a -> s {zeppelinRemoteSparkInterpreterPort = a} :: DevEndpoint)
 
+-- | The paths to one or more Python libraries in an Amazon S3 bucket that
+-- should be loaded in your @DevEndpoint@. Multiple values must be complete
+-- paths separated by a comma.
+--
+-- You can only use pure Python libraries with a @DevEndpoint@. Libraries
+-- that rely on C extensions, such as the
+-- <http://pandas.pydata.org/ pandas> Python data analysis library, are not
+-- currently supported.
+devEndpoint_extraPythonLibsS3Path :: Lens.Lens' DevEndpoint (Prelude.Maybe Prelude.Text)
+devEndpoint_extraPythonLibsS3Path = Lens.lens (\DevEndpoint' {extraPythonLibsS3Path} -> extraPythonLibsS3Path) (\s@DevEndpoint' {} a -> s {extraPythonLibsS3Path = a} :: DevEndpoint)
+
 -- | The AWS Availability Zone where this @DevEndpoint@ is located.
 devEndpoint_availabilityZone :: Lens.Lens' DevEndpoint (Prelude.Maybe Prelude.Text)
 devEndpoint_availabilityZone = Lens.lens (\DevEndpoint' {availabilityZone} -> availabilityZone) (\s@DevEndpoint' {} a -> s {availabilityZone = a} :: DevEndpoint)
@@ -409,12 +401,12 @@ devEndpoint_availabilityZone = Lens.lens (\DevEndpoint' {availabilityZone} -> av
 devEndpoint_failureReason :: Lens.Lens' DevEndpoint (Prelude.Maybe Prelude.Text)
 devEndpoint_failureReason = Lens.lens (\DevEndpoint' {failureReason} -> failureReason) (\s@DevEndpoint' {} a -> s {failureReason = a} :: DevEndpoint)
 
--- | Glue version determines the versions of Apache Spark and Python that AWS
+-- | Glue version determines the versions of Apache Spark and Python that
 -- Glue supports. The Python version indicates the version supported for
 -- running your ETL scripts on development endpoints.
 --
--- For more information about the available AWS Glue versions and
--- corresponding Spark and Python versions, see
+-- For more information about the available Glue versions and corresponding
+-- Spark and Python versions, see
 -- <https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version>
 -- in the developer guide.
 --
@@ -428,7 +420,7 @@ devEndpoint_failureReason = Lens.lens (\DevEndpoint' {failureReason} -> failureR
 devEndpoint_glueVersion :: Lens.Lens' DevEndpoint (Prelude.Maybe Prelude.Text)
 devEndpoint_glueVersion = Lens.lens (\DevEndpoint' {glueVersion} -> glueVersion) (\s@DevEndpoint' {} a -> s {glueVersion = a} :: DevEndpoint)
 
--- | The number of AWS Glue Data Processing Units (DPUs) allocated to this
+-- | The number of Glue Data Processing Units (DPUs) allocated to this
 -- @DevEndpoint@.
 devEndpoint_numberOfNodes :: Lens.Lens' DevEndpoint (Prelude.Maybe Prelude.Int)
 devEndpoint_numberOfNodes = Lens.lens (\DevEndpoint' {numberOfNodes} -> numberOfNodes) (\s@DevEndpoint' {} a -> s {numberOfNodes = a} :: DevEndpoint)
@@ -457,19 +449,11 @@ devEndpoint_workerType = Lens.lens (\DevEndpoint' {workerType} -> workerType) (\
 devEndpoint_subnetId :: Lens.Lens' DevEndpoint (Prelude.Maybe Prelude.Text)
 devEndpoint_subnetId = Lens.lens (\DevEndpoint' {subnetId} -> subnetId) (\s@DevEndpoint' {} a -> s {subnetId = a} :: DevEndpoint)
 
--- | The ID of the virtual private cloud (VPC) used by this @DevEndpoint@.
-devEndpoint_vpcId :: Lens.Lens' DevEndpoint (Prelude.Maybe Prelude.Text)
-devEndpoint_vpcId = Lens.lens (\DevEndpoint' {vpcId} -> vpcId) (\s@DevEndpoint' {} a -> s {vpcId = a} :: DevEndpoint)
-
 -- | A map of arguments used to configure the @DevEndpoint@.
 --
 -- Valid arguments are:
 --
 -- -   @\"--enable-glue-datacatalog\": \"\"@
---
--- -   @\"GLUE_PYTHON_VERSION\": \"3\"@
---
--- -   @\"GLUE_PYTHON_VERSION\": \"2\"@
 --
 -- You can specify a version of Python support for development endpoints by
 -- using the @Arguments@ parameter in the @CreateDevEndpoint@ or
@@ -477,6 +461,17 @@ devEndpoint_vpcId = Lens.lens (\DevEndpoint' {vpcId} -> vpcId) (\s@DevEndpoint' 
 -- defaults to Python 2.
 devEndpoint_arguments :: Lens.Lens' DevEndpoint (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 devEndpoint_arguments = Lens.lens (\DevEndpoint' {arguments} -> arguments) (\s@DevEndpoint' {} a -> s {arguments = a} :: DevEndpoint) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The ID of the virtual private cloud (VPC) used by this @DevEndpoint@.
+devEndpoint_vpcId :: Lens.Lens' DevEndpoint (Prelude.Maybe Prelude.Text)
+devEndpoint_vpcId = Lens.lens (\DevEndpoint' {vpcId} -> vpcId) (\s@DevEndpoint' {} a -> s {vpcId = a} :: DevEndpoint)
+
+-- | The path to one or more Java @.jar@ files in an S3 bucket that should be
+-- loaded in your @DevEndpoint@.
+--
+-- You can only use pure Java\/Scala libraries with a @DevEndpoint@.
+devEndpoint_extraJarsS3Path :: Lens.Lens' DevEndpoint (Prelude.Maybe Prelude.Text)
+devEndpoint_extraJarsS3Path = Lens.lens (\DevEndpoint' {extraJarsS3Path} -> extraJarsS3Path) (\s@DevEndpoint' {} a -> s {extraJarsS3Path = a} :: DevEndpoint)
 
 -- | A list of public keys to be used by the @DevEndpoints@ for
 -- authentication. Using this attribute is preferred over a single public
@@ -491,24 +486,17 @@ devEndpoint_arguments = Lens.lens (\DevEndpoint' {arguments} -> arguments) (\s@D
 devEndpoint_publicKeys :: Lens.Lens' DevEndpoint (Prelude.Maybe [Prelude.Text])
 devEndpoint_publicKeys = Lens.lens (\DevEndpoint' {publicKeys} -> publicKeys) (\s@DevEndpoint' {} a -> s {publicKeys = a} :: DevEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
--- | The path to one or more Java @.jar@ files in an S3 bucket that should be
--- loaded in your @DevEndpoint@.
---
--- You can only use pure Java\/Scala libraries with a @DevEndpoint@.
-devEndpoint_extraJarsS3Path :: Lens.Lens' DevEndpoint (Prelude.Maybe Prelude.Text)
-devEndpoint_extraJarsS3Path = Lens.lens (\DevEndpoint' {extraJarsS3Path} -> extraJarsS3Path) (\s@DevEndpoint' {} a -> s {extraJarsS3Path = a} :: DevEndpoint)
-
 instance Core.FromJSON DevEndpoint where
   parseJSON =
     Core.withObject
       "DevEndpoint"
       ( \x ->
           DevEndpoint'
-            Prelude.<$> ( x Core..:? "SecurityGroupIds"
+            Prelude.<$> (x Core..:? "LastUpdateStatus")
+            Prelude.<*> (x Core..:? "PublicAddress")
+            Prelude.<*> ( x Core..:? "SecurityGroupIds"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "LastUpdateStatus")
-            Prelude.<*> (x Core..:? "PublicAddress")
             Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "EndpointName")
             Prelude.<*> (x Core..:? "RoleArn")
@@ -518,19 +506,19 @@ instance Core.FromJSON DevEndpoint where
             Prelude.<*> (x Core..:? "CreatedTimestamp")
             Prelude.<*> (x Core..:? "PrivateAddress")
             Prelude.<*> (x Core..:? "LastModifiedTimestamp")
-            Prelude.<*> (x Core..:? "ExtraPythonLibsS3Path")
             Prelude.<*> (x Core..:? "NumberOfWorkers")
             Prelude.<*> (x Core..:? "ZeppelinRemoteSparkInterpreterPort")
+            Prelude.<*> (x Core..:? "ExtraPythonLibsS3Path")
             Prelude.<*> (x Core..:? "AvailabilityZone")
             Prelude.<*> (x Core..:? "FailureReason")
             Prelude.<*> (x Core..:? "GlueVersion")
             Prelude.<*> (x Core..:? "NumberOfNodes")
             Prelude.<*> (x Core..:? "WorkerType")
             Prelude.<*> (x Core..:? "SubnetId")
-            Prelude.<*> (x Core..:? "VpcId")
             Prelude.<*> (x Core..:? "Arguments" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "PublicKeys" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "VpcId")
             Prelude.<*> (x Core..:? "ExtraJarsS3Path")
+            Prelude.<*> (x Core..:? "PublicKeys" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable DevEndpoint

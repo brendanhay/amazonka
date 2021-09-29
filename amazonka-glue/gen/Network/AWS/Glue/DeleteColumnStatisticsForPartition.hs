@@ -55,7 +55,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newDeleteColumnStatisticsForPartition' smart constructor.
 data DeleteColumnStatisticsForPartition = DeleteColumnStatisticsForPartition'
   { -- | The ID of the Data Catalog where the partitions in question reside. If
-    -- none is supplied, the AWS account ID is used by default.
+    -- none is supplied, the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the catalog database where the partitions reside.
     databaseName :: Prelude.Text,
@@ -77,7 +77,7 @@ data DeleteColumnStatisticsForPartition = DeleteColumnStatisticsForPartition'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'deleteColumnStatisticsForPartition_catalogId' - The ID of the Data Catalog where the partitions in question reside. If
--- none is supplied, the AWS account ID is used by default.
+-- none is supplied, the Amazon Web Services account ID is used by default.
 --
 -- 'databaseName', 'deleteColumnStatisticsForPartition_databaseName' - The name of the catalog database where the partitions reside.
 --
@@ -108,7 +108,7 @@ newDeleteColumnStatisticsForPartition
       }
 
 -- | The ID of the Data Catalog where the partitions in question reside. If
--- none is supplied, the AWS account ID is used by default.
+-- none is supplied, the Amazon Web Services account ID is used by default.
 deleteColumnStatisticsForPartition_catalogId :: Lens.Lens' DeleteColumnStatisticsForPartition (Prelude.Maybe Prelude.Text)
 deleteColumnStatisticsForPartition_catalogId = Lens.lens (\DeleteColumnStatisticsForPartition' {catalogId} -> catalogId) (\s@DeleteColumnStatisticsForPartition' {} a -> s {catalogId = a} :: DeleteColumnStatisticsForPartition)
 

@@ -52,7 +52,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newUpdatePartition' smart constructor.
 data UpdatePartition = UpdatePartition'
   { -- | The ID of the Data Catalog where the partition to be updated resides. If
-    -- none is provided, the AWS account ID is used by default.
+    -- none is provided, the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the catalog database in which the table in question resides.
     databaseName :: Prelude.Text,
@@ -77,7 +77,7 @@ data UpdatePartition = UpdatePartition'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'updatePartition_catalogId' - The ID of the Data Catalog where the partition to be updated resides. If
--- none is provided, the AWS account ID is used by default.
+-- none is provided, the Amazon Web Services account ID is used by default.
 --
 -- 'databaseName', 'updatePartition_databaseName' - The name of the catalog database in which the table in question resides.
 --
@@ -110,7 +110,7 @@ newUpdatePartition
       }
 
 -- | The ID of the Data Catalog where the partition to be updated resides. If
--- none is provided, the AWS account ID is used by default.
+-- none is provided, the Amazon Web Services account ID is used by default.
 updatePartition_catalogId :: Lens.Lens' UpdatePartition (Prelude.Maybe Prelude.Text)
 updatePartition_catalogId = Lens.lens (\UpdatePartition' {catalogId} -> catalogId) (\s@UpdatePartition' {} a -> s {catalogId = a} :: UpdatePartition)
 

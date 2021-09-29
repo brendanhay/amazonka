@@ -20,10 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a sortable, filterable list of existing AWS Glue machine
--- learning transforms in this AWS account, or the resources with the
--- specified tag. This operation takes the optional @Tags@ field, which you
--- can use as a filter of the responses so that tagged resources can be
+-- Retrieves a sortable, filterable list of existing Glue machine learning
+-- transforms in this Amazon Web Services account, or the resources with
+-- the specified tag. This operation takes the optional @Tags@ field, which
+-- you can use as a filter of the responses so that tagged resources can be
 -- retrieved as a group. If you choose to use tag filtering, only resources
 -- with the tags are retrieved.
 module Network.AWS.Glue.ListMLTransforms

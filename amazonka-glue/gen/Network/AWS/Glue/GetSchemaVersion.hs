@@ -38,9 +38,9 @@ module Network.AWS.Glue.GetSchemaVersion
     newGetSchemaVersionResponse,
 
     -- * Response Lenses
-    getSchemaVersionResponse_schemaArn,
     getSchemaVersionResponse_status,
     getSchemaVersionResponse_schemaDefinition,
+    getSchemaVersionResponse_schemaArn,
     getSchemaVersionResponse_schemaVersionId,
     getSchemaVersionResponse_dataFormat,
     getSchemaVersionResponse_createdTime,
@@ -141,9 +141,9 @@ instance Core.AWSRequest GetSchemaVersion where
     Response.receiveJSON
       ( \s h x ->
           GetSchemaVersionResponse'
-            Prelude.<$> (x Core..?> "SchemaArn")
-            Prelude.<*> (x Core..?> "Status")
+            Prelude.<$> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "SchemaDefinition")
+            Prelude.<*> (x Core..?> "SchemaArn")
             Prelude.<*> (x Core..?> "SchemaVersionId")
             Prelude.<*> (x Core..?> "DataFormat")
             Prelude.<*> (x Core..?> "CreatedTime")
@@ -188,16 +188,16 @@ instance Core.ToQuery GetSchemaVersion where
 
 -- | /See:/ 'newGetSchemaVersionResponse' smart constructor.
 data GetSchemaVersionResponse = GetSchemaVersionResponse'
-  { -- | The Amazon Resource Name (ARN) of the schema.
-    schemaArn :: Prelude.Maybe Prelude.Text,
-    -- | The status of the schema version.
+  { -- | The status of the schema version.
     status :: Prelude.Maybe SchemaVersionStatus,
     -- | The schema definition for the schema ID.
     schemaDefinition :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the schema.
+    schemaArn :: Prelude.Maybe Prelude.Text,
     -- | The @SchemaVersionId@ of the schema version.
     schemaVersionId :: Prelude.Maybe Prelude.Text,
-    -- | The data format of the schema definition. Currently only @AVRO@ is
-    -- supported.
+    -- | The data format of the schema definition. Currently @AVRO@ and @JSON@
+    -- are supported.
     dataFormat :: Prelude.Maybe DataFormat,
     -- | The date and time the schema version was created.
     createdTime :: Prelude.Maybe Prelude.Text,
@@ -216,16 +216,16 @@ data GetSchemaVersionResponse = GetSchemaVersionResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'schemaArn', 'getSchemaVersionResponse_schemaArn' - The Amazon Resource Name (ARN) of the schema.
---
 -- 'status', 'getSchemaVersionResponse_status' - The status of the schema version.
 --
 -- 'schemaDefinition', 'getSchemaVersionResponse_schemaDefinition' - The schema definition for the schema ID.
 --
+-- 'schemaArn', 'getSchemaVersionResponse_schemaArn' - The Amazon Resource Name (ARN) of the schema.
+--
 -- 'schemaVersionId', 'getSchemaVersionResponse_schemaVersionId' - The @SchemaVersionId@ of the schema version.
 --
--- 'dataFormat', 'getSchemaVersionResponse_dataFormat' - The data format of the schema definition. Currently only @AVRO@ is
--- supported.
+-- 'dataFormat', 'getSchemaVersionResponse_dataFormat' - The data format of the schema definition. Currently @AVRO@ and @JSON@
+-- are supported.
 --
 -- 'createdTime', 'getSchemaVersionResponse_createdTime' - The date and time the schema version was created.
 --
@@ -238,20 +238,15 @@ newGetSchemaVersionResponse ::
   GetSchemaVersionResponse
 newGetSchemaVersionResponse pHttpStatus_ =
   GetSchemaVersionResponse'
-    { schemaArn =
-        Prelude.Nothing,
-      status = Prelude.Nothing,
+    { status = Prelude.Nothing,
       schemaDefinition = Prelude.Nothing,
+      schemaArn = Prelude.Nothing,
       schemaVersionId = Prelude.Nothing,
       dataFormat = Prelude.Nothing,
       createdTime = Prelude.Nothing,
       versionNumber = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | The Amazon Resource Name (ARN) of the schema.
-getSchemaVersionResponse_schemaArn :: Lens.Lens' GetSchemaVersionResponse (Prelude.Maybe Prelude.Text)
-getSchemaVersionResponse_schemaArn = Lens.lens (\GetSchemaVersionResponse' {schemaArn} -> schemaArn) (\s@GetSchemaVersionResponse' {} a -> s {schemaArn = a} :: GetSchemaVersionResponse)
 
 -- | The status of the schema version.
 getSchemaVersionResponse_status :: Lens.Lens' GetSchemaVersionResponse (Prelude.Maybe SchemaVersionStatus)
@@ -261,12 +256,16 @@ getSchemaVersionResponse_status = Lens.lens (\GetSchemaVersionResponse' {status}
 getSchemaVersionResponse_schemaDefinition :: Lens.Lens' GetSchemaVersionResponse (Prelude.Maybe Prelude.Text)
 getSchemaVersionResponse_schemaDefinition = Lens.lens (\GetSchemaVersionResponse' {schemaDefinition} -> schemaDefinition) (\s@GetSchemaVersionResponse' {} a -> s {schemaDefinition = a} :: GetSchemaVersionResponse)
 
+-- | The Amazon Resource Name (ARN) of the schema.
+getSchemaVersionResponse_schemaArn :: Lens.Lens' GetSchemaVersionResponse (Prelude.Maybe Prelude.Text)
+getSchemaVersionResponse_schemaArn = Lens.lens (\GetSchemaVersionResponse' {schemaArn} -> schemaArn) (\s@GetSchemaVersionResponse' {} a -> s {schemaArn = a} :: GetSchemaVersionResponse)
+
 -- | The @SchemaVersionId@ of the schema version.
 getSchemaVersionResponse_schemaVersionId :: Lens.Lens' GetSchemaVersionResponse (Prelude.Maybe Prelude.Text)
 getSchemaVersionResponse_schemaVersionId = Lens.lens (\GetSchemaVersionResponse' {schemaVersionId} -> schemaVersionId) (\s@GetSchemaVersionResponse' {} a -> s {schemaVersionId = a} :: GetSchemaVersionResponse)
 
--- | The data format of the schema definition. Currently only @AVRO@ is
--- supported.
+-- | The data format of the schema definition. Currently @AVRO@ and @JSON@
+-- are supported.
 getSchemaVersionResponse_dataFormat :: Lens.Lens' GetSchemaVersionResponse (Prelude.Maybe DataFormat)
 getSchemaVersionResponse_dataFormat = Lens.lens (\GetSchemaVersionResponse' {dataFormat} -> dataFormat) (\s@GetSchemaVersionResponse' {} a -> s {dataFormat = a} :: GetSchemaVersionResponse)
 

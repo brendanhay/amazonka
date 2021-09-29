@@ -32,7 +32,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- classifier creates a schema in the form of a @StructType@ object that
 -- matches that data format.
 --
--- You can use the standard classifiers that AWS Glue provides, or you can
+-- You can use the standard classifiers that Glue provides, or you can
 -- write your own classifiers to best categorize your data sources and
 -- specify the appropriate schemas to use for them. A classifier can be a
 -- @grok@ classifier, an @XML@ classifier, a @JSON@ classifier, or a custom

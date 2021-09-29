@@ -23,9 +23,9 @@
 -- Deletes multiple tables at once.
 --
 -- After completing this operation, you no longer have access to the table
--- versions and partitions that belong to the deleted table. AWS Glue
--- deletes these \"orphaned\" resources asynchronously in a timely manner,
--- at the discretion of the service.
+-- versions and partitions that belong to the deleted table. Glue deletes
+-- these \"orphaned\" resources asynchronously in a timely manner, at the
+-- discretion of the service.
 --
 -- To ensure the immediate deletion of all related resources, before
 -- calling @BatchDeleteTable@, use @DeleteTableVersion@ or
@@ -62,7 +62,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newBatchDeleteTable' smart constructor.
 data BatchDeleteTable = BatchDeleteTable'
   { -- | The ID of the Data Catalog where the table resides. If none is provided,
-    -- the AWS account ID is used by default.
+    -- the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the catalog database in which the tables to delete reside.
     -- For Hive compatibility, this name is entirely lowercase.
@@ -81,7 +81,7 @@ data BatchDeleteTable = BatchDeleteTable'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'batchDeleteTable_catalogId' - The ID of the Data Catalog where the table resides. If none is provided,
--- the AWS account ID is used by default.
+-- the Amazon Web Services account ID is used by default.
 --
 -- 'databaseName', 'batchDeleteTable_databaseName' - The name of the catalog database in which the tables to delete reside.
 -- For Hive compatibility, this name is entirely lowercase.
@@ -99,7 +99,7 @@ newBatchDeleteTable pDatabaseName_ =
     }
 
 -- | The ID of the Data Catalog where the table resides. If none is provided,
--- the AWS account ID is used by default.
+-- the Amazon Web Services account ID is used by default.
 batchDeleteTable_catalogId :: Lens.Lens' BatchDeleteTable (Prelude.Maybe Prelude.Text)
 batchDeleteTable_catalogId = Lens.lens (\BatchDeleteTable' {catalogId} -> catalogId) (\s@BatchDeleteTable' {} a -> s {catalogId = a} :: BatchDeleteTable)
 

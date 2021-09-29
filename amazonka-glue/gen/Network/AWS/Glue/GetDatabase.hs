@@ -50,7 +50,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newGetDatabase' smart constructor.
 data GetDatabase = GetDatabase'
   { -- | The ID of the Data Catalog in which the database resides. If none is
-    -- provided, the AWS account ID is used by default.
+    -- provided, the Amazon Web Services account ID is used by default.
     catalogId :: Prelude.Maybe Prelude.Text,
     -- | The name of the database to retrieve. For Hive compatibility, this
     -- should be all lowercase.
@@ -67,7 +67,7 @@ data GetDatabase = GetDatabase'
 -- for backwards compatibility:
 --
 -- 'catalogId', 'getDatabase_catalogId' - The ID of the Data Catalog in which the database resides. If none is
--- provided, the AWS account ID is used by default.
+-- provided, the Amazon Web Services account ID is used by default.
 --
 -- 'name', 'getDatabase_name' - The name of the database to retrieve. For Hive compatibility, this
 -- should be all lowercase.
@@ -82,7 +82,7 @@ newGetDatabase pName_ =
     }
 
 -- | The ID of the Data Catalog in which the database resides. If none is
--- provided, the AWS account ID is used by default.
+-- provided, the Amazon Web Services account ID is used by default.
 getDatabase_catalogId :: Lens.Lens' GetDatabase (Prelude.Maybe Prelude.Text)
 getDatabase_catalogId = Lens.lens (\GetDatabase' {catalogId} -> catalogId) (\s@GetDatabase' {} a -> s {catalogId = a} :: GetDatabase)
 

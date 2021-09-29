@@ -23,9 +23,9 @@
 -- Retrieves information about a specified development endpoint.
 --
 -- When you create a development endpoint in a virtual private cloud (VPC),
--- AWS Glue returns only a private IP address, and the public IP address
--- field is not populated. When you create a non-VPC development endpoint,
--- AWS Glue returns only a public IP address.
+-- Glue returns only a private IP address, and the public IP address field
+-- is not populated. When you create a non-VPC development endpoint, Glue
+-- returns only a public IP address.
 module Network.AWS.Glue.GetDevEndpoint
   ( -- * Creating a Request
     GetDevEndpoint (..),

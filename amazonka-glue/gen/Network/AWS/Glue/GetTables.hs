@@ -31,8 +31,8 @@ module Network.AWS.Glue.GetTables
 
     -- * Request Lenses
     getTables_nextToken,
-    getTables_catalogId,
     getTables_maxResults,
+    getTables_catalogId,
     getTables_expression,
     getTables_databaseName,
 
@@ -58,11 +58,11 @@ import qualified Network.AWS.Response as Response
 data GetTables = GetTables'
   { -- | A continuation token, included if this is a continuation call.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Data Catalog where the tables reside. If none is provided,
-    -- the AWS account ID is used by default.
-    catalogId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of tables to return in a single response.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The ID of the Data Catalog where the tables reside. If none is provided,
+    -- the Amazon Web Services account ID is used by default.
+    catalogId :: Prelude.Maybe Prelude.Text,
     -- | A regular expression pattern. If present, only those tables whose names
     -- match the pattern are returned.
     expression :: Prelude.Maybe Prelude.Text,
@@ -82,10 +82,10 @@ data GetTables = GetTables'
 --
 -- 'nextToken', 'getTables_nextToken' - A continuation token, included if this is a continuation call.
 --
--- 'catalogId', 'getTables_catalogId' - The ID of the Data Catalog where the tables reside. If none is provided,
--- the AWS account ID is used by default.
---
 -- 'maxResults', 'getTables_maxResults' - The maximum number of tables to return in a single response.
+--
+-- 'catalogId', 'getTables_catalogId' - The ID of the Data Catalog where the tables reside. If none is provided,
+-- the Amazon Web Services account ID is used by default.
 --
 -- 'expression', 'getTables_expression' - A regular expression pattern. If present, only those tables whose names
 -- match the pattern are returned.
@@ -99,8 +99,8 @@ newGetTables ::
 newGetTables pDatabaseName_ =
   GetTables'
     { nextToken = Prelude.Nothing,
-      catalogId = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      catalogId = Prelude.Nothing,
       expression = Prelude.Nothing,
       databaseName = pDatabaseName_
     }
@@ -109,14 +109,14 @@ newGetTables pDatabaseName_ =
 getTables_nextToken :: Lens.Lens' GetTables (Prelude.Maybe Prelude.Text)
 getTables_nextToken = Lens.lens (\GetTables' {nextToken} -> nextToken) (\s@GetTables' {} a -> s {nextToken = a} :: GetTables)
 
--- | The ID of the Data Catalog where the tables reside. If none is provided,
--- the AWS account ID is used by default.
-getTables_catalogId :: Lens.Lens' GetTables (Prelude.Maybe Prelude.Text)
-getTables_catalogId = Lens.lens (\GetTables' {catalogId} -> catalogId) (\s@GetTables' {} a -> s {catalogId = a} :: GetTables)
-
 -- | The maximum number of tables to return in a single response.
 getTables_maxResults :: Lens.Lens' GetTables (Prelude.Maybe Prelude.Natural)
 getTables_maxResults = Lens.lens (\GetTables' {maxResults} -> maxResults) (\s@GetTables' {} a -> s {maxResults = a} :: GetTables)
+
+-- | The ID of the Data Catalog where the tables reside. If none is provided,
+-- the Amazon Web Services account ID is used by default.
+getTables_catalogId :: Lens.Lens' GetTables (Prelude.Maybe Prelude.Text)
+getTables_catalogId = Lens.lens (\GetTables' {catalogId} -> catalogId) (\s@GetTables' {} a -> s {catalogId = a} :: GetTables)
 
 -- | A regular expression pattern. If present, only those tables whose names
 -- match the pattern are returned.
@@ -181,8 +181,8 @@ instance Core.ToJSON GetTables where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("CatalogId" Core..=) Prelude.<$> catalogId,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("CatalogId" Core..=) Prelude.<$> catalogId,
             ("Expression" Core..=) Prelude.<$> expression,
             Prelude.Just ("DatabaseName" Core..= databaseName)
           ]

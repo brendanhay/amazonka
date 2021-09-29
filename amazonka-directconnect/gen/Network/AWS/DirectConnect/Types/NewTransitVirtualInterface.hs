@@ -48,10 +48,10 @@ data NewTransitVirtualInterface = NewTransitVirtualInterface'
     -- name has a maximum of 100 characters. The following are valid
     -- characters: a-z, 0-9 and a hyphen (-).
     virtualInterfaceName :: Prelude.Maybe Prelude.Text,
-    -- | The address family for the BGP peer.
-    addressFamily :: Prelude.Maybe AddressFamily,
     -- | The IP address assigned to the Amazon interface.
     amazonAddress :: Prelude.Maybe Prelude.Text,
+    -- | The address family for the BGP peer.
+    addressFamily :: Prelude.Maybe AddressFamily,
     -- | The ID of the VLAN.
     vlan :: Prelude.Maybe Prelude.Int,
     -- | The IP address assigned to the customer interface.
@@ -86,9 +86,9 @@ data NewTransitVirtualInterface = NewTransitVirtualInterface'
 -- name has a maximum of 100 characters. The following are valid
 -- characters: a-z, 0-9 and a hyphen (-).
 --
--- 'addressFamily', 'newTransitVirtualInterface_addressFamily' - The address family for the BGP peer.
---
 -- 'amazonAddress', 'newTransitVirtualInterface_amazonAddress' - The IP address assigned to the Amazon interface.
+--
+-- 'addressFamily', 'newTransitVirtualInterface_addressFamily' - The address family for the BGP peer.
 --
 -- 'vlan', 'newTransitVirtualInterface_vlan' - The ID of the VLAN.
 --
@@ -104,8 +104,8 @@ newNewTransitVirtualInterface =
       tags = Prelude.Nothing,
       directConnectGatewayId = Prelude.Nothing,
       virtualInterfaceName = Prelude.Nothing,
-      addressFamily = Prelude.Nothing,
       amazonAddress = Prelude.Nothing,
+      addressFamily = Prelude.Nothing,
       vlan = Prelude.Nothing,
       customerAddress = Prelude.Nothing
     }
@@ -141,13 +141,13 @@ newTransitVirtualInterface_directConnectGatewayId = Lens.lens (\NewTransitVirtua
 newTransitVirtualInterface_virtualInterfaceName :: Lens.Lens' NewTransitVirtualInterface (Prelude.Maybe Prelude.Text)
 newTransitVirtualInterface_virtualInterfaceName = Lens.lens (\NewTransitVirtualInterface' {virtualInterfaceName} -> virtualInterfaceName) (\s@NewTransitVirtualInterface' {} a -> s {virtualInterfaceName = a} :: NewTransitVirtualInterface)
 
--- | The address family for the BGP peer.
-newTransitVirtualInterface_addressFamily :: Lens.Lens' NewTransitVirtualInterface (Prelude.Maybe AddressFamily)
-newTransitVirtualInterface_addressFamily = Lens.lens (\NewTransitVirtualInterface' {addressFamily} -> addressFamily) (\s@NewTransitVirtualInterface' {} a -> s {addressFamily = a} :: NewTransitVirtualInterface)
-
 -- | The IP address assigned to the Amazon interface.
 newTransitVirtualInterface_amazonAddress :: Lens.Lens' NewTransitVirtualInterface (Prelude.Maybe Prelude.Text)
 newTransitVirtualInterface_amazonAddress = Lens.lens (\NewTransitVirtualInterface' {amazonAddress} -> amazonAddress) (\s@NewTransitVirtualInterface' {} a -> s {amazonAddress = a} :: NewTransitVirtualInterface)
+
+-- | The address family for the BGP peer.
+newTransitVirtualInterface_addressFamily :: Lens.Lens' NewTransitVirtualInterface (Prelude.Maybe AddressFamily)
+newTransitVirtualInterface_addressFamily = Lens.lens (\NewTransitVirtualInterface' {addressFamily} -> addressFamily) (\s@NewTransitVirtualInterface' {} a -> s {addressFamily = a} :: NewTransitVirtualInterface)
 
 -- | The ID of the VLAN.
 newTransitVirtualInterface_vlan :: Lens.Lens' NewTransitVirtualInterface (Prelude.Maybe Prelude.Int)
@@ -173,8 +173,8 @@ instance Core.ToJSON NewTransitVirtualInterface where
               Prelude.<$> directConnectGatewayId,
             ("virtualInterfaceName" Core..=)
               Prelude.<$> virtualInterfaceName,
-            ("addressFamily" Core..=) Prelude.<$> addressFamily,
             ("amazonAddress" Core..=) Prelude.<$> amazonAddress,
+            ("addressFamily" Core..=) Prelude.<$> addressFamily,
             ("vlan" Core..=) Prelude.<$> vlan,
             ("customerAddress" Core..=)
               Prelude.<$> customerAddress

@@ -22,10 +22,10 @@
 --
 -- Deletes the specified connection.
 --
--- Deleting a connection only stops the AWS Direct Connect port hour and
--- data transfer charges. If you are partnering with any third parties to
--- connect with the AWS Direct Connect location, you must cancel your
--- service with them separately.
+-- Deleting a connection only stops the Direct Connect port hour and data
+-- transfer charges. If you are partnering with any third parties to
+-- connect with the Direct Connect location, you must cancel your service
+-- with them separately.
 module Network.AWS.DirectConnect.DeleteConnection
   ( -- * Creating a Request
     DeleteConnection (..),
@@ -40,22 +40,27 @@ module Network.AWS.DirectConnect.DeleteConnection
 
     -- * Response Lenses
     connection_bandwidth,
-    connection_connectionState,
     connection_awsDeviceV2,
+    connection_connectionState,
     connection_connectionName,
+    connection_macSecKeys,
     connection_providerName,
     connection_connectionId,
+    connection_awsLogicalDeviceId,
     connection_hasLogicalRedundancy,
     connection_awsDevice,
     connection_jumboFrameCapable,
+    connection_portEncryptionStatus,
     connection_lagId,
+    connection_encryptionMode,
     connection_partnerName,
     connection_tags,
     connection_loaIssueTime,
     connection_ownerAccount,
     connection_region,
-    connection_location,
     connection_vlan,
+    connection_location,
+    connection_macSecCapable,
   )
 where
 

@@ -30,14 +30,18 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInterconnect' smart constructor.
 data Interconnect = Interconnect'
-  { -- | The bandwidth of the connection.
-    bandwidth :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the interconnect.
+  { -- | The ID of the interconnect.
     interconnectId :: Prelude.Maybe Prelude.Text,
-    -- | The Direct Connect endpoint on which the physical connection terminates.
+    -- | The bandwidth of the connection.
+    bandwidth :: Prelude.Maybe Prelude.Text,
+    -- | The Direct Connect endpoint that terminates the physical connection.
     awsDeviceV2 :: Prelude.Maybe Prelude.Text,
     -- | The name of the service provider associated with the interconnect.
     providerName :: Prelude.Maybe Prelude.Text,
+    -- | The Direct Connect endpoint that terminates the logical connection. This
+    -- device might be different than the device that terminates the physical
+    -- connection.
+    awsLogicalDeviceId :: Prelude.Maybe Prelude.Text,
     -- | Indicates whether the interconnect supports a secondary BGP in the same
     -- address family (IPv4\/IPv6).
     hasLogicalRedundancy :: Prelude.Maybe HasLogicalRedundancy,
@@ -51,8 +55,10 @@ data Interconnect = Interconnect'
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The time of the most recent call to DescribeLoa for this connection.
     loaIssueTime :: Prelude.Maybe Core.POSIX,
-    -- | The AWS Region where the connection is located.
+    -- | The Region where the connection is located.
     region :: Prelude.Maybe Prelude.Text,
+    -- | The name of the interconnect.
+    interconnectName :: Prelude.Maybe Prelude.Text,
     -- | The state of the interconnect. The following are the possible values:
     --
     -- -   @requested@: The initial state of an interconnect. The interconnect
@@ -73,9 +79,7 @@ data Interconnect = Interconnect'
     -- -   @unknown@: The state of the interconnect is not available.
     interconnectState :: Prelude.Maybe InterconnectState,
     -- | The location of the connection.
-    location :: Prelude.Maybe Prelude.Text,
-    -- | The name of the interconnect.
-    interconnectName :: Prelude.Maybe Prelude.Text
+    location :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,13 +91,17 @@ data Interconnect = Interconnect'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'bandwidth', 'interconnect_bandwidth' - The bandwidth of the connection.
---
 -- 'interconnectId', 'interconnect_interconnectId' - The ID of the interconnect.
 --
--- 'awsDeviceV2', 'interconnect_awsDeviceV2' - The Direct Connect endpoint on which the physical connection terminates.
+-- 'bandwidth', 'interconnect_bandwidth' - The bandwidth of the connection.
+--
+-- 'awsDeviceV2', 'interconnect_awsDeviceV2' - The Direct Connect endpoint that terminates the physical connection.
 --
 -- 'providerName', 'interconnect_providerName' - The name of the service provider associated with the interconnect.
+--
+-- 'awsLogicalDeviceId', 'interconnect_awsLogicalDeviceId' - The Direct Connect endpoint that terminates the logical connection. This
+-- device might be different than the device that terminates the physical
+-- connection.
 --
 -- 'hasLogicalRedundancy', 'interconnect_hasLogicalRedundancy' - Indicates whether the interconnect supports a secondary BGP in the same
 -- address family (IPv4\/IPv6).
@@ -108,7 +116,9 @@ data Interconnect = Interconnect'
 --
 -- 'loaIssueTime', 'interconnect_loaIssueTime' - The time of the most recent call to DescribeLoa for this connection.
 --
--- 'region', 'interconnect_region' - The AWS Region where the connection is located.
+-- 'region', 'interconnect_region' - The Region where the connection is located.
+--
+-- 'interconnectName', 'interconnect_interconnectName' - The name of the interconnect.
 --
 -- 'interconnectState', 'interconnect_interconnectState' - The state of the interconnect. The following are the possible values:
 --
@@ -130,16 +140,15 @@ data Interconnect = Interconnect'
 -- -   @unknown@: The state of the interconnect is not available.
 --
 -- 'location', 'interconnect_location' - The location of the connection.
---
--- 'interconnectName', 'interconnect_interconnectName' - The name of the interconnect.
 newInterconnect ::
   Interconnect
 newInterconnect =
   Interconnect'
-    { bandwidth = Prelude.Nothing,
-      interconnectId = Prelude.Nothing,
+    { interconnectId = Prelude.Nothing,
+      bandwidth = Prelude.Nothing,
       awsDeviceV2 = Prelude.Nothing,
       providerName = Prelude.Nothing,
+      awsLogicalDeviceId = Prelude.Nothing,
       hasLogicalRedundancy = Prelude.Nothing,
       awsDevice = Prelude.Nothing,
       jumboFrameCapable = Prelude.Nothing,
@@ -147,26 +156,32 @@ newInterconnect =
       tags = Prelude.Nothing,
       loaIssueTime = Prelude.Nothing,
       region = Prelude.Nothing,
+      interconnectName = Prelude.Nothing,
       interconnectState = Prelude.Nothing,
-      location = Prelude.Nothing,
-      interconnectName = Prelude.Nothing
+      location = Prelude.Nothing
     }
-
--- | The bandwidth of the connection.
-interconnect_bandwidth :: Lens.Lens' Interconnect (Prelude.Maybe Prelude.Text)
-interconnect_bandwidth = Lens.lens (\Interconnect' {bandwidth} -> bandwidth) (\s@Interconnect' {} a -> s {bandwidth = a} :: Interconnect)
 
 -- | The ID of the interconnect.
 interconnect_interconnectId :: Lens.Lens' Interconnect (Prelude.Maybe Prelude.Text)
 interconnect_interconnectId = Lens.lens (\Interconnect' {interconnectId} -> interconnectId) (\s@Interconnect' {} a -> s {interconnectId = a} :: Interconnect)
 
--- | The Direct Connect endpoint on which the physical connection terminates.
+-- | The bandwidth of the connection.
+interconnect_bandwidth :: Lens.Lens' Interconnect (Prelude.Maybe Prelude.Text)
+interconnect_bandwidth = Lens.lens (\Interconnect' {bandwidth} -> bandwidth) (\s@Interconnect' {} a -> s {bandwidth = a} :: Interconnect)
+
+-- | The Direct Connect endpoint that terminates the physical connection.
 interconnect_awsDeviceV2 :: Lens.Lens' Interconnect (Prelude.Maybe Prelude.Text)
 interconnect_awsDeviceV2 = Lens.lens (\Interconnect' {awsDeviceV2} -> awsDeviceV2) (\s@Interconnect' {} a -> s {awsDeviceV2 = a} :: Interconnect)
 
 -- | The name of the service provider associated with the interconnect.
 interconnect_providerName :: Lens.Lens' Interconnect (Prelude.Maybe Prelude.Text)
 interconnect_providerName = Lens.lens (\Interconnect' {providerName} -> providerName) (\s@Interconnect' {} a -> s {providerName = a} :: Interconnect)
+
+-- | The Direct Connect endpoint that terminates the logical connection. This
+-- device might be different than the device that terminates the physical
+-- connection.
+interconnect_awsLogicalDeviceId :: Lens.Lens' Interconnect (Prelude.Maybe Prelude.Text)
+interconnect_awsLogicalDeviceId = Lens.lens (\Interconnect' {awsLogicalDeviceId} -> awsLogicalDeviceId) (\s@Interconnect' {} a -> s {awsLogicalDeviceId = a} :: Interconnect)
 
 -- | Indicates whether the interconnect supports a secondary BGP in the same
 -- address family (IPv4\/IPv6).
@@ -193,9 +208,13 @@ interconnect_tags = Lens.lens (\Interconnect' {tags} -> tags) (\s@Interconnect' 
 interconnect_loaIssueTime :: Lens.Lens' Interconnect (Prelude.Maybe Prelude.UTCTime)
 interconnect_loaIssueTime = Lens.lens (\Interconnect' {loaIssueTime} -> loaIssueTime) (\s@Interconnect' {} a -> s {loaIssueTime = a} :: Interconnect) Prelude.. Lens.mapping Core._Time
 
--- | The AWS Region where the connection is located.
+-- | The Region where the connection is located.
 interconnect_region :: Lens.Lens' Interconnect (Prelude.Maybe Prelude.Text)
 interconnect_region = Lens.lens (\Interconnect' {region} -> region) (\s@Interconnect' {} a -> s {region = a} :: Interconnect)
+
+-- | The name of the interconnect.
+interconnect_interconnectName :: Lens.Lens' Interconnect (Prelude.Maybe Prelude.Text)
+interconnect_interconnectName = Lens.lens (\Interconnect' {interconnectName} -> interconnectName) (\s@Interconnect' {} a -> s {interconnectName = a} :: Interconnect)
 
 -- | The state of the interconnect. The following are the possible values:
 --
@@ -222,20 +241,17 @@ interconnect_interconnectState = Lens.lens (\Interconnect' {interconnectState} -
 interconnect_location :: Lens.Lens' Interconnect (Prelude.Maybe Prelude.Text)
 interconnect_location = Lens.lens (\Interconnect' {location} -> location) (\s@Interconnect' {} a -> s {location = a} :: Interconnect)
 
--- | The name of the interconnect.
-interconnect_interconnectName :: Lens.Lens' Interconnect (Prelude.Maybe Prelude.Text)
-interconnect_interconnectName = Lens.lens (\Interconnect' {interconnectName} -> interconnectName) (\s@Interconnect' {} a -> s {interconnectName = a} :: Interconnect)
-
 instance Core.FromJSON Interconnect where
   parseJSON =
     Core.withObject
       "Interconnect"
       ( \x ->
           Interconnect'
-            Prelude.<$> (x Core..:? "bandwidth")
-            Prelude.<*> (x Core..:? "interconnectId")
+            Prelude.<$> (x Core..:? "interconnectId")
+            Prelude.<*> (x Core..:? "bandwidth")
             Prelude.<*> (x Core..:? "awsDeviceV2")
             Prelude.<*> (x Core..:? "providerName")
+            Prelude.<*> (x Core..:? "awsLogicalDeviceId")
             Prelude.<*> (x Core..:? "hasLogicalRedundancy")
             Prelude.<*> (x Core..:? "awsDevice")
             Prelude.<*> (x Core..:? "jumboFrameCapable")
@@ -243,9 +259,9 @@ instance Core.FromJSON Interconnect where
             Prelude.<*> (x Core..:? "tags")
             Prelude.<*> (x Core..:? "loaIssueTime")
             Prelude.<*> (x Core..:? "region")
+            Prelude.<*> (x Core..:? "interconnectName")
             Prelude.<*> (x Core..:? "interconnectState")
             Prelude.<*> (x Core..:? "location")
-            Prelude.<*> (x Core..:? "interconnectName")
       )
 
 instance Prelude.Hashable Interconnect

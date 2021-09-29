@@ -23,8 +23,8 @@
 -- Creates a BGP peer on the specified virtual interface.
 --
 -- You must create a BGP peer for the corresponding address family
--- (IPv4\/IPv6) in order to access AWS resources that also use that address
--- family.
+-- (IPv4\/IPv6) in order to access Amazon Web Services resources that also
+-- use that address family.
 --
 -- If logical redundancy is not supported by the connection, interconnect,
 -- or LAG, the BGP peer cannot be in the same address family as an existing

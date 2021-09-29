@@ -38,10 +38,10 @@ data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation
     mtu :: Prelude.Maybe Prelude.Int,
     -- | The tags associated with the private virtual interface.
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
-    -- | The address family for the BGP peer.
-    addressFamily :: Prelude.Maybe AddressFamily,
     -- | The IP address assigned to the Amazon interface.
     amazonAddress :: Prelude.Maybe Prelude.Text,
+    -- | The address family for the BGP peer.
+    addressFamily :: Prelude.Maybe AddressFamily,
     -- | The IP address assigned to the customer interface.
     customerAddress :: Prelude.Maybe Prelude.Text,
     -- | The name of the virtual interface assigned by the customer network. The
@@ -74,9 +74,9 @@ data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation
 --
 -- 'tags', 'newPrivateVirtualInterfaceAllocation_tags' - The tags associated with the private virtual interface.
 --
--- 'addressFamily', 'newPrivateVirtualInterfaceAllocation_addressFamily' - The address family for the BGP peer.
---
 -- 'amazonAddress', 'newPrivateVirtualInterfaceAllocation_amazonAddress' - The IP address assigned to the Amazon interface.
+--
+-- 'addressFamily', 'newPrivateVirtualInterfaceAllocation_addressFamily' - The address family for the BGP peer.
 --
 -- 'customerAddress', 'newPrivateVirtualInterfaceAllocation_customerAddress' - The IP address assigned to the customer interface.
 --
@@ -107,8 +107,8 @@ newNewPrivateVirtualInterfaceAllocation
           Prelude.Nothing,
         mtu = Prelude.Nothing,
         tags = Prelude.Nothing,
-        addressFamily = Prelude.Nothing,
         amazonAddress = Prelude.Nothing,
+        addressFamily = Prelude.Nothing,
         customerAddress = Prelude.Nothing,
         virtualInterfaceName =
           pVirtualInterfaceName_,
@@ -130,13 +130,13 @@ newPrivateVirtualInterfaceAllocation_mtu = Lens.lens (\NewPrivateVirtualInterfac
 newPrivateVirtualInterfaceAllocation_tags :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Prelude.Maybe (Prelude.NonEmpty Tag))
 newPrivateVirtualInterfaceAllocation_tags = Lens.lens (\NewPrivateVirtualInterfaceAllocation' {tags} -> tags) (\s@NewPrivateVirtualInterfaceAllocation' {} a -> s {tags = a} :: NewPrivateVirtualInterfaceAllocation) Prelude.. Lens.mapping Lens._Coerce
 
--- | The address family for the BGP peer.
-newPrivateVirtualInterfaceAllocation_addressFamily :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Prelude.Maybe AddressFamily)
-newPrivateVirtualInterfaceAllocation_addressFamily = Lens.lens (\NewPrivateVirtualInterfaceAllocation' {addressFamily} -> addressFamily) (\s@NewPrivateVirtualInterfaceAllocation' {} a -> s {addressFamily = a} :: NewPrivateVirtualInterfaceAllocation)
-
 -- | The IP address assigned to the Amazon interface.
 newPrivateVirtualInterfaceAllocation_amazonAddress :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Prelude.Maybe Prelude.Text)
 newPrivateVirtualInterfaceAllocation_amazonAddress = Lens.lens (\NewPrivateVirtualInterfaceAllocation' {amazonAddress} -> amazonAddress) (\s@NewPrivateVirtualInterfaceAllocation' {} a -> s {amazonAddress = a} :: NewPrivateVirtualInterfaceAllocation)
+
+-- | The address family for the BGP peer.
+newPrivateVirtualInterfaceAllocation_addressFamily :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Prelude.Maybe AddressFamily)
+newPrivateVirtualInterfaceAllocation_addressFamily = Lens.lens (\NewPrivateVirtualInterfaceAllocation' {addressFamily} -> addressFamily) (\s@NewPrivateVirtualInterfaceAllocation' {} a -> s {addressFamily = a} :: NewPrivateVirtualInterfaceAllocation)
 
 -- | The IP address assigned to the customer interface.
 newPrivateVirtualInterfaceAllocation_customerAddress :: Lens.Lens' NewPrivateVirtualInterfaceAllocation (Prelude.Maybe Prelude.Text)
@@ -177,8 +177,8 @@ instance
           [ ("authKey" Core..=) Prelude.<$> authKey,
             ("mtu" Core..=) Prelude.<$> mtu,
             ("tags" Core..=) Prelude.<$> tags,
-            ("addressFamily" Core..=) Prelude.<$> addressFamily,
             ("amazonAddress" Core..=) Prelude.<$> amazonAddress,
+            ("addressFamily" Core..=) Prelude.<$> addressFamily,
             ("customerAddress" Core..=)
               Prelude.<$> customerAddress,
             Prelude.Just

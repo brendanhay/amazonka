@@ -34,10 +34,10 @@ data NewBGPPeer = NewBGPPeer'
     -- | The autonomous system (AS) number for Border Gateway Protocol (BGP)
     -- configuration.
     asn :: Prelude.Maybe Prelude.Int,
-    -- | The address family for the BGP peer.
-    addressFamily :: Prelude.Maybe AddressFamily,
     -- | The IP address assigned to the Amazon interface.
     amazonAddress :: Prelude.Maybe Prelude.Text,
+    -- | The address family for the BGP peer.
+    addressFamily :: Prelude.Maybe AddressFamily,
     -- | The IP address assigned to the customer interface.
     customerAddress :: Prelude.Maybe Prelude.Text
   }
@@ -57,9 +57,9 @@ data NewBGPPeer = NewBGPPeer'
 -- 'asn', 'newBGPPeer_asn' - The autonomous system (AS) number for Border Gateway Protocol (BGP)
 -- configuration.
 --
--- 'addressFamily', 'newBGPPeer_addressFamily' - The address family for the BGP peer.
---
 -- 'amazonAddress', 'newBGPPeer_amazonAddress' - The IP address assigned to the Amazon interface.
+--
+-- 'addressFamily', 'newBGPPeer_addressFamily' - The address family for the BGP peer.
 --
 -- 'customerAddress', 'newBGPPeer_customerAddress' - The IP address assigned to the customer interface.
 newNewBGPPeer ::
@@ -68,8 +68,8 @@ newNewBGPPeer =
   NewBGPPeer'
     { authKey = Prelude.Nothing,
       asn = Prelude.Nothing,
-      addressFamily = Prelude.Nothing,
       amazonAddress = Prelude.Nothing,
+      addressFamily = Prelude.Nothing,
       customerAddress = Prelude.Nothing
     }
 
@@ -83,13 +83,13 @@ newBGPPeer_authKey = Lens.lens (\NewBGPPeer' {authKey} -> authKey) (\s@NewBGPPee
 newBGPPeer_asn :: Lens.Lens' NewBGPPeer (Prelude.Maybe Prelude.Int)
 newBGPPeer_asn = Lens.lens (\NewBGPPeer' {asn} -> asn) (\s@NewBGPPeer' {} a -> s {asn = a} :: NewBGPPeer)
 
--- | The address family for the BGP peer.
-newBGPPeer_addressFamily :: Lens.Lens' NewBGPPeer (Prelude.Maybe AddressFamily)
-newBGPPeer_addressFamily = Lens.lens (\NewBGPPeer' {addressFamily} -> addressFamily) (\s@NewBGPPeer' {} a -> s {addressFamily = a} :: NewBGPPeer)
-
 -- | The IP address assigned to the Amazon interface.
 newBGPPeer_amazonAddress :: Lens.Lens' NewBGPPeer (Prelude.Maybe Prelude.Text)
 newBGPPeer_amazonAddress = Lens.lens (\NewBGPPeer' {amazonAddress} -> amazonAddress) (\s@NewBGPPeer' {} a -> s {amazonAddress = a} :: NewBGPPeer)
+
+-- | The address family for the BGP peer.
+newBGPPeer_addressFamily :: Lens.Lens' NewBGPPeer (Prelude.Maybe AddressFamily)
+newBGPPeer_addressFamily = Lens.lens (\NewBGPPeer' {addressFamily} -> addressFamily) (\s@NewBGPPeer' {} a -> s {addressFamily = a} :: NewBGPPeer)
 
 -- | The IP address assigned to the customer interface.
 newBGPPeer_customerAddress :: Lens.Lens' NewBGPPeer (Prelude.Maybe Prelude.Text)
@@ -105,8 +105,8 @@ instance Core.ToJSON NewBGPPeer where
       ( Prelude.catMaybes
           [ ("authKey" Core..=) Prelude.<$> authKey,
             ("asn" Core..=) Prelude.<$> asn,
-            ("addressFamily" Core..=) Prelude.<$> addressFamily,
             ("amazonAddress" Core..=) Prelude.<$> amazonAddress,
+            ("addressFamily" Core..=) Prelude.<$> addressFamily,
             ("customerAddress" Core..=)
               Prelude.<$> customerAddress
           ]

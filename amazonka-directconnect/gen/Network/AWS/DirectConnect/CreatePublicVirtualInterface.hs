@@ -21,8 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a public virtual interface. A virtual interface is the VLAN that
--- transports AWS Direct Connect traffic. A public virtual interface
--- supports sending traffic to public services of AWS such as Amazon S3.
+-- transports Direct Connect traffic. A public virtual interface supports
+-- sending traffic to public services of Amazon Web Services such as Amazon
+-- S3.
 --
 -- When creating an IPv6 public virtual interface (@addressFamily@ is
 -- @ipv6@), leave the @customer@ and @amazon@ address fields blank to use
@@ -47,23 +48,24 @@ module Network.AWS.DirectConnect.CreatePublicVirtualInterface
     virtualInterface_asn,
     virtualInterface_awsDeviceV2,
     virtualInterface_connectionId,
+    virtualInterface_awsLogicalDeviceId,
     virtualInterface_customerRouterConfig,
     virtualInterface_jumboFrameCapable,
     virtualInterface_routeFilterPrefixes,
-    virtualInterface_virtualInterfaceType,
     virtualInterface_mtu,
-    virtualInterface_tags,
-    virtualInterface_virtualInterfaceId,
+    virtualInterface_virtualInterfaceType,
     virtualInterface_amazonSideAsn,
+    virtualInterface_virtualInterfaceId,
+    virtualInterface_tags,
     virtualInterface_directConnectGatewayId,
-    virtualInterface_virtualInterfaceState,
     virtualInterface_virtualInterfaceName,
-    virtualInterface_addressFamily,
+    virtualInterface_virtualInterfaceState,
     virtualInterface_amazonAddress,
+    virtualInterface_addressFamily,
     virtualInterface_ownerAccount,
     virtualInterface_region,
-    virtualInterface_location,
     virtualInterface_vlan,
+    virtualInterface_location,
     virtualInterface_customerAddress,
   )
 where

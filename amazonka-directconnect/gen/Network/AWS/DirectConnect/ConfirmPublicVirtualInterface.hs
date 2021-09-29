@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Accepts ownership of a public virtual interface created by another AWS
+-- Accepts ownership of a public virtual interface created by another
 -- account.
 --
 -- After the virtual interface owner makes this call, the specified virtual

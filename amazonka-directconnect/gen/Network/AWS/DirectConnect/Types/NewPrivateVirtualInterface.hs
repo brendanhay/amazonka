@@ -41,10 +41,10 @@ data NewPrivateVirtualInterface = NewPrivateVirtualInterface'
     tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The ID of the Direct Connect gateway.
     directConnectGatewayId :: Prelude.Maybe Prelude.Text,
-    -- | The address family for the BGP peer.
-    addressFamily :: Prelude.Maybe AddressFamily,
     -- | The IP address assigned to the Amazon interface.
     amazonAddress :: Prelude.Maybe Prelude.Text,
+    -- | The address family for the BGP peer.
+    addressFamily :: Prelude.Maybe AddressFamily,
     -- | The IP address assigned to the customer interface.
     customerAddress :: Prelude.Maybe Prelude.Text,
     -- | The name of the virtual interface assigned by the customer network. The
@@ -81,9 +81,9 @@ data NewPrivateVirtualInterface = NewPrivateVirtualInterface'
 --
 -- 'directConnectGatewayId', 'newPrivateVirtualInterface_directConnectGatewayId' - The ID of the Direct Connect gateway.
 --
--- 'addressFamily', 'newPrivateVirtualInterface_addressFamily' - The address family for the BGP peer.
---
 -- 'amazonAddress', 'newPrivateVirtualInterface_amazonAddress' - The IP address assigned to the Amazon interface.
+--
+-- 'addressFamily', 'newPrivateVirtualInterface_addressFamily' - The address family for the BGP peer.
 --
 -- 'customerAddress', 'newPrivateVirtualInterface_customerAddress' - The IP address assigned to the customer interface.
 --
@@ -116,8 +116,8 @@ newNewPrivateVirtualInterface
         mtu = Prelude.Nothing,
         tags = Prelude.Nothing,
         directConnectGatewayId = Prelude.Nothing,
-        addressFamily = Prelude.Nothing,
         amazonAddress = Prelude.Nothing,
+        addressFamily = Prelude.Nothing,
         customerAddress = Prelude.Nothing,
         virtualInterfaceName = pVirtualInterfaceName_,
         vlan = pVlan_,
@@ -146,13 +146,13 @@ newPrivateVirtualInterface_tags = Lens.lens (\NewPrivateVirtualInterface' {tags}
 newPrivateVirtualInterface_directConnectGatewayId :: Lens.Lens' NewPrivateVirtualInterface (Prelude.Maybe Prelude.Text)
 newPrivateVirtualInterface_directConnectGatewayId = Lens.lens (\NewPrivateVirtualInterface' {directConnectGatewayId} -> directConnectGatewayId) (\s@NewPrivateVirtualInterface' {} a -> s {directConnectGatewayId = a} :: NewPrivateVirtualInterface)
 
--- | The address family for the BGP peer.
-newPrivateVirtualInterface_addressFamily :: Lens.Lens' NewPrivateVirtualInterface (Prelude.Maybe AddressFamily)
-newPrivateVirtualInterface_addressFamily = Lens.lens (\NewPrivateVirtualInterface' {addressFamily} -> addressFamily) (\s@NewPrivateVirtualInterface' {} a -> s {addressFamily = a} :: NewPrivateVirtualInterface)
-
 -- | The IP address assigned to the Amazon interface.
 newPrivateVirtualInterface_amazonAddress :: Lens.Lens' NewPrivateVirtualInterface (Prelude.Maybe Prelude.Text)
 newPrivateVirtualInterface_amazonAddress = Lens.lens (\NewPrivateVirtualInterface' {amazonAddress} -> amazonAddress) (\s@NewPrivateVirtualInterface' {} a -> s {amazonAddress = a} :: NewPrivateVirtualInterface)
+
+-- | The address family for the BGP peer.
+newPrivateVirtualInterface_addressFamily :: Lens.Lens' NewPrivateVirtualInterface (Prelude.Maybe AddressFamily)
+newPrivateVirtualInterface_addressFamily = Lens.lens (\NewPrivateVirtualInterface' {addressFamily} -> addressFamily) (\s@NewPrivateVirtualInterface' {} a -> s {addressFamily = a} :: NewPrivateVirtualInterface)
 
 -- | The IP address assigned to the customer interface.
 newPrivateVirtualInterface_customerAddress :: Lens.Lens' NewPrivateVirtualInterface (Prelude.Maybe Prelude.Text)
@@ -190,8 +190,8 @@ instance Core.ToJSON NewPrivateVirtualInterface where
             ("tags" Core..=) Prelude.<$> tags,
             ("directConnectGatewayId" Core..=)
               Prelude.<$> directConnectGatewayId,
-            ("addressFamily" Core..=) Prelude.<$> addressFamily,
             ("amazonAddress" Core..=) Prelude.<$> amazonAddress,
+            ("addressFamily" Core..=) Prelude.<$> addressFamily,
             ("customerAddress" Core..=)
               Prelude.<$> customerAddress,
             Prelude.Just

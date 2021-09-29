@@ -21,11 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a private virtual interface. A virtual interface is the VLAN
--- that transports AWS Direct Connect traffic. A private virtual interface
--- can be connected to either a Direct Connect gateway or a Virtual Private
+-- that transports Direct Connect traffic. A private virtual interface can
+-- be connected to either a Direct Connect gateway or a Virtual Private
 -- Gateway (VGW). Connecting the private virtual interface to a Direct
 -- Connect gateway enables the possibility for connecting to multiple VPCs,
--- including VPCs in different AWS Regions. Connecting the private virtual
+-- including VPCs in different Regions. Connecting the private virtual
 -- interface to a VGW only provides access to a single VPC within the same
 -- Region.
 --
@@ -56,23 +56,24 @@ module Network.AWS.DirectConnect.CreatePrivateVirtualInterface
     virtualInterface_asn,
     virtualInterface_awsDeviceV2,
     virtualInterface_connectionId,
+    virtualInterface_awsLogicalDeviceId,
     virtualInterface_customerRouterConfig,
     virtualInterface_jumboFrameCapable,
     virtualInterface_routeFilterPrefixes,
-    virtualInterface_virtualInterfaceType,
     virtualInterface_mtu,
-    virtualInterface_tags,
-    virtualInterface_virtualInterfaceId,
+    virtualInterface_virtualInterfaceType,
     virtualInterface_amazonSideAsn,
+    virtualInterface_virtualInterfaceId,
+    virtualInterface_tags,
     virtualInterface_directConnectGatewayId,
-    virtualInterface_virtualInterfaceState,
     virtualInterface_virtualInterfaceName,
-    virtualInterface_addressFamily,
+    virtualInterface_virtualInterfaceState,
     virtualInterface_amazonAddress,
+    virtualInterface_addressFamily,
     virtualInterface_ownerAccount,
     virtualInterface_region,
-    virtualInterface_location,
     virtualInterface_vlan,
+    virtualInterface_location,
     virtualInterface_customerAddress,
   )
 where

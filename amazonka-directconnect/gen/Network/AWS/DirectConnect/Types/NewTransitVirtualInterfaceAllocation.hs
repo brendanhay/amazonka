@@ -47,10 +47,10 @@ data NewTransitVirtualInterfaceAllocation = NewTransitVirtualInterfaceAllocation
     -- name has a maximum of 100 characters. The following are valid
     -- characters: a-z, 0-9 and a hyphen (-).
     virtualInterfaceName :: Prelude.Maybe Prelude.Text,
-    -- | The address family for the BGP peer.
-    addressFamily :: Prelude.Maybe AddressFamily,
     -- | The IP address assigned to the Amazon interface.
     amazonAddress :: Prelude.Maybe Prelude.Text,
+    -- | The address family for the BGP peer.
+    addressFamily :: Prelude.Maybe AddressFamily,
     -- | The ID of the VLAN.
     vlan :: Prelude.Maybe Prelude.Int,
     -- | The IP address assigned to the customer interface.
@@ -83,9 +83,9 @@ data NewTransitVirtualInterfaceAllocation = NewTransitVirtualInterfaceAllocation
 -- name has a maximum of 100 characters. The following are valid
 -- characters: a-z, 0-9 and a hyphen (-).
 --
--- 'addressFamily', 'newTransitVirtualInterfaceAllocation_addressFamily' - The address family for the BGP peer.
---
 -- 'amazonAddress', 'newTransitVirtualInterfaceAllocation_amazonAddress' - The IP address assigned to the Amazon interface.
+--
+-- 'addressFamily', 'newTransitVirtualInterfaceAllocation_addressFamily' - The address family for the BGP peer.
 --
 -- 'vlan', 'newTransitVirtualInterfaceAllocation_vlan' - The ID of the VLAN.
 --
@@ -101,8 +101,8 @@ newNewTransitVirtualInterfaceAllocation =
       tags = Prelude.Nothing,
       virtualInterfaceName =
         Prelude.Nothing,
-      addressFamily = Prelude.Nothing,
       amazonAddress = Prelude.Nothing,
+      addressFamily = Prelude.Nothing,
       vlan = Prelude.Nothing,
       customerAddress = Prelude.Nothing
     }
@@ -134,13 +134,13 @@ newTransitVirtualInterfaceAllocation_tags = Lens.lens (\NewTransitVirtualInterfa
 newTransitVirtualInterfaceAllocation_virtualInterfaceName :: Lens.Lens' NewTransitVirtualInterfaceAllocation (Prelude.Maybe Prelude.Text)
 newTransitVirtualInterfaceAllocation_virtualInterfaceName = Lens.lens (\NewTransitVirtualInterfaceAllocation' {virtualInterfaceName} -> virtualInterfaceName) (\s@NewTransitVirtualInterfaceAllocation' {} a -> s {virtualInterfaceName = a} :: NewTransitVirtualInterfaceAllocation)
 
--- | The address family for the BGP peer.
-newTransitVirtualInterfaceAllocation_addressFamily :: Lens.Lens' NewTransitVirtualInterfaceAllocation (Prelude.Maybe AddressFamily)
-newTransitVirtualInterfaceAllocation_addressFamily = Lens.lens (\NewTransitVirtualInterfaceAllocation' {addressFamily} -> addressFamily) (\s@NewTransitVirtualInterfaceAllocation' {} a -> s {addressFamily = a} :: NewTransitVirtualInterfaceAllocation)
-
 -- | The IP address assigned to the Amazon interface.
 newTransitVirtualInterfaceAllocation_amazonAddress :: Lens.Lens' NewTransitVirtualInterfaceAllocation (Prelude.Maybe Prelude.Text)
 newTransitVirtualInterfaceAllocation_amazonAddress = Lens.lens (\NewTransitVirtualInterfaceAllocation' {amazonAddress} -> amazonAddress) (\s@NewTransitVirtualInterfaceAllocation' {} a -> s {amazonAddress = a} :: NewTransitVirtualInterfaceAllocation)
+
+-- | The address family for the BGP peer.
+newTransitVirtualInterfaceAllocation_addressFamily :: Lens.Lens' NewTransitVirtualInterfaceAllocation (Prelude.Maybe AddressFamily)
+newTransitVirtualInterfaceAllocation_addressFamily = Lens.lens (\NewTransitVirtualInterfaceAllocation' {addressFamily} -> addressFamily) (\s@NewTransitVirtualInterfaceAllocation' {} a -> s {addressFamily = a} :: NewTransitVirtualInterfaceAllocation)
 
 -- | The ID of the VLAN.
 newTransitVirtualInterfaceAllocation_vlan :: Lens.Lens' NewTransitVirtualInterfaceAllocation (Prelude.Maybe Prelude.Int)
@@ -171,8 +171,8 @@ instance
             ("tags" Core..=) Prelude.<$> tags,
             ("virtualInterfaceName" Core..=)
               Prelude.<$> virtualInterfaceName,
-            ("addressFamily" Core..=) Prelude.<$> addressFamily,
             ("amazonAddress" Core..=) Prelude.<$> amazonAddress,
+            ("addressFamily" Core..=) Prelude.<$> addressFamily,
             ("vlan" Core..=) Prelude.<$> vlan,
             ("customerAddress" Core..=)
               Prelude.<$> customerAddress

@@ -21,10 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Associates a virtual interface with a specified link aggregation group
--- (LAG) or connection. Connectivity to AWS is temporarily interrupted as
--- the virtual interface is being migrated. If the target connection or LAG
--- has an associated virtual interface with a conflicting VLAN number or a
--- conflicting IP address, the operation fails.
+-- (LAG) or connection. Connectivity to Amazon Web Services is temporarily
+-- interrupted as the virtual interface is being migrated. If the target
+-- connection or LAG has an associated virtual interface with a conflicting
+-- VLAN number or a conflicting IP address, the operation fails.
 --
 -- Virtual interfaces associated with a hosted connection cannot be
 -- associated with a LAG; hosted connections must be migrated along with
@@ -54,23 +54,24 @@ module Network.AWS.DirectConnect.AssociateVirtualInterface
     virtualInterface_asn,
     virtualInterface_awsDeviceV2,
     virtualInterface_connectionId,
+    virtualInterface_awsLogicalDeviceId,
     virtualInterface_customerRouterConfig,
     virtualInterface_jumboFrameCapable,
     virtualInterface_routeFilterPrefixes,
-    virtualInterface_virtualInterfaceType,
     virtualInterface_mtu,
-    virtualInterface_tags,
-    virtualInterface_virtualInterfaceId,
+    virtualInterface_virtualInterfaceType,
     virtualInterface_amazonSideAsn,
+    virtualInterface_virtualInterfaceId,
+    virtualInterface_tags,
     virtualInterface_directConnectGatewayId,
-    virtualInterface_virtualInterfaceState,
     virtualInterface_virtualInterfaceName,
-    virtualInterface_addressFamily,
+    virtualInterface_virtualInterfaceState,
     virtualInterface_amazonAddress,
+    virtualInterface_addressFamily,
     virtualInterface_ownerAccount,
     virtualInterface_region,
-    virtualInterface_location,
     virtualInterface_vlan,
+    virtualInterface_location,
     virtualInterface_customerAddress,
   )
 where

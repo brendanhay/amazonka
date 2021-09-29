@@ -34,12 +34,12 @@ data DirectConnectGatewayAssociation = DirectConnectGatewayAssociation'
   { -- | The ID of the virtual private gateway. Applies only to private virtual
     -- interfaces.
     virtualGatewayId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the AWS account that owns the virtual private gateway.
+    -- | The Region where the virtual private gateway is located.
+    virtualGatewayRegion :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the account that owns the virtual private gateway.
     virtualGatewayOwnerAccount :: Prelude.Maybe Prelude.Text,
     -- | The error message if the state of an object failed to advance.
     stateChangeError :: Prelude.Maybe Prelude.Text,
-    -- | The AWS Region where the virtual private gateway is located.
-    virtualGatewayRegion :: Prelude.Maybe Prelude.Text,
     -- | The state of the association. The following are the possible values:
     --
     -- -   @associating@: The initial state after calling
@@ -65,7 +65,7 @@ data DirectConnectGatewayAssociation = DirectConnectGatewayAssociation'
     directConnectGatewayId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon VPC prefixes to advertise to the Direct Connect gateway.
     allowedPrefixesToDirectConnectGateway :: Prelude.Maybe [RouteFilterPrefix],
-    -- | The ID of the AWS account that owns the associated gateway.
+    -- | The ID of the account that owns the associated gateway.
     directConnectGatewayOwnerAccount :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -81,11 +81,11 @@ data DirectConnectGatewayAssociation = DirectConnectGatewayAssociation'
 -- 'virtualGatewayId', 'directConnectGatewayAssociation_virtualGatewayId' - The ID of the virtual private gateway. Applies only to private virtual
 -- interfaces.
 --
--- 'virtualGatewayOwnerAccount', 'directConnectGatewayAssociation_virtualGatewayOwnerAccount' - The ID of the AWS account that owns the virtual private gateway.
+-- 'virtualGatewayRegion', 'directConnectGatewayAssociation_virtualGatewayRegion' - The Region where the virtual private gateway is located.
+--
+-- 'virtualGatewayOwnerAccount', 'directConnectGatewayAssociation_virtualGatewayOwnerAccount' - The ID of the account that owns the virtual private gateway.
 --
 -- 'stateChangeError', 'directConnectGatewayAssociation_stateChangeError' - The error message if the state of an object failed to advance.
---
--- 'virtualGatewayRegion', 'directConnectGatewayAssociation_virtualGatewayRegion' - The AWS Region where the virtual private gateway is located.
 --
 -- 'associationState', 'directConnectGatewayAssociation_associationState' - The state of the association. The following are the possible values:
 --
@@ -112,17 +112,17 @@ data DirectConnectGatewayAssociation = DirectConnectGatewayAssociation'
 --
 -- 'allowedPrefixesToDirectConnectGateway', 'directConnectGatewayAssociation_allowedPrefixesToDirectConnectGateway' - The Amazon VPC prefixes to advertise to the Direct Connect gateway.
 --
--- 'directConnectGatewayOwnerAccount', 'directConnectGatewayAssociation_directConnectGatewayOwnerAccount' - The ID of the AWS account that owns the associated gateway.
+-- 'directConnectGatewayOwnerAccount', 'directConnectGatewayAssociation_directConnectGatewayOwnerAccount' - The ID of the account that owns the associated gateway.
 newDirectConnectGatewayAssociation ::
   DirectConnectGatewayAssociation
 newDirectConnectGatewayAssociation =
   DirectConnectGatewayAssociation'
     { virtualGatewayId =
         Prelude.Nothing,
+      virtualGatewayRegion = Prelude.Nothing,
       virtualGatewayOwnerAccount =
         Prelude.Nothing,
       stateChangeError = Prelude.Nothing,
-      virtualGatewayRegion = Prelude.Nothing,
       associationState = Prelude.Nothing,
       associatedGateway = Prelude.Nothing,
       associationId = Prelude.Nothing,
@@ -138,17 +138,17 @@ newDirectConnectGatewayAssociation =
 directConnectGatewayAssociation_virtualGatewayId :: Lens.Lens' DirectConnectGatewayAssociation (Prelude.Maybe Prelude.Text)
 directConnectGatewayAssociation_virtualGatewayId = Lens.lens (\DirectConnectGatewayAssociation' {virtualGatewayId} -> virtualGatewayId) (\s@DirectConnectGatewayAssociation' {} a -> s {virtualGatewayId = a} :: DirectConnectGatewayAssociation)
 
--- | The ID of the AWS account that owns the virtual private gateway.
+-- | The Region where the virtual private gateway is located.
+directConnectGatewayAssociation_virtualGatewayRegion :: Lens.Lens' DirectConnectGatewayAssociation (Prelude.Maybe Prelude.Text)
+directConnectGatewayAssociation_virtualGatewayRegion = Lens.lens (\DirectConnectGatewayAssociation' {virtualGatewayRegion} -> virtualGatewayRegion) (\s@DirectConnectGatewayAssociation' {} a -> s {virtualGatewayRegion = a} :: DirectConnectGatewayAssociation)
+
+-- | The ID of the account that owns the virtual private gateway.
 directConnectGatewayAssociation_virtualGatewayOwnerAccount :: Lens.Lens' DirectConnectGatewayAssociation (Prelude.Maybe Prelude.Text)
 directConnectGatewayAssociation_virtualGatewayOwnerAccount = Lens.lens (\DirectConnectGatewayAssociation' {virtualGatewayOwnerAccount} -> virtualGatewayOwnerAccount) (\s@DirectConnectGatewayAssociation' {} a -> s {virtualGatewayOwnerAccount = a} :: DirectConnectGatewayAssociation)
 
 -- | The error message if the state of an object failed to advance.
 directConnectGatewayAssociation_stateChangeError :: Lens.Lens' DirectConnectGatewayAssociation (Prelude.Maybe Prelude.Text)
 directConnectGatewayAssociation_stateChangeError = Lens.lens (\DirectConnectGatewayAssociation' {stateChangeError} -> stateChangeError) (\s@DirectConnectGatewayAssociation' {} a -> s {stateChangeError = a} :: DirectConnectGatewayAssociation)
-
--- | The AWS Region where the virtual private gateway is located.
-directConnectGatewayAssociation_virtualGatewayRegion :: Lens.Lens' DirectConnectGatewayAssociation (Prelude.Maybe Prelude.Text)
-directConnectGatewayAssociation_virtualGatewayRegion = Lens.lens (\DirectConnectGatewayAssociation' {virtualGatewayRegion} -> virtualGatewayRegion) (\s@DirectConnectGatewayAssociation' {} a -> s {virtualGatewayRegion = a} :: DirectConnectGatewayAssociation)
 
 -- | The state of the association. The following are the possible values:
 --
@@ -185,7 +185,7 @@ directConnectGatewayAssociation_directConnectGatewayId = Lens.lens (\DirectConne
 directConnectGatewayAssociation_allowedPrefixesToDirectConnectGateway :: Lens.Lens' DirectConnectGatewayAssociation (Prelude.Maybe [RouteFilterPrefix])
 directConnectGatewayAssociation_allowedPrefixesToDirectConnectGateway = Lens.lens (\DirectConnectGatewayAssociation' {allowedPrefixesToDirectConnectGateway} -> allowedPrefixesToDirectConnectGateway) (\s@DirectConnectGatewayAssociation' {} a -> s {allowedPrefixesToDirectConnectGateway = a} :: DirectConnectGatewayAssociation) Prelude.. Lens.mapping Lens._Coerce
 
--- | The ID of the AWS account that owns the associated gateway.
+-- | The ID of the account that owns the associated gateway.
 directConnectGatewayAssociation_directConnectGatewayOwnerAccount :: Lens.Lens' DirectConnectGatewayAssociation (Prelude.Maybe Prelude.Text)
 directConnectGatewayAssociation_directConnectGatewayOwnerAccount = Lens.lens (\DirectConnectGatewayAssociation' {directConnectGatewayOwnerAccount} -> directConnectGatewayOwnerAccount) (\s@DirectConnectGatewayAssociation' {} a -> s {directConnectGatewayOwnerAccount = a} :: DirectConnectGatewayAssociation)
 
@@ -199,9 +199,9 @@ instance
       ( \x ->
           DirectConnectGatewayAssociation'
             Prelude.<$> (x Core..:? "virtualGatewayId")
+            Prelude.<*> (x Core..:? "virtualGatewayRegion")
             Prelude.<*> (x Core..:? "virtualGatewayOwnerAccount")
             Prelude.<*> (x Core..:? "stateChangeError")
-            Prelude.<*> (x Core..:? "virtualGatewayRegion")
             Prelude.<*> (x Core..:? "associationState")
             Prelude.<*> (x Core..:? "associatedGateway")
             Prelude.<*> (x Core..:? "associationId")

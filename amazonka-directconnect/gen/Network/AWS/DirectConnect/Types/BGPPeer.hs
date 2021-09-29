@@ -36,8 +36,12 @@ data BGPPeer = BGPPeer'
     -- | The autonomous system (AS) number for Border Gateway Protocol (BGP)
     -- configuration.
     asn :: Prelude.Maybe Prelude.Int,
-    -- | The Direct Connect endpoint on which the BGP peer terminates.
+    -- | The Direct Connect endpoint that terminates the BGP peer.
     awsDeviceV2 :: Prelude.Maybe Prelude.Text,
+    -- | The Direct Connect endpoint that terminates the logical connection. This
+    -- device might be different than the device that terminates the physical
+    -- connection.
+    awsLogicalDeviceId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the BGP peer.
     bgpPeerId :: Prelude.Maybe Prelude.Text,
     -- | The status of the BGP peer. The following are the possible values:
@@ -65,10 +69,10 @@ data BGPPeer = BGPPeer'
     --
     -- -   @deleted@: The BGP peer is deleted and cannot be established.
     bgpPeerState :: Prelude.Maybe BGPPeerState,
-    -- | The address family for the BGP peer.
-    addressFamily :: Prelude.Maybe AddressFamily,
     -- | The IP address assigned to the Amazon interface.
     amazonAddress :: Prelude.Maybe Prelude.Text,
+    -- | The address family for the BGP peer.
+    addressFamily :: Prelude.Maybe AddressFamily,
     -- | The IP address assigned to the customer interface.
     customerAddress :: Prelude.Maybe Prelude.Text
   }
@@ -88,7 +92,11 @@ data BGPPeer = BGPPeer'
 -- 'asn', 'bGPPeer_asn' - The autonomous system (AS) number for Border Gateway Protocol (BGP)
 -- configuration.
 --
--- 'awsDeviceV2', 'bGPPeer_awsDeviceV2' - The Direct Connect endpoint on which the BGP peer terminates.
+-- 'awsDeviceV2', 'bGPPeer_awsDeviceV2' - The Direct Connect endpoint that terminates the BGP peer.
+--
+-- 'awsLogicalDeviceId', 'bGPPeer_awsLogicalDeviceId' - The Direct Connect endpoint that terminates the logical connection. This
+-- device might be different than the device that terminates the physical
+-- connection.
 --
 -- 'bgpPeerId', 'bGPPeer_bgpPeerId' - The ID of the BGP peer.
 --
@@ -117,9 +125,9 @@ data BGPPeer = BGPPeer'
 --
 -- -   @deleted@: The BGP peer is deleted and cannot be established.
 --
--- 'addressFamily', 'bGPPeer_addressFamily' - The address family for the BGP peer.
---
 -- 'amazonAddress', 'bGPPeer_amazonAddress' - The IP address assigned to the Amazon interface.
+--
+-- 'addressFamily', 'bGPPeer_addressFamily' - The address family for the BGP peer.
 --
 -- 'customerAddress', 'bGPPeer_customerAddress' - The IP address assigned to the customer interface.
 newBGPPeer ::
@@ -129,11 +137,12 @@ newBGPPeer =
     { authKey = Prelude.Nothing,
       asn = Prelude.Nothing,
       awsDeviceV2 = Prelude.Nothing,
+      awsLogicalDeviceId = Prelude.Nothing,
       bgpPeerId = Prelude.Nothing,
       bgpStatus = Prelude.Nothing,
       bgpPeerState = Prelude.Nothing,
-      addressFamily = Prelude.Nothing,
       amazonAddress = Prelude.Nothing,
+      addressFamily = Prelude.Nothing,
       customerAddress = Prelude.Nothing
     }
 
@@ -147,9 +156,15 @@ bGPPeer_authKey = Lens.lens (\BGPPeer' {authKey} -> authKey) (\s@BGPPeer' {} a -
 bGPPeer_asn :: Lens.Lens' BGPPeer (Prelude.Maybe Prelude.Int)
 bGPPeer_asn = Lens.lens (\BGPPeer' {asn} -> asn) (\s@BGPPeer' {} a -> s {asn = a} :: BGPPeer)
 
--- | The Direct Connect endpoint on which the BGP peer terminates.
+-- | The Direct Connect endpoint that terminates the BGP peer.
 bGPPeer_awsDeviceV2 :: Lens.Lens' BGPPeer (Prelude.Maybe Prelude.Text)
 bGPPeer_awsDeviceV2 = Lens.lens (\BGPPeer' {awsDeviceV2} -> awsDeviceV2) (\s@BGPPeer' {} a -> s {awsDeviceV2 = a} :: BGPPeer)
+
+-- | The Direct Connect endpoint that terminates the logical connection. This
+-- device might be different than the device that terminates the physical
+-- connection.
+bGPPeer_awsLogicalDeviceId :: Lens.Lens' BGPPeer (Prelude.Maybe Prelude.Text)
+bGPPeer_awsLogicalDeviceId = Lens.lens (\BGPPeer' {awsLogicalDeviceId} -> awsLogicalDeviceId) (\s@BGPPeer' {} a -> s {awsLogicalDeviceId = a} :: BGPPeer)
 
 -- | The ID of the BGP peer.
 bGPPeer_bgpPeerId :: Lens.Lens' BGPPeer (Prelude.Maybe Prelude.Text)
@@ -184,13 +199,13 @@ bGPPeer_bgpStatus = Lens.lens (\BGPPeer' {bgpStatus} -> bgpStatus) (\s@BGPPeer' 
 bGPPeer_bgpPeerState :: Lens.Lens' BGPPeer (Prelude.Maybe BGPPeerState)
 bGPPeer_bgpPeerState = Lens.lens (\BGPPeer' {bgpPeerState} -> bgpPeerState) (\s@BGPPeer' {} a -> s {bgpPeerState = a} :: BGPPeer)
 
--- | The address family for the BGP peer.
-bGPPeer_addressFamily :: Lens.Lens' BGPPeer (Prelude.Maybe AddressFamily)
-bGPPeer_addressFamily = Lens.lens (\BGPPeer' {addressFamily} -> addressFamily) (\s@BGPPeer' {} a -> s {addressFamily = a} :: BGPPeer)
-
 -- | The IP address assigned to the Amazon interface.
 bGPPeer_amazonAddress :: Lens.Lens' BGPPeer (Prelude.Maybe Prelude.Text)
 bGPPeer_amazonAddress = Lens.lens (\BGPPeer' {amazonAddress} -> amazonAddress) (\s@BGPPeer' {} a -> s {amazonAddress = a} :: BGPPeer)
+
+-- | The address family for the BGP peer.
+bGPPeer_addressFamily :: Lens.Lens' BGPPeer (Prelude.Maybe AddressFamily)
+bGPPeer_addressFamily = Lens.lens (\BGPPeer' {addressFamily} -> addressFamily) (\s@BGPPeer' {} a -> s {addressFamily = a} :: BGPPeer)
 
 -- | The IP address assigned to the customer interface.
 bGPPeer_customerAddress :: Lens.Lens' BGPPeer (Prelude.Maybe Prelude.Text)
@@ -205,11 +220,12 @@ instance Core.FromJSON BGPPeer where
             Prelude.<$> (x Core..:? "authKey")
             Prelude.<*> (x Core..:? "asn")
             Prelude.<*> (x Core..:? "awsDeviceV2")
+            Prelude.<*> (x Core..:? "awsLogicalDeviceId")
             Prelude.<*> (x Core..:? "bgpPeerId")
             Prelude.<*> (x Core..:? "bgpStatus")
             Prelude.<*> (x Core..:? "bgpPeerState")
-            Prelude.<*> (x Core..:? "addressFamily")
             Prelude.<*> (x Core..:? "amazonAddress")
+            Prelude.<*> (x Core..:? "addressFamily")
             Prelude.<*> (x Core..:? "customerAddress")
       )
 

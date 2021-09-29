@@ -25,7 +25,7 @@
 -- (the connection is not deleted; to delete the connection, use the
 -- DeleteConnection request). If the LAG has associated virtual interfaces
 -- or hosted connections, they remain associated with the LAG. A
--- disassociated connection owned by an AWS Direct Connect Partner is
+-- disassociated connection owned by an Direct Connect Partner is
 -- automatically converted to an interconnect.
 --
 -- If disassociating the connection would cause the LAG to fall below its
@@ -48,22 +48,27 @@ module Network.AWS.DirectConnect.DisassociateConnectionFromLag
 
     -- * Response Lenses
     connection_bandwidth,
-    connection_connectionState,
     connection_awsDeviceV2,
+    connection_connectionState,
     connection_connectionName,
+    connection_macSecKeys,
     connection_providerName,
     connection_connectionId,
+    connection_awsLogicalDeviceId,
     connection_hasLogicalRedundancy,
     connection_awsDevice,
     connection_jumboFrameCapable,
+    connection_portEncryptionStatus,
     connection_lagId,
+    connection_encryptionMode,
     connection_partnerName,
     connection_tags,
     connection_loaIssueTime,
     connection_ownerAccount,
     connection_region,
-    connection_location,
     connection_vlan,
+    connection_location,
+    connection_macSecCapable,
   )
 where
 

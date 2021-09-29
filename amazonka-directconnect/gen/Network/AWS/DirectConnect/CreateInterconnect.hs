@@ -20,30 +20,30 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an interconnect between an AWS Direct Connect Partner\'s network
--- and a specific AWS Direct Connect location.
+-- Creates an interconnect between an Direct Connect Partner\'s network and
+-- a specific Direct Connect location.
 --
 -- An interconnect is a connection that is capable of hosting other
--- connections. The AWS Direct Connect partner can use an interconnect to
--- provide AWS Direct Connect hosted connections to customers through their
--- own network services. Like a standard connection, an interconnect links
--- the partner\'s network to an AWS Direct Connect location over a standard
+-- connections. The Direct Connect Partner can use an interconnect to
+-- provide Direct Connect hosted connections to customers through their own
+-- network services. Like a standard connection, an interconnect links the
+-- partner\'s network to an Direct Connect location over a standard
 -- Ethernet fiber-optic cable. One end is connected to the partner\'s
--- router, the other to an AWS Direct Connect router.
+-- router, the other to an Direct Connect router.
 --
 -- You can automatically add the new interconnect to a link aggregation
 -- group (LAG) by specifying a LAG ID in the request. This ensures that the
--- new interconnect is allocated on the same AWS Direct Connect endpoint
--- that hosts the specified LAG. If there are no available ports on the
+-- new interconnect is allocated on the same Direct Connect endpoint that
+-- hosts the specified LAG. If there are no available ports on the
 -- endpoint, the request fails and no interconnect is created.
 --
--- For each end customer, the AWS Direct Connect Partner provisions a
+-- For each end customer, the Direct Connect Partner provisions a
 -- connection on their interconnect by calling AllocateHostedConnection.
--- The end customer can then connect to AWS resources by creating a virtual
--- interface on their connection, using the VLAN assigned to them by the
--- AWS Direct Connect Partner.
+-- The end customer can then connect to Amazon Web Services resources by
+-- creating a virtual interface on their connection, using the VLAN
+-- assigned to them by the Direct Connect Partner.
 --
--- Intended for use by AWS Direct Connect Partners only.
+-- Intended for use by Direct Connect Partners only.
 module Network.AWS.DirectConnect.CreateInterconnect
   ( -- * Creating a Request
     CreateInterconnect (..),
@@ -62,10 +62,11 @@ module Network.AWS.DirectConnect.CreateInterconnect
     newInterconnect,
 
     -- * Response Lenses
-    interconnect_bandwidth,
     interconnect_interconnectId,
+    interconnect_bandwidth,
     interconnect_awsDeviceV2,
     interconnect_providerName,
+    interconnect_awsLogicalDeviceId,
     interconnect_hasLogicalRedundancy,
     interconnect_awsDevice,
     interconnect_jumboFrameCapable,
@@ -73,9 +74,9 @@ module Network.AWS.DirectConnect.CreateInterconnect
     interconnect_tags,
     interconnect_loaIssueTime,
     interconnect_region,
+    interconnect_interconnectName,
     interconnect_interconnectState,
     interconnect_location,
-    interconnect_interconnectName,
   )
 where
 

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the tags associated with the specified AWS Direct Connect
+-- Describes the tags associated with the specified Direct Connect
 -- resources.
 module Network.AWS.DirectConnect.DescribeTags
   ( -- * Creating a Request

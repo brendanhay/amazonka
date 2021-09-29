@@ -54,7 +54,7 @@ data DirectConnectGatewayAssociationProposal = DirectConnectGatewayAssociationPr
     existingAllowedPrefixesToDirectConnectGateway :: Prelude.Maybe [RouteFilterPrefix],
     -- | The ID of the Direct Connect gateway.
     directConnectGatewayId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the AWS account that owns the Direct Connect gateway.
+    -- | The ID of the account that owns the Direct Connect gateway.
     directConnectGatewayOwnerAccount :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -90,7 +90,7 @@ data DirectConnectGatewayAssociationProposal = DirectConnectGatewayAssociationPr
 --
 -- 'directConnectGatewayId', 'directConnectGatewayAssociationProposal_directConnectGatewayId' - The ID of the Direct Connect gateway.
 --
--- 'directConnectGatewayOwnerAccount', 'directConnectGatewayAssociationProposal_directConnectGatewayOwnerAccount' - The ID of the AWS account that owns the Direct Connect gateway.
+-- 'directConnectGatewayOwnerAccount', 'directConnectGatewayAssociationProposal_directConnectGatewayOwnerAccount' - The ID of the account that owns the Direct Connect gateway.
 newDirectConnectGatewayAssociationProposal ::
   DirectConnectGatewayAssociationProposal
 newDirectConnectGatewayAssociationProposal =
@@ -145,7 +145,7 @@ directConnectGatewayAssociationProposal_existingAllowedPrefixesToDirectConnectGa
 directConnectGatewayAssociationProposal_directConnectGatewayId :: Lens.Lens' DirectConnectGatewayAssociationProposal (Prelude.Maybe Prelude.Text)
 directConnectGatewayAssociationProposal_directConnectGatewayId = Lens.lens (\DirectConnectGatewayAssociationProposal' {directConnectGatewayId} -> directConnectGatewayId) (\s@DirectConnectGatewayAssociationProposal' {} a -> s {directConnectGatewayId = a} :: DirectConnectGatewayAssociationProposal)
 
--- | The ID of the AWS account that owns the Direct Connect gateway.
+-- | The ID of the account that owns the Direct Connect gateway.
 directConnectGatewayAssociationProposal_directConnectGatewayOwnerAccount :: Lens.Lens' DirectConnectGatewayAssociationProposal (Prelude.Maybe Prelude.Text)
 directConnectGatewayAssociationProposal_directConnectGatewayOwnerAccount = Lens.lens (\DirectConnectGatewayAssociationProposal' {directConnectGatewayOwnerAccount} -> directConnectGatewayOwnerAccount) (\s@DirectConnectGatewayAssociationProposal' {} a -> s {directConnectGatewayOwnerAccount = a} :: DirectConnectGatewayAssociationProposal)
 

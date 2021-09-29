@@ -37,12 +37,12 @@ data Destination = Destination'
     destinationName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of this destination.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | An IAM policy document that governs which Amazon Web Services accounts
+    -- can create subscription filters against this destination.
+    accessPolicy :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the physical target where the log
     -- events are delivered (for example, a Kinesis stream).
-    targetArn :: Prelude.Maybe Prelude.Text,
-    -- | An IAM policy document that governs which AWS accounts can create
-    -- subscription filters against this destination.
-    accessPolicy :: Prelude.Maybe Prelude.Text
+    targetArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -63,11 +63,11 @@ data Destination = Destination'
 --
 -- 'arn', 'destination_arn' - The ARN of this destination.
 --
+-- 'accessPolicy', 'destination_accessPolicy' - An IAM policy document that governs which Amazon Web Services accounts
+-- can create subscription filters against this destination.
+--
 -- 'targetArn', 'destination_targetArn' - The Amazon Resource Name (ARN) of the physical target where the log
 -- events are delivered (for example, a Kinesis stream).
---
--- 'accessPolicy', 'destination_accessPolicy' - An IAM policy document that governs which AWS accounts can create
--- subscription filters against this destination.
 newDestination ::
   Destination
 newDestination =
@@ -76,8 +76,8 @@ newDestination =
       roleArn = Prelude.Nothing,
       destinationName = Prelude.Nothing,
       arn = Prelude.Nothing,
-      targetArn = Prelude.Nothing,
-      accessPolicy = Prelude.Nothing
+      accessPolicy = Prelude.Nothing,
+      targetArn = Prelude.Nothing
     }
 
 -- | The creation time of the destination, expressed as the number of
@@ -97,15 +97,15 @@ destination_destinationName = Lens.lens (\Destination' {destinationName} -> dest
 destination_arn :: Lens.Lens' Destination (Prelude.Maybe Prelude.Text)
 destination_arn = Lens.lens (\Destination' {arn} -> arn) (\s@Destination' {} a -> s {arn = a} :: Destination)
 
+-- | An IAM policy document that governs which Amazon Web Services accounts
+-- can create subscription filters against this destination.
+destination_accessPolicy :: Lens.Lens' Destination (Prelude.Maybe Prelude.Text)
+destination_accessPolicy = Lens.lens (\Destination' {accessPolicy} -> accessPolicy) (\s@Destination' {} a -> s {accessPolicy = a} :: Destination)
+
 -- | The Amazon Resource Name (ARN) of the physical target where the log
 -- events are delivered (for example, a Kinesis stream).
 destination_targetArn :: Lens.Lens' Destination (Prelude.Maybe Prelude.Text)
 destination_targetArn = Lens.lens (\Destination' {targetArn} -> targetArn) (\s@Destination' {} a -> s {targetArn = a} :: Destination)
-
--- | An IAM policy document that governs which AWS accounts can create
--- subscription filters against this destination.
-destination_accessPolicy :: Lens.Lens' Destination (Prelude.Maybe Prelude.Text)
-destination_accessPolicy = Lens.lens (\Destination' {accessPolicy} -> accessPolicy) (\s@Destination' {} a -> s {accessPolicy = a} :: Destination)
 
 instance Core.FromJSON Destination where
   parseJSON =
@@ -117,8 +117,8 @@ instance Core.FromJSON Destination where
             Prelude.<*> (x Core..:? "roleArn")
             Prelude.<*> (x Core..:? "destinationName")
             Prelude.<*> (x Core..:? "arn")
-            Prelude.<*> (x Core..:? "targetArn")
             Prelude.<*> (x Core..:? "accessPolicy")
+            Prelude.<*> (x Core..:? "targetArn")
       )
 
 instance Prelude.Hashable Destination

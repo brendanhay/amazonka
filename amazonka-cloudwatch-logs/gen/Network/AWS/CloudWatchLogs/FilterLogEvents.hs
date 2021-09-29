@@ -102,9 +102,6 @@ data FilterLogEvents = FilterLogEvents'
     -- | The start of the time range, expressed as the number of milliseconds
     -- after Jan 1, 1970 00:00:00 UTC. Events with a timestamp before this time
     -- are not returned.
-    --
-    -- If you omit @startTime@ and @endTime@ the most recent log events are
-    -- retrieved, to up 1 MB or 10,000 log events.
     startTime :: Prelude.Maybe Prelude.Natural,
     -- | The end of the time range, expressed as the number of milliseconds after
     -- Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time
@@ -160,9 +157,6 @@ data FilterLogEvents = FilterLogEvents'
 -- 'startTime', 'filterLogEvents_startTime' - The start of the time range, expressed as the number of milliseconds
 -- after Jan 1, 1970 00:00:00 UTC. Events with a timestamp before this time
 -- are not returned.
---
--- If you omit @startTime@ and @endTime@ the most recent log events are
--- retrieved, to up 1 MB or 10,000 log events.
 --
 -- 'endTime', 'filterLogEvents_endTime' - The end of the time range, expressed as the number of milliseconds after
 -- Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time
@@ -232,9 +226,6 @@ filterLogEvents_filterPattern = Lens.lens (\FilterLogEvents' {filterPattern} -> 
 -- | The start of the time range, expressed as the number of milliseconds
 -- after Jan 1, 1970 00:00:00 UTC. Events with a timestamp before this time
 -- are not returned.
---
--- If you omit @startTime@ and @endTime@ the most recent log events are
--- retrieved, to up 1 MB or 10,000 log events.
 filterLogEvents_startTime :: Lens.Lens' FilterLogEvents (Prelude.Maybe Prelude.Natural)
 filterLogEvents_startTime = Lens.lens (\FilterLogEvents' {startTime} -> startTime) (\s@FilterLogEvents' {} a -> s {startTime = a} :: FilterLogEvents)
 

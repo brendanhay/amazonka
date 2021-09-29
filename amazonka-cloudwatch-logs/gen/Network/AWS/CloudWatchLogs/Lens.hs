@@ -14,11 +14,6 @@
 module Network.AWS.CloudWatchLogs.Lens
   ( -- * Operations
 
-    -- ** GetLogRecord
-    getLogRecord_logRecordPointer,
-    getLogRecordResponse_logRecord,
-    getLogRecordResponse_httpStatus,
-
     -- ** DescribeExportTasks
     describeExportTasks_nextToken,
     describeExportTasks_taskId,
@@ -27,6 +22,11 @@ module Network.AWS.CloudWatchLogs.Lens
     describeExportTasksResponse_nextToken,
     describeExportTasksResponse_exportTasks,
     describeExportTasksResponse_httpStatus,
+
+    -- ** GetLogRecord
+    getLogRecord_logRecordPointer,
+    getLogRecordResponse_logRecord,
+    getLogRecordResponse_httpStatus,
 
     -- ** CreateLogStream
     createLogStream_logGroupName,
@@ -47,11 +47,6 @@ module Network.AWS.CloudWatchLogs.Lens
     describeQueryDefinitionsResponse_queryDefinitions,
     describeQueryDefinitionsResponse_httpStatus,
 
-    -- ** DeleteQueryDefinition
-    deleteQueryDefinition_queryDefinitionId,
-    deleteQueryDefinitionResponse_success,
-    deleteQueryDefinitionResponse_httpStatus,
-
     -- ** DescribeLogStreams
     describeLogStreams_logStreamNamePrefix,
     describeLogStreams_nextToken,
@@ -63,14 +58,22 @@ module Network.AWS.CloudWatchLogs.Lens
     describeLogStreamsResponse_logStreams,
     describeLogStreamsResponse_httpStatus,
 
+    -- ** DeleteQueryDefinition
+    deleteQueryDefinition_queryDefinitionId,
+    deleteQueryDefinitionResponse_success,
+    deleteQueryDefinitionResponse_httpStatus,
+
     -- ** PutResourcePolicy
-    putResourcePolicy_policyName,
     putResourcePolicy_policyDocument,
+    putResourcePolicy_policyName,
     putResourcePolicyResponse_resourcePolicy,
     putResourcePolicyResponse_httpStatus,
 
     -- ** DisassociateKmsKey
     disassociateKmsKey_logGroupName,
+
+    -- ** DeleteDestination
+    deleteDestination_destinationName,
 
     -- ** DescribeSubscriptionFilters
     describeSubscriptionFilters_filterNamePrefix,
@@ -81,6 +84,18 @@ module Network.AWS.CloudWatchLogs.Lens
     describeSubscriptionFiltersResponse_subscriptionFilters,
     describeSubscriptionFiltersResponse_httpStatus,
 
+    -- ** PutDestinationPolicy
+    putDestinationPolicy_destinationName,
+    putDestinationPolicy_accessPolicy,
+
+    -- ** PutRetentionPolicy
+    putRetentionPolicy_logGroupName,
+    putRetentionPolicy_retentionInDays,
+
+    -- ** DeleteMetricFilter
+    deleteMetricFilter_logGroupName,
+    deleteMetricFilter_filterName,
+
     -- ** DescribeLogGroups
     describeLogGroups_nextToken,
     describeLogGroups_logGroupNamePrefix,
@@ -89,28 +104,16 @@ module Network.AWS.CloudWatchLogs.Lens
     describeLogGroupsResponse_logGroups,
     describeLogGroupsResponse_httpStatus,
 
-    -- ** PutRetentionPolicy
-    putRetentionPolicy_logGroupName,
-    putRetentionPolicy_retentionInDays,
-
-    -- ** PutDestinationPolicy
-    putDestinationPolicy_destinationName,
-    putDestinationPolicy_accessPolicy,
-
-    -- ** DeleteDestination
-    deleteDestination_destinationName,
-
-    -- ** DeleteMetricFilter
-    deleteMetricFilter_logGroupName,
-    deleteMetricFilter_filterName,
-
-    -- ** DescribeDestinations
-    describeDestinations_nextToken,
-    describeDestinations_destinationNamePrefix,
-    describeDestinations_limit,
-    describeDestinationsResponse_nextToken,
-    describeDestinationsResponse_destinations,
-    describeDestinationsResponse_httpStatus,
+    -- ** DescribeMetricFilters
+    describeMetricFilters_metricNamespace,
+    describeMetricFilters_filterNamePrefix,
+    describeMetricFilters_nextToken,
+    describeMetricFilters_metricName,
+    describeMetricFilters_logGroupName,
+    describeMetricFilters_limit,
+    describeMetricFiltersResponse_metricFilters,
+    describeMetricFiltersResponse_nextToken,
+    describeMetricFiltersResponse_httpStatus,
 
     -- ** PutSubscriptionFilter
     putSubscriptionFilter_roleArn,
@@ -120,30 +123,35 @@ module Network.AWS.CloudWatchLogs.Lens
     putSubscriptionFilter_filterPattern,
     putSubscriptionFilter_destinationArn,
 
-    -- ** DescribeMetricFilters
-    describeMetricFilters_filterNamePrefix,
-    describeMetricFilters_metricNamespace,
-    describeMetricFilters_nextToken,
-    describeMetricFilters_metricName,
-    describeMetricFilters_logGroupName,
-    describeMetricFilters_limit,
-    describeMetricFiltersResponse_metricFilters,
-    describeMetricFiltersResponse_nextToken,
-    describeMetricFiltersResponse_httpStatus,
-
-    -- ** CancelExportTask
-    cancelExportTask_taskId,
+    -- ** DescribeDestinations
+    describeDestinations_nextToken,
+    describeDestinations_destinationNamePrefix,
+    describeDestinations_limit,
+    describeDestinationsResponse_nextToken,
+    describeDestinationsResponse_destinations,
+    describeDestinationsResponse_httpStatus,
 
     -- ** CreateLogGroup
     createLogGroup_kmsKeyId,
     createLogGroup_tags,
     createLogGroup_logGroupName,
 
+    -- ** CancelExportTask
+    cancelExportTask_taskId,
+
     -- ** GetLogGroupFields
     getLogGroupFields_time,
     getLogGroupFields_logGroupName,
     getLogGroupFieldsResponse_logGroupFields,
     getLogGroupFieldsResponse_httpStatus,
+
+    -- ** DeleteLogStream
+    deleteLogStream_logGroupName,
+    deleteLogStream_logStreamName,
+
+    -- ** TagLogGroup
+    tagLogGroup_logGroupName,
+    tagLogGroup_tags,
 
     -- ** DescribeQueries
     describeQueries_nextToken,
@@ -153,14 +161,6 @@ module Network.AWS.CloudWatchLogs.Lens
     describeQueriesResponse_nextToken,
     describeQueriesResponse_queries,
     describeQueriesResponse_httpStatus,
-
-    -- ** DeleteLogStream
-    deleteLogStream_logGroupName,
-    deleteLogStream_logStreamName,
-
-    -- ** TagLogGroup
-    tagLogGroup_logGroupName,
-    tagLogGroup_tags,
 
     -- ** AssociateKmsKey
     associateKmsKey_logGroupName,
@@ -204,6 +204,30 @@ module Network.AWS.CloudWatchLogs.Lens
     listTagsLogGroupResponse_tags,
     listTagsLogGroupResponse_httpStatus,
 
+    -- ** GetLogEvents
+    getLogEvents_nextToken,
+    getLogEvents_startFromHead,
+    getLogEvents_startTime,
+    getLogEvents_endTime,
+    getLogEvents_limit,
+    getLogEvents_logGroupName,
+    getLogEvents_logStreamName,
+    getLogEventsResponse_nextForwardToken,
+    getLogEventsResponse_nextBackwardToken,
+    getLogEventsResponse_events,
+    getLogEventsResponse_httpStatus,
+
+    -- ** CreateExportTask
+    createExportTask_logStreamNamePrefix,
+    createExportTask_taskName,
+    createExportTask_destinationPrefix,
+    createExportTask_logGroupName,
+    createExportTask_from,
+    createExportTask_to,
+    createExportTask_destination,
+    createExportTaskResponse_taskId,
+    createExportTaskResponse_httpStatus,
+
     -- ** DeleteRetentionPolicy
     deleteRetentionPolicy_logGroupName,
 
@@ -220,57 +244,6 @@ module Network.AWS.CloudWatchLogs.Lens
     putMetricFilter_filterPattern,
     putMetricFilter_metricTransformations,
 
-    -- ** CreateExportTask
-    createExportTask_logStreamNamePrefix,
-    createExportTask_taskName,
-    createExportTask_destinationPrefix,
-    createExportTask_logGroupName,
-    createExportTask_from,
-    createExportTask_to,
-    createExportTask_destination,
-    createExportTaskResponse_taskId,
-    createExportTaskResponse_httpStatus,
-
-    -- ** GetLogEvents
-    getLogEvents_nextToken,
-    getLogEvents_startFromHead,
-    getLogEvents_startTime,
-    getLogEvents_endTime,
-    getLogEvents_limit,
-    getLogEvents_logGroupName,
-    getLogEvents_logStreamName,
-    getLogEventsResponse_nextBackwardToken,
-    getLogEventsResponse_nextForwardToken,
-    getLogEventsResponse_events,
-    getLogEventsResponse_httpStatus,
-
-    -- ** PutLogEvents
-    putLogEvents_sequenceToken,
-    putLogEvents_logGroupName,
-    putLogEvents_logStreamName,
-    putLogEvents_logEvents,
-    putLogEventsResponse_nextSequenceToken,
-    putLogEventsResponse_rejectedLogEventsInfo,
-    putLogEventsResponse_httpStatus,
-
-    -- ** StopQuery
-    stopQuery_queryId,
-    stopQueryResponse_success,
-    stopQueryResponse_httpStatus,
-
-    -- ** DeleteLogGroup
-    deleteLogGroup_logGroupName,
-
-    -- ** UntagLogGroup
-    untagLogGroup_logGroupName,
-    untagLogGroup_tags,
-
-    -- ** TestMetricFilter
-    testMetricFilter_filterPattern,
-    testMetricFilter_logEventMessages,
-    testMetricFilterResponse_matches,
-    testMetricFilterResponse_httpStatus,
-
     -- ** StartQuery
     startQuery_logGroupNames,
     startQuery_logGroupName,
@@ -281,9 +254,36 @@ module Network.AWS.CloudWatchLogs.Lens
     startQueryResponse_queryId,
     startQueryResponse_httpStatus,
 
+    -- ** PutLogEvents
+    putLogEvents_sequenceToken,
+    putLogEvents_logGroupName,
+    putLogEvents_logStreamName,
+    putLogEvents_logEvents,
+    putLogEventsResponse_nextSequenceToken,
+    putLogEventsResponse_rejectedLogEventsInfo,
+    putLogEventsResponse_httpStatus,
+
+    -- ** DeleteLogGroup
+    deleteLogGroup_logGroupName,
+
+    -- ** TestMetricFilter
+    testMetricFilter_filterPattern,
+    testMetricFilter_logEventMessages,
+    testMetricFilterResponse_matches,
+    testMetricFilterResponse_httpStatus,
+
     -- ** DeleteSubscriptionFilter
     deleteSubscriptionFilter_logGroupName,
     deleteSubscriptionFilter_filterName,
+
+    -- ** UntagLogGroup
+    untagLogGroup_logGroupName,
+    untagLogGroup_tags,
+
+    -- ** StopQuery
+    stopQuery_queryId,
+    stopQueryResponse_success,
+    stopQueryResponse_httpStatus,
 
     -- * Types
 
@@ -292,18 +292,18 @@ module Network.AWS.CloudWatchLogs.Lens
     destination_roleArn,
     destination_destinationName,
     destination_arn,
-    destination_targetArn,
     destination_accessPolicy,
+    destination_targetArn,
 
     -- ** ExportTask
-    exportTask_status,
     exportTask_executionInfo,
+    exportTask_status,
     exportTask_to,
     exportTask_taskId,
     exportTask_taskName,
-    exportTask_logGroupName,
-    exportTask_destination,
     exportTask_destinationPrefix,
+    exportTask_destination,
+    exportTask_logGroupName,
     exportTask_from,
 
     -- ** ExportTaskExecutionInfo
@@ -330,8 +330,8 @@ module Network.AWS.CloudWatchLogs.Lens
     logGroup_creationTime,
     logGroup_arn,
     logGroup_storedBytes,
-    logGroup_metricFilterCount,
     logGroup_kmsKeyId,
+    logGroup_metricFilterCount,
     logGroup_logGroupName,
 
     -- ** LogGroupField
@@ -344,8 +344,8 @@ module Network.AWS.CloudWatchLogs.Lens
     logStream_arn,
     logStream_storedBytes,
     logStream_uploadSequenceToken,
-    logStream_firstEventTimestamp,
     logStream_lastEventTimestamp,
+    logStream_firstEventTimestamp,
     logStream_lastIngestionTime,
 
     -- ** MetricFilter
@@ -361,6 +361,8 @@ module Network.AWS.CloudWatchLogs.Lens
     metricFilterMatchRecord_extractedValues,
 
     -- ** MetricTransformation
+    metricTransformation_unit,
+    metricTransformation_dimensions,
     metricTransformation_defaultValue,
     metricTransformation_metricName,
     metricTransformation_metricNamespace,
@@ -396,8 +398,8 @@ module Network.AWS.CloudWatchLogs.Lens
     rejectedLogEventsInfo_tooNewLogEventStartIndex,
 
     -- ** ResourcePolicy
-    resourcePolicy_policyName,
     resourcePolicy_policyDocument,
+    resourcePolicy_policyName,
     resourcePolicy_lastUpdatedTime,
 
     -- ** ResultField

@@ -19,6 +19,7 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.CloudWatchLogs.Types.MetricTransformation where
 
+import Network.AWS.CloudWatchLogs.Types.StandardUnit
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
@@ -28,7 +29,27 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMetricTransformation' smart constructor.
 data MetricTransformation = MetricTransformation'
-  { -- | (Optional) The value to emit when a filter pattern does not match a log
+  { -- | The unit to assign to the metric. If you omit this, the unit is set as
+    -- @None@.
+    unit :: Prelude.Maybe StandardUnit,
+    -- | The fields to use as dimensions for the metric. One metric filter can
+    -- include as many as three dimensions.
+    --
+    -- Metrics extracted from log events are charged as custom metrics. To
+    -- prevent unexpected high charges, do not specify high-cardinality fields
+    -- such as @IPAddress@ or @requestID@ as dimensions. Each different value
+    -- found for a dimension is treated as a separate metric and accrues
+    -- charges as a separate custom metric.
+    --
+    -- To help prevent accidental high charges, Amazon disables a metric filter
+    -- if it generates 1000 different name\/value pairs for the dimensions that
+    -- you have specified within a certain amount of time.
+    --
+    -- You can also set up a billing alarm to alert you if your charges are
+    -- higher than expected. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html Creating a Billing Alarm to Monitor Your Estimated Amazon Web Services Charges>.
+    dimensions :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | (Optional) The value to emit when a filter pattern does not match a log
     -- event. This value can be null.
     defaultValue :: Prelude.Maybe Prelude.Double,
     -- | The name of the CloudWatch metric.
@@ -50,6 +71,26 @@ data MetricTransformation = MetricTransformation'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'unit', 'metricTransformation_unit' - The unit to assign to the metric. If you omit this, the unit is set as
+-- @None@.
+--
+-- 'dimensions', 'metricTransformation_dimensions' - The fields to use as dimensions for the metric. One metric filter can
+-- include as many as three dimensions.
+--
+-- Metrics extracted from log events are charged as custom metrics. To
+-- prevent unexpected high charges, do not specify high-cardinality fields
+-- such as @IPAddress@ or @requestID@ as dimensions. Each different value
+-- found for a dimension is treated as a separate metric and accrues
+-- charges as a separate custom metric.
+--
+-- To help prevent accidental high charges, Amazon disables a metric filter
+-- if it generates 1000 different name\/value pairs for the dimensions that
+-- you have specified within a certain amount of time.
+--
+-- You can also set up a billing alarm to alert you if your charges are
+-- higher than expected. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html Creating a Billing Alarm to Monitor Your Estimated Amazon Web Services Charges>.
 --
 -- 'defaultValue', 'metricTransformation_defaultValue' - (Optional) The value to emit when a filter pattern does not match a log
 -- event. This value can be null.
@@ -75,12 +116,37 @@ newMetricTransformation
   pMetricNamespace_
   pMetricValue_ =
     MetricTransformation'
-      { defaultValue =
-          Prelude.Nothing,
+      { unit = Prelude.Nothing,
+        dimensions = Prelude.Nothing,
+        defaultValue = Prelude.Nothing,
         metricName = pMetricName_,
         metricNamespace = pMetricNamespace_,
         metricValue = pMetricValue_
       }
+
+-- | The unit to assign to the metric. If you omit this, the unit is set as
+-- @None@.
+metricTransformation_unit :: Lens.Lens' MetricTransformation (Prelude.Maybe StandardUnit)
+metricTransformation_unit = Lens.lens (\MetricTransformation' {unit} -> unit) (\s@MetricTransformation' {} a -> s {unit = a} :: MetricTransformation)
+
+-- | The fields to use as dimensions for the metric. One metric filter can
+-- include as many as three dimensions.
+--
+-- Metrics extracted from log events are charged as custom metrics. To
+-- prevent unexpected high charges, do not specify high-cardinality fields
+-- such as @IPAddress@ or @requestID@ as dimensions. Each different value
+-- found for a dimension is treated as a separate metric and accrues
+-- charges as a separate custom metric.
+--
+-- To help prevent accidental high charges, Amazon disables a metric filter
+-- if it generates 1000 different name\/value pairs for the dimensions that
+-- you have specified within a certain amount of time.
+--
+-- You can also set up a billing alarm to alert you if your charges are
+-- higher than expected. For more information, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html Creating a Billing Alarm to Monitor Your Estimated Amazon Web Services Charges>.
+metricTransformation_dimensions :: Lens.Lens' MetricTransformation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+metricTransformation_dimensions = Lens.lens (\MetricTransformation' {dimensions} -> dimensions) (\s@MetricTransformation' {} a -> s {dimensions = a} :: MetricTransformation) Prelude.. Lens.mapping Lens._Coerce
 
 -- | (Optional) The value to emit when a filter pattern does not match a log
 -- event. This value can be null.
@@ -108,7 +174,9 @@ instance Core.FromJSON MetricTransformation where
       "MetricTransformation"
       ( \x ->
           MetricTransformation'
-            Prelude.<$> (x Core..:? "defaultValue")
+            Prelude.<$> (x Core..:? "unit")
+            Prelude.<*> (x Core..:? "dimensions" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "defaultValue")
             Prelude.<*> (x Core..: "metricName")
             Prelude.<*> (x Core..: "metricNamespace")
             Prelude.<*> (x Core..: "metricValue")
@@ -122,7 +190,9 @@ instance Core.ToJSON MetricTransformation where
   toJSON MetricTransformation' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("defaultValue" Core..=) Prelude.<$> defaultValue,
+          [ ("unit" Core..=) Prelude.<$> unit,
+            ("dimensions" Core..=) Prelude.<$> dimensions,
+            ("defaultValue" Core..=) Prelude.<$> defaultValue,
             Prelude.Just ("metricName" Core..= metricName),
             Prelude.Just
               ("metricNamespace" Core..= metricNamespace),

@@ -113,6 +113,7 @@ library
     Network.AWS.CloudWatchLogs.Types.ResourcePolicy
     Network.AWS.CloudWatchLogs.Types.ResultField
     Network.AWS.CloudWatchLogs.Types.SearchedLogStream
+    Network.AWS.CloudWatchLogs.Types.StandardUnit
     Network.AWS.CloudWatchLogs.Types.SubscriptionFilter
     Network.AWS.CloudWatchLogs.UntagLogGroup
     Network.AWS.CloudWatchLogs.Waiters

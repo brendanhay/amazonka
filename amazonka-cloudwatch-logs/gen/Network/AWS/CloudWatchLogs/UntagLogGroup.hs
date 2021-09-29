@@ -26,6 +26,10 @@
 -- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsLogGroup.html ListTagsLogGroup>.
 -- To add tags, use
 -- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagLogGroup.html TagLogGroup>.
+--
+-- CloudWatch Logs doesn’t support IAM policies that prevent users from
+-- assigning specified tags to log groups using the
+-- @aws:Resource\/key-name @ or @aws:TagKeys@ condition keys.
 module Network.AWS.CloudWatchLogs.UntagLogGroup
   ( -- * Creating a Request
     UntagLogGroup (..),

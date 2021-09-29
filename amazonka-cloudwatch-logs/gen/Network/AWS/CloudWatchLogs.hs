@@ -12,10 +12,10 @@
 -- Derived from API version @2014-03-28@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- You can use Amazon CloudWatch Logs to monitor, store, and access your
--- log files from EC2 instances, AWS CloudTrail, or other sources. You can
+-- log files from EC2 instances, CloudTrail, and other sources. You can
 -- then retrieve the associated log data from CloudWatch Logs using the
--- CloudWatch console, CloudWatch Logs commands in the AWS CLI, CloudWatch
--- Logs API, or CloudWatch Logs SDK.
+-- CloudWatch console, CloudWatch Logs commands in the Amazon Web Services
+-- CLI, CloudWatch Logs API, or CloudWatch Logs SDK.
 --
 -- You can use CloudWatch Logs to:
 --
@@ -32,7 +32,7 @@
 --     When the term you are searching for is found, CloudWatch Logs
 --     reports the data to a CloudWatch metric that you specify.
 --
--- -   __Monitor AWS CloudTrail logged events__: You can create alarms in
+-- -   __Monitor CloudTrail logged events__: You can create alarms in
 --     CloudWatch and receive notifications of particular API activity as
 --     captured by CloudTrail. You can use the notification to perform
 --     troubleshooting.
@@ -90,17 +90,17 @@ module Network.AWS.CloudWatchLogs
     -- * Operations
     -- $operations
 
-    -- ** GetLogRecord
-    GetLogRecord (GetLogRecord'),
-    newGetLogRecord,
-    GetLogRecordResponse (GetLogRecordResponse'),
-    newGetLogRecordResponse,
-
     -- ** DescribeExportTasks (Paginated)
     DescribeExportTasks (DescribeExportTasks'),
     newDescribeExportTasks,
     DescribeExportTasksResponse (DescribeExportTasksResponse'),
     newDescribeExportTasksResponse,
+
+    -- ** GetLogRecord
+    GetLogRecord (GetLogRecord'),
+    newGetLogRecord,
+    GetLogRecordResponse (GetLogRecordResponse'),
+    newGetLogRecordResponse,
 
     -- ** CreateLogStream
     CreateLogStream (CreateLogStream'),
@@ -120,17 +120,17 @@ module Network.AWS.CloudWatchLogs
     DescribeQueryDefinitionsResponse (DescribeQueryDefinitionsResponse'),
     newDescribeQueryDefinitionsResponse,
 
-    -- ** DeleteQueryDefinition
-    DeleteQueryDefinition (DeleteQueryDefinition'),
-    newDeleteQueryDefinition,
-    DeleteQueryDefinitionResponse (DeleteQueryDefinitionResponse'),
-    newDeleteQueryDefinitionResponse,
-
     -- ** DescribeLogStreams (Paginated)
     DescribeLogStreams (DescribeLogStreams'),
     newDescribeLogStreams,
     DescribeLogStreamsResponse (DescribeLogStreamsResponse'),
     newDescribeLogStreamsResponse,
+
+    -- ** DeleteQueryDefinition
+    DeleteQueryDefinition (DeleteQueryDefinition'),
+    newDeleteQueryDefinition,
+    DeleteQueryDefinitionResponse (DeleteQueryDefinitionResponse'),
+    newDeleteQueryDefinitionResponse,
 
     -- ** PutResourcePolicy
     PutResourcePolicy (PutResourcePolicy'),
@@ -144,23 +144,17 @@ module Network.AWS.CloudWatchLogs
     DisassociateKmsKeyResponse (DisassociateKmsKeyResponse'),
     newDisassociateKmsKeyResponse,
 
+    -- ** DeleteDestination
+    DeleteDestination (DeleteDestination'),
+    newDeleteDestination,
+    DeleteDestinationResponse (DeleteDestinationResponse'),
+    newDeleteDestinationResponse,
+
     -- ** DescribeSubscriptionFilters (Paginated)
     DescribeSubscriptionFilters (DescribeSubscriptionFilters'),
     newDescribeSubscriptionFilters,
     DescribeSubscriptionFiltersResponse (DescribeSubscriptionFiltersResponse'),
     newDescribeSubscriptionFiltersResponse,
-
-    -- ** DescribeLogGroups (Paginated)
-    DescribeLogGroups (DescribeLogGroups'),
-    newDescribeLogGroups,
-    DescribeLogGroupsResponse (DescribeLogGroupsResponse'),
-    newDescribeLogGroupsResponse,
-
-    -- ** PutRetentionPolicy
-    PutRetentionPolicy (PutRetentionPolicy'),
-    newPutRetentionPolicy,
-    PutRetentionPolicyResponse (PutRetentionPolicyResponse'),
-    newPutRetentionPolicyResponse,
 
     -- ** PutDestinationPolicy
     PutDestinationPolicy (PutDestinationPolicy'),
@@ -168,11 +162,11 @@ module Network.AWS.CloudWatchLogs
     PutDestinationPolicyResponse (PutDestinationPolicyResponse'),
     newPutDestinationPolicyResponse,
 
-    -- ** DeleteDestination
-    DeleteDestination (DeleteDestination'),
-    newDeleteDestination,
-    DeleteDestinationResponse (DeleteDestinationResponse'),
-    newDeleteDestinationResponse,
+    -- ** PutRetentionPolicy
+    PutRetentionPolicy (PutRetentionPolicy'),
+    newPutRetentionPolicy,
+    PutRetentionPolicyResponse (PutRetentionPolicyResponse'),
+    newPutRetentionPolicyResponse,
 
     -- ** DeleteMetricFilter
     DeleteMetricFilter (DeleteMetricFilter'),
@@ -180,17 +174,11 @@ module Network.AWS.CloudWatchLogs
     DeleteMetricFilterResponse (DeleteMetricFilterResponse'),
     newDeleteMetricFilterResponse,
 
-    -- ** DescribeDestinations (Paginated)
-    DescribeDestinations (DescribeDestinations'),
-    newDescribeDestinations,
-    DescribeDestinationsResponse (DescribeDestinationsResponse'),
-    newDescribeDestinationsResponse,
-
-    -- ** PutSubscriptionFilter
-    PutSubscriptionFilter (PutSubscriptionFilter'),
-    newPutSubscriptionFilter,
-    PutSubscriptionFilterResponse (PutSubscriptionFilterResponse'),
-    newPutSubscriptionFilterResponse,
+    -- ** DescribeLogGroups (Paginated)
+    DescribeLogGroups (DescribeLogGroups'),
+    newDescribeLogGroups,
+    DescribeLogGroupsResponse (DescribeLogGroupsResponse'),
+    newDescribeLogGroupsResponse,
 
     -- ** DescribeMetricFilters (Paginated)
     DescribeMetricFilters (DescribeMetricFilters'),
@@ -198,11 +186,17 @@ module Network.AWS.CloudWatchLogs
     DescribeMetricFiltersResponse (DescribeMetricFiltersResponse'),
     newDescribeMetricFiltersResponse,
 
-    -- ** CancelExportTask
-    CancelExportTask (CancelExportTask'),
-    newCancelExportTask,
-    CancelExportTaskResponse (CancelExportTaskResponse'),
-    newCancelExportTaskResponse,
+    -- ** PutSubscriptionFilter
+    PutSubscriptionFilter (PutSubscriptionFilter'),
+    newPutSubscriptionFilter,
+    PutSubscriptionFilterResponse (PutSubscriptionFilterResponse'),
+    newPutSubscriptionFilterResponse,
+
+    -- ** DescribeDestinations (Paginated)
+    DescribeDestinations (DescribeDestinations'),
+    newDescribeDestinations,
+    DescribeDestinationsResponse (DescribeDestinationsResponse'),
+    newDescribeDestinationsResponse,
 
     -- ** CreateLogGroup
     CreateLogGroup (CreateLogGroup'),
@@ -210,17 +204,17 @@ module Network.AWS.CloudWatchLogs
     CreateLogGroupResponse (CreateLogGroupResponse'),
     newCreateLogGroupResponse,
 
+    -- ** CancelExportTask
+    CancelExportTask (CancelExportTask'),
+    newCancelExportTask,
+    CancelExportTaskResponse (CancelExportTaskResponse'),
+    newCancelExportTaskResponse,
+
     -- ** GetLogGroupFields
     GetLogGroupFields (GetLogGroupFields'),
     newGetLogGroupFields,
     GetLogGroupFieldsResponse (GetLogGroupFieldsResponse'),
     newGetLogGroupFieldsResponse,
-
-    -- ** DescribeQueries (Paginated)
-    DescribeQueries (DescribeQueries'),
-    newDescribeQueries,
-    DescribeQueriesResponse (DescribeQueriesResponse'),
-    newDescribeQueriesResponse,
 
     -- ** DeleteLogStream
     DeleteLogStream (DeleteLogStream'),
@@ -233,6 +227,12 @@ module Network.AWS.CloudWatchLogs
     newTagLogGroup,
     TagLogGroupResponse (TagLogGroupResponse'),
     newTagLogGroupResponse,
+
+    -- ** DescribeQueries (Paginated)
+    DescribeQueries (DescribeQueries'),
+    newDescribeQueries,
+    DescribeQueriesResponse (DescribeQueriesResponse'),
+    newDescribeQueriesResponse,
 
     -- ** AssociateKmsKey
     AssociateKmsKey (AssociateKmsKey'),
@@ -270,6 +270,18 @@ module Network.AWS.CloudWatchLogs
     ListTagsLogGroupResponse (ListTagsLogGroupResponse'),
     newListTagsLogGroupResponse,
 
+    -- ** GetLogEvents
+    GetLogEvents (GetLogEvents'),
+    newGetLogEvents,
+    GetLogEventsResponse (GetLogEventsResponse'),
+    newGetLogEventsResponse,
+
+    -- ** CreateExportTask
+    CreateExportTask (CreateExportTask'),
+    newCreateExportTask,
+    CreateExportTaskResponse (CreateExportTaskResponse'),
+    newCreateExportTaskResponse,
+
     -- ** DeleteRetentionPolicy
     DeleteRetentionPolicy (DeleteRetentionPolicy'),
     newDeleteRetentionPolicy,
@@ -288,17 +300,11 @@ module Network.AWS.CloudWatchLogs
     PutMetricFilterResponse (PutMetricFilterResponse'),
     newPutMetricFilterResponse,
 
-    -- ** CreateExportTask
-    CreateExportTask (CreateExportTask'),
-    newCreateExportTask,
-    CreateExportTaskResponse (CreateExportTaskResponse'),
-    newCreateExportTaskResponse,
-
-    -- ** GetLogEvents
-    GetLogEvents (GetLogEvents'),
-    newGetLogEvents,
-    GetLogEventsResponse (GetLogEventsResponse'),
-    newGetLogEventsResponse,
+    -- ** StartQuery
+    StartQuery (StartQuery'),
+    newStartQuery,
+    StartQueryResponse (StartQueryResponse'),
+    newStartQueryResponse,
 
     -- ** PutLogEvents
     PutLogEvents (PutLogEvents'),
@@ -306,23 +312,11 @@ module Network.AWS.CloudWatchLogs
     PutLogEventsResponse (PutLogEventsResponse'),
     newPutLogEventsResponse,
 
-    -- ** StopQuery
-    StopQuery (StopQuery'),
-    newStopQuery,
-    StopQueryResponse (StopQueryResponse'),
-    newStopQueryResponse,
-
     -- ** DeleteLogGroup
     DeleteLogGroup (DeleteLogGroup'),
     newDeleteLogGroup,
     DeleteLogGroupResponse (DeleteLogGroupResponse'),
     newDeleteLogGroupResponse,
-
-    -- ** UntagLogGroup
-    UntagLogGroup (UntagLogGroup'),
-    newUntagLogGroup,
-    UntagLogGroupResponse (UntagLogGroupResponse'),
-    newUntagLogGroupResponse,
 
     -- ** TestMetricFilter
     TestMetricFilter (TestMetricFilter'),
@@ -330,17 +324,23 @@ module Network.AWS.CloudWatchLogs
     TestMetricFilterResponse (TestMetricFilterResponse'),
     newTestMetricFilterResponse,
 
-    -- ** StartQuery
-    StartQuery (StartQuery'),
-    newStartQuery,
-    StartQueryResponse (StartQueryResponse'),
-    newStartQueryResponse,
-
     -- ** DeleteSubscriptionFilter
     DeleteSubscriptionFilter (DeleteSubscriptionFilter'),
     newDeleteSubscriptionFilter,
     DeleteSubscriptionFilterResponse (DeleteSubscriptionFilterResponse'),
     newDeleteSubscriptionFilterResponse,
+
+    -- ** UntagLogGroup
+    UntagLogGroup (UntagLogGroup'),
+    newUntagLogGroup,
+    UntagLogGroupResponse (UntagLogGroupResponse'),
+    newUntagLogGroupResponse,
+
+    -- ** StopQuery
+    StopQuery (StopQuery'),
+    newStopQuery,
+    StopQueryResponse (StopQueryResponse'),
+    newStopQueryResponse,
 
     -- * Types
 
@@ -355,6 +355,9 @@ module Network.AWS.CloudWatchLogs
 
     -- ** QueryStatus
     QueryStatus (..),
+
+    -- ** StandardUnit
+    StandardUnit (..),
 
     -- ** Destination
     Destination (Destination'),

@@ -51,8 +51,8 @@ module Network.AWS.DynamoDB.UpdateTable
     updateTable_billingMode,
     updateTable_attributeDefinitions,
     updateTable_globalSecondaryIndexUpdates,
-    updateTable_provisionedThroughput,
     updateTable_replicaUpdates,
+    updateTable_provisionedThroughput,
     updateTable_tableName,
 
     -- * Destructuring the Response
@@ -120,9 +120,6 @@ data UpdateTable = UpdateTable'
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html Managing Global Secondary Indexes>
     -- in the /Amazon DynamoDB Developer Guide/.
     globalSecondaryIndexUpdates :: Prelude.Maybe [GlobalSecondaryIndexUpdate],
-    -- | The new provisioned throughput settings for the specified table or
-    -- index.
-    provisionedThroughput :: Prelude.Maybe ProvisionedThroughput,
     -- | A list of replica update actions (create, delete, or update) for the
     -- table.
     --
@@ -130,6 +127,9 @@ data UpdateTable = UpdateTable'
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html Version 2019.11.21>
     -- of global tables.
     replicaUpdates :: Prelude.Maybe (Prelude.NonEmpty ReplicationGroupUpdate),
+    -- | The new provisioned throughput settings for the specified table or
+    -- index.
+    provisionedThroughput :: Prelude.Maybe ProvisionedThroughput,
     -- | The name of the table to be updated.
     tableName :: Prelude.Text
   }
@@ -187,15 +187,15 @@ data UpdateTable = UpdateTable'
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html Managing Global Secondary Indexes>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
--- 'provisionedThroughput', 'updateTable_provisionedThroughput' - The new provisioned throughput settings for the specified table or
--- index.
---
 -- 'replicaUpdates', 'updateTable_replicaUpdates' - A list of replica update actions (create, delete, or update) for the
 -- table.
 --
 -- This property only applies to
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html Version 2019.11.21>
 -- of global tables.
+--
+-- 'provisionedThroughput', 'updateTable_provisionedThroughput' - The new provisioned throughput settings for the specified table or
+-- index.
 --
 -- 'tableName', 'updateTable_tableName' - The name of the table to be updated.
 newUpdateTable ::
@@ -209,8 +209,8 @@ newUpdateTable pTableName_ =
       billingMode = Prelude.Nothing,
       attributeDefinitions = Prelude.Nothing,
       globalSecondaryIndexUpdates = Prelude.Nothing,
-      provisionedThroughput = Prelude.Nothing,
       replicaUpdates = Prelude.Nothing,
+      provisionedThroughput = Prelude.Nothing,
       tableName = pTableName_
     }
 
@@ -268,11 +268,6 @@ updateTable_attributeDefinitions = Lens.lens (\UpdateTable' {attributeDefinition
 updateTable_globalSecondaryIndexUpdates :: Lens.Lens' UpdateTable (Prelude.Maybe [GlobalSecondaryIndexUpdate])
 updateTable_globalSecondaryIndexUpdates = Lens.lens (\UpdateTable' {globalSecondaryIndexUpdates} -> globalSecondaryIndexUpdates) (\s@UpdateTable' {} a -> s {globalSecondaryIndexUpdates = a} :: UpdateTable) Prelude.. Lens.mapping Lens._Coerce
 
--- | The new provisioned throughput settings for the specified table or
--- index.
-updateTable_provisionedThroughput :: Lens.Lens' UpdateTable (Prelude.Maybe ProvisionedThroughput)
-updateTable_provisionedThroughput = Lens.lens (\UpdateTable' {provisionedThroughput} -> provisionedThroughput) (\s@UpdateTable' {} a -> s {provisionedThroughput = a} :: UpdateTable)
-
 -- | A list of replica update actions (create, delete, or update) for the
 -- table.
 --
@@ -281,6 +276,11 @@ updateTable_provisionedThroughput = Lens.lens (\UpdateTable' {provisionedThrough
 -- of global tables.
 updateTable_replicaUpdates :: Lens.Lens' UpdateTable (Prelude.Maybe (Prelude.NonEmpty ReplicationGroupUpdate))
 updateTable_replicaUpdates = Lens.lens (\UpdateTable' {replicaUpdates} -> replicaUpdates) (\s@UpdateTable' {} a -> s {replicaUpdates = a} :: UpdateTable) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The new provisioned throughput settings for the specified table or
+-- index.
+updateTable_provisionedThroughput :: Lens.Lens' UpdateTable (Prelude.Maybe ProvisionedThroughput)
+updateTable_provisionedThroughput = Lens.lens (\UpdateTable' {provisionedThroughput} -> provisionedThroughput) (\s@UpdateTable' {} a -> s {provisionedThroughput = a} :: UpdateTable)
 
 -- | The name of the table to be updated.
 updateTable_tableName :: Lens.Lens' UpdateTable Prelude.Text
@@ -329,10 +329,10 @@ instance Core.ToJSON UpdateTable where
               Prelude.<$> attributeDefinitions,
             ("GlobalSecondaryIndexUpdates" Core..=)
               Prelude.<$> globalSecondaryIndexUpdates,
-            ("ProvisionedThroughput" Core..=)
-              Prelude.<$> provisionedThroughput,
             ("ReplicaUpdates" Core..=)
               Prelude.<$> replicaUpdates,
+            ("ProvisionedThroughput" Core..=)
+              Prelude.<$> provisionedThroughput,
             Prelude.Just ("TableName" Core..= tableName)
           ]
       )

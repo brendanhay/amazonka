@@ -21,31 +21,31 @@ module Network.AWS.DynamoDB.Types
     _TableAlreadyExistsException,
     _GlobalTableAlreadyExistsException,
     _ConditionalCheckFailedException,
+    _GlobalTableNotFoundException,
     _ReplicaAlreadyExistsException,
     _TransactionInProgressException,
-    _GlobalTableNotFoundException,
     _InvalidRestoreTimeException,
     _PointInTimeRecoveryUnavailableException,
     _ExportNotFoundException,
-    _BackupInUseException,
     _ContinuousBackupsUnavailableException,
-    _ExportConflictException,
-    _DuplicateItemException,
     _TableInUseException,
+    _DuplicateItemException,
     _TransactionConflictException,
+    _BackupInUseException,
+    _ExportConflictException,
     _InternalServerError,
-    _RequestLimitExceeded,
     _ItemCollectionSizeLimitExceededException,
-    _ReplicaNotFoundException,
+    _RequestLimitExceeded,
     _TransactionCanceledException,
-    _ResourceInUseException,
+    _ReplicaNotFoundException,
     _LimitExceededException,
-    _ProvisionedThroughputExceededException,
+    _ResourceInUseException,
     _ResourceNotFoundException,
+    _ProvisionedThroughputExceededException,
     _IdempotentParameterMismatchException,
     _BackupNotFoundException,
-    _IndexNotFoundException,
     _TableNotFoundException,
+    _IndexNotFoundException,
 
     -- * AttributeAction
     AttributeAction (..),
@@ -160,10 +160,10 @@ module Network.AWS.DynamoDB.Types
     AttributeValue (..),
     newAttributeValue,
     attributeValue_bs,
-    attributeValue_bool,
     attributeValue_n,
-    attributeValue_s,
+    attributeValue_bool,
     attributeValue_null,
+    attributeValue_s,
     attributeValue_m,
     attributeValue_b,
     attributeValue_l,
@@ -191,8 +191,8 @@ module Network.AWS.DynamoDB.Types
     -- * AutoScalingSettingsDescription
     AutoScalingSettingsDescription (..),
     newAutoScalingSettingsDescription,
-    autoScalingSettingsDescription_scalingPolicies,
     autoScalingSettingsDescription_minimumUnits,
+    autoScalingSettingsDescription_scalingPolicies,
     autoScalingSettingsDescription_maximumUnits,
     autoScalingSettingsDescription_autoScalingRoleArn,
     autoScalingSettingsDescription_autoScalingDisabled,
@@ -245,11 +245,11 @@ module Network.AWS.DynamoDB.Types
     newBackupSummary,
     backupSummary_tableName,
     backupSummary_backupName,
-    backupSummary_backupType,
     backupSummary_backupCreationDateTime,
-    backupSummary_tableArn,
+    backupSummary_backupType,
     backupSummary_tableId,
     backupSummary_backupArn,
+    backupSummary_tableArn,
     backupSummary_backupExpiryDateTime,
     backupSummary_backupSizeBytes,
     backupSummary_backupStatus,
@@ -296,8 +296,8 @@ module Network.AWS.DynamoDB.Types
     -- * ConditionCheck
     ConditionCheck (..),
     newConditionCheck,
-    conditionCheck_expressionAttributeValues,
     conditionCheck_returnValuesOnConditionCheckFailure,
+    conditionCheck_expressionAttributeValues,
     conditionCheck_expressionAttributeNames,
     conditionCheck_key,
     conditionCheck_tableName,
@@ -351,8 +351,8 @@ module Network.AWS.DynamoDB.Types
     -- * Delete
     Delete (..),
     newDelete,
-    delete_expressionAttributeValues,
     delete_returnValuesOnConditionCheckFailure,
+    delete_expressionAttributeValues,
     delete_expressionAttributeNames,
     delete_conditionExpression,
     delete_key,
@@ -397,23 +397,23 @@ module Network.AWS.DynamoDB.Types
     newExportDescription,
     exportDescription_exportFormat,
     exportDescription_exportTime,
-    exportDescription_billedSizeBytes,
     exportDescription_s3Bucket,
-    exportDescription_tableArn,
-    exportDescription_tableId,
+    exportDescription_billedSizeBytes,
     exportDescription_failureMessage,
+    exportDescription_tableId,
+    exportDescription_tableArn,
     exportDescription_exportStatus,
-    exportDescription_startTime,
     exportDescription_failureCode,
+    exportDescription_startTime,
     exportDescription_endTime,
     exportDescription_s3BucketOwner,
     exportDescription_exportArn,
     exportDescription_itemCount,
     exportDescription_exportManifest,
     exportDescription_s3Prefix,
-    exportDescription_s3SseKmsKeyId,
-    exportDescription_clientToken,
     exportDescription_s3SseAlgorithm,
+    exportDescription_clientToken,
+    exportDescription_s3SseKmsKeyId,
 
     -- * ExportSummary
     ExportSummary (..),
@@ -459,8 +459,8 @@ module Network.AWS.DynamoDB.Types
     globalSecondaryIndexDescription_indexSizeBytes,
     globalSecondaryIndexDescription_backfilling,
     globalSecondaryIndexDescription_itemCount,
-    globalSecondaryIndexDescription_provisionedThroughput,
     globalSecondaryIndexDescription_indexStatus,
+    globalSecondaryIndexDescription_provisionedThroughput,
 
     -- * GlobalSecondaryIndexInfo
     GlobalSecondaryIndexInfo (..),
@@ -520,8 +520,8 @@ module Network.AWS.DynamoDB.Types
     KeysAndAttributes (..),
     newKeysAndAttributes,
     keysAndAttributes_projectionExpression,
-    keysAndAttributes_consistentRead,
     keysAndAttributes_expressionAttributeNames,
+    keysAndAttributes_consistentRead,
     keysAndAttributes_attributesToGet,
     keysAndAttributes_keys,
 
@@ -616,8 +616,8 @@ module Network.AWS.DynamoDB.Types
     -- * Put
     Put (..),
     newPut,
-    put_expressionAttributeValues,
     put_returnValuesOnConditionCheckFailure,
+    put_expressionAttributeValues,
     put_expressionAttributeNames,
     put_conditionExpression,
     put_item,
@@ -637,8 +637,8 @@ module Network.AWS.DynamoDB.Types
     ReplicaAutoScalingDescription (..),
     newReplicaAutoScalingDescription,
     replicaAutoScalingDescription_regionName,
-    replicaAutoScalingDescription_replicaProvisionedReadCapacityAutoScalingSettings,
     replicaAutoScalingDescription_globalSecondaryIndexes,
+    replicaAutoScalingDescription_replicaProvisionedReadCapacityAutoScalingSettings,
     replicaAutoScalingDescription_replicaProvisionedWriteCapacityAutoScalingSettings,
     replicaAutoScalingDescription_replicaStatus,
 
@@ -711,8 +711,8 @@ module Network.AWS.DynamoDB.Types
     replicaSettingsDescription_replicaProvisionedReadCapacityAutoScalingSettings,
     replicaSettingsDescription_replicaProvisionedWriteCapacityAutoScalingSettings,
     replicaSettingsDescription_replicaGlobalSecondaryIndexSettings,
-    replicaSettingsDescription_replicaProvisionedWriteCapacityUnits,
     replicaSettingsDescription_replicaStatus,
+    replicaSettingsDescription_replicaProvisionedWriteCapacityUnits,
     replicaSettingsDescription_replicaProvisionedReadCapacityUnits,
     replicaSettingsDescription_regionName,
 
@@ -798,27 +798,27 @@ module Network.AWS.DynamoDB.Types
     -- * TableDescription
     TableDescription (..),
     newTableDescription,
-    tableDescription_globalTableVersion,
     tableDescription_localSecondaryIndexes,
+    tableDescription_globalTableVersion,
     tableDescription_restoreSummary,
-    tableDescription_streamSpecification,
     tableDescription_globalSecondaryIndexes,
     tableDescription_tableName,
+    tableDescription_streamSpecification,
     tableDescription_keySchema,
-    tableDescription_tableArn,
     tableDescription_tableId,
-    tableDescription_attributeDefinitions,
+    tableDescription_tableArn,
     tableDescription_tableSizeBytes,
+    tableDescription_attributeDefinitions,
     tableDescription_billingModeSummary,
     tableDescription_latestStreamLabel,
     tableDescription_archivalSummary,
     tableDescription_itemCount,
-    tableDescription_sSEDescription,
     tableDescription_replicas,
+    tableDescription_sSEDescription,
     tableDescription_creationDateTime,
-    tableDescription_tableStatus,
-    tableDescription_provisionedThroughput,
     tableDescription_latestStreamArn,
+    tableDescription_provisionedThroughput,
+    tableDescription_tableStatus,
 
     -- * Tag
     Tag (..),
@@ -854,8 +854,8 @@ module Network.AWS.DynamoDB.Types
     -- * Update
     Update (..),
     newUpdate,
-    update_expressionAttributeValues,
     update_returnValuesOnConditionCheckFailure,
+    update_expressionAttributeValues,
     update_expressionAttributeNames,
     update_conditionExpression,
     update_key,
@@ -1121,6 +1121,13 @@ _ConditionalCheckFailedException =
     defaultService
     "ConditionalCheckFailedException"
 
+-- | The specified global table does not exist.
+_GlobalTableNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_GlobalTableNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "GlobalTableNotFoundException"
+
 -- | The specified replica is already part of the global table.
 _ReplicaAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ReplicaAlreadyExistsException =
@@ -1134,13 +1141,6 @@ _TransactionInProgressException =
   Core._MatchServiceError
     defaultService
     "TransactionInProgressException"
-
--- | The specified global table does not exist.
-_GlobalTableNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_GlobalTableNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "GlobalTableNotFoundException"
 
 -- | An invalid restore time was specified. RestoreDateTime must be between
 -- EarliestRestorableDateTime and LatestRestorableDateTime.
@@ -1164,36 +1164,12 @@ _ExportNotFoundException =
     defaultService
     "ExportNotFoundException"
 
--- | There is another ongoing conflicting backup control plane operation on
--- the table. The backup is either being created, deleted or restored to a
--- table.
-_BackupInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_BackupInUseException =
-  Core._MatchServiceError
-    defaultService
-    "BackupInUseException"
-
 -- | Backups have not yet been enabled for this table.
 _ContinuousBackupsUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ContinuousBackupsUnavailableException =
   Core._MatchServiceError
     defaultService
     "ContinuousBackupsUnavailableException"
-
--- | There was a conflict when writing to the specified S3 bucket.
-_ExportConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ExportConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ExportConflictException"
-
--- | There was an attempt to insert an item with the same primary key as an
--- item that already exists in the DynamoDB table.
-_DuplicateItemException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DuplicateItemException =
-  Core._MatchServiceError
-    defaultService
-    "DuplicateItemException"
 
 -- | A target table with the specified name is either being created or
 -- deleted.
@@ -1203,6 +1179,14 @@ _TableInUseException =
     defaultService
     "TableInUseException"
 
+-- | There was an attempt to insert an item with the same primary key as an
+-- item that already exists in the DynamoDB table.
+_DuplicateItemException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DuplicateItemException =
+  Core._MatchServiceError
+    defaultService
+    "DuplicateItemException"
+
 -- | Operation was rejected because there is an ongoing transaction for the
 -- item.
 _TransactionConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1211,21 +1195,28 @@ _TransactionConflictException =
     defaultService
     "TransactionConflictException"
 
+-- | There is another ongoing conflicting backup control plane operation on
+-- the table. The backup is either being created, deleted or restored to a
+-- table.
+_BackupInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_BackupInUseException =
+  Core._MatchServiceError
+    defaultService
+    "BackupInUseException"
+
+-- | There was a conflict when writing to the specified S3 bucket.
+_ExportConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ExportConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ExportConflictException"
+
 -- | An error occurred on the server side.
 _InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InternalServerError =
   Core._MatchServiceError
     defaultService
     "InternalServerError"
-
--- | Throughput exceeds the current throughput quota for your account. Please
--- contact AWS Support at <https://aws.amazon.com/support AWS Support> to
--- request a quota increase.
-_RequestLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_RequestLimitExceeded =
-  Core._MatchServiceError
-    defaultService
-    "RequestLimitExceeded"
 
 -- | An item collection is too large. This exception is only returned for
 -- tables that have one or more local secondary indexes.
@@ -1235,12 +1226,14 @@ _ItemCollectionSizeLimitExceededException =
     defaultService
     "ItemCollectionSizeLimitExceededException"
 
--- | The specified replica is no longer part of the global table.
-_ReplicaNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ReplicaNotFoundException =
+-- | Throughput exceeds the current throughput quota for your account. Please
+-- contact AWS Support at <https://aws.amazon.com/support AWS Support> to
+-- request a quota increase.
+_RequestLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_RequestLimitExceeded =
   Core._MatchServiceError
     defaultService
-    "ReplicaNotFoundException"
+    "RequestLimitExceeded"
 
 -- | The entire transaction request was canceled.
 --
@@ -1395,14 +1388,12 @@ _TransactionCanceledException =
     defaultService
     "TransactionCanceledException"
 
--- | The operation conflicts with the resource\'s availability. For example,
--- you attempted to recreate an existing table, or tried to delete a table
--- currently in the @CREATING@ state.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
+-- | The specified replica is no longer part of the global table.
+_ReplicaNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ReplicaNotFoundException =
   Core._MatchServiceError
     defaultService
-    "ResourceInUseException"
+    "ReplicaNotFoundException"
 
 -- | There is no limit to the number of daily on-demand backups that can be
 -- taken.
@@ -1424,6 +1415,23 @@ _LimitExceededException =
     defaultService
     "LimitExceededException"
 
+-- | The operation conflicts with the resource\'s availability. For example,
+-- you attempted to recreate an existing table, or tried to delete a table
+-- currently in the @CREATING@ state.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUseException"
+
+-- | The operation tried to access a nonexistent table or index. The resource
+-- might not be specified correctly, or its status might not be @ACTIVE@.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+
 -- | Your request rate is too high. The AWS SDKs for DynamoDB automatically
 -- retry requests that receive this exception. Your request is eventually
 -- successful, unless your retry queue is too large to finish. Reduce the
@@ -1436,14 +1444,6 @@ _ProvisionedThroughputExceededException =
   Core._MatchServiceError
     defaultService
     "ProvisionedThroughputExceededException"
-
--- | The operation tried to access a nonexistent table or index. The resource
--- might not be specified correctly, or its status might not be @ACTIVE@.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
 
 -- | DynamoDB rejected the request because you retried a request with a
 -- different payload but with an idempotent token that was already used.
@@ -1460,13 +1460,6 @@ _BackupNotFoundException =
     defaultService
     "BackupNotFoundException"
 
--- | The operation tried to access a nonexistent index.
-_IndexNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_IndexNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "IndexNotFoundException"
-
 -- | A source table with the name @TableName@ does not currently exist within
 -- the subscriber\'s account.
 _TableNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -1474,3 +1467,10 @@ _TableNotFoundException =
   Core._MatchServiceError
     defaultService
     "TableNotFoundException"
+
+-- | The operation tried to access a nonexistent index.
+_IndexNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IndexNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "IndexNotFoundException"

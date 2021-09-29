@@ -78,11 +78,11 @@ module Network.AWS.DynamoDB.PutItem
     newPutItem,
 
     -- * Request Lenses
+    putItem_returnItemCollectionMetrics,
     putItem_expected,
     putItem_expressionAttributeValues,
-    putItem_returnItemCollectionMetrics,
-    putItem_expressionAttributeNames,
     putItem_returnValues,
+    putItem_expressionAttributeNames,
     putItem_conditionExpression,
     putItem_returnConsumedCapacity,
     putItem_conditionalOperator,
@@ -112,7 +112,12 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newPutItem' smart constructor.
 data PutItem = PutItem'
-  { -- | This is a legacy parameter. Use @ConditionExpression@ instead. For more
+  { -- | Determines whether item collection metrics are returned. If set to
+    -- @SIZE@, the response includes statistics about item collections, if any,
+    -- that were modified during the operation are returned in the response. If
+    -- set to @NONE@ (the default), no statistics are returned.
+    returnItemCollectionMetrics :: Prelude.Maybe ReturnItemCollectionMetrics,
+    -- | This is a legacy parameter. Use @ConditionExpression@ instead. For more
     -- information, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html Expected>
     -- in the /Amazon DynamoDB Developer Guide/.
@@ -137,11 +142,21 @@ data PutItem = PutItem'
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Condition Expressions>
     -- in the /Amazon DynamoDB Developer Guide/.
     expressionAttributeValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
-    -- | Determines whether item collection metrics are returned. If set to
-    -- @SIZE@, the response includes statistics about item collections, if any,
-    -- that were modified during the operation are returned in the response. If
-    -- set to @NONE@ (the default), no statistics are returned.
-    returnItemCollectionMetrics :: Prelude.Maybe ReturnItemCollectionMetrics,
+    -- | Use @ReturnValues@ if you want to get the item attributes as they
+    -- appeared before they were updated with the @PutItem@ request. For
+    -- @PutItem@, the valid values are:
+    --
+    -- -   @NONE@ - If @ReturnValues@ is not specified, or if its value is
+    --     @NONE@, then nothing is returned. (This setting is the default for
+    --     @ReturnValues@.)
+    --
+    -- -   @ALL_OLD@ - If @PutItem@ overwrote an attribute name-value pair,
+    --     then the content of the old item is returned.
+    --
+    -- The @ReturnValues@ parameter is used by several DynamoDB operations;
+    -- however, @PutItem@ does not recognize any values other than @NONE@ or
+    -- @ALL_OLD@.
+    returnValues :: Prelude.Maybe ReturnValue,
     -- | One or more substitution tokens for attribute names in an expression.
     -- The following are some use cases for using @ExpressionAttributeNames@:
     --
@@ -180,21 +195,6 @@ data PutItem = PutItem'
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes>
     -- in the /Amazon DynamoDB Developer Guide/.
     expressionAttributeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Use @ReturnValues@ if you want to get the item attributes as they
-    -- appeared before they were updated with the @PutItem@ request. For
-    -- @PutItem@, the valid values are:
-    --
-    -- -   @NONE@ - If @ReturnValues@ is not specified, or if its value is
-    --     @NONE@, then nothing is returned. (This setting is the default for
-    --     @ReturnValues@.)
-    --
-    -- -   @ALL_OLD@ - If @PutItem@ overwrote an attribute name-value pair,
-    --     then the content of the old item is returned.
-    --
-    -- The @ReturnValues@ parameter is used by several DynamoDB operations;
-    -- however, @PutItem@ does not recognize any values other than @NONE@ or
-    -- @ALL_OLD@.
-    returnValues :: Prelude.Maybe ReturnValue,
     -- | A condition that must be satisfied in order for a conditional @PutItem@
     -- operation to succeed.
     --
@@ -255,6 +255,11 @@ data PutItem = PutItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'returnItemCollectionMetrics', 'putItem_returnItemCollectionMetrics' - Determines whether item collection metrics are returned. If set to
+-- @SIZE@, the response includes statistics about item collections, if any,
+-- that were modified during the operation are returned in the response. If
+-- set to @NONE@ (the default), no statistics are returned.
+--
 -- 'expected', 'putItem_expected' - This is a legacy parameter. Use @ConditionExpression@ instead. For more
 -- information, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html Expected>
@@ -280,10 +285,20 @@ data PutItem = PutItem'
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Condition Expressions>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
--- 'returnItemCollectionMetrics', 'putItem_returnItemCollectionMetrics' - Determines whether item collection metrics are returned. If set to
--- @SIZE@, the response includes statistics about item collections, if any,
--- that were modified during the operation are returned in the response. If
--- set to @NONE@ (the default), no statistics are returned.
+-- 'returnValues', 'putItem_returnValues' - Use @ReturnValues@ if you want to get the item attributes as they
+-- appeared before they were updated with the @PutItem@ request. For
+-- @PutItem@, the valid values are:
+--
+-- -   @NONE@ - If @ReturnValues@ is not specified, or if its value is
+--     @NONE@, then nothing is returned. (This setting is the default for
+--     @ReturnValues@.)
+--
+-- -   @ALL_OLD@ - If @PutItem@ overwrote an attribute name-value pair,
+--     then the content of the old item is returned.
+--
+-- The @ReturnValues@ parameter is used by several DynamoDB operations;
+-- however, @PutItem@ does not recognize any values other than @NONE@ or
+-- @ALL_OLD@.
 --
 -- 'expressionAttributeNames', 'putItem_expressionAttributeNames' - One or more substitution tokens for attribute names in an expression.
 -- The following are some use cases for using @ExpressionAttributeNames@:
@@ -322,21 +337,6 @@ data PutItem = PutItem'
 -- For more information on expression attribute names, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes>
 -- in the /Amazon DynamoDB Developer Guide/.
---
--- 'returnValues', 'putItem_returnValues' - Use @ReturnValues@ if you want to get the item attributes as they
--- appeared before they were updated with the @PutItem@ request. For
--- @PutItem@, the valid values are:
---
--- -   @NONE@ - If @ReturnValues@ is not specified, or if its value is
---     @NONE@, then nothing is returned. (This setting is the default for
---     @ReturnValues@.)
---
--- -   @ALL_OLD@ - If @PutItem@ overwrote an attribute name-value pair,
---     then the content of the old item is returned.
---
--- The @ReturnValues@ parameter is used by several DynamoDB operations;
--- however, @PutItem@ does not recognize any values other than @NONE@ or
--- @ALL_OLD@.
 --
 -- 'conditionExpression', 'putItem_conditionExpression' - A condition that must be satisfied in order for a conditional @PutItem@
 -- operation to succeed.
@@ -393,17 +393,25 @@ newPutItem ::
   PutItem
 newPutItem pTableName_ =
   PutItem'
-    { expected = Prelude.Nothing,
+    { returnItemCollectionMetrics =
+        Prelude.Nothing,
+      expected = Prelude.Nothing,
       expressionAttributeValues = Prelude.Nothing,
-      returnItemCollectionMetrics = Prelude.Nothing,
-      expressionAttributeNames = Prelude.Nothing,
       returnValues = Prelude.Nothing,
+      expressionAttributeNames = Prelude.Nothing,
       conditionExpression = Prelude.Nothing,
       returnConsumedCapacity = Prelude.Nothing,
       conditionalOperator = Prelude.Nothing,
       tableName = pTableName_,
       item = Prelude.mempty
     }
+
+-- | Determines whether item collection metrics are returned. If set to
+-- @SIZE@, the response includes statistics about item collections, if any,
+-- that were modified during the operation are returned in the response. If
+-- set to @NONE@ (the default), no statistics are returned.
+putItem_returnItemCollectionMetrics :: Lens.Lens' PutItem (Prelude.Maybe ReturnItemCollectionMetrics)
+putItem_returnItemCollectionMetrics = Lens.lens (\PutItem' {returnItemCollectionMetrics} -> returnItemCollectionMetrics) (\s@PutItem' {} a -> s {returnItemCollectionMetrics = a} :: PutItem)
 
 -- | This is a legacy parameter. Use @ConditionExpression@ instead. For more
 -- information, see
@@ -434,12 +442,22 @@ putItem_expected = Lens.lens (\PutItem' {expected} -> expected) (\s@PutItem' {} 
 putItem_expressionAttributeValues :: Lens.Lens' PutItem (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
 putItem_expressionAttributeValues = Lens.lens (\PutItem' {expressionAttributeValues} -> expressionAttributeValues) (\s@PutItem' {} a -> s {expressionAttributeValues = a} :: PutItem) Prelude.. Lens.mapping Lens._Coerce
 
--- | Determines whether item collection metrics are returned. If set to
--- @SIZE@, the response includes statistics about item collections, if any,
--- that were modified during the operation are returned in the response. If
--- set to @NONE@ (the default), no statistics are returned.
-putItem_returnItemCollectionMetrics :: Lens.Lens' PutItem (Prelude.Maybe ReturnItemCollectionMetrics)
-putItem_returnItemCollectionMetrics = Lens.lens (\PutItem' {returnItemCollectionMetrics} -> returnItemCollectionMetrics) (\s@PutItem' {} a -> s {returnItemCollectionMetrics = a} :: PutItem)
+-- | Use @ReturnValues@ if you want to get the item attributes as they
+-- appeared before they were updated with the @PutItem@ request. For
+-- @PutItem@, the valid values are:
+--
+-- -   @NONE@ - If @ReturnValues@ is not specified, or if its value is
+--     @NONE@, then nothing is returned. (This setting is the default for
+--     @ReturnValues@.)
+--
+-- -   @ALL_OLD@ - If @PutItem@ overwrote an attribute name-value pair,
+--     then the content of the old item is returned.
+--
+-- The @ReturnValues@ parameter is used by several DynamoDB operations;
+-- however, @PutItem@ does not recognize any values other than @NONE@ or
+-- @ALL_OLD@.
+putItem_returnValues :: Lens.Lens' PutItem (Prelude.Maybe ReturnValue)
+putItem_returnValues = Lens.lens (\PutItem' {returnValues} -> returnValues) (\s@PutItem' {} a -> s {returnValues = a} :: PutItem)
 
 -- | One or more substitution tokens for attribute names in an expression.
 -- The following are some use cases for using @ExpressionAttributeNames@:
@@ -480,23 +498,6 @@ putItem_returnItemCollectionMetrics = Lens.lens (\PutItem' {returnItemCollection
 -- in the /Amazon DynamoDB Developer Guide/.
 putItem_expressionAttributeNames :: Lens.Lens' PutItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 putItem_expressionAttributeNames = Lens.lens (\PutItem' {expressionAttributeNames} -> expressionAttributeNames) (\s@PutItem' {} a -> s {expressionAttributeNames = a} :: PutItem) Prelude.. Lens.mapping Lens._Coerce
-
--- | Use @ReturnValues@ if you want to get the item attributes as they
--- appeared before they were updated with the @PutItem@ request. For
--- @PutItem@, the valid values are:
---
--- -   @NONE@ - If @ReturnValues@ is not specified, or if its value is
---     @NONE@, then nothing is returned. (This setting is the default for
---     @ReturnValues@.)
---
--- -   @ALL_OLD@ - If @PutItem@ overwrote an attribute name-value pair,
---     then the content of the old item is returned.
---
--- The @ReturnValues@ parameter is used by several DynamoDB operations;
--- however, @PutItem@ does not recognize any values other than @NONE@ or
--- @ALL_OLD@.
-putItem_returnValues :: Lens.Lens' PutItem (Prelude.Maybe ReturnValue)
-putItem_returnValues = Lens.lens (\PutItem' {returnValues} -> returnValues) (\s@PutItem' {} a -> s {returnValues = a} :: PutItem)
 
 -- | A condition that must be satisfied in order for a conditional @PutItem@
 -- operation to succeed.
@@ -592,14 +593,14 @@ instance Core.ToJSON PutItem where
   toJSON PutItem' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Expected" Core..=) Prelude.<$> expected,
+          [ ("ReturnItemCollectionMetrics" Core..=)
+              Prelude.<$> returnItemCollectionMetrics,
+            ("Expected" Core..=) Prelude.<$> expected,
             ("ExpressionAttributeValues" Core..=)
               Prelude.<$> expressionAttributeValues,
-            ("ReturnItemCollectionMetrics" Core..=)
-              Prelude.<$> returnItemCollectionMetrics,
+            ("ReturnValues" Core..=) Prelude.<$> returnValues,
             ("ExpressionAttributeNames" Core..=)
               Prelude.<$> expressionAttributeNames,
-            ("ReturnValues" Core..=) Prelude.<$> returnValues,
             ("ConditionExpression" Core..=)
               Prelude.<$> conditionExpression,
             ("ReturnConsumedCapacity" Core..=)

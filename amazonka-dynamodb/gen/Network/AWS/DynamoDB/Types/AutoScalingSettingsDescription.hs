@@ -29,11 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAutoScalingSettingsDescription' smart constructor.
 data AutoScalingSettingsDescription = AutoScalingSettingsDescription'
-  { -- | Information about the scaling policies.
-    scalingPolicies :: Prelude.Maybe [AutoScalingPolicyDescription],
-    -- | The minimum capacity units that a global table or global secondary index
+  { -- | The minimum capacity units that a global table or global secondary index
     -- should be scaled down to.
     minimumUnits :: Prelude.Maybe Prelude.Natural,
+    -- | Information about the scaling policies.
+    scalingPolicies :: Prelude.Maybe [AutoScalingPolicyDescription],
     -- | The maximum capacity units that a global table or global secondary index
     -- should be scaled up to.
     maximumUnits :: Prelude.Maybe Prelude.Natural,
@@ -52,10 +52,10 @@ data AutoScalingSettingsDescription = AutoScalingSettingsDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'scalingPolicies', 'autoScalingSettingsDescription_scalingPolicies' - Information about the scaling policies.
---
 -- 'minimumUnits', 'autoScalingSettingsDescription_minimumUnits' - The minimum capacity units that a global table or global secondary index
 -- should be scaled down to.
+--
+-- 'scalingPolicies', 'autoScalingSettingsDescription_scalingPolicies' - Information about the scaling policies.
 --
 -- 'maximumUnits', 'autoScalingSettingsDescription_maximumUnits' - The maximum capacity units that a global table or global secondary index
 -- should be scaled up to.
@@ -67,22 +67,22 @@ newAutoScalingSettingsDescription ::
   AutoScalingSettingsDescription
 newAutoScalingSettingsDescription =
   AutoScalingSettingsDescription'
-    { scalingPolicies =
+    { minimumUnits =
         Prelude.Nothing,
-      minimumUnits = Prelude.Nothing,
+      scalingPolicies = Prelude.Nothing,
       maximumUnits = Prelude.Nothing,
       autoScalingRoleArn = Prelude.Nothing,
       autoScalingDisabled = Prelude.Nothing
     }
 
--- | Information about the scaling policies.
-autoScalingSettingsDescription_scalingPolicies :: Lens.Lens' AutoScalingSettingsDescription (Prelude.Maybe [AutoScalingPolicyDescription])
-autoScalingSettingsDescription_scalingPolicies = Lens.lens (\AutoScalingSettingsDescription' {scalingPolicies} -> scalingPolicies) (\s@AutoScalingSettingsDescription' {} a -> s {scalingPolicies = a} :: AutoScalingSettingsDescription) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The minimum capacity units that a global table or global secondary index
 -- should be scaled down to.
 autoScalingSettingsDescription_minimumUnits :: Lens.Lens' AutoScalingSettingsDescription (Prelude.Maybe Prelude.Natural)
 autoScalingSettingsDescription_minimumUnits = Lens.lens (\AutoScalingSettingsDescription' {minimumUnits} -> minimumUnits) (\s@AutoScalingSettingsDescription' {} a -> s {minimumUnits = a} :: AutoScalingSettingsDescription)
+
+-- | Information about the scaling policies.
+autoScalingSettingsDescription_scalingPolicies :: Lens.Lens' AutoScalingSettingsDescription (Prelude.Maybe [AutoScalingPolicyDescription])
+autoScalingSettingsDescription_scalingPolicies = Lens.lens (\AutoScalingSettingsDescription' {scalingPolicies} -> scalingPolicies) (\s@AutoScalingSettingsDescription' {} a -> s {scalingPolicies = a} :: AutoScalingSettingsDescription) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum capacity units that a global table or global secondary index
 -- should be scaled up to.
@@ -103,10 +103,10 @@ instance Core.FromJSON AutoScalingSettingsDescription where
       "AutoScalingSettingsDescription"
       ( \x ->
           AutoScalingSettingsDescription'
-            Prelude.<$> ( x Core..:? "ScalingPolicies"
+            Prelude.<$> (x Core..:? "MinimumUnits")
+            Prelude.<*> ( x Core..:? "ScalingPolicies"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "MinimumUnits")
             Prelude.<*> (x Core..:? "MaximumUnits")
             Prelude.<*> (x Core..:? "AutoScalingRoleArn")
             Prelude.<*> (x Core..:? "AutoScalingDisabled")

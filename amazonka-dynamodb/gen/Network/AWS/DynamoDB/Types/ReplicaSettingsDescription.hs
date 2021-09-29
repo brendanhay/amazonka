@@ -40,11 +40,6 @@ data ReplicaSettingsDescription = ReplicaSettingsDescription'
     replicaProvisionedWriteCapacityAutoScalingSettings :: Prelude.Maybe AutoScalingSettingsDescription,
     -- | Replica global secondary index settings for the global table.
     replicaGlobalSecondaryIndexSettings :: Prelude.Maybe [ReplicaGlobalSecondaryIndexSettingsDescription],
-    -- | The maximum number of writes consumed per second before DynamoDB returns
-    -- a @ThrottlingException@. For more information, see
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements>
-    -- in the /Amazon DynamoDB Developer Guide/.
-    replicaProvisionedWriteCapacityUnits :: Prelude.Maybe Prelude.Natural,
     -- | The current state of the Region:
     --
     -- -   @CREATING@ - The Region is being created.
@@ -55,6 +50,11 @@ data ReplicaSettingsDescription = ReplicaSettingsDescription'
     --
     -- -   @ACTIVE@ - The Region is ready for use.
     replicaStatus :: Prelude.Maybe ReplicaStatus,
+    -- | The maximum number of writes consumed per second before DynamoDB returns
+    -- a @ThrottlingException@. For more information, see
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements>
+    -- in the /Amazon DynamoDB Developer Guide/.
+    replicaProvisionedWriteCapacityUnits :: Prelude.Maybe Prelude.Natural,
     -- | The maximum number of strongly consistent reads consumed per second
     -- before DynamoDB returns a @ThrottlingException@. For more information,
     -- see
@@ -83,11 +83,6 @@ data ReplicaSettingsDescription = ReplicaSettingsDescription'
 --
 -- 'replicaGlobalSecondaryIndexSettings', 'replicaSettingsDescription_replicaGlobalSecondaryIndexSettings' - Replica global secondary index settings for the global table.
 --
--- 'replicaProvisionedWriteCapacityUnits', 'replicaSettingsDescription_replicaProvisionedWriteCapacityUnits' - The maximum number of writes consumed per second before DynamoDB returns
--- a @ThrottlingException@. For more information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements>
--- in the /Amazon DynamoDB Developer Guide/.
---
 -- 'replicaStatus', 'replicaSettingsDescription_replicaStatus' - The current state of the Region:
 --
 -- -   @CREATING@ - The Region is being created.
@@ -97,6 +92,11 @@ data ReplicaSettingsDescription = ReplicaSettingsDescription'
 -- -   @DELETING@ - The Region is being deleted.
 --
 -- -   @ACTIVE@ - The Region is ready for use.
+--
+-- 'replicaProvisionedWriteCapacityUnits', 'replicaSettingsDescription_replicaProvisionedWriteCapacityUnits' - The maximum number of writes consumed per second before DynamoDB returns
+-- a @ThrottlingException@. For more information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements>
+-- in the /Amazon DynamoDB Developer Guide/.
 --
 -- 'replicaProvisionedReadCapacityUnits', 'replicaSettingsDescription_replicaProvisionedReadCapacityUnits' - The maximum number of strongly consistent reads consumed per second
 -- before DynamoDB returns a @ThrottlingException@. For more information,
@@ -119,9 +119,9 @@ newReplicaSettingsDescription pRegionName_ =
         Prelude.Nothing,
       replicaGlobalSecondaryIndexSettings =
         Prelude.Nothing,
+      replicaStatus = Prelude.Nothing,
       replicaProvisionedWriteCapacityUnits =
         Prelude.Nothing,
-      replicaStatus = Prelude.Nothing,
       replicaProvisionedReadCapacityUnits =
         Prelude.Nothing,
       regionName = pRegionName_
@@ -144,13 +144,6 @@ replicaSettingsDescription_replicaProvisionedWriteCapacityAutoScalingSettings = 
 replicaSettingsDescription_replicaGlobalSecondaryIndexSettings :: Lens.Lens' ReplicaSettingsDescription (Prelude.Maybe [ReplicaGlobalSecondaryIndexSettingsDescription])
 replicaSettingsDescription_replicaGlobalSecondaryIndexSettings = Lens.lens (\ReplicaSettingsDescription' {replicaGlobalSecondaryIndexSettings} -> replicaGlobalSecondaryIndexSettings) (\s@ReplicaSettingsDescription' {} a -> s {replicaGlobalSecondaryIndexSettings = a} :: ReplicaSettingsDescription) Prelude.. Lens.mapping Lens._Coerce
 
--- | The maximum number of writes consumed per second before DynamoDB returns
--- a @ThrottlingException@. For more information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements>
--- in the /Amazon DynamoDB Developer Guide/.
-replicaSettingsDescription_replicaProvisionedWriteCapacityUnits :: Lens.Lens' ReplicaSettingsDescription (Prelude.Maybe Prelude.Natural)
-replicaSettingsDescription_replicaProvisionedWriteCapacityUnits = Lens.lens (\ReplicaSettingsDescription' {replicaProvisionedWriteCapacityUnits} -> replicaProvisionedWriteCapacityUnits) (\s@ReplicaSettingsDescription' {} a -> s {replicaProvisionedWriteCapacityUnits = a} :: ReplicaSettingsDescription)
-
 -- | The current state of the Region:
 --
 -- -   @CREATING@ - The Region is being created.
@@ -162,6 +155,13 @@ replicaSettingsDescription_replicaProvisionedWriteCapacityUnits = Lens.lens (\Re
 -- -   @ACTIVE@ - The Region is ready for use.
 replicaSettingsDescription_replicaStatus :: Lens.Lens' ReplicaSettingsDescription (Prelude.Maybe ReplicaStatus)
 replicaSettingsDescription_replicaStatus = Lens.lens (\ReplicaSettingsDescription' {replicaStatus} -> replicaStatus) (\s@ReplicaSettingsDescription' {} a -> s {replicaStatus = a} :: ReplicaSettingsDescription)
+
+-- | The maximum number of writes consumed per second before DynamoDB returns
+-- a @ThrottlingException@. For more information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements>
+-- in the /Amazon DynamoDB Developer Guide/.
+replicaSettingsDescription_replicaProvisionedWriteCapacityUnits :: Lens.Lens' ReplicaSettingsDescription (Prelude.Maybe Prelude.Natural)
+replicaSettingsDescription_replicaProvisionedWriteCapacityUnits = Lens.lens (\ReplicaSettingsDescription' {replicaProvisionedWriteCapacityUnits} -> replicaProvisionedWriteCapacityUnits) (\s@ReplicaSettingsDescription' {} a -> s {replicaProvisionedWriteCapacityUnits = a} :: ReplicaSettingsDescription)
 
 -- | The maximum number of strongly consistent reads consumed per second
 -- before DynamoDB returns a @ThrottlingException@. For more information,
@@ -191,8 +191,8 @@ instance Core.FromJSON ReplicaSettingsDescription where
             Prelude.<*> ( x Core..:? "ReplicaGlobalSecondaryIndexSettings"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ReplicaProvisionedWriteCapacityUnits")
             Prelude.<*> (x Core..:? "ReplicaStatus")
+            Prelude.<*> (x Core..:? "ReplicaProvisionedWriteCapacityUnits")
             Prelude.<*> (x Core..:? "ReplicaProvisionedReadCapacityUnits")
             Prelude.<*> (x Core..: "RegionName")
       )

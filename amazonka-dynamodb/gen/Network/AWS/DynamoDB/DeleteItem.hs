@@ -41,11 +41,11 @@ module Network.AWS.DynamoDB.DeleteItem
     newDeleteItem,
 
     -- * Request Lenses
+    deleteItem_returnItemCollectionMetrics,
     deleteItem_expected,
     deleteItem_expressionAttributeValues,
-    deleteItem_returnItemCollectionMetrics,
-    deleteItem_expressionAttributeNames,
     deleteItem_returnValues,
+    deleteItem_expressionAttributeNames,
     deleteItem_conditionExpression,
     deleteItem_returnConsumedCapacity,
     deleteItem_conditionalOperator,
@@ -75,7 +75,12 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDeleteItem' smart constructor.
 data DeleteItem = DeleteItem'
-  { -- | This is a legacy parameter. Use @ConditionExpression@ instead. For more
+  { -- | Determines whether item collection metrics are returned. If set to
+    -- @SIZE@, the response includes statistics about item collections, if any,
+    -- that were modified during the operation are returned in the response. If
+    -- set to @NONE@ (the default), no statistics are returned.
+    returnItemCollectionMetrics :: Prelude.Maybe ReturnItemCollectionMetrics,
+    -- | This is a legacy parameter. Use @ConditionExpression@ instead. For more
     -- information, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html Expected>
     -- in the /Amazon DynamoDB Developer Guide/.
@@ -100,11 +105,20 @@ data DeleteItem = DeleteItem'
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Condition Expressions>
     -- in the /Amazon DynamoDB Developer Guide/.
     expressionAttributeValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
-    -- | Determines whether item collection metrics are returned. If set to
-    -- @SIZE@, the response includes statistics about item collections, if any,
-    -- that were modified during the operation are returned in the response. If
-    -- set to @NONE@ (the default), no statistics are returned.
-    returnItemCollectionMetrics :: Prelude.Maybe ReturnItemCollectionMetrics,
+    -- | Use @ReturnValues@ if you want to get the item attributes as they
+    -- appeared before they were deleted. For @DeleteItem@, the valid values
+    -- are:
+    --
+    -- -   @NONE@ - If @ReturnValues@ is not specified, or if its value is
+    --     @NONE@, then nothing is returned. (This setting is the default for
+    --     @ReturnValues@.)
+    --
+    -- -   @ALL_OLD@ - The content of the old item is returned.
+    --
+    -- The @ReturnValues@ parameter is used by several DynamoDB operations;
+    -- however, @DeleteItem@ does not recognize any values other than @NONE@ or
+    -- @ALL_OLD@.
+    returnValues :: Prelude.Maybe ReturnValue,
     -- | One or more substitution tokens for attribute names in an expression.
     -- The following are some use cases for using @ExpressionAttributeNames@:
     --
@@ -143,20 +157,6 @@ data DeleteItem = DeleteItem'
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes>
     -- in the /Amazon DynamoDB Developer Guide/.
     expressionAttributeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Use @ReturnValues@ if you want to get the item attributes as they
-    -- appeared before they were deleted. For @DeleteItem@, the valid values
-    -- are:
-    --
-    -- -   @NONE@ - If @ReturnValues@ is not specified, or if its value is
-    --     @NONE@, then nothing is returned. (This setting is the default for
-    --     @ReturnValues@.)
-    --
-    -- -   @ALL_OLD@ - The content of the old item is returned.
-    --
-    -- The @ReturnValues@ parameter is used by several DynamoDB operations;
-    -- however, @DeleteItem@ does not recognize any values other than @NONE@ or
-    -- @ALL_OLD@.
-    returnValues :: Prelude.Maybe ReturnValue,
     -- | A condition that must be satisfied in order for a conditional
     -- @DeleteItem@ to succeed.
     --
@@ -202,6 +202,11 @@ data DeleteItem = DeleteItem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'returnItemCollectionMetrics', 'deleteItem_returnItemCollectionMetrics' - Determines whether item collection metrics are returned. If set to
+-- @SIZE@, the response includes statistics about item collections, if any,
+-- that were modified during the operation are returned in the response. If
+-- set to @NONE@ (the default), no statistics are returned.
+--
 -- 'expected', 'deleteItem_expected' - This is a legacy parameter. Use @ConditionExpression@ instead. For more
 -- information, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html Expected>
@@ -227,10 +232,19 @@ data DeleteItem = DeleteItem'
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Condition Expressions>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
--- 'returnItemCollectionMetrics', 'deleteItem_returnItemCollectionMetrics' - Determines whether item collection metrics are returned. If set to
--- @SIZE@, the response includes statistics about item collections, if any,
--- that were modified during the operation are returned in the response. If
--- set to @NONE@ (the default), no statistics are returned.
+-- 'returnValues', 'deleteItem_returnValues' - Use @ReturnValues@ if you want to get the item attributes as they
+-- appeared before they were deleted. For @DeleteItem@, the valid values
+-- are:
+--
+-- -   @NONE@ - If @ReturnValues@ is not specified, or if its value is
+--     @NONE@, then nothing is returned. (This setting is the default for
+--     @ReturnValues@.)
+--
+-- -   @ALL_OLD@ - The content of the old item is returned.
+--
+-- The @ReturnValues@ parameter is used by several DynamoDB operations;
+-- however, @DeleteItem@ does not recognize any values other than @NONE@ or
+-- @ALL_OLD@.
 --
 -- 'expressionAttributeNames', 'deleteItem_expressionAttributeNames' - One or more substitution tokens for attribute names in an expression.
 -- The following are some use cases for using @ExpressionAttributeNames@:
@@ -269,20 +283,6 @@ data DeleteItem = DeleteItem'
 -- For more information on expression attribute names, see
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes>
 -- in the /Amazon DynamoDB Developer Guide/.
---
--- 'returnValues', 'deleteItem_returnValues' - Use @ReturnValues@ if you want to get the item attributes as they
--- appeared before they were deleted. For @DeleteItem@, the valid values
--- are:
---
--- -   @NONE@ - If @ReturnValues@ is not specified, or if its value is
---     @NONE@, then nothing is returned. (This setting is the default for
---     @ReturnValues@.)
---
--- -   @ALL_OLD@ - The content of the old item is returned.
---
--- The @ReturnValues@ parameter is used by several DynamoDB operations;
--- however, @DeleteItem@ does not recognize any values other than @NONE@ or
--- @ALL_OLD@.
 --
 -- 'conditionExpression', 'deleteItem_conditionExpression' - A condition that must be satisfied in order for a conditional
 -- @DeleteItem@ to succeed.
@@ -324,17 +324,25 @@ newDeleteItem ::
   DeleteItem
 newDeleteItem pTableName_ =
   DeleteItem'
-    { expected = Prelude.Nothing,
+    { returnItemCollectionMetrics =
+        Prelude.Nothing,
+      expected = Prelude.Nothing,
       expressionAttributeValues = Prelude.Nothing,
-      returnItemCollectionMetrics = Prelude.Nothing,
-      expressionAttributeNames = Prelude.Nothing,
       returnValues = Prelude.Nothing,
+      expressionAttributeNames = Prelude.Nothing,
       conditionExpression = Prelude.Nothing,
       returnConsumedCapacity = Prelude.Nothing,
       conditionalOperator = Prelude.Nothing,
       tableName = pTableName_,
       key = Prelude.mempty
     }
+
+-- | Determines whether item collection metrics are returned. If set to
+-- @SIZE@, the response includes statistics about item collections, if any,
+-- that were modified during the operation are returned in the response. If
+-- set to @NONE@ (the default), no statistics are returned.
+deleteItem_returnItemCollectionMetrics :: Lens.Lens' DeleteItem (Prelude.Maybe ReturnItemCollectionMetrics)
+deleteItem_returnItemCollectionMetrics = Lens.lens (\DeleteItem' {returnItemCollectionMetrics} -> returnItemCollectionMetrics) (\s@DeleteItem' {} a -> s {returnItemCollectionMetrics = a} :: DeleteItem)
 
 -- | This is a legacy parameter. Use @ConditionExpression@ instead. For more
 -- information, see
@@ -365,12 +373,21 @@ deleteItem_expected = Lens.lens (\DeleteItem' {expected} -> expected) (\s@Delete
 deleteItem_expressionAttributeValues :: Lens.Lens' DeleteItem (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
 deleteItem_expressionAttributeValues = Lens.lens (\DeleteItem' {expressionAttributeValues} -> expressionAttributeValues) (\s@DeleteItem' {} a -> s {expressionAttributeValues = a} :: DeleteItem) Prelude.. Lens.mapping Lens._Coerce
 
--- | Determines whether item collection metrics are returned. If set to
--- @SIZE@, the response includes statistics about item collections, if any,
--- that were modified during the operation are returned in the response. If
--- set to @NONE@ (the default), no statistics are returned.
-deleteItem_returnItemCollectionMetrics :: Lens.Lens' DeleteItem (Prelude.Maybe ReturnItemCollectionMetrics)
-deleteItem_returnItemCollectionMetrics = Lens.lens (\DeleteItem' {returnItemCollectionMetrics} -> returnItemCollectionMetrics) (\s@DeleteItem' {} a -> s {returnItemCollectionMetrics = a} :: DeleteItem)
+-- | Use @ReturnValues@ if you want to get the item attributes as they
+-- appeared before they were deleted. For @DeleteItem@, the valid values
+-- are:
+--
+-- -   @NONE@ - If @ReturnValues@ is not specified, or if its value is
+--     @NONE@, then nothing is returned. (This setting is the default for
+--     @ReturnValues@.)
+--
+-- -   @ALL_OLD@ - The content of the old item is returned.
+--
+-- The @ReturnValues@ parameter is used by several DynamoDB operations;
+-- however, @DeleteItem@ does not recognize any values other than @NONE@ or
+-- @ALL_OLD@.
+deleteItem_returnValues :: Lens.Lens' DeleteItem (Prelude.Maybe ReturnValue)
+deleteItem_returnValues = Lens.lens (\DeleteItem' {returnValues} -> returnValues) (\s@DeleteItem' {} a -> s {returnValues = a} :: DeleteItem)
 
 -- | One or more substitution tokens for attribute names in an expression.
 -- The following are some use cases for using @ExpressionAttributeNames@:
@@ -411,22 +428,6 @@ deleteItem_returnItemCollectionMetrics = Lens.lens (\DeleteItem' {returnItemColl
 -- in the /Amazon DynamoDB Developer Guide/.
 deleteItem_expressionAttributeNames :: Lens.Lens' DeleteItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 deleteItem_expressionAttributeNames = Lens.lens (\DeleteItem' {expressionAttributeNames} -> expressionAttributeNames) (\s@DeleteItem' {} a -> s {expressionAttributeNames = a} :: DeleteItem) Prelude.. Lens.mapping Lens._Coerce
-
--- | Use @ReturnValues@ if you want to get the item attributes as they
--- appeared before they were deleted. For @DeleteItem@, the valid values
--- are:
---
--- -   @NONE@ - If @ReturnValues@ is not specified, or if its value is
---     @NONE@, then nothing is returned. (This setting is the default for
---     @ReturnValues@.)
---
--- -   @ALL_OLD@ - The content of the old item is returned.
---
--- The @ReturnValues@ parameter is used by several DynamoDB operations;
--- however, @DeleteItem@ does not recognize any values other than @NONE@ or
--- @ALL_OLD@.
-deleteItem_returnValues :: Lens.Lens' DeleteItem (Prelude.Maybe ReturnValue)
-deleteItem_returnValues = Lens.lens (\DeleteItem' {returnValues} -> returnValues) (\s@DeleteItem' {} a -> s {returnValues = a} :: DeleteItem)
 
 -- | A condition that must be satisfied in order for a conditional
 -- @DeleteItem@ to succeed.
@@ -509,14 +510,14 @@ instance Core.ToJSON DeleteItem where
   toJSON DeleteItem' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Expected" Core..=) Prelude.<$> expected,
+          [ ("ReturnItemCollectionMetrics" Core..=)
+              Prelude.<$> returnItemCollectionMetrics,
+            ("Expected" Core..=) Prelude.<$> expected,
             ("ExpressionAttributeValues" Core..=)
               Prelude.<$> expressionAttributeValues,
-            ("ReturnItemCollectionMetrics" Core..=)
-              Prelude.<$> returnItemCollectionMetrics,
+            ("ReturnValues" Core..=) Prelude.<$> returnValues,
             ("ExpressionAttributeNames" Core..=)
               Prelude.<$> expressionAttributeNames,
-            ("ReturnValues" Core..=) Prelude.<$> returnValues,
             ("ConditionExpression" Core..=)
               Prelude.<$> conditionExpression,
             ("ReturnConsumedCapacity" Core..=)

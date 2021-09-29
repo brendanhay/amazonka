@@ -41,8 +41,8 @@ module Network.AWS.DynamoDB.ListBackups
     listBackups_tableName,
     listBackups_backupType,
     listBackups_timeRangeLowerBound,
-    listBackups_limit,
     listBackups_exclusiveStartBackupArn,
+    listBackups_limit,
     listBackups_timeRangeUpperBound,
 
     -- * Destructuring the Response
@@ -80,14 +80,14 @@ data ListBackups = ListBackups'
     -- | Only backups created after this time are listed. @TimeRangeLowerBound@
     -- is inclusive.
     timeRangeLowerBound :: Prelude.Maybe Core.POSIX,
-    -- | Maximum number of backups to return at once.
-    limit :: Prelude.Maybe Prelude.Natural,
     -- | @LastEvaluatedBackupArn@ is the Amazon Resource Name (ARN) of the backup
     -- last evaluated when the current page of results was returned, inclusive
     -- of the current page of results. This value may be specified as the
     -- @ExclusiveStartBackupArn@ of a new @ListBackups@ operation in order to
     -- fetch the next page of results.
     exclusiveStartBackupArn :: Prelude.Maybe Prelude.Text,
+    -- | Maximum number of backups to return at once.
+    limit :: Prelude.Maybe Prelude.Natural,
     -- | Only backups created before this time are listed. @TimeRangeUpperBound@
     -- is exclusive.
     timeRangeUpperBound :: Prelude.Maybe Core.POSIX
@@ -117,13 +117,13 @@ data ListBackups = ListBackups'
 -- 'timeRangeLowerBound', 'listBackups_timeRangeLowerBound' - Only backups created after this time are listed. @TimeRangeLowerBound@
 -- is inclusive.
 --
--- 'limit', 'listBackups_limit' - Maximum number of backups to return at once.
---
 -- 'exclusiveStartBackupArn', 'listBackups_exclusiveStartBackupArn' - @LastEvaluatedBackupArn@ is the Amazon Resource Name (ARN) of the backup
 -- last evaluated when the current page of results was returned, inclusive
 -- of the current page of results. This value may be specified as the
 -- @ExclusiveStartBackupArn@ of a new @ListBackups@ operation in order to
 -- fetch the next page of results.
+--
+-- 'limit', 'listBackups_limit' - Maximum number of backups to return at once.
 --
 -- 'timeRangeUpperBound', 'listBackups_timeRangeUpperBound' - Only backups created before this time are listed. @TimeRangeUpperBound@
 -- is exclusive.
@@ -134,8 +134,8 @@ newListBackups =
     { tableName = Prelude.Nothing,
       backupType = Prelude.Nothing,
       timeRangeLowerBound = Prelude.Nothing,
-      limit = Prelude.Nothing,
       exclusiveStartBackupArn = Prelude.Nothing,
+      limit = Prelude.Nothing,
       timeRangeUpperBound = Prelude.Nothing
     }
 
@@ -160,10 +160,6 @@ listBackups_backupType = Lens.lens (\ListBackups' {backupType} -> backupType) (\
 listBackups_timeRangeLowerBound :: Lens.Lens' ListBackups (Prelude.Maybe Prelude.UTCTime)
 listBackups_timeRangeLowerBound = Lens.lens (\ListBackups' {timeRangeLowerBound} -> timeRangeLowerBound) (\s@ListBackups' {} a -> s {timeRangeLowerBound = a} :: ListBackups) Prelude.. Lens.mapping Core._Time
 
--- | Maximum number of backups to return at once.
-listBackups_limit :: Lens.Lens' ListBackups (Prelude.Maybe Prelude.Natural)
-listBackups_limit = Lens.lens (\ListBackups' {limit} -> limit) (\s@ListBackups' {} a -> s {limit = a} :: ListBackups)
-
 -- | @LastEvaluatedBackupArn@ is the Amazon Resource Name (ARN) of the backup
 -- last evaluated when the current page of results was returned, inclusive
 -- of the current page of results. This value may be specified as the
@@ -171,6 +167,10 @@ listBackups_limit = Lens.lens (\ListBackups' {limit} -> limit) (\s@ListBackups' 
 -- fetch the next page of results.
 listBackups_exclusiveStartBackupArn :: Lens.Lens' ListBackups (Prelude.Maybe Prelude.Text)
 listBackups_exclusiveStartBackupArn = Lens.lens (\ListBackups' {exclusiveStartBackupArn} -> exclusiveStartBackupArn) (\s@ListBackups' {} a -> s {exclusiveStartBackupArn = a} :: ListBackups)
+
+-- | Maximum number of backups to return at once.
+listBackups_limit :: Lens.Lens' ListBackups (Prelude.Maybe Prelude.Natural)
+listBackups_limit = Lens.lens (\ListBackups' {limit} -> limit) (\s@ListBackups' {} a -> s {limit = a} :: ListBackups)
 
 -- | Only backups created before this time are listed. @TimeRangeUpperBound@
 -- is exclusive.
@@ -240,9 +240,9 @@ instance Core.ToJSON ListBackups where
             ("BackupType" Core..=) Prelude.<$> backupType,
             ("TimeRangeLowerBound" Core..=)
               Prelude.<$> timeRangeLowerBound,
-            ("Limit" Core..=) Prelude.<$> limit,
             ("ExclusiveStartBackupArn" Core..=)
               Prelude.<$> exclusiveStartBackupArn,
+            ("Limit" Core..=) Prelude.<$> limit,
             ("TimeRangeUpperBound" Core..=)
               Prelude.<$> timeRangeUpperBound
           ]

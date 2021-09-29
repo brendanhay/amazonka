@@ -86,19 +86,19 @@ module Network.AWS.DynamoDB.Query
     query_projectionExpression,
     query_exclusiveStartKey,
     query_indexName,
-    query_expressionAttributeValues,
     query_keyConditionExpression,
-    query_consistentRead,
-    query_expressionAttributeNames,
+    query_expressionAttributeValues,
     query_filterExpression,
+    query_expressionAttributeNames,
+    query_consistentRead,
     query_keyConditions,
     query_returnConsumedCapacity,
     query_conditionalOperator,
     query_select,
     query_limit,
-    query_attributesToGet,
     query_scanIndexForward,
     query_queryFilter,
+    query_attributesToGet,
     query_tableName,
 
     -- * Destructuring the Response
@@ -149,26 +149,6 @@ data Query = Query'
     -- index or global secondary index on the table. Note that if you use the
     -- @IndexName@ parameter, you must also provide @TableName.@
     indexName :: Prelude.Maybe Prelude.Text,
-    -- | One or more values that can be substituted in an expression.
-    --
-    -- Use the __:__ (colon) character in an expression to dereference an
-    -- attribute value. For example, suppose that you wanted to check whether
-    -- the value of the /ProductStatus/ attribute was one of the following:
-    --
-    -- @Available | Backordered | Discontinued@
-    --
-    -- You would first need to specify @ExpressionAttributeValues@ as follows:
-    --
-    -- @{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }@
-    --
-    -- You could then use these values in an expression, such as this:
-    --
-    -- @ProductStatus IN (:avail, :back, :disc)@
-    --
-    -- For more information on expression attribute values, see
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
-    -- in the /Amazon DynamoDB Developer Guide/.
-    expressionAttributeValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
     -- | The condition that specifies the key values for items to be retrieved by
     -- the @Query@ action.
     --
@@ -244,14 +224,41 @@ data Query = Query'
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
     -- in the /Amazon DynamoDB Developer Guide/.
     keyConditionExpression :: Prelude.Maybe Prelude.Text,
-    -- | Determines the read consistency model: If set to @true@, then the
-    -- operation uses strongly consistent reads; otherwise, the operation uses
-    -- eventually consistent reads.
+    -- | One or more values that can be substituted in an expression.
     --
-    -- Strongly consistent reads are not supported on global secondary indexes.
-    -- If you query a global secondary index with @ConsistentRead@ set to
-    -- @true@, you will receive a @ValidationException@.
-    consistentRead :: Prelude.Maybe Prelude.Bool,
+    -- Use the __:__ (colon) character in an expression to dereference an
+    -- attribute value. For example, suppose that you wanted to check whether
+    -- the value of the /ProductStatus/ attribute was one of the following:
+    --
+    -- @Available | Backordered | Discontinued@
+    --
+    -- You would first need to specify @ExpressionAttributeValues@ as follows:
+    --
+    -- @{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }@
+    --
+    -- You could then use these values in an expression, such as this:
+    --
+    -- @ProductStatus IN (:avail, :back, :disc)@
+    --
+    -- For more information on expression attribute values, see
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
+    -- in the /Amazon DynamoDB Developer Guide/.
+    expressionAttributeValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
+    -- | A string that contains conditions that DynamoDB applies after the
+    -- @Query@ operation, but before the data is returned to you. Items that do
+    -- not satisfy the @FilterExpression@ criteria are not returned.
+    --
+    -- A @FilterExpression@ does not allow key attributes. You cannot define a
+    -- filter expression based on a partition key or a sort key.
+    --
+    -- A @FilterExpression@ is applied after the items have already been read;
+    -- the process of filtering does not consume any additional read capacity
+    -- units.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults Filter Expressions>
+    -- in the /Amazon DynamoDB Developer Guide/.
+    filterExpression :: Prelude.Maybe Prelude.Text,
     -- | One or more substitution tokens for attribute names in an expression.
     -- The following are some use cases for using @ExpressionAttributeNames@:
     --
@@ -290,21 +297,14 @@ data Query = Query'
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes>
     -- in the /Amazon DynamoDB Developer Guide/.
     expressionAttributeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A string that contains conditions that DynamoDB applies after the
-    -- @Query@ operation, but before the data is returned to you. Items that do
-    -- not satisfy the @FilterExpression@ criteria are not returned.
+    -- | Determines the read consistency model: If set to @true@, then the
+    -- operation uses strongly consistent reads; otherwise, the operation uses
+    -- eventually consistent reads.
     --
-    -- A @FilterExpression@ does not allow key attributes. You cannot define a
-    -- filter expression based on a partition key or a sort key.
-    --
-    -- A @FilterExpression@ is applied after the items have already been read;
-    -- the process of filtering does not consume any additional read capacity
-    -- units.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults Filter Expressions>
-    -- in the /Amazon DynamoDB Developer Guide/.
-    filterExpression :: Prelude.Maybe Prelude.Text,
+    -- Strongly consistent reads are not supported on global secondary indexes.
+    -- If you query a global secondary index with @ConsistentRead@ set to
+    -- @true@, you will receive a @ValidationException@.
+    consistentRead :: Prelude.Maybe Prelude.Bool,
     -- | This is a legacy parameter. Use @KeyConditionExpression@ instead. For
     -- more information, see
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.KeyConditions.html KeyConditions>
@@ -375,11 +375,6 @@ data Query = Query'
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html Query and Scan>
     -- in the /Amazon DynamoDB Developer Guide/.
     limit :: Prelude.Maybe Prelude.Natural,
-    -- | This is a legacy parameter. Use @ProjectionExpression@ instead. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet>
-    -- in the /Amazon DynamoDB Developer Guide/.
-    attributesToGet :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | Specifies the order for index traversal: If @true@ (default), the
     -- traversal is performed in ascending order; if @false@, the traversal is
     -- performed in descending order.
@@ -401,6 +396,11 @@ data Query = Query'
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.QueryFilter.html QueryFilter>
     -- in the /Amazon DynamoDB Developer Guide/.
     queryFilter :: Prelude.Maybe (Prelude.HashMap Prelude.Text Condition),
+    -- | This is a legacy parameter. Use @ProjectionExpression@ instead. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet>
+    -- in the /Amazon DynamoDB Developer Guide/.
+    attributesToGet :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The name of the table containing the requested items.
     tableName :: Prelude.Text
   }
@@ -436,26 +436,6 @@ data Query = Query'
 -- 'indexName', 'query_indexName' - The name of an index to query. This index can be any local secondary
 -- index or global secondary index on the table. Note that if you use the
 -- @IndexName@ parameter, you must also provide @TableName.@
---
--- 'expressionAttributeValues', 'query_expressionAttributeValues' - One or more values that can be substituted in an expression.
---
--- Use the __:__ (colon) character in an expression to dereference an
--- attribute value. For example, suppose that you wanted to check whether
--- the value of the /ProductStatus/ attribute was one of the following:
---
--- @Available | Backordered | Discontinued@
---
--- You would first need to specify @ExpressionAttributeValues@ as follows:
---
--- @{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }@
---
--- You could then use these values in an expression, such as this:
---
--- @ProductStatus IN (:avail, :back, :disc)@
---
--- For more information on expression attribute values, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
--- in the /Amazon DynamoDB Developer Guide/.
 --
 -- 'keyConditionExpression', 'query_keyConditionExpression' - The condition that specifies the key values for items to be retrieved by
 -- the @Query@ action.
@@ -532,13 +512,40 @@ data Query = Query'
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
--- 'consistentRead', 'query_consistentRead' - Determines the read consistency model: If set to @true@, then the
--- operation uses strongly consistent reads; otherwise, the operation uses
--- eventually consistent reads.
+-- 'expressionAttributeValues', 'query_expressionAttributeValues' - One or more values that can be substituted in an expression.
 --
--- Strongly consistent reads are not supported on global secondary indexes.
--- If you query a global secondary index with @ConsistentRead@ set to
--- @true@, you will receive a @ValidationException@.
+-- Use the __:__ (colon) character in an expression to dereference an
+-- attribute value. For example, suppose that you wanted to check whether
+-- the value of the /ProductStatus/ attribute was one of the following:
+--
+-- @Available | Backordered | Discontinued@
+--
+-- You would first need to specify @ExpressionAttributeValues@ as follows:
+--
+-- @{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }@
+--
+-- You could then use these values in an expression, such as this:
+--
+-- @ProductStatus IN (:avail, :back, :disc)@
+--
+-- For more information on expression attribute values, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
+-- in the /Amazon DynamoDB Developer Guide/.
+--
+-- 'filterExpression', 'query_filterExpression' - A string that contains conditions that DynamoDB applies after the
+-- @Query@ operation, but before the data is returned to you. Items that do
+-- not satisfy the @FilterExpression@ criteria are not returned.
+--
+-- A @FilterExpression@ does not allow key attributes. You cannot define a
+-- filter expression based on a partition key or a sort key.
+--
+-- A @FilterExpression@ is applied after the items have already been read;
+-- the process of filtering does not consume any additional read capacity
+-- units.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults Filter Expressions>
+-- in the /Amazon DynamoDB Developer Guide/.
 --
 -- 'expressionAttributeNames', 'query_expressionAttributeNames' - One or more substitution tokens for attribute names in an expression.
 -- The following are some use cases for using @ExpressionAttributeNames@:
@@ -578,20 +585,13 @@ data Query = Query'
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Specifying Item Attributes>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
--- 'filterExpression', 'query_filterExpression' - A string that contains conditions that DynamoDB applies after the
--- @Query@ operation, but before the data is returned to you. Items that do
--- not satisfy the @FilterExpression@ criteria are not returned.
+-- 'consistentRead', 'query_consistentRead' - Determines the read consistency model: If set to @true@, then the
+-- operation uses strongly consistent reads; otherwise, the operation uses
+-- eventually consistent reads.
 --
--- A @FilterExpression@ does not allow key attributes. You cannot define a
--- filter expression based on a partition key or a sort key.
---
--- A @FilterExpression@ is applied after the items have already been read;
--- the process of filtering does not consume any additional read capacity
--- units.
---
--- For more information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults Filter Expressions>
--- in the /Amazon DynamoDB Developer Guide/.
+-- Strongly consistent reads are not supported on global secondary indexes.
+-- If you query a global secondary index with @ConsistentRead@ set to
+-- @true@, you will receive a @ValidationException@.
 --
 -- 'keyConditions', 'query_keyConditions' - This is a legacy parameter. Use @KeyConditionExpression@ instead. For
 -- more information, see
@@ -664,11 +664,6 @@ data Query = Query'
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html Query and Scan>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
--- 'attributesToGet', 'query_attributesToGet' - This is a legacy parameter. Use @ProjectionExpression@ instead. For more
--- information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet>
--- in the /Amazon DynamoDB Developer Guide/.
---
 -- 'scanIndexForward', 'query_scanIndexForward' - Specifies the order for index traversal: If @true@ (default), the
 -- traversal is performed in ascending order; if @false@, the traversal is
 -- performed in descending order.
@@ -690,6 +685,11 @@ data Query = Query'
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.QueryFilter.html QueryFilter>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
+-- 'attributesToGet', 'query_attributesToGet' - This is a legacy parameter. Use @ProjectionExpression@ instead. For more
+-- information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet>
+-- in the /Amazon DynamoDB Developer Guide/.
+--
 -- 'tableName', 'query_tableName' - The name of the table containing the requested items.
 newQuery ::
   -- | 'tableName'
@@ -700,19 +700,19 @@ newQuery pTableName_ =
     { projectionExpression = Prelude.Nothing,
       exclusiveStartKey = Prelude.Nothing,
       indexName = Prelude.Nothing,
-      expressionAttributeValues = Prelude.Nothing,
       keyConditionExpression = Prelude.Nothing,
-      consistentRead = Prelude.Nothing,
-      expressionAttributeNames = Prelude.Nothing,
+      expressionAttributeValues = Prelude.Nothing,
       filterExpression = Prelude.Nothing,
+      expressionAttributeNames = Prelude.Nothing,
+      consistentRead = Prelude.Nothing,
       keyConditions = Prelude.Nothing,
       returnConsumedCapacity = Prelude.Nothing,
       conditionalOperator = Prelude.Nothing,
       select = Prelude.Nothing,
       limit = Prelude.Nothing,
-      attributesToGet = Prelude.Nothing,
       scanIndexForward = Prelude.Nothing,
       queryFilter = Prelude.Nothing,
+      attributesToGet = Prelude.Nothing,
       tableName = pTableName_
     }
 
@@ -744,28 +744,6 @@ query_exclusiveStartKey = Lens.lens (\Query' {exclusiveStartKey} -> exclusiveSta
 -- @IndexName@ parameter, you must also provide @TableName.@
 query_indexName :: Lens.Lens' Query (Prelude.Maybe Prelude.Text)
 query_indexName = Lens.lens (\Query' {indexName} -> indexName) (\s@Query' {} a -> s {indexName = a} :: Query)
-
--- | One or more values that can be substituted in an expression.
---
--- Use the __:__ (colon) character in an expression to dereference an
--- attribute value. For example, suppose that you wanted to check whether
--- the value of the /ProductStatus/ attribute was one of the following:
---
--- @Available | Backordered | Discontinued@
---
--- You would first need to specify @ExpressionAttributeValues@ as follows:
---
--- @{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }@
---
--- You could then use these values in an expression, such as this:
---
--- @ProductStatus IN (:avail, :back, :disc)@
---
--- For more information on expression attribute values, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
--- in the /Amazon DynamoDB Developer Guide/.
-query_expressionAttributeValues :: Lens.Lens' Query (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
-query_expressionAttributeValues = Lens.lens (\Query' {expressionAttributeValues} -> expressionAttributeValues) (\s@Query' {} a -> s {expressionAttributeValues = a} :: Query) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The condition that specifies the key values for items to be retrieved by
 -- the @Query@ action.
@@ -844,15 +822,44 @@ query_expressionAttributeValues = Lens.lens (\Query' {expressionAttributeValues}
 query_keyConditionExpression :: Lens.Lens' Query (Prelude.Maybe Prelude.Text)
 query_keyConditionExpression = Lens.lens (\Query' {keyConditionExpression} -> keyConditionExpression) (\s@Query' {} a -> s {keyConditionExpression = a} :: Query)
 
--- | Determines the read consistency model: If set to @true@, then the
--- operation uses strongly consistent reads; otherwise, the operation uses
--- eventually consistent reads.
+-- | One or more values that can be substituted in an expression.
 --
--- Strongly consistent reads are not supported on global secondary indexes.
--- If you query a global secondary index with @ConsistentRead@ set to
--- @true@, you will receive a @ValidationException@.
-query_consistentRead :: Lens.Lens' Query (Prelude.Maybe Prelude.Bool)
-query_consistentRead = Lens.lens (\Query' {consistentRead} -> consistentRead) (\s@Query' {} a -> s {consistentRead = a} :: Query)
+-- Use the __:__ (colon) character in an expression to dereference an
+-- attribute value. For example, suppose that you wanted to check whether
+-- the value of the /ProductStatus/ attribute was one of the following:
+--
+-- @Available | Backordered | Discontinued@
+--
+-- You would first need to specify @ExpressionAttributeValues@ as follows:
+--
+-- @{ \":avail\":{\"S\":\"Available\"}, \":back\":{\"S\":\"Backordered\"}, \":disc\":{\"S\":\"Discontinued\"} }@
+--
+-- You could then use these values in an expression, such as this:
+--
+-- @ProductStatus IN (:avail, :back, :disc)@
+--
+-- For more information on expression attribute values, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
+-- in the /Amazon DynamoDB Developer Guide/.
+query_expressionAttributeValues :: Lens.Lens' Query (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
+query_expressionAttributeValues = Lens.lens (\Query' {expressionAttributeValues} -> expressionAttributeValues) (\s@Query' {} a -> s {expressionAttributeValues = a} :: Query) Prelude.. Lens.mapping Lens._Coerce
+
+-- | A string that contains conditions that DynamoDB applies after the
+-- @Query@ operation, but before the data is returned to you. Items that do
+-- not satisfy the @FilterExpression@ criteria are not returned.
+--
+-- A @FilterExpression@ does not allow key attributes. You cannot define a
+-- filter expression based on a partition key or a sort key.
+--
+-- A @FilterExpression@ is applied after the items have already been read;
+-- the process of filtering does not consume any additional read capacity
+-- units.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults Filter Expressions>
+-- in the /Amazon DynamoDB Developer Guide/.
+query_filterExpression :: Lens.Lens' Query (Prelude.Maybe Prelude.Text)
+query_filterExpression = Lens.lens (\Query' {filterExpression} -> filterExpression) (\s@Query' {} a -> s {filterExpression = a} :: Query)
 
 -- | One or more substitution tokens for attribute names in an expression.
 -- The following are some use cases for using @ExpressionAttributeNames@:
@@ -894,22 +901,15 @@ query_consistentRead = Lens.lens (\Query' {consistentRead} -> consistentRead) (\
 query_expressionAttributeNames :: Lens.Lens' Query (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 query_expressionAttributeNames = Lens.lens (\Query' {expressionAttributeNames} -> expressionAttributeNames) (\s@Query' {} a -> s {expressionAttributeNames = a} :: Query) Prelude.. Lens.mapping Lens._Coerce
 
--- | A string that contains conditions that DynamoDB applies after the
--- @Query@ operation, but before the data is returned to you. Items that do
--- not satisfy the @FilterExpression@ criteria are not returned.
+-- | Determines the read consistency model: If set to @true@, then the
+-- operation uses strongly consistent reads; otherwise, the operation uses
+-- eventually consistent reads.
 --
--- A @FilterExpression@ does not allow key attributes. You cannot define a
--- filter expression based on a partition key or a sort key.
---
--- A @FilterExpression@ is applied after the items have already been read;
--- the process of filtering does not consume any additional read capacity
--- units.
---
--- For more information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults Filter Expressions>
--- in the /Amazon DynamoDB Developer Guide/.
-query_filterExpression :: Lens.Lens' Query (Prelude.Maybe Prelude.Text)
-query_filterExpression = Lens.lens (\Query' {filterExpression} -> filterExpression) (\s@Query' {} a -> s {filterExpression = a} :: Query)
+-- Strongly consistent reads are not supported on global secondary indexes.
+-- If you query a global secondary index with @ConsistentRead@ set to
+-- @true@, you will receive a @ValidationException@.
+query_consistentRead :: Lens.Lens' Query (Prelude.Maybe Prelude.Bool)
+query_consistentRead = Lens.lens (\Query' {consistentRead} -> consistentRead) (\s@Query' {} a -> s {consistentRead = a} :: Query)
 
 -- | This is a legacy parameter. Use @KeyConditionExpression@ instead. For
 -- more information, see
@@ -992,13 +992,6 @@ query_select = Lens.lens (\Query' {select} -> select) (\s@Query' {} a -> s {sele
 query_limit :: Lens.Lens' Query (Prelude.Maybe Prelude.Natural)
 query_limit = Lens.lens (\Query' {limit} -> limit) (\s@Query' {} a -> s {limit = a} :: Query)
 
--- | This is a legacy parameter. Use @ProjectionExpression@ instead. For more
--- information, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet>
--- in the /Amazon DynamoDB Developer Guide/.
-query_attributesToGet :: Lens.Lens' Query (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
-query_attributesToGet = Lens.lens (\Query' {attributesToGet} -> attributesToGet) (\s@Query' {} a -> s {attributesToGet = a} :: Query) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Specifies the order for index traversal: If @true@ (default), the
 -- traversal is performed in ascending order; if @false@, the traversal is
 -- performed in descending order.
@@ -1023,6 +1016,13 @@ query_scanIndexForward = Lens.lens (\Query' {scanIndexForward} -> scanIndexForwa
 -- in the /Amazon DynamoDB Developer Guide/.
 query_queryFilter :: Lens.Lens' Query (Prelude.Maybe (Prelude.HashMap Prelude.Text Condition))
 query_queryFilter = Lens.lens (\Query' {queryFilter} -> queryFilter) (\s@Query' {} a -> s {queryFilter = a} :: Query) Prelude.. Lens.mapping Lens._Coerce
+
+-- | This is a legacy parameter. Use @ProjectionExpression@ instead. For more
+-- information, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html AttributesToGet>
+-- in the /Amazon DynamoDB Developer Guide/.
+query_attributesToGet :: Lens.Lens' Query (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+query_attributesToGet = Lens.lens (\Query' {attributesToGet} -> attributesToGet) (\s@Query' {} a -> s {attributesToGet = a} :: Query) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the table containing the requested items.
 query_tableName :: Lens.Lens' Query Prelude.Text
@@ -1085,16 +1085,16 @@ instance Core.ToJSON Query where
             ("ExclusiveStartKey" Core..=)
               Prelude.<$> exclusiveStartKey,
             ("IndexName" Core..=) Prelude.<$> indexName,
-            ("ExpressionAttributeValues" Core..=)
-              Prelude.<$> expressionAttributeValues,
             ("KeyConditionExpression" Core..=)
               Prelude.<$> keyConditionExpression,
-            ("ConsistentRead" Core..=)
-              Prelude.<$> consistentRead,
-            ("ExpressionAttributeNames" Core..=)
-              Prelude.<$> expressionAttributeNames,
+            ("ExpressionAttributeValues" Core..=)
+              Prelude.<$> expressionAttributeValues,
             ("FilterExpression" Core..=)
               Prelude.<$> filterExpression,
+            ("ExpressionAttributeNames" Core..=)
+              Prelude.<$> expressionAttributeNames,
+            ("ConsistentRead" Core..=)
+              Prelude.<$> consistentRead,
             ("KeyConditions" Core..=) Prelude.<$> keyConditions,
             ("ReturnConsumedCapacity" Core..=)
               Prelude.<$> returnConsumedCapacity,
@@ -1102,11 +1102,11 @@ instance Core.ToJSON Query where
               Prelude.<$> conditionalOperator,
             ("Select" Core..=) Prelude.<$> select,
             ("Limit" Core..=) Prelude.<$> limit,
-            ("AttributesToGet" Core..=)
-              Prelude.<$> attributesToGet,
             ("ScanIndexForward" Core..=)
               Prelude.<$> scanIndexForward,
             ("QueryFilter" Core..=) Prelude.<$> queryFilter,
+            ("AttributesToGet" Core..=)
+              Prelude.<$> attributesToGet,
             Prelude.Just ("TableName" Core..= tableName)
           ]
       )

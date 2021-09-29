@@ -29,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPut' smart constructor.
 data Put = Put'
-  { -- | One or more values that can be substituted in an expression.
-    expressionAttributeValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
-    -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
+  { -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
     -- the @Put@ condition fails. For @ReturnValuesOnConditionCheckFailure@,
     -- the valid values are: NONE and ALL_OLD.
     returnValuesOnConditionCheckFailure :: Prelude.Maybe ReturnValuesOnConditionCheckFailure,
+    -- | One or more values that can be substituted in an expression.
+    expressionAttributeValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
     -- | One or more substitution tokens for attribute names in an expression.
     expressionAttributeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A condition that must be satisfied in order for a conditional update to
@@ -60,11 +60,11 @@ data Put = Put'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expressionAttributeValues', 'put_expressionAttributeValues' - One or more values that can be substituted in an expression.
---
 -- 'returnValuesOnConditionCheckFailure', 'put_returnValuesOnConditionCheckFailure' - Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
 -- the @Put@ condition fails. For @ReturnValuesOnConditionCheckFailure@,
 -- the valid values are: NONE and ALL_OLD.
+--
+-- 'expressionAttributeValues', 'put_expressionAttributeValues' - One or more values that can be substituted in an expression.
 --
 -- 'expressionAttributeNames', 'put_expressionAttributeNames' - One or more substitution tokens for attribute names in an expression.
 --
@@ -85,24 +85,24 @@ newPut ::
   Put
 newPut pTableName_ =
   Put'
-    { expressionAttributeValues = Prelude.Nothing,
-      returnValuesOnConditionCheckFailure =
+    { returnValuesOnConditionCheckFailure =
         Prelude.Nothing,
+      expressionAttributeValues = Prelude.Nothing,
       expressionAttributeNames = Prelude.Nothing,
       conditionExpression = Prelude.Nothing,
       item = Prelude.mempty,
       tableName = pTableName_
     }
 
--- | One or more values that can be substituted in an expression.
-put_expressionAttributeValues :: Lens.Lens' Put (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
-put_expressionAttributeValues = Lens.lens (\Put' {expressionAttributeValues} -> expressionAttributeValues) (\s@Put' {} a -> s {expressionAttributeValues = a} :: Put) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
 -- the @Put@ condition fails. For @ReturnValuesOnConditionCheckFailure@,
 -- the valid values are: NONE and ALL_OLD.
 put_returnValuesOnConditionCheckFailure :: Lens.Lens' Put (Prelude.Maybe ReturnValuesOnConditionCheckFailure)
 put_returnValuesOnConditionCheckFailure = Lens.lens (\Put' {returnValuesOnConditionCheckFailure} -> returnValuesOnConditionCheckFailure) (\s@Put' {} a -> s {returnValuesOnConditionCheckFailure = a} :: Put)
+
+-- | One or more values that can be substituted in an expression.
+put_expressionAttributeValues :: Lens.Lens' Put (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
+put_expressionAttributeValues = Lens.lens (\Put' {expressionAttributeValues} -> expressionAttributeValues) (\s@Put' {} a -> s {expressionAttributeValues = a} :: Put) Prelude.. Lens.mapping Lens._Coerce
 
 -- | One or more substitution tokens for attribute names in an expression.
 put_expressionAttributeNames :: Lens.Lens' Put (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -134,10 +134,10 @@ instance Core.ToJSON Put where
   toJSON Put' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ExpressionAttributeValues" Core..=)
-              Prelude.<$> expressionAttributeValues,
-            ("ReturnValuesOnConditionCheckFailure" Core..=)
+          [ ("ReturnValuesOnConditionCheckFailure" Core..=)
               Prelude.<$> returnValuesOnConditionCheckFailure,
+            ("ExpressionAttributeValues" Core..=)
+              Prelude.<$> expressionAttributeValues,
             ("ExpressionAttributeNames" Core..=)
               Prelude.<$> expressionAttributeNames,
             ("ConditionExpression" Core..=)

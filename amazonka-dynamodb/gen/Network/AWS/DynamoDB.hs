@@ -51,14 +51,14 @@ module Network.AWS.DynamoDB
     -- ** ConditionalCheckFailedException
     _ConditionalCheckFailedException,
 
+    -- ** GlobalTableNotFoundException
+    _GlobalTableNotFoundException,
+
     -- ** ReplicaAlreadyExistsException
     _ReplicaAlreadyExistsException,
 
     -- ** TransactionInProgressException
     _TransactionInProgressException,
-
-    -- ** GlobalTableNotFoundException
-    _GlobalTableNotFoundException,
 
     -- ** InvalidRestoreTimeException
     _InvalidRestoreTimeException,
@@ -69,50 +69,50 @@ module Network.AWS.DynamoDB
     -- ** ExportNotFoundException
     _ExportNotFoundException,
 
-    -- ** BackupInUseException
-    _BackupInUseException,
-
     -- ** ContinuousBackupsUnavailableException
     _ContinuousBackupsUnavailableException,
-
-    -- ** ExportConflictException
-    _ExportConflictException,
-
-    -- ** DuplicateItemException
-    _DuplicateItemException,
 
     -- ** TableInUseException
     _TableInUseException,
 
+    -- ** DuplicateItemException
+    _DuplicateItemException,
+
     -- ** TransactionConflictException
     _TransactionConflictException,
+
+    -- ** BackupInUseException
+    _BackupInUseException,
+
+    -- ** ExportConflictException
+    _ExportConflictException,
 
     -- ** InternalServerError
     _InternalServerError,
 
-    -- ** RequestLimitExceeded
-    _RequestLimitExceeded,
-
     -- ** ItemCollectionSizeLimitExceededException
     _ItemCollectionSizeLimitExceededException,
 
-    -- ** ReplicaNotFoundException
-    _ReplicaNotFoundException,
+    -- ** RequestLimitExceeded
+    _RequestLimitExceeded,
 
     -- ** TransactionCanceledException
     _TransactionCanceledException,
 
-    -- ** ResourceInUseException
-    _ResourceInUseException,
+    -- ** ReplicaNotFoundException
+    _ReplicaNotFoundException,
 
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** ProvisionedThroughputExceededException
-    _ProvisionedThroughputExceededException,
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ProvisionedThroughputExceededException
+    _ProvisionedThroughputExceededException,
 
     -- ** IdempotentParameterMismatchException
     _IdempotentParameterMismatchException,
@@ -120,11 +120,11 @@ module Network.AWS.DynamoDB
     -- ** BackupNotFoundException
     _BackupNotFoundException,
 
-    -- ** IndexNotFoundException
-    _IndexNotFoundException,
-
     -- ** TableNotFoundException
     _TableNotFoundException,
+
+    -- ** IndexNotFoundException
+    _IndexNotFoundException,
 
     -- * Waiters
     -- $waiters
@@ -156,17 +156,11 @@ module Network.AWS.DynamoDB
     DeleteBackupResponse (DeleteBackupResponse'),
     newDeleteBackupResponse,
 
-    -- ** DeleteItem
-    DeleteItem (DeleteItem'),
-    newDeleteItem,
-    DeleteItemResponse (DeleteItemResponse'),
-    newDeleteItemResponse,
-
-    -- ** UpdateItem
-    UpdateItem (UpdateItem'),
-    newUpdateItem,
-    UpdateItemResponse (UpdateItemResponse'),
-    newUpdateItemResponse,
+    -- ** DisableKinesisStreamingDestination
+    DisableKinesisStreamingDestination (DisableKinesisStreamingDestination'),
+    newDisableKinesisStreamingDestination,
+    KinesisStreamingDestinationOutput (KinesisStreamingDestinationOutput'),
+    newKinesisStreamingDestinationOutput,
 
     -- ** ListContributorInsights
     ListContributorInsights (ListContributorInsights'),
@@ -174,17 +168,23 @@ module Network.AWS.DynamoDB
     ListContributorInsightsResponse (ListContributorInsightsResponse'),
     newListContributorInsightsResponse,
 
+    -- ** UpdateItem
+    UpdateItem (UpdateItem'),
+    newUpdateItem,
+    UpdateItemResponse (UpdateItemResponse'),
+    newUpdateItemResponse,
+
+    -- ** DeleteItem
+    DeleteItem (DeleteItem'),
+    newDeleteItem,
+    DeleteItemResponse (DeleteItemResponse'),
+    newDeleteItemResponse,
+
     -- ** ListGlobalTables
     ListGlobalTables (ListGlobalTables'),
     newListGlobalTables,
     ListGlobalTablesResponse (ListGlobalTablesResponse'),
     newListGlobalTablesResponse,
-
-    -- ** DisableKinesisStreamingDestination
-    DisableKinesisStreamingDestination (DisableKinesisStreamingDestination'),
-    newDisableKinesisStreamingDestination,
-    KinesisStreamingDestinationOutput (KinesisStreamingDestinationOutput'),
-    newKinesisStreamingDestinationOutput,
 
     -- ** UpdateContinuousBackups
     UpdateContinuousBackups (UpdateContinuousBackups'),
@@ -198,23 +198,29 @@ module Network.AWS.DynamoDB
     CreateGlobalTableResponse (CreateGlobalTableResponse'),
     newCreateGlobalTableResponse,
 
-    -- ** BatchExecuteStatement
-    BatchExecuteStatement (BatchExecuteStatement'),
-    newBatchExecuteStatement,
-    BatchExecuteStatementResponse (BatchExecuteStatementResponse'),
-    newBatchExecuteStatementResponse,
-
     -- ** RestoreTableFromBackup
     RestoreTableFromBackup (RestoreTableFromBackup'),
     newRestoreTableFromBackup,
     RestoreTableFromBackupResponse (RestoreTableFromBackupResponse'),
     newRestoreTableFromBackupResponse,
 
-    -- ** DescribeLimits
-    DescribeLimits (DescribeLimits'),
-    newDescribeLimits,
-    DescribeLimitsResponse (DescribeLimitsResponse'),
-    newDescribeLimitsResponse,
+    -- ** BatchExecuteStatement
+    BatchExecuteStatement (BatchExecuteStatement'),
+    newBatchExecuteStatement,
+    BatchExecuteStatementResponse (BatchExecuteStatementResponse'),
+    newBatchExecuteStatementResponse,
+
+    -- ** DescribeContributorInsights
+    DescribeContributorInsights (DescribeContributorInsights'),
+    newDescribeContributorInsights,
+    DescribeContributorInsightsResponse (DescribeContributorInsightsResponse'),
+    newDescribeContributorInsightsResponse,
+
+    -- ** DescribeBackup
+    DescribeBackup (DescribeBackup'),
+    newDescribeBackup,
+    DescribeBackupResponse (DescribeBackupResponse'),
+    newDescribeBackupResponse,
 
     -- ** ExecuteTransaction
     ExecuteTransaction (ExecuteTransaction'),
@@ -228,23 +234,17 @@ module Network.AWS.DynamoDB
     RestoreTableToPointInTimeResponse (RestoreTableToPointInTimeResponse'),
     newRestoreTableToPointInTimeResponse,
 
+    -- ** DescribeLimits
+    DescribeLimits (DescribeLimits'),
+    newDescribeLimits,
+    DescribeLimitsResponse (DescribeLimitsResponse'),
+    newDescribeLimitsResponse,
+
     -- ** UntagResource
     UntagResource (UntagResource'),
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
-
-    -- ** DescribeContributorInsights
-    DescribeContributorInsights (DescribeContributorInsights'),
-    newDescribeContributorInsights,
-    DescribeContributorInsightsResponse (DescribeContributorInsightsResponse'),
-    newDescribeContributorInsightsResponse,
-
-    -- ** DescribeBackup
-    DescribeBackup (DescribeBackup'),
-    newDescribeBackup,
-    DescribeBackupResponse (DescribeBackupResponse'),
-    newDescribeBackupResponse,
 
     -- ** ListTagsOfResource (Paginated)
     ListTagsOfResource (ListTagsOfResource'),
@@ -276,12 +276,6 @@ module Network.AWS.DynamoDB
     DescribeTimeToLiveResponse (DescribeTimeToLiveResponse'),
     newDescribeTimeToLiveResponse,
 
-    -- ** Query (Paginated)
-    Query (Query'),
-    newQuery,
-    QueryResponse (QueryResponse'),
-    newQueryResponse,
-
     -- ** CreateTable
     CreateTable (CreateTable'),
     newCreateTable,
@@ -294,11 +288,11 @@ module Network.AWS.DynamoDB
     CreateBackupResponse (CreateBackupResponse'),
     newCreateBackupResponse,
 
-    -- ** ListTables (Paginated)
-    ListTables (ListTables'),
-    newListTables,
-    ListTablesResponse (ListTablesResponse'),
-    newListTablesResponse,
+    -- ** Query (Paginated)
+    Query (Query'),
+    newQuery,
+    QueryResponse (QueryResponse'),
+    newQueryResponse,
 
     -- ** Scan (Paginated)
     Scan (Scan'),
@@ -312,6 +306,12 @@ module Network.AWS.DynamoDB
     UpdateTableResponse (UpdateTableResponse'),
     newUpdateTableResponse,
 
+    -- ** ListBackups (Paginated)
+    ListBackups (ListBackups'),
+    newListBackups,
+    ListBackupsResponse (ListBackupsResponse'),
+    newListBackupsResponse,
+
     -- ** DeleteTable
     DeleteTable (DeleteTable'),
     newDeleteTable,
@@ -324,29 +324,17 @@ module Network.AWS.DynamoDB
     TransactWriteItemsResponse (TransactWriteItemsResponse'),
     newTransactWriteItemsResponse,
 
+    -- ** ListTables (Paginated)
+    ListTables (ListTables'),
+    newListTables,
+    ListTablesResponse (ListTablesResponse'),
+    newListTablesResponse,
+
     -- ** ExportTableToPointInTime
     ExportTableToPointInTime (ExportTableToPointInTime'),
     newExportTableToPointInTime,
     ExportTableToPointInTimeResponse (ExportTableToPointInTimeResponse'),
     newExportTableToPointInTimeResponse,
-
-    -- ** ListBackups (Paginated)
-    ListBackups (ListBackups'),
-    newListBackups,
-    ListBackupsResponse (ListBackupsResponse'),
-    newListBackupsResponse,
-
-    -- ** TransactGetItems
-    TransactGetItems (TransactGetItems'),
-    newTransactGetItems,
-    TransactGetItemsResponse (TransactGetItemsResponse'),
-    newTransactGetItemsResponse,
-
-    -- ** UpdateGlobalTable
-    UpdateGlobalTable (UpdateGlobalTable'),
-    newUpdateGlobalTable,
-    UpdateGlobalTableResponse (UpdateGlobalTableResponse'),
-    newUpdateGlobalTableResponse,
 
     -- ** BatchWriteItem
     BatchWriteItem (BatchWriteItem'),
@@ -354,29 +342,23 @@ module Network.AWS.DynamoDB
     BatchWriteItemResponse (BatchWriteItemResponse'),
     newBatchWriteItemResponse,
 
+    -- ** UpdateGlobalTable
+    UpdateGlobalTable (UpdateGlobalTable'),
+    newUpdateGlobalTable,
+    UpdateGlobalTableResponse (UpdateGlobalTableResponse'),
+    newUpdateGlobalTableResponse,
+
+    -- ** TransactGetItems
+    TransactGetItems (TransactGetItems'),
+    newTransactGetItems,
+    TransactGetItemsResponse (TransactGetItemsResponse'),
+    newTransactGetItemsResponse,
+
     -- ** PutItem
     PutItem (PutItem'),
     newPutItem,
     PutItemResponse (PutItemResponse'),
     newPutItemResponse,
-
-    -- ** UpdateTimeToLive
-    UpdateTimeToLive (UpdateTimeToLive'),
-    newUpdateTimeToLive,
-    UpdateTimeToLiveResponse (UpdateTimeToLiveResponse'),
-    newUpdateTimeToLiveResponse,
-
-    -- ** UpdateGlobalTableSettings
-    UpdateGlobalTableSettings (UpdateGlobalTableSettings'),
-    newUpdateGlobalTableSettings,
-    UpdateGlobalTableSettingsResponse (UpdateGlobalTableSettingsResponse'),
-    newUpdateGlobalTableSettingsResponse,
-
-    -- ** EnableKinesisStreamingDestination
-    EnableKinesisStreamingDestination (EnableKinesisStreamingDestination'),
-    newEnableKinesisStreamingDestination,
-    KinesisStreamingDestinationOutput (KinesisStreamingDestinationOutput'),
-    newKinesisStreamingDestinationOutput,
 
     -- ** DescribeExport
     DescribeExport (DescribeExport'),
@@ -390,11 +372,23 @@ module Network.AWS.DynamoDB
     DescribeTableReplicaAutoScalingResponse (DescribeTableReplicaAutoScalingResponse'),
     newDescribeTableReplicaAutoScalingResponse,
 
-    -- ** GetItem
-    GetItem (GetItem'),
-    newGetItem,
-    GetItemResponse (GetItemResponse'),
-    newGetItemResponse,
+    -- ** UpdateTimeToLive
+    UpdateTimeToLive (UpdateTimeToLive'),
+    newUpdateTimeToLive,
+    UpdateTimeToLiveResponse (UpdateTimeToLiveResponse'),
+    newUpdateTimeToLiveResponse,
+
+    -- ** EnableKinesisStreamingDestination
+    EnableKinesisStreamingDestination (EnableKinesisStreamingDestination'),
+    newEnableKinesisStreamingDestination,
+    KinesisStreamingDestinationOutput (KinesisStreamingDestinationOutput'),
+    newKinesisStreamingDestinationOutput,
+
+    -- ** UpdateGlobalTableSettings
+    UpdateGlobalTableSettings (UpdateGlobalTableSettings'),
+    newUpdateGlobalTableSettings,
+    UpdateGlobalTableSettingsResponse (UpdateGlobalTableSettingsResponse'),
+    newUpdateGlobalTableSettingsResponse,
 
     -- ** DescribeTable
     DescribeTable (DescribeTable'),
@@ -402,17 +396,17 @@ module Network.AWS.DynamoDB
     DescribeTableResponse (DescribeTableResponse'),
     newDescribeTableResponse,
 
+    -- ** GetItem
+    GetItem (GetItem'),
+    newGetItem,
+    GetItemResponse (GetItemResponse'),
+    newGetItemResponse,
+
     -- ** DescribeGlobalTable
     DescribeGlobalTable (DescribeGlobalTable'),
     newDescribeGlobalTable,
     DescribeGlobalTableResponse (DescribeGlobalTableResponse'),
     newDescribeGlobalTableResponse,
-
-    -- ** ListExports
-    ListExports (ListExports'),
-    newListExports,
-    ListExportsResponse (ListExportsResponse'),
-    newListExportsResponse,
 
     -- ** DescribeContinuousBackups
     DescribeContinuousBackups (DescribeContinuousBackups'),
@@ -420,17 +414,23 @@ module Network.AWS.DynamoDB
     DescribeContinuousBackupsResponse (DescribeContinuousBackupsResponse'),
     newDescribeContinuousBackupsResponse,
 
-    -- ** DescribeKinesisStreamingDestination
-    DescribeKinesisStreamingDestination (DescribeKinesisStreamingDestination'),
-    newDescribeKinesisStreamingDestination,
-    DescribeKinesisStreamingDestinationResponse (DescribeKinesisStreamingDestinationResponse'),
-    newDescribeKinesisStreamingDestinationResponse,
-
     -- ** DescribeEndpoints
     DescribeEndpoints (DescribeEndpoints'),
     newDescribeEndpoints,
     DescribeEndpointsResponse (DescribeEndpointsResponse'),
     newDescribeEndpointsResponse,
+
+    -- ** ListExports
+    ListExports (ListExports'),
+    newListExports,
+    ListExportsResponse (ListExportsResponse'),
+    newListExportsResponse,
+
+    -- ** DescribeKinesisStreamingDestination
+    DescribeKinesisStreamingDestination (DescribeKinesisStreamingDestination'),
+    newDescribeKinesisStreamingDestination,
+    DescribeKinesisStreamingDestinationResponse (DescribeKinesisStreamingDestinationResponse'),
+    newDescribeKinesisStreamingDestinationResponse,
 
     -- ** ExecuteStatement
     ExecuteStatement (ExecuteStatement'),

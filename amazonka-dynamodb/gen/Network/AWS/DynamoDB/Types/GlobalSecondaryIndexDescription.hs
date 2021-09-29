@@ -79,13 +79,6 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
     -- approximately every six hours. Recent changes might not be reflected in
     -- this value.
     itemCount :: Prelude.Maybe Prelude.Integer,
-    -- | Represents the provisioned throughput settings for the specified global
-    -- secondary index.
-    --
-    -- For current minimum and maximum provisioned throughput values, see
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas>
-    -- in the /Amazon DynamoDB Developer Guide/.
-    provisionedThroughput :: Prelude.Maybe ProvisionedThroughputDescription,
     -- | The current state of the global secondary index:
     --
     -- -   @CREATING@ - The index is being created.
@@ -95,7 +88,14 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
     -- -   @DELETING@ - The index is being deleted.
     --
     -- -   @ACTIVE@ - The index is ready for use.
-    indexStatus :: Prelude.Maybe IndexStatus
+    indexStatus :: Prelude.Maybe IndexStatus,
+    -- | Represents the provisioned throughput settings for the specified global
+    -- secondary index.
+    --
+    -- For current minimum and maximum provisioned throughput values, see
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas>
+    -- in the /Amazon DynamoDB Developer Guide/.
+    provisionedThroughput :: Prelude.Maybe ProvisionedThroughputDescription
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -155,13 +155,6 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
 -- approximately every six hours. Recent changes might not be reflected in
 -- this value.
 --
--- 'provisionedThroughput', 'globalSecondaryIndexDescription_provisionedThroughput' - Represents the provisioned throughput settings for the specified global
--- secondary index.
---
--- For current minimum and maximum provisioned throughput values, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas>
--- in the /Amazon DynamoDB Developer Guide/.
---
 -- 'indexStatus', 'globalSecondaryIndexDescription_indexStatus' - The current state of the global secondary index:
 --
 -- -   @CREATING@ - The index is being created.
@@ -171,6 +164,13 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
 -- -   @DELETING@ - The index is being deleted.
 --
 -- -   @ACTIVE@ - The index is ready for use.
+--
+-- 'provisionedThroughput', 'globalSecondaryIndexDescription_provisionedThroughput' - Represents the provisioned throughput settings for the specified global
+-- secondary index.
+--
+-- For current minimum and maximum provisioned throughput values, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas>
+-- in the /Amazon DynamoDB Developer Guide/.
 newGlobalSecondaryIndexDescription ::
   GlobalSecondaryIndexDescription
 newGlobalSecondaryIndexDescription =
@@ -183,8 +183,8 @@ newGlobalSecondaryIndexDescription =
       indexSizeBytes = Prelude.Nothing,
       backfilling = Prelude.Nothing,
       itemCount = Prelude.Nothing,
-      provisionedThroughput = Prelude.Nothing,
-      indexStatus = Prelude.Nothing
+      indexStatus = Prelude.Nothing,
+      provisionedThroughput = Prelude.Nothing
     }
 
 -- | The name of the global secondary index.
@@ -249,15 +249,6 @@ globalSecondaryIndexDescription_backfilling = Lens.lens (\GlobalSecondaryIndexDe
 globalSecondaryIndexDescription_itemCount :: Lens.Lens' GlobalSecondaryIndexDescription (Prelude.Maybe Prelude.Integer)
 globalSecondaryIndexDescription_itemCount = Lens.lens (\GlobalSecondaryIndexDescription' {itemCount} -> itemCount) (\s@GlobalSecondaryIndexDescription' {} a -> s {itemCount = a} :: GlobalSecondaryIndexDescription)
 
--- | Represents the provisioned throughput settings for the specified global
--- secondary index.
---
--- For current minimum and maximum provisioned throughput values, see
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas>
--- in the /Amazon DynamoDB Developer Guide/.
-globalSecondaryIndexDescription_provisionedThroughput :: Lens.Lens' GlobalSecondaryIndexDescription (Prelude.Maybe ProvisionedThroughputDescription)
-globalSecondaryIndexDescription_provisionedThroughput = Lens.lens (\GlobalSecondaryIndexDescription' {provisionedThroughput} -> provisionedThroughput) (\s@GlobalSecondaryIndexDescription' {} a -> s {provisionedThroughput = a} :: GlobalSecondaryIndexDescription)
-
 -- | The current state of the global secondary index:
 --
 -- -   @CREATING@ - The index is being created.
@@ -269,6 +260,15 @@ globalSecondaryIndexDescription_provisionedThroughput = Lens.lens (\GlobalSecond
 -- -   @ACTIVE@ - The index is ready for use.
 globalSecondaryIndexDescription_indexStatus :: Lens.Lens' GlobalSecondaryIndexDescription (Prelude.Maybe IndexStatus)
 globalSecondaryIndexDescription_indexStatus = Lens.lens (\GlobalSecondaryIndexDescription' {indexStatus} -> indexStatus) (\s@GlobalSecondaryIndexDescription' {} a -> s {indexStatus = a} :: GlobalSecondaryIndexDescription)
+
+-- | Represents the provisioned throughput settings for the specified global
+-- secondary index.
+--
+-- For current minimum and maximum provisioned throughput values, see
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas>
+-- in the /Amazon DynamoDB Developer Guide/.
+globalSecondaryIndexDescription_provisionedThroughput :: Lens.Lens' GlobalSecondaryIndexDescription (Prelude.Maybe ProvisionedThroughputDescription)
+globalSecondaryIndexDescription_provisionedThroughput = Lens.lens (\GlobalSecondaryIndexDescription' {provisionedThroughput} -> provisionedThroughput) (\s@GlobalSecondaryIndexDescription' {} a -> s {provisionedThroughput = a} :: GlobalSecondaryIndexDescription)
 
 instance
   Core.FromJSON
@@ -286,8 +286,8 @@ instance
             Prelude.<*> (x Core..:? "IndexSizeBytes")
             Prelude.<*> (x Core..:? "Backfilling")
             Prelude.<*> (x Core..:? "ItemCount")
-            Prelude.<*> (x Core..:? "ProvisionedThroughput")
             Prelude.<*> (x Core..:? "IndexStatus")
+            Prelude.<*> (x Core..:? "ProvisionedThroughput")
       )
 
 instance

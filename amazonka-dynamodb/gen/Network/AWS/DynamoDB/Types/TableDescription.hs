@@ -39,11 +39,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTableDescription' smart constructor.
 data TableDescription = TableDescription'
-  { -- | Represents the version of
-    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html global tables>
-    -- in use, if the table is replicated across AWS Regions.
-    globalTableVersion :: Prelude.Maybe Prelude.Text,
-    -- | Represents one or more local secondary indexes on the table. Each index
+  { -- | Represents one or more local secondary indexes on the table. Each index
     -- is scoped to a given partition key value. Tables with one or more local
     -- secondary indexes are subject to an item collection size limit, where
     -- the amount of data within a given item collection cannot exceed 10 GB.
@@ -91,10 +87,12 @@ data TableDescription = TableDescription'
     -- If the table is in the @DELETING@ state, no information about indexes
     -- will be returned.
     localSecondaryIndexes :: Prelude.Maybe [LocalSecondaryIndexDescription],
+    -- | Represents the version of
+    -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html global tables>
+    -- in use, if the table is replicated across AWS Regions.
+    globalTableVersion :: Prelude.Maybe Prelude.Text,
     -- | Contains details for the restore.
     restoreSummary :: Prelude.Maybe RestoreSummary,
-    -- | The current DynamoDB Streams configuration for the table.
-    streamSpecification :: Prelude.Maybe StreamSpecification,
     -- | The global secondary indexes, if any, on the table. Each index is scoped
     -- to a given partition key value. Each element is composed of:
     --
@@ -170,6 +168,8 @@ data TableDescription = TableDescription'
     globalSecondaryIndexes :: Prelude.Maybe [GlobalSecondaryIndexDescription],
     -- | The name of the table.
     tableName :: Prelude.Maybe Prelude.Text,
+    -- | The current DynamoDB Streams configuration for the table.
+    streamSpecification :: Prelude.Maybe StreamSpecification,
     -- | The primary key structure for the table. Each @KeySchemaElement@
     -- consists of:
     --
@@ -195,10 +195,14 @@ data TableDescription = TableDescription'
     -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey Primary Key>
     -- in the /Amazon DynamoDB Developer Guide/.
     keySchema :: Prelude.Maybe (Prelude.NonEmpty KeySchemaElement),
-    -- | The Amazon Resource Name (ARN) that uniquely identifies the table.
-    tableArn :: Prelude.Maybe Prelude.Text,
     -- | Unique identifier for the table for which the backup was created.
     tableId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) that uniquely identifies the table.
+    tableArn :: Prelude.Maybe Prelude.Text,
+    -- | The total size of the specified table, in bytes. DynamoDB updates this
+    -- value approximately every six hours. Recent changes might not be
+    -- reflected in this value.
+    tableSizeBytes :: Prelude.Maybe Prelude.Integer,
     -- | An array of @AttributeDefinition@ objects. Each of these objects
     -- describes one attribute in the table and index key schema.
     --
@@ -208,10 +212,6 @@ data TableDescription = TableDescription'
     --
     -- -   @AttributeType@ - The data type for the attribute.
     attributeDefinitions :: Prelude.Maybe [AttributeDefinition],
-    -- | The total size of the specified table, in bytes. DynamoDB updates this
-    -- value approximately every six hours. Recent changes might not be
-    -- reflected in this value.
-    tableSizeBytes :: Prelude.Maybe Prelude.Integer,
     -- | Contains the details for the read\/write capacity mode.
     billingModeSummary :: Prelude.Maybe BillingModeSummary,
     -- | A timestamp, in ISO 8601 format, for this stream.
@@ -233,14 +233,20 @@ data TableDescription = TableDescription'
     -- approximately every six hours. Recent changes might not be reflected in
     -- this value.
     itemCount :: Prelude.Maybe Prelude.Integer,
+    -- | Represents replicas of the table.
+    replicas :: Prelude.Maybe [ReplicaDescription],
     -- | The description of the server-side encryption status on the specified
     -- table.
     sSEDescription :: Prelude.Maybe SSEDescription,
-    -- | Represents replicas of the table.
-    replicas :: Prelude.Maybe [ReplicaDescription],
     -- | The date and time when the table was created, in
     -- <http://www.epochconverter.com/ UNIX epoch time> format.
     creationDateTime :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name (ARN) that uniquely identifies the latest
+    -- stream for this table.
+    latestStreamArn :: Prelude.Maybe Prelude.Text,
+    -- | The provisioned throughput settings for the table, consisting of read
+    -- and write capacity units, along with data about increases and decreases.
+    provisionedThroughput :: Prelude.Maybe ProvisionedThroughputDescription,
     -- | The current state of the table:
     --
     -- -   @CREATING@ - The table is being created.
@@ -262,13 +268,7 @@ data TableDescription = TableDescription'
     --
     -- -   @ARCHIVED@ - The table has been archived. See the ArchivalReason for
     --     more information.
-    tableStatus :: Prelude.Maybe TableStatus,
-    -- | The provisioned throughput settings for the table, consisting of read
-    -- and write capacity units, along with data about increases and decreases.
-    provisionedThroughput :: Prelude.Maybe ProvisionedThroughputDescription,
-    -- | The Amazon Resource Name (ARN) that uniquely identifies the latest
-    -- stream for this table.
-    latestStreamArn :: Prelude.Maybe Prelude.Text
+    tableStatus :: Prelude.Maybe TableStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -279,10 +279,6 @@ data TableDescription = TableDescription'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'globalTableVersion', 'tableDescription_globalTableVersion' - Represents the version of
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html global tables>
--- in use, if the table is replicated across AWS Regions.
 --
 -- 'localSecondaryIndexes', 'tableDescription_localSecondaryIndexes' - Represents one or more local secondary indexes on the table. Each index
 -- is scoped to a given partition key value. Tables with one or more local
@@ -332,9 +328,11 @@ data TableDescription = TableDescription'
 -- If the table is in the @DELETING@ state, no information about indexes
 -- will be returned.
 --
--- 'restoreSummary', 'tableDescription_restoreSummary' - Contains details for the restore.
+-- 'globalTableVersion', 'tableDescription_globalTableVersion' - Represents the version of
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html global tables>
+-- in use, if the table is replicated across AWS Regions.
 --
--- 'streamSpecification', 'tableDescription_streamSpecification' - The current DynamoDB Streams configuration for the table.
+-- 'restoreSummary', 'tableDescription_restoreSummary' - Contains details for the restore.
 --
 -- 'globalSecondaryIndexes', 'tableDescription_globalSecondaryIndexes' - The global secondary indexes, if any, on the table. Each index is scoped
 -- to a given partition key value. Each element is composed of:
@@ -411,6 +409,8 @@ data TableDescription = TableDescription'
 --
 -- 'tableName', 'tableDescription_tableName' - The name of the table.
 --
+-- 'streamSpecification', 'tableDescription_streamSpecification' - The current DynamoDB Streams configuration for the table.
+--
 -- 'keySchema', 'tableDescription_keySchema' - The primary key structure for the table. Each @KeySchemaElement@
 -- consists of:
 --
@@ -436,9 +436,13 @@ data TableDescription = TableDescription'
 -- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey Primary Key>
 -- in the /Amazon DynamoDB Developer Guide/.
 --
+-- 'tableId', 'tableDescription_tableId' - Unique identifier for the table for which the backup was created.
+--
 -- 'tableArn', 'tableDescription_tableArn' - The Amazon Resource Name (ARN) that uniquely identifies the table.
 --
--- 'tableId', 'tableDescription_tableId' - Unique identifier for the table for which the backup was created.
+-- 'tableSizeBytes', 'tableDescription_tableSizeBytes' - The total size of the specified table, in bytes. DynamoDB updates this
+-- value approximately every six hours. Recent changes might not be
+-- reflected in this value.
 --
 -- 'attributeDefinitions', 'tableDescription_attributeDefinitions' - An array of @AttributeDefinition@ objects. Each of these objects
 -- describes one attribute in the table and index key schema.
@@ -448,10 +452,6 @@ data TableDescription = TableDescription'
 -- -   @AttributeName@ - The name of the attribute.
 --
 -- -   @AttributeType@ - The data type for the attribute.
---
--- 'tableSizeBytes', 'tableDescription_tableSizeBytes' - The total size of the specified table, in bytes. DynamoDB updates this
--- value approximately every six hours. Recent changes might not be
--- reflected in this value.
 --
 -- 'billingModeSummary', 'tableDescription_billingModeSummary' - Contains the details for the read\/write capacity mode.
 --
@@ -474,13 +474,19 @@ data TableDescription = TableDescription'
 -- approximately every six hours. Recent changes might not be reflected in
 -- this value.
 --
+-- 'replicas', 'tableDescription_replicas' - Represents replicas of the table.
+--
 -- 'sSEDescription', 'tableDescription_sSEDescription' - The description of the server-side encryption status on the specified
 -- table.
 --
--- 'replicas', 'tableDescription_replicas' - Represents replicas of the table.
---
 -- 'creationDateTime', 'tableDescription_creationDateTime' - The date and time when the table was created, in
 -- <http://www.epochconverter.com/ UNIX epoch time> format.
+--
+-- 'latestStreamArn', 'tableDescription_latestStreamArn' - The Amazon Resource Name (ARN) that uniquely identifies the latest
+-- stream for this table.
+--
+-- 'provisionedThroughput', 'tableDescription_provisionedThroughput' - The provisioned throughput settings for the table, consisting of read
+-- and write capacity units, along with data about increases and decreases.
 --
 -- 'tableStatus', 'tableDescription_tableStatus' - The current state of the table:
 --
@@ -503,45 +509,33 @@ data TableDescription = TableDescription'
 --
 -- -   @ARCHIVED@ - The table has been archived. See the ArchivalReason for
 --     more information.
---
--- 'provisionedThroughput', 'tableDescription_provisionedThroughput' - The provisioned throughput settings for the table, consisting of read
--- and write capacity units, along with data about increases and decreases.
---
--- 'latestStreamArn', 'tableDescription_latestStreamArn' - The Amazon Resource Name (ARN) that uniquely identifies the latest
--- stream for this table.
 newTableDescription ::
   TableDescription
 newTableDescription =
   TableDescription'
-    { globalTableVersion =
+    { localSecondaryIndexes =
         Prelude.Nothing,
-      localSecondaryIndexes = Prelude.Nothing,
+      globalTableVersion = Prelude.Nothing,
       restoreSummary = Prelude.Nothing,
-      streamSpecification = Prelude.Nothing,
       globalSecondaryIndexes = Prelude.Nothing,
       tableName = Prelude.Nothing,
+      streamSpecification = Prelude.Nothing,
       keySchema = Prelude.Nothing,
-      tableArn = Prelude.Nothing,
       tableId = Prelude.Nothing,
-      attributeDefinitions = Prelude.Nothing,
+      tableArn = Prelude.Nothing,
       tableSizeBytes = Prelude.Nothing,
+      attributeDefinitions = Prelude.Nothing,
       billingModeSummary = Prelude.Nothing,
       latestStreamLabel = Prelude.Nothing,
       archivalSummary = Prelude.Nothing,
       itemCount = Prelude.Nothing,
-      sSEDescription = Prelude.Nothing,
       replicas = Prelude.Nothing,
+      sSEDescription = Prelude.Nothing,
       creationDateTime = Prelude.Nothing,
-      tableStatus = Prelude.Nothing,
+      latestStreamArn = Prelude.Nothing,
       provisionedThroughput = Prelude.Nothing,
-      latestStreamArn = Prelude.Nothing
+      tableStatus = Prelude.Nothing
     }
-
--- | Represents the version of
--- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html global tables>
--- in use, if the table is replicated across AWS Regions.
-tableDescription_globalTableVersion :: Lens.Lens' TableDescription (Prelude.Maybe Prelude.Text)
-tableDescription_globalTableVersion = Lens.lens (\TableDescription' {globalTableVersion} -> globalTableVersion) (\s@TableDescription' {} a -> s {globalTableVersion = a} :: TableDescription)
 
 -- | Represents one or more local secondary indexes on the table. Each index
 -- is scoped to a given partition key value. Tables with one or more local
@@ -593,13 +587,15 @@ tableDescription_globalTableVersion = Lens.lens (\TableDescription' {globalTable
 tableDescription_localSecondaryIndexes :: Lens.Lens' TableDescription (Prelude.Maybe [LocalSecondaryIndexDescription])
 tableDescription_localSecondaryIndexes = Lens.lens (\TableDescription' {localSecondaryIndexes} -> localSecondaryIndexes) (\s@TableDescription' {} a -> s {localSecondaryIndexes = a} :: TableDescription) Prelude.. Lens.mapping Lens._Coerce
 
+-- | Represents the version of
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html global tables>
+-- in use, if the table is replicated across AWS Regions.
+tableDescription_globalTableVersion :: Lens.Lens' TableDescription (Prelude.Maybe Prelude.Text)
+tableDescription_globalTableVersion = Lens.lens (\TableDescription' {globalTableVersion} -> globalTableVersion) (\s@TableDescription' {} a -> s {globalTableVersion = a} :: TableDescription)
+
 -- | Contains details for the restore.
 tableDescription_restoreSummary :: Lens.Lens' TableDescription (Prelude.Maybe RestoreSummary)
 tableDescription_restoreSummary = Lens.lens (\TableDescription' {restoreSummary} -> restoreSummary) (\s@TableDescription' {} a -> s {restoreSummary = a} :: TableDescription)
-
--- | The current DynamoDB Streams configuration for the table.
-tableDescription_streamSpecification :: Lens.Lens' TableDescription (Prelude.Maybe StreamSpecification)
-tableDescription_streamSpecification = Lens.lens (\TableDescription' {streamSpecification} -> streamSpecification) (\s@TableDescription' {} a -> s {streamSpecification = a} :: TableDescription)
 
 -- | The global secondary indexes, if any, on the table. Each index is scoped
 -- to a given partition key value. Each element is composed of:
@@ -680,6 +676,10 @@ tableDescription_globalSecondaryIndexes = Lens.lens (\TableDescription' {globalS
 tableDescription_tableName :: Lens.Lens' TableDescription (Prelude.Maybe Prelude.Text)
 tableDescription_tableName = Lens.lens (\TableDescription' {tableName} -> tableName) (\s@TableDescription' {} a -> s {tableName = a} :: TableDescription)
 
+-- | The current DynamoDB Streams configuration for the table.
+tableDescription_streamSpecification :: Lens.Lens' TableDescription (Prelude.Maybe StreamSpecification)
+tableDescription_streamSpecification = Lens.lens (\TableDescription' {streamSpecification} -> streamSpecification) (\s@TableDescription' {} a -> s {streamSpecification = a} :: TableDescription)
+
 -- | The primary key structure for the table. Each @KeySchemaElement@
 -- consists of:
 --
@@ -707,13 +707,19 @@ tableDescription_tableName = Lens.lens (\TableDescription' {tableName} -> tableN
 tableDescription_keySchema :: Lens.Lens' TableDescription (Prelude.Maybe (Prelude.NonEmpty KeySchemaElement))
 tableDescription_keySchema = Lens.lens (\TableDescription' {keySchema} -> keySchema) (\s@TableDescription' {} a -> s {keySchema = a} :: TableDescription) Prelude.. Lens.mapping Lens._Coerce
 
+-- | Unique identifier for the table for which the backup was created.
+tableDescription_tableId :: Lens.Lens' TableDescription (Prelude.Maybe Prelude.Text)
+tableDescription_tableId = Lens.lens (\TableDescription' {tableId} -> tableId) (\s@TableDescription' {} a -> s {tableId = a} :: TableDescription)
+
 -- | The Amazon Resource Name (ARN) that uniquely identifies the table.
 tableDescription_tableArn :: Lens.Lens' TableDescription (Prelude.Maybe Prelude.Text)
 tableDescription_tableArn = Lens.lens (\TableDescription' {tableArn} -> tableArn) (\s@TableDescription' {} a -> s {tableArn = a} :: TableDescription)
 
--- | Unique identifier for the table for which the backup was created.
-tableDescription_tableId :: Lens.Lens' TableDescription (Prelude.Maybe Prelude.Text)
-tableDescription_tableId = Lens.lens (\TableDescription' {tableId} -> tableId) (\s@TableDescription' {} a -> s {tableId = a} :: TableDescription)
+-- | The total size of the specified table, in bytes. DynamoDB updates this
+-- value approximately every six hours. Recent changes might not be
+-- reflected in this value.
+tableDescription_tableSizeBytes :: Lens.Lens' TableDescription (Prelude.Maybe Prelude.Integer)
+tableDescription_tableSizeBytes = Lens.lens (\TableDescription' {tableSizeBytes} -> tableSizeBytes) (\s@TableDescription' {} a -> s {tableSizeBytes = a} :: TableDescription)
 
 -- | An array of @AttributeDefinition@ objects. Each of these objects
 -- describes one attribute in the table and index key schema.
@@ -725,12 +731,6 @@ tableDescription_tableId = Lens.lens (\TableDescription' {tableId} -> tableId) (
 -- -   @AttributeType@ - The data type for the attribute.
 tableDescription_attributeDefinitions :: Lens.Lens' TableDescription (Prelude.Maybe [AttributeDefinition])
 tableDescription_attributeDefinitions = Lens.lens (\TableDescription' {attributeDefinitions} -> attributeDefinitions) (\s@TableDescription' {} a -> s {attributeDefinitions = a} :: TableDescription) Prelude.. Lens.mapping Lens._Coerce
-
--- | The total size of the specified table, in bytes. DynamoDB updates this
--- value approximately every six hours. Recent changes might not be
--- reflected in this value.
-tableDescription_tableSizeBytes :: Lens.Lens' TableDescription (Prelude.Maybe Prelude.Integer)
-tableDescription_tableSizeBytes = Lens.lens (\TableDescription' {tableSizeBytes} -> tableSizeBytes) (\s@TableDescription' {} a -> s {tableSizeBytes = a} :: TableDescription)
 
 -- | Contains the details for the read\/write capacity mode.
 tableDescription_billingModeSummary :: Lens.Lens' TableDescription (Prelude.Maybe BillingModeSummary)
@@ -761,19 +761,29 @@ tableDescription_archivalSummary = Lens.lens (\TableDescription' {archivalSummar
 tableDescription_itemCount :: Lens.Lens' TableDescription (Prelude.Maybe Prelude.Integer)
 tableDescription_itemCount = Lens.lens (\TableDescription' {itemCount} -> itemCount) (\s@TableDescription' {} a -> s {itemCount = a} :: TableDescription)
 
+-- | Represents replicas of the table.
+tableDescription_replicas :: Lens.Lens' TableDescription (Prelude.Maybe [ReplicaDescription])
+tableDescription_replicas = Lens.lens (\TableDescription' {replicas} -> replicas) (\s@TableDescription' {} a -> s {replicas = a} :: TableDescription) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The description of the server-side encryption status on the specified
 -- table.
 tableDescription_sSEDescription :: Lens.Lens' TableDescription (Prelude.Maybe SSEDescription)
 tableDescription_sSEDescription = Lens.lens (\TableDescription' {sSEDescription} -> sSEDescription) (\s@TableDescription' {} a -> s {sSEDescription = a} :: TableDescription)
 
--- | Represents replicas of the table.
-tableDescription_replicas :: Lens.Lens' TableDescription (Prelude.Maybe [ReplicaDescription])
-tableDescription_replicas = Lens.lens (\TableDescription' {replicas} -> replicas) (\s@TableDescription' {} a -> s {replicas = a} :: TableDescription) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The date and time when the table was created, in
 -- <http://www.epochconverter.com/ UNIX epoch time> format.
 tableDescription_creationDateTime :: Lens.Lens' TableDescription (Prelude.Maybe Prelude.UTCTime)
 tableDescription_creationDateTime = Lens.lens (\TableDescription' {creationDateTime} -> creationDateTime) (\s@TableDescription' {} a -> s {creationDateTime = a} :: TableDescription) Prelude.. Lens.mapping Core._Time
+
+-- | The Amazon Resource Name (ARN) that uniquely identifies the latest
+-- stream for this table.
+tableDescription_latestStreamArn :: Lens.Lens' TableDescription (Prelude.Maybe Prelude.Text)
+tableDescription_latestStreamArn = Lens.lens (\TableDescription' {latestStreamArn} -> latestStreamArn) (\s@TableDescription' {} a -> s {latestStreamArn = a} :: TableDescription)
+
+-- | The provisioned throughput settings for the table, consisting of read
+-- and write capacity units, along with data about increases and decreases.
+tableDescription_provisionedThroughput :: Lens.Lens' TableDescription (Prelude.Maybe ProvisionedThroughputDescription)
+tableDescription_provisionedThroughput = Lens.lens (\TableDescription' {provisionedThroughput} -> provisionedThroughput) (\s@TableDescription' {} a -> s {provisionedThroughput = a} :: TableDescription)
 
 -- | The current state of the table:
 --
@@ -799,49 +809,39 @@ tableDescription_creationDateTime = Lens.lens (\TableDescription' {creationDateT
 tableDescription_tableStatus :: Lens.Lens' TableDescription (Prelude.Maybe TableStatus)
 tableDescription_tableStatus = Lens.lens (\TableDescription' {tableStatus} -> tableStatus) (\s@TableDescription' {} a -> s {tableStatus = a} :: TableDescription)
 
--- | The provisioned throughput settings for the table, consisting of read
--- and write capacity units, along with data about increases and decreases.
-tableDescription_provisionedThroughput :: Lens.Lens' TableDescription (Prelude.Maybe ProvisionedThroughputDescription)
-tableDescription_provisionedThroughput = Lens.lens (\TableDescription' {provisionedThroughput} -> provisionedThroughput) (\s@TableDescription' {} a -> s {provisionedThroughput = a} :: TableDescription)
-
--- | The Amazon Resource Name (ARN) that uniquely identifies the latest
--- stream for this table.
-tableDescription_latestStreamArn :: Lens.Lens' TableDescription (Prelude.Maybe Prelude.Text)
-tableDescription_latestStreamArn = Lens.lens (\TableDescription' {latestStreamArn} -> latestStreamArn) (\s@TableDescription' {} a -> s {latestStreamArn = a} :: TableDescription)
-
 instance Core.FromJSON TableDescription where
   parseJSON =
     Core.withObject
       "TableDescription"
       ( \x ->
           TableDescription'
-            Prelude.<$> (x Core..:? "GlobalTableVersion")
-            Prelude.<*> ( x Core..:? "LocalSecondaryIndexes"
+            Prelude.<$> ( x Core..:? "LocalSecondaryIndexes"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "GlobalTableVersion")
             Prelude.<*> (x Core..:? "RestoreSummary")
-            Prelude.<*> (x Core..:? "StreamSpecification")
             Prelude.<*> ( x Core..:? "GlobalSecondaryIndexes"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "TableName")
+            Prelude.<*> (x Core..:? "StreamSpecification")
             Prelude.<*> (x Core..:? "KeySchema")
-            Prelude.<*> (x Core..:? "TableArn")
             Prelude.<*> (x Core..:? "TableId")
+            Prelude.<*> (x Core..:? "TableArn")
+            Prelude.<*> (x Core..:? "TableSizeBytes")
             Prelude.<*> ( x Core..:? "AttributeDefinitions"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "TableSizeBytes")
             Prelude.<*> (x Core..:? "BillingModeSummary")
             Prelude.<*> (x Core..:? "LatestStreamLabel")
             Prelude.<*> (x Core..:? "ArchivalSummary")
             Prelude.<*> (x Core..:? "ItemCount")
-            Prelude.<*> (x Core..:? "SSEDescription")
             Prelude.<*> (x Core..:? "Replicas" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "SSEDescription")
             Prelude.<*> (x Core..:? "CreationDateTime")
-            Prelude.<*> (x Core..:? "TableStatus")
-            Prelude.<*> (x Core..:? "ProvisionedThroughput")
             Prelude.<*> (x Core..:? "LatestStreamArn")
+            Prelude.<*> (x Core..:? "ProvisionedThroughput")
+            Prelude.<*> (x Core..:? "TableStatus")
       )
 
 instance Prelude.Hashable TableDescription

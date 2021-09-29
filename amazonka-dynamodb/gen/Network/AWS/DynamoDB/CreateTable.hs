@@ -45,8 +45,8 @@ module Network.AWS.DynamoDB.CreateTable
 
     -- * Request Lenses
     createTable_localSecondaryIndexes,
-    createTable_streamSpecification,
     createTable_globalSecondaryIndexes,
+    createTable_streamSpecification,
     createTable_sSESpecification,
     createTable_billingMode,
     createTable_tags,
@@ -114,28 +114,6 @@ data CreateTable = CreateTable'
     --         project the same attribute into two different indexes, this
     --         counts as two distinct attributes when determining the total.
     localSecondaryIndexes :: Prelude.Maybe [LocalSecondaryIndex],
-    -- | The settings for DynamoDB Streams on the table. These settings consist
-    -- of:
-    --
-    -- -   @StreamEnabled@ - Indicates whether DynamoDB Streams is to be
-    --     enabled (true) or disabled (false).
-    --
-    -- -   @StreamViewType@ - When an item in the table is modified,
-    --     @StreamViewType@ determines what information is written to the
-    --     table\'s stream. Valid values for @StreamViewType@ are:
-    --
-    --     -   @KEYS_ONLY@ - Only the key attributes of the modified item are
-    --         written to the stream.
-    --
-    --     -   @NEW_IMAGE@ - The entire item, as it appears after it was
-    --         modified, is written to the stream.
-    --
-    --     -   @OLD_IMAGE@ - The entire item, as it appeared before it was
-    --         modified, is written to the stream.
-    --
-    --     -   @NEW_AND_OLD_IMAGES@ - Both the new and the old item images of
-    --         the item are written to the stream.
-    streamSpecification :: Prelude.Maybe StreamSpecification,
     -- | One or more global secondary indexes (the maximum is 20) to be created
     -- on the table. Each global secondary index in the array includes the
     -- following:
@@ -174,6 +152,28 @@ data CreateTable = CreateTable'
     --     the global secondary index, consisting of read and write capacity
     --     units.
     globalSecondaryIndexes :: Prelude.Maybe [GlobalSecondaryIndex],
+    -- | The settings for DynamoDB Streams on the table. These settings consist
+    -- of:
+    --
+    -- -   @StreamEnabled@ - Indicates whether DynamoDB Streams is to be
+    --     enabled (true) or disabled (false).
+    --
+    -- -   @StreamViewType@ - When an item in the table is modified,
+    --     @StreamViewType@ determines what information is written to the
+    --     table\'s stream. Valid values for @StreamViewType@ are:
+    --
+    --     -   @KEYS_ONLY@ - Only the key attributes of the modified item are
+    --         written to the stream.
+    --
+    --     -   @NEW_IMAGE@ - The entire item, as it appears after it was
+    --         modified, is written to the stream.
+    --
+    --     -   @OLD_IMAGE@ - The entire item, as it appeared before it was
+    --         modified, is written to the stream.
+    --
+    --     -   @NEW_AND_OLD_IMAGES@ - Both the new and the old item images of
+    --         the item are written to the stream.
+    streamSpecification :: Prelude.Maybe StreamSpecification,
     -- | Represents the settings used to enable server-side encryption.
     sSESpecification :: Prelude.Maybe SSESpecification,
     -- | Controls how you are charged for read and write throughput and how you
@@ -293,28 +293,6 @@ data CreateTable = CreateTable'
 --         project the same attribute into two different indexes, this
 --         counts as two distinct attributes when determining the total.
 --
--- 'streamSpecification', 'createTable_streamSpecification' - The settings for DynamoDB Streams on the table. These settings consist
--- of:
---
--- -   @StreamEnabled@ - Indicates whether DynamoDB Streams is to be
---     enabled (true) or disabled (false).
---
--- -   @StreamViewType@ - When an item in the table is modified,
---     @StreamViewType@ determines what information is written to the
---     table\'s stream. Valid values for @StreamViewType@ are:
---
---     -   @KEYS_ONLY@ - Only the key attributes of the modified item are
---         written to the stream.
---
---     -   @NEW_IMAGE@ - The entire item, as it appears after it was
---         modified, is written to the stream.
---
---     -   @OLD_IMAGE@ - The entire item, as it appeared before it was
---         modified, is written to the stream.
---
---     -   @NEW_AND_OLD_IMAGES@ - Both the new and the old item images of
---         the item are written to the stream.
---
 -- 'globalSecondaryIndexes', 'createTable_globalSecondaryIndexes' - One or more global secondary indexes (the maximum is 20) to be created
 -- on the table. Each global secondary index in the array includes the
 -- following:
@@ -352,6 +330,28 @@ data CreateTable = CreateTable'
 -- -   @ProvisionedThroughput@ - The provisioned throughput settings for
 --     the global secondary index, consisting of read and write capacity
 --     units.
+--
+-- 'streamSpecification', 'createTable_streamSpecification' - The settings for DynamoDB Streams on the table. These settings consist
+-- of:
+--
+-- -   @StreamEnabled@ - Indicates whether DynamoDB Streams is to be
+--     enabled (true) or disabled (false).
+--
+-- -   @StreamViewType@ - When an item in the table is modified,
+--     @StreamViewType@ determines what information is written to the
+--     table\'s stream. Valid values for @StreamViewType@ are:
+--
+--     -   @KEYS_ONLY@ - Only the key attributes of the modified item are
+--         written to the stream.
+--
+--     -   @NEW_IMAGE@ - The entire item, as it appears after it was
+--         modified, is written to the stream.
+--
+--     -   @OLD_IMAGE@ - The entire item, as it appeared before it was
+--         modified, is written to the stream.
+--
+--     -   @NEW_AND_OLD_IMAGES@ - Both the new and the old item images of
+--         the item are written to the stream.
 --
 -- 'sSESpecification', 'createTable_sSESpecification' - Represents the settings used to enable server-side encryption.
 --
@@ -432,8 +432,8 @@ newCreateTable pTableName_ pKeySchema_ =
   CreateTable'
     { localSecondaryIndexes =
         Prelude.Nothing,
-      streamSpecification = Prelude.Nothing,
       globalSecondaryIndexes = Prelude.Nothing,
+      streamSpecification = Prelude.Nothing,
       sSESpecification = Prelude.Nothing,
       billingMode = Prelude.Nothing,
       tags = Prelude.Nothing,
@@ -483,30 +483,6 @@ newCreateTable pTableName_ pKeySchema_ =
 createTable_localSecondaryIndexes :: Lens.Lens' CreateTable (Prelude.Maybe [LocalSecondaryIndex])
 createTable_localSecondaryIndexes = Lens.lens (\CreateTable' {localSecondaryIndexes} -> localSecondaryIndexes) (\s@CreateTable' {} a -> s {localSecondaryIndexes = a} :: CreateTable) Prelude.. Lens.mapping Lens._Coerce
 
--- | The settings for DynamoDB Streams on the table. These settings consist
--- of:
---
--- -   @StreamEnabled@ - Indicates whether DynamoDB Streams is to be
---     enabled (true) or disabled (false).
---
--- -   @StreamViewType@ - When an item in the table is modified,
---     @StreamViewType@ determines what information is written to the
---     table\'s stream. Valid values for @StreamViewType@ are:
---
---     -   @KEYS_ONLY@ - Only the key attributes of the modified item are
---         written to the stream.
---
---     -   @NEW_IMAGE@ - The entire item, as it appears after it was
---         modified, is written to the stream.
---
---     -   @OLD_IMAGE@ - The entire item, as it appeared before it was
---         modified, is written to the stream.
---
---     -   @NEW_AND_OLD_IMAGES@ - Both the new and the old item images of
---         the item are written to the stream.
-createTable_streamSpecification :: Lens.Lens' CreateTable (Prelude.Maybe StreamSpecification)
-createTable_streamSpecification = Lens.lens (\CreateTable' {streamSpecification} -> streamSpecification) (\s@CreateTable' {} a -> s {streamSpecification = a} :: CreateTable)
-
 -- | One or more global secondary indexes (the maximum is 20) to be created
 -- on the table. Each global secondary index in the array includes the
 -- following:
@@ -546,6 +522,30 @@ createTable_streamSpecification = Lens.lens (\CreateTable' {streamSpecification}
 --     units.
 createTable_globalSecondaryIndexes :: Lens.Lens' CreateTable (Prelude.Maybe [GlobalSecondaryIndex])
 createTable_globalSecondaryIndexes = Lens.lens (\CreateTable' {globalSecondaryIndexes} -> globalSecondaryIndexes) (\s@CreateTable' {} a -> s {globalSecondaryIndexes = a} :: CreateTable) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The settings for DynamoDB Streams on the table. These settings consist
+-- of:
+--
+-- -   @StreamEnabled@ - Indicates whether DynamoDB Streams is to be
+--     enabled (true) or disabled (false).
+--
+-- -   @StreamViewType@ - When an item in the table is modified,
+--     @StreamViewType@ determines what information is written to the
+--     table\'s stream. Valid values for @StreamViewType@ are:
+--
+--     -   @KEYS_ONLY@ - Only the key attributes of the modified item are
+--         written to the stream.
+--
+--     -   @NEW_IMAGE@ - The entire item, as it appears after it was
+--         modified, is written to the stream.
+--
+--     -   @OLD_IMAGE@ - The entire item, as it appeared before it was
+--         modified, is written to the stream.
+--
+--     -   @NEW_AND_OLD_IMAGES@ - Both the new and the old item images of
+--         the item are written to the stream.
+createTable_streamSpecification :: Lens.Lens' CreateTable (Prelude.Maybe StreamSpecification)
+createTable_streamSpecification = Lens.lens (\CreateTable' {streamSpecification} -> streamSpecification) (\s@CreateTable' {} a -> s {streamSpecification = a} :: CreateTable)
 
 -- | Represents the settings used to enable server-side encryption.
 createTable_sSESpecification :: Lens.Lens' CreateTable (Prelude.Maybe SSESpecification)
@@ -667,10 +667,10 @@ instance Core.ToJSON CreateTable where
       ( Prelude.catMaybes
           [ ("LocalSecondaryIndexes" Core..=)
               Prelude.<$> localSecondaryIndexes,
-            ("StreamSpecification" Core..=)
-              Prelude.<$> streamSpecification,
             ("GlobalSecondaryIndexes" Core..=)
               Prelude.<$> globalSecondaryIndexes,
+            ("StreamSpecification" Core..=)
+              Prelude.<$> streamSpecification,
             ("SSESpecification" Core..=)
               Prelude.<$> sSESpecification,
             ("BillingMode" Core..=) Prelude.<$> billingMode,

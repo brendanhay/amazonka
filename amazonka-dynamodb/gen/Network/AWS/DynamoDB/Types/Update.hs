@@ -29,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newUpdate' smart constructor.
 data Update = Update'
-  { -- | One or more values that can be substituted in an expression.
-    expressionAttributeValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
-    -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
+  { -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
     -- the @Update@ condition fails. For @ReturnValuesOnConditionCheckFailure@,
     -- the valid values are: NONE, ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW.
     returnValuesOnConditionCheckFailure :: Prelude.Maybe ReturnValuesOnConditionCheckFailure,
+    -- | One or more values that can be substituted in an expression.
+    expressionAttributeValues :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
     -- | One or more substitution tokens for attribute names in an expression.
     expressionAttributeNames :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A condition that must be satisfied in order for a conditional update to
@@ -59,11 +59,11 @@ data Update = Update'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expressionAttributeValues', 'update_expressionAttributeValues' - One or more values that can be substituted in an expression.
---
 -- 'returnValuesOnConditionCheckFailure', 'update_returnValuesOnConditionCheckFailure' - Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
 -- the @Update@ condition fails. For @ReturnValuesOnConditionCheckFailure@,
 -- the valid values are: NONE, ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW.
+--
+-- 'expressionAttributeValues', 'update_expressionAttributeValues' - One or more values that can be substituted in an expression.
 --
 -- 'expressionAttributeNames', 'update_expressionAttributeNames' - One or more substitution tokens for attribute names in an expression.
 --
@@ -85,10 +85,9 @@ newUpdate ::
   Update
 newUpdate pUpdateExpression_ pTableName_ =
   Update'
-    { expressionAttributeValues =
+    { returnValuesOnConditionCheckFailure =
         Prelude.Nothing,
-      returnValuesOnConditionCheckFailure =
-        Prelude.Nothing,
+      expressionAttributeValues = Prelude.Nothing,
       expressionAttributeNames = Prelude.Nothing,
       conditionExpression = Prelude.Nothing,
       key = Prelude.mempty,
@@ -96,15 +95,15 @@ newUpdate pUpdateExpression_ pTableName_ =
       tableName = pTableName_
     }
 
--- | One or more values that can be substituted in an expression.
-update_expressionAttributeValues :: Lens.Lens' Update (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
-update_expressionAttributeValues = Lens.lens (\Update' {expressionAttributeValues} -> expressionAttributeValues) (\s@Update' {} a -> s {expressionAttributeValues = a} :: Update) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if
 -- the @Update@ condition fails. For @ReturnValuesOnConditionCheckFailure@,
 -- the valid values are: NONE, ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW.
 update_returnValuesOnConditionCheckFailure :: Lens.Lens' Update (Prelude.Maybe ReturnValuesOnConditionCheckFailure)
 update_returnValuesOnConditionCheckFailure = Lens.lens (\Update' {returnValuesOnConditionCheckFailure} -> returnValuesOnConditionCheckFailure) (\s@Update' {} a -> s {returnValuesOnConditionCheckFailure = a} :: Update)
+
+-- | One or more values that can be substituted in an expression.
+update_expressionAttributeValues :: Lens.Lens' Update (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
+update_expressionAttributeValues = Lens.lens (\Update' {expressionAttributeValues} -> expressionAttributeValues) (\s@Update' {} a -> s {expressionAttributeValues = a} :: Update) Prelude.. Lens.mapping Lens._Coerce
 
 -- | One or more substitution tokens for attribute names in an expression.
 update_expressionAttributeNames :: Lens.Lens' Update (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -137,10 +136,10 @@ instance Core.ToJSON Update where
   toJSON Update' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ExpressionAttributeValues" Core..=)
-              Prelude.<$> expressionAttributeValues,
-            ("ReturnValuesOnConditionCheckFailure" Core..=)
+          [ ("ReturnValuesOnConditionCheckFailure" Core..=)
               Prelude.<$> returnValuesOnConditionCheckFailure,
+            ("ExpressionAttributeValues" Core..=)
+              Prelude.<$> expressionAttributeValues,
             ("ExpressionAttributeNames" Core..=)
               Prelude.<$> expressionAttributeNames,
             ("ConditionExpression" Core..=)

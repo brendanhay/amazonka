@@ -55,12 +55,12 @@ module Network.AWS.LexModels.CreateIntentVersion
     createIntentVersionResponse_dialogCodeHook,
     createIntentVersionResponse_conclusionStatement,
     createIntentVersionResponse_lastUpdatedDate,
+    createIntentVersionResponse_rejectionStatement,
     createIntentVersionResponse_inputContexts,
     createIntentVersionResponse_version,
-    createIntentVersionResponse_rejectionStatement,
-    createIntentVersionResponse_name,
     createIntentVersionResponse_slots,
     createIntentVersionResponse_fulfillmentActivity,
+    createIntentVersionResponse_name,
     createIntentVersionResponse_sampleUtterances,
     createIntentVersionResponse_description,
     createIntentVersionResponse_confirmationPrompt,
@@ -149,12 +149,12 @@ instance Core.AWSRequest CreateIntentVersion where
             Prelude.<*> (x Core..?> "dialogCodeHook")
             Prelude.<*> (x Core..?> "conclusionStatement")
             Prelude.<*> (x Core..?> "lastUpdatedDate")
+            Prelude.<*> (x Core..?> "rejectionStatement")
             Prelude.<*> (x Core..?> "inputContexts" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "version")
-            Prelude.<*> (x Core..?> "rejectionStatement")
-            Prelude.<*> (x Core..?> "name")
             Prelude.<*> (x Core..?> "slots" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "fulfillmentActivity")
+            Prelude.<*> (x Core..?> "name")
             Prelude.<*> ( x Core..?> "sampleUtterances"
                             Core..!@ Prelude.mempty
                         )
@@ -212,23 +212,23 @@ data CreateIntentVersionResponse = CreateIntentVersionResponse'
     conclusionStatement :: Prelude.Maybe Statement,
     -- | The date that the intent was updated.
     lastUpdatedDate :: Prelude.Maybe Core.POSIX,
+    -- | If the user answers \"no\" to the question defined in
+    -- @confirmationPrompt@, Amazon Lex responds with this statement to
+    -- acknowledge that the intent was canceled.
+    rejectionStatement :: Prelude.Maybe Statement,
     -- | An array of @InputContext@ objects that lists the contexts that must be
     -- active for Amazon Lex to choose the intent in a conversation with the
     -- user.
     inputContexts :: Prelude.Maybe [InputContext],
     -- | The version number assigned to the new version of the intent.
     version :: Prelude.Maybe Prelude.Text,
-    -- | If the user answers \"no\" to the question defined in
-    -- @confirmationPrompt@, Amazon Lex responds with this statement to
-    -- acknowledge that the intent was canceled.
-    rejectionStatement :: Prelude.Maybe Statement,
-    -- | The name of the intent.
-    name :: Prelude.Maybe Prelude.Text,
     -- | An array of slot types that defines the information required to fulfill
     -- the intent.
     slots :: Prelude.Maybe [Slot],
     -- | Describes how the intent is fulfilled.
     fulfillmentActivity :: Prelude.Maybe FulfillmentActivity,
+    -- | The name of the intent.
+    name :: Prelude.Maybe Prelude.Text,
     -- | An array of sample utterances configured for the intent.
     sampleUtterances :: Prelude.Maybe [Prelude.Text],
     -- | A description of the intent.
@@ -271,22 +271,22 @@ data CreateIntentVersionResponse = CreateIntentVersionResponse'
 --
 -- 'lastUpdatedDate', 'createIntentVersionResponse_lastUpdatedDate' - The date that the intent was updated.
 --
+-- 'rejectionStatement', 'createIntentVersionResponse_rejectionStatement' - If the user answers \"no\" to the question defined in
+-- @confirmationPrompt@, Amazon Lex responds with this statement to
+-- acknowledge that the intent was canceled.
+--
 -- 'inputContexts', 'createIntentVersionResponse_inputContexts' - An array of @InputContext@ objects that lists the contexts that must be
 -- active for Amazon Lex to choose the intent in a conversation with the
 -- user.
 --
 -- 'version', 'createIntentVersionResponse_version' - The version number assigned to the new version of the intent.
 --
--- 'rejectionStatement', 'createIntentVersionResponse_rejectionStatement' - If the user answers \"no\" to the question defined in
--- @confirmationPrompt@, Amazon Lex responds with this statement to
--- acknowledge that the intent was canceled.
---
--- 'name', 'createIntentVersionResponse_name' - The name of the intent.
---
 -- 'slots', 'createIntentVersionResponse_slots' - An array of slot types that defines the information required to fulfill
 -- the intent.
 --
 -- 'fulfillmentActivity', 'createIntentVersionResponse_fulfillmentActivity' - Describes how the intent is fulfilled.
+--
+-- 'name', 'createIntentVersionResponse_name' - The name of the intent.
 --
 -- 'sampleUtterances', 'createIntentVersionResponse_sampleUtterances' - An array of sample utterances configured for the intent.
 --
@@ -317,12 +317,12 @@ newCreateIntentVersionResponse pHttpStatus_ =
       dialogCodeHook = Prelude.Nothing,
       conclusionStatement = Prelude.Nothing,
       lastUpdatedDate = Prelude.Nothing,
+      rejectionStatement = Prelude.Nothing,
       inputContexts = Prelude.Nothing,
       version = Prelude.Nothing,
-      rejectionStatement = Prelude.Nothing,
-      name = Prelude.Nothing,
       slots = Prelude.Nothing,
       fulfillmentActivity = Prelude.Nothing,
+      name = Prelude.Nothing,
       sampleUtterances = Prelude.Nothing,
       description = Prelude.Nothing,
       confirmationPrompt = Prelude.Nothing,
@@ -358,6 +358,12 @@ createIntentVersionResponse_conclusionStatement = Lens.lens (\CreateIntentVersio
 createIntentVersionResponse_lastUpdatedDate :: Lens.Lens' CreateIntentVersionResponse (Prelude.Maybe Prelude.UTCTime)
 createIntentVersionResponse_lastUpdatedDate = Lens.lens (\CreateIntentVersionResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@CreateIntentVersionResponse' {} a -> s {lastUpdatedDate = a} :: CreateIntentVersionResponse) Prelude.. Lens.mapping Core._Time
 
+-- | If the user answers \"no\" to the question defined in
+-- @confirmationPrompt@, Amazon Lex responds with this statement to
+-- acknowledge that the intent was canceled.
+createIntentVersionResponse_rejectionStatement :: Lens.Lens' CreateIntentVersionResponse (Prelude.Maybe Statement)
+createIntentVersionResponse_rejectionStatement = Lens.lens (\CreateIntentVersionResponse' {rejectionStatement} -> rejectionStatement) (\s@CreateIntentVersionResponse' {} a -> s {rejectionStatement = a} :: CreateIntentVersionResponse)
+
 -- | An array of @InputContext@ objects that lists the contexts that must be
 -- active for Amazon Lex to choose the intent in a conversation with the
 -- user.
@@ -368,16 +374,6 @@ createIntentVersionResponse_inputContexts = Lens.lens (\CreateIntentVersionRespo
 createIntentVersionResponse_version :: Lens.Lens' CreateIntentVersionResponse (Prelude.Maybe Prelude.Text)
 createIntentVersionResponse_version = Lens.lens (\CreateIntentVersionResponse' {version} -> version) (\s@CreateIntentVersionResponse' {} a -> s {version = a} :: CreateIntentVersionResponse)
 
--- | If the user answers \"no\" to the question defined in
--- @confirmationPrompt@, Amazon Lex responds with this statement to
--- acknowledge that the intent was canceled.
-createIntentVersionResponse_rejectionStatement :: Lens.Lens' CreateIntentVersionResponse (Prelude.Maybe Statement)
-createIntentVersionResponse_rejectionStatement = Lens.lens (\CreateIntentVersionResponse' {rejectionStatement} -> rejectionStatement) (\s@CreateIntentVersionResponse' {} a -> s {rejectionStatement = a} :: CreateIntentVersionResponse)
-
--- | The name of the intent.
-createIntentVersionResponse_name :: Lens.Lens' CreateIntentVersionResponse (Prelude.Maybe Prelude.Text)
-createIntentVersionResponse_name = Lens.lens (\CreateIntentVersionResponse' {name} -> name) (\s@CreateIntentVersionResponse' {} a -> s {name = a} :: CreateIntentVersionResponse)
-
 -- | An array of slot types that defines the information required to fulfill
 -- the intent.
 createIntentVersionResponse_slots :: Lens.Lens' CreateIntentVersionResponse (Prelude.Maybe [Slot])
@@ -386,6 +382,10 @@ createIntentVersionResponse_slots = Lens.lens (\CreateIntentVersionResponse' {sl
 -- | Describes how the intent is fulfilled.
 createIntentVersionResponse_fulfillmentActivity :: Lens.Lens' CreateIntentVersionResponse (Prelude.Maybe FulfillmentActivity)
 createIntentVersionResponse_fulfillmentActivity = Lens.lens (\CreateIntentVersionResponse' {fulfillmentActivity} -> fulfillmentActivity) (\s@CreateIntentVersionResponse' {} a -> s {fulfillmentActivity = a} :: CreateIntentVersionResponse)
+
+-- | The name of the intent.
+createIntentVersionResponse_name :: Lens.Lens' CreateIntentVersionResponse (Prelude.Maybe Prelude.Text)
+createIntentVersionResponse_name = Lens.lens (\CreateIntentVersionResponse' {name} -> name) (\s@CreateIntentVersionResponse' {} a -> s {name = a} :: CreateIntentVersionResponse)
 
 -- | An array of sample utterances configured for the intent.
 createIntentVersionResponse_sampleUtterances :: Lens.Lens' CreateIntentVersionResponse (Prelude.Maybe [Prelude.Text])

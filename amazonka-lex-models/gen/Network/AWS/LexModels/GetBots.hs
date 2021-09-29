@@ -38,8 +38,8 @@ module Network.AWS.LexModels.GetBots
     newGetBots,
 
     -- * Request Lenses
-    getBots_nextToken,
     getBots_nameContains,
+    getBots_nextToken,
     getBots_maxResults,
 
     -- * Destructuring the Response
@@ -62,15 +62,15 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetBots' smart constructor.
 data GetBots = GetBots'
-  { -- | A pagination token that fetches the next page of bots. If the response
+  { -- | Substring to match in bot names. A bot will be returned if any part of
+    -- its name matches the substring. For example, \"xyz\" matches both
+    -- \"xyzabc\" and \"abcxyz.\"
+    nameContains :: Prelude.Maybe Prelude.Text,
+    -- | A pagination token that fetches the next page of bots. If the response
     -- to this call is truncated, Amazon Lex returns a pagination token in the
     -- response. To fetch the next page of bots, specify the pagination token
     -- in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Substring to match in bot names. A bot will be returned if any part of
-    -- its name matches the substring. For example, \"xyz\" matches both
-    -- \"xyzabc\" and \"abcxyz.\"
-    nameContains :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of bots to return in the response that the request
     -- will return. The default is 10.
     maxResults :: Prelude.Maybe Prelude.Natural
@@ -85,14 +85,14 @@ data GetBots = GetBots'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'nameContains', 'getBots_nameContains' - Substring to match in bot names. A bot will be returned if any part of
+-- its name matches the substring. For example, \"xyz\" matches both
+-- \"xyzabc\" and \"abcxyz.\"
+--
 -- 'nextToken', 'getBots_nextToken' - A pagination token that fetches the next page of bots. If the response
 -- to this call is truncated, Amazon Lex returns a pagination token in the
 -- response. To fetch the next page of bots, specify the pagination token
 -- in the next request.
---
--- 'nameContains', 'getBots_nameContains' - Substring to match in bot names. A bot will be returned if any part of
--- its name matches the substring. For example, \"xyz\" matches both
--- \"xyzabc\" and \"abcxyz.\"
 --
 -- 'maxResults', 'getBots_maxResults' - The maximum number of bots to return in the response that the request
 -- will return. The default is 10.
@@ -100,10 +100,16 @@ newGetBots ::
   GetBots
 newGetBots =
   GetBots'
-    { nextToken = Prelude.Nothing,
-      nameContains = Prelude.Nothing,
+    { nameContains = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
+
+-- | Substring to match in bot names. A bot will be returned if any part of
+-- its name matches the substring. For example, \"xyz\" matches both
+-- \"xyzabc\" and \"abcxyz.\"
+getBots_nameContains :: Lens.Lens' GetBots (Prelude.Maybe Prelude.Text)
+getBots_nameContains = Lens.lens (\GetBots' {nameContains} -> nameContains) (\s@GetBots' {} a -> s {nameContains = a} :: GetBots)
 
 -- | A pagination token that fetches the next page of bots. If the response
 -- to this call is truncated, Amazon Lex returns a pagination token in the
@@ -111,12 +117,6 @@ newGetBots =
 -- in the next request.
 getBots_nextToken :: Lens.Lens' GetBots (Prelude.Maybe Prelude.Text)
 getBots_nextToken = Lens.lens (\GetBots' {nextToken} -> nextToken) (\s@GetBots' {} a -> s {nextToken = a} :: GetBots)
-
--- | Substring to match in bot names. A bot will be returned if any part of
--- its name matches the substring. For example, \"xyz\" matches both
--- \"xyzabc\" and \"abcxyz.\"
-getBots_nameContains :: Lens.Lens' GetBots (Prelude.Maybe Prelude.Text)
-getBots_nameContains = Lens.lens (\GetBots' {nameContains} -> nameContains) (\s@GetBots' {} a -> s {nameContains = a} :: GetBots)
 
 -- | The maximum number of bots to return in the response that the request
 -- will return. The default is 10.
@@ -175,8 +175,8 @@ instance Core.ToPath GetBots where
 instance Core.ToQuery GetBots where
   toQuery GetBots' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "nameContains" Core.=: nameContains,
+      [ "nameContains" Core.=: nameContains,
+        "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
 

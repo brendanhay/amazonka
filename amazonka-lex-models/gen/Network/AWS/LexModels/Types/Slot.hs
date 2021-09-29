@@ -35,11 +35,11 @@ data Slot = Slot'
     -- clients. A user chooses an option from the response card, instead of
     -- using text to reply.
     responseCard :: Prelude.Maybe Prelude.Text,
-    -- | The prompt that Amazon Lex uses to elicit the slot value from the user.
-    valueElicitationPrompt :: Prelude.Maybe Prompt,
     -- | The type of the slot, either a custom slot type that you defined or one
     -- of the built-in slot types.
     slotType :: Prelude.Maybe Prelude.Text,
+    -- | The prompt that Amazon Lex uses to elicit the slot value from the user.
+    valueElicitationPrompt :: Prelude.Maybe Prompt,
     -- | The version of the slot type.
     slotTypeVersion :: Prelude.Maybe Prelude.Text,
     -- | Directs Amazon Lex the order in which to elicit this slot value from the
@@ -88,10 +88,10 @@ data Slot = Slot'
 -- clients. A user chooses an option from the response card, instead of
 -- using text to reply.
 --
--- 'valueElicitationPrompt', 'slot_valueElicitationPrompt' - The prompt that Amazon Lex uses to elicit the slot value from the user.
---
 -- 'slotType', 'slot_slotType' - The type of the slot, either a custom slot type that you defined or one
 -- of the built-in slot types.
+--
+-- 'valueElicitationPrompt', 'slot_valueElicitationPrompt' - The prompt that Amazon Lex uses to elicit the slot value from the user.
 --
 -- 'slotTypeVersion', 'slot_slotTypeVersion' - The version of the slot type.
 --
@@ -134,8 +134,8 @@ newSlot ::
 newSlot pName_ pSlotConstraint_ =
   Slot'
     { responseCard = Prelude.Nothing,
-      valueElicitationPrompt = Prelude.Nothing,
       slotType = Prelude.Nothing,
+      valueElicitationPrompt = Prelude.Nothing,
       slotTypeVersion = Prelude.Nothing,
       priority = Prelude.Nothing,
       sampleUtterances = Prelude.Nothing,
@@ -152,14 +152,14 @@ newSlot pName_ pSlotConstraint_ =
 slot_responseCard :: Lens.Lens' Slot (Prelude.Maybe Prelude.Text)
 slot_responseCard = Lens.lens (\Slot' {responseCard} -> responseCard) (\s@Slot' {} a -> s {responseCard = a} :: Slot)
 
--- | The prompt that Amazon Lex uses to elicit the slot value from the user.
-slot_valueElicitationPrompt :: Lens.Lens' Slot (Prelude.Maybe Prompt)
-slot_valueElicitationPrompt = Lens.lens (\Slot' {valueElicitationPrompt} -> valueElicitationPrompt) (\s@Slot' {} a -> s {valueElicitationPrompt = a} :: Slot)
-
 -- | The type of the slot, either a custom slot type that you defined or one
 -- of the built-in slot types.
 slot_slotType :: Lens.Lens' Slot (Prelude.Maybe Prelude.Text)
 slot_slotType = Lens.lens (\Slot' {slotType} -> slotType) (\s@Slot' {} a -> s {slotType = a} :: Slot)
+
+-- | The prompt that Amazon Lex uses to elicit the slot value from the user.
+slot_valueElicitationPrompt :: Lens.Lens' Slot (Prelude.Maybe Prompt)
+slot_valueElicitationPrompt = Lens.lens (\Slot' {valueElicitationPrompt} -> valueElicitationPrompt) (\s@Slot' {} a -> s {valueElicitationPrompt = a} :: Slot)
 
 -- | The version of the slot type.
 slot_slotTypeVersion :: Lens.Lens' Slot (Prelude.Maybe Prelude.Text)
@@ -217,8 +217,8 @@ instance Core.FromJSON Slot where
       ( \x ->
           Slot'
             Prelude.<$> (x Core..:? "responseCard")
-            Prelude.<*> (x Core..:? "valueElicitationPrompt")
             Prelude.<*> (x Core..:? "slotType")
+            Prelude.<*> (x Core..:? "valueElicitationPrompt")
             Prelude.<*> (x Core..:? "slotTypeVersion")
             Prelude.<*> (x Core..:? "priority")
             Prelude.<*> ( x Core..:? "sampleUtterances"
@@ -240,9 +240,9 @@ instance Core.ToJSON Slot where
     Core.object
       ( Prelude.catMaybes
           [ ("responseCard" Core..=) Prelude.<$> responseCard,
+            ("slotType" Core..=) Prelude.<$> slotType,
             ("valueElicitationPrompt" Core..=)
               Prelude.<$> valueElicitationPrompt,
-            ("slotType" Core..=) Prelude.<$> slotType,
             ("slotTypeVersion" Core..=)
               Prelude.<$> slotTypeVersion,
             ("priority" Core..=) Prelude.<$> priority,

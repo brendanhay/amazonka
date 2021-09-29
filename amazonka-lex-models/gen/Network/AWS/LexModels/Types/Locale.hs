@@ -23,13 +23,16 @@ module Network.AWS.LexModels.Types.Locale
         Locale_De_DE,
         Locale_En_AU,
         Locale_En_GB,
+        Locale_En_IN,
         Locale_En_US,
         Locale_Es_419,
         Locale_Es_ES,
         Locale_Es_US,
         Locale_Fr_CA,
         Locale_Fr_FR,
-        Locale_It_IT
+        Locale_It_IT,
+        Locale_Ja_JP,
+        Locale_Ko_KR
       ),
   )
 where
@@ -71,6 +74,9 @@ pattern Locale_En_AU = Locale' "en-AU"
 pattern Locale_En_GB :: Locale
 pattern Locale_En_GB = Locale' "en-GB"
 
+pattern Locale_En_IN :: Locale
+pattern Locale_En_IN = Locale' "en-IN"
+
 pattern Locale_En_US :: Locale
 pattern Locale_En_US = Locale' "en-US"
 
@@ -92,10 +98,17 @@ pattern Locale_Fr_FR = Locale' "fr-FR"
 pattern Locale_It_IT :: Locale
 pattern Locale_It_IT = Locale' "it-IT"
 
+pattern Locale_Ja_JP :: Locale
+pattern Locale_Ja_JP = Locale' "ja-JP"
+
+pattern Locale_Ko_KR :: Locale
+pattern Locale_Ko_KR = Locale' "ko-KR"
+
 {-# COMPLETE
   Locale_De_DE,
   Locale_En_AU,
   Locale_En_GB,
+  Locale_En_IN,
   Locale_En_US,
   Locale_Es_419,
   Locale_Es_ES,
@@ -103,5 +116,7 @@ pattern Locale_It_IT = Locale' "it-IT"
   Locale_Fr_CA,
   Locale_Fr_FR,
   Locale_It_IT,
+  Locale_Ja_JP,
+  Locale_Ko_KR,
   Locale'
   #-}

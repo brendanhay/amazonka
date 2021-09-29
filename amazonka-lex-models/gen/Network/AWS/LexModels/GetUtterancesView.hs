@@ -41,9 +41,10 @@
 -- received by the bot in the last 15 days. The response contains
 -- information about a maximum of 100 utterances for each version.
 --
--- If you set @childDirected@ field to true when you created your bot, or
--- if you opted out of participating in improving Amazon Lex, utterances
--- are not available.
+-- If you set @childDirected@ field to true when you created your bot, if
+-- you are using slot obfuscation with one or more slots, or if you opted
+-- out of participating in improving Amazon Lex, utterances are not
+-- available.
 --
 -- This operation requires permissions for the @lex:GetUtterancesView@
 -- action.

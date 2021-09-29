@@ -32,8 +32,8 @@ module Network.AWS.LexModels.GetBotChannelAssociations
     newGetBotChannelAssociations,
 
     -- * Request Lenses
-    getBotChannelAssociations_nextToken,
     getBotChannelAssociations_nameContains,
+    getBotChannelAssociations_nextToken,
     getBotChannelAssociations_maxResults,
     getBotChannelAssociations_botName,
     getBotChannelAssociations_botAlias,
@@ -58,17 +58,17 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetBotChannelAssociations' smart constructor.
 data GetBotChannelAssociations = GetBotChannelAssociations'
-  { -- | A pagination token for fetching the next page of associations. If the
-    -- response to this call is truncated, Amazon Lex returns a pagination
-    -- token in the response. To fetch the next page of associations, specify
-    -- the pagination token in the next request.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Substring to match in channel association names. An association will be
+  { -- | Substring to match in channel association names. An association will be
     -- returned if any part of its name matches the substring. For example,
     -- \"xyz\" matches both \"xyzabc\" and \"abcxyz.\" To return all bot
     -- channel associations, use a hyphen (\"-\") as the @nameContains@
     -- parameter.
     nameContains :: Prelude.Maybe Prelude.Text,
+    -- | A pagination token for fetching the next page of associations. If the
+    -- response to this call is truncated, Amazon Lex returns a pagination
+    -- token in the response. To fetch the next page of associations, specify
+    -- the pagination token in the next request.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of associations to return in the response. The
     -- default is 50.
     maxResults :: Prelude.Maybe Prelude.Natural,
@@ -88,16 +88,16 @@ data GetBotChannelAssociations = GetBotChannelAssociations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getBotChannelAssociations_nextToken' - A pagination token for fetching the next page of associations. If the
--- response to this call is truncated, Amazon Lex returns a pagination
--- token in the response. To fetch the next page of associations, specify
--- the pagination token in the next request.
---
 -- 'nameContains', 'getBotChannelAssociations_nameContains' - Substring to match in channel association names. An association will be
 -- returned if any part of its name matches the substring. For example,
 -- \"xyz\" matches both \"xyzabc\" and \"abcxyz.\" To return all bot
 -- channel associations, use a hyphen (\"-\") as the @nameContains@
 -- parameter.
+--
+-- 'nextToken', 'getBotChannelAssociations_nextToken' - A pagination token for fetching the next page of associations. If the
+-- response to this call is truncated, Amazon Lex returns a pagination
+-- token in the response. To fetch the next page of associations, specify
+-- the pagination token in the next request.
 --
 -- 'maxResults', 'getBotChannelAssociations_maxResults' - The maximum number of associations to return in the response. The
 -- default is 50.
@@ -114,20 +114,13 @@ newGetBotChannelAssociations ::
   GetBotChannelAssociations
 newGetBotChannelAssociations pBotName_ pBotAlias_ =
   GetBotChannelAssociations'
-    { nextToken =
+    { nameContains =
         Prelude.Nothing,
-      nameContains = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       botName = pBotName_,
       botAlias = pBotAlias_
     }
-
--- | A pagination token for fetching the next page of associations. If the
--- response to this call is truncated, Amazon Lex returns a pagination
--- token in the response. To fetch the next page of associations, specify
--- the pagination token in the next request.
-getBotChannelAssociations_nextToken :: Lens.Lens' GetBotChannelAssociations (Prelude.Maybe Prelude.Text)
-getBotChannelAssociations_nextToken = Lens.lens (\GetBotChannelAssociations' {nextToken} -> nextToken) (\s@GetBotChannelAssociations' {} a -> s {nextToken = a} :: GetBotChannelAssociations)
 
 -- | Substring to match in channel association names. An association will be
 -- returned if any part of its name matches the substring. For example,
@@ -136,6 +129,13 @@ getBotChannelAssociations_nextToken = Lens.lens (\GetBotChannelAssociations' {ne
 -- parameter.
 getBotChannelAssociations_nameContains :: Lens.Lens' GetBotChannelAssociations (Prelude.Maybe Prelude.Text)
 getBotChannelAssociations_nameContains = Lens.lens (\GetBotChannelAssociations' {nameContains} -> nameContains) (\s@GetBotChannelAssociations' {} a -> s {nameContains = a} :: GetBotChannelAssociations)
+
+-- | A pagination token for fetching the next page of associations. If the
+-- response to this call is truncated, Amazon Lex returns a pagination
+-- token in the response. To fetch the next page of associations, specify
+-- the pagination token in the next request.
+getBotChannelAssociations_nextToken :: Lens.Lens' GetBotChannelAssociations (Prelude.Maybe Prelude.Text)
+getBotChannelAssociations_nextToken = Lens.lens (\GetBotChannelAssociations' {nextToken} -> nextToken) (\s@GetBotChannelAssociations' {} a -> s {nextToken = a} :: GetBotChannelAssociations)
 
 -- | The maximum number of associations to return in the response. The
 -- default is 50.
@@ -217,8 +217,8 @@ instance Core.ToPath GetBotChannelAssociations where
 instance Core.ToQuery GetBotChannelAssociations where
   toQuery GetBotChannelAssociations' {..} =
     Prelude.mconcat
-      [ "nextToken" Core.=: nextToken,
-        "nameContains" Core.=: nameContains,
+      [ "nameContains" Core.=: nameContains,
+        "nextToken" Core.=: nextToken,
         "maxResults" Core.=: maxResults
       ]
 

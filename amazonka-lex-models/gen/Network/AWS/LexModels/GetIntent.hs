@@ -45,12 +45,12 @@ module Network.AWS.LexModels.GetIntent
     getIntentResponse_dialogCodeHook,
     getIntentResponse_conclusionStatement,
     getIntentResponse_lastUpdatedDate,
+    getIntentResponse_rejectionStatement,
     getIntentResponse_inputContexts,
     getIntentResponse_version,
-    getIntentResponse_rejectionStatement,
-    getIntentResponse_name,
     getIntentResponse_slots,
     getIntentResponse_fulfillmentActivity,
+    getIntentResponse_name,
     getIntentResponse_sampleUtterances,
     getIntentResponse_description,
     getIntentResponse_confirmationPrompt,
@@ -118,12 +118,12 @@ instance Core.AWSRequest GetIntent where
             Prelude.<*> (x Core..?> "dialogCodeHook")
             Prelude.<*> (x Core..?> "conclusionStatement")
             Prelude.<*> (x Core..?> "lastUpdatedDate")
+            Prelude.<*> (x Core..?> "rejectionStatement")
             Prelude.<*> (x Core..?> "inputContexts" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "version")
-            Prelude.<*> (x Core..?> "rejectionStatement")
-            Prelude.<*> (x Core..?> "name")
             Prelude.<*> (x Core..?> "slots" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "fulfillmentActivity")
+            Prelude.<*> (x Core..?> "name")
             Prelude.<*> ( x Core..?> "sampleUtterances"
                             Core..!@ Prelude.mempty
                         )
@@ -180,23 +180,23 @@ data GetIntentResponse = GetIntentResponse'
     -- | The date that the intent was updated. When you create a resource, the
     -- creation date and the last updated date are the same.
     lastUpdatedDate :: Prelude.Maybe Core.POSIX,
+    -- | If the user answers \"no\" to the question defined in
+    -- @confirmationPrompt@, Amazon Lex responds with this statement to
+    -- acknowledge that the intent was canceled.
+    rejectionStatement :: Prelude.Maybe Statement,
     -- | An array of @InputContext@ objects that lists the contexts that must be
     -- active for Amazon Lex to choose the intent in a conversation with the
     -- user.
     inputContexts :: Prelude.Maybe [InputContext],
     -- | The version of the intent.
     version :: Prelude.Maybe Prelude.Text,
-    -- | If the user answers \"no\" to the question defined in
-    -- @confirmationPrompt@, Amazon Lex responds with this statement to
-    -- acknowledge that the intent was canceled.
-    rejectionStatement :: Prelude.Maybe Statement,
-    -- | The name of the intent.
-    name :: Prelude.Maybe Prelude.Text,
     -- | An array of intent slots configured for the intent.
     slots :: Prelude.Maybe [Slot],
     -- | Describes how the intent is fulfilled. For more information, see
     -- PutIntent.
     fulfillmentActivity :: Prelude.Maybe FulfillmentActivity,
+    -- | The name of the intent.
+    name :: Prelude.Maybe Prelude.Text,
     -- | An array of sample utterances configured for the intent.
     sampleUtterances :: Prelude.Maybe [Prelude.Text],
     -- | A description of the intent.
@@ -243,22 +243,22 @@ data GetIntentResponse = GetIntentResponse'
 -- 'lastUpdatedDate', 'getIntentResponse_lastUpdatedDate' - The date that the intent was updated. When you create a resource, the
 -- creation date and the last updated date are the same.
 --
+-- 'rejectionStatement', 'getIntentResponse_rejectionStatement' - If the user answers \"no\" to the question defined in
+-- @confirmationPrompt@, Amazon Lex responds with this statement to
+-- acknowledge that the intent was canceled.
+--
 -- 'inputContexts', 'getIntentResponse_inputContexts' - An array of @InputContext@ objects that lists the contexts that must be
 -- active for Amazon Lex to choose the intent in a conversation with the
 -- user.
 --
 -- 'version', 'getIntentResponse_version' - The version of the intent.
 --
--- 'rejectionStatement', 'getIntentResponse_rejectionStatement' - If the user answers \"no\" to the question defined in
--- @confirmationPrompt@, Amazon Lex responds with this statement to
--- acknowledge that the intent was canceled.
---
--- 'name', 'getIntentResponse_name' - The name of the intent.
---
 -- 'slots', 'getIntentResponse_slots' - An array of intent slots configured for the intent.
 --
 -- 'fulfillmentActivity', 'getIntentResponse_fulfillmentActivity' - Describes how the intent is fulfilled. For more information, see
 -- PutIntent.
+--
+-- 'name', 'getIntentResponse_name' - The name of the intent.
 --
 -- 'sampleUtterances', 'getIntentResponse_sampleUtterances' - An array of sample utterances configured for the intent.
 --
@@ -291,12 +291,12 @@ newGetIntentResponse pHttpStatus_ =
       dialogCodeHook = Prelude.Nothing,
       conclusionStatement = Prelude.Nothing,
       lastUpdatedDate = Prelude.Nothing,
+      rejectionStatement = Prelude.Nothing,
       inputContexts = Prelude.Nothing,
       version = Prelude.Nothing,
-      rejectionStatement = Prelude.Nothing,
-      name = Prelude.Nothing,
       slots = Prelude.Nothing,
       fulfillmentActivity = Prelude.Nothing,
+      name = Prelude.Nothing,
       sampleUtterances = Prelude.Nothing,
       description = Prelude.Nothing,
       confirmationPrompt = Prelude.Nothing,
@@ -334,6 +334,12 @@ getIntentResponse_conclusionStatement = Lens.lens (\GetIntentResponse' {conclusi
 getIntentResponse_lastUpdatedDate :: Lens.Lens' GetIntentResponse (Prelude.Maybe Prelude.UTCTime)
 getIntentResponse_lastUpdatedDate = Lens.lens (\GetIntentResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@GetIntentResponse' {} a -> s {lastUpdatedDate = a} :: GetIntentResponse) Prelude.. Lens.mapping Core._Time
 
+-- | If the user answers \"no\" to the question defined in
+-- @confirmationPrompt@, Amazon Lex responds with this statement to
+-- acknowledge that the intent was canceled.
+getIntentResponse_rejectionStatement :: Lens.Lens' GetIntentResponse (Prelude.Maybe Statement)
+getIntentResponse_rejectionStatement = Lens.lens (\GetIntentResponse' {rejectionStatement} -> rejectionStatement) (\s@GetIntentResponse' {} a -> s {rejectionStatement = a} :: GetIntentResponse)
+
 -- | An array of @InputContext@ objects that lists the contexts that must be
 -- active for Amazon Lex to choose the intent in a conversation with the
 -- user.
@@ -344,16 +350,6 @@ getIntentResponse_inputContexts = Lens.lens (\GetIntentResponse' {inputContexts}
 getIntentResponse_version :: Lens.Lens' GetIntentResponse (Prelude.Maybe Prelude.Text)
 getIntentResponse_version = Lens.lens (\GetIntentResponse' {version} -> version) (\s@GetIntentResponse' {} a -> s {version = a} :: GetIntentResponse)
 
--- | If the user answers \"no\" to the question defined in
--- @confirmationPrompt@, Amazon Lex responds with this statement to
--- acknowledge that the intent was canceled.
-getIntentResponse_rejectionStatement :: Lens.Lens' GetIntentResponse (Prelude.Maybe Statement)
-getIntentResponse_rejectionStatement = Lens.lens (\GetIntentResponse' {rejectionStatement} -> rejectionStatement) (\s@GetIntentResponse' {} a -> s {rejectionStatement = a} :: GetIntentResponse)
-
--- | The name of the intent.
-getIntentResponse_name :: Lens.Lens' GetIntentResponse (Prelude.Maybe Prelude.Text)
-getIntentResponse_name = Lens.lens (\GetIntentResponse' {name} -> name) (\s@GetIntentResponse' {} a -> s {name = a} :: GetIntentResponse)
-
 -- | An array of intent slots configured for the intent.
 getIntentResponse_slots :: Lens.Lens' GetIntentResponse (Prelude.Maybe [Slot])
 getIntentResponse_slots = Lens.lens (\GetIntentResponse' {slots} -> slots) (\s@GetIntentResponse' {} a -> s {slots = a} :: GetIntentResponse) Prelude.. Lens.mapping Lens._Coerce
@@ -362,6 +358,10 @@ getIntentResponse_slots = Lens.lens (\GetIntentResponse' {slots} -> slots) (\s@G
 -- PutIntent.
 getIntentResponse_fulfillmentActivity :: Lens.Lens' GetIntentResponse (Prelude.Maybe FulfillmentActivity)
 getIntentResponse_fulfillmentActivity = Lens.lens (\GetIntentResponse' {fulfillmentActivity} -> fulfillmentActivity) (\s@GetIntentResponse' {} a -> s {fulfillmentActivity = a} :: GetIntentResponse)
+
+-- | The name of the intent.
+getIntentResponse_name :: Lens.Lens' GetIntentResponse (Prelude.Maybe Prelude.Text)
+getIntentResponse_name = Lens.lens (\GetIntentResponse' {name} -> name) (\s@GetIntentResponse' {} a -> s {name = a} :: GetIntentResponse)
 
 -- | An array of sample utterances configured for the intent.
 getIntentResponse_sampleUtterances :: Lens.Lens' GetIntentResponse (Prelude.Maybe [Prelude.Text])

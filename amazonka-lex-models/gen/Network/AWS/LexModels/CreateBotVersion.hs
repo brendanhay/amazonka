@@ -52,10 +52,10 @@ module Network.AWS.LexModels.CreateBotVersion
     createBotVersionResponse_abortStatement,
     createBotVersionResponse_createdDate,
     createBotVersionResponse_status,
-    createBotVersionResponse_voiceId,
     createBotVersionResponse_lastUpdatedDate,
-    createBotVersionResponse_locale,
+    createBotVersionResponse_voiceId,
     createBotVersionResponse_clarificationPrompt,
+    createBotVersionResponse_locale,
     createBotVersionResponse_enableModelImprovements,
     createBotVersionResponse_version,
     createBotVersionResponse_idleSessionTTLInSeconds,
@@ -142,10 +142,10 @@ instance Core.AWSRequest CreateBotVersion where
             Prelude.<$> (x Core..?> "abortStatement")
             Prelude.<*> (x Core..?> "createdDate")
             Prelude.<*> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "voiceId")
             Prelude.<*> (x Core..?> "lastUpdatedDate")
-            Prelude.<*> (x Core..?> "locale")
+            Prelude.<*> (x Core..?> "voiceId")
             Prelude.<*> (x Core..?> "clarificationPrompt")
+            Prelude.<*> (x Core..?> "locale")
             Prelude.<*> (x Core..?> "enableModelImprovements")
             Prelude.<*> (x Core..?> "version")
             Prelude.<*> (x Core..?> "idleSessionTTLInSeconds")
@@ -202,16 +202,16 @@ data CreateBotVersionResponse = CreateBotVersionResponse'
     -- sets @status@ to @FAILED@. Amazon Lex returns the reason for the failure
     -- in the @failureReason@ response element.
     status :: Prelude.Maybe LexStatus,
+    -- | The date when the @$LATEST@ version of this bot was updated.
+    lastUpdatedDate :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Polly voice ID that Amazon Lex uses for voice interactions
     -- with the user.
     voiceId :: Prelude.Maybe Prelude.Text,
-    -- | The date when the @$LATEST@ version of this bot was updated.
-    lastUpdatedDate :: Prelude.Maybe Core.POSIX,
-    -- | Specifies the target locale for the bot.
-    locale :: Prelude.Maybe Locale,
     -- | The message that Amazon Lex uses when it doesn\'t understand the user\'s
     -- request. For more information, see PutBot.
     clarificationPrompt :: Prelude.Maybe Prompt,
+    -- | Specifies the target locale for the bot.
+    locale :: Prelude.Maybe Locale,
     -- | Indicates whether the bot uses accuracy improvements. @true@ indicates
     -- that the bot is using the improvements, otherwise, @false@.
     enableModelImprovements :: Prelude.Maybe Prelude.Bool,
@@ -284,15 +284,15 @@ data CreateBotVersionResponse = CreateBotVersionResponse'
 -- sets @status@ to @FAILED@. Amazon Lex returns the reason for the failure
 -- in the @failureReason@ response element.
 --
+-- 'lastUpdatedDate', 'createBotVersionResponse_lastUpdatedDate' - The date when the @$LATEST@ version of this bot was updated.
+--
 -- 'voiceId', 'createBotVersionResponse_voiceId' - The Amazon Polly voice ID that Amazon Lex uses for voice interactions
 -- with the user.
 --
--- 'lastUpdatedDate', 'createBotVersionResponse_lastUpdatedDate' - The date when the @$LATEST@ version of this bot was updated.
---
--- 'locale', 'createBotVersionResponse_locale' - Specifies the target locale for the bot.
---
 -- 'clarificationPrompt', 'createBotVersionResponse_clarificationPrompt' - The message that Amazon Lex uses when it doesn\'t understand the user\'s
 -- request. For more information, see PutBot.
+--
+-- 'locale', 'createBotVersionResponse_locale' - Specifies the target locale for the bot.
 --
 -- 'enableModelImprovements', 'createBotVersionResponse_enableModelImprovements' - Indicates whether the bot uses accuracy improvements. @true@ indicates
 -- that the bot is using the improvements, otherwise, @false@.
@@ -353,10 +353,10 @@ newCreateBotVersionResponse pHttpStatus_ =
         Prelude.Nothing,
       createdDate = Prelude.Nothing,
       status = Prelude.Nothing,
-      voiceId = Prelude.Nothing,
       lastUpdatedDate = Prelude.Nothing,
-      locale = Prelude.Nothing,
+      voiceId = Prelude.Nothing,
       clarificationPrompt = Prelude.Nothing,
+      locale = Prelude.Nothing,
       enableModelImprovements = Prelude.Nothing,
       version = Prelude.Nothing,
       idleSessionTTLInSeconds = Prelude.Nothing,
@@ -387,23 +387,23 @@ createBotVersionResponse_createdDate = Lens.lens (\CreateBotVersionResponse' {cr
 createBotVersionResponse_status :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe LexStatus)
 createBotVersionResponse_status = Lens.lens (\CreateBotVersionResponse' {status} -> status) (\s@CreateBotVersionResponse' {} a -> s {status = a} :: CreateBotVersionResponse)
 
+-- | The date when the @$LATEST@ version of this bot was updated.
+createBotVersionResponse_lastUpdatedDate :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.UTCTime)
+createBotVersionResponse_lastUpdatedDate = Lens.lens (\CreateBotVersionResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@CreateBotVersionResponse' {} a -> s {lastUpdatedDate = a} :: CreateBotVersionResponse) Prelude.. Lens.mapping Core._Time
+
 -- | The Amazon Polly voice ID that Amazon Lex uses for voice interactions
 -- with the user.
 createBotVersionResponse_voiceId :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.Text)
 createBotVersionResponse_voiceId = Lens.lens (\CreateBotVersionResponse' {voiceId} -> voiceId) (\s@CreateBotVersionResponse' {} a -> s {voiceId = a} :: CreateBotVersionResponse)
 
--- | The date when the @$LATEST@ version of this bot was updated.
-createBotVersionResponse_lastUpdatedDate :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prelude.UTCTime)
-createBotVersionResponse_lastUpdatedDate = Lens.lens (\CreateBotVersionResponse' {lastUpdatedDate} -> lastUpdatedDate) (\s@CreateBotVersionResponse' {} a -> s {lastUpdatedDate = a} :: CreateBotVersionResponse) Prelude.. Lens.mapping Core._Time
-
--- | Specifies the target locale for the bot.
-createBotVersionResponse_locale :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Locale)
-createBotVersionResponse_locale = Lens.lens (\CreateBotVersionResponse' {locale} -> locale) (\s@CreateBotVersionResponse' {} a -> s {locale = a} :: CreateBotVersionResponse)
-
 -- | The message that Amazon Lex uses when it doesn\'t understand the user\'s
 -- request. For more information, see PutBot.
 createBotVersionResponse_clarificationPrompt :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Prompt)
 createBotVersionResponse_clarificationPrompt = Lens.lens (\CreateBotVersionResponse' {clarificationPrompt} -> clarificationPrompt) (\s@CreateBotVersionResponse' {} a -> s {clarificationPrompt = a} :: CreateBotVersionResponse)
+
+-- | Specifies the target locale for the bot.
+createBotVersionResponse_locale :: Lens.Lens' CreateBotVersionResponse (Prelude.Maybe Locale)
+createBotVersionResponse_locale = Lens.lens (\CreateBotVersionResponse' {locale} -> locale) (\s@CreateBotVersionResponse' {} a -> s {locale = a} :: CreateBotVersionResponse)
 
 -- | Indicates whether the bot uses accuracy improvements. @true@ indicates
 -- that the bot is using the improvements, otherwise, @false@.

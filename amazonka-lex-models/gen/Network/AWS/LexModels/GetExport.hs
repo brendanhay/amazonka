@@ -41,8 +41,8 @@ module Network.AWS.LexModels.GetExport
     getExportResponse_version,
     getExportResponse_resourceType,
     getExportResponse_name,
-    getExportResponse_exportType,
     getExportResponse_failureReason,
+    getExportResponse_exportType,
     getExportResponse_url,
     getExportResponse_httpStatus,
   )
@@ -132,8 +132,8 @@ instance Core.AWSRequest GetExport where
             Prelude.<*> (x Core..?> "version")
             Prelude.<*> (x Core..?> "resourceType")
             Prelude.<*> (x Core..?> "name")
-            Prelude.<*> (x Core..?> "exportType")
             Prelude.<*> (x Core..?> "failureReason")
+            Prelude.<*> (x Core..?> "exportType")
             Prelude.<*> (x Core..?> "url")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -181,11 +181,11 @@ data GetExportResponse = GetExportResponse'
     resourceType :: Prelude.Maybe ResourceType,
     -- | The name of the bot being exported.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The format of the exported data.
-    exportType :: Prelude.Maybe ExportType,
     -- | If @status@ is @FAILED@, Amazon Lex provides the reason that it failed
     -- to export the resource.
     failureReason :: Prelude.Maybe Prelude.Text,
+    -- | The format of the exported data.
+    exportType :: Prelude.Maybe ExportType,
     -- | An S3 pre-signed URL that provides the location of the exported
     -- resource. The exported resource is a ZIP archive that contains the
     -- exported resource in JSON format. The structure of the archive may
@@ -218,10 +218,10 @@ data GetExportResponse = GetExportResponse'
 --
 -- 'name', 'getExportResponse_name' - The name of the bot being exported.
 --
--- 'exportType', 'getExportResponse_exportType' - The format of the exported data.
---
 -- 'failureReason', 'getExportResponse_failureReason' - If @status@ is @FAILED@, Amazon Lex provides the reason that it failed
 -- to export the resource.
+--
+-- 'exportType', 'getExportResponse_exportType' - The format of the exported data.
 --
 -- 'url', 'getExportResponse_url' - An S3 pre-signed URL that provides the location of the exported
 -- resource. The exported resource is a ZIP archive that contains the
@@ -239,8 +239,8 @@ newGetExportResponse pHttpStatus_ =
       version = Prelude.Nothing,
       resourceType = Prelude.Nothing,
       name = Prelude.Nothing,
-      exportType = Prelude.Nothing,
       failureReason = Prelude.Nothing,
+      exportType = Prelude.Nothing,
       url = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -267,14 +267,14 @@ getExportResponse_resourceType = Lens.lens (\GetExportResponse' {resourceType} -
 getExportResponse_name :: Lens.Lens' GetExportResponse (Prelude.Maybe Prelude.Text)
 getExportResponse_name = Lens.lens (\GetExportResponse' {name} -> name) (\s@GetExportResponse' {} a -> s {name = a} :: GetExportResponse)
 
--- | The format of the exported data.
-getExportResponse_exportType :: Lens.Lens' GetExportResponse (Prelude.Maybe ExportType)
-getExportResponse_exportType = Lens.lens (\GetExportResponse' {exportType} -> exportType) (\s@GetExportResponse' {} a -> s {exportType = a} :: GetExportResponse)
-
 -- | If @status@ is @FAILED@, Amazon Lex provides the reason that it failed
 -- to export the resource.
 getExportResponse_failureReason :: Lens.Lens' GetExportResponse (Prelude.Maybe Prelude.Text)
 getExportResponse_failureReason = Lens.lens (\GetExportResponse' {failureReason} -> failureReason) (\s@GetExportResponse' {} a -> s {failureReason = a} :: GetExportResponse)
+
+-- | The format of the exported data.
+getExportResponse_exportType :: Lens.Lens' GetExportResponse (Prelude.Maybe ExportType)
+getExportResponse_exportType = Lens.lens (\GetExportResponse' {exportType} -> exportType) (\s@GetExportResponse' {} a -> s {exportType = a} :: GetExportResponse)
 
 -- | An S3 pre-signed URL that provides the location of the exported
 -- resource. The exported resource is a ZIP archive that contains the

@@ -18,25 +18,29 @@ module Network.AWS.LexModels.Lens
     deleteSlotTypeVersion_name,
     deleteSlotTypeVersion_version,
 
+    -- ** StartMigration
+    startMigration_v1BotName,
+    startMigration_v1BotVersion,
+    startMigration_v2BotName,
+    startMigration_v2BotRole,
+    startMigration_migrationStrategy,
+    startMigrationResponse_v1BotVersion,
+    startMigrationResponse_migrationId,
+    startMigrationResponse_v1BotLocale,
+    startMigrationResponse_migrationTimestamp,
+    startMigrationResponse_migrationStrategy,
+    startMigrationResponse_v2BotRole,
+    startMigrationResponse_v1BotName,
+    startMigrationResponse_v2BotId,
+    startMigrationResponse_httpStatus,
+
     -- ** GetBots
-    getBots_nextToken,
     getBots_nameContains,
+    getBots_nextToken,
     getBots_maxResults,
     getBotsResponse_nextToken,
     getBotsResponse_bots,
     getBotsResponse_httpStatus,
-
-    -- ** GetSlotTypes
-    getSlotTypes_nextToken,
-    getSlotTypes_nameContains,
-    getSlotTypes_maxResults,
-    getSlotTypesResponse_slotTypes,
-    getSlotTypesResponse_nextToken,
-    getSlotTypesResponse_httpStatus,
-
-    -- ** DeleteUtterances
-    deleteUtterances_botName,
-    deleteUtterances_userId,
 
     -- ** GetBotAlias
     getBotAlias_name,
@@ -51,9 +55,21 @@ module Network.AWS.LexModels.Lens
     getBotAliasResponse_conversationLogs,
     getBotAliasResponse_httpStatus,
 
+    -- ** GetSlotTypes
+    getSlotTypes_nameContains,
+    getSlotTypes_nextToken,
+    getSlotTypes_maxResults,
+    getSlotTypesResponse_slotTypes,
+    getSlotTypesResponse_nextToken,
+    getSlotTypesResponse_httpStatus,
+
+    -- ** DeleteUtterances
+    deleteUtterances_botName,
+    deleteUtterances_userId,
+
     -- ** GetBotChannelAssociations
-    getBotChannelAssociations_nextToken,
     getBotChannelAssociations_nameContains,
+    getBotChannelAssociations_nextToken,
     getBotChannelAssociations_maxResults,
     getBotChannelAssociations_botName,
     getBotChannelAssociations_botAlias,
@@ -80,18 +96,13 @@ module Network.AWS.LexModels.Lens
     putBotAliasResponse_conversationLogs,
     putBotAliasResponse_httpStatus,
 
-    -- ** GetUtterancesView
-    getUtterancesView_botName,
-    getUtterancesView_botVersions,
-    getUtterancesView_statusType,
-    getUtterancesViewResponse_botName,
-    getUtterancesViewResponse_utterances,
-    getUtterancesViewResponse_httpStatus,
-
-    -- ** UntagResource
-    untagResource_resourceArn,
-    untagResource_tagKeys,
-    untagResourceResponse_httpStatus,
+    -- ** GetSlotTypeVersions
+    getSlotTypeVersions_nextToken,
+    getSlotTypeVersions_maxResults,
+    getSlotTypeVersions_name,
+    getSlotTypeVersionsResponse_slotTypes,
+    getSlotTypeVersionsResponse_nextToken,
+    getSlotTypeVersionsResponse_httpStatus,
 
     -- ** GetBuiltinIntent
     getBuiltinIntent_signature,
@@ -100,13 +111,23 @@ module Network.AWS.LexModels.Lens
     getBuiltinIntentResponse_supportedLocales,
     getBuiltinIntentResponse_httpStatus,
 
-    -- ** GetSlotTypeVersions
-    getSlotTypeVersions_nextToken,
-    getSlotTypeVersions_maxResults,
-    getSlotTypeVersions_name,
-    getSlotTypeVersionsResponse_slotTypes,
-    getSlotTypeVersionsResponse_nextToken,
-    getSlotTypeVersionsResponse_httpStatus,
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
+
+    -- ** GetUtterancesView
+    getUtterancesView_botName,
+    getUtterancesView_botVersions,
+    getUtterancesView_statusType,
+    getUtterancesViewResponse_botName,
+    getUtterancesViewResponse_utterances,
+    getUtterancesViewResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
 
     -- ** GetBuiltinSlotTypes
     getBuiltinSlotTypes_signatureContains,
@@ -118,17 +139,17 @@ module Network.AWS.LexModels.Lens
     getBuiltinSlotTypesResponse_httpStatus,
 
     -- ** PutBot
-    putBot_processBehavior,
     putBot_abortStatement,
+    putBot_processBehavior,
     putBot_voiceId,
-    putBot_nluIntentConfidenceThreshold,
     putBot_clarificationPrompt,
+    putBot_nluIntentConfidenceThreshold,
     putBot_enableModelImprovements,
     putBot_idleSessionTTLInSeconds,
     putBot_intents,
     putBot_tags,
-    putBot_createVersion,
     putBot_description,
+    putBot_createVersion,
     putBot_detectSentiment,
     putBot_checksum,
     putBot_name,
@@ -137,11 +158,11 @@ module Network.AWS.LexModels.Lens
     putBotResponse_abortStatement,
     putBotResponse_createdDate,
     putBotResponse_status,
-    putBotResponse_voiceId,
     putBotResponse_lastUpdatedDate,
+    putBotResponse_voiceId,
+    putBotResponse_clarificationPrompt,
     putBotResponse_nluIntentConfidenceThreshold,
     putBotResponse_locale,
-    putBotResponse_clarificationPrompt,
     putBotResponse_enableModelImprovements,
     putBotResponse_version,
     putBotResponse_idleSessionTTLInSeconds,
@@ -149,33 +170,25 @@ module Network.AWS.LexModels.Lens
     putBotResponse_intents,
     putBotResponse_failureReason,
     putBotResponse_tags,
-    putBotResponse_createVersion,
     putBotResponse_childDirected,
     putBotResponse_description,
+    putBotResponse_createVersion,
     putBotResponse_detectSentiment,
     putBotResponse_checksum,
     putBotResponse_httpStatus,
-
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
-
-    -- ** DeleteSlotType
-    deleteSlotType_name,
 
     -- ** PutIntent
     putIntent_kendraConfiguration,
     putIntent_parentIntentSignature,
     putIntent_dialogCodeHook,
     putIntent_conclusionStatement,
-    putIntent_inputContexts,
     putIntent_rejectionStatement,
+    putIntent_inputContexts,
     putIntent_slots,
     putIntent_fulfillmentActivity,
-    putIntent_createVersion,
     putIntent_sampleUtterances,
     putIntent_description,
+    putIntent_createVersion,
     putIntent_confirmationPrompt,
     putIntent_outputContexts,
     putIntent_followUpPrompt,
@@ -187,15 +200,15 @@ module Network.AWS.LexModels.Lens
     putIntentResponse_dialogCodeHook,
     putIntentResponse_conclusionStatement,
     putIntentResponse_lastUpdatedDate,
+    putIntentResponse_rejectionStatement,
     putIntentResponse_inputContexts,
     putIntentResponse_version,
-    putIntentResponse_rejectionStatement,
-    putIntentResponse_name,
     putIntentResponse_slots,
     putIntentResponse_fulfillmentActivity,
-    putIntentResponse_createVersion,
+    putIntentResponse_name,
     putIntentResponse_sampleUtterances,
     putIntentResponse_description,
+    putIntentResponse_createVersion,
     putIntentResponse_confirmationPrompt,
     putIntentResponse_outputContexts,
     putIntentResponse_followUpPrompt,
@@ -217,28 +230,8 @@ module Network.AWS.LexModels.Lens
     getBotChannelAssociationResponse_type,
     getBotChannelAssociationResponse_httpStatus,
 
-    -- ** CreateIntentVersion
-    createIntentVersion_checksum,
-    createIntentVersion_name,
-    createIntentVersionResponse_kendraConfiguration,
-    createIntentVersionResponse_createdDate,
-    createIntentVersionResponse_parentIntentSignature,
-    createIntentVersionResponse_dialogCodeHook,
-    createIntentVersionResponse_conclusionStatement,
-    createIntentVersionResponse_lastUpdatedDate,
-    createIntentVersionResponse_inputContexts,
-    createIntentVersionResponse_version,
-    createIntentVersionResponse_rejectionStatement,
-    createIntentVersionResponse_name,
-    createIntentVersionResponse_slots,
-    createIntentVersionResponse_fulfillmentActivity,
-    createIntentVersionResponse_sampleUtterances,
-    createIntentVersionResponse_description,
-    createIntentVersionResponse_confirmationPrompt,
-    createIntentVersionResponse_outputContexts,
-    createIntentVersionResponse_followUpPrompt,
-    createIntentVersionResponse_checksum,
-    createIntentVersionResponse_httpStatus,
+    -- ** DeleteSlotType
+    deleteSlotType_name,
 
     -- ** GetExport
     getExport_name,
@@ -249,8 +242,8 @@ module Network.AWS.LexModels.Lens
     getExportResponse_version,
     getExportResponse_resourceType,
     getExportResponse_name,
-    getExportResponse_exportType,
     getExportResponse_failureReason,
+    getExportResponse_exportType,
     getExportResponse_url,
     getExportResponse_httpStatus,
 
@@ -269,31 +262,28 @@ module Network.AWS.LexModels.Lens
     getSlotTypeResponse_checksum,
     getSlotTypeResponse_httpStatus,
 
-    -- ** DeleteIntentVersion
-    deleteIntentVersion_name,
-    deleteIntentVersion_version,
-
-    -- ** CreateBotVersion
-    createBotVersion_checksum,
-    createBotVersion_name,
-    createBotVersionResponse_abortStatement,
-    createBotVersionResponse_createdDate,
-    createBotVersionResponse_status,
-    createBotVersionResponse_voiceId,
-    createBotVersionResponse_lastUpdatedDate,
-    createBotVersionResponse_locale,
-    createBotVersionResponse_clarificationPrompt,
-    createBotVersionResponse_enableModelImprovements,
-    createBotVersionResponse_version,
-    createBotVersionResponse_idleSessionTTLInSeconds,
-    createBotVersionResponse_name,
-    createBotVersionResponse_intents,
-    createBotVersionResponse_failureReason,
-    createBotVersionResponse_childDirected,
-    createBotVersionResponse_description,
-    createBotVersionResponse_detectSentiment,
-    createBotVersionResponse_checksum,
-    createBotVersionResponse_httpStatus,
+    -- ** CreateIntentVersion
+    createIntentVersion_checksum,
+    createIntentVersion_name,
+    createIntentVersionResponse_kendraConfiguration,
+    createIntentVersionResponse_createdDate,
+    createIntentVersionResponse_parentIntentSignature,
+    createIntentVersionResponse_dialogCodeHook,
+    createIntentVersionResponse_conclusionStatement,
+    createIntentVersionResponse_lastUpdatedDate,
+    createIntentVersionResponse_rejectionStatement,
+    createIntentVersionResponse_inputContexts,
+    createIntentVersionResponse_version,
+    createIntentVersionResponse_slots,
+    createIntentVersionResponse_fulfillmentActivity,
+    createIntentVersionResponse_name,
+    createIntentVersionResponse_sampleUtterances,
+    createIntentVersionResponse_description,
+    createIntentVersionResponse_confirmationPrompt,
+    createIntentVersionResponse_outputContexts,
+    createIntentVersionResponse_followUpPrompt,
+    createIntentVersionResponse_checksum,
+    createIntentVersionResponse_httpStatus,
 
     -- ** GetBot
     getBot_name,
@@ -301,11 +291,11 @@ module Network.AWS.LexModels.Lens
     getBotResponse_abortStatement,
     getBotResponse_createdDate,
     getBotResponse_status,
-    getBotResponse_voiceId,
     getBotResponse_lastUpdatedDate,
+    getBotResponse_voiceId,
+    getBotResponse_clarificationPrompt,
     getBotResponse_nluIntentConfidenceThreshold,
     getBotResponse_locale,
-    getBotResponse_clarificationPrompt,
     getBotResponse_enableModelImprovements,
     getBotResponse_version,
     getBotResponse_idleSessionTTLInSeconds,
@@ -319,21 +309,58 @@ module Network.AWS.LexModels.Lens
     getBotResponse_httpStatus,
 
     -- ** GetBotAliases
-    getBotAliases_nextToken,
     getBotAliases_nameContains,
+    getBotAliases_nextToken,
     getBotAliases_maxResults,
     getBotAliases_botName,
     getBotAliasesResponse_nextToken,
     getBotAliasesResponse_botAliases,
     getBotAliasesResponse_httpStatus,
 
+    -- ** DeleteIntentVersion
+    deleteIntentVersion_name,
+    deleteIntentVersion_version,
+
+    -- ** CreateBotVersion
+    createBotVersion_checksum,
+    createBotVersion_name,
+    createBotVersionResponse_abortStatement,
+    createBotVersionResponse_createdDate,
+    createBotVersionResponse_status,
+    createBotVersionResponse_lastUpdatedDate,
+    createBotVersionResponse_voiceId,
+    createBotVersionResponse_clarificationPrompt,
+    createBotVersionResponse_locale,
+    createBotVersionResponse_enableModelImprovements,
+    createBotVersionResponse_version,
+    createBotVersionResponse_idleSessionTTLInSeconds,
+    createBotVersionResponse_name,
+    createBotVersionResponse_intents,
+    createBotVersionResponse_failureReason,
+    createBotVersionResponse_childDirected,
+    createBotVersionResponse_description,
+    createBotVersionResponse_detectSentiment,
+    createBotVersionResponse_checksum,
+    createBotVersionResponse_httpStatus,
+
     -- ** GetIntents
-    getIntents_nextToken,
     getIntents_nameContains,
+    getIntents_nextToken,
     getIntents_maxResults,
     getIntentsResponse_nextToken,
     getIntentsResponse_intents,
     getIntentsResponse_httpStatus,
+
+    -- ** GetMigrations
+    getMigrations_migrationStatusEquals,
+    getMigrations_nextToken,
+    getMigrations_maxResults,
+    getMigrations_sortByAttribute,
+    getMigrations_v1BotNameContains,
+    getMigrations_sortByOrder,
+    getMigrationsResponse_nextToken,
+    getMigrationsResponse_migrationSummaries,
+    getMigrationsResponse_httpStatus,
 
     -- ** GetBotVersions
     getBotVersions_nextToken,
@@ -347,6 +374,14 @@ module Network.AWS.LexModels.Lens
     deleteBotAlias_name,
     deleteBotAlias_botName,
 
+    -- ** GetIntentVersions
+    getIntentVersions_nextToken,
+    getIntentVersions_maxResults,
+    getIntentVersions_name,
+    getIntentVersionsResponse_nextToken,
+    getIntentVersionsResponse_intents,
+    getIntentVersionsResponse_httpStatus,
+
     -- ** GetImport
     getImport_importId,
     getImportResponse_createdDate,
@@ -357,14 +392,6 @@ module Network.AWS.LexModels.Lens
     getImportResponse_failureReason,
     getImportResponse_importStatus,
     getImportResponse_httpStatus,
-
-    -- ** GetIntentVersions
-    getIntentVersions_nextToken,
-    getIntentVersions_maxResults,
-    getIntentVersions_name,
-    getIntentVersionsResponse_nextToken,
-    getIntentVersionsResponse_intents,
-    getIntentVersionsResponse_httpStatus,
 
     -- ** GetBuiltinIntents
     getBuiltinIntents_signatureContains,
@@ -377,28 +404,6 @@ module Network.AWS.LexModels.Lens
 
     -- ** DeleteBot
     deleteBot_name,
-
-    -- ** PutSlotType
-    putSlotType_slotTypeConfigurations,
-    putSlotType_enumerationValues,
-    putSlotType_valueSelectionStrategy,
-    putSlotType_parentSlotTypeSignature,
-    putSlotType_createVersion,
-    putSlotType_description,
-    putSlotType_checksum,
-    putSlotType_name,
-    putSlotTypeResponse_slotTypeConfigurations,
-    putSlotTypeResponse_createdDate,
-    putSlotTypeResponse_enumerationValues,
-    putSlotTypeResponse_lastUpdatedDate,
-    putSlotTypeResponse_valueSelectionStrategy,
-    putSlotTypeResponse_version,
-    putSlotTypeResponse_name,
-    putSlotTypeResponse_parentSlotTypeSignature,
-    putSlotTypeResponse_createVersion,
-    putSlotTypeResponse_description,
-    putSlotTypeResponse_checksum,
-    putSlotTypeResponse_httpStatus,
 
     -- ** StartImport
     startImport_tags,
@@ -414,13 +419,30 @@ module Network.AWS.LexModels.Lens
     startImportResponse_tags,
     startImportResponse_httpStatus,
 
+    -- ** PutSlotType
+    putSlotType_slotTypeConfigurations,
+    putSlotType_enumerationValues,
+    putSlotType_valueSelectionStrategy,
+    putSlotType_parentSlotTypeSignature,
+    putSlotType_description,
+    putSlotType_createVersion,
+    putSlotType_checksum,
+    putSlotType_name,
+    putSlotTypeResponse_slotTypeConfigurations,
+    putSlotTypeResponse_createdDate,
+    putSlotTypeResponse_enumerationValues,
+    putSlotTypeResponse_lastUpdatedDate,
+    putSlotTypeResponse_valueSelectionStrategy,
+    putSlotTypeResponse_version,
+    putSlotTypeResponse_name,
+    putSlotTypeResponse_parentSlotTypeSignature,
+    putSlotTypeResponse_description,
+    putSlotTypeResponse_createVersion,
+    putSlotTypeResponse_checksum,
+    putSlotTypeResponse_httpStatus,
+
     -- ** DeleteIntent
     deleteIntent_name,
-
-    -- ** ListTagsForResource
-    listTagsForResource_resourceArn,
-    listTagsForResourceResponse_tags,
-    listTagsForResourceResponse_httpStatus,
 
     -- ** CreateSlotTypeVersion
     createSlotTypeVersion_checksum,
@@ -437,6 +459,30 @@ module Network.AWS.LexModels.Lens
     createSlotTypeVersionResponse_checksum,
     createSlotTypeVersionResponse_httpStatus,
 
+    -- ** DeleteBotChannelAssociation
+    deleteBotChannelAssociation_name,
+    deleteBotChannelAssociation_botName,
+    deleteBotChannelAssociation_botAlias,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** GetMigration
+    getMigration_migrationId,
+    getMigrationResponse_v1BotVersion,
+    getMigrationResponse_migrationId,
+    getMigrationResponse_v1BotLocale,
+    getMigrationResponse_migrationTimestamp,
+    getMigrationResponse_migrationStrategy,
+    getMigrationResponse_v2BotRole,
+    getMigrationResponse_v1BotName,
+    getMigrationResponse_v2BotId,
+    getMigrationResponse_migrationStatus,
+    getMigrationResponse_alerts,
+    getMigrationResponse_httpStatus,
+
     -- ** GetIntent
     getIntent_name,
     getIntent_version,
@@ -446,12 +492,12 @@ module Network.AWS.LexModels.Lens
     getIntentResponse_dialogCodeHook,
     getIntentResponse_conclusionStatement,
     getIntentResponse_lastUpdatedDate,
+    getIntentResponse_rejectionStatement,
     getIntentResponse_inputContexts,
     getIntentResponse_version,
-    getIntentResponse_rejectionStatement,
-    getIntentResponse_name,
     getIntentResponse_slots,
     getIntentResponse_fulfillmentActivity,
+    getIntentResponse_name,
     getIntentResponse_sampleUtterances,
     getIntentResponse_description,
     getIntentResponse_confirmationPrompt,
@@ -463,11 +509,6 @@ module Network.AWS.LexModels.Lens
     -- ** DeleteBotVersion
     deleteBotVersion_name,
     deleteBotVersion_version,
-
-    -- ** DeleteBotChannelAssociation
-    deleteBotChannelAssociation_name,
-    deleteBotChannelAssociation_botName,
-    deleteBotChannelAssociation_botAlias,
 
     -- * Types
 
@@ -572,6 +613,23 @@ module Network.AWS.LexModels.Lens
     message_contentType,
     message_content,
 
+    -- ** MigrationAlert
+    migrationAlert_message,
+    migrationAlert_details,
+    migrationAlert_referenceURLs,
+    migrationAlert_type,
+
+    -- ** MigrationSummary
+    migrationSummary_v1BotVersion,
+    migrationSummary_migrationId,
+    migrationSummary_v1BotLocale,
+    migrationSummary_migrationTimestamp,
+    migrationSummary_migrationStrategy,
+    migrationSummary_v2BotRole,
+    migrationSummary_v1BotName,
+    migrationSummary_v2BotId,
+    migrationSummary_migrationStatus,
+
     -- ** OutputContext
     outputContext_name,
     outputContext_timeToLiveInSeconds,
@@ -584,8 +642,8 @@ module Network.AWS.LexModels.Lens
 
     -- ** Slot
     slot_responseCard,
-    slot_valueElicitationPrompt,
     slot_slotType,
+    slot_valueElicitationPrompt,
     slot_slotTypeVersion,
     slot_priority,
     slot_sampleUtterances,
@@ -626,8 +684,8 @@ module Network.AWS.LexModels.Lens
     utteranceData_utteranceString,
     utteranceData_distinctUsers,
     utteranceData_count,
-    utteranceData_firstUtteredDate,
     utteranceData_lastUtteredDate,
+    utteranceData_firstUtteredDate,
 
     -- ** UtteranceList
     utteranceList_botVersion,
@@ -662,6 +720,8 @@ import Network.AWS.LexModels.GetImport
 import Network.AWS.LexModels.GetIntent
 import Network.AWS.LexModels.GetIntentVersions
 import Network.AWS.LexModels.GetIntents
+import Network.AWS.LexModels.GetMigration
+import Network.AWS.LexModels.GetMigrations
 import Network.AWS.LexModels.GetSlotType
 import Network.AWS.LexModels.GetSlotTypeVersions
 import Network.AWS.LexModels.GetSlotTypes
@@ -672,6 +732,7 @@ import Network.AWS.LexModels.PutBotAlias
 import Network.AWS.LexModels.PutIntent
 import Network.AWS.LexModels.PutSlotType
 import Network.AWS.LexModels.StartImport
+import Network.AWS.LexModels.StartMigration
 import Network.AWS.LexModels.TagResource
 import Network.AWS.LexModels.Types.BotAliasMetadata
 import Network.AWS.LexModels.Types.BotChannelAssociation
@@ -692,6 +753,8 @@ import Network.AWS.LexModels.Types.KendraConfiguration
 import Network.AWS.LexModels.Types.LogSettingsRequest
 import Network.AWS.LexModels.Types.LogSettingsResponse
 import Network.AWS.LexModels.Types.Message
+import Network.AWS.LexModels.Types.MigrationAlert
+import Network.AWS.LexModels.Types.MigrationSummary
 import Network.AWS.LexModels.Types.OutputContext
 import Network.AWS.LexModels.Types.Prompt
 import Network.AWS.LexModels.Types.Slot

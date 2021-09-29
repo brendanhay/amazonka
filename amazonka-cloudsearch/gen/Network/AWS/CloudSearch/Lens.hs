@@ -24,6 +24,12 @@ module Network.AWS.CloudSearch.Lens
     listDomainNamesResponse_domainNames,
     listDomainNamesResponse_httpStatus,
 
+    -- ** DescribeDomainEndpointOptions
+    describeDomainEndpointOptions_deployed,
+    describeDomainEndpointOptions_domainName,
+    describeDomainEndpointOptionsResponse_domainEndpointOptions,
+    describeDomainEndpointOptionsResponse_httpStatus,
+
     -- ** DefineSuggester
     defineSuggester_domainName,
     defineSuggester_suggester,
@@ -34,12 +40,6 @@ module Network.AWS.CloudSearch.Lens
     describeDomains_domainNames,
     describeDomainsResponse_httpStatus,
     describeDomainsResponse_domainStatusList,
-
-    -- ** DescribeDomainEndpointOptions
-    describeDomainEndpointOptions_deployed,
-    describeDomainEndpointOptions_domainName,
-    describeDomainEndpointOptionsResponse_domainEndpointOptions,
-    describeDomainEndpointOptionsResponse_httpStatus,
 
     -- ** DeleteExpression
     deleteExpression_domainName,
@@ -52,12 +52,6 @@ module Network.AWS.CloudSearch.Lens
     deleteIndexField_indexFieldName,
     deleteIndexFieldResponse_httpStatus,
     deleteIndexFieldResponse_indexField,
-
-    -- ** DeleteSuggester
-    deleteSuggester_domainName,
-    deleteSuggester_suggesterName,
-    deleteSuggesterResponse_httpStatus,
-    deleteSuggesterResponse_suggester,
 
     -- ** UpdateDomainEndpointOptions
     updateDomainEndpointOptions_domainName,
@@ -72,10 +66,11 @@ module Network.AWS.CloudSearch.Lens
     describeIndexFieldsResponse_httpStatus,
     describeIndexFieldsResponse_indexFields,
 
-    -- ** CreateDomain
-    createDomain_domainName,
-    createDomainResponse_domainStatus,
-    createDomainResponse_httpStatus,
+    -- ** DeleteSuggester
+    deleteSuggester_domainName,
+    deleteSuggester_suggesterName,
+    deleteSuggesterResponse_httpStatus,
+    deleteSuggesterResponse_suggester,
 
     -- ** DescribeExpressions
     describeExpressions_deployed,
@@ -90,11 +85,21 @@ module Network.AWS.CloudSearch.Lens
     describeAvailabilityOptionsResponse_availabilityOptions,
     describeAvailabilityOptionsResponse_httpStatus,
 
+    -- ** CreateDomain
+    createDomain_domainName,
+    createDomainResponse_domainStatus,
+    createDomainResponse_httpStatus,
+
     -- ** DefineIndexField
     defineIndexField_domainName,
     defineIndexField_indexField,
     defineIndexFieldResponse_httpStatus,
     defineIndexFieldResponse_indexField,
+
+    -- ** DeleteDomain
+    deleteDomain_domainName,
+    deleteDomainResponse_domainStatus,
+    deleteDomainResponse_httpStatus,
 
     -- ** DescribeAnalysisSchemes
     describeAnalysisSchemes_deployed,
@@ -103,22 +108,11 @@ module Network.AWS.CloudSearch.Lens
     describeAnalysisSchemesResponse_httpStatus,
     describeAnalysisSchemesResponse_analysisSchemes,
 
-    -- ** DeleteDomain
-    deleteDomain_domainName,
-    deleteDomainResponse_domainStatus,
-    deleteDomainResponse_httpStatus,
-
     -- ** DeleteAnalysisScheme
     deleteAnalysisScheme_domainName,
     deleteAnalysisScheme_analysisSchemeName,
     deleteAnalysisSchemeResponse_httpStatus,
     deleteAnalysisSchemeResponse_analysisScheme,
-
-    -- ** UpdateScalingParameters
-    updateScalingParameters_domainName,
-    updateScalingParameters_scalingParameters,
-    updateScalingParametersResponse_httpStatus,
-    updateScalingParametersResponse_scalingParameters,
 
     -- ** BuildSuggesters
     buildSuggesters_domainName,
@@ -130,6 +124,12 @@ module Network.AWS.CloudSearch.Lens
     updateServiceAccessPolicies_accessPolicies,
     updateServiceAccessPoliciesResponse_httpStatus,
     updateServiceAccessPoliciesResponse_accessPolicies,
+
+    -- ** UpdateScalingParameters
+    updateScalingParameters_domainName,
+    updateScalingParameters_scalingParameters,
+    updateScalingParametersResponse_httpStatus,
+    updateScalingParametersResponse_scalingParameters,
 
     -- ** UpdateAvailabilityOptions
     updateAvailabilityOptions_domainName,
@@ -144,6 +144,11 @@ module Network.AWS.CloudSearch.Lens
     describeSuggestersResponse_httpStatus,
     describeSuggestersResponse_suggesters,
 
+    -- ** IndexDocuments
+    indexDocuments_domainName,
+    indexDocumentsResponse_fieldNames,
+    indexDocumentsResponse_httpStatus,
+
     -- ** DescribeServiceAccessPolicies
     describeServiceAccessPolicies_deployed,
     describeServiceAccessPolicies_domainName,
@@ -155,11 +160,6 @@ module Network.AWS.CloudSearch.Lens
     defineAnalysisScheme_analysisScheme,
     defineAnalysisSchemeResponse_httpStatus,
     defineAnalysisSchemeResponse_analysisScheme,
-
-    -- ** IndexDocuments
-    indexDocuments_domainName,
-    indexDocumentsResponse_fieldNames,
-    indexDocumentsResponse_httpStatus,
 
     -- ** DescribeScalingParameters
     describeScalingParameters_domainName,
@@ -175,9 +175,9 @@ module Network.AWS.CloudSearch.Lens
     -- ** AnalysisOptions
     analysisOptions_stopwords,
     analysisOptions_algorithmicStemming,
+    analysisOptions_synonyms,
     analysisOptions_stemmingDictionary,
     analysisOptions_japaneseTokenizationDictionary,
-    analysisOptions_synonyms,
 
     -- ** AnalysisScheme
     analysisScheme_analysisOptions,
@@ -213,8 +213,8 @@ module Network.AWS.CloudSearch.Lens
     documentSuggesterOptions_sourceField,
 
     -- ** DomainEndpointOptions
-    domainEndpointOptions_enforceHTTPS,
     domainEndpointOptions_tLSSecurityPolicy,
+    domainEndpointOptions_enforceHTTPS,
 
     -- ** DomainEndpointOptionsStatus
     domainEndpointOptionsStatus_options,
@@ -226,11 +226,11 @@ module Network.AWS.CloudSearch.Lens
     domainStatus_searchPartitionCount,
     domainStatus_searchInstanceCount,
     domainStatus_limits,
-    domainStatus_searchService,
     domainStatus_processing,
+    domainStatus_searchService,
     domainStatus_created,
-    domainStatus_deleted,
     domainStatus_docService,
+    domainStatus_deleted,
     domainStatus_domainId,
     domainStatus_domainName,
     domainStatus_requiresIndexDocuments,
@@ -259,14 +259,14 @@ module Network.AWS.CloudSearch.Lens
     expressionStatus_status,
 
     -- ** IndexField
-    indexField_doubleArrayOptions,
-    indexField_latLonOptions,
     indexField_textArrayOptions,
-    indexField_dateArrayOptions,
+    indexField_latLonOptions,
+    indexField_doubleArrayOptions,
     indexField_doubleOptions,
+    indexField_dateArrayOptions,
     indexField_textOptions,
-    indexField_intArrayOptions,
     indexField_literalArrayOptions,
+    indexField_intArrayOptions,
     indexField_dateOptions,
     indexField_intOptions,
     indexField_literalOptions,

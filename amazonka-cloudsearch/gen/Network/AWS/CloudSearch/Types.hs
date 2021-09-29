@@ -18,6 +18,7 @@ module Network.AWS.CloudSearch.Types
 
     -- * Errors
     _InvalidTypeException,
+    _ResourceAlreadyExistsException,
     _InternalException,
     _BaseException,
     _ValidationException,
@@ -57,9 +58,9 @@ module Network.AWS.CloudSearch.Types
     newAnalysisOptions,
     analysisOptions_stopwords,
     analysisOptions_algorithmicStemming,
+    analysisOptions_synonyms,
     analysisOptions_stemmingDictionary,
     analysisOptions_japaneseTokenizationDictionary,
-    analysisOptions_synonyms,
 
     -- * AnalysisScheme
     AnalysisScheme (..),
@@ -109,8 +110,8 @@ module Network.AWS.CloudSearch.Types
     -- * DomainEndpointOptions
     DomainEndpointOptions (..),
     newDomainEndpointOptions,
-    domainEndpointOptions_enforceHTTPS,
     domainEndpointOptions_tLSSecurityPolicy,
+    domainEndpointOptions_enforceHTTPS,
 
     -- * DomainEndpointOptionsStatus
     DomainEndpointOptionsStatus (..),
@@ -126,11 +127,11 @@ module Network.AWS.CloudSearch.Types
     domainStatus_searchPartitionCount,
     domainStatus_searchInstanceCount,
     domainStatus_limits,
-    domainStatus_searchService,
     domainStatus_processing,
+    domainStatus_searchService,
     domainStatus_created,
-    domainStatus_deleted,
     domainStatus_docService,
+    domainStatus_deleted,
     domainStatus_domainId,
     domainStatus_domainName,
     domainStatus_requiresIndexDocuments,
@@ -169,14 +170,14 @@ module Network.AWS.CloudSearch.Types
     -- * IndexField
     IndexField (..),
     newIndexField,
-    indexField_doubleArrayOptions,
-    indexField_latLonOptions,
     indexField_textArrayOptions,
-    indexField_dateArrayOptions,
+    indexField_latLonOptions,
+    indexField_doubleArrayOptions,
     indexField_doubleOptions,
+    indexField_dateArrayOptions,
     indexField_textOptions,
-    indexField_intArrayOptions,
     indexField_literalArrayOptions,
+    indexField_intArrayOptions,
     indexField_dateOptions,
     indexField_intOptions,
     indexField_literalOptions,
@@ -430,6 +431,15 @@ _InvalidTypeException =
   Core._MatchServiceError
     defaultService
     "InvalidType"
+    Prelude.. Core.hasStatus 409
+
+-- | The request was rejected because it attempted to create a resource that
+-- already exists.
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceAlreadyExists"
     Prelude.. Core.hasStatus 409
 
 -- | An internal error occurred while processing the request. If this problem

@@ -40,6 +40,18 @@ data AnalysisOptions = AnalysisOptions'
     -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/text-processing.html#text-processing-settings Language Specific Text Processing Settings>
     -- in the /Amazon CloudSearch Developer Guide/
     algorithmicStemming :: Prelude.Maybe AlgorithmicStemming,
+    -- | A JSON object that defines synonym groups and aliases. A synonym group
+    -- is an array of arrays, where each sub-array is a group of terms where
+    -- each term in the group is considered a synonym of every other term in
+    -- the group. The aliases value is an object that contains a collection of
+    -- string:value pairs where the string specifies a term and the array of
+    -- values specifies each of the aliases for that term. An alias is
+    -- considered a synonym of the specified term, but the term is not
+    -- considered a synonym of the alias. For more information about specifying
+    -- synonyms, see
+    -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html#synonyms Synonyms>
+    -- in the /Amazon CloudSearch Developer Guide/.
+    synonyms :: Prelude.Maybe Prelude.Text,
     -- | A JSON object that contains a collection of string:value pairs that each
     -- map a term to its stem. For example,
     -- @{\"term1\": \"stem1\", \"term2\": \"stem2\", \"term3\": \"stem3\"}@.
@@ -52,19 +64,7 @@ data AnalysisOptions = AnalysisOptions'
     -- part of speech for Japanese Tokenizaiton. The Japanese tokenization
     -- dictionary enables you to override the default tokenization for selected
     -- terms. This is only valid for Japanese language fields.
-    japaneseTokenizationDictionary :: Prelude.Maybe Prelude.Text,
-    -- | A JSON object that defines synonym groups and aliases. A synonym group
-    -- is an array of arrays, where each sub-array is a group of terms where
-    -- each term in the group is considered a synonym of every other term in
-    -- the group. The aliases value is an object that contains a collection of
-    -- string:value pairs where the string specifies a term and the array of
-    -- values specifies each of the aliases for that term. An alias is
-    -- considered a synonym of the specified term, but the term is not
-    -- considered a synonym of the alias. For more information about specifying
-    -- synonyms, see
-    -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html#synonyms Synonyms>
-    -- in the /Amazon CloudSearch Developer Guide/.
-    synonyms :: Prelude.Maybe Prelude.Text
+    japaneseTokenizationDictionary :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,6 +87,18 @@ data AnalysisOptions = AnalysisOptions'
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/text-processing.html#text-processing-settings Language Specific Text Processing Settings>
 -- in the /Amazon CloudSearch Developer Guide/
 --
+-- 'synonyms', 'analysisOptions_synonyms' - A JSON object that defines synonym groups and aliases. A synonym group
+-- is an array of arrays, where each sub-array is a group of terms where
+-- each term in the group is considered a synonym of every other term in
+-- the group. The aliases value is an object that contains a collection of
+-- string:value pairs where the string specifies a term and the array of
+-- values specifies each of the aliases for that term. An alias is
+-- considered a synonym of the specified term, but the term is not
+-- considered a synonym of the alias. For more information about specifying
+-- synonyms, see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html#synonyms Synonyms>
+-- in the /Amazon CloudSearch Developer Guide/.
+--
 -- 'stemmingDictionary', 'analysisOptions_stemmingDictionary' - A JSON object that contains a collection of string:value pairs that each
 -- map a term to its stem. For example,
 -- @{\"term1\": \"stem1\", \"term2\": \"stem2\", \"term3\": \"stem3\"}@.
@@ -99,27 +111,15 @@ data AnalysisOptions = AnalysisOptions'
 -- part of speech for Japanese Tokenizaiton. The Japanese tokenization
 -- dictionary enables you to override the default tokenization for selected
 -- terms. This is only valid for Japanese language fields.
---
--- 'synonyms', 'analysisOptions_synonyms' - A JSON object that defines synonym groups and aliases. A synonym group
--- is an array of arrays, where each sub-array is a group of terms where
--- each term in the group is considered a synonym of every other term in
--- the group. The aliases value is an object that contains a collection of
--- string:value pairs where the string specifies a term and the array of
--- values specifies each of the aliases for that term. An alias is
--- considered a synonym of the specified term, but the term is not
--- considered a synonym of the alias. For more information about specifying
--- synonyms, see
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html#synonyms Synonyms>
--- in the /Amazon CloudSearch Developer Guide/.
 newAnalysisOptions ::
   AnalysisOptions
 newAnalysisOptions =
   AnalysisOptions'
     { stopwords = Prelude.Nothing,
       algorithmicStemming = Prelude.Nothing,
+      synonyms = Prelude.Nothing,
       stemmingDictionary = Prelude.Nothing,
-      japaneseTokenizationDictionary = Prelude.Nothing,
-      synonyms = Prelude.Nothing
+      japaneseTokenizationDictionary = Prelude.Nothing
     }
 
 -- | A JSON array of terms to ignore during indexing and searching. For
@@ -136,6 +136,20 @@ analysisOptions_stopwords = Lens.lens (\AnalysisOptions' {stopwords} -> stopword
 -- in the /Amazon CloudSearch Developer Guide/
 analysisOptions_algorithmicStemming :: Lens.Lens' AnalysisOptions (Prelude.Maybe AlgorithmicStemming)
 analysisOptions_algorithmicStemming = Lens.lens (\AnalysisOptions' {algorithmicStemming} -> algorithmicStemming) (\s@AnalysisOptions' {} a -> s {algorithmicStemming = a} :: AnalysisOptions)
+
+-- | A JSON object that defines synonym groups and aliases. A synonym group
+-- is an array of arrays, where each sub-array is a group of terms where
+-- each term in the group is considered a synonym of every other term in
+-- the group. The aliases value is an object that contains a collection of
+-- string:value pairs where the string specifies a term and the array of
+-- values specifies each of the aliases for that term. An alias is
+-- considered a synonym of the specified term, but the term is not
+-- considered a synonym of the alias. For more information about specifying
+-- synonyms, see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html#synonyms Synonyms>
+-- in the /Amazon CloudSearch Developer Guide/.
+analysisOptions_synonyms :: Lens.Lens' AnalysisOptions (Prelude.Maybe Prelude.Text)
+analysisOptions_synonyms = Lens.lens (\AnalysisOptions' {synonyms} -> synonyms) (\s@AnalysisOptions' {} a -> s {synonyms = a} :: AnalysisOptions)
 
 -- | A JSON object that contains a collection of string:value pairs that each
 -- map a term to its stem. For example,
@@ -154,28 +168,14 @@ analysisOptions_stemmingDictionary = Lens.lens (\AnalysisOptions' {stemmingDicti
 analysisOptions_japaneseTokenizationDictionary :: Lens.Lens' AnalysisOptions (Prelude.Maybe Prelude.Text)
 analysisOptions_japaneseTokenizationDictionary = Lens.lens (\AnalysisOptions' {japaneseTokenizationDictionary} -> japaneseTokenizationDictionary) (\s@AnalysisOptions' {} a -> s {japaneseTokenizationDictionary = a} :: AnalysisOptions)
 
--- | A JSON object that defines synonym groups and aliases. A synonym group
--- is an array of arrays, where each sub-array is a group of terms where
--- each term in the group is considered a synonym of every other term in
--- the group. The aliases value is an object that contains a collection of
--- string:value pairs where the string specifies a term and the array of
--- values specifies each of the aliases for that term. An alias is
--- considered a synonym of the specified term, but the term is not
--- considered a synonym of the alias. For more information about specifying
--- synonyms, see
--- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html#synonyms Synonyms>
--- in the /Amazon CloudSearch Developer Guide/.
-analysisOptions_synonyms :: Lens.Lens' AnalysisOptions (Prelude.Maybe Prelude.Text)
-analysisOptions_synonyms = Lens.lens (\AnalysisOptions' {synonyms} -> synonyms) (\s@AnalysisOptions' {} a -> s {synonyms = a} :: AnalysisOptions)
-
 instance Core.FromXML AnalysisOptions where
   parseXML x =
     AnalysisOptions'
       Prelude.<$> (x Core..@? "Stopwords")
       Prelude.<*> (x Core..@? "AlgorithmicStemming")
+      Prelude.<*> (x Core..@? "Synonyms")
       Prelude.<*> (x Core..@? "StemmingDictionary")
       Prelude.<*> (x Core..@? "JapaneseTokenizationDictionary")
-      Prelude.<*> (x Core..@? "Synonyms")
 
 instance Prelude.Hashable AnalysisOptions
 
@@ -186,8 +186,8 @@ instance Core.ToQuery AnalysisOptions where
     Prelude.mconcat
       [ "Stopwords" Core.=: stopwords,
         "AlgorithmicStemming" Core.=: algorithmicStemming,
+        "Synonyms" Core.=: synonyms,
         "StemmingDictionary" Core.=: stemmingDictionary,
         "JapaneseTokenizationDictionary"
-          Core.=: japaneseTokenizationDictionary,
-        "Synonyms" Core.=: synonyms
+          Core.=: japaneseTokenizationDictionary
       ]

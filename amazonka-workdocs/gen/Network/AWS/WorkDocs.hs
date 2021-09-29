@@ -51,23 +51,20 @@ module Network.AWS.WorkDocs
     -- * Errors
     -- $errors
 
+    -- ** CustomMetadataLimitExceededException
+    _CustomMetadataLimitExceededException,
+
     -- ** IllegalUserStateException
     _IllegalUserStateException,
 
     -- ** StorageLimitWillExceedException
     _StorageLimitWillExceedException,
 
-    -- ** CustomMetadataLimitExceededException
-    _CustomMetadataLimitExceededException,
-
-    -- ** ConflictingOperationException
-    _ConflictingOperationException,
-
     -- ** DeactivatingLastSystemUserException
     _DeactivatingLastSystemUserException,
 
-    -- ** DraftUploadOutOfSyncException
-    _DraftUploadOutOfSyncException,
+    -- ** ConflictingOperationException
+    _ConflictingOperationException,
 
     -- ** DocumentLockedForCommentsException
     _DocumentLockedForCommentsException,
@@ -75,50 +72,53 @@ module Network.AWS.WorkDocs
     -- ** EntityNotExistsException
     _EntityNotExistsException,
 
+    -- ** DraftUploadOutOfSyncException
+    _DraftUploadOutOfSyncException,
+
     -- ** UnauthorizedOperationException
     _UnauthorizedOperationException,
 
     -- ** InvalidOperationException
     _InvalidOperationException,
 
-    -- ** StorageLimitExceededException
-    _StorageLimitExceededException,
-
     -- ** ServiceUnavailableException
     _ServiceUnavailableException,
 
-    -- ** UnauthorizedResourceAccessException
-    _UnauthorizedResourceAccessException,
+    -- ** StorageLimitExceededException
+    _StorageLimitExceededException,
 
     -- ** RequestedEntityTooLargeException
     _RequestedEntityTooLargeException,
 
-    -- ** ProhibitedStateException
-    _ProhibitedStateException,
-
-    -- ** EntityAlreadyExistsException
-    _EntityAlreadyExistsException,
+    -- ** UnauthorizedResourceAccessException
+    _UnauthorizedResourceAccessException,
 
     -- ** ConcurrentModificationException
     _ConcurrentModificationException,
 
+    -- ** EntityAlreadyExistsException
+    _EntityAlreadyExistsException,
+
+    -- ** ProhibitedStateException
+    _ProhibitedStateException,
+
     -- ** ResourceAlreadyCheckedOutException
     _ResourceAlreadyCheckedOutException,
-
-    -- ** LimitExceededException
-    _LimitExceededException,
 
     -- ** InvalidPasswordException
     _InvalidPasswordException,
 
+    -- ** LimitExceededException
+    _LimitExceededException,
+
     -- ** FailedDependencyException
     _FailedDependencyException,
 
-    -- ** InvalidCommentOperationException
-    _InvalidCommentOperationException,
-
     -- ** TooManySubscriptionsException
     _TooManySubscriptionsException,
+
+    -- ** InvalidCommentOperationException
+    _InvalidCommentOperationException,
 
     -- ** TooManyLabelsException
     _TooManyLabelsException,
@@ -132,11 +132,11 @@ module Network.AWS.WorkDocs
     -- * Operations
     -- $operations
 
-    -- ** DeleteFolder
-    DeleteFolder (DeleteFolder'),
-    newDeleteFolder,
-    DeleteFolderResponse (DeleteFolderResponse'),
-    newDeleteFolderResponse,
+    -- ** DeleteCustomMetadata
+    DeleteCustomMetadata (DeleteCustomMetadata'),
+    newDeleteCustomMetadata,
+    DeleteCustomMetadataResponse (DeleteCustomMetadataResponse'),
+    newDeleteCustomMetadataResponse,
 
     -- ** UpdateFolder
     UpdateFolder (UpdateFolder'),
@@ -144,23 +144,17 @@ module Network.AWS.WorkDocs
     UpdateFolderResponse (UpdateFolderResponse'),
     newUpdateFolderResponse,
 
-    -- ** DeleteCustomMetadata
-    DeleteCustomMetadata (DeleteCustomMetadata'),
-    newDeleteCustomMetadata,
-    DeleteCustomMetadataResponse (DeleteCustomMetadataResponse'),
-    newDeleteCustomMetadataResponse,
-
     -- ** DeleteNotificationSubscription
     DeleteNotificationSubscription (DeleteNotificationSubscription'),
     newDeleteNotificationSubscription,
     DeleteNotificationSubscriptionResponse (DeleteNotificationSubscriptionResponse'),
     newDeleteNotificationSubscriptionResponse,
 
-    -- ** UpdateDocumentVersion
-    UpdateDocumentVersion (UpdateDocumentVersion'),
-    newUpdateDocumentVersion,
-    UpdateDocumentVersionResponse (UpdateDocumentVersionResponse'),
-    newUpdateDocumentVersionResponse,
+    -- ** DeleteFolder
+    DeleteFolder (DeleteFolder'),
+    newDeleteFolder,
+    DeleteFolderResponse (DeleteFolderResponse'),
+    newDeleteFolderResponse,
 
     -- ** DeleteLabels
     DeleteLabels (DeleteLabels'),
@@ -174,6 +168,18 @@ module Network.AWS.WorkDocs
     AbortDocumentVersionUploadResponse (AbortDocumentVersionUploadResponse'),
     newAbortDocumentVersionUploadResponse,
 
+    -- ** UpdateDocumentVersion
+    UpdateDocumentVersion (UpdateDocumentVersion'),
+    newUpdateDocumentVersion,
+    UpdateDocumentVersionResponse (UpdateDocumentVersionResponse'),
+    newUpdateDocumentVersionResponse,
+
+    -- ** DeactivateUser
+    DeactivateUser (DeactivateUser'),
+    newDeactivateUser,
+    DeactivateUserResponse (DeactivateUserResponse'),
+    newDeactivateUserResponse,
+
     -- ** DescribeFolderContents (Paginated)
     DescribeFolderContents (DescribeFolderContents'),
     newDescribeFolderContents,
@@ -185,12 +191,6 @@ module Network.AWS.WorkDocs
     newCreateLabels,
     CreateLabelsResponse (CreateLabelsResponse'),
     newCreateLabelsResponse,
-
-    -- ** DeactivateUser
-    DeactivateUser (DeactivateUser'),
-    newDeactivateUser,
-    DeactivateUserResponse (DeactivateUserResponse'),
-    newDeactivateUserResponse,
 
     -- ** DescribeRootFolders (Paginated)
     DescribeRootFolders (DescribeRootFolders'),
@@ -210,17 +210,17 @@ module Network.AWS.WorkDocs
     DeleteDocumentResponse (DeleteDocumentResponse'),
     newDeleteDocumentResponse,
 
-    -- ** GetDocumentVersion
-    GetDocumentVersion (GetDocumentVersion'),
-    newGetDocumentVersion,
-    GetDocumentVersionResponse (GetDocumentVersionResponse'),
-    newGetDocumentVersionResponse,
-
     -- ** DescribeDocumentVersions (Paginated)
     DescribeDocumentVersions (DescribeDocumentVersions'),
     newDescribeDocumentVersions,
     DescribeDocumentVersionsResponse (DescribeDocumentVersionsResponse'),
     newDescribeDocumentVersionsResponse,
+
+    -- ** GetDocumentVersion
+    GetDocumentVersion (GetDocumentVersion'),
+    newGetDocumentVersion,
+    GetDocumentVersionResponse (GetDocumentVersionResponse'),
+    newGetDocumentVersionResponse,
 
     -- ** ActivateUser
     ActivateUser (ActivateUser'),
@@ -240,12 +240,6 @@ module Network.AWS.WorkDocs
     CreateUserResponse (CreateUserResponse'),
     newCreateUserResponse,
 
-    -- ** CreateCustomMetadata
-    CreateCustomMetadata (CreateCustomMetadata'),
-    newCreateCustomMetadata,
-    CreateCustomMetadataResponse (CreateCustomMetadataResponse'),
-    newCreateCustomMetadataResponse,
-
     -- ** DeleteComment
     DeleteComment (DeleteComment'),
     newDeleteComment,
@@ -258,11 +252,29 @@ module Network.AWS.WorkDocs
     CreateFolderResponse (CreateFolderResponse'),
     newCreateFolderResponse,
 
+    -- ** CreateCustomMetadata
+    CreateCustomMetadata (CreateCustomMetadata'),
+    newCreateCustomMetadata,
+    CreateCustomMetadataResponse (CreateCustomMetadataResponse'),
+    newCreateCustomMetadataResponse,
+
     -- ** CreateNotificationSubscription
     CreateNotificationSubscription (CreateNotificationSubscription'),
     newCreateNotificationSubscription,
     CreateNotificationSubscriptionResponse (CreateNotificationSubscriptionResponse'),
     newCreateNotificationSubscriptionResponse,
+
+    -- ** GetResources
+    GetResources (GetResources'),
+    newGetResources,
+    GetResourcesResponse (GetResourcesResponse'),
+    newGetResourcesResponse,
+
+    -- ** RemoveResourcePermission
+    RemoveResourcePermission (RemoveResourcePermission'),
+    newRemoveResourcePermission,
+    RemoveResourcePermissionResponse (RemoveResourcePermissionResponse'),
+    newRemoveResourcePermissionResponse,
 
     -- ** CreateComment
     CreateComment (CreateComment'),
@@ -276,23 +288,11 @@ module Network.AWS.WorkDocs
     DescribeResourcePermissionsResponse (DescribeResourcePermissionsResponse'),
     newDescribeResourcePermissionsResponse,
 
-    -- ** RemoveResourcePermission
-    RemoveResourcePermission (RemoveResourcePermission'),
-    newRemoveResourcePermission,
-    RemoveResourcePermissionResponse (RemoveResourcePermissionResponse'),
-    newRemoveResourcePermissionResponse,
-
     -- ** DescribeUsers (Paginated)
     DescribeUsers (DescribeUsers'),
     newDescribeUsers,
     DescribeUsersResponse (DescribeUsersResponse'),
     newDescribeUsersResponse,
-
-    -- ** GetResources
-    GetResources (GetResources'),
-    newGetResources,
-    GetResourcesResponse (GetResourcesResponse'),
-    newGetResourcesResponse,
 
     -- ** GetDocumentPath
     GetDocumentPath (GetDocumentPath'),
@@ -300,17 +300,17 @@ module Network.AWS.WorkDocs
     GetDocumentPathResponse (GetDocumentPathResponse'),
     newGetDocumentPathResponse,
 
-    -- ** DescribeGroups (Paginated)
-    DescribeGroups (DescribeGroups'),
-    newDescribeGroups,
-    DescribeGroupsResponse (DescribeGroupsResponse'),
-    newDescribeGroupsResponse,
-
     -- ** GetDocument
     GetDocument (GetDocument'),
     newGetDocument,
     GetDocumentResponse (GetDocumentResponse'),
     newGetDocumentResponse,
+
+    -- ** DescribeGroups (Paginated)
+    DescribeGroups (DescribeGroups'),
+    newDescribeGroups,
+    DescribeGroupsResponse (DescribeGroupsResponse'),
+    newDescribeGroupsResponse,
 
     -- ** DescribeActivities (Paginated)
     DescribeActivities (DescribeActivities'),
@@ -330,18 +330,6 @@ module Network.AWS.WorkDocs
     AddResourcePermissionsResponse (AddResourcePermissionsResponse'),
     newAddResourcePermissionsResponse,
 
-    -- ** DeleteUser
-    DeleteUser (DeleteUser'),
-    newDeleteUser,
-    DeleteUserResponse (DeleteUserResponse'),
-    newDeleteUserResponse,
-
-    -- ** GetFolder
-    GetFolder (GetFolder'),
-    newGetFolder,
-    GetFolderResponse (GetFolderResponse'),
-    newGetFolderResponse,
-
     -- ** UpdateUser
     UpdateUser (UpdateUser'),
     newUpdateUser,
@@ -354,11 +342,17 @@ module Network.AWS.WorkDocs
     DescribeNotificationSubscriptionsResponse (DescribeNotificationSubscriptionsResponse'),
     newDescribeNotificationSubscriptionsResponse,
 
-    -- ** RemoveAllResourcePermissions
-    RemoveAllResourcePermissions (RemoveAllResourcePermissions'),
-    newRemoveAllResourcePermissions,
-    RemoveAllResourcePermissionsResponse (RemoveAllResourcePermissionsResponse'),
-    newRemoveAllResourcePermissionsResponse,
+    -- ** GetFolder
+    GetFolder (GetFolder'),
+    newGetFolder,
+    GetFolderResponse (GetFolderResponse'),
+    newGetFolderResponse,
+
+    -- ** DeleteUser
+    DeleteUser (DeleteUser'),
+    newDeleteUser,
+    DeleteUserResponse (DeleteUserResponse'),
+    newDeleteUserResponse,
 
     -- ** DeleteFolderContents
     DeleteFolderContents (DeleteFolderContents'),
@@ -377,6 +371,12 @@ module Network.AWS.WorkDocs
     newInitiateDocumentVersionUpload,
     InitiateDocumentVersionUploadResponse (InitiateDocumentVersionUploadResponse'),
     newInitiateDocumentVersionUploadResponse,
+
+    -- ** RemoveAllResourcePermissions
+    RemoveAllResourcePermissions (RemoveAllResourcePermissions'),
+    newRemoveAllResourcePermissions,
+    RemoveAllResourcePermissionsResponse (RemoveAllResourcePermissionsResponse'),
+    newRemoveAllResourcePermissionsResponse,
 
     -- * Types
 

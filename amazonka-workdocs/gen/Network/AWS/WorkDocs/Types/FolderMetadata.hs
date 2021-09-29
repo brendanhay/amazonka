@@ -38,19 +38,19 @@ data FolderMetadata = FolderMetadata'
     creatorId :: Prelude.Maybe Prelude.Text,
     -- | The time when the folder was created.
     createdTimestamp :: Prelude.Maybe Core.POSIX,
-    -- | The ID of the folder.
-    id :: Prelude.Maybe Prelude.Text,
     -- | List of labels on the folder.
     labels :: Prelude.Maybe [Prelude.Text],
+    -- | The ID of the folder.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The name of the folder.
     name :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier created from the subfolders and documents of the
     -- folder.
     signature :: Prelude.Maybe Prelude.Text,
-    -- | The resource state of the folder.
-    resourceState :: Prelude.Maybe ResourceStateType,
     -- | The size of the folder metadata.
-    size :: Prelude.Maybe Prelude.Integer
+    size :: Prelude.Maybe Prelude.Integer,
+    -- | The resource state of the folder.
+    resourceState :: Prelude.Maybe ResourceStateType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -72,18 +72,18 @@ data FolderMetadata = FolderMetadata'
 --
 -- 'createdTimestamp', 'folderMetadata_createdTimestamp' - The time when the folder was created.
 --
--- 'id', 'folderMetadata_id' - The ID of the folder.
---
 -- 'labels', 'folderMetadata_labels' - List of labels on the folder.
+--
+-- 'id', 'folderMetadata_id' - The ID of the folder.
 --
 -- 'name', 'folderMetadata_name' - The name of the folder.
 --
 -- 'signature', 'folderMetadata_signature' - The unique identifier created from the subfolders and documents of the
 -- folder.
 --
--- 'resourceState', 'folderMetadata_resourceState' - The resource state of the folder.
---
 -- 'size', 'folderMetadata_size' - The size of the folder metadata.
+--
+-- 'resourceState', 'folderMetadata_resourceState' - The resource state of the folder.
 newFolderMetadata ::
   FolderMetadata
 newFolderMetadata =
@@ -94,12 +94,12 @@ newFolderMetadata =
       latestVersionSize = Prelude.Nothing,
       creatorId = Prelude.Nothing,
       createdTimestamp = Prelude.Nothing,
-      id = Prelude.Nothing,
       labels = Prelude.Nothing,
+      id = Prelude.Nothing,
       name = Prelude.Nothing,
       signature = Prelude.Nothing,
-      resourceState = Prelude.Nothing,
-      size = Prelude.Nothing
+      size = Prelude.Nothing,
+      resourceState = Prelude.Nothing
     }
 
 -- | The time when the folder was updated.
@@ -122,13 +122,13 @@ folderMetadata_creatorId = Lens.lens (\FolderMetadata' {creatorId} -> creatorId)
 folderMetadata_createdTimestamp :: Lens.Lens' FolderMetadata (Prelude.Maybe Prelude.UTCTime)
 folderMetadata_createdTimestamp = Lens.lens (\FolderMetadata' {createdTimestamp} -> createdTimestamp) (\s@FolderMetadata' {} a -> s {createdTimestamp = a} :: FolderMetadata) Prelude.. Lens.mapping Core._Time
 
--- | The ID of the folder.
-folderMetadata_id :: Lens.Lens' FolderMetadata (Prelude.Maybe Prelude.Text)
-folderMetadata_id = Lens.lens (\FolderMetadata' {id} -> id) (\s@FolderMetadata' {} a -> s {id = a} :: FolderMetadata)
-
 -- | List of labels on the folder.
 folderMetadata_labels :: Lens.Lens' FolderMetadata (Prelude.Maybe [Prelude.Text])
 folderMetadata_labels = Lens.lens (\FolderMetadata' {labels} -> labels) (\s@FolderMetadata' {} a -> s {labels = a} :: FolderMetadata) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The ID of the folder.
+folderMetadata_id :: Lens.Lens' FolderMetadata (Prelude.Maybe Prelude.Text)
+folderMetadata_id = Lens.lens (\FolderMetadata' {id} -> id) (\s@FolderMetadata' {} a -> s {id = a} :: FolderMetadata)
 
 -- | The name of the folder.
 folderMetadata_name :: Lens.Lens' FolderMetadata (Prelude.Maybe Prelude.Text)
@@ -139,13 +139,13 @@ folderMetadata_name = Lens.lens (\FolderMetadata' {name} -> name) (\s@FolderMeta
 folderMetadata_signature :: Lens.Lens' FolderMetadata (Prelude.Maybe Prelude.Text)
 folderMetadata_signature = Lens.lens (\FolderMetadata' {signature} -> signature) (\s@FolderMetadata' {} a -> s {signature = a} :: FolderMetadata)
 
--- | The resource state of the folder.
-folderMetadata_resourceState :: Lens.Lens' FolderMetadata (Prelude.Maybe ResourceStateType)
-folderMetadata_resourceState = Lens.lens (\FolderMetadata' {resourceState} -> resourceState) (\s@FolderMetadata' {} a -> s {resourceState = a} :: FolderMetadata)
-
 -- | The size of the folder metadata.
 folderMetadata_size :: Lens.Lens' FolderMetadata (Prelude.Maybe Prelude.Integer)
 folderMetadata_size = Lens.lens (\FolderMetadata' {size} -> size) (\s@FolderMetadata' {} a -> s {size = a} :: FolderMetadata)
+
+-- | The resource state of the folder.
+folderMetadata_resourceState :: Lens.Lens' FolderMetadata (Prelude.Maybe ResourceStateType)
+folderMetadata_resourceState = Lens.lens (\FolderMetadata' {resourceState} -> resourceState) (\s@FolderMetadata' {} a -> s {resourceState = a} :: FolderMetadata)
 
 instance Core.FromJSON FolderMetadata where
   parseJSON =
@@ -158,12 +158,12 @@ instance Core.FromJSON FolderMetadata where
             Prelude.<*> (x Core..:? "LatestVersionSize")
             Prelude.<*> (x Core..:? "CreatorId")
             Prelude.<*> (x Core..:? "CreatedTimestamp")
-            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Labels" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "Signature")
-            Prelude.<*> (x Core..:? "ResourceState")
             Prelude.<*> (x Core..:? "Size")
+            Prelude.<*> (x Core..:? "ResourceState")
       )
 
 instance Prelude.Hashable FolderMetadata

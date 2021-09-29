@@ -38,18 +38,18 @@ data DocumentVersionMetadata = DocumentVersionMetadata'
     creatorId :: Prelude.Maybe Prelude.Text,
     -- | The content type of the document.
     contentType :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp when the document was first uploaded.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The timestamp when the content of the document was modified.
     contentModifiedTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | The timestamp when the document was first uploaded.
+    createdTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The ID of the version.
     id :: Prelude.Maybe Prelude.Text,
     -- | The source of the document.
     source :: Prelude.Maybe (Prelude.HashMap DocumentSourceType (Core.Sensitive Prelude.Text)),
-    -- | The timestamp when the content of the document was originally created.
-    contentCreatedTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The name of the version.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp when the content of the document was originally created.
+    contentCreatedTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The signature of the document.
     signature :: Prelude.Maybe Prelude.Text,
     -- | The thumbnail of the document.
@@ -75,17 +75,17 @@ data DocumentVersionMetadata = DocumentVersionMetadata'
 --
 -- 'contentType', 'documentVersionMetadata_contentType' - The content type of the document.
 --
--- 'createdTimestamp', 'documentVersionMetadata_createdTimestamp' - The timestamp when the document was first uploaded.
---
 -- 'contentModifiedTimestamp', 'documentVersionMetadata_contentModifiedTimestamp' - The timestamp when the content of the document was modified.
+--
+-- 'createdTimestamp', 'documentVersionMetadata_createdTimestamp' - The timestamp when the document was first uploaded.
 --
 -- 'id', 'documentVersionMetadata_id' - The ID of the version.
 --
 -- 'source', 'documentVersionMetadata_source' - The source of the document.
 --
--- 'contentCreatedTimestamp', 'documentVersionMetadata_contentCreatedTimestamp' - The timestamp when the content of the document was originally created.
---
 -- 'name', 'documentVersionMetadata_name' - The name of the version.
+--
+-- 'contentCreatedTimestamp', 'documentVersionMetadata_contentCreatedTimestamp' - The timestamp when the content of the document was originally created.
 --
 -- 'signature', 'documentVersionMetadata_signature' - The signature of the document.
 --
@@ -101,12 +101,12 @@ newDocumentVersionMetadata =
       status = Prelude.Nothing,
       creatorId = Prelude.Nothing,
       contentType = Prelude.Nothing,
-      createdTimestamp = Prelude.Nothing,
       contentModifiedTimestamp = Prelude.Nothing,
+      createdTimestamp = Prelude.Nothing,
       id = Prelude.Nothing,
       source = Prelude.Nothing,
-      contentCreatedTimestamp = Prelude.Nothing,
       name = Prelude.Nothing,
+      contentCreatedTimestamp = Prelude.Nothing,
       signature = Prelude.Nothing,
       thumbnail = Prelude.Nothing,
       size = Prelude.Nothing
@@ -128,13 +128,13 @@ documentVersionMetadata_creatorId = Lens.lens (\DocumentVersionMetadata' {creato
 documentVersionMetadata_contentType :: Lens.Lens' DocumentVersionMetadata (Prelude.Maybe Prelude.Text)
 documentVersionMetadata_contentType = Lens.lens (\DocumentVersionMetadata' {contentType} -> contentType) (\s@DocumentVersionMetadata' {} a -> s {contentType = a} :: DocumentVersionMetadata)
 
--- | The timestamp when the document was first uploaded.
-documentVersionMetadata_createdTimestamp :: Lens.Lens' DocumentVersionMetadata (Prelude.Maybe Prelude.UTCTime)
-documentVersionMetadata_createdTimestamp = Lens.lens (\DocumentVersionMetadata' {createdTimestamp} -> createdTimestamp) (\s@DocumentVersionMetadata' {} a -> s {createdTimestamp = a} :: DocumentVersionMetadata) Prelude.. Lens.mapping Core._Time
-
 -- | The timestamp when the content of the document was modified.
 documentVersionMetadata_contentModifiedTimestamp :: Lens.Lens' DocumentVersionMetadata (Prelude.Maybe Prelude.UTCTime)
 documentVersionMetadata_contentModifiedTimestamp = Lens.lens (\DocumentVersionMetadata' {contentModifiedTimestamp} -> contentModifiedTimestamp) (\s@DocumentVersionMetadata' {} a -> s {contentModifiedTimestamp = a} :: DocumentVersionMetadata) Prelude.. Lens.mapping Core._Time
+
+-- | The timestamp when the document was first uploaded.
+documentVersionMetadata_createdTimestamp :: Lens.Lens' DocumentVersionMetadata (Prelude.Maybe Prelude.UTCTime)
+documentVersionMetadata_createdTimestamp = Lens.lens (\DocumentVersionMetadata' {createdTimestamp} -> createdTimestamp) (\s@DocumentVersionMetadata' {} a -> s {createdTimestamp = a} :: DocumentVersionMetadata) Prelude.. Lens.mapping Core._Time
 
 -- | The ID of the version.
 documentVersionMetadata_id :: Lens.Lens' DocumentVersionMetadata (Prelude.Maybe Prelude.Text)
@@ -144,13 +144,13 @@ documentVersionMetadata_id = Lens.lens (\DocumentVersionMetadata' {id} -> id) (\
 documentVersionMetadata_source :: Lens.Lens' DocumentVersionMetadata (Prelude.Maybe (Prelude.HashMap DocumentSourceType Prelude.Text))
 documentVersionMetadata_source = Lens.lens (\DocumentVersionMetadata' {source} -> source) (\s@DocumentVersionMetadata' {} a -> s {source = a} :: DocumentVersionMetadata) Prelude.. Lens.mapping Lens._Coerce
 
--- | The timestamp when the content of the document was originally created.
-documentVersionMetadata_contentCreatedTimestamp :: Lens.Lens' DocumentVersionMetadata (Prelude.Maybe Prelude.UTCTime)
-documentVersionMetadata_contentCreatedTimestamp = Lens.lens (\DocumentVersionMetadata' {contentCreatedTimestamp} -> contentCreatedTimestamp) (\s@DocumentVersionMetadata' {} a -> s {contentCreatedTimestamp = a} :: DocumentVersionMetadata) Prelude.. Lens.mapping Core._Time
-
 -- | The name of the version.
 documentVersionMetadata_name :: Lens.Lens' DocumentVersionMetadata (Prelude.Maybe Prelude.Text)
 documentVersionMetadata_name = Lens.lens (\DocumentVersionMetadata' {name} -> name) (\s@DocumentVersionMetadata' {} a -> s {name = a} :: DocumentVersionMetadata)
+
+-- | The timestamp when the content of the document was originally created.
+documentVersionMetadata_contentCreatedTimestamp :: Lens.Lens' DocumentVersionMetadata (Prelude.Maybe Prelude.UTCTime)
+documentVersionMetadata_contentCreatedTimestamp = Lens.lens (\DocumentVersionMetadata' {contentCreatedTimestamp} -> contentCreatedTimestamp) (\s@DocumentVersionMetadata' {} a -> s {contentCreatedTimestamp = a} :: DocumentVersionMetadata) Prelude.. Lens.mapping Core._Time
 
 -- | The signature of the document.
 documentVersionMetadata_signature :: Lens.Lens' DocumentVersionMetadata (Prelude.Maybe Prelude.Text)
@@ -174,12 +174,12 @@ instance Core.FromJSON DocumentVersionMetadata where
             Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "CreatorId")
             Prelude.<*> (x Core..:? "ContentType")
-            Prelude.<*> (x Core..:? "CreatedTimestamp")
             Prelude.<*> (x Core..:? "ContentModifiedTimestamp")
+            Prelude.<*> (x Core..:? "CreatedTimestamp")
             Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Source" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ContentCreatedTimestamp")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "ContentCreatedTimestamp")
             Prelude.<*> (x Core..:? "Signature")
             Prelude.<*> (x Core..:? "Thumbnail" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Size")

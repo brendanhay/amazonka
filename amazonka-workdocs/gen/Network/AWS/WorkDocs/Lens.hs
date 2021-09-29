@@ -14,17 +14,6 @@
 module Network.AWS.WorkDocs.Lens
   ( -- * Operations
 
-    -- ** DeleteFolder
-    deleteFolder_authenticationToken,
-    deleteFolder_folderId,
-
-    -- ** UpdateFolder
-    updateFolder_parentFolderId,
-    updateFolder_name,
-    updateFolder_authenticationToken,
-    updateFolder_resourceState,
-    updateFolder_folderId,
-
     -- ** DeleteCustomMetadata
     deleteCustomMetadata_versionId,
     deleteCustomMetadata_keys,
@@ -33,15 +22,20 @@ module Network.AWS.WorkDocs.Lens
     deleteCustomMetadata_resourceId,
     deleteCustomMetadataResponse_httpStatus,
 
+    -- ** UpdateFolder
+    updateFolder_parentFolderId,
+    updateFolder_name,
+    updateFolder_authenticationToken,
+    updateFolder_resourceState,
+    updateFolder_folderId,
+
     -- ** DeleteNotificationSubscription
     deleteNotificationSubscription_subscriptionId,
     deleteNotificationSubscription_organizationId,
 
-    -- ** UpdateDocumentVersion
-    updateDocumentVersion_versionStatus,
-    updateDocumentVersion_authenticationToken,
-    updateDocumentVersion_documentId,
-    updateDocumentVersion_versionId,
+    -- ** DeleteFolder
+    deleteFolder_authenticationToken,
+    deleteFolder_folderId,
 
     -- ** DeleteLabels
     deleteLabels_labels,
@@ -54,6 +48,16 @@ module Network.AWS.WorkDocs.Lens
     abortDocumentVersionUpload_authenticationToken,
     abortDocumentVersionUpload_documentId,
     abortDocumentVersionUpload_versionId,
+
+    -- ** UpdateDocumentVersion
+    updateDocumentVersion_versionStatus,
+    updateDocumentVersion_authenticationToken,
+    updateDocumentVersion_documentId,
+    updateDocumentVersion_versionId,
+
+    -- ** DeactivateUser
+    deactivateUser_authenticationToken,
+    deactivateUser_userId,
 
     -- ** DescribeFolderContents
     describeFolderContents_include,
@@ -75,10 +79,6 @@ module Network.AWS.WorkDocs.Lens
     createLabels_labels,
     createLabelsResponse_httpStatus,
 
-    -- ** DeactivateUser
-    deactivateUser_authenticationToken,
-    deactivateUser_userId,
-
     -- ** DescribeRootFolders
     describeRootFolders_limit,
     describeRootFolders_marker,
@@ -98,16 +98,6 @@ module Network.AWS.WorkDocs.Lens
     deleteDocument_authenticationToken,
     deleteDocument_documentId,
 
-    -- ** GetDocumentVersion
-    getDocumentVersion_includeCustomMetadata,
-    getDocumentVersion_fields,
-    getDocumentVersion_authenticationToken,
-    getDocumentVersion_documentId,
-    getDocumentVersion_versionId,
-    getDocumentVersionResponse_metadata,
-    getDocumentVersionResponse_customMetadata,
-    getDocumentVersionResponse_httpStatus,
-
     -- ** DescribeDocumentVersions
     describeDocumentVersions_include,
     describeDocumentVersions_fields,
@@ -118,6 +108,16 @@ module Network.AWS.WorkDocs.Lens
     describeDocumentVersionsResponse_documentVersions,
     describeDocumentVersionsResponse_marker,
     describeDocumentVersionsResponse_httpStatus,
+
+    -- ** GetDocumentVersion
+    getDocumentVersion_includeCustomMetadata,
+    getDocumentVersion_fields,
+    getDocumentVersion_authenticationToken,
+    getDocumentVersion_documentId,
+    getDocumentVersion_versionId,
+    getDocumentVersionResponse_metadata,
+    getDocumentVersionResponse_customMetadata,
+    getDocumentVersionResponse_httpStatus,
 
     -- ** ActivateUser
     activateUser_authenticationToken,
@@ -147,13 +147,6 @@ module Network.AWS.WorkDocs.Lens
     createUserResponse_user,
     createUserResponse_httpStatus,
 
-    -- ** CreateCustomMetadata
-    createCustomMetadata_versionId,
-    createCustomMetadata_authenticationToken,
-    createCustomMetadata_resourceId,
-    createCustomMetadata_customMetadata,
-    createCustomMetadataResponse_httpStatus,
-
     -- ** DeleteComment
     deleteComment_authenticationToken,
     deleteComment_documentId,
@@ -167,6 +160,13 @@ module Network.AWS.WorkDocs.Lens
     createFolderResponse_metadata,
     createFolderResponse_httpStatus,
 
+    -- ** CreateCustomMetadata
+    createCustomMetadata_versionId,
+    createCustomMetadata_authenticationToken,
+    createCustomMetadata_resourceId,
+    createCustomMetadata_customMetadata,
+    createCustomMetadataResponse_httpStatus,
+
     -- ** CreateNotificationSubscription
     createNotificationSubscription_organizationId,
     createNotificationSubscription_endpoint,
@@ -175,11 +175,28 @@ module Network.AWS.WorkDocs.Lens
     createNotificationSubscriptionResponse_subscription,
     createNotificationSubscriptionResponse_httpStatus,
 
+    -- ** GetResources
+    getResources_collectionType,
+    getResources_userId,
+    getResources_authenticationToken,
+    getResources_limit,
+    getResources_marker,
+    getResourcesResponse_documents,
+    getResourcesResponse_folders,
+    getResourcesResponse_marker,
+    getResourcesResponse_httpStatus,
+
+    -- ** RemoveResourcePermission
+    removeResourcePermission_authenticationToken,
+    removeResourcePermission_principalType,
+    removeResourcePermission_resourceId,
+    removeResourcePermission_principalId,
+
     -- ** CreateComment
     createComment_parentId,
     createComment_visibility,
-    createComment_authenticationToken,
     createComment_threadId,
+    createComment_authenticationToken,
     createComment_notifyCollaborators,
     createComment_documentId,
     createComment_versionId,
@@ -197,12 +214,6 @@ module Network.AWS.WorkDocs.Lens
     describeResourcePermissionsResponse_marker,
     describeResourcePermissionsResponse_httpStatus,
 
-    -- ** RemoveResourcePermission
-    removeResourcePermission_authenticationToken,
-    removeResourcePermission_principalType,
-    removeResourcePermission_resourceId,
-    removeResourcePermission_principalId,
-
     -- ** DescribeUsers
     describeUsers_organizationId,
     describeUsers_query,
@@ -219,17 +230,6 @@ module Network.AWS.WorkDocs.Lens
     describeUsersResponse_marker,
     describeUsersResponse_httpStatus,
 
-    -- ** GetResources
-    getResources_collectionType,
-    getResources_userId,
-    getResources_authenticationToken,
-    getResources_limit,
-    getResources_marker,
-    getResourcesResponse_documents,
-    getResourcesResponse_folders,
-    getResourcesResponse_marker,
-    getResourcesResponse_httpStatus,
-
     -- ** GetDocumentPath
     getDocumentPath_fields,
     getDocumentPath_authenticationToken,
@@ -238,6 +238,14 @@ module Network.AWS.WorkDocs.Lens
     getDocumentPath_documentId,
     getDocumentPathResponse_path,
     getDocumentPathResponse_httpStatus,
+
+    -- ** GetDocument
+    getDocument_includeCustomMetadata,
+    getDocument_authenticationToken,
+    getDocument_documentId,
+    getDocumentResponse_metadata,
+    getDocumentResponse_customMetadata,
+    getDocumentResponse_httpStatus,
 
     -- ** DescribeGroups
     describeGroups_organizationId,
@@ -249,19 +257,11 @@ module Network.AWS.WorkDocs.Lens
     describeGroupsResponse_marker,
     describeGroupsResponse_httpStatus,
 
-    -- ** GetDocument
-    getDocument_includeCustomMetadata,
-    getDocument_authenticationToken,
-    getDocument_documentId,
-    getDocumentResponse_metadata,
-    getDocumentResponse_customMetadata,
-    getDocumentResponse_httpStatus,
-
     -- ** DescribeActivities
     describeActivities_resourceId,
     describeActivities_organizationId,
-    describeActivities_startTime,
     describeActivities_includeIndirectActivities,
+    describeActivities_startTime,
     describeActivities_endTime,
     describeActivities_userId,
     describeActivities_activityTypes,
@@ -285,18 +285,6 @@ module Network.AWS.WorkDocs.Lens
     addResourcePermissionsResponse_shareResults,
     addResourcePermissionsResponse_httpStatus,
 
-    -- ** DeleteUser
-    deleteUser_authenticationToken,
-    deleteUser_userId,
-
-    -- ** GetFolder
-    getFolder_includeCustomMetadata,
-    getFolder_authenticationToken,
-    getFolder_folderId,
-    getFolderResponse_metadata,
-    getFolderResponse_customMetadata,
-    getFolderResponse_httpStatus,
-
     -- ** UpdateUser
     updateUser_storageRule,
     updateUser_grantPoweruserPrivileges,
@@ -318,9 +306,17 @@ module Network.AWS.WorkDocs.Lens
     describeNotificationSubscriptionsResponse_marker,
     describeNotificationSubscriptionsResponse_httpStatus,
 
-    -- ** RemoveAllResourcePermissions
-    removeAllResourcePermissions_authenticationToken,
-    removeAllResourcePermissions_resourceId,
+    -- ** GetFolder
+    getFolder_includeCustomMetadata,
+    getFolder_authenticationToken,
+    getFolder_folderId,
+    getFolderResponse_metadata,
+    getFolderResponse_customMetadata,
+    getFolderResponse_httpStatus,
+
+    -- ** DeleteUser
+    deleteUser_authenticationToken,
+    deleteUser_userId,
 
     -- ** DeleteFolderContents
     deleteFolderContents_authenticationToken,
@@ -340,14 +336,18 @@ module Network.AWS.WorkDocs.Lens
     initiateDocumentVersionUpload_contentType,
     initiateDocumentVersionUpload_contentModifiedTimestamp,
     initiateDocumentVersionUpload_id,
-    initiateDocumentVersionUpload_contentCreatedTimestamp,
     initiateDocumentVersionUpload_name,
+    initiateDocumentVersionUpload_contentCreatedTimestamp,
     initiateDocumentVersionUpload_documentSizeInBytes,
     initiateDocumentVersionUpload_authenticationToken,
     initiateDocumentVersionUpload_parentFolderId,
     initiateDocumentVersionUploadResponse_uploadMetadata,
     initiateDocumentVersionUploadResponse_metadata,
     initiateDocumentVersionUploadResponse_httpStatus,
+
+    -- ** RemoveAllResourcePermissions
+    removeAllResourcePermissions_authenticationToken,
+    removeAllResourcePermissions_resourceId,
 
     -- * Types
 
@@ -385,8 +385,8 @@ module Network.AWS.WorkDocs.Lens
     documentMetadata_parentFolderId,
     documentMetadata_creatorId,
     documentMetadata_createdTimestamp,
-    documentMetadata_id,
     documentMetadata_labels,
+    documentMetadata_id,
     documentMetadata_latestVersionMetadata,
     documentMetadata_resourceState,
 
@@ -395,12 +395,12 @@ module Network.AWS.WorkDocs.Lens
     documentVersionMetadata_status,
     documentVersionMetadata_creatorId,
     documentVersionMetadata_contentType,
-    documentVersionMetadata_createdTimestamp,
     documentVersionMetadata_contentModifiedTimestamp,
+    documentVersionMetadata_createdTimestamp,
     documentVersionMetadata_id,
     documentVersionMetadata_source,
-    documentVersionMetadata_contentCreatedTimestamp,
     documentVersionMetadata_name,
+    documentVersionMetadata_contentCreatedTimestamp,
     documentVersionMetadata_signature,
     documentVersionMetadata_thumbnail,
     documentVersionMetadata_size,
@@ -411,12 +411,12 @@ module Network.AWS.WorkDocs.Lens
     folderMetadata_latestVersionSize,
     folderMetadata_creatorId,
     folderMetadata_createdTimestamp,
-    folderMetadata_id,
     folderMetadata_labels,
+    folderMetadata_id,
     folderMetadata_name,
     folderMetadata_signature,
-    folderMetadata_resourceState,
     folderMetadata_size,
+    folderMetadata_resourceState,
 
     -- ** GroupMetadata
     groupMetadata_id,
@@ -442,10 +442,10 @@ module Network.AWS.WorkDocs.Lens
     -- ** ResourceMetadata
     resourceMetadata_originalName,
     resourceMetadata_id,
-    resourceMetadata_versionId,
     resourceMetadata_name,
-    resourceMetadata_parentId,
+    resourceMetadata_versionId,
     resourceMetadata_owner,
+    resourceMetadata_parentId,
     resourceMetadata_type,
 
     -- ** ResourcePath
@@ -485,12 +485,12 @@ module Network.AWS.WorkDocs.Lens
     user_modifiedTimestamp,
     user_status,
     user_organizationId,
-    user_createdTimestamp,
     user_timeZoneId,
+    user_createdTimestamp,
     user_surname,
     user_locale,
-    user_id,
     user_rootFolderId,
+    user_id,
     user_givenName,
     user_recycleBinFolderId,
     user_storage,

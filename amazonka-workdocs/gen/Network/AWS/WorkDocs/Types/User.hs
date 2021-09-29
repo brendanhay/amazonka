@@ -37,18 +37,18 @@ data User = User'
     status :: Prelude.Maybe UserStatusType,
     -- | The ID of the organization.
     organizationId :: Prelude.Maybe Prelude.Text,
-    -- | The time when the user was created.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The time zone ID of the user.
     timeZoneId :: Prelude.Maybe Prelude.Text,
+    -- | The time when the user was created.
+    createdTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The surname of the user.
     surname :: Prelude.Maybe Prelude.Text,
     -- | The locale of the user.
     locale :: Prelude.Maybe LocaleType,
-    -- | The ID of the user.
-    id :: Prelude.Maybe Prelude.Text,
     -- | The ID of the root folder.
     rootFolderId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the user.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The given name of the user.
     givenName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the recycle bin folder.
@@ -78,17 +78,17 @@ data User = User'
 --
 -- 'organizationId', 'user_organizationId' - The ID of the organization.
 --
--- 'createdTimestamp', 'user_createdTimestamp' - The time when the user was created.
---
 -- 'timeZoneId', 'user_timeZoneId' - The time zone ID of the user.
+--
+-- 'createdTimestamp', 'user_createdTimestamp' - The time when the user was created.
 --
 -- 'surname', 'user_surname' - The surname of the user.
 --
 -- 'locale', 'user_locale' - The locale of the user.
 --
--- 'id', 'user_id' - The ID of the user.
---
 -- 'rootFolderId', 'user_rootFolderId' - The ID of the root folder.
+--
+-- 'id', 'user_id' - The ID of the user.
 --
 -- 'givenName', 'user_givenName' - The given name of the user.
 --
@@ -108,12 +108,12 @@ newUser =
     { modifiedTimestamp = Prelude.Nothing,
       status = Prelude.Nothing,
       organizationId = Prelude.Nothing,
-      createdTimestamp = Prelude.Nothing,
       timeZoneId = Prelude.Nothing,
+      createdTimestamp = Prelude.Nothing,
       surname = Prelude.Nothing,
       locale = Prelude.Nothing,
-      id = Prelude.Nothing,
       rootFolderId = Prelude.Nothing,
+      id = Prelude.Nothing,
       givenName = Prelude.Nothing,
       recycleBinFolderId = Prelude.Nothing,
       storage = Prelude.Nothing,
@@ -134,13 +134,13 @@ user_status = Lens.lens (\User' {status} -> status) (\s@User' {} a -> s {status 
 user_organizationId :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
 user_organizationId = Lens.lens (\User' {organizationId} -> organizationId) (\s@User' {} a -> s {organizationId = a} :: User)
 
--- | The time when the user was created.
-user_createdTimestamp :: Lens.Lens' User (Prelude.Maybe Prelude.UTCTime)
-user_createdTimestamp = Lens.lens (\User' {createdTimestamp} -> createdTimestamp) (\s@User' {} a -> s {createdTimestamp = a} :: User) Prelude.. Lens.mapping Core._Time
-
 -- | The time zone ID of the user.
 user_timeZoneId :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
 user_timeZoneId = Lens.lens (\User' {timeZoneId} -> timeZoneId) (\s@User' {} a -> s {timeZoneId = a} :: User)
+
+-- | The time when the user was created.
+user_createdTimestamp :: Lens.Lens' User (Prelude.Maybe Prelude.UTCTime)
+user_createdTimestamp = Lens.lens (\User' {createdTimestamp} -> createdTimestamp) (\s@User' {} a -> s {createdTimestamp = a} :: User) Prelude.. Lens.mapping Core._Time
 
 -- | The surname of the user.
 user_surname :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
@@ -150,13 +150,13 @@ user_surname = Lens.lens (\User' {surname} -> surname) (\s@User' {} a -> s {surn
 user_locale :: Lens.Lens' User (Prelude.Maybe LocaleType)
 user_locale = Lens.lens (\User' {locale} -> locale) (\s@User' {} a -> s {locale = a} :: User)
 
--- | The ID of the user.
-user_id :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
-user_id = Lens.lens (\User' {id} -> id) (\s@User' {} a -> s {id = a} :: User)
-
 -- | The ID of the root folder.
 user_rootFolderId :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
 user_rootFolderId = Lens.lens (\User' {rootFolderId} -> rootFolderId) (\s@User' {} a -> s {rootFolderId = a} :: User)
+
+-- | The ID of the user.
+user_id :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
+user_id = Lens.lens (\User' {id} -> id) (\s@User' {} a -> s {id = a} :: User)
 
 -- | The given name of the user.
 user_givenName :: Lens.Lens' User (Prelude.Maybe Prelude.Text)
@@ -191,12 +191,12 @@ instance Core.FromJSON User where
             Prelude.<$> (x Core..:? "ModifiedTimestamp")
             Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "OrganizationId")
-            Prelude.<*> (x Core..:? "CreatedTimestamp")
             Prelude.<*> (x Core..:? "TimeZoneId")
+            Prelude.<*> (x Core..:? "CreatedTimestamp")
             Prelude.<*> (x Core..:? "Surname")
             Prelude.<*> (x Core..:? "Locale")
-            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "RootFolderId")
+            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "GivenName")
             Prelude.<*> (x Core..:? "RecycleBinFolderId")
             Prelude.<*> (x Core..:? "Storage")

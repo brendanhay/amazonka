@@ -50,7 +50,8 @@ import qualified Network.AWS.Response as Response
 data StopContact = StopContact'
   { -- | The ID of the contact.
     contactId :: Prelude.Text,
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,7 +66,8 @@ data StopContact = StopContact'
 --
 -- 'contactId', 'stopContact_contactId' - The ID of the contact.
 --
--- 'instanceId', 'stopContact_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'stopContact_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 newStopContact ::
   -- | 'contactId'
   Prelude.Text ->
@@ -82,7 +84,8 @@ newStopContact pContactId_ pInstanceId_ =
 stopContact_contactId :: Lens.Lens' StopContact Prelude.Text
 stopContact_contactId = Lens.lens (\StopContact' {contactId} -> contactId) (\s@StopContact' {} a -> s {contactId = a} :: StopContact)
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 stopContact_instanceId :: Lens.Lens' StopContact Prelude.Text
 stopContact_instanceId = Lens.lens (\StopContact' {instanceId} -> instanceId) (\s@StopContact' {} a -> s {instanceId = a} :: StopContact)
 

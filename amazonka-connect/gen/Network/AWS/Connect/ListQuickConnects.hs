@@ -20,9 +20,6 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This API is in preview release for Amazon Connect and is subject to
--- change.
---
 -- Provides information about the quick connects for the specified Amazon
 -- Connect instance.
 --
@@ -68,7 +65,8 @@ data ListQuickConnects = ListQuickConnects'
     -- create a quick connect, you are prompted to assign one of the following
     -- types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
     quickConnectTypes :: Prelude.Maybe [QuickConnectType],
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -91,7 +89,8 @@ data ListQuickConnects = ListQuickConnects'
 -- create a quick connect, you are prompted to assign one of the following
 -- types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
 --
--- 'instanceId', 'listQuickConnects_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'listQuickConnects_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 newListQuickConnects ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -120,7 +119,8 @@ listQuickConnects_maxResults = Lens.lens (\ListQuickConnects' {maxResults} -> ma
 listQuickConnects_quickConnectTypes :: Lens.Lens' ListQuickConnects (Prelude.Maybe [QuickConnectType])
 listQuickConnects_quickConnectTypes = Lens.lens (\ListQuickConnects' {quickConnectTypes} -> quickConnectTypes) (\s@ListQuickConnects' {} a -> s {quickConnectTypes = a} :: ListQuickConnects) Prelude.. Lens.mapping Lens._Coerce
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 listQuickConnects_instanceId :: Lens.Lens' ListQuickConnects Prelude.Text
 listQuickConnects_instanceId = Lens.lens (\ListQuickConnects' {instanceId} -> instanceId) (\s@ListQuickConnects' {} a -> s {instanceId = a} :: ListQuickConnects)
 

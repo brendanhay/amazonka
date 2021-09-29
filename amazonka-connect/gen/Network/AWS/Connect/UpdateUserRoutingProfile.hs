@@ -50,7 +50,8 @@ data UpdateUserRoutingProfile = UpdateUserRoutingProfile'
     routingProfileId :: Prelude.Text,
     -- | The identifier of the user account.
     userId :: Prelude.Text,
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,7 +68,8 @@ data UpdateUserRoutingProfile = UpdateUserRoutingProfile'
 --
 -- 'userId', 'updateUserRoutingProfile_userId' - The identifier of the user account.
 --
--- 'instanceId', 'updateUserRoutingProfile_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'updateUserRoutingProfile_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 newUpdateUserRoutingProfile ::
   -- | 'routingProfileId'
   Prelude.Text ->
@@ -95,7 +97,8 @@ updateUserRoutingProfile_routingProfileId = Lens.lens (\UpdateUserRoutingProfile
 updateUserRoutingProfile_userId :: Lens.Lens' UpdateUserRoutingProfile Prelude.Text
 updateUserRoutingProfile_userId = Lens.lens (\UpdateUserRoutingProfile' {userId} -> userId) (\s@UpdateUserRoutingProfile' {} a -> s {userId = a} :: UpdateUserRoutingProfile)
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 updateUserRoutingProfile_instanceId :: Lens.Lens' UpdateUserRoutingProfile Prelude.Text
 updateUserRoutingProfile_instanceId = Lens.lens (\UpdateUserRoutingProfile' {instanceId} -> instanceId) (\s@UpdateUserRoutingProfile' {} a -> s {instanceId = a} :: UpdateUserRoutingProfile)
 

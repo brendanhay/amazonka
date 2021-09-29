@@ -48,7 +48,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisassociateSecurityKey' smart constructor.
 data DisassociateSecurityKey = DisassociateSecurityKey'
-  { -- | The identifier of the Amazon Connect instance.
+  { -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The existing association identifier that uniquely identifies the
     -- resource type and storage config for the given instance ID.
@@ -64,7 +65,8 @@ data DisassociateSecurityKey = DisassociateSecurityKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'disassociateSecurityKey_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'disassociateSecurityKey_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'associationId', 'disassociateSecurityKey_associationId' - The existing association identifier that uniquely identifies the
 -- resource type and storage config for the given instance ID.
@@ -82,7 +84,8 @@ newDisassociateSecurityKey
         associationId = pAssociationId_
       }
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 disassociateSecurityKey_instanceId :: Lens.Lens' DisassociateSecurityKey Prelude.Text
 disassociateSecurityKey_instanceId = Lens.lens (\DisassociateSecurityKey' {instanceId} -> instanceId) (\s@DisassociateSecurityKey' {} a -> s {instanceId = a} :: DisassociateSecurityKey)
 

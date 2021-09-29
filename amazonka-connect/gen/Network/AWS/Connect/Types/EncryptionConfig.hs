@@ -30,7 +30,9 @@ import qualified Network.AWS.Prelude as Prelude
 data EncryptionConfig = EncryptionConfig'
   { -- | The type of encryption.
     encryptionType :: EncryptionType,
-    -- | The identifier of the encryption key.
+    -- | The full ARN of the encryption key.
+    --
+    -- Be sure to provide the full ARN of the encryption key, not just the ID.
     keyId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,7 +47,9 @@ data EncryptionConfig = EncryptionConfig'
 --
 -- 'encryptionType', 'encryptionConfig_encryptionType' - The type of encryption.
 --
--- 'keyId', 'encryptionConfig_keyId' - The identifier of the encryption key.
+-- 'keyId', 'encryptionConfig_keyId' - The full ARN of the encryption key.
+--
+-- Be sure to provide the full ARN of the encryption key, not just the ID.
 newEncryptionConfig ::
   -- | 'encryptionType'
   EncryptionType ->
@@ -63,7 +67,9 @@ newEncryptionConfig pEncryptionType_ pKeyId_ =
 encryptionConfig_encryptionType :: Lens.Lens' EncryptionConfig EncryptionType
 encryptionConfig_encryptionType = Lens.lens (\EncryptionConfig' {encryptionType} -> encryptionType) (\s@EncryptionConfig' {} a -> s {encryptionType = a} :: EncryptionConfig)
 
--- | The identifier of the encryption key.
+-- | The full ARN of the encryption key.
+--
+-- Be sure to provide the full ARN of the encryption key, not just the ID.
 encryptionConfig_keyId :: Lens.Lens' EncryptionConfig Prelude.Text
 encryptionConfig_keyId = Lens.lens (\EncryptionConfig' {keyId} -> keyId) (\s@EncryptionConfig' {} a -> s {keyId = a} :: EncryptionConfig)
 

@@ -31,9 +31,9 @@ module Network.AWS.Connect.UpdateQueueMaxContacts
     newUpdateQueueMaxContacts,
 
     -- * Request Lenses
+    updateQueueMaxContacts_maxContacts,
     updateQueueMaxContacts_instanceId,
     updateQueueMaxContacts_queueId,
-    updateQueueMaxContacts_maxContacts,
 
     -- * Destructuring the Response
     UpdateQueueMaxContactsResponse (..),
@@ -50,13 +50,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateQueueMaxContacts' smart constructor.
 data UpdateQueueMaxContacts = UpdateQueueMaxContacts'
-  { -- | The identifier of the Amazon Connect instance.
+  { -- | The maximum number of contacts that can be in the queue before it is
+    -- considered full.
+    maxContacts :: Prelude.Maybe Prelude.Natural,
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier for the queue.
-    queueId :: Prelude.Text,
-    -- | The maximum number of contacts that can be in the queue before it is
-    -- considered full.
-    maxContacts :: Prelude.Natural
+    queueId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -68,42 +69,40 @@ data UpdateQueueMaxContacts = UpdateQueueMaxContacts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'updateQueueMaxContacts_instanceId' - The identifier of the Amazon Connect instance.
---
--- 'queueId', 'updateQueueMaxContacts_queueId' - The identifier for the queue.
---
 -- 'maxContacts', 'updateQueueMaxContacts_maxContacts' - The maximum number of contacts that can be in the queue before it is
 -- considered full.
+--
+-- 'instanceId', 'updateQueueMaxContacts_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
+--
+-- 'queueId', 'updateQueueMaxContacts_queueId' - The identifier for the queue.
 newUpdateQueueMaxContacts ::
   -- | 'instanceId'
   Prelude.Text ->
   -- | 'queueId'
   Prelude.Text ->
-  -- | 'maxContacts'
-  Prelude.Natural ->
   UpdateQueueMaxContacts
-newUpdateQueueMaxContacts
-  pInstanceId_
-  pQueueId_
-  pMaxContacts_ =
-    UpdateQueueMaxContacts'
-      { instanceId = pInstanceId_,
-        queueId = pQueueId_,
-        maxContacts = pMaxContacts_
-      }
+newUpdateQueueMaxContacts pInstanceId_ pQueueId_ =
+  UpdateQueueMaxContacts'
+    { maxContacts =
+        Prelude.Nothing,
+      instanceId = pInstanceId_,
+      queueId = pQueueId_
+    }
 
--- | The identifier of the Amazon Connect instance.
+-- | The maximum number of contacts that can be in the queue before it is
+-- considered full.
+updateQueueMaxContacts_maxContacts :: Lens.Lens' UpdateQueueMaxContacts (Prelude.Maybe Prelude.Natural)
+updateQueueMaxContacts_maxContacts = Lens.lens (\UpdateQueueMaxContacts' {maxContacts} -> maxContacts) (\s@UpdateQueueMaxContacts' {} a -> s {maxContacts = a} :: UpdateQueueMaxContacts)
+
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 updateQueueMaxContacts_instanceId :: Lens.Lens' UpdateQueueMaxContacts Prelude.Text
 updateQueueMaxContacts_instanceId = Lens.lens (\UpdateQueueMaxContacts' {instanceId} -> instanceId) (\s@UpdateQueueMaxContacts' {} a -> s {instanceId = a} :: UpdateQueueMaxContacts)
 
 -- | The identifier for the queue.
 updateQueueMaxContacts_queueId :: Lens.Lens' UpdateQueueMaxContacts Prelude.Text
 updateQueueMaxContacts_queueId = Lens.lens (\UpdateQueueMaxContacts' {queueId} -> queueId) (\s@UpdateQueueMaxContacts' {} a -> s {queueId = a} :: UpdateQueueMaxContacts)
-
--- | The maximum number of contacts that can be in the queue before it is
--- considered full.
-updateQueueMaxContacts_maxContacts :: Lens.Lens' UpdateQueueMaxContacts Prelude.Natural
-updateQueueMaxContacts_maxContacts = Lens.lens (\UpdateQueueMaxContacts' {maxContacts} -> maxContacts) (\s@UpdateQueueMaxContacts' {} a -> s {maxContacts = a} :: UpdateQueueMaxContacts)
 
 instance Core.AWSRequest UpdateQueueMaxContacts where
   type
@@ -133,7 +132,7 @@ instance Core.ToJSON UpdateQueueMaxContacts where
   toJSON UpdateQueueMaxContacts' {..} =
     Core.object
       ( Prelude.catMaybes
-          [Prelude.Just ("MaxContacts" Core..= maxContacts)]
+          [("MaxContacts" Core..=) Prelude.<$> maxContacts]
       )
 
 instance Core.ToPath UpdateQueueMaxContacts where

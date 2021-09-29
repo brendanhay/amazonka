@@ -52,7 +52,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAssociateSecurityKey' smart constructor.
 data AssociateSecurityKey = AssociateSecurityKey'
-  { -- | The identifier of the Amazon Connect instance.
+  { -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | A valid security key in PEM format.
     key :: Prelude.Text
@@ -67,7 +68,8 @@ data AssociateSecurityKey = AssociateSecurityKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'associateSecurityKey_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'associateSecurityKey_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'key', 'associateSecurityKey_key' - A valid security key in PEM format.
 newAssociateSecurityKey ::
@@ -82,7 +84,8 @@ newAssociateSecurityKey pInstanceId_ pKey_ =
       key = pKey_
     }
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 associateSecurityKey_instanceId :: Lens.Lens' AssociateSecurityKey Prelude.Text
 associateSecurityKey_instanceId = Lens.lens (\AssociateSecurityKey' {instanceId} -> instanceId) (\s@AssociateSecurityKey' {} a -> s {instanceId = a} :: AssociateSecurityKey)
 

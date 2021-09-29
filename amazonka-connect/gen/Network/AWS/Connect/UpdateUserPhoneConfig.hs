@@ -50,7 +50,8 @@ data UpdateUserPhoneConfig = UpdateUserPhoneConfig'
     phoneConfig :: UserPhoneConfig,
     -- | The identifier of the user account.
     userId :: Prelude.Text,
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,7 +68,8 @@ data UpdateUserPhoneConfig = UpdateUserPhoneConfig'
 --
 -- 'userId', 'updateUserPhoneConfig_userId' - The identifier of the user account.
 --
--- 'instanceId', 'updateUserPhoneConfig_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'updateUserPhoneConfig_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 newUpdateUserPhoneConfig ::
   -- | 'phoneConfig'
   UserPhoneConfig ->
@@ -94,7 +96,8 @@ updateUserPhoneConfig_phoneConfig = Lens.lens (\UpdateUserPhoneConfig' {phoneCon
 updateUserPhoneConfig_userId :: Lens.Lens' UpdateUserPhoneConfig Prelude.Text
 updateUserPhoneConfig_userId = Lens.lens (\UpdateUserPhoneConfig' {userId} -> userId) (\s@UpdateUserPhoneConfig' {} a -> s {userId = a} :: UpdateUserPhoneConfig)
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 updateUserPhoneConfig_instanceId :: Lens.Lens' UpdateUserPhoneConfig Prelude.Text
 updateUserPhoneConfig_instanceId = Lens.lens (\UpdateUserPhoneConfig' {instanceId} -> instanceId) (\s@UpdateUserPhoneConfig' {} a -> s {instanceId = a} :: UpdateUserPhoneConfig)
 

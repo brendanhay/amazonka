@@ -70,7 +70,8 @@ data CreateQueue = CreateQueue'
     outboundCallerConfig :: Prelude.Maybe OutboundCallerConfig,
     -- | The quick connects available to agents who are working the queue.
     quickConnectIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The name of the queue.
     name :: Prelude.Text,
@@ -98,7 +99,8 @@ data CreateQueue = CreateQueue'
 --
 -- 'quickConnectIds', 'createQueue_quickConnectIds' - The quick connects available to agents who are working the queue.
 --
--- 'instanceId', 'createQueue_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'createQueue_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'name', 'createQueue_name' - The name of the queue.
 --
@@ -147,7 +149,8 @@ createQueue_outboundCallerConfig = Lens.lens (\CreateQueue' {outboundCallerConfi
 createQueue_quickConnectIds :: Lens.Lens' CreateQueue (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 createQueue_quickConnectIds = Lens.lens (\CreateQueue' {quickConnectIds} -> quickConnectIds) (\s@CreateQueue' {} a -> s {quickConnectIds = a} :: CreateQueue) Prelude.. Lens.mapping Lens._Coerce
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 createQueue_instanceId :: Lens.Lens' CreateQueue Prelude.Text
 createQueue_instanceId = Lens.lens (\CreateQueue' {instanceId} -> instanceId) (\s@CreateQueue' {} a -> s {instanceId = a} :: CreateQueue)
 

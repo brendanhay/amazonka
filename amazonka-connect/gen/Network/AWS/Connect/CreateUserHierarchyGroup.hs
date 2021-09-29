@@ -57,7 +57,8 @@ data CreateUserHierarchyGroup = CreateUserHierarchyGroup'
     -- | The name of the user hierarchy group. Must not be more than 100
     -- characters.
     name :: Prelude.Text,
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,7 +77,8 @@ data CreateUserHierarchyGroup = CreateUserHierarchyGroup'
 -- 'name', 'createUserHierarchyGroup_name' - The name of the user hierarchy group. Must not be more than 100
 -- characters.
 --
--- 'instanceId', 'createUserHierarchyGroup_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'createUserHierarchyGroup_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 newCreateUserHierarchyGroup ::
   -- | 'name'
   Prelude.Text ->
@@ -101,7 +103,8 @@ createUserHierarchyGroup_parentGroupId = Lens.lens (\CreateUserHierarchyGroup' {
 createUserHierarchyGroup_name :: Lens.Lens' CreateUserHierarchyGroup Prelude.Text
 createUserHierarchyGroup_name = Lens.lens (\CreateUserHierarchyGroup' {name} -> name) (\s@CreateUserHierarchyGroup' {} a -> s {name = a} :: CreateUserHierarchyGroup)
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 createUserHierarchyGroup_instanceId :: Lens.Lens' CreateUserHierarchyGroup Prelude.Text
 createUserHierarchyGroup_instanceId = Lens.lens (\CreateUserHierarchyGroup' {instanceId} -> instanceId) (\s@CreateUserHierarchyGroup' {} a -> s {instanceId = a} :: CreateUserHierarchyGroup)
 

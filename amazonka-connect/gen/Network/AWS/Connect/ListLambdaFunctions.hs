@@ -63,7 +63,8 @@ data ListLambdaFunctions = ListLambdaFunctions'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,7 +83,8 @@ data ListLambdaFunctions = ListLambdaFunctions'
 --
 -- 'maxResults', 'listLambdaFunctions_maxResults' - The maximum number of results to return per page.
 --
--- 'instanceId', 'listLambdaFunctions_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'listLambdaFunctions_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 newListLambdaFunctions ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -104,7 +106,8 @@ listLambdaFunctions_nextToken = Lens.lens (\ListLambdaFunctions' {nextToken} -> 
 listLambdaFunctions_maxResults :: Lens.Lens' ListLambdaFunctions (Prelude.Maybe Prelude.Natural)
 listLambdaFunctions_maxResults = Lens.lens (\ListLambdaFunctions' {maxResults} -> maxResults) (\s@ListLambdaFunctions' {} a -> s {maxResults = a} :: ListLambdaFunctions)
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 listLambdaFunctions_instanceId :: Lens.Lens' ListLambdaFunctions Prelude.Text
 listLambdaFunctions_instanceId = Lens.lens (\ListLambdaFunctions' {instanceId} -> instanceId) (\s@ListLambdaFunctions' {} a -> s {instanceId = a} :: ListLambdaFunctions)
 

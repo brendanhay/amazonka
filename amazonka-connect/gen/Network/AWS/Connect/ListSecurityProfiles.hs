@@ -64,7 +64,8 @@ data ListSecurityProfiles = ListSecurityProfiles'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -83,7 +84,8 @@ data ListSecurityProfiles = ListSecurityProfiles'
 --
 -- 'maxResults', 'listSecurityProfiles_maxResults' - The maximum number of results to return per page.
 --
--- 'instanceId', 'listSecurityProfiles_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'listSecurityProfiles_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 newListSecurityProfiles ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -105,7 +107,8 @@ listSecurityProfiles_nextToken = Lens.lens (\ListSecurityProfiles' {nextToken} -
 listSecurityProfiles_maxResults :: Lens.Lens' ListSecurityProfiles (Prelude.Maybe Prelude.Natural)
 listSecurityProfiles_maxResults = Lens.lens (\ListSecurityProfiles' {maxResults} -> maxResults) (\s@ListSecurityProfiles' {} a -> s {maxResults = a} :: ListSecurityProfiles)
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 listSecurityProfiles_instanceId :: Lens.Lens' ListSecurityProfiles Prelude.Text
 listSecurityProfiles_instanceId = Lens.lens (\ListSecurityProfiles' {instanceId} -> instanceId) (\s@ListSecurityProfiles' {} a -> s {instanceId = a} :: ListSecurityProfiles)
 

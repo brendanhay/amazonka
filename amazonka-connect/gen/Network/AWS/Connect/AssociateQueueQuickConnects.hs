@@ -49,7 +49,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAssociateQueueQuickConnects' smart constructor.
 data AssociateQueueQuickConnects = AssociateQueueQuickConnects'
-  { -- | The identifier of the Amazon Connect instance.
+  { -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier for the queue.
     queueId :: Prelude.Text,
@@ -66,7 +67,8 @@ data AssociateQueueQuickConnects = AssociateQueueQuickConnects'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'associateQueueQuickConnects_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'associateQueueQuickConnects_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'queueId', 'associateQueueQuickConnects_queueId' - The identifier for the queue.
 --
@@ -91,7 +93,8 @@ newAssociateQueueQuickConnects
           Lens._Coerce Lens.# pQuickConnectIds_
       }
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 associateQueueQuickConnects_instanceId :: Lens.Lens' AssociateQueueQuickConnects Prelude.Text
 associateQueueQuickConnects_instanceId = Lens.lens (\AssociateQueueQuickConnects' {instanceId} -> instanceId) (\s@AssociateQueueQuickConnects' {} a -> s {instanceId = a} :: AssociateQueueQuickConnects)
 

@@ -32,12 +32,12 @@ data HierarchyStructureUpdate = HierarchyStructureUpdate'
     levelThree :: Prelude.Maybe HierarchyLevelUpdate,
     -- | The update for level four.
     levelFour :: Prelude.Maybe HierarchyLevelUpdate,
-    -- | The update for level two.
-    levelTwo :: Prelude.Maybe HierarchyLevelUpdate,
+    -- | The update for level five.
+    levelFive :: Prelude.Maybe HierarchyLevelUpdate,
     -- | The update for level one.
     levelOne :: Prelude.Maybe HierarchyLevelUpdate,
-    -- | The update for level five.
-    levelFive :: Prelude.Maybe HierarchyLevelUpdate
+    -- | The update for level two.
+    levelTwo :: Prelude.Maybe HierarchyLevelUpdate
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -53,11 +53,11 @@ data HierarchyStructureUpdate = HierarchyStructureUpdate'
 --
 -- 'levelFour', 'hierarchyStructureUpdate_levelFour' - The update for level four.
 --
--- 'levelTwo', 'hierarchyStructureUpdate_levelTwo' - The update for level two.
+-- 'levelFive', 'hierarchyStructureUpdate_levelFive' - The update for level five.
 --
 -- 'levelOne', 'hierarchyStructureUpdate_levelOne' - The update for level one.
 --
--- 'levelFive', 'hierarchyStructureUpdate_levelFive' - The update for level five.
+-- 'levelTwo', 'hierarchyStructureUpdate_levelTwo' - The update for level two.
 newHierarchyStructureUpdate ::
   HierarchyStructureUpdate
 newHierarchyStructureUpdate =
@@ -65,9 +65,9 @@ newHierarchyStructureUpdate =
     { levelThree =
         Prelude.Nothing,
       levelFour = Prelude.Nothing,
-      levelTwo = Prelude.Nothing,
+      levelFive = Prelude.Nothing,
       levelOne = Prelude.Nothing,
-      levelFive = Prelude.Nothing
+      levelTwo = Prelude.Nothing
     }
 
 -- | The update for level three.
@@ -78,17 +78,17 @@ hierarchyStructureUpdate_levelThree = Lens.lens (\HierarchyStructureUpdate' {lev
 hierarchyStructureUpdate_levelFour :: Lens.Lens' HierarchyStructureUpdate (Prelude.Maybe HierarchyLevelUpdate)
 hierarchyStructureUpdate_levelFour = Lens.lens (\HierarchyStructureUpdate' {levelFour} -> levelFour) (\s@HierarchyStructureUpdate' {} a -> s {levelFour = a} :: HierarchyStructureUpdate)
 
--- | The update for level two.
-hierarchyStructureUpdate_levelTwo :: Lens.Lens' HierarchyStructureUpdate (Prelude.Maybe HierarchyLevelUpdate)
-hierarchyStructureUpdate_levelTwo = Lens.lens (\HierarchyStructureUpdate' {levelTwo} -> levelTwo) (\s@HierarchyStructureUpdate' {} a -> s {levelTwo = a} :: HierarchyStructureUpdate)
+-- | The update for level five.
+hierarchyStructureUpdate_levelFive :: Lens.Lens' HierarchyStructureUpdate (Prelude.Maybe HierarchyLevelUpdate)
+hierarchyStructureUpdate_levelFive = Lens.lens (\HierarchyStructureUpdate' {levelFive} -> levelFive) (\s@HierarchyStructureUpdate' {} a -> s {levelFive = a} :: HierarchyStructureUpdate)
 
 -- | The update for level one.
 hierarchyStructureUpdate_levelOne :: Lens.Lens' HierarchyStructureUpdate (Prelude.Maybe HierarchyLevelUpdate)
 hierarchyStructureUpdate_levelOne = Lens.lens (\HierarchyStructureUpdate' {levelOne} -> levelOne) (\s@HierarchyStructureUpdate' {} a -> s {levelOne = a} :: HierarchyStructureUpdate)
 
--- | The update for level five.
-hierarchyStructureUpdate_levelFive :: Lens.Lens' HierarchyStructureUpdate (Prelude.Maybe HierarchyLevelUpdate)
-hierarchyStructureUpdate_levelFive = Lens.lens (\HierarchyStructureUpdate' {levelFive} -> levelFive) (\s@HierarchyStructureUpdate' {} a -> s {levelFive = a} :: HierarchyStructureUpdate)
+-- | The update for level two.
+hierarchyStructureUpdate_levelTwo :: Lens.Lens' HierarchyStructureUpdate (Prelude.Maybe HierarchyLevelUpdate)
+hierarchyStructureUpdate_levelTwo = Lens.lens (\HierarchyStructureUpdate' {levelTwo} -> levelTwo) (\s@HierarchyStructureUpdate' {} a -> s {levelTwo = a} :: HierarchyStructureUpdate)
 
 instance Prelude.Hashable HierarchyStructureUpdate
 
@@ -100,8 +100,8 @@ instance Core.ToJSON HierarchyStructureUpdate where
       ( Prelude.catMaybes
           [ ("LevelThree" Core..=) Prelude.<$> levelThree,
             ("LevelFour" Core..=) Prelude.<$> levelFour,
-            ("LevelTwo" Core..=) Prelude.<$> levelTwo,
+            ("LevelFive" Core..=) Prelude.<$> levelFive,
             ("LevelOne" Core..=) Prelude.<$> levelOne,
-            ("LevelFive" Core..=) Prelude.<$> levelFive
+            ("LevelTwo" Core..=) Prelude.<$> levelTwo
           ]
       )

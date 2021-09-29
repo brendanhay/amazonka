@@ -70,7 +70,8 @@ data ListPhoneNumbers = ListPhoneNumbers'
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ISO country code.
     phoneNumberCountryCodes :: Prelude.Maybe [PhoneNumberCountryCode],
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -93,7 +94,8 @@ data ListPhoneNumbers = ListPhoneNumbers'
 --
 -- 'phoneNumberCountryCodes', 'listPhoneNumbers_phoneNumberCountryCodes' - The ISO country code.
 --
--- 'instanceId', 'listPhoneNumbers_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'listPhoneNumbers_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 newListPhoneNumbers ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -125,7 +127,8 @@ listPhoneNumbers_maxResults = Lens.lens (\ListPhoneNumbers' {maxResults} -> maxR
 listPhoneNumbers_phoneNumberCountryCodes :: Lens.Lens' ListPhoneNumbers (Prelude.Maybe [PhoneNumberCountryCode])
 listPhoneNumbers_phoneNumberCountryCodes = Lens.lens (\ListPhoneNumbers' {phoneNumberCountryCodes} -> phoneNumberCountryCodes) (\s@ListPhoneNumbers' {} a -> s {phoneNumberCountryCodes = a} :: ListPhoneNumbers) Prelude.. Lens.mapping Lens._Coerce
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 listPhoneNumbers_instanceId :: Lens.Lens' ListPhoneNumbers Prelude.Text
 listPhoneNumbers_instanceId = Lens.lens (\ListPhoneNumbers' {instanceId} -> instanceId) (\s@ListPhoneNumbers' {} a -> s {instanceId = a} :: ListPhoneNumbers)
 

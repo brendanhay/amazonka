@@ -20,7 +20,11 @@
 module Network.AWS.Connect.Types.IntegrationType
   ( IntegrationType
       ( ..,
-        IntegrationType_EVENT
+        IntegrationType_EVENT,
+        IntegrationType_PINPOINT_APP,
+        IntegrationType_VOICE_ID,
+        IntegrationType_WISDOM_ASSISTANT,
+        IntegrationType_WISDOM_KNOWLEDGE_BASE
       ),
   )
 where
@@ -59,7 +63,23 @@ newtype IntegrationType = IntegrationType'
 pattern IntegrationType_EVENT :: IntegrationType
 pattern IntegrationType_EVENT = IntegrationType' "EVENT"
 
+pattern IntegrationType_PINPOINT_APP :: IntegrationType
+pattern IntegrationType_PINPOINT_APP = IntegrationType' "PINPOINT_APP"
+
+pattern IntegrationType_VOICE_ID :: IntegrationType
+pattern IntegrationType_VOICE_ID = IntegrationType' "VOICE_ID"
+
+pattern IntegrationType_WISDOM_ASSISTANT :: IntegrationType
+pattern IntegrationType_WISDOM_ASSISTANT = IntegrationType' "WISDOM_ASSISTANT"
+
+pattern IntegrationType_WISDOM_KNOWLEDGE_BASE :: IntegrationType
+pattern IntegrationType_WISDOM_KNOWLEDGE_BASE = IntegrationType' "WISDOM_KNOWLEDGE_BASE"
+
 {-# COMPLETE
   IntegrationType_EVENT,
+  IntegrationType_PINPOINT_APP,
+  IntegrationType_VOICE_ID,
+  IntegrationType_WISDOM_ASSISTANT,
+  IntegrationType_WISDOM_KNOWLEDGE_BASE,
   IntegrationType'
   #-}

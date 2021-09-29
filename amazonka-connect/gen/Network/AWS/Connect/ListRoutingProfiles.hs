@@ -66,7 +66,8 @@ data ListRoutingProfiles = ListRoutingProfiles'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -85,7 +86,8 @@ data ListRoutingProfiles = ListRoutingProfiles'
 --
 -- 'maxResults', 'listRoutingProfiles_maxResults' - The maximum number of results to return per page.
 --
--- 'instanceId', 'listRoutingProfiles_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'listRoutingProfiles_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 newListRoutingProfiles ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -107,7 +109,8 @@ listRoutingProfiles_nextToken = Lens.lens (\ListRoutingProfiles' {nextToken} -> 
 listRoutingProfiles_maxResults :: Lens.Lens' ListRoutingProfiles (Prelude.Maybe Prelude.Natural)
 listRoutingProfiles_maxResults = Lens.lens (\ListRoutingProfiles' {maxResults} -> maxResults) (\s@ListRoutingProfiles' {} a -> s {maxResults = a} :: ListRoutingProfiles)
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 listRoutingProfiles_instanceId :: Lens.Lens' ListRoutingProfiles Prelude.Text
 listRoutingProfiles_instanceId = Lens.lens (\ListRoutingProfiles' {instanceId} -> instanceId) (\s@ListRoutingProfiles' {} a -> s {instanceId = a} :: ListRoutingProfiles)
 

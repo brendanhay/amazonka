@@ -27,7 +27,13 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestSuspendContactRecording $
+--         [ requestUpdateUserHierarchyGroupName $
+--             newUpdateUserHierarchyGroupName
+--
+--         , requestUpdateUserRoutingProfile $
+--             newUpdateUserRoutingProfile
+--
+--         , requestSuspendContactRecording $
 --             newSuspendContactRecording
 --
 --         , requestUpdateQueueName $
@@ -36,50 +42,44 @@ import Test.Tasty
 --         , requestCreateQuickConnect $
 --             newCreateQuickConnect
 --
---         , requestUpdateUserRoutingProfile $
---             newUpdateUserRoutingProfile
---
---         , requestUpdateUserHierarchyGroupName $
---             newUpdateUserHierarchyGroupName
---
---         , requestUpdateContactFlowName $
---             newUpdateContactFlowName
+--         , requestListInstanceAttributes $
+--             newListInstanceAttributes
 --
 --         , requestListSecurityProfiles $
 --             newListSecurityProfiles
 --
+--         , requestUpdateRoutingProfileQueues $
+--             newUpdateRoutingProfileQueues
+--
 --         , requestDescribeInstance $
 --             newDescribeInstance
 --
---         , requestListInstanceAttributes $
---             newListInstanceAttributes
+--         , requestUpdateContactFlowName $
+--             newUpdateContactFlowName
 --
 --         , requestListLambdaFunctions $
 --             newListLambdaFunctions
 --
---         , requestUpdateRoutingProfileQueues $
---             newUpdateRoutingProfileQueues
+--         , requestListLexBots $
+--             newListLexBots
 --
 --         , requestAssociateRoutingProfileQueues $
 --             newAssociateRoutingProfileQueues
 --
---         , requestGetContactAttributes $
---             newGetContactAttributes
---
---         , requestListLexBots $
---             newListLexBots
+--         , requestListAgentStatuses $
+--             newListAgentStatuses
 --
 --         , requestAssociateLambdaFunction $
 --             newAssociateLambdaFunction
 --
+--         , requestGetContactAttributes $
+--             newGetContactAttributes
+--
+--         , requestCreateAgentStatus $
+--             newCreateAgentStatus
+--
 --         , requestListApprovedOrigins $
 --             newListApprovedOrigins
---
---         , requestAssociateInstanceStorageConfig $
---             newAssociateInstanceStorageConfig
---
---         , requestCreateContactFlow $
---             newCreateContactFlow
 --
 --         , requestUpdateUserPhoneConfig $
 --             newUpdateUserPhoneConfig
@@ -87,41 +87,56 @@ import Test.Tasty
 --         , requestUpdateContactAttributes $
 --             newUpdateContactAttributes
 --
---         , requestListRoutingProfiles $
---             newListRoutingProfiles
---
 --         , requestDeleteUseCase $
 --             newDeleteUseCase
+--
+--         , requestListRoutingProfiles $
+--             newListRoutingProfiles
 --
 --         , requestDescribeQuickConnect $
 --             newDescribeQuickConnect
 --
+--         , requestAssociateInstanceStorageConfig $
+--             newAssociateInstanceStorageConfig
+--
+--         , requestCreateContactFlow $
+--             newCreateContactFlow
+--
 --         , requestListQueueQuickConnects $
 --             newListQueueQuickConnects
---
---         , requestCreateRoutingProfile $
---             newCreateRoutingProfile
---
---         , requestAssociateApprovedOrigin $
---             newAssociateApprovedOrigin
---
---         , requestDisassociateQueueQuickConnects $
---             newDisassociateQueueQuickConnects
 --
 --         , requestUpdateRoutingProfileConcurrency $
 --             newUpdateRoutingProfileConcurrency
 --
+--         , requestDisassociateQueueQuickConnects $
+--             newDisassociateQueueQuickConnects
+--
 --         , requestUpdateQueueOutboundCallerConfig $
 --             newUpdateQueueOutboundCallerConfig
 --
---         , requestDisassociateSecurityKey $
---             newDisassociateSecurityKey
+--         , requestGetCurrentMetricData $
+--             newGetCurrentMetricData
+--
+--         , requestCreateRoutingProfile $
+--             newCreateRoutingProfile
 --
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestGetCurrentMetricData $
---             newGetCurrentMetricData
+--         , requestDisassociateSecurityKey $
+--             newDisassociateSecurityKey
+--
+--         , requestAssociateApprovedOrigin $
+--             newAssociateApprovedOrigin
+--
+--         , requestListQueues $
+--             newListQueues
+--
+--         , requestListBots $
+--             newListBots
+--
+--         , requestTagResource $
+--             newTagResource
 --
 --         , requestUpdateQuickConnectConfig $
 --             newUpdateQuickConnectConfig
@@ -129,17 +144,23 @@ import Test.Tasty
 --         , requestListInstances $
 --             newListInstances
 --
---         , requestListQueues $
---             newListQueues
---
 --         , requestDeleteInstance $
 --             newDeleteInstance
 --
---         , requestTagResource $
---             newTagResource
---
 --         , requestStopContact $
 --             newStopContact
+--
+--         , requestAssociateSecurityKey $
+--             newAssociateSecurityKey
+--
+--         , requestStopContactRecording $
+--             newStopContactRecording
+--
+--         , requestUpdateQuickConnectName $
+--             newUpdateQuickConnectName
+--
+--         , requestCreateUser $
+--             newCreateUser
 --
 --         , requestCreateUserHierarchyGroup $
 --             newCreateUserHierarchyGroup
@@ -147,38 +168,32 @@ import Test.Tasty
 --         , requestStartContactRecording $
 --             newStartContactRecording
 --
---         , requestCreateUser $
---             newCreateUser
---
---         , requestAssociateSecurityKey $
---             newAssociateSecurityKey
+--         , requestDisassociateApprovedOrigin $
+--             newDisassociateApprovedOrigin
 --
 --         , requestAssociateQueueQuickConnects $
 --             newAssociateQueueQuickConnects
 --
---         , requestStopContactRecording $
---             newStopContactRecording
---
---         , requestDisassociateApprovedOrigin $
---             newDisassociateApprovedOrigin
---
---         , requestUpdateQuickConnectName $
---             newUpdateQuickConnectName
---
 --         , requestDescribeRoutingProfile $
 --             newDescribeRoutingProfile
---
---         , requestListQuickConnects $
---             newListQuickConnects
 --
 --         , requestDisassociateLexBot $
 --             newDisassociateLexBot
 --
+--         , requestListQuickConnects $
+--             newListQuickConnects
+--
 --         , requestDeleteQuickConnect $
 --             newDeleteQuickConnect
 --
---         , requestListRoutingProfileQueues $
---             newListRoutingProfileQueues
+--         , requestDescribeContactFlow $
+--             newDescribeContactFlow
+--
+--         , requestDisassociateRoutingProfileQueues $
+--             newDisassociateRoutingProfileQueues
+--
+--         , requestUpdateQueueHoursOfOperation $
+--             newUpdateQueueHoursOfOperation
 --
 --         , requestUpdateUserHierarchy $
 --             newUpdateUserHierarchy
@@ -192,23 +207,8 @@ import Test.Tasty
 --         , requestDescribeInstanceStorageConfig $
 --             newDescribeInstanceStorageConfig
 --
---         , requestUpdateQueueHoursOfOperation $
---             newUpdateQueueHoursOfOperation
---
---         , requestDisassociateRoutingProfileQueues $
---             newDisassociateRoutingProfileQueues
---
---         , requestDescribeContactFlow $
---             newDescribeContactFlow
---
---         , requestUpdateQueueStatus $
---             newUpdateQueueStatus
---
---         , requestDescribeQueue $
---             newDescribeQueue
---
---         , requestAssociateLexBot $
---             newAssociateLexBot
+--         , requestListRoutingProfileQueues $
+--             newListRoutingProfileQueues
 --
 --         , requestUpdateInstanceAttribute $
 --             newUpdateInstanceAttribute
@@ -216,14 +216,29 @@ import Test.Tasty
 --         , requestDescribeUser $
 --             newDescribeUser
 --
---         , requestDescribeUserHierarchyGroup $
---             newDescribeUserHierarchyGroup
+--         , requestAssociateLexBot $
+--             newAssociateLexBot
+--
+--         , requestUpdateQueueStatus $
+--             newUpdateQueueStatus
 --
 --         , requestResumeContactRecording $
 --             newResumeContactRecording
 --
+--         , requestUpdateAgentStatus $
+--             newUpdateAgentStatus
+--
+--         , requestDescribeUserHierarchyGroup $
+--             newDescribeUserHierarchyGroup
+--
+--         , requestDescribeQueue $
+--             newDescribeQueue
+--
 --         , requestUpdateRoutingProfileName $
 --             newUpdateRoutingProfileName
+--
+--         , requestDescribeUserHierarchyStructure $
+--             newDescribeUserHierarchyStructure
 --
 --         , requestStartChatContact $
 --             newStartChatContact
@@ -231,53 +246,53 @@ import Test.Tasty
 --         , requestDeleteIntegrationAssociation $
 --             newDeleteIntegrationAssociation
 --
---         , requestListPhoneNumbers $
---             newListPhoneNumbers
---
---         , requestListIntegrationAssociations $
---             newListIntegrationAssociations
---
 --         , requestListUseCases $
 --             newListUseCases
 --
 --         , requestUpdateUserSecurityProfiles $
 --             newUpdateUserSecurityProfiles
 --
---         , requestDescribeUserHierarchyStructure $
---             newDescribeUserHierarchyStructure
+--         , requestDeleteHoursOfOperation $
+--             newDeleteHoursOfOperation
+--
+--         , requestUpdateHoursOfOperation $
+--             newUpdateHoursOfOperation
+--
+--         , requestListPhoneNumbers $
+--             newListPhoneNumbers
 --
 --         , requestListHoursOfOperations $
 --             newListHoursOfOperations
 --
---         , requestCreateUseCase $
---             newCreateUseCase
+--         , requestListIntegrationAssociations $
+--             newListIntegrationAssociations
 --
 --         , requestListContactFlows $
 --             newListContactFlows
 --
---         , requestUpdateInstanceStorageConfig $
---             newUpdateInstanceStorageConfig
---
 --         , requestListInstanceStorageConfigs $
 --             newListInstanceStorageConfigs
+--
+--         , requestCreateHoursOfOperation $
+--             newCreateHoursOfOperation
+--
+--         , requestCreateUseCase $
+--             newCreateUseCase
+--
+--         , requestDisassociateBot $
+--             newDisassociateBot
 --
 --         , requestCreateIntegrationAssociation $
 --             newCreateIntegrationAssociation
 --
---         , requestDeleteUserHierarchyGroup $
---             newDeleteUserHierarchyGroup
---
---         , requestDeleteUser $
---             newDeleteUser
---
---         , requestDisassociateInstanceStorageConfig $
---             newDisassociateInstanceStorageConfig
---
---         , requestListUserHierarchyGroups $
---             newListUserHierarchyGroups
+--         , requestUpdateInstanceStorageConfig $
+--             newUpdateInstanceStorageConfig
 --
 --         , requestUpdateUserIdentityInfo $
 --             newUpdateUserIdentityInfo
+--
+--         , requestUpdateRoutingProfileDefaultOutboundQueue $
+--             newUpdateRoutingProfileDefaultOutboundQueue
 --
 --         , requestListUsers $
 --             newListUsers
@@ -285,26 +300,47 @@ import Test.Tasty
 --         , requestGetFederationToken $
 --             newGetFederationToken
 --
+--         , requestDeleteUserHierarchyGroup $
+--             newDeleteUserHierarchyGroup
+--
 --         , requestDescribeInstanceAttribute $
 --             newDescribeInstanceAttribute
+--
+--         , requestDescribeAgentStatus $
+--             newDescribeAgentStatus
 --
 --         , requestListSecurityKeys $
 --             newListSecurityKeys
 --
---         , requestUpdateRoutingProfileDefaultOutboundQueue $
---             newUpdateRoutingProfileDefaultOutboundQueue
+--         , requestListUserHierarchyGroups $
+--             newListUserHierarchyGroups
 --
---         , requestCreateQueue $
---             newCreateQueue
+--         , requestDeleteUser $
+--             newDeleteUser
+--
+--         , requestDisassociateInstanceStorageConfig $
+--             newDisassociateInstanceStorageConfig
+--
+--         , requestAssociateBot $
+--             newAssociateBot
 --
 --         , requestCreateInstance $
 --             newCreateInstance
 --
---         , requestStartTaskContact $
---             newStartTaskContact
+--         , requestCreateQueue $
+--             newCreateQueue
 --
 --         , requestListPrompts $
 --             newListPrompts
+--
+--         , requestStartTaskContact $
+--             newStartTaskContact
+--
+--         , requestUpdateContactFlowContent $
+--             newUpdateContactFlowContent
+--
+--         , requestDescribeHoursOfOperation $
+--             newDescribeHoursOfOperation
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
@@ -315,19 +351,19 @@ import Test.Tasty
 --         , requestUpdateUserHierarchyStructure $
 --             newUpdateUserHierarchyStructure
 --
---         , requestUpdateContactFlowContent $
---             newUpdateContactFlowContent
---
 --         , requestGetMetricData $
 --             newGetMetricData
---
---         , requestDescribeHoursOfOperation $
---             newDescribeHoursOfOperation
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseSuspendContactRecording $
+--         [ responseUpdateUserHierarchyGroupName $
+--             newUpdateUserHierarchyGroupNameResponse
+--
+--         , responseUpdateUserRoutingProfile $
+--             newUpdateUserRoutingProfileResponse
+--
+--         , responseSuspendContactRecording $
 --             newSuspendContactRecordingResponse
 --
 --         , responseUpdateQueueName $
@@ -336,50 +372,44 @@ import Test.Tasty
 --         , responseCreateQuickConnect $
 --             newCreateQuickConnectResponse
 --
---         , responseUpdateUserRoutingProfile $
---             newUpdateUserRoutingProfileResponse
---
---         , responseUpdateUserHierarchyGroupName $
---             newUpdateUserHierarchyGroupNameResponse
---
---         , responseUpdateContactFlowName $
---             newUpdateContactFlowNameResponse
+--         , responseListInstanceAttributes $
+--             newListInstanceAttributesResponse
 --
 --         , responseListSecurityProfiles $
 --             newListSecurityProfilesResponse
 --
+--         , responseUpdateRoutingProfileQueues $
+--             newUpdateRoutingProfileQueuesResponse
+--
 --         , responseDescribeInstance $
 --             newDescribeInstanceResponse
 --
---         , responseListInstanceAttributes $
---             newListInstanceAttributesResponse
+--         , responseUpdateContactFlowName $
+--             newUpdateContactFlowNameResponse
 --
 --         , responseListLambdaFunctions $
 --             newListLambdaFunctionsResponse
 --
---         , responseUpdateRoutingProfileQueues $
---             newUpdateRoutingProfileQueuesResponse
+--         , responseListLexBots $
+--             newListLexBotsResponse
 --
 --         , responseAssociateRoutingProfileQueues $
 --             newAssociateRoutingProfileQueuesResponse
 --
---         , responseGetContactAttributes $
---             newGetContactAttributesResponse
---
---         , responseListLexBots $
---             newListLexBotsResponse
+--         , responseListAgentStatuses $
+--             newListAgentStatusesResponse
 --
 --         , responseAssociateLambdaFunction $
 --             newAssociateLambdaFunctionResponse
 --
+--         , responseGetContactAttributes $
+--             newGetContactAttributesResponse
+--
+--         , responseCreateAgentStatus $
+--             newCreateAgentStatusResponse
+--
 --         , responseListApprovedOrigins $
 --             newListApprovedOriginsResponse
---
---         , responseAssociateInstanceStorageConfig $
---             newAssociateInstanceStorageConfigResponse
---
---         , responseCreateContactFlow $
---             newCreateContactFlowResponse
 --
 --         , responseUpdateUserPhoneConfig $
 --             newUpdateUserPhoneConfigResponse
@@ -387,41 +417,56 @@ import Test.Tasty
 --         , responseUpdateContactAttributes $
 --             newUpdateContactAttributesResponse
 --
---         , responseListRoutingProfiles $
---             newListRoutingProfilesResponse
---
 --         , responseDeleteUseCase $
 --             newDeleteUseCaseResponse
+--
+--         , responseListRoutingProfiles $
+--             newListRoutingProfilesResponse
 --
 --         , responseDescribeQuickConnect $
 --             newDescribeQuickConnectResponse
 --
+--         , responseAssociateInstanceStorageConfig $
+--             newAssociateInstanceStorageConfigResponse
+--
+--         , responseCreateContactFlow $
+--             newCreateContactFlowResponse
+--
 --         , responseListQueueQuickConnects $
 --             newListQueueQuickConnectsResponse
---
---         , responseCreateRoutingProfile $
---             newCreateRoutingProfileResponse
---
---         , responseAssociateApprovedOrigin $
---             newAssociateApprovedOriginResponse
---
---         , responseDisassociateQueueQuickConnects $
---             newDisassociateQueueQuickConnectsResponse
 --
 --         , responseUpdateRoutingProfileConcurrency $
 --             newUpdateRoutingProfileConcurrencyResponse
 --
+--         , responseDisassociateQueueQuickConnects $
+--             newDisassociateQueueQuickConnectsResponse
+--
 --         , responseUpdateQueueOutboundCallerConfig $
 --             newUpdateQueueOutboundCallerConfigResponse
 --
---         , responseDisassociateSecurityKey $
---             newDisassociateSecurityKeyResponse
+--         , responseGetCurrentMetricData $
+--             newGetCurrentMetricDataResponse
+--
+--         , responseCreateRoutingProfile $
+--             newCreateRoutingProfileResponse
 --
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseGetCurrentMetricData $
---             newGetCurrentMetricDataResponse
+--         , responseDisassociateSecurityKey $
+--             newDisassociateSecurityKeyResponse
+--
+--         , responseAssociateApprovedOrigin $
+--             newAssociateApprovedOriginResponse
+--
+--         , responseListQueues $
+--             newListQueuesResponse
+--
+--         , responseListBots $
+--             newListBotsResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
 --
 --         , responseUpdateQuickConnectConfig $
 --             newUpdateQuickConnectConfigResponse
@@ -429,17 +474,23 @@ import Test.Tasty
 --         , responseListInstances $
 --             newListInstancesResponse
 --
---         , responseListQueues $
---             newListQueuesResponse
---
 --         , responseDeleteInstance $
 --             newDeleteInstanceResponse
 --
---         , responseTagResource $
---             newTagResourceResponse
---
 --         , responseStopContact $
 --             newStopContactResponse
+--
+--         , responseAssociateSecurityKey $
+--             newAssociateSecurityKeyResponse
+--
+--         , responseStopContactRecording $
+--             newStopContactRecordingResponse
+--
+--         , responseUpdateQuickConnectName $
+--             newUpdateQuickConnectNameResponse
+--
+--         , responseCreateUser $
+--             newCreateUserResponse
 --
 --         , responseCreateUserHierarchyGroup $
 --             newCreateUserHierarchyGroupResponse
@@ -447,38 +498,32 @@ import Test.Tasty
 --         , responseStartContactRecording $
 --             newStartContactRecordingResponse
 --
---         , responseCreateUser $
---             newCreateUserResponse
---
---         , responseAssociateSecurityKey $
---             newAssociateSecurityKeyResponse
+--         , responseDisassociateApprovedOrigin $
+--             newDisassociateApprovedOriginResponse
 --
 --         , responseAssociateQueueQuickConnects $
 --             newAssociateQueueQuickConnectsResponse
 --
---         , responseStopContactRecording $
---             newStopContactRecordingResponse
---
---         , responseDisassociateApprovedOrigin $
---             newDisassociateApprovedOriginResponse
---
---         , responseUpdateQuickConnectName $
---             newUpdateQuickConnectNameResponse
---
 --         , responseDescribeRoutingProfile $
 --             newDescribeRoutingProfileResponse
---
---         , responseListQuickConnects $
---             newListQuickConnectsResponse
 --
 --         , responseDisassociateLexBot $
 --             newDisassociateLexBotResponse
 --
+--         , responseListQuickConnects $
+--             newListQuickConnectsResponse
+--
 --         , responseDeleteQuickConnect $
 --             newDeleteQuickConnectResponse
 --
---         , responseListRoutingProfileQueues $
---             newListRoutingProfileQueuesResponse
+--         , responseDescribeContactFlow $
+--             newDescribeContactFlowResponse
+--
+--         , responseDisassociateRoutingProfileQueues $
+--             newDisassociateRoutingProfileQueuesResponse
+--
+--         , responseUpdateQueueHoursOfOperation $
+--             newUpdateQueueHoursOfOperationResponse
 --
 --         , responseUpdateUserHierarchy $
 --             newUpdateUserHierarchyResponse
@@ -492,23 +537,8 @@ import Test.Tasty
 --         , responseDescribeInstanceStorageConfig $
 --             newDescribeInstanceStorageConfigResponse
 --
---         , responseUpdateQueueHoursOfOperation $
---             newUpdateQueueHoursOfOperationResponse
---
---         , responseDisassociateRoutingProfileQueues $
---             newDisassociateRoutingProfileQueuesResponse
---
---         , responseDescribeContactFlow $
---             newDescribeContactFlowResponse
---
---         , responseUpdateQueueStatus $
---             newUpdateQueueStatusResponse
---
---         , responseDescribeQueue $
---             newDescribeQueueResponse
---
---         , responseAssociateLexBot $
---             newAssociateLexBotResponse
+--         , responseListRoutingProfileQueues $
+--             newListRoutingProfileQueuesResponse
 --
 --         , responseUpdateInstanceAttribute $
 --             newUpdateInstanceAttributeResponse
@@ -516,14 +546,29 @@ import Test.Tasty
 --         , responseDescribeUser $
 --             newDescribeUserResponse
 --
---         , responseDescribeUserHierarchyGroup $
---             newDescribeUserHierarchyGroupResponse
+--         , responseAssociateLexBot $
+--             newAssociateLexBotResponse
+--
+--         , responseUpdateQueueStatus $
+--             newUpdateQueueStatusResponse
 --
 --         , responseResumeContactRecording $
 --             newResumeContactRecordingResponse
 --
+--         , responseUpdateAgentStatus $
+--             newUpdateAgentStatusResponse
+--
+--         , responseDescribeUserHierarchyGroup $
+--             newDescribeUserHierarchyGroupResponse
+--
+--         , responseDescribeQueue $
+--             newDescribeQueueResponse
+--
 --         , responseUpdateRoutingProfileName $
 --             newUpdateRoutingProfileNameResponse
+--
+--         , responseDescribeUserHierarchyStructure $
+--             newDescribeUserHierarchyStructureResponse
 --
 --         , responseStartChatContact $
 --             newStartChatContactResponse
@@ -531,53 +576,53 @@ import Test.Tasty
 --         , responseDeleteIntegrationAssociation $
 --             newDeleteIntegrationAssociationResponse
 --
---         , responseListPhoneNumbers $
---             newListPhoneNumbersResponse
---
---         , responseListIntegrationAssociations $
---             newListIntegrationAssociationsResponse
---
 --         , responseListUseCases $
 --             newListUseCasesResponse
 --
 --         , responseUpdateUserSecurityProfiles $
 --             newUpdateUserSecurityProfilesResponse
 --
---         , responseDescribeUserHierarchyStructure $
---             newDescribeUserHierarchyStructureResponse
+--         , responseDeleteHoursOfOperation $
+--             newDeleteHoursOfOperationResponse
+--
+--         , responseUpdateHoursOfOperation $
+--             newUpdateHoursOfOperationResponse
+--
+--         , responseListPhoneNumbers $
+--             newListPhoneNumbersResponse
 --
 --         , responseListHoursOfOperations $
 --             newListHoursOfOperationsResponse
 --
---         , responseCreateUseCase $
---             newCreateUseCaseResponse
+--         , responseListIntegrationAssociations $
+--             newListIntegrationAssociationsResponse
 --
 --         , responseListContactFlows $
 --             newListContactFlowsResponse
 --
---         , responseUpdateInstanceStorageConfig $
---             newUpdateInstanceStorageConfigResponse
---
 --         , responseListInstanceStorageConfigs $
 --             newListInstanceStorageConfigsResponse
+--
+--         , responseCreateHoursOfOperation $
+--             newCreateHoursOfOperationResponse
+--
+--         , responseCreateUseCase $
+--             newCreateUseCaseResponse
+--
+--         , responseDisassociateBot $
+--             newDisassociateBotResponse
 --
 --         , responseCreateIntegrationAssociation $
 --             newCreateIntegrationAssociationResponse
 --
---         , responseDeleteUserHierarchyGroup $
---             newDeleteUserHierarchyGroupResponse
---
---         , responseDeleteUser $
---             newDeleteUserResponse
---
---         , responseDisassociateInstanceStorageConfig $
---             newDisassociateInstanceStorageConfigResponse
---
---         , responseListUserHierarchyGroups $
---             newListUserHierarchyGroupsResponse
+--         , responseUpdateInstanceStorageConfig $
+--             newUpdateInstanceStorageConfigResponse
 --
 --         , responseUpdateUserIdentityInfo $
 --             newUpdateUserIdentityInfoResponse
+--
+--         , responseUpdateRoutingProfileDefaultOutboundQueue $
+--             newUpdateRoutingProfileDefaultOutboundQueueResponse
 --
 --         , responseListUsers $
 --             newListUsersResponse
@@ -585,26 +630,47 @@ import Test.Tasty
 --         , responseGetFederationToken $
 --             newGetFederationTokenResponse
 --
+--         , responseDeleteUserHierarchyGroup $
+--             newDeleteUserHierarchyGroupResponse
+--
 --         , responseDescribeInstanceAttribute $
 --             newDescribeInstanceAttributeResponse
+--
+--         , responseDescribeAgentStatus $
+--             newDescribeAgentStatusResponse
 --
 --         , responseListSecurityKeys $
 --             newListSecurityKeysResponse
 --
---         , responseUpdateRoutingProfileDefaultOutboundQueue $
---             newUpdateRoutingProfileDefaultOutboundQueueResponse
+--         , responseListUserHierarchyGroups $
+--             newListUserHierarchyGroupsResponse
 --
---         , responseCreateQueue $
---             newCreateQueueResponse
+--         , responseDeleteUser $
+--             newDeleteUserResponse
+--
+--         , responseDisassociateInstanceStorageConfig $
+--             newDisassociateInstanceStorageConfigResponse
+--
+--         , responseAssociateBot $
+--             newAssociateBotResponse
 --
 --         , responseCreateInstance $
 --             newCreateInstanceResponse
 --
---         , responseStartTaskContact $
---             newStartTaskContactResponse
+--         , responseCreateQueue $
+--             newCreateQueueResponse
 --
 --         , responseListPrompts $
 --             newListPromptsResponse
+--
+--         , responseStartTaskContact $
+--             newStartTaskContactResponse
+--
+--         , responseUpdateContactFlowContent $
+--             newUpdateContactFlowContentResponse
+--
+--         , responseDescribeHoursOfOperation $
+--             newDescribeHoursOfOperationResponse
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
@@ -615,19 +681,25 @@ import Test.Tasty
 --         , responseUpdateUserHierarchyStructure $
 --             newUpdateUserHierarchyStructureResponse
 --
---         , responseUpdateContactFlowContent $
---             newUpdateContactFlowContentResponse
---
 --         , responseGetMetricData $
 --             newGetMetricDataResponse
---
---         , responseDescribeHoursOfOperation $
---             newDescribeHoursOfOperationResponse
 --
 --           ]
 --     ]
 
 -- Requests
+
+requestUpdateUserHierarchyGroupName :: UpdateUserHierarchyGroupName -> TestTree
+requestUpdateUserHierarchyGroupName =
+  req
+    "UpdateUserHierarchyGroupName"
+    "fixture/UpdateUserHierarchyGroupName.yaml"
+
+requestUpdateUserRoutingProfile :: UpdateUserRoutingProfile -> TestTree
+requestUpdateUserRoutingProfile =
+  req
+    "UpdateUserRoutingProfile"
+    "fixture/UpdateUserRoutingProfile.yaml"
 
 requestSuspendContactRecording :: SuspendContactRecording -> TestTree
 requestSuspendContactRecording =
@@ -647,23 +719,11 @@ requestCreateQuickConnect =
     "CreateQuickConnect"
     "fixture/CreateQuickConnect.yaml"
 
-requestUpdateUserRoutingProfile :: UpdateUserRoutingProfile -> TestTree
-requestUpdateUserRoutingProfile =
+requestListInstanceAttributes :: ListInstanceAttributes -> TestTree
+requestListInstanceAttributes =
   req
-    "UpdateUserRoutingProfile"
-    "fixture/UpdateUserRoutingProfile.yaml"
-
-requestUpdateUserHierarchyGroupName :: UpdateUserHierarchyGroupName -> TestTree
-requestUpdateUserHierarchyGroupName =
-  req
-    "UpdateUserHierarchyGroupName"
-    "fixture/UpdateUserHierarchyGroupName.yaml"
-
-requestUpdateContactFlowName :: UpdateContactFlowName -> TestTree
-requestUpdateContactFlowName =
-  req
-    "UpdateContactFlowName"
-    "fixture/UpdateContactFlowName.yaml"
+    "ListInstanceAttributes"
+    "fixture/ListInstanceAttributes.yaml"
 
 requestListSecurityProfiles :: ListSecurityProfiles -> TestTree
 requestListSecurityProfiles =
@@ -671,17 +731,23 @@ requestListSecurityProfiles =
     "ListSecurityProfiles"
     "fixture/ListSecurityProfiles.yaml"
 
+requestUpdateRoutingProfileQueues :: UpdateRoutingProfileQueues -> TestTree
+requestUpdateRoutingProfileQueues =
+  req
+    "UpdateRoutingProfileQueues"
+    "fixture/UpdateRoutingProfileQueues.yaml"
+
 requestDescribeInstance :: DescribeInstance -> TestTree
 requestDescribeInstance =
   req
     "DescribeInstance"
     "fixture/DescribeInstance.yaml"
 
-requestListInstanceAttributes :: ListInstanceAttributes -> TestTree
-requestListInstanceAttributes =
+requestUpdateContactFlowName :: UpdateContactFlowName -> TestTree
+requestUpdateContactFlowName =
   req
-    "ListInstanceAttributes"
-    "fixture/ListInstanceAttributes.yaml"
+    "UpdateContactFlowName"
+    "fixture/UpdateContactFlowName.yaml"
 
 requestListLambdaFunctions :: ListLambdaFunctions -> TestTree
 requestListLambdaFunctions =
@@ -689,11 +755,11 @@ requestListLambdaFunctions =
     "ListLambdaFunctions"
     "fixture/ListLambdaFunctions.yaml"
 
-requestUpdateRoutingProfileQueues :: UpdateRoutingProfileQueues -> TestTree
-requestUpdateRoutingProfileQueues =
+requestListLexBots :: ListLexBots -> TestTree
+requestListLexBots =
   req
-    "UpdateRoutingProfileQueues"
-    "fixture/UpdateRoutingProfileQueues.yaml"
+    "ListLexBots"
+    "fixture/ListLexBots.yaml"
 
 requestAssociateRoutingProfileQueues :: AssociateRoutingProfileQueues -> TestTree
 requestAssociateRoutingProfileQueues =
@@ -701,17 +767,11 @@ requestAssociateRoutingProfileQueues =
     "AssociateRoutingProfileQueues"
     "fixture/AssociateRoutingProfileQueues.yaml"
 
-requestGetContactAttributes :: GetContactAttributes -> TestTree
-requestGetContactAttributes =
+requestListAgentStatuses :: ListAgentStatuses -> TestTree
+requestListAgentStatuses =
   req
-    "GetContactAttributes"
-    "fixture/GetContactAttributes.yaml"
-
-requestListLexBots :: ListLexBots -> TestTree
-requestListLexBots =
-  req
-    "ListLexBots"
-    "fixture/ListLexBots.yaml"
+    "ListAgentStatuses"
+    "fixture/ListAgentStatuses.yaml"
 
 requestAssociateLambdaFunction :: AssociateLambdaFunction -> TestTree
 requestAssociateLambdaFunction =
@@ -719,23 +779,23 @@ requestAssociateLambdaFunction =
     "AssociateLambdaFunction"
     "fixture/AssociateLambdaFunction.yaml"
 
+requestGetContactAttributes :: GetContactAttributes -> TestTree
+requestGetContactAttributes =
+  req
+    "GetContactAttributes"
+    "fixture/GetContactAttributes.yaml"
+
+requestCreateAgentStatus :: CreateAgentStatus -> TestTree
+requestCreateAgentStatus =
+  req
+    "CreateAgentStatus"
+    "fixture/CreateAgentStatus.yaml"
+
 requestListApprovedOrigins :: ListApprovedOrigins -> TestTree
 requestListApprovedOrigins =
   req
     "ListApprovedOrigins"
     "fixture/ListApprovedOrigins.yaml"
-
-requestAssociateInstanceStorageConfig :: AssociateInstanceStorageConfig -> TestTree
-requestAssociateInstanceStorageConfig =
-  req
-    "AssociateInstanceStorageConfig"
-    "fixture/AssociateInstanceStorageConfig.yaml"
-
-requestCreateContactFlow :: CreateContactFlow -> TestTree
-requestCreateContactFlow =
-  req
-    "CreateContactFlow"
-    "fixture/CreateContactFlow.yaml"
 
 requestUpdateUserPhoneConfig :: UpdateUserPhoneConfig -> TestTree
 requestUpdateUserPhoneConfig =
@@ -749,17 +809,17 @@ requestUpdateContactAttributes =
     "UpdateContactAttributes"
     "fixture/UpdateContactAttributes.yaml"
 
-requestListRoutingProfiles :: ListRoutingProfiles -> TestTree
-requestListRoutingProfiles =
-  req
-    "ListRoutingProfiles"
-    "fixture/ListRoutingProfiles.yaml"
-
 requestDeleteUseCase :: DeleteUseCase -> TestTree
 requestDeleteUseCase =
   req
     "DeleteUseCase"
     "fixture/DeleteUseCase.yaml"
+
+requestListRoutingProfiles :: ListRoutingProfiles -> TestTree
+requestListRoutingProfiles =
+  req
+    "ListRoutingProfiles"
+    "fixture/ListRoutingProfiles.yaml"
 
 requestDescribeQuickConnect :: DescribeQuickConnect -> TestTree
 requestDescribeQuickConnect =
@@ -767,29 +827,23 @@ requestDescribeQuickConnect =
     "DescribeQuickConnect"
     "fixture/DescribeQuickConnect.yaml"
 
+requestAssociateInstanceStorageConfig :: AssociateInstanceStorageConfig -> TestTree
+requestAssociateInstanceStorageConfig =
+  req
+    "AssociateInstanceStorageConfig"
+    "fixture/AssociateInstanceStorageConfig.yaml"
+
+requestCreateContactFlow :: CreateContactFlow -> TestTree
+requestCreateContactFlow =
+  req
+    "CreateContactFlow"
+    "fixture/CreateContactFlow.yaml"
+
 requestListQueueQuickConnects :: ListQueueQuickConnects -> TestTree
 requestListQueueQuickConnects =
   req
     "ListQueueQuickConnects"
     "fixture/ListQueueQuickConnects.yaml"
-
-requestCreateRoutingProfile :: CreateRoutingProfile -> TestTree
-requestCreateRoutingProfile =
-  req
-    "CreateRoutingProfile"
-    "fixture/CreateRoutingProfile.yaml"
-
-requestAssociateApprovedOrigin :: AssociateApprovedOrigin -> TestTree
-requestAssociateApprovedOrigin =
-  req
-    "AssociateApprovedOrigin"
-    "fixture/AssociateApprovedOrigin.yaml"
-
-requestDisassociateQueueQuickConnects :: DisassociateQueueQuickConnects -> TestTree
-requestDisassociateQueueQuickConnects =
-  req
-    "DisassociateQueueQuickConnects"
-    "fixture/DisassociateQueueQuickConnects.yaml"
 
 requestUpdateRoutingProfileConcurrency :: UpdateRoutingProfileConcurrency -> TestTree
 requestUpdateRoutingProfileConcurrency =
@@ -797,17 +851,29 @@ requestUpdateRoutingProfileConcurrency =
     "UpdateRoutingProfileConcurrency"
     "fixture/UpdateRoutingProfileConcurrency.yaml"
 
+requestDisassociateQueueQuickConnects :: DisassociateQueueQuickConnects -> TestTree
+requestDisassociateQueueQuickConnects =
+  req
+    "DisassociateQueueQuickConnects"
+    "fixture/DisassociateQueueQuickConnects.yaml"
+
 requestUpdateQueueOutboundCallerConfig :: UpdateQueueOutboundCallerConfig -> TestTree
 requestUpdateQueueOutboundCallerConfig =
   req
     "UpdateQueueOutboundCallerConfig"
     "fixture/UpdateQueueOutboundCallerConfig.yaml"
 
-requestDisassociateSecurityKey :: DisassociateSecurityKey -> TestTree
-requestDisassociateSecurityKey =
+requestGetCurrentMetricData :: GetCurrentMetricData -> TestTree
+requestGetCurrentMetricData =
   req
-    "DisassociateSecurityKey"
-    "fixture/DisassociateSecurityKey.yaml"
+    "GetCurrentMetricData"
+    "fixture/GetCurrentMetricData.yaml"
+
+requestCreateRoutingProfile :: CreateRoutingProfile -> TestTree
+requestCreateRoutingProfile =
+  req
+    "CreateRoutingProfile"
+    "fixture/CreateRoutingProfile.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
@@ -815,11 +881,35 @@ requestUntagResource =
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestGetCurrentMetricData :: GetCurrentMetricData -> TestTree
-requestGetCurrentMetricData =
+requestDisassociateSecurityKey :: DisassociateSecurityKey -> TestTree
+requestDisassociateSecurityKey =
   req
-    "GetCurrentMetricData"
-    "fixture/GetCurrentMetricData.yaml"
+    "DisassociateSecurityKey"
+    "fixture/DisassociateSecurityKey.yaml"
+
+requestAssociateApprovedOrigin :: AssociateApprovedOrigin -> TestTree
+requestAssociateApprovedOrigin =
+  req
+    "AssociateApprovedOrigin"
+    "fixture/AssociateApprovedOrigin.yaml"
+
+requestListQueues :: ListQueues -> TestTree
+requestListQueues =
+  req
+    "ListQueues"
+    "fixture/ListQueues.yaml"
+
+requestListBots :: ListBots -> TestTree
+requestListBots =
+  req
+    "ListBots"
+    "fixture/ListBots.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
 
 requestUpdateQuickConnectConfig :: UpdateQuickConnectConfig -> TestTree
 requestUpdateQuickConnectConfig =
@@ -833,29 +923,41 @@ requestListInstances =
     "ListInstances"
     "fixture/ListInstances.yaml"
 
-requestListQueues :: ListQueues -> TestTree
-requestListQueues =
-  req
-    "ListQueues"
-    "fixture/ListQueues.yaml"
-
 requestDeleteInstance :: DeleteInstance -> TestTree
 requestDeleteInstance =
   req
     "DeleteInstance"
     "fixture/DeleteInstance.yaml"
 
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
-
 requestStopContact :: StopContact -> TestTree
 requestStopContact =
   req
     "StopContact"
     "fixture/StopContact.yaml"
+
+requestAssociateSecurityKey :: AssociateSecurityKey -> TestTree
+requestAssociateSecurityKey =
+  req
+    "AssociateSecurityKey"
+    "fixture/AssociateSecurityKey.yaml"
+
+requestStopContactRecording :: StopContactRecording -> TestTree
+requestStopContactRecording =
+  req
+    "StopContactRecording"
+    "fixture/StopContactRecording.yaml"
+
+requestUpdateQuickConnectName :: UpdateQuickConnectName -> TestTree
+requestUpdateQuickConnectName =
+  req
+    "UpdateQuickConnectName"
+    "fixture/UpdateQuickConnectName.yaml"
+
+requestCreateUser :: CreateUser -> TestTree
+requestCreateUser =
+  req
+    "CreateUser"
+    "fixture/CreateUser.yaml"
 
 requestCreateUserHierarchyGroup :: CreateUserHierarchyGroup -> TestTree
 requestCreateUserHierarchyGroup =
@@ -869,17 +971,11 @@ requestStartContactRecording =
     "StartContactRecording"
     "fixture/StartContactRecording.yaml"
 
-requestCreateUser :: CreateUser -> TestTree
-requestCreateUser =
+requestDisassociateApprovedOrigin :: DisassociateApprovedOrigin -> TestTree
+requestDisassociateApprovedOrigin =
   req
-    "CreateUser"
-    "fixture/CreateUser.yaml"
-
-requestAssociateSecurityKey :: AssociateSecurityKey -> TestTree
-requestAssociateSecurityKey =
-  req
-    "AssociateSecurityKey"
-    "fixture/AssociateSecurityKey.yaml"
+    "DisassociateApprovedOrigin"
+    "fixture/DisassociateApprovedOrigin.yaml"
 
 requestAssociateQueueQuickConnects :: AssociateQueueQuickConnects -> TestTree
 requestAssociateQueueQuickConnects =
@@ -887,35 +983,11 @@ requestAssociateQueueQuickConnects =
     "AssociateQueueQuickConnects"
     "fixture/AssociateQueueQuickConnects.yaml"
 
-requestStopContactRecording :: StopContactRecording -> TestTree
-requestStopContactRecording =
-  req
-    "StopContactRecording"
-    "fixture/StopContactRecording.yaml"
-
-requestDisassociateApprovedOrigin :: DisassociateApprovedOrigin -> TestTree
-requestDisassociateApprovedOrigin =
-  req
-    "DisassociateApprovedOrigin"
-    "fixture/DisassociateApprovedOrigin.yaml"
-
-requestUpdateQuickConnectName :: UpdateQuickConnectName -> TestTree
-requestUpdateQuickConnectName =
-  req
-    "UpdateQuickConnectName"
-    "fixture/UpdateQuickConnectName.yaml"
-
 requestDescribeRoutingProfile :: DescribeRoutingProfile -> TestTree
 requestDescribeRoutingProfile =
   req
     "DescribeRoutingProfile"
     "fixture/DescribeRoutingProfile.yaml"
-
-requestListQuickConnects :: ListQuickConnects -> TestTree
-requestListQuickConnects =
-  req
-    "ListQuickConnects"
-    "fixture/ListQuickConnects.yaml"
 
 requestDisassociateLexBot :: DisassociateLexBot -> TestTree
 requestDisassociateLexBot =
@@ -923,17 +995,35 @@ requestDisassociateLexBot =
     "DisassociateLexBot"
     "fixture/DisassociateLexBot.yaml"
 
+requestListQuickConnects :: ListQuickConnects -> TestTree
+requestListQuickConnects =
+  req
+    "ListQuickConnects"
+    "fixture/ListQuickConnects.yaml"
+
 requestDeleteQuickConnect :: DeleteQuickConnect -> TestTree
 requestDeleteQuickConnect =
   req
     "DeleteQuickConnect"
     "fixture/DeleteQuickConnect.yaml"
 
-requestListRoutingProfileQueues :: ListRoutingProfileQueues -> TestTree
-requestListRoutingProfileQueues =
+requestDescribeContactFlow :: DescribeContactFlow -> TestTree
+requestDescribeContactFlow =
   req
-    "ListRoutingProfileQueues"
-    "fixture/ListRoutingProfileQueues.yaml"
+    "DescribeContactFlow"
+    "fixture/DescribeContactFlow.yaml"
+
+requestDisassociateRoutingProfileQueues :: DisassociateRoutingProfileQueues -> TestTree
+requestDisassociateRoutingProfileQueues =
+  req
+    "DisassociateRoutingProfileQueues"
+    "fixture/DisassociateRoutingProfileQueues.yaml"
+
+requestUpdateQueueHoursOfOperation :: UpdateQueueHoursOfOperation -> TestTree
+requestUpdateQueueHoursOfOperation =
+  req
+    "UpdateQueueHoursOfOperation"
+    "fixture/UpdateQueueHoursOfOperation.yaml"
 
 requestUpdateUserHierarchy :: UpdateUserHierarchy -> TestTree
 requestUpdateUserHierarchy =
@@ -959,41 +1049,11 @@ requestDescribeInstanceStorageConfig =
     "DescribeInstanceStorageConfig"
     "fixture/DescribeInstanceStorageConfig.yaml"
 
-requestUpdateQueueHoursOfOperation :: UpdateQueueHoursOfOperation -> TestTree
-requestUpdateQueueHoursOfOperation =
+requestListRoutingProfileQueues :: ListRoutingProfileQueues -> TestTree
+requestListRoutingProfileQueues =
   req
-    "UpdateQueueHoursOfOperation"
-    "fixture/UpdateQueueHoursOfOperation.yaml"
-
-requestDisassociateRoutingProfileQueues :: DisassociateRoutingProfileQueues -> TestTree
-requestDisassociateRoutingProfileQueues =
-  req
-    "DisassociateRoutingProfileQueues"
-    "fixture/DisassociateRoutingProfileQueues.yaml"
-
-requestDescribeContactFlow :: DescribeContactFlow -> TestTree
-requestDescribeContactFlow =
-  req
-    "DescribeContactFlow"
-    "fixture/DescribeContactFlow.yaml"
-
-requestUpdateQueueStatus :: UpdateQueueStatus -> TestTree
-requestUpdateQueueStatus =
-  req
-    "UpdateQueueStatus"
-    "fixture/UpdateQueueStatus.yaml"
-
-requestDescribeQueue :: DescribeQueue -> TestTree
-requestDescribeQueue =
-  req
-    "DescribeQueue"
-    "fixture/DescribeQueue.yaml"
-
-requestAssociateLexBot :: AssociateLexBot -> TestTree
-requestAssociateLexBot =
-  req
-    "AssociateLexBot"
-    "fixture/AssociateLexBot.yaml"
+    "ListRoutingProfileQueues"
+    "fixture/ListRoutingProfileQueues.yaml"
 
 requestUpdateInstanceAttribute :: UpdateInstanceAttribute -> TestTree
 requestUpdateInstanceAttribute =
@@ -1007,11 +1067,17 @@ requestDescribeUser =
     "DescribeUser"
     "fixture/DescribeUser.yaml"
 
-requestDescribeUserHierarchyGroup :: DescribeUserHierarchyGroup -> TestTree
-requestDescribeUserHierarchyGroup =
+requestAssociateLexBot :: AssociateLexBot -> TestTree
+requestAssociateLexBot =
   req
-    "DescribeUserHierarchyGroup"
-    "fixture/DescribeUserHierarchyGroup.yaml"
+    "AssociateLexBot"
+    "fixture/AssociateLexBot.yaml"
+
+requestUpdateQueueStatus :: UpdateQueueStatus -> TestTree
+requestUpdateQueueStatus =
+  req
+    "UpdateQueueStatus"
+    "fixture/UpdateQueueStatus.yaml"
 
 requestResumeContactRecording :: ResumeContactRecording -> TestTree
 requestResumeContactRecording =
@@ -1019,11 +1085,35 @@ requestResumeContactRecording =
     "ResumeContactRecording"
     "fixture/ResumeContactRecording.yaml"
 
+requestUpdateAgentStatus :: UpdateAgentStatus -> TestTree
+requestUpdateAgentStatus =
+  req
+    "UpdateAgentStatus"
+    "fixture/UpdateAgentStatus.yaml"
+
+requestDescribeUserHierarchyGroup :: DescribeUserHierarchyGroup -> TestTree
+requestDescribeUserHierarchyGroup =
+  req
+    "DescribeUserHierarchyGroup"
+    "fixture/DescribeUserHierarchyGroup.yaml"
+
+requestDescribeQueue :: DescribeQueue -> TestTree
+requestDescribeQueue =
+  req
+    "DescribeQueue"
+    "fixture/DescribeQueue.yaml"
+
 requestUpdateRoutingProfileName :: UpdateRoutingProfileName -> TestTree
 requestUpdateRoutingProfileName =
   req
     "UpdateRoutingProfileName"
     "fixture/UpdateRoutingProfileName.yaml"
+
+requestDescribeUserHierarchyStructure :: DescribeUserHierarchyStructure -> TestTree
+requestDescribeUserHierarchyStructure =
+  req
+    "DescribeUserHierarchyStructure"
+    "fixture/DescribeUserHierarchyStructure.yaml"
 
 requestStartChatContact :: StartChatContact -> TestTree
 requestStartChatContact =
@@ -1037,18 +1127,6 @@ requestDeleteIntegrationAssociation =
     "DeleteIntegrationAssociation"
     "fixture/DeleteIntegrationAssociation.yaml"
 
-requestListPhoneNumbers :: ListPhoneNumbers -> TestTree
-requestListPhoneNumbers =
-  req
-    "ListPhoneNumbers"
-    "fixture/ListPhoneNumbers.yaml"
-
-requestListIntegrationAssociations :: ListIntegrationAssociations -> TestTree
-requestListIntegrationAssociations =
-  req
-    "ListIntegrationAssociations"
-    "fixture/ListIntegrationAssociations.yaml"
-
 requestListUseCases :: ListUseCases -> TestTree
 requestListUseCases =
   req
@@ -1061,11 +1139,23 @@ requestUpdateUserSecurityProfiles =
     "UpdateUserSecurityProfiles"
     "fixture/UpdateUserSecurityProfiles.yaml"
 
-requestDescribeUserHierarchyStructure :: DescribeUserHierarchyStructure -> TestTree
-requestDescribeUserHierarchyStructure =
+requestDeleteHoursOfOperation :: DeleteHoursOfOperation -> TestTree
+requestDeleteHoursOfOperation =
   req
-    "DescribeUserHierarchyStructure"
-    "fixture/DescribeUserHierarchyStructure.yaml"
+    "DeleteHoursOfOperation"
+    "fixture/DeleteHoursOfOperation.yaml"
+
+requestUpdateHoursOfOperation :: UpdateHoursOfOperation -> TestTree
+requestUpdateHoursOfOperation =
+  req
+    "UpdateHoursOfOperation"
+    "fixture/UpdateHoursOfOperation.yaml"
+
+requestListPhoneNumbers :: ListPhoneNumbers -> TestTree
+requestListPhoneNumbers =
+  req
+    "ListPhoneNumbers"
+    "fixture/ListPhoneNumbers.yaml"
 
 requestListHoursOfOperations :: ListHoursOfOperations -> TestTree
 requestListHoursOfOperations =
@@ -1073,11 +1163,11 @@ requestListHoursOfOperations =
     "ListHoursOfOperations"
     "fixture/ListHoursOfOperations.yaml"
 
-requestCreateUseCase :: CreateUseCase -> TestTree
-requestCreateUseCase =
+requestListIntegrationAssociations :: ListIntegrationAssociations -> TestTree
+requestListIntegrationAssociations =
   req
-    "CreateUseCase"
-    "fixture/CreateUseCase.yaml"
+    "ListIntegrationAssociations"
+    "fixture/ListIntegrationAssociations.yaml"
 
 requestListContactFlows :: ListContactFlows -> TestTree
 requestListContactFlows =
@@ -1085,17 +1175,29 @@ requestListContactFlows =
     "ListContactFlows"
     "fixture/ListContactFlows.yaml"
 
-requestUpdateInstanceStorageConfig :: UpdateInstanceStorageConfig -> TestTree
-requestUpdateInstanceStorageConfig =
-  req
-    "UpdateInstanceStorageConfig"
-    "fixture/UpdateInstanceStorageConfig.yaml"
-
 requestListInstanceStorageConfigs :: ListInstanceStorageConfigs -> TestTree
 requestListInstanceStorageConfigs =
   req
     "ListInstanceStorageConfigs"
     "fixture/ListInstanceStorageConfigs.yaml"
+
+requestCreateHoursOfOperation :: CreateHoursOfOperation -> TestTree
+requestCreateHoursOfOperation =
+  req
+    "CreateHoursOfOperation"
+    "fixture/CreateHoursOfOperation.yaml"
+
+requestCreateUseCase :: CreateUseCase -> TestTree
+requestCreateUseCase =
+  req
+    "CreateUseCase"
+    "fixture/CreateUseCase.yaml"
+
+requestDisassociateBot :: DisassociateBot -> TestTree
+requestDisassociateBot =
+  req
+    "DisassociateBot"
+    "fixture/DisassociateBot.yaml"
 
 requestCreateIntegrationAssociation :: CreateIntegrationAssociation -> TestTree
 requestCreateIntegrationAssociation =
@@ -1103,35 +1205,23 @@ requestCreateIntegrationAssociation =
     "CreateIntegrationAssociation"
     "fixture/CreateIntegrationAssociation.yaml"
 
-requestDeleteUserHierarchyGroup :: DeleteUserHierarchyGroup -> TestTree
-requestDeleteUserHierarchyGroup =
+requestUpdateInstanceStorageConfig :: UpdateInstanceStorageConfig -> TestTree
+requestUpdateInstanceStorageConfig =
   req
-    "DeleteUserHierarchyGroup"
-    "fixture/DeleteUserHierarchyGroup.yaml"
-
-requestDeleteUser :: DeleteUser -> TestTree
-requestDeleteUser =
-  req
-    "DeleteUser"
-    "fixture/DeleteUser.yaml"
-
-requestDisassociateInstanceStorageConfig :: DisassociateInstanceStorageConfig -> TestTree
-requestDisassociateInstanceStorageConfig =
-  req
-    "DisassociateInstanceStorageConfig"
-    "fixture/DisassociateInstanceStorageConfig.yaml"
-
-requestListUserHierarchyGroups :: ListUserHierarchyGroups -> TestTree
-requestListUserHierarchyGroups =
-  req
-    "ListUserHierarchyGroups"
-    "fixture/ListUserHierarchyGroups.yaml"
+    "UpdateInstanceStorageConfig"
+    "fixture/UpdateInstanceStorageConfig.yaml"
 
 requestUpdateUserIdentityInfo :: UpdateUserIdentityInfo -> TestTree
 requestUpdateUserIdentityInfo =
   req
     "UpdateUserIdentityInfo"
     "fixture/UpdateUserIdentityInfo.yaml"
+
+requestUpdateRoutingProfileDefaultOutboundQueue :: UpdateRoutingProfileDefaultOutboundQueue -> TestTree
+requestUpdateRoutingProfileDefaultOutboundQueue =
+  req
+    "UpdateRoutingProfileDefaultOutboundQueue"
+    "fixture/UpdateRoutingProfileDefaultOutboundQueue.yaml"
 
 requestListUsers :: ListUsers -> TestTree
 requestListUsers =
@@ -1145,11 +1235,23 @@ requestGetFederationToken =
     "GetFederationToken"
     "fixture/GetFederationToken.yaml"
 
+requestDeleteUserHierarchyGroup :: DeleteUserHierarchyGroup -> TestTree
+requestDeleteUserHierarchyGroup =
+  req
+    "DeleteUserHierarchyGroup"
+    "fixture/DeleteUserHierarchyGroup.yaml"
+
 requestDescribeInstanceAttribute :: DescribeInstanceAttribute -> TestTree
 requestDescribeInstanceAttribute =
   req
     "DescribeInstanceAttribute"
     "fixture/DescribeInstanceAttribute.yaml"
+
+requestDescribeAgentStatus :: DescribeAgentStatus -> TestTree
+requestDescribeAgentStatus =
+  req
+    "DescribeAgentStatus"
+    "fixture/DescribeAgentStatus.yaml"
 
 requestListSecurityKeys :: ListSecurityKeys -> TestTree
 requestListSecurityKeys =
@@ -1157,17 +1259,29 @@ requestListSecurityKeys =
     "ListSecurityKeys"
     "fixture/ListSecurityKeys.yaml"
 
-requestUpdateRoutingProfileDefaultOutboundQueue :: UpdateRoutingProfileDefaultOutboundQueue -> TestTree
-requestUpdateRoutingProfileDefaultOutboundQueue =
+requestListUserHierarchyGroups :: ListUserHierarchyGroups -> TestTree
+requestListUserHierarchyGroups =
   req
-    "UpdateRoutingProfileDefaultOutboundQueue"
-    "fixture/UpdateRoutingProfileDefaultOutboundQueue.yaml"
+    "ListUserHierarchyGroups"
+    "fixture/ListUserHierarchyGroups.yaml"
 
-requestCreateQueue :: CreateQueue -> TestTree
-requestCreateQueue =
+requestDeleteUser :: DeleteUser -> TestTree
+requestDeleteUser =
   req
-    "CreateQueue"
-    "fixture/CreateQueue.yaml"
+    "DeleteUser"
+    "fixture/DeleteUser.yaml"
+
+requestDisassociateInstanceStorageConfig :: DisassociateInstanceStorageConfig -> TestTree
+requestDisassociateInstanceStorageConfig =
+  req
+    "DisassociateInstanceStorageConfig"
+    "fixture/DisassociateInstanceStorageConfig.yaml"
+
+requestAssociateBot :: AssociateBot -> TestTree
+requestAssociateBot =
+  req
+    "AssociateBot"
+    "fixture/AssociateBot.yaml"
 
 requestCreateInstance :: CreateInstance -> TestTree
 requestCreateInstance =
@@ -1175,17 +1289,35 @@ requestCreateInstance =
     "CreateInstance"
     "fixture/CreateInstance.yaml"
 
-requestStartTaskContact :: StartTaskContact -> TestTree
-requestStartTaskContact =
+requestCreateQueue :: CreateQueue -> TestTree
+requestCreateQueue =
   req
-    "StartTaskContact"
-    "fixture/StartTaskContact.yaml"
+    "CreateQueue"
+    "fixture/CreateQueue.yaml"
 
 requestListPrompts :: ListPrompts -> TestTree
 requestListPrompts =
   req
     "ListPrompts"
     "fixture/ListPrompts.yaml"
+
+requestStartTaskContact :: StartTaskContact -> TestTree
+requestStartTaskContact =
+  req
+    "StartTaskContact"
+    "fixture/StartTaskContact.yaml"
+
+requestUpdateContactFlowContent :: UpdateContactFlowContent -> TestTree
+requestUpdateContactFlowContent =
+  req
+    "UpdateContactFlowContent"
+    "fixture/UpdateContactFlowContent.yaml"
+
+requestDescribeHoursOfOperation :: DescribeHoursOfOperation -> TestTree
+requestDescribeHoursOfOperation =
+  req
+    "DescribeHoursOfOperation"
+    "fixture/DescribeHoursOfOperation.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
@@ -1205,25 +1337,29 @@ requestUpdateUserHierarchyStructure =
     "UpdateUserHierarchyStructure"
     "fixture/UpdateUserHierarchyStructure.yaml"
 
-requestUpdateContactFlowContent :: UpdateContactFlowContent -> TestTree
-requestUpdateContactFlowContent =
-  req
-    "UpdateContactFlowContent"
-    "fixture/UpdateContactFlowContent.yaml"
-
 requestGetMetricData :: GetMetricData -> TestTree
 requestGetMetricData =
   req
     "GetMetricData"
     "fixture/GetMetricData.yaml"
 
-requestDescribeHoursOfOperation :: DescribeHoursOfOperation -> TestTree
-requestDescribeHoursOfOperation =
-  req
-    "DescribeHoursOfOperation"
-    "fixture/DescribeHoursOfOperation.yaml"
-
 -- Responses
+
+responseUpdateUserHierarchyGroupName :: UpdateUserHierarchyGroupNameResponse -> TestTree
+responseUpdateUserHierarchyGroupName =
+  res
+    "UpdateUserHierarchyGroupNameResponse"
+    "fixture/UpdateUserHierarchyGroupNameResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateUserHierarchyGroupName)
+
+responseUpdateUserRoutingProfile :: UpdateUserRoutingProfileResponse -> TestTree
+responseUpdateUserRoutingProfile =
+  res
+    "UpdateUserRoutingProfileResponse"
+    "fixture/UpdateUserRoutingProfileResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateUserRoutingProfile)
 
 responseSuspendContactRecording :: SuspendContactRecordingResponse -> TestTree
 responseSuspendContactRecording =
@@ -1249,29 +1385,13 @@ responseCreateQuickConnect =
     defaultService
     (Proxy :: Proxy CreateQuickConnect)
 
-responseUpdateUserRoutingProfile :: UpdateUserRoutingProfileResponse -> TestTree
-responseUpdateUserRoutingProfile =
+responseListInstanceAttributes :: ListInstanceAttributesResponse -> TestTree
+responseListInstanceAttributes =
   res
-    "UpdateUserRoutingProfileResponse"
-    "fixture/UpdateUserRoutingProfileResponse.proto"
+    "ListInstanceAttributesResponse"
+    "fixture/ListInstanceAttributesResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateUserRoutingProfile)
-
-responseUpdateUserHierarchyGroupName :: UpdateUserHierarchyGroupNameResponse -> TestTree
-responseUpdateUserHierarchyGroupName =
-  res
-    "UpdateUserHierarchyGroupNameResponse"
-    "fixture/UpdateUserHierarchyGroupNameResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateUserHierarchyGroupName)
-
-responseUpdateContactFlowName :: UpdateContactFlowNameResponse -> TestTree
-responseUpdateContactFlowName =
-  res
-    "UpdateContactFlowNameResponse"
-    "fixture/UpdateContactFlowNameResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateContactFlowName)
+    (Proxy :: Proxy ListInstanceAttributes)
 
 responseListSecurityProfiles :: ListSecurityProfilesResponse -> TestTree
 responseListSecurityProfiles =
@@ -1281,6 +1401,14 @@ responseListSecurityProfiles =
     defaultService
     (Proxy :: Proxy ListSecurityProfiles)
 
+responseUpdateRoutingProfileQueues :: UpdateRoutingProfileQueuesResponse -> TestTree
+responseUpdateRoutingProfileQueues =
+  res
+    "UpdateRoutingProfileQueuesResponse"
+    "fixture/UpdateRoutingProfileQueuesResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateRoutingProfileQueues)
+
 responseDescribeInstance :: DescribeInstanceResponse -> TestTree
 responseDescribeInstance =
   res
@@ -1289,13 +1417,13 @@ responseDescribeInstance =
     defaultService
     (Proxy :: Proxy DescribeInstance)
 
-responseListInstanceAttributes :: ListInstanceAttributesResponse -> TestTree
-responseListInstanceAttributes =
+responseUpdateContactFlowName :: UpdateContactFlowNameResponse -> TestTree
+responseUpdateContactFlowName =
   res
-    "ListInstanceAttributesResponse"
-    "fixture/ListInstanceAttributesResponse.proto"
+    "UpdateContactFlowNameResponse"
+    "fixture/UpdateContactFlowNameResponse.proto"
     defaultService
-    (Proxy :: Proxy ListInstanceAttributes)
+    (Proxy :: Proxy UpdateContactFlowName)
 
 responseListLambdaFunctions :: ListLambdaFunctionsResponse -> TestTree
 responseListLambdaFunctions =
@@ -1305,13 +1433,13 @@ responseListLambdaFunctions =
     defaultService
     (Proxy :: Proxy ListLambdaFunctions)
 
-responseUpdateRoutingProfileQueues :: UpdateRoutingProfileQueuesResponse -> TestTree
-responseUpdateRoutingProfileQueues =
+responseListLexBots :: ListLexBotsResponse -> TestTree
+responseListLexBots =
   res
-    "UpdateRoutingProfileQueuesResponse"
-    "fixture/UpdateRoutingProfileQueuesResponse.proto"
+    "ListLexBotsResponse"
+    "fixture/ListLexBotsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRoutingProfileQueues)
+    (Proxy :: Proxy ListLexBots)
 
 responseAssociateRoutingProfileQueues :: AssociateRoutingProfileQueuesResponse -> TestTree
 responseAssociateRoutingProfileQueues =
@@ -1321,21 +1449,13 @@ responseAssociateRoutingProfileQueues =
     defaultService
     (Proxy :: Proxy AssociateRoutingProfileQueues)
 
-responseGetContactAttributes :: GetContactAttributesResponse -> TestTree
-responseGetContactAttributes =
+responseListAgentStatuses :: ListAgentStatusesResponse -> TestTree
+responseListAgentStatuses =
   res
-    "GetContactAttributesResponse"
-    "fixture/GetContactAttributesResponse.proto"
+    "ListAgentStatusesResponse"
+    "fixture/ListAgentStatusesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetContactAttributes)
-
-responseListLexBots :: ListLexBotsResponse -> TestTree
-responseListLexBots =
-  res
-    "ListLexBotsResponse"
-    "fixture/ListLexBotsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListLexBots)
+    (Proxy :: Proxy ListAgentStatuses)
 
 responseAssociateLambdaFunction :: AssociateLambdaFunctionResponse -> TestTree
 responseAssociateLambdaFunction =
@@ -1345,6 +1465,22 @@ responseAssociateLambdaFunction =
     defaultService
     (Proxy :: Proxy AssociateLambdaFunction)
 
+responseGetContactAttributes :: GetContactAttributesResponse -> TestTree
+responseGetContactAttributes =
+  res
+    "GetContactAttributesResponse"
+    "fixture/GetContactAttributesResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetContactAttributes)
+
+responseCreateAgentStatus :: CreateAgentStatusResponse -> TestTree
+responseCreateAgentStatus =
+  res
+    "CreateAgentStatusResponse"
+    "fixture/CreateAgentStatusResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateAgentStatus)
+
 responseListApprovedOrigins :: ListApprovedOriginsResponse -> TestTree
 responseListApprovedOrigins =
   res
@@ -1352,22 +1488,6 @@ responseListApprovedOrigins =
     "fixture/ListApprovedOriginsResponse.proto"
     defaultService
     (Proxy :: Proxy ListApprovedOrigins)
-
-responseAssociateInstanceStorageConfig :: AssociateInstanceStorageConfigResponse -> TestTree
-responseAssociateInstanceStorageConfig =
-  res
-    "AssociateInstanceStorageConfigResponse"
-    "fixture/AssociateInstanceStorageConfigResponse.proto"
-    defaultService
-    (Proxy :: Proxy AssociateInstanceStorageConfig)
-
-responseCreateContactFlow :: CreateContactFlowResponse -> TestTree
-responseCreateContactFlow =
-  res
-    "CreateContactFlowResponse"
-    "fixture/CreateContactFlowResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateContactFlow)
 
 responseUpdateUserPhoneConfig :: UpdateUserPhoneConfigResponse -> TestTree
 responseUpdateUserPhoneConfig =
@@ -1385,14 +1505,6 @@ responseUpdateContactAttributes =
     defaultService
     (Proxy :: Proxy UpdateContactAttributes)
 
-responseListRoutingProfiles :: ListRoutingProfilesResponse -> TestTree
-responseListRoutingProfiles =
-  res
-    "ListRoutingProfilesResponse"
-    "fixture/ListRoutingProfilesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListRoutingProfiles)
-
 responseDeleteUseCase :: DeleteUseCaseResponse -> TestTree
 responseDeleteUseCase =
   res
@@ -1400,6 +1512,14 @@ responseDeleteUseCase =
     "fixture/DeleteUseCaseResponse.proto"
     defaultService
     (Proxy :: Proxy DeleteUseCase)
+
+responseListRoutingProfiles :: ListRoutingProfilesResponse -> TestTree
+responseListRoutingProfiles =
+  res
+    "ListRoutingProfilesResponse"
+    "fixture/ListRoutingProfilesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListRoutingProfiles)
 
 responseDescribeQuickConnect :: DescribeQuickConnectResponse -> TestTree
 responseDescribeQuickConnect =
@@ -1409,6 +1529,22 @@ responseDescribeQuickConnect =
     defaultService
     (Proxy :: Proxy DescribeQuickConnect)
 
+responseAssociateInstanceStorageConfig :: AssociateInstanceStorageConfigResponse -> TestTree
+responseAssociateInstanceStorageConfig =
+  res
+    "AssociateInstanceStorageConfigResponse"
+    "fixture/AssociateInstanceStorageConfigResponse.proto"
+    defaultService
+    (Proxy :: Proxy AssociateInstanceStorageConfig)
+
+responseCreateContactFlow :: CreateContactFlowResponse -> TestTree
+responseCreateContactFlow =
+  res
+    "CreateContactFlowResponse"
+    "fixture/CreateContactFlowResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateContactFlow)
+
 responseListQueueQuickConnects :: ListQueueQuickConnectsResponse -> TestTree
 responseListQueueQuickConnects =
   res
@@ -1416,30 +1552,6 @@ responseListQueueQuickConnects =
     "fixture/ListQueueQuickConnectsResponse.proto"
     defaultService
     (Proxy :: Proxy ListQueueQuickConnects)
-
-responseCreateRoutingProfile :: CreateRoutingProfileResponse -> TestTree
-responseCreateRoutingProfile =
-  res
-    "CreateRoutingProfileResponse"
-    "fixture/CreateRoutingProfileResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateRoutingProfile)
-
-responseAssociateApprovedOrigin :: AssociateApprovedOriginResponse -> TestTree
-responseAssociateApprovedOrigin =
-  res
-    "AssociateApprovedOriginResponse"
-    "fixture/AssociateApprovedOriginResponse.proto"
-    defaultService
-    (Proxy :: Proxy AssociateApprovedOrigin)
-
-responseDisassociateQueueQuickConnects :: DisassociateQueueQuickConnectsResponse -> TestTree
-responseDisassociateQueueQuickConnects =
-  res
-    "DisassociateQueueQuickConnectsResponse"
-    "fixture/DisassociateQueueQuickConnectsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DisassociateQueueQuickConnects)
 
 responseUpdateRoutingProfileConcurrency :: UpdateRoutingProfileConcurrencyResponse -> TestTree
 responseUpdateRoutingProfileConcurrency =
@@ -1449,6 +1561,14 @@ responseUpdateRoutingProfileConcurrency =
     defaultService
     (Proxy :: Proxy UpdateRoutingProfileConcurrency)
 
+responseDisassociateQueueQuickConnects :: DisassociateQueueQuickConnectsResponse -> TestTree
+responseDisassociateQueueQuickConnects =
+  res
+    "DisassociateQueueQuickConnectsResponse"
+    "fixture/DisassociateQueueQuickConnectsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DisassociateQueueQuickConnects)
+
 responseUpdateQueueOutboundCallerConfig :: UpdateQueueOutboundCallerConfigResponse -> TestTree
 responseUpdateQueueOutboundCallerConfig =
   res
@@ -1457,13 +1577,21 @@ responseUpdateQueueOutboundCallerConfig =
     defaultService
     (Proxy :: Proxy UpdateQueueOutboundCallerConfig)
 
-responseDisassociateSecurityKey :: DisassociateSecurityKeyResponse -> TestTree
-responseDisassociateSecurityKey =
+responseGetCurrentMetricData :: GetCurrentMetricDataResponse -> TestTree
+responseGetCurrentMetricData =
   res
-    "DisassociateSecurityKeyResponse"
-    "fixture/DisassociateSecurityKeyResponse.proto"
+    "GetCurrentMetricDataResponse"
+    "fixture/GetCurrentMetricDataResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateSecurityKey)
+    (Proxy :: Proxy GetCurrentMetricData)
+
+responseCreateRoutingProfile :: CreateRoutingProfileResponse -> TestTree
+responseCreateRoutingProfile =
+  res
+    "CreateRoutingProfileResponse"
+    "fixture/CreateRoutingProfileResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateRoutingProfile)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
@@ -1473,13 +1601,45 @@ responseUntagResource =
     defaultService
     (Proxy :: Proxy UntagResource)
 
-responseGetCurrentMetricData :: GetCurrentMetricDataResponse -> TestTree
-responseGetCurrentMetricData =
+responseDisassociateSecurityKey :: DisassociateSecurityKeyResponse -> TestTree
+responseDisassociateSecurityKey =
   res
-    "GetCurrentMetricDataResponse"
-    "fixture/GetCurrentMetricDataResponse.proto"
+    "DisassociateSecurityKeyResponse"
+    "fixture/DisassociateSecurityKeyResponse.proto"
     defaultService
-    (Proxy :: Proxy GetCurrentMetricData)
+    (Proxy :: Proxy DisassociateSecurityKey)
+
+responseAssociateApprovedOrigin :: AssociateApprovedOriginResponse -> TestTree
+responseAssociateApprovedOrigin =
+  res
+    "AssociateApprovedOriginResponse"
+    "fixture/AssociateApprovedOriginResponse.proto"
+    defaultService
+    (Proxy :: Proxy AssociateApprovedOrigin)
+
+responseListQueues :: ListQueuesResponse -> TestTree
+responseListQueues =
+  res
+    "ListQueuesResponse"
+    "fixture/ListQueuesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListQueues)
+
+responseListBots :: ListBotsResponse -> TestTree
+responseListBots =
+  res
+    "ListBotsResponse"
+    "fixture/ListBotsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListBots)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy TagResource)
 
 responseUpdateQuickConnectConfig :: UpdateQuickConnectConfigResponse -> TestTree
 responseUpdateQuickConnectConfig =
@@ -1497,14 +1657,6 @@ responseListInstances =
     defaultService
     (Proxy :: Proxy ListInstances)
 
-responseListQueues :: ListQueuesResponse -> TestTree
-responseListQueues =
-  res
-    "ListQueuesResponse"
-    "fixture/ListQueuesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListQueues)
-
 responseDeleteInstance :: DeleteInstanceResponse -> TestTree
 responseDeleteInstance =
   res
@@ -1513,14 +1665,6 @@ responseDeleteInstance =
     defaultService
     (Proxy :: Proxy DeleteInstance)
 
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy TagResource)
-
 responseStopContact :: StopContactResponse -> TestTree
 responseStopContact =
   res
@@ -1528,6 +1672,38 @@ responseStopContact =
     "fixture/StopContactResponse.proto"
     defaultService
     (Proxy :: Proxy StopContact)
+
+responseAssociateSecurityKey :: AssociateSecurityKeyResponse -> TestTree
+responseAssociateSecurityKey =
+  res
+    "AssociateSecurityKeyResponse"
+    "fixture/AssociateSecurityKeyResponse.proto"
+    defaultService
+    (Proxy :: Proxy AssociateSecurityKey)
+
+responseStopContactRecording :: StopContactRecordingResponse -> TestTree
+responseStopContactRecording =
+  res
+    "StopContactRecordingResponse"
+    "fixture/StopContactRecordingResponse.proto"
+    defaultService
+    (Proxy :: Proxy StopContactRecording)
+
+responseUpdateQuickConnectName :: UpdateQuickConnectNameResponse -> TestTree
+responseUpdateQuickConnectName =
+  res
+    "UpdateQuickConnectNameResponse"
+    "fixture/UpdateQuickConnectNameResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateQuickConnectName)
+
+responseCreateUser :: CreateUserResponse -> TestTree
+responseCreateUser =
+  res
+    "CreateUserResponse"
+    "fixture/CreateUserResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateUser)
 
 responseCreateUserHierarchyGroup :: CreateUserHierarchyGroupResponse -> TestTree
 responseCreateUserHierarchyGroup =
@@ -1545,21 +1721,13 @@ responseStartContactRecording =
     defaultService
     (Proxy :: Proxy StartContactRecording)
 
-responseCreateUser :: CreateUserResponse -> TestTree
-responseCreateUser =
+responseDisassociateApprovedOrigin :: DisassociateApprovedOriginResponse -> TestTree
+responseDisassociateApprovedOrigin =
   res
-    "CreateUserResponse"
-    "fixture/CreateUserResponse.proto"
+    "DisassociateApprovedOriginResponse"
+    "fixture/DisassociateApprovedOriginResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateUser)
-
-responseAssociateSecurityKey :: AssociateSecurityKeyResponse -> TestTree
-responseAssociateSecurityKey =
-  res
-    "AssociateSecurityKeyResponse"
-    "fixture/AssociateSecurityKeyResponse.proto"
-    defaultService
-    (Proxy :: Proxy AssociateSecurityKey)
+    (Proxy :: Proxy DisassociateApprovedOrigin)
 
 responseAssociateQueueQuickConnects :: AssociateQueueQuickConnectsResponse -> TestTree
 responseAssociateQueueQuickConnects =
@@ -1569,30 +1737,6 @@ responseAssociateQueueQuickConnects =
     defaultService
     (Proxy :: Proxy AssociateQueueQuickConnects)
 
-responseStopContactRecording :: StopContactRecordingResponse -> TestTree
-responseStopContactRecording =
-  res
-    "StopContactRecordingResponse"
-    "fixture/StopContactRecordingResponse.proto"
-    defaultService
-    (Proxy :: Proxy StopContactRecording)
-
-responseDisassociateApprovedOrigin :: DisassociateApprovedOriginResponse -> TestTree
-responseDisassociateApprovedOrigin =
-  res
-    "DisassociateApprovedOriginResponse"
-    "fixture/DisassociateApprovedOriginResponse.proto"
-    defaultService
-    (Proxy :: Proxy DisassociateApprovedOrigin)
-
-responseUpdateQuickConnectName :: UpdateQuickConnectNameResponse -> TestTree
-responseUpdateQuickConnectName =
-  res
-    "UpdateQuickConnectNameResponse"
-    "fixture/UpdateQuickConnectNameResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateQuickConnectName)
-
 responseDescribeRoutingProfile :: DescribeRoutingProfileResponse -> TestTree
 responseDescribeRoutingProfile =
   res
@@ -1600,14 +1744,6 @@ responseDescribeRoutingProfile =
     "fixture/DescribeRoutingProfileResponse.proto"
     defaultService
     (Proxy :: Proxy DescribeRoutingProfile)
-
-responseListQuickConnects :: ListQuickConnectsResponse -> TestTree
-responseListQuickConnects =
-  res
-    "ListQuickConnectsResponse"
-    "fixture/ListQuickConnectsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListQuickConnects)
 
 responseDisassociateLexBot :: DisassociateLexBotResponse -> TestTree
 responseDisassociateLexBot =
@@ -1617,6 +1753,14 @@ responseDisassociateLexBot =
     defaultService
     (Proxy :: Proxy DisassociateLexBot)
 
+responseListQuickConnects :: ListQuickConnectsResponse -> TestTree
+responseListQuickConnects =
+  res
+    "ListQuickConnectsResponse"
+    "fixture/ListQuickConnectsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListQuickConnects)
+
 responseDeleteQuickConnect :: DeleteQuickConnectResponse -> TestTree
 responseDeleteQuickConnect =
   res
@@ -1625,13 +1769,29 @@ responseDeleteQuickConnect =
     defaultService
     (Proxy :: Proxy DeleteQuickConnect)
 
-responseListRoutingProfileQueues :: ListRoutingProfileQueuesResponse -> TestTree
-responseListRoutingProfileQueues =
+responseDescribeContactFlow :: DescribeContactFlowResponse -> TestTree
+responseDescribeContactFlow =
   res
-    "ListRoutingProfileQueuesResponse"
-    "fixture/ListRoutingProfileQueuesResponse.proto"
+    "DescribeContactFlowResponse"
+    "fixture/DescribeContactFlowResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRoutingProfileQueues)
+    (Proxy :: Proxy DescribeContactFlow)
+
+responseDisassociateRoutingProfileQueues :: DisassociateRoutingProfileQueuesResponse -> TestTree
+responseDisassociateRoutingProfileQueues =
+  res
+    "DisassociateRoutingProfileQueuesResponse"
+    "fixture/DisassociateRoutingProfileQueuesResponse.proto"
+    defaultService
+    (Proxy :: Proxy DisassociateRoutingProfileQueues)
+
+responseUpdateQueueHoursOfOperation :: UpdateQueueHoursOfOperationResponse -> TestTree
+responseUpdateQueueHoursOfOperation =
+  res
+    "UpdateQueueHoursOfOperationResponse"
+    "fixture/UpdateQueueHoursOfOperationResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateQueueHoursOfOperation)
 
 responseUpdateUserHierarchy :: UpdateUserHierarchyResponse -> TestTree
 responseUpdateUserHierarchy =
@@ -1665,53 +1825,13 @@ responseDescribeInstanceStorageConfig =
     defaultService
     (Proxy :: Proxy DescribeInstanceStorageConfig)
 
-responseUpdateQueueHoursOfOperation :: UpdateQueueHoursOfOperationResponse -> TestTree
-responseUpdateQueueHoursOfOperation =
+responseListRoutingProfileQueues :: ListRoutingProfileQueuesResponse -> TestTree
+responseListRoutingProfileQueues =
   res
-    "UpdateQueueHoursOfOperationResponse"
-    "fixture/UpdateQueueHoursOfOperationResponse.proto"
+    "ListRoutingProfileQueuesResponse"
+    "fixture/ListRoutingProfileQueuesResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateQueueHoursOfOperation)
-
-responseDisassociateRoutingProfileQueues :: DisassociateRoutingProfileQueuesResponse -> TestTree
-responseDisassociateRoutingProfileQueues =
-  res
-    "DisassociateRoutingProfileQueuesResponse"
-    "fixture/DisassociateRoutingProfileQueuesResponse.proto"
-    defaultService
-    (Proxy :: Proxy DisassociateRoutingProfileQueues)
-
-responseDescribeContactFlow :: DescribeContactFlowResponse -> TestTree
-responseDescribeContactFlow =
-  res
-    "DescribeContactFlowResponse"
-    "fixture/DescribeContactFlowResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeContactFlow)
-
-responseUpdateQueueStatus :: UpdateQueueStatusResponse -> TestTree
-responseUpdateQueueStatus =
-  res
-    "UpdateQueueStatusResponse"
-    "fixture/UpdateQueueStatusResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateQueueStatus)
-
-responseDescribeQueue :: DescribeQueueResponse -> TestTree
-responseDescribeQueue =
-  res
-    "DescribeQueueResponse"
-    "fixture/DescribeQueueResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeQueue)
-
-responseAssociateLexBot :: AssociateLexBotResponse -> TestTree
-responseAssociateLexBot =
-  res
-    "AssociateLexBotResponse"
-    "fixture/AssociateLexBotResponse.proto"
-    defaultService
-    (Proxy :: Proxy AssociateLexBot)
+    (Proxy :: Proxy ListRoutingProfileQueues)
 
 responseUpdateInstanceAttribute :: UpdateInstanceAttributeResponse -> TestTree
 responseUpdateInstanceAttribute =
@@ -1729,13 +1849,21 @@ responseDescribeUser =
     defaultService
     (Proxy :: Proxy DescribeUser)
 
-responseDescribeUserHierarchyGroup :: DescribeUserHierarchyGroupResponse -> TestTree
-responseDescribeUserHierarchyGroup =
+responseAssociateLexBot :: AssociateLexBotResponse -> TestTree
+responseAssociateLexBot =
   res
-    "DescribeUserHierarchyGroupResponse"
-    "fixture/DescribeUserHierarchyGroupResponse.proto"
+    "AssociateLexBotResponse"
+    "fixture/AssociateLexBotResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeUserHierarchyGroup)
+    (Proxy :: Proxy AssociateLexBot)
+
+responseUpdateQueueStatus :: UpdateQueueStatusResponse -> TestTree
+responseUpdateQueueStatus =
+  res
+    "UpdateQueueStatusResponse"
+    "fixture/UpdateQueueStatusResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateQueueStatus)
 
 responseResumeContactRecording :: ResumeContactRecordingResponse -> TestTree
 responseResumeContactRecording =
@@ -1745,6 +1873,30 @@ responseResumeContactRecording =
     defaultService
     (Proxy :: Proxy ResumeContactRecording)
 
+responseUpdateAgentStatus :: UpdateAgentStatusResponse -> TestTree
+responseUpdateAgentStatus =
+  res
+    "UpdateAgentStatusResponse"
+    "fixture/UpdateAgentStatusResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateAgentStatus)
+
+responseDescribeUserHierarchyGroup :: DescribeUserHierarchyGroupResponse -> TestTree
+responseDescribeUserHierarchyGroup =
+  res
+    "DescribeUserHierarchyGroupResponse"
+    "fixture/DescribeUserHierarchyGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeUserHierarchyGroup)
+
+responseDescribeQueue :: DescribeQueueResponse -> TestTree
+responseDescribeQueue =
+  res
+    "DescribeQueueResponse"
+    "fixture/DescribeQueueResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeQueue)
+
 responseUpdateRoutingProfileName :: UpdateRoutingProfileNameResponse -> TestTree
 responseUpdateRoutingProfileName =
   res
@@ -1752,6 +1904,14 @@ responseUpdateRoutingProfileName =
     "fixture/UpdateRoutingProfileNameResponse.proto"
     defaultService
     (Proxy :: Proxy UpdateRoutingProfileName)
+
+responseDescribeUserHierarchyStructure :: DescribeUserHierarchyStructureResponse -> TestTree
+responseDescribeUserHierarchyStructure =
+  res
+    "DescribeUserHierarchyStructureResponse"
+    "fixture/DescribeUserHierarchyStructureResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeUserHierarchyStructure)
 
 responseStartChatContact :: StartChatContactResponse -> TestTree
 responseStartChatContact =
@@ -1769,22 +1929,6 @@ responseDeleteIntegrationAssociation =
     defaultService
     (Proxy :: Proxy DeleteIntegrationAssociation)
 
-responseListPhoneNumbers :: ListPhoneNumbersResponse -> TestTree
-responseListPhoneNumbers =
-  res
-    "ListPhoneNumbersResponse"
-    "fixture/ListPhoneNumbersResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListPhoneNumbers)
-
-responseListIntegrationAssociations :: ListIntegrationAssociationsResponse -> TestTree
-responseListIntegrationAssociations =
-  res
-    "ListIntegrationAssociationsResponse"
-    "fixture/ListIntegrationAssociationsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListIntegrationAssociations)
-
 responseListUseCases :: ListUseCasesResponse -> TestTree
 responseListUseCases =
   res
@@ -1801,13 +1945,29 @@ responseUpdateUserSecurityProfiles =
     defaultService
     (Proxy :: Proxy UpdateUserSecurityProfiles)
 
-responseDescribeUserHierarchyStructure :: DescribeUserHierarchyStructureResponse -> TestTree
-responseDescribeUserHierarchyStructure =
+responseDeleteHoursOfOperation :: DeleteHoursOfOperationResponse -> TestTree
+responseDeleteHoursOfOperation =
   res
-    "DescribeUserHierarchyStructureResponse"
-    "fixture/DescribeUserHierarchyStructureResponse.proto"
+    "DeleteHoursOfOperationResponse"
+    "fixture/DeleteHoursOfOperationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeUserHierarchyStructure)
+    (Proxy :: Proxy DeleteHoursOfOperation)
+
+responseUpdateHoursOfOperation :: UpdateHoursOfOperationResponse -> TestTree
+responseUpdateHoursOfOperation =
+  res
+    "UpdateHoursOfOperationResponse"
+    "fixture/UpdateHoursOfOperationResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateHoursOfOperation)
+
+responseListPhoneNumbers :: ListPhoneNumbersResponse -> TestTree
+responseListPhoneNumbers =
+  res
+    "ListPhoneNumbersResponse"
+    "fixture/ListPhoneNumbersResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListPhoneNumbers)
 
 responseListHoursOfOperations :: ListHoursOfOperationsResponse -> TestTree
 responseListHoursOfOperations =
@@ -1817,13 +1977,13 @@ responseListHoursOfOperations =
     defaultService
     (Proxy :: Proxy ListHoursOfOperations)
 
-responseCreateUseCase :: CreateUseCaseResponse -> TestTree
-responseCreateUseCase =
+responseListIntegrationAssociations :: ListIntegrationAssociationsResponse -> TestTree
+responseListIntegrationAssociations =
   res
-    "CreateUseCaseResponse"
-    "fixture/CreateUseCaseResponse.proto"
+    "ListIntegrationAssociationsResponse"
+    "fixture/ListIntegrationAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateUseCase)
+    (Proxy :: Proxy ListIntegrationAssociations)
 
 responseListContactFlows :: ListContactFlowsResponse -> TestTree
 responseListContactFlows =
@@ -1833,14 +1993,6 @@ responseListContactFlows =
     defaultService
     (Proxy :: Proxy ListContactFlows)
 
-responseUpdateInstanceStorageConfig :: UpdateInstanceStorageConfigResponse -> TestTree
-responseUpdateInstanceStorageConfig =
-  res
-    "UpdateInstanceStorageConfigResponse"
-    "fixture/UpdateInstanceStorageConfigResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateInstanceStorageConfig)
-
 responseListInstanceStorageConfigs :: ListInstanceStorageConfigsResponse -> TestTree
 responseListInstanceStorageConfigs =
   res
@@ -1848,6 +2000,30 @@ responseListInstanceStorageConfigs =
     "fixture/ListInstanceStorageConfigsResponse.proto"
     defaultService
     (Proxy :: Proxy ListInstanceStorageConfigs)
+
+responseCreateHoursOfOperation :: CreateHoursOfOperationResponse -> TestTree
+responseCreateHoursOfOperation =
+  res
+    "CreateHoursOfOperationResponse"
+    "fixture/CreateHoursOfOperationResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateHoursOfOperation)
+
+responseCreateUseCase :: CreateUseCaseResponse -> TestTree
+responseCreateUseCase =
+  res
+    "CreateUseCaseResponse"
+    "fixture/CreateUseCaseResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateUseCase)
+
+responseDisassociateBot :: DisassociateBotResponse -> TestTree
+responseDisassociateBot =
+  res
+    "DisassociateBotResponse"
+    "fixture/DisassociateBotResponse.proto"
+    defaultService
+    (Proxy :: Proxy DisassociateBot)
 
 responseCreateIntegrationAssociation :: CreateIntegrationAssociationResponse -> TestTree
 responseCreateIntegrationAssociation =
@@ -1857,37 +2033,13 @@ responseCreateIntegrationAssociation =
     defaultService
     (Proxy :: Proxy CreateIntegrationAssociation)
 
-responseDeleteUserHierarchyGroup :: DeleteUserHierarchyGroupResponse -> TestTree
-responseDeleteUserHierarchyGroup =
+responseUpdateInstanceStorageConfig :: UpdateInstanceStorageConfigResponse -> TestTree
+responseUpdateInstanceStorageConfig =
   res
-    "DeleteUserHierarchyGroupResponse"
-    "fixture/DeleteUserHierarchyGroupResponse.proto"
+    "UpdateInstanceStorageConfigResponse"
+    "fixture/UpdateInstanceStorageConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUserHierarchyGroup)
-
-responseDeleteUser :: DeleteUserResponse -> TestTree
-responseDeleteUser =
-  res
-    "DeleteUserResponse"
-    "fixture/DeleteUserResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteUser)
-
-responseDisassociateInstanceStorageConfig :: DisassociateInstanceStorageConfigResponse -> TestTree
-responseDisassociateInstanceStorageConfig =
-  res
-    "DisassociateInstanceStorageConfigResponse"
-    "fixture/DisassociateInstanceStorageConfigResponse.proto"
-    defaultService
-    (Proxy :: Proxy DisassociateInstanceStorageConfig)
-
-responseListUserHierarchyGroups :: ListUserHierarchyGroupsResponse -> TestTree
-responseListUserHierarchyGroups =
-  res
-    "ListUserHierarchyGroupsResponse"
-    "fixture/ListUserHierarchyGroupsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListUserHierarchyGroups)
+    (Proxy :: Proxy UpdateInstanceStorageConfig)
 
 responseUpdateUserIdentityInfo :: UpdateUserIdentityInfoResponse -> TestTree
 responseUpdateUserIdentityInfo =
@@ -1896,6 +2048,14 @@ responseUpdateUserIdentityInfo =
     "fixture/UpdateUserIdentityInfoResponse.proto"
     defaultService
     (Proxy :: Proxy UpdateUserIdentityInfo)
+
+responseUpdateRoutingProfileDefaultOutboundQueue :: UpdateRoutingProfileDefaultOutboundQueueResponse -> TestTree
+responseUpdateRoutingProfileDefaultOutboundQueue =
+  res
+    "UpdateRoutingProfileDefaultOutboundQueueResponse"
+    "fixture/UpdateRoutingProfileDefaultOutboundQueueResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateRoutingProfileDefaultOutboundQueue)
 
 responseListUsers :: ListUsersResponse -> TestTree
 responseListUsers =
@@ -1913,6 +2073,14 @@ responseGetFederationToken =
     defaultService
     (Proxy :: Proxy GetFederationToken)
 
+responseDeleteUserHierarchyGroup :: DeleteUserHierarchyGroupResponse -> TestTree
+responseDeleteUserHierarchyGroup =
+  res
+    "DeleteUserHierarchyGroupResponse"
+    "fixture/DeleteUserHierarchyGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteUserHierarchyGroup)
+
 responseDescribeInstanceAttribute :: DescribeInstanceAttributeResponse -> TestTree
 responseDescribeInstanceAttribute =
   res
@@ -1920,6 +2088,14 @@ responseDescribeInstanceAttribute =
     "fixture/DescribeInstanceAttributeResponse.proto"
     defaultService
     (Proxy :: Proxy DescribeInstanceAttribute)
+
+responseDescribeAgentStatus :: DescribeAgentStatusResponse -> TestTree
+responseDescribeAgentStatus =
+  res
+    "DescribeAgentStatusResponse"
+    "fixture/DescribeAgentStatusResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeAgentStatus)
 
 responseListSecurityKeys :: ListSecurityKeysResponse -> TestTree
 responseListSecurityKeys =
@@ -1929,21 +2105,37 @@ responseListSecurityKeys =
     defaultService
     (Proxy :: Proxy ListSecurityKeys)
 
-responseUpdateRoutingProfileDefaultOutboundQueue :: UpdateRoutingProfileDefaultOutboundQueueResponse -> TestTree
-responseUpdateRoutingProfileDefaultOutboundQueue =
+responseListUserHierarchyGroups :: ListUserHierarchyGroupsResponse -> TestTree
+responseListUserHierarchyGroups =
   res
-    "UpdateRoutingProfileDefaultOutboundQueueResponse"
-    "fixture/UpdateRoutingProfileDefaultOutboundQueueResponse.proto"
+    "ListUserHierarchyGroupsResponse"
+    "fixture/ListUserHierarchyGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateRoutingProfileDefaultOutboundQueue)
+    (Proxy :: Proxy ListUserHierarchyGroups)
 
-responseCreateQueue :: CreateQueueResponse -> TestTree
-responseCreateQueue =
+responseDeleteUser :: DeleteUserResponse -> TestTree
+responseDeleteUser =
   res
-    "CreateQueueResponse"
-    "fixture/CreateQueueResponse.proto"
+    "DeleteUserResponse"
+    "fixture/DeleteUserResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateQueue)
+    (Proxy :: Proxy DeleteUser)
+
+responseDisassociateInstanceStorageConfig :: DisassociateInstanceStorageConfigResponse -> TestTree
+responseDisassociateInstanceStorageConfig =
+  res
+    "DisassociateInstanceStorageConfigResponse"
+    "fixture/DisassociateInstanceStorageConfigResponse.proto"
+    defaultService
+    (Proxy :: Proxy DisassociateInstanceStorageConfig)
+
+responseAssociateBot :: AssociateBotResponse -> TestTree
+responseAssociateBot =
+  res
+    "AssociateBotResponse"
+    "fixture/AssociateBotResponse.proto"
+    defaultService
+    (Proxy :: Proxy AssociateBot)
 
 responseCreateInstance :: CreateInstanceResponse -> TestTree
 responseCreateInstance =
@@ -1953,13 +2145,13 @@ responseCreateInstance =
     defaultService
     (Proxy :: Proxy CreateInstance)
 
-responseStartTaskContact :: StartTaskContactResponse -> TestTree
-responseStartTaskContact =
+responseCreateQueue :: CreateQueueResponse -> TestTree
+responseCreateQueue =
   res
-    "StartTaskContactResponse"
-    "fixture/StartTaskContactResponse.proto"
+    "CreateQueueResponse"
+    "fixture/CreateQueueResponse.proto"
     defaultService
-    (Proxy :: Proxy StartTaskContact)
+    (Proxy :: Proxy CreateQueue)
 
 responseListPrompts :: ListPromptsResponse -> TestTree
 responseListPrompts =
@@ -1968,6 +2160,30 @@ responseListPrompts =
     "fixture/ListPromptsResponse.proto"
     defaultService
     (Proxy :: Proxy ListPrompts)
+
+responseStartTaskContact :: StartTaskContactResponse -> TestTree
+responseStartTaskContact =
+  res
+    "StartTaskContactResponse"
+    "fixture/StartTaskContactResponse.proto"
+    defaultService
+    (Proxy :: Proxy StartTaskContact)
+
+responseUpdateContactFlowContent :: UpdateContactFlowContentResponse -> TestTree
+responseUpdateContactFlowContent =
+  res
+    "UpdateContactFlowContentResponse"
+    "fixture/UpdateContactFlowContentResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateContactFlowContent)
+
+responseDescribeHoursOfOperation :: DescribeHoursOfOperationResponse -> TestTree
+responseDescribeHoursOfOperation =
+  res
+    "DescribeHoursOfOperationResponse"
+    "fixture/DescribeHoursOfOperationResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeHoursOfOperation)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -1993,14 +2209,6 @@ responseUpdateUserHierarchyStructure =
     defaultService
     (Proxy :: Proxy UpdateUserHierarchyStructure)
 
-responseUpdateContactFlowContent :: UpdateContactFlowContentResponse -> TestTree
-responseUpdateContactFlowContent =
-  res
-    "UpdateContactFlowContentResponse"
-    "fixture/UpdateContactFlowContentResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateContactFlowContent)
-
 responseGetMetricData :: GetMetricDataResponse -> TestTree
 responseGetMetricData =
   res
@@ -2008,11 +2216,3 @@ responseGetMetricData =
     "fixture/GetMetricDataResponse.proto"
     defaultService
     (Proxy :: Proxy GetMetricData)
-
-responseDescribeHoursOfOperation :: DescribeHoursOfOperationResponse -> TestTree
-responseDescribeHoursOfOperation =
-  res
-    "DescribeHoursOfOperationResponse"
-    "fixture/DescribeHoursOfOperationResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeHoursOfOperation)

@@ -20,10 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This API is in preview release for Amazon Connect and is subject to
--- change.
---
--- Deletes a use case from an AppIntegration association.
+-- Deletes a use case from an integration association.
 module Network.AWS.Connect.DeleteUseCase
   ( -- * Creating a Request
     DeleteUseCase (..),
@@ -49,9 +46,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteUseCase' smart constructor.
 data DeleteUseCase = DeleteUseCase'
-  { -- | The identifier of the Amazon Connect instance.
+  { -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
-    -- | The identifier for the AppIntegration association.
+    -- | The identifier for the integration association.
     integrationAssociationId :: Prelude.Text,
     -- | The identifier for the use case.
     useCaseId :: Prelude.Text
@@ -66,9 +64,10 @@ data DeleteUseCase = DeleteUseCase'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'deleteUseCase_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'deleteUseCase_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
--- 'integrationAssociationId', 'deleteUseCase_integrationAssociationId' - The identifier for the AppIntegration association.
+-- 'integrationAssociationId', 'deleteUseCase_integrationAssociationId' - The identifier for the integration association.
 --
 -- 'useCaseId', 'deleteUseCase_useCaseId' - The identifier for the use case.
 newDeleteUseCase ::
@@ -90,11 +89,12 @@ newDeleteUseCase
         useCaseId = pUseCaseId_
       }
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 deleteUseCase_instanceId :: Lens.Lens' DeleteUseCase Prelude.Text
 deleteUseCase_instanceId = Lens.lens (\DeleteUseCase' {instanceId} -> instanceId) (\s@DeleteUseCase' {} a -> s {instanceId = a} :: DeleteUseCase)
 
--- | The identifier for the AppIntegration association.
+-- | The identifier for the integration association.
 deleteUseCase_integrationAssociationId :: Lens.Lens' DeleteUseCase Prelude.Text
 deleteUseCase_integrationAssociationId = Lens.lens (\DeleteUseCase' {integrationAssociationId} -> integrationAssociationId) (\s@DeleteUseCase' {} a -> s {integrationAssociationId = a} :: DeleteUseCase)
 

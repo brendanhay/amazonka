@@ -64,7 +64,8 @@ data ListInstanceStorageConfigs = ListInstanceStorageConfigs'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | A valid resource type.
     resourceType :: InstanceStorageResourceType
@@ -85,7 +86,8 @@ data ListInstanceStorageConfigs = ListInstanceStorageConfigs'
 --
 -- 'maxResults', 'listInstanceStorageConfigs_maxResults' - The maximum number of results to return per page.
 --
--- 'instanceId', 'listInstanceStorageConfigs_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'listInstanceStorageConfigs_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'resourceType', 'listInstanceStorageConfigs_resourceType' - A valid resource type.
 newListInstanceStorageConfigs ::
@@ -115,7 +117,8 @@ listInstanceStorageConfigs_nextToken = Lens.lens (\ListInstanceStorageConfigs' {
 listInstanceStorageConfigs_maxResults :: Lens.Lens' ListInstanceStorageConfigs (Prelude.Maybe Prelude.Natural)
 listInstanceStorageConfigs_maxResults = Lens.lens (\ListInstanceStorageConfigs' {maxResults} -> maxResults) (\s@ListInstanceStorageConfigs' {} a -> s {maxResults = a} :: ListInstanceStorageConfigs)
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 listInstanceStorageConfigs_instanceId :: Lens.Lens' ListInstanceStorageConfigs Prelude.Text
 listInstanceStorageConfigs_instanceId = Lens.lens (\ListInstanceStorageConfigs' {instanceId} -> instanceId) (\s@ListInstanceStorageConfigs' {} a -> s {instanceId = a} :: ListInstanceStorageConfigs)
 

@@ -63,7 +63,8 @@ data ListLexBots = ListLexBots'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,7 +83,8 @@ data ListLexBots = ListLexBots'
 --
 -- 'maxResults', 'listLexBots_maxResults' - The maximum number of results to return per page.
 --
--- 'instanceId', 'listLexBots_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'listLexBots_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 newListLexBots ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -104,7 +106,8 @@ listLexBots_nextToken = Lens.lens (\ListLexBots' {nextToken} -> nextToken) (\s@L
 listLexBots_maxResults :: Lens.Lens' ListLexBots (Prelude.Maybe Prelude.Natural)
 listLexBots_maxResults = Lens.lens (\ListLexBots' {maxResults} -> maxResults) (\s@ListLexBots' {} a -> s {maxResults = a} :: ListLexBots)
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 listLexBots_instanceId :: Lens.Lens' ListLexBots Prelude.Text
 listLexBots_instanceId = Lens.lens (\ListLexBots' {instanceId} -> instanceId) (\s@ListLexBots' {} a -> s {instanceId = a} :: ListLexBots)
 

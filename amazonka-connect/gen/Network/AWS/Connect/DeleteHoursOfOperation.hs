@@ -1,0 +1,147 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.Connect.DeleteHoursOfOperation
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- This API is in preview release for Amazon Connect and is subject to
+-- change.
+--
+-- Deletes an hours of operation.
+module Network.AWS.Connect.DeleteHoursOfOperation
+  ( -- * Creating a Request
+    DeleteHoursOfOperation (..),
+    newDeleteHoursOfOperation,
+
+    -- * Request Lenses
+    deleteHoursOfOperation_instanceId,
+    deleteHoursOfOperation_hoursOfOperationId,
+
+    -- * Destructuring the Response
+    DeleteHoursOfOperationResponse (..),
+    newDeleteHoursOfOperationResponse,
+  )
+where
+
+import Network.AWS.Connect.Types
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+
+-- | /See:/ 'newDeleteHoursOfOperation' smart constructor.
+data DeleteHoursOfOperation = DeleteHoursOfOperation'
+  { -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
+    instanceId :: Prelude.Text,
+    -- | The identifier for the hours of operation.
+    hoursOfOperationId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteHoursOfOperation' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'instanceId', 'deleteHoursOfOperation_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
+--
+-- 'hoursOfOperationId', 'deleteHoursOfOperation_hoursOfOperationId' - The identifier for the hours of operation.
+newDeleteHoursOfOperation ::
+  -- | 'instanceId'
+  Prelude.Text ->
+  -- | 'hoursOfOperationId'
+  Prelude.Text ->
+  DeleteHoursOfOperation
+newDeleteHoursOfOperation
+  pInstanceId_
+  pHoursOfOperationId_ =
+    DeleteHoursOfOperation'
+      { instanceId = pInstanceId_,
+        hoursOfOperationId = pHoursOfOperationId_
+      }
+
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
+deleteHoursOfOperation_instanceId :: Lens.Lens' DeleteHoursOfOperation Prelude.Text
+deleteHoursOfOperation_instanceId = Lens.lens (\DeleteHoursOfOperation' {instanceId} -> instanceId) (\s@DeleteHoursOfOperation' {} a -> s {instanceId = a} :: DeleteHoursOfOperation)
+
+-- | The identifier for the hours of operation.
+deleteHoursOfOperation_hoursOfOperationId :: Lens.Lens' DeleteHoursOfOperation Prelude.Text
+deleteHoursOfOperation_hoursOfOperationId = Lens.lens (\DeleteHoursOfOperation' {hoursOfOperationId} -> hoursOfOperationId) (\s@DeleteHoursOfOperation' {} a -> s {hoursOfOperationId = a} :: DeleteHoursOfOperation)
+
+instance Core.AWSRequest DeleteHoursOfOperation where
+  type
+    AWSResponse DeleteHoursOfOperation =
+      DeleteHoursOfOperationResponse
+  request = Request.delete defaultService
+  response =
+    Response.receiveNull
+      DeleteHoursOfOperationResponse'
+
+instance Prelude.Hashable DeleteHoursOfOperation
+
+instance Prelude.NFData DeleteHoursOfOperation
+
+instance Core.ToHeaders DeleteHoursOfOperation where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToPath DeleteHoursOfOperation where
+  toPath DeleteHoursOfOperation' {..} =
+    Prelude.mconcat
+      [ "/hours-of-operations/",
+        Core.toBS instanceId,
+        "/",
+        Core.toBS hoursOfOperationId
+      ]
+
+instance Core.ToQuery DeleteHoursOfOperation where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDeleteHoursOfOperationResponse' smart constructor.
+data DeleteHoursOfOperationResponse = DeleteHoursOfOperationResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteHoursOfOperationResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteHoursOfOperationResponse ::
+  DeleteHoursOfOperationResponse
+newDeleteHoursOfOperationResponse =
+  DeleteHoursOfOperationResponse'
+
+instance
+  Prelude.NFData
+    DeleteHoursOfOperationResponse

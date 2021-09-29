@@ -74,7 +74,8 @@ data StartTaskContact = StartTaskContact'
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the request.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the contact flow for initiating the tasks. To see the
     -- ContactFlowId in the Amazon Connect console user interface, on the
@@ -118,7 +119,8 @@ data StartTaskContact = StartTaskContact'
 -- 'clientToken', 'startTaskContact_clientToken' - A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the request.
 --
--- 'instanceId', 'startTaskContact_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'startTaskContact_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'contactFlowId', 'startTaskContact_contactFlowId' - The identifier of the contact flow for initiating the tasks. To see the
 -- ContactFlowId in the Amazon Connect console user interface, on the
@@ -184,7 +186,8 @@ startTaskContact_description = Lens.lens (\StartTaskContact' {description} -> de
 startTaskContact_clientToken :: Lens.Lens' StartTaskContact (Prelude.Maybe Prelude.Text)
 startTaskContact_clientToken = Lens.lens (\StartTaskContact' {clientToken} -> clientToken) (\s@StartTaskContact' {} a -> s {clientToken = a} :: StartTaskContact)
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 startTaskContact_instanceId :: Lens.Lens' StartTaskContact Prelude.Text
 startTaskContact_instanceId = Lens.lens (\StartTaskContact' {instanceId} -> instanceId) (\s@StartTaskContact' {} a -> s {instanceId = a} :: StartTaskContact)
 

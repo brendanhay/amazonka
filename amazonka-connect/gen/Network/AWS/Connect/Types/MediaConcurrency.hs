@@ -32,6 +32,12 @@ data MediaConcurrency = MediaConcurrency'
   { -- | The channels that agents can handle in the Contact Control Panel (CCP).
     channel :: Channel,
     -- | The number of contacts an agent can have on a channel simultaneously.
+    --
+    -- Valid Range for @VOICE@: Minimum value of 1. Maximum value of 1.
+    --
+    -- Valid Range for @CHAT@: Minimum value of 1. Maximum value of 10.
+    --
+    -- Valid Range for @TASK@: Minimum value of 1. Maximum value of 10.
     concurrency :: Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,6 +53,12 @@ data MediaConcurrency = MediaConcurrency'
 -- 'channel', 'mediaConcurrency_channel' - The channels that agents can handle in the Contact Control Panel (CCP).
 --
 -- 'concurrency', 'mediaConcurrency_concurrency' - The number of contacts an agent can have on a channel simultaneously.
+--
+-- Valid Range for @VOICE@: Minimum value of 1. Maximum value of 1.
+--
+-- Valid Range for @CHAT@: Minimum value of 1. Maximum value of 10.
+--
+-- Valid Range for @TASK@: Minimum value of 1. Maximum value of 10.
 newMediaConcurrency ::
   -- | 'channel'
   Channel ->
@@ -64,6 +76,12 @@ mediaConcurrency_channel :: Lens.Lens' MediaConcurrency Channel
 mediaConcurrency_channel = Lens.lens (\MediaConcurrency' {channel} -> channel) (\s@MediaConcurrency' {} a -> s {channel = a} :: MediaConcurrency)
 
 -- | The number of contacts an agent can have on a channel simultaneously.
+--
+-- Valid Range for @VOICE@: Minimum value of 1. Maximum value of 1.
+--
+-- Valid Range for @CHAT@: Minimum value of 1. Maximum value of 10.
+--
+-- Valid Range for @TASK@: Minimum value of 1. Maximum value of 10.
 mediaConcurrency_concurrency :: Lens.Lens' MediaConcurrency Prelude.Natural
 mediaConcurrency_concurrency = Lens.lens (\MediaConcurrency' {concurrency} -> concurrency) (\s@MediaConcurrency' {} a -> s {concurrency = a} :: MediaConcurrency)
 

@@ -38,12 +38,13 @@ data Instance = Instance'
     outboundCallsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the instance.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of the Amazon Connect instance.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The state of the instance.
-    instanceStatus :: Prelude.Maybe InstanceStatus,
     -- | The identity management type.
     identityManagementType :: Prelude.Maybe DirectoryType,
+    -- | The state of the instance.
+    instanceStatus :: Prelude.Maybe InstanceStatus,
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
+    id :: Prelude.Maybe Prelude.Text,
     -- | When the instance was created.
     createdTime :: Prelude.Maybe Core.POSIX,
     -- | Whether inbound calls are enabled.
@@ -69,11 +70,12 @@ data Instance = Instance'
 --
 -- 'arn', 'instance_arn' - The Amazon Resource Name (ARN) of the instance.
 --
--- 'id', 'instance_id' - The identifier of the Amazon Connect instance.
+-- 'identityManagementType', 'instance_identityManagementType' - The identity management type.
 --
 -- 'instanceStatus', 'instance_instanceStatus' - The state of the instance.
 --
--- 'identityManagementType', 'instance_identityManagementType' - The identity management type.
+-- 'id', 'instance_id' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'createdTime', 'instance_createdTime' - When the instance was created.
 --
@@ -88,9 +90,9 @@ newInstance =
       serviceRole = Prelude.Nothing,
       outboundCallsEnabled = Prelude.Nothing,
       arn = Prelude.Nothing,
-      id = Prelude.Nothing,
-      instanceStatus = Prelude.Nothing,
       identityManagementType = Prelude.Nothing,
+      instanceStatus = Prelude.Nothing,
+      id = Prelude.Nothing,
       createdTime = Prelude.Nothing,
       inboundCallsEnabled = Prelude.Nothing,
       statusReason = Prelude.Nothing
@@ -112,17 +114,18 @@ instance_outboundCallsEnabled = Lens.lens (\Instance' {outboundCallsEnabled} -> 
 instance_arn :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
 instance_arn = Lens.lens (\Instance' {arn} -> arn) (\s@Instance' {} a -> s {arn = a} :: Instance)
 
--- | The identifier of the Amazon Connect instance.
-instance_id :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
-instance_id = Lens.lens (\Instance' {id} -> id) (\s@Instance' {} a -> s {id = a} :: Instance)
+-- | The identity management type.
+instance_identityManagementType :: Lens.Lens' Instance (Prelude.Maybe DirectoryType)
+instance_identityManagementType = Lens.lens (\Instance' {identityManagementType} -> identityManagementType) (\s@Instance' {} a -> s {identityManagementType = a} :: Instance)
 
 -- | The state of the instance.
 instance_instanceStatus :: Lens.Lens' Instance (Prelude.Maybe InstanceStatus)
 instance_instanceStatus = Lens.lens (\Instance' {instanceStatus} -> instanceStatus) (\s@Instance' {} a -> s {instanceStatus = a} :: Instance)
 
--- | The identity management type.
-instance_identityManagementType :: Lens.Lens' Instance (Prelude.Maybe DirectoryType)
-instance_identityManagementType = Lens.lens (\Instance' {identityManagementType} -> identityManagementType) (\s@Instance' {} a -> s {identityManagementType = a} :: Instance)
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
+instance_id :: Lens.Lens' Instance (Prelude.Maybe Prelude.Text)
+instance_id = Lens.lens (\Instance' {id} -> id) (\s@Instance' {} a -> s {id = a} :: Instance)
 
 -- | When the instance was created.
 instance_createdTime :: Lens.Lens' Instance (Prelude.Maybe Prelude.UTCTime)
@@ -146,9 +149,9 @@ instance Core.FromJSON Instance where
             Prelude.<*> (x Core..:? "ServiceRole")
             Prelude.<*> (x Core..:? "OutboundCallsEnabled")
             Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "InstanceStatus")
             Prelude.<*> (x Core..:? "IdentityManagementType")
+            Prelude.<*> (x Core..:? "InstanceStatus")
+            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "CreatedTime")
             Prelude.<*> (x Core..:? "InboundCallsEnabled")
             Prelude.<*> (x Core..:? "StatusReason")

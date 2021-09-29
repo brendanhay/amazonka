@@ -78,7 +78,8 @@ data GetCurrentMetricData = GetCurrentMetricData'
     groupings :: Prelude.Maybe [Grouping],
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The queues, up to 100, or channels, to use to filter the metrics
     -- returned. Metric data is retrieved only for the resources associated
@@ -155,8 +156,12 @@ data GetCurrentMetricData = GetCurrentMetricData'
     -- [OLDEST_CONTACT_AGE]
     --     Unit: SECONDS
     --
-    --     When you use groupings, Unit says SECONDS but the Value is returned
-    --     in MILLISECONDS. For example, if you get a response like this:
+    --     When you use groupings, Unit says SECONDS and the Value is returned
+    --     in SECONDS.
+    --
+    --     When you do not use groupings, Unit says SECONDS but the Value is
+    --     returned in MILLISECONDS. For example, if you get a response like
+    --     this:
     --
     --     @{ \"Metric\": { \"Name\": \"OLDEST_CONTACT_AGE\", \"Unit\": \"SECONDS\" }, \"Value\": 24113.0 @}
     --
@@ -206,7 +211,8 @@ data GetCurrentMetricData = GetCurrentMetricData'
 --
 -- 'maxResults', 'getCurrentMetricData_maxResults' - The maximum number of results to return per page.
 --
--- 'instanceId', 'getCurrentMetricData_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'getCurrentMetricData_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'filters', 'getCurrentMetricData_filters' - The queues, up to 100, or channels, to use to filter the metrics
 -- returned. Metric data is retrieved only for the resources associated
@@ -283,8 +289,12 @@ data GetCurrentMetricData = GetCurrentMetricData'
 -- [OLDEST_CONTACT_AGE]
 --     Unit: SECONDS
 --
---     When you use groupings, Unit says SECONDS but the Value is returned
---     in MILLISECONDS. For example, if you get a response like this:
+--     When you use groupings, Unit says SECONDS and the Value is returned
+--     in SECONDS.
+--
+--     When you do not use groupings, Unit says SECONDS but the Value is
+--     returned in MILLISECONDS. For example, if you get a response like
+--     this:
 --
 --     @{ \"Metric\": { \"Name\": \"OLDEST_CONTACT_AGE\", \"Unit\": \"SECONDS\" }, \"Value\": 24113.0 @}
 --
@@ -344,7 +354,8 @@ getCurrentMetricData_groupings = Lens.lens (\GetCurrentMetricData' {groupings} -
 getCurrentMetricData_maxResults :: Lens.Lens' GetCurrentMetricData (Prelude.Maybe Prelude.Natural)
 getCurrentMetricData_maxResults = Lens.lens (\GetCurrentMetricData' {maxResults} -> maxResults) (\s@GetCurrentMetricData' {} a -> s {maxResults = a} :: GetCurrentMetricData)
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 getCurrentMetricData_instanceId :: Lens.Lens' GetCurrentMetricData Prelude.Text
 getCurrentMetricData_instanceId = Lens.lens (\GetCurrentMetricData' {instanceId} -> instanceId) (\s@GetCurrentMetricData' {} a -> s {instanceId = a} :: GetCurrentMetricData)
 
@@ -425,8 +436,12 @@ getCurrentMetricData_filters = Lens.lens (\GetCurrentMetricData' {filters} -> fi
 -- [OLDEST_CONTACT_AGE]
 --     Unit: SECONDS
 --
---     When you use groupings, Unit says SECONDS but the Value is returned
---     in MILLISECONDS. For example, if you get a response like this:
+--     When you use groupings, Unit says SECONDS and the Value is returned
+--     in SECONDS.
+--
+--     When you do not use groupings, Unit says SECONDS but the Value is
+--     returned in MILLISECONDS. For example, if you get a response like
+--     this:
 --
 --     @{ \"Metric\": { \"Name\": \"OLDEST_CONTACT_AGE\", \"Unit\": \"SECONDS\" }, \"Value\": 24113.0 @}
 --

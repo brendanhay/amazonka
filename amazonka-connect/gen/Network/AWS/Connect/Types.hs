@@ -21,18 +21,24 @@ module Network.AWS.Connect.Types
     _OutboundContactNotPermittedException,
     _ResourceConflictException,
     _ContactFlowNotPublishedException,
-    _InternalServiceException,
     _UserNotFoundException,
+    _InternalServiceException,
     _DuplicateResourceException,
     _ThrottlingException,
-    _InvalidRequestException,
     _InvalidParameterException,
-    _ContactNotFoundException,
+    _InvalidRequestException,
     _InvalidContactFlowException,
-    _ResourceInUseException,
+    _ContactNotFoundException,
     _LimitExceededException,
-    _DestinationNotAllowedException,
+    _ResourceInUseException,
     _ResourceNotFoundException,
+    _DestinationNotAllowedException,
+
+    -- * AgentStatusState
+    AgentStatusState (..),
+
+    -- * AgentStatusType
+    AgentStatusType (..),
 
     -- * Channel
     Channel (..),
@@ -73,6 +79,9 @@ module Network.AWS.Connect.Types
     -- * IntegrationType
     IntegrationType (..),
 
+    -- * LexVersion
+    LexVersion (..),
+
     -- * PhoneNumberCountryCode
     PhoneNumberCountryCode (..),
 
@@ -103,6 +112,9 @@ module Network.AWS.Connect.Types
     -- * StorageType
     StorageType (..),
 
+    -- * TrafficType
+    TrafficType (..),
+
     -- * Unit
     Unit (..),
 
@@ -111,6 +123,32 @@ module Network.AWS.Connect.Types
 
     -- * VoiceRecordingTrack
     VoiceRecordingTrack (..),
+
+    -- * AgentStatus
+    AgentStatus (..),
+    newAgentStatus,
+    agentStatus_displayOrder,
+    agentStatus_agentStatusId,
+    agentStatus_name,
+    agentStatus_state,
+    agentStatus_tags,
+    agentStatus_description,
+    agentStatus_agentStatusARN,
+    agentStatus_type,
+
+    -- * AgentStatusSummary
+    AgentStatusSummary (..),
+    newAgentStatusSummary,
+    agentStatusSummary_arn,
+    agentStatusSummary_id,
+    agentStatusSummary_name,
+    agentStatusSummary_type,
+
+    -- * AnswerMachineDetectionConfig
+    AnswerMachineDetectionConfig (..),
+    newAnswerMachineDetectionConfig,
+    answerMachineDetectionConfig_enableAnswerMachineDetection,
+    answerMachineDetectionConfig_awaitAnswerMachinePrompt,
 
     -- * Attribute
     Attribute (..),
@@ -220,27 +258,27 @@ module Network.AWS.Connect.Types
     newHierarchyPath,
     hierarchyPath_levelThree,
     hierarchyPath_levelFour,
-    hierarchyPath_levelTwo,
-    hierarchyPath_levelOne,
     hierarchyPath_levelFive,
+    hierarchyPath_levelOne,
+    hierarchyPath_levelTwo,
 
     -- * HierarchyStructure
     HierarchyStructure (..),
     newHierarchyStructure,
     hierarchyStructure_levelThree,
     hierarchyStructure_levelFour,
-    hierarchyStructure_levelTwo,
-    hierarchyStructure_levelOne,
     hierarchyStructure_levelFive,
+    hierarchyStructure_levelOne,
+    hierarchyStructure_levelTwo,
 
     -- * HierarchyStructureUpdate
     HierarchyStructureUpdate (..),
     newHierarchyStructureUpdate,
     hierarchyStructureUpdate_levelThree,
     hierarchyStructureUpdate_levelFour,
-    hierarchyStructureUpdate_levelTwo,
-    hierarchyStructureUpdate_levelOne,
     hierarchyStructureUpdate_levelFive,
+    hierarchyStructureUpdate_levelOne,
+    hierarchyStructureUpdate_levelTwo,
 
     -- * HistoricalMetric
     HistoricalMetric (..),
@@ -300,9 +338,9 @@ module Network.AWS.Connect.Types
     instance_serviceRole,
     instance_outboundCallsEnabled,
     instance_arn,
-    instance_id,
-    instance_instanceStatus,
     instance_identityManagementType,
+    instance_instanceStatus,
+    instance_id,
     instance_createdTime,
     instance_inboundCallsEnabled,
     instance_statusReason,
@@ -329,9 +367,9 @@ module Network.AWS.Connect.Types
     instanceSummary_serviceRole,
     instanceSummary_outboundCallsEnabled,
     instanceSummary_arn,
-    instanceSummary_id,
-    instanceSummary_instanceStatus,
     instanceSummary_identityManagementType,
+    instanceSummary_instanceStatus,
+    instanceSummary_id,
     instanceSummary_createdTime,
     instanceSummary_inboundCallsEnabled,
 
@@ -370,6 +408,17 @@ module Network.AWS.Connect.Types
     lexBot_name,
     lexBot_lexRegion,
 
+    -- * LexBotConfig
+    LexBotConfig (..),
+    newLexBotConfig,
+    lexBotConfig_lexBot,
+    lexBotConfig_lexV2Bot,
+
+    -- * LexV2Bot
+    LexV2Bot (..),
+    newLexV2Bot,
+    lexV2Bot_aliasArn,
+
     -- * MediaConcurrency
     MediaConcurrency (..),
     newMediaConcurrency,
@@ -380,8 +429,8 @@ module Network.AWS.Connect.Types
     OutboundCallerConfig (..),
     newOutboundCallerConfig,
     outboundCallerConfig_outboundCallerIdNumberId,
-    outboundCallerConfig_outboundFlowId,
     outboundCallerConfig_outboundCallerIdName,
+    outboundCallerConfig_outboundFlowId,
 
     -- * ParticipantDetails
     ParticipantDetails (..),
@@ -447,8 +496,8 @@ module Network.AWS.Connect.Types
     newQuickConnect,
     quickConnect_quickConnectId,
     quickConnect_name,
-    quickConnect_tags,
     quickConnect_quickConnectConfig,
+    quickConnect_tags,
     quickConnect_quickConnectARN,
     quickConnect_description,
 
@@ -480,8 +529,8 @@ module Network.AWS.Connect.Types
     routingProfile_instanceId,
     routingProfile_defaultOutboundQueueId,
     routingProfile_routingProfileId,
-    routingProfile_mediaConcurrencies,
     routingProfile_name,
+    routingProfile_mediaConcurrencies,
     routingProfile_tags,
     routingProfile_description,
     routingProfile_routingProfileArn,
@@ -568,8 +617,8 @@ module Network.AWS.Connect.Types
     UserIdentityInfo (..),
     newUserIdentityInfo,
     userIdentityInfo_email,
-    userIdentityInfo_firstName,
     userIdentityInfo_lastName,
+    userIdentityInfo_firstName,
 
     -- * UserPhoneConfig
     UserPhoneConfig (..),
@@ -599,6 +648,11 @@ module Network.AWS.Connect.Types
   )
 where
 
+import Network.AWS.Connect.Types.AgentStatus
+import Network.AWS.Connect.Types.AgentStatusState
+import Network.AWS.Connect.Types.AgentStatusSummary
+import Network.AWS.Connect.Types.AgentStatusType
+import Network.AWS.Connect.Types.AnswerMachineDetectionConfig
 import Network.AWS.Connect.Types.Attribute
 import Network.AWS.Connect.Types.Channel
 import Network.AWS.Connect.Types.ChatMessage
@@ -646,6 +700,9 @@ import Network.AWS.Connect.Types.KinesisFirehoseConfig
 import Network.AWS.Connect.Types.KinesisStreamConfig
 import Network.AWS.Connect.Types.KinesisVideoStreamConfig
 import Network.AWS.Connect.Types.LexBot
+import Network.AWS.Connect.Types.LexBotConfig
+import Network.AWS.Connect.Types.LexV2Bot
+import Network.AWS.Connect.Types.LexVersion
 import Network.AWS.Connect.Types.MediaConcurrency
 import Network.AWS.Connect.Types.OutboundCallerConfig
 import Network.AWS.Connect.Types.ParticipantDetails
@@ -679,6 +736,7 @@ import Network.AWS.Connect.Types.SourceType
 import Network.AWS.Connect.Types.Statistic
 import Network.AWS.Connect.Types.StorageType
 import Network.AWS.Connect.Types.Threshold
+import Network.AWS.Connect.Types.TrafficType
 import Network.AWS.Connect.Types.Unit
 import Network.AWS.Connect.Types.UseCase
 import Network.AWS.Connect.Types.UseCaseType
@@ -796,15 +854,6 @@ _ContactFlowNotPublishedException =
     "ContactFlowNotPublishedException"
     Prelude.. Core.hasStatus 404
 
--- | Request processing failed because of an error or failure with the
--- service.
-_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServiceException =
-  Core._MatchServiceError
-    defaultService
-    "InternalServiceException"
-    Prelude.. Core.hasStatus 500
-
 -- | No user with the specified credentials was found in the Amazon Connect
 -- instance.
 _UserNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -813,6 +862,15 @@ _UserNotFoundException =
     defaultService
     "UserNotFoundException"
     Prelude.. Core.hasStatus 404
+
+-- | Request processing failed because of an error or failure with the
+-- service.
+_InternalServiceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServiceException =
+  Core._MatchServiceError
+    defaultService
+    "InternalServiceException"
+    Prelude.. Core.hasStatus 500
 
 -- | A resource with the specified name already exists.
 _DuplicateResourceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -830,6 +888,14 @@ _ThrottlingException =
     "ThrottlingException"
     Prelude.. Core.hasStatus 429
 
+-- | One or more of the specified parameters are not valid.
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidParameterException"
+    Prelude.. Core.hasStatus 400
+
 -- | The request is not valid.
 _InvalidRequestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidRequestException =
@@ -838,12 +904,12 @@ _InvalidRequestException =
     "InvalidRequestException"
     Prelude.. Core.hasStatus 400
 
--- | One or more of the specified parameters are not valid.
-_InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidParameterException =
+-- | The contact flow is not valid.
+_InvalidContactFlowException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidContactFlowException =
   Core._MatchServiceError
     defaultService
-    "InvalidParameterException"
+    "InvalidContactFlowException"
     Prelude.. Core.hasStatus 400
 
 -- | The contact with the specified ID is not active or does not exist.
@@ -854,13 +920,13 @@ _ContactNotFoundException =
     "ContactNotFoundException"
     Prelude.. Core.hasStatus 410
 
--- | The contact flow is not valid.
-_InvalidContactFlowException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidContactFlowException =
+-- | The allowed limit for the resource has been exceeded.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
   Core._MatchServiceError
     defaultService
-    "InvalidContactFlowException"
-    Prelude.. Core.hasStatus 400
+    "LimitExceededException"
+    Prelude.. Core.hasStatus 429
 
 -- | That resource is already in use. Please try another.
 _ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -870,13 +936,13 @@ _ResourceInUseException =
     "ResourceInUseException"
     Prelude.. Core.hasStatus 409
 
--- | The allowed limit for the resource has been exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
+-- | The specified resource was not found.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
   Core._MatchServiceError
     defaultService
-    "LimitExceededException"
-    Prelude.. Core.hasStatus 429
+    "ResourceNotFoundException"
+    Prelude.. Core.hasStatus 404
 
 -- | Outbound calls to the destination number are not allowed.
 _DestinationNotAllowedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -885,11 +951,3 @@ _DestinationNotAllowedException =
     defaultService
     "DestinationNotAllowedException"
     Prelude.. Core.hasStatus 403
-
--- | The specified resource was not found.
-_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceNotFoundException"
-    Prelude.. Core.hasStatus 404

@@ -64,7 +64,8 @@ data ListUserHierarchyGroups = ListUserHierarchyGroups'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -83,7 +84,8 @@ data ListUserHierarchyGroups = ListUserHierarchyGroups'
 --
 -- 'maxResults', 'listUserHierarchyGroups_maxResults' - The maximum number of results to return per page.
 --
--- 'instanceId', 'listUserHierarchyGroups_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'listUserHierarchyGroups_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 newListUserHierarchyGroups ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -106,7 +108,8 @@ listUserHierarchyGroups_nextToken = Lens.lens (\ListUserHierarchyGroups' {nextTo
 listUserHierarchyGroups_maxResults :: Lens.Lens' ListUserHierarchyGroups (Prelude.Maybe Prelude.Natural)
 listUserHierarchyGroups_maxResults = Lens.lens (\ListUserHierarchyGroups' {maxResults} -> maxResults) (\s@ListUserHierarchyGroups' {} a -> s {maxResults = a} :: ListUserHierarchyGroups)
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 listUserHierarchyGroups_instanceId :: Lens.Lens' ListUserHierarchyGroups Prelude.Text
 listUserHierarchyGroups_instanceId = Lens.lens (\ListUserHierarchyGroups' {instanceId} -> instanceId) (\s@ListUserHierarchyGroups' {} a -> s {instanceId = a} :: ListUserHierarchyGroups)
 

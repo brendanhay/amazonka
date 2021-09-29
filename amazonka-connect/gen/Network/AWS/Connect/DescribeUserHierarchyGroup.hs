@@ -51,7 +51,8 @@ import qualified Network.AWS.Response as Response
 data DescribeUserHierarchyGroup = DescribeUserHierarchyGroup'
   { -- | The identifier of the hierarchy group.
     hierarchyGroupId :: Prelude.Text,
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,7 +67,8 @@ data DescribeUserHierarchyGroup = DescribeUserHierarchyGroup'
 --
 -- 'hierarchyGroupId', 'describeUserHierarchyGroup_hierarchyGroupId' - The identifier of the hierarchy group.
 --
--- 'instanceId', 'describeUserHierarchyGroup_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'describeUserHierarchyGroup_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 newDescribeUserHierarchyGroup ::
   -- | 'hierarchyGroupId'
   Prelude.Text ->
@@ -86,7 +88,8 @@ newDescribeUserHierarchyGroup
 describeUserHierarchyGroup_hierarchyGroupId :: Lens.Lens' DescribeUserHierarchyGroup Prelude.Text
 describeUserHierarchyGroup_hierarchyGroupId = Lens.lens (\DescribeUserHierarchyGroup' {hierarchyGroupId} -> hierarchyGroupId) (\s@DescribeUserHierarchyGroup' {} a -> s {hierarchyGroupId = a} :: DescribeUserHierarchyGroup)
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 describeUserHierarchyGroup_instanceId :: Lens.Lens' DescribeUserHierarchyGroup Prelude.Text
 describeUserHierarchyGroup_instanceId = Lens.lens (\DescribeUserHierarchyGroup' {instanceId} -> instanceId) (\s@DescribeUserHierarchyGroup' {} a -> s {instanceId = a} :: DescribeUserHierarchyGroup)
 

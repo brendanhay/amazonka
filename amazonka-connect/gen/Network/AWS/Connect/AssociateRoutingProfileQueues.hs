@@ -46,7 +46,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAssociateRoutingProfileQueues' smart constructor.
 data AssociateRoutingProfileQueues = AssociateRoutingProfileQueues'
-  { -- | The identifier of the Amazon Connect instance.
+  { -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The identifier of the routing profile.
     routingProfileId :: Prelude.Text,
@@ -63,7 +64,8 @@ data AssociateRoutingProfileQueues = AssociateRoutingProfileQueues'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'associateRoutingProfileQueues_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'associateRoutingProfileQueues_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'routingProfileId', 'associateRoutingProfileQueues_routingProfileId' - The identifier of the routing profile.
 --
@@ -88,7 +90,8 @@ newAssociateRoutingProfileQueues
           Lens._Coerce Lens.# pQueueConfigs_
       }
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 associateRoutingProfileQueues_instanceId :: Lens.Lens' AssociateRoutingProfileQueues Prelude.Text
 associateRoutingProfileQueues_instanceId = Lens.lens (\AssociateRoutingProfileQueues' {instanceId} -> instanceId) (\s@AssociateRoutingProfileQueues' {} a -> s {instanceId = a} :: AssociateRoutingProfileQueues)
 

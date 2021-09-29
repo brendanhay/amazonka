@@ -28,17 +28,18 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRoutingProfile' smart constructor.
 data RoutingProfile = RoutingProfile'
-  { -- | The identifier of the Amazon Connect instance.
+  { -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the default outbound queue for this routing profile.
     defaultOutboundQueueId :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the routing profile.
     routingProfileId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the routing profile.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The channels agents can handle in the Contact Control Panel (CCP) for
     -- this routing profile.
     mediaConcurrencies :: Prelude.Maybe [MediaConcurrency],
-    -- | The name of the routing profile.
-    name :: Prelude.Maybe Prelude.Text,
     -- | One or more tags.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The description of the routing profile.
@@ -56,16 +57,17 @@ data RoutingProfile = RoutingProfile'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'routingProfile_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'routingProfile_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'defaultOutboundQueueId', 'routingProfile_defaultOutboundQueueId' - The identifier of the default outbound queue for this routing profile.
 --
 -- 'routingProfileId', 'routingProfile_routingProfileId' - The identifier of the routing profile.
 --
+-- 'name', 'routingProfile_name' - The name of the routing profile.
+--
 -- 'mediaConcurrencies', 'routingProfile_mediaConcurrencies' - The channels agents can handle in the Contact Control Panel (CCP) for
 -- this routing profile.
---
--- 'name', 'routingProfile_name' - The name of the routing profile.
 --
 -- 'tags', 'routingProfile_tags' - One or more tags.
 --
@@ -79,14 +81,15 @@ newRoutingProfile =
     { instanceId = Prelude.Nothing,
       defaultOutboundQueueId = Prelude.Nothing,
       routingProfileId = Prelude.Nothing,
-      mediaConcurrencies = Prelude.Nothing,
       name = Prelude.Nothing,
+      mediaConcurrencies = Prelude.Nothing,
       tags = Prelude.Nothing,
       description = Prelude.Nothing,
       routingProfileArn = Prelude.Nothing
     }
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 routingProfile_instanceId :: Lens.Lens' RoutingProfile (Prelude.Maybe Prelude.Text)
 routingProfile_instanceId = Lens.lens (\RoutingProfile' {instanceId} -> instanceId) (\s@RoutingProfile' {} a -> s {instanceId = a} :: RoutingProfile)
 
@@ -98,14 +101,14 @@ routingProfile_defaultOutboundQueueId = Lens.lens (\RoutingProfile' {defaultOutb
 routingProfile_routingProfileId :: Lens.Lens' RoutingProfile (Prelude.Maybe Prelude.Text)
 routingProfile_routingProfileId = Lens.lens (\RoutingProfile' {routingProfileId} -> routingProfileId) (\s@RoutingProfile' {} a -> s {routingProfileId = a} :: RoutingProfile)
 
+-- | The name of the routing profile.
+routingProfile_name :: Lens.Lens' RoutingProfile (Prelude.Maybe Prelude.Text)
+routingProfile_name = Lens.lens (\RoutingProfile' {name} -> name) (\s@RoutingProfile' {} a -> s {name = a} :: RoutingProfile)
+
 -- | The channels agents can handle in the Contact Control Panel (CCP) for
 -- this routing profile.
 routingProfile_mediaConcurrencies :: Lens.Lens' RoutingProfile (Prelude.Maybe [MediaConcurrency])
 routingProfile_mediaConcurrencies = Lens.lens (\RoutingProfile' {mediaConcurrencies} -> mediaConcurrencies) (\s@RoutingProfile' {} a -> s {mediaConcurrencies = a} :: RoutingProfile) Prelude.. Lens.mapping Lens._Coerce
-
--- | The name of the routing profile.
-routingProfile_name :: Lens.Lens' RoutingProfile (Prelude.Maybe Prelude.Text)
-routingProfile_name = Lens.lens (\RoutingProfile' {name} -> name) (\s@RoutingProfile' {} a -> s {name = a} :: RoutingProfile)
 
 -- | One or more tags.
 routingProfile_tags :: Lens.Lens' RoutingProfile (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -128,10 +131,10 @@ instance Core.FromJSON RoutingProfile where
             Prelude.<$> (x Core..:? "InstanceId")
             Prelude.<*> (x Core..:? "DefaultOutboundQueueId")
             Prelude.<*> (x Core..:? "RoutingProfileId")
+            Prelude.<*> (x Core..:? "Name")
             Prelude.<*> ( x Core..:? "MediaConcurrencies"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "RoutingProfileArn")

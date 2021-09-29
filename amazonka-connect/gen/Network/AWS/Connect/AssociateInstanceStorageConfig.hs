@@ -61,7 +61,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAssociateInstanceStorageConfig' smart constructor.
 data AssociateInstanceStorageConfig = AssociateInstanceStorageConfig'
-  { -- | The identifier of the Amazon Connect instance.
+  { -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | A valid resource type.
     resourceType :: InstanceStorageResourceType,
@@ -78,7 +79,8 @@ data AssociateInstanceStorageConfig = AssociateInstanceStorageConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'associateInstanceStorageConfig_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'associateInstanceStorageConfig_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'resourceType', 'associateInstanceStorageConfig_resourceType' - A valid resource type.
 --
@@ -102,7 +104,8 @@ newAssociateInstanceStorageConfig
         storageConfig = pStorageConfig_
       }
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 associateInstanceStorageConfig_instanceId :: Lens.Lens' AssociateInstanceStorageConfig Prelude.Text
 associateInstanceStorageConfig_instanceId = Lens.lens (\AssociateInstanceStorageConfig' {instanceId} -> instanceId) (\s@AssociateInstanceStorageConfig' {} a -> s {instanceId = a} :: AssociateInstanceStorageConfig)
 

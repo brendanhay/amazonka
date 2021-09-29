@@ -49,7 +49,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAssociateLambdaFunction' smart constructor.
 data AssociateLambdaFunction = AssociateLambdaFunction'
-  { -- | The identifier of the Amazon Connect instance.
+  { -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) for the Lambda function being associated.
     -- Maximum number of characters allowed is 140.
@@ -65,7 +66,8 @@ data AssociateLambdaFunction = AssociateLambdaFunction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'instanceId', 'associateLambdaFunction_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'associateLambdaFunction_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 --
 -- 'functionArn', 'associateLambdaFunction_functionArn' - The Amazon Resource Name (ARN) for the Lambda function being associated.
 -- Maximum number of characters allowed is 140.
@@ -81,7 +83,8 @@ newAssociateLambdaFunction pInstanceId_ pFunctionArn_ =
       functionArn = pFunctionArn_
     }
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 associateLambdaFunction_instanceId :: Lens.Lens' AssociateLambdaFunction Prelude.Text
 associateLambdaFunction_instanceId = Lens.lens (\AssociateLambdaFunction' {instanceId} -> instanceId) (\s@AssociateLambdaFunction' {} a -> s {instanceId = a} :: AssociateLambdaFunction)
 

@@ -63,7 +63,8 @@ data ListApprovedOrigins = ListApprovedOrigins'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,7 +83,8 @@ data ListApprovedOrigins = ListApprovedOrigins'
 --
 -- 'maxResults', 'listApprovedOrigins_maxResults' - The maximum number of results to return per page.
 --
--- 'instanceId', 'listApprovedOrigins_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'listApprovedOrigins_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 newListApprovedOrigins ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -104,7 +106,8 @@ listApprovedOrigins_nextToken = Lens.lens (\ListApprovedOrigins' {nextToken} -> 
 listApprovedOrigins_maxResults :: Lens.Lens' ListApprovedOrigins (Prelude.Maybe Prelude.Natural)
 listApprovedOrigins_maxResults = Lens.lens (\ListApprovedOrigins' {maxResults} -> maxResults) (\s@ListApprovedOrigins' {} a -> s {maxResults = a} :: ListApprovedOrigins)
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 listApprovedOrigins_instanceId :: Lens.Lens' ListApprovedOrigins Prelude.Text
 listApprovedOrigins_instanceId = Lens.lens (\ListApprovedOrigins' {instanceId} -> instanceId) (\s@ListApprovedOrigins' {} a -> s {instanceId = a} :: ListApprovedOrigins)
 

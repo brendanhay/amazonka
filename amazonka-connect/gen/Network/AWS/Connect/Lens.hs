@@ -14,6 +14,16 @@
 module Network.AWS.Connect.Lens
   ( -- * Operations
 
+    -- ** UpdateUserHierarchyGroupName
+    updateUserHierarchyGroupName_name,
+    updateUserHierarchyGroupName_hierarchyGroupId,
+    updateUserHierarchyGroupName_instanceId,
+
+    -- ** UpdateUserRoutingProfile
+    updateUserRoutingProfile_routingProfileId,
+    updateUserRoutingProfile_userId,
+    updateUserRoutingProfile_instanceId,
+
     -- ** SuspendContactRecording
     suspendContactRecording_instanceId,
     suspendContactRecording_contactId,
@@ -36,21 +46,13 @@ module Network.AWS.Connect.Lens
     createQuickConnectResponse_quickConnectARN,
     createQuickConnectResponse_httpStatus,
 
-    -- ** UpdateUserRoutingProfile
-    updateUserRoutingProfile_routingProfileId,
-    updateUserRoutingProfile_userId,
-    updateUserRoutingProfile_instanceId,
-
-    -- ** UpdateUserHierarchyGroupName
-    updateUserHierarchyGroupName_name,
-    updateUserHierarchyGroupName_hierarchyGroupId,
-    updateUserHierarchyGroupName_instanceId,
-
-    -- ** UpdateContactFlowName
-    updateContactFlowName_name,
-    updateContactFlowName_description,
-    updateContactFlowName_instanceId,
-    updateContactFlowName_contactFlowId,
+    -- ** ListInstanceAttributes
+    listInstanceAttributes_nextToken,
+    listInstanceAttributes_maxResults,
+    listInstanceAttributes_instanceId,
+    listInstanceAttributesResponse_nextToken,
+    listInstanceAttributesResponse_attributes,
+    listInstanceAttributesResponse_httpStatus,
 
     -- ** ListSecurityProfiles
     listSecurityProfiles_nextToken,
@@ -60,18 +62,21 @@ module Network.AWS.Connect.Lens
     listSecurityProfilesResponse_securityProfileSummaryList,
     listSecurityProfilesResponse_httpStatus,
 
+    -- ** UpdateRoutingProfileQueues
+    updateRoutingProfileQueues_instanceId,
+    updateRoutingProfileQueues_routingProfileId,
+    updateRoutingProfileQueues_queueConfigs,
+
     -- ** DescribeInstance
     describeInstance_instanceId,
     describeInstanceResponse_instance,
     describeInstanceResponse_httpStatus,
 
-    -- ** ListInstanceAttributes
-    listInstanceAttributes_nextToken,
-    listInstanceAttributes_maxResults,
-    listInstanceAttributes_instanceId,
-    listInstanceAttributesResponse_nextToken,
-    listInstanceAttributesResponse_attributes,
-    listInstanceAttributesResponse_httpStatus,
+    -- ** UpdateContactFlowName
+    updateContactFlowName_name,
+    updateContactFlowName_description,
+    updateContactFlowName_instanceId,
+    updateContactFlowName_contactFlowId,
 
     -- ** ListLambdaFunctions
     listLambdaFunctions_nextToken,
@@ -81,22 +86,6 @@ module Network.AWS.Connect.Lens
     listLambdaFunctionsResponse_lambdaFunctions,
     listLambdaFunctionsResponse_httpStatus,
 
-    -- ** UpdateRoutingProfileQueues
-    updateRoutingProfileQueues_instanceId,
-    updateRoutingProfileQueues_routingProfileId,
-    updateRoutingProfileQueues_queueConfigs,
-
-    -- ** AssociateRoutingProfileQueues
-    associateRoutingProfileQueues_instanceId,
-    associateRoutingProfileQueues_routingProfileId,
-    associateRoutingProfileQueues_queueConfigs,
-
-    -- ** GetContactAttributes
-    getContactAttributes_instanceId,
-    getContactAttributes_initialContactId,
-    getContactAttributesResponse_attributes,
-    getContactAttributesResponse_httpStatus,
-
     -- ** ListLexBots
     listLexBots_nextToken,
     listLexBots_maxResults,
@@ -105,9 +94,40 @@ module Network.AWS.Connect.Lens
     listLexBotsResponse_lexBots,
     listLexBotsResponse_httpStatus,
 
+    -- ** AssociateRoutingProfileQueues
+    associateRoutingProfileQueues_instanceId,
+    associateRoutingProfileQueues_routingProfileId,
+    associateRoutingProfileQueues_queueConfigs,
+
+    -- ** ListAgentStatuses
+    listAgentStatuses_nextToken,
+    listAgentStatuses_maxResults,
+    listAgentStatuses_agentStatusTypes,
+    listAgentStatuses_instanceId,
+    listAgentStatusesResponse_nextToken,
+    listAgentStatusesResponse_agentStatusSummaryList,
+    listAgentStatusesResponse_httpStatus,
+
     -- ** AssociateLambdaFunction
     associateLambdaFunction_instanceId,
     associateLambdaFunction_functionArn,
+
+    -- ** GetContactAttributes
+    getContactAttributes_instanceId,
+    getContactAttributes_initialContactId,
+    getContactAttributesResponse_attributes,
+    getContactAttributesResponse_httpStatus,
+
+    -- ** CreateAgentStatus
+    createAgentStatus_displayOrder,
+    createAgentStatus_tags,
+    createAgentStatus_description,
+    createAgentStatus_instanceId,
+    createAgentStatus_name,
+    createAgentStatus_state,
+    createAgentStatusResponse_agentStatusId,
+    createAgentStatusResponse_agentStatusARN,
+    createAgentStatusResponse_httpStatus,
 
     -- ** ListApprovedOrigins
     listApprovedOrigins_nextToken,
@@ -116,6 +136,36 @@ module Network.AWS.Connect.Lens
     listApprovedOriginsResponse_origins,
     listApprovedOriginsResponse_nextToken,
     listApprovedOriginsResponse_httpStatus,
+
+    -- ** UpdateUserPhoneConfig
+    updateUserPhoneConfig_phoneConfig,
+    updateUserPhoneConfig_userId,
+    updateUserPhoneConfig_instanceId,
+
+    -- ** UpdateContactAttributes
+    updateContactAttributes_initialContactId,
+    updateContactAttributes_instanceId,
+    updateContactAttributes_attributes,
+    updateContactAttributesResponse_httpStatus,
+
+    -- ** DeleteUseCase
+    deleteUseCase_instanceId,
+    deleteUseCase_integrationAssociationId,
+    deleteUseCase_useCaseId,
+
+    -- ** ListRoutingProfiles
+    listRoutingProfiles_nextToken,
+    listRoutingProfiles_maxResults,
+    listRoutingProfiles_instanceId,
+    listRoutingProfilesResponse_nextToken,
+    listRoutingProfilesResponse_routingProfileSummaryList,
+    listRoutingProfilesResponse_httpStatus,
+
+    -- ** DescribeQuickConnect
+    describeQuickConnect_instanceId,
+    describeQuickConnect_quickConnectId,
+    describeQuickConnectResponse_quickConnect,
+    describeQuickConnectResponse_httpStatus,
 
     -- ** AssociateInstanceStorageConfig
     associateInstanceStorageConfig_instanceId,
@@ -135,36 +185,6 @@ module Network.AWS.Connect.Lens
     createContactFlowResponse_contactFlowId,
     createContactFlowResponse_httpStatus,
 
-    -- ** UpdateUserPhoneConfig
-    updateUserPhoneConfig_phoneConfig,
-    updateUserPhoneConfig_userId,
-    updateUserPhoneConfig_instanceId,
-
-    -- ** UpdateContactAttributes
-    updateContactAttributes_initialContactId,
-    updateContactAttributes_instanceId,
-    updateContactAttributes_attributes,
-    updateContactAttributesResponse_httpStatus,
-
-    -- ** ListRoutingProfiles
-    listRoutingProfiles_nextToken,
-    listRoutingProfiles_maxResults,
-    listRoutingProfiles_instanceId,
-    listRoutingProfilesResponse_nextToken,
-    listRoutingProfilesResponse_routingProfileSummaryList,
-    listRoutingProfilesResponse_httpStatus,
-
-    -- ** DeleteUseCase
-    deleteUseCase_instanceId,
-    deleteUseCase_integrationAssociationId,
-    deleteUseCase_useCaseId,
-
-    -- ** DescribeQuickConnect
-    describeQuickConnect_instanceId,
-    describeQuickConnect_quickConnectId,
-    describeQuickConnectResponse_quickConnect,
-    describeQuickConnectResponse_httpStatus,
-
     -- ** ListQueueQuickConnects
     listQueueQuickConnects_nextToken,
     listQueueQuickConnects_maxResults,
@@ -174,44 +194,20 @@ module Network.AWS.Connect.Lens
     listQueueQuickConnectsResponse_quickConnectSummaryList,
     listQueueQuickConnectsResponse_httpStatus,
 
-    -- ** CreateRoutingProfile
-    createRoutingProfile_queueConfigs,
-    createRoutingProfile_tags,
-    createRoutingProfile_instanceId,
-    createRoutingProfile_name,
-    createRoutingProfile_description,
-    createRoutingProfile_defaultOutboundQueueId,
-    createRoutingProfile_mediaConcurrencies,
-    createRoutingProfileResponse_routingProfileId,
-    createRoutingProfileResponse_routingProfileArn,
-    createRoutingProfileResponse_httpStatus,
-
-    -- ** AssociateApprovedOrigin
-    associateApprovedOrigin_instanceId,
-    associateApprovedOrigin_origin,
+    -- ** UpdateRoutingProfileConcurrency
+    updateRoutingProfileConcurrency_instanceId,
+    updateRoutingProfileConcurrency_routingProfileId,
+    updateRoutingProfileConcurrency_mediaConcurrencies,
 
     -- ** DisassociateQueueQuickConnects
     disassociateQueueQuickConnects_instanceId,
     disassociateQueueQuickConnects_queueId,
     disassociateQueueQuickConnects_quickConnectIds,
 
-    -- ** UpdateRoutingProfileConcurrency
-    updateRoutingProfileConcurrency_instanceId,
-    updateRoutingProfileConcurrency_routingProfileId,
-    updateRoutingProfileConcurrency_mediaConcurrencies,
-
     -- ** UpdateQueueOutboundCallerConfig
     updateQueueOutboundCallerConfig_instanceId,
     updateQueueOutboundCallerConfig_queueId,
     updateQueueOutboundCallerConfig_outboundCallerConfig,
-
-    -- ** DisassociateSecurityKey
-    disassociateSecurityKey_instanceId,
-    disassociateSecurityKey_associationId,
-
-    -- ** UntagResource
-    untagResource_resourceArn,
-    untagResource_tagKeys,
 
     -- ** GetCurrentMetricData
     getCurrentMetricData_nextToken,
@@ -225,6 +221,52 @@ module Network.AWS.Connect.Lens
     getCurrentMetricDataResponse_metricResults,
     getCurrentMetricDataResponse_httpStatus,
 
+    -- ** CreateRoutingProfile
+    createRoutingProfile_queueConfigs,
+    createRoutingProfile_tags,
+    createRoutingProfile_instanceId,
+    createRoutingProfile_name,
+    createRoutingProfile_description,
+    createRoutingProfile_defaultOutboundQueueId,
+    createRoutingProfile_mediaConcurrencies,
+    createRoutingProfileResponse_routingProfileId,
+    createRoutingProfileResponse_routingProfileArn,
+    createRoutingProfileResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+
+    -- ** DisassociateSecurityKey
+    disassociateSecurityKey_instanceId,
+    disassociateSecurityKey_associationId,
+
+    -- ** AssociateApprovedOrigin
+    associateApprovedOrigin_instanceId,
+    associateApprovedOrigin_origin,
+
+    -- ** ListQueues
+    listQueues_nextToken,
+    listQueues_maxResults,
+    listQueues_queueTypes,
+    listQueues_instanceId,
+    listQueuesResponse_nextToken,
+    listQueuesResponse_queueSummaryList,
+    listQueuesResponse_httpStatus,
+
+    -- ** ListBots
+    listBots_nextToken,
+    listBots_maxResults,
+    listBots_instanceId,
+    listBots_lexVersion,
+    listBotsResponse_nextToken,
+    listBotsResponse_lexBots,
+    listBotsResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+
     -- ** UpdateQuickConnectConfig
     updateQuickConnectConfig_instanceId,
     updateQuickConnectConfig_quickConnectId,
@@ -237,41 +279,31 @@ module Network.AWS.Connect.Lens
     listInstancesResponse_instanceSummaryList,
     listInstancesResponse_httpStatus,
 
-    -- ** ListQueues
-    listQueues_nextToken,
-    listQueues_maxResults,
-    listQueues_queueTypes,
-    listQueues_instanceId,
-    listQueuesResponse_nextToken,
-    listQueuesResponse_queueSummaryList,
-    listQueuesResponse_httpStatus,
-
     -- ** DeleteInstance
     deleteInstance_instanceId,
-
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
 
     -- ** StopContact
     stopContact_contactId,
     stopContact_instanceId,
     stopContactResponse_httpStatus,
 
-    -- ** CreateUserHierarchyGroup
-    createUserHierarchyGroup_parentGroupId,
-    createUserHierarchyGroup_name,
-    createUserHierarchyGroup_instanceId,
-    createUserHierarchyGroupResponse_hierarchyGroupArn,
-    createUserHierarchyGroupResponse_hierarchyGroupId,
-    createUserHierarchyGroupResponse_httpStatus,
+    -- ** AssociateSecurityKey
+    associateSecurityKey_instanceId,
+    associateSecurityKey_key,
+    associateSecurityKeyResponse_associationId,
+    associateSecurityKeyResponse_httpStatus,
 
-    -- ** StartContactRecording
-    startContactRecording_instanceId,
-    startContactRecording_contactId,
-    startContactRecording_initialContactId,
-    startContactRecording_voiceRecordingConfiguration,
-    startContactRecordingResponse_httpStatus,
+    -- ** StopContactRecording
+    stopContactRecording_instanceId,
+    stopContactRecording_contactId,
+    stopContactRecording_initialContactId,
+    stopContactRecordingResponse_httpStatus,
+
+    -- ** UpdateQuickConnectName
+    updateQuickConnectName_name,
+    updateQuickConnectName_description,
+    updateQuickConnectName_instanceId,
+    updateQuickConnectName_quickConnectId,
 
     -- ** CreateUser
     createUser_identityInfo,
@@ -288,38 +320,40 @@ module Network.AWS.Connect.Lens
     createUserResponse_userId,
     createUserResponse_httpStatus,
 
-    -- ** AssociateSecurityKey
-    associateSecurityKey_instanceId,
-    associateSecurityKey_key,
-    associateSecurityKeyResponse_associationId,
-    associateSecurityKeyResponse_httpStatus,
+    -- ** CreateUserHierarchyGroup
+    createUserHierarchyGroup_parentGroupId,
+    createUserHierarchyGroup_name,
+    createUserHierarchyGroup_instanceId,
+    createUserHierarchyGroupResponse_hierarchyGroupArn,
+    createUserHierarchyGroupResponse_hierarchyGroupId,
+    createUserHierarchyGroupResponse_httpStatus,
+
+    -- ** StartContactRecording
+    startContactRecording_instanceId,
+    startContactRecording_contactId,
+    startContactRecording_initialContactId,
+    startContactRecording_voiceRecordingConfiguration,
+    startContactRecordingResponse_httpStatus,
+
+    -- ** DisassociateApprovedOrigin
+    disassociateApprovedOrigin_instanceId,
+    disassociateApprovedOrigin_origin,
 
     -- ** AssociateQueueQuickConnects
     associateQueueQuickConnects_instanceId,
     associateQueueQuickConnects_queueId,
     associateQueueQuickConnects_quickConnectIds,
 
-    -- ** StopContactRecording
-    stopContactRecording_instanceId,
-    stopContactRecording_contactId,
-    stopContactRecording_initialContactId,
-    stopContactRecordingResponse_httpStatus,
-
-    -- ** DisassociateApprovedOrigin
-    disassociateApprovedOrigin_instanceId,
-    disassociateApprovedOrigin_origin,
-
-    -- ** UpdateQuickConnectName
-    updateQuickConnectName_name,
-    updateQuickConnectName_description,
-    updateQuickConnectName_instanceId,
-    updateQuickConnectName_quickConnectId,
-
     -- ** DescribeRoutingProfile
     describeRoutingProfile_instanceId,
     describeRoutingProfile_routingProfileId,
     describeRoutingProfileResponse_routingProfile,
     describeRoutingProfileResponse_httpStatus,
+
+    -- ** DisassociateLexBot
+    disassociateLexBot_instanceId,
+    disassociateLexBot_botName,
+    disassociateLexBot_lexRegion,
 
     -- ** ListQuickConnects
     listQuickConnects_nextToken,
@@ -330,23 +364,25 @@ module Network.AWS.Connect.Lens
     listQuickConnectsResponse_quickConnectSummaryList,
     listQuickConnectsResponse_httpStatus,
 
-    -- ** DisassociateLexBot
-    disassociateLexBot_instanceId,
-    disassociateLexBot_botName,
-    disassociateLexBot_lexRegion,
-
     -- ** DeleteQuickConnect
     deleteQuickConnect_instanceId,
     deleteQuickConnect_quickConnectId,
 
-    -- ** ListRoutingProfileQueues
-    listRoutingProfileQueues_nextToken,
-    listRoutingProfileQueues_maxResults,
-    listRoutingProfileQueues_instanceId,
-    listRoutingProfileQueues_routingProfileId,
-    listRoutingProfileQueuesResponse_nextToken,
-    listRoutingProfileQueuesResponse_routingProfileQueueConfigSummaryList,
-    listRoutingProfileQueuesResponse_httpStatus,
+    -- ** DescribeContactFlow
+    describeContactFlow_instanceId,
+    describeContactFlow_contactFlowId,
+    describeContactFlowResponse_contactFlow,
+    describeContactFlowResponse_httpStatus,
+
+    -- ** DisassociateRoutingProfileQueues
+    disassociateRoutingProfileQueues_instanceId,
+    disassociateRoutingProfileQueues_routingProfileId,
+    disassociateRoutingProfileQueues_queueReferences,
+
+    -- ** UpdateQueueHoursOfOperation
+    updateQueueHoursOfOperation_instanceId,
+    updateQueueHoursOfOperation_queueId,
+    updateQueueHoursOfOperation_hoursOfOperationId,
 
     -- ** UpdateUserHierarchy
     updateUserHierarchy_hierarchyGroupId,
@@ -358,9 +394,9 @@ module Network.AWS.Connect.Lens
     disassociateLambdaFunction_functionArn,
 
     -- ** UpdateQueueMaxContacts
+    updateQueueMaxContacts_maxContacts,
     updateQueueMaxContacts_instanceId,
     updateQueueMaxContacts_queueId,
-    updateQueueMaxContacts_maxContacts,
 
     -- ** DescribeInstanceStorageConfig
     describeInstanceStorageConfig_instanceId,
@@ -369,36 +405,14 @@ module Network.AWS.Connect.Lens
     describeInstanceStorageConfigResponse_storageConfig,
     describeInstanceStorageConfigResponse_httpStatus,
 
-    -- ** UpdateQueueHoursOfOperation
-    updateQueueHoursOfOperation_instanceId,
-    updateQueueHoursOfOperation_queueId,
-    updateQueueHoursOfOperation_hoursOfOperationId,
-
-    -- ** DisassociateRoutingProfileQueues
-    disassociateRoutingProfileQueues_instanceId,
-    disassociateRoutingProfileQueues_routingProfileId,
-    disassociateRoutingProfileQueues_queueReferences,
-
-    -- ** DescribeContactFlow
-    describeContactFlow_instanceId,
-    describeContactFlow_contactFlowId,
-    describeContactFlowResponse_contactFlow,
-    describeContactFlowResponse_httpStatus,
-
-    -- ** UpdateQueueStatus
-    updateQueueStatus_instanceId,
-    updateQueueStatus_queueId,
-    updateQueueStatus_status,
-
-    -- ** DescribeQueue
-    describeQueue_instanceId,
-    describeQueue_queueId,
-    describeQueueResponse_queue,
-    describeQueueResponse_httpStatus,
-
-    -- ** AssociateLexBot
-    associateLexBot_instanceId,
-    associateLexBot_lexBot,
+    -- ** ListRoutingProfileQueues
+    listRoutingProfileQueues_nextToken,
+    listRoutingProfileQueues_maxResults,
+    listRoutingProfileQueues_instanceId,
+    listRoutingProfileQueues_routingProfileId,
+    listRoutingProfileQueuesResponse_nextToken,
+    listRoutingProfileQueuesResponse_routingProfileQueueConfigSummaryList,
+    listRoutingProfileQueuesResponse_httpStatus,
 
     -- ** UpdateInstanceAttribute
     updateInstanceAttribute_instanceId,
@@ -411,11 +425,14 @@ module Network.AWS.Connect.Lens
     describeUserResponse_user,
     describeUserResponse_httpStatus,
 
-    -- ** DescribeUserHierarchyGroup
-    describeUserHierarchyGroup_hierarchyGroupId,
-    describeUserHierarchyGroup_instanceId,
-    describeUserHierarchyGroupResponse_hierarchyGroup,
-    describeUserHierarchyGroupResponse_httpStatus,
+    -- ** AssociateLexBot
+    associateLexBot_instanceId,
+    associateLexBot_lexBot,
+
+    -- ** UpdateQueueStatus
+    updateQueueStatus_instanceId,
+    updateQueueStatus_queueId,
+    updateQueueStatus_status,
 
     -- ** ResumeContactRecording
     resumeContactRecording_instanceId,
@@ -423,11 +440,37 @@ module Network.AWS.Connect.Lens
     resumeContactRecording_initialContactId,
     resumeContactRecordingResponse_httpStatus,
 
+    -- ** UpdateAgentStatus
+    updateAgentStatus_displayOrder,
+    updateAgentStatus_name,
+    updateAgentStatus_state,
+    updateAgentStatus_description,
+    updateAgentStatus_resetOrderNumber,
+    updateAgentStatus_instanceId,
+    updateAgentStatus_agentStatusId,
+
+    -- ** DescribeUserHierarchyGroup
+    describeUserHierarchyGroup_hierarchyGroupId,
+    describeUserHierarchyGroup_instanceId,
+    describeUserHierarchyGroupResponse_hierarchyGroup,
+    describeUserHierarchyGroupResponse_httpStatus,
+
+    -- ** DescribeQueue
+    describeQueue_instanceId,
+    describeQueue_queueId,
+    describeQueueResponse_queue,
+    describeQueueResponse_httpStatus,
+
     -- ** UpdateRoutingProfileName
     updateRoutingProfileName_name,
     updateRoutingProfileName_description,
     updateRoutingProfileName_instanceId,
     updateRoutingProfileName_routingProfileId,
+
+    -- ** DescribeUserHierarchyStructure
+    describeUserHierarchyStructure_instanceId,
+    describeUserHierarchyStructureResponse_hierarchyStructure,
+    describeUserHierarchyStructureResponse_httpStatus,
 
     -- ** StartChatContact
     startChatContact_initialMessage,
@@ -445,24 +488,6 @@ module Network.AWS.Connect.Lens
     deleteIntegrationAssociation_instanceId,
     deleteIntegrationAssociation_integrationAssociationId,
 
-    -- ** ListPhoneNumbers
-    listPhoneNumbers_nextToken,
-    listPhoneNumbers_phoneNumberTypes,
-    listPhoneNumbers_maxResults,
-    listPhoneNumbers_phoneNumberCountryCodes,
-    listPhoneNumbers_instanceId,
-    listPhoneNumbersResponse_nextToken,
-    listPhoneNumbersResponse_phoneNumberSummaryList,
-    listPhoneNumbersResponse_httpStatus,
-
-    -- ** ListIntegrationAssociations
-    listIntegrationAssociations_nextToken,
-    listIntegrationAssociations_maxResults,
-    listIntegrationAssociations_instanceId,
-    listIntegrationAssociationsResponse_nextToken,
-    listIntegrationAssociationsResponse_integrationAssociationSummaryList,
-    listIntegrationAssociationsResponse_httpStatus,
-
     -- ** ListUseCases
     listUseCases_nextToken,
     listUseCases_maxResults,
@@ -477,10 +502,27 @@ module Network.AWS.Connect.Lens
     updateUserSecurityProfiles_userId,
     updateUserSecurityProfiles_instanceId,
 
-    -- ** DescribeUserHierarchyStructure
-    describeUserHierarchyStructure_instanceId,
-    describeUserHierarchyStructureResponse_hierarchyStructure,
-    describeUserHierarchyStructureResponse_httpStatus,
+    -- ** DeleteHoursOfOperation
+    deleteHoursOfOperation_instanceId,
+    deleteHoursOfOperation_hoursOfOperationId,
+
+    -- ** UpdateHoursOfOperation
+    updateHoursOfOperation_config,
+    updateHoursOfOperation_name,
+    updateHoursOfOperation_description,
+    updateHoursOfOperation_timeZone,
+    updateHoursOfOperation_instanceId,
+    updateHoursOfOperation_hoursOfOperationId,
+
+    -- ** ListPhoneNumbers
+    listPhoneNumbers_nextToken,
+    listPhoneNumbers_phoneNumberTypes,
+    listPhoneNumbers_maxResults,
+    listPhoneNumbers_phoneNumberCountryCodes,
+    listPhoneNumbers_instanceId,
+    listPhoneNumbersResponse_nextToken,
+    listPhoneNumbersResponse_phoneNumberSummaryList,
+    listPhoneNumbersResponse_httpStatus,
 
     -- ** ListHoursOfOperations
     listHoursOfOperations_nextToken,
@@ -490,13 +532,14 @@ module Network.AWS.Connect.Lens
     listHoursOfOperationsResponse_hoursOfOperationSummaryList,
     listHoursOfOperationsResponse_httpStatus,
 
-    -- ** CreateUseCase
-    createUseCase_instanceId,
-    createUseCase_integrationAssociationId,
-    createUseCase_useCaseType,
-    createUseCaseResponse_useCaseArn,
-    createUseCaseResponse_useCaseId,
-    createUseCaseResponse_httpStatus,
+    -- ** ListIntegrationAssociations
+    listIntegrationAssociations_nextToken,
+    listIntegrationAssociations_maxResults,
+    listIntegrationAssociations_integrationType,
+    listIntegrationAssociations_instanceId,
+    listIntegrationAssociationsResponse_nextToken,
+    listIntegrationAssociationsResponse_integrationAssociationSummaryList,
+    listIntegrationAssociationsResponse_httpStatus,
 
     -- ** ListContactFlows
     listContactFlows_nextToken,
@@ -507,12 +550,6 @@ module Network.AWS.Connect.Lens
     listContactFlowsResponse_contactFlowSummaryList,
     listContactFlowsResponse_httpStatus,
 
-    -- ** UpdateInstanceStorageConfig
-    updateInstanceStorageConfig_instanceId,
-    updateInstanceStorageConfig_associationId,
-    updateInstanceStorageConfig_resourceType,
-    updateInstanceStorageConfig_storageConfig,
-
     -- ** ListInstanceStorageConfigs
     listInstanceStorageConfigs_nextToken,
     listInstanceStorageConfigs_maxResults,
@@ -522,42 +559,58 @@ module Network.AWS.Connect.Lens
     listInstanceStorageConfigsResponse_storageConfigs,
     listInstanceStorageConfigsResponse_httpStatus,
 
+    -- ** CreateHoursOfOperation
+    createHoursOfOperation_tags,
+    createHoursOfOperation_description,
+    createHoursOfOperation_instanceId,
+    createHoursOfOperation_name,
+    createHoursOfOperation_timeZone,
+    createHoursOfOperation_config,
+    createHoursOfOperationResponse_hoursOfOperationArn,
+    createHoursOfOperationResponse_hoursOfOperationId,
+    createHoursOfOperationResponse_httpStatus,
+
+    -- ** CreateUseCase
+    createUseCase_tags,
+    createUseCase_instanceId,
+    createUseCase_integrationAssociationId,
+    createUseCase_useCaseType,
+    createUseCaseResponse_useCaseArn,
+    createUseCaseResponse_useCaseId,
+    createUseCaseResponse_httpStatus,
+
+    -- ** DisassociateBot
+    disassociateBot_lexBot,
+    disassociateBot_lexV2Bot,
+    disassociateBot_instanceId,
+
     -- ** CreateIntegrationAssociation
+    createIntegrationAssociation_sourceApplicationName,
+    createIntegrationAssociation_sourceApplicationUrl,
+    createIntegrationAssociation_tags,
+    createIntegrationAssociation_sourceType,
     createIntegrationAssociation_instanceId,
     createIntegrationAssociation_integrationType,
     createIntegrationAssociation_integrationArn,
-    createIntegrationAssociation_sourceApplicationUrl,
-    createIntegrationAssociation_sourceApplicationName,
-    createIntegrationAssociation_sourceType,
     createIntegrationAssociationResponse_integrationAssociationArn,
     createIntegrationAssociationResponse_integrationAssociationId,
     createIntegrationAssociationResponse_httpStatus,
 
-    -- ** DeleteUserHierarchyGroup
-    deleteUserHierarchyGroup_hierarchyGroupId,
-    deleteUserHierarchyGroup_instanceId,
-
-    -- ** DeleteUser
-    deleteUser_instanceId,
-    deleteUser_userId,
-
-    -- ** DisassociateInstanceStorageConfig
-    disassociateInstanceStorageConfig_instanceId,
-    disassociateInstanceStorageConfig_associationId,
-    disassociateInstanceStorageConfig_resourceType,
-
-    -- ** ListUserHierarchyGroups
-    listUserHierarchyGroups_nextToken,
-    listUserHierarchyGroups_maxResults,
-    listUserHierarchyGroups_instanceId,
-    listUserHierarchyGroupsResponse_userHierarchyGroupSummaryList,
-    listUserHierarchyGroupsResponse_nextToken,
-    listUserHierarchyGroupsResponse_httpStatus,
+    -- ** UpdateInstanceStorageConfig
+    updateInstanceStorageConfig_instanceId,
+    updateInstanceStorageConfig_associationId,
+    updateInstanceStorageConfig_resourceType,
+    updateInstanceStorageConfig_storageConfig,
 
     -- ** UpdateUserIdentityInfo
     updateUserIdentityInfo_identityInfo,
     updateUserIdentityInfo_userId,
     updateUserIdentityInfo_instanceId,
+
+    -- ** UpdateRoutingProfileDefaultOutboundQueue
+    updateRoutingProfileDefaultOutboundQueue_instanceId,
+    updateRoutingProfileDefaultOutboundQueue_routingProfileId,
+    updateRoutingProfileDefaultOutboundQueue_defaultOutboundQueueId,
 
     -- ** ListUsers
     listUsers_nextToken,
@@ -572,11 +625,21 @@ module Network.AWS.Connect.Lens
     getFederationTokenResponse_credentials,
     getFederationTokenResponse_httpStatus,
 
+    -- ** DeleteUserHierarchyGroup
+    deleteUserHierarchyGroup_hierarchyGroupId,
+    deleteUserHierarchyGroup_instanceId,
+
     -- ** DescribeInstanceAttribute
     describeInstanceAttribute_instanceId,
     describeInstanceAttribute_attributeType,
     describeInstanceAttributeResponse_attribute,
     describeInstanceAttributeResponse_httpStatus,
+
+    -- ** DescribeAgentStatus
+    describeAgentStatus_instanceId,
+    describeAgentStatus_agentStatusId,
+    describeAgentStatusResponse_agentStatus,
+    describeAgentStatusResponse_httpStatus,
 
     -- ** ListSecurityKeys
     listSecurityKeys_nextToken,
@@ -586,10 +649,38 @@ module Network.AWS.Connect.Lens
     listSecurityKeysResponse_securityKeys,
     listSecurityKeysResponse_httpStatus,
 
-    -- ** UpdateRoutingProfileDefaultOutboundQueue
-    updateRoutingProfileDefaultOutboundQueue_instanceId,
-    updateRoutingProfileDefaultOutboundQueue_routingProfileId,
-    updateRoutingProfileDefaultOutboundQueue_defaultOutboundQueueId,
+    -- ** ListUserHierarchyGroups
+    listUserHierarchyGroups_nextToken,
+    listUserHierarchyGroups_maxResults,
+    listUserHierarchyGroups_instanceId,
+    listUserHierarchyGroupsResponse_userHierarchyGroupSummaryList,
+    listUserHierarchyGroupsResponse_nextToken,
+    listUserHierarchyGroupsResponse_httpStatus,
+
+    -- ** DeleteUser
+    deleteUser_instanceId,
+    deleteUser_userId,
+
+    -- ** DisassociateInstanceStorageConfig
+    disassociateInstanceStorageConfig_instanceId,
+    disassociateInstanceStorageConfig_associationId,
+    disassociateInstanceStorageConfig_resourceType,
+
+    -- ** AssociateBot
+    associateBot_lexBot,
+    associateBot_lexV2Bot,
+    associateBot_instanceId,
+
+    -- ** CreateInstance
+    createInstance_instanceAlias,
+    createInstance_directoryId,
+    createInstance_clientToken,
+    createInstance_identityManagementType,
+    createInstance_inboundCallsEnabled,
+    createInstance_outboundCallsEnabled,
+    createInstanceResponse_arn,
+    createInstanceResponse_id,
+    createInstanceResponse_httpStatus,
 
     -- ** CreateQueue
     createQueue_maxContacts,
@@ -604,16 +695,13 @@ module Network.AWS.Connect.Lens
     createQueueResponse_queueArn,
     createQueueResponse_httpStatus,
 
-    -- ** CreateInstance
-    createInstance_instanceAlias,
-    createInstance_directoryId,
-    createInstance_clientToken,
-    createInstance_identityManagementType,
-    createInstance_inboundCallsEnabled,
-    createInstance_outboundCallsEnabled,
-    createInstanceResponse_arn,
-    createInstanceResponse_id,
-    createInstanceResponse_httpStatus,
+    -- ** ListPrompts
+    listPrompts_nextToken,
+    listPrompts_maxResults,
+    listPrompts_instanceId,
+    listPromptsResponse_nextToken,
+    listPromptsResponse_promptSummaryList,
+    listPromptsResponse_httpStatus,
 
     -- ** StartTaskContact
     startTaskContact_previousContactId,
@@ -627,13 +715,16 @@ module Network.AWS.Connect.Lens
     startTaskContactResponse_contactId,
     startTaskContactResponse_httpStatus,
 
-    -- ** ListPrompts
-    listPrompts_nextToken,
-    listPrompts_maxResults,
-    listPrompts_instanceId,
-    listPromptsResponse_nextToken,
-    listPromptsResponse_promptSummaryList,
-    listPromptsResponse_httpStatus,
+    -- ** UpdateContactFlowContent
+    updateContactFlowContent_instanceId,
+    updateContactFlowContent_contactFlowId,
+    updateContactFlowContent_content,
+
+    -- ** DescribeHoursOfOperation
+    describeHoursOfOperation_instanceId,
+    describeHoursOfOperation_hoursOfOperationId,
+    describeHoursOfOperationResponse_hoursOfOperation,
+    describeHoursOfOperationResponse_httpStatus,
 
     -- ** ListTagsForResource
     listTagsForResource_resourceArn,
@@ -641,7 +732,10 @@ module Network.AWS.Connect.Lens
     listTagsForResourceResponse_httpStatus,
 
     -- ** StartOutboundVoiceContact
+    startOutboundVoiceContact_answerMachineDetectionConfig,
     startOutboundVoiceContact_queueId,
+    startOutboundVoiceContact_campaignId,
+    startOutboundVoiceContact_trafficType,
     startOutboundVoiceContact_sourcePhoneNumber,
     startOutboundVoiceContact_attributes,
     startOutboundVoiceContact_clientToken,
@@ -654,11 +748,6 @@ module Network.AWS.Connect.Lens
     -- ** UpdateUserHierarchyStructure
     updateUserHierarchyStructure_hierarchyStructure,
     updateUserHierarchyStructure_instanceId,
-
-    -- ** UpdateContactFlowContent
-    updateContactFlowContent_instanceId,
-    updateContactFlowContent_contactFlowId,
-    updateContactFlowContent_content,
 
     -- ** GetMetricData
     getMetricData_nextToken,
@@ -673,13 +762,27 @@ module Network.AWS.Connect.Lens
     getMetricDataResponse_metricResults,
     getMetricDataResponse_httpStatus,
 
-    -- ** DescribeHoursOfOperation
-    describeHoursOfOperation_instanceId,
-    describeHoursOfOperation_hoursOfOperationId,
-    describeHoursOfOperationResponse_hoursOfOperation,
-    describeHoursOfOperationResponse_httpStatus,
-
     -- * Types
+
+    -- ** AgentStatus
+    agentStatus_displayOrder,
+    agentStatus_agentStatusId,
+    agentStatus_name,
+    agentStatus_state,
+    agentStatus_tags,
+    agentStatus_description,
+    agentStatus_agentStatusARN,
+    agentStatus_type,
+
+    -- ** AgentStatusSummary
+    agentStatusSummary_arn,
+    agentStatusSummary_id,
+    agentStatusSummary_name,
+    agentStatusSummary_type,
+
+    -- ** AnswerMachineDetectionConfig
+    answerMachineDetectionConfig_enableAnswerMachineDetection,
+    answerMachineDetectionConfig_awaitAnswerMachinePrompt,
 
     -- ** Attribute
     attribute_attributeType,
@@ -757,23 +860,23 @@ module Network.AWS.Connect.Lens
     -- ** HierarchyPath
     hierarchyPath_levelThree,
     hierarchyPath_levelFour,
-    hierarchyPath_levelTwo,
-    hierarchyPath_levelOne,
     hierarchyPath_levelFive,
+    hierarchyPath_levelOne,
+    hierarchyPath_levelTwo,
 
     -- ** HierarchyStructure
     hierarchyStructure_levelThree,
     hierarchyStructure_levelFour,
-    hierarchyStructure_levelTwo,
-    hierarchyStructure_levelOne,
     hierarchyStructure_levelFive,
+    hierarchyStructure_levelOne,
+    hierarchyStructure_levelTwo,
 
     -- ** HierarchyStructureUpdate
     hierarchyStructureUpdate_levelThree,
     hierarchyStructureUpdate_levelFour,
-    hierarchyStructureUpdate_levelTwo,
-    hierarchyStructureUpdate_levelOne,
     hierarchyStructureUpdate_levelFive,
+    hierarchyStructureUpdate_levelOne,
+    hierarchyStructureUpdate_levelTwo,
 
     -- ** HistoricalMetric
     historicalMetric_threshold,
@@ -817,9 +920,9 @@ module Network.AWS.Connect.Lens
     instance_serviceRole,
     instance_outboundCallsEnabled,
     instance_arn,
-    instance_id,
-    instance_instanceStatus,
     instance_identityManagementType,
+    instance_instanceStatus,
+    instance_id,
     instance_createdTime,
     instance_inboundCallsEnabled,
     instance_statusReason,
@@ -840,9 +943,9 @@ module Network.AWS.Connect.Lens
     instanceSummary_serviceRole,
     instanceSummary_outboundCallsEnabled,
     instanceSummary_arn,
-    instanceSummary_id,
-    instanceSummary_instanceStatus,
     instanceSummary_identityManagementType,
+    instanceSummary_instanceStatus,
+    instanceSummary_id,
     instanceSummary_createdTime,
     instanceSummary_inboundCallsEnabled,
 
@@ -871,14 +974,21 @@ module Network.AWS.Connect.Lens
     lexBot_name,
     lexBot_lexRegion,
 
+    -- ** LexBotConfig
+    lexBotConfig_lexBot,
+    lexBotConfig_lexV2Bot,
+
+    -- ** LexV2Bot
+    lexV2Bot_aliasArn,
+
     -- ** MediaConcurrency
     mediaConcurrency_channel,
     mediaConcurrency_concurrency,
 
     -- ** OutboundCallerConfig
     outboundCallerConfig_outboundCallerIdNumberId,
-    outboundCallerConfig_outboundFlowId,
     outboundCallerConfig_outboundCallerIdName,
+    outboundCallerConfig_outboundFlowId,
 
     -- ** ParticipantDetails
     participantDetails_displayName,
@@ -926,8 +1036,8 @@ module Network.AWS.Connect.Lens
     -- ** QuickConnect
     quickConnect_quickConnectId,
     quickConnect_name,
-    quickConnect_tags,
     quickConnect_quickConnectConfig,
+    quickConnect_tags,
     quickConnect_quickConnectARN,
     quickConnect_description,
 
@@ -951,8 +1061,8 @@ module Network.AWS.Connect.Lens
     routingProfile_instanceId,
     routingProfile_defaultOutboundQueueId,
     routingProfile_routingProfileId,
-    routingProfile_mediaConcurrencies,
     routingProfile_name,
+    routingProfile_mediaConcurrencies,
     routingProfile_tags,
     routingProfile_description,
     routingProfile_routingProfileArn,
@@ -1017,8 +1127,8 @@ module Network.AWS.Connect.Lens
 
     -- ** UserIdentityInfo
     userIdentityInfo_email,
-    userIdentityInfo_firstName,
     userIdentityInfo_lastName,
+    userIdentityInfo_firstName,
 
     -- ** UserPhoneConfig
     userPhoneConfig_autoAccept,
@@ -1041,13 +1151,16 @@ module Network.AWS.Connect.Lens
 where
 
 import Network.AWS.Connect.AssociateApprovedOrigin
+import Network.AWS.Connect.AssociateBot
 import Network.AWS.Connect.AssociateInstanceStorageConfig
 import Network.AWS.Connect.AssociateLambdaFunction
 import Network.AWS.Connect.AssociateLexBot
 import Network.AWS.Connect.AssociateQueueQuickConnects
 import Network.AWS.Connect.AssociateRoutingProfileQueues
 import Network.AWS.Connect.AssociateSecurityKey
+import Network.AWS.Connect.CreateAgentStatus
 import Network.AWS.Connect.CreateContactFlow
+import Network.AWS.Connect.CreateHoursOfOperation
 import Network.AWS.Connect.CreateInstance
 import Network.AWS.Connect.CreateIntegrationAssociation
 import Network.AWS.Connect.CreateQueue
@@ -1056,12 +1169,14 @@ import Network.AWS.Connect.CreateRoutingProfile
 import Network.AWS.Connect.CreateUseCase
 import Network.AWS.Connect.CreateUser
 import Network.AWS.Connect.CreateUserHierarchyGroup
+import Network.AWS.Connect.DeleteHoursOfOperation
 import Network.AWS.Connect.DeleteInstance
 import Network.AWS.Connect.DeleteIntegrationAssociation
 import Network.AWS.Connect.DeleteQuickConnect
 import Network.AWS.Connect.DeleteUseCase
 import Network.AWS.Connect.DeleteUser
 import Network.AWS.Connect.DeleteUserHierarchyGroup
+import Network.AWS.Connect.DescribeAgentStatus
 import Network.AWS.Connect.DescribeContactFlow
 import Network.AWS.Connect.DescribeHoursOfOperation
 import Network.AWS.Connect.DescribeInstance
@@ -1074,6 +1189,7 @@ import Network.AWS.Connect.DescribeUser
 import Network.AWS.Connect.DescribeUserHierarchyGroup
 import Network.AWS.Connect.DescribeUserHierarchyStructure
 import Network.AWS.Connect.DisassociateApprovedOrigin
+import Network.AWS.Connect.DisassociateBot
 import Network.AWS.Connect.DisassociateInstanceStorageConfig
 import Network.AWS.Connect.DisassociateLambdaFunction
 import Network.AWS.Connect.DisassociateLexBot
@@ -1084,7 +1200,9 @@ import Network.AWS.Connect.GetContactAttributes
 import Network.AWS.Connect.GetCurrentMetricData
 import Network.AWS.Connect.GetFederationToken
 import Network.AWS.Connect.GetMetricData
+import Network.AWS.Connect.ListAgentStatuses
 import Network.AWS.Connect.ListApprovedOrigins
+import Network.AWS.Connect.ListBots
 import Network.AWS.Connect.ListContactFlows
 import Network.AWS.Connect.ListHoursOfOperations
 import Network.AWS.Connect.ListInstanceAttributes
@@ -1115,6 +1233,9 @@ import Network.AWS.Connect.StopContact
 import Network.AWS.Connect.StopContactRecording
 import Network.AWS.Connect.SuspendContactRecording
 import Network.AWS.Connect.TagResource
+import Network.AWS.Connect.Types.AgentStatus
+import Network.AWS.Connect.Types.AgentStatusSummary
+import Network.AWS.Connect.Types.AnswerMachineDetectionConfig
 import Network.AWS.Connect.Types.Attribute
 import Network.AWS.Connect.Types.ChatMessage
 import Network.AWS.Connect.Types.ContactFlow
@@ -1149,6 +1270,8 @@ import Network.AWS.Connect.Types.KinesisFirehoseConfig
 import Network.AWS.Connect.Types.KinesisStreamConfig
 import Network.AWS.Connect.Types.KinesisVideoStreamConfig
 import Network.AWS.Connect.Types.LexBot
+import Network.AWS.Connect.Types.LexBotConfig
+import Network.AWS.Connect.Types.LexV2Bot
 import Network.AWS.Connect.Types.MediaConcurrency
 import Network.AWS.Connect.Types.OutboundCallerConfig
 import Network.AWS.Connect.Types.ParticipantDetails
@@ -1180,9 +1303,11 @@ import Network.AWS.Connect.Types.UserQuickConnectConfig
 import Network.AWS.Connect.Types.UserSummary
 import Network.AWS.Connect.Types.VoiceRecordingConfiguration
 import Network.AWS.Connect.UntagResource
+import Network.AWS.Connect.UpdateAgentStatus
 import Network.AWS.Connect.UpdateContactAttributes
 import Network.AWS.Connect.UpdateContactFlowContent
 import Network.AWS.Connect.UpdateContactFlowName
+import Network.AWS.Connect.UpdateHoursOfOperation
 import Network.AWS.Connect.UpdateInstanceAttribute
 import Network.AWS.Connect.UpdateInstanceStorageConfig
 import Network.AWS.Connect.UpdateQueueHoursOfOperation

@@ -60,7 +60,8 @@ data ListUsers = ListUsers'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return per page.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The identifier of the Amazon Connect instance.
+    -- | The identifier of the Amazon Connect instance. You can find the
+    -- instanceId in the ARN of the instance.
     instanceId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,7 +80,8 @@ data ListUsers = ListUsers'
 --
 -- 'maxResults', 'listUsers_maxResults' - The maximum number of results to return per page.
 --
--- 'instanceId', 'listUsers_instanceId' - The identifier of the Amazon Connect instance.
+-- 'instanceId', 'listUsers_instanceId' - The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 newListUsers ::
   -- | 'instanceId'
   Prelude.Text ->
@@ -101,7 +103,8 @@ listUsers_nextToken = Lens.lens (\ListUsers' {nextToken} -> nextToken) (\s@ListU
 listUsers_maxResults :: Lens.Lens' ListUsers (Prelude.Maybe Prelude.Natural)
 listUsers_maxResults = Lens.lens (\ListUsers' {maxResults} -> maxResults) (\s@ListUsers' {} a -> s {maxResults = a} :: ListUsers)
 
--- | The identifier of the Amazon Connect instance.
+-- | The identifier of the Amazon Connect instance. You can find the
+-- instanceId in the ARN of the instance.
 listUsers_instanceId :: Lens.Lens' ListUsers Prelude.Text
 listUsers_instanceId = Lens.lens (\ListUsers' {instanceId} -> instanceId) (\s@ListUsers' {} a -> s {instanceId = a} :: ListUsers)
 

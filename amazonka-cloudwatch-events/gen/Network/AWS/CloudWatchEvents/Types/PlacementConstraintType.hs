@@ -11,18 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudWatchEvents.Types.LaunchType
+-- Module      : Network.AWS.CloudWatchEvents.Types.PlacementConstraintType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchEvents.Types.LaunchType
-  ( LaunchType
+module Network.AWS.CloudWatchEvents.Types.PlacementConstraintType
+  ( PlacementConstraintType
       ( ..,
-        LaunchType_EC2,
-        LaunchType_EXTERNAL,
-        LaunchType_FARGATE
+        PlacementConstraintType_DistinctInstance,
+        PlacementConstraintType_MemberOf
       ),
   )
 where
@@ -30,8 +29,8 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
-newtype LaunchType = LaunchType'
-  { fromLaunchType ::
+newtype PlacementConstraintType = PlacementConstraintType'
+  { fromPlacementConstraintType ::
       Core.Text
   }
   deriving stock
@@ -58,18 +57,14 @@ newtype LaunchType = LaunchType'
       Core.ToXML
     )
 
-pattern LaunchType_EC2 :: LaunchType
-pattern LaunchType_EC2 = LaunchType' "EC2"
+pattern PlacementConstraintType_DistinctInstance :: PlacementConstraintType
+pattern PlacementConstraintType_DistinctInstance = PlacementConstraintType' "distinctInstance"
 
-pattern LaunchType_EXTERNAL :: LaunchType
-pattern LaunchType_EXTERNAL = LaunchType' "EXTERNAL"
-
-pattern LaunchType_FARGATE :: LaunchType
-pattern LaunchType_FARGATE = LaunchType' "FARGATE"
+pattern PlacementConstraintType_MemberOf :: PlacementConstraintType
+pattern PlacementConstraintType_MemberOf = PlacementConstraintType' "memberOf"
 
 {-# COMPLETE
-  LaunchType_EC2,
-  LaunchType_EXTERNAL,
-  LaunchType_FARGATE,
-  LaunchType'
+  PlacementConstraintType_DistinctInstance,
+  PlacementConstraintType_MemberOf,
+  PlacementConstraintType'
   #-}

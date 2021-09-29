@@ -24,8 +24,9 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | A partner event source is created by an SaaS partner. If a customer
--- creates a partner event bus that matches this event source, that AWS
--- account can receive events from the partner\'s applications or services.
+-- creates a partner event bus that matches this event source, that Amazon
+-- Web Services account can receive events from the partner\'s applications
+-- or services.
 --
 -- /See:/ 'newPartnerEventSource' smart constructor.
 data PartnerEventSource = PartnerEventSource'

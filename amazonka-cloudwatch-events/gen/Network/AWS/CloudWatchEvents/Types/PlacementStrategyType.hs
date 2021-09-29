@@ -11,18 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudWatchEvents.Types.LaunchType
+-- Module      : Network.AWS.CloudWatchEvents.Types.PlacementStrategyType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchEvents.Types.LaunchType
-  ( LaunchType
+module Network.AWS.CloudWatchEvents.Types.PlacementStrategyType
+  ( PlacementStrategyType
       ( ..,
-        LaunchType_EC2,
-        LaunchType_EXTERNAL,
-        LaunchType_FARGATE
+        PlacementStrategyType_Binpack,
+        PlacementStrategyType_Random,
+        PlacementStrategyType_Spread
       ),
   )
 where
@@ -30,8 +30,8 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
-newtype LaunchType = LaunchType'
-  { fromLaunchType ::
+newtype PlacementStrategyType = PlacementStrategyType'
+  { fromPlacementStrategyType ::
       Core.Text
   }
   deriving stock
@@ -58,18 +58,18 @@ newtype LaunchType = LaunchType'
       Core.ToXML
     )
 
-pattern LaunchType_EC2 :: LaunchType
-pattern LaunchType_EC2 = LaunchType' "EC2"
+pattern PlacementStrategyType_Binpack :: PlacementStrategyType
+pattern PlacementStrategyType_Binpack = PlacementStrategyType' "binpack"
 
-pattern LaunchType_EXTERNAL :: LaunchType
-pattern LaunchType_EXTERNAL = LaunchType' "EXTERNAL"
+pattern PlacementStrategyType_Random :: PlacementStrategyType
+pattern PlacementStrategyType_Random = PlacementStrategyType' "random"
 
-pattern LaunchType_FARGATE :: LaunchType
-pattern LaunchType_FARGATE = LaunchType' "FARGATE"
+pattern PlacementStrategyType_Spread :: PlacementStrategyType
+pattern PlacementStrategyType_Spread = PlacementStrategyType' "spread"
 
 {-# COMPLETE
-  LaunchType_EC2,
-  LaunchType_EXTERNAL,
-  LaunchType_FARGATE,
-  LaunchType'
+  PlacementStrategyType_Binpack,
+  PlacementStrategyType_Random,
+  PlacementStrategyType_Spread,
+  PlacementStrategyType'
   #-}

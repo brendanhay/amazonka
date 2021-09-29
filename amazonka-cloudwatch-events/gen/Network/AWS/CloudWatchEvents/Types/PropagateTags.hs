@@ -11,18 +11,16 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudWatchEvents.Types.LaunchType
+-- Module      : Network.AWS.CloudWatchEvents.Types.PropagateTags
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.CloudWatchEvents.Types.LaunchType
-  ( LaunchType
+module Network.AWS.CloudWatchEvents.Types.PropagateTags
+  ( PropagateTags
       ( ..,
-        LaunchType_EC2,
-        LaunchType_EXTERNAL,
-        LaunchType_FARGATE
+        PropagateTags_TASK_DEFINITION
       ),
   )
 where
@@ -30,8 +28,8 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
-newtype LaunchType = LaunchType'
-  { fromLaunchType ::
+newtype PropagateTags = PropagateTags'
+  { fromPropagateTags ::
       Core.Text
   }
   deriving stock
@@ -58,18 +56,10 @@ newtype LaunchType = LaunchType'
       Core.ToXML
     )
 
-pattern LaunchType_EC2 :: LaunchType
-pattern LaunchType_EC2 = LaunchType' "EC2"
-
-pattern LaunchType_EXTERNAL :: LaunchType
-pattern LaunchType_EXTERNAL = LaunchType' "EXTERNAL"
-
-pattern LaunchType_FARGATE :: LaunchType
-pattern LaunchType_FARGATE = LaunchType' "FARGATE"
+pattern PropagateTags_TASK_DEFINITION :: PropagateTags
+pattern PropagateTags_TASK_DEFINITION = PropagateTags' "TASK_DEFINITION"
 
 {-# COMPLETE
-  LaunchType_EC2,
-  LaunchType_EXTERNAL,
-  LaunchType_FARGATE,
-  LaunchType'
+  PropagateTags_TASK_DEFINITION,
+  PropagateTags'
   #-}

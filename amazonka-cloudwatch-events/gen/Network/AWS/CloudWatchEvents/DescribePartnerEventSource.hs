@@ -21,9 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- An SaaS partner can use this operation to list details about a partner
--- event source that they have created. AWS customers do not use this
--- operation. Instead, AWS customers can use DescribeEventSource to see
--- details about a partner event source that is shared with them.
+-- event source that they have created. Amazon Web Services customers do
+-- not use this operation. Instead, Amazon Web Services customers can use
+-- <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DescribeEventSource.html DescribeEventSource>
+-- to see details about a partner event source that is shared with them.
 module Network.AWS.CloudWatchEvents.DescribePartnerEventSource
   ( -- * Creating a Request
     DescribePartnerEventSource (..),

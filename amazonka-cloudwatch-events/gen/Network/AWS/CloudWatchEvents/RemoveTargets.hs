@@ -62,11 +62,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRemoveTargets' smart constructor.
 data RemoveTargets = RemoveTargets'
-  { -- | If this is a managed rule, created by an AWS service on your behalf, you
-    -- must specify @Force@ as @True@ to remove targets. This parameter is
-    -- ignored for rules that are not managed rules. You can check whether a
-    -- rule is a managed rule by using @DescribeRule@ or @ListRules@ and
-    -- checking the @ManagedBy@ field of the response.
+  { -- | If this is a managed rule, created by an Amazon Web Services service on
+    -- your behalf, you must specify @Force@ as @True@ to remove targets. This
+    -- parameter is ignored for rules that are not managed rules. You can check
+    -- whether a rule is a managed rule by using @DescribeRule@ or @ListRules@
+    -- and checking the @ManagedBy@ field of the response.
     force :: Prelude.Maybe Prelude.Bool,
     -- | The name or ARN of the event bus associated with the rule. If you omit
     -- this, the default event bus is used.
@@ -86,11 +86,11 @@ data RemoveTargets = RemoveTargets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'force', 'removeTargets_force' - If this is a managed rule, created by an AWS service on your behalf, you
--- must specify @Force@ as @True@ to remove targets. This parameter is
--- ignored for rules that are not managed rules. You can check whether a
--- rule is a managed rule by using @DescribeRule@ or @ListRules@ and
--- checking the @ManagedBy@ field of the response.
+-- 'force', 'removeTargets_force' - If this is a managed rule, created by an Amazon Web Services service on
+-- your behalf, you must specify @Force@ as @True@ to remove targets. This
+-- parameter is ignored for rules that are not managed rules. You can check
+-- whether a rule is a managed rule by using @DescribeRule@ or @ListRules@
+-- and checking the @ManagedBy@ field of the response.
 --
 -- 'eventBusName', 'removeTargets_eventBusName' - The name or ARN of the event bus associated with the rule. If you omit
 -- this, the default event bus is used.
@@ -112,11 +112,11 @@ newRemoveTargets pRule_ pIds_ =
       ids = Lens._Coerce Lens.# pIds_
     }
 
--- | If this is a managed rule, created by an AWS service on your behalf, you
--- must specify @Force@ as @True@ to remove targets. This parameter is
--- ignored for rules that are not managed rules. You can check whether a
--- rule is a managed rule by using @DescribeRule@ or @ListRules@ and
--- checking the @ManagedBy@ field of the response.
+-- | If this is a managed rule, created by an Amazon Web Services service on
+-- your behalf, you must specify @Force@ as @True@ to remove targets. This
+-- parameter is ignored for rules that are not managed rules. You can check
+-- whether a rule is a managed rule by using @DescribeRule@ or @ListRules@
+-- and checking the @ManagedBy@ field of the response.
 removeTargets_force :: Lens.Lens' RemoveTargets (Prelude.Maybe Prelude.Bool)
 removeTargets_force = Lens.lens (\RemoveTargets' {force} -> force) (\s@RemoveTargets' {} a -> s {force = a} :: RemoveTargets)
 

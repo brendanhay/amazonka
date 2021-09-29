@@ -28,6 +28,7 @@ import Network.AWS.CloudWatchEvents.Types.KinesisParameters
 import Network.AWS.CloudWatchEvents.Types.RedshiftDataParameters
 import Network.AWS.CloudWatchEvents.Types.RetryPolicy
 import Network.AWS.CloudWatchEvents.Types.RunCommandParameters
+import Network.AWS.CloudWatchEvents.Types.SageMakerPipelineParameters
 import Network.AWS.CloudWatchEvents.Types.SqsParameters
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
@@ -35,14 +36,14 @@ import qualified Network.AWS.Prelude as Prelude
 
 -- | Targets are the resources to be invoked when a rule is triggered. For a
 -- complete list of services and resources that can be set as a target, see
--- PutTargets.
+-- <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutTargets.html PutTargets>.
 --
 -- If you are setting the event bus of another account as the target, and
 -- that account granted permission to your account through an organization
 -- instead of directly by the account ID, then you must specify a @RoleArn@
 -- with proper permissions in the @Target@ structure. For more information,
 -- see
--- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html Sending and Receiving Events Between AWS Accounts>
+-- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html Sending and Receiving Events Between Amazon Web Services Accounts>
 -- in the /Amazon EventBridge User Guide/.
 --
 -- /See:/ 'newTarget' smart constructor.
@@ -60,33 +61,33 @@ data Target = Target'
     -- target when the rule is triggered. If one rule triggers multiple
     -- targets, you can use a different IAM role for each target.
     roleArn :: Prelude.Maybe Prelude.Text,
-    -- | Contains the Redshift Data API parameters to use when the target is a
-    -- Redshift cluster.
+    -- | Contains the Amazon Redshift Data API parameters to use when the target
+    -- is a Amazon Redshift cluster.
     --
-    -- If you specify a Redshift Cluster as a Target, you can use this to
-    -- specify parameters to invoke the Redshift Data API ExecuteStatement
-    -- based on EventBridge events.
+    -- If you specify a Amazon Redshift Cluster as a Target, you can use this
+    -- to specify parameters to invoke the Amazon Redshift Data API
+    -- ExecuteStatement based on EventBridge events.
     redshiftDataParameters :: Prelude.Maybe RedshiftDataParameters,
-    -- | If the event target is an AWS Batch job, this contains the job
-    -- definition, job name, and other parameters. For more information, see
-    -- <https://docs.aws.amazon.com/batch/latest/userguide/jobs.html Jobs> in
-    -- the /AWS Batch User Guide/.
-    batchParameters :: Prelude.Maybe BatchParameters,
     -- | Valid JSON text passed to the target. In this case, nothing from the
     -- event itself is passed to the target. For more information, see
     -- <http://www.rfc-editor.org/rfc/rfc7159.txt The JavaScript Object Notation (JSON) Data Interchange Format>.
     input :: Prelude.Maybe Prelude.Text,
+    -- | If the event target is an Batch job, this contains the job definition,
+    -- job name, and other parameters. For more information, see
+    -- <https://docs.aws.amazon.com/batch/latest/userguide/jobs.html Jobs> in
+    -- the /Batch User Guide/.
+    batchParameters :: Prelude.Maybe BatchParameters,
     -- | The value of the JSONPath that is used for extracting part of the
     -- matched event when passing it to the target. You must use JSON dot
     -- notation, not bracket notation. For more information about JSON paths,
     -- see <http://goessner.net/articles/JsonPath/ JSONPath>.
     inputPath :: Prelude.Maybe Prelude.Text,
-    -- | The @DeadLetterConfig@ that defines the target queue to send dead-letter
-    -- queue events to.
-    deadLetterConfig :: Prelude.Maybe DeadLetterConfig,
     -- | The @RetryPolicy@ object that contains the retry policy configuration to
     -- use for the dead-letter queue.
     retryPolicy :: Prelude.Maybe RetryPolicy,
+    -- | The @DeadLetterConfig@ that defines the target queue to send dead-letter
+    -- queue events to.
+    deadLetterConfig :: Prelude.Maybe DeadLetterConfig,
     -- | Contains the HTTP parameters to use when the target is a API Gateway
     -- REST endpoint or EventBridge ApiDestination.
     --
@@ -102,6 +103,13 @@ data Target = Target'
     -- If you specify an SQS FIFO queue as a target, the queue must have
     -- content-based deduplication enabled.
     sqsParameters :: Prelude.Maybe SqsParameters,
+    -- | Contains the SageMaker Model Building Pipeline parameters to start
+    -- execution of a SageMaker Model Building Pipeline.
+    --
+    -- If you specify a SageMaker Model Building Pipeline as a target, you can
+    -- use this to specify parameters to start a pipeline execution based on
+    -- EventBridge events.
+    sageMakerPipelineParameters :: Prelude.Maybe SageMakerPipelineParameters,
     -- | Settings to enable you to provide custom input to a target based on
     -- certain event data. You can extract one or more key-value pairs from the
     -- event and then use that data to send customized input to the target.
@@ -110,7 +118,7 @@ data Target = Target'
     -- the target is a Kinesis data stream. If you do not include this
     -- parameter, the default is to use the @eventId@ as the partition key.
     kinesisParameters :: Prelude.Maybe KinesisParameters,
-    -- | The ID of the target.
+    -- | The ID of the target. We recommend using a memorable and unique string.
     id :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the target.
     arn :: Prelude.Text
@@ -138,32 +146,32 @@ data Target = Target'
 -- target when the rule is triggered. If one rule triggers multiple
 -- targets, you can use a different IAM role for each target.
 --
--- 'redshiftDataParameters', 'target_redshiftDataParameters' - Contains the Redshift Data API parameters to use when the target is a
--- Redshift cluster.
+-- 'redshiftDataParameters', 'target_redshiftDataParameters' - Contains the Amazon Redshift Data API parameters to use when the target
+-- is a Amazon Redshift cluster.
 --
--- If you specify a Redshift Cluster as a Target, you can use this to
--- specify parameters to invoke the Redshift Data API ExecuteStatement
--- based on EventBridge events.
---
--- 'batchParameters', 'target_batchParameters' - If the event target is an AWS Batch job, this contains the job
--- definition, job name, and other parameters. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/jobs.html Jobs> in
--- the /AWS Batch User Guide/.
+-- If you specify a Amazon Redshift Cluster as a Target, you can use this
+-- to specify parameters to invoke the Amazon Redshift Data API
+-- ExecuteStatement based on EventBridge events.
 --
 -- 'input', 'target_input' - Valid JSON text passed to the target. In this case, nothing from the
 -- event itself is passed to the target. For more information, see
 -- <http://www.rfc-editor.org/rfc/rfc7159.txt The JavaScript Object Notation (JSON) Data Interchange Format>.
+--
+-- 'batchParameters', 'target_batchParameters' - If the event target is an Batch job, this contains the job definition,
+-- job name, and other parameters. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/jobs.html Jobs> in
+-- the /Batch User Guide/.
 --
 -- 'inputPath', 'target_inputPath' - The value of the JSONPath that is used for extracting part of the
 -- matched event when passing it to the target. You must use JSON dot
 -- notation, not bracket notation. For more information about JSON paths,
 -- see <http://goessner.net/articles/JsonPath/ JSONPath>.
 --
--- 'deadLetterConfig', 'target_deadLetterConfig' - The @DeadLetterConfig@ that defines the target queue to send dead-letter
--- queue events to.
---
 -- 'retryPolicy', 'target_retryPolicy' - The @RetryPolicy@ object that contains the retry policy configuration to
 -- use for the dead-letter queue.
+--
+-- 'deadLetterConfig', 'target_deadLetterConfig' - The @DeadLetterConfig@ that defines the target queue to send dead-letter
+-- queue events to.
 --
 -- 'httpParameters', 'target_httpParameters' - Contains the HTTP parameters to use when the target is a API Gateway
 -- REST endpoint or EventBridge ApiDestination.
@@ -180,6 +188,13 @@ data Target = Target'
 -- If you specify an SQS FIFO queue as a target, the queue must have
 -- content-based deduplication enabled.
 --
+-- 'sageMakerPipelineParameters', 'target_sageMakerPipelineParameters' - Contains the SageMaker Model Building Pipeline parameters to start
+-- execution of a SageMaker Model Building Pipeline.
+--
+-- If you specify a SageMaker Model Building Pipeline as a target, you can
+-- use this to specify parameters to start a pipeline execution based on
+-- EventBridge events.
+--
 -- 'inputTransformer', 'target_inputTransformer' - Settings to enable you to provide custom input to a target based on
 -- certain event data. You can extract one or more key-value pairs from the
 -- event and then use that data to send customized input to the target.
@@ -188,7 +203,7 @@ data Target = Target'
 -- the target is a Kinesis data stream. If you do not include this
 -- parameter, the default is to use the @eventId@ as the partition key.
 --
--- 'id', 'target_id' - The ID of the target.
+-- 'id', 'target_id' - The ID of the target. We recommend using a memorable and unique string.
 --
 -- 'arn', 'target_arn' - The Amazon Resource Name (ARN) of the target.
 newTarget ::
@@ -203,13 +218,14 @@ newTarget pId_ pArn_ =
       runCommandParameters = Prelude.Nothing,
       roleArn = Prelude.Nothing,
       redshiftDataParameters = Prelude.Nothing,
-      batchParameters = Prelude.Nothing,
       input = Prelude.Nothing,
+      batchParameters = Prelude.Nothing,
       inputPath = Prelude.Nothing,
-      deadLetterConfig = Prelude.Nothing,
       retryPolicy = Prelude.Nothing,
+      deadLetterConfig = Prelude.Nothing,
       httpParameters = Prelude.Nothing,
       sqsParameters = Prelude.Nothing,
+      sageMakerPipelineParameters = Prelude.Nothing,
       inputTransformer = Prelude.Nothing,
       kinesisParameters = Prelude.Nothing,
       id = pId_,
@@ -235,27 +251,27 @@ target_runCommandParameters = Lens.lens (\Target' {runCommandParameters} -> runC
 target_roleArn :: Lens.Lens' Target (Prelude.Maybe Prelude.Text)
 target_roleArn = Lens.lens (\Target' {roleArn} -> roleArn) (\s@Target' {} a -> s {roleArn = a} :: Target)
 
--- | Contains the Redshift Data API parameters to use when the target is a
--- Redshift cluster.
+-- | Contains the Amazon Redshift Data API parameters to use when the target
+-- is a Amazon Redshift cluster.
 --
--- If you specify a Redshift Cluster as a Target, you can use this to
--- specify parameters to invoke the Redshift Data API ExecuteStatement
--- based on EventBridge events.
+-- If you specify a Amazon Redshift Cluster as a Target, you can use this
+-- to specify parameters to invoke the Amazon Redshift Data API
+-- ExecuteStatement based on EventBridge events.
 target_redshiftDataParameters :: Lens.Lens' Target (Prelude.Maybe RedshiftDataParameters)
 target_redshiftDataParameters = Lens.lens (\Target' {redshiftDataParameters} -> redshiftDataParameters) (\s@Target' {} a -> s {redshiftDataParameters = a} :: Target)
-
--- | If the event target is an AWS Batch job, this contains the job
--- definition, job name, and other parameters. For more information, see
--- <https://docs.aws.amazon.com/batch/latest/userguide/jobs.html Jobs> in
--- the /AWS Batch User Guide/.
-target_batchParameters :: Lens.Lens' Target (Prelude.Maybe BatchParameters)
-target_batchParameters = Lens.lens (\Target' {batchParameters} -> batchParameters) (\s@Target' {} a -> s {batchParameters = a} :: Target)
 
 -- | Valid JSON text passed to the target. In this case, nothing from the
 -- event itself is passed to the target. For more information, see
 -- <http://www.rfc-editor.org/rfc/rfc7159.txt The JavaScript Object Notation (JSON) Data Interchange Format>.
 target_input :: Lens.Lens' Target (Prelude.Maybe Prelude.Text)
 target_input = Lens.lens (\Target' {input} -> input) (\s@Target' {} a -> s {input = a} :: Target)
+
+-- | If the event target is an Batch job, this contains the job definition,
+-- job name, and other parameters. For more information, see
+-- <https://docs.aws.amazon.com/batch/latest/userguide/jobs.html Jobs> in
+-- the /Batch User Guide/.
+target_batchParameters :: Lens.Lens' Target (Prelude.Maybe BatchParameters)
+target_batchParameters = Lens.lens (\Target' {batchParameters} -> batchParameters) (\s@Target' {} a -> s {batchParameters = a} :: Target)
 
 -- | The value of the JSONPath that is used for extracting part of the
 -- matched event when passing it to the target. You must use JSON dot
@@ -264,15 +280,15 @@ target_input = Lens.lens (\Target' {input} -> input) (\s@Target' {} a -> s {inpu
 target_inputPath :: Lens.Lens' Target (Prelude.Maybe Prelude.Text)
 target_inputPath = Lens.lens (\Target' {inputPath} -> inputPath) (\s@Target' {} a -> s {inputPath = a} :: Target)
 
--- | The @DeadLetterConfig@ that defines the target queue to send dead-letter
--- queue events to.
-target_deadLetterConfig :: Lens.Lens' Target (Prelude.Maybe DeadLetterConfig)
-target_deadLetterConfig = Lens.lens (\Target' {deadLetterConfig} -> deadLetterConfig) (\s@Target' {} a -> s {deadLetterConfig = a} :: Target)
-
 -- | The @RetryPolicy@ object that contains the retry policy configuration to
 -- use for the dead-letter queue.
 target_retryPolicy :: Lens.Lens' Target (Prelude.Maybe RetryPolicy)
 target_retryPolicy = Lens.lens (\Target' {retryPolicy} -> retryPolicy) (\s@Target' {} a -> s {retryPolicy = a} :: Target)
+
+-- | The @DeadLetterConfig@ that defines the target queue to send dead-letter
+-- queue events to.
+target_deadLetterConfig :: Lens.Lens' Target (Prelude.Maybe DeadLetterConfig)
+target_deadLetterConfig = Lens.lens (\Target' {deadLetterConfig} -> deadLetterConfig) (\s@Target' {} a -> s {deadLetterConfig = a} :: Target)
 
 -- | Contains the HTTP parameters to use when the target is a API Gateway
 -- REST endpoint or EventBridge ApiDestination.
@@ -293,6 +309,15 @@ target_httpParameters = Lens.lens (\Target' {httpParameters} -> httpParameters) 
 target_sqsParameters :: Lens.Lens' Target (Prelude.Maybe SqsParameters)
 target_sqsParameters = Lens.lens (\Target' {sqsParameters} -> sqsParameters) (\s@Target' {} a -> s {sqsParameters = a} :: Target)
 
+-- | Contains the SageMaker Model Building Pipeline parameters to start
+-- execution of a SageMaker Model Building Pipeline.
+--
+-- If you specify a SageMaker Model Building Pipeline as a target, you can
+-- use this to specify parameters to start a pipeline execution based on
+-- EventBridge events.
+target_sageMakerPipelineParameters :: Lens.Lens' Target (Prelude.Maybe SageMakerPipelineParameters)
+target_sageMakerPipelineParameters = Lens.lens (\Target' {sageMakerPipelineParameters} -> sageMakerPipelineParameters) (\s@Target' {} a -> s {sageMakerPipelineParameters = a} :: Target)
+
 -- | Settings to enable you to provide custom input to a target based on
 -- certain event data. You can extract one or more key-value pairs from the
 -- event and then use that data to send customized input to the target.
@@ -305,7 +330,7 @@ target_inputTransformer = Lens.lens (\Target' {inputTransformer} -> inputTransfo
 target_kinesisParameters :: Lens.Lens' Target (Prelude.Maybe KinesisParameters)
 target_kinesisParameters = Lens.lens (\Target' {kinesisParameters} -> kinesisParameters) (\s@Target' {} a -> s {kinesisParameters = a} :: Target)
 
--- | The ID of the target.
+-- | The ID of the target. We recommend using a memorable and unique string.
 target_id :: Lens.Lens' Target Prelude.Text
 target_id = Lens.lens (\Target' {id} -> id) (\s@Target' {} a -> s {id = a} :: Target)
 
@@ -323,13 +348,14 @@ instance Core.FromJSON Target where
             Prelude.<*> (x Core..:? "RunCommandParameters")
             Prelude.<*> (x Core..:? "RoleArn")
             Prelude.<*> (x Core..:? "RedshiftDataParameters")
-            Prelude.<*> (x Core..:? "BatchParameters")
             Prelude.<*> (x Core..:? "Input")
+            Prelude.<*> (x Core..:? "BatchParameters")
             Prelude.<*> (x Core..:? "InputPath")
-            Prelude.<*> (x Core..:? "DeadLetterConfig")
             Prelude.<*> (x Core..:? "RetryPolicy")
+            Prelude.<*> (x Core..:? "DeadLetterConfig")
             Prelude.<*> (x Core..:? "HttpParameters")
             Prelude.<*> (x Core..:? "SqsParameters")
+            Prelude.<*> (x Core..:? "SageMakerPipelineParameters")
             Prelude.<*> (x Core..:? "InputTransformer")
             Prelude.<*> (x Core..:? "KinesisParameters")
             Prelude.<*> (x Core..: "Id")
@@ -350,16 +376,18 @@ instance Core.ToJSON Target where
             ("RoleArn" Core..=) Prelude.<$> roleArn,
             ("RedshiftDataParameters" Core..=)
               Prelude.<$> redshiftDataParameters,
+            ("Input" Core..=) Prelude.<$> input,
             ("BatchParameters" Core..=)
               Prelude.<$> batchParameters,
-            ("Input" Core..=) Prelude.<$> input,
             ("InputPath" Core..=) Prelude.<$> inputPath,
+            ("RetryPolicy" Core..=) Prelude.<$> retryPolicy,
             ("DeadLetterConfig" Core..=)
               Prelude.<$> deadLetterConfig,
-            ("RetryPolicy" Core..=) Prelude.<$> retryPolicy,
             ("HttpParameters" Core..=)
               Prelude.<$> httpParameters,
             ("SqsParameters" Core..=) Prelude.<$> sqsParameters,
+            ("SageMakerPipelineParameters" Core..=)
+              Prelude.<$> sageMakerPipelineParameters,
             ("InputTransformer" Core..=)
               Prelude.<$> inputTransformer,
             ("KinesisParameters" Core..=)

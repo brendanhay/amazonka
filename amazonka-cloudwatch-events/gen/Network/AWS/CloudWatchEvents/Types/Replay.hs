@@ -42,10 +42,10 @@ data Replay = Replay'
     state :: Prelude.Maybe ReplayState,
     -- | The name of the replay.
     replayName :: Prelude.Maybe Prelude.Text,
-    -- | A time stamp for the time that the last event was replayed.
-    eventLastReplayedTime :: Prelude.Maybe Core.POSIX,
     -- | A time stamp for the time that the replay completed.
     replayEndTime :: Prelude.Maybe Core.POSIX,
+    -- | A time stamp for the time that the last event was replayed.
+    eventLastReplayedTime :: Prelude.Maybe Core.POSIX,
     -- | A time stamp for the time to start replaying events. Any event with a
     -- creation time prior to the @EventEndTime@ specified is replayed.
     eventEndTime :: Prelude.Maybe Core.POSIX
@@ -74,9 +74,9 @@ data Replay = Replay'
 --
 -- 'replayName', 'replay_replayName' - The name of the replay.
 --
--- 'eventLastReplayedTime', 'replay_eventLastReplayedTime' - A time stamp for the time that the last event was replayed.
---
 -- 'replayEndTime', 'replay_replayEndTime' - A time stamp for the time that the replay completed.
+--
+-- 'eventLastReplayedTime', 'replay_eventLastReplayedTime' - A time stamp for the time that the last event was replayed.
 --
 -- 'eventEndTime', 'replay_eventEndTime' - A time stamp for the time to start replaying events. Any event with a
 -- creation time prior to the @EventEndTime@ specified is replayed.
@@ -90,8 +90,8 @@ newReplay =
       stateReason = Prelude.Nothing,
       state = Prelude.Nothing,
       replayName = Prelude.Nothing,
-      eventLastReplayedTime = Prelude.Nothing,
       replayEndTime = Prelude.Nothing,
+      eventLastReplayedTime = Prelude.Nothing,
       eventEndTime = Prelude.Nothing
     }
 
@@ -121,13 +121,13 @@ replay_state = Lens.lens (\Replay' {state} -> state) (\s@Replay' {} a -> s {stat
 replay_replayName :: Lens.Lens' Replay (Prelude.Maybe Prelude.Text)
 replay_replayName = Lens.lens (\Replay' {replayName} -> replayName) (\s@Replay' {} a -> s {replayName = a} :: Replay)
 
--- | A time stamp for the time that the last event was replayed.
-replay_eventLastReplayedTime :: Lens.Lens' Replay (Prelude.Maybe Prelude.UTCTime)
-replay_eventLastReplayedTime = Lens.lens (\Replay' {eventLastReplayedTime} -> eventLastReplayedTime) (\s@Replay' {} a -> s {eventLastReplayedTime = a} :: Replay) Prelude.. Lens.mapping Core._Time
-
 -- | A time stamp for the time that the replay completed.
 replay_replayEndTime :: Lens.Lens' Replay (Prelude.Maybe Prelude.UTCTime)
 replay_replayEndTime = Lens.lens (\Replay' {replayEndTime} -> replayEndTime) (\s@Replay' {} a -> s {replayEndTime = a} :: Replay) Prelude.. Lens.mapping Core._Time
+
+-- | A time stamp for the time that the last event was replayed.
+replay_eventLastReplayedTime :: Lens.Lens' Replay (Prelude.Maybe Prelude.UTCTime)
+replay_eventLastReplayedTime = Lens.lens (\Replay' {eventLastReplayedTime} -> eventLastReplayedTime) (\s@Replay' {} a -> s {eventLastReplayedTime = a} :: Replay) Prelude.. Lens.mapping Core._Time
 
 -- | A time stamp for the time to start replaying events. Any event with a
 -- creation time prior to the @EventEndTime@ specified is replayed.
@@ -146,8 +146,8 @@ instance Core.FromJSON Replay where
             Prelude.<*> (x Core..:? "StateReason")
             Prelude.<*> (x Core..:? "State")
             Prelude.<*> (x Core..:? "ReplayName")
-            Prelude.<*> (x Core..:? "EventLastReplayedTime")
             Prelude.<*> (x Core..:? "ReplayEndTime")
+            Prelude.<*> (x Core..:? "EventLastReplayedTime")
             Prelude.<*> (x Core..:? "EventEndTime")
       )
 

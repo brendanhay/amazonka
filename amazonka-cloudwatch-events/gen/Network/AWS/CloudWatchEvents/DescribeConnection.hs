@@ -36,10 +36,10 @@ module Network.AWS.CloudWatchEvents.DescribeConnection
     -- * Response Lenses
     describeConnectionResponse_creationTime,
     describeConnectionResponse_connectionState,
-    describeConnectionResponse_secretArn,
     describeConnectionResponse_stateReason,
-    describeConnectionResponse_authorizationType,
     describeConnectionResponse_connectionArn,
+    describeConnectionResponse_secretArn,
+    describeConnectionResponse_authorizationType,
     describeConnectionResponse_name,
     describeConnectionResponse_lastModifiedTime,
     describeConnectionResponse_description,
@@ -94,10 +94,10 @@ instance Core.AWSRequest DescribeConnection where
           DescribeConnectionResponse'
             Prelude.<$> (x Core..?> "CreationTime")
             Prelude.<*> (x Core..?> "ConnectionState")
-            Prelude.<*> (x Core..?> "SecretArn")
             Prelude.<*> (x Core..?> "StateReason")
-            Prelude.<*> (x Core..?> "AuthorizationType")
             Prelude.<*> (x Core..?> "ConnectionArn")
+            Prelude.<*> (x Core..?> "SecretArn")
+            Prelude.<*> (x Core..?> "AuthorizationType")
             Prelude.<*> (x Core..?> "Name")
             Prelude.<*> (x Core..?> "LastModifiedTime")
             Prelude.<*> (x Core..?> "Description")
@@ -144,15 +144,15 @@ data DescribeConnectionResponse = DescribeConnectionResponse'
     creationTime :: Prelude.Maybe Core.POSIX,
     -- | The state of the connection retrieved.
     connectionState :: Prelude.Maybe ConnectionState,
+    -- | The reason that the connection is in the current connection state.
+    stateReason :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the connection retrieved.
+    connectionArn :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the secret created from the authorization parameters
     -- specified for the connection.
     secretArn :: Prelude.Maybe Prelude.Text,
-    -- | The reason that the connection is in the current connection state.
-    stateReason :: Prelude.Maybe Prelude.Text,
     -- | The type of authorization specified for the connection.
     authorizationType :: Prelude.Maybe ConnectionAuthorizationType,
-    -- | The ARN of the connection retrieved.
-    connectionArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the connection retrieved.
     name :: Prelude.Maybe Prelude.Text,
     -- | A time stamp for the time that the connection was last modified.
@@ -180,14 +180,14 @@ data DescribeConnectionResponse = DescribeConnectionResponse'
 --
 -- 'connectionState', 'describeConnectionResponse_connectionState' - The state of the connection retrieved.
 --
+-- 'stateReason', 'describeConnectionResponse_stateReason' - The reason that the connection is in the current connection state.
+--
+-- 'connectionArn', 'describeConnectionResponse_connectionArn' - The ARN of the connection retrieved.
+--
 -- 'secretArn', 'describeConnectionResponse_secretArn' - The ARN of the secret created from the authorization parameters
 -- specified for the connection.
 --
--- 'stateReason', 'describeConnectionResponse_stateReason' - The reason that the connection is in the current connection state.
---
 -- 'authorizationType', 'describeConnectionResponse_authorizationType' - The type of authorization specified for the connection.
---
--- 'connectionArn', 'describeConnectionResponse_connectionArn' - The ARN of the connection retrieved.
 --
 -- 'name', 'describeConnectionResponse_name' - The name of the connection retrieved.
 --
@@ -209,10 +209,10 @@ newDescribeConnectionResponse pHttpStatus_ =
     { creationTime =
         Prelude.Nothing,
       connectionState = Prelude.Nothing,
-      secretArn = Prelude.Nothing,
       stateReason = Prelude.Nothing,
-      authorizationType = Prelude.Nothing,
       connectionArn = Prelude.Nothing,
+      secretArn = Prelude.Nothing,
+      authorizationType = Prelude.Nothing,
       name = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
       description = Prelude.Nothing,
@@ -229,22 +229,22 @@ describeConnectionResponse_creationTime = Lens.lens (\DescribeConnectionResponse
 describeConnectionResponse_connectionState :: Lens.Lens' DescribeConnectionResponse (Prelude.Maybe ConnectionState)
 describeConnectionResponse_connectionState = Lens.lens (\DescribeConnectionResponse' {connectionState} -> connectionState) (\s@DescribeConnectionResponse' {} a -> s {connectionState = a} :: DescribeConnectionResponse)
 
+-- | The reason that the connection is in the current connection state.
+describeConnectionResponse_stateReason :: Lens.Lens' DescribeConnectionResponse (Prelude.Maybe Prelude.Text)
+describeConnectionResponse_stateReason = Lens.lens (\DescribeConnectionResponse' {stateReason} -> stateReason) (\s@DescribeConnectionResponse' {} a -> s {stateReason = a} :: DescribeConnectionResponse)
+
+-- | The ARN of the connection retrieved.
+describeConnectionResponse_connectionArn :: Lens.Lens' DescribeConnectionResponse (Prelude.Maybe Prelude.Text)
+describeConnectionResponse_connectionArn = Lens.lens (\DescribeConnectionResponse' {connectionArn} -> connectionArn) (\s@DescribeConnectionResponse' {} a -> s {connectionArn = a} :: DescribeConnectionResponse)
+
 -- | The ARN of the secret created from the authorization parameters
 -- specified for the connection.
 describeConnectionResponse_secretArn :: Lens.Lens' DescribeConnectionResponse (Prelude.Maybe Prelude.Text)
 describeConnectionResponse_secretArn = Lens.lens (\DescribeConnectionResponse' {secretArn} -> secretArn) (\s@DescribeConnectionResponse' {} a -> s {secretArn = a} :: DescribeConnectionResponse)
 
--- | The reason that the connection is in the current connection state.
-describeConnectionResponse_stateReason :: Lens.Lens' DescribeConnectionResponse (Prelude.Maybe Prelude.Text)
-describeConnectionResponse_stateReason = Lens.lens (\DescribeConnectionResponse' {stateReason} -> stateReason) (\s@DescribeConnectionResponse' {} a -> s {stateReason = a} :: DescribeConnectionResponse)
-
 -- | The type of authorization specified for the connection.
 describeConnectionResponse_authorizationType :: Lens.Lens' DescribeConnectionResponse (Prelude.Maybe ConnectionAuthorizationType)
 describeConnectionResponse_authorizationType = Lens.lens (\DescribeConnectionResponse' {authorizationType} -> authorizationType) (\s@DescribeConnectionResponse' {} a -> s {authorizationType = a} :: DescribeConnectionResponse)
-
--- | The ARN of the connection retrieved.
-describeConnectionResponse_connectionArn :: Lens.Lens' DescribeConnectionResponse (Prelude.Maybe Prelude.Text)
-describeConnectionResponse_connectionArn = Lens.lens (\DescribeConnectionResponse' {connectionArn} -> connectionArn) (\s@DescribeConnectionResponse' {} a -> s {connectionArn = a} :: DescribeConnectionResponse)
 
 -- | The name of the connection retrieved.
 describeConnectionResponse_name :: Lens.Lens' DescribeConnectionResponse (Prelude.Maybe Prelude.Text)

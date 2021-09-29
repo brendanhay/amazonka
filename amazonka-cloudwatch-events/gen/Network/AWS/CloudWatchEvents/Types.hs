@@ -56,6 +56,15 @@ module Network.AWS.CloudWatchEvents.Types
     -- * LaunchType
     LaunchType (..),
 
+    -- * PlacementConstraintType
+    PlacementConstraintType (..),
+
+    -- * PlacementStrategyType
+    PlacementStrategyType (..),
+
+    -- * PropagateTags
+    PropagateTags (..),
+
     -- * ReplayState
     ReplayState (..),
 
@@ -69,8 +78,8 @@ module Network.AWS.CloudWatchEvents.Types
     apiDestination_creationTime,
     apiDestination_apiDestinationArn,
     apiDestination_invocationEndpoint,
-    apiDestination_apiDestinationState,
     apiDestination_connectionArn,
+    apiDestination_apiDestinationState,
     apiDestination_name,
     apiDestination_lastModifiedTime,
     apiDestination_invocationRateLimitPerSecond,
@@ -79,8 +88,8 @@ module Network.AWS.CloudWatchEvents.Types
     Archive (..),
     newArchive,
     archive_eventCount,
-    archive_eventSourceArn,
     archive_creationTime,
+    archive_eventSourceArn,
     archive_stateReason,
     archive_archiveName,
     archive_state,
@@ -112,6 +121,13 @@ module Network.AWS.CloudWatchEvents.Types
     newBatchRetryStrategy,
     batchRetryStrategy_attempts,
 
+    -- * CapacityProviderStrategyItem
+    CapacityProviderStrategyItem (..),
+    newCapacityProviderStrategyItem,
+    capacityProviderStrategyItem_weight,
+    capacityProviderStrategyItem_base,
+    capacityProviderStrategyItem_capacityProvider,
+
     -- * Condition
     Condition (..),
     newCondition,
@@ -125,8 +141,8 @@ module Network.AWS.CloudWatchEvents.Types
     connection_creationTime,
     connection_connectionState,
     connection_stateReason,
-    connection_authorizationType,
     connection_connectionArn,
+    connection_authorizationType,
     connection_name,
     connection_lastModifiedTime,
     connection_lastAuthorizedTime,
@@ -140,8 +156,8 @@ module Network.AWS.CloudWatchEvents.Types
     ConnectionAuthResponseParameters (..),
     newConnectionAuthResponseParameters,
     connectionAuthResponseParameters_basicAuthParameters,
-    connectionAuthResponseParameters_oAuthParameters,
     connectionAuthResponseParameters_apiKeyAuthParameters,
+    connectionAuthResponseParameters_oAuthParameters,
     connectionAuthResponseParameters_invocationHttpParameters,
 
     -- * ConnectionBasicAuthResponseParameters
@@ -200,8 +216,8 @@ module Network.AWS.CloudWatchEvents.Types
     CreateConnectionAuthRequestParameters (..),
     newCreateConnectionAuthRequestParameters,
     createConnectionAuthRequestParameters_basicAuthParameters,
-    createConnectionAuthRequestParameters_oAuthParameters,
     createConnectionAuthRequestParameters_apiKeyAuthParameters,
+    createConnectionAuthRequestParameters_oAuthParameters,
     createConnectionAuthRequestParameters_invocationHttpParameters,
 
     -- * CreateConnectionBasicAuthRequestParameters
@@ -233,10 +249,18 @@ module Network.AWS.CloudWatchEvents.Types
     EcsParameters (..),
     newEcsParameters,
     ecsParameters_networkConfiguration,
+    ecsParameters_capacityProviderStrategy,
+    ecsParameters_referenceId,
+    ecsParameters_enableECSManagedTags,
     ecsParameters_platformVersion,
     ecsParameters_launchType,
+    ecsParameters_placementStrategy,
     ecsParameters_group,
+    ecsParameters_placementConstraints,
+    ecsParameters_tags,
+    ecsParameters_enableExecuteCommand,
     ecsParameters_taskCount,
+    ecsParameters_propagateTags,
     ecsParameters_taskDefinitionArn,
 
     -- * EventBus
@@ -252,8 +276,8 @@ module Network.AWS.CloudWatchEvents.Types
     eventSource_creationTime,
     eventSource_expirationTime,
     eventSource_arn,
-    eventSource_state,
     eventSource_name,
+    eventSource_state,
     eventSource_createdBy,
 
     -- * HttpParameters
@@ -292,6 +316,18 @@ module Network.AWS.CloudWatchEvents.Types
     partnerEventSourceAccount_expirationTime,
     partnerEventSourceAccount_state,
     partnerEventSourceAccount_account,
+
+    -- * PlacementConstraint
+    PlacementConstraint (..),
+    newPlacementConstraint,
+    placementConstraint_type,
+    placementConstraint_expression,
+
+    -- * PlacementStrategy
+    PlacementStrategy (..),
+    newPlacementStrategy,
+    placementStrategy_type,
+    placementStrategy_field,
 
     -- * PutEventsRequestEntry
     PutEventsRequestEntry (..),
@@ -360,8 +396,8 @@ module Network.AWS.CloudWatchEvents.Types
     replay_stateReason,
     replay_state,
     replay_replayName,
-    replay_eventLastReplayedTime,
     replay_replayEndTime,
+    replay_eventLastReplayedTime,
     replay_eventEndTime,
 
     -- * ReplayDestination
@@ -382,10 +418,10 @@ module Network.AWS.CloudWatchEvents.Types
     rule_eventPattern,
     rule_roleArn,
     rule_arn,
-    rule_eventBusName,
-    rule_state,
-    rule_scheduleExpression,
     rule_name,
+    rule_eventBusName,
+    rule_scheduleExpression,
+    rule_state,
     rule_managedBy,
     rule_description,
 
@@ -399,6 +435,17 @@ module Network.AWS.CloudWatchEvents.Types
     newRunCommandTarget,
     runCommandTarget_key,
     runCommandTarget_values,
+
+    -- * SageMakerPipelineParameter
+    SageMakerPipelineParameter (..),
+    newSageMakerPipelineParameter,
+    sageMakerPipelineParameter_name,
+    sageMakerPipelineParameter_value,
+
+    -- * SageMakerPipelineParameters
+    SageMakerPipelineParameters (..),
+    newSageMakerPipelineParameters,
+    sageMakerPipelineParameters_pipelineParameterList,
 
     -- * SqsParameters
     SqsParameters (..),
@@ -418,13 +465,14 @@ module Network.AWS.CloudWatchEvents.Types
     target_runCommandParameters,
     target_roleArn,
     target_redshiftDataParameters,
-    target_batchParameters,
     target_input,
+    target_batchParameters,
     target_inputPath,
-    target_deadLetterConfig,
     target_retryPolicy,
+    target_deadLetterConfig,
     target_httpParameters,
     target_sqsParameters,
+    target_sageMakerPipelineParameters,
     target_inputTransformer,
     target_kinesisParameters,
     target_id,
@@ -440,8 +488,8 @@ module Network.AWS.CloudWatchEvents.Types
     UpdateConnectionAuthRequestParameters (..),
     newUpdateConnectionAuthRequestParameters,
     updateConnectionAuthRequestParameters_basicAuthParameters,
-    updateConnectionAuthRequestParameters_oAuthParameters,
     updateConnectionAuthRequestParameters_apiKeyAuthParameters,
+    updateConnectionAuthRequestParameters_oAuthParameters,
     updateConnectionAuthRequestParameters_invocationHttpParameters,
 
     -- * UpdateConnectionBasicAuthRequestParameters
@@ -476,6 +524,7 @@ import Network.AWS.CloudWatchEvents.Types.AwsVpcConfiguration
 import Network.AWS.CloudWatchEvents.Types.BatchArrayProperties
 import Network.AWS.CloudWatchEvents.Types.BatchParameters
 import Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy
+import Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem
 import Network.AWS.CloudWatchEvents.Types.Condition
 import Network.AWS.CloudWatchEvents.Types.Connection
 import Network.AWS.CloudWatchEvents.Types.ConnectionApiKeyAuthResponseParameters
@@ -507,6 +556,11 @@ import Network.AWS.CloudWatchEvents.Types.LaunchType
 import Network.AWS.CloudWatchEvents.Types.NetworkConfiguration
 import Network.AWS.CloudWatchEvents.Types.PartnerEventSource
 import Network.AWS.CloudWatchEvents.Types.PartnerEventSourceAccount
+import Network.AWS.CloudWatchEvents.Types.PlacementConstraint
+import Network.AWS.CloudWatchEvents.Types.PlacementConstraintType
+import Network.AWS.CloudWatchEvents.Types.PlacementStrategy
+import Network.AWS.CloudWatchEvents.Types.PlacementStrategyType
+import Network.AWS.CloudWatchEvents.Types.PropagateTags
 import Network.AWS.CloudWatchEvents.Types.PutEventsRequestEntry
 import Network.AWS.CloudWatchEvents.Types.PutEventsResultEntry
 import Network.AWS.CloudWatchEvents.Types.PutPartnerEventsRequestEntry
@@ -522,6 +576,8 @@ import Network.AWS.CloudWatchEvents.Types.Rule
 import Network.AWS.CloudWatchEvents.Types.RuleState
 import Network.AWS.CloudWatchEvents.Types.RunCommandParameters
 import Network.AWS.CloudWatchEvents.Types.RunCommandTarget
+import Network.AWS.CloudWatchEvents.Types.SageMakerPipelineParameter
+import Network.AWS.CloudWatchEvents.Types.SageMakerPipelineParameters
 import Network.AWS.CloudWatchEvents.Types.SqsParameters
 import Network.AWS.CloudWatchEvents.Types.Tag
 import Network.AWS.CloudWatchEvents.Types.Target
@@ -607,12 +663,13 @@ defaultService =
         Prelude.Just "throttling"
       | Prelude.otherwise = Prelude.Nothing
 
--- | This rule was created by an AWS service on behalf of your account. It is
--- managed by that service. If you see this error in response to
--- @DeleteRule@ or @RemoveTargets@, you can use the @Force@ parameter in
--- those calls to delete the rule or remove targets from the rule. You
--- cannot modify these managed rules by using @DisableRule@, @EnableRule@,
--- @PutTargets@, @PutRule@, @TagResource@, or @UntagResource@.
+-- | This rule was created by an Amazon Web Services service on behalf of
+-- your account. It is managed by that service. If you see this error in
+-- response to @DeleteRule@ or @RemoveTargets@, you can use the @Force@
+-- parameter in those calls to delete the rule or remove targets from the
+-- rule. You cannot modify these managed rules by using @DisableRule@,
+-- @EnableRule@, @PutTargets@, @PutRule@, @TagResource@, or
+-- @UntagResource@.
 _ManagedRuleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ManagedRuleException =
   Core._MatchServiceError

@@ -27,7 +27,8 @@
 -- state. If it remains in PENDING state for more than two weeks, it is
 -- deleted.
 --
--- To activate a deactivated partner event source, use ActivateEventSource.
+-- To activate a deactivated partner event source, use
+-- <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ActivateEventSource.html ActivateEventSource>.
 module Network.AWS.CloudWatchEvents.DeactivateEventSource
   ( -- * Creating a Request
     DeactivateEventSource (..),

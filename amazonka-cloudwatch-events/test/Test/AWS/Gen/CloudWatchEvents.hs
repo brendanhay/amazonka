@@ -30,9 +30,6 @@ import Test.Tasty
 --         [ requestListPartnerEventSourceAccounts $
 --             newListPartnerEventSourceAccounts
 --
---         , requestDeleteConnection $
---             newDeleteConnection
---
 --         , requestUpdateConnection $
 --             newUpdateConnection
 --
@@ -41,6 +38,9 @@ import Test.Tasty
 --
 --         , requestDescribeArchive $
 --             newDescribeArchive
+--
+--         , requestDeleteConnection $
+--             newDeleteConnection
 --
 --         , requestDescribeEventSource $
 --             newDescribeEventSource
@@ -51,35 +51,32 @@ import Test.Tasty
 --         , requestDeactivateEventSource $
 --             newDeactivateEventSource
 --
---         , requestUpdateArchive $
---             newUpdateArchive
---
---         , requestDescribeConnection $
---             newDescribeConnection
+--         , requestListArchives $
+--             newListArchives
 --
 --         , requestDeleteArchive $
 --             newDeleteArchive
 --
---         , requestUntagResource $
---             newUntagResource
---
 --         , requestDescribeRule $
 --             newDescribeRule
 --
---         , requestListArchives $
---             newListArchives
+--         , requestUpdateArchive $
+--             newUpdateArchive
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestDescribeConnection $
+--             newDescribeConnection
 --
 --         , requestPutPartnerEvents $
 --             newPutPartnerEvents
 --
---         , requestCreateApiDestination $
---             newCreateApiDestination
---
 --         , requestTagResource $
 --             newTagResource
 --
---         , requestListApiDestinations $
---             newListApiDestinations
+--         , requestCreateApiDestination $
+--             newCreateApiDestination
 --
 --         , requestDescribeEventBus $
 --             newDescribeEventBus
@@ -87,53 +84,59 @@ import Test.Tasty
 --         , requestListTargetsByRule $
 --             newListTargetsByRule
 --
---         , requestCreateConnection $
---             newCreateConnection
+--         , requestListApiDestinations $
+--             newListApiDestinations
 --
 --         , requestListRuleNamesByTarget $
 --             newListRuleNamesByTarget
 --
---         , requestListRules $
---             newListRules
---
---         , requestPutRule $
---             newPutRule
+--         , requestCreateConnection $
+--             newCreateConnection
 --
 --         , requestEnableRule $
 --             newEnableRule
 --
+--         , requestPutRule $
+--             newPutRule
+--
+--         , requestListRules $
+--             newListRules
+--
 --         , requestListConnections $
 --             newListConnections
---
---         , requestDeauthorizeConnection $
---             newDeauthorizeConnection
 --
 --         , requestCreateEventBus $
 --             newCreateEventBus
 --
---         , requestRemoveTargets $
---             newRemoveTargets
+--         , requestDeauthorizeConnection $
+--             newDeauthorizeConnection
 --
 --         , requestListEventBuses $
 --             newListEventBuses
 --
+--         , requestRemoveTargets $
+--             newRemoveTargets
+--
 --         , requestDeleteEventBus $
 --             newDeleteEventBus
+--
+--         , requestDeletePartnerEventSource $
+--             newDeletePartnerEventSource
 --
 --         , requestPutEvents $
 --             newPutEvents
 --
---         , requestCreateArchive $
---             newCreateArchive
+--         , requestDescribeReplay $
+--             newDescribeReplay
 --
 --         , requestListPartnerEventSources $
 --             newListPartnerEventSources
 --
---         , requestDescribeReplay $
---             newDescribeReplay
+--         , requestCreateArchive $
+--             newCreateArchive
 --
---         , requestDeletePartnerEventSource $
---             newDeletePartnerEventSource
+--         , requestPutTargets $
+--             newPutTargets
 --
 --         , requestCreatePartnerEventSource $
 --             newCreatePartnerEventSource
@@ -141,53 +144,47 @@ import Test.Tasty
 --         , requestStartReplay $
 --             newStartReplay
 --
---         , requestPutTargets $
---             newPutTargets
+--         , requestActivateEventSource $
+--             newActivateEventSource
 --
 --         , requestListEventSources $
 --             newListEventSources
 --
---         , requestActivateEventSource $
---             newActivateEventSource
---
---         , requestDeleteApiDestination $
---             newDeleteApiDestination
+--         , requestUpdateApiDestination $
+--             newUpdateApiDestination
 --
 --         , requestCancelReplay $
 --             newCancelReplay
 --
---         , requestUpdateApiDestination $
---             newUpdateApiDestination
---
 --         , requestRemovePermission $
 --             newRemovePermission
+--
+--         , requestDeleteApiDestination $
+--             newDeleteApiDestination
 --
 --         , requestTestEventPattern $
 --             newTestEventPattern
 --
---         , requestListTagsForResource $
---             newListTagsForResource
---
 --         , requestDisableRule $
 --             newDisableRule
---
---         , requestListReplays $
---             newListReplays
 --
 --         , requestDescribePartnerEventSource $
 --             newDescribePartnerEventSource
 --
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
 --         , requestPutPermission $
 --             newPutPermission
+--
+--         , requestListReplays $
+--             newListReplays
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseListPartnerEventSourceAccounts $
 --             newListPartnerEventSourceAccountsResponse
---
---         , responseDeleteConnection $
---             newDeleteConnectionResponse
 --
 --         , responseUpdateConnection $
 --             newUpdateConnectionResponse
@@ -198,6 +195,9 @@ import Test.Tasty
 --         , responseDescribeArchive $
 --             newDescribeArchiveResponse
 --
+--         , responseDeleteConnection $
+--             newDeleteConnectionResponse
+--
 --         , responseDescribeEventSource $
 --             newDescribeEventSourceResponse
 --
@@ -207,35 +207,32 @@ import Test.Tasty
 --         , responseDeactivateEventSource $
 --             newDeactivateEventSourceResponse
 --
---         , responseUpdateArchive $
---             newUpdateArchiveResponse
---
---         , responseDescribeConnection $
---             newDescribeConnectionResponse
+--         , responseListArchives $
+--             newListArchivesResponse
 --
 --         , responseDeleteArchive $
 --             newDeleteArchiveResponse
 --
---         , responseUntagResource $
---             newUntagResourceResponse
---
 --         , responseDescribeRule $
 --             newDescribeRuleResponse
 --
---         , responseListArchives $
---             newListArchivesResponse
+--         , responseUpdateArchive $
+--             newUpdateArchiveResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseDescribeConnection $
+--             newDescribeConnectionResponse
 --
 --         , responsePutPartnerEvents $
 --             newPutPartnerEventsResponse
 --
---         , responseCreateApiDestination $
---             newCreateApiDestinationResponse
---
 --         , responseTagResource $
 --             newTagResourceResponse
 --
---         , responseListApiDestinations $
---             newListApiDestinationsResponse
+--         , responseCreateApiDestination $
+--             newCreateApiDestinationResponse
 --
 --         , responseDescribeEventBus $
 --             newDescribeEventBusResponse
@@ -243,53 +240,59 @@ import Test.Tasty
 --         , responseListTargetsByRule $
 --             newListTargetsByRuleResponse
 --
---         , responseCreateConnection $
---             newCreateConnectionResponse
+--         , responseListApiDestinations $
+--             newListApiDestinationsResponse
 --
 --         , responseListRuleNamesByTarget $
 --             newListRuleNamesByTargetResponse
 --
---         , responseListRules $
---             newListRulesResponse
---
---         , responsePutRule $
---             newPutRuleResponse
+--         , responseCreateConnection $
+--             newCreateConnectionResponse
 --
 --         , responseEnableRule $
 --             newEnableRuleResponse
 --
+--         , responsePutRule $
+--             newPutRuleResponse
+--
+--         , responseListRules $
+--             newListRulesResponse
+--
 --         , responseListConnections $
 --             newListConnectionsResponse
---
---         , responseDeauthorizeConnection $
---             newDeauthorizeConnectionResponse
 --
 --         , responseCreateEventBus $
 --             newCreateEventBusResponse
 --
---         , responseRemoveTargets $
---             newRemoveTargetsResponse
+--         , responseDeauthorizeConnection $
+--             newDeauthorizeConnectionResponse
 --
 --         , responseListEventBuses $
 --             newListEventBusesResponse
 --
+--         , responseRemoveTargets $
+--             newRemoveTargetsResponse
+--
 --         , responseDeleteEventBus $
 --             newDeleteEventBusResponse
+--
+--         , responseDeletePartnerEventSource $
+--             newDeletePartnerEventSourceResponse
 --
 --         , responsePutEvents $
 --             newPutEventsResponse
 --
---         , responseCreateArchive $
---             newCreateArchiveResponse
+--         , responseDescribeReplay $
+--             newDescribeReplayResponse
 --
 --         , responseListPartnerEventSources $
 --             newListPartnerEventSourcesResponse
 --
---         , responseDescribeReplay $
---             newDescribeReplayResponse
+--         , responseCreateArchive $
+--             newCreateArchiveResponse
 --
---         , responseDeletePartnerEventSource $
---             newDeletePartnerEventSourceResponse
+--         , responsePutTargets $
+--             newPutTargetsResponse
 --
 --         , responseCreatePartnerEventSource $
 --             newCreatePartnerEventSourceResponse
@@ -297,44 +300,41 @@ import Test.Tasty
 --         , responseStartReplay $
 --             newStartReplayResponse
 --
---         , responsePutTargets $
---             newPutTargetsResponse
+--         , responseActivateEventSource $
+--             newActivateEventSourceResponse
 --
 --         , responseListEventSources $
 --             newListEventSourcesResponse
 --
---         , responseActivateEventSource $
---             newActivateEventSourceResponse
---
---         , responseDeleteApiDestination $
---             newDeleteApiDestinationResponse
+--         , responseUpdateApiDestination $
+--             newUpdateApiDestinationResponse
 --
 --         , responseCancelReplay $
 --             newCancelReplayResponse
 --
---         , responseUpdateApiDestination $
---             newUpdateApiDestinationResponse
---
 --         , responseRemovePermission $
 --             newRemovePermissionResponse
+--
+--         , responseDeleteApiDestination $
+--             newDeleteApiDestinationResponse
 --
 --         , responseTestEventPattern $
 --             newTestEventPatternResponse
 --
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
---
 --         , responseDisableRule $
 --             newDisableRuleResponse
---
---         , responseListReplays $
---             newListReplaysResponse
 --
 --         , responseDescribePartnerEventSource $
 --             newDescribePartnerEventSourceResponse
 --
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
 --         , responsePutPermission $
 --             newPutPermissionResponse
+--
+--         , responseListReplays $
+--             newListReplaysResponse
 --
 --           ]
 --     ]
@@ -346,12 +346,6 @@ requestListPartnerEventSourceAccounts =
   req
     "ListPartnerEventSourceAccounts"
     "fixture/ListPartnerEventSourceAccounts.yaml"
-
-requestDeleteConnection :: DeleteConnection -> TestTree
-requestDeleteConnection =
-  req
-    "DeleteConnection"
-    "fixture/DeleteConnection.yaml"
 
 requestUpdateConnection :: UpdateConnection -> TestTree
 requestUpdateConnection =
@@ -371,6 +365,12 @@ requestDescribeArchive =
     "DescribeArchive"
     "fixture/DescribeArchive.yaml"
 
+requestDeleteConnection :: DeleteConnection -> TestTree
+requestDeleteConnection =
+  req
+    "DeleteConnection"
+    "fixture/DeleteConnection.yaml"
+
 requestDescribeEventSource :: DescribeEventSource -> TestTree
 requestDescribeEventSource =
   req
@@ -389,17 +389,11 @@ requestDeactivateEventSource =
     "DeactivateEventSource"
     "fixture/DeactivateEventSource.yaml"
 
-requestUpdateArchive :: UpdateArchive -> TestTree
-requestUpdateArchive =
+requestListArchives :: ListArchives -> TestTree
+requestListArchives =
   req
-    "UpdateArchive"
-    "fixture/UpdateArchive.yaml"
-
-requestDescribeConnection :: DescribeConnection -> TestTree
-requestDescribeConnection =
-  req
-    "DescribeConnection"
-    "fixture/DescribeConnection.yaml"
+    "ListArchives"
+    "fixture/ListArchives.yaml"
 
 requestDeleteArchive :: DeleteArchive -> TestTree
 requestDeleteArchive =
@@ -407,23 +401,29 @@ requestDeleteArchive =
     "DeleteArchive"
     "fixture/DeleteArchive.yaml"
 
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
-
 requestDescribeRule :: DescribeRule -> TestTree
 requestDescribeRule =
   req
     "DescribeRule"
     "fixture/DescribeRule.yaml"
 
-requestListArchives :: ListArchives -> TestTree
-requestListArchives =
+requestUpdateArchive :: UpdateArchive -> TestTree
+requestUpdateArchive =
   req
-    "ListArchives"
-    "fixture/ListArchives.yaml"
+    "UpdateArchive"
+    "fixture/UpdateArchive.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestDescribeConnection :: DescribeConnection -> TestTree
+requestDescribeConnection =
+  req
+    "DescribeConnection"
+    "fixture/DescribeConnection.yaml"
 
 requestPutPartnerEvents :: PutPartnerEvents -> TestTree
 requestPutPartnerEvents =
@@ -431,23 +431,17 @@ requestPutPartnerEvents =
     "PutPartnerEvents"
     "fixture/PutPartnerEvents.yaml"
 
-requestCreateApiDestination :: CreateApiDestination -> TestTree
-requestCreateApiDestination =
-  req
-    "CreateApiDestination"
-    "fixture/CreateApiDestination.yaml"
-
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
   req
     "TagResource"
     "fixture/TagResource.yaml"
 
-requestListApiDestinations :: ListApiDestinations -> TestTree
-requestListApiDestinations =
+requestCreateApiDestination :: CreateApiDestination -> TestTree
+requestCreateApiDestination =
   req
-    "ListApiDestinations"
-    "fixture/ListApiDestinations.yaml"
+    "CreateApiDestination"
+    "fixture/CreateApiDestination.yaml"
 
 requestDescribeEventBus :: DescribeEventBus -> TestTree
 requestDescribeEventBus =
@@ -461,11 +455,11 @@ requestListTargetsByRule =
     "ListTargetsByRule"
     "fixture/ListTargetsByRule.yaml"
 
-requestCreateConnection :: CreateConnection -> TestTree
-requestCreateConnection =
+requestListApiDestinations :: ListApiDestinations -> TestTree
+requestListApiDestinations =
   req
-    "CreateConnection"
-    "fixture/CreateConnection.yaml"
+    "ListApiDestinations"
+    "fixture/ListApiDestinations.yaml"
 
 requestListRuleNamesByTarget :: ListRuleNamesByTarget -> TestTree
 requestListRuleNamesByTarget =
@@ -473,17 +467,11 @@ requestListRuleNamesByTarget =
     "ListRuleNamesByTarget"
     "fixture/ListRuleNamesByTarget.yaml"
 
-requestListRules :: ListRules -> TestTree
-requestListRules =
+requestCreateConnection :: CreateConnection -> TestTree
+requestCreateConnection =
   req
-    "ListRules"
-    "fixture/ListRules.yaml"
-
-requestPutRule :: PutRule -> TestTree
-requestPutRule =
-  req
-    "PutRule"
-    "fixture/PutRule.yaml"
+    "CreateConnection"
+    "fixture/CreateConnection.yaml"
 
 requestEnableRule :: EnableRule -> TestTree
 requestEnableRule =
@@ -491,17 +479,23 @@ requestEnableRule =
     "EnableRule"
     "fixture/EnableRule.yaml"
 
+requestPutRule :: PutRule -> TestTree
+requestPutRule =
+  req
+    "PutRule"
+    "fixture/PutRule.yaml"
+
+requestListRules :: ListRules -> TestTree
+requestListRules =
+  req
+    "ListRules"
+    "fixture/ListRules.yaml"
+
 requestListConnections :: ListConnections -> TestTree
 requestListConnections =
   req
     "ListConnections"
     "fixture/ListConnections.yaml"
-
-requestDeauthorizeConnection :: DeauthorizeConnection -> TestTree
-requestDeauthorizeConnection =
-  req
-    "DeauthorizeConnection"
-    "fixture/DeauthorizeConnection.yaml"
 
 requestCreateEventBus :: CreateEventBus -> TestTree
 requestCreateEventBus =
@@ -509,11 +503,11 @@ requestCreateEventBus =
     "CreateEventBus"
     "fixture/CreateEventBus.yaml"
 
-requestRemoveTargets :: RemoveTargets -> TestTree
-requestRemoveTargets =
+requestDeauthorizeConnection :: DeauthorizeConnection -> TestTree
+requestDeauthorizeConnection =
   req
-    "RemoveTargets"
-    "fixture/RemoveTargets.yaml"
+    "DeauthorizeConnection"
+    "fixture/DeauthorizeConnection.yaml"
 
 requestListEventBuses :: ListEventBuses -> TestTree
 requestListEventBuses =
@@ -521,11 +515,23 @@ requestListEventBuses =
     "ListEventBuses"
     "fixture/ListEventBuses.yaml"
 
+requestRemoveTargets :: RemoveTargets -> TestTree
+requestRemoveTargets =
+  req
+    "RemoveTargets"
+    "fixture/RemoveTargets.yaml"
+
 requestDeleteEventBus :: DeleteEventBus -> TestTree
 requestDeleteEventBus =
   req
     "DeleteEventBus"
     "fixture/DeleteEventBus.yaml"
+
+requestDeletePartnerEventSource :: DeletePartnerEventSource -> TestTree
+requestDeletePartnerEventSource =
+  req
+    "DeletePartnerEventSource"
+    "fixture/DeletePartnerEventSource.yaml"
 
 requestPutEvents :: PutEvents -> TestTree
 requestPutEvents =
@@ -533,11 +539,11 @@ requestPutEvents =
     "PutEvents"
     "fixture/PutEvents.yaml"
 
-requestCreateArchive :: CreateArchive -> TestTree
-requestCreateArchive =
+requestDescribeReplay :: DescribeReplay -> TestTree
+requestDescribeReplay =
   req
-    "CreateArchive"
-    "fixture/CreateArchive.yaml"
+    "DescribeReplay"
+    "fixture/DescribeReplay.yaml"
 
 requestListPartnerEventSources :: ListPartnerEventSources -> TestTree
 requestListPartnerEventSources =
@@ -545,17 +551,17 @@ requestListPartnerEventSources =
     "ListPartnerEventSources"
     "fixture/ListPartnerEventSources.yaml"
 
-requestDescribeReplay :: DescribeReplay -> TestTree
-requestDescribeReplay =
+requestCreateArchive :: CreateArchive -> TestTree
+requestCreateArchive =
   req
-    "DescribeReplay"
-    "fixture/DescribeReplay.yaml"
+    "CreateArchive"
+    "fixture/CreateArchive.yaml"
 
-requestDeletePartnerEventSource :: DeletePartnerEventSource -> TestTree
-requestDeletePartnerEventSource =
+requestPutTargets :: PutTargets -> TestTree
+requestPutTargets =
   req
-    "DeletePartnerEventSource"
-    "fixture/DeletePartnerEventSource.yaml"
+    "PutTargets"
+    "fixture/PutTargets.yaml"
 
 requestCreatePartnerEventSource :: CreatePartnerEventSource -> TestTree
 requestCreatePartnerEventSource =
@@ -569,11 +575,11 @@ requestStartReplay =
     "StartReplay"
     "fixture/StartReplay.yaml"
 
-requestPutTargets :: PutTargets -> TestTree
-requestPutTargets =
+requestActivateEventSource :: ActivateEventSource -> TestTree
+requestActivateEventSource =
   req
-    "PutTargets"
-    "fixture/PutTargets.yaml"
+    "ActivateEventSource"
+    "fixture/ActivateEventSource.yaml"
 
 requestListEventSources :: ListEventSources -> TestTree
 requestListEventSources =
@@ -581,17 +587,11 @@ requestListEventSources =
     "ListEventSources"
     "fixture/ListEventSources.yaml"
 
-requestActivateEventSource :: ActivateEventSource -> TestTree
-requestActivateEventSource =
+requestUpdateApiDestination :: UpdateApiDestination -> TestTree
+requestUpdateApiDestination =
   req
-    "ActivateEventSource"
-    "fixture/ActivateEventSource.yaml"
-
-requestDeleteApiDestination :: DeleteApiDestination -> TestTree
-requestDeleteApiDestination =
-  req
-    "DeleteApiDestination"
-    "fixture/DeleteApiDestination.yaml"
+    "UpdateApiDestination"
+    "fixture/UpdateApiDestination.yaml"
 
 requestCancelReplay :: CancelReplay -> TestTree
 requestCancelReplay =
@@ -599,17 +599,17 @@ requestCancelReplay =
     "CancelReplay"
     "fixture/CancelReplay.yaml"
 
-requestUpdateApiDestination :: UpdateApiDestination -> TestTree
-requestUpdateApiDestination =
-  req
-    "UpdateApiDestination"
-    "fixture/UpdateApiDestination.yaml"
-
 requestRemovePermission :: RemovePermission -> TestTree
 requestRemovePermission =
   req
     "RemovePermission"
     "fixture/RemovePermission.yaml"
+
+requestDeleteApiDestination :: DeleteApiDestination -> TestTree
+requestDeleteApiDestination =
+  req
+    "DeleteApiDestination"
+    "fixture/DeleteApiDestination.yaml"
 
 requestTestEventPattern :: TestEventPattern -> TestTree
 requestTestEventPattern =
@@ -617,23 +617,11 @@ requestTestEventPattern =
     "TestEventPattern"
     "fixture/TestEventPattern.yaml"
 
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
-
 requestDisableRule :: DisableRule -> TestTree
 requestDisableRule =
   req
     "DisableRule"
     "fixture/DisableRule.yaml"
-
-requestListReplays :: ListReplays -> TestTree
-requestListReplays =
-  req
-    "ListReplays"
-    "fixture/ListReplays.yaml"
 
 requestDescribePartnerEventSource :: DescribePartnerEventSource -> TestTree
 requestDescribePartnerEventSource =
@@ -641,11 +629,23 @@ requestDescribePartnerEventSource =
     "DescribePartnerEventSource"
     "fixture/DescribePartnerEventSource.yaml"
 
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
 requestPutPermission :: PutPermission -> TestTree
 requestPutPermission =
   req
     "PutPermission"
     "fixture/PutPermission.yaml"
+
+requestListReplays :: ListReplays -> TestTree
+requestListReplays =
+  req
+    "ListReplays"
+    "fixture/ListReplays.yaml"
 
 -- Responses
 
@@ -656,14 +656,6 @@ responseListPartnerEventSourceAccounts =
     "fixture/ListPartnerEventSourceAccountsResponse.proto"
     defaultService
     (Proxy :: Proxy ListPartnerEventSourceAccounts)
-
-responseDeleteConnection :: DeleteConnectionResponse -> TestTree
-responseDeleteConnection =
-  res
-    "DeleteConnectionResponse"
-    "fixture/DeleteConnectionResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteConnection)
 
 responseUpdateConnection :: UpdateConnectionResponse -> TestTree
 responseUpdateConnection =
@@ -689,6 +681,14 @@ responseDescribeArchive =
     defaultService
     (Proxy :: Proxy DescribeArchive)
 
+responseDeleteConnection :: DeleteConnectionResponse -> TestTree
+responseDeleteConnection =
+  res
+    "DeleteConnectionResponse"
+    "fixture/DeleteConnectionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteConnection)
+
 responseDescribeEventSource :: DescribeEventSourceResponse -> TestTree
 responseDescribeEventSource =
   res
@@ -713,21 +713,13 @@ responseDeactivateEventSource =
     defaultService
     (Proxy :: Proxy DeactivateEventSource)
 
-responseUpdateArchive :: UpdateArchiveResponse -> TestTree
-responseUpdateArchive =
+responseListArchives :: ListArchivesResponse -> TestTree
+responseListArchives =
   res
-    "UpdateArchiveResponse"
-    "fixture/UpdateArchiveResponse.proto"
+    "ListArchivesResponse"
+    "fixture/ListArchivesResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateArchive)
-
-responseDescribeConnection :: DescribeConnectionResponse -> TestTree
-responseDescribeConnection =
-  res
-    "DescribeConnectionResponse"
-    "fixture/DescribeConnectionResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeConnection)
+    (Proxy :: Proxy ListArchives)
 
 responseDeleteArchive :: DeleteArchiveResponse -> TestTree
 responseDeleteArchive =
@@ -737,14 +729,6 @@ responseDeleteArchive =
     defaultService
     (Proxy :: Proxy DeleteArchive)
 
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy UntagResource)
-
 responseDescribeRule :: DescribeRuleResponse -> TestTree
 responseDescribeRule =
   res
@@ -753,13 +737,29 @@ responseDescribeRule =
     defaultService
     (Proxy :: Proxy DescribeRule)
 
-responseListArchives :: ListArchivesResponse -> TestTree
-responseListArchives =
+responseUpdateArchive :: UpdateArchiveResponse -> TestTree
+responseUpdateArchive =
   res
-    "ListArchivesResponse"
-    "fixture/ListArchivesResponse.proto"
+    "UpdateArchiveResponse"
+    "fixture/UpdateArchiveResponse.proto"
     defaultService
-    (Proxy :: Proxy ListArchives)
+    (Proxy :: Proxy UpdateArchive)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy UntagResource)
+
+responseDescribeConnection :: DescribeConnectionResponse -> TestTree
+responseDescribeConnection =
+  res
+    "DescribeConnectionResponse"
+    "fixture/DescribeConnectionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeConnection)
 
 responsePutPartnerEvents :: PutPartnerEventsResponse -> TestTree
 responsePutPartnerEvents =
@@ -769,14 +769,6 @@ responsePutPartnerEvents =
     defaultService
     (Proxy :: Proxy PutPartnerEvents)
 
-responseCreateApiDestination :: CreateApiDestinationResponse -> TestTree
-responseCreateApiDestination =
-  res
-    "CreateApiDestinationResponse"
-    "fixture/CreateApiDestinationResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateApiDestination)
-
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
   res
@@ -785,13 +777,13 @@ responseTagResource =
     defaultService
     (Proxy :: Proxy TagResource)
 
-responseListApiDestinations :: ListApiDestinationsResponse -> TestTree
-responseListApiDestinations =
+responseCreateApiDestination :: CreateApiDestinationResponse -> TestTree
+responseCreateApiDestination =
   res
-    "ListApiDestinationsResponse"
-    "fixture/ListApiDestinationsResponse.proto"
+    "CreateApiDestinationResponse"
+    "fixture/CreateApiDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy ListApiDestinations)
+    (Proxy :: Proxy CreateApiDestination)
 
 responseDescribeEventBus :: DescribeEventBusResponse -> TestTree
 responseDescribeEventBus =
@@ -809,13 +801,13 @@ responseListTargetsByRule =
     defaultService
     (Proxy :: Proxy ListTargetsByRule)
 
-responseCreateConnection :: CreateConnectionResponse -> TestTree
-responseCreateConnection =
+responseListApiDestinations :: ListApiDestinationsResponse -> TestTree
+responseListApiDestinations =
   res
-    "CreateConnectionResponse"
-    "fixture/CreateConnectionResponse.proto"
+    "ListApiDestinationsResponse"
+    "fixture/ListApiDestinationsResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateConnection)
+    (Proxy :: Proxy ListApiDestinations)
 
 responseListRuleNamesByTarget :: ListRuleNamesByTargetResponse -> TestTree
 responseListRuleNamesByTarget =
@@ -825,21 +817,13 @@ responseListRuleNamesByTarget =
     defaultService
     (Proxy :: Proxy ListRuleNamesByTarget)
 
-responseListRules :: ListRulesResponse -> TestTree
-responseListRules =
+responseCreateConnection :: CreateConnectionResponse -> TestTree
+responseCreateConnection =
   res
-    "ListRulesResponse"
-    "fixture/ListRulesResponse.proto"
+    "CreateConnectionResponse"
+    "fixture/CreateConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy ListRules)
-
-responsePutRule :: PutRuleResponse -> TestTree
-responsePutRule =
-  res
-    "PutRuleResponse"
-    "fixture/PutRuleResponse.proto"
-    defaultService
-    (Proxy :: Proxy PutRule)
+    (Proxy :: Proxy CreateConnection)
 
 responseEnableRule :: EnableRuleResponse -> TestTree
 responseEnableRule =
@@ -849,6 +833,22 @@ responseEnableRule =
     defaultService
     (Proxy :: Proxy EnableRule)
 
+responsePutRule :: PutRuleResponse -> TestTree
+responsePutRule =
+  res
+    "PutRuleResponse"
+    "fixture/PutRuleResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutRule)
+
+responseListRules :: ListRulesResponse -> TestTree
+responseListRules =
+  res
+    "ListRulesResponse"
+    "fixture/ListRulesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListRules)
+
 responseListConnections :: ListConnectionsResponse -> TestTree
 responseListConnections =
   res
@@ -856,14 +856,6 @@ responseListConnections =
     "fixture/ListConnectionsResponse.proto"
     defaultService
     (Proxy :: Proxy ListConnections)
-
-responseDeauthorizeConnection :: DeauthorizeConnectionResponse -> TestTree
-responseDeauthorizeConnection =
-  res
-    "DeauthorizeConnectionResponse"
-    "fixture/DeauthorizeConnectionResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeauthorizeConnection)
 
 responseCreateEventBus :: CreateEventBusResponse -> TestTree
 responseCreateEventBus =
@@ -873,13 +865,13 @@ responseCreateEventBus =
     defaultService
     (Proxy :: Proxy CreateEventBus)
 
-responseRemoveTargets :: RemoveTargetsResponse -> TestTree
-responseRemoveTargets =
+responseDeauthorizeConnection :: DeauthorizeConnectionResponse -> TestTree
+responseDeauthorizeConnection =
   res
-    "RemoveTargetsResponse"
-    "fixture/RemoveTargetsResponse.proto"
+    "DeauthorizeConnectionResponse"
+    "fixture/DeauthorizeConnectionResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveTargets)
+    (Proxy :: Proxy DeauthorizeConnection)
 
 responseListEventBuses :: ListEventBusesResponse -> TestTree
 responseListEventBuses =
@@ -889,6 +881,14 @@ responseListEventBuses =
     defaultService
     (Proxy :: Proxy ListEventBuses)
 
+responseRemoveTargets :: RemoveTargetsResponse -> TestTree
+responseRemoveTargets =
+  res
+    "RemoveTargetsResponse"
+    "fixture/RemoveTargetsResponse.proto"
+    defaultService
+    (Proxy :: Proxy RemoveTargets)
+
 responseDeleteEventBus :: DeleteEventBusResponse -> TestTree
 responseDeleteEventBus =
   res
@@ -896,6 +896,14 @@ responseDeleteEventBus =
     "fixture/DeleteEventBusResponse.proto"
     defaultService
     (Proxy :: Proxy DeleteEventBus)
+
+responseDeletePartnerEventSource :: DeletePartnerEventSourceResponse -> TestTree
+responseDeletePartnerEventSource =
+  res
+    "DeletePartnerEventSourceResponse"
+    "fixture/DeletePartnerEventSourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeletePartnerEventSource)
 
 responsePutEvents :: PutEventsResponse -> TestTree
 responsePutEvents =
@@ -905,13 +913,13 @@ responsePutEvents =
     defaultService
     (Proxy :: Proxy PutEvents)
 
-responseCreateArchive :: CreateArchiveResponse -> TestTree
-responseCreateArchive =
+responseDescribeReplay :: DescribeReplayResponse -> TestTree
+responseDescribeReplay =
   res
-    "CreateArchiveResponse"
-    "fixture/CreateArchiveResponse.proto"
+    "DescribeReplayResponse"
+    "fixture/DescribeReplayResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateArchive)
+    (Proxy :: Proxy DescribeReplay)
 
 responseListPartnerEventSources :: ListPartnerEventSourcesResponse -> TestTree
 responseListPartnerEventSources =
@@ -921,21 +929,21 @@ responseListPartnerEventSources =
     defaultService
     (Proxy :: Proxy ListPartnerEventSources)
 
-responseDescribeReplay :: DescribeReplayResponse -> TestTree
-responseDescribeReplay =
+responseCreateArchive :: CreateArchiveResponse -> TestTree
+responseCreateArchive =
   res
-    "DescribeReplayResponse"
-    "fixture/DescribeReplayResponse.proto"
+    "CreateArchiveResponse"
+    "fixture/CreateArchiveResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeReplay)
+    (Proxy :: Proxy CreateArchive)
 
-responseDeletePartnerEventSource :: DeletePartnerEventSourceResponse -> TestTree
-responseDeletePartnerEventSource =
+responsePutTargets :: PutTargetsResponse -> TestTree
+responsePutTargets =
   res
-    "DeletePartnerEventSourceResponse"
-    "fixture/DeletePartnerEventSourceResponse.proto"
+    "PutTargetsResponse"
+    "fixture/PutTargetsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePartnerEventSource)
+    (Proxy :: Proxy PutTargets)
 
 responseCreatePartnerEventSource :: CreatePartnerEventSourceResponse -> TestTree
 responseCreatePartnerEventSource =
@@ -953,13 +961,13 @@ responseStartReplay =
     defaultService
     (Proxy :: Proxy StartReplay)
 
-responsePutTargets :: PutTargetsResponse -> TestTree
-responsePutTargets =
+responseActivateEventSource :: ActivateEventSourceResponse -> TestTree
+responseActivateEventSource =
   res
-    "PutTargetsResponse"
-    "fixture/PutTargetsResponse.proto"
+    "ActivateEventSourceResponse"
+    "fixture/ActivateEventSourceResponse.proto"
     defaultService
-    (Proxy :: Proxy PutTargets)
+    (Proxy :: Proxy ActivateEventSource)
 
 responseListEventSources :: ListEventSourcesResponse -> TestTree
 responseListEventSources =
@@ -969,21 +977,13 @@ responseListEventSources =
     defaultService
     (Proxy :: Proxy ListEventSources)
 
-responseActivateEventSource :: ActivateEventSourceResponse -> TestTree
-responseActivateEventSource =
+responseUpdateApiDestination :: UpdateApiDestinationResponse -> TestTree
+responseUpdateApiDestination =
   res
-    "ActivateEventSourceResponse"
-    "fixture/ActivateEventSourceResponse.proto"
+    "UpdateApiDestinationResponse"
+    "fixture/UpdateApiDestinationResponse.proto"
     defaultService
-    (Proxy :: Proxy ActivateEventSource)
-
-responseDeleteApiDestination :: DeleteApiDestinationResponse -> TestTree
-responseDeleteApiDestination =
-  res
-    "DeleteApiDestinationResponse"
-    "fixture/DeleteApiDestinationResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteApiDestination)
+    (Proxy :: Proxy UpdateApiDestination)
 
 responseCancelReplay :: CancelReplayResponse -> TestTree
 responseCancelReplay =
@@ -993,14 +993,6 @@ responseCancelReplay =
     defaultService
     (Proxy :: Proxy CancelReplay)
 
-responseUpdateApiDestination :: UpdateApiDestinationResponse -> TestTree
-responseUpdateApiDestination =
-  res
-    "UpdateApiDestinationResponse"
-    "fixture/UpdateApiDestinationResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateApiDestination)
-
 responseRemovePermission :: RemovePermissionResponse -> TestTree
 responseRemovePermission =
   res
@@ -1008,6 +1000,14 @@ responseRemovePermission =
     "fixture/RemovePermissionResponse.proto"
     defaultService
     (Proxy :: Proxy RemovePermission)
+
+responseDeleteApiDestination :: DeleteApiDestinationResponse -> TestTree
+responseDeleteApiDestination =
+  res
+    "DeleteApiDestinationResponse"
+    "fixture/DeleteApiDestinationResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteApiDestination)
 
 responseTestEventPattern :: TestEventPatternResponse -> TestTree
 responseTestEventPattern =
@@ -1017,14 +1017,6 @@ responseTestEventPattern =
     defaultService
     (Proxy :: Proxy TestEventPattern)
 
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListTagsForResource)
-
 responseDisableRule :: DisableRuleResponse -> TestTree
 responseDisableRule =
   res
@@ -1032,14 +1024,6 @@ responseDisableRule =
     "fixture/DisableRuleResponse.proto"
     defaultService
     (Proxy :: Proxy DisableRule)
-
-responseListReplays :: ListReplaysResponse -> TestTree
-responseListReplays =
-  res
-    "ListReplaysResponse"
-    "fixture/ListReplaysResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListReplays)
 
 responseDescribePartnerEventSource :: DescribePartnerEventSourceResponse -> TestTree
 responseDescribePartnerEventSource =
@@ -1049,6 +1033,14 @@ responseDescribePartnerEventSource =
     defaultService
     (Proxy :: Proxy DescribePartnerEventSource)
 
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTagsForResource)
+
 responsePutPermission :: PutPermissionResponse -> TestTree
 responsePutPermission =
   res
@@ -1056,3 +1048,11 @@ responsePutPermission =
     "fixture/PutPermissionResponse.proto"
     defaultService
     (Proxy :: Proxy PutPermission)
+
+responseListReplays :: ListReplaysResponse -> TestTree
+responseListReplays =
+  res
+    "ListReplaysResponse"
+    "fixture/ListReplaysResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListReplays)

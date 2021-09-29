@@ -27,44 +27,60 @@
 --
 -- You can configure the following as targets for Events:
 --
--- -   EC2 instances
+-- -   <https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-destinations.html API destination>
 --
--- -   SSM Run Command
+-- -   Amazon API Gateway REST API endpoints
 --
--- -   SSM Automation
+-- -   API Gateway
 --
--- -   AWS Lambda functions
+-- -   Batch job queue
 --
--- -   Data streams in Amazon Kinesis Data Streams
+-- -   CloudWatch Logs group
 --
--- -   Data delivery streams in Amazon Kinesis Data Firehose
+-- -   CodeBuild project
+--
+-- -   CodePipeline
+--
+-- -   Amazon EC2 @CreateSnapshot@ API call
+--
+-- -   Amazon EC2 @RebootInstances@ API call
+--
+-- -   Amazon EC2 @StopInstances@ API call
+--
+-- -   Amazon EC2 @TerminateInstances@ API call
 --
 -- -   Amazon ECS tasks
 --
--- -   AWS Step Functions state machines
+-- -   Event bus in a different Amazon Web Services account or Region.
 --
--- -   AWS Batch jobs
+--     You can use an event bus in the US East (N. Virginia) us-east-1, US
+--     West (Oregon) us-west-2, or Europe (Ireland) eu-west-1 Regions as a
+--     target for a rule.
 --
--- -   AWS CodeBuild projects
+-- -   Firehose delivery stream (Kinesis Data Firehose)
 --
--- -   Pipelines in AWS CodePipeline
+-- -   Inspector assessment template (Amazon Inspector)
 --
--- -   Amazon Inspector assessment templates
+-- -   Kinesis stream (Kinesis Data Stream)
 --
--- -   Amazon SNS topics
+-- -   Lambda function
 --
--- -   Amazon SQS queues, including FIFO queues
+-- -   Redshift clusters (Data API statement execution)
 --
--- -   The default event bus of another AWS account
+-- -   Amazon SNS topic
 --
--- -   Amazon API Gateway REST APIs
+-- -   Amazon SQS queues (includes FIFO queues
 --
--- -   Redshift Clusters to invoke Data API ExecuteStatement on
+-- -   SSM Automation
 --
--- -   Custom\/SaaS HTTPS APIs via EventBridge API Destinations
+-- -   SSM OpsItem
 --
--- Creating rules with built-in targets is supported only in the AWS
--- Management Console. The built-in targets are
+-- -   SSM Run Command
+--
+-- -   Step Functions state machines
+--
+-- Creating rules with built-in targets is supported only in the Amazon Web
+-- Services Management Console. The built-in targets are
 -- @EC2 CreateSnapshot API call@, @EC2 RebootInstances API call@,
 -- @EC2 StopInstances API call@, and @EC2 TerminateInstances API call@.
 --
@@ -75,39 +91,39 @@
 -- the @RunCommandParameters@ field.
 --
 -- To be able to make API calls against the resources that you own, Amazon
--- EventBridge (CloudWatch Events) needs the appropriate permissions. For
--- AWS Lambda and Amazon SNS resources, EventBridge relies on
--- resource-based policies. For EC2 instances, Kinesis data streams, AWS
--- Step Functions state machines and API Gateway REST APIs, EventBridge
--- relies on IAM roles that you specify in the @RoleARN@ argument in
--- @PutTargets@. For more information, see
+-- EventBridge needs the appropriate permissions. For Lambda and Amazon SNS
+-- resources, EventBridge relies on resource-based policies. For EC2
+-- instances, Kinesis Data Streams, Step Functions state machines and API
+-- Gateway REST APIs, EventBridge relies on IAM roles that you specify in
+-- the @RoleARN@ argument in @PutTargets@. For more information, see
 -- <https://docs.aws.amazon.com/eventbridge/latest/userguide/auth-and-access-control-eventbridge.html Authentication and Access Control>
 -- in the /Amazon EventBridge User Guide/.
 --
--- If another AWS account is in the same region and has granted you
--- permission (using @PutPermission@), you can send events to that account.
--- Set that account\'s event bus as a target of the rules in your account.
--- To send the matched events to the other account, specify that account\'s
--- event bus as the @Arn@ value when you run @PutTargets@. If your account
--- sends events to another account, your account is charged for each sent
--- event. Each event sent to another account is charged as a custom event.
--- The account receiving the event is not charged. For more information,
--- see
--- <https://aws.amazon.com/eventbridge/pricing/ Amazon EventBridge (CloudWatch Events) Pricing>.
+-- If another Amazon Web Services account is in the same region and has
+-- granted you permission (using @PutPermission@), you can send events to
+-- that account. Set that account\'s event bus as a target of the rules in
+-- your account. To send the matched events to the other account, specify
+-- that account\'s event bus as the @Arn@ value when you run @PutTargets@.
+-- If your account sends events to another account, your account is charged
+-- for each sent event. Each event sent to another account is charged as a
+-- custom event. The account receiving the event is not charged. For more
+-- information, see
+-- <http://aws.amazon.com/eventbridge/pricing/ Amazon EventBridge Pricing>.
 --
 -- @Input@, @InputPath@, and @InputTransformer@ are not available with
--- @PutTarget@ if the target is an event bus of a different AWS account.
+-- @PutTarget@ if the target is an event bus of a different Amazon Web
+-- Services account.
 --
 -- If you are setting the event bus of another account as the target, and
 -- that account granted permission to your account through an organization
 -- instead of directly by the account ID, then you must specify a @RoleArn@
 -- with proper permissions in the @Target@ structure. For more information,
 -- see
--- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html Sending and Receiving Events Between AWS Accounts>
+-- <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html Sending and Receiving Events Between Amazon Web Services Accounts>
 -- in the /Amazon EventBridge User Guide/.
 --
 -- For more information about enabling cross-account events, see
--- PutPermission.
+-- <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutPermission.html PutPermission>.
 --
 -- __Input__, __InputPath__, and __InputTransformer__ are mutually
 -- exclusive and optional parameters of a target. When a rule is triggered

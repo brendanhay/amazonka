@@ -21,31 +21,33 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Called by an SaaS partner to create a partner event source. This
--- operation is not used by AWS customers.
+-- operation is not used by Amazon Web Services customers.
 --
--- Each partner event source can be used by one AWS account to create a
--- matching partner event bus in that AWS account. A SaaS partner must
--- create one partner event source for each AWS account that wants to
--- receive those event types.
+-- Each partner event source can be used by one Amazon Web Services account
+-- to create a matching partner event bus in that Amazon Web Services
+-- account. A SaaS partner must create one partner event source for each
+-- Amazon Web Services account that wants to receive those event types.
 --
 -- A partner event source creates events based on resources within the SaaS
 -- partner\'s service or application.
 --
--- An AWS account that creates a partner event bus that matches the partner
--- event source can use that event bus to receive events from the partner,
--- and then process them using AWS Events rules and targets.
+-- An Amazon Web Services account that creates a partner event bus that
+-- matches the partner event source can use that event bus to receive
+-- events from the partner, and then process them using Amazon Web Services
+-- Events rules and targets.
 --
 -- Partner event source names follow this format:
 --
 -- @ partner_name\/event_namespace\/event_name @
 --
 -- /partner_name/ is determined during partner registration and identifies
--- the partner to AWS customers. /event_namespace/ is determined by the
--- partner and is a way for the partner to categorize their events.
--- /event_name/ is determined by the partner, and should uniquely identify
--- an event-generating resource within the partner system. The combination
--- of /event_namespace/ and /event_name/ should help AWS customers decide
--- whether to create an event bus to receive these events.
+-- the partner to Amazon Web Services customers. /event_namespace/ is
+-- determined by the partner and is a way for the partner to categorize
+-- their events. /event_name/ is determined by the partner, and should
+-- uniquely identify an event-generating resource within the partner
+-- system. The combination of /event_namespace/ and /event_name/ should
+-- help Amazon Web Services customers decide whether to create an event bus
+-- to receive these events.
 module Network.AWS.CloudWatchEvents.CreatePartnerEventSource
   ( -- * Creating a Request
     CreatePartnerEventSource (..),
@@ -75,13 +77,13 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newCreatePartnerEventSource' smart constructor.
 data CreatePartnerEventSource = CreatePartnerEventSource'
   { -- | The name of the partner event source. This name must be unique and must
-    -- be in the format @ partner_name\/event_namespace\/event_name @. The AWS
-    -- account that wants to use this partner event source must create a
-    -- partner event bus with a name that matches the name of the partner event
-    -- source.
+    -- be in the format @ partner_name\/event_namespace\/event_name @. The
+    -- Amazon Web Services account that wants to use this partner event source
+    -- must create a partner event bus with a name that matches the name of the
+    -- partner event source.
     name :: Prelude.Text,
-    -- | The AWS account ID that is permitted to create a matching partner event
-    -- bus for this partner event source.
+    -- | The Amazon Web Services account ID that is permitted to create a
+    -- matching partner event bus for this partner event source.
     account :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -95,13 +97,13 @@ data CreatePartnerEventSource = CreatePartnerEventSource'
 -- for backwards compatibility:
 --
 -- 'name', 'createPartnerEventSource_name' - The name of the partner event source. This name must be unique and must
--- be in the format @ partner_name\/event_namespace\/event_name @. The AWS
--- account that wants to use this partner event source must create a
--- partner event bus with a name that matches the name of the partner event
--- source.
+-- be in the format @ partner_name\/event_namespace\/event_name @. The
+-- Amazon Web Services account that wants to use this partner event source
+-- must create a partner event bus with a name that matches the name of the
+-- partner event source.
 --
--- 'account', 'createPartnerEventSource_account' - The AWS account ID that is permitted to create a matching partner event
--- bus for this partner event source.
+-- 'account', 'createPartnerEventSource_account' - The Amazon Web Services account ID that is permitted to create a
+-- matching partner event bus for this partner event source.
 newCreatePartnerEventSource ::
   -- | 'name'
   Prelude.Text ->
@@ -115,15 +117,15 @@ newCreatePartnerEventSource pName_ pAccount_ =
     }
 
 -- | The name of the partner event source. This name must be unique and must
--- be in the format @ partner_name\/event_namespace\/event_name @. The AWS
--- account that wants to use this partner event source must create a
--- partner event bus with a name that matches the name of the partner event
--- source.
+-- be in the format @ partner_name\/event_namespace\/event_name @. The
+-- Amazon Web Services account that wants to use this partner event source
+-- must create a partner event bus with a name that matches the name of the
+-- partner event source.
 createPartnerEventSource_name :: Lens.Lens' CreatePartnerEventSource Prelude.Text
 createPartnerEventSource_name = Lens.lens (\CreatePartnerEventSource' {name} -> name) (\s@CreatePartnerEventSource' {} a -> s {name = a} :: CreatePartnerEventSource)
 
--- | The AWS account ID that is permitted to create a matching partner event
--- bus for this partner event source.
+-- | The Amazon Web Services account ID that is permitted to create a
+-- matching partner event bus for this partner event source.
 createPartnerEventSource_account :: Lens.Lens' CreatePartnerEventSource Prelude.Text
 createPartnerEventSource_account = Lens.lens (\CreatePartnerEventSource' {account} -> account) (\s@CreatePartnerEventSource' {} a -> s {account = a} :: CreatePartnerEventSource)
 

@@ -105,6 +105,7 @@ library
     Network.AWS.CloudWatchEvents.Types.BatchArrayProperties
     Network.AWS.CloudWatchEvents.Types.BatchParameters
     Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy
+    Network.AWS.CloudWatchEvents.Types.CapacityProviderStrategyItem
     Network.AWS.CloudWatchEvents.Types.Condition
     Network.AWS.CloudWatchEvents.Types.Connection
     Network.AWS.CloudWatchEvents.Types.ConnectionApiKeyAuthResponseParameters
@@ -136,6 +137,11 @@ library
     Network.AWS.CloudWatchEvents.Types.NetworkConfiguration
     Network.AWS.CloudWatchEvents.Types.PartnerEventSource
     Network.AWS.CloudWatchEvents.Types.PartnerEventSourceAccount
+    Network.AWS.CloudWatchEvents.Types.PlacementConstraint
+    Network.AWS.CloudWatchEvents.Types.PlacementConstraintType
+    Network.AWS.CloudWatchEvents.Types.PlacementStrategy
+    Network.AWS.CloudWatchEvents.Types.PlacementStrategyType
+    Network.AWS.CloudWatchEvents.Types.PropagateTags
     Network.AWS.CloudWatchEvents.Types.PutEventsRequestEntry
     Network.AWS.CloudWatchEvents.Types.PutEventsResultEntry
     Network.AWS.CloudWatchEvents.Types.PutPartnerEventsRequestEntry
@@ -151,6 +157,8 @@ library
     Network.AWS.CloudWatchEvents.Types.RuleState
     Network.AWS.CloudWatchEvents.Types.RunCommandParameters
     Network.AWS.CloudWatchEvents.Types.RunCommandTarget
+    Network.AWS.CloudWatchEvents.Types.SageMakerPipelineParameter
+    Network.AWS.CloudWatchEvents.Types.SageMakerPipelineParameters
     Network.AWS.CloudWatchEvents.Types.SqsParameters
     Network.AWS.CloudWatchEvents.Types.Tag
     Network.AWS.CloudWatchEvents.Types.Target

@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes one or more tags from the specified EventBridge resource. In
--- Amazon EventBridge (CloudWatch Events, rules and event buses can be
+-- Amazon EventBridge (CloudWatch Events), rules and event buses can be
 -- tagged.
 module Network.AWS.CloudWatchEvents.UntagResource
   ( -- * Creating a Request

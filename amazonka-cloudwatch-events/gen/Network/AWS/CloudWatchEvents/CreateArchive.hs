@@ -69,7 +69,7 @@ data CreateArchive = CreateArchive'
     retentionDays :: Prelude.Maybe Prelude.Natural,
     -- | The name for the archive to create.
     archiveName :: Prelude.Text,
-    -- | The ARN of the event source associated with the archive.
+    -- | The ARN of the event bus that sends events to the archive.
     eventSourceArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -91,7 +91,7 @@ data CreateArchive = CreateArchive'
 --
 -- 'archiveName', 'createArchive_archiveName' - The name for the archive to create.
 --
--- 'eventSourceArn', 'createArchive_eventSourceArn' - The ARN of the event source associated with the archive.
+-- 'eventSourceArn', 'createArchive_eventSourceArn' - The ARN of the event bus that sends events to the archive.
 newCreateArchive ::
   -- | 'archiveName'
   Prelude.Text ->
@@ -124,7 +124,7 @@ createArchive_retentionDays = Lens.lens (\CreateArchive' {retentionDays} -> rete
 createArchive_archiveName :: Lens.Lens' CreateArchive Prelude.Text
 createArchive_archiveName = Lens.lens (\CreateArchive' {archiveName} -> archiveName) (\s@CreateArchive' {} a -> s {archiveName = a} :: CreateArchive)
 
--- | The ARN of the event source associated with the archive.
+-- | The ARN of the event bus that sends events to the archive.
 createArchive_eventSourceArn :: Lens.Lens' CreateArchive Prelude.Text
 createArchive_eventSourceArn = Lens.lens (\CreateArchive' {eventSourceArn} -> eventSourceArn) (\s@CreateArchive' {} a -> s {eventSourceArn = a} :: CreateArchive)
 

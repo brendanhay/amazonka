@@ -24,14 +24,15 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The AWS account that a partner event source has been offered to.
+-- | The Amazon Web Services account that a partner event source has been
+-- offered to.
 --
 -- /See:/ 'newPartnerEventSourceAccount' smart constructor.
 data PartnerEventSourceAccount = PartnerEventSourceAccount'
   { -- | The date and time the event source was created.
     creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The date and time that the event source will expire, if the AWS account
-    -- doesn\'t create a matching event bus for it.
+    -- | The date and time that the event source will expire, if the Amazon Web
+    -- Services account doesn\'t create a matching event bus for it.
     expirationTime :: Prelude.Maybe Core.POSIX,
     -- | The state of the event source. If it is ACTIVE, you have already created
     -- a matching event bus for this event source, and that event bus is
@@ -40,7 +41,8 @@ data PartnerEventSourceAccount = PartnerEventSourceAccount'
     -- created a matching event bus, but the event source has since been
     -- deleted.
     state :: Prelude.Maybe EventSourceState,
-    -- | The AWS account ID that the partner event source was offered to.
+    -- | The Amazon Web Services account ID that the partner event source was
+    -- offered to.
     account :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -55,8 +57,8 @@ data PartnerEventSourceAccount = PartnerEventSourceAccount'
 --
 -- 'creationTime', 'partnerEventSourceAccount_creationTime' - The date and time the event source was created.
 --
--- 'expirationTime', 'partnerEventSourceAccount_expirationTime' - The date and time that the event source will expire, if the AWS account
--- doesn\'t create a matching event bus for it.
+-- 'expirationTime', 'partnerEventSourceAccount_expirationTime' - The date and time that the event source will expire, if the Amazon Web
+-- Services account doesn\'t create a matching event bus for it.
 --
 -- 'state', 'partnerEventSourceAccount_state' - The state of the event source. If it is ACTIVE, you have already created
 -- a matching event bus for this event source, and that event bus is
@@ -65,7 +67,8 @@ data PartnerEventSourceAccount = PartnerEventSourceAccount'
 -- created a matching event bus, but the event source has since been
 -- deleted.
 --
--- 'account', 'partnerEventSourceAccount_account' - The AWS account ID that the partner event source was offered to.
+-- 'account', 'partnerEventSourceAccount_account' - The Amazon Web Services account ID that the partner event source was
+-- offered to.
 newPartnerEventSourceAccount ::
   PartnerEventSourceAccount
 newPartnerEventSourceAccount =
@@ -81,8 +84,8 @@ newPartnerEventSourceAccount =
 partnerEventSourceAccount_creationTime :: Lens.Lens' PartnerEventSourceAccount (Prelude.Maybe Prelude.UTCTime)
 partnerEventSourceAccount_creationTime = Lens.lens (\PartnerEventSourceAccount' {creationTime} -> creationTime) (\s@PartnerEventSourceAccount' {} a -> s {creationTime = a} :: PartnerEventSourceAccount) Prelude.. Lens.mapping Core._Time
 
--- | The date and time that the event source will expire, if the AWS account
--- doesn\'t create a matching event bus for it.
+-- | The date and time that the event source will expire, if the Amazon Web
+-- Services account doesn\'t create a matching event bus for it.
 partnerEventSourceAccount_expirationTime :: Lens.Lens' PartnerEventSourceAccount (Prelude.Maybe Prelude.UTCTime)
 partnerEventSourceAccount_expirationTime = Lens.lens (\PartnerEventSourceAccount' {expirationTime} -> expirationTime) (\s@PartnerEventSourceAccount' {} a -> s {expirationTime = a} :: PartnerEventSourceAccount) Prelude.. Lens.mapping Core._Time
 
@@ -95,7 +98,8 @@ partnerEventSourceAccount_expirationTime = Lens.lens (\PartnerEventSourceAccount
 partnerEventSourceAccount_state :: Lens.Lens' PartnerEventSourceAccount (Prelude.Maybe EventSourceState)
 partnerEventSourceAccount_state = Lens.lens (\PartnerEventSourceAccount' {state} -> state) (\s@PartnerEventSourceAccount' {} a -> s {state = a} :: PartnerEventSourceAccount)
 
--- | The AWS account ID that the partner event source was offered to.
+-- | The Amazon Web Services account ID that the partner event source was
+-- offered to.
 partnerEventSourceAccount_account :: Lens.Lens' PartnerEventSourceAccount (Prelude.Maybe Prelude.Text)
 partnerEventSourceAccount_account = Lens.lens (\PartnerEventSourceAccount' {account} -> account) (\s@PartnerEventSourceAccount' {} a -> s {account = a} :: PartnerEventSourceAccount)
 

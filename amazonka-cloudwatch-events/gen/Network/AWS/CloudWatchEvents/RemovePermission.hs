@@ -20,11 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Revokes the permission of another AWS account to be able to put events
--- to the specified event bus. Specify the account to revoke by the
--- @StatementId@ value that you associated with the account when you
+-- Revokes the permission of another Amazon Web Services account to be able
+-- to put events to the specified event bus. Specify the account to revoke
+-- by the @StatementId@ value that you associated with the account when you
 -- granted it permission with @PutPermission@. You can find the
--- @StatementId@ by using DescribeEventBus.
+-- @StatementId@ by using
+-- <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DescribeEventBus.html DescribeEventBus>.
 module Network.AWS.CloudWatchEvents.RemovePermission
   ( -- * Creating a Request
     RemovePermission (..),

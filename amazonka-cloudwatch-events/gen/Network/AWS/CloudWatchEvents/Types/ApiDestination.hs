@@ -37,10 +37,10 @@ data ApiDestination = ApiDestination'
     apiDestinationArn :: Prelude.Maybe Prelude.Text,
     -- | The URL to the endpoint for the API destination.
     invocationEndpoint :: Prelude.Maybe Prelude.Text,
-    -- | The state of the API destination.
-    apiDestinationState :: Prelude.Maybe ApiDestinationState,
     -- | The ARN of the connection specified for the API destination.
     connectionArn :: Prelude.Maybe Prelude.Text,
+    -- | The state of the API destination.
+    apiDestinationState :: Prelude.Maybe ApiDestinationState,
     -- | The name of the API destination.
     name :: Prelude.Maybe Prelude.Text,
     -- | A time stamp for the time that the API destination was last modified.
@@ -67,9 +67,9 @@ data ApiDestination = ApiDestination'
 --
 -- 'invocationEndpoint', 'apiDestination_invocationEndpoint' - The URL to the endpoint for the API destination.
 --
--- 'apiDestinationState', 'apiDestination_apiDestinationState' - The state of the API destination.
---
 -- 'connectionArn', 'apiDestination_connectionArn' - The ARN of the connection specified for the API destination.
+--
+-- 'apiDestinationState', 'apiDestination_apiDestinationState' - The state of the API destination.
 --
 -- 'name', 'apiDestination_name' - The name of the API destination.
 --
@@ -85,8 +85,8 @@ newApiDestination =
       creationTime = Prelude.Nothing,
       apiDestinationArn = Prelude.Nothing,
       invocationEndpoint = Prelude.Nothing,
-      apiDestinationState = Prelude.Nothing,
       connectionArn = Prelude.Nothing,
+      apiDestinationState = Prelude.Nothing,
       name = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
       invocationRateLimitPerSecond = Prelude.Nothing
@@ -108,13 +108,13 @@ apiDestination_apiDestinationArn = Lens.lens (\ApiDestination' {apiDestinationAr
 apiDestination_invocationEndpoint :: Lens.Lens' ApiDestination (Prelude.Maybe Prelude.Text)
 apiDestination_invocationEndpoint = Lens.lens (\ApiDestination' {invocationEndpoint} -> invocationEndpoint) (\s@ApiDestination' {} a -> s {invocationEndpoint = a} :: ApiDestination)
 
--- | The state of the API destination.
-apiDestination_apiDestinationState :: Lens.Lens' ApiDestination (Prelude.Maybe ApiDestinationState)
-apiDestination_apiDestinationState = Lens.lens (\ApiDestination' {apiDestinationState} -> apiDestinationState) (\s@ApiDestination' {} a -> s {apiDestinationState = a} :: ApiDestination)
-
 -- | The ARN of the connection specified for the API destination.
 apiDestination_connectionArn :: Lens.Lens' ApiDestination (Prelude.Maybe Prelude.Text)
 apiDestination_connectionArn = Lens.lens (\ApiDestination' {connectionArn} -> connectionArn) (\s@ApiDestination' {} a -> s {connectionArn = a} :: ApiDestination)
+
+-- | The state of the API destination.
+apiDestination_apiDestinationState :: Lens.Lens' ApiDestination (Prelude.Maybe ApiDestinationState)
+apiDestination_apiDestinationState = Lens.lens (\ApiDestination' {apiDestinationState} -> apiDestinationState) (\s@ApiDestination' {} a -> s {apiDestinationState = a} :: ApiDestination)
 
 -- | The name of the API destination.
 apiDestination_name :: Lens.Lens' ApiDestination (Prelude.Maybe Prelude.Text)
@@ -139,8 +139,8 @@ instance Core.FromJSON ApiDestination where
             Prelude.<*> (x Core..:? "CreationTime")
             Prelude.<*> (x Core..:? "ApiDestinationArn")
             Prelude.<*> (x Core..:? "InvocationEndpoint")
-            Prelude.<*> (x Core..:? "ApiDestinationState")
             Prelude.<*> (x Core..:? "ConnectionArn")
+            Prelude.<*> (x Core..:? "ApiDestinationState")
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "LastModifiedTime")
             Prelude.<*> (x Core..:? "InvocationRateLimitPerSecond")

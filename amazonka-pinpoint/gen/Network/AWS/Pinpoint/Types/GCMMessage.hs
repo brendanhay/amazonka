@@ -48,6 +48,10 @@ data GCMMessage = GCMMessage'
     -- (FCM) collapse_key parameter when it sends the notification message to
     -- FCM.
     collapseKey :: Prelude.Maybe Prelude.Text,
+    -- | The body of the notification message.
+    body :: Prelude.Maybe Prelude.Text,
+    -- | The icon image name of the asset saved in your app.
+    iconReference :: Prelude.Maybe Prelude.Text,
     -- | The JSON data payload to use for the push notification, if the
     -- notification is a silent push notification. This payload is added to the
     -- data.pinpoint.jsonBody object of the notification.
@@ -55,10 +59,6 @@ data GCMMessage = GCMMessage'
     -- | The title to display above the notification message on the recipient\'s
     -- device.
     title :: Prelude.Maybe Prelude.Text,
-    -- | The icon image name of the asset saved in your app.
-    iconReference :: Prelude.Maybe Prelude.Text,
-    -- | The body of the notification message.
-    body :: Prelude.Maybe Prelude.Text,
     -- | The amount of time, in seconds, that FCM should store and attempt to
     -- deliver the push notification, if the service is unable to deliver the
     -- notification the first time. If you don\'t specify this value, FCM
@@ -86,11 +86,11 @@ data GCMMessage = GCMMessage'
     -- property, Amazon Pinpoint accepts and converts the value to the
     -- corresponding FCM value.
     priority :: Prelude.Maybe Prelude.Text,
+    -- | The URL of an image to display in the push notification.
+    imageUrl :: Prelude.Maybe Prelude.Text,
     -- | The default message variables to use in the notification message. You
     -- can override the default variables with individual address variables.
     substitutions :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
-    -- | The URL of an image to display in the push notification.
-    imageUrl :: Prelude.Maybe Prelude.Text,
     -- | The action to occur if the recipient taps the push notification. Valid
     -- values are:
     --
@@ -104,21 +104,21 @@ data GCMMessage = GCMMessage'
     -- -   URL - The default mobile browser on the recipient\'s device opens
     --     and loads the web page at a URL that you specify.
     action :: Prelude.Maybe Action,
+    -- | The URL to open in the recipient\'s default mobile browser, if a
+    -- recipient taps the push notification and the value of the Action
+    -- property is URL.
+    url :: Prelude.Maybe Prelude.Text,
     -- | The sound to play when the recipient receives the push notification. You
     -- can use the default stream or specify the file name of a sound resource
     -- that\'s bundled in your app. On an Android platform, the sound file must
     -- reside in \/res\/raw\/.
     sound :: Prelude.Maybe Prelude.Text,
-    -- | The URL to open in the recipient\'s default mobile browser, if a
-    -- recipient taps the push notification and the value of the Action
-    -- property is URL.
-    url :: Prelude.Maybe Prelude.Text,
-    -- | The URL of the small icon image to display in the status bar and the
-    -- content view of the push notification.
-    smallImageIconUrl :: Prelude.Maybe Prelude.Text,
     -- | The package name of the application where registration tokens must match
     -- in order for the recipient to receive the message.
     restrictedPackageName :: Prelude.Maybe Prelude.Text,
+    -- | The URL of the small icon image to display in the status bar and the
+    -- content view of the push notification.
+    smallImageIconUrl :: Prelude.Maybe Prelude.Text,
     -- | The raw, JSON-formatted string to use as the payload for the
     -- notification message. If specified, this value overrides all other
     -- content for the message.
@@ -151,16 +151,16 @@ data GCMMessage = GCMMessage'
 -- (FCM) collapse_key parameter when it sends the notification message to
 -- FCM.
 --
+-- 'body', 'gCMMessage_body' - The body of the notification message.
+--
+-- 'iconReference', 'gCMMessage_iconReference' - The icon image name of the asset saved in your app.
+--
 -- 'data'', 'gCMMessage_data' - The JSON data payload to use for the push notification, if the
 -- notification is a silent push notification. This payload is added to the
 -- data.pinpoint.jsonBody object of the notification.
 --
 -- 'title', 'gCMMessage_title' - The title to display above the notification message on the recipient\'s
 -- device.
---
--- 'iconReference', 'gCMMessage_iconReference' - The icon image name of the asset saved in your app.
---
--- 'body', 'gCMMessage_body' - The body of the notification message.
 --
 -- 'timeToLive', 'gCMMessage_timeToLive' - The amount of time, in seconds, that FCM should store and attempt to
 -- deliver the push notification, if the service is unable to deliver the
@@ -189,10 +189,10 @@ data GCMMessage = GCMMessage'
 -- property, Amazon Pinpoint accepts and converts the value to the
 -- corresponding FCM value.
 --
+-- 'imageUrl', 'gCMMessage_imageUrl' - The URL of an image to display in the push notification.
+--
 -- 'substitutions', 'gCMMessage_substitutions' - The default message variables to use in the notification message. You
 -- can override the default variables with individual address variables.
---
--- 'imageUrl', 'gCMMessage_imageUrl' - The URL of an image to display in the push notification.
 --
 -- 'action', 'gCMMessage_action' - The action to occur if the recipient taps the push notification. Valid
 -- values are:
@@ -207,20 +207,20 @@ data GCMMessage = GCMMessage'
 -- -   URL - The default mobile browser on the recipient\'s device opens
 --     and loads the web page at a URL that you specify.
 --
+-- 'url', 'gCMMessage_url' - The URL to open in the recipient\'s default mobile browser, if a
+-- recipient taps the push notification and the value of the Action
+-- property is URL.
+--
 -- 'sound', 'gCMMessage_sound' - The sound to play when the recipient receives the push notification. You
 -- can use the default stream or specify the file name of a sound resource
 -- that\'s bundled in your app. On an Android platform, the sound file must
 -- reside in \/res\/raw\/.
 --
--- 'url', 'gCMMessage_url' - The URL to open in the recipient\'s default mobile browser, if a
--- recipient taps the push notification and the value of the Action
--- property is URL.
+-- 'restrictedPackageName', 'gCMMessage_restrictedPackageName' - The package name of the application where registration tokens must match
+-- in order for the recipient to receive the message.
 --
 -- 'smallImageIconUrl', 'gCMMessage_smallImageIconUrl' - The URL of the small icon image to display in the status bar and the
 -- content view of the push notification.
---
--- 'restrictedPackageName', 'gCMMessage_restrictedPackageName' - The package name of the application where registration tokens must match
--- in order for the recipient to receive the message.
 --
 -- 'rawContent', 'gCMMessage_rawContent' - The raw, JSON-formatted string to use as the payload for the
 -- notification message. If specified, this value overrides all other
@@ -232,19 +232,19 @@ newGCMMessage =
     { silentPush = Prelude.Nothing,
       imageIconUrl = Prelude.Nothing,
       collapseKey = Prelude.Nothing,
+      body = Prelude.Nothing,
+      iconReference = Prelude.Nothing,
       data' = Prelude.Nothing,
       title = Prelude.Nothing,
-      iconReference = Prelude.Nothing,
-      body = Prelude.Nothing,
       timeToLive = Prelude.Nothing,
       priority = Prelude.Nothing,
-      substitutions = Prelude.Nothing,
       imageUrl = Prelude.Nothing,
+      substitutions = Prelude.Nothing,
       action = Prelude.Nothing,
-      sound = Prelude.Nothing,
       url = Prelude.Nothing,
-      smallImageIconUrl = Prelude.Nothing,
+      sound = Prelude.Nothing,
       restrictedPackageName = Prelude.Nothing,
+      smallImageIconUrl = Prelude.Nothing,
       rawContent = Prelude.Nothing
     }
 
@@ -271,6 +271,14 @@ gCMMessage_imageIconUrl = Lens.lens (\GCMMessage' {imageIconUrl} -> imageIconUrl
 gCMMessage_collapseKey :: Lens.Lens' GCMMessage (Prelude.Maybe Prelude.Text)
 gCMMessage_collapseKey = Lens.lens (\GCMMessage' {collapseKey} -> collapseKey) (\s@GCMMessage' {} a -> s {collapseKey = a} :: GCMMessage)
 
+-- | The body of the notification message.
+gCMMessage_body :: Lens.Lens' GCMMessage (Prelude.Maybe Prelude.Text)
+gCMMessage_body = Lens.lens (\GCMMessage' {body} -> body) (\s@GCMMessage' {} a -> s {body = a} :: GCMMessage)
+
+-- | The icon image name of the asset saved in your app.
+gCMMessage_iconReference :: Lens.Lens' GCMMessage (Prelude.Maybe Prelude.Text)
+gCMMessage_iconReference = Lens.lens (\GCMMessage' {iconReference} -> iconReference) (\s@GCMMessage' {} a -> s {iconReference = a} :: GCMMessage)
+
 -- | The JSON data payload to use for the push notification, if the
 -- notification is a silent push notification. This payload is added to the
 -- data.pinpoint.jsonBody object of the notification.
@@ -281,14 +289,6 @@ gCMMessage_data = Lens.lens (\GCMMessage' {data'} -> data') (\s@GCMMessage' {} a
 -- device.
 gCMMessage_title :: Lens.Lens' GCMMessage (Prelude.Maybe Prelude.Text)
 gCMMessage_title = Lens.lens (\GCMMessage' {title} -> title) (\s@GCMMessage' {} a -> s {title = a} :: GCMMessage)
-
--- | The icon image name of the asset saved in your app.
-gCMMessage_iconReference :: Lens.Lens' GCMMessage (Prelude.Maybe Prelude.Text)
-gCMMessage_iconReference = Lens.lens (\GCMMessage' {iconReference} -> iconReference) (\s@GCMMessage' {} a -> s {iconReference = a} :: GCMMessage)
-
--- | The body of the notification message.
-gCMMessage_body :: Lens.Lens' GCMMessage (Prelude.Maybe Prelude.Text)
-gCMMessage_body = Lens.lens (\GCMMessage' {body} -> body) (\s@GCMMessage' {} a -> s {body = a} :: GCMMessage)
 
 -- | The amount of time, in seconds, that FCM should store and attempt to
 -- deliver the push notification, if the service is unable to deliver the
@@ -321,14 +321,14 @@ gCMMessage_timeToLive = Lens.lens (\GCMMessage' {timeToLive} -> timeToLive) (\s@
 gCMMessage_priority :: Lens.Lens' GCMMessage (Prelude.Maybe Prelude.Text)
 gCMMessage_priority = Lens.lens (\GCMMessage' {priority} -> priority) (\s@GCMMessage' {} a -> s {priority = a} :: GCMMessage)
 
+-- | The URL of an image to display in the push notification.
+gCMMessage_imageUrl :: Lens.Lens' GCMMessage (Prelude.Maybe Prelude.Text)
+gCMMessage_imageUrl = Lens.lens (\GCMMessage' {imageUrl} -> imageUrl) (\s@GCMMessage' {} a -> s {imageUrl = a} :: GCMMessage)
+
 -- | The default message variables to use in the notification message. You
 -- can override the default variables with individual address variables.
 gCMMessage_substitutions :: Lens.Lens' GCMMessage (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
 gCMMessage_substitutions = Lens.lens (\GCMMessage' {substitutions} -> substitutions) (\s@GCMMessage' {} a -> s {substitutions = a} :: GCMMessage) Prelude.. Lens.mapping Lens._Coerce
-
--- | The URL of an image to display in the push notification.
-gCMMessage_imageUrl :: Lens.Lens' GCMMessage (Prelude.Maybe Prelude.Text)
-gCMMessage_imageUrl = Lens.lens (\GCMMessage' {imageUrl} -> imageUrl) (\s@GCMMessage' {} a -> s {imageUrl = a} :: GCMMessage)
 
 -- | The action to occur if the recipient taps the push notification. Valid
 -- values are:
@@ -345,6 +345,12 @@ gCMMessage_imageUrl = Lens.lens (\GCMMessage' {imageUrl} -> imageUrl) (\s@GCMMes
 gCMMessage_action :: Lens.Lens' GCMMessage (Prelude.Maybe Action)
 gCMMessage_action = Lens.lens (\GCMMessage' {action} -> action) (\s@GCMMessage' {} a -> s {action = a} :: GCMMessage)
 
+-- | The URL to open in the recipient\'s default mobile browser, if a
+-- recipient taps the push notification and the value of the Action
+-- property is URL.
+gCMMessage_url :: Lens.Lens' GCMMessage (Prelude.Maybe Prelude.Text)
+gCMMessage_url = Lens.lens (\GCMMessage' {url} -> url) (\s@GCMMessage' {} a -> s {url = a} :: GCMMessage)
+
 -- | The sound to play when the recipient receives the push notification. You
 -- can use the default stream or specify the file name of a sound resource
 -- that\'s bundled in your app. On an Android platform, the sound file must
@@ -352,21 +358,15 @@ gCMMessage_action = Lens.lens (\GCMMessage' {action} -> action) (\s@GCMMessage' 
 gCMMessage_sound :: Lens.Lens' GCMMessage (Prelude.Maybe Prelude.Text)
 gCMMessage_sound = Lens.lens (\GCMMessage' {sound} -> sound) (\s@GCMMessage' {} a -> s {sound = a} :: GCMMessage)
 
--- | The URL to open in the recipient\'s default mobile browser, if a
--- recipient taps the push notification and the value of the Action
--- property is URL.
-gCMMessage_url :: Lens.Lens' GCMMessage (Prelude.Maybe Prelude.Text)
-gCMMessage_url = Lens.lens (\GCMMessage' {url} -> url) (\s@GCMMessage' {} a -> s {url = a} :: GCMMessage)
+-- | The package name of the application where registration tokens must match
+-- in order for the recipient to receive the message.
+gCMMessage_restrictedPackageName :: Lens.Lens' GCMMessage (Prelude.Maybe Prelude.Text)
+gCMMessage_restrictedPackageName = Lens.lens (\GCMMessage' {restrictedPackageName} -> restrictedPackageName) (\s@GCMMessage' {} a -> s {restrictedPackageName = a} :: GCMMessage)
 
 -- | The URL of the small icon image to display in the status bar and the
 -- content view of the push notification.
 gCMMessage_smallImageIconUrl :: Lens.Lens' GCMMessage (Prelude.Maybe Prelude.Text)
 gCMMessage_smallImageIconUrl = Lens.lens (\GCMMessage' {smallImageIconUrl} -> smallImageIconUrl) (\s@GCMMessage' {} a -> s {smallImageIconUrl = a} :: GCMMessage)
-
--- | The package name of the application where registration tokens must match
--- in order for the recipient to receive the message.
-gCMMessage_restrictedPackageName :: Lens.Lens' GCMMessage (Prelude.Maybe Prelude.Text)
-gCMMessage_restrictedPackageName = Lens.lens (\GCMMessage' {restrictedPackageName} -> restrictedPackageName) (\s@GCMMessage' {} a -> s {restrictedPackageName = a} :: GCMMessage)
 
 -- | The raw, JSON-formatted string to use as the payload for the
 -- notification message. If specified, this value overrides all other
@@ -385,21 +385,21 @@ instance Core.ToJSON GCMMessage where
           [ ("SilentPush" Core..=) Prelude.<$> silentPush,
             ("ImageIconUrl" Core..=) Prelude.<$> imageIconUrl,
             ("CollapseKey" Core..=) Prelude.<$> collapseKey,
+            ("Body" Core..=) Prelude.<$> body,
+            ("IconReference" Core..=) Prelude.<$> iconReference,
             ("Data" Core..=) Prelude.<$> data',
             ("Title" Core..=) Prelude.<$> title,
-            ("IconReference" Core..=) Prelude.<$> iconReference,
-            ("Body" Core..=) Prelude.<$> body,
             ("TimeToLive" Core..=) Prelude.<$> timeToLive,
             ("Priority" Core..=) Prelude.<$> priority,
-            ("Substitutions" Core..=) Prelude.<$> substitutions,
             ("ImageUrl" Core..=) Prelude.<$> imageUrl,
+            ("Substitutions" Core..=) Prelude.<$> substitutions,
             ("Action" Core..=) Prelude.<$> action,
-            ("Sound" Core..=) Prelude.<$> sound,
             ("Url" Core..=) Prelude.<$> url,
-            ("SmallImageIconUrl" Core..=)
-              Prelude.<$> smallImageIconUrl,
+            ("Sound" Core..=) Prelude.<$> sound,
             ("RestrictedPackageName" Core..=)
               Prelude.<$> restrictedPackageName,
+            ("SmallImageIconUrl" Core..=)
+              Prelude.<$> smallImageIconUrl,
             ("RawContent" Core..=) Prelude.<$> rawContent
           ]
       )

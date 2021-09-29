@@ -41,10 +41,10 @@ data Event = Event'
     metrics :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double),
     -- | The package name of the app that\'s recording the event.
     appPackageName :: Prelude.Maybe Prelude.Text,
-    -- | The version number of the app that\'s recording the event.
-    appVersionCode :: Prelude.Maybe Prelude.Text,
     -- | Information about the session in which the event occurred.
     session :: Prelude.Maybe Session,
+    -- | The version number of the app that\'s recording the event.
+    appVersionCode :: Prelude.Maybe Prelude.Text,
     -- | The name of the event.
     eventType :: Prelude.Text,
     -- | The date and time, in ISO 8601 format, when the event occurred.
@@ -72,9 +72,9 @@ data Event = Event'
 --
 -- 'appPackageName', 'event_appPackageName' - The package name of the app that\'s recording the event.
 --
--- 'appVersionCode', 'event_appVersionCode' - The version number of the app that\'s recording the event.
---
 -- 'session', 'event_session' - Information about the session in which the event occurred.
+--
+-- 'appVersionCode', 'event_appVersionCode' - The version number of the app that\'s recording the event.
 --
 -- 'eventType', 'event_eventType' - The name of the event.
 --
@@ -93,8 +93,8 @@ newEvent pEventType_ pTimestamp_ =
       attributes = Prelude.Nothing,
       metrics = Prelude.Nothing,
       appPackageName = Prelude.Nothing,
-      appVersionCode = Prelude.Nothing,
       session = Prelude.Nothing,
+      appVersionCode = Prelude.Nothing,
       eventType = pEventType_,
       timestamp = pTimestamp_
     }
@@ -123,13 +123,13 @@ event_metrics = Lens.lens (\Event' {metrics} -> metrics) (\s@Event' {} a -> s {m
 event_appPackageName :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_appPackageName = Lens.lens (\Event' {appPackageName} -> appPackageName) (\s@Event' {} a -> s {appPackageName = a} :: Event)
 
--- | The version number of the app that\'s recording the event.
-event_appVersionCode :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
-event_appVersionCode = Lens.lens (\Event' {appVersionCode} -> appVersionCode) (\s@Event' {} a -> s {appVersionCode = a} :: Event)
-
 -- | Information about the session in which the event occurred.
 event_session :: Lens.Lens' Event (Prelude.Maybe Session)
 event_session = Lens.lens (\Event' {session} -> session) (\s@Event' {} a -> s {session = a} :: Event)
+
+-- | The version number of the app that\'s recording the event.
+event_appVersionCode :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
+event_appVersionCode = Lens.lens (\Event' {appVersionCode} -> appVersionCode) (\s@Event' {} a -> s {appVersionCode = a} :: Event)
 
 -- | The name of the event.
 event_eventType :: Lens.Lens' Event Prelude.Text
@@ -155,9 +155,9 @@ instance Core.ToJSON Event where
             ("Metrics" Core..=) Prelude.<$> metrics,
             ("AppPackageName" Core..=)
               Prelude.<$> appPackageName,
+            ("Session" Core..=) Prelude.<$> session,
             ("AppVersionCode" Core..=)
               Prelude.<$> appVersionCode,
-            ("Session" Core..=) Prelude.<$> session,
             Prelude.Just ("EventType" Core..= eventType),
             Prelude.Just ("Timestamp" Core..= timestamp)
           ]

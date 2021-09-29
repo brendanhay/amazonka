@@ -58,16 +58,16 @@ data PushNotificationTemplateResponse = PushNotificationTemplateResponse'
     -- service) channel. This message template overrides the default template
     -- for push notification channels (DefaultPushNotificationTemplate).
     apns :: Prelude.Maybe APNSPushNotificationTemplate,
+    -- | A string-to-string map of key-value pairs that identifies the tags that
+    -- are associated with the message template. Each tag consists of a
+    -- required tag key and an associated tag value.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The message template that\'s used for the GCM channel, which is used to
     -- send notifications through the Firebase Cloud Messaging (FCM), formerly
     -- Google Cloud Messaging (GCM), service. This message template overrides
     -- the default template for push notification channels
     -- (DefaultPushNotificationTemplate).
     gcm :: Prelude.Maybe AndroidPushNotificationTemplate,
-    -- | A string-to-string map of key-value pairs that identifies the tags that
-    -- are associated with the message template. Each tag consists of a
-    -- required tag key and an associated tag value.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The unique identifier for the recommender model that\'s used by the
     -- message template.
     recommenderId :: Prelude.Maybe Prelude.Text,
@@ -120,15 +120,15 @@ data PushNotificationTemplateResponse = PushNotificationTemplateResponse'
 -- service) channel. This message template overrides the default template
 -- for push notification channels (DefaultPushNotificationTemplate).
 --
+-- 'tags', 'pushNotificationTemplateResponse_tags' - A string-to-string map of key-value pairs that identifies the tags that
+-- are associated with the message template. Each tag consists of a
+-- required tag key and an associated tag value.
+--
 -- 'gcm', 'pushNotificationTemplateResponse_gcm' - The message template that\'s used for the GCM channel, which is used to
 -- send notifications through the Firebase Cloud Messaging (FCM), formerly
 -- Google Cloud Messaging (GCM), service. This message template overrides
 -- the default template for push notification channels
 -- (DefaultPushNotificationTemplate).
---
--- 'tags', 'pushNotificationTemplateResponse_tags' - A string-to-string map of key-value pairs that identifies the tags that
--- are associated with the message template. Each tag consists of a
--- required tag key and an associated tag value.
 --
 -- 'recommenderId', 'pushNotificationTemplateResponse_recommenderId' - The unique identifier for the recommender model that\'s used by the
 -- message template.
@@ -169,8 +169,8 @@ newPushNotificationTemplateResponse
         version = Prelude.Nothing,
         defaultSubstitutions = Prelude.Nothing,
         apns = Prelude.Nothing,
-        gcm = Prelude.Nothing,
         tags = Prelude.Nothing,
+        gcm = Prelude.Nothing,
         recommenderId = Prelude.Nothing,
         default' = Prelude.Nothing,
         lastModifiedDate = pLastModifiedDate_,
@@ -218,6 +218,12 @@ pushNotificationTemplateResponse_defaultSubstitutions = Lens.lens (\PushNotifica
 pushNotificationTemplateResponse_apns :: Lens.Lens' PushNotificationTemplateResponse (Prelude.Maybe APNSPushNotificationTemplate)
 pushNotificationTemplateResponse_apns = Lens.lens (\PushNotificationTemplateResponse' {apns} -> apns) (\s@PushNotificationTemplateResponse' {} a -> s {apns = a} :: PushNotificationTemplateResponse)
 
+-- | A string-to-string map of key-value pairs that identifies the tags that
+-- are associated with the message template. Each tag consists of a
+-- required tag key and an associated tag value.
+pushNotificationTemplateResponse_tags :: Lens.Lens' PushNotificationTemplateResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+pushNotificationTemplateResponse_tags = Lens.lens (\PushNotificationTemplateResponse' {tags} -> tags) (\s@PushNotificationTemplateResponse' {} a -> s {tags = a} :: PushNotificationTemplateResponse) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The message template that\'s used for the GCM channel, which is used to
 -- send notifications through the Firebase Cloud Messaging (FCM), formerly
 -- Google Cloud Messaging (GCM), service. This message template overrides
@@ -225,12 +231,6 @@ pushNotificationTemplateResponse_apns = Lens.lens (\PushNotificationTemplateResp
 -- (DefaultPushNotificationTemplate).
 pushNotificationTemplateResponse_gcm :: Lens.Lens' PushNotificationTemplateResponse (Prelude.Maybe AndroidPushNotificationTemplate)
 pushNotificationTemplateResponse_gcm = Lens.lens (\PushNotificationTemplateResponse' {gcm} -> gcm) (\s@PushNotificationTemplateResponse' {} a -> s {gcm = a} :: PushNotificationTemplateResponse)
-
--- | A string-to-string map of key-value pairs that identifies the tags that
--- are associated with the message template. Each tag consists of a
--- required tag key and an associated tag value.
-pushNotificationTemplateResponse_tags :: Lens.Lens' PushNotificationTemplateResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-pushNotificationTemplateResponse_tags = Lens.lens (\PushNotificationTemplateResponse' {tags} -> tags) (\s@PushNotificationTemplateResponse' {} a -> s {tags = a} :: PushNotificationTemplateResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The unique identifier for the recommender model that\'s used by the
 -- message template.
@@ -276,8 +276,8 @@ instance
             Prelude.<*> (x Core..:? "Version")
             Prelude.<*> (x Core..:? "DefaultSubstitutions")
             Prelude.<*> (x Core..:? "APNS")
-            Prelude.<*> (x Core..:? "GCM")
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "GCM")
             Prelude.<*> (x Core..:? "RecommenderId")
             Prelude.<*> (x Core..:? "Default")
             Prelude.<*> (x Core..: "LastModifiedDate")

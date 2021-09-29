@@ -45,19 +45,23 @@ data CampaignResponse = CampaignResponse'
     hook :: Prelude.Maybe CampaignHook,
     -- | The version number of the campaign.
     version :: Prelude.Maybe Prelude.Int,
+    -- | Defines the priority of the campaign, used to decide the order of
+    -- messages displayed to user if there are multiple messages scheduled to
+    -- be displayed at the same moment.
+    priority :: Prelude.Maybe Prelude.Int,
+    -- | The name of the campaign.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The delivery configuration settings for sending the campaign through a
     -- custom channel.
     customDeliveryConfiguration :: Prelude.Maybe CustomDeliveryConfiguration,
     -- | The current status of the campaign.
     state :: Prelude.Maybe CampaignState,
-    -- | The name of the campaign.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The current status of the campaign\'s default treatment. This value
-    -- exists only for campaigns that have more than one treatment.
-    defaultState :: Prelude.Maybe CampaignState,
     -- | Specifies whether the campaign is paused. A paused campaign doesn\'t run
     -- unless you resume it by changing this value to false.
     isPaused :: Prelude.Maybe Prelude.Bool,
+    -- | The current status of the campaign\'s default treatment. This value
+    -- exists only for campaigns that have more than one treatment.
+    defaultState :: Prelude.Maybe CampaignState,
     -- | A string-to-string map of key-value pairs that identifies the tags that
     -- are associated with the campaign. Each tag consists of a required tag
     -- key and an associated tag value.
@@ -66,12 +70,12 @@ data CampaignResponse = CampaignResponse'
     limits :: Prelude.Maybe CampaignLimits,
     -- | The custom description of the campaign.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The message configuration settings for the campaign.
+    messageConfiguration :: Prelude.Maybe MessageConfiguration,
     -- | The custom name of the default treatment for the campaign, if the
     -- campaign has multiple treatments. A /treatment/ is a variation of a
     -- campaign that\'s used for A\/B testing.
     treatmentName :: Prelude.Maybe Prelude.Text,
-    -- | The message configuration settings for the campaign.
-    messageConfiguration :: Prelude.Maybe MessageConfiguration,
     -- | The message template that’s used for the campaign.
     templateConfiguration :: Prelude.Maybe TemplateConfiguration,
     -- | The schedule settings for the campaign.
@@ -116,18 +120,22 @@ data CampaignResponse = CampaignResponse'
 --
 -- 'version', 'campaignResponse_version' - The version number of the campaign.
 --
+-- 'priority', 'campaignResponse_priority' - Defines the priority of the campaign, used to decide the order of
+-- messages displayed to user if there are multiple messages scheduled to
+-- be displayed at the same moment.
+--
+-- 'name', 'campaignResponse_name' - The name of the campaign.
+--
 -- 'customDeliveryConfiguration', 'campaignResponse_customDeliveryConfiguration' - The delivery configuration settings for sending the campaign through a
 -- custom channel.
 --
 -- 'state', 'campaignResponse_state' - The current status of the campaign.
 --
--- 'name', 'campaignResponse_name' - The name of the campaign.
+-- 'isPaused', 'campaignResponse_isPaused' - Specifies whether the campaign is paused. A paused campaign doesn\'t run
+-- unless you resume it by changing this value to false.
 --
 -- 'defaultState', 'campaignResponse_defaultState' - The current status of the campaign\'s default treatment. This value
 -- exists only for campaigns that have more than one treatment.
---
--- 'isPaused', 'campaignResponse_isPaused' - Specifies whether the campaign is paused. A paused campaign doesn\'t run
--- unless you resume it by changing this value to false.
 --
 -- 'tags', 'campaignResponse_tags' - A string-to-string map of key-value pairs that identifies the tags that
 -- are associated with the campaign. Each tag consists of a required tag
@@ -137,11 +145,11 @@ data CampaignResponse = CampaignResponse'
 --
 -- 'description', 'campaignResponse_description' - The custom description of the campaign.
 --
+-- 'messageConfiguration', 'campaignResponse_messageConfiguration' - The message configuration settings for the campaign.
+--
 -- 'treatmentName', 'campaignResponse_treatmentName' - The custom name of the default treatment for the campaign, if the
 -- campaign has multiple treatments. A /treatment/ is a variation of a
 -- campaign that\'s used for A\/B testing.
---
--- 'messageConfiguration', 'campaignResponse_messageConfiguration' - The message configuration settings for the campaign.
 --
 -- 'templateConfiguration', 'campaignResponse_templateConfiguration' - The message template that’s used for the campaign.
 --
@@ -195,16 +203,17 @@ newCampaignResponse
           Prelude.Nothing,
         hook = Prelude.Nothing,
         version = Prelude.Nothing,
+        priority = Prelude.Nothing,
+        name = Prelude.Nothing,
         customDeliveryConfiguration = Prelude.Nothing,
         state = Prelude.Nothing,
-        name = Prelude.Nothing,
-        defaultState = Prelude.Nothing,
         isPaused = Prelude.Nothing,
+        defaultState = Prelude.Nothing,
         tags = Prelude.Nothing,
         limits = Prelude.Nothing,
         description = Prelude.Nothing,
-        treatmentName = Prelude.Nothing,
         messageConfiguration = Prelude.Nothing,
+        treatmentName = Prelude.Nothing,
         templateConfiguration = Prelude.Nothing,
         schedule = Prelude.Nothing,
         holdoutPercent = Prelude.Nothing,
@@ -233,6 +242,16 @@ campaignResponse_hook = Lens.lens (\CampaignResponse' {hook} -> hook) (\s@Campai
 campaignResponse_version :: Lens.Lens' CampaignResponse (Prelude.Maybe Prelude.Int)
 campaignResponse_version = Lens.lens (\CampaignResponse' {version} -> version) (\s@CampaignResponse' {} a -> s {version = a} :: CampaignResponse)
 
+-- | Defines the priority of the campaign, used to decide the order of
+-- messages displayed to user if there are multiple messages scheduled to
+-- be displayed at the same moment.
+campaignResponse_priority :: Lens.Lens' CampaignResponse (Prelude.Maybe Prelude.Int)
+campaignResponse_priority = Lens.lens (\CampaignResponse' {priority} -> priority) (\s@CampaignResponse' {} a -> s {priority = a} :: CampaignResponse)
+
+-- | The name of the campaign.
+campaignResponse_name :: Lens.Lens' CampaignResponse (Prelude.Maybe Prelude.Text)
+campaignResponse_name = Lens.lens (\CampaignResponse' {name} -> name) (\s@CampaignResponse' {} a -> s {name = a} :: CampaignResponse)
+
 -- | The delivery configuration settings for sending the campaign through a
 -- custom channel.
 campaignResponse_customDeliveryConfiguration :: Lens.Lens' CampaignResponse (Prelude.Maybe CustomDeliveryConfiguration)
@@ -242,19 +261,15 @@ campaignResponse_customDeliveryConfiguration = Lens.lens (\CampaignResponse' {cu
 campaignResponse_state :: Lens.Lens' CampaignResponse (Prelude.Maybe CampaignState)
 campaignResponse_state = Lens.lens (\CampaignResponse' {state} -> state) (\s@CampaignResponse' {} a -> s {state = a} :: CampaignResponse)
 
--- | The name of the campaign.
-campaignResponse_name :: Lens.Lens' CampaignResponse (Prelude.Maybe Prelude.Text)
-campaignResponse_name = Lens.lens (\CampaignResponse' {name} -> name) (\s@CampaignResponse' {} a -> s {name = a} :: CampaignResponse)
+-- | Specifies whether the campaign is paused. A paused campaign doesn\'t run
+-- unless you resume it by changing this value to false.
+campaignResponse_isPaused :: Lens.Lens' CampaignResponse (Prelude.Maybe Prelude.Bool)
+campaignResponse_isPaused = Lens.lens (\CampaignResponse' {isPaused} -> isPaused) (\s@CampaignResponse' {} a -> s {isPaused = a} :: CampaignResponse)
 
 -- | The current status of the campaign\'s default treatment. This value
 -- exists only for campaigns that have more than one treatment.
 campaignResponse_defaultState :: Lens.Lens' CampaignResponse (Prelude.Maybe CampaignState)
 campaignResponse_defaultState = Lens.lens (\CampaignResponse' {defaultState} -> defaultState) (\s@CampaignResponse' {} a -> s {defaultState = a} :: CampaignResponse)
-
--- | Specifies whether the campaign is paused. A paused campaign doesn\'t run
--- unless you resume it by changing this value to false.
-campaignResponse_isPaused :: Lens.Lens' CampaignResponse (Prelude.Maybe Prelude.Bool)
-campaignResponse_isPaused = Lens.lens (\CampaignResponse' {isPaused} -> isPaused) (\s@CampaignResponse' {} a -> s {isPaused = a} :: CampaignResponse)
 
 -- | A string-to-string map of key-value pairs that identifies the tags that
 -- are associated with the campaign. Each tag consists of a required tag
@@ -270,15 +285,15 @@ campaignResponse_limits = Lens.lens (\CampaignResponse' {limits} -> limits) (\s@
 campaignResponse_description :: Lens.Lens' CampaignResponse (Prelude.Maybe Prelude.Text)
 campaignResponse_description = Lens.lens (\CampaignResponse' {description} -> description) (\s@CampaignResponse' {} a -> s {description = a} :: CampaignResponse)
 
+-- | The message configuration settings for the campaign.
+campaignResponse_messageConfiguration :: Lens.Lens' CampaignResponse (Prelude.Maybe MessageConfiguration)
+campaignResponse_messageConfiguration = Lens.lens (\CampaignResponse' {messageConfiguration} -> messageConfiguration) (\s@CampaignResponse' {} a -> s {messageConfiguration = a} :: CampaignResponse)
+
 -- | The custom name of the default treatment for the campaign, if the
 -- campaign has multiple treatments. A /treatment/ is a variation of a
 -- campaign that\'s used for A\/B testing.
 campaignResponse_treatmentName :: Lens.Lens' CampaignResponse (Prelude.Maybe Prelude.Text)
 campaignResponse_treatmentName = Lens.lens (\CampaignResponse' {treatmentName} -> treatmentName) (\s@CampaignResponse' {} a -> s {treatmentName = a} :: CampaignResponse)
-
--- | The message configuration settings for the campaign.
-campaignResponse_messageConfiguration :: Lens.Lens' CampaignResponse (Prelude.Maybe MessageConfiguration)
-campaignResponse_messageConfiguration = Lens.lens (\CampaignResponse' {messageConfiguration} -> messageConfiguration) (\s@CampaignResponse' {} a -> s {messageConfiguration = a} :: CampaignResponse)
 
 -- | The message template that’s used for the campaign.
 campaignResponse_templateConfiguration :: Lens.Lens' CampaignResponse (Prelude.Maybe TemplateConfiguration)
@@ -337,16 +352,17 @@ instance Core.FromJSON CampaignResponse where
                         )
             Prelude.<*> (x Core..:? "Hook")
             Prelude.<*> (x Core..:? "Version")
+            Prelude.<*> (x Core..:? "Priority")
+            Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "CustomDeliveryConfiguration")
             Prelude.<*> (x Core..:? "State")
-            Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "DefaultState")
             Prelude.<*> (x Core..:? "IsPaused")
+            Prelude.<*> (x Core..:? "DefaultState")
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Limits")
             Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "TreatmentName")
             Prelude.<*> (x Core..:? "MessageConfiguration")
+            Prelude.<*> (x Core..:? "TreatmentName")
             Prelude.<*> (x Core..:? "TemplateConfiguration")
             Prelude.<*> (x Core..:? "Schedule")
             Prelude.<*> (x Core..:? "HoldoutPercent")

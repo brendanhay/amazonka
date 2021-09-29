@@ -30,8 +30,8 @@ module Network.AWS.Pinpoint.ListTemplates
     -- * Request Lenses
     listTemplates_nextToken,
     listTemplates_pageSize,
-    listTemplates_templateType,
     listTemplates_prefix,
+    listTemplates_templateType,
 
     -- * Destructuring the Response
     ListTemplatesResponse (..),
@@ -60,14 +60,14 @@ data ListTemplates = ListTemplates'
     -- response. This parameter is not supported for application, campaign, and
     -- journey metrics.
     pageSize :: Prelude.Maybe Prelude.Text,
-    -- | The type of message template to include in the results. Valid values
-    -- are: EMAIL, PUSH, SMS, and VOICE. To include all types of templates in
-    -- the results, don\'t include this parameter in your request.
-    templateType :: Prelude.Maybe Prelude.Text,
     -- | The substring to match in the names of the message templates to include
     -- in the results. If you specify this value, Amazon Pinpoint returns only
     -- those templates whose names begin with the value that you specify.
-    prefix :: Prelude.Maybe Prelude.Text
+    prefix :: Prelude.Maybe Prelude.Text,
+    -- | The type of message template to include in the results. Valid values
+    -- are: EMAIL, PUSH, SMS, and VOICE. To include all types of templates in
+    -- the results, don\'t include this parameter in your request.
+    templateType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,21 +87,21 @@ data ListTemplates = ListTemplates'
 -- response. This parameter is not supported for application, campaign, and
 -- journey metrics.
 --
--- 'templateType', 'listTemplates_templateType' - The type of message template to include in the results. Valid values
--- are: EMAIL, PUSH, SMS, and VOICE. To include all types of templates in
--- the results, don\'t include this parameter in your request.
---
 -- 'prefix', 'listTemplates_prefix' - The substring to match in the names of the message templates to include
 -- in the results. If you specify this value, Amazon Pinpoint returns only
 -- those templates whose names begin with the value that you specify.
+--
+-- 'templateType', 'listTemplates_templateType' - The type of message template to include in the results. Valid values
+-- are: EMAIL, PUSH, SMS, and VOICE. To include all types of templates in
+-- the results, don\'t include this parameter in your request.
 newListTemplates ::
   ListTemplates
 newListTemplates =
   ListTemplates'
     { nextToken = Prelude.Nothing,
       pageSize = Prelude.Nothing,
-      templateType = Prelude.Nothing,
-      prefix = Prelude.Nothing
+      prefix = Prelude.Nothing,
+      templateType = Prelude.Nothing
     }
 
 -- | The string that specifies which page of results to return in a paginated
@@ -116,17 +116,17 @@ listTemplates_nextToken = Lens.lens (\ListTemplates' {nextToken} -> nextToken) (
 listTemplates_pageSize :: Lens.Lens' ListTemplates (Prelude.Maybe Prelude.Text)
 listTemplates_pageSize = Lens.lens (\ListTemplates' {pageSize} -> pageSize) (\s@ListTemplates' {} a -> s {pageSize = a} :: ListTemplates)
 
--- | The type of message template to include in the results. Valid values
--- are: EMAIL, PUSH, SMS, and VOICE. To include all types of templates in
--- the results, don\'t include this parameter in your request.
-listTemplates_templateType :: Lens.Lens' ListTemplates (Prelude.Maybe Prelude.Text)
-listTemplates_templateType = Lens.lens (\ListTemplates' {templateType} -> templateType) (\s@ListTemplates' {} a -> s {templateType = a} :: ListTemplates)
-
 -- | The substring to match in the names of the message templates to include
 -- in the results. If you specify this value, Amazon Pinpoint returns only
 -- those templates whose names begin with the value that you specify.
 listTemplates_prefix :: Lens.Lens' ListTemplates (Prelude.Maybe Prelude.Text)
 listTemplates_prefix = Lens.lens (\ListTemplates' {prefix} -> prefix) (\s@ListTemplates' {} a -> s {prefix = a} :: ListTemplates)
+
+-- | The type of message template to include in the results. Valid values
+-- are: EMAIL, PUSH, SMS, and VOICE. To include all types of templates in
+-- the results, don\'t include this parameter in your request.
+listTemplates_templateType :: Lens.Lens' ListTemplates (Prelude.Maybe Prelude.Text)
+listTemplates_templateType = Lens.lens (\ListTemplates' {templateType} -> templateType) (\s@ListTemplates' {} a -> s {templateType = a} :: ListTemplates)
 
 instance Core.AWSRequest ListTemplates where
   type
@@ -164,8 +164,8 @@ instance Core.ToQuery ListTemplates where
     Prelude.mconcat
       [ "next-token" Core.=: nextToken,
         "page-size" Core.=: pageSize,
-        "template-type" Core.=: templateType,
-        "prefix" Core.=: prefix
+        "prefix" Core.=: prefix,
+        "template-type" Core.=: templateType
       ]
 
 -- | /See:/ 'newListTemplatesResponse' smart constructor.

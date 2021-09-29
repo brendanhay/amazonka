@@ -35,6 +35,9 @@ import qualified Network.AWS.Prelude as Prelude
 data WriteJourneyRequest = WriteJourneyRequest'
   { -- | The date, in ISO 8601 format, when the journey was last modified.
     lastModifiedDate :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether endpoints in quiet hours should enter a wait till the
+    -- end of their quiet hours.
+    waitForQuietTime :: Prelude.Maybe Prelude.Bool,
     -- | A map that contains a set of Activity objects, one object for each
     -- activity in the journey. For each Activity object, the key is the unique
     -- identifier (string) for an activity and the value is the settings for
@@ -52,10 +55,13 @@ data WriteJourneyRequest = WriteJourneyRequest'
     --     the scheduled start time. If a journey\'s status is ACTIVE, you
     --     can\'t add, change, or remove activities from it.
     --
-    -- The CANCELLED, COMPLETED, and CLOSED values are not supported in
-    -- requests to create or update a journey. To cancel a journey, use the
-    -- Journey State resource.
+    -- PAUSED, CANCELLED, COMPLETED, and CLOSED states are not supported in
+    -- requests to create or update a journey. To cancel, pause, or resume a
+    -- journey, use the Journey State resource.
     state :: Prelude.Maybe State,
+    -- | The frequency with which Amazon Pinpoint evaluates segment and event
+    -- data for the journey, as a duration in ISO 8601 format.
+    refreshFrequency :: Prelude.Maybe Prelude.Text,
     -- | The quiet time settings for the journey. Quiet time is a specific time
     -- range when a journey doesn\'t send messages to participants, if all the
     -- following conditions are met:
@@ -74,11 +80,10 @@ data WriteJourneyRequest = WriteJourneyRequest'
     -- If any of the preceding conditions isn\'t met, the participant will
     -- receive messages from the journey, even if quiet time is enabled.
     quietTime :: Prelude.Maybe QuietTime,
-    -- | The frequency with which Amazon Pinpoint evaluates segment and event
-    -- data for the journey, as a duration in ISO 8601 format.
-    refreshFrequency :: Prelude.Maybe Prelude.Text,
     -- | The messaging and entry limits for the journey.
     limits :: Prelude.Maybe JourneyLimits,
+    -- | Specifies whether a journey should be refreshed on segment update.
+    refreshOnSegmentUpdate :: Prelude.Maybe Prelude.Bool,
     -- | The segment that defines which users are participants in the journey.
     startCondition :: Prelude.Maybe StartCondition,
     -- | Specifies whether the journey\'s scheduled start and end times use each
@@ -109,6 +114,9 @@ data WriteJourneyRequest = WriteJourneyRequest'
 --
 -- 'lastModifiedDate', 'writeJourneyRequest_lastModifiedDate' - The date, in ISO 8601 format, when the journey was last modified.
 --
+-- 'waitForQuietTime', 'writeJourneyRequest_waitForQuietTime' - Specifies whether endpoints in quiet hours should enter a wait till the
+-- end of their quiet hours.
+--
 -- 'activities', 'writeJourneyRequest_activities' - A map that contains a set of Activity objects, one object for each
 -- activity in the journey. For each Activity object, the key is the unique
 -- identifier (string) for an activity and the value is the settings for
@@ -126,9 +134,12 @@ data WriteJourneyRequest = WriteJourneyRequest'
 --     the scheduled start time. If a journey\'s status is ACTIVE, you
 --     can\'t add, change, or remove activities from it.
 --
--- The CANCELLED, COMPLETED, and CLOSED values are not supported in
--- requests to create or update a journey. To cancel a journey, use the
--- Journey State resource.
+-- PAUSED, CANCELLED, COMPLETED, and CLOSED states are not supported in
+-- requests to create or update a journey. To cancel, pause, or resume a
+-- journey, use the Journey State resource.
+--
+-- 'refreshFrequency', 'writeJourneyRequest_refreshFrequency' - The frequency with which Amazon Pinpoint evaluates segment and event
+-- data for the journey, as a duration in ISO 8601 format.
 --
 -- 'quietTime', 'writeJourneyRequest_quietTime' - The quiet time settings for the journey. Quiet time is a specific time
 -- range when a journey doesn\'t send messages to participants, if all the
@@ -148,10 +159,9 @@ data WriteJourneyRequest = WriteJourneyRequest'
 -- If any of the preceding conditions isn\'t met, the participant will
 -- receive messages from the journey, even if quiet time is enabled.
 --
--- 'refreshFrequency', 'writeJourneyRequest_refreshFrequency' - The frequency with which Amazon Pinpoint evaluates segment and event
--- data for the journey, as a duration in ISO 8601 format.
---
 -- 'limits', 'writeJourneyRequest_limits' - The messaging and entry limits for the journey.
+--
+-- 'refreshOnSegmentUpdate', 'writeJourneyRequest_refreshOnSegmentUpdate' - Specifies whether a journey should be refreshed on segment update.
 --
 -- 'startCondition', 'writeJourneyRequest_startCondition' - The segment that defines which users are participants in the journey.
 --
@@ -177,12 +187,14 @@ newWriteJourneyRequest pName_ =
   WriteJourneyRequest'
     { lastModifiedDate =
         Prelude.Nothing,
+      waitForQuietTime = Prelude.Nothing,
       activities = Prelude.Nothing,
       creationDate = Prelude.Nothing,
       state = Prelude.Nothing,
-      quietTime = Prelude.Nothing,
       refreshFrequency = Prelude.Nothing,
+      quietTime = Prelude.Nothing,
       limits = Prelude.Nothing,
+      refreshOnSegmentUpdate = Prelude.Nothing,
       startCondition = Prelude.Nothing,
       localTime = Prelude.Nothing,
       startActivity = Prelude.Nothing,
@@ -193,6 +205,11 @@ newWriteJourneyRequest pName_ =
 -- | The date, in ISO 8601 format, when the journey was last modified.
 writeJourneyRequest_lastModifiedDate :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe Prelude.Text)
 writeJourneyRequest_lastModifiedDate = Lens.lens (\WriteJourneyRequest' {lastModifiedDate} -> lastModifiedDate) (\s@WriteJourneyRequest' {} a -> s {lastModifiedDate = a} :: WriteJourneyRequest)
+
+-- | Specifies whether endpoints in quiet hours should enter a wait till the
+-- end of their quiet hours.
+writeJourneyRequest_waitForQuietTime :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe Prelude.Bool)
+writeJourneyRequest_waitForQuietTime = Lens.lens (\WriteJourneyRequest' {waitForQuietTime} -> waitForQuietTime) (\s@WriteJourneyRequest' {} a -> s {waitForQuietTime = a} :: WriteJourneyRequest)
 
 -- | A map that contains a set of Activity objects, one object for each
 -- activity in the journey. For each Activity object, the key is the unique
@@ -215,11 +232,16 @@ writeJourneyRequest_creationDate = Lens.lens (\WriteJourneyRequest' {creationDat
 --     the scheduled start time. If a journey\'s status is ACTIVE, you
 --     can\'t add, change, or remove activities from it.
 --
--- The CANCELLED, COMPLETED, and CLOSED values are not supported in
--- requests to create or update a journey. To cancel a journey, use the
--- Journey State resource.
+-- PAUSED, CANCELLED, COMPLETED, and CLOSED states are not supported in
+-- requests to create or update a journey. To cancel, pause, or resume a
+-- journey, use the Journey State resource.
 writeJourneyRequest_state :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe State)
 writeJourneyRequest_state = Lens.lens (\WriteJourneyRequest' {state} -> state) (\s@WriteJourneyRequest' {} a -> s {state = a} :: WriteJourneyRequest)
+
+-- | The frequency with which Amazon Pinpoint evaluates segment and event
+-- data for the journey, as a duration in ISO 8601 format.
+writeJourneyRequest_refreshFrequency :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe Prelude.Text)
+writeJourneyRequest_refreshFrequency = Lens.lens (\WriteJourneyRequest' {refreshFrequency} -> refreshFrequency) (\s@WriteJourneyRequest' {} a -> s {refreshFrequency = a} :: WriteJourneyRequest)
 
 -- | The quiet time settings for the journey. Quiet time is a specific time
 -- range when a journey doesn\'t send messages to participants, if all the
@@ -241,14 +263,13 @@ writeJourneyRequest_state = Lens.lens (\WriteJourneyRequest' {state} -> state) (
 writeJourneyRequest_quietTime :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe QuietTime)
 writeJourneyRequest_quietTime = Lens.lens (\WriteJourneyRequest' {quietTime} -> quietTime) (\s@WriteJourneyRequest' {} a -> s {quietTime = a} :: WriteJourneyRequest)
 
--- | The frequency with which Amazon Pinpoint evaluates segment and event
--- data for the journey, as a duration in ISO 8601 format.
-writeJourneyRequest_refreshFrequency :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe Prelude.Text)
-writeJourneyRequest_refreshFrequency = Lens.lens (\WriteJourneyRequest' {refreshFrequency} -> refreshFrequency) (\s@WriteJourneyRequest' {} a -> s {refreshFrequency = a} :: WriteJourneyRequest)
-
 -- | The messaging and entry limits for the journey.
 writeJourneyRequest_limits :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe JourneyLimits)
 writeJourneyRequest_limits = Lens.lens (\WriteJourneyRequest' {limits} -> limits) (\s@WriteJourneyRequest' {} a -> s {limits = a} :: WriteJourneyRequest)
+
+-- | Specifies whether a journey should be refreshed on segment update.
+writeJourneyRequest_refreshOnSegmentUpdate :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe Prelude.Bool)
+writeJourneyRequest_refreshOnSegmentUpdate = Lens.lens (\WriteJourneyRequest' {refreshOnSegmentUpdate} -> refreshOnSegmentUpdate) (\s@WriteJourneyRequest' {} a -> s {refreshOnSegmentUpdate = a} :: WriteJourneyRequest)
 
 -- | The segment that defines which users are participants in the journey.
 writeJourneyRequest_startCondition :: Lens.Lens' WriteJourneyRequest (Prelude.Maybe StartCondition)
@@ -287,13 +308,17 @@ instance Core.ToJSON WriteJourneyRequest where
       ( Prelude.catMaybes
           [ ("LastModifiedDate" Core..=)
               Prelude.<$> lastModifiedDate,
+            ("WaitForQuietTime" Core..=)
+              Prelude.<$> waitForQuietTime,
             ("Activities" Core..=) Prelude.<$> activities,
             ("CreationDate" Core..=) Prelude.<$> creationDate,
             ("State" Core..=) Prelude.<$> state,
-            ("QuietTime" Core..=) Prelude.<$> quietTime,
             ("RefreshFrequency" Core..=)
               Prelude.<$> refreshFrequency,
+            ("QuietTime" Core..=) Prelude.<$> quietTime,
             ("Limits" Core..=) Prelude.<$> limits,
+            ("RefreshOnSegmentUpdate" Core..=)
+              Prelude.<$> refreshOnSegmentUpdate,
             ("StartCondition" Core..=)
               Prelude.<$> startCondition,
             ("LocalTime" Core..=) Prelude.<$> localTime,

@@ -63,18 +63,18 @@ data APNSMessage = APNSMessage'
     -- Amazon Pinpoint specifies this value in the apns-collapse-id request
     -- header when it sends the notification message to APNs.
     collapseId :: Prelude.Maybe Prelude.Text,
-    -- | The JSON payload to use for a silent push notification. This payload is
-    -- added to the data.pinpoint.jsonBody object of the notification.
-    data' :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The body of the notification message.
+    body :: Prelude.Maybe Prelude.Text,
     -- | The key that indicates the notification type for the push notification.
     -- This key is a value that\'s defined by the identifier property of one of
     -- your app\'s registered categories.
     category :: Prelude.Maybe Prelude.Text,
+    -- | The JSON payload to use for a silent push notification. This payload is
+    -- added to the data.pinpoint.jsonBody object of the notification.
+    data' :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The title to display above the notification message on the recipient\'s
     -- device.
     title :: Prelude.Maybe Prelude.Text,
-    -- | The body of the notification message.
-    body :: Prelude.Maybe Prelude.Text,
     -- | The amount of time, in seconds, that APNs should store and attempt to
     -- deliver the push notification, if the service is unable to deliver the
     -- notification the first time. If this value is 0, APNs treats the
@@ -155,20 +155,25 @@ data APNSMessage = APNSMessage'
     -- -   URL - The default mobile browser on the recipient\'s device opens
     --     and loads the web page at a URL that you specify.
     action :: Prelude.Maybe Action,
+    -- | The URL to open in the recipient\'s default mobile browser, if a
+    -- recipient taps the push notification and the value of the Action
+    -- property is URL.
+    url :: Prelude.Maybe Prelude.Text,
+    -- | The key that represents your app-specific identifier for grouping
+    -- notifications. If you provide a Notification Content app extension, you
+    -- can use this value to group your notifications together.
+    threadId :: Prelude.Maybe Prelude.Text,
     -- | The key for the sound to play when the recipient receives the push
     -- notification. The value for this key is the name of a sound file in your
     -- app\'s main bundle or the Library\/Sounds folder in your app\'s data
     -- container. If the sound file can\'t be found or you specify default for
     -- the value, the system plays the default alert sound.
     sound :: Prelude.Maybe Prelude.Text,
-    -- | The key that represents your app-specific identifier for grouping
-    -- notifications. If you provide a Notification Content app extension, you
-    -- can use this value to group your notifications together.
-    threadId :: Prelude.Maybe Prelude.Text,
-    -- | The URL to open in the recipient\'s default mobile browser, if a
-    -- recipient taps the push notification and the value of the Action
-    -- property is URL.
-    url :: Prelude.Maybe Prelude.Text,
+    -- | The key that indicates whether and how to modify the badge of your
+    -- app\'s icon when the recipient receives the push notification. If this
+    -- key isn\'t included in the dictionary, the badge doesn\'t change. To
+    -- remove the badge, set this value to 0.
+    badge :: Prelude.Maybe Prelude.Int,
     -- | The raw, JSON-formatted string to use as the payload for the
     -- notification message. If specified, this value overrides all other
     -- content for the message.
@@ -185,12 +190,7 @@ data APNSMessage = APNSMessage'
     -- and
     -- <https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app Pushing Background Updates to Your App>
     -- on the Apple Developer website.
-    rawContent :: Prelude.Maybe Prelude.Text,
-    -- | The key that indicates whether and how to modify the badge of your
-    -- app\'s icon when the recipient receives the push notification. If this
-    -- key isn\'t included in the dictionary, the badge doesn\'t change. To
-    -- remove the badge, set this value to 0.
-    badge :: Prelude.Maybe Prelude.Int
+    rawContent :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -236,17 +236,17 @@ data APNSMessage = APNSMessage'
 -- Amazon Pinpoint specifies this value in the apns-collapse-id request
 -- header when it sends the notification message to APNs.
 --
--- 'data'', 'aPNSMessage_data' - The JSON payload to use for a silent push notification. This payload is
--- added to the data.pinpoint.jsonBody object of the notification.
+-- 'body', 'aPNSMessage_body' - The body of the notification message.
 --
 -- 'category', 'aPNSMessage_category' - The key that indicates the notification type for the push notification.
 -- This key is a value that\'s defined by the identifier property of one of
 -- your app\'s registered categories.
 --
+-- 'data'', 'aPNSMessage_data' - The JSON payload to use for a silent push notification. This payload is
+-- added to the data.pinpoint.jsonBody object of the notification.
+--
 -- 'title', 'aPNSMessage_title' - The title to display above the notification message on the recipient\'s
 -- device.
---
--- 'body', 'aPNSMessage_body' - The body of the notification message.
 --
 -- 'timeToLive', 'aPNSMessage_timeToLive' - The amount of time, in seconds, that APNs should store and attempt to
 -- deliver the push notification, if the service is unable to deliver the
@@ -328,19 +328,24 @@ data APNSMessage = APNSMessage'
 -- -   URL - The default mobile browser on the recipient\'s device opens
 --     and loads the web page at a URL that you specify.
 --
+-- 'url', 'aPNSMessage_url' - The URL to open in the recipient\'s default mobile browser, if a
+-- recipient taps the push notification and the value of the Action
+-- property is URL.
+--
+-- 'threadId', 'aPNSMessage_threadId' - The key that represents your app-specific identifier for grouping
+-- notifications. If you provide a Notification Content app extension, you
+-- can use this value to group your notifications together.
+--
 -- 'sound', 'aPNSMessage_sound' - The key for the sound to play when the recipient receives the push
 -- notification. The value for this key is the name of a sound file in your
 -- app\'s main bundle or the Library\/Sounds folder in your app\'s data
 -- container. If the sound file can\'t be found or you specify default for
 -- the value, the system plays the default alert sound.
 --
--- 'threadId', 'aPNSMessage_threadId' - The key that represents your app-specific identifier for grouping
--- notifications. If you provide a Notification Content app extension, you
--- can use this value to group your notifications together.
---
--- 'url', 'aPNSMessage_url' - The URL to open in the recipient\'s default mobile browser, if a
--- recipient taps the push notification and the value of the Action
--- property is URL.
+-- 'badge', 'aPNSMessage_badge' - The key that indicates whether and how to modify the badge of your
+-- app\'s icon when the recipient receives the push notification. If this
+-- key isn\'t included in the dictionary, the badge doesn\'t change. To
+-- remove the badge, set this value to 0.
 --
 -- 'rawContent', 'aPNSMessage_rawContent' - The raw, JSON-formatted string to use as the payload for the
 -- notification message. If specified, this value overrides all other
@@ -358,21 +363,16 @@ data APNSMessage = APNSMessage'
 -- and
 -- <https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app Pushing Background Updates to Your App>
 -- on the Apple Developer website.
---
--- 'badge', 'aPNSMessage_badge' - The key that indicates whether and how to modify the badge of your
--- app\'s icon when the recipient receives the push notification. If this
--- key isn\'t included in the dictionary, the badge doesn\'t change. To
--- remove the badge, set this value to 0.
 newAPNSMessage ::
   APNSMessage
 newAPNSMessage =
   APNSMessage'
     { silentPush = Prelude.Nothing,
       collapseId = Prelude.Nothing,
-      data' = Prelude.Nothing,
-      category = Prelude.Nothing,
-      title = Prelude.Nothing,
       body = Prelude.Nothing,
+      category = Prelude.Nothing,
+      data' = Prelude.Nothing,
+      title = Prelude.Nothing,
       timeToLive = Prelude.Nothing,
       aPNSPushType = Prelude.Nothing,
       preferredAuthenticationMethod = Prelude.Nothing,
@@ -380,11 +380,11 @@ newAPNSMessage =
       mediaUrl = Prelude.Nothing,
       substitutions = Prelude.Nothing,
       action = Prelude.Nothing,
-      sound = Prelude.Nothing,
-      threadId = Prelude.Nothing,
       url = Prelude.Nothing,
-      rawContent = Prelude.Nothing,
-      badge = Prelude.Nothing
+      threadId = Prelude.Nothing,
+      sound = Prelude.Nothing,
+      badge = Prelude.Nothing,
+      rawContent = Prelude.Nothing
     }
 
 -- | Specifies whether the notification is a silent push notification. A
@@ -425,10 +425,9 @@ aPNSMessage_silentPush = Lens.lens (\APNSMessage' {silentPush} -> silentPush) (\
 aPNSMessage_collapseId :: Lens.Lens' APNSMessage (Prelude.Maybe Prelude.Text)
 aPNSMessage_collapseId = Lens.lens (\APNSMessage' {collapseId} -> collapseId) (\s@APNSMessage' {} a -> s {collapseId = a} :: APNSMessage)
 
--- | The JSON payload to use for a silent push notification. This payload is
--- added to the data.pinpoint.jsonBody object of the notification.
-aPNSMessage_data :: Lens.Lens' APNSMessage (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-aPNSMessage_data = Lens.lens (\APNSMessage' {data'} -> data') (\s@APNSMessage' {} a -> s {data' = a} :: APNSMessage) Prelude.. Lens.mapping Lens._Coerce
+-- | The body of the notification message.
+aPNSMessage_body :: Lens.Lens' APNSMessage (Prelude.Maybe Prelude.Text)
+aPNSMessage_body = Lens.lens (\APNSMessage' {body} -> body) (\s@APNSMessage' {} a -> s {body = a} :: APNSMessage)
 
 -- | The key that indicates the notification type for the push notification.
 -- This key is a value that\'s defined by the identifier property of one of
@@ -436,14 +435,15 @@ aPNSMessage_data = Lens.lens (\APNSMessage' {data'} -> data') (\s@APNSMessage' {
 aPNSMessage_category :: Lens.Lens' APNSMessage (Prelude.Maybe Prelude.Text)
 aPNSMessage_category = Lens.lens (\APNSMessage' {category} -> category) (\s@APNSMessage' {} a -> s {category = a} :: APNSMessage)
 
+-- | The JSON payload to use for a silent push notification. This payload is
+-- added to the data.pinpoint.jsonBody object of the notification.
+aPNSMessage_data :: Lens.Lens' APNSMessage (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+aPNSMessage_data = Lens.lens (\APNSMessage' {data'} -> data') (\s@APNSMessage' {} a -> s {data' = a} :: APNSMessage) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The title to display above the notification message on the recipient\'s
 -- device.
 aPNSMessage_title :: Lens.Lens' APNSMessage (Prelude.Maybe Prelude.Text)
 aPNSMessage_title = Lens.lens (\APNSMessage' {title} -> title) (\s@APNSMessage' {} a -> s {title = a} :: APNSMessage)
-
--- | The body of the notification message.
-aPNSMessage_body :: Lens.Lens' APNSMessage (Prelude.Maybe Prelude.Text)
-aPNSMessage_body = Lens.lens (\APNSMessage' {body} -> body) (\s@APNSMessage' {} a -> s {body = a} :: APNSMessage)
 
 -- | The amount of time, in seconds, that APNs should store and attempt to
 -- deliver the push notification, if the service is unable to deliver the
@@ -539,6 +539,18 @@ aPNSMessage_substitutions = Lens.lens (\APNSMessage' {substitutions} -> substitu
 aPNSMessage_action :: Lens.Lens' APNSMessage (Prelude.Maybe Action)
 aPNSMessage_action = Lens.lens (\APNSMessage' {action} -> action) (\s@APNSMessage' {} a -> s {action = a} :: APNSMessage)
 
+-- | The URL to open in the recipient\'s default mobile browser, if a
+-- recipient taps the push notification and the value of the Action
+-- property is URL.
+aPNSMessage_url :: Lens.Lens' APNSMessage (Prelude.Maybe Prelude.Text)
+aPNSMessage_url = Lens.lens (\APNSMessage' {url} -> url) (\s@APNSMessage' {} a -> s {url = a} :: APNSMessage)
+
+-- | The key that represents your app-specific identifier for grouping
+-- notifications. If you provide a Notification Content app extension, you
+-- can use this value to group your notifications together.
+aPNSMessage_threadId :: Lens.Lens' APNSMessage (Prelude.Maybe Prelude.Text)
+aPNSMessage_threadId = Lens.lens (\APNSMessage' {threadId} -> threadId) (\s@APNSMessage' {} a -> s {threadId = a} :: APNSMessage)
+
 -- | The key for the sound to play when the recipient receives the push
 -- notification. The value for this key is the name of a sound file in your
 -- app\'s main bundle or the Library\/Sounds folder in your app\'s data
@@ -547,17 +559,12 @@ aPNSMessage_action = Lens.lens (\APNSMessage' {action} -> action) (\s@APNSMessag
 aPNSMessage_sound :: Lens.Lens' APNSMessage (Prelude.Maybe Prelude.Text)
 aPNSMessage_sound = Lens.lens (\APNSMessage' {sound} -> sound) (\s@APNSMessage' {} a -> s {sound = a} :: APNSMessage)
 
--- | The key that represents your app-specific identifier for grouping
--- notifications. If you provide a Notification Content app extension, you
--- can use this value to group your notifications together.
-aPNSMessage_threadId :: Lens.Lens' APNSMessage (Prelude.Maybe Prelude.Text)
-aPNSMessage_threadId = Lens.lens (\APNSMessage' {threadId} -> threadId) (\s@APNSMessage' {} a -> s {threadId = a} :: APNSMessage)
-
--- | The URL to open in the recipient\'s default mobile browser, if a
--- recipient taps the push notification and the value of the Action
--- property is URL.
-aPNSMessage_url :: Lens.Lens' APNSMessage (Prelude.Maybe Prelude.Text)
-aPNSMessage_url = Lens.lens (\APNSMessage' {url} -> url) (\s@APNSMessage' {} a -> s {url = a} :: APNSMessage)
+-- | The key that indicates whether and how to modify the badge of your
+-- app\'s icon when the recipient receives the push notification. If this
+-- key isn\'t included in the dictionary, the badge doesn\'t change. To
+-- remove the badge, set this value to 0.
+aPNSMessage_badge :: Lens.Lens' APNSMessage (Prelude.Maybe Prelude.Int)
+aPNSMessage_badge = Lens.lens (\APNSMessage' {badge} -> badge) (\s@APNSMessage' {} a -> s {badge = a} :: APNSMessage)
 
 -- | The raw, JSON-formatted string to use as the payload for the
 -- notification message. If specified, this value overrides all other
@@ -578,13 +585,6 @@ aPNSMessage_url = Lens.lens (\APNSMessage' {url} -> url) (\s@APNSMessage' {} a -
 aPNSMessage_rawContent :: Lens.Lens' APNSMessage (Prelude.Maybe Prelude.Text)
 aPNSMessage_rawContent = Lens.lens (\APNSMessage' {rawContent} -> rawContent) (\s@APNSMessage' {} a -> s {rawContent = a} :: APNSMessage)
 
--- | The key that indicates whether and how to modify the badge of your
--- app\'s icon when the recipient receives the push notification. If this
--- key isn\'t included in the dictionary, the badge doesn\'t change. To
--- remove the badge, set this value to 0.
-aPNSMessage_badge :: Lens.Lens' APNSMessage (Prelude.Maybe Prelude.Int)
-aPNSMessage_badge = Lens.lens (\APNSMessage' {badge} -> badge) (\s@APNSMessage' {} a -> s {badge = a} :: APNSMessage)
-
 instance Prelude.Hashable APNSMessage
 
 instance Prelude.NFData APNSMessage
@@ -595,10 +595,10 @@ instance Core.ToJSON APNSMessage where
       ( Prelude.catMaybes
           [ ("SilentPush" Core..=) Prelude.<$> silentPush,
             ("CollapseId" Core..=) Prelude.<$> collapseId,
-            ("Data" Core..=) Prelude.<$> data',
-            ("Category" Core..=) Prelude.<$> category,
-            ("Title" Core..=) Prelude.<$> title,
             ("Body" Core..=) Prelude.<$> body,
+            ("Category" Core..=) Prelude.<$> category,
+            ("Data" Core..=) Prelude.<$> data',
+            ("Title" Core..=) Prelude.<$> title,
             ("TimeToLive" Core..=) Prelude.<$> timeToLive,
             ("APNSPushType" Core..=) Prelude.<$> aPNSPushType,
             ("PreferredAuthenticationMethod" Core..=)
@@ -607,10 +607,10 @@ instance Core.ToJSON APNSMessage where
             ("MediaUrl" Core..=) Prelude.<$> mediaUrl,
             ("Substitutions" Core..=) Prelude.<$> substitutions,
             ("Action" Core..=) Prelude.<$> action,
-            ("Sound" Core..=) Prelude.<$> sound,
-            ("ThreadId" Core..=) Prelude.<$> threadId,
             ("Url" Core..=) Prelude.<$> url,
-            ("RawContent" Core..=) Prelude.<$> rawContent,
-            ("Badge" Core..=) Prelude.<$> badge
+            ("ThreadId" Core..=) Prelude.<$> threadId,
+            ("Sound" Core..=) Prelude.<$> sound,
+            ("Badge" Core..=) Prelude.<$> badge,
+            ("RawContent" Core..=) Prelude.<$> rawContent
           ]
       )

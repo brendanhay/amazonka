@@ -53,16 +53,16 @@ data PushNotificationTemplateRequest = PushNotificationTemplateRequest'
     -- service) channel. This message template overrides the default template
     -- for push notification channels (DefaultPushNotificationTemplate).
     apns :: Prelude.Maybe APNSPushNotificationTemplate,
+    -- | A string-to-string map of key-value pairs that defines the tags to
+    -- associate with the message template. Each tag consists of a required tag
+    -- key and an associated tag value.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The message template to use for the GCM channel, which is used to send
     -- notifications through the Firebase Cloud Messaging (FCM), formerly
     -- Google Cloud Messaging (GCM), service. This message template overrides
     -- the default template for push notification channels
     -- (DefaultPushNotificationTemplate).
     gcm :: Prelude.Maybe AndroidPushNotificationTemplate,
-    -- | A string-to-string map of key-value pairs that defines the tags to
-    -- associate with the message template. Each tag consists of a required tag
-    -- key and an associated tag value.
-    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The unique identifier for the recommender model to use for the message
     -- template. Amazon Pinpoint uses this value to determine how to retrieve
     -- and process data from a recommender model when it sends messages that
@@ -104,15 +104,15 @@ data PushNotificationTemplateRequest = PushNotificationTemplateRequest'
 -- service) channel. This message template overrides the default template
 -- for push notification channels (DefaultPushNotificationTemplate).
 --
+-- 'tags', 'pushNotificationTemplateRequest_tags' - A string-to-string map of key-value pairs that defines the tags to
+-- associate with the message template. Each tag consists of a required tag
+-- key and an associated tag value.
+--
 -- 'gcm', 'pushNotificationTemplateRequest_gcm' - The message template to use for the GCM channel, which is used to send
 -- notifications through the Firebase Cloud Messaging (FCM), formerly
 -- Google Cloud Messaging (GCM), service. This message template overrides
 -- the default template for push notification channels
 -- (DefaultPushNotificationTemplate).
---
--- 'tags', 'pushNotificationTemplateRequest_tags' - A string-to-string map of key-value pairs that defines the tags to
--- associate with the message template. Each tag consists of a required tag
--- key and an associated tag value.
 --
 -- 'recommenderId', 'pushNotificationTemplateRequest_recommenderId' - The unique identifier for the recommender model to use for the message
 -- template. Amazon Pinpoint uses this value to determine how to retrieve
@@ -131,8 +131,8 @@ newPushNotificationTemplateRequest =
       adm = Prelude.Nothing,
       defaultSubstitutions = Prelude.Nothing,
       apns = Prelude.Nothing,
-      gcm = Prelude.Nothing,
       tags = Prelude.Nothing,
+      gcm = Prelude.Nothing,
       recommenderId = Prelude.Nothing,
       default' = Prelude.Nothing
     }
@@ -169,6 +169,12 @@ pushNotificationTemplateRequest_defaultSubstitutions = Lens.lens (\PushNotificat
 pushNotificationTemplateRequest_apns :: Lens.Lens' PushNotificationTemplateRequest (Prelude.Maybe APNSPushNotificationTemplate)
 pushNotificationTemplateRequest_apns = Lens.lens (\PushNotificationTemplateRequest' {apns} -> apns) (\s@PushNotificationTemplateRequest' {} a -> s {apns = a} :: PushNotificationTemplateRequest)
 
+-- | A string-to-string map of key-value pairs that defines the tags to
+-- associate with the message template. Each tag consists of a required tag
+-- key and an associated tag value.
+pushNotificationTemplateRequest_tags :: Lens.Lens' PushNotificationTemplateRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+pushNotificationTemplateRequest_tags = Lens.lens (\PushNotificationTemplateRequest' {tags} -> tags) (\s@PushNotificationTemplateRequest' {} a -> s {tags = a} :: PushNotificationTemplateRequest) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The message template to use for the GCM channel, which is used to send
 -- notifications through the Firebase Cloud Messaging (FCM), formerly
 -- Google Cloud Messaging (GCM), service. This message template overrides
@@ -176,12 +182,6 @@ pushNotificationTemplateRequest_apns = Lens.lens (\PushNotificationTemplateReque
 -- (DefaultPushNotificationTemplate).
 pushNotificationTemplateRequest_gcm :: Lens.Lens' PushNotificationTemplateRequest (Prelude.Maybe AndroidPushNotificationTemplate)
 pushNotificationTemplateRequest_gcm = Lens.lens (\PushNotificationTemplateRequest' {gcm} -> gcm) (\s@PushNotificationTemplateRequest' {} a -> s {gcm = a} :: PushNotificationTemplateRequest)
-
--- | A string-to-string map of key-value pairs that defines the tags to
--- associate with the message template. Each tag consists of a required tag
--- key and an associated tag value.
-pushNotificationTemplateRequest_tags :: Lens.Lens' PushNotificationTemplateRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
-pushNotificationTemplateRequest_tags = Lens.lens (\PushNotificationTemplateRequest' {tags} -> tags) (\s@PushNotificationTemplateRequest' {} a -> s {tags = a} :: PushNotificationTemplateRequest) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The unique identifier for the recommender model to use for the message
 -- template. Amazon Pinpoint uses this value to determine how to retrieve
@@ -214,8 +214,8 @@ instance Core.ToJSON PushNotificationTemplateRequest where
             ("DefaultSubstitutions" Core..=)
               Prelude.<$> defaultSubstitutions,
             ("APNS" Core..=) Prelude.<$> apns,
-            ("GCM" Core..=) Prelude.<$> gcm,
             ("tags" Core..=) Prelude.<$> tags,
+            ("GCM" Core..=) Prelude.<$> gcm,
             ("RecommenderId" Core..=) Prelude.<$> recommenderId,
             ("Default" Core..=) Prelude.<$> default'
           ]

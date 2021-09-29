@@ -30,11 +30,11 @@ data EndpointLocation = EndpointLocation'
   { -- | The longitude coordinate of the endpoint location, rounded to one
     -- decimal place.
     longitude :: Prelude.Maybe Prelude.Double,
+    -- | The postal or ZIP code for the area where the endpoint is located.
+    postalCode :: Prelude.Maybe Prelude.Text,
     -- | The latitude coordinate of the endpoint location, rounded to one decimal
     -- place.
     latitude :: Prelude.Maybe Prelude.Double,
-    -- | The postal or ZIP code for the area where the endpoint is located.
-    postalCode :: Prelude.Maybe Prelude.Text,
     -- | The name of the city where the endpoint is located.
     city :: Prelude.Maybe Prelude.Text,
     -- | The two-character code, in ISO 3166-1 alpha-2 format, for the country or
@@ -58,10 +58,10 @@ data EndpointLocation = EndpointLocation'
 -- 'longitude', 'endpointLocation_longitude' - The longitude coordinate of the endpoint location, rounded to one
 -- decimal place.
 --
+-- 'postalCode', 'endpointLocation_postalCode' - The postal or ZIP code for the area where the endpoint is located.
+--
 -- 'latitude', 'endpointLocation_latitude' - The latitude coordinate of the endpoint location, rounded to one decimal
 -- place.
---
--- 'postalCode', 'endpointLocation_postalCode' - The postal or ZIP code for the area where the endpoint is located.
 --
 -- 'city', 'endpointLocation_city' - The name of the city where the endpoint is located.
 --
@@ -76,8 +76,8 @@ newEndpointLocation ::
 newEndpointLocation =
   EndpointLocation'
     { longitude = Prelude.Nothing,
-      latitude = Prelude.Nothing,
       postalCode = Prelude.Nothing,
+      latitude = Prelude.Nothing,
       city = Prelude.Nothing,
       country = Prelude.Nothing,
       region = Prelude.Nothing
@@ -88,14 +88,14 @@ newEndpointLocation =
 endpointLocation_longitude :: Lens.Lens' EndpointLocation (Prelude.Maybe Prelude.Double)
 endpointLocation_longitude = Lens.lens (\EndpointLocation' {longitude} -> longitude) (\s@EndpointLocation' {} a -> s {longitude = a} :: EndpointLocation)
 
+-- | The postal or ZIP code for the area where the endpoint is located.
+endpointLocation_postalCode :: Lens.Lens' EndpointLocation (Prelude.Maybe Prelude.Text)
+endpointLocation_postalCode = Lens.lens (\EndpointLocation' {postalCode} -> postalCode) (\s@EndpointLocation' {} a -> s {postalCode = a} :: EndpointLocation)
+
 -- | The latitude coordinate of the endpoint location, rounded to one decimal
 -- place.
 endpointLocation_latitude :: Lens.Lens' EndpointLocation (Prelude.Maybe Prelude.Double)
 endpointLocation_latitude = Lens.lens (\EndpointLocation' {latitude} -> latitude) (\s@EndpointLocation' {} a -> s {latitude = a} :: EndpointLocation)
-
--- | The postal or ZIP code for the area where the endpoint is located.
-endpointLocation_postalCode :: Lens.Lens' EndpointLocation (Prelude.Maybe Prelude.Text)
-endpointLocation_postalCode = Lens.lens (\EndpointLocation' {postalCode} -> postalCode) (\s@EndpointLocation' {} a -> s {postalCode = a} :: EndpointLocation)
 
 -- | The name of the city where the endpoint is located.
 endpointLocation_city :: Lens.Lens' EndpointLocation (Prelude.Maybe Prelude.Text)
@@ -119,8 +119,8 @@ instance Core.FromJSON EndpointLocation where
       ( \x ->
           EndpointLocation'
             Prelude.<$> (x Core..:? "Longitude")
-            Prelude.<*> (x Core..:? "Latitude")
             Prelude.<*> (x Core..:? "PostalCode")
+            Prelude.<*> (x Core..:? "Latitude")
             Prelude.<*> (x Core..:? "City")
             Prelude.<*> (x Core..:? "Country")
             Prelude.<*> (x Core..:? "Region")
@@ -135,8 +135,8 @@ instance Core.ToJSON EndpointLocation where
     Core.object
       ( Prelude.catMaybes
           [ ("Longitude" Core..=) Prelude.<$> longitude,
-            ("Latitude" Core..=) Prelude.<$> latitude,
             ("PostalCode" Core..=) Prelude.<$> postalCode,
+            ("Latitude" Core..=) Prelude.<$> latitude,
             ("City" Core..=) Prelude.<$> city,
             ("Country" Core..=) Prelude.<$> country,
             ("Region" Core..=) Prelude.<$> region

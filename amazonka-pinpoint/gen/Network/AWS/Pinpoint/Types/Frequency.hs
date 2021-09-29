@@ -23,6 +23,7 @@ module Network.AWS.Pinpoint.Types.Frequency
         Frequency_DAILY,
         Frequency_EVENT,
         Frequency_HOURLY,
+        Frequency_IN_APP_EVENT,
         Frequency_MONTHLY,
         Frequency_ONCE,
         Frequency_WEEKLY
@@ -70,6 +71,9 @@ pattern Frequency_EVENT = Frequency' "EVENT"
 pattern Frequency_HOURLY :: Frequency
 pattern Frequency_HOURLY = Frequency' "HOURLY"
 
+pattern Frequency_IN_APP_EVENT :: Frequency
+pattern Frequency_IN_APP_EVENT = Frequency' "IN_APP_EVENT"
+
 pattern Frequency_MONTHLY :: Frequency
 pattern Frequency_MONTHLY = Frequency' "MONTHLY"
 
@@ -83,6 +87,7 @@ pattern Frequency_WEEKLY = Frequency' "WEEKLY"
   Frequency_DAILY,
   Frequency_EVENT,
   Frequency_HOURLY,
+  Frequency_IN_APP_EVENT,
   Frequency_MONTHLY,
   Frequency_ONCE,
   Frequency_WEEKLY,

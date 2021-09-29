@@ -70,6 +70,9 @@ data EndpointBatchItem = EndpointBatchItem'
     -- Pinpoint console can\'t display attribute names that contain these
     -- characters. This restriction doesn\'t apply to attribute values.
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    -- | One or more custom metrics that your app reports to Amazon Pinpoint for
+    -- the endpoint.
+    metrics :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double),
     -- | Specifies whether to send messages or push notifications to the
     -- endpoint. Valid values are: ACTIVE, messages are sent to the endpoint;
     -- and, INACTIVE, messages aren’t sent to the endpoint.
@@ -79,9 +82,6 @@ data EndpointBatchItem = EndpointBatchItem'
     -- automatically sets this value to INACTIVE if you update another endpoint
     -- that has the same address specified by the Address property.
     endpointStatus :: Prelude.Maybe Prelude.Text,
-    -- | One or more custom metrics that your app reports to Amazon Pinpoint for
-    -- the endpoint.
-    metrics :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double),
     -- | The unique identifier for the request to create or update the endpoint.
     requestId :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in ISO 8601 format, when the endpoint was created or
@@ -138,6 +138,9 @@ data EndpointBatchItem = EndpointBatchItem'
 -- Pinpoint console can\'t display attribute names that contain these
 -- characters. This restriction doesn\'t apply to attribute values.
 --
+-- 'metrics', 'endpointBatchItem_metrics' - One or more custom metrics that your app reports to Amazon Pinpoint for
+-- the endpoint.
+--
 -- 'endpointStatus', 'endpointBatchItem_endpointStatus' - Specifies whether to send messages or push notifications to the
 -- endpoint. Valid values are: ACTIVE, messages are sent to the endpoint;
 -- and, INACTIVE, messages aren’t sent to the endpoint.
@@ -146,9 +149,6 @@ data EndpointBatchItem = EndpointBatchItem'
 -- an endpoint or update an existing endpoint. Amazon Pinpoint
 -- automatically sets this value to INACTIVE if you update another endpoint
 -- that has the same address specified by the Address property.
---
--- 'metrics', 'endpointBatchItem_metrics' - One or more custom metrics that your app reports to Amazon Pinpoint for
--- the endpoint.
 --
 -- 'requestId', 'endpointBatchItem_requestId' - The unique identifier for the request to create or update the endpoint.
 --
@@ -167,8 +167,8 @@ newEndpointBatchItem =
       optOut = Prelude.Nothing,
       demographic = Prelude.Nothing,
       attributes = Prelude.Nothing,
-      endpointStatus = Prelude.Nothing,
       metrics = Prelude.Nothing,
+      endpointStatus = Prelude.Nothing,
       requestId = Prelude.Nothing,
       effectiveDate = Prelude.Nothing,
       location = Prelude.Nothing
@@ -226,6 +226,11 @@ endpointBatchItem_demographic = Lens.lens (\EndpointBatchItem' {demographic} -> 
 endpointBatchItem_attributes :: Lens.Lens' EndpointBatchItem (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
 endpointBatchItem_attributes = Lens.lens (\EndpointBatchItem' {attributes} -> attributes) (\s@EndpointBatchItem' {} a -> s {attributes = a} :: EndpointBatchItem) Prelude.. Lens.mapping Lens._Coerce
 
+-- | One or more custom metrics that your app reports to Amazon Pinpoint for
+-- the endpoint.
+endpointBatchItem_metrics :: Lens.Lens' EndpointBatchItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double))
+endpointBatchItem_metrics = Lens.lens (\EndpointBatchItem' {metrics} -> metrics) (\s@EndpointBatchItem' {} a -> s {metrics = a} :: EndpointBatchItem) Prelude.. Lens.mapping Lens._Coerce
+
 -- | Specifies whether to send messages or push notifications to the
 -- endpoint. Valid values are: ACTIVE, messages are sent to the endpoint;
 -- and, INACTIVE, messages aren’t sent to the endpoint.
@@ -236,11 +241,6 @@ endpointBatchItem_attributes = Lens.lens (\EndpointBatchItem' {attributes} -> at
 -- that has the same address specified by the Address property.
 endpointBatchItem_endpointStatus :: Lens.Lens' EndpointBatchItem (Prelude.Maybe Prelude.Text)
 endpointBatchItem_endpointStatus = Lens.lens (\EndpointBatchItem' {endpointStatus} -> endpointStatus) (\s@EndpointBatchItem' {} a -> s {endpointStatus = a} :: EndpointBatchItem)
-
--- | One or more custom metrics that your app reports to Amazon Pinpoint for
--- the endpoint.
-endpointBatchItem_metrics :: Lens.Lens' EndpointBatchItem (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double))
-endpointBatchItem_metrics = Lens.lens (\EndpointBatchItem' {metrics} -> metrics) (\s@EndpointBatchItem' {} a -> s {metrics = a} :: EndpointBatchItem) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The unique identifier for the request to create or update the endpoint.
 endpointBatchItem_requestId :: Lens.Lens' EndpointBatchItem (Prelude.Maybe Prelude.Text)
@@ -270,9 +270,9 @@ instance Core.ToJSON EndpointBatchItem where
             ("OptOut" Core..=) Prelude.<$> optOut,
             ("Demographic" Core..=) Prelude.<$> demographic,
             ("Attributes" Core..=) Prelude.<$> attributes,
+            ("Metrics" Core..=) Prelude.<$> metrics,
             ("EndpointStatus" Core..=)
               Prelude.<$> endpointStatus,
-            ("Metrics" Core..=) Prelude.<$> metrics,
             ("RequestId" Core..=) Prelude.<$> requestId,
             ("EffectiveDate" Core..=) Prelude.<$> effectiveDate,
             ("Location" Core..=) Prelude.<$> location

@@ -36,10 +36,10 @@ data WriteTreatmentResource = WriteTreatmentResource'
     -- custom channel. This object is required if the MessageConfiguration
     -- object for the treatment specifies a CustomMessage object.
     customDeliveryConfiguration :: Prelude.Maybe CustomDeliveryConfiguration,
-    -- | A custom name for the treatment.
-    treatmentName :: Prelude.Maybe Prelude.Text,
     -- | The message configuration settings for the treatment.
     messageConfiguration :: Prelude.Maybe MessageConfiguration,
+    -- | A custom name for the treatment.
+    treatmentName :: Prelude.Maybe Prelude.Text,
     -- | The message template to use for the treatment.
     templateConfiguration :: Prelude.Maybe TemplateConfiguration,
     -- | The schedule settings for the treatment.
@@ -64,9 +64,9 @@ data WriteTreatmentResource = WriteTreatmentResource'
 -- custom channel. This object is required if the MessageConfiguration
 -- object for the treatment specifies a CustomMessage object.
 --
--- 'treatmentName', 'writeTreatmentResource_treatmentName' - A custom name for the treatment.
---
 -- 'messageConfiguration', 'writeTreatmentResource_messageConfiguration' - The message configuration settings for the treatment.
+--
+-- 'treatmentName', 'writeTreatmentResource_treatmentName' - A custom name for the treatment.
 --
 -- 'templateConfiguration', 'writeTreatmentResource_templateConfiguration' - The message template to use for the treatment.
 --
@@ -84,8 +84,8 @@ newWriteTreatmentResource pSizePercent_ =
   WriteTreatmentResource'
     { customDeliveryConfiguration =
         Prelude.Nothing,
-      treatmentName = Prelude.Nothing,
       messageConfiguration = Prelude.Nothing,
+      treatmentName = Prelude.Nothing,
       templateConfiguration = Prelude.Nothing,
       schedule = Prelude.Nothing,
       treatmentDescription = Prelude.Nothing,
@@ -98,13 +98,13 @@ newWriteTreatmentResource pSizePercent_ =
 writeTreatmentResource_customDeliveryConfiguration :: Lens.Lens' WriteTreatmentResource (Prelude.Maybe CustomDeliveryConfiguration)
 writeTreatmentResource_customDeliveryConfiguration = Lens.lens (\WriteTreatmentResource' {customDeliveryConfiguration} -> customDeliveryConfiguration) (\s@WriteTreatmentResource' {} a -> s {customDeliveryConfiguration = a} :: WriteTreatmentResource)
 
--- | A custom name for the treatment.
-writeTreatmentResource_treatmentName :: Lens.Lens' WriteTreatmentResource (Prelude.Maybe Prelude.Text)
-writeTreatmentResource_treatmentName = Lens.lens (\WriteTreatmentResource' {treatmentName} -> treatmentName) (\s@WriteTreatmentResource' {} a -> s {treatmentName = a} :: WriteTreatmentResource)
-
 -- | The message configuration settings for the treatment.
 writeTreatmentResource_messageConfiguration :: Lens.Lens' WriteTreatmentResource (Prelude.Maybe MessageConfiguration)
 writeTreatmentResource_messageConfiguration = Lens.lens (\WriteTreatmentResource' {messageConfiguration} -> messageConfiguration) (\s@WriteTreatmentResource' {} a -> s {messageConfiguration = a} :: WriteTreatmentResource)
+
+-- | A custom name for the treatment.
+writeTreatmentResource_treatmentName :: Lens.Lens' WriteTreatmentResource (Prelude.Maybe Prelude.Text)
+writeTreatmentResource_treatmentName = Lens.lens (\WriteTreatmentResource' {treatmentName} -> treatmentName) (\s@WriteTreatmentResource' {} a -> s {treatmentName = a} :: WriteTreatmentResource)
 
 -- | The message template to use for the treatment.
 writeTreatmentResource_templateConfiguration :: Lens.Lens' WriteTreatmentResource (Prelude.Maybe TemplateConfiguration)
@@ -133,9 +133,9 @@ instance Core.ToJSON WriteTreatmentResource where
       ( Prelude.catMaybes
           [ ("CustomDeliveryConfiguration" Core..=)
               Prelude.<$> customDeliveryConfiguration,
-            ("TreatmentName" Core..=) Prelude.<$> treatmentName,
             ("MessageConfiguration" Core..=)
               Prelude.<$> messageConfiguration,
+            ("TreatmentName" Core..=) Prelude.<$> treatmentName,
             ("TemplateConfiguration" Core..=)
               Prelude.<$> templateConfiguration,
             ("Schedule" Core..=) Prelude.<$> schedule,

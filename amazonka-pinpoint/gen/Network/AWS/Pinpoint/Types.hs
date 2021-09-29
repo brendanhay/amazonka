@@ -29,8 +29,14 @@ module Network.AWS.Pinpoint.Types
     -- * Action
     Action (..),
 
+    -- * Alignment
+    Alignment (..),
+
     -- * AttributeType
     AttributeType (..),
+
+    -- * ButtonAction
+    ButtonAction (..),
 
     -- * CampaignStatus
     CampaignStatus (..),
@@ -64,6 +70,9 @@ module Network.AWS.Pinpoint.Types
 
     -- * JobStatus
     JobStatus (..),
+
+    -- * Layout
+    Layout (..),
 
     -- * MessageType
     MessageType (..),
@@ -102,12 +111,12 @@ module Network.AWS.Pinpoint.Types
     -- * ADMChannelResponse
     ADMChannelResponse (..),
     newADMChannelResponse,
-    aDMChannelResponse_lastModifiedDate,
     aDMChannelResponse_applicationId,
+    aDMChannelResponse_lastModifiedDate,
     aDMChannelResponse_hasCredential,
-    aDMChannelResponse_id,
-    aDMChannelResponse_creationDate,
     aDMChannelResponse_enabled,
+    aDMChannelResponse_creationDate,
+    aDMChannelResponse_id,
     aDMChannelResponse_version,
     aDMChannelResponse_isArchived,
     aDMChannelResponse_lastModifiedBy,
@@ -119,17 +128,17 @@ module Network.AWS.Pinpoint.Types
     aDMMessage_silentPush,
     aDMMessage_imageIconUrl,
     aDMMessage_expiresAfter,
+    aDMMessage_body,
+    aDMMessage_iconReference,
     aDMMessage_data,
     aDMMessage_title,
-    aDMMessage_iconReference,
-    aDMMessage_body,
     aDMMessage_consolidationKey,
-    aDMMessage_substitutions,
     aDMMessage_imageUrl,
     aDMMessage_md5,
+    aDMMessage_substitutions,
     aDMMessage_action,
-    aDMMessage_sound,
     aDMMessage_url,
+    aDMMessage_sound,
     aDMMessage_smallImageIconUrl,
     aDMMessage_rawContent,
 
@@ -148,14 +157,14 @@ module Network.AWS.Pinpoint.Types
     -- * APNSChannelResponse
     APNSChannelResponse (..),
     newAPNSChannelResponse,
-    aPNSChannelResponse_lastModifiedDate,
     aPNSChannelResponse_applicationId,
+    aPNSChannelResponse_lastModifiedDate,
     aPNSChannelResponse_defaultAuthenticationMethod,
     aPNSChannelResponse_hasCredential,
     aPNSChannelResponse_hasTokenKey,
-    aPNSChannelResponse_id,
-    aPNSChannelResponse_creationDate,
     aPNSChannelResponse_enabled,
+    aPNSChannelResponse_creationDate,
+    aPNSChannelResponse_id,
     aPNSChannelResponse_version,
     aPNSChannelResponse_isArchived,
     aPNSChannelResponse_lastModifiedBy,
@@ -166,10 +175,10 @@ module Network.AWS.Pinpoint.Types
     newAPNSMessage,
     aPNSMessage_silentPush,
     aPNSMessage_collapseId,
-    aPNSMessage_data,
-    aPNSMessage_category,
-    aPNSMessage_title,
     aPNSMessage_body,
+    aPNSMessage_category,
+    aPNSMessage_data,
+    aPNSMessage_title,
     aPNSMessage_timeToLive,
     aPNSMessage_aPNSPushType,
     aPNSMessage_preferredAuthenticationMethod,
@@ -177,21 +186,21 @@ module Network.AWS.Pinpoint.Types
     aPNSMessage_mediaUrl,
     aPNSMessage_substitutions,
     aPNSMessage_action,
-    aPNSMessage_sound,
-    aPNSMessage_threadId,
     aPNSMessage_url,
-    aPNSMessage_rawContent,
+    aPNSMessage_threadId,
+    aPNSMessage_sound,
     aPNSMessage_badge,
+    aPNSMessage_rawContent,
 
     -- * APNSPushNotificationTemplate
     APNSPushNotificationTemplate (..),
     newAPNSPushNotificationTemplate,
-    aPNSPushNotificationTemplate_title,
     aPNSPushNotificationTemplate_body,
+    aPNSPushNotificationTemplate_title,
     aPNSPushNotificationTemplate_mediaUrl,
     aPNSPushNotificationTemplate_action,
-    aPNSPushNotificationTemplate_sound,
     aPNSPushNotificationTemplate_url,
+    aPNSPushNotificationTemplate_sound,
     aPNSPushNotificationTemplate_rawContent,
 
     -- * APNSSandboxChannelRequest
@@ -209,14 +218,14 @@ module Network.AWS.Pinpoint.Types
     -- * APNSSandboxChannelResponse
     APNSSandboxChannelResponse (..),
     newAPNSSandboxChannelResponse,
-    aPNSSandboxChannelResponse_lastModifiedDate,
     aPNSSandboxChannelResponse_applicationId,
+    aPNSSandboxChannelResponse_lastModifiedDate,
     aPNSSandboxChannelResponse_defaultAuthenticationMethod,
     aPNSSandboxChannelResponse_hasCredential,
     aPNSSandboxChannelResponse_hasTokenKey,
-    aPNSSandboxChannelResponse_id,
-    aPNSSandboxChannelResponse_creationDate,
     aPNSSandboxChannelResponse_enabled,
+    aPNSSandboxChannelResponse_creationDate,
+    aPNSSandboxChannelResponse_id,
     aPNSSandboxChannelResponse_version,
     aPNSSandboxChannelResponse_isArchived,
     aPNSSandboxChannelResponse_lastModifiedBy,
@@ -237,14 +246,14 @@ module Network.AWS.Pinpoint.Types
     -- * APNSVoipChannelResponse
     APNSVoipChannelResponse (..),
     newAPNSVoipChannelResponse,
-    aPNSVoipChannelResponse_lastModifiedDate,
     aPNSVoipChannelResponse_applicationId,
+    aPNSVoipChannelResponse_lastModifiedDate,
     aPNSVoipChannelResponse_defaultAuthenticationMethod,
     aPNSVoipChannelResponse_hasCredential,
     aPNSVoipChannelResponse_hasTokenKey,
-    aPNSVoipChannelResponse_id,
-    aPNSVoipChannelResponse_creationDate,
     aPNSVoipChannelResponse_enabled,
+    aPNSVoipChannelResponse_creationDate,
+    aPNSVoipChannelResponse_id,
     aPNSVoipChannelResponse_version,
     aPNSVoipChannelResponse_isArchived,
     aPNSVoipChannelResponse_lastModifiedBy,
@@ -265,14 +274,14 @@ module Network.AWS.Pinpoint.Types
     -- * APNSVoipSandboxChannelResponse
     APNSVoipSandboxChannelResponse (..),
     newAPNSVoipSandboxChannelResponse,
-    aPNSVoipSandboxChannelResponse_lastModifiedDate,
     aPNSVoipSandboxChannelResponse_applicationId,
+    aPNSVoipSandboxChannelResponse_lastModifiedDate,
     aPNSVoipSandboxChannelResponse_defaultAuthenticationMethod,
     aPNSVoipSandboxChannelResponse_hasCredential,
     aPNSVoipSandboxChannelResponse_hasTokenKey,
-    aPNSVoipSandboxChannelResponse_id,
-    aPNSVoipSandboxChannelResponse_creationDate,
     aPNSVoipSandboxChannelResponse_enabled,
+    aPNSVoipSandboxChannelResponse_creationDate,
+    aPNSVoipSandboxChannelResponse_id,
     aPNSVoipSandboxChannelResponse_version,
     aPNSVoipSandboxChannelResponse_isArchived,
     aPNSVoipSandboxChannelResponse_lastModifiedBy,
@@ -289,13 +298,14 @@ module Network.AWS.Pinpoint.Types
     newActivity,
     activity_conditionalSplit,
     activity_push,
-    activity_custom,
     activity_wait,
+    activity_custom,
     activity_multiCondition,
     activity_email,
     activity_holdout,
     activity_randomSplit,
     activity_description,
+    activity_contactCenter,
     activity_sms,
 
     -- * ActivityResponse
@@ -306,9 +316,9 @@ module Network.AWS.Pinpoint.Types
     activityResponse_result,
     activityResponse_timezonesCompletedCount,
     activityResponse_state,
-    activityResponse_timezonesTotalCount,
     activityResponse_treatmentId,
     activityResponse_scheduledStart,
+    activityResponse_timezonesTotalCount,
     activityResponse_start,
     activityResponse_totalEndpointCount,
     activityResponse_campaignId,
@@ -320,21 +330,21 @@ module Network.AWS.Pinpoint.Types
     newAddressConfiguration,
     addressConfiguration_channelType,
     addressConfiguration_context,
+    addressConfiguration_bodyOverride,
     addressConfiguration_substitutions,
     addressConfiguration_titleOverride,
-    addressConfiguration_bodyOverride,
     addressConfiguration_rawContent,
 
     -- * AndroidPushNotificationTemplate
     AndroidPushNotificationTemplate (..),
     newAndroidPushNotificationTemplate,
     androidPushNotificationTemplate_imageIconUrl,
-    androidPushNotificationTemplate_title,
     androidPushNotificationTemplate_body,
+    androidPushNotificationTemplate_title,
     androidPushNotificationTemplate_imageUrl,
     androidPushNotificationTemplate_action,
-    androidPushNotificationTemplate_sound,
     androidPushNotificationTemplate_url,
+    androidPushNotificationTemplate_sound,
     androidPushNotificationTemplate_smallImageIconUrl,
     androidPushNotificationTemplate_rawContent,
 
@@ -394,12 +404,12 @@ module Network.AWS.Pinpoint.Types
     -- * BaiduChannelResponse
     BaiduChannelResponse (..),
     newBaiduChannelResponse,
-    baiduChannelResponse_lastModifiedDate,
     baiduChannelResponse_applicationId,
+    baiduChannelResponse_lastModifiedDate,
     baiduChannelResponse_hasCredential,
-    baiduChannelResponse_id,
-    baiduChannelResponse_creationDate,
     baiduChannelResponse_enabled,
+    baiduChannelResponse_creationDate,
+    baiduChannelResponse_id,
     baiduChannelResponse_version,
     baiduChannelResponse_isArchived,
     baiduChannelResponse_lastModifiedBy,
@@ -411,16 +421,16 @@ module Network.AWS.Pinpoint.Types
     newBaiduMessage,
     baiduMessage_silentPush,
     baiduMessage_imageIconUrl,
+    baiduMessage_body,
+    baiduMessage_iconReference,
     baiduMessage_data,
     baiduMessage_title,
-    baiduMessage_iconReference,
-    baiduMessage_body,
     baiduMessage_timeToLive,
-    baiduMessage_substitutions,
     baiduMessage_imageUrl,
+    baiduMessage_substitutions,
     baiduMessage_action,
-    baiduMessage_sound,
     baiduMessage_url,
+    baiduMessage_sound,
     baiduMessage_smallImageIconUrl,
     baiduMessage_rawContent,
 
@@ -448,8 +458,8 @@ module Network.AWS.Pinpoint.Types
     -- * CampaignEmailMessage
     CampaignEmailMessage (..),
     newCampaignEmailMessage,
-    campaignEmailMessage_title,
     campaignEmailMessage_body,
+    campaignEmailMessage_title,
     campaignEmailMessage_htmlBody,
     campaignEmailMessage_fromAddress,
 
@@ -466,6 +476,14 @@ module Network.AWS.Pinpoint.Types
     campaignHook_lambdaFunctionName,
     campaignHook_webUrl,
 
+    -- * CampaignInAppMessage
+    CampaignInAppMessage (..),
+    newCampaignInAppMessage,
+    campaignInAppMessage_customConfig,
+    campaignInAppMessage_body,
+    campaignInAppMessage_layout,
+    campaignInAppMessage_content,
+
     -- * CampaignLimits
     CampaignLimits (..),
     newCampaignLimits,
@@ -473,6 +491,7 @@ module Network.AWS.Pinpoint.Types
     campaignLimits_messagesPerSecond,
     campaignLimits_daily,
     campaignLimits_maximumDuration,
+    campaignLimits_session,
 
     -- * CampaignResponse
     CampaignResponse (..),
@@ -480,16 +499,17 @@ module Network.AWS.Pinpoint.Types
     campaignResponse_additionalTreatments,
     campaignResponse_hook,
     campaignResponse_version,
+    campaignResponse_priority,
+    campaignResponse_name,
     campaignResponse_customDeliveryConfiguration,
     campaignResponse_state,
-    campaignResponse_name,
-    campaignResponse_defaultState,
     campaignResponse_isPaused,
+    campaignResponse_defaultState,
     campaignResponse_tags,
     campaignResponse_limits,
     campaignResponse_description,
-    campaignResponse_treatmentName,
     campaignResponse_messageConfiguration,
+    campaignResponse_treatmentName,
     campaignResponse_templateConfiguration,
     campaignResponse_schedule,
     campaignResponse_holdoutPercent,
@@ -526,12 +546,12 @@ module Network.AWS.Pinpoint.Types
     -- * ChannelResponse
     ChannelResponse (..),
     newChannelResponse,
-    channelResponse_lastModifiedDate,
     channelResponse_applicationId,
+    channelResponse_lastModifiedDate,
     channelResponse_hasCredential,
-    channelResponse_id,
-    channelResponse_creationDate,
     channelResponse_enabled,
+    channelResponse_creationDate,
+    channelResponse_id,
     channelResponse_version,
     channelResponse_isArchived,
     channelResponse_lastModifiedBy,
@@ -555,6 +575,11 @@ module Network.AWS.Pinpoint.Types
     conditionalSplitActivity_evaluationWaitTime,
     conditionalSplitActivity_falseActivity,
 
+    -- * ContactCenterActivity
+    ContactCenterActivity (..),
+    newContactCenterActivity,
+    contactCenterActivity_nextActivity,
+
     -- * CreateApplicationRequest
     CreateApplicationRequest (..),
     newCreateApplicationRequest,
@@ -566,10 +591,10 @@ module Network.AWS.Pinpoint.Types
     newCreateRecommenderConfiguration,
     createRecommenderConfiguration_recommendationsDisplayName,
     createRecommenderConfiguration_recommendationTransformerUri,
-    createRecommenderConfiguration_attributes,
     createRecommenderConfiguration_name,
-    createRecommenderConfiguration_recommendationsPerMessage,
+    createRecommenderConfiguration_attributes,
     createRecommenderConfiguration_description,
+    createRecommenderConfiguration_recommendationsPerMessage,
     createRecommenderConfiguration_recommendationProviderIdType,
     createRecommenderConfiguration_recommendationProviderUri,
     createRecommenderConfiguration_recommendationProviderRoleArn,
@@ -594,8 +619,18 @@ module Network.AWS.Pinpoint.Types
     customMessageActivity_messageConfig,
     customMessageActivity_deliveryUri,
     customMessageActivity_endpointTypes,
-    customMessageActivity_nextActivity,
     customMessageActivity_templateVersion,
+    customMessageActivity_nextActivity,
+
+    -- * DefaultButtonConfiguration
+    DefaultButtonConfiguration (..),
+    newDefaultButtonConfiguration,
+    defaultButtonConfiguration_link,
+    defaultButtonConfiguration_textColor,
+    defaultButtonConfiguration_borderRadius,
+    defaultButtonConfiguration_backgroundColor,
+    defaultButtonConfiguration_buttonAction,
+    defaultButtonConfiguration_text,
 
     -- * DefaultMessage
     DefaultMessage (..),
@@ -607,9 +642,9 @@ module Network.AWS.Pinpoint.Types
     DefaultPushNotificationMessage (..),
     newDefaultPushNotificationMessage,
     defaultPushNotificationMessage_silentPush,
+    defaultPushNotificationMessage_body,
     defaultPushNotificationMessage_data,
     defaultPushNotificationMessage_title,
-    defaultPushNotificationMessage_body,
     defaultPushNotificationMessage_substitutions,
     defaultPushNotificationMessage_action,
     defaultPushNotificationMessage_url,
@@ -617,11 +652,11 @@ module Network.AWS.Pinpoint.Types
     -- * DefaultPushNotificationTemplate
     DefaultPushNotificationTemplate (..),
     newDefaultPushNotificationTemplate,
-    defaultPushNotificationTemplate_title,
     defaultPushNotificationTemplate_body,
+    defaultPushNotificationTemplate_title,
     defaultPushNotificationTemplate_action,
-    defaultPushNotificationTemplate_sound,
     defaultPushNotificationTemplate_url,
+    defaultPushNotificationTemplate_sound,
 
     -- * DirectMessageConfiguration
     DirectMessageConfiguration (..),
@@ -630,8 +665,8 @@ module Network.AWS.Pinpoint.Types
     directMessageConfiguration_defaultMessage,
     directMessageConfiguration_voiceMessage,
     directMessageConfiguration_gCMMessage,
-    directMessageConfiguration_aPNSMessage,
     directMessageConfiguration_emailMessage,
+    directMessageConfiguration_aPNSMessage,
     directMessageConfiguration_sMSMessage,
     directMessageConfiguration_defaultPushNotificationMessage,
     directMessageConfiguration_baiduMessage,
@@ -648,14 +683,14 @@ module Network.AWS.Pinpoint.Types
     -- * EmailChannelResponse
     EmailChannelResponse (..),
     newEmailChannelResponse,
-    emailChannelResponse_lastModifiedDate,
     emailChannelResponse_applicationId,
-    emailChannelResponse_roleArn,
+    emailChannelResponse_lastModifiedDate,
     emailChannelResponse_hasCredential,
+    emailChannelResponse_roleArn,
     emailChannelResponse_identity,
-    emailChannelResponse_id,
-    emailChannelResponse_creationDate,
     emailChannelResponse_enabled,
+    emailChannelResponse_creationDate,
+    emailChannelResponse_id,
     emailChannelResponse_version,
     emailChannelResponse_messagesPerSecond,
     emailChannelResponse_isArchived,
@@ -668,8 +703,8 @@ module Network.AWS.Pinpoint.Types
     EmailMessage (..),
     newEmailMessage,
     emailMessage_feedbackForwardingAddress,
-    emailMessage_rawEmail,
     emailMessage_body,
+    emailMessage_rawEmail,
     emailMessage_simpleEmail,
     emailMessage_substitutions,
     emailMessage_replyToAddresses,
@@ -680,8 +715,8 @@ module Network.AWS.Pinpoint.Types
     newEmailMessageActivity,
     emailMessageActivity_templateName,
     emailMessageActivity_messageConfig,
-    emailMessageActivity_nextActivity,
     emailMessageActivity_templateVersion,
+    emailMessageActivity_nextActivity,
 
     -- * EmailTemplateRequest
     EmailTemplateRequest (..),
@@ -721,8 +756,8 @@ module Network.AWS.Pinpoint.Types
     endpointBatchItem_optOut,
     endpointBatchItem_demographic,
     endpointBatchItem_attributes,
-    endpointBatchItem_endpointStatus,
     endpointBatchItem_metrics,
+    endpointBatchItem_endpointStatus,
     endpointBatchItem_requestId,
     endpointBatchItem_effectiveDate,
     endpointBatchItem_location,
@@ -739,8 +774,8 @@ module Network.AWS.Pinpoint.Types
     endpointDemographic_platform,
     endpointDemographic_appVersion,
     endpointDemographic_locale,
-    endpointDemographic_platformVersion,
     endpointDemographic_modelVersion,
+    endpointDemographic_platformVersion,
     endpointDemographic_timezone,
     endpointDemographic_make,
 
@@ -754,8 +789,8 @@ module Network.AWS.Pinpoint.Types
     EndpointLocation (..),
     newEndpointLocation,
     endpointLocation_longitude,
-    endpointLocation_latitude,
     endpointLocation_postalCode,
+    endpointLocation_latitude,
     endpointLocation_city,
     endpointLocation_country,
     endpointLocation_region,
@@ -779,8 +814,8 @@ module Network.AWS.Pinpoint.Types
     endpointRequest_optOut,
     endpointRequest_demographic,
     endpointRequest_attributes,
-    endpointRequest_endpointStatus,
     endpointRequest_metrics,
+    endpointRequest_endpointStatus,
     endpointRequest_requestId,
     endpointRequest_effectiveDate,
     endpointRequest_location,
@@ -793,13 +828,13 @@ module Network.AWS.Pinpoint.Types
     endpointResponse_address,
     endpointResponse_channelType,
     endpointResponse_cohortId,
-    endpointResponse_id,
     endpointResponse_creationDate,
+    endpointResponse_id,
     endpointResponse_optOut,
     endpointResponse_demographic,
     endpointResponse_attributes,
-    endpointResponse_endpointStatus,
     endpointResponse_metrics,
+    endpointResponse_endpointStatus,
     endpointResponse_requestId,
     endpointResponse_effectiveDate,
     endpointResponse_location,
@@ -808,9 +843,9 @@ module Network.AWS.Pinpoint.Types
     EndpointSendConfiguration (..),
     newEndpointSendConfiguration,
     endpointSendConfiguration_context,
+    endpointSendConfiguration_bodyOverride,
     endpointSendConfiguration_substitutions,
     endpointSendConfiguration_titleOverride,
-    endpointSendConfiguration_bodyOverride,
     endpointSendConfiguration_rawContent,
 
     -- * EndpointUser
@@ -833,8 +868,8 @@ module Network.AWS.Pinpoint.Types
     event_attributes,
     event_metrics,
     event_appPackageName,
-    event_appVersionCode,
     event_session,
+    event_appVersionCode,
     event_eventType,
     event_timestamp,
 
@@ -943,12 +978,12 @@ module Network.AWS.Pinpoint.Types
     -- * GCMChannelResponse
     GCMChannelResponse (..),
     newGCMChannelResponse,
-    gCMChannelResponse_lastModifiedDate,
     gCMChannelResponse_applicationId,
+    gCMChannelResponse_lastModifiedDate,
     gCMChannelResponse_hasCredential,
-    gCMChannelResponse_id,
-    gCMChannelResponse_creationDate,
     gCMChannelResponse_enabled,
+    gCMChannelResponse_creationDate,
+    gCMChannelResponse_id,
     gCMChannelResponse_version,
     gCMChannelResponse_isArchived,
     gCMChannelResponse_lastModifiedBy,
@@ -961,19 +996,19 @@ module Network.AWS.Pinpoint.Types
     gCMMessage_silentPush,
     gCMMessage_imageIconUrl,
     gCMMessage_collapseKey,
+    gCMMessage_body,
+    gCMMessage_iconReference,
     gCMMessage_data,
     gCMMessage_title,
-    gCMMessage_iconReference,
-    gCMMessage_body,
     gCMMessage_timeToLive,
     gCMMessage_priority,
-    gCMMessage_substitutions,
     gCMMessage_imageUrl,
+    gCMMessage_substitutions,
     gCMMessage_action,
-    gCMMessage_sound,
     gCMMessage_url,
-    gCMMessage_smallImageIconUrl,
+    gCMMessage_sound,
     gCMMessage_restrictedPackageName,
+    gCMMessage_smallImageIconUrl,
     gCMMessage_rawContent,
 
     -- * GPSCoordinates
@@ -1041,11 +1076,104 @@ module Network.AWS.Pinpoint.Types
     importJobsResponse_nextToken,
     importJobsResponse_item,
 
+    -- * InAppCampaignSchedule
+    InAppCampaignSchedule (..),
+    newInAppCampaignSchedule,
+    inAppCampaignSchedule_eventFilter,
+    inAppCampaignSchedule_quietTime,
+    inAppCampaignSchedule_endDate,
+
+    -- * InAppMessage
+    InAppMessage (..),
+    newInAppMessage,
+    inAppMessage_customConfig,
+    inAppMessage_layout,
+    inAppMessage_content,
+
+    -- * InAppMessageBodyConfig
+    InAppMessageBodyConfig (..),
+    newInAppMessageBodyConfig,
+    inAppMessageBodyConfig_alignment,
+    inAppMessageBodyConfig_textColor,
+    inAppMessageBodyConfig_body,
+
+    -- * InAppMessageButton
+    InAppMessageButton (..),
+    newInAppMessageButton,
+    inAppMessageButton_android,
+    inAppMessageButton_web,
+    inAppMessageButton_ios,
+    inAppMessageButton_defaultConfig,
+
+    -- * InAppMessageCampaign
+    InAppMessageCampaign (..),
+    newInAppMessageCampaign,
+    inAppMessageCampaign_sessionCap,
+    inAppMessageCampaign_campaignId,
+    inAppMessageCampaign_inAppMessage,
+    inAppMessageCampaign_priority,
+    inAppMessageCampaign_treatmentId,
+    inAppMessageCampaign_dailyCap,
+    inAppMessageCampaign_totalCap,
+    inAppMessageCampaign_schedule,
+
+    -- * InAppMessageContent
+    InAppMessageContent (..),
+    newInAppMessageContent,
+    inAppMessageContent_primaryBtn,
+    inAppMessageContent_headerConfig,
+    inAppMessageContent_bodyConfig,
+    inAppMessageContent_imageUrl,
+    inAppMessageContent_backgroundColor,
+    inAppMessageContent_secondaryBtn,
+
+    -- * InAppMessageHeaderConfig
+    InAppMessageHeaderConfig (..),
+    newInAppMessageHeaderConfig,
+    inAppMessageHeaderConfig_alignment,
+    inAppMessageHeaderConfig_header,
+    inAppMessageHeaderConfig_textColor,
+
+    -- * InAppMessagesResponse
+    InAppMessagesResponse (..),
+    newInAppMessagesResponse,
+    inAppMessagesResponse_inAppMessageCampaigns,
+
+    -- * InAppTemplateRequest
+    InAppTemplateRequest (..),
+    newInAppTemplateRequest,
+    inAppTemplateRequest_customConfig,
+    inAppTemplateRequest_templateDescription,
+    inAppTemplateRequest_layout,
+    inAppTemplateRequest_content,
+    inAppTemplateRequest_tags,
+
+    -- * InAppTemplateResponse
+    InAppTemplateResponse (..),
+    newInAppTemplateResponse,
+    inAppTemplateResponse_customConfig,
+    inAppTemplateResponse_templateDescription,
+    inAppTemplateResponse_arn,
+    inAppTemplateResponse_layout,
+    inAppTemplateResponse_version,
+    inAppTemplateResponse_content,
+    inAppTemplateResponse_tags,
+    inAppTemplateResponse_lastModifiedDate,
+    inAppTemplateResponse_creationDate,
+    inAppTemplateResponse_templateName,
+    inAppTemplateResponse_templateType,
+
     -- * ItemResponse
     ItemResponse (..),
     newItemResponse,
     itemResponse_eventsItemResponse,
     itemResponse_endpointItemResponse,
+
+    -- * JourneyChannelSettings
+    JourneyChannelSettings (..),
+    newJourneyChannelSettings,
+    journeyChannelSettings_connectCampaignExecutionRoleArn,
+    journeyChannelSettings_connectCampaignArn,
 
     -- * JourneyCustomMessage
     JourneyCustomMessage (..),
@@ -1089,6 +1217,7 @@ module Network.AWS.Pinpoint.Types
     -- * JourneyLimits
     JourneyLimits (..),
     newJourneyLimits,
+    journeyLimits_endpointReentryInterval,
     journeyLimits_endpointReentryCap,
     journeyLimits_messagesPerSecond,
     journeyLimits_dailyCap,
@@ -1102,13 +1231,16 @@ module Network.AWS.Pinpoint.Types
     JourneyResponse (..),
     newJourneyResponse,
     journeyResponse_lastModifiedDate,
+    journeyResponse_waitForQuietTime,
+    journeyResponse_journeyChannelSettings,
     journeyResponse_activities,
     journeyResponse_creationDate,
     journeyResponse_state,
-    journeyResponse_tags,
-    journeyResponse_quietTime,
     journeyResponse_refreshFrequency,
+    journeyResponse_quietTime,
+    journeyResponse_tags,
     journeyResponse_limits,
+    journeyResponse_refreshOnSegmentUpdate,
     journeyResponse_startCondition,
     journeyResponse_localTime,
     journeyResponse_startActivity,
@@ -1155,9 +1287,9 @@ module Network.AWS.Pinpoint.Types
     newMessage,
     message_silentPush,
     message_imageIconUrl,
-    message_title,
-    message_jsonBody,
     message_body,
+    message_jsonBody,
+    message_title,
     message_timeToLive,
     message_mediaUrl,
     message_imageUrl,
@@ -1177,12 +1309,13 @@ module Network.AWS.Pinpoint.Types
     newMessageConfiguration,
     messageConfiguration_aDMMessage,
     messageConfiguration_defaultMessage,
+    messageConfiguration_inAppMessage,
     messageConfiguration_gCMMessage,
-    messageConfiguration_aPNSMessage,
     messageConfiguration_emailMessage,
+    messageConfiguration_aPNSMessage,
     messageConfiguration_sMSMessage,
-    messageConfiguration_baiduMessage,
     messageConfiguration_customMessage,
+    messageConfiguration_baiduMessage,
 
     -- * MessageRequest
     MessageRequest (..),
@@ -1190,8 +1323,8 @@ module Network.AWS.Pinpoint.Types
     messageRequest_endpoints,
     messageRequest_context,
     messageRequest_traceId,
-    messageRequest_addresses,
     messageRequest_templateConfiguration,
+    messageRequest_addresses,
     messageRequest_messageConfiguration,
 
     -- * MessageResponse
@@ -1240,19 +1373,25 @@ module Network.AWS.Pinpoint.Types
     NumberValidateResponse (..),
     newNumberValidateResponse,
     numberValidateResponse_phoneType,
-    numberValidateResponse_originalPhoneNumber,
     numberValidateResponse_zipCode,
+    numberValidateResponse_originalPhoneNumber,
     numberValidateResponse_originalCountryCodeIso2,
     numberValidateResponse_countryCodeIso2,
     numberValidateResponse_county,
     numberValidateResponse_city,
     numberValidateResponse_carrier,
     numberValidateResponse_phoneTypeCode,
-    numberValidateResponse_cleansedPhoneNumberNational,
     numberValidateResponse_cleansedPhoneNumberE164,
     numberValidateResponse_countryCodeNumeric,
+    numberValidateResponse_cleansedPhoneNumberNational,
     numberValidateResponse_timezone,
     numberValidateResponse_country,
+
+    -- * OverrideButtonConfiguration
+    OverrideButtonConfiguration (..),
+    newOverrideButtonConfiguration,
+    overrideButtonConfiguration_link,
+    overrideButtonConfiguration_buttonAction,
 
     -- * PublicEndpoint
     PublicEndpoint (..),
@@ -1263,8 +1402,8 @@ module Network.AWS.Pinpoint.Types
     publicEndpoint_optOut,
     publicEndpoint_demographic,
     publicEndpoint_attributes,
-    publicEndpoint_endpointStatus,
     publicEndpoint_metrics,
+    publicEndpoint_endpointStatus,
     publicEndpoint_requestId,
     publicEndpoint_effectiveDate,
     publicEndpoint_location,
@@ -1274,8 +1413,8 @@ module Network.AWS.Pinpoint.Types
     newPushMessageActivity,
     pushMessageActivity_templateName,
     pushMessageActivity_messageConfig,
-    pushMessageActivity_nextActivity,
     pushMessageActivity_templateVersion,
+    pushMessageActivity_nextActivity,
 
     -- * PushNotificationTemplateRequest
     PushNotificationTemplateRequest (..),
@@ -1285,8 +1424,8 @@ module Network.AWS.Pinpoint.Types
     pushNotificationTemplateRequest_adm,
     pushNotificationTemplateRequest_defaultSubstitutions,
     pushNotificationTemplateRequest_apns,
-    pushNotificationTemplateRequest_gcm,
     pushNotificationTemplateRequest_tags,
+    pushNotificationTemplateRequest_gcm,
     pushNotificationTemplateRequest_recommenderId,
     pushNotificationTemplateRequest_default,
 
@@ -1300,8 +1439,8 @@ module Network.AWS.Pinpoint.Types
     pushNotificationTemplateResponse_version,
     pushNotificationTemplateResponse_defaultSubstitutions,
     pushNotificationTemplateResponse_apns,
-    pushNotificationTemplateResponse_gcm,
     pushNotificationTemplateResponse_tags,
+    pushNotificationTemplateResponse_gcm,
     pushNotificationTemplateResponse_recommenderId,
     pushNotificationTemplateResponse_default,
     pushNotificationTemplateResponse_lastModifiedDate,
@@ -1342,10 +1481,10 @@ module Network.AWS.Pinpoint.Types
     newRecommenderConfigurationResponse,
     recommenderConfigurationResponse_recommendationsDisplayName,
     recommenderConfigurationResponse_recommendationTransformerUri,
-    recommenderConfigurationResponse_attributes,
     recommenderConfigurationResponse_name,
-    recommenderConfigurationResponse_recommendationsPerMessage,
+    recommenderConfigurationResponse_attributes,
     recommenderConfigurationResponse_description,
+    recommenderConfigurationResponse_recommendationsPerMessage,
     recommenderConfigurationResponse_recommendationProviderIdType,
     recommenderConfigurationResponse_recommendationProviderUri,
     recommenderConfigurationResponse_lastModifiedDate,
@@ -1376,13 +1515,13 @@ module Network.AWS.Pinpoint.Types
     -- * SMSChannelResponse
     SMSChannelResponse (..),
     newSMSChannelResponse,
-    sMSChannelResponse_lastModifiedDate,
     sMSChannelResponse_applicationId,
-    sMSChannelResponse_promotionalMessagesPerSecond,
+    sMSChannelResponse_lastModifiedDate,
     sMSChannelResponse_hasCredential,
-    sMSChannelResponse_id,
-    sMSChannelResponse_creationDate,
+    sMSChannelResponse_promotionalMessagesPerSecond,
     sMSChannelResponse_enabled,
+    sMSChannelResponse_creationDate,
+    sMSChannelResponse_id,
     sMSChannelResponse_version,
     sMSChannelResponse_shortCode,
     sMSChannelResponse_isArchived,
@@ -1409,8 +1548,8 @@ module Network.AWS.Pinpoint.Types
     newSMSMessageActivity,
     sMSMessageActivity_templateName,
     sMSMessageActivity_messageConfig,
-    sMSMessageActivity_nextActivity,
     sMSMessageActivity_templateVersion,
+    sMSMessageActivity_nextActivity,
 
     -- * SMSTemplateRequest
     SMSTemplateRequest (..),
@@ -1482,8 +1621,8 @@ module Network.AWS.Pinpoint.Types
     newSegmentGroup,
     segmentGroup_dimensions,
     segmentGroup_type,
-    segmentGroup_sourceSegments,
     segmentGroup_sourceType,
+    segmentGroup_sourceSegments,
 
     -- * SegmentGroupList
     SegmentGroupList (..),
@@ -1516,8 +1655,8 @@ module Network.AWS.Pinpoint.Types
     -- * SegmentResponse
     SegmentResponse (..),
     newSegmentResponse,
-    segmentResponse_lastModifiedDate,
     segmentResponse_segmentGroups,
+    segmentResponse_lastModifiedDate,
     segmentResponse_version,
     segmentResponse_name,
     segmentResponse_tags,
@@ -1554,8 +1693,8 @@ module Network.AWS.Pinpoint.Types
     -- * Session
     Session (..),
     newSession,
-    session_stopTimestamp,
     session_duration,
+    session_stopTimestamp,
     session_startTimestamp,
     session_id,
 
@@ -1616,6 +1755,13 @@ module Network.AWS.Pinpoint.Types
     templateConfiguration_sMSTemplate,
     templateConfiguration_pushTemplate,
 
+    -- * TemplateCreateMessageBody
+    TemplateCreateMessageBody (..),
+    newTemplateCreateMessageBody,
+    templateCreateMessageBody_message,
+    templateCreateMessageBody_arn,
+    templateCreateMessageBody_requestID,
+
     -- * TemplateResponse
     TemplateResponse (..),
     newTemplateResponse,
@@ -1659,8 +1805,8 @@ module Network.AWS.Pinpoint.Types
     newTreatmentResource,
     treatmentResource_customDeliveryConfiguration,
     treatmentResource_state,
-    treatmentResource_treatmentName,
     treatmentResource_messageConfiguration,
+    treatmentResource_treatmentName,
     treatmentResource_templateConfiguration,
     treatmentResource_schedule,
     treatmentResource_treatmentDescription,
@@ -1677,10 +1823,10 @@ module Network.AWS.Pinpoint.Types
     newUpdateRecommenderConfiguration,
     updateRecommenderConfiguration_recommendationsDisplayName,
     updateRecommenderConfiguration_recommendationTransformerUri,
-    updateRecommenderConfiguration_attributes,
     updateRecommenderConfiguration_name,
-    updateRecommenderConfiguration_recommendationsPerMessage,
+    updateRecommenderConfiguration_attributes,
     updateRecommenderConfiguration_description,
+    updateRecommenderConfiguration_recommendationsPerMessage,
     updateRecommenderConfiguration_recommendationProviderIdType,
     updateRecommenderConfiguration_recommendationProviderUri,
     updateRecommenderConfiguration_recommendationProviderRoleArn,
@@ -1693,12 +1839,12 @@ module Network.AWS.Pinpoint.Types
     -- * VoiceChannelResponse
     VoiceChannelResponse (..),
     newVoiceChannelResponse,
-    voiceChannelResponse_lastModifiedDate,
     voiceChannelResponse_applicationId,
+    voiceChannelResponse_lastModifiedDate,
     voiceChannelResponse_hasCredential,
-    voiceChannelResponse_id,
-    voiceChannelResponse_creationDate,
     voiceChannelResponse_enabled,
+    voiceChannelResponse_creationDate,
+    voiceChannelResponse_id,
     voiceChannelResponse_version,
     voiceChannelResponse_isArchived,
     voiceChannelResponse_lastModifiedBy,
@@ -1765,16 +1911,17 @@ module Network.AWS.Pinpoint.Types
     newWriteCampaignRequest,
     writeCampaignRequest_additionalTreatments,
     writeCampaignRequest_hook,
-    writeCampaignRequest_customDeliveryConfiguration,
+    writeCampaignRequest_priority,
     writeCampaignRequest_name,
+    writeCampaignRequest_customDeliveryConfiguration,
     writeCampaignRequest_isPaused,
-    writeCampaignRequest_tags,
     writeCampaignRequest_segmentVersion,
+    writeCampaignRequest_tags,
     writeCampaignRequest_limits,
-    writeCampaignRequest_segmentId,
     writeCampaignRequest_description,
-    writeCampaignRequest_treatmentName,
+    writeCampaignRequest_segmentId,
     writeCampaignRequest_messageConfiguration,
+    writeCampaignRequest_treatmentName,
     writeCampaignRequest_templateConfiguration,
     writeCampaignRequest_schedule,
     writeCampaignRequest_holdoutPercent,
@@ -1790,12 +1937,14 @@ module Network.AWS.Pinpoint.Types
     WriteJourneyRequest (..),
     newWriteJourneyRequest,
     writeJourneyRequest_lastModifiedDate,
+    writeJourneyRequest_waitForQuietTime,
     writeJourneyRequest_activities,
     writeJourneyRequest_creationDate,
     writeJourneyRequest_state,
-    writeJourneyRequest_quietTime,
     writeJourneyRequest_refreshFrequency,
+    writeJourneyRequest_quietTime,
     writeJourneyRequest_limits,
+    writeJourneyRequest_refreshOnSegmentUpdate,
     writeJourneyRequest_startCondition,
     writeJourneyRequest_localTime,
     writeJourneyRequest_startActivity,
@@ -1814,8 +1963,8 @@ module Network.AWS.Pinpoint.Types
     WriteTreatmentResource (..),
     newWriteTreatmentResource,
     writeTreatmentResource_customDeliveryConfiguration,
-    writeTreatmentResource_treatmentName,
     writeTreatmentResource_messageConfiguration,
+    writeTreatmentResource_treatmentName,
     writeTreatmentResource_templateConfiguration,
     writeTreatmentResource_schedule,
     writeTreatmentResource_treatmentDescription,
@@ -1843,6 +1992,7 @@ import Network.AWS.Pinpoint.Types.ActivitiesResponse
 import Network.AWS.Pinpoint.Types.Activity
 import Network.AWS.Pinpoint.Types.ActivityResponse
 import Network.AWS.Pinpoint.Types.AddressConfiguration
+import Network.AWS.Pinpoint.Types.Alignment
 import Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate
 import Network.AWS.Pinpoint.Types.ApplicationDateRangeKpiResponse
 import Network.AWS.Pinpoint.Types.ApplicationResponse
@@ -1855,11 +2005,13 @@ import Network.AWS.Pinpoint.Types.BaiduChannelRequest
 import Network.AWS.Pinpoint.Types.BaiduChannelResponse
 import Network.AWS.Pinpoint.Types.BaiduMessage
 import Network.AWS.Pinpoint.Types.BaseKpiResult
+import Network.AWS.Pinpoint.Types.ButtonAction
 import Network.AWS.Pinpoint.Types.CampaignCustomMessage
 import Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse
 import Network.AWS.Pinpoint.Types.CampaignEmailMessage
 import Network.AWS.Pinpoint.Types.CampaignEventFilter
 import Network.AWS.Pinpoint.Types.CampaignHook
+import Network.AWS.Pinpoint.Types.CampaignInAppMessage
 import Network.AWS.Pinpoint.Types.CampaignLimits
 import Network.AWS.Pinpoint.Types.CampaignResponse
 import Network.AWS.Pinpoint.Types.CampaignSmsMessage
@@ -1871,11 +2023,13 @@ import Network.AWS.Pinpoint.Types.ChannelType
 import Network.AWS.Pinpoint.Types.ChannelsResponse
 import Network.AWS.Pinpoint.Types.Condition
 import Network.AWS.Pinpoint.Types.ConditionalSplitActivity
+import Network.AWS.Pinpoint.Types.ContactCenterActivity
 import Network.AWS.Pinpoint.Types.CreateApplicationRequest
 import Network.AWS.Pinpoint.Types.CreateRecommenderConfiguration
 import Network.AWS.Pinpoint.Types.CreateTemplateMessageBody
 import Network.AWS.Pinpoint.Types.CustomDeliveryConfiguration
 import Network.AWS.Pinpoint.Types.CustomMessageActivity
+import Network.AWS.Pinpoint.Types.DefaultButtonConfiguration
 import Network.AWS.Pinpoint.Types.DefaultMessage
 import Network.AWS.Pinpoint.Types.DefaultPushNotificationMessage
 import Network.AWS.Pinpoint.Types.DefaultPushNotificationTemplate
@@ -1928,9 +2082,20 @@ import Network.AWS.Pinpoint.Types.ImportJobRequest
 import Network.AWS.Pinpoint.Types.ImportJobResource
 import Network.AWS.Pinpoint.Types.ImportJobResponse
 import Network.AWS.Pinpoint.Types.ImportJobsResponse
+import Network.AWS.Pinpoint.Types.InAppCampaignSchedule
+import Network.AWS.Pinpoint.Types.InAppMessage
+import Network.AWS.Pinpoint.Types.InAppMessageBodyConfig
+import Network.AWS.Pinpoint.Types.InAppMessageButton
+import Network.AWS.Pinpoint.Types.InAppMessageCampaign
+import Network.AWS.Pinpoint.Types.InAppMessageContent
+import Network.AWS.Pinpoint.Types.InAppMessageHeaderConfig
+import Network.AWS.Pinpoint.Types.InAppMessagesResponse
+import Network.AWS.Pinpoint.Types.InAppTemplateRequest
+import Network.AWS.Pinpoint.Types.InAppTemplateResponse
 import Network.AWS.Pinpoint.Types.Include
 import Network.AWS.Pinpoint.Types.ItemResponse
 import Network.AWS.Pinpoint.Types.JobStatus
+import Network.AWS.Pinpoint.Types.JourneyChannelSettings
 import Network.AWS.Pinpoint.Types.JourneyCustomMessage
 import Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse
 import Network.AWS.Pinpoint.Types.JourneyEmailMessage
@@ -1943,6 +2108,7 @@ import Network.AWS.Pinpoint.Types.JourneySMSMessage
 import Network.AWS.Pinpoint.Types.JourneySchedule
 import Network.AWS.Pinpoint.Types.JourneyStateRequest
 import Network.AWS.Pinpoint.Types.JourneysResponse
+import Network.AWS.Pinpoint.Types.Layout
 import Network.AWS.Pinpoint.Types.ListRecommenderConfigurationsResponse
 import Network.AWS.Pinpoint.Types.Message
 import Network.AWS.Pinpoint.Types.MessageBody
@@ -1958,6 +2124,7 @@ import Network.AWS.Pinpoint.Types.MultiConditionalSplitActivity
 import Network.AWS.Pinpoint.Types.NumberValidateRequest
 import Network.AWS.Pinpoint.Types.NumberValidateResponse
 import Network.AWS.Pinpoint.Types.Operator
+import Network.AWS.Pinpoint.Types.OverrideButtonConfiguration
 import Network.AWS.Pinpoint.Types.PublicEndpoint
 import Network.AWS.Pinpoint.Types.PushMessageActivity
 import Network.AWS.Pinpoint.Types.PushNotificationTemplateRequest
@@ -2004,6 +2171,7 @@ import Network.AWS.Pinpoint.Types.TagsModel
 import Network.AWS.Pinpoint.Types.Template
 import Network.AWS.Pinpoint.Types.TemplateActiveVersionRequest
 import Network.AWS.Pinpoint.Types.TemplateConfiguration
+import Network.AWS.Pinpoint.Types.TemplateCreateMessageBody
 import Network.AWS.Pinpoint.Types.TemplateResponse
 import Network.AWS.Pinpoint.Types.TemplateType
 import Network.AWS.Pinpoint.Types.TemplateVersionResponse

@@ -24,7 +24,8 @@ module Network.AWS.Pinpoint.Types.State
         State_CANCELLED,
         State_CLOSED,
         State_COMPLETED,
-        State_DRAFT
+        State_DRAFT,
+        State_PAUSED
       ),
   )
 where
@@ -72,11 +73,15 @@ pattern State_COMPLETED = State' "COMPLETED"
 pattern State_DRAFT :: State
 pattern State_DRAFT = State' "DRAFT"
 
+pattern State_PAUSED :: State
+pattern State_PAUSED = State' "PAUSED"
+
 {-# COMPLETE
   State_ACTIVE,
   State_CANCELLED,
   State_CLOSED,
   State_COMPLETED,
   State_DRAFT,
+  State_PAUSED,
   State'
   #-}

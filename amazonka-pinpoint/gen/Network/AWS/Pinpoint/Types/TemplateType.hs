@@ -21,6 +21,7 @@ module Network.AWS.Pinpoint.Types.TemplateType
   ( TemplateType
       ( ..,
         TemplateType_EMAIL,
+        TemplateType_INAPP,
         TemplateType_PUSH,
         TemplateType_SMS,
         TemplateType_VOICE
@@ -62,6 +63,9 @@ newtype TemplateType = TemplateType'
 pattern TemplateType_EMAIL :: TemplateType
 pattern TemplateType_EMAIL = TemplateType' "EMAIL"
 
+pattern TemplateType_INAPP :: TemplateType
+pattern TemplateType_INAPP = TemplateType' "INAPP"
+
 pattern TemplateType_PUSH :: TemplateType
 pattern TemplateType_PUSH = TemplateType' "PUSH"
 
@@ -73,6 +77,7 @@ pattern TemplateType_VOICE = TemplateType' "VOICE"
 
 {-# COMPLETE
   TemplateType_EMAIL,
+  TemplateType_INAPP,
   TemplateType_PUSH,
   TemplateType_SMS,
   TemplateType_VOICE,

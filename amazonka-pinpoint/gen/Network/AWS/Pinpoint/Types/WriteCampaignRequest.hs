@@ -41,33 +41,37 @@ data WriteCampaignRequest = WriteCampaignRequest'
     -- the campaign. You can use this hook to customize the segment that\'s
     -- used by the campaign.
     hook :: Prelude.Maybe CampaignHook,
+    -- | Defines the priority of the campaign, used to decide the order of
+    -- messages displayed to user if there are multiple messages scheduled to
+    -- be displayed at the same moment.
+    priority :: Prelude.Maybe Prelude.Int,
+    -- | A custom name for the campaign.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The delivery configuration settings for sending the campaign through a
     -- custom channel. This object is required if the MessageConfiguration
     -- object for the campaign specifies a CustomMessage object.
     customDeliveryConfiguration :: Prelude.Maybe CustomDeliveryConfiguration,
-    -- | A custom name for the campaign.
-    name :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether to pause the campaign. A paused campaign doesn\'t run
     -- unless you resume it by changing this value to false.
     isPaused :: Prelude.Maybe Prelude.Bool,
+    -- | The version of the segment to associate with the campaign.
+    segmentVersion :: Prelude.Maybe Prelude.Int,
     -- | A string-to-string map of key-value pairs that defines the tags to
     -- associate with the campaign. Each tag consists of a required tag key and
     -- an associated tag value.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The version of the segment to associate with the campaign.
-    segmentVersion :: Prelude.Maybe Prelude.Int,
     -- | The messaging limits for the campaign.
     limits :: Prelude.Maybe CampaignLimits,
-    -- | The unique identifier for the segment to associate with the campaign.
-    segmentId :: Prelude.Maybe Prelude.Text,
     -- | A custom description of the campaign.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the segment to associate with the campaign.
+    segmentId :: Prelude.Maybe Prelude.Text,
+    -- | The message configuration settings for the campaign.
+    messageConfiguration :: Prelude.Maybe MessageConfiguration,
     -- | A custom name of the default treatment for the campaign, if the campaign
     -- has multiple treatments. A /treatment/ is a variation of a campaign
     -- that\'s used for A\/B testing.
     treatmentName :: Prelude.Maybe Prelude.Text,
-    -- | The message configuration settings for the campaign.
-    messageConfiguration :: Prelude.Maybe MessageConfiguration,
     -- | The message template to use for the campaign.
     templateConfiguration :: Prelude.Maybe TemplateConfiguration,
     -- | The schedule settings for the campaign.
@@ -95,32 +99,36 @@ data WriteCampaignRequest = WriteCampaignRequest'
 -- the campaign. You can use this hook to customize the segment that\'s
 -- used by the campaign.
 --
+-- 'priority', 'writeCampaignRequest_priority' - Defines the priority of the campaign, used to decide the order of
+-- messages displayed to user if there are multiple messages scheduled to
+-- be displayed at the same moment.
+--
+-- 'name', 'writeCampaignRequest_name' - A custom name for the campaign.
+--
 -- 'customDeliveryConfiguration', 'writeCampaignRequest_customDeliveryConfiguration' - The delivery configuration settings for sending the campaign through a
 -- custom channel. This object is required if the MessageConfiguration
 -- object for the campaign specifies a CustomMessage object.
 --
--- 'name', 'writeCampaignRequest_name' - A custom name for the campaign.
---
 -- 'isPaused', 'writeCampaignRequest_isPaused' - Specifies whether to pause the campaign. A paused campaign doesn\'t run
 -- unless you resume it by changing this value to false.
+--
+-- 'segmentVersion', 'writeCampaignRequest_segmentVersion' - The version of the segment to associate with the campaign.
 --
 -- 'tags', 'writeCampaignRequest_tags' - A string-to-string map of key-value pairs that defines the tags to
 -- associate with the campaign. Each tag consists of a required tag key and
 -- an associated tag value.
 --
--- 'segmentVersion', 'writeCampaignRequest_segmentVersion' - The version of the segment to associate with the campaign.
---
 -- 'limits', 'writeCampaignRequest_limits' - The messaging limits for the campaign.
+--
+-- 'description', 'writeCampaignRequest_description' - A custom description of the campaign.
 --
 -- 'segmentId', 'writeCampaignRequest_segmentId' - The unique identifier for the segment to associate with the campaign.
 --
--- 'description', 'writeCampaignRequest_description' - A custom description of the campaign.
+-- 'messageConfiguration', 'writeCampaignRequest_messageConfiguration' - The message configuration settings for the campaign.
 --
 -- 'treatmentName', 'writeCampaignRequest_treatmentName' - A custom name of the default treatment for the campaign, if the campaign
 -- has multiple treatments. A /treatment/ is a variation of a campaign
 -- that\'s used for A\/B testing.
---
--- 'messageConfiguration', 'writeCampaignRequest_messageConfiguration' - The message configuration settings for the campaign.
 --
 -- 'templateConfiguration', 'writeCampaignRequest_templateConfiguration' - The message template to use for the campaign.
 --
@@ -137,16 +145,17 @@ newWriteCampaignRequest =
     { additionalTreatments =
         Prelude.Nothing,
       hook = Prelude.Nothing,
-      customDeliveryConfiguration = Prelude.Nothing,
+      priority = Prelude.Nothing,
       name = Prelude.Nothing,
+      customDeliveryConfiguration = Prelude.Nothing,
       isPaused = Prelude.Nothing,
-      tags = Prelude.Nothing,
       segmentVersion = Prelude.Nothing,
+      tags = Prelude.Nothing,
       limits = Prelude.Nothing,
-      segmentId = Prelude.Nothing,
       description = Prelude.Nothing,
-      treatmentName = Prelude.Nothing,
+      segmentId = Prelude.Nothing,
       messageConfiguration = Prelude.Nothing,
+      treatmentName = Prelude.Nothing,
       templateConfiguration = Prelude.Nothing,
       schedule = Prelude.Nothing,
       holdoutPercent = Prelude.Nothing,
@@ -164,20 +173,30 @@ writeCampaignRequest_additionalTreatments = Lens.lens (\WriteCampaignRequest' {a
 writeCampaignRequest_hook :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe CampaignHook)
 writeCampaignRequest_hook = Lens.lens (\WriteCampaignRequest' {hook} -> hook) (\s@WriteCampaignRequest' {} a -> s {hook = a} :: WriteCampaignRequest)
 
+-- | Defines the priority of the campaign, used to decide the order of
+-- messages displayed to user if there are multiple messages scheduled to
+-- be displayed at the same moment.
+writeCampaignRequest_priority :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe Prelude.Int)
+writeCampaignRequest_priority = Lens.lens (\WriteCampaignRequest' {priority} -> priority) (\s@WriteCampaignRequest' {} a -> s {priority = a} :: WriteCampaignRequest)
+
+-- | A custom name for the campaign.
+writeCampaignRequest_name :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe Prelude.Text)
+writeCampaignRequest_name = Lens.lens (\WriteCampaignRequest' {name} -> name) (\s@WriteCampaignRequest' {} a -> s {name = a} :: WriteCampaignRequest)
+
 -- | The delivery configuration settings for sending the campaign through a
 -- custom channel. This object is required if the MessageConfiguration
 -- object for the campaign specifies a CustomMessage object.
 writeCampaignRequest_customDeliveryConfiguration :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe CustomDeliveryConfiguration)
 writeCampaignRequest_customDeliveryConfiguration = Lens.lens (\WriteCampaignRequest' {customDeliveryConfiguration} -> customDeliveryConfiguration) (\s@WriteCampaignRequest' {} a -> s {customDeliveryConfiguration = a} :: WriteCampaignRequest)
 
--- | A custom name for the campaign.
-writeCampaignRequest_name :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe Prelude.Text)
-writeCampaignRequest_name = Lens.lens (\WriteCampaignRequest' {name} -> name) (\s@WriteCampaignRequest' {} a -> s {name = a} :: WriteCampaignRequest)
-
 -- | Specifies whether to pause the campaign. A paused campaign doesn\'t run
 -- unless you resume it by changing this value to false.
 writeCampaignRequest_isPaused :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe Prelude.Bool)
 writeCampaignRequest_isPaused = Lens.lens (\WriteCampaignRequest' {isPaused} -> isPaused) (\s@WriteCampaignRequest' {} a -> s {isPaused = a} :: WriteCampaignRequest)
+
+-- | The version of the segment to associate with the campaign.
+writeCampaignRequest_segmentVersion :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe Prelude.Int)
+writeCampaignRequest_segmentVersion = Lens.lens (\WriteCampaignRequest' {segmentVersion} -> segmentVersion) (\s@WriteCampaignRequest' {} a -> s {segmentVersion = a} :: WriteCampaignRequest)
 
 -- | A string-to-string map of key-value pairs that defines the tags to
 -- associate with the campaign. Each tag consists of a required tag key and
@@ -185,31 +204,27 @@ writeCampaignRequest_isPaused = Lens.lens (\WriteCampaignRequest' {isPaused} -> 
 writeCampaignRequest_tags :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 writeCampaignRequest_tags = Lens.lens (\WriteCampaignRequest' {tags} -> tags) (\s@WriteCampaignRequest' {} a -> s {tags = a} :: WriteCampaignRequest) Prelude.. Lens.mapping Lens._Coerce
 
--- | The version of the segment to associate with the campaign.
-writeCampaignRequest_segmentVersion :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe Prelude.Int)
-writeCampaignRequest_segmentVersion = Lens.lens (\WriteCampaignRequest' {segmentVersion} -> segmentVersion) (\s@WriteCampaignRequest' {} a -> s {segmentVersion = a} :: WriteCampaignRequest)
-
 -- | The messaging limits for the campaign.
 writeCampaignRequest_limits :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe CampaignLimits)
 writeCampaignRequest_limits = Lens.lens (\WriteCampaignRequest' {limits} -> limits) (\s@WriteCampaignRequest' {} a -> s {limits = a} :: WriteCampaignRequest)
+
+-- | A custom description of the campaign.
+writeCampaignRequest_description :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe Prelude.Text)
+writeCampaignRequest_description = Lens.lens (\WriteCampaignRequest' {description} -> description) (\s@WriteCampaignRequest' {} a -> s {description = a} :: WriteCampaignRequest)
 
 -- | The unique identifier for the segment to associate with the campaign.
 writeCampaignRequest_segmentId :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe Prelude.Text)
 writeCampaignRequest_segmentId = Lens.lens (\WriteCampaignRequest' {segmentId} -> segmentId) (\s@WriteCampaignRequest' {} a -> s {segmentId = a} :: WriteCampaignRequest)
 
--- | A custom description of the campaign.
-writeCampaignRequest_description :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe Prelude.Text)
-writeCampaignRequest_description = Lens.lens (\WriteCampaignRequest' {description} -> description) (\s@WriteCampaignRequest' {} a -> s {description = a} :: WriteCampaignRequest)
+-- | The message configuration settings for the campaign.
+writeCampaignRequest_messageConfiguration :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe MessageConfiguration)
+writeCampaignRequest_messageConfiguration = Lens.lens (\WriteCampaignRequest' {messageConfiguration} -> messageConfiguration) (\s@WriteCampaignRequest' {} a -> s {messageConfiguration = a} :: WriteCampaignRequest)
 
 -- | A custom name of the default treatment for the campaign, if the campaign
 -- has multiple treatments. A /treatment/ is a variation of a campaign
 -- that\'s used for A\/B testing.
 writeCampaignRequest_treatmentName :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe Prelude.Text)
 writeCampaignRequest_treatmentName = Lens.lens (\WriteCampaignRequest' {treatmentName} -> treatmentName) (\s@WriteCampaignRequest' {} a -> s {treatmentName = a} :: WriteCampaignRequest)
-
--- | The message configuration settings for the campaign.
-writeCampaignRequest_messageConfiguration :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe MessageConfiguration)
-writeCampaignRequest_messageConfiguration = Lens.lens (\WriteCampaignRequest' {messageConfiguration} -> messageConfiguration) (\s@WriteCampaignRequest' {} a -> s {messageConfiguration = a} :: WriteCampaignRequest)
 
 -- | The message template to use for the campaign.
 writeCampaignRequest_templateConfiguration :: Lens.Lens' WriteCampaignRequest (Prelude.Maybe TemplateConfiguration)
@@ -239,19 +254,20 @@ instance Core.ToJSON WriteCampaignRequest where
           [ ("AdditionalTreatments" Core..=)
               Prelude.<$> additionalTreatments,
             ("Hook" Core..=) Prelude.<$> hook,
+            ("Priority" Core..=) Prelude.<$> priority,
+            ("Name" Core..=) Prelude.<$> name,
             ("CustomDeliveryConfiguration" Core..=)
               Prelude.<$> customDeliveryConfiguration,
-            ("Name" Core..=) Prelude.<$> name,
             ("IsPaused" Core..=) Prelude.<$> isPaused,
-            ("tags" Core..=) Prelude.<$> tags,
             ("SegmentVersion" Core..=)
               Prelude.<$> segmentVersion,
+            ("tags" Core..=) Prelude.<$> tags,
             ("Limits" Core..=) Prelude.<$> limits,
-            ("SegmentId" Core..=) Prelude.<$> segmentId,
             ("Description" Core..=) Prelude.<$> description,
-            ("TreatmentName" Core..=) Prelude.<$> treatmentName,
+            ("SegmentId" Core..=) Prelude.<$> segmentId,
             ("MessageConfiguration" Core..=)
               Prelude.<$> messageConfiguration,
+            ("TreatmentName" Core..=) Prelude.<$> treatmentName,
             ("TemplateConfiguration" Core..=)
               Prelude.<$> templateConfiguration,
             ("Schedule" Core..=) Prelude.<$> schedule,

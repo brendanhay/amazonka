@@ -54,6 +54,9 @@ data PublicEndpoint = PublicEndpoint'
     -- a name with an array of values. You can use these attributes as filter
     -- criteria when you create segments.
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    -- | One or more custom metrics that your app reports to Amazon Pinpoint for
+    -- the endpoint.
+    metrics :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double),
     -- | Specifies whether to send messages or push notifications to the
     -- endpoint. Valid values are: ACTIVE, messages are sent to the endpoint;
     -- and, INACTIVE, messages aren’t sent to the endpoint.
@@ -63,9 +66,6 @@ data PublicEndpoint = PublicEndpoint'
     -- automatically sets this value to INACTIVE if you update another endpoint
     -- that has the same address specified by the Address property.
     endpointStatus :: Prelude.Maybe Prelude.Text,
-    -- | One or more custom metrics that your app reports to Amazon Pinpoint for
-    -- the endpoint.
-    metrics :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double),
     -- | A unique identifier that\'s generated each time the endpoint is updated.
     requestId :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in ISO 8601 format, when the endpoint was last
@@ -106,6 +106,9 @@ data PublicEndpoint = PublicEndpoint'
 -- a name with an array of values. You can use these attributes as filter
 -- criteria when you create segments.
 --
+-- 'metrics', 'publicEndpoint_metrics' - One or more custom metrics that your app reports to Amazon Pinpoint for
+-- the endpoint.
+--
 -- 'endpointStatus', 'publicEndpoint_endpointStatus' - Specifies whether to send messages or push notifications to the
 -- endpoint. Valid values are: ACTIVE, messages are sent to the endpoint;
 -- and, INACTIVE, messages aren’t sent to the endpoint.
@@ -114,9 +117,6 @@ data PublicEndpoint = PublicEndpoint'
 -- an endpoint or update an existing endpoint. Amazon Pinpoint
 -- automatically sets this value to INACTIVE if you update another endpoint
 -- that has the same address specified by the Address property.
---
--- 'metrics', 'publicEndpoint_metrics' - One or more custom metrics that your app reports to Amazon Pinpoint for
--- the endpoint.
 --
 -- 'requestId', 'publicEndpoint_requestId' - A unique identifier that\'s generated each time the endpoint is updated.
 --
@@ -134,8 +134,8 @@ newPublicEndpoint =
       optOut = Prelude.Nothing,
       demographic = Prelude.Nothing,
       attributes = Prelude.Nothing,
-      endpointStatus = Prelude.Nothing,
       metrics = Prelude.Nothing,
+      endpointStatus = Prelude.Nothing,
       requestId = Prelude.Nothing,
       effectiveDate = Prelude.Nothing,
       location = Prelude.Nothing
@@ -175,6 +175,11 @@ publicEndpoint_demographic = Lens.lens (\PublicEndpoint' {demographic} -> demogr
 publicEndpoint_attributes :: Lens.Lens' PublicEndpoint (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
 publicEndpoint_attributes = Lens.lens (\PublicEndpoint' {attributes} -> attributes) (\s@PublicEndpoint' {} a -> s {attributes = a} :: PublicEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
+-- | One or more custom metrics that your app reports to Amazon Pinpoint for
+-- the endpoint.
+publicEndpoint_metrics :: Lens.Lens' PublicEndpoint (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double))
+publicEndpoint_metrics = Lens.lens (\PublicEndpoint' {metrics} -> metrics) (\s@PublicEndpoint' {} a -> s {metrics = a} :: PublicEndpoint) Prelude.. Lens.mapping Lens._Coerce
+
 -- | Specifies whether to send messages or push notifications to the
 -- endpoint. Valid values are: ACTIVE, messages are sent to the endpoint;
 -- and, INACTIVE, messages aren’t sent to the endpoint.
@@ -185,11 +190,6 @@ publicEndpoint_attributes = Lens.lens (\PublicEndpoint' {attributes} -> attribut
 -- that has the same address specified by the Address property.
 publicEndpoint_endpointStatus :: Lens.Lens' PublicEndpoint (Prelude.Maybe Prelude.Text)
 publicEndpoint_endpointStatus = Lens.lens (\PublicEndpoint' {endpointStatus} -> endpointStatus) (\s@PublicEndpoint' {} a -> s {endpointStatus = a} :: PublicEndpoint)
-
--- | One or more custom metrics that your app reports to Amazon Pinpoint for
--- the endpoint.
-publicEndpoint_metrics :: Lens.Lens' PublicEndpoint (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double))
-publicEndpoint_metrics = Lens.lens (\PublicEndpoint' {metrics} -> metrics) (\s@PublicEndpoint' {} a -> s {metrics = a} :: PublicEndpoint) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A unique identifier that\'s generated each time the endpoint is updated.
 publicEndpoint_requestId :: Lens.Lens' PublicEndpoint (Prelude.Maybe Prelude.Text)
@@ -218,9 +218,9 @@ instance Core.ToJSON PublicEndpoint where
             ("OptOut" Core..=) Prelude.<$> optOut,
             ("Demographic" Core..=) Prelude.<$> demographic,
             ("Attributes" Core..=) Prelude.<$> attributes,
+            ("Metrics" Core..=) Prelude.<$> metrics,
             ("EndpointStatus" Core..=)
               Prelude.<$> endpointStatus,
-            ("Metrics" Core..=) Prelude.<$> metrics,
             ("RequestId" Core..=) Prelude.<$> requestId,
             ("EffectiveDate" Core..=) Prelude.<$> effectiveDate,
             ("Location" Core..=) Prelude.<$> location

@@ -56,13 +56,13 @@ data EndpointResponse = EndpointResponse'
     -- application. Amazon Pinpoint assigns cohorts to the holdout or treatment
     -- allocations for campaigns.
     cohortId :: Prelude.Maybe Prelude.Text,
+    -- | The date and time, in ISO 8601 format, when the endpoint was created.
+    creationDate :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier that you assigned to the endpoint. The identifier
     -- should be a globally unique identifier (GUID) to ensure that it doesn\'t
     -- conflict with other endpoint identifiers that are associated with the
     -- application.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The date and time, in ISO 8601 format, when the endpoint was created.
-    creationDate :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the user who\'s associated with the endpoint has opted
     -- out of receiving messages and push notifications from you. Possible
     -- values are: ALL, the user has opted out and doesn\'t want to receive any
@@ -78,6 +78,9 @@ data EndpointResponse = EndpointResponse'
     -- \"Travel\"]. You can use these attributes as filter criteria when you
     -- create segments.
     attributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    -- | One or more custom metrics that your app reports to Amazon Pinpoint for
+    -- the endpoint.
+    metrics :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double),
     -- | Specifies whether messages or push notifications are sent to the
     -- endpoint. Possible values are: ACTIVE, messages are sent to the
     -- endpoint; and, INACTIVE, messages aren’t sent to the endpoint.
@@ -87,9 +90,6 @@ data EndpointResponse = EndpointResponse'
     -- automatically sets this value to INACTIVE if you update another endpoint
     -- that has the same address specified by the Address property.
     endpointStatus :: Prelude.Maybe Prelude.Text,
-    -- | One or more custom metrics that your app reports to Amazon Pinpoint for
-    -- the endpoint.
-    metrics :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double),
     -- | The unique identifier for the most recent request to update the
     -- endpoint.
     requestId :: Prelude.Maybe Prelude.Text,
@@ -133,12 +133,12 @@ data EndpointResponse = EndpointResponse'
 -- application. Amazon Pinpoint assigns cohorts to the holdout or treatment
 -- allocations for campaigns.
 --
+-- 'creationDate', 'endpointResponse_creationDate' - The date and time, in ISO 8601 format, when the endpoint was created.
+--
 -- 'id', 'endpointResponse_id' - The unique identifier that you assigned to the endpoint. The identifier
 -- should be a globally unique identifier (GUID) to ensure that it doesn\'t
 -- conflict with other endpoint identifiers that are associated with the
 -- application.
---
--- 'creationDate', 'endpointResponse_creationDate' - The date and time, in ISO 8601 format, when the endpoint was created.
 --
 -- 'optOut', 'endpointResponse_optOut' - Specifies whether the user who\'s associated with the endpoint has opted
 -- out of receiving messages and push notifications from you. Possible
@@ -155,6 +155,9 @@ data EndpointResponse = EndpointResponse'
 -- \"Travel\"]. You can use these attributes as filter criteria when you
 -- create segments.
 --
+-- 'metrics', 'endpointResponse_metrics' - One or more custom metrics that your app reports to Amazon Pinpoint for
+-- the endpoint.
+--
 -- 'endpointStatus', 'endpointResponse_endpointStatus' - Specifies whether messages or push notifications are sent to the
 -- endpoint. Possible values are: ACTIVE, messages are sent to the
 -- endpoint; and, INACTIVE, messages aren’t sent to the endpoint.
@@ -163,9 +166,6 @@ data EndpointResponse = EndpointResponse'
 -- an endpoint or update an existing endpoint. Amazon Pinpoint
 -- automatically sets this value to INACTIVE if you update another endpoint
 -- that has the same address specified by the Address property.
---
--- 'metrics', 'endpointResponse_metrics' - One or more custom metrics that your app reports to Amazon Pinpoint for
--- the endpoint.
 --
 -- 'requestId', 'endpointResponse_requestId' - The unique identifier for the most recent request to update the
 -- endpoint.
@@ -183,13 +183,13 @@ newEndpointResponse =
       address = Prelude.Nothing,
       channelType = Prelude.Nothing,
       cohortId = Prelude.Nothing,
-      id = Prelude.Nothing,
       creationDate = Prelude.Nothing,
+      id = Prelude.Nothing,
       optOut = Prelude.Nothing,
       demographic = Prelude.Nothing,
       attributes = Prelude.Nothing,
-      endpointStatus = Prelude.Nothing,
       metrics = Prelude.Nothing,
+      endpointStatus = Prelude.Nothing,
       requestId = Prelude.Nothing,
       effectiveDate = Prelude.Nothing,
       location = Prelude.Nothing
@@ -229,16 +229,16 @@ endpointResponse_channelType = Lens.lens (\EndpointResponse' {channelType} -> ch
 endpointResponse_cohortId :: Lens.Lens' EndpointResponse (Prelude.Maybe Prelude.Text)
 endpointResponse_cohortId = Lens.lens (\EndpointResponse' {cohortId} -> cohortId) (\s@EndpointResponse' {} a -> s {cohortId = a} :: EndpointResponse)
 
+-- | The date and time, in ISO 8601 format, when the endpoint was created.
+endpointResponse_creationDate :: Lens.Lens' EndpointResponse (Prelude.Maybe Prelude.Text)
+endpointResponse_creationDate = Lens.lens (\EndpointResponse' {creationDate} -> creationDate) (\s@EndpointResponse' {} a -> s {creationDate = a} :: EndpointResponse)
+
 -- | The unique identifier that you assigned to the endpoint. The identifier
 -- should be a globally unique identifier (GUID) to ensure that it doesn\'t
 -- conflict with other endpoint identifiers that are associated with the
 -- application.
 endpointResponse_id :: Lens.Lens' EndpointResponse (Prelude.Maybe Prelude.Text)
 endpointResponse_id = Lens.lens (\EndpointResponse' {id} -> id) (\s@EndpointResponse' {} a -> s {id = a} :: EndpointResponse)
-
--- | The date and time, in ISO 8601 format, when the endpoint was created.
-endpointResponse_creationDate :: Lens.Lens' EndpointResponse (Prelude.Maybe Prelude.Text)
-endpointResponse_creationDate = Lens.lens (\EndpointResponse' {creationDate} -> creationDate) (\s@EndpointResponse' {} a -> s {creationDate = a} :: EndpointResponse)
 
 -- | Specifies whether the user who\'s associated with the endpoint has opted
 -- out of receiving messages and push notifications from you. Possible
@@ -261,6 +261,11 @@ endpointResponse_demographic = Lens.lens (\EndpointResponse' {demographic} -> de
 endpointResponse_attributes :: Lens.Lens' EndpointResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
 endpointResponse_attributes = Lens.lens (\EndpointResponse' {attributes} -> attributes) (\s@EndpointResponse' {} a -> s {attributes = a} :: EndpointResponse) Prelude.. Lens.mapping Lens._Coerce
 
+-- | One or more custom metrics that your app reports to Amazon Pinpoint for
+-- the endpoint.
+endpointResponse_metrics :: Lens.Lens' EndpointResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double))
+endpointResponse_metrics = Lens.lens (\EndpointResponse' {metrics} -> metrics) (\s@EndpointResponse' {} a -> s {metrics = a} :: EndpointResponse) Prelude.. Lens.mapping Lens._Coerce
+
 -- | Specifies whether messages or push notifications are sent to the
 -- endpoint. Possible values are: ACTIVE, messages are sent to the
 -- endpoint; and, INACTIVE, messages aren’t sent to the endpoint.
@@ -271,11 +276,6 @@ endpointResponse_attributes = Lens.lens (\EndpointResponse' {attributes} -> attr
 -- that has the same address specified by the Address property.
 endpointResponse_endpointStatus :: Lens.Lens' EndpointResponse (Prelude.Maybe Prelude.Text)
 endpointResponse_endpointStatus = Lens.lens (\EndpointResponse' {endpointStatus} -> endpointStatus) (\s@EndpointResponse' {} a -> s {endpointStatus = a} :: EndpointResponse)
-
--- | One or more custom metrics that your app reports to Amazon Pinpoint for
--- the endpoint.
-endpointResponse_metrics :: Lens.Lens' EndpointResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Double))
-endpointResponse_metrics = Lens.lens (\EndpointResponse' {metrics} -> metrics) (\s@EndpointResponse' {} a -> s {metrics = a} :: EndpointResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The unique identifier for the most recent request to update the
 -- endpoint.
@@ -302,13 +302,13 @@ instance Core.FromJSON EndpointResponse where
             Prelude.<*> (x Core..:? "Address")
             Prelude.<*> (x Core..:? "ChannelType")
             Prelude.<*> (x Core..:? "CohortId")
-            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "CreationDate")
+            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "OptOut")
             Prelude.<*> (x Core..:? "Demographic")
             Prelude.<*> (x Core..:? "Attributes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "EndpointStatus")
             Prelude.<*> (x Core..:? "Metrics" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "EndpointStatus")
             Prelude.<*> (x Core..:? "RequestId")
             Prelude.<*> (x Core..:? "EffectiveDate")
             Prelude.<*> (x Core..:? "Location")

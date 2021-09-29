@@ -30,11 +30,11 @@ data NumberValidateResponse = NumberValidateResponse'
   { -- | The description of the phone type. Valid values are: MOBILE, LANDLINE,
     -- VOIP, INVALID, PREPAID, and OTHER.
     phoneType :: Prelude.Maybe Prelude.Text,
-    -- | The phone number that was sent in the request body.
-    originalPhoneNumber :: Prelude.Maybe Prelude.Text,
     -- | The postal or ZIP code for the location where the phone number was
     -- originally registered.
     zipCode :: Prelude.Maybe Prelude.Text,
+    -- | The phone number that was sent in the request body.
+    originalPhoneNumber :: Prelude.Maybe Prelude.Text,
     -- | The two-character code, in ISO 3166-1 alpha-2 format, that was sent in
     -- the request body.
     originalCountryCodeIso2 :: Prelude.Maybe Prelude.Text,
@@ -53,15 +53,15 @@ data NumberValidateResponse = NumberValidateResponse'
     -- | The phone type, represented by an integer. Valid values are: 0 (mobile),
     -- 1 (landline), 2 (VoIP), 3 (invalid), 4 (other), and 5 (prepaid).
     phoneTypeCode :: Prelude.Maybe Prelude.Int,
-    -- | The cleansed phone number, in the format for the location where the
-    -- phone number was originally registered.
-    cleansedPhoneNumberNational :: Prelude.Maybe Prelude.Text,
     -- | The cleansed phone number, in E.164 format, for the location where the
     -- phone number was originally registered.
     cleansedPhoneNumberE164 :: Prelude.Maybe Prelude.Text,
     -- | The numeric code for the country or region where the phone number was
     -- originally registered.
     countryCodeNumeric :: Prelude.Maybe Prelude.Text,
+    -- | The cleansed phone number, in the format for the location where the
+    -- phone number was originally registered.
+    cleansedPhoneNumberNational :: Prelude.Maybe Prelude.Text,
     -- | The time zone for the location where the phone number was originally
     -- registered.
     timezone :: Prelude.Maybe Prelude.Text,
@@ -82,10 +82,10 @@ data NumberValidateResponse = NumberValidateResponse'
 -- 'phoneType', 'numberValidateResponse_phoneType' - The description of the phone type. Valid values are: MOBILE, LANDLINE,
 -- VOIP, INVALID, PREPAID, and OTHER.
 --
--- 'originalPhoneNumber', 'numberValidateResponse_originalPhoneNumber' - The phone number that was sent in the request body.
---
 -- 'zipCode', 'numberValidateResponse_zipCode' - The postal or ZIP code for the location where the phone number was
 -- originally registered.
+--
+-- 'originalPhoneNumber', 'numberValidateResponse_originalPhoneNumber' - The phone number that was sent in the request body.
 --
 -- 'originalCountryCodeIso2', 'numberValidateResponse_originalCountryCodeIso2' - The two-character code, in ISO 3166-1 alpha-2 format, that was sent in
 -- the request body.
@@ -105,14 +105,14 @@ data NumberValidateResponse = NumberValidateResponse'
 -- 'phoneTypeCode', 'numberValidateResponse_phoneTypeCode' - The phone type, represented by an integer. Valid values are: 0 (mobile),
 -- 1 (landline), 2 (VoIP), 3 (invalid), 4 (other), and 5 (prepaid).
 --
--- 'cleansedPhoneNumberNational', 'numberValidateResponse_cleansedPhoneNumberNational' - The cleansed phone number, in the format for the location where the
--- phone number was originally registered.
---
 -- 'cleansedPhoneNumberE164', 'numberValidateResponse_cleansedPhoneNumberE164' - The cleansed phone number, in E.164 format, for the location where the
 -- phone number was originally registered.
 --
 -- 'countryCodeNumeric', 'numberValidateResponse_countryCodeNumeric' - The numeric code for the country or region where the phone number was
 -- originally registered.
+--
+-- 'cleansedPhoneNumberNational', 'numberValidateResponse_cleansedPhoneNumberNational' - The cleansed phone number, in the format for the location where the
+-- phone number was originally registered.
 --
 -- 'timezone', 'numberValidateResponse_timezone' - The time zone for the location where the phone number was originally
 -- registered.
@@ -125,17 +125,17 @@ newNumberValidateResponse =
   NumberValidateResponse'
     { phoneType =
         Prelude.Nothing,
-      originalPhoneNumber = Prelude.Nothing,
       zipCode = Prelude.Nothing,
+      originalPhoneNumber = Prelude.Nothing,
       originalCountryCodeIso2 = Prelude.Nothing,
       countryCodeIso2 = Prelude.Nothing,
       county = Prelude.Nothing,
       city = Prelude.Nothing,
       carrier = Prelude.Nothing,
       phoneTypeCode = Prelude.Nothing,
-      cleansedPhoneNumberNational = Prelude.Nothing,
       cleansedPhoneNumberE164 = Prelude.Nothing,
       countryCodeNumeric = Prelude.Nothing,
+      cleansedPhoneNumberNational = Prelude.Nothing,
       timezone = Prelude.Nothing,
       country = Prelude.Nothing
     }
@@ -145,14 +145,14 @@ newNumberValidateResponse =
 numberValidateResponse_phoneType :: Lens.Lens' NumberValidateResponse (Prelude.Maybe Prelude.Text)
 numberValidateResponse_phoneType = Lens.lens (\NumberValidateResponse' {phoneType} -> phoneType) (\s@NumberValidateResponse' {} a -> s {phoneType = a} :: NumberValidateResponse)
 
--- | The phone number that was sent in the request body.
-numberValidateResponse_originalPhoneNumber :: Lens.Lens' NumberValidateResponse (Prelude.Maybe Prelude.Text)
-numberValidateResponse_originalPhoneNumber = Lens.lens (\NumberValidateResponse' {originalPhoneNumber} -> originalPhoneNumber) (\s@NumberValidateResponse' {} a -> s {originalPhoneNumber = a} :: NumberValidateResponse)
-
 -- | The postal or ZIP code for the location where the phone number was
 -- originally registered.
 numberValidateResponse_zipCode :: Lens.Lens' NumberValidateResponse (Prelude.Maybe Prelude.Text)
 numberValidateResponse_zipCode = Lens.lens (\NumberValidateResponse' {zipCode} -> zipCode) (\s@NumberValidateResponse' {} a -> s {zipCode = a} :: NumberValidateResponse)
+
+-- | The phone number that was sent in the request body.
+numberValidateResponse_originalPhoneNumber :: Lens.Lens' NumberValidateResponse (Prelude.Maybe Prelude.Text)
+numberValidateResponse_originalPhoneNumber = Lens.lens (\NumberValidateResponse' {originalPhoneNumber} -> originalPhoneNumber) (\s@NumberValidateResponse' {} a -> s {originalPhoneNumber = a} :: NumberValidateResponse)
 
 -- | The two-character code, in ISO 3166-1 alpha-2 format, that was sent in
 -- the request body.
@@ -184,11 +184,6 @@ numberValidateResponse_carrier = Lens.lens (\NumberValidateResponse' {carrier} -
 numberValidateResponse_phoneTypeCode :: Lens.Lens' NumberValidateResponse (Prelude.Maybe Prelude.Int)
 numberValidateResponse_phoneTypeCode = Lens.lens (\NumberValidateResponse' {phoneTypeCode} -> phoneTypeCode) (\s@NumberValidateResponse' {} a -> s {phoneTypeCode = a} :: NumberValidateResponse)
 
--- | The cleansed phone number, in the format for the location where the
--- phone number was originally registered.
-numberValidateResponse_cleansedPhoneNumberNational :: Lens.Lens' NumberValidateResponse (Prelude.Maybe Prelude.Text)
-numberValidateResponse_cleansedPhoneNumberNational = Lens.lens (\NumberValidateResponse' {cleansedPhoneNumberNational} -> cleansedPhoneNumberNational) (\s@NumberValidateResponse' {} a -> s {cleansedPhoneNumberNational = a} :: NumberValidateResponse)
-
 -- | The cleansed phone number, in E.164 format, for the location where the
 -- phone number was originally registered.
 numberValidateResponse_cleansedPhoneNumberE164 :: Lens.Lens' NumberValidateResponse (Prelude.Maybe Prelude.Text)
@@ -198,6 +193,11 @@ numberValidateResponse_cleansedPhoneNumberE164 = Lens.lens (\NumberValidateRespo
 -- originally registered.
 numberValidateResponse_countryCodeNumeric :: Lens.Lens' NumberValidateResponse (Prelude.Maybe Prelude.Text)
 numberValidateResponse_countryCodeNumeric = Lens.lens (\NumberValidateResponse' {countryCodeNumeric} -> countryCodeNumeric) (\s@NumberValidateResponse' {} a -> s {countryCodeNumeric = a} :: NumberValidateResponse)
+
+-- | The cleansed phone number, in the format for the location where the
+-- phone number was originally registered.
+numberValidateResponse_cleansedPhoneNumberNational :: Lens.Lens' NumberValidateResponse (Prelude.Maybe Prelude.Text)
+numberValidateResponse_cleansedPhoneNumberNational = Lens.lens (\NumberValidateResponse' {cleansedPhoneNumberNational} -> cleansedPhoneNumberNational) (\s@NumberValidateResponse' {} a -> s {cleansedPhoneNumberNational = a} :: NumberValidateResponse)
 
 -- | The time zone for the location where the phone number was originally
 -- registered.
@@ -216,17 +216,17 @@ instance Core.FromJSON NumberValidateResponse where
       ( \x ->
           NumberValidateResponse'
             Prelude.<$> (x Core..:? "PhoneType")
-            Prelude.<*> (x Core..:? "OriginalPhoneNumber")
             Prelude.<*> (x Core..:? "ZipCode")
+            Prelude.<*> (x Core..:? "OriginalPhoneNumber")
             Prelude.<*> (x Core..:? "OriginalCountryCodeIso2")
             Prelude.<*> (x Core..:? "CountryCodeIso2")
             Prelude.<*> (x Core..:? "County")
             Prelude.<*> (x Core..:? "City")
             Prelude.<*> (x Core..:? "Carrier")
             Prelude.<*> (x Core..:? "PhoneTypeCode")
-            Prelude.<*> (x Core..:? "CleansedPhoneNumberNational")
             Prelude.<*> (x Core..:? "CleansedPhoneNumberE164")
             Prelude.<*> (x Core..:? "CountryCodeNumeric")
+            Prelude.<*> (x Core..:? "CleansedPhoneNumberNational")
             Prelude.<*> (x Core..:? "Timezone")
             Prelude.<*> (x Core..:? "Country")
       )

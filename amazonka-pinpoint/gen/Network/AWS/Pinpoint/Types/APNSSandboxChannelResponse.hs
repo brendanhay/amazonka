@@ -28,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAPNSSandboxChannelResponse' smart constructor.
 data APNSSandboxChannelResponse = APNSSandboxChannelResponse'
-  { -- | The date and time when the APNs sandbox channel was last modified.
-    lastModifiedDate :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the application that the APNs sandbox channel
+  { -- | The unique identifier for the application that the APNs sandbox channel
     -- applies to.
     applicationId :: Prelude.Maybe Prelude.Text,
+    -- | The date and time when the APNs sandbox channel was last modified.
+    lastModifiedDate :: Prelude.Maybe Prelude.Text,
     -- | The default authentication method that Amazon Pinpoint uses to
     -- authenticate with the APNs sandbox environment for this channel, key or
     -- certificate.
@@ -43,14 +43,14 @@ data APNSSandboxChannelResponse = APNSSandboxChannelResponse'
     -- with APNs by using APNs tokens. To provide an authentication key for
     -- APNs tokens, set the TokenKey property of the channel.
     hasTokenKey :: Prelude.Maybe Prelude.Bool,
-    -- | (Deprecated) An identifier for the APNs sandbox channel. This property
-    -- is retained only for backward compatibility.
-    id :: Prelude.Maybe Prelude.Text,
-    -- | The date and time when the APNs sandbox channel was enabled.
-    creationDate :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the APNs sandbox channel is enabled for the
     -- application.
     enabled :: Prelude.Maybe Prelude.Bool,
+    -- | The date and time when the APNs sandbox channel was enabled.
+    creationDate :: Prelude.Maybe Prelude.Text,
+    -- | (Deprecated) An identifier for the APNs sandbox channel. This property
+    -- is retained only for backward compatibility.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The current version of the APNs sandbox channel.
     version :: Prelude.Maybe Prelude.Int,
     -- | Specifies whether the APNs sandbox channel is archived.
@@ -71,10 +71,10 @@ data APNSSandboxChannelResponse = APNSSandboxChannelResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastModifiedDate', 'aPNSSandboxChannelResponse_lastModifiedDate' - The date and time when the APNs sandbox channel was last modified.
---
 -- 'applicationId', 'aPNSSandboxChannelResponse_applicationId' - The unique identifier for the application that the APNs sandbox channel
 -- applies to.
+--
+-- 'lastModifiedDate', 'aPNSSandboxChannelResponse_lastModifiedDate' - The date and time when the APNs sandbox channel was last modified.
 --
 -- 'defaultAuthenticationMethod', 'aPNSSandboxChannelResponse_defaultAuthenticationMethod' - The default authentication method that Amazon Pinpoint uses to
 -- authenticate with the APNs sandbox environment for this channel, key or
@@ -86,13 +86,13 @@ data APNSSandboxChannelResponse = APNSSandboxChannelResponse'
 -- with APNs by using APNs tokens. To provide an authentication key for
 -- APNs tokens, set the TokenKey property of the channel.
 --
--- 'id', 'aPNSSandboxChannelResponse_id' - (Deprecated) An identifier for the APNs sandbox channel. This property
--- is retained only for backward compatibility.
+-- 'enabled', 'aPNSSandboxChannelResponse_enabled' - Specifies whether the APNs sandbox channel is enabled for the
+-- application.
 --
 -- 'creationDate', 'aPNSSandboxChannelResponse_creationDate' - The date and time when the APNs sandbox channel was enabled.
 --
--- 'enabled', 'aPNSSandboxChannelResponse_enabled' - Specifies whether the APNs sandbox channel is enabled for the
--- application.
+-- 'id', 'aPNSSandboxChannelResponse_id' - (Deprecated) An identifier for the APNs sandbox channel. This property
+-- is retained only for backward compatibility.
 --
 -- 'version', 'aPNSSandboxChannelResponse_version' - The current version of the APNs sandbox channel.
 --
@@ -108,29 +108,29 @@ newAPNSSandboxChannelResponse ::
   APNSSandboxChannelResponse
 newAPNSSandboxChannelResponse pPlatform_ =
   APNSSandboxChannelResponse'
-    { lastModifiedDate =
+    { applicationId =
         Prelude.Nothing,
-      applicationId = Prelude.Nothing,
+      lastModifiedDate = Prelude.Nothing,
       defaultAuthenticationMethod = Prelude.Nothing,
       hasCredential = Prelude.Nothing,
       hasTokenKey = Prelude.Nothing,
-      id = Prelude.Nothing,
-      creationDate = Prelude.Nothing,
       enabled = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
+      id = Prelude.Nothing,
       version = Prelude.Nothing,
       isArchived = Prelude.Nothing,
       lastModifiedBy = Prelude.Nothing,
       platform = pPlatform_
     }
 
--- | The date and time when the APNs sandbox channel was last modified.
-aPNSSandboxChannelResponse_lastModifiedDate :: Lens.Lens' APNSSandboxChannelResponse (Prelude.Maybe Prelude.Text)
-aPNSSandboxChannelResponse_lastModifiedDate = Lens.lens (\APNSSandboxChannelResponse' {lastModifiedDate} -> lastModifiedDate) (\s@APNSSandboxChannelResponse' {} a -> s {lastModifiedDate = a} :: APNSSandboxChannelResponse)
-
 -- | The unique identifier for the application that the APNs sandbox channel
 -- applies to.
 aPNSSandboxChannelResponse_applicationId :: Lens.Lens' APNSSandboxChannelResponse (Prelude.Maybe Prelude.Text)
 aPNSSandboxChannelResponse_applicationId = Lens.lens (\APNSSandboxChannelResponse' {applicationId} -> applicationId) (\s@APNSSandboxChannelResponse' {} a -> s {applicationId = a} :: APNSSandboxChannelResponse)
+
+-- | The date and time when the APNs sandbox channel was last modified.
+aPNSSandboxChannelResponse_lastModifiedDate :: Lens.Lens' APNSSandboxChannelResponse (Prelude.Maybe Prelude.Text)
+aPNSSandboxChannelResponse_lastModifiedDate = Lens.lens (\APNSSandboxChannelResponse' {lastModifiedDate} -> lastModifiedDate) (\s@APNSSandboxChannelResponse' {} a -> s {lastModifiedDate = a} :: APNSSandboxChannelResponse)
 
 -- | The default authentication method that Amazon Pinpoint uses to
 -- authenticate with the APNs sandbox environment for this channel, key or
@@ -148,19 +148,19 @@ aPNSSandboxChannelResponse_hasCredential = Lens.lens (\APNSSandboxChannelRespons
 aPNSSandboxChannelResponse_hasTokenKey :: Lens.Lens' APNSSandboxChannelResponse (Prelude.Maybe Prelude.Bool)
 aPNSSandboxChannelResponse_hasTokenKey = Lens.lens (\APNSSandboxChannelResponse' {hasTokenKey} -> hasTokenKey) (\s@APNSSandboxChannelResponse' {} a -> s {hasTokenKey = a} :: APNSSandboxChannelResponse)
 
--- | (Deprecated) An identifier for the APNs sandbox channel. This property
--- is retained only for backward compatibility.
-aPNSSandboxChannelResponse_id :: Lens.Lens' APNSSandboxChannelResponse (Prelude.Maybe Prelude.Text)
-aPNSSandboxChannelResponse_id = Lens.lens (\APNSSandboxChannelResponse' {id} -> id) (\s@APNSSandboxChannelResponse' {} a -> s {id = a} :: APNSSandboxChannelResponse)
+-- | Specifies whether the APNs sandbox channel is enabled for the
+-- application.
+aPNSSandboxChannelResponse_enabled :: Lens.Lens' APNSSandboxChannelResponse (Prelude.Maybe Prelude.Bool)
+aPNSSandboxChannelResponse_enabled = Lens.lens (\APNSSandboxChannelResponse' {enabled} -> enabled) (\s@APNSSandboxChannelResponse' {} a -> s {enabled = a} :: APNSSandboxChannelResponse)
 
 -- | The date and time when the APNs sandbox channel was enabled.
 aPNSSandboxChannelResponse_creationDate :: Lens.Lens' APNSSandboxChannelResponse (Prelude.Maybe Prelude.Text)
 aPNSSandboxChannelResponse_creationDate = Lens.lens (\APNSSandboxChannelResponse' {creationDate} -> creationDate) (\s@APNSSandboxChannelResponse' {} a -> s {creationDate = a} :: APNSSandboxChannelResponse)
 
--- | Specifies whether the APNs sandbox channel is enabled for the
--- application.
-aPNSSandboxChannelResponse_enabled :: Lens.Lens' APNSSandboxChannelResponse (Prelude.Maybe Prelude.Bool)
-aPNSSandboxChannelResponse_enabled = Lens.lens (\APNSSandboxChannelResponse' {enabled} -> enabled) (\s@APNSSandboxChannelResponse' {} a -> s {enabled = a} :: APNSSandboxChannelResponse)
+-- | (Deprecated) An identifier for the APNs sandbox channel. This property
+-- is retained only for backward compatibility.
+aPNSSandboxChannelResponse_id :: Lens.Lens' APNSSandboxChannelResponse (Prelude.Maybe Prelude.Text)
+aPNSSandboxChannelResponse_id = Lens.lens (\APNSSandboxChannelResponse' {id} -> id) (\s@APNSSandboxChannelResponse' {} a -> s {id = a} :: APNSSandboxChannelResponse)
 
 -- | The current version of the APNs sandbox channel.
 aPNSSandboxChannelResponse_version :: Lens.Lens' APNSSandboxChannelResponse (Prelude.Maybe Prelude.Int)
@@ -185,14 +185,14 @@ instance Core.FromJSON APNSSandboxChannelResponse where
       "APNSSandboxChannelResponse"
       ( \x ->
           APNSSandboxChannelResponse'
-            Prelude.<$> (x Core..:? "LastModifiedDate")
-            Prelude.<*> (x Core..:? "ApplicationId")
+            Prelude.<$> (x Core..:? "ApplicationId")
+            Prelude.<*> (x Core..:? "LastModifiedDate")
             Prelude.<*> (x Core..:? "DefaultAuthenticationMethod")
             Prelude.<*> (x Core..:? "HasCredential")
             Prelude.<*> (x Core..:? "HasTokenKey")
-            Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "CreationDate")
             Prelude.<*> (x Core..:? "Enabled")
+            Prelude.<*> (x Core..:? "CreationDate")
+            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Version")
             Prelude.<*> (x Core..:? "IsArchived")
             Prelude.<*> (x Core..:? "LastModifiedBy")

@@ -51,6 +51,7 @@ library
     Network.AWS.Pinpoint.CreateEmailTemplate
     Network.AWS.Pinpoint.CreateExportJob
     Network.AWS.Pinpoint.CreateImportJob
+    Network.AWS.Pinpoint.CreateInAppTemplate
     Network.AWS.Pinpoint.CreateJourney
     Network.AWS.Pinpoint.CreatePushTemplate
     Network.AWS.Pinpoint.CreateRecommenderConfiguration
@@ -70,6 +71,7 @@ library
     Network.AWS.Pinpoint.DeleteEndpoint
     Network.AWS.Pinpoint.DeleteEventStream
     Network.AWS.Pinpoint.DeleteGcmChannel
+    Network.AWS.Pinpoint.DeleteInAppTemplate
     Network.AWS.Pinpoint.DeleteJourney
     Network.AWS.Pinpoint.DeletePushTemplate
     Network.AWS.Pinpoint.DeleteRecommenderConfiguration
@@ -105,6 +107,8 @@ library
     Network.AWS.Pinpoint.GetGcmChannel
     Network.AWS.Pinpoint.GetImportJob
     Network.AWS.Pinpoint.GetImportJobs
+    Network.AWS.Pinpoint.GetInAppMessages
+    Network.AWS.Pinpoint.GetInAppTemplate
     Network.AWS.Pinpoint.GetJourney
     Network.AWS.Pinpoint.GetJourneyDateRangeKpi
     Network.AWS.Pinpoint.GetJourneyExecutionActivityMetrics
@@ -144,6 +148,7 @@ library
     Network.AWS.Pinpoint.Types.ADMChannelRequest
     Network.AWS.Pinpoint.Types.ADMChannelResponse
     Network.AWS.Pinpoint.Types.ADMMessage
+    Network.AWS.Pinpoint.Types.Alignment
     Network.AWS.Pinpoint.Types.AndroidPushNotificationTemplate
     Network.AWS.Pinpoint.Types.APNSChannelRequest
     Network.AWS.Pinpoint.Types.APNSChannelResponse
@@ -166,11 +171,13 @@ library
     Network.AWS.Pinpoint.Types.BaiduChannelResponse
     Network.AWS.Pinpoint.Types.BaiduMessage
     Network.AWS.Pinpoint.Types.BaseKpiResult
+    Network.AWS.Pinpoint.Types.ButtonAction
     Network.AWS.Pinpoint.Types.CampaignCustomMessage
     Network.AWS.Pinpoint.Types.CampaignDateRangeKpiResponse
     Network.AWS.Pinpoint.Types.CampaignEmailMessage
     Network.AWS.Pinpoint.Types.CampaignEventFilter
     Network.AWS.Pinpoint.Types.CampaignHook
+    Network.AWS.Pinpoint.Types.CampaignInAppMessage
     Network.AWS.Pinpoint.Types.CampaignLimits
     Network.AWS.Pinpoint.Types.CampaignResponse
     Network.AWS.Pinpoint.Types.CampaignSmsMessage
@@ -182,11 +189,13 @@ library
     Network.AWS.Pinpoint.Types.ChannelType
     Network.AWS.Pinpoint.Types.Condition
     Network.AWS.Pinpoint.Types.ConditionalSplitActivity
+    Network.AWS.Pinpoint.Types.ContactCenterActivity
     Network.AWS.Pinpoint.Types.CreateApplicationRequest
     Network.AWS.Pinpoint.Types.CreateRecommenderConfiguration
     Network.AWS.Pinpoint.Types.CreateTemplateMessageBody
     Network.AWS.Pinpoint.Types.CustomDeliveryConfiguration
     Network.AWS.Pinpoint.Types.CustomMessageActivity
+    Network.AWS.Pinpoint.Types.DefaultButtonConfiguration
     Network.AWS.Pinpoint.Types.DefaultMessage
     Network.AWS.Pinpoint.Types.DefaultPushNotificationMessage
     Network.AWS.Pinpoint.Types.DefaultPushNotificationTemplate
@@ -239,9 +248,20 @@ library
     Network.AWS.Pinpoint.Types.ImportJobResource
     Network.AWS.Pinpoint.Types.ImportJobResponse
     Network.AWS.Pinpoint.Types.ImportJobsResponse
+    Network.AWS.Pinpoint.Types.InAppCampaignSchedule
+    Network.AWS.Pinpoint.Types.InAppMessage
+    Network.AWS.Pinpoint.Types.InAppMessageBodyConfig
+    Network.AWS.Pinpoint.Types.InAppMessageButton
+    Network.AWS.Pinpoint.Types.InAppMessageCampaign
+    Network.AWS.Pinpoint.Types.InAppMessageContent
+    Network.AWS.Pinpoint.Types.InAppMessageHeaderConfig
+    Network.AWS.Pinpoint.Types.InAppMessagesResponse
+    Network.AWS.Pinpoint.Types.InAppTemplateRequest
+    Network.AWS.Pinpoint.Types.InAppTemplateResponse
     Network.AWS.Pinpoint.Types.Include
     Network.AWS.Pinpoint.Types.ItemResponse
     Network.AWS.Pinpoint.Types.JobStatus
+    Network.AWS.Pinpoint.Types.JourneyChannelSettings
     Network.AWS.Pinpoint.Types.JourneyCustomMessage
     Network.AWS.Pinpoint.Types.JourneyDateRangeKpiResponse
     Network.AWS.Pinpoint.Types.JourneyEmailMessage
@@ -254,6 +274,7 @@ library
     Network.AWS.Pinpoint.Types.JourneySMSMessage
     Network.AWS.Pinpoint.Types.JourneysResponse
     Network.AWS.Pinpoint.Types.JourneyStateRequest
+    Network.AWS.Pinpoint.Types.Layout
     Network.AWS.Pinpoint.Types.ListRecommenderConfigurationsResponse
     Network.AWS.Pinpoint.Types.Message
     Network.AWS.Pinpoint.Types.MessageBody
@@ -269,6 +290,7 @@ library
     Network.AWS.Pinpoint.Types.NumberValidateRequest
     Network.AWS.Pinpoint.Types.NumberValidateResponse
     Network.AWS.Pinpoint.Types.Operator
+    Network.AWS.Pinpoint.Types.OverrideButtonConfiguration
     Network.AWS.Pinpoint.Types.PublicEndpoint
     Network.AWS.Pinpoint.Types.PushMessageActivity
     Network.AWS.Pinpoint.Types.PushNotificationTemplateRequest
@@ -315,6 +337,7 @@ library
     Network.AWS.Pinpoint.Types.Template
     Network.AWS.Pinpoint.Types.TemplateActiveVersionRequest
     Network.AWS.Pinpoint.Types.TemplateConfiguration
+    Network.AWS.Pinpoint.Types.TemplateCreateMessageBody
     Network.AWS.Pinpoint.Types.TemplateResponse
     Network.AWS.Pinpoint.Types.TemplatesResponse
     Network.AWS.Pinpoint.Types.TemplateType
@@ -351,6 +374,7 @@ library
     Network.AWS.Pinpoint.UpdateEndpoint
     Network.AWS.Pinpoint.UpdateEndpointsBatch
     Network.AWS.Pinpoint.UpdateGcmChannel
+    Network.AWS.Pinpoint.UpdateInAppTemplate
     Network.AWS.Pinpoint.UpdateJourney
     Network.AWS.Pinpoint.UpdateJourneyState
     Network.AWS.Pinpoint.UpdatePushTemplate

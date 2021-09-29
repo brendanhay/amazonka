@@ -72,17 +72,11 @@ module Network.AWS.Pinpoint
     -- * Operations
     -- $operations
 
-    -- ** DeleteVoiceTemplate
-    DeleteVoiceTemplate (DeleteVoiceTemplate'),
-    newDeleteVoiceTemplate,
-    DeleteVoiceTemplateResponse (DeleteVoiceTemplateResponse'),
-    newDeleteVoiceTemplateResponse,
-
-    -- ** GetImportJobs
-    GetImportJobs (GetImportJobs'),
-    newGetImportJobs,
-    GetImportJobsResponse (GetImportJobsResponse'),
-    newGetImportJobsResponse,
+    -- ** UpdateCampaign
+    UpdateCampaign (UpdateCampaign'),
+    newUpdateCampaign,
+    UpdateCampaignResponse (UpdateCampaignResponse'),
+    newUpdateCampaignResponse,
 
     -- ** UpdatePushTemplate
     UpdatePushTemplate (UpdatePushTemplate'),
@@ -90,23 +84,23 @@ module Network.AWS.Pinpoint
     UpdatePushTemplateResponse (UpdatePushTemplateResponse'),
     newUpdatePushTemplateResponse,
 
-    -- ** DeleteCampaign
-    DeleteCampaign (DeleteCampaign'),
-    newDeleteCampaign,
-    DeleteCampaignResponse (DeleteCampaignResponse'),
-    newDeleteCampaignResponse,
+    -- ** DeleteInAppTemplate
+    DeleteInAppTemplate (DeleteInAppTemplate'),
+    newDeleteInAppTemplate,
+    DeleteInAppTemplateResponse (DeleteInAppTemplateResponse'),
+    newDeleteInAppTemplateResponse,
 
-    -- ** UpdateVoiceTemplate
-    UpdateVoiceTemplate (UpdateVoiceTemplate'),
-    newUpdateVoiceTemplate,
-    UpdateVoiceTemplateResponse (UpdateVoiceTemplateResponse'),
-    newUpdateVoiceTemplateResponse,
+    -- ** UpdateInAppTemplate
+    UpdateInAppTemplate (UpdateInAppTemplate'),
+    newUpdateInAppTemplate,
+    UpdateInAppTemplateResponse (UpdateInAppTemplateResponse'),
+    newUpdateInAppTemplateResponse,
 
-    -- ** UpdateCampaign
-    UpdateCampaign (UpdateCampaign'),
-    newUpdateCampaign,
-    UpdateCampaignResponse (UpdateCampaignResponse'),
-    newUpdateCampaignResponse,
+    -- ** DeleteVoiceTemplate
+    DeleteVoiceTemplate (DeleteVoiceTemplate'),
+    newDeleteVoiceTemplate,
+    DeleteVoiceTemplateResponse (DeleteVoiceTemplateResponse'),
+    newDeleteVoiceTemplateResponse,
 
     -- ** CreateRecommenderConfiguration
     CreateRecommenderConfiguration' (CreateRecommenderConfiguration''),
@@ -126,17 +120,23 @@ module Network.AWS.Pinpoint
     DeletePushTemplateResponse (DeletePushTemplateResponse'),
     newDeletePushTemplateResponse,
 
-    -- ** CreateJourney
-    CreateJourney (CreateJourney'),
-    newCreateJourney,
-    CreateJourneyResponse (CreateJourneyResponse'),
-    newCreateJourneyResponse,
+    -- ** GetImportJobs
+    GetImportJobs (GetImportJobs'),
+    newGetImportJobs,
+    GetImportJobsResponse (GetImportJobsResponse'),
+    newGetImportJobsResponse,
 
-    -- ** GetImportJob
-    GetImportJob (GetImportJob'),
-    newGetImportJob,
-    GetImportJobResponse (GetImportJobResponse'),
-    newGetImportJobResponse,
+    -- ** DeleteCampaign
+    DeleteCampaign (DeleteCampaign'),
+    newDeleteCampaign,
+    DeleteCampaignResponse (DeleteCampaignResponse'),
+    newDeleteCampaignResponse,
+
+    -- ** UpdateVoiceTemplate
+    UpdateVoiceTemplate (UpdateVoiceTemplate'),
+    newUpdateVoiceTemplate,
+    UpdateVoiceTemplateResponse (UpdateVoiceTemplateResponse'),
+    newUpdateVoiceTemplateResponse,
 
     -- ** GetSegmentVersions
     GetSegmentVersions (GetSegmentVersions'),
@@ -150,41 +150,35 @@ module Network.AWS.Pinpoint
     GetAppsResponse (GetAppsResponse'),
     newGetAppsResponse,
 
-    -- ** GetSegmentImportJobs
-    GetSegmentImportJobs (GetSegmentImportJobs'),
-    newGetSegmentImportJobs,
-    GetSegmentImportJobsResponse (GetSegmentImportJobsResponse'),
-    newGetSegmentImportJobsResponse,
-
     -- ** GetApnsSandboxChannel
     GetApnsSandboxChannel (GetApnsSandboxChannel'),
     newGetApnsSandboxChannel,
     GetApnsSandboxChannelResponse (GetApnsSandboxChannelResponse'),
     newGetApnsSandboxChannelResponse,
 
+    -- ** GetImportJob
+    GetImportJob (GetImportJob'),
+    newGetImportJob,
+    GetImportJobResponse (GetImportJobResponse'),
+    newGetImportJobResponse,
+
+    -- ** GetSegmentImportJobs
+    GetSegmentImportJobs (GetSegmentImportJobs'),
+    newGetSegmentImportJobs,
+    GetSegmentImportJobsResponse (GetSegmentImportJobsResponse'),
+    newGetSegmentImportJobsResponse,
+
+    -- ** CreateJourney
+    CreateJourney (CreateJourney'),
+    newCreateJourney,
+    CreateJourneyResponse (CreateJourneyResponse'),
+    newCreateJourneyResponse,
+
     -- ** SendMessages
     SendMessages (SendMessages'),
     newSendMessages,
     SendMessagesResponse (SendMessagesResponse'),
     newSendMessagesResponse,
-
-    -- ** CreateSmsTemplate
-    CreateSmsTemplate (CreateSmsTemplate'),
-    newCreateSmsTemplate,
-    CreateSmsTemplateResponse (CreateSmsTemplateResponse'),
-    newCreateSmsTemplateResponse,
-
-    -- ** RemoveAttributes
-    RemoveAttributes (RemoveAttributes'),
-    newRemoveAttributes,
-    RemoveAttributesResponse (RemoveAttributesResponse'),
-    newRemoveAttributesResponse,
-
-    -- ** GetApnsChannel
-    GetApnsChannel (GetApnsChannel'),
-    newGetApnsChannel,
-    GetApnsChannelResponse (GetApnsChannelResponse'),
-    newGetApnsChannelResponse,
 
     -- ** PhoneNumberValidate
     PhoneNumberValidate (PhoneNumberValidate'),
@@ -198,23 +192,29 @@ module Network.AWS.Pinpoint
     GetEmailChannelResponse (GetEmailChannelResponse'),
     newGetEmailChannelResponse,
 
+    -- ** GetApnsChannel
+    GetApnsChannel (GetApnsChannel'),
+    newGetApnsChannel,
+    GetApnsChannelResponse (GetApnsChannelResponse'),
+    newGetApnsChannelResponse,
+
+    -- ** RemoveAttributes
+    RemoveAttributes (RemoveAttributes'),
+    newRemoveAttributes,
+    RemoveAttributesResponse (RemoveAttributesResponse'),
+    newRemoveAttributesResponse,
+
+    -- ** CreateSmsTemplate
+    CreateSmsTemplate (CreateSmsTemplate'),
+    newCreateSmsTemplate,
+    CreateSmsTemplateResponse (CreateSmsTemplateResponse'),
+    newCreateSmsTemplateResponse,
+
     -- ** PutEventStream
     PutEventStream (PutEventStream'),
     newPutEventStream,
     PutEventStreamResponse (PutEventStreamResponse'),
     newPutEventStreamResponse,
-
-    -- ** GetJourneyExecutionActivityMetrics
-    GetJourneyExecutionActivityMetrics (GetJourneyExecutionActivityMetrics'),
-    newGetJourneyExecutionActivityMetrics,
-    GetJourneyExecutionActivityMetricsResponse (GetJourneyExecutionActivityMetricsResponse'),
-    newGetJourneyExecutionActivityMetricsResponse,
-
-    -- ** UpdateApnsChannel
-    UpdateApnsChannel (UpdateApnsChannel'),
-    newUpdateApnsChannel,
-    UpdateApnsChannelResponse (UpdateApnsChannelResponse'),
-    newUpdateApnsChannelResponse,
 
     -- ** DeleteApnsChannel
     DeleteApnsChannel (DeleteApnsChannel'),
@@ -228,6 +228,18 @@ module Network.AWS.Pinpoint
     GetBaiduChannelResponse (GetBaiduChannelResponse'),
     newGetBaiduChannelResponse,
 
+    -- ** GetJourneyExecutionActivityMetrics
+    GetJourneyExecutionActivityMetrics (GetJourneyExecutionActivityMetrics'),
+    newGetJourneyExecutionActivityMetrics,
+    GetJourneyExecutionActivityMetricsResponse (GetJourneyExecutionActivityMetricsResponse'),
+    newGetJourneyExecutionActivityMetricsResponse,
+
+    -- ** UpdateApnsChannel
+    UpdateApnsChannel (UpdateApnsChannel'),
+    newUpdateApnsChannel,
+    UpdateApnsChannelResponse (UpdateApnsChannelResponse'),
+    newUpdateApnsChannelResponse,
+
     -- ** GetChannels
     GetChannels (GetChannels'),
     newGetChannels,
@@ -240,11 +252,11 @@ module Network.AWS.Pinpoint
     GetRecommenderConfigurationsResponse (GetRecommenderConfigurationsResponse'),
     newGetRecommenderConfigurationsResponse,
 
-    -- ** UpdateGcmChannel
-    UpdateGcmChannel (UpdateGcmChannel'),
-    newUpdateGcmChannel,
-    UpdateGcmChannelResponse (UpdateGcmChannelResponse'),
-    newUpdateGcmChannelResponse,
+    -- ** UpdateApnsVoipSandboxChannel
+    UpdateApnsVoipSandboxChannel (UpdateApnsVoipSandboxChannel'),
+    newUpdateApnsVoipSandboxChannel,
+    UpdateApnsVoipSandboxChannelResponse (UpdateApnsVoipSandboxChannelResponse'),
+    newUpdateApnsVoipSandboxChannelResponse,
 
     -- ** DeleteGcmChannel
     DeleteGcmChannel (DeleteGcmChannel'),
@@ -252,11 +264,11 @@ module Network.AWS.Pinpoint
     DeleteGcmChannelResponse (DeleteGcmChannelResponse'),
     newDeleteGcmChannelResponse,
 
-    -- ** GetJourneyExecutionMetrics
-    GetJourneyExecutionMetrics (GetJourneyExecutionMetrics'),
-    newGetJourneyExecutionMetrics,
-    GetJourneyExecutionMetricsResponse (GetJourneyExecutionMetricsResponse'),
-    newGetJourneyExecutionMetricsResponse,
+    -- ** UpdateGcmChannel
+    UpdateGcmChannel (UpdateGcmChannel'),
+    newUpdateGcmChannel,
+    UpdateGcmChannelResponse (UpdateGcmChannelResponse'),
+    newUpdateGcmChannelResponse,
 
     -- ** GetVoiceChannel
     GetVoiceChannel (GetVoiceChannel'),
@@ -264,17 +276,17 @@ module Network.AWS.Pinpoint
     GetVoiceChannelResponse (GetVoiceChannelResponse'),
     newGetVoiceChannelResponse,
 
+    -- ** GetJourneyExecutionMetrics
+    GetJourneyExecutionMetrics (GetJourneyExecutionMetrics'),
+    newGetJourneyExecutionMetrics,
+    GetJourneyExecutionMetricsResponse (GetJourneyExecutionMetricsResponse'),
+    newGetJourneyExecutionMetricsResponse,
+
     -- ** UntagResource
     UntagResource (UntagResource'),
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
-
-    -- ** UpdateApnsVoipSandboxChannel
-    UpdateApnsVoipSandboxChannel (UpdateApnsVoipSandboxChannel'),
-    newUpdateApnsVoipSandboxChannel,
-    UpdateApnsVoipSandboxChannelResponse (UpdateApnsVoipSandboxChannelResponse'),
-    newUpdateApnsVoipSandboxChannelResponse,
 
     -- ** DeleteApnsVoipSandboxChannel
     DeleteApnsVoipSandboxChannel (DeleteApnsVoipSandboxChannel'),
@@ -282,11 +294,11 @@ module Network.AWS.Pinpoint
     DeleteApnsVoipSandboxChannelResponse (DeleteApnsVoipSandboxChannelResponse'),
     newDeleteApnsVoipSandboxChannelResponse,
 
-    -- ** GetVoiceTemplate
-    GetVoiceTemplate (GetVoiceTemplate'),
-    newGetVoiceTemplate,
-    GetVoiceTemplateResponse (GetVoiceTemplateResponse'),
-    newGetVoiceTemplateResponse,
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
 
     -- ** GetSmsChannel
     GetSmsChannel (GetSmsChannel'),
@@ -294,17 +306,35 @@ module Network.AWS.Pinpoint
     GetSmsChannelResponse (GetSmsChannelResponse'),
     newGetSmsChannelResponse,
 
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
+    -- ** GetVoiceTemplate
+    GetVoiceTemplate (GetVoiceTemplate'),
+    newGetVoiceTemplate,
+    GetVoiceTemplateResponse (GetVoiceTemplateResponse'),
+    newGetVoiceTemplateResponse,
+
+    -- ** GetInAppMessages
+    GetInAppMessages (GetInAppMessages'),
+    newGetInAppMessages,
+    GetInAppMessagesResponse (GetInAppMessagesResponse'),
+    newGetInAppMessagesResponse,
+
+    -- ** GetInAppTemplate
+    GetInAppTemplate (GetInAppTemplate'),
+    newGetInAppTemplate,
+    GetInAppTemplateResponse (GetInAppTemplateResponse'),
+    newGetInAppTemplateResponse,
 
     -- ** GetEndpoint
     GetEndpoint (GetEndpoint'),
     newGetEndpoint,
     GetEndpointResponse (GetEndpointResponse'),
     newGetEndpointResponse,
+
+    -- ** GetSegmentExportJobs
+    GetSegmentExportJobs (GetSegmentExportJobs'),
+    newGetSegmentExportJobs,
+    GetSegmentExportJobsResponse (GetSegmentExportJobsResponse'),
+    newGetSegmentExportJobsResponse,
 
     -- ** GetApplicationDateRangeKpi
     GetApplicationDateRangeKpi (GetApplicationDateRangeKpi'),
@@ -324,29 +354,11 @@ module Network.AWS.Pinpoint
     GetRecommenderConfigurationResponse (GetRecommenderConfigurationResponse'),
     newGetRecommenderConfigurationResponse,
 
-    -- ** GetSegmentExportJobs
-    GetSegmentExportJobs (GetSegmentExportJobs'),
-    newGetSegmentExportJobs,
-    GetSegmentExportJobsResponse (GetSegmentExportJobsResponse'),
-    newGetSegmentExportJobsResponse,
-
     -- ** UpdateSegment
     UpdateSegment (UpdateSegment'),
     newUpdateSegment,
     UpdateSegmentResponse (UpdateSegmentResponse'),
     newUpdateSegmentResponse,
-
-    -- ** DeleteSegment
-    DeleteSegment (DeleteSegment'),
-    newDeleteSegment,
-    DeleteSegmentResponse (DeleteSegmentResponse'),
-    newDeleteSegmentResponse,
-
-    -- ** CreatePushTemplate
-    CreatePushTemplate (CreatePushTemplate'),
-    newCreatePushTemplate,
-    CreatePushTemplateResponse (CreatePushTemplateResponse'),
-    newCreatePushTemplateResponse,
 
     -- ** DeleteAdmChannel
     DeleteAdmChannel (DeleteAdmChannel'),
@@ -354,35 +366,17 @@ module Network.AWS.Pinpoint
     DeleteAdmChannelResponse (DeleteAdmChannelResponse'),
     newDeleteAdmChannelResponse,
 
-    -- ** UpdateRecommenderConfiguration
-    UpdateRecommenderConfiguration' (UpdateRecommenderConfiguration''),
-    newUpdateRecommenderConfiguration',
-    UpdateRecommenderConfigurationResponse (UpdateRecommenderConfigurationResponse'),
-    newUpdateRecommenderConfigurationResponse,
-
     -- ** DeleteEndpoint
     DeleteEndpoint (DeleteEndpoint'),
     newDeleteEndpoint,
     DeleteEndpointResponse (DeleteEndpointResponse'),
     newDeleteEndpointResponse,
 
-    -- ** CreateCampaign
-    CreateCampaign (CreateCampaign'),
-    newCreateCampaign,
-    CreateCampaignResponse (CreateCampaignResponse'),
-    newCreateCampaignResponse,
-
-    -- ** UpdateEndpoint
-    UpdateEndpoint (UpdateEndpoint'),
-    newUpdateEndpoint,
-    UpdateEndpointResponse (UpdateEndpointResponse'),
-    newUpdateEndpointResponse,
-
-    -- ** GetEmailTemplate
-    GetEmailTemplate (GetEmailTemplate'),
-    newGetEmailTemplate,
-    GetEmailTemplateResponse (GetEmailTemplateResponse'),
-    newGetEmailTemplateResponse,
+    -- ** DeleteSegment
+    DeleteSegment (DeleteSegment'),
+    newDeleteSegment,
+    DeleteSegmentResponse (DeleteSegmentResponse'),
+    newDeleteSegmentResponse,
 
     -- ** DeleteRecommenderConfiguration
     DeleteRecommenderConfiguration (DeleteRecommenderConfiguration'),
@@ -390,41 +384,47 @@ module Network.AWS.Pinpoint
     DeleteRecommenderConfigurationResponse (DeleteRecommenderConfigurationResponse'),
     newDeleteRecommenderConfigurationResponse,
 
+    -- ** CreatePushTemplate
+    CreatePushTemplate (CreatePushTemplate'),
+    newCreatePushTemplate,
+    CreatePushTemplateResponse (CreatePushTemplateResponse'),
+    newCreatePushTemplateResponse,
+
+    -- ** UpdateEndpoint
+    UpdateEndpoint (UpdateEndpoint'),
+    newUpdateEndpoint,
+    UpdateEndpointResponse (UpdateEndpointResponse'),
+    newUpdateEndpointResponse,
+
+    -- ** UpdateRecommenderConfiguration
+    UpdateRecommenderConfiguration' (UpdateRecommenderConfiguration''),
+    newUpdateRecommenderConfiguration',
+    UpdateRecommenderConfigurationResponse (UpdateRecommenderConfigurationResponse'),
+    newUpdateRecommenderConfigurationResponse,
+
+    -- ** GetEmailTemplate
+    GetEmailTemplate (GetEmailTemplate'),
+    newGetEmailTemplate,
+    GetEmailTemplateResponse (GetEmailTemplateResponse'),
+    newGetEmailTemplateResponse,
+
+    -- ** CreateCampaign
+    CreateCampaign (CreateCampaign'),
+    newCreateCampaign,
+    CreateCampaignResponse (CreateCampaignResponse'),
+    newCreateCampaignResponse,
+
     -- ** UpdateAdmChannel
     UpdateAdmChannel (UpdateAdmChannel'),
     newUpdateAdmChannel,
     UpdateAdmChannelResponse (UpdateAdmChannelResponse'),
     newUpdateAdmChannelResponse,
 
-    -- ** DeleteSmsChannel
-    DeleteSmsChannel (DeleteSmsChannel'),
-    newDeleteSmsChannel,
-    DeleteSmsChannelResponse (DeleteSmsChannelResponse'),
-    newDeleteSmsChannelResponse,
-
-    -- ** GetJourneyDateRangeKpi
-    GetJourneyDateRangeKpi (GetJourneyDateRangeKpi'),
-    newGetJourneyDateRangeKpi,
-    GetJourneyDateRangeKpiResponse (GetJourneyDateRangeKpiResponse'),
-    newGetJourneyDateRangeKpiResponse,
-
     -- ** GetApp
     GetApp (GetApp'),
     newGetApp,
     GetAppResponse (GetAppResponse'),
     newGetAppResponse,
-
-    -- ** CreateExportJob
-    CreateExportJob (CreateExportJob'),
-    newCreateExportJob,
-    CreateExportJobResponse (CreateExportJobResponse'),
-    newCreateExportJobResponse,
-
-    -- ** GetUserEndpoints
-    GetUserEndpoints (GetUserEndpoints'),
-    newGetUserEndpoints,
-    GetUserEndpointsResponse (GetUserEndpointsResponse'),
-    newGetUserEndpointsResponse,
 
     -- ** GetSegmentVersion
     GetSegmentVersion (GetSegmentVersion'),
@@ -444,11 +444,29 @@ module Network.AWS.Pinpoint
     CreateSegmentResponse (CreateSegmentResponse'),
     newCreateSegmentResponse,
 
-    -- ** DeleteSmsTemplate
-    DeleteSmsTemplate (DeleteSmsTemplate'),
-    newDeleteSmsTemplate,
-    DeleteSmsTemplateResponse (DeleteSmsTemplateResponse'),
-    newDeleteSmsTemplateResponse,
+    -- ** DeleteSmsChannel
+    DeleteSmsChannel (DeleteSmsChannel'),
+    newDeleteSmsChannel,
+    DeleteSmsChannelResponse (DeleteSmsChannelResponse'),
+    newDeleteSmsChannelResponse,
+
+    -- ** GetUserEndpoints
+    GetUserEndpoints (GetUserEndpoints'),
+    newGetUserEndpoints,
+    GetUserEndpointsResponse (GetUserEndpointsResponse'),
+    newGetUserEndpointsResponse,
+
+    -- ** GetJourneyDateRangeKpi
+    GetJourneyDateRangeKpi (GetJourneyDateRangeKpi'),
+    newGetJourneyDateRangeKpi,
+    GetJourneyDateRangeKpiResponse (GetJourneyDateRangeKpiResponse'),
+    newGetJourneyDateRangeKpiResponse,
+
+    -- ** CreateExportJob
+    CreateExportJob (CreateExportJob'),
+    newCreateExportJob,
+    CreateExportJobResponse (CreateExportJobResponse'),
+    newCreateExportJobResponse,
 
     -- ** UpdateSmsTemplate
     UpdateSmsTemplate (UpdateSmsTemplate'),
@@ -456,17 +474,17 @@ module Network.AWS.Pinpoint
     UpdateSmsTemplateResponse (UpdateSmsTemplateResponse'),
     newUpdateSmsTemplateResponse,
 
-    -- ** GetGcmChannel
-    GetGcmChannel (GetGcmChannel'),
-    newGetGcmChannel,
-    GetGcmChannelResponse (GetGcmChannelResponse'),
-    newGetGcmChannelResponse,
-
     -- ** DeleteVoiceChannel
     DeleteVoiceChannel (DeleteVoiceChannel'),
     newDeleteVoiceChannel,
     DeleteVoiceChannelResponse (DeleteVoiceChannelResponse'),
     newDeleteVoiceChannelResponse,
+
+    -- ** GetGcmChannel
+    GetGcmChannel (GetGcmChannel'),
+    newGetGcmChannel,
+    GetGcmChannelResponse (GetGcmChannelResponse'),
+    newGetGcmChannelResponse,
 
     -- ** UpdateVoiceChannel
     UpdateVoiceChannel (UpdateVoiceChannel'),
@@ -474,23 +492,65 @@ module Network.AWS.Pinpoint
     UpdateVoiceChannelResponse (UpdateVoiceChannelResponse'),
     newUpdateVoiceChannelResponse,
 
+    -- ** DeleteSmsTemplate
+    DeleteSmsTemplate (DeleteSmsTemplate'),
+    newDeleteSmsTemplate,
+    DeleteSmsTemplateResponse (DeleteSmsTemplateResponse'),
+    newDeleteSmsTemplateResponse,
+
     -- ** GetApnsVoipSandboxChannel
     GetApnsVoipSandboxChannel (GetApnsVoipSandboxChannel'),
     newGetApnsVoipSandboxChannel,
     GetApnsVoipSandboxChannelResponse (GetApnsVoipSandboxChannelResponse'),
     newGetApnsVoipSandboxChannelResponse,
 
-    -- ** DeleteJourney
-    DeleteJourney (DeleteJourney'),
-    newDeleteJourney,
-    DeleteJourneyResponse (DeleteJourneyResponse'),
-    newDeleteJourneyResponse,
+    -- ** UpdateBaiduChannel
+    UpdateBaiduChannel (UpdateBaiduChannel'),
+    newUpdateBaiduChannel,
+    UpdateBaiduChannelResponse (UpdateBaiduChannelResponse'),
+    newUpdateBaiduChannelResponse,
+
+    -- ** DeleteEventStream
+    DeleteEventStream (DeleteEventStream'),
+    newDeleteEventStream,
+    DeleteEventStreamResponse (DeleteEventStreamResponse'),
+    newDeleteEventStreamResponse,
+
+    -- ** GetCampaignVersions
+    GetCampaignVersions (GetCampaignVersions'),
+    newGetCampaignVersions,
+    GetCampaignVersionsResponse (GetCampaignVersionsResponse'),
+    newGetCampaignVersionsResponse,
+
+    -- ** DeleteBaiduChannel
+    DeleteBaiduChannel (DeleteBaiduChannel'),
+    newDeleteBaiduChannel,
+    DeleteBaiduChannelResponse (DeleteBaiduChannelResponse'),
+    newDeleteBaiduChannelResponse,
+
+    -- ** GetApplicationSettings
+    GetApplicationSettings (GetApplicationSettings'),
+    newGetApplicationSettings,
+    GetApplicationSettingsResponse (GetApplicationSettingsResponse'),
+    newGetApplicationSettingsResponse,
 
     -- ** GetCampaignDateRangeKpi
     GetCampaignDateRangeKpi (GetCampaignDateRangeKpi'),
     newGetCampaignDateRangeKpi,
     GetCampaignDateRangeKpiResponse (GetCampaignDateRangeKpiResponse'),
     newGetCampaignDateRangeKpiResponse,
+
+    -- ** ListJourneys
+    ListJourneys (ListJourneys'),
+    newListJourneys,
+    ListJourneysResponse (ListJourneysResponse'),
+    newListJourneysResponse,
+
+    -- ** GetApnsVoipChannel
+    GetApnsVoipChannel (GetApnsVoipChannel'),
+    newGetApnsVoipChannel,
+    GetApnsVoipChannelResponse (GetApnsVoipChannelResponse'),
+    newGetApnsVoipChannelResponse,
 
     -- ** UpdateJourney
     UpdateJourney (UpdateJourney'),
@@ -504,89 +564,11 @@ module Network.AWS.Pinpoint
     ListTemplatesResponse (ListTemplatesResponse'),
     newListTemplatesResponse,
 
-    -- ** DeleteBaiduChannel
-    DeleteBaiduChannel (DeleteBaiduChannel'),
-    newDeleteBaiduChannel,
-    DeleteBaiduChannelResponse (DeleteBaiduChannelResponse'),
-    newDeleteBaiduChannelResponse,
-
-    -- ** GetCampaignVersions
-    GetCampaignVersions (GetCampaignVersions'),
-    newGetCampaignVersions,
-    GetCampaignVersionsResponse (GetCampaignVersionsResponse'),
-    newGetCampaignVersionsResponse,
-
-    -- ** GetApplicationSettings
-    GetApplicationSettings (GetApplicationSettings'),
-    newGetApplicationSettings,
-    GetApplicationSettingsResponse (GetApplicationSettingsResponse'),
-    newGetApplicationSettingsResponse,
-
-    -- ** GetApnsVoipChannel
-    GetApnsVoipChannel (GetApnsVoipChannel'),
-    newGetApnsVoipChannel,
-    GetApnsVoipChannelResponse (GetApnsVoipChannelResponse'),
-    newGetApnsVoipChannelResponse,
-
-    -- ** ListJourneys
-    ListJourneys (ListJourneys'),
-    newListJourneys,
-    ListJourneysResponse (ListJourneysResponse'),
-    newListJourneysResponse,
-
-    -- ** DeleteEventStream
-    DeleteEventStream (DeleteEventStream'),
-    newDeleteEventStream,
-    DeleteEventStreamResponse (DeleteEventStreamResponse'),
-    newDeleteEventStreamResponse,
-
-    -- ** UpdateBaiduChannel
-    UpdateBaiduChannel (UpdateBaiduChannel'),
-    newUpdateBaiduChannel,
-    UpdateBaiduChannelResponse (UpdateBaiduChannelResponse'),
-    newUpdateBaiduChannelResponse,
-
-    -- ** GetExportJobs
-    GetExportJobs (GetExportJobs'),
-    newGetExportJobs,
-    GetExportJobsResponse (GetExportJobsResponse'),
-    newGetExportJobsResponse,
-
-    -- ** GetSegments
-    GetSegments (GetSegments'),
-    newGetSegments,
-    GetSegmentsResponse (GetSegmentsResponse'),
-    newGetSegmentsResponse,
-
-    -- ** GetJourney
-    GetJourney (GetJourney'),
-    newGetJourney,
-    GetJourneyResponse (GetJourneyResponse'),
-    newGetJourneyResponse,
-
-    -- ** PutEvents
-    PutEvents (PutEvents'),
-    newPutEvents,
-    PutEventsResponse (PutEventsResponse'),
-    newPutEventsResponse,
-
-    -- ** DeleteApnsVoipChannel
-    DeleteApnsVoipChannel (DeleteApnsVoipChannel'),
-    newDeleteApnsVoipChannel,
-    DeleteApnsVoipChannelResponse (DeleteApnsVoipChannelResponse'),
-    newDeleteApnsVoipChannelResponse,
-
-    -- ** UpdateApnsVoipChannel
-    UpdateApnsVoipChannel (UpdateApnsVoipChannel'),
-    newUpdateApnsVoipChannel,
-    UpdateApnsVoipChannelResponse (UpdateApnsVoipChannelResponse'),
-    newUpdateApnsVoipChannelResponse,
-
-    -- ** CreateImportJob
-    CreateImportJob (CreateImportJob'),
-    newCreateImportJob,
-    CreateImportJobResponse (CreateImportJobResponse'),
-    newCreateImportJobResponse,
+    -- ** DeleteJourney
+    DeleteJourney (DeleteJourney'),
+    newDeleteJourney,
+    DeleteJourneyResponse (DeleteJourneyResponse'),
+    newDeleteJourneyResponse,
 
     -- ** UpdateEmailChannel
     UpdateEmailChannel (UpdateEmailChannel'),
@@ -594,17 +576,41 @@ module Network.AWS.Pinpoint
     UpdateEmailChannelResponse (UpdateEmailChannelResponse'),
     newUpdateEmailChannelResponse,
 
-    -- ** GetEventStream
-    GetEventStream (GetEventStream'),
-    newGetEventStream,
-    GetEventStreamResponse (GetEventStreamResponse'),
-    newGetEventStreamResponse,
+    -- ** UpdateJourneyState
+    UpdateJourneyState (UpdateJourneyState'),
+    newUpdateJourneyState,
+    UpdateJourneyStateResponse (UpdateJourneyStateResponse'),
+    newUpdateJourneyStateResponse,
 
-    -- ** SendUsersMessages
-    SendUsersMessages (SendUsersMessages'),
-    newSendUsersMessages,
-    SendUsersMessagesResponse (SendUsersMessagesResponse'),
-    newSendUsersMessagesResponse,
+    -- ** CreateImportJob
+    CreateImportJob (CreateImportJob'),
+    newCreateImportJob,
+    CreateImportJobResponse (CreateImportJobResponse'),
+    newCreateImportJobResponse,
+
+    -- ** DeleteApnsVoipChannel
+    DeleteApnsVoipChannel (DeleteApnsVoipChannel'),
+    newDeleteApnsVoipChannel,
+    DeleteApnsVoipChannelResponse (DeleteApnsVoipChannelResponse'),
+    newDeleteApnsVoipChannelResponse,
+
+    -- ** GetJourney
+    GetJourney (GetJourney'),
+    newGetJourney,
+    GetJourneyResponse (GetJourneyResponse'),
+    newGetJourneyResponse,
+
+    -- ** GetExportJobs
+    GetExportJobs (GetExportJobs'),
+    newGetExportJobs,
+    GetExportJobsResponse (GetExportJobsResponse'),
+    newGetExportJobsResponse,
+
+    -- ** PutEvents
+    PutEvents (PutEvents'),
+    newPutEvents,
+    PutEventsResponse (PutEventsResponse'),
+    newPutEventsResponse,
 
     -- ** DeleteEmailChannel
     DeleteEmailChannel (DeleteEmailChannel'),
@@ -618,41 +624,29 @@ module Network.AWS.Pinpoint
     UpdateApplicationSettingsResponse (UpdateApplicationSettingsResponse'),
     newUpdateApplicationSettingsResponse,
 
-    -- ** UpdateJourneyState
-    UpdateJourneyState (UpdateJourneyState'),
-    newUpdateJourneyState,
-    UpdateJourneyStateResponse (UpdateJourneyStateResponse'),
-    newUpdateJourneyStateResponse,
+    -- ** SendUsersMessages
+    SendUsersMessages (SendUsersMessages'),
+    newSendUsersMessages,
+    SendUsersMessagesResponse (SendUsersMessagesResponse'),
+    newSendUsersMessagesResponse,
 
-    -- ** ListTemplateVersions
-    ListTemplateVersions (ListTemplateVersions'),
-    newListTemplateVersions,
-    ListTemplateVersionsResponse (ListTemplateVersionsResponse'),
-    newListTemplateVersionsResponse,
+    -- ** GetSegments
+    GetSegments (GetSegments'),
+    newGetSegments,
+    GetSegmentsResponse (GetSegmentsResponse'),
+    newGetSegmentsResponse,
 
-    -- ** DeleteApnsSandboxChannel
-    DeleteApnsSandboxChannel (DeleteApnsSandboxChannel'),
-    newDeleteApnsSandboxChannel,
-    DeleteApnsSandboxChannelResponse (DeleteApnsSandboxChannelResponse'),
-    newDeleteApnsSandboxChannelResponse,
+    -- ** GetEventStream
+    GetEventStream (GetEventStream'),
+    newGetEventStream,
+    GetEventStreamResponse (GetEventStreamResponse'),
+    newGetEventStreamResponse,
 
-    -- ** GetCampaignActivities
-    GetCampaignActivities (GetCampaignActivities'),
-    newGetCampaignActivities,
-    GetCampaignActivitiesResponse (GetCampaignActivitiesResponse'),
-    newGetCampaignActivitiesResponse,
-
-    -- ** UpdateApnsSandboxChannel
-    UpdateApnsSandboxChannel (UpdateApnsSandboxChannel'),
-    newUpdateApnsSandboxChannel,
-    UpdateApnsSandboxChannelResponse (UpdateApnsSandboxChannelResponse'),
-    newUpdateApnsSandboxChannelResponse,
-
-    -- ** GetCampaigns
-    GetCampaigns (GetCampaigns'),
-    newGetCampaigns,
-    GetCampaignsResponse (GetCampaignsResponse'),
-    newGetCampaignsResponse,
+    -- ** UpdateApnsVoipChannel
+    UpdateApnsVoipChannel (UpdateApnsVoipChannel'),
+    newUpdateApnsVoipChannel,
+    UpdateApnsVoipChannelResponse (UpdateApnsVoipChannelResponse'),
+    newUpdateApnsVoipChannelResponse,
 
     -- ** GetSmsTemplate
     GetSmsTemplate (GetSmsTemplate'),
@@ -660,11 +654,35 @@ module Network.AWS.Pinpoint
     GetSmsTemplateResponse (GetSmsTemplateResponse'),
     newGetSmsTemplateResponse,
 
-    -- ** GetPushTemplate
-    GetPushTemplate (GetPushTemplate'),
-    newGetPushTemplate,
-    GetPushTemplateResponse (GetPushTemplateResponse'),
-    newGetPushTemplateResponse,
+    -- ** DeleteApnsSandboxChannel
+    DeleteApnsSandboxChannel (DeleteApnsSandboxChannel'),
+    newDeleteApnsSandboxChannel,
+    DeleteApnsSandboxChannelResponse (DeleteApnsSandboxChannelResponse'),
+    newDeleteApnsSandboxChannelResponse,
+
+    -- ** ListTemplateVersions
+    ListTemplateVersions (ListTemplateVersions'),
+    newListTemplateVersions,
+    ListTemplateVersionsResponse (ListTemplateVersionsResponse'),
+    newListTemplateVersionsResponse,
+
+    -- ** GetCampaignActivities
+    GetCampaignActivities (GetCampaignActivities'),
+    newGetCampaignActivities,
+    GetCampaignActivitiesResponse (GetCampaignActivitiesResponse'),
+    newGetCampaignActivitiesResponse,
+
+    -- ** GetCampaigns
+    GetCampaigns (GetCampaigns'),
+    newGetCampaigns,
+    GetCampaignsResponse (GetCampaignsResponse'),
+    newGetCampaignsResponse,
+
+    -- ** UpdateApnsSandboxChannel
+    UpdateApnsSandboxChannel (UpdateApnsSandboxChannel'),
+    newUpdateApnsSandboxChannel,
+    UpdateApnsSandboxChannelResponse (UpdateApnsSandboxChannelResponse'),
+    newUpdateApnsSandboxChannelResponse,
 
     -- ** GetCampaign
     GetCampaign (GetCampaign'),
@@ -672,17 +690,23 @@ module Network.AWS.Pinpoint
     GetCampaignResponse (GetCampaignResponse'),
     newGetCampaignResponse,
 
-    -- ** DeleteApp
-    DeleteApp (DeleteApp'),
-    newDeleteApp,
-    DeleteAppResponse (DeleteAppResponse'),
-    newDeleteAppResponse,
-
     -- ** DeleteUserEndpoints
     DeleteUserEndpoints (DeleteUserEndpoints'),
     newDeleteUserEndpoints,
     DeleteUserEndpointsResponse (DeleteUserEndpointsResponse'),
     newDeleteUserEndpointsResponse,
+
+    -- ** GetPushTemplate
+    GetPushTemplate (GetPushTemplate'),
+    newGetPushTemplate,
+    GetPushTemplateResponse (GetPushTemplateResponse'),
+    newGetPushTemplateResponse,
+
+    -- ** DeleteApp
+    DeleteApp (DeleteApp'),
+    newDeleteApp,
+    DeleteAppResponse (DeleteAppResponse'),
+    newDeleteAppResponse,
 
     -- ** CreateEmailTemplate
     CreateEmailTemplate (CreateEmailTemplate'),
@@ -690,23 +714,11 @@ module Network.AWS.Pinpoint
     CreateEmailTemplateResponse (CreateEmailTemplateResponse'),
     newCreateEmailTemplateResponse,
 
-    -- ** UpdateEmailTemplate
-    UpdateEmailTemplate (UpdateEmailTemplate'),
-    newUpdateEmailTemplate,
-    UpdateEmailTemplateResponse (UpdateEmailTemplateResponse'),
-    newUpdateEmailTemplateResponse,
-
-    -- ** DeleteEmailTemplate
-    DeleteEmailTemplate (DeleteEmailTemplate'),
-    newDeleteEmailTemplate,
-    DeleteEmailTemplateResponse (DeleteEmailTemplateResponse'),
-    newDeleteEmailTemplateResponse,
-
-    -- ** CreateApp
-    CreateApp (CreateApp'),
-    newCreateApp,
-    CreateAppResponse (CreateAppResponse'),
-    newCreateAppResponse,
+    -- ** GetSegment
+    GetSegment (GetSegment'),
+    newGetSegment,
+    GetSegmentResponse (GetSegmentResponse'),
+    newGetSegmentResponse,
 
     -- ** UpdateEndpointsBatch
     UpdateEndpointsBatch (UpdateEndpointsBatch'),
@@ -714,17 +726,35 @@ module Network.AWS.Pinpoint
     UpdateEndpointsBatchResponse (UpdateEndpointsBatchResponse'),
     newUpdateEndpointsBatchResponse,
 
+    -- ** CreateApp
+    CreateApp (CreateApp'),
+    newCreateApp,
+    CreateAppResponse (CreateAppResponse'),
+    newCreateAppResponse,
+
     -- ** GetExportJob
     GetExportJob (GetExportJob'),
     newGetExportJob,
     GetExportJobResponse (GetExportJobResponse'),
     newGetExportJobResponse,
 
-    -- ** GetSegment
-    GetSegment (GetSegment'),
-    newGetSegment,
-    GetSegmentResponse (GetSegmentResponse'),
-    newGetSegmentResponse,
+    -- ** DeleteEmailTemplate
+    DeleteEmailTemplate (DeleteEmailTemplate'),
+    newDeleteEmailTemplate,
+    DeleteEmailTemplateResponse (DeleteEmailTemplateResponse'),
+    newDeleteEmailTemplateResponse,
+
+    -- ** UpdateEmailTemplate
+    UpdateEmailTemplate (UpdateEmailTemplate'),
+    newUpdateEmailTemplate,
+    UpdateEmailTemplateResponse (UpdateEmailTemplateResponse'),
+    newUpdateEmailTemplateResponse,
+
+    -- ** CreateVoiceTemplate
+    CreateVoiceTemplate (CreateVoiceTemplate'),
+    newCreateVoiceTemplate,
+    CreateVoiceTemplateResponse (CreateVoiceTemplateResponse'),
+    newCreateVoiceTemplateResponse,
 
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
@@ -738,19 +768,25 @@ module Network.AWS.Pinpoint
     GetCampaignVersionResponse (GetCampaignVersionResponse'),
     newGetCampaignVersionResponse,
 
-    -- ** CreateVoiceTemplate
-    CreateVoiceTemplate (CreateVoiceTemplate'),
-    newCreateVoiceTemplate,
-    CreateVoiceTemplateResponse (CreateVoiceTemplateResponse'),
-    newCreateVoiceTemplateResponse,
+    -- ** CreateInAppTemplate
+    CreateInAppTemplate (CreateInAppTemplate'),
+    newCreateInAppTemplate,
+    CreateInAppTemplateResponse (CreateInAppTemplateResponse'),
+    newCreateInAppTemplateResponse,
 
     -- * Types
 
     -- ** Action
     Action (..),
 
+    -- ** Alignment
+    Alignment (..),
+
     -- ** AttributeType
     AttributeType (..),
+
+    -- ** ButtonAction
+    ButtonAction (..),
 
     -- ** CampaignStatus
     CampaignStatus (..),
@@ -784,6 +820,9 @@ module Network.AWS.Pinpoint
 
     -- ** JobStatus
     JobStatus (..),
+
+    -- ** Layout
+    Layout (..),
 
     -- ** MessageType
     MessageType (..),
@@ -944,6 +983,10 @@ module Network.AWS.Pinpoint
     CampaignHook (CampaignHook'),
     newCampaignHook,
 
+    -- ** CampaignInAppMessage
+    CampaignInAppMessage (CampaignInAppMessage'),
+    newCampaignInAppMessage,
+
     -- ** CampaignLimits
     CampaignLimits (CampaignLimits'),
     newCampaignLimits,
@@ -980,6 +1023,10 @@ module Network.AWS.Pinpoint
     ConditionalSplitActivity (ConditionalSplitActivity'),
     newConditionalSplitActivity,
 
+    -- ** ContactCenterActivity
+    ContactCenterActivity (ContactCenterActivity'),
+    newContactCenterActivity,
+
     -- ** CreateApplicationRequest
     CreateApplicationRequest (CreateApplicationRequest'),
     newCreateApplicationRequest,
@@ -999,6 +1046,10 @@ module Network.AWS.Pinpoint
     -- ** CustomMessageActivity
     CustomMessageActivity (CustomMessageActivity'),
     newCustomMessageActivity,
+
+    -- ** DefaultButtonConfiguration
+    DefaultButtonConfiguration (DefaultButtonConfiguration'),
+    newDefaultButtonConfiguration,
 
     -- ** DefaultMessage
     DefaultMessage (DefaultMessage'),
@@ -1180,9 +1231,53 @@ module Network.AWS.Pinpoint
     ImportJobsResponse (ImportJobsResponse'),
     newImportJobsResponse,
 
+    -- ** InAppCampaignSchedule
+    InAppCampaignSchedule (InAppCampaignSchedule'),
+    newInAppCampaignSchedule,
+
+    -- ** InAppMessage
+    InAppMessage (InAppMessage'),
+    newInAppMessage,
+
+    -- ** InAppMessageBodyConfig
+    InAppMessageBodyConfig (InAppMessageBodyConfig'),
+    newInAppMessageBodyConfig,
+
+    -- ** InAppMessageButton
+    InAppMessageButton (InAppMessageButton'),
+    newInAppMessageButton,
+
+    -- ** InAppMessageCampaign
+    InAppMessageCampaign (InAppMessageCampaign'),
+    newInAppMessageCampaign,
+
+    -- ** InAppMessageContent
+    InAppMessageContent (InAppMessageContent'),
+    newInAppMessageContent,
+
+    -- ** InAppMessageHeaderConfig
+    InAppMessageHeaderConfig (InAppMessageHeaderConfig'),
+    newInAppMessageHeaderConfig,
+
+    -- ** InAppMessagesResponse
+    InAppMessagesResponse (InAppMessagesResponse'),
+    newInAppMessagesResponse,
+
+    -- ** InAppTemplateRequest
+    InAppTemplateRequest (InAppTemplateRequest'),
+    newInAppTemplateRequest,
+
+    -- ** InAppTemplateResponse
+    InAppTemplateResponse (InAppTemplateResponse'),
+    newInAppTemplateResponse,
+
     -- ** ItemResponse
     ItemResponse (ItemResponse'),
     newItemResponse,
+
+    -- ** JourneyChannelSettings
+    JourneyChannelSettings (JourneyChannelSettings'),
+    newJourneyChannelSettings,
 
     -- ** JourneyCustomMessage
     JourneyCustomMessage (JourneyCustomMessage'),
@@ -1279,6 +1374,10 @@ module Network.AWS.Pinpoint
     -- ** NumberValidateResponse
     NumberValidateResponse (NumberValidateResponse'),
     newNumberValidateResponse,
+
+    -- ** OverrideButtonConfiguration
+    OverrideButtonConfiguration (OverrideButtonConfiguration'),
+    newOverrideButtonConfiguration,
 
     -- ** PublicEndpoint
     PublicEndpoint (PublicEndpoint'),
@@ -1448,6 +1547,10 @@ module Network.AWS.Pinpoint
     TemplateConfiguration (TemplateConfiguration'),
     newTemplateConfiguration,
 
+    -- ** TemplateCreateMessageBody
+    TemplateCreateMessageBody (TemplateCreateMessageBody'),
+    newTemplateCreateMessageBody,
+
     -- ** TemplateResponse
     TemplateResponse (TemplateResponse'),
     newTemplateResponse,
@@ -1535,6 +1638,7 @@ import Network.AWS.Pinpoint.CreateCampaign
 import Network.AWS.Pinpoint.CreateEmailTemplate
 import Network.AWS.Pinpoint.CreateExportJob
 import Network.AWS.Pinpoint.CreateImportJob
+import Network.AWS.Pinpoint.CreateInAppTemplate
 import Network.AWS.Pinpoint.CreateJourney
 import Network.AWS.Pinpoint.CreatePushTemplate
 import Network.AWS.Pinpoint.CreateRecommenderConfiguration
@@ -1554,6 +1658,7 @@ import Network.AWS.Pinpoint.DeleteEmailTemplate
 import Network.AWS.Pinpoint.DeleteEndpoint
 import Network.AWS.Pinpoint.DeleteEventStream
 import Network.AWS.Pinpoint.DeleteGcmChannel
+import Network.AWS.Pinpoint.DeleteInAppTemplate
 import Network.AWS.Pinpoint.DeleteJourney
 import Network.AWS.Pinpoint.DeletePushTemplate
 import Network.AWS.Pinpoint.DeleteRecommenderConfiguration
@@ -1589,6 +1694,8 @@ import Network.AWS.Pinpoint.GetExportJobs
 import Network.AWS.Pinpoint.GetGcmChannel
 import Network.AWS.Pinpoint.GetImportJob
 import Network.AWS.Pinpoint.GetImportJobs
+import Network.AWS.Pinpoint.GetInAppMessages
+import Network.AWS.Pinpoint.GetInAppTemplate
 import Network.AWS.Pinpoint.GetJourney
 import Network.AWS.Pinpoint.GetJourneyDateRangeKpi
 import Network.AWS.Pinpoint.GetJourneyExecutionActivityMetrics
@@ -1634,6 +1741,7 @@ import Network.AWS.Pinpoint.UpdateEmailTemplate
 import Network.AWS.Pinpoint.UpdateEndpoint
 import Network.AWS.Pinpoint.UpdateEndpointsBatch
 import Network.AWS.Pinpoint.UpdateGcmChannel
+import Network.AWS.Pinpoint.UpdateInAppTemplate
 import Network.AWS.Pinpoint.UpdateJourney
 import Network.AWS.Pinpoint.UpdateJourneyState
 import Network.AWS.Pinpoint.UpdatePushTemplate

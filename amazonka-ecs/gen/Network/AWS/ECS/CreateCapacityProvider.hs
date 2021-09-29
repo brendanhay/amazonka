@@ -25,9 +25,9 @@
 -- facilitate cluster auto scaling.
 --
 -- Only capacity providers using an Auto Scaling group can be created.
--- Amazon ECS tasks on AWS Fargate use the @FARGATE@ and @FARGATE_SPOT@
+-- Amazon ECS tasks on Fargate use the @FARGATE@ and @FARGATE_SPOT@
 -- capacity providers which are already created and available to all
--- accounts in Regions supported by AWS Fargate.
+-- accounts in Regions supported by Fargate.
 module Network.AWS.ECS.CreateCapacityProvider
   ( -- * Creating a Request
     CreateCapacityProvider (..),
@@ -81,10 +81,10 @@ data CreateCapacityProvider = CreateCapacityProvider'
     -- -   Tag keys and values are case-sensitive.
     --
     -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
-    --     such as a prefix for either keys or values as it is reserved for AWS
-    --     use. You cannot edit or delete tag keys or values with this prefix.
-    --     Tags with this prefix do not count against your tags per resource
-    --     limit.
+    --     such as a prefix for either keys or values as it is reserved for
+    --     Amazon Web Services use. You cannot edit or delete tag keys or
+    --     values with this prefix. Tags with this prefix do not count against
+    --     your tags per resource limit.
     tags :: Prelude.Maybe [Tag],
     -- | The name of the capacity provider. Up to 255 characters are allowed,
     -- including letters (upper and lowercase), numbers, underscores, and
@@ -128,10 +128,10 @@ data CreateCapacityProvider = CreateCapacityProvider'
 -- -   Tag keys and values are case-sensitive.
 --
 -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
---     such as a prefix for either keys or values as it is reserved for AWS
---     use. You cannot edit or delete tag keys or values with this prefix.
---     Tags with this prefix do not count against your tags per resource
---     limit.
+--     such as a prefix for either keys or values as it is reserved for
+--     Amazon Web Services use. You cannot edit or delete tag keys or
+--     values with this prefix. Tags with this prefix do not count against
+--     your tags per resource limit.
 --
 -- 'name', 'createCapacityProvider_name' - The name of the capacity provider. Up to 255 characters are allowed,
 -- including letters (upper and lowercase), numbers, underscores, and
@@ -179,10 +179,10 @@ newCreateCapacityProvider
 -- -   Tag keys and values are case-sensitive.
 --
 -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
---     such as a prefix for either keys or values as it is reserved for AWS
---     use. You cannot edit or delete tag keys or values with this prefix.
---     Tags with this prefix do not count against your tags per resource
---     limit.
+--     such as a prefix for either keys or values as it is reserved for
+--     Amazon Web Services use. You cannot edit or delete tag keys or
+--     values with this prefix. Tags with this prefix do not count against
+--     your tags per resource limit.
 createCapacityProvider_tags :: Lens.Lens' CreateCapacityProvider (Prelude.Maybe [Tag])
 createCapacityProvider_tags = Lens.lens (\CreateCapacityProvider' {tags} -> tags) (\s@CreateCapacityProvider' {} a -> s {tags = a} :: CreateCapacityProvider) Prelude.. Lens.mapping Lens._Coerce
 

@@ -26,11 +26,10 @@ import qualified Network.AWS.Prelude as Prelude
 
 -- | An object representing a constraint on task placement in the task
 -- definition. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html Task Placement Constraints>
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html Task placement constraints>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
--- If you are using the Fargate launch type, task placement constraints are
--- not supported.
+-- Task placement constraints are not supported for tasks run on Fargate.
 --
 -- /See:/ 'newTaskDefinitionPlacementConstraint' smart constructor.
 data TaskDefinitionPlacementConstraint = TaskDefinitionPlacementConstraint'
@@ -39,7 +38,7 @@ data TaskDefinitionPlacementConstraint = TaskDefinitionPlacementConstraint'
     type' :: Prelude.Maybe TaskDefinitionPlacementConstraintType,
     -- | A cluster query language expression to apply to the constraint. For more
     -- information, see
-    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster Query Language>
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster query language>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     expression :: Prelude.Maybe Prelude.Text
   }
@@ -58,7 +57,7 @@ data TaskDefinitionPlacementConstraint = TaskDefinitionPlacementConstraint'
 --
 -- 'expression', 'taskDefinitionPlacementConstraint_expression' - A cluster query language expression to apply to the constraint. For more
 -- information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster Query Language>
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster query language>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 newTaskDefinitionPlacementConstraint ::
   TaskDefinitionPlacementConstraint
@@ -76,7 +75,7 @@ taskDefinitionPlacementConstraint_type = Lens.lens (\TaskDefinitionPlacementCons
 
 -- | A cluster query language expression to apply to the constraint. For more
 -- information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster Query Language>
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster query language>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 taskDefinitionPlacementConstraint_expression :: Lens.Lens' TaskDefinitionPlacementConstraint (Prelude.Maybe Prelude.Text)
 taskDefinitionPlacementConstraint_expression = Lens.lens (\TaskDefinitionPlacementConstraint' {expression} -> expression) (\s@TaskDefinitionPlacementConstraint' {} a -> s {expression = a} :: TaskDefinitionPlacementConstraint)

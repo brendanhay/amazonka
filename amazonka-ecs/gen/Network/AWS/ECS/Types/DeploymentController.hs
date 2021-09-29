@@ -45,9 +45,8 @@ data DeploymentController = DeploymentController'
     --
     -- [CODE_DEPLOY]
     --     The blue\/green (@CODE_DEPLOY@) deployment type uses the blue\/green
-    --     deployment model powered by AWS CodeDeploy, which allows you to
-    --     verify a new deployment of a service before sending production
-    --     traffic to it.
+    --     deployment model powered by CodeDeploy, which allows you to verify a
+    --     new deployment of a service before sending production traffic to it.
     --
     -- [EXTERNAL]
     --     The external (@EXTERNAL@) deployment type enables you to use any
@@ -79,9 +78,8 @@ data DeploymentController = DeploymentController'
 --
 -- [CODE_DEPLOY]
 --     The blue\/green (@CODE_DEPLOY@) deployment type uses the blue\/green
---     deployment model powered by AWS CodeDeploy, which allows you to
---     verify a new deployment of a service before sending production
---     traffic to it.
+--     deployment model powered by CodeDeploy, which allows you to verify a
+--     new deployment of a service before sending production traffic to it.
 --
 -- [EXTERNAL]
 --     The external (@EXTERNAL@) deployment type enables you to use any
@@ -108,9 +106,8 @@ newDeploymentController pType_ =
 --
 -- [CODE_DEPLOY]
 --     The blue\/green (@CODE_DEPLOY@) deployment type uses the blue\/green
---     deployment model powered by AWS CodeDeploy, which allows you to
---     verify a new deployment of a service before sending production
---     traffic to it.
+--     deployment model powered by CodeDeploy, which allows you to verify a
+--     new deployment of a service before sending production traffic to it.
 --
 -- [EXTERNAL]
 --     The external (@EXTERNAL@) deployment type enables you to use any

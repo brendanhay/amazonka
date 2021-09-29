@@ -21,6 +21,7 @@ module Network.AWS.ECS.Types.LaunchType
   ( LaunchType
       ( ..,
         LaunchType_EC2,
+        LaunchType_EXTERNAL,
         LaunchType_FARGATE
       ),
   )
@@ -60,11 +61,15 @@ newtype LaunchType = LaunchType'
 pattern LaunchType_EC2 :: LaunchType
 pattern LaunchType_EC2 = LaunchType' "EC2"
 
+pattern LaunchType_EXTERNAL :: LaunchType
+pattern LaunchType_EXTERNAL = LaunchType' "EXTERNAL"
+
 pattern LaunchType_FARGATE :: LaunchType
 pattern LaunchType_FARGATE = LaunchType' "FARGATE"
 
 {-# COMPLETE
   LaunchType_EC2,
+  LaunchType_EXTERNAL,
   LaunchType_FARGATE,
   LaunchType'
   #-}

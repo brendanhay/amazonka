@@ -32,8 +32,8 @@ module Network.AWS.ECS.SubmitContainerStateChange
     -- * Request Lenses
     submitContainerStateChange_status,
     submitContainerStateChange_runtimeId,
-    submitContainerStateChange_task,
     submitContainerStateChange_exitCode,
+    submitContainerStateChange_task,
     submitContainerStateChange_networkBindings,
     submitContainerStateChange_reason,
     submitContainerStateChange_containerName,
@@ -62,11 +62,11 @@ data SubmitContainerStateChange = SubmitContainerStateChange'
     status :: Prelude.Maybe Prelude.Text,
     -- | The ID of the Docker container.
     runtimeId :: Prelude.Maybe Prelude.Text,
+    -- | The exit code returned for the state change request.
+    exitCode :: Prelude.Maybe Prelude.Int,
     -- | The task ID or full Amazon Resource Name (ARN) of the task that hosts
     -- the container.
     task :: Prelude.Maybe Prelude.Text,
-    -- | The exit code returned for the state change request.
-    exitCode :: Prelude.Maybe Prelude.Int,
     -- | The network bindings of the container.
     networkBindings :: Prelude.Maybe [NetworkBinding],
     -- | The reason for the state change request.
@@ -90,10 +90,10 @@ data SubmitContainerStateChange = SubmitContainerStateChange'
 --
 -- 'runtimeId', 'submitContainerStateChange_runtimeId' - The ID of the Docker container.
 --
+-- 'exitCode', 'submitContainerStateChange_exitCode' - The exit code returned for the state change request.
+--
 -- 'task', 'submitContainerStateChange_task' - The task ID or full Amazon Resource Name (ARN) of the task that hosts
 -- the container.
---
--- 'exitCode', 'submitContainerStateChange_exitCode' - The exit code returned for the state change request.
 --
 -- 'networkBindings', 'submitContainerStateChange_networkBindings' - The network bindings of the container.
 --
@@ -109,8 +109,8 @@ newSubmitContainerStateChange =
     { status =
         Prelude.Nothing,
       runtimeId = Prelude.Nothing,
-      task = Prelude.Nothing,
       exitCode = Prelude.Nothing,
+      task = Prelude.Nothing,
       networkBindings = Prelude.Nothing,
       reason = Prelude.Nothing,
       containerName = Prelude.Nothing,
@@ -125,14 +125,14 @@ submitContainerStateChange_status = Lens.lens (\SubmitContainerStateChange' {sta
 submitContainerStateChange_runtimeId :: Lens.Lens' SubmitContainerStateChange (Prelude.Maybe Prelude.Text)
 submitContainerStateChange_runtimeId = Lens.lens (\SubmitContainerStateChange' {runtimeId} -> runtimeId) (\s@SubmitContainerStateChange' {} a -> s {runtimeId = a} :: SubmitContainerStateChange)
 
+-- | The exit code returned for the state change request.
+submitContainerStateChange_exitCode :: Lens.Lens' SubmitContainerStateChange (Prelude.Maybe Prelude.Int)
+submitContainerStateChange_exitCode = Lens.lens (\SubmitContainerStateChange' {exitCode} -> exitCode) (\s@SubmitContainerStateChange' {} a -> s {exitCode = a} :: SubmitContainerStateChange)
+
 -- | The task ID or full Amazon Resource Name (ARN) of the task that hosts
 -- the container.
 submitContainerStateChange_task :: Lens.Lens' SubmitContainerStateChange (Prelude.Maybe Prelude.Text)
 submitContainerStateChange_task = Lens.lens (\SubmitContainerStateChange' {task} -> task) (\s@SubmitContainerStateChange' {} a -> s {task = a} :: SubmitContainerStateChange)
-
--- | The exit code returned for the state change request.
-submitContainerStateChange_exitCode :: Lens.Lens' SubmitContainerStateChange (Prelude.Maybe Prelude.Int)
-submitContainerStateChange_exitCode = Lens.lens (\SubmitContainerStateChange' {exitCode} -> exitCode) (\s@SubmitContainerStateChange' {} a -> s {exitCode = a} :: SubmitContainerStateChange)
 
 -- | The network bindings of the container.
 submitContainerStateChange_networkBindings :: Lens.Lens' SubmitContainerStateChange (Prelude.Maybe [NetworkBinding])
@@ -188,8 +188,8 @@ instance Core.ToJSON SubmitContainerStateChange where
       ( Prelude.catMaybes
           [ ("status" Core..=) Prelude.<$> status,
             ("runtimeId" Core..=) Prelude.<$> runtimeId,
-            ("task" Core..=) Prelude.<$> task,
             ("exitCode" Core..=) Prelude.<$> exitCode,
+            ("task" Core..=) Prelude.<$> task,
             ("networkBindings" Core..=)
               Prelude.<$> networkBindings,
             ("reason" Core..=) Prelude.<$> reason,

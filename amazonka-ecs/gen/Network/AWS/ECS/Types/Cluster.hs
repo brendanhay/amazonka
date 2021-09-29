@@ -22,6 +22,7 @@ module Network.AWS.ECS.Types.Cluster where
 import qualified Network.AWS.Core as Core
 import Network.AWS.ECS.Types.Attachment
 import Network.AWS.ECS.Types.CapacityProviderStrategyItem
+import Network.AWS.ECS.Types.ClusterConfiguration
 import Network.AWS.ECS.Types.ClusterSetting
 import Network.AWS.ECS.Types.KeyValuePair
 import Network.AWS.ECS.Types.Tag
@@ -38,8 +39,8 @@ import qualified Network.AWS.Prelude as Prelude
 data Cluster = Cluster'
   { -- | The Amazon Resource Name (ARN) that identifies the cluster. The ARN
     -- contains the @arn:aws:ecs@ namespace, followed by the Region of the
-    -- cluster, the AWS account ID of the cluster owner, the @cluster@
-    -- namespace, and then the cluster name. For example,
+    -- cluster, the Amazon Web Services account ID of the cluster owner, the
+    -- @cluster@ namespace, and then the cluster name. For example,
     -- @arn:aws:ecs:region:012345678910:cluster\/test@.
     clusterArn :: Prelude.Maybe Prelude.Text,
     -- | The status of the cluster. The following are the possible states that
@@ -73,6 +74,8 @@ data Cluster = Cluster'
     -- | The number of container instances registered into the cluster. This
     -- includes container instances in both @ACTIVE@ and @DRAINING@ status.
     registeredContainerInstancesCount :: Prelude.Maybe Prelude.Int,
+    -- | The execute command configuration for the cluster.
+    configuration :: Prelude.Maybe ClusterConfiguration,
     -- | Additional information about your clusters that are separated by launch
     -- type, including:
     --
@@ -122,11 +125,13 @@ data Cluster = Cluster'
     -- -   Tag keys and values are case-sensitive.
     --
     -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
-    --     such as a prefix for either keys or values as it is reserved for AWS
-    --     use. You cannot edit or delete tag keys or values with this prefix.
-    --     Tags with this prefix do not count against your tags per resource
-    --     limit.
+    --     such as a prefix for either keys or values as it is reserved for
+    --     Amazon Web Services use. You cannot edit or delete tag keys or
+    --     values with this prefix. Tags with this prefix do not count against
+    --     your tags per resource limit.
     tags :: Prelude.Maybe [Tag],
+    -- | The capacity providers associated with the cluster.
+    capacityProviders :: Prelude.Maybe [Prelude.Text],
     -- | The status of the capacity providers associated with the cluster. The
     -- following are the states that will be returned:
     --
@@ -140,19 +145,17 @@ data Cluster = Cluster'
     -- [UPDATE_FAILED]
     --     The capacity provider updates failed.
     attachmentsStatus :: Prelude.Maybe Prelude.Text,
-    -- | The capacity providers associated with the cluster.
-    capacityProviders :: Prelude.Maybe [Prelude.Text],
     -- | A user-generated string that you use to identify your cluster.
     clusterName :: Prelude.Maybe Prelude.Text,
     -- | The settings for the cluster. This parameter indicates whether
     -- CloudWatch Container Insights is enabled or disabled for a cluster.
     settings :: Prelude.Maybe [ClusterSetting],
+    -- | The number of tasks in the cluster that are in the @RUNNING@ state.
+    runningTasksCount :: Prelude.Maybe Prelude.Int,
     -- | The resources attached to a cluster. When using a capacity provider with
     -- a cluster, the Auto Scaling plan that is created will be returned as a
     -- cluster attachment.
-    attachments :: Prelude.Maybe [Attachment],
-    -- | The number of tasks in the cluster that are in the @RUNNING@ state.
-    runningTasksCount :: Prelude.Maybe Prelude.Int
+    attachments :: Prelude.Maybe [Attachment]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -166,8 +169,8 @@ data Cluster = Cluster'
 --
 -- 'clusterArn', 'cluster_clusterArn' - The Amazon Resource Name (ARN) that identifies the cluster. The ARN
 -- contains the @arn:aws:ecs@ namespace, followed by the Region of the
--- cluster, the AWS account ID of the cluster owner, the @cluster@
--- namespace, and then the cluster name. For example,
+-- cluster, the Amazon Web Services account ID of the cluster owner, the
+-- @cluster@ namespace, and then the cluster name. For example,
 -- @arn:aws:ecs:region:012345678910:cluster\/test@.
 --
 -- 'status', 'cluster_status' - The status of the cluster. The following are the possible states that
@@ -200,6 +203,8 @@ data Cluster = Cluster'
 --
 -- 'registeredContainerInstancesCount', 'cluster_registeredContainerInstancesCount' - The number of container instances registered into the cluster. This
 -- includes container instances in both @ACTIVE@ and @DRAINING@ status.
+--
+-- 'configuration', 'cluster_configuration' - The execute command configuration for the cluster.
 --
 -- 'statistics', 'cluster_statistics' - Additional information about your clusters that are separated by launch
 -- type, including:
@@ -250,10 +255,12 @@ data Cluster = Cluster'
 -- -   Tag keys and values are case-sensitive.
 --
 -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
---     such as a prefix for either keys or values as it is reserved for AWS
---     use. You cannot edit or delete tag keys or values with this prefix.
---     Tags with this prefix do not count against your tags per resource
---     limit.
+--     such as a prefix for either keys or values as it is reserved for
+--     Amazon Web Services use. You cannot edit or delete tag keys or
+--     values with this prefix. Tags with this prefix do not count against
+--     your tags per resource limit.
+--
+-- 'capacityProviders', 'cluster_capacityProviders' - The capacity providers associated with the cluster.
 --
 -- 'attachmentsStatus', 'cluster_attachmentsStatus' - The status of the capacity providers associated with the cluster. The
 -- following are the states that will be returned:
@@ -268,18 +275,16 @@ data Cluster = Cluster'
 -- [UPDATE_FAILED]
 --     The capacity provider updates failed.
 --
--- 'capacityProviders', 'cluster_capacityProviders' - The capacity providers associated with the cluster.
---
 -- 'clusterName', 'cluster_clusterName' - A user-generated string that you use to identify your cluster.
 --
 -- 'settings', 'cluster_settings' - The settings for the cluster. This parameter indicates whether
 -- CloudWatch Container Insights is enabled or disabled for a cluster.
 --
+-- 'runningTasksCount', 'cluster_runningTasksCount' - The number of tasks in the cluster that are in the @RUNNING@ state.
+--
 -- 'attachments', 'cluster_attachments' - The resources attached to a cluster. When using a capacity provider with
 -- a cluster, the Auto Scaling plan that is created will be returned as a
 -- cluster attachment.
---
--- 'runningTasksCount', 'cluster_runningTasksCount' - The number of tasks in the cluster that are in the @RUNNING@ state.
 newCluster ::
   Cluster
 newCluster =
@@ -288,22 +293,23 @@ newCluster =
       status = Prelude.Nothing,
       activeServicesCount = Prelude.Nothing,
       registeredContainerInstancesCount = Prelude.Nothing,
+      configuration = Prelude.Nothing,
       statistics = Prelude.Nothing,
       defaultCapacityProviderStrategy = Prelude.Nothing,
       pendingTasksCount = Prelude.Nothing,
       tags = Prelude.Nothing,
-      attachmentsStatus = Prelude.Nothing,
       capacityProviders = Prelude.Nothing,
+      attachmentsStatus = Prelude.Nothing,
       clusterName = Prelude.Nothing,
       settings = Prelude.Nothing,
-      attachments = Prelude.Nothing,
-      runningTasksCount = Prelude.Nothing
+      runningTasksCount = Prelude.Nothing,
+      attachments = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) that identifies the cluster. The ARN
 -- contains the @arn:aws:ecs@ namespace, followed by the Region of the
--- cluster, the AWS account ID of the cluster owner, the @cluster@
--- namespace, and then the cluster name. For example,
+-- cluster, the Amazon Web Services account ID of the cluster owner, the
+-- @cluster@ namespace, and then the cluster name. For example,
 -- @arn:aws:ecs:region:012345678910:cluster\/test@.
 cluster_clusterArn :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
 cluster_clusterArn = Lens.lens (\Cluster' {clusterArn} -> clusterArn) (\s@Cluster' {} a -> s {clusterArn = a} :: Cluster)
@@ -344,6 +350,10 @@ cluster_activeServicesCount = Lens.lens (\Cluster' {activeServicesCount} -> acti
 -- includes container instances in both @ACTIVE@ and @DRAINING@ status.
 cluster_registeredContainerInstancesCount :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Int)
 cluster_registeredContainerInstancesCount = Lens.lens (\Cluster' {registeredContainerInstancesCount} -> registeredContainerInstancesCount) (\s@Cluster' {} a -> s {registeredContainerInstancesCount = a} :: Cluster)
+
+-- | The execute command configuration for the cluster.
+cluster_configuration :: Lens.Lens' Cluster (Prelude.Maybe ClusterConfiguration)
+cluster_configuration = Lens.lens (\Cluster' {configuration} -> configuration) (\s@Cluster' {} a -> s {configuration = a} :: Cluster)
 
 -- | Additional information about your clusters that are separated by launch
 -- type, including:
@@ -400,12 +410,16 @@ cluster_pendingTasksCount = Lens.lens (\Cluster' {pendingTasksCount} -> pendingT
 -- -   Tag keys and values are case-sensitive.
 --
 -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
---     such as a prefix for either keys or values as it is reserved for AWS
---     use. You cannot edit or delete tag keys or values with this prefix.
---     Tags with this prefix do not count against your tags per resource
---     limit.
+--     such as a prefix for either keys or values as it is reserved for
+--     Amazon Web Services use. You cannot edit or delete tag keys or
+--     values with this prefix. Tags with this prefix do not count against
+--     your tags per resource limit.
 cluster_tags :: Lens.Lens' Cluster (Prelude.Maybe [Tag])
 cluster_tags = Lens.lens (\Cluster' {tags} -> tags) (\s@Cluster' {} a -> s {tags = a} :: Cluster) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The capacity providers associated with the cluster.
+cluster_capacityProviders :: Lens.Lens' Cluster (Prelude.Maybe [Prelude.Text])
+cluster_capacityProviders = Lens.lens (\Cluster' {capacityProviders} -> capacityProviders) (\s@Cluster' {} a -> s {capacityProviders = a} :: Cluster) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The status of the capacity providers associated with the cluster. The
 -- following are the states that will be returned:
@@ -422,10 +436,6 @@ cluster_tags = Lens.lens (\Cluster' {tags} -> tags) (\s@Cluster' {} a -> s {tags
 cluster_attachmentsStatus :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
 cluster_attachmentsStatus = Lens.lens (\Cluster' {attachmentsStatus} -> attachmentsStatus) (\s@Cluster' {} a -> s {attachmentsStatus = a} :: Cluster)
 
--- | The capacity providers associated with the cluster.
-cluster_capacityProviders :: Lens.Lens' Cluster (Prelude.Maybe [Prelude.Text])
-cluster_capacityProviders = Lens.lens (\Cluster' {capacityProviders} -> capacityProviders) (\s@Cluster' {} a -> s {capacityProviders = a} :: Cluster) Prelude.. Lens.mapping Lens._Coerce
-
 -- | A user-generated string that you use to identify your cluster.
 cluster_clusterName :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
 cluster_clusterName = Lens.lens (\Cluster' {clusterName} -> clusterName) (\s@Cluster' {} a -> s {clusterName = a} :: Cluster)
@@ -435,15 +445,15 @@ cluster_clusterName = Lens.lens (\Cluster' {clusterName} -> clusterName) (\s@Clu
 cluster_settings :: Lens.Lens' Cluster (Prelude.Maybe [ClusterSetting])
 cluster_settings = Lens.lens (\Cluster' {settings} -> settings) (\s@Cluster' {} a -> s {settings = a} :: Cluster) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The number of tasks in the cluster that are in the @RUNNING@ state.
+cluster_runningTasksCount :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Int)
+cluster_runningTasksCount = Lens.lens (\Cluster' {runningTasksCount} -> runningTasksCount) (\s@Cluster' {} a -> s {runningTasksCount = a} :: Cluster)
+
 -- | The resources attached to a cluster. When using a capacity provider with
 -- a cluster, the Auto Scaling plan that is created will be returned as a
 -- cluster attachment.
 cluster_attachments :: Lens.Lens' Cluster (Prelude.Maybe [Attachment])
 cluster_attachments = Lens.lens (\Cluster' {attachments} -> attachments) (\s@Cluster' {} a -> s {attachments = a} :: Cluster) Prelude.. Lens.mapping Lens._Coerce
-
--- | The number of tasks in the cluster that are in the @RUNNING@ state.
-cluster_runningTasksCount :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Int)
-cluster_runningTasksCount = Lens.lens (\Cluster' {runningTasksCount} -> runningTasksCount) (\s@Cluster' {} a -> s {runningTasksCount = a} :: Cluster)
 
 instance Core.FromJSON Cluster where
   parseJSON =
@@ -455,20 +465,21 @@ instance Core.FromJSON Cluster where
             Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "activeServicesCount")
             Prelude.<*> (x Core..:? "registeredContainerInstancesCount")
+            Prelude.<*> (x Core..:? "configuration")
             Prelude.<*> (x Core..:? "statistics" Core..!= Prelude.mempty)
             Prelude.<*> ( x Core..:? "defaultCapacityProviderStrategy"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "pendingTasksCount")
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "attachmentsStatus")
             Prelude.<*> ( x Core..:? "capacityProviders"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "attachmentsStatus")
             Prelude.<*> (x Core..:? "clusterName")
             Prelude.<*> (x Core..:? "settings" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "attachments" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "runningTasksCount")
+            Prelude.<*> (x Core..:? "attachments" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable Cluster

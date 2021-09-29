@@ -85,6 +85,9 @@ data ListAccountSettings = ListAccountSettings'
     -- | The ARN of the principal, which can be an IAM user, IAM role, or the
     -- root user. If this field is omitted, the account settings are listed
     -- only for the authenticated user.
+    --
+    -- Federated users assume the account setting of the root user and can\'t
+    -- have explicit account settings set for them.
     principalArn :: Prelude.Maybe Prelude.Text,
     -- | The value of the account settings with which to filter results. You must
     -- also specify an account setting name to use this parameter.
@@ -129,6 +132,9 @@ data ListAccountSettings = ListAccountSettings'
 -- 'principalArn', 'listAccountSettings_principalArn' - The ARN of the principal, which can be an IAM user, IAM role, or the
 -- root user. If this field is omitted, the account settings are listed
 -- only for the authenticated user.
+--
+-- Federated users assume the account setting of the root user and can\'t
+-- have explicit account settings set for them.
 --
 -- 'value', 'listAccountSettings_value' - The value of the account settings with which to filter results. You must
 -- also specify an account setting name to use this parameter.
@@ -181,6 +187,9 @@ listAccountSettings_name = Lens.lens (\ListAccountSettings' {name} -> name) (\s@
 -- | The ARN of the principal, which can be an IAM user, IAM role, or the
 -- root user. If this field is omitted, the account settings are listed
 -- only for the authenticated user.
+--
+-- Federated users assume the account setting of the root user and can\'t
+-- have explicit account settings set for them.
 listAccountSettings_principalArn :: Lens.Lens' ListAccountSettings (Prelude.Maybe Prelude.Text)
 listAccountSettings_principalArn = Lens.lens (\ListAccountSettings' {principalArn} -> principalArn) (\s@ListAccountSettings' {} a -> s {principalArn = a} :: ListAccountSettings)
 

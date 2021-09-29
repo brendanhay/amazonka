@@ -63,6 +63,8 @@ data UpdateTaskSet = UpdateTaskSet'
     -- | The short name or full Amazon Resource Name (ARN) of the task set to
     -- update.
     taskSet :: Prelude.Text,
+    -- | A floating-point percentage of the desired number of tasks to place and
+    -- keep running in the task set.
     scale :: Scale
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -84,7 +86,8 @@ data UpdateTaskSet = UpdateTaskSet'
 -- 'taskSet', 'updateTaskSet_taskSet' - The short name or full Amazon Resource Name (ARN) of the task set to
 -- update.
 --
--- 'scale', 'updateTaskSet_scale' - Undocumented member.
+-- 'scale', 'updateTaskSet_scale' - A floating-point percentage of the desired number of tasks to place and
+-- keep running in the task set.
 newUpdateTaskSet ::
   -- | 'cluster'
   Prelude.Text ->
@@ -122,7 +125,8 @@ updateTaskSet_service = Lens.lens (\UpdateTaskSet' {service} -> service) (\s@Upd
 updateTaskSet_taskSet :: Lens.Lens' UpdateTaskSet Prelude.Text
 updateTaskSet_taskSet = Lens.lens (\UpdateTaskSet' {taskSet} -> taskSet) (\s@UpdateTaskSet' {} a -> s {taskSet = a} :: UpdateTaskSet)
 
--- | Undocumented member.
+-- | A floating-point percentage of the desired number of tasks to place and
+-- keep running in the task set.
 updateTaskSet_scale :: Lens.Lens' UpdateTaskSet Scale
 updateTaskSet_scale = Lens.lens (\UpdateTaskSet' {scale} -> scale) (\s@UpdateTaskSet' {} a -> s {scale = a} :: UpdateTaskSet)
 
@@ -177,7 +181,8 @@ instance Core.ToQuery UpdateTaskSet where
 
 -- | /See:/ 'newUpdateTaskSetResponse' smart constructor.
 data UpdateTaskSetResponse = UpdateTaskSetResponse'
-  { taskSet :: Prelude.Maybe TaskSet,
+  { -- | Details about the task set.
+    taskSet :: Prelude.Maybe TaskSet,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -191,7 +196,7 @@ data UpdateTaskSetResponse = UpdateTaskSetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'taskSet', 'updateTaskSetResponse_taskSet' - Undocumented member.
+-- 'taskSet', 'updateTaskSetResponse_taskSet' - Details about the task set.
 --
 -- 'httpStatus', 'updateTaskSetResponse_httpStatus' - The response's http status code.
 newUpdateTaskSetResponse ::
@@ -204,7 +209,7 @@ newUpdateTaskSetResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | Details about the task set.
 updateTaskSetResponse_taskSet :: Lens.Lens' UpdateTaskSetResponse (Prelude.Maybe TaskSet)
 updateTaskSetResponse_taskSet = Lens.lens (\UpdateTaskSetResponse' {taskSet} -> taskSet) (\s@UpdateTaskSetResponse' {} a -> s {taskSet = a} :: UpdateTaskSetResponse)
 

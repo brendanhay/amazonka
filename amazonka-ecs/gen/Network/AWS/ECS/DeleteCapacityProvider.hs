@@ -143,7 +143,8 @@ instance Core.ToQuery DeleteCapacityProvider where
 
 -- | /See:/ 'newDeleteCapacityProviderResponse' smart constructor.
 data DeleteCapacityProviderResponse = DeleteCapacityProviderResponse'
-  { capacityProvider :: Prelude.Maybe CapacityProvider,
+  { -- | The details of the capacity provider.
+    capacityProvider :: Prelude.Maybe CapacityProvider,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -157,7 +158,7 @@ data DeleteCapacityProviderResponse = DeleteCapacityProviderResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'capacityProvider', 'deleteCapacityProviderResponse_capacityProvider' - Undocumented member.
+-- 'capacityProvider', 'deleteCapacityProviderResponse_capacityProvider' - The details of the capacity provider.
 --
 -- 'httpStatus', 'deleteCapacityProviderResponse_httpStatus' - The response's http status code.
 newDeleteCapacityProviderResponse ::
@@ -171,7 +172,7 @@ newDeleteCapacityProviderResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | The details of the capacity provider.
 deleteCapacityProviderResponse_capacityProvider :: Lens.Lens' DeleteCapacityProviderResponse (Prelude.Maybe CapacityProvider)
 deleteCapacityProviderResponse_capacityProvider = Lens.lens (\DeleteCapacityProviderResponse' {capacityProvider} -> capacityProvider) (\s@DeleteCapacityProviderResponse' {} a -> s {capacityProvider = a} :: DeleteCapacityProviderResponse)
 

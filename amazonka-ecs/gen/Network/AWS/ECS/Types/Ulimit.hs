@@ -26,6 +26,12 @@ import qualified Network.AWS.Prelude as Prelude
 
 -- | The @ulimit@ settings to pass to the container.
 --
+-- Amazon ECS tasks hosted on Fargate use the default resource limit values
+-- set by the operating system with the exception of the @nofile@ resource
+-- limit parameter which Fargate overrides. The @nofile@ resource limit
+-- sets a restriction on the number of open files that a container can use.
+-- The default @nofile@ soft limit is @1024@ and hard limit is @4096@.
+--
 -- /See:/ 'newUlimit' smart constructor.
 data Ulimit = Ulimit'
   { -- | The @type@ of the @ulimit@.

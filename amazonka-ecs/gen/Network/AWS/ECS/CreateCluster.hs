@@ -27,10 +27,10 @@
 --
 -- When you call the CreateCluster API operation, Amazon ECS attempts to
 -- create the Amazon ECS service-linked role for your account so that
--- required resources in other AWS services can be managed on your behalf.
--- However, if the IAM user that makes the call does not have permissions
--- to create the service-linked role, it is not created. For more
--- information, see
+-- required resources in other Amazon Web Services services can be managed
+-- on your behalf. However, if the IAM user that makes the call does not
+-- have permissions to create the service-linked role, it is not created.
+-- For more information, see
 -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html Using Service-Linked Roles for Amazon ECS>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 module Network.AWS.ECS.CreateCluster
@@ -39,6 +39,7 @@ module Network.AWS.ECS.CreateCluster
     newCreateCluster,
 
     -- * Request Lenses
+    createCluster_configuration,
     createCluster_defaultCapacityProviderStrategy,
     createCluster_tags,
     createCluster_capacityProviders,
@@ -64,27 +65,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateCluster' smart constructor.
 data CreateCluster = CreateCluster'
-  { -- | The capacity provider strategy to use by default for the cluster.
-    --
-    -- When creating a service or running a task on a cluster, if no capacity
-    -- provider or launch type is specified then the default capacity provider
+  { -- | The execute command configuration for the cluster.
+    configuration :: Prelude.Maybe ClusterConfiguration,
+    -- | The capacity provider strategy to set as the default for the cluster.
+    -- When a default capacity provider strategy is set for a cluster, when
+    -- calling the RunTask or CreateService APIs with no capacity provider
+    -- strategy or launch type specified, the default capacity provider
     -- strategy for the cluster is used.
-    --
-    -- A capacity provider strategy consists of one or more capacity providers
-    -- along with the @base@ and @weight@ to assign to them. A capacity
-    -- provider must be associated with the cluster to be used in a capacity
-    -- provider strategy. The PutClusterCapacityProviders API is used to
-    -- associate a capacity provider with a cluster. Only capacity providers
-    -- with an @ACTIVE@ or @UPDATING@ status can be used.
-    --
-    -- If specifying a capacity provider that uses an Auto Scaling group, the
-    -- capacity provider must already be created. New capacity providers can be
-    -- created with the CreateCapacityProvider API operation.
-    --
-    -- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or
-    -- @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers
-    -- are available to all accounts and only need to be associated with a
-    -- cluster to be used.
     --
     -- If a default capacity provider strategy is not defined for a cluster
     -- during creation, it can be defined later with the
@@ -114,23 +101,26 @@ data CreateCluster = CreateCluster'
     -- -   Tag keys and values are case-sensitive.
     --
     -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
-    --     such as a prefix for either keys or values as it is reserved for AWS
-    --     use. You cannot edit or delete tag keys or values with this prefix.
-    --     Tags with this prefix do not count against your tags per resource
-    --     limit.
+    --     such as a prefix for either keys or values as it is reserved for
+    --     Amazon Web Services use. You cannot edit or delete tag keys or
+    --     values with this prefix. Tags with this prefix do not count against
+    --     your tags per resource limit.
     tags :: Prelude.Maybe [Tag],
     -- | The short name of one or more capacity providers to associate with the
-    -- cluster.
+    -- cluster. A capacity provider must be associated with a cluster before it
+    -- can be included as part of the default capacity provider strategy of the
+    -- cluster or used in a capacity provider strategy when calling the
+    -- CreateService or RunTask actions.
     --
     -- If specifying a capacity provider that uses an Auto Scaling group, the
     -- capacity provider must already be created and not already associated
-    -- with another cluster. New capacity providers can be created with the
-    -- CreateCapacityProvider API operation.
+    -- with another cluster. New Auto Scaling group capacity providers can be
+    -- created with the CreateCapacityProvider API operation.
     --
-    -- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or
-    -- @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers
-    -- are available to all accounts and only need to be associated with a
-    -- cluster to be used.
+    -- To use a Fargate capacity provider, specify either the @FARGATE@ or
+    -- @FARGATE_SPOT@ capacity providers. The Fargate capacity providers are
+    -- available to all accounts and only need to be associated with a cluster
+    -- to be used.
     --
     -- The PutClusterCapacityProviders API operation is used to update the list
     -- of available capacity providers for a cluster after the cluster is
@@ -138,7 +128,7 @@ data CreateCluster = CreateCluster'
     capacityProviders :: Prelude.Maybe [Prelude.Text],
     -- | The name of your cluster. If you do not specify a name for your cluster,
     -- you create a cluster named @default@. Up to 255 letters (uppercase and
-    -- lowercase), numbers, and hyphens are allowed.
+    -- lowercase), numbers, underscores, and hyphens are allowed.
     clusterName :: Prelude.Maybe Prelude.Text,
     -- | The setting to use when creating a cluster. This parameter is used to
     -- enable CloudWatch Container Insights for a cluster. If this value is
@@ -156,27 +146,13 @@ data CreateCluster = CreateCluster'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'defaultCapacityProviderStrategy', 'createCluster_defaultCapacityProviderStrategy' - The capacity provider strategy to use by default for the cluster.
+-- 'configuration', 'createCluster_configuration' - The execute command configuration for the cluster.
 --
--- When creating a service or running a task on a cluster, if no capacity
--- provider or launch type is specified then the default capacity provider
+-- 'defaultCapacityProviderStrategy', 'createCluster_defaultCapacityProviderStrategy' - The capacity provider strategy to set as the default for the cluster.
+-- When a default capacity provider strategy is set for a cluster, when
+-- calling the RunTask or CreateService APIs with no capacity provider
+-- strategy or launch type specified, the default capacity provider
 -- strategy for the cluster is used.
---
--- A capacity provider strategy consists of one or more capacity providers
--- along with the @base@ and @weight@ to assign to them. A capacity
--- provider must be associated with the cluster to be used in a capacity
--- provider strategy. The PutClusterCapacityProviders API is used to
--- associate a capacity provider with a cluster. Only capacity providers
--- with an @ACTIVE@ or @UPDATING@ status can be used.
---
--- If specifying a capacity provider that uses an Auto Scaling group, the
--- capacity provider must already be created. New capacity providers can be
--- created with the CreateCapacityProvider API operation.
---
--- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or
--- @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers
--- are available to all accounts and only need to be associated with a
--- cluster to be used.
 --
 -- If a default capacity provider strategy is not defined for a cluster
 -- during creation, it can be defined later with the
@@ -206,23 +182,26 @@ data CreateCluster = CreateCluster'
 -- -   Tag keys and values are case-sensitive.
 --
 -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
---     such as a prefix for either keys or values as it is reserved for AWS
---     use. You cannot edit or delete tag keys or values with this prefix.
---     Tags with this prefix do not count against your tags per resource
---     limit.
+--     such as a prefix for either keys or values as it is reserved for
+--     Amazon Web Services use. You cannot edit or delete tag keys or
+--     values with this prefix. Tags with this prefix do not count against
+--     your tags per resource limit.
 --
 -- 'capacityProviders', 'createCluster_capacityProviders' - The short name of one or more capacity providers to associate with the
--- cluster.
+-- cluster. A capacity provider must be associated with a cluster before it
+-- can be included as part of the default capacity provider strategy of the
+-- cluster or used in a capacity provider strategy when calling the
+-- CreateService or RunTask actions.
 --
 -- If specifying a capacity provider that uses an Auto Scaling group, the
 -- capacity provider must already be created and not already associated
--- with another cluster. New capacity providers can be created with the
--- CreateCapacityProvider API operation.
+-- with another cluster. New Auto Scaling group capacity providers can be
+-- created with the CreateCapacityProvider API operation.
 --
--- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or
--- @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers
--- are available to all accounts and only need to be associated with a
--- cluster to be used.
+-- To use a Fargate capacity provider, specify either the @FARGATE@ or
+-- @FARGATE_SPOT@ capacity providers. The Fargate capacity providers are
+-- available to all accounts and only need to be associated with a cluster
+-- to be used.
 --
 -- The PutClusterCapacityProviders API operation is used to update the list
 -- of available capacity providers for a cluster after the cluster is
@@ -230,7 +209,7 @@ data CreateCluster = CreateCluster'
 --
 -- 'clusterName', 'createCluster_clusterName' - The name of your cluster. If you do not specify a name for your cluster,
 -- you create a cluster named @default@. Up to 255 letters (uppercase and
--- lowercase), numbers, and hyphens are allowed.
+-- lowercase), numbers, underscores, and hyphens are allowed.
 --
 -- 'settings', 'createCluster_settings' - The setting to use when creating a cluster. This parameter is used to
 -- enable CloudWatch Container Insights for a cluster. If this value is
@@ -240,35 +219,23 @@ newCreateCluster ::
   CreateCluster
 newCreateCluster =
   CreateCluster'
-    { defaultCapacityProviderStrategy =
-        Prelude.Nothing,
+    { configuration = Prelude.Nothing,
+      defaultCapacityProviderStrategy = Prelude.Nothing,
       tags = Prelude.Nothing,
       capacityProviders = Prelude.Nothing,
       clusterName = Prelude.Nothing,
       settings = Prelude.Nothing
     }
 
--- | The capacity provider strategy to use by default for the cluster.
---
--- When creating a service or running a task on a cluster, if no capacity
--- provider or launch type is specified then the default capacity provider
+-- | The execute command configuration for the cluster.
+createCluster_configuration :: Lens.Lens' CreateCluster (Prelude.Maybe ClusterConfiguration)
+createCluster_configuration = Lens.lens (\CreateCluster' {configuration} -> configuration) (\s@CreateCluster' {} a -> s {configuration = a} :: CreateCluster)
+
+-- | The capacity provider strategy to set as the default for the cluster.
+-- When a default capacity provider strategy is set for a cluster, when
+-- calling the RunTask or CreateService APIs with no capacity provider
+-- strategy or launch type specified, the default capacity provider
 -- strategy for the cluster is used.
---
--- A capacity provider strategy consists of one or more capacity providers
--- along with the @base@ and @weight@ to assign to them. A capacity
--- provider must be associated with the cluster to be used in a capacity
--- provider strategy. The PutClusterCapacityProviders API is used to
--- associate a capacity provider with a cluster. Only capacity providers
--- with an @ACTIVE@ or @UPDATING@ status can be used.
---
--- If specifying a capacity provider that uses an Auto Scaling group, the
--- capacity provider must already be created. New capacity providers can be
--- created with the CreateCapacityProvider API operation.
---
--- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or
--- @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers
--- are available to all accounts and only need to be associated with a
--- cluster to be used.
 --
 -- If a default capacity provider strategy is not defined for a cluster
 -- during creation, it can be defined later with the
@@ -300,25 +267,28 @@ createCluster_defaultCapacityProviderStrategy = Lens.lens (\CreateCluster' {defa
 -- -   Tag keys and values are case-sensitive.
 --
 -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
---     such as a prefix for either keys or values as it is reserved for AWS
---     use. You cannot edit or delete tag keys or values with this prefix.
---     Tags with this prefix do not count against your tags per resource
---     limit.
+--     such as a prefix for either keys or values as it is reserved for
+--     Amazon Web Services use. You cannot edit or delete tag keys or
+--     values with this prefix. Tags with this prefix do not count against
+--     your tags per resource limit.
 createCluster_tags :: Lens.Lens' CreateCluster (Prelude.Maybe [Tag])
 createCluster_tags = Lens.lens (\CreateCluster' {tags} -> tags) (\s@CreateCluster' {} a -> s {tags = a} :: CreateCluster) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The short name of one or more capacity providers to associate with the
--- cluster.
+-- cluster. A capacity provider must be associated with a cluster before it
+-- can be included as part of the default capacity provider strategy of the
+-- cluster or used in a capacity provider strategy when calling the
+-- CreateService or RunTask actions.
 --
 -- If specifying a capacity provider that uses an Auto Scaling group, the
 -- capacity provider must already be created and not already associated
--- with another cluster. New capacity providers can be created with the
--- CreateCapacityProvider API operation.
+-- with another cluster. New Auto Scaling group capacity providers can be
+-- created with the CreateCapacityProvider API operation.
 --
--- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or
--- @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers
--- are available to all accounts and only need to be associated with a
--- cluster to be used.
+-- To use a Fargate capacity provider, specify either the @FARGATE@ or
+-- @FARGATE_SPOT@ capacity providers. The Fargate capacity providers are
+-- available to all accounts and only need to be associated with a cluster
+-- to be used.
 --
 -- The PutClusterCapacityProviders API operation is used to update the list
 -- of available capacity providers for a cluster after the cluster is
@@ -328,7 +298,7 @@ createCluster_capacityProviders = Lens.lens (\CreateCluster' {capacityProviders}
 
 -- | The name of your cluster. If you do not specify a name for your cluster,
 -- you create a cluster named @default@. Up to 255 letters (uppercase and
--- lowercase), numbers, and hyphens are allowed.
+-- lowercase), numbers, underscores, and hyphens are allowed.
 createCluster_clusterName :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
 createCluster_clusterName = Lens.lens (\CreateCluster' {clusterName} -> clusterName) (\s@CreateCluster' {} a -> s {clusterName = a} :: CreateCluster)
 
@@ -375,7 +345,8 @@ instance Core.ToJSON CreateCluster where
   toJSON CreateCluster' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("defaultCapacityProviderStrategy" Core..=)
+          [ ("configuration" Core..=) Prelude.<$> configuration,
+            ("defaultCapacityProviderStrategy" Core..=)
               Prelude.<$> defaultCapacityProviderStrategy,
             ("tags" Core..=) Prelude.<$> tags,
             ("capacityProviders" Core..=)

@@ -167,7 +167,8 @@ instance Core.ToQuery UpdateServicePrimaryTaskSet where
 
 -- | /See:/ 'newUpdateServicePrimaryTaskSetResponse' smart constructor.
 data UpdateServicePrimaryTaskSetResponse = UpdateServicePrimaryTaskSetResponse'
-  { taskSet :: Prelude.Maybe TaskSet,
+  { -- | Details about the task set.
+    taskSet :: Prelude.Maybe TaskSet,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -181,7 +182,7 @@ data UpdateServicePrimaryTaskSetResponse = UpdateServicePrimaryTaskSetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'taskSet', 'updateServicePrimaryTaskSetResponse_taskSet' - Undocumented member.
+-- 'taskSet', 'updateServicePrimaryTaskSetResponse_taskSet' - Details about the task set.
 --
 -- 'httpStatus', 'updateServicePrimaryTaskSetResponse_httpStatus' - The response's http status code.
 newUpdateServicePrimaryTaskSetResponse ::
@@ -195,7 +196,7 @@ newUpdateServicePrimaryTaskSetResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
+-- | Details about the task set.
 updateServicePrimaryTaskSetResponse_taskSet :: Lens.Lens' UpdateServicePrimaryTaskSetResponse (Prelude.Maybe TaskSet)
 updateServicePrimaryTaskSetResponse_taskSet = Lens.lens (\UpdateServicePrimaryTaskSetResponse' {taskSet} -> taskSet) (\s@UpdateServicePrimaryTaskSetResponse' {} a -> s {taskSet = a} :: UpdateServicePrimaryTaskSetResponse)
 

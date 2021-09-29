@@ -41,13 +41,13 @@ data Secret = Secret'
   { -- | The name of the secret.
     name :: Prelude.Text,
     -- | The secret to expose to the container. The supported values are either
-    -- the full ARN of the AWS Secrets Manager secret or the full ARN of the
-    -- parameter in the AWS Systems Manager Parameter Store.
+    -- the full ARN of the Secrets Manager secret or the full ARN of the
+    -- parameter in the SSM Parameter Store.
     --
-    -- If the AWS Systems Manager Parameter Store parameter exists in the same
-    -- Region as the task you are launching, then you can use either the full
-    -- ARN or name of the parameter. If the parameter exists in a different
-    -- Region, then the full ARN must be specified.
+    -- If the SSM Parameter Store parameter exists in the same Region as the
+    -- task you are launching, then you can use either the full ARN or name of
+    -- the parameter. If the parameter exists in a different Region, then the
+    -- full ARN must be specified.
     valueFrom :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,13 +63,13 @@ data Secret = Secret'
 -- 'name', 'secret_name' - The name of the secret.
 --
 -- 'valueFrom', 'secret_valueFrom' - The secret to expose to the container. The supported values are either
--- the full ARN of the AWS Secrets Manager secret or the full ARN of the
--- parameter in the AWS Systems Manager Parameter Store.
+-- the full ARN of the Secrets Manager secret or the full ARN of the
+-- parameter in the SSM Parameter Store.
 --
--- If the AWS Systems Manager Parameter Store parameter exists in the same
--- Region as the task you are launching, then you can use either the full
--- ARN or name of the parameter. If the parameter exists in a different
--- Region, then the full ARN must be specified.
+-- If the SSM Parameter Store parameter exists in the same Region as the
+-- task you are launching, then you can use either the full ARN or name of
+-- the parameter. If the parameter exists in a different Region, then the
+-- full ARN must be specified.
 newSecret ::
   -- | 'name'
   Prelude.Text ->
@@ -84,13 +84,13 @@ secret_name :: Lens.Lens' Secret Prelude.Text
 secret_name = Lens.lens (\Secret' {name} -> name) (\s@Secret' {} a -> s {name = a} :: Secret)
 
 -- | The secret to expose to the container. The supported values are either
--- the full ARN of the AWS Secrets Manager secret or the full ARN of the
--- parameter in the AWS Systems Manager Parameter Store.
+-- the full ARN of the Secrets Manager secret or the full ARN of the
+-- parameter in the SSM Parameter Store.
 --
--- If the AWS Systems Manager Parameter Store parameter exists in the same
--- Region as the task you are launching, then you can use either the full
--- ARN or name of the parameter. If the parameter exists in a different
--- Region, then the full ARN must be specified.
+-- If the SSM Parameter Store parameter exists in the same Region as the
+-- task you are launching, then you can use either the full ARN or name of
+-- the parameter. If the parameter exists in a different Region, then the
+-- full ARN must be specified.
 secret_valueFrom :: Lens.Lens' Secret Prelude.Text
 secret_valueFrom = Lens.lens (\Secret' {valueFrom} -> valueFrom) (\s@Secret' {} a -> s {valueFrom = a} :: Secret)
 

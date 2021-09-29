@@ -33,15 +33,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newContainerOverride' smart constructor.
 data ContainerOverride = ContainerOverride'
-  { -- | The hard limit (in MiB) of memory to present to the container, instead
+  { -- | The soft limit (in MiB) of memory to reserve for the container, instead
+    -- of the default value from the task definition. You must also specify a
+    -- container name.
+    memoryReservation :: Prelude.Maybe Prelude.Int,
+    -- | The hard limit (in MiB) of memory to present to the container, instead
     -- of the default value from the task definition. If your container
     -- attempts to exceed the memory specified here, the container is killed.
     -- You must also specify a container name.
     memory :: Prelude.Maybe Prelude.Int,
-    -- | The soft limit (in MiB) of memory to reserve for the container, instead
-    -- of the default value from the task definition. You must also specify a
-    -- container name.
-    memoryReservation :: Prelude.Maybe Prelude.Int,
     -- | A list of files containing the environment variables to pass to a
     -- container, instead of the value from the container definition.
     environmentFiles :: Prelude.Maybe [EnvironmentFile],
@@ -50,13 +50,13 @@ data ContainerOverride = ContainerOverride'
     -- you can override the existing environment variables from the Docker
     -- image or the task definition. You must also specify a container name.
     environment :: Prelude.Maybe [KeyValuePair],
-    -- | The name of the container that receives the override. This parameter is
-    -- required if any override is specified.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The command to send to the container that overrides the default command
     -- from the Docker image or the task definition. You must also specify a
     -- container name.
     command :: Prelude.Maybe [Prelude.Text],
+    -- | The name of the container that receives the override. This parameter is
+    -- required if any override is specified.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The number of @cpu@ units reserved for the container, instead of the
     -- default value from the task definition. You must also specify a
     -- container name.
@@ -76,14 +76,14 @@ data ContainerOverride = ContainerOverride'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'memoryReservation', 'containerOverride_memoryReservation' - The soft limit (in MiB) of memory to reserve for the container, instead
+-- of the default value from the task definition. You must also specify a
+-- container name.
+--
 -- 'memory', 'containerOverride_memory' - The hard limit (in MiB) of memory to present to the container, instead
 -- of the default value from the task definition. If your container
 -- attempts to exceed the memory specified here, the container is killed.
 -- You must also specify a container name.
---
--- 'memoryReservation', 'containerOverride_memoryReservation' - The soft limit (in MiB) of memory to reserve for the container, instead
--- of the default value from the task definition. You must also specify a
--- container name.
 --
 -- 'environmentFiles', 'containerOverride_environmentFiles' - A list of files containing the environment variables to pass to a
 -- container, instead of the value from the container definition.
@@ -93,12 +93,12 @@ data ContainerOverride = ContainerOverride'
 -- you can override the existing environment variables from the Docker
 -- image or the task definition. You must also specify a container name.
 --
--- 'name', 'containerOverride_name' - The name of the container that receives the override. This parameter is
--- required if any override is specified.
---
 -- 'command', 'containerOverride_command' - The command to send to the container that overrides the default command
 -- from the Docker image or the task definition. You must also specify a
 -- container name.
+--
+-- 'name', 'containerOverride_name' - The name of the container that receives the override. This parameter is
+-- required if any override is specified.
 --
 -- 'cpu', 'containerOverride_cpu' - The number of @cpu@ units reserved for the container, instead of the
 -- default value from the task definition. You must also specify a
@@ -111,15 +111,22 @@ newContainerOverride ::
   ContainerOverride
 newContainerOverride =
   ContainerOverride'
-    { memory = Prelude.Nothing,
-      memoryReservation = Prelude.Nothing,
+    { memoryReservation =
+        Prelude.Nothing,
+      memory = Prelude.Nothing,
       environmentFiles = Prelude.Nothing,
       environment = Prelude.Nothing,
-      name = Prelude.Nothing,
       command = Prelude.Nothing,
+      name = Prelude.Nothing,
       cpu = Prelude.Nothing,
       resourceRequirements = Prelude.Nothing
     }
+
+-- | The soft limit (in MiB) of memory to reserve for the container, instead
+-- of the default value from the task definition. You must also specify a
+-- container name.
+containerOverride_memoryReservation :: Lens.Lens' ContainerOverride (Prelude.Maybe Prelude.Int)
+containerOverride_memoryReservation = Lens.lens (\ContainerOverride' {memoryReservation} -> memoryReservation) (\s@ContainerOverride' {} a -> s {memoryReservation = a} :: ContainerOverride)
 
 -- | The hard limit (in MiB) of memory to present to the container, instead
 -- of the default value from the task definition. If your container
@@ -127,12 +134,6 @@ newContainerOverride =
 -- You must also specify a container name.
 containerOverride_memory :: Lens.Lens' ContainerOverride (Prelude.Maybe Prelude.Int)
 containerOverride_memory = Lens.lens (\ContainerOverride' {memory} -> memory) (\s@ContainerOverride' {} a -> s {memory = a} :: ContainerOverride)
-
--- | The soft limit (in MiB) of memory to reserve for the container, instead
--- of the default value from the task definition. You must also specify a
--- container name.
-containerOverride_memoryReservation :: Lens.Lens' ContainerOverride (Prelude.Maybe Prelude.Int)
-containerOverride_memoryReservation = Lens.lens (\ContainerOverride' {memoryReservation} -> memoryReservation) (\s@ContainerOverride' {} a -> s {memoryReservation = a} :: ContainerOverride)
 
 -- | A list of files containing the environment variables to pass to a
 -- container, instead of the value from the container definition.
@@ -146,16 +147,16 @@ containerOverride_environmentFiles = Lens.lens (\ContainerOverride' {environment
 containerOverride_environment :: Lens.Lens' ContainerOverride (Prelude.Maybe [KeyValuePair])
 containerOverride_environment = Lens.lens (\ContainerOverride' {environment} -> environment) (\s@ContainerOverride' {} a -> s {environment = a} :: ContainerOverride) Prelude.. Lens.mapping Lens._Coerce
 
--- | The name of the container that receives the override. This parameter is
--- required if any override is specified.
-containerOverride_name :: Lens.Lens' ContainerOverride (Prelude.Maybe Prelude.Text)
-containerOverride_name = Lens.lens (\ContainerOverride' {name} -> name) (\s@ContainerOverride' {} a -> s {name = a} :: ContainerOverride)
-
 -- | The command to send to the container that overrides the default command
 -- from the Docker image or the task definition. You must also specify a
 -- container name.
 containerOverride_command :: Lens.Lens' ContainerOverride (Prelude.Maybe [Prelude.Text])
 containerOverride_command = Lens.lens (\ContainerOverride' {command} -> command) (\s@ContainerOverride' {} a -> s {command = a} :: ContainerOverride) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The name of the container that receives the override. This parameter is
+-- required if any override is specified.
+containerOverride_name :: Lens.Lens' ContainerOverride (Prelude.Maybe Prelude.Text)
+containerOverride_name = Lens.lens (\ContainerOverride' {name} -> name) (\s@ContainerOverride' {} a -> s {name = a} :: ContainerOverride)
 
 -- | The number of @cpu@ units reserved for the container, instead of the
 -- default value from the task definition. You must also specify a
@@ -175,14 +176,14 @@ instance Core.FromJSON ContainerOverride where
       "ContainerOverride"
       ( \x ->
           ContainerOverride'
-            Prelude.<$> (x Core..:? "memory")
-            Prelude.<*> (x Core..:? "memoryReservation")
+            Prelude.<$> (x Core..:? "memoryReservation")
+            Prelude.<*> (x Core..:? "memory")
             Prelude.<*> ( x Core..:? "environmentFiles"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "environment" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "command" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "cpu")
             Prelude.<*> ( x Core..:? "resourceRequirements"
                             Core..!= Prelude.mempty
@@ -197,14 +198,14 @@ instance Core.ToJSON ContainerOverride where
   toJSON ContainerOverride' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("memory" Core..=) Prelude.<$> memory,
-            ("memoryReservation" Core..=)
+          [ ("memoryReservation" Core..=)
               Prelude.<$> memoryReservation,
+            ("memory" Core..=) Prelude.<$> memory,
             ("environmentFiles" Core..=)
               Prelude.<$> environmentFiles,
             ("environment" Core..=) Prelude.<$> environment,
-            ("name" Core..=) Prelude.<$> name,
             ("command" Core..=) Prelude.<$> command,
+            ("name" Core..=) Prelude.<$> name,
             ("cpu" Core..=) Prelude.<$> cpu,
             ("resourceRequirements" Core..=)
               Prelude.<$> resourceRequirements

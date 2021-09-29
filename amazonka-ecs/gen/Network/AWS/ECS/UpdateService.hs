@@ -37,10 +37,10 @@
 -- controller, only the desired count, deployment configuration, task
 -- placement constraints and strategies, and health check grace period can
 -- be updated using this API. If the network configuration, platform
--- version, or task definition need to be updated, a new AWS CodeDeploy
+-- version, or task definition need to be updated, a new CodeDeploy
 -- deployment should be created. For more information, see
 -- <https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html CreateDeployment>
--- in the /AWS CodeDeploy API Reference/.
+-- in the /CodeDeploy API Reference/.
 --
 -- For services using an external deployment controller, you can update
 -- only the desired count, task placement constraints and strategies, and
@@ -139,15 +139,16 @@ module Network.AWS.ECS.UpdateService
 
     -- * Request Lenses
     updateService_deploymentConfiguration,
-    updateService_networkConfiguration,
     updateService_capacityProviderStrategy,
+    updateService_networkConfiguration,
     updateService_desiredCount,
     updateService_platformVersion,
     updateService_placementStrategy,
     updateService_placementConstraints,
+    updateService_enableExecuteCommand,
     updateService_healthCheckGracePeriodSeconds,
-    updateService_forceNewDeployment,
     updateService_taskDefinition,
+    updateService_forceNewDeployment,
     updateService_cluster,
     updateService_service,
 
@@ -173,7 +174,6 @@ data UpdateService = UpdateService'
   { -- | Optional deployment parameters that control how many tasks run during
     -- the deployment and the ordering of stopping and starting tasks.
     deploymentConfiguration :: Prelude.Maybe DeploymentConfiguration,
-    networkConfiguration :: Prelude.Maybe NetworkConfiguration,
     -- | The capacity provider strategy to update the service to use.
     --
     -- If the service is using the default capacity provider strategy for the
@@ -194,15 +194,17 @@ data UpdateService = UpdateService'
     -- capacity provider must already be created. New capacity providers can be
     -- created with the CreateCapacityProvider API operation.
     --
-    -- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or
-    -- @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers
-    -- are available to all accounts and only need to be associated with a
-    -- cluster to be used.
+    -- To use a Fargate capacity provider, specify either the @FARGATE@ or
+    -- @FARGATE_SPOT@ capacity providers. The Fargate capacity providers are
+    -- available to all accounts and only need to be associated with a cluster
+    -- to be used.
     --
     -- The PutClusterCapacityProviders API operation is used to update the list
     -- of available capacity providers for a cluster after the cluster is
     -- created.
     capacityProviderStrategy :: Prelude.Maybe [CapacityProviderStrategyItem],
+    -- | An object representing the network configuration for the service.
+    networkConfiguration :: Prelude.Maybe NetworkConfiguration,
     -- | The number of instantiations of the task to place and keep running in
     -- your service.
     desiredCount :: Prelude.Maybe Prelude.Int,
@@ -210,7 +212,7 @@ data UpdateService = UpdateService'
     -- platform version is only specified for tasks using the Fargate launch
     -- type. If a platform version is not specified, the @LATEST@ platform
     -- version is used by default. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions>
+    -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html Fargate Platform Versions>
     -- in the /Amazon Elastic Container Service Developer Guide/.
     platformVersion :: Prelude.Maybe Prelude.Text,
     -- | The task placement strategy objects to update the service to use. If no
@@ -231,6 +233,12 @@ data UpdateService = UpdateService'
     -- includes constraints in the task definition and those specified at
     -- runtime).
     placementConstraints :: Prelude.Maybe [PlacementConstraint],
+    -- | If @true@, this enables execute command functionality on all task
+    -- containers.
+    --
+    -- If you do not want to override the value that was set when the service
+    -- was created, you can set this to @null@ when performing this action.
+    enableExecuteCommand :: Prelude.Maybe Prelude.Bool,
     -- | The period of time, in seconds, that the Amazon ECS service scheduler
     -- should ignore unhealthy Elastic Load Balancing target health checks
     -- after a task has first started. This is only valid if your service is
@@ -242,13 +250,6 @@ data UpdateService = UpdateService'
     -- ECS service scheduler from marking tasks as unhealthy and stopping them
     -- before they have time to come up.
     healthCheckGracePeriodSeconds :: Prelude.Maybe Prelude.Int,
-    -- | Whether to force a new deployment of the service. Deployments are not
-    -- forced by default. You can use this option to trigger a new deployment
-    -- with no service definition changes. For example, you can update a
-    -- service\'s tasks to use a newer Docker image with the same image\/tag
-    -- combination (@my_image:latest@) or to roll Fargate tasks onto a newer
-    -- platform version.
-    forceNewDeployment :: Prelude.Maybe Prelude.Bool,
     -- | The @family@ and @revision@ (@family:revision@) or full ARN of the task
     -- definition to run in your service. If a @revision@ is not specified, the
     -- latest @ACTIVE@ revision is used. If you modify the task definition with
@@ -256,6 +257,13 @@ data UpdateService = UpdateService'
     -- task definition and then stops an old task after the new version is
     -- running.
     taskDefinition :: Prelude.Maybe Prelude.Text,
+    -- | Whether to force a new deployment of the service. Deployments are not
+    -- forced by default. You can use this option to trigger a new deployment
+    -- with no service definition changes. For example, you can update a
+    -- service\'s tasks to use a newer Docker image with the same image\/tag
+    -- combination (@my_image:latest@) or to roll Fargate tasks onto a newer
+    -- platform version.
+    forceNewDeployment :: Prelude.Maybe Prelude.Bool,
     -- | The short name or full Amazon Resource Name (ARN) of the cluster that
     -- your service is running on. If you do not specify a cluster, the default
     -- cluster is assumed.
@@ -275,8 +283,6 @@ data UpdateService = UpdateService'
 --
 -- 'deploymentConfiguration', 'updateService_deploymentConfiguration' - Optional deployment parameters that control how many tasks run during
 -- the deployment and the ordering of stopping and starting tasks.
---
--- 'networkConfiguration', 'updateService_networkConfiguration' - Undocumented member.
 --
 -- 'capacityProviderStrategy', 'updateService_capacityProviderStrategy' - The capacity provider strategy to update the service to use.
 --
@@ -298,14 +304,16 @@ data UpdateService = UpdateService'
 -- capacity provider must already be created. New capacity providers can be
 -- created with the CreateCapacityProvider API operation.
 --
--- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or
--- @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers
--- are available to all accounts and only need to be associated with a
--- cluster to be used.
+-- To use a Fargate capacity provider, specify either the @FARGATE@ or
+-- @FARGATE_SPOT@ capacity providers. The Fargate capacity providers are
+-- available to all accounts and only need to be associated with a cluster
+-- to be used.
 --
 -- The PutClusterCapacityProviders API operation is used to update the list
 -- of available capacity providers for a cluster after the cluster is
 -- created.
+--
+-- 'networkConfiguration', 'updateService_networkConfiguration' - An object representing the network configuration for the service.
 --
 -- 'desiredCount', 'updateService_desiredCount' - The number of instantiations of the task to place and keep running in
 -- your service.
@@ -314,7 +322,7 @@ data UpdateService = UpdateService'
 -- platform version is only specified for tasks using the Fargate launch
 -- type. If a platform version is not specified, the @LATEST@ platform
 -- version is used by default. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions>
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html Fargate Platform Versions>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 --
 -- 'placementStrategy', 'updateService_placementStrategy' - The task placement strategy objects to update the service to use. If no
@@ -335,6 +343,12 @@ data UpdateService = UpdateService'
 -- includes constraints in the task definition and those specified at
 -- runtime).
 --
+-- 'enableExecuteCommand', 'updateService_enableExecuteCommand' - If @true@, this enables execute command functionality on all task
+-- containers.
+--
+-- If you do not want to override the value that was set when the service
+-- was created, you can set this to @null@ when performing this action.
+--
 -- 'healthCheckGracePeriodSeconds', 'updateService_healthCheckGracePeriodSeconds' - The period of time, in seconds, that the Amazon ECS service scheduler
 -- should ignore unhealthy Elastic Load Balancing target health checks
 -- after a task has first started. This is only valid if your service is
@@ -346,19 +360,19 @@ data UpdateService = UpdateService'
 -- ECS service scheduler from marking tasks as unhealthy and stopping them
 -- before they have time to come up.
 --
--- 'forceNewDeployment', 'updateService_forceNewDeployment' - Whether to force a new deployment of the service. Deployments are not
--- forced by default. You can use this option to trigger a new deployment
--- with no service definition changes. For example, you can update a
--- service\'s tasks to use a newer Docker image with the same image\/tag
--- combination (@my_image:latest@) or to roll Fargate tasks onto a newer
--- platform version.
---
 -- 'taskDefinition', 'updateService_taskDefinition' - The @family@ and @revision@ (@family:revision@) or full ARN of the task
 -- definition to run in your service. If a @revision@ is not specified, the
 -- latest @ACTIVE@ revision is used. If you modify the task definition with
 -- @UpdateService@, Amazon ECS spawns a task with the new version of the
 -- task definition and then stops an old task after the new version is
 -- running.
+--
+-- 'forceNewDeployment', 'updateService_forceNewDeployment' - Whether to force a new deployment of the service. Deployments are not
+-- forced by default. You can use this option to trigger a new deployment
+-- with no service definition changes. For example, you can update a
+-- service\'s tasks to use a newer Docker image with the same image\/tag
+-- combination (@my_image:latest@) or to roll Fargate tasks onto a newer
+-- platform version.
 --
 -- 'cluster', 'updateService_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that
 -- your service is running on. If you do not specify a cluster, the default
@@ -373,15 +387,16 @@ newUpdateService pService_ =
   UpdateService'
     { deploymentConfiguration =
         Prelude.Nothing,
-      networkConfiguration = Prelude.Nothing,
       capacityProviderStrategy = Prelude.Nothing,
+      networkConfiguration = Prelude.Nothing,
       desiredCount = Prelude.Nothing,
       platformVersion = Prelude.Nothing,
       placementStrategy = Prelude.Nothing,
       placementConstraints = Prelude.Nothing,
+      enableExecuteCommand = Prelude.Nothing,
       healthCheckGracePeriodSeconds = Prelude.Nothing,
-      forceNewDeployment = Prelude.Nothing,
       taskDefinition = Prelude.Nothing,
+      forceNewDeployment = Prelude.Nothing,
       cluster = Prelude.Nothing,
       service = pService_
     }
@@ -390,10 +405,6 @@ newUpdateService pService_ =
 -- the deployment and the ordering of stopping and starting tasks.
 updateService_deploymentConfiguration :: Lens.Lens' UpdateService (Prelude.Maybe DeploymentConfiguration)
 updateService_deploymentConfiguration = Lens.lens (\UpdateService' {deploymentConfiguration} -> deploymentConfiguration) (\s@UpdateService' {} a -> s {deploymentConfiguration = a} :: UpdateService)
-
--- | Undocumented member.
-updateService_networkConfiguration :: Lens.Lens' UpdateService (Prelude.Maybe NetworkConfiguration)
-updateService_networkConfiguration = Lens.lens (\UpdateService' {networkConfiguration} -> networkConfiguration) (\s@UpdateService' {} a -> s {networkConfiguration = a} :: UpdateService)
 
 -- | The capacity provider strategy to update the service to use.
 --
@@ -415,16 +426,20 @@ updateService_networkConfiguration = Lens.lens (\UpdateService' {networkConfigur
 -- capacity provider must already be created. New capacity providers can be
 -- created with the CreateCapacityProvider API operation.
 --
--- To use a AWS Fargate capacity provider, specify either the @FARGATE@ or
--- @FARGATE_SPOT@ capacity providers. The AWS Fargate capacity providers
--- are available to all accounts and only need to be associated with a
--- cluster to be used.
+-- To use a Fargate capacity provider, specify either the @FARGATE@ or
+-- @FARGATE_SPOT@ capacity providers. The Fargate capacity providers are
+-- available to all accounts and only need to be associated with a cluster
+-- to be used.
 --
 -- The PutClusterCapacityProviders API operation is used to update the list
 -- of available capacity providers for a cluster after the cluster is
 -- created.
 updateService_capacityProviderStrategy :: Lens.Lens' UpdateService (Prelude.Maybe [CapacityProviderStrategyItem])
 updateService_capacityProviderStrategy = Lens.lens (\UpdateService' {capacityProviderStrategy} -> capacityProviderStrategy) (\s@UpdateService' {} a -> s {capacityProviderStrategy = a} :: UpdateService) Prelude.. Lens.mapping Lens._Coerce
+
+-- | An object representing the network configuration for the service.
+updateService_networkConfiguration :: Lens.Lens' UpdateService (Prelude.Maybe NetworkConfiguration)
+updateService_networkConfiguration = Lens.lens (\UpdateService' {networkConfiguration} -> networkConfiguration) (\s@UpdateService' {} a -> s {networkConfiguration = a} :: UpdateService)
 
 -- | The number of instantiations of the task to place and keep running in
 -- your service.
@@ -435,7 +450,7 @@ updateService_desiredCount = Lens.lens (\UpdateService' {desiredCount} -> desire
 -- platform version is only specified for tasks using the Fargate launch
 -- type. If a platform version is not specified, the @LATEST@ platform
 -- version is used by default. For more information, see
--- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html AWS Fargate Platform Versions>
+-- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html Fargate Platform Versions>
 -- in the /Amazon Elastic Container Service Developer Guide/.
 updateService_platformVersion :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Text)
 updateService_platformVersion = Lens.lens (\UpdateService' {platformVersion} -> platformVersion) (\s@UpdateService' {} a -> s {platformVersion = a} :: UpdateService)
@@ -462,6 +477,14 @@ updateService_placementStrategy = Lens.lens (\UpdateService' {placementStrategy}
 updateService_placementConstraints :: Lens.Lens' UpdateService (Prelude.Maybe [PlacementConstraint])
 updateService_placementConstraints = Lens.lens (\UpdateService' {placementConstraints} -> placementConstraints) (\s@UpdateService' {} a -> s {placementConstraints = a} :: UpdateService) Prelude.. Lens.mapping Lens._Coerce
 
+-- | If @true@, this enables execute command functionality on all task
+-- containers.
+--
+-- If you do not want to override the value that was set when the service
+-- was created, you can set this to @null@ when performing this action.
+updateService_enableExecuteCommand :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Bool)
+updateService_enableExecuteCommand = Lens.lens (\UpdateService' {enableExecuteCommand} -> enableExecuteCommand) (\s@UpdateService' {} a -> s {enableExecuteCommand = a} :: UpdateService)
+
 -- | The period of time, in seconds, that the Amazon ECS service scheduler
 -- should ignore unhealthy Elastic Load Balancing target health checks
 -- after a task has first started. This is only valid if your service is
@@ -475,15 +498,6 @@ updateService_placementConstraints = Lens.lens (\UpdateService' {placementConstr
 updateService_healthCheckGracePeriodSeconds :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Int)
 updateService_healthCheckGracePeriodSeconds = Lens.lens (\UpdateService' {healthCheckGracePeriodSeconds} -> healthCheckGracePeriodSeconds) (\s@UpdateService' {} a -> s {healthCheckGracePeriodSeconds = a} :: UpdateService)
 
--- | Whether to force a new deployment of the service. Deployments are not
--- forced by default. You can use this option to trigger a new deployment
--- with no service definition changes. For example, you can update a
--- service\'s tasks to use a newer Docker image with the same image\/tag
--- combination (@my_image:latest@) or to roll Fargate tasks onto a newer
--- platform version.
-updateService_forceNewDeployment :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Bool)
-updateService_forceNewDeployment = Lens.lens (\UpdateService' {forceNewDeployment} -> forceNewDeployment) (\s@UpdateService' {} a -> s {forceNewDeployment = a} :: UpdateService)
-
 -- | The @family@ and @revision@ (@family:revision@) or full ARN of the task
 -- definition to run in your service. If a @revision@ is not specified, the
 -- latest @ACTIVE@ revision is used. If you modify the task definition with
@@ -492,6 +506,15 @@ updateService_forceNewDeployment = Lens.lens (\UpdateService' {forceNewDeploymen
 -- running.
 updateService_taskDefinition :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Text)
 updateService_taskDefinition = Lens.lens (\UpdateService' {taskDefinition} -> taskDefinition) (\s@UpdateService' {} a -> s {taskDefinition = a} :: UpdateService)
+
+-- | Whether to force a new deployment of the service. Deployments are not
+-- forced by default. You can use this option to trigger a new deployment
+-- with no service definition changes. For example, you can update a
+-- service\'s tasks to use a newer Docker image with the same image\/tag
+-- combination (@my_image:latest@) or to roll Fargate tasks onto a newer
+-- platform version.
+updateService_forceNewDeployment :: Lens.Lens' UpdateService (Prelude.Maybe Prelude.Bool)
+updateService_forceNewDeployment = Lens.lens (\UpdateService' {forceNewDeployment} -> forceNewDeployment) (\s@UpdateService' {} a -> s {forceNewDeployment = a} :: UpdateService)
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- your service is running on. If you do not specify a cluster, the default
@@ -541,10 +564,10 @@ instance Core.ToJSON UpdateService where
       ( Prelude.catMaybes
           [ ("deploymentConfiguration" Core..=)
               Prelude.<$> deploymentConfiguration,
-            ("networkConfiguration" Core..=)
-              Prelude.<$> networkConfiguration,
             ("capacityProviderStrategy" Core..=)
               Prelude.<$> capacityProviderStrategy,
+            ("networkConfiguration" Core..=)
+              Prelude.<$> networkConfiguration,
             ("desiredCount" Core..=) Prelude.<$> desiredCount,
             ("platformVersion" Core..=)
               Prelude.<$> platformVersion,
@@ -552,12 +575,14 @@ instance Core.ToJSON UpdateService where
               Prelude.<$> placementStrategy,
             ("placementConstraints" Core..=)
               Prelude.<$> placementConstraints,
+            ("enableExecuteCommand" Core..=)
+              Prelude.<$> enableExecuteCommand,
             ("healthCheckGracePeriodSeconds" Core..=)
               Prelude.<$> healthCheckGracePeriodSeconds,
-            ("forceNewDeployment" Core..=)
-              Prelude.<$> forceNewDeployment,
             ("taskDefinition" Core..=)
               Prelude.<$> taskDefinition,
+            ("forceNewDeployment" Core..=)
+              Prelude.<$> forceNewDeployment,
             ("cluster" Core..=) Prelude.<$> cluster,
             Prelude.Just ("service" Core..= service)
           ]

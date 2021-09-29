@@ -33,12 +33,13 @@ module Network.AWS.ECS.StartTask
     newStartTask,
 
     -- * Request Lenses
-    startTask_networkConfiguration,
     startTask_referenceId,
+    startTask_networkConfiguration,
     startTask_enableECSManagedTags,
     startTask_startedBy,
     startTask_group,
     startTask_overrides,
+    startTask_enableExecuteCommand,
     startTask_tags,
     startTask_cluster,
     startTask_propagateTags,
@@ -65,12 +66,12 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartTask' smart constructor.
 data StartTask = StartTask'
-  { -- | The VPC subnet and security group configuration for tasks that receive
+  { -- | The reference ID to use for the task.
+    referenceId :: Prelude.Maybe Prelude.Text,
+    -- | The VPC subnet and security group configuration for tasks that receive
     -- their own elastic network interface by using the @awsvpc@ networking
     -- mode.
     networkConfiguration :: Prelude.Maybe NetworkConfiguration,
-    -- | The reference ID to use for the task.
-    referenceId :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether to enable Amazon ECS managed tags for the task. For
     -- more information, see
     -- <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html Tagging Your Amazon ECS Resources>
@@ -102,6 +103,10 @@ data StartTask = StartTask'
     -- A total of 8192 characters are allowed for overrides. This limit
     -- includes the JSON formatting characters of the override structure.
     overrides :: Prelude.Maybe TaskOverride,
+    -- | Whether or not the execute command functionality is enabled for the
+    -- task. If @true@, this enables execute command functionality on all
+    -- containers in the task.
+    enableExecuteCommand :: Prelude.Maybe Prelude.Bool,
     -- | The metadata that you apply to the task to help you categorize and
     -- organize them. Each tag consists of a key and an optional value, both of
     -- which you define.
@@ -126,10 +131,10 @@ data StartTask = StartTask'
     -- -   Tag keys and values are case-sensitive.
     --
     -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
-    --     such as a prefix for either keys or values as it is reserved for AWS
-    --     use. You cannot edit or delete tag keys or values with this prefix.
-    --     Tags with this prefix do not count against your tags per resource
-    --     limit.
+    --     such as a prefix for either keys or values as it is reserved for
+    --     Amazon Web Services use. You cannot edit or delete tag keys or
+    --     values with this prefix. Tags with this prefix do not count against
+    --     your tags per resource limit.
     tags :: Prelude.Maybe [Tag],
     -- | The short name or full Amazon Resource Name (ARN) of the cluster on
     -- which to start your task. If you do not specify a cluster, the default
@@ -158,11 +163,11 @@ data StartTask = StartTask'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'referenceId', 'startTask_referenceId' - The reference ID to use for the task.
+--
 -- 'networkConfiguration', 'startTask_networkConfiguration' - The VPC subnet and security group configuration for tasks that receive
 -- their own elastic network interface by using the @awsvpc@ networking
 -- mode.
---
--- 'referenceId', 'startTask_referenceId' - The reference ID to use for the task.
 --
 -- 'enableECSManagedTags', 'startTask_enableECSManagedTags' - Specifies whether to enable Amazon ECS managed tags for the task. For
 -- more information, see
@@ -195,6 +200,10 @@ data StartTask = StartTask'
 -- A total of 8192 characters are allowed for overrides. This limit
 -- includes the JSON formatting characters of the override structure.
 --
+-- 'enableExecuteCommand', 'startTask_enableExecuteCommand' - Whether or not the execute command functionality is enabled for the
+-- task. If @true@, this enables execute command functionality on all
+-- containers in the task.
+--
 -- 'tags', 'startTask_tags' - The metadata that you apply to the task to help you categorize and
 -- organize them. Each tag consists of a key and an optional value, both of
 -- which you define.
@@ -219,10 +228,10 @@ data StartTask = StartTask'
 -- -   Tag keys and values are case-sensitive.
 --
 -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
---     such as a prefix for either keys or values as it is reserved for AWS
---     use. You cannot edit or delete tag keys or values with this prefix.
---     Tags with this prefix do not count against your tags per resource
---     limit.
+--     such as a prefix for either keys or values as it is reserved for
+--     Amazon Web Services use. You cannot edit or delete tag keys or
+--     values with this prefix. Tags with this prefix do not count against
+--     your tags per resource limit.
 --
 -- 'cluster', 'startTask_cluster' - The short name or full Amazon Resource Name (ARN) of the cluster on
 -- which to start your task. If you do not specify a cluster, the default
@@ -245,12 +254,13 @@ newStartTask ::
   StartTask
 newStartTask pTaskDefinition_ =
   StartTask'
-    { networkConfiguration = Prelude.Nothing,
-      referenceId = Prelude.Nothing,
+    { referenceId = Prelude.Nothing,
+      networkConfiguration = Prelude.Nothing,
       enableECSManagedTags = Prelude.Nothing,
       startedBy = Prelude.Nothing,
       group' = Prelude.Nothing,
       overrides = Prelude.Nothing,
+      enableExecuteCommand = Prelude.Nothing,
       tags = Prelude.Nothing,
       cluster = Prelude.Nothing,
       propagateTags = Prelude.Nothing,
@@ -258,15 +268,15 @@ newStartTask pTaskDefinition_ =
       taskDefinition = pTaskDefinition_
     }
 
+-- | The reference ID to use for the task.
+startTask_referenceId :: Lens.Lens' StartTask (Prelude.Maybe Prelude.Text)
+startTask_referenceId = Lens.lens (\StartTask' {referenceId} -> referenceId) (\s@StartTask' {} a -> s {referenceId = a} :: StartTask)
+
 -- | The VPC subnet and security group configuration for tasks that receive
 -- their own elastic network interface by using the @awsvpc@ networking
 -- mode.
 startTask_networkConfiguration :: Lens.Lens' StartTask (Prelude.Maybe NetworkConfiguration)
 startTask_networkConfiguration = Lens.lens (\StartTask' {networkConfiguration} -> networkConfiguration) (\s@StartTask' {} a -> s {networkConfiguration = a} :: StartTask)
-
--- | The reference ID to use for the task.
-startTask_referenceId :: Lens.Lens' StartTask (Prelude.Maybe Prelude.Text)
-startTask_referenceId = Lens.lens (\StartTask' {referenceId} -> referenceId) (\s@StartTask' {} a -> s {referenceId = a} :: StartTask)
 
 -- | Specifies whether to enable Amazon ECS managed tags for the task. For
 -- more information, see
@@ -307,6 +317,12 @@ startTask_group = Lens.lens (\StartTask' {group'} -> group') (\s@StartTask' {} a
 startTask_overrides :: Lens.Lens' StartTask (Prelude.Maybe TaskOverride)
 startTask_overrides = Lens.lens (\StartTask' {overrides} -> overrides) (\s@StartTask' {} a -> s {overrides = a} :: StartTask)
 
+-- | Whether or not the execute command functionality is enabled for the
+-- task. If @true@, this enables execute command functionality on all
+-- containers in the task.
+startTask_enableExecuteCommand :: Lens.Lens' StartTask (Prelude.Maybe Prelude.Bool)
+startTask_enableExecuteCommand = Lens.lens (\StartTask' {enableExecuteCommand} -> enableExecuteCommand) (\s@StartTask' {} a -> s {enableExecuteCommand = a} :: StartTask)
+
 -- | The metadata that you apply to the task to help you categorize and
 -- organize them. Each tag consists of a key and an optional value, both of
 -- which you define.
@@ -331,10 +347,10 @@ startTask_overrides = Lens.lens (\StartTask' {overrides} -> overrides) (\s@Start
 -- -   Tag keys and values are case-sensitive.
 --
 -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
---     such as a prefix for either keys or values as it is reserved for AWS
---     use. You cannot edit or delete tag keys or values with this prefix.
---     Tags with this prefix do not count against your tags per resource
---     limit.
+--     such as a prefix for either keys or values as it is reserved for
+--     Amazon Web Services use. You cannot edit or delete tag keys or
+--     values with this prefix. Tags with this prefix do not count against
+--     your tags per resource limit.
 startTask_tags :: Lens.Lens' StartTask (Prelude.Maybe [Tag])
 startTask_tags = Lens.lens (\StartTask' {tags} -> tags) (\s@StartTask' {} a -> s {tags = a} :: StartTask) Prelude.. Lens.mapping Lens._Coerce
 
@@ -397,14 +413,16 @@ instance Core.ToJSON StartTask where
   toJSON StartTask' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("networkConfiguration" Core..=)
+          [ ("referenceId" Core..=) Prelude.<$> referenceId,
+            ("networkConfiguration" Core..=)
               Prelude.<$> networkConfiguration,
-            ("referenceId" Core..=) Prelude.<$> referenceId,
             ("enableECSManagedTags" Core..=)
               Prelude.<$> enableECSManagedTags,
             ("startedBy" Core..=) Prelude.<$> startedBy,
             ("group" Core..=) Prelude.<$> group',
             ("overrides" Core..=) Prelude.<$> overrides,
+            ("enableExecuteCommand" Core..=)
+              Prelude.<$> enableExecuteCommand,
             ("tags" Core..=) Prelude.<$> tags,
             ("cluster" Core..=) Prelude.<$> cluster,
             ("propagateTags" Core..=) Prelude.<$> propagateTags,

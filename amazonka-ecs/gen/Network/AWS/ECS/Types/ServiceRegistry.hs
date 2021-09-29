@@ -50,7 +50,7 @@ data ServiceRegistry = ServiceRegistry'
     -- combination or a @port@ value, but not both.
     containerName :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the service registry. The currently
-    -- supported service registry is AWS Cloud Map. For more information, see
+    -- supported service registry is Cloud Map. For more information, see
     -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html CreateService>.
     registryArn :: Prelude.Maybe Prelude.Text
   }
@@ -87,7 +87,7 @@ data ServiceRegistry = ServiceRegistry'
 -- combination or a @port@ value, but not both.
 --
 -- 'registryArn', 'serviceRegistry_registryArn' - The Amazon Resource Name (ARN) of the service registry. The currently
--- supported service registry is AWS Cloud Map. For more information, see
+-- supported service registry is Cloud Map. For more information, see
 -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html CreateService>.
 newServiceRegistry ::
   ServiceRegistry
@@ -128,7 +128,7 @@ serviceRegistry_containerName :: Lens.Lens' ServiceRegistry (Prelude.Maybe Prelu
 serviceRegistry_containerName = Lens.lens (\ServiceRegistry' {containerName} -> containerName) (\s@ServiceRegistry' {} a -> s {containerName = a} :: ServiceRegistry)
 
 -- | The Amazon Resource Name (ARN) of the service registry. The currently
--- supported service registry is AWS Cloud Map. For more information, see
+-- supported service registry is Cloud Map. For more information, see
 -- <https://docs.aws.amazon.com/cloud-map/latest/api/API_CreateService.html CreateService>.
 serviceRegistry_registryArn :: Lens.Lens' ServiceRegistry (Prelude.Maybe Prelude.Text)
 serviceRegistry_registryArn = Lens.lens (\ServiceRegistry' {registryArn} -> registryArn) (\s@ServiceRegistry' {} a -> s {registryArn = a} :: ServiceRegistry)

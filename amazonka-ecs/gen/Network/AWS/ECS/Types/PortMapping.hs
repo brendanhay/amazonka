@@ -33,6 +33,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- The @hostPort@ can be left blank or it must be the same value as the
 -- @containerPort@.
 --
+-- You cannot expose the same container port for multiple protocols. An
+-- error will be returned if this is attempted
+--
 -- After a task reaches the @RUNNING@ status, manual and automatic host and
 -- container port assignments are visible in the @networkBindings@ section
 -- of DescribeTasks API responses.

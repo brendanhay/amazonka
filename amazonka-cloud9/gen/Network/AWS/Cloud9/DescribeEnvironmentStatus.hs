@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets status information for an AWS Cloud9 development environment.
+-- Gets status information for an Cloud9 development environment.
 module Network.AWS.Cloud9.DescribeEnvironmentStatus
   ( -- * Creating a Request
     DescribeEnvironmentStatus (..),
@@ -34,9 +34,9 @@ module Network.AWS.Cloud9.DescribeEnvironmentStatus
     newDescribeEnvironmentStatusResponse,
 
     -- * Response Lenses
+    describeEnvironmentStatusResponse_httpStatus,
     describeEnvironmentStatusResponse_status,
     describeEnvironmentStatusResponse_message,
-    describeEnvironmentStatusResponse_httpStatus,
   )
 where
 
@@ -86,9 +86,9 @@ instance Core.AWSRequest DescribeEnvironmentStatus where
     Response.receiveJSON
       ( \s h x ->
           DescribeEnvironmentStatusResponse'
-            Prelude.<$> (x Core..?> "status")
-            Prelude.<*> (x Core..?> "message")
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Core..:> "status")
+            Prelude.<*> (x Core..:> "message")
       )
 
 instance Prelude.Hashable DescribeEnvironmentStatus
@@ -127,7 +127,9 @@ instance Core.ToQuery DescribeEnvironmentStatus where
 
 -- | /See:/ 'newDescribeEnvironmentStatusResponse' smart constructor.
 data DescribeEnvironmentStatusResponse = DescribeEnvironmentStatusResponse'
-  { -- | The status of the environment. Available values include:
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The status of the environment. Available values include:
     --
     -- -   @connecting@: The environment is connecting.
     --
@@ -142,11 +144,9 @@ data DescribeEnvironmentStatusResponse = DescribeEnvironmentStatusResponse'
     -- -   @stopped@: The environment is stopped.
     --
     -- -   @stopping@: The environment is stopping.
-    status :: Prelude.Maybe EnvironmentStatus,
+    status :: EnvironmentStatus,
     -- | Any informational message about the status of the environment.
-    message :: Prelude.Maybe Prelude.Text,
-    -- | The response's http status code.
-    httpStatus :: Prelude.Int
+    message :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -157,6 +157,8 @@ data DescribeEnvironmentStatusResponse = DescribeEnvironmentStatusResponse'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'httpStatus', 'describeEnvironmentStatusResponse_httpStatus' - The response's http status code.
 --
 -- 'status', 'describeEnvironmentStatusResponse_status' - The status of the environment. Available values include:
 --
@@ -175,19 +177,28 @@ data DescribeEnvironmentStatusResponse = DescribeEnvironmentStatusResponse'
 -- -   @stopping@: The environment is stopping.
 --
 -- 'message', 'describeEnvironmentStatusResponse_message' - Any informational message about the status of the environment.
---
--- 'httpStatus', 'describeEnvironmentStatusResponse_httpStatus' - The response's http status code.
 newDescribeEnvironmentStatusResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
+  -- | 'status'
+  EnvironmentStatus ->
+  -- | 'message'
+  Prelude.Text ->
   DescribeEnvironmentStatusResponse
-newDescribeEnvironmentStatusResponse pHttpStatus_ =
-  DescribeEnvironmentStatusResponse'
-    { status =
-        Prelude.Nothing,
-      message = Prelude.Nothing,
-      httpStatus = pHttpStatus_
-    }
+newDescribeEnvironmentStatusResponse
+  pHttpStatus_
+  pStatus_
+  pMessage_ =
+    DescribeEnvironmentStatusResponse'
+      { httpStatus =
+          pHttpStatus_,
+        status = pStatus_,
+        message = pMessage_
+      }
+
+-- | The response's http status code.
+describeEnvironmentStatusResponse_httpStatus :: Lens.Lens' DescribeEnvironmentStatusResponse Prelude.Int
+describeEnvironmentStatusResponse_httpStatus = Lens.lens (\DescribeEnvironmentStatusResponse' {httpStatus} -> httpStatus) (\s@DescribeEnvironmentStatusResponse' {} a -> s {httpStatus = a} :: DescribeEnvironmentStatusResponse)
 
 -- | The status of the environment. Available values include:
 --
@@ -204,16 +215,12 @@ newDescribeEnvironmentStatusResponse pHttpStatus_ =
 -- -   @stopped@: The environment is stopped.
 --
 -- -   @stopping@: The environment is stopping.
-describeEnvironmentStatusResponse_status :: Lens.Lens' DescribeEnvironmentStatusResponse (Prelude.Maybe EnvironmentStatus)
+describeEnvironmentStatusResponse_status :: Lens.Lens' DescribeEnvironmentStatusResponse EnvironmentStatus
 describeEnvironmentStatusResponse_status = Lens.lens (\DescribeEnvironmentStatusResponse' {status} -> status) (\s@DescribeEnvironmentStatusResponse' {} a -> s {status = a} :: DescribeEnvironmentStatusResponse)
 
 -- | Any informational message about the status of the environment.
-describeEnvironmentStatusResponse_message :: Lens.Lens' DescribeEnvironmentStatusResponse (Prelude.Maybe Prelude.Text)
+describeEnvironmentStatusResponse_message :: Lens.Lens' DescribeEnvironmentStatusResponse Prelude.Text
 describeEnvironmentStatusResponse_message = Lens.lens (\DescribeEnvironmentStatusResponse' {message} -> message) (\s@DescribeEnvironmentStatusResponse' {} a -> s {message = a} :: DescribeEnvironmentStatusResponse)
-
--- | The response's http status code.
-describeEnvironmentStatusResponse_httpStatus :: Lens.Lens' DescribeEnvironmentStatusResponse Prelude.Int
-describeEnvironmentStatusResponse_httpStatus = Lens.lens (\DescribeEnvironmentStatusResponse' {httpStatus} -> httpStatus) (\s@DescribeEnvironmentStatusResponse' {} a -> s {httpStatus = a} :: DescribeEnvironmentStatusResponse)
 
 instance
   Prelude.NFData

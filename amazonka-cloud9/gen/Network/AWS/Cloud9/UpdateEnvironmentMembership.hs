@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes the settings of an existing environment member for an AWS Cloud9
+-- Changes the settings of an existing environment member for an Cloud9
 -- development environment.
 module Network.AWS.Cloud9.UpdateEnvironmentMembership
   ( -- * Creating a Request

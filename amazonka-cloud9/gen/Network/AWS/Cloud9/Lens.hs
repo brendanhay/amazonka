@@ -25,8 +25,8 @@ module Network.AWS.Cloud9.Lens
     createEnvironmentMembership_environmentId,
     createEnvironmentMembership_userArn,
     createEnvironmentMembership_permissions,
-    createEnvironmentMembershipResponse_membership,
     createEnvironmentMembershipResponse_httpStatus,
+    createEnvironmentMembershipResponse_membership,
 
     -- ** UntagResource
     untagResource_resourceARN,
@@ -38,31 +38,37 @@ module Network.AWS.Cloud9.Lens
     tagResource_tags,
     tagResourceResponse_httpStatus,
 
+    -- ** DeleteEnvironment
+    deleteEnvironment_environmentId,
+    deleteEnvironmentResponse_httpStatus,
+
     -- ** DescribeEnvironmentStatus
     describeEnvironmentStatus_environmentId,
+    describeEnvironmentStatusResponse_httpStatus,
     describeEnvironmentStatusResponse_status,
     describeEnvironmentStatusResponse_message,
-    describeEnvironmentStatusResponse_httpStatus,
 
     -- ** UpdateEnvironment
+    updateEnvironment_managedCredentialsAction,
     updateEnvironment_name,
     updateEnvironment_description,
     updateEnvironment_environmentId,
     updateEnvironmentResponse_httpStatus,
 
-    -- ** DeleteEnvironment
-    deleteEnvironment_environmentId,
-    deleteEnvironmentResponse_httpStatus,
-
     -- ** DescribeEnvironmentMemberships
-    describeEnvironmentMemberships_nextToken,
     describeEnvironmentMemberships_userArn,
+    describeEnvironmentMemberships_nextToken,
     describeEnvironmentMemberships_maxResults,
-    describeEnvironmentMemberships_permissions,
     describeEnvironmentMemberships_environmentId,
+    describeEnvironmentMemberships_permissions,
     describeEnvironmentMembershipsResponse_nextToken,
     describeEnvironmentMembershipsResponse_memberships,
     describeEnvironmentMembershipsResponse_httpStatus,
+
+    -- ** DeleteEnvironmentMembership
+    deleteEnvironmentMembership_environmentId,
+    deleteEnvironmentMembership_userArn,
+    deleteEnvironmentMembershipResponse_httpStatus,
 
     -- ** UpdateEnvironmentMembership
     updateEnvironmentMembership_environmentId,
@@ -71,18 +77,15 @@ module Network.AWS.Cloud9.Lens
     updateEnvironmentMembershipResponse_membership,
     updateEnvironmentMembershipResponse_httpStatus,
 
-    -- ** DeleteEnvironmentMembership
-    deleteEnvironmentMembership_environmentId,
-    deleteEnvironmentMembership_userArn,
-    deleteEnvironmentMembershipResponse_httpStatus,
-
     -- ** DescribeEnvironments
     describeEnvironments_environmentIds,
     describeEnvironmentsResponse_environments,
     describeEnvironmentsResponse_httpStatus,
 
     -- ** CreateEnvironmentEC
+    createEnvironmentEC_dryRun,
     createEnvironmentEC_connectionType,
+    createEnvironmentEC_imageId,
     createEnvironmentEC_ownerArn,
     createEnvironmentEC_tags,
     createEnvironmentEC_subnetId,
@@ -105,11 +108,12 @@ module Network.AWS.Cloud9.Lens
     environment_lifecycle,
     environment_connectionType,
     environment_id,
-    environment_arn,
     environment_name,
-    environment_ownerArn,
+    environment_managedCredentialsStatus,
     environment_description,
     environment_type,
+    environment_arn,
+    environment_ownerArn,
 
     -- ** EnvironmentLifecycle
     environmentLifecycle_status,
@@ -117,11 +121,11 @@ module Network.AWS.Cloud9.Lens
     environmentLifecycle_failureResource,
 
     -- ** EnvironmentMember
-    environmentMember_userArn,
-    environmentMember_permissions,
-    environmentMember_environmentId,
-    environmentMember_userId,
     environmentMember_lastAccess,
+    environmentMember_permissions,
+    environmentMember_userId,
+    environmentMember_userArn,
+    environmentMember_environmentId,
 
     -- ** Tag
     tag_key,

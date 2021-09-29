@@ -11,19 +11,19 @@
 --
 -- Derived from API version @2017-09-23@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS Cloud9
+-- Cloud9
 --
--- AWS Cloud9 is a collection of tools that you can use to code, build,
--- run, test, debug, and release software in the cloud.
+-- Cloud9 is a collection of tools that you can use to code, build, run,
+-- test, debug, and release software in the cloud.
 --
--- For more information about AWS Cloud9, see the
--- <https://docs.aws.amazon.com/cloud9/latest/user-guide AWS Cloud9 User Guide>.
+-- For more information about Cloud9, see the
+-- <https://docs.aws.amazon.com/cloud9/latest/user-guide Cloud9 User Guide>.
 --
--- AWS Cloud9 supports these operations:
+-- Cloud9 supports these operations:
 --
--- -   @CreateEnvironmentEC2@: Creates an AWS Cloud9 development
---     environment, launches an Amazon EC2 instance, and then connects from
---     the instance to the environment.
+-- -   @CreateEnvironmentEC2@: Creates an Cloud9 development environment,
+--     launches an Amazon EC2 instance, and then connects from the instance
+--     to the environment.
 --
 -- -   @CreateEnvironmentMembership@: Adds an environment member to an
 --     environment.
@@ -78,11 +78,11 @@ module Network.AWS.Cloud9
     -- ** ForbiddenException
     _ForbiddenException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
-
     -- ** ConflictException
     _ConflictException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- ** TooManyRequestsException
     _TooManyRequestsException,
@@ -117,6 +117,12 @@ module Network.AWS.Cloud9
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
 
+    -- ** DeleteEnvironment
+    DeleteEnvironment (DeleteEnvironment'),
+    newDeleteEnvironment,
+    DeleteEnvironmentResponse (DeleteEnvironmentResponse'),
+    newDeleteEnvironmentResponse,
+
     -- ** DescribeEnvironmentStatus
     DescribeEnvironmentStatus (DescribeEnvironmentStatus'),
     newDescribeEnvironmentStatus,
@@ -129,29 +135,23 @@ module Network.AWS.Cloud9
     UpdateEnvironmentResponse (UpdateEnvironmentResponse'),
     newUpdateEnvironmentResponse,
 
-    -- ** DeleteEnvironment
-    DeleteEnvironment (DeleteEnvironment'),
-    newDeleteEnvironment,
-    DeleteEnvironmentResponse (DeleteEnvironmentResponse'),
-    newDeleteEnvironmentResponse,
-
     -- ** DescribeEnvironmentMemberships (Paginated)
     DescribeEnvironmentMemberships (DescribeEnvironmentMemberships'),
     newDescribeEnvironmentMemberships,
     DescribeEnvironmentMembershipsResponse (DescribeEnvironmentMembershipsResponse'),
     newDescribeEnvironmentMembershipsResponse,
 
-    -- ** UpdateEnvironmentMembership
-    UpdateEnvironmentMembership (UpdateEnvironmentMembership'),
-    newUpdateEnvironmentMembership,
-    UpdateEnvironmentMembershipResponse (UpdateEnvironmentMembershipResponse'),
-    newUpdateEnvironmentMembershipResponse,
-
     -- ** DeleteEnvironmentMembership
     DeleteEnvironmentMembership (DeleteEnvironmentMembership'),
     newDeleteEnvironmentMembership,
     DeleteEnvironmentMembershipResponse (DeleteEnvironmentMembershipResponse'),
     newDeleteEnvironmentMembershipResponse,
+
+    -- ** UpdateEnvironmentMembership
+    UpdateEnvironmentMembership (UpdateEnvironmentMembership'),
+    newUpdateEnvironmentMembership,
+    UpdateEnvironmentMembershipResponse (UpdateEnvironmentMembershipResponse'),
+    newUpdateEnvironmentMembershipResponse,
 
     -- ** DescribeEnvironments
     DescribeEnvironments (DescribeEnvironments'),
@@ -184,6 +184,12 @@ module Network.AWS.Cloud9
 
     -- ** EnvironmentType
     EnvironmentType (..),
+
+    -- ** ManagedCredentialsAction
+    ManagedCredentialsAction (..),
+
+    -- ** ManagedCredentialsStatus
+    ManagedCredentialsStatus (..),
 
     -- ** MemberPermissions
     MemberPermissions (..),

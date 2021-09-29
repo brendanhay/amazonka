@@ -20,13 +20,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Changes the settings of an existing AWS Cloud9 development environment.
+-- Changes the settings of an existing Cloud9 development environment.
 module Network.AWS.Cloud9.UpdateEnvironment
   ( -- * Creating a Request
     UpdateEnvironment (..),
     newUpdateEnvironment,
 
     -- * Request Lenses
+    updateEnvironment_managedCredentialsAction,
     updateEnvironment_name,
     updateEnvironment_description,
     updateEnvironment_environmentId,
@@ -49,7 +50,20 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateEnvironment' smart constructor.
 data UpdateEnvironment = UpdateEnvironment'
-  { -- | A replacement name for the environment.
+  { -- | Allows the environment owner to turn on or turn off the Amazon Web
+    -- Services managed temporary credentials for an Cloud9 environment by
+    -- using one of the following values:
+    --
+    -- -   @ENABLE@
+    --
+    -- -   @DISABLE@
+    --
+    -- Only the environment owner can change the status of managed temporary
+    -- credentials. An @AccessDeniedException@ is thrown if an attempt to turn
+    -- on or turn off managed temporary credentials is made by an account
+    -- that\'s not the environment owner.
+    managedCredentialsAction :: Prelude.Maybe ManagedCredentialsAction,
+    -- | A replacement name for the environment.
     name :: Prelude.Maybe Prelude.Text,
     -- | Any new or replacement description for the environment.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
@@ -66,6 +80,19 @@ data UpdateEnvironment = UpdateEnvironment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'managedCredentialsAction', 'updateEnvironment_managedCredentialsAction' - Allows the environment owner to turn on or turn off the Amazon Web
+-- Services managed temporary credentials for an Cloud9 environment by
+-- using one of the following values:
+--
+-- -   @ENABLE@
+--
+-- -   @DISABLE@
+--
+-- Only the environment owner can change the status of managed temporary
+-- credentials. An @AccessDeniedException@ is thrown if an attempt to turn
+-- on or turn off managed temporary credentials is made by an account
+-- that\'s not the environment owner.
+--
 -- 'name', 'updateEnvironment_name' - A replacement name for the environment.
 --
 -- 'description', 'updateEnvironment_description' - Any new or replacement description for the environment.
@@ -77,10 +104,27 @@ newUpdateEnvironment ::
   UpdateEnvironment
 newUpdateEnvironment pEnvironmentId_ =
   UpdateEnvironment'
-    { name = Prelude.Nothing,
+    { managedCredentialsAction =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
       description = Prelude.Nothing,
       environmentId = pEnvironmentId_
     }
+
+-- | Allows the environment owner to turn on or turn off the Amazon Web
+-- Services managed temporary credentials for an Cloud9 environment by
+-- using one of the following values:
+--
+-- -   @ENABLE@
+--
+-- -   @DISABLE@
+--
+-- Only the environment owner can change the status of managed temporary
+-- credentials. An @AccessDeniedException@ is thrown if an attempt to turn
+-- on or turn off managed temporary credentials is made by an account
+-- that\'s not the environment owner.
+updateEnvironment_managedCredentialsAction :: Lens.Lens' UpdateEnvironment (Prelude.Maybe ManagedCredentialsAction)
+updateEnvironment_managedCredentialsAction = Lens.lens (\UpdateEnvironment' {managedCredentialsAction} -> managedCredentialsAction) (\s@UpdateEnvironment' {} a -> s {managedCredentialsAction = a} :: UpdateEnvironment)
 
 -- | A replacement name for the environment.
 updateEnvironment_name :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
@@ -129,7 +173,9 @@ instance Core.ToJSON UpdateEnvironment where
   toJSON UpdateEnvironment' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("name" Core..=) Prelude.<$> name,
+          [ ("managedCredentialsAction" Core..=)
+              Prelude.<$> managedCredentialsAction,
+            ("name" Core..=) Prelude.<$> name,
             ("description" Core..=) Prelude.<$> description,
             Prelude.Just
               ("environmentId" Core..= environmentId)

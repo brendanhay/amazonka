@@ -22,8 +22,8 @@ module Network.AWS.Cloud9.Types
     _ConcurrentAccessException,
     _InternalServerErrorException,
     _ForbiddenException,
-    _LimitExceededException,
     _ConflictException,
+    _LimitExceededException,
     _TooManyRequestsException,
 
     -- * ConnectionType
@@ -38,6 +38,12 @@ module Network.AWS.Cloud9.Types
     -- * EnvironmentType
     EnvironmentType (..),
 
+    -- * ManagedCredentialsAction
+    ManagedCredentialsAction (..),
+
+    -- * ManagedCredentialsStatus
+    ManagedCredentialsStatus (..),
+
     -- * MemberPermissions
     MemberPermissions (..),
 
@@ -50,11 +56,12 @@ module Network.AWS.Cloud9.Types
     environment_lifecycle,
     environment_connectionType,
     environment_id,
-    environment_arn,
     environment_name,
-    environment_ownerArn,
+    environment_managedCredentialsStatus,
     environment_description,
     environment_type,
+    environment_arn,
+    environment_ownerArn,
 
     -- * EnvironmentLifecycle
     EnvironmentLifecycle (..),
@@ -66,11 +73,11 @@ module Network.AWS.Cloud9.Types
     -- * EnvironmentMember
     EnvironmentMember (..),
     newEnvironmentMember,
-    environmentMember_userArn,
-    environmentMember_permissions,
-    environmentMember_environmentId,
-    environmentMember_userId,
     environmentMember_lastAccess,
+    environmentMember_permissions,
+    environmentMember_userId,
+    environmentMember_userArn,
+    environmentMember_environmentId,
 
     -- * Tag
     Tag (..),
@@ -87,6 +94,8 @@ import Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus
 import Network.AWS.Cloud9.Types.EnvironmentMember
 import Network.AWS.Cloud9.Types.EnvironmentStatus
 import Network.AWS.Cloud9.Types.EnvironmentType
+import Network.AWS.Cloud9.Types.ManagedCredentialsAction
+import Network.AWS.Cloud9.Types.ManagedCredentialsStatus
 import Network.AWS.Cloud9.Types.MemberPermissions
 import Network.AWS.Cloud9.Types.Permissions
 import Network.AWS.Cloud9.Types.Tag
@@ -200,19 +209,19 @@ _ForbiddenException =
     defaultService
     "ForbiddenException"
 
--- | A service limit was exceeded.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
-
 -- | A conflict occurred.
 _ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ConflictException =
   Core._MatchServiceError
     defaultService
     "ConflictException"
+
+-- | A service limit was exceeded.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
 
 -- | Too many service requests were made over the given time period.
 _TooManyRequestsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

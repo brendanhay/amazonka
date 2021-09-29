@@ -30,8 +30,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newStackResourceDriftInformationSummary' smart constructor.
 data StackResourceDriftInformationSummary = StackResourceDriftInformationSummary'
-  { -- | When AWS CloudFormation last checked if the resource had drifted from
-    -- its expected configuration.
+  { -- | When CloudFormation last checked if the resource had drifted from its
+    -- expected configuration.
     lastCheckTimestamp :: Prelude.Maybe Core.ISO8601,
     -- | Status of the resource\'s actual configuration compared to its expected
     -- configuration
@@ -41,7 +41,7 @@ data StackResourceDriftInformationSummary = StackResourceDriftInformationSummary
     --
     -- -   @MODIFIED@: The resource differs from its expected configuration.
     --
-    -- -   @NOT_CHECKED@: AWS CloudFormation has not checked if the resource
+    -- -   @NOT_CHECKED@: CloudFormation has not checked if the resource
     --     differs from its expected configuration.
     --
     --     Any resources that do not currently support drift detection have a
@@ -52,7 +52,7 @@ data StackResourceDriftInformationSummary = StackResourceDriftInformationSummary
     --     @NOT_CHECKED@. For more information on skipping resources during
     --     rollback operations, see
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html Continue Rolling Back an Update>
-    --     in the AWS CloudFormation User Guide.
+    --     in the CloudFormation User Guide.
     --
     -- -   @IN_SYNC@: The resources\'s actual configuration matches its
     --     expected configuration.
@@ -68,8 +68,8 @@ data StackResourceDriftInformationSummary = StackResourceDriftInformationSummary
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastCheckTimestamp', 'stackResourceDriftInformationSummary_lastCheckTimestamp' - When AWS CloudFormation last checked if the resource had drifted from
--- its expected configuration.
+-- 'lastCheckTimestamp', 'stackResourceDriftInformationSummary_lastCheckTimestamp' - When CloudFormation last checked if the resource had drifted from its
+-- expected configuration.
 --
 -- 'stackResourceDriftStatus', 'stackResourceDriftInformationSummary_stackResourceDriftStatus' - Status of the resource\'s actual configuration compared to its expected
 -- configuration
@@ -79,7 +79,7 @@ data StackResourceDriftInformationSummary = StackResourceDriftInformationSummary
 --
 -- -   @MODIFIED@: The resource differs from its expected configuration.
 --
--- -   @NOT_CHECKED@: AWS CloudFormation has not checked if the resource
+-- -   @NOT_CHECKED@: CloudFormation has not checked if the resource
 --     differs from its expected configuration.
 --
 --     Any resources that do not currently support drift detection have a
@@ -90,7 +90,7 @@ data StackResourceDriftInformationSummary = StackResourceDriftInformationSummary
 --     @NOT_CHECKED@. For more information on skipping resources during
 --     rollback operations, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html Continue Rolling Back an Update>
---     in the AWS CloudFormation User Guide.
+--     in the CloudFormation User Guide.
 --
 -- -   @IN_SYNC@: The resources\'s actual configuration matches its
 --     expected configuration.
@@ -107,8 +107,8 @@ newStackResourceDriftInformationSummary
           pStackResourceDriftStatus_
       }
 
--- | When AWS CloudFormation last checked if the resource had drifted from
--- its expected configuration.
+-- | When CloudFormation last checked if the resource had drifted from its
+-- expected configuration.
 stackResourceDriftInformationSummary_lastCheckTimestamp :: Lens.Lens' StackResourceDriftInformationSummary (Prelude.Maybe Prelude.UTCTime)
 stackResourceDriftInformationSummary_lastCheckTimestamp = Lens.lens (\StackResourceDriftInformationSummary' {lastCheckTimestamp} -> lastCheckTimestamp) (\s@StackResourceDriftInformationSummary' {} a -> s {lastCheckTimestamp = a} :: StackResourceDriftInformationSummary) Prelude.. Lens.mapping Core._Time
 
@@ -120,7 +120,7 @@ stackResourceDriftInformationSummary_lastCheckTimestamp = Lens.lens (\StackResou
 --
 -- -   @MODIFIED@: The resource differs from its expected configuration.
 --
--- -   @NOT_CHECKED@: AWS CloudFormation has not checked if the resource
+-- -   @NOT_CHECKED@: CloudFormation has not checked if the resource
 --     differs from its expected configuration.
 --
 --     Any resources that do not currently support drift detection have a
@@ -131,7 +131,7 @@ stackResourceDriftInformationSummary_lastCheckTimestamp = Lens.lens (\StackResou
 --     @NOT_CHECKED@. For more information on skipping resources during
 --     rollback operations, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html Continue Rolling Back an Update>
---     in the AWS CloudFormation User Guide.
+--     in the CloudFormation User Guide.
 --
 -- -   @IN_SYNC@: The resources\'s actual configuration matches its
 --     expected configuration.

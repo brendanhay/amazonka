@@ -23,7 +23,7 @@
 -- Detects whether a stack\'s actual configuration differs, or has
 -- /drifted/, from it\'s expected configuration, as defined in the stack
 -- template and any values specified as template parameters. For each
--- resource in the stack that supports drift detection, AWS CloudFormation
+-- resource in the stack that supports drift detection, CloudFormation
 -- compares the actual configuration of the resource with its expected
 -- template configuration. Only resource properties explicitly defined in
 -- the stack template are checked for drift. A stack is considered to have
@@ -46,9 +46,9 @@
 -- use DescribeStackResourceDrifts to return drift information about the
 -- stack and its resources.
 --
--- When detecting drift on a stack, AWS CloudFormation does not detect
--- drift on any nested stacks belonging to that stack. Perform
--- @DetectStackDrift@ directly on the nested stack itself.
+-- When detecting drift on a stack, CloudFormation does not detect drift on
+-- any nested stacks belonging to that stack. Perform @DetectStackDrift@
+-- directly on the nested stack itself.
 module Network.AWS.CloudFormation.DetectStackDrift
   ( -- * Creating a Request
     DetectStackDrift (..),
@@ -159,10 +159,9 @@ data DetectStackDriftResponse = DetectStackDriftResponse'
     httpStatus :: Prelude.Int,
     -- | The ID of the drift detection results of this operation.
     --
-    -- AWS CloudFormation generates new results, with a new drift detection ID,
+    -- CloudFormation generates new results, with a new drift detection ID,
     -- each time this operation is run. However, the number of drift results
-    -- AWS CloudFormation retains for any given stack, and for how long, may
-    -- vary.
+    -- CloudFormation retains for any given stack, and for how long, may vary.
     stackDriftDetectionId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -179,10 +178,9 @@ data DetectStackDriftResponse = DetectStackDriftResponse'
 --
 -- 'stackDriftDetectionId', 'detectStackDriftResponse_stackDriftDetectionId' - The ID of the drift detection results of this operation.
 --
--- AWS CloudFormation generates new results, with a new drift detection ID,
+-- CloudFormation generates new results, with a new drift detection ID,
 -- each time this operation is run. However, the number of drift results
--- AWS CloudFormation retains for any given stack, and for how long, may
--- vary.
+-- CloudFormation retains for any given stack, and for how long, may vary.
 newDetectStackDriftResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
@@ -204,10 +202,9 @@ detectStackDriftResponse_httpStatus = Lens.lens (\DetectStackDriftResponse' {htt
 
 -- | The ID of the drift detection results of this operation.
 --
--- AWS CloudFormation generates new results, with a new drift detection ID,
+-- CloudFormation generates new results, with a new drift detection ID,
 -- each time this operation is run. However, the number of drift results
--- AWS CloudFormation retains for any given stack, and for how long, may
--- vary.
+-- CloudFormation retains for any given stack, and for how long, may vary.
 detectStackDriftResponse_stackDriftDetectionId :: Lens.Lens' DetectStackDriftResponse Prelude.Text
 detectStackDriftResponse_stackDriftDetectionId = Lens.lens (\DetectStackDriftResponse' {stackDriftDetectionId} -> stackDriftDetectionId) (\s@DetectStackDriftResponse' {} a -> s {stackDriftDetectionId = a} :: DetectStackDriftResponse)
 

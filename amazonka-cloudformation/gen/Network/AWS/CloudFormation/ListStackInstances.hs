@@ -22,8 +22,8 @@
 --
 -- Returns summary information about stack instances that are associated
 -- with the specified stack set. You can filter for stack instances that
--- are associated with a specific AWS account name or Region, or that have
--- a specific status.
+-- are associated with a specific Amazon Web Services account name or
+-- Region, or that have a specific status.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudFormation.ListStackInstances
@@ -67,7 +67,8 @@ data ListStackInstances = ListStackInstances'
     -- remaining results, the previous response object\'s @NextToken@ parameter
     -- is set to @null@.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of the AWS account that you want to list stack instances for.
+    -- | The name of the Amazon Web Services account that you want to list stack
+    -- instances for.
     stackInstanceAccount :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to be returned with a single call. If the
     -- number of available results exceeds this maximum, the response includes
@@ -86,10 +87,10 @@ data ListStackInstances = ListStackInstances'
     -- -   If you are signed in to a delegated administrator account, specify
     --     @DELEGATED_ADMIN@.
     --
-    --     Your AWS account must be registered as a delegated administrator in
-    --     the management account. For more information, see
+    --     Your Amazon Web Services account must be registered as a delegated
+    --     administrator in the management account. For more information, see
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
-    --     in the /AWS CloudFormation User Guide/.
+    --     in the /CloudFormation User Guide/.
     callAs :: Prelude.Maybe CallAs,
     -- | The name of the Region where you want to list stack instances.
     stackInstanceRegion :: Prelude.Maybe Prelude.Text,
@@ -116,7 +117,8 @@ data ListStackInstances = ListStackInstances'
 -- remaining results, the previous response object\'s @NextToken@ parameter
 -- is set to @null@.
 --
--- 'stackInstanceAccount', 'listStackInstances_stackInstanceAccount' - The name of the AWS account that you want to list stack instances for.
+-- 'stackInstanceAccount', 'listStackInstances_stackInstanceAccount' - The name of the Amazon Web Services account that you want to list stack
+-- instances for.
 --
 -- 'maxResults', 'listStackInstances_maxResults' - The maximum number of results to be returned with a single call. If the
 -- number of available results exceeds this maximum, the response includes
@@ -135,10 +137,10 @@ data ListStackInstances = ListStackInstances'
 -- -   If you are signed in to a delegated administrator account, specify
 --     @DELEGATED_ADMIN@.
 --
---     Your AWS account must be registered as a delegated administrator in
---     the management account. For more information, see
+--     Your Amazon Web Services account must be registered as a delegated
+--     administrator in the management account. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
---     in the /AWS CloudFormation User Guide/.
+--     in the /CloudFormation User Guide/.
 --
 -- 'stackInstanceRegion', 'listStackInstances_stackInstanceRegion' - The name of the Region where you want to list stack instances.
 --
@@ -170,7 +172,8 @@ newListStackInstances pStackSetName_ =
 listStackInstances_nextToken :: Lens.Lens' ListStackInstances (Prelude.Maybe Prelude.Text)
 listStackInstances_nextToken = Lens.lens (\ListStackInstances' {nextToken} -> nextToken) (\s@ListStackInstances' {} a -> s {nextToken = a} :: ListStackInstances)
 
--- | The name of the AWS account that you want to list stack instances for.
+-- | The name of the Amazon Web Services account that you want to list stack
+-- instances for.
 listStackInstances_stackInstanceAccount :: Lens.Lens' ListStackInstances (Prelude.Maybe Prelude.Text)
 listStackInstances_stackInstanceAccount = Lens.lens (\ListStackInstances' {stackInstanceAccount} -> stackInstanceAccount) (\s@ListStackInstances' {} a -> s {stackInstanceAccount = a} :: ListStackInstances)
 
@@ -193,10 +196,10 @@ listStackInstances_maxResults = Lens.lens (\ListStackInstances' {maxResults} -> 
 -- -   If you are signed in to a delegated administrator account, specify
 --     @DELEGATED_ADMIN@.
 --
---     Your AWS account must be registered as a delegated administrator in
---     the management account. For more information, see
+--     Your Amazon Web Services account must be registered as a delegated
+--     administrator in the management account. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
---     in the /AWS CloudFormation User Guide/.
+--     in the /CloudFormation User Guide/.
 listStackInstances_callAs :: Lens.Lens' ListStackInstances (Prelude.Maybe CallAs)
 listStackInstances_callAs = Lens.lens (\ListStackInstances' {callAs} -> callAs) (\s@ListStackInstances' {} a -> s {callAs = a} :: ListStackInstances)
 

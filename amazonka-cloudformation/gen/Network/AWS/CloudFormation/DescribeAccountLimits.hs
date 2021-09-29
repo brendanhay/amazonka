@@ -20,11 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves your account\'s AWS CloudFormation limits, such as the maximum
+-- Retrieves your account\'s CloudFormation limits, such as the maximum
 -- number of stacks that you can create in your account. For more
 -- information about account limits, see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html AWS CloudFormation Limits>
--- in the /AWS CloudFormation User Guide/.
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html CloudFormation Limits>
+-- in the /CloudFormation User Guide/.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudFormation.DescribeAccountLimits
@@ -146,8 +146,8 @@ instance Core.ToQuery DescribeAccountLimits where
 --
 -- /See:/ 'newDescribeAccountLimitsResponse' smart constructor.
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
-  { -- | An account limit structure that contain a list of AWS CloudFormation
-    -- account limits and their values.
+  { -- | An account limit structure that contain a list of CloudFormation account
+    -- limits and their values.
     accountLimits :: Prelude.Maybe [AccountLimit],
     -- | If the output exceeds 1 MB in size, a string that identifies the next
     -- page of limits. If no additional page exists, this value is null.
@@ -165,8 +165,8 @@ data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountLimits', 'describeAccountLimitsResponse_accountLimits' - An account limit structure that contain a list of AWS CloudFormation
--- account limits and their values.
+-- 'accountLimits', 'describeAccountLimitsResponse_accountLimits' - An account limit structure that contain a list of CloudFormation account
+-- limits and their values.
 --
 -- 'nextToken', 'describeAccountLimitsResponse_nextToken' - If the output exceeds 1 MB in size, a string that identifies the next
 -- page of limits. If no additional page exists, this value is null.
@@ -184,8 +184,8 @@ newDescribeAccountLimitsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | An account limit structure that contain a list of AWS CloudFormation
--- account limits and their values.
+-- | An account limit structure that contain a list of CloudFormation account
+-- limits and their values.
 describeAccountLimitsResponse_accountLimits :: Lens.Lens' DescribeAccountLimitsResponse (Prelude.Maybe [AccountLimit])
 describeAccountLimitsResponse_accountLimits = Lens.lens (\DescribeAccountLimitsResponse' {accountLimits} -> accountLimits) (\s@DescribeAccountLimitsResponse' {} a -> s {accountLimits = a} :: DescribeAccountLimitsResponse) Prelude.. Lens.mapping Lens._Coerce
 

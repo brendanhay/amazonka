@@ -25,15 +25,15 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The @Change@ structure describes the changes AWS CloudFormation will
--- perform if you execute the change set.
+-- | The @Change@ structure describes the changes CloudFormation will perform
+-- if you execute the change set.
 --
 -- /See:/ 'newChange' smart constructor.
 data Change = Change'
   { -- | A @ResourceChange@ structure that describes the resource and action that
-    -- AWS CloudFormation will perform.
+    -- CloudFormation will perform.
     resourceChange :: Prelude.Maybe ResourceChange,
-    -- | The type of entity that AWS CloudFormation changes. Currently, the only
+    -- | The type of entity that CloudFormation changes. Currently, the only
     -- entity type is @Resource@.
     type' :: Prelude.Maybe ChangeType
   }
@@ -48,9 +48,9 @@ data Change = Change'
 -- for backwards compatibility:
 --
 -- 'resourceChange', 'change_resourceChange' - A @ResourceChange@ structure that describes the resource and action that
--- AWS CloudFormation will perform.
+-- CloudFormation will perform.
 --
--- 'type'', 'change_type' - The type of entity that AWS CloudFormation changes. Currently, the only
+-- 'type'', 'change_type' - The type of entity that CloudFormation changes. Currently, the only
 -- entity type is @Resource@.
 newChange ::
   Change
@@ -61,11 +61,11 @@ newChange =
     }
 
 -- | A @ResourceChange@ structure that describes the resource and action that
--- AWS CloudFormation will perform.
+-- CloudFormation will perform.
 change_resourceChange :: Lens.Lens' Change (Prelude.Maybe ResourceChange)
 change_resourceChange = Lens.lens (\Change' {resourceChange} -> resourceChange) (\s@Change' {} a -> s {resourceChange = a} :: Change)
 
--- | The type of entity that AWS CloudFormation changes. Currently, the only
+-- | The type of entity that CloudFormation changes. Currently, the only
 -- entity type is @Resource@.
 change_type :: Lens.Lens' Change (Prelude.Maybe ChangeType)
 change_type = Lens.lens (\Change' {type'} -> type') (\s@Change' {} a -> s {type' = a} :: Change)

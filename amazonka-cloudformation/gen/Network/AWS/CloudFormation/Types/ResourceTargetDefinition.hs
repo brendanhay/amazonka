@@ -25,7 +25,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The field that AWS CloudFormation will change, such as the name of a
+-- | The field that CloudFormation will change, such as the name of a
 -- resource\'s property, and whether the resource will be recreated.
 --
 -- /See:/ 'newResourceTargetDefinition' smart constructor.
@@ -35,7 +35,7 @@ data ResourceTargetDefinition = ResourceTargetDefinition'
     -- @Never@, @Always@, or @Conditionally@. To determine the conditions for a
     -- @Conditionally@ recreation, see the update behavior for that
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html property>
-    -- in the AWS CloudFormation User Guide.
+    -- in the CloudFormation User Guide.
     requiresRecreation :: Prelude.Maybe RequiresRecreation,
     -- | If the @Attribute@ value is @Properties@, the name of the property. For
     -- all other attributes, the value is null.
@@ -59,7 +59,7 @@ data ResourceTargetDefinition = ResourceTargetDefinition'
 -- @Never@, @Always@, or @Conditionally@. To determine the conditions for a
 -- @Conditionally@ recreation, see the update behavior for that
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html property>
--- in the AWS CloudFormation User Guide.
+-- in the CloudFormation User Guide.
 --
 -- 'name', 'resourceTargetDefinition_name' - If the @Attribute@ value is @Properties@, the name of the property. For
 -- all other attributes, the value is null.
@@ -81,7 +81,7 @@ newResourceTargetDefinition =
 -- @Never@, @Always@, or @Conditionally@. To determine the conditions for a
 -- @Conditionally@ recreation, see the update behavior for that
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html property>
--- in the AWS CloudFormation User Guide.
+-- in the CloudFormation User Guide.
 resourceTargetDefinition_requiresRecreation :: Lens.Lens' ResourceTargetDefinition (Prelude.Maybe RequiresRecreation)
 resourceTargetDefinition_requiresRecreation = Lens.lens (\ResourceTargetDefinition' {requiresRecreation} -> requiresRecreation) (\s@ResourceTargetDefinition' {} a -> s {requiresRecreation = a} :: ResourceTargetDefinition)
 

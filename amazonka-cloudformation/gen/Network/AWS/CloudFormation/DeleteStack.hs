@@ -53,27 +53,27 @@ import qualified Network.AWS.Response as Response
 data DeleteStack = DeleteStack'
   { -- | For stacks in the @DELETE_FAILED@ state, a list of resource logical IDs
     -- that are associated with the resources you want to retain. During
-    -- deletion, AWS CloudFormation deletes the stack but does not delete the
+    -- deletion, CloudFormation deletes the stack but does not delete the
     -- retained resources.
     --
     -- Retaining resources is useful when you cannot delete a resource, such as
     -- a non-empty S3 bucket, but you want to delete the stack.
     retainResources :: Prelude.Maybe [Prelude.Text],
-    -- | The Amazon Resource Name (ARN) of an AWS Identity and Access Management
-    -- (IAM) role that AWS CloudFormation assumes to delete the stack. AWS
+    -- | The Amazon Resource Name (ARN) of an Identity and Access Management
+    -- (IAM) role that CloudFormation assumes to delete the stack.
     -- CloudFormation uses the role\'s credentials to make calls on your
     -- behalf.
     --
-    -- If you don\'t specify a value, AWS CloudFormation uses the role that was
-    -- previously associated with the stack. If no role is available, AWS
+    -- If you don\'t specify a value, CloudFormation uses the role that was
+    -- previously associated with the stack. If no role is available,
     -- CloudFormation uses a temporary session that is generated from your user
     -- credentials.
     roleARN :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for this @DeleteStack@ request. Specify this token
-    -- if you plan to retry requests so that AWS CloudFormation knows that
-    -- you\'re not attempting to delete a stack with the same name. You might
-    -- retry @DeleteStack@ requests to ensure that AWS CloudFormation
-    -- successfully received them.
+    -- if you plan to retry requests so that CloudFormation knows that you\'re
+    -- not attempting to delete a stack with the same name. You might retry
+    -- @DeleteStack@ requests to ensure that CloudFormation successfully
+    -- received them.
     --
     -- All events triggered by a given stack operation are assigned the same
     -- client request token, which you can use to track operations. For
@@ -104,27 +104,27 @@ data DeleteStack = DeleteStack'
 --
 -- 'retainResources', 'deleteStack_retainResources' - For stacks in the @DELETE_FAILED@ state, a list of resource logical IDs
 -- that are associated with the resources you want to retain. During
--- deletion, AWS CloudFormation deletes the stack but does not delete the
+-- deletion, CloudFormation deletes the stack but does not delete the
 -- retained resources.
 --
 -- Retaining resources is useful when you cannot delete a resource, such as
 -- a non-empty S3 bucket, but you want to delete the stack.
 --
--- 'roleARN', 'deleteStack_roleARN' - The Amazon Resource Name (ARN) of an AWS Identity and Access Management
--- (IAM) role that AWS CloudFormation assumes to delete the stack. AWS
+-- 'roleARN', 'deleteStack_roleARN' - The Amazon Resource Name (ARN) of an Identity and Access Management
+-- (IAM) role that CloudFormation assumes to delete the stack.
 -- CloudFormation uses the role\'s credentials to make calls on your
 -- behalf.
 --
--- If you don\'t specify a value, AWS CloudFormation uses the role that was
--- previously associated with the stack. If no role is available, AWS
+-- If you don\'t specify a value, CloudFormation uses the role that was
+-- previously associated with the stack. If no role is available,
 -- CloudFormation uses a temporary session that is generated from your user
 -- credentials.
 --
 -- 'clientRequestToken', 'deleteStack_clientRequestToken' - A unique identifier for this @DeleteStack@ request. Specify this token
--- if you plan to retry requests so that AWS CloudFormation knows that
--- you\'re not attempting to delete a stack with the same name. You might
--- retry @DeleteStack@ requests to ensure that AWS CloudFormation
--- successfully received them.
+-- if you plan to retry requests so that CloudFormation knows that you\'re
+-- not attempting to delete a stack with the same name. You might retry
+-- @DeleteStack@ requests to ensure that CloudFormation successfully
+-- received them.
 --
 -- All events triggered by a given stack operation are assigned the same
 -- client request token, which you can use to track operations. For
@@ -155,7 +155,7 @@ newDeleteStack pStackName_ =
 
 -- | For stacks in the @DELETE_FAILED@ state, a list of resource logical IDs
 -- that are associated with the resources you want to retain. During
--- deletion, AWS CloudFormation deletes the stack but does not delete the
+-- deletion, CloudFormation deletes the stack but does not delete the
 -- retained resources.
 --
 -- Retaining resources is useful when you cannot delete a resource, such as
@@ -163,23 +163,23 @@ newDeleteStack pStackName_ =
 deleteStack_retainResources :: Lens.Lens' DeleteStack (Prelude.Maybe [Prelude.Text])
 deleteStack_retainResources = Lens.lens (\DeleteStack' {retainResources} -> retainResources) (\s@DeleteStack' {} a -> s {retainResources = a} :: DeleteStack) Prelude.. Lens.mapping Lens._Coerce
 
--- | The Amazon Resource Name (ARN) of an AWS Identity and Access Management
--- (IAM) role that AWS CloudFormation assumes to delete the stack. AWS
+-- | The Amazon Resource Name (ARN) of an Identity and Access Management
+-- (IAM) role that CloudFormation assumes to delete the stack.
 -- CloudFormation uses the role\'s credentials to make calls on your
 -- behalf.
 --
--- If you don\'t specify a value, AWS CloudFormation uses the role that was
--- previously associated with the stack. If no role is available, AWS
+-- If you don\'t specify a value, CloudFormation uses the role that was
+-- previously associated with the stack. If no role is available,
 -- CloudFormation uses a temporary session that is generated from your user
 -- credentials.
 deleteStack_roleARN :: Lens.Lens' DeleteStack (Prelude.Maybe Prelude.Text)
 deleteStack_roleARN = Lens.lens (\DeleteStack' {roleARN} -> roleARN) (\s@DeleteStack' {} a -> s {roleARN = a} :: DeleteStack)
 
 -- | A unique identifier for this @DeleteStack@ request. Specify this token
--- if you plan to retry requests so that AWS CloudFormation knows that
--- you\'re not attempting to delete a stack with the same name. You might
--- retry @DeleteStack@ requests to ensure that AWS CloudFormation
--- successfully received them.
+-- if you plan to retry requests so that CloudFormation knows that you\'re
+-- not attempting to delete a stack with the same name. You might retry
+-- @DeleteStack@ requests to ensure that CloudFormation successfully
+-- received them.
 --
 -- All events triggered by a given stack operation are assigned the same
 -- client request token, which you can use to track operations. For

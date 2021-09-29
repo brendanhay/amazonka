@@ -46,12 +46,15 @@ library
 
   exposed-modules:
     Network.AWS.CloudFormation
+    Network.AWS.CloudFormation.ActivateType
+    Network.AWS.CloudFormation.BatchDescribeTypeConfigurations
     Network.AWS.CloudFormation.CancelUpdateStack
     Network.AWS.CloudFormation.ContinueUpdateRollback
     Network.AWS.CloudFormation.CreateChangeSet
     Network.AWS.CloudFormation.CreateStack
     Network.AWS.CloudFormation.CreateStackInstances
     Network.AWS.CloudFormation.CreateStackSet
+    Network.AWS.CloudFormation.DeactivateType
     Network.AWS.CloudFormation.DeleteChangeSet
     Network.AWS.CloudFormation.DeleteStack
     Network.AWS.CloudFormation.DeleteStackInstances
@@ -59,6 +62,7 @@ library
     Network.AWS.CloudFormation.DeregisterType
     Network.AWS.CloudFormation.DescribeAccountLimits
     Network.AWS.CloudFormation.DescribeChangeSet
+    Network.AWS.CloudFormation.DescribePublisher
     Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus
     Network.AWS.CloudFormation.DescribeStackEvents
     Network.AWS.CloudFormation.DescribeStackInstance
@@ -78,6 +82,7 @@ library
     Network.AWS.CloudFormation.GetStackPolicy
     Network.AWS.CloudFormation.GetTemplate
     Network.AWS.CloudFormation.GetTemplateSummary
+    Network.AWS.CloudFormation.ImportStacksToStackSet
     Network.AWS.CloudFormation.Lens
     Network.AWS.CloudFormation.ListChangeSets
     Network.AWS.CloudFormation.ListExports
@@ -91,19 +96,26 @@ library
     Network.AWS.CloudFormation.ListTypeRegistrations
     Network.AWS.CloudFormation.ListTypes
     Network.AWS.CloudFormation.ListTypeVersions
+    Network.AWS.CloudFormation.PublishType
     Network.AWS.CloudFormation.RecordHandlerProgress
+    Network.AWS.CloudFormation.RegisterPublisher
     Network.AWS.CloudFormation.RegisterType
+    Network.AWS.CloudFormation.RollbackStack
     Network.AWS.CloudFormation.SetStackPolicy
+    Network.AWS.CloudFormation.SetTypeConfiguration
     Network.AWS.CloudFormation.SetTypeDefaultVersion
     Network.AWS.CloudFormation.SignalResource
     Network.AWS.CloudFormation.StopStackSetOperation
+    Network.AWS.CloudFormation.TestType
     Network.AWS.CloudFormation.Types
     Network.AWS.CloudFormation.Types.AccountGateResult
     Network.AWS.CloudFormation.Types.AccountGateStatus
     Network.AWS.CloudFormation.Types.AccountLimit
     Network.AWS.CloudFormation.Types.AutoDeployment
+    Network.AWS.CloudFormation.Types.BatchDescribeTypeConfigurationsError
     Network.AWS.CloudFormation.Types.CallAs
     Network.AWS.CloudFormation.Types.Capability
+    Network.AWS.CloudFormation.Types.Category
     Network.AWS.CloudFormation.Types.Change
     Network.AWS.CloudFormation.Types.ChangeAction
     Network.AWS.CloudFormation.Types.ChangeSetStatus
@@ -118,6 +130,7 @@ library
     Network.AWS.CloudFormation.Types.ExecutionStatus
     Network.AWS.CloudFormation.Types.Export
     Network.AWS.CloudFormation.Types.HandlerErrorCode
+    Network.AWS.CloudFormation.Types.IdentityProvider
     Network.AWS.CloudFormation.Types.LoggingConfig
     Network.AWS.CloudFormation.Types.ModuleInfo
     Network.AWS.CloudFormation.Types.OnFailure
@@ -130,9 +143,12 @@ library
     Network.AWS.CloudFormation.Types.PhysicalResourceIdContextKeyValuePair
     Network.AWS.CloudFormation.Types.PropertyDifference
     Network.AWS.CloudFormation.Types.ProvisioningType
+    Network.AWS.CloudFormation.Types.PublisherStatus
+    Network.AWS.CloudFormation.Types.RegionConcurrencyType
     Network.AWS.CloudFormation.Types.RegistrationStatus
     Network.AWS.CloudFormation.Types.RegistryType
     Network.AWS.CloudFormation.Types.Replacement
+    Network.AWS.CloudFormation.Types.RequiredActivatedType
     Network.AWS.CloudFormation.Types.RequiresRecreation
     Network.AWS.CloudFormation.Types.ResourceAttribute
     Network.AWS.CloudFormation.Types.ResourceChange
@@ -182,8 +198,14 @@ library
     Network.AWS.CloudFormation.Types.Tag
     Network.AWS.CloudFormation.Types.TemplateParameter
     Network.AWS.CloudFormation.Types.TemplateStage
+    Network.AWS.CloudFormation.Types.ThirdPartyType
+    Network.AWS.CloudFormation.Types.TypeConfigurationDetails
+    Network.AWS.CloudFormation.Types.TypeConfigurationIdentifier
+    Network.AWS.CloudFormation.Types.TypeFilters
     Network.AWS.CloudFormation.Types.TypeSummary
+    Network.AWS.CloudFormation.Types.TypeTestsStatus
     Network.AWS.CloudFormation.Types.TypeVersionSummary
+    Network.AWS.CloudFormation.Types.VersionBump
     Network.AWS.CloudFormation.Types.Visibility
     Network.AWS.CloudFormation.UpdateStack
     Network.AWS.CloudFormation.UpdateStackInstances

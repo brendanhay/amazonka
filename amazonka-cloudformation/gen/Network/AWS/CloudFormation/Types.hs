@@ -20,23 +20,25 @@ module Network.AWS.CloudFormation.Types
     _InsufficientCapabilitiesException,
     _StaleRequestException,
     _OperationNotFoundException,
-    _InvalidChangeSetStatusException,
     _NameAlreadyExistsException,
-    _StackSetNotEmptyException,
-    _InvalidOperationException,
+    _InvalidChangeSetStatusException,
     _OperationStatusCheckFailedException,
+    _InvalidOperationException,
+    _StackSetNotEmptyException,
     _ChangeSetNotFoundException,
-    _StackSetNotFoundException,
     _OperationInProgressException,
+    _StackSetNotFoundException,
     _CreatedButModifiedException,
     _TokenAlreadyExistsException,
+    _TypeConfigurationNotFoundException,
     _TypeNotFoundException,
+    _AlreadyExistsException,
+    _OperationIdAlreadyExistsException,
     _LimitExceededException,
     _CFNRegistryException,
-    _OperationIdAlreadyExistsException,
-    _AlreadyExistsException,
     _InvalidStateTransitionException,
     _StackInstanceNotFoundException,
+    _StackNotFoundException,
 
     -- * AccountGateStatus
     AccountGateStatus (..),
@@ -46,6 +48,9 @@ module Network.AWS.CloudFormation.Types
 
     -- * Capability
     Capability (..),
+
+    -- * Category
+    Category (..),
 
     -- * ChangeAction
     ChangeAction (..),
@@ -77,6 +82,9 @@ module Network.AWS.CloudFormation.Types
     -- * HandlerErrorCode
     HandlerErrorCode (..),
 
+    -- * IdentityProvider
+    IdentityProvider (..),
+
     -- * OnFailure
     OnFailure (..),
 
@@ -88,6 +96,12 @@ module Network.AWS.CloudFormation.Types
 
     -- * ProvisioningType
     ProvisioningType (..),
+
+    -- * PublisherStatus
+    PublisherStatus (..),
+
+    -- * RegionConcurrencyType
+    RegionConcurrencyType (..),
 
     -- * RegistrationStatus
     RegistrationStatus (..),
@@ -152,6 +166,15 @@ module Network.AWS.CloudFormation.Types
     -- * TemplateStage
     TemplateStage (..),
 
+    -- * ThirdPartyType
+    ThirdPartyType (..),
+
+    -- * TypeTestsStatus
+    TypeTestsStatus (..),
+
+    -- * VersionBump
+    VersionBump (..),
+
     -- * Visibility
     Visibility (..),
 
@@ -173,6 +196,13 @@ module Network.AWS.CloudFormation.Types
     autoDeployment_enabled,
     autoDeployment_retainStacksOnAccountRemoval,
 
+    -- * BatchDescribeTypeConfigurationsError
+    BatchDescribeTypeConfigurationsError (..),
+    newBatchDescribeTypeConfigurationsError,
+    batchDescribeTypeConfigurationsError_typeConfigurationIdentifier,
+    batchDescribeTypeConfigurationsError_errorMessage,
+    batchDescribeTypeConfigurationsError_errorCode,
+
     -- * Change
     Change (..),
     newChange,
@@ -183,8 +213,8 @@ module Network.AWS.CloudFormation.Types
     ChangeSetSummary (..),
     newChangeSetSummary,
     changeSetSummary_rootChangeSetId,
-    changeSetSummary_status,
     changeSetSummary_creationTime,
+    changeSetSummary_status,
     changeSetSummary_includeNestedStacks,
     changeSetSummary_stackName,
     changeSetSummary_executionStatus,
@@ -200,12 +230,13 @@ module Network.AWS.CloudFormation.Types
     newDeploymentTargets,
     deploymentTargets_organizationalUnitIds,
     deploymentTargets_accounts,
+    deploymentTargets_accountsUrl,
 
     -- * Export
     Export (..),
     newExport,
-    export_exportingStackId,
     export_name,
+    export_exportingStackId,
     export_value,
 
     -- * LoggingConfig
@@ -246,10 +277,10 @@ module Network.AWS.CloudFormation.Types
     newParameterDeclaration,
     parameterDeclaration_parameterConstraints,
     parameterDeclaration_parameterType,
-    parameterDeclaration_parameterKey,
     parameterDeclaration_description,
-    parameterDeclaration_noEcho,
+    parameterDeclaration_parameterKey,
     parameterDeclaration_defaultValue,
+    parameterDeclaration_noEcho,
 
     -- * PhysicalResourceIdContextKeyValuePair
     PhysicalResourceIdContextKeyValuePair (..),
@@ -265,13 +296,21 @@ module Network.AWS.CloudFormation.Types
     propertyDifference_actualValue,
     propertyDifference_differenceType,
 
+    -- * RequiredActivatedType
+    RequiredActivatedType (..),
+    newRequiredActivatedType,
+    requiredActivatedType_publisherId,
+    requiredActivatedType_supportedMajorVersions,
+    requiredActivatedType_typeNameAlias,
+    requiredActivatedType_originalTypeName,
+
     -- * ResourceChange
     ResourceChange (..),
     newResourceChange,
-    resourceChange_physicalResourceId,
     resourceChange_resourceType,
-    resourceChange_scope,
+    resourceChange_physicalResourceId,
     resourceChange_details,
+    resourceChange_scope,
     resourceChange_moduleInfo,
     resourceChange_logicalResourceId,
     resourceChange_changeSetId,
@@ -289,8 +328,8 @@ module Network.AWS.CloudFormation.Types
     -- * ResourceIdentifierSummary
     ResourceIdentifierSummary (..),
     newResourceIdentifierSummary,
-    resourceIdentifierSummary_resourceIdentifiers,
     resourceIdentifierSummary_resourceType,
+    resourceIdentifierSummary_resourceIdentifiers,
     resourceIdentifierSummary_logicalResourceIds,
 
     -- * ResourceTargetDefinition
@@ -323,12 +362,12 @@ module Network.AWS.CloudFormation.Types
     Stack (..),
     newStack,
     stack_outputs,
-    stack_driftInformation,
     stack_roleARN,
     stack_deletionTime,
-    stack_capabilities,
-    stack_stackStatusReason,
+    stack_driftInformation,
     stack_enableTerminationProtection,
+    stack_stackStatusReason,
+    stack_capabilities,
     stack_stackId,
     stack_notificationARNs,
     stack_rootId,
@@ -339,8 +378,8 @@ module Network.AWS.CloudFormation.Types
     stack_rollbackConfiguration,
     stack_description,
     stack_disableRollback,
-    stack_parameters,
     stack_lastUpdatedTime,
+    stack_parameters,
     stack_stackName,
     stack_creationTime,
     stack_stackStatus,
@@ -361,8 +400,8 @@ module Network.AWS.CloudFormation.Types
     StackEvent (..),
     newStackEvent,
     stackEvent_resourceProperties,
-    stackEvent_physicalResourceId,
     stackEvent_resourceType,
+    stackEvent_physicalResourceId,
     stackEvent_resourceStatusReason,
     stackEvent_logicalResourceId,
     stackEvent_resourceStatus,
@@ -381,9 +420,9 @@ module Network.AWS.CloudFormation.Types
     stackInstance_stackInstanceStatus,
     stackInstance_organizationalUnitId,
     stackInstance_lastDriftCheckTimestamp,
+    stackInstance_stackSetId,
     stackInstance_driftStatus,
     stackInstance_account,
-    stackInstance_stackSetId,
     stackInstance_region,
     stackInstance_statusReason,
 
@@ -406,17 +445,17 @@ module Network.AWS.CloudFormation.Types
     stackInstanceSummary_stackInstanceStatus,
     stackInstanceSummary_organizationalUnitId,
     stackInstanceSummary_lastDriftCheckTimestamp,
+    stackInstanceSummary_stackSetId,
     stackInstanceSummary_driftStatus,
     stackInstanceSummary_account,
-    stackInstanceSummary_stackSetId,
     stackInstanceSummary_region,
     stackInstanceSummary_statusReason,
 
     -- * StackResource
     StackResource (..),
     newStackResource,
-    stackResource_driftInformation,
     stackResource_stackName,
+    stackResource_driftInformation,
     stackResource_stackId,
     stackResource_physicalResourceId,
     stackResource_resourceStatusReason,
@@ -430,8 +469,8 @@ module Network.AWS.CloudFormation.Types
     -- * StackResourceDetail
     StackResourceDetail (..),
     newStackResourceDetail,
-    stackResourceDetail_driftInformation,
     stackResourceDetail_stackName,
+    stackResourceDetail_driftInformation,
     stackResourceDetail_stackId,
     stackResourceDetail_metadata,
     stackResourceDetail_physicalResourceId,
@@ -492,9 +531,9 @@ module Network.AWS.CloudFormation.Types
     stackSet_organizationalUnitIds,
     stackSet_administrationRoleARN,
     stackSet_stackSetDriftDetectionDetails,
+    stackSet_stackSetARN,
     stackSet_stackSetId,
     stackSet_tags,
-    stackSet_stackSetARN,
     stackSet_autoDeployment,
     stackSet_description,
     stackSet_stackSetName,
@@ -537,6 +576,7 @@ module Network.AWS.CloudFormation.Types
     stackSetOperationPreferences_failureToleranceCount,
     stackSetOperationPreferences_maxConcurrentCount,
     stackSetOperationPreferences_failureTolerancePercentage,
+    stackSetOperationPreferences_regionConcurrencyType,
 
     -- * StackSetOperationResultSummary
     StackSetOperationResultSummary (..),
@@ -563,8 +603,8 @@ module Network.AWS.CloudFormation.Types
     stackSetSummary_status,
     stackSetSummary_permissionModel,
     stackSetSummary_lastDriftCheckTimestamp,
-    stackSetSummary_driftStatus,
     stackSetSummary_stackSetId,
+    stackSetSummary_driftStatus,
     stackSetSummary_autoDeployment,
     stackSetSummary_description,
     stackSetSummary_stackSetName,
@@ -572,8 +612,8 @@ module Network.AWS.CloudFormation.Types
     -- * StackSummary
     StackSummary (..),
     newStackSummary,
-    stackSummary_driftInformation,
     stackSummary_deletionTime,
+    stackSummary_driftInformation,
     stackSummary_templateDescription,
     stackSummary_stackStatusReason,
     stackSummary_stackId,
@@ -593,18 +633,52 @@ module Network.AWS.CloudFormation.Types
     -- * TemplateParameter
     TemplateParameter (..),
     newTemplateParameter,
-    templateParameter_parameterKey,
     templateParameter_description,
-    templateParameter_noEcho,
+    templateParameter_parameterKey,
     templateParameter_defaultValue,
+    templateParameter_noEcho,
+
+    -- * TypeConfigurationDetails
+    TypeConfigurationDetails (..),
+    newTypeConfigurationDetails,
+    typeConfigurationDetails_typeName,
+    typeConfigurationDetails_alias,
+    typeConfigurationDetails_configuration,
+    typeConfigurationDetails_arn,
+    typeConfigurationDetails_lastUpdated,
+    typeConfigurationDetails_isDefaultConfiguration,
+    typeConfigurationDetails_typeArn,
+
+    -- * TypeConfigurationIdentifier
+    TypeConfigurationIdentifier (..),
+    newTypeConfigurationIdentifier,
+    typeConfigurationIdentifier_typeName,
+    typeConfigurationIdentifier_typeConfigurationAlias,
+    typeConfigurationIdentifier_type,
+    typeConfigurationIdentifier_typeConfigurationArn,
+    typeConfigurationIdentifier_typeArn,
+
+    -- * TypeFilters
+    TypeFilters (..),
+    newTypeFilters,
+    typeFilters_typeNamePrefix,
+    typeFilters_publisherId,
+    typeFilters_category,
 
     -- * TypeSummary
     TypeSummary (..),
     newTypeSummary,
+    typeSummary_isActivated,
     typeSummary_typeName,
+    typeSummary_publisherName,
+    typeSummary_publisherId,
+    typeSummary_latestPublicVersion,
     typeSummary_lastUpdated,
     typeSummary_defaultVersionId,
     typeSummary_description,
+    typeSummary_originalTypeName,
+    typeSummary_publisherIdentity,
+    typeSummary_publicVersionNumber,
     typeSummary_type,
     typeSummary_typeArn,
 
@@ -616,6 +690,7 @@ module Network.AWS.CloudFormation.Types
     typeVersionSummary_versionId,
     typeVersionSummary_description,
     typeVersionSummary_isDefaultVersion,
+    typeVersionSummary_publicVersionNumber,
     typeVersionSummary_type,
     typeVersionSummary_timeCreated,
   )
@@ -625,8 +700,10 @@ import Network.AWS.CloudFormation.Types.AccountGateResult
 import Network.AWS.CloudFormation.Types.AccountGateStatus
 import Network.AWS.CloudFormation.Types.AccountLimit
 import Network.AWS.CloudFormation.Types.AutoDeployment
+import Network.AWS.CloudFormation.Types.BatchDescribeTypeConfigurationsError
 import Network.AWS.CloudFormation.Types.CallAs
 import Network.AWS.CloudFormation.Types.Capability
+import Network.AWS.CloudFormation.Types.Category
 import Network.AWS.CloudFormation.Types.Change
 import Network.AWS.CloudFormation.Types.ChangeAction
 import Network.AWS.CloudFormation.Types.ChangeSetStatus
@@ -641,6 +718,7 @@ import Network.AWS.CloudFormation.Types.EvaluationType
 import Network.AWS.CloudFormation.Types.ExecutionStatus
 import Network.AWS.CloudFormation.Types.Export
 import Network.AWS.CloudFormation.Types.HandlerErrorCode
+import Network.AWS.CloudFormation.Types.IdentityProvider
 import Network.AWS.CloudFormation.Types.LoggingConfig
 import Network.AWS.CloudFormation.Types.ModuleInfo
 import Network.AWS.CloudFormation.Types.OnFailure
@@ -653,9 +731,12 @@ import Network.AWS.CloudFormation.Types.PermissionModels
 import Network.AWS.CloudFormation.Types.PhysicalResourceIdContextKeyValuePair
 import Network.AWS.CloudFormation.Types.PropertyDifference
 import Network.AWS.CloudFormation.Types.ProvisioningType
+import Network.AWS.CloudFormation.Types.PublisherStatus
+import Network.AWS.CloudFormation.Types.RegionConcurrencyType
 import Network.AWS.CloudFormation.Types.RegistrationStatus
 import Network.AWS.CloudFormation.Types.RegistryType
 import Network.AWS.CloudFormation.Types.Replacement
+import Network.AWS.CloudFormation.Types.RequiredActivatedType
 import Network.AWS.CloudFormation.Types.RequiresRecreation
 import Network.AWS.CloudFormation.Types.ResourceAttribute
 import Network.AWS.CloudFormation.Types.ResourceChange
@@ -705,8 +786,14 @@ import Network.AWS.CloudFormation.Types.StackSummary
 import Network.AWS.CloudFormation.Types.Tag
 import Network.AWS.CloudFormation.Types.TemplateParameter
 import Network.AWS.CloudFormation.Types.TemplateStage
+import Network.AWS.CloudFormation.Types.ThirdPartyType
+import Network.AWS.CloudFormation.Types.TypeConfigurationDetails
+import Network.AWS.CloudFormation.Types.TypeConfigurationIdentifier
+import Network.AWS.CloudFormation.Types.TypeFilters
 import Network.AWS.CloudFormation.Types.TypeSummary
+import Network.AWS.CloudFormation.Types.TypeTestsStatus
 import Network.AWS.CloudFormation.Types.TypeVersionSummary
+import Network.AWS.CloudFormation.Types.VersionBump
 import Network.AWS.CloudFormation.Types.Visibility
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
@@ -811,16 +898,6 @@ _OperationNotFoundException =
     "OperationNotFoundException"
     Prelude.. Core.hasStatus 404
 
--- | The specified change set can\'t be used to update the stack. For
--- example, the change set status might be @CREATE_IN_PROGRESS@, or the
--- stack status might be @UPDATE_IN_PROGRESS@.
-_InvalidChangeSetStatusException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidChangeSetStatusException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidChangeSetStatus"
-    Prelude.. Core.hasStatus 400
-
 -- | The specified name is already in use.
 _NameAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NameAlreadyExistsException =
@@ -829,22 +906,14 @@ _NameAlreadyExistsException =
     "NameAlreadyExistsException"
     Prelude.. Core.hasStatus 409
 
--- | You can\'t yet delete this stack set, because it still contains one or
--- more stack instances. Delete all stack instances from the stack set
--- before deleting the stack set.
-_StackSetNotEmptyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_StackSetNotEmptyException =
+-- | The specified change set can\'t be used to update the stack. For
+-- example, the change set status might be @CREATE_IN_PROGRESS@, or the
+-- stack status might be @UPDATE_IN_PROGRESS@.
+_InvalidChangeSetStatusException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidChangeSetStatusException =
   Core._MatchServiceError
     defaultService
-    "StackSetNotEmptyException"
-    Prelude.. Core.hasStatus 409
-
--- | The specified operation isn\'t valid.
-_InvalidOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidOperationException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidOperationException"
+    "InvalidChangeSetStatus"
     Prelude.. Core.hasStatus 400
 
 -- | Error reserved for use by the
@@ -857,6 +926,24 @@ _OperationStatusCheckFailedException =
     "ConditionalCheckFailed"
     Prelude.. Core.hasStatus 400
 
+-- | The specified operation isn\'t valid.
+_InvalidOperationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidOperationException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidOperationException"
+    Prelude.. Core.hasStatus 400
+
+-- | You can\'t yet delete this stack set, because it still contains one or
+-- more stack instances. Delete all stack instances from the stack set
+-- before deleting the stack set.
+_StackSetNotEmptyException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_StackSetNotEmptyException =
+  Core._MatchServiceError
+    defaultService
+    "StackSetNotEmptyException"
+    Prelude.. Core.hasStatus 409
+
 -- | The specified change set name or ID doesn\'t exit. To view valid change
 -- sets for a stack, use the @ListChangeSets@ action.
 _ChangeSetNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -864,14 +951,6 @@ _ChangeSetNotFoundException =
   Core._MatchServiceError
     defaultService
     "ChangeSetNotFound"
-    Prelude.. Core.hasStatus 404
-
--- | The specified stack set doesn\'t exist.
-_StackSetNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_StackSetNotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "StackSetNotFoundException"
     Prelude.. Core.hasStatus 404
 
 -- | Another operation is currently in progress for this stack set. Only one
@@ -882,6 +961,14 @@ _OperationInProgressException =
     defaultService
     "OperationInProgressException"
     Prelude.. Core.hasStatus 409
+
+-- | The specified stack set doesn\'t exist.
+_StackSetNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_StackSetNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "StackSetNotFoundException"
+    Prelude.. Core.hasStatus 404
 
 -- | The specified resource exists, but has been changed.
 _CreatedButModifiedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -899,7 +986,15 @@ _TokenAlreadyExistsException =
     "TokenAlreadyExistsException"
     Prelude.. Core.hasStatus 400
 
--- | The specified type does not exist in the CloudFormation registry.
+-- | The specified extension configuration cannot be found.
+_TypeConfigurationNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TypeConfigurationNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "TypeConfigurationNotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | The specified extension does not exist in the CloudFormation registry.
 _TypeNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _TypeNotFoundException =
   Core._MatchServiceError
@@ -907,11 +1002,27 @@ _TypeNotFoundException =
     "TypeNotFoundException"
     Prelude.. Core.hasStatus 404
 
+-- | The resource with the name requested already exists.
+_AlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "AlreadyExistsException"
+    Prelude.. Core.hasStatus 400
+
+-- | The specified operation ID already exists.
+_OperationIdAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_OperationIdAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "OperationIdAlreadyExistsException"
+    Prelude.. Core.hasStatus 409
+
 -- | The quota for the resource has already been reached.
 --
 -- For information on resource and stack limitations, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html Limits>
--- in the /AWS CloudFormation User Guide/.
+-- in the /CloudFormation User Guide/.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _LimitExceededException =
   Core._MatchServiceError
@@ -925,22 +1036,6 @@ _CFNRegistryException =
   Core._MatchServiceError
     defaultService
     "CFNRegistryException"
-    Prelude.. Core.hasStatus 400
-
--- | The specified operation ID already exists.
-_OperationIdAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_OperationIdAlreadyExistsException =
-  Core._MatchServiceError
-    defaultService
-    "OperationIdAlreadyExistsException"
-    Prelude.. Core.hasStatus 409
-
--- | The resource with the name requested already exists.
-_AlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AlreadyExistsException =
-  Core._MatchServiceError
-    defaultService
-    "AlreadyExistsException"
     Prelude.. Core.hasStatus 400
 
 -- | Error reserved for use by the
@@ -959,4 +1054,13 @@ _StackInstanceNotFoundException =
   Core._MatchServiceError
     defaultService
     "StackInstanceNotFoundException"
+    Prelude.. Core.hasStatus 404
+
+-- | The specified stack ARN doesn’t exist or stack doesn’t exist
+-- corresponding to the ARN in input.
+_StackNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_StackNotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "StackNotFoundException"
     Prelude.. Core.hasStatus 404

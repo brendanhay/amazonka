@@ -30,13 +30,13 @@ import qualified Network.AWS.Prelude as Prelude
 data StackEvent = StackEvent'
   { -- | BLOB of the properties used to create the resource.
     resourceProperties :: Prelude.Maybe Prelude.Text,
+    -- | Type of resource. (For more information, go to
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference>
+    -- in the CloudFormation User Guide.)
+    resourceType :: Prelude.Maybe Prelude.Text,
     -- | The name or unique identifier associated with the physical instance of
     -- the resource.
     physicalResourceId :: Prelude.Maybe Prelude.Text,
-    -- | Type of resource. (For more information, go to
-    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference>
-    -- in the AWS CloudFormation User Guide.)
-    resourceType :: Prelude.Maybe Prelude.Text,
     -- | Success\/failure message associated with the resource.
     resourceStatusReason :: Prelude.Maybe Prelude.Text,
     -- | The logical name of the resource specified in the template.
@@ -80,12 +80,12 @@ data StackEvent = StackEvent'
 --
 -- 'resourceProperties', 'stackEvent_resourceProperties' - BLOB of the properties used to create the resource.
 --
+-- 'resourceType', 'stackEvent_resourceType' - Type of resource. (For more information, go to
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference>
+-- in the CloudFormation User Guide.)
+--
 -- 'physicalResourceId', 'stackEvent_physicalResourceId' - The name or unique identifier associated with the physical instance of
 -- the resource.
---
--- 'resourceType', 'stackEvent_resourceType' - Type of resource. (For more information, go to
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference>
--- in the AWS CloudFormation User Guide.)
 --
 -- 'resourceStatusReason', 'stackEvent_resourceStatusReason' - Success\/failure message associated with the resource.
 --
@@ -133,8 +133,8 @@ newStackEvent
   pTimestamp_ =
     StackEvent'
       { resourceProperties = Prelude.Nothing,
-        physicalResourceId = Prelude.Nothing,
         resourceType = Prelude.Nothing,
+        physicalResourceId = Prelude.Nothing,
         resourceStatusReason = Prelude.Nothing,
         logicalResourceId = Prelude.Nothing,
         resourceStatus = Prelude.Nothing,
@@ -149,16 +149,16 @@ newStackEvent
 stackEvent_resourceProperties :: Lens.Lens' StackEvent (Prelude.Maybe Prelude.Text)
 stackEvent_resourceProperties = Lens.lens (\StackEvent' {resourceProperties} -> resourceProperties) (\s@StackEvent' {} a -> s {resourceProperties = a} :: StackEvent)
 
+-- | Type of resource. (For more information, go to
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference>
+-- in the CloudFormation User Guide.)
+stackEvent_resourceType :: Lens.Lens' StackEvent (Prelude.Maybe Prelude.Text)
+stackEvent_resourceType = Lens.lens (\StackEvent' {resourceType} -> resourceType) (\s@StackEvent' {} a -> s {resourceType = a} :: StackEvent)
+
 -- | The name or unique identifier associated with the physical instance of
 -- the resource.
 stackEvent_physicalResourceId :: Lens.Lens' StackEvent (Prelude.Maybe Prelude.Text)
 stackEvent_physicalResourceId = Lens.lens (\StackEvent' {physicalResourceId} -> physicalResourceId) (\s@StackEvent' {} a -> s {physicalResourceId = a} :: StackEvent)
-
--- | Type of resource. (For more information, go to
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference>
--- in the AWS CloudFormation User Guide.)
-stackEvent_resourceType :: Lens.Lens' StackEvent (Prelude.Maybe Prelude.Text)
-stackEvent_resourceType = Lens.lens (\StackEvent' {resourceType} -> resourceType) (\s@StackEvent' {} a -> s {resourceType = a} :: StackEvent)
 
 -- | Success\/failure message associated with the resource.
 stackEvent_resourceStatusReason :: Lens.Lens' StackEvent (Prelude.Maybe Prelude.Text)
@@ -210,8 +210,8 @@ instance Core.FromXML StackEvent where
   parseXML x =
     StackEvent'
       Prelude.<$> (x Core..@? "ResourceProperties")
-      Prelude.<*> (x Core..@? "PhysicalResourceId")
       Prelude.<*> (x Core..@? "ResourceType")
+      Prelude.<*> (x Core..@? "PhysicalResourceId")
       Prelude.<*> (x Core..@? "ResourceStatusReason")
       Prelude.<*> (x Core..@? "LogicalResourceId")
       Prelude.<*> (x Core..@? "ResourceStatus")

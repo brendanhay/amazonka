@@ -31,10 +31,10 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | A structure that contains information about a stack set. A stack set
--- enables you to provision stacks into AWS accounts and across Regions by
--- using a single CloudFormation template. In the stack set, you specify
--- the template to use, as well as any parameters and capabilities that the
--- template requires.
+-- enables you to provision stacks into Amazon Web Services accounts and
+-- across Regions by using a single CloudFormation template. In the stack
+-- set, you specify the template to use, as well as any parameters and
+-- capabilities that the template requires.
 --
 -- /See:/ 'newStackSet' smart constructor.
 data StackSet = StackSet'
@@ -49,7 +49,7 @@ data StackSet = StackSet'
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html Grant Self-Managed Stack Set Permissions>.
     --
     -- -   With @service-managed@ permissions, StackSets automatically creates
-    --     the IAM roles required to deploy to accounts managed by AWS
+    --     the IAM roles required to deploy to accounts managed by
     --     Organizations. For more information, see
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html Grant Service-Managed Stack Set Permissions>.
     permissionModel :: Prelude.Maybe PermissionModels,
@@ -61,9 +61,9 @@ data StackSet = StackSet'
     executionRoleName :: Prelude.Maybe Prelude.Text,
     -- | The capabilities that are allowed in the stack set. Some stack set
     -- templates might include resources that can affect permissions in your
-    -- AWS account—for example, by creating new AWS Identity and Access
-    -- Management (IAM) users. For more information, see
-    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates.>
+    -- Amazon Web Services account—for example, by creating new Identity and
+    -- Access Management (IAM) users. For more information, see
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in CloudFormation Templates.>
     capabilities :: Prelude.Maybe [Capability],
     -- | [Service-managed permissions] The organization root ID or organizational
     -- unit (OU) IDs that you specified for
@@ -76,7 +76,7 @@ data StackSet = StackSet'
     -- manage specific stack sets within the same administrator account. For
     -- more information, see
     -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html Prerequisites: Granting Permissions for Stack Set Operations>
-    -- in the /AWS CloudFormation User Guide/.
+    -- in the /CloudFormation User Guide/.
     administrationRoleARN :: Prelude.Maybe Prelude.Text,
     -- | Detailed information about the drift status of the stack set.
     --
@@ -84,15 +84,15 @@ data StackSet = StackSet'
     -- operation performed on the stack set. Information about drift operations
     -- currently in progress is not included.
     stackSetDriftDetectionDetails :: Prelude.Maybe StackSetDriftDetectionDetails,
+    -- | The Amazon Resource Number (ARN) of the stack set.
+    stackSetARN :: Prelude.Maybe Prelude.Text,
     -- | The ID of the stack set.
     stackSetId :: Prelude.Maybe Prelude.Text,
     -- | A list of tags that specify information about the stack set. A maximum
     -- number of 50 tags can be specified.
     tags :: Prelude.Maybe [Tag],
-    -- | The Amazon Resource Number (ARN) of the stack set.
-    stackSetARN :: Prelude.Maybe Prelude.Text,
     -- | [Service-managed permissions] Describes whether StackSets automatically
-    -- deploys to AWS Organizations accounts that are added to a target
+    -- deploys to Organizations accounts that are added to a target
     -- organization or organizational unit (OU).
     autoDeployment :: Prelude.Maybe AutoDeployment,
     -- | A description of the stack set that you specify when the stack set is
@@ -127,7 +127,7 @@ data StackSet = StackSet'
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html Grant Self-Managed Stack Set Permissions>.
 --
 -- -   With @service-managed@ permissions, StackSets automatically creates
---     the IAM roles required to deploy to accounts managed by AWS
+--     the IAM roles required to deploy to accounts managed by
 --     Organizations. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html Grant Service-Managed Stack Set Permissions>.
 --
@@ -139,9 +139,9 @@ data StackSet = StackSet'
 --
 -- 'capabilities', 'stackSet_capabilities' - The capabilities that are allowed in the stack set. Some stack set
 -- templates might include resources that can affect permissions in your
--- AWS account—for example, by creating new AWS Identity and Access
--- Management (IAM) users. For more information, see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates.>
+-- Amazon Web Services account—for example, by creating new Identity and
+-- Access Management (IAM) users. For more information, see
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in CloudFormation Templates.>
 --
 -- 'organizationalUnitIds', 'stackSet_organizationalUnitIds' - [Service-managed permissions] The organization root ID or organizational
 -- unit (OU) IDs that you specified for
@@ -154,7 +154,7 @@ data StackSet = StackSet'
 -- manage specific stack sets within the same administrator account. For
 -- more information, see
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html Prerequisites: Granting Permissions for Stack Set Operations>
--- in the /AWS CloudFormation User Guide/.
+-- in the /CloudFormation User Guide/.
 --
 -- 'stackSetDriftDetectionDetails', 'stackSet_stackSetDriftDetectionDetails' - Detailed information about the drift status of the stack set.
 --
@@ -162,15 +162,15 @@ data StackSet = StackSet'
 -- operation performed on the stack set. Information about drift operations
 -- currently in progress is not included.
 --
+-- 'stackSetARN', 'stackSet_stackSetARN' - The Amazon Resource Number (ARN) of the stack set.
+--
 -- 'stackSetId', 'stackSet_stackSetId' - The ID of the stack set.
 --
 -- 'tags', 'stackSet_tags' - A list of tags that specify information about the stack set. A maximum
 -- number of 50 tags can be specified.
 --
--- 'stackSetARN', 'stackSet_stackSetARN' - The Amazon Resource Number (ARN) of the stack set.
---
 -- 'autoDeployment', 'stackSet_autoDeployment' - [Service-managed permissions] Describes whether StackSets automatically
--- deploys to AWS Organizations accounts that are added to a target
+-- deploys to Organizations accounts that are added to a target
 -- organization or organizational unit (OU).
 --
 -- 'description', 'stackSet_description' - A description of the stack set that you specify when the stack set is
@@ -193,9 +193,9 @@ newStackSet =
       organizationalUnitIds = Prelude.Nothing,
       administrationRoleARN = Prelude.Nothing,
       stackSetDriftDetectionDetails = Prelude.Nothing,
+      stackSetARN = Prelude.Nothing,
       stackSetId = Prelude.Nothing,
       tags = Prelude.Nothing,
-      stackSetARN = Prelude.Nothing,
       autoDeployment = Prelude.Nothing,
       description = Prelude.Nothing,
       stackSetName = Prelude.Nothing,
@@ -216,7 +216,7 @@ stackSet_status = Lens.lens (\StackSet' {status} -> status) (\s@StackSet' {} a -
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html Grant Self-Managed Stack Set Permissions>.
 --
 -- -   With @service-managed@ permissions, StackSets automatically creates
---     the IAM roles required to deploy to accounts managed by AWS
+--     the IAM roles required to deploy to accounts managed by
 --     Organizations. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html Grant Service-Managed Stack Set Permissions>.
 stackSet_permissionModel :: Lens.Lens' StackSet (Prelude.Maybe PermissionModels)
@@ -232,9 +232,9 @@ stackSet_executionRoleName = Lens.lens (\StackSet' {executionRoleName} -> execut
 
 -- | The capabilities that are allowed in the stack set. Some stack set
 -- templates might include resources that can affect permissions in your
--- AWS account—for example, by creating new AWS Identity and Access
--- Management (IAM) users. For more information, see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates.>
+-- Amazon Web Services account—for example, by creating new Identity and
+-- Access Management (IAM) users. For more information, see
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in CloudFormation Templates.>
 stackSet_capabilities :: Lens.Lens' StackSet (Prelude.Maybe [Capability])
 stackSet_capabilities = Lens.lens (\StackSet' {capabilities} -> capabilities) (\s@StackSet' {} a -> s {capabilities = a} :: StackSet) Prelude.. Lens.mapping Lens._Coerce
 
@@ -251,7 +251,7 @@ stackSet_organizationalUnitIds = Lens.lens (\StackSet' {organizationalUnitIds} -
 -- manage specific stack sets within the same administrator account. For
 -- more information, see
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html Prerequisites: Granting Permissions for Stack Set Operations>
--- in the /AWS CloudFormation User Guide/.
+-- in the /CloudFormation User Guide/.
 stackSet_administrationRoleARN :: Lens.Lens' StackSet (Prelude.Maybe Prelude.Text)
 stackSet_administrationRoleARN = Lens.lens (\StackSet' {administrationRoleARN} -> administrationRoleARN) (\s@StackSet' {} a -> s {administrationRoleARN = a} :: StackSet)
 
@@ -263,6 +263,10 @@ stackSet_administrationRoleARN = Lens.lens (\StackSet' {administrationRoleARN} -
 stackSet_stackSetDriftDetectionDetails :: Lens.Lens' StackSet (Prelude.Maybe StackSetDriftDetectionDetails)
 stackSet_stackSetDriftDetectionDetails = Lens.lens (\StackSet' {stackSetDriftDetectionDetails} -> stackSetDriftDetectionDetails) (\s@StackSet' {} a -> s {stackSetDriftDetectionDetails = a} :: StackSet)
 
+-- | The Amazon Resource Number (ARN) of the stack set.
+stackSet_stackSetARN :: Lens.Lens' StackSet (Prelude.Maybe Prelude.Text)
+stackSet_stackSetARN = Lens.lens (\StackSet' {stackSetARN} -> stackSetARN) (\s@StackSet' {} a -> s {stackSetARN = a} :: StackSet)
+
 -- | The ID of the stack set.
 stackSet_stackSetId :: Lens.Lens' StackSet (Prelude.Maybe Prelude.Text)
 stackSet_stackSetId = Lens.lens (\StackSet' {stackSetId} -> stackSetId) (\s@StackSet' {} a -> s {stackSetId = a} :: StackSet)
@@ -272,12 +276,8 @@ stackSet_stackSetId = Lens.lens (\StackSet' {stackSetId} -> stackSetId) (\s@Stac
 stackSet_tags :: Lens.Lens' StackSet (Prelude.Maybe [Tag])
 stackSet_tags = Lens.lens (\StackSet' {tags} -> tags) (\s@StackSet' {} a -> s {tags = a} :: StackSet) Prelude.. Lens.mapping Lens._Coerce
 
--- | The Amazon Resource Number (ARN) of the stack set.
-stackSet_stackSetARN :: Lens.Lens' StackSet (Prelude.Maybe Prelude.Text)
-stackSet_stackSetARN = Lens.lens (\StackSet' {stackSetARN} -> stackSetARN) (\s@StackSet' {} a -> s {stackSetARN = a} :: StackSet)
-
 -- | [Service-managed permissions] Describes whether StackSets automatically
--- deploys to AWS Organizations accounts that are added to a target
+-- deploys to Organizations accounts that are added to a target
 -- organization or organizational unit (OU).
 stackSet_autoDeployment :: Lens.Lens' StackSet (Prelude.Maybe AutoDeployment)
 stackSet_autoDeployment = Lens.lens (\StackSet' {autoDeployment} -> autoDeployment) (\s@StackSet' {} a -> s {autoDeployment = a} :: StackSet)
@@ -315,11 +315,11 @@ instance Core.FromXML StackSet where
                   )
       Prelude.<*> (x Core..@? "AdministrationRoleARN")
       Prelude.<*> (x Core..@? "StackSetDriftDetectionDetails")
+      Prelude.<*> (x Core..@? "StackSetARN")
       Prelude.<*> (x Core..@? "StackSetId")
       Prelude.<*> ( x Core..@? "Tags" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "StackSetARN")
       Prelude.<*> (x Core..@? "AutoDeployment")
       Prelude.<*> (x Core..@? "Description")
       Prelude.<*> (x Core..@? "StackSetName")

@@ -20,11 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns AWS resource descriptions for running and deleted stacks. If
--- @StackName@ is specified, all the associated resources that are part of
--- the stack are returned. If @PhysicalResourceId@ is specified, the
--- associated resources of the stack that the resource belongs to are
--- returned.
+-- Returns Amazon Web Services resource descriptions for running and
+-- deleted stacks. If @StackName@ is specified, all the associated
+-- resources that are part of the stack are returned. If
+-- @PhysicalResourceId@ is specified, the associated resources of the stack
+-- that the resource belongs to are returned.
 --
 -- Only the first 100 resources will be returned. If your stack has more
 -- resources than this, you should use @ListStackResources@ instead.
@@ -36,7 +36,7 @@
 -- both. In addition, you can specify @LogicalResourceId@ to filter the
 -- returned result. For more information about resources, the
 -- @LogicalResourceId@ and @PhysicalResourceId@, go to the
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/ AWS CloudFormation User Guide>.
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/ CloudFormation User Guide>.
 --
 -- A @ValidationError@ is returned if you specify both @StackName@ and
 -- @PhysicalResourceId@ in the same request.
@@ -85,7 +85,7 @@ data DescribeStackResources = DescribeStackResources'
     -- specify @PhysicalResourceId@.
     stackName :: Prelude.Maybe Prelude.Text,
     -- | The name or unique identifier that corresponds to a physical instance ID
-    -- of a resource supported by AWS CloudFormation.
+    -- of a resource supported by CloudFormation.
     --
     -- For example, for an Amazon Elastic Compute Cloud (EC2) instance,
     -- @PhysicalResourceId@ corresponds to the @InstanceId@. You can pass the
@@ -126,7 +126,7 @@ data DescribeStackResources = DescribeStackResources'
 -- specify @PhysicalResourceId@.
 --
 -- 'physicalResourceId', 'describeStackResources_physicalResourceId' - The name or unique identifier that corresponds to a physical instance ID
--- of a resource supported by AWS CloudFormation.
+-- of a resource supported by CloudFormation.
 --
 -- For example, for an Amazon Elastic Compute Cloud (EC2) instance,
 -- @PhysicalResourceId@ corresponds to the @InstanceId@. You can pass the
@@ -167,7 +167,7 @@ describeStackResources_stackName :: Lens.Lens' DescribeStackResources (Prelude.M
 describeStackResources_stackName = Lens.lens (\DescribeStackResources' {stackName} -> stackName) (\s@DescribeStackResources' {} a -> s {stackName = a} :: DescribeStackResources)
 
 -- | The name or unique identifier that corresponds to a physical instance ID
--- of a resource supported by AWS CloudFormation.
+-- of a resource supported by CloudFormation.
 --
 -- For example, for an Amazon Elastic Compute Cloud (EC2) instance,
 -- @PhysicalResourceId@ corresponds to the @InstanceId@. You can pass the

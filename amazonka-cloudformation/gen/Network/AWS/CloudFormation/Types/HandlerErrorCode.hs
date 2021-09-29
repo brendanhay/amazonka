@@ -26,6 +26,7 @@ module Network.AWS.CloudFormation.Types.HandlerErrorCode
         HandlerErrorCode_InternalFailure,
         HandlerErrorCode_InvalidCredentials,
         HandlerErrorCode_InvalidRequest,
+        HandlerErrorCode_InvalidTypeConfiguration,
         HandlerErrorCode_NetworkFailure,
         HandlerErrorCode_NotFound,
         HandlerErrorCode_NotStabilized,
@@ -87,6 +88,9 @@ pattern HandlerErrorCode_InvalidCredentials = HandlerErrorCode' "InvalidCredenti
 pattern HandlerErrorCode_InvalidRequest :: HandlerErrorCode
 pattern HandlerErrorCode_InvalidRequest = HandlerErrorCode' "InvalidRequest"
 
+pattern HandlerErrorCode_InvalidTypeConfiguration :: HandlerErrorCode
+pattern HandlerErrorCode_InvalidTypeConfiguration = HandlerErrorCode' "InvalidTypeConfiguration"
+
 pattern HandlerErrorCode_NetworkFailure :: HandlerErrorCode
 pattern HandlerErrorCode_NetworkFailure = HandlerErrorCode' "NetworkFailure"
 
@@ -118,6 +122,7 @@ pattern HandlerErrorCode_Throttling = HandlerErrorCode' "Throttling"
   HandlerErrorCode_InternalFailure,
   HandlerErrorCode_InvalidCredentials,
   HandlerErrorCode_InvalidRequest,
+  HandlerErrorCode_InvalidTypeConfiguration,
   HandlerErrorCode_NetworkFailure,
   HandlerErrorCode_NotFound,
   HandlerErrorCode_NotStabilized,

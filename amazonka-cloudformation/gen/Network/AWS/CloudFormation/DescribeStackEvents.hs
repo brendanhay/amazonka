@@ -24,7 +24,7 @@
 -- chronological order. For more information about a stack\'s event
 -- history, go to
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/concept-stack.html Stacks>
--- in the AWS CloudFormation User Guide.
+-- in the CloudFormation User Guide.
 --
 -- You can list events for stacks that have failed to create or have been
 -- deleted by specifying the unique stack identifier (stack ID).

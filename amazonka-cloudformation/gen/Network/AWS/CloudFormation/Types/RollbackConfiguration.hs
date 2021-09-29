@@ -24,14 +24,14 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Structure containing the rollback triggers for AWS CloudFormation to
--- monitor during stack creation and updating operations, and for the
--- specified monitoring period afterwards.
+-- | Structure containing the rollback triggers for CloudFormation to monitor
+-- during stack creation and updating operations, and for the specified
+-- monitoring period afterwards.
 --
--- Rollback triggers enable you to have AWS CloudFormation monitor the
--- state of your application during stack creation and updating, and to
--- roll back that operation if the application breaches the threshold of
--- any of the alarms you\'ve specified. For more information, see
+-- Rollback triggers enable you to have CloudFormation monitor the state of
+-- your application during stack creation and updating, and to roll back
+-- that operation if the application breaches the threshold of any of the
+-- alarms you\'ve specified. For more information, see
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-rollback-triggers.html Monitor and Roll Back Stack Operations>.
 --
 -- /See:/ 'newRollbackConfiguration' smart constructor.
@@ -57,8 +57,8 @@ data RollbackConfiguration = RollbackConfiguration'
     monitoringTimeInMinutes :: Prelude.Maybe Prelude.Natural,
     -- | The triggers to monitor during stack creation or update actions.
     --
-    -- By default, AWS CloudFormation saves the rollback triggers specified for
-    -- a stack and applies them to any subsequent update operations for the
+    -- By default, CloudFormation saves the rollback triggers specified for a
+    -- stack and applies them to any subsequent update operations for the
     -- stack, unless you specify otherwise. If you do specify rollback triggers
     -- for this parameter, those triggers replace any list of triggers
     -- previously specified for the stack. This means:
@@ -111,8 +111,8 @@ data RollbackConfiguration = RollbackConfiguration'
 --
 -- 'rollbackTriggers', 'rollbackConfiguration_rollbackTriggers' - The triggers to monitor during stack creation or update actions.
 --
--- By default, AWS CloudFormation saves the rollback triggers specified for
--- a stack and applies them to any subsequent update operations for the
+-- By default, CloudFormation saves the rollback triggers specified for a
+-- stack and applies them to any subsequent update operations for the
 -- stack, unless you specify otherwise. If you do specify rollback triggers
 -- for this parameter, those triggers replace any list of triggers
 -- previously specified for the stack. This means:
@@ -164,8 +164,8 @@ rollbackConfiguration_monitoringTimeInMinutes = Lens.lens (\RollbackConfiguratio
 
 -- | The triggers to monitor during stack creation or update actions.
 --
--- By default, AWS CloudFormation saves the rollback triggers specified for
--- a stack and applies them to any subsequent update operations for the
+-- By default, CloudFormation saves the rollback triggers specified for a
+-- stack and applies them to any subsequent update operations for the
 -- stack, unless you specify otherwise. If you do specify rollback triggers
 -- for this parameter, those triggers replace any list of triggers
 -- previously specified for the stack. This means:

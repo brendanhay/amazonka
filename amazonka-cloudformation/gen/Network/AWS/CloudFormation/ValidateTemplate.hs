@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Validates a specified template. AWS CloudFormation first checks if the
--- template is valid JSON. If it isn\'t, AWS CloudFormation checks if the
--- template is valid YAML. If both these checks fail, AWS CloudFormation
+-- Validates a specified template. CloudFormation first checks if the
+-- template is valid JSON. If it isn\'t, CloudFormation checks if the
+-- template is valid YAML. If both these checks fail, CloudFormation
 -- returns a template validation error.
 module Network.AWS.CloudFormation.ValidateTemplate
   ( -- * Creating a Request
@@ -62,7 +62,7 @@ data ValidateTemplate = ValidateTemplate'
     -- template (max size: 460,800 bytes) that is located in an Amazon S3
     -- bucket or a Systems Manager document. For more information, go to
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
-    -- in the AWS CloudFormation User Guide.
+    -- in the CloudFormation User Guide.
     --
     -- Conditional: You must pass @TemplateURL@ or @TemplateBody@. If both are
     -- passed, only @TemplateBody@ is used.
@@ -70,7 +70,7 @@ data ValidateTemplate = ValidateTemplate'
     -- | Structure containing the template body with a minimum length of 1 byte
     -- and a maximum length of 51,200 bytes. For more information, go to
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
-    -- in the AWS CloudFormation User Guide.
+    -- in the CloudFormation User Guide.
     --
     -- Conditional: You must pass @TemplateURL@ or @TemplateBody@. If both are
     -- passed, only @TemplateBody@ is used.
@@ -90,7 +90,7 @@ data ValidateTemplate = ValidateTemplate'
 -- template (max size: 460,800 bytes) that is located in an Amazon S3
 -- bucket or a Systems Manager document. For more information, go to
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
--- in the AWS CloudFormation User Guide.
+-- in the CloudFormation User Guide.
 --
 -- Conditional: You must pass @TemplateURL@ or @TemplateBody@. If both are
 -- passed, only @TemplateBody@ is used.
@@ -98,7 +98,7 @@ data ValidateTemplate = ValidateTemplate'
 -- 'templateBody', 'validateTemplate_templateBody' - Structure containing the template body with a minimum length of 1 byte
 -- and a maximum length of 51,200 bytes. For more information, go to
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
--- in the AWS CloudFormation User Guide.
+-- in the CloudFormation User Guide.
 --
 -- Conditional: You must pass @TemplateURL@ or @TemplateBody@. If both are
 -- passed, only @TemplateBody@ is used.
@@ -114,7 +114,7 @@ newValidateTemplate =
 -- template (max size: 460,800 bytes) that is located in an Amazon S3
 -- bucket or a Systems Manager document. For more information, go to
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
--- in the AWS CloudFormation User Guide.
+-- in the CloudFormation User Guide.
 --
 -- Conditional: You must pass @TemplateURL@ or @TemplateBody@. If both are
 -- passed, only @TemplateBody@ is used.
@@ -124,7 +124,7 @@ validateTemplate_templateURL = Lens.lens (\ValidateTemplate' {templateURL} -> te
 -- | Structure containing the template body with a minimum length of 1 byte
 -- and a maximum length of 51,200 bytes. For more information, go to
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
--- in the AWS CloudFormation User Guide.
+-- in the CloudFormation User Guide.
 --
 -- Conditional: You must pass @TemplateURL@ or @TemplateBody@. If both are
 -- passed, only @TemplateBody@ is used.
@@ -188,7 +188,7 @@ data ValidateTemplateResponse = ValidateTemplateResponse'
     -- actions return an InsufficientCapabilities error.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates>.
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in CloudFormation Templates>.
     capabilities :: Prelude.Maybe [Capability],
     -- | A list of the transforms that are declared in the template.
     declaredTransforms :: Prelude.Maybe [Prelude.Text],
@@ -219,7 +219,7 @@ data ValidateTemplateResponse = ValidateTemplateResponse'
 -- actions return an InsufficientCapabilities error.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates>.
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in CloudFormation Templates>.
 --
 -- 'declaredTransforms', 'validateTemplateResponse_declaredTransforms' - A list of the transforms that are declared in the template.
 --
@@ -253,7 +253,7 @@ newValidateTemplateResponse pHttpStatus_ =
 -- actions return an InsufficientCapabilities error.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates>.
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in CloudFormation Templates>.
 validateTemplateResponse_capabilities :: Lens.Lens' ValidateTemplateResponse (Prelude.Maybe [Capability])
 validateTemplateResponse_capabilities = Lens.lens (\ValidateTemplateResponse' {capabilities} -> capabilities) (\s@ValidateTemplateResponse' {} a -> s {capabilities = a} :: ValidateTemplateResponse) Prelude.. Lens.mapping Lens._Coerce
 

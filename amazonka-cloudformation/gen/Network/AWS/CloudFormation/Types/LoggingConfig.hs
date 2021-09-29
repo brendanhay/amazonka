@@ -23,7 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Contains logging configuration information for a type.
+-- | Contains logging configuration information for an extension.
 --
 -- /See:/ 'newLoggingConfig' smart constructor.
 data LoggingConfig = LoggingConfig'
@@ -31,7 +31,7 @@ data LoggingConfig = LoggingConfig'
     -- entries to CloudWatch logs.
     logRoleArn :: Prelude.Text,
     -- | The Amazon CloudWatch log group to which CloudFormation sends error
-    -- logging information when invoking the type\'s handlers.
+    -- logging information when invoking the extension\'s handlers.
     logGroupName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,7 +48,7 @@ data LoggingConfig = LoggingConfig'
 -- entries to CloudWatch logs.
 --
 -- 'logGroupName', 'loggingConfig_logGroupName' - The Amazon CloudWatch log group to which CloudFormation sends error
--- logging information when invoking the type\'s handlers.
+-- logging information when invoking the extension\'s handlers.
 newLoggingConfig ::
   -- | 'logRoleArn'
   Prelude.Text ->
@@ -67,7 +67,7 @@ loggingConfig_logRoleArn :: Lens.Lens' LoggingConfig Prelude.Text
 loggingConfig_logRoleArn = Lens.lens (\LoggingConfig' {logRoleArn} -> logRoleArn) (\s@LoggingConfig' {} a -> s {logRoleArn = a} :: LoggingConfig)
 
 -- | The Amazon CloudWatch log group to which CloudFormation sends error
--- logging information when invoking the type\'s handlers.
+-- logging information when invoking the extension\'s handlers.
 loggingConfig_logGroupName :: Lens.Lens' LoggingConfig Prelude.Text
 loggingConfig_logGroupName = Lens.lens (\LoggingConfig' {logGroupName} -> logGroupName) (\s@LoggingConfig' {} a -> s {logGroupName = a} :: LoggingConfig)
 

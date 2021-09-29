@@ -48,8 +48,8 @@ module Network.AWS.CloudFormation.DescribeStackDriftDetectionStatus
     newDescribeStackDriftDetectionStatusResponse,
 
     -- * Response Lenses
-    describeStackDriftDetectionStatusResponse_stackDriftStatus,
     describeStackDriftDetectionStatusResponse_detectionStatusReason,
+    describeStackDriftDetectionStatusResponse_stackDriftStatus,
     describeStackDriftDetectionStatusResponse_driftedStackResourceCount,
     describeStackDriftDetectionStatusResponse_httpStatus,
     describeStackDriftDetectionStatusResponse_stackId,
@@ -70,10 +70,9 @@ import qualified Network.AWS.Response as Response
 data DescribeStackDriftDetectionStatus = DescribeStackDriftDetectionStatus'
   { -- | The ID of the drift detection results of this operation.
     --
-    -- AWS CloudFormation generates new results, with a new drift detection ID,
+    -- CloudFormation generates new results, with a new drift detection ID,
     -- each time this operation is run. However, the number of drift results
-    -- AWS CloudFormation retains for any given stack, and for how long, may
-    -- vary.
+    -- CloudFormation retains for any given stack, and for how long, may vary.
     stackDriftDetectionId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -88,10 +87,9 @@ data DescribeStackDriftDetectionStatus = DescribeStackDriftDetectionStatus'
 --
 -- 'stackDriftDetectionId', 'describeStackDriftDetectionStatus_stackDriftDetectionId' - The ID of the drift detection results of this operation.
 --
--- AWS CloudFormation generates new results, with a new drift detection ID,
+-- CloudFormation generates new results, with a new drift detection ID,
 -- each time this operation is run. However, the number of drift results
--- AWS CloudFormation retains for any given stack, and for how long, may
--- vary.
+-- CloudFormation retains for any given stack, and for how long, may vary.
 newDescribeStackDriftDetectionStatus ::
   -- | 'stackDriftDetectionId'
   Prelude.Text ->
@@ -105,10 +103,9 @@ newDescribeStackDriftDetectionStatus
 
 -- | The ID of the drift detection results of this operation.
 --
--- AWS CloudFormation generates new results, with a new drift detection ID,
+-- CloudFormation generates new results, with a new drift detection ID,
 -- each time this operation is run. However, the number of drift results
--- AWS CloudFormation retains for any given stack, and for how long, may
--- vary.
+-- CloudFormation retains for any given stack, and for how long, may vary.
 describeStackDriftDetectionStatus_stackDriftDetectionId :: Lens.Lens' DescribeStackDriftDetectionStatus Prelude.Text
 describeStackDriftDetectionStatus_stackDriftDetectionId = Lens.lens (\DescribeStackDriftDetectionStatus' {stackDriftDetectionId} -> stackDriftDetectionId) (\s@DescribeStackDriftDetectionStatus' {} a -> s {stackDriftDetectionId = a} :: DescribeStackDriftDetectionStatus)
 
@@ -125,8 +122,8 @@ instance
       "DescribeStackDriftDetectionStatusResult"
       ( \s h x ->
           DescribeStackDriftDetectionStatusResponse'
-            Prelude.<$> (x Core..@? "StackDriftStatus")
-              Prelude.<*> (x Core..@? "DetectionStatusReason")
+            Prelude.<$> (x Core..@? "DetectionStatusReason")
+              Prelude.<*> (x Core..@? "StackDriftStatus")
               Prelude.<*> (x Core..@? "DriftedStackResourceCount")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
               Prelude.<*> (x Core..@ "StackId")
@@ -173,23 +170,23 @@ instance
 
 -- | /See:/ 'newDescribeStackDriftDetectionStatusResponse' smart constructor.
 data DescribeStackDriftDetectionStatusResponse = DescribeStackDriftDetectionStatusResponse'
-  { -- | Status of the stack\'s actual configuration compared to its expected
+  { -- | The reason the stack drift detection operation has its current status.
+    detectionStatusReason :: Prelude.Maybe Prelude.Text,
+    -- | Status of the stack\'s actual configuration compared to its expected
     -- configuration.
     --
     -- -   @DRIFTED@: The stack differs from its expected template
     --     configuration. A stack is considered to have drifted if one or more
     --     of its resources have drifted.
     --
-    -- -   @NOT_CHECKED@: AWS CloudFormation has not checked if the stack
-    --     differs from its expected template configuration.
+    -- -   @NOT_CHECKED@: CloudFormation has not checked if the stack differs
+    --     from its expected template configuration.
     --
     -- -   @IN_SYNC@: The stack\'s actual configuration matches its expected
     --     template configuration.
     --
     -- -   @UNKNOWN@: This value is reserved for future use.
     stackDriftStatus :: Prelude.Maybe StackDriftStatus,
-    -- | The reason the stack drift detection operation has its current status.
-    detectionStatusReason :: Prelude.Maybe Prelude.Text,
     -- | Total number of stack resources that have drifted. This is NULL until
     -- the drift detection operation reaches a status of @DETECTION_COMPLETE@.
     -- This value will be 0 for stacks whose drift status is @IN_SYNC@.
@@ -200,8 +197,8 @@ data DescribeStackDriftDetectionStatusResponse = DescribeStackDriftDetectionStat
     stackId :: Prelude.Text,
     -- | The ID of the drift detection results of this operation.
     --
-    -- AWS CloudFormation generates new results, with a new drift detection ID,
-    -- each time this operation is run. However, the number of reports AWS
+    -- CloudFormation generates new results, with a new drift detection ID,
+    -- each time this operation is run. However, the number of reports
     -- CloudFormation retains for any given stack, and for how long, may vary.
     stackDriftDetectionId :: Prelude.Text,
     -- | The status of the stack drift detection operation.
@@ -211,14 +208,14 @@ data DescribeStackDriftDetectionStatusResponse = DescribeStackDriftDetectionStat
     --     drift detection. (Resources that do not currently support stack
     --     detection remain unchecked.)
     --
-    --     If you specified logical resource IDs for AWS CloudFormation to use
-    --     as a filter for the stack drift detection operation, only the
-    --     resources with those logical IDs are checked for drift.
+    --     If you specified logical resource IDs for CloudFormation to use as a
+    --     filter for the stack drift detection operation, only the resources
+    --     with those logical IDs are checked for drift.
     --
     -- -   @DETECTION_FAILED@: The stack drift detection operation has failed
     --     for at least one resource in the stack. Results will be available
-    --     for resources on which AWS CloudFormation successfully completed
-    --     drift detection.
+    --     for resources on which CloudFormation successfully completed drift
+    --     detection.
     --
     -- -   @DETECTION_IN_PROGRESS@: The stack drift detection operation is
     --     currently in progress.
@@ -236,6 +233,8 @@ data DescribeStackDriftDetectionStatusResponse = DescribeStackDriftDetectionStat
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'detectionStatusReason', 'describeStackDriftDetectionStatusResponse_detectionStatusReason' - The reason the stack drift detection operation has its current status.
+--
 -- 'stackDriftStatus', 'describeStackDriftDetectionStatusResponse_stackDriftStatus' - Status of the stack\'s actual configuration compared to its expected
 -- configuration.
 --
@@ -243,15 +242,13 @@ data DescribeStackDriftDetectionStatusResponse = DescribeStackDriftDetectionStat
 --     configuration. A stack is considered to have drifted if one or more
 --     of its resources have drifted.
 --
--- -   @NOT_CHECKED@: AWS CloudFormation has not checked if the stack
---     differs from its expected template configuration.
+-- -   @NOT_CHECKED@: CloudFormation has not checked if the stack differs
+--     from its expected template configuration.
 --
 -- -   @IN_SYNC@: The stack\'s actual configuration matches its expected
 --     template configuration.
 --
 -- -   @UNKNOWN@: This value is reserved for future use.
---
--- 'detectionStatusReason', 'describeStackDriftDetectionStatusResponse_detectionStatusReason' - The reason the stack drift detection operation has its current status.
 --
 -- 'driftedStackResourceCount', 'describeStackDriftDetectionStatusResponse_driftedStackResourceCount' - Total number of stack resources that have drifted. This is NULL until
 -- the drift detection operation reaches a status of @DETECTION_COMPLETE@.
@@ -263,8 +260,8 @@ data DescribeStackDriftDetectionStatusResponse = DescribeStackDriftDetectionStat
 --
 -- 'stackDriftDetectionId', 'describeStackDriftDetectionStatusResponse_stackDriftDetectionId' - The ID of the drift detection results of this operation.
 --
--- AWS CloudFormation generates new results, with a new drift detection ID,
--- each time this operation is run. However, the number of reports AWS
+-- CloudFormation generates new results, with a new drift detection ID,
+-- each time this operation is run. However, the number of reports
 -- CloudFormation retains for any given stack, and for how long, may vary.
 --
 -- 'detectionStatus', 'describeStackDriftDetectionStatusResponse_detectionStatus' - The status of the stack drift detection operation.
@@ -274,14 +271,14 @@ data DescribeStackDriftDetectionStatusResponse = DescribeStackDriftDetectionStat
 --     drift detection. (Resources that do not currently support stack
 --     detection remain unchecked.)
 --
---     If you specified logical resource IDs for AWS CloudFormation to use
---     as a filter for the stack drift detection operation, only the
---     resources with those logical IDs are checked for drift.
+--     If you specified logical resource IDs for CloudFormation to use as a
+--     filter for the stack drift detection operation, only the resources
+--     with those logical IDs are checked for drift.
 --
 -- -   @DETECTION_FAILED@: The stack drift detection operation has failed
 --     for at least one resource in the stack. Results will be available
---     for resources on which AWS CloudFormation successfully completed
---     drift detection.
+--     for resources on which CloudFormation successfully completed drift
+--     detection.
 --
 -- -   @DETECTION_IN_PROGRESS@: The stack drift detection operation is
 --     currently in progress.
@@ -306,9 +303,9 @@ newDescribeStackDriftDetectionStatusResponse
   pDetectionStatus_
   pTimestamp_ =
     DescribeStackDriftDetectionStatusResponse'
-      { stackDriftStatus =
+      { detectionStatusReason =
           Prelude.Nothing,
-        detectionStatusReason =
+        stackDriftStatus =
           Prelude.Nothing,
         driftedStackResourceCount =
           Prelude.Nothing,
@@ -322,6 +319,10 @@ newDescribeStackDriftDetectionStatusResponse
           Core._Time Lens.# pTimestamp_
       }
 
+-- | The reason the stack drift detection operation has its current status.
+describeStackDriftDetectionStatusResponse_detectionStatusReason :: Lens.Lens' DescribeStackDriftDetectionStatusResponse (Prelude.Maybe Prelude.Text)
+describeStackDriftDetectionStatusResponse_detectionStatusReason = Lens.lens (\DescribeStackDriftDetectionStatusResponse' {detectionStatusReason} -> detectionStatusReason) (\s@DescribeStackDriftDetectionStatusResponse' {} a -> s {detectionStatusReason = a} :: DescribeStackDriftDetectionStatusResponse)
+
 -- | Status of the stack\'s actual configuration compared to its expected
 -- configuration.
 --
@@ -329,8 +330,8 @@ newDescribeStackDriftDetectionStatusResponse
 --     configuration. A stack is considered to have drifted if one or more
 --     of its resources have drifted.
 --
--- -   @NOT_CHECKED@: AWS CloudFormation has not checked if the stack
---     differs from its expected template configuration.
+-- -   @NOT_CHECKED@: CloudFormation has not checked if the stack differs
+--     from its expected template configuration.
 --
 -- -   @IN_SYNC@: The stack\'s actual configuration matches its expected
 --     template configuration.
@@ -338,10 +339,6 @@ newDescribeStackDriftDetectionStatusResponse
 -- -   @UNKNOWN@: This value is reserved for future use.
 describeStackDriftDetectionStatusResponse_stackDriftStatus :: Lens.Lens' DescribeStackDriftDetectionStatusResponse (Prelude.Maybe StackDriftStatus)
 describeStackDriftDetectionStatusResponse_stackDriftStatus = Lens.lens (\DescribeStackDriftDetectionStatusResponse' {stackDriftStatus} -> stackDriftStatus) (\s@DescribeStackDriftDetectionStatusResponse' {} a -> s {stackDriftStatus = a} :: DescribeStackDriftDetectionStatusResponse)
-
--- | The reason the stack drift detection operation has its current status.
-describeStackDriftDetectionStatusResponse_detectionStatusReason :: Lens.Lens' DescribeStackDriftDetectionStatusResponse (Prelude.Maybe Prelude.Text)
-describeStackDriftDetectionStatusResponse_detectionStatusReason = Lens.lens (\DescribeStackDriftDetectionStatusResponse' {detectionStatusReason} -> detectionStatusReason) (\s@DescribeStackDriftDetectionStatusResponse' {} a -> s {detectionStatusReason = a} :: DescribeStackDriftDetectionStatusResponse)
 
 -- | Total number of stack resources that have drifted. This is NULL until
 -- the drift detection operation reaches a status of @DETECTION_COMPLETE@.
@@ -359,8 +356,8 @@ describeStackDriftDetectionStatusResponse_stackId = Lens.lens (\DescribeStackDri
 
 -- | The ID of the drift detection results of this operation.
 --
--- AWS CloudFormation generates new results, with a new drift detection ID,
--- each time this operation is run. However, the number of reports AWS
+-- CloudFormation generates new results, with a new drift detection ID,
+-- each time this operation is run. However, the number of reports
 -- CloudFormation retains for any given stack, and for how long, may vary.
 describeStackDriftDetectionStatusResponse_stackDriftDetectionId :: Lens.Lens' DescribeStackDriftDetectionStatusResponse Prelude.Text
 describeStackDriftDetectionStatusResponse_stackDriftDetectionId = Lens.lens (\DescribeStackDriftDetectionStatusResponse' {stackDriftDetectionId} -> stackDriftDetectionId) (\s@DescribeStackDriftDetectionStatusResponse' {} a -> s {stackDriftDetectionId = a} :: DescribeStackDriftDetectionStatusResponse)
@@ -372,14 +369,14 @@ describeStackDriftDetectionStatusResponse_stackDriftDetectionId = Lens.lens (\De
 --     drift detection. (Resources that do not currently support stack
 --     detection remain unchecked.)
 --
---     If you specified logical resource IDs for AWS CloudFormation to use
---     as a filter for the stack drift detection operation, only the
---     resources with those logical IDs are checked for drift.
+--     If you specified logical resource IDs for CloudFormation to use as a
+--     filter for the stack drift detection operation, only the resources
+--     with those logical IDs are checked for drift.
 --
 -- -   @DETECTION_FAILED@: The stack drift detection operation has failed
 --     for at least one resource in the stack. Results will be available
---     for resources on which AWS CloudFormation successfully completed
---     drift detection.
+--     for resources on which CloudFormation successfully completed drift
+--     detection.
 --
 -- -   @DETECTION_IN_PROGRESS@: The stack drift detection operation is
 --     currently in progress.

@@ -42,8 +42,8 @@ data StackDriftInformation = StackDriftInformation'
     --     configuration. A stack is considered to have drifted if one or more
     --     of its resources have drifted.
     --
-    -- -   @NOT_CHECKED@: AWS CloudFormation has not checked if the stack
-    --     differs from its expected template configuration.
+    -- -   @NOT_CHECKED@: CloudFormation has not checked if the stack differs
+    --     from its expected template configuration.
     --
     -- -   @IN_SYNC@: The stack\'s actual configuration matches its expected
     --     template configuration.
@@ -71,8 +71,8 @@ data StackDriftInformation = StackDriftInformation'
 --     configuration. A stack is considered to have drifted if one or more
 --     of its resources have drifted.
 --
--- -   @NOT_CHECKED@: AWS CloudFormation has not checked if the stack
---     differs from its expected template configuration.
+-- -   @NOT_CHECKED@: CloudFormation has not checked if the stack differs
+--     from its expected template configuration.
 --
 -- -   @IN_SYNC@: The stack\'s actual configuration matches its expected
 --     template configuration.
@@ -101,8 +101,8 @@ stackDriftInformation_lastCheckTimestamp = Lens.lens (\StackDriftInformation' {l
 --     configuration. A stack is considered to have drifted if one or more
 --     of its resources have drifted.
 --
--- -   @NOT_CHECKED@: AWS CloudFormation has not checked if the stack
---     differs from its expected template configuration.
+-- -   @NOT_CHECKED@: CloudFormation has not checked if the stack differs
+--     from its expected template configuration.
 --
 -- -   @IN_SYNC@: The stack\'s actual configuration matches its expected
 --     template configuration.

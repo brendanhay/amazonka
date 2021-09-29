@@ -63,8 +63,8 @@ data ListImports = ListImports'
     -- the next page of stacks that are importing the specified exported output
     -- value.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of the exported output value. AWS CloudFormation returns the
-    -- stack names that are importing this value.
+    -- | The name of the exported output value. CloudFormation returns the stack
+    -- names that are importing this value.
     exportName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -81,8 +81,8 @@ data ListImports = ListImports'
 -- the next page of stacks that are importing the specified exported output
 -- value.
 --
--- 'exportName', 'listImports_exportName' - The name of the exported output value. AWS CloudFormation returns the
--- stack names that are importing this value.
+-- 'exportName', 'listImports_exportName' - The name of the exported output value. CloudFormation returns the stack
+-- names that are importing this value.
 newListImports ::
   -- | 'exportName'
   Prelude.Text ->
@@ -99,8 +99,8 @@ newListImports pExportName_ =
 listImports_nextToken :: Lens.Lens' ListImports (Prelude.Maybe Prelude.Text)
 listImports_nextToken = Lens.lens (\ListImports' {nextToken} -> nextToken) (\s@ListImports' {} a -> s {nextToken = a} :: ListImports)
 
--- | The name of the exported output value. AWS CloudFormation returns the
--- stack names that are importing this value.
+-- | The name of the exported output value. CloudFormation returns the stack
+-- names that are importing this value.
 listImports_exportName :: Lens.Lens' ListImports Prelude.Text
 listImports_exportName = Lens.lens (\ListImports' {exportName} -> exportName) (\s@ListImports' {} a -> s {exportName = a} :: ListImports)
 

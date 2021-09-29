@@ -23,7 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | [Service-managed permissions] The AWS Organizations accounts to which
+-- | [Service-managed permissions] The Organizations accounts to which
 -- StackSets deploys. StackSets does not deploy stack instances to the
 -- organization management account, even if the organization management
 -- account is in your organization or in an OU in your organization.
@@ -37,9 +37,11 @@ data DeploymentTargets = DeploymentTargets'
   { -- | The organization root ID or organizational unit (OU) IDs to which
     -- StackSets deploys.
     organizationalUnitIds :: Prelude.Maybe [Prelude.Text],
-    -- | The names of one or more AWS accounts for which you want to deploy stack
-    -- set updates.
-    accounts :: Prelude.Maybe [Prelude.Text]
+    -- | The names of one or more Amazon Web Services accounts for which you want
+    -- to deploy stack set updates.
+    accounts :: Prelude.Maybe [Prelude.Text],
+    -- | Returns the value of the @AccountsUrl@ property.
+    accountsUrl :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -54,15 +56,18 @@ data DeploymentTargets = DeploymentTargets'
 -- 'organizationalUnitIds', 'deploymentTargets_organizationalUnitIds' - The organization root ID or organizational unit (OU) IDs to which
 -- StackSets deploys.
 --
--- 'accounts', 'deploymentTargets_accounts' - The names of one or more AWS accounts for which you want to deploy stack
--- set updates.
+-- 'accounts', 'deploymentTargets_accounts' - The names of one or more Amazon Web Services accounts for which you want
+-- to deploy stack set updates.
+--
+-- 'accountsUrl', 'deploymentTargets_accountsUrl' - Returns the value of the @AccountsUrl@ property.
 newDeploymentTargets ::
   DeploymentTargets
 newDeploymentTargets =
   DeploymentTargets'
     { organizationalUnitIds =
         Prelude.Nothing,
-      accounts = Prelude.Nothing
+      accounts = Prelude.Nothing,
+      accountsUrl = Prelude.Nothing
     }
 
 -- | The organization root ID or organizational unit (OU) IDs to which
@@ -70,10 +75,14 @@ newDeploymentTargets =
 deploymentTargets_organizationalUnitIds :: Lens.Lens' DeploymentTargets (Prelude.Maybe [Prelude.Text])
 deploymentTargets_organizationalUnitIds = Lens.lens (\DeploymentTargets' {organizationalUnitIds} -> organizationalUnitIds) (\s@DeploymentTargets' {} a -> s {organizationalUnitIds = a} :: DeploymentTargets) Prelude.. Lens.mapping Lens._Coerce
 
--- | The names of one or more AWS accounts for which you want to deploy stack
--- set updates.
+-- | The names of one or more Amazon Web Services accounts for which you want
+-- to deploy stack set updates.
 deploymentTargets_accounts :: Lens.Lens' DeploymentTargets (Prelude.Maybe [Prelude.Text])
 deploymentTargets_accounts = Lens.lens (\DeploymentTargets' {accounts} -> accounts) (\s@DeploymentTargets' {} a -> s {accounts = a} :: DeploymentTargets) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Returns the value of the @AccountsUrl@ property.
+deploymentTargets_accountsUrl :: Lens.Lens' DeploymentTargets (Prelude.Maybe Prelude.Text)
+deploymentTargets_accountsUrl = Lens.lens (\DeploymentTargets' {accountsUrl} -> accountsUrl) (\s@DeploymentTargets' {} a -> s {accountsUrl = a} :: DeploymentTargets)
 
 instance Core.FromXML DeploymentTargets where
   parseXML x =
@@ -85,6 +94,7 @@ instance Core.FromXML DeploymentTargets where
       Prelude.<*> ( x Core..@? "Accounts" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
+      Prelude.<*> (x Core..@? "AccountsUrl")
 
 instance Prelude.Hashable DeploymentTargets
 
@@ -100,5 +110,6 @@ instance Core.ToQuery DeploymentTargets where
             ),
         "Accounts"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> accounts)
+            (Core.toQueryList "member" Prelude.<$> accounts),
+        "AccountsUrl" Core.=: accountsUrl
       ]

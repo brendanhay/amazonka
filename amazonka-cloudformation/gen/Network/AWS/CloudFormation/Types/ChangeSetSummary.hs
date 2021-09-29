@@ -32,11 +32,11 @@ import qualified Network.AWS.Prelude as Prelude
 data ChangeSetSummary = ChangeSetSummary'
   { -- | The root change set ID.
     rootChangeSetId :: Prelude.Maybe Prelude.Text,
+    -- | The start time when the change set was created, in UTC.
+    creationTime :: Prelude.Maybe Core.ISO8601,
     -- | The state of the change set, such as @CREATE_IN_PROGRESS@,
     -- @CREATE_COMPLETE@, or @FAILED@.
     status :: Prelude.Maybe ChangeSetStatus,
-    -- | The start time when the change set was created, in UTC.
-    creationTime :: Prelude.Maybe Core.ISO8601,
     -- | Specifies the current setting of @IncludeNestedStacks@ for the change
     -- set.
     includeNestedStacks :: Prelude.Maybe Prelude.Bool,
@@ -45,8 +45,8 @@ data ChangeSetSummary = ChangeSetSummary'
     -- | If the change set execution status is @AVAILABLE@, you can execute the
     -- change set. If you can’t execute the change set, the status indicates
     -- why. For example, a change set might be in an @UNAVAILABLE@ state
-    -- because AWS CloudFormation is still creating it or in an @OBSOLETE@
-    -- state because the stack was already updated.
+    -- because CloudFormation is still creating it or in an @OBSOLETE@ state
+    -- because the stack was already updated.
     executionStatus :: Prelude.Maybe ExecutionStatus,
     -- | The ID of the stack with which the change set is associated.
     stackId :: Prelude.Maybe Prelude.Text,
@@ -59,8 +59,7 @@ data ChangeSetSummary = ChangeSetSummary'
     -- | The name of the change set.
     changeSetName :: Prelude.Maybe Prelude.Text,
     -- | A description of the change set\'s status. For example, if your change
-    -- set is in the @FAILED@ state, AWS CloudFormation shows the error
-    -- message.
+    -- set is in the @FAILED@ state, CloudFormation shows the error message.
     statusReason :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -75,10 +74,10 @@ data ChangeSetSummary = ChangeSetSummary'
 --
 -- 'rootChangeSetId', 'changeSetSummary_rootChangeSetId' - The root change set ID.
 --
+-- 'creationTime', 'changeSetSummary_creationTime' - The start time when the change set was created, in UTC.
+--
 -- 'status', 'changeSetSummary_status' - The state of the change set, such as @CREATE_IN_PROGRESS@,
 -- @CREATE_COMPLETE@, or @FAILED@.
---
--- 'creationTime', 'changeSetSummary_creationTime' - The start time when the change set was created, in UTC.
 --
 -- 'includeNestedStacks', 'changeSetSummary_includeNestedStacks' - Specifies the current setting of @IncludeNestedStacks@ for the change
 -- set.
@@ -88,8 +87,8 @@ data ChangeSetSummary = ChangeSetSummary'
 -- 'executionStatus', 'changeSetSummary_executionStatus' - If the change set execution status is @AVAILABLE@, you can execute the
 -- change set. If you can’t execute the change set, the status indicates
 -- why. For example, a change set might be in an @UNAVAILABLE@ state
--- because AWS CloudFormation is still creating it or in an @OBSOLETE@
--- state because the stack was already updated.
+-- because CloudFormation is still creating it or in an @OBSOLETE@ state
+-- because the stack was already updated.
 --
 -- 'stackId', 'changeSetSummary_stackId' - The ID of the stack with which the change set is associated.
 --
@@ -102,16 +101,15 @@ data ChangeSetSummary = ChangeSetSummary'
 -- 'changeSetName', 'changeSetSummary_changeSetName' - The name of the change set.
 --
 -- 'statusReason', 'changeSetSummary_statusReason' - A description of the change set\'s status. For example, if your change
--- set is in the @FAILED@ state, AWS CloudFormation shows the error
--- message.
+-- set is in the @FAILED@ state, CloudFormation shows the error message.
 newChangeSetSummary ::
   ChangeSetSummary
 newChangeSetSummary =
   ChangeSetSummary'
     { rootChangeSetId =
         Prelude.Nothing,
-      status = Prelude.Nothing,
       creationTime = Prelude.Nothing,
+      status = Prelude.Nothing,
       includeNestedStacks = Prelude.Nothing,
       stackName = Prelude.Nothing,
       executionStatus = Prelude.Nothing,
@@ -127,14 +125,14 @@ newChangeSetSummary =
 changeSetSummary_rootChangeSetId :: Lens.Lens' ChangeSetSummary (Prelude.Maybe Prelude.Text)
 changeSetSummary_rootChangeSetId = Lens.lens (\ChangeSetSummary' {rootChangeSetId} -> rootChangeSetId) (\s@ChangeSetSummary' {} a -> s {rootChangeSetId = a} :: ChangeSetSummary)
 
+-- | The start time when the change set was created, in UTC.
+changeSetSummary_creationTime :: Lens.Lens' ChangeSetSummary (Prelude.Maybe Prelude.UTCTime)
+changeSetSummary_creationTime = Lens.lens (\ChangeSetSummary' {creationTime} -> creationTime) (\s@ChangeSetSummary' {} a -> s {creationTime = a} :: ChangeSetSummary) Prelude.. Lens.mapping Core._Time
+
 -- | The state of the change set, such as @CREATE_IN_PROGRESS@,
 -- @CREATE_COMPLETE@, or @FAILED@.
 changeSetSummary_status :: Lens.Lens' ChangeSetSummary (Prelude.Maybe ChangeSetStatus)
 changeSetSummary_status = Lens.lens (\ChangeSetSummary' {status} -> status) (\s@ChangeSetSummary' {} a -> s {status = a} :: ChangeSetSummary)
-
--- | The start time when the change set was created, in UTC.
-changeSetSummary_creationTime :: Lens.Lens' ChangeSetSummary (Prelude.Maybe Prelude.UTCTime)
-changeSetSummary_creationTime = Lens.lens (\ChangeSetSummary' {creationTime} -> creationTime) (\s@ChangeSetSummary' {} a -> s {creationTime = a} :: ChangeSetSummary) Prelude.. Lens.mapping Core._Time
 
 -- | Specifies the current setting of @IncludeNestedStacks@ for the change
 -- set.
@@ -148,8 +146,8 @@ changeSetSummary_stackName = Lens.lens (\ChangeSetSummary' {stackName} -> stackN
 -- | If the change set execution status is @AVAILABLE@, you can execute the
 -- change set. If you can’t execute the change set, the status indicates
 -- why. For example, a change set might be in an @UNAVAILABLE@ state
--- because AWS CloudFormation is still creating it or in an @OBSOLETE@
--- state because the stack was already updated.
+-- because CloudFormation is still creating it or in an @OBSOLETE@ state
+-- because the stack was already updated.
 changeSetSummary_executionStatus :: Lens.Lens' ChangeSetSummary (Prelude.Maybe ExecutionStatus)
 changeSetSummary_executionStatus = Lens.lens (\ChangeSetSummary' {executionStatus} -> executionStatus) (\s@ChangeSetSummary' {} a -> s {executionStatus = a} :: ChangeSetSummary)
 
@@ -174,8 +172,7 @@ changeSetSummary_changeSetName :: Lens.Lens' ChangeSetSummary (Prelude.Maybe Pre
 changeSetSummary_changeSetName = Lens.lens (\ChangeSetSummary' {changeSetName} -> changeSetName) (\s@ChangeSetSummary' {} a -> s {changeSetName = a} :: ChangeSetSummary)
 
 -- | A description of the change set\'s status. For example, if your change
--- set is in the @FAILED@ state, AWS CloudFormation shows the error
--- message.
+-- set is in the @FAILED@ state, CloudFormation shows the error message.
 changeSetSummary_statusReason :: Lens.Lens' ChangeSetSummary (Prelude.Maybe Prelude.Text)
 changeSetSummary_statusReason = Lens.lens (\ChangeSetSummary' {statusReason} -> statusReason) (\s@ChangeSetSummary' {} a -> s {statusReason = a} :: ChangeSetSummary)
 
@@ -183,8 +180,8 @@ instance Core.FromXML ChangeSetSummary where
   parseXML x =
     ChangeSetSummary'
       Prelude.<$> (x Core..@? "RootChangeSetId")
-      Prelude.<*> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "CreationTime")
+      Prelude.<*> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "IncludeNestedStacks")
       Prelude.<*> (x Core..@? "StackName")
       Prelude.<*> (x Core..@? "ExecutionStatus")

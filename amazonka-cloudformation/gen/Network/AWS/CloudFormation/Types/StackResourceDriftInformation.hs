@@ -29,8 +29,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newStackResourceDriftInformation' smart constructor.
 data StackResourceDriftInformation = StackResourceDriftInformation'
-  { -- | When AWS CloudFormation last checked if the resource had drifted from
-    -- its expected configuration.
+  { -- | When CloudFormation last checked if the resource had drifted from its
+    -- expected configuration.
     lastCheckTimestamp :: Prelude.Maybe Core.ISO8601,
     -- | Status of the resource\'s actual configuration compared to its expected
     -- configuration
@@ -40,7 +40,7 @@ data StackResourceDriftInformation = StackResourceDriftInformation'
     --
     -- -   @MODIFIED@: The resource differs from its expected configuration.
     --
-    -- -   @NOT_CHECKED@: AWS CloudFormation has not checked if the resource
+    -- -   @NOT_CHECKED@: CloudFormation has not checked if the resource
     --     differs from its expected configuration.
     --
     --     Any resources that do not currently support drift detection have a
@@ -61,8 +61,8 @@ data StackResourceDriftInformation = StackResourceDriftInformation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lastCheckTimestamp', 'stackResourceDriftInformation_lastCheckTimestamp' - When AWS CloudFormation last checked if the resource had drifted from
--- its expected configuration.
+-- 'lastCheckTimestamp', 'stackResourceDriftInformation_lastCheckTimestamp' - When CloudFormation last checked if the resource had drifted from its
+-- expected configuration.
 --
 -- 'stackResourceDriftStatus', 'stackResourceDriftInformation_stackResourceDriftStatus' - Status of the resource\'s actual configuration compared to its expected
 -- configuration
@@ -72,7 +72,7 @@ data StackResourceDriftInformation = StackResourceDriftInformation'
 --
 -- -   @MODIFIED@: The resource differs from its expected configuration.
 --
--- -   @NOT_CHECKED@: AWS CloudFormation has not checked if the resource
+-- -   @NOT_CHECKED@: CloudFormation has not checked if the resource
 --     differs from its expected configuration.
 --
 --     Any resources that do not currently support drift detection have a
@@ -94,8 +94,8 @@ newStackResourceDriftInformation
           pStackResourceDriftStatus_
       }
 
--- | When AWS CloudFormation last checked if the resource had drifted from
--- its expected configuration.
+-- | When CloudFormation last checked if the resource had drifted from its
+-- expected configuration.
 stackResourceDriftInformation_lastCheckTimestamp :: Lens.Lens' StackResourceDriftInformation (Prelude.Maybe Prelude.UTCTime)
 stackResourceDriftInformation_lastCheckTimestamp = Lens.lens (\StackResourceDriftInformation' {lastCheckTimestamp} -> lastCheckTimestamp) (\s@StackResourceDriftInformation' {} a -> s {lastCheckTimestamp = a} :: StackResourceDriftInformation) Prelude.. Lens.mapping Core._Time
 
@@ -107,7 +107,7 @@ stackResourceDriftInformation_lastCheckTimestamp = Lens.lens (\StackResourceDrif
 --
 -- -   @MODIFIED@: The resource differs from its expected configuration.
 --
--- -   @NOT_CHECKED@: AWS CloudFormation has not checked if the resource
+-- -   @NOT_CHECKED@: CloudFormation has not checked if the resource
 --     differs from its expected configuration.
 --
 --     Any resources that do not currently support drift detection have a

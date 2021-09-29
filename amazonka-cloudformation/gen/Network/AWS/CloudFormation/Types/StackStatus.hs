@@ -37,6 +37,7 @@ module Network.AWS.CloudFormation.Types.StackStatus
         StackStatus_ROLLBACK_IN_PROGRESS,
         StackStatus_UPDATE_COMPLETE,
         StackStatus_UPDATE_COMPLETE_CLEANUP_IN_PROGRESS,
+        StackStatus_UPDATE_FAILED,
         StackStatus_UPDATE_IN_PROGRESS,
         StackStatus_UPDATE_ROLLBACK_COMPLETE,
         StackStatus_UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS,
@@ -128,6 +129,9 @@ pattern StackStatus_UPDATE_COMPLETE = StackStatus' "UPDATE_COMPLETE"
 pattern StackStatus_UPDATE_COMPLETE_CLEANUP_IN_PROGRESS :: StackStatus
 pattern StackStatus_UPDATE_COMPLETE_CLEANUP_IN_PROGRESS = StackStatus' "UPDATE_COMPLETE_CLEANUP_IN_PROGRESS"
 
+pattern StackStatus_UPDATE_FAILED :: StackStatus
+pattern StackStatus_UPDATE_FAILED = StackStatus' "UPDATE_FAILED"
+
 pattern StackStatus_UPDATE_IN_PROGRESS :: StackStatus
 pattern StackStatus_UPDATE_IN_PROGRESS = StackStatus' "UPDATE_IN_PROGRESS"
 
@@ -161,6 +165,7 @@ pattern StackStatus_UPDATE_ROLLBACK_IN_PROGRESS = StackStatus' "UPDATE_ROLLBACK_
   StackStatus_ROLLBACK_IN_PROGRESS,
   StackStatus_UPDATE_COMPLETE,
   StackStatus_UPDATE_COMPLETE_CLEANUP_IN_PROGRESS,
+  StackStatus_UPDATE_FAILED,
   StackStatus_UPDATE_IN_PROGRESS,
   StackStatus_UPDATE_ROLLBACK_COMPLETE,
   StackStatus_UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS,

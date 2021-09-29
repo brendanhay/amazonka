@@ -22,11 +22,11 @@
 --
 -- Returns drift information for the resources that have been checked for
 -- drift in the specified stack. This includes actual and expected
--- configuration values for resources where AWS CloudFormation detects
+-- configuration values for resources where CloudFormation detects
 -- configuration drift.
 --
 -- For a given stack, there will be one @StackResourceDrift@ for each stack
--- resource that has been checked for drift. Resources that have not yet
+-- resource that has been checked for drift. Resources that haven\'t yet
 -- been checked for drift are not included. Resources that do not currently
 -- support drift detection are not checked, and so not included. For a list
 -- of resources that support drift detection, see
@@ -85,8 +85,7 @@ data DescribeStackResourceDrifts = DescribeStackResourceDrifts'
     -- -   @IN_SYNC@: The resources\'s actual configuration matches its
     --     expected template configuration.
     --
-    -- -   @NOT_CHECKED@: AWS CloudFormation does not currently return this
-    --     value.
+    -- -   @NOT_CHECKED@: CloudFormation does not currently return this value.
     stackResourceDriftStatusFilters :: Prelude.Maybe (Prelude.NonEmpty StackResourceDriftStatus),
     -- | The name of the stack for which you want drift information.
     stackName :: Prelude.Text
@@ -120,8 +119,7 @@ data DescribeStackResourceDrifts = DescribeStackResourceDrifts'
 -- -   @IN_SYNC@: The resources\'s actual configuration matches its
 --     expected template configuration.
 --
--- -   @NOT_CHECKED@: AWS CloudFormation does not currently return this
---     value.
+-- -   @NOT_CHECKED@: CloudFormation does not currently return this value.
 --
 -- 'stackName', 'describeStackResourceDrifts_stackName' - The name of the stack for which you want drift information.
 newDescribeStackResourceDrifts ::
@@ -161,8 +159,7 @@ describeStackResourceDrifts_maxResults = Lens.lens (\DescribeStackResourceDrifts
 -- -   @IN_SYNC@: The resources\'s actual configuration matches its
 --     expected template configuration.
 --
--- -   @NOT_CHECKED@: AWS CloudFormation does not currently return this
---     value.
+-- -   @NOT_CHECKED@: CloudFormation does not currently return this value.
 describeStackResourceDrifts_stackResourceDriftStatusFilters :: Lens.Lens' DescribeStackResourceDrifts (Prelude.Maybe (Prelude.NonEmpty StackResourceDriftStatus))
 describeStackResourceDrifts_stackResourceDriftStatusFilters = Lens.lens (\DescribeStackResourceDrifts' {stackResourceDriftStatusFilters} -> stackResourceDriftStatusFilters) (\s@DescribeStackResourceDrifts' {} a -> s {stackResourceDriftStatusFilters = a} :: DescribeStackResourceDrifts) Prelude.. Lens.mapping Lens._Coerce
 
@@ -229,7 +226,7 @@ data DescribeStackResourceDriftsResponse = DescribeStackResourceDriftsResponse'
     httpStatus :: Prelude.Int,
     -- | Drift information for the resources that have been checked for drift in
     -- the specified stack. This includes actual and expected configuration
-    -- values for resources where AWS CloudFormation detects drift.
+    -- values for resources where CloudFormation detects drift.
     --
     -- For a given stack, there will be one @StackResourceDrift@ for each stack
     -- resource that has been checked for drift. Resources that have not yet
@@ -259,7 +256,7 @@ data DescribeStackResourceDriftsResponse = DescribeStackResourceDriftsResponse'
 --
 -- 'stackResourceDrifts', 'describeStackResourceDriftsResponse_stackResourceDrifts' - Drift information for the resources that have been checked for drift in
 -- the specified stack. This includes actual and expected configuration
--- values for resources where AWS CloudFormation detects drift.
+-- values for resources where CloudFormation detects drift.
 --
 -- For a given stack, there will be one @StackResourceDrift@ for each stack
 -- resource that has been checked for drift. Resources that have not yet
@@ -293,7 +290,7 @@ describeStackResourceDriftsResponse_httpStatus = Lens.lens (\DescribeStackResour
 
 -- | Drift information for the resources that have been checked for drift in
 -- the specified stack. This includes actual and expected configuration
--- values for resources where AWS CloudFormation detects drift.
+-- values for resources where CloudFormation detects drift.
 --
 -- For a given stack, there will be one @StackResourceDrift@ for each stack
 -- resource that has been checked for drift. Resources that have not yet

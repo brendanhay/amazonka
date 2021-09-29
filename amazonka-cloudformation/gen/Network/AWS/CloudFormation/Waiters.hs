@@ -105,6 +105,73 @@ newStackRollbackComplete =
         ]
     }
 
+-- | Polls 'Network.AWS.CloudFormation.DescribeStacks' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
+newStackExists :: Core.Wait DescribeStacks
+newStackExists =
+  Core.Wait
+    { Core._waitName = "StackExists",
+      Core._waitAttempts = 20,
+      Core._waitDelay = 5,
+      Core._waitAcceptors =
+        [ Core.matchStatus 200 Core.AcceptSuccess,
+          Core.matchError "ValidationError" Core.AcceptRetry
+        ]
+    }
+
+-- | Polls 'Network.AWS.CloudFormation.DescribeStacks' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
+newStackUpdateComplete :: Core.Wait DescribeStacks
+newStackUpdateComplete =
+  Core.Wait
+    { Core._waitName = "StackUpdateComplete",
+      Core._waitAttempts = 120,
+      Core._waitDelay = 30,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "UPDATE_COMPLETE"
+            Core.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
+                )
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "UPDATE_FAILED"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
+                )
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "UPDATE_ROLLBACK_FAILED"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
+                )
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "UPDATE_ROLLBACK_COMPLETE"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    (describeStacksResponse_stacks Prelude.. Lens._Just)
+                )
+                Prelude.. stack_stackStatus
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchError
+            "ValidationError"
+            Core.AcceptFailure
+        ]
+    }
+
 -- | Polls 'Network.AWS.CloudFormation.DescribeStacks' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
 newStackDeleteComplete :: Core.Wait DescribeStacks
 newStackDeleteComplete =
@@ -184,73 +251,6 @@ newStackDeleteComplete =
                 Prelude.. stack_stackStatus
                 Prelude.. Lens.to Core.toTextCI
             )
-        ]
-    }
-
--- | Polls 'Network.AWS.CloudFormation.DescribeStacks' every 5 seconds until a successful state is reached. An error is returned after 20 failed checks.
-newStackExists :: Core.Wait DescribeStacks
-newStackExists =
-  Core.Wait
-    { Core._waitName = "StackExists",
-      Core._waitAttempts = 20,
-      Core._waitDelay = 5,
-      Core._waitAcceptors =
-        [ Core.matchStatus 200 Core.AcceptSuccess,
-          Core.matchError "ValidationError" Core.AcceptRetry
-        ]
-    }
-
--- | Polls 'Network.AWS.CloudFormation.DescribeStacks' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
-newStackUpdateComplete :: Core.Wait DescribeStacks
-newStackUpdateComplete =
-  Core.Wait
-    { Core._waitName = "StackUpdateComplete",
-      Core._waitAttempts = 120,
-      Core._waitDelay = 30,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "UPDATE_COMPLETE"
-            Core.AcceptSuccess
-            ( Lens.folding
-                ( Lens.concatOf
-                    (describeStacksResponse_stacks Prelude.. Lens._Just)
-                )
-                Prelude.. stack_stackStatus
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "UPDATE_FAILED"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    (describeStacksResponse_stacks Prelude.. Lens._Just)
-                )
-                Prelude.. stack_stackStatus
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "UPDATE_ROLLBACK_FAILED"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    (describeStacksResponse_stacks Prelude.. Lens._Just)
-                )
-                Prelude.. stack_stackStatus
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "UPDATE_ROLLBACK_COMPLETE"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    (describeStacksResponse_stacks Prelude.. Lens._Just)
-                )
-                Prelude.. stack_stackStatus
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchError
-            "ValidationError"
-            Core.AcceptFailure
         ]
     }
 

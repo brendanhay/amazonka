@@ -56,8 +56,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteStackInstances' smart constructor.
 data DeleteStackInstances = DeleteStackInstances'
-  { -- | [Service-managed permissions] The AWS Organizations accounts from which
-    -- to delete stack instances.
+  { -- | [Service-managed permissions] The Organizations accounts from which to
+    -- delete stack instances.
     --
     -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
     deploymentTargets :: Prelude.Maybe DeploymentTargets,
@@ -67,9 +67,9 @@ data DeleteStackInstances = DeleteStackInstances'
     -- automatically.
     --
     -- The operation ID also functions as an idempotency token, to ensure that
-    -- AWS CloudFormation performs the stack set operation only once, even if
-    -- you retry the request multiple times. You can retry stack set operation
-    -- requests to ensure that AWS CloudFormation successfully received them.
+    -- CloudFormation performs the stack set operation only once, even if you
+    -- retry the request multiple times. You can retry stack set operation
+    -- requests to ensure that CloudFormation successfully received them.
     --
     -- Repeating this stack set operation with a new operation ID retries all
     -- stack instances whose status is @OUTDATED@.
@@ -86,16 +86,15 @@ data DeleteStackInstances = DeleteStackInstances'
     -- -   If you are signed in to a delegated administrator account, specify
     --     @DELEGATED_ADMIN@.
     --
-    --     Your AWS account must be registered as a delegated administrator in
-    --     the management account. For more information, see
+    --     Your Amazon Web Services account must be registered as a delegated
+    --     administrator in the management account. For more information, see
     --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
-    --     in the /AWS CloudFormation User Guide/.
+    --     in the /CloudFormation User Guide/.
     callAs :: Prelude.Maybe CallAs,
-    -- | Preferences for how AWS CloudFormation performs this stack set
-    -- operation.
+    -- | Preferences for how CloudFormation performs this stack set operation.
     operationPreferences :: Prelude.Maybe StackSetOperationPreferences,
-    -- | [Self-managed permissions] The names of the AWS accounts that you want
-    -- to delete stack instances for.
+    -- | [Self-managed permissions] The names of the Amazon Web Services accounts
+    -- that you want to delete stack instances for.
     --
     -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
     accounts :: Prelude.Maybe [Prelude.Text],
@@ -122,8 +121,8 @@ data DeleteStackInstances = DeleteStackInstances'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'deploymentTargets', 'deleteStackInstances_deploymentTargets' - [Service-managed permissions] The AWS Organizations accounts from which
--- to delete stack instances.
+-- 'deploymentTargets', 'deleteStackInstances_deploymentTargets' - [Service-managed permissions] The Organizations accounts from which to
+-- delete stack instances.
 --
 -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
 --
@@ -133,9 +132,9 @@ data DeleteStackInstances = DeleteStackInstances'
 -- automatically.
 --
 -- The operation ID also functions as an idempotency token, to ensure that
--- AWS CloudFormation performs the stack set operation only once, even if
--- you retry the request multiple times. You can retry stack set operation
--- requests to ensure that AWS CloudFormation successfully received them.
+-- CloudFormation performs the stack set operation only once, even if you
+-- retry the request multiple times. You can retry stack set operation
+-- requests to ensure that CloudFormation successfully received them.
 --
 -- Repeating this stack set operation with a new operation ID retries all
 -- stack instances whose status is @OUTDATED@.
@@ -152,16 +151,15 @@ data DeleteStackInstances = DeleteStackInstances'
 -- -   If you are signed in to a delegated administrator account, specify
 --     @DELEGATED_ADMIN@.
 --
---     Your AWS account must be registered as a delegated administrator in
---     the management account. For more information, see
+--     Your Amazon Web Services account must be registered as a delegated
+--     administrator in the management account. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
---     in the /AWS CloudFormation User Guide/.
+--     in the /CloudFormation User Guide/.
 --
--- 'operationPreferences', 'deleteStackInstances_operationPreferences' - Preferences for how AWS CloudFormation performs this stack set
--- operation.
+-- 'operationPreferences', 'deleteStackInstances_operationPreferences' - Preferences for how CloudFormation performs this stack set operation.
 --
--- 'accounts', 'deleteStackInstances_accounts' - [Self-managed permissions] The names of the AWS accounts that you want
--- to delete stack instances for.
+-- 'accounts', 'deleteStackInstances_accounts' - [Self-managed permissions] The names of the Amazon Web Services accounts
+-- that you want to delete stack instances for.
 --
 -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
 --
@@ -195,8 +193,8 @@ newDeleteStackInstances pStackSetName_ pRetainStacks_ =
       retainStacks = pRetainStacks_
     }
 
--- | [Service-managed permissions] The AWS Organizations accounts from which
--- to delete stack instances.
+-- | [Service-managed permissions] The Organizations accounts from which to
+-- delete stack instances.
 --
 -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
 deleteStackInstances_deploymentTargets :: Lens.Lens' DeleteStackInstances (Prelude.Maybe DeploymentTargets)
@@ -208,9 +206,9 @@ deleteStackInstances_deploymentTargets = Lens.lens (\DeleteStackInstances' {depl
 -- automatically.
 --
 -- The operation ID also functions as an idempotency token, to ensure that
--- AWS CloudFormation performs the stack set operation only once, even if
--- you retry the request multiple times. You can retry stack set operation
--- requests to ensure that AWS CloudFormation successfully received them.
+-- CloudFormation performs the stack set operation only once, even if you
+-- retry the request multiple times. You can retry stack set operation
+-- requests to ensure that CloudFormation successfully received them.
 --
 -- Repeating this stack set operation with a new operation ID retries all
 -- stack instances whose status is @OUTDATED@.
@@ -229,20 +227,19 @@ deleteStackInstances_operationId = Lens.lens (\DeleteStackInstances' {operationI
 -- -   If you are signed in to a delegated administrator account, specify
 --     @DELEGATED_ADMIN@.
 --
---     Your AWS account must be registered as a delegated administrator in
---     the management account. For more information, see
+--     Your Amazon Web Services account must be registered as a delegated
+--     administrator in the management account. For more information, see
 --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
---     in the /AWS CloudFormation User Guide/.
+--     in the /CloudFormation User Guide/.
 deleteStackInstances_callAs :: Lens.Lens' DeleteStackInstances (Prelude.Maybe CallAs)
 deleteStackInstances_callAs = Lens.lens (\DeleteStackInstances' {callAs} -> callAs) (\s@DeleteStackInstances' {} a -> s {callAs = a} :: DeleteStackInstances)
 
--- | Preferences for how AWS CloudFormation performs this stack set
--- operation.
+-- | Preferences for how CloudFormation performs this stack set operation.
 deleteStackInstances_operationPreferences :: Lens.Lens' DeleteStackInstances (Prelude.Maybe StackSetOperationPreferences)
 deleteStackInstances_operationPreferences = Lens.lens (\DeleteStackInstances' {operationPreferences} -> operationPreferences) (\s@DeleteStackInstances' {} a -> s {operationPreferences = a} :: DeleteStackInstances)
 
--- | [Self-managed permissions] The names of the AWS accounts that you want
--- to delete stack instances for.
+-- | [Self-managed permissions] The names of the Amazon Web Services accounts
+-- that you want to delete stack instances for.
 --
 -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
 deleteStackInstances_accounts :: Lens.Lens' DeleteStackInstances (Prelude.Maybe [Prelude.Text])

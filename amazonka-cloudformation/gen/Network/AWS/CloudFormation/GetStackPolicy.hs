@@ -119,7 +119,7 @@ instance Core.ToQuery GetStackPolicy where
 data GetStackPolicyResponse = GetStackPolicyResponse'
   { -- | Structure containing the stack policy body. (For more information, go to
     -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources>
-    -- in the AWS CloudFormation User Guide.)
+    -- in the CloudFormation User Guide.)
     stackPolicyBody :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -136,7 +136,7 @@ data GetStackPolicyResponse = GetStackPolicyResponse'
 --
 -- 'stackPolicyBody', 'getStackPolicyResponse_stackPolicyBody' - Structure containing the stack policy body. (For more information, go to
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources>
--- in the AWS CloudFormation User Guide.)
+-- in the CloudFormation User Guide.)
 --
 -- 'httpStatus', 'getStackPolicyResponse_httpStatus' - The response's http status code.
 newGetStackPolicyResponse ::
@@ -152,7 +152,7 @@ newGetStackPolicyResponse pHttpStatus_ =
 
 -- | Structure containing the stack policy body. (For more information, go to
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources>
--- in the AWS CloudFormation User Guide.)
+-- in the CloudFormation User Guide.)
 getStackPolicyResponse_stackPolicyBody :: Lens.Lens' GetStackPolicyResponse (Prelude.Maybe Prelude.Text)
 getStackPolicyResponse_stackPolicyBody = Lens.lens (\GetStackPolicyResponse' {stackPolicyBody} -> stackPolicyBody) (\s@GetStackPolicyResponse' {} a -> s {stackPolicyBody = a} :: GetStackPolicyResponse)
 

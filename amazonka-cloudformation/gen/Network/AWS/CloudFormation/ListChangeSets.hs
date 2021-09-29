@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the ID and status of each active change set for a stack. For
--- example, AWS CloudFormation lists change sets that are in the
+-- example, CloudFormation lists change sets that are in the
 -- @CREATE_IN_PROGRESS@ or @CREATE_PENDING@ state.
 --
 -- This operation returns paginated results.

@@ -22,11 +22,11 @@
 --
 -- Sends a signal to the specified resource with a success or failure
 -- status. You can use the SignalResource API in conjunction with a
--- creation policy or update policy. AWS CloudFormation doesn\'t proceed
--- with a stack creation or update until resources receive the required
--- number of signals or the timeout period is exceeded. The SignalResource
--- API is useful in cases where you want to send signals from anywhere
--- other than an Amazon EC2 instance.
+-- creation policy or update policy. CloudFormation doesn\'t proceed with a
+-- stack creation or update until resources receive the required number of
+-- signals or the timeout period is exceeded. The SignalResource API is
+-- useful in cases where you want to send signals from anywhere other than
+-- an Amazon EC2 instance.
 module Network.AWS.CloudFormation.SignalResource
   ( -- * Creating a Request
     SignalResource (..),
@@ -67,8 +67,8 @@ data SignalResource = SignalResource'
     -- signaling a wait condition), each signal requires a different unique ID.
     uniqueId :: Prelude.Text,
     -- | The status of the signal, which is either success or failure. A failure
-    -- signal causes AWS CloudFormation to immediately fail the stack creation
-    -- or update.
+    -- signal causes CloudFormation to immediately fail the stack creation or
+    -- update.
     status :: ResourceSignalStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -93,8 +93,8 @@ data SignalResource = SignalResource'
 -- signaling a wait condition), each signal requires a different unique ID.
 --
 -- 'status', 'signalResource_status' - The status of the signal, which is either success or failure. A failure
--- signal causes AWS CloudFormation to immediately fail the stack creation
--- or update.
+-- signal causes CloudFormation to immediately fail the stack creation or
+-- update.
 newSignalResource ::
   -- | 'stackName'
   Prelude.Text ->
@@ -135,8 +135,8 @@ signalResource_uniqueId :: Lens.Lens' SignalResource Prelude.Text
 signalResource_uniqueId = Lens.lens (\SignalResource' {uniqueId} -> uniqueId) (\s@SignalResource' {} a -> s {uniqueId = a} :: SignalResource)
 
 -- | The status of the signal, which is either success or failure. A failure
--- signal causes AWS CloudFormation to immediately fail the stack creation
--- or update.
+-- signal causes CloudFormation to immediately fail the stack creation or
+-- update.
 signalResource_status :: Lens.Lens' SignalResource ResourceSignalStatus
 signalResource_status = Lens.lens (\SignalResource' {status} -> status) (\s@SignalResource' {} a -> s {status = a} :: SignalResource)
 

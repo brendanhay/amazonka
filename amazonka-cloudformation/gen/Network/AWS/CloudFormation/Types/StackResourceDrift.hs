@@ -29,7 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 
 -- | Contains the drift information for a resource that has been checked for
 -- drift. This includes actual and expected property values for resources
--- in which AWS CloudFormation has detected drift. Only resource properties
+-- in which CloudFormation has detected drift. Only resource properties
 -- explicitly defined in the stack template are checked for drift. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources>.
@@ -50,14 +50,14 @@ data StackResourceDrift = StackResourceDrift'
     -- For resources whose @StackResourceDriftStatus@ is @DELETED@, this
     -- structure will not be present.
     actualProperties :: Prelude.Maybe Prelude.Text,
-    -- | Context information that enables AWS CloudFormation to uniquely identify
-    -- a resource. AWS CloudFormation uses context key-value pairs in cases
-    -- where a resource\'s logical and physical IDs are not enough to uniquely
-    -- identify that resource. Each context key-value pair specifies a unique
-    -- resource that contains the targeted resource.
+    -- | Context information that enables CloudFormation to uniquely identify a
+    -- resource. CloudFormation uses context key-value pairs in cases where a
+    -- resource\'s logical and physical IDs are not enough to uniquely identify
+    -- that resource. Each context key-value pair specifies a unique resource
+    -- that contains the targeted resource.
     physicalResourceIdContext :: Prelude.Maybe [PhysicalResourceIdContextKeyValuePair],
     -- | The name or unique identifier that corresponds to a physical instance ID
-    -- of a resource supported by AWS CloudFormation.
+    -- of a resource supported by CloudFormation.
     physicalResourceId :: Prelude.Maybe Prelude.Text,
     -- | A JSON structure containing the expected property values of the stack
     -- resource, as defined in the stack template and any values specified as
@@ -93,10 +93,9 @@ data StackResourceDrift = StackResourceDrift'
     -- -   @IN_SYNC@: The resources\'s actual configuration matches its
     --     expected template configuration.
     --
-    -- -   @NOT_CHECKED@: AWS CloudFormation does not currently return this
-    --     value.
+    -- -   @NOT_CHECKED@: CloudFormation does not currently return this value.
     stackResourceDriftStatus :: StackResourceDriftStatus,
-    -- | Time at which AWS CloudFormation performed drift detection on the stack
+    -- | Time at which CloudFormation performed drift detection on the stack
     -- resource.
     timestamp :: Core.ISO8601
   }
@@ -116,14 +115,14 @@ data StackResourceDrift = StackResourceDrift'
 -- For resources whose @StackResourceDriftStatus@ is @DELETED@, this
 -- structure will not be present.
 --
--- 'physicalResourceIdContext', 'stackResourceDrift_physicalResourceIdContext' - Context information that enables AWS CloudFormation to uniquely identify
--- a resource. AWS CloudFormation uses context key-value pairs in cases
--- where a resource\'s logical and physical IDs are not enough to uniquely
--- identify that resource. Each context key-value pair specifies a unique
--- resource that contains the targeted resource.
+-- 'physicalResourceIdContext', 'stackResourceDrift_physicalResourceIdContext' - Context information that enables CloudFormation to uniquely identify a
+-- resource. CloudFormation uses context key-value pairs in cases where a
+-- resource\'s logical and physical IDs are not enough to uniquely identify
+-- that resource. Each context key-value pair specifies a unique resource
+-- that contains the targeted resource.
 --
 -- 'physicalResourceId', 'stackResourceDrift_physicalResourceId' - The name or unique identifier that corresponds to a physical instance ID
--- of a resource supported by AWS CloudFormation.
+-- of a resource supported by CloudFormation.
 --
 -- 'expectedProperties', 'stackResourceDrift_expectedProperties' - A JSON structure containing the expected property values of the stack
 -- resource, as defined in the stack template and any values specified as
@@ -159,10 +158,9 @@ data StackResourceDrift = StackResourceDrift'
 -- -   @IN_SYNC@: The resources\'s actual configuration matches its
 --     expected template configuration.
 --
--- -   @NOT_CHECKED@: AWS CloudFormation does not currently return this
---     value.
+-- -   @NOT_CHECKED@: CloudFormation does not currently return this value.
 --
--- 'timestamp', 'stackResourceDrift_timestamp' - Time at which AWS CloudFormation performed drift detection on the stack
+-- 'timestamp', 'stackResourceDrift_timestamp' - Time at which CloudFormation performed drift detection on the stack
 -- resource.
 newStackResourceDrift ::
   -- | 'stackId'
@@ -206,16 +204,16 @@ newStackResourceDrift
 stackResourceDrift_actualProperties :: Lens.Lens' StackResourceDrift (Prelude.Maybe Prelude.Text)
 stackResourceDrift_actualProperties = Lens.lens (\StackResourceDrift' {actualProperties} -> actualProperties) (\s@StackResourceDrift' {} a -> s {actualProperties = a} :: StackResourceDrift)
 
--- | Context information that enables AWS CloudFormation to uniquely identify
--- a resource. AWS CloudFormation uses context key-value pairs in cases
--- where a resource\'s logical and physical IDs are not enough to uniquely
--- identify that resource. Each context key-value pair specifies a unique
--- resource that contains the targeted resource.
+-- | Context information that enables CloudFormation to uniquely identify a
+-- resource. CloudFormation uses context key-value pairs in cases where a
+-- resource\'s logical and physical IDs are not enough to uniquely identify
+-- that resource. Each context key-value pair specifies a unique resource
+-- that contains the targeted resource.
 stackResourceDrift_physicalResourceIdContext :: Lens.Lens' StackResourceDrift (Prelude.Maybe [PhysicalResourceIdContextKeyValuePair])
 stackResourceDrift_physicalResourceIdContext = Lens.lens (\StackResourceDrift' {physicalResourceIdContext} -> physicalResourceIdContext) (\s@StackResourceDrift' {} a -> s {physicalResourceIdContext = a} :: StackResourceDrift) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name or unique identifier that corresponds to a physical instance ID
--- of a resource supported by AWS CloudFormation.
+-- of a resource supported by CloudFormation.
 stackResourceDrift_physicalResourceId :: Lens.Lens' StackResourceDrift (Prelude.Maybe Prelude.Text)
 stackResourceDrift_physicalResourceId = Lens.lens (\StackResourceDrift' {physicalResourceId} -> physicalResourceId) (\s@StackResourceDrift' {} a -> s {physicalResourceId = a} :: StackResourceDrift)
 
@@ -265,12 +263,11 @@ stackResourceDrift_resourceType = Lens.lens (\StackResourceDrift' {resourceType}
 -- -   @IN_SYNC@: The resources\'s actual configuration matches its
 --     expected template configuration.
 --
--- -   @NOT_CHECKED@: AWS CloudFormation does not currently return this
---     value.
+-- -   @NOT_CHECKED@: CloudFormation does not currently return this value.
 stackResourceDrift_stackResourceDriftStatus :: Lens.Lens' StackResourceDrift StackResourceDriftStatus
 stackResourceDrift_stackResourceDriftStatus = Lens.lens (\StackResourceDrift' {stackResourceDriftStatus} -> stackResourceDriftStatus) (\s@StackResourceDrift' {} a -> s {stackResourceDriftStatus = a} :: StackResourceDrift)
 
--- | Time at which AWS CloudFormation performed drift detection on the stack
+-- | Time at which CloudFormation performed drift detection on the stack
 -- resource.
 stackResourceDrift_timestamp :: Lens.Lens' StackResourceDrift Prelude.UTCTime
 stackResourceDrift_timestamp = Lens.lens (\StackResourceDrift' {timestamp} -> timestamp) (\s@StackResourceDrift' {} a -> s {timestamp = a} :: StackResourceDrift) Prelude.. Core._Time

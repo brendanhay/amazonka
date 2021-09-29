@@ -31,12 +31,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newS3BucketDetail' smart constructor.
 data S3BucketDetail = S3BucketDetail'
-  { -- | The Amazon Resource Name (ARN) of the S3 bucket.
-    arn :: Prelude.Maybe Prelude.Text,
+  { -- | The date and time the bucket was created at.
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | Describes the public access policies that apply to the S3 bucket.
     publicAccess :: Prelude.Maybe PublicAccess,
-    -- | The date and time the bucket was created at.
-    createdAt :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name (ARN) of the S3 bucket.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | Describes the server side encryption method used in the S3 bucket.
     defaultServerSideEncryption :: Prelude.Maybe DefaultServerSideEncryption,
     -- | The name of the S3 bucket.
@@ -58,11 +58,11 @@ data S3BucketDetail = S3BucketDetail'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 's3BucketDetail_arn' - The Amazon Resource Name (ARN) of the S3 bucket.
+-- 'createdAt', 's3BucketDetail_createdAt' - The date and time the bucket was created at.
 --
 -- 'publicAccess', 's3BucketDetail_publicAccess' - Describes the public access policies that apply to the S3 bucket.
 --
--- 'createdAt', 's3BucketDetail_createdAt' - The date and time the bucket was created at.
+-- 'arn', 's3BucketDetail_arn' - The Amazon Resource Name (ARN) of the S3 bucket.
 --
 -- 'defaultServerSideEncryption', 's3BucketDetail_defaultServerSideEncryption' - Describes the server side encryption method used in the S3 bucket.
 --
@@ -77,9 +77,9 @@ newS3BucketDetail ::
   S3BucketDetail
 newS3BucketDetail =
   S3BucketDetail'
-    { arn = Prelude.Nothing,
+    { createdAt = Prelude.Nothing,
       publicAccess = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
+      arn = Prelude.Nothing,
       defaultServerSideEncryption = Prelude.Nothing,
       name = Prelude.Nothing,
       tags = Prelude.Nothing,
@@ -87,17 +87,17 @@ newS3BucketDetail =
       type' = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the S3 bucket.
-s3BucketDetail_arn :: Lens.Lens' S3BucketDetail (Prelude.Maybe Prelude.Text)
-s3BucketDetail_arn = Lens.lens (\S3BucketDetail' {arn} -> arn) (\s@S3BucketDetail' {} a -> s {arn = a} :: S3BucketDetail)
+-- | The date and time the bucket was created at.
+s3BucketDetail_createdAt :: Lens.Lens' S3BucketDetail (Prelude.Maybe Prelude.UTCTime)
+s3BucketDetail_createdAt = Lens.lens (\S3BucketDetail' {createdAt} -> createdAt) (\s@S3BucketDetail' {} a -> s {createdAt = a} :: S3BucketDetail) Prelude.. Lens.mapping Core._Time
 
 -- | Describes the public access policies that apply to the S3 bucket.
 s3BucketDetail_publicAccess :: Lens.Lens' S3BucketDetail (Prelude.Maybe PublicAccess)
 s3BucketDetail_publicAccess = Lens.lens (\S3BucketDetail' {publicAccess} -> publicAccess) (\s@S3BucketDetail' {} a -> s {publicAccess = a} :: S3BucketDetail)
 
--- | The date and time the bucket was created at.
-s3BucketDetail_createdAt :: Lens.Lens' S3BucketDetail (Prelude.Maybe Prelude.UTCTime)
-s3BucketDetail_createdAt = Lens.lens (\S3BucketDetail' {createdAt} -> createdAt) (\s@S3BucketDetail' {} a -> s {createdAt = a} :: S3BucketDetail) Prelude.. Lens.mapping Core._Time
+-- | The Amazon Resource Name (ARN) of the S3 bucket.
+s3BucketDetail_arn :: Lens.Lens' S3BucketDetail (Prelude.Maybe Prelude.Text)
+s3BucketDetail_arn = Lens.lens (\S3BucketDetail' {arn} -> arn) (\s@S3BucketDetail' {} a -> s {arn = a} :: S3BucketDetail)
 
 -- | Describes the server side encryption method used in the S3 bucket.
 s3BucketDetail_defaultServerSideEncryption :: Lens.Lens' S3BucketDetail (Prelude.Maybe DefaultServerSideEncryption)
@@ -125,9 +125,9 @@ instance Core.FromJSON S3BucketDetail where
       "S3BucketDetail"
       ( \x ->
           S3BucketDetail'
-            Prelude.<$> (x Core..:? "arn")
+            Prelude.<$> (x Core..:? "createdAt")
             Prelude.<*> (x Core..:? "publicAccess")
-            Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "defaultServerSideEncryption")
             Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)

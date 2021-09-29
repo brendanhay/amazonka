@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newServiceInfo' smart constructor.
 data ServiceInfo = ServiceInfo'
-  { -- | The resource role information for this finding.
-    resourceRole :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether this finding is archived.
+  { -- | Indicates whether this finding is archived.
     archived :: Prelude.Maybe Prelude.Bool,
+    -- | The resource role information for this finding.
+    resourceRole :: Prelude.Maybe Prelude.Text,
     -- | The first-seen timestamp of the activity that prompted GuardDuty to
     -- generate this finding.
     eventFirstSeen :: Prelude.Maybe Prelude.Text,
@@ -62,9 +62,9 @@ data ServiceInfo = ServiceInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceRole', 'serviceInfo_resourceRole' - The resource role information for this finding.
---
 -- 'archived', 'serviceInfo_archived' - Indicates whether this finding is archived.
+--
+-- 'resourceRole', 'serviceInfo_resourceRole' - The resource role information for this finding.
 --
 -- 'eventFirstSeen', 'serviceInfo_eventFirstSeen' - The first-seen timestamp of the activity that prompted GuardDuty to
 -- generate this finding.
@@ -87,8 +87,8 @@ newServiceInfo ::
   ServiceInfo
 newServiceInfo =
   ServiceInfo'
-    { resourceRole = Prelude.Nothing,
-      archived = Prelude.Nothing,
+    { archived = Prelude.Nothing,
+      resourceRole = Prelude.Nothing,
       eventFirstSeen = Prelude.Nothing,
       eventLastSeen = Prelude.Nothing,
       serviceName = Prelude.Nothing,
@@ -99,13 +99,13 @@ newServiceInfo =
       userFeedback = Prelude.Nothing
     }
 
--- | The resource role information for this finding.
-serviceInfo_resourceRole :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Text)
-serviceInfo_resourceRole = Lens.lens (\ServiceInfo' {resourceRole} -> resourceRole) (\s@ServiceInfo' {} a -> s {resourceRole = a} :: ServiceInfo)
-
 -- | Indicates whether this finding is archived.
 serviceInfo_archived :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Bool)
 serviceInfo_archived = Lens.lens (\ServiceInfo' {archived} -> archived) (\s@ServiceInfo' {} a -> s {archived = a} :: ServiceInfo)
+
+-- | The resource role information for this finding.
+serviceInfo_resourceRole :: Lens.Lens' ServiceInfo (Prelude.Maybe Prelude.Text)
+serviceInfo_resourceRole = Lens.lens (\ServiceInfo' {resourceRole} -> resourceRole) (\s@ServiceInfo' {} a -> s {resourceRole = a} :: ServiceInfo)
 
 -- | The first-seen timestamp of the activity that prompted GuardDuty to
 -- generate this finding.
@@ -147,8 +147,8 @@ instance Core.FromJSON ServiceInfo where
       "ServiceInfo"
       ( \x ->
           ServiceInfo'
-            Prelude.<$> (x Core..:? "resourceRole")
-            Prelude.<*> (x Core..:? "archived")
+            Prelude.<$> (x Core..:? "archived")
+            Prelude.<*> (x Core..:? "resourceRole")
             Prelude.<*> (x Core..:? "eventFirstSeen")
             Prelude.<*> (x Core..:? "eventLastSeen")
             Prelude.<*> (x Core..:? "serviceName")

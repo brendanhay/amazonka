@@ -45,12 +45,12 @@ data Condition = Condition'
     -- | Represents the /not equal/ condition to be applied to a single field
     -- when querying for findings.
     neq :: Prelude.Maybe [Prelude.Text],
-    -- | Represents a /not equal/ ____ condition to be applied to a single field
-    -- when querying for findings.
-    notEquals :: Prelude.Maybe [Prelude.Text],
     -- | Represents a /less than/ condition to be applied to a single field when
     -- querying for findings.
     lessThan :: Prelude.Maybe Prelude.Integer,
+    -- | Represents a /not equal/ ____ condition to be applied to a single field
+    -- when querying for findings.
+    notEquals :: Prelude.Maybe [Prelude.Text],
     -- | Represents an /equal/ ____ condition to be applied to a single field
     -- when querying for findings.
     equals :: Prelude.Maybe [Prelude.Text],
@@ -92,11 +92,11 @@ data Condition = Condition'
 -- 'neq', 'condition_neq' - Represents the /not equal/ condition to be applied to a single field
 -- when querying for findings.
 --
--- 'notEquals', 'condition_notEquals' - Represents a /not equal/ ____ condition to be applied to a single field
--- when querying for findings.
---
 -- 'lessThan', 'condition_lessThan' - Represents a /less than/ condition to be applied to a single field when
 -- querying for findings.
+--
+-- 'notEquals', 'condition_notEquals' - Represents a /not equal/ ____ condition to be applied to a single field
+-- when querying for findings.
 --
 -- 'equals', 'condition_equals' - Represents an /equal/ ____ condition to be applied to a single field
 -- when querying for findings.
@@ -119,8 +119,8 @@ newCondition =
       greaterThanOrEqual = Prelude.Nothing,
       lte = Prelude.Nothing,
       neq = Prelude.Nothing,
-      notEquals = Prelude.Nothing,
       lessThan = Prelude.Nothing,
+      notEquals = Prelude.Nothing,
       equals = Prelude.Nothing,
       gte = Prelude.Nothing,
       lessThanOrEqual = Prelude.Nothing,
@@ -157,15 +157,15 @@ condition_lte = Lens.lens (\Condition' {lte} -> lte) (\s@Condition' {} a -> s {l
 condition_neq :: Lens.Lens' Condition (Prelude.Maybe [Prelude.Text])
 condition_neq = Lens.lens (\Condition' {neq} -> neq) (\s@Condition' {} a -> s {neq = a} :: Condition) Prelude.. Lens.mapping Lens._Coerce
 
--- | Represents a /not equal/ ____ condition to be applied to a single field
--- when querying for findings.
-condition_notEquals :: Lens.Lens' Condition (Prelude.Maybe [Prelude.Text])
-condition_notEquals = Lens.lens (\Condition' {notEquals} -> notEquals) (\s@Condition' {} a -> s {notEquals = a} :: Condition) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Represents a /less than/ condition to be applied to a single field when
 -- querying for findings.
 condition_lessThan :: Lens.Lens' Condition (Prelude.Maybe Prelude.Integer)
 condition_lessThan = Lens.lens (\Condition' {lessThan} -> lessThan) (\s@Condition' {} a -> s {lessThan = a} :: Condition)
+
+-- | Represents a /not equal/ ____ condition to be applied to a single field
+-- when querying for findings.
+condition_notEquals :: Lens.Lens' Condition (Prelude.Maybe [Prelude.Text])
+condition_notEquals = Lens.lens (\Condition' {notEquals} -> notEquals) (\s@Condition' {} a -> s {notEquals = a} :: Condition) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Represents an /equal/ ____ condition to be applied to a single field
 -- when querying for findings.
@@ -199,8 +199,8 @@ instance Core.FromJSON Condition where
             Prelude.<*> (x Core..:? "greaterThanOrEqual")
             Prelude.<*> (x Core..:? "lte")
             Prelude.<*> (x Core..:? "neq" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "notEquals" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "lessThan")
+            Prelude.<*> (x Core..:? "notEquals" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "equals" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "gte")
             Prelude.<*> (x Core..:? "lessThanOrEqual")
@@ -222,8 +222,8 @@ instance Core.ToJSON Condition where
               Prelude.<$> greaterThanOrEqual,
             ("lte" Core..=) Prelude.<$> lte,
             ("neq" Core..=) Prelude.<$> neq,
-            ("notEquals" Core..=) Prelude.<$> notEquals,
             ("lessThan" Core..=) Prelude.<$> lessThan,
+            ("notEquals" Core..=) Prelude.<$> notEquals,
             ("equals" Core..=) Prelude.<$> equals,
             ("gte" Core..=) Prelude.<$> gte,
             ("lessThanOrEqual" Core..=)

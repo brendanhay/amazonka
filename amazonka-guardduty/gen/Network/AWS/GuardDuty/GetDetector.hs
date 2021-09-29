@@ -35,8 +35,8 @@ module Network.AWS.GuardDuty.GetDetector
 
     -- * Response Lenses
     getDetectorResponse_dataSources,
-    getDetectorResponse_findingPublishingFrequency,
     getDetectorResponse_updatedAt,
+    getDetectorResponse_findingPublishingFrequency,
     getDetectorResponse_createdAt,
     getDetectorResponse_tags,
     getDetectorResponse_httpStatus,
@@ -87,8 +87,8 @@ instance Core.AWSRequest GetDetector where
       ( \s h x ->
           GetDetectorResponse'
             Prelude.<$> (x Core..?> "dataSources")
-            Prelude.<*> (x Core..?> "findingPublishingFrequency")
             Prelude.<*> (x Core..?> "updatedAt")
+            Prelude.<*> (x Core..?> "findingPublishingFrequency")
             Prelude.<*> (x Core..?> "createdAt")
             Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -123,10 +123,10 @@ instance Core.ToQuery GetDetector where
 data GetDetectorResponse = GetDetectorResponse'
   { -- | Describes which data sources are enabled for the detector.
     dataSources :: Prelude.Maybe DataSourceConfigurationsResult,
-    -- | The publishing frequency of the finding.
-    findingPublishingFrequency :: Prelude.Maybe FindingPublishingFrequency,
     -- | The last-updated timestamp for the detector.
     updatedAt :: Prelude.Maybe Prelude.Text,
+    -- | The publishing frequency of the finding.
+    findingPublishingFrequency :: Prelude.Maybe FindingPublishingFrequency,
     -- | The timestamp of when the detector was created.
     createdAt :: Prelude.Maybe Prelude.Text,
     -- | The tags of the detector resource.
@@ -150,9 +150,9 @@ data GetDetectorResponse = GetDetectorResponse'
 --
 -- 'dataSources', 'getDetectorResponse_dataSources' - Describes which data sources are enabled for the detector.
 --
--- 'findingPublishingFrequency', 'getDetectorResponse_findingPublishingFrequency' - The publishing frequency of the finding.
---
 -- 'updatedAt', 'getDetectorResponse_updatedAt' - The last-updated timestamp for the detector.
+--
+-- 'findingPublishingFrequency', 'getDetectorResponse_findingPublishingFrequency' - The publishing frequency of the finding.
 --
 -- 'createdAt', 'getDetectorResponse_createdAt' - The timestamp of when the detector was created.
 --
@@ -177,8 +177,8 @@ newGetDetectorResponse
   pStatus_ =
     GetDetectorResponse'
       { dataSources = Prelude.Nothing,
-        findingPublishingFrequency = Prelude.Nothing,
         updatedAt = Prelude.Nothing,
+        findingPublishingFrequency = Prelude.Nothing,
         createdAt = Prelude.Nothing,
         tags = Prelude.Nothing,
         httpStatus = pHttpStatus_,
@@ -190,13 +190,13 @@ newGetDetectorResponse
 getDetectorResponse_dataSources :: Lens.Lens' GetDetectorResponse (Prelude.Maybe DataSourceConfigurationsResult)
 getDetectorResponse_dataSources = Lens.lens (\GetDetectorResponse' {dataSources} -> dataSources) (\s@GetDetectorResponse' {} a -> s {dataSources = a} :: GetDetectorResponse)
 
--- | The publishing frequency of the finding.
-getDetectorResponse_findingPublishingFrequency :: Lens.Lens' GetDetectorResponse (Prelude.Maybe FindingPublishingFrequency)
-getDetectorResponse_findingPublishingFrequency = Lens.lens (\GetDetectorResponse' {findingPublishingFrequency} -> findingPublishingFrequency) (\s@GetDetectorResponse' {} a -> s {findingPublishingFrequency = a} :: GetDetectorResponse)
-
 -- | The last-updated timestamp for the detector.
 getDetectorResponse_updatedAt :: Lens.Lens' GetDetectorResponse (Prelude.Maybe Prelude.Text)
 getDetectorResponse_updatedAt = Lens.lens (\GetDetectorResponse' {updatedAt} -> updatedAt) (\s@GetDetectorResponse' {} a -> s {updatedAt = a} :: GetDetectorResponse)
+
+-- | The publishing frequency of the finding.
+getDetectorResponse_findingPublishingFrequency :: Lens.Lens' GetDetectorResponse (Prelude.Maybe FindingPublishingFrequency)
+getDetectorResponse_findingPublishingFrequency = Lens.lens (\GetDetectorResponse' {findingPublishingFrequency} -> findingPublishingFrequency) (\s@GetDetectorResponse' {} a -> s {findingPublishingFrequency = a} :: GetDetectorResponse)
 
 -- | The timestamp of when the detector was created.
 getDetectorResponse_createdAt :: Lens.Lens' GetDetectorResponse (Prelude.Maybe Prelude.Text)

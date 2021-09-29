@@ -31,8 +31,8 @@ module Network.AWS.GuardDuty.ListFindings
     -- * Request Lenses
     listFindings_nextToken,
     listFindings_sortCriteria,
-    listFindings_findingCriteria,
     listFindings_maxResults,
+    listFindings_findingCriteria,
     listFindings_detectorId,
 
     -- * Destructuring the Response
@@ -62,6 +62,9 @@ data ListFindings = ListFindings'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Represents the criteria used for sorting findings.
     sortCriteria :: Prelude.Maybe SortCriteria,
+    -- | You can use this parameter to indicate the maximum number of items you
+    -- want in the response. The default value is 50. The maximum value is 50.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Represents the criteria used for querying findings. Valid values
     -- include:
     --
@@ -170,9 +173,6 @@ data ListFindings = ListFindings'
     --
     --     Type: Timestamp in Unix Epoch millisecond format: 1486685375000
     findingCriteria :: Prelude.Maybe FindingCriteria,
-    -- | You can use this parameter to indicate the maximum number of items you
-    -- want in the response. The default value is 50. The maximum value is 50.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the detector that specifies the GuardDuty service whose
     -- findings you want to list.
     detectorId :: Prelude.Text
@@ -193,6 +193,9 @@ data ListFindings = ListFindings'
 -- value of NextToken from the previous response to continue listing data.
 --
 -- 'sortCriteria', 'listFindings_sortCriteria' - Represents the criteria used for sorting findings.
+--
+-- 'maxResults', 'listFindings_maxResults' - You can use this parameter to indicate the maximum number of items you
+-- want in the response. The default value is 50. The maximum value is 50.
 --
 -- 'findingCriteria', 'listFindings_findingCriteria' - Represents the criteria used for querying findings. Valid values
 -- include:
@@ -302,9 +305,6 @@ data ListFindings = ListFindings'
 --
 --     Type: Timestamp in Unix Epoch millisecond format: 1486685375000
 --
--- 'maxResults', 'listFindings_maxResults' - You can use this parameter to indicate the maximum number of items you
--- want in the response. The default value is 50. The maximum value is 50.
---
 -- 'detectorId', 'listFindings_detectorId' - The ID of the detector that specifies the GuardDuty service whose
 -- findings you want to list.
 newListFindings ::
@@ -315,8 +315,8 @@ newListFindings pDetectorId_ =
   ListFindings'
     { nextToken = Prelude.Nothing,
       sortCriteria = Prelude.Nothing,
-      findingCriteria = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      findingCriteria = Prelude.Nothing,
       detectorId = pDetectorId_
     }
 
@@ -330,6 +330,11 @@ listFindings_nextToken = Lens.lens (\ListFindings' {nextToken} -> nextToken) (\s
 -- | Represents the criteria used for sorting findings.
 listFindings_sortCriteria :: Lens.Lens' ListFindings (Prelude.Maybe SortCriteria)
 listFindings_sortCriteria = Lens.lens (\ListFindings' {sortCriteria} -> sortCriteria) (\s@ListFindings' {} a -> s {sortCriteria = a} :: ListFindings)
+
+-- | You can use this parameter to indicate the maximum number of items you
+-- want in the response. The default value is 50. The maximum value is 50.
+listFindings_maxResults :: Lens.Lens' ListFindings (Prelude.Maybe Prelude.Natural)
+listFindings_maxResults = Lens.lens (\ListFindings' {maxResults} -> maxResults) (\s@ListFindings' {} a -> s {maxResults = a} :: ListFindings)
 
 -- | Represents the criteria used for querying findings. Valid values
 -- include:
@@ -441,11 +446,6 @@ listFindings_sortCriteria = Lens.lens (\ListFindings' {sortCriteria} -> sortCrit
 listFindings_findingCriteria :: Lens.Lens' ListFindings (Prelude.Maybe FindingCriteria)
 listFindings_findingCriteria = Lens.lens (\ListFindings' {findingCriteria} -> findingCriteria) (\s@ListFindings' {} a -> s {findingCriteria = a} :: ListFindings)
 
--- | You can use this parameter to indicate the maximum number of items you
--- want in the response. The default value is 50. The maximum value is 50.
-listFindings_maxResults :: Lens.Lens' ListFindings (Prelude.Maybe Prelude.Natural)
-listFindings_maxResults = Lens.lens (\ListFindings' {maxResults} -> maxResults) (\s@ListFindings' {} a -> s {maxResults = a} :: ListFindings)
-
 -- | The ID of the detector that specifies the GuardDuty service whose
 -- findings you want to list.
 listFindings_detectorId :: Lens.Lens' ListFindings Prelude.Text
@@ -501,9 +501,9 @@ instance Core.ToJSON ListFindings where
       ( Prelude.catMaybes
           [ ("nextToken" Core..=) Prelude.<$> nextToken,
             ("sortCriteria" Core..=) Prelude.<$> sortCriteria,
+            ("maxResults" Core..=) Prelude.<$> maxResults,
             ("findingCriteria" Core..=)
-              Prelude.<$> findingCriteria,
-            ("maxResults" Core..=) Prelude.<$> maxResults
+              Prelude.<$> findingCriteria
           ]
       )
 

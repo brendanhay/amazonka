@@ -79,8 +79,8 @@ module Network.AWS.GuardDuty.Types
     newAccessKeyDetails,
     accessKeyDetails_principalId,
     accessKeyDetails_userType,
-    accessKeyDetails_accessKeyId,
     accessKeyDetails_userName,
+    accessKeyDetails_accessKeyId,
 
     -- * AccountDetail
     AccountDetail (..),
@@ -97,8 +97,8 @@ module Network.AWS.GuardDuty.Types
     Action (..),
     newAction,
     action_actionType,
-    action_dnsRequestAction,
     action_networkConnectionAction,
+    action_dnsRequestAction,
     action_awsApiCallAction,
     action_portProbeAction,
 
@@ -158,8 +158,8 @@ module Network.AWS.GuardDuty.Types
     condition_greaterThanOrEqual,
     condition_lte,
     condition_neq,
-    condition_notEquals,
     condition_lessThan,
+    condition_notEquals,
     condition_equals,
     condition_gte,
     condition_lessThanOrEqual,
@@ -281,8 +281,8 @@ module Network.AWS.GuardDuty.Types
     instanceDetails_imageId,
     instanceDetails_iamInstanceProfile,
     instanceDetails_availabilityZone,
-    instanceDetails_tags,
     instanceDetails_imageDescription,
+    instanceDetails_tags,
     instanceDetails_instanceState,
     instanceDetails_networkInterfaces,
 
@@ -338,8 +338,8 @@ module Network.AWS.GuardDuty.Types
     networkConnectionAction_connectionDirection,
     networkConnectionAction_blocked,
     networkConnectionAction_remoteIpDetails,
-    networkConnectionAction_localIpDetails,
     networkConnectionAction_protocol,
+    networkConnectionAction_localIpDetails,
 
     -- * NetworkInterface
     NetworkInterface (..),
@@ -348,8 +348,8 @@ module Network.AWS.GuardDuty.Types
     networkInterface_ipv6Addresses,
     networkInterface_securityGroups,
     networkInterface_publicDnsName,
-    networkInterface_networkInterfaceId,
     networkInterface_subnetId,
+    networkInterface_networkInterfaceId,
     networkInterface_privateDnsName,
     networkInterface_publicIp,
     networkInterface_vpcId,
@@ -451,9 +451,9 @@ module Network.AWS.GuardDuty.Types
     -- * S3BucketDetail
     S3BucketDetail (..),
     newS3BucketDetail,
-    s3BucketDetail_arn,
-    s3BucketDetail_publicAccess,
     s3BucketDetail_createdAt,
+    s3BucketDetail_publicAccess,
+    s3BucketDetail_arn,
     s3BucketDetail_defaultServerSideEncryption,
     s3BucketDetail_name,
     s3BucketDetail_tags,
@@ -479,8 +479,8 @@ module Network.AWS.GuardDuty.Types
     -- * ServiceInfo
     ServiceInfo (..),
     newServiceInfo,
-    serviceInfo_resourceRole,
     serviceInfo_archived,
+    serviceInfo_resourceRole,
     serviceInfo_eventFirstSeen,
     serviceInfo_eventLastSeen,
     serviceInfo_serviceName,

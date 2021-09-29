@@ -33,8 +33,8 @@ module Network.AWS.GuardDuty.GetUsageStatistics
 
     -- * Request Lenses
     getUsageStatistics_nextToken,
-    getUsageStatistics_unit,
     getUsageStatistics_maxResults,
+    getUsageStatistics_unit,
     getUsageStatistics_detectorId,
     getUsageStatistics_usageStatisticType,
     getUsageStatistics_usageCriteria,
@@ -64,11 +64,11 @@ data GetUsageStatistics = GetUsageStatistics'
     -- action. For subsequent calls, use the NextToken value returned from the
     -- previous request to continue listing results after the first page.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return in the response.
+    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The currency unit you would like to view your usage statistics in.
     -- Current valid values are USD.
     unit :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of results to return in the response.
-    maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The ID of the detector that specifies the GuardDuty service whose usage
     -- statistics you want to retrieve.
     detectorId :: Prelude.Text,
@@ -92,10 +92,10 @@ data GetUsageStatistics = GetUsageStatistics'
 -- action. For subsequent calls, use the NextToken value returned from the
 -- previous request to continue listing results after the first page.
 --
+-- 'maxResults', 'getUsageStatistics_maxResults' - The maximum number of results to return in the response.
+--
 -- 'unit', 'getUsageStatistics_unit' - The currency unit you would like to view your usage statistics in.
 -- Current valid values are USD.
---
--- 'maxResults', 'getUsageStatistics_maxResults' - The maximum number of results to return in the response.
 --
 -- 'detectorId', 'getUsageStatistics_detectorId' - The ID of the detector that specifies the GuardDuty service whose usage
 -- statistics you want to retrieve.
@@ -117,8 +117,8 @@ newGetUsageStatistics
   pUsageCriteria_ =
     GetUsageStatistics'
       { nextToken = Prelude.Nothing,
-        unit = Prelude.Nothing,
         maxResults = Prelude.Nothing,
+        unit = Prelude.Nothing,
         detectorId = pDetectorId_,
         usageStatisticType = pUsageStatisticType_,
         usageCriteria = pUsageCriteria_
@@ -131,14 +131,14 @@ newGetUsageStatistics
 getUsageStatistics_nextToken :: Lens.Lens' GetUsageStatistics (Prelude.Maybe Prelude.Text)
 getUsageStatistics_nextToken = Lens.lens (\GetUsageStatistics' {nextToken} -> nextToken) (\s@GetUsageStatistics' {} a -> s {nextToken = a} :: GetUsageStatistics)
 
+-- | The maximum number of results to return in the response.
+getUsageStatistics_maxResults :: Lens.Lens' GetUsageStatistics (Prelude.Maybe Prelude.Natural)
+getUsageStatistics_maxResults = Lens.lens (\GetUsageStatistics' {maxResults} -> maxResults) (\s@GetUsageStatistics' {} a -> s {maxResults = a} :: GetUsageStatistics)
+
 -- | The currency unit you would like to view your usage statistics in.
 -- Current valid values are USD.
 getUsageStatistics_unit :: Lens.Lens' GetUsageStatistics (Prelude.Maybe Prelude.Text)
 getUsageStatistics_unit = Lens.lens (\GetUsageStatistics' {unit} -> unit) (\s@GetUsageStatistics' {} a -> s {unit = a} :: GetUsageStatistics)
-
--- | The maximum number of results to return in the response.
-getUsageStatistics_maxResults :: Lens.Lens' GetUsageStatistics (Prelude.Maybe Prelude.Natural)
-getUsageStatistics_maxResults = Lens.lens (\GetUsageStatistics' {maxResults} -> maxResults) (\s@GetUsageStatistics' {} a -> s {maxResults = a} :: GetUsageStatistics)
 
 -- | The ID of the detector that specifies the GuardDuty service whose usage
 -- statistics you want to retrieve.
@@ -187,8 +187,8 @@ instance Core.ToJSON GetUsageStatistics where
     Core.object
       ( Prelude.catMaybes
           [ ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("unit" Core..=) Prelude.<$> unit,
             ("maxResults" Core..=) Prelude.<$> maxResults,
+            ("unit" Core..=) Prelude.<$> unit,
             Prelude.Just
               ("usageStatisticsType" Core..= usageStatisticType),
             Prelude.Just

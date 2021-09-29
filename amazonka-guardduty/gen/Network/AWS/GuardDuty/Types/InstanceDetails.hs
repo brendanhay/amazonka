@@ -50,10 +50,10 @@ data InstanceDetails = InstanceDetails'
     iamInstanceProfile :: Prelude.Maybe IamInstanceProfile,
     -- | The Availability Zone of the EC2 instance.
     availabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | The tags of the EC2 instance.
-    tags :: Prelude.Maybe [Tag],
     -- | The image description of the EC2 instance.
     imageDescription :: Prelude.Maybe Prelude.Text,
+    -- | The tags of the EC2 instance.
+    tags :: Prelude.Maybe [Tag],
     -- | The state of the EC2 instance.
     instanceState :: Prelude.Maybe Prelude.Text,
     -- | The elastic network interface information of the EC2 instance.
@@ -88,9 +88,9 @@ data InstanceDetails = InstanceDetails'
 --
 -- 'availabilityZone', 'instanceDetails_availabilityZone' - The Availability Zone of the EC2 instance.
 --
--- 'tags', 'instanceDetails_tags' - The tags of the EC2 instance.
---
 -- 'imageDescription', 'instanceDetails_imageDescription' - The image description of the EC2 instance.
+--
+-- 'tags', 'instanceDetails_tags' - The tags of the EC2 instance.
 --
 -- 'instanceState', 'instanceDetails_instanceState' - The state of the EC2 instance.
 --
@@ -108,8 +108,8 @@ newInstanceDetails =
       imageId = Prelude.Nothing,
       iamInstanceProfile = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
-      tags = Prelude.Nothing,
       imageDescription = Prelude.Nothing,
+      tags = Prelude.Nothing,
       instanceState = Prelude.Nothing,
       networkInterfaces = Prelude.Nothing
     }
@@ -151,13 +151,13 @@ instanceDetails_iamInstanceProfile = Lens.lens (\InstanceDetails' {iamInstancePr
 instanceDetails_availabilityZone :: Lens.Lens' InstanceDetails (Prelude.Maybe Prelude.Text)
 instanceDetails_availabilityZone = Lens.lens (\InstanceDetails' {availabilityZone} -> availabilityZone) (\s@InstanceDetails' {} a -> s {availabilityZone = a} :: InstanceDetails)
 
--- | The tags of the EC2 instance.
-instanceDetails_tags :: Lens.Lens' InstanceDetails (Prelude.Maybe [Tag])
-instanceDetails_tags = Lens.lens (\InstanceDetails' {tags} -> tags) (\s@InstanceDetails' {} a -> s {tags = a} :: InstanceDetails) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The image description of the EC2 instance.
 instanceDetails_imageDescription :: Lens.Lens' InstanceDetails (Prelude.Maybe Prelude.Text)
 instanceDetails_imageDescription = Lens.lens (\InstanceDetails' {imageDescription} -> imageDescription) (\s@InstanceDetails' {} a -> s {imageDescription = a} :: InstanceDetails)
+
+-- | The tags of the EC2 instance.
+instanceDetails_tags :: Lens.Lens' InstanceDetails (Prelude.Maybe [Tag])
+instanceDetails_tags = Lens.lens (\InstanceDetails' {tags} -> tags) (\s@InstanceDetails' {} a -> s {tags = a} :: InstanceDetails) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The state of the EC2 instance.
 instanceDetails_instanceState :: Lens.Lens' InstanceDetails (Prelude.Maybe Prelude.Text)
@@ -182,8 +182,8 @@ instance Core.FromJSON InstanceDetails where
             Prelude.<*> (x Core..:? "imageId")
             Prelude.<*> (x Core..:? "iamInstanceProfile")
             Prelude.<*> (x Core..:? "availabilityZone")
-            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "imageDescription")
+            Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "instanceState")
             Prelude.<*> ( x Core..:? "networkInterfaces"
                             Core..!= Prelude.mempty

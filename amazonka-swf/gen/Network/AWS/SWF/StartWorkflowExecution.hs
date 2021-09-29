@@ -72,8 +72,8 @@ module Network.AWS.SWF.StartWorkflowExecution
     startWorkflowExecution_input,
     startWorkflowExecution_lambdaRole,
     startWorkflowExecution_childPolicy,
-    startWorkflowExecution_taskList,
     startWorkflowExecution_taskPriority,
+    startWorkflowExecution_taskList,
     startWorkflowExecution_executionStartToCloseTimeout,
     startWorkflowExecution_taskStartToCloseTimeout,
     startWorkflowExecution_tagList,
@@ -137,6 +137,17 @@ data StartWorkflowExecution = StartWorkflowExecution'
     -- parameter is set nor a default child policy was specified at
     -- registration time then a fault is returned.
     childPolicy :: Prelude.Maybe ChildPolicy,
+    -- | The task priority to use for this workflow execution. This overrides any
+    -- default priority that was assigned when the workflow type was
+    -- registered. If not set, then the default task priority for the workflow
+    -- type is used. Valid values are integers that range from Java\'s
+    -- @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647).
+    -- Higher numbers indicate higher priority.
+    --
+    -- For more information about setting task priority, see
+    -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
+    -- in the /Amazon SWF Developer Guide/.
+    taskPriority :: Prelude.Maybe Prelude.Text,
     -- | The task list to use for the decision tasks generated for this workflow
     -- execution. This overrides the @defaultTaskList@ specified when
     -- registering the workflow type.
@@ -151,17 +162,6 @@ data StartWorkflowExecution = StartWorkflowExecution'
     -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
     -- /be/ the literal string @arn@.
     taskList :: Prelude.Maybe TaskList,
-    -- | The task priority to use for this workflow execution. This overrides any
-    -- default priority that was assigned when the workflow type was
-    -- registered. If not set, then the default task priority for the workflow
-    -- type is used. Valid values are integers that range from Java\'s
-    -- @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647).
-    -- Higher numbers indicate higher priority.
-    --
-    -- For more information about setting task priority, see
-    -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
-    -- in the /Amazon SWF Developer Guide/.
-    taskPriority :: Prelude.Maybe Prelude.Text,
     -- | The total duration for this workflow execution. This overrides the
     -- defaultExecutionStartToCloseTimeout specified when registering the
     -- workflow type.
@@ -259,6 +259,17 @@ data StartWorkflowExecution = StartWorkflowExecution'
 -- parameter is set nor a default child policy was specified at
 -- registration time then a fault is returned.
 --
+-- 'taskPriority', 'startWorkflowExecution_taskPriority' - The task priority to use for this workflow execution. This overrides any
+-- default priority that was assigned when the workflow type was
+-- registered. If not set, then the default task priority for the workflow
+-- type is used. Valid values are integers that range from Java\'s
+-- @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647).
+-- Higher numbers indicate higher priority.
+--
+-- For more information about setting task priority, see
+-- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
+-- in the /Amazon SWF Developer Guide/.
+--
 -- 'taskList', 'startWorkflowExecution_taskList' - The task list to use for the decision tasks generated for this workflow
 -- execution. This overrides the @defaultTaskList@ specified when
 -- registering the workflow type.
@@ -272,17 +283,6 @@ data StartWorkflowExecution = StartWorkflowExecution'
 -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
 -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
 -- /be/ the literal string @arn@.
---
--- 'taskPriority', 'startWorkflowExecution_taskPriority' - The task priority to use for this workflow execution. This overrides any
--- default priority that was assigned when the workflow type was
--- registered. If not set, then the default task priority for the workflow
--- type is used. Valid values are integers that range from Java\'s
--- @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647).
--- Higher numbers indicate higher priority.
---
--- For more information about setting task priority, see
--- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
--- in the /Amazon SWF Developer Guide/.
 --
 -- 'executionStartToCloseTimeout', 'startWorkflowExecution_executionStartToCloseTimeout' - The total duration for this workflow execution. This overrides the
 -- defaultExecutionStartToCloseTimeout specified when registering the
@@ -348,8 +348,8 @@ newStartWorkflowExecution
       { input = Prelude.Nothing,
         lambdaRole = Prelude.Nothing,
         childPolicy = Prelude.Nothing,
-        taskList = Prelude.Nothing,
         taskPriority = Prelude.Nothing,
+        taskList = Prelude.Nothing,
         executionStartToCloseTimeout = Prelude.Nothing,
         taskStartToCloseTimeout = Prelude.Nothing,
         tagList = Prelude.Nothing,
@@ -401,6 +401,19 @@ startWorkflowExecution_lambdaRole = Lens.lens (\StartWorkflowExecution' {lambdaR
 startWorkflowExecution_childPolicy :: Lens.Lens' StartWorkflowExecution (Prelude.Maybe ChildPolicy)
 startWorkflowExecution_childPolicy = Lens.lens (\StartWorkflowExecution' {childPolicy} -> childPolicy) (\s@StartWorkflowExecution' {} a -> s {childPolicy = a} :: StartWorkflowExecution)
 
+-- | The task priority to use for this workflow execution. This overrides any
+-- default priority that was assigned when the workflow type was
+-- registered. If not set, then the default task priority for the workflow
+-- type is used. Valid values are integers that range from Java\'s
+-- @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647).
+-- Higher numbers indicate higher priority.
+--
+-- For more information about setting task priority, see
+-- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
+-- in the /Amazon SWF Developer Guide/.
+startWorkflowExecution_taskPriority :: Lens.Lens' StartWorkflowExecution (Prelude.Maybe Prelude.Text)
+startWorkflowExecution_taskPriority = Lens.lens (\StartWorkflowExecution' {taskPriority} -> taskPriority) (\s@StartWorkflowExecution' {} a -> s {taskPriority = a} :: StartWorkflowExecution)
+
 -- | The task list to use for the decision tasks generated for this workflow
 -- execution. This overrides the @defaultTaskList@ specified when
 -- registering the workflow type.
@@ -416,19 +429,6 @@ startWorkflowExecution_childPolicy = Lens.lens (\StartWorkflowExecution' {childP
 -- /be/ the literal string @arn@.
 startWorkflowExecution_taskList :: Lens.Lens' StartWorkflowExecution (Prelude.Maybe TaskList)
 startWorkflowExecution_taskList = Lens.lens (\StartWorkflowExecution' {taskList} -> taskList) (\s@StartWorkflowExecution' {} a -> s {taskList = a} :: StartWorkflowExecution)
-
--- | The task priority to use for this workflow execution. This overrides any
--- default priority that was assigned when the workflow type was
--- registered. If not set, then the default task priority for the workflow
--- type is used. Valid values are integers that range from Java\'s
--- @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647).
--- Higher numbers indicate higher priority.
---
--- For more information about setting task priority, see
--- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
--- in the /Amazon SWF Developer Guide/.
-startWorkflowExecution_taskPriority :: Lens.Lens' StartWorkflowExecution (Prelude.Maybe Prelude.Text)
-startWorkflowExecution_taskPriority = Lens.lens (\StartWorkflowExecution' {taskPriority} -> taskPriority) (\s@StartWorkflowExecution' {} a -> s {taskPriority = a} :: StartWorkflowExecution)
 
 -- | The total duration for this workflow execution. This overrides the
 -- defaultExecutionStartToCloseTimeout specified when registering the
@@ -530,8 +530,8 @@ instance Core.ToJSON StartWorkflowExecution where
           [ ("input" Core..=) Prelude.<$> input,
             ("lambdaRole" Core..=) Prelude.<$> lambdaRole,
             ("childPolicy" Core..=) Prelude.<$> childPolicy,
-            ("taskList" Core..=) Prelude.<$> taskList,
             ("taskPriority" Core..=) Prelude.<$> taskPriority,
+            ("taskList" Core..=) Prelude.<$> taskList,
             ("executionStartToCloseTimeout" Core..=)
               Prelude.<$> executionStartToCloseTimeout,
             ("taskStartToCloseTimeout" Core..=)

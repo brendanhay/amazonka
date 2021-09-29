@@ -33,13 +33,13 @@ import Network.AWS.SWF.Types.WorkflowType
 data WorkflowExecutionStartedEventAttributes = WorkflowExecutionStartedEventAttributes'
   { -- | The input provided to the workflow execution.
     input :: Prelude.Maybe Prelude.Text,
+    -- | The IAM role attached to the workflow execution.
+    lambdaRole :: Prelude.Maybe Prelude.Text,
     -- | If this workflow execution was started due to a
     -- @ContinueAsNewWorkflowExecution@ decision, then it contains the @runId@
     -- of the previous workflow execution that was closed and continued as this
     -- execution.
     continuedExecutionRunId :: Prelude.Maybe Prelude.Text,
-    -- | The IAM role attached to the workflow execution.
-    lambdaRole :: Prelude.Maybe Prelude.Text,
     -- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding
     -- to the @StartChildWorkflowExecution@ Decision to start this workflow
     -- execution. The source event with this ID can be found in the history of
@@ -100,12 +100,12 @@ data WorkflowExecutionStartedEventAttributes = WorkflowExecutionStartedEventAttr
 --
 -- 'input', 'workflowExecutionStartedEventAttributes_input' - The input provided to the workflow execution.
 --
+-- 'lambdaRole', 'workflowExecutionStartedEventAttributes_lambdaRole' - The IAM role attached to the workflow execution.
+--
 -- 'continuedExecutionRunId', 'workflowExecutionStartedEventAttributes_continuedExecutionRunId' - If this workflow execution was started due to a
 -- @ContinueAsNewWorkflowExecution@ decision, then it contains the @runId@
 -- of the previous workflow execution that was closed and continued as this
 -- execution.
---
--- 'lambdaRole', 'workflowExecutionStartedEventAttributes_lambdaRole' - The IAM role attached to the workflow execution.
 --
 -- 'parentInitiatedEventId', 'workflowExecutionStartedEventAttributes_parentInitiatedEventId' - The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding
 -- to the @StartChildWorkflowExecution@ Decision to start this workflow
@@ -168,9 +168,9 @@ newWorkflowExecutionStartedEventAttributes
     WorkflowExecutionStartedEventAttributes'
       { input =
           Prelude.Nothing,
+        lambdaRole = Prelude.Nothing,
         continuedExecutionRunId =
           Prelude.Nothing,
-        lambdaRole = Prelude.Nothing,
         parentInitiatedEventId =
           Prelude.Nothing,
         taskPriority = Prelude.Nothing,
@@ -190,16 +190,16 @@ newWorkflowExecutionStartedEventAttributes
 workflowExecutionStartedEventAttributes_input :: Lens.Lens' WorkflowExecutionStartedEventAttributes (Prelude.Maybe Prelude.Text)
 workflowExecutionStartedEventAttributes_input = Lens.lens (\WorkflowExecutionStartedEventAttributes' {input} -> input) (\s@WorkflowExecutionStartedEventAttributes' {} a -> s {input = a} :: WorkflowExecutionStartedEventAttributes)
 
+-- | The IAM role attached to the workflow execution.
+workflowExecutionStartedEventAttributes_lambdaRole :: Lens.Lens' WorkflowExecutionStartedEventAttributes (Prelude.Maybe Prelude.Text)
+workflowExecutionStartedEventAttributes_lambdaRole = Lens.lens (\WorkflowExecutionStartedEventAttributes' {lambdaRole} -> lambdaRole) (\s@WorkflowExecutionStartedEventAttributes' {} a -> s {lambdaRole = a} :: WorkflowExecutionStartedEventAttributes)
+
 -- | If this workflow execution was started due to a
 -- @ContinueAsNewWorkflowExecution@ decision, then it contains the @runId@
 -- of the previous workflow execution that was closed and continued as this
 -- execution.
 workflowExecutionStartedEventAttributes_continuedExecutionRunId :: Lens.Lens' WorkflowExecutionStartedEventAttributes (Prelude.Maybe Prelude.Text)
 workflowExecutionStartedEventAttributes_continuedExecutionRunId = Lens.lens (\WorkflowExecutionStartedEventAttributes' {continuedExecutionRunId} -> continuedExecutionRunId) (\s@WorkflowExecutionStartedEventAttributes' {} a -> s {continuedExecutionRunId = a} :: WorkflowExecutionStartedEventAttributes)
-
--- | The IAM role attached to the workflow execution.
-workflowExecutionStartedEventAttributes_lambdaRole :: Lens.Lens' WorkflowExecutionStartedEventAttributes (Prelude.Maybe Prelude.Text)
-workflowExecutionStartedEventAttributes_lambdaRole = Lens.lens (\WorkflowExecutionStartedEventAttributes' {lambdaRole} -> lambdaRole) (\s@WorkflowExecutionStartedEventAttributes' {} a -> s {lambdaRole = a} :: WorkflowExecutionStartedEventAttributes)
 
 -- | The ID of the @StartChildWorkflowExecutionInitiated@ event corresponding
 -- to the @StartChildWorkflowExecution@ Decision to start this workflow
@@ -276,8 +276,8 @@ instance
       ( \x ->
           WorkflowExecutionStartedEventAttributes'
             Prelude.<$> (x Core..:? "input")
-            Prelude.<*> (x Core..:? "continuedExecutionRunId")
             Prelude.<*> (x Core..:? "lambdaRole")
+            Prelude.<*> (x Core..:? "continuedExecutionRunId")
             Prelude.<*> (x Core..:? "parentInitiatedEventId")
             Prelude.<*> (x Core..:? "taskPriority")
             Prelude.<*> (x Core..:? "executionStartToCloseTimeout")

@@ -94,6 +94,17 @@ data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttrib
     -- neither this field is set nor a default schedule-to-start timeout was
     -- specified at registration time then a fault is returned.
     scheduleToStartTimeout :: Prelude.Maybe Prelude.Text,
+    -- | If set, specifies the priority with which the activity task is to be
+    -- assigned to a worker. This overrides the defaultTaskPriority specified
+    -- when registering the activity type using RegisterActivityType. Valid
+    -- values are integers that range from Java\'s @Integer.MIN_VALUE@
+    -- (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers
+    -- indicate higher priority.
+    --
+    -- For more information about setting task priority, see
+    -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
+    -- in the /Amazon SWF Developer Guide/.
+    taskPriority :: Prelude.Maybe Prelude.Text,
     -- | If set, specifies the name of the task list in which to schedule the
     -- activity task. If not specified, the @defaultTaskList@ registered with
     -- the activity type is used.
@@ -108,17 +119,6 @@ data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttrib
     -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
     -- contain the literal string @arn@.
     taskList :: Prelude.Maybe TaskList,
-    -- | If set, specifies the priority with which the activity task is to be
-    -- assigned to a worker. This overrides the defaultTaskPriority specified
-    -- when registering the activity type using RegisterActivityType. Valid
-    -- values are integers that range from Java\'s @Integer.MIN_VALUE@
-    -- (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers
-    -- indicate higher priority.
-    --
-    -- For more information about setting task priority, see
-    -- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
-    -- in the /Amazon SWF Developer Guide/.
-    taskPriority :: Prelude.Maybe Prelude.Text,
     -- | Data attached to the event that can be used by the decider in subsequent
     -- workflow tasks. This data isn\'t sent to the activity.
     control :: Prelude.Maybe Prelude.Text,
@@ -190,6 +190,17 @@ data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttrib
 -- neither this field is set nor a default schedule-to-start timeout was
 -- specified at registration time then a fault is returned.
 --
+-- 'taskPriority', 'scheduleActivityTaskDecisionAttributes_taskPriority' - If set, specifies the priority with which the activity task is to be
+-- assigned to a worker. This overrides the defaultTaskPriority specified
+-- when registering the activity type using RegisterActivityType. Valid
+-- values are integers that range from Java\'s @Integer.MIN_VALUE@
+-- (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers
+-- indicate higher priority.
+--
+-- For more information about setting task priority, see
+-- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
+-- in the /Amazon SWF Developer Guide/.
+--
 -- 'taskList', 'scheduleActivityTaskDecisionAttributes_taskList' - If set, specifies the name of the task list in which to schedule the
 -- activity task. If not specified, the @defaultTaskList@ registered with
 -- the activity type is used.
@@ -203,17 +214,6 @@ data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttrib
 -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
 -- characters (@\\u0000-\\u001f@ | @\\u007f-\\u009f@). Also, it must not
 -- contain the literal string @arn@.
---
--- 'taskPriority', 'scheduleActivityTaskDecisionAttributes_taskPriority' - If set, specifies the priority with which the activity task is to be
--- assigned to a worker. This overrides the defaultTaskPriority specified
--- when registering the activity type using RegisterActivityType. Valid
--- values are integers that range from Java\'s @Integer.MIN_VALUE@
--- (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers
--- indicate higher priority.
---
--- For more information about setting task priority, see
--- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
--- in the /Amazon SWF Developer Guide/.
 --
 -- 'control', 'scheduleActivityTaskDecisionAttributes_control' - Data attached to the event that can be used by the decider in subsequent
 -- workflow tasks. This data isn\'t sent to the activity.
@@ -255,8 +255,8 @@ newScheduleActivityTaskDecisionAttributes
           Prelude.Nothing,
         scheduleToStartTimeout =
           Prelude.Nothing,
-        taskList = Prelude.Nothing,
         taskPriority = Prelude.Nothing,
+        taskList = Prelude.Nothing,
         control = Prelude.Nothing,
         startToCloseTimeout =
           Prelude.Nothing,
@@ -308,6 +308,19 @@ scheduleActivityTaskDecisionAttributes_scheduleToCloseTimeout = Lens.lens (\Sche
 scheduleActivityTaskDecisionAttributes_scheduleToStartTimeout :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Prelude.Maybe Prelude.Text)
 scheduleActivityTaskDecisionAttributes_scheduleToStartTimeout = Lens.lens (\ScheduleActivityTaskDecisionAttributes' {scheduleToStartTimeout} -> scheduleToStartTimeout) (\s@ScheduleActivityTaskDecisionAttributes' {} a -> s {scheduleToStartTimeout = a} :: ScheduleActivityTaskDecisionAttributes)
 
+-- | If set, specifies the priority with which the activity task is to be
+-- assigned to a worker. This overrides the defaultTaskPriority specified
+-- when registering the activity type using RegisterActivityType. Valid
+-- values are integers that range from Java\'s @Integer.MIN_VALUE@
+-- (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers
+-- indicate higher priority.
+--
+-- For more information about setting task priority, see
+-- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
+-- in the /Amazon SWF Developer Guide/.
+scheduleActivityTaskDecisionAttributes_taskPriority :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Prelude.Maybe Prelude.Text)
+scheduleActivityTaskDecisionAttributes_taskPriority = Lens.lens (\ScheduleActivityTaskDecisionAttributes' {taskPriority} -> taskPriority) (\s@ScheduleActivityTaskDecisionAttributes' {} a -> s {taskPriority = a} :: ScheduleActivityTaskDecisionAttributes)
+
 -- | If set, specifies the name of the task list in which to schedule the
 -- activity task. If not specified, the @defaultTaskList@ registered with
 -- the activity type is used.
@@ -323,19 +336,6 @@ scheduleActivityTaskDecisionAttributes_scheduleToStartTimeout = Lens.lens (\Sche
 -- contain the literal string @arn@.
 scheduleActivityTaskDecisionAttributes_taskList :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Prelude.Maybe TaskList)
 scheduleActivityTaskDecisionAttributes_taskList = Lens.lens (\ScheduleActivityTaskDecisionAttributes' {taskList} -> taskList) (\s@ScheduleActivityTaskDecisionAttributes' {} a -> s {taskList = a} :: ScheduleActivityTaskDecisionAttributes)
-
--- | If set, specifies the priority with which the activity task is to be
--- assigned to a worker. This overrides the defaultTaskPriority specified
--- when registering the activity type using RegisterActivityType. Valid
--- values are integers that range from Java\'s @Integer.MIN_VALUE@
--- (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers
--- indicate higher priority.
---
--- For more information about setting task priority, see
--- <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
--- in the /Amazon SWF Developer Guide/.
-scheduleActivityTaskDecisionAttributes_taskPriority :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Prelude.Maybe Prelude.Text)
-scheduleActivityTaskDecisionAttributes_taskPriority = Lens.lens (\ScheduleActivityTaskDecisionAttributes' {taskPriority} -> taskPriority) (\s@ScheduleActivityTaskDecisionAttributes' {} a -> s {taskPriority = a} :: ScheduleActivityTaskDecisionAttributes)
 
 -- | Data attached to the event that can be used by the decider in subsequent
 -- workflow tasks. This data isn\'t sent to the activity.
@@ -391,8 +391,8 @@ instance
               Prelude.<$> scheduleToCloseTimeout,
             ("scheduleToStartTimeout" Core..=)
               Prelude.<$> scheduleToStartTimeout,
-            ("taskList" Core..=) Prelude.<$> taskList,
             ("taskPriority" Core..=) Prelude.<$> taskPriority,
+            ("taskList" Core..=) Prelude.<$> taskList,
             ("control" Core..=) Prelude.<$> control,
             ("startToCloseTimeout" Core..=)
               Prelude.<$> startToCloseTimeout,

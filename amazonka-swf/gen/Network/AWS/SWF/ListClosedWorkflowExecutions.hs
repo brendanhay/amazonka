@@ -72,8 +72,8 @@ module Network.AWS.SWF.ListClosedWorkflowExecutions
     listClosedWorkflowExecutions_reverseOrder,
     listClosedWorkflowExecutions_closeTimeFilter,
     listClosedWorkflowExecutions_startTimeFilter,
-    listClosedWorkflowExecutions_executionFilter,
     listClosedWorkflowExecutions_closeStatusFilter,
+    listClosedWorkflowExecutions_executionFilter,
     listClosedWorkflowExecutions_domain,
 
     -- * Destructuring the Response
@@ -139,12 +139,6 @@ data ListClosedWorkflowExecutions = ListClosedWorkflowExecutions'
     -- @startTimeFilter@ and @closeTimeFilter@ are mutually exclusive. You must
     -- specify one of these in a request but not both.
     startTimeFilter :: Prelude.Maybe ExecutionTimeFilter,
-    -- | If specified, only workflow executions matching the workflow ID
-    -- specified in the filter are returned.
-    --
-    -- @closeStatusFilter@, @executionFilter@, @typeFilter@ and @tagFilter@ are
-    -- mutually exclusive. You can specify at most one of these in a request.
-    executionFilter :: Prelude.Maybe WorkflowExecutionFilter,
     -- | If specified, only workflow executions that match this /close status/
     -- are listed. For example, if TERMINATED is specified, then only
     -- TERMINATED workflow executions are listed.
@@ -152,6 +146,12 @@ data ListClosedWorkflowExecutions = ListClosedWorkflowExecutions'
     -- @closeStatusFilter@, @executionFilter@, @typeFilter@ and @tagFilter@ are
     -- mutually exclusive. You can specify at most one of these in a request.
     closeStatusFilter :: Prelude.Maybe CloseStatusFilter,
+    -- | If specified, only workflow executions matching the workflow ID
+    -- specified in the filter are returned.
+    --
+    -- @closeStatusFilter@, @executionFilter@, @typeFilter@ and @tagFilter@ are
+    -- mutually exclusive. You can specify at most one of these in a request.
+    executionFilter :: Prelude.Maybe WorkflowExecutionFilter,
     -- | The name of the domain that contains the workflow executions to list.
     domain :: Prelude.Text
   }
@@ -209,15 +209,15 @@ data ListClosedWorkflowExecutions = ListClosedWorkflowExecutions'
 -- @startTimeFilter@ and @closeTimeFilter@ are mutually exclusive. You must
 -- specify one of these in a request but not both.
 --
--- 'executionFilter', 'listClosedWorkflowExecutions_executionFilter' - If specified, only workflow executions matching the workflow ID
--- specified in the filter are returned.
+-- 'closeStatusFilter', 'listClosedWorkflowExecutions_closeStatusFilter' - If specified, only workflow executions that match this /close status/
+-- are listed. For example, if TERMINATED is specified, then only
+-- TERMINATED workflow executions are listed.
 --
 -- @closeStatusFilter@, @executionFilter@, @typeFilter@ and @tagFilter@ are
 -- mutually exclusive. You can specify at most one of these in a request.
 --
--- 'closeStatusFilter', 'listClosedWorkflowExecutions_closeStatusFilter' - If specified, only workflow executions that match this /close status/
--- are listed. For example, if TERMINATED is specified, then only
--- TERMINATED workflow executions are listed.
+-- 'executionFilter', 'listClosedWorkflowExecutions_executionFilter' - If specified, only workflow executions matching the workflow ID
+-- specified in the filter are returned.
 --
 -- @closeStatusFilter@, @executionFilter@, @typeFilter@ and @tagFilter@ are
 -- mutually exclusive. You can specify at most one of these in a request.
@@ -237,8 +237,8 @@ newListClosedWorkflowExecutions pDomain_ =
       reverseOrder = Prelude.Nothing,
       closeTimeFilter = Prelude.Nothing,
       startTimeFilter = Prelude.Nothing,
-      executionFilter = Prelude.Nothing,
       closeStatusFilter = Prelude.Nothing,
+      executionFilter = Prelude.Nothing,
       domain = pDomain_
     }
 
@@ -300,14 +300,6 @@ listClosedWorkflowExecutions_closeTimeFilter = Lens.lens (\ListClosedWorkflowExe
 listClosedWorkflowExecutions_startTimeFilter :: Lens.Lens' ListClosedWorkflowExecutions (Prelude.Maybe ExecutionTimeFilter)
 listClosedWorkflowExecutions_startTimeFilter = Lens.lens (\ListClosedWorkflowExecutions' {startTimeFilter} -> startTimeFilter) (\s@ListClosedWorkflowExecutions' {} a -> s {startTimeFilter = a} :: ListClosedWorkflowExecutions)
 
--- | If specified, only workflow executions matching the workflow ID
--- specified in the filter are returned.
---
--- @closeStatusFilter@, @executionFilter@, @typeFilter@ and @tagFilter@ are
--- mutually exclusive. You can specify at most one of these in a request.
-listClosedWorkflowExecutions_executionFilter :: Lens.Lens' ListClosedWorkflowExecutions (Prelude.Maybe WorkflowExecutionFilter)
-listClosedWorkflowExecutions_executionFilter = Lens.lens (\ListClosedWorkflowExecutions' {executionFilter} -> executionFilter) (\s@ListClosedWorkflowExecutions' {} a -> s {executionFilter = a} :: ListClosedWorkflowExecutions)
-
 -- | If specified, only workflow executions that match this /close status/
 -- are listed. For example, if TERMINATED is specified, then only
 -- TERMINATED workflow executions are listed.
@@ -316,6 +308,14 @@ listClosedWorkflowExecutions_executionFilter = Lens.lens (\ListClosedWorkflowExe
 -- mutually exclusive. You can specify at most one of these in a request.
 listClosedWorkflowExecutions_closeStatusFilter :: Lens.Lens' ListClosedWorkflowExecutions (Prelude.Maybe CloseStatusFilter)
 listClosedWorkflowExecutions_closeStatusFilter = Lens.lens (\ListClosedWorkflowExecutions' {closeStatusFilter} -> closeStatusFilter) (\s@ListClosedWorkflowExecutions' {} a -> s {closeStatusFilter = a} :: ListClosedWorkflowExecutions)
+
+-- | If specified, only workflow executions matching the workflow ID
+-- specified in the filter are returned.
+--
+-- @closeStatusFilter@, @executionFilter@, @typeFilter@ and @tagFilter@ are
+-- mutually exclusive. You can specify at most one of these in a request.
+listClosedWorkflowExecutions_executionFilter :: Lens.Lens' ListClosedWorkflowExecutions (Prelude.Maybe WorkflowExecutionFilter)
+listClosedWorkflowExecutions_executionFilter = Lens.lens (\ListClosedWorkflowExecutions' {executionFilter} -> executionFilter) (\s@ListClosedWorkflowExecutions' {} a -> s {executionFilter = a} :: ListClosedWorkflowExecutions)
 
 -- | The name of the domain that contains the workflow executions to list.
 listClosedWorkflowExecutions_domain :: Lens.Lens' ListClosedWorkflowExecutions Prelude.Text
@@ -384,10 +384,10 @@ instance Core.ToJSON ListClosedWorkflowExecutions where
               Prelude.<$> closeTimeFilter,
             ("startTimeFilter" Core..=)
               Prelude.<$> startTimeFilter,
-            ("executionFilter" Core..=)
-              Prelude.<$> executionFilter,
             ("closeStatusFilter" Core..=)
               Prelude.<$> closeStatusFilter,
+            ("executionFilter" Core..=)
+              Prelude.<$> executionFilter,
             Prelude.Just ("domain" Core..= domain)
           ]
       )

@@ -237,18 +237,19 @@ import Network.AWS.SWF.Types.WorkflowExecutionTimedOutEventAttributes
 --
 -- /See:/ 'newHistoryEvent' smart constructor.
 data HistoryEvent = HistoryEvent'
-  { -- | If the event is of type @ChildWorkflowExecutionTimedOut@ then this
+  { -- | If the event is of type @ChildWorkflowExecutionCanceled@ then this
     -- member is set and provides detailed information about the event. It
     -- isn\'t set for other event types.
-    childWorkflowExecutionTimedOutEventAttributes :: Prelude.Maybe ChildWorkflowExecutionTimedOutEventAttributes,
+    childWorkflowExecutionCanceledEventAttributes :: Prelude.Maybe ChildWorkflowExecutionCanceledEventAttributes,
     -- | If the event is of type
     -- @RequestCancelExternalWorkflowExecutionInitiated@ then this member is
     -- set and provides detailed information about the event. It isn\'t set for
     -- other event types.
     requestCancelExternalWorkflowExecutionInitiatedEventAttributes :: Prelude.Maybe RequestCancelExternalWorkflowExecutionInitiatedEventAttributes,
-    -- | Provides the details of the @LambdaFunctionStarted@ event. It isn\'t set
-    -- for other event types.
-    lambdaFunctionStartedEventAttributes :: Prelude.Maybe LambdaFunctionStartedEventAttributes,
+    -- | If the event is of type @ChildWorkflowExecutionTimedOut@ then this
+    -- member is set and provides detailed information about the event. It
+    -- isn\'t set for other event types.
+    childWorkflowExecutionTimedOutEventAttributes :: Prelude.Maybe ChildWorkflowExecutionTimedOutEventAttributes,
     -- | If the event is of type @StartChildWorkflowExecutionInitiated@ then this
     -- member is set and provides detailed information about the event. It
     -- isn\'t set for other event types.
@@ -257,10 +258,9 @@ data HistoryEvent = HistoryEvent'
     -- and provides detailed information about the event. It isn\'t set for
     -- other event types.
     decisionTaskScheduledEventAttributes :: Prelude.Maybe DecisionTaskScheduledEventAttributes,
-    -- | If the event is of type @ChildWorkflowExecutionCanceled@ then this
-    -- member is set and provides detailed information about the event. It
-    -- isn\'t set for other event types.
-    childWorkflowExecutionCanceledEventAttributes :: Prelude.Maybe ChildWorkflowExecutionCanceledEventAttributes,
+    -- | Provides the details of the @LambdaFunctionStarted@ event. It isn\'t set
+    -- for other event types.
+    lambdaFunctionStartedEventAttributes :: Prelude.Maybe LambdaFunctionStartedEventAttributes,
     -- | If the event is of type @ActivityTaskCanceled@ then this member is set
     -- and provides detailed information about the event. It isn\'t set for
     -- other event types.
@@ -269,44 +269,63 @@ data HistoryEvent = HistoryEvent'
     -- and provides detailed information about the event. It isn\'t set for
     -- other event types.
     activityTaskTimedOutEventAttributes :: Prelude.Maybe ActivityTaskTimedOutEventAttributes,
-    -- | If the event is of type @ExternalWorkflowExecutionCancelRequested@ then
-    -- this member is set and provides detailed information about the event. It
-    -- isn\'t set for other event types.
-    externalWorkflowExecutionCancelRequestedEventAttributes :: Prelude.Maybe ExternalWorkflowExecutionCancelRequestedEventAttributes,
     -- | If the event is of type @CancelTimerFailed@ then this member is set and
     -- provides detailed information about the event. It isn\'t set for other
     -- event types.
     cancelTimerFailedEventAttributes :: Prelude.Maybe CancelTimerFailedEventAttributes,
+    -- | Provides the details of the @LambdaFunctionTimedOut@ event. It isn\'t
+    -- set for other event types.
+    lambdaFunctionTimedOutEventAttributes :: Prelude.Maybe LambdaFunctionTimedOutEventAttributes,
     -- | If the event is of type @ChildWorkflowExecutionStarted@ then this member
     -- is set and provides detailed information about the event. It isn\'t set
     -- for other event types.
     childWorkflowExecutionStartedEventAttributes :: Prelude.Maybe ChildWorkflowExecutionStartedEventAttributes,
-    -- | Provides the details of the @LambdaFunctionTimedOut@ event. It isn\'t
-    -- set for other event types.
-    lambdaFunctionTimedOutEventAttributes :: Prelude.Maybe LambdaFunctionTimedOutEventAttributes,
-    -- | If the event is of type @ChildWorkflowExecutionFailed@ then this member
-    -- is set and provides detailed information about the event. It isn\'t set
-    -- for other event types.
-    childWorkflowExecutionFailedEventAttributes :: Prelude.Maybe ChildWorkflowExecutionFailedEventAttributes,
+    -- | If the event is of type @ExternalWorkflowExecutionCancelRequested@ then
+    -- this member is set and provides detailed information about the event. It
+    -- isn\'t set for other event types.
+    externalWorkflowExecutionCancelRequestedEventAttributes :: Prelude.Maybe ExternalWorkflowExecutionCancelRequestedEventAttributes,
     -- | If the event is of type @TimerCanceled@ then this member is set and
     -- provides detailed information about the event. It isn\'t set for other
     -- event types.
     timerCanceledEventAttributes :: Prelude.Maybe TimerCanceledEventAttributes,
+    -- | If the event is of type @ChildWorkflowExecutionFailed@ then this member
+    -- is set and provides detailed information about the event. It isn\'t set
+    -- for other event types.
+    childWorkflowExecutionFailedEventAttributes :: Prelude.Maybe ChildWorkflowExecutionFailedEventAttributes,
     -- | Provides the details of the @LambdaFunctionCompleted@ event. It isn\'t
     -- set for other event types.
     lambdaFunctionCompletedEventAttributes :: Prelude.Maybe LambdaFunctionCompletedEventAttributes,
-    -- | If the event is of type @CompleteWorkflowExecutionFailed@ then this
-    -- member is set and provides detailed information about the event. It
-    -- isn\'t set for other event types.
-    completeWorkflowExecutionFailedEventAttributes :: Prelude.Maybe CompleteWorkflowExecutionFailedEventAttributes,
     -- | If the event is of type @ActivityTaskFailed@ then this member is set and
     -- provides detailed information about the event. It isn\'t set for other
     -- event types.
     activityTaskFailedEventAttributes :: Prelude.Maybe ActivityTaskFailedEventAttributes,
+    -- | If the event is of type @CompleteWorkflowExecutionFailed@ then this
+    -- member is set and provides detailed information about the event. It
+    -- isn\'t set for other event types.
+    completeWorkflowExecutionFailedEventAttributes :: Prelude.Maybe CompleteWorkflowExecutionFailedEventAttributes,
     -- | If the event is of type @TimerFired@ then this member is set and
     -- provides detailed information about the event. It isn\'t set for other
     -- event types.
     timerFiredEventAttributes :: Prelude.Maybe TimerFiredEventAttributes,
+    -- | If the event is of type @WorkflowExecutionTimedOut@ then this member is
+    -- set and provides detailed information about the event. It isn\'t set for
+    -- other event types.
+    workflowExecutionTimedOutEventAttributes :: Prelude.Maybe WorkflowExecutionTimedOutEventAttributes,
+    -- | If the event is of type @WorkflowExecutionCanceled@ then this member is
+    -- set and provides detailed information about the event. It isn\'t set for
+    -- other event types.
+    workflowExecutionCanceledEventAttributes :: Prelude.Maybe WorkflowExecutionCanceledEventAttributes,
+    -- | If the event is of type @ScheduleActivityTaskFailed@ then this member is
+    -- set and provides detailed information about the event. It isn\'t set for
+    -- other event types.
+    scheduleActivityTaskFailedEventAttributes :: Prelude.Maybe ScheduleActivityTaskFailedEventAttributes,
+    -- | If the event is of type @MarkerRecorded@ then this member is set and
+    -- provides detailed information about the event. It isn\'t set for other
+    -- event types.
+    markerRecordedEventAttributes :: Prelude.Maybe MarkerRecordedEventAttributes,
+    -- | Provides the details of the @StartLambdaFunctionFailed@ event. It isn\'t
+    -- set for other event types.
+    startLambdaFunctionFailedEventAttributes :: Prelude.Maybe StartLambdaFunctionFailedEventAttributes,
     -- | If the event is of type @WorkflowExecutionSignaled@ then this member is
     -- set and provides detailed information about the event. It isn\'t set for
     -- other event types.
@@ -315,76 +334,61 @@ data HistoryEvent = HistoryEvent'
     -- is set and provides detailed information about the event. It isn\'t set
     -- for other event types.
     activityTaskCancelRequestedEventAttributes :: Prelude.Maybe ActivityTaskCancelRequestedEventAttributes,
-    -- | If the event is of type @WorkflowExecutionCanceled@ then this member is
-    -- set and provides detailed information about the event. It isn\'t set for
-    -- other event types.
-    workflowExecutionCanceledEventAttributes :: Prelude.Maybe WorkflowExecutionCanceledEventAttributes,
-    -- | Provides the details of the @StartLambdaFunctionFailed@ event. It isn\'t
-    -- set for other event types.
-    startLambdaFunctionFailedEventAttributes :: Prelude.Maybe StartLambdaFunctionFailedEventAttributes,
-    -- | If the event is of type @ScheduleActivityTaskFailed@ then this member is
-    -- set and provides detailed information about the event. It isn\'t set for
-    -- other event types.
-    scheduleActivityTaskFailedEventAttributes :: Prelude.Maybe ScheduleActivityTaskFailedEventAttributes,
-    -- | If the event is of type @WorkflowExecutionTimedOut@ then this member is
-    -- set and provides detailed information about the event. It isn\'t set for
-    -- other event types.
-    workflowExecutionTimedOutEventAttributes :: Prelude.Maybe WorkflowExecutionTimedOutEventAttributes,
-    -- | If the event is of type @MarkerRecorded@ then this member is set and
-    -- provides detailed information about the event. It isn\'t set for other
-    -- event types.
-    markerRecordedEventAttributes :: Prelude.Maybe MarkerRecordedEventAttributes,
     -- | If the event is of type @ActivityTaskScheduled@ then this member is set
     -- and provides detailed information about the event. It isn\'t set for
     -- other event types.
     activityTaskScheduledEventAttributes :: Prelude.Maybe ActivityTaskScheduledEventAttributes,
-    -- | If the event is of type @StartTimerFailed@ then this member is set and
-    -- provides detailed information about the event. It isn\'t set for other
-    -- event types.
-    startTimerFailedEventAttributes :: Prelude.Maybe StartTimerFailedEventAttributes,
-    -- | If the event is of type @WorkflowExecutionTerminated@ then this member
-    -- is set and provides detailed information about the event. It isn\'t set
-    -- for other event types.
-    workflowExecutionTerminatedEventAttributes :: Prelude.Maybe WorkflowExecutionTerminatedEventAttributes,
-    -- | If the event is of type @WorkflowExecutionCompleted@ then this member is
-    -- set and provides detailed information about the event. It isn\'t set for
-    -- other event types.
-    workflowExecutionCompletedEventAttributes :: Prelude.Maybe WorkflowExecutionCompletedEventAttributes,
-    -- | If the event is of type @RequestCancelActivityTaskFailed@ then this
-    -- member is set and provides detailed information about the event. It
-    -- isn\'t set for other event types.
-    requestCancelActivityTaskFailedEventAttributes :: Prelude.Maybe RequestCancelActivityTaskFailedEventAttributes,
-    -- | If the event is of type @DecisionTaskFailed@ then this member is set and
-    -- provides detailed information about the event. It isn\'t set for other
-    -- event types.
-    recordMarkerFailedEventAttributes :: Prelude.Maybe RecordMarkerFailedEventAttributes,
-    -- | If the event is of type @CancelWorkflowExecutionFailed@ then this member
-    -- is set and provides detailed information about the event. It isn\'t set
-    -- for other event types.
-    cancelWorkflowExecutionFailedEventAttributes :: Prelude.Maybe CancelWorkflowExecutionFailedEventAttributes,
-    -- | Provides the details of the @LambdaFunctionScheduled@ event. It isn\'t
-    -- set for other event types.
-    lambdaFunctionScheduledEventAttributes :: Prelude.Maybe LambdaFunctionScheduledEventAttributes,
     -- | If the event is of type @DecisionTaskStarted@ then this member is set
     -- and provides detailed information about the event. It isn\'t set for
     -- other event types.
     decisionTaskStartedEventAttributes :: Prelude.Maybe DecisionTaskStartedEventAttributes,
+    -- | If the event is of type @DecisionTaskFailed@ then this member is set and
+    -- provides detailed information about the event. It isn\'t set for other
+    -- event types.
+    recordMarkerFailedEventAttributes :: Prelude.Maybe RecordMarkerFailedEventAttributes,
+    -- | Provides the details of the @LambdaFunctionScheduled@ event. It isn\'t
+    -- set for other event types.
+    lambdaFunctionScheduledEventAttributes :: Prelude.Maybe LambdaFunctionScheduledEventAttributes,
+    -- | If the event is of type @StartTimerFailed@ then this member is set and
+    -- provides detailed information about the event. It isn\'t set for other
+    -- event types.
+    startTimerFailedEventAttributes :: Prelude.Maybe StartTimerFailedEventAttributes,
+    -- | If the event is of type @RequestCancelActivityTaskFailed@ then this
+    -- member is set and provides detailed information about the event. It
+    -- isn\'t set for other event types.
+    requestCancelActivityTaskFailedEventAttributes :: Prelude.Maybe RequestCancelActivityTaskFailedEventAttributes,
+    -- | If the event is of type @CancelWorkflowExecutionFailed@ then this member
+    -- is set and provides detailed information about the event. It isn\'t set
+    -- for other event types.
+    cancelWorkflowExecutionFailedEventAttributes :: Prelude.Maybe CancelWorkflowExecutionFailedEventAttributes,
+    -- | If the event is of type @WorkflowExecutionCompleted@ then this member is
+    -- set and provides detailed information about the event. It isn\'t set for
+    -- other event types.
+    workflowExecutionCompletedEventAttributes :: Prelude.Maybe WorkflowExecutionCompletedEventAttributes,
+    -- | If the event is of type @WorkflowExecutionTerminated@ then this member
+    -- is set and provides detailed information about the event. It isn\'t set
+    -- for other event types.
+    workflowExecutionTerminatedEventAttributes :: Prelude.Maybe WorkflowExecutionTerminatedEventAttributes,
     -- | If the event is of type @WorkflowExecutionCancelRequested@ then this
     -- member is set and provides detailed information about the event. It
     -- isn\'t set for other event types.
     workflowExecutionCancelRequestedEventAttributes :: Prelude.Maybe WorkflowExecutionCancelRequestedEventAttributes,
-    -- | If the event is of type @WorkflowExecutionContinuedAsNew@ then this
-    -- member is set and provides detailed information about the event. It
-    -- isn\'t set for other event types.
-    workflowExecutionContinuedAsNewEventAttributes :: Prelude.Maybe WorkflowExecutionContinuedAsNewEventAttributes,
     -- | If the event is of type @DecisionTaskTimedOut@ then this member is set
     -- and provides detailed information about the event. It isn\'t set for
     -- other event types.
     decisionTaskTimedOutEventAttributes :: Prelude.Maybe DecisionTaskTimedOutEventAttributes,
+    -- | If the event is of type @WorkflowExecutionContinuedAsNew@ then this
+    -- member is set and provides detailed information about the event. It
+    -- isn\'t set for other event types.
+    workflowExecutionContinuedAsNewEventAttributes :: Prelude.Maybe WorkflowExecutionContinuedAsNewEventAttributes,
     -- | If the event is of type @WorkflowExecutionFailed@ then this member is
     -- set and provides detailed information about the event. It isn\'t set for
     -- other event types.
     workflowExecutionFailedEventAttributes :: Prelude.Maybe WorkflowExecutionFailedEventAttributes,
+    -- | If the event is of type @ContinueAsNewWorkflowExecutionFailed@ then this
+    -- member is set and provides detailed information about the event. It
+    -- isn\'t set for other event types.
+    continueAsNewWorkflowExecutionFailedEventAttributes :: Prelude.Maybe ContinueAsNewWorkflowExecutionFailedEventAttributes,
     -- | If the event is of type @ActivityTaskCompleted@ then this member is set
     -- and provides detailed information about the event. It isn\'t set for
     -- other event types.
@@ -393,22 +397,6 @@ data HistoryEvent = HistoryEvent'
     -- this member is set and provides detailed information about the event. It
     -- isn\'t set for other event types.
     signalExternalWorkflowExecutionInitiatedEventAttributes :: Prelude.Maybe SignalExternalWorkflowExecutionInitiatedEventAttributes,
-    -- | If the event is of type @ContinueAsNewWorkflowExecutionFailed@ then this
-    -- member is set and provides detailed information about the event. It
-    -- isn\'t set for other event types.
-    continueAsNewWorkflowExecutionFailedEventAttributes :: Prelude.Maybe ContinueAsNewWorkflowExecutionFailedEventAttributes,
-    -- | If the event is of type @DecisionTaskCompleted@ then this member is set
-    -- and provides detailed information about the event. It isn\'t set for
-    -- other event types.
-    decisionTaskCompletedEventAttributes :: Prelude.Maybe DecisionTaskCompletedEventAttributes,
-    -- | If the event is of type @RequestCancelExternalWorkflowExecutionFailed@
-    -- then this member is set and provides detailed information about the
-    -- event. It isn\'t set for other event types.
-    requestCancelExternalWorkflowExecutionFailedEventAttributes :: Prelude.Maybe RequestCancelExternalWorkflowExecutionFailedEventAttributes,
-    -- | If the event is of type @FailWorkflowExecutionFailed@ then this member
-    -- is set and provides detailed information about the event. It isn\'t set
-    -- for other event types.
-    failWorkflowExecutionFailedEventAttributes :: Prelude.Maybe FailWorkflowExecutionFailedEventAttributes,
     -- | If the event is of type @WorkflowExecutionStarted@ then this member is
     -- set and provides detailed information about the event. It isn\'t set for
     -- other event types.
@@ -417,13 +405,29 @@ data HistoryEvent = HistoryEvent'
     -- member is set and provides detailed information about the event. It
     -- isn\'t set for other event types.
     startChildWorkflowExecutionFailedEventAttributes :: Prelude.Maybe StartChildWorkflowExecutionFailedEventAttributes,
+    -- | If the event is of type @FailWorkflowExecutionFailed@ then this member
+    -- is set and provides detailed information about the event. It isn\'t set
+    -- for other event types.
+    failWorkflowExecutionFailedEventAttributes :: Prelude.Maybe FailWorkflowExecutionFailedEventAttributes,
+    -- | If the event is of type @DecisionTaskCompleted@ then this member is set
+    -- and provides detailed information about the event. It isn\'t set for
+    -- other event types.
+    decisionTaskCompletedEventAttributes :: Prelude.Maybe DecisionTaskCompletedEventAttributes,
+    -- | If the event is of type @RequestCancelExternalWorkflowExecutionFailed@
+    -- then this member is set and provides detailed information about the
+    -- event. It isn\'t set for other event types.
+    requestCancelExternalWorkflowExecutionFailedEventAttributes :: Prelude.Maybe RequestCancelExternalWorkflowExecutionFailedEventAttributes,
+    -- | Provides the details of the @ScheduleLambdaFunctionFailed@ event. It
+    -- isn\'t set for other event types.
+    scheduleLambdaFunctionFailedEventAttributes :: Prelude.Maybe ScheduleLambdaFunctionFailedEventAttributes,
     -- | If the event is of type @ExternalWorkflowExecutionSignaled@ then this
     -- member is set and provides detailed information about the event. It
     -- isn\'t set for other event types.
     externalWorkflowExecutionSignaledEventAttributes :: Prelude.Maybe ExternalWorkflowExecutionSignaledEventAttributes,
-    -- | Provides the details of the @ScheduleLambdaFunctionFailed@ event. It
-    -- isn\'t set for other event types.
-    scheduleLambdaFunctionFailedEventAttributes :: Prelude.Maybe ScheduleLambdaFunctionFailedEventAttributes,
+    -- | If the event is of type @TimerStarted@ then this member is set and
+    -- provides detailed information about the event. It isn\'t set for other
+    -- event types.
+    timerStartedEventAttributes :: Prelude.Maybe TimerStartedEventAttributes,
     -- | If the event is of type @ChildWorkflowExecutionCompleted@ then this
     -- member is set and provides detailed information about the event. It
     -- isn\'t set for other event types.
@@ -435,18 +439,14 @@ data HistoryEvent = HistoryEvent'
     -- member is set and provides detailed information about the event. It
     -- isn\'t set for other event types.
     childWorkflowExecutionTerminatedEventAttributes :: Prelude.Maybe ChildWorkflowExecutionTerminatedEventAttributes,
-    -- | If the event is of type @TimerStarted@ then this member is set and
-    -- provides detailed information about the event. It isn\'t set for other
-    -- event types.
-    timerStartedEventAttributes :: Prelude.Maybe TimerStartedEventAttributes,
-    -- | If the event is of type @ActivityTaskStarted@ then this member is set
-    -- and provides detailed information about the event. It isn\'t set for
-    -- other event types.
-    activityTaskStartedEventAttributes :: Prelude.Maybe ActivityTaskStartedEventAttributes,
     -- | If the event is of type @SignalExternalWorkflowExecutionFailed@ then
     -- this member is set and provides detailed information about the event. It
     -- isn\'t set for other event types.
     signalExternalWorkflowExecutionFailedEventAttributes :: Prelude.Maybe SignalExternalWorkflowExecutionFailedEventAttributes,
+    -- | If the event is of type @ActivityTaskStarted@ then this member is set
+    -- and provides detailed information about the event. It isn\'t set for
+    -- other event types.
+    activityTaskStartedEventAttributes :: Prelude.Maybe ActivityTaskStartedEventAttributes,
     -- | The date and time when the event occurred.
     eventTimestamp :: Core.POSIX,
     -- | The type of the history event.
@@ -465,7 +465,7 @@ data HistoryEvent = HistoryEvent'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'childWorkflowExecutionTimedOutEventAttributes', 'historyEvent_childWorkflowExecutionTimedOutEventAttributes' - If the event is of type @ChildWorkflowExecutionTimedOut@ then this
+-- 'childWorkflowExecutionCanceledEventAttributes', 'historyEvent_childWorkflowExecutionCanceledEventAttributes' - If the event is of type @ChildWorkflowExecutionCanceled@ then this
 -- member is set and provides detailed information about the event. It
 -- isn\'t set for other event types.
 --
@@ -474,8 +474,9 @@ data HistoryEvent = HistoryEvent'
 -- set and provides detailed information about the event. It isn\'t set for
 -- other event types.
 --
--- 'lambdaFunctionStartedEventAttributes', 'historyEvent_lambdaFunctionStartedEventAttributes' - Provides the details of the @LambdaFunctionStarted@ event. It isn\'t set
--- for other event types.
+-- 'childWorkflowExecutionTimedOutEventAttributes', 'historyEvent_childWorkflowExecutionTimedOutEventAttributes' - If the event is of type @ChildWorkflowExecutionTimedOut@ then this
+-- member is set and provides detailed information about the event. It
+-- isn\'t set for other event types.
 --
 -- 'startChildWorkflowExecutionInitiatedEventAttributes', 'historyEvent_startChildWorkflowExecutionInitiatedEventAttributes' - If the event is of type @StartChildWorkflowExecutionInitiated@ then this
 -- member is set and provides detailed information about the event. It
@@ -485,9 +486,8 @@ data HistoryEvent = HistoryEvent'
 -- and provides detailed information about the event. It isn\'t set for
 -- other event types.
 --
--- 'childWorkflowExecutionCanceledEventAttributes', 'historyEvent_childWorkflowExecutionCanceledEventAttributes' - If the event is of type @ChildWorkflowExecutionCanceled@ then this
--- member is set and provides detailed information about the event. It
--- isn\'t set for other event types.
+-- 'lambdaFunctionStartedEventAttributes', 'historyEvent_lambdaFunctionStartedEventAttributes' - Provides the details of the @LambdaFunctionStarted@ event. It isn\'t set
+-- for other event types.
 --
 -- 'activityTaskCanceledEventAttributes', 'historyEvent_activityTaskCanceledEventAttributes' - If the event is of type @ActivityTaskCanceled@ then this member is set
 -- and provides detailed information about the event. It isn\'t set for
@@ -497,43 +497,62 @@ data HistoryEvent = HistoryEvent'
 -- and provides detailed information about the event. It isn\'t set for
 -- other event types.
 --
--- 'externalWorkflowExecutionCancelRequestedEventAttributes', 'historyEvent_externalWorkflowExecutionCancelRequestedEventAttributes' - If the event is of type @ExternalWorkflowExecutionCancelRequested@ then
--- this member is set and provides detailed information about the event. It
--- isn\'t set for other event types.
---
 -- 'cancelTimerFailedEventAttributes', 'historyEvent_cancelTimerFailedEventAttributes' - If the event is of type @CancelTimerFailed@ then this member is set and
 -- provides detailed information about the event. It isn\'t set for other
 -- event types.
+--
+-- 'lambdaFunctionTimedOutEventAttributes', 'historyEvent_lambdaFunctionTimedOutEventAttributes' - Provides the details of the @LambdaFunctionTimedOut@ event. It isn\'t
+-- set for other event types.
 --
 -- 'childWorkflowExecutionStartedEventAttributes', 'historyEvent_childWorkflowExecutionStartedEventAttributes' - If the event is of type @ChildWorkflowExecutionStarted@ then this member
 -- is set and provides detailed information about the event. It isn\'t set
 -- for other event types.
 --
--- 'lambdaFunctionTimedOutEventAttributes', 'historyEvent_lambdaFunctionTimedOutEventAttributes' - Provides the details of the @LambdaFunctionTimedOut@ event. It isn\'t
--- set for other event types.
---
--- 'childWorkflowExecutionFailedEventAttributes', 'historyEvent_childWorkflowExecutionFailedEventAttributes' - If the event is of type @ChildWorkflowExecutionFailed@ then this member
--- is set and provides detailed information about the event. It isn\'t set
--- for other event types.
+-- 'externalWorkflowExecutionCancelRequestedEventAttributes', 'historyEvent_externalWorkflowExecutionCancelRequestedEventAttributes' - If the event is of type @ExternalWorkflowExecutionCancelRequested@ then
+-- this member is set and provides detailed information about the event. It
+-- isn\'t set for other event types.
 --
 -- 'timerCanceledEventAttributes', 'historyEvent_timerCanceledEventAttributes' - If the event is of type @TimerCanceled@ then this member is set and
 -- provides detailed information about the event. It isn\'t set for other
 -- event types.
 --
+-- 'childWorkflowExecutionFailedEventAttributes', 'historyEvent_childWorkflowExecutionFailedEventAttributes' - If the event is of type @ChildWorkflowExecutionFailed@ then this member
+-- is set and provides detailed information about the event. It isn\'t set
+-- for other event types.
+--
 -- 'lambdaFunctionCompletedEventAttributes', 'historyEvent_lambdaFunctionCompletedEventAttributes' - Provides the details of the @LambdaFunctionCompleted@ event. It isn\'t
 -- set for other event types.
---
--- 'completeWorkflowExecutionFailedEventAttributes', 'historyEvent_completeWorkflowExecutionFailedEventAttributes' - If the event is of type @CompleteWorkflowExecutionFailed@ then this
--- member is set and provides detailed information about the event. It
--- isn\'t set for other event types.
 --
 -- 'activityTaskFailedEventAttributes', 'historyEvent_activityTaskFailedEventAttributes' - If the event is of type @ActivityTaskFailed@ then this member is set and
 -- provides detailed information about the event. It isn\'t set for other
 -- event types.
 --
+-- 'completeWorkflowExecutionFailedEventAttributes', 'historyEvent_completeWorkflowExecutionFailedEventAttributes' - If the event is of type @CompleteWorkflowExecutionFailed@ then this
+-- member is set and provides detailed information about the event. It
+-- isn\'t set for other event types.
+--
 -- 'timerFiredEventAttributes', 'historyEvent_timerFiredEventAttributes' - If the event is of type @TimerFired@ then this member is set and
 -- provides detailed information about the event. It isn\'t set for other
 -- event types.
+--
+-- 'workflowExecutionTimedOutEventAttributes', 'historyEvent_workflowExecutionTimedOutEventAttributes' - If the event is of type @WorkflowExecutionTimedOut@ then this member is
+-- set and provides detailed information about the event. It isn\'t set for
+-- other event types.
+--
+-- 'workflowExecutionCanceledEventAttributes', 'historyEvent_workflowExecutionCanceledEventAttributes' - If the event is of type @WorkflowExecutionCanceled@ then this member is
+-- set and provides detailed information about the event. It isn\'t set for
+-- other event types.
+--
+-- 'scheduleActivityTaskFailedEventAttributes', 'historyEvent_scheduleActivityTaskFailedEventAttributes' - If the event is of type @ScheduleActivityTaskFailed@ then this member is
+-- set and provides detailed information about the event. It isn\'t set for
+-- other event types.
+--
+-- 'markerRecordedEventAttributes', 'historyEvent_markerRecordedEventAttributes' - If the event is of type @MarkerRecorded@ then this member is set and
+-- provides detailed information about the event. It isn\'t set for other
+-- event types.
+--
+-- 'startLambdaFunctionFailedEventAttributes', 'historyEvent_startLambdaFunctionFailedEventAttributes' - Provides the details of the @StartLambdaFunctionFailed@ event. It isn\'t
+-- set for other event types.
 --
 -- 'workflowExecutionSignaledEventAttributes', 'historyEvent_workflowExecutionSignaledEventAttributes' - If the event is of type @WorkflowExecutionSignaled@ then this member is
 -- set and provides detailed information about the event. It isn\'t set for
@@ -543,34 +562,30 @@ data HistoryEvent = HistoryEvent'
 -- is set and provides detailed information about the event. It isn\'t set
 -- for other event types.
 --
--- 'workflowExecutionCanceledEventAttributes', 'historyEvent_workflowExecutionCanceledEventAttributes' - If the event is of type @WorkflowExecutionCanceled@ then this member is
--- set and provides detailed information about the event. It isn\'t set for
--- other event types.
---
--- 'startLambdaFunctionFailedEventAttributes', 'historyEvent_startLambdaFunctionFailedEventAttributes' - Provides the details of the @StartLambdaFunctionFailed@ event. It isn\'t
--- set for other event types.
---
--- 'scheduleActivityTaskFailedEventAttributes', 'historyEvent_scheduleActivityTaskFailedEventAttributes' - If the event is of type @ScheduleActivityTaskFailed@ then this member is
--- set and provides detailed information about the event. It isn\'t set for
--- other event types.
---
--- 'workflowExecutionTimedOutEventAttributes', 'historyEvent_workflowExecutionTimedOutEventAttributes' - If the event is of type @WorkflowExecutionTimedOut@ then this member is
--- set and provides detailed information about the event. It isn\'t set for
--- other event types.
---
--- 'markerRecordedEventAttributes', 'historyEvent_markerRecordedEventAttributes' - If the event is of type @MarkerRecorded@ then this member is set and
--- provides detailed information about the event. It isn\'t set for other
--- event types.
---
 -- 'activityTaskScheduledEventAttributes', 'historyEvent_activityTaskScheduledEventAttributes' - If the event is of type @ActivityTaskScheduled@ then this member is set
 -- and provides detailed information about the event. It isn\'t set for
 -- other event types.
+--
+-- 'decisionTaskStartedEventAttributes', 'historyEvent_decisionTaskStartedEventAttributes' - If the event is of type @DecisionTaskStarted@ then this member is set
+-- and provides detailed information about the event. It isn\'t set for
+-- other event types.
+--
+-- 'recordMarkerFailedEventAttributes', 'historyEvent_recordMarkerFailedEventAttributes' - If the event is of type @DecisionTaskFailed@ then this member is set and
+-- provides detailed information about the event. It isn\'t set for other
+-- event types.
+--
+-- 'lambdaFunctionScheduledEventAttributes', 'historyEvent_lambdaFunctionScheduledEventAttributes' - Provides the details of the @LambdaFunctionScheduled@ event. It isn\'t
+-- set for other event types.
 --
 -- 'startTimerFailedEventAttributes', 'historyEvent_startTimerFailedEventAttributes' - If the event is of type @StartTimerFailed@ then this member is set and
 -- provides detailed information about the event. It isn\'t set for other
 -- event types.
 --
--- 'workflowExecutionTerminatedEventAttributes', 'historyEvent_workflowExecutionTerminatedEventAttributes' - If the event is of type @WorkflowExecutionTerminated@ then this member
+-- 'requestCancelActivityTaskFailedEventAttributes', 'historyEvent_requestCancelActivityTaskFailedEventAttributes' - If the event is of type @RequestCancelActivityTaskFailed@ then this
+-- member is set and provides detailed information about the event. It
+-- isn\'t set for other event types.
+--
+-- 'cancelWorkflowExecutionFailedEventAttributes', 'historyEvent_cancelWorkflowExecutionFailedEventAttributes' - If the event is of type @CancelWorkflowExecutionFailed@ then this member
 -- is set and provides detailed information about the event. It isn\'t set
 -- for other event types.
 --
@@ -578,30 +593,11 @@ data HistoryEvent = HistoryEvent'
 -- set and provides detailed information about the event. It isn\'t set for
 -- other event types.
 --
--- 'requestCancelActivityTaskFailedEventAttributes', 'historyEvent_requestCancelActivityTaskFailedEventAttributes' - If the event is of type @RequestCancelActivityTaskFailed@ then this
--- member is set and provides detailed information about the event. It
--- isn\'t set for other event types.
---
--- 'recordMarkerFailedEventAttributes', 'historyEvent_recordMarkerFailedEventAttributes' - If the event is of type @DecisionTaskFailed@ then this member is set and
--- provides detailed information about the event. It isn\'t set for other
--- event types.
---
--- 'cancelWorkflowExecutionFailedEventAttributes', 'historyEvent_cancelWorkflowExecutionFailedEventAttributes' - If the event is of type @CancelWorkflowExecutionFailed@ then this member
+-- 'workflowExecutionTerminatedEventAttributes', 'historyEvent_workflowExecutionTerminatedEventAttributes' - If the event is of type @WorkflowExecutionTerminated@ then this member
 -- is set and provides detailed information about the event. It isn\'t set
 -- for other event types.
 --
--- 'lambdaFunctionScheduledEventAttributes', 'historyEvent_lambdaFunctionScheduledEventAttributes' - Provides the details of the @LambdaFunctionScheduled@ event. It isn\'t
--- set for other event types.
---
--- 'decisionTaskStartedEventAttributes', 'historyEvent_decisionTaskStartedEventAttributes' - If the event is of type @DecisionTaskStarted@ then this member is set
--- and provides detailed information about the event. It isn\'t set for
--- other event types.
---
 -- 'workflowExecutionCancelRequestedEventAttributes', 'historyEvent_workflowExecutionCancelRequestedEventAttributes' - If the event is of type @WorkflowExecutionCancelRequested@ then this
--- member is set and provides detailed information about the event. It
--- isn\'t set for other event types.
---
--- 'workflowExecutionContinuedAsNewEventAttributes', 'historyEvent_workflowExecutionContinuedAsNewEventAttributes' - If the event is of type @WorkflowExecutionContinuedAsNew@ then this
 -- member is set and provides detailed information about the event. It
 -- isn\'t set for other event types.
 --
@@ -609,9 +605,17 @@ data HistoryEvent = HistoryEvent'
 -- and provides detailed information about the event. It isn\'t set for
 -- other event types.
 --
+-- 'workflowExecutionContinuedAsNewEventAttributes', 'historyEvent_workflowExecutionContinuedAsNewEventAttributes' - If the event is of type @WorkflowExecutionContinuedAsNew@ then this
+-- member is set and provides detailed information about the event. It
+-- isn\'t set for other event types.
+--
 -- 'workflowExecutionFailedEventAttributes', 'historyEvent_workflowExecutionFailedEventAttributes' - If the event is of type @WorkflowExecutionFailed@ then this member is
 -- set and provides detailed information about the event. It isn\'t set for
 -- other event types.
+--
+-- 'continueAsNewWorkflowExecutionFailedEventAttributes', 'historyEvent_continueAsNewWorkflowExecutionFailedEventAttributes' - If the event is of type @ContinueAsNewWorkflowExecutionFailed@ then this
+-- member is set and provides detailed information about the event. It
+-- isn\'t set for other event types.
 --
 -- 'activityTaskCompletedEventAttributes', 'historyEvent_activityTaskCompletedEventAttributes' - If the event is of type @ActivityTaskCompleted@ then this member is set
 -- and provides detailed information about the event. It isn\'t set for
@@ -621,9 +625,17 @@ data HistoryEvent = HistoryEvent'
 -- this member is set and provides detailed information about the event. It
 -- isn\'t set for other event types.
 --
--- 'continueAsNewWorkflowExecutionFailedEventAttributes', 'historyEvent_continueAsNewWorkflowExecutionFailedEventAttributes' - If the event is of type @ContinueAsNewWorkflowExecutionFailed@ then this
+-- 'workflowExecutionStartedEventAttributes', 'historyEvent_workflowExecutionStartedEventAttributes' - If the event is of type @WorkflowExecutionStarted@ then this member is
+-- set and provides detailed information about the event. It isn\'t set for
+-- other event types.
+--
+-- 'startChildWorkflowExecutionFailedEventAttributes', 'historyEvent_startChildWorkflowExecutionFailedEventAttributes' - If the event is of type @StartChildWorkflowExecutionFailed@ then this
 -- member is set and provides detailed information about the event. It
 -- isn\'t set for other event types.
+--
+-- 'failWorkflowExecutionFailedEventAttributes', 'historyEvent_failWorkflowExecutionFailedEventAttributes' - If the event is of type @FailWorkflowExecutionFailed@ then this member
+-- is set and provides detailed information about the event. It isn\'t set
+-- for other event types.
 --
 -- 'decisionTaskCompletedEventAttributes', 'historyEvent_decisionTaskCompletedEventAttributes' - If the event is of type @DecisionTaskCompleted@ then this member is set
 -- and provides detailed information about the event. It isn\'t set for
@@ -633,24 +645,16 @@ data HistoryEvent = HistoryEvent'
 -- then this member is set and provides detailed information about the
 -- event. It isn\'t set for other event types.
 --
--- 'failWorkflowExecutionFailedEventAttributes', 'historyEvent_failWorkflowExecutionFailedEventAttributes' - If the event is of type @FailWorkflowExecutionFailed@ then this member
--- is set and provides detailed information about the event. It isn\'t set
--- for other event types.
---
--- 'workflowExecutionStartedEventAttributes', 'historyEvent_workflowExecutionStartedEventAttributes' - If the event is of type @WorkflowExecutionStarted@ then this member is
--- set and provides detailed information about the event. It isn\'t set for
--- other event types.
---
--- 'startChildWorkflowExecutionFailedEventAttributes', 'historyEvent_startChildWorkflowExecutionFailedEventAttributes' - If the event is of type @StartChildWorkflowExecutionFailed@ then this
--- member is set and provides detailed information about the event. It
+-- 'scheduleLambdaFunctionFailedEventAttributes', 'historyEvent_scheduleLambdaFunctionFailedEventAttributes' - Provides the details of the @ScheduleLambdaFunctionFailed@ event. It
 -- isn\'t set for other event types.
 --
 -- 'externalWorkflowExecutionSignaledEventAttributes', 'historyEvent_externalWorkflowExecutionSignaledEventAttributes' - If the event is of type @ExternalWorkflowExecutionSignaled@ then this
 -- member is set and provides detailed information about the event. It
 -- isn\'t set for other event types.
 --
--- 'scheduleLambdaFunctionFailedEventAttributes', 'historyEvent_scheduleLambdaFunctionFailedEventAttributes' - Provides the details of the @ScheduleLambdaFunctionFailed@ event. It
--- isn\'t set for other event types.
+-- 'timerStartedEventAttributes', 'historyEvent_timerStartedEventAttributes' - If the event is of type @TimerStarted@ then this member is set and
+-- provides detailed information about the event. It isn\'t set for other
+-- event types.
 --
 -- 'childWorkflowExecutionCompletedEventAttributes', 'historyEvent_childWorkflowExecutionCompletedEventAttributes' - If the event is of type @ChildWorkflowExecutionCompleted@ then this
 -- member is set and provides detailed information about the event. It
@@ -663,17 +667,13 @@ data HistoryEvent = HistoryEvent'
 -- member is set and provides detailed information about the event. It
 -- isn\'t set for other event types.
 --
--- 'timerStartedEventAttributes', 'historyEvent_timerStartedEventAttributes' - If the event is of type @TimerStarted@ then this member is set and
--- provides detailed information about the event. It isn\'t set for other
--- event types.
+-- 'signalExternalWorkflowExecutionFailedEventAttributes', 'historyEvent_signalExternalWorkflowExecutionFailedEventAttributes' - If the event is of type @SignalExternalWorkflowExecutionFailed@ then
+-- this member is set and provides detailed information about the event. It
+-- isn\'t set for other event types.
 --
 -- 'activityTaskStartedEventAttributes', 'historyEvent_activityTaskStartedEventAttributes' - If the event is of type @ActivityTaskStarted@ then this member is set
 -- and provides detailed information about the event. It isn\'t set for
 -- other event types.
---
--- 'signalExternalWorkflowExecutionFailedEventAttributes', 'historyEvent_signalExternalWorkflowExecutionFailedEventAttributes' - If the event is of type @SignalExternalWorkflowExecutionFailed@ then
--- this member is set and provides detailed information about the event. It
--- isn\'t set for other event types.
 --
 -- 'eventTimestamp', 'historyEvent_eventTimestamp' - The date and time when the event occurred.
 --
@@ -694,114 +694,114 @@ newHistoryEvent
   pEventType_
   pEventId_ =
     HistoryEvent'
-      { childWorkflowExecutionTimedOutEventAttributes =
+      { childWorkflowExecutionCanceledEventAttributes =
           Prelude.Nothing,
         requestCancelExternalWorkflowExecutionInitiatedEventAttributes =
           Prelude.Nothing,
-        lambdaFunctionStartedEventAttributes =
+        childWorkflowExecutionTimedOutEventAttributes =
           Prelude.Nothing,
         startChildWorkflowExecutionInitiatedEventAttributes =
           Prelude.Nothing,
         decisionTaskScheduledEventAttributes =
           Prelude.Nothing,
-        childWorkflowExecutionCanceledEventAttributes =
+        lambdaFunctionStartedEventAttributes =
           Prelude.Nothing,
         activityTaskCanceledEventAttributes =
           Prelude.Nothing,
         activityTaskTimedOutEventAttributes =
           Prelude.Nothing,
-        externalWorkflowExecutionCancelRequestedEventAttributes =
-          Prelude.Nothing,
         cancelTimerFailedEventAttributes = Prelude.Nothing,
-        childWorkflowExecutionStartedEventAttributes =
-          Prelude.Nothing,
         lambdaFunctionTimedOutEventAttributes =
           Prelude.Nothing,
-        childWorkflowExecutionFailedEventAttributes =
+        childWorkflowExecutionStartedEventAttributes =
+          Prelude.Nothing,
+        externalWorkflowExecutionCancelRequestedEventAttributes =
           Prelude.Nothing,
         timerCanceledEventAttributes = Prelude.Nothing,
+        childWorkflowExecutionFailedEventAttributes =
+          Prelude.Nothing,
         lambdaFunctionCompletedEventAttributes =
           Prelude.Nothing,
+        activityTaskFailedEventAttributes = Prelude.Nothing,
         completeWorkflowExecutionFailedEventAttributes =
           Prelude.Nothing,
-        activityTaskFailedEventAttributes = Prelude.Nothing,
         timerFiredEventAttributes = Prelude.Nothing,
+        workflowExecutionTimedOutEventAttributes =
+          Prelude.Nothing,
+        workflowExecutionCanceledEventAttributes =
+          Prelude.Nothing,
+        scheduleActivityTaskFailedEventAttributes =
+          Prelude.Nothing,
+        markerRecordedEventAttributes = Prelude.Nothing,
+        startLambdaFunctionFailedEventAttributes =
+          Prelude.Nothing,
         workflowExecutionSignaledEventAttributes =
           Prelude.Nothing,
         activityTaskCancelRequestedEventAttributes =
           Prelude.Nothing,
-        workflowExecutionCanceledEventAttributes =
-          Prelude.Nothing,
-        startLambdaFunctionFailedEventAttributes =
-          Prelude.Nothing,
-        scheduleActivityTaskFailedEventAttributes =
-          Prelude.Nothing,
-        workflowExecutionTimedOutEventAttributes =
-          Prelude.Nothing,
-        markerRecordedEventAttributes = Prelude.Nothing,
         activityTaskScheduledEventAttributes =
           Prelude.Nothing,
+        decisionTaskStartedEventAttributes = Prelude.Nothing,
+        recordMarkerFailedEventAttributes = Prelude.Nothing,
+        lambdaFunctionScheduledEventAttributes =
+          Prelude.Nothing,
         startTimerFailedEventAttributes = Prelude.Nothing,
-        workflowExecutionTerminatedEventAttributes =
+        requestCancelActivityTaskFailedEventAttributes =
+          Prelude.Nothing,
+        cancelWorkflowExecutionFailedEventAttributes =
           Prelude.Nothing,
         workflowExecutionCompletedEventAttributes =
           Prelude.Nothing,
-        requestCancelActivityTaskFailedEventAttributes =
+        workflowExecutionTerminatedEventAttributes =
           Prelude.Nothing,
-        recordMarkerFailedEventAttributes = Prelude.Nothing,
-        cancelWorkflowExecutionFailedEventAttributes =
-          Prelude.Nothing,
-        lambdaFunctionScheduledEventAttributes =
-          Prelude.Nothing,
-        decisionTaskStartedEventAttributes = Prelude.Nothing,
         workflowExecutionCancelRequestedEventAttributes =
-          Prelude.Nothing,
-        workflowExecutionContinuedAsNewEventAttributes =
           Prelude.Nothing,
         decisionTaskTimedOutEventAttributes =
           Prelude.Nothing,
+        workflowExecutionContinuedAsNewEventAttributes =
+          Prelude.Nothing,
         workflowExecutionFailedEventAttributes =
+          Prelude.Nothing,
+        continueAsNewWorkflowExecutionFailedEventAttributes =
           Prelude.Nothing,
         activityTaskCompletedEventAttributes =
           Prelude.Nothing,
         signalExternalWorkflowExecutionInitiatedEventAttributes =
           Prelude.Nothing,
-        continueAsNewWorkflowExecutionFailedEventAttributes =
+        workflowExecutionStartedEventAttributes =
+          Prelude.Nothing,
+        startChildWorkflowExecutionFailedEventAttributes =
+          Prelude.Nothing,
+        failWorkflowExecutionFailedEventAttributes =
           Prelude.Nothing,
         decisionTaskCompletedEventAttributes =
           Prelude.Nothing,
         requestCancelExternalWorkflowExecutionFailedEventAttributes =
           Prelude.Nothing,
-        failWorkflowExecutionFailedEventAttributes =
-          Prelude.Nothing,
-        workflowExecutionStartedEventAttributes =
-          Prelude.Nothing,
-        startChildWorkflowExecutionFailedEventAttributes =
+        scheduleLambdaFunctionFailedEventAttributes =
           Prelude.Nothing,
         externalWorkflowExecutionSignaledEventAttributes =
           Prelude.Nothing,
-        scheduleLambdaFunctionFailedEventAttributes =
-          Prelude.Nothing,
+        timerStartedEventAttributes = Prelude.Nothing,
         childWorkflowExecutionCompletedEventAttributes =
           Prelude.Nothing,
         lambdaFunctionFailedEventAttributes =
           Prelude.Nothing,
         childWorkflowExecutionTerminatedEventAttributes =
           Prelude.Nothing,
-        timerStartedEventAttributes = Prelude.Nothing,
-        activityTaskStartedEventAttributes = Prelude.Nothing,
         signalExternalWorkflowExecutionFailedEventAttributes =
           Prelude.Nothing,
+        activityTaskStartedEventAttributes = Prelude.Nothing,
         eventTimestamp = Core._Time Lens.# pEventTimestamp_,
         eventType = pEventType_,
         eventId = pEventId_
       }
 
--- | If the event is of type @ChildWorkflowExecutionTimedOut@ then this
+-- | If the event is of type @ChildWorkflowExecutionCanceled@ then this
 -- member is set and provides detailed information about the event. It
 -- isn\'t set for other event types.
-historyEvent_childWorkflowExecutionTimedOutEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe ChildWorkflowExecutionTimedOutEventAttributes)
-historyEvent_childWorkflowExecutionTimedOutEventAttributes = Lens.lens (\HistoryEvent' {childWorkflowExecutionTimedOutEventAttributes} -> childWorkflowExecutionTimedOutEventAttributes) (\s@HistoryEvent' {} a -> s {childWorkflowExecutionTimedOutEventAttributes = a} :: HistoryEvent)
+historyEvent_childWorkflowExecutionCanceledEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe ChildWorkflowExecutionCanceledEventAttributes)
+historyEvent_childWorkflowExecutionCanceledEventAttributes = Lens.lens (\HistoryEvent' {childWorkflowExecutionCanceledEventAttributes} -> childWorkflowExecutionCanceledEventAttributes) (\s@HistoryEvent' {} a -> s {childWorkflowExecutionCanceledEventAttributes = a} :: HistoryEvent)
 
 -- | If the event is of type
 -- @RequestCancelExternalWorkflowExecutionInitiated@ then this member is
@@ -810,10 +810,11 @@ historyEvent_childWorkflowExecutionTimedOutEventAttributes = Lens.lens (\History
 historyEvent_requestCancelExternalWorkflowExecutionInitiatedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe RequestCancelExternalWorkflowExecutionInitiatedEventAttributes)
 historyEvent_requestCancelExternalWorkflowExecutionInitiatedEventAttributes = Lens.lens (\HistoryEvent' {requestCancelExternalWorkflowExecutionInitiatedEventAttributes} -> requestCancelExternalWorkflowExecutionInitiatedEventAttributes) (\s@HistoryEvent' {} a -> s {requestCancelExternalWorkflowExecutionInitiatedEventAttributes = a} :: HistoryEvent)
 
--- | Provides the details of the @LambdaFunctionStarted@ event. It isn\'t set
--- for other event types.
-historyEvent_lambdaFunctionStartedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe LambdaFunctionStartedEventAttributes)
-historyEvent_lambdaFunctionStartedEventAttributes = Lens.lens (\HistoryEvent' {lambdaFunctionStartedEventAttributes} -> lambdaFunctionStartedEventAttributes) (\s@HistoryEvent' {} a -> s {lambdaFunctionStartedEventAttributes = a} :: HistoryEvent)
+-- | If the event is of type @ChildWorkflowExecutionTimedOut@ then this
+-- member is set and provides detailed information about the event. It
+-- isn\'t set for other event types.
+historyEvent_childWorkflowExecutionTimedOutEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe ChildWorkflowExecutionTimedOutEventAttributes)
+historyEvent_childWorkflowExecutionTimedOutEventAttributes = Lens.lens (\HistoryEvent' {childWorkflowExecutionTimedOutEventAttributes} -> childWorkflowExecutionTimedOutEventAttributes) (\s@HistoryEvent' {} a -> s {childWorkflowExecutionTimedOutEventAttributes = a} :: HistoryEvent)
 
 -- | If the event is of type @StartChildWorkflowExecutionInitiated@ then this
 -- member is set and provides detailed information about the event. It
@@ -827,11 +828,10 @@ historyEvent_startChildWorkflowExecutionInitiatedEventAttributes = Lens.lens (\H
 historyEvent_decisionTaskScheduledEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe DecisionTaskScheduledEventAttributes)
 historyEvent_decisionTaskScheduledEventAttributes = Lens.lens (\HistoryEvent' {decisionTaskScheduledEventAttributes} -> decisionTaskScheduledEventAttributes) (\s@HistoryEvent' {} a -> s {decisionTaskScheduledEventAttributes = a} :: HistoryEvent)
 
--- | If the event is of type @ChildWorkflowExecutionCanceled@ then this
--- member is set and provides detailed information about the event. It
--- isn\'t set for other event types.
-historyEvent_childWorkflowExecutionCanceledEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe ChildWorkflowExecutionCanceledEventAttributes)
-historyEvent_childWorkflowExecutionCanceledEventAttributes = Lens.lens (\HistoryEvent' {childWorkflowExecutionCanceledEventAttributes} -> childWorkflowExecutionCanceledEventAttributes) (\s@HistoryEvent' {} a -> s {childWorkflowExecutionCanceledEventAttributes = a} :: HistoryEvent)
+-- | Provides the details of the @LambdaFunctionStarted@ event. It isn\'t set
+-- for other event types.
+historyEvent_lambdaFunctionStartedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe LambdaFunctionStartedEventAttributes)
+historyEvent_lambdaFunctionStartedEventAttributes = Lens.lens (\HistoryEvent' {lambdaFunctionStartedEventAttributes} -> lambdaFunctionStartedEventAttributes) (\s@HistoryEvent' {} a -> s {lambdaFunctionStartedEventAttributes = a} :: HistoryEvent)
 
 -- | If the event is of type @ActivityTaskCanceled@ then this member is set
 -- and provides detailed information about the event. It isn\'t set for
@@ -845,17 +845,16 @@ historyEvent_activityTaskCanceledEventAttributes = Lens.lens (\HistoryEvent' {ac
 historyEvent_activityTaskTimedOutEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe ActivityTaskTimedOutEventAttributes)
 historyEvent_activityTaskTimedOutEventAttributes = Lens.lens (\HistoryEvent' {activityTaskTimedOutEventAttributes} -> activityTaskTimedOutEventAttributes) (\s@HistoryEvent' {} a -> s {activityTaskTimedOutEventAttributes = a} :: HistoryEvent)
 
--- | If the event is of type @ExternalWorkflowExecutionCancelRequested@ then
--- this member is set and provides detailed information about the event. It
--- isn\'t set for other event types.
-historyEvent_externalWorkflowExecutionCancelRequestedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe ExternalWorkflowExecutionCancelRequestedEventAttributes)
-historyEvent_externalWorkflowExecutionCancelRequestedEventAttributes = Lens.lens (\HistoryEvent' {externalWorkflowExecutionCancelRequestedEventAttributes} -> externalWorkflowExecutionCancelRequestedEventAttributes) (\s@HistoryEvent' {} a -> s {externalWorkflowExecutionCancelRequestedEventAttributes = a} :: HistoryEvent)
-
 -- | If the event is of type @CancelTimerFailed@ then this member is set and
 -- provides detailed information about the event. It isn\'t set for other
 -- event types.
 historyEvent_cancelTimerFailedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe CancelTimerFailedEventAttributes)
 historyEvent_cancelTimerFailedEventAttributes = Lens.lens (\HistoryEvent' {cancelTimerFailedEventAttributes} -> cancelTimerFailedEventAttributes) (\s@HistoryEvent' {} a -> s {cancelTimerFailedEventAttributes = a} :: HistoryEvent)
+
+-- | Provides the details of the @LambdaFunctionTimedOut@ event. It isn\'t
+-- set for other event types.
+historyEvent_lambdaFunctionTimedOutEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe LambdaFunctionTimedOutEventAttributes)
+historyEvent_lambdaFunctionTimedOutEventAttributes = Lens.lens (\HistoryEvent' {lambdaFunctionTimedOutEventAttributes} -> lambdaFunctionTimedOutEventAttributes) (\s@HistoryEvent' {} a -> s {lambdaFunctionTimedOutEventAttributes = a} :: HistoryEvent)
 
 -- | If the event is of type @ChildWorkflowExecutionStarted@ then this member
 -- is set and provides detailed information about the event. It isn\'t set
@@ -863,16 +862,11 @@ historyEvent_cancelTimerFailedEventAttributes = Lens.lens (\HistoryEvent' {cance
 historyEvent_childWorkflowExecutionStartedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe ChildWorkflowExecutionStartedEventAttributes)
 historyEvent_childWorkflowExecutionStartedEventAttributes = Lens.lens (\HistoryEvent' {childWorkflowExecutionStartedEventAttributes} -> childWorkflowExecutionStartedEventAttributes) (\s@HistoryEvent' {} a -> s {childWorkflowExecutionStartedEventAttributes = a} :: HistoryEvent)
 
--- | Provides the details of the @LambdaFunctionTimedOut@ event. It isn\'t
--- set for other event types.
-historyEvent_lambdaFunctionTimedOutEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe LambdaFunctionTimedOutEventAttributes)
-historyEvent_lambdaFunctionTimedOutEventAttributes = Lens.lens (\HistoryEvent' {lambdaFunctionTimedOutEventAttributes} -> lambdaFunctionTimedOutEventAttributes) (\s@HistoryEvent' {} a -> s {lambdaFunctionTimedOutEventAttributes = a} :: HistoryEvent)
-
--- | If the event is of type @ChildWorkflowExecutionFailed@ then this member
--- is set and provides detailed information about the event. It isn\'t set
--- for other event types.
-historyEvent_childWorkflowExecutionFailedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe ChildWorkflowExecutionFailedEventAttributes)
-historyEvent_childWorkflowExecutionFailedEventAttributes = Lens.lens (\HistoryEvent' {childWorkflowExecutionFailedEventAttributes} -> childWorkflowExecutionFailedEventAttributes) (\s@HistoryEvent' {} a -> s {childWorkflowExecutionFailedEventAttributes = a} :: HistoryEvent)
+-- | If the event is of type @ExternalWorkflowExecutionCancelRequested@ then
+-- this member is set and provides detailed information about the event. It
+-- isn\'t set for other event types.
+historyEvent_externalWorkflowExecutionCancelRequestedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe ExternalWorkflowExecutionCancelRequestedEventAttributes)
+historyEvent_externalWorkflowExecutionCancelRequestedEventAttributes = Lens.lens (\HistoryEvent' {externalWorkflowExecutionCancelRequestedEventAttributes} -> externalWorkflowExecutionCancelRequestedEventAttributes) (\s@HistoryEvent' {} a -> s {externalWorkflowExecutionCancelRequestedEventAttributes = a} :: HistoryEvent)
 
 -- | If the event is of type @TimerCanceled@ then this member is set and
 -- provides detailed information about the event. It isn\'t set for other
@@ -880,16 +874,16 @@ historyEvent_childWorkflowExecutionFailedEventAttributes = Lens.lens (\HistoryEv
 historyEvent_timerCanceledEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe TimerCanceledEventAttributes)
 historyEvent_timerCanceledEventAttributes = Lens.lens (\HistoryEvent' {timerCanceledEventAttributes} -> timerCanceledEventAttributes) (\s@HistoryEvent' {} a -> s {timerCanceledEventAttributes = a} :: HistoryEvent)
 
+-- | If the event is of type @ChildWorkflowExecutionFailed@ then this member
+-- is set and provides detailed information about the event. It isn\'t set
+-- for other event types.
+historyEvent_childWorkflowExecutionFailedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe ChildWorkflowExecutionFailedEventAttributes)
+historyEvent_childWorkflowExecutionFailedEventAttributes = Lens.lens (\HistoryEvent' {childWorkflowExecutionFailedEventAttributes} -> childWorkflowExecutionFailedEventAttributes) (\s@HistoryEvent' {} a -> s {childWorkflowExecutionFailedEventAttributes = a} :: HistoryEvent)
+
 -- | Provides the details of the @LambdaFunctionCompleted@ event. It isn\'t
 -- set for other event types.
 historyEvent_lambdaFunctionCompletedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe LambdaFunctionCompletedEventAttributes)
 historyEvent_lambdaFunctionCompletedEventAttributes = Lens.lens (\HistoryEvent' {lambdaFunctionCompletedEventAttributes} -> lambdaFunctionCompletedEventAttributes) (\s@HistoryEvent' {} a -> s {lambdaFunctionCompletedEventAttributes = a} :: HistoryEvent)
-
--- | If the event is of type @CompleteWorkflowExecutionFailed@ then this
--- member is set and provides detailed information about the event. It
--- isn\'t set for other event types.
-historyEvent_completeWorkflowExecutionFailedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe CompleteWorkflowExecutionFailedEventAttributes)
-historyEvent_completeWorkflowExecutionFailedEventAttributes = Lens.lens (\HistoryEvent' {completeWorkflowExecutionFailedEventAttributes} -> completeWorkflowExecutionFailedEventAttributes) (\s@HistoryEvent' {} a -> s {completeWorkflowExecutionFailedEventAttributes = a} :: HistoryEvent)
 
 -- | If the event is of type @ActivityTaskFailed@ then this member is set and
 -- provides detailed information about the event. It isn\'t set for other
@@ -897,11 +891,46 @@ historyEvent_completeWorkflowExecutionFailedEventAttributes = Lens.lens (\Histor
 historyEvent_activityTaskFailedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe ActivityTaskFailedEventAttributes)
 historyEvent_activityTaskFailedEventAttributes = Lens.lens (\HistoryEvent' {activityTaskFailedEventAttributes} -> activityTaskFailedEventAttributes) (\s@HistoryEvent' {} a -> s {activityTaskFailedEventAttributes = a} :: HistoryEvent)
 
+-- | If the event is of type @CompleteWorkflowExecutionFailed@ then this
+-- member is set and provides detailed information about the event. It
+-- isn\'t set for other event types.
+historyEvent_completeWorkflowExecutionFailedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe CompleteWorkflowExecutionFailedEventAttributes)
+historyEvent_completeWorkflowExecutionFailedEventAttributes = Lens.lens (\HistoryEvent' {completeWorkflowExecutionFailedEventAttributes} -> completeWorkflowExecutionFailedEventAttributes) (\s@HistoryEvent' {} a -> s {completeWorkflowExecutionFailedEventAttributes = a} :: HistoryEvent)
+
 -- | If the event is of type @TimerFired@ then this member is set and
 -- provides detailed information about the event. It isn\'t set for other
 -- event types.
 historyEvent_timerFiredEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe TimerFiredEventAttributes)
 historyEvent_timerFiredEventAttributes = Lens.lens (\HistoryEvent' {timerFiredEventAttributes} -> timerFiredEventAttributes) (\s@HistoryEvent' {} a -> s {timerFiredEventAttributes = a} :: HistoryEvent)
+
+-- | If the event is of type @WorkflowExecutionTimedOut@ then this member is
+-- set and provides detailed information about the event. It isn\'t set for
+-- other event types.
+historyEvent_workflowExecutionTimedOutEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe WorkflowExecutionTimedOutEventAttributes)
+historyEvent_workflowExecutionTimedOutEventAttributes = Lens.lens (\HistoryEvent' {workflowExecutionTimedOutEventAttributes} -> workflowExecutionTimedOutEventAttributes) (\s@HistoryEvent' {} a -> s {workflowExecutionTimedOutEventAttributes = a} :: HistoryEvent)
+
+-- | If the event is of type @WorkflowExecutionCanceled@ then this member is
+-- set and provides detailed information about the event. It isn\'t set for
+-- other event types.
+historyEvent_workflowExecutionCanceledEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe WorkflowExecutionCanceledEventAttributes)
+historyEvent_workflowExecutionCanceledEventAttributes = Lens.lens (\HistoryEvent' {workflowExecutionCanceledEventAttributes} -> workflowExecutionCanceledEventAttributes) (\s@HistoryEvent' {} a -> s {workflowExecutionCanceledEventAttributes = a} :: HistoryEvent)
+
+-- | If the event is of type @ScheduleActivityTaskFailed@ then this member is
+-- set and provides detailed information about the event. It isn\'t set for
+-- other event types.
+historyEvent_scheduleActivityTaskFailedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe ScheduleActivityTaskFailedEventAttributes)
+historyEvent_scheduleActivityTaskFailedEventAttributes = Lens.lens (\HistoryEvent' {scheduleActivityTaskFailedEventAttributes} -> scheduleActivityTaskFailedEventAttributes) (\s@HistoryEvent' {} a -> s {scheduleActivityTaskFailedEventAttributes = a} :: HistoryEvent)
+
+-- | If the event is of type @MarkerRecorded@ then this member is set and
+-- provides detailed information about the event. It isn\'t set for other
+-- event types.
+historyEvent_markerRecordedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe MarkerRecordedEventAttributes)
+historyEvent_markerRecordedEventAttributes = Lens.lens (\HistoryEvent' {markerRecordedEventAttributes} -> markerRecordedEventAttributes) (\s@HistoryEvent' {} a -> s {markerRecordedEventAttributes = a} :: HistoryEvent)
+
+-- | Provides the details of the @StartLambdaFunctionFailed@ event. It isn\'t
+-- set for other event types.
+historyEvent_startLambdaFunctionFailedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe StartLambdaFunctionFailedEventAttributes)
+historyEvent_startLambdaFunctionFailedEventAttributes = Lens.lens (\HistoryEvent' {startLambdaFunctionFailedEventAttributes} -> startLambdaFunctionFailedEventAttributes) (\s@HistoryEvent' {} a -> s {startLambdaFunctionFailedEventAttributes = a} :: HistoryEvent)
 
 -- | If the event is of type @WorkflowExecutionSignaled@ then this member is
 -- set and provides detailed information about the event. It isn\'t set for
@@ -915,81 +944,11 @@ historyEvent_workflowExecutionSignaledEventAttributes = Lens.lens (\HistoryEvent
 historyEvent_activityTaskCancelRequestedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe ActivityTaskCancelRequestedEventAttributes)
 historyEvent_activityTaskCancelRequestedEventAttributes = Lens.lens (\HistoryEvent' {activityTaskCancelRequestedEventAttributes} -> activityTaskCancelRequestedEventAttributes) (\s@HistoryEvent' {} a -> s {activityTaskCancelRequestedEventAttributes = a} :: HistoryEvent)
 
--- | If the event is of type @WorkflowExecutionCanceled@ then this member is
--- set and provides detailed information about the event. It isn\'t set for
--- other event types.
-historyEvent_workflowExecutionCanceledEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe WorkflowExecutionCanceledEventAttributes)
-historyEvent_workflowExecutionCanceledEventAttributes = Lens.lens (\HistoryEvent' {workflowExecutionCanceledEventAttributes} -> workflowExecutionCanceledEventAttributes) (\s@HistoryEvent' {} a -> s {workflowExecutionCanceledEventAttributes = a} :: HistoryEvent)
-
--- | Provides the details of the @StartLambdaFunctionFailed@ event. It isn\'t
--- set for other event types.
-historyEvent_startLambdaFunctionFailedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe StartLambdaFunctionFailedEventAttributes)
-historyEvent_startLambdaFunctionFailedEventAttributes = Lens.lens (\HistoryEvent' {startLambdaFunctionFailedEventAttributes} -> startLambdaFunctionFailedEventAttributes) (\s@HistoryEvent' {} a -> s {startLambdaFunctionFailedEventAttributes = a} :: HistoryEvent)
-
--- | If the event is of type @ScheduleActivityTaskFailed@ then this member is
--- set and provides detailed information about the event. It isn\'t set for
--- other event types.
-historyEvent_scheduleActivityTaskFailedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe ScheduleActivityTaskFailedEventAttributes)
-historyEvent_scheduleActivityTaskFailedEventAttributes = Lens.lens (\HistoryEvent' {scheduleActivityTaskFailedEventAttributes} -> scheduleActivityTaskFailedEventAttributes) (\s@HistoryEvent' {} a -> s {scheduleActivityTaskFailedEventAttributes = a} :: HistoryEvent)
-
--- | If the event is of type @WorkflowExecutionTimedOut@ then this member is
--- set and provides detailed information about the event. It isn\'t set for
--- other event types.
-historyEvent_workflowExecutionTimedOutEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe WorkflowExecutionTimedOutEventAttributes)
-historyEvent_workflowExecutionTimedOutEventAttributes = Lens.lens (\HistoryEvent' {workflowExecutionTimedOutEventAttributes} -> workflowExecutionTimedOutEventAttributes) (\s@HistoryEvent' {} a -> s {workflowExecutionTimedOutEventAttributes = a} :: HistoryEvent)
-
--- | If the event is of type @MarkerRecorded@ then this member is set and
--- provides detailed information about the event. It isn\'t set for other
--- event types.
-historyEvent_markerRecordedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe MarkerRecordedEventAttributes)
-historyEvent_markerRecordedEventAttributes = Lens.lens (\HistoryEvent' {markerRecordedEventAttributes} -> markerRecordedEventAttributes) (\s@HistoryEvent' {} a -> s {markerRecordedEventAttributes = a} :: HistoryEvent)
-
 -- | If the event is of type @ActivityTaskScheduled@ then this member is set
 -- and provides detailed information about the event. It isn\'t set for
 -- other event types.
 historyEvent_activityTaskScheduledEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe ActivityTaskScheduledEventAttributes)
 historyEvent_activityTaskScheduledEventAttributes = Lens.lens (\HistoryEvent' {activityTaskScheduledEventAttributes} -> activityTaskScheduledEventAttributes) (\s@HistoryEvent' {} a -> s {activityTaskScheduledEventAttributes = a} :: HistoryEvent)
-
--- | If the event is of type @StartTimerFailed@ then this member is set and
--- provides detailed information about the event. It isn\'t set for other
--- event types.
-historyEvent_startTimerFailedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe StartTimerFailedEventAttributes)
-historyEvent_startTimerFailedEventAttributes = Lens.lens (\HistoryEvent' {startTimerFailedEventAttributes} -> startTimerFailedEventAttributes) (\s@HistoryEvent' {} a -> s {startTimerFailedEventAttributes = a} :: HistoryEvent)
-
--- | If the event is of type @WorkflowExecutionTerminated@ then this member
--- is set and provides detailed information about the event. It isn\'t set
--- for other event types.
-historyEvent_workflowExecutionTerminatedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe WorkflowExecutionTerminatedEventAttributes)
-historyEvent_workflowExecutionTerminatedEventAttributes = Lens.lens (\HistoryEvent' {workflowExecutionTerminatedEventAttributes} -> workflowExecutionTerminatedEventAttributes) (\s@HistoryEvent' {} a -> s {workflowExecutionTerminatedEventAttributes = a} :: HistoryEvent)
-
--- | If the event is of type @WorkflowExecutionCompleted@ then this member is
--- set and provides detailed information about the event. It isn\'t set for
--- other event types.
-historyEvent_workflowExecutionCompletedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe WorkflowExecutionCompletedEventAttributes)
-historyEvent_workflowExecutionCompletedEventAttributes = Lens.lens (\HistoryEvent' {workflowExecutionCompletedEventAttributes} -> workflowExecutionCompletedEventAttributes) (\s@HistoryEvent' {} a -> s {workflowExecutionCompletedEventAttributes = a} :: HistoryEvent)
-
--- | If the event is of type @RequestCancelActivityTaskFailed@ then this
--- member is set and provides detailed information about the event. It
--- isn\'t set for other event types.
-historyEvent_requestCancelActivityTaskFailedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe RequestCancelActivityTaskFailedEventAttributes)
-historyEvent_requestCancelActivityTaskFailedEventAttributes = Lens.lens (\HistoryEvent' {requestCancelActivityTaskFailedEventAttributes} -> requestCancelActivityTaskFailedEventAttributes) (\s@HistoryEvent' {} a -> s {requestCancelActivityTaskFailedEventAttributes = a} :: HistoryEvent)
-
--- | If the event is of type @DecisionTaskFailed@ then this member is set and
--- provides detailed information about the event. It isn\'t set for other
--- event types.
-historyEvent_recordMarkerFailedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe RecordMarkerFailedEventAttributes)
-historyEvent_recordMarkerFailedEventAttributes = Lens.lens (\HistoryEvent' {recordMarkerFailedEventAttributes} -> recordMarkerFailedEventAttributes) (\s@HistoryEvent' {} a -> s {recordMarkerFailedEventAttributes = a} :: HistoryEvent)
-
--- | If the event is of type @CancelWorkflowExecutionFailed@ then this member
--- is set and provides detailed information about the event. It isn\'t set
--- for other event types.
-historyEvent_cancelWorkflowExecutionFailedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe CancelWorkflowExecutionFailedEventAttributes)
-historyEvent_cancelWorkflowExecutionFailedEventAttributes = Lens.lens (\HistoryEvent' {cancelWorkflowExecutionFailedEventAttributes} -> cancelWorkflowExecutionFailedEventAttributes) (\s@HistoryEvent' {} a -> s {cancelWorkflowExecutionFailedEventAttributes = a} :: HistoryEvent)
-
--- | Provides the details of the @LambdaFunctionScheduled@ event. It isn\'t
--- set for other event types.
-historyEvent_lambdaFunctionScheduledEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe LambdaFunctionScheduledEventAttributes)
-historyEvent_lambdaFunctionScheduledEventAttributes = Lens.lens (\HistoryEvent' {lambdaFunctionScheduledEventAttributes} -> lambdaFunctionScheduledEventAttributes) (\s@HistoryEvent' {} a -> s {lambdaFunctionScheduledEventAttributes = a} :: HistoryEvent)
 
 -- | If the event is of type @DecisionTaskStarted@ then this member is set
 -- and provides detailed information about the event. It isn\'t set for
@@ -997,17 +956,52 @@ historyEvent_lambdaFunctionScheduledEventAttributes = Lens.lens (\HistoryEvent' 
 historyEvent_decisionTaskStartedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe DecisionTaskStartedEventAttributes)
 historyEvent_decisionTaskStartedEventAttributes = Lens.lens (\HistoryEvent' {decisionTaskStartedEventAttributes} -> decisionTaskStartedEventAttributes) (\s@HistoryEvent' {} a -> s {decisionTaskStartedEventAttributes = a} :: HistoryEvent)
 
+-- | If the event is of type @DecisionTaskFailed@ then this member is set and
+-- provides detailed information about the event. It isn\'t set for other
+-- event types.
+historyEvent_recordMarkerFailedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe RecordMarkerFailedEventAttributes)
+historyEvent_recordMarkerFailedEventAttributes = Lens.lens (\HistoryEvent' {recordMarkerFailedEventAttributes} -> recordMarkerFailedEventAttributes) (\s@HistoryEvent' {} a -> s {recordMarkerFailedEventAttributes = a} :: HistoryEvent)
+
+-- | Provides the details of the @LambdaFunctionScheduled@ event. It isn\'t
+-- set for other event types.
+historyEvent_lambdaFunctionScheduledEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe LambdaFunctionScheduledEventAttributes)
+historyEvent_lambdaFunctionScheduledEventAttributes = Lens.lens (\HistoryEvent' {lambdaFunctionScheduledEventAttributes} -> lambdaFunctionScheduledEventAttributes) (\s@HistoryEvent' {} a -> s {lambdaFunctionScheduledEventAttributes = a} :: HistoryEvent)
+
+-- | If the event is of type @StartTimerFailed@ then this member is set and
+-- provides detailed information about the event. It isn\'t set for other
+-- event types.
+historyEvent_startTimerFailedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe StartTimerFailedEventAttributes)
+historyEvent_startTimerFailedEventAttributes = Lens.lens (\HistoryEvent' {startTimerFailedEventAttributes} -> startTimerFailedEventAttributes) (\s@HistoryEvent' {} a -> s {startTimerFailedEventAttributes = a} :: HistoryEvent)
+
+-- | If the event is of type @RequestCancelActivityTaskFailed@ then this
+-- member is set and provides detailed information about the event. It
+-- isn\'t set for other event types.
+historyEvent_requestCancelActivityTaskFailedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe RequestCancelActivityTaskFailedEventAttributes)
+historyEvent_requestCancelActivityTaskFailedEventAttributes = Lens.lens (\HistoryEvent' {requestCancelActivityTaskFailedEventAttributes} -> requestCancelActivityTaskFailedEventAttributes) (\s@HistoryEvent' {} a -> s {requestCancelActivityTaskFailedEventAttributes = a} :: HistoryEvent)
+
+-- | If the event is of type @CancelWorkflowExecutionFailed@ then this member
+-- is set and provides detailed information about the event. It isn\'t set
+-- for other event types.
+historyEvent_cancelWorkflowExecutionFailedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe CancelWorkflowExecutionFailedEventAttributes)
+historyEvent_cancelWorkflowExecutionFailedEventAttributes = Lens.lens (\HistoryEvent' {cancelWorkflowExecutionFailedEventAttributes} -> cancelWorkflowExecutionFailedEventAttributes) (\s@HistoryEvent' {} a -> s {cancelWorkflowExecutionFailedEventAttributes = a} :: HistoryEvent)
+
+-- | If the event is of type @WorkflowExecutionCompleted@ then this member is
+-- set and provides detailed information about the event. It isn\'t set for
+-- other event types.
+historyEvent_workflowExecutionCompletedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe WorkflowExecutionCompletedEventAttributes)
+historyEvent_workflowExecutionCompletedEventAttributes = Lens.lens (\HistoryEvent' {workflowExecutionCompletedEventAttributes} -> workflowExecutionCompletedEventAttributes) (\s@HistoryEvent' {} a -> s {workflowExecutionCompletedEventAttributes = a} :: HistoryEvent)
+
+-- | If the event is of type @WorkflowExecutionTerminated@ then this member
+-- is set and provides detailed information about the event. It isn\'t set
+-- for other event types.
+historyEvent_workflowExecutionTerminatedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe WorkflowExecutionTerminatedEventAttributes)
+historyEvent_workflowExecutionTerminatedEventAttributes = Lens.lens (\HistoryEvent' {workflowExecutionTerminatedEventAttributes} -> workflowExecutionTerminatedEventAttributes) (\s@HistoryEvent' {} a -> s {workflowExecutionTerminatedEventAttributes = a} :: HistoryEvent)
+
 -- | If the event is of type @WorkflowExecutionCancelRequested@ then this
 -- member is set and provides detailed information about the event. It
 -- isn\'t set for other event types.
 historyEvent_workflowExecutionCancelRequestedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe WorkflowExecutionCancelRequestedEventAttributes)
 historyEvent_workflowExecutionCancelRequestedEventAttributes = Lens.lens (\HistoryEvent' {workflowExecutionCancelRequestedEventAttributes} -> workflowExecutionCancelRequestedEventAttributes) (\s@HistoryEvent' {} a -> s {workflowExecutionCancelRequestedEventAttributes = a} :: HistoryEvent)
-
--- | If the event is of type @WorkflowExecutionContinuedAsNew@ then this
--- member is set and provides detailed information about the event. It
--- isn\'t set for other event types.
-historyEvent_workflowExecutionContinuedAsNewEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe WorkflowExecutionContinuedAsNewEventAttributes)
-historyEvent_workflowExecutionContinuedAsNewEventAttributes = Lens.lens (\HistoryEvent' {workflowExecutionContinuedAsNewEventAttributes} -> workflowExecutionContinuedAsNewEventAttributes) (\s@HistoryEvent' {} a -> s {workflowExecutionContinuedAsNewEventAttributes = a} :: HistoryEvent)
 
 -- | If the event is of type @DecisionTaskTimedOut@ then this member is set
 -- and provides detailed information about the event. It isn\'t set for
@@ -1015,11 +1009,23 @@ historyEvent_workflowExecutionContinuedAsNewEventAttributes = Lens.lens (\Histor
 historyEvent_decisionTaskTimedOutEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe DecisionTaskTimedOutEventAttributes)
 historyEvent_decisionTaskTimedOutEventAttributes = Lens.lens (\HistoryEvent' {decisionTaskTimedOutEventAttributes} -> decisionTaskTimedOutEventAttributes) (\s@HistoryEvent' {} a -> s {decisionTaskTimedOutEventAttributes = a} :: HistoryEvent)
 
+-- | If the event is of type @WorkflowExecutionContinuedAsNew@ then this
+-- member is set and provides detailed information about the event. It
+-- isn\'t set for other event types.
+historyEvent_workflowExecutionContinuedAsNewEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe WorkflowExecutionContinuedAsNewEventAttributes)
+historyEvent_workflowExecutionContinuedAsNewEventAttributes = Lens.lens (\HistoryEvent' {workflowExecutionContinuedAsNewEventAttributes} -> workflowExecutionContinuedAsNewEventAttributes) (\s@HistoryEvent' {} a -> s {workflowExecutionContinuedAsNewEventAttributes = a} :: HistoryEvent)
+
 -- | If the event is of type @WorkflowExecutionFailed@ then this member is
 -- set and provides detailed information about the event. It isn\'t set for
 -- other event types.
 historyEvent_workflowExecutionFailedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe WorkflowExecutionFailedEventAttributes)
 historyEvent_workflowExecutionFailedEventAttributes = Lens.lens (\HistoryEvent' {workflowExecutionFailedEventAttributes} -> workflowExecutionFailedEventAttributes) (\s@HistoryEvent' {} a -> s {workflowExecutionFailedEventAttributes = a} :: HistoryEvent)
+
+-- | If the event is of type @ContinueAsNewWorkflowExecutionFailed@ then this
+-- member is set and provides detailed information about the event. It
+-- isn\'t set for other event types.
+historyEvent_continueAsNewWorkflowExecutionFailedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe ContinueAsNewWorkflowExecutionFailedEventAttributes)
+historyEvent_continueAsNewWorkflowExecutionFailedEventAttributes = Lens.lens (\HistoryEvent' {continueAsNewWorkflowExecutionFailedEventAttributes} -> continueAsNewWorkflowExecutionFailedEventAttributes) (\s@HistoryEvent' {} a -> s {continueAsNewWorkflowExecutionFailedEventAttributes = a} :: HistoryEvent)
 
 -- | If the event is of type @ActivityTaskCompleted@ then this member is set
 -- and provides detailed information about the event. It isn\'t set for
@@ -1033,11 +1039,23 @@ historyEvent_activityTaskCompletedEventAttributes = Lens.lens (\HistoryEvent' {a
 historyEvent_signalExternalWorkflowExecutionInitiatedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe SignalExternalWorkflowExecutionInitiatedEventAttributes)
 historyEvent_signalExternalWorkflowExecutionInitiatedEventAttributes = Lens.lens (\HistoryEvent' {signalExternalWorkflowExecutionInitiatedEventAttributes} -> signalExternalWorkflowExecutionInitiatedEventAttributes) (\s@HistoryEvent' {} a -> s {signalExternalWorkflowExecutionInitiatedEventAttributes = a} :: HistoryEvent)
 
--- | If the event is of type @ContinueAsNewWorkflowExecutionFailed@ then this
+-- | If the event is of type @WorkflowExecutionStarted@ then this member is
+-- set and provides detailed information about the event. It isn\'t set for
+-- other event types.
+historyEvent_workflowExecutionStartedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe WorkflowExecutionStartedEventAttributes)
+historyEvent_workflowExecutionStartedEventAttributes = Lens.lens (\HistoryEvent' {workflowExecutionStartedEventAttributes} -> workflowExecutionStartedEventAttributes) (\s@HistoryEvent' {} a -> s {workflowExecutionStartedEventAttributes = a} :: HistoryEvent)
+
+-- | If the event is of type @StartChildWorkflowExecutionFailed@ then this
 -- member is set and provides detailed information about the event. It
 -- isn\'t set for other event types.
-historyEvent_continueAsNewWorkflowExecutionFailedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe ContinueAsNewWorkflowExecutionFailedEventAttributes)
-historyEvent_continueAsNewWorkflowExecutionFailedEventAttributes = Lens.lens (\HistoryEvent' {continueAsNewWorkflowExecutionFailedEventAttributes} -> continueAsNewWorkflowExecutionFailedEventAttributes) (\s@HistoryEvent' {} a -> s {continueAsNewWorkflowExecutionFailedEventAttributes = a} :: HistoryEvent)
+historyEvent_startChildWorkflowExecutionFailedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe StartChildWorkflowExecutionFailedEventAttributes)
+historyEvent_startChildWorkflowExecutionFailedEventAttributes = Lens.lens (\HistoryEvent' {startChildWorkflowExecutionFailedEventAttributes} -> startChildWorkflowExecutionFailedEventAttributes) (\s@HistoryEvent' {} a -> s {startChildWorkflowExecutionFailedEventAttributes = a} :: HistoryEvent)
+
+-- | If the event is of type @FailWorkflowExecutionFailed@ then this member
+-- is set and provides detailed information about the event. It isn\'t set
+-- for other event types.
+historyEvent_failWorkflowExecutionFailedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe FailWorkflowExecutionFailedEventAttributes)
+historyEvent_failWorkflowExecutionFailedEventAttributes = Lens.lens (\HistoryEvent' {failWorkflowExecutionFailedEventAttributes} -> failWorkflowExecutionFailedEventAttributes) (\s@HistoryEvent' {} a -> s {failWorkflowExecutionFailedEventAttributes = a} :: HistoryEvent)
 
 -- | If the event is of type @DecisionTaskCompleted@ then this member is set
 -- and provides detailed information about the event. It isn\'t set for
@@ -1051,23 +1069,10 @@ historyEvent_decisionTaskCompletedEventAttributes = Lens.lens (\HistoryEvent' {d
 historyEvent_requestCancelExternalWorkflowExecutionFailedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe RequestCancelExternalWorkflowExecutionFailedEventAttributes)
 historyEvent_requestCancelExternalWorkflowExecutionFailedEventAttributes = Lens.lens (\HistoryEvent' {requestCancelExternalWorkflowExecutionFailedEventAttributes} -> requestCancelExternalWorkflowExecutionFailedEventAttributes) (\s@HistoryEvent' {} a -> s {requestCancelExternalWorkflowExecutionFailedEventAttributes = a} :: HistoryEvent)
 
--- | If the event is of type @FailWorkflowExecutionFailed@ then this member
--- is set and provides detailed information about the event. It isn\'t set
--- for other event types.
-historyEvent_failWorkflowExecutionFailedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe FailWorkflowExecutionFailedEventAttributes)
-historyEvent_failWorkflowExecutionFailedEventAttributes = Lens.lens (\HistoryEvent' {failWorkflowExecutionFailedEventAttributes} -> failWorkflowExecutionFailedEventAttributes) (\s@HistoryEvent' {} a -> s {failWorkflowExecutionFailedEventAttributes = a} :: HistoryEvent)
-
--- | If the event is of type @WorkflowExecutionStarted@ then this member is
--- set and provides detailed information about the event. It isn\'t set for
--- other event types.
-historyEvent_workflowExecutionStartedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe WorkflowExecutionStartedEventAttributes)
-historyEvent_workflowExecutionStartedEventAttributes = Lens.lens (\HistoryEvent' {workflowExecutionStartedEventAttributes} -> workflowExecutionStartedEventAttributes) (\s@HistoryEvent' {} a -> s {workflowExecutionStartedEventAttributes = a} :: HistoryEvent)
-
--- | If the event is of type @StartChildWorkflowExecutionFailed@ then this
--- member is set and provides detailed information about the event. It
+-- | Provides the details of the @ScheduleLambdaFunctionFailed@ event. It
 -- isn\'t set for other event types.
-historyEvent_startChildWorkflowExecutionFailedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe StartChildWorkflowExecutionFailedEventAttributes)
-historyEvent_startChildWorkflowExecutionFailedEventAttributes = Lens.lens (\HistoryEvent' {startChildWorkflowExecutionFailedEventAttributes} -> startChildWorkflowExecutionFailedEventAttributes) (\s@HistoryEvent' {} a -> s {startChildWorkflowExecutionFailedEventAttributes = a} :: HistoryEvent)
+historyEvent_scheduleLambdaFunctionFailedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe ScheduleLambdaFunctionFailedEventAttributes)
+historyEvent_scheduleLambdaFunctionFailedEventAttributes = Lens.lens (\HistoryEvent' {scheduleLambdaFunctionFailedEventAttributes} -> scheduleLambdaFunctionFailedEventAttributes) (\s@HistoryEvent' {} a -> s {scheduleLambdaFunctionFailedEventAttributes = a} :: HistoryEvent)
 
 -- | If the event is of type @ExternalWorkflowExecutionSignaled@ then this
 -- member is set and provides detailed information about the event. It
@@ -1075,10 +1080,11 @@ historyEvent_startChildWorkflowExecutionFailedEventAttributes = Lens.lens (\Hist
 historyEvent_externalWorkflowExecutionSignaledEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe ExternalWorkflowExecutionSignaledEventAttributes)
 historyEvent_externalWorkflowExecutionSignaledEventAttributes = Lens.lens (\HistoryEvent' {externalWorkflowExecutionSignaledEventAttributes} -> externalWorkflowExecutionSignaledEventAttributes) (\s@HistoryEvent' {} a -> s {externalWorkflowExecutionSignaledEventAttributes = a} :: HistoryEvent)
 
--- | Provides the details of the @ScheduleLambdaFunctionFailed@ event. It
--- isn\'t set for other event types.
-historyEvent_scheduleLambdaFunctionFailedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe ScheduleLambdaFunctionFailedEventAttributes)
-historyEvent_scheduleLambdaFunctionFailedEventAttributes = Lens.lens (\HistoryEvent' {scheduleLambdaFunctionFailedEventAttributes} -> scheduleLambdaFunctionFailedEventAttributes) (\s@HistoryEvent' {} a -> s {scheduleLambdaFunctionFailedEventAttributes = a} :: HistoryEvent)
+-- | If the event is of type @TimerStarted@ then this member is set and
+-- provides detailed information about the event. It isn\'t set for other
+-- event types.
+historyEvent_timerStartedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe TimerStartedEventAttributes)
+historyEvent_timerStartedEventAttributes = Lens.lens (\HistoryEvent' {timerStartedEventAttributes} -> timerStartedEventAttributes) (\s@HistoryEvent' {} a -> s {timerStartedEventAttributes = a} :: HistoryEvent)
 
 -- | If the event is of type @ChildWorkflowExecutionCompleted@ then this
 -- member is set and provides detailed information about the event. It
@@ -1097,23 +1103,17 @@ historyEvent_lambdaFunctionFailedEventAttributes = Lens.lens (\HistoryEvent' {la
 historyEvent_childWorkflowExecutionTerminatedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe ChildWorkflowExecutionTerminatedEventAttributes)
 historyEvent_childWorkflowExecutionTerminatedEventAttributes = Lens.lens (\HistoryEvent' {childWorkflowExecutionTerminatedEventAttributes} -> childWorkflowExecutionTerminatedEventAttributes) (\s@HistoryEvent' {} a -> s {childWorkflowExecutionTerminatedEventAttributes = a} :: HistoryEvent)
 
--- | If the event is of type @TimerStarted@ then this member is set and
--- provides detailed information about the event. It isn\'t set for other
--- event types.
-historyEvent_timerStartedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe TimerStartedEventAttributes)
-historyEvent_timerStartedEventAttributes = Lens.lens (\HistoryEvent' {timerStartedEventAttributes} -> timerStartedEventAttributes) (\s@HistoryEvent' {} a -> s {timerStartedEventAttributes = a} :: HistoryEvent)
+-- | If the event is of type @SignalExternalWorkflowExecutionFailed@ then
+-- this member is set and provides detailed information about the event. It
+-- isn\'t set for other event types.
+historyEvent_signalExternalWorkflowExecutionFailedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe SignalExternalWorkflowExecutionFailedEventAttributes)
+historyEvent_signalExternalWorkflowExecutionFailedEventAttributes = Lens.lens (\HistoryEvent' {signalExternalWorkflowExecutionFailedEventAttributes} -> signalExternalWorkflowExecutionFailedEventAttributes) (\s@HistoryEvent' {} a -> s {signalExternalWorkflowExecutionFailedEventAttributes = a} :: HistoryEvent)
 
 -- | If the event is of type @ActivityTaskStarted@ then this member is set
 -- and provides detailed information about the event. It isn\'t set for
 -- other event types.
 historyEvent_activityTaskStartedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe ActivityTaskStartedEventAttributes)
 historyEvent_activityTaskStartedEventAttributes = Lens.lens (\HistoryEvent' {activityTaskStartedEventAttributes} -> activityTaskStartedEventAttributes) (\s@HistoryEvent' {} a -> s {activityTaskStartedEventAttributes = a} :: HistoryEvent)
-
--- | If the event is of type @SignalExternalWorkflowExecutionFailed@ then
--- this member is set and provides detailed information about the event. It
--- isn\'t set for other event types.
-historyEvent_signalExternalWorkflowExecutionFailedEventAttributes :: Lens.Lens' HistoryEvent (Prelude.Maybe SignalExternalWorkflowExecutionFailedEventAttributes)
-historyEvent_signalExternalWorkflowExecutionFailedEventAttributes = Lens.lens (\HistoryEvent' {signalExternalWorkflowExecutionFailedEventAttributes} -> signalExternalWorkflowExecutionFailedEventAttributes) (\s@HistoryEvent' {} a -> s {signalExternalWorkflowExecutionFailedEventAttributes = a} :: HistoryEvent)
 
 -- | The date and time when the event occurred.
 historyEvent_eventTimestamp :: Lens.Lens' HistoryEvent Prelude.UTCTime
@@ -1135,96 +1135,89 @@ instance Core.FromJSON HistoryEvent where
       ( \x ->
           HistoryEvent'
             Prelude.<$> ( x
-                            Core..:? "childWorkflowExecutionTimedOutEventAttributes"
+                            Core..:? "childWorkflowExecutionCanceledEventAttributes"
                         )
             Prelude.<*> ( x
                             Core..:? "requestCancelExternalWorkflowExecutionInitiatedEventAttributes"
                         )
-            Prelude.<*> (x Core..:? "lambdaFunctionStartedEventAttributes")
+            Prelude.<*> ( x
+                            Core..:? "childWorkflowExecutionTimedOutEventAttributes"
+                        )
             Prelude.<*> ( x
                             Core..:? "startChildWorkflowExecutionInitiatedEventAttributes"
                         )
             Prelude.<*> (x Core..:? "decisionTaskScheduledEventAttributes")
-            Prelude.<*> ( x
-                            Core..:? "childWorkflowExecutionCanceledEventAttributes"
-                        )
+            Prelude.<*> (x Core..:? "lambdaFunctionStartedEventAttributes")
             Prelude.<*> (x Core..:? "activityTaskCanceledEventAttributes")
             Prelude.<*> (x Core..:? "activityTaskTimedOutEventAttributes")
-            Prelude.<*> ( x
-                            Core..:? "externalWorkflowExecutionCancelRequestedEventAttributes"
-                        )
             Prelude.<*> (x Core..:? "cancelTimerFailedEventAttributes")
+            Prelude.<*> (x Core..:? "lambdaFunctionTimedOutEventAttributes")
             Prelude.<*> ( x
                             Core..:? "childWorkflowExecutionStartedEventAttributes"
                         )
-            Prelude.<*> (x Core..:? "lambdaFunctionTimedOutEventAttributes")
+            Prelude.<*> ( x
+                            Core..:? "externalWorkflowExecutionCancelRequestedEventAttributes"
+                        )
+            Prelude.<*> (x Core..:? "timerCanceledEventAttributes")
             Prelude.<*> ( x
                             Core..:? "childWorkflowExecutionFailedEventAttributes"
                         )
-            Prelude.<*> (x Core..:? "timerCanceledEventAttributes")
             Prelude.<*> (x Core..:? "lambdaFunctionCompletedEventAttributes")
+            Prelude.<*> (x Core..:? "activityTaskFailedEventAttributes")
             Prelude.<*> ( x
                             Core..:? "completeWorkflowExecutionFailedEventAttributes"
                         )
-            Prelude.<*> (x Core..:? "activityTaskFailedEventAttributes")
             Prelude.<*> (x Core..:? "timerFiredEventAttributes")
+            Prelude.<*> ( x
+                            Core..:? "workflowExecutionTimedOutEventAttributes"
+                        )
+            Prelude.<*> ( x
+                            Core..:? "workflowExecutionCanceledEventAttributes"
+                        )
+            Prelude.<*> ( x
+                            Core..:? "scheduleActivityTaskFailedEventAttributes"
+                        )
+            Prelude.<*> (x Core..:? "markerRecordedEventAttributes")
+            Prelude.<*> ( x
+                            Core..:? "startLambdaFunctionFailedEventAttributes"
+                        )
             Prelude.<*> ( x
                             Core..:? "workflowExecutionSignaledEventAttributes"
                         )
             Prelude.<*> ( x
                             Core..:? "activityTaskCancelRequestedEventAttributes"
                         )
-            Prelude.<*> ( x
-                            Core..:? "workflowExecutionCanceledEventAttributes"
-                        )
-            Prelude.<*> ( x
-                            Core..:? "startLambdaFunctionFailedEventAttributes"
-                        )
-            Prelude.<*> ( x
-                            Core..:? "scheduleActivityTaskFailedEventAttributes"
-                        )
-            Prelude.<*> ( x
-                            Core..:? "workflowExecutionTimedOutEventAttributes"
-                        )
-            Prelude.<*> (x Core..:? "markerRecordedEventAttributes")
             Prelude.<*> (x Core..:? "activityTaskScheduledEventAttributes")
+            Prelude.<*> (x Core..:? "decisionTaskStartedEventAttributes")
+            Prelude.<*> (x Core..:? "recordMarkerFailedEventAttributes")
+            Prelude.<*> (x Core..:? "lambdaFunctionScheduledEventAttributes")
             Prelude.<*> (x Core..:? "startTimerFailedEventAttributes")
             Prelude.<*> ( x
-                            Core..:? "workflowExecutionTerminatedEventAttributes"
+                            Core..:? "requestCancelActivityTaskFailedEventAttributes"
+                        )
+            Prelude.<*> ( x
+                            Core..:? "cancelWorkflowExecutionFailedEventAttributes"
                         )
             Prelude.<*> ( x
                             Core..:? "workflowExecutionCompletedEventAttributes"
                         )
             Prelude.<*> ( x
-                            Core..:? "requestCancelActivityTaskFailedEventAttributes"
+                            Core..:? "workflowExecutionTerminatedEventAttributes"
                         )
-            Prelude.<*> (x Core..:? "recordMarkerFailedEventAttributes")
-            Prelude.<*> ( x
-                            Core..:? "cancelWorkflowExecutionFailedEventAttributes"
-                        )
-            Prelude.<*> (x Core..:? "lambdaFunctionScheduledEventAttributes")
-            Prelude.<*> (x Core..:? "decisionTaskStartedEventAttributes")
             Prelude.<*> ( x
                             Core..:? "workflowExecutionCancelRequestedEventAttributes"
                         )
+            Prelude.<*> (x Core..:? "decisionTaskTimedOutEventAttributes")
             Prelude.<*> ( x
                             Core..:? "workflowExecutionContinuedAsNewEventAttributes"
                         )
-            Prelude.<*> (x Core..:? "decisionTaskTimedOutEventAttributes")
             Prelude.<*> (x Core..:? "workflowExecutionFailedEventAttributes")
-            Prelude.<*> (x Core..:? "activityTaskCompletedEventAttributes")
-            Prelude.<*> ( x
-                            Core..:? "signalExternalWorkflowExecutionInitiatedEventAttributes"
-                        )
             Prelude.<*> ( x
                             Core..:? "continueAsNewWorkflowExecutionFailedEventAttributes"
                         )
-            Prelude.<*> (x Core..:? "decisionTaskCompletedEventAttributes")
+            Prelude.<*> (x Core..:? "activityTaskCompletedEventAttributes")
             Prelude.<*> ( x
-                            Core..:? "requestCancelExternalWorkflowExecutionFailedEventAttributes"
-                        )
-            Prelude.<*> ( x
-                            Core..:? "failWorkflowExecutionFailedEventAttributes"
+                            Core..:? "signalExternalWorkflowExecutionInitiatedEventAttributes"
                         )
             Prelude.<*> ( x
                             Core..:? "workflowExecutionStartedEventAttributes"
@@ -1233,11 +1226,19 @@ instance Core.FromJSON HistoryEvent where
                             Core..:? "startChildWorkflowExecutionFailedEventAttributes"
                         )
             Prelude.<*> ( x
-                            Core..:? "externalWorkflowExecutionSignaledEventAttributes"
+                            Core..:? "failWorkflowExecutionFailedEventAttributes"
+                        )
+            Prelude.<*> (x Core..:? "decisionTaskCompletedEventAttributes")
+            Prelude.<*> ( x
+                            Core..:? "requestCancelExternalWorkflowExecutionFailedEventAttributes"
                         )
             Prelude.<*> ( x
                             Core..:? "scheduleLambdaFunctionFailedEventAttributes"
                         )
+            Prelude.<*> ( x
+                            Core..:? "externalWorkflowExecutionSignaledEventAttributes"
+                        )
+            Prelude.<*> (x Core..:? "timerStartedEventAttributes")
             Prelude.<*> ( x
                             Core..:? "childWorkflowExecutionCompletedEventAttributes"
                         )
@@ -1245,11 +1246,10 @@ instance Core.FromJSON HistoryEvent where
             Prelude.<*> ( x
                             Core..:? "childWorkflowExecutionTerminatedEventAttributes"
                         )
-            Prelude.<*> (x Core..:? "timerStartedEventAttributes")
-            Prelude.<*> (x Core..:? "activityTaskStartedEventAttributes")
             Prelude.<*> ( x
                             Core..:? "signalExternalWorkflowExecutionFailedEventAttributes"
                         )
+            Prelude.<*> (x Core..:? "activityTaskStartedEventAttributes")
             Prelude.<*> (x Core..: "eventTimestamp")
             Prelude.<*> (x Core..: "eventType")
             Prelude.<*> (x Core..: "eventId")

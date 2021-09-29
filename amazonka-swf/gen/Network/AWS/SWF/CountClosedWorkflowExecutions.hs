@@ -65,8 +65,8 @@ module Network.AWS.SWF.CountClosedWorkflowExecutions
     countClosedWorkflowExecutions_tagFilter,
     countClosedWorkflowExecutions_closeTimeFilter,
     countClosedWorkflowExecutions_startTimeFilter,
-    countClosedWorkflowExecutions_executionFilter,
     countClosedWorkflowExecutions_closeStatusFilter,
+    countClosedWorkflowExecutions_executionFilter,
     countClosedWorkflowExecutions_domain,
 
     -- * Destructuring the Response
@@ -112,12 +112,6 @@ data CountClosedWorkflowExecutions = CountClosedWorkflowExecutions'
     -- @startTimeFilter@ and @closeTimeFilter@ are mutually exclusive. You must
     -- specify one of these in a request but not both.
     startTimeFilter :: Prelude.Maybe ExecutionTimeFilter,
-    -- | If specified, only workflow executions matching the @WorkflowId@ in the
-    -- filter are counted.
-    --
-    -- @closeStatusFilter@, @executionFilter@, @typeFilter@ and @tagFilter@ are
-    -- mutually exclusive. You can specify at most one of these in a request.
-    executionFilter :: Prelude.Maybe WorkflowExecutionFilter,
     -- | If specified, only workflow executions that match this close status are
     -- counted. This filter has an affect only if @executionStatus@ is
     -- specified as @CLOSED@.
@@ -125,6 +119,12 @@ data CountClosedWorkflowExecutions = CountClosedWorkflowExecutions'
     -- @closeStatusFilter@, @executionFilter@, @typeFilter@ and @tagFilter@ are
     -- mutually exclusive. You can specify at most one of these in a request.
     closeStatusFilter :: Prelude.Maybe CloseStatusFilter,
+    -- | If specified, only workflow executions matching the @WorkflowId@ in the
+    -- filter are counted.
+    --
+    -- @closeStatusFilter@, @executionFilter@, @typeFilter@ and @tagFilter@ are
+    -- mutually exclusive. You can specify at most one of these in a request.
+    executionFilter :: Prelude.Maybe WorkflowExecutionFilter,
     -- | The name of the domain containing the workflow executions to count.
     domain :: Prelude.Text
   }
@@ -162,15 +162,15 @@ data CountClosedWorkflowExecutions = CountClosedWorkflowExecutions'
 -- @startTimeFilter@ and @closeTimeFilter@ are mutually exclusive. You must
 -- specify one of these in a request but not both.
 --
--- 'executionFilter', 'countClosedWorkflowExecutions_executionFilter' - If specified, only workflow executions matching the @WorkflowId@ in the
--- filter are counted.
+-- 'closeStatusFilter', 'countClosedWorkflowExecutions_closeStatusFilter' - If specified, only workflow executions that match this close status are
+-- counted. This filter has an affect only if @executionStatus@ is
+-- specified as @CLOSED@.
 --
 -- @closeStatusFilter@, @executionFilter@, @typeFilter@ and @tagFilter@ are
 -- mutually exclusive. You can specify at most one of these in a request.
 --
--- 'closeStatusFilter', 'countClosedWorkflowExecutions_closeStatusFilter' - If specified, only workflow executions that match this close status are
--- counted. This filter has an affect only if @executionStatus@ is
--- specified as @CLOSED@.
+-- 'executionFilter', 'countClosedWorkflowExecutions_executionFilter' - If specified, only workflow executions matching the @WorkflowId@ in the
+-- filter are counted.
 --
 -- @closeStatusFilter@, @executionFilter@, @typeFilter@ and @tagFilter@ are
 -- mutually exclusive. You can specify at most one of these in a request.
@@ -187,8 +187,8 @@ newCountClosedWorkflowExecutions pDomain_ =
       tagFilter = Prelude.Nothing,
       closeTimeFilter = Prelude.Nothing,
       startTimeFilter = Prelude.Nothing,
-      executionFilter = Prelude.Nothing,
       closeStatusFilter = Prelude.Nothing,
+      executionFilter = Prelude.Nothing,
       domain = pDomain_
     }
 
@@ -224,14 +224,6 @@ countClosedWorkflowExecutions_closeTimeFilter = Lens.lens (\CountClosedWorkflowE
 countClosedWorkflowExecutions_startTimeFilter :: Lens.Lens' CountClosedWorkflowExecutions (Prelude.Maybe ExecutionTimeFilter)
 countClosedWorkflowExecutions_startTimeFilter = Lens.lens (\CountClosedWorkflowExecutions' {startTimeFilter} -> startTimeFilter) (\s@CountClosedWorkflowExecutions' {} a -> s {startTimeFilter = a} :: CountClosedWorkflowExecutions)
 
--- | If specified, only workflow executions matching the @WorkflowId@ in the
--- filter are counted.
---
--- @closeStatusFilter@, @executionFilter@, @typeFilter@ and @tagFilter@ are
--- mutually exclusive. You can specify at most one of these in a request.
-countClosedWorkflowExecutions_executionFilter :: Lens.Lens' CountClosedWorkflowExecutions (Prelude.Maybe WorkflowExecutionFilter)
-countClosedWorkflowExecutions_executionFilter = Lens.lens (\CountClosedWorkflowExecutions' {executionFilter} -> executionFilter) (\s@CountClosedWorkflowExecutions' {} a -> s {executionFilter = a} :: CountClosedWorkflowExecutions)
-
 -- | If specified, only workflow executions that match this close status are
 -- counted. This filter has an affect only if @executionStatus@ is
 -- specified as @CLOSED@.
@@ -240,6 +232,14 @@ countClosedWorkflowExecutions_executionFilter = Lens.lens (\CountClosedWorkflowE
 -- mutually exclusive. You can specify at most one of these in a request.
 countClosedWorkflowExecutions_closeStatusFilter :: Lens.Lens' CountClosedWorkflowExecutions (Prelude.Maybe CloseStatusFilter)
 countClosedWorkflowExecutions_closeStatusFilter = Lens.lens (\CountClosedWorkflowExecutions' {closeStatusFilter} -> closeStatusFilter) (\s@CountClosedWorkflowExecutions' {} a -> s {closeStatusFilter = a} :: CountClosedWorkflowExecutions)
+
+-- | If specified, only workflow executions matching the @WorkflowId@ in the
+-- filter are counted.
+--
+-- @closeStatusFilter@, @executionFilter@, @typeFilter@ and @tagFilter@ are
+-- mutually exclusive. You can specify at most one of these in a request.
+countClosedWorkflowExecutions_executionFilter :: Lens.Lens' CountClosedWorkflowExecutions (Prelude.Maybe WorkflowExecutionFilter)
+countClosedWorkflowExecutions_executionFilter = Lens.lens (\CountClosedWorkflowExecutions' {executionFilter} -> executionFilter) (\s@CountClosedWorkflowExecutions' {} a -> s {executionFilter = a} :: CountClosedWorkflowExecutions)
 
 -- | The name of the domain containing the workflow executions to count.
 countClosedWorkflowExecutions_domain :: Lens.Lens' CountClosedWorkflowExecutions Prelude.Text
@@ -288,10 +288,10 @@ instance Core.ToJSON CountClosedWorkflowExecutions where
               Prelude.<$> closeTimeFilter,
             ("startTimeFilter" Core..=)
               Prelude.<$> startTimeFilter,
-            ("executionFilter" Core..=)
-              Prelude.<$> executionFilter,
             ("closeStatusFilter" Core..=)
               Prelude.<$> closeStatusFilter,
+            ("executionFilter" Core..=)
+              Prelude.<$> executionFilter,
             Prelude.Just ("domain" Core..= domain)
           ]
       )

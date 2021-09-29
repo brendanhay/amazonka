@@ -24,17 +24,25 @@ import Network.AWS.GameLift.Types.CertificateType
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Information about the use of a TLS\/SSL certificate for a fleet. TLS
--- certificate generation is enabled at the fleet level, with one
--- certificate generated for the fleet. When this feature is enabled, the
--- certificate can be retrieved using the
+-- | Determines whether a TLS\/SSL certificate is generated for a fleet. This
+-- feature must be enabled when creating the fleet. All instances in a
+-- fleet share the same certificate. The certificate can be retrieved by
+-- calling the
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk.html GameLift Server SDK>
--- call @GetInstanceCertificate@. All instances in a fleet share the same
--- certificate.
+-- operation @GetInstanceCertificate@.
+--
+-- A fleet\'s certificate configuration is part of FleetAttributes.
 --
 -- /See:/ 'newCertificateConfiguration' smart constructor.
 data CertificateConfiguration = CertificateConfiguration'
-  { -- | Indicates whether a TLS\/SSL certificate was generated for a fleet.
+  { -- | Indicates whether a TLS\/SSL certificate is generated for a fleet.
+    --
+    -- Valid values include:
+    --
+    -- -   __GENERATED__ - Generate a TLS\/SSL certificate for this fleet.
+    --
+    -- -   __DISABLED__ - (default) Do not generate a TLS\/SSL certificate for
+    --     this fleet.
     certificateType :: CertificateType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,7 +55,14 @@ data CertificateConfiguration = CertificateConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'certificateType', 'certificateConfiguration_certificateType' - Indicates whether a TLS\/SSL certificate was generated for a fleet.
+-- 'certificateType', 'certificateConfiguration_certificateType' - Indicates whether a TLS\/SSL certificate is generated for a fleet.
+--
+-- Valid values include:
+--
+-- -   __GENERATED__ - Generate a TLS\/SSL certificate for this fleet.
+--
+-- -   __DISABLED__ - (default) Do not generate a TLS\/SSL certificate for
+--     this fleet.
 newCertificateConfiguration ::
   -- | 'certificateType'
   CertificateType ->
@@ -58,7 +73,14 @@ newCertificateConfiguration pCertificateType_ =
         pCertificateType_
     }
 
--- | Indicates whether a TLS\/SSL certificate was generated for a fleet.
+-- | Indicates whether a TLS\/SSL certificate is generated for a fleet.
+--
+-- Valid values include:
+--
+-- -   __GENERATED__ - Generate a TLS\/SSL certificate for this fleet.
+--
+-- -   __DISABLED__ - (default) Do not generate a TLS\/SSL certificate for
+--     this fleet.
 certificateConfiguration_certificateType :: Lens.Lens' CertificateConfiguration CertificateType
 certificateConfiguration_certificateType = Lens.lens (\CertificateConfiguration' {certificateType} -> certificateType) (\s@CertificateConfiguration' {} a -> s {certificateType = a} :: CertificateConfiguration)
 

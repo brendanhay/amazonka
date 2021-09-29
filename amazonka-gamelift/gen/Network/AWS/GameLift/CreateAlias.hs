@@ -38,17 +38,11 @@
 -- returned, including an alias ID and an ARN. You can reassign an alias to
 -- another fleet by calling @UpdateAlias@.
 --
--- -   CreateAlias
+-- __Related actions__
 --
--- -   ListAliases
---
--- -   DescribeAlias
---
--- -   UpdateAlias
---
--- -   DeleteAlias
---
--- -   ResolveAlias
+-- CreateAlias | ListAliases | DescribeAlias | UpdateAlias | DeleteAlias |
+-- ResolveAlias |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.CreateAlias
   ( -- * Creating a Request
     CreateAlias (..),

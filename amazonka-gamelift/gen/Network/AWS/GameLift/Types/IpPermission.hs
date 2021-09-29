@@ -25,13 +25,16 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | A range of IP addresses and port settings that allow inbound traffic to
--- connect to server processes on an Amazon GameLift hosting resource. New
--- game sessions that are started on the fleet are assigned an IP
--- address\/port number combination, which must fall into the fleet\'s
--- allowed ranges. For fleets created with a custom game server, the ranges
--- reflect the server\'s game session assignments. For Realtime Servers
--- fleets, Amazon GameLift automatically opens two port ranges, one for TCP
--- messaging and one for UDP for use by the Realtime servers.
+-- connect to server processes on an instance in a fleet. New game sessions
+-- are assigned an IP address\/port number combination, which must fall
+-- into the fleet\'s allowed ranges. Fleets with custom game builds must
+-- have permissions explicitly set. For Realtime Servers fleets, GameLift
+-- automatically opens two port ranges, one for TCP messaging and one for
+-- UDP.
+--
+-- __Related actions__
+--
+-- DescribeFleetPortSettings
 --
 -- /See:/ 'newIpPermission' smart constructor.
 data IpPermission = IpPermission'

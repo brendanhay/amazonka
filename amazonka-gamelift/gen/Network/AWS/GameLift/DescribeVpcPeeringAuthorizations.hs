@@ -25,17 +25,12 @@
 -- requests for peering. This includes those initiated and received by this
 -- account.
 --
--- -   CreateVpcPeeringAuthorization
+-- __Related actions__
 --
--- -   DescribeVpcPeeringAuthorizations
---
--- -   DeleteVpcPeeringAuthorization
---
--- -   CreateVpcPeeringConnection
---
--- -   DescribeVpcPeeringConnections
---
--- -   DeleteVpcPeeringConnection
+-- CreateVpcPeeringAuthorization | DescribeVpcPeeringAuthorizations |
+-- DeleteVpcPeeringAuthorization | CreateVpcPeeringConnection |
+-- DescribeVpcPeeringConnections | DeleteVpcPeeringConnection |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.DescribeVpcPeeringAuthorizations
   ( -- * Creating a Request
     DescribeVpcPeeringAuthorizations (..),

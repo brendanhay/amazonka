@@ -25,17 +25,11 @@
 -- receive an error. To delete an alias, specify the alias ID to be
 -- deleted.
 --
--- -   CreateAlias
+-- __Related actions__
 --
--- -   ListAliases
---
--- -   DescribeAlias
---
--- -   UpdateAlias
---
--- -   DeleteAlias
---
--- -   ResolveAlias
+-- CreateAlias | ListAliases | DescribeAlias | UpdateAlias | DeleteAlias |
+-- ResolveAlias |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.DeleteAlias
   ( -- * Creating a Request
     DeleteAlias (..),

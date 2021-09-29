@@ -20,34 +20,28 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Reserves open slots in a game session for a group of players. Before
--- players can be added, a game session must have an @ACTIVE@ status, have
--- a creation policy of @ALLOW_ALL@, and have an open player slot. To add a
--- single player to a game session, use CreatePlayerSession. When a player
--- connects to the game server and references a player session ID, the game
--- server contacts the Amazon GameLift service to validate the player
--- reservation and accept the player.
+-- Reserves open slots in a game session for a group of players. New player
+-- sessions can be created in any game session with an open slot that is in
+-- @ACTIVE@ status and has a player creation policy of @ACCEPT_ALL@. To add
+-- a single player to a game session, use CreatePlayerSession.
 --
--- To create player sessions, specify a game session ID, a list of player
--- IDs, and optionally a set of player data strings. If successful, a slot
--- is reserved in the game session for each player and a set of new
--- PlayerSession objects is returned. Player sessions cannot be updated.
+-- To create player sessions, specify a game session ID and a list of
+-- player IDs. Optionally, provide a set of player data for each player ID.
+--
+-- If successful, a slot is reserved in the game session for each player,
+-- and new PlayerSession objects are returned with player session IDs. Each
+-- player references their player session ID when sending a connection
+-- request to the game session, and the game server can use it to validate
+-- the player reservation with the GameLift service. Player sessions cannot
+-- be updated.
 --
 -- /Available in Amazon GameLift Local./
 --
--- -   CreatePlayerSession
+-- __Related actions__
 --
--- -   CreatePlayerSessions
---
--- -   DescribePlayerSessions
---
--- -   Game session placements
---
---     -   StartGameSessionPlacement
---
---     -   DescribeGameSessionPlacement
---
---     -   StopGameSessionPlacement
+-- CreatePlayerSession | CreatePlayerSessions | DescribePlayerSessions |
+-- StartGameSessionPlacement | DescribeGameSessionPlacement |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.CreatePlayerSessions
   ( -- * Creating a Request
     CreatePlayerSessions (..),
@@ -82,8 +76,8 @@ data CreatePlayerSessions = CreatePlayerSessions'
   { -- | Map of string pairs, each specifying a player ID and a set of
     -- developer-defined information related to the player. Amazon GameLift
     -- does not use this data, so it can be formatted as needed for use in the
-    -- game. Player data strings for player IDs not included in the @PlayerIds@
-    -- parameter are ignored.
+    -- game. Any player data strings for player IDs that are not included in
+    -- the @PlayerIds@ parameter are ignored.
     playerDataMap :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | A unique identifier for the game session to add players to.
     gameSessionId :: Prelude.Text,
@@ -103,8 +97,8 @@ data CreatePlayerSessions = CreatePlayerSessions'
 -- 'playerDataMap', 'createPlayerSessions_playerDataMap' - Map of string pairs, each specifying a player ID and a set of
 -- developer-defined information related to the player. Amazon GameLift
 -- does not use this data, so it can be formatted as needed for use in the
--- game. Player data strings for player IDs not included in the @PlayerIds@
--- parameter are ignored.
+-- game. Any player data strings for player IDs that are not included in
+-- the @PlayerIds@ parameter are ignored.
 --
 -- 'gameSessionId', 'createPlayerSessions_gameSessionId' - A unique identifier for the game session to add players to.
 --
@@ -126,8 +120,8 @@ newCreatePlayerSessions pGameSessionId_ pPlayerIds_ =
 -- | Map of string pairs, each specifying a player ID and a set of
 -- developer-defined information related to the player. Amazon GameLift
 -- does not use this data, so it can be formatted as needed for use in the
--- game. Player data strings for player IDs not included in the @PlayerIds@
--- parameter are ignored.
+-- game. Any player data strings for player IDs that are not included in
+-- the @PlayerIds@ parameter are ignored.
 createPlayerSessions_playerDataMap :: Lens.Lens' CreatePlayerSessions (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createPlayerSessions_playerDataMap = Lens.lens (\CreatePlayerSessions' {playerDataMap} -> playerDataMap) (\s@CreatePlayerSessions' {} a -> s {playerDataMap = a} :: CreatePlayerSessions) Prelude.. Lens.mapping Lens._Coerce
 

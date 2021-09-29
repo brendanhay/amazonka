@@ -27,17 +27,11 @@
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html Amazon GameLift Realtime Servers>
 --
--- __Related operations__
+-- __Related actions__
 --
--- -   CreateScript
---
--- -   ListScripts
---
--- -   DescribeScript
---
--- -   UpdateScript
---
--- -   DeleteScript
+-- CreateScript | ListScripts | DescribeScript | UpdateScript |
+-- DeleteScript |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 --
 -- This operation returns paginated results.
 module Network.AWS.GameLift.ListScripts

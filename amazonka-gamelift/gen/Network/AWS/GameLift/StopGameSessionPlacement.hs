@@ -24,25 +24,13 @@
 -- placement, provide the placement ID values. If successful, the placement
 -- is moved to @CANCELLED@ status.
 --
--- -   CreateGameSession
+-- __Related actions__
 --
--- -   DescribeGameSessions
---
--- -   DescribeGameSessionDetails
---
--- -   SearchGameSessions
---
--- -   UpdateGameSession
---
--- -   GetGameSessionLogUrl
---
--- -   Game session placements
---
---     -   StartGameSessionPlacement
---
---     -   DescribeGameSessionPlacement
---
---     -   StopGameSessionPlacement
+-- CreateGameSession | DescribeGameSessions | DescribeGameSessionDetails |
+-- SearchGameSessions | UpdateGameSession | GetGameSessionLogUrl |
+-- StartGameSessionPlacement | DescribeGameSessionPlacement |
+-- StopGameSessionPlacement |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.StopGameSessionPlacement
   ( -- * Creating a Request
     StopGameSessionPlacement (..),

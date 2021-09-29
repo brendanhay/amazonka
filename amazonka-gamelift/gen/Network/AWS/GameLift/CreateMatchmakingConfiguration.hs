@@ -39,48 +39,36 @@
 -- to use when starting a game session for the match.
 --
 -- In addition, you must set up an Amazon Simple Notification Service (SNS)
--- to receive matchmaking notifications, and provide the topic ARN in the
+-- topic to receive matchmaking notifications. Provide the topic ARN in the
 -- matchmaking configuration. An alternative method, continuously polling
 -- ticket status with DescribeMatchmaking, is only suitable for games in
 -- development with low matchmaking usage.
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html FlexMatch Developer Guide>
+-- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-configuration.html Design a FlexMatch matchmaker>
 --
--- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-configuration.html Design a FlexMatch Matchmaker>
+-- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html Set up FlexMatch event notification>
 --
--- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html Set Up FlexMatch Event Notification>
+-- __Related actions__
 --
--- __Related operations__
---
--- -   CreateMatchmakingConfiguration
---
--- -   DescribeMatchmakingConfigurations
---
--- -   UpdateMatchmakingConfiguration
---
--- -   DeleteMatchmakingConfiguration
---
--- -   CreateMatchmakingRuleSet
---
--- -   DescribeMatchmakingRuleSets
---
--- -   ValidateMatchmakingRuleSet
---
--- -   DeleteMatchmakingRuleSet
+-- CreateMatchmakingConfiguration | DescribeMatchmakingConfigurations |
+-- UpdateMatchmakingConfiguration | DeleteMatchmakingConfiguration |
+-- CreateMatchmakingRuleSet | DescribeMatchmakingRuleSets |
+-- ValidateMatchmakingRuleSet | DeleteMatchmakingRuleSet |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.CreateMatchmakingConfiguration
   ( -- * Creating a Request
     CreateMatchmakingConfiguration (..),
     newCreateMatchmakingConfiguration,
 
     -- * Request Lenses
-    createMatchmakingConfiguration_customEventData,
-    createMatchmakingConfiguration_gameProperties,
     createMatchmakingConfiguration_flexMatchMode,
+    createMatchmakingConfiguration_customEventData,
     createMatchmakingConfiguration_backfillMode,
-    createMatchmakingConfiguration_additionalPlayerCount,
+    createMatchmakingConfiguration_gameProperties,
     createMatchmakingConfiguration_acceptanceTimeoutSeconds,
+    createMatchmakingConfiguration_additionalPlayerCount,
     createMatchmakingConfiguration_gameSessionData,
     createMatchmakingConfiguration_gameSessionQueueArns,
     createMatchmakingConfiguration_notificationTarget,
@@ -112,18 +100,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateMatchmakingConfiguration' smart constructor.
 data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
-  { -- | Information to be added to all events related to this matchmaking
-    -- configuration.
-    customEventData :: Prelude.Maybe Prelude.Text,
-    -- | A set of custom properties for a game session, formatted as key-value
-    -- pairs. These properties are passed to a game server process in the
-    -- GameSession object with a request to start a new game session (see
-    -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
-    -- This information is added to the new GameSession object that is created
-    -- for a successful match. This parameter is not used if @FlexMatchMode@ is
-    -- set to @STANDALONE@.
-    gameProperties :: Prelude.Maybe [GameProperty],
-    -- | Indicates whether this matchmaking configuration is being used with
+  { -- | Indicates whether this matchmaking configuration is being used with
     -- GameLift hosting or as a standalone matchmaking solution.
     --
     -- -   __STANDALONE__ - FlexMatch forms matches and returns match
@@ -134,6 +111,9 @@ data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
     -- -   __WITH_QUEUE__ - FlexMatch forms matches and uses the specified
     --     GameLift queue to start a game session for the match.
     flexMatchMode :: Prelude.Maybe FlexMatchMode,
+    -- | Information to be added to all events related to this matchmaking
+    -- configuration.
+    customEventData :: Prelude.Maybe Prelude.Text,
     -- | The method used to backfill game sessions that are created with this
     -- matchmaking configuration. Specify @MANUAL@ when your game manages
     -- backfill requests manually or does not use the match backfill feature.
@@ -144,17 +124,23 @@ data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
     -- Automatic backfill is not available when @FlexMatchMode@ is set to
     -- @STANDALONE@.
     backfillMode :: Prelude.Maybe BackfillMode,
-    -- | The number of player slots in a match to keep open for future players.
-    -- For example, assume that the configuration\'s rule set specifies a match
-    -- for a single 12-person team. If the additional player count is set to 2,
-    -- only 10 players are initially selected for the match. This parameter is
-    -- not used if @FlexMatchMode@ is set to @STANDALONE@.
-    additionalPlayerCount :: Prelude.Maybe Prelude.Natural,
+    -- | A set of custom properties for a game session, formatted as key:value
+    -- pairs. These properties are passed to a game server process in the
+    -- GameSession object with a request to start a new game session (see
+    -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
+    -- This information is added to the new GameSession object that is created
+    -- for a successful match. This parameter is not used if @FlexMatchMode@ is
+    -- set to @STANDALONE@.
+    gameProperties :: Prelude.Maybe [GameProperty],
     -- | The length of time (in seconds) to wait for players to accept a proposed
-    -- match, if acceptance is required. If any player rejects the match or
-    -- fails to accept before the timeout, the tickets are returned to the
-    -- ticket pool and continue to be evaluated for an acceptable match.
+    -- match, if acceptance is required.
     acceptanceTimeoutSeconds :: Prelude.Maybe Prelude.Natural,
+    -- | The number of player slots in a match to keep open for future players.
+    -- For example, if the configuration\'s rule set specifies a match for a
+    -- single 12-person team, and the additional player count is set to 2, only
+    -- 10 players are selected for the match. This parameter is not used if
+    -- @FlexMatchMode@ is set to @STANDALONE@.
+    additionalPlayerCount :: Prelude.Maybe Prelude.Natural,
     -- | A set of custom game session properties, formatted as a single string
     -- value. This data is passed to a game server process in the GameSession
     -- object with a request to start a new game session (see
@@ -163,16 +149,20 @@ data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
     -- for a successful match. This parameter is not used if @FlexMatchMode@ is
     -- set to @STANDALONE@.
     gameSessionData :: Prelude.Maybe Prelude.Text,
-    -- | Amazon Resource Name
-    -- (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>)
+    -- | The Amazon Resource Name
+    -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
     -- that is assigned to a GameLift game session queue resource and uniquely
-    -- identifies it. ARNs are unique across all Regions. Queues can be located
-    -- in any Region. Queues are used to start new GameLift-hosted game
-    -- sessions for matches that are created with this matchmaking
-    -- configuration. If @FlexMatchMode@ is set to @STANDALONE@, do not set
-    -- this parameter.
+    -- identifies it. ARNs are unique across all Regions. Format is
+    -- @arn:aws:gamelift:\<region>::gamesessionqueue\/\<queue name>@. Queues
+    -- can be located in any Region. Queues are used to start new
+    -- GameLift-hosted game sessions for matches that are created with this
+    -- matchmaking configuration. If @FlexMatchMode@ is set to @STANDALONE@, do
+    -- not set this parameter.
     gameSessionQueueArns :: Prelude.Maybe [Prelude.Text],
     -- | An SNS topic ARN that is set up to receive matchmaking notifications.
+    -- See
+    -- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html Setting up notifications for matchmaking>
+    -- for more information.
     notificationTarget :: Prelude.Maybe Prelude.Text,
     -- | A list of labels to assign to the new matchmaking configuration
     -- resource. Tags are developer-defined key-value pairs. Tagging AWS
@@ -186,7 +176,7 @@ data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
     tags :: Prelude.Maybe [Tag],
     -- | A human-readable description of the matchmaking configuration.
     description :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for a matchmaking configuration. This name is used
+    -- | A unique identifier for the matchmaking configuration. This name is used
     -- to identify the configuration associated with a matchmaking request or
     -- ticket.
     name :: Prelude.Text,
@@ -200,7 +190,7 @@ data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
     -- use the status @REQUIRES_ACCEPTANCE@ to indicate when a completed
     -- potential match is waiting for player acceptance.
     acceptanceRequired :: Prelude.Bool,
-    -- | A unique identifier for a matchmaking rule set to use with this
+    -- | A unique identifier for the matchmaking rule set to use with this
     -- configuration. You can use either the rule set name or ARN value. A
     -- matchmaking configuration can only use rule sets that are defined in the
     -- same Region.
@@ -216,17 +206,6 @@ data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'customEventData', 'createMatchmakingConfiguration_customEventData' - Information to be added to all events related to this matchmaking
--- configuration.
---
--- 'gameProperties', 'createMatchmakingConfiguration_gameProperties' - A set of custom properties for a game session, formatted as key-value
--- pairs. These properties are passed to a game server process in the
--- GameSession object with a request to start a new game session (see
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
--- This information is added to the new GameSession object that is created
--- for a successful match. This parameter is not used if @FlexMatchMode@ is
--- set to @STANDALONE@.
---
 -- 'flexMatchMode', 'createMatchmakingConfiguration_flexMatchMode' - Indicates whether this matchmaking configuration is being used with
 -- GameLift hosting or as a standalone matchmaking solution.
 --
@@ -238,6 +217,9 @@ data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
 -- -   __WITH_QUEUE__ - FlexMatch forms matches and uses the specified
 --     GameLift queue to start a game session for the match.
 --
+-- 'customEventData', 'createMatchmakingConfiguration_customEventData' - Information to be added to all events related to this matchmaking
+-- configuration.
+--
 -- 'backfillMode', 'createMatchmakingConfiguration_backfillMode' - The method used to backfill game sessions that are created with this
 -- matchmaking configuration. Specify @MANUAL@ when your game manages
 -- backfill requests manually or does not use the match backfill feature.
@@ -248,16 +230,22 @@ data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
 -- Automatic backfill is not available when @FlexMatchMode@ is set to
 -- @STANDALONE@.
 --
--- 'additionalPlayerCount', 'createMatchmakingConfiguration_additionalPlayerCount' - The number of player slots in a match to keep open for future players.
--- For example, assume that the configuration\'s rule set specifies a match
--- for a single 12-person team. If the additional player count is set to 2,
--- only 10 players are initially selected for the match. This parameter is
--- not used if @FlexMatchMode@ is set to @STANDALONE@.
+-- 'gameProperties', 'createMatchmakingConfiguration_gameProperties' - A set of custom properties for a game session, formatted as key:value
+-- pairs. These properties are passed to a game server process in the
+-- GameSession object with a request to start a new game session (see
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
+-- This information is added to the new GameSession object that is created
+-- for a successful match. This parameter is not used if @FlexMatchMode@ is
+-- set to @STANDALONE@.
 --
 -- 'acceptanceTimeoutSeconds', 'createMatchmakingConfiguration_acceptanceTimeoutSeconds' - The length of time (in seconds) to wait for players to accept a proposed
--- match, if acceptance is required. If any player rejects the match or
--- fails to accept before the timeout, the tickets are returned to the
--- ticket pool and continue to be evaluated for an acceptable match.
+-- match, if acceptance is required.
+--
+-- 'additionalPlayerCount', 'createMatchmakingConfiguration_additionalPlayerCount' - The number of player slots in a match to keep open for future players.
+-- For example, if the configuration\'s rule set specifies a match for a
+-- single 12-person team, and the additional player count is set to 2, only
+-- 10 players are selected for the match. This parameter is not used if
+-- @FlexMatchMode@ is set to @STANDALONE@.
 --
 -- 'gameSessionData', 'createMatchmakingConfiguration_gameSessionData' - A set of custom game session properties, formatted as a single string
 -- value. This data is passed to a game server process in the GameSession
@@ -267,16 +255,20 @@ data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
 -- for a successful match. This parameter is not used if @FlexMatchMode@ is
 -- set to @STANDALONE@.
 --
--- 'gameSessionQueueArns', 'createMatchmakingConfiguration_gameSessionQueueArns' - Amazon Resource Name
--- (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>)
+-- 'gameSessionQueueArns', 'createMatchmakingConfiguration_gameSessionQueueArns' - The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
 -- that is assigned to a GameLift game session queue resource and uniquely
--- identifies it. ARNs are unique across all Regions. Queues can be located
--- in any Region. Queues are used to start new GameLift-hosted game
--- sessions for matches that are created with this matchmaking
--- configuration. If @FlexMatchMode@ is set to @STANDALONE@, do not set
--- this parameter.
+-- identifies it. ARNs are unique across all Regions. Format is
+-- @arn:aws:gamelift:\<region>::gamesessionqueue\/\<queue name>@. Queues
+-- can be located in any Region. Queues are used to start new
+-- GameLift-hosted game sessions for matches that are created with this
+-- matchmaking configuration. If @FlexMatchMode@ is set to @STANDALONE@, do
+-- not set this parameter.
 --
 -- 'notificationTarget', 'createMatchmakingConfiguration_notificationTarget' - An SNS topic ARN that is set up to receive matchmaking notifications.
+-- See
+-- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html Setting up notifications for matchmaking>
+-- for more information.
 --
 -- 'tags', 'createMatchmakingConfiguration_tags' - A list of labels to assign to the new matchmaking configuration
 -- resource. Tags are developer-defined key-value pairs. Tagging AWS
@@ -290,7 +282,7 @@ data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
 --
 -- 'description', 'createMatchmakingConfiguration_description' - A human-readable description of the matchmaking configuration.
 --
--- 'name', 'createMatchmakingConfiguration_name' - A unique identifier for a matchmaking configuration. This name is used
+-- 'name', 'createMatchmakingConfiguration_name' - A unique identifier for the matchmaking configuration. This name is used
 -- to identify the configuration associated with a matchmaking request or
 -- ticket.
 --
@@ -304,7 +296,7 @@ data CreateMatchmakingConfiguration = CreateMatchmakingConfiguration'
 -- use the status @REQUIRES_ACCEPTANCE@ to indicate when a completed
 -- potential match is waiting for player acceptance.
 --
--- 'ruleSetName', 'createMatchmakingConfiguration_ruleSetName' - A unique identifier for a matchmaking rule set to use with this
+-- 'ruleSetName', 'createMatchmakingConfiguration_ruleSetName' - A unique identifier for the matchmaking rule set to use with this
 -- configuration. You can use either the rule set name or ARN value. A
 -- matchmaking configuration can only use rule sets that are defined in the
 -- same Region.
@@ -324,13 +316,13 @@ newCreateMatchmakingConfiguration
   pAcceptanceRequired_
   pRuleSetName_ =
     CreateMatchmakingConfiguration'
-      { customEventData =
+      { flexMatchMode =
           Prelude.Nothing,
-        gameProperties = Prelude.Nothing,
-        flexMatchMode = Prelude.Nothing,
+        customEventData = Prelude.Nothing,
         backfillMode = Prelude.Nothing,
-        additionalPlayerCount = Prelude.Nothing,
+        gameProperties = Prelude.Nothing,
         acceptanceTimeoutSeconds = Prelude.Nothing,
+        additionalPlayerCount = Prelude.Nothing,
         gameSessionData = Prelude.Nothing,
         gameSessionQueueArns = Prelude.Nothing,
         notificationTarget = Prelude.Nothing,
@@ -342,21 +334,6 @@ newCreateMatchmakingConfiguration
         acceptanceRequired = pAcceptanceRequired_,
         ruleSetName = pRuleSetName_
       }
-
--- | Information to be added to all events related to this matchmaking
--- configuration.
-createMatchmakingConfiguration_customEventData :: Lens.Lens' CreateMatchmakingConfiguration (Prelude.Maybe Prelude.Text)
-createMatchmakingConfiguration_customEventData = Lens.lens (\CreateMatchmakingConfiguration' {customEventData} -> customEventData) (\s@CreateMatchmakingConfiguration' {} a -> s {customEventData = a} :: CreateMatchmakingConfiguration)
-
--- | A set of custom properties for a game session, formatted as key-value
--- pairs. These properties are passed to a game server process in the
--- GameSession object with a request to start a new game session (see
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
--- This information is added to the new GameSession object that is created
--- for a successful match. This parameter is not used if @FlexMatchMode@ is
--- set to @STANDALONE@.
-createMatchmakingConfiguration_gameProperties :: Lens.Lens' CreateMatchmakingConfiguration (Prelude.Maybe [GameProperty])
-createMatchmakingConfiguration_gameProperties = Lens.lens (\CreateMatchmakingConfiguration' {gameProperties} -> gameProperties) (\s@CreateMatchmakingConfiguration' {} a -> s {gameProperties = a} :: CreateMatchmakingConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Indicates whether this matchmaking configuration is being used with
 -- GameLift hosting or as a standalone matchmaking solution.
@@ -371,6 +348,11 @@ createMatchmakingConfiguration_gameProperties = Lens.lens (\CreateMatchmakingCon
 createMatchmakingConfiguration_flexMatchMode :: Lens.Lens' CreateMatchmakingConfiguration (Prelude.Maybe FlexMatchMode)
 createMatchmakingConfiguration_flexMatchMode = Lens.lens (\CreateMatchmakingConfiguration' {flexMatchMode} -> flexMatchMode) (\s@CreateMatchmakingConfiguration' {} a -> s {flexMatchMode = a} :: CreateMatchmakingConfiguration)
 
+-- | Information to be added to all events related to this matchmaking
+-- configuration.
+createMatchmakingConfiguration_customEventData :: Lens.Lens' CreateMatchmakingConfiguration (Prelude.Maybe Prelude.Text)
+createMatchmakingConfiguration_customEventData = Lens.lens (\CreateMatchmakingConfiguration' {customEventData} -> customEventData) (\s@CreateMatchmakingConfiguration' {} a -> s {customEventData = a} :: CreateMatchmakingConfiguration)
+
 -- | The method used to backfill game sessions that are created with this
 -- matchmaking configuration. Specify @MANUAL@ when your game manages
 -- backfill requests manually or does not use the match backfill feature.
@@ -383,20 +365,28 @@ createMatchmakingConfiguration_flexMatchMode = Lens.lens (\CreateMatchmakingConf
 createMatchmakingConfiguration_backfillMode :: Lens.Lens' CreateMatchmakingConfiguration (Prelude.Maybe BackfillMode)
 createMatchmakingConfiguration_backfillMode = Lens.lens (\CreateMatchmakingConfiguration' {backfillMode} -> backfillMode) (\s@CreateMatchmakingConfiguration' {} a -> s {backfillMode = a} :: CreateMatchmakingConfiguration)
 
--- | The number of player slots in a match to keep open for future players.
--- For example, assume that the configuration\'s rule set specifies a match
--- for a single 12-person team. If the additional player count is set to 2,
--- only 10 players are initially selected for the match. This parameter is
--- not used if @FlexMatchMode@ is set to @STANDALONE@.
-createMatchmakingConfiguration_additionalPlayerCount :: Lens.Lens' CreateMatchmakingConfiguration (Prelude.Maybe Prelude.Natural)
-createMatchmakingConfiguration_additionalPlayerCount = Lens.lens (\CreateMatchmakingConfiguration' {additionalPlayerCount} -> additionalPlayerCount) (\s@CreateMatchmakingConfiguration' {} a -> s {additionalPlayerCount = a} :: CreateMatchmakingConfiguration)
+-- | A set of custom properties for a game session, formatted as key:value
+-- pairs. These properties are passed to a game server process in the
+-- GameSession object with a request to start a new game session (see
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
+-- This information is added to the new GameSession object that is created
+-- for a successful match. This parameter is not used if @FlexMatchMode@ is
+-- set to @STANDALONE@.
+createMatchmakingConfiguration_gameProperties :: Lens.Lens' CreateMatchmakingConfiguration (Prelude.Maybe [GameProperty])
+createMatchmakingConfiguration_gameProperties = Lens.lens (\CreateMatchmakingConfiguration' {gameProperties} -> gameProperties) (\s@CreateMatchmakingConfiguration' {} a -> s {gameProperties = a} :: CreateMatchmakingConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The length of time (in seconds) to wait for players to accept a proposed
--- match, if acceptance is required. If any player rejects the match or
--- fails to accept before the timeout, the tickets are returned to the
--- ticket pool and continue to be evaluated for an acceptable match.
+-- match, if acceptance is required.
 createMatchmakingConfiguration_acceptanceTimeoutSeconds :: Lens.Lens' CreateMatchmakingConfiguration (Prelude.Maybe Prelude.Natural)
 createMatchmakingConfiguration_acceptanceTimeoutSeconds = Lens.lens (\CreateMatchmakingConfiguration' {acceptanceTimeoutSeconds} -> acceptanceTimeoutSeconds) (\s@CreateMatchmakingConfiguration' {} a -> s {acceptanceTimeoutSeconds = a} :: CreateMatchmakingConfiguration)
+
+-- | The number of player slots in a match to keep open for future players.
+-- For example, if the configuration\'s rule set specifies a match for a
+-- single 12-person team, and the additional player count is set to 2, only
+-- 10 players are selected for the match. This parameter is not used if
+-- @FlexMatchMode@ is set to @STANDALONE@.
+createMatchmakingConfiguration_additionalPlayerCount :: Lens.Lens' CreateMatchmakingConfiguration (Prelude.Maybe Prelude.Natural)
+createMatchmakingConfiguration_additionalPlayerCount = Lens.lens (\CreateMatchmakingConfiguration' {additionalPlayerCount} -> additionalPlayerCount) (\s@CreateMatchmakingConfiguration' {} a -> s {additionalPlayerCount = a} :: CreateMatchmakingConfiguration)
 
 -- | A set of custom game session properties, formatted as a single string
 -- value. This data is passed to a game server process in the GameSession
@@ -408,18 +398,22 @@ createMatchmakingConfiguration_acceptanceTimeoutSeconds = Lens.lens (\CreateMatc
 createMatchmakingConfiguration_gameSessionData :: Lens.Lens' CreateMatchmakingConfiguration (Prelude.Maybe Prelude.Text)
 createMatchmakingConfiguration_gameSessionData = Lens.lens (\CreateMatchmakingConfiguration' {gameSessionData} -> gameSessionData) (\s@CreateMatchmakingConfiguration' {} a -> s {gameSessionData = a} :: CreateMatchmakingConfiguration)
 
--- | Amazon Resource Name
--- (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>)
+-- | The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
 -- that is assigned to a GameLift game session queue resource and uniquely
--- identifies it. ARNs are unique across all Regions. Queues can be located
--- in any Region. Queues are used to start new GameLift-hosted game
--- sessions for matches that are created with this matchmaking
--- configuration. If @FlexMatchMode@ is set to @STANDALONE@, do not set
--- this parameter.
+-- identifies it. ARNs are unique across all Regions. Format is
+-- @arn:aws:gamelift:\<region>::gamesessionqueue\/\<queue name>@. Queues
+-- can be located in any Region. Queues are used to start new
+-- GameLift-hosted game sessions for matches that are created with this
+-- matchmaking configuration. If @FlexMatchMode@ is set to @STANDALONE@, do
+-- not set this parameter.
 createMatchmakingConfiguration_gameSessionQueueArns :: Lens.Lens' CreateMatchmakingConfiguration (Prelude.Maybe [Prelude.Text])
 createMatchmakingConfiguration_gameSessionQueueArns = Lens.lens (\CreateMatchmakingConfiguration' {gameSessionQueueArns} -> gameSessionQueueArns) (\s@CreateMatchmakingConfiguration' {} a -> s {gameSessionQueueArns = a} :: CreateMatchmakingConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An SNS topic ARN that is set up to receive matchmaking notifications.
+-- See
+-- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html Setting up notifications for matchmaking>
+-- for more information.
 createMatchmakingConfiguration_notificationTarget :: Lens.Lens' CreateMatchmakingConfiguration (Prelude.Maybe Prelude.Text)
 createMatchmakingConfiguration_notificationTarget = Lens.lens (\CreateMatchmakingConfiguration' {notificationTarget} -> notificationTarget) (\s@CreateMatchmakingConfiguration' {} a -> s {notificationTarget = a} :: CreateMatchmakingConfiguration)
 
@@ -439,7 +433,7 @@ createMatchmakingConfiguration_tags = Lens.lens (\CreateMatchmakingConfiguration
 createMatchmakingConfiguration_description :: Lens.Lens' CreateMatchmakingConfiguration (Prelude.Maybe Prelude.Text)
 createMatchmakingConfiguration_description = Lens.lens (\CreateMatchmakingConfiguration' {description} -> description) (\s@CreateMatchmakingConfiguration' {} a -> s {description = a} :: CreateMatchmakingConfiguration)
 
--- | A unique identifier for a matchmaking configuration. This name is used
+-- | A unique identifier for the matchmaking configuration. This name is used
 -- to identify the configuration associated with a matchmaking request or
 -- ticket.
 createMatchmakingConfiguration_name :: Lens.Lens' CreateMatchmakingConfiguration Prelude.Text
@@ -459,7 +453,7 @@ createMatchmakingConfiguration_requestTimeoutSeconds = Lens.lens (\CreateMatchma
 createMatchmakingConfiguration_acceptanceRequired :: Lens.Lens' CreateMatchmakingConfiguration Prelude.Bool
 createMatchmakingConfiguration_acceptanceRequired = Lens.lens (\CreateMatchmakingConfiguration' {acceptanceRequired} -> acceptanceRequired) (\s@CreateMatchmakingConfiguration' {} a -> s {acceptanceRequired = a} :: CreateMatchmakingConfiguration)
 
--- | A unique identifier for a matchmaking rule set to use with this
+-- | A unique identifier for the matchmaking rule set to use with this
 -- configuration. You can use either the rule set name or ARN value. A
 -- matchmaking configuration can only use rule sets that are defined in the
 -- same Region.
@@ -512,16 +506,16 @@ instance Core.ToJSON CreateMatchmakingConfiguration where
   toJSON CreateMatchmakingConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CustomEventData" Core..=)
+          [ ("FlexMatchMode" Core..=) Prelude.<$> flexMatchMode,
+            ("CustomEventData" Core..=)
               Prelude.<$> customEventData,
+            ("BackfillMode" Core..=) Prelude.<$> backfillMode,
             ("GameProperties" Core..=)
               Prelude.<$> gameProperties,
-            ("FlexMatchMode" Core..=) Prelude.<$> flexMatchMode,
-            ("BackfillMode" Core..=) Prelude.<$> backfillMode,
-            ("AdditionalPlayerCount" Core..=)
-              Prelude.<$> additionalPlayerCount,
             ("AcceptanceTimeoutSeconds" Core..=)
               Prelude.<$> acceptanceTimeoutSeconds,
+            ("AdditionalPlayerCount" Core..=)
+              Prelude.<$> additionalPlayerCount,
             ("GameSessionData" Core..=)
               Prelude.<$> gameSessionData,
             ("GameSessionQueueArns" Core..=)

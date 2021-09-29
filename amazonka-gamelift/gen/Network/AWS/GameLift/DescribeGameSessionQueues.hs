@@ -31,15 +31,11 @@
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-console.html View Your Queues>
 --
--- __Related operations__
+-- __Related actions__
 --
--- -   CreateGameSessionQueue
---
--- -   DescribeGameSessionQueues
---
--- -   UpdateGameSessionQueue
---
--- -   DeleteGameSessionQueue
+-- CreateGameSessionQueue | DescribeGameSessionQueues |
+-- UpdateGameSessionQueue | DeleteGameSessionQueue |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 --
 -- This operation returns paginated results.
 module Network.AWS.GameLift.DescribeGameSessionQueues

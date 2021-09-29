@@ -30,7 +30,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- A rule set may define the following elements for a match. For detailed
 -- information and examples showing how to construct a rule set, see
--- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html Build a FlexMatch Rule Set>.
+-- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html Build a FlexMatch rule set>.
 --
 -- -   Teams -- Required. A rule set must define one or multiple teams for
 --     the match and set minimum and maximum team sizes. For example, a
@@ -61,17 +61,18 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMatchmakingRuleSet' smart constructor.
 data MatchmakingRuleSet = MatchmakingRuleSet'
-  { -- | The time stamp indicating when this data object was created. The format
-    -- is a number expressed in Unix time as milliseconds (for example
-    -- \"1469498468.057\").
+  { -- | A time stamp indicating when this data object was created. Format is a
+    -- number expressed in Unix time as milliseconds (for example
+    -- @\"1469498468.057\"@).
     creationTime :: Prelude.Maybe Core.POSIX,
-    -- | Amazon Resource Name
-    -- (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>)
+    -- | The Amazon Resource Name
+    -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
     -- that is assigned to a GameLift matchmaking rule set resource and
-    -- uniquely identifies it. ARNs are unique across all Regions. In a
+    -- uniquely identifies it. ARNs are unique across all Regions. Format is
+    -- @arn:aws:gamelift:\<region>::matchmakingruleset\/\<ruleset name>@. In a
     -- GameLift rule set ARN, the resource ID matches the /RuleSetName/ value.
     ruleSetArn :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for a matchmaking rule set
+    -- | A unique identifier for the matchmaking rule set
     ruleSetName :: Prelude.Maybe Prelude.Text,
     -- | A collection of matchmaking rules, formatted as a JSON string. Comments
     -- are not allowed in JSON, but most elements support a description field.
@@ -87,17 +88,18 @@ data MatchmakingRuleSet = MatchmakingRuleSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'creationTime', 'matchmakingRuleSet_creationTime' - The time stamp indicating when this data object was created. The format
--- is a number expressed in Unix time as milliseconds (for example
--- \"1469498468.057\").
+-- 'creationTime', 'matchmakingRuleSet_creationTime' - A time stamp indicating when this data object was created. Format is a
+-- number expressed in Unix time as milliseconds (for example
+-- @\"1469498468.057\"@).
 --
--- 'ruleSetArn', 'matchmakingRuleSet_ruleSetArn' - Amazon Resource Name
--- (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>)
+-- 'ruleSetArn', 'matchmakingRuleSet_ruleSetArn' - The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
 -- that is assigned to a GameLift matchmaking rule set resource and
--- uniquely identifies it. ARNs are unique across all Regions. In a
+-- uniquely identifies it. ARNs are unique across all Regions. Format is
+-- @arn:aws:gamelift:\<region>::matchmakingruleset\/\<ruleset name>@. In a
 -- GameLift rule set ARN, the resource ID matches the /RuleSetName/ value.
 --
--- 'ruleSetName', 'matchmakingRuleSet_ruleSetName' - A unique identifier for a matchmaking rule set
+-- 'ruleSetName', 'matchmakingRuleSet_ruleSetName' - A unique identifier for the matchmaking rule set
 --
 -- 'ruleSetBody', 'matchmakingRuleSet_ruleSetBody' - A collection of matchmaking rules, formatted as a JSON string. Comments
 -- are not allowed in JSON, but most elements support a description field.
@@ -113,21 +115,22 @@ newMatchmakingRuleSet pRuleSetBody_ =
       ruleSetBody = pRuleSetBody_
     }
 
--- | The time stamp indicating when this data object was created. The format
--- is a number expressed in Unix time as milliseconds (for example
--- \"1469498468.057\").
+-- | A time stamp indicating when this data object was created. Format is a
+-- number expressed in Unix time as milliseconds (for example
+-- @\"1469498468.057\"@).
 matchmakingRuleSet_creationTime :: Lens.Lens' MatchmakingRuleSet (Prelude.Maybe Prelude.UTCTime)
 matchmakingRuleSet_creationTime = Lens.lens (\MatchmakingRuleSet' {creationTime} -> creationTime) (\s@MatchmakingRuleSet' {} a -> s {creationTime = a} :: MatchmakingRuleSet) Prelude.. Lens.mapping Core._Time
 
--- | Amazon Resource Name
--- (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>)
+-- | The Amazon Resource Name
+-- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
 -- that is assigned to a GameLift matchmaking rule set resource and
--- uniquely identifies it. ARNs are unique across all Regions. In a
+-- uniquely identifies it. ARNs are unique across all Regions. Format is
+-- @arn:aws:gamelift:\<region>::matchmakingruleset\/\<ruleset name>@. In a
 -- GameLift rule set ARN, the resource ID matches the /RuleSetName/ value.
 matchmakingRuleSet_ruleSetArn :: Lens.Lens' MatchmakingRuleSet (Prelude.Maybe Prelude.Text)
 matchmakingRuleSet_ruleSetArn = Lens.lens (\MatchmakingRuleSet' {ruleSetArn} -> ruleSetArn) (\s@MatchmakingRuleSet' {} a -> s {ruleSetArn = a} :: MatchmakingRuleSet)
 
--- | A unique identifier for a matchmaking rule set
+-- | A unique identifier for the matchmaking rule set
 matchmakingRuleSet_ruleSetName :: Lens.Lens' MatchmakingRuleSet (Prelude.Maybe Prelude.Text)
 matchmakingRuleSet_ruleSetName = Lens.lens (\MatchmakingRuleSet' {ruleSetName} -> ruleSetName) (\s@MatchmakingRuleSet' {} a -> s {ruleSetName = a} :: MatchmakingRuleSet)
 

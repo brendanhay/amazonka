@@ -20,33 +20,33 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates settings for a game session queue, which determines how new game
--- session requests in the queue are processed. To update settings, specify
--- the queue name to be updated and provide the new settings. When updating
--- destinations, provide a complete list of destinations.
+-- Updates the configuration of a game session queue, which determines how
+-- the queue processes new game session requests. To update settings,
+-- specify the queue name to be updated and provide the new settings. When
+-- updating destinations, provide a complete list of destinations.
 --
 -- __Learn more__
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-intro.html Using Multi-Region Queues>
 --
--- __Related operations__
+-- __Related actions__
 --
--- -   CreateGameSessionQueue
---
--- -   DescribeGameSessionQueues
---
--- -   UpdateGameSessionQueue
---
--- -   DeleteGameSessionQueue
+-- CreateGameSessionQueue | DescribeGameSessionQueues |
+-- UpdateGameSessionQueue | DeleteGameSessionQueue |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.UpdateGameSessionQueue
   ( -- * Creating a Request
     UpdateGameSessionQueue (..),
     newUpdateGameSessionQueue,
 
     -- * Request Lenses
+    updateGameSessionQueue_customEventData,
     updateGameSessionQueue_playerLatencyPolicies,
-    updateGameSessionQueue_timeoutInSeconds,
+    updateGameSessionQueue_priorityConfiguration,
     updateGameSessionQueue_destinations,
+    updateGameSessionQueue_timeoutInSeconds,
+    updateGameSessionQueue_notificationTarget,
+    updateGameSessionQueue_filterConfiguration,
     updateGameSessionQueue_name,
 
     -- * Destructuring the Response
@@ -70,26 +70,43 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newUpdateGameSessionQueue' smart constructor.
 data UpdateGameSessionQueue = UpdateGameSessionQueue'
-  { -- | A collection of latency policies to apply when processing game sessions
-    -- placement requests with player latency information. Multiple policies
-    -- are evaluated in order of the maximum latency value, starting with the
-    -- lowest latency values. With just one policy, the policy is enforced at
-    -- the start of the game session placement for the duration period. With
-    -- multiple policies, each policy is enforced consecutively for its
-    -- duration period. For example, a queue might enforce a 60-second policy
-    -- followed by a 120-second policy, and then no policy for the remainder of
-    -- the placement. When updating policies, provide a complete collection of
-    -- policies.
+  { -- | Information to be added to all events that are related to this game
+    -- session queue.
+    customEventData :: Prelude.Maybe Prelude.Text,
+    -- | A set of policies that act as a sliding cap on player latency. FleetIQ
+    -- works to deliver low latency for most players in a game session. These
+    -- policies ensure that no individual player can be placed into a game with
+    -- unreasonably high latency. Use multiple policies to gradually relax
+    -- latency requirements a step at a time. Multiple policies are applied
+    -- based on their maximum allowed latency, starting with the lowest value.
+    -- When updating policies, provide a complete collection of policies.
     playerLatencyPolicies :: Prelude.Maybe [PlayerLatencyPolicy],
+    -- | Custom settings to use when prioritizing destinations and locations for
+    -- game session placements. This configuration replaces the FleetIQ default
+    -- prioritization process. Priority types that are not explicitly named
+    -- will be automatically applied at the end of the prioritization process.
+    -- To remove an existing priority configuration, pass in an empty set.
+    priorityConfiguration :: Prelude.Maybe PriorityConfiguration,
+    -- | A list of fleets and\/or fleet aliases that can be used to fulfill game
+    -- session placement requests in the queue. Destinations are identified by
+    -- either a fleet ARN or a fleet alias ARN, and are listed in order of
+    -- placement preference. When updating this list, provide a complete list
+    -- of destinations.
+    destinations :: Prelude.Maybe [GameSessionQueueDestination],
     -- | The maximum time, in seconds, that a new game session placement request
     -- remains in the queue. When a request exceeds this time, the game session
     -- placement changes to a @TIMED_OUT@ status.
     timeoutInSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | A list of fleets that can be used to fulfill game session placement
-    -- requests in the queue. Fleets are identified by either a fleet ARN or a
-    -- fleet alias ARN. Destinations are listed in default preference order.
-    -- When updating this list, provide a complete list of destinations.
-    destinations :: Prelude.Maybe [GameSessionQueueDestination],
+    -- | An SNS topic ARN that is set up to receive game session placement
+    -- notifications. See
+    -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/queue-notification.html Setting up notifications for game session placement>.
+    notificationTarget :: Prelude.Maybe Prelude.Text,
+    -- | A list of locations where a queue is allowed to place new game sessions.
+    -- Locations are specified in the form of AWS Region codes, such as
+    -- @us-west-2@. If this parameter is not set, game sessions can be placed
+    -- in any queue location. To remove an existing filter configuration, pass
+    -- in an empty set.
+    filterConfiguration :: Prelude.Maybe FilterConfiguration,
     -- | A descriptive label that is associated with game session queue. Queue
     -- names must be unique within each Region. You can use either the queue ID
     -- or ARN value.
@@ -105,25 +122,42 @@ data UpdateGameSessionQueue = UpdateGameSessionQueue'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'playerLatencyPolicies', 'updateGameSessionQueue_playerLatencyPolicies' - A collection of latency policies to apply when processing game sessions
--- placement requests with player latency information. Multiple policies
--- are evaluated in order of the maximum latency value, starting with the
--- lowest latency values. With just one policy, the policy is enforced at
--- the start of the game session placement for the duration period. With
--- multiple policies, each policy is enforced consecutively for its
--- duration period. For example, a queue might enforce a 60-second policy
--- followed by a 120-second policy, and then no policy for the remainder of
--- the placement. When updating policies, provide a complete collection of
--- policies.
+-- 'customEventData', 'updateGameSessionQueue_customEventData' - Information to be added to all events that are related to this game
+-- session queue.
+--
+-- 'playerLatencyPolicies', 'updateGameSessionQueue_playerLatencyPolicies' - A set of policies that act as a sliding cap on player latency. FleetIQ
+-- works to deliver low latency for most players in a game session. These
+-- policies ensure that no individual player can be placed into a game with
+-- unreasonably high latency. Use multiple policies to gradually relax
+-- latency requirements a step at a time. Multiple policies are applied
+-- based on their maximum allowed latency, starting with the lowest value.
+-- When updating policies, provide a complete collection of policies.
+--
+-- 'priorityConfiguration', 'updateGameSessionQueue_priorityConfiguration' - Custom settings to use when prioritizing destinations and locations for
+-- game session placements. This configuration replaces the FleetIQ default
+-- prioritization process. Priority types that are not explicitly named
+-- will be automatically applied at the end of the prioritization process.
+-- To remove an existing priority configuration, pass in an empty set.
+--
+-- 'destinations', 'updateGameSessionQueue_destinations' - A list of fleets and\/or fleet aliases that can be used to fulfill game
+-- session placement requests in the queue. Destinations are identified by
+-- either a fleet ARN or a fleet alias ARN, and are listed in order of
+-- placement preference. When updating this list, provide a complete list
+-- of destinations.
 --
 -- 'timeoutInSeconds', 'updateGameSessionQueue_timeoutInSeconds' - The maximum time, in seconds, that a new game session placement request
 -- remains in the queue. When a request exceeds this time, the game session
 -- placement changes to a @TIMED_OUT@ status.
 --
--- 'destinations', 'updateGameSessionQueue_destinations' - A list of fleets that can be used to fulfill game session placement
--- requests in the queue. Fleets are identified by either a fleet ARN or a
--- fleet alias ARN. Destinations are listed in default preference order.
--- When updating this list, provide a complete list of destinations.
+-- 'notificationTarget', 'updateGameSessionQueue_notificationTarget' - An SNS topic ARN that is set up to receive game session placement
+-- notifications. See
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/queue-notification.html Setting up notifications for game session placement>.
+--
+-- 'filterConfiguration', 'updateGameSessionQueue_filterConfiguration' - A list of locations where a queue is allowed to place new game sessions.
+-- Locations are specified in the form of AWS Region codes, such as
+-- @us-west-2@. If this parameter is not set, game sessions can be placed
+-- in any queue location. To remove an existing filter configuration, pass
+-- in an empty set.
 --
 -- 'name', 'updateGameSessionQueue_name' - A descriptive label that is associated with game session queue. Queue
 -- names must be unique within each Region. You can use either the queue ID
@@ -134,25 +168,47 @@ newUpdateGameSessionQueue ::
   UpdateGameSessionQueue
 newUpdateGameSessionQueue pName_ =
   UpdateGameSessionQueue'
-    { playerLatencyPolicies =
+    { customEventData =
         Prelude.Nothing,
-      timeoutInSeconds = Prelude.Nothing,
+      playerLatencyPolicies = Prelude.Nothing,
+      priorityConfiguration = Prelude.Nothing,
       destinations = Prelude.Nothing,
+      timeoutInSeconds = Prelude.Nothing,
+      notificationTarget = Prelude.Nothing,
+      filterConfiguration = Prelude.Nothing,
       name = pName_
     }
 
--- | A collection of latency policies to apply when processing game sessions
--- placement requests with player latency information. Multiple policies
--- are evaluated in order of the maximum latency value, starting with the
--- lowest latency values. With just one policy, the policy is enforced at
--- the start of the game session placement for the duration period. With
--- multiple policies, each policy is enforced consecutively for its
--- duration period. For example, a queue might enforce a 60-second policy
--- followed by a 120-second policy, and then no policy for the remainder of
--- the placement. When updating policies, provide a complete collection of
--- policies.
+-- | Information to be added to all events that are related to this game
+-- session queue.
+updateGameSessionQueue_customEventData :: Lens.Lens' UpdateGameSessionQueue (Prelude.Maybe Prelude.Text)
+updateGameSessionQueue_customEventData = Lens.lens (\UpdateGameSessionQueue' {customEventData} -> customEventData) (\s@UpdateGameSessionQueue' {} a -> s {customEventData = a} :: UpdateGameSessionQueue)
+
+-- | A set of policies that act as a sliding cap on player latency. FleetIQ
+-- works to deliver low latency for most players in a game session. These
+-- policies ensure that no individual player can be placed into a game with
+-- unreasonably high latency. Use multiple policies to gradually relax
+-- latency requirements a step at a time. Multiple policies are applied
+-- based on their maximum allowed latency, starting with the lowest value.
+-- When updating policies, provide a complete collection of policies.
 updateGameSessionQueue_playerLatencyPolicies :: Lens.Lens' UpdateGameSessionQueue (Prelude.Maybe [PlayerLatencyPolicy])
 updateGameSessionQueue_playerLatencyPolicies = Lens.lens (\UpdateGameSessionQueue' {playerLatencyPolicies} -> playerLatencyPolicies) (\s@UpdateGameSessionQueue' {} a -> s {playerLatencyPolicies = a} :: UpdateGameSessionQueue) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Custom settings to use when prioritizing destinations and locations for
+-- game session placements. This configuration replaces the FleetIQ default
+-- prioritization process. Priority types that are not explicitly named
+-- will be automatically applied at the end of the prioritization process.
+-- To remove an existing priority configuration, pass in an empty set.
+updateGameSessionQueue_priorityConfiguration :: Lens.Lens' UpdateGameSessionQueue (Prelude.Maybe PriorityConfiguration)
+updateGameSessionQueue_priorityConfiguration = Lens.lens (\UpdateGameSessionQueue' {priorityConfiguration} -> priorityConfiguration) (\s@UpdateGameSessionQueue' {} a -> s {priorityConfiguration = a} :: UpdateGameSessionQueue)
+
+-- | A list of fleets and\/or fleet aliases that can be used to fulfill game
+-- session placement requests in the queue. Destinations are identified by
+-- either a fleet ARN or a fleet alias ARN, and are listed in order of
+-- placement preference. When updating this list, provide a complete list
+-- of destinations.
+updateGameSessionQueue_destinations :: Lens.Lens' UpdateGameSessionQueue (Prelude.Maybe [GameSessionQueueDestination])
+updateGameSessionQueue_destinations = Lens.lens (\UpdateGameSessionQueue' {destinations} -> destinations) (\s@UpdateGameSessionQueue' {} a -> s {destinations = a} :: UpdateGameSessionQueue) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum time, in seconds, that a new game session placement request
 -- remains in the queue. When a request exceeds this time, the game session
@@ -160,12 +216,19 @@ updateGameSessionQueue_playerLatencyPolicies = Lens.lens (\UpdateGameSessionQueu
 updateGameSessionQueue_timeoutInSeconds :: Lens.Lens' UpdateGameSessionQueue (Prelude.Maybe Prelude.Natural)
 updateGameSessionQueue_timeoutInSeconds = Lens.lens (\UpdateGameSessionQueue' {timeoutInSeconds} -> timeoutInSeconds) (\s@UpdateGameSessionQueue' {} a -> s {timeoutInSeconds = a} :: UpdateGameSessionQueue)
 
--- | A list of fleets that can be used to fulfill game session placement
--- requests in the queue. Fleets are identified by either a fleet ARN or a
--- fleet alias ARN. Destinations are listed in default preference order.
--- When updating this list, provide a complete list of destinations.
-updateGameSessionQueue_destinations :: Lens.Lens' UpdateGameSessionQueue (Prelude.Maybe [GameSessionQueueDestination])
-updateGameSessionQueue_destinations = Lens.lens (\UpdateGameSessionQueue' {destinations} -> destinations) (\s@UpdateGameSessionQueue' {} a -> s {destinations = a} :: UpdateGameSessionQueue) Prelude.. Lens.mapping Lens._Coerce
+-- | An SNS topic ARN that is set up to receive game session placement
+-- notifications. See
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/queue-notification.html Setting up notifications for game session placement>.
+updateGameSessionQueue_notificationTarget :: Lens.Lens' UpdateGameSessionQueue (Prelude.Maybe Prelude.Text)
+updateGameSessionQueue_notificationTarget = Lens.lens (\UpdateGameSessionQueue' {notificationTarget} -> notificationTarget) (\s@UpdateGameSessionQueue' {} a -> s {notificationTarget = a} :: UpdateGameSessionQueue)
+
+-- | A list of locations where a queue is allowed to place new game sessions.
+-- Locations are specified in the form of AWS Region codes, such as
+-- @us-west-2@. If this parameter is not set, game sessions can be placed
+-- in any queue location. To remove an existing filter configuration, pass
+-- in an empty set.
+updateGameSessionQueue_filterConfiguration :: Lens.Lens' UpdateGameSessionQueue (Prelude.Maybe FilterConfiguration)
+updateGameSessionQueue_filterConfiguration = Lens.lens (\UpdateGameSessionQueue' {filterConfiguration} -> filterConfiguration) (\s@UpdateGameSessionQueue' {} a -> s {filterConfiguration = a} :: UpdateGameSessionQueue)
 
 -- | A descriptive label that is associated with game session queue. Queue
 -- names must be unique within each Region. You can use either the queue ID
@@ -209,11 +272,19 @@ instance Core.ToJSON UpdateGameSessionQueue where
   toJSON UpdateGameSessionQueue' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("PlayerLatencyPolicies" Core..=)
+          [ ("CustomEventData" Core..=)
+              Prelude.<$> customEventData,
+            ("PlayerLatencyPolicies" Core..=)
               Prelude.<$> playerLatencyPolicies,
+            ("PriorityConfiguration" Core..=)
+              Prelude.<$> priorityConfiguration,
+            ("Destinations" Core..=) Prelude.<$> destinations,
             ("TimeoutInSeconds" Core..=)
               Prelude.<$> timeoutInSeconds,
-            ("Destinations" Core..=) Prelude.<$> destinations,
+            ("NotificationTarget" Core..=)
+              Prelude.<$> notificationTarget,
+            ("FilterConfiguration" Core..=)
+              Prelude.<$> filterConfiguration,
             Prelude.Just ("Name" Core..= name)
           ]
       )

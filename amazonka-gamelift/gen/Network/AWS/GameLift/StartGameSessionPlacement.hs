@@ -66,25 +66,13 @@
 -- session ARN and Region are referenced. If the placement request times
 -- out, you can resubmit the request or retry it with a different queue.
 --
--- -   CreateGameSession
+-- __Related actions__
 --
--- -   DescribeGameSessions
---
--- -   DescribeGameSessionDetails
---
--- -   SearchGameSessions
---
--- -   UpdateGameSession
---
--- -   GetGameSessionLogUrl
---
--- -   Game session placements
---
---     -   StartGameSessionPlacement
---
---     -   DescribeGameSessionPlacement
---
---     -   StopGameSessionPlacement
+-- CreateGameSession | DescribeGameSessions | DescribeGameSessionDetails |
+-- SearchGameSessions | UpdateGameSession | GetGameSessionLogUrl |
+-- StartGameSessionPlacement | DescribeGameSessionPlacement |
+-- StopGameSessionPlacement |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.StartGameSessionPlacement
   ( -- * Creating a Request
     StartGameSessionPlacement (..),
@@ -121,12 +109,12 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newStartGameSessionPlacement' smart constructor.
 data StartGameSessionPlacement = StartGameSessionPlacement'
-  { -- | Set of custom properties for a game session, formatted as key:value
+  { -- | A set of custom properties for a game session, formatted as key:value
     -- pairs. These properties are passed to a game server process in the
     -- GameSession object with a request to start a new game session (see
     -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
     gameProperties :: Prelude.Maybe [GameProperty],
-    -- | Set of custom game session properties, formatted as a single string
+    -- | A set of custom game session properties, formatted as a single string
     -- value. This data is passed to a game server process in the GameSession
     -- object with a request to start a new game session (see
     -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
@@ -136,7 +124,7 @@ data StartGameSessionPlacement = StartGameSessionPlacement'
     gameSessionName :: Prelude.Maybe Prelude.Text,
     -- | Set of information on each player to create a player session for.
     desiredPlayerSessions :: Prelude.Maybe [DesiredPlayerSession],
-    -- | Set of values, expressed in milliseconds, indicating the amount of
+    -- | A set of values, expressed in milliseconds, that indicates the amount of
     -- latency that a player experiences when connected to AWS Regions. This
     -- information is used to try to place the new game session where it can
     -- offer the best possible gameplay experience for the players.
@@ -163,12 +151,12 @@ data StartGameSessionPlacement = StartGameSessionPlacement'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'gameProperties', 'startGameSessionPlacement_gameProperties' - Set of custom properties for a game session, formatted as key:value
+-- 'gameProperties', 'startGameSessionPlacement_gameProperties' - A set of custom properties for a game session, formatted as key:value
 -- pairs. These properties are passed to a game server process in the
 -- GameSession object with a request to start a new game session (see
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
 --
--- 'gameSessionData', 'startGameSessionPlacement_gameSessionData' - Set of custom game session properties, formatted as a single string
+-- 'gameSessionData', 'startGameSessionPlacement_gameSessionData' - A set of custom game session properties, formatted as a single string
 -- value. This data is passed to a game server process in the GameSession
 -- object with a request to start a new game session (see
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
@@ -178,7 +166,7 @@ data StartGameSessionPlacement = StartGameSessionPlacement'
 --
 -- 'desiredPlayerSessions', 'startGameSessionPlacement_desiredPlayerSessions' - Set of information on each player to create a player session for.
 --
--- 'playerLatencies', 'startGameSessionPlacement_playerLatencies' - Set of values, expressed in milliseconds, indicating the amount of
+-- 'playerLatencies', 'startGameSessionPlacement_playerLatencies' - A set of values, expressed in milliseconds, that indicates the amount of
 -- latency that a player experiences when connected to AWS Regions. This
 -- information is used to try to place the new game session where it can
 -- offer the best possible gameplay experience for the players.
@@ -218,14 +206,14 @@ newStartGameSessionPlacement
           pMaximumPlayerSessionCount_
       }
 
--- | Set of custom properties for a game session, formatted as key:value
+-- | A set of custom properties for a game session, formatted as key:value
 -- pairs. These properties are passed to a game server process in the
 -- GameSession object with a request to start a new game session (see
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
 startGameSessionPlacement_gameProperties :: Lens.Lens' StartGameSessionPlacement (Prelude.Maybe [GameProperty])
 startGameSessionPlacement_gameProperties = Lens.lens (\StartGameSessionPlacement' {gameProperties} -> gameProperties) (\s@StartGameSessionPlacement' {} a -> s {gameProperties = a} :: StartGameSessionPlacement) Prelude.. Lens.mapping Lens._Coerce
 
--- | Set of custom game session properties, formatted as a single string
+-- | A set of custom game session properties, formatted as a single string
 -- value. This data is passed to a game server process in the GameSession
 -- object with a request to start a new game session (see
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession Start a Game Session>).
@@ -241,7 +229,7 @@ startGameSessionPlacement_gameSessionName = Lens.lens (\StartGameSessionPlacemen
 startGameSessionPlacement_desiredPlayerSessions :: Lens.Lens' StartGameSessionPlacement (Prelude.Maybe [DesiredPlayerSession])
 startGameSessionPlacement_desiredPlayerSessions = Lens.lens (\StartGameSessionPlacement' {desiredPlayerSessions} -> desiredPlayerSessions) (\s@StartGameSessionPlacement' {} a -> s {desiredPlayerSessions = a} :: StartGameSessionPlacement) Prelude.. Lens.mapping Lens._Coerce
 
--- | Set of values, expressed in milliseconds, indicating the amount of
+-- | A set of values, expressed in milliseconds, that indicates the amount of
 -- latency that a player experiences when connected to AWS Regions. This
 -- information is used to try to place the new game session where it can
 -- offer the best possible gameplay experience for the players.

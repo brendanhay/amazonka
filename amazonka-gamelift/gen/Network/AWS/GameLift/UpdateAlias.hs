@@ -25,17 +25,11 @@
 -- an alias to another fleet, provide an updated routing strategy. If
 -- successful, the updated alias record is returned.
 --
--- -   CreateAlias
+-- __Related actions__
 --
--- -   ListAliases
---
--- -   DescribeAlias
---
--- -   UpdateAlias
---
--- -   DeleteAlias
---
--- -   ResolveAlias
+-- CreateAlias | ListAliases | DescribeAlias | UpdateAlias | DeleteAlias |
+-- ResolveAlias |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.UpdateAlias
   ( -- * Creating a Request
     UpdateAlias (..),

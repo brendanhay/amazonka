@@ -23,19 +23,14 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Queue setting that determines the highest latency allowed for individual
--- players when placing a game session. When a latency policy is in force,
--- a game session cannot be placed with any fleet in a Region where a
--- player reports latency higher than the cap. Latency policies are only
--- enforced when the placement request contains player latency information.
+-- | Sets a latency cap for individual players when placing a game session.
+-- With a latency policy in force, a game session cannot be placed in a
+-- fleet location where a player reports latency higher than the cap.
+-- Latency policies are used only with placement request that provide
+-- player latency information. Player latency policies can be stacked to
+-- gradually relax latency requirements over time.
 --
--- -   CreateGameSessionQueue
---
--- -   DescribeGameSessionQueues
---
--- -   UpdateGameSessionQueue
---
--- -   DeleteGameSessionQueue
+-- Latency policies are part of a GameSessionQueue.
 --
 -- /See:/ 'newPlayerLatencyPolicy' smart constructor.
 data PlayerLatencyPolicy = PlayerLatencyPolicy'

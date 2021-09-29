@@ -32,13 +32,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- <http://aws.amazon.com/answers/account-management/aws-tagging-strategies/ AWS Tagging Strategies>
 --
--- __Related operations__
+-- __Related actions__
 --
--- -   TagResource
---
--- -   UntagResource
---
--- -   ListTagsForResource
+-- TagResource | UntagResource | ListTagsForResource |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'

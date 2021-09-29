@@ -29,17 +29,11 @@
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html Amazon GameLift Realtime Servers>
 --
--- __Related operations__
+-- __Related actions__
 --
--- -   CreateScript
---
--- -   ListScripts
---
--- -   DescribeScript
---
--- -   UpdateScript
---
--- -   DeleteScript
+-- CreateScript | ListScripts | DescribeScript | UpdateScript |
+-- DeleteScript |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.DescribeScript
   ( -- * Creating a Request
     DescribeScript (..),
@@ -67,7 +61,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeScript' smart constructor.
 data DescribeScript = DescribeScript'
-  { -- | A unique identifier for a Realtime script to retrieve properties for.
+  { -- | A unique identifier for the Realtime script to retrieve properties for.
     -- You can use either the script ID or ARN value.
     scriptId :: Prelude.Text
   }
@@ -81,7 +75,7 @@ data DescribeScript = DescribeScript'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'scriptId', 'describeScript_scriptId' - A unique identifier for a Realtime script to retrieve properties for.
+-- 'scriptId', 'describeScript_scriptId' - A unique identifier for the Realtime script to retrieve properties for.
 -- You can use either the script ID or ARN value.
 newDescribeScript ::
   -- | 'scriptId'
@@ -90,7 +84,7 @@ newDescribeScript ::
 newDescribeScript pScriptId_ =
   DescribeScript' {scriptId = pScriptId_}
 
--- | A unique identifier for a Realtime script to retrieve properties for.
+-- | A unique identifier for the Realtime script to retrieve properties for.
 -- You can use either the script ID or ARN value.
 describeScript_scriptId :: Lens.Lens' DescribeScript Prelude.Text
 describeScript_scriptId = Lens.lens (\DescribeScript' {scriptId} -> scriptId) (\s@DescribeScript' {} a -> s {scriptId = a} :: DescribeScript)

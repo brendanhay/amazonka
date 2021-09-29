@@ -47,21 +47,16 @@
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html Add FlexMatch to a Game Client>
+-- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html Add FlexMatch to a game client>
 --
--- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html FlexMatch Events Reference>
+-- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html FlexMatch events>
+-- (reference)
 --
--- __Related operations__
+-- __Related actions__
 --
--- -   StartMatchmaking
---
--- -   DescribeMatchmaking
---
--- -   StopMatchmaking
---
--- -   AcceptMatch
---
--- -   StartMatchBackfill
+-- StartMatchmaking | DescribeMatchmaking | StopMatchmaking | AcceptMatch |
+-- StartMatchBackfill |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.AcceptMatch
   ( -- * Creating a Request
     AcceptMatch (..),

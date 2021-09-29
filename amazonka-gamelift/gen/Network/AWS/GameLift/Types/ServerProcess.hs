@@ -24,31 +24,28 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | A set of instructions for launching server processes on each instance in
--- a fleet. Server processes run either a custom game build executable or a
--- Realtime Servers script. Each instruction set identifies the location of
--- the custom game build executable or Realtime launch script, optional
--- launch parameters, and the number of server processes with this
--- configuration to maintain concurrently on the instance. Server process
--- configurations make up a fleet\'s @ RuntimeConfiguration @.
+-- a fleet. Server processes run either an executable in a custom game
+-- build or a Realtime Servers script. Server process configurations are
+-- part of a fleet\'s RuntimeConfiguration.
 --
 -- /See:/ 'newServerProcess' smart constructor.
 data ServerProcess = ServerProcess'
   { -- | An optional list of parameters to pass to the server executable or
     -- Realtime script on launch.
     parameters :: Prelude.Maybe Prelude.Text,
-    -- | The location of the server executable in a custom game build or the name
-    -- of the Realtime script file that contains the @Init()@ function. Game
-    -- builds and Realtime scripts are installed on instances at the root:
+    -- | The location of a game build executable or the Realtime script file that
+    -- contains the @Init()@ function. Game builds and Realtime scripts are
+    -- installed on instances at the root:
     --
-    -- -   Windows (for custom game builds only): @C:\\game@. Example:
+    -- -   Windows (custom game builds only): @C:\\game@. Example:
     --     \"@C:\\game\\MyGame\\server.exe@\"
     --
     -- -   Linux: @\/local\/game@. Examples:
     --     \"@\/local\/game\/MyGame\/server.exe@\" or
     --     \"@\/local\/game\/MyRealtimeScript.js@\"
     launchPath :: Prelude.Text,
-    -- | The number of server processes that use this configuration to run
-    -- concurrently on an instance.
+    -- | The number of server processes using this configuration that run
+    -- concurrently on each instance.
     concurrentExecutions :: Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,19 +61,19 @@ data ServerProcess = ServerProcess'
 -- 'parameters', 'serverProcess_parameters' - An optional list of parameters to pass to the server executable or
 -- Realtime script on launch.
 --
--- 'launchPath', 'serverProcess_launchPath' - The location of the server executable in a custom game build or the name
--- of the Realtime script file that contains the @Init()@ function. Game
--- builds and Realtime scripts are installed on instances at the root:
+-- 'launchPath', 'serverProcess_launchPath' - The location of a game build executable or the Realtime script file that
+-- contains the @Init()@ function. Game builds and Realtime scripts are
+-- installed on instances at the root:
 --
--- -   Windows (for custom game builds only): @C:\\game@. Example:
+-- -   Windows (custom game builds only): @C:\\game@. Example:
 --     \"@C:\\game\\MyGame\\server.exe@\"
 --
 -- -   Linux: @\/local\/game@. Examples:
 --     \"@\/local\/game\/MyGame\/server.exe@\" or
 --     \"@\/local\/game\/MyRealtimeScript.js@\"
 --
--- 'concurrentExecutions', 'serverProcess_concurrentExecutions' - The number of server processes that use this configuration to run
--- concurrently on an instance.
+-- 'concurrentExecutions', 'serverProcess_concurrentExecutions' - The number of server processes using this configuration that run
+-- concurrently on each instance.
 newServerProcess ::
   -- | 'launchPath'
   Prelude.Text ->
@@ -95,11 +92,11 @@ newServerProcess pLaunchPath_ pConcurrentExecutions_ =
 serverProcess_parameters :: Lens.Lens' ServerProcess (Prelude.Maybe Prelude.Text)
 serverProcess_parameters = Lens.lens (\ServerProcess' {parameters} -> parameters) (\s@ServerProcess' {} a -> s {parameters = a} :: ServerProcess)
 
--- | The location of the server executable in a custom game build or the name
--- of the Realtime script file that contains the @Init()@ function. Game
--- builds and Realtime scripts are installed on instances at the root:
+-- | The location of a game build executable or the Realtime script file that
+-- contains the @Init()@ function. Game builds and Realtime scripts are
+-- installed on instances at the root:
 --
--- -   Windows (for custom game builds only): @C:\\game@. Example:
+-- -   Windows (custom game builds only): @C:\\game@. Example:
 --     \"@C:\\game\\MyGame\\server.exe@\"
 --
 -- -   Linux: @\/local\/game@. Examples:
@@ -108,8 +105,8 @@ serverProcess_parameters = Lens.lens (\ServerProcess' {parameters} -> parameters
 serverProcess_launchPath :: Lens.Lens' ServerProcess Prelude.Text
 serverProcess_launchPath = Lens.lens (\ServerProcess' {launchPath} -> launchPath) (\s@ServerProcess' {} a -> s {launchPath = a} :: ServerProcess)
 
--- | The number of server processes that use this configuration to run
--- concurrently on an instance.
+-- | The number of server processes using this configuration that run
+-- concurrently on each instance.
 serverProcess_concurrentExecutions :: Lens.Lens' ServerProcess Prelude.Natural
 serverProcess_concurrentExecutions = Lens.lens (\ServerProcess' {concurrentExecutions} -> concurrentExecutions) (\s@ServerProcess' {} a -> s {concurrentExecutions = a} :: ServerProcess)
 

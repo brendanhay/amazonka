@@ -35,7 +35,7 @@ data Player = Player'
     -- used in a matchmaking rule set. Example:
     -- @\"PlayerAttributes\": {\"skill\": {\"N\": \"23\"}, \"gameMode\": {\"S\": \"deathmatch\"}}@.
     playerAttributes :: Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue),
-    -- | Set of values, expressed in milliseconds, indicating the amount of
+    -- | A set of values, expressed in milliseconds, that indicates the amount of
     -- latency that a player experiences when connected to AWS Regions. If this
     -- property is present, FlexMatch considers placing the match only in
     -- Regions for which latency is reported.
@@ -66,7 +66,7 @@ data Player = Player'
 -- used in a matchmaking rule set. Example:
 -- @\"PlayerAttributes\": {\"skill\": {\"N\": \"23\"}, \"gameMode\": {\"S\": \"deathmatch\"}}@.
 --
--- 'latencyInMs', 'player_latencyInMs' - Set of values, expressed in milliseconds, indicating the amount of
+-- 'latencyInMs', 'player_latencyInMs' - A set of values, expressed in milliseconds, that indicates the amount of
 -- latency that a player experiences when connected to AWS Regions. If this
 -- property is present, FlexMatch considers placing the match only in
 -- Regions for which latency is reported.
@@ -97,7 +97,7 @@ newPlayer =
 player_playerAttributes :: Lens.Lens' Player (Prelude.Maybe (Prelude.HashMap Prelude.Text AttributeValue))
 player_playerAttributes = Lens.lens (\Player' {playerAttributes} -> playerAttributes) (\s@Player' {} a -> s {playerAttributes = a} :: Player) Prelude.. Lens.mapping Lens._Coerce
 
--- | Set of values, expressed in milliseconds, indicating the amount of
+-- | A set of values, expressed in milliseconds, that indicates the amount of
 -- latency that a player experiences when connected to AWS Regions. If this
 -- property is present, FlexMatch considers placing the match only in
 -- Regions for which latency is reported.

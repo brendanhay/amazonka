@@ -26,17 +26,11 @@
 --
 -- Returned aliases are not listed in any particular order.
 --
--- -   CreateAlias
+-- __Related actions__
 --
--- -   ListAliases
---
--- -   DescribeAlias
---
--- -   UpdateAlias
---
--- -   DeleteAlias
---
--- -   ResolveAlias
+-- CreateAlias | ListAliases | DescribeAlias | UpdateAlias | DeleteAlias |
+-- ResolveAlias |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 --
 -- This operation returns paginated results.
 module Network.AWS.GameLift.ListAliases
@@ -46,8 +40,8 @@ module Network.AWS.GameLift.ListAliases
 
     -- * Request Lenses
     listAliases_nextToken,
-    listAliases_routingStrategyType,
     listAliases_name,
+    listAliases_routingStrategyType,
     listAliases_limit,
 
     -- * Destructuring the Response
@@ -76,6 +70,9 @@ data ListAliases = ListAliases'
     -- Use the token that is returned with a previous call to this operation.
     -- To start at the beginning of the result set, do not specify a value.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A descriptive label that is associated with an alias. Alias names do not
+    -- need to be unique.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The routing type to filter results on. Use this parameter to retrieve
     -- only aliases with a certain routing type. To retrieve all aliases, leave
     -- this parameter empty.
@@ -90,9 +87,6 @@ data ListAliases = ListAliases'
     --     throws a TerminalRoutingStrategyException with the RoutingStrategy
     --     message embedded.
     routingStrategyType :: Prelude.Maybe RoutingStrategyType,
-    -- | A descriptive label that is associated with an alias. Alias names do not
-    -- need to be unique.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to return. Use this parameter with
     -- @NextToken@ to get results as a set of sequential pages.
     limit :: Prelude.Maybe Prelude.Natural
@@ -111,6 +105,9 @@ data ListAliases = ListAliases'
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
 --
+-- 'name', 'listAliases_name' - A descriptive label that is associated with an alias. Alias names do not
+-- need to be unique.
+--
 -- 'routingStrategyType', 'listAliases_routingStrategyType' - The routing type to filter results on. Use this parameter to retrieve
 -- only aliases with a certain routing type. To retrieve all aliases, leave
 -- this parameter empty.
@@ -125,9 +122,6 @@ data ListAliases = ListAliases'
 --     throws a TerminalRoutingStrategyException with the RoutingStrategy
 --     message embedded.
 --
--- 'name', 'listAliases_name' - A descriptive label that is associated with an alias. Alias names do not
--- need to be unique.
---
 -- 'limit', 'listAliases_limit' - The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages.
 newListAliases ::
@@ -135,8 +129,8 @@ newListAliases ::
 newListAliases =
   ListAliases'
     { nextToken = Prelude.Nothing,
-      routingStrategyType = Prelude.Nothing,
       name = Prelude.Nothing,
+      routingStrategyType = Prelude.Nothing,
       limit = Prelude.Nothing
     }
 
@@ -145,6 +139,11 @@ newListAliases =
 -- To start at the beginning of the result set, do not specify a value.
 listAliases_nextToken :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
 listAliases_nextToken = Lens.lens (\ListAliases' {nextToken} -> nextToken) (\s@ListAliases' {} a -> s {nextToken = a} :: ListAliases)
+
+-- | A descriptive label that is associated with an alias. Alias names do not
+-- need to be unique.
+listAliases_name :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
+listAliases_name = Lens.lens (\ListAliases' {name} -> name) (\s@ListAliases' {} a -> s {name = a} :: ListAliases)
 
 -- | The routing type to filter results on. Use this parameter to retrieve
 -- only aliases with a certain routing type. To retrieve all aliases, leave
@@ -161,11 +160,6 @@ listAliases_nextToken = Lens.lens (\ListAliases' {nextToken} -> nextToken) (\s@L
 --     message embedded.
 listAliases_routingStrategyType :: Lens.Lens' ListAliases (Prelude.Maybe RoutingStrategyType)
 listAliases_routingStrategyType = Lens.lens (\ListAliases' {routingStrategyType} -> routingStrategyType) (\s@ListAliases' {} a -> s {routingStrategyType = a} :: ListAliases)
-
--- | A descriptive label that is associated with an alias. Alias names do not
--- need to be unique.
-listAliases_name :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
-listAliases_name = Lens.lens (\ListAliases' {name} -> name) (\s@ListAliases' {} a -> s {name = a} :: ListAliases)
 
 -- | The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages.
@@ -225,9 +219,9 @@ instance Core.ToJSON ListAliases where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("Name" Core..=) Prelude.<$> name,
             ("RoutingStrategyType" Core..=)
               Prelude.<$> routingStrategyType,
-            ("Name" Core..=) Prelude.<$> name,
             ("Limit" Core..=) Prelude.<$> limit
           ]
       )

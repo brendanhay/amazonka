@@ -34,17 +34,11 @@
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html Amazon GameLift Realtime Servers>
 --
--- __Related operations__
+-- __Related actions__
 --
--- -   CreateScript
---
--- -   ListScripts
---
--- -   DescribeScript
---
--- -   UpdateScript
---
--- -   DeleteScript
+-- CreateScript | ListScripts | DescribeScript | UpdateScript |
+-- DeleteScript |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.DeleteScript
   ( -- * Creating a Request
     DeleteScript (..),
@@ -68,8 +62,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteScript' smart constructor.
 data DeleteScript = DeleteScript'
-  { -- | A unique identifier for a Realtime script to delete. You can use either
-    -- the script ID or ARN value.
+  { -- | A unique identifier for the Realtime script to delete. You can use
+    -- either the script ID or ARN value.
     scriptId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,8 +76,8 @@ data DeleteScript = DeleteScript'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'scriptId', 'deleteScript_scriptId' - A unique identifier for a Realtime script to delete. You can use either
--- the script ID or ARN value.
+-- 'scriptId', 'deleteScript_scriptId' - A unique identifier for the Realtime script to delete. You can use
+-- either the script ID or ARN value.
 newDeleteScript ::
   -- | 'scriptId'
   Prelude.Text ->
@@ -91,8 +85,8 @@ newDeleteScript ::
 newDeleteScript pScriptId_ =
   DeleteScript' {scriptId = pScriptId_}
 
--- | A unique identifier for a Realtime script to delete. You can use either
--- the script ID or ARN value.
+-- | A unique identifier for the Realtime script to delete. You can use
+-- either the script ID or ARN value.
 deleteScript_scriptId :: Lens.Lens' DeleteScript Prelude.Text
 deleteScript_scriptId = Lens.lens (\DeleteScript' {scriptId} -> scriptId) (\s@DeleteScript' {} a -> s {scriptId = a} :: DeleteScript)
 

@@ -17,8 +17,8 @@ module Network.AWS.GameLift.Types
     defaultService,
 
     -- * Errors
-    _NotFoundException,
     _OutOfCapacityException,
+    _NotFoundException,
     _TaggingFailedException,
     _FleetCapacityExceededException,
     _UnauthorizedException,
@@ -28,8 +28,8 @@ module Network.AWS.GameLift.Types
     _TerminalRoutingStrategyException,
     _GameSessionFullException,
     _InvalidFleetStatusException,
-    _LimitExceededException,
     _ConflictException,
+    _LimitExceededException,
     _IdempotentParameterMismatchException,
     _UnsupportedRegionException,
 
@@ -111,6 +111,9 @@ module Network.AWS.GameLift.Types
     -- * IpProtocol
     IpProtocol (..),
 
+    -- * LocationUpdateStatus
+    LocationUpdateStatus (..),
+
     -- * MatchmakingConfigurationStatus
     MatchmakingConfigurationStatus (..),
 
@@ -128,6 +131,9 @@ module Network.AWS.GameLift.Types
 
     -- * PolicyType
     PolicyType (..),
+
+    -- * PriorityType
+    PriorityType (..),
 
     -- * ProtectionPolicy
     ProtectionPolicy (..),
@@ -173,13 +179,13 @@ module Network.AWS.GameLift.Types
     -- * Build
     Build (..),
     newBuild,
-    build_status,
     build_creationTime,
+    build_status,
     build_version,
     build_name,
     build_sizeOnDisk,
-    build_buildArn,
     build_buildId,
+    build_buildArn,
     build_operatingSystem,
 
     -- * CertificateConfiguration
@@ -199,8 +205,8 @@ module Network.AWS.GameLift.Types
     eC2InstanceCounts_idle,
     eC2InstanceCounts_minimum,
     eC2InstanceCounts_pending,
-    eC2InstanceCounts_active,
     eC2InstanceCounts_terminating,
+    eC2InstanceCounts_active,
     eC2InstanceCounts_maximum,
     eC2InstanceCounts_desired,
 
@@ -210,6 +216,7 @@ module Network.AWS.GameLift.Types
     eC2InstanceLimit_instanceLimit,
     eC2InstanceLimit_currentInstances,
     eC2InstanceLimit_eC2InstanceType,
+    eC2InstanceLimit_location,
 
     -- * Event
     Event (..),
@@ -221,31 +228,36 @@ module Network.AWS.GameLift.Types
     event_eventTime,
     event_preSignedLogUrl,
 
+    -- * FilterConfiguration
+    FilterConfiguration (..),
+    newFilterConfiguration,
+    filterConfiguration_allowedLocations,
+
     -- * FleetAttributes
     FleetAttributes (..),
     newFleetAttributes,
-    fleetAttributes_status,
     fleetAttributes_creationTime,
+    fleetAttributes_status,
     fleetAttributes_instanceType,
     fleetAttributes_fleetType,
-    fleetAttributes_fleetArn,
     fleetAttributes_fleetId,
+    fleetAttributes_fleetArn,
     fleetAttributes_instanceRoleArn,
     fleetAttributes_certificateConfiguration,
     fleetAttributes_serverLaunchPath,
-    fleetAttributes_scriptArn,
-    fleetAttributes_serverLaunchParameters,
     fleetAttributes_logPaths,
-    fleetAttributes_newGameSessionProtectionPolicy,
+    fleetAttributes_serverLaunchParameters,
+    fleetAttributes_scriptArn,
     fleetAttributes_name,
+    fleetAttributes_newGameSessionProtectionPolicy,
     fleetAttributes_stoppedActions,
     fleetAttributes_terminationTime,
-    fleetAttributes_description,
     fleetAttributes_resourceCreationLimitPolicy,
-    fleetAttributes_buildArn,
+    fleetAttributes_description,
     fleetAttributes_buildId,
-    fleetAttributes_operatingSystem,
+    fleetAttributes_buildArn,
     fleetAttributes_metricGroups,
+    fleetAttributes_operatingSystem,
     fleetAttributes_scriptId,
 
     -- * FleetCapacity
@@ -253,7 +265,9 @@ module Network.AWS.GameLift.Types
     newFleetCapacity,
     fleetCapacity_instanceType,
     fleetCapacity_fleetId,
+    fleetCapacity_fleetArn,
     fleetCapacity_instanceCounts,
+    fleetCapacity_location,
 
     -- * FleetUtilization
     FleetUtilization (..),
@@ -262,7 +276,9 @@ module Network.AWS.GameLift.Types
     fleetUtilization_currentPlayerSessionCount,
     fleetUtilization_maximumPlayerSessionCount,
     fleetUtilization_fleetId,
+    fleetUtilization_fleetArn,
     fleetUtilization_activeServerProcessCount,
+    fleetUtilization_location,
 
     -- * GameProperty
     GameProperty (..),
@@ -288,8 +304,8 @@ module Network.AWS.GameLift.Types
     -- * GameServerGroup
     GameServerGroup (..),
     newGameServerGroup,
-    gameServerGroup_status,
     gameServerGroup_creationTime,
+    gameServerGroup_status,
     gameServerGroup_roleArn,
     gameServerGroup_autoScalingGroupArn,
     gameServerGroup_instanceDefinitions,
@@ -297,8 +313,8 @@ module Network.AWS.GameLift.Types
     gameServerGroup_suspendedActions,
     gameServerGroup_gameServerGroupName,
     gameServerGroup_balancingStrategy,
-    gameServerGroup_gameServerProtectionPolicy,
     gameServerGroup_statusReason,
+    gameServerGroup_gameServerProtectionPolicy,
     gameServerGroup_lastUpdatedTime,
 
     -- * GameServerGroupAutoScalingPolicy
@@ -318,24 +334,25 @@ module Network.AWS.GameLift.Types
     -- * GameSession
     GameSession (..),
     newGameSession,
-    gameSession_gameProperties,
     gameSession_currentPlayerSessionCount,
+    gameSession_gameProperties,
+    gameSession_creationTime,
     gameSession_status,
     gameSession_playerSessionCreationPolicy,
-    gameSession_creationTime,
     gameSession_creatorId,
     gameSession_maximumPlayerSessionCount,
-    gameSession_fleetArn,
-    gameSession_fleetId,
     gameSession_matchmakerData,
+    gameSession_fleetId,
+    gameSession_fleetArn,
     gameSession_gameSessionData,
     gameSession_gameSessionId,
-    gameSession_ipAddress,
     gameSession_name,
+    gameSession_ipAddress,
     gameSession_terminationTime,
     gameSession_port,
     gameSession_dnsName,
     gameSession_statusReason,
+    gameSession_location,
 
     -- * GameSessionConnectionInfo
     GameSessionConnectionInfo (..),
@@ -361,12 +378,12 @@ module Network.AWS.GameLift.Types
     gameSessionPlacement_maximumPlayerSessionCount,
     gameSessionPlacement_matchmakerData,
     gameSessionPlacement_gameSessionData,
-    gameSessionPlacement_startTime,
     gameSessionPlacement_gameSessionId,
+    gameSessionPlacement_startTime,
     gameSessionPlacement_gameSessionArn,
     gameSessionPlacement_endTime,
-    gameSessionPlacement_ipAddress,
     gameSessionPlacement_gameSessionName,
+    gameSessionPlacement_ipAddress,
     gameSessionPlacement_placementId,
     gameSessionPlacement_placedPlayerSessions,
     gameSessionPlacement_port,
@@ -377,11 +394,15 @@ module Network.AWS.GameLift.Types
     -- * GameSessionQueue
     GameSessionQueue (..),
     newGameSessionQueue,
+    gameSessionQueue_customEventData,
     gameSessionQueue_playerLatencyPolicies,
-    gameSessionQueue_timeoutInSeconds,
-    gameSessionQueue_destinations,
+    gameSessionQueue_priorityConfiguration,
     gameSessionQueue_name,
+    gameSessionQueue_destinations,
+    gameSessionQueue_timeoutInSeconds,
     gameSessionQueue_gameSessionQueueArn,
+    gameSessionQueue_notificationTarget,
+    gameSessionQueue_filterConfiguration,
 
     -- * GameSessionQueueDestination
     GameSessionQueueDestination (..),
@@ -391,14 +412,16 @@ module Network.AWS.GameLift.Types
     -- * Instance
     Instance (..),
     newInstance,
+    instance_creationTime,
     instance_status,
     instance_instanceId,
-    instance_creationTime,
     instance_fleetId,
+    instance_fleetArn,
     instance_ipAddress,
     instance_dnsName,
-    instance_type,
     instance_operatingSystem,
+    instance_type,
+    instance_location,
 
     -- * InstanceAccess
     InstanceAccess (..),
@@ -412,8 +435,8 @@ module Network.AWS.GameLift.Types
     -- * InstanceCredentials
     InstanceCredentials (..),
     newInstanceCredentials,
-    instanceCredentials_secret,
     instanceCredentials_userName,
+    instanceCredentials_secret,
 
     -- * InstanceDefinition
     InstanceDefinition (..),
@@ -433,8 +456,26 @@ module Network.AWS.GameLift.Types
     LaunchTemplateSpecification (..),
     newLaunchTemplateSpecification,
     launchTemplateSpecification_launchTemplateId,
-    launchTemplateSpecification_launchTemplateName,
     launchTemplateSpecification_version,
+    launchTemplateSpecification_launchTemplateName,
+
+    -- * LocationAttributes
+    LocationAttributes (..),
+    newLocationAttributes,
+    locationAttributes_updateStatus,
+    locationAttributes_locationState,
+    locationAttributes_stoppedActions,
+
+    -- * LocationConfiguration
+    LocationConfiguration (..),
+    newLocationConfiguration,
+    locationConfiguration_location,
+
+    -- * LocationState
+    LocationState (..),
+    newLocationState,
+    locationState_status,
+    locationState_location,
 
     -- * MatchedPlayerSession
     MatchedPlayerSession (..),
@@ -445,20 +486,20 @@ module Network.AWS.GameLift.Types
     -- * MatchmakingConfiguration
     MatchmakingConfiguration (..),
     newMatchmakingConfiguration,
-    matchmakingConfiguration_customEventData,
-    matchmakingConfiguration_gameProperties,
     matchmakingConfiguration_flexMatchMode,
+    matchmakingConfiguration_customEventData,
     matchmakingConfiguration_backfillMode,
+    matchmakingConfiguration_gameProperties,
     matchmakingConfiguration_creationTime,
-    matchmakingConfiguration_additionalPlayerCount,
     matchmakingConfiguration_acceptanceTimeoutSeconds,
+    matchmakingConfiguration_additionalPlayerCount,
     matchmakingConfiguration_gameSessionData,
     matchmakingConfiguration_configurationArn,
-    matchmakingConfiguration_gameSessionQueueArns,
     matchmakingConfiguration_name,
+    matchmakingConfiguration_gameSessionQueueArns,
     matchmakingConfiguration_notificationTarget,
-    matchmakingConfiguration_requestTimeoutSeconds,
     matchmakingConfiguration_ruleSetArn,
+    matchmakingConfiguration_requestTimeoutSeconds,
     matchmakingConfiguration_description,
     matchmakingConfiguration_ruleSetName,
     matchmakingConfiguration_acceptanceRequired,
@@ -479,8 +520,8 @@ module Network.AWS.GameLift.Types
     matchmakingTicket_estimatedWaitTime,
     matchmakingTicket_ticketId,
     matchmakingTicket_players,
-    matchmakingTicket_startTime,
     matchmakingTicket_configurationArn,
+    matchmakingTicket_startTime,
     matchmakingTicket_endTime,
     matchmakingTicket_configurationName,
     matchmakingTicket_gameSessionConnectionInfo,
@@ -516,11 +557,11 @@ module Network.AWS.GameLift.Types
     -- * PlayerSession
     PlayerSession (..),
     newPlayerSession,
-    playerSession_status,
     playerSession_creationTime,
+    playerSession_status,
     playerSession_playerId,
-    playerSession_fleetArn,
     playerSession_fleetId,
+    playerSession_fleetArn,
     playerSession_playerSessionId,
     playerSession_gameSessionId,
     playerSession_ipAddress,
@@ -528,6 +569,12 @@ module Network.AWS.GameLift.Types
     playerSession_port,
     playerSession_dnsName,
     playerSession_playerData,
+
+    -- * PriorityConfiguration
+    PriorityConfiguration (..),
+    newPriorityConfiguration,
+    priorityConfiguration_locationOrder,
+    priorityConfiguration_priorityOrder,
 
     -- * ResourceCreationLimitPolicy
     ResourceCreationLimitPolicy (..),
@@ -546,14 +593,14 @@ module Network.AWS.GameLift.Types
     RuntimeConfiguration (..),
     newRuntimeConfiguration,
     runtimeConfiguration_gameSessionActivationTimeoutSeconds,
-    runtimeConfiguration_serverProcesses,
     runtimeConfiguration_maxConcurrentGameSessionActivations,
+    runtimeConfiguration_serverProcesses,
 
     -- * S3Location
     S3Location (..),
     newS3Location,
-    s3Location_objectVersion,
     s3Location_key,
+    s3Location_objectVersion,
     s3Location_roleArn,
     s3Location_bucket,
 
@@ -564,20 +611,23 @@ module Network.AWS.GameLift.Types
     scalingPolicy_status,
     scalingPolicy_targetConfiguration,
     scalingPolicy_comparisonOperator,
-    scalingPolicy_fleetId,
     scalingPolicy_metricName,
+    scalingPolicy_fleetId,
+    scalingPolicy_fleetArn,
     scalingPolicy_policyType,
+    scalingPolicy_updateStatus,
     scalingPolicy_scalingAdjustment,
     scalingPolicy_name,
     scalingPolicy_evaluationPeriods,
+    scalingPolicy_location,
     scalingPolicy_scalingAdjustmentType,
 
     -- * Script
     Script (..),
     newScript,
     script_creationTime,
-    script_scriptArn,
     script_version,
+    script_scriptArn,
     script_name,
     script_storageLocation,
     script_sizeOnDisk,
@@ -621,8 +671,8 @@ module Network.AWS.GameLift.Types
     vpcPeeringConnection_status,
     vpcPeeringConnection_vpcPeeringConnectionId,
     vpcPeeringConnection_ipV4CidrBlock,
-    vpcPeeringConnection_fleetArn,
     vpcPeeringConnection_fleetId,
+    vpcPeeringConnection_fleetArn,
     vpcPeeringConnection_gameLiftVpcId,
     vpcPeeringConnection_peerVpcId,
 
@@ -652,6 +702,7 @@ import Network.AWS.GameLift.Types.EC2InstanceLimit
 import Network.AWS.GameLift.Types.EC2InstanceType
 import Network.AWS.GameLift.Types.Event
 import Network.AWS.GameLift.Types.EventCode
+import Network.AWS.GameLift.Types.FilterConfiguration
 import Network.AWS.GameLift.Types.FleetAction
 import Network.AWS.GameLift.Types.FleetAttributes
 import Network.AWS.GameLift.Types.FleetCapacity
@@ -690,6 +741,10 @@ import Network.AWS.GameLift.Types.InstanceStatus
 import Network.AWS.GameLift.Types.IpPermission
 import Network.AWS.GameLift.Types.IpProtocol
 import Network.AWS.GameLift.Types.LaunchTemplateSpecification
+import Network.AWS.GameLift.Types.LocationAttributes
+import Network.AWS.GameLift.Types.LocationConfiguration
+import Network.AWS.GameLift.Types.LocationState
+import Network.AWS.GameLift.Types.LocationUpdateStatus
 import Network.AWS.GameLift.Types.MatchedPlayerSession
 import Network.AWS.GameLift.Types.MatchmakingConfiguration
 import Network.AWS.GameLift.Types.MatchmakingConfigurationStatus
@@ -705,6 +760,8 @@ import Network.AWS.GameLift.Types.PlayerSession
 import Network.AWS.GameLift.Types.PlayerSessionCreationPolicy
 import Network.AWS.GameLift.Types.PlayerSessionStatus
 import Network.AWS.GameLift.Types.PolicyType
+import Network.AWS.GameLift.Types.PriorityConfiguration
+import Network.AWS.GameLift.Types.PriorityType
 import Network.AWS.GameLift.Types.ProtectionPolicy
 import Network.AWS.GameLift.Types.ResourceCreationLimitPolicy
 import Network.AWS.GameLift.Types.RoutingStrategy
@@ -797,14 +854,6 @@ defaultService =
         Prelude.Just "throttling"
       | Prelude.otherwise = Prelude.Nothing
 
--- | A service resource associated with the request could not be found.
--- Clients should not retry such requests.
-_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_NotFoundException =
-  Core._MatchServiceError
-    defaultService
-    "NotFoundException"
-
 -- | The specified game server group has no available game servers to fulfill
 -- a @ClaimGameServer@ request. Clients can retry such requests immediately
 -- or after a waiting period.
@@ -813,6 +862,14 @@ _OutOfCapacityException =
   Core._MatchServiceError
     defaultService
     "OutOfCapacityException"
+
+-- | A service resource associated with the request could not be found.
+-- Clients should not retry such requests.
+_NotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
+  Core._MatchServiceError
+    defaultService
+    "NotFoundException"
 
 -- | The requested tagging operation did not succeed. This may be due to
 -- invalid tag format or the maximum tag limit may have been exceeded.
@@ -895,14 +952,6 @@ _InvalidFleetStatusException =
     defaultService
     "InvalidFleetStatusException"
 
--- | The requested operation would cause the resource to exceed the allowed
--- service limit. Resolve the issue before retrying.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
-
 -- | The requested operation would cause a conflict with the current state of
 -- a service resource associated with the request. Resolve the conflict
 -- before retrying this request.
@@ -911,6 +960,14 @@ _ConflictException =
   Core._MatchServiceError
     defaultService
     "ConflictException"
+
+-- | The requested operation would cause the resource to exceed the allowed
+-- service limit. Resolve the issue before retrying.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
 
 -- | A game session with this custom ID string already exists in this fleet.
 -- Resolve this conflict before retrying this request.

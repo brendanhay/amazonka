@@ -28,25 +28,12 @@
 -- To temporarily suspend scaling policies, call StopFleetActions. This
 -- operation suspends all policies for the fleet.
 --
--- -   DescribeFleetCapacity
+-- __Related actions__
 --
--- -   UpdateFleetCapacity
---
--- -   DescribeEC2InstanceLimits
---
--- -   Manage scaling policies:
---
---     -   PutScalingPolicy (auto-scaling)
---
---     -   DescribeScalingPolicies (auto-scaling)
---
---     -   DeleteScalingPolicy (auto-scaling)
---
--- -   Manage fleet actions:
---
---     -   StartFleetActions
---
---     -   StopFleetActions
+-- DescribeFleetCapacity | UpdateFleetCapacity | DescribeEC2InstanceLimits
+-- | PutScalingPolicy | DescribeScalingPolicies | DeleteScalingPolicy |
+-- StopFleetActions | StartFleetActions |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.DeleteScalingPolicy
   ( -- * Creating a Request
     DeleteScalingPolicy (..),
@@ -73,10 +60,10 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDeleteScalingPolicy' smart constructor.
 data DeleteScalingPolicy = DeleteScalingPolicy'
-  { -- | A descriptive label that is associated with a scaling policy. Policy
-    -- names do not need to be unique.
+  { -- | A descriptive label that is associated with a fleet\'s scaling policy.
+    -- Policy names do not need to be unique.
     name :: Prelude.Text,
-    -- | A unique identifier for a fleet to be deleted. You can use either the
+    -- | A unique identifier for the fleet to be deleted. You can use either the
     -- fleet ID or ARN value.
     fleetId :: Prelude.Text
   }
@@ -90,10 +77,10 @@ data DeleteScalingPolicy = DeleteScalingPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'deleteScalingPolicy_name' - A descriptive label that is associated with a scaling policy. Policy
--- names do not need to be unique.
+-- 'name', 'deleteScalingPolicy_name' - A descriptive label that is associated with a fleet\'s scaling policy.
+-- Policy names do not need to be unique.
 --
--- 'fleetId', 'deleteScalingPolicy_fleetId' - A unique identifier for a fleet to be deleted. You can use either the
+-- 'fleetId', 'deleteScalingPolicy_fleetId' - A unique identifier for the fleet to be deleted. You can use either the
 -- fleet ID or ARN value.
 newDeleteScalingPolicy ::
   -- | 'name'
@@ -107,12 +94,12 @@ newDeleteScalingPolicy pName_ pFleetId_ =
       fleetId = pFleetId_
     }
 
--- | A descriptive label that is associated with a scaling policy. Policy
--- names do not need to be unique.
+-- | A descriptive label that is associated with a fleet\'s scaling policy.
+-- Policy names do not need to be unique.
 deleteScalingPolicy_name :: Lens.Lens' DeleteScalingPolicy Prelude.Text
 deleteScalingPolicy_name = Lens.lens (\DeleteScalingPolicy' {name} -> name) (\s@DeleteScalingPolicy' {} a -> s {name = a} :: DeleteScalingPolicy)
 
--- | A unique identifier for a fleet to be deleted. You can use either the
+-- | A unique identifier for the fleet to be deleted. You can use either the
 -- fleet ID or ARN value.
 deleteScalingPolicy_fleetId :: Lens.Lens' DeleteScalingPolicy Prelude.Text
 deleteScalingPolicy_fleetId = Lens.lens (\DeleteScalingPolicy' {fleetId} -> fleetId) (\s@DeleteScalingPolicy' {} a -> s {fleetId = a} :: DeleteScalingPolicy)

@@ -30,25 +30,12 @@ import qualified Network.AWS.Prelude as Prelude
 -- target value. The target configuration specifies settings as needed for
 -- the target based policy, including the target value.
 --
--- -   DescribeFleetCapacity
+-- __Related actions__
 --
--- -   UpdateFleetCapacity
---
--- -   DescribeEC2InstanceLimits
---
--- -   Manage scaling policies:
---
---     -   PutScalingPolicy (auto-scaling)
---
---     -   DescribeScalingPolicies (auto-scaling)
---
---     -   DeleteScalingPolicy (auto-scaling)
---
--- -   Manage fleet actions:
---
---     -   StartFleetActions
---
---     -   StopFleetActions
+-- DescribeFleetCapacity | UpdateFleetCapacity | DescribeEC2InstanceLimits
+-- | PutScalingPolicy | DescribeScalingPolicies | DeleteScalingPolicy |
+-- StopFleetActions | StartFleetActions |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 --
 -- /See:/ 'newTargetConfiguration' smart constructor.
 data TargetConfiguration = TargetConfiguration'

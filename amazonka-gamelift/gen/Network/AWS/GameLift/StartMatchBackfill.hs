@@ -20,49 +20,52 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Finds new players to fill open slots in an existing game session. This
--- operation can be used to add players to matched games that start with
--- fewer than the maximum number of players or to replace players when they
--- drop out. By backfilling with the same matchmaker used to create the
--- original match, you ensure that new players meet the match criteria and
--- maintain a consistent experience throughout the game session. You can
--- backfill a match anytime after a game session has been created.
+-- Finds new players to fill open slots in currently running game sessions.
+-- The backfill match process is essentially identical to the process of
+-- forming new matches. Backfill requests use the same matchmaker that was
+-- used to make the original match, and they provide matchmaking data for
+-- all players currently in the game session. FlexMatch uses this
+-- information to select new players so that backfilled match continues to
+-- meet the original match requirements.
 --
--- To request a match backfill, specify a unique ticket ID, the existing
--- game session\'s ARN, a matchmaking configuration, and a set of data that
--- describes all current players in the game session. If successful, a
--- match backfill ticket is created and returned with status set to QUEUED.
--- The ticket is placed in the matchmaker\'s ticket pool and processed.
--- Track the status of the ticket to respond as needed.
+-- When using FlexMatch with GameLift managed hosting, you can request a
+-- backfill match from a client service by calling this operation with a
+-- GameSession identifier. You also have the option of making backfill
+-- requests directly from your game server. In response to a request,
+-- FlexMatch creates player sessions for the new players, updates the
+-- @GameSession@ resource, and sends updated matchmaking data to the game
+-- server. You can request a backfill match at any point after a game
+-- session is started. Each game session can have only one active backfill
+-- request at a time; a subsequent request automatically replaces the
+-- earlier request.
 --
--- The process of finding backfill matches is essentially identical to the
--- initial matchmaking process. The matchmaker searches the pool and groups
--- tickets together to form potential matches, allowing only one backfill
--- ticket per potential match. Once the a match is formed, the matchmaker
--- creates player sessions for the new players. All tickets in the match
--- are updated with the game session\'s connection information, and the
--- GameSession object is updated to include matchmaker data on the new
--- players. For more detail on how match backfill requests are processed,
--- see
--- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html How Amazon GameLift FlexMatch Works>.
+-- When using FlexMatch as a standalone component, request a backfill match
+-- by calling this operation without a game session identifier. As with
+-- newly formed matches, matchmaking results are returned in a matchmaking
+-- event so that your game can update the game session that is being
+-- backfilled.
+--
+-- To request a backfill match, specify a unique ticket ID, the original
+-- matchmaking configuration, and matchmaking data for all current players
+-- in the game session being backfilled. Optionally, specify the
+-- @GameSession@ ARN. If successful, a match backfill ticket is created and
+-- returned with status set to QUEUED. Track the status of backfill tickets
+-- using the same method for tracking tickets for new matches.
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html Backfill Existing Games with FlexMatch>
+-- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html Backfill existing games with FlexMatch>
 --
--- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html How GameLift FlexMatch Works>
+-- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-events.html Matchmaking events>
+-- (reference)
 --
--- __Related operations__
+-- <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html How GameLift FlexMatch works>
 --
--- -   StartMatchmaking
+-- __Related actions__
 --
--- -   DescribeMatchmaking
---
--- -   StopMatchmaking
---
--- -   AcceptMatch
---
--- -   StartMatchBackfill
+-- StartMatchmaking | DescribeMatchmaking | StopMatchmaking | AcceptMatch |
+-- StartMatchBackfill |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.StartMatchBackfill
   ( -- * Creating a Request
     StartMatchBackfill (..),
@@ -100,10 +103,9 @@ data StartMatchBackfill = StartMatchBackfill'
     -- Use this identifier to track the match backfill ticket status and
     -- retrieve match results.
     ticketId :: Prelude.Maybe Prelude.Text,
-    -- | Amazon Resource Name
-    -- (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>)
-    -- that is assigned to a game session and uniquely identifies it. This is
-    -- the same as the game session ID.
+    -- | A unique identifier for the game session. Use the game session ID. When
+    -- using FlexMatch as a standalone matchmaking solution, this parameter is
+    -- not needed.
     gameSessionArn :: Prelude.Maybe Prelude.Text,
     -- | Name of the matchmaker to use for this request. You can use either the
     -- configuration name or ARN value. The ARN of the matchmaker that was used
@@ -114,14 +116,14 @@ data StartMatchBackfill = StartMatchBackfill'
     -- session. This information is used by the matchmaker to find new players
     -- and add them to the existing game.
     --
-    -- -   PlayerID, PlayerAttributes, Team -\\\\- This information is
-    --     maintained in the GameSession object, @MatchmakerData@ property, for
-    --     all players who are currently assigned to the game session. The
+    -- -   PlayerID, PlayerAttributes, Team -- This information is maintained
+    --     in the GameSession object, @MatchmakerData@ property, for all
+    --     players who are currently assigned to the game session. The
     --     matchmaker data is in JSON syntax, formatted as a string. For more
     --     details, see
     --     <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data Match Data>.
     --
-    -- -   LatencyInMs -\\\\- If the matchmaker uses player latency, include a
+    -- -   LatencyInMs -- If the matchmaker uses player latency, include a
     --     latency value, in milliseconds, for the Region that the game session
     --     is currently in. Do not include latency values for any other Region.
     players :: [Player]
@@ -141,10 +143,9 @@ data StartMatchBackfill = StartMatchBackfill'
 -- Use this identifier to track the match backfill ticket status and
 -- retrieve match results.
 --
--- 'gameSessionArn', 'startMatchBackfill_gameSessionArn' - Amazon Resource Name
--- (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>)
--- that is assigned to a game session and uniquely identifies it. This is
--- the same as the game session ID.
+-- 'gameSessionArn', 'startMatchBackfill_gameSessionArn' - A unique identifier for the game session. Use the game session ID. When
+-- using FlexMatch as a standalone matchmaking solution, this parameter is
+-- not needed.
 --
 -- 'configurationName', 'startMatchBackfill_configurationName' - Name of the matchmaker to use for this request. You can use either the
 -- configuration name or ARN value. The ARN of the matchmaker that was used
@@ -155,14 +156,14 @@ data StartMatchBackfill = StartMatchBackfill'
 -- session. This information is used by the matchmaker to find new players
 -- and add them to the existing game.
 --
--- -   PlayerID, PlayerAttributes, Team -\\\\- This information is
---     maintained in the GameSession object, @MatchmakerData@ property, for
---     all players who are currently assigned to the game session. The
+-- -   PlayerID, PlayerAttributes, Team -- This information is maintained
+--     in the GameSession object, @MatchmakerData@ property, for all
+--     players who are currently assigned to the game session. The
 --     matchmaker data is in JSON syntax, formatted as a string. For more
 --     details, see
 --     <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data Match Data>.
 --
--- -   LatencyInMs -\\\\- If the matchmaker uses player latency, include a
+-- -   LatencyInMs -- If the matchmaker uses player latency, include a
 --     latency value, in milliseconds, for the Region that the game session
 --     is currently in. Do not include latency values for any other Region.
 newStartMatchBackfill ::
@@ -184,10 +185,9 @@ newStartMatchBackfill pConfigurationName_ =
 startMatchBackfill_ticketId :: Lens.Lens' StartMatchBackfill (Prelude.Maybe Prelude.Text)
 startMatchBackfill_ticketId = Lens.lens (\StartMatchBackfill' {ticketId} -> ticketId) (\s@StartMatchBackfill' {} a -> s {ticketId = a} :: StartMatchBackfill)
 
--- | Amazon Resource Name
--- (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN>)
--- that is assigned to a game session and uniquely identifies it. This is
--- the same as the game session ID.
+-- | A unique identifier for the game session. Use the game session ID. When
+-- using FlexMatch as a standalone matchmaking solution, this parameter is
+-- not needed.
 startMatchBackfill_gameSessionArn :: Lens.Lens' StartMatchBackfill (Prelude.Maybe Prelude.Text)
 startMatchBackfill_gameSessionArn = Lens.lens (\StartMatchBackfill' {gameSessionArn} -> gameSessionArn) (\s@StartMatchBackfill' {} a -> s {gameSessionArn = a} :: StartMatchBackfill)
 
@@ -202,14 +202,14 @@ startMatchBackfill_configurationName = Lens.lens (\StartMatchBackfill' {configur
 -- session. This information is used by the matchmaker to find new players
 -- and add them to the existing game.
 --
--- -   PlayerID, PlayerAttributes, Team -\\\\- This information is
---     maintained in the GameSession object, @MatchmakerData@ property, for
---     all players who are currently assigned to the game session. The
+-- -   PlayerID, PlayerAttributes, Team -- This information is maintained
+--     in the GameSession object, @MatchmakerData@ property, for all
+--     players who are currently assigned to the game session. The
 --     matchmaker data is in JSON syntax, formatted as a string. For more
 --     details, see
 --     <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-server.html#match-server-data Match Data>.
 --
--- -   LatencyInMs -\\\\- If the matchmaker uses player latency, include a
+-- -   LatencyInMs -- If the matchmaker uses player latency, include a
 --     latency value, in milliseconds, for the Region that the game session
 --     is currently in. Do not include latency values for any other Region.
 startMatchBackfill_players :: Lens.Lens' StartMatchBackfill [Player]

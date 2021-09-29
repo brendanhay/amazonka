@@ -20,42 +20,29 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves entries from the specified fleet\'s event log. You can specify
--- a time range to limit the result set. Use the pagination parameters to
--- retrieve results as a set of sequential pages. If successful, a
--- collection of event log entries matching the request are returned.
+-- Retrieves entries from a fleet\'s event log. Fleet events are initiated
+-- by changes in status, such as during fleet creation and termination,
+-- changes in capacity, etc. If a fleet has multiple locations, events are
+-- also initiated by changes to status and capacity in remote locations.
+--
+-- You can specify a time range to limit the result set. Use the pagination
+-- parameters to retrieve results as a set of sequential pages.
+--
+-- If successful, a collection of event log entries matching the request
+-- are returned.
 --
 -- __Learn more__
 --
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift Fleets>
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift fleets>
 --
--- __Related operations__
+-- __Related actions__
 --
--- -   CreateFleet
---
--- -   ListFleets
---
--- -   DeleteFleet
---
--- -   Describe fleets:
---
---     -   DescribeFleetAttributes
---
---     -   DescribeFleetCapacity
---
---     -   DescribeFleetPortSettings
---
---     -   DescribeFleetUtilization
---
---     -   DescribeRuntimeConfiguration
---
---     -   DescribeEC2InstanceLimits
---
---     -   DescribeFleetEvents
---
--- -   UpdateFleetAttributes
---
--- -   StartFleetActions or StopFleetActions
+-- ListFleets | DescribeEC2InstanceLimits | DescribeFleetAttributes |
+-- DescribeFleetCapacity | DescribeFleetEvents |
+-- DescribeFleetLocationAttributes | DescribeFleetPortSettings |
+-- DescribeFleetUtilization | DescribeRuntimeConfiguration |
+-- DescribeScalingPolicies |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 --
 -- This operation returns paginated results.
 module Network.AWS.GameLift.DescribeFleetEvents
@@ -92,16 +79,16 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeFleetEvents' smart constructor.
 data DescribeFleetEvents = DescribeFleetEvents'
-  { -- | Token that indicates the start of the next sequential page of results.
+  { -- | A token that indicates the start of the next sequential page of results.
     -- Use the token that is returned with a previous call to this operation.
     -- To start at the beginning of the result set, do not specify a value.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Earliest date to retrieve event logs for. If no start time is specified,
-    -- this call returns entries starting from when the fleet was created to
-    -- the specified end time. Format is a number expressed in Unix time as
-    -- milliseconds (ex: \"1469498468.057\").
+    -- | The earliest date to retrieve event logs for. If no start time is
+    -- specified, this call returns entries starting from when the fleet was
+    -- created to the specified end time. Format is a number expressed in Unix
+    -- time as milliseconds (ex: \"1469498468.057\").
     startTime :: Prelude.Maybe Core.POSIX,
-    -- | Most recent date to retrieve event logs for. If no end time is
+    -- | The most recent date to retrieve event logs for. If no end time is
     -- specified, this call returns entries from the specified start time up to
     -- the present. Format is a number expressed in Unix time as milliseconds
     -- (ex: \"1469498468.057\").
@@ -109,7 +96,7 @@ data DescribeFleetEvents = DescribeFleetEvents'
     -- | The maximum number of results to return. Use this parameter with
     -- @NextToken@ to get results as a set of sequential pages.
     limit :: Prelude.Maybe Prelude.Natural,
-    -- | A unique identifier for a fleet to get event logs for. You can use
+    -- | A unique identifier for the fleet to get event logs for. You can use
     -- either the fleet ID or ARN value.
     fleetId :: Prelude.Text
   }
@@ -123,16 +110,16 @@ data DescribeFleetEvents = DescribeFleetEvents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeFleetEvents_nextToken' - Token that indicates the start of the next sequential page of results.
+-- 'nextToken', 'describeFleetEvents_nextToken' - A token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
 --
--- 'startTime', 'describeFleetEvents_startTime' - Earliest date to retrieve event logs for. If no start time is specified,
--- this call returns entries starting from when the fleet was created to
--- the specified end time. Format is a number expressed in Unix time as
--- milliseconds (ex: \"1469498468.057\").
+-- 'startTime', 'describeFleetEvents_startTime' - The earliest date to retrieve event logs for. If no start time is
+-- specified, this call returns entries starting from when the fleet was
+-- created to the specified end time. Format is a number expressed in Unix
+-- time as milliseconds (ex: \"1469498468.057\").
 --
--- 'endTime', 'describeFleetEvents_endTime' - Most recent date to retrieve event logs for. If no end time is
+-- 'endTime', 'describeFleetEvents_endTime' - The most recent date to retrieve event logs for. If no end time is
 -- specified, this call returns entries from the specified start time up to
 -- the present. Format is a number expressed in Unix time as milliseconds
 -- (ex: \"1469498468.057\").
@@ -140,7 +127,7 @@ data DescribeFleetEvents = DescribeFleetEvents'
 -- 'limit', 'describeFleetEvents_limit' - The maximum number of results to return. Use this parameter with
 -- @NextToken@ to get results as a set of sequential pages.
 --
--- 'fleetId', 'describeFleetEvents_fleetId' - A unique identifier for a fleet to get event logs for. You can use
+-- 'fleetId', 'describeFleetEvents_fleetId' - A unique identifier for the fleet to get event logs for. You can use
 -- either the fleet ID or ARN value.
 newDescribeFleetEvents ::
   -- | 'fleetId'
@@ -155,20 +142,20 @@ newDescribeFleetEvents pFleetId_ =
       fleetId = pFleetId_
     }
 
--- | Token that indicates the start of the next sequential page of results.
+-- | A token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
 describeFleetEvents_nextToken :: Lens.Lens' DescribeFleetEvents (Prelude.Maybe Prelude.Text)
 describeFleetEvents_nextToken = Lens.lens (\DescribeFleetEvents' {nextToken} -> nextToken) (\s@DescribeFleetEvents' {} a -> s {nextToken = a} :: DescribeFleetEvents)
 
--- | Earliest date to retrieve event logs for. If no start time is specified,
--- this call returns entries starting from when the fleet was created to
--- the specified end time. Format is a number expressed in Unix time as
--- milliseconds (ex: \"1469498468.057\").
+-- | The earliest date to retrieve event logs for. If no start time is
+-- specified, this call returns entries starting from when the fleet was
+-- created to the specified end time. Format is a number expressed in Unix
+-- time as milliseconds (ex: \"1469498468.057\").
 describeFleetEvents_startTime :: Lens.Lens' DescribeFleetEvents (Prelude.Maybe Prelude.UTCTime)
 describeFleetEvents_startTime = Lens.lens (\DescribeFleetEvents' {startTime} -> startTime) (\s@DescribeFleetEvents' {} a -> s {startTime = a} :: DescribeFleetEvents) Prelude.. Lens.mapping Core._Time
 
--- | Most recent date to retrieve event logs for. If no end time is
+-- | The most recent date to retrieve event logs for. If no end time is
 -- specified, this call returns entries from the specified start time up to
 -- the present. Format is a number expressed in Unix time as milliseconds
 -- (ex: \"1469498468.057\").
@@ -180,7 +167,7 @@ describeFleetEvents_endTime = Lens.lens (\DescribeFleetEvents' {endTime} -> endT
 describeFleetEvents_limit :: Lens.Lens' DescribeFleetEvents (Prelude.Maybe Prelude.Natural)
 describeFleetEvents_limit = Lens.lens (\DescribeFleetEvents' {limit} -> limit) (\s@DescribeFleetEvents' {} a -> s {limit = a} :: DescribeFleetEvents)
 
--- | A unique identifier for a fleet to get event logs for. You can use
+-- | A unique identifier for the fleet to get event logs for. You can use
 -- either the fleet ID or ARN value.
 describeFleetEvents_fleetId :: Lens.Lens' DescribeFleetEvents Prelude.Text
 describeFleetEvents_fleetId = Lens.lens (\DescribeFleetEvents' {fleetId} -> fleetId) (\s@DescribeFleetEvents' {} a -> s {fleetId = a} :: DescribeFleetEvents)
@@ -262,9 +249,9 @@ instance Core.ToQuery DescribeFleetEvents where
 --
 -- /See:/ 'newDescribeFleetEventsResponse' smart constructor.
 data DescribeFleetEventsResponse = DescribeFleetEventsResponse'
-  { -- | Token that indicates where to resume retrieving results on the next call
-    -- to this operation. If no token is returned, these results represent the
-    -- end of the list.
+  { -- | A token that indicates where to resume retrieving results on the next
+    -- call to this operation. If no token is returned, these results represent
+    -- the end of the list.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A collection of objects containing event log entries for the specified
     -- fleet.
@@ -282,9 +269,9 @@ data DescribeFleetEventsResponse = DescribeFleetEventsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeFleetEventsResponse_nextToken' - Token that indicates where to resume retrieving results on the next call
--- to this operation. If no token is returned, these results represent the
--- end of the list.
+-- 'nextToken', 'describeFleetEventsResponse_nextToken' - A token that indicates where to resume retrieving results on the next
+-- call to this operation. If no token is returned, these results represent
+-- the end of the list.
 --
 -- 'events', 'describeFleetEventsResponse_events' - A collection of objects containing event log entries for the specified
 -- fleet.
@@ -302,9 +289,9 @@ newDescribeFleetEventsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Token that indicates where to resume retrieving results on the next call
--- to this operation. If no token is returned, these results represent the
--- end of the list.
+-- | A token that indicates where to resume retrieving results on the next
+-- call to this operation. If no token is returned, these results represent
+-- the end of the list.
 describeFleetEventsResponse_nextToken :: Lens.Lens' DescribeFleetEventsResponse (Prelude.Maybe Prelude.Text)
 describeFleetEventsResponse_nextToken = Lens.lens (\DescribeFleetEventsResponse' {nextToken} -> nextToken) (\s@DescribeFleetEventsResponse' {} a -> s {nextToken = a} :: DescribeFleetEventsResponse)
 

@@ -28,8 +28,8 @@ import Network.AWS.GameLift.Types.InstanceDefinition
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | __This data type is used with the Amazon GameLift FleetIQ and game
--- server groups.__
+-- | __This data type is used with the GameLift FleetIQ and game server
+-- groups.__
 --
 -- Properties that describe a game server group resource. A game server
 -- group manages certain properties related to a corresponding EC2 Auto
@@ -41,25 +41,20 @@ import qualified Network.AWS.Prelude as Prelude
 -- calling @SuspendGameServerGroup@ and @ResumeGameServerGroup@,
 -- respectively.
 --
--- -   CreateGameServerGroup
+-- __Related actions__
 --
--- -   ListGameServerGroups
---
--- -   DescribeGameServerGroup
---
--- -   UpdateGameServerGroup
---
--- -   DeleteGameServerGroup
---
--- -   ResumeGameServerGroup
---
--- -   SuspendGameServerGroup
---
--- -   DescribeGameServerInstances
+-- CreateGameServerGroup | ListGameServerGroups | DescribeGameServerGroup |
+-- UpdateGameServerGroup | DeleteGameServerGroup | ResumeGameServerGroup |
+-- SuspendGameServerGroup | DescribeGameServerInstances |
+-- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html All APIs by task>
 --
 -- /See:/ 'newGameServerGroup' smart constructor.
 data GameServerGroup = GameServerGroup'
-  { -- | The current status of the game server group. Possible statuses include:
+  { -- | A time stamp indicating when this data object was created. Format is a
+    -- number expressed in Unix time as milliseconds (for example
+    -- @\"1469498468.057\"@).
+    creationTime :: Prelude.Maybe Core.POSIX,
+    -- | The current status of the game server group. Possible statuses include:
     --
     -- -   @NEW@ - GameLift FleetIQ has validated the @CreateGameServerGroup()@
     --     request.
@@ -82,10 +77,6 @@ data GameServerGroup = GameServerGroup'
     -- -   @ERROR@ - The asynchronous processes of activating or deleting a
     --     game server group has failed, resulting in an error state.
     status :: Prelude.Maybe GameServerGroupStatus,
-    -- | A timestamp that indicates when this data object was created. Format is
-    -- a number expressed in Unix time as milliseconds (for example
-    -- @\"1469498468.057\"@).
-    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
     -- for an IAM role that allows Amazon GameLift to access your EC2 Auto
@@ -128,6 +119,10 @@ data GameServerGroup = GameServerGroup'
     --     server group. No Spot Instances are used, even when available, while
     --     this balancing strategy is in force.
     balancingStrategy :: Prelude.Maybe BalancingStrategy,
+    -- | Additional information about the current game server group status. This
+    -- information might provide additional insight on groups that are in
+    -- @ERROR@ status.
+    statusReason :: Prelude.Maybe Prelude.Text,
     -- | A flag that indicates whether instances in the game server group are
     -- protected from early termination. Unprotected instances that have active
     -- game servers running might be terminated during a scale-down event,
@@ -137,10 +132,6 @@ data GameServerGroup = GameServerGroup'
     -- this is with Spot Instances, which can be terminated by AWS regardless
     -- of protection status.
     gameServerProtectionPolicy :: Prelude.Maybe GameServerProtectionPolicy,
-    -- | Additional information about the current game server group status. This
-    -- information might provide additional insight on groups that are in
-    -- @ERROR@ status.
-    statusReason :: Prelude.Maybe Prelude.Text,
     -- | A timestamp that indicates when this game server group was last updated.
     lastUpdatedTime :: Prelude.Maybe Core.POSIX
   }
@@ -153,6 +144,10 @@ data GameServerGroup = GameServerGroup'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'creationTime', 'gameServerGroup_creationTime' - A time stamp indicating when this data object was created. Format is a
+-- number expressed in Unix time as milliseconds (for example
+-- @\"1469498468.057\"@).
 --
 -- 'status', 'gameServerGroup_status' - The current status of the game server group. Possible statuses include:
 --
@@ -176,10 +171,6 @@ data GameServerGroup = GameServerGroup'
 --
 -- -   @ERROR@ - The asynchronous processes of activating or deleting a
 --     game server group has failed, resulting in an error state.
---
--- 'creationTime', 'gameServerGroup_creationTime' - A timestamp that indicates when this data object was created. Format is
--- a number expressed in Unix time as milliseconds (for example
--- @\"1469498468.057\"@).
 --
 -- 'roleArn', 'gameServerGroup_roleArn' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
@@ -223,6 +214,10 @@ data GameServerGroup = GameServerGroup'
 --     server group. No Spot Instances are used, even when available, while
 --     this balancing strategy is in force.
 --
+-- 'statusReason', 'gameServerGroup_statusReason' - Additional information about the current game server group status. This
+-- information might provide additional insight on groups that are in
+-- @ERROR@ status.
+--
 -- 'gameServerProtectionPolicy', 'gameServerGroup_gameServerProtectionPolicy' - A flag that indicates whether instances in the game server group are
 -- protected from early termination. Unprotected instances that have active
 -- game servers running might be terminated during a scale-down event,
@@ -232,17 +227,13 @@ data GameServerGroup = GameServerGroup'
 -- this is with Spot Instances, which can be terminated by AWS regardless
 -- of protection status.
 --
--- 'statusReason', 'gameServerGroup_statusReason' - Additional information about the current game server group status. This
--- information might provide additional insight on groups that are in
--- @ERROR@ status.
---
 -- 'lastUpdatedTime', 'gameServerGroup_lastUpdatedTime' - A timestamp that indicates when this game server group was last updated.
 newGameServerGroup ::
   GameServerGroup
 newGameServerGroup =
   GameServerGroup'
-    { status = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
+    { creationTime = Prelude.Nothing,
+      status = Prelude.Nothing,
       roleArn = Prelude.Nothing,
       autoScalingGroupArn = Prelude.Nothing,
       instanceDefinitions = Prelude.Nothing,
@@ -250,10 +241,16 @@ newGameServerGroup =
       suspendedActions = Prelude.Nothing,
       gameServerGroupName = Prelude.Nothing,
       balancingStrategy = Prelude.Nothing,
-      gameServerProtectionPolicy = Prelude.Nothing,
       statusReason = Prelude.Nothing,
+      gameServerProtectionPolicy = Prelude.Nothing,
       lastUpdatedTime = Prelude.Nothing
     }
+
+-- | A time stamp indicating when this data object was created. Format is a
+-- number expressed in Unix time as milliseconds (for example
+-- @\"1469498468.057\"@).
+gameServerGroup_creationTime :: Lens.Lens' GameServerGroup (Prelude.Maybe Prelude.UTCTime)
+gameServerGroup_creationTime = Lens.lens (\GameServerGroup' {creationTime} -> creationTime) (\s@GameServerGroup' {} a -> s {creationTime = a} :: GameServerGroup) Prelude.. Lens.mapping Core._Time
 
 -- | The current status of the game server group. Possible statuses include:
 --
@@ -279,12 +276,6 @@ newGameServerGroup =
 --     game server group has failed, resulting in an error state.
 gameServerGroup_status :: Lens.Lens' GameServerGroup (Prelude.Maybe GameServerGroupStatus)
 gameServerGroup_status = Lens.lens (\GameServerGroup' {status} -> status) (\s@GameServerGroup' {} a -> s {status = a} :: GameServerGroup)
-
--- | A timestamp that indicates when this data object was created. Format is
--- a number expressed in Unix time as milliseconds (for example
--- @\"1469498468.057\"@).
-gameServerGroup_creationTime :: Lens.Lens' GameServerGroup (Prelude.Maybe Prelude.UTCTime)
-gameServerGroup_creationTime = Lens.lens (\GameServerGroup' {creationTime} -> creationTime) (\s@GameServerGroup' {} a -> s {creationTime = a} :: GameServerGroup) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN>)
@@ -342,6 +333,12 @@ gameServerGroup_gameServerGroupName = Lens.lens (\GameServerGroup' {gameServerGr
 gameServerGroup_balancingStrategy :: Lens.Lens' GameServerGroup (Prelude.Maybe BalancingStrategy)
 gameServerGroup_balancingStrategy = Lens.lens (\GameServerGroup' {balancingStrategy} -> balancingStrategy) (\s@GameServerGroup' {} a -> s {balancingStrategy = a} :: GameServerGroup)
 
+-- | Additional information about the current game server group status. This
+-- information might provide additional insight on groups that are in
+-- @ERROR@ status.
+gameServerGroup_statusReason :: Lens.Lens' GameServerGroup (Prelude.Maybe Prelude.Text)
+gameServerGroup_statusReason = Lens.lens (\GameServerGroup' {statusReason} -> statusReason) (\s@GameServerGroup' {} a -> s {statusReason = a} :: GameServerGroup)
+
 -- | A flag that indicates whether instances in the game server group are
 -- protected from early termination. Unprotected instances that have active
 -- game servers running might be terminated during a scale-down event,
@@ -353,12 +350,6 @@ gameServerGroup_balancingStrategy = Lens.lens (\GameServerGroup' {balancingStrat
 gameServerGroup_gameServerProtectionPolicy :: Lens.Lens' GameServerGroup (Prelude.Maybe GameServerProtectionPolicy)
 gameServerGroup_gameServerProtectionPolicy = Lens.lens (\GameServerGroup' {gameServerProtectionPolicy} -> gameServerProtectionPolicy) (\s@GameServerGroup' {} a -> s {gameServerProtectionPolicy = a} :: GameServerGroup)
 
--- | Additional information about the current game server group status. This
--- information might provide additional insight on groups that are in
--- @ERROR@ status.
-gameServerGroup_statusReason :: Lens.Lens' GameServerGroup (Prelude.Maybe Prelude.Text)
-gameServerGroup_statusReason = Lens.lens (\GameServerGroup' {statusReason} -> statusReason) (\s@GameServerGroup' {} a -> s {statusReason = a} :: GameServerGroup)
-
 -- | A timestamp that indicates when this game server group was last updated.
 gameServerGroup_lastUpdatedTime :: Lens.Lens' GameServerGroup (Prelude.Maybe Prelude.UTCTime)
 gameServerGroup_lastUpdatedTime = Lens.lens (\GameServerGroup' {lastUpdatedTime} -> lastUpdatedTime) (\s@GameServerGroup' {} a -> s {lastUpdatedTime = a} :: GameServerGroup) Prelude.. Lens.mapping Core._Time
@@ -369,8 +360,8 @@ instance Core.FromJSON GameServerGroup where
       "GameServerGroup"
       ( \x ->
           GameServerGroup'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "RoleArn")
             Prelude.<*> (x Core..:? "AutoScalingGroupArn")
             Prelude.<*> (x Core..:? "InstanceDefinitions")
@@ -378,8 +369,8 @@ instance Core.FromJSON GameServerGroup where
             Prelude.<*> (x Core..:? "SuspendedActions")
             Prelude.<*> (x Core..:? "GameServerGroupName")
             Prelude.<*> (x Core..:? "BalancingStrategy")
-            Prelude.<*> (x Core..:? "GameServerProtectionPolicy")
             Prelude.<*> (x Core..:? "StatusReason")
+            Prelude.<*> (x Core..:? "GameServerProtectionPolicy")
             Prelude.<*> (x Core..:? "LastUpdatedTime")
       )
 

@@ -31,17 +31,10 @@
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html Upload a Custom Server Build>
 --
--- __Related operations__
+-- __Related actions__
 --
--- -   CreateBuild
---
--- -   ListBuilds
---
--- -   DescribeBuild
---
--- -   UpdateBuild
---
--- -   DeleteBuild
+-- CreateBuild | ListBuilds | DescribeBuild | UpdateBuild | DeleteBuild |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 --
 -- This operation returns paginated results.
 module Network.AWS.GameLift.ListBuilds
@@ -92,7 +85,7 @@ data ListBuilds = ListBuilds'
     -- -   __FAILED__ -- The game build upload failed. You cannot create new
     --     fleets for this build.
     status :: Prelude.Maybe BuildStatus,
-    -- | Token that indicates the start of the next sequential page of results.
+    -- | A token that indicates the start of the next sequential page of results.
     -- Use the token that is returned with a previous call to this operation.
     -- To start at the beginning of the result set, do not specify a value.
     nextToken :: Prelude.Maybe Prelude.Text,
@@ -126,7 +119,7 @@ data ListBuilds = ListBuilds'
 -- -   __FAILED__ -- The game build upload failed. You cannot create new
 --     fleets for this build.
 --
--- 'nextToken', 'listBuilds_nextToken' - Token that indicates the start of the next sequential page of results.
+-- 'nextToken', 'listBuilds_nextToken' - A token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
 --
@@ -159,7 +152,7 @@ newListBuilds =
 listBuilds_status :: Lens.Lens' ListBuilds (Prelude.Maybe BuildStatus)
 listBuilds_status = Lens.lens (\ListBuilds' {status} -> status) (\s@ListBuilds' {} a -> s {status = a} :: ListBuilds)
 
--- | Token that indicates the start of the next sequential page of results.
+-- | A token that indicates the start of the next sequential page of results.
 -- Use the token that is returned with a previous call to this operation.
 -- To start at the beginning of the result set, do not specify a value.
 listBuilds_nextToken :: Lens.Lens' ListBuilds (Prelude.Maybe Prelude.Text)
@@ -238,9 +231,9 @@ instance Core.ToQuery ListBuilds where
 --
 -- /See:/ 'newListBuildsResponse' smart constructor.
 data ListBuildsResponse = ListBuildsResponse'
-  { -- | Token that indicates where to resume retrieving results on the next call
-    -- to this operation. If no token is returned, these results represent the
-    -- end of the list.
+  { -- | A token that indicates where to resume retrieving results on the next
+    -- call to this operation. If no token is returned, these results represent
+    -- the end of the list.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A collection of build resources that match the request.
     builds :: Prelude.Maybe [Build],
@@ -257,9 +250,9 @@ data ListBuildsResponse = ListBuildsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listBuildsResponse_nextToken' - Token that indicates where to resume retrieving results on the next call
--- to this operation. If no token is returned, these results represent the
--- end of the list.
+-- 'nextToken', 'listBuildsResponse_nextToken' - A token that indicates where to resume retrieving results on the next
+-- call to this operation. If no token is returned, these results represent
+-- the end of the list.
 --
 -- 'builds', 'listBuildsResponse_builds' - A collection of build resources that match the request.
 --
@@ -275,9 +268,9 @@ newListBuildsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Token that indicates where to resume retrieving results on the next call
--- to this operation. If no token is returned, these results represent the
--- end of the list.
+-- | A token that indicates where to resume retrieving results on the next
+-- call to this operation. If no token is returned, these results represent
+-- the end of the list.
 listBuildsResponse_nextToken :: Lens.Lens' ListBuildsResponse (Prelude.Maybe Prelude.Text)
 listBuildsResponse_nextToken = Lens.lens (\ListBuildsResponse' {nextToken} -> nextToken) (\s@ListBuildsResponse' {} a -> s {nextToken = a} :: ListBuildsResponse)
 

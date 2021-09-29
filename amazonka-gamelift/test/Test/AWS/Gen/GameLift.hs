@@ -27,23 +27,8 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDescribeGameSessionQueues $
---             newDescribeGameSessionQueues
---
---         , requestDeleteBuild $
---             newDeleteBuild
---
---         , requestDescribeVpcPeeringConnections $
+--         [ requestDescribeVpcPeeringConnections $
 --             newDescribeVpcPeeringConnections
---
---         , requestDescribeFleetPortSettings $
---             newDescribeFleetPortSettings
---
---         , requestDescribeInstances $
---             newDescribeInstances
---
---         , requestDeleteAlias $
---             newDeleteAlias
 --
 --         , requestDescribeFleetCapacity $
 --             newDescribeFleetCapacity
@@ -51,8 +36,23 @@ import Test.Tasty
 --         , requestListBuilds $
 --             newListBuilds
 --
+--         , requestDeleteBuild $
+--             newDeleteBuild
+--
+--         , requestDescribeGameSessionQueues $
+--             newDescribeGameSessionQueues
+--
+--         , requestDeleteAlias $
+--             newDeleteAlias
+--
+--         , requestDescribeFleetPortSettings $
+--             newDescribeFleetPortSettings
+--
 --         , requestUpdateBuild $
 --             newUpdateBuild
+--
+--         , requestDescribeInstances $
+--             newDescribeInstances
 --
 --         , requestUpdateAlias $
 --             newUpdateAlias
@@ -60,14 +60,17 @@ import Test.Tasty
 --         , requestDescribeFleetAttributes $
 --             newDescribeFleetAttributes
 --
---         , requestPutScalingPolicy $
---             newPutScalingPolicy
---
 --         , requestDescribeFleetEvents $
 --             newDescribeFleetEvents
 --
+--         , requestPutScalingPolicy $
+--             newPutScalingPolicy
+--
 --         , requestDescribeFleetUtilization $
 --             newDescribeFleetUtilization
+--
+--         , requestDescribeRuntimeConfiguration $
+--             newDescribeRuntimeConfiguration
 --
 --         , requestClaimGameServer $
 --             newClaimGameServer
@@ -78,44 +81,41 @@ import Test.Tasty
 --         , requestDescribeGameServerGroup $
 --             newDescribeGameServerGroup
 --
+--         , requestCreatePlayerSession $
+--             newCreatePlayerSession
+--
+--         , requestDescribeFleetLocationAttributes $
+--             newDescribeFleetLocationAttributes
+--
 --         , requestDescribeMatchmaking $
 --             newDescribeMatchmaking
 --
 --         , requestGetGameSessionLogUrl $
 --             newGetGameSessionLogUrl
 --
---         , requestCreatePlayerSession $
---             newCreatePlayerSession
---
---         , requestDescribeRuntimeConfiguration $
---             newDescribeRuntimeConfiguration
---
---         , requestDescribeScalingPolicies $
---             newDescribeScalingPolicies
+--         , requestDescribeMatchmakingRuleSets $
+--             newDescribeMatchmakingRuleSets
 --
 --         , requestSuspendGameServerGroup $
 --             newSuspendGameServerGroup
 --
---         , requestDescribeMatchmakingRuleSets $
---             newDescribeMatchmakingRuleSets
+--         , requestDescribeScalingPolicies $
+--             newDescribeScalingPolicies
 --
 --         , requestValidateMatchmakingRuleSet $
 --             newValidateMatchmakingRuleSet
 --
---         , requestUpdateFleetPortSettings $
---             newUpdateFleetPortSettings
---
 --         , requestDescribeBuild $
 --             newDescribeBuild
---
---         , requestAcceptMatch $
---             newAcceptMatch
 --
 --         , requestDeregisterGameServer $
 --             newDeregisterGameServer
 --
---         , requestUntagResource $
---             newUntagResource
+--         , requestUpdateFleetPortSettings $
+--             newUpdateFleetPortSettings
+--
+--         , requestAcceptMatch $
+--             newAcceptMatch
 --
 --         , requestUpdateFleetCapacity $
 --             newUpdateFleetCapacity
@@ -123,8 +123,8 @@ import Test.Tasty
 --         , requestDescribeAlias $
 --             newDescribeAlias
 --
---         , requestDeleteVpcPeeringConnection $
---             newDeleteVpcPeeringConnection
+--         , requestUntagResource $
+--             newUntagResource
 --
 --         , requestUpdateFleetAttributes $
 --             newUpdateFleetAttributes
@@ -135,32 +135,35 @@ import Test.Tasty
 --         , requestTagResource $
 --             newTagResource
 --
+--         , requestDeleteVpcPeeringConnection $
+--             newDeleteVpcPeeringConnection
+--
 --         , requestDeleteGameSessionQueue $
 --             newDeleteGameSessionQueue
---
---         , requestUpdateMatchmakingConfiguration $
---             newUpdateMatchmakingConfiguration
 --
 --         , requestDeleteMatchmakingConfiguration $
 --             newDeleteMatchmakingConfiguration
 --
---         , requestDescribeMatchmakingConfigurations $
---             newDescribeMatchmakingConfigurations
---
---         , requestCreateFleet $
---             newCreateFleet
---
---         , requestRegisterGameServer $
---             newRegisterGameServer
+--         , requestUpdateMatchmakingConfiguration $
+--             newUpdateMatchmakingConfiguration
 --
 --         , requestRequestUploadCredentials $
 --             newRequestUploadCredentials
 --
+--         , requestDescribeFleetLocationCapacity $
+--             newDescribeFleetLocationCapacity
+--
+--         , requestRegisterGameServer $
+--             newRegisterGameServer
+--
+--         , requestCreateFleet $
+--             newCreateFleet
+--
+--         , requestDescribeMatchmakingConfigurations $
+--             newDescribeMatchmakingConfigurations
+--
 --         , requestResolveAlias $
 --             newResolveAlias
---
---         , requestStartMatchBackfill $
---             newStartMatchBackfill
 --
 --         , requestDeleteFleet $
 --             newDeleteFleet
@@ -171,29 +174,35 @@ import Test.Tasty
 --         , requestListFleets $
 --             newListFleets
 --
+--         , requestStartMatchBackfill $
+--             newStartMatchBackfill
+--
 --         , requestStopMatchmaking $
 --             newStopMatchmaking
 --
---         , requestDescribeGameServerInstances $
---             newDescribeGameServerInstances
---
---         , requestCreateGameSession $
---             newCreateGameSession
+--         , requestCreateFleetLocations $
+--             newCreateFleetLocations
 --
 --         , requestCreateMatchmakingRuleSet $
 --             newCreateMatchmakingRuleSet
 --
---         , requestStartMatchmaking $
---             newStartMatchmaking
---
 --         , requestDescribeGameSessionPlacement $
 --             newDescribeGameSessionPlacement
+--
+--         , requestCreateGameSession $
+--             newCreateGameSession
+--
+--         , requestStartMatchmaking $
+--             newStartMatchmaking
 --
 --         , requestDeleteScalingPolicy $
 --             newDeleteScalingPolicy
 --
---         , requestStopGameSessionPlacement $
---             newStopGameSessionPlacement
+--         , requestDescribeFleetLocationUtilization $
+--             newDescribeFleetLocationUtilization
+--
+--         , requestDescribeGameServerInstances $
+--             newDescribeGameServerInstances
 --
 --         , requestStartGameSessionPlacement $
 --             newStartGameSessionPlacement
@@ -201,95 +210,83 @@ import Test.Tasty
 --         , requestDeleteMatchmakingRuleSet $
 --             newDeleteMatchmakingRuleSet
 --
---         , requestDescribeGameServer $
---             newDescribeGameServer
+--         , requestDeleteFleetLocations $
+--             newDeleteFleetLocations
 --
---         , requestDeleteScript $
---             newDeleteScript
---
---         , requestListScripts $
---             newListScripts
---
---         , requestDescribeGameSessions $
---             newDescribeGameSessions
+--         , requestStopGameSessionPlacement $
+--             newStopGameSessionPlacement
 --
 --         , requestUpdateScript $
 --             newUpdateScript
 --
+--         , requestDescribeGameSessions $
+--             newDescribeGameSessions
+--
+--         , requestDeleteScript $
+--             newDeleteScript
+--
+--         , requestDescribeGameServer $
+--             newDescribeGameServer
+--
+--         , requestListScripts $
+--             newListScripts
+--
 --         , requestDescribeEC2InstanceLimits $
 --             newDescribeEC2InstanceLimits
---
---         , requestStopFleetActions $
---             newStopFleetActions
---
---         , requestGetInstanceAccess $
---             newGetInstanceAccess
---
---         , requestStartFleetActions $
---             newStartFleetActions
---
---         , requestDescribePlayerSessions $
---             newDescribePlayerSessions
 --
 --         , requestCreateScript $
 --             newCreateScript
 --
+--         , requestStartFleetActions $
+--             newStartFleetActions
+--
+--         , requestGetInstanceAccess $
+--             newGetInstanceAccess
+--
+--         , requestDescribePlayerSessions $
+--             newDescribePlayerSessions
+--
+--         , requestStopFleetActions $
+--             newStopFleetActions
+--
 --         , requestCreateMatchmakingConfiguration $
 --             newCreateMatchmakingConfiguration
---
---         , requestCreateVpcPeeringAuthorization $
---             newCreateVpcPeeringAuthorization
 --
 --         , requestCreateGameServerGroup $
 --             newCreateGameServerGroup
 --
---         , requestUpdateGameServerGroup $
---             newUpdateGameServerGroup
---
---         , requestSearchGameSessions $
---             newSearchGameSessions
---
---         , requestDeleteGameServerGroup $
---             newDeleteGameServerGroup
---
---         , requestListGameServerGroups $
---             newListGameServerGroups
---
---         , requestUpdateRuntimeConfiguration $
---             newUpdateRuntimeConfiguration
---
---         , requestCreateGameSessionQueue $
---             newCreateGameSessionQueue
---
---         , requestResumeGameServerGroup $
---             newResumeGameServerGroup
---
---         , requestDeleteVpcPeeringAuthorization $
---             newDeleteVpcPeeringAuthorization
+--         , requestCreateVpcPeeringAuthorization $
+--             newCreateVpcPeeringAuthorization
 --
 --         , requestCreateVpcPeeringConnection $
 --             newCreateVpcPeeringConnection
 --
---         , requestListTagsForResource $
---             newListTagsForResource
+--         , requestResumeGameServerGroup $
+--             newResumeGameServerGroup
 --
---         , requestDescribeScript $
---             newDescribeScript
+--         , requestDeleteGameServerGroup $
+--             newDeleteGameServerGroup
 --
---         , requestCreateAlias $
---             newCreateAlias
+--         , requestUpdateGameServerGroup $
+--             newUpdateGameServerGroup
+--
+--         , requestUpdateRuntimeConfiguration $
+--             newUpdateRuntimeConfiguration
+--
+--         , requestDeleteVpcPeeringAuthorization $
+--             newDeleteVpcPeeringAuthorization
+--
+--         , requestCreateGameSessionQueue $
+--             newCreateGameSessionQueue
+--
+--         , requestSearchGameSessions $
+--             newSearchGameSessions
+--
+--         , requestListGameServerGroups $
+--             newListGameServerGroups
 --
 --         , requestCreatePlayerSessions $
 --             newCreatePlayerSessions
---
---         , requestUpdateGameServer $
---             newUpdateGameServer
---
---         , requestDescribeVpcPeeringAuthorizations $
---             newDescribeVpcPeeringAuthorizations
---
---         , requestListGameServers $
---             newListGameServers
 --
 --         , requestCreateBuild $
 --             newCreateBuild
@@ -297,26 +294,29 @@ import Test.Tasty
 --         , requestListAliases $
 --             newListAliases
 --
+--         , requestDescribeScript $
+--             newDescribeScript
+--
+--         , requestDescribeVpcPeeringAuthorizations $
+--             newDescribeVpcPeeringAuthorizations
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestCreateAlias $
+--             newCreateAlias
+--
+--         , requestListGameServers $
+--             newListGameServers
+--
+--         , requestUpdateGameServer $
+--             newUpdateGameServer
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseDescribeGameSessionQueues $
---             newDescribeGameSessionQueuesResponse
---
---         , responseDeleteBuild $
---             newDeleteBuildResponse
---
---         , responseDescribeVpcPeeringConnections $
+--         [ responseDescribeVpcPeeringConnections $
 --             newDescribeVpcPeeringConnectionsResponse
---
---         , responseDescribeFleetPortSettings $
---             newDescribeFleetPortSettingsResponse
---
---         , responseDescribeInstances $
---             newDescribeInstancesResponse
---
---         , responseDeleteAlias $
---             newDeleteAliasResponse
 --
 --         , responseDescribeFleetCapacity $
 --             newDescribeFleetCapacityResponse
@@ -324,8 +324,23 @@ import Test.Tasty
 --         , responseListBuilds $
 --             newListBuildsResponse
 --
+--         , responseDeleteBuild $
+--             newDeleteBuildResponse
+--
+--         , responseDescribeGameSessionQueues $
+--             newDescribeGameSessionQueuesResponse
+--
+--         , responseDeleteAlias $
+--             newDeleteAliasResponse
+--
+--         , responseDescribeFleetPortSettings $
+--             newDescribeFleetPortSettingsResponse
+--
 --         , responseUpdateBuild $
 --             newUpdateBuildResponse
+--
+--         , responseDescribeInstances $
+--             newDescribeInstancesResponse
 --
 --         , responseUpdateAlias $
 --             newUpdateAliasResponse
@@ -333,14 +348,17 @@ import Test.Tasty
 --         , responseDescribeFleetAttributes $
 --             newDescribeFleetAttributesResponse
 --
---         , responsePutScalingPolicy $
---             newPutScalingPolicyResponse
---
 --         , responseDescribeFleetEvents $
 --             newDescribeFleetEventsResponse
 --
+--         , responsePutScalingPolicy $
+--             newPutScalingPolicyResponse
+--
 --         , responseDescribeFleetUtilization $
 --             newDescribeFleetUtilizationResponse
+--
+--         , responseDescribeRuntimeConfiguration $
+--             newDescribeRuntimeConfigurationResponse
 --
 --         , responseClaimGameServer $
 --             newClaimGameServerResponse
@@ -351,44 +369,41 @@ import Test.Tasty
 --         , responseDescribeGameServerGroup $
 --             newDescribeGameServerGroupResponse
 --
+--         , responseCreatePlayerSession $
+--             newCreatePlayerSessionResponse
+--
+--         , responseDescribeFleetLocationAttributes $
+--             newDescribeFleetLocationAttributesResponse
+--
 --         , responseDescribeMatchmaking $
 --             newDescribeMatchmakingResponse
 --
 --         , responseGetGameSessionLogUrl $
 --             newGetGameSessionLogUrlResponse
 --
---         , responseCreatePlayerSession $
---             newCreatePlayerSessionResponse
---
---         , responseDescribeRuntimeConfiguration $
---             newDescribeRuntimeConfigurationResponse
---
---         , responseDescribeScalingPolicies $
---             newDescribeScalingPoliciesResponse
+--         , responseDescribeMatchmakingRuleSets $
+--             newDescribeMatchmakingRuleSetsResponse
 --
 --         , responseSuspendGameServerGroup $
 --             newSuspendGameServerGroupResponse
 --
---         , responseDescribeMatchmakingRuleSets $
---             newDescribeMatchmakingRuleSetsResponse
+--         , responseDescribeScalingPolicies $
+--             newDescribeScalingPoliciesResponse
 --
 --         , responseValidateMatchmakingRuleSet $
 --             newValidateMatchmakingRuleSetResponse
 --
---         , responseUpdateFleetPortSettings $
---             newUpdateFleetPortSettingsResponse
---
 --         , responseDescribeBuild $
 --             newDescribeBuildResponse
---
---         , responseAcceptMatch $
---             newAcceptMatchResponse
 --
 --         , responseDeregisterGameServer $
 --             newDeregisterGameServerResponse
 --
---         , responseUntagResource $
---             newUntagResourceResponse
+--         , responseUpdateFleetPortSettings $
+--             newUpdateFleetPortSettingsResponse
+--
+--         , responseAcceptMatch $
+--             newAcceptMatchResponse
 --
 --         , responseUpdateFleetCapacity $
 --             newUpdateFleetCapacityResponse
@@ -396,8 +411,8 @@ import Test.Tasty
 --         , responseDescribeAlias $
 --             newDescribeAliasResponse
 --
---         , responseDeleteVpcPeeringConnection $
---             newDeleteVpcPeeringConnectionResponse
+--         , responseUntagResource $
+--             newUntagResourceResponse
 --
 --         , responseUpdateFleetAttributes $
 --             newUpdateFleetAttributesResponse
@@ -408,32 +423,35 @@ import Test.Tasty
 --         , responseTagResource $
 --             newTagResourceResponse
 --
+--         , responseDeleteVpcPeeringConnection $
+--             newDeleteVpcPeeringConnectionResponse
+--
 --         , responseDeleteGameSessionQueue $
 --             newDeleteGameSessionQueueResponse
---
---         , responseUpdateMatchmakingConfiguration $
---             newUpdateMatchmakingConfigurationResponse
 --
 --         , responseDeleteMatchmakingConfiguration $
 --             newDeleteMatchmakingConfigurationResponse
 --
---         , responseDescribeMatchmakingConfigurations $
---             newDescribeMatchmakingConfigurationsResponse
---
---         , responseCreateFleet $
---             newCreateFleetResponse
---
---         , responseRegisterGameServer $
---             newRegisterGameServerResponse
+--         , responseUpdateMatchmakingConfiguration $
+--             newUpdateMatchmakingConfigurationResponse
 --
 --         , responseRequestUploadCredentials $
 --             newRequestUploadCredentialsResponse
 --
+--         , responseDescribeFleetLocationCapacity $
+--             newDescribeFleetLocationCapacityResponse
+--
+--         , responseRegisterGameServer $
+--             newRegisterGameServerResponse
+--
+--         , responseCreateFleet $
+--             newCreateFleetResponse
+--
+--         , responseDescribeMatchmakingConfigurations $
+--             newDescribeMatchmakingConfigurationsResponse
+--
 --         , responseResolveAlias $
 --             newResolveAliasResponse
---
---         , responseStartMatchBackfill $
---             newStartMatchBackfillResponse
 --
 --         , responseDeleteFleet $
 --             newDeleteFleetResponse
@@ -444,29 +462,35 @@ import Test.Tasty
 --         , responseListFleets $
 --             newListFleetsResponse
 --
+--         , responseStartMatchBackfill $
+--             newStartMatchBackfillResponse
+--
 --         , responseStopMatchmaking $
 --             newStopMatchmakingResponse
 --
---         , responseDescribeGameServerInstances $
---             newDescribeGameServerInstancesResponse
---
---         , responseCreateGameSession $
---             newCreateGameSessionResponse
+--         , responseCreateFleetLocations $
+--             newCreateFleetLocationsResponse
 --
 --         , responseCreateMatchmakingRuleSet $
 --             newCreateMatchmakingRuleSetResponse
 --
---         , responseStartMatchmaking $
---             newStartMatchmakingResponse
---
 --         , responseDescribeGameSessionPlacement $
 --             newDescribeGameSessionPlacementResponse
+--
+--         , responseCreateGameSession $
+--             newCreateGameSessionResponse
+--
+--         , responseStartMatchmaking $
+--             newStartMatchmakingResponse
 --
 --         , responseDeleteScalingPolicy $
 --             newDeleteScalingPolicyResponse
 --
---         , responseStopGameSessionPlacement $
---             newStopGameSessionPlacementResponse
+--         , responseDescribeFleetLocationUtilization $
+--             newDescribeFleetLocationUtilizationResponse
+--
+--         , responseDescribeGameServerInstances $
+--             newDescribeGameServerInstancesResponse
 --
 --         , responseStartGameSessionPlacement $
 --             newStartGameSessionPlacementResponse
@@ -474,95 +498,83 @@ import Test.Tasty
 --         , responseDeleteMatchmakingRuleSet $
 --             newDeleteMatchmakingRuleSetResponse
 --
---         , responseDescribeGameServer $
---             newDescribeGameServerResponse
+--         , responseDeleteFleetLocations $
+--             newDeleteFleetLocationsResponse
 --
---         , responseDeleteScript $
---             newDeleteScriptResponse
---
---         , responseListScripts $
---             newListScriptsResponse
---
---         , responseDescribeGameSessions $
---             newDescribeGameSessionsResponse
+--         , responseStopGameSessionPlacement $
+--             newStopGameSessionPlacementResponse
 --
 --         , responseUpdateScript $
 --             newUpdateScriptResponse
 --
+--         , responseDescribeGameSessions $
+--             newDescribeGameSessionsResponse
+--
+--         , responseDeleteScript $
+--             newDeleteScriptResponse
+--
+--         , responseDescribeGameServer $
+--             newDescribeGameServerResponse
+--
+--         , responseListScripts $
+--             newListScriptsResponse
+--
 --         , responseDescribeEC2InstanceLimits $
 --             newDescribeEC2InstanceLimitsResponse
---
---         , responseStopFleetActions $
---             newStopFleetActionsResponse
---
---         , responseGetInstanceAccess $
---             newGetInstanceAccessResponse
---
---         , responseStartFleetActions $
---             newStartFleetActionsResponse
---
---         , responseDescribePlayerSessions $
---             newDescribePlayerSessionsResponse
 --
 --         , responseCreateScript $
 --             newCreateScriptResponse
 --
+--         , responseStartFleetActions $
+--             newStartFleetActionsResponse
+--
+--         , responseGetInstanceAccess $
+--             newGetInstanceAccessResponse
+--
+--         , responseDescribePlayerSessions $
+--             newDescribePlayerSessionsResponse
+--
+--         , responseStopFleetActions $
+--             newStopFleetActionsResponse
+--
 --         , responseCreateMatchmakingConfiguration $
 --             newCreateMatchmakingConfigurationResponse
---
---         , responseCreateVpcPeeringAuthorization $
---             newCreateVpcPeeringAuthorizationResponse
 --
 --         , responseCreateGameServerGroup $
 --             newCreateGameServerGroupResponse
 --
---         , responseUpdateGameServerGroup $
---             newUpdateGameServerGroupResponse
---
---         , responseSearchGameSessions $
---             newSearchGameSessionsResponse
---
---         , responseDeleteGameServerGroup $
---             newDeleteGameServerGroupResponse
---
---         , responseListGameServerGroups $
---             newListGameServerGroupsResponse
---
---         , responseUpdateRuntimeConfiguration $
---             newUpdateRuntimeConfigurationResponse
---
---         , responseCreateGameSessionQueue $
---             newCreateGameSessionQueueResponse
---
---         , responseResumeGameServerGroup $
---             newResumeGameServerGroupResponse
---
---         , responseDeleteVpcPeeringAuthorization $
---             newDeleteVpcPeeringAuthorizationResponse
+--         , responseCreateVpcPeeringAuthorization $
+--             newCreateVpcPeeringAuthorizationResponse
 --
 --         , responseCreateVpcPeeringConnection $
 --             newCreateVpcPeeringConnectionResponse
 --
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
+--         , responseResumeGameServerGroup $
+--             newResumeGameServerGroupResponse
 --
---         , responseDescribeScript $
---             newDescribeScriptResponse
+--         , responseDeleteGameServerGroup $
+--             newDeleteGameServerGroupResponse
 --
---         , responseCreateAlias $
---             newCreateAliasResponse
+--         , responseUpdateGameServerGroup $
+--             newUpdateGameServerGroupResponse
+--
+--         , responseUpdateRuntimeConfiguration $
+--             newUpdateRuntimeConfigurationResponse
+--
+--         , responseDeleteVpcPeeringAuthorization $
+--             newDeleteVpcPeeringAuthorizationResponse
+--
+--         , responseCreateGameSessionQueue $
+--             newCreateGameSessionQueueResponse
+--
+--         , responseSearchGameSessions $
+--             newSearchGameSessionsResponse
+--
+--         , responseListGameServerGroups $
+--             newListGameServerGroupsResponse
 --
 --         , responseCreatePlayerSessions $
 --             newCreatePlayerSessionsResponse
---
---         , responseUpdateGameServer $
---             newUpdateGameServerResponse
---
---         , responseDescribeVpcPeeringAuthorizations $
---             newDescribeVpcPeeringAuthorizationsResponse
---
---         , responseListGameServers $
---             newListGameServersResponse
 --
 --         , responseCreateBuild $
 --             newCreateBuildResponse
@@ -570,46 +582,34 @@ import Test.Tasty
 --         , responseListAliases $
 --             newListAliasesResponse
 --
+--         , responseDescribeScript $
+--             newDescribeScriptResponse
+--
+--         , responseDescribeVpcPeeringAuthorizations $
+--             newDescribeVpcPeeringAuthorizationsResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseCreateAlias $
+--             newCreateAliasResponse
+--
+--         , responseListGameServers $
+--             newListGameServersResponse
+--
+--         , responseUpdateGameServer $
+--             newUpdateGameServerResponse
+--
 --           ]
 --     ]
 
 -- Requests
-
-requestDescribeGameSessionQueues :: DescribeGameSessionQueues -> TestTree
-requestDescribeGameSessionQueues =
-  req
-    "DescribeGameSessionQueues"
-    "fixture/DescribeGameSessionQueues.yaml"
-
-requestDeleteBuild :: DeleteBuild -> TestTree
-requestDeleteBuild =
-  req
-    "DeleteBuild"
-    "fixture/DeleteBuild.yaml"
 
 requestDescribeVpcPeeringConnections :: DescribeVpcPeeringConnections -> TestTree
 requestDescribeVpcPeeringConnections =
   req
     "DescribeVpcPeeringConnections"
     "fixture/DescribeVpcPeeringConnections.yaml"
-
-requestDescribeFleetPortSettings :: DescribeFleetPortSettings -> TestTree
-requestDescribeFleetPortSettings =
-  req
-    "DescribeFleetPortSettings"
-    "fixture/DescribeFleetPortSettings.yaml"
-
-requestDescribeInstances :: DescribeInstances -> TestTree
-requestDescribeInstances =
-  req
-    "DescribeInstances"
-    "fixture/DescribeInstances.yaml"
-
-requestDeleteAlias :: DeleteAlias -> TestTree
-requestDeleteAlias =
-  req
-    "DeleteAlias"
-    "fixture/DeleteAlias.yaml"
 
 requestDescribeFleetCapacity :: DescribeFleetCapacity -> TestTree
 requestDescribeFleetCapacity =
@@ -623,11 +623,41 @@ requestListBuilds =
     "ListBuilds"
     "fixture/ListBuilds.yaml"
 
+requestDeleteBuild :: DeleteBuild -> TestTree
+requestDeleteBuild =
+  req
+    "DeleteBuild"
+    "fixture/DeleteBuild.yaml"
+
+requestDescribeGameSessionQueues :: DescribeGameSessionQueues -> TestTree
+requestDescribeGameSessionQueues =
+  req
+    "DescribeGameSessionQueues"
+    "fixture/DescribeGameSessionQueues.yaml"
+
+requestDeleteAlias :: DeleteAlias -> TestTree
+requestDeleteAlias =
+  req
+    "DeleteAlias"
+    "fixture/DeleteAlias.yaml"
+
+requestDescribeFleetPortSettings :: DescribeFleetPortSettings -> TestTree
+requestDescribeFleetPortSettings =
+  req
+    "DescribeFleetPortSettings"
+    "fixture/DescribeFleetPortSettings.yaml"
+
 requestUpdateBuild :: UpdateBuild -> TestTree
 requestUpdateBuild =
   req
     "UpdateBuild"
     "fixture/UpdateBuild.yaml"
+
+requestDescribeInstances :: DescribeInstances -> TestTree
+requestDescribeInstances =
+  req
+    "DescribeInstances"
+    "fixture/DescribeInstances.yaml"
 
 requestUpdateAlias :: UpdateAlias -> TestTree
 requestUpdateAlias =
@@ -641,23 +671,29 @@ requestDescribeFleetAttributes =
     "DescribeFleetAttributes"
     "fixture/DescribeFleetAttributes.yaml"
 
-requestPutScalingPolicy :: PutScalingPolicy -> TestTree
-requestPutScalingPolicy =
-  req
-    "PutScalingPolicy"
-    "fixture/PutScalingPolicy.yaml"
-
 requestDescribeFleetEvents :: DescribeFleetEvents -> TestTree
 requestDescribeFleetEvents =
   req
     "DescribeFleetEvents"
     "fixture/DescribeFleetEvents.yaml"
 
+requestPutScalingPolicy :: PutScalingPolicy -> TestTree
+requestPutScalingPolicy =
+  req
+    "PutScalingPolicy"
+    "fixture/PutScalingPolicy.yaml"
+
 requestDescribeFleetUtilization :: DescribeFleetUtilization -> TestTree
 requestDescribeFleetUtilization =
   req
     "DescribeFleetUtilization"
     "fixture/DescribeFleetUtilization.yaml"
+
+requestDescribeRuntimeConfiguration :: DescribeRuntimeConfiguration -> TestTree
+requestDescribeRuntimeConfiguration =
+  req
+    "DescribeRuntimeConfiguration"
+    "fixture/DescribeRuntimeConfiguration.yaml"
 
 requestClaimGameServer :: ClaimGameServer -> TestTree
 requestClaimGameServer =
@@ -677,6 +713,18 @@ requestDescribeGameServerGroup =
     "DescribeGameServerGroup"
     "fixture/DescribeGameServerGroup.yaml"
 
+requestCreatePlayerSession :: CreatePlayerSession -> TestTree
+requestCreatePlayerSession =
+  req
+    "CreatePlayerSession"
+    "fixture/CreatePlayerSession.yaml"
+
+requestDescribeFleetLocationAttributes :: DescribeFleetLocationAttributes -> TestTree
+requestDescribeFleetLocationAttributes =
+  req
+    "DescribeFleetLocationAttributes"
+    "fixture/DescribeFleetLocationAttributes.yaml"
+
 requestDescribeMatchmaking :: DescribeMatchmaking -> TestTree
 requestDescribeMatchmaking =
   req
@@ -689,23 +737,11 @@ requestGetGameSessionLogUrl =
     "GetGameSessionLogUrl"
     "fixture/GetGameSessionLogUrl.yaml"
 
-requestCreatePlayerSession :: CreatePlayerSession -> TestTree
-requestCreatePlayerSession =
+requestDescribeMatchmakingRuleSets :: DescribeMatchmakingRuleSets -> TestTree
+requestDescribeMatchmakingRuleSets =
   req
-    "CreatePlayerSession"
-    "fixture/CreatePlayerSession.yaml"
-
-requestDescribeRuntimeConfiguration :: DescribeRuntimeConfiguration -> TestTree
-requestDescribeRuntimeConfiguration =
-  req
-    "DescribeRuntimeConfiguration"
-    "fixture/DescribeRuntimeConfiguration.yaml"
-
-requestDescribeScalingPolicies :: DescribeScalingPolicies -> TestTree
-requestDescribeScalingPolicies =
-  req
-    "DescribeScalingPolicies"
-    "fixture/DescribeScalingPolicies.yaml"
+    "DescribeMatchmakingRuleSets"
+    "fixture/DescribeMatchmakingRuleSets.yaml"
 
 requestSuspendGameServerGroup :: SuspendGameServerGroup -> TestTree
 requestSuspendGameServerGroup =
@@ -713,11 +749,11 @@ requestSuspendGameServerGroup =
     "SuspendGameServerGroup"
     "fixture/SuspendGameServerGroup.yaml"
 
-requestDescribeMatchmakingRuleSets :: DescribeMatchmakingRuleSets -> TestTree
-requestDescribeMatchmakingRuleSets =
+requestDescribeScalingPolicies :: DescribeScalingPolicies -> TestTree
+requestDescribeScalingPolicies =
   req
-    "DescribeMatchmakingRuleSets"
-    "fixture/DescribeMatchmakingRuleSets.yaml"
+    "DescribeScalingPolicies"
+    "fixture/DescribeScalingPolicies.yaml"
 
 requestValidateMatchmakingRuleSet :: ValidateMatchmakingRuleSet -> TestTree
 requestValidateMatchmakingRuleSet =
@@ -725,23 +761,11 @@ requestValidateMatchmakingRuleSet =
     "ValidateMatchmakingRuleSet"
     "fixture/ValidateMatchmakingRuleSet.yaml"
 
-requestUpdateFleetPortSettings :: UpdateFleetPortSettings -> TestTree
-requestUpdateFleetPortSettings =
-  req
-    "UpdateFleetPortSettings"
-    "fixture/UpdateFleetPortSettings.yaml"
-
 requestDescribeBuild :: DescribeBuild -> TestTree
 requestDescribeBuild =
   req
     "DescribeBuild"
     "fixture/DescribeBuild.yaml"
-
-requestAcceptMatch :: AcceptMatch -> TestTree
-requestAcceptMatch =
-  req
-    "AcceptMatch"
-    "fixture/AcceptMatch.yaml"
 
 requestDeregisterGameServer :: DeregisterGameServer -> TestTree
 requestDeregisterGameServer =
@@ -749,11 +773,17 @@ requestDeregisterGameServer =
     "DeregisterGameServer"
     "fixture/DeregisterGameServer.yaml"
 
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
+requestUpdateFleetPortSettings :: UpdateFleetPortSettings -> TestTree
+requestUpdateFleetPortSettings =
   req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
+    "UpdateFleetPortSettings"
+    "fixture/UpdateFleetPortSettings.yaml"
+
+requestAcceptMatch :: AcceptMatch -> TestTree
+requestAcceptMatch =
+  req
+    "AcceptMatch"
+    "fixture/AcceptMatch.yaml"
 
 requestUpdateFleetCapacity :: UpdateFleetCapacity -> TestTree
 requestUpdateFleetCapacity =
@@ -767,11 +797,11 @@ requestDescribeAlias =
     "DescribeAlias"
     "fixture/DescribeAlias.yaml"
 
-requestDeleteVpcPeeringConnection :: DeleteVpcPeeringConnection -> TestTree
-requestDeleteVpcPeeringConnection =
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
   req
-    "DeleteVpcPeeringConnection"
-    "fixture/DeleteVpcPeeringConnection.yaml"
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 requestUpdateFleetAttributes :: UpdateFleetAttributes -> TestTree
 requestUpdateFleetAttributes =
@@ -791,17 +821,17 @@ requestTagResource =
     "TagResource"
     "fixture/TagResource.yaml"
 
+requestDeleteVpcPeeringConnection :: DeleteVpcPeeringConnection -> TestTree
+requestDeleteVpcPeeringConnection =
+  req
+    "DeleteVpcPeeringConnection"
+    "fixture/DeleteVpcPeeringConnection.yaml"
+
 requestDeleteGameSessionQueue :: DeleteGameSessionQueue -> TestTree
 requestDeleteGameSessionQueue =
   req
     "DeleteGameSessionQueue"
     "fixture/DeleteGameSessionQueue.yaml"
-
-requestUpdateMatchmakingConfiguration :: UpdateMatchmakingConfiguration -> TestTree
-requestUpdateMatchmakingConfiguration =
-  req
-    "UpdateMatchmakingConfiguration"
-    "fixture/UpdateMatchmakingConfiguration.yaml"
 
 requestDeleteMatchmakingConfiguration :: DeleteMatchmakingConfiguration -> TestTree
 requestDeleteMatchmakingConfiguration =
@@ -809,23 +839,11 @@ requestDeleteMatchmakingConfiguration =
     "DeleteMatchmakingConfiguration"
     "fixture/DeleteMatchmakingConfiguration.yaml"
 
-requestDescribeMatchmakingConfigurations :: DescribeMatchmakingConfigurations -> TestTree
-requestDescribeMatchmakingConfigurations =
+requestUpdateMatchmakingConfiguration :: UpdateMatchmakingConfiguration -> TestTree
+requestUpdateMatchmakingConfiguration =
   req
-    "DescribeMatchmakingConfigurations"
-    "fixture/DescribeMatchmakingConfigurations.yaml"
-
-requestCreateFleet :: CreateFleet -> TestTree
-requestCreateFleet =
-  req
-    "CreateFleet"
-    "fixture/CreateFleet.yaml"
-
-requestRegisterGameServer :: RegisterGameServer -> TestTree
-requestRegisterGameServer =
-  req
-    "RegisterGameServer"
-    "fixture/RegisterGameServer.yaml"
+    "UpdateMatchmakingConfiguration"
+    "fixture/UpdateMatchmakingConfiguration.yaml"
 
 requestRequestUploadCredentials :: RequestUploadCredentials -> TestTree
 requestRequestUploadCredentials =
@@ -833,17 +851,35 @@ requestRequestUploadCredentials =
     "RequestUploadCredentials"
     "fixture/RequestUploadCredentials.yaml"
 
+requestDescribeFleetLocationCapacity :: DescribeFleetLocationCapacity -> TestTree
+requestDescribeFleetLocationCapacity =
+  req
+    "DescribeFleetLocationCapacity"
+    "fixture/DescribeFleetLocationCapacity.yaml"
+
+requestRegisterGameServer :: RegisterGameServer -> TestTree
+requestRegisterGameServer =
+  req
+    "RegisterGameServer"
+    "fixture/RegisterGameServer.yaml"
+
+requestCreateFleet :: CreateFleet -> TestTree
+requestCreateFleet =
+  req
+    "CreateFleet"
+    "fixture/CreateFleet.yaml"
+
+requestDescribeMatchmakingConfigurations :: DescribeMatchmakingConfigurations -> TestTree
+requestDescribeMatchmakingConfigurations =
+  req
+    "DescribeMatchmakingConfigurations"
+    "fixture/DescribeMatchmakingConfigurations.yaml"
+
 requestResolveAlias :: ResolveAlias -> TestTree
 requestResolveAlias =
   req
     "ResolveAlias"
     "fixture/ResolveAlias.yaml"
-
-requestStartMatchBackfill :: StartMatchBackfill -> TestTree
-requestStartMatchBackfill =
-  req
-    "StartMatchBackfill"
-    "fixture/StartMatchBackfill.yaml"
 
 requestDeleteFleet :: DeleteFleet -> TestTree
 requestDeleteFleet =
@@ -863,23 +899,23 @@ requestListFleets =
     "ListFleets"
     "fixture/ListFleets.yaml"
 
+requestStartMatchBackfill :: StartMatchBackfill -> TestTree
+requestStartMatchBackfill =
+  req
+    "StartMatchBackfill"
+    "fixture/StartMatchBackfill.yaml"
+
 requestStopMatchmaking :: StopMatchmaking -> TestTree
 requestStopMatchmaking =
   req
     "StopMatchmaking"
     "fixture/StopMatchmaking.yaml"
 
-requestDescribeGameServerInstances :: DescribeGameServerInstances -> TestTree
-requestDescribeGameServerInstances =
+requestCreateFleetLocations :: CreateFleetLocations -> TestTree
+requestCreateFleetLocations =
   req
-    "DescribeGameServerInstances"
-    "fixture/DescribeGameServerInstances.yaml"
-
-requestCreateGameSession :: CreateGameSession -> TestTree
-requestCreateGameSession =
-  req
-    "CreateGameSession"
-    "fixture/CreateGameSession.yaml"
+    "CreateFleetLocations"
+    "fixture/CreateFleetLocations.yaml"
 
 requestCreateMatchmakingRuleSet :: CreateMatchmakingRuleSet -> TestTree
 requestCreateMatchmakingRuleSet =
@@ -887,17 +923,23 @@ requestCreateMatchmakingRuleSet =
     "CreateMatchmakingRuleSet"
     "fixture/CreateMatchmakingRuleSet.yaml"
 
-requestStartMatchmaking :: StartMatchmaking -> TestTree
-requestStartMatchmaking =
-  req
-    "StartMatchmaking"
-    "fixture/StartMatchmaking.yaml"
-
 requestDescribeGameSessionPlacement :: DescribeGameSessionPlacement -> TestTree
 requestDescribeGameSessionPlacement =
   req
     "DescribeGameSessionPlacement"
     "fixture/DescribeGameSessionPlacement.yaml"
+
+requestCreateGameSession :: CreateGameSession -> TestTree
+requestCreateGameSession =
+  req
+    "CreateGameSession"
+    "fixture/CreateGameSession.yaml"
+
+requestStartMatchmaking :: StartMatchmaking -> TestTree
+requestStartMatchmaking =
+  req
+    "StartMatchmaking"
+    "fixture/StartMatchmaking.yaml"
 
 requestDeleteScalingPolicy :: DeleteScalingPolicy -> TestTree
 requestDeleteScalingPolicy =
@@ -905,11 +947,17 @@ requestDeleteScalingPolicy =
     "DeleteScalingPolicy"
     "fixture/DeleteScalingPolicy.yaml"
 
-requestStopGameSessionPlacement :: StopGameSessionPlacement -> TestTree
-requestStopGameSessionPlacement =
+requestDescribeFleetLocationUtilization :: DescribeFleetLocationUtilization -> TestTree
+requestDescribeFleetLocationUtilization =
   req
-    "StopGameSessionPlacement"
-    "fixture/StopGameSessionPlacement.yaml"
+    "DescribeFleetLocationUtilization"
+    "fixture/DescribeFleetLocationUtilization.yaml"
+
+requestDescribeGameServerInstances :: DescribeGameServerInstances -> TestTree
+requestDescribeGameServerInstances =
+  req
+    "DescribeGameServerInstances"
+    "fixture/DescribeGameServerInstances.yaml"
 
 requestStartGameSessionPlacement :: StartGameSessionPlacement -> TestTree
 requestStartGameSessionPlacement =
@@ -923,29 +971,17 @@ requestDeleteMatchmakingRuleSet =
     "DeleteMatchmakingRuleSet"
     "fixture/DeleteMatchmakingRuleSet.yaml"
 
-requestDescribeGameServer :: DescribeGameServer -> TestTree
-requestDescribeGameServer =
+requestDeleteFleetLocations :: DeleteFleetLocations -> TestTree
+requestDeleteFleetLocations =
   req
-    "DescribeGameServer"
-    "fixture/DescribeGameServer.yaml"
+    "DeleteFleetLocations"
+    "fixture/DeleteFleetLocations.yaml"
 
-requestDeleteScript :: DeleteScript -> TestTree
-requestDeleteScript =
+requestStopGameSessionPlacement :: StopGameSessionPlacement -> TestTree
+requestStopGameSessionPlacement =
   req
-    "DeleteScript"
-    "fixture/DeleteScript.yaml"
-
-requestListScripts :: ListScripts -> TestTree
-requestListScripts =
-  req
-    "ListScripts"
-    "fixture/ListScripts.yaml"
-
-requestDescribeGameSessions :: DescribeGameSessions -> TestTree
-requestDescribeGameSessions =
-  req
-    "DescribeGameSessions"
-    "fixture/DescribeGameSessions.yaml"
+    "StopGameSessionPlacement"
+    "fixture/StopGameSessionPlacement.yaml"
 
 requestUpdateScript :: UpdateScript -> TestTree
 requestUpdateScript =
@@ -953,35 +989,35 @@ requestUpdateScript =
     "UpdateScript"
     "fixture/UpdateScript.yaml"
 
+requestDescribeGameSessions :: DescribeGameSessions -> TestTree
+requestDescribeGameSessions =
+  req
+    "DescribeGameSessions"
+    "fixture/DescribeGameSessions.yaml"
+
+requestDeleteScript :: DeleteScript -> TestTree
+requestDeleteScript =
+  req
+    "DeleteScript"
+    "fixture/DeleteScript.yaml"
+
+requestDescribeGameServer :: DescribeGameServer -> TestTree
+requestDescribeGameServer =
+  req
+    "DescribeGameServer"
+    "fixture/DescribeGameServer.yaml"
+
+requestListScripts :: ListScripts -> TestTree
+requestListScripts =
+  req
+    "ListScripts"
+    "fixture/ListScripts.yaml"
+
 requestDescribeEC2InstanceLimits :: DescribeEC2InstanceLimits -> TestTree
 requestDescribeEC2InstanceLimits =
   req
     "DescribeEC2InstanceLimits"
     "fixture/DescribeEC2InstanceLimits.yaml"
-
-requestStopFleetActions :: StopFleetActions -> TestTree
-requestStopFleetActions =
-  req
-    "StopFleetActions"
-    "fixture/StopFleetActions.yaml"
-
-requestGetInstanceAccess :: GetInstanceAccess -> TestTree
-requestGetInstanceAccess =
-  req
-    "GetInstanceAccess"
-    "fixture/GetInstanceAccess.yaml"
-
-requestStartFleetActions :: StartFleetActions -> TestTree
-requestStartFleetActions =
-  req
-    "StartFleetActions"
-    "fixture/StartFleetActions.yaml"
-
-requestDescribePlayerSessions :: DescribePlayerSessions -> TestTree
-requestDescribePlayerSessions =
-  req
-    "DescribePlayerSessions"
-    "fixture/DescribePlayerSessions.yaml"
 
 requestCreateScript :: CreateScript -> TestTree
 requestCreateScript =
@@ -989,17 +1025,35 @@ requestCreateScript =
     "CreateScript"
     "fixture/CreateScript.yaml"
 
+requestStartFleetActions :: StartFleetActions -> TestTree
+requestStartFleetActions =
+  req
+    "StartFleetActions"
+    "fixture/StartFleetActions.yaml"
+
+requestGetInstanceAccess :: GetInstanceAccess -> TestTree
+requestGetInstanceAccess =
+  req
+    "GetInstanceAccess"
+    "fixture/GetInstanceAccess.yaml"
+
+requestDescribePlayerSessions :: DescribePlayerSessions -> TestTree
+requestDescribePlayerSessions =
+  req
+    "DescribePlayerSessions"
+    "fixture/DescribePlayerSessions.yaml"
+
+requestStopFleetActions :: StopFleetActions -> TestTree
+requestStopFleetActions =
+  req
+    "StopFleetActions"
+    "fixture/StopFleetActions.yaml"
+
 requestCreateMatchmakingConfiguration :: CreateMatchmakingConfiguration -> TestTree
 requestCreateMatchmakingConfiguration =
   req
     "CreateMatchmakingConfiguration"
     "fixture/CreateMatchmakingConfiguration.yaml"
-
-requestCreateVpcPeeringAuthorization :: CreateVpcPeeringAuthorization -> TestTree
-requestCreateVpcPeeringAuthorization =
-  req
-    "CreateVpcPeeringAuthorization"
-    "fixture/CreateVpcPeeringAuthorization.yaml"
 
 requestCreateGameServerGroup :: CreateGameServerGroup -> TestTree
 requestCreateGameServerGroup =
@@ -1007,53 +1061,11 @@ requestCreateGameServerGroup =
     "CreateGameServerGroup"
     "fixture/CreateGameServerGroup.yaml"
 
-requestUpdateGameServerGroup :: UpdateGameServerGroup -> TestTree
-requestUpdateGameServerGroup =
+requestCreateVpcPeeringAuthorization :: CreateVpcPeeringAuthorization -> TestTree
+requestCreateVpcPeeringAuthorization =
   req
-    "UpdateGameServerGroup"
-    "fixture/UpdateGameServerGroup.yaml"
-
-requestSearchGameSessions :: SearchGameSessions -> TestTree
-requestSearchGameSessions =
-  req
-    "SearchGameSessions"
-    "fixture/SearchGameSessions.yaml"
-
-requestDeleteGameServerGroup :: DeleteGameServerGroup -> TestTree
-requestDeleteGameServerGroup =
-  req
-    "DeleteGameServerGroup"
-    "fixture/DeleteGameServerGroup.yaml"
-
-requestListGameServerGroups :: ListGameServerGroups -> TestTree
-requestListGameServerGroups =
-  req
-    "ListGameServerGroups"
-    "fixture/ListGameServerGroups.yaml"
-
-requestUpdateRuntimeConfiguration :: UpdateRuntimeConfiguration -> TestTree
-requestUpdateRuntimeConfiguration =
-  req
-    "UpdateRuntimeConfiguration"
-    "fixture/UpdateRuntimeConfiguration.yaml"
-
-requestCreateGameSessionQueue :: CreateGameSessionQueue -> TestTree
-requestCreateGameSessionQueue =
-  req
-    "CreateGameSessionQueue"
-    "fixture/CreateGameSessionQueue.yaml"
-
-requestResumeGameServerGroup :: ResumeGameServerGroup -> TestTree
-requestResumeGameServerGroup =
-  req
-    "ResumeGameServerGroup"
-    "fixture/ResumeGameServerGroup.yaml"
-
-requestDeleteVpcPeeringAuthorization :: DeleteVpcPeeringAuthorization -> TestTree
-requestDeleteVpcPeeringAuthorization =
-  req
-    "DeleteVpcPeeringAuthorization"
-    "fixture/DeleteVpcPeeringAuthorization.yaml"
+    "CreateVpcPeeringAuthorization"
+    "fixture/CreateVpcPeeringAuthorization.yaml"
 
 requestCreateVpcPeeringConnection :: CreateVpcPeeringConnection -> TestTree
 requestCreateVpcPeeringConnection =
@@ -1061,47 +1073,59 @@ requestCreateVpcPeeringConnection =
     "CreateVpcPeeringConnection"
     "fixture/CreateVpcPeeringConnection.yaml"
 
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
+requestResumeGameServerGroup :: ResumeGameServerGroup -> TestTree
+requestResumeGameServerGroup =
   req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
+    "ResumeGameServerGroup"
+    "fixture/ResumeGameServerGroup.yaml"
 
-requestDescribeScript :: DescribeScript -> TestTree
-requestDescribeScript =
+requestDeleteGameServerGroup :: DeleteGameServerGroup -> TestTree
+requestDeleteGameServerGroup =
   req
-    "DescribeScript"
-    "fixture/DescribeScript.yaml"
+    "DeleteGameServerGroup"
+    "fixture/DeleteGameServerGroup.yaml"
 
-requestCreateAlias :: CreateAlias -> TestTree
-requestCreateAlias =
+requestUpdateGameServerGroup :: UpdateGameServerGroup -> TestTree
+requestUpdateGameServerGroup =
   req
-    "CreateAlias"
-    "fixture/CreateAlias.yaml"
+    "UpdateGameServerGroup"
+    "fixture/UpdateGameServerGroup.yaml"
+
+requestUpdateRuntimeConfiguration :: UpdateRuntimeConfiguration -> TestTree
+requestUpdateRuntimeConfiguration =
+  req
+    "UpdateRuntimeConfiguration"
+    "fixture/UpdateRuntimeConfiguration.yaml"
+
+requestDeleteVpcPeeringAuthorization :: DeleteVpcPeeringAuthorization -> TestTree
+requestDeleteVpcPeeringAuthorization =
+  req
+    "DeleteVpcPeeringAuthorization"
+    "fixture/DeleteVpcPeeringAuthorization.yaml"
+
+requestCreateGameSessionQueue :: CreateGameSessionQueue -> TestTree
+requestCreateGameSessionQueue =
+  req
+    "CreateGameSessionQueue"
+    "fixture/CreateGameSessionQueue.yaml"
+
+requestSearchGameSessions :: SearchGameSessions -> TestTree
+requestSearchGameSessions =
+  req
+    "SearchGameSessions"
+    "fixture/SearchGameSessions.yaml"
+
+requestListGameServerGroups :: ListGameServerGroups -> TestTree
+requestListGameServerGroups =
+  req
+    "ListGameServerGroups"
+    "fixture/ListGameServerGroups.yaml"
 
 requestCreatePlayerSessions :: CreatePlayerSessions -> TestTree
 requestCreatePlayerSessions =
   req
     "CreatePlayerSessions"
     "fixture/CreatePlayerSessions.yaml"
-
-requestUpdateGameServer :: UpdateGameServer -> TestTree
-requestUpdateGameServer =
-  req
-    "UpdateGameServer"
-    "fixture/UpdateGameServer.yaml"
-
-requestDescribeVpcPeeringAuthorizations :: DescribeVpcPeeringAuthorizations -> TestTree
-requestDescribeVpcPeeringAuthorizations =
-  req
-    "DescribeVpcPeeringAuthorizations"
-    "fixture/DescribeVpcPeeringAuthorizations.yaml"
-
-requestListGameServers :: ListGameServers -> TestTree
-requestListGameServers =
-  req
-    "ListGameServers"
-    "fixture/ListGameServers.yaml"
 
 requestCreateBuild :: CreateBuild -> TestTree
 requestCreateBuild =
@@ -1115,23 +1139,43 @@ requestListAliases =
     "ListAliases"
     "fixture/ListAliases.yaml"
 
+requestDescribeScript :: DescribeScript -> TestTree
+requestDescribeScript =
+  req
+    "DescribeScript"
+    "fixture/DescribeScript.yaml"
+
+requestDescribeVpcPeeringAuthorizations :: DescribeVpcPeeringAuthorizations -> TestTree
+requestDescribeVpcPeeringAuthorizations =
+  req
+    "DescribeVpcPeeringAuthorizations"
+    "fixture/DescribeVpcPeeringAuthorizations.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestCreateAlias :: CreateAlias -> TestTree
+requestCreateAlias =
+  req
+    "CreateAlias"
+    "fixture/CreateAlias.yaml"
+
+requestListGameServers :: ListGameServers -> TestTree
+requestListGameServers =
+  req
+    "ListGameServers"
+    "fixture/ListGameServers.yaml"
+
+requestUpdateGameServer :: UpdateGameServer -> TestTree
+requestUpdateGameServer =
+  req
+    "UpdateGameServer"
+    "fixture/UpdateGameServer.yaml"
+
 -- Responses
-
-responseDescribeGameSessionQueues :: DescribeGameSessionQueuesResponse -> TestTree
-responseDescribeGameSessionQueues =
-  res
-    "DescribeGameSessionQueuesResponse"
-    "fixture/DescribeGameSessionQueuesResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeGameSessionQueues)
-
-responseDeleteBuild :: DeleteBuildResponse -> TestTree
-responseDeleteBuild =
-  res
-    "DeleteBuildResponse"
-    "fixture/DeleteBuildResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteBuild)
 
 responseDescribeVpcPeeringConnections :: DescribeVpcPeeringConnectionsResponse -> TestTree
 responseDescribeVpcPeeringConnections =
@@ -1140,30 +1184,6 @@ responseDescribeVpcPeeringConnections =
     "fixture/DescribeVpcPeeringConnectionsResponse.proto"
     defaultService
     (Proxy :: Proxy DescribeVpcPeeringConnections)
-
-responseDescribeFleetPortSettings :: DescribeFleetPortSettingsResponse -> TestTree
-responseDescribeFleetPortSettings =
-  res
-    "DescribeFleetPortSettingsResponse"
-    "fixture/DescribeFleetPortSettingsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeFleetPortSettings)
-
-responseDescribeInstances :: DescribeInstancesResponse -> TestTree
-responseDescribeInstances =
-  res
-    "DescribeInstancesResponse"
-    "fixture/DescribeInstancesResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeInstances)
-
-responseDeleteAlias :: DeleteAliasResponse -> TestTree
-responseDeleteAlias =
-  res
-    "DeleteAliasResponse"
-    "fixture/DeleteAliasResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteAlias)
 
 responseDescribeFleetCapacity :: DescribeFleetCapacityResponse -> TestTree
 responseDescribeFleetCapacity =
@@ -1181,6 +1201,38 @@ responseListBuilds =
     defaultService
     (Proxy :: Proxy ListBuilds)
 
+responseDeleteBuild :: DeleteBuildResponse -> TestTree
+responseDeleteBuild =
+  res
+    "DeleteBuildResponse"
+    "fixture/DeleteBuildResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteBuild)
+
+responseDescribeGameSessionQueues :: DescribeGameSessionQueuesResponse -> TestTree
+responseDescribeGameSessionQueues =
+  res
+    "DescribeGameSessionQueuesResponse"
+    "fixture/DescribeGameSessionQueuesResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeGameSessionQueues)
+
+responseDeleteAlias :: DeleteAliasResponse -> TestTree
+responseDeleteAlias =
+  res
+    "DeleteAliasResponse"
+    "fixture/DeleteAliasResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteAlias)
+
+responseDescribeFleetPortSettings :: DescribeFleetPortSettingsResponse -> TestTree
+responseDescribeFleetPortSettings =
+  res
+    "DescribeFleetPortSettingsResponse"
+    "fixture/DescribeFleetPortSettingsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeFleetPortSettings)
+
 responseUpdateBuild :: UpdateBuildResponse -> TestTree
 responseUpdateBuild =
   res
@@ -1188,6 +1240,14 @@ responseUpdateBuild =
     "fixture/UpdateBuildResponse.proto"
     defaultService
     (Proxy :: Proxy UpdateBuild)
+
+responseDescribeInstances :: DescribeInstancesResponse -> TestTree
+responseDescribeInstances =
+  res
+    "DescribeInstancesResponse"
+    "fixture/DescribeInstancesResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeInstances)
 
 responseUpdateAlias :: UpdateAliasResponse -> TestTree
 responseUpdateAlias =
@@ -1205,14 +1265,6 @@ responseDescribeFleetAttributes =
     defaultService
     (Proxy :: Proxy DescribeFleetAttributes)
 
-responsePutScalingPolicy :: PutScalingPolicyResponse -> TestTree
-responsePutScalingPolicy =
-  res
-    "PutScalingPolicyResponse"
-    "fixture/PutScalingPolicyResponse.proto"
-    defaultService
-    (Proxy :: Proxy PutScalingPolicy)
-
 responseDescribeFleetEvents :: DescribeFleetEventsResponse -> TestTree
 responseDescribeFleetEvents =
   res
@@ -1221,6 +1273,14 @@ responseDescribeFleetEvents =
     defaultService
     (Proxy :: Proxy DescribeFleetEvents)
 
+responsePutScalingPolicy :: PutScalingPolicyResponse -> TestTree
+responsePutScalingPolicy =
+  res
+    "PutScalingPolicyResponse"
+    "fixture/PutScalingPolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutScalingPolicy)
+
 responseDescribeFleetUtilization :: DescribeFleetUtilizationResponse -> TestTree
 responseDescribeFleetUtilization =
   res
@@ -1228,6 +1288,14 @@ responseDescribeFleetUtilization =
     "fixture/DescribeFleetUtilizationResponse.proto"
     defaultService
     (Proxy :: Proxy DescribeFleetUtilization)
+
+responseDescribeRuntimeConfiguration :: DescribeRuntimeConfigurationResponse -> TestTree
+responseDescribeRuntimeConfiguration =
+  res
+    "DescribeRuntimeConfigurationResponse"
+    "fixture/DescribeRuntimeConfigurationResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeRuntimeConfiguration)
 
 responseClaimGameServer :: ClaimGameServerResponse -> TestTree
 responseClaimGameServer =
@@ -1253,6 +1321,22 @@ responseDescribeGameServerGroup =
     defaultService
     (Proxy :: Proxy DescribeGameServerGroup)
 
+responseCreatePlayerSession :: CreatePlayerSessionResponse -> TestTree
+responseCreatePlayerSession =
+  res
+    "CreatePlayerSessionResponse"
+    "fixture/CreatePlayerSessionResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreatePlayerSession)
+
+responseDescribeFleetLocationAttributes :: DescribeFleetLocationAttributesResponse -> TestTree
+responseDescribeFleetLocationAttributes =
+  res
+    "DescribeFleetLocationAttributesResponse"
+    "fixture/DescribeFleetLocationAttributesResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeFleetLocationAttributes)
+
 responseDescribeMatchmaking :: DescribeMatchmakingResponse -> TestTree
 responseDescribeMatchmaking =
   res
@@ -1269,29 +1353,13 @@ responseGetGameSessionLogUrl =
     defaultService
     (Proxy :: Proxy GetGameSessionLogUrl)
 
-responseCreatePlayerSession :: CreatePlayerSessionResponse -> TestTree
-responseCreatePlayerSession =
+responseDescribeMatchmakingRuleSets :: DescribeMatchmakingRuleSetsResponse -> TestTree
+responseDescribeMatchmakingRuleSets =
   res
-    "CreatePlayerSessionResponse"
-    "fixture/CreatePlayerSessionResponse.proto"
+    "DescribeMatchmakingRuleSetsResponse"
+    "fixture/DescribeMatchmakingRuleSetsResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePlayerSession)
-
-responseDescribeRuntimeConfiguration :: DescribeRuntimeConfigurationResponse -> TestTree
-responseDescribeRuntimeConfiguration =
-  res
-    "DescribeRuntimeConfigurationResponse"
-    "fixture/DescribeRuntimeConfigurationResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeRuntimeConfiguration)
-
-responseDescribeScalingPolicies :: DescribeScalingPoliciesResponse -> TestTree
-responseDescribeScalingPolicies =
-  res
-    "DescribeScalingPoliciesResponse"
-    "fixture/DescribeScalingPoliciesResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeScalingPolicies)
+    (Proxy :: Proxy DescribeMatchmakingRuleSets)
 
 responseSuspendGameServerGroup :: SuspendGameServerGroupResponse -> TestTree
 responseSuspendGameServerGroup =
@@ -1301,13 +1369,13 @@ responseSuspendGameServerGroup =
     defaultService
     (Proxy :: Proxy SuspendGameServerGroup)
 
-responseDescribeMatchmakingRuleSets :: DescribeMatchmakingRuleSetsResponse -> TestTree
-responseDescribeMatchmakingRuleSets =
+responseDescribeScalingPolicies :: DescribeScalingPoliciesResponse -> TestTree
+responseDescribeScalingPolicies =
   res
-    "DescribeMatchmakingRuleSetsResponse"
-    "fixture/DescribeMatchmakingRuleSetsResponse.proto"
+    "DescribeScalingPoliciesResponse"
+    "fixture/DescribeScalingPoliciesResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeMatchmakingRuleSets)
+    (Proxy :: Proxy DescribeScalingPolicies)
 
 responseValidateMatchmakingRuleSet :: ValidateMatchmakingRuleSetResponse -> TestTree
 responseValidateMatchmakingRuleSet =
@@ -1317,14 +1385,6 @@ responseValidateMatchmakingRuleSet =
     defaultService
     (Proxy :: Proxy ValidateMatchmakingRuleSet)
 
-responseUpdateFleetPortSettings :: UpdateFleetPortSettingsResponse -> TestTree
-responseUpdateFleetPortSettings =
-  res
-    "UpdateFleetPortSettingsResponse"
-    "fixture/UpdateFleetPortSettingsResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateFleetPortSettings)
-
 responseDescribeBuild :: DescribeBuildResponse -> TestTree
 responseDescribeBuild =
   res
@@ -1332,14 +1392,6 @@ responseDescribeBuild =
     "fixture/DescribeBuildResponse.proto"
     defaultService
     (Proxy :: Proxy DescribeBuild)
-
-responseAcceptMatch :: AcceptMatchResponse -> TestTree
-responseAcceptMatch =
-  res
-    "AcceptMatchResponse"
-    "fixture/AcceptMatchResponse.proto"
-    defaultService
-    (Proxy :: Proxy AcceptMatch)
 
 responseDeregisterGameServer :: DeregisterGameServerResponse -> TestTree
 responseDeregisterGameServer =
@@ -1349,13 +1401,21 @@ responseDeregisterGameServer =
     defaultService
     (Proxy :: Proxy DeregisterGameServer)
 
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
+responseUpdateFleetPortSettings :: UpdateFleetPortSettingsResponse -> TestTree
+responseUpdateFleetPortSettings =
   res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
+    "UpdateFleetPortSettingsResponse"
+    "fixture/UpdateFleetPortSettingsResponse.proto"
     defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy :: Proxy UpdateFleetPortSettings)
+
+responseAcceptMatch :: AcceptMatchResponse -> TestTree
+responseAcceptMatch =
+  res
+    "AcceptMatchResponse"
+    "fixture/AcceptMatchResponse.proto"
+    defaultService
+    (Proxy :: Proxy AcceptMatch)
 
 responseUpdateFleetCapacity :: UpdateFleetCapacityResponse -> TestTree
 responseUpdateFleetCapacity =
@@ -1373,13 +1433,13 @@ responseDescribeAlias =
     defaultService
     (Proxy :: Proxy DescribeAlias)
 
-responseDeleteVpcPeeringConnection :: DeleteVpcPeeringConnectionResponse -> TestTree
-responseDeleteVpcPeeringConnection =
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
   res
-    "DeleteVpcPeeringConnectionResponse"
-    "fixture/DeleteVpcPeeringConnectionResponse.proto"
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteVpcPeeringConnection)
+    (Proxy :: Proxy UntagResource)
 
 responseUpdateFleetAttributes :: UpdateFleetAttributesResponse -> TestTree
 responseUpdateFleetAttributes =
@@ -1405,6 +1465,14 @@ responseTagResource =
     defaultService
     (Proxy :: Proxy TagResource)
 
+responseDeleteVpcPeeringConnection :: DeleteVpcPeeringConnectionResponse -> TestTree
+responseDeleteVpcPeeringConnection =
+  res
+    "DeleteVpcPeeringConnectionResponse"
+    "fixture/DeleteVpcPeeringConnectionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteVpcPeeringConnection)
+
 responseDeleteGameSessionQueue :: DeleteGameSessionQueueResponse -> TestTree
 responseDeleteGameSessionQueue =
   res
@@ -1412,14 +1480,6 @@ responseDeleteGameSessionQueue =
     "fixture/DeleteGameSessionQueueResponse.proto"
     defaultService
     (Proxy :: Proxy DeleteGameSessionQueue)
-
-responseUpdateMatchmakingConfiguration :: UpdateMatchmakingConfigurationResponse -> TestTree
-responseUpdateMatchmakingConfiguration =
-  res
-    "UpdateMatchmakingConfigurationResponse"
-    "fixture/UpdateMatchmakingConfigurationResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateMatchmakingConfiguration)
 
 responseDeleteMatchmakingConfiguration :: DeleteMatchmakingConfigurationResponse -> TestTree
 responseDeleteMatchmakingConfiguration =
@@ -1429,29 +1489,13 @@ responseDeleteMatchmakingConfiguration =
     defaultService
     (Proxy :: Proxy DeleteMatchmakingConfiguration)
 
-responseDescribeMatchmakingConfigurations :: DescribeMatchmakingConfigurationsResponse -> TestTree
-responseDescribeMatchmakingConfigurations =
+responseUpdateMatchmakingConfiguration :: UpdateMatchmakingConfigurationResponse -> TestTree
+responseUpdateMatchmakingConfiguration =
   res
-    "DescribeMatchmakingConfigurationsResponse"
-    "fixture/DescribeMatchmakingConfigurationsResponse.proto"
+    "UpdateMatchmakingConfigurationResponse"
+    "fixture/UpdateMatchmakingConfigurationResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeMatchmakingConfigurations)
-
-responseCreateFleet :: CreateFleetResponse -> TestTree
-responseCreateFleet =
-  res
-    "CreateFleetResponse"
-    "fixture/CreateFleetResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateFleet)
-
-responseRegisterGameServer :: RegisterGameServerResponse -> TestTree
-responseRegisterGameServer =
-  res
-    "RegisterGameServerResponse"
-    "fixture/RegisterGameServerResponse.proto"
-    defaultService
-    (Proxy :: Proxy RegisterGameServer)
+    (Proxy :: Proxy UpdateMatchmakingConfiguration)
 
 responseRequestUploadCredentials :: RequestUploadCredentialsResponse -> TestTree
 responseRequestUploadCredentials =
@@ -1461,6 +1505,38 @@ responseRequestUploadCredentials =
     defaultService
     (Proxy :: Proxy RequestUploadCredentials)
 
+responseDescribeFleetLocationCapacity :: DescribeFleetLocationCapacityResponse -> TestTree
+responseDescribeFleetLocationCapacity =
+  res
+    "DescribeFleetLocationCapacityResponse"
+    "fixture/DescribeFleetLocationCapacityResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeFleetLocationCapacity)
+
+responseRegisterGameServer :: RegisterGameServerResponse -> TestTree
+responseRegisterGameServer =
+  res
+    "RegisterGameServerResponse"
+    "fixture/RegisterGameServerResponse.proto"
+    defaultService
+    (Proxy :: Proxy RegisterGameServer)
+
+responseCreateFleet :: CreateFleetResponse -> TestTree
+responseCreateFleet =
+  res
+    "CreateFleetResponse"
+    "fixture/CreateFleetResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateFleet)
+
+responseDescribeMatchmakingConfigurations :: DescribeMatchmakingConfigurationsResponse -> TestTree
+responseDescribeMatchmakingConfigurations =
+  res
+    "DescribeMatchmakingConfigurationsResponse"
+    "fixture/DescribeMatchmakingConfigurationsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeMatchmakingConfigurations)
+
 responseResolveAlias :: ResolveAliasResponse -> TestTree
 responseResolveAlias =
   res
@@ -1468,14 +1544,6 @@ responseResolveAlias =
     "fixture/ResolveAliasResponse.proto"
     defaultService
     (Proxy :: Proxy ResolveAlias)
-
-responseStartMatchBackfill :: StartMatchBackfillResponse -> TestTree
-responseStartMatchBackfill =
-  res
-    "StartMatchBackfillResponse"
-    "fixture/StartMatchBackfillResponse.proto"
-    defaultService
-    (Proxy :: Proxy StartMatchBackfill)
 
 responseDeleteFleet :: DeleteFleetResponse -> TestTree
 responseDeleteFleet =
@@ -1501,6 +1569,14 @@ responseListFleets =
     defaultService
     (Proxy :: Proxy ListFleets)
 
+responseStartMatchBackfill :: StartMatchBackfillResponse -> TestTree
+responseStartMatchBackfill =
+  res
+    "StartMatchBackfillResponse"
+    "fixture/StartMatchBackfillResponse.proto"
+    defaultService
+    (Proxy :: Proxy StartMatchBackfill)
+
 responseStopMatchmaking :: StopMatchmakingResponse -> TestTree
 responseStopMatchmaking =
   res
@@ -1509,21 +1585,13 @@ responseStopMatchmaking =
     defaultService
     (Proxy :: Proxy StopMatchmaking)
 
-responseDescribeGameServerInstances :: DescribeGameServerInstancesResponse -> TestTree
-responseDescribeGameServerInstances =
+responseCreateFleetLocations :: CreateFleetLocationsResponse -> TestTree
+responseCreateFleetLocations =
   res
-    "DescribeGameServerInstancesResponse"
-    "fixture/DescribeGameServerInstancesResponse.proto"
+    "CreateFleetLocationsResponse"
+    "fixture/CreateFleetLocationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeGameServerInstances)
-
-responseCreateGameSession :: CreateGameSessionResponse -> TestTree
-responseCreateGameSession =
-  res
-    "CreateGameSessionResponse"
-    "fixture/CreateGameSessionResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateGameSession)
+    (Proxy :: Proxy CreateFleetLocations)
 
 responseCreateMatchmakingRuleSet :: CreateMatchmakingRuleSetResponse -> TestTree
 responseCreateMatchmakingRuleSet =
@@ -1533,14 +1601,6 @@ responseCreateMatchmakingRuleSet =
     defaultService
     (Proxy :: Proxy CreateMatchmakingRuleSet)
 
-responseStartMatchmaking :: StartMatchmakingResponse -> TestTree
-responseStartMatchmaking =
-  res
-    "StartMatchmakingResponse"
-    "fixture/StartMatchmakingResponse.proto"
-    defaultService
-    (Proxy :: Proxy StartMatchmaking)
-
 responseDescribeGameSessionPlacement :: DescribeGameSessionPlacementResponse -> TestTree
 responseDescribeGameSessionPlacement =
   res
@@ -1548,6 +1608,22 @@ responseDescribeGameSessionPlacement =
     "fixture/DescribeGameSessionPlacementResponse.proto"
     defaultService
     (Proxy :: Proxy DescribeGameSessionPlacement)
+
+responseCreateGameSession :: CreateGameSessionResponse -> TestTree
+responseCreateGameSession =
+  res
+    "CreateGameSessionResponse"
+    "fixture/CreateGameSessionResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateGameSession)
+
+responseStartMatchmaking :: StartMatchmakingResponse -> TestTree
+responseStartMatchmaking =
+  res
+    "StartMatchmakingResponse"
+    "fixture/StartMatchmakingResponse.proto"
+    defaultService
+    (Proxy :: Proxy StartMatchmaking)
 
 responseDeleteScalingPolicy :: DeleteScalingPolicyResponse -> TestTree
 responseDeleteScalingPolicy =
@@ -1557,13 +1633,21 @@ responseDeleteScalingPolicy =
     defaultService
     (Proxy :: Proxy DeleteScalingPolicy)
 
-responseStopGameSessionPlacement :: StopGameSessionPlacementResponse -> TestTree
-responseStopGameSessionPlacement =
+responseDescribeFleetLocationUtilization :: DescribeFleetLocationUtilizationResponse -> TestTree
+responseDescribeFleetLocationUtilization =
   res
-    "StopGameSessionPlacementResponse"
-    "fixture/StopGameSessionPlacementResponse.proto"
+    "DescribeFleetLocationUtilizationResponse"
+    "fixture/DescribeFleetLocationUtilizationResponse.proto"
     defaultService
-    (Proxy :: Proxy StopGameSessionPlacement)
+    (Proxy :: Proxy DescribeFleetLocationUtilization)
+
+responseDescribeGameServerInstances :: DescribeGameServerInstancesResponse -> TestTree
+responseDescribeGameServerInstances =
+  res
+    "DescribeGameServerInstancesResponse"
+    "fixture/DescribeGameServerInstancesResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeGameServerInstances)
 
 responseStartGameSessionPlacement :: StartGameSessionPlacementResponse -> TestTree
 responseStartGameSessionPlacement =
@@ -1581,37 +1665,21 @@ responseDeleteMatchmakingRuleSet =
     defaultService
     (Proxy :: Proxy DeleteMatchmakingRuleSet)
 
-responseDescribeGameServer :: DescribeGameServerResponse -> TestTree
-responseDescribeGameServer =
+responseDeleteFleetLocations :: DeleteFleetLocationsResponse -> TestTree
+responseDeleteFleetLocations =
   res
-    "DescribeGameServerResponse"
-    "fixture/DescribeGameServerResponse.proto"
+    "DeleteFleetLocationsResponse"
+    "fixture/DeleteFleetLocationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeGameServer)
+    (Proxy :: Proxy DeleteFleetLocations)
 
-responseDeleteScript :: DeleteScriptResponse -> TestTree
-responseDeleteScript =
+responseStopGameSessionPlacement :: StopGameSessionPlacementResponse -> TestTree
+responseStopGameSessionPlacement =
   res
-    "DeleteScriptResponse"
-    "fixture/DeleteScriptResponse.proto"
+    "StopGameSessionPlacementResponse"
+    "fixture/StopGameSessionPlacementResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteScript)
-
-responseListScripts :: ListScriptsResponse -> TestTree
-responseListScripts =
-  res
-    "ListScriptsResponse"
-    "fixture/ListScriptsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListScripts)
-
-responseDescribeGameSessions :: DescribeGameSessionsResponse -> TestTree
-responseDescribeGameSessions =
-  res
-    "DescribeGameSessionsResponse"
-    "fixture/DescribeGameSessionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeGameSessions)
+    (Proxy :: Proxy StopGameSessionPlacement)
 
 responseUpdateScript :: UpdateScriptResponse -> TestTree
 responseUpdateScript =
@@ -1621,6 +1689,38 @@ responseUpdateScript =
     defaultService
     (Proxy :: Proxy UpdateScript)
 
+responseDescribeGameSessions :: DescribeGameSessionsResponse -> TestTree
+responseDescribeGameSessions =
+  res
+    "DescribeGameSessionsResponse"
+    "fixture/DescribeGameSessionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeGameSessions)
+
+responseDeleteScript :: DeleteScriptResponse -> TestTree
+responseDeleteScript =
+  res
+    "DeleteScriptResponse"
+    "fixture/DeleteScriptResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteScript)
+
+responseDescribeGameServer :: DescribeGameServerResponse -> TestTree
+responseDescribeGameServer =
+  res
+    "DescribeGameServerResponse"
+    "fixture/DescribeGameServerResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeGameServer)
+
+responseListScripts :: ListScriptsResponse -> TestTree
+responseListScripts =
+  res
+    "ListScriptsResponse"
+    "fixture/ListScriptsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListScripts)
+
 responseDescribeEC2InstanceLimits :: DescribeEC2InstanceLimitsResponse -> TestTree
 responseDescribeEC2InstanceLimits =
   res
@@ -1628,38 +1728,6 @@ responseDescribeEC2InstanceLimits =
     "fixture/DescribeEC2InstanceLimitsResponse.proto"
     defaultService
     (Proxy :: Proxy DescribeEC2InstanceLimits)
-
-responseStopFleetActions :: StopFleetActionsResponse -> TestTree
-responseStopFleetActions =
-  res
-    "StopFleetActionsResponse"
-    "fixture/StopFleetActionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy StopFleetActions)
-
-responseGetInstanceAccess :: GetInstanceAccessResponse -> TestTree
-responseGetInstanceAccess =
-  res
-    "GetInstanceAccessResponse"
-    "fixture/GetInstanceAccessResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetInstanceAccess)
-
-responseStartFleetActions :: StartFleetActionsResponse -> TestTree
-responseStartFleetActions =
-  res
-    "StartFleetActionsResponse"
-    "fixture/StartFleetActionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy StartFleetActions)
-
-responseDescribePlayerSessions :: DescribePlayerSessionsResponse -> TestTree
-responseDescribePlayerSessions =
-  res
-    "DescribePlayerSessionsResponse"
-    "fixture/DescribePlayerSessionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribePlayerSessions)
 
 responseCreateScript :: CreateScriptResponse -> TestTree
 responseCreateScript =
@@ -1669,6 +1737,38 @@ responseCreateScript =
     defaultService
     (Proxy :: Proxy CreateScript)
 
+responseStartFleetActions :: StartFleetActionsResponse -> TestTree
+responseStartFleetActions =
+  res
+    "StartFleetActionsResponse"
+    "fixture/StartFleetActionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy StartFleetActions)
+
+responseGetInstanceAccess :: GetInstanceAccessResponse -> TestTree
+responseGetInstanceAccess =
+  res
+    "GetInstanceAccessResponse"
+    "fixture/GetInstanceAccessResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetInstanceAccess)
+
+responseDescribePlayerSessions :: DescribePlayerSessionsResponse -> TestTree
+responseDescribePlayerSessions =
+  res
+    "DescribePlayerSessionsResponse"
+    "fixture/DescribePlayerSessionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribePlayerSessions)
+
+responseStopFleetActions :: StopFleetActionsResponse -> TestTree
+responseStopFleetActions =
+  res
+    "StopFleetActionsResponse"
+    "fixture/StopFleetActionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy StopFleetActions)
+
 responseCreateMatchmakingConfiguration :: CreateMatchmakingConfigurationResponse -> TestTree
 responseCreateMatchmakingConfiguration =
   res
@@ -1676,14 +1776,6 @@ responseCreateMatchmakingConfiguration =
     "fixture/CreateMatchmakingConfigurationResponse.proto"
     defaultService
     (Proxy :: Proxy CreateMatchmakingConfiguration)
-
-responseCreateVpcPeeringAuthorization :: CreateVpcPeeringAuthorizationResponse -> TestTree
-responseCreateVpcPeeringAuthorization =
-  res
-    "CreateVpcPeeringAuthorizationResponse"
-    "fixture/CreateVpcPeeringAuthorizationResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateVpcPeeringAuthorization)
 
 responseCreateGameServerGroup :: CreateGameServerGroupResponse -> TestTree
 responseCreateGameServerGroup =
@@ -1693,69 +1785,13 @@ responseCreateGameServerGroup =
     defaultService
     (Proxy :: Proxy CreateGameServerGroup)
 
-responseUpdateGameServerGroup :: UpdateGameServerGroupResponse -> TestTree
-responseUpdateGameServerGroup =
+responseCreateVpcPeeringAuthorization :: CreateVpcPeeringAuthorizationResponse -> TestTree
+responseCreateVpcPeeringAuthorization =
   res
-    "UpdateGameServerGroupResponse"
-    "fixture/UpdateGameServerGroupResponse.proto"
+    "CreateVpcPeeringAuthorizationResponse"
+    "fixture/CreateVpcPeeringAuthorizationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateGameServerGroup)
-
-responseSearchGameSessions :: SearchGameSessionsResponse -> TestTree
-responseSearchGameSessions =
-  res
-    "SearchGameSessionsResponse"
-    "fixture/SearchGameSessionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy SearchGameSessions)
-
-responseDeleteGameServerGroup :: DeleteGameServerGroupResponse -> TestTree
-responseDeleteGameServerGroup =
-  res
-    "DeleteGameServerGroupResponse"
-    "fixture/DeleteGameServerGroupResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteGameServerGroup)
-
-responseListGameServerGroups :: ListGameServerGroupsResponse -> TestTree
-responseListGameServerGroups =
-  res
-    "ListGameServerGroupsResponse"
-    "fixture/ListGameServerGroupsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListGameServerGroups)
-
-responseUpdateRuntimeConfiguration :: UpdateRuntimeConfigurationResponse -> TestTree
-responseUpdateRuntimeConfiguration =
-  res
-    "UpdateRuntimeConfigurationResponse"
-    "fixture/UpdateRuntimeConfigurationResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateRuntimeConfiguration)
-
-responseCreateGameSessionQueue :: CreateGameSessionQueueResponse -> TestTree
-responseCreateGameSessionQueue =
-  res
-    "CreateGameSessionQueueResponse"
-    "fixture/CreateGameSessionQueueResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateGameSessionQueue)
-
-responseResumeGameServerGroup :: ResumeGameServerGroupResponse -> TestTree
-responseResumeGameServerGroup =
-  res
-    "ResumeGameServerGroupResponse"
-    "fixture/ResumeGameServerGroupResponse.proto"
-    defaultService
-    (Proxy :: Proxy ResumeGameServerGroup)
-
-responseDeleteVpcPeeringAuthorization :: DeleteVpcPeeringAuthorizationResponse -> TestTree
-responseDeleteVpcPeeringAuthorization =
-  res
-    "DeleteVpcPeeringAuthorizationResponse"
-    "fixture/DeleteVpcPeeringAuthorizationResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteVpcPeeringAuthorization)
+    (Proxy :: Proxy CreateVpcPeeringAuthorization)
 
 responseCreateVpcPeeringConnection :: CreateVpcPeeringConnectionResponse -> TestTree
 responseCreateVpcPeeringConnection =
@@ -1765,29 +1801,69 @@ responseCreateVpcPeeringConnection =
     defaultService
     (Proxy :: Proxy CreateVpcPeeringConnection)
 
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
+responseResumeGameServerGroup :: ResumeGameServerGroupResponse -> TestTree
+responseResumeGameServerGroup =
   res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
+    "ResumeGameServerGroupResponse"
+    "fixture/ResumeGameServerGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy :: Proxy ResumeGameServerGroup)
 
-responseDescribeScript :: DescribeScriptResponse -> TestTree
-responseDescribeScript =
+responseDeleteGameServerGroup :: DeleteGameServerGroupResponse -> TestTree
+responseDeleteGameServerGroup =
   res
-    "DescribeScriptResponse"
-    "fixture/DescribeScriptResponse.proto"
+    "DeleteGameServerGroupResponse"
+    "fixture/DeleteGameServerGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeScript)
+    (Proxy :: Proxy DeleteGameServerGroup)
 
-responseCreateAlias :: CreateAliasResponse -> TestTree
-responseCreateAlias =
+responseUpdateGameServerGroup :: UpdateGameServerGroupResponse -> TestTree
+responseUpdateGameServerGroup =
   res
-    "CreateAliasResponse"
-    "fixture/CreateAliasResponse.proto"
+    "UpdateGameServerGroupResponse"
+    "fixture/UpdateGameServerGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAlias)
+    (Proxy :: Proxy UpdateGameServerGroup)
+
+responseUpdateRuntimeConfiguration :: UpdateRuntimeConfigurationResponse -> TestTree
+responseUpdateRuntimeConfiguration =
+  res
+    "UpdateRuntimeConfigurationResponse"
+    "fixture/UpdateRuntimeConfigurationResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateRuntimeConfiguration)
+
+responseDeleteVpcPeeringAuthorization :: DeleteVpcPeeringAuthorizationResponse -> TestTree
+responseDeleteVpcPeeringAuthorization =
+  res
+    "DeleteVpcPeeringAuthorizationResponse"
+    "fixture/DeleteVpcPeeringAuthorizationResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteVpcPeeringAuthorization)
+
+responseCreateGameSessionQueue :: CreateGameSessionQueueResponse -> TestTree
+responseCreateGameSessionQueue =
+  res
+    "CreateGameSessionQueueResponse"
+    "fixture/CreateGameSessionQueueResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateGameSessionQueue)
+
+responseSearchGameSessions :: SearchGameSessionsResponse -> TestTree
+responseSearchGameSessions =
+  res
+    "SearchGameSessionsResponse"
+    "fixture/SearchGameSessionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy SearchGameSessions)
+
+responseListGameServerGroups :: ListGameServerGroupsResponse -> TestTree
+responseListGameServerGroups =
+  res
+    "ListGameServerGroupsResponse"
+    "fixture/ListGameServerGroupsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListGameServerGroups)
 
 responseCreatePlayerSessions :: CreatePlayerSessionsResponse -> TestTree
 responseCreatePlayerSessions =
@@ -1796,30 +1872,6 @@ responseCreatePlayerSessions =
     "fixture/CreatePlayerSessionsResponse.proto"
     defaultService
     (Proxy :: Proxy CreatePlayerSessions)
-
-responseUpdateGameServer :: UpdateGameServerResponse -> TestTree
-responseUpdateGameServer =
-  res
-    "UpdateGameServerResponse"
-    "fixture/UpdateGameServerResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateGameServer)
-
-responseDescribeVpcPeeringAuthorizations :: DescribeVpcPeeringAuthorizationsResponse -> TestTree
-responseDescribeVpcPeeringAuthorizations =
-  res
-    "DescribeVpcPeeringAuthorizationsResponse"
-    "fixture/DescribeVpcPeeringAuthorizationsResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeVpcPeeringAuthorizations)
-
-responseListGameServers :: ListGameServersResponse -> TestTree
-responseListGameServers =
-  res
-    "ListGameServersResponse"
-    "fixture/ListGameServersResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListGameServers)
 
 responseCreateBuild :: CreateBuildResponse -> TestTree
 responseCreateBuild =
@@ -1836,3 +1888,51 @@ responseListAliases =
     "fixture/ListAliasesResponse.proto"
     defaultService
     (Proxy :: Proxy ListAliases)
+
+responseDescribeScript :: DescribeScriptResponse -> TestTree
+responseDescribeScript =
+  res
+    "DescribeScriptResponse"
+    "fixture/DescribeScriptResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeScript)
+
+responseDescribeVpcPeeringAuthorizations :: DescribeVpcPeeringAuthorizationsResponse -> TestTree
+responseDescribeVpcPeeringAuthorizations =
+  res
+    "DescribeVpcPeeringAuthorizationsResponse"
+    "fixture/DescribeVpcPeeringAuthorizationsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeVpcPeeringAuthorizations)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTagsForResource)
+
+responseCreateAlias :: CreateAliasResponse -> TestTree
+responseCreateAlias =
+  res
+    "CreateAliasResponse"
+    "fixture/CreateAliasResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateAlias)
+
+responseListGameServers :: ListGameServersResponse -> TestTree
+responseListGameServers =
+  res
+    "ListGameServersResponse"
+    "fixture/ListGameServersResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListGameServers)
+
+responseUpdateGameServer :: UpdateGameServerResponse -> TestTree
+responseUpdateGameServer =
+  res
+    "UpdateGameServerResponse"
+    "fixture/UpdateGameServerResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateGameServer)

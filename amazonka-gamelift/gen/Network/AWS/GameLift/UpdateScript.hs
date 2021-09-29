@@ -39,17 +39,11 @@
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html Amazon GameLift Realtime Servers>
 --
--- __Related operations__
+-- __Related actions__
 --
--- -   CreateScript
---
--- -   ListScripts
---
--- -   DescribeScript
---
--- -   UpdateScript
---
--- -   DeleteScript
+-- CreateScript | ListScripts | DescribeScript | UpdateScript |
+-- DeleteScript |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.UpdateScript
   ( -- * Creating a Request
     UpdateScript (..),
@@ -90,25 +84,23 @@ data UpdateScript = UpdateScript'
     -- to indicate that the file data is a binary object. For example:
     -- @--zip-file fileb:\/\/myRealtimeScript.zip@.
     zipFile :: Prelude.Maybe Core.Base64,
-    -- | The version that is associated with a build or script. Version strings
-    -- do not need to be unique.
+    -- | Version information that is associated with a build or script. Version
+    -- strings do not need to be unique.
     version :: Prelude.Maybe Prelude.Text,
     -- | A descriptive label that is associated with a script. Script names do
     -- not need to be unique.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon S3 location of your Realtime scripts. The storage location
-    -- must specify the S3 bucket name, the zip file name (the \"key\"), and an
-    -- IAM role ARN that allows Amazon GameLift to access the S3 storage
-    -- location. The S3 bucket must be in the same Region as the script you\'re
-    -- updating. By default, Amazon GameLift uploads the latest version of the
-    -- zip file; if you have S3 object versioning turned on, you can use the
-    -- @ObjectVersion@ parameter to specify an earlier version. To call this
-    -- operation with a storage location, you must have IAM PassRole
-    -- permission. For more details on IAM roles and PassRole permissions, see
-    -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html Set up a role for GameLift access>.
+    -- | The location of the Amazon S3 bucket where a zipped file containing your
+    -- Realtime scripts is stored. The storage location must specify the Amazon
+    -- S3 bucket name, the zip file name (the \"key\"), and a role ARN that
+    -- allows Amazon GameLift to access the Amazon S3 storage location. The S3
+    -- bucket must be in the same Region where you want to create a new script.
+    -- By default, Amazon GameLift uploads the latest version of the zip file;
+    -- if you have S3 object versioning turned on, you can use the
+    -- @ObjectVersion@ parameter to specify an earlier version.
     storageLocation :: Prelude.Maybe S3Location,
-    -- | A unique identifier for a Realtime script to update. You can use either
-    -- the script ID or ARN value.
+    -- | A unique identifier for the Realtime script to update. You can use
+    -- either the script ID or ARN value.
     scriptId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -134,25 +126,23 @@ data UpdateScript = UpdateScript'
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
--- 'version', 'updateScript_version' - The version that is associated with a build or script. Version strings
--- do not need to be unique.
+-- 'version', 'updateScript_version' - Version information that is associated with a build or script. Version
+-- strings do not need to be unique.
 --
 -- 'name', 'updateScript_name' - A descriptive label that is associated with a script. Script names do
 -- not need to be unique.
 --
--- 'storageLocation', 'updateScript_storageLocation' - The Amazon S3 location of your Realtime scripts. The storage location
--- must specify the S3 bucket name, the zip file name (the \"key\"), and an
--- IAM role ARN that allows Amazon GameLift to access the S3 storage
--- location. The S3 bucket must be in the same Region as the script you\'re
--- updating. By default, Amazon GameLift uploads the latest version of the
--- zip file; if you have S3 object versioning turned on, you can use the
--- @ObjectVersion@ parameter to specify an earlier version. To call this
--- operation with a storage location, you must have IAM PassRole
--- permission. For more details on IAM roles and PassRole permissions, see
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html Set up a role for GameLift access>.
+-- 'storageLocation', 'updateScript_storageLocation' - The location of the Amazon S3 bucket where a zipped file containing your
+-- Realtime scripts is stored. The storage location must specify the Amazon
+-- S3 bucket name, the zip file name (the \"key\"), and a role ARN that
+-- allows Amazon GameLift to access the Amazon S3 storage location. The S3
+-- bucket must be in the same Region where you want to create a new script.
+-- By default, Amazon GameLift uploads the latest version of the zip file;
+-- if you have S3 object versioning turned on, you can use the
+-- @ObjectVersion@ parameter to specify an earlier version.
 --
--- 'scriptId', 'updateScript_scriptId' - A unique identifier for a Realtime script to update. You can use either
--- the script ID or ARN value.
+-- 'scriptId', 'updateScript_scriptId' - A unique identifier for the Realtime script to update. You can use
+-- either the script ID or ARN value.
 newUpdateScript ::
   -- | 'scriptId'
   Prelude.Text ->
@@ -181,8 +171,8 @@ newUpdateScript pScriptId_ =
 updateScript_zipFile :: Lens.Lens' UpdateScript (Prelude.Maybe Prelude.ByteString)
 updateScript_zipFile = Lens.lens (\UpdateScript' {zipFile} -> zipFile) (\s@UpdateScript' {} a -> s {zipFile = a} :: UpdateScript) Prelude.. Lens.mapping Core._Base64
 
--- | The version that is associated with a build or script. Version strings
--- do not need to be unique.
+-- | Version information that is associated with a build or script. Version
+-- strings do not need to be unique.
 updateScript_version :: Lens.Lens' UpdateScript (Prelude.Maybe Prelude.Text)
 updateScript_version = Lens.lens (\UpdateScript' {version} -> version) (\s@UpdateScript' {} a -> s {version = a} :: UpdateScript)
 
@@ -191,21 +181,19 @@ updateScript_version = Lens.lens (\UpdateScript' {version} -> version) (\s@Updat
 updateScript_name :: Lens.Lens' UpdateScript (Prelude.Maybe Prelude.Text)
 updateScript_name = Lens.lens (\UpdateScript' {name} -> name) (\s@UpdateScript' {} a -> s {name = a} :: UpdateScript)
 
--- | The Amazon S3 location of your Realtime scripts. The storage location
--- must specify the S3 bucket name, the zip file name (the \"key\"), and an
--- IAM role ARN that allows Amazon GameLift to access the S3 storage
--- location. The S3 bucket must be in the same Region as the script you\'re
--- updating. By default, Amazon GameLift uploads the latest version of the
--- zip file; if you have S3 object versioning turned on, you can use the
--- @ObjectVersion@ parameter to specify an earlier version. To call this
--- operation with a storage location, you must have IAM PassRole
--- permission. For more details on IAM roles and PassRole permissions, see
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html Set up a role for GameLift access>.
+-- | The location of the Amazon S3 bucket where a zipped file containing your
+-- Realtime scripts is stored. The storage location must specify the Amazon
+-- S3 bucket name, the zip file name (the \"key\"), and a role ARN that
+-- allows Amazon GameLift to access the Amazon S3 storage location. The S3
+-- bucket must be in the same Region where you want to create a new script.
+-- By default, Amazon GameLift uploads the latest version of the zip file;
+-- if you have S3 object versioning turned on, you can use the
+-- @ObjectVersion@ parameter to specify an earlier version.
 updateScript_storageLocation :: Lens.Lens' UpdateScript (Prelude.Maybe S3Location)
 updateScript_storageLocation = Lens.lens (\UpdateScript' {storageLocation} -> storageLocation) (\s@UpdateScript' {} a -> s {storageLocation = a} :: UpdateScript)
 
--- | A unique identifier for a Realtime script to update. You can use either
--- the script ID or ARN value.
+-- | A unique identifier for the Realtime script to update. You can use
+-- either the script ID or ARN value.
 updateScript_scriptId :: Lens.Lens' UpdateScript Prelude.Text
 updateScript_scriptId = Lens.lens (\UpdateScript' {scriptId} -> scriptId) (\s@UpdateScript' {} a -> s {scriptId = a} :: UpdateScript)
 

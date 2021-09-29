@@ -33,21 +33,23 @@
 --
 -- The @CreateBuild@ operation can used in the following scenarios:
 --
--- -   To create a new game build with build files that are in an S3
+-- -   To create a new game build with build files that are in an Amazon S3
 --     location under an AWS account that you control. To use this option,
---     you must first give Amazon GameLift access to the S3 bucket. With
---     permissions in place, call @CreateBuild@ and specify a build name,
---     operating system, and the S3 storage location of your game build.
+--     you must first give Amazon GameLift access to the Amazon S3 bucket.
+--     With permissions in place, call @CreateBuild@ and specify a build
+--     name, operating system, and the Amazon S3 storage location of your
+--     game build.
 --
--- -   To directly upload your build files to a GameLift S3 location. To
---     use this option, first call @CreateBuild@ and specify a build name
---     and operating system. This operation creates a new build resource
---     and also returns an S3 location with temporary access credentials.
---     Use the credentials to manually upload your build files to the
---     specified S3 location. For more information, see
+-- -   To directly upload your build files to a GameLift Amazon S3
+--     location. To use this option, first call @CreateBuild@ and specify a
+--     build name and operating system. This operation creates a new build
+--     resource and also returns an Amazon S3 location with temporary
+--     access credentials. Use the credentials to manually upload your
+--     build files to the specified Amazon S3 location. For more
+--     information, see
 --     <https://docs.aws.amazon.com/AmazonS3/latest/dev/UploadingObjects.html Uploading Objects>
 --     in the /Amazon S3 Developer Guide/. Build files can be uploaded to
---     the GameLift S3 location once only; that can\'t be updated.
+--     the GameLift Amazon S3 location once only; that can\'t be updated.
 --
 -- If successful, this operation creates a new build resource with a unique
 -- build ID and places it in @INITIALIZED@ status. A build must be in
@@ -59,17 +61,10 @@
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html#gamelift-build-cli-uploading-create-build Create a Build with Files in Amazon S3>
 --
--- __Related operations__
+-- __Related actions__
 --
--- -   CreateBuild
---
--- -   ListBuilds
---
--- -   DescribeBuild
---
--- -   UpdateBuild
---
--- -   DeleteBuild
+-- CreateBuild | ListBuilds | DescribeBuild | UpdateBuild | DeleteBuild |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.CreateBuild
   ( -- * Creating a Request
     CreateBuild (..),
@@ -112,15 +107,12 @@ data CreateBuild = CreateBuild'
     -- | A descriptive label that is associated with a build. Build names do not
     -- need to be unique. You can use UpdateBuild to change this value later.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The location where your game build files are stored. Use this parameter
-    -- only when creating a build using files that are stored in an S3 bucket
-    -- that you own. Identify an S3 bucket name and key, which must in the same
-    -- Region where you\'re creating a build. This parameter must also specify
-    -- the ARN for an IAM role that you\'ve set up to give Amazon GameLift
-    -- access your S3 bucket. To call this operation with a storage location,
-    -- you must have IAM PassRole permission. For more details on IAM roles and
-    -- PassRole permissions, see
-    -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html Set up a role for GameLift access>.
+    -- | Information indicating where your game build files are stored. Use this
+    -- parameter only when creating a build with files stored in an Amazon S3
+    -- bucket that you own. The storage location must specify an Amazon S3
+    -- bucket name and key. The location must also specify a role ARN that you
+    -- set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3
+    -- bucket and your new build must be in the same Region.
     storageLocation :: Prelude.Maybe S3Location,
     -- | A list of labels to assign to the new build resource. Tags are
     -- developer-defined key-value pairs. Tagging AWS resources are useful for
@@ -157,15 +149,12 @@ data CreateBuild = CreateBuild'
 -- 'name', 'createBuild_name' - A descriptive label that is associated with a build. Build names do not
 -- need to be unique. You can use UpdateBuild to change this value later.
 --
--- 'storageLocation', 'createBuild_storageLocation' - The location where your game build files are stored. Use this parameter
--- only when creating a build using files that are stored in an S3 bucket
--- that you own. Identify an S3 bucket name and key, which must in the same
--- Region where you\'re creating a build. This parameter must also specify
--- the ARN for an IAM role that you\'ve set up to give Amazon GameLift
--- access your S3 bucket. To call this operation with a storage location,
--- you must have IAM PassRole permission. For more details on IAM roles and
--- PassRole permissions, see
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html Set up a role for GameLift access>.
+-- 'storageLocation', 'createBuild_storageLocation' - Information indicating where your game build files are stored. Use this
+-- parameter only when creating a build with files stored in an Amazon S3
+-- bucket that you own. The storage location must specify an Amazon S3
+-- bucket name and key. The location must also specify a role ARN that you
+-- set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3
+-- bucket and your new build must be in the same Region.
 --
 -- 'tags', 'createBuild_tags' - A list of labels to assign to the new build resource. Tags are
 -- developer-defined key-value pairs. Tagging AWS resources are useful for
@@ -205,15 +194,12 @@ createBuild_version = Lens.lens (\CreateBuild' {version} -> version) (\s@CreateB
 createBuild_name :: Lens.Lens' CreateBuild (Prelude.Maybe Prelude.Text)
 createBuild_name = Lens.lens (\CreateBuild' {name} -> name) (\s@CreateBuild' {} a -> s {name = a} :: CreateBuild)
 
--- | The location where your game build files are stored. Use this parameter
--- only when creating a build using files that are stored in an S3 bucket
--- that you own. Identify an S3 bucket name and key, which must in the same
--- Region where you\'re creating a build. This parameter must also specify
--- the ARN for an IAM role that you\'ve set up to give Amazon GameLift
--- access your S3 bucket. To call this operation with a storage location,
--- you must have IAM PassRole permission. For more details on IAM roles and
--- PassRole permissions, see
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html Set up a role for GameLift access>.
+-- | Information indicating where your game build files are stored. Use this
+-- parameter only when creating a build with files stored in an Amazon S3
+-- bucket that you own. The storage location must specify an Amazon S3
+-- bucket name and key. The location must also specify a role ARN that you
+-- set up to allow Amazon GameLift to access your Amazon S3 bucket. The S3
+-- bucket and your new build must be in the same Region.
 createBuild_storageLocation :: Lens.Lens' CreateBuild (Prelude.Maybe S3Location)
 createBuild_storageLocation = Lens.lens (\CreateBuild' {storageLocation} -> storageLocation) (\s@CreateBuild' {} a -> s {storageLocation = a} :: CreateBuild)
 
@@ -300,7 +286,7 @@ data CreateBuildResponse = CreateBuildResponse'
     storageLocation :: Prelude.Maybe S3Location,
     -- | This element is returned only when the operation is called without a
     -- storage location. It contains credentials to use when you are uploading
-    -- a build file to an S3 bucket that is owned by Amazon GameLift.
+    -- a build file to an Amazon S3 bucket that is owned by Amazon GameLift.
     -- Credentials have a limited life span. To refresh these credentials, call
     -- RequestUploadCredentials.
     uploadCredentials :: Prelude.Maybe (Core.Sensitive AwsCredentials),
@@ -325,7 +311,7 @@ data CreateBuildResponse = CreateBuildResponse'
 --
 -- 'uploadCredentials', 'createBuildResponse_uploadCredentials' - This element is returned only when the operation is called without a
 -- storage location. It contains credentials to use when you are uploading
--- a build file to an S3 bucket that is owned by Amazon GameLift.
+-- a build file to an Amazon S3 bucket that is owned by Amazon GameLift.
 -- Credentials have a limited life span. To refresh these credentials, call
 -- RequestUploadCredentials.
 --
@@ -354,7 +340,7 @@ createBuildResponse_storageLocation = Lens.lens (\CreateBuildResponse' {storageL
 
 -- | This element is returned only when the operation is called without a
 -- storage location. It contains credentials to use when you are uploading
--- a build file to an S3 bucket that is owned by Amazon GameLift.
+-- a build file to an Amazon S3 bucket that is owned by Amazon GameLift.
 -- Credentials have a limited life span. To refresh these credentials, call
 -- RequestUploadCredentials.
 createBuildResponse_uploadCredentials :: Lens.Lens' CreateBuildResponse (Prelude.Maybe AwsCredentials)

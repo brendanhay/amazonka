@@ -29,7 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- game property might specify a game mode, level, or map. Game properties
 -- are passed to the game server process when initiating a new game
 -- session. For more information, see the
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#gamelift-sdk-client-api-create Amazon GameLift Developer Guide>.
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#gamelift-sdk-client-api-create GameLift Developer Guide>.
 --
 -- /See:/ 'newGameProperty' smart constructor.
 data GameProperty = GameProperty'

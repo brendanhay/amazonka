@@ -102,25 +102,12 @@
 -- actions are temporarily suspended, the new policy will be in force once
 -- the fleet actions are restarted.
 --
--- -   DescribeFleetCapacity
+-- __Related actions__
 --
--- -   UpdateFleetCapacity
---
--- -   DescribeEC2InstanceLimits
---
--- -   Manage scaling policies:
---
---     -   PutScalingPolicy (auto-scaling)
---
---     -   DescribeScalingPolicies (auto-scaling)
---
---     -   DeleteScalingPolicy (auto-scaling)
---
--- -   Manage fleet actions:
---
---     -   StartFleetActions
---
---     -   StopFleetActions
+-- DescribeFleetCapacity | UpdateFleetCapacity | DescribeEC2InstanceLimits
+-- | PutScalingPolicy | DescribeScalingPolicies | DeleteScalingPolicy |
+-- StopFleetActions | StartFleetActions |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.PutScalingPolicy
   ( -- * Creating a Request
     PutScalingPolicy (..),
@@ -161,7 +148,7 @@ import qualified Network.AWS.Response as Response
 data PutScalingPolicy = PutScalingPolicy'
   { -- | Metric value used to trigger a scaling event.
     threshold :: Prelude.Maybe Prelude.Double,
-    -- | The settings for a target-based scaling policy.
+    -- | An object that contains settings for a target-based scaling policy.
     targetConfiguration :: Prelude.Maybe TargetConfiguration,
     -- | Comparison operator to use when measuring the metric against the
     -- threshold value.
@@ -192,11 +179,11 @@ data PutScalingPolicy = PutScalingPolicy'
     --     Positive values scale up while negative values scale down; for
     --     example, a value of \"-10\" scales the fleet down by 10%.
     scalingAdjustmentType :: Prelude.Maybe ScalingAdjustmentType,
-    -- | A descriptive label that is associated with a scaling policy. Policy
-    -- names do not need to be unique. A fleet can have only one scaling policy
-    -- with the same name.
+    -- | A descriptive label that is associated with a fleet\'s scaling policy.
+    -- Policy names do not need to be unique. A fleet can have only one scaling
+    -- policy with the same name.
     name :: Prelude.Text,
-    -- | A unique identifier for a fleet to apply this policy to. You can use
+    -- | A unique identifier for the fleet to apply this policy to. You can use
     -- either the fleet ID or ARN value. The fleet cannot be in any of the
     -- following statuses: ERROR or DELETING.
     fleetId :: Prelude.Text,
@@ -253,7 +240,7 @@ data PutScalingPolicy = PutScalingPolicy'
 --
 -- 'threshold', 'putScalingPolicy_threshold' - Metric value used to trigger a scaling event.
 --
--- 'targetConfiguration', 'putScalingPolicy_targetConfiguration' - The settings for a target-based scaling policy.
+-- 'targetConfiguration', 'putScalingPolicy_targetConfiguration' - An object that contains settings for a target-based scaling policy.
 --
 -- 'comparisonOperator', 'putScalingPolicy_comparisonOperator' - Comparison operator to use when measuring the metric against the
 -- threshold value.
@@ -284,11 +271,11 @@ data PutScalingPolicy = PutScalingPolicy'
 --     Positive values scale up while negative values scale down; for
 --     example, a value of \"-10\" scales the fleet down by 10%.
 --
--- 'name', 'putScalingPolicy_name' - A descriptive label that is associated with a scaling policy. Policy
--- names do not need to be unique. A fleet can have only one scaling policy
--- with the same name.
+-- 'name', 'putScalingPolicy_name' - A descriptive label that is associated with a fleet\'s scaling policy.
+-- Policy names do not need to be unique. A fleet can have only one scaling
+-- policy with the same name.
 --
--- 'fleetId', 'putScalingPolicy_fleetId' - A unique identifier for a fleet to apply this policy to. You can use
+-- 'fleetId', 'putScalingPolicy_fleetId' - A unique identifier for the fleet to apply this policy to. You can use
 -- either the fleet ID or ARN value. The fleet cannot be in any of the
 -- following statuses: ERROR or DELETING.
 --
@@ -357,7 +344,7 @@ newPutScalingPolicy pName_ pFleetId_ pMetricName_ =
 putScalingPolicy_threshold :: Lens.Lens' PutScalingPolicy (Prelude.Maybe Prelude.Double)
 putScalingPolicy_threshold = Lens.lens (\PutScalingPolicy' {threshold} -> threshold) (\s@PutScalingPolicy' {} a -> s {threshold = a} :: PutScalingPolicy)
 
--- | The settings for a target-based scaling policy.
+-- | An object that contains settings for a target-based scaling policy.
 putScalingPolicy_targetConfiguration :: Lens.Lens' PutScalingPolicy (Prelude.Maybe TargetConfiguration)
 putScalingPolicy_targetConfiguration = Lens.lens (\PutScalingPolicy' {targetConfiguration} -> targetConfiguration) (\s@PutScalingPolicy' {} a -> s {targetConfiguration = a} :: PutScalingPolicy)
 
@@ -400,13 +387,13 @@ putScalingPolicy_evaluationPeriods = Lens.lens (\PutScalingPolicy' {evaluationPe
 putScalingPolicy_scalingAdjustmentType :: Lens.Lens' PutScalingPolicy (Prelude.Maybe ScalingAdjustmentType)
 putScalingPolicy_scalingAdjustmentType = Lens.lens (\PutScalingPolicy' {scalingAdjustmentType} -> scalingAdjustmentType) (\s@PutScalingPolicy' {} a -> s {scalingAdjustmentType = a} :: PutScalingPolicy)
 
--- | A descriptive label that is associated with a scaling policy. Policy
--- names do not need to be unique. A fleet can have only one scaling policy
--- with the same name.
+-- | A descriptive label that is associated with a fleet\'s scaling policy.
+-- Policy names do not need to be unique. A fleet can have only one scaling
+-- policy with the same name.
 putScalingPolicy_name :: Lens.Lens' PutScalingPolicy Prelude.Text
 putScalingPolicy_name = Lens.lens (\PutScalingPolicy' {name} -> name) (\s@PutScalingPolicy' {} a -> s {name = a} :: PutScalingPolicy)
 
--- | A unique identifier for a fleet to apply this policy to. You can use
+-- | A unique identifier for the fleet to apply this policy to. You can use
 -- either the fleet ID or ARN value. The fleet cannot be in any of the
 -- following statuses: ERROR or DELETING.
 putScalingPolicy_fleetId :: Lens.Lens' PutScalingPolicy Prelude.Text
@@ -516,8 +503,8 @@ instance Core.ToQuery PutScalingPolicy where
 --
 -- /See:/ 'newPutScalingPolicyResponse' smart constructor.
 data PutScalingPolicyResponse = PutScalingPolicyResponse'
-  { -- | A descriptive label that is associated with a scaling policy. Policy
-    -- names do not need to be unique.
+  { -- | A descriptive label that is associated with a fleet\'s scaling policy.
+    -- Policy names do not need to be unique.
     name :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -532,8 +519,8 @@ data PutScalingPolicyResponse = PutScalingPolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'putScalingPolicyResponse_name' - A descriptive label that is associated with a scaling policy. Policy
--- names do not need to be unique.
+-- 'name', 'putScalingPolicyResponse_name' - A descriptive label that is associated with a fleet\'s scaling policy.
+-- Policy names do not need to be unique.
 --
 -- 'httpStatus', 'putScalingPolicyResponse_httpStatus' - The response's http status code.
 newPutScalingPolicyResponse ::
@@ -546,8 +533,8 @@ newPutScalingPolicyResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A descriptive label that is associated with a scaling policy. Policy
--- names do not need to be unique.
+-- | A descriptive label that is associated with a fleet\'s scaling policy.
+-- Policy names do not need to be unique.
 putScalingPolicyResponse_name :: Lens.Lens' PutScalingPolicyResponse (Prelude.Maybe Prelude.Text)
 putScalingPolicyResponse_name = Lens.lens (\PutScalingPolicyResponse' {name} -> name) (\s@PutScalingPolicyResponse' {} a -> s {name = a} :: PutScalingPolicyResponse)
 

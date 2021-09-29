@@ -20,34 +20,28 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Reserves an open player slot in an active game session. Before a player
--- can be added, a game session must have an @ACTIVE@ status, have a
--- creation policy of @ALLOW_ALL@, and have an open player slot. To add a
--- group of players to a game session, use CreatePlayerSessions. When the
--- player connects to the game server and references a player session ID,
--- the game server contacts the Amazon GameLift service to validate the
--- player reservation and accept the player.
+-- Reserves an open player slot in a game session for a player. New player
+-- sessions can be created in any game session with an open slot that is in
+-- @ACTIVE@ status and has a player creation policy of @ACCEPT_ALL@. You
+-- can add a group of players to a game session with CreatePlayerSessions.
 --
 -- To create a player session, specify a game session ID, player ID, and
--- optionally a string of player data. If successful, a slot is reserved in
--- the game session for the player and a new PlayerSession object is
--- returned. Player sessions cannot be updated.
+-- optionally a set of player data.
+--
+-- If successful, a slot is reserved in the game session for the player and
+-- a new PlayerSession object is returned with a player session ID. The
+-- player references the player session ID when sending a connection
+-- request to the game session, and the game server can use it to validate
+-- the player reservation with the GameLift service. Player sessions cannot
+-- be updated.
 --
 -- /Available in Amazon GameLift Local./
 --
--- -   CreatePlayerSession
+-- __Related actions__
 --
--- -   CreatePlayerSessions
---
--- -   DescribePlayerSessions
---
--- -   Game session placements
---
---     -   StartGameSessionPlacement
---
---     -   DescribeGameSessionPlacement
---
---     -   StopGameSessionPlacement
+-- CreatePlayerSession | CreatePlayerSessions | DescribePlayerSessions |
+-- StartGameSessionPlacement | DescribeGameSessionPlacement |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.CreatePlayerSession
   ( -- * Creating a Request
     CreatePlayerSession (..),
@@ -79,8 +73,8 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreatePlayerSession' smart constructor.
 data CreatePlayerSession = CreatePlayerSession'
-  { -- | Developer-defined information related to a player. Amazon GameLift does
-    -- not use this data, so it can be formatted as needed for use in the game.
+  { -- | Developer-defined information related to a player. GameLift does not use
+    -- this data, so it can be formatted as needed for use in the game.
     playerData :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the game session to add a player to.
     gameSessionId :: Prelude.Text,
@@ -97,8 +91,8 @@ data CreatePlayerSession = CreatePlayerSession'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'playerData', 'createPlayerSession_playerData' - Developer-defined information related to a player. Amazon GameLift does
--- not use this data, so it can be formatted as needed for use in the game.
+-- 'playerData', 'createPlayerSession_playerData' - Developer-defined information related to a player. GameLift does not use
+-- this data, so it can be formatted as needed for use in the game.
 --
 -- 'gameSessionId', 'createPlayerSession_gameSessionId' - A unique identifier for the game session to add a player to.
 --
@@ -116,8 +110,8 @@ newCreatePlayerSession pGameSessionId_ pPlayerId_ =
       playerId = pPlayerId_
     }
 
--- | Developer-defined information related to a player. Amazon GameLift does
--- not use this data, so it can be formatted as needed for use in the game.
+-- | Developer-defined information related to a player. GameLift does not use
+-- this data, so it can be formatted as needed for use in the game.
 createPlayerSession_playerData :: Lens.Lens' CreatePlayerSession (Prelude.Maybe Prelude.Text)
 createPlayerSession_playerData = Lens.lens (\CreatePlayerSession' {playerData} -> playerData) (\s@CreatePlayerSession' {} a -> s {playerData = a} :: CreatePlayerSession)
 

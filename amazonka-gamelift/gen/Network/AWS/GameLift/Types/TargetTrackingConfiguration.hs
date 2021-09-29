@@ -23,8 +23,8 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | __This data type is used with the Amazon GameLift FleetIQ and game
--- server groups.__
+-- | __This data type is used with the GameLift FleetIQ and game server
+-- groups.__
 --
 -- Settings for a target-based scaling policy as part of a
 -- GameServerGroupAutoScalingPolicy. These settings are used to create a

@@ -31,17 +31,10 @@
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html Upload a Custom Server Build>
 --
--- __Related operations__
+-- __Related actions__
 --
--- -   CreateBuild
---
--- -   ListBuilds
---
--- -   DescribeBuild
---
--- -   UpdateBuild
---
--- -   DeleteBuild
+-- CreateBuild | ListBuilds | DescribeBuild | UpdateBuild | DeleteBuild |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.DeleteBuild
   ( -- * Creating a Request
     DeleteBuild (..),
@@ -67,8 +60,8 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDeleteBuild' smart constructor.
 data DeleteBuild = DeleteBuild'
-  { -- | A unique identifier for a build to delete. You can use either the build
-    -- ID or ARN value.
+  { -- | A unique identifier for the build to delete. You can use either the
+    -- build ID or ARN value.
     buildId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -81,8 +74,8 @@ data DeleteBuild = DeleteBuild'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'buildId', 'deleteBuild_buildId' - A unique identifier for a build to delete. You can use either the build
--- ID or ARN value.
+-- 'buildId', 'deleteBuild_buildId' - A unique identifier for the build to delete. You can use either the
+-- build ID or ARN value.
 newDeleteBuild ::
   -- | 'buildId'
   Prelude.Text ->
@@ -90,8 +83,8 @@ newDeleteBuild ::
 newDeleteBuild pBuildId_ =
   DeleteBuild' {buildId = pBuildId_}
 
--- | A unique identifier for a build to delete. You can use either the build
--- ID or ARN value.
+-- | A unique identifier for the build to delete. You can use either the
+-- build ID or ARN value.
 deleteBuild_buildId :: Lens.Lens' DeleteBuild Prelude.Text
 deleteBuild_buildId = Lens.lens (\DeleteBuild' {buildId} -> buildId) (\s@DeleteBuild' {} a -> s {buildId = a} :: DeleteBuild)
 

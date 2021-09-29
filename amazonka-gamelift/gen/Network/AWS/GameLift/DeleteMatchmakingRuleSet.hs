@@ -26,25 +26,15 @@
 --
 -- __Learn more__
 --
--- -   <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html Build a Rule Set>
+-- -   <https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-rulesets.html Build a rule set>
 --
--- __Related operations__
+-- __Related actions__
 --
--- -   CreateMatchmakingConfiguration
---
--- -   DescribeMatchmakingConfigurations
---
--- -   UpdateMatchmakingConfiguration
---
--- -   DeleteMatchmakingConfiguration
---
--- -   CreateMatchmakingRuleSet
---
--- -   DescribeMatchmakingRuleSets
---
--- -   ValidateMatchmakingRuleSet
---
--- -   DeleteMatchmakingRuleSet
+-- CreateMatchmakingConfiguration | DescribeMatchmakingConfigurations |
+-- UpdateMatchmakingConfiguration | DeleteMatchmakingConfiguration |
+-- CreateMatchmakingRuleSet | DescribeMatchmakingRuleSets |
+-- ValidateMatchmakingRuleSet | DeleteMatchmakingRuleSet |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.DeleteMatchmakingRuleSet
   ( -- * Creating a Request
     DeleteMatchmakingRuleSet (..),
@@ -73,9 +63,9 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDeleteMatchmakingRuleSet' smart constructor.
 data DeleteMatchmakingRuleSet = DeleteMatchmakingRuleSet'
-  { -- | A unique identifier for a matchmaking rule set to be deleted. (Note: The
-    -- rule set name is different from the optional \"name\" field in the rule
-    -- set body.) You can use either the rule set name or ARN value.
+  { -- | A unique identifier for the matchmaking rule set to be deleted. (Note:
+    -- The rule set name is different from the optional \"name\" field in the
+    -- rule set body.) You can use either the rule set name or ARN value.
     name :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -88,9 +78,9 @@ data DeleteMatchmakingRuleSet = DeleteMatchmakingRuleSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'deleteMatchmakingRuleSet_name' - A unique identifier for a matchmaking rule set to be deleted. (Note: The
--- rule set name is different from the optional \"name\" field in the rule
--- set body.) You can use either the rule set name or ARN value.
+-- 'name', 'deleteMatchmakingRuleSet_name' - A unique identifier for the matchmaking rule set to be deleted. (Note:
+-- The rule set name is different from the optional \"name\" field in the
+-- rule set body.) You can use either the rule set name or ARN value.
 newDeleteMatchmakingRuleSet ::
   -- | 'name'
   Prelude.Text ->
@@ -98,9 +88,9 @@ newDeleteMatchmakingRuleSet ::
 newDeleteMatchmakingRuleSet pName_ =
   DeleteMatchmakingRuleSet' {name = pName_}
 
--- | A unique identifier for a matchmaking rule set to be deleted. (Note: The
--- rule set name is different from the optional \"name\" field in the rule
--- set body.) You can use either the rule set name or ARN value.
+-- | A unique identifier for the matchmaking rule set to be deleted. (Note:
+-- The rule set name is different from the optional \"name\" field in the
+-- rule set body.) You can use either the rule set name or ARN value.
 deleteMatchmakingRuleSet_name :: Lens.Lens' DeleteMatchmakingRuleSet Prelude.Text
 deleteMatchmakingRuleSet_name = Lens.lens (\DeleteMatchmakingRuleSet' {name} -> name) (\s@DeleteMatchmakingRuleSet' {} a -> s {name = a} :: DeleteMatchmakingRuleSet)
 

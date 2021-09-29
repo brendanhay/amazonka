@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __This operation is used with the Amazon GameLift FleetIQ solution and
--- game server groups.__
+-- __This operation is used with the GameLift FleetIQ solution and game
+-- server groups.__
 --
 -- Updates GameLift FleetIQ-specific properties for a game server group.
 -- Many Auto Scaling group properties are updated on the Auto Scaling group
@@ -38,23 +38,12 @@
 --
 -- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
 --
--- __Related operations__
+-- __Related actions__
 --
--- -   CreateGameServerGroup
---
--- -   ListGameServerGroups
---
--- -   DescribeGameServerGroup
---
--- -   UpdateGameServerGroup
---
--- -   DeleteGameServerGroup
---
--- -   ResumeGameServerGroup
---
--- -   SuspendGameServerGroup
---
--- -   DescribeGameServerInstances
+-- CreateGameServerGroup | ListGameServerGroups | DescribeGameServerGroup |
+-- UpdateGameServerGroup | DeleteGameServerGroup | ResumeGameServerGroup |
+-- SuspendGameServerGroup | DescribeGameServerInstances |
+-- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html All APIs by task>
 module Network.AWS.GameLift.UpdateGameServerGroup
   ( -- * Creating a Request
     UpdateGameServerGroup (..),

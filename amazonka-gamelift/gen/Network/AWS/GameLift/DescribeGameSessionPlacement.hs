@@ -20,29 +20,20 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves properties and current status of a game session placement
--- request. To get game session placement details, specify the placement
--- ID. If successful, a GameSessionPlacement object is returned.
+-- Retrieves information, including current status, about a game session
+-- placement request.
 --
--- -   CreateGameSession
+-- To get game session placement details, specify the placement ID.
 --
--- -   DescribeGameSessions
+-- If successful, a GameSessionPlacement object is returned.
 --
--- -   DescribeGameSessionDetails
+-- __Related actions__
 --
--- -   SearchGameSessions
---
--- -   UpdateGameSession
---
--- -   GetGameSessionLogUrl
---
--- -   Game session placements
---
---     -   StartGameSessionPlacement
---
---     -   DescribeGameSessionPlacement
---
---     -   StopGameSessionPlacement
+-- CreateGameSession | DescribeGameSessions | DescribeGameSessionDetails |
+-- SearchGameSessions | UpdateGameSession | GetGameSessionLogUrl |
+-- StartGameSessionPlacement | DescribeGameSessionPlacement |
+-- StopGameSessionPlacement |
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task>
 module Network.AWS.GameLift.DescribeGameSessionPlacement
   ( -- * Creating a Request
     DescribeGameSessionPlacement (..),

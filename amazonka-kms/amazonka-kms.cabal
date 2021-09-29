@@ -83,6 +83,7 @@ library
     Network.AWS.KMS.ListRetirableGrants
     Network.AWS.KMS.PutKeyPolicy
     Network.AWS.KMS.ReEncrypt
+    Network.AWS.KMS.ReplicateKey
     Network.AWS.KMS.RetireGrant
     Network.AWS.KMS.RevokeGrant
     Network.AWS.KMS.ScheduleKeyDeletion
@@ -105,10 +106,14 @@ library
     Network.AWS.KMS.Types.KeyListEntry
     Network.AWS.KMS.Types.KeyManagerType
     Network.AWS.KMS.Types.KeyMetadata
+    Network.AWS.KMS.Types.KeySpec
     Network.AWS.KMS.Types.KeyState
     Network.AWS.KMS.Types.KeyUsageType
     Network.AWS.KMS.Types.ListGrantsResponse
     Network.AWS.KMS.Types.MessageType
+    Network.AWS.KMS.Types.MultiRegionConfiguration
+    Network.AWS.KMS.Types.MultiRegionKey
+    Network.AWS.KMS.Types.MultiRegionKeyType
     Network.AWS.KMS.Types.OriginType
     Network.AWS.KMS.Types.SigningAlgorithmSpec
     Network.AWS.KMS.Types.Tag
@@ -117,6 +122,7 @@ library
     Network.AWS.KMS.UpdateAlias
     Network.AWS.KMS.UpdateCustomKeyStore
     Network.AWS.KMS.UpdateKeyDescription
+    Network.AWS.KMS.UpdatePrimaryRegion
     Network.AWS.KMS.Verify
     Network.AWS.KMS.Waiters
 

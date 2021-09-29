@@ -20,13 +20,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the names of the key policies that are attached to a customer
--- master key (CMK). This operation is designed to get policy names that
--- you can use in a GetKeyPolicy operation. However, the only valid policy
--- name is @default@.
+-- Gets the names of the key policies that are attached to a KMS key. This
+-- operation is designed to get policy names that you can use in a
+-- GetKeyPolicy operation. However, the only valid policy name is
+-- @default@.
 --
--- __Cross-account use__: No. You cannot perform this operation on a CMK in
--- a different AWS account.
+-- __Cross-account use__: No. You cannot perform this operation on a KMS
+-- key in a different Amazon Web Services account.
 --
 -- __Required permissions__:
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:ListKeyPolicies>
@@ -71,8 +71,8 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newListKeyPolicies' smart constructor.
 data ListKeyPolicies = ListKeyPolicies'
   { -- | Use this parameter to specify the maximum number of items to return.
-    -- When this value is present, AWS KMS does not return more than the
-    -- specified number of items, but it might return fewer.
+    -- When this value is present, KMS does not return more than the specified
+    -- number of items, but it might return fewer.
     --
     -- This value is optional. If you include a value, it must be between 1 and
     -- 1000, inclusive. If you do not include a value, it defaults to 100.
@@ -83,9 +83,9 @@ data ListKeyPolicies = ListKeyPolicies'
     -- with truncated results. Set it to the value of @NextMarker@ from the
     -- truncated response you just received.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | A unique identifier for the customer master key (CMK).
+    -- | Gets the names of key policies for the specified KMS key.
     --
-    -- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+    -- Specify the key ID or key ARN of the KMS key.
     --
     -- For example:
     --
@@ -94,7 +94,8 @@ data ListKeyPolicies = ListKeyPolicies'
     -- -   Key ARN:
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
-    -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+    -- To get the key ID and key ARN for a KMS key, use ListKeys or
+    -- DescribeKey.
     keyId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -108,8 +109,8 @@ data ListKeyPolicies = ListKeyPolicies'
 -- for backwards compatibility:
 --
 -- 'limit', 'listKeyPolicies_limit' - Use this parameter to specify the maximum number of items to return.
--- When this value is present, AWS KMS does not return more than the
--- specified number of items, but it might return fewer.
+-- When this value is present, KMS does not return more than the specified
+-- number of items, but it might return fewer.
 --
 -- This value is optional. If you include a value, it must be between 1 and
 -- 1000, inclusive. If you do not include a value, it defaults to 100.
@@ -120,9 +121,9 @@ data ListKeyPolicies = ListKeyPolicies'
 -- with truncated results. Set it to the value of @NextMarker@ from the
 -- truncated response you just received.
 --
--- 'keyId', 'listKeyPolicies_keyId' - A unique identifier for the customer master key (CMK).
+-- 'keyId', 'listKeyPolicies_keyId' - Gets the names of key policies for the specified KMS key.
 --
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+-- Specify the key ID or key ARN of the KMS key.
 --
 -- For example:
 --
@@ -131,7 +132,8 @@ data ListKeyPolicies = ListKeyPolicies'
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
 newListKeyPolicies ::
   -- | 'keyId'
   Prelude.Text ->
@@ -144,8 +146,8 @@ newListKeyPolicies pKeyId_ =
     }
 
 -- | Use this parameter to specify the maximum number of items to return.
--- When this value is present, AWS KMS does not return more than the
--- specified number of items, but it might return fewer.
+-- When this value is present, KMS does not return more than the specified
+-- number of items, but it might return fewer.
 --
 -- This value is optional. If you include a value, it must be between 1 and
 -- 1000, inclusive. If you do not include a value, it defaults to 100.
@@ -160,9 +162,9 @@ listKeyPolicies_limit = Lens.lens (\ListKeyPolicies' {limit} -> limit) (\s@ListK
 listKeyPolicies_marker :: Lens.Lens' ListKeyPolicies (Prelude.Maybe Prelude.Text)
 listKeyPolicies_marker = Lens.lens (\ListKeyPolicies' {marker} -> marker) (\s@ListKeyPolicies' {} a -> s {marker = a} :: ListKeyPolicies)
 
--- | A unique identifier for the customer master key (CMK).
+-- | Gets the names of key policies for the specified KMS key.
 --
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+-- Specify the key ID or key ARN of the KMS key.
 --
 -- For example:
 --
@@ -171,7 +173,8 @@ listKeyPolicies_marker = Lens.lens (\ListKeyPolicies' {marker} -> marker) (\s@Li
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
 listKeyPolicies_keyId :: Lens.Lens' ListKeyPolicies Prelude.Text
 listKeyPolicies_keyId = Lens.lens (\ListKeyPolicies' {keyId} -> keyId) (\s@ListKeyPolicies' {} a -> s {keyId = a} :: ListKeyPolicies)
 

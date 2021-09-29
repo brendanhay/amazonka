@@ -22,43 +22,41 @@
 --
 -- Deletes a
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>.
--- This operation does not delete the AWS CloudHSM cluster that is
--- associated with the custom key store, or affect any users or keys in the
--- cluster.
+-- This operation does not delete the CloudHSM cluster that is associated
+-- with the custom key store, or affect any users or keys in the cluster.
 --
--- The custom key store that you delete cannot contain any AWS KMS
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys customer master keys (CMKs)>.
+-- The custom key store that you delete cannot contain any KMS
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms_keys KMS keys>.
 -- Before deleting the key store, verify that you will never need to use
--- any of the CMKs in the key store for any
+-- any of the KMS keys in the key store for any
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations>.
--- Then, use ScheduleKeyDeletion to delete the AWS KMS customer master keys
--- (CMKs) from the key store. When the scheduled waiting period expires,
--- the @ScheduleKeyDeletion@ operation deletes the CMKs. Then it makes a
--- best effort to delete the key material from the associated cluster.
--- However, you might need to manually
+-- Then, use ScheduleKeyDeletion to delete the KMS keys from the key store.
+-- When the scheduled waiting period expires, the @ScheduleKeyDeletion@
+-- operation deletes the KMS keys. Then it makes a best effort to delete
+-- the key material from the associated cluster. However, you might need to
+-- manually
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html#fix-keystore-orphaned-key delete the orphaned key material>
 -- from the cluster and its backups.
 --
--- After all CMKs are deleted from AWS KMS, use DisconnectCustomKeyStore to
--- disconnect the key store from AWS KMS. Then, you can delete the custom
--- key store.
+-- After all KMS keys are deleted from KMS, use DisconnectCustomKeyStore to
+-- disconnect the key store from KMS. Then, you can delete the custom key
+-- store.
 --
 -- Instead of deleting the custom key store, consider using
--- DisconnectCustomKeyStore to disconnect it from AWS KMS. While the key
--- store is disconnected, you cannot create or use the CMKs in the key
--- store. But, you do not need to delete CMKs and you can reconnect a
+-- DisconnectCustomKeyStore to disconnect it from KMS. While the key store
+-- is disconnected, you cannot create or use the KMS keys in the key store.
+-- But, you do not need to delete KMS keys and you can reconnect a
 -- disconnected custom key store at any time.
 --
 -- If the operation succeeds, it returns a JSON object with no properties.
 --
 -- This operation is part of the
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html Custom Key Store feature>
--- feature in AWS KMS, which combines the convenience and extensive
--- integration of AWS KMS with the isolation and control of a single-tenant
--- key store.
+-- feature in KMS, which combines the convenience and extensive integration
+-- of KMS with the isolation and control of a single-tenant key store.
 --
 -- __Cross-account use__: No. You cannot perform this operation on a custom
--- key store in a different AWS account.
+-- key store in a different Amazon Web Services account.
 --
 -- __Required permissions__:
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:DeleteCustomKeyStore>

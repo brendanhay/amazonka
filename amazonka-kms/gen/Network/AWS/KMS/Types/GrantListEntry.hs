@@ -44,19 +44,18 @@ data GrantListEntry = GrantListEntry'
     --
     -- The @GranteePrincipal@ field in the @ListGrants@ response usually
     -- contains the user or role designated as the grantee principal in the
-    -- grant. However, when the grantee principal in the grant is an AWS
-    -- service, the @GranteePrincipal@ field contains the
+    -- grant. However, when the grantee principal in the grant is an Amazon Web
+    -- Services service, the @GranteePrincipal@ field contains the
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services service principal>,
     -- which might represent several different grantee principals.
     granteePrincipal :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier for the grant.
     grantId :: Prelude.Maybe Prelude.Text,
-    -- | The AWS account under which the grant was issued.
+    -- | The Amazon Web Services account under which the grant was issued.
     issuingAccount :: Prelude.Maybe Prelude.Text,
     -- | The principal that can retire the grant.
     retiringPrincipal :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier for the customer master key (CMK) to which the
-    -- grant applies.
+    -- | The unique identifier for the KMS key to which the grant applies.
     keyId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -84,19 +83,18 @@ data GrantListEntry = GrantListEntry'
 --
 -- The @GranteePrincipal@ field in the @ListGrants@ response usually
 -- contains the user or role designated as the grantee principal in the
--- grant. However, when the grantee principal in the grant is an AWS
--- service, the @GranteePrincipal@ field contains the
+-- grant. However, when the grantee principal in the grant is an Amazon Web
+-- Services service, the @GranteePrincipal@ field contains the
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services service principal>,
 -- which might represent several different grantee principals.
 --
 -- 'grantId', 'grantListEntry_grantId' - The unique identifier for the grant.
 --
--- 'issuingAccount', 'grantListEntry_issuingAccount' - The AWS account under which the grant was issued.
+-- 'issuingAccount', 'grantListEntry_issuingAccount' - The Amazon Web Services account under which the grant was issued.
 --
 -- 'retiringPrincipal', 'grantListEntry_retiringPrincipal' - The principal that can retire the grant.
 --
--- 'keyId', 'grantListEntry_keyId' - The unique identifier for the customer master key (CMK) to which the
--- grant applies.
+-- 'keyId', 'grantListEntry_keyId' - The unique identifier for the KMS key to which the grant applies.
 newGrantListEntry ::
   GrantListEntry
 newGrantListEntry =
@@ -135,8 +133,8 @@ grantListEntry_name = Lens.lens (\GrantListEntry' {name} -> name) (\s@GrantListE
 --
 -- The @GranteePrincipal@ field in the @ListGrants@ response usually
 -- contains the user or role designated as the grantee principal in the
--- grant. However, when the grantee principal in the grant is an AWS
--- service, the @GranteePrincipal@ field contains the
+-- grant. However, when the grantee principal in the grant is an Amazon Web
+-- Services service, the @GranteePrincipal@ field contains the
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services service principal>,
 -- which might represent several different grantee principals.
 grantListEntry_granteePrincipal :: Lens.Lens' GrantListEntry (Prelude.Maybe Prelude.Text)
@@ -146,7 +144,7 @@ grantListEntry_granteePrincipal = Lens.lens (\GrantListEntry' {granteePrincipal}
 grantListEntry_grantId :: Lens.Lens' GrantListEntry (Prelude.Maybe Prelude.Text)
 grantListEntry_grantId = Lens.lens (\GrantListEntry' {grantId} -> grantId) (\s@GrantListEntry' {} a -> s {grantId = a} :: GrantListEntry)
 
--- | The AWS account under which the grant was issued.
+-- | The Amazon Web Services account under which the grant was issued.
 grantListEntry_issuingAccount :: Lens.Lens' GrantListEntry (Prelude.Maybe Prelude.Text)
 grantListEntry_issuingAccount = Lens.lens (\GrantListEntry' {issuingAccount} -> issuingAccount) (\s@GrantListEntry' {} a -> s {issuingAccount = a} :: GrantListEntry)
 
@@ -154,8 +152,7 @@ grantListEntry_issuingAccount = Lens.lens (\GrantListEntry' {issuingAccount} -> 
 grantListEntry_retiringPrincipal :: Lens.Lens' GrantListEntry (Prelude.Maybe Prelude.Text)
 grantListEntry_retiringPrincipal = Lens.lens (\GrantListEntry' {retiringPrincipal} -> retiringPrincipal) (\s@GrantListEntry' {} a -> s {retiringPrincipal = a} :: GrantListEntry)
 
--- | The unique identifier for the customer master key (CMK) to which the
--- grant applies.
+-- | The unique identifier for the KMS key to which the grant applies.
 grantListEntry_keyId :: Lens.Lens' GrantListEntry (Prelude.Maybe Prelude.Text)
 grantListEntry_keyId = Lens.lens (\GrantListEntry' {keyId} -> keyId) (\s@GrantListEntry' {} a -> s {keyId = a} :: GrantListEntry)
 

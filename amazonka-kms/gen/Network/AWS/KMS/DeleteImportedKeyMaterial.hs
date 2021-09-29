@@ -21,25 +21,25 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes key material that you previously imported. This operation makes
--- the specified customer master key (CMK) unusable. For more information
--- about importing key material into AWS KMS, see
+-- the specified KMS key unusable. For more information about importing key
+-- material into KMS, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html Importing Key Material>
--- in the /AWS Key Management Service Developer Guide/.
+-- in the /Key Management Service Developer Guide/.
 --
--- When the specified CMK is in the @PendingDeletion@ state, this operation
--- does not change the CMK\'s state. Otherwise, it changes the CMK\'s state
--- to @PendingImport@.
+-- When the specified KMS key is in the @PendingDeletion@ state, this
+-- operation does not change the KMS key\'s state. Otherwise, it changes
+-- the KMS key\'s state to @PendingImport@.
 --
 -- After you delete key material, you can use ImportKeyMaterial to reimport
--- the same key material into the CMK.
+-- the same key material into the KMS key.
 --
--- The CMK that you use for this operation must be in a compatible key
+-- The KMS key that you use for this operation must be in a compatible key
 -- state. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key>
--- in the /AWS Key Management Service Developer Guide/.
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>
+-- in the /Key Management Service Developer Guide/.
 --
--- __Cross-account use__: No. You cannot perform this operation on a CMK in
--- a different AWS account.
+-- __Cross-account use__: No. You cannot perform this operation on a KMS
+-- key in a different Amazon Web Services account.
 --
 -- __Required permissions__:
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:DeleteImportedKeyMaterial>
@@ -73,10 +73,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteImportedKeyMaterial' smart constructor.
 data DeleteImportedKeyMaterial = DeleteImportedKeyMaterial'
-  { -- | Identifies the CMK from which you are deleting imported key material.
-    -- The @Origin@ of the CMK must be @EXTERNAL@.
+  { -- | Identifies the KMS key from which you are deleting imported key
+    -- material. The @Origin@ of the KMS key must be @EXTERNAL@.
     --
-    -- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+    -- Specify the key ID or key ARN of the KMS key.
     --
     -- For example:
     --
@@ -85,7 +85,8 @@ data DeleteImportedKeyMaterial = DeleteImportedKeyMaterial'
     -- -   Key ARN:
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
-    -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+    -- To get the key ID and key ARN for a KMS key, use ListKeys or
+    -- DescribeKey.
     keyId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -98,10 +99,10 @@ data DeleteImportedKeyMaterial = DeleteImportedKeyMaterial'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyId', 'deleteImportedKeyMaterial_keyId' - Identifies the CMK from which you are deleting imported key material.
--- The @Origin@ of the CMK must be @EXTERNAL@.
+-- 'keyId', 'deleteImportedKeyMaterial_keyId' - Identifies the KMS key from which you are deleting imported key
+-- material. The @Origin@ of the KMS key must be @EXTERNAL@.
 --
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+-- Specify the key ID or key ARN of the KMS key.
 --
 -- For example:
 --
@@ -110,7 +111,8 @@ data DeleteImportedKeyMaterial = DeleteImportedKeyMaterial'
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
 newDeleteImportedKeyMaterial ::
   -- | 'keyId'
   Prelude.Text ->
@@ -118,10 +120,10 @@ newDeleteImportedKeyMaterial ::
 newDeleteImportedKeyMaterial pKeyId_ =
   DeleteImportedKeyMaterial' {keyId = pKeyId_}
 
--- | Identifies the CMK from which you are deleting imported key material.
--- The @Origin@ of the CMK must be @EXTERNAL@.
+-- | Identifies the KMS key from which you are deleting imported key
+-- material. The @Origin@ of the KMS key must be @EXTERNAL@.
 --
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+-- Specify the key ID or key ARN of the KMS key.
 --
 -- For example:
 --
@@ -130,7 +132,8 @@ newDeleteImportedKeyMaterial pKeyId_ =
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
 deleteImportedKeyMaterial_keyId :: Lens.Lens' DeleteImportedKeyMaterial Prelude.Text
 deleteImportedKeyMaterial_keyId = Lens.lens (\DeleteImportedKeyMaterial' {keyId} -> keyId) (\s@DeleteImportedKeyMaterial' {} a -> s {keyId = a} :: DeleteImportedKeyMaterial)
 

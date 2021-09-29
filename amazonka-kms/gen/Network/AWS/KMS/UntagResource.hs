@@ -21,27 +21,32 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes tags from a
--- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk customer managed CMK>.
--- To delete a tag, specify the tag key and the CMK.
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk customer managed key>.
+-- To delete a tag, specify the tag key and the KMS key.
+--
+-- Tagging or untagging a KMS key can allow or deny permission to the KMS
+-- key. For details, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html Using ABAC in KMS>
+-- in the /Key Management Service Developer Guide/.
 --
 -- When it succeeds, the @UntagResource@ operation doesn\'t return any
--- output. Also, if the specified tag key isn\'t found on the CMK, it
+-- output. Also, if the specified tag key isn\'t found on the KMS key, it
 -- doesn\'t throw an exception or return a response. To confirm that the
 -- operation worked, use the ListResourceTags operation.
 --
--- For general information about tags, including the format and syntax, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
--- in the /Amazon Web Services General Reference/. For information about
--- using tags in AWS KMS, see
+-- For information about using tags in KMS, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html Tagging keys>.
+-- For general information about tags, including the format and syntax, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+-- in the /Amazon Web Services General Reference/.
 --
--- The CMK that you use for this operation must be in a compatible key
+-- The KMS key that you use for this operation must be in a compatible key
 -- state. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key>
--- in the /AWS Key Management Service Developer Guide/.
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>
+-- in the /Key Management Service Developer Guide/.
 --
--- __Cross-account use__: No. You cannot perform this operation on a CMK in
--- a different AWS account.
+-- __Cross-account use__: No. You cannot perform this operation on a KMS
+-- key in a different Amazon Web Services account.
 --
 -- __Required permissions__:
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:UntagResource>
@@ -49,9 +54,13 @@
 --
 -- __Related operations__
 --
--- -   TagResource
+-- -   CreateKey
 --
 -- -   ListResourceTags
+--
+-- -   ReplicateKey
+--
+-- -   TagResource
 module Network.AWS.KMS.UntagResource
   ( -- * Creating a Request
     UntagResource (..),
@@ -76,9 +85,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { -- | Identifies the CMK from which you are removing tags.
+  { -- | Identifies the KMS key from which you are removing tags.
     --
-    -- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+    -- Specify the key ID or key ARN of the KMS key.
     --
     -- For example:
     --
@@ -87,7 +96,8 @@ data UntagResource = UntagResource'
     -- -   Key ARN:
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
-    -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+    -- To get the key ID and key ARN for a KMS key, use ListKeys or
+    -- DescribeKey.
     keyId :: Prelude.Text,
     -- | One or more tag keys. Specify only the tag keys, not the tag values.
     tagKeys :: [Prelude.Text]
@@ -102,9 +112,9 @@ data UntagResource = UntagResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyId', 'untagResource_keyId' - Identifies the CMK from which you are removing tags.
+-- 'keyId', 'untagResource_keyId' - Identifies the KMS key from which you are removing tags.
 --
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+-- Specify the key ID or key ARN of the KMS key.
 --
 -- For example:
 --
@@ -113,7 +123,8 @@ data UntagResource = UntagResource'
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
 --
 -- 'tagKeys', 'untagResource_tagKeys' - One or more tag keys. Specify only the tag keys, not the tag values.
 newUntagResource ::
@@ -126,9 +137,9 @@ newUntagResource pKeyId_ =
       tagKeys = Prelude.mempty
     }
 
--- | Identifies the CMK from which you are removing tags.
+-- | Identifies the KMS key from which you are removing tags.
 --
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+-- Specify the key ID or key ARN of the KMS key.
 --
 -- For example:
 --
@@ -137,7 +148,8 @@ newUntagResource pKeyId_ =
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
 untagResource_keyId :: Lens.Lens' UntagResource Prelude.Text
 untagResource_keyId = Lens.lens (\UntagResource' {keyId} -> keyId) (\s@UntagResource' {} a -> s {keyId = a} :: UntagResource)
 

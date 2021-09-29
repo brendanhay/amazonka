@@ -20,21 +20,22 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets the state of a customer master key (CMK) to disabled. This change
--- temporarily prevents use of the CMK for
+-- Sets the state of a KMS key to disabled. This change temporarily
+-- prevents use of the KMS key for
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations>.
 --
--- For more information about how key state affects the use of a CMK, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects the Use of a Customer Master Key>
--- in the //AWS Key Management Service Developer Guide// .
+-- For more information about how key state affects the use of a KMS key,
+-- see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>
+-- in the //Key Management Service Developer Guide// .
 --
--- The CMK that you use for this operation must be in a compatible key
+-- The KMS key that you use for this operation must be in a compatible key
 -- state. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key>
--- in the /AWS Key Management Service Developer Guide/.
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>
+-- in the /Key Management Service Developer Guide/.
 --
--- __Cross-account use__: No. You cannot perform this operation on a CMK in
--- a different AWS account.
+-- __Cross-account use__: No. You cannot perform this operation on a KMS
+-- key in a different Amazon Web Services account.
 --
 -- __Required permissions__:
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:DisableKey>
@@ -64,9 +65,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDisableKey' smart constructor.
 data DisableKey = DisableKey'
-  { -- | A unique identifier for the customer master key (CMK).
+  { -- | Identifies the KMS key to disable.
     --
-    -- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+    -- Specify the key ID or key ARN of the KMS key.
     --
     -- For example:
     --
@@ -75,7 +76,8 @@ data DisableKey = DisableKey'
     -- -   Key ARN:
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
-    -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+    -- To get the key ID and key ARN for a KMS key, use ListKeys or
+    -- DescribeKey.
     keyId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -88,9 +90,9 @@ data DisableKey = DisableKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyId', 'disableKey_keyId' - A unique identifier for the customer master key (CMK).
+-- 'keyId', 'disableKey_keyId' - Identifies the KMS key to disable.
 --
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+-- Specify the key ID or key ARN of the KMS key.
 --
 -- For example:
 --
@@ -99,16 +101,17 @@ data DisableKey = DisableKey'
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
 newDisableKey ::
   -- | 'keyId'
   Prelude.Text ->
   DisableKey
 newDisableKey pKeyId_ = DisableKey' {keyId = pKeyId_}
 
--- | A unique identifier for the customer master key (CMK).
+-- | Identifies the KMS key to disable.
 --
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+-- Specify the key ID or key ARN of the KMS key.
 --
 -- For example:
 --
@@ -117,7 +120,8 @@ newDisableKey pKeyId_ = DisableKey' {keyId = pKeyId_}
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
 disableKey_keyId :: Lens.Lens' DisableKey Prelude.Text
 disableKey_keyId = Lens.lens (\DisableKey' {keyId} -> keyId) (\s@DisableKey' {} a -> s {keyId = a} :: DisableKey)
 

@@ -20,10 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a key policy attached to the specified customer master key (CMK).
+-- Gets a key policy attached to the specified KMS key.
 --
--- __Cross-account use__: No. You cannot perform this operation on a CMK in
--- a different AWS account.
+-- __Cross-account use__: No. You cannot perform this operation on a KMS
+-- key in a different Amazon Web Services account.
 --
 -- __Required permissions__:
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:GetKeyPolicy>
@@ -58,9 +58,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetKeyPolicy' smart constructor.
 data GetKeyPolicy = GetKeyPolicy'
-  { -- | A unique identifier for the customer master key (CMK).
+  { -- | Gets the key policy for the specified KMS key.
     --
-    -- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+    -- Specify the key ID or key ARN of the KMS key.
     --
     -- For example:
     --
@@ -69,7 +69,8 @@ data GetKeyPolicy = GetKeyPolicy'
     -- -   Key ARN:
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
-    -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+    -- To get the key ID and key ARN for a KMS key, use ListKeys or
+    -- DescribeKey.
     keyId :: Prelude.Text,
     -- | Specifies the name of the key policy. The only valid name is @default@.
     -- To get the names of key policies, use ListKeyPolicies.
@@ -85,9 +86,9 @@ data GetKeyPolicy = GetKeyPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyId', 'getKeyPolicy_keyId' - A unique identifier for the customer master key (CMK).
+-- 'keyId', 'getKeyPolicy_keyId' - Gets the key policy for the specified KMS key.
 --
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+-- Specify the key ID or key ARN of the KMS key.
 --
 -- For example:
 --
@@ -96,7 +97,8 @@ data GetKeyPolicy = GetKeyPolicy'
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
 --
 -- 'policyName', 'getKeyPolicy_policyName' - Specifies the name of the key policy. The only valid name is @default@.
 -- To get the names of key policies, use ListKeyPolicies.
@@ -112,9 +114,9 @@ newGetKeyPolicy pKeyId_ pPolicyName_ =
       policyName = pPolicyName_
     }
 
--- | A unique identifier for the customer master key (CMK).
+-- | Gets the key policy for the specified KMS key.
 --
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+-- Specify the key ID or key ARN of the KMS key.
 --
 -- For example:
 --
@@ -123,7 +125,8 @@ newGetKeyPolicy pKeyId_ pPolicyName_ =
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
 getKeyPolicy_keyId :: Lens.Lens' GetKeyPolicy Prelude.Text
 getKeyPolicy_keyId = Lens.lens (\GetKeyPolicy' {keyId} -> keyId) (\s@GetKeyPolicy' {} a -> s {keyId = a} :: GetKeyPolicy)
 

@@ -20,21 +20,27 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a list of all grants for the specified customer master key (CMK).
+-- Gets a list of all grants for the specified KMS key.
 --
--- You must specify the CMK in all requests. You can filter the grant list
--- by grant ID or grantee principal.
+-- You must specify the KMS key in all requests. You can filter the grant
+-- list by grant ID or grantee principal.
+--
+-- For detailed information about grants, including grant terminology, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/grants.html Using grants>
+-- in the //Key Management Service Developer Guide// . For examples of
+-- working with grants in several programming languages, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/programming-grants.html Programming grants>.
 --
 -- The @GranteePrincipal@ field in the @ListGrants@ response usually
 -- contains the user or role designated as the grantee principal in the
--- grant. However, when the grantee principal in the grant is an AWS
--- service, the @GranteePrincipal@ field contains the
+-- grant. However, when the grantee principal in the grant is an Amazon Web
+-- Services service, the @GranteePrincipal@ field contains the
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services service principal>,
 -- which might represent several different grantee principals.
 --
--- __Cross-account use__: Yes. To perform this operation on a CMK in a
--- different AWS account, specify the key ARN in the value of the @KeyId@
--- parameter.
+-- __Cross-account use__: Yes. To perform this operation on a KMS key in a
+-- different Amazon Web Services account, specify the key ARN in the value
+-- of the @KeyId@ parameter.
 --
 -- __Required permissions__:
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:ListGrants>
@@ -90,8 +96,8 @@ data ListGrants = ListGrants'
     -- uniquely identifies the grant.
     grantId :: Prelude.Maybe Prelude.Text,
     -- | Use this parameter to specify the maximum number of items to return.
-    -- When this value is present, AWS KMS does not return more than the
-    -- specified number of items, but it might return fewer.
+    -- When this value is present, KMS does not return more than the specified
+    -- number of items, but it might return fewer.
     --
     -- This value is optional. If you include a value, it must be between 1 and
     -- 100, inclusive. If you do not include a value, it defaults to 50.
@@ -100,11 +106,11 @@ data ListGrants = ListGrants'
     -- with truncated results. Set it to the value of @NextMarker@ from the
     -- truncated response you just received.
     marker :: Prelude.Maybe Prelude.Text,
-    -- | Returns only grants for the specified customer master key (CMK). This
-    -- parameter is required.
+    -- | Returns only grants for the specified KMS key. This parameter is
+    -- required.
     --
-    -- Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To
-    -- specify a CMK in a different AWS account, you must use the key ARN.
+    -- Specify the key ID or key ARN of the KMS key. To specify a KMS key in a
+    -- different Amazon Web Services account, you must use the key ARN.
     --
     -- For example:
     --
@@ -113,7 +119,8 @@ data ListGrants = ListGrants'
     -- -   Key ARN:
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
-    -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+    -- To get the key ID and key ARN for a KMS key, use ListKeys or
+    -- DescribeKey.
     keyId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -133,8 +140,8 @@ data ListGrants = ListGrants'
 -- uniquely identifies the grant.
 --
 -- 'limit', 'listGrants_limit' - Use this parameter to specify the maximum number of items to return.
--- When this value is present, AWS KMS does not return more than the
--- specified number of items, but it might return fewer.
+-- When this value is present, KMS does not return more than the specified
+-- number of items, but it might return fewer.
 --
 -- This value is optional. If you include a value, it must be between 1 and
 -- 100, inclusive. If you do not include a value, it defaults to 50.
@@ -143,11 +150,11 @@ data ListGrants = ListGrants'
 -- with truncated results. Set it to the value of @NextMarker@ from the
 -- truncated response you just received.
 --
--- 'keyId', 'listGrants_keyId' - Returns only grants for the specified customer master key (CMK). This
--- parameter is required.
+-- 'keyId', 'listGrants_keyId' - Returns only grants for the specified KMS key. This parameter is
+-- required.
 --
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To
--- specify a CMK in a different AWS account, you must use the key ARN.
+-- Specify the key ID or key ARN of the KMS key. To specify a KMS key in a
+-- different Amazon Web Services account, you must use the key ARN.
 --
 -- For example:
 --
@@ -156,7 +163,8 @@ data ListGrants = ListGrants'
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
 newListGrants ::
   -- | 'keyId'
   Prelude.Text ->
@@ -181,8 +189,8 @@ listGrants_grantId :: Lens.Lens' ListGrants (Prelude.Maybe Prelude.Text)
 listGrants_grantId = Lens.lens (\ListGrants' {grantId} -> grantId) (\s@ListGrants' {} a -> s {grantId = a} :: ListGrants)
 
 -- | Use this parameter to specify the maximum number of items to return.
--- When this value is present, AWS KMS does not return more than the
--- specified number of items, but it might return fewer.
+-- When this value is present, KMS does not return more than the specified
+-- number of items, but it might return fewer.
 --
 -- This value is optional. If you include a value, it must be between 1 and
 -- 100, inclusive. If you do not include a value, it defaults to 50.
@@ -195,11 +203,11 @@ listGrants_limit = Lens.lens (\ListGrants' {limit} -> limit) (\s@ListGrants' {} 
 listGrants_marker :: Lens.Lens' ListGrants (Prelude.Maybe Prelude.Text)
 listGrants_marker = Lens.lens (\ListGrants' {marker} -> marker) (\s@ListGrants' {} a -> s {marker = a} :: ListGrants)
 
--- | Returns only grants for the specified customer master key (CMK). This
--- parameter is required.
+-- | Returns only grants for the specified KMS key. This parameter is
+-- required.
 --
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To
--- specify a CMK in a different AWS account, you must use the key ARN.
+-- Specify the key ID or key ARN of the KMS key. To specify a KMS key in a
+-- different Amazon Web Services account, you must use the key ARN.
 --
 -- For example:
 --
@@ -208,7 +216,8 @@ listGrants_marker = Lens.lens (\ListGrants' {marker} -> marker) (\s@ListGrants' 
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
 listGrants_keyId :: Lens.Lens' ListGrants Prelude.Text
 listGrants_keyId = Lens.lens (\ListGrants' {keyId} -> keyId) (\s@ListGrants' {} a -> s {keyId = a} :: ListGrants)
 

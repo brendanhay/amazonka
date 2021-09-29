@@ -20,16 +20,16 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the description of a customer master key (CMK). To see the
--- description of a CMK, use DescribeKey.
+-- Updates the description of a KMS key. To see the description of a KMS
+-- key, use DescribeKey.
 --
--- The CMK that you use for this operation must be in a compatible key
+-- The KMS key that you use for this operation must be in a compatible key
 -- state. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key>
--- in the /AWS Key Management Service Developer Guide/.
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>
+-- in the /Key Management Service Developer Guide/.
 --
--- __Cross-account use__: No. You cannot perform this operation on a CMK in
--- a different AWS account.
+-- __Cross-account use__: No. You cannot perform this operation on a KMS
+-- key in a different Amazon Web Services account.
 --
 -- __Required permissions__:
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:UpdateKeyDescription>
@@ -64,9 +64,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateKeyDescription' smart constructor.
 data UpdateKeyDescription = UpdateKeyDescription'
-  { -- | A unique identifier for the customer master key (CMK).
+  { -- | Updates the description of the specified KMS key.
     --
-    -- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+    -- Specify the key ID or key ARN of the KMS key.
     --
     -- For example:
     --
@@ -75,9 +75,10 @@ data UpdateKeyDescription = UpdateKeyDescription'
     -- -   Key ARN:
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
-    -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+    -- To get the key ID and key ARN for a KMS key, use ListKeys or
+    -- DescribeKey.
     keyId :: Prelude.Text,
-    -- | New description for the CMK.
+    -- | New description for the KMS key.
     description :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -90,9 +91,9 @@ data UpdateKeyDescription = UpdateKeyDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyId', 'updateKeyDescription_keyId' - A unique identifier for the customer master key (CMK).
+-- 'keyId', 'updateKeyDescription_keyId' - Updates the description of the specified KMS key.
 --
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+-- Specify the key ID or key ARN of the KMS key.
 --
 -- For example:
 --
@@ -101,9 +102,10 @@ data UpdateKeyDescription = UpdateKeyDescription'
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
 --
--- 'description', 'updateKeyDescription_description' - New description for the CMK.
+-- 'description', 'updateKeyDescription_description' - New description for the KMS key.
 newUpdateKeyDescription ::
   -- | 'keyId'
   Prelude.Text ->
@@ -116,9 +118,9 @@ newUpdateKeyDescription pKeyId_ pDescription_ =
       description = pDescription_
     }
 
--- | A unique identifier for the customer master key (CMK).
+-- | Updates the description of the specified KMS key.
 --
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+-- Specify the key ID or key ARN of the KMS key.
 --
 -- For example:
 --
@@ -127,11 +129,12 @@ newUpdateKeyDescription pKeyId_ pDescription_ =
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
 updateKeyDescription_keyId :: Lens.Lens' UpdateKeyDescription Prelude.Text
 updateKeyDescription_keyId = Lens.lens (\UpdateKeyDescription' {keyId} -> keyId) (\s@UpdateKeyDescription' {} a -> s {keyId = a} :: UpdateKeyDescription)
 
--- | New description for the CMK.
+-- | New description for the KMS key.
 updateKeyDescription_description :: Lens.Lens' UpdateKeyDescription Prelude.Text
 updateKeyDescription_description = Lens.lens (\UpdateKeyDescription' {description} -> description) (\s@UpdateKeyDescription' {} a -> s {description = a} :: UpdateKeyDescription)
 

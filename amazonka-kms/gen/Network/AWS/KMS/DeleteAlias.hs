@@ -22,18 +22,23 @@
 --
 -- Deletes the specified alias.
 --
--- Because an alias is not a property of a CMK, you can delete and change
--- the aliases of a CMK without affecting the CMK. Also, aliases do not
--- appear in the response from the DescribeKey operation. To get the
--- aliases of all CMKs, use the ListAliases operation.
+-- Adding, deleting, or updating an alias can allow or deny permission to
+-- the KMS key. For details, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/abac.html Using ABAC in KMS>
+-- in the /Key Management Service Developer Guide/.
 --
--- Each CMK can have multiple aliases. To change the alias of a CMK, use
--- DeleteAlias to delete the current alias and CreateAlias to create a new
--- alias. To associate an existing alias with a different customer master
--- key (CMK), call UpdateAlias.
+-- Because an alias is not a property of a KMS key, you can delete and
+-- change the aliases of a KMS key without affecting the KMS key. Also,
+-- aliases do not appear in the response from the DescribeKey operation. To
+-- get the aliases of all KMS keys, use the ListAliases operation.
+--
+-- Each KMS key can have multiple aliases. To change the alias of a KMS
+-- key, use DeleteAlias to delete the current alias and CreateAlias to
+-- create a new alias. To associate an existing alias with a different KMS
+-- key, call UpdateAlias.
 --
 -- __Cross-account use__: No. You cannot perform this operation on an alias
--- in a different AWS account.
+-- in a different Amazon Web Services account.
 --
 -- __Required permissions__
 --
@@ -41,11 +46,11 @@
 --     on the alias (IAM policy).
 --
 -- -   <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:DeleteAlias>
---     on the CMK (key policy).
+--     on the KMS key (key policy).
 --
 -- For details, see
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html#alias-access Controlling access to aliases>
--- in the /AWS Key Management Service Developer Guide/.
+-- in the /Key Management Service Developer Guide/.
 --
 -- __Related operations:__
 --

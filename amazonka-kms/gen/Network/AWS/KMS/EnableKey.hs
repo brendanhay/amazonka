@@ -20,17 +20,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets the key state of a customer master key (CMK) to enabled. This
--- allows you to use the CMK for
+-- Sets the key state of a KMS key to enabled. This allows you to use the
+-- KMS key for
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations>.
 --
--- The CMK that you use for this operation must be in a compatible key
+-- The KMS key that you use for this operation must be in a compatible key
 -- state. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key>
--- in the /AWS Key Management Service Developer Guide/.
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>
+-- in the /Key Management Service Developer Guide/.
 --
--- __Cross-account use__: No. You cannot perform this operation on a CMK in
--- a different AWS account.
+-- __Cross-account use__: No. You cannot perform this operation on a KMS
+-- key in a different Amazon Web Services account.
 --
 -- __Required permissions__:
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:EnableKey>
@@ -60,9 +60,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newEnableKey' smart constructor.
 data EnableKey = EnableKey'
-  { -- | A unique identifier for the customer master key (CMK).
+  { -- | Identifies the KMS key to enable.
     --
-    -- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+    -- Specify the key ID or key ARN of the KMS key.
     --
     -- For example:
     --
@@ -71,7 +71,8 @@ data EnableKey = EnableKey'
     -- -   Key ARN:
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
-    -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+    -- To get the key ID and key ARN for a KMS key, use ListKeys or
+    -- DescribeKey.
     keyId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -84,9 +85,9 @@ data EnableKey = EnableKey'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyId', 'enableKey_keyId' - A unique identifier for the customer master key (CMK).
+-- 'keyId', 'enableKey_keyId' - Identifies the KMS key to enable.
 --
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+-- Specify the key ID or key ARN of the KMS key.
 --
 -- For example:
 --
@@ -95,16 +96,17 @@ data EnableKey = EnableKey'
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
 newEnableKey ::
   -- | 'keyId'
   Prelude.Text ->
   EnableKey
 newEnableKey pKeyId_ = EnableKey' {keyId = pKeyId_}
 
--- | A unique identifier for the customer master key (CMK).
+-- | Identifies the KMS key to enable.
 --
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+-- Specify the key ID or key ARN of the KMS key.
 --
 -- For example:
 --
@@ -113,7 +115,8 @@ newEnableKey pKeyId_ = EnableKey' {keyId = pKeyId_}
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
 enableKey_keyId :: Lens.Lens' EnableKey Prelude.Text
 enableKey_keyId = Lens.lens (\EnableKey' {keyId} -> keyId) (\s@EnableKey' {} a -> s {keyId = a} :: EnableKey)
 

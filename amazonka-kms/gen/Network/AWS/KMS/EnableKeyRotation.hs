@@ -22,19 +22,25 @@
 --
 -- Enables
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html automatic rotation of the key material>
--- for the specified symmetric customer master key (CMK).
+-- for the specified symmetric KMS key.
 --
--- You cannot enable automatic rotation of asymmetric CMKs, CMKs with
--- imported key material, or CMKs in a
+-- You cannot enable automatic rotation of
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#asymmetric-cmks asymmetric KMS keys>,
+-- KMS keys with
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html imported key material>,
+-- or KMS keys in a
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>.
+-- To enable or disable automatic rotation of a set of related
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-replica-key multi-Region keys>,
+-- set the property on the primary key.
 --
--- The CMK that you use for this operation must be in a compatible key
+-- The KMS key that you use for this operation must be in a compatible key
 -- state. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key>
--- in the /AWS Key Management Service Developer Guide/.
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>
+-- in the /Key Management Service Developer Guide/.
 --
--- __Cross-account use__: No. You cannot perform this operation on a CMK in
--- a different AWS account.
+-- __Cross-account use__: No. You cannot perform this operation on a KMS
+-- key in a different Amazon Web Services account.
 --
 -- __Required permissions__:
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:EnableKeyRotation>
@@ -68,12 +74,17 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newEnableKeyRotation' smart constructor.
 data EnableKeyRotation = EnableKeyRotation'
-  { -- | Identifies a symmetric customer master key (CMK). You cannot enable
-    -- automatic rotation of asymmetric CMKs, CMKs with imported key material,
-    -- or CMKs in a
+  { -- | Identifies a symmetric KMS key. You cannot enable automatic rotation of
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#asymmetric-cmks asymmetric KMS keys>,
+    -- KMS keys with
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html imported key material>,
+    -- or KMS keys in a
     -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>.
+    -- To enable or disable automatic rotation of a set of related
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-replica-key multi-Region keys>,
+    -- set the property on the primary key.
     --
-    -- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+    -- Specify the key ID or key ARN of the KMS key.
     --
     -- For example:
     --
@@ -82,7 +93,8 @@ data EnableKeyRotation = EnableKeyRotation'
     -- -   Key ARN:
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
-    -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+    -- To get the key ID and key ARN for a KMS key, use ListKeys or
+    -- DescribeKey.
     keyId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -95,12 +107,17 @@ data EnableKeyRotation = EnableKeyRotation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyId', 'enableKeyRotation_keyId' - Identifies a symmetric customer master key (CMK). You cannot enable
--- automatic rotation of asymmetric CMKs, CMKs with imported key material,
--- or CMKs in a
+-- 'keyId', 'enableKeyRotation_keyId' - Identifies a symmetric KMS key. You cannot enable automatic rotation of
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#asymmetric-cmks asymmetric KMS keys>,
+-- KMS keys with
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html imported key material>,
+-- or KMS keys in a
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>.
+-- To enable or disable automatic rotation of a set of related
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-replica-key multi-Region keys>,
+-- set the property on the primary key.
 --
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+-- Specify the key ID or key ARN of the KMS key.
 --
 -- For example:
 --
@@ -109,7 +126,8 @@ data EnableKeyRotation = EnableKeyRotation'
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
 newEnableKeyRotation ::
   -- | 'keyId'
   Prelude.Text ->
@@ -117,12 +135,17 @@ newEnableKeyRotation ::
 newEnableKeyRotation pKeyId_ =
   EnableKeyRotation' {keyId = pKeyId_}
 
--- | Identifies a symmetric customer master key (CMK). You cannot enable
--- automatic rotation of asymmetric CMKs, CMKs with imported key material,
--- or CMKs in a
+-- | Identifies a symmetric KMS key. You cannot enable automatic rotation of
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#asymmetric-cmks asymmetric KMS keys>,
+-- KMS keys with
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html imported key material>,
+-- or KMS keys in a
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>.
+-- To enable or disable automatic rotation of a set of related
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html#mrk-replica-key multi-Region keys>,
+-- set the property on the primary key.
 --
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+-- Specify the key ID or key ARN of the KMS key.
 --
 -- For example:
 --
@@ -131,7 +154,8 @@ newEnableKeyRotation pKeyId_ =
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
 enableKeyRotation_keyId :: Lens.Lens' EnableKeyRotation Prelude.Text
 enableKeyRotation_keyId = Lens.lens (\EnableKeyRotation' {keyId} -> keyId) (\s@EnableKeyRotation' {} a -> s {keyId = a} :: EnableKeyRotation)
 

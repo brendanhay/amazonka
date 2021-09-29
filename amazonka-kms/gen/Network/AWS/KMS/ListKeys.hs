@@ -20,11 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a list of all customer master keys (CMKs) in the caller\'s AWS
--- account and Region.
+-- Gets a list of all KMS keys in the caller\'s Amazon Web Services account
+-- and Region.
 --
--- __Cross-account use__: No. You cannot perform this operation on a CMK in
--- a different AWS account.
+-- __Cross-account use__: No. You cannot perform this operation on a KMS
+-- key in a different Amazon Web Services account.
 --
 -- __Required permissions__:
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:ListKeys>
@@ -72,8 +72,8 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newListKeys' smart constructor.
 data ListKeys = ListKeys'
   { -- | Use this parameter to specify the maximum number of items to return.
-    -- When this value is present, AWS KMS does not return more than the
-    -- specified number of items, but it might return fewer.
+    -- When this value is present, KMS does not return more than the specified
+    -- number of items, but it might return fewer.
     --
     -- This value is optional. If you include a value, it must be between 1 and
     -- 1000, inclusive. If you do not include a value, it defaults to 100.
@@ -94,8 +94,8 @@ data ListKeys = ListKeys'
 -- for backwards compatibility:
 --
 -- 'limit', 'listKeys_limit' - Use this parameter to specify the maximum number of items to return.
--- When this value is present, AWS KMS does not return more than the
--- specified number of items, but it might return fewer.
+-- When this value is present, KMS does not return more than the specified
+-- number of items, but it might return fewer.
 --
 -- This value is optional. If you include a value, it must be between 1 and
 -- 1000, inclusive. If you do not include a value, it defaults to 100.
@@ -112,8 +112,8 @@ newListKeys =
     }
 
 -- | Use this parameter to specify the maximum number of items to return.
--- When this value is present, AWS KMS does not return more than the
--- specified number of items, but it might return fewer.
+-- When this value is present, KMS does not return more than the specified
+-- number of items, but it might return fewer.
 --
 -- This value is optional. If you include a value, it must be between 1 and
 -- 1000, inclusive. If you do not include a value, it defaults to 100.
@@ -195,7 +195,7 @@ data ListKeysResponse = ListKeysResponse'
   { -- | When @Truncated@ is true, this element is present and contains the value
     -- to use for the @Marker@ parameter in a subsequent request.
     nextMarker :: Prelude.Maybe Prelude.Text,
-    -- | A list of customer master keys (CMKs).
+    -- | A list of KMS keys.
     keys :: Prelude.Maybe [KeyListEntry],
     -- | A flag that indicates whether there are more items in the list. When
     -- this value is true, the list in this response is truncated. To get more
@@ -218,7 +218,7 @@ data ListKeysResponse = ListKeysResponse'
 -- 'nextMarker', 'listKeysResponse_nextMarker' - When @Truncated@ is true, this element is present and contains the value
 -- to use for the @Marker@ parameter in a subsequent request.
 --
--- 'keys', 'listKeysResponse_keys' - A list of customer master keys (CMKs).
+-- 'keys', 'listKeysResponse_keys' - A list of KMS keys.
 --
 -- 'truncated', 'listKeysResponse_truncated' - A flag that indicates whether there are more items in the list. When
 -- this value is true, the list in this response is truncated. To get more
@@ -243,7 +243,7 @@ newListKeysResponse pHttpStatus_ =
 listKeysResponse_nextMarker :: Lens.Lens' ListKeysResponse (Prelude.Maybe Prelude.Text)
 listKeysResponse_nextMarker = Lens.lens (\ListKeysResponse' {nextMarker} -> nextMarker) (\s@ListKeysResponse' {} a -> s {nextMarker = a} :: ListKeysResponse)
 
--- | A list of customer master keys (CMKs).
+-- | A list of KMS keys.
 listKeysResponse_keys :: Lens.Lens' ListKeysResponse (Prelude.Maybe [KeyListEntry])
 listKeysResponse_keys = Lens.lens (\ListKeysResponse' {keys} -> keys) (\s@ListKeysResponse' {} a -> s {keys = a} :: ListKeysResponse) Prelude.. Lens.mapping Lens._Coerce
 

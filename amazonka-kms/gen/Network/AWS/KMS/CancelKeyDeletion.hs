@@ -20,22 +20,22 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels the deletion of a customer master key (CMK). When this operation
--- succeeds, the key state of the CMK is @Disabled@. To enable the CMK, use
+-- Cancels the deletion of a KMS key. When this operation succeeds, the key
+-- state of the KMS key is @Disabled@. To enable the KMS key, use
 -- EnableKey.
 --
--- For more information about scheduling and canceling deletion of a CMK,
--- see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html Deleting Customer Master Keys>
--- in the /AWS Key Management Service Developer Guide/.
+-- For more information about scheduling and canceling deletion of a KMS
+-- key, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html Deleting KMS keys>
+-- in the /Key Management Service Developer Guide/.
 --
--- The CMK that you use for this operation must be in a compatible key
+-- The KMS key that you use for this operation must be in a compatible key
 -- state. For details, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key>
--- in the /AWS Key Management Service Developer Guide/.
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html Key state: Effect on your KMS key>
+-- in the /Key Management Service Developer Guide/.
 --
--- __Cross-account use__: No. You cannot perform this operation on a CMK in
--- a different AWS account.
+-- __Cross-account use__: No. You cannot perform this operation on a KMS
+-- key in a different Amazon Web Services account.
 --
 -- __Required permissions__:
 -- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:CancelKeyDeletion>
@@ -69,10 +69,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCancelKeyDeletion' smart constructor.
 data CancelKeyDeletion = CancelKeyDeletion'
-  { -- | The unique identifier for the customer master key (CMK) for which to
-    -- cancel deletion.
+  { -- | Identifies the KMS key whose deletion is being canceled.
     --
-    -- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+    -- Specify the key ID or key ARN of the KMS key.
     --
     -- For example:
     --
@@ -81,7 +80,8 @@ data CancelKeyDeletion = CancelKeyDeletion'
     -- -   Key ARN:
     --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
     --
-    -- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+    -- To get the key ID and key ARN for a KMS key, use ListKeys or
+    -- DescribeKey.
     keyId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -94,10 +94,9 @@ data CancelKeyDeletion = CancelKeyDeletion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyId', 'cancelKeyDeletion_keyId' - The unique identifier for the customer master key (CMK) for which to
--- cancel deletion.
+-- 'keyId', 'cancelKeyDeletion_keyId' - Identifies the KMS key whose deletion is being canceled.
 --
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+-- Specify the key ID or key ARN of the KMS key.
 --
 -- For example:
 --
@@ -106,7 +105,8 @@ data CancelKeyDeletion = CancelKeyDeletion'
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
 newCancelKeyDeletion ::
   -- | 'keyId'
   Prelude.Text ->
@@ -114,10 +114,9 @@ newCancelKeyDeletion ::
 newCancelKeyDeletion pKeyId_ =
   CancelKeyDeletion' {keyId = pKeyId_}
 
--- | The unique identifier for the customer master key (CMK) for which to
--- cancel deletion.
+-- | Identifies the KMS key whose deletion is being canceled.
 --
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+-- Specify the key ID or key ARN of the KMS key.
 --
 -- For example:
 --
@@ -126,7 +125,8 @@ newCancelKeyDeletion pKeyId_ =
 -- -   Key ARN:
 --     @arn:aws:kms:us-east-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
 --
--- To get the key ID and key ARN for a CMK, use ListKeys or DescribeKey.
+-- To get the key ID and key ARN for a KMS key, use ListKeys or
+-- DescribeKey.
 cancelKeyDeletion_keyId :: Lens.Lens' CancelKeyDeletion Prelude.Text
 cancelKeyDeletion_keyId = Lens.lens (\CancelKeyDeletion' {keyId} -> keyId) (\s@CancelKeyDeletion' {} a -> s {keyId = a} :: CancelKeyDeletion)
 
@@ -179,7 +179,7 @@ instance Core.ToQuery CancelKeyDeletion where
 data CancelKeyDeletionResponse = CancelKeyDeletionResponse'
   { -- | The Amazon Resource Name
     -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
-    -- of the CMK whose deletion is canceled.
+    -- of the KMS key whose deletion is canceled.
     keyId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -196,7 +196,7 @@ data CancelKeyDeletionResponse = CancelKeyDeletionResponse'
 --
 -- 'keyId', 'cancelKeyDeletionResponse_keyId' - The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
--- of the CMK whose deletion is canceled.
+-- of the KMS key whose deletion is canceled.
 --
 -- 'httpStatus', 'cancelKeyDeletionResponse_httpStatus' - The response's http status code.
 newCancelKeyDeletionResponse ::
@@ -211,7 +211,7 @@ newCancelKeyDeletionResponse pHttpStatus_ =
 
 -- | The Amazon Resource Name
 -- (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN>)
--- of the CMK whose deletion is canceled.
+-- of the KMS key whose deletion is canceled.
 cancelKeyDeletionResponse_keyId :: Lens.Lens' CancelKeyDeletionResponse (Prelude.Maybe Prelude.Text)
 cancelKeyDeletionResponse_keyId = Lens.lens (\CancelKeyDeletionResponse' {keyId} -> keyId) (\s@CancelKeyDeletionResponse' {} a -> s {keyId = a} :: CancelKeyDeletionResponse)
 

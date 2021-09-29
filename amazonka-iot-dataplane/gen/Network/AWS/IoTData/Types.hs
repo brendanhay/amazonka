@@ -27,10 +27,19 @@ module Network.AWS.IoTData.Types
     _ResourceNotFoundException,
     _InternalFailureException,
     _MethodNotAllowedException,
+
+    -- * RetainedMessageSummary
+    RetainedMessageSummary (..),
+    newRetainedMessageSummary,
+    retainedMessageSummary_payloadSize,
+    retainedMessageSummary_topic,
+    retainedMessageSummary_lastModifiedTime,
+    retainedMessageSummary_qos,
   )
 where
 
 import qualified Network.AWS.Core as Core
+import Network.AWS.IoTData.Types.RetainedMessageSummary
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign

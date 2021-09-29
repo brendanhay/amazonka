@@ -22,8 +22,16 @@ module Network.AWS.IoTData.Lens
 
     -- ** Publish
     publish_payload,
+    publish_retain,
     publish_qos,
     publish_topic,
+
+    -- ** ListRetainedMessages
+    listRetainedMessages_nextToken,
+    listRetainedMessages_maxResults,
+    listRetainedMessagesResponse_nextToken,
+    listRetainedMessagesResponse_retainedTopics,
+    listRetainedMessagesResponse_httpStatus,
 
     -- ** ListNamedShadowsForThing
     listNamedShadowsForThing_nextToken,
@@ -47,12 +55,29 @@ module Network.AWS.IoTData.Lens
     deleteThingShadowResponse_httpStatus,
     deleteThingShadowResponse_payload,
 
+    -- ** GetRetainedMessage
+    getRetainedMessage_topic,
+    getRetainedMessageResponse_payload,
+    getRetainedMessageResponse_topic,
+    getRetainedMessageResponse_lastModifiedTime,
+    getRetainedMessageResponse_qos,
+    getRetainedMessageResponse_httpStatus,
+
     -- * Types
+
+    -- ** RetainedMessageSummary
+    retainedMessageSummary_payloadSize,
+    retainedMessageSummary_topic,
+    retainedMessageSummary_lastModifiedTime,
+    retainedMessageSummary_qos,
   )
 where
 
 import Network.AWS.IoTData.DeleteThingShadow
+import Network.AWS.IoTData.GetRetainedMessage
 import Network.AWS.IoTData.GetThingShadow
 import Network.AWS.IoTData.ListNamedShadowsForThing
+import Network.AWS.IoTData.ListRetainedMessages
 import Network.AWS.IoTData.Publish
+import Network.AWS.IoTData.Types.RetainedMessageSummary
 import Network.AWS.IoTData.UpdateThingShadow

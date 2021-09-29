@@ -22,9 +22,13 @@
 --
 -- Deletes the shadow for the specified thing.
 --
+-- Requires permission to access the
+-- <https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions DeleteThingShadow>
+-- action.
+--
 -- For more information, see
 -- <http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html DeleteThingShadow>
--- in the AWS IoT Developer Guide.
+-- in the IoT Developer Guide.
 module Network.AWS.IoTData.DeleteThingShadow
   ( -- * Creating a Request
     DeleteThingShadow (..),

@@ -33,6 +33,9 @@ import Test.Tasty
 --         , requestPublish $
 --             newPublish
 --
+--         , requestListRetainedMessages $
+--             newListRetainedMessages
+--
 --         , requestListNamedShadowsForThing $
 --             newListNamedShadowsForThing
 --
@@ -41,6 +44,9 @@ import Test.Tasty
 --
 --         , requestDeleteThingShadow $
 --             newDeleteThingShadow
+--
+--         , requestGetRetainedMessage $
+--             newGetRetainedMessage
 --
 --           ]
 
@@ -51,6 +57,9 @@ import Test.Tasty
 --         , responsePublish $
 --             newPublishResponse
 --
+--         , responseListRetainedMessages $
+--             newListRetainedMessagesResponse
+--
 --         , responseListNamedShadowsForThing $
 --             newListNamedShadowsForThingResponse
 --
@@ -59,6 +68,9 @@ import Test.Tasty
 --
 --         , responseDeleteThingShadow $
 --             newDeleteThingShadowResponse
+--
+--         , responseGetRetainedMessage $
+--             newGetRetainedMessageResponse
 --
 --           ]
 --     ]
@@ -76,6 +88,12 @@ requestPublish =
   req
     "Publish"
     "fixture/Publish.yaml"
+
+requestListRetainedMessages :: ListRetainedMessages -> TestTree
+requestListRetainedMessages =
+  req
+    "ListRetainedMessages"
+    "fixture/ListRetainedMessages.yaml"
 
 requestListNamedShadowsForThing :: ListNamedShadowsForThing -> TestTree
 requestListNamedShadowsForThing =
@@ -95,6 +113,12 @@ requestDeleteThingShadow =
     "DeleteThingShadow"
     "fixture/DeleteThingShadow.yaml"
 
+requestGetRetainedMessage :: GetRetainedMessage -> TestTree
+requestGetRetainedMessage =
+  req
+    "GetRetainedMessage"
+    "fixture/GetRetainedMessage.yaml"
+
 -- Responses
 
 responseGetThingShadow :: GetThingShadowResponse -> TestTree
@@ -112,6 +136,14 @@ responsePublish =
     "fixture/PublishResponse.proto"
     defaultService
     (Proxy :: Proxy Publish)
+
+responseListRetainedMessages :: ListRetainedMessagesResponse -> TestTree
+responseListRetainedMessages =
+  res
+    "ListRetainedMessagesResponse"
+    "fixture/ListRetainedMessagesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListRetainedMessages)
 
 responseListNamedShadowsForThing :: ListNamedShadowsForThingResponse -> TestTree
 responseListNamedShadowsForThing =
@@ -136,3 +168,11 @@ responseDeleteThingShadow =
     "fixture/DeleteThingShadowResponse.proto"
     defaultService
     (Proxy :: Proxy DeleteThingShadow)
+
+responseGetRetainedMessage :: GetRetainedMessageResponse -> TestTree
+responseGetRetainedMessage =
+  res
+    "GetRetainedMessageResponse"
+    "fixture/GetRetainedMessageResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetRetainedMessage)

@@ -40,12 +40,12 @@ module Network.AWS.ElasticBeanstalk.UpdateEnvironment
 
     -- * Request Lenses
     updateEnvironment_templateName,
-    updateEnvironment_groupName,
-    updateEnvironment_solutionStackName,
     updateEnvironment_environmentId,
+    updateEnvironment_solutionStackName,
+    updateEnvironment_groupName,
     updateEnvironment_optionsToRemove,
-    updateEnvironment_environmentName,
     updateEnvironment_platformArn,
+    updateEnvironment_environmentName,
     updateEnvironment_versionLabel,
     updateEnvironment_optionSettings,
     updateEnvironment_description,
@@ -62,19 +62,19 @@ module Network.AWS.ElasticBeanstalk.UpdateEnvironment
     environmentDescription_status,
     environmentDescription_dateCreated,
     environmentDescription_environmentLinks,
-    environmentDescription_solutionStackName,
     environmentDescription_environmentId,
-    environmentDescription_environmentName,
+    environmentDescription_solutionStackName,
     environmentDescription_platformArn,
-    environmentDescription_versionLabel,
+    environmentDescription_environmentName,
     environmentDescription_health,
+    environmentDescription_versionLabel,
     environmentDescription_cname,
-    environmentDescription_resources,
     environmentDescription_dateUpdated,
+    environmentDescription_resources,
     environmentDescription_description,
+    environmentDescription_endpointURL,
     environmentDescription_healthStatus,
     environmentDescription_environmentArn,
-    environmentDescription_endpointURL,
     environmentDescription_applicationName,
     environmentDescription_tier,
     environmentDescription_operationsRole,
@@ -97,16 +97,6 @@ data UpdateEnvironment = UpdateEnvironment'
     -- template is found, AWS Elastic Beanstalk returns an
     -- @InvalidParameterValue@ error.
     templateName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the group to which the target environment belongs. Specify a
-    -- group name only if the environment\'s name is specified in an
-    -- environment manifest and not with the environment name or environment ID
-    -- parameters. See
-    -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)>
-    -- for details.
-    groupName :: Prelude.Maybe Prelude.Text,
-    -- | This specifies the platform version that the environment will run after
-    -- the environment is updated.
-    solutionStackName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the environment to update.
     --
     -- If no environment with this ID exists, AWS Elastic Beanstalk returns an
@@ -116,9 +106,21 @@ data UpdateEnvironment = UpdateEnvironment'
     -- If you do not specify either, AWS Elastic Beanstalk returns
     -- @MissingRequiredParameter@ error.
     environmentId :: Prelude.Maybe Prelude.Text,
+    -- | This specifies the platform version that the environment will run after
+    -- the environment is updated.
+    solutionStackName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the group to which the target environment belongs. Specify a
+    -- group name only if the environment\'s name is specified in an
+    -- environment manifest and not with the environment name or environment ID
+    -- parameters. See
+    -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)>
+    -- for details.
+    groupName :: Prelude.Maybe Prelude.Text,
     -- | A list of custom user-defined configuration options to remove from the
     -- configuration set for this environment.
     optionsToRemove :: Prelude.Maybe [OptionSpecification],
+    -- | The ARN of the platform, if used.
+    platformArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the environment to update. If no environment with this name
     -- exists, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
     --
@@ -126,8 +128,6 @@ data UpdateEnvironment = UpdateEnvironment'
     -- you do not specify either, AWS Elastic Beanstalk returns
     -- @MissingRequiredParameter@ error.
     environmentName :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the platform, if used.
-    platformArn :: Prelude.Maybe Prelude.Text,
     -- | If this parameter is specified, AWS Elastic Beanstalk deploys the named
     -- application version to the environment. If no such application version
     -- is found, returns an @InvalidParameterValue@ error.
@@ -162,16 +162,6 @@ data UpdateEnvironment = UpdateEnvironment'
 -- template is found, AWS Elastic Beanstalk returns an
 -- @InvalidParameterValue@ error.
 --
--- 'groupName', 'updateEnvironment_groupName' - The name of the group to which the target environment belongs. Specify a
--- group name only if the environment\'s name is specified in an
--- environment manifest and not with the environment name or environment ID
--- parameters. See
--- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)>
--- for details.
---
--- 'solutionStackName', 'updateEnvironment_solutionStackName' - This specifies the platform version that the environment will run after
--- the environment is updated.
---
 -- 'environmentId', 'updateEnvironment_environmentId' - The ID of the environment to update.
 --
 -- If no environment with this ID exists, AWS Elastic Beanstalk returns an
@@ -181,8 +171,20 @@ data UpdateEnvironment = UpdateEnvironment'
 -- If you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
 --
+-- 'solutionStackName', 'updateEnvironment_solutionStackName' - This specifies the platform version that the environment will run after
+-- the environment is updated.
+--
+-- 'groupName', 'updateEnvironment_groupName' - The name of the group to which the target environment belongs. Specify a
+-- group name only if the environment\'s name is specified in an
+-- environment manifest and not with the environment name or environment ID
+-- parameters. See
+-- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)>
+-- for details.
+--
 -- 'optionsToRemove', 'updateEnvironment_optionsToRemove' - A list of custom user-defined configuration options to remove from the
 -- configuration set for this environment.
+--
+-- 'platformArn', 'updateEnvironment_platformArn' - The ARN of the platform, if used.
 --
 -- 'environmentName', 'updateEnvironment_environmentName' - The name of the environment to update. If no environment with this name
 -- exists, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
@@ -190,8 +192,6 @@ data UpdateEnvironment = UpdateEnvironment'
 -- Condition: You must specify either this or an EnvironmentId, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
---
--- 'platformArn', 'updateEnvironment_platformArn' - The ARN of the platform, if used.
 --
 -- 'versionLabel', 'updateEnvironment_versionLabel' - If this parameter is specified, AWS Elastic Beanstalk deploys the named
 -- application version to the environment. If no such application version
@@ -215,12 +215,12 @@ newUpdateEnvironment ::
 newUpdateEnvironment =
   UpdateEnvironment'
     { templateName = Prelude.Nothing,
-      groupName = Prelude.Nothing,
-      solutionStackName = Prelude.Nothing,
       environmentId = Prelude.Nothing,
+      solutionStackName = Prelude.Nothing,
+      groupName = Prelude.Nothing,
       optionsToRemove = Prelude.Nothing,
-      environmentName = Prelude.Nothing,
       platformArn = Prelude.Nothing,
+      environmentName = Prelude.Nothing,
       versionLabel = Prelude.Nothing,
       optionSettings = Prelude.Nothing,
       description = Prelude.Nothing,
@@ -235,20 +235,6 @@ newUpdateEnvironment =
 updateEnvironment_templateName :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_templateName = Lens.lens (\UpdateEnvironment' {templateName} -> templateName) (\s@UpdateEnvironment' {} a -> s {templateName = a} :: UpdateEnvironment)
 
--- | The name of the group to which the target environment belongs. Specify a
--- group name only if the environment\'s name is specified in an
--- environment manifest and not with the environment name or environment ID
--- parameters. See
--- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)>
--- for details.
-updateEnvironment_groupName :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
-updateEnvironment_groupName = Lens.lens (\UpdateEnvironment' {groupName} -> groupName) (\s@UpdateEnvironment' {} a -> s {groupName = a} :: UpdateEnvironment)
-
--- | This specifies the platform version that the environment will run after
--- the environment is updated.
-updateEnvironment_solutionStackName :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
-updateEnvironment_solutionStackName = Lens.lens (\UpdateEnvironment' {solutionStackName} -> solutionStackName) (\s@UpdateEnvironment' {} a -> s {solutionStackName = a} :: UpdateEnvironment)
-
 -- | The ID of the environment to update.
 --
 -- If no environment with this ID exists, AWS Elastic Beanstalk returns an
@@ -260,10 +246,28 @@ updateEnvironment_solutionStackName = Lens.lens (\UpdateEnvironment' {solutionSt
 updateEnvironment_environmentId :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_environmentId = Lens.lens (\UpdateEnvironment' {environmentId} -> environmentId) (\s@UpdateEnvironment' {} a -> s {environmentId = a} :: UpdateEnvironment)
 
+-- | This specifies the platform version that the environment will run after
+-- the environment is updated.
+updateEnvironment_solutionStackName :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
+updateEnvironment_solutionStackName = Lens.lens (\UpdateEnvironment' {solutionStackName} -> solutionStackName) (\s@UpdateEnvironment' {} a -> s {solutionStackName = a} :: UpdateEnvironment)
+
+-- | The name of the group to which the target environment belongs. Specify a
+-- group name only if the environment\'s name is specified in an
+-- environment manifest and not with the environment name or environment ID
+-- parameters. See
+-- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)>
+-- for details.
+updateEnvironment_groupName :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
+updateEnvironment_groupName = Lens.lens (\UpdateEnvironment' {groupName} -> groupName) (\s@UpdateEnvironment' {} a -> s {groupName = a} :: UpdateEnvironment)
+
 -- | A list of custom user-defined configuration options to remove from the
 -- configuration set for this environment.
 updateEnvironment_optionsToRemove :: Lens.Lens' UpdateEnvironment (Prelude.Maybe [OptionSpecification])
 updateEnvironment_optionsToRemove = Lens.lens (\UpdateEnvironment' {optionsToRemove} -> optionsToRemove) (\s@UpdateEnvironment' {} a -> s {optionsToRemove = a} :: UpdateEnvironment) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The ARN of the platform, if used.
+updateEnvironment_platformArn :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
+updateEnvironment_platformArn = Lens.lens (\UpdateEnvironment' {platformArn} -> platformArn) (\s@UpdateEnvironment' {} a -> s {platformArn = a} :: UpdateEnvironment)
 
 -- | The name of the environment to update. If no environment with this name
 -- exists, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
@@ -273,10 +277,6 @@ updateEnvironment_optionsToRemove = Lens.lens (\UpdateEnvironment' {optionsToRem
 -- @MissingRequiredParameter@ error.
 updateEnvironment_environmentName :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
 updateEnvironment_environmentName = Lens.lens (\UpdateEnvironment' {environmentName} -> environmentName) (\s@UpdateEnvironment' {} a -> s {environmentName = a} :: UpdateEnvironment)
-
--- | The ARN of the platform, if used.
-updateEnvironment_platformArn :: Lens.Lens' UpdateEnvironment (Prelude.Maybe Prelude.Text)
-updateEnvironment_platformArn = Lens.lens (\UpdateEnvironment' {platformArn} -> platformArn) (\s@UpdateEnvironment' {} a -> s {platformArn = a} :: UpdateEnvironment)
 
 -- | If this parameter is specified, AWS Elastic Beanstalk deploys the named
 -- application version to the environment. If no such application version
@@ -334,16 +334,16 @@ instance Core.ToQuery UpdateEnvironment where
         "Version"
           Core.=: ("2010-12-01" :: Prelude.ByteString),
         "TemplateName" Core.=: templateName,
-        "GroupName" Core.=: groupName,
-        "SolutionStackName" Core.=: solutionStackName,
         "EnvironmentId" Core.=: environmentId,
+        "SolutionStackName" Core.=: solutionStackName,
+        "GroupName" Core.=: groupName,
         "OptionsToRemove"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> optionsToRemove
             ),
-        "EnvironmentName" Core.=: environmentName,
         "PlatformArn" Core.=: platformArn,
+        "EnvironmentName" Core.=: environmentName,
         "VersionLabel" Core.=: versionLabel,
         "OptionSettings"
           Core.=: Core.toQuery

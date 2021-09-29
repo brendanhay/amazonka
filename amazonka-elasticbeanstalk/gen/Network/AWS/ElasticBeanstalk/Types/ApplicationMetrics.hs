@@ -33,12 +33,12 @@ data ApplicationMetrics = ApplicationMetrics'
     -- example, you might have 5 requests (@request_count@) within the most
     -- recent time slice of 10 seconds (@duration@).
     duration :: Prelude.Maybe Prelude.Int,
-    -- | Represents the percentage of requests over the last 10 seconds that
-    -- resulted in each type of status code response.
-    statusCodes :: Prelude.Maybe StatusCodes,
     -- | Average number of requests handled by the web server per second over the
     -- last 10 seconds.
     requestCount :: Prelude.Maybe Prelude.Int,
+    -- | Represents the percentage of requests over the last 10 seconds that
+    -- resulted in each type of status code response.
+    statusCodes :: Prelude.Maybe StatusCodes,
     -- | Represents the average latency for the slowest X percent of requests
     -- over the last 10 seconds. Latencies are in seconds with one millisecond
     -- resolution.
@@ -58,11 +58,11 @@ data ApplicationMetrics = ApplicationMetrics'
 -- example, you might have 5 requests (@request_count@) within the most
 -- recent time slice of 10 seconds (@duration@).
 --
--- 'statusCodes', 'applicationMetrics_statusCodes' - Represents the percentage of requests over the last 10 seconds that
--- resulted in each type of status code response.
---
 -- 'requestCount', 'applicationMetrics_requestCount' - Average number of requests handled by the web server per second over the
 -- last 10 seconds.
+--
+-- 'statusCodes', 'applicationMetrics_statusCodes' - Represents the percentage of requests over the last 10 seconds that
+-- resulted in each type of status code response.
 --
 -- 'latency', 'applicationMetrics_latency' - Represents the average latency for the slowest X percent of requests
 -- over the last 10 seconds. Latencies are in seconds with one millisecond
@@ -72,8 +72,8 @@ newApplicationMetrics ::
 newApplicationMetrics =
   ApplicationMetrics'
     { duration = Prelude.Nothing,
-      statusCodes = Prelude.Nothing,
       requestCount = Prelude.Nothing,
+      statusCodes = Prelude.Nothing,
       latency = Prelude.Nothing
     }
 
@@ -83,15 +83,15 @@ newApplicationMetrics =
 applicationMetrics_duration :: Lens.Lens' ApplicationMetrics (Prelude.Maybe Prelude.Int)
 applicationMetrics_duration = Lens.lens (\ApplicationMetrics' {duration} -> duration) (\s@ApplicationMetrics' {} a -> s {duration = a} :: ApplicationMetrics)
 
--- | Represents the percentage of requests over the last 10 seconds that
--- resulted in each type of status code response.
-applicationMetrics_statusCodes :: Lens.Lens' ApplicationMetrics (Prelude.Maybe StatusCodes)
-applicationMetrics_statusCodes = Lens.lens (\ApplicationMetrics' {statusCodes} -> statusCodes) (\s@ApplicationMetrics' {} a -> s {statusCodes = a} :: ApplicationMetrics)
-
 -- | Average number of requests handled by the web server per second over the
 -- last 10 seconds.
 applicationMetrics_requestCount :: Lens.Lens' ApplicationMetrics (Prelude.Maybe Prelude.Int)
 applicationMetrics_requestCount = Lens.lens (\ApplicationMetrics' {requestCount} -> requestCount) (\s@ApplicationMetrics' {} a -> s {requestCount = a} :: ApplicationMetrics)
+
+-- | Represents the percentage of requests over the last 10 seconds that
+-- resulted in each type of status code response.
+applicationMetrics_statusCodes :: Lens.Lens' ApplicationMetrics (Prelude.Maybe StatusCodes)
+applicationMetrics_statusCodes = Lens.lens (\ApplicationMetrics' {statusCodes} -> statusCodes) (\s@ApplicationMetrics' {} a -> s {statusCodes = a} :: ApplicationMetrics)
 
 -- | Represents the average latency for the slowest X percent of requests
 -- over the last 10 seconds. Latencies are in seconds with one millisecond
@@ -103,8 +103,8 @@ instance Core.FromXML ApplicationMetrics where
   parseXML x =
     ApplicationMetrics'
       Prelude.<$> (x Core..@? "Duration")
-      Prelude.<*> (x Core..@? "StatusCodes")
       Prelude.<*> (x Core..@? "RequestCount")
+      Prelude.<*> (x Core..@? "StatusCodes")
       Prelude.<*> (x Core..@? "Latency")
 
 instance Prelude.Hashable ApplicationMetrics

@@ -75,6 +75,11 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription'
     minValue :: Prelude.Maybe Prelude.Int,
     -- | A unique namespace identifying the option\'s associated AWS resource.
     namespace :: Prelude.Maybe Prelude.Text,
+    -- | If specified, the configuration option must be a string value no longer
+    -- than this value.
+    maxLength :: Prelude.Maybe Prelude.Int,
+    -- | The default value for this configuration option.
+    defaultValue :: Prelude.Maybe Prelude.Text,
     -- | An indication of whether the user defined this configuration option:
     --
     -- -   @true@ : This configuration option was defined by the user. It is a
@@ -87,12 +92,7 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription'
     -- configuration.
     --
     -- Valid Values: @true@ | @false@
-    userDefined :: Prelude.Maybe Prelude.Bool,
-    -- | If specified, the configuration option must be a string value no longer
-    -- than this value.
-    maxLength :: Prelude.Maybe Prelude.Int,
-    -- | The default value for this configuration option.
-    defaultValue :: Prelude.Maybe Prelude.Text
+    userDefined :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -150,6 +150,11 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription'
 --
 -- 'namespace', 'configurationOptionDescription_namespace' - A unique namespace identifying the option\'s associated AWS resource.
 --
+-- 'maxLength', 'configurationOptionDescription_maxLength' - If specified, the configuration option must be a string value no longer
+-- than this value.
+--
+-- 'defaultValue', 'configurationOptionDescription_defaultValue' - The default value for this configuration option.
+--
 -- 'userDefined', 'configurationOptionDescription_userDefined' - An indication of whether the user defined this configuration option:
 --
 -- -   @true@ : This configuration option was defined by the user. It is a
@@ -162,11 +167,6 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription'
 -- configuration.
 --
 -- Valid Values: @true@ | @false@
---
--- 'maxLength', 'configurationOptionDescription_maxLength' - If specified, the configuration option must be a string value no longer
--- than this value.
---
--- 'defaultValue', 'configurationOptionDescription_defaultValue' - The default value for this configuration option.
 newConfigurationOptionDescription ::
   ConfigurationOptionDescription
 newConfigurationOptionDescription =
@@ -180,9 +180,9 @@ newConfigurationOptionDescription =
       name = Prelude.Nothing,
       minValue = Prelude.Nothing,
       namespace = Prelude.Nothing,
-      userDefined = Prelude.Nothing,
       maxLength = Prelude.Nothing,
-      defaultValue = Prelude.Nothing
+      defaultValue = Prelude.Nothing,
+      userDefined = Prelude.Nothing
     }
 
 -- | If specified, the configuration option must be a numeric value less than
@@ -247,6 +247,15 @@ configurationOptionDescription_minValue = Lens.lens (\ConfigurationOptionDescrip
 configurationOptionDescription_namespace :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe Prelude.Text)
 configurationOptionDescription_namespace = Lens.lens (\ConfigurationOptionDescription' {namespace} -> namespace) (\s@ConfigurationOptionDescription' {} a -> s {namespace = a} :: ConfigurationOptionDescription)
 
+-- | If specified, the configuration option must be a string value no longer
+-- than this value.
+configurationOptionDescription_maxLength :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe Prelude.Int)
+configurationOptionDescription_maxLength = Lens.lens (\ConfigurationOptionDescription' {maxLength} -> maxLength) (\s@ConfigurationOptionDescription' {} a -> s {maxLength = a} :: ConfigurationOptionDescription)
+
+-- | The default value for this configuration option.
+configurationOptionDescription_defaultValue :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe Prelude.Text)
+configurationOptionDescription_defaultValue = Lens.lens (\ConfigurationOptionDescription' {defaultValue} -> defaultValue) (\s@ConfigurationOptionDescription' {} a -> s {defaultValue = a} :: ConfigurationOptionDescription)
+
 -- | An indication of whether the user defined this configuration option:
 --
 -- -   @true@ : This configuration option was defined by the user. It is a
@@ -262,15 +271,6 @@ configurationOptionDescription_namespace = Lens.lens (\ConfigurationOptionDescri
 configurationOptionDescription_userDefined :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe Prelude.Bool)
 configurationOptionDescription_userDefined = Lens.lens (\ConfigurationOptionDescription' {userDefined} -> userDefined) (\s@ConfigurationOptionDescription' {} a -> s {userDefined = a} :: ConfigurationOptionDescription)
 
--- | If specified, the configuration option must be a string value no longer
--- than this value.
-configurationOptionDescription_maxLength :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe Prelude.Int)
-configurationOptionDescription_maxLength = Lens.lens (\ConfigurationOptionDescription' {maxLength} -> maxLength) (\s@ConfigurationOptionDescription' {} a -> s {maxLength = a} :: ConfigurationOptionDescription)
-
--- | The default value for this configuration option.
-configurationOptionDescription_defaultValue :: Lens.Lens' ConfigurationOptionDescription (Prelude.Maybe Prelude.Text)
-configurationOptionDescription_defaultValue = Lens.lens (\ConfigurationOptionDescription' {defaultValue} -> defaultValue) (\s@ConfigurationOptionDescription' {} a -> s {defaultValue = a} :: ConfigurationOptionDescription)
-
 instance Core.FromXML ConfigurationOptionDescription where
   parseXML x =
     ConfigurationOptionDescription'
@@ -284,9 +284,9 @@ instance Core.FromXML ConfigurationOptionDescription where
       Prelude.<*> (x Core..@? "Name")
       Prelude.<*> (x Core..@? "MinValue")
       Prelude.<*> (x Core..@? "Namespace")
-      Prelude.<*> (x Core..@? "UserDefined")
       Prelude.<*> (x Core..@? "MaxLength")
       Prelude.<*> (x Core..@? "DefaultValue")
+      Prelude.<*> (x Core..@? "UserDefined")
 
 instance
   Prelude.Hashable

@@ -52,10 +52,10 @@ data ConfigurationSettingsDescription = ConfigurationSettingsDescription'
     -- -   @failed@: This is a draft configuration that failed to successfully
     --     deploy.
     deploymentStatus :: Prelude.Maybe ConfigurationDeploymentStatus,
-    -- | If not @null@, the name of the environment for this configuration set.
-    environmentName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the platform version.
     platformArn :: Prelude.Maybe Prelude.Text,
+    -- | If not @null@, the name of the environment for this configuration set.
+    environmentName :: Prelude.Maybe Prelude.Text,
     -- | The date (in UTC time) when this configuration set was last modified.
     dateUpdated :: Prelude.Maybe Core.ISO8601,
     -- | A list of the configuration options and their values in this
@@ -99,9 +99,9 @@ data ConfigurationSettingsDescription = ConfigurationSettingsDescription'
 -- -   @failed@: This is a draft configuration that failed to successfully
 --     deploy.
 --
--- 'environmentName', 'configurationSettingsDescription_environmentName' - If not @null@, the name of the environment for this configuration set.
---
 -- 'platformArn', 'configurationSettingsDescription_platformArn' - The ARN of the platform version.
+--
+-- 'environmentName', 'configurationSettingsDescription_environmentName' - If not @null@, the name of the environment for this configuration set.
 --
 -- 'dateUpdated', 'configurationSettingsDescription_dateUpdated' - The date (in UTC time) when this configuration set was last modified.
 --
@@ -120,8 +120,8 @@ newConfigurationSettingsDescription =
       dateCreated = Prelude.Nothing,
       solutionStackName = Prelude.Nothing,
       deploymentStatus = Prelude.Nothing,
-      environmentName = Prelude.Nothing,
       platformArn = Prelude.Nothing,
+      environmentName = Prelude.Nothing,
       dateUpdated = Prelude.Nothing,
       optionSettings = Prelude.Nothing,
       description = Prelude.Nothing,
@@ -159,13 +159,13 @@ configurationSettingsDescription_solutionStackName = Lens.lens (\ConfigurationSe
 configurationSettingsDescription_deploymentStatus :: Lens.Lens' ConfigurationSettingsDescription (Prelude.Maybe ConfigurationDeploymentStatus)
 configurationSettingsDescription_deploymentStatus = Lens.lens (\ConfigurationSettingsDescription' {deploymentStatus} -> deploymentStatus) (\s@ConfigurationSettingsDescription' {} a -> s {deploymentStatus = a} :: ConfigurationSettingsDescription)
 
--- | If not @null@, the name of the environment for this configuration set.
-configurationSettingsDescription_environmentName :: Lens.Lens' ConfigurationSettingsDescription (Prelude.Maybe Prelude.Text)
-configurationSettingsDescription_environmentName = Lens.lens (\ConfigurationSettingsDescription' {environmentName} -> environmentName) (\s@ConfigurationSettingsDescription' {} a -> s {environmentName = a} :: ConfigurationSettingsDescription)
-
 -- | The ARN of the platform version.
 configurationSettingsDescription_platformArn :: Lens.Lens' ConfigurationSettingsDescription (Prelude.Maybe Prelude.Text)
 configurationSettingsDescription_platformArn = Lens.lens (\ConfigurationSettingsDescription' {platformArn} -> platformArn) (\s@ConfigurationSettingsDescription' {} a -> s {platformArn = a} :: ConfigurationSettingsDescription)
+
+-- | If not @null@, the name of the environment for this configuration set.
+configurationSettingsDescription_environmentName :: Lens.Lens' ConfigurationSettingsDescription (Prelude.Maybe Prelude.Text)
+configurationSettingsDescription_environmentName = Lens.lens (\ConfigurationSettingsDescription' {environmentName} -> environmentName) (\s@ConfigurationSettingsDescription' {} a -> s {environmentName = a} :: ConfigurationSettingsDescription)
 
 -- | The date (in UTC time) when this configuration set was last modified.
 configurationSettingsDescription_dateUpdated :: Lens.Lens' ConfigurationSettingsDescription (Prelude.Maybe Prelude.UTCTime)
@@ -194,8 +194,8 @@ instance
       Prelude.<*> (x Core..@? "DateCreated")
       Prelude.<*> (x Core..@? "SolutionStackName")
       Prelude.<*> (x Core..@? "DeploymentStatus")
-      Prelude.<*> (x Core..@? "EnvironmentName")
       Prelude.<*> (x Core..@? "PlatformArn")
+      Prelude.<*> (x Core..@? "EnvironmentName")
       Prelude.<*> (x Core..@? "DateUpdated")
       Prelude.<*> ( x Core..@? "OptionSettings" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")

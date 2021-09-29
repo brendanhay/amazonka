@@ -29,13 +29,13 @@ module Network.AWS.ElasticBeanstalk.CreateEnvironment
 
     -- * Request Lenses
     createEnvironment_templateName,
-    createEnvironment_groupName,
     createEnvironment_solutionStackName,
+    createEnvironment_groupName,
     createEnvironment_optionsToRemove,
-    createEnvironment_environmentName,
     createEnvironment_platformArn,
-    createEnvironment_versionLabel,
+    createEnvironment_environmentName,
     createEnvironment_cNAMEPrefix,
+    createEnvironment_versionLabel,
     createEnvironment_tags,
     createEnvironment_optionSettings,
     createEnvironment_description,
@@ -53,19 +53,19 @@ module Network.AWS.ElasticBeanstalk.CreateEnvironment
     environmentDescription_status,
     environmentDescription_dateCreated,
     environmentDescription_environmentLinks,
-    environmentDescription_solutionStackName,
     environmentDescription_environmentId,
-    environmentDescription_environmentName,
+    environmentDescription_solutionStackName,
     environmentDescription_platformArn,
-    environmentDescription_versionLabel,
+    environmentDescription_environmentName,
     environmentDescription_health,
+    environmentDescription_versionLabel,
     environmentDescription_cname,
-    environmentDescription_resources,
     environmentDescription_dateUpdated,
+    environmentDescription_resources,
     environmentDescription_description,
+    environmentDescription_endpointURL,
     environmentDescription_healthStatus,
     environmentDescription_environmentArn,
-    environmentDescription_endpointURL,
     environmentDescription_applicationName,
     environmentDescription_tier,
     environmentDescription_operationsRole,
@@ -88,12 +88,6 @@ data CreateEnvironment = CreateEnvironment'
     --
     -- If you specify @TemplateName@, then don\'t specify @SolutionStackName@.
     templateName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the group to which the target environment belongs. Specify a
-    -- group name only if the environment\'s name is specified in an
-    -- environment manifest and not with the environment name parameter. See
-    -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)>
-    -- for details.
-    groupName :: Prelude.Maybe Prelude.Text,
     -- | The name of an Elastic Beanstalk solution stack (platform version) to
     -- use with the environment. If specified, Elastic Beanstalk sets the
     -- configuration values to the default values associated with the specified
@@ -104,9 +98,22 @@ data CreateEnvironment = CreateEnvironment'
     -- If you specify @SolutionStackName@, don\'t specify @PlatformArn@ or
     -- @TemplateName@.
     solutionStackName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the group to which the target environment belongs. Specify a
+    -- group name only if the environment\'s name is specified in an
+    -- environment manifest and not with the environment name parameter. See
+    -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)>
+    -- for details.
+    groupName :: Prelude.Maybe Prelude.Text,
     -- | A list of custom user-defined configuration options to remove from the
     -- configuration set for this new environment.
     optionsToRemove :: Prelude.Maybe [OptionSpecification],
+    -- | The Amazon Resource Name (ARN) of the custom platform to use with the
+    -- environment. For more information, see
+    -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html Custom Platforms>
+    -- in the /AWS Elastic Beanstalk Developer Guide/.
+    --
+    -- If you specify @PlatformArn@, don\'t specify @SolutionStackName@.
+    platformArn :: Prelude.Maybe Prelude.Text,
     -- | A unique name for the environment.
     --
     -- Constraint: Must be from 4 to 40 characters in length. The name can
@@ -119,23 +126,16 @@ data CreateEnvironment = CreateEnvironment'
     -- becomes part of the CNAME, and therefore part of the visible URL for
     -- your application.
     environmentName :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the custom platform to use with the
-    -- environment. For more information, see
-    -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html Custom Platforms>
-    -- in the /AWS Elastic Beanstalk Developer Guide/.
-    --
-    -- If you specify @PlatformArn@, don\'t specify @SolutionStackName@.
-    platformArn :: Prelude.Maybe Prelude.Text,
-    -- | The name of the application version to deploy.
-    --
-    -- Default: If not specified, Elastic Beanstalk attempts to deploy the
-    -- sample application.
-    versionLabel :: Prelude.Maybe Prelude.Text,
     -- | If specified, the environment attempts to use this value as the prefix
     -- for the CNAME in your Elastic Beanstalk environment URL. If not
     -- specified, the CNAME is generated automatically by appending a random
     -- alphanumeric string to the environment name.
     cNAMEPrefix :: Prelude.Maybe Prelude.Text,
+    -- | The name of the application version to deploy.
+    --
+    -- Default: If not specified, Elastic Beanstalk attempts to deploy the
+    -- sample application.
+    versionLabel :: Prelude.Maybe Prelude.Text,
     -- | Specifies the tags applied to resources in the environment.
     tags :: Prelude.Maybe [Tag],
     -- | If specified, AWS Elastic Beanstalk sets the specified configuration
@@ -177,12 +177,6 @@ data CreateEnvironment = CreateEnvironment'
 --
 -- If you specify @TemplateName@, then don\'t specify @SolutionStackName@.
 --
--- 'groupName', 'createEnvironment_groupName' - The name of the group to which the target environment belongs. Specify a
--- group name only if the environment\'s name is specified in an
--- environment manifest and not with the environment name parameter. See
--- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)>
--- for details.
---
 -- 'solutionStackName', 'createEnvironment_solutionStackName' - The name of an Elastic Beanstalk solution stack (platform version) to
 -- use with the environment. If specified, Elastic Beanstalk sets the
 -- configuration values to the default values associated with the specified
@@ -193,8 +187,21 @@ data CreateEnvironment = CreateEnvironment'
 -- If you specify @SolutionStackName@, don\'t specify @PlatformArn@ or
 -- @TemplateName@.
 --
+-- 'groupName', 'createEnvironment_groupName' - The name of the group to which the target environment belongs. Specify a
+-- group name only if the environment\'s name is specified in an
+-- environment manifest and not with the environment name parameter. See
+-- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)>
+-- for details.
+--
 -- 'optionsToRemove', 'createEnvironment_optionsToRemove' - A list of custom user-defined configuration options to remove from the
 -- configuration set for this new environment.
+--
+-- 'platformArn', 'createEnvironment_platformArn' - The Amazon Resource Name (ARN) of the custom platform to use with the
+-- environment. For more information, see
+-- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html Custom Platforms>
+-- in the /AWS Elastic Beanstalk Developer Guide/.
+--
+-- If you specify @PlatformArn@, don\'t specify @SolutionStackName@.
 --
 -- 'environmentName', 'createEnvironment_environmentName' - A unique name for the environment.
 --
@@ -208,22 +215,15 @@ data CreateEnvironment = CreateEnvironment'
 -- becomes part of the CNAME, and therefore part of the visible URL for
 -- your application.
 --
--- 'platformArn', 'createEnvironment_platformArn' - The Amazon Resource Name (ARN) of the custom platform to use with the
--- environment. For more information, see
--- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html Custom Platforms>
--- in the /AWS Elastic Beanstalk Developer Guide/.
---
--- If you specify @PlatformArn@, don\'t specify @SolutionStackName@.
+-- 'cNAMEPrefix', 'createEnvironment_cNAMEPrefix' - If specified, the environment attempts to use this value as the prefix
+-- for the CNAME in your Elastic Beanstalk environment URL. If not
+-- specified, the CNAME is generated automatically by appending a random
+-- alphanumeric string to the environment name.
 --
 -- 'versionLabel', 'createEnvironment_versionLabel' - The name of the application version to deploy.
 --
 -- Default: If not specified, Elastic Beanstalk attempts to deploy the
 -- sample application.
---
--- 'cNAMEPrefix', 'createEnvironment_cNAMEPrefix' - If specified, the environment attempts to use this value as the prefix
--- for the CNAME in your Elastic Beanstalk environment URL. If not
--- specified, the CNAME is generated automatically by appending a random
--- alphanumeric string to the environment name.
 --
 -- 'tags', 'createEnvironment_tags' - Specifies the tags applied to resources in the environment.
 --
@@ -256,13 +256,13 @@ newCreateEnvironment ::
 newCreateEnvironment pApplicationName_ =
   CreateEnvironment'
     { templateName = Prelude.Nothing,
-      groupName = Prelude.Nothing,
       solutionStackName = Prelude.Nothing,
+      groupName = Prelude.Nothing,
       optionsToRemove = Prelude.Nothing,
-      environmentName = Prelude.Nothing,
       platformArn = Prelude.Nothing,
-      versionLabel = Prelude.Nothing,
+      environmentName = Prelude.Nothing,
       cNAMEPrefix = Prelude.Nothing,
+      versionLabel = Prelude.Nothing,
       tags = Prelude.Nothing,
       optionSettings = Prelude.Nothing,
       description = Prelude.Nothing,
@@ -278,14 +278,6 @@ newCreateEnvironment pApplicationName_ =
 createEnvironment_templateName :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
 createEnvironment_templateName = Lens.lens (\CreateEnvironment' {templateName} -> templateName) (\s@CreateEnvironment' {} a -> s {templateName = a} :: CreateEnvironment)
 
--- | The name of the group to which the target environment belongs. Specify a
--- group name only if the environment\'s name is specified in an
--- environment manifest and not with the environment name parameter. See
--- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)>
--- for details.
-createEnvironment_groupName :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
-createEnvironment_groupName = Lens.lens (\CreateEnvironment' {groupName} -> groupName) (\s@CreateEnvironment' {} a -> s {groupName = a} :: CreateEnvironment)
-
 -- | The name of an Elastic Beanstalk solution stack (platform version) to
 -- use with the environment. If specified, Elastic Beanstalk sets the
 -- configuration values to the default values associated with the specified
@@ -298,10 +290,27 @@ createEnvironment_groupName = Lens.lens (\CreateEnvironment' {groupName} -> grou
 createEnvironment_solutionStackName :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
 createEnvironment_solutionStackName = Lens.lens (\CreateEnvironment' {solutionStackName} -> solutionStackName) (\s@CreateEnvironment' {} a -> s {solutionStackName = a} :: CreateEnvironment)
 
+-- | The name of the group to which the target environment belongs. Specify a
+-- group name only if the environment\'s name is specified in an
+-- environment manifest and not with the environment name parameter. See
+-- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)>
+-- for details.
+createEnvironment_groupName :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
+createEnvironment_groupName = Lens.lens (\CreateEnvironment' {groupName} -> groupName) (\s@CreateEnvironment' {} a -> s {groupName = a} :: CreateEnvironment)
+
 -- | A list of custom user-defined configuration options to remove from the
 -- configuration set for this new environment.
 createEnvironment_optionsToRemove :: Lens.Lens' CreateEnvironment (Prelude.Maybe [OptionSpecification])
 createEnvironment_optionsToRemove = Lens.lens (\CreateEnvironment' {optionsToRemove} -> optionsToRemove) (\s@CreateEnvironment' {} a -> s {optionsToRemove = a} :: CreateEnvironment) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The Amazon Resource Name (ARN) of the custom platform to use with the
+-- environment. For more information, see
+-- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html Custom Platforms>
+-- in the /AWS Elastic Beanstalk Developer Guide/.
+--
+-- If you specify @PlatformArn@, don\'t specify @SolutionStackName@.
+createEnvironment_platformArn :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
+createEnvironment_platformArn = Lens.lens (\CreateEnvironment' {platformArn} -> platformArn) (\s@CreateEnvironment' {} a -> s {platformArn = a} :: CreateEnvironment)
 
 -- | A unique name for the environment.
 --
@@ -317,14 +326,12 @@ createEnvironment_optionsToRemove = Lens.lens (\CreateEnvironment' {optionsToRem
 createEnvironment_environmentName :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
 createEnvironment_environmentName = Lens.lens (\CreateEnvironment' {environmentName} -> environmentName) (\s@CreateEnvironment' {} a -> s {environmentName = a} :: CreateEnvironment)
 
--- | The Amazon Resource Name (ARN) of the custom platform to use with the
--- environment. For more information, see
--- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html Custom Platforms>
--- in the /AWS Elastic Beanstalk Developer Guide/.
---
--- If you specify @PlatformArn@, don\'t specify @SolutionStackName@.
-createEnvironment_platformArn :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
-createEnvironment_platformArn = Lens.lens (\CreateEnvironment' {platformArn} -> platformArn) (\s@CreateEnvironment' {} a -> s {platformArn = a} :: CreateEnvironment)
+-- | If specified, the environment attempts to use this value as the prefix
+-- for the CNAME in your Elastic Beanstalk environment URL. If not
+-- specified, the CNAME is generated automatically by appending a random
+-- alphanumeric string to the environment name.
+createEnvironment_cNAMEPrefix :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
+createEnvironment_cNAMEPrefix = Lens.lens (\CreateEnvironment' {cNAMEPrefix} -> cNAMEPrefix) (\s@CreateEnvironment' {} a -> s {cNAMEPrefix = a} :: CreateEnvironment)
 
 -- | The name of the application version to deploy.
 --
@@ -332,13 +339,6 @@ createEnvironment_platformArn = Lens.lens (\CreateEnvironment' {platformArn} -> 
 -- sample application.
 createEnvironment_versionLabel :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
 createEnvironment_versionLabel = Lens.lens (\CreateEnvironment' {versionLabel} -> versionLabel) (\s@CreateEnvironment' {} a -> s {versionLabel = a} :: CreateEnvironment)
-
--- | If specified, the environment attempts to use this value as the prefix
--- for the CNAME in your Elastic Beanstalk environment URL. If not
--- specified, the CNAME is generated automatically by appending a random
--- alphanumeric string to the environment name.
-createEnvironment_cNAMEPrefix :: Lens.Lens' CreateEnvironment (Prelude.Maybe Prelude.Text)
-createEnvironment_cNAMEPrefix = Lens.lens (\CreateEnvironment' {cNAMEPrefix} -> cNAMEPrefix) (\s@CreateEnvironment' {} a -> s {cNAMEPrefix = a} :: CreateEnvironment)
 
 -- | Specifies the tags applied to resources in the environment.
 createEnvironment_tags :: Lens.Lens' CreateEnvironment (Prelude.Maybe [Tag])
@@ -405,17 +405,17 @@ instance Core.ToQuery CreateEnvironment where
         "Version"
           Core.=: ("2010-12-01" :: Prelude.ByteString),
         "TemplateName" Core.=: templateName,
-        "GroupName" Core.=: groupName,
         "SolutionStackName" Core.=: solutionStackName,
+        "GroupName" Core.=: groupName,
         "OptionsToRemove"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> optionsToRemove
             ),
-        "EnvironmentName" Core.=: environmentName,
         "PlatformArn" Core.=: platformArn,
-        "VersionLabel" Core.=: versionLabel,
+        "EnvironmentName" Core.=: environmentName,
         "CNAMEPrefix" Core.=: cNAMEPrefix,
+        "VersionLabel" Core.=: versionLabel,
         "Tags"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> tags),

@@ -30,12 +30,12 @@
 --
 -- -   If your event selector includes management events.
 --
--- -   If your event selector includes data events, the Amazon S3 objects
---     or AWS Lambda functions that you are logging for data events.
+-- -   If your event selector includes data events, the resources on which
+--     you are logging data events.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html Logging Data and Management Events for Trails>
--- in the /AWS CloudTrail User Guide/.
+-- in the /CloudTrail User Guide/.
 module Network.AWS.CloudTrail.GetEventSelectors
   ( -- * Creating a Request
     GetEventSelectors (..),

@@ -213,7 +213,7 @@ data DescribeTrailsResponse = DescribeTrailsResponse'
     -- For example, @SNSTopicName@ and @SNSTopicARN@ are only returned in
     -- results if a trail is configured to send SNS notifications. Similarly,
     -- @KMSKeyId@ only appears in results if a trail\'s log files are encrypted
-    -- with AWS KMS-managed keys.
+    -- with KMS customer managed keys.
     trailList :: Prelude.Maybe [Trail],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -233,7 +233,7 @@ data DescribeTrailsResponse = DescribeTrailsResponse'
 -- For example, @SNSTopicName@ and @SNSTopicARN@ are only returned in
 -- results if a trail is configured to send SNS notifications. Similarly,
 -- @KMSKeyId@ only appears in results if a trail\'s log files are encrypted
--- with AWS KMS-managed keys.
+-- with KMS customer managed keys.
 --
 -- 'httpStatus', 'describeTrailsResponse_httpStatus' - The response's http status code.
 newDescribeTrailsResponse ::
@@ -252,7 +252,7 @@ newDescribeTrailsResponse pHttpStatus_ =
 -- For example, @SNSTopicName@ and @SNSTopicARN@ are only returned in
 -- results if a trail is configured to send SNS notifications. Similarly,
 -- @KMSKeyId@ only appears in results if a trail\'s log files are encrypted
--- with AWS KMS-managed keys.
+-- with KMS customer managed keys.
 describeTrailsResponse_trailList :: Lens.Lens' DescribeTrailsResponse (Prelude.Maybe [Trail])
 describeTrailsResponse_trailList = Lens.lens (\DescribeTrailsResponse' {trailList} -> trailList) (\s@DescribeTrailsResponse' {} a -> s {trailList = a} :: DescribeTrailsResponse) Prelude.. Lens.mapping Lens._Coerce
 

@@ -25,10 +25,10 @@
 -- validate digest files that were signed with its corresponding private
 -- key.
 --
--- CloudTrail uses different private\/public key pairs per region. Each
--- digest file is signed with a private key unique to its region.
--- Therefore, when you validate a digest file from a particular region, you
--- must look in the same region for its corresponding public key.
+-- CloudTrail uses different private and public key pairs per region. Each
+-- digest file is signed with a private key unique to its region. When you
+-- validate a digest file from a specific region, you must look in the same
+-- region for its corresponding public key.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudTrail.ListPublicKeys
@@ -46,8 +46,8 @@ module Network.AWS.CloudTrail.ListPublicKeys
     newListPublicKeysResponse,
 
     -- * Response Lenses
-    listPublicKeysResponse_nextToken,
     listPublicKeysResponse_publicKeyList,
+    listPublicKeysResponse_nextToken,
     listPublicKeysResponse_httpStatus,
   )
 where
@@ -148,8 +148,8 @@ instance Core.AWSRequest ListPublicKeys where
     Response.receiveJSON
       ( \s h x ->
           ListPublicKeysResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "PublicKeyList" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "PublicKeyList" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -193,12 +193,12 @@ instance Core.ToQuery ListPublicKeys where
 --
 -- /See:/ 'newListPublicKeysResponse' smart constructor.
 data ListPublicKeysResponse = ListPublicKeysResponse'
-  { -- | Reserved for future use.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Contains an array of PublicKey objects.
+  { -- | Contains an array of PublicKey objects.
     --
     -- The returned public keys may have validity time ranges that overlap.
     publicKeyList :: Prelude.Maybe [PublicKey],
+    -- | Reserved for future use.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -212,11 +212,11 @@ data ListPublicKeysResponse = ListPublicKeysResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listPublicKeysResponse_nextToken' - Reserved for future use.
---
 -- 'publicKeyList', 'listPublicKeysResponse_publicKeyList' - Contains an array of PublicKey objects.
 --
 -- The returned public keys may have validity time ranges that overlap.
+--
+-- 'nextToken', 'listPublicKeysResponse_nextToken' - Reserved for future use.
 --
 -- 'httpStatus', 'listPublicKeysResponse_httpStatus' - The response's http status code.
 newListPublicKeysResponse ::
@@ -225,21 +225,21 @@ newListPublicKeysResponse ::
   ListPublicKeysResponse
 newListPublicKeysResponse pHttpStatus_ =
   ListPublicKeysResponse'
-    { nextToken =
+    { publicKeyList =
         Prelude.Nothing,
-      publicKeyList = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Reserved for future use.
-listPublicKeysResponse_nextToken :: Lens.Lens' ListPublicKeysResponse (Prelude.Maybe Prelude.Text)
-listPublicKeysResponse_nextToken = Lens.lens (\ListPublicKeysResponse' {nextToken} -> nextToken) (\s@ListPublicKeysResponse' {} a -> s {nextToken = a} :: ListPublicKeysResponse)
 
 -- | Contains an array of PublicKey objects.
 --
 -- The returned public keys may have validity time ranges that overlap.
 listPublicKeysResponse_publicKeyList :: Lens.Lens' ListPublicKeysResponse (Prelude.Maybe [PublicKey])
 listPublicKeysResponse_publicKeyList = Lens.lens (\ListPublicKeysResponse' {publicKeyList} -> publicKeyList) (\s@ListPublicKeysResponse' {} a -> s {publicKeyList = a} :: ListPublicKeysResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Reserved for future use.
+listPublicKeysResponse_nextToken :: Lens.Lens' ListPublicKeysResponse (Prelude.Maybe Prelude.Text)
+listPublicKeysResponse_nextToken = Lens.lens (\ListPublicKeysResponse' {nextToken} -> nextToken) (\s@ListPublicKeysResponse' {} a -> s {nextToken = a} :: ListPublicKeysResponse)
 
 -- | The response's http status code.
 listPublicKeysResponse_httpStatus :: Lens.Lens' ListPublicKeysResponse Prelude.Int

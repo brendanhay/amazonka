@@ -29,7 +29,7 @@
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html Logging CloudTrail Insights Events for Trails>
--- in the /AWS CloudTrail User Guide/.
+-- in the /CloudTrail User Guide/.
 module Network.AWS.CloudTrail.GetInsightSelectors
   ( -- * Creating a Request
     GetInsightSelectors (..),

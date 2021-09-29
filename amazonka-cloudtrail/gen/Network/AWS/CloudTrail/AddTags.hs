@@ -25,8 +25,9 @@
 -- key. Tag key names must be unique for a trail; you cannot have two keys
 -- with the same name but different values. If you specify a key without a
 -- value, the tag will be created with the specified key and a value of
--- null. You can tag a trail that applies to all AWS Regions only from the
--- Region in which the trail was created (also known as its home region).
+-- null. You can tag a trail that applies to all Amazon Web Services
+-- Regions only from the Region in which the trail was created (also known
+-- as its home region).
 module Network.AWS.CloudTrail.AddTags
   ( -- * Creating a Request
     AddTags (..),
@@ -56,7 +57,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newAddTags' smart constructor.
 data AddTags = AddTags'
-  { -- | Contains a list of CloudTrail tags, up to a limit of 50
+  { -- | Contains a list of tags, up to a limit of 50
     tagsList :: Prelude.Maybe [Tag],
     -- | Specifies the ARN of the trail to which one or more tags will be added.
     -- The format of a trail ARN is:
@@ -74,7 +75,7 @@ data AddTags = AddTags'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagsList', 'addTags_tagsList' - Contains a list of CloudTrail tags, up to a limit of 50
+-- 'tagsList', 'addTags_tagsList' - Contains a list of tags, up to a limit of 50
 --
 -- 'resourceId', 'addTags_resourceId' - Specifies the ARN of the trail to which one or more tags will be added.
 -- The format of a trail ARN is:
@@ -90,7 +91,7 @@ newAddTags pResourceId_ =
       resourceId = pResourceId_
     }
 
--- | Contains a list of CloudTrail tags, up to a limit of 50
+-- | Contains a list of tags, up to a limit of 50
 addTags_tagsList :: Lens.Lens' AddTags (Prelude.Maybe [Tag])
 addTags_tagsList = Lens.lens (\AddTags' {tagsList} -> tagsList) (\s@AddTags' {} a -> s {tagsList = a} :: AddTags) Prelude.. Lens.mapping Lens._Coerce
 
@@ -145,8 +146,7 @@ instance Core.ToPath AddTags where
 instance Core.ToQuery AddTags where
   toQuery = Prelude.const Prelude.mempty
 
--- | Returns the objects or data listed below if successful. Otherwise,
--- returns an error.
+-- | Returns the objects or data if successful. Otherwise, returns an error.
 --
 -- /See:/ 'newAddTagsResponse' smart constructor.
 data AddTagsResponse = AddTagsResponse'

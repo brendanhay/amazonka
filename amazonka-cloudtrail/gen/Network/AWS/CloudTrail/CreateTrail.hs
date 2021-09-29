@@ -52,11 +52,11 @@ module Network.AWS.CloudTrail.CreateTrail
     createTrailResponse_snsTopicName,
     createTrailResponse_includeGlobalServiceEvents,
     createTrailResponse_kmsKeyId,
-    createTrailResponse_s3KeyPrefix,
     createTrailResponse_name,
+    createTrailResponse_s3KeyPrefix,
     createTrailResponse_cloudWatchLogsLogGroupArn,
-    createTrailResponse_isMultiRegionTrail,
     createTrailResponse_s3BucketName,
+    createTrailResponse_isMultiRegionTrail,
     createTrailResponse_cloudWatchLogsRoleArn,
     createTrailResponse_snsTopicARN,
     createTrailResponse_httpStatus,
@@ -75,10 +75,10 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newCreateTrail' smart constructor.
 data CreateTrail = CreateTrail'
   { -- | Specifies whether the trail is created for all accounts in an
-    -- organization in AWS Organizations, or only for the current AWS account.
-    -- The default is false, and cannot be true unless the call is made on
-    -- behalf of an AWS account that is the master account for an organization
-    -- in AWS Organizations.
+    -- organization in Organizations, or only for the current Amazon Web
+    -- Services account. The default is false, and cannot be true unless the
+    -- call is made on behalf of an Amazon Web Services account that is the
+    -- management account for an organization in Organizations.
     isOrganizationTrail :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the name of the Amazon SNS topic defined for notification of
     -- log file delivery. The maximum length is 256 characters.
@@ -90,6 +90,11 @@ data CreateTrail = CreateTrail'
     -- CloudTrail. The value can be an alias name prefixed by \"alias\/\", a
     -- fully specified ARN to an alias, a fully specified ARN to a key, or a
     -- globally unique identifier.
+    --
+    -- CloudTrail also supports KMS multi-Region keys. For more information
+    -- about multi-Region keys, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html Using multi-Region keys>
+    -- in the /Key Management Service Developer Guide/.
     --
     -- Examples:
     --
@@ -109,7 +114,7 @@ data CreateTrail = CreateTrail'
     s3KeyPrefix :: Prelude.Maybe Prelude.Text,
     -- | Specifies a log group name using an Amazon Resource Name (ARN), a unique
     -- identifier that represents the log group to which CloudTrail logs will
-    -- be delivered. Not required unless you specify CloudWatchLogsRoleArn.
+    -- be delivered. Not required unless you specify @CloudWatchLogsRoleArn@.
     cloudWatchLogsLogGroupArn :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the trail is created in the current region or in all
     -- regions. The default is false, which creates a trail only in the region
@@ -124,7 +129,7 @@ data CreateTrail = CreateTrail'
     -- is false.
     --
     -- When you disable log file integrity validation, the chain of digest
-    -- files is broken after one hour. CloudTrail will not create digest files
+    -- files is broken after one hour. CloudTrail does not create digest files
     -- for log files that were delivered during a period in which log file
     -- integrity validation was disabled. For example, if you enable log file
     -- integrity validation at noon on January 1, disable it at noon on January
@@ -144,7 +149,7 @@ data CreateTrail = CreateTrail'
     -- -   Be between 3 and 128 characters
     --
     -- -   Have no adjacent periods, underscores or dashes. Names like
-    --     @my-_namespace@ and @my--namespace@ are invalid.
+    --     @my-_namespace@ and @my--namespace@ are not valid.
     --
     -- -   Not be in IP address format (for example, 192.168.5.4)
     name :: Prelude.Text,
@@ -164,10 +169,10 @@ data CreateTrail = CreateTrail'
 -- for backwards compatibility:
 --
 -- 'isOrganizationTrail', 'createTrail_isOrganizationTrail' - Specifies whether the trail is created for all accounts in an
--- organization in AWS Organizations, or only for the current AWS account.
--- The default is false, and cannot be true unless the call is made on
--- behalf of an AWS account that is the master account for an organization
--- in AWS Organizations.
+-- organization in Organizations, or only for the current Amazon Web
+-- Services account. The default is false, and cannot be true unless the
+-- call is made on behalf of an Amazon Web Services account that is the
+-- management account for an organization in Organizations.
 --
 -- 'snsTopicName', 'createTrail_snsTopicName' - Specifies the name of the Amazon SNS topic defined for notification of
 -- log file delivery. The maximum length is 256 characters.
@@ -179,6 +184,11 @@ data CreateTrail = CreateTrail'
 -- CloudTrail. The value can be an alias name prefixed by \"alias\/\", a
 -- fully specified ARN to an alias, a fully specified ARN to a key, or a
 -- globally unique identifier.
+--
+-- CloudTrail also supports KMS multi-Region keys. For more information
+-- about multi-Region keys, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html Using multi-Region keys>
+-- in the /Key Management Service Developer Guide/.
 --
 -- Examples:
 --
@@ -198,7 +208,7 @@ data CreateTrail = CreateTrail'
 --
 -- 'cloudWatchLogsLogGroupArn', 'createTrail_cloudWatchLogsLogGroupArn' - Specifies a log group name using an Amazon Resource Name (ARN), a unique
 -- identifier that represents the log group to which CloudTrail logs will
--- be delivered. Not required unless you specify CloudWatchLogsRoleArn.
+-- be delivered. Not required unless you specify @CloudWatchLogsRoleArn@.
 --
 -- 'isMultiRegionTrail', 'createTrail_isMultiRegionTrail' - Specifies whether the trail is created in the current region or in all
 -- regions. The default is false, which creates a trail only in the region
@@ -214,7 +224,7 @@ data CreateTrail = CreateTrail'
 -- is false.
 --
 -- When you disable log file integrity validation, the chain of digest
--- files is broken after one hour. CloudTrail will not create digest files
+-- files is broken after one hour. CloudTrail does not create digest files
 -- for log files that were delivered during a period in which log file
 -- integrity validation was disabled. For example, if you enable log file
 -- integrity validation at noon on January 1, disable it at noon on January
@@ -234,7 +244,7 @@ data CreateTrail = CreateTrail'
 -- -   Be between 3 and 128 characters
 --
 -- -   Have no adjacent periods, underscores or dashes. Names like
---     @my-_namespace@ and @my--namespace@ are invalid.
+--     @my-_namespace@ and @my--namespace@ are not valid.
 --
 -- -   Not be in IP address format (for example, 192.168.5.4)
 --
@@ -264,10 +274,10 @@ newCreateTrail pName_ pS3BucketName_ =
     }
 
 -- | Specifies whether the trail is created for all accounts in an
--- organization in AWS Organizations, or only for the current AWS account.
--- The default is false, and cannot be true unless the call is made on
--- behalf of an AWS account that is the master account for an organization
--- in AWS Organizations.
+-- organization in Organizations, or only for the current Amazon Web
+-- Services account. The default is false, and cannot be true unless the
+-- call is made on behalf of an Amazon Web Services account that is the
+-- management account for an organization in Organizations.
 createTrail_isOrganizationTrail :: Lens.Lens' CreateTrail (Prelude.Maybe Prelude.Bool)
 createTrail_isOrganizationTrail = Lens.lens (\CreateTrail' {isOrganizationTrail} -> isOrganizationTrail) (\s@CreateTrail' {} a -> s {isOrganizationTrail = a} :: CreateTrail)
 
@@ -285,6 +295,11 @@ createTrail_includeGlobalServiceEvents = Lens.lens (\CreateTrail' {includeGlobal
 -- CloudTrail. The value can be an alias name prefixed by \"alias\/\", a
 -- fully specified ARN to an alias, a fully specified ARN to a key, or a
 -- globally unique identifier.
+--
+-- CloudTrail also supports KMS multi-Region keys. For more information
+-- about multi-Region keys, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html Using multi-Region keys>
+-- in the /Key Management Service Developer Guide/.
 --
 -- Examples:
 --
@@ -308,7 +323,7 @@ createTrail_s3KeyPrefix = Lens.lens (\CreateTrail' {s3KeyPrefix} -> s3KeyPrefix)
 
 -- | Specifies a log group name using an Amazon Resource Name (ARN), a unique
 -- identifier that represents the log group to which CloudTrail logs will
--- be delivered. Not required unless you specify CloudWatchLogsRoleArn.
+-- be delivered. Not required unless you specify @CloudWatchLogsRoleArn@.
 createTrail_cloudWatchLogsLogGroupArn :: Lens.Lens' CreateTrail (Prelude.Maybe Prelude.Text)
 createTrail_cloudWatchLogsLogGroupArn = Lens.lens (\CreateTrail' {cloudWatchLogsLogGroupArn} -> cloudWatchLogsLogGroupArn) (\s@CreateTrail' {} a -> s {cloudWatchLogsLogGroupArn = a} :: CreateTrail)
 
@@ -332,7 +347,7 @@ createTrail_tagsList = Lens.lens (\CreateTrail' {tagsList} -> tagsList) (\s@Crea
 -- is false.
 --
 -- When you disable log file integrity validation, the chain of digest
--- files is broken after one hour. CloudTrail will not create digest files
+-- files is broken after one hour. CloudTrail does not create digest files
 -- for log files that were delivered during a period in which log file
 -- integrity validation was disabled. For example, if you enable log file
 -- integrity validation at noon on January 1, disable it at noon on January
@@ -354,7 +369,7 @@ createTrail_enableLogFileValidation = Lens.lens (\CreateTrail' {enableLogFileVal
 -- -   Be between 3 and 128 characters
 --
 -- -   Have no adjacent periods, underscores or dashes. Names like
---     @my-_namespace@ and @my--namespace@ are invalid.
+--     @my-_namespace@ and @my--namespace@ are not valid.
 --
 -- -   Not be in IP address format (for example, 192.168.5.4)
 createTrail_name :: Lens.Lens' CreateTrail Prelude.Text
@@ -379,11 +394,11 @@ instance Core.AWSRequest CreateTrail where
             Prelude.<*> (x Core..?> "SnsTopicName")
             Prelude.<*> (x Core..?> "IncludeGlobalServiceEvents")
             Prelude.<*> (x Core..?> "KmsKeyId")
-            Prelude.<*> (x Core..?> "S3KeyPrefix")
             Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "S3KeyPrefix")
             Prelude.<*> (x Core..?> "CloudWatchLogsLogGroupArn")
-            Prelude.<*> (x Core..?> "IsMultiRegionTrail")
             Prelude.<*> (x Core..?> "S3BucketName")
+            Prelude.<*> (x Core..?> "IsMultiRegionTrail")
             Prelude.<*> (x Core..?> "CloudWatchLogsRoleArn")
             Prelude.<*> (x Core..?> "SnsTopicARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -459,25 +474,25 @@ data CreateTrailResponse = CreateTrailResponse'
     -- such as IAM to the log files.
     includeGlobalServiceEvents :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the KMS key ID that encrypts the logs delivered by CloudTrail.
-    -- The value is a fully specified ARN to a KMS key in the format:
+    -- The value is a fully specified ARN to a KMS key in the following format.
     --
     -- @arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012@
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the name of the trail.
+    name :: Prelude.Maybe Prelude.Text,
     -- | Specifies the Amazon S3 key prefix that comes after the name of the
     -- bucket you have designated for log file delivery. For more information,
     -- see
     -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html Finding Your CloudTrail Log Files>.
     s3KeyPrefix :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the name of the trail.
-    name :: Prelude.Maybe Prelude.Text,
     -- | Specifies the Amazon Resource Name (ARN) of the log group to which
     -- CloudTrail logs will be delivered.
     cloudWatchLogsLogGroupArn :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether the trail exists in one region or in all regions.
-    isMultiRegionTrail :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the name of the Amazon S3 bucket designated for publishing log
     -- files.
     s3BucketName :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether the trail exists in one region or in all regions.
+    isMultiRegionTrail :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the role for the CloudWatch Logs endpoint to assume to write
     -- to a user\'s log group.
     cloudWatchLogsRoleArn :: Prelude.Maybe Prelude.Text,
@@ -515,24 +530,24 @@ data CreateTrailResponse = CreateTrailResponse'
 -- such as IAM to the log files.
 --
 -- 'kmsKeyId', 'createTrailResponse_kmsKeyId' - Specifies the KMS key ID that encrypts the logs delivered by CloudTrail.
--- The value is a fully specified ARN to a KMS key in the format:
+-- The value is a fully specified ARN to a KMS key in the following format.
 --
 -- @arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012@
+--
+-- 'name', 'createTrailResponse_name' - Specifies the name of the trail.
 --
 -- 's3KeyPrefix', 'createTrailResponse_s3KeyPrefix' - Specifies the Amazon S3 key prefix that comes after the name of the
 -- bucket you have designated for log file delivery. For more information,
 -- see
 -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-find-log-files.html Finding Your CloudTrail Log Files>.
 --
--- 'name', 'createTrailResponse_name' - Specifies the name of the trail.
---
 -- 'cloudWatchLogsLogGroupArn', 'createTrailResponse_cloudWatchLogsLogGroupArn' - Specifies the Amazon Resource Name (ARN) of the log group to which
 -- CloudTrail logs will be delivered.
 --
--- 'isMultiRegionTrail', 'createTrailResponse_isMultiRegionTrail' - Specifies whether the trail exists in one region or in all regions.
---
 -- 's3BucketName', 'createTrailResponse_s3BucketName' - Specifies the name of the Amazon S3 bucket designated for publishing log
 -- files.
+--
+-- 'isMultiRegionTrail', 'createTrailResponse_isMultiRegionTrail' - Specifies whether the trail exists in one region or in all regions.
 --
 -- 'cloudWatchLogsRoleArn', 'createTrailResponse_cloudWatchLogsRoleArn' - Specifies the role for the CloudWatch Logs endpoint to assume to write
 -- to a user\'s log group.
@@ -556,11 +571,11 @@ newCreateTrailResponse pHttpStatus_ =
       snsTopicName = Prelude.Nothing,
       includeGlobalServiceEvents = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
-      s3KeyPrefix = Prelude.Nothing,
       name = Prelude.Nothing,
+      s3KeyPrefix = Prelude.Nothing,
       cloudWatchLogsLogGroupArn = Prelude.Nothing,
-      isMultiRegionTrail = Prelude.Nothing,
       s3BucketName = Prelude.Nothing,
+      isMultiRegionTrail = Prelude.Nothing,
       cloudWatchLogsRoleArn = Prelude.Nothing,
       snsTopicARN = Prelude.Nothing,
       httpStatus = pHttpStatus_
@@ -591,11 +606,15 @@ createTrailResponse_includeGlobalServiceEvents :: Lens.Lens' CreateTrailResponse
 createTrailResponse_includeGlobalServiceEvents = Lens.lens (\CreateTrailResponse' {includeGlobalServiceEvents} -> includeGlobalServiceEvents) (\s@CreateTrailResponse' {} a -> s {includeGlobalServiceEvents = a} :: CreateTrailResponse)
 
 -- | Specifies the KMS key ID that encrypts the logs delivered by CloudTrail.
--- The value is a fully specified ARN to a KMS key in the format:
+-- The value is a fully specified ARN to a KMS key in the following format.
 --
 -- @arn:aws:kms:us-east-2:123456789012:key\/12345678-1234-1234-1234-123456789012@
 createTrailResponse_kmsKeyId :: Lens.Lens' CreateTrailResponse (Prelude.Maybe Prelude.Text)
 createTrailResponse_kmsKeyId = Lens.lens (\CreateTrailResponse' {kmsKeyId} -> kmsKeyId) (\s@CreateTrailResponse' {} a -> s {kmsKeyId = a} :: CreateTrailResponse)
+
+-- | Specifies the name of the trail.
+createTrailResponse_name :: Lens.Lens' CreateTrailResponse (Prelude.Maybe Prelude.Text)
+createTrailResponse_name = Lens.lens (\CreateTrailResponse' {name} -> name) (\s@CreateTrailResponse' {} a -> s {name = a} :: CreateTrailResponse)
 
 -- | Specifies the Amazon S3 key prefix that comes after the name of the
 -- bucket you have designated for log file delivery. For more information,
@@ -604,23 +623,19 @@ createTrailResponse_kmsKeyId = Lens.lens (\CreateTrailResponse' {kmsKeyId} -> km
 createTrailResponse_s3KeyPrefix :: Lens.Lens' CreateTrailResponse (Prelude.Maybe Prelude.Text)
 createTrailResponse_s3KeyPrefix = Lens.lens (\CreateTrailResponse' {s3KeyPrefix} -> s3KeyPrefix) (\s@CreateTrailResponse' {} a -> s {s3KeyPrefix = a} :: CreateTrailResponse)
 
--- | Specifies the name of the trail.
-createTrailResponse_name :: Lens.Lens' CreateTrailResponse (Prelude.Maybe Prelude.Text)
-createTrailResponse_name = Lens.lens (\CreateTrailResponse' {name} -> name) (\s@CreateTrailResponse' {} a -> s {name = a} :: CreateTrailResponse)
-
 -- | Specifies the Amazon Resource Name (ARN) of the log group to which
 -- CloudTrail logs will be delivered.
 createTrailResponse_cloudWatchLogsLogGroupArn :: Lens.Lens' CreateTrailResponse (Prelude.Maybe Prelude.Text)
 createTrailResponse_cloudWatchLogsLogGroupArn = Lens.lens (\CreateTrailResponse' {cloudWatchLogsLogGroupArn} -> cloudWatchLogsLogGroupArn) (\s@CreateTrailResponse' {} a -> s {cloudWatchLogsLogGroupArn = a} :: CreateTrailResponse)
 
--- | Specifies whether the trail exists in one region or in all regions.
-createTrailResponse_isMultiRegionTrail :: Lens.Lens' CreateTrailResponse (Prelude.Maybe Prelude.Bool)
-createTrailResponse_isMultiRegionTrail = Lens.lens (\CreateTrailResponse' {isMultiRegionTrail} -> isMultiRegionTrail) (\s@CreateTrailResponse' {} a -> s {isMultiRegionTrail = a} :: CreateTrailResponse)
-
 -- | Specifies the name of the Amazon S3 bucket designated for publishing log
 -- files.
 createTrailResponse_s3BucketName :: Lens.Lens' CreateTrailResponse (Prelude.Maybe Prelude.Text)
 createTrailResponse_s3BucketName = Lens.lens (\CreateTrailResponse' {s3BucketName} -> s3BucketName) (\s@CreateTrailResponse' {} a -> s {s3BucketName = a} :: CreateTrailResponse)
+
+-- | Specifies whether the trail exists in one region or in all regions.
+createTrailResponse_isMultiRegionTrail :: Lens.Lens' CreateTrailResponse (Prelude.Maybe Prelude.Bool)
+createTrailResponse_isMultiRegionTrail = Lens.lens (\CreateTrailResponse' {isMultiRegionTrail} -> isMultiRegionTrail) (\s@CreateTrailResponse' {} a -> s {isMultiRegionTrail = a} :: CreateTrailResponse)
 
 -- | Specifies the role for the CloudWatch Logs endpoint to assume to write
 -- to a user\'s log group.

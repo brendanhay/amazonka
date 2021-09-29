@@ -53,7 +53,7 @@ import qualified Network.AWS.Response as Response
 -- /See:/ 'newDeleteTrail' smart constructor.
 data DeleteTrail = DeleteTrail'
   { -- | Specifies the name or the CloudTrail ARN of the trail to be deleted. The
-    -- format of a trail ARN is:
+    -- following is the format of a trail ARN.
     -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
     name :: Prelude.Text
   }
@@ -68,7 +68,7 @@ data DeleteTrail = DeleteTrail'
 -- for backwards compatibility:
 --
 -- 'name', 'deleteTrail_name' - Specifies the name or the CloudTrail ARN of the trail to be deleted. The
--- format of a trail ARN is:
+-- following is the format of a trail ARN.
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
 newDeleteTrail ::
   -- | 'name'
@@ -77,7 +77,7 @@ newDeleteTrail ::
 newDeleteTrail pName_ = DeleteTrail' {name = pName_}
 
 -- | Specifies the name or the CloudTrail ARN of the trail to be deleted. The
--- format of a trail ARN is:
+-- following is the format of a trail ARN.
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
 deleteTrail_name :: Lens.Lens' DeleteTrail Prelude.Text
 deleteTrail_name = Lens.lens (\DeleteTrail' {name} -> name) (\s@DeleteTrail' {} a -> s {name = a} :: DeleteTrail)

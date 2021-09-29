@@ -56,8 +56,8 @@
 -- information, see
 -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-and-data-events-with-cloudtrail.html Logging data and management events for trails>
 -- and
--- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html Quotas in AWS CloudTrail>
--- in the /AWS CloudTrail User Guide/.
+-- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html Quotas in CloudTrail>
+-- in the /CloudTrail User Guide/.
 --
 -- You can add advanced event selectors, and conditions for your advanced
 -- event selectors, up to a maximum of 500 values for all conditions and
@@ -66,7 +66,7 @@
 -- a trail, any existing @EventSelectors@ are overwritten. For more
 -- information about advanced event selectors, see
 -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html Logging data events for trails>
--- in the /AWS CloudTrail User Guide/.
+-- in the /CloudTrail User Guide/.
 module Network.AWS.CloudTrail.PutEventSelectors
   ( -- * Creating a Request
     PutEventSelectors (..),
@@ -112,7 +112,7 @@ data PutEventSelectors = PutEventSelectors'
     -- a trail, any existing @EventSelectors@ are overwritten. For more
     -- information about advanced event selectors, see
     -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html Logging data events for trails>
-    -- in the /AWS CloudTrail User Guide/.
+    -- in the /CloudTrail User Guide/.
     advancedEventSelectors :: Prelude.Maybe [AdvancedEventSelector],
     -- | Specifies the name of the trail or trail ARN. If you specify a trail
     -- name, the string must meet the following requirements:
@@ -125,11 +125,11 @@ data PutEventSelectors = PutEventSelectors'
     -- -   Be between 3 and 128 characters
     --
     -- -   Have no adjacent periods, underscores or dashes. Names like
-    --     @my-_namespace@ and @my--namespace@ are invalid.
+    --     @my-_namespace@ and @my--namespace@ are not valid.
     --
     -- -   Not be in IP address format (for example, 192.168.5.4)
     --
-    -- If you specify a trail ARN, it must be in the format:
+    -- If you specify a trail ARN, it must be in the following format.
     --
     -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
     trailName :: Prelude.Text
@@ -158,7 +158,7 @@ data PutEventSelectors = PutEventSelectors'
 -- a trail, any existing @EventSelectors@ are overwritten. For more
 -- information about advanced event selectors, see
 -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html Logging data events for trails>
--- in the /AWS CloudTrail User Guide/.
+-- in the /CloudTrail User Guide/.
 --
 -- 'trailName', 'putEventSelectors_trailName' - Specifies the name of the trail or trail ARN. If you specify a trail
 -- name, the string must meet the following requirements:
@@ -171,11 +171,11 @@ data PutEventSelectors = PutEventSelectors'
 -- -   Be between 3 and 128 characters
 --
 -- -   Have no adjacent periods, underscores or dashes. Names like
---     @my-_namespace@ and @my--namespace@ are invalid.
+--     @my-_namespace@ and @my--namespace@ are not valid.
 --
 -- -   Not be in IP address format (for example, 192.168.5.4)
 --
--- If you specify a trail ARN, it must be in the format:
+-- If you specify a trail ARN, it must be in the following format.
 --
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
 newPutEventSelectors ::
@@ -206,7 +206,7 @@ putEventSelectors_eventSelectors = Lens.lens (\PutEventSelectors' {eventSelector
 -- a trail, any existing @EventSelectors@ are overwritten. For more
 -- information about advanced event selectors, see
 -- <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html Logging data events for trails>
--- in the /AWS CloudTrail User Guide/.
+-- in the /CloudTrail User Guide/.
 putEventSelectors_advancedEventSelectors :: Lens.Lens' PutEventSelectors (Prelude.Maybe [AdvancedEventSelector])
 putEventSelectors_advancedEventSelectors = Lens.lens (\PutEventSelectors' {advancedEventSelectors} -> advancedEventSelectors) (\s@PutEventSelectors' {} a -> s {advancedEventSelectors = a} :: PutEventSelectors) Prelude.. Lens.mapping Lens._Coerce
 
@@ -221,11 +221,11 @@ putEventSelectors_advancedEventSelectors = Lens.lens (\PutEventSelectors' {advan
 -- -   Be between 3 and 128 characters
 --
 -- -   Have no adjacent periods, underscores or dashes. Names like
---     @my-_namespace@ and @my--namespace@ are invalid.
+--     @my-_namespace@ and @my--namespace@ are not valid.
 --
 -- -   Not be in IP address format (for example, 192.168.5.4)
 --
--- If you specify a trail ARN, it must be in the format:
+-- If you specify a trail ARN, it must be in the following format.
 --
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
 putEventSelectors_trailName :: Lens.Lens' PutEventSelectors Prelude.Text
@@ -288,7 +288,7 @@ instance Core.ToQuery PutEventSelectors where
 -- | /See:/ 'newPutEventSelectorsResponse' smart constructor.
 data PutEventSelectorsResponse = PutEventSelectorsResponse'
   { -- | Specifies the ARN of the trail that was updated with event selectors.
-    -- The format of a trail ARN is:
+    -- The following is the format of a trail ARN.
     --
     -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
     trailARN :: Prelude.Maybe Prelude.Text,
@@ -310,7 +310,7 @@ data PutEventSelectorsResponse = PutEventSelectorsResponse'
 -- for backwards compatibility:
 --
 -- 'trailARN', 'putEventSelectorsResponse_trailARN' - Specifies the ARN of the trail that was updated with event selectors.
--- The format of a trail ARN is:
+-- The following is the format of a trail ARN.
 --
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
 --
@@ -333,7 +333,7 @@ newPutEventSelectorsResponse pHttpStatus_ =
     }
 
 -- | Specifies the ARN of the trail that was updated with event selectors.
--- The format of a trail ARN is:
+-- The following is the format of a trail ARN.
 --
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail\/MyTrail@
 putEventSelectorsResponse_trailARN :: Lens.Lens' PutEventSelectorsResponse (Prelude.Maybe Prelude.Text)

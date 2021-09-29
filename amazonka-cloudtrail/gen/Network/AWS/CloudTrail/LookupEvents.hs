@@ -28,7 +28,7 @@
 -- a region within the last 90 days. Lookup supports the following
 -- attributes for management events:
 --
--- -   AWS access key
+-- -   Amazon Web Services access key
 --
 -- -   Event ID
 --

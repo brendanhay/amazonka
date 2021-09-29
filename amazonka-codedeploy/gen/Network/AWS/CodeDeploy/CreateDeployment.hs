@@ -28,10 +28,10 @@ module Network.AWS.CodeDeploy.CreateDeployment
 
     -- * Request Lenses
     createDeployment_deploymentConfigName,
-    createDeployment_ignoreApplicationStopFailures,
-    createDeployment_updateOutdatedInstancesOnly,
-    createDeployment_autoRollbackConfiguration,
     createDeployment_deploymentGroupName,
+    createDeployment_autoRollbackConfiguration,
+    createDeployment_updateOutdatedInstancesOnly,
+    createDeployment_ignoreApplicationStopFailures,
     createDeployment_targetInstances,
     createDeployment_description,
     createDeployment_revision,
@@ -67,6 +67,14 @@ data CreateDeployment = CreateDeployment'
     -- configuration associated with it, @CodeDeployDefault@.@OneAtATime@ is
     -- used by default.
     deploymentConfigName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the deployment group.
+    deploymentGroupName :: Prelude.Maybe Prelude.Text,
+    -- | Configuration information for an automatic rollback that is added when a
+    -- deployment is created.
+    autoRollbackConfiguration :: Prelude.Maybe AutoRollbackConfiguration,
+    -- | Indicates whether to deploy to all instances or only to instances that
+    -- are not running the latest application revision.
+    updateOutdatedInstancesOnly :: Prelude.Maybe Prelude.Bool,
     -- | If true, then if an @ApplicationStop@, @BeforeBlockTraffic@, or
     -- @AfterBlockTraffic@ deployment lifecycle event to an instance fails,
     -- then the deployment continues to the next deployment lifecycle event.
@@ -94,14 +102,6 @@ data CreateDeployment = CreateDeployment'
     -- @ApplicationStop@, @BeforeBlockTraffic@, and @AfterBlockTraffic@
     -- failures should be ignored.
     ignoreApplicationStopFailures :: Prelude.Maybe Prelude.Bool,
-    -- | Indicates whether to deploy to all instances or only to instances that
-    -- are not running the latest application revision.
-    updateOutdatedInstancesOnly :: Prelude.Maybe Prelude.Bool,
-    -- | Configuration information for an automatic rollback that is added when a
-    -- deployment is created.
-    autoRollbackConfiguration :: Prelude.Maybe AutoRollbackConfiguration,
-    -- | The name of the deployment group.
-    deploymentGroupName :: Prelude.Maybe Prelude.Text,
     -- | Information about the instances that belong to the replacement
     -- environment in a blue\/green deployment.
     targetInstances :: Prelude.Maybe TargetInstances,
@@ -147,6 +147,14 @@ data CreateDeployment = CreateDeployment'
 -- configuration associated with it, @CodeDeployDefault@.@OneAtATime@ is
 -- used by default.
 --
+-- 'deploymentGroupName', 'createDeployment_deploymentGroupName' - The name of the deployment group.
+--
+-- 'autoRollbackConfiguration', 'createDeployment_autoRollbackConfiguration' - Configuration information for an automatic rollback that is added when a
+-- deployment is created.
+--
+-- 'updateOutdatedInstancesOnly', 'createDeployment_updateOutdatedInstancesOnly' - Indicates whether to deploy to all instances or only to instances that
+-- are not running the latest application revision.
+--
 -- 'ignoreApplicationStopFailures', 'createDeployment_ignoreApplicationStopFailures' - If true, then if an @ApplicationStop@, @BeforeBlockTraffic@, or
 -- @AfterBlockTraffic@ deployment lifecycle event to an instance fails,
 -- then the deployment continues to the next deployment lifecycle event.
@@ -173,14 +181,6 @@ data CreateDeployment = CreateDeployment'
 -- use @ignoreApplicationStopFailures@ to specify that the
 -- @ApplicationStop@, @BeforeBlockTraffic@, and @AfterBlockTraffic@
 -- failures should be ignored.
---
--- 'updateOutdatedInstancesOnly', 'createDeployment_updateOutdatedInstancesOnly' - Indicates whether to deploy to all instances or only to instances that
--- are not running the latest application revision.
---
--- 'autoRollbackConfiguration', 'createDeployment_autoRollbackConfiguration' - Configuration information for an automatic rollback that is added when a
--- deployment is created.
---
--- 'deploymentGroupName', 'createDeployment_deploymentGroupName' - The name of the deployment group.
 --
 -- 'targetInstances', 'createDeployment_targetInstances' - Information about the instances that belong to the replacement
 -- environment in a blue\/green deployment.
@@ -215,10 +215,10 @@ newCreateDeployment pApplicationName_ =
   CreateDeployment'
     { deploymentConfigName =
         Prelude.Nothing,
-      ignoreApplicationStopFailures = Prelude.Nothing,
-      updateOutdatedInstancesOnly = Prelude.Nothing,
-      autoRollbackConfiguration = Prelude.Nothing,
       deploymentGroupName = Prelude.Nothing,
+      autoRollbackConfiguration = Prelude.Nothing,
+      updateOutdatedInstancesOnly = Prelude.Nothing,
+      ignoreApplicationStopFailures = Prelude.Nothing,
       targetInstances = Prelude.Nothing,
       description = Prelude.Nothing,
       revision = Prelude.Nothing,
@@ -235,6 +235,20 @@ newCreateDeployment pApplicationName_ =
 -- used by default.
 createDeployment_deploymentConfigName :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
 createDeployment_deploymentConfigName = Lens.lens (\CreateDeployment' {deploymentConfigName} -> deploymentConfigName) (\s@CreateDeployment' {} a -> s {deploymentConfigName = a} :: CreateDeployment)
+
+-- | The name of the deployment group.
+createDeployment_deploymentGroupName :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
+createDeployment_deploymentGroupName = Lens.lens (\CreateDeployment' {deploymentGroupName} -> deploymentGroupName) (\s@CreateDeployment' {} a -> s {deploymentGroupName = a} :: CreateDeployment)
+
+-- | Configuration information for an automatic rollback that is added when a
+-- deployment is created.
+createDeployment_autoRollbackConfiguration :: Lens.Lens' CreateDeployment (Prelude.Maybe AutoRollbackConfiguration)
+createDeployment_autoRollbackConfiguration = Lens.lens (\CreateDeployment' {autoRollbackConfiguration} -> autoRollbackConfiguration) (\s@CreateDeployment' {} a -> s {autoRollbackConfiguration = a} :: CreateDeployment)
+
+-- | Indicates whether to deploy to all instances or only to instances that
+-- are not running the latest application revision.
+createDeployment_updateOutdatedInstancesOnly :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Bool)
+createDeployment_updateOutdatedInstancesOnly = Lens.lens (\CreateDeployment' {updateOutdatedInstancesOnly} -> updateOutdatedInstancesOnly) (\s@CreateDeployment' {} a -> s {updateOutdatedInstancesOnly = a} :: CreateDeployment)
 
 -- | If true, then if an @ApplicationStop@, @BeforeBlockTraffic@, or
 -- @AfterBlockTraffic@ deployment lifecycle event to an instance fails,
@@ -264,20 +278,6 @@ createDeployment_deploymentConfigName = Lens.lens (\CreateDeployment' {deploymen
 -- failures should be ignored.
 createDeployment_ignoreApplicationStopFailures :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Bool)
 createDeployment_ignoreApplicationStopFailures = Lens.lens (\CreateDeployment' {ignoreApplicationStopFailures} -> ignoreApplicationStopFailures) (\s@CreateDeployment' {} a -> s {ignoreApplicationStopFailures = a} :: CreateDeployment)
-
--- | Indicates whether to deploy to all instances or only to instances that
--- are not running the latest application revision.
-createDeployment_updateOutdatedInstancesOnly :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Bool)
-createDeployment_updateOutdatedInstancesOnly = Lens.lens (\CreateDeployment' {updateOutdatedInstancesOnly} -> updateOutdatedInstancesOnly) (\s@CreateDeployment' {} a -> s {updateOutdatedInstancesOnly = a} :: CreateDeployment)
-
--- | Configuration information for an automatic rollback that is added when a
--- deployment is created.
-createDeployment_autoRollbackConfiguration :: Lens.Lens' CreateDeployment (Prelude.Maybe AutoRollbackConfiguration)
-createDeployment_autoRollbackConfiguration = Lens.lens (\CreateDeployment' {autoRollbackConfiguration} -> autoRollbackConfiguration) (\s@CreateDeployment' {} a -> s {autoRollbackConfiguration = a} :: CreateDeployment)
-
--- | The name of the deployment group.
-createDeployment_deploymentGroupName :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
-createDeployment_deploymentGroupName = Lens.lens (\CreateDeployment' {deploymentGroupName} -> deploymentGroupName) (\s@CreateDeployment' {} a -> s {deploymentGroupName = a} :: CreateDeployment)
 
 -- | Information about the instances that belong to the replacement
 -- environment in a blue\/green deployment.
@@ -353,14 +353,14 @@ instance Core.ToJSON CreateDeployment where
       ( Prelude.catMaybes
           [ ("deploymentConfigName" Core..=)
               Prelude.<$> deploymentConfigName,
-            ("ignoreApplicationStopFailures" Core..=)
-              Prelude.<$> ignoreApplicationStopFailures,
-            ("updateOutdatedInstancesOnly" Core..=)
-              Prelude.<$> updateOutdatedInstancesOnly,
-            ("autoRollbackConfiguration" Core..=)
-              Prelude.<$> autoRollbackConfiguration,
             ("deploymentGroupName" Core..=)
               Prelude.<$> deploymentGroupName,
+            ("autoRollbackConfiguration" Core..=)
+              Prelude.<$> autoRollbackConfiguration,
+            ("updateOutdatedInstancesOnly" Core..=)
+              Prelude.<$> updateOutdatedInstancesOnly,
+            ("ignoreApplicationStopFailures" Core..=)
+              Prelude.<$> ignoreApplicationStopFailures,
             ("targetInstances" Core..=)
               Prelude.<$> targetInstances,
             ("description" Core..=) Prelude.<$> description,

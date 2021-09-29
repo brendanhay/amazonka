@@ -31,13 +31,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInstanceTarget' smart constructor.
 data InstanceTarget = InstanceTarget'
-  { -- | The unique ID of a deployment.
+  { -- | The unique ID of a deployment target that has a type of
+    -- @instanceTarget@.
+    targetId :: Prelude.Maybe Prelude.Text,
+    -- | The unique ID of a deployment.
     deploymentId :: Prelude.Maybe Prelude.Text,
     -- | The status an EC2\/On-premises deployment\'s target instance.
     status :: Prelude.Maybe TargetStatus,
-    -- | The unique ID of a deployment target that has a type of
-    -- @instanceTarget@.
-    targetId :: Prelude.Maybe Prelude.Text,
     -- | A label that identifies whether the instance is an original target
     -- (@BLUE@) or a replacement target (@GREEN@).
     instanceLabel :: Prelude.Maybe TargetLabel,
@@ -58,12 +58,12 @@ data InstanceTarget = InstanceTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'targetId', 'instanceTarget_targetId' - The unique ID of a deployment target that has a type of
+-- @instanceTarget@.
+--
 -- 'deploymentId', 'instanceTarget_deploymentId' - The unique ID of a deployment.
 --
 -- 'status', 'instanceTarget_status' - The status an EC2\/On-premises deployment\'s target instance.
---
--- 'targetId', 'instanceTarget_targetId' - The unique ID of a deployment target that has a type of
--- @instanceTarget@.
 --
 -- 'instanceLabel', 'instanceTarget_instanceLabel' - A label that identifies whether the instance is an original target
 -- (@BLUE@) or a replacement target (@GREEN@).
@@ -77,14 +77,19 @@ newInstanceTarget ::
   InstanceTarget
 newInstanceTarget =
   InstanceTarget'
-    { deploymentId = Prelude.Nothing,
+    { targetId = Prelude.Nothing,
+      deploymentId = Prelude.Nothing,
       status = Prelude.Nothing,
-      targetId = Prelude.Nothing,
       instanceLabel = Prelude.Nothing,
       targetArn = Prelude.Nothing,
       lifecycleEvents = Prelude.Nothing,
       lastUpdatedAt = Prelude.Nothing
     }
+
+-- | The unique ID of a deployment target that has a type of
+-- @instanceTarget@.
+instanceTarget_targetId :: Lens.Lens' InstanceTarget (Prelude.Maybe Prelude.Text)
+instanceTarget_targetId = Lens.lens (\InstanceTarget' {targetId} -> targetId) (\s@InstanceTarget' {} a -> s {targetId = a} :: InstanceTarget)
 
 -- | The unique ID of a deployment.
 instanceTarget_deploymentId :: Lens.Lens' InstanceTarget (Prelude.Maybe Prelude.Text)
@@ -93,11 +98,6 @@ instanceTarget_deploymentId = Lens.lens (\InstanceTarget' {deploymentId} -> depl
 -- | The status an EC2\/On-premises deployment\'s target instance.
 instanceTarget_status :: Lens.Lens' InstanceTarget (Prelude.Maybe TargetStatus)
 instanceTarget_status = Lens.lens (\InstanceTarget' {status} -> status) (\s@InstanceTarget' {} a -> s {status = a} :: InstanceTarget)
-
--- | The unique ID of a deployment target that has a type of
--- @instanceTarget@.
-instanceTarget_targetId :: Lens.Lens' InstanceTarget (Prelude.Maybe Prelude.Text)
-instanceTarget_targetId = Lens.lens (\InstanceTarget' {targetId} -> targetId) (\s@InstanceTarget' {} a -> s {targetId = a} :: InstanceTarget)
 
 -- | A label that identifies whether the instance is an original target
 -- (@BLUE@) or a replacement target (@GREEN@).
@@ -122,9 +122,9 @@ instance Core.FromJSON InstanceTarget where
       "InstanceTarget"
       ( \x ->
           InstanceTarget'
-            Prelude.<$> (x Core..:? "deploymentId")
+            Prelude.<$> (x Core..:? "targetId")
+            Prelude.<*> (x Core..:? "deploymentId")
             Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "targetId")
             Prelude.<*> (x Core..:? "instanceLabel")
             Prelude.<*> (x Core..:? "targetArn")
             Prelude.<*> ( x Core..:? "lifecycleEvents"

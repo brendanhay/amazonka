@@ -31,12 +31,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newLambdaTarget' smart constructor.
 data LambdaTarget = LambdaTarget'
-  { -- | The unique ID of a deployment.
+  { -- | The unique ID of a deployment target that has a type of @lambdaTarget@.
+    targetId :: Prelude.Maybe Prelude.Text,
+    -- | The unique ID of a deployment.
     deploymentId :: Prelude.Maybe Prelude.Text,
     -- | The status an AWS Lambda deployment\'s target Lambda function.
     status :: Prelude.Maybe TargetStatus,
-    -- | The unique ID of a deployment target that has a type of @lambdaTarget@.
-    targetId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the target.
     targetArn :: Prelude.Maybe Prelude.Text,
     -- | The lifecycle events of the deployment to this target Lambda function.
@@ -57,11 +57,11 @@ data LambdaTarget = LambdaTarget'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'targetId', 'lambdaTarget_targetId' - The unique ID of a deployment target that has a type of @lambdaTarget@.
+--
 -- 'deploymentId', 'lambdaTarget_deploymentId' - The unique ID of a deployment.
 --
 -- 'status', 'lambdaTarget_status' - The status an AWS Lambda deployment\'s target Lambda function.
---
--- 'targetId', 'lambdaTarget_targetId' - The unique ID of a deployment target that has a type of @lambdaTarget@.
 --
 -- 'targetArn', 'lambdaTarget_targetArn' - The Amazon Resource Name (ARN) of the target.
 --
@@ -75,14 +75,18 @@ newLambdaTarget ::
   LambdaTarget
 newLambdaTarget =
   LambdaTarget'
-    { deploymentId = Prelude.Nothing,
+    { targetId = Prelude.Nothing,
+      deploymentId = Prelude.Nothing,
       status = Prelude.Nothing,
-      targetId = Prelude.Nothing,
       targetArn = Prelude.Nothing,
       lifecycleEvents = Prelude.Nothing,
       lambdaFunctionInfo = Prelude.Nothing,
       lastUpdatedAt = Prelude.Nothing
     }
+
+-- | The unique ID of a deployment target that has a type of @lambdaTarget@.
+lambdaTarget_targetId :: Lens.Lens' LambdaTarget (Prelude.Maybe Prelude.Text)
+lambdaTarget_targetId = Lens.lens (\LambdaTarget' {targetId} -> targetId) (\s@LambdaTarget' {} a -> s {targetId = a} :: LambdaTarget)
 
 -- | The unique ID of a deployment.
 lambdaTarget_deploymentId :: Lens.Lens' LambdaTarget (Prelude.Maybe Prelude.Text)
@@ -91,10 +95,6 @@ lambdaTarget_deploymentId = Lens.lens (\LambdaTarget' {deploymentId} -> deployme
 -- | The status an AWS Lambda deployment\'s target Lambda function.
 lambdaTarget_status :: Lens.Lens' LambdaTarget (Prelude.Maybe TargetStatus)
 lambdaTarget_status = Lens.lens (\LambdaTarget' {status} -> status) (\s@LambdaTarget' {} a -> s {status = a} :: LambdaTarget)
-
--- | The unique ID of a deployment target that has a type of @lambdaTarget@.
-lambdaTarget_targetId :: Lens.Lens' LambdaTarget (Prelude.Maybe Prelude.Text)
-lambdaTarget_targetId = Lens.lens (\LambdaTarget' {targetId} -> targetId) (\s@LambdaTarget' {} a -> s {targetId = a} :: LambdaTarget)
 
 -- | The Amazon Resource Name (ARN) of the target.
 lambdaTarget_targetArn :: Lens.Lens' LambdaTarget (Prelude.Maybe Prelude.Text)
@@ -119,9 +119,9 @@ instance Core.FromJSON LambdaTarget where
       "LambdaTarget"
       ( \x ->
           LambdaTarget'
-            Prelude.<$> (x Core..:? "deploymentId")
+            Prelude.<$> (x Core..:? "targetId")
+            Prelude.<*> (x Core..:? "deploymentId")
             Prelude.<*> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "targetId")
             Prelude.<*> (x Core..:? "targetArn")
             Prelude.<*> ( x Core..:? "lifecycleEvents"
                             Core..!= Prelude.mempty

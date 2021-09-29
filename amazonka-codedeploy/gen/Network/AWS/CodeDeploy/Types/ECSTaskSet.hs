@@ -34,7 +34,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newECSTaskSet' smart constructor.
 data ECSTaskSet = ECSTaskSet'
-  { -- | The status of the task set. There are three valid task set statuses:
+  { -- | The number of tasks in the task set that are in the @RUNNING@ status
+    -- during an Amazon ECS deployment. A task in the @RUNNING@ state is
+    -- running and ready for use.
+    runningCount :: Prelude.Maybe Prelude.Integer,
+    -- | The status of the task set. There are three valid task set statuses:
     --
     -- -   @PRIMARY@: Indicates the task set is serving production traffic.
     --
@@ -44,10 +48,6 @@ data ECSTaskSet = ECSTaskSet'
     --     and their corresponding targets are being deregistered from their
     --     target group.
     status :: Prelude.Maybe Prelude.Text,
-    -- | The number of tasks in the task set that are in the @RUNNING@ status
-    -- during an Amazon ECS deployment. A task in the @RUNNING@ state is
-    -- running and ready for use.
-    runningCount :: Prelude.Maybe Prelude.Integer,
     -- | The number of tasks in a task set. During a deployment that uses the
     -- Amazon ECS compute type, CodeDeploy instructs Amazon ECS to create a new
     -- task set and uses this value to determine how many tasks to create.
@@ -81,6 +81,10 @@ data ECSTaskSet = ECSTaskSet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'runningCount', 'eCSTaskSet_runningCount' - The number of tasks in the task set that are in the @RUNNING@ status
+-- during an Amazon ECS deployment. A task in the @RUNNING@ state is
+-- running and ready for use.
+--
 -- 'status', 'eCSTaskSet_status' - The status of the task set. There are three valid task set statuses:
 --
 -- -   @PRIMARY@: Indicates the task set is serving production traffic.
@@ -90,10 +94,6 @@ data ECSTaskSet = ECSTaskSet'
 -- -   @DRAINING@: Indicates the tasks in the task set are being stopped
 --     and their corresponding targets are being deregistered from their
 --     target group.
---
--- 'runningCount', 'eCSTaskSet_runningCount' - The number of tasks in the task set that are in the @RUNNING@ status
--- during an Amazon ECS deployment. A task in the @RUNNING@ state is
--- running and ready for use.
 --
 -- 'desiredCount', 'eCSTaskSet_desiredCount' - The number of tasks in a task set. During a deployment that uses the
 -- Amazon ECS compute type, CodeDeploy instructs Amazon ECS to create a new
@@ -120,8 +120,8 @@ newECSTaskSet ::
   ECSTaskSet
 newECSTaskSet =
   ECSTaskSet'
-    { status = Prelude.Nothing,
-      runningCount = Prelude.Nothing,
+    { runningCount = Prelude.Nothing,
+      status = Prelude.Nothing,
       desiredCount = Prelude.Nothing,
       pendingCount = Prelude.Nothing,
       taskSetLabel = Prelude.Nothing,
@@ -129,6 +129,12 @@ newECSTaskSet =
       trafficWeight = Prelude.Nothing,
       identifer = Prelude.Nothing
     }
+
+-- | The number of tasks in the task set that are in the @RUNNING@ status
+-- during an Amazon ECS deployment. A task in the @RUNNING@ state is
+-- running and ready for use.
+eCSTaskSet_runningCount :: Lens.Lens' ECSTaskSet (Prelude.Maybe Prelude.Integer)
+eCSTaskSet_runningCount = Lens.lens (\ECSTaskSet' {runningCount} -> runningCount) (\s@ECSTaskSet' {} a -> s {runningCount = a} :: ECSTaskSet)
 
 -- | The status of the task set. There are three valid task set statuses:
 --
@@ -141,12 +147,6 @@ newECSTaskSet =
 --     target group.
 eCSTaskSet_status :: Lens.Lens' ECSTaskSet (Prelude.Maybe Prelude.Text)
 eCSTaskSet_status = Lens.lens (\ECSTaskSet' {status} -> status) (\s@ECSTaskSet' {} a -> s {status = a} :: ECSTaskSet)
-
--- | The number of tasks in the task set that are in the @RUNNING@ status
--- during an Amazon ECS deployment. A task in the @RUNNING@ state is
--- running and ready for use.
-eCSTaskSet_runningCount :: Lens.Lens' ECSTaskSet (Prelude.Maybe Prelude.Integer)
-eCSTaskSet_runningCount = Lens.lens (\ECSTaskSet' {runningCount} -> runningCount) (\s@ECSTaskSet' {} a -> s {runningCount = a} :: ECSTaskSet)
 
 -- | The number of tasks in a task set. During a deployment that uses the
 -- Amazon ECS compute type, CodeDeploy instructs Amazon ECS to create a new
@@ -188,8 +188,8 @@ instance Core.FromJSON ECSTaskSet where
       "ECSTaskSet"
       ( \x ->
           ECSTaskSet'
-            Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "runningCount")
+            Prelude.<$> (x Core..:? "runningCount")
+            Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "desiredCount")
             Prelude.<*> (x Core..:? "pendingCount")
             Prelude.<*> (x Core..:? "taskSetLabel")

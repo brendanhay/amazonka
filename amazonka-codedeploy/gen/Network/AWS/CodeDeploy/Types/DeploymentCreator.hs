@@ -24,6 +24,7 @@ module Network.AWS.CodeDeploy.Types.DeploymentCreator
         DeploymentCreator_CloudFormation,
         DeploymentCreator_CloudFormationRollback,
         DeploymentCreator_CodeDeploy,
+        DeploymentCreator_CodeDeployAutoUpdate,
         DeploymentCreator_CodeDeployRollback,
         DeploymentCreator_User
       ),
@@ -73,6 +74,9 @@ pattern DeploymentCreator_CloudFormationRollback = DeploymentCreator' "CloudForm
 pattern DeploymentCreator_CodeDeploy :: DeploymentCreator
 pattern DeploymentCreator_CodeDeploy = DeploymentCreator' "CodeDeploy"
 
+pattern DeploymentCreator_CodeDeployAutoUpdate :: DeploymentCreator
+pattern DeploymentCreator_CodeDeployAutoUpdate = DeploymentCreator' "CodeDeployAutoUpdate"
+
 pattern DeploymentCreator_CodeDeployRollback :: DeploymentCreator
 pattern DeploymentCreator_CodeDeployRollback = DeploymentCreator' "codeDeployRollback"
 
@@ -84,6 +88,7 @@ pattern DeploymentCreator_User = DeploymentCreator' "user"
   DeploymentCreator_CloudFormation,
   DeploymentCreator_CloudFormationRollback,
   DeploymentCreator_CodeDeploy,
+  DeploymentCreator_CodeDeployAutoUpdate,
   DeploymentCreator_CodeDeployRollback,
   DeploymentCreator_User,
   DeploymentCreator'

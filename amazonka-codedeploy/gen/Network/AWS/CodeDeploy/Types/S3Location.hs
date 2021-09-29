@@ -29,15 +29,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newS3Location' smart constructor.
 data S3Location = S3Location'
-  { -- | The ETag of the Amazon S3 object that represents the bundled artifacts
+  { -- | The name of the Amazon S3 object that represents the bundled artifacts
+    -- for the application revision.
+    key :: Prelude.Maybe Prelude.Text,
+    -- | The ETag of the Amazon S3 object that represents the bundled artifacts
     -- for the application revision.
     --
     -- If the ETag is not specified as an input parameter, ETag validation of
     -- the object is skipped.
     eTag :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Amazon S3 object that represents the bundled artifacts
-    -- for the application revision.
-    key :: Prelude.Maybe Prelude.Text,
     -- | The file type of the application revision. Must be one of the following:
     --
     -- -   @tar@: A tar archive file.
@@ -66,14 +66,14 @@ data S3Location = S3Location'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'key', 's3Location_key' - The name of the Amazon S3 object that represents the bundled artifacts
+-- for the application revision.
+--
 -- 'eTag', 's3Location_eTag' - The ETag of the Amazon S3 object that represents the bundled artifacts
 -- for the application revision.
 --
 -- If the ETag is not specified as an input parameter, ETag validation of
 -- the object is skipped.
---
--- 'key', 's3Location_key' - The name of the Amazon S3 object that represents the bundled artifacts
--- for the application revision.
 --
 -- 'bundleType', 's3Location_bundleType' - The file type of the application revision. Must be one of the following:
 --
@@ -95,12 +95,17 @@ newS3Location ::
   S3Location
 newS3Location =
   S3Location'
-    { eTag = Prelude.Nothing,
-      key = Prelude.Nothing,
+    { key = Prelude.Nothing,
+      eTag = Prelude.Nothing,
       bundleType = Prelude.Nothing,
       version = Prelude.Nothing,
       bucket = Prelude.Nothing
     }
+
+-- | The name of the Amazon S3 object that represents the bundled artifacts
+-- for the application revision.
+s3Location_key :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
+s3Location_key = Lens.lens (\S3Location' {key} -> key) (\s@S3Location' {} a -> s {key = a} :: S3Location)
 
 -- | The ETag of the Amazon S3 object that represents the bundled artifacts
 -- for the application revision.
@@ -109,11 +114,6 @@ newS3Location =
 -- the object is skipped.
 s3Location_eTag :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
 s3Location_eTag = Lens.lens (\S3Location' {eTag} -> eTag) (\s@S3Location' {} a -> s {eTag = a} :: S3Location)
-
--- | The name of the Amazon S3 object that represents the bundled artifacts
--- for the application revision.
-s3Location_key :: Lens.Lens' S3Location (Prelude.Maybe Prelude.Text)
-s3Location_key = Lens.lens (\S3Location' {key} -> key) (\s@S3Location' {} a -> s {key = a} :: S3Location)
 
 -- | The file type of the application revision. Must be one of the following:
 --
@@ -144,8 +144,8 @@ instance Core.FromJSON S3Location where
       "S3Location"
       ( \x ->
           S3Location'
-            Prelude.<$> (x Core..:? "eTag")
-            Prelude.<*> (x Core..:? "key")
+            Prelude.<$> (x Core..:? "key")
+            Prelude.<*> (x Core..:? "eTag")
             Prelude.<*> (x Core..:? "bundleType")
             Prelude.<*> (x Core..:? "version")
             Prelude.<*> (x Core..:? "bucket")
@@ -159,8 +159,8 @@ instance Core.ToJSON S3Location where
   toJSON S3Location' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("eTag" Core..=) Prelude.<$> eTag,
-            ("key" Core..=) Prelude.<$> key,
+          [ ("key" Core..=) Prelude.<$> key,
+            ("eTag" Core..=) Prelude.<$> eTag,
             ("bundleType" Core..=) Prelude.<$> bundleType,
             ("version" Core..=) Prelude.<$> version,
             ("bucket" Core..=) Prelude.<$> bucket

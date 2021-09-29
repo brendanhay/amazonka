@@ -28,23 +28,23 @@ module Network.AWS.MigrationHub
     -- ** UnauthorizedOperation
     _UnauthorizedOperation,
 
-    -- ** InvalidInputException
-    _InvalidInputException,
-
     -- ** ServiceUnavailableException
     _ServiceUnavailableException,
 
-    -- ** ThrottlingException
-    _ThrottlingException,
+    -- ** InvalidInputException
+    _InvalidInputException,
 
     -- ** InternalServerError
     _InternalServerError,
 
-    -- ** HomeRegionNotSetException
-    _HomeRegionNotSetException,
+    -- ** ThrottlingException
+    _ThrottlingException,
 
     -- ** PolicyErrorException
     _PolicyErrorException,
+
+    -- ** HomeRegionNotSetException
+    _HomeRegionNotSetException,
 
     -- ** AccessDeniedException
     _AccessDeniedException,
@@ -67,24 +67,6 @@ module Network.AWS.MigrationHub
     ListCreatedArtifactsResponse (ListCreatedArtifactsResponse'),
     newListCreatedArtifactsResponse,
 
-    -- ** DescribeMigrationTask
-    DescribeMigrationTask (DescribeMigrationTask'),
-    newDescribeMigrationTask,
-    DescribeMigrationTaskResponse (DescribeMigrationTaskResponse'),
-    newDescribeMigrationTaskResponse,
-
-    -- ** DisassociateCreatedArtifact
-    DisassociateCreatedArtifact (DisassociateCreatedArtifact'),
-    newDisassociateCreatedArtifact,
-    DisassociateCreatedArtifactResponse (DisassociateCreatedArtifactResponse'),
-    newDisassociateCreatedArtifactResponse,
-
-    -- ** ImportMigrationTask
-    ImportMigrationTask (ImportMigrationTask'),
-    newImportMigrationTask,
-    ImportMigrationTaskResponse (ImportMigrationTaskResponse'),
-    newImportMigrationTaskResponse,
-
     -- ** CreateProgressUpdateStream
     CreateProgressUpdateStream (CreateProgressUpdateStream'),
     newCreateProgressUpdateStream,
@@ -96,6 +78,24 @@ module Network.AWS.MigrationHub
     newPutResourceAttributes,
     PutResourceAttributesResponse (PutResourceAttributesResponse'),
     newPutResourceAttributesResponse,
+
+    -- ** ImportMigrationTask
+    ImportMigrationTask (ImportMigrationTask'),
+    newImportMigrationTask,
+    ImportMigrationTaskResponse (ImportMigrationTaskResponse'),
+    newImportMigrationTaskResponse,
+
+    -- ** DisassociateCreatedArtifact
+    DisassociateCreatedArtifact (DisassociateCreatedArtifact'),
+    newDisassociateCreatedArtifact,
+    DisassociateCreatedArtifactResponse (DisassociateCreatedArtifactResponse'),
+    newDisassociateCreatedArtifactResponse,
+
+    -- ** DescribeMigrationTask
+    DescribeMigrationTask (DescribeMigrationTask'),
+    newDescribeMigrationTask,
+    DescribeMigrationTaskResponse (DescribeMigrationTaskResponse'),
+    newDescribeMigrationTaskResponse,
 
     -- ** ListDiscoveredResources (Paginated)
     ListDiscoveredResources (ListDiscoveredResources'),
@@ -121,17 +121,17 @@ module Network.AWS.MigrationHub
     DisassociateDiscoveredResourceResponse (DisassociateDiscoveredResourceResponse'),
     newDisassociateDiscoveredResourceResponse,
 
-    -- ** ListApplicationStates (Paginated)
-    ListApplicationStates (ListApplicationStates'),
-    newListApplicationStates,
-    ListApplicationStatesResponse (ListApplicationStatesResponse'),
-    newListApplicationStatesResponse,
-
     -- ** AssociateDiscoveredResource
     AssociateDiscoveredResource (AssociateDiscoveredResource'),
     newAssociateDiscoveredResource,
     AssociateDiscoveredResourceResponse (AssociateDiscoveredResourceResponse'),
     newAssociateDiscoveredResourceResponse,
+
+    -- ** ListApplicationStates (Paginated)
+    ListApplicationStates (ListApplicationStates'),
+    newListApplicationStates,
+    ListApplicationStatesResponse (ListApplicationStatesResponse'),
+    newListApplicationStatesResponse,
 
     -- ** ListProgressUpdateStreams (Paginated)
     ListProgressUpdateStreams (ListProgressUpdateStreams'),

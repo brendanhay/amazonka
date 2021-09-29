@@ -18,12 +18,12 @@ module Network.AWS.MigrationHub.Types
 
     -- * Errors
     _UnauthorizedOperation,
-    _InvalidInputException,
     _ServiceUnavailableException,
-    _ThrottlingException,
+    _InvalidInputException,
     _InternalServerError,
-    _HomeRegionNotSetException,
+    _ThrottlingException,
     _PolicyErrorException,
+    _HomeRegionNotSetException,
     _AccessDeniedException,
     _ResourceNotFoundException,
     _DryRunOperation,
@@ -190,14 +190,6 @@ _UnauthorizedOperation =
     defaultService
     "UnauthorizedOperation"
 
--- | Exception raised when the provided input violates a policy constraint or
--- is entered in the wrong format or data type.
-_InvalidInputException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidInputException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidInputException"
-
 -- | Exception raised when there is an internal, configuration, or dependency
 -- error encountered.
 _ServiceUnavailableException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -206,12 +198,13 @@ _ServiceUnavailableException =
     defaultService
     "ServiceUnavailableException"
 
--- | The request was denied due to request throttling.
-_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ThrottlingException =
+-- | Exception raised when the provided input violates a policy constraint or
+-- is entered in the wrong format or data type.
+_InvalidInputException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidInputException =
   Core._MatchServiceError
     defaultService
-    "ThrottlingException"
+    "InvalidInputException"
 
 -- | Exception raised when an internal, configuration, or dependency error is
 -- encountered.
@@ -221,12 +214,12 @@ _InternalServerError =
     defaultService
     "InternalServerError"
 
--- | The home region is not set. Set the home region to continue.
-_HomeRegionNotSetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_HomeRegionNotSetException =
+-- | The request was denied due to request throttling.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
   Core._MatchServiceError
     defaultService
-    "HomeRegionNotSetException"
+    "ThrottlingException"
 
 -- | Exception raised when there are problems accessing Application Discovery
 -- Service (Application Discovery Service); most likely due to a
@@ -237,6 +230,13 @@ _PolicyErrorException =
   Core._MatchServiceError
     defaultService
     "PolicyErrorException"
+
+-- | The home region is not set. Set the home region to continue.
+_HomeRegionNotSetException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_HomeRegionNotSetException =
+  Core._MatchServiceError
+    defaultService
+    "HomeRegionNotSetException"
 
 -- | You do not have sufficient access to perform this action.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

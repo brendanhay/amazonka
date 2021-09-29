@@ -240,6 +240,7 @@ data Templates = Templates
 
 data Model = Model
   { _modelName :: Text,
+    _modelVersions :: [UTCTime],
     _modelVersion :: UTCTime,
     _modelPath :: Path
   }
@@ -258,7 +259,7 @@ pagersFile = to (flip Path.append "paginators-1.json" . _modelPath)
 
 loadModel :: Path -> [Path] -> Either Error Model
 loadModel p xs =
-  uncurry (Model n)
+  uncurry (Model n (map fst vs))
     <$> headErr (format ("No valid model versions found in " % shown) xs) vs
   where
     vs = sortOn Down (mapMaybe parse xs)

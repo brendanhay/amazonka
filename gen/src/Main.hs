@@ -51,34 +51,34 @@ parser =
     <$> option
       isPath
       ( long "out"
-          <> metavar "DIR"
+          <> metavar "OUT-PATH"
           <> help "Directory to place the generated library."
       )
     <*> option
       isPath
       ( long "annexes"
-          <> metavar "DIR"
+          <> metavar "PATH"
           <> help "Directory containing botocore model annexes."
           <> value "config/annexes"
       )
     <*> option
       isPath
       ( long "services"
-          <> metavar "DIR"
+          <> metavar "PATH"
           <> help "Directory containing service configuration."
           <> value "config/services"
       )
     <*> option
       isPath
       ( long "templates"
-          <> metavar "DIR"
+          <> metavar "PATH"
           <> help "Directory containing ED-E templates."
           <> value "config/templates"
       )
     <*> option
       isPath
       ( long "assets"
-          <> metavar "DIR"
+          <> metavar "PATH"
           <> help "Directory containing static files for generated libraries."
           <> value "config/assets"
       )
@@ -92,20 +92,20 @@ parser =
             <$> option
               version
               ( long "library-version"
-                  <> metavar "VER"
+                  <> metavar "VERSION"
                   <> help "Version of the library to generate."
               )
             <*> option
               version
               ( long "client-version"
-                  <> metavar "VER"
+                  <> metavar "VERSION"
                   <> help "Client library version dependecy for examples."
               )
         )
     <*> some
       ( argument
           isPath
-          ( metavar "DIR"
+          ( metavar "MODEL-PATH"
               <> help "Directory for a service's botocore models."
           )
       )
@@ -184,7 +184,10 @@ main = do
 
       m <- listDir f >>= hoistEither . loadModel f
 
-      say ("Using version " % dateDash) (m ^. modelVersion)
+      say
+        ("Using version " % dateDash % " out of " % intercalated ", " dateDash)
+        (m ^. modelVersion)
+        (m ^. modelVersions)
 
       cfg <-
         JS.required (_optionServices </> (m ^. configFile))

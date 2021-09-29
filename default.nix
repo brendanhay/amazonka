@@ -15,15 +15,20 @@ let
     inherit system sources config overlays ghcVersion;
   };
 
-  inherit (pkgs) lib;
   inherit (pkgs.haskell-nix) haskellLib;
 
-  project = haskellLib.selectProjectPackages pkgs.cabalProject;
-  libraries = haskellLib.collectComponents' "library" project;
-  checks = builtins.mapAttrs (_: p: p.checks) project;
+  packages = haskellLib.selectProjectPackages pkgs.cabalProject;
+  botocore = "${pkgs.sources.botocore}/botocore/data";
 
-in project // {
-  ci = { inherit libraries checks; };
+in pkgs.cabalProject // {
+  models = (builtins.attrNames
+    (pkgs.lib.filterAttrs (_path: type: type == "directory")
+      (builtins.readDir botocore)));
+
+  ci = {
+    libraries = haskellLib.collectComponents' "library" packages;
+    checks = builtins.mapAttrs (_: p: p.checks) packages;
+  };
 
   shell = pkgs.cabalProject.shellFor {
     exactDeps = true;
@@ -32,17 +37,24 @@ in project // {
     packages = ps: with ps; [ amazonka amazonka-test amazonka-gen ];
 
     tools = {
-      cabal = "3.2.0.0";
-      cabal-fmt = "0.1.5.1";
-      shellcheck = "0.7.1";
-      ormolu = "0.3.0.1";
+      cabal-fmt = {
+        inherit (pkgs.cabalProject) index-state;
+        version = "0.1.5.1";
+      };
     };
 
     buildInputs = [
       pkgs.nixfmt
       pkgs.shfmt
+      pkgs.shellcheck
+      pkgs.ormolu
+      pkgs.parallel
 
       (import pkgs.sources.niv { }).niv
     ];
+
+    shellHook = ''
+      export BOTOCORE_PATH='${botocore}'
+    '';
   };
 }

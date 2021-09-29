@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates (registers) a data catalog with the specified name and
--- properties. Catalogs created are visible to all users of the same AWS
--- account.
+-- properties. Catalogs created are visible to all users of the same Amazon
+-- Web Services account.
 module Network.AWS.Athena.CreateDataCatalog
   ( -- * Creating a Request
     CreateDataCatalog (..),
@@ -82,17 +82,31 @@ data CreateDataCatalog = CreateDataCatalog'
     --         Lambda function.
     --
     --         @function=lambda_arn @
+    --
+    -- -   The @GLUE@ type takes a catalog ID parameter and is required. The
+    --     @ catalog_id @ is the account ID of the Amazon Web Services account
+    --     to which the Glue Data Catalog belongs.
+    --
+    --     @catalog-id=catalog_id @
+    --
+    --     -   The @GLUE@ data catalog type also applies to the default
+    --         @AwsDataCatalog@ that already exists in your account, of which
+    --         you can have only one and cannot modify.
+    --
+    --     -   Queries that specify a Glue Data Catalog other than the default
+    --         @AwsDataCatalog@ must be run on Athena engine version 2.
+    --
+    --     -   In Regions where Athena engine version 2 is not available,
+    --         creating new Glue data catalogs results in an @INVALID_INPUT@
+    --         error.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The name of the data catalog to create. The catalog name must be unique
-    -- for the AWS account and can use a maximum of 128 alphanumeric,
-    -- underscore, at sign, or hyphen characters.
+    -- for the Amazon Web Services account and can use a maximum of 128
+    -- alphanumeric, underscore, at sign, or hyphen characters.
     name :: Prelude.Text,
-    -- | The type of data catalog to create: @LAMBDA@ for a federated catalog or
-    -- @HIVE@ for an external hive metastore.
-    --
-    -- Do not use the @GLUE@ type. This refers to the @AwsDataCatalog@ that
-    -- already exists in your account, of which you can have only one.
-    -- Specifying the @GLUE@ type will result in an @INVALID_INPUT@ error.
+    -- | The type of data catalog to create: @LAMBDA@ for a federated catalog,
+    -- @HIVE@ for an external hive metastore, or @GLUE@ for an Glue Data
+    -- Catalog.
     type' :: DataCatalogType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -135,16 +149,30 @@ data CreateDataCatalog = CreateDataCatalog'
 --
 --         @function=lambda_arn @
 --
+-- -   The @GLUE@ type takes a catalog ID parameter and is required. The
+--     @ catalog_id @ is the account ID of the Amazon Web Services account
+--     to which the Glue Data Catalog belongs.
+--
+--     @catalog-id=catalog_id @
+--
+--     -   The @GLUE@ data catalog type also applies to the default
+--         @AwsDataCatalog@ that already exists in your account, of which
+--         you can have only one and cannot modify.
+--
+--     -   Queries that specify a Glue Data Catalog other than the default
+--         @AwsDataCatalog@ must be run on Athena engine version 2.
+--
+--     -   In Regions where Athena engine version 2 is not available,
+--         creating new Glue data catalogs results in an @INVALID_INPUT@
+--         error.
+--
 -- 'name', 'createDataCatalog_name' - The name of the data catalog to create. The catalog name must be unique
--- for the AWS account and can use a maximum of 128 alphanumeric,
--- underscore, at sign, or hyphen characters.
+-- for the Amazon Web Services account and can use a maximum of 128
+-- alphanumeric, underscore, at sign, or hyphen characters.
 --
--- 'type'', 'createDataCatalog_type' - The type of data catalog to create: @LAMBDA@ for a federated catalog or
--- @HIVE@ for an external hive metastore.
---
--- Do not use the @GLUE@ type. This refers to the @AwsDataCatalog@ that
--- already exists in your account, of which you can have only one.
--- Specifying the @GLUE@ type will result in an @INVALID_INPUT@ error.
+-- 'type'', 'createDataCatalog_type' - The type of data catalog to create: @LAMBDA@ for a federated catalog,
+-- @HIVE@ for an external hive metastore, or @GLUE@ for an Glue Data
+-- Catalog.
 newCreateDataCatalog ::
   -- | 'name'
   Prelude.Text ->
@@ -193,21 +221,35 @@ createDataCatalog_description = Lens.lens (\CreateDataCatalog' {description} -> 
 --         Lambda function.
 --
 --         @function=lambda_arn @
+--
+-- -   The @GLUE@ type takes a catalog ID parameter and is required. The
+--     @ catalog_id @ is the account ID of the Amazon Web Services account
+--     to which the Glue Data Catalog belongs.
+--
+--     @catalog-id=catalog_id @
+--
+--     -   The @GLUE@ data catalog type also applies to the default
+--         @AwsDataCatalog@ that already exists in your account, of which
+--         you can have only one and cannot modify.
+--
+--     -   Queries that specify a Glue Data Catalog other than the default
+--         @AwsDataCatalog@ must be run on Athena engine version 2.
+--
+--     -   In Regions where Athena engine version 2 is not available,
+--         creating new Glue data catalogs results in an @INVALID_INPUT@
+--         error.
 createDataCatalog_parameters :: Lens.Lens' CreateDataCatalog (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 createDataCatalog_parameters = Lens.lens (\CreateDataCatalog' {parameters} -> parameters) (\s@CreateDataCatalog' {} a -> s {parameters = a} :: CreateDataCatalog) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the data catalog to create. The catalog name must be unique
--- for the AWS account and can use a maximum of 128 alphanumeric,
--- underscore, at sign, or hyphen characters.
+-- for the Amazon Web Services account and can use a maximum of 128
+-- alphanumeric, underscore, at sign, or hyphen characters.
 createDataCatalog_name :: Lens.Lens' CreateDataCatalog Prelude.Text
 createDataCatalog_name = Lens.lens (\CreateDataCatalog' {name} -> name) (\s@CreateDataCatalog' {} a -> s {name = a} :: CreateDataCatalog)
 
--- | The type of data catalog to create: @LAMBDA@ for a federated catalog or
--- @HIVE@ for an external hive metastore.
---
--- Do not use the @GLUE@ type. This refers to the @AwsDataCatalog@ that
--- already exists in your account, of which you can have only one.
--- Specifying the @GLUE@ type will result in an @INVALID_INPUT@ error.
+-- | The type of data catalog to create: @LAMBDA@ for a federated catalog,
+-- @HIVE@ for an external hive metastore, or @GLUE@ for an Glue Data
+-- Catalog.
 createDataCatalog_type :: Lens.Lens' CreateDataCatalog DataCatalogType
 createDataCatalog_type = Lens.lens (\CreateDataCatalog' {type'} -> type') (\s@CreateDataCatalog' {} a -> s {type' = a} :: CreateDataCatalog)
 

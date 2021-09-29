@@ -31,8 +31,8 @@ import qualified Network.AWS.Prelude as Prelude
 -- enabled for the workgroup and whether workgroup settings override query
 -- settings, and the data usage limits for the amount of data scanned per
 -- query or per workgroup. The workgroup settings override is specified in
--- EnforceWorkGroupConfiguration (true\/false) in the
--- WorkGroupConfiguration. See
+-- @EnforceWorkGroupConfiguration@ (true\/false) in the
+-- @WorkGroupConfiguration@. See
 -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
 --
 -- /See:/ 'newWorkGroupConfiguration' smart constructor.
@@ -43,11 +43,6 @@ data WorkGroupConfiguration = WorkGroupConfiguration'
     -- | Indicates that the Amazon CloudWatch metrics are enabled for the
     -- workgroup.
     publishCloudWatchMetricsEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | If set to \"true\", the settings for the workgroup override client-side
-    -- settings. If set to \"false\", client-side settings are used. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
-    enforceWorkGroupConfiguration :: Prelude.Maybe Prelude.Bool,
     -- | If set to @true@, allows members assigned to a workgroup to reference
     -- Amazon S3 Requester Pays buckets in queries. If set to @false@,
     -- workgroup members cannot query data from Requester Pays buckets, and
@@ -57,6 +52,11 @@ data WorkGroupConfiguration = WorkGroupConfiguration'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html Requester Pays Buckets>
     -- in the /Amazon Simple Storage Service Developer Guide/.
     requesterPaysEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | If set to \"true\", the settings for the workgroup override client-side
+    -- settings. If set to \"false\", client-side settings are used. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
+    enforceWorkGroupConfiguration :: Prelude.Maybe Prelude.Bool,
     -- | The engine version that all queries running on the workgroup use.
     -- Queries on the @AmazonAthenaPreviewFunctionality@ workgroup run on the
     -- preview engine regardless of this setting.
@@ -88,11 +88,6 @@ data WorkGroupConfiguration = WorkGroupConfiguration'
 -- 'publishCloudWatchMetricsEnabled', 'workGroupConfiguration_publishCloudWatchMetricsEnabled' - Indicates that the Amazon CloudWatch metrics are enabled for the
 -- workgroup.
 --
--- 'enforceWorkGroupConfiguration', 'workGroupConfiguration_enforceWorkGroupConfiguration' - If set to \"true\", the settings for the workgroup override client-side
--- settings. If set to \"false\", client-side settings are used. For more
--- information, see
--- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
---
 -- 'requesterPaysEnabled', 'workGroupConfiguration_requesterPaysEnabled' - If set to @true@, allows members assigned to a workgroup to reference
 -- Amazon S3 Requester Pays buckets in queries. If set to @false@,
 -- workgroup members cannot query data from Requester Pays buckets, and
@@ -101,6 +96,11 @@ data WorkGroupConfiguration = WorkGroupConfiguration'
 -- buckets, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html Requester Pays Buckets>
 -- in the /Amazon Simple Storage Service Developer Guide/.
+--
+-- 'enforceWorkGroupConfiguration', 'workGroupConfiguration_enforceWorkGroupConfiguration' - If set to \"true\", the settings for the workgroup override client-side
+-- settings. If set to \"false\", client-side settings are used. For more
+-- information, see
+-- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
 --
 -- 'engineVersion', 'workGroupConfiguration_engineVersion' - The engine version that all queries running on the workgroup use.
 -- Queries on the @AmazonAthenaPreviewFunctionality@ workgroup run on the
@@ -122,8 +122,8 @@ newWorkGroupConfiguration =
     { bytesScannedCutoffPerQuery =
         Prelude.Nothing,
       publishCloudWatchMetricsEnabled = Prelude.Nothing,
-      enforceWorkGroupConfiguration = Prelude.Nothing,
       requesterPaysEnabled = Prelude.Nothing,
+      enforceWorkGroupConfiguration = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
       resultConfiguration = Prelude.Nothing
     }
@@ -138,13 +138,6 @@ workGroupConfiguration_bytesScannedCutoffPerQuery = Lens.lens (\WorkGroupConfigu
 workGroupConfiguration_publishCloudWatchMetricsEnabled :: Lens.Lens' WorkGroupConfiguration (Prelude.Maybe Prelude.Bool)
 workGroupConfiguration_publishCloudWatchMetricsEnabled = Lens.lens (\WorkGroupConfiguration' {publishCloudWatchMetricsEnabled} -> publishCloudWatchMetricsEnabled) (\s@WorkGroupConfiguration' {} a -> s {publishCloudWatchMetricsEnabled = a} :: WorkGroupConfiguration)
 
--- | If set to \"true\", the settings for the workgroup override client-side
--- settings. If set to \"false\", client-side settings are used. For more
--- information, see
--- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
-workGroupConfiguration_enforceWorkGroupConfiguration :: Lens.Lens' WorkGroupConfiguration (Prelude.Maybe Prelude.Bool)
-workGroupConfiguration_enforceWorkGroupConfiguration = Lens.lens (\WorkGroupConfiguration' {enforceWorkGroupConfiguration} -> enforceWorkGroupConfiguration) (\s@WorkGroupConfiguration' {} a -> s {enforceWorkGroupConfiguration = a} :: WorkGroupConfiguration)
-
 -- | If set to @true@, allows members assigned to a workgroup to reference
 -- Amazon S3 Requester Pays buckets in queries. If set to @false@,
 -- workgroup members cannot query data from Requester Pays buckets, and
@@ -155,6 +148,13 @@ workGroupConfiguration_enforceWorkGroupConfiguration = Lens.lens (\WorkGroupConf
 -- in the /Amazon Simple Storage Service Developer Guide/.
 workGroupConfiguration_requesterPaysEnabled :: Lens.Lens' WorkGroupConfiguration (Prelude.Maybe Prelude.Bool)
 workGroupConfiguration_requesterPaysEnabled = Lens.lens (\WorkGroupConfiguration' {requesterPaysEnabled} -> requesterPaysEnabled) (\s@WorkGroupConfiguration' {} a -> s {requesterPaysEnabled = a} :: WorkGroupConfiguration)
+
+-- | If set to \"true\", the settings for the workgroup override client-side
+-- settings. If set to \"false\", client-side settings are used. For more
+-- information, see
+-- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
+workGroupConfiguration_enforceWorkGroupConfiguration :: Lens.Lens' WorkGroupConfiguration (Prelude.Maybe Prelude.Bool)
+workGroupConfiguration_enforceWorkGroupConfiguration = Lens.lens (\WorkGroupConfiguration' {enforceWorkGroupConfiguration} -> enforceWorkGroupConfiguration) (\s@WorkGroupConfiguration' {} a -> s {enforceWorkGroupConfiguration = a} :: WorkGroupConfiguration)
 
 -- | The engine version that all queries running on the workgroup use.
 -- Queries on the @AmazonAthenaPreviewFunctionality@ workgroup run on the
@@ -182,8 +182,8 @@ instance Core.FromJSON WorkGroupConfiguration where
           WorkGroupConfiguration'
             Prelude.<$> (x Core..:? "BytesScannedCutoffPerQuery")
             Prelude.<*> (x Core..:? "PublishCloudWatchMetricsEnabled")
-            Prelude.<*> (x Core..:? "EnforceWorkGroupConfiguration")
             Prelude.<*> (x Core..:? "RequesterPaysEnabled")
+            Prelude.<*> (x Core..:? "EnforceWorkGroupConfiguration")
             Prelude.<*> (x Core..:? "EngineVersion")
             Prelude.<*> (x Core..:? "ResultConfiguration")
       )
@@ -200,10 +200,10 @@ instance Core.ToJSON WorkGroupConfiguration where
               Prelude.<$> bytesScannedCutoffPerQuery,
             ("PublishCloudWatchMetricsEnabled" Core..=)
               Prelude.<$> publishCloudWatchMetricsEnabled,
-            ("EnforceWorkGroupConfiguration" Core..=)
-              Prelude.<$> enforceWorkGroupConfiguration,
             ("RequesterPaysEnabled" Core..=)
               Prelude.<$> requesterPaysEnabled,
+            ("EnforceWorkGroupConfiguration" Core..=)
+              Prelude.<$> enforceWorkGroupConfiguration,
             ("EngineVersion" Core..=) Prelude.<$> engineVersion,
             ("ResultConfiguration" Core..=)
               Prelude.<$> resultConfiguration

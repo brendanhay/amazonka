@@ -104,11 +104,26 @@ module Network.AWS.Athena.Types
     NamedQuery (..),
     newNamedQuery,
     namedQuery_namedQueryId,
-    namedQuery_workGroup,
     namedQuery_description,
+    namedQuery_workGroup,
     namedQuery_name,
     namedQuery_database,
     namedQuery_queryString,
+
+    -- * PreparedStatement
+    PreparedStatement (..),
+    newPreparedStatement,
+    preparedStatement_workGroupName,
+    preparedStatement_statementName,
+    preparedStatement_queryStatement,
+    preparedStatement_lastModifiedTime,
+    preparedStatement_description,
+
+    -- * PreparedStatementSummary
+    PreparedStatementSummary (..),
+    newPreparedStatementSummary,
+    preparedStatementSummary_statementName,
+    preparedStatementSummary_lastModifiedTime,
 
     -- * QueryExecution
     QueryExecution (..),
@@ -144,8 +159,8 @@ module Network.AWS.Athena.Types
     QueryExecutionStatus (..),
     newQueryExecutionStatus,
     queryExecutionStatus_submissionDateTime,
-    queryExecutionStatus_stateChangeReason,
     queryExecutionStatus_completionDateTime,
+    queryExecutionStatus_stateChangeReason,
     queryExecutionStatus_state,
 
     -- * ResultConfiguration
@@ -223,8 +238,8 @@ module Network.AWS.Athena.Types
     newWorkGroupConfiguration,
     workGroupConfiguration_bytesScannedCutoffPerQuery,
     workGroupConfiguration_publishCloudWatchMetricsEnabled,
-    workGroupConfiguration_enforceWorkGroupConfiguration,
     workGroupConfiguration_requesterPaysEnabled,
+    workGroupConfiguration_enforceWorkGroupConfiguration,
     workGroupConfiguration_engineVersion,
     workGroupConfiguration_resultConfiguration,
 
@@ -232,10 +247,10 @@ module Network.AWS.Athena.Types
     WorkGroupConfigurationUpdates (..),
     newWorkGroupConfigurationUpdates,
     workGroupConfigurationUpdates_bytesScannedCutoffPerQuery,
-    workGroupConfigurationUpdates_resultConfigurationUpdates,
     workGroupConfigurationUpdates_publishCloudWatchMetricsEnabled,
-    workGroupConfigurationUpdates_enforceWorkGroupConfiguration,
+    workGroupConfigurationUpdates_resultConfigurationUpdates,
     workGroupConfigurationUpdates_requesterPaysEnabled,
+    workGroupConfigurationUpdates_enforceWorkGroupConfiguration,
     workGroupConfigurationUpdates_removeBytesScannedCutoffPerQuery,
     workGroupConfigurationUpdates_engineVersion,
 
@@ -243,8 +258,8 @@ module Network.AWS.Athena.Types
     WorkGroupSummary (..),
     newWorkGroupSummary,
     workGroupSummary_creationTime,
-    workGroupSummary_state,
     workGroupSummary_name,
+    workGroupSummary_state,
     workGroupSummary_engineVersion,
     workGroupSummary_description,
   )
@@ -262,6 +277,8 @@ import Network.AWS.Athena.Types.EncryptionConfiguration
 import Network.AWS.Athena.Types.EncryptionOption
 import Network.AWS.Athena.Types.EngineVersion
 import Network.AWS.Athena.Types.NamedQuery
+import Network.AWS.Athena.Types.PreparedStatement
+import Network.AWS.Athena.Types.PreparedStatementSummary
 import Network.AWS.Athena.Types.QueryExecution
 import Network.AWS.Athena.Types.QueryExecutionContext
 import Network.AWS.Athena.Types.QueryExecutionState

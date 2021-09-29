@@ -25,7 +25,7 @@
 -- workgroup. If a workgroup is not specified, lists the saved queries for
 -- the primary workgroup.
 --
--- For code samples using the AWS SDK for Java, see
+-- For code samples using the Amazon Web Services SDK for Java, see
 -- <http://docs.aws.amazon.com/athena/latest/ug/code-samples.html Examples and Code Samples>
 -- in the /Amazon Athena User Guide/.
 --

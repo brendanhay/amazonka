@@ -23,7 +23,8 @@
 -- Runs the SQL query statements contained in the @Query@. Requires you to
 -- have access to the workgroup in which the query ran. Running queries
 -- against an external catalog requires GetDataCatalog permission to the
--- catalog. For code samples using the AWS SDK for Java, see
+-- catalog. For code samples using the Amazon Web Services SDK for Java,
+-- see
 -- <http://docs.aws.amazon.com/athena/latest/ug/code-samples.html Examples and Code Samples>
 -- in the /Amazon Athena User Guide/.
 module Network.AWS.Athena.StartQueryExecution
@@ -75,10 +76,11 @@ data StartQueryExecution = StartQueryExecution'
     -- and another query is not created. If a parameter has changed, for
     -- example, the @QueryString@, an error is returned.
     --
-    -- This token is listed as not required because AWS SDKs (for example the
-    -- AWS SDK for Java) auto-generate the token for users. If you are not
-    -- using the AWS SDK or the AWS CLI, you must provide this token or the
-    -- action will fail.
+    -- This token is listed as not required because Amazon Web Services SDKs
+    -- (for example the Amazon Web Services SDK for Java) auto-generate the
+    -- token for users. If you are not using the Amazon Web Services SDK or the
+    -- Amazon Web Services CLI, you must provide this token or the action will
+    -- fail.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
     -- | The SQL query statements to be executed.
     queryString :: Prelude.Text
@@ -111,10 +113,11 @@ data StartQueryExecution = StartQueryExecution'
 -- and another query is not created. If a parameter has changed, for
 -- example, the @QueryString@, an error is returned.
 --
--- This token is listed as not required because AWS SDKs (for example the
--- AWS SDK for Java) auto-generate the token for users. If you are not
--- using the AWS SDK or the AWS CLI, you must provide this token or the
--- action will fail.
+-- This token is listed as not required because Amazon Web Services SDKs
+-- (for example the Amazon Web Services SDK for Java) auto-generate the
+-- token for users. If you are not using the Amazon Web Services SDK or the
+-- Amazon Web Services CLI, you must provide this token or the action will
+-- fail.
 --
 -- 'queryString', 'startQueryExecution_queryString' - The SQL query statements to be executed.
 newStartQueryExecution ::
@@ -155,10 +158,11 @@ startQueryExecution_workGroup = Lens.lens (\StartQueryExecution' {workGroup} -> 
 -- and another query is not created. If a parameter has changed, for
 -- example, the @QueryString@, an error is returned.
 --
--- This token is listed as not required because AWS SDKs (for example the
--- AWS SDK for Java) auto-generate the token for users. If you are not
--- using the AWS SDK or the AWS CLI, you must provide this token or the
--- action will fail.
+-- This token is listed as not required because Amazon Web Services SDKs
+-- (for example the Amazon Web Services SDK for Java) auto-generate the
+-- token for users. If you are not using the Amazon Web Services SDK or the
+-- Amazon Web Services CLI, you must provide this token or the action will
+-- fail.
 startQueryExecution_clientRequestToken :: Lens.Lens' StartQueryExecution (Prelude.Maybe Prelude.Text)
 startQueryExecution_clientRequestToken = Lens.lens (\StartQueryExecution' {clientRequestToken} -> clientRequestToken) (\s@StartQueryExecution' {} a -> s {clientRequestToken = a} :: StartQueryExecution)
 

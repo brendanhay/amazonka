@@ -27,7 +27,7 @@
 -- see
 -- <https://docs.aws.amazon.com/athena/latest/ug/connect-with-jdbc.html Accessing Amazon Athena with JDBC>.
 --
--- For code samples using the AWS SDK for Java, see
+-- For code samples using the Amazon Web Services SDK for Java, see
 -- <https://docs.aws.amazon.com/athena/latest/ug/code-samples.html Examples and Code Samples>
 -- in the /Amazon Athena User Guide/.
 module Network.AWS.Athena
@@ -70,17 +70,47 @@ module Network.AWS.Athena
     ListQueryExecutionsResponse (ListQueryExecutionsResponse'),
     newListQueryExecutionsResponse,
 
+    -- ** DeletePreparedStatement
+    DeletePreparedStatement (DeletePreparedStatement'),
+    newDeletePreparedStatement,
+    DeletePreparedStatementResponse (DeletePreparedStatementResponse'),
+    newDeletePreparedStatementResponse,
+
     -- ** ListTableMetadata (Paginated)
     ListTableMetadata (ListTableMetadata'),
     newListTableMetadata,
     ListTableMetadataResponse (ListTableMetadataResponse'),
     newListTableMetadataResponse,
 
+    -- ** UpdatePreparedStatement
+    UpdatePreparedStatement (UpdatePreparedStatement'),
+    newUpdatePreparedStatement,
+    UpdatePreparedStatementResponse (UpdatePreparedStatementResponse'),
+    newUpdatePreparedStatementResponse,
+
+    -- ** ListPreparedStatements
+    ListPreparedStatements (ListPreparedStatements'),
+    newListPreparedStatements,
+    ListPreparedStatementsResponse (ListPreparedStatementsResponse'),
+    newListPreparedStatementsResponse,
+
+    -- ** GetPreparedStatement
+    GetPreparedStatement (GetPreparedStatement'),
+    newGetPreparedStatement,
+    GetPreparedStatementResponse (GetPreparedStatementResponse'),
+    newGetPreparedStatementResponse,
+
     -- ** GetQueryExecution
     GetQueryExecution (GetQueryExecution'),
     newGetQueryExecution,
     GetQueryExecutionResponse (GetQueryExecutionResponse'),
     newGetQueryExecutionResponse,
+
+    -- ** GetDatabase
+    GetDatabase (GetDatabase'),
+    newGetDatabase,
+    GetDatabaseResponse (GetDatabaseResponse'),
+    newGetDatabaseResponse,
 
     -- ** BatchGetNamedQuery
     BatchGetNamedQuery (BatchGetNamedQuery'),
@@ -94,11 +124,11 @@ module Network.AWS.Athena
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** GetDatabase
-    GetDatabase (GetDatabase'),
-    newGetDatabase,
-    GetDatabaseResponse (GetDatabaseResponse'),
-    newGetDatabaseResponse,
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
 
     -- ** DeleteNamedQuery
     DeleteNamedQuery (DeleteNamedQuery'),
@@ -106,11 +136,11 @@ module Network.AWS.Athena
     DeleteNamedQueryResponse (DeleteNamedQueryResponse'),
     newDeleteNamedQueryResponse,
 
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
+    -- ** GetDataCatalog
+    GetDataCatalog (GetDataCatalog'),
+    newGetDataCatalog,
+    GetDataCatalogResponse (GetDataCatalogResponse'),
+    newGetDataCatalogResponse,
 
     -- ** ListEngineVersions
     ListEngineVersions (ListEngineVersions'),
@@ -118,11 +148,11 @@ module Network.AWS.Athena
     ListEngineVersionsResponse (ListEngineVersionsResponse'),
     newListEngineVersionsResponse,
 
-    -- ** GetDataCatalog
-    GetDataCatalog (GetDataCatalog'),
-    newGetDataCatalog,
-    GetDataCatalogResponse (GetDataCatalogResponse'),
-    newGetDataCatalogResponse,
+    -- ** CreateWorkGroup
+    CreateWorkGroup (CreateWorkGroup'),
+    newCreateWorkGroup,
+    CreateWorkGroupResponse (CreateWorkGroupResponse'),
+    newCreateWorkGroupResponse,
 
     -- ** ListDataCatalogs (Paginated)
     ListDataCatalogs (ListDataCatalogs'),
@@ -130,11 +160,11 @@ module Network.AWS.Athena
     ListDataCatalogsResponse (ListDataCatalogsResponse'),
     newListDataCatalogsResponse,
 
-    -- ** CreateWorkGroup
-    CreateWorkGroup (CreateWorkGroup'),
-    newCreateWorkGroup,
-    CreateWorkGroupResponse (CreateWorkGroupResponse'),
-    newCreateWorkGroupResponse,
+    -- ** UpdateWorkGroup
+    UpdateWorkGroup (UpdateWorkGroup'),
+    newUpdateWorkGroup,
+    UpdateWorkGroupResponse (UpdateWorkGroupResponse'),
+    newUpdateWorkGroupResponse,
 
     -- ** GetNamedQuery
     GetNamedQuery (GetNamedQuery'),
@@ -142,11 +172,11 @@ module Network.AWS.Athena
     GetNamedQueryResponse (GetNamedQueryResponse'),
     newGetNamedQueryResponse,
 
-    -- ** UpdateWorkGroup
-    UpdateWorkGroup (UpdateWorkGroup'),
-    newUpdateWorkGroup,
-    UpdateWorkGroupResponse (UpdateWorkGroupResponse'),
-    newUpdateWorkGroupResponse,
+    -- ** ListWorkGroups
+    ListWorkGroups (ListWorkGroups'),
+    newListWorkGroups,
+    ListWorkGroupsResponse (ListWorkGroupsResponse'),
+    newListWorkGroupsResponse,
 
     -- ** DeleteWorkGroup
     DeleteWorkGroup (DeleteWorkGroup'),
@@ -154,17 +184,17 @@ module Network.AWS.Athena
     DeleteWorkGroupResponse (DeleteWorkGroupResponse'),
     newDeleteWorkGroupResponse,
 
-    -- ** ListWorkGroups
-    ListWorkGroups (ListWorkGroups'),
-    newListWorkGroups,
-    ListWorkGroupsResponse (ListWorkGroupsResponse'),
-    newListWorkGroupsResponse,
-
     -- ** ListDatabases (Paginated)
     ListDatabases (ListDatabases'),
     newListDatabases,
     ListDatabasesResponse (ListDatabasesResponse'),
     newListDatabasesResponse,
+
+    -- ** CreatePreparedStatement
+    CreatePreparedStatement (CreatePreparedStatement'),
+    newCreatePreparedStatement,
+    CreatePreparedStatementResponse (CreatePreparedStatementResponse'),
+    newCreatePreparedStatementResponse,
 
     -- ** GetQueryResults (Paginated)
     GetQueryResults (GetQueryResults'),
@@ -178,17 +208,23 @@ module Network.AWS.Athena
     GetWorkGroupResponse (GetWorkGroupResponse'),
     newGetWorkGroupResponse,
 
+    -- ** StopQueryExecution
+    StopQueryExecution (StopQueryExecution'),
+    newStopQueryExecution,
+    StopQueryExecutionResponse (StopQueryExecutionResponse'),
+    newStopQueryExecutionResponse,
+
     -- ** StartQueryExecution
     StartQueryExecution (StartQueryExecution'),
     newStartQueryExecution,
     StartQueryExecutionResponse (StartQueryExecutionResponse'),
     newStartQueryExecutionResponse,
 
-    -- ** StopQueryExecution
-    StopQueryExecution (StopQueryExecution'),
-    newStopQueryExecution,
-    StopQueryExecutionResponse (StopQueryExecutionResponse'),
-    newStopQueryExecutionResponse,
+    -- ** ListNamedQueries (Paginated)
+    ListNamedQueries (ListNamedQueries'),
+    newListNamedQueries,
+    ListNamedQueriesResponse (ListNamedQueriesResponse'),
+    newListNamedQueriesResponse,
 
     -- ** GetTableMetadata
     GetTableMetadata (GetTableMetadata'),
@@ -202,29 +238,23 @@ module Network.AWS.Athena
     CreateNamedQueryResponse (CreateNamedQueryResponse'),
     newCreateNamedQueryResponse,
 
-    -- ** ListNamedQueries (Paginated)
-    ListNamedQueries (ListNamedQueries'),
-    newListNamedQueries,
-    ListNamedQueriesResponse (ListNamedQueriesResponse'),
-    newListNamedQueriesResponse,
-
     -- ** BatchGetQueryExecution
     BatchGetQueryExecution (BatchGetQueryExecution'),
     newBatchGetQueryExecution,
     BatchGetQueryExecutionResponse (BatchGetQueryExecutionResponse'),
     newBatchGetQueryExecutionResponse,
 
-    -- ** ListTagsForResource (Paginated)
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
     -- ** DeleteDataCatalog
     DeleteDataCatalog (DeleteDataCatalog'),
     newDeleteDataCatalog,
     DeleteDataCatalogResponse (DeleteDataCatalogResponse'),
     newDeleteDataCatalogResponse,
+
+    -- ** ListTagsForResource (Paginated)
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- ** UpdateDataCatalog
     UpdateDataCatalog (UpdateDataCatalog'),
@@ -287,6 +317,14 @@ module Network.AWS.Athena
     -- ** NamedQuery
     NamedQuery (NamedQuery'),
     newNamedQuery,
+
+    -- ** PreparedStatement
+    PreparedStatement (PreparedStatement'),
+    newPreparedStatement,
+
+    -- ** PreparedStatementSummary
+    PreparedStatementSummary (PreparedStatementSummary'),
+    newPreparedStatementSummary,
 
     -- ** QueryExecution
     QueryExecution (QueryExecution'),
@@ -362,13 +400,16 @@ import Network.AWS.Athena.BatchGetNamedQuery
 import Network.AWS.Athena.BatchGetQueryExecution
 import Network.AWS.Athena.CreateDataCatalog
 import Network.AWS.Athena.CreateNamedQuery
+import Network.AWS.Athena.CreatePreparedStatement
 import Network.AWS.Athena.CreateWorkGroup
 import Network.AWS.Athena.DeleteDataCatalog
 import Network.AWS.Athena.DeleteNamedQuery
+import Network.AWS.Athena.DeletePreparedStatement
 import Network.AWS.Athena.DeleteWorkGroup
 import Network.AWS.Athena.GetDataCatalog
 import Network.AWS.Athena.GetDatabase
 import Network.AWS.Athena.GetNamedQuery
+import Network.AWS.Athena.GetPreparedStatement
 import Network.AWS.Athena.GetQueryExecution
 import Network.AWS.Athena.GetQueryResults
 import Network.AWS.Athena.GetTableMetadata
@@ -378,6 +419,7 @@ import Network.AWS.Athena.ListDataCatalogs
 import Network.AWS.Athena.ListDatabases
 import Network.AWS.Athena.ListEngineVersions
 import Network.AWS.Athena.ListNamedQueries
+import Network.AWS.Athena.ListPreparedStatements
 import Network.AWS.Athena.ListQueryExecutions
 import Network.AWS.Athena.ListTableMetadata
 import Network.AWS.Athena.ListTagsForResource
@@ -388,6 +430,7 @@ import Network.AWS.Athena.TagResource
 import Network.AWS.Athena.Types
 import Network.AWS.Athena.UntagResource
 import Network.AWS.Athena.UpdateDataCatalog
+import Network.AWS.Athena.UpdatePreparedStatement
 import Network.AWS.Athena.UpdateWorkGroup
 import Network.AWS.Athena.Waiters
 

@@ -33,8 +33,8 @@ import qualified Network.AWS.Prelude as Prelude
 -- to enable sending query metrics to Amazon CloudWatch, and to establish
 -- per-query data usage control limits for all queries in a workgroup. The
 -- workgroup settings override is specified in
--- EnforceWorkGroupConfiguration (true\/false) in the
--- WorkGroupConfiguration. See
+-- @EnforceWorkGroupConfiguration@ (true\/false) in the
+-- @WorkGroupConfiguration@. See
 -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
 --
 -- /See:/ 'newWorkGroup' smart constructor.
@@ -47,8 +47,8 @@ data WorkGroup = WorkGroup'
     -- are enabled for the workgroup; whether workgroup settings override
     -- client-side settings; and the data usage limits for the amount of data
     -- scanned per query or per workgroup. The workgroup settings override is
-    -- specified in EnforceWorkGroupConfiguration (true\/false) in the
-    -- WorkGroupConfiguration. See
+    -- specified in @EnforceWorkGroupConfiguration@ (true\/false) in the
+    -- @WorkGroupConfiguration@. See
     -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
     configuration :: Prelude.Maybe WorkGroupConfiguration,
     -- | The state of the workgroup: ENABLED or DISABLED.
@@ -76,8 +76,8 @@ data WorkGroup = WorkGroup'
 -- are enabled for the workgroup; whether workgroup settings override
 -- client-side settings; and the data usage limits for the amount of data
 -- scanned per query or per workgroup. The workgroup settings override is
--- specified in EnforceWorkGroupConfiguration (true\/false) in the
--- WorkGroupConfiguration. See
+-- specified in @EnforceWorkGroupConfiguration@ (true\/false) in the
+-- @WorkGroupConfiguration@. See
 -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
 --
 -- 'state', 'workGroup_state' - The state of the workgroup: ENABLED or DISABLED.
@@ -108,8 +108,8 @@ workGroup_creationTime = Lens.lens (\WorkGroup' {creationTime} -> creationTime) 
 -- are enabled for the workgroup; whether workgroup settings override
 -- client-side settings; and the data usage limits for the amount of data
 -- scanned per query or per workgroup. The workgroup settings override is
--- specified in EnforceWorkGroupConfiguration (true\/false) in the
--- WorkGroupConfiguration. See
+-- specified in @EnforceWorkGroupConfiguration@ (true\/false) in the
+-- @WorkGroupConfiguration@. See
 -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
 workGroup_configuration :: Lens.Lens' WorkGroup (Prelude.Maybe WorkGroupConfiguration)
 workGroup_configuration = Lens.lens (\WorkGroup' {configuration} -> configuration) (\s@WorkGroup' {} a -> s {configuration = a} :: WorkGroup)

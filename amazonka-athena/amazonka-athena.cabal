@@ -50,13 +50,16 @@ library
     Network.AWS.Athena.BatchGetQueryExecution
     Network.AWS.Athena.CreateDataCatalog
     Network.AWS.Athena.CreateNamedQuery
+    Network.AWS.Athena.CreatePreparedStatement
     Network.AWS.Athena.CreateWorkGroup
     Network.AWS.Athena.DeleteDataCatalog
     Network.AWS.Athena.DeleteNamedQuery
+    Network.AWS.Athena.DeletePreparedStatement
     Network.AWS.Athena.DeleteWorkGroup
     Network.AWS.Athena.GetDatabase
     Network.AWS.Athena.GetDataCatalog
     Network.AWS.Athena.GetNamedQuery
+    Network.AWS.Athena.GetPreparedStatement
     Network.AWS.Athena.GetQueryExecution
     Network.AWS.Athena.GetQueryResults
     Network.AWS.Athena.GetTableMetadata
@@ -66,6 +69,7 @@ library
     Network.AWS.Athena.ListDataCatalogs
     Network.AWS.Athena.ListEngineVersions
     Network.AWS.Athena.ListNamedQueries
+    Network.AWS.Athena.ListPreparedStatements
     Network.AWS.Athena.ListQueryExecutions
     Network.AWS.Athena.ListTableMetadata
     Network.AWS.Athena.ListTagsForResource
@@ -86,6 +90,8 @@ library
     Network.AWS.Athena.Types.EncryptionOption
     Network.AWS.Athena.Types.EngineVersion
     Network.AWS.Athena.Types.NamedQuery
+    Network.AWS.Athena.Types.PreparedStatement
+    Network.AWS.Athena.Types.PreparedStatementSummary
     Network.AWS.Athena.Types.QueryExecution
     Network.AWS.Athena.Types.QueryExecutionContext
     Network.AWS.Athena.Types.QueryExecutionState
@@ -108,6 +114,7 @@ library
     Network.AWS.Athena.Types.WorkGroupSummary
     Network.AWS.Athena.UntagResource
     Network.AWS.Athena.UpdateDataCatalog
+    Network.AWS.Athena.UpdatePreparedStatement
     Network.AWS.Athena.UpdateWorkGroup
     Network.AWS.Athena.Waiters
 

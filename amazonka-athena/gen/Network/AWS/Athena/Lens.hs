@@ -30,6 +30,11 @@ module Network.AWS.Athena.Lens
     listQueryExecutionsResponse_queryExecutionIds,
     listQueryExecutionsResponse_httpStatus,
 
+    -- ** DeletePreparedStatement
+    deletePreparedStatement_statementName,
+    deletePreparedStatement_workGroup,
+    deletePreparedStatementResponse_httpStatus,
+
     -- ** ListTableMetadata
     listTableMetadata_nextToken,
     listTableMetadata_maxResults,
@@ -40,10 +45,37 @@ module Network.AWS.Athena.Lens
     listTableMetadataResponse_tableMetadataList,
     listTableMetadataResponse_httpStatus,
 
+    -- ** UpdatePreparedStatement
+    updatePreparedStatement_description,
+    updatePreparedStatement_statementName,
+    updatePreparedStatement_workGroup,
+    updatePreparedStatement_queryStatement,
+    updatePreparedStatementResponse_httpStatus,
+
+    -- ** ListPreparedStatements
+    listPreparedStatements_nextToken,
+    listPreparedStatements_maxResults,
+    listPreparedStatements_workGroup,
+    listPreparedStatementsResponse_nextToken,
+    listPreparedStatementsResponse_preparedStatements,
+    listPreparedStatementsResponse_httpStatus,
+
+    -- ** GetPreparedStatement
+    getPreparedStatement_statementName,
+    getPreparedStatement_workGroup,
+    getPreparedStatementResponse_preparedStatement,
+    getPreparedStatementResponse_httpStatus,
+
     -- ** GetQueryExecution
     getQueryExecution_queryExecutionId,
     getQueryExecutionResponse_queryExecution,
     getQueryExecutionResponse_httpStatus,
+
+    -- ** GetDatabase
+    getDatabase_catalogName,
+    getDatabase_databaseName,
+    getDatabaseResponse_database,
+    getDatabaseResponse_httpStatus,
 
     -- ** BatchGetNamedQuery
     batchGetNamedQuery_namedQueryIds,
@@ -56,20 +88,19 @@ module Network.AWS.Athena.Lens
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
 
-    -- ** GetDatabase
-    getDatabase_catalogName,
-    getDatabase_databaseName,
-    getDatabaseResponse_database,
-    getDatabaseResponse_httpStatus,
+    -- ** TagResource
+    tagResource_resourceARN,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
 
     -- ** DeleteNamedQuery
     deleteNamedQuery_namedQueryId,
     deleteNamedQueryResponse_httpStatus,
 
-    -- ** TagResource
-    tagResource_resourceARN,
-    tagResource_tags,
-    tagResourceResponse_httpStatus,
+    -- ** GetDataCatalog
+    getDataCatalog_name,
+    getDataCatalogResponse_dataCatalog,
+    getDataCatalogResponse_httpStatus,
 
     -- ** ListEngineVersions
     listEngineVersions_nextToken,
@@ -78,10 +109,12 @@ module Network.AWS.Athena.Lens
     listEngineVersionsResponse_engineVersions,
     listEngineVersionsResponse_httpStatus,
 
-    -- ** GetDataCatalog
-    getDataCatalog_name,
-    getDataCatalogResponse_dataCatalog,
-    getDataCatalogResponse_httpStatus,
+    -- ** CreateWorkGroup
+    createWorkGroup_configuration,
+    createWorkGroup_tags,
+    createWorkGroup_description,
+    createWorkGroup_name,
+    createWorkGroupResponse_httpStatus,
 
     -- ** ListDataCatalogs
     listDataCatalogs_nextToken,
@@ -90,18 +123,6 @@ module Network.AWS.Athena.Lens
     listDataCatalogsResponse_dataCatalogsSummary,
     listDataCatalogsResponse_httpStatus,
 
-    -- ** CreateWorkGroup
-    createWorkGroup_configuration,
-    createWorkGroup_tags,
-    createWorkGroup_description,
-    createWorkGroup_name,
-    createWorkGroupResponse_httpStatus,
-
-    -- ** GetNamedQuery
-    getNamedQuery_namedQueryId,
-    getNamedQueryResponse_namedQuery,
-    getNamedQueryResponse_httpStatus,
-
     -- ** UpdateWorkGroup
     updateWorkGroup_configurationUpdates,
     updateWorkGroup_state,
@@ -109,10 +130,10 @@ module Network.AWS.Athena.Lens
     updateWorkGroup_workGroup,
     updateWorkGroupResponse_httpStatus,
 
-    -- ** DeleteWorkGroup
-    deleteWorkGroup_recursiveDeleteOption,
-    deleteWorkGroup_workGroup,
-    deleteWorkGroupResponse_httpStatus,
+    -- ** GetNamedQuery
+    getNamedQuery_namedQueryId,
+    getNamedQueryResponse_namedQuery,
+    getNamedQueryResponse_httpStatus,
 
     -- ** ListWorkGroups
     listWorkGroups_nextToken,
@@ -121,6 +142,11 @@ module Network.AWS.Athena.Lens
     listWorkGroupsResponse_workGroups,
     listWorkGroupsResponse_httpStatus,
 
+    -- ** DeleteWorkGroup
+    deleteWorkGroup_recursiveDeleteOption,
+    deleteWorkGroup_workGroup,
+    deleteWorkGroupResponse_httpStatus,
+
     -- ** ListDatabases
     listDatabases_nextToken,
     listDatabases_maxResults,
@@ -128,6 +154,13 @@ module Network.AWS.Athena.Lens
     listDatabasesResponse_databaseList,
     listDatabasesResponse_nextToken,
     listDatabasesResponse_httpStatus,
+
+    -- ** CreatePreparedStatement
+    createPreparedStatement_description,
+    createPreparedStatement_statementName,
+    createPreparedStatement_workGroup,
+    createPreparedStatement_queryStatement,
+    createPreparedStatementResponse_httpStatus,
 
     -- ** GetQueryResults
     getQueryResults_nextToken,
@@ -143,6 +176,10 @@ module Network.AWS.Athena.Lens
     getWorkGroupResponse_workGroup,
     getWorkGroupResponse_httpStatus,
 
+    -- ** StopQueryExecution
+    stopQueryExecution_queryExecutionId,
+    stopQueryExecutionResponse_httpStatus,
+
     -- ** StartQueryExecution
     startQueryExecution_queryExecutionContext,
     startQueryExecution_resultConfiguration,
@@ -152,9 +189,13 @@ module Network.AWS.Athena.Lens
     startQueryExecutionResponse_queryExecutionId,
     startQueryExecutionResponse_httpStatus,
 
-    -- ** StopQueryExecution
-    stopQueryExecution_queryExecutionId,
-    stopQueryExecutionResponse_httpStatus,
+    -- ** ListNamedQueries
+    listNamedQueries_nextToken,
+    listNamedQueries_maxResults,
+    listNamedQueries_workGroup,
+    listNamedQueriesResponse_namedQueryIds,
+    listNamedQueriesResponse_nextToken,
+    listNamedQueriesResponse_httpStatus,
 
     -- ** GetTableMetadata
     getTableMetadata_catalogName,
@@ -164,8 +205,8 @@ module Network.AWS.Athena.Lens
     getTableMetadataResponse_httpStatus,
 
     -- ** CreateNamedQuery
-    createNamedQuery_workGroup,
     createNamedQuery_description,
+    createNamedQuery_workGroup,
     createNamedQuery_clientRequestToken,
     createNamedQuery_name,
     createNamedQuery_database,
@@ -173,19 +214,15 @@ module Network.AWS.Athena.Lens
     createNamedQueryResponse_namedQueryId,
     createNamedQueryResponse_httpStatus,
 
-    -- ** ListNamedQueries
-    listNamedQueries_nextToken,
-    listNamedQueries_maxResults,
-    listNamedQueries_workGroup,
-    listNamedQueriesResponse_namedQueryIds,
-    listNamedQueriesResponse_nextToken,
-    listNamedQueriesResponse_httpStatus,
-
     -- ** BatchGetQueryExecution
     batchGetQueryExecution_queryExecutionIds,
     batchGetQueryExecutionResponse_queryExecutions,
     batchGetQueryExecutionResponse_unprocessedQueryExecutionIds,
     batchGetQueryExecutionResponse_httpStatus,
+
+    -- ** DeleteDataCatalog
+    deleteDataCatalog_name,
+    deleteDataCatalogResponse_httpStatus,
 
     -- ** ListTagsForResource
     listTagsForResource_nextToken,
@@ -194,10 +231,6 @@ module Network.AWS.Athena.Lens
     listTagsForResourceResponse_nextToken,
     listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
-
-    -- ** DeleteDataCatalog
-    deleteDataCatalog_name,
-    deleteDataCatalogResponse_httpStatus,
 
     -- ** UpdateDataCatalog
     updateDataCatalog_description,
@@ -253,11 +286,22 @@ module Network.AWS.Athena.Lens
 
     -- ** NamedQuery
     namedQuery_namedQueryId,
-    namedQuery_workGroup,
     namedQuery_description,
+    namedQuery_workGroup,
     namedQuery_name,
     namedQuery_database,
     namedQuery_queryString,
+
+    -- ** PreparedStatement
+    preparedStatement_workGroupName,
+    preparedStatement_statementName,
+    preparedStatement_queryStatement,
+    preparedStatement_lastModifiedTime,
+    preparedStatement_description,
+
+    -- ** PreparedStatementSummary
+    preparedStatementSummary_statementName,
+    preparedStatementSummary_lastModifiedTime,
 
     -- ** QueryExecution
     queryExecution_status,
@@ -285,8 +329,8 @@ module Network.AWS.Athena.Lens
 
     -- ** QueryExecutionStatus
     queryExecutionStatus_submissionDateTime,
-    queryExecutionStatus_stateChangeReason,
     queryExecutionStatus_completionDateTime,
+    queryExecutionStatus_stateChangeReason,
     queryExecutionStatus_state,
 
     -- ** ResultConfiguration
@@ -342,24 +386,24 @@ module Network.AWS.Athena.Lens
     -- ** WorkGroupConfiguration
     workGroupConfiguration_bytesScannedCutoffPerQuery,
     workGroupConfiguration_publishCloudWatchMetricsEnabled,
-    workGroupConfiguration_enforceWorkGroupConfiguration,
     workGroupConfiguration_requesterPaysEnabled,
+    workGroupConfiguration_enforceWorkGroupConfiguration,
     workGroupConfiguration_engineVersion,
     workGroupConfiguration_resultConfiguration,
 
     -- ** WorkGroupConfigurationUpdates
     workGroupConfigurationUpdates_bytesScannedCutoffPerQuery,
-    workGroupConfigurationUpdates_resultConfigurationUpdates,
     workGroupConfigurationUpdates_publishCloudWatchMetricsEnabled,
-    workGroupConfigurationUpdates_enforceWorkGroupConfiguration,
+    workGroupConfigurationUpdates_resultConfigurationUpdates,
     workGroupConfigurationUpdates_requesterPaysEnabled,
+    workGroupConfigurationUpdates_enforceWorkGroupConfiguration,
     workGroupConfigurationUpdates_removeBytesScannedCutoffPerQuery,
     workGroupConfigurationUpdates_engineVersion,
 
     -- ** WorkGroupSummary
     workGroupSummary_creationTime,
-    workGroupSummary_state,
     workGroupSummary_name,
+    workGroupSummary_state,
     workGroupSummary_engineVersion,
     workGroupSummary_description,
   )
@@ -369,13 +413,16 @@ import Network.AWS.Athena.BatchGetNamedQuery
 import Network.AWS.Athena.BatchGetQueryExecution
 import Network.AWS.Athena.CreateDataCatalog
 import Network.AWS.Athena.CreateNamedQuery
+import Network.AWS.Athena.CreatePreparedStatement
 import Network.AWS.Athena.CreateWorkGroup
 import Network.AWS.Athena.DeleteDataCatalog
 import Network.AWS.Athena.DeleteNamedQuery
+import Network.AWS.Athena.DeletePreparedStatement
 import Network.AWS.Athena.DeleteWorkGroup
 import Network.AWS.Athena.GetDataCatalog
 import Network.AWS.Athena.GetDatabase
 import Network.AWS.Athena.GetNamedQuery
+import Network.AWS.Athena.GetPreparedStatement
 import Network.AWS.Athena.GetQueryExecution
 import Network.AWS.Athena.GetQueryResults
 import Network.AWS.Athena.GetTableMetadata
@@ -384,6 +431,7 @@ import Network.AWS.Athena.ListDataCatalogs
 import Network.AWS.Athena.ListDatabases
 import Network.AWS.Athena.ListEngineVersions
 import Network.AWS.Athena.ListNamedQueries
+import Network.AWS.Athena.ListPreparedStatements
 import Network.AWS.Athena.ListQueryExecutions
 import Network.AWS.Athena.ListTableMetadata
 import Network.AWS.Athena.ListTagsForResource
@@ -400,6 +448,8 @@ import Network.AWS.Athena.Types.Datum
 import Network.AWS.Athena.Types.EncryptionConfiguration
 import Network.AWS.Athena.Types.EngineVersion
 import Network.AWS.Athena.Types.NamedQuery
+import Network.AWS.Athena.Types.PreparedStatement
+import Network.AWS.Athena.Types.PreparedStatementSummary
 import Network.AWS.Athena.Types.QueryExecution
 import Network.AWS.Athena.Types.QueryExecutionContext
 import Network.AWS.Athena.Types.QueryExecutionStatistics
@@ -419,4 +469,5 @@ import Network.AWS.Athena.Types.WorkGroupConfigurationUpdates
 import Network.AWS.Athena.Types.WorkGroupSummary
 import Network.AWS.Athena.UntagResource
 import Network.AWS.Athena.UpdateDataCatalog
+import Network.AWS.Athena.UpdatePreparedStatement
 import Network.AWS.Athena.UpdateWorkGroup

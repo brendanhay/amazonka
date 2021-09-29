@@ -60,7 +60,7 @@ data QueryExecution = QueryExecution'
     -- statements. @DML@ indicates DML (Data Manipulation Language) query
     -- statements, such as @CREATE TABLE AS SELECT@. @UTILITY@ indicates query
     -- statements other than DDL and DML, such as @SHOW CREATE TABLE@, or
-    -- @DESCRIBE \<table>@.
+    -- @DESCRIBE TABLE@.
     statementType :: Prelude.Maybe StatementType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -100,7 +100,7 @@ data QueryExecution = QueryExecution'
 -- statements. @DML@ indicates DML (Data Manipulation Language) query
 -- statements, such as @CREATE TABLE AS SELECT@. @UTILITY@ indicates query
 -- statements other than DDL and DML, such as @SHOW CREATE TABLE@, or
--- @DESCRIBE \<table>@.
+-- @DESCRIBE TABLE@.
 newQueryExecution ::
   QueryExecution
 newQueryExecution =
@@ -159,7 +159,7 @@ queryExecution_workGroup = Lens.lens (\QueryExecution' {workGroup} -> workGroup)
 -- statements. @DML@ indicates DML (Data Manipulation Language) query
 -- statements, such as @CREATE TABLE AS SELECT@. @UTILITY@ indicates query
 -- statements other than DDL and DML, such as @SHOW CREATE TABLE@, or
--- @DESCRIBE \<table>@.
+-- @DESCRIBE TABLE@.
 queryExecution_statementType :: Lens.Lens' QueryExecution (Prelude.Maybe StatementType)
 queryExecution_statementType = Lens.lens (\QueryExecution' {statementType} -> statementType) (\s@QueryExecution' {} a -> s {statementType = a} :: QueryExecution)
 

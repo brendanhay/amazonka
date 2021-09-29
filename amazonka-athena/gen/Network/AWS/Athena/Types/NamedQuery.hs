@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 data NamedQuery = NamedQuery'
   { -- | The unique identifier of the query.
     namedQueryId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the workgroup that contains the named query.
-    workGroup :: Prelude.Maybe Prelude.Text,
     -- | The query description.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the workgroup that contains the named query.
+    workGroup :: Prelude.Maybe Prelude.Text,
     -- | The query name.
     name :: Prelude.Text,
     -- | The database to which the query belongs.
@@ -53,9 +53,9 @@ data NamedQuery = NamedQuery'
 --
 -- 'namedQueryId', 'namedQuery_namedQueryId' - The unique identifier of the query.
 --
--- 'workGroup', 'namedQuery_workGroup' - The name of the workgroup that contains the named query.
---
 -- 'description', 'namedQuery_description' - The query description.
+--
+-- 'workGroup', 'namedQuery_workGroup' - The name of the workgroup that contains the named query.
 --
 -- 'name', 'namedQuery_name' - The query name.
 --
@@ -73,8 +73,8 @@ newNamedQuery ::
 newNamedQuery pName_ pDatabase_ pQueryString_ =
   NamedQuery'
     { namedQueryId = Prelude.Nothing,
-      workGroup = Prelude.Nothing,
       description = Prelude.Nothing,
+      workGroup = Prelude.Nothing,
       name = pName_,
       database = pDatabase_,
       queryString = pQueryString_
@@ -84,13 +84,13 @@ newNamedQuery pName_ pDatabase_ pQueryString_ =
 namedQuery_namedQueryId :: Lens.Lens' NamedQuery (Prelude.Maybe Prelude.Text)
 namedQuery_namedQueryId = Lens.lens (\NamedQuery' {namedQueryId} -> namedQueryId) (\s@NamedQuery' {} a -> s {namedQueryId = a} :: NamedQuery)
 
--- | The name of the workgroup that contains the named query.
-namedQuery_workGroup :: Lens.Lens' NamedQuery (Prelude.Maybe Prelude.Text)
-namedQuery_workGroup = Lens.lens (\NamedQuery' {workGroup} -> workGroup) (\s@NamedQuery' {} a -> s {workGroup = a} :: NamedQuery)
-
 -- | The query description.
 namedQuery_description :: Lens.Lens' NamedQuery (Prelude.Maybe Prelude.Text)
 namedQuery_description = Lens.lens (\NamedQuery' {description} -> description) (\s@NamedQuery' {} a -> s {description = a} :: NamedQuery)
+
+-- | The name of the workgroup that contains the named query.
+namedQuery_workGroup :: Lens.Lens' NamedQuery (Prelude.Maybe Prelude.Text)
+namedQuery_workGroup = Lens.lens (\NamedQuery' {workGroup} -> workGroup) (\s@NamedQuery' {} a -> s {workGroup = a} :: NamedQuery)
 
 -- | The query name.
 namedQuery_name :: Lens.Lens' NamedQuery Prelude.Text
@@ -111,8 +111,8 @@ instance Core.FromJSON NamedQuery where
       ( \x ->
           NamedQuery'
             Prelude.<$> (x Core..:? "NamedQueryId")
-            Prelude.<*> (x Core..:? "WorkGroup")
             Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "WorkGroup")
             Prelude.<*> (x Core..: "Name")
             Prelude.<*> (x Core..: "Database")
             Prelude.<*> (x Core..: "QueryString")

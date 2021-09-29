@@ -37,18 +37,13 @@ data WorkGroupConfigurationUpdates = WorkGroupConfigurationUpdates'
   { -- | The upper limit (cutoff) for the amount of bytes a single query in a
     -- workgroup is allowed to scan.
     bytesScannedCutoffPerQuery :: Prelude.Maybe Prelude.Natural,
+    -- | Indicates whether this workgroup enables publishing metrics to Amazon
+    -- CloudWatch.
+    publishCloudWatchMetricsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The result configuration information about the queries in this workgroup
     -- that will be updated. Includes the updated results location and an
     -- updated option for encrypting query results.
     resultConfigurationUpdates :: Prelude.Maybe ResultConfigurationUpdates,
-    -- | Indicates whether this workgroup enables publishing metrics to Amazon
-    -- CloudWatch.
-    publishCloudWatchMetricsEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | If set to \"true\", the settings for the workgroup override client-side
-    -- settings. If set to \"false\" client-side settings are used. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
-    enforceWorkGroupConfiguration :: Prelude.Maybe Prelude.Bool,
     -- | If set to @true@, allows members assigned to a workgroup to specify
     -- Amazon S3 Requester Pays buckets in queries. If set to @false@,
     -- workgroup members cannot query data from Requester Pays buckets, and
@@ -58,6 +53,11 @@ data WorkGroupConfigurationUpdates = WorkGroupConfigurationUpdates'
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html Requester Pays Buckets>
     -- in the /Amazon Simple Storage Service Developer Guide/.
     requesterPaysEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | If set to \"true\", the settings for the workgroup override client-side
+    -- settings. If set to \"false\" client-side settings are used. For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
+    enforceWorkGroupConfiguration :: Prelude.Maybe Prelude.Bool,
     -- | Indicates that the data usage control limit per query is removed.
     -- WorkGroupConfiguration$BytesScannedCutoffPerQuery
     removeBytesScannedCutoffPerQuery :: Prelude.Maybe Prelude.Bool,
@@ -81,17 +81,12 @@ data WorkGroupConfigurationUpdates = WorkGroupConfigurationUpdates'
 -- 'bytesScannedCutoffPerQuery', 'workGroupConfigurationUpdates_bytesScannedCutoffPerQuery' - The upper limit (cutoff) for the amount of bytes a single query in a
 -- workgroup is allowed to scan.
 --
--- 'resultConfigurationUpdates', 'workGroupConfigurationUpdates_resultConfigurationUpdates' - The result configuration information about the queries in this workgroup
--- that will be updated. Includes the updated results location and an
--- updated option for encrypting query results.
---
 -- 'publishCloudWatchMetricsEnabled', 'workGroupConfigurationUpdates_publishCloudWatchMetricsEnabled' - Indicates whether this workgroup enables publishing metrics to Amazon
 -- CloudWatch.
 --
--- 'enforceWorkGroupConfiguration', 'workGroupConfigurationUpdates_enforceWorkGroupConfiguration' - If set to \"true\", the settings for the workgroup override client-side
--- settings. If set to \"false\" client-side settings are used. For more
--- information, see
--- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
+-- 'resultConfigurationUpdates', 'workGroupConfigurationUpdates_resultConfigurationUpdates' - The result configuration information about the queries in this workgroup
+-- that will be updated. Includes the updated results location and an
+-- updated option for encrypting query results.
 --
 -- 'requesterPaysEnabled', 'workGroupConfigurationUpdates_requesterPaysEnabled' - If set to @true@, allows members assigned to a workgroup to specify
 -- Amazon S3 Requester Pays buckets in queries. If set to @false@,
@@ -101,6 +96,11 @@ data WorkGroupConfigurationUpdates = WorkGroupConfigurationUpdates'
 -- buckets, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html Requester Pays Buckets>
 -- in the /Amazon Simple Storage Service Developer Guide/.
+--
+-- 'enforceWorkGroupConfiguration', 'workGroupConfigurationUpdates_enforceWorkGroupConfiguration' - If set to \"true\", the settings for the workgroup override client-side
+-- settings. If set to \"false\" client-side settings are used. For more
+-- information, see
+-- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
 --
 -- 'removeBytesScannedCutoffPerQuery', 'workGroupConfigurationUpdates_removeBytesScannedCutoffPerQuery' - Indicates that the data usage control limit per query is removed.
 -- WorkGroupConfiguration$BytesScannedCutoffPerQuery
@@ -116,12 +116,12 @@ newWorkGroupConfigurationUpdates =
   WorkGroupConfigurationUpdates'
     { bytesScannedCutoffPerQuery =
         Prelude.Nothing,
-      resultConfigurationUpdates = Prelude.Nothing,
       publishCloudWatchMetricsEnabled =
         Prelude.Nothing,
+      resultConfigurationUpdates = Prelude.Nothing,
+      requesterPaysEnabled = Prelude.Nothing,
       enforceWorkGroupConfiguration =
         Prelude.Nothing,
-      requesterPaysEnabled = Prelude.Nothing,
       removeBytesScannedCutoffPerQuery =
         Prelude.Nothing,
       engineVersion = Prelude.Nothing
@@ -132,23 +132,16 @@ newWorkGroupConfigurationUpdates =
 workGroupConfigurationUpdates_bytesScannedCutoffPerQuery :: Lens.Lens' WorkGroupConfigurationUpdates (Prelude.Maybe Prelude.Natural)
 workGroupConfigurationUpdates_bytesScannedCutoffPerQuery = Lens.lens (\WorkGroupConfigurationUpdates' {bytesScannedCutoffPerQuery} -> bytesScannedCutoffPerQuery) (\s@WorkGroupConfigurationUpdates' {} a -> s {bytesScannedCutoffPerQuery = a} :: WorkGroupConfigurationUpdates)
 
--- | The result configuration information about the queries in this workgroup
--- that will be updated. Includes the updated results location and an
--- updated option for encrypting query results.
-workGroupConfigurationUpdates_resultConfigurationUpdates :: Lens.Lens' WorkGroupConfigurationUpdates (Prelude.Maybe ResultConfigurationUpdates)
-workGroupConfigurationUpdates_resultConfigurationUpdates = Lens.lens (\WorkGroupConfigurationUpdates' {resultConfigurationUpdates} -> resultConfigurationUpdates) (\s@WorkGroupConfigurationUpdates' {} a -> s {resultConfigurationUpdates = a} :: WorkGroupConfigurationUpdates)
-
 -- | Indicates whether this workgroup enables publishing metrics to Amazon
 -- CloudWatch.
 workGroupConfigurationUpdates_publishCloudWatchMetricsEnabled :: Lens.Lens' WorkGroupConfigurationUpdates (Prelude.Maybe Prelude.Bool)
 workGroupConfigurationUpdates_publishCloudWatchMetricsEnabled = Lens.lens (\WorkGroupConfigurationUpdates' {publishCloudWatchMetricsEnabled} -> publishCloudWatchMetricsEnabled) (\s@WorkGroupConfigurationUpdates' {} a -> s {publishCloudWatchMetricsEnabled = a} :: WorkGroupConfigurationUpdates)
 
--- | If set to \"true\", the settings for the workgroup override client-side
--- settings. If set to \"false\" client-side settings are used. For more
--- information, see
--- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
-workGroupConfigurationUpdates_enforceWorkGroupConfiguration :: Lens.Lens' WorkGroupConfigurationUpdates (Prelude.Maybe Prelude.Bool)
-workGroupConfigurationUpdates_enforceWorkGroupConfiguration = Lens.lens (\WorkGroupConfigurationUpdates' {enforceWorkGroupConfiguration} -> enforceWorkGroupConfiguration) (\s@WorkGroupConfigurationUpdates' {} a -> s {enforceWorkGroupConfiguration = a} :: WorkGroupConfigurationUpdates)
+-- | The result configuration information about the queries in this workgroup
+-- that will be updated. Includes the updated results location and an
+-- updated option for encrypting query results.
+workGroupConfigurationUpdates_resultConfigurationUpdates :: Lens.Lens' WorkGroupConfigurationUpdates (Prelude.Maybe ResultConfigurationUpdates)
+workGroupConfigurationUpdates_resultConfigurationUpdates = Lens.lens (\WorkGroupConfigurationUpdates' {resultConfigurationUpdates} -> resultConfigurationUpdates) (\s@WorkGroupConfigurationUpdates' {} a -> s {resultConfigurationUpdates = a} :: WorkGroupConfigurationUpdates)
 
 -- | If set to @true@, allows members assigned to a workgroup to specify
 -- Amazon S3 Requester Pays buckets in queries. If set to @false@,
@@ -160,6 +153,13 @@ workGroupConfigurationUpdates_enforceWorkGroupConfiguration = Lens.lens (\WorkGr
 -- in the /Amazon Simple Storage Service Developer Guide/.
 workGroupConfigurationUpdates_requesterPaysEnabled :: Lens.Lens' WorkGroupConfigurationUpdates (Prelude.Maybe Prelude.Bool)
 workGroupConfigurationUpdates_requesterPaysEnabled = Lens.lens (\WorkGroupConfigurationUpdates' {requesterPaysEnabled} -> requesterPaysEnabled) (\s@WorkGroupConfigurationUpdates' {} a -> s {requesterPaysEnabled = a} :: WorkGroupConfigurationUpdates)
+
+-- | If set to \"true\", the settings for the workgroup override client-side
+-- settings. If set to \"false\" client-side settings are used. For more
+-- information, see
+-- <https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html Workgroup Settings Override Client-Side Settings>.
+workGroupConfigurationUpdates_enforceWorkGroupConfiguration :: Lens.Lens' WorkGroupConfigurationUpdates (Prelude.Maybe Prelude.Bool)
+workGroupConfigurationUpdates_enforceWorkGroupConfiguration = Lens.lens (\WorkGroupConfigurationUpdates' {enforceWorkGroupConfiguration} -> enforceWorkGroupConfiguration) (\s@WorkGroupConfigurationUpdates' {} a -> s {enforceWorkGroupConfiguration = a} :: WorkGroupConfigurationUpdates)
 
 -- | Indicates that the data usage control limit per query is removed.
 -- WorkGroupConfiguration$BytesScannedCutoffPerQuery
@@ -186,14 +186,14 @@ instance Core.ToJSON WorkGroupConfigurationUpdates where
       ( Prelude.catMaybes
           [ ("BytesScannedCutoffPerQuery" Core..=)
               Prelude.<$> bytesScannedCutoffPerQuery,
-            ("ResultConfigurationUpdates" Core..=)
-              Prelude.<$> resultConfigurationUpdates,
             ("PublishCloudWatchMetricsEnabled" Core..=)
               Prelude.<$> publishCloudWatchMetricsEnabled,
-            ("EnforceWorkGroupConfiguration" Core..=)
-              Prelude.<$> enforceWorkGroupConfiguration,
+            ("ResultConfigurationUpdates" Core..=)
+              Prelude.<$> resultConfigurationUpdates,
             ("RequesterPaysEnabled" Core..=)
               Prelude.<$> requesterPaysEnabled,
+            ("EnforceWorkGroupConfiguration" Core..=)
+              Prelude.<$> enforceWorkGroupConfiguration,
             ("RemoveBytesScannedCutoffPerQuery" Core..=)
               Prelude.<$> removeBytesScannedCutoffPerQuery,
             ("EngineVersion" Core..=) Prelude.<$> engineVersion

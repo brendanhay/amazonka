@@ -55,8 +55,8 @@ data CreateWorkGroup = CreateWorkGroup'
     -- if any, used for encrypting query results, whether the Amazon CloudWatch
     -- Metrics are enabled for the workgroup, the limit for the amount of bytes
     -- scanned (cutoff) per query, if it is specified, and whether workgroup\'s
-    -- settings (specified with EnforceWorkGroupConfiguration) in the
-    -- WorkGroupConfiguration override client-side settings. See
+    -- settings (specified with @EnforceWorkGroupConfiguration@) in the
+    -- @WorkGroupConfiguration@ override client-side settings. See
     -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
     configuration :: Prelude.Maybe WorkGroupConfiguration,
     -- | A list of comma separated tags to add to the workgroup that is created.
@@ -81,8 +81,8 @@ data CreateWorkGroup = CreateWorkGroup'
 -- if any, used for encrypting query results, whether the Amazon CloudWatch
 -- Metrics are enabled for the workgroup, the limit for the amount of bytes
 -- scanned (cutoff) per query, if it is specified, and whether workgroup\'s
--- settings (specified with EnforceWorkGroupConfiguration) in the
--- WorkGroupConfiguration override client-side settings. See
+-- settings (specified with @EnforceWorkGroupConfiguration@) in the
+-- @WorkGroupConfiguration@ override client-side settings. See
 -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
 --
 -- 'tags', 'createWorkGroup_tags' - A list of comma separated tags to add to the workgroup that is created.
@@ -107,8 +107,8 @@ newCreateWorkGroup pName_ =
 -- if any, used for encrypting query results, whether the Amazon CloudWatch
 -- Metrics are enabled for the workgroup, the limit for the amount of bytes
 -- scanned (cutoff) per query, if it is specified, and whether workgroup\'s
--- settings (specified with EnforceWorkGroupConfiguration) in the
--- WorkGroupConfiguration override client-side settings. See
+-- settings (specified with @EnforceWorkGroupConfiguration@) in the
+-- @WorkGroupConfiguration@ override client-side settings. See
 -- WorkGroupConfiguration$EnforceWorkGroupConfiguration.
 createWorkGroup_configuration :: Lens.Lens' CreateWorkGroup (Prelude.Maybe WorkGroupConfiguration)
 createWorkGroup_configuration = Lens.lens (\CreateWorkGroup' {configuration} -> configuration) (\s@CreateWorkGroup' {} a -> s {configuration = a} :: CreateWorkGroup)

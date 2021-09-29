@@ -67,6 +67,7 @@ library
     Network.AWS.DAX.Types
     Network.AWS.DAX.Types.ChangeType
     Network.AWS.DAX.Types.Cluster
+    Network.AWS.DAX.Types.ClusterEndpointEncryptionType
     Network.AWS.DAX.Types.Endpoint
     Network.AWS.DAX.Types.Event
     Network.AWS.DAX.Types.IsModifiable

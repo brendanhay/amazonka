@@ -29,7 +29,9 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newNotificationConfiguration' smart constructor.
 data NotificationConfiguration = NotificationConfiguration'
-  { -- | The current state of the topic.
+  { -- | The current state of the topic. A value of “active” means that
+    -- notifications will be sent to the topic. A value of “inactive” means
+    -- that notifications will not be sent to the topic.
     topicStatus :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) that identifies the topic.
     topicArn :: Prelude.Maybe Prelude.Text
@@ -44,7 +46,9 @@ data NotificationConfiguration = NotificationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'topicStatus', 'notificationConfiguration_topicStatus' - The current state of the topic.
+-- 'topicStatus', 'notificationConfiguration_topicStatus' - The current state of the topic. A value of “active” means that
+-- notifications will be sent to the topic. A value of “inactive” means
+-- that notifications will not be sent to the topic.
 --
 -- 'topicArn', 'notificationConfiguration_topicArn' - The Amazon Resource Name (ARN) that identifies the topic.
 newNotificationConfiguration ::
@@ -56,7 +60,9 @@ newNotificationConfiguration =
       topicArn = Prelude.Nothing
     }
 
--- | The current state of the topic.
+-- | The current state of the topic. A value of “active” means that
+-- notifications will be sent to the topic. A value of “inactive” means
+-- that notifications will not be sent to the topic.
 notificationConfiguration_topicStatus :: Lens.Lens' NotificationConfiguration (Prelude.Maybe Prelude.Text)
 notificationConfiguration_topicStatus = Lens.lens (\NotificationConfiguration' {topicStatus} -> topicStatus) (\s@NotificationConfiguration' {} a -> s {topicStatus = a} :: NotificationConfiguration)
 

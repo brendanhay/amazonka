@@ -36,11 +36,11 @@ module Network.AWS.DAX.DescribeEvents
 
     -- * Request Lenses
     describeEvents_nextToken,
-    describeEvents_duration,
     describeEvents_maxResults,
+    describeEvents_duration,
     describeEvents_startTime,
-    describeEvents_sourceName,
     describeEvents_endTime,
+    describeEvents_sourceName,
     describeEvents_sourceType,
 
     -- * Destructuring the Response
@@ -68,23 +68,23 @@ data DescribeEvents = DescribeEvents'
     -- the response includes only results beyond the token, up to the value
     -- specified by @MaxResults@.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The number of minutes\' worth of events to retrieve.
-    duration :: Prelude.Maybe Prelude.Int,
     -- | The maximum number of results to include in the response. If more
     -- results exist than the specified @MaxResults@ value, a token is included
     -- in the response so that the remaining results can be retrieved.
     --
     -- The value for @MaxResults@ must be between 20 and 100.
     maxResults :: Prelude.Maybe Prelude.Int,
+    -- | The number of minutes\' worth of events to retrieve.
+    duration :: Prelude.Maybe Prelude.Int,
     -- | The beginning of the time interval to retrieve events for, specified in
     -- ISO 8601 format.
     startTime :: Prelude.Maybe Core.POSIX,
-    -- | The identifier of the event source for which events will be returned. If
-    -- not specified, then all sources are included in the response.
-    sourceName :: Prelude.Maybe Prelude.Text,
     -- | The end of the time interval for which to retrieve events, specified in
     -- ISO 8601 format.
     endTime :: Prelude.Maybe Core.POSIX,
+    -- | The identifier of the event source for which events will be returned. If
+    -- not specified, then all sources are included in the response.
+    sourceName :: Prelude.Maybe Prelude.Text,
     -- | The event source to retrieve events for. If no value is specified, all
     -- events are returned.
     sourceType :: Prelude.Maybe SourceType
@@ -104,22 +104,22 @@ data DescribeEvents = DescribeEvents'
 -- the response includes only results beyond the token, up to the value
 -- specified by @MaxResults@.
 --
--- 'duration', 'describeEvents_duration' - The number of minutes\' worth of events to retrieve.
---
 -- 'maxResults', 'describeEvents_maxResults' - The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
 --
 -- The value for @MaxResults@ must be between 20 and 100.
 --
+-- 'duration', 'describeEvents_duration' - The number of minutes\' worth of events to retrieve.
+--
 -- 'startTime', 'describeEvents_startTime' - The beginning of the time interval to retrieve events for, specified in
+-- ISO 8601 format.
+--
+-- 'endTime', 'describeEvents_endTime' - The end of the time interval for which to retrieve events, specified in
 -- ISO 8601 format.
 --
 -- 'sourceName', 'describeEvents_sourceName' - The identifier of the event source for which events will be returned. If
 -- not specified, then all sources are included in the response.
---
--- 'endTime', 'describeEvents_endTime' - The end of the time interval for which to retrieve events, specified in
--- ISO 8601 format.
 --
 -- 'sourceType', 'describeEvents_sourceType' - The event source to retrieve events for. If no value is specified, all
 -- events are returned.
@@ -128,11 +128,11 @@ newDescribeEvents ::
 newDescribeEvents =
   DescribeEvents'
     { nextToken = Prelude.Nothing,
-      duration = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      duration = Prelude.Nothing,
       startTime = Prelude.Nothing,
-      sourceName = Prelude.Nothing,
       endTime = Prelude.Nothing,
+      sourceName = Prelude.Nothing,
       sourceType = Prelude.Nothing
     }
 
@@ -143,10 +143,6 @@ newDescribeEvents =
 describeEvents_nextToken :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
 describeEvents_nextToken = Lens.lens (\DescribeEvents' {nextToken} -> nextToken) (\s@DescribeEvents' {} a -> s {nextToken = a} :: DescribeEvents)
 
--- | The number of minutes\' worth of events to retrieve.
-describeEvents_duration :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Int)
-describeEvents_duration = Lens.lens (\DescribeEvents' {duration} -> duration) (\s@DescribeEvents' {} a -> s {duration = a} :: DescribeEvents)
-
 -- | The maximum number of results to include in the response. If more
 -- results exist than the specified @MaxResults@ value, a token is included
 -- in the response so that the remaining results can be retrieved.
@@ -155,20 +151,24 @@ describeEvents_duration = Lens.lens (\DescribeEvents' {duration} -> duration) (\
 describeEvents_maxResults :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Int)
 describeEvents_maxResults = Lens.lens (\DescribeEvents' {maxResults} -> maxResults) (\s@DescribeEvents' {} a -> s {maxResults = a} :: DescribeEvents)
 
+-- | The number of minutes\' worth of events to retrieve.
+describeEvents_duration :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Int)
+describeEvents_duration = Lens.lens (\DescribeEvents' {duration} -> duration) (\s@DescribeEvents' {} a -> s {duration = a} :: DescribeEvents)
+
 -- | The beginning of the time interval to retrieve events for, specified in
 -- ISO 8601 format.
 describeEvents_startTime :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.UTCTime)
 describeEvents_startTime = Lens.lens (\DescribeEvents' {startTime} -> startTime) (\s@DescribeEvents' {} a -> s {startTime = a} :: DescribeEvents) Prelude.. Lens.mapping Core._Time
 
--- | The identifier of the event source for which events will be returned. If
--- not specified, then all sources are included in the response.
-describeEvents_sourceName :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
-describeEvents_sourceName = Lens.lens (\DescribeEvents' {sourceName} -> sourceName) (\s@DescribeEvents' {} a -> s {sourceName = a} :: DescribeEvents)
-
 -- | The end of the time interval for which to retrieve events, specified in
 -- ISO 8601 format.
 describeEvents_endTime :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.UTCTime)
 describeEvents_endTime = Lens.lens (\DescribeEvents' {endTime} -> endTime) (\s@DescribeEvents' {} a -> s {endTime = a} :: DescribeEvents) Prelude.. Lens.mapping Core._Time
+
+-- | The identifier of the event source for which events will be returned. If
+-- not specified, then all sources are included in the response.
+describeEvents_sourceName :: Lens.Lens' DescribeEvents (Prelude.Maybe Prelude.Text)
+describeEvents_sourceName = Lens.lens (\DescribeEvents' {sourceName} -> sourceName) (\s@DescribeEvents' {} a -> s {sourceName = a} :: DescribeEvents)
 
 -- | The event source to retrieve events for. If no value is specified, all
 -- events are returned.
@@ -231,11 +231,11 @@ instance Core.ToJSON DescribeEvents where
     Core.object
       ( Prelude.catMaybes
           [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Duration" Core..=) Prelude.<$> duration,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("Duration" Core..=) Prelude.<$> duration,
             ("StartTime" Core..=) Prelude.<$> startTime,
-            ("SourceName" Core..=) Prelude.<$> sourceName,
             ("EndTime" Core..=) Prelude.<$> endTime,
+            ("SourceName" Core..=) Prelude.<$> sourceName,
             ("SourceType" Core..=) Prelude.<$> sourceType
           ]
       )

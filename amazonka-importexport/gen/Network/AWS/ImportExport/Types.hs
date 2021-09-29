@@ -18,19 +18,19 @@ module Network.AWS.ImportExport.Types
 
     -- * Errors
     _InvalidVersionException,
-    _UnableToCancelJobIdException,
     _CreateJobQuotaExceededException,
+    _UnableToCancelJobIdException,
     _InvalidManifestFieldException,
     _MissingCustomsException,
     _InvalidAddressException,
     _MissingParameterException,
     _BucketPermissionException,
-    _MalformedManifestException,
     _InvalidParameterException,
+    _MalformedManifestException,
     _MultipleRegionsException,
     _InvalidJobIdException,
-    _UnableToUpdateJobIdException,
     _MissingManifestFieldException,
+    _UnableToUpdateJobIdException,
     _InvalidCustomsException,
     _InvalidAccessKeyIdException,
     _InvalidFileSystemException,
@@ -143,13 +143,6 @@ _InvalidVersionException =
     defaultService
     "InvalidVersionException"
 
--- | AWS Import\/Export cannot cancel the job
-_UnableToCancelJobIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnableToCancelJobIdException =
-  Core._MatchServiceError
-    defaultService
-    "UnableToCancelJobIdException"
-
 -- | Each account can create only a certain number of jobs per day. If you
 -- need to create more than this, please contact
 -- awsimportexport\@amazon.com to explain your particular use case.
@@ -158,6 +151,13 @@ _CreateJobQuotaExceededException =
   Core._MatchServiceError
     defaultService
     "CreateJobQuotaExceededException"
+
+-- | AWS Import\/Export cannot cancel the job
+_UnableToCancelJobIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnableToCancelJobIdException =
+  Core._MatchServiceError
+    defaultService
+    "UnableToCancelJobIdException"
 
 -- | One or more manifest fields was invalid. Please correct and resubmit.
 _InvalidManifestFieldException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -194,19 +194,19 @@ _BucketPermissionException =
     defaultService
     "BucketPermissionException"
 
--- | Your manifest is not well-formed.
-_MalformedManifestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MalformedManifestException =
-  Core._MatchServiceError
-    defaultService
-    "MalformedManifestException"
-
 -- | One or more parameters had an invalid value.
 _InvalidParameterException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidParameterException =
   Core._MatchServiceError
     defaultService
     "InvalidParameterException"
+
+-- | Your manifest is not well-formed.
+_MalformedManifestException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MalformedManifestException =
+  Core._MatchServiceError
+    defaultService
+    "MalformedManifestException"
 
 -- | Your manifest file contained buckets from multiple regions. A job is
 -- restricted to buckets from one region. Please correct and resubmit.
@@ -224,13 +224,6 @@ _InvalidJobIdException =
     defaultService
     "InvalidJobIdException"
 
--- | AWS Import\/Export cannot update the job
-_UnableToUpdateJobIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnableToUpdateJobIdException =
-  Core._MatchServiceError
-    defaultService
-    "UnableToUpdateJobIdException"
-
 -- | One or more required fields were missing from the manifest file. Please
 -- correct and resubmit.
 _MissingManifestFieldException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -238,6 +231,13 @@ _MissingManifestFieldException =
   Core._MatchServiceError
     defaultService
     "MissingManifestFieldException"
+
+-- | AWS Import\/Export cannot update the job
+_UnableToUpdateJobIdException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnableToUpdateJobIdException =
+  Core._MatchServiceError
+    defaultService
+    "UnableToUpdateJobIdException"
 
 -- | One or more customs parameters was invalid. Please correct and resubmit.
 _InvalidCustomsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

@@ -33,11 +33,11 @@ import Test.Tasty
 --         , requestUpdateJob $
 --             newUpdateJob
 --
---         , requestGetShippingLabel $
---             newGetShippingLabel
---
 --         , requestGetStatus $
 --             newGetStatus
+--
+--         , requestGetShippingLabel $
+--             newGetShippingLabel
 --
 --         , requestListJobs $
 --             newListJobs
@@ -54,11 +54,11 @@ import Test.Tasty
 --         , responseUpdateJob $
 --             newUpdateJobResponse
 --
---         , responseGetShippingLabel $
---             newGetShippingLabelResponse
---
 --         , responseGetStatus $
 --             newGetStatusResponse
+--
+--         , responseGetShippingLabel $
+--             newGetShippingLabelResponse
 --
 --         , responseListJobs $
 --             newListJobsResponse
@@ -83,17 +83,17 @@ requestUpdateJob =
     "UpdateJob"
     "fixture/UpdateJob.yaml"
 
-requestGetShippingLabel :: GetShippingLabel -> TestTree
-requestGetShippingLabel =
-  req
-    "GetShippingLabel"
-    "fixture/GetShippingLabel.yaml"
-
 requestGetStatus :: GetStatus -> TestTree
 requestGetStatus =
   req
     "GetStatus"
     "fixture/GetStatus.yaml"
+
+requestGetShippingLabel :: GetShippingLabel -> TestTree
+requestGetShippingLabel =
+  req
+    "GetShippingLabel"
+    "fixture/GetShippingLabel.yaml"
 
 requestListJobs :: ListJobs -> TestTree
 requestListJobs =
@@ -125,14 +125,6 @@ responseUpdateJob =
     defaultService
     (Proxy :: Proxy UpdateJob)
 
-responseGetShippingLabel :: GetShippingLabelResponse -> TestTree
-responseGetShippingLabel =
-  res
-    "GetShippingLabelResponse"
-    "fixture/GetShippingLabelResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetShippingLabel)
-
 responseGetStatus :: GetStatusResponse -> TestTree
 responseGetStatus =
   res
@@ -140,6 +132,14 @@ responseGetStatus =
     "fixture/GetStatusResponse.proto"
     defaultService
     (Proxy :: Proxy GetStatus)
+
+responseGetShippingLabel :: GetShippingLabelResponse -> TestTree
+responseGetShippingLabel =
+  res
+    "GetShippingLabelResponse"
+    "fixture/GetShippingLabelResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetShippingLabel)
 
 responseListJobs :: ListJobsResponse -> TestTree
 responseListJobs =

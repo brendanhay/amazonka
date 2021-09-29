@@ -28,11 +28,11 @@ module Network.AWS.ImportExport
     -- ** InvalidVersionException
     _InvalidVersionException,
 
-    -- ** UnableToCancelJobIdException
-    _UnableToCancelJobIdException,
-
     -- ** CreateJobQuotaExceededException
     _CreateJobQuotaExceededException,
+
+    -- ** UnableToCancelJobIdException
+    _UnableToCancelJobIdException,
 
     -- ** InvalidManifestFieldException
     _InvalidManifestFieldException,
@@ -49,11 +49,11 @@ module Network.AWS.ImportExport
     -- ** BucketPermissionException
     _BucketPermissionException,
 
-    -- ** MalformedManifestException
-    _MalformedManifestException,
-
     -- ** InvalidParameterException
     _InvalidParameterException,
+
+    -- ** MalformedManifestException
+    _MalformedManifestException,
 
     -- ** MultipleRegionsException
     _MultipleRegionsException,
@@ -61,11 +61,11 @@ module Network.AWS.ImportExport
     -- ** InvalidJobIdException
     _InvalidJobIdException,
 
-    -- ** UnableToUpdateJobIdException
-    _UnableToUpdateJobIdException,
-
     -- ** MissingManifestFieldException
     _MissingManifestFieldException,
+
+    -- ** UnableToUpdateJobIdException
+    _UnableToUpdateJobIdException,
 
     -- ** InvalidCustomsException
     _InvalidCustomsException,
@@ -103,17 +103,17 @@ module Network.AWS.ImportExport
     UpdateJobResponse (UpdateJobResponse'),
     newUpdateJobResponse,
 
-    -- ** GetShippingLabel
-    GetShippingLabel (GetShippingLabel'),
-    newGetShippingLabel,
-    GetShippingLabelResponse (GetShippingLabelResponse'),
-    newGetShippingLabelResponse,
-
     -- ** GetStatus
     GetStatus (GetStatus'),
     newGetStatus,
     GetStatusResponse (GetStatusResponse'),
     newGetStatusResponse,
+
+    -- ** GetShippingLabel
+    GetShippingLabel (GetShippingLabel'),
+    newGetShippingLabel,
+    GetShippingLabelResponse (GetShippingLabelResponse'),
+    newGetShippingLabelResponse,
 
     -- ** ListJobs (Paginated)
     ListJobs (ListJobs'),

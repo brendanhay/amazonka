@@ -33,11 +33,11 @@ module Network.AWS.ImportExport.GetShippingLabel
     getShippingLabel_postalCode,
     getShippingLabel_street1,
     getShippingLabel_aPIVersion,
-    getShippingLabel_name,
     getShippingLabel_city,
+    getShippingLabel_name,
     getShippingLabel_street2,
-    getShippingLabel_stateOrProvince,
     getShippingLabel_country,
+    getShippingLabel_stateOrProvince,
     getShippingLabel_street3,
     getShippingLabel_jobIds,
 
@@ -66,11 +66,11 @@ data GetShippingLabel = GetShippingLabel'
     postalCode :: Prelude.Maybe Prelude.Text,
     street1 :: Prelude.Maybe Prelude.Text,
     aPIVersion :: Prelude.Maybe Prelude.Text,
-    name :: Prelude.Maybe Prelude.Text,
     city :: Prelude.Maybe Prelude.Text,
+    name :: Prelude.Maybe Prelude.Text,
     street2 :: Prelude.Maybe Prelude.Text,
-    stateOrProvince :: Prelude.Maybe Prelude.Text,
     country :: Prelude.Maybe Prelude.Text,
+    stateOrProvince :: Prelude.Maybe Prelude.Text,
     street3 :: Prelude.Maybe Prelude.Text,
     jobIds :: [Prelude.Text]
   }
@@ -94,15 +94,15 @@ data GetShippingLabel = GetShippingLabel'
 --
 -- 'aPIVersion', 'getShippingLabel_aPIVersion' - Undocumented member.
 --
--- 'name', 'getShippingLabel_name' - Undocumented member.
---
 -- 'city', 'getShippingLabel_city' - Undocumented member.
+--
+-- 'name', 'getShippingLabel_name' - Undocumented member.
 --
 -- 'street2', 'getShippingLabel_street2' - Undocumented member.
 --
--- 'stateOrProvince', 'getShippingLabel_stateOrProvince' - Undocumented member.
---
 -- 'country', 'getShippingLabel_country' - Undocumented member.
+--
+-- 'stateOrProvince', 'getShippingLabel_stateOrProvince' - Undocumented member.
 --
 -- 'street3', 'getShippingLabel_street3' - Undocumented member.
 --
@@ -116,11 +116,11 @@ newGetShippingLabel =
       postalCode = Prelude.Nothing,
       street1 = Prelude.Nothing,
       aPIVersion = Prelude.Nothing,
-      name = Prelude.Nothing,
       city = Prelude.Nothing,
+      name = Prelude.Nothing,
       street2 = Prelude.Nothing,
-      stateOrProvince = Prelude.Nothing,
       country = Prelude.Nothing,
+      stateOrProvince = Prelude.Nothing,
       street3 = Prelude.Nothing,
       jobIds = Prelude.mempty
     }
@@ -146,24 +146,24 @@ getShippingLabel_aPIVersion :: Lens.Lens' GetShippingLabel (Prelude.Maybe Prelud
 getShippingLabel_aPIVersion = Lens.lens (\GetShippingLabel' {aPIVersion} -> aPIVersion) (\s@GetShippingLabel' {} a -> s {aPIVersion = a} :: GetShippingLabel)
 
 -- | Undocumented member.
-getShippingLabel_name :: Lens.Lens' GetShippingLabel (Prelude.Maybe Prelude.Text)
-getShippingLabel_name = Lens.lens (\GetShippingLabel' {name} -> name) (\s@GetShippingLabel' {} a -> s {name = a} :: GetShippingLabel)
-
--- | Undocumented member.
 getShippingLabel_city :: Lens.Lens' GetShippingLabel (Prelude.Maybe Prelude.Text)
 getShippingLabel_city = Lens.lens (\GetShippingLabel' {city} -> city) (\s@GetShippingLabel' {} a -> s {city = a} :: GetShippingLabel)
+
+-- | Undocumented member.
+getShippingLabel_name :: Lens.Lens' GetShippingLabel (Prelude.Maybe Prelude.Text)
+getShippingLabel_name = Lens.lens (\GetShippingLabel' {name} -> name) (\s@GetShippingLabel' {} a -> s {name = a} :: GetShippingLabel)
 
 -- | Undocumented member.
 getShippingLabel_street2 :: Lens.Lens' GetShippingLabel (Prelude.Maybe Prelude.Text)
 getShippingLabel_street2 = Lens.lens (\GetShippingLabel' {street2} -> street2) (\s@GetShippingLabel' {} a -> s {street2 = a} :: GetShippingLabel)
 
 -- | Undocumented member.
-getShippingLabel_stateOrProvince :: Lens.Lens' GetShippingLabel (Prelude.Maybe Prelude.Text)
-getShippingLabel_stateOrProvince = Lens.lens (\GetShippingLabel' {stateOrProvince} -> stateOrProvince) (\s@GetShippingLabel' {} a -> s {stateOrProvince = a} :: GetShippingLabel)
-
--- | Undocumented member.
 getShippingLabel_country :: Lens.Lens' GetShippingLabel (Prelude.Maybe Prelude.Text)
 getShippingLabel_country = Lens.lens (\GetShippingLabel' {country} -> country) (\s@GetShippingLabel' {} a -> s {country = a} :: GetShippingLabel)
+
+-- | Undocumented member.
+getShippingLabel_stateOrProvince :: Lens.Lens' GetShippingLabel (Prelude.Maybe Prelude.Text)
+getShippingLabel_stateOrProvince = Lens.lens (\GetShippingLabel' {stateOrProvince} -> stateOrProvince) (\s@GetShippingLabel' {} a -> s {stateOrProvince = a} :: GetShippingLabel)
 
 -- | Undocumented member.
 getShippingLabel_street3 :: Lens.Lens' GetShippingLabel (Prelude.Maybe Prelude.Text)
@@ -211,11 +211,11 @@ instance Core.ToQuery GetShippingLabel where
         "postalCode" Core.=: postalCode,
         "street1" Core.=: street1,
         "APIVersion" Core.=: aPIVersion,
-        "name" Core.=: name,
         "city" Core.=: city,
+        "name" Core.=: name,
         "street2" Core.=: street2,
-        "stateOrProvince" Core.=: stateOrProvince,
         "country" Core.=: country,
+        "stateOrProvince" Core.=: stateOrProvince,
         "street3" Core.=: street3,
         "jobIds" Core.=: Core.toQueryList "member" jobIds
       ]

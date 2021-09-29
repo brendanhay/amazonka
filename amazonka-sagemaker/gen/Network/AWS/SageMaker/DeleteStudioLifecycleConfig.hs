@@ -1,0 +1,141 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.SageMaker.DeleteStudioLifecycleConfig
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
+-- Portability : non-portable (GHC extensions)
+--
+-- Deletes the Studio Lifecycle Configuration. In order to delete the
+-- Lifecycle Configuration, there must be no running apps using the
+-- Lifecycle Configuration. You must also remove the Lifecycle
+-- Configuration from UserSettings in all Domains and UserProfiles.
+module Network.AWS.SageMaker.DeleteStudioLifecycleConfig
+  ( -- * Creating a Request
+    DeleteStudioLifecycleConfig (..),
+    newDeleteStudioLifecycleConfig,
+
+    -- * Request Lenses
+    deleteStudioLifecycleConfig_studioLifecycleConfigName,
+
+    -- * Destructuring the Response
+    DeleteStudioLifecycleConfigResponse (..),
+    newDeleteStudioLifecycleConfigResponse,
+  )
+where
+
+import qualified Network.AWS.Core as Core
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import Network.AWS.SageMaker.Types
+
+-- | /See:/ 'newDeleteStudioLifecycleConfig' smart constructor.
+data DeleteStudioLifecycleConfig = DeleteStudioLifecycleConfig'
+  { -- | The name of the Studio Lifecycle Configuration to delete.
+    studioLifecycleConfigName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteStudioLifecycleConfig' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'studioLifecycleConfigName', 'deleteStudioLifecycleConfig_studioLifecycleConfigName' - The name of the Studio Lifecycle Configuration to delete.
+newDeleteStudioLifecycleConfig ::
+  -- | 'studioLifecycleConfigName'
+  Prelude.Text ->
+  DeleteStudioLifecycleConfig
+newDeleteStudioLifecycleConfig
+  pStudioLifecycleConfigName_ =
+    DeleteStudioLifecycleConfig'
+      { studioLifecycleConfigName =
+          pStudioLifecycleConfigName_
+      }
+
+-- | The name of the Studio Lifecycle Configuration to delete.
+deleteStudioLifecycleConfig_studioLifecycleConfigName :: Lens.Lens' DeleteStudioLifecycleConfig Prelude.Text
+deleteStudioLifecycleConfig_studioLifecycleConfigName = Lens.lens (\DeleteStudioLifecycleConfig' {studioLifecycleConfigName} -> studioLifecycleConfigName) (\s@DeleteStudioLifecycleConfig' {} a -> s {studioLifecycleConfigName = a} :: DeleteStudioLifecycleConfig)
+
+instance Core.AWSRequest DeleteStudioLifecycleConfig where
+  type
+    AWSResponse DeleteStudioLifecycleConfig =
+      DeleteStudioLifecycleConfigResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull
+      DeleteStudioLifecycleConfigResponse'
+
+instance Prelude.Hashable DeleteStudioLifecycleConfig
+
+instance Prelude.NFData DeleteStudioLifecycleConfig
+
+instance Core.ToHeaders DeleteStudioLifecycleConfig where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Core.=# ( "SageMaker.DeleteStudioLifecycleConfig" ::
+                          Prelude.ByteString
+                      ),
+            "Content-Type"
+              Core.=# ( "application/x-amz-json-1.1" ::
+                          Prelude.ByteString
+                      )
+          ]
+      )
+
+instance Core.ToJSON DeleteStudioLifecycleConfig where
+  toJSON DeleteStudioLifecycleConfig' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ( "StudioLifecycleConfigName"
+                  Core..= studioLifecycleConfigName
+              )
+          ]
+      )
+
+instance Core.ToPath DeleteStudioLifecycleConfig where
+  toPath = Prelude.const "/"
+
+instance Core.ToQuery DeleteStudioLifecycleConfig where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDeleteStudioLifecycleConfigResponse' smart constructor.
+data DeleteStudioLifecycleConfigResponse = DeleteStudioLifecycleConfigResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteStudioLifecycleConfigResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteStudioLifecycleConfigResponse ::
+  DeleteStudioLifecycleConfigResponse
+newDeleteStudioLifecycleConfigResponse =
+  DeleteStudioLifecycleConfigResponse'
+
+instance
+  Prelude.NFData
+    DeleteStudioLifecycleConfigResponse

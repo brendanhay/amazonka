@@ -30,8 +30,8 @@ module Network.AWS.SageMaker.ListDeviceFleets
 
     -- * Request Lenses
     listDeviceFleets_lastModifiedTimeBefore,
-    listDeviceFleets_sortOrder,
     listDeviceFleets_nextToken,
+    listDeviceFleets_sortOrder,
     listDeviceFleets_nameContains,
     listDeviceFleets_maxResults,
     listDeviceFleets_creationTimeBefore,
@@ -61,11 +61,11 @@ import Network.AWS.SageMaker.Types
 data ListDeviceFleets = ListDeviceFleets'
   { -- | Select fleets where the job was updated before X
     lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
-    -- | What direction to sort in.
-    sortOrder :: Prelude.Maybe SortOrder,
     -- | The response from the last list when returning a list large enough to
     -- need tokening.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | What direction to sort in.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | Filter for fleets containing this name in their fleet device name.
     nameContains :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to select.
@@ -92,10 +92,10 @@ data ListDeviceFleets = ListDeviceFleets'
 --
 -- 'lastModifiedTimeBefore', 'listDeviceFleets_lastModifiedTimeBefore' - Select fleets where the job was updated before X
 --
--- 'sortOrder', 'listDeviceFleets_sortOrder' - What direction to sort in.
---
 -- 'nextToken', 'listDeviceFleets_nextToken' - The response from the last list when returning a list large enough to
 -- need tokening.
+--
+-- 'sortOrder', 'listDeviceFleets_sortOrder' - What direction to sort in.
 --
 -- 'nameContains', 'listDeviceFleets_nameContains' - Filter for fleets containing this name in their fleet device name.
 --
@@ -115,8 +115,8 @@ newListDeviceFleets =
   ListDeviceFleets'
     { lastModifiedTimeBefore =
         Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       nameContains = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
@@ -129,14 +129,14 @@ newListDeviceFleets =
 listDeviceFleets_lastModifiedTimeBefore :: Lens.Lens' ListDeviceFleets (Prelude.Maybe Prelude.UTCTime)
 listDeviceFleets_lastModifiedTimeBefore = Lens.lens (\ListDeviceFleets' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListDeviceFleets' {} a -> s {lastModifiedTimeBefore = a} :: ListDeviceFleets) Prelude.. Lens.mapping Core._Time
 
--- | What direction to sort in.
-listDeviceFleets_sortOrder :: Lens.Lens' ListDeviceFleets (Prelude.Maybe SortOrder)
-listDeviceFleets_sortOrder = Lens.lens (\ListDeviceFleets' {sortOrder} -> sortOrder) (\s@ListDeviceFleets' {} a -> s {sortOrder = a} :: ListDeviceFleets)
-
 -- | The response from the last list when returning a list large enough to
 -- need tokening.
 listDeviceFleets_nextToken :: Lens.Lens' ListDeviceFleets (Prelude.Maybe Prelude.Text)
 listDeviceFleets_nextToken = Lens.lens (\ListDeviceFleets' {nextToken} -> nextToken) (\s@ListDeviceFleets' {} a -> s {nextToken = a} :: ListDeviceFleets)
+
+-- | What direction to sort in.
+listDeviceFleets_sortOrder :: Lens.Lens' ListDeviceFleets (Prelude.Maybe SortOrder)
+listDeviceFleets_sortOrder = Lens.lens (\ListDeviceFleets' {sortOrder} -> sortOrder) (\s@ListDeviceFleets' {} a -> s {sortOrder = a} :: ListDeviceFleets)
 
 -- | Filter for fleets containing this name in their fleet device name.
 listDeviceFleets_nameContains :: Lens.Lens' ListDeviceFleets (Prelude.Maybe Prelude.Text)
@@ -223,8 +223,8 @@ instance Core.ToJSON ListDeviceFleets where
       ( Prelude.catMaybes
           [ ("LastModifiedTimeBefore" Core..=)
               Prelude.<$> lastModifiedTimeBefore,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NameContains" Core..=) Prelude.<$> nameContains,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CreationTimeBefore" Core..=)

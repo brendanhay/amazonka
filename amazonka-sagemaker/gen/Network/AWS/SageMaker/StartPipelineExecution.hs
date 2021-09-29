@@ -62,7 +62,7 @@ data StartPipelineExecution = StartPipelineExecution'
     pipelineName :: Prelude.Text,
     -- | A unique, case-sensitive identifier that you provide to ensure the
     -- idempotency of the operation. An idempotent operation completes no more
-    -- than one time.
+    -- than once.
     clientRequestToken :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -85,7 +85,7 @@ data StartPipelineExecution = StartPipelineExecution'
 --
 -- 'clientRequestToken', 'startPipelineExecution_clientRequestToken' - A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the operation. An idempotent operation completes no more
--- than one time.
+-- than once.
 newStartPipelineExecution ::
   -- | 'pipelineName'
   Prelude.Text ->
@@ -122,7 +122,7 @@ startPipelineExecution_pipelineName = Lens.lens (\StartPipelineExecution' {pipel
 
 -- | A unique, case-sensitive identifier that you provide to ensure the
 -- idempotency of the operation. An idempotent operation completes no more
--- than one time.
+-- than once.
 startPipelineExecution_clientRequestToken :: Lens.Lens' StartPipelineExecution Prelude.Text
 startPipelineExecution_clientRequestToken = Lens.lens (\StartPipelineExecution' {clientRequestToken} -> clientRequestToken) (\s@StartPipelineExecution' {} a -> s {clientRequestToken = a} :: StartPipelineExecution)
 

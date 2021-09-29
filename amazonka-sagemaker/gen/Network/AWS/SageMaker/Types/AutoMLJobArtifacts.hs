@@ -23,13 +23,13 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Artifacts that are generation during a job.
+-- | The artifacts that are generated during an AutoML job.
 --
 -- /See:/ 'newAutoMLJobArtifacts' smart constructor.
 data AutoMLJobArtifacts = AutoMLJobArtifacts'
-  { -- | The URL to the notebook location.
+  { -- | The URL of the notebook location.
     candidateDefinitionNotebookLocation :: Prelude.Maybe Prelude.Text,
-    -- | The URL to the notebook location.
+    -- | The URL of the notebook location.
     dataExplorationNotebookLocation :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,9 +42,9 @@ data AutoMLJobArtifacts = AutoMLJobArtifacts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'candidateDefinitionNotebookLocation', 'autoMLJobArtifacts_candidateDefinitionNotebookLocation' - The URL to the notebook location.
+-- 'candidateDefinitionNotebookLocation', 'autoMLJobArtifacts_candidateDefinitionNotebookLocation' - The URL of the notebook location.
 --
--- 'dataExplorationNotebookLocation', 'autoMLJobArtifacts_dataExplorationNotebookLocation' - The URL to the notebook location.
+-- 'dataExplorationNotebookLocation', 'autoMLJobArtifacts_dataExplorationNotebookLocation' - The URL of the notebook location.
 newAutoMLJobArtifacts ::
   AutoMLJobArtifacts
 newAutoMLJobArtifacts =
@@ -54,11 +54,11 @@ newAutoMLJobArtifacts =
       dataExplorationNotebookLocation = Prelude.Nothing
     }
 
--- | The URL to the notebook location.
+-- | The URL of the notebook location.
 autoMLJobArtifacts_candidateDefinitionNotebookLocation :: Lens.Lens' AutoMLJobArtifacts (Prelude.Maybe Prelude.Text)
 autoMLJobArtifacts_candidateDefinitionNotebookLocation = Lens.lens (\AutoMLJobArtifacts' {candidateDefinitionNotebookLocation} -> candidateDefinitionNotebookLocation) (\s@AutoMLJobArtifacts' {} a -> s {candidateDefinitionNotebookLocation = a} :: AutoMLJobArtifacts)
 
--- | The URL to the notebook location.
+-- | The URL of the notebook location.
 autoMLJobArtifacts_dataExplorationNotebookLocation :: Lens.Lens' AutoMLJobArtifacts (Prelude.Maybe Prelude.Text)
 autoMLJobArtifacts_dataExplorationNotebookLocation = Lens.lens (\AutoMLJobArtifacts' {dataExplorationNotebookLocation} -> dataExplorationNotebookLocation) (\s@AutoMLJobArtifacts' {} a -> s {dataExplorationNotebookLocation = a} :: AutoMLJobArtifacts)
 

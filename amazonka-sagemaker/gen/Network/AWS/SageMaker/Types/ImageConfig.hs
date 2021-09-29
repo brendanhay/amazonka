@@ -23,13 +23,20 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.RepositoryAccessMode
+import Network.AWS.SageMaker.Types.RepositoryAuthConfig
 
 -- | Specifies whether the model container is in Amazon ECR or a private
 -- Docker registry accessible from your Amazon Virtual Private Cloud (VPC).
 --
 -- /See:/ 'newImageConfig' smart constructor.
 data ImageConfig = ImageConfig'
-  { -- | Set this to one of the following values:
+  { -- | (Optional) Specifies an authentication configuration for the private
+    -- docker registry where your model image is hosted. Specify a value for
+    -- this property only if you specified @Vpc@ as the value for the
+    -- @RepositoryAccessMode@ field, and the private Docker registry where the
+    -- model image is hosted requires authentication.
+    repositoryAuthConfig :: Prelude.Maybe RepositoryAuthConfig,
+    -- | Set this to one of the following values:
     --
     -- -   @Platform@ - The model image is hosted in Amazon ECR.
     --
@@ -47,6 +54,12 @@ data ImageConfig = ImageConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'repositoryAuthConfig', 'imageConfig_repositoryAuthConfig' - (Optional) Specifies an authentication configuration for the private
+-- docker registry where your model image is hosted. Specify a value for
+-- this property only if you specified @Vpc@ as the value for the
+-- @RepositoryAccessMode@ field, and the private Docker registry where the
+-- model image is hosted requires authentication.
+--
 -- 'repositoryAccessMode', 'imageConfig_repositoryAccessMode' - Set this to one of the following values:
 --
 -- -   @Platform@ - The model image is hosted in Amazon ECR.
@@ -59,9 +72,18 @@ newImageConfig ::
   ImageConfig
 newImageConfig pRepositoryAccessMode_ =
   ImageConfig'
-    { repositoryAccessMode =
-        pRepositoryAccessMode_
+    { repositoryAuthConfig =
+        Prelude.Nothing,
+      repositoryAccessMode = pRepositoryAccessMode_
     }
+
+-- | (Optional) Specifies an authentication configuration for the private
+-- docker registry where your model image is hosted. Specify a value for
+-- this property only if you specified @Vpc@ as the value for the
+-- @RepositoryAccessMode@ field, and the private Docker registry where the
+-- model image is hosted requires authentication.
+imageConfig_repositoryAuthConfig :: Lens.Lens' ImageConfig (Prelude.Maybe RepositoryAuthConfig)
+imageConfig_repositoryAuthConfig = Lens.lens (\ImageConfig' {repositoryAuthConfig} -> repositoryAuthConfig) (\s@ImageConfig' {} a -> s {repositoryAuthConfig = a} :: ImageConfig)
 
 -- | Set this to one of the following values:
 --
@@ -78,7 +100,8 @@ instance Core.FromJSON ImageConfig where
       "ImageConfig"
       ( \x ->
           ImageConfig'
-            Prelude.<$> (x Core..: "RepositoryAccessMode")
+            Prelude.<$> (x Core..:? "RepositoryAuthConfig")
+            Prelude.<*> (x Core..: "RepositoryAccessMode")
       )
 
 instance Prelude.Hashable ImageConfig
@@ -89,7 +112,9 @@ instance Core.ToJSON ImageConfig where
   toJSON ImageConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just
+          [ ("RepositoryAuthConfig" Core..=)
+              Prelude.<$> repositoryAuthConfig,
+            Prelude.Just
               ( "RepositoryAccessMode"
                   Core..= repositoryAccessMode
               )

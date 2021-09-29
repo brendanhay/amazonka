@@ -24,7 +24,7 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about the user who created or modified an experiment, trial,
--- or trial component.
+-- trial component, or project.
 --
 -- /See:/ 'newUserContext' smart constructor.
 data UserContext = UserContext'

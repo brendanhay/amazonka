@@ -30,8 +30,8 @@ module Network.AWS.SageMaker.ListProcessingJobs
 
     -- * Request Lenses
     listProcessingJobs_lastModifiedTimeBefore,
-    listProcessingJobs_sortOrder,
     listProcessingJobs_nextToken,
+    listProcessingJobs_sortOrder,
     listProcessingJobs_nameContains,
     listProcessingJobs_maxResults,
     listProcessingJobs_creationTimeBefore,
@@ -63,12 +63,12 @@ data ListProcessingJobs = ListProcessingJobs'
   { -- | A filter that returns only processing jobs modified before the specified
     -- time.
     lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
-    -- | The sort order for results. The default is @Ascending@.
-    sortOrder :: Prelude.Maybe SortOrder,
     -- | If the result of the previous @ListProcessingJobs@ request was
     -- truncated, the response includes a @NextToken@. To retrieve the next set
     -- of processing jobs, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order for results. The default is @Ascending@.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | A string in the processing job name. This filter returns only processing
     -- jobs whose name contains the specified string.
     nameContains :: Prelude.Maybe Prelude.Text,
@@ -101,11 +101,11 @@ data ListProcessingJobs = ListProcessingJobs'
 -- 'lastModifiedTimeBefore', 'listProcessingJobs_lastModifiedTimeBefore' - A filter that returns only processing jobs modified before the specified
 -- time.
 --
--- 'sortOrder', 'listProcessingJobs_sortOrder' - The sort order for results. The default is @Ascending@.
---
 -- 'nextToken', 'listProcessingJobs_nextToken' - If the result of the previous @ListProcessingJobs@ request was
 -- truncated, the response includes a @NextToken@. To retrieve the next set
 -- of processing jobs, use the token in the next request.
+--
+-- 'sortOrder', 'listProcessingJobs_sortOrder' - The sort order for results. The default is @Ascending@.
 --
 -- 'nameContains', 'listProcessingJobs_nameContains' - A string in the processing job name. This filter returns only processing
 -- jobs whose name contains the specified string.
@@ -130,8 +130,8 @@ newListProcessingJobs =
   ListProcessingJobs'
     { lastModifiedTimeBefore =
         Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       nameContains = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
@@ -146,15 +146,15 @@ newListProcessingJobs =
 listProcessingJobs_lastModifiedTimeBefore :: Lens.Lens' ListProcessingJobs (Prelude.Maybe Prelude.UTCTime)
 listProcessingJobs_lastModifiedTimeBefore = Lens.lens (\ListProcessingJobs' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListProcessingJobs' {} a -> s {lastModifiedTimeBefore = a} :: ListProcessingJobs) Prelude.. Lens.mapping Core._Time
 
--- | The sort order for results. The default is @Ascending@.
-listProcessingJobs_sortOrder :: Lens.Lens' ListProcessingJobs (Prelude.Maybe SortOrder)
-listProcessingJobs_sortOrder = Lens.lens (\ListProcessingJobs' {sortOrder} -> sortOrder) (\s@ListProcessingJobs' {} a -> s {sortOrder = a} :: ListProcessingJobs)
-
 -- | If the result of the previous @ListProcessingJobs@ request was
 -- truncated, the response includes a @NextToken@. To retrieve the next set
 -- of processing jobs, use the token in the next request.
 listProcessingJobs_nextToken :: Lens.Lens' ListProcessingJobs (Prelude.Maybe Prelude.Text)
 listProcessingJobs_nextToken = Lens.lens (\ListProcessingJobs' {nextToken} -> nextToken) (\s@ListProcessingJobs' {} a -> s {nextToken = a} :: ListProcessingJobs)
+
+-- | The sort order for results. The default is @Ascending@.
+listProcessingJobs_sortOrder :: Lens.Lens' ListProcessingJobs (Prelude.Maybe SortOrder)
+listProcessingJobs_sortOrder = Lens.lens (\ListProcessingJobs' {sortOrder} -> sortOrder) (\s@ListProcessingJobs' {} a -> s {sortOrder = a} :: ListProcessingJobs)
 
 -- | A string in the processing job name. This filter returns only processing
 -- jobs whose name contains the specified string.
@@ -250,8 +250,8 @@ instance Core.ToJSON ListProcessingJobs where
       ( Prelude.catMaybes
           [ ("LastModifiedTimeBefore" Core..=)
               Prelude.<$> lastModifiedTimeBefore,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NameContains" Core..=) Prelude.<$> nameContains,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CreationTimeBefore" Core..=)

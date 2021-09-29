@@ -25,17 +25,20 @@
 -- When @StatusEquals@ and @MaxResults@ are set at the same time, the
 -- @MaxResults@ number of training jobs are first retrieved ignoring the
 -- @StatusEquals@ parameter and then they are filtered by the
--- @StatusEquals@ parameter, which is returned as a response. For example,
--- if @ListTrainingJobs@ is invoked with the following parameters:
+-- @StatusEquals@ parameter, which is returned as a response.
+--
+-- For example, if @ListTrainingJobs@ is invoked with the following
+-- parameters:
 --
 -- @{ ... MaxResults: 100, StatusEquals: InProgress ... }@
 --
--- Then, 100 trainings jobs with any status including those other than
--- @InProgress@ are selected first (sorted according the creation time,
--- from the latest to the oldest) and those with status @InProgress@ are
--- returned.
+-- First, 100 trainings jobs with any status, including those other than
+-- @InProgress@, are selected (sorted according to the creation time, from
+-- the most current to the oldest). Next, those with a status of
+-- @InProgress@ are returned.
 --
--- You can quickly test the API using the following AWS CLI code.
+-- You can quickly test the API using the following Amazon Web Services CLI
+-- code.
 --
 -- @aws sagemaker list-training-jobs --max-results 100 --status-equals InProgress@
 --
@@ -47,8 +50,8 @@ module Network.AWS.SageMaker.ListTrainingJobs
 
     -- * Request Lenses
     listTrainingJobs_lastModifiedTimeBefore,
-    listTrainingJobs_sortOrder,
     listTrainingJobs_nextToken,
+    listTrainingJobs_sortOrder,
     listTrainingJobs_nameContains,
     listTrainingJobs_maxResults,
     listTrainingJobs_creationTimeBefore,
@@ -80,12 +83,12 @@ data ListTrainingJobs = ListTrainingJobs'
   { -- | A filter that returns only training jobs modified before the specified
     -- time (timestamp).
     lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
-    -- | The sort order for results. The default is @Ascending@.
-    sortOrder :: Prelude.Maybe SortOrder,
     -- | If the result of the previous @ListTrainingJobs@ request was truncated,
     -- the response includes a @NextToken@. To retrieve the next set of
     -- training jobs, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order for results. The default is @Ascending@.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | A string in the training job name. This filter returns only training
     -- jobs whose name contains the specified string.
     nameContains :: Prelude.Maybe Prelude.Text,
@@ -118,11 +121,11 @@ data ListTrainingJobs = ListTrainingJobs'
 -- 'lastModifiedTimeBefore', 'listTrainingJobs_lastModifiedTimeBefore' - A filter that returns only training jobs modified before the specified
 -- time (timestamp).
 --
--- 'sortOrder', 'listTrainingJobs_sortOrder' - The sort order for results. The default is @Ascending@.
---
 -- 'nextToken', 'listTrainingJobs_nextToken' - If the result of the previous @ListTrainingJobs@ request was truncated,
 -- the response includes a @NextToken@. To retrieve the next set of
 -- training jobs, use the token in the next request.
+--
+-- 'sortOrder', 'listTrainingJobs_sortOrder' - The sort order for results. The default is @Ascending@.
 --
 -- 'nameContains', 'listTrainingJobs_nameContains' - A string in the training job name. This filter returns only training
 -- jobs whose name contains the specified string.
@@ -147,8 +150,8 @@ newListTrainingJobs =
   ListTrainingJobs'
     { lastModifiedTimeBefore =
         Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       nameContains = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
@@ -163,15 +166,15 @@ newListTrainingJobs =
 listTrainingJobs_lastModifiedTimeBefore :: Lens.Lens' ListTrainingJobs (Prelude.Maybe Prelude.UTCTime)
 listTrainingJobs_lastModifiedTimeBefore = Lens.lens (\ListTrainingJobs' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListTrainingJobs' {} a -> s {lastModifiedTimeBefore = a} :: ListTrainingJobs) Prelude.. Lens.mapping Core._Time
 
--- | The sort order for results. The default is @Ascending@.
-listTrainingJobs_sortOrder :: Lens.Lens' ListTrainingJobs (Prelude.Maybe SortOrder)
-listTrainingJobs_sortOrder = Lens.lens (\ListTrainingJobs' {sortOrder} -> sortOrder) (\s@ListTrainingJobs' {} a -> s {sortOrder = a} :: ListTrainingJobs)
-
 -- | If the result of the previous @ListTrainingJobs@ request was truncated,
 -- the response includes a @NextToken@. To retrieve the next set of
 -- training jobs, use the token in the next request.
 listTrainingJobs_nextToken :: Lens.Lens' ListTrainingJobs (Prelude.Maybe Prelude.Text)
 listTrainingJobs_nextToken = Lens.lens (\ListTrainingJobs' {nextToken} -> nextToken) (\s@ListTrainingJobs' {} a -> s {nextToken = a} :: ListTrainingJobs)
+
+-- | The sort order for results. The default is @Ascending@.
+listTrainingJobs_sortOrder :: Lens.Lens' ListTrainingJobs (Prelude.Maybe SortOrder)
+listTrainingJobs_sortOrder = Lens.lens (\ListTrainingJobs' {sortOrder} -> sortOrder) (\s@ListTrainingJobs' {} a -> s {sortOrder = a} :: ListTrainingJobs)
 
 -- | A string in the training job name. This filter returns only training
 -- jobs whose name contains the specified string.
@@ -265,8 +268,8 @@ instance Core.ToJSON ListTrainingJobs where
       ( Prelude.catMaybes
           [ ("LastModifiedTimeBefore" Core..=)
               Prelude.<$> lastModifiedTimeBefore,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NameContains" Core..=) Prelude.<$> nameContains,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CreationTimeBefore" Core..=)

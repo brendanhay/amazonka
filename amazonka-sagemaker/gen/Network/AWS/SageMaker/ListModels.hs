@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists models created with the CreateModel API.
+-- Lists models created with the @CreateModel@ API.
 --
 -- This operation returns paginated results.
 module Network.AWS.SageMaker.ListModels
@@ -29,8 +29,8 @@ module Network.AWS.SageMaker.ListModels
     newListModels,
 
     -- * Request Lenses
-    listModels_sortOrder,
     listModels_nextToken,
+    listModels_sortOrder,
     listModels_nameContains,
     listModels_maxResults,
     listModels_creationTimeBefore,
@@ -57,14 +57,14 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListModels' smart constructor.
 data ListModels = ListModels'
-  { -- | The sort order for results. The default is @Descending@.
-    sortOrder :: Prelude.Maybe OrderKey,
-    -- | If the response to a previous @ListModels@ request was truncated, the
+  { -- | If the response to a previous @ListModels@ request was truncated, the
     -- response includes a @NextToken@. To retrieve the next set of models, use
     -- the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A string in the training job name. This filter returns only models in
-    -- the training job whose name contains the specified string.
+    -- | The sort order for results. The default is @Descending@.
+    sortOrder :: Prelude.Maybe OrderKey,
+    -- | A string in the model name. This filter returns only models whose name
+    -- contains the specified string.
     nameContains :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of models to return in the response.
     maxResults :: Prelude.Maybe Prelude.Natural,
@@ -87,14 +87,14 @@ data ListModels = ListModels'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listModels_sortOrder' - The sort order for results. The default is @Descending@.
---
 -- 'nextToken', 'listModels_nextToken' - If the response to a previous @ListModels@ request was truncated, the
 -- response includes a @NextToken@. To retrieve the next set of models, use
 -- the token in the next request.
 --
--- 'nameContains', 'listModels_nameContains' - A string in the training job name. This filter returns only models in
--- the training job whose name contains the specified string.
+-- 'sortOrder', 'listModels_sortOrder' - The sort order for results. The default is @Descending@.
+--
+-- 'nameContains', 'listModels_nameContains' - A string in the model name. This filter returns only models whose name
+-- contains the specified string.
 --
 -- 'maxResults', 'listModels_maxResults' - The maximum number of models to return in the response.
 --
@@ -109,8 +109,8 @@ newListModels ::
   ListModels
 newListModels =
   ListModels'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       nameContains = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
@@ -118,18 +118,18 @@ newListModels =
       creationTimeAfter = Prelude.Nothing
     }
 
--- | The sort order for results. The default is @Descending@.
-listModels_sortOrder :: Lens.Lens' ListModels (Prelude.Maybe OrderKey)
-listModels_sortOrder = Lens.lens (\ListModels' {sortOrder} -> sortOrder) (\s@ListModels' {} a -> s {sortOrder = a} :: ListModels)
-
 -- | If the response to a previous @ListModels@ request was truncated, the
 -- response includes a @NextToken@. To retrieve the next set of models, use
 -- the token in the next request.
 listModels_nextToken :: Lens.Lens' ListModels (Prelude.Maybe Prelude.Text)
 listModels_nextToken = Lens.lens (\ListModels' {nextToken} -> nextToken) (\s@ListModels' {} a -> s {nextToken = a} :: ListModels)
 
--- | A string in the training job name. This filter returns only models in
--- the training job whose name contains the specified string.
+-- | The sort order for results. The default is @Descending@.
+listModels_sortOrder :: Lens.Lens' ListModels (Prelude.Maybe OrderKey)
+listModels_sortOrder = Lens.lens (\ListModels' {sortOrder} -> sortOrder) (\s@ListModels' {} a -> s {sortOrder = a} :: ListModels)
+
+-- | A string in the model name. This filter returns only models whose name
+-- contains the specified string.
 listModels_nameContains :: Lens.Lens' ListModels (Prelude.Maybe Prelude.Text)
 listModels_nameContains = Lens.lens (\ListModels' {nameContains} -> nameContains) (\s@ListModels' {} a -> s {nameContains = a} :: ListModels)
 
@@ -200,8 +200,8 @@ instance Core.ToJSON ListModels where
   toJSON ListModels' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NameContains" Core..=) Prelude.<$> nameContains,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CreationTimeBefore" Core..=)

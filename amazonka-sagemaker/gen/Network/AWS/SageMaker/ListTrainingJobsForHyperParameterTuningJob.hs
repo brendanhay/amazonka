@@ -30,8 +30,8 @@ module Network.AWS.SageMaker.ListTrainingJobsForHyperParameterTuningJob
     newListTrainingJobsForHyperParameterTuningJob,
 
     -- * Request Lenses
-    listTrainingJobsForHyperParameterTuningJob_sortOrder,
     listTrainingJobsForHyperParameterTuningJob_nextToken,
+    listTrainingJobsForHyperParameterTuningJob_sortOrder,
     listTrainingJobsForHyperParameterTuningJob_maxResults,
     listTrainingJobsForHyperParameterTuningJob_sortBy,
     listTrainingJobsForHyperParameterTuningJob_statusEquals,
@@ -57,13 +57,13 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListTrainingJobsForHyperParameterTuningJob' smart constructor.
 data ListTrainingJobsForHyperParameterTuningJob = ListTrainingJobsForHyperParameterTuningJob'
-  { -- | The sort order for results. The default is @Ascending@.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | If the result of the previous
+  { -- | If the result of the previous
     -- @ListTrainingJobsForHyperParameterTuningJob@ request was truncated, the
     -- response includes a @NextToken@. To retrieve the next set of training
     -- jobs, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order for results. The default is @Ascending@.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | The maximum number of training jobs to return. The default value is 10.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The field to sort results by. The default is @Name@.
@@ -86,12 +86,12 @@ data ListTrainingJobsForHyperParameterTuningJob = ListTrainingJobsForHyperParame
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listTrainingJobsForHyperParameterTuningJob_sortOrder' - The sort order for results. The default is @Ascending@.
---
 -- 'nextToken', 'listTrainingJobsForHyperParameterTuningJob_nextToken' - If the result of the previous
 -- @ListTrainingJobsForHyperParameterTuningJob@ request was truncated, the
 -- response includes a @NextToken@. To retrieve the next set of training
 -- jobs, use the token in the next request.
+--
+-- 'sortOrder', 'listTrainingJobsForHyperParameterTuningJob_sortOrder' - The sort order for results. The default is @Ascending@.
 --
 -- 'maxResults', 'listTrainingJobsForHyperParameterTuningJob_maxResults' - The maximum number of training jobs to return. The default value is 10.
 --
@@ -110,9 +110,9 @@ newListTrainingJobsForHyperParameterTuningJob ::
 newListTrainingJobsForHyperParameterTuningJob
   pHyperParameterTuningJobName_ =
     ListTrainingJobsForHyperParameterTuningJob'
-      { sortOrder =
+      { nextToken =
           Prelude.Nothing,
-        nextToken = Prelude.Nothing,
+        sortOrder = Prelude.Nothing,
         maxResults = Prelude.Nothing,
         sortBy = Prelude.Nothing,
         statusEquals = Prelude.Nothing,
@@ -120,16 +120,16 @@ newListTrainingJobsForHyperParameterTuningJob
           pHyperParameterTuningJobName_
       }
 
--- | The sort order for results. The default is @Ascending@.
-listTrainingJobsForHyperParameterTuningJob_sortOrder :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJob (Prelude.Maybe SortOrder)
-listTrainingJobsForHyperParameterTuningJob_sortOrder = Lens.lens (\ListTrainingJobsForHyperParameterTuningJob' {sortOrder} -> sortOrder) (\s@ListTrainingJobsForHyperParameterTuningJob' {} a -> s {sortOrder = a} :: ListTrainingJobsForHyperParameterTuningJob)
-
 -- | If the result of the previous
 -- @ListTrainingJobsForHyperParameterTuningJob@ request was truncated, the
 -- response includes a @NextToken@. To retrieve the next set of training
 -- jobs, use the token in the next request.
 listTrainingJobsForHyperParameterTuningJob_nextToken :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJob (Prelude.Maybe Prelude.Text)
 listTrainingJobsForHyperParameterTuningJob_nextToken = Lens.lens (\ListTrainingJobsForHyperParameterTuningJob' {nextToken} -> nextToken) (\s@ListTrainingJobsForHyperParameterTuningJob' {} a -> s {nextToken = a} :: ListTrainingJobsForHyperParameterTuningJob)
+
+-- | The sort order for results. The default is @Ascending@.
+listTrainingJobsForHyperParameterTuningJob_sortOrder :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJob (Prelude.Maybe SortOrder)
+listTrainingJobsForHyperParameterTuningJob_sortOrder = Lens.lens (\ListTrainingJobsForHyperParameterTuningJob' {sortOrder} -> sortOrder) (\s@ListTrainingJobsForHyperParameterTuningJob' {} a -> s {sortOrder = a} :: ListTrainingJobsForHyperParameterTuningJob)
 
 -- | The maximum number of training jobs to return. The default value is 10.
 listTrainingJobsForHyperParameterTuningJob_maxResults :: Lens.Lens' ListTrainingJobsForHyperParameterTuningJob (Prelude.Maybe Prelude.Natural)
@@ -228,8 +228,8 @@ instance
     ListTrainingJobsForHyperParameterTuningJob' {..} =
       Core.object
         ( Prelude.catMaybes
-            [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-              ("NextToken" Core..=) Prelude.<$> nextToken,
+            [ ("NextToken" Core..=) Prelude.<$> nextToken,
+              ("SortOrder" Core..=) Prelude.<$> sortOrder,
               ("MaxResults" Core..=) Prelude.<$> maxResults,
               ("SortBy" Core..=) Prelude.<$> sortBy,
               ("StatusEquals" Core..=) Prelude.<$> statusEquals,

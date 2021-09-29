@@ -63,8 +63,8 @@ data CreateContext = CreateContext'
     properties :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The description of the context.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The name of the context. Must be unique to your account in an AWS
-    -- Region.
+    -- | The name of the context. Must be unique to your account in an Amazon Web
+    -- Services Region.
     contextName :: Prelude.Text,
     -- | The source type, ID, and URI.
     source :: ContextSource,
@@ -87,8 +87,8 @@ data CreateContext = CreateContext'
 --
 -- 'description', 'createContext_description' - The description of the context.
 --
--- 'contextName', 'createContext_contextName' - The name of the context. Must be unique to your account in an AWS
--- Region.
+-- 'contextName', 'createContext_contextName' - The name of the context. Must be unique to your account in an Amazon Web
+-- Services Region.
 --
 -- 'source', 'createContext_source' - The source type, ID, and URI.
 --
@@ -123,8 +123,8 @@ createContext_properties = Lens.lens (\CreateContext' {properties} -> properties
 createContext_description :: Lens.Lens' CreateContext (Prelude.Maybe Prelude.Text)
 createContext_description = Lens.lens (\CreateContext' {description} -> description) (\s@CreateContext' {} a -> s {description = a} :: CreateContext)
 
--- | The name of the context. Must be unique to your account in an AWS
--- Region.
+-- | The name of the context. Must be unique to your account in an Amazon Web
+-- Services Region.
 createContext_contextName :: Lens.Lens' CreateContext Prelude.Text
 createContext_contextName = Lens.lens (\CreateContext' {contextName} -> contextName) (\s@CreateContext' {} a -> s {contextName = a} :: CreateContext)
 

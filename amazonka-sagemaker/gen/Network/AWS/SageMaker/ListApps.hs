@@ -29,8 +29,8 @@ module Network.AWS.SageMaker.ListApps
     newListApps,
 
     -- * Request Lenses
-    listApps_sortOrder,
     listApps_nextToken,
+    listApps_sortOrder,
     listApps_maxResults,
     listApps_domainIdEquals,
     listApps_userProfileNameEquals,
@@ -56,11 +56,11 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListApps' smart constructor.
 data ListApps = ListApps'
-  { -- | The sort order for the results. The default is Ascending.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | If the previous response was truncated, you will receive this token. Use
+  { -- | If the previous response was truncated, you will receive this token. Use
     -- it in your next request to receive the next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order for the results. The default is Ascending.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | Returns a list up to a specified limit.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A parameter to search for the domain ID.
@@ -80,10 +80,10 @@ data ListApps = ListApps'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listApps_sortOrder' - The sort order for the results. The default is Ascending.
---
 -- 'nextToken', 'listApps_nextToken' - If the previous response was truncated, you will receive this token. Use
 -- it in your next request to receive the next set of results.
+--
+-- 'sortOrder', 'listApps_sortOrder' - The sort order for the results. The default is Ascending.
 --
 -- 'maxResults', 'listApps_maxResults' - Returns a list up to a specified limit.
 --
@@ -96,22 +96,22 @@ newListApps ::
   ListApps
 newListApps =
   ListApps'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       domainIdEquals = Prelude.Nothing,
       userProfileNameEquals = Prelude.Nothing,
       sortBy = Prelude.Nothing
     }
 
--- | The sort order for the results. The default is Ascending.
-listApps_sortOrder :: Lens.Lens' ListApps (Prelude.Maybe SortOrder)
-listApps_sortOrder = Lens.lens (\ListApps' {sortOrder} -> sortOrder) (\s@ListApps' {} a -> s {sortOrder = a} :: ListApps)
-
 -- | If the previous response was truncated, you will receive this token. Use
 -- it in your next request to receive the next set of results.
 listApps_nextToken :: Lens.Lens' ListApps (Prelude.Maybe Prelude.Text)
 listApps_nextToken = Lens.lens (\ListApps' {nextToken} -> nextToken) (\s@ListApps' {} a -> s {nextToken = a} :: ListApps)
+
+-- | The sort order for the results. The default is Ascending.
+listApps_sortOrder :: Lens.Lens' ListApps (Prelude.Maybe SortOrder)
+listApps_sortOrder = Lens.lens (\ListApps' {sortOrder} -> sortOrder) (\s@ListApps' {} a -> s {sortOrder = a} :: ListApps)
 
 -- | Returns a list up to a specified limit.
 listApps_maxResults :: Lens.Lens' ListApps (Prelude.Maybe Prelude.Natural)
@@ -181,8 +181,8 @@ instance Core.ToJSON ListApps where
   toJSON ListApps' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("DomainIdEquals" Core..=)
               Prelude.<$> domainIdEquals,

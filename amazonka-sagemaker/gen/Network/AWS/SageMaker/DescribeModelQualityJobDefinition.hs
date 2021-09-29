@@ -58,8 +58,8 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newDescribeModelQualityJobDefinition' smart constructor.
 data DescribeModelQualityJobDefinition = DescribeModelQualityJobDefinition'
-  { -- | The name of the model quality job. The name must be unique within an AWS
-    -- Region in the AWS account.
+  { -- | The name of the model quality job. The name must be unique within an
+    -- Amazon Web Services Region in the Amazon Web Services account.
     jobDefinitionName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,8 +72,8 @@ data DescribeModelQualityJobDefinition = DescribeModelQualityJobDefinition'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobDefinitionName', 'describeModelQualityJobDefinition_jobDefinitionName' - The name of the model quality job. The name must be unique within an AWS
--- Region in the AWS account.
+-- 'jobDefinitionName', 'describeModelQualityJobDefinition_jobDefinitionName' - The name of the model quality job. The name must be unique within an
+-- Amazon Web Services Region in the Amazon Web Services account.
 newDescribeModelQualityJobDefinition ::
   -- | 'jobDefinitionName'
   Prelude.Text ->
@@ -85,8 +85,8 @@ newDescribeModelQualityJobDefinition
           pJobDefinitionName_
       }
 
--- | The name of the model quality job. The name must be unique within an AWS
--- Region in the AWS account.
+-- | The name of the model quality job. The name must be unique within an
+-- Amazon Web Services Region in the Amazon Web Services account.
 describeModelQualityJobDefinition_jobDefinitionName :: Lens.Lens' DescribeModelQualityJobDefinition Prelude.Text
 describeModelQualityJobDefinition_jobDefinitionName = Lens.lens (\DescribeModelQualityJobDefinition' {jobDefinitionName} -> jobDefinitionName) (\s@DescribeModelQualityJobDefinition' {} a -> s {jobDefinitionName = a} :: DescribeModelQualityJobDefinition)
 
@@ -178,7 +178,7 @@ data DescribeModelQualityJobDefinitionResponse = DescribeModelQualityJobDefiniti
     -- | The Amazon Resource Name (ARN) of the model quality job.
     jobDefinitionArn :: Prelude.Text,
     -- | The name of the quality job definition. The name must be unique within
-    -- an AWS Region in the AWS account.
+    -- an Amazon Web Services Region in the Amazon Web Services account.
     jobDefinitionName :: Prelude.Text,
     -- | The time at which the model quality job was created.
     creationTime :: Core.POSIX,
@@ -214,7 +214,7 @@ data DescribeModelQualityJobDefinitionResponse = DescribeModelQualityJobDefiniti
 -- 'jobDefinitionArn', 'describeModelQualityJobDefinitionResponse_jobDefinitionArn' - The Amazon Resource Name (ARN) of the model quality job.
 --
 -- 'jobDefinitionName', 'describeModelQualityJobDefinitionResponse_jobDefinitionName' - The name of the quality job definition. The name must be unique within
--- an AWS Region in the AWS account.
+-- an Amazon Web Services Region in the Amazon Web Services account.
 --
 -- 'creationTime', 'describeModelQualityJobDefinitionResponse_creationTime' - The time at which the model quality job was created.
 --
@@ -305,7 +305,7 @@ describeModelQualityJobDefinitionResponse_jobDefinitionArn :: Lens.Lens' Describ
 describeModelQualityJobDefinitionResponse_jobDefinitionArn = Lens.lens (\DescribeModelQualityJobDefinitionResponse' {jobDefinitionArn} -> jobDefinitionArn) (\s@DescribeModelQualityJobDefinitionResponse' {} a -> s {jobDefinitionArn = a} :: DescribeModelQualityJobDefinitionResponse)
 
 -- | The name of the quality job definition. The name must be unique within
--- an AWS Region in the AWS account.
+-- an Amazon Web Services Region in the Amazon Web Services account.
 describeModelQualityJobDefinitionResponse_jobDefinitionName :: Lens.Lens' DescribeModelQualityJobDefinitionResponse Prelude.Text
 describeModelQualityJobDefinitionResponse_jobDefinitionName = Lens.lens (\DescribeModelQualityJobDefinitionResponse' {jobDefinitionName} -> jobDefinitionName) (\s@DescribeModelQualityJobDefinitionResponse' {} a -> s {jobDefinitionName = a} :: DescribeModelQualityJobDefinitionResponse)
 

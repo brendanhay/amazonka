@@ -30,10 +30,10 @@ import Network.AWS.SageMaker.Types.StepStatus
 --
 -- /See:/ 'newPipelineExecutionStep' smart constructor.
 data PipelineExecutionStep = PipelineExecutionStep'
-  { -- | The time that the step started executing.
-    startTime :: Prelude.Maybe Core.POSIX,
-    -- | The metadata for the step execution.
+  { -- | Metadata for the step execution.
     metadata :: Prelude.Maybe PipelineExecutionStepMetadata,
+    -- | The time that the step started executing.
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | The time that the step stopped executing.
     endTime :: Prelude.Maybe Core.POSIX,
     -- | The reason why the step failed execution. This is only returned if the
@@ -56,9 +56,9 @@ data PipelineExecutionStep = PipelineExecutionStep'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'startTime', 'pipelineExecutionStep_startTime' - The time that the step started executing.
+-- 'metadata', 'pipelineExecutionStep_metadata' - Metadata for the step execution.
 --
--- 'metadata', 'pipelineExecutionStep_metadata' - The metadata for the step execution.
+-- 'startTime', 'pipelineExecutionStep_startTime' - The time that the step started executing.
 --
 -- 'endTime', 'pipelineExecutionStep_endTime' - The time that the step stopped executing.
 --
@@ -74,8 +74,8 @@ newPipelineExecutionStep ::
   PipelineExecutionStep
 newPipelineExecutionStep =
   PipelineExecutionStep'
-    { startTime = Prelude.Nothing,
-      metadata = Prelude.Nothing,
+    { metadata = Prelude.Nothing,
+      startTime = Prelude.Nothing,
       endTime = Prelude.Nothing,
       failureReason = Prelude.Nothing,
       stepStatus = Prelude.Nothing,
@@ -83,13 +83,13 @@ newPipelineExecutionStep =
       stepName = Prelude.Nothing
     }
 
+-- | Metadata for the step execution.
+pipelineExecutionStep_metadata :: Lens.Lens' PipelineExecutionStep (Prelude.Maybe PipelineExecutionStepMetadata)
+pipelineExecutionStep_metadata = Lens.lens (\PipelineExecutionStep' {metadata} -> metadata) (\s@PipelineExecutionStep' {} a -> s {metadata = a} :: PipelineExecutionStep)
+
 -- | The time that the step started executing.
 pipelineExecutionStep_startTime :: Lens.Lens' PipelineExecutionStep (Prelude.Maybe Prelude.UTCTime)
 pipelineExecutionStep_startTime = Lens.lens (\PipelineExecutionStep' {startTime} -> startTime) (\s@PipelineExecutionStep' {} a -> s {startTime = a} :: PipelineExecutionStep) Prelude.. Lens.mapping Core._Time
-
--- | The metadata for the step execution.
-pipelineExecutionStep_metadata :: Lens.Lens' PipelineExecutionStep (Prelude.Maybe PipelineExecutionStepMetadata)
-pipelineExecutionStep_metadata = Lens.lens (\PipelineExecutionStep' {metadata} -> metadata) (\s@PipelineExecutionStep' {} a -> s {metadata = a} :: PipelineExecutionStep)
 
 -- | The time that the step stopped executing.
 pipelineExecutionStep_endTime :: Lens.Lens' PipelineExecutionStep (Prelude.Maybe Prelude.UTCTime)
@@ -118,8 +118,8 @@ instance Core.FromJSON PipelineExecutionStep where
       "PipelineExecutionStep"
       ( \x ->
           PipelineExecutionStep'
-            Prelude.<$> (x Core..:? "StartTime")
-            Prelude.<*> (x Core..:? "Metadata")
+            Prelude.<$> (x Core..:? "Metadata")
+            Prelude.<*> (x Core..:? "StartTime")
             Prelude.<*> (x Core..:? "EndTime")
             Prelude.<*> (x Core..:? "FailureReason")
             Prelude.<*> (x Core..:? "StepStatus")

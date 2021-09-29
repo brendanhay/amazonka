@@ -41,10 +41,6 @@
 -- distributes two-thirds of the traffic to Model A, and one-third to model
 -- B.
 --
--- For an example that calls this method when deploying a model to Amazon
--- SageMaker hosting services, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/ex1-deploy-model.html#ex1-deploy-model-boto Deploy the Model to Amazon SageMaker Hosting Services (AWS SDK for Python (Boto 3)).>
---
 -- When you call CreateEndpoint, a load call is made to DynamoDB to verify
 -- that your endpoint configuration exists. When you read data from a
 -- DynamoDB table supporting
@@ -63,6 +59,7 @@ module Network.AWS.SageMaker.CreateEndpointConfig
     newCreateEndpointConfig,
 
     -- * Request Lenses
+    createEndpointConfig_asyncInferenceConfig,
     createEndpointConfig_kmsKeyId,
     createEndpointConfig_tags,
     createEndpointConfig_dataCaptureConfig,
@@ -88,9 +85,15 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newCreateEndpointConfig' smart constructor.
 data CreateEndpointConfig = CreateEndpointConfig'
-  { -- | The Amazon Resource Name (ARN) of a AWS Key Management Service key that
-    -- Amazon SageMaker uses to encrypt data on the storage volume attached to
-    -- the ML compute instance that hosts the endpoint.
+  { -- | Specifies configuration for how an endpoint performs asynchronous
+    -- inference. This is a required field in order for your Endpoint to be
+    -- invoked using
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html InvokeEndpointAsync>
+    -- .
+    asyncInferenceConfig :: Prelude.Maybe AsyncInferenceConfig,
+    -- | The Amazon Resource Name (ARN) of a Amazon Web Services Key Management
+    -- Service key that Amazon SageMaker uses to encrypt data on the storage
+    -- volume attached to the ML compute instance that hosts the endpoint.
     --
     -- The KmsKeyId can be any of the following formats:
     --
@@ -106,8 +109,9 @@ data CreateEndpointConfig = CreateEndpointConfig'
     --
     -- The KMS key policy must grant permission to the IAM role that you
     -- specify in your @CreateEndpoint@, @UpdateEndpoint@ requests. For more
-    -- information, refer to the AWS Key Management Service section
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in AWS KMS>
+    -- information, refer to the Amazon Web Services Key Management Service
+    -- section
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in Amazon Web Services KMS>
     --
     -- Certain Nitro-based instances include local storage, dependent on the
     -- instance type. Local storage volumes are encrypted using a hardware
@@ -124,10 +128,10 @@ data CreateEndpointConfig = CreateEndpointConfig'
     -- For more information about local instance storage encryption, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html SSD Instance Store Volumes>.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
-    -- | An array of key-value pairs. You can use tags to categorize your AWS
-    -- resources in different ways, for example, by purpose, owner, or
-    -- environment. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+    -- | An array of key-value pairs. You can use tags to categorize your Amazon
+    -- Web Services resources in different ways, for example, by purpose,
+    -- owner, or environment. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
     tags :: Prelude.Maybe [Tag],
     dataCaptureConfig :: Prelude.Maybe DataCaptureConfig,
     -- | The name of the endpoint configuration. You specify this name in a
@@ -147,9 +151,15 @@ data CreateEndpointConfig = CreateEndpointConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyId', 'createEndpointConfig_kmsKeyId' - The Amazon Resource Name (ARN) of a AWS Key Management Service key that
--- Amazon SageMaker uses to encrypt data on the storage volume attached to
--- the ML compute instance that hosts the endpoint.
+-- 'asyncInferenceConfig', 'createEndpointConfig_asyncInferenceConfig' - Specifies configuration for how an endpoint performs asynchronous
+-- inference. This is a required field in order for your Endpoint to be
+-- invoked using
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html InvokeEndpointAsync>
+-- .
+--
+-- 'kmsKeyId', 'createEndpointConfig_kmsKeyId' - The Amazon Resource Name (ARN) of a Amazon Web Services Key Management
+-- Service key that Amazon SageMaker uses to encrypt data on the storage
+-- volume attached to the ML compute instance that hosts the endpoint.
 --
 -- The KmsKeyId can be any of the following formats:
 --
@@ -165,8 +175,9 @@ data CreateEndpointConfig = CreateEndpointConfig'
 --
 -- The KMS key policy must grant permission to the IAM role that you
 -- specify in your @CreateEndpoint@, @UpdateEndpoint@ requests. For more
--- information, refer to the AWS Key Management Service section
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in AWS KMS>
+-- information, refer to the Amazon Web Services Key Management Service
+-- section
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in Amazon Web Services KMS>
 --
 -- Certain Nitro-based instances include local storage, dependent on the
 -- instance type. Local storage volumes are encrypted using a hardware
@@ -183,10 +194,10 @@ data CreateEndpointConfig = CreateEndpointConfig'
 -- For more information about local instance storage encryption, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html SSD Instance Store Volumes>.
 --
--- 'tags', 'createEndpointConfig_tags' - An array of key-value pairs. You can use tags to categorize your AWS
--- resources in different ways, for example, by purpose, owner, or
--- environment. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+-- 'tags', 'createEndpointConfig_tags' - An array of key-value pairs. You can use tags to categorize your Amazon
+-- Web Services resources in different ways, for example, by purpose,
+-- owner, or environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 --
 -- 'dataCaptureConfig', 'createEndpointConfig_dataCaptureConfig' - Undocumented member.
 --
@@ -205,7 +216,9 @@ newCreateEndpointConfig
   pEndpointConfigName_
   pProductionVariants_ =
     CreateEndpointConfig'
-      { kmsKeyId = Prelude.Nothing,
+      { asyncInferenceConfig =
+          Prelude.Nothing,
+        kmsKeyId = Prelude.Nothing,
         tags = Prelude.Nothing,
         dataCaptureConfig = Prelude.Nothing,
         endpointConfigName = pEndpointConfigName_,
@@ -213,9 +226,17 @@ newCreateEndpointConfig
           Lens._Coerce Lens.# pProductionVariants_
       }
 
--- | The Amazon Resource Name (ARN) of a AWS Key Management Service key that
--- Amazon SageMaker uses to encrypt data on the storage volume attached to
--- the ML compute instance that hosts the endpoint.
+-- | Specifies configuration for how an endpoint performs asynchronous
+-- inference. This is a required field in order for your Endpoint to be
+-- invoked using
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html InvokeEndpointAsync>
+-- .
+createEndpointConfig_asyncInferenceConfig :: Lens.Lens' CreateEndpointConfig (Prelude.Maybe AsyncInferenceConfig)
+createEndpointConfig_asyncInferenceConfig = Lens.lens (\CreateEndpointConfig' {asyncInferenceConfig} -> asyncInferenceConfig) (\s@CreateEndpointConfig' {} a -> s {asyncInferenceConfig = a} :: CreateEndpointConfig)
+
+-- | The Amazon Resource Name (ARN) of a Amazon Web Services Key Management
+-- Service key that Amazon SageMaker uses to encrypt data on the storage
+-- volume attached to the ML compute instance that hosts the endpoint.
 --
 -- The KmsKeyId can be any of the following formats:
 --
@@ -231,8 +252,9 @@ newCreateEndpointConfig
 --
 -- The KMS key policy must grant permission to the IAM role that you
 -- specify in your @CreateEndpoint@, @UpdateEndpoint@ requests. For more
--- information, refer to the AWS Key Management Service section
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in AWS KMS>
+-- information, refer to the Amazon Web Services Key Management Service
+-- section
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in Amazon Web Services KMS>
 --
 -- Certain Nitro-based instances include local storage, dependent on the
 -- instance type. Local storage volumes are encrypted using a hardware
@@ -251,10 +273,10 @@ newCreateEndpointConfig
 createEndpointConfig_kmsKeyId :: Lens.Lens' CreateEndpointConfig (Prelude.Maybe Prelude.Text)
 createEndpointConfig_kmsKeyId = Lens.lens (\CreateEndpointConfig' {kmsKeyId} -> kmsKeyId) (\s@CreateEndpointConfig' {} a -> s {kmsKeyId = a} :: CreateEndpointConfig)
 
--- | An array of key-value pairs. You can use tags to categorize your AWS
--- resources in different ways, for example, by purpose, owner, or
--- environment. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+-- | An array of key-value pairs. You can use tags to categorize your Amazon
+-- Web Services resources in different ways, for example, by purpose,
+-- owner, or environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 createEndpointConfig_tags :: Lens.Lens' CreateEndpointConfig (Prelude.Maybe [Tag])
 createEndpointConfig_tags = Lens.lens (\CreateEndpointConfig' {tags} -> tags) (\s@CreateEndpointConfig' {} a -> s {tags = a} :: CreateEndpointConfig) Prelude.. Lens.mapping Lens._Coerce
 
@@ -308,7 +330,9 @@ instance Core.ToJSON CreateEndpointConfig where
   toJSON CreateEndpointConfig' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+          [ ("AsyncInferenceConfig" Core..=)
+              Prelude.<$> asyncInferenceConfig,
+            ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
             ("Tags" Core..=) Prelude.<$> tags,
             ("DataCaptureConfig" Core..=)
               Prelude.<$> dataCaptureConfig,

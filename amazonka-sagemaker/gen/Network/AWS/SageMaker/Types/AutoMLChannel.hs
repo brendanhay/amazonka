@@ -25,16 +25,17 @@ import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.AutoMLDataSource
 import Network.AWS.SageMaker.Types.CompressionType
 
--- | Similar to Channel. A channel is a named input source that training
--- algorithms can consume. Refer to Channel for detailed descriptions.
+-- | A channel is a named input source that training algorithms can consume.
+-- For more information, see .
 --
 -- /See:/ 'newAutoMLChannel' smart constructor.
 data AutoMLChannel = AutoMLChannel'
-  { -- | You can use Gzip or None. The default value is None.
+  { -- | You can use @Gzip@ or @None@. The default value is @None@.
     compressionType :: Prelude.Maybe CompressionType,
-    -- | The data source.
+    -- | The data source for an AutoML channel.
     dataSource :: AutoMLDataSource,
-    -- | The name of the target variable in supervised learning, a.k.a. \'y\'.
+    -- | The name of the target variable in supervised learning, usually
+    -- represented by \'y\'.
     targetAttributeName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,11 +48,12 @@ data AutoMLChannel = AutoMLChannel'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'compressionType', 'autoMLChannel_compressionType' - You can use Gzip or None. The default value is None.
+-- 'compressionType', 'autoMLChannel_compressionType' - You can use @Gzip@ or @None@. The default value is @None@.
 --
--- 'dataSource', 'autoMLChannel_dataSource' - The data source.
+-- 'dataSource', 'autoMLChannel_dataSource' - The data source for an AutoML channel.
 --
--- 'targetAttributeName', 'autoMLChannel_targetAttributeName' - The name of the target variable in supervised learning, a.k.a. \'y\'.
+-- 'targetAttributeName', 'autoMLChannel_targetAttributeName' - The name of the target variable in supervised learning, usually
+-- represented by \'y\'.
 newAutoMLChannel ::
   -- | 'dataSource'
   AutoMLDataSource ->
@@ -65,15 +67,16 @@ newAutoMLChannel pDataSource_ pTargetAttributeName_ =
       targetAttributeName = pTargetAttributeName_
     }
 
--- | You can use Gzip or None. The default value is None.
+-- | You can use @Gzip@ or @None@. The default value is @None@.
 autoMLChannel_compressionType :: Lens.Lens' AutoMLChannel (Prelude.Maybe CompressionType)
 autoMLChannel_compressionType = Lens.lens (\AutoMLChannel' {compressionType} -> compressionType) (\s@AutoMLChannel' {} a -> s {compressionType = a} :: AutoMLChannel)
 
--- | The data source.
+-- | The data source for an AutoML channel.
 autoMLChannel_dataSource :: Lens.Lens' AutoMLChannel AutoMLDataSource
 autoMLChannel_dataSource = Lens.lens (\AutoMLChannel' {dataSource} -> dataSource) (\s@AutoMLChannel' {} a -> s {dataSource = a} :: AutoMLChannel)
 
--- | The name of the target variable in supervised learning, a.k.a. \'y\'.
+-- | The name of the target variable in supervised learning, usually
+-- represented by \'y\'.
 autoMLChannel_targetAttributeName :: Lens.Lens' AutoMLChannel Prelude.Text
 autoMLChannel_targetAttributeName = Lens.lens (\AutoMLChannel' {targetAttributeName} -> targetAttributeName) (\s@AutoMLChannel' {} a -> s {targetAttributeName = a} :: AutoMLChannel)
 

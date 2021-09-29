@@ -29,6 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newMonitoringStoppingCondition' smart constructor.
 data MonitoringStoppingCondition = MonitoringStoppingCondition'
   { -- | The maximum runtime allowed in seconds.
+    --
+    -- The @MaxRuntimeInSeconds@ cannot exceed the frequency of the job. For
+    -- data quality and model explainability, this can be up to 3600 seconds
+    -- for an hourly schedule. For model bias and model quality hourly
+    -- schedules, this can be up to 1800 seconds.
     maxRuntimeInSeconds :: Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,6 +47,11 @@ data MonitoringStoppingCondition = MonitoringStoppingCondition'
 -- for backwards compatibility:
 --
 -- 'maxRuntimeInSeconds', 'monitoringStoppingCondition_maxRuntimeInSeconds' - The maximum runtime allowed in seconds.
+--
+-- The @MaxRuntimeInSeconds@ cannot exceed the frequency of the job. For
+-- data quality and model explainability, this can be up to 3600 seconds
+-- for an hourly schedule. For model bias and model quality hourly
+-- schedules, this can be up to 1800 seconds.
 newMonitoringStoppingCondition ::
   -- | 'maxRuntimeInSeconds'
   Prelude.Natural ->
@@ -53,6 +63,11 @@ newMonitoringStoppingCondition pMaxRuntimeInSeconds_ =
     }
 
 -- | The maximum runtime allowed in seconds.
+--
+-- The @MaxRuntimeInSeconds@ cannot exceed the frequency of the job. For
+-- data quality and model explainability, this can be up to 3600 seconds
+-- for an hourly schedule. For model bias and model quality hourly
+-- schedules, this can be up to 1800 seconds.
 monitoringStoppingCondition_maxRuntimeInSeconds :: Lens.Lens' MonitoringStoppingCondition Prelude.Natural
 monitoringStoppingCondition_maxRuntimeInSeconds = Lens.lens (\MonitoringStoppingCondition' {maxRuntimeInSeconds} -> maxRuntimeInSeconds) (\s@MonitoringStoppingCondition' {} a -> s {maxRuntimeInSeconds = a} :: MonitoringStoppingCondition)
 

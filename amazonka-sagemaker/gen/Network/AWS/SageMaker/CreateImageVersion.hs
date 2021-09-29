@@ -58,8 +58,9 @@ data CreateImageVersion = CreateImageVersion'
     --
     -- @\<acct-id>.dkr.ecr.\<region>.amazonaws.com\/\<repo-name[:tag] or [\@digest]>@
     baseImage :: Prelude.Text,
-    -- | A unique ID. If not specified, the AWS CLI and AWS SDKs, such as the SDK
-    -- for Python (Boto3), add a unique value to the call.
+    -- | A unique ID. If not specified, the Amazon Web Services CLI and Amazon
+    -- Web Services SDKs, such as the SDK for Python (Boto3), add a unique
+    -- value to the call.
     clientToken :: Prelude.Text,
     -- | The @ImageName@ of the @Image@ to create a version of.
     imageName :: Prelude.Text
@@ -80,8 +81,9 @@ data CreateImageVersion = CreateImageVersion'
 --
 -- @\<acct-id>.dkr.ecr.\<region>.amazonaws.com\/\<repo-name[:tag] or [\@digest]>@
 --
--- 'clientToken', 'createImageVersion_clientToken' - A unique ID. If not specified, the AWS CLI and AWS SDKs, such as the SDK
--- for Python (Boto3), add a unique value to the call.
+-- 'clientToken', 'createImageVersion_clientToken' - A unique ID. If not specified, the Amazon Web Services CLI and Amazon
+-- Web Services SDKs, such as the SDK for Python (Boto3), add a unique
+-- value to the call.
 --
 -- 'imageName', 'createImageVersion_imageName' - The @ImageName@ of the @Image@ to create a version of.
 newCreateImageVersion ::
@@ -110,8 +112,9 @@ newCreateImageVersion
 createImageVersion_baseImage :: Lens.Lens' CreateImageVersion Prelude.Text
 createImageVersion_baseImage = Lens.lens (\CreateImageVersion' {baseImage} -> baseImage) (\s@CreateImageVersion' {} a -> s {baseImage = a} :: CreateImageVersion)
 
--- | A unique ID. If not specified, the AWS CLI and AWS SDKs, such as the SDK
--- for Python (Boto3), add a unique value to the call.
+-- | A unique ID. If not specified, the Amazon Web Services CLI and Amazon
+-- Web Services SDKs, such as the SDK for Python (Boto3), add a unique
+-- value to the call.
 createImageVersion_clientToken :: Lens.Lens' CreateImageVersion Prelude.Text
 createImageVersion_clientToken = Lens.lens (\CreateImageVersion' {clientToken} -> clientToken) (\s@CreateImageVersion' {} a -> s {clientToken = a} :: CreateImageVersion)
 

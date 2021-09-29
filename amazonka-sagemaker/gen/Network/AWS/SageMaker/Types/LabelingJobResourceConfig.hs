@@ -23,20 +23,32 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Provides configuration information for labeling jobs.
+-- | Configure encryption on the storage volume attached to the ML compute
+-- instance used to run automated data labeling model training and
+-- inference.
 --
 -- /See:/ 'newLabelingJobResourceConfig' smart constructor.
 data LabelingJobResourceConfig = LabelingJobResourceConfig'
-  { -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
-    -- to encrypt data on the storage volume attached to the ML compute
-    -- instance(s) that run the training job. The @VolumeKmsKeyId@ can be any
-    -- of the following formats:
+  { -- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+    -- key that Amazon SageMaker uses to encrypt data on the storage volume
+    -- attached to the ML compute instance(s) that run the training and
+    -- inference jobs used for automated data labeling.
     --
-    -- -   \/\/ KMS Key ID
+    -- You can only specify a @VolumeKmsKeyId@ when you create a labeling job
+    -- with automated data labeling enabled using the API operation
+    -- @CreateLabelingJob@. You cannot specify an Amazon Web Services KMS key
+    -- to encrypt the storage volume used for automated data labeling model
+    -- training and inference when you create a labeling job using the console.
+    -- To learn more, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security.html Output Data and Storage Volume Encryption>.
+    --
+    -- The @VolumeKmsKeyId@ can be any of the following formats:
+    --
+    -- -   KMS Key ID
     --
     --     @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
     --
-    -- -   \/\/ Amazon Resource Name (ARN) of a KMS Key
+    -- -   Amazon Resource Name (ARN) of a KMS Key
     --
     --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
     volumeKmsKeyId :: Prelude.Maybe Prelude.Text
@@ -51,16 +63,26 @@ data LabelingJobResourceConfig = LabelingJobResourceConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'volumeKmsKeyId', 'labelingJobResourceConfig_volumeKmsKeyId' - The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
--- to encrypt data on the storage volume attached to the ML compute
--- instance(s) that run the training job. The @VolumeKmsKeyId@ can be any
--- of the following formats:
+-- 'volumeKmsKeyId', 'labelingJobResourceConfig_volumeKmsKeyId' - The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+-- key that Amazon SageMaker uses to encrypt data on the storage volume
+-- attached to the ML compute instance(s) that run the training and
+-- inference jobs used for automated data labeling.
 --
--- -   \/\/ KMS Key ID
+-- You can only specify a @VolumeKmsKeyId@ when you create a labeling job
+-- with automated data labeling enabled using the API operation
+-- @CreateLabelingJob@. You cannot specify an Amazon Web Services KMS key
+-- to encrypt the storage volume used for automated data labeling model
+-- training and inference when you create a labeling job using the console.
+-- To learn more, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security.html Output Data and Storage Volume Encryption>.
+--
+-- The @VolumeKmsKeyId@ can be any of the following formats:
+--
+-- -   KMS Key ID
 --
 --     @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
--- -   \/\/ Amazon Resource Name (ARN) of a KMS Key
+-- -   Amazon Resource Name (ARN) of a KMS Key
 --
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
 newLabelingJobResourceConfig ::
@@ -71,16 +93,26 @@ newLabelingJobResourceConfig =
         Prelude.Nothing
     }
 
--- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
--- to encrypt data on the storage volume attached to the ML compute
--- instance(s) that run the training job. The @VolumeKmsKeyId@ can be any
--- of the following formats:
+-- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+-- key that Amazon SageMaker uses to encrypt data on the storage volume
+-- attached to the ML compute instance(s) that run the training and
+-- inference jobs used for automated data labeling.
 --
--- -   \/\/ KMS Key ID
+-- You can only specify a @VolumeKmsKeyId@ when you create a labeling job
+-- with automated data labeling enabled using the API operation
+-- @CreateLabelingJob@. You cannot specify an Amazon Web Services KMS key
+-- to encrypt the storage volume used for automated data labeling model
+-- training and inference when you create a labeling job using the console.
+-- To learn more, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security.html Output Data and Storage Volume Encryption>.
+--
+-- The @VolumeKmsKeyId@ can be any of the following formats:
+--
+-- -   KMS Key ID
 --
 --     @\"1234abcd-12ab-34cd-56ef-1234567890ab\"@
 --
--- -   \/\/ Amazon Resource Name (ARN) of a KMS Key
+-- -   Amazon Resource Name (ARN) of a KMS Key
 --
 --     @\"arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab\"@
 labelingJobResourceConfig_volumeKmsKeyId :: Lens.Lens' LabelingJobResourceConfig (Prelude.Maybe Prelude.Text)

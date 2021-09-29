@@ -58,8 +58,8 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newCreateArtifact' smart constructor.
 data CreateArtifact = CreateArtifact'
   { metadataProperties :: Prelude.Maybe MetadataProperties,
-    -- | The name of the artifact. Must be unique to your account in an AWS
-    -- Region.
+    -- | The name of the artifact. Must be unique to your account in an Amazon
+    -- Web Services Region.
     artifactName :: Prelude.Maybe Prelude.Text,
     -- | A list of tags to apply to the artifact.
     tags :: Prelude.Maybe [Tag],
@@ -82,8 +82,8 @@ data CreateArtifact = CreateArtifact'
 --
 -- 'metadataProperties', 'createArtifact_metadataProperties' - Undocumented member.
 --
--- 'artifactName', 'createArtifact_artifactName' - The name of the artifact. Must be unique to your account in an AWS
--- Region.
+-- 'artifactName', 'createArtifact_artifactName' - The name of the artifact. Must be unique to your account in an Amazon
+-- Web Services Region.
 --
 -- 'tags', 'createArtifact_tags' - A list of tags to apply to the artifact.
 --
@@ -113,8 +113,8 @@ newCreateArtifact pSource_ pArtifactType_ =
 createArtifact_metadataProperties :: Lens.Lens' CreateArtifact (Prelude.Maybe MetadataProperties)
 createArtifact_metadataProperties = Lens.lens (\CreateArtifact' {metadataProperties} -> metadataProperties) (\s@CreateArtifact' {} a -> s {metadataProperties = a} :: CreateArtifact)
 
--- | The name of the artifact. Must be unique to your account in an AWS
--- Region.
+-- | The name of the artifact. Must be unique to your account in an Amazon
+-- Web Services Region.
 createArtifact_artifactName :: Lens.Lens' CreateArtifact (Prelude.Maybe Prelude.Text)
 createArtifact_artifactName = Lens.lens (\CreateArtifact' {artifactName} -> artifactName) (\s@CreateArtifact' {} a -> s {artifactName = a} :: CreateArtifact)
 

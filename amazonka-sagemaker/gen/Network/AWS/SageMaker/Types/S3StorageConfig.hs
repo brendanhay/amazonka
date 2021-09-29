@@ -28,8 +28,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newS3StorageConfig' smart constructor.
 data S3StorageConfig = S3StorageConfig'
-  { -- | The AWS Key Management Service (KMS) key ID of the key used to encrypt
-    -- any objects written into the @OfflineStore@ S3 location.
+  { -- | The Amazon Web Services Key Management Service (KMS) key ID of the key
+    -- used to encrypt any objects written into the @OfflineStore@ S3 location.
     --
     -- The IAM @roleARN@ that is passed as a parameter to @CreateFeatureGroup@
     -- must have below permissions to the @KmsKeyId@:
@@ -54,8 +54,8 @@ data S3StorageConfig = S3StorageConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyId', 's3StorageConfig_kmsKeyId' - The AWS Key Management Service (KMS) key ID of the key used to encrypt
--- any objects written into the @OfflineStore@ S3 location.
+-- 'kmsKeyId', 's3StorageConfig_kmsKeyId' - The Amazon Web Services Key Management Service (KMS) key ID of the key
+-- used to encrypt any objects written into the @OfflineStore@ S3 location.
 --
 -- The IAM @roleARN@ that is passed as a parameter to @CreateFeatureGroup@
 -- must have below permissions to the @KmsKeyId@:
@@ -79,8 +79,8 @@ newS3StorageConfig pS3Uri_ =
       s3Uri = pS3Uri_
     }
 
--- | The AWS Key Management Service (KMS) key ID of the key used to encrypt
--- any objects written into the @OfflineStore@ S3 location.
+-- | The Amazon Web Services Key Management Service (KMS) key ID of the key
+-- used to encrypt any objects written into the @OfflineStore@ S3 location.
 --
 -- The IAM @roleARN@ that is passed as a parameter to @CreateFeatureGroup@
 -- must have below permissions to the @KmsKeyId@:

@@ -191,9 +191,9 @@ data UpdateWorkforceResponse = UpdateWorkforceResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | A single private workforce. You can create one private work force in
-    -- each AWS Region. By default, any workforce-related API operation used in
-    -- a specific region will apply to the workforce created in that region. To
-    -- learn how to create a private workforce, see
+    -- each Amazon Web Services Region. By default, any workforce-related API
+    -- operation used in a specific region will apply to the workforce created
+    -- in that region. To learn how to create a private workforce, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html Create a Private Workforce>.
     workforce :: Workforce
   }
@@ -210,9 +210,9 @@ data UpdateWorkforceResponse = UpdateWorkforceResponse'
 -- 'httpStatus', 'updateWorkforceResponse_httpStatus' - The response's http status code.
 --
 -- 'workforce', 'updateWorkforceResponse_workforce' - A single private workforce. You can create one private work force in
--- each AWS Region. By default, any workforce-related API operation used in
--- a specific region will apply to the workforce created in that region. To
--- learn how to create a private workforce, see
+-- each Amazon Web Services Region. By default, any workforce-related API
+-- operation used in a specific region will apply to the workforce created
+-- in that region. To learn how to create a private workforce, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html Create a Private Workforce>.
 newUpdateWorkforceResponse ::
   -- | 'httpStatus'
@@ -231,9 +231,9 @@ updateWorkforceResponse_httpStatus :: Lens.Lens' UpdateWorkforceResponse Prelude
 updateWorkforceResponse_httpStatus = Lens.lens (\UpdateWorkforceResponse' {httpStatus} -> httpStatus) (\s@UpdateWorkforceResponse' {} a -> s {httpStatus = a} :: UpdateWorkforceResponse)
 
 -- | A single private workforce. You can create one private work force in
--- each AWS Region. By default, any workforce-related API operation used in
--- a specific region will apply to the workforce created in that region. To
--- learn how to create a private workforce, see
+-- each Amazon Web Services Region. By default, any workforce-related API
+-- operation used in a specific region will apply to the workforce created
+-- in that region. To learn how to create a private workforce, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html Create a Private Workforce>.
 updateWorkforceResponse_workforce :: Lens.Lens' UpdateWorkforceResponse Workforce
 updateWorkforceResponse_workforce = Lens.lens (\UpdateWorkforceResponse' {workforce} -> workforce) (\s@UpdateWorkforceResponse' {} a -> s {workforce = a} :: UpdateWorkforceResponse)

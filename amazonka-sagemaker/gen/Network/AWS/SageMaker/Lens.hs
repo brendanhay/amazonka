@@ -14,12 +14,61 @@
 module Network.AWS.SageMaker.Lens
   ( -- * Operations
 
-    -- ** DisassociateTrialComponent
-    disassociateTrialComponent_trialComponentName,
-    disassociateTrialComponent_trialName,
-    disassociateTrialComponentResponse_trialArn,
-    disassociateTrialComponentResponse_trialComponentArn,
-    disassociateTrialComponentResponse_httpStatus,
+    -- ** CreateEdgePackagingJob
+    createEdgePackagingJob_resourceKey,
+    createEdgePackagingJob_tags,
+    createEdgePackagingJob_edgePackagingJobName,
+    createEdgePackagingJob_compilationJobName,
+    createEdgePackagingJob_modelName,
+    createEdgePackagingJob_modelVersion,
+    createEdgePackagingJob_roleArn,
+    createEdgePackagingJob_outputConfig,
+
+    -- ** DescribeUserProfile
+    describeUserProfile_domainId,
+    describeUserProfile_userProfileName,
+    describeUserProfileResponse_creationTime,
+    describeUserProfileResponse_userSettings,
+    describeUserProfileResponse_status,
+    describeUserProfileResponse_userProfileName,
+    describeUserProfileResponse_domainId,
+    describeUserProfileResponse_userProfileArn,
+    describeUserProfileResponse_homeEfsFileSystemUid,
+    describeUserProfileResponse_failureReason,
+    describeUserProfileResponse_lastModifiedTime,
+    describeUserProfileResponse_singleSignOnUserValue,
+    describeUserProfileResponse_singleSignOnUserIdentifier,
+    describeUserProfileResponse_httpStatus,
+
+    -- ** ListHumanTaskUis
+    listHumanTaskUis_nextToken,
+    listHumanTaskUis_sortOrder,
+    listHumanTaskUis_maxResults,
+    listHumanTaskUis_creationTimeBefore,
+    listHumanTaskUis_creationTimeAfter,
+    listHumanTaskUisResponse_nextToken,
+    listHumanTaskUisResponse_httpStatus,
+    listHumanTaskUisResponse_humanTaskUiSummaries,
+
+    -- ** DeleteHumanTaskUi
+    deleteHumanTaskUi_humanTaskUiName,
+    deleteHumanTaskUiResponse_httpStatus,
+
+    -- ** UpdateAction
+    updateAction_propertiesToRemove,
+    updateAction_status,
+    updateAction_properties,
+    updateAction_description,
+    updateAction_actionName,
+    updateActionResponse_actionArn,
+    updateActionResponse_httpStatus,
+
+    -- ** CreateEndpoint
+    createEndpoint_tags,
+    createEndpoint_endpointName,
+    createEndpoint_endpointConfigName,
+    createEndpointResponse_httpStatus,
+    createEndpointResponse_endpointArn,
 
     -- ** DeleteArtifact
     deleteArtifact_artifactArn,
@@ -44,38 +93,20 @@ module Network.AWS.SageMaker.Lens
     createTransformJobResponse_httpStatus,
     createTransformJobResponse_transformJobArn,
 
-    -- ** ListHumanTaskUis
-    listHumanTaskUis_sortOrder,
-    listHumanTaskUis_nextToken,
-    listHumanTaskUis_maxResults,
-    listHumanTaskUis_creationTimeBefore,
-    listHumanTaskUis_creationTimeAfter,
-    listHumanTaskUisResponse_nextToken,
-    listHumanTaskUisResponse_httpStatus,
-    listHumanTaskUisResponse_humanTaskUiSummaries,
-
-    -- ** DeleteHumanTaskUi
-    deleteHumanTaskUi_humanTaskUiName,
-    deleteHumanTaskUiResponse_httpStatus,
-
-    -- ** UpdateAction
-    updateAction_status,
-    updateAction_propertiesToRemove,
-    updateAction_properties,
-    updateAction_description,
-    updateAction_actionName,
-    updateActionResponse_actionArn,
-    updateActionResponse_httpStatus,
+    -- ** DeleteAction
+    deleteAction_actionName,
+    deleteActionResponse_actionArn,
+    deleteActionResponse_httpStatus,
 
     -- ** DescribePipeline
     describePipeline_pipelineName,
     describePipelineResponse_pipelineArn,
-    describePipelineResponse_pipelineDescription,
     describePipelineResponse_creationTime,
+    describePipelineResponse_pipelineDescription,
     describePipelineResponse_roleArn,
     describePipelineResponse_lastRunTime,
-    describePipelineResponse_pipelineDefinition,
     describePipelineResponse_pipelineDisplayName,
+    describePipelineResponse_pipelineDefinition,
     describePipelineResponse_lastModifiedTime,
     describePipelineResponse_pipelineStatus,
     describePipelineResponse_createdBy,
@@ -91,31 +122,15 @@ module Network.AWS.SageMaker.Lens
     updateArtifactResponse_artifactArn,
     updateArtifactResponse_httpStatus,
 
-    -- ** DescribeUserProfile
-    describeUserProfile_domainId,
-    describeUserProfile_userProfileName,
-    describeUserProfileResponse_status,
-    describeUserProfileResponse_creationTime,
-    describeUserProfileResponse_userSettings,
-    describeUserProfileResponse_userProfileName,
-    describeUserProfileResponse_domainId,
-    describeUserProfileResponse_userProfileArn,
-    describeUserProfileResponse_failureReason,
-    describeUserProfileResponse_homeEfsFileSystemUid,
-    describeUserProfileResponse_lastModifiedTime,
-    describeUserProfileResponse_singleSignOnUserIdentifier,
-    describeUserProfileResponse_singleSignOnUserValue,
-    describeUserProfileResponse_httpStatus,
-
     -- ** StopTrainingJob
     stopTrainingJob_trainingJobName,
 
-    -- ** CreateEndpoint
-    createEndpoint_tags,
-    createEndpoint_endpointName,
-    createEndpoint_endpointConfigName,
-    createEndpointResponse_httpStatus,
-    createEndpointResponse_endpointArn,
+    -- ** DisassociateTrialComponent
+    disassociateTrialComponent_trialComponentName,
+    disassociateTrialComponent_trialName,
+    disassociateTrialComponentResponse_trialArn,
+    disassociateTrialComponentResponse_trialComponentArn,
+    disassociateTrialComponentResponse_httpStatus,
 
     -- ** GetSearchSuggestions
     getSearchSuggestions_suggestionQuery,
@@ -123,64 +138,49 @@ module Network.AWS.SageMaker.Lens
     getSearchSuggestionsResponse_propertyNameSuggestions,
     getSearchSuggestionsResponse_httpStatus,
 
-    -- ** DeleteAction
-    deleteAction_actionName,
-    deleteActionResponse_actionArn,
-    deleteActionResponse_httpStatus,
+    -- ** DeleteModelPackage
+    deleteModelPackage_modelPackageName,
 
-    -- ** CreateEdgePackagingJob
-    createEdgePackagingJob_resourceKey,
-    createEdgePackagingJob_tags,
-    createEdgePackagingJob_edgePackagingJobName,
-    createEdgePackagingJob_compilationJobName,
-    createEdgePackagingJob_modelName,
-    createEdgePackagingJob_modelVersion,
-    createEdgePackagingJob_roleArn,
-    createEdgePackagingJob_outputConfig,
-
-    -- ** DescribeEndpointConfig
-    describeEndpointConfig_endpointConfigName,
-    describeEndpointConfigResponse_kmsKeyId,
-    describeEndpointConfigResponse_dataCaptureConfig,
-    describeEndpointConfigResponse_httpStatus,
-    describeEndpointConfigResponse_endpointConfigName,
-    describeEndpointConfigResponse_endpointConfigArn,
-    describeEndpointConfigResponse_productionVariants,
-    describeEndpointConfigResponse_creationTime,
+    -- ** CreateModelQualityJobDefinition
+    createModelQualityJobDefinition_networkConfig,
+    createModelQualityJobDefinition_modelQualityBaselineConfig,
+    createModelQualityJobDefinition_tags,
+    createModelQualityJobDefinition_stoppingCondition,
+    createModelQualityJobDefinition_jobDefinitionName,
+    createModelQualityJobDefinition_modelQualityAppSpecification,
+    createModelQualityJobDefinition_modelQualityJobInput,
+    createModelQualityJobDefinition_modelQualityJobOutputConfig,
+    createModelQualityJobDefinition_jobResources,
+    createModelQualityJobDefinition_roleArn,
+    createModelQualityJobDefinitionResponse_httpStatus,
+    createModelQualityJobDefinitionResponse_jobDefinitionArn,
 
     -- ** ListModelPackages
-    listModelPackages_sortOrder,
     listModelPackages_nextToken,
+    listModelPackages_sortOrder,
     listModelPackages_nameContains,
     listModelPackages_maxResults,
     listModelPackages_creationTimeBefore,
     listModelPackages_modelApprovalStatus,
     listModelPackages_sortBy,
     listModelPackages_creationTimeAfter,
-    listModelPackages_modelPackageGroupName,
     listModelPackages_modelPackageType,
+    listModelPackages_modelPackageGroupName,
     listModelPackagesResponse_nextToken,
     listModelPackagesResponse_httpStatus,
     listModelPackagesResponse_modelPackageSummaryList,
 
-    -- ** GetModelPackageGroupPolicy
-    getModelPackageGroupPolicy_modelPackageGroupName,
-    getModelPackageGroupPolicyResponse_httpStatus,
-    getModelPackageGroupPolicyResponse_resourcePolicy,
-
-    -- ** DescribeMonitoringSchedule
-    describeMonitoringSchedule_monitoringScheduleName,
-    describeMonitoringScheduleResponse_endpointName,
-    describeMonitoringScheduleResponse_monitoringType,
-    describeMonitoringScheduleResponse_failureReason,
-    describeMonitoringScheduleResponse_lastMonitoringExecutionSummary,
-    describeMonitoringScheduleResponse_httpStatus,
-    describeMonitoringScheduleResponse_monitoringScheduleArn,
-    describeMonitoringScheduleResponse_monitoringScheduleName,
-    describeMonitoringScheduleResponse_monitoringScheduleStatus,
-    describeMonitoringScheduleResponse_creationTime,
-    describeMonitoringScheduleResponse_lastModifiedTime,
-    describeMonitoringScheduleResponse_monitoringScheduleConfig,
+    -- ** ListProjects
+    listProjects_nextToken,
+    listProjects_sortOrder,
+    listProjects_nameContains,
+    listProjects_maxResults,
+    listProjects_creationTimeBefore,
+    listProjects_sortBy,
+    listProjects_creationTimeAfter,
+    listProjectsResponse_nextToken,
+    listProjectsResponse_httpStatus,
+    listProjectsResponse_projectSummaryList,
 
     -- ** CreateModelExplainabilityJobDefinition
     createModelExplainabilityJobDefinition_networkConfig,
@@ -195,6 +195,31 @@ module Network.AWS.SageMaker.Lens
     createModelExplainabilityJobDefinition_roleArn,
     createModelExplainabilityJobDefinitionResponse_httpStatus,
     createModelExplainabilityJobDefinitionResponse_jobDefinitionArn,
+
+    -- ** DescribeEndpointConfig
+    describeEndpointConfig_endpointConfigName,
+    describeEndpointConfigResponse_asyncInferenceConfig,
+    describeEndpointConfigResponse_kmsKeyId,
+    describeEndpointConfigResponse_dataCaptureConfig,
+    describeEndpointConfigResponse_httpStatus,
+    describeEndpointConfigResponse_endpointConfigName,
+    describeEndpointConfigResponse_endpointConfigArn,
+    describeEndpointConfigResponse_productionVariants,
+    describeEndpointConfigResponse_creationTime,
+
+    -- ** DescribeMonitoringSchedule
+    describeMonitoringSchedule_monitoringScheduleName,
+    describeMonitoringScheduleResponse_endpointName,
+    describeMonitoringScheduleResponse_monitoringType,
+    describeMonitoringScheduleResponse_failureReason,
+    describeMonitoringScheduleResponse_lastMonitoringExecutionSummary,
+    describeMonitoringScheduleResponse_httpStatus,
+    describeMonitoringScheduleResponse_monitoringScheduleArn,
+    describeMonitoringScheduleResponse_monitoringScheduleName,
+    describeMonitoringScheduleResponse_monitoringScheduleStatus,
+    describeMonitoringScheduleResponse_creationTime,
+    describeMonitoringScheduleResponse_lastModifiedTime,
+    describeMonitoringScheduleResponse_monitoringScheduleConfig,
 
     -- ** DescribeLabelingJob
     describeLabelingJob_labelingJobName,
@@ -218,23 +243,10 @@ module Network.AWS.SageMaker.Lens
     describeLabelingJobResponse_roleArn,
     describeLabelingJobResponse_humanTaskConfig,
 
-    -- ** CreateNotebookInstance
-    createNotebookInstance_securityGroupIds,
-    createNotebookInstance_acceleratorTypes,
-    createNotebookInstance_defaultCodeRepository,
-    createNotebookInstance_additionalCodeRepositories,
-    createNotebookInstance_kmsKeyId,
-    createNotebookInstance_volumeSizeInGB,
-    createNotebookInstance_tags,
-    createNotebookInstance_subnetId,
-    createNotebookInstance_lifecycleConfigName,
-    createNotebookInstance_directInternetAccess,
-    createNotebookInstance_rootAccess,
-    createNotebookInstance_notebookInstanceName,
-    createNotebookInstance_instanceType,
-    createNotebookInstance_roleArn,
-    createNotebookInstanceResponse_notebookInstanceArn,
-    createNotebookInstanceResponse_httpStatus,
+    -- ** GetModelPackageGroupPolicy
+    getModelPackageGroupPolicy_modelPackageGroupName,
+    getModelPackageGroupPolicyResponse_httpStatus,
+    getModelPackageGroupPolicyResponse_resourcePolicy,
 
     -- ** UpdateModelPackage
     updateModelPackage_approvalDescription,
@@ -243,45 +255,46 @@ module Network.AWS.SageMaker.Lens
     updateModelPackageResponse_httpStatus,
     updateModelPackageResponse_modelPackageArn,
 
-    -- ** CreateModelQualityJobDefinition
-    createModelQualityJobDefinition_networkConfig,
-    createModelQualityJobDefinition_modelQualityBaselineConfig,
-    createModelQualityJobDefinition_tags,
-    createModelQualityJobDefinition_stoppingCondition,
-    createModelQualityJobDefinition_jobDefinitionName,
-    createModelQualityJobDefinition_modelQualityAppSpecification,
-    createModelQualityJobDefinition_modelQualityJobInput,
-    createModelQualityJobDefinition_modelQualityJobOutputConfig,
-    createModelQualityJobDefinition_jobResources,
-    createModelQualityJobDefinition_roleArn,
-    createModelQualityJobDefinitionResponse_httpStatus,
-    createModelQualityJobDefinitionResponse_jobDefinitionArn,
+    -- ** CreateNotebookInstance
+    createNotebookInstance_securityGroupIds,
+    createNotebookInstance_platformIdentifier,
+    createNotebookInstance_defaultCodeRepository,
+    createNotebookInstance_acceleratorTypes,
+    createNotebookInstance_additionalCodeRepositories,
+    createNotebookInstance_kmsKeyId,
+    createNotebookInstance_volumeSizeInGB,
+    createNotebookInstance_tags,
+    createNotebookInstance_subnetId,
+    createNotebookInstance_lifecycleConfigName,
+    createNotebookInstance_rootAccess,
+    createNotebookInstance_directInternetAccess,
+    createNotebookInstance_notebookInstanceName,
+    createNotebookInstance_instanceType,
+    createNotebookInstance_roleArn,
+    createNotebookInstanceResponse_notebookInstanceArn,
+    createNotebookInstanceResponse_httpStatus,
 
-    -- ** DeleteModelPackage
-    deleteModelPackage_modelPackageName,
+    -- ** StopMonitoringSchedule
+    stopMonitoringSchedule_monitoringScheduleName,
 
-    -- ** ListProjects
-    listProjects_sortOrder,
-    listProjects_nextToken,
-    listProjects_nameContains,
-    listProjects_maxResults,
-    listProjects_creationTimeBefore,
-    listProjects_sortBy,
-    listProjects_creationTimeAfter,
-    listProjectsResponse_nextToken,
-    listProjectsResponse_httpStatus,
-    listProjectsResponse_projectSummaryList,
+    -- ** CreateModelPackage
+    createModelPackage_sourceAlgorithmSpecification,
+    createModelPackage_metadataProperties,
+    createModelPackage_validationSpecification,
+    createModelPackage_modelMetrics,
+    createModelPackage_modelPackageName,
+    createModelPackage_certifyForMarketplace,
+    createModelPackage_modelApprovalStatus,
+    createModelPackage_tags,
+    createModelPackage_inferenceSpecification,
+    createModelPackage_modelPackageDescription,
+    createModelPackage_modelPackageGroupName,
+    createModelPackage_clientToken,
+    createModelPackageResponse_httpStatus,
+    createModelPackageResponse_modelPackageArn,
 
-    -- ** ListSubscribedWorkteams
-    listSubscribedWorkteams_nextToken,
-    listSubscribedWorkteams_nameContains,
-    listSubscribedWorkteams_maxResults,
-    listSubscribedWorkteamsResponse_nextToken,
-    listSubscribedWorkteamsResponse_httpStatus,
-    listSubscribedWorkteamsResponse_subscribedWorkteams,
-
-    -- ** DeleteNotebookInstance
-    deleteNotebookInstance_notebookInstanceName,
+    -- ** StopAutoMLJob
+    stopAutoMLJob_autoMLJobName,
 
     -- ** CreateProject
     createProject_tags,
@@ -292,18 +305,64 @@ module Network.AWS.SageMaker.Lens
     createProjectResponse_projectArn,
     createProjectResponse_projectId,
 
+    -- ** DescribeAppImageConfig
+    describeAppImageConfig_appImageConfigName,
+    describeAppImageConfigResponse_creationTime,
+    describeAppImageConfigResponse_appImageConfigArn,
+    describeAppImageConfigResponse_kernelGatewayImageConfig,
+    describeAppImageConfigResponse_appImageConfigName,
+    describeAppImageConfigResponse_lastModifiedTime,
+    describeAppImageConfigResponse_httpStatus,
+
+    -- ** ListSubscribedWorkteams
+    listSubscribedWorkteams_nextToken,
+    listSubscribedWorkteams_nameContains,
+    listSubscribedWorkteams_maxResults,
+    listSubscribedWorkteamsResponse_nextToken,
+    listSubscribedWorkteamsResponse_httpStatus,
+    listSubscribedWorkteamsResponse_subscribedWorkteams,
+
+    -- ** ListDevices
+    listDevices_latestHeartbeatAfter,
+    listDevices_nextToken,
+    listDevices_deviceFleetName,
+    listDevices_maxResults,
+    listDevices_modelName,
+    listDevicesResponse_nextToken,
+    listDevicesResponse_httpStatus,
+    listDevicesResponse_deviceSummaries,
+
+    -- ** UpdateNotebookInstance
+    updateNotebookInstance_defaultCodeRepository,
+    updateNotebookInstance_acceleratorTypes,
+    updateNotebookInstance_roleArn,
+    updateNotebookInstance_instanceType,
+    updateNotebookInstance_disassociateAcceleratorTypes,
+    updateNotebookInstance_disassociateDefaultCodeRepository,
+    updateNotebookInstance_disassociateLifecycleConfig,
+    updateNotebookInstance_additionalCodeRepositories,
+    updateNotebookInstance_disassociateAdditionalCodeRepositories,
+    updateNotebookInstance_volumeSizeInGB,
+    updateNotebookInstance_lifecycleConfigName,
+    updateNotebookInstance_rootAccess,
+    updateNotebookInstance_notebookInstanceName,
+    updateNotebookInstanceResponse_httpStatus,
+
+    -- ** DeleteModelExplainabilityJobDefinition
+    deleteModelExplainabilityJobDefinition_jobDefinitionName,
+
     -- ** DescribeProcessingJob
     describeProcessingJob_processingJobName,
     describeProcessingJobResponse_networkConfig,
     describeProcessingJobResponse_processingEndTime,
     describeProcessingJobResponse_roleArn,
     describeProcessingJobResponse_processingOutputConfig,
-    describeProcessingJobResponse_exitMessage,
     describeProcessingJobResponse_experimentConfig,
+    describeProcessingJobResponse_exitMessage,
     describeProcessingJobResponse_environment,
     describeProcessingJobResponse_autoMLJobArn,
-    describeProcessingJobResponse_failureReason,
     describeProcessingJobResponse_monitoringScheduleArn,
+    describeProcessingJobResponse_failureReason,
     describeProcessingJobResponse_lastModifiedTime,
     describeProcessingJobResponse_processingInputs,
     describeProcessingJobResponse_processingStartTime,
@@ -317,78 +376,18 @@ module Network.AWS.SageMaker.Lens
     describeProcessingJobResponse_processingJobStatus,
     describeProcessingJobResponse_creationTime,
 
+    -- ** StartMonitoringSchedule
+    startMonitoringSchedule_monitoringScheduleName,
+
+    -- ** DeleteNotebookInstance
+    deleteNotebookInstance_notebookInstanceName,
+
     -- ** ListDomains
     listDomains_nextToken,
     listDomains_maxResults,
     listDomainsResponse_nextToken,
     listDomainsResponse_domains,
     listDomainsResponse_httpStatus,
-
-    -- ** DeleteModelExplainabilityJobDefinition
-    deleteModelExplainabilityJobDefinition_jobDefinitionName,
-
-    -- ** StopMonitoringSchedule
-    stopMonitoringSchedule_monitoringScheduleName,
-
-    -- ** ListDevices
-    listDevices_latestHeartbeatAfter,
-    listDevices_nextToken,
-    listDevices_deviceFleetName,
-    listDevices_maxResults,
-    listDevices_modelName,
-    listDevicesResponse_nextToken,
-    listDevicesResponse_httpStatus,
-    listDevicesResponse_deviceSummaries,
-
-    -- ** CreateModelPackage
-    createModelPackage_sourceAlgorithmSpecification,
-    createModelPackage_metadataProperties,
-    createModelPackage_validationSpecification,
-    createModelPackage_modelMetrics,
-    createModelPackage_certifyForMarketplace,
-    createModelPackage_modelPackageName,
-    createModelPackage_modelApprovalStatus,
-    createModelPackage_tags,
-    createModelPackage_inferenceSpecification,
-    createModelPackage_modelPackageDescription,
-    createModelPackage_modelPackageGroupName,
-    createModelPackage_clientToken,
-    createModelPackageResponse_httpStatus,
-    createModelPackageResponse_modelPackageArn,
-
-    -- ** UpdateNotebookInstance
-    updateNotebookInstance_acceleratorTypes,
-    updateNotebookInstance_defaultCodeRepository,
-    updateNotebookInstance_roleArn,
-    updateNotebookInstance_instanceType,
-    updateNotebookInstance_disassociateDefaultCodeRepository,
-    updateNotebookInstance_disassociateAcceleratorTypes,
-    updateNotebookInstance_disassociateLifecycleConfig,
-    updateNotebookInstance_additionalCodeRepositories,
-    updateNotebookInstance_disassociateAdditionalCodeRepositories,
-    updateNotebookInstance_volumeSizeInGB,
-    updateNotebookInstance_lifecycleConfigName,
-    updateNotebookInstance_rootAccess,
-    updateNotebookInstance_notebookInstanceName,
-    updateNotebookInstanceResponse_httpStatus,
-
-    -- ** StopAutoMLJob
-    stopAutoMLJob_autoMLJobName,
-
-    -- ** DescribeAppImageConfig
-    describeAppImageConfig_appImageConfigName,
-    describeAppImageConfigResponse_creationTime,
-    describeAppImageConfigResponse_appImageConfigArn,
-    describeAppImageConfigResponse_kernelGatewayImageConfig,
-    describeAppImageConfigResponse_appImageConfigName,
-    describeAppImageConfigResponse_lastModifiedTime,
-    describeAppImageConfigResponse_httpStatus,
-
-    -- ** StartMonitoringSchedule
-    startMonitoringSchedule_monitoringScheduleName,
-
-    -- ** StopCompilationJob
-    stopCompilationJob_compilationJobName,
 
     -- ** CreateTrial
     createTrial_metadataProperties,
@@ -399,75 +398,19 @@ module Network.AWS.SageMaker.Lens
     createTrialResponse_trialArn,
     createTrialResponse_httpStatus,
 
-    -- ** GetSagemakerServicecatalogPortfolioStatus
-    getSagemakerServicecatalogPortfolioStatusResponse_status,
-    getSagemakerServicecatalogPortfolioStatusResponse_httpStatus,
-
-    -- ** UpdateCodeRepository
-    updateCodeRepository_gitConfig,
-    updateCodeRepository_codeRepositoryName,
-    updateCodeRepositoryResponse_httpStatus,
-    updateCodeRepositoryResponse_codeRepositoryArn,
-
-    -- ** Search
-    search_sortOrder,
-    search_nextToken,
-    search_maxResults,
-    search_searchExpression,
-    search_sortBy,
-    search_resource,
-    searchResponse_nextToken,
-    searchResponse_results,
-    searchResponse_httpStatus,
-
-    -- ** DeleteModel
-    deleteModel_modelName,
-
-    -- ** DeleteDataQualityJobDefinition
-    deleteDataQualityJobDefinition_jobDefinitionName,
-
-    -- ** ListImages
-    listImages_lastModifiedTimeBefore,
-    listImages_sortOrder,
-    listImages_nextToken,
-    listImages_nameContains,
-    listImages_maxResults,
-    listImages_creationTimeBefore,
-    listImages_lastModifiedTimeAfter,
-    listImages_sortBy,
-    listImages_creationTimeAfter,
-    listImagesResponse_nextToken,
-    listImagesResponse_images,
-    listImagesResponse_httpStatus,
-
-    -- ** ListTrainingJobs
-    listTrainingJobs_lastModifiedTimeBefore,
-    listTrainingJobs_sortOrder,
-    listTrainingJobs_nextToken,
-    listTrainingJobs_nameContains,
-    listTrainingJobs_maxResults,
-    listTrainingJobs_creationTimeBefore,
-    listTrainingJobs_lastModifiedTimeAfter,
-    listTrainingJobs_sortBy,
-    listTrainingJobs_statusEquals,
-    listTrainingJobs_creationTimeAfter,
-    listTrainingJobsResponse_nextToken,
-    listTrainingJobsResponse_httpStatus,
-    listTrainingJobsResponse_trainingJobSummaries,
-
     -- ** DescribeTransformJob
     describeTransformJob_transformJobName,
     describeTransformJobResponse_labelingJobArn,
     describeTransformJobResponse_transformStartTime,
-    describeTransformJobResponse_transformOutput,
     describeTransformJobResponse_experimentConfig,
+    describeTransformJobResponse_transformOutput,
     describeTransformJobResponse_maxConcurrentTransforms,
     describeTransformJobResponse_environment,
     describeTransformJobResponse_maxPayloadInMB,
     describeTransformJobResponse_batchStrategy,
     describeTransformJobResponse_autoMLJobArn,
-    describeTransformJobResponse_failureReason,
     describeTransformJobResponse_modelClientConfig,
+    describeTransformJobResponse_failureReason,
     describeTransformJobResponse_transformEndTime,
     describeTransformJobResponse_dataProcessing,
     describeTransformJobResponse_httpStatus,
@@ -479,27 +422,91 @@ module Network.AWS.SageMaker.Lens
     describeTransformJobResponse_transformResources,
     describeTransformJobResponse_creationTime,
 
-    -- ** CreatePipeline
-    createPipeline_pipelineDescription,
-    createPipeline_pipelineDisplayName,
-    createPipeline_tags,
-    createPipeline_pipelineName,
-    createPipeline_pipelineDefinition,
-    createPipeline_clientRequestToken,
-    createPipeline_roleArn,
-    createPipelineResponse_pipelineArn,
-    createPipelineResponse_httpStatus,
+    -- ** DescribeEdgePackagingJob
+    describeEdgePackagingJob_edgePackagingJobName,
+    describeEdgePackagingJobResponse_creationTime,
+    describeEdgePackagingJobResponse_edgePackagingJobStatusMessage,
+    describeEdgePackagingJobResponse_roleArn,
+    describeEdgePackagingJobResponse_compilationJobName,
+    describeEdgePackagingJobResponse_modelSignature,
+    describeEdgePackagingJobResponse_modelVersion,
+    describeEdgePackagingJobResponse_resourceKey,
+    describeEdgePackagingJobResponse_outputConfig,
+    describeEdgePackagingJobResponse_modelArtifact,
+    describeEdgePackagingJobResponse_lastModifiedTime,
+    describeEdgePackagingJobResponse_presetDeploymentOutput,
+    describeEdgePackagingJobResponse_modelName,
+    describeEdgePackagingJobResponse_httpStatus,
+    describeEdgePackagingJobResponse_edgePackagingJobArn,
+    describeEdgePackagingJobResponse_edgePackagingJobName,
+    describeEdgePackagingJobResponse_edgePackagingJobStatus,
 
-    -- ** CreateModelPackageGroup
-    createModelPackageGroup_modelPackageGroupDescription,
-    createModelPackageGroup_tags,
-    createModelPackageGroup_modelPackageGroupName,
-    createModelPackageGroupResponse_httpStatus,
-    createModelPackageGroupResponse_modelPackageGroupArn,
+    -- ** DeleteModel
+    deleteModel_modelName,
+
+    -- ** ListTrainingJobs
+    listTrainingJobs_lastModifiedTimeBefore,
+    listTrainingJobs_nextToken,
+    listTrainingJobs_sortOrder,
+    listTrainingJobs_nameContains,
+    listTrainingJobs_maxResults,
+    listTrainingJobs_creationTimeBefore,
+    listTrainingJobs_lastModifiedTimeAfter,
+    listTrainingJobs_sortBy,
+    listTrainingJobs_statusEquals,
+    listTrainingJobs_creationTimeAfter,
+    listTrainingJobsResponse_nextToken,
+    listTrainingJobsResponse_httpStatus,
+    listTrainingJobsResponse_trainingJobSummaries,
+
+    -- ** ListDataQualityJobDefinitions
+    listDataQualityJobDefinitions_nextToken,
+    listDataQualityJobDefinitions_sortOrder,
+    listDataQualityJobDefinitions_endpointName,
+    listDataQualityJobDefinitions_nameContains,
+    listDataQualityJobDefinitions_maxResults,
+    listDataQualityJobDefinitions_creationTimeBefore,
+    listDataQualityJobDefinitions_sortBy,
+    listDataQualityJobDefinitions_creationTimeAfter,
+    listDataQualityJobDefinitionsResponse_nextToken,
+    listDataQualityJobDefinitionsResponse_httpStatus,
+    listDataQualityJobDefinitionsResponse_jobDefinitionSummaries,
+
+    -- ** GetSagemakerServicecatalogPortfolioStatus
+    getSagemakerServicecatalogPortfolioStatusResponse_status,
+    getSagemakerServicecatalogPortfolioStatusResponse_httpStatus,
+
+    -- ** Search
+    search_nextToken,
+    search_sortOrder,
+    search_maxResults,
+    search_searchExpression,
+    search_sortBy,
+    search_resource,
+    searchResponse_nextToken,
+    searchResponse_results,
+    searchResponse_httpStatus,
+
+    -- ** StopCompilationJob
+    stopCompilationJob_compilationJobName,
+
+    -- ** ListImages
+    listImages_lastModifiedTimeBefore,
+    listImages_nextToken,
+    listImages_sortOrder,
+    listImages_nameContains,
+    listImages_maxResults,
+    listImages_creationTimeBefore,
+    listImages_lastModifiedTimeAfter,
+    listImages_sortBy,
+    listImages_creationTimeAfter,
+    listImagesResponse_nextToken,
+    listImagesResponse_images,
+    listImagesResponse_httpStatus,
 
     -- ** ListCandidatesForAutoMLJob
-    listCandidatesForAutoMLJob_sortOrder,
     listCandidatesForAutoMLJob_nextToken,
+    listCandidatesForAutoMLJob_sortOrder,
     listCandidatesForAutoMLJob_maxResults,
     listCandidatesForAutoMLJob_candidateNameEquals,
     listCandidatesForAutoMLJob_sortBy,
@@ -524,42 +531,41 @@ module Network.AWS.SageMaker.Lens
     getDeviceFleetReportResponse_deviceFleetArn,
     getDeviceFleetReportResponse_deviceFleetName,
 
-    -- ** ListDataQualityJobDefinitions
-    listDataQualityJobDefinitions_sortOrder,
-    listDataQualityJobDefinitions_nextToken,
-    listDataQualityJobDefinitions_endpointName,
-    listDataQualityJobDefinitions_nameContains,
-    listDataQualityJobDefinitions_maxResults,
-    listDataQualityJobDefinitions_creationTimeBefore,
-    listDataQualityJobDefinitions_sortBy,
-    listDataQualityJobDefinitions_creationTimeAfter,
-    listDataQualityJobDefinitionsResponse_nextToken,
-    listDataQualityJobDefinitionsResponse_httpStatus,
-    listDataQualityJobDefinitionsResponse_jobDefinitionSummaries,
+    -- ** DeleteDataQualityJobDefinition
+    deleteDataQualityJobDefinition_jobDefinitionName,
 
-    -- ** DescribeEdgePackagingJob
-    describeEdgePackagingJob_edgePackagingJobName,
-    describeEdgePackagingJobResponse_edgePackagingJobStatusMessage,
-    describeEdgePackagingJobResponse_creationTime,
-    describeEdgePackagingJobResponse_roleArn,
-    describeEdgePackagingJobResponse_compilationJobName,
-    describeEdgePackagingJobResponse_modelSignature,
-    describeEdgePackagingJobResponse_resourceKey,
-    describeEdgePackagingJobResponse_modelVersion,
-    describeEdgePackagingJobResponse_outputConfig,
-    describeEdgePackagingJobResponse_modelArtifact,
-    describeEdgePackagingJobResponse_lastModifiedTime,
-    describeEdgePackagingJobResponse_modelName,
-    describeEdgePackagingJobResponse_httpStatus,
-    describeEdgePackagingJobResponse_edgePackagingJobArn,
-    describeEdgePackagingJobResponse_edgePackagingJobName,
-    describeEdgePackagingJobResponse_edgePackagingJobStatus,
+    -- ** CreateModelPackageGroup
+    createModelPackageGroup_modelPackageGroupDescription,
+    createModelPackageGroup_tags,
+    createModelPackageGroup_modelPackageGroupName,
+    createModelPackageGroupResponse_httpStatus,
+    createModelPackageGroupResponse_modelPackageGroupArn,
+
+    -- ** CreatePipeline
+    createPipeline_pipelineDescription,
+    createPipeline_pipelineDisplayName,
+    createPipeline_tags,
+    createPipeline_pipelineName,
+    createPipeline_pipelineDefinition,
+    createPipeline_clientRequestToken,
+    createPipeline_roleArn,
+    createPipelineResponse_pipelineArn,
+    createPipelineResponse_httpStatus,
+
+    -- ** UpdateCodeRepository
+    updateCodeRepository_gitConfig,
+    updateCodeRepository_codeRepositoryName,
+    updateCodeRepositoryResponse_httpStatus,
+    updateCodeRepositoryResponse_codeRepositoryArn,
+
+    -- ** DeleteCodeRepository
+    deleteCodeRepository_codeRepositoryName,
 
     -- ** ListContexts
     listContexts_contextType,
-    listContexts_createdAfter,
-    listContexts_sortOrder,
     listContexts_nextToken,
+    listContexts_sortOrder,
+    listContexts_createdAfter,
     listContexts_createdBefore,
     listContexts_maxResults,
     listContexts_sourceUri,
@@ -570,6 +576,7 @@ module Network.AWS.SageMaker.Lens
 
     -- ** DescribeEndpoint
     describeEndpoint_endpointName,
+    describeEndpointResponse_asyncInferenceConfig,
     describeEndpointResponse_productionVariants,
     describeEndpointResponse_lastDeploymentConfig,
     describeEndpointResponse_failureReason,
@@ -582,49 +589,9 @@ module Network.AWS.SageMaker.Lens
     describeEndpointResponse_creationTime,
     describeEndpointResponse_lastModifiedTime,
 
-    -- ** DeleteCodeRepository
-    deleteCodeRepository_codeRepositoryName,
-
-    -- ** DeleteModelPackageGroupPolicy
-    deleteModelPackageGroupPolicy_modelPackageGroupName,
-
-    -- ** ListUserProfiles
-    listUserProfiles_sortOrder,
-    listUserProfiles_nextToken,
-    listUserProfiles_userProfileNameContains,
-    listUserProfiles_maxResults,
-    listUserProfiles_domainIdEquals,
-    listUserProfiles_sortBy,
-    listUserProfilesResponse_nextToken,
-    listUserProfilesResponse_userProfiles,
-    listUserProfilesResponse_httpStatus,
-
-    -- ** DescribeCompilationJob
-    describeCompilationJob_compilationJobName,
-    describeCompilationJobResponse_modelDigests,
-    describeCompilationJobResponse_compilationStartTime,
-    describeCompilationJobResponse_compilationEndTime,
-    describeCompilationJobResponse_httpStatus,
-    describeCompilationJobResponse_compilationJobName,
-    describeCompilationJobResponse_compilationJobArn,
-    describeCompilationJobResponse_compilationJobStatus,
-    describeCompilationJobResponse_stoppingCondition,
-    describeCompilationJobResponse_creationTime,
-    describeCompilationJobResponse_lastModifiedTime,
-    describeCompilationJobResponse_failureReason,
-    describeCompilationJobResponse_modelArtifacts,
-    describeCompilationJobResponse_roleArn,
-    describeCompilationJobResponse_inputConfig,
-    describeCompilationJobResponse_outputConfig,
-
-    -- ** UpdatePipeline
-    updatePipeline_pipelineDescription,
-    updatePipeline_roleArn,
-    updatePipeline_pipelineDefinition,
-    updatePipeline_pipelineDisplayName,
-    updatePipeline_pipelineName,
-    updatePipelineResponse_pipelineArn,
-    updatePipelineResponse_httpStatus,
+    -- ** DeregisterDevices
+    deregisterDevices_deviceFleetName,
+    deregisterDevices_deviceNames,
 
     -- ** CreateCodeRepository
     createCodeRepository_tags,
@@ -633,92 +600,22 @@ module Network.AWS.SageMaker.Lens
     createCodeRepositoryResponse_httpStatus,
     createCodeRepositoryResponse_codeRepositoryArn,
 
-    -- ** DescribeArtifact
-    describeArtifact_artifactArn,
-    describeArtifactResponse_metadataProperties,
-    describeArtifactResponse_creationTime,
-    describeArtifactResponse_artifactName,
-    describeArtifactResponse_artifactType,
-    describeArtifactResponse_artifactArn,
-    describeArtifactResponse_source,
-    describeArtifactResponse_properties,
-    describeArtifactResponse_lastModifiedTime,
-    describeArtifactResponse_createdBy,
-    describeArtifactResponse_lastModifiedBy,
-    describeArtifactResponse_httpStatus,
-
-    -- ** DescribeHumanTaskUi
-    describeHumanTaskUi_humanTaskUiName,
-    describeHumanTaskUiResponse_humanTaskUiStatus,
-    describeHumanTaskUiResponse_httpStatus,
-    describeHumanTaskUiResponse_humanTaskUiArn,
-    describeHumanTaskUiResponse_humanTaskUiName,
-    describeHumanTaskUiResponse_creationTime,
-    describeHumanTaskUiResponse_uiTemplate,
-
-    -- ** ListPipelineExecutionSteps
-    listPipelineExecutionSteps_sortOrder,
-    listPipelineExecutionSteps_nextToken,
-    listPipelineExecutionSteps_maxResults,
-    listPipelineExecutionSteps_pipelineExecutionArn,
-    listPipelineExecutionStepsResponse_nextToken,
-    listPipelineExecutionStepsResponse_pipelineExecutionSteps,
-    listPipelineExecutionStepsResponse_httpStatus,
-
-    -- ** ListCodeRepositories
-    listCodeRepositories_lastModifiedTimeBefore,
-    listCodeRepositories_sortOrder,
-    listCodeRepositories_nextToken,
-    listCodeRepositories_nameContains,
-    listCodeRepositories_maxResults,
-    listCodeRepositories_creationTimeBefore,
-    listCodeRepositories_lastModifiedTimeAfter,
-    listCodeRepositories_sortBy,
-    listCodeRepositories_creationTimeAfter,
-    listCodeRepositoriesResponse_nextToken,
-    listCodeRepositoriesResponse_httpStatus,
-    listCodeRepositoriesResponse_codeRepositorySummaryList,
-
-    -- ** UpdateUserProfile
-    updateUserProfile_userSettings,
-    updateUserProfile_domainId,
-    updateUserProfile_userProfileName,
-    updateUserProfileResponse_userProfileArn,
-    updateUserProfileResponse_httpStatus,
-
-    -- ** DescribeAction
-    describeAction_actionName,
-    describeActionResponse_status,
-    describeActionResponse_metadataProperties,
-    describeActionResponse_creationTime,
-    describeActionResponse_actionName,
-    describeActionResponse_actionType,
-    describeActionResponse_actionArn,
-    describeActionResponse_source,
-    describeActionResponse_properties,
-    describeActionResponse_lastModifiedTime,
-    describeActionResponse_description,
-    describeActionResponse_createdBy,
-    describeActionResponse_lastModifiedBy,
-    describeActionResponse_httpStatus,
-
-    -- ** StopTransformJob
-    stopTransformJob_transformJobName,
-
     -- ** CreateTrainingJob
     createTrainingJob_vpcConfig,
+    createTrainingJob_enableManagedSpotTraining,
+    createTrainingJob_hyperParameters,
     createTrainingJob_debugRuleConfigurations,
     createTrainingJob_inputDataConfig,
-    createTrainingJob_hyperParameters,
-    createTrainingJob_enableManagedSpotTraining,
-    createTrainingJob_profilerConfig,
     createTrainingJob_experimentConfig,
     createTrainingJob_enableNetworkIsolation,
+    createTrainingJob_profilerConfig,
     createTrainingJob_enableInterContainerTrafficEncryption,
     createTrainingJob_checkpointConfig,
+    createTrainingJob_environment,
     createTrainingJob_profilerRuleConfigurations,
     createTrainingJob_tags,
     createTrainingJob_tensorBoardOutputConfig,
+    createTrainingJob_retryStrategy,
     createTrainingJob_debugHookConfig,
     createTrainingJob_trainingJobName,
     createTrainingJob_algorithmSpecification,
@@ -729,9 +626,11 @@ module Network.AWS.SageMaker.Lens
     createTrainingJobResponse_httpStatus,
     createTrainingJobResponse_trainingJobArn,
 
-    -- ** DeleteUserProfile
-    deleteUserProfile_domainId,
-    deleteUserProfile_userProfileName,
+    -- ** DeletePipeline
+    deletePipeline_pipelineName,
+    deletePipeline_clientRequestToken,
+    deletePipelineResponse_pipelineArn,
+    deletePipelineResponse_httpStatus,
 
     -- ** CreateContext
     createContext_tags,
@@ -746,18 +645,121 @@ module Network.AWS.SageMaker.Lens
     -- ** StopEdgePackagingJob
     stopEdgePackagingJob_edgePackagingJobName,
 
-    -- ** CreateImage
-    createImage_tags,
-    createImage_description,
-    createImage_displayName,
-    createImage_imageName,
-    createImage_roleArn,
-    createImageResponse_imageArn,
-    createImageResponse_httpStatus,
+    -- ** UpdateUserProfile
+    updateUserProfile_userSettings,
+    updateUserProfile_domainId,
+    updateUserProfile_userProfileName,
+    updateUserProfileResponse_userProfileArn,
+    updateUserProfileResponse_httpStatus,
 
-    -- ** DeregisterDevices
-    deregisterDevices_deviceFleetName,
-    deregisterDevices_deviceNames,
+    -- ** DescribeCompilationJob
+    describeCompilationJob_compilationJobName,
+    describeCompilationJobResponse_vpcConfig,
+    describeCompilationJobResponse_inferenceImage,
+    describeCompilationJobResponse_compilationStartTime,
+    describeCompilationJobResponse_modelDigests,
+    describeCompilationJobResponse_compilationEndTime,
+    describeCompilationJobResponse_httpStatus,
+    describeCompilationJobResponse_compilationJobName,
+    describeCompilationJobResponse_compilationJobArn,
+    describeCompilationJobResponse_compilationJobStatus,
+    describeCompilationJobResponse_stoppingCondition,
+    describeCompilationJobResponse_creationTime,
+    describeCompilationJobResponse_lastModifiedTime,
+    describeCompilationJobResponse_failureReason,
+    describeCompilationJobResponse_modelArtifacts,
+    describeCompilationJobResponse_roleArn,
+    describeCompilationJobResponse_inputConfig,
+    describeCompilationJobResponse_outputConfig,
+
+    -- ** ListPipelineExecutionSteps
+    listPipelineExecutionSteps_nextToken,
+    listPipelineExecutionSteps_sortOrder,
+    listPipelineExecutionSteps_maxResults,
+    listPipelineExecutionSteps_pipelineExecutionArn,
+    listPipelineExecutionStepsResponse_nextToken,
+    listPipelineExecutionStepsResponse_pipelineExecutionSteps,
+    listPipelineExecutionStepsResponse_httpStatus,
+
+    -- ** ListUserProfiles
+    listUserProfiles_nextToken,
+    listUserProfiles_sortOrder,
+    listUserProfiles_userProfileNameContains,
+    listUserProfiles_maxResults,
+    listUserProfiles_domainIdEquals,
+    listUserProfiles_sortBy,
+    listUserProfilesResponse_nextToken,
+    listUserProfilesResponse_userProfiles,
+    listUserProfilesResponse_httpStatus,
+
+    -- ** DescribeHumanTaskUi
+    describeHumanTaskUi_humanTaskUiName,
+    describeHumanTaskUiResponse_humanTaskUiStatus,
+    describeHumanTaskUiResponse_httpStatus,
+    describeHumanTaskUiResponse_humanTaskUiArn,
+    describeHumanTaskUiResponse_humanTaskUiName,
+    describeHumanTaskUiResponse_creationTime,
+    describeHumanTaskUiResponse_uiTemplate,
+
+    -- ** ListCodeRepositories
+    listCodeRepositories_lastModifiedTimeBefore,
+    listCodeRepositories_nextToken,
+    listCodeRepositories_sortOrder,
+    listCodeRepositories_nameContains,
+    listCodeRepositories_maxResults,
+    listCodeRepositories_creationTimeBefore,
+    listCodeRepositories_lastModifiedTimeAfter,
+    listCodeRepositories_sortBy,
+    listCodeRepositories_creationTimeAfter,
+    listCodeRepositoriesResponse_nextToken,
+    listCodeRepositoriesResponse_httpStatus,
+    listCodeRepositoriesResponse_codeRepositorySummaryList,
+
+    -- ** DescribeAction
+    describeAction_actionName,
+    describeActionResponse_creationTime,
+    describeActionResponse_status,
+    describeActionResponse_metadataProperties,
+    describeActionResponse_actionName,
+    describeActionResponse_actionType,
+    describeActionResponse_actionArn,
+    describeActionResponse_source,
+    describeActionResponse_properties,
+    describeActionResponse_lastModifiedTime,
+    describeActionResponse_description,
+    describeActionResponse_createdBy,
+    describeActionResponse_lastModifiedBy,
+    describeActionResponse_httpStatus,
+
+    -- ** UpdatePipeline
+    updatePipeline_pipelineDescription,
+    updatePipeline_roleArn,
+    updatePipeline_pipelineDisplayName,
+    updatePipeline_pipelineDefinition,
+    updatePipeline_pipelineName,
+    updatePipelineResponse_pipelineArn,
+    updatePipelineResponse_httpStatus,
+
+    -- ** DescribeArtifact
+    describeArtifact_artifactArn,
+    describeArtifactResponse_creationTime,
+    describeArtifactResponse_metadataProperties,
+    describeArtifactResponse_artifactName,
+    describeArtifactResponse_artifactType,
+    describeArtifactResponse_artifactArn,
+    describeArtifactResponse_source,
+    describeArtifactResponse_properties,
+    describeArtifactResponse_lastModifiedTime,
+    describeArtifactResponse_createdBy,
+    describeArtifactResponse_lastModifiedBy,
+    describeArtifactResponse_httpStatus,
+
+    -- ** DeleteUserProfile
+    deleteUserProfile_domainId,
+    deleteUserProfile_userProfileName,
+
+    -- ** StopTransformJob
+    stopTransformJob_transformJobName,
 
     -- ** CreateDataQualityJobDefinition
     createDataQualityJobDefinition_networkConfig,
@@ -773,76 +775,17 @@ module Network.AWS.SageMaker.Lens
     createDataQualityJobDefinitionResponse_httpStatus,
     createDataQualityJobDefinitionResponse_jobDefinitionArn,
 
-    -- ** DeletePipeline
-    deletePipeline_pipelineName,
-    deletePipeline_clientRequestToken,
-    deletePipelineResponse_pipelineArn,
-    deletePipelineResponse_httpStatus,
+    -- ** DeleteModelPackageGroupPolicy
+    deleteModelPackageGroupPolicy_modelPackageGroupName,
 
-    -- ** CreateAppImageConfig
-    createAppImageConfig_kernelGatewayImageConfig,
-    createAppImageConfig_tags,
-    createAppImageConfig_appImageConfigName,
-    createAppImageConfigResponse_appImageConfigArn,
-    createAppImageConfigResponse_httpStatus,
-
-    -- ** AddTags
-    addTags_resourceArn,
-    addTags_tags,
-    addTagsResponse_tags,
-    addTagsResponse_httpStatus,
-
-    -- ** DisableSagemakerServicecatalogPortfolio
-    disableSagemakerServicecatalogPortfolioResponse_httpStatus,
-
-    -- ** DeleteAssociation
-    deleteAssociation_sourceArn,
-    deleteAssociation_destinationArn,
-    deleteAssociationResponse_destinationArn,
-    deleteAssociationResponse_sourceArn,
-    deleteAssociationResponse_httpStatus,
-
-    -- ** UpdateMonitoringSchedule
-    updateMonitoringSchedule_monitoringScheduleName,
-    updateMonitoringSchedule_monitoringScheduleConfig,
-    updateMonitoringScheduleResponse_httpStatus,
-    updateMonitoringScheduleResponse_monitoringScheduleArn,
-
-    -- ** ListMonitoringSchedules
-    listMonitoringSchedules_lastModifiedTimeBefore,
-    listMonitoringSchedules_sortOrder,
-    listMonitoringSchedules_nextToken,
-    listMonitoringSchedules_endpointName,
-    listMonitoringSchedules_nameContains,
-    listMonitoringSchedules_monitoringJobDefinitionName,
-    listMonitoringSchedules_maxResults,
-    listMonitoringSchedules_creationTimeBefore,
-    listMonitoringSchedules_lastModifiedTimeAfter,
-    listMonitoringSchedules_sortBy,
-    listMonitoringSchedules_statusEquals,
-    listMonitoringSchedules_monitoringTypeEquals,
-    listMonitoringSchedules_creationTimeAfter,
-    listMonitoringSchedulesResponse_nextToken,
-    listMonitoringSchedulesResponse_httpStatus,
-    listMonitoringSchedulesResponse_monitoringScheduleSummaries,
-
-    -- ** StopNotebookInstance
-    stopNotebookInstance_notebookInstanceName,
-
-    -- ** DeleteMonitoringSchedule
-    deleteMonitoringSchedule_monitoringScheduleName,
-
-    -- ** DeleteEndpointConfig
-    deleteEndpointConfig_endpointConfigName,
-
-    -- ** StartPipelineExecution
-    startPipelineExecution_pipelineExecutionDescription,
-    startPipelineExecution_pipelineParameters,
-    startPipelineExecution_pipelineExecutionDisplayName,
-    startPipelineExecution_pipelineName,
-    startPipelineExecution_clientRequestToken,
-    startPipelineExecutionResponse_pipelineExecutionArn,
-    startPipelineExecutionResponse_httpStatus,
+    -- ** CreateImage
+    createImage_tags,
+    createImage_description,
+    createImage_displayName,
+    createImage_imageName,
+    createImage_roleArn,
+    createImageResponse_imageArn,
+    createImageResponse_httpStatus,
 
     -- ** DescribeModelPackage
     describeModelPackage_modelPackageName,
@@ -854,10 +797,10 @@ module Network.AWS.SageMaker.Lens
     describeModelPackageResponse_certifyForMarketplace,
     describeModelPackageResponse_modelApprovalStatus,
     describeModelPackageResponse_approvalDescription,
-    describeModelPackageResponse_lastModifiedTime,
     describeModelPackageResponse_inferenceSpecification,
-    describeModelPackageResponse_modelPackageDescription,
+    describeModelPackageResponse_lastModifiedTime,
     describeModelPackageResponse_createdBy,
+    describeModelPackageResponse_modelPackageDescription,
     describeModelPackageResponse_lastModifiedBy,
     describeModelPackageResponse_modelPackageGroupName,
     describeModelPackageResponse_httpStatus,
@@ -867,29 +810,24 @@ module Network.AWS.SageMaker.Lens
     describeModelPackageResponse_modelPackageStatus,
     describeModelPackageResponse_modelPackageStatusDetails,
 
-    -- ** DeleteTags
-    deleteTags_resourceArn,
-    deleteTags_tagKeys,
-    deleteTagsResponse_httpStatus,
+    -- ** RetryPipelineExecution
+    retryPipelineExecution_pipelineExecutionArn,
+    retryPipelineExecution_clientRequestToken,
+    retryPipelineExecutionResponse_pipelineExecutionArn,
+    retryPipelineExecutionResponse_httpStatus,
 
-    -- ** AddAssociation
-    addAssociation_associationType,
-    addAssociation_sourceArn,
-    addAssociation_destinationArn,
-    addAssociationResponse_destinationArn,
-    addAssociationResponse_sourceArn,
-    addAssociationResponse_httpStatus,
+    -- ** DeleteEndpointConfig
+    deleteEndpointConfig_endpointConfigName,
 
-    -- ** CreateNotebookInstanceLifecycleConfig
-    createNotebookInstanceLifecycleConfig_onStart,
-    createNotebookInstanceLifecycleConfig_onCreate,
-    createNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName,
-    createNotebookInstanceLifecycleConfigResponse_notebookInstanceLifecycleConfigArn,
-    createNotebookInstanceLifecycleConfigResponse_httpStatus,
+    -- ** StopPipelineExecution
+    stopPipelineExecution_pipelineExecutionArn,
+    stopPipelineExecution_clientRequestToken,
+    stopPipelineExecutionResponse_pipelineExecutionArn,
+    stopPipelineExecutionResponse_httpStatus,
 
     -- ** ListApps
-    listApps_sortOrder,
     listApps_nextToken,
+    listApps_sortOrder,
     listApps_maxResults,
     listApps_domainIdEquals,
     listApps_userProfileNameEquals,
@@ -907,10 +845,18 @@ module Network.AWS.SageMaker.Lens
     createWorkforceResponse_httpStatus,
     createWorkforceResponse_workforceArn,
 
+    -- ** CreateStudioLifecycleConfig
+    createStudioLifecycleConfig_tags,
+    createStudioLifecycleConfig_studioLifecycleConfigName,
+    createStudioLifecycleConfig_studioLifecycleConfigContent,
+    createStudioLifecycleConfig_studioLifecycleConfigAppType,
+    createStudioLifecycleConfigResponse_studioLifecycleConfigArn,
+    createStudioLifecycleConfigResponse_httpStatus,
+
     -- ** ListAutoMLJobs
     listAutoMLJobs_lastModifiedTimeBefore,
-    listAutoMLJobs_sortOrder,
     listAutoMLJobs_nextToken,
+    listAutoMLJobs_sortOrder,
     listAutoMLJobs_nameContains,
     listAutoMLJobs_maxResults,
     listAutoMLJobs_creationTimeBefore,
@@ -931,15 +877,49 @@ module Network.AWS.SageMaker.Lens
     -- ** StartNotebookInstance
     startNotebookInstance_notebookInstanceName,
 
-    -- ** StopPipelineExecution
-    stopPipelineExecution_pipelineExecutionArn,
-    stopPipelineExecution_clientRequestToken,
-    stopPipelineExecutionResponse_pipelineExecutionArn,
-    stopPipelineExecutionResponse_httpStatus,
+    -- ** DeleteTags
+    deleteTags_resourceArn,
+    deleteTags_tagKeys,
+    deleteTagsResponse_httpStatus,
+
+    -- ** CreateAppImageConfig
+    createAppImageConfig_kernelGatewayImageConfig,
+    createAppImageConfig_tags,
+    createAppImageConfig_appImageConfigName,
+    createAppImageConfigResponse_appImageConfigArn,
+    createAppImageConfigResponse_httpStatus,
+
+    -- ** DeleteAssociation
+    deleteAssociation_sourceArn,
+    deleteAssociation_destinationArn,
+    deleteAssociationResponse_destinationArn,
+    deleteAssociationResponse_sourceArn,
+    deleteAssociationResponse_httpStatus,
+
+    -- ** ListMonitoringSchedules
+    listMonitoringSchedules_lastModifiedTimeBefore,
+    listMonitoringSchedules_nextToken,
+    listMonitoringSchedules_sortOrder,
+    listMonitoringSchedules_endpointName,
+    listMonitoringSchedules_nameContains,
+    listMonitoringSchedules_monitoringJobDefinitionName,
+    listMonitoringSchedules_maxResults,
+    listMonitoringSchedules_creationTimeBefore,
+    listMonitoringSchedules_lastModifiedTimeAfter,
+    listMonitoringSchedules_sortBy,
+    listMonitoringSchedules_statusEquals,
+    listMonitoringSchedules_monitoringTypeEquals,
+    listMonitoringSchedules_creationTimeAfter,
+    listMonitoringSchedulesResponse_nextToken,
+    listMonitoringSchedulesResponse_httpStatus,
+    listMonitoringSchedulesResponse_monitoringScheduleSummaries,
+
+    -- ** DeleteMonitoringSchedule
+    deleteMonitoringSchedule_monitoringScheduleName,
 
     -- ** ListEndpointConfigs
-    listEndpointConfigs_sortOrder,
     listEndpointConfigs_nextToken,
+    listEndpointConfigs_sortOrder,
     listEndpointConfigs_nameContains,
     listEndpointConfigs_maxResults,
     listEndpointConfigs_creationTimeBefore,
@@ -949,24 +929,118 @@ module Network.AWS.SageMaker.Lens
     listEndpointConfigsResponse_httpStatus,
     listEndpointConfigsResponse_endpointConfigs,
 
-    -- ** DeleteWorkteam
-    deleteWorkteam_workteamName,
-    deleteWorkteamResponse_httpStatus,
-    deleteWorkteamResponse_success,
+    -- ** StartPipelineExecution
+    startPipelineExecution_pipelineExecutionDescription,
+    startPipelineExecution_pipelineParameters,
+    startPipelineExecution_pipelineExecutionDisplayName,
+    startPipelineExecution_pipelineName,
+    startPipelineExecution_clientRequestToken,
+    startPipelineExecutionResponse_pipelineExecutionArn,
+    startPipelineExecutionResponse_httpStatus,
 
-    -- ** DeleteWorkforce
-    deleteWorkforce_workforceName,
-    deleteWorkforceResponse_httpStatus,
+    -- ** StopNotebookInstance
+    stopNotebookInstance_notebookInstanceName,
 
-    -- ** DeleteModelBiasJobDefinition
-    deleteModelBiasJobDefinition_jobDefinitionName,
+    -- ** UpdateMonitoringSchedule
+    updateMonitoringSchedule_monitoringScheduleName,
+    updateMonitoringSchedule_monitoringScheduleConfig,
+    updateMonitoringScheduleResponse_httpStatus,
+    updateMonitoringScheduleResponse_monitoringScheduleArn,
 
-    -- ** UpdateWorkforce
-    updateWorkforce_sourceIpConfig,
-    updateWorkforce_oidcConfig,
-    updateWorkforce_workforceName,
-    updateWorkforceResponse_httpStatus,
-    updateWorkforceResponse_workforce,
+    -- ** AddAssociation
+    addAssociation_associationType,
+    addAssociation_sourceArn,
+    addAssociation_destinationArn,
+    addAssociationResponse_destinationArn,
+    addAssociationResponse_sourceArn,
+    addAssociationResponse_httpStatus,
+
+    -- ** CreateNotebookInstanceLifecycleConfig
+    createNotebookInstanceLifecycleConfig_onStart,
+    createNotebookInstanceLifecycleConfig_onCreate,
+    createNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName,
+    createNotebookInstanceLifecycleConfigResponse_notebookInstanceLifecycleConfigArn,
+    createNotebookInstanceLifecycleConfigResponse_httpStatus,
+
+    -- ** AddTags
+    addTags_resourceArn,
+    addTags_tags,
+    addTagsResponse_tags,
+    addTagsResponse_httpStatus,
+
+    -- ** DisableSagemakerServicecatalogPortfolio
+    disableSagemakerServicecatalogPortfolioResponse_httpStatus,
+
+    -- ** UpdateNotebookInstanceLifecycleConfig
+    updateNotebookInstanceLifecycleConfig_onStart,
+    updateNotebookInstanceLifecycleConfig_onCreate,
+    updateNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName,
+    updateNotebookInstanceLifecycleConfigResponse_httpStatus,
+
+    -- ** DescribeDomain
+    describeDomain_domainId,
+    describeDomainResponse_creationTime,
+    describeDomainResponse_status,
+    describeDomainResponse_singleSignOnManagedApplicationInstanceId,
+    describeDomainResponse_authMode,
+    describeDomainResponse_domainArn,
+    describeDomainResponse_subnetIds,
+    describeDomainResponse_domainId,
+    describeDomainResponse_kmsKeyId,
+    describeDomainResponse_domainName,
+    describeDomainResponse_defaultUserSettings,
+    describeDomainResponse_failureReason,
+    describeDomainResponse_homeEfsFileSystemId,
+    describeDomainResponse_lastModifiedTime,
+    describeDomainResponse_url,
+    describeDomainResponse_homeEfsFileSystemKmsKeyId,
+    describeDomainResponse_appNetworkAccessType,
+    describeDomainResponse_vpcId,
+    describeDomainResponse_httpStatus,
+
+    -- ** ListStudioLifecycleConfigs
+    listStudioLifecycleConfigs_nextToken,
+    listStudioLifecycleConfigs_sortOrder,
+    listStudioLifecycleConfigs_nameContains,
+    listStudioLifecycleConfigs_maxResults,
+    listStudioLifecycleConfigs_creationTimeBefore,
+    listStudioLifecycleConfigs_modifiedTimeBefore,
+    listStudioLifecycleConfigs_sortBy,
+    listStudioLifecycleConfigs_appTypeEquals,
+    listStudioLifecycleConfigs_modifiedTimeAfter,
+    listStudioLifecycleConfigs_creationTimeAfter,
+    listStudioLifecycleConfigsResponse_nextToken,
+    listStudioLifecycleConfigsResponse_studioLifecycleConfigs,
+    listStudioLifecycleConfigsResponse_httpStatus,
+
+    -- ** ListAppImageConfigs
+    listAppImageConfigs_nextToken,
+    listAppImageConfigs_sortOrder,
+    listAppImageConfigs_nameContains,
+    listAppImageConfigs_maxResults,
+    listAppImageConfigs_creationTimeBefore,
+    listAppImageConfigs_modifiedTimeBefore,
+    listAppImageConfigs_sortBy,
+    listAppImageConfigs_modifiedTimeAfter,
+    listAppImageConfigs_creationTimeAfter,
+    listAppImageConfigsResponse_nextToken,
+    listAppImageConfigsResponse_appImageConfigs,
+    listAppImageConfigsResponse_httpStatus,
+
+    -- ** DescribeModelQualityJobDefinition
+    describeModelQualityJobDefinition_jobDefinitionName,
+    describeModelQualityJobDefinitionResponse_networkConfig,
+    describeModelQualityJobDefinitionResponse_modelQualityBaselineConfig,
+    describeModelQualityJobDefinitionResponse_stoppingCondition,
+    describeModelQualityJobDefinitionResponse_httpStatus,
+    describeModelQualityJobDefinitionResponse_jobDefinitionArn,
+    describeModelQualityJobDefinitionResponse_jobDefinitionName,
+    describeModelQualityJobDefinitionResponse_creationTime,
+    describeModelQualityJobDefinitionResponse_modelQualityAppSpecification,
+    describeModelQualityJobDefinitionResponse_modelQualityJobInput,
+    describeModelQualityJobDefinitionResponse_modelQualityJobOutputConfig,
+    describeModelQualityJobDefinitionResponse_jobResources,
+    describeModelQualityJobDefinitionResponse_roleArn,
 
     -- ** DescribeDevice
     describeDevice_nextToken,
@@ -984,50 +1058,32 @@ module Network.AWS.SageMaker.Lens
     describeDeviceResponse_deviceFleetName,
     describeDeviceResponse_registrationTime,
 
-    -- ** DescribeDomain
-    describeDomain_domainId,
-    describeDomainResponse_status,
-    describeDomainResponse_creationTime,
-    describeDomainResponse_singleSignOnManagedApplicationInstanceId,
-    describeDomainResponse_authMode,
-    describeDomainResponse_subnetIds,
-    describeDomainResponse_domainId,
-    describeDomainResponse_domainArn,
-    describeDomainResponse_kmsKeyId,
-    describeDomainResponse_domainName,
-    describeDomainResponse_defaultUserSettings,
-    describeDomainResponse_failureReason,
-    describeDomainResponse_homeEfsFileSystemId,
-    describeDomainResponse_lastModifiedTime,
-    describeDomainResponse_appNetworkAccessType,
-    describeDomainResponse_homeEfsFileSystemKmsKeyId,
-    describeDomainResponse_url,
-    describeDomainResponse_vpcId,
-    describeDomainResponse_httpStatus,
+    -- ** ListNotebookInstanceLifecycleConfigs
+    listNotebookInstanceLifecycleConfigs_lastModifiedTimeBefore,
+    listNotebookInstanceLifecycleConfigs_nextToken,
+    listNotebookInstanceLifecycleConfigs_sortOrder,
+    listNotebookInstanceLifecycleConfigs_nameContains,
+    listNotebookInstanceLifecycleConfigs_maxResults,
+    listNotebookInstanceLifecycleConfigs_creationTimeBefore,
+    listNotebookInstanceLifecycleConfigs_lastModifiedTimeAfter,
+    listNotebookInstanceLifecycleConfigs_sortBy,
+    listNotebookInstanceLifecycleConfigs_creationTimeAfter,
+    listNotebookInstanceLifecycleConfigsResponse_nextToken,
+    listNotebookInstanceLifecycleConfigsResponse_notebookInstanceLifecycleConfigs,
+    listNotebookInstanceLifecycleConfigsResponse_httpStatus,
 
-    -- ** DeleteNotebookInstanceLifecycleConfig
-    deleteNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName,
+    -- ** ListWorkforces
+    listWorkforces_nextToken,
+    listWorkforces_sortOrder,
+    listWorkforces_nameContains,
+    listWorkforces_maxResults,
+    listWorkforces_sortBy,
+    listWorkforcesResponse_nextToken,
+    listWorkforcesResponse_httpStatus,
+    listWorkforcesResponse_workforces,
 
-    -- ** DescribePipelineExecution
-    describePipelineExecution_pipelineExecutionArn,
-    describePipelineExecutionResponse_pipelineArn,
-    describePipelineExecutionResponse_creationTime,
-    describePipelineExecutionResponse_pipelineExecutionDescription,
-    describePipelineExecutionResponse_pipelineExecutionDisplayName,
-    describePipelineExecutionResponse_pipelineExecutionStatus,
-    describePipelineExecutionResponse_lastModifiedTime,
-    describePipelineExecutionResponse_createdBy,
-    describePipelineExecutionResponse_lastModifiedBy,
-    describePipelineExecutionResponse_pipelineExecutionArn,
-    describePipelineExecutionResponse_httpStatus,
-
-    -- ** UpdateWorkteam
-    updateWorkteam_memberDefinitions,
-    updateWorkteam_notificationConfiguration,
-    updateWorkteam_description,
-    updateWorkteam_workteamName,
-    updateWorkteamResponse_httpStatus,
-    updateWorkteamResponse_workteam,
+    -- ** DeleteStudioLifecycleConfig
+    deleteStudioLifecycleConfig_studioLifecycleConfigName,
 
     -- ** CreateLabelingJob
     createLabelingJob_stoppingConditions,
@@ -1043,20 +1099,8 @@ module Network.AWS.SageMaker.Lens
     createLabelingJobResponse_httpStatus,
     createLabelingJobResponse_labelingJobArn,
 
-    -- ** DescribeModelQualityJobDefinition
-    describeModelQualityJobDefinition_jobDefinitionName,
-    describeModelQualityJobDefinitionResponse_networkConfig,
-    describeModelQualityJobDefinitionResponse_modelQualityBaselineConfig,
-    describeModelQualityJobDefinitionResponse_stoppingCondition,
-    describeModelQualityJobDefinitionResponse_httpStatus,
-    describeModelQualityJobDefinitionResponse_jobDefinitionArn,
-    describeModelQualityJobDefinitionResponse_jobDefinitionName,
-    describeModelQualityJobDefinitionResponse_creationTime,
-    describeModelQualityJobDefinitionResponse_modelQualityAppSpecification,
-    describeModelQualityJobDefinitionResponse_modelQualityJobInput,
-    describeModelQualityJobDefinitionResponse_modelQualityJobOutputConfig,
-    describeModelQualityJobDefinitionResponse_jobResources,
-    describeModelQualityJobDefinitionResponse_roleArn,
+    -- ** DeleteModelBiasJobDefinition
+    deleteModelBiasJobDefinition_jobDefinitionName,
 
     -- ** CreateExperiment
     createExperiment_tags,
@@ -1066,59 +1110,57 @@ module Network.AWS.SageMaker.Lens
     createExperimentResponse_experimentArn,
     createExperimentResponse_httpStatus,
 
-    -- ** ListWorkforces
-    listWorkforces_sortOrder,
-    listWorkforces_nextToken,
-    listWorkforces_nameContains,
-    listWorkforces_maxResults,
-    listWorkforces_sortBy,
-    listWorkforcesResponse_nextToken,
-    listWorkforcesResponse_httpStatus,
-    listWorkforcesResponse_workforces,
+    -- ** DescribePipelineExecution
+    describePipelineExecution_pipelineExecutionArn,
+    describePipelineExecutionResponse_pipelineArn,
+    describePipelineExecutionResponse_creationTime,
+    describePipelineExecutionResponse_pipelineExecutionDescription,
+    describePipelineExecutionResponse_pipelineExecutionDisplayName,
+    describePipelineExecutionResponse_pipelineExecutionStatus,
+    describePipelineExecutionResponse_failureReason,
+    describePipelineExecutionResponse_pipelineExperimentConfig,
+    describePipelineExecutionResponse_lastModifiedTime,
+    describePipelineExecutionResponse_createdBy,
+    describePipelineExecutionResponse_lastModifiedBy,
+    describePipelineExecutionResponse_pipelineExecutionArn,
+    describePipelineExecutionResponse_httpStatus,
 
-    -- ** ListAppImageConfigs
-    listAppImageConfigs_sortOrder,
-    listAppImageConfigs_nextToken,
-    listAppImageConfigs_nameContains,
-    listAppImageConfigs_maxResults,
-    listAppImageConfigs_modifiedTimeBefore,
-    listAppImageConfigs_creationTimeBefore,
-    listAppImageConfigs_sortBy,
-    listAppImageConfigs_creationTimeAfter,
-    listAppImageConfigs_modifiedTimeAfter,
-    listAppImageConfigsResponse_nextToken,
-    listAppImageConfigsResponse_appImageConfigs,
-    listAppImageConfigsResponse_httpStatus,
+    -- ** DeleteWorkforce
+    deleteWorkforce_workforceName,
+    deleteWorkforceResponse_httpStatus,
 
-    -- ** UpdateNotebookInstanceLifecycleConfig
-    updateNotebookInstanceLifecycleConfig_onStart,
-    updateNotebookInstanceLifecycleConfig_onCreate,
-    updateNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName,
-    updateNotebookInstanceLifecycleConfigResponse_httpStatus,
+    -- ** UpdateWorkforce
+    updateWorkforce_sourceIpConfig,
+    updateWorkforce_oidcConfig,
+    updateWorkforce_workforceName,
+    updateWorkforceResponse_httpStatus,
+    updateWorkforceResponse_workforce,
+
+    -- ** UpdateWorkteam
+    updateWorkteam_memberDefinitions,
+    updateWorkteam_notificationConfiguration,
+    updateWorkteam_description,
+    updateWorkteam_workteamName,
+    updateWorkteamResponse_httpStatus,
+    updateWorkteamResponse_workteam,
 
     -- ** DescribeSubscribedWorkteam
     describeSubscribedWorkteam_workteamArn,
     describeSubscribedWorkteamResponse_httpStatus,
     describeSubscribedWorkteamResponse_subscribedWorkteam,
 
-    -- ** ListNotebookInstanceLifecycleConfigs
-    listNotebookInstanceLifecycleConfigs_lastModifiedTimeBefore,
-    listNotebookInstanceLifecycleConfigs_sortOrder,
-    listNotebookInstanceLifecycleConfigs_nextToken,
-    listNotebookInstanceLifecycleConfigs_nameContains,
-    listNotebookInstanceLifecycleConfigs_maxResults,
-    listNotebookInstanceLifecycleConfigs_creationTimeBefore,
-    listNotebookInstanceLifecycleConfigs_lastModifiedTimeAfter,
-    listNotebookInstanceLifecycleConfigs_sortBy,
-    listNotebookInstanceLifecycleConfigs_creationTimeAfter,
-    listNotebookInstanceLifecycleConfigsResponse_nextToken,
-    listNotebookInstanceLifecycleConfigsResponse_notebookInstanceLifecycleConfigs,
-    listNotebookInstanceLifecycleConfigsResponse_httpStatus,
+    -- ** DeleteWorkteam
+    deleteWorkteam_workteamName,
+    deleteWorkteamResponse_httpStatus,
+    deleteWorkteamResponse_success,
+
+    -- ** DeleteNotebookInstanceLifecycleConfig
+    deleteNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName,
 
     -- ** ListEdgePackagingJobs
     listEdgePackagingJobs_lastModifiedTimeBefore,
-    listEdgePackagingJobs_sortOrder,
     listEdgePackagingJobs_nextToken,
+    listEdgePackagingJobs_sortOrder,
     listEdgePackagingJobs_nameContains,
     listEdgePackagingJobs_maxResults,
     listEdgePackagingJobs_modelNameContains,
@@ -1131,6 +1173,57 @@ module Network.AWS.SageMaker.Lens
     listEdgePackagingJobsResponse_httpStatus,
     listEdgePackagingJobsResponse_edgePackagingJobSummaries,
 
+    -- ** CreateCompilationJob
+    createCompilationJob_vpcConfig,
+    createCompilationJob_tags,
+    createCompilationJob_compilationJobName,
+    createCompilationJob_roleArn,
+    createCompilationJob_inputConfig,
+    createCompilationJob_outputConfig,
+    createCompilationJob_stoppingCondition,
+    createCompilationJobResponse_httpStatus,
+    createCompilationJobResponse_compilationJobArn,
+
+    -- ** CreateAction
+    createAction_status,
+    createAction_metadataProperties,
+    createAction_tags,
+    createAction_properties,
+    createAction_description,
+    createAction_actionName,
+    createAction_source,
+    createAction_actionType,
+    createActionResponse_actionArn,
+    createActionResponse_httpStatus,
+
+    -- ** CreateArtifact
+    createArtifact_metadataProperties,
+    createArtifact_artifactName,
+    createArtifact_tags,
+    createArtifact_properties,
+    createArtifact_source,
+    createArtifact_artifactType,
+    createArtifactResponse_artifactArn,
+    createArtifactResponse_httpStatus,
+
+    -- ** DeleteEndpoint
+    deleteEndpoint_endpointName,
+
+    -- ** ListTransformJobs
+    listTransformJobs_lastModifiedTimeBefore,
+    listTransformJobs_nextToken,
+    listTransformJobs_sortOrder,
+    listTransformJobs_nameContains,
+    listTransformJobs_maxResults,
+    listTransformJobs_creationTimeBefore,
+    listTransformJobs_lastModifiedTimeAfter,
+    listTransformJobs_sortBy,
+    listTransformJobs_statusEquals,
+    listTransformJobs_creationTimeAfter,
+    listTransformJobsResponse_nextToken,
+    listTransformJobsResponse_httpStatus,
+    listTransformJobsResponse_transformJobSummaries,
+
     -- ** DescribeCodeRepository
     describeCodeRepository_codeRepositoryName,
     describeCodeRepositoryResponse_gitConfig,
@@ -1140,20 +1233,26 @@ module Network.AWS.SageMaker.Lens
     describeCodeRepositoryResponse_creationTime,
     describeCodeRepositoryResponse_lastModifiedTime,
 
-    -- ** ListEndpoints
-    listEndpoints_lastModifiedTimeBefore,
-    listEndpoints_sortOrder,
-    listEndpoints_nextToken,
-    listEndpoints_nameContains,
-    listEndpoints_maxResults,
-    listEndpoints_creationTimeBefore,
-    listEndpoints_lastModifiedTimeAfter,
-    listEndpoints_sortBy,
-    listEndpoints_statusEquals,
-    listEndpoints_creationTimeAfter,
-    listEndpointsResponse_nextToken,
-    listEndpointsResponse_httpStatus,
-    listEndpointsResponse_endpoints,
+    -- ** CreateDeviceFleet
+    createDeviceFleet_roleArn,
+    createDeviceFleet_enableIotRoleAlias,
+    createDeviceFleet_tags,
+    createDeviceFleet_description,
+    createDeviceFleet_deviceFleetName,
+    createDeviceFleet_outputConfig,
+
+    -- ** DescribeModel
+    describeModel_modelName,
+    describeModelResponse_vpcConfig,
+    describeModelResponse_enableNetworkIsolation,
+    describeModelResponse_primaryContainer,
+    describeModelResponse_containers,
+    describeModelResponse_inferenceExecutionConfig,
+    describeModelResponse_httpStatus,
+    describeModelResponse_modelName,
+    describeModelResponse_executionRoleArn,
+    describeModelResponse_creationTime,
+    describeModelResponse_modelArn,
 
     -- ** DescribeDataQualityJobDefinition
     describeDataQualityJobDefinition_jobDefinitionName,
@@ -1170,35 +1269,14 @@ module Network.AWS.SageMaker.Lens
     describeDataQualityJobDefinitionResponse_jobResources,
     describeDataQualityJobDefinitionResponse_roleArn,
 
-    -- ** DescribeAlgorithm
-    describeAlgorithm_algorithmName,
-    describeAlgorithmResponse_algorithmDescription,
-    describeAlgorithmResponse_validationSpecification,
-    describeAlgorithmResponse_certifyForMarketplace,
-    describeAlgorithmResponse_productId,
-    describeAlgorithmResponse_inferenceSpecification,
-    describeAlgorithmResponse_httpStatus,
-    describeAlgorithmResponse_algorithmName,
-    describeAlgorithmResponse_algorithmArn,
-    describeAlgorithmResponse_creationTime,
-    describeAlgorithmResponse_trainingSpecification,
-    describeAlgorithmResponse_algorithmStatus,
-    describeAlgorithmResponse_algorithmStatusDetails,
-
-    -- ** CreateAction
-    createAction_status,
-    createAction_metadataProperties,
-    createAction_tags,
-    createAction_properties,
-    createAction_description,
-    createAction_actionName,
-    createAction_source,
-    createAction_actionType,
-    createActionResponse_actionArn,
-    createActionResponse_httpStatus,
-
-    -- ** DeleteEndpoint
-    deleteEndpoint_endpointName,
+    -- ** UpdateEndpoint
+    updateEndpoint_excludeRetainedVariantProperties,
+    updateEndpoint_retainAllVariantProperties,
+    updateEndpoint_deploymentConfig,
+    updateEndpoint_endpointName,
+    updateEndpoint_endpointConfigName,
+    updateEndpointResponse_httpStatus,
+    updateEndpointResponse_endpointArn,
 
     -- ** CreatePresignedDomainUrl
     createPresignedDomainUrl_sessionExpirationDurationInSeconds,
@@ -1207,21 +1285,6 @@ module Network.AWS.SageMaker.Lens
     createPresignedDomainUrl_userProfileName,
     createPresignedDomainUrlResponse_authorizedUrl,
     createPresignedDomainUrlResponse_httpStatus,
-
-    -- ** ListTransformJobs
-    listTransformJobs_lastModifiedTimeBefore,
-    listTransformJobs_sortOrder,
-    listTransformJobs_nextToken,
-    listTransformJobs_nameContains,
-    listTransformJobs_maxResults,
-    listTransformJobs_creationTimeBefore,
-    listTransformJobs_lastModifiedTimeAfter,
-    listTransformJobs_sortBy,
-    listTransformJobs_statusEquals,
-    listTransformJobs_creationTimeAfter,
-    listTransformJobsResponse_nextToken,
-    listTransformJobsResponse_httpStatus,
-    listTransformJobsResponse_transformJobSummaries,
 
     -- ** DescribeHyperParameterTuningJob
     describeHyperParameterTuningJob_hyperParameterTuningJobName,
@@ -1242,127 +1305,44 @@ module Network.AWS.SageMaker.Lens
     describeHyperParameterTuningJobResponse_trainingJobStatusCounters,
     describeHyperParameterTuningJobResponse_objectiveStatusCounters,
 
-    -- ** CreateCompilationJob
-    createCompilationJob_tags,
-    createCompilationJob_compilationJobName,
-    createCompilationJob_roleArn,
-    createCompilationJob_inputConfig,
-    createCompilationJob_outputConfig,
-    createCompilationJob_stoppingCondition,
-    createCompilationJobResponse_httpStatus,
-    createCompilationJobResponse_compilationJobArn,
+    -- ** ListEndpoints
+    listEndpoints_lastModifiedTimeBefore,
+    listEndpoints_nextToken,
+    listEndpoints_sortOrder,
+    listEndpoints_nameContains,
+    listEndpoints_maxResults,
+    listEndpoints_creationTimeBefore,
+    listEndpoints_lastModifiedTimeAfter,
+    listEndpoints_sortBy,
+    listEndpoints_statusEquals,
+    listEndpoints_creationTimeAfter,
+    listEndpointsResponse_nextToken,
+    listEndpointsResponse_httpStatus,
+    listEndpointsResponse_endpoints,
 
-    -- ** UpdateEndpoint
-    updateEndpoint_excludeRetainedVariantProperties,
-    updateEndpoint_retainAllVariantProperties,
-    updateEndpoint_deploymentConfig,
-    updateEndpoint_endpointName,
-    updateEndpoint_endpointConfigName,
-    updateEndpointResponse_httpStatus,
-    updateEndpointResponse_endpointArn,
-
-    -- ** DescribeModel
-    describeModel_modelName,
-    describeModelResponse_vpcConfig,
-    describeModelResponse_primaryContainer,
-    describeModelResponse_enableNetworkIsolation,
-    describeModelResponse_containers,
-    describeModelResponse_inferenceExecutionConfig,
-    describeModelResponse_httpStatus,
-    describeModelResponse_modelName,
-    describeModelResponse_executionRoleArn,
-    describeModelResponse_creationTime,
-    describeModelResponse_modelArn,
-
-    -- ** CreateDeviceFleet
-    createDeviceFleet_roleArn,
-    createDeviceFleet_tags,
-    createDeviceFleet_description,
-    createDeviceFleet_deviceFleetName,
-    createDeviceFleet_outputConfig,
-
-    -- ** CreateArtifact
-    createArtifact_metadataProperties,
-    createArtifact_artifactName,
-    createArtifact_tags,
-    createArtifact_properties,
-    createArtifact_source,
-    createArtifact_artifactType,
-    createArtifactResponse_artifactArn,
-    createArtifactResponse_httpStatus,
+    -- ** DescribeAlgorithm
+    describeAlgorithm_algorithmName,
+    describeAlgorithmResponse_algorithmDescription,
+    describeAlgorithmResponse_validationSpecification,
+    describeAlgorithmResponse_certifyForMarketplace,
+    describeAlgorithmResponse_inferenceSpecification,
+    describeAlgorithmResponse_productId,
+    describeAlgorithmResponse_httpStatus,
+    describeAlgorithmResponse_algorithmName,
+    describeAlgorithmResponse_algorithmArn,
+    describeAlgorithmResponse_creationTime,
+    describeAlgorithmResponse_trainingSpecification,
+    describeAlgorithmResponse_algorithmStatus,
+    describeAlgorithmResponse_algorithmStatusDetails,
 
     -- ** UpdateDevices
     updateDevices_deviceFleetName,
     updateDevices_devices,
 
-    -- ** ListArtifacts
-    listArtifacts_createdAfter,
-    listArtifacts_sortOrder,
-    listArtifacts_nextToken,
-    listArtifacts_createdBefore,
-    listArtifacts_artifactType,
-    listArtifacts_maxResults,
-    listArtifacts_sourceUri,
-    listArtifacts_sortBy,
-    listArtifactsResponse_nextToken,
-    listArtifactsResponse_artifactSummaries,
-    listArtifactsResponse_httpStatus,
-
-    -- ** DeleteDeviceFleet
-    deleteDeviceFleet_deviceFleetName,
-
-    -- ** ListMonitoringExecutions
-    listMonitoringExecutions_lastModifiedTimeBefore,
-    listMonitoringExecutions_sortOrder,
-    listMonitoringExecutions_nextToken,
-    listMonitoringExecutions_endpointName,
-    listMonitoringExecutions_monitoringJobDefinitionName,
-    listMonitoringExecutions_monitoringScheduleName,
-    listMonitoringExecutions_maxResults,
-    listMonitoringExecutions_scheduledTimeAfter,
-    listMonitoringExecutions_creationTimeBefore,
-    listMonitoringExecutions_lastModifiedTimeAfter,
-    listMonitoringExecutions_sortBy,
-    listMonitoringExecutions_statusEquals,
-    listMonitoringExecutions_monitoringTypeEquals,
-    listMonitoringExecutions_creationTimeAfter,
-    listMonitoringExecutions_scheduledTimeBefore,
-    listMonitoringExecutionsResponse_nextToken,
-    listMonitoringExecutionsResponse_httpStatus,
-    listMonitoringExecutionsResponse_monitoringExecutionSummaries,
-
-    -- ** ListCompilationJobs
-    listCompilationJobs_lastModifiedTimeBefore,
-    listCompilationJobs_sortOrder,
-    listCompilationJobs_nextToken,
-    listCompilationJobs_nameContains,
-    listCompilationJobs_maxResults,
-    listCompilationJobs_creationTimeBefore,
-    listCompilationJobs_lastModifiedTimeAfter,
-    listCompilationJobs_sortBy,
-    listCompilationJobs_statusEquals,
-    listCompilationJobs_creationTimeAfter,
-    listCompilationJobsResponse_nextToken,
-    listCompilationJobsResponse_httpStatus,
-    listCompilationJobsResponse_compilationJobSummaries,
-
-    -- ** ListActions
-    listActions_createdAfter,
-    listActions_sortOrder,
-    listActions_nextToken,
-    listActions_createdBefore,
-    listActions_actionType,
-    listActions_maxResults,
-    listActions_sourceUri,
-    listActions_sortBy,
-    listActionsResponse_nextToken,
-    listActionsResponse_actionSummaries,
-    listActionsResponse_httpStatus,
-
     -- ** ListDeviceFleets
     listDeviceFleets_lastModifiedTimeBefore,
-    listDeviceFleets_sortOrder,
     listDeviceFleets_nextToken,
+    listDeviceFleets_sortOrder,
     listDeviceFleets_nameContains,
     listDeviceFleets_maxResults,
     listDeviceFleets_creationTimeBefore,
@@ -1373,42 +1353,9 @@ module Network.AWS.SageMaker.Lens
     listDeviceFleetsResponse_httpStatus,
     listDeviceFleetsResponse_deviceFleetSummaries,
 
-    -- ** DescribeModelPackageGroup
-    describeModelPackageGroup_modelPackageGroupName,
-    describeModelPackageGroupResponse_modelPackageGroupDescription,
-    describeModelPackageGroupResponse_httpStatus,
-    describeModelPackageGroupResponse_modelPackageGroupName,
-    describeModelPackageGroupResponse_modelPackageGroupArn,
-    describeModelPackageGroupResponse_creationTime,
-    describeModelPackageGroupResponse_createdBy,
-    describeModelPackageGroupResponse_modelPackageGroupStatus,
-
-    -- ** StopHyperParameterTuningJob
-    stopHyperParameterTuningJob_hyperParameterTuningJobName,
-
-    -- ** DescribeTrial
-    describeTrial_trialName,
-    describeTrialResponse_trialArn,
-    describeTrialResponse_metadataProperties,
-    describeTrialResponse_creationTime,
-    describeTrialResponse_source,
-    describeTrialResponse_lastModifiedTime,
-    describeTrialResponse_experimentName,
-    describeTrialResponse_createdBy,
-    describeTrialResponse_lastModifiedBy,
-    describeTrialResponse_displayName,
-    describeTrialResponse_trialName,
-    describeTrialResponse_httpStatus,
-
-    -- ** UpdateDeviceFleet
-    updateDeviceFleet_roleArn,
-    updateDeviceFleet_description,
-    updateDeviceFleet_deviceFleetName,
-    updateDeviceFleet_outputConfig,
-
     -- ** ListLabelingJobsForWorkteam
-    listLabelingJobsForWorkteam_sortOrder,
     listLabelingJobsForWorkteam_nextToken,
+    listLabelingJobsForWorkteam_sortOrder,
     listLabelingJobsForWorkteam_maxResults,
     listLabelingJobsForWorkteam_creationTimeBefore,
     listLabelingJobsForWorkteam_jobReferenceCodeContains,
@@ -1432,66 +1379,139 @@ module Network.AWS.SageMaker.Lens
     createFeatureGroupResponse_httpStatus,
     createFeatureGroupResponse_featureGroupArn,
 
-    -- ** CreateDomain
-    createDomain_kmsKeyId,
-    createDomain_tags,
-    createDomain_appNetworkAccessType,
-    createDomain_homeEfsFileSystemKmsKeyId,
-    createDomain_domainName,
-    createDomain_authMode,
-    createDomain_defaultUserSettings,
-    createDomain_subnetIds,
-    createDomain_vpcId,
-    createDomainResponse_domainArn,
-    createDomainResponse_url,
-    createDomainResponse_httpStatus,
+    -- ** ListMonitoringExecutions
+    listMonitoringExecutions_lastModifiedTimeBefore,
+    listMonitoringExecutions_nextToken,
+    listMonitoringExecutions_sortOrder,
+    listMonitoringExecutions_endpointName,
+    listMonitoringExecutions_monitoringJobDefinitionName,
+    listMonitoringExecutions_monitoringScheduleName,
+    listMonitoringExecutions_maxResults,
+    listMonitoringExecutions_scheduledTimeAfter,
+    listMonitoringExecutions_creationTimeBefore,
+    listMonitoringExecutions_lastModifiedTimeAfter,
+    listMonitoringExecutions_sortBy,
+    listMonitoringExecutions_statusEquals,
+    listMonitoringExecutions_monitoringTypeEquals,
+    listMonitoringExecutions_creationTimeAfter,
+    listMonitoringExecutions_scheduledTimeBefore,
+    listMonitoringExecutionsResponse_nextToken,
+    listMonitoringExecutionsResponse_httpStatus,
+    listMonitoringExecutionsResponse_monitoringExecutionSummaries,
 
-    -- ** ListImageVersions
-    listImageVersions_lastModifiedTimeBefore,
-    listImageVersions_sortOrder,
-    listImageVersions_nextToken,
-    listImageVersions_maxResults,
-    listImageVersions_creationTimeBefore,
-    listImageVersions_lastModifiedTimeAfter,
-    listImageVersions_sortBy,
-    listImageVersions_creationTimeAfter,
-    listImageVersions_imageName,
-    listImageVersionsResponse_nextToken,
-    listImageVersionsResponse_imageVersions,
-    listImageVersionsResponse_httpStatus,
+    -- ** DescribeModelPackageGroup
+    describeModelPackageGroup_modelPackageGroupName,
+    describeModelPackageGroupResponse_modelPackageGroupDescription,
+    describeModelPackageGroupResponse_httpStatus,
+    describeModelPackageGroupResponse_modelPackageGroupName,
+    describeModelPackageGroupResponse_modelPackageGroupArn,
+    describeModelPackageGroupResponse_creationTime,
+    describeModelPackageGroupResponse_createdBy,
+    describeModelPackageGroupResponse_modelPackageGroupStatus,
 
-    -- ** StopProcessingJob
-    stopProcessingJob_processingJobName,
+    -- ** UpdateDeviceFleet
+    updateDeviceFleet_roleArn,
+    updateDeviceFleet_enableIotRoleAlias,
+    updateDeviceFleet_description,
+    updateDeviceFleet_deviceFleetName,
+    updateDeviceFleet_outputConfig,
+
+    -- ** StopHyperParameterTuningJob
+    stopHyperParameterTuningJob_hyperParameterTuningJobName,
+
+    -- ** DeleteDeviceFleet
+    deleteDeviceFleet_deviceFleetName,
+
+    -- ** ListActions
+    listActions_nextToken,
+    listActions_sortOrder,
+    listActions_createdAfter,
+    listActions_createdBefore,
+    listActions_actionType,
+    listActions_maxResults,
+    listActions_sourceUri,
+    listActions_sortBy,
+    listActionsResponse_nextToken,
+    listActionsResponse_actionSummaries,
+    listActionsResponse_httpStatus,
+
+    -- ** ListArtifacts
+    listArtifacts_nextToken,
+    listArtifacts_sortOrder,
+    listArtifacts_createdAfter,
+    listArtifacts_createdBefore,
+    listArtifacts_artifactType,
+    listArtifacts_maxResults,
+    listArtifacts_sourceUri,
+    listArtifacts_sortBy,
+    listArtifactsResponse_nextToken,
+    listArtifactsResponse_artifactSummaries,
+    listArtifactsResponse_httpStatus,
+
+    -- ** ListCompilationJobs
+    listCompilationJobs_lastModifiedTimeBefore,
+    listCompilationJobs_nextToken,
+    listCompilationJobs_sortOrder,
+    listCompilationJobs_nameContains,
+    listCompilationJobs_maxResults,
+    listCompilationJobs_creationTimeBefore,
+    listCompilationJobs_lastModifiedTimeAfter,
+    listCompilationJobs_sortBy,
+    listCompilationJobs_statusEquals,
+    listCompilationJobs_creationTimeAfter,
+    listCompilationJobsResponse_nextToken,
+    listCompilationJobsResponse_httpStatus,
+    listCompilationJobsResponse_compilationJobSummaries,
+
+    -- ** DescribeTrial
+    describeTrial_trialName,
+    describeTrialResponse_trialArn,
+    describeTrialResponse_creationTime,
+    describeTrialResponse_metadataProperties,
+    describeTrialResponse_source,
+    describeTrialResponse_lastModifiedTime,
+    describeTrialResponse_experimentName,
+    describeTrialResponse_createdBy,
+    describeTrialResponse_lastModifiedBy,
+    describeTrialResponse_trialName,
+    describeTrialResponse_displayName,
+    describeTrialResponse_httpStatus,
 
     -- ** DeleteImageVersion
     deleteImageVersion_imageName,
     deleteImageVersion_version,
     deleteImageVersionResponse_httpStatus,
 
-    -- ** DeleteProject
-    deleteProject_projectName,
+    -- ** DeleteTrialComponent
+    deleteTrialComponent_trialComponentName,
+    deleteTrialComponentResponse_trialComponentArn,
+    deleteTrialComponentResponse_httpStatus,
 
-    -- ** DescribeExperiment
-    describeExperiment_experimentName,
-    describeExperimentResponse_experimentArn,
-    describeExperimentResponse_creationTime,
-    describeExperimentResponse_source,
-    describeExperimentResponse_lastModifiedTime,
-    describeExperimentResponse_experimentName,
-    describeExperimentResponse_description,
-    describeExperimentResponse_createdBy,
-    describeExperimentResponse_lastModifiedBy,
-    describeExperimentResponse_displayName,
-    describeExperimentResponse_httpStatus,
+    -- ** ListTrialComponents
+    listTrialComponents_nextToken,
+    listTrialComponents_sortOrder,
+    listTrialComponents_createdAfter,
+    listTrialComponents_createdBefore,
+    listTrialComponents_maxResults,
+    listTrialComponents_sortBy,
+    listTrialComponents_experimentName,
+    listTrialComponents_sourceArn,
+    listTrialComponents_trialName,
+    listTrialComponentsResponse_nextToken,
+    listTrialComponentsResponse_trialComponentSummaries,
+    listTrialComponentsResponse_httpStatus,
 
     -- ** DescribeAutoMLJob
     describeAutoMLJob_autoMLJobName,
     describeAutoMLJobResponse_generateCandidateDefinitionsOnly,
+    describeAutoMLJobResponse_modelDeployResult,
     describeAutoMLJobResponse_endTime,
     describeAutoMLJobResponse_resolvedAttributes,
     describeAutoMLJobResponse_autoMLJobArtifacts,
+    describeAutoMLJobResponse_partialFailureReasons,
     describeAutoMLJobResponse_failureReason,
     describeAutoMLJobResponse_autoMLJobObjective,
+    describeAutoMLJobResponse_modelDeployConfig,
     describeAutoMLJobResponse_autoMLJobConfig,
     describeAutoMLJobResponse_problemType,
     describeAutoMLJobResponse_bestCandidate,
@@ -1506,14 +1526,17 @@ module Network.AWS.SageMaker.Lens
     describeAutoMLJobResponse_autoMLJobStatus,
     describeAutoMLJobResponse_autoMLJobSecondaryStatus,
 
+    -- ** DeleteProject
+    deleteProject_projectName,
+
     -- ** DescribeApp
     describeApp_domainId,
     describeApp_userProfileName,
     describeApp_appType,
     describeApp_appName,
     describeAppResponse_resourceSpec,
-    describeAppResponse_status,
     describeAppResponse_creationTime,
+    describeAppResponse_status,
     describeAppResponse_appType,
     describeAppResponse_appName,
     describeAppResponse_userProfileName,
@@ -1524,39 +1547,71 @@ module Network.AWS.SageMaker.Lens
     describeAppResponse_lastUserActivityTimestamp,
     describeAppResponse_httpStatus,
 
-    -- ** ListTrialComponents
-    listTrialComponents_createdAfter,
-    listTrialComponents_sortOrder,
-    listTrialComponents_nextToken,
-    listTrialComponents_createdBefore,
-    listTrialComponents_maxResults,
-    listTrialComponents_sortBy,
-    listTrialComponents_experimentName,
-    listTrialComponents_sourceArn,
-    listTrialComponents_trialName,
-    listTrialComponentsResponse_nextToken,
-    listTrialComponentsResponse_trialComponentSummaries,
-    listTrialComponentsResponse_httpStatus,
+    -- ** CreateDomain
+    createDomain_kmsKeyId,
+    createDomain_tags,
+    createDomain_homeEfsFileSystemKmsKeyId,
+    createDomain_appNetworkAccessType,
+    createDomain_domainName,
+    createDomain_authMode,
+    createDomain_defaultUserSettings,
+    createDomain_subnetIds,
+    createDomain_vpcId,
+    createDomainResponse_domainArn,
+    createDomainResponse_url,
+    createDomainResponse_httpStatus,
+
+    -- ** DescribeExperiment
+    describeExperiment_experimentName,
+    describeExperimentResponse_creationTime,
+    describeExperimentResponse_experimentArn,
+    describeExperimentResponse_source,
+    describeExperimentResponse_lastModifiedTime,
+    describeExperimentResponse_description,
+    describeExperimentResponse_experimentName,
+    describeExperimentResponse_createdBy,
+    describeExperimentResponse_lastModifiedBy,
+    describeExperimentResponse_displayName,
+    describeExperimentResponse_httpStatus,
+
+    -- ** ListImageVersions
+    listImageVersions_lastModifiedTimeBefore,
+    listImageVersions_nextToken,
+    listImageVersions_sortOrder,
+    listImageVersions_maxResults,
+    listImageVersions_creationTimeBefore,
+    listImageVersions_lastModifiedTimeAfter,
+    listImageVersions_sortBy,
+    listImageVersions_creationTimeAfter,
+    listImageVersions_imageName,
+    listImageVersionsResponse_nextToken,
+    listImageVersionsResponse_imageVersions,
+    listImageVersionsResponse_httpStatus,
+
+    -- ** StopProcessingJob
+    stopProcessingJob_processingJobName,
 
     -- ** UpdateTrialComponent
-    updateTrialComponent_outputArtifactsToRemove,
     updateTrialComponent_parametersToRemove,
+    updateTrialComponent_outputArtifactsToRemove,
     updateTrialComponent_status,
     updateTrialComponent_inputArtifactsToRemove,
     updateTrialComponent_startTime,
     updateTrialComponent_endTime,
     updateTrialComponent_inputArtifacts,
     updateTrialComponent_displayName,
-    updateTrialComponent_parameters,
     updateTrialComponent_outputArtifacts,
+    updateTrialComponent_parameters,
     updateTrialComponent_trialComponentName,
     updateTrialComponentResponse_trialComponentArn,
     updateTrialComponentResponse_httpStatus,
 
-    -- ** DeleteTrialComponent
-    deleteTrialComponent_trialComponentName,
-    deleteTrialComponentResponse_trialComponentArn,
-    deleteTrialComponentResponse_httpStatus,
+    -- ** UpdatePipelineExecution
+    updatePipelineExecution_pipelineExecutionDescription,
+    updatePipelineExecution_pipelineExecutionDisplayName,
+    updatePipelineExecution_pipelineExecutionArn,
+    updatePipelineExecutionResponse_pipelineExecutionArn,
+    updatePipelineExecutionResponse_httpStatus,
 
     -- ** CreateTrialComponent
     createTrialComponent_status,
@@ -1566,38 +1621,27 @@ module Network.AWS.SageMaker.Lens
     createTrialComponent_tags,
     createTrialComponent_inputArtifacts,
     createTrialComponent_displayName,
-    createTrialComponent_parameters,
     createTrialComponent_outputArtifacts,
+    createTrialComponent_parameters,
     createTrialComponent_trialComponentName,
     createTrialComponentResponse_trialComponentArn,
     createTrialComponentResponse_httpStatus,
 
-    -- ** DescribeWorkforce
-    describeWorkforce_workforceName,
-    describeWorkforceResponse_httpStatus,
-    describeWorkforceResponse_workforce,
-
-    -- ** ListNotebookInstances
-    listNotebookInstances_lastModifiedTimeBefore,
-    listNotebookInstances_sortOrder,
-    listNotebookInstances_nextToken,
-    listNotebookInstances_nameContains,
-    listNotebookInstances_additionalCodeRepositoryEquals,
-    listNotebookInstances_maxResults,
-    listNotebookInstances_creationTimeBefore,
-    listNotebookInstances_lastModifiedTimeAfter,
-    listNotebookInstances_defaultCodeRepositoryContains,
-    listNotebookInstances_sortBy,
-    listNotebookInstances_statusEquals,
-    listNotebookInstances_notebookInstanceLifecycleConfigNameContains,
-    listNotebookInstances_creationTimeAfter,
-    listNotebookInstancesResponse_nextToken,
-    listNotebookInstancesResponse_notebookInstances,
-    listNotebookInstancesResponse_httpStatus,
+    -- ** ListPipelineExecutions
+    listPipelineExecutions_nextToken,
+    listPipelineExecutions_sortOrder,
+    listPipelineExecutions_createdAfter,
+    listPipelineExecutions_createdBefore,
+    listPipelineExecutions_maxResults,
+    listPipelineExecutions_sortBy,
+    listPipelineExecutions_pipelineName,
+    listPipelineExecutionsResponse_nextToken,
+    listPipelineExecutionsResponse_pipelineExecutionSummaries,
+    listPipelineExecutionsResponse_httpStatus,
 
     -- ** ListModelExplainabilityJobDefinitions
-    listModelExplainabilityJobDefinitions_sortOrder,
     listModelExplainabilityJobDefinitions_nextToken,
+    listModelExplainabilityJobDefinitions_sortOrder,
     listModelExplainabilityJobDefinitions_endpointName,
     listModelExplainabilityJobDefinitions_nameContains,
     listModelExplainabilityJobDefinitions_maxResults,
@@ -1608,24 +1652,12 @@ module Network.AWS.SageMaker.Lens
     listModelExplainabilityJobDefinitionsResponse_httpStatus,
     listModelExplainabilityJobDefinitionsResponse_jobDefinitionSummaries,
 
-    -- ** DeleteModelQualityJobDefinition
-    deleteModelQualityJobDefinition_jobDefinitionName,
-
-    -- ** StopLabelingJob
-    stopLabelingJob_labelingJobName,
-
-    -- ** ListModelQualityJobDefinitions
-    listModelQualityJobDefinitions_sortOrder,
-    listModelQualityJobDefinitions_nextToken,
-    listModelQualityJobDefinitions_endpointName,
-    listModelQualityJobDefinitions_nameContains,
-    listModelQualityJobDefinitions_maxResults,
-    listModelQualityJobDefinitions_creationTimeBefore,
-    listModelQualityJobDefinitions_sortBy,
-    listModelQualityJobDefinitions_creationTimeAfter,
-    listModelQualityJobDefinitionsResponse_nextToken,
-    listModelQualityJobDefinitionsResponse_httpStatus,
-    listModelQualityJobDefinitionsResponse_jobDefinitionSummaries,
+    -- ** AssociateTrialComponent
+    associateTrialComponent_trialComponentName,
+    associateTrialComponent_trialName,
+    associateTrialComponentResponse_trialArn,
+    associateTrialComponentResponse_trialComponentArn,
+    associateTrialComponentResponse_httpStatus,
 
     -- ** DescribeModelBiasJobDefinition
     describeModelBiasJobDefinition_jobDefinitionName,
@@ -1642,10 +1674,37 @@ module Network.AWS.SageMaker.Lens
     describeModelBiasJobDefinitionResponse_jobResources,
     describeModelBiasJobDefinitionResponse_roleArn,
 
-    -- ** DescribeWorkteam
-    describeWorkteam_workteamName,
-    describeWorkteamResponse_httpStatus,
-    describeWorkteamResponse_workteam,
+    -- ** DescribeStudioLifecycleConfig
+    describeStudioLifecycleConfig_studioLifecycleConfigName,
+    describeStudioLifecycleConfigResponse_creationTime,
+    describeStudioLifecycleConfigResponse_studioLifecycleConfigArn,
+    describeStudioLifecycleConfigResponse_studioLifecycleConfigName,
+    describeStudioLifecycleConfigResponse_studioLifecycleConfigAppType,
+    describeStudioLifecycleConfigResponse_lastModifiedTime,
+    describeStudioLifecycleConfigResponse_studioLifecycleConfigContent,
+    describeStudioLifecycleConfigResponse_httpStatus,
+
+    -- ** DeleteDomain
+    deleteDomain_retentionPolicy,
+    deleteDomain_domainId,
+
+    -- ** ListNotebookInstances
+    listNotebookInstances_lastModifiedTimeBefore,
+    listNotebookInstances_nextToken,
+    listNotebookInstances_sortOrder,
+    listNotebookInstances_nameContains,
+    listNotebookInstances_additionalCodeRepositoryEquals,
+    listNotebookInstances_maxResults,
+    listNotebookInstances_creationTimeBefore,
+    listNotebookInstances_lastModifiedTimeAfter,
+    listNotebookInstances_defaultCodeRepositoryContains,
+    listNotebookInstances_sortBy,
+    listNotebookInstances_statusEquals,
+    listNotebookInstances_notebookInstanceLifecycleConfigNameContains,
+    listNotebookInstances_creationTimeAfter,
+    listNotebookInstancesResponse_nextToken,
+    listNotebookInstancesResponse_notebookInstances,
+    listNotebookInstancesResponse_httpStatus,
 
     -- ** DescribeNotebookInstanceLifecycleConfig
     describeNotebookInstanceLifecycleConfig_notebookInstanceLifecycleConfigName,
@@ -1657,17 +1716,8 @@ module Network.AWS.SageMaker.Lens
     describeNotebookInstanceLifecycleConfigResponse_onCreate,
     describeNotebookInstanceLifecycleConfigResponse_httpStatus,
 
-    -- ** ListPipelineExecutions
-    listPipelineExecutions_createdAfter,
-    listPipelineExecutions_sortOrder,
-    listPipelineExecutions_nextToken,
-    listPipelineExecutions_createdBefore,
-    listPipelineExecutions_maxResults,
-    listPipelineExecutions_sortBy,
-    listPipelineExecutions_pipelineName,
-    listPipelineExecutionsResponse_nextToken,
-    listPipelineExecutionsResponse_pipelineExecutionSummaries,
-    listPipelineExecutionsResponse_httpStatus,
+    -- ** StopLabelingJob
+    stopLabelingJob_labelingJobName,
 
     -- ** UpdateDomain
     updateDomain_defaultUserSettings,
@@ -1675,19 +1725,10 @@ module Network.AWS.SageMaker.Lens
     updateDomainResponse_domainArn,
     updateDomainResponse_httpStatus,
 
-    -- ** AssociateTrialComponent
-    associateTrialComponent_trialComponentName,
-    associateTrialComponent_trialName,
-    associateTrialComponentResponse_trialArn,
-    associateTrialComponentResponse_trialComponentArn,
-    associateTrialComponentResponse_httpStatus,
-
-    -- ** UpdatePipelineExecution
-    updatePipelineExecution_pipelineExecutionDescription,
-    updatePipelineExecution_pipelineExecutionDisplayName,
-    updatePipelineExecution_pipelineExecutionArn,
-    updatePipelineExecutionResponse_pipelineExecutionArn,
-    updatePipelineExecutionResponse_httpStatus,
+    -- ** DescribeWorkforce
+    describeWorkforce_workforceName,
+    describeWorkforceResponse_httpStatus,
+    describeWorkforceResponse_workforce,
 
     -- ** CreateImageVersion
     createImageVersion_baseImage,
@@ -1696,25 +1737,26 @@ module Network.AWS.SageMaker.Lens
     createImageVersionResponse_imageVersionArn,
     createImageVersionResponse_httpStatus,
 
-    -- ** DeleteDomain
-    deleteDomain_retentionPolicy,
-    deleteDomain_domainId,
+    -- ** DeleteModelQualityJobDefinition
+    deleteModelQualityJobDefinition_jobDefinitionName,
 
-    -- ** UpdateTrainingJob
-    updateTrainingJob_profilerConfig,
-    updateTrainingJob_profilerRuleConfigurations,
-    updateTrainingJob_trainingJobName,
-    updateTrainingJobResponse_httpStatus,
-    updateTrainingJobResponse_trainingJobArn,
+    -- ** DescribeWorkteam
+    describeWorkteam_workteamName,
+    describeWorkteamResponse_httpStatus,
+    describeWorkteamResponse_workteam,
 
-    -- ** UpdateImage
-    updateImage_roleArn,
-    updateImage_deleteProperties,
-    updateImage_description,
-    updateImage_displayName,
-    updateImage_imageName,
-    updateImageResponse_imageArn,
-    updateImageResponse_httpStatus,
+    -- ** ListModelQualityJobDefinitions
+    listModelQualityJobDefinitions_nextToken,
+    listModelQualityJobDefinitions_sortOrder,
+    listModelQualityJobDefinitions_endpointName,
+    listModelQualityJobDefinitions_nameContains,
+    listModelQualityJobDefinitions_maxResults,
+    listModelQualityJobDefinitions_creationTimeBefore,
+    listModelQualityJobDefinitions_sortBy,
+    listModelQualityJobDefinitions_creationTimeAfter,
+    listModelQualityJobDefinitionsResponse_nextToken,
+    listModelQualityJobDefinitionsResponse_httpStatus,
+    listModelQualityJobDefinitionsResponse_jobDefinitionSummaries,
 
     -- ** UpdateContext
     updateContext_propertiesToRemove,
@@ -1724,23 +1766,9 @@ module Network.AWS.SageMaker.Lens
     updateContextResponse_contextArn,
     updateContextResponse_httpStatus,
 
-    -- ** DeleteImage
-    deleteImage_imageName,
-    deleteImageResponse_httpStatus,
-
-    -- ** ListFlowDefinitions
-    listFlowDefinitions_sortOrder,
-    listFlowDefinitions_nextToken,
-    listFlowDefinitions_maxResults,
-    listFlowDefinitions_creationTimeBefore,
-    listFlowDefinitions_creationTimeAfter,
-    listFlowDefinitionsResponse_nextToken,
-    listFlowDefinitionsResponse_httpStatus,
-    listFlowDefinitionsResponse_flowDefinitionSummaries,
-
     -- ** ListModels
-    listModels_sortOrder,
     listModels_nextToken,
+    listModels_sortOrder,
     listModels_nameContains,
     listModels_maxResults,
     listModels_creationTimeBefore,
@@ -1750,24 +1778,27 @@ module Network.AWS.SageMaker.Lens
     listModelsResponse_httpStatus,
     listModelsResponse_models,
 
-    -- ** CreateUserProfile
-    createUserProfile_userSettings,
-    createUserProfile_tags,
-    createUserProfile_singleSignOnUserIdentifier,
-    createUserProfile_singleSignOnUserValue,
-    createUserProfile_domainId,
-    createUserProfile_userProfileName,
-    createUserProfileResponse_userProfileArn,
-    createUserProfileResponse_httpStatus,
+    -- ** ListHyperParameterTuningJobs
+    listHyperParameterTuningJobs_lastModifiedTimeBefore,
+    listHyperParameterTuningJobs_nextToken,
+    listHyperParameterTuningJobs_sortOrder,
+    listHyperParameterTuningJobs_nameContains,
+    listHyperParameterTuningJobs_maxResults,
+    listHyperParameterTuningJobs_creationTimeBefore,
+    listHyperParameterTuningJobs_lastModifiedTimeAfter,
+    listHyperParameterTuningJobs_sortBy,
+    listHyperParameterTuningJobs_statusEquals,
+    listHyperParameterTuningJobs_creationTimeAfter,
+    listHyperParameterTuningJobsResponse_nextToken,
+    listHyperParameterTuningJobsResponse_httpStatus,
+    listHyperParameterTuningJobsResponse_hyperParameterTuningJobSummaries,
 
-    -- ** RenderUiTemplate
-    renderUiTemplate_uiTemplate,
-    renderUiTemplate_humanTaskUiArn,
-    renderUiTemplate_task,
-    renderUiTemplate_roleArn,
-    renderUiTemplateResponse_httpStatus,
-    renderUiTemplateResponse_renderedContent,
-    renderUiTemplateResponse_errors,
+    -- ** SendPipelineExecutionStepFailure
+    sendPipelineExecutionStepFailure_failureReason,
+    sendPipelineExecutionStepFailure_clientRequestToken,
+    sendPipelineExecutionStepFailure_callbackToken,
+    sendPipelineExecutionStepFailureResponse_pipelineExecutionArn,
+    sendPipelineExecutionStepFailureResponse_httpStatus,
 
     -- ** DescribeFeatureGroup
     describeFeatureGroup_nextToken,
@@ -1788,33 +1819,28 @@ module Network.AWS.SageMaker.Lens
     describeFeatureGroupResponse_creationTime,
     describeFeatureGroupResponse_nextToken,
 
-    -- ** DeleteContext
-    deleteContext_contextName,
-    deleteContextResponse_contextArn,
-    deleteContextResponse_httpStatus,
+    -- ** UpdateImage
+    updateImage_roleArn,
+    updateImage_deleteProperties,
+    updateImage_description,
+    updateImage_displayName,
+    updateImage_imageName,
+    updateImageResponse_imageArn,
+    updateImageResponse_httpStatus,
 
-    -- ** ListHyperParameterTuningJobs
-    listHyperParameterTuningJobs_lastModifiedTimeBefore,
-    listHyperParameterTuningJobs_sortOrder,
-    listHyperParameterTuningJobs_nextToken,
-    listHyperParameterTuningJobs_nameContains,
-    listHyperParameterTuningJobs_maxResults,
-    listHyperParameterTuningJobs_creationTimeBefore,
-    listHyperParameterTuningJobs_lastModifiedTimeAfter,
-    listHyperParameterTuningJobs_sortBy,
-    listHyperParameterTuningJobs_statusEquals,
-    listHyperParameterTuningJobs_creationTimeAfter,
-    listHyperParameterTuningJobsResponse_nextToken,
-    listHyperParameterTuningJobsResponse_httpStatus,
-    listHyperParameterTuningJobsResponse_hyperParameterTuningJobSummaries,
-
-    -- ** DeleteFlowDefinition
-    deleteFlowDefinition_flowDefinitionName,
-    deleteFlowDefinitionResponse_httpStatus,
+    -- ** ListFlowDefinitions
+    listFlowDefinitions_nextToken,
+    listFlowDefinitions_sortOrder,
+    listFlowDefinitions_maxResults,
+    listFlowDefinitions_creationTimeBefore,
+    listFlowDefinitions_creationTimeAfter,
+    listFlowDefinitionsResponse_nextToken,
+    listFlowDefinitionsResponse_httpStatus,
+    listFlowDefinitionsResponse_flowDefinitionSummaries,
 
     -- ** ListAlgorithms
-    listAlgorithms_sortOrder,
     listAlgorithms_nextToken,
+    listAlgorithms_sortOrder,
     listAlgorithms_nameContains,
     listAlgorithms_maxResults,
     listAlgorithms_creationTimeBefore,
@@ -1823,6 +1849,115 @@ module Network.AWS.SageMaker.Lens
     listAlgorithmsResponse_nextToken,
     listAlgorithmsResponse_httpStatus,
     listAlgorithmsResponse_algorithmSummaryList,
+
+    -- ** UpdateTrainingJob
+    updateTrainingJob_profilerConfig,
+    updateTrainingJob_profilerRuleConfigurations,
+    updateTrainingJob_trainingJobName,
+    updateTrainingJobResponse_httpStatus,
+    updateTrainingJobResponse_trainingJobArn,
+
+    -- ** DeleteFlowDefinition
+    deleteFlowDefinition_flowDefinitionName,
+    deleteFlowDefinitionResponse_httpStatus,
+
+    -- ** DeleteImage
+    deleteImage_imageName,
+    deleteImageResponse_httpStatus,
+
+    -- ** RenderUiTemplate
+    renderUiTemplate_uiTemplate,
+    renderUiTemplate_humanTaskUiArn,
+    renderUiTemplate_task,
+    renderUiTemplate_roleArn,
+    renderUiTemplateResponse_httpStatus,
+    renderUiTemplateResponse_renderedContent,
+    renderUiTemplateResponse_errors,
+
+    -- ** CreateUserProfile
+    createUserProfile_userSettings,
+    createUserProfile_tags,
+    createUserProfile_singleSignOnUserValue,
+    createUserProfile_singleSignOnUserIdentifier,
+    createUserProfile_domainId,
+    createUserProfile_userProfileName,
+    createUserProfileResponse_userProfileArn,
+    createUserProfileResponse_httpStatus,
+
+    -- ** DeleteContext
+    deleteContext_contextName,
+    deleteContextResponse_contextArn,
+    deleteContextResponse_httpStatus,
+
+    -- ** ListTags
+    listTags_nextToken,
+    listTags_maxResults,
+    listTags_resourceArn,
+    listTagsResponse_nextToken,
+    listTagsResponse_tags,
+    listTagsResponse_httpStatus,
+
+    -- ** PutModelPackageGroupPolicy
+    putModelPackageGroupPolicy_modelPackageGroupName,
+    putModelPackageGroupPolicy_resourcePolicy,
+    putModelPackageGroupPolicyResponse_httpStatus,
+    putModelPackageGroupPolicyResponse_modelPackageGroupArn,
+
+    -- ** ListTrials
+    listTrials_nextToken,
+    listTrials_sortOrder,
+    listTrials_createdAfter,
+    listTrials_createdBefore,
+    listTrials_maxResults,
+    listTrials_sortBy,
+    listTrials_experimentName,
+    listTrials_trialComponentName,
+    listTrialsResponse_nextToken,
+    listTrialsResponse_trialSummaries,
+    listTrialsResponse_httpStatus,
+
+    -- ** DescribePipelineDefinitionForExecution
+    describePipelineDefinitionForExecution_pipelineExecutionArn,
+    describePipelineDefinitionForExecutionResponse_creationTime,
+    describePipelineDefinitionForExecutionResponse_pipelineDefinition,
+    describePipelineDefinitionForExecutionResponse_httpStatus,
+
+    -- ** ListModelPackageGroups
+    listModelPackageGroups_nextToken,
+    listModelPackageGroups_sortOrder,
+    listModelPackageGroups_nameContains,
+    listModelPackageGroups_maxResults,
+    listModelPackageGroups_creationTimeBefore,
+    listModelPackageGroups_sortBy,
+    listModelPackageGroups_creationTimeAfter,
+    listModelPackageGroupsResponse_nextToken,
+    listModelPackageGroupsResponse_httpStatus,
+    listModelPackageGroupsResponse_modelPackageGroupSummaryList,
+
+    -- ** ListPipelines
+    listPipelines_nextToken,
+    listPipelines_sortOrder,
+    listPipelines_createdAfter,
+    listPipelines_createdBefore,
+    listPipelines_maxResults,
+    listPipelines_sortBy,
+    listPipelines_pipelineNamePrefix,
+    listPipelinesResponse_nextToken,
+    listPipelinesResponse_pipelineSummaries,
+    listPipelinesResponse_httpStatus,
+
+    -- ** ListPipelineParametersForExecution
+    listPipelineParametersForExecution_nextToken,
+    listPipelineParametersForExecution_maxResults,
+    listPipelineParametersForExecution_pipelineExecutionArn,
+    listPipelineParametersForExecutionResponse_nextToken,
+    listPipelineParametersForExecutionResponse_pipelineParameters,
+    listPipelineParametersForExecutionResponse_httpStatus,
+
+    -- ** DeleteTrial
+    deleteTrial_trialName,
+    deleteTrialResponse_trialArn,
+    deleteTrialResponse_httpStatus,
 
     -- ** CreateAlgorithm
     createAlgorithm_algorithmDescription,
@@ -1834,60 +1969,6 @@ module Network.AWS.SageMaker.Lens
     createAlgorithm_trainingSpecification,
     createAlgorithmResponse_httpStatus,
     createAlgorithmResponse_algorithmArn,
-
-    -- ** CreateFlowDefinition
-    createFlowDefinition_humanLoopRequestSource,
-    createFlowDefinition_tags,
-    createFlowDefinition_humanLoopActivationConfig,
-    createFlowDefinition_flowDefinitionName,
-    createFlowDefinition_humanLoopConfig,
-    createFlowDefinition_outputConfig,
-    createFlowDefinition_roleArn,
-    createFlowDefinitionResponse_httpStatus,
-    createFlowDefinitionResponse_flowDefinitionArn,
-
-    -- ** ListPipelineParametersForExecution
-    listPipelineParametersForExecution_nextToken,
-    listPipelineParametersForExecution_maxResults,
-    listPipelineParametersForExecution_pipelineExecutionArn,
-    listPipelineParametersForExecutionResponse_nextToken,
-    listPipelineParametersForExecutionResponse_pipelineParameters,
-    listPipelineParametersForExecutionResponse_httpStatus,
-
-    -- ** ListTrials
-    listTrials_createdAfter,
-    listTrials_sortOrder,
-    listTrials_nextToken,
-    listTrials_createdBefore,
-    listTrials_maxResults,
-    listTrials_sortBy,
-    listTrials_experimentName,
-    listTrials_trialComponentName,
-    listTrialsResponse_nextToken,
-    listTrialsResponse_trialSummaries,
-    listTrialsResponse_httpStatus,
-
-    -- ** CreateHyperParameterTuningJob
-    createHyperParameterTuningJob_warmStartConfig,
-    createHyperParameterTuningJob_tags,
-    createHyperParameterTuningJob_trainingJobDefinitions,
-    createHyperParameterTuningJob_trainingJobDefinition,
-    createHyperParameterTuningJob_hyperParameterTuningJobName,
-    createHyperParameterTuningJob_hyperParameterTuningJobConfig,
-    createHyperParameterTuningJobResponse_httpStatus,
-    createHyperParameterTuningJobResponse_hyperParameterTuningJobArn,
-
-    -- ** CreateModel
-    createModel_vpcConfig,
-    createModel_primaryContainer,
-    createModel_enableNetworkIsolation,
-    createModel_containers,
-    createModel_tags,
-    createModel_inferenceExecutionConfig,
-    createModel_modelName,
-    createModel_executionRoleArn,
-    createModelResponse_httpStatus,
-    createModelResponse_modelArn,
 
     -- ** UpdateTrial
     updateTrial_displayName,
@@ -1910,92 +1991,72 @@ module Network.AWS.SageMaker.Lens
     describeDeviceFleetResponse_creationTime,
     describeDeviceFleetResponse_lastModifiedTime,
 
-    -- ** ListModelPackageGroups
-    listModelPackageGroups_sortOrder,
-    listModelPackageGroups_nextToken,
-    listModelPackageGroups_nameContains,
-    listModelPackageGroups_maxResults,
-    listModelPackageGroups_creationTimeBefore,
-    listModelPackageGroups_sortBy,
-    listModelPackageGroups_creationTimeAfter,
-    listModelPackageGroupsResponse_nextToken,
-    listModelPackageGroupsResponse_httpStatus,
-    listModelPackageGroupsResponse_modelPackageGroupSummaryList,
+    -- ** CreateHyperParameterTuningJob
+    createHyperParameterTuningJob_warmStartConfig,
+    createHyperParameterTuningJob_tags,
+    createHyperParameterTuningJob_trainingJobDefinitions,
+    createHyperParameterTuningJob_trainingJobDefinition,
+    createHyperParameterTuningJob_hyperParameterTuningJobName,
+    createHyperParameterTuningJob_hyperParameterTuningJobConfig,
+    createHyperParameterTuningJobResponse_httpStatus,
+    createHyperParameterTuningJobResponse_hyperParameterTuningJobArn,
 
-    -- ** ListPipelines
-    listPipelines_createdAfter,
-    listPipelines_sortOrder,
-    listPipelines_nextToken,
-    listPipelines_createdBefore,
-    listPipelines_maxResults,
-    listPipelines_sortBy,
-    listPipelines_pipelineNamePrefix,
-    listPipelinesResponse_nextToken,
-    listPipelinesResponse_pipelineSummaries,
-    listPipelinesResponse_httpStatus,
+    -- ** CreateModel
+    createModel_vpcConfig,
+    createModel_enableNetworkIsolation,
+    createModel_primaryContainer,
+    createModel_containers,
+    createModel_tags,
+    createModel_inferenceExecutionConfig,
+    createModel_modelName,
+    createModel_executionRoleArn,
+    createModelResponse_httpStatus,
+    createModelResponse_modelArn,
 
-    -- ** ListTags
-    listTags_nextToken,
-    listTags_maxResults,
-    listTags_resourceArn,
-    listTagsResponse_nextToken,
-    listTagsResponse_tags,
-    listTagsResponse_httpStatus,
+    -- ** CreateFlowDefinition
+    createFlowDefinition_humanLoopRequestSource,
+    createFlowDefinition_tags,
+    createFlowDefinition_humanLoopActivationConfig,
+    createFlowDefinition_flowDefinitionName,
+    createFlowDefinition_humanLoopConfig,
+    createFlowDefinition_outputConfig,
+    createFlowDefinition_roleArn,
+    createFlowDefinitionResponse_httpStatus,
+    createFlowDefinitionResponse_flowDefinitionArn,
 
-    -- ** DescribePipelineDefinitionForExecution
-    describePipelineDefinitionForExecution_pipelineExecutionArn,
-    describePipelineDefinitionForExecutionResponse_creationTime,
-    describePipelineDefinitionForExecutionResponse_pipelineDefinition,
-    describePipelineDefinitionForExecutionResponse_httpStatus,
-
-    -- ** DeleteTrial
-    deleteTrial_trialName,
-    deleteTrialResponse_trialArn,
-    deleteTrialResponse_httpStatus,
-
-    -- ** PutModelPackageGroupPolicy
-    putModelPackageGroupPolicy_modelPackageGroupName,
-    putModelPackageGroupPolicy_resourcePolicy,
-    putModelPackageGroupPolicyResponse_httpStatus,
-    putModelPackageGroupPolicyResponse_modelPackageGroupArn,
-
-    -- ** ListExperiments
-    listExperiments_createdAfter,
-    listExperiments_sortOrder,
-    listExperiments_nextToken,
-    listExperiments_createdBefore,
-    listExperiments_maxResults,
-    listExperiments_sortBy,
-    listExperimentsResponse_nextToken,
-    listExperimentsResponse_experimentSummaries,
-    listExperimentsResponse_httpStatus,
-
-    -- ** UpdateExperiment
-    updateExperiment_description,
-    updateExperiment_displayName,
-    updateExperiment_experimentName,
-    updateExperimentResponse_experimentArn,
-    updateExperimentResponse_httpStatus,
+    -- ** ListAssociations
+    listAssociations_destinationType,
+    listAssociations_nextToken,
+    listAssociations_sortOrder,
+    listAssociations_createdAfter,
+    listAssociations_createdBefore,
+    listAssociations_destinationArn,
+    listAssociations_maxResults,
+    listAssociations_associationType,
+    listAssociations_sortBy,
+    listAssociations_sourceArn,
+    listAssociations_sourceType,
+    listAssociationsResponse_nextToken,
+    listAssociationsResponse_associationSummaries,
+    listAssociationsResponse_httpStatus,
 
     -- ** DeleteExperiment
     deleteExperiment_experimentName,
     deleteExperimentResponse_experimentArn,
     deleteExperimentResponse_httpStatus,
 
-    -- ** ListLabelingJobs
-    listLabelingJobs_lastModifiedTimeBefore,
-    listLabelingJobs_sortOrder,
-    listLabelingJobs_nextToken,
-    listLabelingJobs_nameContains,
-    listLabelingJobs_maxResults,
-    listLabelingJobs_creationTimeBefore,
-    listLabelingJobs_lastModifiedTimeAfter,
-    listLabelingJobs_sortBy,
-    listLabelingJobs_statusEquals,
-    listLabelingJobs_creationTimeAfter,
-    listLabelingJobsResponse_labelingJobSummaryList,
-    listLabelingJobsResponse_nextToken,
-    listLabelingJobsResponse_httpStatus,
+    -- ** DescribeProject
+    describeProject_projectName,
+    describeProjectResponse_serviceCatalogProvisionedProductDetails,
+    describeProjectResponse_createdBy,
+    describeProjectResponse_projectDescription,
+    describeProjectResponse_httpStatus,
+    describeProjectResponse_projectArn,
+    describeProjectResponse_projectName,
+    describeProjectResponse_projectId,
+    describeProjectResponse_serviceCatalogProvisioningDetails,
+    describeProjectResponse_projectStatus,
+    describeProjectResponse_creationTime,
 
     -- ** DescribeImageVersion
     describeImageVersion_version,
@@ -2011,11 +2072,16 @@ module Network.AWS.SageMaker.Lens
     describeImageVersionResponse_imageArn,
     describeImageVersionResponse_httpStatus,
 
-    -- ** DeleteApp
-    deleteApp_domainId,
-    deleteApp_userProfileName,
-    deleteApp_appType,
-    deleteApp_appName,
+    -- ** ListExperiments
+    listExperiments_nextToken,
+    listExperiments_sortOrder,
+    listExperiments_createdAfter,
+    listExperiments_createdBefore,
+    listExperiments_maxResults,
+    listExperiments_sortBy,
+    listExperimentsResponse_nextToken,
+    listExperimentsResponse_experimentSummaries,
+    listExperimentsResponse_httpStatus,
 
     -- ** CreateModelBiasJobDefinition
     createModelBiasJobDefinition_networkConfig,
@@ -2031,24 +2097,31 @@ module Network.AWS.SageMaker.Lens
     createModelBiasJobDefinitionResponse_httpStatus,
     createModelBiasJobDefinitionResponse_jobDefinitionArn,
 
+    -- ** UpdateExperiment
+    updateExperiment_description,
+    updateExperiment_displayName,
+    updateExperiment_experimentName,
+    updateExperimentResponse_experimentArn,
+    updateExperimentResponse_httpStatus,
+
     -- ** DescribeTrialComponent
     describeTrialComponent_trialComponentName,
+    describeTrialComponentResponse_creationTime,
     describeTrialComponentResponse_status,
     describeTrialComponentResponse_metadataProperties,
-    describeTrialComponentResponse_creationTime,
     describeTrialComponentResponse_trialComponentArn,
     describeTrialComponentResponse_startTime,
     describeTrialComponentResponse_source,
     describeTrialComponentResponse_endTime,
     describeTrialComponentResponse_metrics,
     describeTrialComponentResponse_lastModifiedTime,
-    describeTrialComponentResponse_inputArtifacts,
     describeTrialComponentResponse_createdBy,
+    describeTrialComponentResponse_inputArtifacts,
     describeTrialComponentResponse_lastModifiedBy,
     describeTrialComponentResponse_displayName,
-    describeTrialComponentResponse_parameters,
-    describeTrialComponentResponse_outputArtifacts,
     describeTrialComponentResponse_trialComponentName,
+    describeTrialComponentResponse_outputArtifacts,
+    describeTrialComponentResponse_parameters,
     describeTrialComponentResponse_httpStatus,
 
     -- ** CreateWorkteam
@@ -2060,19 +2133,6 @@ module Network.AWS.SageMaker.Lens
     createWorkteam_description,
     createWorkteamResponse_workteamArn,
     createWorkteamResponse_httpStatus,
-
-    -- ** DescribeProject
-    describeProject_projectName,
-    describeProjectResponse_serviceCatalogProvisionedProductDetails,
-    describeProjectResponse_projectDescription,
-    describeProjectResponse_createdBy,
-    describeProjectResponse_httpStatus,
-    describeProjectResponse_projectArn,
-    describeProjectResponse_projectName,
-    describeProjectResponse_projectId,
-    describeProjectResponse_serviceCatalogProvisioningDetails,
-    describeProjectResponse_projectStatus,
-    describeProjectResponse_creationTime,
 
     -- ** CreateProcessingJob
     createProcessingJob_networkConfig,
@@ -2089,56 +2149,39 @@ module Network.AWS.SageMaker.Lens
     createProcessingJobResponse_httpStatus,
     createProcessingJobResponse_processingJobArn,
 
-    -- ** ListAssociations
-    listAssociations_createdAfter,
-    listAssociations_sortOrder,
-    listAssociations_nextToken,
-    listAssociations_destinationType,
-    listAssociations_createdBefore,
-    listAssociations_destinationArn,
-    listAssociations_maxResults,
-    listAssociations_sortBy,
-    listAssociations_associationType,
-    listAssociations_sourceArn,
-    listAssociations_sourceType,
-    listAssociationsResponse_nextToken,
-    listAssociationsResponse_associationSummaries,
-    listAssociationsResponse_httpStatus,
+    -- ** DeleteApp
+    deleteApp_domainId,
+    deleteApp_userProfileName,
+    deleteApp_appType,
+    deleteApp_appName,
 
-    -- ** EnableSagemakerServicecatalogPortfolio
-    enableSagemakerServicecatalogPortfolioResponse_httpStatus,
+    -- ** ListLabelingJobs
+    listLabelingJobs_lastModifiedTimeBefore,
+    listLabelingJobs_nextToken,
+    listLabelingJobs_sortOrder,
+    listLabelingJobs_nameContains,
+    listLabelingJobs_maxResults,
+    listLabelingJobs_creationTimeBefore,
+    listLabelingJobs_lastModifiedTimeAfter,
+    listLabelingJobs_sortBy,
+    listLabelingJobs_statusEquals,
+    listLabelingJobs_creationTimeAfter,
+    listLabelingJobsResponse_labelingJobSummaryList,
+    listLabelingJobsResponse_nextToken,
+    listLabelingJobsResponse_httpStatus,
 
-    -- ** UpdateAppImageConfig
-    updateAppImageConfig_kernelGatewayImageConfig,
-    updateAppImageConfig_appImageConfigName,
-    updateAppImageConfigResponse_appImageConfigArn,
-    updateAppImageConfigResponse_httpStatus,
+    -- ** ListWorkteams
+    listWorkteams_nextToken,
+    listWorkteams_sortOrder,
+    listWorkteams_nameContains,
+    listWorkteams_maxResults,
+    listWorkteams_sortBy,
+    listWorkteamsResponse_nextToken,
+    listWorkteamsResponse_httpStatus,
+    listWorkteamsResponse_workteams,
 
-    -- ** ListModelBiasJobDefinitions
-    listModelBiasJobDefinitions_sortOrder,
-    listModelBiasJobDefinitions_nextToken,
-    listModelBiasJobDefinitions_endpointName,
-    listModelBiasJobDefinitions_nameContains,
-    listModelBiasJobDefinitions_maxResults,
-    listModelBiasJobDefinitions_creationTimeBefore,
-    listModelBiasJobDefinitions_sortBy,
-    listModelBiasJobDefinitions_creationTimeAfter,
-    listModelBiasJobDefinitionsResponse_nextToken,
-    listModelBiasJobDefinitionsResponse_httpStatus,
-    listModelBiasJobDefinitionsResponse_jobDefinitionSummaries,
-
-    -- ** CreateAutoMLJob
-    createAutoMLJob_generateCandidateDefinitionsOnly,
-    createAutoMLJob_tags,
-    createAutoMLJob_autoMLJobObjective,
-    createAutoMLJob_autoMLJobConfig,
-    createAutoMLJob_problemType,
-    createAutoMLJob_autoMLJobName,
-    createAutoMLJob_inputDataConfig,
-    createAutoMLJob_outputDataConfig,
-    createAutoMLJob_roleArn,
-    createAutoMLJobResponse_httpStatus,
-    createAutoMLJobResponse_autoMLJobArn,
+    -- ** DeleteAppImageConfig
+    deleteAppImageConfig_appImageConfigName,
 
     -- ** CreateApp
     createApp_resourceSpec,
@@ -2150,12 +2193,16 @@ module Network.AWS.SageMaker.Lens
     createAppResponse_appArn,
     createAppResponse_httpStatus,
 
+    -- ** EnableSagemakerServicecatalogPortfolio
+    enableSagemakerServicecatalogPortfolioResponse_httpStatus,
+
     -- ** DescribeNotebookInstance
     describeNotebookInstance_notebookInstanceName,
     describeNotebookInstanceResponse_notebookInstanceName,
     describeNotebookInstanceResponse_creationTime,
-    describeNotebookInstanceResponse_acceleratorTypes,
+    describeNotebookInstanceResponse_platformIdentifier,
     describeNotebookInstanceResponse_defaultCodeRepository,
+    describeNotebookInstanceResponse_acceleratorTypes,
     describeNotebookInstanceResponse_roleArn,
     describeNotebookInstanceResponse_instanceType,
     describeNotebookInstanceResponse_notebookInstanceLifecycleConfigName,
@@ -2165,48 +2212,14 @@ module Network.AWS.SageMaker.Lens
     describeNotebookInstanceResponse_volumeSizeInGB,
     describeNotebookInstanceResponse_notebookInstanceStatus,
     describeNotebookInstanceResponse_failureReason,
-    describeNotebookInstanceResponse_networkInterfaceId,
     describeNotebookInstanceResponse_lastModifiedTime,
     describeNotebookInstanceResponse_subnetId,
+    describeNotebookInstanceResponse_networkInterfaceId,
     describeNotebookInstanceResponse_url,
     describeNotebookInstanceResponse_notebookInstanceArn,
-    describeNotebookInstanceResponse_directInternetAccess,
     describeNotebookInstanceResponse_rootAccess,
+    describeNotebookInstanceResponse_directInternetAccess,
     describeNotebookInstanceResponse_httpStatus,
-
-    -- ** DeleteAppImageConfig
-    deleteAppImageConfig_appImageConfigName,
-
-    -- ** CreateEndpointConfig
-    createEndpointConfig_kmsKeyId,
-    createEndpointConfig_tags,
-    createEndpointConfig_dataCaptureConfig,
-    createEndpointConfig_endpointConfigName,
-    createEndpointConfig_productionVariants,
-    createEndpointConfigResponse_httpStatus,
-    createEndpointConfigResponse_endpointConfigArn,
-
-    -- ** ListProcessingJobs
-    listProcessingJobs_lastModifiedTimeBefore,
-    listProcessingJobs_sortOrder,
-    listProcessingJobs_nextToken,
-    listProcessingJobs_nameContains,
-    listProcessingJobs_maxResults,
-    listProcessingJobs_creationTimeBefore,
-    listProcessingJobs_lastModifiedTimeAfter,
-    listProcessingJobs_sortBy,
-    listProcessingJobs_statusEquals,
-    listProcessingJobs_creationTimeAfter,
-    listProcessingJobsResponse_nextToken,
-    listProcessingJobsResponse_httpStatus,
-    listProcessingJobsResponse_processingJobSummaries,
-
-    -- ** CreateMonitoringSchedule
-    createMonitoringSchedule_tags,
-    createMonitoringSchedule_monitoringScheduleName,
-    createMonitoringSchedule_monitoringScheduleConfig,
-    createMonitoringScheduleResponse_httpStatus,
-    createMonitoringScheduleResponse_monitoringScheduleArn,
 
     -- ** DescribeModelExplainabilityJobDefinition
     describeModelExplainabilityJobDefinition_jobDefinitionName,
@@ -2223,29 +2236,77 @@ module Network.AWS.SageMaker.Lens
     describeModelExplainabilityJobDefinitionResponse_jobResources,
     describeModelExplainabilityJobDefinitionResponse_roleArn,
 
-    -- ** ListWorkteams
-    listWorkteams_sortOrder,
-    listWorkteams_nextToken,
-    listWorkteams_nameContains,
-    listWorkteams_maxResults,
-    listWorkteams_sortBy,
-    listWorkteamsResponse_nextToken,
-    listWorkteamsResponse_httpStatus,
-    listWorkteamsResponse_workteams,
+    -- ** CreateAutoMLJob
+    createAutoMLJob_generateCandidateDefinitionsOnly,
+    createAutoMLJob_tags,
+    createAutoMLJob_autoMLJobObjective,
+    createAutoMLJob_modelDeployConfig,
+    createAutoMLJob_autoMLJobConfig,
+    createAutoMLJob_problemType,
+    createAutoMLJob_autoMLJobName,
+    createAutoMLJob_inputDataConfig,
+    createAutoMLJob_outputDataConfig,
+    createAutoMLJob_roleArn,
+    createAutoMLJobResponse_httpStatus,
+    createAutoMLJobResponse_autoMLJobArn,
 
-    -- ** DescribeFlowDefinition
-    describeFlowDefinition_flowDefinitionName,
-    describeFlowDefinitionResponse_humanLoopRequestSource,
-    describeFlowDefinitionResponse_failureReason,
-    describeFlowDefinitionResponse_humanLoopActivationConfig,
-    describeFlowDefinitionResponse_httpStatus,
-    describeFlowDefinitionResponse_flowDefinitionArn,
-    describeFlowDefinitionResponse_flowDefinitionName,
-    describeFlowDefinitionResponse_flowDefinitionStatus,
-    describeFlowDefinitionResponse_creationTime,
-    describeFlowDefinitionResponse_humanLoopConfig,
-    describeFlowDefinitionResponse_outputConfig,
-    describeFlowDefinitionResponse_roleArn,
+    -- ** CreateEndpointConfig
+    createEndpointConfig_asyncInferenceConfig,
+    createEndpointConfig_kmsKeyId,
+    createEndpointConfig_tags,
+    createEndpointConfig_dataCaptureConfig,
+    createEndpointConfig_endpointConfigName,
+    createEndpointConfig_productionVariants,
+    createEndpointConfigResponse_httpStatus,
+    createEndpointConfigResponse_endpointConfigArn,
+
+    -- ** ListModelBiasJobDefinitions
+    listModelBiasJobDefinitions_nextToken,
+    listModelBiasJobDefinitions_sortOrder,
+    listModelBiasJobDefinitions_endpointName,
+    listModelBiasJobDefinitions_nameContains,
+    listModelBiasJobDefinitions_maxResults,
+    listModelBiasJobDefinitions_creationTimeBefore,
+    listModelBiasJobDefinitions_sortBy,
+    listModelBiasJobDefinitions_creationTimeAfter,
+    listModelBiasJobDefinitionsResponse_nextToken,
+    listModelBiasJobDefinitionsResponse_httpStatus,
+    listModelBiasJobDefinitionsResponse_jobDefinitionSummaries,
+
+    -- ** SendPipelineExecutionStepSuccess
+    sendPipelineExecutionStepSuccess_clientRequestToken,
+    sendPipelineExecutionStepSuccess_outputParameters,
+    sendPipelineExecutionStepSuccess_callbackToken,
+    sendPipelineExecutionStepSuccessResponse_pipelineExecutionArn,
+    sendPipelineExecutionStepSuccessResponse_httpStatus,
+
+    -- ** CreateMonitoringSchedule
+    createMonitoringSchedule_tags,
+    createMonitoringSchedule_monitoringScheduleName,
+    createMonitoringSchedule_monitoringScheduleConfig,
+    createMonitoringScheduleResponse_httpStatus,
+    createMonitoringScheduleResponse_monitoringScheduleArn,
+
+    -- ** ListProcessingJobs
+    listProcessingJobs_lastModifiedTimeBefore,
+    listProcessingJobs_nextToken,
+    listProcessingJobs_sortOrder,
+    listProcessingJobs_nameContains,
+    listProcessingJobs_maxResults,
+    listProcessingJobs_creationTimeBefore,
+    listProcessingJobs_lastModifiedTimeAfter,
+    listProcessingJobs_sortBy,
+    listProcessingJobs_statusEquals,
+    listProcessingJobs_creationTimeAfter,
+    listProcessingJobsResponse_nextToken,
+    listProcessingJobsResponse_httpStatus,
+    listProcessingJobsResponse_processingJobSummaries,
+
+    -- ** UpdateAppImageConfig
+    updateAppImageConfig_kernelGatewayImageConfig,
+    updateAppImageConfig_appImageConfigName,
+    updateAppImageConfigResponse_appImageConfigArn,
+    updateAppImageConfigResponse_httpStatus,
 
     -- ** DescribeContext
     describeContext_contextName,
@@ -2261,58 +2322,45 @@ module Network.AWS.SageMaker.Lens
     describeContextResponse_contextArn,
     describeContextResponse_httpStatus,
 
-    -- ** RegisterDevices
-    registerDevices_tags,
-    registerDevices_deviceFleetName,
-    registerDevices_devices,
+    -- ** CreateHumanTaskUi
+    createHumanTaskUi_tags,
+    createHumanTaskUi_humanTaskUiName,
+    createHumanTaskUi_uiTemplate,
+    createHumanTaskUiResponse_httpStatus,
+    createHumanTaskUiResponse_humanTaskUiArn,
 
-    -- ** ListFeatureGroups
-    listFeatureGroups_sortOrder,
-    listFeatureGroups_nextToken,
-    listFeatureGroups_nameContains,
-    listFeatureGroups_maxResults,
-    listFeatureGroups_offlineStoreStatusEquals,
-    listFeatureGroups_creationTimeBefore,
-    listFeatureGroups_sortBy,
-    listFeatureGroups_creationTimeAfter,
-    listFeatureGroups_featureGroupStatusEquals,
-    listFeatureGroupsResponse_nextToken,
-    listFeatureGroupsResponse_httpStatus,
-    listFeatureGroupsResponse_featureGroupSummaries,
-
-    -- ** CreatePresignedNotebookInstanceUrl
-    createPresignedNotebookInstanceUrl_sessionExpirationDurationInSeconds,
-    createPresignedNotebookInstanceUrl_notebookInstanceName,
-    createPresignedNotebookInstanceUrlResponse_authorizedUrl,
-    createPresignedNotebookInstanceUrlResponse_httpStatus,
+    -- ** DeleteFeatureGroup
+    deleteFeatureGroup_featureGroupName,
 
     -- ** DescribeTrainingJob
     describeTrainingJob_trainingJobName,
     describeTrainingJobResponse_vpcConfig,
-    describeTrainingJobResponse_debugRuleConfigurations,
-    describeTrainingJobResponse_inputDataConfig,
-    describeTrainingJobResponse_hyperParameters,
     describeTrainingJobResponse_enableManagedSpotTraining,
     describeTrainingJobResponse_labelingJobArn,
-    describeTrainingJobResponse_roleArn,
+    describeTrainingJobResponse_hyperParameters,
+    describeTrainingJobResponse_debugRuleConfigurations,
+    describeTrainingJobResponse_inputDataConfig,
     describeTrainingJobResponse_trainingTimeInSeconds,
-    describeTrainingJobResponse_profilerConfig,
+    describeTrainingJobResponse_roleArn,
     describeTrainingJobResponse_experimentConfig,
-    describeTrainingJobResponse_profilerRuleEvaluationStatuses,
     describeTrainingJobResponse_enableNetworkIsolation,
+    describeTrainingJobResponse_profilerRuleEvaluationStatuses,
+    describeTrainingJobResponse_profilerConfig,
     describeTrainingJobResponse_enableInterContainerTrafficEncryption,
     describeTrainingJobResponse_checkpointConfig,
-    describeTrainingJobResponse_outputDataConfig,
     describeTrainingJobResponse_tuningJobArn,
-    describeTrainingJobResponse_secondaryStatusTransitions,
-    describeTrainingJobResponse_finalMetricDataList,
+    describeTrainingJobResponse_outputDataConfig,
+    describeTrainingJobResponse_environment,
     describeTrainingJobResponse_profilingStatus,
-    describeTrainingJobResponse_profilerRuleConfigurations,
+    describeTrainingJobResponse_finalMetricDataList,
+    describeTrainingJobResponse_secondaryStatusTransitions,
     describeTrainingJobResponse_autoMLJobArn,
+    describeTrainingJobResponse_profilerRuleConfigurations,
     describeTrainingJobResponse_failureReason,
     describeTrainingJobResponse_lastModifiedTime,
     describeTrainingJobResponse_tensorBoardOutputConfig,
     describeTrainingJobResponse_debugRuleEvaluationStatuses,
+    describeTrainingJobResponse_retryStrategy,
     describeTrainingJobResponse_debugHookConfig,
     describeTrainingJobResponse_billableTimeInSeconds,
     describeTrainingJobResponse_trainingStartTime,
@@ -2328,16 +2376,23 @@ module Network.AWS.SageMaker.Lens
     describeTrainingJobResponse_stoppingCondition,
     describeTrainingJobResponse_creationTime,
 
-    -- ** CreateHumanTaskUi
-    createHumanTaskUi_tags,
-    createHumanTaskUi_humanTaskUiName,
-    createHumanTaskUi_uiTemplate,
-    createHumanTaskUiResponse_httpStatus,
-    createHumanTaskUiResponse_humanTaskUiArn,
+    -- ** DescribeFlowDefinition
+    describeFlowDefinition_flowDefinitionName,
+    describeFlowDefinitionResponse_humanLoopRequestSource,
+    describeFlowDefinitionResponse_failureReason,
+    describeFlowDefinitionResponse_humanLoopActivationConfig,
+    describeFlowDefinitionResponse_httpStatus,
+    describeFlowDefinitionResponse_flowDefinitionArn,
+    describeFlowDefinitionResponse_flowDefinitionName,
+    describeFlowDefinitionResponse_flowDefinitionStatus,
+    describeFlowDefinitionResponse_creationTime,
+    describeFlowDefinitionResponse_humanLoopConfig,
+    describeFlowDefinitionResponse_outputConfig,
+    describeFlowDefinitionResponse_roleArn,
 
     -- ** ListTrainingJobsForHyperParameterTuningJob
-    listTrainingJobsForHyperParameterTuningJob_sortOrder,
     listTrainingJobsForHyperParameterTuningJob_nextToken,
+    listTrainingJobsForHyperParameterTuningJob_sortOrder,
     listTrainingJobsForHyperParameterTuningJob_maxResults,
     listTrainingJobsForHyperParameterTuningJob_sortBy,
     listTrainingJobsForHyperParameterTuningJob_statusEquals,
@@ -2345,6 +2400,31 @@ module Network.AWS.SageMaker.Lens
     listTrainingJobsForHyperParameterTuningJobResponse_nextToken,
     listTrainingJobsForHyperParameterTuningJobResponse_httpStatus,
     listTrainingJobsForHyperParameterTuningJobResponse_trainingJobSummaries,
+
+    -- ** CreatePresignedNotebookInstanceUrl
+    createPresignedNotebookInstanceUrl_sessionExpirationDurationInSeconds,
+    createPresignedNotebookInstanceUrl_notebookInstanceName,
+    createPresignedNotebookInstanceUrlResponse_authorizedUrl,
+    createPresignedNotebookInstanceUrlResponse_httpStatus,
+
+    -- ** RegisterDevices
+    registerDevices_tags,
+    registerDevices_deviceFleetName,
+    registerDevices_devices,
+
+    -- ** ListFeatureGroups
+    listFeatureGroups_nextToken,
+    listFeatureGroups_sortOrder,
+    listFeatureGroups_nameContains,
+    listFeatureGroups_maxResults,
+    listFeatureGroups_creationTimeBefore,
+    listFeatureGroups_offlineStoreStatusEquals,
+    listFeatureGroups_sortBy,
+    listFeatureGroups_featureGroupStatusEquals,
+    listFeatureGroups_creationTimeAfter,
+    listFeatureGroupsResponse_nextToken,
+    listFeatureGroupsResponse_httpStatus,
+    listFeatureGroupsResponse_featureGroupSummaries,
 
     -- ** DescribeImage
     describeImage_imageName,
@@ -2359,9 +2439,6 @@ module Network.AWS.SageMaker.Lens
     describeImageResponse_imageArn,
     describeImageResponse_httpStatus,
 
-    -- ** DeleteFeatureGroup
-    deleteFeatureGroup_featureGroupName,
-
     -- * Types
 
     -- ** ActionSource
@@ -2370,8 +2447,8 @@ module Network.AWS.SageMaker.Lens
     actionSource_sourceUri,
 
     -- ** ActionSummary
-    actionSummary_status,
     actionSummary_creationTime,
+    actionSummary_status,
     actionSummary_actionName,
     actionSummary_actionType,
     actionSummary_actionArn,
@@ -2421,8 +2498,8 @@ module Network.AWS.SageMaker.Lens
     annotationConsolidationConfig_annotationConsolidationLambdaArn,
 
     -- ** AppDetails
-    appDetails_status,
     appDetails_creationTime,
+    appDetails_status,
     appDetails_appType,
     appDetails_appName,
     appDetails_userProfileName,
@@ -2457,8 +2534,8 @@ module Network.AWS.SageMaker.Lens
     artifactSummary_lastModifiedTime,
 
     -- ** AssociationSummary
-    associationSummary_destinationType,
     associationSummary_creationTime,
+    associationSummary_destinationType,
     associationSummary_destinationArn,
     associationSummary_destinationName,
     associationSummary_sourceName,
@@ -2466,6 +2543,22 @@ module Network.AWS.SageMaker.Lens
     associationSummary_createdBy,
     associationSummary_sourceArn,
     associationSummary_sourceType,
+
+    -- ** AsyncInferenceClientConfig
+    asyncInferenceClientConfig_maxConcurrentInvocationsPerInstance,
+
+    -- ** AsyncInferenceConfig
+    asyncInferenceConfig_clientConfig,
+    asyncInferenceConfig_outputConfig,
+
+    -- ** AsyncInferenceNotificationConfig
+    asyncInferenceNotificationConfig_errorTopic,
+    asyncInferenceNotificationConfig_successTopic,
+
+    -- ** AsyncInferenceOutputConfig
+    asyncInferenceOutputConfig_notificationConfig,
+    asyncInferenceOutputConfig_kmsKeyId,
+    asyncInferenceOutputConfig_s3OutputPath,
 
     -- ** AthenaDatasetDefinition
     athenaDatasetDefinition_outputCompression,
@@ -2478,6 +2571,7 @@ module Network.AWS.SageMaker.Lens
     athenaDatasetDefinition_outputFormat,
 
     -- ** AutoMLCandidate
+    autoMLCandidate_candidateProperties,
     autoMLCandidate_endTime,
     autoMLCandidate_inferenceContainers,
     autoMLCandidate_failureReason,
@@ -2525,6 +2619,7 @@ module Network.AWS.SageMaker.Lens
 
     -- ** AutoMLJobSummary
     autoMLJobSummary_endTime,
+    autoMLJobSummary_partialFailureReasons,
     autoMLJobSummary_failureReason,
     autoMLJobSummary_autoMLJobName,
     autoMLJobSummary_autoMLJobArn,
@@ -2536,6 +2631,9 @@ module Network.AWS.SageMaker.Lens
     -- ** AutoMLOutputDataConfig
     autoMLOutputDataConfig_kmsKeyId,
     autoMLOutputDataConfig_s3OutputPath,
+
+    -- ** AutoMLPartialFailureReason
+    autoMLPartialFailureReason_partialFailureMessage,
 
     -- ** AutoMLS3DataSource
     autoMLS3DataSource_s3DataType,
@@ -2559,6 +2657,18 @@ module Network.AWS.SageMaker.Lens
 
     -- ** CacheHitResult
     cacheHitResult_sourcePipelineExecutionArn,
+
+    -- ** CallbackStepMetadata
+    callbackStepMetadata_sqsQueueUrl,
+    callbackStepMetadata_outputParameters,
+    callbackStepMetadata_callbackToken,
+
+    -- ** CandidateArtifactLocations
+    candidateArtifactLocations_explainability,
+
+    -- ** CandidateProperties
+    candidateProperties_candidateArtifactLocations,
+    candidateProperties_candidateMetrics,
 
     -- ** CapacitySize
     capacitySize_type,
@@ -2636,8 +2746,8 @@ module Network.AWS.SageMaker.Lens
     conditionStepMetadata_outcome,
 
     -- ** ContainerDefinition
-    containerDefinition_multiModelConfig,
     containerDefinition_modelDataUrl,
+    containerDefinition_multiModelConfig,
     containerDefinition_mode,
     containerDefinition_containerHostname,
     containerDefinition_imageConfig,
@@ -2720,8 +2830,8 @@ module Network.AWS.SageMaker.Lens
 
     -- ** DatasetDefinition
     datasetDefinition_redshiftDatasetDefinition,
-    datasetDefinition_athenaDatasetDefinition,
     datasetDefinition_localPath,
+    datasetDefinition_athenaDatasetDefinition,
     datasetDefinition_inputMode,
     datasetDefinition_dataDistributionType,
 
@@ -2787,10 +2897,10 @@ module Network.AWS.SageMaker.Lens
     deviceSummary_deviceArn,
 
     -- ** DomainDetails
-    domainDetails_status,
     domainDetails_creationTime,
-    domainDetails_domainId,
+    domainDetails_status,
     domainDetails_domainArn,
+    domainDetails_domainId,
     domainDetails_domainName,
     domainDetails_lastModifiedTime,
     domainDetails_url,
@@ -2814,7 +2924,9 @@ module Network.AWS.SageMaker.Lens
     edgeModelSummary_modelVersion,
 
     -- ** EdgeOutputConfig
+    edgeOutputConfig_presetDeploymentConfig,
     edgeOutputConfig_kmsKeyId,
+    edgeOutputConfig_presetDeploymentType,
     edgeOutputConfig_s3OutputLocation,
 
     -- ** EdgePackagingJobSummary
@@ -2826,6 +2938,12 @@ module Network.AWS.SageMaker.Lens
     edgePackagingJobSummary_edgePackagingJobArn,
     edgePackagingJobSummary_edgePackagingJobName,
     edgePackagingJobSummary_edgePackagingJobStatus,
+
+    -- ** EdgePresetDeploymentOutput
+    edgePresetDeploymentOutput_statusMessage,
+    edgePresetDeploymentOutput_status,
+    edgePresetDeploymentOutput_artifact,
+    edgePresetDeploymentOutput_type,
 
     -- ** Endpoint
     endpoint_productionVariants,
@@ -2865,13 +2983,13 @@ module Network.AWS.SageMaker.Lens
     endpointSummary_endpointStatus,
 
     -- ** Experiment
-    experiment_experimentArn,
     experiment_creationTime,
+    experiment_experimentArn,
     experiment_source,
     experiment_tags,
     experiment_lastModifiedTime,
-    experiment_experimentName,
     experiment_description,
+    experiment_experimentName,
     experiment_createdBy,
     experiment_lastModifiedBy,
     experiment_displayName,
@@ -2886,8 +3004,8 @@ module Network.AWS.SageMaker.Lens
     experimentSource_sourceArn,
 
     -- ** ExperimentSummary
-    experimentSummary_experimentArn,
     experimentSummary_creationTime,
+    experimentSummary_experimentArn,
     experimentSummary_experimentSource,
     experimentSummary_lastModifiedTime,
     experimentSummary_experimentName,
@@ -2902,14 +3020,14 @@ module Network.AWS.SageMaker.Lens
 
     -- ** FeatureGroup
     featureGroup_featureGroupStatus,
-    featureGroup_offlineStoreConfig,
     featureGroup_creationTime,
+    featureGroup_offlineStoreConfig,
     featureGroup_roleArn,
     featureGroup_featureGroupArn,
     featureGroup_recordIdentifierFeatureName,
+    featureGroup_eventTimeFeatureName,
     featureGroup_featureDefinitions,
     featureGroup_offlineStoreStatus,
-    featureGroup_eventTimeFeatureName,
     featureGroup_featureGroupName,
     featureGroup_failureReason,
     featureGroup_tags,
@@ -3024,13 +3142,14 @@ module Network.AWS.SageMaker.Lens
 
     -- ** HyperParameterTrainingJobDefinition
     hyperParameterTrainingJobDefinition_vpcConfig,
-    hyperParameterTrainingJobDefinition_inputDataConfig,
-    hyperParameterTrainingJobDefinition_enableManagedSpotTraining,
     hyperParameterTrainingJobDefinition_staticHyperParameters,
-    hyperParameterTrainingJobDefinition_hyperParameterRanges,
+    hyperParameterTrainingJobDefinition_enableManagedSpotTraining,
+    hyperParameterTrainingJobDefinition_inputDataConfig,
     hyperParameterTrainingJobDefinition_enableNetworkIsolation,
+    hyperParameterTrainingJobDefinition_hyperParameterRanges,
     hyperParameterTrainingJobDefinition_enableInterContainerTrafficEncryption,
     hyperParameterTrainingJobDefinition_checkpointConfig,
+    hyperParameterTrainingJobDefinition_retryStrategy,
     hyperParameterTrainingJobDefinition_tuningObjective,
     hyperParameterTrainingJobDefinition_definitionName,
     hyperParameterTrainingJobDefinition_algorithmSpecification,
@@ -3044,8 +3163,8 @@ module Network.AWS.SageMaker.Lens
     hyperParameterTrainingJobSummary_tuningJobName,
     hyperParameterTrainingJobSummary_failureReason,
     hyperParameterTrainingJobSummary_objectiveStatus,
-    hyperParameterTrainingJobSummary_trainingJobDefinitionName,
     hyperParameterTrainingJobSummary_trainingStartTime,
+    hyperParameterTrainingJobSummary_trainingJobDefinitionName,
     hyperParameterTrainingJobSummary_trainingEndTime,
     hyperParameterTrainingJobSummary_trainingJobName,
     hyperParameterTrainingJobSummary_trainingJobArn,
@@ -3092,6 +3211,7 @@ module Network.AWS.SageMaker.Lens
     image_lastModifiedTime,
 
     -- ** ImageConfig
+    imageConfig_repositoryAuthConfig,
     imageConfig_repositoryAccessMode,
 
     -- ** ImageVersion
@@ -3130,10 +3250,12 @@ module Network.AWS.SageMaker.Lens
     integerParameterRangeSpecification_maxValue,
 
     -- ** JupyterServerAppSettings
+    jupyterServerAppSettings_lifecycleConfigArns,
     jupyterServerAppSettings_defaultResourceSpec,
 
     -- ** KernelGatewayAppSettings
     kernelGatewayAppSettings_customImages,
+    kernelGatewayAppSettings_lifecycleConfigArns,
     kernelGatewayAppSettings_defaultResourceSpec,
 
     -- ** KernelGatewayImageConfig
@@ -3216,6 +3338,10 @@ module Network.AWS.SageMaker.Lens
     labelingJobSummary_workteamArn,
     labelingJobSummary_preHumanTaskLambdaArn,
 
+    -- ** LambdaStepMetadata
+    lambdaStepMetadata_arn,
+    lambdaStepMetadata_outputParameters,
+
     -- ** MemberDefinition
     memberDefinition_oidcMemberDefinition,
     memberDefinition_cognitoMemberDefinition,
@@ -3230,6 +3356,11 @@ module Network.AWS.SageMaker.Lens
     metricData_metricName,
     metricData_timestamp,
     metricData_value,
+
+    -- ** MetricDatum
+    metricDatum_metricName,
+    metricDatum_value,
+    metricDatum_set,
 
     -- ** MetricDefinition
     metricDefinition_name,
@@ -3264,6 +3395,13 @@ module Network.AWS.SageMaker.Lens
     modelDataQuality_constraints,
     modelDataQuality_statistics,
 
+    -- ** ModelDeployConfig
+    modelDeployConfig_endpointName,
+    modelDeployConfig_autoGenerateEndpointName,
+
+    -- ** ModelDeployResult
+    modelDeployResult_endpointName,
+
     -- ** ModelDigests
     modelDigests_artifactDigest,
 
@@ -3288,21 +3426,21 @@ module Network.AWS.SageMaker.Lens
     -- ** ModelPackage
     modelPackage_sourceAlgorithmSpecification,
     modelPackage_modelPackageVersion,
-    modelPackage_metadataProperties,
     modelPackage_creationTime,
+    modelPackage_metadataProperties,
     modelPackage_validationSpecification,
     modelPackage_modelPackageStatusDetails,
     modelPackage_modelMetrics,
-    modelPackage_certifyForMarketplace,
     modelPackage_modelPackageName,
+    modelPackage_certifyForMarketplace,
     modelPackage_modelApprovalStatus,
-    modelPackage_approvalDescription,
-    modelPackage_tags,
     modelPackage_modelPackageStatus,
-    modelPackage_lastModifiedTime,
+    modelPackage_tags,
+    modelPackage_approvalDescription,
     modelPackage_inferenceSpecification,
-    modelPackage_modelPackageDescription,
+    modelPackage_lastModifiedTime,
     modelPackage_createdBy,
+    modelPackage_modelPackageDescription,
     modelPackage_modelPackageArn,
     modelPackage_lastModifiedBy,
     modelPackage_modelPackageGroupName,
@@ -3311,6 +3449,7 @@ module Network.AWS.SageMaker.Lens
     modelPackageContainerDefinition_imageDigest,
     modelPackageContainerDefinition_modelDataUrl,
     modelPackageContainerDefinition_containerHostname,
+    modelPackageContainerDefinition_environment,
     modelPackageContainerDefinition_productId,
     modelPackageContainerDefinition_image,
 
@@ -3463,13 +3602,13 @@ module Network.AWS.SageMaker.Lens
     monitoringS3Output_localPath,
 
     -- ** MonitoringSchedule
-    monitoringSchedule_endpointName,
     monitoringSchedule_creationTime,
+    monitoringSchedule_endpointName,
     monitoringSchedule_monitoringType,
     monitoringSchedule_monitoringScheduleName,
     monitoringSchedule_monitoringScheduleStatus,
-    monitoringSchedule_failureReason,
     monitoringSchedule_monitoringScheduleArn,
+    monitoringSchedule_failureReason,
     monitoringSchedule_tags,
     monitoringSchedule_lastModifiedTime,
     monitoringSchedule_monitoringScheduleConfig,
@@ -3499,6 +3638,10 @@ module Network.AWS.SageMaker.Lens
 
     -- ** MultiModelConfig
     multiModelConfig_modelCacheSetting,
+
+    -- ** NeoVpcConfig
+    neoVpcConfig_securityGroupIds,
+    neoVpcConfig_subnets,
 
     -- ** NestedFilters
     nestedFilters_nestedPropertyName,
@@ -3563,8 +3706,8 @@ module Network.AWS.SageMaker.Lens
     oidcConfigForResponse_authorizationEndpoint,
     oidcConfigForResponse_userInfoEndpoint,
     oidcConfigForResponse_logoutEndpoint,
-    oidcConfigForResponse_issuer,
     oidcConfigForResponse_jwksUri,
+    oidcConfigForResponse_issuer,
 
     -- ** OidcMemberDefinition
     oidcMemberDefinition_groups,
@@ -3587,18 +3730,22 @@ module Network.AWS.SageMaker.Lens
     outputDataConfig_kmsKeyId,
     outputDataConfig_s3OutputPath,
 
+    -- ** OutputParameter
+    outputParameter_name,
+    outputParameter_value,
+
     -- ** Parameter
     parameter_name,
     parameter_value,
 
     -- ** ParameterRange
     parameterRange_continuousParameterRangeSpecification,
-    parameterRange_integerParameterRangeSpecification,
     parameterRange_categoricalParameterRangeSpecification,
+    parameterRange_integerParameterRangeSpecification,
 
     -- ** ParameterRanges
-    parameterRanges_integerParameterRanges,
     parameterRanges_categoricalParameterRanges,
+    parameterRanges_integerParameterRanges,
     parameterRanges_continuousParameterRanges,
 
     -- ** Parent
@@ -3610,8 +3757,8 @@ module Network.AWS.SageMaker.Lens
 
     -- ** Pipeline
     pipeline_pipelineArn,
-    pipeline_pipelineDescription,
     pipeline_creationTime,
+    pipeline_pipelineDescription,
     pipeline_roleArn,
     pipeline_lastRunTime,
     pipeline_pipelineDisplayName,
@@ -3629,14 +3776,16 @@ module Network.AWS.SageMaker.Lens
     pipelineExecution_pipelineParameters,
     pipelineExecution_pipelineExecutionDisplayName,
     pipelineExecution_pipelineExecutionStatus,
+    pipelineExecution_failureReason,
+    pipelineExecution_pipelineExperimentConfig,
     pipelineExecution_lastModifiedTime,
     pipelineExecution_createdBy,
     pipelineExecution_lastModifiedBy,
     pipelineExecution_pipelineExecutionArn,
 
     -- ** PipelineExecutionStep
-    pipelineExecutionStep_startTime,
     pipelineExecutionStep_metadata,
+    pipelineExecutionStep_startTime,
     pipelineExecutionStep_endTime,
     pipelineExecutionStep_failureReason,
     pipelineExecutionStep_stepStatus,
@@ -3647,7 +3796,10 @@ module Network.AWS.SageMaker.Lens
     pipelineExecutionStepMetadata_model,
     pipelineExecutionStepMetadata_processingJob,
     pipelineExecutionStepMetadata_condition,
+    pipelineExecutionStepMetadata_tuningJob,
+    pipelineExecutionStepMetadata_lambda,
     pipelineExecutionStepMetadata_trainingJob,
+    pipelineExecutionStepMetadata_callback,
     pipelineExecutionStepMetadata_registerModel,
     pipelineExecutionStepMetadata_transformJob,
 
@@ -3658,10 +3810,14 @@ module Network.AWS.SageMaker.Lens
     pipelineExecutionSummary_pipelineExecutionStatus,
     pipelineExecutionSummary_pipelineExecutionArn,
 
+    -- ** PipelineExperimentConfig
+    pipelineExperimentConfig_experimentName,
+    pipelineExperimentConfig_trialName,
+
     -- ** PipelineSummary
     pipelineSummary_pipelineArn,
-    pipelineSummary_pipelineDescription,
     pipelineSummary_creationTime,
+    pipelineSummary_pipelineDescription,
     pipelineSummary_roleArn,
     pipelineSummary_lastExecutionTime,
     pipelineSummary_pipelineDisplayName,
@@ -3684,21 +3840,21 @@ module Network.AWS.SageMaker.Lens
     processingInput_inputName,
 
     -- ** ProcessingJob
-    processingJob_networkConfig,
     processingJob_creationTime,
+    processingJob_networkConfig,
     processingJob_appSpecification,
     processingJob_processingEndTime,
     processingJob_roleArn,
     processingJob_processingOutputConfig,
-    processingJob_exitMessage,
     processingJob_experimentConfig,
+    processingJob_exitMessage,
     processingJob_processingJobStatus,
     processingJob_environment,
     processingJob_autoMLJobArn,
-    processingJob_failureReason,
     processingJob_monitoringScheduleArn,
-    processingJob_processingJobArn,
+    processingJob_failureReason,
     processingJob_tags,
+    processingJob_processingJobArn,
     processingJob_lastModifiedTime,
     processingJob_processingInputs,
     processingJob_processingStartTime,
@@ -3797,6 +3953,18 @@ module Network.AWS.SageMaker.Lens
     profilerRuleEvaluationStatus_lastModifiedTime,
     profilerRuleEvaluationStatus_ruleEvaluationJobArn,
 
+    -- ** Project
+    project_creationTime,
+    project_projectId,
+    project_projectName,
+    project_serviceCatalogProvisionedProductDetails,
+    project_tags,
+    project_projectStatus,
+    project_createdBy,
+    project_projectDescription,
+    project_projectArn,
+    project_serviceCatalogProvisioningDetails,
+
     -- ** ProjectSummary
     projectSummary_projectDescription,
     projectSummary_projectName,
@@ -3839,6 +4007,9 @@ module Network.AWS.SageMaker.Lens
     renderingError_code,
     renderingError_message,
 
+    -- ** RepositoryAuthConfig
+    repositoryAuthConfig_repositoryCredentialsProviderArn,
+
     -- ** ResolvedAttributes
     resolvedAttributes_completionCriteria,
     resolvedAttributes_autoMLJobObjective,
@@ -3857,10 +4028,14 @@ module Network.AWS.SageMaker.Lens
     -- ** ResourceSpec
     resourceSpec_instanceType,
     resourceSpec_sageMakerImageArn,
+    resourceSpec_lifecycleConfigArn,
     resourceSpec_sageMakerImageVersionArn,
 
     -- ** RetentionPolicy
     retentionPolicy_homeEfsFileSystem,
+
+    -- ** RetryStrategy
+    retryStrategy_maximumRetryAttempts,
 
     -- ** S3DataSource
     s3DataSource_s3DataDistributionType,
@@ -3886,13 +4061,14 @@ module Network.AWS.SageMaker.Lens
     searchRecord_experiment,
     searchRecord_featureGroup,
     searchRecord_modelPackage,
+    searchRecord_project,
     searchRecord_trainingJob,
     searchRecord_endpoint,
     searchRecord_pipelineExecution,
     searchRecord_trialComponent,
+    searchRecord_trial,
     searchRecord_modelPackageGroup,
     searchRecord_pipeline,
-    searchRecord_trial,
 
     -- ** SecondaryStatusTransition
     secondaryStatusTransition_statusMessage,
@@ -3932,9 +4108,16 @@ module Network.AWS.SageMaker.Lens
     stoppingCondition_maxRuntimeInSeconds,
     stoppingCondition_maxWaitTimeInSeconds,
 
+    -- ** StudioLifecycleConfigDetails
+    studioLifecycleConfigDetails_creationTime,
+    studioLifecycleConfigDetails_studioLifecycleConfigArn,
+    studioLifecycleConfigDetails_studioLifecycleConfigName,
+    studioLifecycleConfigDetails_studioLifecycleConfigAppType,
+    studioLifecycleConfigDetails_lastModifiedTime,
+
     -- ** SubscribedWorkteam
-    subscribedWorkteam_marketplaceTitle,
     subscribedWorkteam_listingId,
+    subscribedWorkteam_marketplaceTitle,
     subscribedWorkteam_marketplaceDescription,
     subscribedWorkteam_sellerName,
     subscribedWorkteam_workteamArn,
@@ -3965,40 +4148,42 @@ module Network.AWS.SageMaker.Lens
 
     -- ** TrainingJob
     trainingJob_vpcConfig,
-    trainingJob_debugRuleConfigurations,
-    trainingJob_inputDataConfig,
-    trainingJob_hyperParameters,
     trainingJob_enableManagedSpotTraining,
     trainingJob_creationTime,
     trainingJob_labelingJobArn,
-    trainingJob_roleArn,
+    trainingJob_hyperParameters,
+    trainingJob_debugRuleConfigurations,
+    trainingJob_inputDataConfig,
     trainingJob_trainingTimeInSeconds,
+    trainingJob_roleArn,
     trainingJob_experimentConfig,
     trainingJob_enableNetworkIsolation,
     trainingJob_enableInterContainerTrafficEncryption,
     trainingJob_trainingJobName,
     trainingJob_checkpointConfig,
-    trainingJob_outputDataConfig,
     trainingJob_tuningJobArn,
+    trainingJob_outputDataConfig,
+    trainingJob_environment,
     trainingJob_modelArtifacts,
-    trainingJob_secondaryStatusTransitions,
     trainingJob_finalMetricDataList,
+    trainingJob_secondaryStatusTransitions,
     trainingJob_autoMLJobArn,
     trainingJob_failureReason,
     trainingJob_tags,
-    trainingJob_secondaryStatus,
     trainingJob_lastModifiedTime,
+    trainingJob_secondaryStatus,
     trainingJob_tensorBoardOutputConfig,
-    trainingJob_stoppingCondition,
     trainingJob_debugRuleEvaluationStatuses,
+    trainingJob_stoppingCondition,
     trainingJob_trainingJobStatus,
+    trainingJob_retryStrategy,
+    trainingJob_resourceConfig,
     trainingJob_debugHookConfig,
     trainingJob_billableTimeInSeconds,
-    trainingJob_resourceConfig,
     trainingJob_trainingStartTime,
+    trainingJob_trainingJobArn,
     trainingJob_trainingEndTime,
     trainingJob_algorithmSpecification,
-    trainingJob_trainingJobArn,
 
     -- ** TrainingJobDefinition
     trainingJobDefinition_hyperParameters,
@@ -4010,8 +4195,8 @@ module Network.AWS.SageMaker.Lens
 
     -- ** TrainingJobStatusCounters
     trainingJobStatusCounters_stopped,
-    trainingJobStatusCounters_completed,
     trainingJobStatusCounters_nonRetryableError,
+    trainingJobStatusCounters_completed,
     trainingJobStatusCounters_inProgress,
     trainingJobStatusCounters_retryableError,
 
@@ -4027,10 +4212,10 @@ module Network.AWS.SageMaker.Lens
     trainingJobSummary_trainingJobStatus,
 
     -- ** TrainingSpecification
-    trainingSpecification_supportedHyperParameters,
     trainingSpecification_metricDefinitions,
-    trainingSpecification_trainingImageDigest,
+    trainingSpecification_supportedHyperParameters,
     trainingSpecification_supportsDistributedTraining,
+    trainingSpecification_trainingImageDigest,
     trainingSpecification_supportedTuningJobObjectiveMetrics,
     trainingSpecification_trainingImage,
     trainingSpecification_supportedTrainingInstanceTypes,
@@ -4046,23 +4231,23 @@ module Network.AWS.SageMaker.Lens
     transformInput_dataSource,
 
     -- ** TransformJob
+    transformJob_transformJobName,
     transformJob_creationTime,
     transformJob_labelingJobArn,
-    transformJob_transformJobName,
     transformJob_transformStartTime,
-    transformJob_transformOutput,
     transformJob_experimentConfig,
+    transformJob_transformOutput,
     transformJob_maxConcurrentTransforms,
     transformJob_environment,
     transformJob_maxPayloadInMB,
-    transformJob_batchStrategy,
     transformJob_transformJobStatus,
+    transformJob_batchStrategy,
     transformJob_autoMLJobArn,
-    transformJob_failureReason,
     transformJob_modelClientConfig,
+    transformJob_failureReason,
     transformJob_tags,
-    transformJob_transformEndTime,
     transformJob_transformJobArn,
+    transformJob_transformEndTime,
     transformJob_dataProcessing,
     transformJob_modelName,
     transformJob_transformResources,
@@ -4106,8 +4291,8 @@ module Network.AWS.SageMaker.Lens
 
     -- ** Trial
     trial_trialArn,
-    trial_metadataProperties,
     trial_creationTime,
+    trial_metadataProperties,
     trial_source,
     trial_trialComponentSummaries,
     trial_tags,
@@ -4115,14 +4300,14 @@ module Network.AWS.SageMaker.Lens
     trial_experimentName,
     trial_createdBy,
     trial_lastModifiedBy,
-    trial_displayName,
     trial_trialName,
+    trial_displayName,
 
     -- ** TrialComponent
     trialComponent_parents,
+    trialComponent_creationTime,
     trialComponent_status,
     trialComponent_metadataProperties,
-    trialComponent_creationTime,
     trialComponent_sourceDetail,
     trialComponent_trialComponentArn,
     trialComponent_startTime,
@@ -4131,13 +4316,13 @@ module Network.AWS.SageMaker.Lens
     trialComponent_metrics,
     trialComponent_tags,
     trialComponent_lastModifiedTime,
-    trialComponent_inputArtifacts,
     trialComponent_createdBy,
+    trialComponent_inputArtifacts,
     trialComponent_lastModifiedBy,
     trialComponent_displayName,
-    trialComponent_parameters,
-    trialComponent_outputArtifacts,
     trialComponent_trialComponentName,
+    trialComponent_outputArtifacts,
+    trialComponent_parameters,
 
     -- ** TrialComponentArtifact
     trialComponentArtifact_mediaType,
@@ -4146,12 +4331,12 @@ module Network.AWS.SageMaker.Lens
     -- ** TrialComponentMetricSummary
     trialComponentMetricSummary_metricName,
     trialComponentMetricSummary_min,
-    trialComponentMetricSummary_stdDev,
     trialComponentMetricSummary_max,
+    trialComponentMetricSummary_stdDev,
     trialComponentMetricSummary_timeStamp,
     trialComponentMetricSummary_count,
-    trialComponentMetricSummary_sourceArn,
     trialComponentMetricSummary_avg,
+    trialComponentMetricSummary_sourceArn,
     trialComponentMetricSummary_last,
 
     -- ** TrialComponentParameterValue
@@ -4180,15 +4365,15 @@ module Network.AWS.SageMaker.Lens
     trialComponentStatus_primaryStatus,
 
     -- ** TrialComponentSummary
-    trialComponentSummary_status,
     trialComponentSummary_creationTime,
+    trialComponentSummary_status,
     trialComponentSummary_trialComponentArn,
     trialComponentSummary_startTime,
     trialComponentSummary_endTime,
     trialComponentSummary_lastModifiedTime,
     trialComponentSummary_createdBy,
-    trialComponentSummary_lastModifiedBy,
     trialComponentSummary_trialComponentSource,
+    trialComponentSummary_lastModifiedBy,
     trialComponentSummary_displayName,
     trialComponentSummary_trialComponentName,
 
@@ -4197,15 +4382,18 @@ module Network.AWS.SageMaker.Lens
     trialSource_sourceArn,
 
     -- ** TrialSummary
-    trialSummary_trialSource,
     trialSummary_trialArn,
+    trialSummary_trialSource,
     trialSummary_creationTime,
     trialSummary_lastModifiedTime,
-    trialSummary_displayName,
     trialSummary_trialName,
+    trialSummary_displayName,
 
     -- ** TuningJobCompletionCriteria
     tuningJobCompletionCriteria_targetObjectiveMetricValue,
+
+    -- ** TuningJobStepMetaData
+    tuningJobStepMetaData_arn,
 
     -- ** USD
     usd_dollars,
@@ -4229,8 +4417,8 @@ module Network.AWS.SageMaker.Lens
     userContext_userProfileArn,
 
     -- ** UserProfileDetails
-    userProfileDetails_status,
     userProfileDetails_creationTime,
+    userProfileDetails_status,
     userProfileDetails_userProfileName,
     userProfileDetails_domainId,
     userProfileDetails_lastModifiedTime,
@@ -4314,6 +4502,7 @@ import Network.AWS.SageMaker.CreatePresignedDomainUrl
 import Network.AWS.SageMaker.CreatePresignedNotebookInstanceUrl
 import Network.AWS.SageMaker.CreateProcessingJob
 import Network.AWS.SageMaker.CreateProject
+import Network.AWS.SageMaker.CreateStudioLifecycleConfig
 import Network.AWS.SageMaker.CreateTrainingJob
 import Network.AWS.SageMaker.CreateTransformJob
 import Network.AWS.SageMaker.CreateTrial
@@ -4352,6 +4541,7 @@ import Network.AWS.SageMaker.DeleteNotebookInstance
 import Network.AWS.SageMaker.DeleteNotebookInstanceLifecycleConfig
 import Network.AWS.SageMaker.DeletePipeline
 import Network.AWS.SageMaker.DeleteProject
+import Network.AWS.SageMaker.DeleteStudioLifecycleConfig
 import Network.AWS.SageMaker.DeleteTags
 import Network.AWS.SageMaker.DeleteTrial
 import Network.AWS.SageMaker.DeleteTrialComponent
@@ -4397,6 +4587,7 @@ import Network.AWS.SageMaker.DescribePipelineDefinitionForExecution
 import Network.AWS.SageMaker.DescribePipelineExecution
 import Network.AWS.SageMaker.DescribeProcessingJob
 import Network.AWS.SageMaker.DescribeProject
+import Network.AWS.SageMaker.DescribeStudioLifecycleConfig
 import Network.AWS.SageMaker.DescribeSubscribedWorkteam
 import Network.AWS.SageMaker.DescribeTrainingJob
 import Network.AWS.SageMaker.DescribeTransformJob
@@ -4455,6 +4646,7 @@ import Network.AWS.SageMaker.ListPipelineParametersForExecution
 import Network.AWS.SageMaker.ListPipelines
 import Network.AWS.SageMaker.ListProcessingJobs
 import Network.AWS.SageMaker.ListProjects
+import Network.AWS.SageMaker.ListStudioLifecycleConfigs
 import Network.AWS.SageMaker.ListSubscribedWorkteams
 import Network.AWS.SageMaker.ListTags
 import Network.AWS.SageMaker.ListTrainingJobs
@@ -4468,7 +4660,10 @@ import Network.AWS.SageMaker.ListWorkteams
 import Network.AWS.SageMaker.PutModelPackageGroupPolicy
 import Network.AWS.SageMaker.RegisterDevices
 import Network.AWS.SageMaker.RenderUiTemplate
+import Network.AWS.SageMaker.RetryPipelineExecution
 import Network.AWS.SageMaker.Search
+import Network.AWS.SageMaker.SendPipelineExecutionStepFailure
+import Network.AWS.SageMaker.SendPipelineExecutionStepSuccess
 import Network.AWS.SageMaker.StartMonitoringSchedule
 import Network.AWS.SageMaker.StartNotebookInstance
 import Network.AWS.SageMaker.StartPipelineExecution
@@ -4501,6 +4696,10 @@ import Network.AWS.SageMaker.Types.ArtifactSource
 import Network.AWS.SageMaker.Types.ArtifactSourceType
 import Network.AWS.SageMaker.Types.ArtifactSummary
 import Network.AWS.SageMaker.Types.AssociationSummary
+import Network.AWS.SageMaker.Types.AsyncInferenceClientConfig
+import Network.AWS.SageMaker.Types.AsyncInferenceConfig
+import Network.AWS.SageMaker.Types.AsyncInferenceNotificationConfig
+import Network.AWS.SageMaker.Types.AsyncInferenceOutputConfig
 import Network.AWS.SageMaker.Types.AthenaDatasetDefinition
 import Network.AWS.SageMaker.Types.AutoMLCandidate
 import Network.AWS.SageMaker.Types.AutoMLCandidateStep
@@ -4513,12 +4712,16 @@ import Network.AWS.SageMaker.Types.AutoMLJobConfig
 import Network.AWS.SageMaker.Types.AutoMLJobObjective
 import Network.AWS.SageMaker.Types.AutoMLJobSummary
 import Network.AWS.SageMaker.Types.AutoMLOutputDataConfig
+import Network.AWS.SageMaker.Types.AutoMLPartialFailureReason
 import Network.AWS.SageMaker.Types.AutoMLS3DataSource
 import Network.AWS.SageMaker.Types.AutoMLSecurityConfig
 import Network.AWS.SageMaker.Types.AutoRollbackConfig
 import Network.AWS.SageMaker.Types.Bias
 import Network.AWS.SageMaker.Types.BlueGreenUpdatePolicy
 import Network.AWS.SageMaker.Types.CacheHitResult
+import Network.AWS.SageMaker.Types.CallbackStepMetadata
+import Network.AWS.SageMaker.Types.CandidateArtifactLocations
+import Network.AWS.SageMaker.Types.CandidateProperties
 import Network.AWS.SageMaker.Types.CapacitySize
 import Network.AWS.SageMaker.Types.CaptureContentTypeHeader
 import Network.AWS.SageMaker.Types.CaptureOption
@@ -4564,6 +4767,7 @@ import Network.AWS.SageMaker.Types.EdgeModelStat
 import Network.AWS.SageMaker.Types.EdgeModelSummary
 import Network.AWS.SageMaker.Types.EdgeOutputConfig
 import Network.AWS.SageMaker.Types.EdgePackagingJobSummary
+import Network.AWS.SageMaker.Types.EdgePresetDeploymentOutput
 import Network.AWS.SageMaker.Types.Endpoint
 import Network.AWS.SageMaker.Types.EndpointConfigSummary
 import Network.AWS.SageMaker.Types.EndpointInput
@@ -4625,9 +4829,11 @@ import Network.AWS.SageMaker.Types.LabelingJobS3DataSource
 import Network.AWS.SageMaker.Types.LabelingJobSnsDataSource
 import Network.AWS.SageMaker.Types.LabelingJobStoppingConditions
 import Network.AWS.SageMaker.Types.LabelingJobSummary
+import Network.AWS.SageMaker.Types.LambdaStepMetadata
 import Network.AWS.SageMaker.Types.MemberDefinition
 import Network.AWS.SageMaker.Types.MetadataProperties
 import Network.AWS.SageMaker.Types.MetricData
+import Network.AWS.SageMaker.Types.MetricDatum
 import Network.AWS.SageMaker.Types.MetricDefinition
 import Network.AWS.SageMaker.Types.MetricsSource
 import Network.AWS.SageMaker.Types.ModelArtifacts
@@ -4636,6 +4842,8 @@ import Network.AWS.SageMaker.Types.ModelBiasBaselineConfig
 import Network.AWS.SageMaker.Types.ModelBiasJobInput
 import Network.AWS.SageMaker.Types.ModelClientConfig
 import Network.AWS.SageMaker.Types.ModelDataQuality
+import Network.AWS.SageMaker.Types.ModelDeployConfig
+import Network.AWS.SageMaker.Types.ModelDeployResult
 import Network.AWS.SageMaker.Types.ModelDigests
 import Network.AWS.SageMaker.Types.ModelExplainabilityAppSpecification
 import Network.AWS.SageMaker.Types.ModelExplainabilityBaselineConfig
@@ -4676,6 +4884,7 @@ import Network.AWS.SageMaker.Types.MonitoringScheduleSummary
 import Network.AWS.SageMaker.Types.MonitoringStatisticsResource
 import Network.AWS.SageMaker.Types.MonitoringStoppingCondition
 import Network.AWS.SageMaker.Types.MultiModelConfig
+import Network.AWS.SageMaker.Types.NeoVpcConfig
 import Network.AWS.SageMaker.Types.NestedFilters
 import Network.AWS.SageMaker.Types.NetworkConfig
 import Network.AWS.SageMaker.Types.NotebookInstanceLifecycleConfigSummary
@@ -4692,6 +4901,7 @@ import Network.AWS.SageMaker.Types.OnlineStoreConfig
 import Network.AWS.SageMaker.Types.OnlineStoreSecurityConfig
 import Network.AWS.SageMaker.Types.OutputConfig
 import Network.AWS.SageMaker.Types.OutputDataConfig
+import Network.AWS.SageMaker.Types.OutputParameter
 import Network.AWS.SageMaker.Types.Parameter
 import Network.AWS.SageMaker.Types.ParameterRange
 import Network.AWS.SageMaker.Types.ParameterRanges
@@ -4702,6 +4912,7 @@ import Network.AWS.SageMaker.Types.PipelineExecution
 import Network.AWS.SageMaker.Types.PipelineExecutionStep
 import Network.AWS.SageMaker.Types.PipelineExecutionStepMetadata
 import Network.AWS.SageMaker.Types.PipelineExecutionSummary
+import Network.AWS.SageMaker.Types.PipelineExperimentConfig
 import Network.AWS.SageMaker.Types.PipelineSummary
 import Network.AWS.SageMaker.Types.ProcessingClusterConfig
 import Network.AWS.SageMaker.Types.ProcessingFeatureStoreOutput
@@ -4722,6 +4933,7 @@ import Network.AWS.SageMaker.Types.ProfilerConfig
 import Network.AWS.SageMaker.Types.ProfilerConfigForUpdate
 import Network.AWS.SageMaker.Types.ProfilerRuleConfiguration
 import Network.AWS.SageMaker.Types.ProfilerRuleEvaluationStatus
+import Network.AWS.SageMaker.Types.Project
 import Network.AWS.SageMaker.Types.ProjectSummary
 import Network.AWS.SageMaker.Types.PropertyNameQuery
 import Network.AWS.SageMaker.Types.PropertyNameSuggestion
@@ -4731,11 +4943,13 @@ import Network.AWS.SageMaker.Types.RedshiftDatasetDefinition
 import Network.AWS.SageMaker.Types.RegisterModelStepMetadata
 import Network.AWS.SageMaker.Types.RenderableTask
 import Network.AWS.SageMaker.Types.RenderingError
+import Network.AWS.SageMaker.Types.RepositoryAuthConfig
 import Network.AWS.SageMaker.Types.ResolvedAttributes
 import Network.AWS.SageMaker.Types.ResourceConfig
 import Network.AWS.SageMaker.Types.ResourceLimits
 import Network.AWS.SageMaker.Types.ResourceSpec
 import Network.AWS.SageMaker.Types.RetentionPolicy
+import Network.AWS.SageMaker.Types.RetryStrategy
 import Network.AWS.SageMaker.Types.S3DataSource
 import Network.AWS.SageMaker.Types.S3StorageConfig
 import Network.AWS.SageMaker.Types.ScheduleConfig
@@ -4750,6 +4964,7 @@ import Network.AWS.SageMaker.Types.SourceAlgorithm
 import Network.AWS.SageMaker.Types.SourceAlgorithmSpecification
 import Network.AWS.SageMaker.Types.SourceIpConfig
 import Network.AWS.SageMaker.Types.StoppingCondition
+import Network.AWS.SageMaker.Types.StudioLifecycleConfigDetails
 import Network.AWS.SageMaker.Types.SubscribedWorkteam
 import Network.AWS.SageMaker.Types.SuggestionQuery
 import Network.AWS.SageMaker.Types.Tag
@@ -4785,6 +5000,7 @@ import Network.AWS.SageMaker.Types.TrialComponentSummary
 import Network.AWS.SageMaker.Types.TrialSource
 import Network.AWS.SageMaker.Types.TrialSummary
 import Network.AWS.SageMaker.Types.TuningJobCompletionCriteria
+import Network.AWS.SageMaker.Types.TuningJobStepMetaData
 import Network.AWS.SageMaker.Types.USD
 import Network.AWS.SageMaker.Types.UiConfig
 import Network.AWS.SageMaker.Types.UiTemplate

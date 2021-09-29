@@ -26,10 +26,10 @@ import Network.AWS.SageMaker.Types.ProductionVariantAcceleratorType
 import Network.AWS.SageMaker.Types.ProductionVariantCoreDumpConfig
 import Network.AWS.SageMaker.Types.ProductionVariantInstanceType
 
--- | Identifies a model that you want to host and the resources to deploy for
--- hosting it. If you are deploying multiple models, tell Amazon SageMaker
--- how to distribute traffic among the models by specifying variant
--- weights.
+-- | Identifies a model that you want to host and the resources chosen to
+-- deploy for hosting it. If you are deploying multiple models, tell Amazon
+-- SageMaker how to distribute traffic among the models by specifying
+-- variant weights.
 --
 -- /See:/ 'newProductionVariant' smart constructor.
 data ProductionVariant = ProductionVariant'

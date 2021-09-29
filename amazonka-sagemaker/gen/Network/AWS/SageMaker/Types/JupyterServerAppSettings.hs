@@ -28,7 +28,10 @@ import Network.AWS.SageMaker.Types.ResourceSpec
 --
 -- /See:/ 'newJupyterServerAppSettings' smart constructor.
 data JupyterServerAppSettings = JupyterServerAppSettings'
-  { -- | The default instance type and the Amazon Resource Name (ARN) of the
+  { -- | The Amazon Resource Name (ARN) of the Lifecycle Configurations attached
+    -- to the JupyterServerApp.
+    lifecycleConfigArns :: Prelude.Maybe [Prelude.Text],
+    -- | The default instance type and the Amazon Resource Name (ARN) of the
     -- default SageMaker image used by the JupyterServer app.
     defaultResourceSpec :: Prelude.Maybe ResourceSpec
   }
@@ -42,15 +45,24 @@ data JupyterServerAppSettings = JupyterServerAppSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'lifecycleConfigArns', 'jupyterServerAppSettings_lifecycleConfigArns' - The Amazon Resource Name (ARN) of the Lifecycle Configurations attached
+-- to the JupyterServerApp.
+--
 -- 'defaultResourceSpec', 'jupyterServerAppSettings_defaultResourceSpec' - The default instance type and the Amazon Resource Name (ARN) of the
 -- default SageMaker image used by the JupyterServer app.
 newJupyterServerAppSettings ::
   JupyterServerAppSettings
 newJupyterServerAppSettings =
   JupyterServerAppSettings'
-    { defaultResourceSpec =
-        Prelude.Nothing
+    { lifecycleConfigArns =
+        Prelude.Nothing,
+      defaultResourceSpec = Prelude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the Lifecycle Configurations attached
+-- to the JupyterServerApp.
+jupyterServerAppSettings_lifecycleConfigArns :: Lens.Lens' JupyterServerAppSettings (Prelude.Maybe [Prelude.Text])
+jupyterServerAppSettings_lifecycleConfigArns = Lens.lens (\JupyterServerAppSettings' {lifecycleConfigArns} -> lifecycleConfigArns) (\s@JupyterServerAppSettings' {} a -> s {lifecycleConfigArns = a} :: JupyterServerAppSettings) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The default instance type and the Amazon Resource Name (ARN) of the
 -- default SageMaker image used by the JupyterServer app.
@@ -63,7 +75,10 @@ instance Core.FromJSON JupyterServerAppSettings where
       "JupyterServerAppSettings"
       ( \x ->
           JupyterServerAppSettings'
-            Prelude.<$> (x Core..:? "DefaultResourceSpec")
+            Prelude.<$> ( x Core..:? "LifecycleConfigArns"
+                            Core..!= Prelude.mempty
+                        )
+            Prelude.<*> (x Core..:? "DefaultResourceSpec")
       )
 
 instance Prelude.Hashable JupyterServerAppSettings
@@ -74,7 +89,9 @@ instance Core.ToJSON JupyterServerAppSettings where
   toJSON JupyterServerAppSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DefaultResourceSpec" Core..=)
+          [ ("LifecycleConfigArns" Core..=)
+              Prelude.<$> lifecycleConfigArns,
+            ("DefaultResourceSpec" Core..=)
               Prelude.<$> defaultResourceSpec
           ]
       )

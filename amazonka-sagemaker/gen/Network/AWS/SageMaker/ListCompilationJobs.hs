@@ -34,8 +34,8 @@ module Network.AWS.SageMaker.ListCompilationJobs
 
     -- * Request Lenses
     listCompilationJobs_lastModifiedTimeBefore,
-    listCompilationJobs_sortOrder,
     listCompilationJobs_nextToken,
+    listCompilationJobs_sortOrder,
     listCompilationJobs_nameContains,
     listCompilationJobs_maxResults,
     listCompilationJobs_creationTimeBefore,
@@ -67,12 +67,12 @@ data ListCompilationJobs = ListCompilationJobs'
   { -- | A filter that returns the model compilation jobs that were modified
     -- before a specified time.
     lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
-    -- | The sort order for results. The default is @Ascending@.
-    sortOrder :: Prelude.Maybe SortOrder,
     -- | If the result of the previous @ListCompilationJobs@ request was
     -- truncated, the response includes a @NextToken@. To retrieve the next set
     -- of model compilation jobs, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order for results. The default is @Ascending@.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | A filter that returns the model compilation jobs whose name contains a
     -- specified string.
     nameContains :: Prelude.Maybe Prelude.Text,
@@ -106,11 +106,11 @@ data ListCompilationJobs = ListCompilationJobs'
 -- 'lastModifiedTimeBefore', 'listCompilationJobs_lastModifiedTimeBefore' - A filter that returns the model compilation jobs that were modified
 -- before a specified time.
 --
--- 'sortOrder', 'listCompilationJobs_sortOrder' - The sort order for results. The default is @Ascending@.
---
 -- 'nextToken', 'listCompilationJobs_nextToken' - If the result of the previous @ListCompilationJobs@ request was
 -- truncated, the response includes a @NextToken@. To retrieve the next set
 -- of model compilation jobs, use the token in the next request.
+--
+-- 'sortOrder', 'listCompilationJobs_sortOrder' - The sort order for results. The default is @Ascending@.
 --
 -- 'nameContains', 'listCompilationJobs_nameContains' - A filter that returns the model compilation jobs whose name contains a
 -- specified string.
@@ -136,8 +136,8 @@ newListCompilationJobs =
   ListCompilationJobs'
     { lastModifiedTimeBefore =
         Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       nameContains = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
@@ -152,15 +152,15 @@ newListCompilationJobs =
 listCompilationJobs_lastModifiedTimeBefore :: Lens.Lens' ListCompilationJobs (Prelude.Maybe Prelude.UTCTime)
 listCompilationJobs_lastModifiedTimeBefore = Lens.lens (\ListCompilationJobs' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListCompilationJobs' {} a -> s {lastModifiedTimeBefore = a} :: ListCompilationJobs) Prelude.. Lens.mapping Core._Time
 
--- | The sort order for results. The default is @Ascending@.
-listCompilationJobs_sortOrder :: Lens.Lens' ListCompilationJobs (Prelude.Maybe SortOrder)
-listCompilationJobs_sortOrder = Lens.lens (\ListCompilationJobs' {sortOrder} -> sortOrder) (\s@ListCompilationJobs' {} a -> s {sortOrder = a} :: ListCompilationJobs)
-
 -- | If the result of the previous @ListCompilationJobs@ request was
 -- truncated, the response includes a @NextToken@. To retrieve the next set
 -- of model compilation jobs, use the token in the next request.
 listCompilationJobs_nextToken :: Lens.Lens' ListCompilationJobs (Prelude.Maybe Prelude.Text)
 listCompilationJobs_nextToken = Lens.lens (\ListCompilationJobs' {nextToken} -> nextToken) (\s@ListCompilationJobs' {} a -> s {nextToken = a} :: ListCompilationJobs)
+
+-- | The sort order for results. The default is @Ascending@.
+listCompilationJobs_sortOrder :: Lens.Lens' ListCompilationJobs (Prelude.Maybe SortOrder)
+listCompilationJobs_sortOrder = Lens.lens (\ListCompilationJobs' {sortOrder} -> sortOrder) (\s@ListCompilationJobs' {} a -> s {sortOrder = a} :: ListCompilationJobs)
 
 -- | A filter that returns the model compilation jobs whose name contains a
 -- specified string.
@@ -257,8 +257,8 @@ instance Core.ToJSON ListCompilationJobs where
       ( Prelude.catMaybes
           [ ("LastModifiedTimeBefore" Core..=)
               Prelude.<$> lastModifiedTimeBefore,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NameContains" Core..=) Prelude.<$> nameContains,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CreationTimeBefore" Core..=)

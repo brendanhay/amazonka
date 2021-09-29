@@ -24,9 +24,9 @@
 -- @OnlineStore@ of the @FeatureGroup@. Data cannot be accessed from the
 -- @OnlineStore@ immediately after @DeleteFeatureGroup@ is called.
 --
--- Data written into the @OfflineStore@ will not be deleted. The AWS Glue
--- database and tables that are automatically created for your
--- @OfflineStore@ are not deleted.
+-- Data written into the @OfflineStore@ will not be deleted. The Amazon Web
+-- Services Glue database and tables that are automatically created for
+-- your @OfflineStore@ are not deleted.
 module Network.AWS.SageMaker.DeleteFeatureGroup
   ( -- * Creating a Request
     DeleteFeatureGroup (..),
@@ -51,7 +51,8 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newDeleteFeatureGroup' smart constructor.
 data DeleteFeatureGroup = DeleteFeatureGroup'
   { -- | The name of the @FeatureGroup@ you want to delete. The name must be
-    -- unique within an AWS Region in an AWS account.
+    -- unique within an Amazon Web Services Region in an Amazon Web Services
+    -- account.
     featureGroupName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,7 +66,8 @@ data DeleteFeatureGroup = DeleteFeatureGroup'
 -- for backwards compatibility:
 --
 -- 'featureGroupName', 'deleteFeatureGroup_featureGroupName' - The name of the @FeatureGroup@ you want to delete. The name must be
--- unique within an AWS Region in an AWS account.
+-- unique within an Amazon Web Services Region in an Amazon Web Services
+-- account.
 newDeleteFeatureGroup ::
   -- | 'featureGroupName'
   Prelude.Text ->
@@ -77,7 +79,8 @@ newDeleteFeatureGroup pFeatureGroupName_ =
     }
 
 -- | The name of the @FeatureGroup@ you want to delete. The name must be
--- unique within an AWS Region in an AWS account.
+-- unique within an Amazon Web Services Region in an Amazon Web Services
+-- account.
 deleteFeatureGroup_featureGroupName :: Lens.Lens' DeleteFeatureGroup Prelude.Text
 deleteFeatureGroup_featureGroupName = Lens.lens (\DeleteFeatureGroup' {featureGroupName} -> featureGroupName) (\s@DeleteFeatureGroup' {} a -> s {featureGroupName = a} :: DeleteFeatureGroup)
 

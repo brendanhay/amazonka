@@ -41,8 +41,8 @@
 --
 -- The URL that you get from a call to CreatePresignedNotebookInstanceUrl
 -- is valid only for 5 minutes. If you try to use the URL after the
--- 5-minute limit expires, you are directed to the AWS console sign-in
--- page.
+-- 5-minute limit expires, you are directed to the Amazon Web Services
+-- console sign-in page.
 module Network.AWS.SageMaker.CreatePresignedNotebookInstanceUrl
   ( -- * Creating a Request
     CreatePresignedNotebookInstanceUrl (..),

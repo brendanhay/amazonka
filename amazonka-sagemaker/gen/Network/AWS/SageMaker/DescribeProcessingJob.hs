@@ -38,12 +38,12 @@ module Network.AWS.SageMaker.DescribeProcessingJob
     describeProcessingJobResponse_processingEndTime,
     describeProcessingJobResponse_roleArn,
     describeProcessingJobResponse_processingOutputConfig,
-    describeProcessingJobResponse_exitMessage,
     describeProcessingJobResponse_experimentConfig,
+    describeProcessingJobResponse_exitMessage,
     describeProcessingJobResponse_environment,
     describeProcessingJobResponse_autoMLJobArn,
-    describeProcessingJobResponse_failureReason,
     describeProcessingJobResponse_monitoringScheduleArn,
+    describeProcessingJobResponse_failureReason,
     describeProcessingJobResponse_lastModifiedTime,
     describeProcessingJobResponse_processingInputs,
     describeProcessingJobResponse_processingStartTime,
@@ -68,8 +68,8 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newDescribeProcessingJob' smart constructor.
 data DescribeProcessingJob = DescribeProcessingJob'
-  { -- | The name of the processing job. The name must be unique within an AWS
-    -- Region in the AWS account.
+  { -- | The name of the processing job. The name must be unique within an Amazon
+    -- Web Services Region in the Amazon Web Services account.
     processingJobName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,8 +82,8 @@ data DescribeProcessingJob = DescribeProcessingJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'processingJobName', 'describeProcessingJob_processingJobName' - The name of the processing job. The name must be unique within an AWS
--- Region in the AWS account.
+-- 'processingJobName', 'describeProcessingJob_processingJobName' - The name of the processing job. The name must be unique within an Amazon
+-- Web Services Region in the Amazon Web Services account.
 newDescribeProcessingJob ::
   -- | 'processingJobName'
   Prelude.Text ->
@@ -94,8 +94,8 @@ newDescribeProcessingJob pProcessingJobName_ =
         pProcessingJobName_
     }
 
--- | The name of the processing job. The name must be unique within an AWS
--- Region in the AWS account.
+-- | The name of the processing job. The name must be unique within an Amazon
+-- Web Services Region in the Amazon Web Services account.
 describeProcessingJob_processingJobName :: Lens.Lens' DescribeProcessingJob Prelude.Text
 describeProcessingJob_processingJobName = Lens.lens (\DescribeProcessingJob' {processingJobName} -> processingJobName) (\s@DescribeProcessingJob' {} a -> s {processingJobName = a} :: DescribeProcessingJob)
 
@@ -112,12 +112,12 @@ instance Core.AWSRequest DescribeProcessingJob where
             Prelude.<*> (x Core..?> "ProcessingEndTime")
             Prelude.<*> (x Core..?> "RoleArn")
             Prelude.<*> (x Core..?> "ProcessingOutputConfig")
-            Prelude.<*> (x Core..?> "ExitMessage")
             Prelude.<*> (x Core..?> "ExperimentConfig")
+            Prelude.<*> (x Core..?> "ExitMessage")
             Prelude.<*> (x Core..?> "Environment" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "AutoMLJobArn")
-            Prelude.<*> (x Core..?> "FailureReason")
             Prelude.<*> (x Core..?> "MonitoringScheduleArn")
+            Prelude.<*> (x Core..?> "FailureReason")
             Prelude.<*> (x Core..?> "LastModifiedTime")
             Prelude.<*> ( x Core..?> "ProcessingInputs"
                             Core..!@ Prelude.mempty
@@ -179,21 +179,21 @@ data DescribeProcessingJobResponse = DescribeProcessingJobResponse'
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | Output configuration for the processing job.
     processingOutputConfig :: Prelude.Maybe ProcessingOutputConfig,
+    -- | The configuration information used to create an experiment.
+    experimentConfig :: Prelude.Maybe ExperimentConfig,
     -- | An optional string, up to one KB in size, that contains metadata from
     -- the processing container when the processing job exits.
     exitMessage :: Prelude.Maybe Prelude.Text,
-    -- | The configuration information used to create an experiment.
-    experimentConfig :: Prelude.Maybe ExperimentConfig,
     -- | The environment variables set in the Docker container.
     environment :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The ARN of an AutoML job associated with this processing job.
     autoMLJobArn :: Prelude.Maybe Prelude.Text,
-    -- | A string, up to one KB in size, that contains the reason a processing
-    -- job failed, if it failed.
-    failureReason :: Prelude.Maybe Prelude.Text,
     -- | The ARN of a monitoring schedule for an endpoint associated with this
     -- processing job.
     monitoringScheduleArn :: Prelude.Maybe Prelude.Text,
+    -- | A string, up to one KB in size, that contains the reason a processing
+    -- job failed, if it failed.
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | The time at which the processing job was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The inputs for a processing job.
@@ -206,8 +206,8 @@ data DescribeProcessingJobResponse = DescribeProcessingJobResponse'
     trainingJobArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The name of the processing job. The name must be unique within an AWS
-    -- Region in the AWS account.
+    -- | The name of the processing job. The name must be unique within an Amazon
+    -- Web Services Region in the Amazon Web Services account.
     processingJobName :: Prelude.Text,
     -- | Identifies the resources, ML compute instances, and ML storage volumes
     -- to deploy for a processing job. In distributed training, you specify
@@ -241,20 +241,20 @@ data DescribeProcessingJobResponse = DescribeProcessingJobResponse'
 --
 -- 'processingOutputConfig', 'describeProcessingJobResponse_processingOutputConfig' - Output configuration for the processing job.
 --
+-- 'experimentConfig', 'describeProcessingJobResponse_experimentConfig' - The configuration information used to create an experiment.
+--
 -- 'exitMessage', 'describeProcessingJobResponse_exitMessage' - An optional string, up to one KB in size, that contains metadata from
 -- the processing container when the processing job exits.
---
--- 'experimentConfig', 'describeProcessingJobResponse_experimentConfig' - The configuration information used to create an experiment.
 --
 -- 'environment', 'describeProcessingJobResponse_environment' - The environment variables set in the Docker container.
 --
 -- 'autoMLJobArn', 'describeProcessingJobResponse_autoMLJobArn' - The ARN of an AutoML job associated with this processing job.
 --
--- 'failureReason', 'describeProcessingJobResponse_failureReason' - A string, up to one KB in size, that contains the reason a processing
--- job failed, if it failed.
---
 -- 'monitoringScheduleArn', 'describeProcessingJobResponse_monitoringScheduleArn' - The ARN of a monitoring schedule for an endpoint associated with this
 -- processing job.
+--
+-- 'failureReason', 'describeProcessingJobResponse_failureReason' - A string, up to one KB in size, that contains the reason a processing
+-- job failed, if it failed.
 --
 -- 'lastModifiedTime', 'describeProcessingJobResponse_lastModifiedTime' - The time at which the processing job was last modified.
 --
@@ -268,8 +268,8 @@ data DescribeProcessingJobResponse = DescribeProcessingJobResponse'
 --
 -- 'httpStatus', 'describeProcessingJobResponse_httpStatus' - The response's http status code.
 --
--- 'processingJobName', 'describeProcessingJobResponse_processingJobName' - The name of the processing job. The name must be unique within an AWS
--- Region in the AWS account.
+-- 'processingJobName', 'describeProcessingJobResponse_processingJobName' - The name of the processing job. The name must be unique within an Amazon
+-- Web Services Region in the Amazon Web Services account.
 --
 -- 'processingResources', 'describeProcessingJobResponse_processingResources' - Identifies the resources, ML compute instances, and ML storage volumes
 -- to deploy for a processing job. In distributed training, you specify
@@ -312,12 +312,12 @@ newDescribeProcessingJobResponse
         processingEndTime = Prelude.Nothing,
         roleArn = Prelude.Nothing,
         processingOutputConfig = Prelude.Nothing,
-        exitMessage = Prelude.Nothing,
         experimentConfig = Prelude.Nothing,
+        exitMessage = Prelude.Nothing,
         environment = Prelude.Nothing,
         autoMLJobArn = Prelude.Nothing,
-        failureReason = Prelude.Nothing,
         monitoringScheduleArn = Prelude.Nothing,
+        failureReason = Prelude.Nothing,
         lastModifiedTime = Prelude.Nothing,
         processingInputs = Prelude.Nothing,
         processingStartTime = Prelude.Nothing,
@@ -350,14 +350,14 @@ describeProcessingJobResponse_roleArn = Lens.lens (\DescribeProcessingJobRespons
 describeProcessingJobResponse_processingOutputConfig :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe ProcessingOutputConfig)
 describeProcessingJobResponse_processingOutputConfig = Lens.lens (\DescribeProcessingJobResponse' {processingOutputConfig} -> processingOutputConfig) (\s@DescribeProcessingJobResponse' {} a -> s {processingOutputConfig = a} :: DescribeProcessingJobResponse)
 
+-- | The configuration information used to create an experiment.
+describeProcessingJobResponse_experimentConfig :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe ExperimentConfig)
+describeProcessingJobResponse_experimentConfig = Lens.lens (\DescribeProcessingJobResponse' {experimentConfig} -> experimentConfig) (\s@DescribeProcessingJobResponse' {} a -> s {experimentConfig = a} :: DescribeProcessingJobResponse)
+
 -- | An optional string, up to one KB in size, that contains metadata from
 -- the processing container when the processing job exits.
 describeProcessingJobResponse_exitMessage :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe Prelude.Text)
 describeProcessingJobResponse_exitMessage = Lens.lens (\DescribeProcessingJobResponse' {exitMessage} -> exitMessage) (\s@DescribeProcessingJobResponse' {} a -> s {exitMessage = a} :: DescribeProcessingJobResponse)
-
--- | The configuration information used to create an experiment.
-describeProcessingJobResponse_experimentConfig :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe ExperimentConfig)
-describeProcessingJobResponse_experimentConfig = Lens.lens (\DescribeProcessingJobResponse' {experimentConfig} -> experimentConfig) (\s@DescribeProcessingJobResponse' {} a -> s {experimentConfig = a} :: DescribeProcessingJobResponse)
 
 -- | The environment variables set in the Docker container.
 describeProcessingJobResponse_environment :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -367,15 +367,15 @@ describeProcessingJobResponse_environment = Lens.lens (\DescribeProcessingJobRes
 describeProcessingJobResponse_autoMLJobArn :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe Prelude.Text)
 describeProcessingJobResponse_autoMLJobArn = Lens.lens (\DescribeProcessingJobResponse' {autoMLJobArn} -> autoMLJobArn) (\s@DescribeProcessingJobResponse' {} a -> s {autoMLJobArn = a} :: DescribeProcessingJobResponse)
 
--- | A string, up to one KB in size, that contains the reason a processing
--- job failed, if it failed.
-describeProcessingJobResponse_failureReason :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe Prelude.Text)
-describeProcessingJobResponse_failureReason = Lens.lens (\DescribeProcessingJobResponse' {failureReason} -> failureReason) (\s@DescribeProcessingJobResponse' {} a -> s {failureReason = a} :: DescribeProcessingJobResponse)
-
 -- | The ARN of a monitoring schedule for an endpoint associated with this
 -- processing job.
 describeProcessingJobResponse_monitoringScheduleArn :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe Prelude.Text)
 describeProcessingJobResponse_monitoringScheduleArn = Lens.lens (\DescribeProcessingJobResponse' {monitoringScheduleArn} -> monitoringScheduleArn) (\s@DescribeProcessingJobResponse' {} a -> s {monitoringScheduleArn = a} :: DescribeProcessingJobResponse)
+
+-- | A string, up to one KB in size, that contains the reason a processing
+-- job failed, if it failed.
+describeProcessingJobResponse_failureReason :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe Prelude.Text)
+describeProcessingJobResponse_failureReason = Lens.lens (\DescribeProcessingJobResponse' {failureReason} -> failureReason) (\s@DescribeProcessingJobResponse' {} a -> s {failureReason = a} :: DescribeProcessingJobResponse)
 
 -- | The time at which the processing job was last modified.
 describeProcessingJobResponse_lastModifiedTime :: Lens.Lens' DescribeProcessingJobResponse (Prelude.Maybe Prelude.UTCTime)
@@ -401,8 +401,8 @@ describeProcessingJobResponse_trainingJobArn = Lens.lens (\DescribeProcessingJob
 describeProcessingJobResponse_httpStatus :: Lens.Lens' DescribeProcessingJobResponse Prelude.Int
 describeProcessingJobResponse_httpStatus = Lens.lens (\DescribeProcessingJobResponse' {httpStatus} -> httpStatus) (\s@DescribeProcessingJobResponse' {} a -> s {httpStatus = a} :: DescribeProcessingJobResponse)
 
--- | The name of the processing job. The name must be unique within an AWS
--- Region in the AWS account.
+-- | The name of the processing job. The name must be unique within an Amazon
+-- Web Services Region in the Amazon Web Services account.
 describeProcessingJobResponse_processingJobName :: Lens.Lens' DescribeProcessingJobResponse Prelude.Text
 describeProcessingJobResponse_processingJobName = Lens.lens (\DescribeProcessingJobResponse' {processingJobName} -> processingJobName) (\s@DescribeProcessingJobResponse' {} a -> s {processingJobName = a} :: DescribeProcessingJobResponse)
 

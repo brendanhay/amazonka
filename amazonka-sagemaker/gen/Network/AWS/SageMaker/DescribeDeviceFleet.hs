@@ -139,11 +139,11 @@ instance Core.ToQuery DescribeDeviceFleet where
 
 -- | /See:/ 'newDescribeDeviceFleetResponse' smart constructor.
 data DescribeDeviceFleetResponse = DescribeDeviceFleetResponse'
-  { -- | The Amazon Resource Name (ARN) that has access to AWS Internet of Things
-    -- (IoT).
+  { -- | The Amazon Resource Name (ARN) that has access to Amazon Web Services
+    -- Internet of Things (IoT).
     roleArn :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) alias created in AWS Internet of Things
-    -- (IoT).
+    -- | The Amazon Resource Name (ARN) alias created in Amazon Web Services
+    -- Internet of Things (IoT).
     iotRoleAlias :: Prelude.Maybe Prelude.Text,
     -- | A description of the fleet.
     description :: Prelude.Maybe Prelude.Text,
@@ -170,11 +170,11 @@ data DescribeDeviceFleetResponse = DescribeDeviceFleetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'describeDeviceFleetResponse_roleArn' - The Amazon Resource Name (ARN) that has access to AWS Internet of Things
--- (IoT).
+-- 'roleArn', 'describeDeviceFleetResponse_roleArn' - The Amazon Resource Name (ARN) that has access to Amazon Web Services
+-- Internet of Things (IoT).
 --
--- 'iotRoleAlias', 'describeDeviceFleetResponse_iotRoleAlias' - The Amazon Resource Name (ARN) alias created in AWS Internet of Things
--- (IoT).
+-- 'iotRoleAlias', 'describeDeviceFleetResponse_iotRoleAlias' - The Amazon Resource Name (ARN) alias created in Amazon Web Services
+-- Internet of Things (IoT).
 --
 -- 'description', 'describeDeviceFleetResponse_description' - A description of the fleet.
 --
@@ -225,13 +225,13 @@ newDescribeDeviceFleetResponse
           Core._Time Lens.# pLastModifiedTime_
       }
 
--- | The Amazon Resource Name (ARN) that has access to AWS Internet of Things
--- (IoT).
+-- | The Amazon Resource Name (ARN) that has access to Amazon Web Services
+-- Internet of Things (IoT).
 describeDeviceFleetResponse_roleArn :: Lens.Lens' DescribeDeviceFleetResponse (Prelude.Maybe Prelude.Text)
 describeDeviceFleetResponse_roleArn = Lens.lens (\DescribeDeviceFleetResponse' {roleArn} -> roleArn) (\s@DescribeDeviceFleetResponse' {} a -> s {roleArn = a} :: DescribeDeviceFleetResponse)
 
--- | The Amazon Resource Name (ARN) alias created in AWS Internet of Things
--- (IoT).
+-- | The Amazon Resource Name (ARN) alias created in Amazon Web Services
+-- Internet of Things (IoT).
 describeDeviceFleetResponse_iotRoleAlias :: Lens.Lens' DescribeDeviceFleetResponse (Prelude.Maybe Prelude.Text)
 describeDeviceFleetResponse_iotRoleAlias = Lens.lens (\DescribeDeviceFleetResponse' {iotRoleAlias} -> iotRoleAlias) (\s@DescribeDeviceFleetResponse' {} a -> s {iotRoleAlias = a} :: DescribeDeviceFleetResponse)
 

@@ -23,12 +23,13 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Configures SNS notifications of available or expiring work items for
--- work teams.
+-- | Configures Amazon SNS notifications of available or expiring work items
+-- for work teams.
 --
 -- /See:/ 'newNotificationConfiguration' smart constructor.
 data NotificationConfiguration = NotificationConfiguration'
-  { -- | The ARN for the SNS topic to which notifications should be published.
+  { -- | The ARN for the Amazon SNS topic to which notifications should be
+    -- published.
     notificationTopicArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,7 +42,8 @@ data NotificationConfiguration = NotificationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'notificationTopicArn', 'notificationConfiguration_notificationTopicArn' - The ARN for the SNS topic to which notifications should be published.
+-- 'notificationTopicArn', 'notificationConfiguration_notificationTopicArn' - The ARN for the Amazon SNS topic to which notifications should be
+-- published.
 newNotificationConfiguration ::
   NotificationConfiguration
 newNotificationConfiguration =
@@ -50,7 +52,8 @@ newNotificationConfiguration =
         Prelude.Nothing
     }
 
--- | The ARN for the SNS topic to which notifications should be published.
+-- | The ARN for the Amazon SNS topic to which notifications should be
+-- published.
 notificationConfiguration_notificationTopicArn :: Lens.Lens' NotificationConfiguration (Prelude.Maybe Prelude.Text)
 notificationConfiguration_notificationTopicArn = Lens.lens (\NotificationConfiguration' {notificationTopicArn} -> notificationTopicArn) (\s@NotificationConfiguration' {} a -> s {notificationTopicArn = a} :: NotificationConfiguration)
 

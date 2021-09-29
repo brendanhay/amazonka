@@ -27,7 +27,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDevice' smart constructor.
 data Device = Device'
-  { -- | AWS Internet of Things (IoT) object name.
+  { -- | Amazon Web Services Internet of Things (IoT) object name.
     iotThingName :: Prelude.Maybe Prelude.Text,
     -- | Description of the device.
     description :: Prelude.Maybe Prelude.Text,
@@ -44,7 +44,7 @@ data Device = Device'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'iotThingName', 'device_iotThingName' - AWS Internet of Things (IoT) object name.
+-- 'iotThingName', 'device_iotThingName' - Amazon Web Services Internet of Things (IoT) object name.
 --
 -- 'description', 'device_description' - Description of the device.
 --
@@ -60,7 +60,7 @@ newDevice pDeviceName_ =
       deviceName = pDeviceName_
     }
 
--- | AWS Internet of Things (IoT) object name.
+-- | Amazon Web Services Internet of Things (IoT) object name.
 device_iotThingName :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
 device_iotThingName = Lens.lens (\Device' {iotThingName} -> iotThingName) (\s@Device' {} a -> s {iotThingName = a} :: Device)
 

@@ -208,10 +208,10 @@ data DescribeLabelingJobResponse = DescribeLabelingJobResponse'
     labelingJobAlgorithmsConfig :: Prelude.Maybe LabelingJobAlgorithmsConfig,
     -- | If the job failed, the reason that it failed.
     failureReason :: Prelude.Maybe Prelude.Text,
-    -- | An array of key-value pairs. You can use tags to categorize your AWS
-    -- resources in different ways, for example, by purpose, owner, or
-    -- environment. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+    -- | An array of key-value pairs. You can use tags to categorize your Amazon
+    -- Web Services resources in different ways, for example, by purpose,
+    -- owner, or environment. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
     tags :: Prelude.Maybe [Tag],
     -- | The location of the output produced by the labeling job.
     labelingJobOutput :: Prelude.Maybe LabelingJobOutput,
@@ -237,8 +237,9 @@ data DescribeLabelingJobResponse = DescribeLabelingJobResponse'
     -- S3 location of the data objects and the location of the manifest file
     -- that describes the data objects.
     inputConfig :: LabelingJobInputConfig,
-    -- | The location of the job\'s output data and the AWS Key Management
-    -- Service key ID for the key used to encrypt the output data, if any.
+    -- | The location of the job\'s output data and the Amazon Web Services Key
+    -- Management Service key ID for the key used to encrypt the output data,
+    -- if any.
     outputConfig :: LabelingJobOutputConfig,
     -- | The Amazon Resource Name (ARN) that Amazon SageMaker assumes to perform
     -- tasks on your behalf during data labeling.
@@ -306,10 +307,10 @@ data DescribeLabelingJobResponse = DescribeLabelingJobResponse'
 --
 -- 'failureReason', 'describeLabelingJobResponse_failureReason' - If the job failed, the reason that it failed.
 --
--- 'tags', 'describeLabelingJobResponse_tags' - An array of key-value pairs. You can use tags to categorize your AWS
--- resources in different ways, for example, by purpose, owner, or
--- environment. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+-- 'tags', 'describeLabelingJobResponse_tags' - An array of key-value pairs. You can use tags to categorize your Amazon
+-- Web Services resources in different ways, for example, by purpose,
+-- owner, or environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 --
 -- 'labelingJobOutput', 'describeLabelingJobResponse_labelingJobOutput' - The location of the output produced by the labeling job.
 --
@@ -335,8 +336,9 @@ data DescribeLabelingJobResponse = DescribeLabelingJobResponse'
 -- S3 location of the data objects and the location of the manifest file
 -- that describes the data objects.
 --
--- 'outputConfig', 'describeLabelingJobResponse_outputConfig' - The location of the job\'s output data and the AWS Key Management
--- Service key ID for the key used to encrypt the output data, if any.
+-- 'outputConfig', 'describeLabelingJobResponse_outputConfig' - The location of the job\'s output data and the Amazon Web Services Key
+-- Management Service key ID for the key used to encrypt the output data,
+-- if any.
 --
 -- 'roleArn', 'describeLabelingJobResponse_roleArn' - The Amazon Resource Name (ARN) that Amazon SageMaker assumes to perform
 -- tasks on your behalf during data labeling.
@@ -466,10 +468,10 @@ describeLabelingJobResponse_labelingJobAlgorithmsConfig = Lens.lens (\DescribeLa
 describeLabelingJobResponse_failureReason :: Lens.Lens' DescribeLabelingJobResponse (Prelude.Maybe Prelude.Text)
 describeLabelingJobResponse_failureReason = Lens.lens (\DescribeLabelingJobResponse' {failureReason} -> failureReason) (\s@DescribeLabelingJobResponse' {} a -> s {failureReason = a} :: DescribeLabelingJobResponse)
 
--- | An array of key-value pairs. You can use tags to categorize your AWS
--- resources in different ways, for example, by purpose, owner, or
--- environment. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+-- | An array of key-value pairs. You can use tags to categorize your Amazon
+-- Web Services resources in different ways, for example, by purpose,
+-- owner, or environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 describeLabelingJobResponse_tags :: Lens.Lens' DescribeLabelingJobResponse (Prelude.Maybe [Tag])
 describeLabelingJobResponse_tags = Lens.lens (\DescribeLabelingJobResponse' {tags} -> tags) (\s@DescribeLabelingJobResponse' {} a -> s {tags = a} :: DescribeLabelingJobResponse) Prelude.. Lens.mapping Lens._Coerce
 
@@ -517,8 +519,9 @@ describeLabelingJobResponse_labelingJobArn = Lens.lens (\DescribeLabelingJobResp
 describeLabelingJobResponse_inputConfig :: Lens.Lens' DescribeLabelingJobResponse LabelingJobInputConfig
 describeLabelingJobResponse_inputConfig = Lens.lens (\DescribeLabelingJobResponse' {inputConfig} -> inputConfig) (\s@DescribeLabelingJobResponse' {} a -> s {inputConfig = a} :: DescribeLabelingJobResponse)
 
--- | The location of the job\'s output data and the AWS Key Management
--- Service key ID for the key used to encrypt the output data, if any.
+-- | The location of the job\'s output data and the Amazon Web Services Key
+-- Management Service key ID for the key used to encrypt the output data,
+-- if any.
 describeLabelingJobResponse_outputConfig :: Lens.Lens' DescribeLabelingJobResponse LabelingJobOutputConfig
 describeLabelingJobResponse_outputConfig = Lens.lens (\DescribeLabelingJobResponse' {outputConfig} -> outputConfig) (\s@DescribeLabelingJobResponse' {} a -> s {outputConfig = a} :: DescribeLabelingJobResponse)
 

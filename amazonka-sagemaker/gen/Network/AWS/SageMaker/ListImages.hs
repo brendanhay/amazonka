@@ -32,8 +32,8 @@ module Network.AWS.SageMaker.ListImages
 
     -- * Request Lenses
     listImages_lastModifiedTimeBefore,
-    listImages_sortOrder,
     listImages_nextToken,
+    listImages_sortOrder,
     listImages_nameContains,
     listImages_maxResults,
     listImages_creationTimeBefore,
@@ -64,11 +64,11 @@ data ListImages = ListImages'
   { -- | A filter that returns only images modified on or before the specified
     -- time.
     lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
-    -- | The sort order. The default value is @DESCENDING@.
-    sortOrder :: Prelude.Maybe ImageSortOrder,
     -- | If the previous call to @ListImages@ didn\'t return the full set of
     -- images, the call returns a token for getting the next set of images.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order. The default value is @DESCENDING@.
+    sortOrder :: Prelude.Maybe ImageSortOrder,
     -- | A filter that returns only images whose name contains the specified
     -- string.
     nameContains :: Prelude.Maybe Prelude.Text,
@@ -100,10 +100,10 @@ data ListImages = ListImages'
 -- 'lastModifiedTimeBefore', 'listImages_lastModifiedTimeBefore' - A filter that returns only images modified on or before the specified
 -- time.
 --
--- 'sortOrder', 'listImages_sortOrder' - The sort order. The default value is @DESCENDING@.
---
 -- 'nextToken', 'listImages_nextToken' - If the previous call to @ListImages@ didn\'t return the full set of
 -- images, the call returns a token for getting the next set of images.
+--
+-- 'sortOrder', 'listImages_sortOrder' - The sort order. The default value is @DESCENDING@.
 --
 -- 'nameContains', 'listImages_nameContains' - A filter that returns only images whose name contains the specified
 -- string.
@@ -127,8 +127,8 @@ newListImages =
   ListImages'
     { lastModifiedTimeBefore =
         Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       nameContains = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
@@ -142,14 +142,14 @@ newListImages =
 listImages_lastModifiedTimeBefore :: Lens.Lens' ListImages (Prelude.Maybe Prelude.UTCTime)
 listImages_lastModifiedTimeBefore = Lens.lens (\ListImages' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListImages' {} a -> s {lastModifiedTimeBefore = a} :: ListImages) Prelude.. Lens.mapping Core._Time
 
--- | The sort order. The default value is @DESCENDING@.
-listImages_sortOrder :: Lens.Lens' ListImages (Prelude.Maybe ImageSortOrder)
-listImages_sortOrder = Lens.lens (\ListImages' {sortOrder} -> sortOrder) (\s@ListImages' {} a -> s {sortOrder = a} :: ListImages)
-
 -- | If the previous call to @ListImages@ didn\'t return the full set of
 -- images, the call returns a token for getting the next set of images.
 listImages_nextToken :: Lens.Lens' ListImages (Prelude.Maybe Prelude.Text)
 listImages_nextToken = Lens.lens (\ListImages' {nextToken} -> nextToken) (\s@ListImages' {} a -> s {nextToken = a} :: ListImages)
+
+-- | The sort order. The default value is @DESCENDING@.
+listImages_sortOrder :: Lens.Lens' ListImages (Prelude.Maybe ImageSortOrder)
+listImages_sortOrder = Lens.lens (\ListImages' {sortOrder} -> sortOrder) (\s@ListImages' {} a -> s {sortOrder = a} :: ListImages)
 
 -- | A filter that returns only images whose name contains the specified
 -- string.
@@ -234,8 +234,8 @@ instance Core.ToJSON ListImages where
       ( Prelude.catMaybes
           [ ("LastModifiedTimeBefore" Core..=)
               Prelude.<$> lastModifiedTimeBefore,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NameContains" Core..=) Prelude.<$> nameContains,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CreationTimeBefore" Core..=)

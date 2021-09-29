@@ -20,14 +20,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an Amazon SageMaker /trial/. A trial is a set of steps called
--- /trial components/ that produce a machine learning model. A trial is
--- part of a single Amazon SageMaker /experiment/.
+-- Creates an SageMaker /trial/. A trial is a set of steps called /trial
+-- components/ that produce a machine learning model. A trial is part of a
+-- single SageMaker /experiment/.
 --
--- When you use Amazon SageMaker Studio or the Amazon SageMaker Python SDK,
--- all experiments, trials, and trial components are automatically tracked,
--- logged, and indexed. When you use the AWS SDK for Python (Boto), you
--- must use the logging APIs provided by the SDK.
+-- When you use SageMaker Studio or the SageMaker Python SDK, all
+-- experiments, trials, and trial components are automatically tracked,
+-- logged, and indexed. When you use the Amazon Web Services SDK for Python
+-- (Boto), you must use the logging APIs provided by the SDK.
 --
 -- You can add tags to a trial and then use the Search API to search for
 -- the tags.
@@ -73,8 +73,8 @@ data CreateTrial = CreateTrial'
     -- | The name of the trial as displayed. The name doesn\'t need to be unique.
     -- If @DisplayName@ isn\'t specified, @TrialName@ is displayed.
     displayName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the trial. The name must be unique in your AWS account and
-    -- is not case-sensitive.
+    -- | The name of the trial. The name must be unique in your Amazon Web
+    -- Services account and is not case-sensitive.
     trialName :: Prelude.Text,
     -- | The name of the experiment to associate the trial with.
     experimentName :: Prelude.Text
@@ -97,8 +97,8 @@ data CreateTrial = CreateTrial'
 -- 'displayName', 'createTrial_displayName' - The name of the trial as displayed. The name doesn\'t need to be unique.
 -- If @DisplayName@ isn\'t specified, @TrialName@ is displayed.
 --
--- 'trialName', 'createTrial_trialName' - The name of the trial. The name must be unique in your AWS account and
--- is not case-sensitive.
+-- 'trialName', 'createTrial_trialName' - The name of the trial. The name must be unique in your Amazon Web
+-- Services account and is not case-sensitive.
 --
 -- 'experimentName', 'createTrial_experimentName' - The name of the experiment to associate the trial with.
 newCreateTrial ::
@@ -130,8 +130,8 @@ createTrial_tags = Lens.lens (\CreateTrial' {tags} -> tags) (\s@CreateTrial' {} 
 createTrial_displayName :: Lens.Lens' CreateTrial (Prelude.Maybe Prelude.Text)
 createTrial_displayName = Lens.lens (\CreateTrial' {displayName} -> displayName) (\s@CreateTrial' {} a -> s {displayName = a} :: CreateTrial)
 
--- | The name of the trial. The name must be unique in your AWS account and
--- is not case-sensitive.
+-- | The name of the trial. The name must be unique in your Amazon Web
+-- Services account and is not case-sensitive.
 createTrial_trialName :: Lens.Lens' CreateTrial Prelude.Text
 createTrial_trialName = Lens.lens (\CreateTrial' {trialName} -> trialName) (\s@CreateTrial' {} a -> s {trialName = a} :: CreateTrial)
 

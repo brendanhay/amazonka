@@ -28,7 +28,7 @@ import Network.AWS.SageMaker.Types.TransformJobDefinition
 -- used in the process of validating the model package.
 --
 -- The data provided in the validation profile is made available to your
--- buyers on AWS Marketplace.
+-- buyers on Amazon Web Services Marketplace.
 --
 -- /See:/ 'newModelPackageValidationProfile' smart constructor.
 data ModelPackageValidationProfile = ModelPackageValidationProfile'

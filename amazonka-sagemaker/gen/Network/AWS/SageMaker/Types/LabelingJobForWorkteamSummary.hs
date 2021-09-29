@@ -37,6 +37,8 @@ data LabelingJobForWorkteamSummary = LabelingJobForWorkteamSummary'
     -- | A unique identifier for a labeling job. You can use this to refer to a
     -- specific labeling job.
     jobReferenceCode :: Prelude.Text,
+    -- | The Amazon Web Services account ID of the account used to start the
+    -- labeling job.
     workRequesterAccountId :: Prelude.Text,
     -- | The date and time that the labeling job was created.
     creationTime :: Core.POSIX
@@ -60,7 +62,8 @@ data LabelingJobForWorkteamSummary = LabelingJobForWorkteamSummary'
 -- 'jobReferenceCode', 'labelingJobForWorkteamSummary_jobReferenceCode' - A unique identifier for a labeling job. You can use this to refer to a
 -- specific labeling job.
 --
--- 'workRequesterAccountId', 'labelingJobForWorkteamSummary_workRequesterAccountId' -
+-- 'workRequesterAccountId', 'labelingJobForWorkteamSummary_workRequesterAccountId' - The Amazon Web Services account ID of the account used to start the
+-- labeling job.
 --
 -- 'creationTime', 'labelingJobForWorkteamSummary_creationTime' - The date and time that the labeling job was created.
 newLabelingJobForWorkteamSummary ::
@@ -105,7 +108,8 @@ labelingJobForWorkteamSummary_numberOfHumanWorkersPerDataObject = Lens.lens (\La
 labelingJobForWorkteamSummary_jobReferenceCode :: Lens.Lens' LabelingJobForWorkteamSummary Prelude.Text
 labelingJobForWorkteamSummary_jobReferenceCode = Lens.lens (\LabelingJobForWorkteamSummary' {jobReferenceCode} -> jobReferenceCode) (\s@LabelingJobForWorkteamSummary' {} a -> s {jobReferenceCode = a} :: LabelingJobForWorkteamSummary)
 
--- |
+-- | The Amazon Web Services account ID of the account used to start the
+-- labeling job.
 labelingJobForWorkteamSummary_workRequesterAccountId :: Lens.Lens' LabelingJobForWorkteamSummary Prelude.Text
 labelingJobForWorkteamSummary_workRequesterAccountId = Lens.lens (\LabelingJobForWorkteamSummary' {workRequesterAccountId} -> workRequesterAccountId) (\s@LabelingJobForWorkteamSummary' {} a -> s {workRequesterAccountId = a} :: LabelingJobForWorkteamSummary)
 

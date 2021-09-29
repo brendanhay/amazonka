@@ -29,12 +29,12 @@ module Network.AWS.SageMaker.UpdateNotebookInstance
     newUpdateNotebookInstance,
 
     -- * Request Lenses
-    updateNotebookInstance_acceleratorTypes,
     updateNotebookInstance_defaultCodeRepository,
+    updateNotebookInstance_acceleratorTypes,
     updateNotebookInstance_roleArn,
     updateNotebookInstance_instanceType,
-    updateNotebookInstance_disassociateDefaultCodeRepository,
     updateNotebookInstance_disassociateAcceleratorTypes,
+    updateNotebookInstance_disassociateDefaultCodeRepository,
     updateNotebookInstance_disassociateLifecycleConfig,
     updateNotebookInstance_additionalCodeRepositories,
     updateNotebookInstance_disassociateAdditionalCodeRepositories,
@@ -61,20 +61,20 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newUpdateNotebookInstance' smart constructor.
 data UpdateNotebookInstance = UpdateNotebookInstance'
-  { -- | A list of the Elastic Inference (EI) instance types to associate with
-    -- this notebook instance. Currently only one EI instance type can be
-    -- associated with a notebook instance. For more information, see
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker>.
-    acceleratorTypes :: Prelude.Maybe [NotebookInstanceAcceleratorType],
-    -- | The Git repository to associate with the notebook instance as its
+  { -- | The Git repository to associate with the notebook instance as its
     -- default code repository. This can be either the name of a Git repository
     -- stored as a resource in your account, or the URL of a Git repository in
-    -- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit>
+    -- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html Amazon Web Services CodeCommit>
     -- or in any other Git repository. When you open a notebook instance, it
     -- opens in the directory that contains this repository. For more
     -- information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
     defaultCodeRepository :: Prelude.Maybe Prelude.Text,
+    -- | A list of the Elastic Inference (EI) instance types to associate with
+    -- this notebook instance. Currently only one EI instance type can be
+    -- associated with a notebook instance. For more information, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker>.
+    acceleratorTypes :: Prelude.Maybe [NotebookInstanceAcceleratorType],
     -- | The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can
     -- assume to access the notebook instance. For more information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles>.
@@ -84,16 +84,16 @@ data UpdateNotebookInstance = UpdateNotebookInstance'
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The Amazon ML compute instance type.
     instanceType :: Prelude.Maybe InstanceType,
-    -- | The name or URL of the default Git repository to remove from this
-    -- notebook instance. This operation is idempotent. If you specify a Git
-    -- repository that is not associated with the notebook instance when you
-    -- call this method, it does not throw an error.
-    disassociateDefaultCodeRepository :: Prelude.Maybe Prelude.Bool,
     -- | A list of the Elastic Inference (EI) instance types to remove from this
     -- notebook instance. This operation is idempotent. If you specify an
     -- accelerator type that is not associated with the notebook instance when
     -- you call this method, it does not throw an error.
     disassociateAcceleratorTypes :: Prelude.Maybe Prelude.Bool,
+    -- | The name or URL of the default Git repository to remove from this
+    -- notebook instance. This operation is idempotent. If you specify a Git
+    -- repository that is not associated with the notebook instance when you
+    -- call this method, it does not throw an error.
+    disassociateDefaultCodeRepository :: Prelude.Maybe Prelude.Bool,
     -- | Set to @true@ to remove the notebook instance lifecycle configuration
     -- currently associated with the notebook instance. This operation is
     -- idempotent. If you specify a lifecycle configuration that is not
@@ -103,7 +103,7 @@ data UpdateNotebookInstance = UpdateNotebookInstance'
     -- | An array of up to three Git repositories to associate with the notebook
     -- instance. These can be either the names of Git repositories stored as
     -- resources in your account, or the URL of Git repositories in
-    -- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit>
+    -- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html Amazon Web Services CodeCommit>
     -- or in any other Git repository. These repositories are cloned at the
     -- same level as the default repository of your notebook instance. For more
     -- information, see
@@ -146,19 +146,19 @@ data UpdateNotebookInstance = UpdateNotebookInstance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'acceleratorTypes', 'updateNotebookInstance_acceleratorTypes' - A list of the Elastic Inference (EI) instance types to associate with
--- this notebook instance. Currently only one EI instance type can be
--- associated with a notebook instance. For more information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker>.
---
 -- 'defaultCodeRepository', 'updateNotebookInstance_defaultCodeRepository' - The Git repository to associate with the notebook instance as its
 -- default code repository. This can be either the name of a Git repository
 -- stored as a resource in your account, or the URL of a Git repository in
--- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit>
+-- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html Amazon Web Services CodeCommit>
 -- or in any other Git repository. When you open a notebook instance, it
 -- opens in the directory that contains this repository. For more
 -- information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
+--
+-- 'acceleratorTypes', 'updateNotebookInstance_acceleratorTypes' - A list of the Elastic Inference (EI) instance types to associate with
+-- this notebook instance. Currently only one EI instance type can be
+-- associated with a notebook instance. For more information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker>.
 --
 -- 'roleArn', 'updateNotebookInstance_roleArn' - The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can
 -- assume to access the notebook instance. For more information, see
@@ -169,15 +169,15 @@ data UpdateNotebookInstance = UpdateNotebookInstance'
 --
 -- 'instanceType', 'updateNotebookInstance_instanceType' - The Amazon ML compute instance type.
 --
--- 'disassociateDefaultCodeRepository', 'updateNotebookInstance_disassociateDefaultCodeRepository' - The name or URL of the default Git repository to remove from this
--- notebook instance. This operation is idempotent. If you specify a Git
--- repository that is not associated with the notebook instance when you
--- call this method, it does not throw an error.
---
 -- 'disassociateAcceleratorTypes', 'updateNotebookInstance_disassociateAcceleratorTypes' - A list of the Elastic Inference (EI) instance types to remove from this
 -- notebook instance. This operation is idempotent. If you specify an
 -- accelerator type that is not associated with the notebook instance when
 -- you call this method, it does not throw an error.
+--
+-- 'disassociateDefaultCodeRepository', 'updateNotebookInstance_disassociateDefaultCodeRepository' - The name or URL of the default Git repository to remove from this
+-- notebook instance. This operation is idempotent. If you specify a Git
+-- repository that is not associated with the notebook instance when you
+-- call this method, it does not throw an error.
 --
 -- 'disassociateLifecycleConfig', 'updateNotebookInstance_disassociateLifecycleConfig' - Set to @true@ to remove the notebook instance lifecycle configuration
 -- currently associated with the notebook instance. This operation is
@@ -188,7 +188,7 @@ data UpdateNotebookInstance = UpdateNotebookInstance'
 -- 'additionalCodeRepositories', 'updateNotebookInstance_additionalCodeRepositories' - An array of up to three Git repositories to associate with the notebook
 -- instance. These can be either the names of Git repositories stored as
 -- resources in your account, or the URL of Git repositories in
--- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit>
+-- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html Amazon Web Services CodeCommit>
 -- or in any other Git repository. These repositories are cloned at the
 -- same level as the default repository of your notebook instance. For more
 -- information, see
@@ -225,13 +225,13 @@ newUpdateNotebookInstance ::
   UpdateNotebookInstance
 newUpdateNotebookInstance pNotebookInstanceName_ =
   UpdateNotebookInstance'
-    { acceleratorTypes =
+    { defaultCodeRepository =
         Prelude.Nothing,
-      defaultCodeRepository = Prelude.Nothing,
+      acceleratorTypes = Prelude.Nothing,
       roleArn = Prelude.Nothing,
       instanceType = Prelude.Nothing,
-      disassociateDefaultCodeRepository = Prelude.Nothing,
       disassociateAcceleratorTypes = Prelude.Nothing,
+      disassociateDefaultCodeRepository = Prelude.Nothing,
       disassociateLifecycleConfig = Prelude.Nothing,
       additionalCodeRepositories = Prelude.Nothing,
       disassociateAdditionalCodeRepositories =
@@ -242,23 +242,23 @@ newUpdateNotebookInstance pNotebookInstanceName_ =
       notebookInstanceName = pNotebookInstanceName_
     }
 
--- | A list of the Elastic Inference (EI) instance types to associate with
--- this notebook instance. Currently only one EI instance type can be
--- associated with a notebook instance. For more information, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker>.
-updateNotebookInstance_acceleratorTypes :: Lens.Lens' UpdateNotebookInstance (Prelude.Maybe [NotebookInstanceAcceleratorType])
-updateNotebookInstance_acceleratorTypes = Lens.lens (\UpdateNotebookInstance' {acceleratorTypes} -> acceleratorTypes) (\s@UpdateNotebookInstance' {} a -> s {acceleratorTypes = a} :: UpdateNotebookInstance) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The Git repository to associate with the notebook instance as its
 -- default code repository. This can be either the name of a Git repository
 -- stored as a resource in your account, or the URL of a Git repository in
--- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit>
+-- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html Amazon Web Services CodeCommit>
 -- or in any other Git repository. When you open a notebook instance, it
 -- opens in the directory that contains this repository. For more
 -- information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances>.
 updateNotebookInstance_defaultCodeRepository :: Lens.Lens' UpdateNotebookInstance (Prelude.Maybe Prelude.Text)
 updateNotebookInstance_defaultCodeRepository = Lens.lens (\UpdateNotebookInstance' {defaultCodeRepository} -> defaultCodeRepository) (\s@UpdateNotebookInstance' {} a -> s {defaultCodeRepository = a} :: UpdateNotebookInstance)
+
+-- | A list of the Elastic Inference (EI) instance types to associate with
+-- this notebook instance. Currently only one EI instance type can be
+-- associated with a notebook instance. For more information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker>.
+updateNotebookInstance_acceleratorTypes :: Lens.Lens' UpdateNotebookInstance (Prelude.Maybe [NotebookInstanceAcceleratorType])
+updateNotebookInstance_acceleratorTypes = Lens.lens (\UpdateNotebookInstance' {acceleratorTypes} -> acceleratorTypes) (\s@UpdateNotebookInstance' {} a -> s {acceleratorTypes = a} :: UpdateNotebookInstance) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can
 -- assume to access the notebook instance. For more information, see
@@ -273,19 +273,19 @@ updateNotebookInstance_roleArn = Lens.lens (\UpdateNotebookInstance' {roleArn} -
 updateNotebookInstance_instanceType :: Lens.Lens' UpdateNotebookInstance (Prelude.Maybe InstanceType)
 updateNotebookInstance_instanceType = Lens.lens (\UpdateNotebookInstance' {instanceType} -> instanceType) (\s@UpdateNotebookInstance' {} a -> s {instanceType = a} :: UpdateNotebookInstance)
 
--- | The name or URL of the default Git repository to remove from this
--- notebook instance. This operation is idempotent. If you specify a Git
--- repository that is not associated with the notebook instance when you
--- call this method, it does not throw an error.
-updateNotebookInstance_disassociateDefaultCodeRepository :: Lens.Lens' UpdateNotebookInstance (Prelude.Maybe Prelude.Bool)
-updateNotebookInstance_disassociateDefaultCodeRepository = Lens.lens (\UpdateNotebookInstance' {disassociateDefaultCodeRepository} -> disassociateDefaultCodeRepository) (\s@UpdateNotebookInstance' {} a -> s {disassociateDefaultCodeRepository = a} :: UpdateNotebookInstance)
-
 -- | A list of the Elastic Inference (EI) instance types to remove from this
 -- notebook instance. This operation is idempotent. If you specify an
 -- accelerator type that is not associated with the notebook instance when
 -- you call this method, it does not throw an error.
 updateNotebookInstance_disassociateAcceleratorTypes :: Lens.Lens' UpdateNotebookInstance (Prelude.Maybe Prelude.Bool)
 updateNotebookInstance_disassociateAcceleratorTypes = Lens.lens (\UpdateNotebookInstance' {disassociateAcceleratorTypes} -> disassociateAcceleratorTypes) (\s@UpdateNotebookInstance' {} a -> s {disassociateAcceleratorTypes = a} :: UpdateNotebookInstance)
+
+-- | The name or URL of the default Git repository to remove from this
+-- notebook instance. This operation is idempotent. If you specify a Git
+-- repository that is not associated with the notebook instance when you
+-- call this method, it does not throw an error.
+updateNotebookInstance_disassociateDefaultCodeRepository :: Lens.Lens' UpdateNotebookInstance (Prelude.Maybe Prelude.Bool)
+updateNotebookInstance_disassociateDefaultCodeRepository = Lens.lens (\UpdateNotebookInstance' {disassociateDefaultCodeRepository} -> disassociateDefaultCodeRepository) (\s@UpdateNotebookInstance' {} a -> s {disassociateDefaultCodeRepository = a} :: UpdateNotebookInstance)
 
 -- | Set to @true@ to remove the notebook instance lifecycle configuration
 -- currently associated with the notebook instance. This operation is
@@ -298,7 +298,7 @@ updateNotebookInstance_disassociateLifecycleConfig = Lens.lens (\UpdateNotebookI
 -- | An array of up to three Git repositories to associate with the notebook
 -- instance. These can be either the names of Git repositories stored as
 -- resources in your account, or the URL of Git repositories in
--- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit>
+-- <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html Amazon Web Services CodeCommit>
 -- or in any other Git repository. These repositories are cloned at the
 -- same level as the default repository of your notebook instance. For more
 -- information, see
@@ -377,16 +377,16 @@ instance Core.ToJSON UpdateNotebookInstance where
   toJSON UpdateNotebookInstance' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AcceleratorTypes" Core..=)
-              Prelude.<$> acceleratorTypes,
-            ("DefaultCodeRepository" Core..=)
+          [ ("DefaultCodeRepository" Core..=)
               Prelude.<$> defaultCodeRepository,
+            ("AcceleratorTypes" Core..=)
+              Prelude.<$> acceleratorTypes,
             ("RoleArn" Core..=) Prelude.<$> roleArn,
             ("InstanceType" Core..=) Prelude.<$> instanceType,
-            ("DisassociateDefaultCodeRepository" Core..=)
-              Prelude.<$> disassociateDefaultCodeRepository,
             ("DisassociateAcceleratorTypes" Core..=)
               Prelude.<$> disassociateAcceleratorTypes,
+            ("DisassociateDefaultCodeRepository" Core..=)
+              Prelude.<$> disassociateDefaultCodeRepository,
             ("DisassociateLifecycleConfig" Core..=)
               Prelude.<$> disassociateLifecycleConfig,
             ("AdditionalCodeRepositories" Core..=)

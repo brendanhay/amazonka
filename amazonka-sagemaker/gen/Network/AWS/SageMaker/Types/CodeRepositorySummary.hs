@@ -29,8 +29,8 @@ import Network.AWS.SageMaker.Types.GitConfig
 -- /See:/ 'newCodeRepositorySummary' smart constructor.
 data CodeRepositorySummary = CodeRepositorySummary'
   { -- | Configuration details for the Git repository, including the URL where it
-    -- is located and the ARN of the AWS Secrets Manager secret that contains
-    -- the credentials used to access the repository.
+    -- is located and the ARN of the Amazon Web Services Secrets Manager secret
+    -- that contains the credentials used to access the repository.
     gitConfig :: Prelude.Maybe GitConfig,
     -- | The name of the Git repository.
     codeRepositoryName :: Prelude.Text,
@@ -52,8 +52,8 @@ data CodeRepositorySummary = CodeRepositorySummary'
 -- for backwards compatibility:
 --
 -- 'gitConfig', 'codeRepositorySummary_gitConfig' - Configuration details for the Git repository, including the URL where it
--- is located and the ARN of the AWS Secrets Manager secret that contains
--- the credentials used to access the repository.
+-- is located and the ARN of the Amazon Web Services Secrets Manager secret
+-- that contains the credentials used to access the repository.
 --
 -- 'codeRepositoryName', 'codeRepositorySummary_codeRepositoryName' - The name of the Git repository.
 --
@@ -87,8 +87,8 @@ newCodeRepositorySummary
       }
 
 -- | Configuration details for the Git repository, including the URL where it
--- is located and the ARN of the AWS Secrets Manager secret that contains
--- the credentials used to access the repository.
+-- is located and the ARN of the Amazon Web Services Secrets Manager secret
+-- that contains the credentials used to access the repository.
 codeRepositorySummary_gitConfig :: Lens.Lens' CodeRepositorySummary (Prelude.Maybe GitConfig)
 codeRepositorySummary_gitConfig = Lens.lens (\CodeRepositorySummary' {gitConfig} -> gitConfig) (\s@CodeRepositorySummary' {} a -> s {gitConfig = a} :: CodeRepositorySummary)
 

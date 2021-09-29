@@ -28,9 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newProductionVariantCoreDumpConfig' smart constructor.
 data ProductionVariantCoreDumpConfig = ProductionVariantCoreDumpConfig'
-  { -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
-    -- to encrypt the core dump data at rest using Amazon S3 server-side
-    -- encryption. The @KmsKeyId@ can be any of the following formats:
+  { -- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+    -- key that Amazon SageMaker uses to encrypt the core dump data at rest
+    -- using Amazon S3 server-side encryption. The @KmsKeyId@ can be any of the
+    -- following formats:
     --
     -- -   \/\/ KMS Key ID
     --
@@ -48,7 +49,7 @@ data ProductionVariantCoreDumpConfig = ProductionVariantCoreDumpConfig'
     --
     --     @\"arn:aws:kms:us-west-2:111122223333:alias\/ExampleAlias\"@
     --
-    -- If you use a KMS key ID or an alias of your master key, the Amazon
+    -- If you use a KMS key ID or an alias of your KMS key, the Amazon
     -- SageMaker execution role must include permissions to call @kms:Encrypt@.
     -- If you don\'t provide a KMS key ID, Amazon SageMaker uses the default
     -- KMS key for Amazon S3 for your role\'s account. Amazon SageMaker uses
@@ -63,8 +64,8 @@ data ProductionVariantCoreDumpConfig = ProductionVariantCoreDumpConfig'
     -- The KMS key policy must grant permission to the IAM role that you
     -- specify in your @CreateEndpoint@ and @UpdateEndpoint@ requests. For more
     -- information, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in AWS KMS>
-    -- in the /AWS Key Management Service Developer Guide/.
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in Amazon Web Services KMS>
+    -- in the /Amazon Web Services Key Management Service Developer Guide/.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon S3 bucket to send the core dump to.
     destinationS3Uri :: Prelude.Text
@@ -79,9 +80,10 @@ data ProductionVariantCoreDumpConfig = ProductionVariantCoreDumpConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyId', 'productionVariantCoreDumpConfig_kmsKeyId' - The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
--- to encrypt the core dump data at rest using Amazon S3 server-side
--- encryption. The @KmsKeyId@ can be any of the following formats:
+-- 'kmsKeyId', 'productionVariantCoreDumpConfig_kmsKeyId' - The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+-- key that Amazon SageMaker uses to encrypt the core dump data at rest
+-- using Amazon S3 server-side encryption. The @KmsKeyId@ can be any of the
+-- following formats:
 --
 -- -   \/\/ KMS Key ID
 --
@@ -99,7 +101,7 @@ data ProductionVariantCoreDumpConfig = ProductionVariantCoreDumpConfig'
 --
 --     @\"arn:aws:kms:us-west-2:111122223333:alias\/ExampleAlias\"@
 --
--- If you use a KMS key ID or an alias of your master key, the Amazon
+-- If you use a KMS key ID or an alias of your KMS key, the Amazon
 -- SageMaker execution role must include permissions to call @kms:Encrypt@.
 -- If you don\'t provide a KMS key ID, Amazon SageMaker uses the default
 -- KMS key for Amazon S3 for your role\'s account. Amazon SageMaker uses
@@ -114,8 +116,8 @@ data ProductionVariantCoreDumpConfig = ProductionVariantCoreDumpConfig'
 -- The KMS key policy must grant permission to the IAM role that you
 -- specify in your @CreateEndpoint@ and @UpdateEndpoint@ requests. For more
 -- information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in AWS KMS>
--- in the /AWS Key Management Service Developer Guide/.
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in Amazon Web Services KMS>
+-- in the /Amazon Web Services Key Management Service Developer Guide/.
 --
 -- 'destinationS3Uri', 'productionVariantCoreDumpConfig_destinationS3Uri' - The Amazon S3 bucket to send the core dump to.
 newProductionVariantCoreDumpConfig ::
@@ -129,9 +131,10 @@ newProductionVariantCoreDumpConfig pDestinationS3Uri_ =
       destinationS3Uri = pDestinationS3Uri_
     }
 
--- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
--- to encrypt the core dump data at rest using Amazon S3 server-side
--- encryption. The @KmsKeyId@ can be any of the following formats:
+-- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+-- key that Amazon SageMaker uses to encrypt the core dump data at rest
+-- using Amazon S3 server-side encryption. The @KmsKeyId@ can be any of the
+-- following formats:
 --
 -- -   \/\/ KMS Key ID
 --
@@ -149,7 +152,7 @@ newProductionVariantCoreDumpConfig pDestinationS3Uri_ =
 --
 --     @\"arn:aws:kms:us-west-2:111122223333:alias\/ExampleAlias\"@
 --
--- If you use a KMS key ID or an alias of your master key, the Amazon
+-- If you use a KMS key ID or an alias of your KMS key, the Amazon
 -- SageMaker execution role must include permissions to call @kms:Encrypt@.
 -- If you don\'t provide a KMS key ID, Amazon SageMaker uses the default
 -- KMS key for Amazon S3 for your role\'s account. Amazon SageMaker uses
@@ -164,8 +167,8 @@ newProductionVariantCoreDumpConfig pDestinationS3Uri_ =
 -- The KMS key policy must grant permission to the IAM role that you
 -- specify in your @CreateEndpoint@ and @UpdateEndpoint@ requests. For more
 -- information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in AWS KMS>
--- in the /AWS Key Management Service Developer Guide/.
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in Amazon Web Services KMS>
+-- in the /Amazon Web Services Key Management Service Developer Guide/.
 productionVariantCoreDumpConfig_kmsKeyId :: Lens.Lens' ProductionVariantCoreDumpConfig (Prelude.Maybe Prelude.Text)
 productionVariantCoreDumpConfig_kmsKeyId = Lens.lens (\ProductionVariantCoreDumpConfig' {kmsKeyId} -> kmsKeyId) (\s@ProductionVariantCoreDumpConfig' {} a -> s {kmsKeyId = a} :: ProductionVariantCoreDumpConfig)
 

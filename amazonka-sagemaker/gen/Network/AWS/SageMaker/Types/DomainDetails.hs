@@ -28,14 +28,14 @@ import Network.AWS.SageMaker.Types.DomainStatus
 --
 -- /See:/ 'newDomainDetails' smart constructor.
 data DomainDetails = DomainDetails'
-  { -- | The status.
-    status :: Prelude.Maybe DomainStatus,
-    -- | The creation time.
+  { -- | The creation time.
     creationTime :: Prelude.Maybe Core.POSIX,
-    -- | The domain ID.
-    domainId :: Prelude.Maybe Prelude.Text,
+    -- | The status.
+    status :: Prelude.Maybe DomainStatus,
     -- | The domain\'s Amazon Resource Name (ARN).
     domainArn :: Prelude.Maybe Prelude.Text,
+    -- | The domain ID.
+    domainId :: Prelude.Maybe Prelude.Text,
     -- | The domain name.
     domainName :: Prelude.Maybe Prelude.Text,
     -- | The last modified time.
@@ -53,13 +53,13 @@ data DomainDetails = DomainDetails'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'domainDetails_status' - The status.
---
 -- 'creationTime', 'domainDetails_creationTime' - The creation time.
 --
--- 'domainId', 'domainDetails_domainId' - The domain ID.
+-- 'status', 'domainDetails_status' - The status.
 --
 -- 'domainArn', 'domainDetails_domainArn' - The domain\'s Amazon Resource Name (ARN).
+--
+-- 'domainId', 'domainDetails_domainId' - The domain ID.
 --
 -- 'domainName', 'domainDetails_domainName' - The domain name.
 --
@@ -70,30 +70,30 @@ newDomainDetails ::
   DomainDetails
 newDomainDetails =
   DomainDetails'
-    { status = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
-      domainId = Prelude.Nothing,
+    { creationTime = Prelude.Nothing,
+      status = Prelude.Nothing,
       domainArn = Prelude.Nothing,
+      domainId = Prelude.Nothing,
       domainName = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
       url = Prelude.Nothing
     }
 
--- | The status.
-domainDetails_status :: Lens.Lens' DomainDetails (Prelude.Maybe DomainStatus)
-domainDetails_status = Lens.lens (\DomainDetails' {status} -> status) (\s@DomainDetails' {} a -> s {status = a} :: DomainDetails)
-
 -- | The creation time.
 domainDetails_creationTime :: Lens.Lens' DomainDetails (Prelude.Maybe Prelude.UTCTime)
 domainDetails_creationTime = Lens.lens (\DomainDetails' {creationTime} -> creationTime) (\s@DomainDetails' {} a -> s {creationTime = a} :: DomainDetails) Prelude.. Lens.mapping Core._Time
 
--- | The domain ID.
-domainDetails_domainId :: Lens.Lens' DomainDetails (Prelude.Maybe Prelude.Text)
-domainDetails_domainId = Lens.lens (\DomainDetails' {domainId} -> domainId) (\s@DomainDetails' {} a -> s {domainId = a} :: DomainDetails)
+-- | The status.
+domainDetails_status :: Lens.Lens' DomainDetails (Prelude.Maybe DomainStatus)
+domainDetails_status = Lens.lens (\DomainDetails' {status} -> status) (\s@DomainDetails' {} a -> s {status = a} :: DomainDetails)
 
 -- | The domain\'s Amazon Resource Name (ARN).
 domainDetails_domainArn :: Lens.Lens' DomainDetails (Prelude.Maybe Prelude.Text)
 domainDetails_domainArn = Lens.lens (\DomainDetails' {domainArn} -> domainArn) (\s@DomainDetails' {} a -> s {domainArn = a} :: DomainDetails)
+
+-- | The domain ID.
+domainDetails_domainId :: Lens.Lens' DomainDetails (Prelude.Maybe Prelude.Text)
+domainDetails_domainId = Lens.lens (\DomainDetails' {domainId} -> domainId) (\s@DomainDetails' {} a -> s {domainId = a} :: DomainDetails)
 
 -- | The domain name.
 domainDetails_domainName :: Lens.Lens' DomainDetails (Prelude.Maybe Prelude.Text)
@@ -113,10 +113,10 @@ instance Core.FromJSON DomainDetails where
       "DomainDetails"
       ( \x ->
           DomainDetails'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "CreationTime")
-            Prelude.<*> (x Core..:? "DomainId")
+            Prelude.<$> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "DomainArn")
+            Prelude.<*> (x Core..:? "DomainId")
             Prelude.<*> (x Core..:? "DomainName")
             Prelude.<*> (x Core..:? "LastModifiedTime")
             Prelude.<*> (x Core..:? "Url")

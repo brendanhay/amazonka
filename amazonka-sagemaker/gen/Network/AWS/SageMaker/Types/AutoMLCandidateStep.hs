@@ -24,16 +24,16 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.CandidateStepType
 
--- | Information about the steps for a Candidate, and what step it is working
+-- | Information about the steps for a candidate and what step it is working
 -- on.
 --
 -- /See:/ 'newAutoMLCandidateStep' smart constructor.
 data AutoMLCandidateStep = AutoMLCandidateStep'
-  { -- | Whether the Candidate is at the transform, training, or processing step.
+  { -- | Whether the candidate is at the transform, training, or processing step.
     candidateStepType :: CandidateStepType,
-    -- | The ARN for the Candidate\'s step.
+    -- | The ARN for the candidate\'s step.
     candidateStepArn :: Prelude.Text,
-    -- | The name for the Candidate\'s step.
+    -- | The name for the candidate\'s step.
     candidateStepName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,11 +46,11 @@ data AutoMLCandidateStep = AutoMLCandidateStep'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'candidateStepType', 'autoMLCandidateStep_candidateStepType' - Whether the Candidate is at the transform, training, or processing step.
+-- 'candidateStepType', 'autoMLCandidateStep_candidateStepType' - Whether the candidate is at the transform, training, or processing step.
 --
--- 'candidateStepArn', 'autoMLCandidateStep_candidateStepArn' - The ARN for the Candidate\'s step.
+-- 'candidateStepArn', 'autoMLCandidateStep_candidateStepArn' - The ARN for the candidate\'s step.
 --
--- 'candidateStepName', 'autoMLCandidateStep_candidateStepName' - The name for the Candidate\'s step.
+-- 'candidateStepName', 'autoMLCandidateStep_candidateStepName' - The name for the candidate\'s step.
 newAutoMLCandidateStep ::
   -- | 'candidateStepType'
   CandidateStepType ->
@@ -70,15 +70,15 @@ newAutoMLCandidateStep
         candidateStepName = pCandidateStepName_
       }
 
--- | Whether the Candidate is at the transform, training, or processing step.
+-- | Whether the candidate is at the transform, training, or processing step.
 autoMLCandidateStep_candidateStepType :: Lens.Lens' AutoMLCandidateStep CandidateStepType
 autoMLCandidateStep_candidateStepType = Lens.lens (\AutoMLCandidateStep' {candidateStepType} -> candidateStepType) (\s@AutoMLCandidateStep' {} a -> s {candidateStepType = a} :: AutoMLCandidateStep)
 
--- | The ARN for the Candidate\'s step.
+-- | The ARN for the candidate\'s step.
 autoMLCandidateStep_candidateStepArn :: Lens.Lens' AutoMLCandidateStep Prelude.Text
 autoMLCandidateStep_candidateStepArn = Lens.lens (\AutoMLCandidateStep' {candidateStepArn} -> candidateStepArn) (\s@AutoMLCandidateStep' {} a -> s {candidateStepArn = a} :: AutoMLCandidateStep)
 
--- | The name for the Candidate\'s step.
+-- | The name for the candidate\'s step.
 autoMLCandidateStep_candidateStepName :: Lens.Lens' AutoMLCandidateStep Prelude.Text
 autoMLCandidateStep_candidateStepName = Lens.lens (\AutoMLCandidateStep' {candidateStepName} -> candidateStepName) (\s@AutoMLCandidateStep' {} a -> s {candidateStepName = a} :: AutoMLCandidateStep)
 

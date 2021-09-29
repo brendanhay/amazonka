@@ -42,7 +42,8 @@ data HumanTaskConfig = HumanTaskConfig'
     --
     -- -   If you choose a private or vendor workforce, the default value is 10
     --     days (864,000 seconds). For most users, the maximum is also 10 days.
-    --     If you want to change this limit, contact AWS Support.
+    --     If you want to change this limit, contact Amazon Web Services
+    --     Support.
     taskAvailabilityLifetimeInSeconds :: Prelude.Maybe Prelude.Natural,
     -- | Defines the maximum number of data objects that can be labeled by human
     -- workers at the same time. Also referred to as batch size. Each object
@@ -731,7 +732,7 @@ data HumanTaskConfig = HumanTaskConfig'
     --     and
     --     <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-video.html video frame>
     --     labeling jobs, the maximum is 7 days (604,800 seconds). If you want
-    --     to change these limits, contact AWS Support.
+    --     to change these limits, contact Amazon Web Services Support.
     taskTimeLimitInSeconds :: Prelude.Natural,
     -- | Configures how labels are consolidated across human workers.
     annotationConsolidationConfig :: AnnotationConsolidationConfig
@@ -758,7 +759,8 @@ data HumanTaskConfig = HumanTaskConfig'
 --
 -- -   If you choose a private or vendor workforce, the default value is 10
 --     days (864,000 seconds). For most users, the maximum is also 10 days.
---     If you want to change this limit, contact AWS Support.
+--     If you want to change this limit, contact Amazon Web Services
+--     Support.
 --
 -- 'maxConcurrentTaskCount', 'humanTaskConfig_maxConcurrentTaskCount' - Defines the maximum number of data objects that can be labeled by human
 -- workers at the same time. Also referred to as batch size. Each object
@@ -1447,7 +1449,7 @@ data HumanTaskConfig = HumanTaskConfig'
 --     and
 --     <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-video.html video frame>
 --     labeling jobs, the maximum is 7 days (604,800 seconds). If you want
---     to change these limits, contact AWS Support.
+--     to change these limits, contact Amazon Web Services Support.
 --
 -- 'annotationConsolidationConfig', 'humanTaskConfig_annotationConsolidationConfig' - Configures how labels are consolidated across human workers.
 newHumanTaskConfig ::
@@ -1508,7 +1510,8 @@ humanTaskConfig_taskKeywords = Lens.lens (\HumanTaskConfig' {taskKeywords} -> ta
 --
 -- -   If you choose a private or vendor workforce, the default value is 10
 --     days (864,000 seconds). For most users, the maximum is also 10 days.
---     If you want to change this limit, contact AWS Support.
+--     If you want to change this limit, contact Amazon Web Services
+--     Support.
 humanTaskConfig_taskAvailabilityLifetimeInSeconds :: Lens.Lens' HumanTaskConfig (Prelude.Maybe Prelude.Natural)
 humanTaskConfig_taskAvailabilityLifetimeInSeconds = Lens.lens (\HumanTaskConfig' {taskAvailabilityLifetimeInSeconds} -> taskAvailabilityLifetimeInSeconds) (\s@HumanTaskConfig' {} a -> s {taskAvailabilityLifetimeInSeconds = a} :: HumanTaskConfig)
 
@@ -2215,7 +2218,7 @@ humanTaskConfig_numberOfHumanWorkersPerDataObject = Lens.lens (\HumanTaskConfig'
 --     and
 --     <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-video.html video frame>
 --     labeling jobs, the maximum is 7 days (604,800 seconds). If you want
---     to change these limits, contact AWS Support.
+--     to change these limits, contact Amazon Web Services Support.
 humanTaskConfig_taskTimeLimitInSeconds :: Lens.Lens' HumanTaskConfig Prelude.Natural
 humanTaskConfig_taskTimeLimitInSeconds = Lens.lens (\HumanTaskConfig' {taskTimeLimitInSeconds} -> taskTimeLimitInSeconds) (\s@HumanTaskConfig' {} a -> s {taskTimeLimitInSeconds = a} :: HumanTaskConfig)
 

@@ -40,7 +40,9 @@ import Network.AWS.SageMaker.Types.LabelingJobSnsDataSource
 --
 -- /See:/ 'newLabelingJobDataSource' smart constructor.
 data LabelingJobDataSource = LabelingJobDataSource'
-  { -- | An Amazon SNS data source used for streaming labeling jobs.
+  { -- | An Amazon SNS data source used for streaming labeling jobs. To learn
+    -- more, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-streaming-labeling-job.html#sms-streaming-how-it-works-send-data Send Data to a Streaming Labeling Job>.
     snsDataSource :: Prelude.Maybe LabelingJobSnsDataSource,
     -- | The Amazon S3 location of the input data objects.
     s3DataSource :: Prelude.Maybe LabelingJobS3DataSource
@@ -55,7 +57,9 @@ data LabelingJobDataSource = LabelingJobDataSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'snsDataSource', 'labelingJobDataSource_snsDataSource' - An Amazon SNS data source used for streaming labeling jobs.
+-- 'snsDataSource', 'labelingJobDataSource_snsDataSource' - An Amazon SNS data source used for streaming labeling jobs. To learn
+-- more, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-streaming-labeling-job.html#sms-streaming-how-it-works-send-data Send Data to a Streaming Labeling Job>.
 --
 -- 's3DataSource', 'labelingJobDataSource_s3DataSource' - The Amazon S3 location of the input data objects.
 newLabelingJobDataSource ::
@@ -67,7 +71,9 @@ newLabelingJobDataSource =
       s3DataSource = Prelude.Nothing
     }
 
--- | An Amazon SNS data source used for streaming labeling jobs.
+-- | An Amazon SNS data source used for streaming labeling jobs. To learn
+-- more, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/sms-streaming-labeling-job.html#sms-streaming-how-it-works-send-data Send Data to a Streaming Labeling Job>.
 labelingJobDataSource_snsDataSource :: Lens.Lens' LabelingJobDataSource (Prelude.Maybe LabelingJobSnsDataSource)
 labelingJobDataSource_snsDataSource = Lens.lens (\LabelingJobDataSource' {snsDataSource} -> snsDataSource) (\s@LabelingJobDataSource' {} a -> s {snsDataSource = a} :: LabelingJobDataSource)
 

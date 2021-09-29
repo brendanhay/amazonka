@@ -25,7 +25,7 @@ import qualified Network.AWS.Prelude as Prelude
 
 -- | A key value pair used when you provision a project as a service catalog
 -- product. For information, see
--- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html What is AWS Service Catalog>.
+-- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html What is Amazon Web Services Service Catalog>.
 --
 -- /See:/ 'newProvisioningParameter' smart constructor.
 data ProvisioningParameter = ProvisioningParameter'

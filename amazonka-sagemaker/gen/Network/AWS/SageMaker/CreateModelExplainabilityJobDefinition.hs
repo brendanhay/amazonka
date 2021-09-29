@@ -63,11 +63,12 @@ data CreateModelExplainabilityJobDefinition = CreateModelExplainabilityJobDefini
     modelExplainabilityBaselineConfig :: Prelude.Maybe ModelExplainabilityBaselineConfig,
     -- | (Optional) An array of key-value pairs. For more information, see
     -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
-    -- in the /AWS Billing and Cost Management User Guide/.
+    -- in the /Amazon Web Services Billing and Cost Management User Guide/.
     tags :: Prelude.Maybe [Tag],
     stoppingCondition :: Prelude.Maybe MonitoringStoppingCondition,
     -- | The name of the model explainability job definition. The name must be
-    -- unique within an AWS Region in the AWS account.
+    -- unique within an Amazon Web Services Region in the Amazon Web Services
+    -- account.
     jobDefinitionName :: Prelude.Text,
     -- | Configures the model explainability job to run a specified Docker
     -- container image.
@@ -96,12 +97,13 @@ data CreateModelExplainabilityJobDefinition = CreateModelExplainabilityJobDefini
 --
 -- 'tags', 'createModelExplainabilityJobDefinition_tags' - (Optional) An array of key-value pairs. For more information, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
--- in the /AWS Billing and Cost Management User Guide/.
+-- in the /Amazon Web Services Billing and Cost Management User Guide/.
 --
 -- 'stoppingCondition', 'createModelExplainabilityJobDefinition_stoppingCondition' - Undocumented member.
 --
 -- 'jobDefinitionName', 'createModelExplainabilityJobDefinition_jobDefinitionName' - The name of the model explainability job definition. The name must be
--- unique within an AWS Region in the AWS account.
+-- unique within an Amazon Web Services Region in the Amazon Web Services
+-- account.
 --
 -- 'modelExplainabilityAppSpecification', 'createModelExplainabilityJobDefinition_modelExplainabilityAppSpecification' - Configures the model explainability job to run a specified Docker
 -- container image.
@@ -164,7 +166,7 @@ createModelExplainabilityJobDefinition_modelExplainabilityBaselineConfig = Lens.
 
 -- | (Optional) An array of key-value pairs. For more information, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
--- in the /AWS Billing and Cost Management User Guide/.
+-- in the /Amazon Web Services Billing and Cost Management User Guide/.
 createModelExplainabilityJobDefinition_tags :: Lens.Lens' CreateModelExplainabilityJobDefinition (Prelude.Maybe [Tag])
 createModelExplainabilityJobDefinition_tags = Lens.lens (\CreateModelExplainabilityJobDefinition' {tags} -> tags) (\s@CreateModelExplainabilityJobDefinition' {} a -> s {tags = a} :: CreateModelExplainabilityJobDefinition) Prelude.. Lens.mapping Lens._Coerce
 
@@ -173,7 +175,8 @@ createModelExplainabilityJobDefinition_stoppingCondition :: Lens.Lens' CreateMod
 createModelExplainabilityJobDefinition_stoppingCondition = Lens.lens (\CreateModelExplainabilityJobDefinition' {stoppingCondition} -> stoppingCondition) (\s@CreateModelExplainabilityJobDefinition' {} a -> s {stoppingCondition = a} :: CreateModelExplainabilityJobDefinition)
 
 -- | The name of the model explainability job definition. The name must be
--- unique within an AWS Region in the AWS account.
+-- unique within an Amazon Web Services Region in the Amazon Web Services
+-- account.
 createModelExplainabilityJobDefinition_jobDefinitionName :: Lens.Lens' CreateModelExplainabilityJobDefinition Prelude.Text
 createModelExplainabilityJobDefinition_jobDefinitionName = Lens.lens (\CreateModelExplainabilityJobDefinition' {jobDefinitionName} -> jobDefinitionName) (\s@CreateModelExplainabilityJobDefinition' {} a -> s {jobDefinitionName = a} :: CreateModelExplainabilityJobDefinition)
 

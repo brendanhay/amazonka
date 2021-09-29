@@ -24,7 +24,7 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies a metric that the training algorithm writes to @stderr@ or
--- @stdout@ . Amazon SageMakerhyperparameter tuning captures all defined
+-- @stdout@. Amazon SageMakerhyperparameter tuning captures all defined
 -- metrics. You specify one metric that a hyperparameter tuning job uses as
 -- its objective metric to choose the best training job.
 --

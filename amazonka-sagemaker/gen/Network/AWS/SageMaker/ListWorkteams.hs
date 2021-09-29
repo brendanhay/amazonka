@@ -31,8 +31,8 @@ module Network.AWS.SageMaker.ListWorkteams
     newListWorkteams,
 
     -- * Request Lenses
-    listWorkteams_sortOrder,
     listWorkteams_nextToken,
+    listWorkteams_sortOrder,
     listWorkteams_nameContains,
     listWorkteams_maxResults,
     listWorkteams_sortBy,
@@ -57,12 +57,12 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListWorkteams' smart constructor.
 data ListWorkteams = ListWorkteams'
-  { -- | The sort order for results. The default is @Ascending@.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | If the result of the previous @ListWorkteams@ request was truncated, the
+  { -- | If the result of the previous @ListWorkteams@ request was truncated, the
     -- response includes a @NextToken@. To retrieve the next set of labeling
     -- jobs, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order for results. The default is @Ascending@.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | A string in the work team\'s name. This filter returns only work teams
     -- whose name contains the specified string.
     nameContains :: Prelude.Maybe Prelude.Text,
@@ -81,11 +81,11 @@ data ListWorkteams = ListWorkteams'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listWorkteams_sortOrder' - The sort order for results. The default is @Ascending@.
---
 -- 'nextToken', 'listWorkteams_nextToken' - If the result of the previous @ListWorkteams@ request was truncated, the
 -- response includes a @NextToken@. To retrieve the next set of labeling
 -- jobs, use the token in the next request.
+--
+-- 'sortOrder', 'listWorkteams_sortOrder' - The sort order for results. The default is @Ascending@.
 --
 -- 'nameContains', 'listWorkteams_nameContains' - A string in the work team\'s name. This filter returns only work teams
 -- whose name contains the specified string.
@@ -97,22 +97,22 @@ newListWorkteams ::
   ListWorkteams
 newListWorkteams =
   ListWorkteams'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       nameContains = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       sortBy = Prelude.Nothing
     }
-
--- | The sort order for results. The default is @Ascending@.
-listWorkteams_sortOrder :: Lens.Lens' ListWorkteams (Prelude.Maybe SortOrder)
-listWorkteams_sortOrder = Lens.lens (\ListWorkteams' {sortOrder} -> sortOrder) (\s@ListWorkteams' {} a -> s {sortOrder = a} :: ListWorkteams)
 
 -- | If the result of the previous @ListWorkteams@ request was truncated, the
 -- response includes a @NextToken@. To retrieve the next set of labeling
 -- jobs, use the token in the next request.
 listWorkteams_nextToken :: Lens.Lens' ListWorkteams (Prelude.Maybe Prelude.Text)
 listWorkteams_nextToken = Lens.lens (\ListWorkteams' {nextToken} -> nextToken) (\s@ListWorkteams' {} a -> s {nextToken = a} :: ListWorkteams)
+
+-- | The sort order for results. The default is @Ascending@.
+listWorkteams_sortOrder :: Lens.Lens' ListWorkteams (Prelude.Maybe SortOrder)
+listWorkteams_sortOrder = Lens.lens (\ListWorkteams' {sortOrder} -> sortOrder) (\s@ListWorkteams' {} a -> s {sortOrder = a} :: ListWorkteams)
 
 -- | A string in the work team\'s name. This filter returns only work teams
 -- whose name contains the specified string.
@@ -179,8 +179,8 @@ instance Core.ToJSON ListWorkteams where
   toJSON ListWorkteams' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NameContains" Core..=) Prelude.<$> nameContains,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("SortBy" Core..=) Prelude.<$> sortBy

@@ -25,7 +25,8 @@ import qualified Network.AWS.Prelude as Prelude
 
 -- | Specifies an algorithm that was used to create the model package. The
 -- algorithm must be either an algorithm resource in your Amazon SageMaker
--- account or an algorithm in AWS Marketplace that you are subscribed to.
+-- account or an algorithm in Amazon Web Services Marketplace that you are
+-- subscribed to.
 --
 -- /See:/ 'newSourceAlgorithm' smart constructor.
 data SourceAlgorithm = SourceAlgorithm'
@@ -38,7 +39,8 @@ data SourceAlgorithm = SourceAlgorithm'
     modelDataUrl :: Prelude.Maybe Prelude.Text,
     -- | The name of an algorithm that was used to create the model package. The
     -- algorithm must be either an algorithm resource in your Amazon SageMaker
-    -- account or an algorithm in AWS Marketplace that you are subscribed to.
+    -- account or an algorithm in Amazon Web Services Marketplace that you are
+    -- subscribed to.
     algorithmName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,7 +62,8 @@ data SourceAlgorithm = SourceAlgorithm'
 --
 -- 'algorithmName', 'sourceAlgorithm_algorithmName' - The name of an algorithm that was used to create the model package. The
 -- algorithm must be either an algorithm resource in your Amazon SageMaker
--- account or an algorithm in AWS Marketplace that you are subscribed to.
+-- account or an algorithm in Amazon Web Services Marketplace that you are
+-- subscribed to.
 newSourceAlgorithm ::
   -- | 'algorithmName'
   Prelude.Text ->
@@ -82,7 +85,8 @@ sourceAlgorithm_modelDataUrl = Lens.lens (\SourceAlgorithm' {modelDataUrl} -> mo
 
 -- | The name of an algorithm that was used to create the model package. The
 -- algorithm must be either an algorithm resource in your Amazon SageMaker
--- account or an algorithm in AWS Marketplace that you are subscribed to.
+-- account or an algorithm in Amazon Web Services Marketplace that you are
+-- subscribed to.
 sourceAlgorithm_algorithmName :: Lens.Lens' SourceAlgorithm Prelude.Text
 sourceAlgorithm_algorithmName = Lens.lens (\SourceAlgorithm' {algorithmName} -> algorithmName) (\s@SourceAlgorithm' {} a -> s {algorithmName = a} :: SourceAlgorithm)
 

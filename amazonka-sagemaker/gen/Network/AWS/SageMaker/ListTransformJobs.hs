@@ -30,8 +30,8 @@ module Network.AWS.SageMaker.ListTransformJobs
 
     -- * Request Lenses
     listTransformJobs_lastModifiedTimeBefore,
-    listTransformJobs_sortOrder,
     listTransformJobs_nextToken,
+    listTransformJobs_sortOrder,
     listTransformJobs_nameContains,
     listTransformJobs_maxResults,
     listTransformJobs_creationTimeBefore,
@@ -63,12 +63,12 @@ data ListTransformJobs = ListTransformJobs'
   { -- | A filter that returns only transform jobs modified before the specified
     -- time.
     lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
-    -- | The sort order for results. The default is @Descending@.
-    sortOrder :: Prelude.Maybe SortOrder,
     -- | If the result of the previous @ListTransformJobs@ request was truncated,
     -- the response includes a @NextToken@. To retrieve the next set of
     -- transform jobs, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order for results. The default is @Descending@.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | A string in the transform job name. This filter returns only transform
     -- jobs whose name contains the specified string.
     nameContains :: Prelude.Maybe Prelude.Text,
@@ -102,11 +102,11 @@ data ListTransformJobs = ListTransformJobs'
 -- 'lastModifiedTimeBefore', 'listTransformJobs_lastModifiedTimeBefore' - A filter that returns only transform jobs modified before the specified
 -- time.
 --
--- 'sortOrder', 'listTransformJobs_sortOrder' - The sort order for results. The default is @Descending@.
---
 -- 'nextToken', 'listTransformJobs_nextToken' - If the result of the previous @ListTransformJobs@ request was truncated,
 -- the response includes a @NextToken@. To retrieve the next set of
 -- transform jobs, use the token in the next request.
+--
+-- 'sortOrder', 'listTransformJobs_sortOrder' - The sort order for results. The default is @Descending@.
 --
 -- 'nameContains', 'listTransformJobs_nameContains' - A string in the transform job name. This filter returns only transform
 -- jobs whose name contains the specified string.
@@ -132,8 +132,8 @@ newListTransformJobs =
   ListTransformJobs'
     { lastModifiedTimeBefore =
         Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       nameContains = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
@@ -148,15 +148,15 @@ newListTransformJobs =
 listTransformJobs_lastModifiedTimeBefore :: Lens.Lens' ListTransformJobs (Prelude.Maybe Prelude.UTCTime)
 listTransformJobs_lastModifiedTimeBefore = Lens.lens (\ListTransformJobs' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListTransformJobs' {} a -> s {lastModifiedTimeBefore = a} :: ListTransformJobs) Prelude.. Lens.mapping Core._Time
 
--- | The sort order for results. The default is @Descending@.
-listTransformJobs_sortOrder :: Lens.Lens' ListTransformJobs (Prelude.Maybe SortOrder)
-listTransformJobs_sortOrder = Lens.lens (\ListTransformJobs' {sortOrder} -> sortOrder) (\s@ListTransformJobs' {} a -> s {sortOrder = a} :: ListTransformJobs)
-
 -- | If the result of the previous @ListTransformJobs@ request was truncated,
 -- the response includes a @NextToken@. To retrieve the next set of
 -- transform jobs, use the token in the next request.
 listTransformJobs_nextToken :: Lens.Lens' ListTransformJobs (Prelude.Maybe Prelude.Text)
 listTransformJobs_nextToken = Lens.lens (\ListTransformJobs' {nextToken} -> nextToken) (\s@ListTransformJobs' {} a -> s {nextToken = a} :: ListTransformJobs)
+
+-- | The sort order for results. The default is @Descending@.
+listTransformJobs_sortOrder :: Lens.Lens' ListTransformJobs (Prelude.Maybe SortOrder)
+listTransformJobs_sortOrder = Lens.lens (\ListTransformJobs' {sortOrder} -> sortOrder) (\s@ListTransformJobs' {} a -> s {sortOrder = a} :: ListTransformJobs)
 
 -- | A string in the transform job name. This filter returns only transform
 -- jobs whose name contains the specified string.
@@ -253,8 +253,8 @@ instance Core.ToJSON ListTransformJobs where
       ( Prelude.catMaybes
           [ ("LastModifiedTimeBefore" Core..=)
               Prelude.<$> lastModifiedTimeBefore,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NameContains" Core..=) Prelude.<$> nameContains,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CreationTimeBefore" Core..=)

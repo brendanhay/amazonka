@@ -28,9 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newOutputDataConfig' smart constructor.
 data OutputDataConfig = OutputDataConfig'
-  { -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
-    -- to encrypt the model artifacts at rest using Amazon S3 server-side
-    -- encryption. The @KmsKeyId@ can be any of the following formats:
+  { -- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+    -- key that Amazon SageMaker uses to encrypt the model artifacts at rest
+    -- using Amazon S3 server-side encryption. The @KmsKeyId@ can be any of the
+    -- following formats:
     --
     -- -   \/\/ KMS Key ID
     --
@@ -48,7 +49,7 @@ data OutputDataConfig = OutputDataConfig'
     --
     --     @\"arn:aws:kms:us-west-2:111122223333:alias\/ExampleAlias\"@
     --
-    -- If you use a KMS key ID or an alias of your master key, the Amazon
+    -- If you use a KMS key ID or an alias of your KMS key, the Amazon
     -- SageMaker execution role must include permissions to call @kms:Encrypt@.
     -- If you don\'t provide a KMS key ID, Amazon SageMaker uses the default
     -- KMS key for Amazon S3 for your role\'s account. Amazon SageMaker uses
@@ -57,14 +58,14 @@ data OutputDataConfig = OutputDataConfig'
     -- allows objects with server-side encryption, set the condition key of
     -- @s3:x-amz-server-side-encryption@ to @\"aws:kms\"@. For more
     -- information, see
-    -- <https://docs.aws.amazon.com/mazonS3/latest/dev/UsingKMSEncryption.html KMS-Managed Encryption Keys>
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html KMS-Managed Encryption Keys>
     -- in the /Amazon Simple Storage Service Developer Guide./
     --
     -- The KMS key policy must grant permission to the IAM role that you
     -- specify in your @CreateTrainingJob@, @CreateTransformJob@, or
     -- @CreateHyperParameterTuningJob@ requests. For more information, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in AWS KMS>
-    -- in the /AWS Key Management Service Developer Guide/.
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in Amazon Web Services KMS>
+    -- in the /Amazon Web Services Key Management Service Developer Guide/.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | Identifies the S3 path where you want Amazon SageMaker to store the
     -- model artifacts. For example, @s3:\/\/bucket-name\/key-name-prefix@.
@@ -80,9 +81,10 @@ data OutputDataConfig = OutputDataConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyId', 'outputDataConfig_kmsKeyId' - The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
--- to encrypt the model artifacts at rest using Amazon S3 server-side
--- encryption. The @KmsKeyId@ can be any of the following formats:
+-- 'kmsKeyId', 'outputDataConfig_kmsKeyId' - The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+-- key that Amazon SageMaker uses to encrypt the model artifacts at rest
+-- using Amazon S3 server-side encryption. The @KmsKeyId@ can be any of the
+-- following formats:
 --
 -- -   \/\/ KMS Key ID
 --
@@ -100,7 +102,7 @@ data OutputDataConfig = OutputDataConfig'
 --
 --     @\"arn:aws:kms:us-west-2:111122223333:alias\/ExampleAlias\"@
 --
--- If you use a KMS key ID or an alias of your master key, the Amazon
+-- If you use a KMS key ID or an alias of your KMS key, the Amazon
 -- SageMaker execution role must include permissions to call @kms:Encrypt@.
 -- If you don\'t provide a KMS key ID, Amazon SageMaker uses the default
 -- KMS key for Amazon S3 for your role\'s account. Amazon SageMaker uses
@@ -109,14 +111,14 @@ data OutputDataConfig = OutputDataConfig'
 -- allows objects with server-side encryption, set the condition key of
 -- @s3:x-amz-server-side-encryption@ to @\"aws:kms\"@. For more
 -- information, see
--- <https://docs.aws.amazon.com/mazonS3/latest/dev/UsingKMSEncryption.html KMS-Managed Encryption Keys>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html KMS-Managed Encryption Keys>
 -- in the /Amazon Simple Storage Service Developer Guide./
 --
 -- The KMS key policy must grant permission to the IAM role that you
 -- specify in your @CreateTrainingJob@, @CreateTransformJob@, or
 -- @CreateHyperParameterTuningJob@ requests. For more information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in AWS KMS>
--- in the /AWS Key Management Service Developer Guide/.
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in Amazon Web Services KMS>
+-- in the /Amazon Web Services Key Management Service Developer Guide/.
 --
 -- 's3OutputPath', 'outputDataConfig_s3OutputPath' - Identifies the S3 path where you want Amazon SageMaker to store the
 -- model artifacts. For example, @s3:\/\/bucket-name\/key-name-prefix@.
@@ -130,9 +132,10 @@ newOutputDataConfig pS3OutputPath_ =
       s3OutputPath = pS3OutputPath_
     }
 
--- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
--- to encrypt the model artifacts at rest using Amazon S3 server-side
--- encryption. The @KmsKeyId@ can be any of the following formats:
+-- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+-- key that Amazon SageMaker uses to encrypt the model artifacts at rest
+-- using Amazon S3 server-side encryption. The @KmsKeyId@ can be any of the
+-- following formats:
 --
 -- -   \/\/ KMS Key ID
 --
@@ -150,7 +153,7 @@ newOutputDataConfig pS3OutputPath_ =
 --
 --     @\"arn:aws:kms:us-west-2:111122223333:alias\/ExampleAlias\"@
 --
--- If you use a KMS key ID or an alias of your master key, the Amazon
+-- If you use a KMS key ID or an alias of your KMS key, the Amazon
 -- SageMaker execution role must include permissions to call @kms:Encrypt@.
 -- If you don\'t provide a KMS key ID, Amazon SageMaker uses the default
 -- KMS key for Amazon S3 for your role\'s account. Amazon SageMaker uses
@@ -159,14 +162,14 @@ newOutputDataConfig pS3OutputPath_ =
 -- allows objects with server-side encryption, set the condition key of
 -- @s3:x-amz-server-side-encryption@ to @\"aws:kms\"@. For more
 -- information, see
--- <https://docs.aws.amazon.com/mazonS3/latest/dev/UsingKMSEncryption.html KMS-Managed Encryption Keys>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html KMS-Managed Encryption Keys>
 -- in the /Amazon Simple Storage Service Developer Guide./
 --
 -- The KMS key policy must grant permission to the IAM role that you
 -- specify in your @CreateTrainingJob@, @CreateTransformJob@, or
 -- @CreateHyperParameterTuningJob@ requests. For more information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in AWS KMS>
--- in the /AWS Key Management Service Developer Guide/.
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in Amazon Web Services KMS>
+-- in the /Amazon Web Services Key Management Service Developer Guide/.
 outputDataConfig_kmsKeyId :: Lens.Lens' OutputDataConfig (Prelude.Maybe Prelude.Text)
 outputDataConfig_kmsKeyId = Lens.lens (\OutputDataConfig' {kmsKeyId} -> kmsKeyId) (\s@OutputDataConfig' {} a -> s {kmsKeyId = a} :: OutputDataConfig)
 

@@ -30,10 +30,10 @@
 -- measuring the impact of a change to one or more inputs, while keeping
 -- the remaining inputs constant.
 --
--- When you use Amazon SageMaker Studio or the Amazon SageMaker Python SDK,
--- all experiments, trials, and trial components are automatically tracked,
--- logged, and indexed. When you use the AWS SDK for Python (Boto), you
--- must use the logging APIs provided by the SDK.
+-- When you use SageMaker Studio or the SageMaker Python SDK, all
+-- experiments, trials, and trial components are automatically tracked,
+-- logged, and indexed. When you use the Amazon Web Services SDK for Python
+-- (Boto), you must use the logging APIs provided by the SDK.
 --
 -- You can add tags to experiments, trials, trial components and then use
 -- the Search API to search for the tags.
@@ -85,8 +85,8 @@ data CreateExperiment = CreateExperiment'
     -- unique. If you don\'t specify @DisplayName@, the value in
     -- @ExperimentName@ is displayed.
     displayName :: Prelude.Maybe Prelude.Text,
-    -- | The name of the experiment. The name must be unique in your AWS account
-    -- and is not case-sensitive.
+    -- | The name of the experiment. The name must be unique in your Amazon Web
+    -- Services account and is not case-sensitive.
     experimentName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -108,8 +108,8 @@ data CreateExperiment = CreateExperiment'
 -- unique. If you don\'t specify @DisplayName@, the value in
 -- @ExperimentName@ is displayed.
 --
--- 'experimentName', 'createExperiment_experimentName' - The name of the experiment. The name must be unique in your AWS account
--- and is not case-sensitive.
+-- 'experimentName', 'createExperiment_experimentName' - The name of the experiment. The name must be unique in your Amazon Web
+-- Services account and is not case-sensitive.
 newCreateExperiment ::
   -- | 'experimentName'
   Prelude.Text ->
@@ -137,8 +137,8 @@ createExperiment_description = Lens.lens (\CreateExperiment' {description} -> de
 createExperiment_displayName :: Lens.Lens' CreateExperiment (Prelude.Maybe Prelude.Text)
 createExperiment_displayName = Lens.lens (\CreateExperiment' {displayName} -> displayName) (\s@CreateExperiment' {} a -> s {displayName = a} :: CreateExperiment)
 
--- | The name of the experiment. The name must be unique in your AWS account
--- and is not case-sensitive.
+-- | The name of the experiment. The name must be unique in your Amazon Web
+-- Services account and is not case-sensitive.
 createExperiment_experimentName :: Lens.Lens' CreateExperiment Prelude.Text
 createExperiment_experimentName = Lens.lens (\CreateExperiment' {experimentName} -> experimentName) (\s@CreateExperiment' {} a -> s {experimentName = a} :: CreateExperiment)
 

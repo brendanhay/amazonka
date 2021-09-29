@@ -39,9 +39,9 @@ import Network.AWS.SageMaker.Types.Tag
 data FeatureGroup = FeatureGroup'
   { -- | A @FeatureGroup@ status.
     featureGroupStatus :: Prelude.Maybe FeatureGroupStatus,
-    offlineStoreConfig :: Prelude.Maybe OfflineStoreConfig,
     -- | The time a @FeatureGroup@ was created.
     creationTime :: Prelude.Maybe Core.POSIX,
+    offlineStoreConfig :: Prelude.Maybe OfflineStoreConfig,
     -- | The Amazon Resource Name (ARN) of the IAM execution role used to create
     -- the feature group.
     roleArn :: Prelude.Maybe Prelude.Text,
@@ -50,6 +50,13 @@ data FeatureGroup = FeatureGroup'
     -- | The name of the @Feature@ whose value uniquely identifies a @Record@
     -- defined in the @FeatureGroup@ @FeatureDefinitions@.
     recordIdentifierFeatureName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the feature that stores the @EventTime@ of a Record in a
+    -- @FeatureGroup@.
+    --
+    -- A @EventTime@ is point in time when a new event occurs that corresponds
+    -- to the creation or update of a @Record@ in @FeatureGroup@. All @Records@
+    -- in the @FeatureGroup@ must have a corresponding @EventTime@.
+    eventTimeFeatureName :: Prelude.Maybe Prelude.Text,
     -- | A list of @Feature@s. Each @Feature@ must include a @FeatureName@ and a
     -- @FeatureType@.
     --
@@ -61,13 +68,6 @@ data FeatureGroup = FeatureGroup'
     -- You can create up to 2,500 @FeatureDefinition@s per @FeatureGroup@.
     featureDefinitions :: Prelude.Maybe (Prelude.NonEmpty FeatureDefinition),
     offlineStoreStatus :: Prelude.Maybe OfflineStoreStatus,
-    -- | The name of the feature that stores the @EventTime@ of a Record in a
-    -- @FeatureGroup@.
-    --
-    -- A @EventTime@ is point in time when a new event occurs that corresponds
-    -- to the creation or update of a @Record@ in @FeatureGroup@. All @Records@
-    -- in the @FeatureGroup@ must have a corresponding @EventTime@.
-    eventTimeFeatureName :: Prelude.Maybe Prelude.Text,
     -- | The name of the @FeatureGroup@.
     featureGroupName :: Prelude.Maybe Prelude.Text,
     -- | The reason that the @FeatureGroup@ failed to be replicated in the
@@ -92,9 +92,9 @@ data FeatureGroup = FeatureGroup'
 --
 -- 'featureGroupStatus', 'featureGroup_featureGroupStatus' - A @FeatureGroup@ status.
 --
--- 'offlineStoreConfig', 'featureGroup_offlineStoreConfig' - Undocumented member.
---
 -- 'creationTime', 'featureGroup_creationTime' - The time a @FeatureGroup@ was created.
+--
+-- 'offlineStoreConfig', 'featureGroup_offlineStoreConfig' - Undocumented member.
 --
 -- 'roleArn', 'featureGroup_roleArn' - The Amazon Resource Name (ARN) of the IAM execution role used to create
 -- the feature group.
@@ -103,6 +103,13 @@ data FeatureGroup = FeatureGroup'
 --
 -- 'recordIdentifierFeatureName', 'featureGroup_recordIdentifierFeatureName' - The name of the @Feature@ whose value uniquely identifies a @Record@
 -- defined in the @FeatureGroup@ @FeatureDefinitions@.
+--
+-- 'eventTimeFeatureName', 'featureGroup_eventTimeFeatureName' - The name of the feature that stores the @EventTime@ of a Record in a
+-- @FeatureGroup@.
+--
+-- A @EventTime@ is point in time when a new event occurs that corresponds
+-- to the creation or update of a @Record@ in @FeatureGroup@. All @Records@
+-- in the @FeatureGroup@ must have a corresponding @EventTime@.
 --
 -- 'featureDefinitions', 'featureGroup_featureDefinitions' - A list of @Feature@s. Each @Feature@ must include a @FeatureName@ and a
 -- @FeatureType@.
@@ -115,13 +122,6 @@ data FeatureGroup = FeatureGroup'
 -- You can create up to 2,500 @FeatureDefinition@s per @FeatureGroup@.
 --
 -- 'offlineStoreStatus', 'featureGroup_offlineStoreStatus' - Undocumented member.
---
--- 'eventTimeFeatureName', 'featureGroup_eventTimeFeatureName' - The name of the feature that stores the @EventTime@ of a Record in a
--- @FeatureGroup@.
---
--- A @EventTime@ is point in time when a new event occurs that corresponds
--- to the creation or update of a @Record@ in @FeatureGroup@. All @Records@
--- in the @FeatureGroup@ must have a corresponding @EventTime@.
 --
 -- 'featureGroupName', 'featureGroup_featureGroupName' - The name of the @FeatureGroup@.
 --
@@ -139,14 +139,14 @@ newFeatureGroup ::
 newFeatureGroup =
   FeatureGroup'
     { featureGroupStatus = Prelude.Nothing,
-      offlineStoreConfig = Prelude.Nothing,
       creationTime = Prelude.Nothing,
+      offlineStoreConfig = Prelude.Nothing,
       roleArn = Prelude.Nothing,
       featureGroupArn = Prelude.Nothing,
       recordIdentifierFeatureName = Prelude.Nothing,
+      eventTimeFeatureName = Prelude.Nothing,
       featureDefinitions = Prelude.Nothing,
       offlineStoreStatus = Prelude.Nothing,
-      eventTimeFeatureName = Prelude.Nothing,
       featureGroupName = Prelude.Nothing,
       failureReason = Prelude.Nothing,
       tags = Prelude.Nothing,
@@ -158,13 +158,13 @@ newFeatureGroup =
 featureGroup_featureGroupStatus :: Lens.Lens' FeatureGroup (Prelude.Maybe FeatureGroupStatus)
 featureGroup_featureGroupStatus = Lens.lens (\FeatureGroup' {featureGroupStatus} -> featureGroupStatus) (\s@FeatureGroup' {} a -> s {featureGroupStatus = a} :: FeatureGroup)
 
--- | Undocumented member.
-featureGroup_offlineStoreConfig :: Lens.Lens' FeatureGroup (Prelude.Maybe OfflineStoreConfig)
-featureGroup_offlineStoreConfig = Lens.lens (\FeatureGroup' {offlineStoreConfig} -> offlineStoreConfig) (\s@FeatureGroup' {} a -> s {offlineStoreConfig = a} :: FeatureGroup)
-
 -- | The time a @FeatureGroup@ was created.
 featureGroup_creationTime :: Lens.Lens' FeatureGroup (Prelude.Maybe Prelude.UTCTime)
 featureGroup_creationTime = Lens.lens (\FeatureGroup' {creationTime} -> creationTime) (\s@FeatureGroup' {} a -> s {creationTime = a} :: FeatureGroup) Prelude.. Lens.mapping Core._Time
+
+-- | Undocumented member.
+featureGroup_offlineStoreConfig :: Lens.Lens' FeatureGroup (Prelude.Maybe OfflineStoreConfig)
+featureGroup_offlineStoreConfig = Lens.lens (\FeatureGroup' {offlineStoreConfig} -> offlineStoreConfig) (\s@FeatureGroup' {} a -> s {offlineStoreConfig = a} :: FeatureGroup)
 
 -- | The Amazon Resource Name (ARN) of the IAM execution role used to create
 -- the feature group.
@@ -179,6 +179,15 @@ featureGroup_featureGroupArn = Lens.lens (\FeatureGroup' {featureGroupArn} -> fe
 -- defined in the @FeatureGroup@ @FeatureDefinitions@.
 featureGroup_recordIdentifierFeatureName :: Lens.Lens' FeatureGroup (Prelude.Maybe Prelude.Text)
 featureGroup_recordIdentifierFeatureName = Lens.lens (\FeatureGroup' {recordIdentifierFeatureName} -> recordIdentifierFeatureName) (\s@FeatureGroup' {} a -> s {recordIdentifierFeatureName = a} :: FeatureGroup)
+
+-- | The name of the feature that stores the @EventTime@ of a Record in a
+-- @FeatureGroup@.
+--
+-- A @EventTime@ is point in time when a new event occurs that corresponds
+-- to the creation or update of a @Record@ in @FeatureGroup@. All @Records@
+-- in the @FeatureGroup@ must have a corresponding @EventTime@.
+featureGroup_eventTimeFeatureName :: Lens.Lens' FeatureGroup (Prelude.Maybe Prelude.Text)
+featureGroup_eventTimeFeatureName = Lens.lens (\FeatureGroup' {eventTimeFeatureName} -> eventTimeFeatureName) (\s@FeatureGroup' {} a -> s {eventTimeFeatureName = a} :: FeatureGroup)
 
 -- | A list of @Feature@s. Each @Feature@ must include a @FeatureName@ and a
 -- @FeatureType@.
@@ -195,15 +204,6 @@ featureGroup_featureDefinitions = Lens.lens (\FeatureGroup' {featureDefinitions}
 -- | Undocumented member.
 featureGroup_offlineStoreStatus :: Lens.Lens' FeatureGroup (Prelude.Maybe OfflineStoreStatus)
 featureGroup_offlineStoreStatus = Lens.lens (\FeatureGroup' {offlineStoreStatus} -> offlineStoreStatus) (\s@FeatureGroup' {} a -> s {offlineStoreStatus = a} :: FeatureGroup)
-
--- | The name of the feature that stores the @EventTime@ of a Record in a
--- @FeatureGroup@.
---
--- A @EventTime@ is point in time when a new event occurs that corresponds
--- to the creation or update of a @Record@ in @FeatureGroup@. All @Records@
--- in the @FeatureGroup@ must have a corresponding @EventTime@.
-featureGroup_eventTimeFeatureName :: Lens.Lens' FeatureGroup (Prelude.Maybe Prelude.Text)
-featureGroup_eventTimeFeatureName = Lens.lens (\FeatureGroup' {eventTimeFeatureName} -> eventTimeFeatureName) (\s@FeatureGroup' {} a -> s {eventTimeFeatureName = a} :: FeatureGroup)
 
 -- | The name of the @FeatureGroup@.
 featureGroup_featureGroupName :: Lens.Lens' FeatureGroup (Prelude.Maybe Prelude.Text)
@@ -234,14 +234,14 @@ instance Core.FromJSON FeatureGroup where
       ( \x ->
           FeatureGroup'
             Prelude.<$> (x Core..:? "FeatureGroupStatus")
-            Prelude.<*> (x Core..:? "OfflineStoreConfig")
             Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "OfflineStoreConfig")
             Prelude.<*> (x Core..:? "RoleArn")
             Prelude.<*> (x Core..:? "FeatureGroupArn")
             Prelude.<*> (x Core..:? "RecordIdentifierFeatureName")
+            Prelude.<*> (x Core..:? "EventTimeFeatureName")
             Prelude.<*> (x Core..:? "FeatureDefinitions")
             Prelude.<*> (x Core..:? "OfflineStoreStatus")
-            Prelude.<*> (x Core..:? "EventTimeFeatureName")
             Prelude.<*> (x Core..:? "FeatureGroupName")
             Prelude.<*> (x Core..:? "FailureReason")
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)

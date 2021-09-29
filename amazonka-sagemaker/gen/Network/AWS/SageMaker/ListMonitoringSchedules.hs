@@ -30,8 +30,8 @@ module Network.AWS.SageMaker.ListMonitoringSchedules
 
     -- * Request Lenses
     listMonitoringSchedules_lastModifiedTimeBefore,
-    listMonitoringSchedules_sortOrder,
     listMonitoringSchedules_nextToken,
+    listMonitoringSchedules_sortOrder,
     listMonitoringSchedules_endpointName,
     listMonitoringSchedules_nameContains,
     listMonitoringSchedules_monitoringJobDefinitionName,
@@ -66,12 +66,12 @@ data ListMonitoringSchedules = ListMonitoringSchedules'
   { -- | A filter that returns only monitoring schedules modified before a
     -- specified time.
     lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
-    -- | Whether to sort the results in @Ascending@ or @Descending@ order. The
-    -- default is @Descending@.
-    sortOrder :: Prelude.Maybe SortOrder,
     -- | The token returned if the response is truncated. To retrieve the next
     -- set of job executions, use it in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Whether to sort the results in @Ascending@ or @Descending@ order. The
+    -- default is @Descending@.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | Name of a specific endpoint to fetch schedules for.
     endpointName :: Prelude.Maybe Prelude.Text,
     -- | Filter for monitoring schedules whose name contains a specified string.
@@ -114,11 +114,11 @@ data ListMonitoringSchedules = ListMonitoringSchedules'
 -- 'lastModifiedTimeBefore', 'listMonitoringSchedules_lastModifiedTimeBefore' - A filter that returns only monitoring schedules modified before a
 -- specified time.
 --
--- 'sortOrder', 'listMonitoringSchedules_sortOrder' - Whether to sort the results in @Ascending@ or @Descending@ order. The
--- default is @Descending@.
---
 -- 'nextToken', 'listMonitoringSchedules_nextToken' - The token returned if the response is truncated. To retrieve the next
 -- set of job executions, use it in the next request.
+--
+-- 'sortOrder', 'listMonitoringSchedules_sortOrder' - Whether to sort the results in @Ascending@ or @Descending@ order. The
+-- default is @Descending@.
 --
 -- 'endpointName', 'listMonitoringSchedules_endpointName' - Name of a specific endpoint to fetch schedules for.
 --
@@ -153,8 +153,8 @@ newListMonitoringSchedules =
   ListMonitoringSchedules'
     { lastModifiedTimeBefore =
         Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       endpointName = Prelude.Nothing,
       nameContains = Prelude.Nothing,
       monitoringJobDefinitionName = Prelude.Nothing,
@@ -172,15 +172,15 @@ newListMonitoringSchedules =
 listMonitoringSchedules_lastModifiedTimeBefore :: Lens.Lens' ListMonitoringSchedules (Prelude.Maybe Prelude.UTCTime)
 listMonitoringSchedules_lastModifiedTimeBefore = Lens.lens (\ListMonitoringSchedules' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListMonitoringSchedules' {} a -> s {lastModifiedTimeBefore = a} :: ListMonitoringSchedules) Prelude.. Lens.mapping Core._Time
 
--- | Whether to sort the results in @Ascending@ or @Descending@ order. The
--- default is @Descending@.
-listMonitoringSchedules_sortOrder :: Lens.Lens' ListMonitoringSchedules (Prelude.Maybe SortOrder)
-listMonitoringSchedules_sortOrder = Lens.lens (\ListMonitoringSchedules' {sortOrder} -> sortOrder) (\s@ListMonitoringSchedules' {} a -> s {sortOrder = a} :: ListMonitoringSchedules)
-
 -- | The token returned if the response is truncated. To retrieve the next
 -- set of job executions, use it in the next request.
 listMonitoringSchedules_nextToken :: Lens.Lens' ListMonitoringSchedules (Prelude.Maybe Prelude.Text)
 listMonitoringSchedules_nextToken = Lens.lens (\ListMonitoringSchedules' {nextToken} -> nextToken) (\s@ListMonitoringSchedules' {} a -> s {nextToken = a} :: ListMonitoringSchedules)
+
+-- | Whether to sort the results in @Ascending@ or @Descending@ order. The
+-- default is @Descending@.
+listMonitoringSchedules_sortOrder :: Lens.Lens' ListMonitoringSchedules (Prelude.Maybe SortOrder)
+listMonitoringSchedules_sortOrder = Lens.lens (\ListMonitoringSchedules' {sortOrder} -> sortOrder) (\s@ListMonitoringSchedules' {} a -> s {sortOrder = a} :: ListMonitoringSchedules)
 
 -- | Name of a specific endpoint to fetch schedules for.
 listMonitoringSchedules_endpointName :: Lens.Lens' ListMonitoringSchedules (Prelude.Maybe Prelude.Text)
@@ -292,8 +292,8 @@ instance Core.ToJSON ListMonitoringSchedules where
       ( Prelude.catMaybes
           [ ("LastModifiedTimeBefore" Core..=)
               Prelude.<$> lastModifiedTimeBefore,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("EndpointName" Core..=) Prelude.<$> endpointName,
             ("NameContains" Core..=) Prelude.<$> nameContains,
             ("MonitoringJobDefinitionName" Core..=)

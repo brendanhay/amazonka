@@ -29,9 +29,9 @@ import Network.AWS.SageMaker.Types.TrainingInstanceType
 --
 -- /See:/ 'newResourceConfig' smart constructor.
 data ResourceConfig = ResourceConfig'
-  { -- | The AWS KMS key that Amazon SageMaker uses to encrypt data on the
-    -- storage volume attached to the ML compute instance(s) that run the
-    -- training job.
+  { -- | The Amazon Web Services KMS key that Amazon SageMaker uses to encrypt
+    -- data on the storage volume attached to the ML compute instance(s) that
+    -- run the training job.
     --
     -- Certain Nitro-based instances include local storage, dependent on the
     -- instance type. Local storage volumes are encrypted using a hardware
@@ -92,9 +92,9 @@ data ResourceConfig = ResourceConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'volumeKmsKeyId', 'resourceConfig_volumeKmsKeyId' - The AWS KMS key that Amazon SageMaker uses to encrypt data on the
--- storage volume attached to the ML compute instance(s) that run the
--- training job.
+-- 'volumeKmsKeyId', 'resourceConfig_volumeKmsKeyId' - The Amazon Web Services KMS key that Amazon SageMaker uses to encrypt
+-- data on the storage volume attached to the ML compute instance(s) that
+-- run the training job.
 --
 -- Certain Nitro-based instances include local storage, dependent on the
 -- instance type. Local storage volumes are encrypted using a hardware
@@ -162,9 +162,9 @@ newResourceConfig
         volumeSizeInGB = pVolumeSizeInGB_
       }
 
--- | The AWS KMS key that Amazon SageMaker uses to encrypt data on the
--- storage volume attached to the ML compute instance(s) that run the
--- training job.
+-- | The Amazon Web Services KMS key that Amazon SageMaker uses to encrypt
+-- data on the storage volume attached to the ML compute instance(s) that
+-- run the training job.
 --
 -- Certain Nitro-based instances include local storage, dependent on the
 -- instance type. Local storage volumes are encrypted using a hardware

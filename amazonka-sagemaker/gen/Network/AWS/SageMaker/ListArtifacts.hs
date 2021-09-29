@@ -29,9 +29,9 @@ module Network.AWS.SageMaker.ListArtifacts
     newListArtifacts,
 
     -- * Request Lenses
-    listArtifacts_createdAfter,
-    listArtifacts_sortOrder,
     listArtifacts_nextToken,
+    listArtifacts_sortOrder,
+    listArtifacts_createdAfter,
     listArtifacts_createdBefore,
     listArtifacts_artifactType,
     listArtifacts_maxResults,
@@ -58,15 +58,15 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListArtifacts' smart constructor.
 data ListArtifacts = ListArtifacts'
-  { -- | A filter that returns only artifacts created on or after the specified
-    -- time.
-    createdAfter :: Prelude.Maybe Core.POSIX,
-    -- | The sort order. The default value is @Descending@.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | If the previous call to @ListArtifacts@ didn\'t return the full set of
+  { -- | If the previous call to @ListArtifacts@ didn\'t return the full set of
     -- artifacts, the call returns a token for getting the next set of
     -- artifacts.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order. The default value is @Descending@.
+    sortOrder :: Prelude.Maybe SortOrder,
+    -- | A filter that returns only artifacts created on or after the specified
+    -- time.
+    createdAfter :: Prelude.Maybe Core.POSIX,
     -- | A filter that returns only artifacts created on or before the specified
     -- time.
     createdBefore :: Prelude.Maybe Core.POSIX,
@@ -90,14 +90,14 @@ data ListArtifacts = ListArtifacts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAfter', 'listArtifacts_createdAfter' - A filter that returns only artifacts created on or after the specified
--- time.
---
--- 'sortOrder', 'listArtifacts_sortOrder' - The sort order. The default value is @Descending@.
---
 -- 'nextToken', 'listArtifacts_nextToken' - If the previous call to @ListArtifacts@ didn\'t return the full set of
 -- artifacts, the call returns a token for getting the next set of
 -- artifacts.
+--
+-- 'sortOrder', 'listArtifacts_sortOrder' - The sort order. The default value is @Descending@.
+--
+-- 'createdAfter', 'listArtifacts_createdAfter' - A filter that returns only artifacts created on or after the specified
+-- time.
 --
 -- 'createdBefore', 'listArtifacts_createdBefore' - A filter that returns only artifacts created on or before the specified
 -- time.
@@ -114,9 +114,9 @@ newListArtifacts ::
   ListArtifacts
 newListArtifacts =
   ListArtifacts'
-    { createdAfter = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      createdAfter = Prelude.Nothing,
       createdBefore = Prelude.Nothing,
       artifactType = Prelude.Nothing,
       maxResults = Prelude.Nothing,
@@ -124,20 +124,20 @@ newListArtifacts =
       sortBy = Prelude.Nothing
     }
 
--- | A filter that returns only artifacts created on or after the specified
--- time.
-listArtifacts_createdAfter :: Lens.Lens' ListArtifacts (Prelude.Maybe Prelude.UTCTime)
-listArtifacts_createdAfter = Lens.lens (\ListArtifacts' {createdAfter} -> createdAfter) (\s@ListArtifacts' {} a -> s {createdAfter = a} :: ListArtifacts) Prelude.. Lens.mapping Core._Time
-
--- | The sort order. The default value is @Descending@.
-listArtifacts_sortOrder :: Lens.Lens' ListArtifacts (Prelude.Maybe SortOrder)
-listArtifacts_sortOrder = Lens.lens (\ListArtifacts' {sortOrder} -> sortOrder) (\s@ListArtifacts' {} a -> s {sortOrder = a} :: ListArtifacts)
-
 -- | If the previous call to @ListArtifacts@ didn\'t return the full set of
 -- artifacts, the call returns a token for getting the next set of
 -- artifacts.
 listArtifacts_nextToken :: Lens.Lens' ListArtifacts (Prelude.Maybe Prelude.Text)
 listArtifacts_nextToken = Lens.lens (\ListArtifacts' {nextToken} -> nextToken) (\s@ListArtifacts' {} a -> s {nextToken = a} :: ListArtifacts)
+
+-- | The sort order. The default value is @Descending@.
+listArtifacts_sortOrder :: Lens.Lens' ListArtifacts (Prelude.Maybe SortOrder)
+listArtifacts_sortOrder = Lens.lens (\ListArtifacts' {sortOrder} -> sortOrder) (\s@ListArtifacts' {} a -> s {sortOrder = a} :: ListArtifacts)
+
+-- | A filter that returns only artifacts created on or after the specified
+-- time.
+listArtifacts_createdAfter :: Lens.Lens' ListArtifacts (Prelude.Maybe Prelude.UTCTime)
+listArtifacts_createdAfter = Lens.lens (\ListArtifacts' {createdAfter} -> createdAfter) (\s@ListArtifacts' {} a -> s {createdAfter = a} :: ListArtifacts) Prelude.. Lens.mapping Core._Time
 
 -- | A filter that returns only artifacts created on or before the specified
 -- time.
@@ -218,9 +218,9 @@ instance Core.ToJSON ListArtifacts where
   toJSON ListArtifacts' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CreatedAfter" Core..=) Prelude.<$> createdAfter,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("CreatedAfter" Core..=) Prelude.<$> createdAfter,
             ("CreatedBefore" Core..=) Prelude.<$> createdBefore,
             ("ArtifactType" Core..=) Prelude.<$> artifactType,
             ("MaxResults" Core..=) Prelude.<$> maxResults,

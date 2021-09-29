@@ -23,11 +23,24 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Describes a tag.
+-- | A tag object that consists of a key and an optional value, used to
+-- manage metadata for Amazon SageMaker Amazon Web Services resources.
+--
+-- You can add tags to notebook instances, training jobs, hyperparameter
+-- tuning jobs, batch transform jobs, models, labeling jobs, work teams,
+-- endpoint configurations, and endpoints. For more information on adding
+-- tags to Amazon SageMaker resources, see AddTags.
+--
+-- For more information on adding metadata to your Amazon Web Services
+-- resources with tagging, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>.
+-- For advice on best practices for managing Amazon Web Services resources
+-- with tagging, see
+-- <https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf Tagging Best Practices: Implement an Effective Amazon Web Services Resource Tagging Strategy>.
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'
-  { -- | The tag key.
+  { -- | The tag key. Tag keys must be unique per resource.
     key :: Prelude.Text,
     -- | The tag value.
     value :: Prelude.Text
@@ -42,7 +55,7 @@ data Tag = Tag'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'key', 'tag_key' - The tag key.
+-- 'key', 'tag_key' - The tag key. Tag keys must be unique per resource.
 --
 -- 'value', 'tag_value' - The tag value.
 newTag ::
@@ -54,7 +67,7 @@ newTag ::
 newTag pKey_ pValue_ =
   Tag' {key = pKey_, value = pValue_}
 
--- | The tag key.
+-- | The tag key. Tag keys must be unique per resource.
 tag_key :: Lens.Lens' Tag Prelude.Text
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
 

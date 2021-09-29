@@ -29,7 +29,7 @@ import Network.AWS.SageMaker.Types.TransformJobDefinition
 -- runs to validate your algorithm.
 --
 -- The data provided in the validation profile is made available to your
--- buyers on AWS Marketplace.
+-- buyers on Amazon Web Services Marketplace.
 --
 -- /See:/ 'newAlgorithmValidationProfile' smart constructor.
 data AlgorithmValidationProfile = AlgorithmValidationProfile'

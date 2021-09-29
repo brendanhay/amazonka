@@ -27,8 +27,8 @@
 -- FeatureGroup. A @FeatureGroup@ definition is composed of a list of
 -- @Features@, a @RecordIdentifierFeatureName@, an @EventTimeFeatureName@
 -- and configurations for its @OnlineStore@ and @OfflineStore@. Check
--- <https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html AWS service quotas>
--- to see the @FeatureGroup@s quota for your AWS account.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html Amazon Web Services service quotas>
+-- to see the @FeatureGroup@s quota for your Amazon Web Services account.
 --
 -- You must include at least one of @OnlineStoreConfig@ and
 -- @OfflineStoreConfig@ to create a @FeatureGroup@.
@@ -73,7 +73,8 @@ data CreateFeatureGroup = CreateFeatureGroup'
     -- -   The Amazon Simple Storage Service (Amazon S3) location of an
     --     @OfflineStore@.
     --
-    -- -   A configuration for an AWS Glue or AWS Hive data cataolgue.
+    -- -   A configuration for an Amazon Web Services Glue or Amazon Web
+    --     Services Hive data cataolgue.
     --
     -- -   An KMS encryption key to encrypt the Amazon S3 location used for
     --     @OfflineStore@.
@@ -91,11 +92,11 @@ data CreateFeatureGroup = CreateFeatureGroup'
     -- @EnableOnlineStore@ flag in @OnlineStoreConfig@; the default value is
     -- @False@.
     --
-    -- You can also include an AWS KMS key ID (@KMSKeyId@) for at-rest
-    -- encryption of the @OnlineStore@.
+    -- You can also include an Amazon Web Services KMS key ID (@KMSKeyId@) for
+    -- at-rest encryption of the @OnlineStore@.
     onlineStoreConfig :: Prelude.Maybe OnlineStoreConfig,
-    -- | The name of the @FeatureGroup@. The name must be unique within an AWS
-    -- Region in an AWS account. The name:
+    -- | The name of the @FeatureGroup@. The name must be unique within an Amazon
+    -- Web Services Region in an Amazon Web Services account. The name:
     --
     -- -   Must start and end with an alphanumeric character.
     --
@@ -165,7 +166,8 @@ data CreateFeatureGroup = CreateFeatureGroup'
 -- -   The Amazon Simple Storage Service (Amazon S3) location of an
 --     @OfflineStore@.
 --
--- -   A configuration for an AWS Glue or AWS Hive data cataolgue.
+-- -   A configuration for an Amazon Web Services Glue or Amazon Web
+--     Services Hive data cataolgue.
 --
 -- -   An KMS encryption key to encrypt the Amazon S3 location used for
 --     @OfflineStore@.
@@ -183,11 +185,11 @@ data CreateFeatureGroup = CreateFeatureGroup'
 -- @EnableOnlineStore@ flag in @OnlineStoreConfig@; the default value is
 -- @False@.
 --
--- You can also include an AWS KMS key ID (@KMSKeyId@) for at-rest
--- encryption of the @OnlineStore@.
+-- You can also include an Amazon Web Services KMS key ID (@KMSKeyId@) for
+-- at-rest encryption of the @OnlineStore@.
 --
--- 'featureGroupName', 'createFeatureGroup_featureGroupName' - The name of the @FeatureGroup@. The name must be unique within an AWS
--- Region in an AWS account. The name:
+-- 'featureGroupName', 'createFeatureGroup_featureGroupName' - The name of the @FeatureGroup@. The name must be unique within an Amazon
+-- Web Services Region in an Amazon Web Services account. The name:
 --
 -- -   Must start and end with an alphanumeric character.
 --
@@ -275,7 +277,8 @@ newCreateFeatureGroup
 -- -   The Amazon Simple Storage Service (Amazon S3) location of an
 --     @OfflineStore@.
 --
--- -   A configuration for an AWS Glue or AWS Hive data cataolgue.
+-- -   A configuration for an Amazon Web Services Glue or Amazon Web
+--     Services Hive data cataolgue.
 --
 -- -   An KMS encryption key to encrypt the Amazon S3 location used for
 --     @OfflineStore@.
@@ -301,13 +304,13 @@ createFeatureGroup_description = Lens.lens (\CreateFeatureGroup' {description} -
 -- @EnableOnlineStore@ flag in @OnlineStoreConfig@; the default value is
 -- @False@.
 --
--- You can also include an AWS KMS key ID (@KMSKeyId@) for at-rest
--- encryption of the @OnlineStore@.
+-- You can also include an Amazon Web Services KMS key ID (@KMSKeyId@) for
+-- at-rest encryption of the @OnlineStore@.
 createFeatureGroup_onlineStoreConfig :: Lens.Lens' CreateFeatureGroup (Prelude.Maybe OnlineStoreConfig)
 createFeatureGroup_onlineStoreConfig = Lens.lens (\CreateFeatureGroup' {onlineStoreConfig} -> onlineStoreConfig) (\s@CreateFeatureGroup' {} a -> s {onlineStoreConfig = a} :: CreateFeatureGroup)
 
--- | The name of the @FeatureGroup@. The name must be unique within an AWS
--- Region in an AWS account. The name:
+-- | The name of the @FeatureGroup@. The name must be unique within an Amazon
+-- Web Services Region in an Amazon Web Services account. The name:
 --
 -- -   Must start and end with an alphanumeric character.
 --

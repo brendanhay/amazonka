@@ -38,9 +38,9 @@ module Network.AWS.SageMaker.ListTrialComponents
     newListTrialComponents,
 
     -- * Request Lenses
-    listTrialComponents_createdAfter,
-    listTrialComponents_sortOrder,
     listTrialComponents_nextToken,
+    listTrialComponents_sortOrder,
+    listTrialComponents_createdAfter,
     listTrialComponents_createdBefore,
     listTrialComponents_maxResults,
     listTrialComponents_sortBy,
@@ -68,14 +68,14 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListTrialComponents' smart constructor.
 data ListTrialComponents = ListTrialComponents'
-  { -- | A filter that returns only components created after the specified time.
-    createdAfter :: Prelude.Maybe Core.POSIX,
-    -- | The sort order. The default value is @Descending@.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | If the previous call to @ListTrialComponents@ didn\'t return the full
+  { -- | If the previous call to @ListTrialComponents@ didn\'t return the full
     -- set of components, the call returns a token for getting the next set of
     -- components.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order. The default value is @Descending@.
+    sortOrder :: Prelude.Maybe SortOrder,
+    -- | A filter that returns only components created after the specified time.
+    createdAfter :: Prelude.Maybe Core.POSIX,
     -- | A filter that returns only components created before the specified time.
     createdBefore :: Prelude.Maybe Core.POSIX,
     -- | The maximum number of components to return in the response. The default
@@ -106,13 +106,13 @@ data ListTrialComponents = ListTrialComponents'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAfter', 'listTrialComponents_createdAfter' - A filter that returns only components created after the specified time.
---
--- 'sortOrder', 'listTrialComponents_sortOrder' - The sort order. The default value is @Descending@.
---
 -- 'nextToken', 'listTrialComponents_nextToken' - If the previous call to @ListTrialComponents@ didn\'t return the full
 -- set of components, the call returns a token for getting the next set of
 -- components.
+--
+-- 'sortOrder', 'listTrialComponents_sortOrder' - The sort order. The default value is @Descending@.
+--
+-- 'createdAfter', 'listTrialComponents_createdAfter' - A filter that returns only components created after the specified time.
 --
 -- 'createdBefore', 'listTrialComponents_createdBefore' - A filter that returns only components created before the specified time.
 --
@@ -136,10 +136,9 @@ newListTrialComponents ::
   ListTrialComponents
 newListTrialComponents =
   ListTrialComponents'
-    { createdAfter =
-        Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      createdAfter = Prelude.Nothing,
       createdBefore = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       sortBy = Prelude.Nothing,
@@ -148,19 +147,19 @@ newListTrialComponents =
       trialName = Prelude.Nothing
     }
 
--- | A filter that returns only components created after the specified time.
-listTrialComponents_createdAfter :: Lens.Lens' ListTrialComponents (Prelude.Maybe Prelude.UTCTime)
-listTrialComponents_createdAfter = Lens.lens (\ListTrialComponents' {createdAfter} -> createdAfter) (\s@ListTrialComponents' {} a -> s {createdAfter = a} :: ListTrialComponents) Prelude.. Lens.mapping Core._Time
-
--- | The sort order. The default value is @Descending@.
-listTrialComponents_sortOrder :: Lens.Lens' ListTrialComponents (Prelude.Maybe SortOrder)
-listTrialComponents_sortOrder = Lens.lens (\ListTrialComponents' {sortOrder} -> sortOrder) (\s@ListTrialComponents' {} a -> s {sortOrder = a} :: ListTrialComponents)
-
 -- | If the previous call to @ListTrialComponents@ didn\'t return the full
 -- set of components, the call returns a token for getting the next set of
 -- components.
 listTrialComponents_nextToken :: Lens.Lens' ListTrialComponents (Prelude.Maybe Prelude.Text)
 listTrialComponents_nextToken = Lens.lens (\ListTrialComponents' {nextToken} -> nextToken) (\s@ListTrialComponents' {} a -> s {nextToken = a} :: ListTrialComponents)
+
+-- | The sort order. The default value is @Descending@.
+listTrialComponents_sortOrder :: Lens.Lens' ListTrialComponents (Prelude.Maybe SortOrder)
+listTrialComponents_sortOrder = Lens.lens (\ListTrialComponents' {sortOrder} -> sortOrder) (\s@ListTrialComponents' {} a -> s {sortOrder = a} :: ListTrialComponents)
+
+-- | A filter that returns only components created after the specified time.
+listTrialComponents_createdAfter :: Lens.Lens' ListTrialComponents (Prelude.Maybe Prelude.UTCTime)
+listTrialComponents_createdAfter = Lens.lens (\ListTrialComponents' {createdAfter} -> createdAfter) (\s@ListTrialComponents' {} a -> s {createdAfter = a} :: ListTrialComponents) Prelude.. Lens.mapping Core._Time
 
 -- | A filter that returns only components created before the specified time.
 listTrialComponents_createdBefore :: Lens.Lens' ListTrialComponents (Prelude.Maybe Prelude.UTCTime)
@@ -254,9 +253,9 @@ instance Core.ToJSON ListTrialComponents where
   toJSON ListTrialComponents' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CreatedAfter" Core..=) Prelude.<$> createdAfter,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("CreatedAfter" Core..=) Prelude.<$> createdAfter,
             ("CreatedBefore" Core..=) Prelude.<$> createdBefore,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("SortBy" Core..=) Prelude.<$> sortBy,

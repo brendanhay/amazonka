@@ -39,11 +39,11 @@ data OidcConfigForResponse = OidcConfigForResponse'
     userInfoEndpoint :: Prelude.Maybe Prelude.Text,
     -- | The OIDC IdP logout endpoint used to configure your private workforce.
     logoutEndpoint :: Prelude.Maybe Prelude.Text,
-    -- | The OIDC IdP issuer used to configure your private workforce.
-    issuer :: Prelude.Maybe Prelude.Text,
     -- | The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private
     -- workforce.
-    jwksUri :: Prelude.Maybe Prelude.Text
+    jwksUri :: Prelude.Maybe Prelude.Text,
+    -- | The OIDC IdP issuer used to configure your private workforce.
+    issuer :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -67,10 +67,10 @@ data OidcConfigForResponse = OidcConfigForResponse'
 --
 -- 'logoutEndpoint', 'oidcConfigForResponse_logoutEndpoint' - The OIDC IdP logout endpoint used to configure your private workforce.
 --
--- 'issuer', 'oidcConfigForResponse_issuer' - The OIDC IdP issuer used to configure your private workforce.
---
 -- 'jwksUri', 'oidcConfigForResponse_jwksUri' - The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private
 -- workforce.
+--
+-- 'issuer', 'oidcConfigForResponse_issuer' - The OIDC IdP issuer used to configure your private workforce.
 newOidcConfigForResponse ::
   OidcConfigForResponse
 newOidcConfigForResponse =
@@ -80,8 +80,8 @@ newOidcConfigForResponse =
       authorizationEndpoint = Prelude.Nothing,
       userInfoEndpoint = Prelude.Nothing,
       logoutEndpoint = Prelude.Nothing,
-      issuer = Prelude.Nothing,
-      jwksUri = Prelude.Nothing
+      jwksUri = Prelude.Nothing,
+      issuer = Prelude.Nothing
     }
 
 -- | The OIDC IdP client ID used to configure your private workforce.
@@ -106,14 +106,14 @@ oidcConfigForResponse_userInfoEndpoint = Lens.lens (\OidcConfigForResponse' {use
 oidcConfigForResponse_logoutEndpoint :: Lens.Lens' OidcConfigForResponse (Prelude.Maybe Prelude.Text)
 oidcConfigForResponse_logoutEndpoint = Lens.lens (\OidcConfigForResponse' {logoutEndpoint} -> logoutEndpoint) (\s@OidcConfigForResponse' {} a -> s {logoutEndpoint = a} :: OidcConfigForResponse)
 
--- | The OIDC IdP issuer used to configure your private workforce.
-oidcConfigForResponse_issuer :: Lens.Lens' OidcConfigForResponse (Prelude.Maybe Prelude.Text)
-oidcConfigForResponse_issuer = Lens.lens (\OidcConfigForResponse' {issuer} -> issuer) (\s@OidcConfigForResponse' {} a -> s {issuer = a} :: OidcConfigForResponse)
-
 -- | The OIDC IdP JSON Web Key Set (Jwks) URI used to configure your private
 -- workforce.
 oidcConfigForResponse_jwksUri :: Lens.Lens' OidcConfigForResponse (Prelude.Maybe Prelude.Text)
 oidcConfigForResponse_jwksUri = Lens.lens (\OidcConfigForResponse' {jwksUri} -> jwksUri) (\s@OidcConfigForResponse' {} a -> s {jwksUri = a} :: OidcConfigForResponse)
+
+-- | The OIDC IdP issuer used to configure your private workforce.
+oidcConfigForResponse_issuer :: Lens.Lens' OidcConfigForResponse (Prelude.Maybe Prelude.Text)
+oidcConfigForResponse_issuer = Lens.lens (\OidcConfigForResponse' {issuer} -> issuer) (\s@OidcConfigForResponse' {} a -> s {issuer = a} :: OidcConfigForResponse)
 
 instance Core.FromJSON OidcConfigForResponse where
   parseJSON =
@@ -126,8 +126,8 @@ instance Core.FromJSON OidcConfigForResponse where
             Prelude.<*> (x Core..:? "AuthorizationEndpoint")
             Prelude.<*> (x Core..:? "UserInfoEndpoint")
             Prelude.<*> (x Core..:? "LogoutEndpoint")
-            Prelude.<*> (x Core..:? "Issuer")
             Prelude.<*> (x Core..:? "JwksUri")
+            Prelude.<*> (x Core..:? "Issuer")
       )
 
 instance Prelude.Hashable OidcConfigForResponse

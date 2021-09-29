@@ -29,6 +29,7 @@ module Network.AWS.SageMaker.Types.SecondaryStatus
         SecondaryStatus_MaxRuntimeExceeded,
         SecondaryStatus_MaxWaitTimeExceeded,
         SecondaryStatus_PreparingTrainingStack,
+        SecondaryStatus_Restarting,
         SecondaryStatus_Starting,
         SecondaryStatus_Stopped,
         SecondaryStatus_Stopping,
@@ -97,6 +98,9 @@ pattern SecondaryStatus_MaxWaitTimeExceeded = SecondaryStatus' "MaxWaitTimeExcee
 pattern SecondaryStatus_PreparingTrainingStack :: SecondaryStatus
 pattern SecondaryStatus_PreparingTrainingStack = SecondaryStatus' "PreparingTrainingStack"
 
+pattern SecondaryStatus_Restarting :: SecondaryStatus
+pattern SecondaryStatus_Restarting = SecondaryStatus' "Restarting"
+
 pattern SecondaryStatus_Starting :: SecondaryStatus
 pattern SecondaryStatus_Starting = SecondaryStatus' "Starting"
 
@@ -125,6 +129,7 @@ pattern SecondaryStatus_Uploading = SecondaryStatus' "Uploading"
   SecondaryStatus_MaxRuntimeExceeded,
   SecondaryStatus_MaxWaitTimeExceeded,
   SecondaryStatus_PreparingTrainingStack,
+  SecondaryStatus_Restarting,
   SecondaryStatus_Starting,
   SecondaryStatus_Stopped,
   SecondaryStatus_Stopping,

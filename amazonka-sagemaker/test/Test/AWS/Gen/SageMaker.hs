@@ -27,14 +27,11 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDisassociateTrialComponent $
---             newDisassociateTrialComponent
+--         [ requestCreateEdgePackagingJob $
+--             newCreateEdgePackagingJob
 --
---         , requestDeleteArtifact $
---             newDeleteArtifact
---
---         , requestCreateTransformJob $
---             newCreateTransformJob
+--         , requestDescribeUserProfile $
+--             newDescribeUserProfile
 --
 --         , requestListHumanTaskUis $
 --             newListHumanTaskUis
@@ -45,137 +42,134 @@ import Test.Tasty
 --         , requestUpdateAction $
 --             newUpdateAction
 --
+--         , requestCreateEndpoint $
+--             newCreateEndpoint
+--
+--         , requestDeleteArtifact $
+--             newDeleteArtifact
+--
+--         , requestCreateTransformJob $
+--             newCreateTransformJob
+--
+--         , requestDeleteAction $
+--             newDeleteAction
+--
 --         , requestDescribePipeline $
 --             newDescribePipeline
 --
 --         , requestUpdateArtifact $
 --             newUpdateArtifact
 --
---         , requestDescribeUserProfile $
---             newDescribeUserProfile
---
 --         , requestStopTrainingJob $
 --             newStopTrainingJob
 --
---         , requestCreateEndpoint $
---             newCreateEndpoint
+--         , requestDisassociateTrialComponent $
+--             newDisassociateTrialComponent
 --
 --         , requestGetSearchSuggestions $
 --             newGetSearchSuggestions
 --
---         , requestDeleteAction $
---             newDeleteAction
---
---         , requestCreateEdgePackagingJob $
---             newCreateEdgePackagingJob
---
---         , requestDescribeEndpointConfig $
---             newDescribeEndpointConfig
---
---         , requestListModelPackages $
---             newListModelPackages
---
---         , requestGetModelPackageGroupPolicy $
---             newGetModelPackageGroupPolicy
---
---         , requestDescribeMonitoringSchedule $
---             newDescribeMonitoringSchedule
---
---         , requestCreateModelExplainabilityJobDefinition $
---             newCreateModelExplainabilityJobDefinition
---
---         , requestDescribeLabelingJob $
---             newDescribeLabelingJob
---
---         , requestCreateNotebookInstance $
---             newCreateNotebookInstance
---
---         , requestUpdateModelPackage $
---             newUpdateModelPackage
+--         , requestDeleteModelPackage $
+--             newDeleteModelPackage
 --
 --         , requestCreateModelQualityJobDefinition $
 --             newCreateModelQualityJobDefinition
 --
---         , requestDeleteModelPackage $
---             newDeleteModelPackage
+--         , requestListModelPackages $
+--             newListModelPackages
 --
 --         , requestListProjects $
 --             newListProjects
 --
---         , requestListSubscribedWorkteams $
---             newListSubscribedWorkteams
+--         , requestCreateModelExplainabilityJobDefinition $
+--             newCreateModelExplainabilityJobDefinition
 --
---         , requestDeleteNotebookInstance $
---             newDeleteNotebookInstance
+--         , requestDescribeEndpointConfig $
+--             newDescribeEndpointConfig
 --
---         , requestCreateProject $
---             newCreateProject
+--         , requestDescribeMonitoringSchedule $
+--             newDescribeMonitoringSchedule
 --
---         , requestDescribeProcessingJob $
---             newDescribeProcessingJob
+--         , requestDescribeLabelingJob $
+--             newDescribeLabelingJob
 --
---         , requestListDomains $
---             newListDomains
+--         , requestGetModelPackageGroupPolicy $
+--             newGetModelPackageGroupPolicy
 --
---         , requestDeleteModelExplainabilityJobDefinition $
---             newDeleteModelExplainabilityJobDefinition
+--         , requestUpdateModelPackage $
+--             newUpdateModelPackage
+--
+--         , requestCreateNotebookInstance $
+--             newCreateNotebookInstance
 --
 --         , requestStopMonitoringSchedule $
 --             newStopMonitoringSchedule
 --
---         , requestListDevices $
---             newListDevices
---
 --         , requestCreateModelPackage $
 --             newCreateModelPackage
---
---         , requestUpdateNotebookInstance $
---             newUpdateNotebookInstance
 --
 --         , requestStopAutoMLJob $
 --             newStopAutoMLJob
 --
+--         , requestCreateProject $
+--             newCreateProject
+--
 --         , requestDescribeAppImageConfig $
 --             newDescribeAppImageConfig
+--
+--         , requestListSubscribedWorkteams $
+--             newListSubscribedWorkteams
+--
+--         , requestListDevices $
+--             newListDevices
+--
+--         , requestUpdateNotebookInstance $
+--             newUpdateNotebookInstance
+--
+--         , requestDeleteModelExplainabilityJobDefinition $
+--             newDeleteModelExplainabilityJobDefinition
+--
+--         , requestDescribeProcessingJob $
+--             newDescribeProcessingJob
 --
 --         , requestStartMonitoringSchedule $
 --             newStartMonitoringSchedule
 --
---         , requestStopCompilationJob $
---             newStopCompilationJob
+--         , requestDeleteNotebookInstance $
+--             newDeleteNotebookInstance
+--
+--         , requestListDomains $
+--             newListDomains
 --
 --         , requestCreateTrial $
 --             newCreateTrial
 --
---         , requestGetSagemakerServicecatalogPortfolioStatus $
---             newGetSagemakerServicecatalogPortfolioStatus
+--         , requestDescribeTransformJob $
+--             newDescribeTransformJob
 --
---         , requestUpdateCodeRepository $
---             newUpdateCodeRepository
---
---         , requestSearch $
---             newSearch
+--         , requestDescribeEdgePackagingJob $
+--             newDescribeEdgePackagingJob
 --
 --         , requestDeleteModel $
 --             newDeleteModel
 --
---         , requestDeleteDataQualityJobDefinition $
---             newDeleteDataQualityJobDefinition
---
---         , requestListImages $
---             newListImages
---
 --         , requestListTrainingJobs $
 --             newListTrainingJobs
 --
---         , requestDescribeTransformJob $
---             newDescribeTransformJob
+--         , requestListDataQualityJobDefinitions $
+--             newListDataQualityJobDefinitions
 --
---         , requestCreatePipeline $
---             newCreatePipeline
+--         , requestGetSagemakerServicecatalogPortfolioStatus $
+--             newGetSagemakerServicecatalogPortfolioStatus
 --
---         , requestCreateModelPackageGroup $
---             newCreateModelPackageGroup
+--         , requestSearch $
+--             newSearch
+--
+--         , requestStopCompilationJob $
+--             newStopCompilationJob
+--
+--         , requestListImages $
+--             newListImages
 --
 --         , requestListCandidatesForAutoMLJob $
 --             newListCandidatesForAutoMLJob
@@ -186,11 +180,20 @@ import Test.Tasty
 --         , requestGetDeviceFleetReport $
 --             newGetDeviceFleetReport
 --
---         , requestListDataQualityJobDefinitions $
---             newListDataQualityJobDefinitions
+--         , requestDeleteDataQualityJobDefinition $
+--             newDeleteDataQualityJobDefinition
 --
---         , requestDescribeEdgePackagingJob $
---             newDescribeEdgePackagingJob
+--         , requestCreateModelPackageGroup $
+--             newCreateModelPackageGroup
+--
+--         , requestCreatePipeline $
+--             newCreatePipeline
+--
+--         , requestUpdateCodeRepository $
+--             newUpdateCodeRepository
+--
+--         , requestDeleteCodeRepository $
+--             newDeleteCodeRepository
 --
 --         , requestListContexts $
 --             newListContexts
@@ -198,50 +201,17 @@ import Test.Tasty
 --         , requestDescribeEndpoint $
 --             newDescribeEndpoint
 --
---         , requestDeleteCodeRepository $
---             newDeleteCodeRepository
---
---         , requestDeleteModelPackageGroupPolicy $
---             newDeleteModelPackageGroupPolicy
---
---         , requestListUserProfiles $
---             newListUserProfiles
---
---         , requestDescribeCompilationJob $
---             newDescribeCompilationJob
---
---         , requestUpdatePipeline $
---             newUpdatePipeline
+--         , requestDeregisterDevices $
+--             newDeregisterDevices
 --
 --         , requestCreateCodeRepository $
 --             newCreateCodeRepository
 --
---         , requestDescribeArtifact $
---             newDescribeArtifact
---
---         , requestDescribeHumanTaskUi $
---             newDescribeHumanTaskUi
---
---         , requestListPipelineExecutionSteps $
---             newListPipelineExecutionSteps
---
---         , requestListCodeRepositories $
---             newListCodeRepositories
---
---         , requestUpdateUserProfile $
---             newUpdateUserProfile
---
---         , requestDescribeAction $
---             newDescribeAction
---
---         , requestStopTransformJob $
---             newStopTransformJob
---
 --         , requestCreateTrainingJob $
 --             newCreateTrainingJob
 --
---         , requestDeleteUserProfile $
---             newDeleteUserProfile
+--         , requestDeletePipeline $
+--             newDeletePipeline
 --
 --         , requestCreateContext $
 --             newCreateContext
@@ -249,65 +219,68 @@ import Test.Tasty
 --         , requestStopEdgePackagingJob $
 --             newStopEdgePackagingJob
 --
---         , requestCreateImage $
---             newCreateImage
+--         , requestUpdateUserProfile $
+--             newUpdateUserProfile
 --
---         , requestDeregisterDevices $
---             newDeregisterDevices
+--         , requestDescribeCompilationJob $
+--             newDescribeCompilationJob
+--
+--         , requestListPipelineExecutionSteps $
+--             newListPipelineExecutionSteps
+--
+--         , requestListUserProfiles $
+--             newListUserProfiles
+--
+--         , requestDescribeHumanTaskUi $
+--             newDescribeHumanTaskUi
+--
+--         , requestListCodeRepositories $
+--             newListCodeRepositories
+--
+--         , requestDescribeAction $
+--             newDescribeAction
+--
+--         , requestUpdatePipeline $
+--             newUpdatePipeline
+--
+--         , requestDescribeArtifact $
+--             newDescribeArtifact
+--
+--         , requestDeleteUserProfile $
+--             newDeleteUserProfile
+--
+--         , requestStopTransformJob $
+--             newStopTransformJob
 --
 --         , requestCreateDataQualityJobDefinition $
 --             newCreateDataQualityJobDefinition
 --
---         , requestDeletePipeline $
---             newDeletePipeline
+--         , requestDeleteModelPackageGroupPolicy $
+--             newDeleteModelPackageGroupPolicy
 --
---         , requestCreateAppImageConfig $
---             newCreateAppImageConfig
---
---         , requestAddTags $
---             newAddTags
---
---         , requestDisableSagemakerServicecatalogPortfolio $
---             newDisableSagemakerServicecatalogPortfolio
---
---         , requestDeleteAssociation $
---             newDeleteAssociation
---
---         , requestUpdateMonitoringSchedule $
---             newUpdateMonitoringSchedule
---
---         , requestListMonitoringSchedules $
---             newListMonitoringSchedules
---
---         , requestStopNotebookInstance $
---             newStopNotebookInstance
---
---         , requestDeleteMonitoringSchedule $
---             newDeleteMonitoringSchedule
---
---         , requestDeleteEndpointConfig $
---             newDeleteEndpointConfig
---
---         , requestStartPipelineExecution $
---             newStartPipelineExecution
+--         , requestCreateImage $
+--             newCreateImage
 --
 --         , requestDescribeModelPackage $
 --             newDescribeModelPackage
 --
---         , requestDeleteTags $
---             newDeleteTags
+--         , requestRetryPipelineExecution $
+--             newRetryPipelineExecution
 --
---         , requestAddAssociation $
---             newAddAssociation
+--         , requestDeleteEndpointConfig $
+--             newDeleteEndpointConfig
 --
---         , requestCreateNotebookInstanceLifecycleConfig $
---             newCreateNotebookInstanceLifecycleConfig
+--         , requestStopPipelineExecution $
+--             newStopPipelineExecution
 --
 --         , requestListApps $
 --             newListApps
 --
 --         , requestCreateWorkforce $
 --             newCreateWorkforce
+--
+--         , requestCreateStudioLifecycleConfig $
+--             newCreateStudioLifecycleConfig
 --
 --         , requestListAutoMLJobs $
 --             newListAutoMLJobs
@@ -318,140 +291,152 @@ import Test.Tasty
 --         , requestStartNotebookInstance $
 --             newStartNotebookInstance
 --
---         , requestStopPipelineExecution $
---             newStopPipelineExecution
+--         , requestDeleteTags $
+--             newDeleteTags
+--
+--         , requestCreateAppImageConfig $
+--             newCreateAppImageConfig
+--
+--         , requestDeleteAssociation $
+--             newDeleteAssociation
+--
+--         , requestListMonitoringSchedules $
+--             newListMonitoringSchedules
+--
+--         , requestDeleteMonitoringSchedule $
+--             newDeleteMonitoringSchedule
 --
 --         , requestListEndpointConfigs $
 --             newListEndpointConfigs
 --
---         , requestDeleteWorkteam $
---             newDeleteWorkteam
+--         , requestStartPipelineExecution $
+--             newStartPipelineExecution
 --
---         , requestDeleteWorkforce $
---             newDeleteWorkforce
+--         , requestStopNotebookInstance $
+--             newStopNotebookInstance
 --
---         , requestDeleteModelBiasJobDefinition $
---             newDeleteModelBiasJobDefinition
+--         , requestUpdateMonitoringSchedule $
+--             newUpdateMonitoringSchedule
 --
---         , requestUpdateWorkforce $
---             newUpdateWorkforce
+--         , requestAddAssociation $
+--             newAddAssociation
 --
---         , requestDescribeDevice $
---             newDescribeDevice
+--         , requestCreateNotebookInstanceLifecycleConfig $
+--             newCreateNotebookInstanceLifecycleConfig
 --
---         , requestDescribeDomain $
---             newDescribeDomain
+--         , requestAddTags $
+--             newAddTags
 --
---         , requestDeleteNotebookInstanceLifecycleConfig $
---             newDeleteNotebookInstanceLifecycleConfig
---
---         , requestDescribePipelineExecution $
---             newDescribePipelineExecution
---
---         , requestUpdateWorkteam $
---             newUpdateWorkteam
---
---         , requestCreateLabelingJob $
---             newCreateLabelingJob
---
---         , requestDescribeModelQualityJobDefinition $
---             newDescribeModelQualityJobDefinition
---
---         , requestCreateExperiment $
---             newCreateExperiment
---
---         , requestListWorkforces $
---             newListWorkforces
---
---         , requestListAppImageConfigs $
---             newListAppImageConfigs
+--         , requestDisableSagemakerServicecatalogPortfolio $
+--             newDisableSagemakerServicecatalogPortfolio
 --
 --         , requestUpdateNotebookInstanceLifecycleConfig $
 --             newUpdateNotebookInstanceLifecycleConfig
 --
---         , requestDescribeSubscribedWorkteam $
---             newDescribeSubscribedWorkteam
+--         , requestDescribeDomain $
+--             newDescribeDomain
+--
+--         , requestListStudioLifecycleConfigs $
+--             newListStudioLifecycleConfigs
+--
+--         , requestListAppImageConfigs $
+--             newListAppImageConfigs
+--
+--         , requestDescribeModelQualityJobDefinition $
+--             newDescribeModelQualityJobDefinition
+--
+--         , requestDescribeDevice $
+--             newDescribeDevice
 --
 --         , requestListNotebookInstanceLifecycleConfigs $
 --             newListNotebookInstanceLifecycleConfigs
 --
+--         , requestListWorkforces $
+--             newListWorkforces
+--
+--         , requestDeleteStudioLifecycleConfig $
+--             newDeleteStudioLifecycleConfig
+--
+--         , requestCreateLabelingJob $
+--             newCreateLabelingJob
+--
+--         , requestDeleteModelBiasJobDefinition $
+--             newDeleteModelBiasJobDefinition
+--
+--         , requestCreateExperiment $
+--             newCreateExperiment
+--
+--         , requestDescribePipelineExecution $
+--             newDescribePipelineExecution
+--
+--         , requestDeleteWorkforce $
+--             newDeleteWorkforce
+--
+--         , requestUpdateWorkforce $
+--             newUpdateWorkforce
+--
+--         , requestUpdateWorkteam $
+--             newUpdateWorkteam
+--
+--         , requestDescribeSubscribedWorkteam $
+--             newDescribeSubscribedWorkteam
+--
+--         , requestDeleteWorkteam $
+--             newDeleteWorkteam
+--
+--         , requestDeleteNotebookInstanceLifecycleConfig $
+--             newDeleteNotebookInstanceLifecycleConfig
+--
 --         , requestListEdgePackagingJobs $
 --             newListEdgePackagingJobs
---
---         , requestDescribeCodeRepository $
---             newDescribeCodeRepository
---
---         , requestListEndpoints $
---             newListEndpoints
---
---         , requestDescribeDataQualityJobDefinition $
---             newDescribeDataQualityJobDefinition
---
---         , requestDescribeAlgorithm $
---             newDescribeAlgorithm
---
---         , requestCreateAction $
---             newCreateAction
---
---         , requestDeleteEndpoint $
---             newDeleteEndpoint
---
---         , requestCreatePresignedDomainUrl $
---             newCreatePresignedDomainUrl
---
---         , requestListTransformJobs $
---             newListTransformJobs
---
---         , requestDescribeHyperParameterTuningJob $
---             newDescribeHyperParameterTuningJob
 --
 --         , requestCreateCompilationJob $
 --             newCreateCompilationJob
 --
---         , requestUpdateEndpoint $
---             newUpdateEndpoint
---
---         , requestDescribeModel $
---             newDescribeModel
---
---         , requestCreateDeviceFleet $
---             newCreateDeviceFleet
+--         , requestCreateAction $
+--             newCreateAction
 --
 --         , requestCreateArtifact $
 --             newCreateArtifact
 --
+--         , requestDeleteEndpoint $
+--             newDeleteEndpoint
+--
+--         , requestListTransformJobs $
+--             newListTransformJobs
+--
+--         , requestDescribeCodeRepository $
+--             newDescribeCodeRepository
+--
+--         , requestCreateDeviceFleet $
+--             newCreateDeviceFleet
+--
+--         , requestDescribeModel $
+--             newDescribeModel
+--
+--         , requestDescribeDataQualityJobDefinition $
+--             newDescribeDataQualityJobDefinition
+--
+--         , requestUpdateEndpoint $
+--             newUpdateEndpoint
+--
+--         , requestCreatePresignedDomainUrl $
+--             newCreatePresignedDomainUrl
+--
+--         , requestDescribeHyperParameterTuningJob $
+--             newDescribeHyperParameterTuningJob
+--
+--         , requestListEndpoints $
+--             newListEndpoints
+--
+--         , requestDescribeAlgorithm $
+--             newDescribeAlgorithm
+--
 --         , requestUpdateDevices $
 --             newUpdateDevices
 --
---         , requestListArtifacts $
---             newListArtifacts
---
---         , requestDeleteDeviceFleet $
---             newDeleteDeviceFleet
---
---         , requestListMonitoringExecutions $
---             newListMonitoringExecutions
---
---         , requestListCompilationJobs $
---             newListCompilationJobs
---
---         , requestListActions $
---             newListActions
---
 --         , requestListDeviceFleets $
 --             newListDeviceFleets
---
---         , requestDescribeModelPackageGroup $
---             newDescribeModelPackageGroup
---
---         , requestStopHyperParameterTuningJob $
---             newStopHyperParameterTuningJob
---
---         , requestDescribeTrial $
---             newDescribeTrial
---
---         , requestUpdateDeviceFleet $
---             newUpdateDeviceFleet
 --
 --         , requestListLabelingJobsForWorkteam $
 --             newListLabelingJobsForWorkteam
@@ -459,8 +444,56 @@ import Test.Tasty
 --         , requestCreateFeatureGroup $
 --             newCreateFeatureGroup
 --
+--         , requestListMonitoringExecutions $
+--             newListMonitoringExecutions
+--
+--         , requestDescribeModelPackageGroup $
+--             newDescribeModelPackageGroup
+--
+--         , requestUpdateDeviceFleet $
+--             newUpdateDeviceFleet
+--
+--         , requestStopHyperParameterTuningJob $
+--             newStopHyperParameterTuningJob
+--
+--         , requestDeleteDeviceFleet $
+--             newDeleteDeviceFleet
+--
+--         , requestListActions $
+--             newListActions
+--
+--         , requestListArtifacts $
+--             newListArtifacts
+--
+--         , requestListCompilationJobs $
+--             newListCompilationJobs
+--
+--         , requestDescribeTrial $
+--             newDescribeTrial
+--
+--         , requestDeleteImageVersion $
+--             newDeleteImageVersion
+--
+--         , requestDeleteTrialComponent $
+--             newDeleteTrialComponent
+--
+--         , requestListTrialComponents $
+--             newListTrialComponents
+--
+--         , requestDescribeAutoMLJob $
+--             newDescribeAutoMLJob
+--
+--         , requestDeleteProject $
+--             newDeleteProject
+--
+--         , requestDescribeApp $
+--             newDescribeApp
+--
 --         , requestCreateDomain $
 --             newCreateDomain
+--
+--         , requestDescribeExperiment $
+--             newDescribeExperiment
 --
 --         , requestListImageVersions $
 --             newListImageVersions
@@ -468,134 +501,128 @@ import Test.Tasty
 --         , requestStopProcessingJob $
 --             newStopProcessingJob
 --
---         , requestDeleteImageVersion $
---             newDeleteImageVersion
---
---         , requestDeleteProject $
---             newDeleteProject
---
---         , requestDescribeExperiment $
---             newDescribeExperiment
---
---         , requestDescribeAutoMLJob $
---             newDescribeAutoMLJob
---
---         , requestDescribeApp $
---             newDescribeApp
---
---         , requestListTrialComponents $
---             newListTrialComponents
---
 --         , requestUpdateTrialComponent $
 --             newUpdateTrialComponent
---
---         , requestDeleteTrialComponent $
---             newDeleteTrialComponent
---
---         , requestCreateTrialComponent $
---             newCreateTrialComponent
---
---         , requestDescribeWorkforce $
---             newDescribeWorkforce
---
---         , requestListNotebookInstances $
---             newListNotebookInstances
---
---         , requestListModelExplainabilityJobDefinitions $
---             newListModelExplainabilityJobDefinitions
---
---         , requestDeleteModelQualityJobDefinition $
---             newDeleteModelQualityJobDefinition
---
---         , requestStopLabelingJob $
---             newStopLabelingJob
---
---         , requestListModelQualityJobDefinitions $
---             newListModelQualityJobDefinitions
---
---         , requestDescribeModelBiasJobDefinition $
---             newDescribeModelBiasJobDefinition
---
---         , requestDescribeWorkteam $
---             newDescribeWorkteam
---
---         , requestDescribeNotebookInstanceLifecycleConfig $
---             newDescribeNotebookInstanceLifecycleConfig
---
---         , requestListPipelineExecutions $
---             newListPipelineExecutions
---
---         , requestUpdateDomain $
---             newUpdateDomain
---
---         , requestAssociateTrialComponent $
---             newAssociateTrialComponent
 --
 --         , requestUpdatePipelineExecution $
 --             newUpdatePipelineExecution
 --
---         , requestCreateImageVersion $
---             newCreateImageVersion
+--         , requestCreateTrialComponent $
+--             newCreateTrialComponent
+--
+--         , requestListPipelineExecutions $
+--             newListPipelineExecutions
+--
+--         , requestListModelExplainabilityJobDefinitions $
+--             newListModelExplainabilityJobDefinitions
+--
+--         , requestAssociateTrialComponent $
+--             newAssociateTrialComponent
+--
+--         , requestDescribeModelBiasJobDefinition $
+--             newDescribeModelBiasJobDefinition
+--
+--         , requestDescribeStudioLifecycleConfig $
+--             newDescribeStudioLifecycleConfig
 --
 --         , requestDeleteDomain $
 --             newDeleteDomain
 --
---         , requestUpdateTrainingJob $
---             newUpdateTrainingJob
+--         , requestListNotebookInstances $
+--             newListNotebookInstances
 --
---         , requestUpdateImage $
---             newUpdateImage
+--         , requestDescribeNotebookInstanceLifecycleConfig $
+--             newDescribeNotebookInstanceLifecycleConfig
+--
+--         , requestStopLabelingJob $
+--             newStopLabelingJob
+--
+--         , requestUpdateDomain $
+--             newUpdateDomain
+--
+--         , requestDescribeWorkforce $
+--             newDescribeWorkforce
+--
+--         , requestCreateImageVersion $
+--             newCreateImageVersion
+--
+--         , requestDeleteModelQualityJobDefinition $
+--             newDeleteModelQualityJobDefinition
+--
+--         , requestDescribeWorkteam $
+--             newDescribeWorkteam
+--
+--         , requestListModelQualityJobDefinitions $
+--             newListModelQualityJobDefinitions
 --
 --         , requestUpdateContext $
 --             newUpdateContext
 --
---         , requestDeleteImage $
---             newDeleteImage
---
---         , requestListFlowDefinitions $
---             newListFlowDefinitions
---
 --         , requestListModels $
 --             newListModels
---
---         , requestCreateUserProfile $
---             newCreateUserProfile
---
---         , requestRenderUiTemplate $
---             newRenderUiTemplate
---
---         , requestDescribeFeatureGroup $
---             newDescribeFeatureGroup
---
---         , requestDeleteContext $
---             newDeleteContext
 --
 --         , requestListHyperParameterTuningJobs $
 --             newListHyperParameterTuningJobs
 --
---         , requestDeleteFlowDefinition $
---             newDeleteFlowDefinition
+--         , requestSendPipelineExecutionStepFailure $
+--             newSendPipelineExecutionStepFailure
+--
+--         , requestDescribeFeatureGroup $
+--             newDescribeFeatureGroup
+--
+--         , requestUpdateImage $
+--             newUpdateImage
+--
+--         , requestListFlowDefinitions $
+--             newListFlowDefinitions
 --
 --         , requestListAlgorithms $
 --             newListAlgorithms
 --
---         , requestCreateAlgorithm $
---             newCreateAlgorithm
+--         , requestUpdateTrainingJob $
+--             newUpdateTrainingJob
 --
---         , requestCreateFlowDefinition $
---             newCreateFlowDefinition
+--         , requestDeleteFlowDefinition $
+--             newDeleteFlowDefinition
 --
---         , requestListPipelineParametersForExecution $
---             newListPipelineParametersForExecution
+--         , requestDeleteImage $
+--             newDeleteImage
+--
+--         , requestRenderUiTemplate $
+--             newRenderUiTemplate
+--
+--         , requestCreateUserProfile $
+--             newCreateUserProfile
+--
+--         , requestDeleteContext $
+--             newDeleteContext
+--
+--         , requestListTags $
+--             newListTags
+--
+--         , requestPutModelPackageGroupPolicy $
+--             newPutModelPackageGroupPolicy
 --
 --         , requestListTrials $
 --             newListTrials
 --
---         , requestCreateHyperParameterTuningJob $
---             newCreateHyperParameterTuningJob
+--         , requestDescribePipelineDefinitionForExecution $
+--             newDescribePipelineDefinitionForExecution
 --
---         , requestCreateModel $
---             newCreateModel
+--         , requestListModelPackageGroups $
+--             newListModelPackageGroups
+--
+--         , requestListPipelines $
+--             newListPipelines
+--
+--         , requestListPipelineParametersForExecution $
+--             newListPipelineParametersForExecution
+--
+--         , requestDeleteTrial $
+--             newDeleteTrial
+--
+--         , requestCreateAlgorithm $
+--             newCreateAlgorithm
 --
 --         , requestUpdateTrial $
 --             newUpdateTrial
@@ -606,44 +633,35 @@ import Test.Tasty
 --         , requestDescribeDeviceFleet $
 --             newDescribeDeviceFleet
 --
---         , requestListModelPackageGroups $
---             newListModelPackageGroups
+--         , requestCreateHyperParameterTuningJob $
+--             newCreateHyperParameterTuningJob
 --
---         , requestListPipelines $
---             newListPipelines
+--         , requestCreateModel $
+--             newCreateModel
 --
---         , requestListTags $
---             newListTags
+--         , requestCreateFlowDefinition $
+--             newCreateFlowDefinition
 --
---         , requestDescribePipelineDefinitionForExecution $
---             newDescribePipelineDefinitionForExecution
---
---         , requestDeleteTrial $
---             newDeleteTrial
---
---         , requestPutModelPackageGroupPolicy $
---             newPutModelPackageGroupPolicy
---
---         , requestListExperiments $
---             newListExperiments
---
---         , requestUpdateExperiment $
---             newUpdateExperiment
+--         , requestListAssociations $
+--             newListAssociations
 --
 --         , requestDeleteExperiment $
 --             newDeleteExperiment
 --
---         , requestListLabelingJobs $
---             newListLabelingJobs
+--         , requestDescribeProject $
+--             newDescribeProject
 --
 --         , requestDescribeImageVersion $
 --             newDescribeImageVersion
 --
---         , requestDeleteApp $
---             newDeleteApp
+--         , requestListExperiments $
+--             newListExperiments
 --
 --         , requestCreateModelBiasJobDefinition $
 --             newCreateModelBiasJobDefinition
+--
+--         , requestUpdateExperiment $
+--             newUpdateExperiment
 --
 --         , requestDescribeTrialComponent $
 --             newDescribeTrialComponent
@@ -651,56 +669,74 @@ import Test.Tasty
 --         , requestCreateWorkteam $
 --             newCreateWorkteam
 --
---         , requestDescribeProject $
---             newDescribeProject
---
 --         , requestCreateProcessingJob $
 --             newCreateProcessingJob
 --
---         , requestListAssociations $
---             newListAssociations
+--         , requestDeleteApp $
+--             newDeleteApp
 --
---         , requestEnableSagemakerServicecatalogPortfolio $
---             newEnableSagemakerServicecatalogPortfolio
---
---         , requestUpdateAppImageConfig $
---             newUpdateAppImageConfig
---
---         , requestListModelBiasJobDefinitions $
---             newListModelBiasJobDefinitions
---
---         , requestCreateAutoMLJob $
---             newCreateAutoMLJob
---
---         , requestCreateApp $
---             newCreateApp
---
---         , requestDescribeNotebookInstance $
---             newDescribeNotebookInstance
---
---         , requestDeleteAppImageConfig $
---             newDeleteAppImageConfig
---
---         , requestCreateEndpointConfig $
---             newCreateEndpointConfig
---
---         , requestListProcessingJobs $
---             newListProcessingJobs
---
---         , requestCreateMonitoringSchedule $
---             newCreateMonitoringSchedule
---
---         , requestDescribeModelExplainabilityJobDefinition $
---             newDescribeModelExplainabilityJobDefinition
+--         , requestListLabelingJobs $
+--             newListLabelingJobs
 --
 --         , requestListWorkteams $
 --             newListWorkteams
 --
---         , requestDescribeFlowDefinition $
---             newDescribeFlowDefinition
+--         , requestDeleteAppImageConfig $
+--             newDeleteAppImageConfig
+--
+--         , requestCreateApp $
+--             newCreateApp
+--
+--         , requestEnableSagemakerServicecatalogPortfolio $
+--             newEnableSagemakerServicecatalogPortfolio
+--
+--         , requestDescribeNotebookInstance $
+--             newDescribeNotebookInstance
+--
+--         , requestDescribeModelExplainabilityJobDefinition $
+--             newDescribeModelExplainabilityJobDefinition
+--
+--         , requestCreateAutoMLJob $
+--             newCreateAutoMLJob
+--
+--         , requestCreateEndpointConfig $
+--             newCreateEndpointConfig
+--
+--         , requestListModelBiasJobDefinitions $
+--             newListModelBiasJobDefinitions
+--
+--         , requestSendPipelineExecutionStepSuccess $
+--             newSendPipelineExecutionStepSuccess
+--
+--         , requestCreateMonitoringSchedule $
+--             newCreateMonitoringSchedule
+--
+--         , requestListProcessingJobs $
+--             newListProcessingJobs
+--
+--         , requestUpdateAppImageConfig $
+--             newUpdateAppImageConfig
 --
 --         , requestDescribeContext $
 --             newDescribeContext
+--
+--         , requestCreateHumanTaskUi $
+--             newCreateHumanTaskUi
+--
+--         , requestDeleteFeatureGroup $
+--             newDeleteFeatureGroup
+--
+--         , requestDescribeTrainingJob $
+--             newDescribeTrainingJob
+--
+--         , requestDescribeFlowDefinition $
+--             newDescribeFlowDefinition
+--
+--         , requestListTrainingJobsForHyperParameterTuningJob $
+--             newListTrainingJobsForHyperParameterTuningJob
+--
+--         , requestCreatePresignedNotebookInstanceUrl $
+--             newCreatePresignedNotebookInstanceUrl
 --
 --         , requestRegisterDevices $
 --             newRegisterDevices
@@ -708,35 +744,17 @@ import Test.Tasty
 --         , requestListFeatureGroups $
 --             newListFeatureGroups
 --
---         , requestCreatePresignedNotebookInstanceUrl $
---             newCreatePresignedNotebookInstanceUrl
---
---         , requestDescribeTrainingJob $
---             newDescribeTrainingJob
---
---         , requestCreateHumanTaskUi $
---             newCreateHumanTaskUi
---
---         , requestListTrainingJobsForHyperParameterTuningJob $
---             newListTrainingJobsForHyperParameterTuningJob
---
 --         , requestDescribeImage $
 --             newDescribeImage
---
---         , requestDeleteFeatureGroup $
---             newDeleteFeatureGroup
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseDisassociateTrialComponent $
---             newDisassociateTrialComponentResponse
+--         [ responseCreateEdgePackagingJob $
+--             newCreateEdgePackagingJobResponse
 --
---         , responseDeleteArtifact $
---             newDeleteArtifactResponse
---
---         , responseCreateTransformJob $
---             newCreateTransformJobResponse
+--         , responseDescribeUserProfile $
+--             newDescribeUserProfileResponse
 --
 --         , responseListHumanTaskUis $
 --             newListHumanTaskUisResponse
@@ -747,137 +765,134 @@ import Test.Tasty
 --         , responseUpdateAction $
 --             newUpdateActionResponse
 --
+--         , responseCreateEndpoint $
+--             newCreateEndpointResponse
+--
+--         , responseDeleteArtifact $
+--             newDeleteArtifactResponse
+--
+--         , responseCreateTransformJob $
+--             newCreateTransformJobResponse
+--
+--         , responseDeleteAction $
+--             newDeleteActionResponse
+--
 --         , responseDescribePipeline $
 --             newDescribePipelineResponse
 --
 --         , responseUpdateArtifact $
 --             newUpdateArtifactResponse
 --
---         , responseDescribeUserProfile $
---             newDescribeUserProfileResponse
---
 --         , responseStopTrainingJob $
 --             newStopTrainingJobResponse
 --
---         , responseCreateEndpoint $
---             newCreateEndpointResponse
+--         , responseDisassociateTrialComponent $
+--             newDisassociateTrialComponentResponse
 --
 --         , responseGetSearchSuggestions $
 --             newGetSearchSuggestionsResponse
 --
---         , responseDeleteAction $
---             newDeleteActionResponse
---
---         , responseCreateEdgePackagingJob $
---             newCreateEdgePackagingJobResponse
---
---         , responseDescribeEndpointConfig $
---             newDescribeEndpointConfigResponse
---
---         , responseListModelPackages $
---             newListModelPackagesResponse
---
---         , responseGetModelPackageGroupPolicy $
---             newGetModelPackageGroupPolicyResponse
---
---         , responseDescribeMonitoringSchedule $
---             newDescribeMonitoringScheduleResponse
---
---         , responseCreateModelExplainabilityJobDefinition $
---             newCreateModelExplainabilityJobDefinitionResponse
---
---         , responseDescribeLabelingJob $
---             newDescribeLabelingJobResponse
---
---         , responseCreateNotebookInstance $
---             newCreateNotebookInstanceResponse
---
---         , responseUpdateModelPackage $
---             newUpdateModelPackageResponse
+--         , responseDeleteModelPackage $
+--             newDeleteModelPackageResponse
 --
 --         , responseCreateModelQualityJobDefinition $
 --             newCreateModelQualityJobDefinitionResponse
 --
---         , responseDeleteModelPackage $
---             newDeleteModelPackageResponse
+--         , responseListModelPackages $
+--             newListModelPackagesResponse
 --
 --         , responseListProjects $
 --             newListProjectsResponse
 --
---         , responseListSubscribedWorkteams $
---             newListSubscribedWorkteamsResponse
+--         , responseCreateModelExplainabilityJobDefinition $
+--             newCreateModelExplainabilityJobDefinitionResponse
 --
---         , responseDeleteNotebookInstance $
---             newDeleteNotebookInstanceResponse
+--         , responseDescribeEndpointConfig $
+--             newDescribeEndpointConfigResponse
 --
---         , responseCreateProject $
---             newCreateProjectResponse
+--         , responseDescribeMonitoringSchedule $
+--             newDescribeMonitoringScheduleResponse
 --
---         , responseDescribeProcessingJob $
---             newDescribeProcessingJobResponse
+--         , responseDescribeLabelingJob $
+--             newDescribeLabelingJobResponse
 --
---         , responseListDomains $
---             newListDomainsResponse
+--         , responseGetModelPackageGroupPolicy $
+--             newGetModelPackageGroupPolicyResponse
 --
---         , responseDeleteModelExplainabilityJobDefinition $
---             newDeleteModelExplainabilityJobDefinitionResponse
+--         , responseUpdateModelPackage $
+--             newUpdateModelPackageResponse
+--
+--         , responseCreateNotebookInstance $
+--             newCreateNotebookInstanceResponse
 --
 --         , responseStopMonitoringSchedule $
 --             newStopMonitoringScheduleResponse
 --
---         , responseListDevices $
---             newListDevicesResponse
---
 --         , responseCreateModelPackage $
 --             newCreateModelPackageResponse
---
---         , responseUpdateNotebookInstance $
---             newUpdateNotebookInstanceResponse
 --
 --         , responseStopAutoMLJob $
 --             newStopAutoMLJobResponse
 --
+--         , responseCreateProject $
+--             newCreateProjectResponse
+--
 --         , responseDescribeAppImageConfig $
 --             newDescribeAppImageConfigResponse
+--
+--         , responseListSubscribedWorkteams $
+--             newListSubscribedWorkteamsResponse
+--
+--         , responseListDevices $
+--             newListDevicesResponse
+--
+--         , responseUpdateNotebookInstance $
+--             newUpdateNotebookInstanceResponse
+--
+--         , responseDeleteModelExplainabilityJobDefinition $
+--             newDeleteModelExplainabilityJobDefinitionResponse
+--
+--         , responseDescribeProcessingJob $
+--             newDescribeProcessingJobResponse
 --
 --         , responseStartMonitoringSchedule $
 --             newStartMonitoringScheduleResponse
 --
---         , responseStopCompilationJob $
---             newStopCompilationJobResponse
+--         , responseDeleteNotebookInstance $
+--             newDeleteNotebookInstanceResponse
+--
+--         , responseListDomains $
+--             newListDomainsResponse
 --
 --         , responseCreateTrial $
 --             newCreateTrialResponse
 --
---         , responseGetSagemakerServicecatalogPortfolioStatus $
---             newGetSagemakerServicecatalogPortfolioStatusResponse
+--         , responseDescribeTransformJob $
+--             newDescribeTransformJobResponse
 --
---         , responseUpdateCodeRepository $
---             newUpdateCodeRepositoryResponse
---
---         , responseSearch $
---             newSearchResponse
+--         , responseDescribeEdgePackagingJob $
+--             newDescribeEdgePackagingJobResponse
 --
 --         , responseDeleteModel $
 --             newDeleteModelResponse
 --
---         , responseDeleteDataQualityJobDefinition $
---             newDeleteDataQualityJobDefinitionResponse
---
---         , responseListImages $
---             newListImagesResponse
---
 --         , responseListTrainingJobs $
 --             newListTrainingJobsResponse
 --
---         , responseDescribeTransformJob $
---             newDescribeTransformJobResponse
+--         , responseListDataQualityJobDefinitions $
+--             newListDataQualityJobDefinitionsResponse
 --
---         , responseCreatePipeline $
---             newCreatePipelineResponse
+--         , responseGetSagemakerServicecatalogPortfolioStatus $
+--             newGetSagemakerServicecatalogPortfolioStatusResponse
 --
---         , responseCreateModelPackageGroup $
---             newCreateModelPackageGroupResponse
+--         , responseSearch $
+--             newSearchResponse
+--
+--         , responseStopCompilationJob $
+--             newStopCompilationJobResponse
+--
+--         , responseListImages $
+--             newListImagesResponse
 --
 --         , responseListCandidatesForAutoMLJob $
 --             newListCandidatesForAutoMLJobResponse
@@ -888,11 +903,20 @@ import Test.Tasty
 --         , responseGetDeviceFleetReport $
 --             newGetDeviceFleetReportResponse
 --
---         , responseListDataQualityJobDefinitions $
---             newListDataQualityJobDefinitionsResponse
+--         , responseDeleteDataQualityJobDefinition $
+--             newDeleteDataQualityJobDefinitionResponse
 --
---         , responseDescribeEdgePackagingJob $
---             newDescribeEdgePackagingJobResponse
+--         , responseCreateModelPackageGroup $
+--             newCreateModelPackageGroupResponse
+--
+--         , responseCreatePipeline $
+--             newCreatePipelineResponse
+--
+--         , responseUpdateCodeRepository $
+--             newUpdateCodeRepositoryResponse
+--
+--         , responseDeleteCodeRepository $
+--             newDeleteCodeRepositoryResponse
 --
 --         , responseListContexts $
 --             newListContextsResponse
@@ -900,50 +924,17 @@ import Test.Tasty
 --         , responseDescribeEndpoint $
 --             newDescribeEndpointResponse
 --
---         , responseDeleteCodeRepository $
---             newDeleteCodeRepositoryResponse
---
---         , responseDeleteModelPackageGroupPolicy $
---             newDeleteModelPackageGroupPolicyResponse
---
---         , responseListUserProfiles $
---             newListUserProfilesResponse
---
---         , responseDescribeCompilationJob $
---             newDescribeCompilationJobResponse
---
---         , responseUpdatePipeline $
---             newUpdatePipelineResponse
+--         , responseDeregisterDevices $
+--             newDeregisterDevicesResponse
 --
 --         , responseCreateCodeRepository $
 --             newCreateCodeRepositoryResponse
 --
---         , responseDescribeArtifact $
---             newDescribeArtifactResponse
---
---         , responseDescribeHumanTaskUi $
---             newDescribeHumanTaskUiResponse
---
---         , responseListPipelineExecutionSteps $
---             newListPipelineExecutionStepsResponse
---
---         , responseListCodeRepositories $
---             newListCodeRepositoriesResponse
---
---         , responseUpdateUserProfile $
---             newUpdateUserProfileResponse
---
---         , responseDescribeAction $
---             newDescribeActionResponse
---
---         , responseStopTransformJob $
---             newStopTransformJobResponse
---
 --         , responseCreateTrainingJob $
 --             newCreateTrainingJobResponse
 --
---         , responseDeleteUserProfile $
---             newDeleteUserProfileResponse
+--         , responseDeletePipeline $
+--             newDeletePipelineResponse
 --
 --         , responseCreateContext $
 --             newCreateContextResponse
@@ -951,65 +942,68 @@ import Test.Tasty
 --         , responseStopEdgePackagingJob $
 --             newStopEdgePackagingJobResponse
 --
---         , responseCreateImage $
---             newCreateImageResponse
+--         , responseUpdateUserProfile $
+--             newUpdateUserProfileResponse
 --
---         , responseDeregisterDevices $
---             newDeregisterDevicesResponse
+--         , responseDescribeCompilationJob $
+--             newDescribeCompilationJobResponse
+--
+--         , responseListPipelineExecutionSteps $
+--             newListPipelineExecutionStepsResponse
+--
+--         , responseListUserProfiles $
+--             newListUserProfilesResponse
+--
+--         , responseDescribeHumanTaskUi $
+--             newDescribeHumanTaskUiResponse
+--
+--         , responseListCodeRepositories $
+--             newListCodeRepositoriesResponse
+--
+--         , responseDescribeAction $
+--             newDescribeActionResponse
+--
+--         , responseUpdatePipeline $
+--             newUpdatePipelineResponse
+--
+--         , responseDescribeArtifact $
+--             newDescribeArtifactResponse
+--
+--         , responseDeleteUserProfile $
+--             newDeleteUserProfileResponse
+--
+--         , responseStopTransformJob $
+--             newStopTransformJobResponse
 --
 --         , responseCreateDataQualityJobDefinition $
 --             newCreateDataQualityJobDefinitionResponse
 --
---         , responseDeletePipeline $
---             newDeletePipelineResponse
+--         , responseDeleteModelPackageGroupPolicy $
+--             newDeleteModelPackageGroupPolicyResponse
 --
---         , responseCreateAppImageConfig $
---             newCreateAppImageConfigResponse
---
---         , responseAddTags $
---             newAddTagsResponse
---
---         , responseDisableSagemakerServicecatalogPortfolio $
---             newDisableSagemakerServicecatalogPortfolioResponse
---
---         , responseDeleteAssociation $
---             newDeleteAssociationResponse
---
---         , responseUpdateMonitoringSchedule $
---             newUpdateMonitoringScheduleResponse
---
---         , responseListMonitoringSchedules $
---             newListMonitoringSchedulesResponse
---
---         , responseStopNotebookInstance $
---             newStopNotebookInstanceResponse
---
---         , responseDeleteMonitoringSchedule $
---             newDeleteMonitoringScheduleResponse
---
---         , responseDeleteEndpointConfig $
---             newDeleteEndpointConfigResponse
---
---         , responseStartPipelineExecution $
---             newStartPipelineExecutionResponse
+--         , responseCreateImage $
+--             newCreateImageResponse
 --
 --         , responseDescribeModelPackage $
 --             newDescribeModelPackageResponse
 --
---         , responseDeleteTags $
---             newDeleteTagsResponse
+--         , responseRetryPipelineExecution $
+--             newRetryPipelineExecutionResponse
 --
---         , responseAddAssociation $
---             newAddAssociationResponse
+--         , responseDeleteEndpointConfig $
+--             newDeleteEndpointConfigResponse
 --
---         , responseCreateNotebookInstanceLifecycleConfig $
---             newCreateNotebookInstanceLifecycleConfigResponse
+--         , responseStopPipelineExecution $
+--             newStopPipelineExecutionResponse
 --
 --         , responseListApps $
 --             newListAppsResponse
 --
 --         , responseCreateWorkforce $
 --             newCreateWorkforceResponse
+--
+--         , responseCreateStudioLifecycleConfig $
+--             newCreateStudioLifecycleConfigResponse
 --
 --         , responseListAutoMLJobs $
 --             newListAutoMLJobsResponse
@@ -1020,140 +1014,152 @@ import Test.Tasty
 --         , responseStartNotebookInstance $
 --             newStartNotebookInstanceResponse
 --
---         , responseStopPipelineExecution $
---             newStopPipelineExecutionResponse
+--         , responseDeleteTags $
+--             newDeleteTagsResponse
+--
+--         , responseCreateAppImageConfig $
+--             newCreateAppImageConfigResponse
+--
+--         , responseDeleteAssociation $
+--             newDeleteAssociationResponse
+--
+--         , responseListMonitoringSchedules $
+--             newListMonitoringSchedulesResponse
+--
+--         , responseDeleteMonitoringSchedule $
+--             newDeleteMonitoringScheduleResponse
 --
 --         , responseListEndpointConfigs $
 --             newListEndpointConfigsResponse
 --
---         , responseDeleteWorkteam $
---             newDeleteWorkteamResponse
+--         , responseStartPipelineExecution $
+--             newStartPipelineExecutionResponse
 --
---         , responseDeleteWorkforce $
---             newDeleteWorkforceResponse
+--         , responseStopNotebookInstance $
+--             newStopNotebookInstanceResponse
 --
---         , responseDeleteModelBiasJobDefinition $
---             newDeleteModelBiasJobDefinitionResponse
+--         , responseUpdateMonitoringSchedule $
+--             newUpdateMonitoringScheduleResponse
 --
---         , responseUpdateWorkforce $
---             newUpdateWorkforceResponse
+--         , responseAddAssociation $
+--             newAddAssociationResponse
 --
---         , responseDescribeDevice $
---             newDescribeDeviceResponse
+--         , responseCreateNotebookInstanceLifecycleConfig $
+--             newCreateNotebookInstanceLifecycleConfigResponse
 --
---         , responseDescribeDomain $
---             newDescribeDomainResponse
+--         , responseAddTags $
+--             newAddTagsResponse
 --
---         , responseDeleteNotebookInstanceLifecycleConfig $
---             newDeleteNotebookInstanceLifecycleConfigResponse
---
---         , responseDescribePipelineExecution $
---             newDescribePipelineExecutionResponse
---
---         , responseUpdateWorkteam $
---             newUpdateWorkteamResponse
---
---         , responseCreateLabelingJob $
---             newCreateLabelingJobResponse
---
---         , responseDescribeModelQualityJobDefinition $
---             newDescribeModelQualityJobDefinitionResponse
---
---         , responseCreateExperiment $
---             newCreateExperimentResponse
---
---         , responseListWorkforces $
---             newListWorkforcesResponse
---
---         , responseListAppImageConfigs $
---             newListAppImageConfigsResponse
+--         , responseDisableSagemakerServicecatalogPortfolio $
+--             newDisableSagemakerServicecatalogPortfolioResponse
 --
 --         , responseUpdateNotebookInstanceLifecycleConfig $
 --             newUpdateNotebookInstanceLifecycleConfigResponse
 --
---         , responseDescribeSubscribedWorkteam $
---             newDescribeSubscribedWorkteamResponse
+--         , responseDescribeDomain $
+--             newDescribeDomainResponse
+--
+--         , responseListStudioLifecycleConfigs $
+--             newListStudioLifecycleConfigsResponse
+--
+--         , responseListAppImageConfigs $
+--             newListAppImageConfigsResponse
+--
+--         , responseDescribeModelQualityJobDefinition $
+--             newDescribeModelQualityJobDefinitionResponse
+--
+--         , responseDescribeDevice $
+--             newDescribeDeviceResponse
 --
 --         , responseListNotebookInstanceLifecycleConfigs $
 --             newListNotebookInstanceLifecycleConfigsResponse
 --
+--         , responseListWorkforces $
+--             newListWorkforcesResponse
+--
+--         , responseDeleteStudioLifecycleConfig $
+--             newDeleteStudioLifecycleConfigResponse
+--
+--         , responseCreateLabelingJob $
+--             newCreateLabelingJobResponse
+--
+--         , responseDeleteModelBiasJobDefinition $
+--             newDeleteModelBiasJobDefinitionResponse
+--
+--         , responseCreateExperiment $
+--             newCreateExperimentResponse
+--
+--         , responseDescribePipelineExecution $
+--             newDescribePipelineExecutionResponse
+--
+--         , responseDeleteWorkforce $
+--             newDeleteWorkforceResponse
+--
+--         , responseUpdateWorkforce $
+--             newUpdateWorkforceResponse
+--
+--         , responseUpdateWorkteam $
+--             newUpdateWorkteamResponse
+--
+--         , responseDescribeSubscribedWorkteam $
+--             newDescribeSubscribedWorkteamResponse
+--
+--         , responseDeleteWorkteam $
+--             newDeleteWorkteamResponse
+--
+--         , responseDeleteNotebookInstanceLifecycleConfig $
+--             newDeleteNotebookInstanceLifecycleConfigResponse
+--
 --         , responseListEdgePackagingJobs $
 --             newListEdgePackagingJobsResponse
---
---         , responseDescribeCodeRepository $
---             newDescribeCodeRepositoryResponse
---
---         , responseListEndpoints $
---             newListEndpointsResponse
---
---         , responseDescribeDataQualityJobDefinition $
---             newDescribeDataQualityJobDefinitionResponse
---
---         , responseDescribeAlgorithm $
---             newDescribeAlgorithmResponse
---
---         , responseCreateAction $
---             newCreateActionResponse
---
---         , responseDeleteEndpoint $
---             newDeleteEndpointResponse
---
---         , responseCreatePresignedDomainUrl $
---             newCreatePresignedDomainUrlResponse
---
---         , responseListTransformJobs $
---             newListTransformJobsResponse
---
---         , responseDescribeHyperParameterTuningJob $
---             newDescribeHyperParameterTuningJobResponse
 --
 --         , responseCreateCompilationJob $
 --             newCreateCompilationJobResponse
 --
---         , responseUpdateEndpoint $
---             newUpdateEndpointResponse
---
---         , responseDescribeModel $
---             newDescribeModelResponse
---
---         , responseCreateDeviceFleet $
---             newCreateDeviceFleetResponse
+--         , responseCreateAction $
+--             newCreateActionResponse
 --
 --         , responseCreateArtifact $
 --             newCreateArtifactResponse
 --
+--         , responseDeleteEndpoint $
+--             newDeleteEndpointResponse
+--
+--         , responseListTransformJobs $
+--             newListTransformJobsResponse
+--
+--         , responseDescribeCodeRepository $
+--             newDescribeCodeRepositoryResponse
+--
+--         , responseCreateDeviceFleet $
+--             newCreateDeviceFleetResponse
+--
+--         , responseDescribeModel $
+--             newDescribeModelResponse
+--
+--         , responseDescribeDataQualityJobDefinition $
+--             newDescribeDataQualityJobDefinitionResponse
+--
+--         , responseUpdateEndpoint $
+--             newUpdateEndpointResponse
+--
+--         , responseCreatePresignedDomainUrl $
+--             newCreatePresignedDomainUrlResponse
+--
+--         , responseDescribeHyperParameterTuningJob $
+--             newDescribeHyperParameterTuningJobResponse
+--
+--         , responseListEndpoints $
+--             newListEndpointsResponse
+--
+--         , responseDescribeAlgorithm $
+--             newDescribeAlgorithmResponse
+--
 --         , responseUpdateDevices $
 --             newUpdateDevicesResponse
 --
---         , responseListArtifacts $
---             newListArtifactsResponse
---
---         , responseDeleteDeviceFleet $
---             newDeleteDeviceFleetResponse
---
---         , responseListMonitoringExecutions $
---             newListMonitoringExecutionsResponse
---
---         , responseListCompilationJobs $
---             newListCompilationJobsResponse
---
---         , responseListActions $
---             newListActionsResponse
---
 --         , responseListDeviceFleets $
 --             newListDeviceFleetsResponse
---
---         , responseDescribeModelPackageGroup $
---             newDescribeModelPackageGroupResponse
---
---         , responseStopHyperParameterTuningJob $
---             newStopHyperParameterTuningJobResponse
---
---         , responseDescribeTrial $
---             newDescribeTrialResponse
---
---         , responseUpdateDeviceFleet $
---             newUpdateDeviceFleetResponse
 --
 --         , responseListLabelingJobsForWorkteam $
 --             newListLabelingJobsForWorkteamResponse
@@ -1161,8 +1167,56 @@ import Test.Tasty
 --         , responseCreateFeatureGroup $
 --             newCreateFeatureGroupResponse
 --
+--         , responseListMonitoringExecutions $
+--             newListMonitoringExecutionsResponse
+--
+--         , responseDescribeModelPackageGroup $
+--             newDescribeModelPackageGroupResponse
+--
+--         , responseUpdateDeviceFleet $
+--             newUpdateDeviceFleetResponse
+--
+--         , responseStopHyperParameterTuningJob $
+--             newStopHyperParameterTuningJobResponse
+--
+--         , responseDeleteDeviceFleet $
+--             newDeleteDeviceFleetResponse
+--
+--         , responseListActions $
+--             newListActionsResponse
+--
+--         , responseListArtifacts $
+--             newListArtifactsResponse
+--
+--         , responseListCompilationJobs $
+--             newListCompilationJobsResponse
+--
+--         , responseDescribeTrial $
+--             newDescribeTrialResponse
+--
+--         , responseDeleteImageVersion $
+--             newDeleteImageVersionResponse
+--
+--         , responseDeleteTrialComponent $
+--             newDeleteTrialComponentResponse
+--
+--         , responseListTrialComponents $
+--             newListTrialComponentsResponse
+--
+--         , responseDescribeAutoMLJob $
+--             newDescribeAutoMLJobResponse
+--
+--         , responseDeleteProject $
+--             newDeleteProjectResponse
+--
+--         , responseDescribeApp $
+--             newDescribeAppResponse
+--
 --         , responseCreateDomain $
 --             newCreateDomainResponse
+--
+--         , responseDescribeExperiment $
+--             newDescribeExperimentResponse
 --
 --         , responseListImageVersions $
 --             newListImageVersionsResponse
@@ -1170,134 +1224,128 @@ import Test.Tasty
 --         , responseStopProcessingJob $
 --             newStopProcessingJobResponse
 --
---         , responseDeleteImageVersion $
---             newDeleteImageVersionResponse
---
---         , responseDeleteProject $
---             newDeleteProjectResponse
---
---         , responseDescribeExperiment $
---             newDescribeExperimentResponse
---
---         , responseDescribeAutoMLJob $
---             newDescribeAutoMLJobResponse
---
---         , responseDescribeApp $
---             newDescribeAppResponse
---
---         , responseListTrialComponents $
---             newListTrialComponentsResponse
---
 --         , responseUpdateTrialComponent $
 --             newUpdateTrialComponentResponse
---
---         , responseDeleteTrialComponent $
---             newDeleteTrialComponentResponse
---
---         , responseCreateTrialComponent $
---             newCreateTrialComponentResponse
---
---         , responseDescribeWorkforce $
---             newDescribeWorkforceResponse
---
---         , responseListNotebookInstances $
---             newListNotebookInstancesResponse
---
---         , responseListModelExplainabilityJobDefinitions $
---             newListModelExplainabilityJobDefinitionsResponse
---
---         , responseDeleteModelQualityJobDefinition $
---             newDeleteModelQualityJobDefinitionResponse
---
---         , responseStopLabelingJob $
---             newStopLabelingJobResponse
---
---         , responseListModelQualityJobDefinitions $
---             newListModelQualityJobDefinitionsResponse
---
---         , responseDescribeModelBiasJobDefinition $
---             newDescribeModelBiasJobDefinitionResponse
---
---         , responseDescribeWorkteam $
---             newDescribeWorkteamResponse
---
---         , responseDescribeNotebookInstanceLifecycleConfig $
---             newDescribeNotebookInstanceLifecycleConfigResponse
---
---         , responseListPipelineExecutions $
---             newListPipelineExecutionsResponse
---
---         , responseUpdateDomain $
---             newUpdateDomainResponse
---
---         , responseAssociateTrialComponent $
---             newAssociateTrialComponentResponse
 --
 --         , responseUpdatePipelineExecution $
 --             newUpdatePipelineExecutionResponse
 --
---         , responseCreateImageVersion $
---             newCreateImageVersionResponse
+--         , responseCreateTrialComponent $
+--             newCreateTrialComponentResponse
+--
+--         , responseListPipelineExecutions $
+--             newListPipelineExecutionsResponse
+--
+--         , responseListModelExplainabilityJobDefinitions $
+--             newListModelExplainabilityJobDefinitionsResponse
+--
+--         , responseAssociateTrialComponent $
+--             newAssociateTrialComponentResponse
+--
+--         , responseDescribeModelBiasJobDefinition $
+--             newDescribeModelBiasJobDefinitionResponse
+--
+--         , responseDescribeStudioLifecycleConfig $
+--             newDescribeStudioLifecycleConfigResponse
 --
 --         , responseDeleteDomain $
 --             newDeleteDomainResponse
 --
---         , responseUpdateTrainingJob $
---             newUpdateTrainingJobResponse
+--         , responseListNotebookInstances $
+--             newListNotebookInstancesResponse
 --
---         , responseUpdateImage $
---             newUpdateImageResponse
+--         , responseDescribeNotebookInstanceLifecycleConfig $
+--             newDescribeNotebookInstanceLifecycleConfigResponse
+--
+--         , responseStopLabelingJob $
+--             newStopLabelingJobResponse
+--
+--         , responseUpdateDomain $
+--             newUpdateDomainResponse
+--
+--         , responseDescribeWorkforce $
+--             newDescribeWorkforceResponse
+--
+--         , responseCreateImageVersion $
+--             newCreateImageVersionResponse
+--
+--         , responseDeleteModelQualityJobDefinition $
+--             newDeleteModelQualityJobDefinitionResponse
+--
+--         , responseDescribeWorkteam $
+--             newDescribeWorkteamResponse
+--
+--         , responseListModelQualityJobDefinitions $
+--             newListModelQualityJobDefinitionsResponse
 --
 --         , responseUpdateContext $
 --             newUpdateContextResponse
 --
---         , responseDeleteImage $
---             newDeleteImageResponse
---
---         , responseListFlowDefinitions $
---             newListFlowDefinitionsResponse
---
 --         , responseListModels $
 --             newListModelsResponse
---
---         , responseCreateUserProfile $
---             newCreateUserProfileResponse
---
---         , responseRenderUiTemplate $
---             newRenderUiTemplateResponse
---
---         , responseDescribeFeatureGroup $
---             newDescribeFeatureGroupResponse
---
---         , responseDeleteContext $
---             newDeleteContextResponse
 --
 --         , responseListHyperParameterTuningJobs $
 --             newListHyperParameterTuningJobsResponse
 --
---         , responseDeleteFlowDefinition $
---             newDeleteFlowDefinitionResponse
+--         , responseSendPipelineExecutionStepFailure $
+--             newSendPipelineExecutionStepFailureResponse
+--
+--         , responseDescribeFeatureGroup $
+--             newDescribeFeatureGroupResponse
+--
+--         , responseUpdateImage $
+--             newUpdateImageResponse
+--
+--         , responseListFlowDefinitions $
+--             newListFlowDefinitionsResponse
 --
 --         , responseListAlgorithms $
 --             newListAlgorithmsResponse
 --
---         , responseCreateAlgorithm $
---             newCreateAlgorithmResponse
+--         , responseUpdateTrainingJob $
+--             newUpdateTrainingJobResponse
 --
---         , responseCreateFlowDefinition $
---             newCreateFlowDefinitionResponse
+--         , responseDeleteFlowDefinition $
+--             newDeleteFlowDefinitionResponse
 --
---         , responseListPipelineParametersForExecution $
---             newListPipelineParametersForExecutionResponse
+--         , responseDeleteImage $
+--             newDeleteImageResponse
+--
+--         , responseRenderUiTemplate $
+--             newRenderUiTemplateResponse
+--
+--         , responseCreateUserProfile $
+--             newCreateUserProfileResponse
+--
+--         , responseDeleteContext $
+--             newDeleteContextResponse
+--
+--         , responseListTags $
+--             newListTagsResponse
+--
+--         , responsePutModelPackageGroupPolicy $
+--             newPutModelPackageGroupPolicyResponse
 --
 --         , responseListTrials $
 --             newListTrialsResponse
 --
---         , responseCreateHyperParameterTuningJob $
---             newCreateHyperParameterTuningJobResponse
+--         , responseDescribePipelineDefinitionForExecution $
+--             newDescribePipelineDefinitionForExecutionResponse
 --
---         , responseCreateModel $
---             newCreateModelResponse
+--         , responseListModelPackageGroups $
+--             newListModelPackageGroupsResponse
+--
+--         , responseListPipelines $
+--             newListPipelinesResponse
+--
+--         , responseListPipelineParametersForExecution $
+--             newListPipelineParametersForExecutionResponse
+--
+--         , responseDeleteTrial $
+--             newDeleteTrialResponse
+--
+--         , responseCreateAlgorithm $
+--             newCreateAlgorithmResponse
 --
 --         , responseUpdateTrial $
 --             newUpdateTrialResponse
@@ -1308,44 +1356,35 @@ import Test.Tasty
 --         , responseDescribeDeviceFleet $
 --             newDescribeDeviceFleetResponse
 --
---         , responseListModelPackageGroups $
---             newListModelPackageGroupsResponse
+--         , responseCreateHyperParameterTuningJob $
+--             newCreateHyperParameterTuningJobResponse
 --
---         , responseListPipelines $
---             newListPipelinesResponse
+--         , responseCreateModel $
+--             newCreateModelResponse
 --
---         , responseListTags $
---             newListTagsResponse
+--         , responseCreateFlowDefinition $
+--             newCreateFlowDefinitionResponse
 --
---         , responseDescribePipelineDefinitionForExecution $
---             newDescribePipelineDefinitionForExecutionResponse
---
---         , responseDeleteTrial $
---             newDeleteTrialResponse
---
---         , responsePutModelPackageGroupPolicy $
---             newPutModelPackageGroupPolicyResponse
---
---         , responseListExperiments $
---             newListExperimentsResponse
---
---         , responseUpdateExperiment $
---             newUpdateExperimentResponse
+--         , responseListAssociations $
+--             newListAssociationsResponse
 --
 --         , responseDeleteExperiment $
 --             newDeleteExperimentResponse
 --
---         , responseListLabelingJobs $
---             newListLabelingJobsResponse
+--         , responseDescribeProject $
+--             newDescribeProjectResponse
 --
 --         , responseDescribeImageVersion $
 --             newDescribeImageVersionResponse
 --
---         , responseDeleteApp $
---             newDeleteAppResponse
+--         , responseListExperiments $
+--             newListExperimentsResponse
 --
 --         , responseCreateModelBiasJobDefinition $
 --             newCreateModelBiasJobDefinitionResponse
+--
+--         , responseUpdateExperiment $
+--             newUpdateExperimentResponse
 --
 --         , responseDescribeTrialComponent $
 --             newDescribeTrialComponentResponse
@@ -1353,56 +1392,74 @@ import Test.Tasty
 --         , responseCreateWorkteam $
 --             newCreateWorkteamResponse
 --
---         , responseDescribeProject $
---             newDescribeProjectResponse
---
 --         , responseCreateProcessingJob $
 --             newCreateProcessingJobResponse
 --
---         , responseListAssociations $
---             newListAssociationsResponse
+--         , responseDeleteApp $
+--             newDeleteAppResponse
 --
---         , responseEnableSagemakerServicecatalogPortfolio $
---             newEnableSagemakerServicecatalogPortfolioResponse
---
---         , responseUpdateAppImageConfig $
---             newUpdateAppImageConfigResponse
---
---         , responseListModelBiasJobDefinitions $
---             newListModelBiasJobDefinitionsResponse
---
---         , responseCreateAutoMLJob $
---             newCreateAutoMLJobResponse
---
---         , responseCreateApp $
---             newCreateAppResponse
---
---         , responseDescribeNotebookInstance $
---             newDescribeNotebookInstanceResponse
---
---         , responseDeleteAppImageConfig $
---             newDeleteAppImageConfigResponse
---
---         , responseCreateEndpointConfig $
---             newCreateEndpointConfigResponse
---
---         , responseListProcessingJobs $
---             newListProcessingJobsResponse
---
---         , responseCreateMonitoringSchedule $
---             newCreateMonitoringScheduleResponse
---
---         , responseDescribeModelExplainabilityJobDefinition $
---             newDescribeModelExplainabilityJobDefinitionResponse
+--         , responseListLabelingJobs $
+--             newListLabelingJobsResponse
 --
 --         , responseListWorkteams $
 --             newListWorkteamsResponse
 --
---         , responseDescribeFlowDefinition $
---             newDescribeFlowDefinitionResponse
+--         , responseDeleteAppImageConfig $
+--             newDeleteAppImageConfigResponse
+--
+--         , responseCreateApp $
+--             newCreateAppResponse
+--
+--         , responseEnableSagemakerServicecatalogPortfolio $
+--             newEnableSagemakerServicecatalogPortfolioResponse
+--
+--         , responseDescribeNotebookInstance $
+--             newDescribeNotebookInstanceResponse
+--
+--         , responseDescribeModelExplainabilityJobDefinition $
+--             newDescribeModelExplainabilityJobDefinitionResponse
+--
+--         , responseCreateAutoMLJob $
+--             newCreateAutoMLJobResponse
+--
+--         , responseCreateEndpointConfig $
+--             newCreateEndpointConfigResponse
+--
+--         , responseListModelBiasJobDefinitions $
+--             newListModelBiasJobDefinitionsResponse
+--
+--         , responseSendPipelineExecutionStepSuccess $
+--             newSendPipelineExecutionStepSuccessResponse
+--
+--         , responseCreateMonitoringSchedule $
+--             newCreateMonitoringScheduleResponse
+--
+--         , responseListProcessingJobs $
+--             newListProcessingJobsResponse
+--
+--         , responseUpdateAppImageConfig $
+--             newUpdateAppImageConfigResponse
 --
 --         , responseDescribeContext $
 --             newDescribeContextResponse
+--
+--         , responseCreateHumanTaskUi $
+--             newCreateHumanTaskUiResponse
+--
+--         , responseDeleteFeatureGroup $
+--             newDeleteFeatureGroupResponse
+--
+--         , responseDescribeTrainingJob $
+--             newDescribeTrainingJobResponse
+--
+--         , responseDescribeFlowDefinition $
+--             newDescribeFlowDefinitionResponse
+--
+--         , responseListTrainingJobsForHyperParameterTuningJob $
+--             newListTrainingJobsForHyperParameterTuningJobResponse
+--
+--         , responseCreatePresignedNotebookInstanceUrl $
+--             newCreatePresignedNotebookInstanceUrlResponse
 --
 --         , responseRegisterDevices $
 --             newRegisterDevicesResponse
@@ -1410,46 +1467,25 @@ import Test.Tasty
 --         , responseListFeatureGroups $
 --             newListFeatureGroupsResponse
 --
---         , responseCreatePresignedNotebookInstanceUrl $
---             newCreatePresignedNotebookInstanceUrlResponse
---
---         , responseDescribeTrainingJob $
---             newDescribeTrainingJobResponse
---
---         , responseCreateHumanTaskUi $
---             newCreateHumanTaskUiResponse
---
---         , responseListTrainingJobsForHyperParameterTuningJob $
---             newListTrainingJobsForHyperParameterTuningJobResponse
---
 --         , responseDescribeImage $
 --             newDescribeImageResponse
---
---         , responseDeleteFeatureGroup $
---             newDeleteFeatureGroupResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestDisassociateTrialComponent :: DisassociateTrialComponent -> TestTree
-requestDisassociateTrialComponent =
+requestCreateEdgePackagingJob :: CreateEdgePackagingJob -> TestTree
+requestCreateEdgePackagingJob =
   req
-    "DisassociateTrialComponent"
-    "fixture/DisassociateTrialComponent.yaml"
+    "CreateEdgePackagingJob"
+    "fixture/CreateEdgePackagingJob.yaml"
 
-requestDeleteArtifact :: DeleteArtifact -> TestTree
-requestDeleteArtifact =
+requestDescribeUserProfile :: DescribeUserProfile -> TestTree
+requestDescribeUserProfile =
   req
-    "DeleteArtifact"
-    "fixture/DeleteArtifact.yaml"
-
-requestCreateTransformJob :: CreateTransformJob -> TestTree
-requestCreateTransformJob =
-  req
-    "CreateTransformJob"
-    "fixture/CreateTransformJob.yaml"
+    "DescribeUserProfile"
+    "fixture/DescribeUserProfile.yaml"
 
 requestListHumanTaskUis :: ListHumanTaskUis -> TestTree
 requestListHumanTaskUis =
@@ -1469,6 +1505,30 @@ requestUpdateAction =
     "UpdateAction"
     "fixture/UpdateAction.yaml"
 
+requestCreateEndpoint :: CreateEndpoint -> TestTree
+requestCreateEndpoint =
+  req
+    "CreateEndpoint"
+    "fixture/CreateEndpoint.yaml"
+
+requestDeleteArtifact :: DeleteArtifact -> TestTree
+requestDeleteArtifact =
+  req
+    "DeleteArtifact"
+    "fixture/DeleteArtifact.yaml"
+
+requestCreateTransformJob :: CreateTransformJob -> TestTree
+requestCreateTransformJob =
+  req
+    "CreateTransformJob"
+    "fixture/CreateTransformJob.yaml"
+
+requestDeleteAction :: DeleteAction -> TestTree
+requestDeleteAction =
+  req
+    "DeleteAction"
+    "fixture/DeleteAction.yaml"
+
 requestDescribePipeline :: DescribePipeline -> TestTree
 requestDescribePipeline =
   req
@@ -1481,23 +1541,17 @@ requestUpdateArtifact =
     "UpdateArtifact"
     "fixture/UpdateArtifact.yaml"
 
-requestDescribeUserProfile :: DescribeUserProfile -> TestTree
-requestDescribeUserProfile =
-  req
-    "DescribeUserProfile"
-    "fixture/DescribeUserProfile.yaml"
-
 requestStopTrainingJob :: StopTrainingJob -> TestTree
 requestStopTrainingJob =
   req
     "StopTrainingJob"
     "fixture/StopTrainingJob.yaml"
 
-requestCreateEndpoint :: CreateEndpoint -> TestTree
-requestCreateEndpoint =
+requestDisassociateTrialComponent :: DisassociateTrialComponent -> TestTree
+requestDisassociateTrialComponent =
   req
-    "CreateEndpoint"
-    "fixture/CreateEndpoint.yaml"
+    "DisassociateTrialComponent"
+    "fixture/DisassociateTrialComponent.yaml"
 
 requestGetSearchSuggestions :: GetSearchSuggestions -> TestTree
 requestGetSearchSuggestions =
@@ -1505,65 +1559,11 @@ requestGetSearchSuggestions =
     "GetSearchSuggestions"
     "fixture/GetSearchSuggestions.yaml"
 
-requestDeleteAction :: DeleteAction -> TestTree
-requestDeleteAction =
+requestDeleteModelPackage :: DeleteModelPackage -> TestTree
+requestDeleteModelPackage =
   req
-    "DeleteAction"
-    "fixture/DeleteAction.yaml"
-
-requestCreateEdgePackagingJob :: CreateEdgePackagingJob -> TestTree
-requestCreateEdgePackagingJob =
-  req
-    "CreateEdgePackagingJob"
-    "fixture/CreateEdgePackagingJob.yaml"
-
-requestDescribeEndpointConfig :: DescribeEndpointConfig -> TestTree
-requestDescribeEndpointConfig =
-  req
-    "DescribeEndpointConfig"
-    "fixture/DescribeEndpointConfig.yaml"
-
-requestListModelPackages :: ListModelPackages -> TestTree
-requestListModelPackages =
-  req
-    "ListModelPackages"
-    "fixture/ListModelPackages.yaml"
-
-requestGetModelPackageGroupPolicy :: GetModelPackageGroupPolicy -> TestTree
-requestGetModelPackageGroupPolicy =
-  req
-    "GetModelPackageGroupPolicy"
-    "fixture/GetModelPackageGroupPolicy.yaml"
-
-requestDescribeMonitoringSchedule :: DescribeMonitoringSchedule -> TestTree
-requestDescribeMonitoringSchedule =
-  req
-    "DescribeMonitoringSchedule"
-    "fixture/DescribeMonitoringSchedule.yaml"
-
-requestCreateModelExplainabilityJobDefinition :: CreateModelExplainabilityJobDefinition -> TestTree
-requestCreateModelExplainabilityJobDefinition =
-  req
-    "CreateModelExplainabilityJobDefinition"
-    "fixture/CreateModelExplainabilityJobDefinition.yaml"
-
-requestDescribeLabelingJob :: DescribeLabelingJob -> TestTree
-requestDescribeLabelingJob =
-  req
-    "DescribeLabelingJob"
-    "fixture/DescribeLabelingJob.yaml"
-
-requestCreateNotebookInstance :: CreateNotebookInstance -> TestTree
-requestCreateNotebookInstance =
-  req
-    "CreateNotebookInstance"
-    "fixture/CreateNotebookInstance.yaml"
-
-requestUpdateModelPackage :: UpdateModelPackage -> TestTree
-requestUpdateModelPackage =
-  req
-    "UpdateModelPackage"
-    "fixture/UpdateModelPackage.yaml"
+    "DeleteModelPackage"
+    "fixture/DeleteModelPackage.yaml"
 
 requestCreateModelQualityJobDefinition :: CreateModelQualityJobDefinition -> TestTree
 requestCreateModelQualityJobDefinition =
@@ -1571,11 +1571,11 @@ requestCreateModelQualityJobDefinition =
     "CreateModelQualityJobDefinition"
     "fixture/CreateModelQualityJobDefinition.yaml"
 
-requestDeleteModelPackage :: DeleteModelPackage -> TestTree
-requestDeleteModelPackage =
+requestListModelPackages :: ListModelPackages -> TestTree
+requestListModelPackages =
   req
-    "DeleteModelPackage"
-    "fixture/DeleteModelPackage.yaml"
+    "ListModelPackages"
+    "fixture/ListModelPackages.yaml"
 
 requestListProjects :: ListProjects -> TestTree
 requestListProjects =
@@ -1583,41 +1583,47 @@ requestListProjects =
     "ListProjects"
     "fixture/ListProjects.yaml"
 
-requestListSubscribedWorkteams :: ListSubscribedWorkteams -> TestTree
-requestListSubscribedWorkteams =
+requestCreateModelExplainabilityJobDefinition :: CreateModelExplainabilityJobDefinition -> TestTree
+requestCreateModelExplainabilityJobDefinition =
   req
-    "ListSubscribedWorkteams"
-    "fixture/ListSubscribedWorkteams.yaml"
+    "CreateModelExplainabilityJobDefinition"
+    "fixture/CreateModelExplainabilityJobDefinition.yaml"
 
-requestDeleteNotebookInstance :: DeleteNotebookInstance -> TestTree
-requestDeleteNotebookInstance =
+requestDescribeEndpointConfig :: DescribeEndpointConfig -> TestTree
+requestDescribeEndpointConfig =
   req
-    "DeleteNotebookInstance"
-    "fixture/DeleteNotebookInstance.yaml"
+    "DescribeEndpointConfig"
+    "fixture/DescribeEndpointConfig.yaml"
 
-requestCreateProject :: CreateProject -> TestTree
-requestCreateProject =
+requestDescribeMonitoringSchedule :: DescribeMonitoringSchedule -> TestTree
+requestDescribeMonitoringSchedule =
   req
-    "CreateProject"
-    "fixture/CreateProject.yaml"
+    "DescribeMonitoringSchedule"
+    "fixture/DescribeMonitoringSchedule.yaml"
 
-requestDescribeProcessingJob :: DescribeProcessingJob -> TestTree
-requestDescribeProcessingJob =
+requestDescribeLabelingJob :: DescribeLabelingJob -> TestTree
+requestDescribeLabelingJob =
   req
-    "DescribeProcessingJob"
-    "fixture/DescribeProcessingJob.yaml"
+    "DescribeLabelingJob"
+    "fixture/DescribeLabelingJob.yaml"
 
-requestListDomains :: ListDomains -> TestTree
-requestListDomains =
+requestGetModelPackageGroupPolicy :: GetModelPackageGroupPolicy -> TestTree
+requestGetModelPackageGroupPolicy =
   req
-    "ListDomains"
-    "fixture/ListDomains.yaml"
+    "GetModelPackageGroupPolicy"
+    "fixture/GetModelPackageGroupPolicy.yaml"
 
-requestDeleteModelExplainabilityJobDefinition :: DeleteModelExplainabilityJobDefinition -> TestTree
-requestDeleteModelExplainabilityJobDefinition =
+requestUpdateModelPackage :: UpdateModelPackage -> TestTree
+requestUpdateModelPackage =
   req
-    "DeleteModelExplainabilityJobDefinition"
-    "fixture/DeleteModelExplainabilityJobDefinition.yaml"
+    "UpdateModelPackage"
+    "fixture/UpdateModelPackage.yaml"
+
+requestCreateNotebookInstance :: CreateNotebookInstance -> TestTree
+requestCreateNotebookInstance =
+  req
+    "CreateNotebookInstance"
+    "fixture/CreateNotebookInstance.yaml"
 
 requestStopMonitoringSchedule :: StopMonitoringSchedule -> TestTree
 requestStopMonitoringSchedule =
@@ -1625,23 +1631,11 @@ requestStopMonitoringSchedule =
     "StopMonitoringSchedule"
     "fixture/StopMonitoringSchedule.yaml"
 
-requestListDevices :: ListDevices -> TestTree
-requestListDevices =
-  req
-    "ListDevices"
-    "fixture/ListDevices.yaml"
-
 requestCreateModelPackage :: CreateModelPackage -> TestTree
 requestCreateModelPackage =
   req
     "CreateModelPackage"
     "fixture/CreateModelPackage.yaml"
-
-requestUpdateNotebookInstance :: UpdateNotebookInstance -> TestTree
-requestUpdateNotebookInstance =
-  req
-    "UpdateNotebookInstance"
-    "fixture/UpdateNotebookInstance.yaml"
 
 requestStopAutoMLJob :: StopAutoMLJob -> TestTree
 requestStopAutoMLJob =
@@ -1649,11 +1643,47 @@ requestStopAutoMLJob =
     "StopAutoMLJob"
     "fixture/StopAutoMLJob.yaml"
 
+requestCreateProject :: CreateProject -> TestTree
+requestCreateProject =
+  req
+    "CreateProject"
+    "fixture/CreateProject.yaml"
+
 requestDescribeAppImageConfig :: DescribeAppImageConfig -> TestTree
 requestDescribeAppImageConfig =
   req
     "DescribeAppImageConfig"
     "fixture/DescribeAppImageConfig.yaml"
+
+requestListSubscribedWorkteams :: ListSubscribedWorkteams -> TestTree
+requestListSubscribedWorkteams =
+  req
+    "ListSubscribedWorkteams"
+    "fixture/ListSubscribedWorkteams.yaml"
+
+requestListDevices :: ListDevices -> TestTree
+requestListDevices =
+  req
+    "ListDevices"
+    "fixture/ListDevices.yaml"
+
+requestUpdateNotebookInstance :: UpdateNotebookInstance -> TestTree
+requestUpdateNotebookInstance =
+  req
+    "UpdateNotebookInstance"
+    "fixture/UpdateNotebookInstance.yaml"
+
+requestDeleteModelExplainabilityJobDefinition :: DeleteModelExplainabilityJobDefinition -> TestTree
+requestDeleteModelExplainabilityJobDefinition =
+  req
+    "DeleteModelExplainabilityJobDefinition"
+    "fixture/DeleteModelExplainabilityJobDefinition.yaml"
+
+requestDescribeProcessingJob :: DescribeProcessingJob -> TestTree
+requestDescribeProcessingJob =
+  req
+    "DescribeProcessingJob"
+    "fixture/DescribeProcessingJob.yaml"
 
 requestStartMonitoringSchedule :: StartMonitoringSchedule -> TestTree
 requestStartMonitoringSchedule =
@@ -1661,11 +1691,17 @@ requestStartMonitoringSchedule =
     "StartMonitoringSchedule"
     "fixture/StartMonitoringSchedule.yaml"
 
-requestStopCompilationJob :: StopCompilationJob -> TestTree
-requestStopCompilationJob =
+requestDeleteNotebookInstance :: DeleteNotebookInstance -> TestTree
+requestDeleteNotebookInstance =
   req
-    "StopCompilationJob"
-    "fixture/StopCompilationJob.yaml"
+    "DeleteNotebookInstance"
+    "fixture/DeleteNotebookInstance.yaml"
+
+requestListDomains :: ListDomains -> TestTree
+requestListDomains =
+  req
+    "ListDomains"
+    "fixture/ListDomains.yaml"
 
 requestCreateTrial :: CreateTrial -> TestTree
 requestCreateTrial =
@@ -1673,23 +1709,17 @@ requestCreateTrial =
     "CreateTrial"
     "fixture/CreateTrial.yaml"
 
-requestGetSagemakerServicecatalogPortfolioStatus :: GetSagemakerServicecatalogPortfolioStatus -> TestTree
-requestGetSagemakerServicecatalogPortfolioStatus =
+requestDescribeTransformJob :: DescribeTransformJob -> TestTree
+requestDescribeTransformJob =
   req
-    "GetSagemakerServicecatalogPortfolioStatus"
-    "fixture/GetSagemakerServicecatalogPortfolioStatus.yaml"
+    "DescribeTransformJob"
+    "fixture/DescribeTransformJob.yaml"
 
-requestUpdateCodeRepository :: UpdateCodeRepository -> TestTree
-requestUpdateCodeRepository =
+requestDescribeEdgePackagingJob :: DescribeEdgePackagingJob -> TestTree
+requestDescribeEdgePackagingJob =
   req
-    "UpdateCodeRepository"
-    "fixture/UpdateCodeRepository.yaml"
-
-requestSearch :: Search -> TestTree
-requestSearch =
-  req
-    "Search"
-    "fixture/Search.yaml"
+    "DescribeEdgePackagingJob"
+    "fixture/DescribeEdgePackagingJob.yaml"
 
 requestDeleteModel :: DeleteModel -> TestTree
 requestDeleteModel =
@@ -1697,41 +1727,41 @@ requestDeleteModel =
     "DeleteModel"
     "fixture/DeleteModel.yaml"
 
-requestDeleteDataQualityJobDefinition :: DeleteDataQualityJobDefinition -> TestTree
-requestDeleteDataQualityJobDefinition =
-  req
-    "DeleteDataQualityJobDefinition"
-    "fixture/DeleteDataQualityJobDefinition.yaml"
-
-requestListImages :: ListImages -> TestTree
-requestListImages =
-  req
-    "ListImages"
-    "fixture/ListImages.yaml"
-
 requestListTrainingJobs :: ListTrainingJobs -> TestTree
 requestListTrainingJobs =
   req
     "ListTrainingJobs"
     "fixture/ListTrainingJobs.yaml"
 
-requestDescribeTransformJob :: DescribeTransformJob -> TestTree
-requestDescribeTransformJob =
+requestListDataQualityJobDefinitions :: ListDataQualityJobDefinitions -> TestTree
+requestListDataQualityJobDefinitions =
   req
-    "DescribeTransformJob"
-    "fixture/DescribeTransformJob.yaml"
+    "ListDataQualityJobDefinitions"
+    "fixture/ListDataQualityJobDefinitions.yaml"
 
-requestCreatePipeline :: CreatePipeline -> TestTree
-requestCreatePipeline =
+requestGetSagemakerServicecatalogPortfolioStatus :: GetSagemakerServicecatalogPortfolioStatus -> TestTree
+requestGetSagemakerServicecatalogPortfolioStatus =
   req
-    "CreatePipeline"
-    "fixture/CreatePipeline.yaml"
+    "GetSagemakerServicecatalogPortfolioStatus"
+    "fixture/GetSagemakerServicecatalogPortfolioStatus.yaml"
 
-requestCreateModelPackageGroup :: CreateModelPackageGroup -> TestTree
-requestCreateModelPackageGroup =
+requestSearch :: Search -> TestTree
+requestSearch =
   req
-    "CreateModelPackageGroup"
-    "fixture/CreateModelPackageGroup.yaml"
+    "Search"
+    "fixture/Search.yaml"
+
+requestStopCompilationJob :: StopCompilationJob -> TestTree
+requestStopCompilationJob =
+  req
+    "StopCompilationJob"
+    "fixture/StopCompilationJob.yaml"
+
+requestListImages :: ListImages -> TestTree
+requestListImages =
+  req
+    "ListImages"
+    "fixture/ListImages.yaml"
 
 requestListCandidatesForAutoMLJob :: ListCandidatesForAutoMLJob -> TestTree
 requestListCandidatesForAutoMLJob =
@@ -1751,17 +1781,35 @@ requestGetDeviceFleetReport =
     "GetDeviceFleetReport"
     "fixture/GetDeviceFleetReport.yaml"
 
-requestListDataQualityJobDefinitions :: ListDataQualityJobDefinitions -> TestTree
-requestListDataQualityJobDefinitions =
+requestDeleteDataQualityJobDefinition :: DeleteDataQualityJobDefinition -> TestTree
+requestDeleteDataQualityJobDefinition =
   req
-    "ListDataQualityJobDefinitions"
-    "fixture/ListDataQualityJobDefinitions.yaml"
+    "DeleteDataQualityJobDefinition"
+    "fixture/DeleteDataQualityJobDefinition.yaml"
 
-requestDescribeEdgePackagingJob :: DescribeEdgePackagingJob -> TestTree
-requestDescribeEdgePackagingJob =
+requestCreateModelPackageGroup :: CreateModelPackageGroup -> TestTree
+requestCreateModelPackageGroup =
   req
-    "DescribeEdgePackagingJob"
-    "fixture/DescribeEdgePackagingJob.yaml"
+    "CreateModelPackageGroup"
+    "fixture/CreateModelPackageGroup.yaml"
+
+requestCreatePipeline :: CreatePipeline -> TestTree
+requestCreatePipeline =
+  req
+    "CreatePipeline"
+    "fixture/CreatePipeline.yaml"
+
+requestUpdateCodeRepository :: UpdateCodeRepository -> TestTree
+requestUpdateCodeRepository =
+  req
+    "UpdateCodeRepository"
+    "fixture/UpdateCodeRepository.yaml"
+
+requestDeleteCodeRepository :: DeleteCodeRepository -> TestTree
+requestDeleteCodeRepository =
+  req
+    "DeleteCodeRepository"
+    "fixture/DeleteCodeRepository.yaml"
 
 requestListContexts :: ListContexts -> TestTree
 requestListContexts =
@@ -1775,35 +1823,11 @@ requestDescribeEndpoint =
     "DescribeEndpoint"
     "fixture/DescribeEndpoint.yaml"
 
-requestDeleteCodeRepository :: DeleteCodeRepository -> TestTree
-requestDeleteCodeRepository =
+requestDeregisterDevices :: DeregisterDevices -> TestTree
+requestDeregisterDevices =
   req
-    "DeleteCodeRepository"
-    "fixture/DeleteCodeRepository.yaml"
-
-requestDeleteModelPackageGroupPolicy :: DeleteModelPackageGroupPolicy -> TestTree
-requestDeleteModelPackageGroupPolicy =
-  req
-    "DeleteModelPackageGroupPolicy"
-    "fixture/DeleteModelPackageGroupPolicy.yaml"
-
-requestListUserProfiles :: ListUserProfiles -> TestTree
-requestListUserProfiles =
-  req
-    "ListUserProfiles"
-    "fixture/ListUserProfiles.yaml"
-
-requestDescribeCompilationJob :: DescribeCompilationJob -> TestTree
-requestDescribeCompilationJob =
-  req
-    "DescribeCompilationJob"
-    "fixture/DescribeCompilationJob.yaml"
-
-requestUpdatePipeline :: UpdatePipeline -> TestTree
-requestUpdatePipeline =
-  req
-    "UpdatePipeline"
-    "fixture/UpdatePipeline.yaml"
+    "DeregisterDevices"
+    "fixture/DeregisterDevices.yaml"
 
 requestCreateCodeRepository :: CreateCodeRepository -> TestTree
 requestCreateCodeRepository =
@@ -1811,59 +1835,17 @@ requestCreateCodeRepository =
     "CreateCodeRepository"
     "fixture/CreateCodeRepository.yaml"
 
-requestDescribeArtifact :: DescribeArtifact -> TestTree
-requestDescribeArtifact =
-  req
-    "DescribeArtifact"
-    "fixture/DescribeArtifact.yaml"
-
-requestDescribeHumanTaskUi :: DescribeHumanTaskUi -> TestTree
-requestDescribeHumanTaskUi =
-  req
-    "DescribeHumanTaskUi"
-    "fixture/DescribeHumanTaskUi.yaml"
-
-requestListPipelineExecutionSteps :: ListPipelineExecutionSteps -> TestTree
-requestListPipelineExecutionSteps =
-  req
-    "ListPipelineExecutionSteps"
-    "fixture/ListPipelineExecutionSteps.yaml"
-
-requestListCodeRepositories :: ListCodeRepositories -> TestTree
-requestListCodeRepositories =
-  req
-    "ListCodeRepositories"
-    "fixture/ListCodeRepositories.yaml"
-
-requestUpdateUserProfile :: UpdateUserProfile -> TestTree
-requestUpdateUserProfile =
-  req
-    "UpdateUserProfile"
-    "fixture/UpdateUserProfile.yaml"
-
-requestDescribeAction :: DescribeAction -> TestTree
-requestDescribeAction =
-  req
-    "DescribeAction"
-    "fixture/DescribeAction.yaml"
-
-requestStopTransformJob :: StopTransformJob -> TestTree
-requestStopTransformJob =
-  req
-    "StopTransformJob"
-    "fixture/StopTransformJob.yaml"
-
 requestCreateTrainingJob :: CreateTrainingJob -> TestTree
 requestCreateTrainingJob =
   req
     "CreateTrainingJob"
     "fixture/CreateTrainingJob.yaml"
 
-requestDeleteUserProfile :: DeleteUserProfile -> TestTree
-requestDeleteUserProfile =
+requestDeletePipeline :: DeletePipeline -> TestTree
+requestDeletePipeline =
   req
-    "DeleteUserProfile"
-    "fixture/DeleteUserProfile.yaml"
+    "DeletePipeline"
+    "fixture/DeletePipeline.yaml"
 
 requestCreateContext :: CreateContext -> TestTree
 requestCreateContext =
@@ -1877,17 +1859,71 @@ requestStopEdgePackagingJob =
     "StopEdgePackagingJob"
     "fixture/StopEdgePackagingJob.yaml"
 
-requestCreateImage :: CreateImage -> TestTree
-requestCreateImage =
+requestUpdateUserProfile :: UpdateUserProfile -> TestTree
+requestUpdateUserProfile =
   req
-    "CreateImage"
-    "fixture/CreateImage.yaml"
+    "UpdateUserProfile"
+    "fixture/UpdateUserProfile.yaml"
 
-requestDeregisterDevices :: DeregisterDevices -> TestTree
-requestDeregisterDevices =
+requestDescribeCompilationJob :: DescribeCompilationJob -> TestTree
+requestDescribeCompilationJob =
   req
-    "DeregisterDevices"
-    "fixture/DeregisterDevices.yaml"
+    "DescribeCompilationJob"
+    "fixture/DescribeCompilationJob.yaml"
+
+requestListPipelineExecutionSteps :: ListPipelineExecutionSteps -> TestTree
+requestListPipelineExecutionSteps =
+  req
+    "ListPipelineExecutionSteps"
+    "fixture/ListPipelineExecutionSteps.yaml"
+
+requestListUserProfiles :: ListUserProfiles -> TestTree
+requestListUserProfiles =
+  req
+    "ListUserProfiles"
+    "fixture/ListUserProfiles.yaml"
+
+requestDescribeHumanTaskUi :: DescribeHumanTaskUi -> TestTree
+requestDescribeHumanTaskUi =
+  req
+    "DescribeHumanTaskUi"
+    "fixture/DescribeHumanTaskUi.yaml"
+
+requestListCodeRepositories :: ListCodeRepositories -> TestTree
+requestListCodeRepositories =
+  req
+    "ListCodeRepositories"
+    "fixture/ListCodeRepositories.yaml"
+
+requestDescribeAction :: DescribeAction -> TestTree
+requestDescribeAction =
+  req
+    "DescribeAction"
+    "fixture/DescribeAction.yaml"
+
+requestUpdatePipeline :: UpdatePipeline -> TestTree
+requestUpdatePipeline =
+  req
+    "UpdatePipeline"
+    "fixture/UpdatePipeline.yaml"
+
+requestDescribeArtifact :: DescribeArtifact -> TestTree
+requestDescribeArtifact =
+  req
+    "DescribeArtifact"
+    "fixture/DescribeArtifact.yaml"
+
+requestDeleteUserProfile :: DeleteUserProfile -> TestTree
+requestDeleteUserProfile =
+  req
+    "DeleteUserProfile"
+    "fixture/DeleteUserProfile.yaml"
+
+requestStopTransformJob :: StopTransformJob -> TestTree
+requestStopTransformJob =
+  req
+    "StopTransformJob"
+    "fixture/StopTransformJob.yaml"
 
 requestCreateDataQualityJobDefinition :: CreateDataQualityJobDefinition -> TestTree
 requestCreateDataQualityJobDefinition =
@@ -1895,71 +1931,17 @@ requestCreateDataQualityJobDefinition =
     "CreateDataQualityJobDefinition"
     "fixture/CreateDataQualityJobDefinition.yaml"
 
-requestDeletePipeline :: DeletePipeline -> TestTree
-requestDeletePipeline =
+requestDeleteModelPackageGroupPolicy :: DeleteModelPackageGroupPolicy -> TestTree
+requestDeleteModelPackageGroupPolicy =
   req
-    "DeletePipeline"
-    "fixture/DeletePipeline.yaml"
+    "DeleteModelPackageGroupPolicy"
+    "fixture/DeleteModelPackageGroupPolicy.yaml"
 
-requestCreateAppImageConfig :: CreateAppImageConfig -> TestTree
-requestCreateAppImageConfig =
+requestCreateImage :: CreateImage -> TestTree
+requestCreateImage =
   req
-    "CreateAppImageConfig"
-    "fixture/CreateAppImageConfig.yaml"
-
-requestAddTags :: AddTags -> TestTree
-requestAddTags =
-  req
-    "AddTags"
-    "fixture/AddTags.yaml"
-
-requestDisableSagemakerServicecatalogPortfolio :: DisableSagemakerServicecatalogPortfolio -> TestTree
-requestDisableSagemakerServicecatalogPortfolio =
-  req
-    "DisableSagemakerServicecatalogPortfolio"
-    "fixture/DisableSagemakerServicecatalogPortfolio.yaml"
-
-requestDeleteAssociation :: DeleteAssociation -> TestTree
-requestDeleteAssociation =
-  req
-    "DeleteAssociation"
-    "fixture/DeleteAssociation.yaml"
-
-requestUpdateMonitoringSchedule :: UpdateMonitoringSchedule -> TestTree
-requestUpdateMonitoringSchedule =
-  req
-    "UpdateMonitoringSchedule"
-    "fixture/UpdateMonitoringSchedule.yaml"
-
-requestListMonitoringSchedules :: ListMonitoringSchedules -> TestTree
-requestListMonitoringSchedules =
-  req
-    "ListMonitoringSchedules"
-    "fixture/ListMonitoringSchedules.yaml"
-
-requestStopNotebookInstance :: StopNotebookInstance -> TestTree
-requestStopNotebookInstance =
-  req
-    "StopNotebookInstance"
-    "fixture/StopNotebookInstance.yaml"
-
-requestDeleteMonitoringSchedule :: DeleteMonitoringSchedule -> TestTree
-requestDeleteMonitoringSchedule =
-  req
-    "DeleteMonitoringSchedule"
-    "fixture/DeleteMonitoringSchedule.yaml"
-
-requestDeleteEndpointConfig :: DeleteEndpointConfig -> TestTree
-requestDeleteEndpointConfig =
-  req
-    "DeleteEndpointConfig"
-    "fixture/DeleteEndpointConfig.yaml"
-
-requestStartPipelineExecution :: StartPipelineExecution -> TestTree
-requestStartPipelineExecution =
-  req
-    "StartPipelineExecution"
-    "fixture/StartPipelineExecution.yaml"
+    "CreateImage"
+    "fixture/CreateImage.yaml"
 
 requestDescribeModelPackage :: DescribeModelPackage -> TestTree
 requestDescribeModelPackage =
@@ -1967,23 +1949,23 @@ requestDescribeModelPackage =
     "DescribeModelPackage"
     "fixture/DescribeModelPackage.yaml"
 
-requestDeleteTags :: DeleteTags -> TestTree
-requestDeleteTags =
+requestRetryPipelineExecution :: RetryPipelineExecution -> TestTree
+requestRetryPipelineExecution =
   req
-    "DeleteTags"
-    "fixture/DeleteTags.yaml"
+    "RetryPipelineExecution"
+    "fixture/RetryPipelineExecution.yaml"
 
-requestAddAssociation :: AddAssociation -> TestTree
-requestAddAssociation =
+requestDeleteEndpointConfig :: DeleteEndpointConfig -> TestTree
+requestDeleteEndpointConfig =
   req
-    "AddAssociation"
-    "fixture/AddAssociation.yaml"
+    "DeleteEndpointConfig"
+    "fixture/DeleteEndpointConfig.yaml"
 
-requestCreateNotebookInstanceLifecycleConfig :: CreateNotebookInstanceLifecycleConfig -> TestTree
-requestCreateNotebookInstanceLifecycleConfig =
+requestStopPipelineExecution :: StopPipelineExecution -> TestTree
+requestStopPipelineExecution =
   req
-    "CreateNotebookInstanceLifecycleConfig"
-    "fixture/CreateNotebookInstanceLifecycleConfig.yaml"
+    "StopPipelineExecution"
+    "fixture/StopPipelineExecution.yaml"
 
 requestListApps :: ListApps -> TestTree
 requestListApps =
@@ -1996,6 +1978,12 @@ requestCreateWorkforce =
   req
     "CreateWorkforce"
     "fixture/CreateWorkforce.yaml"
+
+requestCreateStudioLifecycleConfig :: CreateStudioLifecycleConfig -> TestTree
+requestCreateStudioLifecycleConfig =
+  req
+    "CreateStudioLifecycleConfig"
+    "fixture/CreateStudioLifecycleConfig.yaml"
 
 requestListAutoMLJobs :: ListAutoMLJobs -> TestTree
 requestListAutoMLJobs =
@@ -2015,11 +2003,35 @@ requestStartNotebookInstance =
     "StartNotebookInstance"
     "fixture/StartNotebookInstance.yaml"
 
-requestStopPipelineExecution :: StopPipelineExecution -> TestTree
-requestStopPipelineExecution =
+requestDeleteTags :: DeleteTags -> TestTree
+requestDeleteTags =
   req
-    "StopPipelineExecution"
-    "fixture/StopPipelineExecution.yaml"
+    "DeleteTags"
+    "fixture/DeleteTags.yaml"
+
+requestCreateAppImageConfig :: CreateAppImageConfig -> TestTree
+requestCreateAppImageConfig =
+  req
+    "CreateAppImageConfig"
+    "fixture/CreateAppImageConfig.yaml"
+
+requestDeleteAssociation :: DeleteAssociation -> TestTree
+requestDeleteAssociation =
+  req
+    "DeleteAssociation"
+    "fixture/DeleteAssociation.yaml"
+
+requestListMonitoringSchedules :: ListMonitoringSchedules -> TestTree
+requestListMonitoringSchedules =
+  req
+    "ListMonitoringSchedules"
+    "fixture/ListMonitoringSchedules.yaml"
+
+requestDeleteMonitoringSchedule :: DeleteMonitoringSchedule -> TestTree
+requestDeleteMonitoringSchedule =
+  req
+    "DeleteMonitoringSchedule"
+    "fixture/DeleteMonitoringSchedule.yaml"
 
 requestListEndpointConfigs :: ListEndpointConfigs -> TestTree
 requestListEndpointConfigs =
@@ -2027,89 +2039,47 @@ requestListEndpointConfigs =
     "ListEndpointConfigs"
     "fixture/ListEndpointConfigs.yaml"
 
-requestDeleteWorkteam :: DeleteWorkteam -> TestTree
-requestDeleteWorkteam =
+requestStartPipelineExecution :: StartPipelineExecution -> TestTree
+requestStartPipelineExecution =
   req
-    "DeleteWorkteam"
-    "fixture/DeleteWorkteam.yaml"
+    "StartPipelineExecution"
+    "fixture/StartPipelineExecution.yaml"
 
-requestDeleteWorkforce :: DeleteWorkforce -> TestTree
-requestDeleteWorkforce =
+requestStopNotebookInstance :: StopNotebookInstance -> TestTree
+requestStopNotebookInstance =
   req
-    "DeleteWorkforce"
-    "fixture/DeleteWorkforce.yaml"
+    "StopNotebookInstance"
+    "fixture/StopNotebookInstance.yaml"
 
-requestDeleteModelBiasJobDefinition :: DeleteModelBiasJobDefinition -> TestTree
-requestDeleteModelBiasJobDefinition =
+requestUpdateMonitoringSchedule :: UpdateMonitoringSchedule -> TestTree
+requestUpdateMonitoringSchedule =
   req
-    "DeleteModelBiasJobDefinition"
-    "fixture/DeleteModelBiasJobDefinition.yaml"
+    "UpdateMonitoringSchedule"
+    "fixture/UpdateMonitoringSchedule.yaml"
 
-requestUpdateWorkforce :: UpdateWorkforce -> TestTree
-requestUpdateWorkforce =
+requestAddAssociation :: AddAssociation -> TestTree
+requestAddAssociation =
   req
-    "UpdateWorkforce"
-    "fixture/UpdateWorkforce.yaml"
+    "AddAssociation"
+    "fixture/AddAssociation.yaml"
 
-requestDescribeDevice :: DescribeDevice -> TestTree
-requestDescribeDevice =
+requestCreateNotebookInstanceLifecycleConfig :: CreateNotebookInstanceLifecycleConfig -> TestTree
+requestCreateNotebookInstanceLifecycleConfig =
   req
-    "DescribeDevice"
-    "fixture/DescribeDevice.yaml"
+    "CreateNotebookInstanceLifecycleConfig"
+    "fixture/CreateNotebookInstanceLifecycleConfig.yaml"
 
-requestDescribeDomain :: DescribeDomain -> TestTree
-requestDescribeDomain =
+requestAddTags :: AddTags -> TestTree
+requestAddTags =
   req
-    "DescribeDomain"
-    "fixture/DescribeDomain.yaml"
+    "AddTags"
+    "fixture/AddTags.yaml"
 
-requestDeleteNotebookInstanceLifecycleConfig :: DeleteNotebookInstanceLifecycleConfig -> TestTree
-requestDeleteNotebookInstanceLifecycleConfig =
+requestDisableSagemakerServicecatalogPortfolio :: DisableSagemakerServicecatalogPortfolio -> TestTree
+requestDisableSagemakerServicecatalogPortfolio =
   req
-    "DeleteNotebookInstanceLifecycleConfig"
-    "fixture/DeleteNotebookInstanceLifecycleConfig.yaml"
-
-requestDescribePipelineExecution :: DescribePipelineExecution -> TestTree
-requestDescribePipelineExecution =
-  req
-    "DescribePipelineExecution"
-    "fixture/DescribePipelineExecution.yaml"
-
-requestUpdateWorkteam :: UpdateWorkteam -> TestTree
-requestUpdateWorkteam =
-  req
-    "UpdateWorkteam"
-    "fixture/UpdateWorkteam.yaml"
-
-requestCreateLabelingJob :: CreateLabelingJob -> TestTree
-requestCreateLabelingJob =
-  req
-    "CreateLabelingJob"
-    "fixture/CreateLabelingJob.yaml"
-
-requestDescribeModelQualityJobDefinition :: DescribeModelQualityJobDefinition -> TestTree
-requestDescribeModelQualityJobDefinition =
-  req
-    "DescribeModelQualityJobDefinition"
-    "fixture/DescribeModelQualityJobDefinition.yaml"
-
-requestCreateExperiment :: CreateExperiment -> TestTree
-requestCreateExperiment =
-  req
-    "CreateExperiment"
-    "fixture/CreateExperiment.yaml"
-
-requestListWorkforces :: ListWorkforces -> TestTree
-requestListWorkforces =
-  req
-    "ListWorkforces"
-    "fixture/ListWorkforces.yaml"
-
-requestListAppImageConfigs :: ListAppImageConfigs -> TestTree
-requestListAppImageConfigs =
-  req
-    "ListAppImageConfigs"
-    "fixture/ListAppImageConfigs.yaml"
+    "DisableSagemakerServicecatalogPortfolio"
+    "fixture/DisableSagemakerServicecatalogPortfolio.yaml"
 
 requestUpdateNotebookInstanceLifecycleConfig :: UpdateNotebookInstanceLifecycleConfig -> TestTree
 requestUpdateNotebookInstanceLifecycleConfig =
@@ -2117,11 +2087,35 @@ requestUpdateNotebookInstanceLifecycleConfig =
     "UpdateNotebookInstanceLifecycleConfig"
     "fixture/UpdateNotebookInstanceLifecycleConfig.yaml"
 
-requestDescribeSubscribedWorkteam :: DescribeSubscribedWorkteam -> TestTree
-requestDescribeSubscribedWorkteam =
+requestDescribeDomain :: DescribeDomain -> TestTree
+requestDescribeDomain =
   req
-    "DescribeSubscribedWorkteam"
-    "fixture/DescribeSubscribedWorkteam.yaml"
+    "DescribeDomain"
+    "fixture/DescribeDomain.yaml"
+
+requestListStudioLifecycleConfigs :: ListStudioLifecycleConfigs -> TestTree
+requestListStudioLifecycleConfigs =
+  req
+    "ListStudioLifecycleConfigs"
+    "fixture/ListStudioLifecycleConfigs.yaml"
+
+requestListAppImageConfigs :: ListAppImageConfigs -> TestTree
+requestListAppImageConfigs =
+  req
+    "ListAppImageConfigs"
+    "fixture/ListAppImageConfigs.yaml"
+
+requestDescribeModelQualityJobDefinition :: DescribeModelQualityJobDefinition -> TestTree
+requestDescribeModelQualityJobDefinition =
+  req
+    "DescribeModelQualityJobDefinition"
+    "fixture/DescribeModelQualityJobDefinition.yaml"
+
+requestDescribeDevice :: DescribeDevice -> TestTree
+requestDescribeDevice =
+  req
+    "DescribeDevice"
+    "fixture/DescribeDevice.yaml"
 
 requestListNotebookInstanceLifecycleConfigs :: ListNotebookInstanceLifecycleConfigs -> TestTree
 requestListNotebookInstanceLifecycleConfigs =
@@ -2129,65 +2123,83 @@ requestListNotebookInstanceLifecycleConfigs =
     "ListNotebookInstanceLifecycleConfigs"
     "fixture/ListNotebookInstanceLifecycleConfigs.yaml"
 
+requestListWorkforces :: ListWorkforces -> TestTree
+requestListWorkforces =
+  req
+    "ListWorkforces"
+    "fixture/ListWorkforces.yaml"
+
+requestDeleteStudioLifecycleConfig :: DeleteStudioLifecycleConfig -> TestTree
+requestDeleteStudioLifecycleConfig =
+  req
+    "DeleteStudioLifecycleConfig"
+    "fixture/DeleteStudioLifecycleConfig.yaml"
+
+requestCreateLabelingJob :: CreateLabelingJob -> TestTree
+requestCreateLabelingJob =
+  req
+    "CreateLabelingJob"
+    "fixture/CreateLabelingJob.yaml"
+
+requestDeleteModelBiasJobDefinition :: DeleteModelBiasJobDefinition -> TestTree
+requestDeleteModelBiasJobDefinition =
+  req
+    "DeleteModelBiasJobDefinition"
+    "fixture/DeleteModelBiasJobDefinition.yaml"
+
+requestCreateExperiment :: CreateExperiment -> TestTree
+requestCreateExperiment =
+  req
+    "CreateExperiment"
+    "fixture/CreateExperiment.yaml"
+
+requestDescribePipelineExecution :: DescribePipelineExecution -> TestTree
+requestDescribePipelineExecution =
+  req
+    "DescribePipelineExecution"
+    "fixture/DescribePipelineExecution.yaml"
+
+requestDeleteWorkforce :: DeleteWorkforce -> TestTree
+requestDeleteWorkforce =
+  req
+    "DeleteWorkforce"
+    "fixture/DeleteWorkforce.yaml"
+
+requestUpdateWorkforce :: UpdateWorkforce -> TestTree
+requestUpdateWorkforce =
+  req
+    "UpdateWorkforce"
+    "fixture/UpdateWorkforce.yaml"
+
+requestUpdateWorkteam :: UpdateWorkteam -> TestTree
+requestUpdateWorkteam =
+  req
+    "UpdateWorkteam"
+    "fixture/UpdateWorkteam.yaml"
+
+requestDescribeSubscribedWorkteam :: DescribeSubscribedWorkteam -> TestTree
+requestDescribeSubscribedWorkteam =
+  req
+    "DescribeSubscribedWorkteam"
+    "fixture/DescribeSubscribedWorkteam.yaml"
+
+requestDeleteWorkteam :: DeleteWorkteam -> TestTree
+requestDeleteWorkteam =
+  req
+    "DeleteWorkteam"
+    "fixture/DeleteWorkteam.yaml"
+
+requestDeleteNotebookInstanceLifecycleConfig :: DeleteNotebookInstanceLifecycleConfig -> TestTree
+requestDeleteNotebookInstanceLifecycleConfig =
+  req
+    "DeleteNotebookInstanceLifecycleConfig"
+    "fixture/DeleteNotebookInstanceLifecycleConfig.yaml"
+
 requestListEdgePackagingJobs :: ListEdgePackagingJobs -> TestTree
 requestListEdgePackagingJobs =
   req
     "ListEdgePackagingJobs"
     "fixture/ListEdgePackagingJobs.yaml"
-
-requestDescribeCodeRepository :: DescribeCodeRepository -> TestTree
-requestDescribeCodeRepository =
-  req
-    "DescribeCodeRepository"
-    "fixture/DescribeCodeRepository.yaml"
-
-requestListEndpoints :: ListEndpoints -> TestTree
-requestListEndpoints =
-  req
-    "ListEndpoints"
-    "fixture/ListEndpoints.yaml"
-
-requestDescribeDataQualityJobDefinition :: DescribeDataQualityJobDefinition -> TestTree
-requestDescribeDataQualityJobDefinition =
-  req
-    "DescribeDataQualityJobDefinition"
-    "fixture/DescribeDataQualityJobDefinition.yaml"
-
-requestDescribeAlgorithm :: DescribeAlgorithm -> TestTree
-requestDescribeAlgorithm =
-  req
-    "DescribeAlgorithm"
-    "fixture/DescribeAlgorithm.yaml"
-
-requestCreateAction :: CreateAction -> TestTree
-requestCreateAction =
-  req
-    "CreateAction"
-    "fixture/CreateAction.yaml"
-
-requestDeleteEndpoint :: DeleteEndpoint -> TestTree
-requestDeleteEndpoint =
-  req
-    "DeleteEndpoint"
-    "fixture/DeleteEndpoint.yaml"
-
-requestCreatePresignedDomainUrl :: CreatePresignedDomainUrl -> TestTree
-requestCreatePresignedDomainUrl =
-  req
-    "CreatePresignedDomainUrl"
-    "fixture/CreatePresignedDomainUrl.yaml"
-
-requestListTransformJobs :: ListTransformJobs -> TestTree
-requestListTransformJobs =
-  req
-    "ListTransformJobs"
-    "fixture/ListTransformJobs.yaml"
-
-requestDescribeHyperParameterTuningJob :: DescribeHyperParameterTuningJob -> TestTree
-requestDescribeHyperParameterTuningJob =
-  req
-    "DescribeHyperParameterTuningJob"
-    "fixture/DescribeHyperParameterTuningJob.yaml"
 
 requestCreateCompilationJob :: CreateCompilationJob -> TestTree
 requestCreateCompilationJob =
@@ -2195,23 +2207,11 @@ requestCreateCompilationJob =
     "CreateCompilationJob"
     "fixture/CreateCompilationJob.yaml"
 
-requestUpdateEndpoint :: UpdateEndpoint -> TestTree
-requestUpdateEndpoint =
+requestCreateAction :: CreateAction -> TestTree
+requestCreateAction =
   req
-    "UpdateEndpoint"
-    "fixture/UpdateEndpoint.yaml"
-
-requestDescribeModel :: DescribeModel -> TestTree
-requestDescribeModel =
-  req
-    "DescribeModel"
-    "fixture/DescribeModel.yaml"
-
-requestCreateDeviceFleet :: CreateDeviceFleet -> TestTree
-requestCreateDeviceFleet =
-  req
-    "CreateDeviceFleet"
-    "fixture/CreateDeviceFleet.yaml"
+    "CreateAction"
+    "fixture/CreateAction.yaml"
 
 requestCreateArtifact :: CreateArtifact -> TestTree
 requestCreateArtifact =
@@ -2219,71 +2219,83 @@ requestCreateArtifact =
     "CreateArtifact"
     "fixture/CreateArtifact.yaml"
 
+requestDeleteEndpoint :: DeleteEndpoint -> TestTree
+requestDeleteEndpoint =
+  req
+    "DeleteEndpoint"
+    "fixture/DeleteEndpoint.yaml"
+
+requestListTransformJobs :: ListTransformJobs -> TestTree
+requestListTransformJobs =
+  req
+    "ListTransformJobs"
+    "fixture/ListTransformJobs.yaml"
+
+requestDescribeCodeRepository :: DescribeCodeRepository -> TestTree
+requestDescribeCodeRepository =
+  req
+    "DescribeCodeRepository"
+    "fixture/DescribeCodeRepository.yaml"
+
+requestCreateDeviceFleet :: CreateDeviceFleet -> TestTree
+requestCreateDeviceFleet =
+  req
+    "CreateDeviceFleet"
+    "fixture/CreateDeviceFleet.yaml"
+
+requestDescribeModel :: DescribeModel -> TestTree
+requestDescribeModel =
+  req
+    "DescribeModel"
+    "fixture/DescribeModel.yaml"
+
+requestDescribeDataQualityJobDefinition :: DescribeDataQualityJobDefinition -> TestTree
+requestDescribeDataQualityJobDefinition =
+  req
+    "DescribeDataQualityJobDefinition"
+    "fixture/DescribeDataQualityJobDefinition.yaml"
+
+requestUpdateEndpoint :: UpdateEndpoint -> TestTree
+requestUpdateEndpoint =
+  req
+    "UpdateEndpoint"
+    "fixture/UpdateEndpoint.yaml"
+
+requestCreatePresignedDomainUrl :: CreatePresignedDomainUrl -> TestTree
+requestCreatePresignedDomainUrl =
+  req
+    "CreatePresignedDomainUrl"
+    "fixture/CreatePresignedDomainUrl.yaml"
+
+requestDescribeHyperParameterTuningJob :: DescribeHyperParameterTuningJob -> TestTree
+requestDescribeHyperParameterTuningJob =
+  req
+    "DescribeHyperParameterTuningJob"
+    "fixture/DescribeHyperParameterTuningJob.yaml"
+
+requestListEndpoints :: ListEndpoints -> TestTree
+requestListEndpoints =
+  req
+    "ListEndpoints"
+    "fixture/ListEndpoints.yaml"
+
+requestDescribeAlgorithm :: DescribeAlgorithm -> TestTree
+requestDescribeAlgorithm =
+  req
+    "DescribeAlgorithm"
+    "fixture/DescribeAlgorithm.yaml"
+
 requestUpdateDevices :: UpdateDevices -> TestTree
 requestUpdateDevices =
   req
     "UpdateDevices"
     "fixture/UpdateDevices.yaml"
 
-requestListArtifacts :: ListArtifacts -> TestTree
-requestListArtifacts =
-  req
-    "ListArtifacts"
-    "fixture/ListArtifacts.yaml"
-
-requestDeleteDeviceFleet :: DeleteDeviceFleet -> TestTree
-requestDeleteDeviceFleet =
-  req
-    "DeleteDeviceFleet"
-    "fixture/DeleteDeviceFleet.yaml"
-
-requestListMonitoringExecutions :: ListMonitoringExecutions -> TestTree
-requestListMonitoringExecutions =
-  req
-    "ListMonitoringExecutions"
-    "fixture/ListMonitoringExecutions.yaml"
-
-requestListCompilationJobs :: ListCompilationJobs -> TestTree
-requestListCompilationJobs =
-  req
-    "ListCompilationJobs"
-    "fixture/ListCompilationJobs.yaml"
-
-requestListActions :: ListActions -> TestTree
-requestListActions =
-  req
-    "ListActions"
-    "fixture/ListActions.yaml"
-
 requestListDeviceFleets :: ListDeviceFleets -> TestTree
 requestListDeviceFleets =
   req
     "ListDeviceFleets"
     "fixture/ListDeviceFleets.yaml"
-
-requestDescribeModelPackageGroup :: DescribeModelPackageGroup -> TestTree
-requestDescribeModelPackageGroup =
-  req
-    "DescribeModelPackageGroup"
-    "fixture/DescribeModelPackageGroup.yaml"
-
-requestStopHyperParameterTuningJob :: StopHyperParameterTuningJob -> TestTree
-requestStopHyperParameterTuningJob =
-  req
-    "StopHyperParameterTuningJob"
-    "fixture/StopHyperParameterTuningJob.yaml"
-
-requestDescribeTrial :: DescribeTrial -> TestTree
-requestDescribeTrial =
-  req
-    "DescribeTrial"
-    "fixture/DescribeTrial.yaml"
-
-requestUpdateDeviceFleet :: UpdateDeviceFleet -> TestTree
-requestUpdateDeviceFleet =
-  req
-    "UpdateDeviceFleet"
-    "fixture/UpdateDeviceFleet.yaml"
 
 requestListLabelingJobsForWorkteam :: ListLabelingJobsForWorkteam -> TestTree
 requestListLabelingJobsForWorkteam =
@@ -2297,11 +2309,107 @@ requestCreateFeatureGroup =
     "CreateFeatureGroup"
     "fixture/CreateFeatureGroup.yaml"
 
+requestListMonitoringExecutions :: ListMonitoringExecutions -> TestTree
+requestListMonitoringExecutions =
+  req
+    "ListMonitoringExecutions"
+    "fixture/ListMonitoringExecutions.yaml"
+
+requestDescribeModelPackageGroup :: DescribeModelPackageGroup -> TestTree
+requestDescribeModelPackageGroup =
+  req
+    "DescribeModelPackageGroup"
+    "fixture/DescribeModelPackageGroup.yaml"
+
+requestUpdateDeviceFleet :: UpdateDeviceFleet -> TestTree
+requestUpdateDeviceFleet =
+  req
+    "UpdateDeviceFleet"
+    "fixture/UpdateDeviceFleet.yaml"
+
+requestStopHyperParameterTuningJob :: StopHyperParameterTuningJob -> TestTree
+requestStopHyperParameterTuningJob =
+  req
+    "StopHyperParameterTuningJob"
+    "fixture/StopHyperParameterTuningJob.yaml"
+
+requestDeleteDeviceFleet :: DeleteDeviceFleet -> TestTree
+requestDeleteDeviceFleet =
+  req
+    "DeleteDeviceFleet"
+    "fixture/DeleteDeviceFleet.yaml"
+
+requestListActions :: ListActions -> TestTree
+requestListActions =
+  req
+    "ListActions"
+    "fixture/ListActions.yaml"
+
+requestListArtifacts :: ListArtifacts -> TestTree
+requestListArtifacts =
+  req
+    "ListArtifacts"
+    "fixture/ListArtifacts.yaml"
+
+requestListCompilationJobs :: ListCompilationJobs -> TestTree
+requestListCompilationJobs =
+  req
+    "ListCompilationJobs"
+    "fixture/ListCompilationJobs.yaml"
+
+requestDescribeTrial :: DescribeTrial -> TestTree
+requestDescribeTrial =
+  req
+    "DescribeTrial"
+    "fixture/DescribeTrial.yaml"
+
+requestDeleteImageVersion :: DeleteImageVersion -> TestTree
+requestDeleteImageVersion =
+  req
+    "DeleteImageVersion"
+    "fixture/DeleteImageVersion.yaml"
+
+requestDeleteTrialComponent :: DeleteTrialComponent -> TestTree
+requestDeleteTrialComponent =
+  req
+    "DeleteTrialComponent"
+    "fixture/DeleteTrialComponent.yaml"
+
+requestListTrialComponents :: ListTrialComponents -> TestTree
+requestListTrialComponents =
+  req
+    "ListTrialComponents"
+    "fixture/ListTrialComponents.yaml"
+
+requestDescribeAutoMLJob :: DescribeAutoMLJob -> TestTree
+requestDescribeAutoMLJob =
+  req
+    "DescribeAutoMLJob"
+    "fixture/DescribeAutoMLJob.yaml"
+
+requestDeleteProject :: DeleteProject -> TestTree
+requestDeleteProject =
+  req
+    "DeleteProject"
+    "fixture/DeleteProject.yaml"
+
+requestDescribeApp :: DescribeApp -> TestTree
+requestDescribeApp =
+  req
+    "DescribeApp"
+    "fixture/DescribeApp.yaml"
+
 requestCreateDomain :: CreateDomain -> TestTree
 requestCreateDomain =
   req
     "CreateDomain"
     "fixture/CreateDomain.yaml"
+
+requestDescribeExperiment :: DescribeExperiment -> TestTree
+requestDescribeExperiment =
+  req
+    "DescribeExperiment"
+    "fixture/DescribeExperiment.yaml"
 
 requestListImageVersions :: ListImageVersions -> TestTree
 requestListImageVersions =
@@ -2315,131 +2423,11 @@ requestStopProcessingJob =
     "StopProcessingJob"
     "fixture/StopProcessingJob.yaml"
 
-requestDeleteImageVersion :: DeleteImageVersion -> TestTree
-requestDeleteImageVersion =
-  req
-    "DeleteImageVersion"
-    "fixture/DeleteImageVersion.yaml"
-
-requestDeleteProject :: DeleteProject -> TestTree
-requestDeleteProject =
-  req
-    "DeleteProject"
-    "fixture/DeleteProject.yaml"
-
-requestDescribeExperiment :: DescribeExperiment -> TestTree
-requestDescribeExperiment =
-  req
-    "DescribeExperiment"
-    "fixture/DescribeExperiment.yaml"
-
-requestDescribeAutoMLJob :: DescribeAutoMLJob -> TestTree
-requestDescribeAutoMLJob =
-  req
-    "DescribeAutoMLJob"
-    "fixture/DescribeAutoMLJob.yaml"
-
-requestDescribeApp :: DescribeApp -> TestTree
-requestDescribeApp =
-  req
-    "DescribeApp"
-    "fixture/DescribeApp.yaml"
-
-requestListTrialComponents :: ListTrialComponents -> TestTree
-requestListTrialComponents =
-  req
-    "ListTrialComponents"
-    "fixture/ListTrialComponents.yaml"
-
 requestUpdateTrialComponent :: UpdateTrialComponent -> TestTree
 requestUpdateTrialComponent =
   req
     "UpdateTrialComponent"
     "fixture/UpdateTrialComponent.yaml"
-
-requestDeleteTrialComponent :: DeleteTrialComponent -> TestTree
-requestDeleteTrialComponent =
-  req
-    "DeleteTrialComponent"
-    "fixture/DeleteTrialComponent.yaml"
-
-requestCreateTrialComponent :: CreateTrialComponent -> TestTree
-requestCreateTrialComponent =
-  req
-    "CreateTrialComponent"
-    "fixture/CreateTrialComponent.yaml"
-
-requestDescribeWorkforce :: DescribeWorkforce -> TestTree
-requestDescribeWorkforce =
-  req
-    "DescribeWorkforce"
-    "fixture/DescribeWorkforce.yaml"
-
-requestListNotebookInstances :: ListNotebookInstances -> TestTree
-requestListNotebookInstances =
-  req
-    "ListNotebookInstances"
-    "fixture/ListNotebookInstances.yaml"
-
-requestListModelExplainabilityJobDefinitions :: ListModelExplainabilityJobDefinitions -> TestTree
-requestListModelExplainabilityJobDefinitions =
-  req
-    "ListModelExplainabilityJobDefinitions"
-    "fixture/ListModelExplainabilityJobDefinitions.yaml"
-
-requestDeleteModelQualityJobDefinition :: DeleteModelQualityJobDefinition -> TestTree
-requestDeleteModelQualityJobDefinition =
-  req
-    "DeleteModelQualityJobDefinition"
-    "fixture/DeleteModelQualityJobDefinition.yaml"
-
-requestStopLabelingJob :: StopLabelingJob -> TestTree
-requestStopLabelingJob =
-  req
-    "StopLabelingJob"
-    "fixture/StopLabelingJob.yaml"
-
-requestListModelQualityJobDefinitions :: ListModelQualityJobDefinitions -> TestTree
-requestListModelQualityJobDefinitions =
-  req
-    "ListModelQualityJobDefinitions"
-    "fixture/ListModelQualityJobDefinitions.yaml"
-
-requestDescribeModelBiasJobDefinition :: DescribeModelBiasJobDefinition -> TestTree
-requestDescribeModelBiasJobDefinition =
-  req
-    "DescribeModelBiasJobDefinition"
-    "fixture/DescribeModelBiasJobDefinition.yaml"
-
-requestDescribeWorkteam :: DescribeWorkteam -> TestTree
-requestDescribeWorkteam =
-  req
-    "DescribeWorkteam"
-    "fixture/DescribeWorkteam.yaml"
-
-requestDescribeNotebookInstanceLifecycleConfig :: DescribeNotebookInstanceLifecycleConfig -> TestTree
-requestDescribeNotebookInstanceLifecycleConfig =
-  req
-    "DescribeNotebookInstanceLifecycleConfig"
-    "fixture/DescribeNotebookInstanceLifecycleConfig.yaml"
-
-requestListPipelineExecutions :: ListPipelineExecutions -> TestTree
-requestListPipelineExecutions =
-  req
-    "ListPipelineExecutions"
-    "fixture/ListPipelineExecutions.yaml"
-
-requestUpdateDomain :: UpdateDomain -> TestTree
-requestUpdateDomain =
-  req
-    "UpdateDomain"
-    "fixture/UpdateDomain.yaml"
-
-requestAssociateTrialComponent :: AssociateTrialComponent -> TestTree
-requestAssociateTrialComponent =
-  req
-    "AssociateTrialComponent"
-    "fixture/AssociateTrialComponent.yaml"
 
 requestUpdatePipelineExecution :: UpdatePipelineExecution -> TestTree
 requestUpdatePipelineExecution =
@@ -2447,11 +2435,41 @@ requestUpdatePipelineExecution =
     "UpdatePipelineExecution"
     "fixture/UpdatePipelineExecution.yaml"
 
-requestCreateImageVersion :: CreateImageVersion -> TestTree
-requestCreateImageVersion =
+requestCreateTrialComponent :: CreateTrialComponent -> TestTree
+requestCreateTrialComponent =
   req
-    "CreateImageVersion"
-    "fixture/CreateImageVersion.yaml"
+    "CreateTrialComponent"
+    "fixture/CreateTrialComponent.yaml"
+
+requestListPipelineExecutions :: ListPipelineExecutions -> TestTree
+requestListPipelineExecutions =
+  req
+    "ListPipelineExecutions"
+    "fixture/ListPipelineExecutions.yaml"
+
+requestListModelExplainabilityJobDefinitions :: ListModelExplainabilityJobDefinitions -> TestTree
+requestListModelExplainabilityJobDefinitions =
+  req
+    "ListModelExplainabilityJobDefinitions"
+    "fixture/ListModelExplainabilityJobDefinitions.yaml"
+
+requestAssociateTrialComponent :: AssociateTrialComponent -> TestTree
+requestAssociateTrialComponent =
+  req
+    "AssociateTrialComponent"
+    "fixture/AssociateTrialComponent.yaml"
+
+requestDescribeModelBiasJobDefinition :: DescribeModelBiasJobDefinition -> TestTree
+requestDescribeModelBiasJobDefinition =
+  req
+    "DescribeModelBiasJobDefinition"
+    "fixture/DescribeModelBiasJobDefinition.yaml"
+
+requestDescribeStudioLifecycleConfig :: DescribeStudioLifecycleConfig -> TestTree
+requestDescribeStudioLifecycleConfig =
+  req
+    "DescribeStudioLifecycleConfig"
+    "fixture/DescribeStudioLifecycleConfig.yaml"
 
 requestDeleteDomain :: DeleteDomain -> TestTree
 requestDeleteDomain =
@@ -2459,17 +2477,59 @@ requestDeleteDomain =
     "DeleteDomain"
     "fixture/DeleteDomain.yaml"
 
-requestUpdateTrainingJob :: UpdateTrainingJob -> TestTree
-requestUpdateTrainingJob =
+requestListNotebookInstances :: ListNotebookInstances -> TestTree
+requestListNotebookInstances =
   req
-    "UpdateTrainingJob"
-    "fixture/UpdateTrainingJob.yaml"
+    "ListNotebookInstances"
+    "fixture/ListNotebookInstances.yaml"
 
-requestUpdateImage :: UpdateImage -> TestTree
-requestUpdateImage =
+requestDescribeNotebookInstanceLifecycleConfig :: DescribeNotebookInstanceLifecycleConfig -> TestTree
+requestDescribeNotebookInstanceLifecycleConfig =
   req
-    "UpdateImage"
-    "fixture/UpdateImage.yaml"
+    "DescribeNotebookInstanceLifecycleConfig"
+    "fixture/DescribeNotebookInstanceLifecycleConfig.yaml"
+
+requestStopLabelingJob :: StopLabelingJob -> TestTree
+requestStopLabelingJob =
+  req
+    "StopLabelingJob"
+    "fixture/StopLabelingJob.yaml"
+
+requestUpdateDomain :: UpdateDomain -> TestTree
+requestUpdateDomain =
+  req
+    "UpdateDomain"
+    "fixture/UpdateDomain.yaml"
+
+requestDescribeWorkforce :: DescribeWorkforce -> TestTree
+requestDescribeWorkforce =
+  req
+    "DescribeWorkforce"
+    "fixture/DescribeWorkforce.yaml"
+
+requestCreateImageVersion :: CreateImageVersion -> TestTree
+requestCreateImageVersion =
+  req
+    "CreateImageVersion"
+    "fixture/CreateImageVersion.yaml"
+
+requestDeleteModelQualityJobDefinition :: DeleteModelQualityJobDefinition -> TestTree
+requestDeleteModelQualityJobDefinition =
+  req
+    "DeleteModelQualityJobDefinition"
+    "fixture/DeleteModelQualityJobDefinition.yaml"
+
+requestDescribeWorkteam :: DescribeWorkteam -> TestTree
+requestDescribeWorkteam =
+  req
+    "DescribeWorkteam"
+    "fixture/DescribeWorkteam.yaml"
+
+requestListModelQualityJobDefinitions :: ListModelQualityJobDefinitions -> TestTree
+requestListModelQualityJobDefinitions =
+  req
+    "ListModelQualityJobDefinitions"
+    "fixture/ListModelQualityJobDefinitions.yaml"
 
 requestUpdateContext :: UpdateContext -> TestTree
 requestUpdateContext =
@@ -2477,47 +2537,11 @@ requestUpdateContext =
     "UpdateContext"
     "fixture/UpdateContext.yaml"
 
-requestDeleteImage :: DeleteImage -> TestTree
-requestDeleteImage =
-  req
-    "DeleteImage"
-    "fixture/DeleteImage.yaml"
-
-requestListFlowDefinitions :: ListFlowDefinitions -> TestTree
-requestListFlowDefinitions =
-  req
-    "ListFlowDefinitions"
-    "fixture/ListFlowDefinitions.yaml"
-
 requestListModels :: ListModels -> TestTree
 requestListModels =
   req
     "ListModels"
     "fixture/ListModels.yaml"
-
-requestCreateUserProfile :: CreateUserProfile -> TestTree
-requestCreateUserProfile =
-  req
-    "CreateUserProfile"
-    "fixture/CreateUserProfile.yaml"
-
-requestRenderUiTemplate :: RenderUiTemplate -> TestTree
-requestRenderUiTemplate =
-  req
-    "RenderUiTemplate"
-    "fixture/RenderUiTemplate.yaml"
-
-requestDescribeFeatureGroup :: DescribeFeatureGroup -> TestTree
-requestDescribeFeatureGroup =
-  req
-    "DescribeFeatureGroup"
-    "fixture/DescribeFeatureGroup.yaml"
-
-requestDeleteContext :: DeleteContext -> TestTree
-requestDeleteContext =
-  req
-    "DeleteContext"
-    "fixture/DeleteContext.yaml"
 
 requestListHyperParameterTuningJobs :: ListHyperParameterTuningJobs -> TestTree
 requestListHyperParameterTuningJobs =
@@ -2525,11 +2549,29 @@ requestListHyperParameterTuningJobs =
     "ListHyperParameterTuningJobs"
     "fixture/ListHyperParameterTuningJobs.yaml"
 
-requestDeleteFlowDefinition :: DeleteFlowDefinition -> TestTree
-requestDeleteFlowDefinition =
+requestSendPipelineExecutionStepFailure :: SendPipelineExecutionStepFailure -> TestTree
+requestSendPipelineExecutionStepFailure =
   req
-    "DeleteFlowDefinition"
-    "fixture/DeleteFlowDefinition.yaml"
+    "SendPipelineExecutionStepFailure"
+    "fixture/SendPipelineExecutionStepFailure.yaml"
+
+requestDescribeFeatureGroup :: DescribeFeatureGroup -> TestTree
+requestDescribeFeatureGroup =
+  req
+    "DescribeFeatureGroup"
+    "fixture/DescribeFeatureGroup.yaml"
+
+requestUpdateImage :: UpdateImage -> TestTree
+requestUpdateImage =
+  req
+    "UpdateImage"
+    "fixture/UpdateImage.yaml"
+
+requestListFlowDefinitions :: ListFlowDefinitions -> TestTree
+requestListFlowDefinitions =
+  req
+    "ListFlowDefinitions"
+    "fixture/ListFlowDefinitions.yaml"
 
 requestListAlgorithms :: ListAlgorithms -> TestTree
 requestListAlgorithms =
@@ -2537,23 +2579,53 @@ requestListAlgorithms =
     "ListAlgorithms"
     "fixture/ListAlgorithms.yaml"
 
-requestCreateAlgorithm :: CreateAlgorithm -> TestTree
-requestCreateAlgorithm =
+requestUpdateTrainingJob :: UpdateTrainingJob -> TestTree
+requestUpdateTrainingJob =
   req
-    "CreateAlgorithm"
-    "fixture/CreateAlgorithm.yaml"
+    "UpdateTrainingJob"
+    "fixture/UpdateTrainingJob.yaml"
 
-requestCreateFlowDefinition :: CreateFlowDefinition -> TestTree
-requestCreateFlowDefinition =
+requestDeleteFlowDefinition :: DeleteFlowDefinition -> TestTree
+requestDeleteFlowDefinition =
   req
-    "CreateFlowDefinition"
-    "fixture/CreateFlowDefinition.yaml"
+    "DeleteFlowDefinition"
+    "fixture/DeleteFlowDefinition.yaml"
 
-requestListPipelineParametersForExecution :: ListPipelineParametersForExecution -> TestTree
-requestListPipelineParametersForExecution =
+requestDeleteImage :: DeleteImage -> TestTree
+requestDeleteImage =
   req
-    "ListPipelineParametersForExecution"
-    "fixture/ListPipelineParametersForExecution.yaml"
+    "DeleteImage"
+    "fixture/DeleteImage.yaml"
+
+requestRenderUiTemplate :: RenderUiTemplate -> TestTree
+requestRenderUiTemplate =
+  req
+    "RenderUiTemplate"
+    "fixture/RenderUiTemplate.yaml"
+
+requestCreateUserProfile :: CreateUserProfile -> TestTree
+requestCreateUserProfile =
+  req
+    "CreateUserProfile"
+    "fixture/CreateUserProfile.yaml"
+
+requestDeleteContext :: DeleteContext -> TestTree
+requestDeleteContext =
+  req
+    "DeleteContext"
+    "fixture/DeleteContext.yaml"
+
+requestListTags :: ListTags -> TestTree
+requestListTags =
+  req
+    "ListTags"
+    "fixture/ListTags.yaml"
+
+requestPutModelPackageGroupPolicy :: PutModelPackageGroupPolicy -> TestTree
+requestPutModelPackageGroupPolicy =
+  req
+    "PutModelPackageGroupPolicy"
+    "fixture/PutModelPackageGroupPolicy.yaml"
 
 requestListTrials :: ListTrials -> TestTree
 requestListTrials =
@@ -2561,17 +2633,41 @@ requestListTrials =
     "ListTrials"
     "fixture/ListTrials.yaml"
 
-requestCreateHyperParameterTuningJob :: CreateHyperParameterTuningJob -> TestTree
-requestCreateHyperParameterTuningJob =
+requestDescribePipelineDefinitionForExecution :: DescribePipelineDefinitionForExecution -> TestTree
+requestDescribePipelineDefinitionForExecution =
   req
-    "CreateHyperParameterTuningJob"
-    "fixture/CreateHyperParameterTuningJob.yaml"
+    "DescribePipelineDefinitionForExecution"
+    "fixture/DescribePipelineDefinitionForExecution.yaml"
 
-requestCreateModel :: CreateModel -> TestTree
-requestCreateModel =
+requestListModelPackageGroups :: ListModelPackageGroups -> TestTree
+requestListModelPackageGroups =
   req
-    "CreateModel"
-    "fixture/CreateModel.yaml"
+    "ListModelPackageGroups"
+    "fixture/ListModelPackageGroups.yaml"
+
+requestListPipelines :: ListPipelines -> TestTree
+requestListPipelines =
+  req
+    "ListPipelines"
+    "fixture/ListPipelines.yaml"
+
+requestListPipelineParametersForExecution :: ListPipelineParametersForExecution -> TestTree
+requestListPipelineParametersForExecution =
+  req
+    "ListPipelineParametersForExecution"
+    "fixture/ListPipelineParametersForExecution.yaml"
+
+requestDeleteTrial :: DeleteTrial -> TestTree
+requestDeleteTrial =
+  req
+    "DeleteTrial"
+    "fixture/DeleteTrial.yaml"
+
+requestCreateAlgorithm :: CreateAlgorithm -> TestTree
+requestCreateAlgorithm =
+  req
+    "CreateAlgorithm"
+    "fixture/CreateAlgorithm.yaml"
 
 requestUpdateTrial :: UpdateTrial -> TestTree
 requestUpdateTrial =
@@ -2591,53 +2687,29 @@ requestDescribeDeviceFleet =
     "DescribeDeviceFleet"
     "fixture/DescribeDeviceFleet.yaml"
 
-requestListModelPackageGroups :: ListModelPackageGroups -> TestTree
-requestListModelPackageGroups =
+requestCreateHyperParameterTuningJob :: CreateHyperParameterTuningJob -> TestTree
+requestCreateHyperParameterTuningJob =
   req
-    "ListModelPackageGroups"
-    "fixture/ListModelPackageGroups.yaml"
+    "CreateHyperParameterTuningJob"
+    "fixture/CreateHyperParameterTuningJob.yaml"
 
-requestListPipelines :: ListPipelines -> TestTree
-requestListPipelines =
+requestCreateModel :: CreateModel -> TestTree
+requestCreateModel =
   req
-    "ListPipelines"
-    "fixture/ListPipelines.yaml"
+    "CreateModel"
+    "fixture/CreateModel.yaml"
 
-requestListTags :: ListTags -> TestTree
-requestListTags =
+requestCreateFlowDefinition :: CreateFlowDefinition -> TestTree
+requestCreateFlowDefinition =
   req
-    "ListTags"
-    "fixture/ListTags.yaml"
+    "CreateFlowDefinition"
+    "fixture/CreateFlowDefinition.yaml"
 
-requestDescribePipelineDefinitionForExecution :: DescribePipelineDefinitionForExecution -> TestTree
-requestDescribePipelineDefinitionForExecution =
+requestListAssociations :: ListAssociations -> TestTree
+requestListAssociations =
   req
-    "DescribePipelineDefinitionForExecution"
-    "fixture/DescribePipelineDefinitionForExecution.yaml"
-
-requestDeleteTrial :: DeleteTrial -> TestTree
-requestDeleteTrial =
-  req
-    "DeleteTrial"
-    "fixture/DeleteTrial.yaml"
-
-requestPutModelPackageGroupPolicy :: PutModelPackageGroupPolicy -> TestTree
-requestPutModelPackageGroupPolicy =
-  req
-    "PutModelPackageGroupPolicy"
-    "fixture/PutModelPackageGroupPolicy.yaml"
-
-requestListExperiments :: ListExperiments -> TestTree
-requestListExperiments =
-  req
-    "ListExperiments"
-    "fixture/ListExperiments.yaml"
-
-requestUpdateExperiment :: UpdateExperiment -> TestTree
-requestUpdateExperiment =
-  req
-    "UpdateExperiment"
-    "fixture/UpdateExperiment.yaml"
+    "ListAssociations"
+    "fixture/ListAssociations.yaml"
 
 requestDeleteExperiment :: DeleteExperiment -> TestTree
 requestDeleteExperiment =
@@ -2645,11 +2717,11 @@ requestDeleteExperiment =
     "DeleteExperiment"
     "fixture/DeleteExperiment.yaml"
 
-requestListLabelingJobs :: ListLabelingJobs -> TestTree
-requestListLabelingJobs =
+requestDescribeProject :: DescribeProject -> TestTree
+requestDescribeProject =
   req
-    "ListLabelingJobs"
-    "fixture/ListLabelingJobs.yaml"
+    "DescribeProject"
+    "fixture/DescribeProject.yaml"
 
 requestDescribeImageVersion :: DescribeImageVersion -> TestTree
 requestDescribeImageVersion =
@@ -2657,17 +2729,23 @@ requestDescribeImageVersion =
     "DescribeImageVersion"
     "fixture/DescribeImageVersion.yaml"
 
-requestDeleteApp :: DeleteApp -> TestTree
-requestDeleteApp =
+requestListExperiments :: ListExperiments -> TestTree
+requestListExperiments =
   req
-    "DeleteApp"
-    "fixture/DeleteApp.yaml"
+    "ListExperiments"
+    "fixture/ListExperiments.yaml"
 
 requestCreateModelBiasJobDefinition :: CreateModelBiasJobDefinition -> TestTree
 requestCreateModelBiasJobDefinition =
   req
     "CreateModelBiasJobDefinition"
     "fixture/CreateModelBiasJobDefinition.yaml"
+
+requestUpdateExperiment :: UpdateExperiment -> TestTree
+requestUpdateExperiment =
+  req
+    "UpdateExperiment"
+    "fixture/UpdateExperiment.yaml"
 
 requestDescribeTrialComponent :: DescribeTrialComponent -> TestTree
 requestDescribeTrialComponent =
@@ -2681,89 +2759,23 @@ requestCreateWorkteam =
     "CreateWorkteam"
     "fixture/CreateWorkteam.yaml"
 
-requestDescribeProject :: DescribeProject -> TestTree
-requestDescribeProject =
-  req
-    "DescribeProject"
-    "fixture/DescribeProject.yaml"
-
 requestCreateProcessingJob :: CreateProcessingJob -> TestTree
 requestCreateProcessingJob =
   req
     "CreateProcessingJob"
     "fixture/CreateProcessingJob.yaml"
 
-requestListAssociations :: ListAssociations -> TestTree
-requestListAssociations =
+requestDeleteApp :: DeleteApp -> TestTree
+requestDeleteApp =
   req
-    "ListAssociations"
-    "fixture/ListAssociations.yaml"
+    "DeleteApp"
+    "fixture/DeleteApp.yaml"
 
-requestEnableSagemakerServicecatalogPortfolio :: EnableSagemakerServicecatalogPortfolio -> TestTree
-requestEnableSagemakerServicecatalogPortfolio =
+requestListLabelingJobs :: ListLabelingJobs -> TestTree
+requestListLabelingJobs =
   req
-    "EnableSagemakerServicecatalogPortfolio"
-    "fixture/EnableSagemakerServicecatalogPortfolio.yaml"
-
-requestUpdateAppImageConfig :: UpdateAppImageConfig -> TestTree
-requestUpdateAppImageConfig =
-  req
-    "UpdateAppImageConfig"
-    "fixture/UpdateAppImageConfig.yaml"
-
-requestListModelBiasJobDefinitions :: ListModelBiasJobDefinitions -> TestTree
-requestListModelBiasJobDefinitions =
-  req
-    "ListModelBiasJobDefinitions"
-    "fixture/ListModelBiasJobDefinitions.yaml"
-
-requestCreateAutoMLJob :: CreateAutoMLJob -> TestTree
-requestCreateAutoMLJob =
-  req
-    "CreateAutoMLJob"
-    "fixture/CreateAutoMLJob.yaml"
-
-requestCreateApp :: CreateApp -> TestTree
-requestCreateApp =
-  req
-    "CreateApp"
-    "fixture/CreateApp.yaml"
-
-requestDescribeNotebookInstance :: DescribeNotebookInstance -> TestTree
-requestDescribeNotebookInstance =
-  req
-    "DescribeNotebookInstance"
-    "fixture/DescribeNotebookInstance.yaml"
-
-requestDeleteAppImageConfig :: DeleteAppImageConfig -> TestTree
-requestDeleteAppImageConfig =
-  req
-    "DeleteAppImageConfig"
-    "fixture/DeleteAppImageConfig.yaml"
-
-requestCreateEndpointConfig :: CreateEndpointConfig -> TestTree
-requestCreateEndpointConfig =
-  req
-    "CreateEndpointConfig"
-    "fixture/CreateEndpointConfig.yaml"
-
-requestListProcessingJobs :: ListProcessingJobs -> TestTree
-requestListProcessingJobs =
-  req
-    "ListProcessingJobs"
-    "fixture/ListProcessingJobs.yaml"
-
-requestCreateMonitoringSchedule :: CreateMonitoringSchedule -> TestTree
-requestCreateMonitoringSchedule =
-  req
-    "CreateMonitoringSchedule"
-    "fixture/CreateMonitoringSchedule.yaml"
-
-requestDescribeModelExplainabilityJobDefinition :: DescribeModelExplainabilityJobDefinition -> TestTree
-requestDescribeModelExplainabilityJobDefinition =
-  req
-    "DescribeModelExplainabilityJobDefinition"
-    "fixture/DescribeModelExplainabilityJobDefinition.yaml"
+    "ListLabelingJobs"
+    "fixture/ListLabelingJobs.yaml"
 
 requestListWorkteams :: ListWorkteams -> TestTree
 requestListWorkteams =
@@ -2771,17 +2783,119 @@ requestListWorkteams =
     "ListWorkteams"
     "fixture/ListWorkteams.yaml"
 
-requestDescribeFlowDefinition :: DescribeFlowDefinition -> TestTree
-requestDescribeFlowDefinition =
+requestDeleteAppImageConfig :: DeleteAppImageConfig -> TestTree
+requestDeleteAppImageConfig =
   req
-    "DescribeFlowDefinition"
-    "fixture/DescribeFlowDefinition.yaml"
+    "DeleteAppImageConfig"
+    "fixture/DeleteAppImageConfig.yaml"
+
+requestCreateApp :: CreateApp -> TestTree
+requestCreateApp =
+  req
+    "CreateApp"
+    "fixture/CreateApp.yaml"
+
+requestEnableSagemakerServicecatalogPortfolio :: EnableSagemakerServicecatalogPortfolio -> TestTree
+requestEnableSagemakerServicecatalogPortfolio =
+  req
+    "EnableSagemakerServicecatalogPortfolio"
+    "fixture/EnableSagemakerServicecatalogPortfolio.yaml"
+
+requestDescribeNotebookInstance :: DescribeNotebookInstance -> TestTree
+requestDescribeNotebookInstance =
+  req
+    "DescribeNotebookInstance"
+    "fixture/DescribeNotebookInstance.yaml"
+
+requestDescribeModelExplainabilityJobDefinition :: DescribeModelExplainabilityJobDefinition -> TestTree
+requestDescribeModelExplainabilityJobDefinition =
+  req
+    "DescribeModelExplainabilityJobDefinition"
+    "fixture/DescribeModelExplainabilityJobDefinition.yaml"
+
+requestCreateAutoMLJob :: CreateAutoMLJob -> TestTree
+requestCreateAutoMLJob =
+  req
+    "CreateAutoMLJob"
+    "fixture/CreateAutoMLJob.yaml"
+
+requestCreateEndpointConfig :: CreateEndpointConfig -> TestTree
+requestCreateEndpointConfig =
+  req
+    "CreateEndpointConfig"
+    "fixture/CreateEndpointConfig.yaml"
+
+requestListModelBiasJobDefinitions :: ListModelBiasJobDefinitions -> TestTree
+requestListModelBiasJobDefinitions =
+  req
+    "ListModelBiasJobDefinitions"
+    "fixture/ListModelBiasJobDefinitions.yaml"
+
+requestSendPipelineExecutionStepSuccess :: SendPipelineExecutionStepSuccess -> TestTree
+requestSendPipelineExecutionStepSuccess =
+  req
+    "SendPipelineExecutionStepSuccess"
+    "fixture/SendPipelineExecutionStepSuccess.yaml"
+
+requestCreateMonitoringSchedule :: CreateMonitoringSchedule -> TestTree
+requestCreateMonitoringSchedule =
+  req
+    "CreateMonitoringSchedule"
+    "fixture/CreateMonitoringSchedule.yaml"
+
+requestListProcessingJobs :: ListProcessingJobs -> TestTree
+requestListProcessingJobs =
+  req
+    "ListProcessingJobs"
+    "fixture/ListProcessingJobs.yaml"
+
+requestUpdateAppImageConfig :: UpdateAppImageConfig -> TestTree
+requestUpdateAppImageConfig =
+  req
+    "UpdateAppImageConfig"
+    "fixture/UpdateAppImageConfig.yaml"
 
 requestDescribeContext :: DescribeContext -> TestTree
 requestDescribeContext =
   req
     "DescribeContext"
     "fixture/DescribeContext.yaml"
+
+requestCreateHumanTaskUi :: CreateHumanTaskUi -> TestTree
+requestCreateHumanTaskUi =
+  req
+    "CreateHumanTaskUi"
+    "fixture/CreateHumanTaskUi.yaml"
+
+requestDeleteFeatureGroup :: DeleteFeatureGroup -> TestTree
+requestDeleteFeatureGroup =
+  req
+    "DeleteFeatureGroup"
+    "fixture/DeleteFeatureGroup.yaml"
+
+requestDescribeTrainingJob :: DescribeTrainingJob -> TestTree
+requestDescribeTrainingJob =
+  req
+    "DescribeTrainingJob"
+    "fixture/DescribeTrainingJob.yaml"
+
+requestDescribeFlowDefinition :: DescribeFlowDefinition -> TestTree
+requestDescribeFlowDefinition =
+  req
+    "DescribeFlowDefinition"
+    "fixture/DescribeFlowDefinition.yaml"
+
+requestListTrainingJobsForHyperParameterTuningJob :: ListTrainingJobsForHyperParameterTuningJob -> TestTree
+requestListTrainingJobsForHyperParameterTuningJob =
+  req
+    "ListTrainingJobsForHyperParameterTuningJob"
+    "fixture/ListTrainingJobsForHyperParameterTuningJob.yaml"
+
+requestCreatePresignedNotebookInstanceUrl :: CreatePresignedNotebookInstanceUrl -> TestTree
+requestCreatePresignedNotebookInstanceUrl =
+  req
+    "CreatePresignedNotebookInstanceUrl"
+    "fixture/CreatePresignedNotebookInstanceUrl.yaml"
 
 requestRegisterDevices :: RegisterDevices -> TestTree
 requestRegisterDevices =
@@ -2795,67 +2909,29 @@ requestListFeatureGroups =
     "ListFeatureGroups"
     "fixture/ListFeatureGroups.yaml"
 
-requestCreatePresignedNotebookInstanceUrl :: CreatePresignedNotebookInstanceUrl -> TestTree
-requestCreatePresignedNotebookInstanceUrl =
-  req
-    "CreatePresignedNotebookInstanceUrl"
-    "fixture/CreatePresignedNotebookInstanceUrl.yaml"
-
-requestDescribeTrainingJob :: DescribeTrainingJob -> TestTree
-requestDescribeTrainingJob =
-  req
-    "DescribeTrainingJob"
-    "fixture/DescribeTrainingJob.yaml"
-
-requestCreateHumanTaskUi :: CreateHumanTaskUi -> TestTree
-requestCreateHumanTaskUi =
-  req
-    "CreateHumanTaskUi"
-    "fixture/CreateHumanTaskUi.yaml"
-
-requestListTrainingJobsForHyperParameterTuningJob :: ListTrainingJobsForHyperParameterTuningJob -> TestTree
-requestListTrainingJobsForHyperParameterTuningJob =
-  req
-    "ListTrainingJobsForHyperParameterTuningJob"
-    "fixture/ListTrainingJobsForHyperParameterTuningJob.yaml"
-
 requestDescribeImage :: DescribeImage -> TestTree
 requestDescribeImage =
   req
     "DescribeImage"
     "fixture/DescribeImage.yaml"
 
-requestDeleteFeatureGroup :: DeleteFeatureGroup -> TestTree
-requestDeleteFeatureGroup =
-  req
-    "DeleteFeatureGroup"
-    "fixture/DeleteFeatureGroup.yaml"
-
 -- Responses
 
-responseDisassociateTrialComponent :: DisassociateTrialComponentResponse -> TestTree
-responseDisassociateTrialComponent =
+responseCreateEdgePackagingJob :: CreateEdgePackagingJobResponse -> TestTree
+responseCreateEdgePackagingJob =
   res
-    "DisassociateTrialComponentResponse"
-    "fixture/DisassociateTrialComponentResponse.proto"
+    "CreateEdgePackagingJobResponse"
+    "fixture/CreateEdgePackagingJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DisassociateTrialComponent)
+    (Proxy :: Proxy CreateEdgePackagingJob)
 
-responseDeleteArtifact :: DeleteArtifactResponse -> TestTree
-responseDeleteArtifact =
+responseDescribeUserProfile :: DescribeUserProfileResponse -> TestTree
+responseDescribeUserProfile =
   res
-    "DeleteArtifactResponse"
-    "fixture/DeleteArtifactResponse.proto"
+    "DescribeUserProfileResponse"
+    "fixture/DescribeUserProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteArtifact)
-
-responseCreateTransformJob :: CreateTransformJobResponse -> TestTree
-responseCreateTransformJob =
-  res
-    "CreateTransformJobResponse"
-    "fixture/CreateTransformJobResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateTransformJob)
+    (Proxy :: Proxy DescribeUserProfile)
 
 responseListHumanTaskUis :: ListHumanTaskUisResponse -> TestTree
 responseListHumanTaskUis =
@@ -2881,6 +2957,38 @@ responseUpdateAction =
     defaultService
     (Proxy :: Proxy UpdateAction)
 
+responseCreateEndpoint :: CreateEndpointResponse -> TestTree
+responseCreateEndpoint =
+  res
+    "CreateEndpointResponse"
+    "fixture/CreateEndpointResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateEndpoint)
+
+responseDeleteArtifact :: DeleteArtifactResponse -> TestTree
+responseDeleteArtifact =
+  res
+    "DeleteArtifactResponse"
+    "fixture/DeleteArtifactResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteArtifact)
+
+responseCreateTransformJob :: CreateTransformJobResponse -> TestTree
+responseCreateTransformJob =
+  res
+    "CreateTransformJobResponse"
+    "fixture/CreateTransformJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateTransformJob)
+
+responseDeleteAction :: DeleteActionResponse -> TestTree
+responseDeleteAction =
+  res
+    "DeleteActionResponse"
+    "fixture/DeleteActionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteAction)
+
 responseDescribePipeline :: DescribePipelineResponse -> TestTree
 responseDescribePipeline =
   res
@@ -2897,14 +3005,6 @@ responseUpdateArtifact =
     defaultService
     (Proxy :: Proxy UpdateArtifact)
 
-responseDescribeUserProfile :: DescribeUserProfileResponse -> TestTree
-responseDescribeUserProfile =
-  res
-    "DescribeUserProfileResponse"
-    "fixture/DescribeUserProfileResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeUserProfile)
-
 responseStopTrainingJob :: StopTrainingJobResponse -> TestTree
 responseStopTrainingJob =
   res
@@ -2913,13 +3013,13 @@ responseStopTrainingJob =
     defaultService
     (Proxy :: Proxy StopTrainingJob)
 
-responseCreateEndpoint :: CreateEndpointResponse -> TestTree
-responseCreateEndpoint =
+responseDisassociateTrialComponent :: DisassociateTrialComponentResponse -> TestTree
+responseDisassociateTrialComponent =
   res
-    "CreateEndpointResponse"
-    "fixture/CreateEndpointResponse.proto"
+    "DisassociateTrialComponentResponse"
+    "fixture/DisassociateTrialComponentResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateEndpoint)
+    (Proxy :: Proxy DisassociateTrialComponent)
 
 responseGetSearchSuggestions :: GetSearchSuggestionsResponse -> TestTree
 responseGetSearchSuggestions =
@@ -2929,85 +3029,13 @@ responseGetSearchSuggestions =
     defaultService
     (Proxy :: Proxy GetSearchSuggestions)
 
-responseDeleteAction :: DeleteActionResponse -> TestTree
-responseDeleteAction =
+responseDeleteModelPackage :: DeleteModelPackageResponse -> TestTree
+responseDeleteModelPackage =
   res
-    "DeleteActionResponse"
-    "fixture/DeleteActionResponse.proto"
+    "DeleteModelPackageResponse"
+    "fixture/DeleteModelPackageResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteAction)
-
-responseCreateEdgePackagingJob :: CreateEdgePackagingJobResponse -> TestTree
-responseCreateEdgePackagingJob =
-  res
-    "CreateEdgePackagingJobResponse"
-    "fixture/CreateEdgePackagingJobResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateEdgePackagingJob)
-
-responseDescribeEndpointConfig :: DescribeEndpointConfigResponse -> TestTree
-responseDescribeEndpointConfig =
-  res
-    "DescribeEndpointConfigResponse"
-    "fixture/DescribeEndpointConfigResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeEndpointConfig)
-
-responseListModelPackages :: ListModelPackagesResponse -> TestTree
-responseListModelPackages =
-  res
-    "ListModelPackagesResponse"
-    "fixture/ListModelPackagesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListModelPackages)
-
-responseGetModelPackageGroupPolicy :: GetModelPackageGroupPolicyResponse -> TestTree
-responseGetModelPackageGroupPolicy =
-  res
-    "GetModelPackageGroupPolicyResponse"
-    "fixture/GetModelPackageGroupPolicyResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetModelPackageGroupPolicy)
-
-responseDescribeMonitoringSchedule :: DescribeMonitoringScheduleResponse -> TestTree
-responseDescribeMonitoringSchedule =
-  res
-    "DescribeMonitoringScheduleResponse"
-    "fixture/DescribeMonitoringScheduleResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeMonitoringSchedule)
-
-responseCreateModelExplainabilityJobDefinition :: CreateModelExplainabilityJobDefinitionResponse -> TestTree
-responseCreateModelExplainabilityJobDefinition =
-  res
-    "CreateModelExplainabilityJobDefinitionResponse"
-    "fixture/CreateModelExplainabilityJobDefinitionResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateModelExplainabilityJobDefinition)
-
-responseDescribeLabelingJob :: DescribeLabelingJobResponse -> TestTree
-responseDescribeLabelingJob =
-  res
-    "DescribeLabelingJobResponse"
-    "fixture/DescribeLabelingJobResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeLabelingJob)
-
-responseCreateNotebookInstance :: CreateNotebookInstanceResponse -> TestTree
-responseCreateNotebookInstance =
-  res
-    "CreateNotebookInstanceResponse"
-    "fixture/CreateNotebookInstanceResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateNotebookInstance)
-
-responseUpdateModelPackage :: UpdateModelPackageResponse -> TestTree
-responseUpdateModelPackage =
-  res
-    "UpdateModelPackageResponse"
-    "fixture/UpdateModelPackageResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateModelPackage)
+    (Proxy :: Proxy DeleteModelPackage)
 
 responseCreateModelQualityJobDefinition :: CreateModelQualityJobDefinitionResponse -> TestTree
 responseCreateModelQualityJobDefinition =
@@ -3017,13 +3045,13 @@ responseCreateModelQualityJobDefinition =
     defaultService
     (Proxy :: Proxy CreateModelQualityJobDefinition)
 
-responseDeleteModelPackage :: DeleteModelPackageResponse -> TestTree
-responseDeleteModelPackage =
+responseListModelPackages :: ListModelPackagesResponse -> TestTree
+responseListModelPackages =
   res
-    "DeleteModelPackageResponse"
-    "fixture/DeleteModelPackageResponse.proto"
+    "ListModelPackagesResponse"
+    "fixture/ListModelPackagesResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteModelPackage)
+    (Proxy :: Proxy ListModelPackages)
 
 responseListProjects :: ListProjectsResponse -> TestTree
 responseListProjects =
@@ -3033,53 +3061,61 @@ responseListProjects =
     defaultService
     (Proxy :: Proxy ListProjects)
 
-responseListSubscribedWorkteams :: ListSubscribedWorkteamsResponse -> TestTree
-responseListSubscribedWorkteams =
+responseCreateModelExplainabilityJobDefinition :: CreateModelExplainabilityJobDefinitionResponse -> TestTree
+responseCreateModelExplainabilityJobDefinition =
   res
-    "ListSubscribedWorkteamsResponse"
-    "fixture/ListSubscribedWorkteamsResponse.proto"
+    "CreateModelExplainabilityJobDefinitionResponse"
+    "fixture/CreateModelExplainabilityJobDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy ListSubscribedWorkteams)
+    (Proxy :: Proxy CreateModelExplainabilityJobDefinition)
 
-responseDeleteNotebookInstance :: DeleteNotebookInstanceResponse -> TestTree
-responseDeleteNotebookInstance =
+responseDescribeEndpointConfig :: DescribeEndpointConfigResponse -> TestTree
+responseDescribeEndpointConfig =
   res
-    "DeleteNotebookInstanceResponse"
-    "fixture/DeleteNotebookInstanceResponse.proto"
+    "DescribeEndpointConfigResponse"
+    "fixture/DescribeEndpointConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteNotebookInstance)
+    (Proxy :: Proxy DescribeEndpointConfig)
 
-responseCreateProject :: CreateProjectResponse -> TestTree
-responseCreateProject =
+responseDescribeMonitoringSchedule :: DescribeMonitoringScheduleResponse -> TestTree
+responseDescribeMonitoringSchedule =
   res
-    "CreateProjectResponse"
-    "fixture/CreateProjectResponse.proto"
+    "DescribeMonitoringScheduleResponse"
+    "fixture/DescribeMonitoringScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateProject)
+    (Proxy :: Proxy DescribeMonitoringSchedule)
 
-responseDescribeProcessingJob :: DescribeProcessingJobResponse -> TestTree
-responseDescribeProcessingJob =
+responseDescribeLabelingJob :: DescribeLabelingJobResponse -> TestTree
+responseDescribeLabelingJob =
   res
-    "DescribeProcessingJobResponse"
-    "fixture/DescribeProcessingJobResponse.proto"
+    "DescribeLabelingJobResponse"
+    "fixture/DescribeLabelingJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeProcessingJob)
+    (Proxy :: Proxy DescribeLabelingJob)
 
-responseListDomains :: ListDomainsResponse -> TestTree
-responseListDomains =
+responseGetModelPackageGroupPolicy :: GetModelPackageGroupPolicyResponse -> TestTree
+responseGetModelPackageGroupPolicy =
   res
-    "ListDomainsResponse"
-    "fixture/ListDomainsResponse.proto"
+    "GetModelPackageGroupPolicyResponse"
+    "fixture/GetModelPackageGroupPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDomains)
+    (Proxy :: Proxy GetModelPackageGroupPolicy)
 
-responseDeleteModelExplainabilityJobDefinition :: DeleteModelExplainabilityJobDefinitionResponse -> TestTree
-responseDeleteModelExplainabilityJobDefinition =
+responseUpdateModelPackage :: UpdateModelPackageResponse -> TestTree
+responseUpdateModelPackage =
   res
-    "DeleteModelExplainabilityJobDefinitionResponse"
-    "fixture/DeleteModelExplainabilityJobDefinitionResponse.proto"
+    "UpdateModelPackageResponse"
+    "fixture/UpdateModelPackageResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteModelExplainabilityJobDefinition)
+    (Proxy :: Proxy UpdateModelPackage)
+
+responseCreateNotebookInstance :: CreateNotebookInstanceResponse -> TestTree
+responseCreateNotebookInstance =
+  res
+    "CreateNotebookInstanceResponse"
+    "fixture/CreateNotebookInstanceResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateNotebookInstance)
 
 responseStopMonitoringSchedule :: StopMonitoringScheduleResponse -> TestTree
 responseStopMonitoringSchedule =
@@ -3089,14 +3125,6 @@ responseStopMonitoringSchedule =
     defaultService
     (Proxy :: Proxy StopMonitoringSchedule)
 
-responseListDevices :: ListDevicesResponse -> TestTree
-responseListDevices =
-  res
-    "ListDevicesResponse"
-    "fixture/ListDevicesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListDevices)
-
 responseCreateModelPackage :: CreateModelPackageResponse -> TestTree
 responseCreateModelPackage =
   res
@@ -3104,14 +3132,6 @@ responseCreateModelPackage =
     "fixture/CreateModelPackageResponse.proto"
     defaultService
     (Proxy :: Proxy CreateModelPackage)
-
-responseUpdateNotebookInstance :: UpdateNotebookInstanceResponse -> TestTree
-responseUpdateNotebookInstance =
-  res
-    "UpdateNotebookInstanceResponse"
-    "fixture/UpdateNotebookInstanceResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateNotebookInstance)
 
 responseStopAutoMLJob :: StopAutoMLJobResponse -> TestTree
 responseStopAutoMLJob =
@@ -3121,6 +3141,14 @@ responseStopAutoMLJob =
     defaultService
     (Proxy :: Proxy StopAutoMLJob)
 
+responseCreateProject :: CreateProjectResponse -> TestTree
+responseCreateProject =
+  res
+    "CreateProjectResponse"
+    "fixture/CreateProjectResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateProject)
+
 responseDescribeAppImageConfig :: DescribeAppImageConfigResponse -> TestTree
 responseDescribeAppImageConfig =
   res
@@ -3128,6 +3156,46 @@ responseDescribeAppImageConfig =
     "fixture/DescribeAppImageConfigResponse.proto"
     defaultService
     (Proxy :: Proxy DescribeAppImageConfig)
+
+responseListSubscribedWorkteams :: ListSubscribedWorkteamsResponse -> TestTree
+responseListSubscribedWorkteams =
+  res
+    "ListSubscribedWorkteamsResponse"
+    "fixture/ListSubscribedWorkteamsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListSubscribedWorkteams)
+
+responseListDevices :: ListDevicesResponse -> TestTree
+responseListDevices =
+  res
+    "ListDevicesResponse"
+    "fixture/ListDevicesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListDevices)
+
+responseUpdateNotebookInstance :: UpdateNotebookInstanceResponse -> TestTree
+responseUpdateNotebookInstance =
+  res
+    "UpdateNotebookInstanceResponse"
+    "fixture/UpdateNotebookInstanceResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateNotebookInstance)
+
+responseDeleteModelExplainabilityJobDefinition :: DeleteModelExplainabilityJobDefinitionResponse -> TestTree
+responseDeleteModelExplainabilityJobDefinition =
+  res
+    "DeleteModelExplainabilityJobDefinitionResponse"
+    "fixture/DeleteModelExplainabilityJobDefinitionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteModelExplainabilityJobDefinition)
+
+responseDescribeProcessingJob :: DescribeProcessingJobResponse -> TestTree
+responseDescribeProcessingJob =
+  res
+    "DescribeProcessingJobResponse"
+    "fixture/DescribeProcessingJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeProcessingJob)
 
 responseStartMonitoringSchedule :: StartMonitoringScheduleResponse -> TestTree
 responseStartMonitoringSchedule =
@@ -3137,13 +3205,21 @@ responseStartMonitoringSchedule =
     defaultService
     (Proxy :: Proxy StartMonitoringSchedule)
 
-responseStopCompilationJob :: StopCompilationJobResponse -> TestTree
-responseStopCompilationJob =
+responseDeleteNotebookInstance :: DeleteNotebookInstanceResponse -> TestTree
+responseDeleteNotebookInstance =
   res
-    "StopCompilationJobResponse"
-    "fixture/StopCompilationJobResponse.proto"
+    "DeleteNotebookInstanceResponse"
+    "fixture/DeleteNotebookInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy StopCompilationJob)
+    (Proxy :: Proxy DeleteNotebookInstance)
+
+responseListDomains :: ListDomainsResponse -> TestTree
+responseListDomains =
+  res
+    "ListDomainsResponse"
+    "fixture/ListDomainsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListDomains)
 
 responseCreateTrial :: CreateTrialResponse -> TestTree
 responseCreateTrial =
@@ -3153,29 +3229,21 @@ responseCreateTrial =
     defaultService
     (Proxy :: Proxy CreateTrial)
 
-responseGetSagemakerServicecatalogPortfolioStatus :: GetSagemakerServicecatalogPortfolioStatusResponse -> TestTree
-responseGetSagemakerServicecatalogPortfolioStatus =
+responseDescribeTransformJob :: DescribeTransformJobResponse -> TestTree
+responseDescribeTransformJob =
   res
-    "GetSagemakerServicecatalogPortfolioStatusResponse"
-    "fixture/GetSagemakerServicecatalogPortfolioStatusResponse.proto"
+    "DescribeTransformJobResponse"
+    "fixture/DescribeTransformJobResponse.proto"
     defaultService
-    (Proxy :: Proxy GetSagemakerServicecatalogPortfolioStatus)
+    (Proxy :: Proxy DescribeTransformJob)
 
-responseUpdateCodeRepository :: UpdateCodeRepositoryResponse -> TestTree
-responseUpdateCodeRepository =
+responseDescribeEdgePackagingJob :: DescribeEdgePackagingJobResponse -> TestTree
+responseDescribeEdgePackagingJob =
   res
-    "UpdateCodeRepositoryResponse"
-    "fixture/UpdateCodeRepositoryResponse.proto"
+    "DescribeEdgePackagingJobResponse"
+    "fixture/DescribeEdgePackagingJobResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateCodeRepository)
-
-responseSearch :: SearchResponse -> TestTree
-responseSearch =
-  res
-    "SearchResponse"
-    "fixture/SearchResponse.proto"
-    defaultService
-    (Proxy :: Proxy Search)
+    (Proxy :: Proxy DescribeEdgePackagingJob)
 
 responseDeleteModel :: DeleteModelResponse -> TestTree
 responseDeleteModel =
@@ -3185,22 +3253,6 @@ responseDeleteModel =
     defaultService
     (Proxy :: Proxy DeleteModel)
 
-responseDeleteDataQualityJobDefinition :: DeleteDataQualityJobDefinitionResponse -> TestTree
-responseDeleteDataQualityJobDefinition =
-  res
-    "DeleteDataQualityJobDefinitionResponse"
-    "fixture/DeleteDataQualityJobDefinitionResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteDataQualityJobDefinition)
-
-responseListImages :: ListImagesResponse -> TestTree
-responseListImages =
-  res
-    "ListImagesResponse"
-    "fixture/ListImagesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListImages)
-
 responseListTrainingJobs :: ListTrainingJobsResponse -> TestTree
 responseListTrainingJobs =
   res
@@ -3209,29 +3261,45 @@ responseListTrainingJobs =
     defaultService
     (Proxy :: Proxy ListTrainingJobs)
 
-responseDescribeTransformJob :: DescribeTransformJobResponse -> TestTree
-responseDescribeTransformJob =
+responseListDataQualityJobDefinitions :: ListDataQualityJobDefinitionsResponse -> TestTree
+responseListDataQualityJobDefinitions =
   res
-    "DescribeTransformJobResponse"
-    "fixture/DescribeTransformJobResponse.proto"
+    "ListDataQualityJobDefinitionsResponse"
+    "fixture/ListDataQualityJobDefinitionsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeTransformJob)
+    (Proxy :: Proxy ListDataQualityJobDefinitions)
 
-responseCreatePipeline :: CreatePipelineResponse -> TestTree
-responseCreatePipeline =
+responseGetSagemakerServicecatalogPortfolioStatus :: GetSagemakerServicecatalogPortfolioStatusResponse -> TestTree
+responseGetSagemakerServicecatalogPortfolioStatus =
   res
-    "CreatePipelineResponse"
-    "fixture/CreatePipelineResponse.proto"
+    "GetSagemakerServicecatalogPortfolioStatusResponse"
+    "fixture/GetSagemakerServicecatalogPortfolioStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePipeline)
+    (Proxy :: Proxy GetSagemakerServicecatalogPortfolioStatus)
 
-responseCreateModelPackageGroup :: CreateModelPackageGroupResponse -> TestTree
-responseCreateModelPackageGroup =
+responseSearch :: SearchResponse -> TestTree
+responseSearch =
   res
-    "CreateModelPackageGroupResponse"
-    "fixture/CreateModelPackageGroupResponse.proto"
+    "SearchResponse"
+    "fixture/SearchResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateModelPackageGroup)
+    (Proxy :: Proxy Search)
+
+responseStopCompilationJob :: StopCompilationJobResponse -> TestTree
+responseStopCompilationJob =
+  res
+    "StopCompilationJobResponse"
+    "fixture/StopCompilationJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy StopCompilationJob)
+
+responseListImages :: ListImagesResponse -> TestTree
+responseListImages =
+  res
+    "ListImagesResponse"
+    "fixture/ListImagesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListImages)
 
 responseListCandidatesForAutoMLJob :: ListCandidatesForAutoMLJobResponse -> TestTree
 responseListCandidatesForAutoMLJob =
@@ -3257,21 +3325,45 @@ responseGetDeviceFleetReport =
     defaultService
     (Proxy :: Proxy GetDeviceFleetReport)
 
-responseListDataQualityJobDefinitions :: ListDataQualityJobDefinitionsResponse -> TestTree
-responseListDataQualityJobDefinitions =
+responseDeleteDataQualityJobDefinition :: DeleteDataQualityJobDefinitionResponse -> TestTree
+responseDeleteDataQualityJobDefinition =
   res
-    "ListDataQualityJobDefinitionsResponse"
-    "fixture/ListDataQualityJobDefinitionsResponse.proto"
+    "DeleteDataQualityJobDefinitionResponse"
+    "fixture/DeleteDataQualityJobDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDataQualityJobDefinitions)
+    (Proxy :: Proxy DeleteDataQualityJobDefinition)
 
-responseDescribeEdgePackagingJob :: DescribeEdgePackagingJobResponse -> TestTree
-responseDescribeEdgePackagingJob =
+responseCreateModelPackageGroup :: CreateModelPackageGroupResponse -> TestTree
+responseCreateModelPackageGroup =
   res
-    "DescribeEdgePackagingJobResponse"
-    "fixture/DescribeEdgePackagingJobResponse.proto"
+    "CreateModelPackageGroupResponse"
+    "fixture/CreateModelPackageGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeEdgePackagingJob)
+    (Proxy :: Proxy CreateModelPackageGroup)
+
+responseCreatePipeline :: CreatePipelineResponse -> TestTree
+responseCreatePipeline =
+  res
+    "CreatePipelineResponse"
+    "fixture/CreatePipelineResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreatePipeline)
+
+responseUpdateCodeRepository :: UpdateCodeRepositoryResponse -> TestTree
+responseUpdateCodeRepository =
+  res
+    "UpdateCodeRepositoryResponse"
+    "fixture/UpdateCodeRepositoryResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateCodeRepository)
+
+responseDeleteCodeRepository :: DeleteCodeRepositoryResponse -> TestTree
+responseDeleteCodeRepository =
+  res
+    "DeleteCodeRepositoryResponse"
+    "fixture/DeleteCodeRepositoryResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteCodeRepository)
 
 responseListContexts :: ListContextsResponse -> TestTree
 responseListContexts =
@@ -3289,45 +3381,13 @@ responseDescribeEndpoint =
     defaultService
     (Proxy :: Proxy DescribeEndpoint)
 
-responseDeleteCodeRepository :: DeleteCodeRepositoryResponse -> TestTree
-responseDeleteCodeRepository =
+responseDeregisterDevices :: DeregisterDevicesResponse -> TestTree
+responseDeregisterDevices =
   res
-    "DeleteCodeRepositoryResponse"
-    "fixture/DeleteCodeRepositoryResponse.proto"
+    "DeregisterDevicesResponse"
+    "fixture/DeregisterDevicesResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteCodeRepository)
-
-responseDeleteModelPackageGroupPolicy :: DeleteModelPackageGroupPolicyResponse -> TestTree
-responseDeleteModelPackageGroupPolicy =
-  res
-    "DeleteModelPackageGroupPolicyResponse"
-    "fixture/DeleteModelPackageGroupPolicyResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteModelPackageGroupPolicy)
-
-responseListUserProfiles :: ListUserProfilesResponse -> TestTree
-responseListUserProfiles =
-  res
-    "ListUserProfilesResponse"
-    "fixture/ListUserProfilesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListUserProfiles)
-
-responseDescribeCompilationJob :: DescribeCompilationJobResponse -> TestTree
-responseDescribeCompilationJob =
-  res
-    "DescribeCompilationJobResponse"
-    "fixture/DescribeCompilationJobResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeCompilationJob)
-
-responseUpdatePipeline :: UpdatePipelineResponse -> TestTree
-responseUpdatePipeline =
-  res
-    "UpdatePipelineResponse"
-    "fixture/UpdatePipelineResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdatePipeline)
+    (Proxy :: Proxy DeregisterDevices)
 
 responseCreateCodeRepository :: CreateCodeRepositoryResponse -> TestTree
 responseCreateCodeRepository =
@@ -3337,62 +3397,6 @@ responseCreateCodeRepository =
     defaultService
     (Proxy :: Proxy CreateCodeRepository)
 
-responseDescribeArtifact :: DescribeArtifactResponse -> TestTree
-responseDescribeArtifact =
-  res
-    "DescribeArtifactResponse"
-    "fixture/DescribeArtifactResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeArtifact)
-
-responseDescribeHumanTaskUi :: DescribeHumanTaskUiResponse -> TestTree
-responseDescribeHumanTaskUi =
-  res
-    "DescribeHumanTaskUiResponse"
-    "fixture/DescribeHumanTaskUiResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeHumanTaskUi)
-
-responseListPipelineExecutionSteps :: ListPipelineExecutionStepsResponse -> TestTree
-responseListPipelineExecutionSteps =
-  res
-    "ListPipelineExecutionStepsResponse"
-    "fixture/ListPipelineExecutionStepsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListPipelineExecutionSteps)
-
-responseListCodeRepositories :: ListCodeRepositoriesResponse -> TestTree
-responseListCodeRepositories =
-  res
-    "ListCodeRepositoriesResponse"
-    "fixture/ListCodeRepositoriesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListCodeRepositories)
-
-responseUpdateUserProfile :: UpdateUserProfileResponse -> TestTree
-responseUpdateUserProfile =
-  res
-    "UpdateUserProfileResponse"
-    "fixture/UpdateUserProfileResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateUserProfile)
-
-responseDescribeAction :: DescribeActionResponse -> TestTree
-responseDescribeAction =
-  res
-    "DescribeActionResponse"
-    "fixture/DescribeActionResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeAction)
-
-responseStopTransformJob :: StopTransformJobResponse -> TestTree
-responseStopTransformJob =
-  res
-    "StopTransformJobResponse"
-    "fixture/StopTransformJobResponse.proto"
-    defaultService
-    (Proxy :: Proxy StopTransformJob)
-
 responseCreateTrainingJob :: CreateTrainingJobResponse -> TestTree
 responseCreateTrainingJob =
   res
@@ -3401,13 +3405,13 @@ responseCreateTrainingJob =
     defaultService
     (Proxy :: Proxy CreateTrainingJob)
 
-responseDeleteUserProfile :: DeleteUserProfileResponse -> TestTree
-responseDeleteUserProfile =
+responseDeletePipeline :: DeletePipelineResponse -> TestTree
+responseDeletePipeline =
   res
-    "DeleteUserProfileResponse"
-    "fixture/DeleteUserProfileResponse.proto"
+    "DeletePipelineResponse"
+    "fixture/DeletePipelineResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteUserProfile)
+    (Proxy :: Proxy DeletePipeline)
 
 responseCreateContext :: CreateContextResponse -> TestTree
 responseCreateContext =
@@ -3425,21 +3429,93 @@ responseStopEdgePackagingJob =
     defaultService
     (Proxy :: Proxy StopEdgePackagingJob)
 
-responseCreateImage :: CreateImageResponse -> TestTree
-responseCreateImage =
+responseUpdateUserProfile :: UpdateUserProfileResponse -> TestTree
+responseUpdateUserProfile =
   res
-    "CreateImageResponse"
-    "fixture/CreateImageResponse.proto"
+    "UpdateUserProfileResponse"
+    "fixture/UpdateUserProfileResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateImage)
+    (Proxy :: Proxy UpdateUserProfile)
 
-responseDeregisterDevices :: DeregisterDevicesResponse -> TestTree
-responseDeregisterDevices =
+responseDescribeCompilationJob :: DescribeCompilationJobResponse -> TestTree
+responseDescribeCompilationJob =
   res
-    "DeregisterDevicesResponse"
-    "fixture/DeregisterDevicesResponse.proto"
+    "DescribeCompilationJobResponse"
+    "fixture/DescribeCompilationJobResponse.proto"
     defaultService
-    (Proxy :: Proxy DeregisterDevices)
+    (Proxy :: Proxy DescribeCompilationJob)
+
+responseListPipelineExecutionSteps :: ListPipelineExecutionStepsResponse -> TestTree
+responseListPipelineExecutionSteps =
+  res
+    "ListPipelineExecutionStepsResponse"
+    "fixture/ListPipelineExecutionStepsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListPipelineExecutionSteps)
+
+responseListUserProfiles :: ListUserProfilesResponse -> TestTree
+responseListUserProfiles =
+  res
+    "ListUserProfilesResponse"
+    "fixture/ListUserProfilesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListUserProfiles)
+
+responseDescribeHumanTaskUi :: DescribeHumanTaskUiResponse -> TestTree
+responseDescribeHumanTaskUi =
+  res
+    "DescribeHumanTaskUiResponse"
+    "fixture/DescribeHumanTaskUiResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeHumanTaskUi)
+
+responseListCodeRepositories :: ListCodeRepositoriesResponse -> TestTree
+responseListCodeRepositories =
+  res
+    "ListCodeRepositoriesResponse"
+    "fixture/ListCodeRepositoriesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListCodeRepositories)
+
+responseDescribeAction :: DescribeActionResponse -> TestTree
+responseDescribeAction =
+  res
+    "DescribeActionResponse"
+    "fixture/DescribeActionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeAction)
+
+responseUpdatePipeline :: UpdatePipelineResponse -> TestTree
+responseUpdatePipeline =
+  res
+    "UpdatePipelineResponse"
+    "fixture/UpdatePipelineResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdatePipeline)
+
+responseDescribeArtifact :: DescribeArtifactResponse -> TestTree
+responseDescribeArtifact =
+  res
+    "DescribeArtifactResponse"
+    "fixture/DescribeArtifactResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeArtifact)
+
+responseDeleteUserProfile :: DeleteUserProfileResponse -> TestTree
+responseDeleteUserProfile =
+  res
+    "DeleteUserProfileResponse"
+    "fixture/DeleteUserProfileResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteUserProfile)
+
+responseStopTransformJob :: StopTransformJobResponse -> TestTree
+responseStopTransformJob =
+  res
+    "StopTransformJobResponse"
+    "fixture/StopTransformJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy StopTransformJob)
 
 responseCreateDataQualityJobDefinition :: CreateDataQualityJobDefinitionResponse -> TestTree
 responseCreateDataQualityJobDefinition =
@@ -3449,93 +3525,21 @@ responseCreateDataQualityJobDefinition =
     defaultService
     (Proxy :: Proxy CreateDataQualityJobDefinition)
 
-responseDeletePipeline :: DeletePipelineResponse -> TestTree
-responseDeletePipeline =
+responseDeleteModelPackageGroupPolicy :: DeleteModelPackageGroupPolicyResponse -> TestTree
+responseDeleteModelPackageGroupPolicy =
   res
-    "DeletePipelineResponse"
-    "fixture/DeletePipelineResponse.proto"
+    "DeleteModelPackageGroupPolicyResponse"
+    "fixture/DeleteModelPackageGroupPolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy DeletePipeline)
+    (Proxy :: Proxy DeleteModelPackageGroupPolicy)
 
-responseCreateAppImageConfig :: CreateAppImageConfigResponse -> TestTree
-responseCreateAppImageConfig =
+responseCreateImage :: CreateImageResponse -> TestTree
+responseCreateImage =
   res
-    "CreateAppImageConfigResponse"
-    "fixture/CreateAppImageConfigResponse.proto"
+    "CreateImageResponse"
+    "fixture/CreateImageResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAppImageConfig)
-
-responseAddTags :: AddTagsResponse -> TestTree
-responseAddTags =
-  res
-    "AddTagsResponse"
-    "fixture/AddTagsResponse.proto"
-    defaultService
-    (Proxy :: Proxy AddTags)
-
-responseDisableSagemakerServicecatalogPortfolio :: DisableSagemakerServicecatalogPortfolioResponse -> TestTree
-responseDisableSagemakerServicecatalogPortfolio =
-  res
-    "DisableSagemakerServicecatalogPortfolioResponse"
-    "fixture/DisableSagemakerServicecatalogPortfolioResponse.proto"
-    defaultService
-    (Proxy :: Proxy DisableSagemakerServicecatalogPortfolio)
-
-responseDeleteAssociation :: DeleteAssociationResponse -> TestTree
-responseDeleteAssociation =
-  res
-    "DeleteAssociationResponse"
-    "fixture/DeleteAssociationResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteAssociation)
-
-responseUpdateMonitoringSchedule :: UpdateMonitoringScheduleResponse -> TestTree
-responseUpdateMonitoringSchedule =
-  res
-    "UpdateMonitoringScheduleResponse"
-    "fixture/UpdateMonitoringScheduleResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateMonitoringSchedule)
-
-responseListMonitoringSchedules :: ListMonitoringSchedulesResponse -> TestTree
-responseListMonitoringSchedules =
-  res
-    "ListMonitoringSchedulesResponse"
-    "fixture/ListMonitoringSchedulesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListMonitoringSchedules)
-
-responseStopNotebookInstance :: StopNotebookInstanceResponse -> TestTree
-responseStopNotebookInstance =
-  res
-    "StopNotebookInstanceResponse"
-    "fixture/StopNotebookInstanceResponse.proto"
-    defaultService
-    (Proxy :: Proxy StopNotebookInstance)
-
-responseDeleteMonitoringSchedule :: DeleteMonitoringScheduleResponse -> TestTree
-responseDeleteMonitoringSchedule =
-  res
-    "DeleteMonitoringScheduleResponse"
-    "fixture/DeleteMonitoringScheduleResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteMonitoringSchedule)
-
-responseDeleteEndpointConfig :: DeleteEndpointConfigResponse -> TestTree
-responseDeleteEndpointConfig =
-  res
-    "DeleteEndpointConfigResponse"
-    "fixture/DeleteEndpointConfigResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteEndpointConfig)
-
-responseStartPipelineExecution :: StartPipelineExecutionResponse -> TestTree
-responseStartPipelineExecution =
-  res
-    "StartPipelineExecutionResponse"
-    "fixture/StartPipelineExecutionResponse.proto"
-    defaultService
-    (Proxy :: Proxy StartPipelineExecution)
+    (Proxy :: Proxy CreateImage)
 
 responseDescribeModelPackage :: DescribeModelPackageResponse -> TestTree
 responseDescribeModelPackage =
@@ -3545,29 +3549,29 @@ responseDescribeModelPackage =
     defaultService
     (Proxy :: Proxy DescribeModelPackage)
 
-responseDeleteTags :: DeleteTagsResponse -> TestTree
-responseDeleteTags =
+responseRetryPipelineExecution :: RetryPipelineExecutionResponse -> TestTree
+responseRetryPipelineExecution =
   res
-    "DeleteTagsResponse"
-    "fixture/DeleteTagsResponse.proto"
+    "RetryPipelineExecutionResponse"
+    "fixture/RetryPipelineExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTags)
+    (Proxy :: Proxy RetryPipelineExecution)
 
-responseAddAssociation :: AddAssociationResponse -> TestTree
-responseAddAssociation =
+responseDeleteEndpointConfig :: DeleteEndpointConfigResponse -> TestTree
+responseDeleteEndpointConfig =
   res
-    "AddAssociationResponse"
-    "fixture/AddAssociationResponse.proto"
+    "DeleteEndpointConfigResponse"
+    "fixture/DeleteEndpointConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy AddAssociation)
+    (Proxy :: Proxy DeleteEndpointConfig)
 
-responseCreateNotebookInstanceLifecycleConfig :: CreateNotebookInstanceLifecycleConfigResponse -> TestTree
-responseCreateNotebookInstanceLifecycleConfig =
+responseStopPipelineExecution :: StopPipelineExecutionResponse -> TestTree
+responseStopPipelineExecution =
   res
-    "CreateNotebookInstanceLifecycleConfigResponse"
-    "fixture/CreateNotebookInstanceLifecycleConfigResponse.proto"
+    "StopPipelineExecutionResponse"
+    "fixture/StopPipelineExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateNotebookInstanceLifecycleConfig)
+    (Proxy :: Proxy StopPipelineExecution)
 
 responseListApps :: ListAppsResponse -> TestTree
 responseListApps =
@@ -3584,6 +3588,14 @@ responseCreateWorkforce =
     "fixture/CreateWorkforceResponse.proto"
     defaultService
     (Proxy :: Proxy CreateWorkforce)
+
+responseCreateStudioLifecycleConfig :: CreateStudioLifecycleConfigResponse -> TestTree
+responseCreateStudioLifecycleConfig =
+  res
+    "CreateStudioLifecycleConfigResponse"
+    "fixture/CreateStudioLifecycleConfigResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateStudioLifecycleConfig)
 
 responseListAutoMLJobs :: ListAutoMLJobsResponse -> TestTree
 responseListAutoMLJobs =
@@ -3609,13 +3621,45 @@ responseStartNotebookInstance =
     defaultService
     (Proxy :: Proxy StartNotebookInstance)
 
-responseStopPipelineExecution :: StopPipelineExecutionResponse -> TestTree
-responseStopPipelineExecution =
+responseDeleteTags :: DeleteTagsResponse -> TestTree
+responseDeleteTags =
   res
-    "StopPipelineExecutionResponse"
-    "fixture/StopPipelineExecutionResponse.proto"
+    "DeleteTagsResponse"
+    "fixture/DeleteTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy StopPipelineExecution)
+    (Proxy :: Proxy DeleteTags)
+
+responseCreateAppImageConfig :: CreateAppImageConfigResponse -> TestTree
+responseCreateAppImageConfig =
+  res
+    "CreateAppImageConfigResponse"
+    "fixture/CreateAppImageConfigResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateAppImageConfig)
+
+responseDeleteAssociation :: DeleteAssociationResponse -> TestTree
+responseDeleteAssociation =
+  res
+    "DeleteAssociationResponse"
+    "fixture/DeleteAssociationResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteAssociation)
+
+responseListMonitoringSchedules :: ListMonitoringSchedulesResponse -> TestTree
+responseListMonitoringSchedules =
+  res
+    "ListMonitoringSchedulesResponse"
+    "fixture/ListMonitoringSchedulesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListMonitoringSchedules)
+
+responseDeleteMonitoringSchedule :: DeleteMonitoringScheduleResponse -> TestTree
+responseDeleteMonitoringSchedule =
+  res
+    "DeleteMonitoringScheduleResponse"
+    "fixture/DeleteMonitoringScheduleResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteMonitoringSchedule)
 
 responseListEndpointConfigs :: ListEndpointConfigsResponse -> TestTree
 responseListEndpointConfigs =
@@ -3625,117 +3669,61 @@ responseListEndpointConfigs =
     defaultService
     (Proxy :: Proxy ListEndpointConfigs)
 
-responseDeleteWorkteam :: DeleteWorkteamResponse -> TestTree
-responseDeleteWorkteam =
+responseStartPipelineExecution :: StartPipelineExecutionResponse -> TestTree
+responseStartPipelineExecution =
   res
-    "DeleteWorkteamResponse"
-    "fixture/DeleteWorkteamResponse.proto"
+    "StartPipelineExecutionResponse"
+    "fixture/StartPipelineExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteWorkteam)
+    (Proxy :: Proxy StartPipelineExecution)
 
-responseDeleteWorkforce :: DeleteWorkforceResponse -> TestTree
-responseDeleteWorkforce =
+responseStopNotebookInstance :: StopNotebookInstanceResponse -> TestTree
+responseStopNotebookInstance =
   res
-    "DeleteWorkforceResponse"
-    "fixture/DeleteWorkforceResponse.proto"
+    "StopNotebookInstanceResponse"
+    "fixture/StopNotebookInstanceResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteWorkforce)
+    (Proxy :: Proxy StopNotebookInstance)
 
-responseDeleteModelBiasJobDefinition :: DeleteModelBiasJobDefinitionResponse -> TestTree
-responseDeleteModelBiasJobDefinition =
+responseUpdateMonitoringSchedule :: UpdateMonitoringScheduleResponse -> TestTree
+responseUpdateMonitoringSchedule =
   res
-    "DeleteModelBiasJobDefinitionResponse"
-    "fixture/DeleteModelBiasJobDefinitionResponse.proto"
+    "UpdateMonitoringScheduleResponse"
+    "fixture/UpdateMonitoringScheduleResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteModelBiasJobDefinition)
+    (Proxy :: Proxy UpdateMonitoringSchedule)
 
-responseUpdateWorkforce :: UpdateWorkforceResponse -> TestTree
-responseUpdateWorkforce =
+responseAddAssociation :: AddAssociationResponse -> TestTree
+responseAddAssociation =
   res
-    "UpdateWorkforceResponse"
-    "fixture/UpdateWorkforceResponse.proto"
+    "AddAssociationResponse"
+    "fixture/AddAssociationResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateWorkforce)
+    (Proxy :: Proxy AddAssociation)
 
-responseDescribeDevice :: DescribeDeviceResponse -> TestTree
-responseDescribeDevice =
+responseCreateNotebookInstanceLifecycleConfig :: CreateNotebookInstanceLifecycleConfigResponse -> TestTree
+responseCreateNotebookInstanceLifecycleConfig =
   res
-    "DescribeDeviceResponse"
-    "fixture/DescribeDeviceResponse.proto"
+    "CreateNotebookInstanceLifecycleConfigResponse"
+    "fixture/CreateNotebookInstanceLifecycleConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDevice)
+    (Proxy :: Proxy CreateNotebookInstanceLifecycleConfig)
 
-responseDescribeDomain :: DescribeDomainResponse -> TestTree
-responseDescribeDomain =
+responseAddTags :: AddTagsResponse -> TestTree
+responseAddTags =
   res
-    "DescribeDomainResponse"
-    "fixture/DescribeDomainResponse.proto"
+    "AddTagsResponse"
+    "fixture/AddTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeDomain)
+    (Proxy :: Proxy AddTags)
 
-responseDeleteNotebookInstanceLifecycleConfig :: DeleteNotebookInstanceLifecycleConfigResponse -> TestTree
-responseDeleteNotebookInstanceLifecycleConfig =
+responseDisableSagemakerServicecatalogPortfolio :: DisableSagemakerServicecatalogPortfolioResponse -> TestTree
+responseDisableSagemakerServicecatalogPortfolio =
   res
-    "DeleteNotebookInstanceLifecycleConfigResponse"
-    "fixture/DeleteNotebookInstanceLifecycleConfigResponse.proto"
+    "DisableSagemakerServicecatalogPortfolioResponse"
+    "fixture/DisableSagemakerServicecatalogPortfolioResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteNotebookInstanceLifecycleConfig)
-
-responseDescribePipelineExecution :: DescribePipelineExecutionResponse -> TestTree
-responseDescribePipelineExecution =
-  res
-    "DescribePipelineExecutionResponse"
-    "fixture/DescribePipelineExecutionResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribePipelineExecution)
-
-responseUpdateWorkteam :: UpdateWorkteamResponse -> TestTree
-responseUpdateWorkteam =
-  res
-    "UpdateWorkteamResponse"
-    "fixture/UpdateWorkteamResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateWorkteam)
-
-responseCreateLabelingJob :: CreateLabelingJobResponse -> TestTree
-responseCreateLabelingJob =
-  res
-    "CreateLabelingJobResponse"
-    "fixture/CreateLabelingJobResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateLabelingJob)
-
-responseDescribeModelQualityJobDefinition :: DescribeModelQualityJobDefinitionResponse -> TestTree
-responseDescribeModelQualityJobDefinition =
-  res
-    "DescribeModelQualityJobDefinitionResponse"
-    "fixture/DescribeModelQualityJobDefinitionResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeModelQualityJobDefinition)
-
-responseCreateExperiment :: CreateExperimentResponse -> TestTree
-responseCreateExperiment =
-  res
-    "CreateExperimentResponse"
-    "fixture/CreateExperimentResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateExperiment)
-
-responseListWorkforces :: ListWorkforcesResponse -> TestTree
-responseListWorkforces =
-  res
-    "ListWorkforcesResponse"
-    "fixture/ListWorkforcesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListWorkforces)
-
-responseListAppImageConfigs :: ListAppImageConfigsResponse -> TestTree
-responseListAppImageConfigs =
-  res
-    "ListAppImageConfigsResponse"
-    "fixture/ListAppImageConfigsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListAppImageConfigs)
+    (Proxy :: Proxy DisableSagemakerServicecatalogPortfolio)
 
 responseUpdateNotebookInstanceLifecycleConfig :: UpdateNotebookInstanceLifecycleConfigResponse -> TestTree
 responseUpdateNotebookInstanceLifecycleConfig =
@@ -3745,13 +3733,45 @@ responseUpdateNotebookInstanceLifecycleConfig =
     defaultService
     (Proxy :: Proxy UpdateNotebookInstanceLifecycleConfig)
 
-responseDescribeSubscribedWorkteam :: DescribeSubscribedWorkteamResponse -> TestTree
-responseDescribeSubscribedWorkteam =
+responseDescribeDomain :: DescribeDomainResponse -> TestTree
+responseDescribeDomain =
   res
-    "DescribeSubscribedWorkteamResponse"
-    "fixture/DescribeSubscribedWorkteamResponse.proto"
+    "DescribeDomainResponse"
+    "fixture/DescribeDomainResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeSubscribedWorkteam)
+    (Proxy :: Proxy DescribeDomain)
+
+responseListStudioLifecycleConfigs :: ListStudioLifecycleConfigsResponse -> TestTree
+responseListStudioLifecycleConfigs =
+  res
+    "ListStudioLifecycleConfigsResponse"
+    "fixture/ListStudioLifecycleConfigsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListStudioLifecycleConfigs)
+
+responseListAppImageConfigs :: ListAppImageConfigsResponse -> TestTree
+responseListAppImageConfigs =
+  res
+    "ListAppImageConfigsResponse"
+    "fixture/ListAppImageConfigsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListAppImageConfigs)
+
+responseDescribeModelQualityJobDefinition :: DescribeModelQualityJobDefinitionResponse -> TestTree
+responseDescribeModelQualityJobDefinition =
+  res
+    "DescribeModelQualityJobDefinitionResponse"
+    "fixture/DescribeModelQualityJobDefinitionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeModelQualityJobDefinition)
+
+responseDescribeDevice :: DescribeDeviceResponse -> TestTree
+responseDescribeDevice =
+  res
+    "DescribeDeviceResponse"
+    "fixture/DescribeDeviceResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeDevice)
 
 responseListNotebookInstanceLifecycleConfigs :: ListNotebookInstanceLifecycleConfigsResponse -> TestTree
 responseListNotebookInstanceLifecycleConfigs =
@@ -3761,6 +3781,102 @@ responseListNotebookInstanceLifecycleConfigs =
     defaultService
     (Proxy :: Proxy ListNotebookInstanceLifecycleConfigs)
 
+responseListWorkforces :: ListWorkforcesResponse -> TestTree
+responseListWorkforces =
+  res
+    "ListWorkforcesResponse"
+    "fixture/ListWorkforcesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListWorkforces)
+
+responseDeleteStudioLifecycleConfig :: DeleteStudioLifecycleConfigResponse -> TestTree
+responseDeleteStudioLifecycleConfig =
+  res
+    "DeleteStudioLifecycleConfigResponse"
+    "fixture/DeleteStudioLifecycleConfigResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteStudioLifecycleConfig)
+
+responseCreateLabelingJob :: CreateLabelingJobResponse -> TestTree
+responseCreateLabelingJob =
+  res
+    "CreateLabelingJobResponse"
+    "fixture/CreateLabelingJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateLabelingJob)
+
+responseDeleteModelBiasJobDefinition :: DeleteModelBiasJobDefinitionResponse -> TestTree
+responseDeleteModelBiasJobDefinition =
+  res
+    "DeleteModelBiasJobDefinitionResponse"
+    "fixture/DeleteModelBiasJobDefinitionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteModelBiasJobDefinition)
+
+responseCreateExperiment :: CreateExperimentResponse -> TestTree
+responseCreateExperiment =
+  res
+    "CreateExperimentResponse"
+    "fixture/CreateExperimentResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateExperiment)
+
+responseDescribePipelineExecution :: DescribePipelineExecutionResponse -> TestTree
+responseDescribePipelineExecution =
+  res
+    "DescribePipelineExecutionResponse"
+    "fixture/DescribePipelineExecutionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribePipelineExecution)
+
+responseDeleteWorkforce :: DeleteWorkforceResponse -> TestTree
+responseDeleteWorkforce =
+  res
+    "DeleteWorkforceResponse"
+    "fixture/DeleteWorkforceResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteWorkforce)
+
+responseUpdateWorkforce :: UpdateWorkforceResponse -> TestTree
+responseUpdateWorkforce =
+  res
+    "UpdateWorkforceResponse"
+    "fixture/UpdateWorkforceResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateWorkforce)
+
+responseUpdateWorkteam :: UpdateWorkteamResponse -> TestTree
+responseUpdateWorkteam =
+  res
+    "UpdateWorkteamResponse"
+    "fixture/UpdateWorkteamResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateWorkteam)
+
+responseDescribeSubscribedWorkteam :: DescribeSubscribedWorkteamResponse -> TestTree
+responseDescribeSubscribedWorkteam =
+  res
+    "DescribeSubscribedWorkteamResponse"
+    "fixture/DescribeSubscribedWorkteamResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeSubscribedWorkteam)
+
+responseDeleteWorkteam :: DeleteWorkteamResponse -> TestTree
+responseDeleteWorkteam =
+  res
+    "DeleteWorkteamResponse"
+    "fixture/DeleteWorkteamResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteWorkteam)
+
+responseDeleteNotebookInstanceLifecycleConfig :: DeleteNotebookInstanceLifecycleConfigResponse -> TestTree
+responseDeleteNotebookInstanceLifecycleConfig =
+  res
+    "DeleteNotebookInstanceLifecycleConfigResponse"
+    "fixture/DeleteNotebookInstanceLifecycleConfigResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteNotebookInstanceLifecycleConfig)
+
 responseListEdgePackagingJobs :: ListEdgePackagingJobsResponse -> TestTree
 responseListEdgePackagingJobs =
   res
@@ -3768,78 +3884,6 @@ responseListEdgePackagingJobs =
     "fixture/ListEdgePackagingJobsResponse.proto"
     defaultService
     (Proxy :: Proxy ListEdgePackagingJobs)
-
-responseDescribeCodeRepository :: DescribeCodeRepositoryResponse -> TestTree
-responseDescribeCodeRepository =
-  res
-    "DescribeCodeRepositoryResponse"
-    "fixture/DescribeCodeRepositoryResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeCodeRepository)
-
-responseListEndpoints :: ListEndpointsResponse -> TestTree
-responseListEndpoints =
-  res
-    "ListEndpointsResponse"
-    "fixture/ListEndpointsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListEndpoints)
-
-responseDescribeDataQualityJobDefinition :: DescribeDataQualityJobDefinitionResponse -> TestTree
-responseDescribeDataQualityJobDefinition =
-  res
-    "DescribeDataQualityJobDefinitionResponse"
-    "fixture/DescribeDataQualityJobDefinitionResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeDataQualityJobDefinition)
-
-responseDescribeAlgorithm :: DescribeAlgorithmResponse -> TestTree
-responseDescribeAlgorithm =
-  res
-    "DescribeAlgorithmResponse"
-    "fixture/DescribeAlgorithmResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeAlgorithm)
-
-responseCreateAction :: CreateActionResponse -> TestTree
-responseCreateAction =
-  res
-    "CreateActionResponse"
-    "fixture/CreateActionResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateAction)
-
-responseDeleteEndpoint :: DeleteEndpointResponse -> TestTree
-responseDeleteEndpoint =
-  res
-    "DeleteEndpointResponse"
-    "fixture/DeleteEndpointResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteEndpoint)
-
-responseCreatePresignedDomainUrl :: CreatePresignedDomainUrlResponse -> TestTree
-responseCreatePresignedDomainUrl =
-  res
-    "CreatePresignedDomainUrlResponse"
-    "fixture/CreatePresignedDomainUrlResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreatePresignedDomainUrl)
-
-responseListTransformJobs :: ListTransformJobsResponse -> TestTree
-responseListTransformJobs =
-  res
-    "ListTransformJobsResponse"
-    "fixture/ListTransformJobsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListTransformJobs)
-
-responseDescribeHyperParameterTuningJob :: DescribeHyperParameterTuningJobResponse -> TestTree
-responseDescribeHyperParameterTuningJob =
-  res
-    "DescribeHyperParameterTuningJobResponse"
-    "fixture/DescribeHyperParameterTuningJobResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeHyperParameterTuningJob)
 
 responseCreateCompilationJob :: CreateCompilationJobResponse -> TestTree
 responseCreateCompilationJob =
@@ -3849,29 +3893,13 @@ responseCreateCompilationJob =
     defaultService
     (Proxy :: Proxy CreateCompilationJob)
 
-responseUpdateEndpoint :: UpdateEndpointResponse -> TestTree
-responseUpdateEndpoint =
+responseCreateAction :: CreateActionResponse -> TestTree
+responseCreateAction =
   res
-    "UpdateEndpointResponse"
-    "fixture/UpdateEndpointResponse.proto"
+    "CreateActionResponse"
+    "fixture/CreateActionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateEndpoint)
-
-responseDescribeModel :: DescribeModelResponse -> TestTree
-responseDescribeModel =
-  res
-    "DescribeModelResponse"
-    "fixture/DescribeModelResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeModel)
-
-responseCreateDeviceFleet :: CreateDeviceFleetResponse -> TestTree
-responseCreateDeviceFleet =
-  res
-    "CreateDeviceFleetResponse"
-    "fixture/CreateDeviceFleetResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateDeviceFleet)
+    (Proxy :: Proxy CreateAction)
 
 responseCreateArtifact :: CreateArtifactResponse -> TestTree
 responseCreateArtifact =
@@ -3881,6 +3909,94 @@ responseCreateArtifact =
     defaultService
     (Proxy :: Proxy CreateArtifact)
 
+responseDeleteEndpoint :: DeleteEndpointResponse -> TestTree
+responseDeleteEndpoint =
+  res
+    "DeleteEndpointResponse"
+    "fixture/DeleteEndpointResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteEndpoint)
+
+responseListTransformJobs :: ListTransformJobsResponse -> TestTree
+responseListTransformJobs =
+  res
+    "ListTransformJobsResponse"
+    "fixture/ListTransformJobsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTransformJobs)
+
+responseDescribeCodeRepository :: DescribeCodeRepositoryResponse -> TestTree
+responseDescribeCodeRepository =
+  res
+    "DescribeCodeRepositoryResponse"
+    "fixture/DescribeCodeRepositoryResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeCodeRepository)
+
+responseCreateDeviceFleet :: CreateDeviceFleetResponse -> TestTree
+responseCreateDeviceFleet =
+  res
+    "CreateDeviceFleetResponse"
+    "fixture/CreateDeviceFleetResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateDeviceFleet)
+
+responseDescribeModel :: DescribeModelResponse -> TestTree
+responseDescribeModel =
+  res
+    "DescribeModelResponse"
+    "fixture/DescribeModelResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeModel)
+
+responseDescribeDataQualityJobDefinition :: DescribeDataQualityJobDefinitionResponse -> TestTree
+responseDescribeDataQualityJobDefinition =
+  res
+    "DescribeDataQualityJobDefinitionResponse"
+    "fixture/DescribeDataQualityJobDefinitionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeDataQualityJobDefinition)
+
+responseUpdateEndpoint :: UpdateEndpointResponse -> TestTree
+responseUpdateEndpoint =
+  res
+    "UpdateEndpointResponse"
+    "fixture/UpdateEndpointResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateEndpoint)
+
+responseCreatePresignedDomainUrl :: CreatePresignedDomainUrlResponse -> TestTree
+responseCreatePresignedDomainUrl =
+  res
+    "CreatePresignedDomainUrlResponse"
+    "fixture/CreatePresignedDomainUrlResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreatePresignedDomainUrl)
+
+responseDescribeHyperParameterTuningJob :: DescribeHyperParameterTuningJobResponse -> TestTree
+responseDescribeHyperParameterTuningJob =
+  res
+    "DescribeHyperParameterTuningJobResponse"
+    "fixture/DescribeHyperParameterTuningJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeHyperParameterTuningJob)
+
+responseListEndpoints :: ListEndpointsResponse -> TestTree
+responseListEndpoints =
+  res
+    "ListEndpointsResponse"
+    "fixture/ListEndpointsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListEndpoints)
+
+responseDescribeAlgorithm :: DescribeAlgorithmResponse -> TestTree
+responseDescribeAlgorithm =
+  res
+    "DescribeAlgorithmResponse"
+    "fixture/DescribeAlgorithmResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeAlgorithm)
+
 responseUpdateDevices :: UpdateDevicesResponse -> TestTree
 responseUpdateDevices =
   res
@@ -3889,46 +4005,6 @@ responseUpdateDevices =
     defaultService
     (Proxy :: Proxy UpdateDevices)
 
-responseListArtifacts :: ListArtifactsResponse -> TestTree
-responseListArtifacts =
-  res
-    "ListArtifactsResponse"
-    "fixture/ListArtifactsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListArtifacts)
-
-responseDeleteDeviceFleet :: DeleteDeviceFleetResponse -> TestTree
-responseDeleteDeviceFleet =
-  res
-    "DeleteDeviceFleetResponse"
-    "fixture/DeleteDeviceFleetResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteDeviceFleet)
-
-responseListMonitoringExecutions :: ListMonitoringExecutionsResponse -> TestTree
-responseListMonitoringExecutions =
-  res
-    "ListMonitoringExecutionsResponse"
-    "fixture/ListMonitoringExecutionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListMonitoringExecutions)
-
-responseListCompilationJobs :: ListCompilationJobsResponse -> TestTree
-responseListCompilationJobs =
-  res
-    "ListCompilationJobsResponse"
-    "fixture/ListCompilationJobsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListCompilationJobs)
-
-responseListActions :: ListActionsResponse -> TestTree
-responseListActions =
-  res
-    "ListActionsResponse"
-    "fixture/ListActionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListActions)
-
 responseListDeviceFleets :: ListDeviceFleetsResponse -> TestTree
 responseListDeviceFleets =
   res
@@ -3936,38 +4012,6 @@ responseListDeviceFleets =
     "fixture/ListDeviceFleetsResponse.proto"
     defaultService
     (Proxy :: Proxy ListDeviceFleets)
-
-responseDescribeModelPackageGroup :: DescribeModelPackageGroupResponse -> TestTree
-responseDescribeModelPackageGroup =
-  res
-    "DescribeModelPackageGroupResponse"
-    "fixture/DescribeModelPackageGroupResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeModelPackageGroup)
-
-responseStopHyperParameterTuningJob :: StopHyperParameterTuningJobResponse -> TestTree
-responseStopHyperParameterTuningJob =
-  res
-    "StopHyperParameterTuningJobResponse"
-    "fixture/StopHyperParameterTuningJobResponse.proto"
-    defaultService
-    (Proxy :: Proxy StopHyperParameterTuningJob)
-
-responseDescribeTrial :: DescribeTrialResponse -> TestTree
-responseDescribeTrial =
-  res
-    "DescribeTrialResponse"
-    "fixture/DescribeTrialResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeTrial)
-
-responseUpdateDeviceFleet :: UpdateDeviceFleetResponse -> TestTree
-responseUpdateDeviceFleet =
-  res
-    "UpdateDeviceFleetResponse"
-    "fixture/UpdateDeviceFleetResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateDeviceFleet)
 
 responseListLabelingJobsForWorkteam :: ListLabelingJobsForWorkteamResponse -> TestTree
 responseListLabelingJobsForWorkteam =
@@ -3985,6 +4029,126 @@ responseCreateFeatureGroup =
     defaultService
     (Proxy :: Proxy CreateFeatureGroup)
 
+responseListMonitoringExecutions :: ListMonitoringExecutionsResponse -> TestTree
+responseListMonitoringExecutions =
+  res
+    "ListMonitoringExecutionsResponse"
+    "fixture/ListMonitoringExecutionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListMonitoringExecutions)
+
+responseDescribeModelPackageGroup :: DescribeModelPackageGroupResponse -> TestTree
+responseDescribeModelPackageGroup =
+  res
+    "DescribeModelPackageGroupResponse"
+    "fixture/DescribeModelPackageGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeModelPackageGroup)
+
+responseUpdateDeviceFleet :: UpdateDeviceFleetResponse -> TestTree
+responseUpdateDeviceFleet =
+  res
+    "UpdateDeviceFleetResponse"
+    "fixture/UpdateDeviceFleetResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateDeviceFleet)
+
+responseStopHyperParameterTuningJob :: StopHyperParameterTuningJobResponse -> TestTree
+responseStopHyperParameterTuningJob =
+  res
+    "StopHyperParameterTuningJobResponse"
+    "fixture/StopHyperParameterTuningJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy StopHyperParameterTuningJob)
+
+responseDeleteDeviceFleet :: DeleteDeviceFleetResponse -> TestTree
+responseDeleteDeviceFleet =
+  res
+    "DeleteDeviceFleetResponse"
+    "fixture/DeleteDeviceFleetResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteDeviceFleet)
+
+responseListActions :: ListActionsResponse -> TestTree
+responseListActions =
+  res
+    "ListActionsResponse"
+    "fixture/ListActionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListActions)
+
+responseListArtifacts :: ListArtifactsResponse -> TestTree
+responseListArtifacts =
+  res
+    "ListArtifactsResponse"
+    "fixture/ListArtifactsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListArtifacts)
+
+responseListCompilationJobs :: ListCompilationJobsResponse -> TestTree
+responseListCompilationJobs =
+  res
+    "ListCompilationJobsResponse"
+    "fixture/ListCompilationJobsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListCompilationJobs)
+
+responseDescribeTrial :: DescribeTrialResponse -> TestTree
+responseDescribeTrial =
+  res
+    "DescribeTrialResponse"
+    "fixture/DescribeTrialResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeTrial)
+
+responseDeleteImageVersion :: DeleteImageVersionResponse -> TestTree
+responseDeleteImageVersion =
+  res
+    "DeleteImageVersionResponse"
+    "fixture/DeleteImageVersionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteImageVersion)
+
+responseDeleteTrialComponent :: DeleteTrialComponentResponse -> TestTree
+responseDeleteTrialComponent =
+  res
+    "DeleteTrialComponentResponse"
+    "fixture/DeleteTrialComponentResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteTrialComponent)
+
+responseListTrialComponents :: ListTrialComponentsResponse -> TestTree
+responseListTrialComponents =
+  res
+    "ListTrialComponentsResponse"
+    "fixture/ListTrialComponentsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTrialComponents)
+
+responseDescribeAutoMLJob :: DescribeAutoMLJobResponse -> TestTree
+responseDescribeAutoMLJob =
+  res
+    "DescribeAutoMLJobResponse"
+    "fixture/DescribeAutoMLJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeAutoMLJob)
+
+responseDeleteProject :: DeleteProjectResponse -> TestTree
+responseDeleteProject =
+  res
+    "DeleteProjectResponse"
+    "fixture/DeleteProjectResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteProject)
+
+responseDescribeApp :: DescribeAppResponse -> TestTree
+responseDescribeApp =
+  res
+    "DescribeAppResponse"
+    "fixture/DescribeAppResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeApp)
+
 responseCreateDomain :: CreateDomainResponse -> TestTree
 responseCreateDomain =
   res
@@ -3992,6 +4156,14 @@ responseCreateDomain =
     "fixture/CreateDomainResponse.proto"
     defaultService
     (Proxy :: Proxy CreateDomain)
+
+responseDescribeExperiment :: DescribeExperimentResponse -> TestTree
+responseDescribeExperiment =
+  res
+    "DescribeExperimentResponse"
+    "fixture/DescribeExperimentResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeExperiment)
 
 responseListImageVersions :: ListImageVersionsResponse -> TestTree
 responseListImageVersions =
@@ -4009,54 +4181,6 @@ responseStopProcessingJob =
     defaultService
     (Proxy :: Proxy StopProcessingJob)
 
-responseDeleteImageVersion :: DeleteImageVersionResponse -> TestTree
-responseDeleteImageVersion =
-  res
-    "DeleteImageVersionResponse"
-    "fixture/DeleteImageVersionResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteImageVersion)
-
-responseDeleteProject :: DeleteProjectResponse -> TestTree
-responseDeleteProject =
-  res
-    "DeleteProjectResponse"
-    "fixture/DeleteProjectResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteProject)
-
-responseDescribeExperiment :: DescribeExperimentResponse -> TestTree
-responseDescribeExperiment =
-  res
-    "DescribeExperimentResponse"
-    "fixture/DescribeExperimentResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeExperiment)
-
-responseDescribeAutoMLJob :: DescribeAutoMLJobResponse -> TestTree
-responseDescribeAutoMLJob =
-  res
-    "DescribeAutoMLJobResponse"
-    "fixture/DescribeAutoMLJobResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeAutoMLJob)
-
-responseDescribeApp :: DescribeAppResponse -> TestTree
-responseDescribeApp =
-  res
-    "DescribeAppResponse"
-    "fixture/DescribeAppResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeApp)
-
-responseListTrialComponents :: ListTrialComponentsResponse -> TestTree
-responseListTrialComponents =
-  res
-    "ListTrialComponentsResponse"
-    "fixture/ListTrialComponentsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListTrialComponents)
-
 responseUpdateTrialComponent :: UpdateTrialComponentResponse -> TestTree
 responseUpdateTrialComponent =
   res
@@ -4064,118 +4188,6 @@ responseUpdateTrialComponent =
     "fixture/UpdateTrialComponentResponse.proto"
     defaultService
     (Proxy :: Proxy UpdateTrialComponent)
-
-responseDeleteTrialComponent :: DeleteTrialComponentResponse -> TestTree
-responseDeleteTrialComponent =
-  res
-    "DeleteTrialComponentResponse"
-    "fixture/DeleteTrialComponentResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteTrialComponent)
-
-responseCreateTrialComponent :: CreateTrialComponentResponse -> TestTree
-responseCreateTrialComponent =
-  res
-    "CreateTrialComponentResponse"
-    "fixture/CreateTrialComponentResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateTrialComponent)
-
-responseDescribeWorkforce :: DescribeWorkforceResponse -> TestTree
-responseDescribeWorkforce =
-  res
-    "DescribeWorkforceResponse"
-    "fixture/DescribeWorkforceResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeWorkforce)
-
-responseListNotebookInstances :: ListNotebookInstancesResponse -> TestTree
-responseListNotebookInstances =
-  res
-    "ListNotebookInstancesResponse"
-    "fixture/ListNotebookInstancesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListNotebookInstances)
-
-responseListModelExplainabilityJobDefinitions :: ListModelExplainabilityJobDefinitionsResponse -> TestTree
-responseListModelExplainabilityJobDefinitions =
-  res
-    "ListModelExplainabilityJobDefinitionsResponse"
-    "fixture/ListModelExplainabilityJobDefinitionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListModelExplainabilityJobDefinitions)
-
-responseDeleteModelQualityJobDefinition :: DeleteModelQualityJobDefinitionResponse -> TestTree
-responseDeleteModelQualityJobDefinition =
-  res
-    "DeleteModelQualityJobDefinitionResponse"
-    "fixture/DeleteModelQualityJobDefinitionResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteModelQualityJobDefinition)
-
-responseStopLabelingJob :: StopLabelingJobResponse -> TestTree
-responseStopLabelingJob =
-  res
-    "StopLabelingJobResponse"
-    "fixture/StopLabelingJobResponse.proto"
-    defaultService
-    (Proxy :: Proxy StopLabelingJob)
-
-responseListModelQualityJobDefinitions :: ListModelQualityJobDefinitionsResponse -> TestTree
-responseListModelQualityJobDefinitions =
-  res
-    "ListModelQualityJobDefinitionsResponse"
-    "fixture/ListModelQualityJobDefinitionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListModelQualityJobDefinitions)
-
-responseDescribeModelBiasJobDefinition :: DescribeModelBiasJobDefinitionResponse -> TestTree
-responseDescribeModelBiasJobDefinition =
-  res
-    "DescribeModelBiasJobDefinitionResponse"
-    "fixture/DescribeModelBiasJobDefinitionResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeModelBiasJobDefinition)
-
-responseDescribeWorkteam :: DescribeWorkteamResponse -> TestTree
-responseDescribeWorkteam =
-  res
-    "DescribeWorkteamResponse"
-    "fixture/DescribeWorkteamResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeWorkteam)
-
-responseDescribeNotebookInstanceLifecycleConfig :: DescribeNotebookInstanceLifecycleConfigResponse -> TestTree
-responseDescribeNotebookInstanceLifecycleConfig =
-  res
-    "DescribeNotebookInstanceLifecycleConfigResponse"
-    "fixture/DescribeNotebookInstanceLifecycleConfigResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeNotebookInstanceLifecycleConfig)
-
-responseListPipelineExecutions :: ListPipelineExecutionsResponse -> TestTree
-responseListPipelineExecutions =
-  res
-    "ListPipelineExecutionsResponse"
-    "fixture/ListPipelineExecutionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListPipelineExecutions)
-
-responseUpdateDomain :: UpdateDomainResponse -> TestTree
-responseUpdateDomain =
-  res
-    "UpdateDomainResponse"
-    "fixture/UpdateDomainResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateDomain)
-
-responseAssociateTrialComponent :: AssociateTrialComponentResponse -> TestTree
-responseAssociateTrialComponent =
-  res
-    "AssociateTrialComponentResponse"
-    "fixture/AssociateTrialComponentResponse.proto"
-    defaultService
-    (Proxy :: Proxy AssociateTrialComponent)
 
 responseUpdatePipelineExecution :: UpdatePipelineExecutionResponse -> TestTree
 responseUpdatePipelineExecution =
@@ -4185,13 +4197,53 @@ responseUpdatePipelineExecution =
     defaultService
     (Proxy :: Proxy UpdatePipelineExecution)
 
-responseCreateImageVersion :: CreateImageVersionResponse -> TestTree
-responseCreateImageVersion =
+responseCreateTrialComponent :: CreateTrialComponentResponse -> TestTree
+responseCreateTrialComponent =
   res
-    "CreateImageVersionResponse"
-    "fixture/CreateImageVersionResponse.proto"
+    "CreateTrialComponentResponse"
+    "fixture/CreateTrialComponentResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateImageVersion)
+    (Proxy :: Proxy CreateTrialComponent)
+
+responseListPipelineExecutions :: ListPipelineExecutionsResponse -> TestTree
+responseListPipelineExecutions =
+  res
+    "ListPipelineExecutionsResponse"
+    "fixture/ListPipelineExecutionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListPipelineExecutions)
+
+responseListModelExplainabilityJobDefinitions :: ListModelExplainabilityJobDefinitionsResponse -> TestTree
+responseListModelExplainabilityJobDefinitions =
+  res
+    "ListModelExplainabilityJobDefinitionsResponse"
+    "fixture/ListModelExplainabilityJobDefinitionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListModelExplainabilityJobDefinitions)
+
+responseAssociateTrialComponent :: AssociateTrialComponentResponse -> TestTree
+responseAssociateTrialComponent =
+  res
+    "AssociateTrialComponentResponse"
+    "fixture/AssociateTrialComponentResponse.proto"
+    defaultService
+    (Proxy :: Proxy AssociateTrialComponent)
+
+responseDescribeModelBiasJobDefinition :: DescribeModelBiasJobDefinitionResponse -> TestTree
+responseDescribeModelBiasJobDefinition =
+  res
+    "DescribeModelBiasJobDefinitionResponse"
+    "fixture/DescribeModelBiasJobDefinitionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeModelBiasJobDefinition)
+
+responseDescribeStudioLifecycleConfig :: DescribeStudioLifecycleConfigResponse -> TestTree
+responseDescribeStudioLifecycleConfig =
+  res
+    "DescribeStudioLifecycleConfigResponse"
+    "fixture/DescribeStudioLifecycleConfigResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeStudioLifecycleConfig)
 
 responseDeleteDomain :: DeleteDomainResponse -> TestTree
 responseDeleteDomain =
@@ -4201,21 +4253,77 @@ responseDeleteDomain =
     defaultService
     (Proxy :: Proxy DeleteDomain)
 
-responseUpdateTrainingJob :: UpdateTrainingJobResponse -> TestTree
-responseUpdateTrainingJob =
+responseListNotebookInstances :: ListNotebookInstancesResponse -> TestTree
+responseListNotebookInstances =
   res
-    "UpdateTrainingJobResponse"
-    "fixture/UpdateTrainingJobResponse.proto"
+    "ListNotebookInstancesResponse"
+    "fixture/ListNotebookInstancesResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateTrainingJob)
+    (Proxy :: Proxy ListNotebookInstances)
 
-responseUpdateImage :: UpdateImageResponse -> TestTree
-responseUpdateImage =
+responseDescribeNotebookInstanceLifecycleConfig :: DescribeNotebookInstanceLifecycleConfigResponse -> TestTree
+responseDescribeNotebookInstanceLifecycleConfig =
   res
-    "UpdateImageResponse"
-    "fixture/UpdateImageResponse.proto"
+    "DescribeNotebookInstanceLifecycleConfigResponse"
+    "fixture/DescribeNotebookInstanceLifecycleConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateImage)
+    (Proxy :: Proxy DescribeNotebookInstanceLifecycleConfig)
+
+responseStopLabelingJob :: StopLabelingJobResponse -> TestTree
+responseStopLabelingJob =
+  res
+    "StopLabelingJobResponse"
+    "fixture/StopLabelingJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy StopLabelingJob)
+
+responseUpdateDomain :: UpdateDomainResponse -> TestTree
+responseUpdateDomain =
+  res
+    "UpdateDomainResponse"
+    "fixture/UpdateDomainResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateDomain)
+
+responseDescribeWorkforce :: DescribeWorkforceResponse -> TestTree
+responseDescribeWorkforce =
+  res
+    "DescribeWorkforceResponse"
+    "fixture/DescribeWorkforceResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeWorkforce)
+
+responseCreateImageVersion :: CreateImageVersionResponse -> TestTree
+responseCreateImageVersion =
+  res
+    "CreateImageVersionResponse"
+    "fixture/CreateImageVersionResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateImageVersion)
+
+responseDeleteModelQualityJobDefinition :: DeleteModelQualityJobDefinitionResponse -> TestTree
+responseDeleteModelQualityJobDefinition =
+  res
+    "DeleteModelQualityJobDefinitionResponse"
+    "fixture/DeleteModelQualityJobDefinitionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteModelQualityJobDefinition)
+
+responseDescribeWorkteam :: DescribeWorkteamResponse -> TestTree
+responseDescribeWorkteam =
+  res
+    "DescribeWorkteamResponse"
+    "fixture/DescribeWorkteamResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeWorkteam)
+
+responseListModelQualityJobDefinitions :: ListModelQualityJobDefinitionsResponse -> TestTree
+responseListModelQualityJobDefinitions =
+  res
+    "ListModelQualityJobDefinitionsResponse"
+    "fixture/ListModelQualityJobDefinitionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListModelQualityJobDefinitions)
 
 responseUpdateContext :: UpdateContextResponse -> TestTree
 responseUpdateContext =
@@ -4225,22 +4333,6 @@ responseUpdateContext =
     defaultService
     (Proxy :: Proxy UpdateContext)
 
-responseDeleteImage :: DeleteImageResponse -> TestTree
-responseDeleteImage =
-  res
-    "DeleteImageResponse"
-    "fixture/DeleteImageResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteImage)
-
-responseListFlowDefinitions :: ListFlowDefinitionsResponse -> TestTree
-responseListFlowDefinitions =
-  res
-    "ListFlowDefinitionsResponse"
-    "fixture/ListFlowDefinitionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListFlowDefinitions)
-
 responseListModels :: ListModelsResponse -> TestTree
 responseListModels =
   res
@@ -4248,38 +4340,6 @@ responseListModels =
     "fixture/ListModelsResponse.proto"
     defaultService
     (Proxy :: Proxy ListModels)
-
-responseCreateUserProfile :: CreateUserProfileResponse -> TestTree
-responseCreateUserProfile =
-  res
-    "CreateUserProfileResponse"
-    "fixture/CreateUserProfileResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateUserProfile)
-
-responseRenderUiTemplate :: RenderUiTemplateResponse -> TestTree
-responseRenderUiTemplate =
-  res
-    "RenderUiTemplateResponse"
-    "fixture/RenderUiTemplateResponse.proto"
-    defaultService
-    (Proxy :: Proxy RenderUiTemplate)
-
-responseDescribeFeatureGroup :: DescribeFeatureGroupResponse -> TestTree
-responseDescribeFeatureGroup =
-  res
-    "DescribeFeatureGroupResponse"
-    "fixture/DescribeFeatureGroupResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeFeatureGroup)
-
-responseDeleteContext :: DeleteContextResponse -> TestTree
-responseDeleteContext =
-  res
-    "DeleteContextResponse"
-    "fixture/DeleteContextResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteContext)
 
 responseListHyperParameterTuningJobs :: ListHyperParameterTuningJobsResponse -> TestTree
 responseListHyperParameterTuningJobs =
@@ -4289,13 +4349,37 @@ responseListHyperParameterTuningJobs =
     defaultService
     (Proxy :: Proxy ListHyperParameterTuningJobs)
 
-responseDeleteFlowDefinition :: DeleteFlowDefinitionResponse -> TestTree
-responseDeleteFlowDefinition =
+responseSendPipelineExecutionStepFailure :: SendPipelineExecutionStepFailureResponse -> TestTree
+responseSendPipelineExecutionStepFailure =
   res
-    "DeleteFlowDefinitionResponse"
-    "fixture/DeleteFlowDefinitionResponse.proto"
+    "SendPipelineExecutionStepFailureResponse"
+    "fixture/SendPipelineExecutionStepFailureResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteFlowDefinition)
+    (Proxy :: Proxy SendPipelineExecutionStepFailure)
+
+responseDescribeFeatureGroup :: DescribeFeatureGroupResponse -> TestTree
+responseDescribeFeatureGroup =
+  res
+    "DescribeFeatureGroupResponse"
+    "fixture/DescribeFeatureGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeFeatureGroup)
+
+responseUpdateImage :: UpdateImageResponse -> TestTree
+responseUpdateImage =
+  res
+    "UpdateImageResponse"
+    "fixture/UpdateImageResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateImage)
+
+responseListFlowDefinitions :: ListFlowDefinitionsResponse -> TestTree
+responseListFlowDefinitions =
+  res
+    "ListFlowDefinitionsResponse"
+    "fixture/ListFlowDefinitionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListFlowDefinitions)
 
 responseListAlgorithms :: ListAlgorithmsResponse -> TestTree
 responseListAlgorithms =
@@ -4305,29 +4389,69 @@ responseListAlgorithms =
     defaultService
     (Proxy :: Proxy ListAlgorithms)
 
-responseCreateAlgorithm :: CreateAlgorithmResponse -> TestTree
-responseCreateAlgorithm =
+responseUpdateTrainingJob :: UpdateTrainingJobResponse -> TestTree
+responseUpdateTrainingJob =
   res
-    "CreateAlgorithmResponse"
-    "fixture/CreateAlgorithmResponse.proto"
+    "UpdateTrainingJobResponse"
+    "fixture/UpdateTrainingJobResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAlgorithm)
+    (Proxy :: Proxy UpdateTrainingJob)
 
-responseCreateFlowDefinition :: CreateFlowDefinitionResponse -> TestTree
-responseCreateFlowDefinition =
+responseDeleteFlowDefinition :: DeleteFlowDefinitionResponse -> TestTree
+responseDeleteFlowDefinition =
   res
-    "CreateFlowDefinitionResponse"
-    "fixture/CreateFlowDefinitionResponse.proto"
+    "DeleteFlowDefinitionResponse"
+    "fixture/DeleteFlowDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateFlowDefinition)
+    (Proxy :: Proxy DeleteFlowDefinition)
 
-responseListPipelineParametersForExecution :: ListPipelineParametersForExecutionResponse -> TestTree
-responseListPipelineParametersForExecution =
+responseDeleteImage :: DeleteImageResponse -> TestTree
+responseDeleteImage =
   res
-    "ListPipelineParametersForExecutionResponse"
-    "fixture/ListPipelineParametersForExecutionResponse.proto"
+    "DeleteImageResponse"
+    "fixture/DeleteImageResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPipelineParametersForExecution)
+    (Proxy :: Proxy DeleteImage)
+
+responseRenderUiTemplate :: RenderUiTemplateResponse -> TestTree
+responseRenderUiTemplate =
+  res
+    "RenderUiTemplateResponse"
+    "fixture/RenderUiTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy RenderUiTemplate)
+
+responseCreateUserProfile :: CreateUserProfileResponse -> TestTree
+responseCreateUserProfile =
+  res
+    "CreateUserProfileResponse"
+    "fixture/CreateUserProfileResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateUserProfile)
+
+responseDeleteContext :: DeleteContextResponse -> TestTree
+responseDeleteContext =
+  res
+    "DeleteContextResponse"
+    "fixture/DeleteContextResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteContext)
+
+responseListTags :: ListTagsResponse -> TestTree
+responseListTags =
+  res
+    "ListTagsResponse"
+    "fixture/ListTagsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTags)
+
+responsePutModelPackageGroupPolicy :: PutModelPackageGroupPolicyResponse -> TestTree
+responsePutModelPackageGroupPolicy =
+  res
+    "PutModelPackageGroupPolicyResponse"
+    "fixture/PutModelPackageGroupPolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutModelPackageGroupPolicy)
 
 responseListTrials :: ListTrialsResponse -> TestTree
 responseListTrials =
@@ -4337,21 +4461,53 @@ responseListTrials =
     defaultService
     (Proxy :: Proxy ListTrials)
 
-responseCreateHyperParameterTuningJob :: CreateHyperParameterTuningJobResponse -> TestTree
-responseCreateHyperParameterTuningJob =
+responseDescribePipelineDefinitionForExecution :: DescribePipelineDefinitionForExecutionResponse -> TestTree
+responseDescribePipelineDefinitionForExecution =
   res
-    "CreateHyperParameterTuningJobResponse"
-    "fixture/CreateHyperParameterTuningJobResponse.proto"
+    "DescribePipelineDefinitionForExecutionResponse"
+    "fixture/DescribePipelineDefinitionForExecutionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateHyperParameterTuningJob)
+    (Proxy :: Proxy DescribePipelineDefinitionForExecution)
 
-responseCreateModel :: CreateModelResponse -> TestTree
-responseCreateModel =
+responseListModelPackageGroups :: ListModelPackageGroupsResponse -> TestTree
+responseListModelPackageGroups =
   res
-    "CreateModelResponse"
-    "fixture/CreateModelResponse.proto"
+    "ListModelPackageGroupsResponse"
+    "fixture/ListModelPackageGroupsResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateModel)
+    (Proxy :: Proxy ListModelPackageGroups)
+
+responseListPipelines :: ListPipelinesResponse -> TestTree
+responseListPipelines =
+  res
+    "ListPipelinesResponse"
+    "fixture/ListPipelinesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListPipelines)
+
+responseListPipelineParametersForExecution :: ListPipelineParametersForExecutionResponse -> TestTree
+responseListPipelineParametersForExecution =
+  res
+    "ListPipelineParametersForExecutionResponse"
+    "fixture/ListPipelineParametersForExecutionResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListPipelineParametersForExecution)
+
+responseDeleteTrial :: DeleteTrialResponse -> TestTree
+responseDeleteTrial =
+  res
+    "DeleteTrialResponse"
+    "fixture/DeleteTrialResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteTrial)
+
+responseCreateAlgorithm :: CreateAlgorithmResponse -> TestTree
+responseCreateAlgorithm =
+  res
+    "CreateAlgorithmResponse"
+    "fixture/CreateAlgorithmResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateAlgorithm)
 
 responseUpdateTrial :: UpdateTrialResponse -> TestTree
 responseUpdateTrial =
@@ -4377,69 +4533,37 @@ responseDescribeDeviceFleet =
     defaultService
     (Proxy :: Proxy DescribeDeviceFleet)
 
-responseListModelPackageGroups :: ListModelPackageGroupsResponse -> TestTree
-responseListModelPackageGroups =
+responseCreateHyperParameterTuningJob :: CreateHyperParameterTuningJobResponse -> TestTree
+responseCreateHyperParameterTuningJob =
   res
-    "ListModelPackageGroupsResponse"
-    "fixture/ListModelPackageGroupsResponse.proto"
+    "CreateHyperParameterTuningJobResponse"
+    "fixture/CreateHyperParameterTuningJobResponse.proto"
     defaultService
-    (Proxy :: Proxy ListModelPackageGroups)
+    (Proxy :: Proxy CreateHyperParameterTuningJob)
 
-responseListPipelines :: ListPipelinesResponse -> TestTree
-responseListPipelines =
+responseCreateModel :: CreateModelResponse -> TestTree
+responseCreateModel =
   res
-    "ListPipelinesResponse"
-    "fixture/ListPipelinesResponse.proto"
+    "CreateModelResponse"
+    "fixture/CreateModelResponse.proto"
     defaultService
-    (Proxy :: Proxy ListPipelines)
+    (Proxy :: Proxy CreateModel)
 
-responseListTags :: ListTagsResponse -> TestTree
-responseListTags =
+responseCreateFlowDefinition :: CreateFlowDefinitionResponse -> TestTree
+responseCreateFlowDefinition =
   res
-    "ListTagsResponse"
-    "fixture/ListTagsResponse.proto"
+    "CreateFlowDefinitionResponse"
+    "fixture/CreateFlowDefinitionResponse.proto"
     defaultService
-    (Proxy :: Proxy ListTags)
+    (Proxy :: Proxy CreateFlowDefinition)
 
-responseDescribePipelineDefinitionForExecution :: DescribePipelineDefinitionForExecutionResponse -> TestTree
-responseDescribePipelineDefinitionForExecution =
+responseListAssociations :: ListAssociationsResponse -> TestTree
+responseListAssociations =
   res
-    "DescribePipelineDefinitionForExecutionResponse"
-    "fixture/DescribePipelineDefinitionForExecutionResponse.proto"
+    "ListAssociationsResponse"
+    "fixture/ListAssociationsResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribePipelineDefinitionForExecution)
-
-responseDeleteTrial :: DeleteTrialResponse -> TestTree
-responseDeleteTrial =
-  res
-    "DeleteTrialResponse"
-    "fixture/DeleteTrialResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteTrial)
-
-responsePutModelPackageGroupPolicy :: PutModelPackageGroupPolicyResponse -> TestTree
-responsePutModelPackageGroupPolicy =
-  res
-    "PutModelPackageGroupPolicyResponse"
-    "fixture/PutModelPackageGroupPolicyResponse.proto"
-    defaultService
-    (Proxy :: Proxy PutModelPackageGroupPolicy)
-
-responseListExperiments :: ListExperimentsResponse -> TestTree
-responseListExperiments =
-  res
-    "ListExperimentsResponse"
-    "fixture/ListExperimentsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListExperiments)
-
-responseUpdateExperiment :: UpdateExperimentResponse -> TestTree
-responseUpdateExperiment =
-  res
-    "UpdateExperimentResponse"
-    "fixture/UpdateExperimentResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateExperiment)
+    (Proxy :: Proxy ListAssociations)
 
 responseDeleteExperiment :: DeleteExperimentResponse -> TestTree
 responseDeleteExperiment =
@@ -4449,13 +4573,13 @@ responseDeleteExperiment =
     defaultService
     (Proxy :: Proxy DeleteExperiment)
 
-responseListLabelingJobs :: ListLabelingJobsResponse -> TestTree
-responseListLabelingJobs =
+responseDescribeProject :: DescribeProjectResponse -> TestTree
+responseDescribeProject =
   res
-    "ListLabelingJobsResponse"
-    "fixture/ListLabelingJobsResponse.proto"
+    "DescribeProjectResponse"
+    "fixture/DescribeProjectResponse.proto"
     defaultService
-    (Proxy :: Proxy ListLabelingJobs)
+    (Proxy :: Proxy DescribeProject)
 
 responseDescribeImageVersion :: DescribeImageVersionResponse -> TestTree
 responseDescribeImageVersion =
@@ -4465,13 +4589,13 @@ responseDescribeImageVersion =
     defaultService
     (Proxy :: Proxy DescribeImageVersion)
 
-responseDeleteApp :: DeleteAppResponse -> TestTree
-responseDeleteApp =
+responseListExperiments :: ListExperimentsResponse -> TestTree
+responseListExperiments =
   res
-    "DeleteAppResponse"
-    "fixture/DeleteAppResponse.proto"
+    "ListExperimentsResponse"
+    "fixture/ListExperimentsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteApp)
+    (Proxy :: Proxy ListExperiments)
 
 responseCreateModelBiasJobDefinition :: CreateModelBiasJobDefinitionResponse -> TestTree
 responseCreateModelBiasJobDefinition =
@@ -4480,6 +4604,14 @@ responseCreateModelBiasJobDefinition =
     "fixture/CreateModelBiasJobDefinitionResponse.proto"
     defaultService
     (Proxy :: Proxy CreateModelBiasJobDefinition)
+
+responseUpdateExperiment :: UpdateExperimentResponse -> TestTree
+responseUpdateExperiment =
+  res
+    "UpdateExperimentResponse"
+    "fixture/UpdateExperimentResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateExperiment)
 
 responseDescribeTrialComponent :: DescribeTrialComponentResponse -> TestTree
 responseDescribeTrialComponent =
@@ -4497,14 +4629,6 @@ responseCreateWorkteam =
     defaultService
     (Proxy :: Proxy CreateWorkteam)
 
-responseDescribeProject :: DescribeProjectResponse -> TestTree
-responseDescribeProject =
-  res
-    "DescribeProjectResponse"
-    "fixture/DescribeProjectResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeProject)
-
 responseCreateProcessingJob :: CreateProcessingJobResponse -> TestTree
 responseCreateProcessingJob =
   res
@@ -4513,101 +4637,21 @@ responseCreateProcessingJob =
     defaultService
     (Proxy :: Proxy CreateProcessingJob)
 
-responseListAssociations :: ListAssociationsResponse -> TestTree
-responseListAssociations =
+responseDeleteApp :: DeleteAppResponse -> TestTree
+responseDeleteApp =
   res
-    "ListAssociationsResponse"
-    "fixture/ListAssociationsResponse.proto"
+    "DeleteAppResponse"
+    "fixture/DeleteAppResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAssociations)
+    (Proxy :: Proxy DeleteApp)
 
-responseEnableSagemakerServicecatalogPortfolio :: EnableSagemakerServicecatalogPortfolioResponse -> TestTree
-responseEnableSagemakerServicecatalogPortfolio =
+responseListLabelingJobs :: ListLabelingJobsResponse -> TestTree
+responseListLabelingJobs =
   res
-    "EnableSagemakerServicecatalogPortfolioResponse"
-    "fixture/EnableSagemakerServicecatalogPortfolioResponse.proto"
+    "ListLabelingJobsResponse"
+    "fixture/ListLabelingJobsResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableSagemakerServicecatalogPortfolio)
-
-responseUpdateAppImageConfig :: UpdateAppImageConfigResponse -> TestTree
-responseUpdateAppImageConfig =
-  res
-    "UpdateAppImageConfigResponse"
-    "fixture/UpdateAppImageConfigResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateAppImageConfig)
-
-responseListModelBiasJobDefinitions :: ListModelBiasJobDefinitionsResponse -> TestTree
-responseListModelBiasJobDefinitions =
-  res
-    "ListModelBiasJobDefinitionsResponse"
-    "fixture/ListModelBiasJobDefinitionsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListModelBiasJobDefinitions)
-
-responseCreateAutoMLJob :: CreateAutoMLJobResponse -> TestTree
-responseCreateAutoMLJob =
-  res
-    "CreateAutoMLJobResponse"
-    "fixture/CreateAutoMLJobResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateAutoMLJob)
-
-responseCreateApp :: CreateAppResponse -> TestTree
-responseCreateApp =
-  res
-    "CreateAppResponse"
-    "fixture/CreateAppResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateApp)
-
-responseDescribeNotebookInstance :: DescribeNotebookInstanceResponse -> TestTree
-responseDescribeNotebookInstance =
-  res
-    "DescribeNotebookInstanceResponse"
-    "fixture/DescribeNotebookInstanceResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeNotebookInstance)
-
-responseDeleteAppImageConfig :: DeleteAppImageConfigResponse -> TestTree
-responseDeleteAppImageConfig =
-  res
-    "DeleteAppImageConfigResponse"
-    "fixture/DeleteAppImageConfigResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteAppImageConfig)
-
-responseCreateEndpointConfig :: CreateEndpointConfigResponse -> TestTree
-responseCreateEndpointConfig =
-  res
-    "CreateEndpointConfigResponse"
-    "fixture/CreateEndpointConfigResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateEndpointConfig)
-
-responseListProcessingJobs :: ListProcessingJobsResponse -> TestTree
-responseListProcessingJobs =
-  res
-    "ListProcessingJobsResponse"
-    "fixture/ListProcessingJobsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListProcessingJobs)
-
-responseCreateMonitoringSchedule :: CreateMonitoringScheduleResponse -> TestTree
-responseCreateMonitoringSchedule =
-  res
-    "CreateMonitoringScheduleResponse"
-    "fixture/CreateMonitoringScheduleResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateMonitoringSchedule)
-
-responseDescribeModelExplainabilityJobDefinition :: DescribeModelExplainabilityJobDefinitionResponse -> TestTree
-responseDescribeModelExplainabilityJobDefinition =
-  res
-    "DescribeModelExplainabilityJobDefinitionResponse"
-    "fixture/DescribeModelExplainabilityJobDefinitionResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeModelExplainabilityJobDefinition)
+    (Proxy :: Proxy ListLabelingJobs)
 
 responseListWorkteams :: ListWorkteamsResponse -> TestTree
 responseListWorkteams =
@@ -4617,13 +4661,101 @@ responseListWorkteams =
     defaultService
     (Proxy :: Proxy ListWorkteams)
 
-responseDescribeFlowDefinition :: DescribeFlowDefinitionResponse -> TestTree
-responseDescribeFlowDefinition =
+responseDeleteAppImageConfig :: DeleteAppImageConfigResponse -> TestTree
+responseDeleteAppImageConfig =
   res
-    "DescribeFlowDefinitionResponse"
-    "fixture/DescribeFlowDefinitionResponse.proto"
+    "DeleteAppImageConfigResponse"
+    "fixture/DeleteAppImageConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeFlowDefinition)
+    (Proxy :: Proxy DeleteAppImageConfig)
+
+responseCreateApp :: CreateAppResponse -> TestTree
+responseCreateApp =
+  res
+    "CreateAppResponse"
+    "fixture/CreateAppResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateApp)
+
+responseEnableSagemakerServicecatalogPortfolio :: EnableSagemakerServicecatalogPortfolioResponse -> TestTree
+responseEnableSagemakerServicecatalogPortfolio =
+  res
+    "EnableSagemakerServicecatalogPortfolioResponse"
+    "fixture/EnableSagemakerServicecatalogPortfolioResponse.proto"
+    defaultService
+    (Proxy :: Proxy EnableSagemakerServicecatalogPortfolio)
+
+responseDescribeNotebookInstance :: DescribeNotebookInstanceResponse -> TestTree
+responseDescribeNotebookInstance =
+  res
+    "DescribeNotebookInstanceResponse"
+    "fixture/DescribeNotebookInstanceResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeNotebookInstance)
+
+responseDescribeModelExplainabilityJobDefinition :: DescribeModelExplainabilityJobDefinitionResponse -> TestTree
+responseDescribeModelExplainabilityJobDefinition =
+  res
+    "DescribeModelExplainabilityJobDefinitionResponse"
+    "fixture/DescribeModelExplainabilityJobDefinitionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeModelExplainabilityJobDefinition)
+
+responseCreateAutoMLJob :: CreateAutoMLJobResponse -> TestTree
+responseCreateAutoMLJob =
+  res
+    "CreateAutoMLJobResponse"
+    "fixture/CreateAutoMLJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateAutoMLJob)
+
+responseCreateEndpointConfig :: CreateEndpointConfigResponse -> TestTree
+responseCreateEndpointConfig =
+  res
+    "CreateEndpointConfigResponse"
+    "fixture/CreateEndpointConfigResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateEndpointConfig)
+
+responseListModelBiasJobDefinitions :: ListModelBiasJobDefinitionsResponse -> TestTree
+responseListModelBiasJobDefinitions =
+  res
+    "ListModelBiasJobDefinitionsResponse"
+    "fixture/ListModelBiasJobDefinitionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListModelBiasJobDefinitions)
+
+responseSendPipelineExecutionStepSuccess :: SendPipelineExecutionStepSuccessResponse -> TestTree
+responseSendPipelineExecutionStepSuccess =
+  res
+    "SendPipelineExecutionStepSuccessResponse"
+    "fixture/SendPipelineExecutionStepSuccessResponse.proto"
+    defaultService
+    (Proxy :: Proxy SendPipelineExecutionStepSuccess)
+
+responseCreateMonitoringSchedule :: CreateMonitoringScheduleResponse -> TestTree
+responseCreateMonitoringSchedule =
+  res
+    "CreateMonitoringScheduleResponse"
+    "fixture/CreateMonitoringScheduleResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateMonitoringSchedule)
+
+responseListProcessingJobs :: ListProcessingJobsResponse -> TestTree
+responseListProcessingJobs =
+  res
+    "ListProcessingJobsResponse"
+    "fixture/ListProcessingJobsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListProcessingJobs)
+
+responseUpdateAppImageConfig :: UpdateAppImageConfigResponse -> TestTree
+responseUpdateAppImageConfig =
+  res
+    "UpdateAppImageConfigResponse"
+    "fixture/UpdateAppImageConfigResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateAppImageConfig)
 
 responseDescribeContext :: DescribeContextResponse -> TestTree
 responseDescribeContext =
@@ -4632,6 +4764,54 @@ responseDescribeContext =
     "fixture/DescribeContextResponse.proto"
     defaultService
     (Proxy :: Proxy DescribeContext)
+
+responseCreateHumanTaskUi :: CreateHumanTaskUiResponse -> TestTree
+responseCreateHumanTaskUi =
+  res
+    "CreateHumanTaskUiResponse"
+    "fixture/CreateHumanTaskUiResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateHumanTaskUi)
+
+responseDeleteFeatureGroup :: DeleteFeatureGroupResponse -> TestTree
+responseDeleteFeatureGroup =
+  res
+    "DeleteFeatureGroupResponse"
+    "fixture/DeleteFeatureGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteFeatureGroup)
+
+responseDescribeTrainingJob :: DescribeTrainingJobResponse -> TestTree
+responseDescribeTrainingJob =
+  res
+    "DescribeTrainingJobResponse"
+    "fixture/DescribeTrainingJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeTrainingJob)
+
+responseDescribeFlowDefinition :: DescribeFlowDefinitionResponse -> TestTree
+responseDescribeFlowDefinition =
+  res
+    "DescribeFlowDefinitionResponse"
+    "fixture/DescribeFlowDefinitionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeFlowDefinition)
+
+responseListTrainingJobsForHyperParameterTuningJob :: ListTrainingJobsForHyperParameterTuningJobResponse -> TestTree
+responseListTrainingJobsForHyperParameterTuningJob =
+  res
+    "ListTrainingJobsForHyperParameterTuningJobResponse"
+    "fixture/ListTrainingJobsForHyperParameterTuningJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTrainingJobsForHyperParameterTuningJob)
+
+responseCreatePresignedNotebookInstanceUrl :: CreatePresignedNotebookInstanceUrlResponse -> TestTree
+responseCreatePresignedNotebookInstanceUrl =
+  res
+    "CreatePresignedNotebookInstanceUrlResponse"
+    "fixture/CreatePresignedNotebookInstanceUrlResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreatePresignedNotebookInstanceUrl)
 
 responseRegisterDevices :: RegisterDevicesResponse -> TestTree
 responseRegisterDevices =
@@ -4649,38 +4829,6 @@ responseListFeatureGroups =
     defaultService
     (Proxy :: Proxy ListFeatureGroups)
 
-responseCreatePresignedNotebookInstanceUrl :: CreatePresignedNotebookInstanceUrlResponse -> TestTree
-responseCreatePresignedNotebookInstanceUrl =
-  res
-    "CreatePresignedNotebookInstanceUrlResponse"
-    "fixture/CreatePresignedNotebookInstanceUrlResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreatePresignedNotebookInstanceUrl)
-
-responseDescribeTrainingJob :: DescribeTrainingJobResponse -> TestTree
-responseDescribeTrainingJob =
-  res
-    "DescribeTrainingJobResponse"
-    "fixture/DescribeTrainingJobResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeTrainingJob)
-
-responseCreateHumanTaskUi :: CreateHumanTaskUiResponse -> TestTree
-responseCreateHumanTaskUi =
-  res
-    "CreateHumanTaskUiResponse"
-    "fixture/CreateHumanTaskUiResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateHumanTaskUi)
-
-responseListTrainingJobsForHyperParameterTuningJob :: ListTrainingJobsForHyperParameterTuningJobResponse -> TestTree
-responseListTrainingJobsForHyperParameterTuningJob =
-  res
-    "ListTrainingJobsForHyperParameterTuningJobResponse"
-    "fixture/ListTrainingJobsForHyperParameterTuningJobResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListTrainingJobsForHyperParameterTuningJob)
-
 responseDescribeImage :: DescribeImageResponse -> TestTree
 responseDescribeImage =
   res
@@ -4688,11 +4836,3 @@ responseDescribeImage =
     "fixture/DescribeImageResponse.proto"
     defaultService
     (Proxy :: Proxy DescribeImage)
-
-responseDeleteFeatureGroup :: DeleteFeatureGroupResponse -> TestTree
-responseDeleteFeatureGroup =
-  res
-    "DeleteFeatureGroupResponse"
-    "fixture/DeleteFeatureGroupResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteFeatureGroup)

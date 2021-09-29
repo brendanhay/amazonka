@@ -39,6 +39,8 @@ module Network.AWS.SageMaker.DescribePipelineExecution
     describePipelineExecutionResponse_pipelineExecutionDescription,
     describePipelineExecutionResponse_pipelineExecutionDisplayName,
     describePipelineExecutionResponse_pipelineExecutionStatus,
+    describePipelineExecutionResponse_failureReason,
+    describePipelineExecutionResponse_pipelineExperimentConfig,
     describePipelineExecutionResponse_lastModifiedTime,
     describePipelineExecutionResponse_createdBy,
     describePipelineExecutionResponse_lastModifiedBy,
@@ -98,6 +100,8 @@ instance Core.AWSRequest DescribePipelineExecution where
             Prelude.<*> (x Core..?> "PipelineExecutionDescription")
             Prelude.<*> (x Core..?> "PipelineExecutionDisplayName")
             Prelude.<*> (x Core..?> "PipelineExecutionStatus")
+            Prelude.<*> (x Core..?> "FailureReason")
+            Prelude.<*> (x Core..?> "PipelineExperimentConfig")
             Prelude.<*> (x Core..?> "LastModifiedTime")
             Prelude.<*> (x Core..?> "CreatedBy")
             Prelude.<*> (x Core..?> "LastModifiedBy")
@@ -153,6 +157,9 @@ data DescribePipelineExecutionResponse = DescribePipelineExecutionResponse'
     pipelineExecutionDisplayName :: Prelude.Maybe Prelude.Text,
     -- | The status of the pipeline execution.
     pipelineExecutionStatus :: Prelude.Maybe PipelineExecutionStatus,
+    -- | If the execution failed, a message describing why.
+    failureReason :: Prelude.Maybe Prelude.Text,
+    pipelineExperimentConfig :: Prelude.Maybe PipelineExperimentConfig,
     -- | The time when the pipeline execution was modified last.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
     createdBy :: Prelude.Maybe UserContext,
@@ -182,6 +189,10 @@ data DescribePipelineExecutionResponse = DescribePipelineExecutionResponse'
 --
 -- 'pipelineExecutionStatus', 'describePipelineExecutionResponse_pipelineExecutionStatus' - The status of the pipeline execution.
 --
+-- 'failureReason', 'describePipelineExecutionResponse_failureReason' - If the execution failed, a message describing why.
+--
+-- 'pipelineExperimentConfig', 'describePipelineExecutionResponse_pipelineExperimentConfig' - Undocumented member.
+--
 -- 'lastModifiedTime', 'describePipelineExecutionResponse_lastModifiedTime' - The time when the pipeline execution was modified last.
 --
 -- 'createdBy', 'describePipelineExecutionResponse_createdBy' - Undocumented member.
@@ -205,6 +216,9 @@ newDescribePipelineExecutionResponse pHttpStatus_ =
       pipelineExecutionDisplayName =
         Prelude.Nothing,
       pipelineExecutionStatus =
+        Prelude.Nothing,
+      failureReason = Prelude.Nothing,
+      pipelineExperimentConfig =
         Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
       createdBy = Prelude.Nothing,
@@ -232,6 +246,14 @@ describePipelineExecutionResponse_pipelineExecutionDisplayName = Lens.lens (\Des
 -- | The status of the pipeline execution.
 describePipelineExecutionResponse_pipelineExecutionStatus :: Lens.Lens' DescribePipelineExecutionResponse (Prelude.Maybe PipelineExecutionStatus)
 describePipelineExecutionResponse_pipelineExecutionStatus = Lens.lens (\DescribePipelineExecutionResponse' {pipelineExecutionStatus} -> pipelineExecutionStatus) (\s@DescribePipelineExecutionResponse' {} a -> s {pipelineExecutionStatus = a} :: DescribePipelineExecutionResponse)
+
+-- | If the execution failed, a message describing why.
+describePipelineExecutionResponse_failureReason :: Lens.Lens' DescribePipelineExecutionResponse (Prelude.Maybe Prelude.Text)
+describePipelineExecutionResponse_failureReason = Lens.lens (\DescribePipelineExecutionResponse' {failureReason} -> failureReason) (\s@DescribePipelineExecutionResponse' {} a -> s {failureReason = a} :: DescribePipelineExecutionResponse)
+
+-- | Undocumented member.
+describePipelineExecutionResponse_pipelineExperimentConfig :: Lens.Lens' DescribePipelineExecutionResponse (Prelude.Maybe PipelineExperimentConfig)
+describePipelineExecutionResponse_pipelineExperimentConfig = Lens.lens (\DescribePipelineExecutionResponse' {pipelineExperimentConfig} -> pipelineExperimentConfig) (\s@DescribePipelineExecutionResponse' {} a -> s {pipelineExperimentConfig = a} :: DescribePipelineExecutionResponse)
 
 -- | The time when the pipeline execution was modified last.
 describePipelineExecutionResponse_lastModifiedTime :: Lens.Lens' DescribePipelineExecutionResponse (Prelude.Maybe Prelude.UTCTime)

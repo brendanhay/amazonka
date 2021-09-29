@@ -29,8 +29,8 @@ module Network.AWS.SageMaker.ListEndpointConfigs
     newListEndpointConfigs,
 
     -- * Request Lenses
-    listEndpointConfigs_sortOrder,
     listEndpointConfigs_nextToken,
+    listEndpointConfigs_sortOrder,
     listEndpointConfigs_nameContains,
     listEndpointConfigs_maxResults,
     listEndpointConfigs_creationTimeBefore,
@@ -57,12 +57,12 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListEndpointConfigs' smart constructor.
 data ListEndpointConfigs = ListEndpointConfigs'
-  { -- | The sort order for results. The default is @Descending@.
-    sortOrder :: Prelude.Maybe OrderKey,
-    -- | If the result of the previous @ListEndpointConfig@ request was
+  { -- | If the result of the previous @ListEndpointConfig@ request was
     -- truncated, the response includes a @NextToken@. To retrieve the next set
     -- of endpoint configurations, use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order for results. The default is @Descending@.
+    sortOrder :: Prelude.Maybe OrderKey,
     -- | A string in the endpoint configuration name. This filter returns only
     -- endpoint configurations whose name contains the specified string.
     nameContains :: Prelude.Maybe Prelude.Text,
@@ -87,11 +87,11 @@ data ListEndpointConfigs = ListEndpointConfigs'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listEndpointConfigs_sortOrder' - The sort order for results. The default is @Descending@.
---
 -- 'nextToken', 'listEndpointConfigs_nextToken' - If the result of the previous @ListEndpointConfig@ request was
 -- truncated, the response includes a @NextToken@. To retrieve the next set
 -- of endpoint configurations, use the token in the next request.
+--
+-- 'sortOrder', 'listEndpointConfigs_sortOrder' - The sort order for results. The default is @Descending@.
 --
 -- 'nameContains', 'listEndpointConfigs_nameContains' - A string in the endpoint configuration name. This filter returns only
 -- endpoint configurations whose name contains the specified string.
@@ -109,8 +109,8 @@ newListEndpointConfigs ::
   ListEndpointConfigs
 newListEndpointConfigs =
   ListEndpointConfigs'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       nameContains = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
@@ -118,15 +118,15 @@ newListEndpointConfigs =
       creationTimeAfter = Prelude.Nothing
     }
 
--- | The sort order for results. The default is @Descending@.
-listEndpointConfigs_sortOrder :: Lens.Lens' ListEndpointConfigs (Prelude.Maybe OrderKey)
-listEndpointConfigs_sortOrder = Lens.lens (\ListEndpointConfigs' {sortOrder} -> sortOrder) (\s@ListEndpointConfigs' {} a -> s {sortOrder = a} :: ListEndpointConfigs)
-
 -- | If the result of the previous @ListEndpointConfig@ request was
 -- truncated, the response includes a @NextToken@. To retrieve the next set
 -- of endpoint configurations, use the token in the next request.
 listEndpointConfigs_nextToken :: Lens.Lens' ListEndpointConfigs (Prelude.Maybe Prelude.Text)
 listEndpointConfigs_nextToken = Lens.lens (\ListEndpointConfigs' {nextToken} -> nextToken) (\s@ListEndpointConfigs' {} a -> s {nextToken = a} :: ListEndpointConfigs)
+
+-- | The sort order for results. The default is @Descending@.
+listEndpointConfigs_sortOrder :: Lens.Lens' ListEndpointConfigs (Prelude.Maybe OrderKey)
+listEndpointConfigs_sortOrder = Lens.lens (\ListEndpointConfigs' {sortOrder} -> sortOrder) (\s@ListEndpointConfigs' {} a -> s {sortOrder = a} :: ListEndpointConfigs)
 
 -- | A string in the endpoint configuration name. This filter returns only
 -- endpoint configurations whose name contains the specified string.
@@ -211,8 +211,8 @@ instance Core.ToJSON ListEndpointConfigs where
   toJSON ListEndpointConfigs' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NameContains" Core..=) Prelude.<$> nameContains,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CreationTimeBefore" Core..=)

@@ -26,8 +26,8 @@
 --
 -- If you choose to host your model using Amazon SageMaker hosting
 -- services, you can use the resulting model artifacts as part of the
--- model. You can also use the artifacts with AWS IoT Greengrass. In that
--- case, deploy them as an ML resource.
+-- model. You can also use the artifacts with Amazon Web Services IoT
+-- Greengrass. In that case, deploy them as an ML resource.
 --
 -- In the request body, you provide the following:
 --
@@ -55,6 +55,7 @@ module Network.AWS.SageMaker.CreateCompilationJob
     newCreateCompilationJob,
 
     -- * Request Lenses
+    createCompilationJob_vpcConfig,
     createCompilationJob_tags,
     createCompilationJob_compilationJobName,
     createCompilationJob_roleArn,
@@ -81,13 +82,18 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newCreateCompilationJob' smart constructor.
 data CreateCompilationJob = CreateCompilationJob'
-  { -- | An array of key-value pairs. You can use tags to categorize your AWS
-    -- resources in different ways, for example, by purpose, owner, or
-    -- environment. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+  { -- | A VpcConfig object that specifies the VPC that you want your compilation
+    -- job to connect to. Control access to your models by configuring the VPC.
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html Protect Compilation Jobs by Using an Amazon Virtual Private Cloud>.
+    vpcConfig :: Prelude.Maybe NeoVpcConfig,
+    -- | An array of key-value pairs. You can use tags to categorize your Amazon
+    -- Web Services resources in different ways, for example, by purpose,
+    -- owner, or environment. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
     tags :: Prelude.Maybe [Tag],
     -- | A name for the model compilation job. The name must be unique within the
-    -- AWS Region and within your AWS account.
+    -- Amazon Web Services Region and within your Amazon Web Services account.
     compilationJobName :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of an IAM role that enables Amazon
     -- SageMaker to perform tasks on your behalf.
@@ -129,13 +135,18 @@ data CreateCompilationJob = CreateCompilationJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tags', 'createCompilationJob_tags' - An array of key-value pairs. You can use tags to categorize your AWS
--- resources in different ways, for example, by purpose, owner, or
--- environment. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+-- 'vpcConfig', 'createCompilationJob_vpcConfig' - A VpcConfig object that specifies the VPC that you want your compilation
+-- job to connect to. Control access to your models by configuring the VPC.
+-- For more information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html Protect Compilation Jobs by Using an Amazon Virtual Private Cloud>.
+--
+-- 'tags', 'createCompilationJob_tags' - An array of key-value pairs. You can use tags to categorize your Amazon
+-- Web Services resources in different ways, for example, by purpose,
+-- owner, or environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 --
 -- 'compilationJobName', 'createCompilationJob_compilationJobName' - A name for the model compilation job. The name must be unique within the
--- AWS Region and within your AWS account.
+-- Amazon Web Services Region and within your Amazon Web Services account.
 --
 -- 'roleArn', 'createCompilationJob_roleArn' - The Amazon Resource Name (ARN) of an IAM role that enables Amazon
 -- SageMaker to perform tasks on your behalf.
@@ -184,7 +195,8 @@ newCreateCompilationJob
   pOutputConfig_
   pStoppingCondition_ =
     CreateCompilationJob'
-      { tags = Prelude.Nothing,
+      { vpcConfig = Prelude.Nothing,
+        tags = Prelude.Nothing,
         compilationJobName = pCompilationJobName_,
         roleArn = pRoleArn_,
         inputConfig = pInputConfig_,
@@ -192,15 +204,22 @@ newCreateCompilationJob
         stoppingCondition = pStoppingCondition_
       }
 
--- | An array of key-value pairs. You can use tags to categorize your AWS
--- resources in different ways, for example, by purpose, owner, or
--- environment. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+-- | A VpcConfig object that specifies the VPC that you want your compilation
+-- job to connect to. Control access to your models by configuring the VPC.
+-- For more information, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/neo-vpc.html Protect Compilation Jobs by Using an Amazon Virtual Private Cloud>.
+createCompilationJob_vpcConfig :: Lens.Lens' CreateCompilationJob (Prelude.Maybe NeoVpcConfig)
+createCompilationJob_vpcConfig = Lens.lens (\CreateCompilationJob' {vpcConfig} -> vpcConfig) (\s@CreateCompilationJob' {} a -> s {vpcConfig = a} :: CreateCompilationJob)
+
+-- | An array of key-value pairs. You can use tags to categorize your Amazon
+-- Web Services resources in different ways, for example, by purpose,
+-- owner, or environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 createCompilationJob_tags :: Lens.Lens' CreateCompilationJob (Prelude.Maybe [Tag])
 createCompilationJob_tags = Lens.lens (\CreateCompilationJob' {tags} -> tags) (\s@CreateCompilationJob' {} a -> s {tags = a} :: CreateCompilationJob) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A name for the model compilation job. The name must be unique within the
--- AWS Region and within your AWS account.
+-- Amazon Web Services Region and within your Amazon Web Services account.
 createCompilationJob_compilationJobName :: Lens.Lens' CreateCompilationJob Prelude.Text
 createCompilationJob_compilationJobName = Lens.lens (\CreateCompilationJob' {compilationJobName} -> compilationJobName) (\s@CreateCompilationJob' {} a -> s {compilationJobName = a} :: CreateCompilationJob)
 
@@ -277,7 +296,8 @@ instance Core.ToJSON CreateCompilationJob where
   toJSON CreateCompilationJob' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
+          [ ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just
               ("CompilationJobName" Core..= compilationJobName),
             Prelude.Just ("RoleArn" Core..= roleArn),

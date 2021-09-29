@@ -29,6 +29,12 @@ module Network.AWS.SageMaker.Types.TransformInstanceType
         TransformInstanceType_Ml_c5_4xlarge,
         TransformInstanceType_Ml_c5_9xlarge,
         TransformInstanceType_Ml_c5_xlarge,
+        TransformInstanceType_Ml_g4dn_12xlarge,
+        TransformInstanceType_Ml_g4dn_16xlarge,
+        TransformInstanceType_Ml_g4dn_2xlarge,
+        TransformInstanceType_Ml_g4dn_4xlarge,
+        TransformInstanceType_Ml_g4dn_8xlarge,
+        TransformInstanceType_Ml_g4dn_xlarge,
         TransformInstanceType_Ml_m4_10xlarge,
         TransformInstanceType_Ml_m4_16xlarge,
         TransformInstanceType_Ml_m4_2xlarge,
@@ -108,6 +114,24 @@ pattern TransformInstanceType_Ml_c5_9xlarge = TransformInstanceType' "ml.c5.9xla
 pattern TransformInstanceType_Ml_c5_xlarge :: TransformInstanceType
 pattern TransformInstanceType_Ml_c5_xlarge = TransformInstanceType' "ml.c5.xlarge"
 
+pattern TransformInstanceType_Ml_g4dn_12xlarge :: TransformInstanceType
+pattern TransformInstanceType_Ml_g4dn_12xlarge = TransformInstanceType' "ml.g4dn.12xlarge"
+
+pattern TransformInstanceType_Ml_g4dn_16xlarge :: TransformInstanceType
+pattern TransformInstanceType_Ml_g4dn_16xlarge = TransformInstanceType' "ml.g4dn.16xlarge"
+
+pattern TransformInstanceType_Ml_g4dn_2xlarge :: TransformInstanceType
+pattern TransformInstanceType_Ml_g4dn_2xlarge = TransformInstanceType' "ml.g4dn.2xlarge"
+
+pattern TransformInstanceType_Ml_g4dn_4xlarge :: TransformInstanceType
+pattern TransformInstanceType_Ml_g4dn_4xlarge = TransformInstanceType' "ml.g4dn.4xlarge"
+
+pattern TransformInstanceType_Ml_g4dn_8xlarge :: TransformInstanceType
+pattern TransformInstanceType_Ml_g4dn_8xlarge = TransformInstanceType' "ml.g4dn.8xlarge"
+
+pattern TransformInstanceType_Ml_g4dn_xlarge :: TransformInstanceType
+pattern TransformInstanceType_Ml_g4dn_xlarge = TransformInstanceType' "ml.g4dn.xlarge"
+
 pattern TransformInstanceType_Ml_m4_10xlarge :: TransformInstanceType
 pattern TransformInstanceType_Ml_m4_10xlarge = TransformInstanceType' "ml.m4.10xlarge"
 
@@ -169,6 +193,12 @@ pattern TransformInstanceType_Ml_p3_8xlarge = TransformInstanceType' "ml.p3.8xla
   TransformInstanceType_Ml_c5_4xlarge,
   TransformInstanceType_Ml_c5_9xlarge,
   TransformInstanceType_Ml_c5_xlarge,
+  TransformInstanceType_Ml_g4dn_12xlarge,
+  TransformInstanceType_Ml_g4dn_16xlarge,
+  TransformInstanceType_Ml_g4dn_2xlarge,
+  TransformInstanceType_Ml_g4dn_4xlarge,
+  TransformInstanceType_Ml_g4dn_8xlarge,
+  TransformInstanceType_Ml_g4dn_xlarge,
   TransformInstanceType_Ml_m4_10xlarge,
   TransformInstanceType_Ml_m4_16xlarge,
   TransformInstanceType_Ml_m4_2xlarge,

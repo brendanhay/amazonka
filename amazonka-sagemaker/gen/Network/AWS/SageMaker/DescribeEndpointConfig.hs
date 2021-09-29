@@ -35,6 +35,7 @@ module Network.AWS.SageMaker.DescribeEndpointConfig
     newDescribeEndpointConfigResponse,
 
     -- * Response Lenses
+    describeEndpointConfigResponse_asyncInferenceConfig,
     describeEndpointConfigResponse_kmsKeyId,
     describeEndpointConfigResponse_dataCaptureConfig,
     describeEndpointConfigResponse_httpStatus,
@@ -91,7 +92,8 @@ instance Core.AWSRequest DescribeEndpointConfig where
     Response.receiveJSON
       ( \s h x ->
           DescribeEndpointConfigResponse'
-            Prelude.<$> (x Core..?> "KmsKeyId")
+            Prelude.<$> (x Core..?> "AsyncInferenceConfig")
+            Prelude.<*> (x Core..?> "KmsKeyId")
             Prelude.<*> (x Core..?> "DataCaptureConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "EndpointConfigName")
@@ -136,8 +138,12 @@ instance Core.ToQuery DescribeEndpointConfig where
 
 -- | /See:/ 'newDescribeEndpointConfigResponse' smart constructor.
 data DescribeEndpointConfigResponse = DescribeEndpointConfigResponse'
-  { -- | AWS KMS key ID Amazon SageMaker uses to encrypt data when storing it on
-    -- the ML storage volume attached to the instance.
+  { -- | Returns the description of an endpoint configuration created using the
+    -- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html CreateEndpointConfig>
+    -- API.
+    asyncInferenceConfig :: Prelude.Maybe AsyncInferenceConfig,
+    -- | Amazon Web Services KMS key ID Amazon SageMaker uses to encrypt data
+    -- when storing it on the ML storage volume attached to the instance.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     dataCaptureConfig :: Prelude.Maybe DataCaptureConfig,
     -- | The response's http status code.
@@ -162,8 +168,12 @@ data DescribeEndpointConfigResponse = DescribeEndpointConfigResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'kmsKeyId', 'describeEndpointConfigResponse_kmsKeyId' - AWS KMS key ID Amazon SageMaker uses to encrypt data when storing it on
--- the ML storage volume attached to the instance.
+-- 'asyncInferenceConfig', 'describeEndpointConfigResponse_asyncInferenceConfig' - Returns the description of an endpoint configuration created using the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html CreateEndpointConfig>
+-- API.
+--
+-- 'kmsKeyId', 'describeEndpointConfigResponse_kmsKeyId' - Amazon Web Services KMS key ID Amazon SageMaker uses to encrypt data
+-- when storing it on the ML storage volume attached to the instance.
 --
 -- 'dataCaptureConfig', 'describeEndpointConfigResponse_dataCaptureConfig' - Undocumented member.
 --
@@ -196,8 +206,9 @@ newDescribeEndpointConfigResponse
   pProductionVariants_
   pCreationTime_ =
     DescribeEndpointConfigResponse'
-      { kmsKeyId =
+      { asyncInferenceConfig =
           Prelude.Nothing,
+        kmsKeyId = Prelude.Nothing,
         dataCaptureConfig = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         endpointConfigName = pEndpointConfigName_,
@@ -208,8 +219,14 @@ newDescribeEndpointConfigResponse
           Core._Time Lens.# pCreationTime_
       }
 
--- | AWS KMS key ID Amazon SageMaker uses to encrypt data when storing it on
--- the ML storage volume attached to the instance.
+-- | Returns the description of an endpoint configuration created using the
+-- <https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateEndpointConfig.html CreateEndpointConfig>
+-- API.
+describeEndpointConfigResponse_asyncInferenceConfig :: Lens.Lens' DescribeEndpointConfigResponse (Prelude.Maybe AsyncInferenceConfig)
+describeEndpointConfigResponse_asyncInferenceConfig = Lens.lens (\DescribeEndpointConfigResponse' {asyncInferenceConfig} -> asyncInferenceConfig) (\s@DescribeEndpointConfigResponse' {} a -> s {asyncInferenceConfig = a} :: DescribeEndpointConfigResponse)
+
+-- | Amazon Web Services KMS key ID Amazon SageMaker uses to encrypt data
+-- when storing it on the ML storage volume attached to the instance.
 describeEndpointConfigResponse_kmsKeyId :: Lens.Lens' DescribeEndpointConfigResponse (Prelude.Maybe Prelude.Text)
 describeEndpointConfigResponse_kmsKeyId = Lens.lens (\DescribeEndpointConfigResponse' {kmsKeyId} -> kmsKeyId) (\s@DescribeEndpointConfigResponse' {} a -> s {kmsKeyId = a} :: DescribeEndpointConfigResponse)
 

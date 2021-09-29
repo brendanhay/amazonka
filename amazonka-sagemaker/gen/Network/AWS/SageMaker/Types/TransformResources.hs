@@ -29,10 +29,23 @@ import Network.AWS.SageMaker.Types.TransformInstanceType
 --
 -- /See:/ 'newTransformResources' smart constructor.
 data TransformResources = TransformResources'
-  { -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
-    -- to encrypt model data on the storage volume attached to the ML compute
-    -- instance(s) that run the batch transform job. The @VolumeKmsKeyId@ can
-    -- be any of the following formats:
+  { -- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+    -- key that Amazon SageMaker uses to encrypt model data on the storage
+    -- volume attached to the ML compute instance(s) that run the batch
+    -- transform job.
+    --
+    -- Certain Nitro-based instances include local storage, dependent on the
+    -- instance type. Local storage volumes are encrypted using a hardware
+    -- module on the instance. You can\'t request a @VolumeKmsKeyId@ when using
+    -- an instance type with local storage.
+    --
+    -- For a list of instance types that support local instance storage, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes Instance Store Volumes>.
+    --
+    -- For more information about local instance storage encryption, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html SSD Instance Store Volumes>.
+    --
+    -- The @VolumeKmsKeyId@ can be any of the following formats:
     --
     -- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
     --
@@ -46,7 +59,7 @@ data TransformResources = TransformResources'
     volumeKmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The ML compute instance type for the transform job. If you are using
     -- built-in algorithms to transform moderately sized datasets, we recommend
-    -- using ml.m4.xlarge or @ml.m5.large@ instance types.
+    -- using ml.m4.xlarge or @ml.m5.large@instance types.
     instanceType :: TransformInstanceType,
     -- | The number of ML compute instances to use in the transform job. For
     -- distributed transform jobs, specify a value greater than 1. The default
@@ -63,10 +76,23 @@ data TransformResources = TransformResources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'volumeKmsKeyId', 'transformResources_volumeKmsKeyId' - The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
--- to encrypt model data on the storage volume attached to the ML compute
--- instance(s) that run the batch transform job. The @VolumeKmsKeyId@ can
--- be any of the following formats:
+-- 'volumeKmsKeyId', 'transformResources_volumeKmsKeyId' - The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+-- key that Amazon SageMaker uses to encrypt model data on the storage
+-- volume attached to the ML compute instance(s) that run the batch
+-- transform job.
+--
+-- Certain Nitro-based instances include local storage, dependent on the
+-- instance type. Local storage volumes are encrypted using a hardware
+-- module on the instance. You can\'t request a @VolumeKmsKeyId@ when using
+-- an instance type with local storage.
+--
+-- For a list of instance types that support local instance storage, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes Instance Store Volumes>.
+--
+-- For more information about local instance storage encryption, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html SSD Instance Store Volumes>.
+--
+-- The @VolumeKmsKeyId@ can be any of the following formats:
 --
 -- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
 --
@@ -80,7 +106,7 @@ data TransformResources = TransformResources'
 --
 -- 'instanceType', 'transformResources_instanceType' - The ML compute instance type for the transform job. If you are using
 -- built-in algorithms to transform moderately sized datasets, we recommend
--- using ml.m4.xlarge or @ml.m5.large@ instance types.
+-- using ml.m4.xlarge or @ml.m5.large@instance types.
 --
 -- 'instanceCount', 'transformResources_instanceCount' - The number of ML compute instances to use in the transform job. For
 -- distributed transform jobs, specify a value greater than 1. The default
@@ -99,10 +125,23 @@ newTransformResources pInstanceType_ pInstanceCount_ =
       instanceCount = pInstanceCount_
     }
 
--- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
--- to encrypt model data on the storage volume attached to the ML compute
--- instance(s) that run the batch transform job. The @VolumeKmsKeyId@ can
--- be any of the following formats:
+-- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+-- key that Amazon SageMaker uses to encrypt model data on the storage
+-- volume attached to the ML compute instance(s) that run the batch
+-- transform job.
+--
+-- Certain Nitro-based instances include local storage, dependent on the
+-- instance type. Local storage volumes are encrypted using a hardware
+-- module on the instance. You can\'t request a @VolumeKmsKeyId@ when using
+-- an instance type with local storage.
+--
+-- For a list of instance types that support local instance storage, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes Instance Store Volumes>.
+--
+-- For more information about local instance storage encryption, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html SSD Instance Store Volumes>.
+--
+-- The @VolumeKmsKeyId@ can be any of the following formats:
 --
 -- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
 --
@@ -118,7 +157,7 @@ transformResources_volumeKmsKeyId = Lens.lens (\TransformResources' {volumeKmsKe
 
 -- | The ML compute instance type for the transform job. If you are using
 -- built-in algorithms to transform moderately sized datasets, we recommend
--- using ml.m4.xlarge or @ml.m5.large@ instance types.
+-- using ml.m4.xlarge or @ml.m5.large@instance types.
 transformResources_instanceType :: Lens.Lens' TransformResources TransformInstanceType
 transformResources_instanceType = Lens.lens (\TransformResources' {instanceType} -> instanceType) (\s@TransformResources' {} a -> s {instanceType = a} :: TransformResources)
 

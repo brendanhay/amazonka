@@ -55,9 +55,9 @@ import Network.AWS.SageMaker.Types
 -- | /See:/ 'newCreateProject' smart constructor.
 data CreateProject = CreateProject'
   { -- | An array of key-value pairs that you want to use to organize and track
-    -- your AWS resource costs. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
-    -- in the /AWS General Reference Guide/.
+    -- your Amazon Web Services resource costs. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+    -- in the /Amazon Web Services General Reference Guide/.
     tags :: Prelude.Maybe [Tag],
     -- | A description for the project.
     projectDescription :: Prelude.Maybe Prelude.Text,
@@ -65,7 +65,7 @@ data CreateProject = CreateProject'
     projectName :: Prelude.Text,
     -- | The product ID and provisioning artifact ID to provision a service
     -- catalog. For information, see
-    -- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html What is AWS Service Catalog>.
+    -- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html What is Amazon Web Services Service Catalog>.
     serviceCatalogProvisioningDetails :: ServiceCatalogProvisioningDetails
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -79,9 +79,9 @@ data CreateProject = CreateProject'
 -- for backwards compatibility:
 --
 -- 'tags', 'createProject_tags' - An array of key-value pairs that you want to use to organize and track
--- your AWS resource costs. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
--- in the /AWS General Reference Guide/.
+-- your Amazon Web Services resource costs. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+-- in the /Amazon Web Services General Reference Guide/.
 --
 -- 'projectDescription', 'createProject_projectDescription' - A description for the project.
 --
@@ -89,7 +89,7 @@ data CreateProject = CreateProject'
 --
 -- 'serviceCatalogProvisioningDetails', 'createProject_serviceCatalogProvisioningDetails' - The product ID and provisioning artifact ID to provision a service
 -- catalog. For information, see
--- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html What is AWS Service Catalog>.
+-- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html What is Amazon Web Services Service Catalog>.
 newCreateProject ::
   -- | 'projectName'
   Prelude.Text ->
@@ -108,9 +108,9 @@ newCreateProject
       }
 
 -- | An array of key-value pairs that you want to use to organize and track
--- your AWS resource costs. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
--- in the /AWS General Reference Guide/.
+-- your Amazon Web Services resource costs. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+-- in the /Amazon Web Services General Reference Guide/.
 createProject_tags :: Lens.Lens' CreateProject (Prelude.Maybe [Tag])
 createProject_tags = Lens.lens (\CreateProject' {tags} -> tags) (\s@CreateProject' {} a -> s {tags = a} :: CreateProject) Prelude.. Lens.mapping Lens._Coerce
 
@@ -124,7 +124,7 @@ createProject_projectName = Lens.lens (\CreateProject' {projectName} -> projectN
 
 -- | The product ID and provisioning artifact ID to provision a service
 -- catalog. For information, see
--- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html What is AWS Service Catalog>.
+-- <https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html What is Amazon Web Services Service Catalog>.
 createProject_serviceCatalogProvisioningDetails :: Lens.Lens' CreateProject ServiceCatalogProvisioningDetails
 createProject_serviceCatalogProvisioningDetails = Lens.lens (\CreateProject' {serviceCatalogProvisioningDetails} -> serviceCatalogProvisioningDetails) (\s@CreateProject' {} a -> s {serviceCatalogProvisioningDetails = a} :: CreateProject)
 

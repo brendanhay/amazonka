@@ -28,7 +28,7 @@
 -- Each tag consists of a key and an optional value. Tag keys must be
 -- unique per resource. For more information about tags, see For more
 -- information, see
--- <https://aws.amazon.com/answers/account-management/aws-tagging-strategies/ AWS Tagging Strategies>.
+-- <https://aws.amazon.com/answers/account-management/aws-tagging-strategies/ Amazon Web Services Tagging Strategies>.
 --
 -- Tags that you add to a hyperparameter tuning job by calling this API are
 -- also added to any training jobs that the hyperparameter tuning job
@@ -38,6 +38,15 @@
 -- added to all training jobs that the hyperparameter tuning job launches,
 -- add the tags when you first create the tuning job by specifying them in
 -- the @Tags@ parameter of CreateHyperParameterTuningJob
+--
+-- Tags that you add to a SageMaker Studio Domain or User Profile by
+-- calling this API are also added to any Apps that the Domain or User
+-- Profile launches after you call this API, but not to Apps that the
+-- Domain or User Profile launched before you called this API. To make sure
+-- that the tags associated with a Domain or User Profile are also added to
+-- all Apps that the Domain or User Profile launches, add the tags when you
+-- first create the Domain or User Profile by specifying them in the @Tags@
+-- parameter of CreateDomain or CreateUserProfile.
 module Network.AWS.SageMaker.AddTags
   ( -- * Creating a Request
     AddTags (..),
@@ -68,10 +77,10 @@ import Network.AWS.SageMaker.Types
 data AddTags = AddTags'
   { -- | The Amazon Resource Name (ARN) of the resource that you want to tag.
     resourceArn :: Prelude.Text,
-    -- | An array of key-value pairs. You can use tags to categorize your AWS
-    -- resources in different ways, for example, by purpose, owner, or
-    -- environment. For more information, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+    -- | An array of key-value pairs. You can use tags to categorize your Amazon
+    -- Web Services resources in different ways, for example, by purpose,
+    -- owner, or environment. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
     tags :: [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -86,10 +95,10 @@ data AddTags = AddTags'
 --
 -- 'resourceArn', 'addTags_resourceArn' - The Amazon Resource Name (ARN) of the resource that you want to tag.
 --
--- 'tags', 'addTags_tags' - An array of key-value pairs. You can use tags to categorize your AWS
--- resources in different ways, for example, by purpose, owner, or
--- environment. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+-- 'tags', 'addTags_tags' - An array of key-value pairs. You can use tags to categorize your Amazon
+-- Web Services resources in different ways, for example, by purpose,
+-- owner, or environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 newAddTags ::
   -- | 'resourceArn'
   Prelude.Text ->
@@ -104,10 +113,10 @@ newAddTags pResourceArn_ =
 addTags_resourceArn :: Lens.Lens' AddTags Prelude.Text
 addTags_resourceArn = Lens.lens (\AddTags' {resourceArn} -> resourceArn) (\s@AddTags' {} a -> s {resourceArn = a} :: AddTags)
 
--- | An array of key-value pairs. You can use tags to categorize your AWS
--- resources in different ways, for example, by purpose, owner, or
--- environment. For more information, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+-- | An array of key-value pairs. You can use tags to categorize your Amazon
+-- Web Services resources in different ways, for example, by purpose,
+-- owner, or environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services Resources>.
 addTags_tags :: Lens.Lens' AddTags [Tag]
 addTags_tags = Lens.lens (\AddTags' {tags} -> tags) (\s@AddTags' {} a -> s {tags = a} :: AddTags) Prelude.. Lens._Coerce
 

@@ -29,8 +29,8 @@ module Network.AWS.SageMaker.ListModelBiasJobDefinitions
     newListModelBiasJobDefinitions,
 
     -- * Request Lenses
-    listModelBiasJobDefinitions_sortOrder,
     listModelBiasJobDefinitions_nextToken,
+    listModelBiasJobDefinitions_sortOrder,
     listModelBiasJobDefinitions_endpointName,
     listModelBiasJobDefinitions_nameContains,
     listModelBiasJobDefinitions_maxResults,
@@ -58,12 +58,12 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListModelBiasJobDefinitions' smart constructor.
 data ListModelBiasJobDefinitions = ListModelBiasJobDefinitions'
-  { -- | Whether to sort the results in @Ascending@ or @Descending@ order. The
-    -- default is @Descending@.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | The token returned if the response is truncated. To retrieve the next
+  { -- | The token returned if the response is truncated. To retrieve the next
     -- set of job executions, use it in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Whether to sort the results in @Ascending@ or @Descending@ order. The
+    -- default is @Descending@.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | Name of the endpoint to monitor for model bias.
     endpointName :: Prelude.Maybe Prelude.Text,
     -- | Filter for model bias jobs whose name contains a specified string.
@@ -91,11 +91,11 @@ data ListModelBiasJobDefinitions = ListModelBiasJobDefinitions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listModelBiasJobDefinitions_sortOrder' - Whether to sort the results in @Ascending@ or @Descending@ order. The
--- default is @Descending@.
---
 -- 'nextToken', 'listModelBiasJobDefinitions_nextToken' - The token returned if the response is truncated. To retrieve the next
 -- set of job executions, use it in the next request.
+--
+-- 'sortOrder', 'listModelBiasJobDefinitions_sortOrder' - Whether to sort the results in @Ascending@ or @Descending@ order. The
+-- default is @Descending@.
 --
 -- 'endpointName', 'listModelBiasJobDefinitions_endpointName' - Name of the endpoint to monitor for model bias.
 --
@@ -116,9 +116,9 @@ newListModelBiasJobDefinitions ::
   ListModelBiasJobDefinitions
 newListModelBiasJobDefinitions =
   ListModelBiasJobDefinitions'
-    { sortOrder =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       endpointName = Prelude.Nothing,
       nameContains = Prelude.Nothing,
       maxResults = Prelude.Nothing,
@@ -127,15 +127,15 @@ newListModelBiasJobDefinitions =
       creationTimeAfter = Prelude.Nothing
     }
 
--- | Whether to sort the results in @Ascending@ or @Descending@ order. The
--- default is @Descending@.
-listModelBiasJobDefinitions_sortOrder :: Lens.Lens' ListModelBiasJobDefinitions (Prelude.Maybe SortOrder)
-listModelBiasJobDefinitions_sortOrder = Lens.lens (\ListModelBiasJobDefinitions' {sortOrder} -> sortOrder) (\s@ListModelBiasJobDefinitions' {} a -> s {sortOrder = a} :: ListModelBiasJobDefinitions)
-
 -- | The token returned if the response is truncated. To retrieve the next
 -- set of job executions, use it in the next request.
 listModelBiasJobDefinitions_nextToken :: Lens.Lens' ListModelBiasJobDefinitions (Prelude.Maybe Prelude.Text)
 listModelBiasJobDefinitions_nextToken = Lens.lens (\ListModelBiasJobDefinitions' {nextToken} -> nextToken) (\s@ListModelBiasJobDefinitions' {} a -> s {nextToken = a} :: ListModelBiasJobDefinitions)
+
+-- | Whether to sort the results in @Ascending@ or @Descending@ order. The
+-- default is @Descending@.
+listModelBiasJobDefinitions_sortOrder :: Lens.Lens' ListModelBiasJobDefinitions (Prelude.Maybe SortOrder)
+listModelBiasJobDefinitions_sortOrder = Lens.lens (\ListModelBiasJobDefinitions' {sortOrder} -> sortOrder) (\s@ListModelBiasJobDefinitions' {} a -> s {sortOrder = a} :: ListModelBiasJobDefinitions)
 
 -- | Name of the endpoint to monitor for model bias.
 listModelBiasJobDefinitions_endpointName :: Lens.Lens' ListModelBiasJobDefinitions (Prelude.Maybe Prelude.Text)
@@ -225,8 +225,8 @@ instance Core.ToJSON ListModelBiasJobDefinitions where
   toJSON ListModelBiasJobDefinitions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("EndpointName" Core..=) Prelude.<$> endpointName,
             ("NameContains" Core..=) Prelude.<$> nameContains,
             ("MaxResults" Core..=) Prelude.<$> maxResults,

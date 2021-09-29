@@ -28,7 +28,7 @@ import Network.AWS.SageMaker.Types.VpcConfig
 --
 -- /See:/ 'newAutoMLSecurityConfig' smart constructor.
 data AutoMLSecurityConfig = AutoMLSecurityConfig'
-  { -- | VPC configuration.
+  { -- | The VPC configuration.
     vpcConfig :: Prelude.Maybe VpcConfig,
     -- | Whether to use traffic encryption between the container layers.
     enableInterContainerTrafficEncryption :: Prelude.Maybe Prelude.Bool,
@@ -45,7 +45,7 @@ data AutoMLSecurityConfig = AutoMLSecurityConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vpcConfig', 'autoMLSecurityConfig_vpcConfig' - VPC configuration.
+-- 'vpcConfig', 'autoMLSecurityConfig_vpcConfig' - The VPC configuration.
 --
 -- 'enableInterContainerTrafficEncryption', 'autoMLSecurityConfig_enableInterContainerTrafficEncryption' - Whether to use traffic encryption between the container layers.
 --
@@ -60,7 +60,7 @@ newAutoMLSecurityConfig =
       volumeKmsKeyId = Prelude.Nothing
     }
 
--- | VPC configuration.
+-- | The VPC configuration.
 autoMLSecurityConfig_vpcConfig :: Lens.Lens' AutoMLSecurityConfig (Prelude.Maybe VpcConfig)
 autoMLSecurityConfig_vpcConfig = Lens.lens (\AutoMLSecurityConfig' {vpcConfig} -> vpcConfig) (\s@AutoMLSecurityConfig' {} a -> s {vpcConfig = a} :: AutoMLSecurityConfig)
 

@@ -27,11 +27,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSubscribedWorkteam' smart constructor.
 data SubscribedWorkteam = SubscribedWorkteam'
-  { -- | The title of the service provided by the vendor in the Amazon
+  { -- | Marketplace product listing ID.
+    listingId :: Prelude.Maybe Prelude.Text,
+    -- | The title of the service provided by the vendor in the Amazon
     -- Marketplace.
     marketplaceTitle :: Prelude.Maybe Prelude.Text,
-    -- | Marketplace product listing ID.
-    listingId :: Prelude.Maybe Prelude.Text,
     -- | The description of the vendor from the Amazon Marketplace.
     marketplaceDescription :: Prelude.Maybe Prelude.Text,
     -- | The name of the vendor in the Amazon Marketplace.
@@ -49,10 +49,10 @@ data SubscribedWorkteam = SubscribedWorkteam'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'listingId', 'subscribedWorkteam_listingId' - Marketplace product listing ID.
+--
 -- 'marketplaceTitle', 'subscribedWorkteam_marketplaceTitle' - The title of the service provided by the vendor in the Amazon
 -- Marketplace.
---
--- 'listingId', 'subscribedWorkteam_listingId' - Marketplace product listing ID.
 --
 -- 'marketplaceDescription', 'subscribedWorkteam_marketplaceDescription' - The description of the vendor from the Amazon Marketplace.
 --
@@ -65,22 +65,21 @@ newSubscribedWorkteam ::
   SubscribedWorkteam
 newSubscribedWorkteam pWorkteamArn_ =
   SubscribedWorkteam'
-    { marketplaceTitle =
-        Prelude.Nothing,
-      listingId = Prelude.Nothing,
+    { listingId = Prelude.Nothing,
+      marketplaceTitle = Prelude.Nothing,
       marketplaceDescription = Prelude.Nothing,
       sellerName = Prelude.Nothing,
       workteamArn = pWorkteamArn_
     }
 
+-- | Marketplace product listing ID.
+subscribedWorkteam_listingId :: Lens.Lens' SubscribedWorkteam (Prelude.Maybe Prelude.Text)
+subscribedWorkteam_listingId = Lens.lens (\SubscribedWorkteam' {listingId} -> listingId) (\s@SubscribedWorkteam' {} a -> s {listingId = a} :: SubscribedWorkteam)
+
 -- | The title of the service provided by the vendor in the Amazon
 -- Marketplace.
 subscribedWorkteam_marketplaceTitle :: Lens.Lens' SubscribedWorkteam (Prelude.Maybe Prelude.Text)
 subscribedWorkteam_marketplaceTitle = Lens.lens (\SubscribedWorkteam' {marketplaceTitle} -> marketplaceTitle) (\s@SubscribedWorkteam' {} a -> s {marketplaceTitle = a} :: SubscribedWorkteam)
-
--- | Marketplace product listing ID.
-subscribedWorkteam_listingId :: Lens.Lens' SubscribedWorkteam (Prelude.Maybe Prelude.Text)
-subscribedWorkteam_listingId = Lens.lens (\SubscribedWorkteam' {listingId} -> listingId) (\s@SubscribedWorkteam' {} a -> s {listingId = a} :: SubscribedWorkteam)
 
 -- | The description of the vendor from the Amazon Marketplace.
 subscribedWorkteam_marketplaceDescription :: Lens.Lens' SubscribedWorkteam (Prelude.Maybe Prelude.Text)
@@ -100,8 +99,8 @@ instance Core.FromJSON SubscribedWorkteam where
       "SubscribedWorkteam"
       ( \x ->
           SubscribedWorkteam'
-            Prelude.<$> (x Core..:? "MarketplaceTitle")
-            Prelude.<*> (x Core..:? "ListingId")
+            Prelude.<$> (x Core..:? "ListingId")
+            Prelude.<*> (x Core..:? "MarketplaceTitle")
             Prelude.<*> (x Core..:? "MarketplaceDescription")
             Prelude.<*> (x Core..:? "SellerName")
             Prelude.<*> (x Core..: "WorkteamArn")

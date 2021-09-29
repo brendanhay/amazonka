@@ -30,8 +30,8 @@ module Network.AWS.SageMaker.ListEndpoints
 
     -- * Request Lenses
     listEndpoints_lastModifiedTimeBefore,
-    listEndpoints_sortOrder,
     listEndpoints_nextToken,
+    listEndpoints_sortOrder,
     listEndpoints_nameContains,
     listEndpoints_maxResults,
     listEndpoints_creationTimeBefore,
@@ -63,16 +63,17 @@ data ListEndpoints = ListEndpoints'
   { -- | A filter that returns only endpoints that were modified before the
     -- specified timestamp.
     lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
-    -- | The sort order for results. The default is @Descending@.
-    sortOrder :: Prelude.Maybe OrderKey,
     -- | If the result of a @ListEndpoints@ request was truncated, the response
     -- includes a @NextToken@. To retrieve the next set of endpoints, use the
     -- token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order for results. The default is @Descending@.
+    sortOrder :: Prelude.Maybe OrderKey,
     -- | A string in endpoint names. This filter returns only endpoints whose
     -- name contains the specified string.
     nameContains :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of endpoints to return in the response.
+    -- | The maximum number of endpoints to return in the response. This value
+    -- defaults to 10.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | A filter that returns only endpoints that were created before the
     -- specified time (timestamp).
@@ -101,16 +102,17 @@ data ListEndpoints = ListEndpoints'
 -- 'lastModifiedTimeBefore', 'listEndpoints_lastModifiedTimeBefore' - A filter that returns only endpoints that were modified before the
 -- specified timestamp.
 --
--- 'sortOrder', 'listEndpoints_sortOrder' - The sort order for results. The default is @Descending@.
---
 -- 'nextToken', 'listEndpoints_nextToken' - If the result of a @ListEndpoints@ request was truncated, the response
 -- includes a @NextToken@. To retrieve the next set of endpoints, use the
 -- token in the next request.
 --
+-- 'sortOrder', 'listEndpoints_sortOrder' - The sort order for results. The default is @Descending@.
+--
 -- 'nameContains', 'listEndpoints_nameContains' - A string in endpoint names. This filter returns only endpoints whose
 -- name contains the specified string.
 --
--- 'maxResults', 'listEndpoints_maxResults' - The maximum number of endpoints to return in the response.
+-- 'maxResults', 'listEndpoints_maxResults' - The maximum number of endpoints to return in the response. This value
+-- defaults to 10.
 --
 -- 'creationTimeBefore', 'listEndpoints_creationTimeBefore' - A filter that returns only endpoints that were created before the
 -- specified time (timestamp).
@@ -130,8 +132,8 @@ newListEndpoints =
   ListEndpoints'
     { lastModifiedTimeBefore =
         Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       nameContains = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
@@ -146,22 +148,23 @@ newListEndpoints =
 listEndpoints_lastModifiedTimeBefore :: Lens.Lens' ListEndpoints (Prelude.Maybe Prelude.UTCTime)
 listEndpoints_lastModifiedTimeBefore = Lens.lens (\ListEndpoints' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListEndpoints' {} a -> s {lastModifiedTimeBefore = a} :: ListEndpoints) Prelude.. Lens.mapping Core._Time
 
--- | The sort order for results. The default is @Descending@.
-listEndpoints_sortOrder :: Lens.Lens' ListEndpoints (Prelude.Maybe OrderKey)
-listEndpoints_sortOrder = Lens.lens (\ListEndpoints' {sortOrder} -> sortOrder) (\s@ListEndpoints' {} a -> s {sortOrder = a} :: ListEndpoints)
-
 -- | If the result of a @ListEndpoints@ request was truncated, the response
 -- includes a @NextToken@. To retrieve the next set of endpoints, use the
 -- token in the next request.
 listEndpoints_nextToken :: Lens.Lens' ListEndpoints (Prelude.Maybe Prelude.Text)
 listEndpoints_nextToken = Lens.lens (\ListEndpoints' {nextToken} -> nextToken) (\s@ListEndpoints' {} a -> s {nextToken = a} :: ListEndpoints)
 
+-- | The sort order for results. The default is @Descending@.
+listEndpoints_sortOrder :: Lens.Lens' ListEndpoints (Prelude.Maybe OrderKey)
+listEndpoints_sortOrder = Lens.lens (\ListEndpoints' {sortOrder} -> sortOrder) (\s@ListEndpoints' {} a -> s {sortOrder = a} :: ListEndpoints)
+
 -- | A string in endpoint names. This filter returns only endpoints whose
 -- name contains the specified string.
 listEndpoints_nameContains :: Lens.Lens' ListEndpoints (Prelude.Maybe Prelude.Text)
 listEndpoints_nameContains = Lens.lens (\ListEndpoints' {nameContains} -> nameContains) (\s@ListEndpoints' {} a -> s {nameContains = a} :: ListEndpoints)
 
--- | The maximum number of endpoints to return in the response.
+-- | The maximum number of endpoints to return in the response. This value
+-- defaults to 10.
 listEndpoints_maxResults :: Lens.Lens' ListEndpoints (Prelude.Maybe Prelude.Natural)
 listEndpoints_maxResults = Lens.lens (\ListEndpoints' {maxResults} -> maxResults) (\s@ListEndpoints' {} a -> s {maxResults = a} :: ListEndpoints)
 
@@ -242,8 +245,8 @@ instance Core.ToJSON ListEndpoints where
       ( Prelude.catMaybes
           [ ("LastModifiedTimeBefore" Core..=)
               Prelude.<$> lastModifiedTimeBefore,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NameContains" Core..=) Prelude.<$> nameContains,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CreationTimeBefore" Core..=)

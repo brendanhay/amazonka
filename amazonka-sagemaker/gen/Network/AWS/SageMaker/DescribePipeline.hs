@@ -35,12 +35,12 @@ module Network.AWS.SageMaker.DescribePipeline
 
     -- * Response Lenses
     describePipelineResponse_pipelineArn,
-    describePipelineResponse_pipelineDescription,
     describePipelineResponse_creationTime,
+    describePipelineResponse_pipelineDescription,
     describePipelineResponse_roleArn,
     describePipelineResponse_lastRunTime,
-    describePipelineResponse_pipelineDefinition,
     describePipelineResponse_pipelineDisplayName,
+    describePipelineResponse_pipelineDefinition,
     describePipelineResponse_lastModifiedTime,
     describePipelineResponse_pipelineStatus,
     describePipelineResponse_createdBy,
@@ -94,12 +94,12 @@ instance Core.AWSRequest DescribePipeline where
       ( \s h x ->
           DescribePipelineResponse'
             Prelude.<$> (x Core..?> "PipelineArn")
-            Prelude.<*> (x Core..?> "PipelineDescription")
             Prelude.<*> (x Core..?> "CreationTime")
+            Prelude.<*> (x Core..?> "PipelineDescription")
             Prelude.<*> (x Core..?> "RoleArn")
             Prelude.<*> (x Core..?> "LastRunTime")
-            Prelude.<*> (x Core..?> "PipelineDefinition")
             Prelude.<*> (x Core..?> "PipelineDisplayName")
+            Prelude.<*> (x Core..?> "PipelineDefinition")
             Prelude.<*> (x Core..?> "LastModifiedTime")
             Prelude.<*> (x Core..?> "PipelineStatus")
             Prelude.<*> (x Core..?> "CreatedBy")
@@ -142,18 +142,18 @@ instance Core.ToQuery DescribePipeline where
 data DescribePipelineResponse = DescribePipelineResponse'
   { -- | The Amazon Resource Name (ARN) of the pipeline.
     pipelineArn :: Prelude.Maybe Prelude.Text,
-    -- | The description of the pipeline.
-    pipelineDescription :: Prelude.Maybe Prelude.Text,
     -- | The time when the pipeline was created.
     creationTime :: Prelude.Maybe Core.POSIX,
+    -- | The description of the pipeline.
+    pipelineDescription :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) that the pipeline uses to execute.
     roleArn :: Prelude.Maybe Prelude.Text,
     -- | The time when the pipeline was last run.
     lastRunTime :: Prelude.Maybe Core.POSIX,
-    -- | The JSON pipeline definition.
-    pipelineDefinition :: Prelude.Maybe Prelude.Text,
     -- | The display name of the pipeline.
     pipelineDisplayName :: Prelude.Maybe Prelude.Text,
+    -- | The JSON pipeline definition.
+    pipelineDefinition :: Prelude.Maybe Prelude.Text,
     -- | The time when the pipeline was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | The status of the pipeline execution.
@@ -177,17 +177,17 @@ data DescribePipelineResponse = DescribePipelineResponse'
 --
 -- 'pipelineArn', 'describePipelineResponse_pipelineArn' - The Amazon Resource Name (ARN) of the pipeline.
 --
--- 'pipelineDescription', 'describePipelineResponse_pipelineDescription' - The description of the pipeline.
---
 -- 'creationTime', 'describePipelineResponse_creationTime' - The time when the pipeline was created.
+--
+-- 'pipelineDescription', 'describePipelineResponse_pipelineDescription' - The description of the pipeline.
 --
 -- 'roleArn', 'describePipelineResponse_roleArn' - The Amazon Resource Name (ARN) that the pipeline uses to execute.
 --
 -- 'lastRunTime', 'describePipelineResponse_lastRunTime' - The time when the pipeline was last run.
 --
--- 'pipelineDefinition', 'describePipelineResponse_pipelineDefinition' - The JSON pipeline definition.
---
 -- 'pipelineDisplayName', 'describePipelineResponse_pipelineDisplayName' - The display name of the pipeline.
+--
+-- 'pipelineDefinition', 'describePipelineResponse_pipelineDefinition' - The JSON pipeline definition.
 --
 -- 'lastModifiedTime', 'describePipelineResponse_lastModifiedTime' - The time when the pipeline was last modified.
 --
@@ -208,12 +208,12 @@ newDescribePipelineResponse pHttpStatus_ =
   DescribePipelineResponse'
     { pipelineArn =
         Prelude.Nothing,
-      pipelineDescription = Prelude.Nothing,
       creationTime = Prelude.Nothing,
+      pipelineDescription = Prelude.Nothing,
       roleArn = Prelude.Nothing,
       lastRunTime = Prelude.Nothing,
-      pipelineDefinition = Prelude.Nothing,
       pipelineDisplayName = Prelude.Nothing,
+      pipelineDefinition = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
       pipelineStatus = Prelude.Nothing,
       createdBy = Prelude.Nothing,
@@ -226,13 +226,13 @@ newDescribePipelineResponse pHttpStatus_ =
 describePipelineResponse_pipelineArn :: Lens.Lens' DescribePipelineResponse (Prelude.Maybe Prelude.Text)
 describePipelineResponse_pipelineArn = Lens.lens (\DescribePipelineResponse' {pipelineArn} -> pipelineArn) (\s@DescribePipelineResponse' {} a -> s {pipelineArn = a} :: DescribePipelineResponse)
 
--- | The description of the pipeline.
-describePipelineResponse_pipelineDescription :: Lens.Lens' DescribePipelineResponse (Prelude.Maybe Prelude.Text)
-describePipelineResponse_pipelineDescription = Lens.lens (\DescribePipelineResponse' {pipelineDescription} -> pipelineDescription) (\s@DescribePipelineResponse' {} a -> s {pipelineDescription = a} :: DescribePipelineResponse)
-
 -- | The time when the pipeline was created.
 describePipelineResponse_creationTime :: Lens.Lens' DescribePipelineResponse (Prelude.Maybe Prelude.UTCTime)
 describePipelineResponse_creationTime = Lens.lens (\DescribePipelineResponse' {creationTime} -> creationTime) (\s@DescribePipelineResponse' {} a -> s {creationTime = a} :: DescribePipelineResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The description of the pipeline.
+describePipelineResponse_pipelineDescription :: Lens.Lens' DescribePipelineResponse (Prelude.Maybe Prelude.Text)
+describePipelineResponse_pipelineDescription = Lens.lens (\DescribePipelineResponse' {pipelineDescription} -> pipelineDescription) (\s@DescribePipelineResponse' {} a -> s {pipelineDescription = a} :: DescribePipelineResponse)
 
 -- | The Amazon Resource Name (ARN) that the pipeline uses to execute.
 describePipelineResponse_roleArn :: Lens.Lens' DescribePipelineResponse (Prelude.Maybe Prelude.Text)
@@ -242,13 +242,13 @@ describePipelineResponse_roleArn = Lens.lens (\DescribePipelineResponse' {roleAr
 describePipelineResponse_lastRunTime :: Lens.Lens' DescribePipelineResponse (Prelude.Maybe Prelude.UTCTime)
 describePipelineResponse_lastRunTime = Lens.lens (\DescribePipelineResponse' {lastRunTime} -> lastRunTime) (\s@DescribePipelineResponse' {} a -> s {lastRunTime = a} :: DescribePipelineResponse) Prelude.. Lens.mapping Core._Time
 
--- | The JSON pipeline definition.
-describePipelineResponse_pipelineDefinition :: Lens.Lens' DescribePipelineResponse (Prelude.Maybe Prelude.Text)
-describePipelineResponse_pipelineDefinition = Lens.lens (\DescribePipelineResponse' {pipelineDefinition} -> pipelineDefinition) (\s@DescribePipelineResponse' {} a -> s {pipelineDefinition = a} :: DescribePipelineResponse)
-
 -- | The display name of the pipeline.
 describePipelineResponse_pipelineDisplayName :: Lens.Lens' DescribePipelineResponse (Prelude.Maybe Prelude.Text)
 describePipelineResponse_pipelineDisplayName = Lens.lens (\DescribePipelineResponse' {pipelineDisplayName} -> pipelineDisplayName) (\s@DescribePipelineResponse' {} a -> s {pipelineDisplayName = a} :: DescribePipelineResponse)
+
+-- | The JSON pipeline definition.
+describePipelineResponse_pipelineDefinition :: Lens.Lens' DescribePipelineResponse (Prelude.Maybe Prelude.Text)
+describePipelineResponse_pipelineDefinition = Lens.lens (\DescribePipelineResponse' {pipelineDefinition} -> pipelineDefinition) (\s@DescribePipelineResponse' {} a -> s {pipelineDefinition = a} :: DescribePipelineResponse)
 
 -- | The time when the pipeline was last modified.
 describePipelineResponse_lastModifiedTime :: Lens.Lens' DescribePipelineResponse (Prelude.Maybe Prelude.UTCTime)

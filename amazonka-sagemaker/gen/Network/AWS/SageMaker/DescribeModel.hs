@@ -35,8 +35,8 @@ module Network.AWS.SageMaker.DescribeModel
 
     -- * Response Lenses
     describeModelResponse_vpcConfig,
-    describeModelResponse_primaryContainer,
     describeModelResponse_enableNetworkIsolation,
+    describeModelResponse_primaryContainer,
     describeModelResponse_containers,
     describeModelResponse_inferenceExecutionConfig,
     describeModelResponse_httpStatus,
@@ -91,8 +91,8 @@ instance Core.AWSRequest DescribeModel where
       ( \s h x ->
           DescribeModelResponse'
             Prelude.<$> (x Core..?> "VpcConfig")
-            Prelude.<*> (x Core..?> "PrimaryContainer")
             Prelude.<*> (x Core..?> "EnableNetworkIsolation")
+            Prelude.<*> (x Core..?> "PrimaryContainer")
             Prelude.<*> (x Core..?> "Containers" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "InferenceExecutionConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -138,13 +138,13 @@ data DescribeModelResponse = DescribeModelResponse'
     -- For more information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html Protect Endpoints by Using an Amazon Virtual Private Cloud>
     vpcConfig :: Prelude.Maybe VpcConfig,
+    -- | If @True@, no inbound or outbound network calls can be made to or from
+    -- the model container.
+    enableNetworkIsolation :: Prelude.Maybe Prelude.Bool,
     -- | The location of the primary inference code, associated artifacts, and
     -- custom environment map that the inference code uses when it is deployed
     -- in production.
     primaryContainer :: Prelude.Maybe ContainerDefinition,
-    -- | If @True@, no inbound or outbound network calls can be made to or from
-    -- the model container.
-    enableNetworkIsolation :: Prelude.Maybe Prelude.Bool,
     -- | The containers in the inference pipeline.
     containers :: Prelude.Maybe [ContainerDefinition],
     -- | Specifies details of how containers in a multi-container endpoint are
@@ -176,12 +176,12 @@ data DescribeModelResponse = DescribeModelResponse'
 -- For more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html Protect Endpoints by Using an Amazon Virtual Private Cloud>
 --
+-- 'enableNetworkIsolation', 'describeModelResponse_enableNetworkIsolation' - If @True@, no inbound or outbound network calls can be made to or from
+-- the model container.
+--
 -- 'primaryContainer', 'describeModelResponse_primaryContainer' - The location of the primary inference code, associated artifacts, and
 -- custom environment map that the inference code uses when it is deployed
 -- in production.
---
--- 'enableNetworkIsolation', 'describeModelResponse_enableNetworkIsolation' - If @True@, no inbound or outbound network calls can be made to or from
--- the model container.
 --
 -- 'containers', 'describeModelResponse_containers' - The containers in the inference pipeline.
 --
@@ -218,8 +218,8 @@ newDescribeModelResponse
   pModelArn_ =
     DescribeModelResponse'
       { vpcConfig = Prelude.Nothing,
-        primaryContainer = Prelude.Nothing,
         enableNetworkIsolation = Prelude.Nothing,
+        primaryContainer = Prelude.Nothing,
         containers = Prelude.Nothing,
         inferenceExecutionConfig = Prelude.Nothing,
         httpStatus = pHttpStatus_,
@@ -235,16 +235,16 @@ newDescribeModelResponse
 describeModelResponse_vpcConfig :: Lens.Lens' DescribeModelResponse (Prelude.Maybe VpcConfig)
 describeModelResponse_vpcConfig = Lens.lens (\DescribeModelResponse' {vpcConfig} -> vpcConfig) (\s@DescribeModelResponse' {} a -> s {vpcConfig = a} :: DescribeModelResponse)
 
+-- | If @True@, no inbound or outbound network calls can be made to or from
+-- the model container.
+describeModelResponse_enableNetworkIsolation :: Lens.Lens' DescribeModelResponse (Prelude.Maybe Prelude.Bool)
+describeModelResponse_enableNetworkIsolation = Lens.lens (\DescribeModelResponse' {enableNetworkIsolation} -> enableNetworkIsolation) (\s@DescribeModelResponse' {} a -> s {enableNetworkIsolation = a} :: DescribeModelResponse)
+
 -- | The location of the primary inference code, associated artifacts, and
 -- custom environment map that the inference code uses when it is deployed
 -- in production.
 describeModelResponse_primaryContainer :: Lens.Lens' DescribeModelResponse (Prelude.Maybe ContainerDefinition)
 describeModelResponse_primaryContainer = Lens.lens (\DescribeModelResponse' {primaryContainer} -> primaryContainer) (\s@DescribeModelResponse' {} a -> s {primaryContainer = a} :: DescribeModelResponse)
-
--- | If @True@, no inbound or outbound network calls can be made to or from
--- the model container.
-describeModelResponse_enableNetworkIsolation :: Lens.Lens' DescribeModelResponse (Prelude.Maybe Prelude.Bool)
-describeModelResponse_enableNetworkIsolation = Lens.lens (\DescribeModelResponse' {enableNetworkIsolation} -> enableNetworkIsolation) (\s@DescribeModelResponse' {} a -> s {enableNetworkIsolation = a} :: DescribeModelResponse)
 
 -- | The containers in the inference pipeline.
 describeModelResponse_containers :: Lens.Lens' DescribeModelResponse (Prelude.Maybe [ContainerDefinition])

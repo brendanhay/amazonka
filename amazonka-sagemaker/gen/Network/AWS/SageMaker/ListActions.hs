@@ -29,9 +29,9 @@ module Network.AWS.SageMaker.ListActions
     newListActions,
 
     -- * Request Lenses
-    listActions_createdAfter,
-    listActions_sortOrder,
     listActions_nextToken,
+    listActions_sortOrder,
+    listActions_createdAfter,
     listActions_createdBefore,
     listActions_actionType,
     listActions_maxResults,
@@ -58,14 +58,14 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListActions' smart constructor.
 data ListActions = ListActions'
-  { -- | A filter that returns only actions created on or after the specified
-    -- time.
-    createdAfter :: Prelude.Maybe Core.POSIX,
-    -- | The sort order. The default value is @Descending@.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | If the previous call to @ListActions@ didn\'t return the full set of
+  { -- | If the previous call to @ListActions@ didn\'t return the full set of
     -- actions, the call returns a token for getting the next set of actions.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order. The default value is @Descending@.
+    sortOrder :: Prelude.Maybe SortOrder,
+    -- | A filter that returns only actions created on or after the specified
+    -- time.
+    createdAfter :: Prelude.Maybe Core.POSIX,
     -- | A filter that returns only actions created on or before the specified
     -- time.
     createdBefore :: Prelude.Maybe Core.POSIX,
@@ -89,13 +89,13 @@ data ListActions = ListActions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAfter', 'listActions_createdAfter' - A filter that returns only actions created on or after the specified
--- time.
+-- 'nextToken', 'listActions_nextToken' - If the previous call to @ListActions@ didn\'t return the full set of
+-- actions, the call returns a token for getting the next set of actions.
 --
 -- 'sortOrder', 'listActions_sortOrder' - The sort order. The default value is @Descending@.
 --
--- 'nextToken', 'listActions_nextToken' - If the previous call to @ListActions@ didn\'t return the full set of
--- actions, the call returns a token for getting the next set of actions.
+-- 'createdAfter', 'listActions_createdAfter' - A filter that returns only actions created on or after the specified
+-- time.
 --
 -- 'createdBefore', 'listActions_createdBefore' - A filter that returns only actions created on or before the specified
 -- time.
@@ -112,9 +112,9 @@ newListActions ::
   ListActions
 newListActions =
   ListActions'
-    { createdAfter = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
       sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      createdAfter = Prelude.Nothing,
       createdBefore = Prelude.Nothing,
       actionType = Prelude.Nothing,
       maxResults = Prelude.Nothing,
@@ -122,19 +122,19 @@ newListActions =
       sortBy = Prelude.Nothing
     }
 
--- | A filter that returns only actions created on or after the specified
--- time.
-listActions_createdAfter :: Lens.Lens' ListActions (Prelude.Maybe Prelude.UTCTime)
-listActions_createdAfter = Lens.lens (\ListActions' {createdAfter} -> createdAfter) (\s@ListActions' {} a -> s {createdAfter = a} :: ListActions) Prelude.. Lens.mapping Core._Time
+-- | If the previous call to @ListActions@ didn\'t return the full set of
+-- actions, the call returns a token for getting the next set of actions.
+listActions_nextToken :: Lens.Lens' ListActions (Prelude.Maybe Prelude.Text)
+listActions_nextToken = Lens.lens (\ListActions' {nextToken} -> nextToken) (\s@ListActions' {} a -> s {nextToken = a} :: ListActions)
 
 -- | The sort order. The default value is @Descending@.
 listActions_sortOrder :: Lens.Lens' ListActions (Prelude.Maybe SortOrder)
 listActions_sortOrder = Lens.lens (\ListActions' {sortOrder} -> sortOrder) (\s@ListActions' {} a -> s {sortOrder = a} :: ListActions)
 
--- | If the previous call to @ListActions@ didn\'t return the full set of
--- actions, the call returns a token for getting the next set of actions.
-listActions_nextToken :: Lens.Lens' ListActions (Prelude.Maybe Prelude.Text)
-listActions_nextToken = Lens.lens (\ListActions' {nextToken} -> nextToken) (\s@ListActions' {} a -> s {nextToken = a} :: ListActions)
+-- | A filter that returns only actions created on or after the specified
+-- time.
+listActions_createdAfter :: Lens.Lens' ListActions (Prelude.Maybe Prelude.UTCTime)
+listActions_createdAfter = Lens.lens (\ListActions' {createdAfter} -> createdAfter) (\s@ListActions' {} a -> s {createdAfter = a} :: ListActions) Prelude.. Lens.mapping Core._Time
 
 -- | A filter that returns only actions created on or before the specified
 -- time.
@@ -213,9 +213,9 @@ instance Core.ToJSON ListActions where
   toJSON ListActions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CreatedAfter" Core..=) Prelude.<$> createdAfter,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
             ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("CreatedAfter" Core..=) Prelude.<$> createdAfter,
             ("CreatedBefore" Core..=) Prelude.<$> createdBefore,
             ("ActionType" Core..=) Prelude.<$> actionType,
             ("MaxResults" Core..=) Prelude.<$> maxResults,

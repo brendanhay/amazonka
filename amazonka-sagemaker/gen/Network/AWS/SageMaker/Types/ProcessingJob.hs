@@ -38,19 +38,19 @@ import Network.AWS.SageMaker.Types.Tag
 --
 -- /See:/ 'newProcessingJob' smart constructor.
 data ProcessingJob = ProcessingJob'
-  { networkConfig :: Prelude.Maybe NetworkConfig,
-    -- | The time the processing job was created.
+  { -- | The time the processing job was created.
     creationTime :: Prelude.Maybe Core.POSIX,
+    networkConfig :: Prelude.Maybe NetworkConfig,
     appSpecification :: Prelude.Maybe AppSpecification,
     -- | The time that the processing job ended.
     processingEndTime :: Prelude.Maybe Core.POSIX,
     -- | The ARN of the role used to create the processing job.
     roleArn :: Prelude.Maybe Prelude.Text,
     processingOutputConfig :: Prelude.Maybe ProcessingOutputConfig,
+    experimentConfig :: Prelude.Maybe ExperimentConfig,
     -- | A string, up to one KB in size, that contains metadata from the
     -- processing container when the processing job exits.
     exitMessage :: Prelude.Maybe Prelude.Text,
-    experimentConfig :: Prelude.Maybe ExperimentConfig,
     -- | The status of the processing job.
     processingJobStatus :: Prelude.Maybe ProcessingJobStatus,
     -- | Sets the environment variables in the Docker container.
@@ -58,18 +58,18 @@ data ProcessingJob = ProcessingJob'
     -- | The Amazon Resource Name (ARN) of the AutoML job associated with this
     -- processing job.
     autoMLJobArn :: Prelude.Maybe Prelude.Text,
-    -- | A string, up to one KB in size, that contains the reason a processing
-    -- job failed, if it failed.
-    failureReason :: Prelude.Maybe Prelude.Text,
     -- | The ARN of a monitoring schedule for an endpoint associated with this
     -- processing job.
     monitoringScheduleArn :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the processing job.
-    processingJobArn :: Prelude.Maybe Prelude.Text,
+    -- | A string, up to one KB in size, that contains the reason a processing
+    -- job failed, if it failed.
+    failureReason :: Prelude.Maybe Prelude.Text,
     -- | An array of key-value pairs. For more information, see
     -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
-    -- in the /AWS Billing and Cost Management User Guide/.
+    -- in the /Amazon Web Services Billing and Cost Management User Guide/.
     tags :: Prelude.Maybe [Tag],
+    -- | The ARN of the processing job.
+    processingJobArn :: Prelude.Maybe Prelude.Text,
     -- | The time the processing job was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
     -- | List of input configurations for the processing job.
@@ -93,9 +93,9 @@ data ProcessingJob = ProcessingJob'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'networkConfig', 'processingJob_networkConfig' - Undocumented member.
---
 -- 'creationTime', 'processingJob_creationTime' - The time the processing job was created.
+--
+-- 'networkConfig', 'processingJob_networkConfig' - Undocumented member.
 --
 -- 'appSpecification', 'processingJob_appSpecification' - Undocumented member.
 --
@@ -105,10 +105,10 @@ data ProcessingJob = ProcessingJob'
 --
 -- 'processingOutputConfig', 'processingJob_processingOutputConfig' - Undocumented member.
 --
+-- 'experimentConfig', 'processingJob_experimentConfig' - Undocumented member.
+--
 -- 'exitMessage', 'processingJob_exitMessage' - A string, up to one KB in size, that contains metadata from the
 -- processing container when the processing job exits.
---
--- 'experimentConfig', 'processingJob_experimentConfig' - Undocumented member.
 --
 -- 'processingJobStatus', 'processingJob_processingJobStatus' - The status of the processing job.
 --
@@ -117,17 +117,17 @@ data ProcessingJob = ProcessingJob'
 -- 'autoMLJobArn', 'processingJob_autoMLJobArn' - The Amazon Resource Name (ARN) of the AutoML job associated with this
 -- processing job.
 --
--- 'failureReason', 'processingJob_failureReason' - A string, up to one KB in size, that contains the reason a processing
--- job failed, if it failed.
---
 -- 'monitoringScheduleArn', 'processingJob_monitoringScheduleArn' - The ARN of a monitoring schedule for an endpoint associated with this
 -- processing job.
 --
--- 'processingJobArn', 'processingJob_processingJobArn' - The ARN of the processing job.
+-- 'failureReason', 'processingJob_failureReason' - A string, up to one KB in size, that contains the reason a processing
+-- job failed, if it failed.
 --
 -- 'tags', 'processingJob_tags' - An array of key-value pairs. For more information, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
--- in the /AWS Billing and Cost Management User Guide/.
+-- in the /Amazon Web Services Billing and Cost Management User Guide/.
+--
+-- 'processingJobArn', 'processingJob_processingJobArn' - The ARN of the processing job.
 --
 -- 'lastModifiedTime', 'processingJob_lastModifiedTime' - The time the processing job was last modified.
 --
@@ -146,21 +146,21 @@ newProcessingJob ::
   ProcessingJob
 newProcessingJob =
   ProcessingJob'
-    { networkConfig = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
+    { creationTime = Prelude.Nothing,
+      networkConfig = Prelude.Nothing,
       appSpecification = Prelude.Nothing,
       processingEndTime = Prelude.Nothing,
       roleArn = Prelude.Nothing,
       processingOutputConfig = Prelude.Nothing,
-      exitMessage = Prelude.Nothing,
       experimentConfig = Prelude.Nothing,
+      exitMessage = Prelude.Nothing,
       processingJobStatus = Prelude.Nothing,
       environment = Prelude.Nothing,
       autoMLJobArn = Prelude.Nothing,
-      failureReason = Prelude.Nothing,
       monitoringScheduleArn = Prelude.Nothing,
-      processingJobArn = Prelude.Nothing,
+      failureReason = Prelude.Nothing,
       tags = Prelude.Nothing,
+      processingJobArn = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
       processingInputs = Prelude.Nothing,
       processingStartTime = Prelude.Nothing,
@@ -170,13 +170,13 @@ newProcessingJob =
       trainingJobArn = Prelude.Nothing
     }
 
--- | Undocumented member.
-processingJob_networkConfig :: Lens.Lens' ProcessingJob (Prelude.Maybe NetworkConfig)
-processingJob_networkConfig = Lens.lens (\ProcessingJob' {networkConfig} -> networkConfig) (\s@ProcessingJob' {} a -> s {networkConfig = a} :: ProcessingJob)
-
 -- | The time the processing job was created.
 processingJob_creationTime :: Lens.Lens' ProcessingJob (Prelude.Maybe Prelude.UTCTime)
 processingJob_creationTime = Lens.lens (\ProcessingJob' {creationTime} -> creationTime) (\s@ProcessingJob' {} a -> s {creationTime = a} :: ProcessingJob) Prelude.. Lens.mapping Core._Time
+
+-- | Undocumented member.
+processingJob_networkConfig :: Lens.Lens' ProcessingJob (Prelude.Maybe NetworkConfig)
+processingJob_networkConfig = Lens.lens (\ProcessingJob' {networkConfig} -> networkConfig) (\s@ProcessingJob' {} a -> s {networkConfig = a} :: ProcessingJob)
 
 -- | Undocumented member.
 processingJob_appSpecification :: Lens.Lens' ProcessingJob (Prelude.Maybe AppSpecification)
@@ -194,14 +194,14 @@ processingJob_roleArn = Lens.lens (\ProcessingJob' {roleArn} -> roleArn) (\s@Pro
 processingJob_processingOutputConfig :: Lens.Lens' ProcessingJob (Prelude.Maybe ProcessingOutputConfig)
 processingJob_processingOutputConfig = Lens.lens (\ProcessingJob' {processingOutputConfig} -> processingOutputConfig) (\s@ProcessingJob' {} a -> s {processingOutputConfig = a} :: ProcessingJob)
 
+-- | Undocumented member.
+processingJob_experimentConfig :: Lens.Lens' ProcessingJob (Prelude.Maybe ExperimentConfig)
+processingJob_experimentConfig = Lens.lens (\ProcessingJob' {experimentConfig} -> experimentConfig) (\s@ProcessingJob' {} a -> s {experimentConfig = a} :: ProcessingJob)
+
 -- | A string, up to one KB in size, that contains metadata from the
 -- processing container when the processing job exits.
 processingJob_exitMessage :: Lens.Lens' ProcessingJob (Prelude.Maybe Prelude.Text)
 processingJob_exitMessage = Lens.lens (\ProcessingJob' {exitMessage} -> exitMessage) (\s@ProcessingJob' {} a -> s {exitMessage = a} :: ProcessingJob)
-
--- | Undocumented member.
-processingJob_experimentConfig :: Lens.Lens' ProcessingJob (Prelude.Maybe ExperimentConfig)
-processingJob_experimentConfig = Lens.lens (\ProcessingJob' {experimentConfig} -> experimentConfig) (\s@ProcessingJob' {} a -> s {experimentConfig = a} :: ProcessingJob)
 
 -- | The status of the processing job.
 processingJob_processingJobStatus :: Lens.Lens' ProcessingJob (Prelude.Maybe ProcessingJobStatus)
@@ -216,25 +216,25 @@ processingJob_environment = Lens.lens (\ProcessingJob' {environment} -> environm
 processingJob_autoMLJobArn :: Lens.Lens' ProcessingJob (Prelude.Maybe Prelude.Text)
 processingJob_autoMLJobArn = Lens.lens (\ProcessingJob' {autoMLJobArn} -> autoMLJobArn) (\s@ProcessingJob' {} a -> s {autoMLJobArn = a} :: ProcessingJob)
 
--- | A string, up to one KB in size, that contains the reason a processing
--- job failed, if it failed.
-processingJob_failureReason :: Lens.Lens' ProcessingJob (Prelude.Maybe Prelude.Text)
-processingJob_failureReason = Lens.lens (\ProcessingJob' {failureReason} -> failureReason) (\s@ProcessingJob' {} a -> s {failureReason = a} :: ProcessingJob)
-
 -- | The ARN of a monitoring schedule for an endpoint associated with this
 -- processing job.
 processingJob_monitoringScheduleArn :: Lens.Lens' ProcessingJob (Prelude.Maybe Prelude.Text)
 processingJob_monitoringScheduleArn = Lens.lens (\ProcessingJob' {monitoringScheduleArn} -> monitoringScheduleArn) (\s@ProcessingJob' {} a -> s {monitoringScheduleArn = a} :: ProcessingJob)
 
--- | The ARN of the processing job.
-processingJob_processingJobArn :: Lens.Lens' ProcessingJob (Prelude.Maybe Prelude.Text)
-processingJob_processingJobArn = Lens.lens (\ProcessingJob' {processingJobArn} -> processingJobArn) (\s@ProcessingJob' {} a -> s {processingJobArn = a} :: ProcessingJob)
+-- | A string, up to one KB in size, that contains the reason a processing
+-- job failed, if it failed.
+processingJob_failureReason :: Lens.Lens' ProcessingJob (Prelude.Maybe Prelude.Text)
+processingJob_failureReason = Lens.lens (\ProcessingJob' {failureReason} -> failureReason) (\s@ProcessingJob' {} a -> s {failureReason = a} :: ProcessingJob)
 
 -- | An array of key-value pairs. For more information, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
--- in the /AWS Billing and Cost Management User Guide/.
+-- in the /Amazon Web Services Billing and Cost Management User Guide/.
 processingJob_tags :: Lens.Lens' ProcessingJob (Prelude.Maybe [Tag])
 processingJob_tags = Lens.lens (\ProcessingJob' {tags} -> tags) (\s@ProcessingJob' {} a -> s {tags = a} :: ProcessingJob) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The ARN of the processing job.
+processingJob_processingJobArn :: Lens.Lens' ProcessingJob (Prelude.Maybe Prelude.Text)
+processingJob_processingJobArn = Lens.lens (\ProcessingJob' {processingJobArn} -> processingJobArn) (\s@ProcessingJob' {} a -> s {processingJobArn = a} :: ProcessingJob)
 
 -- | The time the processing job was last modified.
 processingJob_lastModifiedTime :: Lens.Lens' ProcessingJob (Prelude.Maybe Prelude.UTCTime)
@@ -270,21 +270,21 @@ instance Core.FromJSON ProcessingJob where
       "ProcessingJob"
       ( \x ->
           ProcessingJob'
-            Prelude.<$> (x Core..:? "NetworkConfig")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "NetworkConfig")
             Prelude.<*> (x Core..:? "AppSpecification")
             Prelude.<*> (x Core..:? "ProcessingEndTime")
             Prelude.<*> (x Core..:? "RoleArn")
             Prelude.<*> (x Core..:? "ProcessingOutputConfig")
-            Prelude.<*> (x Core..:? "ExitMessage")
             Prelude.<*> (x Core..:? "ExperimentConfig")
+            Prelude.<*> (x Core..:? "ExitMessage")
             Prelude.<*> (x Core..:? "ProcessingJobStatus")
             Prelude.<*> (x Core..:? "Environment" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "AutoMLJobArn")
-            Prelude.<*> (x Core..:? "FailureReason")
             Prelude.<*> (x Core..:? "MonitoringScheduleArn")
-            Prelude.<*> (x Core..:? "ProcessingJobArn")
+            Prelude.<*> (x Core..:? "FailureReason")
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "ProcessingJobArn")
             Prelude.<*> (x Core..:? "LastModifiedTime")
             Prelude.<*> ( x Core..:? "ProcessingInputs"
                             Core..!= Prelude.mempty

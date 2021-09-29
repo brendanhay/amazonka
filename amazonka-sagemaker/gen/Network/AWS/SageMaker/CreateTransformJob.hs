@@ -30,12 +30,13 @@
 -- In the request body, you provide the following:
 --
 -- -   @TransformJobName@ - Identifies the transform job. The name must be
---     unique within an AWS Region in an AWS account.
+--     unique within an Amazon Web Services Region in an Amazon Web
+--     Services account.
 --
 -- -   @ModelName@ - Identifies the model to use. @ModelName@ must be the
---     name of an existing Amazon SageMaker model in the same AWS Region
---     and AWS account. For information on creating a model, see
---     CreateModel.
+--     name of an existing Amazon SageMaker model in the same Amazon Web
+--     Services Region and Amazon Web Services account. For information on
+--     creating a model, see CreateModel.
 --
 -- -   @TransformInput@ - Describes the dataset to be transformed and the
 --     Amazon S3 location where it is stored.
@@ -135,7 +136,7 @@ data CreateTransformJob = CreateTransformJob'
     modelClientConfig :: Prelude.Maybe ModelClientConfig,
     -- | (Optional) An array of key-value pairs. For more information, see
     -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags>
-    -- in the /AWS Billing and Cost Management User Guide/.
+    -- in the /Amazon Web Services Billing and Cost Management User Guide/.
     tags :: Prelude.Maybe [Tag],
     -- | The data structure used to specify the data to be used for inference in
     -- a batch transform job and to associate the data that is relevant to the
@@ -146,12 +147,12 @@ data CreateTransformJob = CreateTransformJob'
     -- job. For more information, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html Associate Prediction Results with their Corresponding Input Records>.
     dataProcessing :: Prelude.Maybe DataProcessing,
-    -- | The name of the transform job. The name must be unique within an AWS
-    -- Region in an AWS account.
+    -- | The name of the transform job. The name must be unique within an Amazon
+    -- Web Services Region in an Amazon Web Services account.
     transformJobName :: Prelude.Text,
     -- | The name of the model that you want to use for the transform job.
     -- @ModelName@ must be the name of an existing Amazon SageMaker model
-    -- within an AWS Region in an AWS account.
+    -- within an Amazon Web Services Region in an Amazon Web Services account.
     modelName :: Prelude.Text,
     -- | Describes the input source and the way the transform job consumes it.
     transformInput :: TransformInput,
@@ -220,7 +221,7 @@ data CreateTransformJob = CreateTransformJob'
 --
 -- 'tags', 'createTransformJob_tags' - (Optional) An array of key-value pairs. For more information, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags>
--- in the /AWS Billing and Cost Management User Guide/.
+-- in the /Amazon Web Services Billing and Cost Management User Guide/.
 --
 -- 'dataProcessing', 'createTransformJob_dataProcessing' - The data structure used to specify the data to be used for inference in
 -- a batch transform job and to associate the data that is relevant to the
@@ -231,12 +232,12 @@ data CreateTransformJob = CreateTransformJob'
 -- job. For more information, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html Associate Prediction Results with their Corresponding Input Records>.
 --
--- 'transformJobName', 'createTransformJob_transformJobName' - The name of the transform job. The name must be unique within an AWS
--- Region in an AWS account.
+-- 'transformJobName', 'createTransformJob_transformJobName' - The name of the transform job. The name must be unique within an Amazon
+-- Web Services Region in an Amazon Web Services account.
 --
 -- 'modelName', 'createTransformJob_modelName' - The name of the model that you want to use for the transform job.
 -- @ModelName@ must be the name of an existing Amazon SageMaker model
--- within an AWS Region in an AWS account.
+-- within an Amazon Web Services Region in an Amazon Web Services account.
 --
 -- 'transformInput', 'createTransformJob_transformInput' - Describes the input source and the way the transform job consumes it.
 --
@@ -340,7 +341,7 @@ createTransformJob_modelClientConfig = Lens.lens (\CreateTransformJob' {modelCli
 
 -- | (Optional) An array of key-value pairs. For more information, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags>
--- in the /AWS Billing and Cost Management User Guide/.
+-- in the /Amazon Web Services Billing and Cost Management User Guide/.
 createTransformJob_tags :: Lens.Lens' CreateTransformJob (Prelude.Maybe [Tag])
 createTransformJob_tags = Lens.lens (\CreateTransformJob' {tags} -> tags) (\s@CreateTransformJob' {} a -> s {tags = a} :: CreateTransformJob) Prelude.. Lens.mapping Lens._Coerce
 
@@ -355,14 +356,14 @@ createTransformJob_tags = Lens.lens (\CreateTransformJob' {tags} -> tags) (\s@Cr
 createTransformJob_dataProcessing :: Lens.Lens' CreateTransformJob (Prelude.Maybe DataProcessing)
 createTransformJob_dataProcessing = Lens.lens (\CreateTransformJob' {dataProcessing} -> dataProcessing) (\s@CreateTransformJob' {} a -> s {dataProcessing = a} :: CreateTransformJob)
 
--- | The name of the transform job. The name must be unique within an AWS
--- Region in an AWS account.
+-- | The name of the transform job. The name must be unique within an Amazon
+-- Web Services Region in an Amazon Web Services account.
 createTransformJob_transformJobName :: Lens.Lens' CreateTransformJob Prelude.Text
 createTransformJob_transformJobName = Lens.lens (\CreateTransformJob' {transformJobName} -> transformJobName) (\s@CreateTransformJob' {} a -> s {transformJobName = a} :: CreateTransformJob)
 
 -- | The name of the model that you want to use for the transform job.
 -- @ModelName@ must be the name of an existing Amazon SageMaker model
--- within an AWS Region in an AWS account.
+-- within an Amazon Web Services Region in an Amazon Web Services account.
 createTransformJob_modelName :: Lens.Lens' CreateTransformJob Prelude.Text
 createTransformJob_modelName = Lens.lens (\CreateTransformJob' {modelName} -> modelName) (\s@CreateTransformJob' {} a -> s {modelName = a} :: CreateTransformJob)
 

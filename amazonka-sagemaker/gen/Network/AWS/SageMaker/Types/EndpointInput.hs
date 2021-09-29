@@ -41,7 +41,7 @@ data EndpointInput = EndpointInput'
     -- Defaults to @File@.
     s3InputMode :: Prelude.Maybe ProcessingS3InputMode,
     -- | Whether input data distributed in Amazon S3 is fully replicated or
-    -- sharded by an S3 key. Defauts to @FullyReplicated@
+    -- sharded by an S3 key. Defaults to @FullyReplicated@
     s3DataDistributionType :: Prelude.Maybe ProcessingS3DataDistributionType,
     -- | In a classification problem, the attribute that represents the class
     -- probability.
@@ -84,7 +84,7 @@ data EndpointInput = EndpointInput'
 -- Defaults to @File@.
 --
 -- 's3DataDistributionType', 'endpointInput_s3DataDistributionType' - Whether input data distributed in Amazon S3 is fully replicated or
--- sharded by an S3 key. Defauts to @FullyReplicated@
+-- sharded by an S3 key. Defaults to @FullyReplicated@
 --
 -- 'probabilityAttribute', 'endpointInput_probabilityAttribute' - In a classification problem, the attribute that represents the class
 -- probability.
@@ -141,7 +141,7 @@ endpointInput_s3InputMode :: Lens.Lens' EndpointInput (Prelude.Maybe ProcessingS
 endpointInput_s3InputMode = Lens.lens (\EndpointInput' {s3InputMode} -> s3InputMode) (\s@EndpointInput' {} a -> s {s3InputMode = a} :: EndpointInput)
 
 -- | Whether input data distributed in Amazon S3 is fully replicated or
--- sharded by an S3 key. Defauts to @FullyReplicated@
+-- sharded by an S3 key. Defaults to @FullyReplicated@
 endpointInput_s3DataDistributionType :: Lens.Lens' EndpointInput (Prelude.Maybe ProcessingS3DataDistributionType)
 endpointInput_s3DataDistributionType = Lens.lens (\EndpointInput' {s3DataDistributionType} -> s3DataDistributionType) (\s@EndpointInput' {} a -> s {s3DataDistributionType = a} :: EndpointInput)
 

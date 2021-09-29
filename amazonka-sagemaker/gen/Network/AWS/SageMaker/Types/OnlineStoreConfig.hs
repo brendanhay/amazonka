@@ -24,10 +24,10 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SageMaker.Types.OnlineStoreSecurityConfig
 
--- | Use this to specify the AWS Key Management Service (KMS) Key ID, or
--- @KMSKeyId@, for at rest data encryption. You can turn @OnlineStore@ on
--- or off by specifying the @EnableOnlineStore@ flag at General Assembly;
--- the default value is @False@.
+-- | Use this to specify the Amazon Web Services Key Management Service (KMS)
+-- Key ID, or @KMSKeyId@, for at rest data encryption. You can turn
+-- @OnlineStore@ on or off by specifying the @EnableOnlineStore@ flag at
+-- General Assembly; the default value is @False@.
 --
 -- /See:/ 'newOnlineStoreConfig' smart constructor.
 data OnlineStoreConfig = OnlineStoreConfig'

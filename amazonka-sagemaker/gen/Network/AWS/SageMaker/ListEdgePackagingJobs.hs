@@ -30,8 +30,8 @@ module Network.AWS.SageMaker.ListEdgePackagingJobs
 
     -- * Request Lenses
     listEdgePackagingJobs_lastModifiedTimeBefore,
-    listEdgePackagingJobs_sortOrder,
     listEdgePackagingJobs_nextToken,
+    listEdgePackagingJobs_sortOrder,
     listEdgePackagingJobs_nameContains,
     listEdgePackagingJobs_maxResults,
     listEdgePackagingJobs_modelNameContains,
@@ -63,11 +63,11 @@ import Network.AWS.SageMaker.Types
 data ListEdgePackagingJobs = ListEdgePackagingJobs'
   { -- | Select jobs where the job was updated before specified time.
     lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
-    -- | What direction to sort by.
-    sortOrder :: Prelude.Maybe SortOrder,
     -- | The response from the last list when returning a list large enough to
     -- need tokening.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | What direction to sort by.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | Filter for jobs containing this name in their packaging job name.
     nameContains :: Prelude.Maybe Prelude.Text,
     -- | Maximum number of results to select.
@@ -97,10 +97,10 @@ data ListEdgePackagingJobs = ListEdgePackagingJobs'
 --
 -- 'lastModifiedTimeBefore', 'listEdgePackagingJobs_lastModifiedTimeBefore' - Select jobs where the job was updated before specified time.
 --
--- 'sortOrder', 'listEdgePackagingJobs_sortOrder' - What direction to sort by.
---
 -- 'nextToken', 'listEdgePackagingJobs_nextToken' - The response from the last list when returning a list large enough to
 -- need tokening.
+--
+-- 'sortOrder', 'listEdgePackagingJobs_sortOrder' - What direction to sort by.
 --
 -- 'nameContains', 'listEdgePackagingJobs_nameContains' - Filter for jobs containing this name in their packaging job name.
 --
@@ -123,8 +123,8 @@ newListEdgePackagingJobs =
   ListEdgePackagingJobs'
     { lastModifiedTimeBefore =
         Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       nameContains = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       modelNameContains = Prelude.Nothing,
@@ -139,14 +139,14 @@ newListEdgePackagingJobs =
 listEdgePackagingJobs_lastModifiedTimeBefore :: Lens.Lens' ListEdgePackagingJobs (Prelude.Maybe Prelude.UTCTime)
 listEdgePackagingJobs_lastModifiedTimeBefore = Lens.lens (\ListEdgePackagingJobs' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListEdgePackagingJobs' {} a -> s {lastModifiedTimeBefore = a} :: ListEdgePackagingJobs) Prelude.. Lens.mapping Core._Time
 
--- | What direction to sort by.
-listEdgePackagingJobs_sortOrder :: Lens.Lens' ListEdgePackagingJobs (Prelude.Maybe SortOrder)
-listEdgePackagingJobs_sortOrder = Lens.lens (\ListEdgePackagingJobs' {sortOrder} -> sortOrder) (\s@ListEdgePackagingJobs' {} a -> s {sortOrder = a} :: ListEdgePackagingJobs)
-
 -- | The response from the last list when returning a list large enough to
 -- need tokening.
 listEdgePackagingJobs_nextToken :: Lens.Lens' ListEdgePackagingJobs (Prelude.Maybe Prelude.Text)
 listEdgePackagingJobs_nextToken = Lens.lens (\ListEdgePackagingJobs' {nextToken} -> nextToken) (\s@ListEdgePackagingJobs' {} a -> s {nextToken = a} :: ListEdgePackagingJobs)
+
+-- | What direction to sort by.
+listEdgePackagingJobs_sortOrder :: Lens.Lens' ListEdgePackagingJobs (Prelude.Maybe SortOrder)
+listEdgePackagingJobs_sortOrder = Lens.lens (\ListEdgePackagingJobs' {sortOrder} -> sortOrder) (\s@ListEdgePackagingJobs' {} a -> s {sortOrder = a} :: ListEdgePackagingJobs)
 
 -- | Filter for jobs containing this name in their packaging job name.
 listEdgePackagingJobs_nameContains :: Lens.Lens' ListEdgePackagingJobs (Prelude.Maybe Prelude.Text)
@@ -242,8 +242,8 @@ instance Core.ToJSON ListEdgePackagingJobs where
       ( Prelude.catMaybes
           [ ("LastModifiedTimeBefore" Core..=)
               Prelude.<$> lastModifiedTimeBefore,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NameContains" Core..=) Prelude.<$> nameContains,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("ModelNameContains" Core..=)

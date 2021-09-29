@@ -43,8 +43,8 @@ data Endpoint = Endpoint'
     failureReason :: Prelude.Maybe Prelude.Text,
     -- | A list of the tags associated with the endpoint. For more information,
     -- see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
-    -- in the /AWS General Reference Guide/.
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+    -- in the /Amazon Web Services General Reference Guide/.
     tags :: Prelude.Maybe [Tag],
     dataCaptureConfig :: Prelude.Maybe DataCaptureConfigSummary,
     -- | The name of the endpoint.
@@ -81,8 +81,8 @@ data Endpoint = Endpoint'
 --
 -- 'tags', 'endpoint_tags' - A list of the tags associated with the endpoint. For more information,
 -- see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
--- in the /AWS General Reference Guide/.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+-- in the /Amazon Web Services General Reference Guide/.
 --
 -- 'dataCaptureConfig', 'endpoint_dataCaptureConfig' - Undocumented member.
 --
@@ -150,8 +150,8 @@ endpoint_failureReason = Lens.lens (\Endpoint' {failureReason} -> failureReason)
 
 -- | A list of the tags associated with the endpoint. For more information,
 -- see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
--- in the /AWS General Reference Guide/.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+-- in the /Amazon Web Services General Reference Guide/.
 endpoint_tags :: Lens.Lens' Endpoint (Prelude.Maybe [Tag])
 endpoint_tags = Lens.lens (\Endpoint' {tags} -> tags) (\s@Endpoint' {} a -> s {tags = a} :: Endpoint) Prelude.. Lens.mapping Lens._Coerce
 

@@ -30,10 +30,10 @@ import Network.AWS.SageMaker.Types.ExperimentSource
 --
 -- /See:/ 'newExperimentSummary' smart constructor.
 data ExperimentSummary = ExperimentSummary'
-  { -- | The Amazon Resource Name (ARN) of the experiment.
-    experimentArn :: Prelude.Maybe Prelude.Text,
-    -- | When the experiment was created.
+  { -- | When the experiment was created.
     creationTime :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name (ARN) of the experiment.
+    experimentArn :: Prelude.Maybe Prelude.Text,
     experimentSource :: Prelude.Maybe ExperimentSource,
     -- | When the experiment was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
@@ -53,9 +53,9 @@ data ExperimentSummary = ExperimentSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'experimentArn', 'experimentSummary_experimentArn' - The Amazon Resource Name (ARN) of the experiment.
---
 -- 'creationTime', 'experimentSummary_creationTime' - When the experiment was created.
+--
+-- 'experimentArn', 'experimentSummary_experimentArn' - The Amazon Resource Name (ARN) of the experiment.
 --
 -- 'experimentSource', 'experimentSummary_experimentSource' - Undocumented member.
 --
@@ -69,21 +69,21 @@ newExperimentSummary ::
   ExperimentSummary
 newExperimentSummary =
   ExperimentSummary'
-    { experimentArn = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
+    { creationTime = Prelude.Nothing,
+      experimentArn = Prelude.Nothing,
       experimentSource = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
       experimentName = Prelude.Nothing,
       displayName = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the experiment.
-experimentSummary_experimentArn :: Lens.Lens' ExperimentSummary (Prelude.Maybe Prelude.Text)
-experimentSummary_experimentArn = Lens.lens (\ExperimentSummary' {experimentArn} -> experimentArn) (\s@ExperimentSummary' {} a -> s {experimentArn = a} :: ExperimentSummary)
-
 -- | When the experiment was created.
 experimentSummary_creationTime :: Lens.Lens' ExperimentSummary (Prelude.Maybe Prelude.UTCTime)
 experimentSummary_creationTime = Lens.lens (\ExperimentSummary' {creationTime} -> creationTime) (\s@ExperimentSummary' {} a -> s {creationTime = a} :: ExperimentSummary) Prelude.. Lens.mapping Core._Time
+
+-- | The Amazon Resource Name (ARN) of the experiment.
+experimentSummary_experimentArn :: Lens.Lens' ExperimentSummary (Prelude.Maybe Prelude.Text)
+experimentSummary_experimentArn = Lens.lens (\ExperimentSummary' {experimentArn} -> experimentArn) (\s@ExperimentSummary' {} a -> s {experimentArn = a} :: ExperimentSummary)
 
 -- | Undocumented member.
 experimentSummary_experimentSource :: Lens.Lens' ExperimentSummary (Prelude.Maybe ExperimentSource)
@@ -108,8 +108,8 @@ instance Core.FromJSON ExperimentSummary where
       "ExperimentSummary"
       ( \x ->
           ExperimentSummary'
-            Prelude.<$> (x Core..:? "ExperimentArn")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "ExperimentArn")
             Prelude.<*> (x Core..:? "ExperimentSource")
             Prelude.<*> (x Core..:? "LastModifiedTime")
             Prelude.<*> (x Core..:? "ExperimentName")

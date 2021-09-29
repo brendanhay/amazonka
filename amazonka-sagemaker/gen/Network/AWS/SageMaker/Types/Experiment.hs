@@ -30,20 +30,21 @@ import Network.AWS.SageMaker.Types.UserContext
 --
 -- /See:/ 'newExperiment' smart constructor.
 data Experiment = Experiment'
-  { -- | The Amazon Resource Name (ARN) of the experiment.
-    experimentArn :: Prelude.Maybe Prelude.Text,
-    -- | When the experiment was created.
+  { -- | When the experiment was created.
     creationTime :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name (ARN) of the experiment.
+    experimentArn :: Prelude.Maybe Prelude.Text,
     source :: Prelude.Maybe ExperimentSource,
     -- | The list of tags that are associated with the experiment. You can use
     -- Search API to search on the tags.
     tags :: Prelude.Maybe [Tag],
     -- | When the experiment was last modified.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
-    -- | The name of the experiment.
-    experimentName :: Prelude.Maybe Prelude.Text,
     -- | The description of the experiment.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the experiment.
+    experimentName :: Prelude.Maybe Prelude.Text,
+    -- | Who created the experiment.
     createdBy :: Prelude.Maybe UserContext,
     lastModifiedBy :: Prelude.Maybe UserContext,
     -- | The name of the experiment as displayed. If @DisplayName@ isn\'t
@@ -60,9 +61,9 @@ data Experiment = Experiment'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'experimentArn', 'experiment_experimentArn' - The Amazon Resource Name (ARN) of the experiment.
---
 -- 'creationTime', 'experiment_creationTime' - When the experiment was created.
+--
+-- 'experimentArn', 'experiment_experimentArn' - The Amazon Resource Name (ARN) of the experiment.
 --
 -- 'source', 'experiment_source' - Undocumented member.
 --
@@ -71,11 +72,11 @@ data Experiment = Experiment'
 --
 -- 'lastModifiedTime', 'experiment_lastModifiedTime' - When the experiment was last modified.
 --
--- 'experimentName', 'experiment_experimentName' - The name of the experiment.
---
 -- 'description', 'experiment_description' - The description of the experiment.
 --
--- 'createdBy', 'experiment_createdBy' - Undocumented member.
+-- 'experimentName', 'experiment_experimentName' - The name of the experiment.
+--
+-- 'createdBy', 'experiment_createdBy' - Who created the experiment.
 --
 -- 'lastModifiedBy', 'experiment_lastModifiedBy' - Undocumented member.
 --
@@ -85,25 +86,25 @@ newExperiment ::
   Experiment
 newExperiment =
   Experiment'
-    { experimentArn = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
+    { creationTime = Prelude.Nothing,
+      experimentArn = Prelude.Nothing,
       source = Prelude.Nothing,
       tags = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
-      experimentName = Prelude.Nothing,
       description = Prelude.Nothing,
+      experimentName = Prelude.Nothing,
       createdBy = Prelude.Nothing,
       lastModifiedBy = Prelude.Nothing,
       displayName = Prelude.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the experiment.
-experiment_experimentArn :: Lens.Lens' Experiment (Prelude.Maybe Prelude.Text)
-experiment_experimentArn = Lens.lens (\Experiment' {experimentArn} -> experimentArn) (\s@Experiment' {} a -> s {experimentArn = a} :: Experiment)
-
 -- | When the experiment was created.
 experiment_creationTime :: Lens.Lens' Experiment (Prelude.Maybe Prelude.UTCTime)
 experiment_creationTime = Lens.lens (\Experiment' {creationTime} -> creationTime) (\s@Experiment' {} a -> s {creationTime = a} :: Experiment) Prelude.. Lens.mapping Core._Time
+
+-- | The Amazon Resource Name (ARN) of the experiment.
+experiment_experimentArn :: Lens.Lens' Experiment (Prelude.Maybe Prelude.Text)
+experiment_experimentArn = Lens.lens (\Experiment' {experimentArn} -> experimentArn) (\s@Experiment' {} a -> s {experimentArn = a} :: Experiment)
 
 -- | Undocumented member.
 experiment_source :: Lens.Lens' Experiment (Prelude.Maybe ExperimentSource)
@@ -118,15 +119,15 @@ experiment_tags = Lens.lens (\Experiment' {tags} -> tags) (\s@Experiment' {} a -
 experiment_lastModifiedTime :: Lens.Lens' Experiment (Prelude.Maybe Prelude.UTCTime)
 experiment_lastModifiedTime = Lens.lens (\Experiment' {lastModifiedTime} -> lastModifiedTime) (\s@Experiment' {} a -> s {lastModifiedTime = a} :: Experiment) Prelude.. Lens.mapping Core._Time
 
--- | The name of the experiment.
-experiment_experimentName :: Lens.Lens' Experiment (Prelude.Maybe Prelude.Text)
-experiment_experimentName = Lens.lens (\Experiment' {experimentName} -> experimentName) (\s@Experiment' {} a -> s {experimentName = a} :: Experiment)
-
 -- | The description of the experiment.
 experiment_description :: Lens.Lens' Experiment (Prelude.Maybe Prelude.Text)
 experiment_description = Lens.lens (\Experiment' {description} -> description) (\s@Experiment' {} a -> s {description = a} :: Experiment)
 
--- | Undocumented member.
+-- | The name of the experiment.
+experiment_experimentName :: Lens.Lens' Experiment (Prelude.Maybe Prelude.Text)
+experiment_experimentName = Lens.lens (\Experiment' {experimentName} -> experimentName) (\s@Experiment' {} a -> s {experimentName = a} :: Experiment)
+
+-- | Who created the experiment.
 experiment_createdBy :: Lens.Lens' Experiment (Prelude.Maybe UserContext)
 experiment_createdBy = Lens.lens (\Experiment' {createdBy} -> createdBy) (\s@Experiment' {} a -> s {createdBy = a} :: Experiment)
 
@@ -145,13 +146,13 @@ instance Core.FromJSON Experiment where
       "Experiment"
       ( \x ->
           Experiment'
-            Prelude.<$> (x Core..:? "ExperimentArn")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "ExperimentArn")
             Prelude.<*> (x Core..:? "Source")
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "LastModifiedTime")
-            Prelude.<*> (x Core..:? "ExperimentName")
             Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "ExperimentName")
             Prelude.<*> (x Core..:? "CreatedBy")
             Prelude.<*> (x Core..:? "LastModifiedBy")
             Prelude.<*> (x Core..:? "DisplayName")

@@ -20,15 +20,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a list of the projects in an AWS account.
+-- Gets a list of the projects in an Amazon Web Services account.
 module Network.AWS.SageMaker.ListProjects
   ( -- * Creating a Request
     ListProjects (..),
     newListProjects,
 
     -- * Request Lenses
-    listProjects_sortOrder,
     listProjects_nextToken,
+    listProjects_sortOrder,
     listProjects_nameContains,
     listProjects_maxResults,
     listProjects_creationTimeBefore,
@@ -55,12 +55,12 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListProjects' smart constructor.
 data ListProjects = ListProjects'
-  { -- | The sort order for results. The default is @Ascending@.
-    sortOrder :: Prelude.Maybe ProjectSortOrder,
-    -- | If the result of the previous @ListProjects@ request was truncated, the
+  { -- | If the result of the previous @ListProjects@ request was truncated, the
     -- response includes a @NextToken@. To retrieve the next set of projects,
     -- use the token in the next request.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order for results. The default is @Ascending@.
+    sortOrder :: Prelude.Maybe ProjectSortOrder,
     -- | A filter that returns the projects whose name contains a specified
     -- string.
     nameContains :: Prelude.Maybe Prelude.Text,
@@ -85,11 +85,11 @@ data ListProjects = ListProjects'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listProjects_sortOrder' - The sort order for results. The default is @Ascending@.
---
 -- 'nextToken', 'listProjects_nextToken' - If the result of the previous @ListProjects@ request was truncated, the
 -- response includes a @NextToken@. To retrieve the next set of projects,
 -- use the token in the next request.
+--
+-- 'sortOrder', 'listProjects_sortOrder' - The sort order for results. The default is @Ascending@.
 --
 -- 'nameContains', 'listProjects_nameContains' - A filter that returns the projects whose name contains a specified
 -- string.
@@ -107,8 +107,8 @@ newListProjects ::
   ListProjects
 newListProjects =
   ListProjects'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       nameContains = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
@@ -116,15 +116,15 @@ newListProjects =
       creationTimeAfter = Prelude.Nothing
     }
 
--- | The sort order for results. The default is @Ascending@.
-listProjects_sortOrder :: Lens.Lens' ListProjects (Prelude.Maybe ProjectSortOrder)
-listProjects_sortOrder = Lens.lens (\ListProjects' {sortOrder} -> sortOrder) (\s@ListProjects' {} a -> s {sortOrder = a} :: ListProjects)
-
 -- | If the result of the previous @ListProjects@ request was truncated, the
 -- response includes a @NextToken@. To retrieve the next set of projects,
 -- use the token in the next request.
 listProjects_nextToken :: Lens.Lens' ListProjects (Prelude.Maybe Prelude.Text)
 listProjects_nextToken = Lens.lens (\ListProjects' {nextToken} -> nextToken) (\s@ListProjects' {} a -> s {nextToken = a} :: ListProjects)
+
+-- | The sort order for results. The default is @Ascending@.
+listProjects_sortOrder :: Lens.Lens' ListProjects (Prelude.Maybe ProjectSortOrder)
+listProjects_sortOrder = Lens.lens (\ListProjects' {sortOrder} -> sortOrder) (\s@ListProjects' {} a -> s {sortOrder = a} :: ListProjects)
 
 -- | A filter that returns the projects whose name contains a specified
 -- string.
@@ -184,8 +184,8 @@ instance Core.ToJSON ListProjects where
   toJSON ListProjects' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NameContains" Core..=) Prelude.<$> nameContains,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CreationTimeBefore" Core..=)

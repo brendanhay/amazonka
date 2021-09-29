@@ -28,6 +28,7 @@ module Network.AWS.SageMaker.CreateDeviceFleet
 
     -- * Request Lenses
     createDeviceFleet_roleArn,
+    createDeviceFleet_enableIotRoleAlias,
     createDeviceFleet_tags,
     createDeviceFleet_description,
     createDeviceFleet_deviceFleetName,
@@ -48,9 +49,16 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newCreateDeviceFleet' smart constructor.
 data CreateDeviceFleet = CreateDeviceFleet'
-  { -- | The Amazon Resource Name (ARN) that has access to AWS Internet of Things
-    -- (IoT).
+  { -- | The Amazon Resource Name (ARN) that has access to Amazon Web Services
+    -- Internet of Things (IoT).
     roleArn :: Prelude.Maybe Prelude.Text,
+    -- | Whether to create an Amazon Web Services IoT Role Alias during device
+    -- fleet creation. The name of the role alias generated will match this
+    -- pattern: \"SageMakerEdge-{DeviceFleetName}\".
+    --
+    -- For example, if your device fleet is called \"demo-fleet\", the name of
+    -- the role alias will be \"SageMakerEdge-demo-fleet\".
+    enableIotRoleAlias :: Prelude.Maybe Prelude.Bool,
     -- | Creates tags for the specified fleet.
     tags :: Prelude.Maybe [Tag],
     -- | A description of the fleet.
@@ -70,8 +78,15 @@ data CreateDeviceFleet = CreateDeviceFleet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'roleArn', 'createDeviceFleet_roleArn' - The Amazon Resource Name (ARN) that has access to AWS Internet of Things
--- (IoT).
+-- 'roleArn', 'createDeviceFleet_roleArn' - The Amazon Resource Name (ARN) that has access to Amazon Web Services
+-- Internet of Things (IoT).
+--
+-- 'enableIotRoleAlias', 'createDeviceFleet_enableIotRoleAlias' - Whether to create an Amazon Web Services IoT Role Alias during device
+-- fleet creation. The name of the role alias generated will match this
+-- pattern: \"SageMakerEdge-{DeviceFleetName}\".
+--
+-- For example, if your device fleet is called \"demo-fleet\", the name of
+-- the role alias will be \"SageMakerEdge-demo-fleet\".
 --
 -- 'tags', 'createDeviceFleet_tags' - Creates tags for the specified fleet.
 --
@@ -89,16 +104,26 @@ newCreateDeviceFleet ::
 newCreateDeviceFleet pDeviceFleetName_ pOutputConfig_ =
   CreateDeviceFleet'
     { roleArn = Prelude.Nothing,
+      enableIotRoleAlias = Prelude.Nothing,
       tags = Prelude.Nothing,
       description = Prelude.Nothing,
       deviceFleetName = pDeviceFleetName_,
       outputConfig = pOutputConfig_
     }
 
--- | The Amazon Resource Name (ARN) that has access to AWS Internet of Things
--- (IoT).
+-- | The Amazon Resource Name (ARN) that has access to Amazon Web Services
+-- Internet of Things (IoT).
 createDeviceFleet_roleArn :: Lens.Lens' CreateDeviceFleet (Prelude.Maybe Prelude.Text)
 createDeviceFleet_roleArn = Lens.lens (\CreateDeviceFleet' {roleArn} -> roleArn) (\s@CreateDeviceFleet' {} a -> s {roleArn = a} :: CreateDeviceFleet)
+
+-- | Whether to create an Amazon Web Services IoT Role Alias during device
+-- fleet creation. The name of the role alias generated will match this
+-- pattern: \"SageMakerEdge-{DeviceFleetName}\".
+--
+-- For example, if your device fleet is called \"demo-fleet\", the name of
+-- the role alias will be \"SageMakerEdge-demo-fleet\".
+createDeviceFleet_enableIotRoleAlias :: Lens.Lens' CreateDeviceFleet (Prelude.Maybe Prelude.Bool)
+createDeviceFleet_enableIotRoleAlias = Lens.lens (\CreateDeviceFleet' {enableIotRoleAlias} -> enableIotRoleAlias) (\s@CreateDeviceFleet' {} a -> s {enableIotRoleAlias = a} :: CreateDeviceFleet)
 
 -- | Creates tags for the specified fleet.
 createDeviceFleet_tags :: Lens.Lens' CreateDeviceFleet (Prelude.Maybe [Tag])
@@ -148,6 +173,8 @@ instance Core.ToJSON CreateDeviceFleet where
     Core.object
       ( Prelude.catMaybes
           [ ("RoleArn" Core..=) Prelude.<$> roleArn,
+            ("EnableIotRoleAlias" Core..=)
+              Prelude.<$> enableIotRoleAlias,
             ("Tags" Core..=) Prelude.<$> tags,
             ("Description" Core..=) Prelude.<$> description,
             Prelude.Just

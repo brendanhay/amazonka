@@ -34,16 +34,17 @@ module Network.AWS.SageMaker.DescribeEdgePackagingJob
     newDescribeEdgePackagingJobResponse,
 
     -- * Response Lenses
-    describeEdgePackagingJobResponse_edgePackagingJobStatusMessage,
     describeEdgePackagingJobResponse_creationTime,
+    describeEdgePackagingJobResponse_edgePackagingJobStatusMessage,
     describeEdgePackagingJobResponse_roleArn,
     describeEdgePackagingJobResponse_compilationJobName,
     describeEdgePackagingJobResponse_modelSignature,
-    describeEdgePackagingJobResponse_resourceKey,
     describeEdgePackagingJobResponse_modelVersion,
+    describeEdgePackagingJobResponse_resourceKey,
     describeEdgePackagingJobResponse_outputConfig,
     describeEdgePackagingJobResponse_modelArtifact,
     describeEdgePackagingJobResponse_lastModifiedTime,
+    describeEdgePackagingJobResponse_presetDeploymentOutput,
     describeEdgePackagingJobResponse_modelName,
     describeEdgePackagingJobResponse_httpStatus,
     describeEdgePackagingJobResponse_edgePackagingJobArn,
@@ -98,16 +99,17 @@ instance Core.AWSRequest DescribeEdgePackagingJob where
     Response.receiveJSON
       ( \s h x ->
           DescribeEdgePackagingJobResponse'
-            Prelude.<$> (x Core..?> "EdgePackagingJobStatusMessage")
-            Prelude.<*> (x Core..?> "CreationTime")
+            Prelude.<$> (x Core..?> "CreationTime")
+            Prelude.<*> (x Core..?> "EdgePackagingJobStatusMessage")
             Prelude.<*> (x Core..?> "RoleArn")
             Prelude.<*> (x Core..?> "CompilationJobName")
             Prelude.<*> (x Core..?> "ModelSignature")
-            Prelude.<*> (x Core..?> "ResourceKey")
             Prelude.<*> (x Core..?> "ModelVersion")
+            Prelude.<*> (x Core..?> "ResourceKey")
             Prelude.<*> (x Core..?> "OutputConfig")
             Prelude.<*> (x Core..?> "ModelArtifact")
             Prelude.<*> (x Core..?> "LastModifiedTime")
+            Prelude.<*> (x Core..?> "PresetDeploymentOutput")
             Prelude.<*> (x Core..?> "ModelName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "EdgePackagingJobArn")
@@ -153,10 +155,10 @@ instance Core.ToQuery DescribeEdgePackagingJob where
 
 -- | /See:/ 'newDescribeEdgePackagingJobResponse' smart constructor.
 data DescribeEdgePackagingJobResponse = DescribeEdgePackagingJobResponse'
-  { -- | Returns a message describing the job status and error messages.
-    edgePackagingJobStatusMessage :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp of when the packaging job was created.
+  { -- | The timestamp of when the packaging job was created.
     creationTime :: Prelude.Maybe Core.POSIX,
+    -- | Returns a message describing the job status and error messages.
+    edgePackagingJobStatusMessage :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of an IAM role that enables Amazon
     -- SageMaker to download and upload the model, and to contact Neo.
     roleArn :: Prelude.Maybe Prelude.Text,
@@ -165,16 +167,19 @@ data DescribeEdgePackagingJobResponse = DescribeEdgePackagingJobResponse'
     compilationJobName :: Prelude.Maybe Prelude.Text,
     -- | The signature document of files in the model artifact.
     modelSignature :: Prelude.Maybe Prelude.Text,
-    -- | The CMK to use when encrypting the EBS volume the job run on.
-    resourceKey :: Prelude.Maybe Prelude.Text,
     -- | The version of the model.
     modelVersion :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Web Services KMS key to use when encrypting the EBS volume
+    -- the job run on.
+    resourceKey :: Prelude.Maybe Prelude.Text,
     -- | The output configuration for the edge packaging job.
     outputConfig :: Prelude.Maybe EdgeOutputConfig,
     -- | The Amazon Simple Storage (S3) URI where model artifacts ares stored.
     modelArtifact :: Prelude.Maybe Prelude.Text,
     -- | The timestamp of when the job was last updated.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | The output of a SageMaker Edge Manager deployable resource.
+    presetDeploymentOutput :: Prelude.Maybe EdgePresetDeploymentOutput,
     -- | The name of the model.
     modelName :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
@@ -196,9 +201,9 @@ data DescribeEdgePackagingJobResponse = DescribeEdgePackagingJobResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'edgePackagingJobStatusMessage', 'describeEdgePackagingJobResponse_edgePackagingJobStatusMessage' - Returns a message describing the job status and error messages.
---
 -- 'creationTime', 'describeEdgePackagingJobResponse_creationTime' - The timestamp of when the packaging job was created.
+--
+-- 'edgePackagingJobStatusMessage', 'describeEdgePackagingJobResponse_edgePackagingJobStatusMessage' - Returns a message describing the job status and error messages.
 --
 -- 'roleArn', 'describeEdgePackagingJobResponse_roleArn' - The Amazon Resource Name (ARN) of an IAM role that enables Amazon
 -- SageMaker to download and upload the model, and to contact Neo.
@@ -208,15 +213,18 @@ data DescribeEdgePackagingJobResponse = DescribeEdgePackagingJobResponse'
 --
 -- 'modelSignature', 'describeEdgePackagingJobResponse_modelSignature' - The signature document of files in the model artifact.
 --
--- 'resourceKey', 'describeEdgePackagingJobResponse_resourceKey' - The CMK to use when encrypting the EBS volume the job run on.
---
 -- 'modelVersion', 'describeEdgePackagingJobResponse_modelVersion' - The version of the model.
+--
+-- 'resourceKey', 'describeEdgePackagingJobResponse_resourceKey' - The Amazon Web Services KMS key to use when encrypting the EBS volume
+-- the job run on.
 --
 -- 'outputConfig', 'describeEdgePackagingJobResponse_outputConfig' - The output configuration for the edge packaging job.
 --
 -- 'modelArtifact', 'describeEdgePackagingJobResponse_modelArtifact' - The Amazon Simple Storage (S3) URI where model artifacts ares stored.
 --
 -- 'lastModifiedTime', 'describeEdgePackagingJobResponse_lastModifiedTime' - The timestamp of when the job was last updated.
+--
+-- 'presetDeploymentOutput', 'describeEdgePackagingJobResponse_presetDeploymentOutput' - The output of a SageMaker Edge Manager deployable resource.
 --
 -- 'modelName', 'describeEdgePackagingJobResponse_modelName' - The name of the model.
 --
@@ -243,17 +251,19 @@ newDescribeEdgePackagingJobResponse
   pEdgePackagingJobName_
   pEdgePackagingJobStatus_ =
     DescribeEdgePackagingJobResponse'
-      { edgePackagingJobStatusMessage =
+      { creationTime =
           Prelude.Nothing,
-        creationTime = Prelude.Nothing,
+        edgePackagingJobStatusMessage =
+          Prelude.Nothing,
         roleArn = Prelude.Nothing,
         compilationJobName = Prelude.Nothing,
         modelSignature = Prelude.Nothing,
-        resourceKey = Prelude.Nothing,
         modelVersion = Prelude.Nothing,
+        resourceKey = Prelude.Nothing,
         outputConfig = Prelude.Nothing,
         modelArtifact = Prelude.Nothing,
         lastModifiedTime = Prelude.Nothing,
+        presetDeploymentOutput = Prelude.Nothing,
         modelName = Prelude.Nothing,
         httpStatus = pHttpStatus_,
         edgePackagingJobArn =
@@ -264,13 +274,13 @@ newDescribeEdgePackagingJobResponse
           pEdgePackagingJobStatus_
       }
 
--- | Returns a message describing the job status and error messages.
-describeEdgePackagingJobResponse_edgePackagingJobStatusMessage :: Lens.Lens' DescribeEdgePackagingJobResponse (Prelude.Maybe Prelude.Text)
-describeEdgePackagingJobResponse_edgePackagingJobStatusMessage = Lens.lens (\DescribeEdgePackagingJobResponse' {edgePackagingJobStatusMessage} -> edgePackagingJobStatusMessage) (\s@DescribeEdgePackagingJobResponse' {} a -> s {edgePackagingJobStatusMessage = a} :: DescribeEdgePackagingJobResponse)
-
 -- | The timestamp of when the packaging job was created.
 describeEdgePackagingJobResponse_creationTime :: Lens.Lens' DescribeEdgePackagingJobResponse (Prelude.Maybe Prelude.UTCTime)
 describeEdgePackagingJobResponse_creationTime = Lens.lens (\DescribeEdgePackagingJobResponse' {creationTime} -> creationTime) (\s@DescribeEdgePackagingJobResponse' {} a -> s {creationTime = a} :: DescribeEdgePackagingJobResponse) Prelude.. Lens.mapping Core._Time
+
+-- | Returns a message describing the job status and error messages.
+describeEdgePackagingJobResponse_edgePackagingJobStatusMessage :: Lens.Lens' DescribeEdgePackagingJobResponse (Prelude.Maybe Prelude.Text)
+describeEdgePackagingJobResponse_edgePackagingJobStatusMessage = Lens.lens (\DescribeEdgePackagingJobResponse' {edgePackagingJobStatusMessage} -> edgePackagingJobStatusMessage) (\s@DescribeEdgePackagingJobResponse' {} a -> s {edgePackagingJobStatusMessage = a} :: DescribeEdgePackagingJobResponse)
 
 -- | The Amazon Resource Name (ARN) of an IAM role that enables Amazon
 -- SageMaker to download and upload the model, and to contact Neo.
@@ -286,13 +296,14 @@ describeEdgePackagingJobResponse_compilationJobName = Lens.lens (\DescribeEdgePa
 describeEdgePackagingJobResponse_modelSignature :: Lens.Lens' DescribeEdgePackagingJobResponse (Prelude.Maybe Prelude.Text)
 describeEdgePackagingJobResponse_modelSignature = Lens.lens (\DescribeEdgePackagingJobResponse' {modelSignature} -> modelSignature) (\s@DescribeEdgePackagingJobResponse' {} a -> s {modelSignature = a} :: DescribeEdgePackagingJobResponse)
 
--- | The CMK to use when encrypting the EBS volume the job run on.
-describeEdgePackagingJobResponse_resourceKey :: Lens.Lens' DescribeEdgePackagingJobResponse (Prelude.Maybe Prelude.Text)
-describeEdgePackagingJobResponse_resourceKey = Lens.lens (\DescribeEdgePackagingJobResponse' {resourceKey} -> resourceKey) (\s@DescribeEdgePackagingJobResponse' {} a -> s {resourceKey = a} :: DescribeEdgePackagingJobResponse)
-
 -- | The version of the model.
 describeEdgePackagingJobResponse_modelVersion :: Lens.Lens' DescribeEdgePackagingJobResponse (Prelude.Maybe Prelude.Text)
 describeEdgePackagingJobResponse_modelVersion = Lens.lens (\DescribeEdgePackagingJobResponse' {modelVersion} -> modelVersion) (\s@DescribeEdgePackagingJobResponse' {} a -> s {modelVersion = a} :: DescribeEdgePackagingJobResponse)
+
+-- | The Amazon Web Services KMS key to use when encrypting the EBS volume
+-- the job run on.
+describeEdgePackagingJobResponse_resourceKey :: Lens.Lens' DescribeEdgePackagingJobResponse (Prelude.Maybe Prelude.Text)
+describeEdgePackagingJobResponse_resourceKey = Lens.lens (\DescribeEdgePackagingJobResponse' {resourceKey} -> resourceKey) (\s@DescribeEdgePackagingJobResponse' {} a -> s {resourceKey = a} :: DescribeEdgePackagingJobResponse)
 
 -- | The output configuration for the edge packaging job.
 describeEdgePackagingJobResponse_outputConfig :: Lens.Lens' DescribeEdgePackagingJobResponse (Prelude.Maybe EdgeOutputConfig)
@@ -305,6 +316,10 @@ describeEdgePackagingJobResponse_modelArtifact = Lens.lens (\DescribeEdgePackagi
 -- | The timestamp of when the job was last updated.
 describeEdgePackagingJobResponse_lastModifiedTime :: Lens.Lens' DescribeEdgePackagingJobResponse (Prelude.Maybe Prelude.UTCTime)
 describeEdgePackagingJobResponse_lastModifiedTime = Lens.lens (\DescribeEdgePackagingJobResponse' {lastModifiedTime} -> lastModifiedTime) (\s@DescribeEdgePackagingJobResponse' {} a -> s {lastModifiedTime = a} :: DescribeEdgePackagingJobResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The output of a SageMaker Edge Manager deployable resource.
+describeEdgePackagingJobResponse_presetDeploymentOutput :: Lens.Lens' DescribeEdgePackagingJobResponse (Prelude.Maybe EdgePresetDeploymentOutput)
+describeEdgePackagingJobResponse_presetDeploymentOutput = Lens.lens (\DescribeEdgePackagingJobResponse' {presetDeploymentOutput} -> presetDeploymentOutput) (\s@DescribeEdgePackagingJobResponse' {} a -> s {presetDeploymentOutput = a} :: DescribeEdgePackagingJobResponse)
 
 -- | The name of the model.
 describeEdgePackagingJobResponse_modelName :: Lens.Lens' DescribeEdgePackagingJobResponse (Prelude.Maybe Prelude.Text)

@@ -31,8 +31,8 @@ module Network.AWS.SageMaker.ListImageVersions
 
     -- * Request Lenses
     listImageVersions_lastModifiedTimeBefore,
-    listImageVersions_sortOrder,
     listImageVersions_nextToken,
+    listImageVersions_sortOrder,
     listImageVersions_maxResults,
     listImageVersions_creationTimeBefore,
     listImageVersions_lastModifiedTimeAfter,
@@ -63,12 +63,12 @@ data ListImageVersions = ListImageVersions'
   { -- | A filter that returns only versions modified on or before the specified
     -- time.
     lastModifiedTimeBefore :: Prelude.Maybe Core.POSIX,
-    -- | The sort order. The default value is @DESCENDING@.
-    sortOrder :: Prelude.Maybe ImageVersionSortOrder,
     -- | If the previous call to @ListImageVersions@ didn\'t return the full set
     -- of versions, the call returns a token for getting the next set of
     -- versions.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The sort order. The default value is @DESCENDING@.
+    sortOrder :: Prelude.Maybe ImageVersionSortOrder,
     -- | The maximum number of versions to return in the response. The default
     -- value is 10.
     maxResults :: Prelude.Maybe Prelude.Natural,
@@ -99,11 +99,11 @@ data ListImageVersions = ListImageVersions'
 -- 'lastModifiedTimeBefore', 'listImageVersions_lastModifiedTimeBefore' - A filter that returns only versions modified on or before the specified
 -- time.
 --
--- 'sortOrder', 'listImageVersions_sortOrder' - The sort order. The default value is @DESCENDING@.
---
 -- 'nextToken', 'listImageVersions_nextToken' - If the previous call to @ListImageVersions@ didn\'t return the full set
 -- of versions, the call returns a token for getting the next set of
 -- versions.
+--
+-- 'sortOrder', 'listImageVersions_sortOrder' - The sort order. The default value is @DESCENDING@.
 --
 -- 'maxResults', 'listImageVersions_maxResults' - The maximum number of versions to return in the response. The default
 -- value is 10.
@@ -128,8 +128,8 @@ newListImageVersions pImageName_ =
   ListImageVersions'
     { lastModifiedTimeBefore =
         Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       creationTimeBefore = Prelude.Nothing,
       lastModifiedTimeAfter = Prelude.Nothing,
@@ -143,15 +143,15 @@ newListImageVersions pImageName_ =
 listImageVersions_lastModifiedTimeBefore :: Lens.Lens' ListImageVersions (Prelude.Maybe Prelude.UTCTime)
 listImageVersions_lastModifiedTimeBefore = Lens.lens (\ListImageVersions' {lastModifiedTimeBefore} -> lastModifiedTimeBefore) (\s@ListImageVersions' {} a -> s {lastModifiedTimeBefore = a} :: ListImageVersions) Prelude.. Lens.mapping Core._Time
 
--- | The sort order. The default value is @DESCENDING@.
-listImageVersions_sortOrder :: Lens.Lens' ListImageVersions (Prelude.Maybe ImageVersionSortOrder)
-listImageVersions_sortOrder = Lens.lens (\ListImageVersions' {sortOrder} -> sortOrder) (\s@ListImageVersions' {} a -> s {sortOrder = a} :: ListImageVersions)
-
 -- | If the previous call to @ListImageVersions@ didn\'t return the full set
 -- of versions, the call returns a token for getting the next set of
 -- versions.
 listImageVersions_nextToken :: Lens.Lens' ListImageVersions (Prelude.Maybe Prelude.Text)
 listImageVersions_nextToken = Lens.lens (\ListImageVersions' {nextToken} -> nextToken) (\s@ListImageVersions' {} a -> s {nextToken = a} :: ListImageVersions)
+
+-- | The sort order. The default value is @DESCENDING@.
+listImageVersions_sortOrder :: Lens.Lens' ListImageVersions (Prelude.Maybe ImageVersionSortOrder)
+listImageVersions_sortOrder = Lens.lens (\ListImageVersions' {sortOrder} -> sortOrder) (\s@ListImageVersions' {} a -> s {sortOrder = a} :: ListImageVersions)
 
 -- | The maximum number of versions to return in the response. The default
 -- value is 10.
@@ -242,8 +242,8 @@ instance Core.ToJSON ListImageVersions where
       ( Prelude.catMaybes
           [ ("LastModifiedTimeBefore" Core..=)
               Prelude.<$> lastModifiedTimeBefore,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CreationTimeBefore" Core..=)
               Prelude.<$> creationTimeBefore,

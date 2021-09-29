@@ -36,8 +36,8 @@ data DeviceSummary = DeviceSummary'
     registrationTime :: Prelude.Maybe Core.POSIX,
     -- | Models on the device.
     models :: Prelude.Maybe [EdgeModelSummary],
-    -- | The AWS Internet of Things (IoT) object thing name associated with the
-    -- device..
+    -- | The Amazon Web Services Internet of Things (IoT) object thing name
+    -- associated with the device..
     iotThingName :: Prelude.Maybe Prelude.Text,
     -- | A description of the device.
     description :: Prelude.Maybe Prelude.Text,
@@ -64,8 +64,8 @@ data DeviceSummary = DeviceSummary'
 --
 -- 'models', 'deviceSummary_models' - Models on the device.
 --
--- 'iotThingName', 'deviceSummary_iotThingName' - The AWS Internet of Things (IoT) object thing name associated with the
--- device..
+-- 'iotThingName', 'deviceSummary_iotThingName' - The Amazon Web Services Internet of Things (IoT) object thing name
+-- associated with the device..
 --
 -- 'description', 'deviceSummary_description' - A description of the device.
 --
@@ -106,8 +106,8 @@ deviceSummary_registrationTime = Lens.lens (\DeviceSummary' {registrationTime} -
 deviceSummary_models :: Lens.Lens' DeviceSummary (Prelude.Maybe [EdgeModelSummary])
 deviceSummary_models = Lens.lens (\DeviceSummary' {models} -> models) (\s@DeviceSummary' {} a -> s {models = a} :: DeviceSummary) Prelude.. Lens.mapping Lens._Coerce
 
--- | The AWS Internet of Things (IoT) object thing name associated with the
--- device..
+-- | The Amazon Web Services Internet of Things (IoT) object thing name
+-- associated with the device..
 deviceSummary_iotThingName :: Lens.Lens' DeviceSummary (Prelude.Maybe Prelude.Text)
 deviceSummary_iotThingName = Lens.lens (\DeviceSummary' {iotThingName} -> iotThingName) (\s@DeviceSummary' {} a -> s {iotThingName = a} :: DeviceSummary)
 

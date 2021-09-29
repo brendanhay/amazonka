@@ -34,6 +34,12 @@ module Network.AWS.SageMaker.Types.InstanceType
         InstanceType_Ml_c5d_4xlarge,
         InstanceType_Ml_c5d_9xlarge,
         InstanceType_Ml_c5d_xlarge,
+        InstanceType_Ml_g4dn_12xlarge,
+        InstanceType_Ml_g4dn_16xlarge,
+        InstanceType_Ml_g4dn_2xlarge,
+        InstanceType_Ml_g4dn_4xlarge,
+        InstanceType_Ml_g4dn_8xlarge,
+        InstanceType_Ml_g4dn_xlarge,
         InstanceType_Ml_m4_10xlarge,
         InstanceType_Ml_m4_16xlarge,
         InstanceType_Ml_m4_2xlarge,
@@ -44,12 +50,29 @@ module Network.AWS.SageMaker.Types.InstanceType
         InstanceType_Ml_m5_2xlarge,
         InstanceType_Ml_m5_4xlarge,
         InstanceType_Ml_m5_xlarge,
+        InstanceType_Ml_m5d_12xlarge,
+        InstanceType_Ml_m5d_16xlarge,
+        InstanceType_Ml_m5d_24xlarge,
+        InstanceType_Ml_m5d_2xlarge,
+        InstanceType_Ml_m5d_4xlarge,
+        InstanceType_Ml_m5d_8xlarge,
+        InstanceType_Ml_m5d_large,
+        InstanceType_Ml_m5d_xlarge,
         InstanceType_Ml_p2_16xlarge,
         InstanceType_Ml_p2_8xlarge,
         InstanceType_Ml_p2_xlarge,
         InstanceType_Ml_p3_16xlarge,
         InstanceType_Ml_p3_2xlarge,
         InstanceType_Ml_p3_8xlarge,
+        InstanceType_Ml_p3dn_24xlarge,
+        InstanceType_Ml_r5_12xlarge,
+        InstanceType_Ml_r5_16xlarge,
+        InstanceType_Ml_r5_24xlarge,
+        InstanceType_Ml_r5_2xlarge,
+        InstanceType_Ml_r5_4xlarge,
+        InstanceType_Ml_r5_8xlarge,
+        InstanceType_Ml_r5_large,
+        InstanceType_Ml_r5_xlarge,
         InstanceType_Ml_t2_2xlarge,
         InstanceType_Ml_t2_large,
         InstanceType_Ml_t2_medium,
@@ -135,6 +158,24 @@ pattern InstanceType_Ml_c5d_9xlarge = InstanceType' "ml.c5d.9xlarge"
 pattern InstanceType_Ml_c5d_xlarge :: InstanceType
 pattern InstanceType_Ml_c5d_xlarge = InstanceType' "ml.c5d.xlarge"
 
+pattern InstanceType_Ml_g4dn_12xlarge :: InstanceType
+pattern InstanceType_Ml_g4dn_12xlarge = InstanceType' "ml.g4dn.12xlarge"
+
+pattern InstanceType_Ml_g4dn_16xlarge :: InstanceType
+pattern InstanceType_Ml_g4dn_16xlarge = InstanceType' "ml.g4dn.16xlarge"
+
+pattern InstanceType_Ml_g4dn_2xlarge :: InstanceType
+pattern InstanceType_Ml_g4dn_2xlarge = InstanceType' "ml.g4dn.2xlarge"
+
+pattern InstanceType_Ml_g4dn_4xlarge :: InstanceType
+pattern InstanceType_Ml_g4dn_4xlarge = InstanceType' "ml.g4dn.4xlarge"
+
+pattern InstanceType_Ml_g4dn_8xlarge :: InstanceType
+pattern InstanceType_Ml_g4dn_8xlarge = InstanceType' "ml.g4dn.8xlarge"
+
+pattern InstanceType_Ml_g4dn_xlarge :: InstanceType
+pattern InstanceType_Ml_g4dn_xlarge = InstanceType' "ml.g4dn.xlarge"
+
 pattern InstanceType_Ml_m4_10xlarge :: InstanceType
 pattern InstanceType_Ml_m4_10xlarge = InstanceType' "ml.m4.10xlarge"
 
@@ -165,6 +206,30 @@ pattern InstanceType_Ml_m5_4xlarge = InstanceType' "ml.m5.4xlarge"
 pattern InstanceType_Ml_m5_xlarge :: InstanceType
 pattern InstanceType_Ml_m5_xlarge = InstanceType' "ml.m5.xlarge"
 
+pattern InstanceType_Ml_m5d_12xlarge :: InstanceType
+pattern InstanceType_Ml_m5d_12xlarge = InstanceType' "ml.m5d.12xlarge"
+
+pattern InstanceType_Ml_m5d_16xlarge :: InstanceType
+pattern InstanceType_Ml_m5d_16xlarge = InstanceType' "ml.m5d.16xlarge"
+
+pattern InstanceType_Ml_m5d_24xlarge :: InstanceType
+pattern InstanceType_Ml_m5d_24xlarge = InstanceType' "ml.m5d.24xlarge"
+
+pattern InstanceType_Ml_m5d_2xlarge :: InstanceType
+pattern InstanceType_Ml_m5d_2xlarge = InstanceType' "ml.m5d.2xlarge"
+
+pattern InstanceType_Ml_m5d_4xlarge :: InstanceType
+pattern InstanceType_Ml_m5d_4xlarge = InstanceType' "ml.m5d.4xlarge"
+
+pattern InstanceType_Ml_m5d_8xlarge :: InstanceType
+pattern InstanceType_Ml_m5d_8xlarge = InstanceType' "ml.m5d.8xlarge"
+
+pattern InstanceType_Ml_m5d_large :: InstanceType
+pattern InstanceType_Ml_m5d_large = InstanceType' "ml.m5d.large"
+
+pattern InstanceType_Ml_m5d_xlarge :: InstanceType
+pattern InstanceType_Ml_m5d_xlarge = InstanceType' "ml.m5d.xlarge"
+
 pattern InstanceType_Ml_p2_16xlarge :: InstanceType
 pattern InstanceType_Ml_p2_16xlarge = InstanceType' "ml.p2.16xlarge"
 
@@ -182,6 +247,33 @@ pattern InstanceType_Ml_p3_2xlarge = InstanceType' "ml.p3.2xlarge"
 
 pattern InstanceType_Ml_p3_8xlarge :: InstanceType
 pattern InstanceType_Ml_p3_8xlarge = InstanceType' "ml.p3.8xlarge"
+
+pattern InstanceType_Ml_p3dn_24xlarge :: InstanceType
+pattern InstanceType_Ml_p3dn_24xlarge = InstanceType' "ml.p3dn.24xlarge"
+
+pattern InstanceType_Ml_r5_12xlarge :: InstanceType
+pattern InstanceType_Ml_r5_12xlarge = InstanceType' "ml.r5.12xlarge"
+
+pattern InstanceType_Ml_r5_16xlarge :: InstanceType
+pattern InstanceType_Ml_r5_16xlarge = InstanceType' "ml.r5.16xlarge"
+
+pattern InstanceType_Ml_r5_24xlarge :: InstanceType
+pattern InstanceType_Ml_r5_24xlarge = InstanceType' "ml.r5.24xlarge"
+
+pattern InstanceType_Ml_r5_2xlarge :: InstanceType
+pattern InstanceType_Ml_r5_2xlarge = InstanceType' "ml.r5.2xlarge"
+
+pattern InstanceType_Ml_r5_4xlarge :: InstanceType
+pattern InstanceType_Ml_r5_4xlarge = InstanceType' "ml.r5.4xlarge"
+
+pattern InstanceType_Ml_r5_8xlarge :: InstanceType
+pattern InstanceType_Ml_r5_8xlarge = InstanceType' "ml.r5.8xlarge"
+
+pattern InstanceType_Ml_r5_large :: InstanceType
+pattern InstanceType_Ml_r5_large = InstanceType' "ml.r5.large"
+
+pattern InstanceType_Ml_r5_xlarge :: InstanceType
+pattern InstanceType_Ml_r5_xlarge = InstanceType' "ml.r5.xlarge"
 
 pattern InstanceType_Ml_t2_2xlarge :: InstanceType
 pattern InstanceType_Ml_t2_2xlarge = InstanceType' "ml.t2.2xlarge"
@@ -222,6 +314,12 @@ pattern InstanceType_Ml_t3_xlarge = InstanceType' "ml.t3.xlarge"
   InstanceType_Ml_c5d_4xlarge,
   InstanceType_Ml_c5d_9xlarge,
   InstanceType_Ml_c5d_xlarge,
+  InstanceType_Ml_g4dn_12xlarge,
+  InstanceType_Ml_g4dn_16xlarge,
+  InstanceType_Ml_g4dn_2xlarge,
+  InstanceType_Ml_g4dn_4xlarge,
+  InstanceType_Ml_g4dn_8xlarge,
+  InstanceType_Ml_g4dn_xlarge,
   InstanceType_Ml_m4_10xlarge,
   InstanceType_Ml_m4_16xlarge,
   InstanceType_Ml_m4_2xlarge,
@@ -232,12 +330,29 @@ pattern InstanceType_Ml_t3_xlarge = InstanceType' "ml.t3.xlarge"
   InstanceType_Ml_m5_2xlarge,
   InstanceType_Ml_m5_4xlarge,
   InstanceType_Ml_m5_xlarge,
+  InstanceType_Ml_m5d_12xlarge,
+  InstanceType_Ml_m5d_16xlarge,
+  InstanceType_Ml_m5d_24xlarge,
+  InstanceType_Ml_m5d_2xlarge,
+  InstanceType_Ml_m5d_4xlarge,
+  InstanceType_Ml_m5d_8xlarge,
+  InstanceType_Ml_m5d_large,
+  InstanceType_Ml_m5d_xlarge,
   InstanceType_Ml_p2_16xlarge,
   InstanceType_Ml_p2_8xlarge,
   InstanceType_Ml_p2_xlarge,
   InstanceType_Ml_p3_16xlarge,
   InstanceType_Ml_p3_2xlarge,
   InstanceType_Ml_p3_8xlarge,
+  InstanceType_Ml_p3dn_24xlarge,
+  InstanceType_Ml_r5_12xlarge,
+  InstanceType_Ml_r5_16xlarge,
+  InstanceType_Ml_r5_24xlarge,
+  InstanceType_Ml_r5_2xlarge,
+  InstanceType_Ml_r5_4xlarge,
+  InstanceType_Ml_r5_8xlarge,
+  InstanceType_Ml_r5_large,
+  InstanceType_Ml_r5_xlarge,
   InstanceType_Ml_t2_2xlarge,
   InstanceType_Ml_t2_large,
   InstanceType_Ml_t2_medium,

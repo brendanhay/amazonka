@@ -63,11 +63,11 @@ data CreateModelBiasJobDefinition = CreateModelBiasJobDefinition'
     modelBiasBaselineConfig :: Prelude.Maybe ModelBiasBaselineConfig,
     -- | (Optional) An array of key-value pairs. For more information, see
     -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
-    -- in the /AWS Billing and Cost Management User Guide/.
+    -- in the /Amazon Web Services Billing and Cost Management User Guide/.
     tags :: Prelude.Maybe [Tag],
     stoppingCondition :: Prelude.Maybe MonitoringStoppingCondition,
     -- | The name of the bias job definition. The name must be unique within an
-    -- AWS Region in the AWS account.
+    -- Amazon Web Services Region in the Amazon Web Services account.
     jobDefinitionName :: Prelude.Text,
     -- | Configures the model bias job to run a specified Docker container image.
     modelBiasAppSpecification :: ModelBiasAppSpecification,
@@ -95,12 +95,12 @@ data CreateModelBiasJobDefinition = CreateModelBiasJobDefinition'
 --
 -- 'tags', 'createModelBiasJobDefinition_tags' - (Optional) An array of key-value pairs. For more information, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
--- in the /AWS Billing and Cost Management User Guide/.
+-- in the /Amazon Web Services Billing and Cost Management User Guide/.
 --
 -- 'stoppingCondition', 'createModelBiasJobDefinition_stoppingCondition' - Undocumented member.
 --
 -- 'jobDefinitionName', 'createModelBiasJobDefinition_jobDefinitionName' - The name of the bias job definition. The name must be unique within an
--- AWS Region in the AWS account.
+-- Amazon Web Services Region in the Amazon Web Services account.
 --
 -- 'modelBiasAppSpecification', 'createModelBiasJobDefinition_modelBiasAppSpecification' - Configures the model bias job to run a specified Docker container image.
 --
@@ -159,7 +159,7 @@ createModelBiasJobDefinition_modelBiasBaselineConfig = Lens.lens (\CreateModelBi
 
 -- | (Optional) An array of key-value pairs. For more information, see
 -- <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags>
--- in the /AWS Billing and Cost Management User Guide/.
+-- in the /Amazon Web Services Billing and Cost Management User Guide/.
 createModelBiasJobDefinition_tags :: Lens.Lens' CreateModelBiasJobDefinition (Prelude.Maybe [Tag])
 createModelBiasJobDefinition_tags = Lens.lens (\CreateModelBiasJobDefinition' {tags} -> tags) (\s@CreateModelBiasJobDefinition' {} a -> s {tags = a} :: CreateModelBiasJobDefinition) Prelude.. Lens.mapping Lens._Coerce
 
@@ -168,7 +168,7 @@ createModelBiasJobDefinition_stoppingCondition :: Lens.Lens' CreateModelBiasJobD
 createModelBiasJobDefinition_stoppingCondition = Lens.lens (\CreateModelBiasJobDefinition' {stoppingCondition} -> stoppingCondition) (\s@CreateModelBiasJobDefinition' {} a -> s {stoppingCondition = a} :: CreateModelBiasJobDefinition)
 
 -- | The name of the bias job definition. The name must be unique within an
--- AWS Region in the AWS account.
+-- Amazon Web Services Region in the Amazon Web Services account.
 createModelBiasJobDefinition_jobDefinitionName :: Lens.Lens' CreateModelBiasJobDefinition Prelude.Text
 createModelBiasJobDefinition_jobDefinitionName = Lens.lens (\CreateModelBiasJobDefinition' {jobDefinitionName} -> jobDefinitionName) (\s@CreateModelBiasJobDefinition' {} a -> s {jobDefinitionName = a} :: CreateModelBiasJobDefinition)
 

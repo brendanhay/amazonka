@@ -30,8 +30,9 @@ import Network.AWS.SageMaker.Types.RedshiftResultFormat
 -- /See:/ 'newRedshiftDatasetDefinition' smart constructor.
 data RedshiftDatasetDefinition = RedshiftDatasetDefinition'
   { outputCompression :: Prelude.Maybe RedshiftResultCompressionType,
-    -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
-    -- to encrypt data from a Redshift execution.
+    -- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+    -- key that Amazon SageMaker uses to encrypt data from a Redshift
+    -- execution.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     clusterId :: Prelude.Text,
     database :: Prelude.Text,
@@ -56,8 +57,9 @@ data RedshiftDatasetDefinition = RedshiftDatasetDefinition'
 --
 -- 'outputCompression', 'redshiftDatasetDefinition_outputCompression' - Undocumented member.
 --
--- 'kmsKeyId', 'redshiftDatasetDefinition_kmsKeyId' - The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
--- to encrypt data from a Redshift execution.
+-- 'kmsKeyId', 'redshiftDatasetDefinition_kmsKeyId' - The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+-- key that Amazon SageMaker uses to encrypt data from a Redshift
+-- execution.
 --
 -- 'clusterId', 'redshiftDatasetDefinition_clusterId' - Undocumented member.
 --
@@ -114,8 +116,9 @@ newRedshiftDatasetDefinition
 redshiftDatasetDefinition_outputCompression :: Lens.Lens' RedshiftDatasetDefinition (Prelude.Maybe RedshiftResultCompressionType)
 redshiftDatasetDefinition_outputCompression = Lens.lens (\RedshiftDatasetDefinition' {outputCompression} -> outputCompression) (\s@RedshiftDatasetDefinition' {} a -> s {outputCompression = a} :: RedshiftDatasetDefinition)
 
--- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses
--- to encrypt data from a Redshift execution.
+-- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)
+-- key that Amazon SageMaker uses to encrypt data from a Redshift
+-- execution.
 redshiftDatasetDefinition_kmsKeyId :: Lens.Lens' RedshiftDatasetDefinition (Prelude.Maybe Prelude.Text)
 redshiftDatasetDefinition_kmsKeyId = Lens.lens (\RedshiftDatasetDefinition' {kmsKeyId} -> kmsKeyId) (\s@RedshiftDatasetDefinition' {} a -> s {kmsKeyId = a} :: RedshiftDatasetDefinition)
 

@@ -38,8 +38,8 @@ module Network.AWS.SageMaker.DescribeApp
 
     -- * Response Lenses
     describeAppResponse_resourceSpec,
-    describeAppResponse_status,
     describeAppResponse_creationTime,
+    describeAppResponse_status,
     describeAppResponse_appType,
     describeAppResponse_appName,
     describeAppResponse_userProfileName,
@@ -133,8 +133,8 @@ instance Core.AWSRequest DescribeApp where
       ( \s h x ->
           DescribeAppResponse'
             Prelude.<$> (x Core..?> "ResourceSpec")
-            Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "CreationTime")
+            Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (x Core..?> "AppType")
             Prelude.<*> (x Core..?> "AppName")
             Prelude.<*> (x Core..?> "UserProfileName")
@@ -186,10 +186,10 @@ data DescribeAppResponse = DescribeAppResponse'
   { -- | The instance type and the Amazon Resource Name (ARN) of the SageMaker
     -- image created on the instance.
     resourceSpec :: Prelude.Maybe ResourceSpec,
-    -- | The status.
-    status :: Prelude.Maybe AppStatus,
     -- | The creation time.
     creationTime :: Prelude.Maybe Core.POSIX,
+    -- | The status.
+    status :: Prelude.Maybe AppStatus,
     -- | The type of app.
     appType :: Prelude.Maybe AppType,
     -- | The name of the app.
@@ -222,9 +222,9 @@ data DescribeAppResponse = DescribeAppResponse'
 -- 'resourceSpec', 'describeAppResponse_resourceSpec' - The instance type and the Amazon Resource Name (ARN) of the SageMaker
 -- image created on the instance.
 --
--- 'status', 'describeAppResponse_status' - The status.
---
 -- 'creationTime', 'describeAppResponse_creationTime' - The creation time.
+--
+-- 'status', 'describeAppResponse_status' - The status.
 --
 -- 'appType', 'describeAppResponse_appType' - The type of app.
 --
@@ -251,8 +251,8 @@ newDescribeAppResponse pHttpStatus_ =
   DescribeAppResponse'
     { resourceSpec =
         Prelude.Nothing,
-      status = Prelude.Nothing,
       creationTime = Prelude.Nothing,
+      status = Prelude.Nothing,
       appType = Prelude.Nothing,
       appName = Prelude.Nothing,
       userProfileName = Prelude.Nothing,
@@ -269,13 +269,13 @@ newDescribeAppResponse pHttpStatus_ =
 describeAppResponse_resourceSpec :: Lens.Lens' DescribeAppResponse (Prelude.Maybe ResourceSpec)
 describeAppResponse_resourceSpec = Lens.lens (\DescribeAppResponse' {resourceSpec} -> resourceSpec) (\s@DescribeAppResponse' {} a -> s {resourceSpec = a} :: DescribeAppResponse)
 
--- | The status.
-describeAppResponse_status :: Lens.Lens' DescribeAppResponse (Prelude.Maybe AppStatus)
-describeAppResponse_status = Lens.lens (\DescribeAppResponse' {status} -> status) (\s@DescribeAppResponse' {} a -> s {status = a} :: DescribeAppResponse)
-
 -- | The creation time.
 describeAppResponse_creationTime :: Lens.Lens' DescribeAppResponse (Prelude.Maybe Prelude.UTCTime)
 describeAppResponse_creationTime = Lens.lens (\DescribeAppResponse' {creationTime} -> creationTime) (\s@DescribeAppResponse' {} a -> s {creationTime = a} :: DescribeAppResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The status.
+describeAppResponse_status :: Lens.Lens' DescribeAppResponse (Prelude.Maybe AppStatus)
+describeAppResponse_status = Lens.lens (\DescribeAppResponse' {status} -> status) (\s@DescribeAppResponse' {} a -> s {status = a} :: DescribeAppResponse)
 
 -- | The type of app.
 describeAppResponse_appType :: Lens.Lens' DescribeAppResponse (Prelude.Maybe AppType)

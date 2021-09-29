@@ -29,15 +29,15 @@ module Network.AWS.SageMaker.ListAssociations
     newListAssociations,
 
     -- * Request Lenses
-    listAssociations_createdAfter,
-    listAssociations_sortOrder,
-    listAssociations_nextToken,
     listAssociations_destinationType,
+    listAssociations_nextToken,
+    listAssociations_sortOrder,
+    listAssociations_createdAfter,
     listAssociations_createdBefore,
     listAssociations_destinationArn,
     listAssociations_maxResults,
-    listAssociations_sortBy,
     listAssociations_associationType,
+    listAssociations_sortBy,
     listAssociations_sourceArn,
     listAssociations_sourceType,
 
@@ -61,18 +61,18 @@ import Network.AWS.SageMaker.Types
 
 -- | /See:/ 'newListAssociations' smart constructor.
 data ListAssociations = ListAssociations'
-  { -- | A filter that returns only associations created on or after the
-    -- specified time.
-    createdAfter :: Prelude.Maybe Core.POSIX,
-    -- | The sort order. The default value is @Descending@.
-    sortOrder :: Prelude.Maybe SortOrder,
+  { -- | A filter that returns only associations with the specified destination
+    -- type.
+    destinationType :: Prelude.Maybe Prelude.Text,
     -- | If the previous call to @ListAssociations@ didn\'t return the full set
     -- of associations, the call returns a token for getting the next set of
     -- associations.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A filter that returns only associations with the specified destination
-    -- type.
-    destinationType :: Prelude.Maybe Prelude.Text,
+    -- | The sort order. The default value is @Descending@.
+    sortOrder :: Prelude.Maybe SortOrder,
+    -- | A filter that returns only associations created on or after the
+    -- specified time.
+    createdAfter :: Prelude.Maybe Core.POSIX,
     -- | A filter that returns only associations created on or before the
     -- specified time.
     createdBefore :: Prelude.Maybe Core.POSIX,
@@ -82,10 +82,10 @@ data ListAssociations = ListAssociations'
     -- | The maximum number of associations to return in the response. The
     -- default value is 10.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The property used to sort results. The default value is @CreationTime@.
-    sortBy :: Prelude.Maybe SortAssociationsBy,
     -- | A filter that returns only associations of the specified type.
     associationType :: Prelude.Maybe AssociationEdgeType,
+    -- | The property used to sort results. The default value is @CreationTime@.
+    sortBy :: Prelude.Maybe SortAssociationsBy,
     -- | A filter that returns only associations with the specified source ARN.
     sourceArn :: Prelude.Maybe Prelude.Text,
     -- | A filter that returns only associations with the specified source type.
@@ -101,17 +101,17 @@ data ListAssociations = ListAssociations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'createdAfter', 'listAssociations_createdAfter' - A filter that returns only associations created on or after the
--- specified time.
---
--- 'sortOrder', 'listAssociations_sortOrder' - The sort order. The default value is @Descending@.
+-- 'destinationType', 'listAssociations_destinationType' - A filter that returns only associations with the specified destination
+-- type.
 --
 -- 'nextToken', 'listAssociations_nextToken' - If the previous call to @ListAssociations@ didn\'t return the full set
 -- of associations, the call returns a token for getting the next set of
 -- associations.
 --
--- 'destinationType', 'listAssociations_destinationType' - A filter that returns only associations with the specified destination
--- type.
+-- 'sortOrder', 'listAssociations_sortOrder' - The sort order. The default value is @Descending@.
+--
+-- 'createdAfter', 'listAssociations_createdAfter' - A filter that returns only associations created on or after the
+-- specified time.
 --
 -- 'createdBefore', 'listAssociations_createdBefore' - A filter that returns only associations created on or before the
 -- specified time.
@@ -122,9 +122,9 @@ data ListAssociations = ListAssociations'
 -- 'maxResults', 'listAssociations_maxResults' - The maximum number of associations to return in the response. The
 -- default value is 10.
 --
--- 'sortBy', 'listAssociations_sortBy' - The property used to sort results. The default value is @CreationTime@.
---
 -- 'associationType', 'listAssociations_associationType' - A filter that returns only associations of the specified type.
+--
+-- 'sortBy', 'listAssociations_sortBy' - The property used to sort results. The default value is @CreationTime@.
 --
 -- 'sourceArn', 'listAssociations_sourceArn' - A filter that returns only associations with the specified source ARN.
 --
@@ -133,27 +133,24 @@ newListAssociations ::
   ListAssociations
 newListAssociations =
   ListAssociations'
-    { createdAfter = Prelude.Nothing,
-      sortOrder = Prelude.Nothing,
+    { destinationType =
+        Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      destinationType = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
+      createdAfter = Prelude.Nothing,
       createdBefore = Prelude.Nothing,
       destinationArn = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      sortBy = Prelude.Nothing,
       associationType = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
       sourceArn = Prelude.Nothing,
       sourceType = Prelude.Nothing
     }
 
--- | A filter that returns only associations created on or after the
--- specified time.
-listAssociations_createdAfter :: Lens.Lens' ListAssociations (Prelude.Maybe Prelude.UTCTime)
-listAssociations_createdAfter = Lens.lens (\ListAssociations' {createdAfter} -> createdAfter) (\s@ListAssociations' {} a -> s {createdAfter = a} :: ListAssociations) Prelude.. Lens.mapping Core._Time
-
--- | The sort order. The default value is @Descending@.
-listAssociations_sortOrder :: Lens.Lens' ListAssociations (Prelude.Maybe SortOrder)
-listAssociations_sortOrder = Lens.lens (\ListAssociations' {sortOrder} -> sortOrder) (\s@ListAssociations' {} a -> s {sortOrder = a} :: ListAssociations)
+-- | A filter that returns only associations with the specified destination
+-- type.
+listAssociations_destinationType :: Lens.Lens' ListAssociations (Prelude.Maybe Prelude.Text)
+listAssociations_destinationType = Lens.lens (\ListAssociations' {destinationType} -> destinationType) (\s@ListAssociations' {} a -> s {destinationType = a} :: ListAssociations)
 
 -- | If the previous call to @ListAssociations@ didn\'t return the full set
 -- of associations, the call returns a token for getting the next set of
@@ -161,10 +158,14 @@ listAssociations_sortOrder = Lens.lens (\ListAssociations' {sortOrder} -> sortOr
 listAssociations_nextToken :: Lens.Lens' ListAssociations (Prelude.Maybe Prelude.Text)
 listAssociations_nextToken = Lens.lens (\ListAssociations' {nextToken} -> nextToken) (\s@ListAssociations' {} a -> s {nextToken = a} :: ListAssociations)
 
--- | A filter that returns only associations with the specified destination
--- type.
-listAssociations_destinationType :: Lens.Lens' ListAssociations (Prelude.Maybe Prelude.Text)
-listAssociations_destinationType = Lens.lens (\ListAssociations' {destinationType} -> destinationType) (\s@ListAssociations' {} a -> s {destinationType = a} :: ListAssociations)
+-- | The sort order. The default value is @Descending@.
+listAssociations_sortOrder :: Lens.Lens' ListAssociations (Prelude.Maybe SortOrder)
+listAssociations_sortOrder = Lens.lens (\ListAssociations' {sortOrder} -> sortOrder) (\s@ListAssociations' {} a -> s {sortOrder = a} :: ListAssociations)
+
+-- | A filter that returns only associations created on or after the
+-- specified time.
+listAssociations_createdAfter :: Lens.Lens' ListAssociations (Prelude.Maybe Prelude.UTCTime)
+listAssociations_createdAfter = Lens.lens (\ListAssociations' {createdAfter} -> createdAfter) (\s@ListAssociations' {} a -> s {createdAfter = a} :: ListAssociations) Prelude.. Lens.mapping Core._Time
 
 -- | A filter that returns only associations created on or before the
 -- specified time.
@@ -181,13 +182,13 @@ listAssociations_destinationArn = Lens.lens (\ListAssociations' {destinationArn}
 listAssociations_maxResults :: Lens.Lens' ListAssociations (Prelude.Maybe Prelude.Natural)
 listAssociations_maxResults = Lens.lens (\ListAssociations' {maxResults} -> maxResults) (\s@ListAssociations' {} a -> s {maxResults = a} :: ListAssociations)
 
--- | The property used to sort results. The default value is @CreationTime@.
-listAssociations_sortBy :: Lens.Lens' ListAssociations (Prelude.Maybe SortAssociationsBy)
-listAssociations_sortBy = Lens.lens (\ListAssociations' {sortBy} -> sortBy) (\s@ListAssociations' {} a -> s {sortBy = a} :: ListAssociations)
-
 -- | A filter that returns only associations of the specified type.
 listAssociations_associationType :: Lens.Lens' ListAssociations (Prelude.Maybe AssociationEdgeType)
 listAssociations_associationType = Lens.lens (\ListAssociations' {associationType} -> associationType) (\s@ListAssociations' {} a -> s {associationType = a} :: ListAssociations)
+
+-- | The property used to sort results. The default value is @CreationTime@.
+listAssociations_sortBy :: Lens.Lens' ListAssociations (Prelude.Maybe SortAssociationsBy)
+listAssociations_sortBy = Lens.lens (\ListAssociations' {sortBy} -> sortBy) (\s@ListAssociations' {} a -> s {sortBy = a} :: ListAssociations)
 
 -- | A filter that returns only associations with the specified source ARN.
 listAssociations_sourceArn :: Lens.Lens' ListAssociations (Prelude.Maybe Prelude.Text)
@@ -256,18 +257,18 @@ instance Core.ToJSON ListAssociations where
   toJSON ListAssociations' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CreatedAfter" Core..=) Prelude.<$> createdAfter,
-            ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("DestinationType" Core..=)
+          [ ("DestinationType" Core..=)
               Prelude.<$> destinationType,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
+            ("CreatedAfter" Core..=) Prelude.<$> createdAfter,
             ("CreatedBefore" Core..=) Prelude.<$> createdBefore,
             ("DestinationArn" Core..=)
               Prelude.<$> destinationArn,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("SortBy" Core..=) Prelude.<$> sortBy,
             ("AssociationType" Core..=)
               Prelude.<$> associationType,
+            ("SortBy" Core..=) Prelude.<$> sortBy,
             ("SourceArn" Core..=) Prelude.<$> sourceArn,
             ("SourceType" Core..=) Prelude.<$> sourceType
           ]

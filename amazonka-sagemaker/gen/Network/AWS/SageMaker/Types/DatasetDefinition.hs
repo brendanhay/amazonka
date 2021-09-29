@@ -34,12 +34,12 @@ import Network.AWS.SageMaker.Types.RedshiftDatasetDefinition
 -- /See:/ 'newDatasetDefinition' smart constructor.
 data DatasetDefinition = DatasetDefinition'
   { redshiftDatasetDefinition :: Prelude.Maybe RedshiftDatasetDefinition,
-    athenaDatasetDefinition :: Prelude.Maybe AthenaDatasetDefinition,
     -- | The local path where you want Amazon SageMaker to download the Dataset
     -- Definition inputs to run a processing job. @LocalPath@ is an absolute
     -- path to the input data. This is a required parameter when @AppManaged@
     -- is @False@ (default).
     localPath :: Prelude.Maybe Prelude.Text,
+    athenaDatasetDefinition :: Prelude.Maybe AthenaDatasetDefinition,
     -- | Whether to use @File@ or @Pipe@ input mode. In @File@ (default) mode,
     -- Amazon SageMaker copies the data from the input source onto the local
     -- Amazon Elastic Block Store (Amazon EBS) volumes before starting your
@@ -63,12 +63,12 @@ data DatasetDefinition = DatasetDefinition'
 --
 -- 'redshiftDatasetDefinition', 'datasetDefinition_redshiftDatasetDefinition' - Undocumented member.
 --
--- 'athenaDatasetDefinition', 'datasetDefinition_athenaDatasetDefinition' - Undocumented member.
---
 -- 'localPath', 'datasetDefinition_localPath' - The local path where you want Amazon SageMaker to download the Dataset
 -- Definition inputs to run a processing job. @LocalPath@ is an absolute
 -- path to the input data. This is a required parameter when @AppManaged@
 -- is @False@ (default).
+--
+-- 'athenaDatasetDefinition', 'datasetDefinition_athenaDatasetDefinition' - Undocumented member.
 --
 -- 'inputMode', 'datasetDefinition_inputMode' - Whether to use @File@ or @Pipe@ input mode. In @File@ (default) mode,
 -- Amazon SageMaker copies the data from the input source onto the local
@@ -85,8 +85,8 @@ newDatasetDefinition =
   DatasetDefinition'
     { redshiftDatasetDefinition =
         Prelude.Nothing,
-      athenaDatasetDefinition = Prelude.Nothing,
       localPath = Prelude.Nothing,
+      athenaDatasetDefinition = Prelude.Nothing,
       inputMode = Prelude.Nothing,
       dataDistributionType = Prelude.Nothing
     }
@@ -95,16 +95,16 @@ newDatasetDefinition =
 datasetDefinition_redshiftDatasetDefinition :: Lens.Lens' DatasetDefinition (Prelude.Maybe RedshiftDatasetDefinition)
 datasetDefinition_redshiftDatasetDefinition = Lens.lens (\DatasetDefinition' {redshiftDatasetDefinition} -> redshiftDatasetDefinition) (\s@DatasetDefinition' {} a -> s {redshiftDatasetDefinition = a} :: DatasetDefinition)
 
--- | Undocumented member.
-datasetDefinition_athenaDatasetDefinition :: Lens.Lens' DatasetDefinition (Prelude.Maybe AthenaDatasetDefinition)
-datasetDefinition_athenaDatasetDefinition = Lens.lens (\DatasetDefinition' {athenaDatasetDefinition} -> athenaDatasetDefinition) (\s@DatasetDefinition' {} a -> s {athenaDatasetDefinition = a} :: DatasetDefinition)
-
 -- | The local path where you want Amazon SageMaker to download the Dataset
 -- Definition inputs to run a processing job. @LocalPath@ is an absolute
 -- path to the input data. This is a required parameter when @AppManaged@
 -- is @False@ (default).
 datasetDefinition_localPath :: Lens.Lens' DatasetDefinition (Prelude.Maybe Prelude.Text)
 datasetDefinition_localPath = Lens.lens (\DatasetDefinition' {localPath} -> localPath) (\s@DatasetDefinition' {} a -> s {localPath = a} :: DatasetDefinition)
+
+-- | Undocumented member.
+datasetDefinition_athenaDatasetDefinition :: Lens.Lens' DatasetDefinition (Prelude.Maybe AthenaDatasetDefinition)
+datasetDefinition_athenaDatasetDefinition = Lens.lens (\DatasetDefinition' {athenaDatasetDefinition} -> athenaDatasetDefinition) (\s@DatasetDefinition' {} a -> s {athenaDatasetDefinition = a} :: DatasetDefinition)
 
 -- | Whether to use @File@ or @Pipe@ input mode. In @File@ (default) mode,
 -- Amazon SageMaker copies the data from the input source onto the local
@@ -127,8 +127,8 @@ instance Core.FromJSON DatasetDefinition where
       ( \x ->
           DatasetDefinition'
             Prelude.<$> (x Core..:? "RedshiftDatasetDefinition")
-            Prelude.<*> (x Core..:? "AthenaDatasetDefinition")
             Prelude.<*> (x Core..:? "LocalPath")
+            Prelude.<*> (x Core..:? "AthenaDatasetDefinition")
             Prelude.<*> (x Core..:? "InputMode")
             Prelude.<*> (x Core..:? "DataDistributionType")
       )
@@ -143,9 +143,9 @@ instance Core.ToJSON DatasetDefinition where
       ( Prelude.catMaybes
           [ ("RedshiftDatasetDefinition" Core..=)
               Prelude.<$> redshiftDatasetDefinition,
+            ("LocalPath" Core..=) Prelude.<$> localPath,
             ("AthenaDatasetDefinition" Core..=)
               Prelude.<$> athenaDatasetDefinition,
-            ("LocalPath" Core..=) Prelude.<$> localPath,
             ("InputMode" Core..=) Prelude.<$> inputMode,
             ("DataDistributionType" Core..=)
               Prelude.<$> dataDistributionType

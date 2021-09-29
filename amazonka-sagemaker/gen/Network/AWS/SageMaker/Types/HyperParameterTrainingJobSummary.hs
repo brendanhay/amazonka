@@ -52,10 +52,10 @@ data HyperParameterTrainingJobSummary = HyperParameterTrainingJobSummary'
     --     This typically occurs when the training job failed or did not emit
     --     an objective metric.
     objectiveStatus :: Prelude.Maybe ObjectiveStatus,
-    -- | The training job definition name.
-    trainingJobDefinitionName :: Prelude.Maybe Prelude.Text,
     -- | The date and time that the training job started.
     trainingStartTime :: Prelude.Maybe Core.POSIX,
+    -- | The training job definition name.
+    trainingJobDefinitionName :: Prelude.Maybe Prelude.Text,
     -- | Specifies the time when the training job ends on training instances. You
     -- are billed for the time interval between the value of
     -- @TrainingStartTime@ and this time. For successful jobs and stopped jobs,
@@ -105,9 +105,9 @@ data HyperParameterTrainingJobSummary = HyperParameterTrainingJobSummary'
 --     This typically occurs when the training job failed or did not emit
 --     an objective metric.
 --
--- 'trainingJobDefinitionName', 'hyperParameterTrainingJobSummary_trainingJobDefinitionName' - The training job definition name.
---
 -- 'trainingStartTime', 'hyperParameterTrainingJobSummary_trainingStartTime' - The date and time that the training job started.
+--
+-- 'trainingJobDefinitionName', 'hyperParameterTrainingJobSummary_trainingJobDefinitionName' - The training job definition name.
 --
 -- 'trainingEndTime', 'hyperParameterTrainingJobSummary_trainingEndTime' - Specifies the time when the training job ends on training instances. You
 -- are billed for the time interval between the value of
@@ -145,9 +145,9 @@ newHyperParameterTrainingJobSummary
         tuningJobName = Prelude.Nothing,
         failureReason = Prelude.Nothing,
         objectiveStatus = Prelude.Nothing,
+        trainingStartTime = Prelude.Nothing,
         trainingJobDefinitionName =
           Prelude.Nothing,
-        trainingStartTime = Prelude.Nothing,
         trainingEndTime = Prelude.Nothing,
         trainingJobName = pTrainingJobName_,
         trainingJobArn = pTrainingJobArn_,
@@ -187,13 +187,13 @@ hyperParameterTrainingJobSummary_failureReason = Lens.lens (\HyperParameterTrain
 hyperParameterTrainingJobSummary_objectiveStatus :: Lens.Lens' HyperParameterTrainingJobSummary (Prelude.Maybe ObjectiveStatus)
 hyperParameterTrainingJobSummary_objectiveStatus = Lens.lens (\HyperParameterTrainingJobSummary' {objectiveStatus} -> objectiveStatus) (\s@HyperParameterTrainingJobSummary' {} a -> s {objectiveStatus = a} :: HyperParameterTrainingJobSummary)
 
--- | The training job definition name.
-hyperParameterTrainingJobSummary_trainingJobDefinitionName :: Lens.Lens' HyperParameterTrainingJobSummary (Prelude.Maybe Prelude.Text)
-hyperParameterTrainingJobSummary_trainingJobDefinitionName = Lens.lens (\HyperParameterTrainingJobSummary' {trainingJobDefinitionName} -> trainingJobDefinitionName) (\s@HyperParameterTrainingJobSummary' {} a -> s {trainingJobDefinitionName = a} :: HyperParameterTrainingJobSummary)
-
 -- | The date and time that the training job started.
 hyperParameterTrainingJobSummary_trainingStartTime :: Lens.Lens' HyperParameterTrainingJobSummary (Prelude.Maybe Prelude.UTCTime)
 hyperParameterTrainingJobSummary_trainingStartTime = Lens.lens (\HyperParameterTrainingJobSummary' {trainingStartTime} -> trainingStartTime) (\s@HyperParameterTrainingJobSummary' {} a -> s {trainingStartTime = a} :: HyperParameterTrainingJobSummary) Prelude.. Lens.mapping Core._Time
+
+-- | The training job definition name.
+hyperParameterTrainingJobSummary_trainingJobDefinitionName :: Lens.Lens' HyperParameterTrainingJobSummary (Prelude.Maybe Prelude.Text)
+hyperParameterTrainingJobSummary_trainingJobDefinitionName = Lens.lens (\HyperParameterTrainingJobSummary' {trainingJobDefinitionName} -> trainingJobDefinitionName) (\s@HyperParameterTrainingJobSummary' {} a -> s {trainingJobDefinitionName = a} :: HyperParameterTrainingJobSummary)
 
 -- | Specifies the time when the training job ends on training instances. You
 -- are billed for the time interval between the value of
@@ -238,8 +238,8 @@ instance
             Prelude.<*> (x Core..:? "TuningJobName")
             Prelude.<*> (x Core..:? "FailureReason")
             Prelude.<*> (x Core..:? "ObjectiveStatus")
-            Prelude.<*> (x Core..:? "TrainingJobDefinitionName")
             Prelude.<*> (x Core..:? "TrainingStartTime")
+            Prelude.<*> (x Core..:? "TrainingJobDefinitionName")
             Prelude.<*> (x Core..:? "TrainingEndTime")
             Prelude.<*> (x Core..: "TrainingJobName")
             Prelude.<*> (x Core..: "TrainingJobArn")

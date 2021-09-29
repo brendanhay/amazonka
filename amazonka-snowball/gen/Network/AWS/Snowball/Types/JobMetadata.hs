@@ -29,6 +29,8 @@ import Network.AWS.Snowball.Types.JobResource
 import Network.AWS.Snowball.Types.JobState
 import Network.AWS.Snowball.Types.JobType
 import Network.AWS.Snowball.Types.Notification
+import Network.AWS.Snowball.Types.OnDeviceServiceConfiguration
+import Network.AWS.Snowball.Types.RemoteManagement
 import Network.AWS.Snowball.Types.ShippingDetails
 import Network.AWS.Snowball.Types.SnowballCapacity
 import Network.AWS.Snowball.Types.SnowballType
@@ -44,6 +46,12 @@ data JobMetadata = JobMetadata'
   { -- | The 39-character ID for the cluster, for example
     -- @CID123e4567-e89b-12d3-a456-426655440000@.
     clusterId :: Prelude.Maybe Prelude.Text,
+    -- | Allows you to securely operate and manage Snowcone devices remotely from
+    -- outside of your internal network. When set to @INSTALLED_AUTOSTART@,
+    -- remote management will automatically be available when the device
+    -- arrives at your location. Otherwise, you need to use the Snowball Client
+    -- to manage the device.
+    remoteManagement :: Prelude.Maybe RemoteManagement,
     -- | The role ARN associated with this job. This ARN was created using the
     -- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>
     -- API action in AWS Identity and Access Management (IAM).
@@ -53,31 +61,42 @@ data JobMetadata = JobMetadata'
     deviceConfiguration :: Prelude.Maybe DeviceConfiguration,
     -- | The creation date for this job.
     creationDate :: Prelude.Maybe Core.POSIX,
+    -- | The type of job.
+    jobType :: Prelude.Maybe JobType,
     -- | The Amazon Resource Name (ARN) for the AWS Key Management Service (AWS
     -- KMS) key associated with this job. This ARN was created using the
     -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey>
     -- API action in AWS KMS.
     kmsKeyARN :: Prelude.Maybe Prelude.Text,
-    -- | The type of job.
-    jobType :: Prelude.Maybe JobType,
-    -- | An array of @S3Resource@ objects. Each @S3Resource@ object represents an
-    -- Amazon S3 bucket that your transferred data will be exported from or
-    -- imported into.
-    resources :: Prelude.Maybe JobResource,
+    -- | Represents metadata and configuration settings for services on an AWS
+    -- Snow Family device.
+    onDeviceServiceConfiguration :: Prelude.Maybe OnDeviceServiceConfiguration,
     -- | The metadata associated with the tax documents required in your AWS
     -- Region.
     taxDocuments :: Prelude.Maybe TaxDocuments,
     -- | The Snow device capacity preference for this job, specified at job
     -- creation. In US regions, you can choose between 50 TB and 80 TB
     -- Snowballs. All other regions use 80 TB capacity Snowballs.
+    --
+    -- For more information, see
+    -- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/snowcone-guide\/snow-device-types.html\"
+    -- (Snow Family Devices and Capacity) in the /Snowcone User Guide/ or
+    -- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/developer-guide\/snow-device-types.html\"
+    -- (Snow Family Devices and Capacity) in the /Snowcone User Guide/.
     snowballCapacityPreference :: Prelude.Maybe SnowballCapacity,
-    -- | The type of device used with this job.
-    snowballType :: Prelude.Maybe SnowballType,
+    -- | The ID of the long-term pricing type for the device.
+    longTermPricingId :: Prelude.Maybe Prelude.Text,
+    -- | An array of @S3Resource@ objects. Each @S3Resource@ object represents an
+    -- Amazon S3 bucket that your transferred data will be exported from or
+    -- imported into.
+    resources :: Prelude.Maybe JobResource,
     -- | A value that defines the real-time status of a Snow device\'s data
     -- transfer while the device is at AWS. This data is only available while a
     -- job has a @JobState@ value of @InProgress@, for both import and export
     -- jobs.
     dataTransferProgress :: Prelude.Maybe DataTransfer,
+    -- | The type of device used with this job.
+    snowballType :: Prelude.Maybe SnowballType,
     -- | The description of the job, provided at job creation.
     description :: Prelude.Maybe Prelude.Text,
     -- | The ID for the address that you want the Snow device shipped to.
@@ -117,6 +136,12 @@ data JobMetadata = JobMetadata'
 -- 'clusterId', 'jobMetadata_clusterId' - The 39-character ID for the cluster, for example
 -- @CID123e4567-e89b-12d3-a456-426655440000@.
 --
+-- 'remoteManagement', 'jobMetadata_remoteManagement' - Allows you to securely operate and manage Snowcone devices remotely from
+-- outside of your internal network. When set to @INSTALLED_AUTOSTART@,
+-- remote management will automatically be available when the device
+-- arrives at your location. Otherwise, you need to use the Snowball Client
+-- to manage the device.
+--
 -- 'roleARN', 'jobMetadata_roleARN' - The role ARN associated with this job. This ARN was created using the
 -- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>
 -- API action in AWS Identity and Access Management (IAM).
@@ -127,16 +152,15 @@ data JobMetadata = JobMetadata'
 --
 -- 'creationDate', 'jobMetadata_creationDate' - The creation date for this job.
 --
+-- 'jobType', 'jobMetadata_jobType' - The type of job.
+--
 -- 'kmsKeyARN', 'jobMetadata_kmsKeyARN' - The Amazon Resource Name (ARN) for the AWS Key Management Service (AWS
 -- KMS) key associated with this job. This ARN was created using the
 -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey>
 -- API action in AWS KMS.
 --
--- 'jobType', 'jobMetadata_jobType' - The type of job.
---
--- 'resources', 'jobMetadata_resources' - An array of @S3Resource@ objects. Each @S3Resource@ object represents an
--- Amazon S3 bucket that your transferred data will be exported from or
--- imported into.
+-- 'onDeviceServiceConfiguration', 'jobMetadata_onDeviceServiceConfiguration' - Represents metadata and configuration settings for services on an AWS
+-- Snow Family device.
 --
 -- 'taxDocuments', 'jobMetadata_taxDocuments' - The metadata associated with the tax documents required in your AWS
 -- Region.
@@ -145,12 +169,24 @@ data JobMetadata = JobMetadata'
 -- creation. In US regions, you can choose between 50 TB and 80 TB
 -- Snowballs. All other regions use 80 TB capacity Snowballs.
 --
--- 'snowballType', 'jobMetadata_snowballType' - The type of device used with this job.
+-- For more information, see
+-- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/snowcone-guide\/snow-device-types.html\"
+-- (Snow Family Devices and Capacity) in the /Snowcone User Guide/ or
+-- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/developer-guide\/snow-device-types.html\"
+-- (Snow Family Devices and Capacity) in the /Snowcone User Guide/.
+--
+-- 'longTermPricingId', 'jobMetadata_longTermPricingId' - The ID of the long-term pricing type for the device.
+--
+-- 'resources', 'jobMetadata_resources' - An array of @S3Resource@ objects. Each @S3Resource@ object represents an
+-- Amazon S3 bucket that your transferred data will be exported from or
+-- imported into.
 --
 -- 'dataTransferProgress', 'jobMetadata_dataTransferProgress' - A value that defines the real-time status of a Snow device\'s data
 -- transfer while the device is at AWS. This data is only available while a
 -- job has a @JobState@ value of @InProgress@, for both import and export
 -- jobs.
+--
+-- 'snowballType', 'jobMetadata_snowballType' - The type of device used with this job.
 --
 -- 'description', 'jobMetadata_description' - The description of the job, provided at job creation.
 --
@@ -181,17 +217,20 @@ newJobMetadata ::
 newJobMetadata =
   JobMetadata'
     { clusterId = Prelude.Nothing,
+      remoteManagement = Prelude.Nothing,
       roleARN = Prelude.Nothing,
       jobState = Prelude.Nothing,
       deviceConfiguration = Prelude.Nothing,
       creationDate = Prelude.Nothing,
-      kmsKeyARN = Prelude.Nothing,
       jobType = Prelude.Nothing,
-      resources = Prelude.Nothing,
+      kmsKeyARN = Prelude.Nothing,
+      onDeviceServiceConfiguration = Prelude.Nothing,
       taxDocuments = Prelude.Nothing,
       snowballCapacityPreference = Prelude.Nothing,
-      snowballType = Prelude.Nothing,
+      longTermPricingId = Prelude.Nothing,
+      resources = Prelude.Nothing,
       dataTransferProgress = Prelude.Nothing,
+      snowballType = Prelude.Nothing,
       description = Prelude.Nothing,
       addressId = Prelude.Nothing,
       forwardingAddressId = Prelude.Nothing,
@@ -205,6 +244,14 @@ newJobMetadata =
 -- @CID123e4567-e89b-12d3-a456-426655440000@.
 jobMetadata_clusterId :: Lens.Lens' JobMetadata (Prelude.Maybe Prelude.Text)
 jobMetadata_clusterId = Lens.lens (\JobMetadata' {clusterId} -> clusterId) (\s@JobMetadata' {} a -> s {clusterId = a} :: JobMetadata)
+
+-- | Allows you to securely operate and manage Snowcone devices remotely from
+-- outside of your internal network. When set to @INSTALLED_AUTOSTART@,
+-- remote management will automatically be available when the device
+-- arrives at your location. Otherwise, you need to use the Snowball Client
+-- to manage the device.
+jobMetadata_remoteManagement :: Lens.Lens' JobMetadata (Prelude.Maybe RemoteManagement)
+jobMetadata_remoteManagement = Lens.lens (\JobMetadata' {remoteManagement} -> remoteManagement) (\s@JobMetadata' {} a -> s {remoteManagement = a} :: JobMetadata)
 
 -- | The role ARN associated with this job. This ARN was created using the
 -- <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole>
@@ -224,6 +271,10 @@ jobMetadata_deviceConfiguration = Lens.lens (\JobMetadata' {deviceConfiguration}
 jobMetadata_creationDate :: Lens.Lens' JobMetadata (Prelude.Maybe Prelude.UTCTime)
 jobMetadata_creationDate = Lens.lens (\JobMetadata' {creationDate} -> creationDate) (\s@JobMetadata' {} a -> s {creationDate = a} :: JobMetadata) Prelude.. Lens.mapping Core._Time
 
+-- | The type of job.
+jobMetadata_jobType :: Lens.Lens' JobMetadata (Prelude.Maybe JobType)
+jobMetadata_jobType = Lens.lens (\JobMetadata' {jobType} -> jobType) (\s@JobMetadata' {} a -> s {jobType = a} :: JobMetadata)
+
 -- | The Amazon Resource Name (ARN) for the AWS Key Management Service (AWS
 -- KMS) key associated with this job. This ARN was created using the
 -- <https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateKey.html CreateKey>
@@ -231,15 +282,10 @@ jobMetadata_creationDate = Lens.lens (\JobMetadata' {creationDate} -> creationDa
 jobMetadata_kmsKeyARN :: Lens.Lens' JobMetadata (Prelude.Maybe Prelude.Text)
 jobMetadata_kmsKeyARN = Lens.lens (\JobMetadata' {kmsKeyARN} -> kmsKeyARN) (\s@JobMetadata' {} a -> s {kmsKeyARN = a} :: JobMetadata)
 
--- | The type of job.
-jobMetadata_jobType :: Lens.Lens' JobMetadata (Prelude.Maybe JobType)
-jobMetadata_jobType = Lens.lens (\JobMetadata' {jobType} -> jobType) (\s@JobMetadata' {} a -> s {jobType = a} :: JobMetadata)
-
--- | An array of @S3Resource@ objects. Each @S3Resource@ object represents an
--- Amazon S3 bucket that your transferred data will be exported from or
--- imported into.
-jobMetadata_resources :: Lens.Lens' JobMetadata (Prelude.Maybe JobResource)
-jobMetadata_resources = Lens.lens (\JobMetadata' {resources} -> resources) (\s@JobMetadata' {} a -> s {resources = a} :: JobMetadata)
+-- | Represents metadata and configuration settings for services on an AWS
+-- Snow Family device.
+jobMetadata_onDeviceServiceConfiguration :: Lens.Lens' JobMetadata (Prelude.Maybe OnDeviceServiceConfiguration)
+jobMetadata_onDeviceServiceConfiguration = Lens.lens (\JobMetadata' {onDeviceServiceConfiguration} -> onDeviceServiceConfiguration) (\s@JobMetadata' {} a -> s {onDeviceServiceConfiguration = a} :: JobMetadata)
 
 -- | The metadata associated with the tax documents required in your AWS
 -- Region.
@@ -249,12 +295,24 @@ jobMetadata_taxDocuments = Lens.lens (\JobMetadata' {taxDocuments} -> taxDocumen
 -- | The Snow device capacity preference for this job, specified at job
 -- creation. In US regions, you can choose between 50 TB and 80 TB
 -- Snowballs. All other regions use 80 TB capacity Snowballs.
+--
+-- For more information, see
+-- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/snowcone-guide\/snow-device-types.html\"
+-- (Snow Family Devices and Capacity) in the /Snowcone User Guide/ or
+-- \"https:\/\/docs.aws.amazon.com\/snowball\/latest\/developer-guide\/snow-device-types.html\"
+-- (Snow Family Devices and Capacity) in the /Snowcone User Guide/.
 jobMetadata_snowballCapacityPreference :: Lens.Lens' JobMetadata (Prelude.Maybe SnowballCapacity)
 jobMetadata_snowballCapacityPreference = Lens.lens (\JobMetadata' {snowballCapacityPreference} -> snowballCapacityPreference) (\s@JobMetadata' {} a -> s {snowballCapacityPreference = a} :: JobMetadata)
 
--- | The type of device used with this job.
-jobMetadata_snowballType :: Lens.Lens' JobMetadata (Prelude.Maybe SnowballType)
-jobMetadata_snowballType = Lens.lens (\JobMetadata' {snowballType} -> snowballType) (\s@JobMetadata' {} a -> s {snowballType = a} :: JobMetadata)
+-- | The ID of the long-term pricing type for the device.
+jobMetadata_longTermPricingId :: Lens.Lens' JobMetadata (Prelude.Maybe Prelude.Text)
+jobMetadata_longTermPricingId = Lens.lens (\JobMetadata' {longTermPricingId} -> longTermPricingId) (\s@JobMetadata' {} a -> s {longTermPricingId = a} :: JobMetadata)
+
+-- | An array of @S3Resource@ objects. Each @S3Resource@ object represents an
+-- Amazon S3 bucket that your transferred data will be exported from or
+-- imported into.
+jobMetadata_resources :: Lens.Lens' JobMetadata (Prelude.Maybe JobResource)
+jobMetadata_resources = Lens.lens (\JobMetadata' {resources} -> resources) (\s@JobMetadata' {} a -> s {resources = a} :: JobMetadata)
 
 -- | A value that defines the real-time status of a Snow device\'s data
 -- transfer while the device is at AWS. This data is only available while a
@@ -262,6 +320,10 @@ jobMetadata_snowballType = Lens.lens (\JobMetadata' {snowballType} -> snowballTy
 -- jobs.
 jobMetadata_dataTransferProgress :: Lens.Lens' JobMetadata (Prelude.Maybe DataTransfer)
 jobMetadata_dataTransferProgress = Lens.lens (\JobMetadata' {dataTransferProgress} -> dataTransferProgress) (\s@JobMetadata' {} a -> s {dataTransferProgress = a} :: JobMetadata)
+
+-- | The type of device used with this job.
+jobMetadata_snowballType :: Lens.Lens' JobMetadata (Prelude.Maybe SnowballType)
+jobMetadata_snowballType = Lens.lens (\JobMetadata' {snowballType} -> snowballType) (\s@JobMetadata' {} a -> s {snowballType = a} :: JobMetadata)
 
 -- | The description of the job, provided at job creation.
 jobMetadata_description :: Lens.Lens' JobMetadata (Prelude.Maybe Prelude.Text)
@@ -309,17 +371,20 @@ instance Core.FromJSON JobMetadata where
       ( \x ->
           JobMetadata'
             Prelude.<$> (x Core..:? "ClusterId")
+            Prelude.<*> (x Core..:? "RemoteManagement")
             Prelude.<*> (x Core..:? "RoleARN")
             Prelude.<*> (x Core..:? "JobState")
             Prelude.<*> (x Core..:? "DeviceConfiguration")
             Prelude.<*> (x Core..:? "CreationDate")
-            Prelude.<*> (x Core..:? "KmsKeyARN")
             Prelude.<*> (x Core..:? "JobType")
-            Prelude.<*> (x Core..:? "Resources")
+            Prelude.<*> (x Core..:? "KmsKeyARN")
+            Prelude.<*> (x Core..:? "OnDeviceServiceConfiguration")
             Prelude.<*> (x Core..:? "TaxDocuments")
             Prelude.<*> (x Core..:? "SnowballCapacityPreference")
-            Prelude.<*> (x Core..:? "SnowballType")
+            Prelude.<*> (x Core..:? "LongTermPricingId")
+            Prelude.<*> (x Core..:? "Resources")
             Prelude.<*> (x Core..:? "DataTransferProgress")
+            Prelude.<*> (x Core..:? "SnowballType")
             Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "AddressId")
             Prelude.<*> (x Core..:? "ForwardingAddressId")

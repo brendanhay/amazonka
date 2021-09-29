@@ -22,6 +22,7 @@ module Network.AWS.Snowball.Types.SnowballCapacity
       ( ..,
         SnowballCapacity_NoPreference,
         SnowballCapacity_T100,
+        SnowballCapacity_T14,
         SnowballCapacity_T42,
         SnowballCapacity_T50,
         SnowballCapacity_T8,
@@ -68,6 +69,9 @@ pattern SnowballCapacity_NoPreference = SnowballCapacity' "NoPreference"
 pattern SnowballCapacity_T100 :: SnowballCapacity
 pattern SnowballCapacity_T100 = SnowballCapacity' "T100"
 
+pattern SnowballCapacity_T14 :: SnowballCapacity
+pattern SnowballCapacity_T14 = SnowballCapacity' "T14"
+
 pattern SnowballCapacity_T42 :: SnowballCapacity
 pattern SnowballCapacity_T42 = SnowballCapacity' "T42"
 
@@ -86,6 +90,7 @@ pattern SnowballCapacity_T98 = SnowballCapacity' "T98"
 {-# COMPLETE
   SnowballCapacity_NoPreference,
   SnowballCapacity_T100,
+  SnowballCapacity_T14,
   SnowballCapacity_T42,
   SnowballCapacity_T50,
   SnowballCapacity_T8,

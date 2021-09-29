@@ -43,7 +43,7 @@ data ShippingDetails = ShippingDetails'
     --     day. In addition, most countries in the EU have access to standard
     --     shipping, which typically takes less than a week, one way.
     --
-    -- -   In India, Snow device are delivered in one to seven days.
+    -- -   In India, Snow devices are delivered in one to seven days.
     --
     -- -   In the United States of America (US), you have access to one-day
     --     shipping and two-day shipping.
@@ -78,7 +78,7 @@ data ShippingDetails = ShippingDetails'
 --     day. In addition, most countries in the EU have access to standard
 --     shipping, which typically takes less than a week, one way.
 --
--- -   In India, Snow device are delivered in one to seven days.
+-- -   In India, Snow devices are delivered in one to seven days.
 --
 -- -   In the United States of America (US), you have access to one-day
 --     shipping and two-day shipping.
@@ -110,7 +110,7 @@ newShippingDetails =
 --     day. In addition, most countries in the EU have access to standard
 --     shipping, which typically takes less than a week, one way.
 --
--- -   In India, Snow device are delivered in one to seven days.
+-- -   In India, Snow devices are delivered in one to seven days.
 --
 -- -   In the United States of America (US), you have access to one-day
 --     shipping and two-day shipping.

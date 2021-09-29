@@ -24,19 +24,28 @@ module Network.AWS.Snowball.Types
     _InvalidNextTokenException,
     _ReturnShippingLabelAlreadyExistsException,
     _UnsupportedAddressException,
-    _ConflictException,
     _Ec2RequestFailedException,
+    _ConflictException,
     _InvalidJobStateException,
     _KMSRequestFailedException,
 
     -- * ClusterState
     ClusterState (..),
 
+    -- * DeviceServiceName
+    DeviceServiceName (..),
+
     -- * JobState
     JobState (..),
 
     -- * JobType
     JobType (..),
+
+    -- * LongTermPricingType
+    LongTermPricingType (..),
+
+    -- * RemoteManagement
+    RemoteManagement (..),
 
     -- * ShipmentState
     ShipmentState (..),
@@ -53,21 +62,27 @@ module Network.AWS.Snowball.Types
     -- * SnowballType
     SnowballType (..),
 
+    -- * StorageUnit
+    StorageUnit (..),
+
+    -- * TransferOption
+    TransferOption (..),
+
     -- * Address
     Address (..),
     newAddress,
-    address_phoneNumber,
     address_company,
     address_isRestricted,
+    address_phoneNumber,
     address_postalCode,
     address_street1,
     address_landmark,
-    address_city,
     address_name,
-    address_addressId,
+    address_city,
     address_street2,
-    address_stateOrProvince,
+    address_addressId,
     address_country,
+    address_stateOrProvince,
     address_prefectureOrDistrict,
     address_street3,
 
@@ -86,16 +101,17 @@ module Network.AWS.Snowball.Types
     clusterMetadata_roleARN,
     clusterMetadata_shippingOption,
     clusterMetadata_creationDate,
-    clusterMetadata_kmsKeyARN,
     clusterMetadata_jobType,
-    clusterMetadata_resources,
+    clusterMetadata_kmsKeyARN,
+    clusterMetadata_onDeviceServiceConfiguration,
     clusterMetadata_taxDocuments,
+    clusterMetadata_resources,
     clusterMetadata_snowballType,
     clusterMetadata_description,
     clusterMetadata_addressId,
     clusterMetadata_forwardingAddressId,
-    clusterMetadata_notification,
     clusterMetadata_clusterState,
+    clusterMetadata_notification,
 
     -- * CompatibleImage
     CompatibleImage (..),
@@ -154,17 +170,20 @@ module Network.AWS.Snowball.Types
     JobMetadata (..),
     newJobMetadata,
     jobMetadata_clusterId,
+    jobMetadata_remoteManagement,
     jobMetadata_roleARN,
     jobMetadata_jobState,
     jobMetadata_deviceConfiguration,
     jobMetadata_creationDate,
-    jobMetadata_kmsKeyARN,
     jobMetadata_jobType,
-    jobMetadata_resources,
+    jobMetadata_kmsKeyARN,
+    jobMetadata_onDeviceServiceConfiguration,
     jobMetadata_taxDocuments,
     jobMetadata_snowballCapacityPreference,
-    jobMetadata_snowballType,
+    jobMetadata_longTermPricingId,
+    jobMetadata_resources,
     jobMetadata_dataTransferProgress,
+    jobMetadata_snowballType,
     jobMetadata_description,
     jobMetadata_addressId,
     jobMetadata_forwardingAddressId,
@@ -192,16 +211,42 @@ module Network.AWS.Snowball.Types
     lambdaResource_eventTriggers,
     lambdaResource_lambdaArn,
 
+    -- * LongTermPricingListEntry
+    LongTermPricingListEntry (..),
+    newLongTermPricingListEntry,
+    longTermPricingListEntry_longTermPricingStartDate,
+    longTermPricingListEntry_longTermPricingStatus,
+    longTermPricingListEntry_longTermPricingEndDate,
+    longTermPricingListEntry_longTermPricingType,
+    longTermPricingListEntry_jobIds,
+    longTermPricingListEntry_replacementJob,
+    longTermPricingListEntry_longTermPricingId,
+    longTermPricingListEntry_snowballType,
+    longTermPricingListEntry_currentActiveJob,
+    longTermPricingListEntry_isLongTermPricingAutoRenew,
+
+    -- * NFSOnDeviceServiceConfiguration
+    NFSOnDeviceServiceConfiguration (..),
+    newNFSOnDeviceServiceConfiguration,
+    nFSOnDeviceServiceConfiguration_storageLimit,
+    nFSOnDeviceServiceConfiguration_storageUnit,
+
     -- * Notification
     Notification (..),
     newNotification,
     notification_jobStatesToNotify,
-    notification_notifyAll,
     notification_snsTopicARN,
+    notification_notifyAll,
+
+    -- * OnDeviceServiceConfiguration
+    OnDeviceServiceConfiguration (..),
+    newOnDeviceServiceConfiguration,
+    onDeviceServiceConfiguration_nFSOnDeviceService,
 
     -- * S3Resource
     S3Resource (..),
     newS3Resource,
+    s3Resource_targetOnDeviceServices,
     s3Resource_bucketArn,
     s3Resource_keyRange,
 
@@ -222,6 +267,12 @@ module Network.AWS.Snowball.Types
     SnowconeDeviceConfiguration (..),
     newSnowconeDeviceConfiguration,
     snowconeDeviceConfiguration_wirelessConnection,
+
+    -- * TargetOnDeviceService
+    TargetOnDeviceService (..),
+    newTargetOnDeviceService,
+    targetOnDeviceService_transferOption,
+    targetOnDeviceService_serviceName,
 
     -- * TaxDocuments
     TaxDocuments (..),
@@ -246,6 +297,7 @@ import Network.AWS.Snowball.Types.ClusterState
 import Network.AWS.Snowball.Types.CompatibleImage
 import Network.AWS.Snowball.Types.DataTransfer
 import Network.AWS.Snowball.Types.DeviceConfiguration
+import Network.AWS.Snowball.Types.DeviceServiceName
 import Network.AWS.Snowball.Types.Ec2AmiResource
 import Network.AWS.Snowball.Types.EventTriggerDefinition
 import Network.AWS.Snowball.Types.INDTaxDocuments
@@ -257,7 +309,12 @@ import Network.AWS.Snowball.Types.JobState
 import Network.AWS.Snowball.Types.JobType
 import Network.AWS.Snowball.Types.KeyRange
 import Network.AWS.Snowball.Types.LambdaResource
+import Network.AWS.Snowball.Types.LongTermPricingListEntry
+import Network.AWS.Snowball.Types.LongTermPricingType
+import Network.AWS.Snowball.Types.NFSOnDeviceServiceConfiguration
 import Network.AWS.Snowball.Types.Notification
+import Network.AWS.Snowball.Types.OnDeviceServiceConfiguration
+import Network.AWS.Snowball.Types.RemoteManagement
 import Network.AWS.Snowball.Types.S3Resource
 import Network.AWS.Snowball.Types.Shipment
 import Network.AWS.Snowball.Types.ShipmentState
@@ -267,7 +324,10 @@ import Network.AWS.Snowball.Types.ShippingOption
 import Network.AWS.Snowball.Types.SnowballCapacity
 import Network.AWS.Snowball.Types.SnowballType
 import Network.AWS.Snowball.Types.SnowconeDeviceConfiguration
+import Network.AWS.Snowball.Types.StorageUnit
+import Network.AWS.Snowball.Types.TargetOnDeviceService
 import Network.AWS.Snowball.Types.TaxDocuments
+import Network.AWS.Snowball.Types.TransferOption
 import Network.AWS.Snowball.Types.WirelessConnection
 
 -- | API version @2016-06-30@ of the Amazon Import/Export Snowball SDK configuration.
@@ -358,9 +418,9 @@ _InvalidInputCombinationException =
     "InvalidInputCombinationException"
 
 -- | Job creation failed. Currently, clusters support five nodes. If you have
--- less than five nodes for your cluster and you have more nodes to create
+-- fewer than five nodes for your cluster and you have more nodes to create
 -- for this cluster, try again and create jobs until your cluster has
--- exactly five notes.
+-- exactly five nodes.
 _ClusterLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ClusterLimitExceededException =
   Core._MatchServiceError
@@ -402,14 +462,6 @@ _UnsupportedAddressException =
     defaultService
     "UnsupportedAddressException"
 
--- | You get this exception when you call @CreateReturnShippingLabel@ more
--- than once when other requests are not completed.
-_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError
-    defaultService
-    "ConflictException"
-
 -- | Your IAM user lacks the necessary Amazon EC2 permissions to perform the
 -- attempted action.
 _Ec2RequestFailedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -417,6 +469,14 @@ _Ec2RequestFailedException =
   Core._MatchServiceError
     defaultService
     "Ec2RequestFailedException"
+
+-- | You get this exception when you call @CreateReturnShippingLabel@ more
+-- than once when other requests are not completed.
+_ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError
+    defaultService
+    "ConflictException"
 
 -- | The action can\'t be performed because the job\'s current state doesn\'t
 -- allow that action to be performed.

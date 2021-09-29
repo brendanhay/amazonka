@@ -51,7 +51,7 @@ import qualified Network.AWS.Response as Response
 data UntagResource = UntagResource'
   { -- | Specifies the EFS resource that you want to remove tags from.
     resourceId :: Prelude.Text,
-    -- | The keys of the key:value tag pairs that you want to remove from the
+    -- | The keys of the key-value tag pairs that you want to remove from the
     -- specified EFS resource.
     tagKeys :: Prelude.NonEmpty Prelude.Text
   }
@@ -67,7 +67,7 @@ data UntagResource = UntagResource'
 --
 -- 'resourceId', 'untagResource_resourceId' - Specifies the EFS resource that you want to remove tags from.
 --
--- 'tagKeys', 'untagResource_tagKeys' - The keys of the key:value tag pairs that you want to remove from the
+-- 'tagKeys', 'untagResource_tagKeys' - The keys of the key-value tag pairs that you want to remove from the
 -- specified EFS resource.
 newUntagResource ::
   -- | 'resourceId'
@@ -85,7 +85,7 @@ newUntagResource pResourceId_ pTagKeys_ =
 untagResource_resourceId :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceId = Lens.lens (\UntagResource' {resourceId} -> resourceId) (\s@UntagResource' {} a -> s {resourceId = a} :: UntagResource)
 
--- | The keys of the key:value tag pairs that you want to remove from the
+-- | The keys of the key-value tag pairs that you want to remove from the
 -- specified EFS resource.
 untagResource_tagKeys :: Lens.Lens' UntagResource (Prelude.NonEmpty Prelude.Text)
 untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens._Coerce

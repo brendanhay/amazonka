@@ -27,6 +27,9 @@
 -- @LifecycleConfiguration@ object, the call returns an empty array in the
 -- response.
 --
+-- When EFS Intelligent Tiering is enabled,
+-- @TransitionToPrimaryStorageClass@ has a value of @AFTER_1_ACCESS@.
+--
 -- This operation requires permissions for the
 -- @elasticfilesystem:DescribeLifecycleConfiguration@ operation.
 module Network.AWS.EFS.DescribeLifecycleConfiguration

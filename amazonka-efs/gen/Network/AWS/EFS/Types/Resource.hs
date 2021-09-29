@@ -11,21 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EFS.Types.LifeCycleState
+-- Module      : Network.AWS.EFS.Types.Resource
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EFS.Types.LifeCycleState
-  ( LifeCycleState
+module Network.AWS.EFS.Types.Resource
+  ( Resource
       ( ..,
-        LifeCycleState_Available,
-        LifeCycleState_Creating,
-        LifeCycleState_Deleted,
-        LifeCycleState_Deleting,
-        LifeCycleState_Error,
-        LifeCycleState_Updating
+        Resource_FILE_SYSTEM,
+        Resource_MOUNT_TARGET
       ),
   )
 where
@@ -33,8 +29,9 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
-newtype LifeCycleState = LifeCycleState'
-  { fromLifeCycleState ::
+-- | An EFS resource, for example a file system or a mount target.
+newtype Resource = Resource'
+  { fromResource ::
       Core.Text
   }
   deriving stock
@@ -61,30 +58,14 @@ newtype LifeCycleState = LifeCycleState'
       Core.ToXML
     )
 
-pattern LifeCycleState_Available :: LifeCycleState
-pattern LifeCycleState_Available = LifeCycleState' "available"
+pattern Resource_FILE_SYSTEM :: Resource
+pattern Resource_FILE_SYSTEM = Resource' "FILE_SYSTEM"
 
-pattern LifeCycleState_Creating :: LifeCycleState
-pattern LifeCycleState_Creating = LifeCycleState' "creating"
-
-pattern LifeCycleState_Deleted :: LifeCycleState
-pattern LifeCycleState_Deleted = LifeCycleState' "deleted"
-
-pattern LifeCycleState_Deleting :: LifeCycleState
-pattern LifeCycleState_Deleting = LifeCycleState' "deleting"
-
-pattern LifeCycleState_Error :: LifeCycleState
-pattern LifeCycleState_Error = LifeCycleState' "error"
-
-pattern LifeCycleState_Updating :: LifeCycleState
-pattern LifeCycleState_Updating = LifeCycleState' "updating"
+pattern Resource_MOUNT_TARGET :: Resource
+pattern Resource_MOUNT_TARGET = Resource' "MOUNT_TARGET"
 
 {-# COMPLETE
-  LifeCycleState_Available,
-  LifeCycleState_Creating,
-  LifeCycleState_Deleted,
-  LifeCycleState_Deleting,
-  LifeCycleState_Error,
-  LifeCycleState_Updating,
-  LifeCycleState'
+  Resource_FILE_SYSTEM,
+  Resource_MOUNT_TARGET,
+  Resource'
   #-}

@@ -41,6 +41,8 @@ module Network.AWS.EFS.UpdateFileSystem
     fileSystemDescription_encrypted,
     fileSystemDescription_fileSystemArn,
     fileSystemDescription_provisionedThroughputInMibps,
+    fileSystemDescription_availabilityZoneName,
+    fileSystemDescription_availabilityZoneId,
     fileSystemDescription_kmsKeyId,
     fileSystemDescription_name,
     fileSystemDescription_ownerId,
@@ -64,17 +66,16 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateFileSystem' smart constructor.
 data UpdateFileSystem = UpdateFileSystem'
-  { -- | (Optional) The throughput mode that you want your file system to use. If
-    -- you\'re not updating your throughput mode, you don\'t need to provide
-    -- this value in your request. If you are changing the @ThroughputMode@ to
-    -- @provisioned@, you must also set a value for
-    -- @ProvisionedThroughputInMibps@.
+  { -- | (Optional) Updates the file system\'s throughput mode. If you\'re not
+    -- updating your throughput mode, you don\'t need to provide this value in
+    -- your request. If you are changing the @ThroughputMode@ to @provisioned@,
+    -- you must also set a value for @ProvisionedThroughputInMibps@.
     throughputMode :: Prelude.Maybe ThroughputMode,
-    -- | (Optional) The amount of throughput, in MiB\/s, that you want to
-    -- provision for your file system. Valid values are 1-1024. Required if
-    -- @ThroughputMode@ is changed to @provisioned@ on update. If you\'re not
-    -- updating the amount of provisioned throughput for your file system, you
-    -- don\'t need to provide this value in your request.
+    -- | (Optional) Sets the amount of provisioned throughput, in MiB\/s, for the
+    -- file system. Valid values are 1-1024. If you are changing the throughput
+    -- mode to provisioned, you must also provide the amount of provisioned
+    -- throughput. Required if @ThroughputMode@ is changed to @provisioned@ on
+    -- update.
     provisionedThroughputInMibps :: Prelude.Maybe Prelude.Double,
     -- | The ID of the file system that you want to update.
     fileSystemId :: Prelude.Text
@@ -89,17 +90,16 @@ data UpdateFileSystem = UpdateFileSystem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'throughputMode', 'updateFileSystem_throughputMode' - (Optional) The throughput mode that you want your file system to use. If
--- you\'re not updating your throughput mode, you don\'t need to provide
--- this value in your request. If you are changing the @ThroughputMode@ to
--- @provisioned@, you must also set a value for
--- @ProvisionedThroughputInMibps@.
+-- 'throughputMode', 'updateFileSystem_throughputMode' - (Optional) Updates the file system\'s throughput mode. If you\'re not
+-- updating your throughput mode, you don\'t need to provide this value in
+-- your request. If you are changing the @ThroughputMode@ to @provisioned@,
+-- you must also set a value for @ProvisionedThroughputInMibps@.
 --
--- 'provisionedThroughputInMibps', 'updateFileSystem_provisionedThroughputInMibps' - (Optional) The amount of throughput, in MiB\/s, that you want to
--- provision for your file system. Valid values are 1-1024. Required if
--- @ThroughputMode@ is changed to @provisioned@ on update. If you\'re not
--- updating the amount of provisioned throughput for your file system, you
--- don\'t need to provide this value in your request.
+-- 'provisionedThroughputInMibps', 'updateFileSystem_provisionedThroughputInMibps' - (Optional) Sets the amount of provisioned throughput, in MiB\/s, for the
+-- file system. Valid values are 1-1024. If you are changing the throughput
+-- mode to provisioned, you must also provide the amount of provisioned
+-- throughput. Required if @ThroughputMode@ is changed to @provisioned@ on
+-- update.
 --
 -- 'fileSystemId', 'updateFileSystem_fileSystemId' - The ID of the file system that you want to update.
 newUpdateFileSystem ::
@@ -113,19 +113,18 @@ newUpdateFileSystem pFileSystemId_ =
       fileSystemId = pFileSystemId_
     }
 
--- | (Optional) The throughput mode that you want your file system to use. If
--- you\'re not updating your throughput mode, you don\'t need to provide
--- this value in your request. If you are changing the @ThroughputMode@ to
--- @provisioned@, you must also set a value for
--- @ProvisionedThroughputInMibps@.
+-- | (Optional) Updates the file system\'s throughput mode. If you\'re not
+-- updating your throughput mode, you don\'t need to provide this value in
+-- your request. If you are changing the @ThroughputMode@ to @provisioned@,
+-- you must also set a value for @ProvisionedThroughputInMibps@.
 updateFileSystem_throughputMode :: Lens.Lens' UpdateFileSystem (Prelude.Maybe ThroughputMode)
 updateFileSystem_throughputMode = Lens.lens (\UpdateFileSystem' {throughputMode} -> throughputMode) (\s@UpdateFileSystem' {} a -> s {throughputMode = a} :: UpdateFileSystem)
 
--- | (Optional) The amount of throughput, in MiB\/s, that you want to
--- provision for your file system. Valid values are 1-1024. Required if
--- @ThroughputMode@ is changed to @provisioned@ on update. If you\'re not
--- updating the amount of provisioned throughput for your file system, you
--- don\'t need to provide this value in your request.
+-- | (Optional) Sets the amount of provisioned throughput, in MiB\/s, for the
+-- file system. Valid values are 1-1024. If you are changing the throughput
+-- mode to provisioned, you must also provide the amount of provisioned
+-- throughput. Required if @ThroughputMode@ is changed to @provisioned@ on
+-- update.
 updateFileSystem_provisionedThroughputInMibps :: Lens.Lens' UpdateFileSystem (Prelude.Maybe Prelude.Double)
 updateFileSystem_provisionedThroughputInMibps = Lens.lens (\UpdateFileSystem' {provisionedThroughputInMibps} -> provisionedThroughputInMibps) (\s@UpdateFileSystem' {} a -> s {provisionedThroughputInMibps = a} :: UpdateFileSystem)
 

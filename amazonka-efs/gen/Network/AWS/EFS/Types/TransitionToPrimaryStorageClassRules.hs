@@ -11,21 +11,16 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EFS.Types.LifeCycleState
+-- Module      : Network.AWS.EFS.Types.TransitionToPrimaryStorageClassRules
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EFS.Types.LifeCycleState
-  ( LifeCycleState
+module Network.AWS.EFS.Types.TransitionToPrimaryStorageClassRules
+  ( TransitionToPrimaryStorageClassRules
       ( ..,
-        LifeCycleState_Available,
-        LifeCycleState_Creating,
-        LifeCycleState_Deleted,
-        LifeCycleState_Deleting,
-        LifeCycleState_Error,
-        LifeCycleState_Updating
+        TransitionToPrimaryStorageClassRules_AFTER_1_ACCESS
       ),
   )
 where
@@ -33,8 +28,8 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
-newtype LifeCycleState = LifeCycleState'
-  { fromLifeCycleState ::
+newtype TransitionToPrimaryStorageClassRules = TransitionToPrimaryStorageClassRules'
+  { fromTransitionToPrimaryStorageClassRules ::
       Core.Text
   }
   deriving stock
@@ -61,30 +56,10 @@ newtype LifeCycleState = LifeCycleState'
       Core.ToXML
     )
 
-pattern LifeCycleState_Available :: LifeCycleState
-pattern LifeCycleState_Available = LifeCycleState' "available"
-
-pattern LifeCycleState_Creating :: LifeCycleState
-pattern LifeCycleState_Creating = LifeCycleState' "creating"
-
-pattern LifeCycleState_Deleted :: LifeCycleState
-pattern LifeCycleState_Deleted = LifeCycleState' "deleted"
-
-pattern LifeCycleState_Deleting :: LifeCycleState
-pattern LifeCycleState_Deleting = LifeCycleState' "deleting"
-
-pattern LifeCycleState_Error :: LifeCycleState
-pattern LifeCycleState_Error = LifeCycleState' "error"
-
-pattern LifeCycleState_Updating :: LifeCycleState
-pattern LifeCycleState_Updating = LifeCycleState' "updating"
+pattern TransitionToPrimaryStorageClassRules_AFTER_1_ACCESS :: TransitionToPrimaryStorageClassRules
+pattern TransitionToPrimaryStorageClassRules_AFTER_1_ACCESS = TransitionToPrimaryStorageClassRules' "AFTER_1_ACCESS"
 
 {-# COMPLETE
-  LifeCycleState_Available,
-  LifeCycleState_Creating,
-  LifeCycleState_Deleted,
-  LifeCycleState_Deleting,
-  LifeCycleState_Error,
-  LifeCycleState_Updating,
-  LifeCycleState'
+  TransitionToPrimaryStorageClassRules_AFTER_1_ACCESS,
+  TransitionToPrimaryStorageClassRules'
   #-}

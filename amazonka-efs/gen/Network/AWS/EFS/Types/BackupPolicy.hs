@@ -24,23 +24,25 @@ import Network.AWS.EFS.Types.BackupStatus
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The backup policy for the file system, showing the curent status. If
--- @ENABLED@, the file system is being backed up.
+-- | The backup policy for the file system used to create automatic daily
+-- backups. If status has a value of @ENABLED@, the file system is being
+-- automatically backed up. For more information, see
+-- <https://docs.aws.amazon.com/efs/latest/ug/awsbackup.html#automatic-backups Automatic backups>.
 --
 -- /See:/ 'newBackupPolicy' smart constructor.
 data BackupPolicy = BackupPolicy'
   { -- | Describes the status of the file system\'s backup policy.
     --
-    -- -   /@ENABLED@ - EFS is automatically backing up the file system./
+    -- -   __@ENABLED@__ - EFS is automatically backing up the file system.
     --
-    -- -   /@ENABLING@ - EFS is turning on automatic backups for the file
-    --     system./
+    -- -   __@ENABLING@__ - EFS is turning on automatic backups for the file
+    --     system.
     --
-    -- -   /@DISABLED@ - automatic back ups are turned off for the file
-    --     system./
+    -- -   __@DISABLED@__ - automatic back ups are turned off for the file
+    --     system.
     --
-    -- -   /@DISABLED@ - EFS is turning off automatic backups for the file
-    --     system./
+    -- -   __@DISABLING@__ - EFS is turning off automatic backups for the file
+    --     system.
     status :: BackupStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -55,16 +57,16 @@ data BackupPolicy = BackupPolicy'
 --
 -- 'status', 'backupPolicy_status' - Describes the status of the file system\'s backup policy.
 --
--- -   /@ENABLED@ - EFS is automatically backing up the file system./
+-- -   __@ENABLED@__ - EFS is automatically backing up the file system.
 --
--- -   /@ENABLING@ - EFS is turning on automatic backups for the file
---     system./
+-- -   __@ENABLING@__ - EFS is turning on automatic backups for the file
+--     system.
 --
--- -   /@DISABLED@ - automatic back ups are turned off for the file
---     system./
+-- -   __@DISABLED@__ - automatic back ups are turned off for the file
+--     system.
 --
--- -   /@DISABLED@ - EFS is turning off automatic backups for the file
---     system./
+-- -   __@DISABLING@__ - EFS is turning off automatic backups for the file
+--     system.
 newBackupPolicy ::
   -- | 'status'
   BackupStatus ->
@@ -74,16 +76,16 @@ newBackupPolicy pStatus_ =
 
 -- | Describes the status of the file system\'s backup policy.
 --
--- -   /@ENABLED@ - EFS is automatically backing up the file system./
+-- -   __@ENABLED@__ - EFS is automatically backing up the file system.
 --
--- -   /@ENABLING@ - EFS is turning on automatic backups for the file
---     system./
+-- -   __@ENABLING@__ - EFS is turning on automatic backups for the file
+--     system.
 --
--- -   /@DISABLED@ - automatic back ups are turned off for the file
---     system./
+-- -   __@DISABLED@__ - automatic back ups are turned off for the file
+--     system.
 --
--- -   /@DISABLED@ - EFS is turning off automatic backups for the file
---     system./
+-- -   __@DISABLING@__ - EFS is turning off automatic backups for the file
+--     system.
 backupPolicy_status :: Lens.Lens' BackupPolicy BackupStatus
 backupPolicy_status = Lens.lens (\BackupPolicy' {status} -> status) (\s@BackupPolicy' {} a -> s {status = a} :: BackupPolicy)
 

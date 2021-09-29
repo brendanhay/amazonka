@@ -32,13 +32,9 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newFileSystemDescription' smart constructor.
 data FileSystemDescription = FileSystemDescription'
-  { -- | The throughput mode for a file system. There are two throughput modes to
-    -- choose from for your file system: @bursting@ and @provisioned@. If you
-    -- set @ThroughputMode@ to @provisioned@, you must also set a value for
-    -- @ProvisionedThroughPutInMibps@. You can decrease your file system\'s
-    -- throughput in Provisioned Throughput mode or change between the
-    -- throughput modes as long as it’s been more than 24 hours since the last
-    -- decrease or throughput mode change.
+  { -- | Displays the file system\'s throughput mode. For more information, see
+    -- <https://docs.aws.amazon.com/efs/latest/ug/performance.html#throughput-modes Throughput modes>
+    -- in the /Amazon EFS User Guide/.
     throughputMode :: Prelude.Maybe ThroughputMode,
     -- | A Boolean value that, if true, indicates that the file system is
     -- encrypted.
@@ -48,24 +44,32 @@ data FileSystemDescription = FileSystemDescription'
     -- Example with sample data:
     -- @arn:aws:elasticfilesystem:us-west-2:1111333322228888:file-system\/fs-01234567@
     fileSystemArn :: Prelude.Maybe Prelude.Text,
-    -- | The throughput, measured in MiB\/s, that you want to provision for a
-    -- file system. Valid values are 1-1024. Required if @ThroughputMode@ is
-    -- set to @provisioned@. The limit on throughput is 1024 MiB\/s. You can
-    -- get these limits increased by contacting AWS Support. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits Amazon EFS Limits That You Can Increase>
-    -- in the /Amazon EFS User Guide./
+    -- | The amount of provisioned throughput, measured in MiB\/s, for the file
+    -- system. Valid for file systems using @ThroughputMode@ set to
+    -- @provisioned@.
     provisionedThroughputInMibps :: Prelude.Maybe Prelude.Double,
-    -- | The ID of an AWS Key Management Service (AWS KMS) customer master key
-    -- (CMK) that was used to protect the encrypted file system.
+    -- | Describes the Amazon Web Services Availability Zone in which the file
+    -- system is located, and is valid only for file systems using One Zone
+    -- storage classes. For more information, see
+    -- <https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html Using EFS storage classes>
+    -- in the /Amazon EFS User Guide/.
+    availabilityZoneName :: Prelude.Maybe Prelude.Text,
+    -- | The unique and consistent identifier of the Availability Zone in which
+    -- the file system\'s One Zone storage classes exist. For example,
+    -- @use1-az1@ is an Availability Zone ID for the us-east-1 Amazon Web
+    -- Services Region, and it has the same location in every Amazon Web
+    -- Services account.
+    availabilityZoneId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of an Key Management Service customer master key (CMK) that was
+    -- used to protect the encrypted file system.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | You can add tags to a file system, including a @Name@ tag. For more
     -- information, see CreateFileSystem. If the file system has a @Name@ tag,
     -- Amazon EFS returns the value in this field.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The AWS account that created the file system. If the file system was
-    -- created by an IAM user, the parent account to which the user belongs is
-    -- the owner.
+    -- | The Amazon Web Services account that created the file system. If the
+    -- file system was created by an IAM user, the parent account to which the
+    -- user belongs is the owner.
     ownerId :: Prelude.Text,
     -- | The opaque string specified in the request.
     creationToken :: Prelude.Text,
@@ -106,13 +110,9 @@ data FileSystemDescription = FileSystemDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'throughputMode', 'fileSystemDescription_throughputMode' - The throughput mode for a file system. There are two throughput modes to
--- choose from for your file system: @bursting@ and @provisioned@. If you
--- set @ThroughputMode@ to @provisioned@, you must also set a value for
--- @ProvisionedThroughPutInMibps@. You can decrease your file system\'s
--- throughput in Provisioned Throughput mode or change between the
--- throughput modes as long as it’s been more than 24 hours since the last
--- decrease or throughput mode change.
+-- 'throughputMode', 'fileSystemDescription_throughputMode' - Displays the file system\'s throughput mode. For more information, see
+-- <https://docs.aws.amazon.com/efs/latest/ug/performance.html#throughput-modes Throughput modes>
+-- in the /Amazon EFS User Guide/.
 --
 -- 'encrypted', 'fileSystemDescription_encrypted' - A Boolean value that, if true, indicates that the file system is
 -- encrypted.
@@ -122,24 +122,32 @@ data FileSystemDescription = FileSystemDescription'
 -- Example with sample data:
 -- @arn:aws:elasticfilesystem:us-west-2:1111333322228888:file-system\/fs-01234567@
 --
--- 'provisionedThroughputInMibps', 'fileSystemDescription_provisionedThroughputInMibps' - The throughput, measured in MiB\/s, that you want to provision for a
--- file system. Valid values are 1-1024. Required if @ThroughputMode@ is
--- set to @provisioned@. The limit on throughput is 1024 MiB\/s. You can
--- get these limits increased by contacting AWS Support. For more
--- information, see
--- <https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits Amazon EFS Limits That You Can Increase>
--- in the /Amazon EFS User Guide./
+-- 'provisionedThroughputInMibps', 'fileSystemDescription_provisionedThroughputInMibps' - The amount of provisioned throughput, measured in MiB\/s, for the file
+-- system. Valid for file systems using @ThroughputMode@ set to
+-- @provisioned@.
 --
--- 'kmsKeyId', 'fileSystemDescription_kmsKeyId' - The ID of an AWS Key Management Service (AWS KMS) customer master key
--- (CMK) that was used to protect the encrypted file system.
+-- 'availabilityZoneName', 'fileSystemDescription_availabilityZoneName' - Describes the Amazon Web Services Availability Zone in which the file
+-- system is located, and is valid only for file systems using One Zone
+-- storage classes. For more information, see
+-- <https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html Using EFS storage classes>
+-- in the /Amazon EFS User Guide/.
+--
+-- 'availabilityZoneId', 'fileSystemDescription_availabilityZoneId' - The unique and consistent identifier of the Availability Zone in which
+-- the file system\'s One Zone storage classes exist. For example,
+-- @use1-az1@ is an Availability Zone ID for the us-east-1 Amazon Web
+-- Services Region, and it has the same location in every Amazon Web
+-- Services account.
+--
+-- 'kmsKeyId', 'fileSystemDescription_kmsKeyId' - The ID of an Key Management Service customer master key (CMK) that was
+-- used to protect the encrypted file system.
 --
 -- 'name', 'fileSystemDescription_name' - You can add tags to a file system, including a @Name@ tag. For more
 -- information, see CreateFileSystem. If the file system has a @Name@ tag,
 -- Amazon EFS returns the value in this field.
 --
--- 'ownerId', 'fileSystemDescription_ownerId' - The AWS account that created the file system. If the file system was
--- created by an IAM user, the parent account to which the user belongs is
--- the owner.
+-- 'ownerId', 'fileSystemDescription_ownerId' - The Amazon Web Services account that created the file system. If the
+-- file system was created by an IAM user, the parent account to which the
+-- user belongs is the owner.
 --
 -- 'creationToken', 'fileSystemDescription_creationToken' - The opaque string specified in the request.
 --
@@ -201,6 +209,8 @@ newFileSystemDescription
         encrypted = Prelude.Nothing,
         fileSystemArn = Prelude.Nothing,
         provisionedThroughputInMibps = Prelude.Nothing,
+        availabilityZoneName = Prelude.Nothing,
+        availabilityZoneId = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
         name = Prelude.Nothing,
         ownerId = pOwnerId_,
@@ -214,13 +224,9 @@ newFileSystemDescription
         tags = Prelude.mempty
       }
 
--- | The throughput mode for a file system. There are two throughput modes to
--- choose from for your file system: @bursting@ and @provisioned@. If you
--- set @ThroughputMode@ to @provisioned@, you must also set a value for
--- @ProvisionedThroughPutInMibps@. You can decrease your file system\'s
--- throughput in Provisioned Throughput mode or change between the
--- throughput modes as long as it’s been more than 24 hours since the last
--- decrease or throughput mode change.
+-- | Displays the file system\'s throughput mode. For more information, see
+-- <https://docs.aws.amazon.com/efs/latest/ug/performance.html#throughput-modes Throughput modes>
+-- in the /Amazon EFS User Guide/.
 fileSystemDescription_throughputMode :: Lens.Lens' FileSystemDescription (Prelude.Maybe ThroughputMode)
 fileSystemDescription_throughputMode = Lens.lens (\FileSystemDescription' {throughputMode} -> throughputMode) (\s@FileSystemDescription' {} a -> s {throughputMode = a} :: FileSystemDescription)
 
@@ -236,18 +242,30 @@ fileSystemDescription_encrypted = Lens.lens (\FileSystemDescription' {encrypted}
 fileSystemDescription_fileSystemArn :: Lens.Lens' FileSystemDescription (Prelude.Maybe Prelude.Text)
 fileSystemDescription_fileSystemArn = Lens.lens (\FileSystemDescription' {fileSystemArn} -> fileSystemArn) (\s@FileSystemDescription' {} a -> s {fileSystemArn = a} :: FileSystemDescription)
 
--- | The throughput, measured in MiB\/s, that you want to provision for a
--- file system. Valid values are 1-1024. Required if @ThroughputMode@ is
--- set to @provisioned@. The limit on throughput is 1024 MiB\/s. You can
--- get these limits increased by contacting AWS Support. For more
--- information, see
--- <https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits Amazon EFS Limits That You Can Increase>
--- in the /Amazon EFS User Guide./
+-- | The amount of provisioned throughput, measured in MiB\/s, for the file
+-- system. Valid for file systems using @ThroughputMode@ set to
+-- @provisioned@.
 fileSystemDescription_provisionedThroughputInMibps :: Lens.Lens' FileSystemDescription (Prelude.Maybe Prelude.Double)
 fileSystemDescription_provisionedThroughputInMibps = Lens.lens (\FileSystemDescription' {provisionedThroughputInMibps} -> provisionedThroughputInMibps) (\s@FileSystemDescription' {} a -> s {provisionedThroughputInMibps = a} :: FileSystemDescription)
 
--- | The ID of an AWS Key Management Service (AWS KMS) customer master key
--- (CMK) that was used to protect the encrypted file system.
+-- | Describes the Amazon Web Services Availability Zone in which the file
+-- system is located, and is valid only for file systems using One Zone
+-- storage classes. For more information, see
+-- <https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html Using EFS storage classes>
+-- in the /Amazon EFS User Guide/.
+fileSystemDescription_availabilityZoneName :: Lens.Lens' FileSystemDescription (Prelude.Maybe Prelude.Text)
+fileSystemDescription_availabilityZoneName = Lens.lens (\FileSystemDescription' {availabilityZoneName} -> availabilityZoneName) (\s@FileSystemDescription' {} a -> s {availabilityZoneName = a} :: FileSystemDescription)
+
+-- | The unique and consistent identifier of the Availability Zone in which
+-- the file system\'s One Zone storage classes exist. For example,
+-- @use1-az1@ is an Availability Zone ID for the us-east-1 Amazon Web
+-- Services Region, and it has the same location in every Amazon Web
+-- Services account.
+fileSystemDescription_availabilityZoneId :: Lens.Lens' FileSystemDescription (Prelude.Maybe Prelude.Text)
+fileSystemDescription_availabilityZoneId = Lens.lens (\FileSystemDescription' {availabilityZoneId} -> availabilityZoneId) (\s@FileSystemDescription' {} a -> s {availabilityZoneId = a} :: FileSystemDescription)
+
+-- | The ID of an Key Management Service customer master key (CMK) that was
+-- used to protect the encrypted file system.
 fileSystemDescription_kmsKeyId :: Lens.Lens' FileSystemDescription (Prelude.Maybe Prelude.Text)
 fileSystemDescription_kmsKeyId = Lens.lens (\FileSystemDescription' {kmsKeyId} -> kmsKeyId) (\s@FileSystemDescription' {} a -> s {kmsKeyId = a} :: FileSystemDescription)
 
@@ -257,9 +275,9 @@ fileSystemDescription_kmsKeyId = Lens.lens (\FileSystemDescription' {kmsKeyId} -
 fileSystemDescription_name :: Lens.Lens' FileSystemDescription (Prelude.Maybe Prelude.Text)
 fileSystemDescription_name = Lens.lens (\FileSystemDescription' {name} -> name) (\s@FileSystemDescription' {} a -> s {name = a} :: FileSystemDescription)
 
--- | The AWS account that created the file system. If the file system was
--- created by an IAM user, the parent account to which the user belongs is
--- the owner.
+-- | The Amazon Web Services account that created the file system. If the
+-- file system was created by an IAM user, the parent account to which the
+-- user belongs is the owner.
 fileSystemDescription_ownerId :: Lens.Lens' FileSystemDescription Prelude.Text
 fileSystemDescription_ownerId = Lens.lens (\FileSystemDescription' {ownerId} -> ownerId) (\s@FileSystemDescription' {} a -> s {ownerId = a} :: FileSystemDescription)
 
@@ -317,6 +335,8 @@ instance Core.FromJSON FileSystemDescription where
             Prelude.<*> (x Core..:? "Encrypted")
             Prelude.<*> (x Core..:? "FileSystemArn")
             Prelude.<*> (x Core..:? "ProvisionedThroughputInMibps")
+            Prelude.<*> (x Core..:? "AvailabilityZoneName")
+            Prelude.<*> (x Core..:? "AvailabilityZoneId")
             Prelude.<*> (x Core..:? "KmsKeyId")
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..: "OwnerId")

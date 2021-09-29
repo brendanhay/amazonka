@@ -26,8 +26,8 @@ import qualified Network.AWS.Prelude as Prelude
 
 -- | /See:/ 'newLifecycleConfigurationDescription' smart constructor.
 data LifecycleConfigurationDescription = LifecycleConfigurationDescription'
-  { -- | An array of lifecycle management policies. Currently, EFS supports a
-    -- maximum of one policy per file system.
+  { -- | An array of lifecycle management policies. EFS supports a maximum of one
+    -- policy per file system.
     lifecyclePolicies :: Prelude.Maybe [LifecyclePolicy]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -40,8 +40,8 @@ data LifecycleConfigurationDescription = LifecycleConfigurationDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lifecyclePolicies', 'lifecycleConfigurationDescription_lifecyclePolicies' - An array of lifecycle management policies. Currently, EFS supports a
--- maximum of one policy per file system.
+-- 'lifecyclePolicies', 'lifecycleConfigurationDescription_lifecyclePolicies' - An array of lifecycle management policies. EFS supports a maximum of one
+-- policy per file system.
 newLifecycleConfigurationDescription ::
   LifecycleConfigurationDescription
 newLifecycleConfigurationDescription =
@@ -50,8 +50,8 @@ newLifecycleConfigurationDescription =
         Prelude.Nothing
     }
 
--- | An array of lifecycle management policies. Currently, EFS supports a
--- maximum of one policy per file system.
+-- | An array of lifecycle management policies. EFS supports a maximum of one
+-- policy per file system.
 lifecycleConfigurationDescription_lifecyclePolicies :: Lens.Lens' LifecycleConfigurationDescription (Prelude.Maybe [LifecyclePolicy])
 lifecycleConfigurationDescription_lifecyclePolicies = Lens.lens (\LifecycleConfigurationDescription' {lifecyclePolicies} -> lifecyclePolicies) (\s@LifecycleConfigurationDescription' {} a -> s {lifecyclePolicies = a} :: LifecycleConfigurationDescription) Prelude.. Lens.mapping Lens._Coerce
 

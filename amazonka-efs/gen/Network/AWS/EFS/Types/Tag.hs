@@ -25,7 +25,7 @@ import qualified Network.AWS.Prelude as Prelude
 
 -- | A tag is a key-value pair. Allowed characters are letters, white space,
 -- and numbers that can be represented in UTF-8, and the following
--- characters:@ + - = . _ : \/@
+-- characters:@ + - = . _ : \/@.
 --
 -- /See:/ 'newTag' smart constructor.
 data Tag = Tag'

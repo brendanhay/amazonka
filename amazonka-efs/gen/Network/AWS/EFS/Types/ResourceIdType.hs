@@ -11,21 +11,17 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.EFS.Types.LifeCycleState
+-- Module      : Network.AWS.EFS.Types.ResourceIdType
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.EFS.Types.LifeCycleState
-  ( LifeCycleState
+module Network.AWS.EFS.Types.ResourceIdType
+  ( ResourceIdType
       ( ..,
-        LifeCycleState_Available,
-        LifeCycleState_Creating,
-        LifeCycleState_Deleted,
-        LifeCycleState_Deleting,
-        LifeCycleState_Error,
-        LifeCycleState_Updating
+        ResourceIdType_LONG_ID,
+        ResourceIdType_SHORT_ID
       ),
   )
 where
@@ -33,8 +29,10 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
-newtype LifeCycleState = LifeCycleState'
-  { fromLifeCycleState ::
+-- | A preference indicating a choice to use 63bit\/32bit IDs for all
+-- applicable resources.
+newtype ResourceIdType = ResourceIdType'
+  { fromResourceIdType ::
       Core.Text
   }
   deriving stock
@@ -61,30 +59,14 @@ newtype LifeCycleState = LifeCycleState'
       Core.ToXML
     )
 
-pattern LifeCycleState_Available :: LifeCycleState
-pattern LifeCycleState_Available = LifeCycleState' "available"
+pattern ResourceIdType_LONG_ID :: ResourceIdType
+pattern ResourceIdType_LONG_ID = ResourceIdType' "LONG_ID"
 
-pattern LifeCycleState_Creating :: LifeCycleState
-pattern LifeCycleState_Creating = LifeCycleState' "creating"
-
-pattern LifeCycleState_Deleted :: LifeCycleState
-pattern LifeCycleState_Deleted = LifeCycleState' "deleted"
-
-pattern LifeCycleState_Deleting :: LifeCycleState
-pattern LifeCycleState_Deleting = LifeCycleState' "deleting"
-
-pattern LifeCycleState_Error :: LifeCycleState
-pattern LifeCycleState_Error = LifeCycleState' "error"
-
-pattern LifeCycleState_Updating :: LifeCycleState
-pattern LifeCycleState_Updating = LifeCycleState' "updating"
+pattern ResourceIdType_SHORT_ID :: ResourceIdType
+pattern ResourceIdType_SHORT_ID = ResourceIdType' "SHORT_ID"
 
 {-# COMPLETE
-  LifeCycleState_Available,
-  LifeCycleState_Creating,
-  LifeCycleState_Deleted,
-  LifeCycleState_Deleting,
-  LifeCycleState_Error,
-  LifeCycleState_Updating,
-  LifeCycleState'
+  ResourceIdType_LONG_ID,
+  ResourceIdType_SHORT_ID,
+  ResourceIdType'
   #-}

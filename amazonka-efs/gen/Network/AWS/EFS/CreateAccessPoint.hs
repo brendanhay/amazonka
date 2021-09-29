@@ -28,7 +28,7 @@
 -- exposed as the access point\'s root directory. Applications using the
 -- access point can only access data in its own directory and below. To
 -- learn more, see
--- <https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html Mounting a File System Using EFS Access Points>.
+-- <https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html Mounting a file system using EFS access points>.
 --
 -- This operation requires permissions for the
 -- @elasticfilesystem:CreateAccessPoint@ action.
@@ -50,10 +50,10 @@ module Network.AWS.EFS.CreateAccessPoint
 
     -- * Response Lenses
     accessPointDescription_ownerId,
-    accessPointDescription_accessPointArn,
     accessPointDescription_accessPointId,
-    accessPointDescription_rootDirectory,
+    accessPointDescription_accessPointArn,
     accessPointDescription_name,
+    accessPointDescription_rootDirectory,
     accessPointDescription_posixUser,
     accessPointDescription_tags,
     accessPointDescription_lifeCycleState,
@@ -77,14 +77,21 @@ data CreateAccessPoint = CreateAccessPoint'
     -- access the root directory and below. If the @RootDirectory@ > @Path@
     -- specified does not exist, EFS creates it and applies the @CreationInfo@
     -- settings when a client connects to an access point. When specifying a
-    -- @RootDirectory@, you need to provide the @Path@, and the @CreationInfo@
-    -- is optional.
+    -- @RootDirectory@, you need to provide the @Path@, and the @CreationInfo@.
+    --
+    -- Amazon EFS creates a root directory only if you have provided the
+    -- CreationInfo: OwnUid, OwnGID, and permissions for the directory. If you
+    -- do not provide this information, Amazon EFS does not create the root
+    -- directory. If the root directory does not exist, attempts to mount using
+    -- the access point will fail.
     rootDirectory :: Prelude.Maybe RootDirectory,
     -- | The operating system user and group applied to all file system requests
     -- made using the access point.
     posixUser :: Prelude.Maybe PosixUser,
     -- | Creates tags associated with the access point. Each tag is a key-value
-    -- pair.
+    -- pair, each key must be unique. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+    -- in the /Amazon Web Services General Reference Guide/.
     tags :: Prelude.Maybe [Tag],
     -- | A string of up to 64 ASCII characters that Amazon EFS uses to ensure
     -- idempotent creation.
@@ -108,14 +115,21 @@ data CreateAccessPoint = CreateAccessPoint'
 -- access the root directory and below. If the @RootDirectory@ > @Path@
 -- specified does not exist, EFS creates it and applies the @CreationInfo@
 -- settings when a client connects to an access point. When specifying a
--- @RootDirectory@, you need to provide the @Path@, and the @CreationInfo@
--- is optional.
+-- @RootDirectory@, you need to provide the @Path@, and the @CreationInfo@.
+--
+-- Amazon EFS creates a root directory only if you have provided the
+-- CreationInfo: OwnUid, OwnGID, and permissions for the directory. If you
+-- do not provide this information, Amazon EFS does not create the root
+-- directory. If the root directory does not exist, attempts to mount using
+-- the access point will fail.
 --
 -- 'posixUser', 'createAccessPoint_posixUser' - The operating system user and group applied to all file system requests
 -- made using the access point.
 --
 -- 'tags', 'createAccessPoint_tags' - Creates tags associated with the access point. Each tag is a key-value
--- pair.
+-- pair, each key must be unique. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+-- in the /Amazon Web Services General Reference Guide/.
 --
 -- 'clientToken', 'createAccessPoint_clientToken' - A string of up to 64 ASCII characters that Amazon EFS uses to ensure
 -- idempotent creation.
@@ -142,8 +156,13 @@ newCreateAccessPoint pClientToken_ pFileSystemId_ =
 -- access the root directory and below. If the @RootDirectory@ > @Path@
 -- specified does not exist, EFS creates it and applies the @CreationInfo@
 -- settings when a client connects to an access point. When specifying a
--- @RootDirectory@, you need to provide the @Path@, and the @CreationInfo@
--- is optional.
+-- @RootDirectory@, you need to provide the @Path@, and the @CreationInfo@.
+--
+-- Amazon EFS creates a root directory only if you have provided the
+-- CreationInfo: OwnUid, OwnGID, and permissions for the directory. If you
+-- do not provide this information, Amazon EFS does not create the root
+-- directory. If the root directory does not exist, attempts to mount using
+-- the access point will fail.
 createAccessPoint_rootDirectory :: Lens.Lens' CreateAccessPoint (Prelude.Maybe RootDirectory)
 createAccessPoint_rootDirectory = Lens.lens (\CreateAccessPoint' {rootDirectory} -> rootDirectory) (\s@CreateAccessPoint' {} a -> s {rootDirectory = a} :: CreateAccessPoint)
 
@@ -153,7 +172,9 @@ createAccessPoint_posixUser :: Lens.Lens' CreateAccessPoint (Prelude.Maybe Posix
 createAccessPoint_posixUser = Lens.lens (\CreateAccessPoint' {posixUser} -> posixUser) (\s@CreateAccessPoint' {} a -> s {posixUser = a} :: CreateAccessPoint)
 
 -- | Creates tags associated with the access point. Each tag is a key-value
--- pair.
+-- pair, each key must be unique. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+-- in the /Amazon Web Services General Reference Guide/.
 createAccessPoint_tags :: Lens.Lens' CreateAccessPoint (Prelude.Maybe [Tag])
 createAccessPoint_tags = Lens.lens (\CreateAccessPoint' {tags} -> tags) (\s@CreateAccessPoint' {} a -> s {tags = a} :: CreateAccessPoint) Prelude.. Lens.mapping Lens._Coerce
 

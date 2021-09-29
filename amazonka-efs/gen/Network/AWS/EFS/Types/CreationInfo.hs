@@ -30,6 +30,12 @@ import qualified Network.AWS.Prelude as Prelude
 -- access point. When specifying @CreationInfo@, you must include values
 -- for all properties.
 --
+-- Amazon EFS creates a root directory only if you have provided the
+-- CreationInfo: OwnUid, OwnGID, and permissions for the directory. If you
+-- do not provide this information, Amazon EFS does not create the root
+-- directory. If the root directory does not exist, attempts to mount using
+-- the access point will fail.
+--
 -- If you do not provide @CreationInfo@ and the specified @RootDirectory@
 -- does not exist, attempts to mount the file system using the access point
 -- will fail.

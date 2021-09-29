@@ -19,30 +19,31 @@ module Network.AWS.EFS.Types
     -- * Errors
     _SecurityGroupLimitExceeded,
     _FileSystemInUse,
-    _DependencyTimeout,
     _ThroughputLimitExceeded,
+    _DependencyTimeout,
     _AccessPointAlreadyExists,
-    _AccessPointLimitExceeded,
     _InvalidPolicyException,
+    _AccessPointLimitExceeded,
     _AccessPointNotFound,
     _FileSystemNotFound,
     _SubnetNotFound,
+    _TooManyRequests,
     _NetworkInterfaceLimitExceeded,
     _FileSystemAlreadyExists,
-    _TooManyRequests,
     _FileSystemLimitExceeded,
-    _IncorrectMountTargetState,
     _InternalServerError,
+    _IncorrectMountTargetState,
     _MountTargetNotFound,
     _ValidationException,
     _NoFreeAddressesInSubnet,
     _BadRequest,
+    _IncorrectFileSystemLifeCycleState,
     _InsufficientThroughputCapacity,
     _PolicyNotFound,
-    _IncorrectFileSystemLifeCycleState,
     _IpAddressInUse,
-    _MountTargetConflict,
+    _AvailabilityZonesMismatch,
     _SecurityGroupNotFound,
+    _MountTargetConflict,
     _UnsupportedAvailabilityZone,
 
     -- * BackupStatus
@@ -54,20 +55,29 @@ module Network.AWS.EFS.Types
     -- * PerformanceMode
     PerformanceMode (..),
 
+    -- * Resource
+    Resource (..),
+
+    -- * ResourceIdType
+    ResourceIdType (..),
+
     -- * ThroughputMode
     ThroughputMode (..),
 
     -- * TransitionToIARules
     TransitionToIARules (..),
 
+    -- * TransitionToPrimaryStorageClassRules
+    TransitionToPrimaryStorageClassRules (..),
+
     -- * AccessPointDescription
     AccessPointDescription (..),
     newAccessPointDescription,
     accessPointDescription_ownerId,
-    accessPointDescription_accessPointArn,
     accessPointDescription_accessPointId,
-    accessPointDescription_rootDirectory,
+    accessPointDescription_accessPointArn,
     accessPointDescription_name,
+    accessPointDescription_rootDirectory,
     accessPointDescription_posixUser,
     accessPointDescription_tags,
     accessPointDescription_lifeCycleState,
@@ -98,6 +108,8 @@ module Network.AWS.EFS.Types
     fileSystemDescription_encrypted,
     fileSystemDescription_fileSystemArn,
     fileSystemDescription_provisionedThroughputInMibps,
+    fileSystemDescription_availabilityZoneName,
+    fileSystemDescription_availabilityZoneId,
     fileSystemDescription_kmsKeyId,
     fileSystemDescription_name,
     fileSystemDescription_ownerId,
@@ -133,6 +145,7 @@ module Network.AWS.EFS.Types
     LifecyclePolicy (..),
     newLifecyclePolicy,
     lifecyclePolicy_transitionToIA,
+    lifecyclePolicy_transitionToPrimaryStorageClass,
 
     -- * MountTargetDescription
     MountTargetDescription (..),
@@ -154,6 +167,12 @@ module Network.AWS.EFS.Types
     posixUser_secondaryGids,
     posixUser_uid,
     posixUser_gid,
+
+    -- * ResourceIdPreference
+    ResourceIdPreference (..),
+    newResourceIdPreference,
+    resourceIdPreference_resourceIdType,
+    resourceIdPreference_resources,
 
     -- * RootDirectory
     RootDirectory (..),
@@ -184,10 +203,14 @@ import Network.AWS.EFS.Types.LifecyclePolicy
 import Network.AWS.EFS.Types.MountTargetDescription
 import Network.AWS.EFS.Types.PerformanceMode
 import Network.AWS.EFS.Types.PosixUser
+import Network.AWS.EFS.Types.Resource
+import Network.AWS.EFS.Types.ResourceIdPreference
+import Network.AWS.EFS.Types.ResourceIdType
 import Network.AWS.EFS.Types.RootDirectory
 import Network.AWS.EFS.Types.Tag
 import Network.AWS.EFS.Types.ThroughputMode
 import Network.AWS.EFS.Types.TransitionToIARules
+import Network.AWS.EFS.Types.TransitionToPrimaryStorageClassRules
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
@@ -279,15 +302,6 @@ _FileSystemInUse =
     "FileSystemInUse"
     Prelude.. Core.hasStatus 409
 
--- | The service timed out trying to fulfill the request, and the client
--- should try the call again.
-_DependencyTimeout :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_DependencyTimeout =
-  Core._MatchServiceError
-    defaultService
-    "DependencyTimeout"
-    Prelude.. Core.hasStatus 504
-
 -- | Returned if the throughput mode or amount of provisioned throughput
 -- can\'t be changed because the throughput limit of 1024 MiB\/s has been
 -- reached.
@@ -298,6 +312,15 @@ _ThroughputLimitExceeded =
     "ThroughputLimitExceeded"
     Prelude.. Core.hasStatus 400
 
+-- | The service timed out trying to fulfill the request, and the client
+-- should try the call again.
+_DependencyTimeout :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_DependencyTimeout =
+  Core._MatchServiceError
+    defaultService
+    "DependencyTimeout"
+    Prelude.. Core.hasStatus 504
+
 -- | Returned if the access point you are trying to create already exists,
 -- with the creation token you provided in the request.
 _AccessPointAlreadyExists :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -306,15 +329,6 @@ _AccessPointAlreadyExists =
     defaultService
     "AccessPointAlreadyExists"
     Prelude.. Core.hasStatus 409
-
--- | Returned if the AWS account has already created the maximum number of
--- access points allowed per file system.
-_AccessPointLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AccessPointLimitExceeded =
-  Core._MatchServiceError
-    defaultService
-    "AccessPointLimitExceeded"
-    Prelude.. Core.hasStatus 403
 
 -- | Returned if the @FileSystemPolicy@ is is malformed or contains an error
 -- such as an invalid parameter value or a missing required parameter.
@@ -326,8 +340,17 @@ _InvalidPolicyException =
     "InvalidPolicyException"
     Prelude.. Core.hasStatus 400
 
+-- | Returned if the Amazon Web Services account has already created the
+-- maximum number of access points allowed per file system.
+_AccessPointLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AccessPointLimitExceeded =
+  Core._MatchServiceError
+    defaultService
+    "AccessPointLimitExceeded"
+    Prelude.. Core.hasStatus 403
+
 -- | Returned if the specified @AccessPointId@ value doesn\'t exist in the
--- requester\'s AWS account.
+-- requester\'s Amazon Web Services account.
 _AccessPointNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _AccessPointNotFound =
   Core._MatchServiceError
@@ -336,7 +359,7 @@ _AccessPointNotFound =
     Prelude.. Core.hasStatus 404
 
 -- | Returned if the specified @FileSystemId@ value doesn\'t exist in the
--- requester\'s AWS account.
+-- requester\'s Amazon Web Services account.
 _FileSystemNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _FileSystemNotFound =
   Core._MatchServiceError
@@ -353,10 +376,19 @@ _SubnetNotFound =
     "SubnetNotFound"
     Prelude.. Core.hasStatus 400
 
+-- | Returned if you don’t wait at least 24 hours before changing the
+-- throughput mode, or decreasing the Provisioned Throughput value.
+_TooManyRequests :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_TooManyRequests =
+  Core._MatchServiceError
+    defaultService
+    "TooManyRequests"
+    Prelude.. Core.hasStatus 429
+
 -- | The calling account has reached the limit for elastic network interfaces
--- for the specific AWS Region. The client should try to delete some
--- elastic network interfaces or get the account limit raised. For more
--- information, see
+-- for the specific Amazon Web Services Region. The client should try to
+-- delete some elastic network interfaces or get the account limit raised.
+-- For more information, see
 -- <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html Amazon VPC Limits>
 -- in the /Amazon VPC User Guide/ (see the Network interfaces per VPC entry
 -- in the table).
@@ -376,23 +408,22 @@ _FileSystemAlreadyExists =
     "FileSystemAlreadyExists"
     Prelude.. Core.hasStatus 409
 
--- | Returned if you don’t wait at least 24 hours before changing the
--- throughput mode, or decreasing the Provisioned Throughput value.
-_TooManyRequests :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_TooManyRequests =
-  Core._MatchServiceError
-    defaultService
-    "TooManyRequests"
-    Prelude.. Core.hasStatus 429
-
--- | Returned if the AWS account has already created the maximum number of
--- file systems allowed per account.
+-- | Returned if the Amazon Web Services account has already created the
+-- maximum number of file systems allowed per account.
 _FileSystemLimitExceeded :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _FileSystemLimitExceeded =
   Core._MatchServiceError
     defaultService
     "FileSystemLimitExceeded"
     Prelude.. Core.hasStatus 403
+
+-- | Returned if an error occurred on the server side.
+_InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalServerError =
+  Core._MatchServiceError
+    defaultService
+    "InternalServerError"
+    Prelude.. Core.hasStatus 500
 
 -- | Returned if the mount target is not in the correct state for the
 -- operation.
@@ -403,16 +434,8 @@ _IncorrectMountTargetState =
     "IncorrectMountTargetState"
     Prelude.. Core.hasStatus 409
 
--- | Returned if an error occurred on the server side.
-_InternalServerError :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalServerError =
-  Core._MatchServiceError
-    defaultService
-    "InternalServerError"
-    Prelude.. Core.hasStatus 500
-
 -- | Returned if there is no mount target with the specified ID found in the
--- caller\'s account.
+-- caller\'s Amazon Web Services account.
 _MountTargetNotFound :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _MountTargetNotFound =
   Core._MatchServiceError
@@ -420,8 +443,8 @@ _MountTargetNotFound =
     "MountTargetNotFound"
     Prelude.. Core.hasStatus 404
 
--- | Returned if the AWS Backup service is not available in the region that
--- the request was made.
+-- | Returned if the Backup service is not available in the Amazon Web
+-- Services Region in which the request was made.
 _ValidationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ValidationException =
   Core._MatchServiceError
@@ -445,12 +468,20 @@ _BadRequest =
   Core._MatchServiceError defaultService "BadRequest"
     Prelude.. Core.hasStatus 400
 
+-- | Returned if the file system\'s lifecycle state is not \"available\".
+_IncorrectFileSystemLifeCycleState :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_IncorrectFileSystemLifeCycleState =
+  Core._MatchServiceError
+    defaultService
+    "IncorrectFileSystemLifeCycleState"
+    Prelude.. Core.hasStatus 409
+
 -- | Returned if there\'s not enough capacity to provision additional
 -- throughput. This value might be returned when you try to create a file
 -- system in provisioned throughput mode, when you attempt to increase the
 -- provisioned throughput of an existing file system, or when you attempt
 -- to change an existing file system from bursting to provisioned
--- throughput mode.
+-- throughput mode. Try again later.
 _InsufficientThroughputCapacity :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InsufficientThroughputCapacity =
   Core._MatchServiceError
@@ -467,14 +498,6 @@ _PolicyNotFound =
     "PolicyNotFound"
     Prelude.. Core.hasStatus 404
 
--- | Returned if the file system\'s lifecycle state is not \"available\".
-_IncorrectFileSystemLifeCycleState :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_IncorrectFileSystemLifeCycleState =
-  Core._MatchServiceError
-    defaultService
-    "IncorrectFileSystemLifeCycleState"
-    Prelude.. Core.hasStatus 409
-
 -- | Returned if the request specified an @IpAddress@ that is already in use
 -- in the subnet.
 _IpAddressInUse :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -484,14 +507,16 @@ _IpAddressInUse =
     "IpAddressInUse"
     Prelude.. Core.hasStatus 409
 
--- | Returned if the mount target would violate one of the specified
--- restrictions based on the file system\'s existing mount targets.
-_MountTargetConflict :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MountTargetConflict =
+-- | Returned if the Availability Zone that was specified for a mount target
+-- is different from the Availability Zone that was specified for One Zone
+-- storage classes. For more information, see
+-- <https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html Regional and One Zone storage redundancy>.
+_AvailabilityZonesMismatch :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AvailabilityZonesMismatch =
   Core._MatchServiceError
     defaultService
-    "MountTargetConflict"
-    Prelude.. Core.hasStatus 409
+    "AvailabilityZonesMismatch"
+    Prelude.. Core.hasStatus 400
 
 -- | Returned if one of the specified security groups doesn\'t exist in the
 -- subnet\'s VPC.
@@ -502,7 +527,17 @@ _SecurityGroupNotFound =
     "SecurityGroupNotFound"
     Prelude.. Core.hasStatus 400
 
--- |
+-- | Returned if the mount target would violate one of the specified
+-- restrictions based on the file system\'s existing mount targets.
+_MountTargetConflict :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MountTargetConflict =
+  Core._MatchServiceError
+    defaultService
+    "MountTargetConflict"
+    Prelude.. Core.hasStatus 409
+
+-- | Returned if the requested Amazon EFS functionality is not available in
+-- the specified Availability Zone.
 _UnsupportedAvailabilityZone :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _UnsupportedAvailabilityZone =
   Core._MatchServiceError

@@ -50,8 +50,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUnshareDirectory' smart constructor.
 data UnshareDirectory = UnshareDirectory'
-  { -- | The identifier of the AWS Managed Microsoft AD directory that you want
-    -- to stop sharing.
+  { -- | The identifier of the Managed Microsoft AD directory that you want to
+    -- stop sharing.
     directoryId :: Prelude.Text,
     -- | Identifier for the directory consumer account with whom the directory
     -- has to be unshared.
@@ -67,8 +67,8 @@ data UnshareDirectory = UnshareDirectory'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'directoryId', 'unshareDirectory_directoryId' - The identifier of the AWS Managed Microsoft AD directory that you want
--- to stop sharing.
+-- 'directoryId', 'unshareDirectory_directoryId' - The identifier of the Managed Microsoft AD directory that you want to
+-- stop sharing.
 --
 -- 'unshareTarget', 'unshareDirectory_unshareTarget' - Identifier for the directory consumer account with whom the directory
 -- has to be unshared.
@@ -84,8 +84,8 @@ newUnshareDirectory pDirectoryId_ pUnshareTarget_ =
       unshareTarget = pUnshareTarget_
     }
 
--- | The identifier of the AWS Managed Microsoft AD directory that you want
--- to stop sharing.
+-- | The identifier of the Managed Microsoft AD directory that you want to
+-- stop sharing.
 unshareDirectory_directoryId :: Lens.Lens' UnshareDirectory Prelude.Text
 unshareDirectory_directoryId = Lens.lens (\UnshareDirectory' {directoryId} -> directoryId) (\s@UnshareDirectory' {} a -> s {directoryId = a} :: UnshareDirectory)
 

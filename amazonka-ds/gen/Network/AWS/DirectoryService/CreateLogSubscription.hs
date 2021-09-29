@@ -22,7 +22,7 @@
 --
 -- Creates a subscription to forward real-time Directory Service domain
 -- controller security logs to the specified Amazon CloudWatch log group in
--- your AWS account.
+-- your Amazon Web Services account.
 module Network.AWS.DirectoryService.CreateLogSubscription
   ( -- * Creating a Request
     CreateLogSubscription (..),

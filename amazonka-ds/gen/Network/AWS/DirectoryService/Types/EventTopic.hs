@@ -24,24 +24,24 @@ import Network.AWS.DirectoryService.Types.TopicStatus
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Information about SNS topic and AWS Directory Service directory
+-- | Information about Amazon SNS topic and Directory Service directory
 -- associations.
 --
 -- /See:/ 'newEventTopic' smart constructor.
 data EventTopic = EventTopic'
   { -- | The topic registration status.
     status :: Prelude.Maybe TopicStatus,
-    -- | The date and time of when you associated your directory with the SNS
-    -- topic.
+    -- | The date and time of when you associated your directory with the Amazon
+    -- SNS topic.
     createdDateTime :: Prelude.Maybe Core.POSIX,
-    -- | The name of an AWS SNS topic the receives status messages from the
+    -- | The name of an Amazon SNS topic the receives status messages from the
     -- directory.
     topicName :: Prelude.Maybe Prelude.Text,
-    -- | The SNS topic ARN (Amazon Resource Name).
-    topicArn :: Prelude.Maybe Prelude.Text,
-    -- | The Directory ID of an AWS Directory Service directory that will publish
-    -- status messages to an SNS topic.
-    directoryId :: Prelude.Maybe Prelude.Text
+    -- | The Directory ID of an Directory Service directory that will publish
+    -- status messages to an Amazon SNS topic.
+    directoryId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon SNS topic ARN (Amazon Resource Name).
+    topicArn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -55,16 +55,16 @@ data EventTopic = EventTopic'
 --
 -- 'status', 'eventTopic_status' - The topic registration status.
 --
--- 'createdDateTime', 'eventTopic_createdDateTime' - The date and time of when you associated your directory with the SNS
--- topic.
+-- 'createdDateTime', 'eventTopic_createdDateTime' - The date and time of when you associated your directory with the Amazon
+-- SNS topic.
 --
--- 'topicName', 'eventTopic_topicName' - The name of an AWS SNS topic the receives status messages from the
+-- 'topicName', 'eventTopic_topicName' - The name of an Amazon SNS topic the receives status messages from the
 -- directory.
 --
--- 'topicArn', 'eventTopic_topicArn' - The SNS topic ARN (Amazon Resource Name).
+-- 'directoryId', 'eventTopic_directoryId' - The Directory ID of an Directory Service directory that will publish
+-- status messages to an Amazon SNS topic.
 --
--- 'directoryId', 'eventTopic_directoryId' - The Directory ID of an AWS Directory Service directory that will publish
--- status messages to an SNS topic.
+-- 'topicArn', 'eventTopic_topicArn' - The Amazon SNS topic ARN (Amazon Resource Name).
 newEventTopic ::
   EventTopic
 newEventTopic =
@@ -72,32 +72,32 @@ newEventTopic =
     { status = Prelude.Nothing,
       createdDateTime = Prelude.Nothing,
       topicName = Prelude.Nothing,
-      topicArn = Prelude.Nothing,
-      directoryId = Prelude.Nothing
+      directoryId = Prelude.Nothing,
+      topicArn = Prelude.Nothing
     }
 
 -- | The topic registration status.
 eventTopic_status :: Lens.Lens' EventTopic (Prelude.Maybe TopicStatus)
 eventTopic_status = Lens.lens (\EventTopic' {status} -> status) (\s@EventTopic' {} a -> s {status = a} :: EventTopic)
 
--- | The date and time of when you associated your directory with the SNS
--- topic.
+-- | The date and time of when you associated your directory with the Amazon
+-- SNS topic.
 eventTopic_createdDateTime :: Lens.Lens' EventTopic (Prelude.Maybe Prelude.UTCTime)
 eventTopic_createdDateTime = Lens.lens (\EventTopic' {createdDateTime} -> createdDateTime) (\s@EventTopic' {} a -> s {createdDateTime = a} :: EventTopic) Prelude.. Lens.mapping Core._Time
 
--- | The name of an AWS SNS topic the receives status messages from the
+-- | The name of an Amazon SNS topic the receives status messages from the
 -- directory.
 eventTopic_topicName :: Lens.Lens' EventTopic (Prelude.Maybe Prelude.Text)
 eventTopic_topicName = Lens.lens (\EventTopic' {topicName} -> topicName) (\s@EventTopic' {} a -> s {topicName = a} :: EventTopic)
 
--- | The SNS topic ARN (Amazon Resource Name).
-eventTopic_topicArn :: Lens.Lens' EventTopic (Prelude.Maybe Prelude.Text)
-eventTopic_topicArn = Lens.lens (\EventTopic' {topicArn} -> topicArn) (\s@EventTopic' {} a -> s {topicArn = a} :: EventTopic)
-
--- | The Directory ID of an AWS Directory Service directory that will publish
--- status messages to an SNS topic.
+-- | The Directory ID of an Directory Service directory that will publish
+-- status messages to an Amazon SNS topic.
 eventTopic_directoryId :: Lens.Lens' EventTopic (Prelude.Maybe Prelude.Text)
 eventTopic_directoryId = Lens.lens (\EventTopic' {directoryId} -> directoryId) (\s@EventTopic' {} a -> s {directoryId = a} :: EventTopic)
+
+-- | The Amazon SNS topic ARN (Amazon Resource Name).
+eventTopic_topicArn :: Lens.Lens' EventTopic (Prelude.Maybe Prelude.Text)
+eventTopic_topicArn = Lens.lens (\EventTopic' {topicArn} -> topicArn) (\s@EventTopic' {} a -> s {topicArn = a} :: EventTopic)
 
 instance Core.FromJSON EventTopic where
   parseJSON =
@@ -108,8 +108,8 @@ instance Core.FromJSON EventTopic where
             Prelude.<$> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "CreatedDateTime")
             Prelude.<*> (x Core..:? "TopicName")
-            Prelude.<*> (x Core..:? "TopicArn")
             Prelude.<*> (x Core..:? "DirectoryId")
+            Prelude.<*> (x Core..:? "TopicArn")
       )
 
 instance Prelude.Hashable EventTopic

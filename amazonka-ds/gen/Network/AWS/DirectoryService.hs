@@ -11,22 +11,23 @@
 --
 -- Derived from API version @2015-04-16@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS Directory Service
+-- Directory Service
 --
--- AWS Directory Service is a web service that makes it easy for you to
--- setup and run directories in the AWS cloud, or connect your AWS
--- resources with an existing on-premises Microsoft Active Directory. This
--- guide provides detailed information about AWS Directory Service
--- operations, data types, parameters, and errors. For information about
--- AWS Directory Services features, see
--- <https://aws.amazon.com/directoryservice/ AWS Directory Service> and the
--- <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html AWS Directory Service Administration Guide>.
+-- Directory Service is a web service that makes it easy for you to setup
+-- and run directories in the Amazon Web Services cloud, or connect your
+-- Amazon Web Services resources with an existing self-managed Microsoft
+-- Active Directory. This guide provides detailed information about
+-- Directory Service operations, data types, parameters, and errors. For
+-- information about Directory Services features, see
+-- <https://aws.amazon.com/directoryservice/ Directory Service> and the
+-- <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/what_is.html Directory Service Administration Guide>.
 --
--- AWS provides SDKs that consist of libraries and sample code for various
--- programming languages and platforms (Java, Ruby, .Net, iOS, Android,
--- etc.). The SDKs provide a convenient way to create programmatic access
--- to AWS Directory Service and other AWS services. For more information
--- about the AWS SDKs, including how to download and install them, see
+-- Amazon Web Services provides SDKs that consist of libraries and sample
+-- code for various programming languages and platforms (Java, Ruby, .Net,
+-- iOS, Android, etc.). The SDKs provide a convenient way to create
+-- programmatic access to Directory Service and other Amazon Web Services
+-- services. For more information about the Amazon Web Services SDKs,
+-- including how to download and install them, see
 -- <http://aws.amazon.com/tools/ Tools for Amazon Web Services>.
 module Network.AWS.DirectoryService
   ( -- * Service Configuration
@@ -35,20 +36,20 @@ module Network.AWS.DirectoryService
     -- * Errors
     -- $errors
 
-    -- ** EntityDoesNotExistException
-    _EntityDoesNotExistException,
-
     -- ** DirectoryAlreadyInRegionException
     _DirectoryAlreadyInRegionException,
+
+    -- ** EntityDoesNotExistException
+    _EntityDoesNotExistException,
 
     -- ** ShareLimitExceededException
     _ShareLimitExceededException,
 
-    -- ** RegionLimitExceededException
-    _RegionLimitExceededException,
-
     -- ** DirectoryAlreadySharedException
     _DirectoryAlreadySharedException,
+
+    -- ** RegionLimitExceededException
+    _RegionLimitExceededException,
 
     -- ** CertificateInUseException
     _CertificateInUseException,
@@ -59,20 +60,20 @@ module Network.AWS.DirectoryService
     -- ** DomainControllerLimitExceededException
     _DomainControllerLimitExceededException,
 
+    -- ** SnapshotLimitExceededException
+    _SnapshotLimitExceededException,
+
     -- ** DirectoryDoesNotExistException
     _DirectoryDoesNotExistException,
 
     -- ** UserDoesNotExistException
     _UserDoesNotExistException,
 
-    -- ** SnapshotLimitExceededException
-    _SnapshotLimitExceededException,
+    -- ** DirectoryNotSharedException
+    _DirectoryNotSharedException,
 
     -- ** EntityAlreadyExistsException
     _EntityAlreadyExistsException,
-
-    -- ** DirectoryNotSharedException
-    _DirectoryNotSharedException,
 
     -- ** InvalidNextTokenException
     _InvalidNextTokenException,
@@ -92,23 +93,23 @@ module Network.AWS.DirectoryService
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** DirectoryUnavailableException
-    _DirectoryUnavailableException,
-
-    -- ** CertificateAlreadyExistsException
-    _CertificateAlreadyExistsException,
+    -- ** CertificateLimitExceededException
+    _CertificateLimitExceededException,
 
     -- ** AuthenticationFailedException
     _AuthenticationFailedException,
 
-    -- ** CertificateLimitExceededException
-    _CertificateLimitExceededException,
+    -- ** CertificateAlreadyExistsException
+    _CertificateAlreadyExistsException,
 
-    -- ** InvalidPasswordException
-    _InvalidPasswordException,
+    -- ** DirectoryUnavailableException
+    _DirectoryUnavailableException,
 
     -- ** CertificateDoesNotExistException
     _CertificateDoesNotExistException,
+
+    -- ** InvalidPasswordException
+    _InvalidPasswordException,
 
     -- ** IpRouteLimitExceededException
     _IpRouteLimitExceededException,
@@ -116,23 +117,23 @@ module Network.AWS.DirectoryService
     -- ** ClientException
     _ClientException,
 
-    -- ** InvalidCertificateException
-    _InvalidCertificateException,
-
     -- ** InvalidClientAuthStatusException
     _InvalidClientAuthStatusException,
 
-    -- ** InvalidLDAPSStatusException
-    _InvalidLDAPSStatusException,
+    -- ** InvalidCertificateException
+    _InvalidCertificateException,
 
     -- ** DirectoryLimitExceededException
     _DirectoryLimitExceededException,
 
-    -- ** InsufficientPermissionsException
-    _InsufficientPermissionsException,
+    -- ** InvalidLDAPSStatusException
+    _InvalidLDAPSStatusException,
 
     -- ** ServiceException
     _ServiceException,
+
+    -- ** InsufficientPermissionsException
+    _InsufficientPermissionsException,
 
     -- ** NoAvailableCertificateException
     _NoAvailableCertificateException,
@@ -143,23 +144,17 @@ module Network.AWS.DirectoryService
     -- * Operations
     -- $operations
 
-    -- ** ConnectDirectory
-    ConnectDirectory (ConnectDirectory'),
-    newConnectDirectory,
-    ConnectDirectoryResponse (ConnectDirectoryResponse'),
-    newConnectDirectoryResponse,
-
     -- ** RejectSharedDirectory
     RejectSharedDirectory (RejectSharedDirectory'),
     newRejectSharedDirectory,
     RejectSharedDirectoryResponse (RejectSharedDirectoryResponse'),
     newRejectSharedDirectoryResponse,
 
-    -- ** DisableRadius
-    DisableRadius (DisableRadius'),
-    newDisableRadius,
-    DisableRadiusResponse (DisableRadiusResponse'),
-    newDisableRadiusResponse,
+    -- ** ConnectDirectory
+    ConnectDirectory (ConnectDirectory'),
+    newConnectDirectory,
+    ConnectDirectoryResponse (ConnectDirectoryResponse'),
+    newConnectDirectoryResponse,
 
     -- ** RegisterEventTopic
     RegisterEventTopic (RegisterEventTopic'),
@@ -167,17 +162,17 @@ module Network.AWS.DirectoryService
     RegisterEventTopicResponse (RegisterEventTopicResponse'),
     newRegisterEventTopicResponse,
 
+    -- ** DisableRadius
+    DisableRadius (DisableRadius'),
+    newDisableRadius,
+    DisableRadiusResponse (DisableRadiusResponse'),
+    newDisableRadiusResponse,
+
     -- ** ShareDirectory
     ShareDirectory (ShareDirectory'),
     newShareDirectory,
     ShareDirectoryResponse (ShareDirectoryResponse'),
     newShareDirectoryResponse,
-
-    -- ** AddRegion
-    AddRegion (AddRegion'),
-    newAddRegion,
-    AddRegionResponse (AddRegionResponse'),
-    newAddRegionResponse,
 
     -- ** ListIpRoutes (Paginated)
     ListIpRoutes (ListIpRoutes'),
@@ -185,23 +180,29 @@ module Network.AWS.DirectoryService
     ListIpRoutesResponse (ListIpRoutesResponse'),
     newListIpRoutesResponse,
 
-    -- ** EnableRadius
-    EnableRadius (EnableRadius'),
-    newEnableRadius,
-    EnableRadiusResponse (EnableRadiusResponse'),
-    newEnableRadiusResponse,
-
     -- ** ListSchemaExtensions (Paginated)
     ListSchemaExtensions (ListSchemaExtensions'),
     newListSchemaExtensions,
     ListSchemaExtensionsResponse (ListSchemaExtensionsResponse'),
     newListSchemaExtensionsResponse,
 
-    -- ** RemoveRegion
-    RemoveRegion (RemoveRegion'),
-    newRemoveRegion,
-    RemoveRegionResponse (RemoveRegionResponse'),
-    newRemoveRegionResponse,
+    -- ** DescribeClientAuthenticationSettings
+    DescribeClientAuthenticationSettings (DescribeClientAuthenticationSettings'),
+    newDescribeClientAuthenticationSettings,
+    DescribeClientAuthenticationSettingsResponse (DescribeClientAuthenticationSettingsResponse'),
+    newDescribeClientAuthenticationSettingsResponse,
+
+    -- ** EnableRadius
+    EnableRadius (EnableRadius'),
+    newEnableRadius,
+    EnableRadiusResponse (EnableRadiusResponse'),
+    newEnableRadiusResponse,
+
+    -- ** AddRegion
+    AddRegion (AddRegion'),
+    newAddRegion,
+    AddRegionResponse (AddRegionResponse'),
+    newAddRegionResponse,
 
     -- ** DeleteLogSubscription
     DeleteLogSubscription (DeleteLogSubscription'),
@@ -209,11 +210,11 @@ module Network.AWS.DirectoryService
     DeleteLogSubscriptionResponse (DeleteLogSubscriptionResponse'),
     newDeleteLogSubscriptionResponse,
 
-    -- ** CancelSchemaExtension
-    CancelSchemaExtension (CancelSchemaExtension'),
-    newCancelSchemaExtension,
-    CancelSchemaExtensionResponse (CancelSchemaExtensionResponse'),
-    newCancelSchemaExtensionResponse,
+    -- ** RemoveRegion
+    RemoveRegion (RemoveRegion'),
+    newRemoveRegion,
+    RemoveRegionResponse (RemoveRegionResponse'),
+    newRemoveRegionResponse,
 
     -- ** EnableSso
     EnableSso (EnableSso'),
@@ -227,23 +228,29 @@ module Network.AWS.DirectoryService
     CreateConditionalForwarderResponse (CreateConditionalForwarderResponse'),
     newCreateConditionalForwarderResponse,
 
+    -- ** CancelSchemaExtension
+    CancelSchemaExtension (CancelSchemaExtension'),
+    newCancelSchemaExtension,
+    CancelSchemaExtensionResponse (CancelSchemaExtensionResponse'),
+    newCancelSchemaExtensionResponse,
+
     -- ** RemoveTagsFromResource
     RemoveTagsFromResource (RemoveTagsFromResource'),
     newRemoveTagsFromResource,
     RemoveTagsFromResourceResponse (RemoveTagsFromResourceResponse'),
     newRemoveTagsFromResourceResponse,
 
-    -- ** EnableLDAPS
-    EnableLDAPS (EnableLDAPS'),
-    newEnableLDAPS,
-    EnableLDAPSResponse (EnableLDAPSResponse'),
-    newEnableLDAPSResponse,
-
     -- ** DeleteConditionalForwarder
     DeleteConditionalForwarder (DeleteConditionalForwarder'),
     newDeleteConditionalForwarder,
     DeleteConditionalForwarderResponse (DeleteConditionalForwarderResponse'),
     newDeleteConditionalForwarderResponse,
+
+    -- ** VerifyTrust
+    VerifyTrust (VerifyTrust'),
+    newVerifyTrust,
+    VerifyTrustResponse (VerifyTrustResponse'),
+    newVerifyTrustResponse,
 
     -- ** DescribeSharedDirectories (Paginated)
     DescribeSharedDirectories (DescribeSharedDirectories'),
@@ -257,17 +264,11 @@ module Network.AWS.DirectoryService
     UpdateConditionalForwarderResponse (UpdateConditionalForwarderResponse'),
     newUpdateConditionalForwarderResponse,
 
-    -- ** VerifyTrust
-    VerifyTrust (VerifyTrust'),
-    newVerifyTrust,
-    VerifyTrustResponse (VerifyTrustResponse'),
-    newVerifyTrustResponse,
-
-    -- ** DescribeCertificate
-    DescribeCertificate (DescribeCertificate'),
-    newDescribeCertificate,
-    DescribeCertificateResponse (DescribeCertificateResponse'),
-    newDescribeCertificateResponse,
+    -- ** EnableLDAPS
+    EnableLDAPS (EnableLDAPS'),
+    newEnableLDAPS,
+    EnableLDAPSResponse (EnableLDAPSResponse'),
+    newEnableLDAPSResponse,
 
     -- ** CreateTrust
     CreateTrust (CreateTrust'),
@@ -275,29 +276,17 @@ module Network.AWS.DirectoryService
     CreateTrustResponse (CreateTrustResponse'),
     newCreateTrustResponse,
 
+    -- ** DescribeCertificate
+    DescribeCertificate (DescribeCertificate'),
+    newDescribeCertificate,
+    DescribeCertificateResponse (DescribeCertificateResponse'),
+    newDescribeCertificateResponse,
+
     -- ** DeleteDirectory
     DeleteDirectory (DeleteDirectory'),
     newDeleteDirectory,
     DeleteDirectoryResponse (DeleteDirectoryResponse'),
     newDeleteDirectoryResponse,
-
-    -- ** DisableClientAuthentication
-    DisableClientAuthentication (DisableClientAuthentication'),
-    newDisableClientAuthentication,
-    DisableClientAuthenticationResponse (DisableClientAuthenticationResponse'),
-    newDisableClientAuthenticationResponse,
-
-    -- ** CreateMicrosoftAD
-    CreateMicrosoftAD (CreateMicrosoftAD'),
-    newCreateMicrosoftAD,
-    CreateMicrosoftADResponse (CreateMicrosoftADResponse'),
-    newCreateMicrosoftADResponse,
-
-    -- ** DeleteSnapshot
-    DeleteSnapshot (DeleteSnapshot'),
-    newDeleteSnapshot,
-    DeleteSnapshotResponse (DeleteSnapshotResponse'),
-    newDeleteSnapshotResponse,
 
     -- ** RemoveIpRoutes
     RemoveIpRoutes (RemoveIpRoutes'),
@@ -311,17 +300,35 @@ module Network.AWS.DirectoryService
     UpdateTrustResponse (UpdateTrustResponse'),
     newUpdateTrustResponse,
 
-    -- ** DeleteTrust
-    DeleteTrust (DeleteTrust'),
-    newDeleteTrust,
-    DeleteTrustResponse (DeleteTrustResponse'),
-    newDeleteTrustResponse,
+    -- ** CreateMicrosoftAD
+    CreateMicrosoftAD (CreateMicrosoftAD'),
+    newCreateMicrosoftAD,
+    CreateMicrosoftADResponse (CreateMicrosoftADResponse'),
+    newCreateMicrosoftADResponse,
 
     -- ** CreateDirectory
     CreateDirectory (CreateDirectory'),
     newCreateDirectory,
     CreateDirectoryResponse (CreateDirectoryResponse'),
     newCreateDirectoryResponse,
+
+    -- ** DeleteSnapshot
+    DeleteSnapshot (DeleteSnapshot'),
+    newDeleteSnapshot,
+    DeleteSnapshotResponse (DeleteSnapshotResponse'),
+    newDeleteSnapshotResponse,
+
+    -- ** DisableClientAuthentication
+    DisableClientAuthentication (DisableClientAuthentication'),
+    newDisableClientAuthentication,
+    DisableClientAuthenticationResponse (DisableClientAuthenticationResponse'),
+    newDisableClientAuthenticationResponse,
+
+    -- ** DeleteTrust
+    DeleteTrust (DeleteTrust'),
+    newDeleteTrust,
+    DeleteTrustResponse (DeleteTrustResponse'),
+    newDeleteTrustResponse,
 
     -- ** RestoreFromSnapshot
     RestoreFromSnapshot (RestoreFromSnapshot'),
@@ -335,17 +342,17 @@ module Network.AWS.DirectoryService
     DescribeDomainControllersResponse (DescribeDomainControllersResponse'),
     newDescribeDomainControllersResponse,
 
-    -- ** DescribeTrusts (Paginated)
-    DescribeTrusts (DescribeTrusts'),
-    newDescribeTrusts,
-    DescribeTrustsResponse (DescribeTrustsResponse'),
-    newDescribeTrustsResponse,
-
     -- ** DescribeSnapshots (Paginated)
     DescribeSnapshots (DescribeSnapshots'),
     newDescribeSnapshots,
     DescribeSnapshotsResponse (DescribeSnapshotsResponse'),
     newDescribeSnapshotsResponse,
+
+    -- ** DescribeTrusts (Paginated)
+    DescribeTrusts (DescribeTrusts'),
+    newDescribeTrusts,
+    DescribeTrustsResponse (DescribeTrustsResponse'),
+    newDescribeTrustsResponse,
 
     -- ** UnshareDirectory
     UnshareDirectory (UnshareDirectory'),
@@ -389,23 +396,17 @@ module Network.AWS.DirectoryService
     AddTagsToResourceResponse (AddTagsToResourceResponse'),
     newAddTagsToResourceResponse,
 
-    -- ** GetDirectoryLimits
-    GetDirectoryLimits (GetDirectoryLimits'),
-    newGetDirectoryLimits,
-    GetDirectoryLimitsResponse (GetDirectoryLimitsResponse'),
-    newGetDirectoryLimitsResponse,
-
     -- ** UpdateRadius
     UpdateRadius (UpdateRadius'),
     newUpdateRadius,
     UpdateRadiusResponse (UpdateRadiusResponse'),
     newUpdateRadiusResponse,
 
-    -- ** DisableLDAPS
-    DisableLDAPS (DisableLDAPS'),
-    newDisableLDAPS,
-    DisableLDAPSResponse (DisableLDAPSResponse'),
-    newDisableLDAPSResponse,
+    -- ** GetDirectoryLimits
+    GetDirectoryLimits (GetDirectoryLimits'),
+    newGetDirectoryLimits,
+    GetDirectoryLimitsResponse (GetDirectoryLimitsResponse'),
+    newGetDirectoryLimitsResponse,
 
     -- ** ListLogSubscriptions (Paginated)
     ListLogSubscriptions (ListLogSubscriptions'),
@@ -419,6 +420,18 @@ module Network.AWS.DirectoryService
     DescribeRegionsResponse (DescribeRegionsResponse'),
     newDescribeRegionsResponse,
 
+    -- ** DisableLDAPS
+    DisableLDAPS (DisableLDAPS'),
+    newDisableLDAPS,
+    DisableLDAPSResponse (DisableLDAPSResponse'),
+    newDisableLDAPSResponse,
+
+    -- ** CreateComputer
+    CreateComputer (CreateComputer'),
+    newCreateComputer,
+    CreateComputerResponse (CreateComputerResponse'),
+    newCreateComputerResponse,
+
     -- ** DisableSso
     DisableSso (DisableSso'),
     newDisableSso,
@@ -431,29 +444,17 @@ module Network.AWS.DirectoryService
     CreateLogSubscriptionResponse (CreateLogSubscriptionResponse'),
     newCreateLogSubscriptionResponse,
 
-    -- ** ResetUserPassword
-    ResetUserPassword (ResetUserPassword'),
-    newResetUserPassword,
-    ResetUserPasswordResponse (ResetUserPasswordResponse'),
-    newResetUserPasswordResponse,
-
     -- ** DescribeEventTopics
     DescribeEventTopics (DescribeEventTopics'),
     newDescribeEventTopics,
     DescribeEventTopicsResponse (DescribeEventTopicsResponse'),
     newDescribeEventTopicsResponse,
 
-    -- ** CreateComputer
-    CreateComputer (CreateComputer'),
-    newCreateComputer,
-    CreateComputerResponse (CreateComputerResponse'),
-    newCreateComputerResponse,
-
-    -- ** AcceptSharedDirectory
-    AcceptSharedDirectory (AcceptSharedDirectory'),
-    newAcceptSharedDirectory,
-    AcceptSharedDirectoryResponse (AcceptSharedDirectoryResponse'),
-    newAcceptSharedDirectoryResponse,
+    -- ** ResetUserPassword
+    ResetUserPassword (ResetUserPassword'),
+    newResetUserPassword,
+    ResetUserPasswordResponse (ResetUserPasswordResponse'),
+    newResetUserPasswordResponse,
 
     -- ** EnableClientAuthentication
     EnableClientAuthentication (EnableClientAuthentication'),
@@ -461,17 +462,23 @@ module Network.AWS.DirectoryService
     EnableClientAuthenticationResponse (EnableClientAuthenticationResponse'),
     newEnableClientAuthenticationResponse,
 
+    -- ** StartSchemaExtension
+    StartSchemaExtension (StartSchemaExtension'),
+    newStartSchemaExtension,
+    StartSchemaExtensionResponse (StartSchemaExtensionResponse'),
+    newStartSchemaExtensionResponse,
+
     -- ** CreateSnapshot
     CreateSnapshot (CreateSnapshot'),
     newCreateSnapshot,
     CreateSnapshotResponse (CreateSnapshotResponse'),
     newCreateSnapshotResponse,
 
-    -- ** StartSchemaExtension
-    StartSchemaExtension (StartSchemaExtension'),
-    newStartSchemaExtension,
-    StartSchemaExtensionResponse (StartSchemaExtensionResponse'),
-    newStartSchemaExtensionResponse,
+    -- ** AcceptSharedDirectory
+    AcceptSharedDirectory (AcceptSharedDirectory'),
+    newAcceptSharedDirectory,
+    AcceptSharedDirectoryResponse (AcceptSharedDirectoryResponse'),
+    newAcceptSharedDirectoryResponse,
 
     -- ** DeregisterEventTopic
     DeregisterEventTopic (DeregisterEventTopic'),
@@ -485,29 +492,29 @@ module Network.AWS.DirectoryService
     DeregisterCertificateResponse (DeregisterCertificateResponse'),
     newDeregisterCertificateResponse,
 
-    -- ** ListTagsForResource (Paginated)
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
-
-    -- ** CreateAlias
-    CreateAlias (CreateAlias'),
-    newCreateAlias,
-    CreateAliasResponse (CreateAliasResponse'),
-    newCreateAliasResponse,
-
     -- ** AddIpRoutes
     AddIpRoutes (AddIpRoutes'),
     newAddIpRoutes,
     AddIpRoutesResponse (AddIpRoutesResponse'),
     newAddIpRoutesResponse,
 
+    -- ** ListTagsForResource (Paginated)
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
     -- ** DescribeDirectories (Paginated)
     DescribeDirectories (DescribeDirectories'),
     newDescribeDirectories,
     DescribeDirectoriesResponse (DescribeDirectoriesResponse'),
     newDescribeDirectoriesResponse,
+
+    -- ** CreateAlias
+    CreateAlias (CreateAlias'),
+    newCreateAlias,
+    CreateAliasResponse (CreateAliasResponse'),
+    newCreateAliasResponse,
 
     -- ** DescribeLDAPSSettings
     DescribeLDAPSSettings (DescribeLDAPSSettings'),
@@ -522,6 +529,9 @@ module Network.AWS.DirectoryService
 
     -- ** CertificateType
     CertificateType (..),
+
+    -- ** ClientAuthenticationStatus
+    ClientAuthenticationStatus (..),
 
     -- ** ClientAuthenticationType
     ClientAuthenticationType (..),
@@ -606,6 +616,10 @@ module Network.AWS.DirectoryService
     -- ** CertificateInfo
     CertificateInfo (CertificateInfo'),
     newCertificateInfo,
+
+    -- ** ClientAuthenticationSettingInfo
+    ClientAuthenticationSettingInfo (ClientAuthenticationSettingInfo'),
+    newClientAuthenticationSettingInfo,
 
     -- ** ClientCertAuthSettings
     ClientCertAuthSettings (ClientCertAuthSettings'),
@@ -739,6 +753,7 @@ import Network.AWS.DirectoryService.DeleteTrust
 import Network.AWS.DirectoryService.DeregisterCertificate
 import Network.AWS.DirectoryService.DeregisterEventTopic
 import Network.AWS.DirectoryService.DescribeCertificate
+import Network.AWS.DirectoryService.DescribeClientAuthenticationSettings
 import Network.AWS.DirectoryService.DescribeConditionalForwarders
 import Network.AWS.DirectoryService.DescribeDirectories
 import Network.AWS.DirectoryService.DescribeDomainControllers

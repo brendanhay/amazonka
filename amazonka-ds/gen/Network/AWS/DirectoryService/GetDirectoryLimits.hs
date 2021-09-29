@@ -105,7 +105,7 @@ instance Core.ToQuery GetDirectoryLimits where
 -- /See:/ 'newGetDirectoryLimitsResponse' smart constructor.
 data GetDirectoryLimitsResponse = GetDirectoryLimitsResponse'
   { -- | A DirectoryLimits object that contains the directory limits for the
-    -- current rRegion.
+    -- current Region.
     directoryLimits :: Prelude.Maybe DirectoryLimits,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -121,7 +121,7 @@ data GetDirectoryLimitsResponse = GetDirectoryLimitsResponse'
 -- for backwards compatibility:
 --
 -- 'directoryLimits', 'getDirectoryLimitsResponse_directoryLimits' - A DirectoryLimits object that contains the directory limits for the
--- current rRegion.
+-- current Region.
 --
 -- 'httpStatus', 'getDirectoryLimitsResponse_httpStatus' - The response's http status code.
 newGetDirectoryLimitsResponse ::
@@ -136,7 +136,7 @@ newGetDirectoryLimitsResponse pHttpStatus_ =
     }
 
 -- | A DirectoryLimits object that contains the directory limits for the
--- current rRegion.
+-- current Region.
 getDirectoryLimitsResponse_directoryLimits :: Lens.Lens' GetDirectoryLimitsResponse (Prelude.Maybe DirectoryLimits)
 getDirectoryLimitsResponse_directoryLimits = Lens.lens (\GetDirectoryLimitsResponse' {directoryLimits} -> directoryLimits) (\s@GetDirectoryLimitsResponse' {} a -> s {directoryLimits = a} :: GetDirectoryLimitsResponse)
 

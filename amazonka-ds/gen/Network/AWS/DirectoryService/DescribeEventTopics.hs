@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Obtains information about which SNS topics receive status messages from
--- the specified directory.
+-- Obtains information about which Amazon SNS topics receive status
+-- messages from the specified directory.
 --
 -- If no input parameters are provided, such as DirectoryId or TopicName,
 -- this request describes all of the associations in the account.
@@ -55,11 +55,12 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeEventTopics' smart constructor.
 data DescribeEventTopics = DescribeEventTopics'
-  { -- | The Directory ID for which to get the list of associated SNS topics. If
-    -- this member is null, associations for all Directory IDs are returned.
+  { -- | The Directory ID for which to get the list of associated Amazon SNS
+    -- topics. If this member is null, associations for all Directory IDs are
+    -- returned.
     directoryId :: Prelude.Maybe Prelude.Text,
-    -- | A list of SNS topic names for which to obtain the information. If this
-    -- member is null, all associations for the specified Directory ID are
+    -- | A list of Amazon SNS topic names for which to obtain the information. If
+    -- this member is null, all associations for the specified Directory ID are
     -- returned.
     --
     -- An empty list results in an @InvalidParameterException@ being thrown.
@@ -75,11 +76,12 @@ data DescribeEventTopics = DescribeEventTopics'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'directoryId', 'describeEventTopics_directoryId' - The Directory ID for which to get the list of associated SNS topics. If
--- this member is null, associations for all Directory IDs are returned.
+-- 'directoryId', 'describeEventTopics_directoryId' - The Directory ID for which to get the list of associated Amazon SNS
+-- topics. If this member is null, associations for all Directory IDs are
+-- returned.
 --
--- 'topicNames', 'describeEventTopics_topicNames' - A list of SNS topic names for which to obtain the information. If this
--- member is null, all associations for the specified Directory ID are
+-- 'topicNames', 'describeEventTopics_topicNames' - A list of Amazon SNS topic names for which to obtain the information. If
+-- this member is null, all associations for the specified Directory ID are
 -- returned.
 --
 -- An empty list results in an @InvalidParameterException@ being thrown.
@@ -91,13 +93,14 @@ newDescribeEventTopics =
       topicNames = Prelude.Nothing
     }
 
--- | The Directory ID for which to get the list of associated SNS topics. If
--- this member is null, associations for all Directory IDs are returned.
+-- | The Directory ID for which to get the list of associated Amazon SNS
+-- topics. If this member is null, associations for all Directory IDs are
+-- returned.
 describeEventTopics_directoryId :: Lens.Lens' DescribeEventTopics (Prelude.Maybe Prelude.Text)
 describeEventTopics_directoryId = Lens.lens (\DescribeEventTopics' {directoryId} -> directoryId) (\s@DescribeEventTopics' {} a -> s {directoryId = a} :: DescribeEventTopics)
 
--- | A list of SNS topic names for which to obtain the information. If this
--- member is null, all associations for the specified Directory ID are
+-- | A list of Amazon SNS topic names for which to obtain the information. If
+-- this member is null, all associations for the specified Directory ID are
 -- returned.
 --
 -- An empty list results in an @InvalidParameterException@ being thrown.
@@ -155,7 +158,7 @@ instance Core.ToQuery DescribeEventTopics where
 --
 -- /See:/ 'newDescribeEventTopicsResponse' smart constructor.
 data DescribeEventTopicsResponse = DescribeEventTopicsResponse'
-  { -- | A list of SNS topic names that receive status messages from the
+  { -- | A list of Amazon SNS topic names that receive status messages from the
     -- specified Directory ID.
     eventTopics :: Prelude.Maybe [EventTopic],
     -- | The response's http status code.
@@ -171,7 +174,7 @@ data DescribeEventTopicsResponse = DescribeEventTopicsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eventTopics', 'describeEventTopicsResponse_eventTopics' - A list of SNS topic names that receive status messages from the
+-- 'eventTopics', 'describeEventTopicsResponse_eventTopics' - A list of Amazon SNS topic names that receive status messages from the
 -- specified Directory ID.
 --
 -- 'httpStatus', 'describeEventTopicsResponse_httpStatus' - The response's http status code.
@@ -186,7 +189,7 @@ newDescribeEventTopicsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | A list of SNS topic names that receive status messages from the
+-- | A list of Amazon SNS topic names that receive status messages from the
 -- specified Directory ID.
 describeEventTopicsResponse_eventTopics :: Lens.Lens' DescribeEventTopicsResponse (Prelude.Maybe [EventTopic])
 describeEventTopicsResponse_eventTopics = Lens.lens (\DescribeEventTopicsResponse' {eventTopics} -> eventTopics) (\s@DescribeEventTopicsResponse' {} a -> s {eventTopics = a} :: DescribeEventTopicsResponse) Prelude.. Lens.mapping Lens._Coerce

@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the trust that has been set up between your AWS Managed
--- Microsoft AD directory and an on-premises Active Directory.
+-- Updates the trust that has been set up between your Managed Microsoft AD
+-- directory and an self-managed Active Directory.
 module Network.AWS.DirectoryService.UpdateTrust
   ( -- * Creating a Request
     UpdateTrust (..),

@@ -43,12 +43,12 @@ data Certificate = Certificate'
     state :: Prelude.Maybe CertificateState,
     -- | The date and time when the certificate will expire.
     expiryDateTime :: Prelude.Maybe Core.POSIX,
+    -- | The identifier of the certificate.
+    certificateId :: Prelude.Maybe Prelude.Text,
     -- | The function that the registered certificate performs. Valid values
     -- include @ClientLDAPS@ or @ClientCertAuth@. The default value is
     -- @ClientLDAPS@.
-    type' :: Prelude.Maybe CertificateType,
-    -- | The identifier of the certificate.
-    certificateId :: Prelude.Maybe Prelude.Text
+    type' :: Prelude.Maybe CertificateType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,11 +73,11 @@ data Certificate = Certificate'
 --
 -- 'expiryDateTime', 'certificate_expiryDateTime' - The date and time when the certificate will expire.
 --
+-- 'certificateId', 'certificate_certificateId' - The identifier of the certificate.
+--
 -- 'type'', 'certificate_type' - The function that the registered certificate performs. Valid values
 -- include @ClientLDAPS@ or @ClientCertAuth@. The default value is
 -- @ClientLDAPS@.
---
--- 'certificateId', 'certificate_certificateId' - The identifier of the certificate.
 newCertificate ::
   Certificate
 newCertificate =
@@ -89,8 +89,8 @@ newCertificate =
       commonName = Prelude.Nothing,
       state = Prelude.Nothing,
       expiryDateTime = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      certificateId = Prelude.Nothing
+      certificateId = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | A @ClientCertAuthSettings@ object that contains client certificate
@@ -118,15 +118,15 @@ certificate_state = Lens.lens (\Certificate' {state} -> state) (\s@Certificate' 
 certificate_expiryDateTime :: Lens.Lens' Certificate (Prelude.Maybe Prelude.UTCTime)
 certificate_expiryDateTime = Lens.lens (\Certificate' {expiryDateTime} -> expiryDateTime) (\s@Certificate' {} a -> s {expiryDateTime = a} :: Certificate) Prelude.. Lens.mapping Core._Time
 
+-- | The identifier of the certificate.
+certificate_certificateId :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Text)
+certificate_certificateId = Lens.lens (\Certificate' {certificateId} -> certificateId) (\s@Certificate' {} a -> s {certificateId = a} :: Certificate)
+
 -- | The function that the registered certificate performs. Valid values
 -- include @ClientLDAPS@ or @ClientCertAuth@. The default value is
 -- @ClientLDAPS@.
 certificate_type :: Lens.Lens' Certificate (Prelude.Maybe CertificateType)
 certificate_type = Lens.lens (\Certificate' {type'} -> type') (\s@Certificate' {} a -> s {type' = a} :: Certificate)
-
--- | The identifier of the certificate.
-certificate_certificateId :: Lens.Lens' Certificate (Prelude.Maybe Prelude.Text)
-certificate_certificateId = Lens.lens (\Certificate' {certificateId} -> certificateId) (\s@Certificate' {} a -> s {certificateId = a} :: Certificate)
 
 instance Core.FromJSON Certificate where
   parseJSON =
@@ -140,8 +140,8 @@ instance Core.FromJSON Certificate where
             Prelude.<*> (x Core..:? "CommonName")
             Prelude.<*> (x Core..:? "State")
             Prelude.<*> (x Core..:? "ExpiryDateTime")
-            Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "CertificateId")
+            Prelude.<*> (x Core..:? "Type")
       )
 
 instance Prelude.Hashable Certificate

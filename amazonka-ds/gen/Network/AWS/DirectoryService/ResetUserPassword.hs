@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Resets the password for any user in your AWS Managed Microsoft AD or
--- Simple AD directory.
+-- Resets the password for any user in your Managed Microsoft AD or Simple
+-- AD directory.
 --
 -- You can reset the password for any user in your directory with the
 -- following exceptions:
@@ -30,14 +30,14 @@
 --     member of either the __Domain Admins__ or __Enterprise Admins__
 --     group except for the administrator user.
 --
--- -   For AWS Managed Microsoft AD, you can only reset the password for a
---     user that is in an OU based off of the NetBIOS name that you typed
---     when you created your directory. For example, you cannot reset the
---     password for a user in the __AWS Reserved__ OU. For more information
---     about the OU structure for an AWS Managed Microsoft AD directory,
---     see
+-- -   For Managed Microsoft AD, you can only reset the password for a user
+--     that is in an OU based off of the NetBIOS name that you typed when
+--     you created your directory. For example, you cannot reset the
+--     password for a user in the __Amazon Web Services Reserved__ OU. For
+--     more information about the OU structure for an Managed Microsoft AD
+--     directory, see
 --     <https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.html What Gets Created>
---     in the /AWS Directory Service Administration Guide/.
+--     in the /Directory Service Administration Guide/.
 module Network.AWS.DirectoryService.ResetUserPassword
   ( -- * Creating a Request
     ResetUserPassword (..),
@@ -66,8 +66,8 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newResetUserPassword' smart constructor.
 data ResetUserPassword = ResetUserPassword'
-  { -- | Identifier of the AWS Managed Microsoft AD or Simple AD directory in
-    -- which the user resides.
+  { -- | Identifier of the Managed Microsoft AD or Simple AD directory in which
+    -- the user resides.
     directoryId :: Prelude.Text,
     -- | The user name of the user whose password will be reset.
     userName :: Prelude.Text,
@@ -84,8 +84,8 @@ data ResetUserPassword = ResetUserPassword'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'directoryId', 'resetUserPassword_directoryId' - Identifier of the AWS Managed Microsoft AD or Simple AD directory in
--- which the user resides.
+-- 'directoryId', 'resetUserPassword_directoryId' - Identifier of the Managed Microsoft AD or Simple AD directory in which
+-- the user resides.
 --
 -- 'userName', 'resetUserPassword_userName' - The user name of the user whose password will be reset.
 --
@@ -108,8 +108,8 @@ newResetUserPassword
         newPassword' = Core._Sensitive Lens.# pNewPassword_
       }
 
--- | Identifier of the AWS Managed Microsoft AD or Simple AD directory in
--- which the user resides.
+-- | Identifier of the Managed Microsoft AD or Simple AD directory in which
+-- the user resides.
 resetUserPassword_directoryId :: Lens.Lens' ResetUserPassword Prelude.Text
 resetUserPassword_directoryId = Lens.lens (\ResetUserPassword' {directoryId} -> directoryId) (\s@ResetUserPassword' {} a -> s {directoryId = a} :: ResetUserPassword)
 

@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newIpRouteInfo' smart constructor.
 data IpRouteInfo = IpRouteInfo'
-  { -- | IP address block in the IpRoute.
-    cidrIp :: Prelude.Maybe Prelude.Text,
-    -- | The status of the IP address block.
+  { -- | The status of the IP address block.
     ipRouteStatusMsg :: Prelude.Maybe IpRouteStatusMsg,
+    -- | IP address block in the IpRoute.
+    cidrIp :: Prelude.Maybe Prelude.Text,
     -- | Identifier (ID) of the directory associated with the IP addresses.
     directoryId :: Prelude.Maybe Prelude.Text,
     -- | The date and time the address block was added to the directory.
@@ -51,9 +51,9 @@ data IpRouteInfo = IpRouteInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'cidrIp', 'ipRouteInfo_cidrIp' - IP address block in the IpRoute.
---
 -- 'ipRouteStatusMsg', 'ipRouteInfo_ipRouteStatusMsg' - The status of the IP address block.
+--
+-- 'cidrIp', 'ipRouteInfo_cidrIp' - IP address block in the IpRoute.
 --
 -- 'directoryId', 'ipRouteInfo_directoryId' - Identifier (ID) of the directory associated with the IP addresses.
 --
@@ -66,21 +66,21 @@ newIpRouteInfo ::
   IpRouteInfo
 newIpRouteInfo =
   IpRouteInfo'
-    { cidrIp = Prelude.Nothing,
-      ipRouteStatusMsg = Prelude.Nothing,
+    { ipRouteStatusMsg = Prelude.Nothing,
+      cidrIp = Prelude.Nothing,
       directoryId = Prelude.Nothing,
       addedDateTime = Prelude.Nothing,
       description = Prelude.Nothing,
       ipRouteStatusReason = Prelude.Nothing
     }
 
--- | IP address block in the IpRoute.
-ipRouteInfo_cidrIp :: Lens.Lens' IpRouteInfo (Prelude.Maybe Prelude.Text)
-ipRouteInfo_cidrIp = Lens.lens (\IpRouteInfo' {cidrIp} -> cidrIp) (\s@IpRouteInfo' {} a -> s {cidrIp = a} :: IpRouteInfo)
-
 -- | The status of the IP address block.
 ipRouteInfo_ipRouteStatusMsg :: Lens.Lens' IpRouteInfo (Prelude.Maybe IpRouteStatusMsg)
 ipRouteInfo_ipRouteStatusMsg = Lens.lens (\IpRouteInfo' {ipRouteStatusMsg} -> ipRouteStatusMsg) (\s@IpRouteInfo' {} a -> s {ipRouteStatusMsg = a} :: IpRouteInfo)
+
+-- | IP address block in the IpRoute.
+ipRouteInfo_cidrIp :: Lens.Lens' IpRouteInfo (Prelude.Maybe Prelude.Text)
+ipRouteInfo_cidrIp = Lens.lens (\IpRouteInfo' {cidrIp} -> cidrIp) (\s@IpRouteInfo' {} a -> s {cidrIp = a} :: IpRouteInfo)
 
 -- | Identifier (ID) of the directory associated with the IP addresses.
 ipRouteInfo_directoryId :: Lens.Lens' IpRouteInfo (Prelude.Maybe Prelude.Text)
@@ -104,8 +104,8 @@ instance Core.FromJSON IpRouteInfo where
       "IpRouteInfo"
       ( \x ->
           IpRouteInfo'
-            Prelude.<$> (x Core..:? "CidrIp")
-            Prelude.<*> (x Core..:? "IpRouteStatusMsg")
+            Prelude.<$> (x Core..:? "IpRouteStatusMsg")
+            Prelude.<*> (x Core..:? "CidrIp")
             Prelude.<*> (x Core..:? "DirectoryId")
             Prelude.<*> (x Core..:? "AddedDateTime")
             Prelude.<*> (x Core..:? "Description")

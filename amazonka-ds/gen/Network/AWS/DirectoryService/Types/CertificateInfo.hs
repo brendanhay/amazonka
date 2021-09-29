@@ -35,12 +35,12 @@ data CertificateInfo = CertificateInfo'
     state :: Prelude.Maybe CertificateState,
     -- | The date and time when the certificate will expire.
     expiryDateTime :: Prelude.Maybe Core.POSIX,
+    -- | The identifier of the certificate.
+    certificateId :: Prelude.Maybe Prelude.Text,
     -- | The function that the registered certificate performs. Valid values
     -- include @ClientLDAPS@ or @ClientCertAuth@. The default value is
     -- @ClientLDAPS@.
-    type' :: Prelude.Maybe CertificateType,
-    -- | The identifier of the certificate.
-    certificateId :: Prelude.Maybe Prelude.Text
+    type' :: Prelude.Maybe CertificateType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,11 +58,11 @@ data CertificateInfo = CertificateInfo'
 --
 -- 'expiryDateTime', 'certificateInfo_expiryDateTime' - The date and time when the certificate will expire.
 --
+-- 'certificateId', 'certificateInfo_certificateId' - The identifier of the certificate.
+--
 -- 'type'', 'certificateInfo_type' - The function that the registered certificate performs. Valid values
 -- include @ClientLDAPS@ or @ClientCertAuth@. The default value is
 -- @ClientLDAPS@.
---
--- 'certificateId', 'certificateInfo_certificateId' - The identifier of the certificate.
 newCertificateInfo ::
   CertificateInfo
 newCertificateInfo =
@@ -70,8 +70,8 @@ newCertificateInfo =
     { commonName = Prelude.Nothing,
       state = Prelude.Nothing,
       expiryDateTime = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      certificateId = Prelude.Nothing
+      certificateId = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The common name for the certificate.
@@ -86,15 +86,15 @@ certificateInfo_state = Lens.lens (\CertificateInfo' {state} -> state) (\s@Certi
 certificateInfo_expiryDateTime :: Lens.Lens' CertificateInfo (Prelude.Maybe Prelude.UTCTime)
 certificateInfo_expiryDateTime = Lens.lens (\CertificateInfo' {expiryDateTime} -> expiryDateTime) (\s@CertificateInfo' {} a -> s {expiryDateTime = a} :: CertificateInfo) Prelude.. Lens.mapping Core._Time
 
+-- | The identifier of the certificate.
+certificateInfo_certificateId :: Lens.Lens' CertificateInfo (Prelude.Maybe Prelude.Text)
+certificateInfo_certificateId = Lens.lens (\CertificateInfo' {certificateId} -> certificateId) (\s@CertificateInfo' {} a -> s {certificateId = a} :: CertificateInfo)
+
 -- | The function that the registered certificate performs. Valid values
 -- include @ClientLDAPS@ or @ClientCertAuth@. The default value is
 -- @ClientLDAPS@.
 certificateInfo_type :: Lens.Lens' CertificateInfo (Prelude.Maybe CertificateType)
 certificateInfo_type = Lens.lens (\CertificateInfo' {type'} -> type') (\s@CertificateInfo' {} a -> s {type' = a} :: CertificateInfo)
-
--- | The identifier of the certificate.
-certificateInfo_certificateId :: Lens.Lens' CertificateInfo (Prelude.Maybe Prelude.Text)
-certificateInfo_certificateId = Lens.lens (\CertificateInfo' {certificateId} -> certificateId) (\s@CertificateInfo' {} a -> s {certificateId = a} :: CertificateInfo)
 
 instance Core.FromJSON CertificateInfo where
   parseJSON =
@@ -105,8 +105,8 @@ instance Core.FromJSON CertificateInfo where
             Prelude.<$> (x Core..:? "CommonName")
             Prelude.<*> (x Core..:? "State")
             Prelude.<*> (x Core..:? "ExpiryDateTime")
-            Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "CertificateId")
+            Prelude.<*> (x Core..:? "Type")
       )
 
 instance Prelude.Hashable CertificateInfo

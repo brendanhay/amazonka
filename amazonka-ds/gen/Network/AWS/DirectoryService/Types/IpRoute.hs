@@ -24,12 +24,12 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | IP address block. This is often the address block of the DNS server used
--- for your on-premises domain.
+-- for your self-managed domain.
 --
 -- /See:/ 'newIpRoute' smart constructor.
 data IpRoute = IpRoute'
   { -- | IP address block using CIDR format, for example 10.0.0.0\/24. This is
-    -- often the address block of the DNS server used for your on-premises
+    -- often the address block of the DNS server used for your self-managed
     -- domain. For a single IP address use a CIDR address block with \/32. For
     -- example 10.0.0.0\/32.
     cidrIp :: Prelude.Maybe Prelude.Text,
@@ -47,7 +47,7 @@ data IpRoute = IpRoute'
 -- for backwards compatibility:
 --
 -- 'cidrIp', 'ipRoute_cidrIp' - IP address block using CIDR format, for example 10.0.0.0\/24. This is
--- often the address block of the DNS server used for your on-premises
+-- often the address block of the DNS server used for your self-managed
 -- domain. For a single IP address use a CIDR address block with \/32. For
 -- example 10.0.0.0\/32.
 --
@@ -61,7 +61,7 @@ newIpRoute =
     }
 
 -- | IP address block using CIDR format, for example 10.0.0.0\/24. This is
--- often the address block of the DNS server used for your on-premises
+-- often the address block of the DNS server used for your self-managed
 -- domain. For a single IP address use a CIDR address block with \/32. For
 -- example 10.0.0.0\/32.
 ipRoute_cidrIp :: Lens.Lens' IpRoute (Prelude.Maybe Prelude.Text)

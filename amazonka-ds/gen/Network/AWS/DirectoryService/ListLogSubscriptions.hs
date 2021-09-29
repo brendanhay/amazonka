@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the active log subscriptions for the AWS account.
+-- Lists the active log subscriptions for the Amazon Web Services account.
 --
 -- This operation returns paginated results.
 module Network.AWS.DirectoryService.ListLogSubscriptions
@@ -57,9 +57,9 @@ data ListLogSubscriptions = ListLogSubscriptions'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | If a /DirectoryID/ is provided, lists only the log subscription
     -- associated with that directory. If no /DirectoryId/ is provided, lists
-    -- all log subscriptions associated with your AWS account. If there are no
-    -- log subscriptions for the AWS account or the directory, an empty list
-    -- will be returned.
+    -- all log subscriptions associated with your Amazon Web Services account.
+    -- If there are no log subscriptions for the Amazon Web Services account or
+    -- the directory, an empty list will be returned.
     directoryId :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of items returned.
     limit :: Prelude.Maybe Prelude.Natural
@@ -78,9 +78,9 @@ data ListLogSubscriptions = ListLogSubscriptions'
 --
 -- 'directoryId', 'listLogSubscriptions_directoryId' - If a /DirectoryID/ is provided, lists only the log subscription
 -- associated with that directory. If no /DirectoryId/ is provided, lists
--- all log subscriptions associated with your AWS account. If there are no
--- log subscriptions for the AWS account or the directory, an empty list
--- will be returned.
+-- all log subscriptions associated with your Amazon Web Services account.
+-- If there are no log subscriptions for the Amazon Web Services account or
+-- the directory, an empty list will be returned.
 --
 -- 'limit', 'listLogSubscriptions_limit' - The maximum number of items returned.
 newListLogSubscriptions ::
@@ -98,9 +98,9 @@ listLogSubscriptions_nextToken = Lens.lens (\ListLogSubscriptions' {nextToken} -
 
 -- | If a /DirectoryID/ is provided, lists only the log subscription
 -- associated with that directory. If no /DirectoryId/ is provided, lists
--- all log subscriptions associated with your AWS account. If there are no
--- log subscriptions for the AWS account or the directory, an empty list
--- will be returned.
+-- all log subscriptions associated with your Amazon Web Services account.
+-- If there are no log subscriptions for the Amazon Web Services account or
+-- the directory, an empty list will be returned.
 listLogSubscriptions_directoryId :: Lens.Lens' ListLogSubscriptions (Prelude.Maybe Prelude.Text)
 listLogSubscriptions_directoryId = Lens.lens (\ListLogSubscriptions' {directoryId} -> directoryId) (\s@ListLogSubscriptions' {} a -> s {directoryId = a} :: ListLogSubscriptions)
 
@@ -185,7 +185,8 @@ instance Core.ToQuery ListLogSubscriptions where
 data ListLogSubscriptionsResponse = ListLogSubscriptionsResponse'
   { -- | The token for the next set of items to return.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of active LogSubscription objects for calling the AWS account.
+    -- | A list of active LogSubscription objects for calling the Amazon Web
+    -- Services account.
     logSubscriptions :: Prelude.Maybe [LogSubscription],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -202,7 +203,8 @@ data ListLogSubscriptionsResponse = ListLogSubscriptionsResponse'
 --
 -- 'nextToken', 'listLogSubscriptionsResponse_nextToken' - The token for the next set of items to return.
 --
--- 'logSubscriptions', 'listLogSubscriptionsResponse_logSubscriptions' - A list of active LogSubscription objects for calling the AWS account.
+-- 'logSubscriptions', 'listLogSubscriptionsResponse_logSubscriptions' - A list of active LogSubscription objects for calling the Amazon Web
+-- Services account.
 --
 -- 'httpStatus', 'listLogSubscriptionsResponse_httpStatus' - The response's http status code.
 newListLogSubscriptionsResponse ::
@@ -221,7 +223,8 @@ newListLogSubscriptionsResponse pHttpStatus_ =
 listLogSubscriptionsResponse_nextToken :: Lens.Lens' ListLogSubscriptionsResponse (Prelude.Maybe Prelude.Text)
 listLogSubscriptionsResponse_nextToken = Lens.lens (\ListLogSubscriptionsResponse' {nextToken} -> nextToken) (\s@ListLogSubscriptionsResponse' {} a -> s {nextToken = a} :: ListLogSubscriptionsResponse)
 
--- | A list of active LogSubscription objects for calling the AWS account.
+-- | A list of active LogSubscription objects for calling the Amazon Web
+-- Services account.
 listLogSubscriptionsResponse_logSubscriptions :: Lens.Lens' ListLogSubscriptionsResponse (Prelude.Maybe [LogSubscription])
 listLogSubscriptionsResponse_logSubscriptions = Lens.lens (\ListLogSubscriptionsResponse' {logSubscriptions} -> logSubscriptions) (\s@ListLogSubscriptionsResponse' {} a -> s {logSubscriptions = a} :: ListLogSubscriptionsResponse) Prelude.. Lens.mapping Lens._Coerce
 

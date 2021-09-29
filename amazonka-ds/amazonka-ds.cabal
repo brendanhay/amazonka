@@ -68,6 +68,7 @@ library
     Network.AWS.DirectoryService.DeregisterCertificate
     Network.AWS.DirectoryService.DeregisterEventTopic
     Network.AWS.DirectoryService.DescribeCertificate
+    Network.AWS.DirectoryService.DescribeClientAuthenticationSettings
     Network.AWS.DirectoryService.DescribeConditionalForwarders
     Network.AWS.DirectoryService.DescribeDirectories
     Network.AWS.DirectoryService.DescribeDomainControllers
@@ -109,6 +110,8 @@ library
     Network.AWS.DirectoryService.Types.CertificateInfo
     Network.AWS.DirectoryService.Types.CertificateState
     Network.AWS.DirectoryService.Types.CertificateType
+    Network.AWS.DirectoryService.Types.ClientAuthenticationSettingInfo
+    Network.AWS.DirectoryService.Types.ClientAuthenticationStatus
     Network.AWS.DirectoryService.Types.ClientAuthenticationType
     Network.AWS.DirectoryService.Types.ClientCertAuthSettings
     Network.AWS.DirectoryService.Types.Computer

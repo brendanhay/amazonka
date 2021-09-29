@@ -32,7 +32,7 @@ import qualified Network.AWS.Prelude as Prelude
 data ConditionalForwarder = ConditionalForwarder'
   { -- | The replication scope of the conditional forwarder. The only allowed
     -- value is @Domain@, which will replicate the conditional forwarder to all
-    -- of the domain controllers for your AWS directory.
+    -- of the domain controllers for your Amazon Web Services directory.
     replicationScope :: Prelude.Maybe ReplicationScope,
     -- | The fully qualified domain name (FQDN) of the remote domains pointed to
     -- by the conditional forwarder.
@@ -54,7 +54,7 @@ data ConditionalForwarder = ConditionalForwarder'
 --
 -- 'replicationScope', 'conditionalForwarder_replicationScope' - The replication scope of the conditional forwarder. The only allowed
 -- value is @Domain@, which will replicate the conditional forwarder to all
--- of the domain controllers for your AWS directory.
+-- of the domain controllers for your Amazon Web Services directory.
 --
 -- 'remoteDomainName', 'conditionalForwarder_remoteDomainName' - The fully qualified domain name (FQDN) of the remote domains pointed to
 -- by the conditional forwarder.
@@ -74,7 +74,7 @@ newConditionalForwarder =
 
 -- | The replication scope of the conditional forwarder. The only allowed
 -- value is @Domain@, which will replicate the conditional forwarder to all
--- of the domain controllers for your AWS directory.
+-- of the domain controllers for your Amazon Web Services directory.
 conditionalForwarder_replicationScope :: Lens.Lens' ConditionalForwarder (Prelude.Maybe ReplicationScope)
 conditionalForwarder_replicationScope = Lens.lens (\ConditionalForwarder' {replicationScope} -> replicationScope) (\s@ConditionalForwarder' {} a -> s {replicationScope = a} :: ConditionalForwarder)
 

@@ -22,13 +22,13 @@
 --
 -- Creates a Simple AD directory. For more information, see
 -- <https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_simple_ad.html Simple Active Directory>
--- in the /AWS Directory Service Admin Guide/.
+-- in the /Directory Service Admin Guide/.
 --
 -- Before you call @CreateDirectory@, ensure that all of the required
 -- permissions have been explicitly granted through a policy. For details
 -- about what permissions are required to run the @CreateDirectory@
 -- operation, see
--- <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html AWS Directory Service API Permissions: Actions, Resources, and Conditions Reference>.
+-- <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html Directory Service API Permissions: Actions, Resources, and Conditions Reference>.
 module Network.AWS.DirectoryService.CreateDirectory
   ( -- * Creating a Request
     CreateDirectory (..),

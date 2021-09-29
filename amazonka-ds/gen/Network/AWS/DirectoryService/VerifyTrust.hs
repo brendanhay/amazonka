@@ -20,11 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- AWS Directory Service for Microsoft Active Directory allows you to
--- configure and verify trust relationships.
+-- Directory Service for Microsoft Active Directory allows you to configure
+-- and verify trust relationships.
 --
--- This action verifies a trust relationship between your AWS Managed
--- Microsoft AD directory and an external domain.
+-- This action verifies a trust relationship between your Managed Microsoft
+-- AD directory and an external domain.
 module Network.AWS.DirectoryService.VerifyTrust
   ( -- * Creating a Request
     VerifyTrust (..),
@@ -51,7 +51,7 @@ import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | Initiates the verification of an existing trust relationship between an
--- AWS Managed Microsoft AD directory and an external domain.
+-- Managed Microsoft AD directory and an external domain.
 --
 -- /See:/ 'newVerifyTrust' smart constructor.
 data VerifyTrust = VerifyTrust'

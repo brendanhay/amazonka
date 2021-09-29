@@ -81,17 +81,17 @@ module Network.AWS.CloudHSMv2
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
 
-    -- ** CopyBackupToRegion
-    CopyBackupToRegion (CopyBackupToRegion'),
-    newCopyBackupToRegion,
-    CopyBackupToRegionResponse (CopyBackupToRegionResponse'),
-    newCopyBackupToRegionResponse,
-
     -- ** TagResource
     TagResource (TagResource'),
     newTagResource,
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
+
+    -- ** CopyBackupToRegion
+    CopyBackupToRegion (CopyBackupToRegion'),
+    newCopyBackupToRegion,
+    CopyBackupToRegionResponse (CopyBackupToRegionResponse'),
+    newCopyBackupToRegionResponse,
 
     -- ** ModifyCluster
     ModifyCluster (ModifyCluster'),
@@ -105,17 +105,17 @@ module Network.AWS.CloudHSMv2
     ModifyBackupAttributesResponse (ModifyBackupAttributesResponse'),
     newModifyBackupAttributesResponse,
 
-    -- ** DeleteCluster
-    DeleteCluster (DeleteCluster'),
-    newDeleteCluster,
-    DeleteClusterResponse (DeleteClusterResponse'),
-    newDeleteClusterResponse,
-
     -- ** ListTags (Paginated)
     ListTags (ListTags'),
     newListTags,
     ListTagsResponse (ListTagsResponse'),
     newListTagsResponse,
+
+    -- ** DeleteCluster
+    DeleteCluster (DeleteCluster'),
+    newDeleteCluster,
+    DeleteClusterResponse (DeleteClusterResponse'),
+    newDeleteClusterResponse,
 
     -- ** DescribeBackups (Paginated)
     DescribeBackups (DescribeBackups'),
@@ -123,17 +123,17 @@ module Network.AWS.CloudHSMv2
     DescribeBackupsResponse (DescribeBackupsResponse'),
     newDescribeBackupsResponse,
 
-    -- ** CreateHsm
-    CreateHsm (CreateHsm'),
-    newCreateHsm,
-    CreateHsmResponse (CreateHsmResponse'),
-    newCreateHsmResponse,
-
     -- ** InitializeCluster
     InitializeCluster (InitializeCluster'),
     newInitializeCluster,
     InitializeClusterResponse (InitializeClusterResponse'),
     newInitializeClusterResponse,
+
+    -- ** CreateHsm
+    CreateHsm (CreateHsm'),
+    newCreateHsm,
+    CreateHsmResponse (CreateHsmResponse'),
+    newCreateHsmResponse,
 
     -- * Types
 

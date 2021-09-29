@@ -37,10 +37,10 @@ data Hsm = Hsm'
     eniIp :: Prelude.Maybe Prelude.Text,
     -- | The identifier (ID) of the HSM\'s elastic network interface (ENI).
     eniId :: Prelude.Maybe Prelude.Text,
-    -- | The HSM\'s state.
-    state :: Prelude.Maybe HsmState,
     -- | The Availability Zone that contains the HSM.
     availabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | The HSM\'s state.
+    state :: Prelude.Maybe HsmState,
     -- | The subnet that contains the HSM\'s elastic network interface (ENI).
     subnetId :: Prelude.Maybe Prelude.Text,
     -- | The HSM\'s identifier (ID).
@@ -64,9 +64,9 @@ data Hsm = Hsm'
 --
 -- 'eniId', 'hsm_eniId' - The identifier (ID) of the HSM\'s elastic network interface (ENI).
 --
--- 'state', 'hsm_state' - The HSM\'s state.
---
 -- 'availabilityZone', 'hsm_availabilityZone' - The Availability Zone that contains the HSM.
+--
+-- 'state', 'hsm_state' - The HSM\'s state.
 --
 -- 'subnetId', 'hsm_subnetId' - The subnet that contains the HSM\'s elastic network interface (ENI).
 --
@@ -81,8 +81,8 @@ newHsm pHsmId_ =
       stateMessage = Prelude.Nothing,
       eniIp = Prelude.Nothing,
       eniId = Prelude.Nothing,
-      state = Prelude.Nothing,
       availabilityZone = Prelude.Nothing,
+      state = Prelude.Nothing,
       subnetId = Prelude.Nothing,
       hsmId = pHsmId_
     }
@@ -103,13 +103,13 @@ hsm_eniIp = Lens.lens (\Hsm' {eniIp} -> eniIp) (\s@Hsm' {} a -> s {eniIp = a} ::
 hsm_eniId :: Lens.Lens' Hsm (Prelude.Maybe Prelude.Text)
 hsm_eniId = Lens.lens (\Hsm' {eniId} -> eniId) (\s@Hsm' {} a -> s {eniId = a} :: Hsm)
 
--- | The HSM\'s state.
-hsm_state :: Lens.Lens' Hsm (Prelude.Maybe HsmState)
-hsm_state = Lens.lens (\Hsm' {state} -> state) (\s@Hsm' {} a -> s {state = a} :: Hsm)
-
 -- | The Availability Zone that contains the HSM.
 hsm_availabilityZone :: Lens.Lens' Hsm (Prelude.Maybe Prelude.Text)
 hsm_availabilityZone = Lens.lens (\Hsm' {availabilityZone} -> availabilityZone) (\s@Hsm' {} a -> s {availabilityZone = a} :: Hsm)
+
+-- | The HSM\'s state.
+hsm_state :: Lens.Lens' Hsm (Prelude.Maybe HsmState)
+hsm_state = Lens.lens (\Hsm' {state} -> state) (\s@Hsm' {} a -> s {state = a} :: Hsm)
 
 -- | The subnet that contains the HSM\'s elastic network interface (ENI).
 hsm_subnetId :: Lens.Lens' Hsm (Prelude.Maybe Prelude.Text)
@@ -129,8 +129,8 @@ instance Core.FromJSON Hsm where
             Prelude.<*> (x Core..:? "StateMessage")
             Prelude.<*> (x Core..:? "EniIp")
             Prelude.<*> (x Core..:? "EniId")
-            Prelude.<*> (x Core..:? "State")
             Prelude.<*> (x Core..:? "AvailabilityZone")
+            Prelude.<*> (x Core..:? "State")
             Prelude.<*> (x Core..:? "SubnetId")
             Prelude.<*> (x Core..: "HsmId")
       )

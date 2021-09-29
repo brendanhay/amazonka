@@ -50,14 +50,14 @@ data Cluster = Cluster'
     preCoPassword :: Prelude.Maybe Prelude.Text,
     -- | The identifier (ID) of the cluster\'s security group.
     securityGroup :: Prelude.Maybe Prelude.Text,
-    -- | The type of HSM that the cluster contains.
-    hsmType :: Prelude.Maybe Prelude.Text,
-    -- | The identifier (ID) of the backup used to create the cluster. This value
-    -- exists only when the cluster was created from a backup.
-    sourceBackupId :: Prelude.Maybe Prelude.Text,
     -- | Contains one or more certificates or a certificate signing request
     -- (CSR).
     certificates :: Prelude.Maybe Certificates,
+    -- | The identifier (ID) of the backup used to create the cluster. This value
+    -- exists only when the cluster was created from a backup.
+    sourceBackupId :: Prelude.Maybe Prelude.Text,
+    -- | The type of HSM that the cluster contains.
+    hsmType :: Prelude.Maybe Prelude.Text,
     -- | The list of tags for the cluster.
     tagList :: Prelude.Maybe [Tag],
     -- | The identifier (ID) of the virtual private cloud (VPC) that contains the
@@ -95,13 +95,13 @@ data Cluster = Cluster'
 --
 -- 'securityGroup', 'cluster_securityGroup' - The identifier (ID) of the cluster\'s security group.
 --
--- 'hsmType', 'cluster_hsmType' - The type of HSM that the cluster contains.
+-- 'certificates', 'cluster_certificates' - Contains one or more certificates or a certificate signing request
+-- (CSR).
 --
 -- 'sourceBackupId', 'cluster_sourceBackupId' - The identifier (ID) of the backup used to create the cluster. This value
 -- exists only when the cluster was created from a backup.
 --
--- 'certificates', 'cluster_certificates' - Contains one or more certificates or a certificate signing request
--- (CSR).
+-- 'hsmType', 'cluster_hsmType' - The type of HSM that the cluster contains.
 --
 -- 'tagList', 'cluster_tagList' - The list of tags for the cluster.
 --
@@ -123,9 +123,9 @@ newCluster =
       state = Prelude.Nothing,
       preCoPassword = Prelude.Nothing,
       securityGroup = Prelude.Nothing,
-      hsmType = Prelude.Nothing,
-      sourceBackupId = Prelude.Nothing,
       certificates = Prelude.Nothing,
+      sourceBackupId = Prelude.Nothing,
+      hsmType = Prelude.Nothing,
       tagList = Prelude.Nothing,
       vpcId = Prelude.Nothing,
       hsms = Prelude.Nothing,
@@ -165,19 +165,19 @@ cluster_preCoPassword = Lens.lens (\Cluster' {preCoPassword} -> preCoPassword) (
 cluster_securityGroup :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
 cluster_securityGroup = Lens.lens (\Cluster' {securityGroup} -> securityGroup) (\s@Cluster' {} a -> s {securityGroup = a} :: Cluster)
 
--- | The type of HSM that the cluster contains.
-cluster_hsmType :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
-cluster_hsmType = Lens.lens (\Cluster' {hsmType} -> hsmType) (\s@Cluster' {} a -> s {hsmType = a} :: Cluster)
+-- | Contains one or more certificates or a certificate signing request
+-- (CSR).
+cluster_certificates :: Lens.Lens' Cluster (Prelude.Maybe Certificates)
+cluster_certificates = Lens.lens (\Cluster' {certificates} -> certificates) (\s@Cluster' {} a -> s {certificates = a} :: Cluster)
 
 -- | The identifier (ID) of the backup used to create the cluster. This value
 -- exists only when the cluster was created from a backup.
 cluster_sourceBackupId :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
 cluster_sourceBackupId = Lens.lens (\Cluster' {sourceBackupId} -> sourceBackupId) (\s@Cluster' {} a -> s {sourceBackupId = a} :: Cluster)
 
--- | Contains one or more certificates or a certificate signing request
--- (CSR).
-cluster_certificates :: Lens.Lens' Cluster (Prelude.Maybe Certificates)
-cluster_certificates = Lens.lens (\Cluster' {certificates} -> certificates) (\s@Cluster' {} a -> s {certificates = a} :: Cluster)
+-- | The type of HSM that the cluster contains.
+cluster_hsmType :: Lens.Lens' Cluster (Prelude.Maybe Prelude.Text)
+cluster_hsmType = Lens.lens (\Cluster' {hsmType} -> hsmType) (\s@Cluster' {} a -> s {hsmType = a} :: Cluster)
 
 -- | The list of tags for the cluster.
 cluster_tagList :: Lens.Lens' Cluster (Prelude.Maybe [Tag])
@@ -210,9 +210,9 @@ instance Core.FromJSON Cluster where
             Prelude.<*> (x Core..:? "State")
             Prelude.<*> (x Core..:? "PreCoPassword")
             Prelude.<*> (x Core..:? "SecurityGroup")
-            Prelude.<*> (x Core..:? "HsmType")
-            Prelude.<*> (x Core..:? "SourceBackupId")
             Prelude.<*> (x Core..:? "Certificates")
+            Prelude.<*> (x Core..:? "SourceBackupId")
+            Prelude.<*> (x Core..:? "HsmType")
             Prelude.<*> (x Core..:? "TagList" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "VpcId")
             Prelude.<*> (x Core..:? "Hsms" Core..!= Prelude.mempty)

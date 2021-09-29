@@ -23,7 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | AWS Network Firewall stateful rule group, used in a
+-- | Network Firewall stateful rule group, used in a
 -- NetworkFirewallPolicyDescription.
 --
 -- /See:/ 'newStatefulRuleGroup' smart constructor.

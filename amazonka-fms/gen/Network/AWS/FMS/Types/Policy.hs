@@ -26,13 +26,14 @@ import Network.AWS.FMS.Types.SecurityServicePolicyData
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | An AWS Firewall Manager policy.
+-- | An Firewall Manager policy.
 --
 -- /See:/ 'newPolicy' smart constructor.
 data Policy = Policy'
   { -- | An array of @ResourceTag@ objects.
     resourceTags :: Prelude.Maybe [ResourceTag],
-    -- | An array of @ResourceType@.
+    -- | An array of @ResourceType@ objects. Use this only to specify multiple
+    -- resource types. To specify a single resource type, use @ResourceType@.
     resourceTypeList :: Prelude.Maybe [Prelude.Text],
     -- | A unique identifier for each update to the policy. When issuing a
     -- @PutPolicy@ request, the @PolicyUpdateToken@ in the request must match
@@ -40,13 +41,14 @@ data Policy = Policy'
     -- @PolicyUpdateToken@ of the current policy version, use a @GetPolicy@
     -- request.
     policyUpdateToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the AWS account IDs and AWS Organizations organizational units
-    -- (OUs) to include in the policy. Specifying an OU is the equivalent of
-    -- specifying all accounts in the OU and in any of its child OUs, including
-    -- any child OUs and accounts that are added at a later time.
+    -- | Specifies the Amazon Web Services account IDs and Organizations
+    -- organizational units (OUs) to include in the policy. Specifying an OU is
+    -- the equivalent of specifying all accounts in the OU and in any of its
+    -- child OUs, including any child OUs and accounts that are added at a
+    -- later time.
     --
     -- You can specify inclusions or exclusions, but not both. If you specify
-    -- an @IncludeMap@, AWS Firewall Manager applies the policy to all accounts
+    -- an @IncludeMap@, Firewall Manager applies the policy to all accounts
     -- specified by the @IncludeMap@, and does not evaluate any @ExcludeMap@
     -- specifications. If you do not specify an @IncludeMap@, then Firewall
     -- Manager applies the policy to all accounts except for those specified by
@@ -65,15 +67,16 @@ data Policy = Policy'
     --     comma. For example, the following is a valid map:
     --     @{“ACCOUNT” : [“accountID1”, “accountID2”], “ORG_UNIT” : [“ouid111”, “ouid112”]}@.
     includeMap :: Prelude.Maybe (Prelude.HashMap CustomerPolicyScopeIdType [Prelude.Text]),
-    -- | The ID of the AWS Firewall Manager policy.
+    -- | The ID of the Firewall Manager policy.
     policyId :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the AWS account IDs and AWS Organizations organizational units
-    -- (OUs) to exclude from the policy. Specifying an OU is the equivalent of
-    -- specifying all accounts in the OU and in any of its child OUs, including
-    -- any child OUs and accounts that are added at a later time.
+    -- | Specifies the Amazon Web Services account IDs and Organizations
+    -- organizational units (OUs) to exclude from the policy. Specifying an OU
+    -- is the equivalent of specifying all accounts in the OU and in any of its
+    -- child OUs, including any child OUs and accounts that are added at a
+    -- later time.
     --
     -- You can specify inclusions or exclusions, but not both. If you specify
-    -- an @IncludeMap@, AWS Firewall Manager applies the policy to all accounts
+    -- an @IncludeMap@, Firewall Manager applies the policy to all accounts
     -- specified by the @IncludeMap@, and does not evaluate any @ExcludeMap@
     -- specifications. If you do not specify an @IncludeMap@, then Firewall
     -- Manager applies the policy to all accounts except for those specified by
@@ -92,23 +95,33 @@ data Policy = Policy'
     --     comma. For example, the following is a valid map:
     --     @{“ACCOUNT” : [“accountID1”, “accountID2”], “ORG_UNIT” : [“ouid111”, “ouid112”]}@.
     excludeMap :: Prelude.Maybe (Prelude.HashMap CustomerPolicyScopeIdType [Prelude.Text]),
-    -- | The name of the AWS Firewall Manager policy.
+    -- | Indicates whether Firewall Manager should delete Firewall Manager
+    -- managed resources, such as web ACLs and security groups, when they are
+    -- not in use by the Firewall Manager policy. By default, Firewall Manager
+    -- doesn\'t delete unused Firewall Manager managed resources. This option
+    -- is not available for Shield Advanced or WAF Classic policies.
+    deleteUnusedFMManagedResources :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the Firewall Manager policy.
     policyName :: Prelude.Text,
     -- | Details about the security service that is being used to protect the
     -- resources.
     securityServicePolicyData :: SecurityServicePolicyData,
     -- | The type of resource protected by or in scope of the policy. This is in
     -- the format shown in the
-    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference>.
-    -- For AWS WAF and Shield Advanced, examples include
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference>.
+    -- To apply this policy to multiple resource types, specify a resource type
+    -- of @ResourceTypeList@ and then specify the resource types in a
+    -- @ResourceTypeList@.
+    --
+    -- For WAF and Shield Advanced, example resource types include
     -- @AWS::ElasticLoadBalancingV2::LoadBalancer@ and
     -- @AWS::CloudFront::Distribution@. For a security group common policy,
     -- valid values are @AWS::EC2::NetworkInterface@ and @AWS::EC2::Instance@.
     -- For a security group content audit policy, valid values are
     -- @AWS::EC2::SecurityGroup@, @AWS::EC2::NetworkInterface@, and
     -- @AWS::EC2::Instance@. For a security group usage audit policy, the value
-    -- is @AWS::EC2::SecurityGroup@. For an AWS Network Firewall policy, the
-    -- value is @AWS::EC2::VPC@.
+    -- is @AWS::EC2::SecurityGroup@. For an Network Firewall policy or DNS
+    -- Firewall policy, the value is @AWS::EC2::VPC@.
     resourceType :: Prelude.Text,
     -- | If set to @True@, resources with the tags that are specified in the
     -- @ResourceTag@ array are not in scope of the policy. If set to @False@,
@@ -131,7 +144,8 @@ data Policy = Policy'
 --
 -- 'resourceTags', 'policy_resourceTags' - An array of @ResourceTag@ objects.
 --
--- 'resourceTypeList', 'policy_resourceTypeList' - An array of @ResourceType@.
+-- 'resourceTypeList', 'policy_resourceTypeList' - An array of @ResourceType@ objects. Use this only to specify multiple
+-- resource types. To specify a single resource type, use @ResourceType@.
 --
 -- 'policyUpdateToken', 'policy_policyUpdateToken' - A unique identifier for each update to the policy. When issuing a
 -- @PutPolicy@ request, the @PolicyUpdateToken@ in the request must match
@@ -139,13 +153,14 @@ data Policy = Policy'
 -- @PolicyUpdateToken@ of the current policy version, use a @GetPolicy@
 -- request.
 --
--- 'includeMap', 'policy_includeMap' - Specifies the AWS account IDs and AWS Organizations organizational units
--- (OUs) to include in the policy. Specifying an OU is the equivalent of
--- specifying all accounts in the OU and in any of its child OUs, including
--- any child OUs and accounts that are added at a later time.
+-- 'includeMap', 'policy_includeMap' - Specifies the Amazon Web Services account IDs and Organizations
+-- organizational units (OUs) to include in the policy. Specifying an OU is
+-- the equivalent of specifying all accounts in the OU and in any of its
+-- child OUs, including any child OUs and accounts that are added at a
+-- later time.
 --
 -- You can specify inclusions or exclusions, but not both. If you specify
--- an @IncludeMap@, AWS Firewall Manager applies the policy to all accounts
+-- an @IncludeMap@, Firewall Manager applies the policy to all accounts
 -- specified by the @IncludeMap@, and does not evaluate any @ExcludeMap@
 -- specifications. If you do not specify an @IncludeMap@, then Firewall
 -- Manager applies the policy to all accounts except for those specified by
@@ -164,15 +179,16 @@ data Policy = Policy'
 --     comma. For example, the following is a valid map:
 --     @{“ACCOUNT” : [“accountID1”, “accountID2”], “ORG_UNIT” : [“ouid111”, “ouid112”]}@.
 --
--- 'policyId', 'policy_policyId' - The ID of the AWS Firewall Manager policy.
+-- 'policyId', 'policy_policyId' - The ID of the Firewall Manager policy.
 --
--- 'excludeMap', 'policy_excludeMap' - Specifies the AWS account IDs and AWS Organizations organizational units
--- (OUs) to exclude from the policy. Specifying an OU is the equivalent of
--- specifying all accounts in the OU and in any of its child OUs, including
--- any child OUs and accounts that are added at a later time.
+-- 'excludeMap', 'policy_excludeMap' - Specifies the Amazon Web Services account IDs and Organizations
+-- organizational units (OUs) to exclude from the policy. Specifying an OU
+-- is the equivalent of specifying all accounts in the OU and in any of its
+-- child OUs, including any child OUs and accounts that are added at a
+-- later time.
 --
 -- You can specify inclusions or exclusions, but not both. If you specify
--- an @IncludeMap@, AWS Firewall Manager applies the policy to all accounts
+-- an @IncludeMap@, Firewall Manager applies the policy to all accounts
 -- specified by the @IncludeMap@, and does not evaluate any @ExcludeMap@
 -- specifications. If you do not specify an @IncludeMap@, then Firewall
 -- Manager applies the policy to all accounts except for those specified by
@@ -191,23 +207,33 @@ data Policy = Policy'
 --     comma. For example, the following is a valid map:
 --     @{“ACCOUNT” : [“accountID1”, “accountID2”], “ORG_UNIT” : [“ouid111”, “ouid112”]}@.
 --
--- 'policyName', 'policy_policyName' - The name of the AWS Firewall Manager policy.
+-- 'deleteUnusedFMManagedResources', 'policy_deleteUnusedFMManagedResources' - Indicates whether Firewall Manager should delete Firewall Manager
+-- managed resources, such as web ACLs and security groups, when they are
+-- not in use by the Firewall Manager policy. By default, Firewall Manager
+-- doesn\'t delete unused Firewall Manager managed resources. This option
+-- is not available for Shield Advanced or WAF Classic policies.
+--
+-- 'policyName', 'policy_policyName' - The name of the Firewall Manager policy.
 --
 -- 'securityServicePolicyData', 'policy_securityServicePolicyData' - Details about the security service that is being used to protect the
 -- resources.
 --
 -- 'resourceType', 'policy_resourceType' - The type of resource protected by or in scope of the policy. This is in
 -- the format shown in the
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference>.
--- For AWS WAF and Shield Advanced, examples include
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference>.
+-- To apply this policy to multiple resource types, specify a resource type
+-- of @ResourceTypeList@ and then specify the resource types in a
+-- @ResourceTypeList@.
+--
+-- For WAF and Shield Advanced, example resource types include
 -- @AWS::ElasticLoadBalancingV2::LoadBalancer@ and
 -- @AWS::CloudFront::Distribution@. For a security group common policy,
 -- valid values are @AWS::EC2::NetworkInterface@ and @AWS::EC2::Instance@.
 -- For a security group content audit policy, valid values are
 -- @AWS::EC2::SecurityGroup@, @AWS::EC2::NetworkInterface@, and
 -- @AWS::EC2::Instance@. For a security group usage audit policy, the value
--- is @AWS::EC2::SecurityGroup@. For an AWS Network Firewall policy, the
--- value is @AWS::EC2::VPC@.
+-- is @AWS::EC2::SecurityGroup@. For an Network Firewall policy or DNS
+-- Firewall policy, the value is @AWS::EC2::VPC@.
 --
 -- 'excludeResourceTags', 'policy_excludeResourceTags' - If set to @True@, resources with the tags that are specified in the
 -- @ResourceTag@ array are not in scope of the policy. If set to @False@,
@@ -241,6 +267,7 @@ newPolicy
         includeMap = Prelude.Nothing,
         policyId = Prelude.Nothing,
         excludeMap = Prelude.Nothing,
+        deleteUnusedFMManagedResources = Prelude.Nothing,
         policyName = pPolicyName_,
         securityServicePolicyData =
           pSecurityServicePolicyData_,
@@ -253,7 +280,8 @@ newPolicy
 policy_resourceTags :: Lens.Lens' Policy (Prelude.Maybe [ResourceTag])
 policy_resourceTags = Lens.lens (\Policy' {resourceTags} -> resourceTags) (\s@Policy' {} a -> s {resourceTags = a} :: Policy) Prelude.. Lens.mapping Lens._Coerce
 
--- | An array of @ResourceType@.
+-- | An array of @ResourceType@ objects. Use this only to specify multiple
+-- resource types. To specify a single resource type, use @ResourceType@.
 policy_resourceTypeList :: Lens.Lens' Policy (Prelude.Maybe [Prelude.Text])
 policy_resourceTypeList = Lens.lens (\Policy' {resourceTypeList} -> resourceTypeList) (\s@Policy' {} a -> s {resourceTypeList = a} :: Policy) Prelude.. Lens.mapping Lens._Coerce
 
@@ -265,13 +293,14 @@ policy_resourceTypeList = Lens.lens (\Policy' {resourceTypeList} -> resourceType
 policy_policyUpdateToken :: Lens.Lens' Policy (Prelude.Maybe Prelude.Text)
 policy_policyUpdateToken = Lens.lens (\Policy' {policyUpdateToken} -> policyUpdateToken) (\s@Policy' {} a -> s {policyUpdateToken = a} :: Policy)
 
--- | Specifies the AWS account IDs and AWS Organizations organizational units
--- (OUs) to include in the policy. Specifying an OU is the equivalent of
--- specifying all accounts in the OU and in any of its child OUs, including
--- any child OUs and accounts that are added at a later time.
+-- | Specifies the Amazon Web Services account IDs and Organizations
+-- organizational units (OUs) to include in the policy. Specifying an OU is
+-- the equivalent of specifying all accounts in the OU and in any of its
+-- child OUs, including any child OUs and accounts that are added at a
+-- later time.
 --
 -- You can specify inclusions or exclusions, but not both. If you specify
--- an @IncludeMap@, AWS Firewall Manager applies the policy to all accounts
+-- an @IncludeMap@, Firewall Manager applies the policy to all accounts
 -- specified by the @IncludeMap@, and does not evaluate any @ExcludeMap@
 -- specifications. If you do not specify an @IncludeMap@, then Firewall
 -- Manager applies the policy to all accounts except for those specified by
@@ -292,17 +321,18 @@ policy_policyUpdateToken = Lens.lens (\Policy' {policyUpdateToken} -> policyUpda
 policy_includeMap :: Lens.Lens' Policy (Prelude.Maybe (Prelude.HashMap CustomerPolicyScopeIdType [Prelude.Text]))
 policy_includeMap = Lens.lens (\Policy' {includeMap} -> includeMap) (\s@Policy' {} a -> s {includeMap = a} :: Policy) Prelude.. Lens.mapping Lens._Coerce
 
--- | The ID of the AWS Firewall Manager policy.
+-- | The ID of the Firewall Manager policy.
 policy_policyId :: Lens.Lens' Policy (Prelude.Maybe Prelude.Text)
 policy_policyId = Lens.lens (\Policy' {policyId} -> policyId) (\s@Policy' {} a -> s {policyId = a} :: Policy)
 
--- | Specifies the AWS account IDs and AWS Organizations organizational units
--- (OUs) to exclude from the policy. Specifying an OU is the equivalent of
--- specifying all accounts in the OU and in any of its child OUs, including
--- any child OUs and accounts that are added at a later time.
+-- | Specifies the Amazon Web Services account IDs and Organizations
+-- organizational units (OUs) to exclude from the policy. Specifying an OU
+-- is the equivalent of specifying all accounts in the OU and in any of its
+-- child OUs, including any child OUs and accounts that are added at a
+-- later time.
 --
 -- You can specify inclusions or exclusions, but not both. If you specify
--- an @IncludeMap@, AWS Firewall Manager applies the policy to all accounts
+-- an @IncludeMap@, Firewall Manager applies the policy to all accounts
 -- specified by the @IncludeMap@, and does not evaluate any @ExcludeMap@
 -- specifications. If you do not specify an @IncludeMap@, then Firewall
 -- Manager applies the policy to all accounts except for those specified by
@@ -323,7 +353,15 @@ policy_policyId = Lens.lens (\Policy' {policyId} -> policyId) (\s@Policy' {} a -
 policy_excludeMap :: Lens.Lens' Policy (Prelude.Maybe (Prelude.HashMap CustomerPolicyScopeIdType [Prelude.Text]))
 policy_excludeMap = Lens.lens (\Policy' {excludeMap} -> excludeMap) (\s@Policy' {} a -> s {excludeMap = a} :: Policy) Prelude.. Lens.mapping Lens._Coerce
 
--- | The name of the AWS Firewall Manager policy.
+-- | Indicates whether Firewall Manager should delete Firewall Manager
+-- managed resources, such as web ACLs and security groups, when they are
+-- not in use by the Firewall Manager policy. By default, Firewall Manager
+-- doesn\'t delete unused Firewall Manager managed resources. This option
+-- is not available for Shield Advanced or WAF Classic policies.
+policy_deleteUnusedFMManagedResources :: Lens.Lens' Policy (Prelude.Maybe Prelude.Bool)
+policy_deleteUnusedFMManagedResources = Lens.lens (\Policy' {deleteUnusedFMManagedResources} -> deleteUnusedFMManagedResources) (\s@Policy' {} a -> s {deleteUnusedFMManagedResources = a} :: Policy)
+
+-- | The name of the Firewall Manager policy.
 policy_policyName :: Lens.Lens' Policy Prelude.Text
 policy_policyName = Lens.lens (\Policy' {policyName} -> policyName) (\s@Policy' {} a -> s {policyName = a} :: Policy)
 
@@ -334,16 +372,20 @@ policy_securityServicePolicyData = Lens.lens (\Policy' {securityServicePolicyDat
 
 -- | The type of resource protected by or in scope of the policy. This is in
 -- the format shown in the
--- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html AWS Resource Types Reference>.
--- For AWS WAF and Shield Advanced, examples include
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference>.
+-- To apply this policy to multiple resource types, specify a resource type
+-- of @ResourceTypeList@ and then specify the resource types in a
+-- @ResourceTypeList@.
+--
+-- For WAF and Shield Advanced, example resource types include
 -- @AWS::ElasticLoadBalancingV2::LoadBalancer@ and
 -- @AWS::CloudFront::Distribution@. For a security group common policy,
 -- valid values are @AWS::EC2::NetworkInterface@ and @AWS::EC2::Instance@.
 -- For a security group content audit policy, valid values are
 -- @AWS::EC2::SecurityGroup@, @AWS::EC2::NetworkInterface@, and
 -- @AWS::EC2::Instance@. For a security group usage audit policy, the value
--- is @AWS::EC2::SecurityGroup@. For an AWS Network Firewall policy, the
--- value is @AWS::EC2::VPC@.
+-- is @AWS::EC2::SecurityGroup@. For an Network Firewall policy or DNS
+-- Firewall policy, the value is @AWS::EC2::VPC@.
 policy_resourceType :: Lens.Lens' Policy Prelude.Text
 policy_resourceType = Lens.lens (\Policy' {resourceType} -> resourceType) (\s@Policy' {} a -> s {resourceType = a} :: Policy)
 
@@ -373,6 +415,7 @@ instance Core.FromJSON Policy where
             Prelude.<*> (x Core..:? "IncludeMap" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "PolicyId")
             Prelude.<*> (x Core..:? "ExcludeMap" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "DeleteUnusedFMManagedResources")
             Prelude.<*> (x Core..: "PolicyName")
             Prelude.<*> (x Core..: "SecurityServicePolicyData")
             Prelude.<*> (x Core..: "ResourceType")
@@ -396,6 +439,8 @@ instance Core.ToJSON Policy where
             ("IncludeMap" Core..=) Prelude.<$> includeMap,
             ("PolicyId" Core..=) Prelude.<$> policyId,
             ("ExcludeMap" Core..=) Prelude.<$> excludeMap,
+            ("DeleteUnusedFMManagedResources" Core..=)
+              Prelude.<$> deleteUnusedFMManagedResources,
             Prelude.Just ("PolicyName" Core..= policyName),
             Prelude.Just
               ( "SecurityServicePolicyData"

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Permanently deletes an AWS Firewall Manager protocols list.
+-- Permanently deletes an Firewall Manager protocols list.
 module Network.AWS.FMS.DeleteProtocolsList
   ( -- * Creating a Request
     DeleteProtocolsList (..),

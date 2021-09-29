@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an AWS Firewall Manager applications list.
+-- Creates an Firewall Manager applications list.
 module Network.AWS.FMS.PutAppsList
   ( -- * Creating a Request
     PutAppsList (..),
@@ -52,7 +52,7 @@ import qualified Network.AWS.Response as Response
 data PutAppsList = PutAppsList'
   { -- | The tags associated with the resource.
     tagList :: Prelude.Maybe [Tag],
-    -- | The details of the AWS Firewall Manager applications list to be created.
+    -- | The details of the Firewall Manager applications list to be created.
     appsList :: AppsListData
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,7 +67,7 @@ data PutAppsList = PutAppsList'
 --
 -- 'tagList', 'putAppsList_tagList' - The tags associated with the resource.
 --
--- 'appsList', 'putAppsList_appsList' - The details of the AWS Firewall Manager applications list to be created.
+-- 'appsList', 'putAppsList_appsList' - The details of the Firewall Manager applications list to be created.
 newPutAppsList ::
   -- | 'appsList'
   AppsListData ->
@@ -82,7 +82,7 @@ newPutAppsList pAppsList_ =
 putAppsList_tagList :: Lens.Lens' PutAppsList (Prelude.Maybe [Tag])
 putAppsList_tagList = Lens.lens (\PutAppsList' {tagList} -> tagList) (\s@PutAppsList' {} a -> s {tagList = a} :: PutAppsList) Prelude.. Lens.mapping Lens._Coerce
 
--- | The details of the AWS Firewall Manager applications list to be created.
+-- | The details of the Firewall Manager applications list to be created.
 putAppsList_appsList :: Lens.Lens' PutAppsList AppsListData
 putAppsList_appsList = Lens.lens (\PutAppsList' {appsList} -> appsList) (\s@PutAppsList' {} a -> s {appsList = a} :: PutAppsList)
 
@@ -134,7 +134,7 @@ instance Core.ToQuery PutAppsList where
 
 -- | /See:/ 'newPutAppsListResponse' smart constructor.
 data PutAppsListResponse = PutAppsListResponse'
-  { -- | The details of the AWS Firewall Manager applications list.
+  { -- | The details of the Firewall Manager applications list.
     appsList :: Prelude.Maybe AppsListData,
     -- | The Amazon Resource Name (ARN) of the applications list.
     appsListArn :: Prelude.Maybe Prelude.Text,
@@ -151,7 +151,7 @@ data PutAppsListResponse = PutAppsListResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'appsList', 'putAppsListResponse_appsList' - The details of the AWS Firewall Manager applications list.
+-- 'appsList', 'putAppsListResponse_appsList' - The details of the Firewall Manager applications list.
 --
 -- 'appsListArn', 'putAppsListResponse_appsListArn' - The Amazon Resource Name (ARN) of the applications list.
 --
@@ -167,7 +167,7 @@ newPutAppsListResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The details of the AWS Firewall Manager applications list.
+-- | The details of the Firewall Manager applications list.
 putAppsListResponse_appsList :: Lens.Lens' PutAppsListResponse (Prelude.Maybe AppsListData)
 putAppsListResponse_appsList = Lens.lens (\PutAppsListResponse' {appsList} -> appsList) (\s@PutAppsListResponse' {} a -> s {appsList = a} :: PutAppsListResponse)
 

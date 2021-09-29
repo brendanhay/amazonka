@@ -25,19 +25,19 @@ import Network.AWS.FMS.Types.StatelessRuleGroup
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The definition of the AWS Network Firewall firewall policy.
+-- | The definition of the Network Firewall firewall policy.
 --
 -- /See:/ 'newNetworkFirewallPolicyDescription' smart constructor.
 data NetworkFirewallPolicyDescription = NetworkFirewallPolicyDescription'
   { -- | The stateless rule groups that are used in the Network Firewall firewall
     -- policy.
     statelessRuleGroups :: Prelude.Maybe [StatelessRuleGroup],
-    -- | The actions to take on packet fragments that don\'t match any of the
-    -- stateless rule groups.
-    statelessFragmentDefaultActions :: Prelude.Maybe [Prelude.Text],
     -- | The actions to take on packets that don\'t match any of the stateless
     -- rule groups.
     statelessDefaultActions :: Prelude.Maybe [Prelude.Text],
+    -- | The actions to take on packet fragments that don\'t match any of the
+    -- stateless rule groups.
+    statelessFragmentDefaultActions :: Prelude.Maybe [Prelude.Text],
     -- | The stateful rule groups that are used in the Network Firewall firewall
     -- policy.
     statefulRuleGroups :: Prelude.Maybe [StatefulRuleGroup],
@@ -58,11 +58,11 @@ data NetworkFirewallPolicyDescription = NetworkFirewallPolicyDescription'
 -- 'statelessRuleGroups', 'networkFirewallPolicyDescription_statelessRuleGroups' - The stateless rule groups that are used in the Network Firewall firewall
 -- policy.
 --
--- 'statelessFragmentDefaultActions', 'networkFirewallPolicyDescription_statelessFragmentDefaultActions' - The actions to take on packet fragments that don\'t match any of the
--- stateless rule groups.
---
 -- 'statelessDefaultActions', 'networkFirewallPolicyDescription_statelessDefaultActions' - The actions to take on packets that don\'t match any of the stateless
 -- rule groups.
+--
+-- 'statelessFragmentDefaultActions', 'networkFirewallPolicyDescription_statelessFragmentDefaultActions' - The actions to take on packet fragments that don\'t match any of the
+-- stateless rule groups.
 --
 -- 'statefulRuleGroups', 'networkFirewallPolicyDescription_statefulRuleGroups' - The stateful rule groups that are used in the Network Firewall firewall
 -- policy.
@@ -75,9 +75,9 @@ newNetworkFirewallPolicyDescription =
   NetworkFirewallPolicyDescription'
     { statelessRuleGroups =
         Prelude.Nothing,
+      statelessDefaultActions = Prelude.Nothing,
       statelessFragmentDefaultActions =
         Prelude.Nothing,
-      statelessDefaultActions = Prelude.Nothing,
       statefulRuleGroups = Prelude.Nothing,
       statelessCustomActions = Prelude.Nothing
     }
@@ -87,15 +87,15 @@ newNetworkFirewallPolicyDescription =
 networkFirewallPolicyDescription_statelessRuleGroups :: Lens.Lens' NetworkFirewallPolicyDescription (Prelude.Maybe [StatelessRuleGroup])
 networkFirewallPolicyDescription_statelessRuleGroups = Lens.lens (\NetworkFirewallPolicyDescription' {statelessRuleGroups} -> statelessRuleGroups) (\s@NetworkFirewallPolicyDescription' {} a -> s {statelessRuleGroups = a} :: NetworkFirewallPolicyDescription) Prelude.. Lens.mapping Lens._Coerce
 
--- | The actions to take on packet fragments that don\'t match any of the
--- stateless rule groups.
-networkFirewallPolicyDescription_statelessFragmentDefaultActions :: Lens.Lens' NetworkFirewallPolicyDescription (Prelude.Maybe [Prelude.Text])
-networkFirewallPolicyDescription_statelessFragmentDefaultActions = Lens.lens (\NetworkFirewallPolicyDescription' {statelessFragmentDefaultActions} -> statelessFragmentDefaultActions) (\s@NetworkFirewallPolicyDescription' {} a -> s {statelessFragmentDefaultActions = a} :: NetworkFirewallPolicyDescription) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The actions to take on packets that don\'t match any of the stateless
 -- rule groups.
 networkFirewallPolicyDescription_statelessDefaultActions :: Lens.Lens' NetworkFirewallPolicyDescription (Prelude.Maybe [Prelude.Text])
 networkFirewallPolicyDescription_statelessDefaultActions = Lens.lens (\NetworkFirewallPolicyDescription' {statelessDefaultActions} -> statelessDefaultActions) (\s@NetworkFirewallPolicyDescription' {} a -> s {statelessDefaultActions = a} :: NetworkFirewallPolicyDescription) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The actions to take on packet fragments that don\'t match any of the
+-- stateless rule groups.
+networkFirewallPolicyDescription_statelessFragmentDefaultActions :: Lens.Lens' NetworkFirewallPolicyDescription (Prelude.Maybe [Prelude.Text])
+networkFirewallPolicyDescription_statelessFragmentDefaultActions = Lens.lens (\NetworkFirewallPolicyDescription' {statelessFragmentDefaultActions} -> statelessFragmentDefaultActions) (\s@NetworkFirewallPolicyDescription' {} a -> s {statelessFragmentDefaultActions = a} :: NetworkFirewallPolicyDescription) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The stateful rule groups that are used in the Network Firewall firewall
 -- policy.
@@ -119,10 +119,10 @@ instance
             Prelude.<$> ( x Core..:? "StatelessRuleGroups"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "StatelessFragmentDefaultActions"
+            Prelude.<*> ( x Core..:? "StatelessDefaultActions"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> ( x Core..:? "StatelessDefaultActions"
+            Prelude.<*> ( x Core..:? "StatelessFragmentDefaultActions"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> ( x Core..:? "StatefulRuleGroups"

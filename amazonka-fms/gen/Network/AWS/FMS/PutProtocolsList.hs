@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an AWS Firewall Manager protocols list.
+-- Creates an Firewall Manager protocols list.
 module Network.AWS.FMS.PutProtocolsList
   ( -- * Creating a Request
     PutProtocolsList (..),
@@ -52,7 +52,7 @@ import qualified Network.AWS.Response as Response
 data PutProtocolsList = PutProtocolsList'
   { -- | The tags associated with the resource.
     tagList :: Prelude.Maybe [Tag],
-    -- | The details of the AWS Firewall Manager protocols list to be created.
+    -- | The details of the Firewall Manager protocols list to be created.
     protocolsList :: ProtocolsListData
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,7 +67,7 @@ data PutProtocolsList = PutProtocolsList'
 --
 -- 'tagList', 'putProtocolsList_tagList' - The tags associated with the resource.
 --
--- 'protocolsList', 'putProtocolsList_protocolsList' - The details of the AWS Firewall Manager protocols list to be created.
+-- 'protocolsList', 'putProtocolsList_protocolsList' - The details of the Firewall Manager protocols list to be created.
 newPutProtocolsList ::
   -- | 'protocolsList'
   ProtocolsListData ->
@@ -82,7 +82,7 @@ newPutProtocolsList pProtocolsList_ =
 putProtocolsList_tagList :: Lens.Lens' PutProtocolsList (Prelude.Maybe [Tag])
 putProtocolsList_tagList = Lens.lens (\PutProtocolsList' {tagList} -> tagList) (\s@PutProtocolsList' {} a -> s {tagList = a} :: PutProtocolsList) Prelude.. Lens.mapping Lens._Coerce
 
--- | The details of the AWS Firewall Manager protocols list to be created.
+-- | The details of the Firewall Manager protocols list to be created.
 putProtocolsList_protocolsList :: Lens.Lens' PutProtocolsList ProtocolsListData
 putProtocolsList_protocolsList = Lens.lens (\PutProtocolsList' {protocolsList} -> protocolsList) (\s@PutProtocolsList' {} a -> s {protocolsList = a} :: PutProtocolsList)
 
@@ -137,7 +137,7 @@ instance Core.ToQuery PutProtocolsList where
 
 -- | /See:/ 'newPutProtocolsListResponse' smart constructor.
 data PutProtocolsListResponse = PutProtocolsListResponse'
-  { -- | The details of the AWS Firewall Manager protocols list.
+  { -- | The details of the Firewall Manager protocols list.
     protocolsList :: Prelude.Maybe ProtocolsListData,
     -- | The Amazon Resource Name (ARN) of the protocols list.
     protocolsListArn :: Prelude.Maybe Prelude.Text,
@@ -154,7 +154,7 @@ data PutProtocolsListResponse = PutProtocolsListResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'protocolsList', 'putProtocolsListResponse_protocolsList' - The details of the AWS Firewall Manager protocols list.
+-- 'protocolsList', 'putProtocolsListResponse_protocolsList' - The details of the Firewall Manager protocols list.
 --
 -- 'protocolsListArn', 'putProtocolsListResponse_protocolsListArn' - The Amazon Resource Name (ARN) of the protocols list.
 --
@@ -171,7 +171,7 @@ newPutProtocolsListResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The details of the AWS Firewall Manager protocols list.
+-- | The details of the Firewall Manager protocols list.
 putProtocolsListResponse_protocolsList :: Lens.Lens' PutProtocolsListResponse (Prelude.Maybe ProtocolsListData)
 putProtocolsListResponse_protocolsList = Lens.lens (\PutProtocolsListResponse' {protocolsList} -> protocolsList) (\s@PutProtocolsListResponse' {} a -> s {protocolsList = a} :: PutProtocolsListResponse)
 

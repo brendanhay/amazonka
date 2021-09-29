@@ -20,15 +20,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets the AWS Firewall Manager administrator account. AWS Firewall
--- Manager must be associated with the master account of your AWS
--- organization or associated with a member account that has the
--- appropriate permissions. If the account ID that you submit is not an AWS
--- Organizations master account, AWS Firewall Manager will set the
--- appropriate permissions for the given member account.
+-- Sets the Firewall Manager administrator account. The account must be a
+-- member of the organization in Organizations whose resources you want to
+-- protect. Firewall Manager sets the permissions that allow the account to
+-- administer your Firewall Manager policies.
 --
--- The account that you associate with AWS Firewall Manager is called the
--- AWS Firewall Manager administrator account.
+-- The account that you associate with Firewall Manager is called the
+-- Firewall Manager administrator account.
 module Network.AWS.FMS.AssociateAdminAccount
   ( -- * Creating a Request
     AssociateAdminAccount (..),
@@ -52,11 +50,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newAssociateAdminAccount' smart constructor.
 data AssociateAdminAccount = AssociateAdminAccount'
-  { -- | The AWS account ID to associate with AWS Firewall Manager as the AWS
-    -- Firewall Manager administrator account. This can be an AWS Organizations
-    -- master account or a member account. For more information about AWS
-    -- Organizations and master accounts, see
-    -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html Managing the AWS Accounts in Your Organization>.
+  { -- | The Amazon Web Services account ID to associate with Firewall Manager as
+    -- the Firewall Manager administrator account. This must be an
+    -- Organizations member account. For more information about Organizations,
+    -- see
+    -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html Managing the Amazon Web Services Accounts in Your Organization>.
     adminAccount :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -69,11 +67,11 @@ data AssociateAdminAccount = AssociateAdminAccount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'adminAccount', 'associateAdminAccount_adminAccount' - The AWS account ID to associate with AWS Firewall Manager as the AWS
--- Firewall Manager administrator account. This can be an AWS Organizations
--- master account or a member account. For more information about AWS
--- Organizations and master accounts, see
--- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html Managing the AWS Accounts in Your Organization>.
+-- 'adminAccount', 'associateAdminAccount_adminAccount' - The Amazon Web Services account ID to associate with Firewall Manager as
+-- the Firewall Manager administrator account. This must be an
+-- Organizations member account. For more information about Organizations,
+-- see
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html Managing the Amazon Web Services Accounts in Your Organization>.
 newAssociateAdminAccount ::
   -- | 'adminAccount'
   Prelude.Text ->
@@ -84,11 +82,11 @@ newAssociateAdminAccount pAdminAccount_ =
         pAdminAccount_
     }
 
--- | The AWS account ID to associate with AWS Firewall Manager as the AWS
--- Firewall Manager administrator account. This can be an AWS Organizations
--- master account or a member account. For more information about AWS
--- Organizations and master accounts, see
--- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html Managing the AWS Accounts in Your Organization>.
+-- | The Amazon Web Services account ID to associate with Firewall Manager as
+-- the Firewall Manager administrator account. This must be an
+-- Organizations member account. For more information about Organizations,
+-- see
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html Managing the Amazon Web Services Accounts in Your Organization>.
 associateAdminAccount_adminAccount :: Lens.Lens' AssociateAdminAccount Prelude.Text
 associateAdminAccount_adminAccount = Lens.lens (\AssociateAdminAccount' {adminAccount} -> adminAccount) (\s@AssociateAdminAccount' {} a -> s {adminAccount = a} :: AssociateAdminAccount)
 

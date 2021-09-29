@@ -23,7 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | An individual AWS Firewall Manager application.
+-- | An individual Firewall Manager application.
 --
 -- /See:/ 'newApp' smart constructor.
 data App = App'

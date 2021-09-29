@@ -30,7 +30,7 @@ import qualified Network.AWS.Prelude as Prelude
 data PartialMatch = PartialMatch'
   { -- | The violation reason.
     targetViolationReasons :: Prelude.Maybe [Prelude.Text],
-    -- | The reference rule from the master security group of the AWS Firewall
+    -- | The reference rule from the primary security group of the Firewall
     -- Manager policy.
     reference :: Prelude.Maybe Prelude.Text
   }
@@ -46,7 +46,7 @@ data PartialMatch = PartialMatch'
 --
 -- 'targetViolationReasons', 'partialMatch_targetViolationReasons' - The violation reason.
 --
--- 'reference', 'partialMatch_reference' - The reference rule from the master security group of the AWS Firewall
+-- 'reference', 'partialMatch_reference' - The reference rule from the primary security group of the Firewall
 -- Manager policy.
 newPartialMatch ::
   PartialMatch
@@ -61,7 +61,7 @@ newPartialMatch =
 partialMatch_targetViolationReasons :: Lens.Lens' PartialMatch (Prelude.Maybe [Prelude.Text])
 partialMatch_targetViolationReasons = Lens.lens (\PartialMatch' {targetViolationReasons} -> targetViolationReasons) (\s@PartialMatch' {} a -> s {targetViolationReasons = a} :: PartialMatch) Prelude.. Lens.mapping Lens._Coerce
 
--- | The reference rule from the master security group of the AWS Firewall
+-- | The reference rule from the primary security group of the Firewall
 -- Manager policy.
 partialMatch_reference :: Lens.Lens' PartialMatch (Prelude.Maybe Prelude.Text)
 partialMatch_reference = Lens.lens (\PartialMatch' {reference} -> reference) (\s@PartialMatch' {} a -> s {reference = a} :: PartialMatch)

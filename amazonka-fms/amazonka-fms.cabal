@@ -74,6 +74,7 @@ library
     Network.AWS.FMS.TagResource
     Network.AWS.FMS.Types
     Network.AWS.FMS.Types.AccountRoleStatus
+    Network.AWS.FMS.Types.ActionTarget
     Network.AWS.FMS.Types.App
     Network.AWS.FMS.Types.AppsListData
     Network.AWS.FMS.Types.AppsListDataSummary
@@ -83,23 +84,46 @@ library
     Network.AWS.FMS.Types.ComplianceViolator
     Network.AWS.FMS.Types.CustomerPolicyScopeIdType
     Network.AWS.FMS.Types.DependentServiceName
+    Network.AWS.FMS.Types.DestinationType
+    Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation
+    Network.AWS.FMS.Types.DnsRuleGroupLimitExceededViolation
+    Network.AWS.FMS.Types.DnsRuleGroupPriorityConflictViolation
+    Network.AWS.FMS.Types.EC2AssociateRouteTableAction
+    Network.AWS.FMS.Types.EC2CopyRouteTableAction
+    Network.AWS.FMS.Types.EC2CreateRouteAction
+    Network.AWS.FMS.Types.EC2CreateRouteTableAction
+    Network.AWS.FMS.Types.EC2DeleteRouteAction
+    Network.AWS.FMS.Types.EC2ReplaceRouteAction
+    Network.AWS.FMS.Types.EC2ReplaceRouteTableAssociationAction
     Network.AWS.FMS.Types.EvaluationResult
+    Network.AWS.FMS.Types.ExpectedRoute
+    Network.AWS.FMS.Types.NetworkFirewallBlackHoleRouteDetectedViolation
+    Network.AWS.FMS.Types.NetworkFirewallInternetTrafficNotInspectedViolation
+    Network.AWS.FMS.Types.NetworkFirewallInvalidRouteConfigurationViolation
+    Network.AWS.FMS.Types.NetworkFirewallMissingExpectedRoutesViolation
     Network.AWS.FMS.Types.NetworkFirewallMissingExpectedRTViolation
     Network.AWS.FMS.Types.NetworkFirewallMissingFirewallViolation
     Network.AWS.FMS.Types.NetworkFirewallMissingSubnetViolation
     Network.AWS.FMS.Types.NetworkFirewallPolicyDescription
     Network.AWS.FMS.Types.NetworkFirewallPolicyModifiedViolation
+    Network.AWS.FMS.Types.NetworkFirewallUnexpectedFirewallRoutesViolation
+    Network.AWS.FMS.Types.NetworkFirewallUnexpectedGatewayRoutesViolation
     Network.AWS.FMS.Types.PartialMatch
     Network.AWS.FMS.Types.Policy
     Network.AWS.FMS.Types.PolicyComplianceDetail
     Network.AWS.FMS.Types.PolicyComplianceStatus
     Network.AWS.FMS.Types.PolicyComplianceStatusType
     Network.AWS.FMS.Types.PolicySummary
+    Network.AWS.FMS.Types.PossibleRemediationAction
+    Network.AWS.FMS.Types.PossibleRemediationActions
     Network.AWS.FMS.Types.ProtocolsListData
     Network.AWS.FMS.Types.ProtocolsListDataSummary
+    Network.AWS.FMS.Types.RemediationAction
     Network.AWS.FMS.Types.RemediationActionType
+    Network.AWS.FMS.Types.RemediationActionWithOrder
     Network.AWS.FMS.Types.ResourceTag
     Network.AWS.FMS.Types.ResourceViolation
+    Network.AWS.FMS.Types.Route
     Network.AWS.FMS.Types.SecurityGroupRemediationAction
     Network.AWS.FMS.Types.SecurityGroupRuleDescription
     Network.AWS.FMS.Types.SecurityServicePolicyData
@@ -107,6 +131,7 @@ library
     Network.AWS.FMS.Types.StatefulRuleGroup
     Network.AWS.FMS.Types.StatelessRuleGroup
     Network.AWS.FMS.Types.Tag
+    Network.AWS.FMS.Types.TargetType
     Network.AWS.FMS.Types.ViolationDetail
     Network.AWS.FMS.Types.ViolationReason
     Network.AWS.FMS.UntagResource

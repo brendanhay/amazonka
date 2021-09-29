@@ -23,7 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Violation details for AWS Network Firewall for a subnet that\'s not
+-- | Violation detail for Network Firewall for a subnet that\'s not
 -- associated to the expected Firewall Manager managed route table.
 --
 -- /See:/ 'newNetworkFirewallMissingExpectedRTViolation' smart constructor.
@@ -31,7 +31,7 @@ data NetworkFirewallMissingExpectedRTViolation = NetworkFirewallMissingExpectedR
   { -- | The resource ID of the current route table that\'s associated with the
     -- subnet, if one is available.
     currentRouteTable :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the AWS Network Firewall or VPC resource that\'s in violation.
+    -- | The ID of the Network Firewall or VPC resource that\'s in violation.
     violationTarget :: Prelude.Maybe Prelude.Text,
     -- | The Availability Zone of a violating subnet.
     availabilityZone :: Prelude.Maybe Prelude.Text,
@@ -54,7 +54,7 @@ data NetworkFirewallMissingExpectedRTViolation = NetworkFirewallMissingExpectedR
 -- 'currentRouteTable', 'networkFirewallMissingExpectedRTViolation_currentRouteTable' - The resource ID of the current route table that\'s associated with the
 -- subnet, if one is available.
 --
--- 'violationTarget', 'networkFirewallMissingExpectedRTViolation_violationTarget' - The ID of the AWS Network Firewall or VPC resource that\'s in violation.
+-- 'violationTarget', 'networkFirewallMissingExpectedRTViolation_violationTarget' - The ID of the Network Firewall or VPC resource that\'s in violation.
 --
 -- 'availabilityZone', 'networkFirewallMissingExpectedRTViolation_availabilityZone' - The Availability Zone of a violating subnet.
 --
@@ -82,7 +82,7 @@ newNetworkFirewallMissingExpectedRTViolation =
 networkFirewallMissingExpectedRTViolation_currentRouteTable :: Lens.Lens' NetworkFirewallMissingExpectedRTViolation (Prelude.Maybe Prelude.Text)
 networkFirewallMissingExpectedRTViolation_currentRouteTable = Lens.lens (\NetworkFirewallMissingExpectedRTViolation' {currentRouteTable} -> currentRouteTable) (\s@NetworkFirewallMissingExpectedRTViolation' {} a -> s {currentRouteTable = a} :: NetworkFirewallMissingExpectedRTViolation)
 
--- | The ID of the AWS Network Firewall or VPC resource that\'s in violation.
+-- | The ID of the Network Firewall or VPC resource that\'s in violation.
 networkFirewallMissingExpectedRTViolation_violationTarget :: Lens.Lens' NetworkFirewallMissingExpectedRTViolation (Prelude.Maybe Prelude.Text)
 networkFirewallMissingExpectedRTViolation_violationTarget = Lens.lens (\NetworkFirewallMissingExpectedRTViolation' {violationTarget} -> violationTarget) (\s@NetworkFirewallMissingExpectedRTViolation' {} a -> s {violationTarget = a} :: NetworkFirewallMissingExpectedRTViolation)
 

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds one or more tags to an AWS resource.
+-- Adds one or more tags to an Amazon Web Services resource.
 module Network.AWS.FMS.TagResource
   ( -- * Creating a Request
     TagResource (..),
@@ -49,7 +49,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
   { -- | The Amazon Resource Name (ARN) of the resource to return tags for. The
-    -- AWS Firewall Manager resources that support tagging are policies,
+    -- Firewall Manager resources that support tagging are policies,
     -- applications lists, and protocols lists.
     resourceArn :: Prelude.Text,
     -- | The tags to add to the resource.
@@ -66,7 +66,7 @@ data TagResource = TagResource'
 -- for backwards compatibility:
 --
 -- 'resourceArn', 'tagResource_resourceArn' - The Amazon Resource Name (ARN) of the resource to return tags for. The
--- AWS Firewall Manager resources that support tagging are policies,
+-- Firewall Manager resources that support tagging are policies,
 -- applications lists, and protocols lists.
 --
 -- 'tagList', 'tagResource_tagList' - The tags to add to the resource.
@@ -81,7 +81,7 @@ newTagResource pResourceArn_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the resource to return tags for. The
--- AWS Firewall Manager resources that support tagging are policies,
+-- Firewall Manager resources that support tagging are policies,
 -- applications lists, and protocols lists.
 tagResource_resourceArn :: Lens.Lens' TagResource Prelude.Text
 tagResource_resourceArn = Lens.lens (\TagResource' {resourceArn} -> resourceArn) (\s@TagResource' {} a -> s {resourceArn = a} :: TagResource)

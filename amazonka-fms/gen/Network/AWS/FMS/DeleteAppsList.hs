@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Permanently deletes an AWS Firewall Manager applications list.
+-- Permanently deletes an Firewall Manager applications list.
 module Network.AWS.FMS.DeleteAppsList
   ( -- * Creating a Request
     DeleteAppsList (..),

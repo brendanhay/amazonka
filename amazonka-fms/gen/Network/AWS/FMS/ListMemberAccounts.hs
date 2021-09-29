@@ -21,10 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a @MemberAccounts@ object that lists the member accounts in the
--- administrator\'s AWS organization.
+-- administrator\'s Amazon Web Services organization.
 --
 -- The @ListMemberAccounts@ must be submitted by the account that is set as
--- the AWS Firewall Manager administrator.
+-- the Firewall Manager administrator.
 --
 -- This operation returns paginated results.
 module Network.AWS.FMS.ListMemberAccounts
@@ -57,14 +57,14 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newListMemberAccounts' smart constructor.
 data ListMemberAccounts = ListMemberAccounts'
   { -- | If you specify a value for @MaxResults@ and you have more account IDs
-    -- than the number that you specify for @MaxResults@, AWS Firewall Manager
+    -- than the number that you specify for @MaxResults@, Firewall Manager
     -- returns a @NextToken@ value in the response that allows you to list
     -- another group of IDs. For the second and subsequent
     -- @ListMemberAccountsRequest@ requests, specify the value of @NextToken@
     -- from the previous response to get information about another batch of
     -- member account IDs.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the number of member account IDs that you want AWS Firewall
+    -- | Specifies the number of member account IDs that you want Firewall
     -- Manager to return for this request. If you have more IDs than the number
     -- that you specify for @MaxResults@, the response includes a @NextToken@
     -- value that you can use to get another batch of member account IDs.
@@ -81,14 +81,14 @@ data ListMemberAccounts = ListMemberAccounts'
 -- for backwards compatibility:
 --
 -- 'nextToken', 'listMemberAccounts_nextToken' - If you specify a value for @MaxResults@ and you have more account IDs
--- than the number that you specify for @MaxResults@, AWS Firewall Manager
+-- than the number that you specify for @MaxResults@, Firewall Manager
 -- returns a @NextToken@ value in the response that allows you to list
 -- another group of IDs. For the second and subsequent
 -- @ListMemberAccountsRequest@ requests, specify the value of @NextToken@
 -- from the previous response to get information about another batch of
 -- member account IDs.
 --
--- 'maxResults', 'listMemberAccounts_maxResults' - Specifies the number of member account IDs that you want AWS Firewall
+-- 'maxResults', 'listMemberAccounts_maxResults' - Specifies the number of member account IDs that you want Firewall
 -- Manager to return for this request. If you have more IDs than the number
 -- that you specify for @MaxResults@, the response includes a @NextToken@
 -- value that you can use to get another batch of member account IDs.
@@ -101,7 +101,7 @@ newListMemberAccounts =
     }
 
 -- | If you specify a value for @MaxResults@ and you have more account IDs
--- than the number that you specify for @MaxResults@, AWS Firewall Manager
+-- than the number that you specify for @MaxResults@, Firewall Manager
 -- returns a @NextToken@ value in the response that allows you to list
 -- another group of IDs. For the second and subsequent
 -- @ListMemberAccountsRequest@ requests, specify the value of @NextToken@
@@ -110,7 +110,7 @@ newListMemberAccounts =
 listMemberAccounts_nextToken :: Lens.Lens' ListMemberAccounts (Prelude.Maybe Prelude.Text)
 listMemberAccounts_nextToken = Lens.lens (\ListMemberAccounts' {nextToken} -> nextToken) (\s@ListMemberAccounts' {} a -> s {nextToken = a} :: ListMemberAccounts)
 
--- | Specifies the number of member account IDs that you want AWS Firewall
+-- | Specifies the number of member account IDs that you want Firewall
 -- Manager to return for this request. If you have more IDs than the number
 -- that you specify for @MaxResults@, the response includes a @NextToken@
 -- value that you can use to get another batch of member account IDs.

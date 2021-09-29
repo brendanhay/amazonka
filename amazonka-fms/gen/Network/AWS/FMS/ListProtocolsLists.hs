@@ -21,6 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns an array of @ProtocolsListDataSummary@ objects.
+--
+-- This operation returns paginated results.
 module Network.AWS.FMS.ListProtocolsLists
   ( -- * Creating a Request
     ListProtocolsLists (..),
@@ -36,8 +38,8 @@ module Network.AWS.FMS.ListProtocolsLists
     newListProtocolsListsResponse,
 
     -- * Response Lenses
-    listProtocolsListsResponse_nextToken,
     listProtocolsListsResponse_protocolsLists,
+    listProtocolsListsResponse_nextToken,
     listProtocolsListsResponse_httpStatus,
   )
 where
@@ -52,20 +54,20 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newListProtocolsLists' smart constructor.
 data ListProtocolsLists = ListProtocolsLists'
   { -- | If you specify a value for @MaxResults@ in your list request, and you
-    -- have more objects than the maximum, AWS Firewall Manager returns this
-    -- token in the response. For all but the first request, you provide the
-    -- token returned by the prior request in the request parameters, to
-    -- retrieve the next batch of objects.
+    -- have more objects than the maximum, Firewall Manager returns this token
+    -- in the response. For all but the first request, you provide the token
+    -- returned by the prior request in the request parameters, to retrieve the
+    -- next batch of objects.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether the lists to retrieve are default lists owned by AWS
+    -- | Specifies whether the lists to retrieve are default lists owned by
     -- Firewall Manager.
     defaultLists :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of objects that you want AWS Firewall Manager to
-    -- return for this request. If more objects are available, in the response,
-    -- AWS Firewall Manager provides a @NextToken@ value that you can use in a
+    -- | The maximum number of objects that you want Firewall Manager to return
+    -- for this request. If more objects are available, in the response,
+    -- Firewall Manager provides a @NextToken@ value that you can use in a
     -- subsequent call to get the next batch of objects.
     --
-    -- If you don\'t specify this, AWS Firewall Manager returns all available
+    -- If you don\'t specify this, Firewall Manager returns all available
     -- objects.
     maxResults :: Prelude.Natural
   }
@@ -80,20 +82,20 @@ data ListProtocolsLists = ListProtocolsLists'
 -- for backwards compatibility:
 --
 -- 'nextToken', 'listProtocolsLists_nextToken' - If you specify a value for @MaxResults@ in your list request, and you
--- have more objects than the maximum, AWS Firewall Manager returns this
--- token in the response. For all but the first request, you provide the
--- token returned by the prior request in the request parameters, to
--- retrieve the next batch of objects.
+-- have more objects than the maximum, Firewall Manager returns this token
+-- in the response. For all but the first request, you provide the token
+-- returned by the prior request in the request parameters, to retrieve the
+-- next batch of objects.
 --
--- 'defaultLists', 'listProtocolsLists_defaultLists' - Specifies whether the lists to retrieve are default lists owned by AWS
+-- 'defaultLists', 'listProtocolsLists_defaultLists' - Specifies whether the lists to retrieve are default lists owned by
 -- Firewall Manager.
 --
--- 'maxResults', 'listProtocolsLists_maxResults' - The maximum number of objects that you want AWS Firewall Manager to
--- return for this request. If more objects are available, in the response,
--- AWS Firewall Manager provides a @NextToken@ value that you can use in a
+-- 'maxResults', 'listProtocolsLists_maxResults' - The maximum number of objects that you want Firewall Manager to return
+-- for this request. If more objects are available, in the response,
+-- Firewall Manager provides a @NextToken@ value that you can use in a
 -- subsequent call to get the next batch of objects.
 --
--- If you don\'t specify this, AWS Firewall Manager returns all available
+-- If you don\'t specify this, Firewall Manager returns all available
 -- objects.
 newListProtocolsLists ::
   -- | 'maxResults'
@@ -107,27 +109,49 @@ newListProtocolsLists pMaxResults_ =
     }
 
 -- | If you specify a value for @MaxResults@ in your list request, and you
--- have more objects than the maximum, AWS Firewall Manager returns this
--- token in the response. For all but the first request, you provide the
--- token returned by the prior request in the request parameters, to
--- retrieve the next batch of objects.
+-- have more objects than the maximum, Firewall Manager returns this token
+-- in the response. For all but the first request, you provide the token
+-- returned by the prior request in the request parameters, to retrieve the
+-- next batch of objects.
 listProtocolsLists_nextToken :: Lens.Lens' ListProtocolsLists (Prelude.Maybe Prelude.Text)
 listProtocolsLists_nextToken = Lens.lens (\ListProtocolsLists' {nextToken} -> nextToken) (\s@ListProtocolsLists' {} a -> s {nextToken = a} :: ListProtocolsLists)
 
--- | Specifies whether the lists to retrieve are default lists owned by AWS
+-- | Specifies whether the lists to retrieve are default lists owned by
 -- Firewall Manager.
 listProtocolsLists_defaultLists :: Lens.Lens' ListProtocolsLists (Prelude.Maybe Prelude.Bool)
 listProtocolsLists_defaultLists = Lens.lens (\ListProtocolsLists' {defaultLists} -> defaultLists) (\s@ListProtocolsLists' {} a -> s {defaultLists = a} :: ListProtocolsLists)
 
--- | The maximum number of objects that you want AWS Firewall Manager to
--- return for this request. If more objects are available, in the response,
--- AWS Firewall Manager provides a @NextToken@ value that you can use in a
+-- | The maximum number of objects that you want Firewall Manager to return
+-- for this request. If more objects are available, in the response,
+-- Firewall Manager provides a @NextToken@ value that you can use in a
 -- subsequent call to get the next batch of objects.
 --
--- If you don\'t specify this, AWS Firewall Manager returns all available
+-- If you don\'t specify this, Firewall Manager returns all available
 -- objects.
 listProtocolsLists_maxResults :: Lens.Lens' ListProtocolsLists Prelude.Natural
 listProtocolsLists_maxResults = Lens.lens (\ListProtocolsLists' {maxResults} -> maxResults) (\s@ListProtocolsLists' {} a -> s {maxResults = a} :: ListProtocolsLists)
+
+instance Core.AWSPager ListProtocolsLists where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listProtocolsListsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listProtocolsListsResponse_protocolsLists
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listProtocolsLists_nextToken
+          Lens..~ rs
+          Lens.^? listProtocolsListsResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListProtocolsLists where
   type
@@ -138,8 +162,8 @@ instance Core.AWSRequest ListProtocolsLists where
     Response.receiveJSON
       ( \s h x ->
           ListProtocolsListsResponse'
-            Prelude.<$> (x Core..?> "NextToken")
-            Prelude.<*> (x Core..?> "ProtocolsLists" Core..!@ Prelude.mempty)
+            Prelude.<$> (x Core..?> "ProtocolsLists" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -180,13 +204,13 @@ instance Core.ToQuery ListProtocolsLists where
 
 -- | /See:/ 'newListProtocolsListsResponse' smart constructor.
 data ListProtocolsListsResponse = ListProtocolsListsResponse'
-  { -- | If you specify a value for @MaxResults@ in your list request, and you
-    -- have more objects than the maximum, AWS Firewall Manager returns this
-    -- token in the response. You can use this token in subsequent requests to
+  { -- | An array of @ProtocolsListDataSummary@ objects.
+    protocolsLists :: Prelude.Maybe [ProtocolsListDataSummary],
+    -- | If you specify a value for @MaxResults@ in your list request, and you
+    -- have more objects than the maximum, Firewall Manager returns this token
+    -- in the response. You can use this token in subsequent requests to
     -- retrieve the next batch of objects.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of @ProtocolsListDataSummary@ objects.
-    protocolsLists :: Prelude.Maybe [ProtocolsListDataSummary],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -200,12 +224,12 @@ data ListProtocolsListsResponse = ListProtocolsListsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listProtocolsListsResponse_nextToken' - If you specify a value for @MaxResults@ in your list request, and you
--- have more objects than the maximum, AWS Firewall Manager returns this
--- token in the response. You can use this token in subsequent requests to
--- retrieve the next batch of objects.
---
 -- 'protocolsLists', 'listProtocolsListsResponse_protocolsLists' - An array of @ProtocolsListDataSummary@ objects.
+--
+-- 'nextToken', 'listProtocolsListsResponse_nextToken' - If you specify a value for @MaxResults@ in your list request, and you
+-- have more objects than the maximum, Firewall Manager returns this token
+-- in the response. You can use this token in subsequent requests to
+-- retrieve the next batch of objects.
 --
 -- 'httpStatus', 'listProtocolsListsResponse_httpStatus' - The response's http status code.
 newListProtocolsListsResponse ::
@@ -214,22 +238,22 @@ newListProtocolsListsResponse ::
   ListProtocolsListsResponse
 newListProtocolsListsResponse pHttpStatus_ =
   ListProtocolsListsResponse'
-    { nextToken =
+    { protocolsLists =
         Prelude.Nothing,
-      protocolsLists = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | If you specify a value for @MaxResults@ in your list request, and you
--- have more objects than the maximum, AWS Firewall Manager returns this
--- token in the response. You can use this token in subsequent requests to
--- retrieve the next batch of objects.
-listProtocolsListsResponse_nextToken :: Lens.Lens' ListProtocolsListsResponse (Prelude.Maybe Prelude.Text)
-listProtocolsListsResponse_nextToken = Lens.lens (\ListProtocolsListsResponse' {nextToken} -> nextToken) (\s@ListProtocolsListsResponse' {} a -> s {nextToken = a} :: ListProtocolsListsResponse)
 
 -- | An array of @ProtocolsListDataSummary@ objects.
 listProtocolsListsResponse_protocolsLists :: Lens.Lens' ListProtocolsListsResponse (Prelude.Maybe [ProtocolsListDataSummary])
 listProtocolsListsResponse_protocolsLists = Lens.lens (\ListProtocolsListsResponse' {protocolsLists} -> protocolsLists) (\s@ListProtocolsListsResponse' {} a -> s {protocolsLists = a} :: ListProtocolsListsResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | If you specify a value for @MaxResults@ in your list request, and you
+-- have more objects than the maximum, Firewall Manager returns this token
+-- in the response. You can use this token in subsequent requests to
+-- retrieve the next batch of objects.
+listProtocolsListsResponse_nextToken :: Lens.Lens' ListProtocolsListsResponse (Prelude.Maybe Prelude.Text)
+listProtocolsListsResponse_nextToken = Lens.lens (\ListProtocolsListsResponse' {nextToken} -> nextToken) (\s@ListProtocolsListsResponse' {} a -> s {nextToken = a} :: ListProtocolsListsResponse)
 
 -- | The response's http status code.
 listProtocolsListsResponse_httpStatus :: Lens.Lens' ListProtocolsListsResponse Prelude.Int

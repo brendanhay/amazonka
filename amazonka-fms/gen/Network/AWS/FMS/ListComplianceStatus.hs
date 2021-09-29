@@ -57,7 +57,7 @@ import qualified Network.AWS.Response as Response
 data ListComplianceStatus = ListComplianceStatus'
   { -- | If you specify a value for @MaxResults@ and you have more
     -- @PolicyComplianceStatus@ objects than the number that you specify for
-    -- @MaxResults@, AWS Firewall Manager returns a @NextToken@ value in the
+    -- @MaxResults@, Firewall Manager returns a @NextToken@ value in the
     -- response that allows you to list another group of
     -- @PolicyComplianceStatus@ objects. For the second and subsequent
     -- @ListComplianceStatus@ requests, specify the value of @NextToken@ from
@@ -65,12 +65,12 @@ data ListComplianceStatus = ListComplianceStatus'
     -- @PolicyComplianceStatus@ objects.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the number of @PolicyComplianceStatus@ objects that you want
-    -- AWS Firewall Manager to return for this request. If you have more
+    -- Firewall Manager to return for this request. If you have more
     -- @PolicyComplianceStatus@ objects than the number that you specify for
     -- @MaxResults@, the response includes a @NextToken@ value that you can use
     -- to get another batch of @PolicyComplianceStatus@ objects.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The ID of the AWS Firewall Manager policy that you want the details for.
+    -- | The ID of the Firewall Manager policy that you want the details for.
     policyId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -85,7 +85,7 @@ data ListComplianceStatus = ListComplianceStatus'
 --
 -- 'nextToken', 'listComplianceStatus_nextToken' - If you specify a value for @MaxResults@ and you have more
 -- @PolicyComplianceStatus@ objects than the number that you specify for
--- @MaxResults@, AWS Firewall Manager returns a @NextToken@ value in the
+-- @MaxResults@, Firewall Manager returns a @NextToken@ value in the
 -- response that allows you to list another group of
 -- @PolicyComplianceStatus@ objects. For the second and subsequent
 -- @ListComplianceStatus@ requests, specify the value of @NextToken@ from
@@ -93,12 +93,12 @@ data ListComplianceStatus = ListComplianceStatus'
 -- @PolicyComplianceStatus@ objects.
 --
 -- 'maxResults', 'listComplianceStatus_maxResults' - Specifies the number of @PolicyComplianceStatus@ objects that you want
--- AWS Firewall Manager to return for this request. If you have more
+-- Firewall Manager to return for this request. If you have more
 -- @PolicyComplianceStatus@ objects than the number that you specify for
 -- @MaxResults@, the response includes a @NextToken@ value that you can use
 -- to get another batch of @PolicyComplianceStatus@ objects.
 --
--- 'policyId', 'listComplianceStatus_policyId' - The ID of the AWS Firewall Manager policy that you want the details for.
+-- 'policyId', 'listComplianceStatus_policyId' - The ID of the Firewall Manager policy that you want the details for.
 newListComplianceStatus ::
   -- | 'policyId'
   Prelude.Text ->
@@ -112,7 +112,7 @@ newListComplianceStatus pPolicyId_ =
 
 -- | If you specify a value for @MaxResults@ and you have more
 -- @PolicyComplianceStatus@ objects than the number that you specify for
--- @MaxResults@, AWS Firewall Manager returns a @NextToken@ value in the
+-- @MaxResults@, Firewall Manager returns a @NextToken@ value in the
 -- response that allows you to list another group of
 -- @PolicyComplianceStatus@ objects. For the second and subsequent
 -- @ListComplianceStatus@ requests, specify the value of @NextToken@ from
@@ -122,14 +122,14 @@ listComplianceStatus_nextToken :: Lens.Lens' ListComplianceStatus (Prelude.Maybe
 listComplianceStatus_nextToken = Lens.lens (\ListComplianceStatus' {nextToken} -> nextToken) (\s@ListComplianceStatus' {} a -> s {nextToken = a} :: ListComplianceStatus)
 
 -- | Specifies the number of @PolicyComplianceStatus@ objects that you want
--- AWS Firewall Manager to return for this request. If you have more
+-- Firewall Manager to return for this request. If you have more
 -- @PolicyComplianceStatus@ objects than the number that you specify for
 -- @MaxResults@, the response includes a @NextToken@ value that you can use
 -- to get another batch of @PolicyComplianceStatus@ objects.
 listComplianceStatus_maxResults :: Lens.Lens' ListComplianceStatus (Prelude.Maybe Prelude.Natural)
 listComplianceStatus_maxResults = Lens.lens (\ListComplianceStatus' {maxResults} -> maxResults) (\s@ListComplianceStatus' {} a -> s {maxResults = a} :: ListComplianceStatus)
 
--- | The ID of the AWS Firewall Manager policy that you want the details for.
+-- | The ID of the Firewall Manager policy that you want the details for.
 listComplianceStatus_policyId :: Lens.Lens' ListComplianceStatus Prelude.Text
 listComplianceStatus_policyId = Lens.lens (\ListComplianceStatus' {policyId} -> policyId) (\s@ListComplianceStatus' {} a -> s {policyId = a} :: ListComplianceStatus)
 

@@ -21,13 +21,13 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Designates the IAM role and Amazon Simple Notification Service (SNS)
--- topic that AWS Firewall Manager uses to record SNS logs.
+-- topic that Firewall Manager uses to record SNS logs.
 --
 -- To perform this action outside of the console, you must configure the
 -- SNS topic to allow the Firewall Manager role @AWSServiceRoleForFMS@ to
 -- publish SNS logs. For more information, see
 -- <https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html Firewall Manager required permissions for API actions>
--- in the /AWS Firewall Manager Developer Guide/.
+-- in the /Firewall Manager Developer Guide/.
 module Network.AWS.FMS.PutNotificationChannel
   ( -- * Creating a Request
     PutNotificationChannel (..),
@@ -53,10 +53,10 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newPutNotificationChannel' smart constructor.
 data PutNotificationChannel = PutNotificationChannel'
   { -- | The Amazon Resource Name (ARN) of the SNS topic that collects
-    -- notifications from AWS Firewall Manager.
+    -- notifications from Firewall Manager.
     snsTopicArn :: Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to
-    -- record AWS Firewall Manager activity.
+    -- record Firewall Manager activity.
     snsRoleName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -70,10 +70,10 @@ data PutNotificationChannel = PutNotificationChannel'
 -- for backwards compatibility:
 --
 -- 'snsTopicArn', 'putNotificationChannel_snsTopicArn' - The Amazon Resource Name (ARN) of the SNS topic that collects
--- notifications from AWS Firewall Manager.
+-- notifications from Firewall Manager.
 --
 -- 'snsRoleName', 'putNotificationChannel_snsRoleName' - The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to
--- record AWS Firewall Manager activity.
+-- record Firewall Manager activity.
 newPutNotificationChannel ::
   -- | 'snsTopicArn'
   Prelude.Text ->
@@ -88,12 +88,12 @@ newPutNotificationChannel pSnsTopicArn_ pSnsRoleName_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the SNS topic that collects
--- notifications from AWS Firewall Manager.
+-- notifications from Firewall Manager.
 putNotificationChannel_snsTopicArn :: Lens.Lens' PutNotificationChannel Prelude.Text
 putNotificationChannel_snsTopicArn = Lens.lens (\PutNotificationChannel' {snsTopicArn} -> snsTopicArn) (\s@PutNotificationChannel' {} a -> s {snsTopicArn = a} :: PutNotificationChannel)
 
 -- | The Amazon Resource Name (ARN) of the IAM role that allows Amazon SNS to
--- record AWS Firewall Manager activity.
+-- record Firewall Manager activity.
 putNotificationChannel_snsRoleName :: Lens.Lens' PutNotificationChannel Prelude.Text
 putNotificationChannel_snsRoleName = Lens.lens (\PutNotificationChannel' {snsRoleName} -> snsRoleName) (\s@PutNotificationChannel' {} a -> s {snsRoleName = a} :: PutNotificationChannel)
 

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Permanently deletes an AWS Firewall Manager policy.
+-- Permanently deletes an Firewall Manager policy.
 module Network.AWS.FMS.DeletePolicy
   ( -- * Creating a Request
     DeletePolicy (..),
@@ -47,10 +47,9 @@ import qualified Network.AWS.Response as Response
 data DeletePolicy = DeletePolicy'
   { -- | If @True@, the request performs cleanup according to the policy type.
     --
-    -- For AWS WAF and Shield Advanced policies, the cleanup does the
-    -- following:
+    -- For WAF and Shield Advanced policies, the cleanup does the following:
     --
-    -- -   Deletes rule groups created by AWS Firewall Manager
+    -- -   Deletes rule groups created by Firewall Manager
     --
     -- -   Removes web ACLs from in-scope resources
     --
@@ -90,10 +89,9 @@ data DeletePolicy = DeletePolicy'
 --
 -- 'deleteAllPolicyResources', 'deletePolicy_deleteAllPolicyResources' - If @True@, the request performs cleanup according to the policy type.
 --
--- For AWS WAF and Shield Advanced policies, the cleanup does the
--- following:
+-- For WAF and Shield Advanced policies, the cleanup does the following:
 --
--- -   Deletes rule groups created by AWS Firewall Manager
+-- -   Deletes rule groups created by Firewall Manager
 --
 -- -   Removes web ACLs from in-scope resources
 --
@@ -132,10 +130,9 @@ newDeletePolicy pPolicyId_ =
 
 -- | If @True@, the request performs cleanup according to the policy type.
 --
--- For AWS WAF and Shield Advanced policies, the cleanup does the
--- following:
+-- For WAF and Shield Advanced policies, the cleanup does the following:
 --
--- -   Deletes rule groups created by AWS Firewall Manager
+-- -   Deletes rule groups created by Firewall Manager
 --
 -- -   Removes web ACLs from in-scope resources
 --

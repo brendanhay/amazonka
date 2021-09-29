@@ -20,24 +20,27 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an AWS Firewall Manager policy.
+-- Creates an Firewall Manager policy.
 --
 -- Firewall Manager provides the following types of policies:
 --
--- -   An AWS WAF policy (type WAFV2), which defines rule groups to run
---     first in the corresponding AWS WAF web ACL and rule groups to run
---     last in the web ACL.
+-- -   An WAF policy (type WAFV2), which defines rule groups to run first
+--     in the corresponding WAF web ACL and rule groups to run last in the
+--     web ACL.
 --
--- -   An AWS WAF Classic policy (type WAF), which defines a rule group.
+-- -   An WAF Classic policy (type WAF), which defines a rule group.
 --
 -- -   A Shield Advanced policy, which applies Shield Advanced protection
 --     to specified accounts and resources.
 --
 -- -   A security group policy, which manages VPC security groups across
---     your AWS organization.
+--     your Amazon Web Services organization.
 --
--- -   An AWS Network Firewall policy, which provides firewall rules to
---     filter network traffic in specified Amazon VPCs.
+-- -   An Network Firewall policy, which provides firewall rules to filter
+--     network traffic in specified Amazon VPCs.
+--
+-- -   A DNS Firewall policy, which provides Route 53 Resolver DNS Firewall
+--     rules to filter DNS queries for specified VPCs.
 --
 -- Each policy is specific to one of the types. If you want to enforce more
 -- than one policy type across accounts, create multiple policies. You can
@@ -75,9 +78,9 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newPutPolicy' smart constructor.
 data PutPolicy = PutPolicy'
-  { -- | The tags to add to the AWS resource.
+  { -- | The tags to add to the Amazon Web Services resource.
     tagList :: Prelude.Maybe [Tag],
-    -- | The details of the AWS Firewall Manager policy to be created.
+    -- | The details of the Firewall Manager policy to be created.
     policy :: Policy
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -90,9 +93,9 @@ data PutPolicy = PutPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagList', 'putPolicy_tagList' - The tags to add to the AWS resource.
+-- 'tagList', 'putPolicy_tagList' - The tags to add to the Amazon Web Services resource.
 --
--- 'policy', 'putPolicy_policy' - The details of the AWS Firewall Manager policy to be created.
+-- 'policy', 'putPolicy_policy' - The details of the Firewall Manager policy to be created.
 newPutPolicy ::
   -- | 'policy'
   Policy ->
@@ -103,11 +106,11 @@ newPutPolicy pPolicy_ =
       policy = pPolicy_
     }
 
--- | The tags to add to the AWS resource.
+-- | The tags to add to the Amazon Web Services resource.
 putPolicy_tagList :: Lens.Lens' PutPolicy (Prelude.Maybe [Tag])
 putPolicy_tagList = Lens.lens (\PutPolicy' {tagList} -> tagList) (\s@PutPolicy' {} a -> s {tagList = a} :: PutPolicy) Prelude.. Lens.mapping Lens._Coerce
 
--- | The details of the AWS Firewall Manager policy to be created.
+-- | The details of the Firewall Manager policy to be created.
 putPolicy_policy :: Lens.Lens' PutPolicy Policy
 putPolicy_policy = Lens.lens (\PutPolicy' {policy} -> policy) (\s@PutPolicy' {} a -> s {policy = a} :: PutPolicy)
 
@@ -157,7 +160,7 @@ instance Core.ToQuery PutPolicy where
 
 -- | /See:/ 'newPutPolicyResponse' smart constructor.
 data PutPolicyResponse = PutPolicyResponse'
-  { -- | The details of the AWS Firewall Manager policy.
+  { -- | The details of the Firewall Manager policy.
     policy :: Prelude.Maybe Policy,
     -- | The Amazon Resource Name (ARN) of the policy.
     policyArn :: Prelude.Maybe Prelude.Text,
@@ -174,7 +177,7 @@ data PutPolicyResponse = PutPolicyResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policy', 'putPolicyResponse_policy' - The details of the AWS Firewall Manager policy.
+-- 'policy', 'putPolicyResponse_policy' - The details of the Firewall Manager policy.
 --
 -- 'policyArn', 'putPolicyResponse_policyArn' - The Amazon Resource Name (ARN) of the policy.
 --
@@ -190,7 +193,7 @@ newPutPolicyResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The details of the AWS Firewall Manager policy.
+-- | The details of the Firewall Manager policy.
 putPolicyResponse_policy :: Lens.Lens' PutPolicyResponse (Prelude.Maybe Policy)
 putPolicyResponse_policy = Lens.lens (\PutPolicyResponse' {policy} -> policy) (\s@PutPolicyResponse' {} a -> s {policy = a} :: PutPolicyResponse)
 

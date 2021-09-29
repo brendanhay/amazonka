@@ -23,16 +23,16 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | AWS Network Firewall stateless rule group, used in a
+-- | Network Firewall stateless rule group, used in a
 -- NetworkFirewallPolicyDescription.
 --
 -- /See:/ 'newStatelessRuleGroup' smart constructor.
 data StatelessRuleGroup = StatelessRuleGroup'
   { -- | The resource ID of the rule group.
     resourceId :: Prelude.Maybe Prelude.Text,
-    -- | The priority of the rule group. AWS Network Firewall evaluates the
-    -- stateless rule groups in a firewall policy starting from the lowest
-    -- priority setting.
+    -- | The priority of the rule group. Network Firewall evaluates the stateless
+    -- rule groups in a firewall policy starting from the lowest priority
+    -- setting.
     priority :: Prelude.Maybe Prelude.Natural,
     -- | The name of the rule group.
     ruleGroupName :: Prelude.Maybe Prelude.Text
@@ -49,9 +49,9 @@ data StatelessRuleGroup = StatelessRuleGroup'
 --
 -- 'resourceId', 'statelessRuleGroup_resourceId' - The resource ID of the rule group.
 --
--- 'priority', 'statelessRuleGroup_priority' - The priority of the rule group. AWS Network Firewall evaluates the
--- stateless rule groups in a firewall policy starting from the lowest
--- priority setting.
+-- 'priority', 'statelessRuleGroup_priority' - The priority of the rule group. Network Firewall evaluates the stateless
+-- rule groups in a firewall policy starting from the lowest priority
+-- setting.
 --
 -- 'ruleGroupName', 'statelessRuleGroup_ruleGroupName' - The name of the rule group.
 newStatelessRuleGroup ::
@@ -67,9 +67,9 @@ newStatelessRuleGroup =
 statelessRuleGroup_resourceId :: Lens.Lens' StatelessRuleGroup (Prelude.Maybe Prelude.Text)
 statelessRuleGroup_resourceId = Lens.lens (\StatelessRuleGroup' {resourceId} -> resourceId) (\s@StatelessRuleGroup' {} a -> s {resourceId = a} :: StatelessRuleGroup)
 
--- | The priority of the rule group. AWS Network Firewall evaluates the
--- stateless rule groups in a firewall policy starting from the lowest
--- priority setting.
+-- | The priority of the rule group. Network Firewall evaluates the stateless
+-- rule groups in a firewall policy starting from the lowest priority
+-- setting.
 statelessRuleGroup_priority :: Lens.Lens' StatelessRuleGroup (Prelude.Maybe Prelude.Natural)
 statelessRuleGroup_priority = Lens.lens (\StatelessRuleGroup' {priority} -> priority) (\s@StatelessRuleGroup' {} a -> s {priority = a} :: StatelessRuleGroup)
 

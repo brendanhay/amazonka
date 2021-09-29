@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the specified AWS Firewall Manager protocols
--- list.
+-- Returns information about the specified Firewall Manager protocols list.
 module Network.AWS.FMS.GetProtocolsList
   ( -- * Creating a Request
     GetProtocolsList (..),
@@ -51,11 +50,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newGetProtocolsList' smart constructor.
 data GetProtocolsList = GetProtocolsList'
-  { -- | Specifies whether the list to retrieve is a default list owned by AWS
+  { -- | Specifies whether the list to retrieve is a default list owned by
     -- Firewall Manager.
     defaultList :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the AWS Firewall Manager protocols list that you want the
-    -- details for.
+    -- | The ID of the Firewall Manager protocols list that you want the details
+    -- for.
     listId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,11 +67,11 @@ data GetProtocolsList = GetProtocolsList'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'defaultList', 'getProtocolsList_defaultList' - Specifies whether the list to retrieve is a default list owned by AWS
+-- 'defaultList', 'getProtocolsList_defaultList' - Specifies whether the list to retrieve is a default list owned by
 -- Firewall Manager.
 --
--- 'listId', 'getProtocolsList_listId' - The ID of the AWS Firewall Manager protocols list that you want the
--- details for.
+-- 'listId', 'getProtocolsList_listId' - The ID of the Firewall Manager protocols list that you want the details
+-- for.
 newGetProtocolsList ::
   -- | 'listId'
   Prelude.Text ->
@@ -83,13 +82,13 @@ newGetProtocolsList pListId_ =
       listId = pListId_
     }
 
--- | Specifies whether the list to retrieve is a default list owned by AWS
+-- | Specifies whether the list to retrieve is a default list owned by
 -- Firewall Manager.
 getProtocolsList_defaultList :: Lens.Lens' GetProtocolsList (Prelude.Maybe Prelude.Bool)
 getProtocolsList_defaultList = Lens.lens (\GetProtocolsList' {defaultList} -> defaultList) (\s@GetProtocolsList' {} a -> s {defaultList = a} :: GetProtocolsList)
 
--- | The ID of the AWS Firewall Manager protocols list that you want the
--- details for.
+-- | The ID of the Firewall Manager protocols list that you want the details
+-- for.
 getProtocolsList_listId :: Lens.Lens' GetProtocolsList Prelude.Text
 getProtocolsList_listId = Lens.lens (\GetProtocolsList' {listId} -> listId) (\s@GetProtocolsList' {} a -> s {listId = a} :: GetProtocolsList)
 
@@ -143,7 +142,7 @@ instance Core.ToQuery GetProtocolsList where
 
 -- | /See:/ 'newGetProtocolsListResponse' smart constructor.
 data GetProtocolsListResponse = GetProtocolsListResponse'
-  { -- | Information about the specified AWS Firewall Manager protocols list.
+  { -- | Information about the specified Firewall Manager protocols list.
     protocolsList :: Prelude.Maybe ProtocolsListData,
     -- | The Amazon Resource Name (ARN) of the specified protocols list.
     protocolsListArn :: Prelude.Maybe Prelude.Text,
@@ -160,7 +159,7 @@ data GetProtocolsListResponse = GetProtocolsListResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'protocolsList', 'getProtocolsListResponse_protocolsList' - Information about the specified AWS Firewall Manager protocols list.
+-- 'protocolsList', 'getProtocolsListResponse_protocolsList' - Information about the specified Firewall Manager protocols list.
 --
 -- 'protocolsListArn', 'getProtocolsListResponse_protocolsListArn' - The Amazon Resource Name (ARN) of the specified protocols list.
 --
@@ -177,7 +176,7 @@ newGetProtocolsListResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Information about the specified AWS Firewall Manager protocols list.
+-- | Information about the specified Firewall Manager protocols list.
 getProtocolsListResponse_protocolsList :: Lens.Lens' GetProtocolsListResponse (Prelude.Maybe ProtocolsListData)
 getProtocolsListResponse_protocolsList = Lens.lens (\GetProtocolsListResponse' {protocolsList} -> protocolsList) (\s@GetProtocolsListResponse' {} a -> s {protocolsList = a} :: GetProtocolsListResponse)
 

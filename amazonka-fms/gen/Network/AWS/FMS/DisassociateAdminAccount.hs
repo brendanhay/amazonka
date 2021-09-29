@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disassociates the account that has been set as the AWS Firewall Manager
+-- Disassociates the account that has been set as the Firewall Manager
 -- administrator account. To set a different account as the administrator
 -- account, you must submit an @AssociateAdminAccount@ request.
 module Network.AWS.FMS.DisassociateAdminAccount

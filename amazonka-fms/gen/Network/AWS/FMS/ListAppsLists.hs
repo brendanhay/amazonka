@@ -21,6 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns an array of @AppsListDataSummary@ objects.
+--
+-- This operation returns paginated results.
 module Network.AWS.FMS.ListAppsLists
   ( -- * Creating a Request
     ListAppsLists (..),
@@ -52,20 +54,20 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newListAppsLists' smart constructor.
 data ListAppsLists = ListAppsLists'
   { -- | If you specify a value for @MaxResults@ in your list request, and you
-    -- have more objects than the maximum, AWS Firewall Manager returns this
-    -- token in the response. For all but the first request, you provide the
-    -- token returned by the prior request in the request parameters, to
-    -- retrieve the next batch of objects.
+    -- have more objects than the maximum, Firewall Manager returns this token
+    -- in the response. For all but the first request, you provide the token
+    -- returned by the prior request in the request parameters, to retrieve the
+    -- next batch of objects.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Specifies whether the lists to retrieve are default lists owned by AWS
+    -- | Specifies whether the lists to retrieve are default lists owned by
     -- Firewall Manager.
     defaultLists :: Prelude.Maybe Prelude.Bool,
-    -- | The maximum number of objects that you want AWS Firewall Manager to
-    -- return for this request. If more objects are available, in the response,
-    -- AWS Firewall Manager provides a @NextToken@ value that you can use in a
+    -- | The maximum number of objects that you want Firewall Manager to return
+    -- for this request. If more objects are available, in the response,
+    -- Firewall Manager provides a @NextToken@ value that you can use in a
     -- subsequent call to get the next batch of objects.
     --
-    -- If you don\'t specify this, AWS Firewall Manager returns all available
+    -- If you don\'t specify this, Firewall Manager returns all available
     -- objects.
     maxResults :: Prelude.Natural
   }
@@ -80,20 +82,20 @@ data ListAppsLists = ListAppsLists'
 -- for backwards compatibility:
 --
 -- 'nextToken', 'listAppsLists_nextToken' - If you specify a value for @MaxResults@ in your list request, and you
--- have more objects than the maximum, AWS Firewall Manager returns this
--- token in the response. For all but the first request, you provide the
--- token returned by the prior request in the request parameters, to
--- retrieve the next batch of objects.
+-- have more objects than the maximum, Firewall Manager returns this token
+-- in the response. For all but the first request, you provide the token
+-- returned by the prior request in the request parameters, to retrieve the
+-- next batch of objects.
 --
--- 'defaultLists', 'listAppsLists_defaultLists' - Specifies whether the lists to retrieve are default lists owned by AWS
+-- 'defaultLists', 'listAppsLists_defaultLists' - Specifies whether the lists to retrieve are default lists owned by
 -- Firewall Manager.
 --
--- 'maxResults', 'listAppsLists_maxResults' - The maximum number of objects that you want AWS Firewall Manager to
--- return for this request. If more objects are available, in the response,
--- AWS Firewall Manager provides a @NextToken@ value that you can use in a
+-- 'maxResults', 'listAppsLists_maxResults' - The maximum number of objects that you want Firewall Manager to return
+-- for this request. If more objects are available, in the response,
+-- Firewall Manager provides a @NextToken@ value that you can use in a
 -- subsequent call to get the next batch of objects.
 --
--- If you don\'t specify this, AWS Firewall Manager returns all available
+-- If you don\'t specify this, Firewall Manager returns all available
 -- objects.
 newListAppsLists ::
   -- | 'maxResults'
@@ -107,27 +109,46 @@ newListAppsLists pMaxResults_ =
     }
 
 -- | If you specify a value for @MaxResults@ in your list request, and you
--- have more objects than the maximum, AWS Firewall Manager returns this
--- token in the response. For all but the first request, you provide the
--- token returned by the prior request in the request parameters, to
--- retrieve the next batch of objects.
+-- have more objects than the maximum, Firewall Manager returns this token
+-- in the response. For all but the first request, you provide the token
+-- returned by the prior request in the request parameters, to retrieve the
+-- next batch of objects.
 listAppsLists_nextToken :: Lens.Lens' ListAppsLists (Prelude.Maybe Prelude.Text)
 listAppsLists_nextToken = Lens.lens (\ListAppsLists' {nextToken} -> nextToken) (\s@ListAppsLists' {} a -> s {nextToken = a} :: ListAppsLists)
 
--- | Specifies whether the lists to retrieve are default lists owned by AWS
+-- | Specifies whether the lists to retrieve are default lists owned by
 -- Firewall Manager.
 listAppsLists_defaultLists :: Lens.Lens' ListAppsLists (Prelude.Maybe Prelude.Bool)
 listAppsLists_defaultLists = Lens.lens (\ListAppsLists' {defaultLists} -> defaultLists) (\s@ListAppsLists' {} a -> s {defaultLists = a} :: ListAppsLists)
 
--- | The maximum number of objects that you want AWS Firewall Manager to
--- return for this request. If more objects are available, in the response,
--- AWS Firewall Manager provides a @NextToken@ value that you can use in a
+-- | The maximum number of objects that you want Firewall Manager to return
+-- for this request. If more objects are available, in the response,
+-- Firewall Manager provides a @NextToken@ value that you can use in a
 -- subsequent call to get the next batch of objects.
 --
--- If you don\'t specify this, AWS Firewall Manager returns all available
+-- If you don\'t specify this, Firewall Manager returns all available
 -- objects.
 listAppsLists_maxResults :: Lens.Lens' ListAppsLists Prelude.Natural
 listAppsLists_maxResults = Lens.lens (\ListAppsLists' {maxResults} -> maxResults) (\s@ListAppsLists' {} a -> s {maxResults = a} :: ListAppsLists)
+
+instance Core.AWSPager ListAppsLists where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listAppsListsResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listAppsListsResponse_appsLists Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listAppsLists_nextToken
+          Lens..~ rs
+          Lens.^? listAppsListsResponse_nextToken Prelude.. Lens._Just
 
 instance Core.AWSRequest ListAppsLists where
   type
@@ -181,8 +202,8 @@ instance Core.ToQuery ListAppsLists where
 -- | /See:/ 'newListAppsListsResponse' smart constructor.
 data ListAppsListsResponse = ListAppsListsResponse'
   { -- | If you specify a value for @MaxResults@ in your list request, and you
-    -- have more objects than the maximum, AWS Firewall Manager returns this
-    -- token in the response. You can use this token in subsequent requests to
+    -- have more objects than the maximum, Firewall Manager returns this token
+    -- in the response. You can use this token in subsequent requests to
     -- retrieve the next batch of objects.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | An array of @AppsListDataSummary@ objects.
@@ -201,8 +222,8 @@ data ListAppsListsResponse = ListAppsListsResponse'
 -- for backwards compatibility:
 --
 -- 'nextToken', 'listAppsListsResponse_nextToken' - If you specify a value for @MaxResults@ in your list request, and you
--- have more objects than the maximum, AWS Firewall Manager returns this
--- token in the response. You can use this token in subsequent requests to
+-- have more objects than the maximum, Firewall Manager returns this token
+-- in the response. You can use this token in subsequent requests to
 -- retrieve the next batch of objects.
 --
 -- 'appsLists', 'listAppsListsResponse_appsLists' - An array of @AppsListDataSummary@ objects.
@@ -220,8 +241,8 @@ newListAppsListsResponse pHttpStatus_ =
     }
 
 -- | If you specify a value for @MaxResults@ in your list request, and you
--- have more objects than the maximum, AWS Firewall Manager returns this
--- token in the response. You can use this token in subsequent requests to
+-- have more objects than the maximum, Firewall Manager returns this token
+-- in the response. You can use this token in subsequent requests to
 -- retrieve the next batch of objects.
 listAppsListsResponse_nextToken :: Lens.Lens' ListAppsListsResponse (Prelude.Maybe Prelude.Text)
 listAppsListsResponse_nextToken = Lens.lens (\ListAppsListsResponse' {nextToken} -> nextToken) (\s@ListAppsListsResponse' {} a -> s {nextToken = a} :: ListAppsListsResponse)

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes one or more tags from an AWS resource.
+-- Removes one or more tags from an Amazon Web Services resource.
 module Network.AWS.FMS.UntagResource
   ( -- * Creating a Request
     UntagResource (..),
@@ -49,7 +49,7 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newUntagResource' smart constructor.
 data UntagResource = UntagResource'
   { -- | The Amazon Resource Name (ARN) of the resource to return tags for. The
-    -- AWS Firewall Manager resources that support tagging are policies,
+    -- Firewall Manager resources that support tagging are policies,
     -- applications lists, and protocols lists.
     resourceArn :: Prelude.Text,
     -- | The keys of the tags to remove from the resource.
@@ -66,7 +66,7 @@ data UntagResource = UntagResource'
 -- for backwards compatibility:
 --
 -- 'resourceArn', 'untagResource_resourceArn' - The Amazon Resource Name (ARN) of the resource to return tags for. The
--- AWS Firewall Manager resources that support tagging are policies,
+-- Firewall Manager resources that support tagging are policies,
 -- applications lists, and protocols lists.
 --
 -- 'tagKeys', 'untagResource_tagKeys' - The keys of the tags to remove from the resource.
@@ -81,7 +81,7 @@ newUntagResource pResourceArn_ =
     }
 
 -- | The Amazon Resource Name (ARN) of the resource to return tags for. The
--- AWS Firewall Manager resources that support tagging are policies,
+-- Firewall Manager resources that support tagging are policies,
 -- applications lists, and protocols lists.
 untagResource_resourceArn :: Lens.Lens' UntagResource Prelude.Text
 untagResource_resourceArn = Lens.lens (\UntagResource' {resourceArn} -> resourceArn) (\s@UntagResource' {} a -> s {resourceArn = a} :: UntagResource)

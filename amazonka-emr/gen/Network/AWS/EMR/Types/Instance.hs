@@ -30,7 +30,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newInstance' smart constructor.
 data Instance = Instance'
-  { -- | The list of EBS volumes that are attached to this instance.
+  { -- | The list of Amazon EBS volumes that are attached to this instance.
     ebsVolumes :: Prelude.Maybe [EbsVolume],
     -- | The current status of the instance.
     status :: Prelude.Maybe InstanceStatus,
@@ -66,7 +66,7 @@ data Instance = Instance'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ebsVolumes', 'instance_ebsVolumes' - The list of EBS volumes that are attached to this instance.
+-- 'ebsVolumes', 'instance_ebsVolumes' - The list of Amazon EBS volumes that are attached to this instance.
 --
 -- 'status', 'instance_status' - The current status of the instance.
 --
@@ -108,7 +108,7 @@ newInstance =
       privateIpAddress = Prelude.Nothing
     }
 
--- | The list of EBS volumes that are attached to this instance.
+-- | The list of Amazon EBS volumes that are attached to this instance.
 instance_ebsVolumes :: Lens.Lens' Instance (Prelude.Maybe [EbsVolume])
 instance_ebsVolumes = Lens.lens (\Instance' {ebsVolumes} -> ebsVolumes) (\s@Instance' {} a -> s {ebsVolumes = a} :: Instance) Prelude.. Lens.mapping Lens._Coerce
 

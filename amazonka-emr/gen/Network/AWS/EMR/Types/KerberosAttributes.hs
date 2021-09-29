@@ -41,12 +41,12 @@ data KerberosAttributes = KerberosAttributes'
     -- cluster-dedicated KDC, which maintains Kerberos principals, password
     -- policies, and keytabs for the cluster.
     kdcAdminPassword :: Prelude.Maybe Prelude.Text,
-    -- | The Active Directory password for @ADDomainJoinUser@.
-    aDDomainJoinPassword :: Prelude.Maybe Prelude.Text,
     -- | Required only when establishing a cross-realm trust with a KDC in a
     -- different realm. The cross-realm principal password, which must be
     -- identical across realms.
-    crossRealmTrustPrincipalPassword :: Prelude.Maybe Prelude.Text
+    crossRealmTrustPrincipalPassword :: Prelude.Maybe Prelude.Text,
+    -- | The Active Directory password for @ADDomainJoinUser@.
+    aDDomainJoinPassword :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -69,11 +69,11 @@ data KerberosAttributes = KerberosAttributes'
 -- cluster-dedicated KDC, which maintains Kerberos principals, password
 -- policies, and keytabs for the cluster.
 --
--- 'aDDomainJoinPassword', 'kerberosAttributes_aDDomainJoinPassword' - The Active Directory password for @ADDomainJoinUser@.
---
 -- 'crossRealmTrustPrincipalPassword', 'kerberosAttributes_crossRealmTrustPrincipalPassword' - Required only when establishing a cross-realm trust with a KDC in a
 -- different realm. The cross-realm principal password, which must be
 -- identical across realms.
+--
+-- 'aDDomainJoinPassword', 'kerberosAttributes_aDDomainJoinPassword' - The Active Directory password for @ADDomainJoinUser@.
 newKerberosAttributes ::
   KerberosAttributes
 newKerberosAttributes =
@@ -81,8 +81,8 @@ newKerberosAttributes =
     { realm = Prelude.Nothing,
       aDDomainJoinUser = Prelude.Nothing,
       kdcAdminPassword = Prelude.Nothing,
-      aDDomainJoinPassword = Prelude.Nothing,
-      crossRealmTrustPrincipalPassword = Prelude.Nothing
+      crossRealmTrustPrincipalPassword = Prelude.Nothing,
+      aDDomainJoinPassword = Prelude.Nothing
     }
 
 -- | The name of the Kerberos realm to which all nodes in a cluster belong.
@@ -102,15 +102,15 @@ kerberosAttributes_aDDomainJoinUser = Lens.lens (\KerberosAttributes' {aDDomainJ
 kerberosAttributes_kdcAdminPassword :: Lens.Lens' KerberosAttributes (Prelude.Maybe Prelude.Text)
 kerberosAttributes_kdcAdminPassword = Lens.lens (\KerberosAttributes' {kdcAdminPassword} -> kdcAdminPassword) (\s@KerberosAttributes' {} a -> s {kdcAdminPassword = a} :: KerberosAttributes)
 
--- | The Active Directory password for @ADDomainJoinUser@.
-kerberosAttributes_aDDomainJoinPassword :: Lens.Lens' KerberosAttributes (Prelude.Maybe Prelude.Text)
-kerberosAttributes_aDDomainJoinPassword = Lens.lens (\KerberosAttributes' {aDDomainJoinPassword} -> aDDomainJoinPassword) (\s@KerberosAttributes' {} a -> s {aDDomainJoinPassword = a} :: KerberosAttributes)
-
 -- | Required only when establishing a cross-realm trust with a KDC in a
 -- different realm. The cross-realm principal password, which must be
 -- identical across realms.
 kerberosAttributes_crossRealmTrustPrincipalPassword :: Lens.Lens' KerberosAttributes (Prelude.Maybe Prelude.Text)
 kerberosAttributes_crossRealmTrustPrincipalPassword = Lens.lens (\KerberosAttributes' {crossRealmTrustPrincipalPassword} -> crossRealmTrustPrincipalPassword) (\s@KerberosAttributes' {} a -> s {crossRealmTrustPrincipalPassword = a} :: KerberosAttributes)
+
+-- | The Active Directory password for @ADDomainJoinUser@.
+kerberosAttributes_aDDomainJoinPassword :: Lens.Lens' KerberosAttributes (Prelude.Maybe Prelude.Text)
+kerberosAttributes_aDDomainJoinPassword = Lens.lens (\KerberosAttributes' {aDDomainJoinPassword} -> aDDomainJoinPassword) (\s@KerberosAttributes' {} a -> s {aDDomainJoinPassword = a} :: KerberosAttributes)
 
 instance Core.FromJSON KerberosAttributes where
   parseJSON =
@@ -121,8 +121,8 @@ instance Core.FromJSON KerberosAttributes where
             Prelude.<$> (x Core..:? "Realm")
             Prelude.<*> (x Core..:? "ADDomainJoinUser")
             Prelude.<*> (x Core..:? "KdcAdminPassword")
-            Prelude.<*> (x Core..:? "ADDomainJoinPassword")
             Prelude.<*> (x Core..:? "CrossRealmTrustPrincipalPassword")
+            Prelude.<*> (x Core..:? "ADDomainJoinPassword")
       )
 
 instance Prelude.Hashable KerberosAttributes
@@ -138,9 +138,9 @@ instance Core.ToJSON KerberosAttributes where
               Prelude.<$> aDDomainJoinUser,
             ("KdcAdminPassword" Core..=)
               Prelude.<$> kdcAdminPassword,
-            ("ADDomainJoinPassword" Core..=)
-              Prelude.<$> aDDomainJoinPassword,
             ("CrossRealmTrustPrincipalPassword" Core..=)
-              Prelude.<$> crossRealmTrustPrincipalPassword
+              Prelude.<$> crossRealmTrustPrincipalPassword,
+            ("ADDomainJoinPassword" Core..=)
+              Prelude.<$> aDDomainJoinPassword
           ]
       )

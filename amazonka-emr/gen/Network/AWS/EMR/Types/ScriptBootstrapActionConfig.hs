@@ -29,8 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 data ScriptBootstrapActionConfig = ScriptBootstrapActionConfig'
   { -- | A list of command line arguments to pass to the bootstrap action script.
     args :: Prelude.Maybe [Prelude.Text],
-    -- | Location of the script to run during a bootstrap action. Can be either a
-    -- location in Amazon S3 or on a local file system.
+    -- | Location in Amazon S3 of the script to run during a bootstrap action.
     path :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -45,8 +44,7 @@ data ScriptBootstrapActionConfig = ScriptBootstrapActionConfig'
 --
 -- 'args', 'scriptBootstrapActionConfig_args' - A list of command line arguments to pass to the bootstrap action script.
 --
--- 'path', 'scriptBootstrapActionConfig_path' - Location of the script to run during a bootstrap action. Can be either a
--- location in Amazon S3 or on a local file system.
+-- 'path', 'scriptBootstrapActionConfig_path' - Location in Amazon S3 of the script to run during a bootstrap action.
 newScriptBootstrapActionConfig ::
   -- | 'path'
   Prelude.Text ->
@@ -62,8 +60,7 @@ newScriptBootstrapActionConfig pPath_ =
 scriptBootstrapActionConfig_args :: Lens.Lens' ScriptBootstrapActionConfig (Prelude.Maybe [Prelude.Text])
 scriptBootstrapActionConfig_args = Lens.lens (\ScriptBootstrapActionConfig' {args} -> args) (\s@ScriptBootstrapActionConfig' {} a -> s {args = a} :: ScriptBootstrapActionConfig) Prelude.. Lens.mapping Lens._Coerce
 
--- | Location of the script to run during a bootstrap action. Can be either a
--- location in Amazon S3 or on a local file system.
+-- | Location in Amazon S3 of the script to run during a bootstrap action.
 scriptBootstrapActionConfig_path :: Lens.Lens' ScriptBootstrapActionConfig Prelude.Text
 scriptBootstrapActionConfig_path = Lens.lens (\ScriptBootstrapActionConfig' {path} -> path) (\s@ScriptBootstrapActionConfig' {} a -> s {path = a} :: ScriptBootstrapActionConfig)
 

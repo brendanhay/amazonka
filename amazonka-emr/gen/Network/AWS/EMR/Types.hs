@@ -93,6 +93,12 @@ module Network.AWS.EMR.Types
     -- * NotebookExecutionStatus
     NotebookExecutionStatus (..),
 
+    -- * OnDemandCapacityReservationPreference
+    OnDemandCapacityReservationPreference (..),
+
+    -- * OnDemandCapacityReservationUsageStrategy
+    OnDemandCapacityReservationUsageStrategy (..),
+
     -- * OnDemandProvisioningAllocationStrategy
     OnDemandProvisioningAllocationStrategy (..),
 
@@ -159,6 +165,11 @@ module Network.AWS.EMR.Types
     autoScalingPolicyStatus_stateChangeReason,
     autoScalingPolicyStatus_state,
 
+    -- * AutoTerminationPolicy
+    AutoTerminationPolicy (..),
+    newAutoTerminationPolicy,
+    autoTerminationPolicy_idleTimeout,
+
     -- * BlockPublicAccessConfiguration
     BlockPublicAccessConfiguration (..),
     newBlockPublicAccessConfiguration,
@@ -189,8 +200,8 @@ module Network.AWS.EMR.Types
     newCloudWatchAlarmDefinition,
     cloudWatchAlarmDefinition_unit,
     cloudWatchAlarmDefinition_statistic,
-    cloudWatchAlarmDefinition_dimensions,
     cloudWatchAlarmDefinition_namespace,
+    cloudWatchAlarmDefinition_dimensions,
     cloudWatchAlarmDefinition_evaluationPeriods,
     cloudWatchAlarmDefinition_comparisonOperator,
     cloudWatchAlarmDefinition_metricName,
@@ -200,20 +211,20 @@ module Network.AWS.EMR.Types
     -- * Cluster
     Cluster (..),
     newCluster,
-    cluster_clusterArn,
     cluster_repoUpgradeOnBoot,
+    cluster_clusterArn,
     cluster_serviceRole,
-    cluster_securityConfiguration,
-    cluster_scaleDownBehavior,
     cluster_autoScalingRole,
+    cluster_scaleDownBehavior,
+    cluster_securityConfiguration,
     cluster_terminationProtected,
+    cluster_masterPublicDnsName,
     cluster_configurations,
     cluster_outpostArn,
-    cluster_masterPublicDnsName,
     cluster_runningAmiVersion,
+    cluster_ebsRootVolumeSize,
     cluster_requestedAmiVersion,
     cluster_releaseLabel,
-    cluster_ebsRootVolumeSize,
     cluster_instanceCollectionType,
     cluster_logEncryptionKmsKeyId,
     cluster_tags,
@@ -221,12 +232,12 @@ module Network.AWS.EMR.Types
     cluster_stepConcurrencyLevel,
     cluster_visibleToAllUsers,
     cluster_autoTerminate,
-    cluster_normalizedInstanceHours,
     cluster_customAmiId,
+    cluster_normalizedInstanceHours,
     cluster_placementGroups,
-    cluster_ec2InstanceAttributes,
-    cluster_kerberosAttributes,
     cluster_logUri,
+    cluster_kerberosAttributes,
+    cluster_ec2InstanceAttributes,
     cluster_id,
     cluster_name,
     cluster_status,
@@ -349,8 +360,8 @@ module Network.AWS.EMR.Types
     HadoopStepConfig (..),
     newHadoopStepConfig,
     hadoopStepConfig_args,
-    hadoopStepConfig_jar,
     hadoopStepConfig_properties,
+    hadoopStepConfig_jar,
     hadoopStepConfig_mainClass,
 
     -- * Instance
@@ -375,11 +386,11 @@ module Network.AWS.EMR.Types
     instanceFleet_instanceFleetType,
     instanceFleet_status,
     instanceFleet_targetOnDemandCapacity,
-    instanceFleet_id,
     instanceFleet_targetSpotCapacity,
+    instanceFleet_id,
     instanceFleet_provisionedOnDemandCapacity,
-    instanceFleet_instanceTypeSpecifications,
     instanceFleet_name,
+    instanceFleet_instanceTypeSpecifications,
     instanceFleet_provisionedSpotCapacity,
     instanceFleet_launchSpecifications,
 
@@ -431,20 +442,21 @@ module Network.AWS.EMR.Types
     newInstanceGroup,
     instanceGroup_lastSuccessfullyAppliedConfigurationsVersion,
     instanceGroup_status,
-    instanceGroup_instanceType,
     instanceGroup_ebsOptimized,
+    instanceGroup_instanceType,
     instanceGroup_ebsBlockDevices,
     instanceGroup_instanceGroupType,
     instanceGroup_configurations,
-    instanceGroup_shrinkPolicy,
     instanceGroup_id,
     instanceGroup_lastSuccessfullyAppliedConfigurations,
+    instanceGroup_shrinkPolicy,
+    instanceGroup_bidPrice,
     instanceGroup_requestedInstanceCount,
     instanceGroup_autoScalingPolicy,
-    instanceGroup_bidPrice,
     instanceGroup_name,
     instanceGroup_market,
     instanceGroup_configurationsVersion,
+    instanceGroup_customAmiId,
     instanceGroup_runningInstanceCount,
 
     -- * InstanceGroupConfig
@@ -452,10 +464,11 @@ module Network.AWS.EMR.Types
     newInstanceGroupConfig,
     instanceGroupConfig_ebsConfiguration,
     instanceGroupConfig_configurations,
-    instanceGroupConfig_autoScalingPolicy,
     instanceGroupConfig_bidPrice,
+    instanceGroupConfig_autoScalingPolicy,
     instanceGroupConfig_name,
     instanceGroupConfig_market,
+    instanceGroupConfig_customAmiId,
     instanceGroupConfig_instanceRole,
     instanceGroupConfig_instanceType,
     instanceGroupConfig_instanceCount,
@@ -521,20 +534,22 @@ module Network.AWS.EMR.Types
     newInstanceTypeConfig,
     instanceTypeConfig_ebsConfiguration,
     instanceTypeConfig_configurations,
-    instanceTypeConfig_bidPriceAsPercentageOfOnDemandPrice,
     instanceTypeConfig_bidPrice,
+    instanceTypeConfig_bidPriceAsPercentageOfOnDemandPrice,
+    instanceTypeConfig_customAmiId,
     instanceTypeConfig_weightedCapacity,
     instanceTypeConfig_instanceType,
 
     -- * InstanceTypeSpecification
     InstanceTypeSpecification (..),
     newInstanceTypeSpecification,
-    instanceTypeSpecification_instanceType,
     instanceTypeSpecification_ebsOptimized,
+    instanceTypeSpecification_instanceType,
     instanceTypeSpecification_ebsBlockDevices,
     instanceTypeSpecification_configurations,
-    instanceTypeSpecification_bidPriceAsPercentageOfOnDemandPrice,
     instanceTypeSpecification_bidPrice,
+    instanceTypeSpecification_bidPriceAsPercentageOfOnDemandPrice,
+    instanceTypeSpecification_customAmiId,
     instanceTypeSpecification_weightedCapacity,
 
     -- * JobFlowInstancesConfig
@@ -543,13 +558,13 @@ module Network.AWS.EMR.Types
     jobFlowInstancesConfig_hadoopVersion,
     jobFlowInstancesConfig_ec2KeyName,
     jobFlowInstancesConfig_instanceFleets,
-    jobFlowInstancesConfig_ec2SubnetIds,
     jobFlowInstancesConfig_placement,
+    jobFlowInstancesConfig_ec2SubnetIds,
     jobFlowInstancesConfig_additionalSlaveSecurityGroups,
     jobFlowInstancesConfig_terminationProtected,
     jobFlowInstancesConfig_emrManagedSlaveSecurityGroup,
-    jobFlowInstancesConfig_instanceGroups,
     jobFlowInstancesConfig_masterInstanceType,
+    jobFlowInstancesConfig_instanceGroups,
     jobFlowInstancesConfig_ec2SubnetId,
     jobFlowInstancesConfig_emrManagedMasterSecurityGroup,
     jobFlowInstancesConfig_additionalMasterSecurityGroups,
@@ -564,8 +579,8 @@ module Network.AWS.EMR.Types
     kerberosAttributes_realm,
     kerberosAttributes_aDDomainJoinUser,
     kerberosAttributes_kdcAdminPassword,
-    kerberosAttributes_aDDomainJoinPassword,
     kerberosAttributes_crossRealmTrustPrincipalPassword,
+    kerberosAttributes_aDDomainJoinPassword,
 
     -- * KeyValue
     KeyValue (..),
@@ -592,12 +607,12 @@ module Network.AWS.EMR.Types
     notebookExecution_notebookExecutionName,
     notebookExecution_editorId,
     notebookExecution_notebookExecutionId,
-    notebookExecution_startTime,
     notebookExecution_arn,
+    notebookExecution_startTime,
     notebookExecution_notebookParams,
     notebookExecution_endTime,
-    notebookExecution_notebookInstanceSecurityGroupId,
     notebookExecution_executionEngine,
+    notebookExecution_notebookInstanceSecurityGroupId,
     notebookExecution_tags,
     notebookExecution_outputNotebookURI,
 
@@ -611,9 +626,17 @@ module Network.AWS.EMR.Types
     notebookExecutionSummary_startTime,
     notebookExecutionSummary_endTime,
 
+    -- * OnDemandCapacityReservationOptions
+    OnDemandCapacityReservationOptions (..),
+    newOnDemandCapacityReservationOptions,
+    onDemandCapacityReservationOptions_capacityReservationPreference,
+    onDemandCapacityReservationOptions_capacityReservationResourceGroupArn,
+    onDemandCapacityReservationOptions_usageStrategy,
+
     -- * OnDemandProvisioningSpecification
     OnDemandProvisioningSpecification (..),
     newOnDemandProvisioningSpecification,
+    onDemandProvisioningSpecification_capacityReservationOptions,
     onDemandProvisioningSpecification_allocationStrategy,
 
     -- * PlacementGroupConfig
@@ -633,6 +656,12 @@ module Network.AWS.EMR.Types
     newPortRange,
     portRange_maxRange,
     portRange_minRange,
+
+    -- * ReleaseLabelFilter
+    ReleaseLabelFilter (..),
+    newReleaseLabelFilter,
+    releaseLabelFilter_prefix,
+    releaseLabelFilter_application,
 
     -- * ScalingAction
     ScalingAction (..),
@@ -705,6 +734,12 @@ module Network.AWS.EMR.Types
     simpleScalingPolicyConfiguration_adjustmentType,
     simpleScalingPolicyConfiguration_scalingAdjustment,
 
+    -- * SimplifiedApplication
+    SimplifiedApplication (..),
+    newSimplifiedApplication,
+    simplifiedApplication_version,
+    simplifiedApplication_name,
+
     -- * SpotProvisioningSpecification
     SpotProvisioningSpecification (..),
     newSpotProvisioningSpecification,
@@ -719,8 +754,8 @@ module Network.AWS.EMR.Types
     step_status,
     step_id,
     step_config,
-    step_actionOnFailure,
     step_name,
+    step_actionOnFailure,
 
     -- * StepConfig
     StepConfig (..),
@@ -749,8 +784,8 @@ module Network.AWS.EMR.Types
     stepSummary_status,
     stepSummary_id,
     stepSummary_config,
-    stepSummary_actionOnFailure,
     stepSummary_name,
+    stepSummary_actionOnFailure,
 
     -- * StepTimeline
     StepTimeline (..),
@@ -770,18 +805,21 @@ module Network.AWS.EMR.Types
     studio_subnetIds,
     studio_userRole,
     studio_name,
+    studio_idpRelayStateParameterName,
     studio_tags,
+    studio_idpAuthUrl,
     studio_description,
     studio_url,
     studio_vpcId,
-    studio_studioArn,
     studio_studioId,
+    studio_studioArn,
     studio_engineSecurityGroupId,
 
     -- * StudioSummary
     StudioSummary (..),
     newStudioSummary,
     studioSummary_creationTime,
+    studioSummary_authMode,
     studioSummary_name,
     studioSummary_description,
     studioSummary_url,
@@ -820,6 +858,7 @@ import Network.AWS.EMR.Types.AutoScalingPolicyState
 import Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReason
 import Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReasonCode
 import Network.AWS.EMR.Types.AutoScalingPolicyStatus
+import Network.AWS.EMR.Types.AutoTerminationPolicy
 import Network.AWS.EMR.Types.BlockPublicAccessConfiguration
 import Network.AWS.EMR.Types.BlockPublicAccessConfigurationMetadata
 import Network.AWS.EMR.Types.BootstrapActionConfig
@@ -888,12 +927,16 @@ import Network.AWS.EMR.Types.MetricDimension
 import Network.AWS.EMR.Types.NotebookExecution
 import Network.AWS.EMR.Types.NotebookExecutionStatus
 import Network.AWS.EMR.Types.NotebookExecutionSummary
+import Network.AWS.EMR.Types.OnDemandCapacityReservationOptions
+import Network.AWS.EMR.Types.OnDemandCapacityReservationPreference
+import Network.AWS.EMR.Types.OnDemandCapacityReservationUsageStrategy
 import Network.AWS.EMR.Types.OnDemandProvisioningAllocationStrategy
 import Network.AWS.EMR.Types.OnDemandProvisioningSpecification
 import Network.AWS.EMR.Types.PlacementGroupConfig
 import Network.AWS.EMR.Types.PlacementGroupStrategy
 import Network.AWS.EMR.Types.PlacementType
 import Network.AWS.EMR.Types.PortRange
+import Network.AWS.EMR.Types.ReleaseLabelFilter
 import Network.AWS.EMR.Types.RepoUpgradeOnBoot
 import Network.AWS.EMR.Types.ScaleDownBehavior
 import Network.AWS.EMR.Types.ScalingAction
@@ -906,6 +949,7 @@ import Network.AWS.EMR.Types.SessionMappingDetail
 import Network.AWS.EMR.Types.SessionMappingSummary
 import Network.AWS.EMR.Types.ShrinkPolicy
 import Network.AWS.EMR.Types.SimpleScalingPolicyConfiguration
+import Network.AWS.EMR.Types.SimplifiedApplication
 import Network.AWS.EMR.Types.SpotProvisioningAllocationStrategy
 import Network.AWS.EMR.Types.SpotProvisioningSpecification
 import Network.AWS.EMR.Types.SpotProvisioningTimeoutAction
@@ -929,7 +973,7 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Sign.V4 as Sign
 
--- | API version @2009-03-31@ of the Amazon Elastic MapReduce SDK configuration.
+-- | API version @2009-03-31@ of the Amazon EMR SDK configuration.
 defaultService :: Core.Service
 defaultService =
   Core.Service

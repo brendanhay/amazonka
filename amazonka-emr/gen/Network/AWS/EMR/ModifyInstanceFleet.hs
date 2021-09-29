@@ -52,7 +52,7 @@ import qualified Network.AWS.Response as Response
 data ModifyInstanceFleet = ModifyInstanceFleet'
   { -- | The unique identifier of the cluster.
     clusterId :: Prelude.Text,
-    -- | The unique identifier of the instance fleet.
+    -- | The configuration parameters of the instance fleet.
     instanceFleet :: InstanceFleetModifyConfig
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,7 +67,7 @@ data ModifyInstanceFleet = ModifyInstanceFleet'
 --
 -- 'clusterId', 'modifyInstanceFleet_clusterId' - The unique identifier of the cluster.
 --
--- 'instanceFleet', 'modifyInstanceFleet_instanceFleet' - The unique identifier of the instance fleet.
+-- 'instanceFleet', 'modifyInstanceFleet_instanceFleet' - The configuration parameters of the instance fleet.
 newModifyInstanceFleet ::
   -- | 'clusterId'
   Prelude.Text ->
@@ -84,7 +84,7 @@ newModifyInstanceFleet pClusterId_ pInstanceFleet_ =
 modifyInstanceFleet_clusterId :: Lens.Lens' ModifyInstanceFleet Prelude.Text
 modifyInstanceFleet_clusterId = Lens.lens (\ModifyInstanceFleet' {clusterId} -> clusterId) (\s@ModifyInstanceFleet' {} a -> s {clusterId = a} :: ModifyInstanceFleet)
 
--- | The unique identifier of the instance fleet.
+-- | The configuration parameters of the instance fleet.
 modifyInstanceFleet_instanceFleet :: Lens.Lens' ModifyInstanceFleet InstanceFleetModifyConfig
 modifyInstanceFleet_instanceFleet = Lens.lens (\ModifyInstanceFleet' {instanceFleet} -> instanceFleet) (\s@ModifyInstanceFleet' {} a -> s {instanceFleet = a} :: ModifyInstanceFleet)
 

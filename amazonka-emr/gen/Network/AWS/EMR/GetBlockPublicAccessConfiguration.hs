@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the Amazon EMR block public access configuration for your AWS
--- account in the current Region. For more information see
+-- Returns the Amazon EMR block public access configuration for your Amazon
+-- Web Services account in the current Region. For more information see
 -- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/configure-block-public-access.html Configure Block Public Access for Amazon EMR>
 -- in the /Amazon EMR Management Guide/.
 module Network.AWS.EMR.GetBlockPublicAccessConfiguration
@@ -147,8 +147,8 @@ data GetBlockPublicAccessConfigurationResponse = GetBlockPublicAccessConfigurati
     -- did not create an EMR cluster in a Region before this date, block public
     -- access is enabled by default in that Region.
     blockPublicAccessConfiguration :: BlockPublicAccessConfiguration,
-    -- | Properties that describe the AWS principal that created the
-    -- @BlockPublicAccessConfiguration@ using the
+    -- | Properties that describe the Amazon Web Services principal that created
+    -- the @BlockPublicAccessConfiguration@ using the
     -- @PutBlockPublicAccessConfiguration@ action as well as the date and time
     -- that the configuration was created. Each time a configuration for block
     -- public access is updated, Amazon EMR updates this metadata.
@@ -184,8 +184,8 @@ data GetBlockPublicAccessConfigurationResponse = GetBlockPublicAccessConfigurati
 -- did not create an EMR cluster in a Region before this date, block public
 -- access is enabled by default in that Region.
 --
--- 'blockPublicAccessConfigurationMetadata', 'getBlockPublicAccessConfigurationResponse_blockPublicAccessConfigurationMetadata' - Properties that describe the AWS principal that created the
--- @BlockPublicAccessConfiguration@ using the
+-- 'blockPublicAccessConfigurationMetadata', 'getBlockPublicAccessConfigurationResponse_blockPublicAccessConfigurationMetadata' - Properties that describe the Amazon Web Services principal that created
+-- the @BlockPublicAccessConfiguration@ using the
 -- @PutBlockPublicAccessConfiguration@ action as well as the date and time
 -- that the configuration was created. Each time a configuration for block
 -- public access is updated, Amazon EMR updates this metadata.
@@ -234,8 +234,8 @@ getBlockPublicAccessConfigurationResponse_httpStatus = Lens.lens (\GetBlockPubli
 getBlockPublicAccessConfigurationResponse_blockPublicAccessConfiguration :: Lens.Lens' GetBlockPublicAccessConfigurationResponse BlockPublicAccessConfiguration
 getBlockPublicAccessConfigurationResponse_blockPublicAccessConfiguration = Lens.lens (\GetBlockPublicAccessConfigurationResponse' {blockPublicAccessConfiguration} -> blockPublicAccessConfiguration) (\s@GetBlockPublicAccessConfigurationResponse' {} a -> s {blockPublicAccessConfiguration = a} :: GetBlockPublicAccessConfigurationResponse)
 
--- | Properties that describe the AWS principal that created the
--- @BlockPublicAccessConfiguration@ using the
+-- | Properties that describe the Amazon Web Services principal that created
+-- the @BlockPublicAccessConfiguration@ using the
 -- @PutBlockPublicAccessConfiguration@ action as well as the date and time
 -- that the configuration was created. Each time a configuration for block
 -- public access is updated, Amazon EMR updates this metadata.

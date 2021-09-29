@@ -36,13 +36,26 @@ data Step = Step'
     id :: Prelude.Maybe Prelude.Text,
     -- | The Hadoop job configuration of the cluster step.
     config :: Prelude.Maybe HadoopStepConfig,
-    -- | The action to take when the cluster step fails. Possible values are
-    -- TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is
-    -- provided for backward compatibility. We recommend using
-    -- TERMINATE_CLUSTER instead.
-    actionOnFailure :: Prelude.Maybe ActionOnFailure,
     -- | The name of the cluster step.
-    name :: Prelude.Maybe Prelude.Text
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The action to take when the cluster step fails. Possible values are
+    -- @TERMINATE_CLUSTER@, @CANCEL_AND_WAIT@, and @CONTINUE@.
+    -- @TERMINATE_JOB_FLOW@ is provided for backward compatibility. We
+    -- recommend using @TERMINATE_CLUSTER@ instead.
+    --
+    -- If a cluster\'s @StepConcurrencyLevel@ is greater than @1@, do not use
+    -- @AddJobFlowSteps@ to submit a step with this parameter set to
+    -- @CANCEL_AND_WAIT@ or @TERMINATE_CLUSTER@. The step is not submitted and
+    -- the action fails with a message that the @ActionOnFailure@ setting is
+    -- not valid.
+    --
+    -- If you change a cluster\'s @StepConcurrencyLevel@ to be greater than 1
+    -- while a step is running, the @ActionOnFailure@ parameter may not behave
+    -- as you expect. In this case, for a step that fails with this parameter
+    -- set to @CANCEL_AND_WAIT@, pending steps and the running step are not
+    -- canceled; for a step that fails with this parameter set to
+    -- @TERMINATE_CLUSTER@, the cluster does not terminate.
+    actionOnFailure :: Prelude.Maybe ActionOnFailure
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -60,12 +73,25 @@ data Step = Step'
 --
 -- 'config', 'step_config' - The Hadoop job configuration of the cluster step.
 --
--- 'actionOnFailure', 'step_actionOnFailure' - The action to take when the cluster step fails. Possible values are
--- TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is
--- provided for backward compatibility. We recommend using
--- TERMINATE_CLUSTER instead.
---
 -- 'name', 'step_name' - The name of the cluster step.
+--
+-- 'actionOnFailure', 'step_actionOnFailure' - The action to take when the cluster step fails. Possible values are
+-- @TERMINATE_CLUSTER@, @CANCEL_AND_WAIT@, and @CONTINUE@.
+-- @TERMINATE_JOB_FLOW@ is provided for backward compatibility. We
+-- recommend using @TERMINATE_CLUSTER@ instead.
+--
+-- If a cluster\'s @StepConcurrencyLevel@ is greater than @1@, do not use
+-- @AddJobFlowSteps@ to submit a step with this parameter set to
+-- @CANCEL_AND_WAIT@ or @TERMINATE_CLUSTER@. The step is not submitted and
+-- the action fails with a message that the @ActionOnFailure@ setting is
+-- not valid.
+--
+-- If you change a cluster\'s @StepConcurrencyLevel@ to be greater than 1
+-- while a step is running, the @ActionOnFailure@ parameter may not behave
+-- as you expect. In this case, for a step that fails with this parameter
+-- set to @CANCEL_AND_WAIT@, pending steps and the running step are not
+-- canceled; for a step that fails with this parameter set to
+-- @TERMINATE_CLUSTER@, the cluster does not terminate.
 newStep ::
   Step
 newStep =
@@ -73,8 +99,8 @@ newStep =
     { status = Prelude.Nothing,
       id = Prelude.Nothing,
       config = Prelude.Nothing,
-      actionOnFailure = Prelude.Nothing,
-      name = Prelude.Nothing
+      name = Prelude.Nothing,
+      actionOnFailure = Prelude.Nothing
     }
 
 -- | The current execution status details of the cluster step.
@@ -89,16 +115,29 @@ step_id = Lens.lens (\Step' {id} -> id) (\s@Step' {} a -> s {id = a} :: Step)
 step_config :: Lens.Lens' Step (Prelude.Maybe HadoopStepConfig)
 step_config = Lens.lens (\Step' {config} -> config) (\s@Step' {} a -> s {config = a} :: Step)
 
--- | The action to take when the cluster step fails. Possible values are
--- TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is
--- provided for backward compatibility. We recommend using
--- TERMINATE_CLUSTER instead.
-step_actionOnFailure :: Lens.Lens' Step (Prelude.Maybe ActionOnFailure)
-step_actionOnFailure = Lens.lens (\Step' {actionOnFailure} -> actionOnFailure) (\s@Step' {} a -> s {actionOnFailure = a} :: Step)
-
 -- | The name of the cluster step.
 step_name :: Lens.Lens' Step (Prelude.Maybe Prelude.Text)
 step_name = Lens.lens (\Step' {name} -> name) (\s@Step' {} a -> s {name = a} :: Step)
+
+-- | The action to take when the cluster step fails. Possible values are
+-- @TERMINATE_CLUSTER@, @CANCEL_AND_WAIT@, and @CONTINUE@.
+-- @TERMINATE_JOB_FLOW@ is provided for backward compatibility. We
+-- recommend using @TERMINATE_CLUSTER@ instead.
+--
+-- If a cluster\'s @StepConcurrencyLevel@ is greater than @1@, do not use
+-- @AddJobFlowSteps@ to submit a step with this parameter set to
+-- @CANCEL_AND_WAIT@ or @TERMINATE_CLUSTER@. The step is not submitted and
+-- the action fails with a message that the @ActionOnFailure@ setting is
+-- not valid.
+--
+-- If you change a cluster\'s @StepConcurrencyLevel@ to be greater than 1
+-- while a step is running, the @ActionOnFailure@ parameter may not behave
+-- as you expect. In this case, for a step that fails with this parameter
+-- set to @CANCEL_AND_WAIT@, pending steps and the running step are not
+-- canceled; for a step that fails with this parameter set to
+-- @TERMINATE_CLUSTER@, the cluster does not terminate.
+step_actionOnFailure :: Lens.Lens' Step (Prelude.Maybe ActionOnFailure)
+step_actionOnFailure = Lens.lens (\Step' {actionOnFailure} -> actionOnFailure) (\s@Step' {} a -> s {actionOnFailure = a} :: Step)
 
 instance Core.FromJSON Step where
   parseJSON =
@@ -109,8 +148,8 @@ instance Core.FromJSON Step where
             Prelude.<$> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Config")
-            Prelude.<*> (x Core..:? "ActionOnFailure")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "ActionOnFailure")
       )
 
 instance Prelude.Hashable Step

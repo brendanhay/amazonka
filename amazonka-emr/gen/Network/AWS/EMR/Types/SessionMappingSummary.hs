@@ -35,13 +35,13 @@ data SessionMappingSummary = SessionMappingSummary'
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
     -- and
     -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
-    -- in the /AWS SSO Identity Store API Reference/.
+    -- in the /Amazon Web Services SSO Identity Store API Reference/.
     identityName :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the identity mapped to the Amazon EMR Studio is a user
     -- or a group.
     identityType :: Prelude.Maybe IdentityType,
-    -- | The globally unique identifier (GUID) of the user or group from the AWS
-    -- SSO Identity Store.
+    -- | The globally unique identifier (GUID) of the user or group from the
+    -- Amazon Web Services SSO Identity Store.
     identityId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the session policy associated with the
     -- user or group.
@@ -65,13 +65,13 @@ data SessionMappingSummary = SessionMappingSummary'
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
 -- and
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
--- in the /AWS SSO Identity Store API Reference/.
+-- in the /Amazon Web Services SSO Identity Store API Reference/.
 --
 -- 'identityType', 'sessionMappingSummary_identityType' - Specifies whether the identity mapped to the Amazon EMR Studio is a user
 -- or a group.
 --
--- 'identityId', 'sessionMappingSummary_identityId' - The globally unique identifier (GUID) of the user or group from the AWS
--- SSO Identity Store.
+-- 'identityId', 'sessionMappingSummary_identityId' - The globally unique identifier (GUID) of the user or group from the
+-- Amazon Web Services SSO Identity Store.
 --
 -- 'sessionPolicyArn', 'sessionMappingSummary_sessionPolicyArn' - The Amazon Resource Name (ARN) of the session policy associated with the
 -- user or group.
@@ -98,7 +98,7 @@ sessionMappingSummary_creationTime = Lens.lens (\SessionMappingSummary' {creatio
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserName UserName>
 -- and
 -- <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName>
--- in the /AWS SSO Identity Store API Reference/.
+-- in the /Amazon Web Services SSO Identity Store API Reference/.
 sessionMappingSummary_identityName :: Lens.Lens' SessionMappingSummary (Prelude.Maybe Prelude.Text)
 sessionMappingSummary_identityName = Lens.lens (\SessionMappingSummary' {identityName} -> identityName) (\s@SessionMappingSummary' {} a -> s {identityName = a} :: SessionMappingSummary)
 
@@ -107,8 +107,8 @@ sessionMappingSummary_identityName = Lens.lens (\SessionMappingSummary' {identit
 sessionMappingSummary_identityType :: Lens.Lens' SessionMappingSummary (Prelude.Maybe IdentityType)
 sessionMappingSummary_identityType = Lens.lens (\SessionMappingSummary' {identityType} -> identityType) (\s@SessionMappingSummary' {} a -> s {identityType = a} :: SessionMappingSummary)
 
--- | The globally unique identifier (GUID) of the user or group from the AWS
--- SSO Identity Store.
+-- | The globally unique identifier (GUID) of the user or group from the
+-- Amazon Web Services SSO Identity Store.
 sessionMappingSummary_identityId :: Lens.Lens' SessionMappingSummary (Prelude.Maybe Prelude.Text)
 sessionMappingSummary_identityId = Lens.lens (\SessionMappingSummary' {identityId} -> identityId) (\s@SessionMappingSummary' {} a -> s {identityId = a} :: SessionMappingSummary)
 

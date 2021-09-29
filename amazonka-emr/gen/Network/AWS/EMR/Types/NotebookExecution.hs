@@ -69,23 +69,23 @@ data NotebookExecution = NotebookExecution'
     editorId :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier of a notebook execution.
     notebookExecutionId :: Prelude.Maybe Prelude.Text,
-    -- | The timestamp when notebook execution started.
-    startTime :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the notebook execution.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The timestamp when notebook execution started.
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | Input parameters in JSON format passed to the EMR Notebook at runtime
     -- for execution.
     notebookParams :: Prelude.Maybe Prelude.Text,
     -- | The timestamp when notebook execution ended.
     endTime :: Prelude.Maybe Core.POSIX,
+    -- | The execution engine, such as an EMR cluster, used to run the EMR
+    -- notebook and perform the notebook execution.
+    executionEngine :: Prelude.Maybe ExecutionEngineConfig,
     -- | The unique identifier of the EC2 security group associated with the EMR
     -- Notebook instance. For more information see
     -- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html Specifying EC2 Security Groups for EMR Notebooks>
     -- in the /EMR Management Guide/.
     notebookInstanceSecurityGroupId :: Prelude.Maybe Prelude.Text,
-    -- | The execution engine, such as an EMR cluster, used to run the EMR
-    -- notebook and perform the notebook execution.
-    executionEngine :: Prelude.Maybe ExecutionEngineConfig,
     -- | A list of tags associated with a notebook execution. Tags are
     -- user-defined key-value pairs that consist of a required key string with
     -- a maximum of 128 characters and an optional value string with a maximum
@@ -142,22 +142,22 @@ data NotebookExecution = NotebookExecution'
 --
 -- 'notebookExecutionId', 'notebookExecution_notebookExecutionId' - The unique identifier of a notebook execution.
 --
--- 'startTime', 'notebookExecution_startTime' - The timestamp when notebook execution started.
---
 -- 'arn', 'notebookExecution_arn' - The Amazon Resource Name (ARN) of the notebook execution.
+--
+-- 'startTime', 'notebookExecution_startTime' - The timestamp when notebook execution started.
 --
 -- 'notebookParams', 'notebookExecution_notebookParams' - Input parameters in JSON format passed to the EMR Notebook at runtime
 -- for execution.
 --
 -- 'endTime', 'notebookExecution_endTime' - The timestamp when notebook execution ended.
 --
+-- 'executionEngine', 'notebookExecution_executionEngine' - The execution engine, such as an EMR cluster, used to run the EMR
+-- notebook and perform the notebook execution.
+--
 -- 'notebookInstanceSecurityGroupId', 'notebookExecution_notebookInstanceSecurityGroupId' - The unique identifier of the EC2 security group associated with the EMR
 -- Notebook instance. For more information see
 -- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html Specifying EC2 Security Groups for EMR Notebooks>
 -- in the /EMR Management Guide/.
---
--- 'executionEngine', 'notebookExecution_executionEngine' - The execution engine, such as an EMR cluster, used to run the EMR
--- notebook and perform the notebook execution.
 --
 -- 'tags', 'notebookExecution_tags' - A list of tags associated with a notebook execution. Tags are
 -- user-defined key-value pairs that consist of a required key string with
@@ -175,12 +175,12 @@ newNotebookExecution =
       notebookExecutionName = Prelude.Nothing,
       editorId = Prelude.Nothing,
       notebookExecutionId = Prelude.Nothing,
-      startTime = Prelude.Nothing,
       arn = Prelude.Nothing,
+      startTime = Prelude.Nothing,
       notebookParams = Prelude.Nothing,
       endTime = Prelude.Nothing,
-      notebookInstanceSecurityGroupId = Prelude.Nothing,
       executionEngine = Prelude.Nothing,
+      notebookInstanceSecurityGroupId = Prelude.Nothing,
       tags = Prelude.Nothing,
       outputNotebookURI = Prelude.Nothing
     }
@@ -233,13 +233,13 @@ notebookExecution_editorId = Lens.lens (\NotebookExecution' {editorId} -> editor
 notebookExecution_notebookExecutionId :: Lens.Lens' NotebookExecution (Prelude.Maybe Prelude.Text)
 notebookExecution_notebookExecutionId = Lens.lens (\NotebookExecution' {notebookExecutionId} -> notebookExecutionId) (\s@NotebookExecution' {} a -> s {notebookExecutionId = a} :: NotebookExecution)
 
--- | The timestamp when notebook execution started.
-notebookExecution_startTime :: Lens.Lens' NotebookExecution (Prelude.Maybe Prelude.UTCTime)
-notebookExecution_startTime = Lens.lens (\NotebookExecution' {startTime} -> startTime) (\s@NotebookExecution' {} a -> s {startTime = a} :: NotebookExecution) Prelude.. Lens.mapping Core._Time
-
 -- | The Amazon Resource Name (ARN) of the notebook execution.
 notebookExecution_arn :: Lens.Lens' NotebookExecution (Prelude.Maybe Prelude.Text)
 notebookExecution_arn = Lens.lens (\NotebookExecution' {arn} -> arn) (\s@NotebookExecution' {} a -> s {arn = a} :: NotebookExecution)
+
+-- | The timestamp when notebook execution started.
+notebookExecution_startTime :: Lens.Lens' NotebookExecution (Prelude.Maybe Prelude.UTCTime)
+notebookExecution_startTime = Lens.lens (\NotebookExecution' {startTime} -> startTime) (\s@NotebookExecution' {} a -> s {startTime = a} :: NotebookExecution) Prelude.. Lens.mapping Core._Time
 
 -- | Input parameters in JSON format passed to the EMR Notebook at runtime
 -- for execution.
@@ -250,17 +250,17 @@ notebookExecution_notebookParams = Lens.lens (\NotebookExecution' {notebookParam
 notebookExecution_endTime :: Lens.Lens' NotebookExecution (Prelude.Maybe Prelude.UTCTime)
 notebookExecution_endTime = Lens.lens (\NotebookExecution' {endTime} -> endTime) (\s@NotebookExecution' {} a -> s {endTime = a} :: NotebookExecution) Prelude.. Lens.mapping Core._Time
 
+-- | The execution engine, such as an EMR cluster, used to run the EMR
+-- notebook and perform the notebook execution.
+notebookExecution_executionEngine :: Lens.Lens' NotebookExecution (Prelude.Maybe ExecutionEngineConfig)
+notebookExecution_executionEngine = Lens.lens (\NotebookExecution' {executionEngine} -> executionEngine) (\s@NotebookExecution' {} a -> s {executionEngine = a} :: NotebookExecution)
+
 -- | The unique identifier of the EC2 security group associated with the EMR
 -- Notebook instance. For more information see
 -- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-security-groups.html Specifying EC2 Security Groups for EMR Notebooks>
 -- in the /EMR Management Guide/.
 notebookExecution_notebookInstanceSecurityGroupId :: Lens.Lens' NotebookExecution (Prelude.Maybe Prelude.Text)
 notebookExecution_notebookInstanceSecurityGroupId = Lens.lens (\NotebookExecution' {notebookInstanceSecurityGroupId} -> notebookInstanceSecurityGroupId) (\s@NotebookExecution' {} a -> s {notebookInstanceSecurityGroupId = a} :: NotebookExecution)
-
--- | The execution engine, such as an EMR cluster, used to run the EMR
--- notebook and perform the notebook execution.
-notebookExecution_executionEngine :: Lens.Lens' NotebookExecution (Prelude.Maybe ExecutionEngineConfig)
-notebookExecution_executionEngine = Lens.lens (\NotebookExecution' {executionEngine} -> executionEngine) (\s@NotebookExecution' {} a -> s {executionEngine = a} :: NotebookExecution)
 
 -- | A list of tags associated with a notebook execution. Tags are
 -- user-defined key-value pairs that consist of a required key string with
@@ -284,12 +284,12 @@ instance Core.FromJSON NotebookExecution where
             Prelude.<*> (x Core..:? "NotebookExecutionName")
             Prelude.<*> (x Core..:? "EditorId")
             Prelude.<*> (x Core..:? "NotebookExecutionId")
-            Prelude.<*> (x Core..:? "StartTime")
             Prelude.<*> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "StartTime")
             Prelude.<*> (x Core..:? "NotebookParams")
             Prelude.<*> (x Core..:? "EndTime")
-            Prelude.<*> (x Core..:? "NotebookInstanceSecurityGroupId")
             Prelude.<*> (x Core..:? "ExecutionEngine")
+            Prelude.<*> (x Core..:? "NotebookInstanceSecurityGroupId")
             Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "OutputNotebookURI")
       )

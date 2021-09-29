@@ -20,9 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes tags from an Amazon EMR resource. Tags make it easier to
--- associate clusters in various ways, such as grouping clusters to track
--- your Amazon EMR resource allocation costs. For more information, see
+-- Removes tags from an Amazon EMR resource, such as a cluster or Amazon
+-- EMR Studio. Tags make it easier to associate resources in various ways,
+-- such as grouping clusters to track your Amazon EMR resource allocation
+-- costs. For more information, see
 -- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html Tag Clusters>.
 --
 -- The following example removes the stack tag with value Prod from a
@@ -52,14 +53,15 @@ import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
--- | This input identifies a cluster and a list of tags to remove.
+-- | This input identifies an Amazon EMR resource and a list of tags to
+-- remove.
 --
 -- /See:/ 'newRemoveTags' smart constructor.
 data RemoveTags = RemoveTags'
-  { -- | The Amazon EMR resource identifier from which tags will be removed. This
-    -- value must be a cluster identifier.
+  { -- | The Amazon EMR resource identifier from which tags will be removed. For
+    -- example, a cluster identifier or an Amazon EMR Studio ID.
     resourceId :: Prelude.Text,
-    -- | A list of tag keys to remove from a resource.
+    -- | A list of tag keys to remove from the resource.
     tagKeys :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,10 +74,10 @@ data RemoveTags = RemoveTags'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceId', 'removeTags_resourceId' - The Amazon EMR resource identifier from which tags will be removed. This
--- value must be a cluster identifier.
+-- 'resourceId', 'removeTags_resourceId' - The Amazon EMR resource identifier from which tags will be removed. For
+-- example, a cluster identifier or an Amazon EMR Studio ID.
 --
--- 'tagKeys', 'removeTags_tagKeys' - A list of tag keys to remove from a resource.
+-- 'tagKeys', 'removeTags_tagKeys' - A list of tag keys to remove from the resource.
 newRemoveTags ::
   -- | 'resourceId'
   Prelude.Text ->
@@ -86,12 +88,12 @@ newRemoveTags pResourceId_ =
       tagKeys = Prelude.mempty
     }
 
--- | The Amazon EMR resource identifier from which tags will be removed. This
--- value must be a cluster identifier.
+-- | The Amazon EMR resource identifier from which tags will be removed. For
+-- example, a cluster identifier or an Amazon EMR Studio ID.
 removeTags_resourceId :: Lens.Lens' RemoveTags Prelude.Text
 removeTags_resourceId = Lens.lens (\RemoveTags' {resourceId} -> resourceId) (\s@RemoveTags' {} a -> s {resourceId = a} :: RemoveTags)
 
--- | A list of tag keys to remove from a resource.
+-- | A list of tag keys to remove from the resource.
 removeTags_tagKeys :: Lens.Lens' RemoveTags [Prelude.Text]
 removeTags_tagKeys = Lens.lens (\RemoveTags' {tagKeys} -> tagKeys) (\s@RemoveTags' {} a -> s {tagKeys = a} :: RemoveTags) Prelude.. Lens._Coerce
 
@@ -139,7 +141,7 @@ instance Core.ToPath RemoveTags where
 instance Core.ToQuery RemoveTags where
   toQuery = Prelude.const Prelude.mempty
 
--- | This output indicates the result of removing tags from a resource.
+-- | This output indicates the result of removing tags from the resource.
 --
 -- /See:/ 'newRemoveTagsResponse' smart constructor.
 data RemoveTagsResponse = RemoveTagsResponse'

@@ -20,11 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides the status of all clusters visible to this AWS account. Allows
--- you to filter the list of clusters based on certain criteria; for
--- example, filtering by cluster creation date and time or by status. This
--- call returns a maximum of 50 clusters per call, but returns a marker to
--- track the paging of the cluster list across multiple ListClusters calls.
+-- Provides the status of all clusters visible to this Amazon Web Services
+-- account. Allows you to filter the list of clusters based on certain
+-- criteria; for example, filtering by cluster creation date and time or by
+-- status. This call returns a maximum of 50 clusters in unsorted order per
+-- call, but returns a marker to track the paging of the cluster list
+-- across multiple ListClusters calls.
 --
 -- This operation returns paginated results.
 module Network.AWS.EMR.ListClusters
@@ -65,7 +66,9 @@ data ListClusters = ListClusters'
     createdAfter :: Prelude.Maybe Core.POSIX,
     -- | The creation date and time end value filter for listing clusters.
     createdBefore :: Prelude.Maybe Core.POSIX,
-    -- | The cluster state filters to apply when listing clusters.
+    -- | The cluster state filters to apply when listing clusters. Clusters that
+    -- change state while this action runs may be not be returned as expected
+    -- in the list of clusters.
     clusterStates :: Prelude.Maybe [ClusterState],
     -- | The pagination token that indicates the next set of results to retrieve.
     marker :: Prelude.Maybe Prelude.Text
@@ -84,7 +87,9 @@ data ListClusters = ListClusters'
 --
 -- 'createdBefore', 'listClusters_createdBefore' - The creation date and time end value filter for listing clusters.
 --
--- 'clusterStates', 'listClusters_clusterStates' - The cluster state filters to apply when listing clusters.
+-- 'clusterStates', 'listClusters_clusterStates' - The cluster state filters to apply when listing clusters. Clusters that
+-- change state while this action runs may be not be returned as expected
+-- in the list of clusters.
 --
 -- 'marker', 'listClusters_marker' - The pagination token that indicates the next set of results to retrieve.
 newListClusters ::
@@ -105,7 +110,9 @@ listClusters_createdAfter = Lens.lens (\ListClusters' {createdAfter} -> createdA
 listClusters_createdBefore :: Lens.Lens' ListClusters (Prelude.Maybe Prelude.UTCTime)
 listClusters_createdBefore = Lens.lens (\ListClusters' {createdBefore} -> createdBefore) (\s@ListClusters' {} a -> s {createdBefore = a} :: ListClusters) Prelude.. Lens.mapping Core._Time
 
--- | The cluster state filters to apply when listing clusters.
+-- | The cluster state filters to apply when listing clusters. Clusters that
+-- change state while this action runs may be not be returned as expected
+-- in the list of clusters.
 listClusters_clusterStates :: Lens.Lens' ListClusters (Prelude.Maybe [ClusterState])
 listClusters_clusterStates = Lens.lens (\ListClusters' {clusterStates} -> clusterStates) (\s@ListClusters' {} a -> s {clusterStates = a} :: ListClusters) Prelude.. Lens.mapping Lens._Coerce
 

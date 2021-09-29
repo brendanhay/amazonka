@@ -41,8 +41,8 @@ module Network.AWS.Rekognition.StartFaceDetection
     newStartFaceDetection,
 
     -- * Request Lenses
-    startFaceDetection_notificationChannel,
     startFaceDetection_faceAttributes,
+    startFaceDetection_notificationChannel,
     startFaceDetection_clientRequestToken,
     startFaceDetection_jobTag,
     startFaceDetection_video,
@@ -66,16 +66,19 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartFaceDetection' smart constructor.
 data StartFaceDetection = StartFaceDetection'
-  { -- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition
-    -- Video to publish the completion status of the face detection operation.
-    notificationChannel :: Prelude.Maybe NotificationChannel,
-    -- | The face attributes you want returned.
+  { -- | The face attributes you want returned.
     --
     -- @DEFAULT@ - The following subset of facial attributes are returned:
     -- BoundingBox, Confidence, Pose, Quality and Landmarks.
     --
     -- @ALL@ - All facial attributes are returned.
     faceAttributes :: Prelude.Maybe FaceAttributes,
+    -- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition
+    -- Video to publish the completion status of the face detection operation.
+    -- The Amazon SNS topic must have a topic name that begins with
+    -- /AmazonRekognition/ if you are using the AmazonRekognitionServiceRole
+    -- permissions policy.
+    notificationChannel :: Prelude.Maybe NotificationChannel,
     -- | Idempotent token used to identify the start request. If you use the same
     -- token with multiple @StartFaceDetection@ requests, the same @JobId@ is
     -- returned. Use @ClientRequestToken@ to prevent the same job from being
@@ -100,15 +103,18 @@ data StartFaceDetection = StartFaceDetection'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'notificationChannel', 'startFaceDetection_notificationChannel' - The ARN of the Amazon SNS topic to which you want Amazon Rekognition
--- Video to publish the completion status of the face detection operation.
---
 -- 'faceAttributes', 'startFaceDetection_faceAttributes' - The face attributes you want returned.
 --
 -- @DEFAULT@ - The following subset of facial attributes are returned:
 -- BoundingBox, Confidence, Pose, Quality and Landmarks.
 --
 -- @ALL@ - All facial attributes are returned.
+--
+-- 'notificationChannel', 'startFaceDetection_notificationChannel' - The ARN of the Amazon SNS topic to which you want Amazon Rekognition
+-- Video to publish the completion status of the face detection operation.
+-- The Amazon SNS topic must have a topic name that begins with
+-- /AmazonRekognition/ if you are using the AmazonRekognitionServiceRole
+-- permissions policy.
 --
 -- 'clientRequestToken', 'startFaceDetection_clientRequestToken' - Idempotent token used to identify the start request. If you use the same
 -- token with multiple @StartFaceDetection@ requests, the same @JobId@ is
@@ -128,18 +134,13 @@ newStartFaceDetection ::
   StartFaceDetection
 newStartFaceDetection pVideo_ =
   StartFaceDetection'
-    { notificationChannel =
+    { faceAttributes =
         Prelude.Nothing,
-      faceAttributes = Prelude.Nothing,
+      notificationChannel = Prelude.Nothing,
       clientRequestToken = Prelude.Nothing,
       jobTag = Prelude.Nothing,
       video = pVideo_
     }
-
--- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition
--- Video to publish the completion status of the face detection operation.
-startFaceDetection_notificationChannel :: Lens.Lens' StartFaceDetection (Prelude.Maybe NotificationChannel)
-startFaceDetection_notificationChannel = Lens.lens (\StartFaceDetection' {notificationChannel} -> notificationChannel) (\s@StartFaceDetection' {} a -> s {notificationChannel = a} :: StartFaceDetection)
 
 -- | The face attributes you want returned.
 --
@@ -149,6 +150,14 @@ startFaceDetection_notificationChannel = Lens.lens (\StartFaceDetection' {notifi
 -- @ALL@ - All facial attributes are returned.
 startFaceDetection_faceAttributes :: Lens.Lens' StartFaceDetection (Prelude.Maybe FaceAttributes)
 startFaceDetection_faceAttributes = Lens.lens (\StartFaceDetection' {faceAttributes} -> faceAttributes) (\s@StartFaceDetection' {} a -> s {faceAttributes = a} :: StartFaceDetection)
+
+-- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition
+-- Video to publish the completion status of the face detection operation.
+-- The Amazon SNS topic must have a topic name that begins with
+-- /AmazonRekognition/ if you are using the AmazonRekognitionServiceRole
+-- permissions policy.
+startFaceDetection_notificationChannel :: Lens.Lens' StartFaceDetection (Prelude.Maybe NotificationChannel)
+startFaceDetection_notificationChannel = Lens.lens (\StartFaceDetection' {notificationChannel} -> notificationChannel) (\s@StartFaceDetection' {} a -> s {notificationChannel = a} :: StartFaceDetection)
 
 -- | Idempotent token used to identify the start request. If you use the same
 -- token with multiple @StartFaceDetection@ requests, the same @JobId@ is
@@ -205,10 +214,10 @@ instance Core.ToJSON StartFaceDetection where
   toJSON StartFaceDetection' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NotificationChannel" Core..=)
-              Prelude.<$> notificationChannel,
-            ("FaceAttributes" Core..=)
+          [ ("FaceAttributes" Core..=)
               Prelude.<$> faceAttributes,
+            ("NotificationChannel" Core..=)
+              Prelude.<$> notificationChannel,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
             ("JobTag" Core..=) Prelude.<$> jobTag,

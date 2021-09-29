@@ -71,7 +71,9 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newStartLabelDetection' smart constructor.
 data StartLabelDetection = StartLabelDetection'
   { -- | The Amazon SNS topic ARN you want Amazon Rekognition Video to publish
-    -- the completion status of the label detection operation to.
+    -- the completion status of the label detection operation to. The Amazon
+    -- SNS topic must have a topic name that begins with /AmazonRekognition/ if
+    -- you are using the AmazonRekognitionServiceRole permissions policy.
     notificationChannel :: Prelude.Maybe NotificationChannel,
     -- | Specifies the minimum confidence that Amazon Rekognition Video must have
     -- in order to return a detected label. Confidence represents how certain
@@ -108,7 +110,9 @@ data StartLabelDetection = StartLabelDetection'
 -- for backwards compatibility:
 --
 -- 'notificationChannel', 'startLabelDetection_notificationChannel' - The Amazon SNS topic ARN you want Amazon Rekognition Video to publish
--- the completion status of the label detection operation to.
+-- the completion status of the label detection operation to. The Amazon
+-- SNS topic must have a topic name that begins with /AmazonRekognition/ if
+-- you are using the AmazonRekognitionServiceRole permissions policy.
 --
 -- 'minConfidence', 'startLabelDetection_minConfidence' - Specifies the minimum confidence that Amazon Rekognition Video must have
 -- in order to return a detected label. Confidence represents how certain
@@ -147,7 +151,9 @@ newStartLabelDetection pVideo_ =
     }
 
 -- | The Amazon SNS topic ARN you want Amazon Rekognition Video to publish
--- the completion status of the label detection operation to.
+-- the completion status of the label detection operation to. The Amazon
+-- SNS topic must have a topic name that begins with /AmazonRekognition/ if
+-- you are using the AmazonRekognitionServiceRole permissions policy.
 startLabelDetection_notificationChannel :: Lens.Lens' StartLabelDetection (Prelude.Maybe NotificationChannel)
 startLabelDetection_notificationChannel = Lens.lens (\StartLabelDetection' {notificationChannel} -> notificationChannel) (\s@StartLabelDetection' {} a -> s {notificationChannel = a} :: StartLabelDetection)
 

@@ -43,6 +43,8 @@ module Network.AWS.Rekognition.CreateProjectVersion
     newCreateProjectVersion,
 
     -- * Request Lenses
+    createProjectVersion_kmsKeyId,
+    createProjectVersion_tags,
     createProjectVersion_projectArn,
     createProjectVersion_versionName,
     createProjectVersion_outputConfig,
@@ -68,12 +70,38 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateProjectVersion' smart constructor.
 data CreateProjectVersion = CreateProjectVersion'
-  { -- | The ARN of the Amazon Rekognition Custom Labels project that manages the
+  { -- | The identifier for your AWS Key Management Service (AWS KMS) customer
+    -- master key (CMK). You can supply the Amazon Resource Name (ARN) of your
+    -- CMK, the ID of your CMK, an alias for your CMK, or an alias ARN. The key
+    -- is used to encrypt training and test images copied into the service for
+    -- model training. Your source images are unaffected. The key is also used
+    -- to encrypt training results and manifest files written to the output
+    -- Amazon S3 bucket (@OutputConfig@).
+    --
+    -- If you choose to use your own CMK, you need the following permissions on
+    -- the CMK.
+    --
+    -- -   kms:CreateGrant
+    --
+    -- -   kms:DescribeKey
+    --
+    -- -   kms:GenerateDataKey
+    --
+    -- -   kms:Decrypt
+    --
+    -- If you don\'t specify a value for @KmsKeyId@, images copied into the
+    -- service are encrypted using a key that AWS owns and manages.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | A set of tags (key-value pairs) that you want to attach to the model.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The ARN of the Amazon Rekognition Custom Labels project that manages the
     -- model that you want to train.
     projectArn :: Prelude.Text,
     -- | A name for the version of the model. This value must be unique.
     versionName :: Prelude.Text,
-    -- | The Amazon S3 location to store the results of training.
+    -- | The Amazon S3 bucket location to store the results of training. The S3
+    -- bucket can be in any AWS account as long as the caller has
+    -- @s3:PutObject@ permissions on the S3 bucket.
     outputConfig :: OutputConfig,
     -- | The dataset to use for training.
     trainingData :: TrainingData,
@@ -90,12 +118,38 @@ data CreateProjectVersion = CreateProjectVersion'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'kmsKeyId', 'createProjectVersion_kmsKeyId' - The identifier for your AWS Key Management Service (AWS KMS) customer
+-- master key (CMK). You can supply the Amazon Resource Name (ARN) of your
+-- CMK, the ID of your CMK, an alias for your CMK, or an alias ARN. The key
+-- is used to encrypt training and test images copied into the service for
+-- model training. Your source images are unaffected. The key is also used
+-- to encrypt training results and manifest files written to the output
+-- Amazon S3 bucket (@OutputConfig@).
+--
+-- If you choose to use your own CMK, you need the following permissions on
+-- the CMK.
+--
+-- -   kms:CreateGrant
+--
+-- -   kms:DescribeKey
+--
+-- -   kms:GenerateDataKey
+--
+-- -   kms:Decrypt
+--
+-- If you don\'t specify a value for @KmsKeyId@, images copied into the
+-- service are encrypted using a key that AWS owns and manages.
+--
+-- 'tags', 'createProjectVersion_tags' - A set of tags (key-value pairs) that you want to attach to the model.
+--
 -- 'projectArn', 'createProjectVersion_projectArn' - The ARN of the Amazon Rekognition Custom Labels project that manages the
 -- model that you want to train.
 --
 -- 'versionName', 'createProjectVersion_versionName' - A name for the version of the model. This value must be unique.
 --
--- 'outputConfig', 'createProjectVersion_outputConfig' - The Amazon S3 location to store the results of training.
+-- 'outputConfig', 'createProjectVersion_outputConfig' - The Amazon S3 bucket location to store the results of training. The S3
+-- bucket can be in any AWS account as long as the caller has
+-- @s3:PutObject@ permissions on the S3 bucket.
 --
 -- 'trainingData', 'createProjectVersion_trainingData' - The dataset to use for training.
 --
@@ -119,12 +173,42 @@ newCreateProjectVersion
   pTrainingData_
   pTestingData_ =
     CreateProjectVersion'
-      { projectArn = pProjectArn_,
+      { kmsKeyId = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        projectArn = pProjectArn_,
         versionName = pVersionName_,
         outputConfig = pOutputConfig_,
         trainingData = pTrainingData_,
         testingData = pTestingData_
       }
+
+-- | The identifier for your AWS Key Management Service (AWS KMS) customer
+-- master key (CMK). You can supply the Amazon Resource Name (ARN) of your
+-- CMK, the ID of your CMK, an alias for your CMK, or an alias ARN. The key
+-- is used to encrypt training and test images copied into the service for
+-- model training. Your source images are unaffected. The key is also used
+-- to encrypt training results and manifest files written to the output
+-- Amazon S3 bucket (@OutputConfig@).
+--
+-- If you choose to use your own CMK, you need the following permissions on
+-- the CMK.
+--
+-- -   kms:CreateGrant
+--
+-- -   kms:DescribeKey
+--
+-- -   kms:GenerateDataKey
+--
+-- -   kms:Decrypt
+--
+-- If you don\'t specify a value for @KmsKeyId@, images copied into the
+-- service are encrypted using a key that AWS owns and manages.
+createProjectVersion_kmsKeyId :: Lens.Lens' CreateProjectVersion (Prelude.Maybe Prelude.Text)
+createProjectVersion_kmsKeyId = Lens.lens (\CreateProjectVersion' {kmsKeyId} -> kmsKeyId) (\s@CreateProjectVersion' {} a -> s {kmsKeyId = a} :: CreateProjectVersion)
+
+-- | A set of tags (key-value pairs) that you want to attach to the model.
+createProjectVersion_tags :: Lens.Lens' CreateProjectVersion (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createProjectVersion_tags = Lens.lens (\CreateProjectVersion' {tags} -> tags) (\s@CreateProjectVersion' {} a -> s {tags = a} :: CreateProjectVersion) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ARN of the Amazon Rekognition Custom Labels project that manages the
 -- model that you want to train.
@@ -135,7 +219,9 @@ createProjectVersion_projectArn = Lens.lens (\CreateProjectVersion' {projectArn}
 createProjectVersion_versionName :: Lens.Lens' CreateProjectVersion Prelude.Text
 createProjectVersion_versionName = Lens.lens (\CreateProjectVersion' {versionName} -> versionName) (\s@CreateProjectVersion' {} a -> s {versionName = a} :: CreateProjectVersion)
 
--- | The Amazon S3 location to store the results of training.
+-- | The Amazon S3 bucket location to store the results of training. The S3
+-- bucket can be in any AWS account as long as the caller has
+-- @s3:PutObject@ permissions on the S3 bucket.
 createProjectVersion_outputConfig :: Lens.Lens' CreateProjectVersion OutputConfig
 createProjectVersion_outputConfig = Lens.lens (\CreateProjectVersion' {outputConfig} -> outputConfig) (\s@CreateProjectVersion' {} a -> s {outputConfig = a} :: CreateProjectVersion)
 
@@ -183,7 +269,9 @@ instance Core.ToJSON CreateProjectVersion where
   toJSON CreateProjectVersion' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("ProjectArn" Core..= projectArn),
+          [ ("KmsKeyId" Core..=) Prelude.<$> kmsKeyId,
+            ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("ProjectArn" Core..= projectArn),
             Prelude.Just ("VersionName" Core..= versionName),
             Prelude.Just ("OutputConfig" Core..= outputConfig),
             Prelude.Just ("TrainingData" Core..= trainingData),

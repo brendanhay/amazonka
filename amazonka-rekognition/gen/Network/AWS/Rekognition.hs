@@ -43,11 +43,11 @@ module Network.AWS.Rekognition
     -- ** ResourceAlreadyExistsException
     _ResourceAlreadyExistsException,
 
-    -- ** ThrottlingException
-    _ThrottlingException,
-
     -- ** InternalServerError
     _InternalServerError,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
 
     -- ** InvalidParameterException
     _InvalidParameterException,
@@ -55,17 +55,17 @@ module Network.AWS.Rekognition
     -- ** AccessDeniedException
     _AccessDeniedException,
 
-    -- ** ResourceInUseException
-    _ResourceInUseException,
-
     -- ** LimitExceededException
     _LimitExceededException,
 
-    -- ** ProvisionedThroughputExceededException
-    _ProvisionedThroughputExceededException,
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
+
+    -- ** ProvisionedThroughputExceededException
+    _ProvisionedThroughputExceededException,
 
     -- ** IdempotentParameterMismatchException
     _IdempotentParameterMismatchException,
@@ -91,11 +91,11 @@ module Network.AWS.Rekognition
     StartFaceSearchResponse (StartFaceSearchResponse'),
     newStartFaceSearchResponse,
 
-    -- ** DescribeStreamProcessor
-    DescribeStreamProcessor (DescribeStreamProcessor'),
-    newDescribeStreamProcessor,
-    DescribeStreamProcessorResponse (DescribeStreamProcessorResponse'),
-    newDescribeStreamProcessorResponse,
+    -- ** GetLabelDetection
+    GetLabelDetection (GetLabelDetection'),
+    newGetLabelDetection,
+    GetLabelDetectionResponse (GetLabelDetectionResponse'),
+    newGetLabelDetectionResponse,
 
     -- ** DeleteCollection
     DeleteCollection (DeleteCollection'),
@@ -103,11 +103,11 @@ module Network.AWS.Rekognition
     DeleteCollectionResponse (DeleteCollectionResponse'),
     newDeleteCollectionResponse,
 
-    -- ** GetLabelDetection
-    GetLabelDetection (GetLabelDetection'),
-    newGetLabelDetection,
-    GetLabelDetectionResponse (GetLabelDetectionResponse'),
-    newGetLabelDetectionResponse,
+    -- ** DescribeStreamProcessor
+    DescribeStreamProcessor (DescribeStreamProcessor'),
+    newDescribeStreamProcessor,
+    DescribeStreamProcessorResponse (DescribeStreamProcessorResponse'),
+    newDescribeStreamProcessorResponse,
 
     -- ** SearchFaces
     SearchFaces (SearchFaces'),
@@ -151,23 +151,11 @@ module Network.AWS.Rekognition
     DetectModerationLabelsResponse (DetectModerationLabelsResponse'),
     newDetectModerationLabelsResponse,
 
-    -- ** DeleteFaces
-    DeleteFaces (DeleteFaces'),
-    newDeleteFaces,
-    DeleteFacesResponse (DeleteFacesResponse'),
-    newDeleteFacesResponse,
-
     -- ** ListStreamProcessors (Paginated)
     ListStreamProcessors (ListStreamProcessors'),
     newListStreamProcessors,
     ListStreamProcessorsResponse (ListStreamProcessorsResponse'),
     newListStreamProcessorsResponse,
-
-    -- ** DescribeCollection
-    DescribeCollection (DescribeCollection'),
-    newDescribeCollection,
-    DescribeCollectionResponse (DescribeCollectionResponse'),
-    newDescribeCollectionResponse,
 
     -- ** DeleteStreamProcessor
     DeleteStreamProcessor (DeleteStreamProcessor'),
@@ -175,11 +163,35 @@ module Network.AWS.Rekognition
     DeleteStreamProcessorResponse (DeleteStreamProcessorResponse'),
     newDeleteStreamProcessorResponse,
 
+    -- ** DescribeCollection
+    DescribeCollection (DescribeCollection'),
+    newDescribeCollection,
+    DescribeCollectionResponse (DescribeCollectionResponse'),
+    newDescribeCollectionResponse,
+
+    -- ** DeleteFaces
+    DeleteFaces (DeleteFaces'),
+    newDeleteFaces,
+    DeleteFacesResponse (DeleteFacesResponse'),
+    newDeleteFacesResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
     -- ** ListFaces (Paginated)
     ListFaces (ListFaces'),
     newListFaces,
     ListFacesResponse (ListFacesResponse'),
     newListFacesResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
 
     -- ** SearchFacesByImage
     SearchFacesByImage (SearchFacesByImage'),
@@ -193,6 +205,12 @@ module Network.AWS.Rekognition
     CompareFacesResponse (CompareFacesResponse'),
     newCompareFacesResponse,
 
+    -- ** CreateCollection
+    CreateCollection (CreateCollection'),
+    newCreateCollection,
+    CreateCollectionResponse (CreateCollectionResponse'),
+    newCreateCollectionResponse,
+
     -- ** DetectLabels
     DetectLabels (DetectLabels'),
     newDetectLabels,
@@ -205,29 +223,17 @@ module Network.AWS.Rekognition
     GetSegmentDetectionResponse (GetSegmentDetectionResponse'),
     newGetSegmentDetectionResponse,
 
-    -- ** GetCelebrityRecognition
-    GetCelebrityRecognition (GetCelebrityRecognition'),
-    newGetCelebrityRecognition,
-    GetCelebrityRecognitionResponse (GetCelebrityRecognitionResponse'),
-    newGetCelebrityRecognitionResponse,
-
     -- ** StartPersonTracking
     StartPersonTracking (StartPersonTracking'),
     newStartPersonTracking,
     StartPersonTrackingResponse (StartPersonTrackingResponse'),
     newStartPersonTrackingResponse,
 
-    -- ** CreateCollection
-    CreateCollection (CreateCollection'),
-    newCreateCollection,
-    CreateCollectionResponse (CreateCollectionResponse'),
-    newCreateCollectionResponse,
-
-    -- ** StopProjectVersion
-    StopProjectVersion (StopProjectVersion'),
-    newStopProjectVersion,
-    StopProjectVersionResponse (StopProjectVersionResponse'),
-    newStopProjectVersionResponse,
+    -- ** GetCelebrityRecognition
+    GetCelebrityRecognition (GetCelebrityRecognition'),
+    newGetCelebrityRecognition,
+    GetCelebrityRecognitionResponse (GetCelebrityRecognitionResponse'),
+    newGetCelebrityRecognitionResponse,
 
     -- ** StartProjectVersion
     StartProjectVersion (StartProjectVersion'),
@@ -241,23 +247,11 @@ module Network.AWS.Rekognition
     ListCollectionsResponse (ListCollectionsResponse'),
     newListCollectionsResponse,
 
-    -- ** DetectProtectiveEquipment
-    DetectProtectiveEquipment (DetectProtectiveEquipment'),
-    newDetectProtectiveEquipment,
-    DetectProtectiveEquipmentResponse (DetectProtectiveEquipmentResponse'),
-    newDetectProtectiveEquipmentResponse,
-
-    -- ** GetPersonTracking
-    GetPersonTracking (GetPersonTracking'),
-    newGetPersonTracking,
-    GetPersonTrackingResponse (GetPersonTrackingResponse'),
-    newGetPersonTrackingResponse,
-
-    -- ** DeleteProject
-    DeleteProject (DeleteProject'),
-    newDeleteProject,
-    DeleteProjectResponse (DeleteProjectResponse'),
-    newDeleteProjectResponse,
+    -- ** StopProjectVersion
+    StopProjectVersion (StopProjectVersion'),
+    newStopProjectVersion,
+    StopProjectVersionResponse (StopProjectVersionResponse'),
+    newStopProjectVersionResponse,
 
     -- ** IndexFaces
     IndexFaces (IndexFaces'),
@@ -271,17 +265,29 @@ module Network.AWS.Rekognition
     StartSegmentDetectionResponse (StartSegmentDetectionResponse'),
     newStartSegmentDetectionResponse,
 
+    -- ** DetectProtectiveEquipment
+    DetectProtectiveEquipment (DetectProtectiveEquipment'),
+    newDetectProtectiveEquipment,
+    DetectProtectiveEquipmentResponse (DetectProtectiveEquipmentResponse'),
+    newDetectProtectiveEquipmentResponse,
+
+    -- ** DeleteProject
+    DeleteProject (DeleteProject'),
+    newDeleteProject,
+    DeleteProjectResponse (DeleteProjectResponse'),
+    newDeleteProjectResponse,
+
     -- ** StartCelebrityRecognition
     StartCelebrityRecognition (StartCelebrityRecognition'),
     newStartCelebrityRecognition,
     StartCelebrityRecognitionResponse (StartCelebrityRecognitionResponse'),
     newStartCelebrityRecognitionResponse,
 
-    -- ** GetFaceSearch
-    GetFaceSearch (GetFaceSearch'),
-    newGetFaceSearch,
-    GetFaceSearchResponse (GetFaceSearchResponse'),
-    newGetFaceSearchResponse,
+    -- ** GetPersonTracking
+    GetPersonTracking (GetPersonTracking'),
+    newGetPersonTracking,
+    GetPersonTrackingResponse (GetPersonTrackingResponse'),
+    newGetPersonTrackingResponse,
 
     -- ** StartLabelDetection
     StartLabelDetection (StartLabelDetection'),
@@ -295,6 +301,12 @@ module Network.AWS.Rekognition
     DescribeProjectVersionsResponse (DescribeProjectVersionsResponse'),
     newDescribeProjectVersionsResponse,
 
+    -- ** GetFaceSearch
+    GetFaceSearch (GetFaceSearch'),
+    newGetFaceSearch,
+    GetFaceSearchResponse (GetFaceSearchResponse'),
+    newGetFaceSearchResponse,
+
     -- ** DeleteProjectVersion
     DeleteProjectVersion (DeleteProjectVersion'),
     newDeleteProjectVersion,
@@ -307,17 +319,17 @@ module Network.AWS.Rekognition
     CreateStreamProcessorResponse (CreateStreamProcessorResponse'),
     newCreateStreamProcessorResponse,
 
-    -- ** GetContentModeration
-    GetContentModeration (GetContentModeration'),
-    newGetContentModeration,
-    GetContentModerationResponse (GetContentModerationResponse'),
-    newGetContentModerationResponse,
-
     -- ** GetCelebrityInfo
     GetCelebrityInfo (GetCelebrityInfo'),
     newGetCelebrityInfo,
     GetCelebrityInfoResponse (GetCelebrityInfoResponse'),
     newGetCelebrityInfoResponse,
+
+    -- ** GetContentModeration
+    GetContentModeration (GetContentModeration'),
+    newGetContentModeration,
+    GetContentModerationResponse (GetContentModerationResponse'),
+    newGetContentModerationResponse,
 
     -- ** DescribeProjects (Paginated)
     DescribeProjects (DescribeProjects'),
@@ -337,17 +349,23 @@ module Network.AWS.Rekognition
     GetFaceDetectionResponse (GetFaceDetectionResponse'),
     newGetFaceDetectionResponse,
 
+    -- ** DetectFaces
+    DetectFaces (DetectFaces'),
+    newDetectFaces,
+    DetectFacesResponse (DetectFacesResponse'),
+    newDetectFacesResponse,
+
     -- ** StartContentModeration
     StartContentModeration (StartContentModeration'),
     newStartContentModeration,
     StartContentModerationResponse (StartContentModerationResponse'),
     newStartContentModerationResponse,
 
-    -- ** DetectFaces
-    DetectFaces (DetectFaces'),
-    newDetectFaces,
-    DetectFacesResponse (DetectFacesResponse'),
-    newDetectFacesResponse,
+    -- ** StartStreamProcessor
+    StartStreamProcessor (StartStreamProcessor'),
+    newStartStreamProcessor,
+    StartStreamProcessorResponse (StartStreamProcessorResponse'),
+    newStartStreamProcessorResponse,
 
     -- ** DetectText
     DetectText (DetectText'),
@@ -355,11 +373,11 @@ module Network.AWS.Rekognition
     DetectTextResponse (DetectTextResponse'),
     newDetectTextResponse,
 
-    -- ** StartTextDetection
-    StartTextDetection (StartTextDetection'),
-    newStartTextDetection,
-    StartTextDetectionResponse (StartTextDetectionResponse'),
-    newStartTextDetectionResponse,
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- ** StopStreamProcessor
     StopStreamProcessor (StopStreamProcessor'),
@@ -367,11 +385,11 @@ module Network.AWS.Rekognition
     StopStreamProcessorResponse (StopStreamProcessorResponse'),
     newStopStreamProcessorResponse,
 
-    -- ** StartStreamProcessor
-    StartStreamProcessor (StartStreamProcessor'),
-    newStartStreamProcessor,
-    StartStreamProcessorResponse (StartStreamProcessorResponse'),
-    newStartStreamProcessorResponse,
+    -- ** StartTextDetection
+    StartTextDetection (StartTextDetection'),
+    newStartTextDetection,
+    StartTextDetectionResponse (StartTextDetectionResponse'),
+    newStartTextDetectionResponse,
 
     -- * Types
 
@@ -401,6 +419,9 @@ module Network.AWS.Rekognition
 
     -- ** GenderType
     GenderType (..),
+
+    -- ** KnownGenderType
+    KnownGenderType (..),
 
     -- ** LabelDetectionSortBy
     LabelDetectionSortBy (..),
@@ -441,6 +462,9 @@ module Network.AWS.Rekognition
     -- ** TextTypes
     TextTypes (..),
 
+    -- ** VideoColorRange
+    VideoColorRange (..),
+
     -- ** VideoJobStatus
     VideoJobStatus (..),
 
@@ -459,6 +483,10 @@ module Network.AWS.Rekognition
     -- ** Beard
     Beard (Beard'),
     newBeard,
+
+    -- ** BlackFrame
+    BlackFrame (BlackFrame'),
+    newBlackFrame,
 
     -- ** BoundingBox
     BoundingBox (BoundingBox'),
@@ -595,6 +623,10 @@ module Network.AWS.Rekognition
     -- ** KinesisVideoStream
     KinesisVideoStream (KinesisVideoStream'),
     newKinesisVideoStream,
+
+    -- ** KnownGender
+    KnownGender (KnownGender'),
+    newKnownGender,
 
     -- ** Label
     Label (Label'),
@@ -820,6 +852,7 @@ import Network.AWS.Rekognition.Lens
 import Network.AWS.Rekognition.ListCollections
 import Network.AWS.Rekognition.ListFaces
 import Network.AWS.Rekognition.ListStreamProcessors
+import Network.AWS.Rekognition.ListTagsForResource
 import Network.AWS.Rekognition.RecognizeCelebrities
 import Network.AWS.Rekognition.SearchFaces
 import Network.AWS.Rekognition.SearchFacesByImage
@@ -835,7 +868,9 @@ import Network.AWS.Rekognition.StartStreamProcessor
 import Network.AWS.Rekognition.StartTextDetection
 import Network.AWS.Rekognition.StopProjectVersion
 import Network.AWS.Rekognition.StopStreamProcessor
+import Network.AWS.Rekognition.TagResource
 import Network.AWS.Rekognition.Types
+import Network.AWS.Rekognition.UntagResource
 import Network.AWS.Rekognition.Waiters
 
 -- $errors

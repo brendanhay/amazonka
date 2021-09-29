@@ -20,23 +20,26 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts asynchronous detection of unsafe content in a stored video.
+-- Starts asynchronous detection of inappropriate, unwanted, or offensive
+-- content in a stored video. For a list of moderation labels in Amazon
+-- Rekognition, see
+-- <https://docs.aws.amazon.com/rekognition/latest/dg/moderation.html#moderation-api Using the image and video moderation APIs>.
 --
 -- Amazon Rekognition Video can moderate content in a video stored in an
 -- Amazon S3 bucket. Use Video to specify the bucket name and the filename
 -- of the video. @StartContentModeration@ returns a job identifier
--- (@JobId@) which you use to get the results of the analysis. When unsafe
--- content analysis is finished, Amazon Rekognition Video publishes a
--- completion status to the Amazon Simple Notification Service topic that
--- you specify in @NotificationChannel@.
+-- (@JobId@) which you use to get the results of the analysis. When content
+-- analysis is finished, Amazon Rekognition Video publishes a completion
+-- status to the Amazon Simple Notification Service topic that you specify
+-- in @NotificationChannel@.
 --
--- To get the results of the unsafe content analysis, first check that the
--- status value published to the Amazon SNS topic is @SUCCEEDED@. If so,
--- call GetContentModeration and pass the job identifier (@JobId@) from the
+-- To get the results of the content analysis, first check that the status
+-- value published to the Amazon SNS topic is @SUCCEEDED@. If so, call
+-- GetContentModeration and pass the job identifier (@JobId@) from the
 -- initial call to @StartContentModeration@.
 --
--- For more information, see Detecting Unsafe Content in the Amazon
--- Rekognition Developer Guide.
+-- For more information, see Content moderation in the Amazon Rekognition
+-- Developer Guide.
 module Network.AWS.Rekognition.StartContentModeration
   ( -- * Creating a Request
     StartContentModeration (..),
@@ -69,7 +72,10 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newStartContentModeration' smart constructor.
 data StartContentModeration = StartContentModeration'
   { -- | The Amazon SNS topic ARN that you want Amazon Rekognition Video to
-    -- publish the completion status of the unsafe content analysis to.
+    -- publish the completion status of the content analysis to. The Amazon SNS
+    -- topic must have a topic name that begins with /AmazonRekognition/ if you
+    -- are using the AmazonRekognitionServiceRole permissions policy to access
+    -- the topic.
     notificationChannel :: Prelude.Maybe NotificationChannel,
     -- | Specifies the minimum confidence that Amazon Rekognition must have in
     -- order to return a moderated content label. Confidence represents how
@@ -90,8 +96,8 @@ data StartContentModeration = StartContentModeration'
     -- Service topic. For example, you can use @JobTag@ to group related jobs
     -- and identify them in the completion notification.
     jobTag :: Prelude.Maybe Prelude.Text,
-    -- | The video in which you want to detect unsafe content. The video must be
-    -- stored in an Amazon S3 bucket.
+    -- | The video in which you want to detect inappropriate, unwanted, or
+    -- offensive content. The video must be stored in an Amazon S3 bucket.
     video :: Video
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -105,7 +111,10 @@ data StartContentModeration = StartContentModeration'
 -- for backwards compatibility:
 --
 -- 'notificationChannel', 'startContentModeration_notificationChannel' - The Amazon SNS topic ARN that you want Amazon Rekognition Video to
--- publish the completion status of the unsafe content analysis to.
+-- publish the completion status of the content analysis to. The Amazon SNS
+-- topic must have a topic name that begins with /AmazonRekognition/ if you
+-- are using the AmazonRekognitionServiceRole permissions policy to access
+-- the topic.
 --
 -- 'minConfidence', 'startContentModeration_minConfidence' - Specifies the minimum confidence that Amazon Rekognition must have in
 -- order to return a moderated content label. Confidence represents how
@@ -126,8 +135,8 @@ data StartContentModeration = StartContentModeration'
 -- Service topic. For example, you can use @JobTag@ to group related jobs
 -- and identify them in the completion notification.
 --
--- 'video', 'startContentModeration_video' - The video in which you want to detect unsafe content. The video must be
--- stored in an Amazon S3 bucket.
+-- 'video', 'startContentModeration_video' - The video in which you want to detect inappropriate, unwanted, or
+-- offensive content. The video must be stored in an Amazon S3 bucket.
 newStartContentModeration ::
   -- | 'video'
   Video ->
@@ -143,7 +152,10 @@ newStartContentModeration pVideo_ =
     }
 
 -- | The Amazon SNS topic ARN that you want Amazon Rekognition Video to
--- publish the completion status of the unsafe content analysis to.
+-- publish the completion status of the content analysis to. The Amazon SNS
+-- topic must have a topic name that begins with /AmazonRekognition/ if you
+-- are using the AmazonRekognitionServiceRole permissions policy to access
+-- the topic.
 startContentModeration_notificationChannel :: Lens.Lens' StartContentModeration (Prelude.Maybe NotificationChannel)
 startContentModeration_notificationChannel = Lens.lens (\StartContentModeration' {notificationChannel} -> notificationChannel) (\s@StartContentModeration' {} a -> s {notificationChannel = a} :: StartContentModeration)
 
@@ -172,8 +184,8 @@ startContentModeration_clientRequestToken = Lens.lens (\StartContentModeration' 
 startContentModeration_jobTag :: Lens.Lens' StartContentModeration (Prelude.Maybe Prelude.Text)
 startContentModeration_jobTag = Lens.lens (\StartContentModeration' {jobTag} -> jobTag) (\s@StartContentModeration' {} a -> s {jobTag = a} :: StartContentModeration)
 
--- | The video in which you want to detect unsafe content. The video must be
--- stored in an Amazon S3 bucket.
+-- | The video in which you want to detect inappropriate, unwanted, or
+-- offensive content. The video must be stored in an Amazon S3 bucket.
 startContentModeration_video :: Lens.Lens' StartContentModeration Video
 startContentModeration_video = Lens.lens (\StartContentModeration' {video} -> video) (\s@StartContentModeration' {} a -> s {video = a} :: StartContentModeration)
 
@@ -231,8 +243,8 @@ instance Core.ToQuery StartContentModeration where
 
 -- | /See:/ 'newStartContentModerationResponse' smart constructor.
 data StartContentModerationResponse = StartContentModerationResponse'
-  { -- | The identifier for the unsafe content analysis job. Use @JobId@ to
-    -- identify the job in a subsequent call to @GetContentModeration@.
+  { -- | The identifier for the content analysis job. Use @JobId@ to identify the
+    -- job in a subsequent call to @GetContentModeration@.
     jobId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -247,8 +259,8 @@ data StartContentModerationResponse = StartContentModerationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'jobId', 'startContentModerationResponse_jobId' - The identifier for the unsafe content analysis job. Use @JobId@ to
--- identify the job in a subsequent call to @GetContentModeration@.
+-- 'jobId', 'startContentModerationResponse_jobId' - The identifier for the content analysis job. Use @JobId@ to identify the
+-- job in a subsequent call to @GetContentModeration@.
 --
 -- 'httpStatus', 'startContentModerationResponse_httpStatus' - The response's http status code.
 newStartContentModerationResponse ::
@@ -262,8 +274,8 @@ newStartContentModerationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The identifier for the unsafe content analysis job. Use @JobId@ to
--- identify the job in a subsequent call to @GetContentModeration@.
+-- | The identifier for the content analysis job. Use @JobId@ to identify the
+-- job in a subsequent call to @GetContentModeration@.
 startContentModerationResponse_jobId :: Lens.Lens' StartContentModerationResponse (Prelude.Maybe Prelude.Text)
 startContentModerationResponse_jobId = Lens.lens (\StartContentModerationResponse' {jobId} -> jobId) (\s@StartContentModerationResponse' {} a -> s {jobId = a} :: StartContentModerationResponse)
 

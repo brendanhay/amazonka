@@ -38,12 +38,18 @@
 -- After you have finished analyzing a streaming video, use
 -- StopStreamProcessor to stop processing. You can delete the stream
 -- processor by calling DeleteStreamProcessor.
+--
+-- This operation requires permissions to perform the
+-- @rekognition:CreateStreamProcessor@ action. If you want to tag your
+-- stream processor, you also require permission to perform the
+-- @rekognition:TagResource@ operation.
 module Network.AWS.Rekognition.CreateStreamProcessor
   ( -- * Creating a Request
     CreateStreamProcessor (..),
     newCreateStreamProcessor,
 
     -- * Request Lenses
+    createStreamProcessor_tags,
     createStreamProcessor_input,
     createStreamProcessor_output,
     createStreamProcessor_name,
@@ -69,7 +75,10 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateStreamProcessor' smart constructor.
 data CreateStreamProcessor = CreateStreamProcessor'
-  { -- | Kinesis video stream stream that provides the source streaming video. If
+  { -- | A set of tags (key-value pairs) that you want to attach to the stream
+    -- processor.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Kinesis video stream stream that provides the source streaming video. If
     -- you are using the AWS CLI, the parameter name is @StreamProcessorInput@.
     input :: StreamProcessorInput,
     -- | Kinesis data stream stream to which Amazon Rekognition Video puts the
@@ -97,6 +106,9 @@ data CreateStreamProcessor = CreateStreamProcessor'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'tags', 'createStreamProcessor_tags' - A set of tags (key-value pairs) that you want to attach to the stream
+-- processor.
 --
 -- 'input', 'createStreamProcessor_input' - Kinesis video stream stream that provides the source streaming video. If
 -- you are using the AWS CLI, the parameter name is @StreamProcessorInput@.
@@ -134,12 +146,18 @@ newCreateStreamProcessor
   pSettings_
   pRoleArn_ =
     CreateStreamProcessor'
-      { input = pInput_,
+      { tags = Prelude.Nothing,
+        input = pInput_,
         output = pOutput_,
         name = pName_,
         settings = pSettings_,
         roleArn = pRoleArn_
       }
+
+-- | A set of tags (key-value pairs) that you want to attach to the stream
+-- processor.
+createStreamProcessor_tags :: Lens.Lens' CreateStreamProcessor (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createStreamProcessor_tags = Lens.lens (\CreateStreamProcessor' {tags} -> tags) (\s@CreateStreamProcessor' {} a -> s {tags = a} :: CreateStreamProcessor) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Kinesis video stream stream that provides the source streaming video. If
 -- you are using the AWS CLI, the parameter name is @StreamProcessorInput@.
@@ -205,7 +223,8 @@ instance Core.ToJSON CreateStreamProcessor where
   toJSON CreateStreamProcessor' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("Input" Core..= input),
+          [ ("Tags" Core..=) Prelude.<$> tags,
+            Prelude.Just ("Input" Core..= input),
             Prelude.Just ("Output" Core..= output),
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("Settings" Core..= settings),

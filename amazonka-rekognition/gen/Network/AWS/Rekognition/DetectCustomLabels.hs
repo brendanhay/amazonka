@@ -38,24 +38,31 @@
 -- location information, if it exists, for the label on the image
 -- (@Geometry@).
 --
--- During training model calculates a threshold value that determines if a
--- prediction for a label is true. By default, @DetectCustomLabels@
--- doesn\'t return labels whose confidence value is below the model\'s
--- calculated threshold value. To filter labels that are returned, specify
--- a value for @MinConfidence@ that is higher than the model\'s calculated
--- threshold. You can get the model\'s calculated threshold from the
--- model\'s training results shown in the Amazon Rekognition Custom Labels
--- console. To get all labels, regardless of confidence, specify a
--- @MinConfidence@ value of 0.
+-- To filter labels that are returned, specify a value for @MinConfidence@.
+-- @DetectCustomLabelsLabels@ only returns labels with a confidence that\'s
+-- higher than the specified value. The value of @MinConfidence@ maps to
+-- the assumed threshold values created during training. For more
+-- information, see /Assumed threshold/ in the Amazon Rekognition Custom
+-- Labels Developer Guide. Amazon Rekognition Custom Labels metrics
+-- expresses an assumed threshold as a floating point value between 0-1.
+-- The range of @MinConfidence@ normalizes the threshold value to a
+-- percentage value (0-100). Confidence responses from @DetectCustomLabels@
+-- are also returned as a percentage. You can use @MinConfidence@ to change
+-- the precision and recall or your model. For more information, see
+-- /Analyzing an image/ in the Amazon Rekognition Custom Labels Developer
+-- Guide.
 --
--- You can also add the @MaxResults@ parameter to limit the number of
--- labels returned.
+-- If you don\'t specify a value for @MinConfidence@, @DetectCustomLabels@
+-- returns labels based on the assumed threshold of each label.
 --
 -- This is a stateless API operation. That is, the operation does not
 -- persist any data.
 --
 -- This operation requires permissions to perform the
 -- @rekognition:DetectCustomLabels@ action.
+--
+-- For more information, see /Analyzing an image/ in the Amazon Rekognition
+-- Custom Labels Developer Guide.
 module Network.AWS.Rekognition.DetectCustomLabels
   ( -- * Creating a Request
     DetectCustomLabels (..),
@@ -90,10 +97,13 @@ data DetectCustomLabels = DetectCustomLabels'
     -- response. The service returns the specified number of highest confidence
     -- labels ranked from highest confidence to lowest.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies the minimum confidence level for the labels to return. Amazon
-    -- Rekognition doesn\'t return any labels with a confidence lower than this
-    -- specified value. If you specify a value of 0, all labels are return,
-    -- regardless of the default thresholds that the model version applies.
+    -- | Specifies the minimum confidence level for the labels to return.
+    -- @DetectCustomLabels@ doesn\'t return any labels with a confidence value
+    -- that\'s lower than this specified value. If you specify a value of 0,
+    -- @DetectCustomLabels@ returns all labels, regardless of the assumed
+    -- threshold applied to each label. If you don\'t specify a value for
+    -- @MinConfidence@, @DetectCustomLabels@ returns labels based on the
+    -- assumed threshold of each label.
     minConfidence :: Prelude.Maybe Prelude.Double,
     -- | The ARN of the model version that you want to use.
     projectVersionArn :: Prelude.Text,
@@ -113,10 +123,13 @@ data DetectCustomLabels = DetectCustomLabels'
 -- response. The service returns the specified number of highest confidence
 -- labels ranked from highest confidence to lowest.
 --
--- 'minConfidence', 'detectCustomLabels_minConfidence' - Specifies the minimum confidence level for the labels to return. Amazon
--- Rekognition doesn\'t return any labels with a confidence lower than this
--- specified value. If you specify a value of 0, all labels are return,
--- regardless of the default thresholds that the model version applies.
+-- 'minConfidence', 'detectCustomLabels_minConfidence' - Specifies the minimum confidence level for the labels to return.
+-- @DetectCustomLabels@ doesn\'t return any labels with a confidence value
+-- that\'s lower than this specified value. If you specify a value of 0,
+-- @DetectCustomLabels@ returns all labels, regardless of the assumed
+-- threshold applied to each label. If you don\'t specify a value for
+-- @MinConfidence@, @DetectCustomLabels@ returns labels based on the
+-- assumed threshold of each label.
 --
 -- 'projectVersionArn', 'detectCustomLabels_projectVersionArn' - The ARN of the model version that you want to use.
 --
@@ -141,10 +154,13 @@ newDetectCustomLabels pProjectVersionArn_ pImage_ =
 detectCustomLabels_maxResults :: Lens.Lens' DetectCustomLabels (Prelude.Maybe Prelude.Natural)
 detectCustomLabels_maxResults = Lens.lens (\DetectCustomLabels' {maxResults} -> maxResults) (\s@DetectCustomLabels' {} a -> s {maxResults = a} :: DetectCustomLabels)
 
--- | Specifies the minimum confidence level for the labels to return. Amazon
--- Rekognition doesn\'t return any labels with a confidence lower than this
--- specified value. If you specify a value of 0, all labels are return,
--- regardless of the default thresholds that the model version applies.
+-- | Specifies the minimum confidence level for the labels to return.
+-- @DetectCustomLabels@ doesn\'t return any labels with a confidence value
+-- that\'s lower than this specified value. If you specify a value of 0,
+-- @DetectCustomLabels@ returns all labels, regardless of the assumed
+-- threshold applied to each label. If you don\'t specify a value for
+-- @MinConfidence@, @DetectCustomLabels@ returns labels based on the
+-- assumed threshold of each label.
 detectCustomLabels_minConfidence :: Lens.Lens' DetectCustomLabels (Prelude.Maybe Prelude.Double)
 detectCustomLabels_minConfidence = Lens.lens (\DetectCustomLabels' {minConfidence} -> minConfidence) (\s@DetectCustomLabels' {} a -> s {minConfidence = a} :: DetectCustomLabels)
 

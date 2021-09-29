@@ -33,10 +33,10 @@ data CelebrityDetail = CelebrityDetail'
     urls :: Prelude.Maybe [Prelude.Text],
     -- | The unique identifier for the celebrity.
     id :: Prelude.Maybe Prelude.Text,
-    -- | Bounding box around the body of a celebrity.
-    boundingBox :: Prelude.Maybe BoundingBox,
     -- | The name of the celebrity.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Bounding box around the body of a celebrity.
+    boundingBox :: Prelude.Maybe BoundingBox,
     -- | The confidence, in percentage, that Amazon Rekognition has that the
     -- recognized face is the celebrity.
     confidence :: Prelude.Maybe Prelude.Double,
@@ -57,9 +57,9 @@ data CelebrityDetail = CelebrityDetail'
 --
 -- 'id', 'celebrityDetail_id' - The unique identifier for the celebrity.
 --
--- 'boundingBox', 'celebrityDetail_boundingBox' - Bounding box around the body of a celebrity.
---
 -- 'name', 'celebrityDetail_name' - The name of the celebrity.
+--
+-- 'boundingBox', 'celebrityDetail_boundingBox' - Bounding box around the body of a celebrity.
 --
 -- 'confidence', 'celebrityDetail_confidence' - The confidence, in percentage, that Amazon Rekognition has that the
 -- recognized face is the celebrity.
@@ -71,8 +71,8 @@ newCelebrityDetail =
   CelebrityDetail'
     { urls = Prelude.Nothing,
       id = Prelude.Nothing,
-      boundingBox = Prelude.Nothing,
       name = Prelude.Nothing,
+      boundingBox = Prelude.Nothing,
       confidence = Prelude.Nothing,
       face = Prelude.Nothing
     }
@@ -85,13 +85,13 @@ celebrityDetail_urls = Lens.lens (\CelebrityDetail' {urls} -> urls) (\s@Celebrit
 celebrityDetail_id :: Lens.Lens' CelebrityDetail (Prelude.Maybe Prelude.Text)
 celebrityDetail_id = Lens.lens (\CelebrityDetail' {id} -> id) (\s@CelebrityDetail' {} a -> s {id = a} :: CelebrityDetail)
 
--- | Bounding box around the body of a celebrity.
-celebrityDetail_boundingBox :: Lens.Lens' CelebrityDetail (Prelude.Maybe BoundingBox)
-celebrityDetail_boundingBox = Lens.lens (\CelebrityDetail' {boundingBox} -> boundingBox) (\s@CelebrityDetail' {} a -> s {boundingBox = a} :: CelebrityDetail)
-
 -- | The name of the celebrity.
 celebrityDetail_name :: Lens.Lens' CelebrityDetail (Prelude.Maybe Prelude.Text)
 celebrityDetail_name = Lens.lens (\CelebrityDetail' {name} -> name) (\s@CelebrityDetail' {} a -> s {name = a} :: CelebrityDetail)
+
+-- | Bounding box around the body of a celebrity.
+celebrityDetail_boundingBox :: Lens.Lens' CelebrityDetail (Prelude.Maybe BoundingBox)
+celebrityDetail_boundingBox = Lens.lens (\CelebrityDetail' {boundingBox} -> boundingBox) (\s@CelebrityDetail' {} a -> s {boundingBox = a} :: CelebrityDetail)
 
 -- | The confidence, in percentage, that Amazon Rekognition has that the
 -- recognized face is the celebrity.
@@ -110,8 +110,8 @@ instance Core.FromJSON CelebrityDetail where
           CelebrityDetail'
             Prelude.<$> (x Core..:? "Urls" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "BoundingBox")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "BoundingBox")
             Prelude.<*> (x Core..:? "Confidence")
             Prelude.<*> (x Core..:? "Face")
       )

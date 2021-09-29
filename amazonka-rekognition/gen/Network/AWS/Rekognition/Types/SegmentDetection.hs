@@ -32,7 +32,13 @@ import Network.AWS.Rekognition.Types.TechnicalCueSegment
 --
 -- /See:/ 'newSegmentDetection' smart constructor.
 data SegmentDetection = SegmentDetection'
-  { -- | If the segment is a shot detection, contains information about the shot
+  { -- | The frame number at the end of a video segment, using a frame index that
+    -- starts with 0.
+    endFrameNumber :: Prelude.Maybe Prelude.Natural,
+    -- | The frame number of the start of a video segment, using a frame index
+    -- that starts with 0.
+    startFrameNumber :: Prelude.Maybe Prelude.Natural,
+    -- | If the segment is a shot detection, contains information about the shot
     -- detection.
     shotSegment :: Prelude.Maybe ShotSegment,
     -- | The end time of the detected segment, in milliseconds, from the start of
@@ -47,19 +53,21 @@ data SegmentDetection = SegmentDetection'
     -- | If the segment is a technical cue, contains information about the
     -- technical cue.
     technicalCueSegment :: Prelude.Maybe TechnicalCueSegment,
-    -- | The type of the segment. Valid values are @TECHNICAL_CUE@ and @SHOT@.
-    type' :: Prelude.Maybe SegmentType,
     -- | The duration of the detected segment in milliseconds.
     durationMillis :: Prelude.Maybe Prelude.Natural,
-    -- | The frame-accurate SMPTE timecode, from the start of a video, for the
-    -- end of a detected segment. @EndTimecode@ is in /HH:MM:SS:fr/ format (and
-    -- /;fr/ for drop frame-rates).
-    endTimecodeSMPTE :: Prelude.Maybe Prelude.Text,
+    -- | The duration of a video segment, expressed in frames.
+    durationFrames :: Prelude.Maybe Prelude.Natural,
     -- | The start time of the detected segment in milliseconds from the start of
     -- the video. This value is rounded down. For example, if the actual
     -- timestamp is 100.6667 milliseconds, Amazon Rekognition Video returns a
     -- value of 100 millis.
-    startTimestampMillis :: Prelude.Maybe Prelude.Integer
+    startTimestampMillis :: Prelude.Maybe Prelude.Integer,
+    -- | The frame-accurate SMPTE timecode, from the start of a video, for the
+    -- end of a detected segment. @EndTimecode@ is in /HH:MM:SS:fr/ format (and
+    -- /;fr/ for drop frame-rates).
+    endTimecodeSMPTE :: Prelude.Maybe Prelude.Text,
+    -- | The type of the segment. Valid values are @TECHNICAL_CUE@ and @SHOT@.
+    type' :: Prelude.Maybe SegmentType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -70,6 +78,12 @@ data SegmentDetection = SegmentDetection'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'endFrameNumber', 'segmentDetection_endFrameNumber' - The frame number at the end of a video segment, using a frame index that
+-- starts with 0.
+--
+-- 'startFrameNumber', 'segmentDetection_startFrameNumber' - The frame number of the start of a video segment, using a frame index
+-- that starts with 0.
 --
 -- 'shotSegment', 'segmentDetection_shotSegment' - If the segment is a shot detection, contains information about the shot
 -- detection.
@@ -86,32 +100,47 @@ data SegmentDetection = SegmentDetection'
 -- 'technicalCueSegment', 'segmentDetection_technicalCueSegment' - If the segment is a technical cue, contains information about the
 -- technical cue.
 --
--- 'type'', 'segmentDetection_type' - The type of the segment. Valid values are @TECHNICAL_CUE@ and @SHOT@.
---
 -- 'durationMillis', 'segmentDetection_durationMillis' - The duration of the detected segment in milliseconds.
 --
--- 'endTimecodeSMPTE', 'segmentDetection_endTimecodeSMPTE' - The frame-accurate SMPTE timecode, from the start of a video, for the
--- end of a detected segment. @EndTimecode@ is in /HH:MM:SS:fr/ format (and
--- /;fr/ for drop frame-rates).
+-- 'durationFrames', 'segmentDetection_durationFrames' - The duration of a video segment, expressed in frames.
 --
 -- 'startTimestampMillis', 'segmentDetection_startTimestampMillis' - The start time of the detected segment in milliseconds from the start of
 -- the video. This value is rounded down. For example, if the actual
 -- timestamp is 100.6667 milliseconds, Amazon Rekognition Video returns a
 -- value of 100 millis.
+--
+-- 'endTimecodeSMPTE', 'segmentDetection_endTimecodeSMPTE' - The frame-accurate SMPTE timecode, from the start of a video, for the
+-- end of a detected segment. @EndTimecode@ is in /HH:MM:SS:fr/ format (and
+-- /;fr/ for drop frame-rates).
+--
+-- 'type'', 'segmentDetection_type' - The type of the segment. Valid values are @TECHNICAL_CUE@ and @SHOT@.
 newSegmentDetection ::
   SegmentDetection
 newSegmentDetection =
   SegmentDetection'
-    { shotSegment = Prelude.Nothing,
+    { endFrameNumber = Prelude.Nothing,
+      startFrameNumber = Prelude.Nothing,
+      shotSegment = Prelude.Nothing,
       endTimestampMillis = Prelude.Nothing,
       startTimecodeSMPTE = Prelude.Nothing,
       durationSMPTE = Prelude.Nothing,
       technicalCueSegment = Prelude.Nothing,
-      type' = Prelude.Nothing,
       durationMillis = Prelude.Nothing,
+      durationFrames = Prelude.Nothing,
+      startTimestampMillis = Prelude.Nothing,
       endTimecodeSMPTE = Prelude.Nothing,
-      startTimestampMillis = Prelude.Nothing
+      type' = Prelude.Nothing
     }
+
+-- | The frame number at the end of a video segment, using a frame index that
+-- starts with 0.
+segmentDetection_endFrameNumber :: Lens.Lens' SegmentDetection (Prelude.Maybe Prelude.Natural)
+segmentDetection_endFrameNumber = Lens.lens (\SegmentDetection' {endFrameNumber} -> endFrameNumber) (\s@SegmentDetection' {} a -> s {endFrameNumber = a} :: SegmentDetection)
+
+-- | The frame number of the start of a video segment, using a frame index
+-- that starts with 0.
+segmentDetection_startFrameNumber :: Lens.Lens' SegmentDetection (Prelude.Maybe Prelude.Natural)
+segmentDetection_startFrameNumber = Lens.lens (\SegmentDetection' {startFrameNumber} -> startFrameNumber) (\s@SegmentDetection' {} a -> s {startFrameNumber = a} :: SegmentDetection)
 
 -- | If the segment is a shot detection, contains information about the shot
 -- detection.
@@ -138,19 +167,13 @@ segmentDetection_durationSMPTE = Lens.lens (\SegmentDetection' {durationSMPTE} -
 segmentDetection_technicalCueSegment :: Lens.Lens' SegmentDetection (Prelude.Maybe TechnicalCueSegment)
 segmentDetection_technicalCueSegment = Lens.lens (\SegmentDetection' {technicalCueSegment} -> technicalCueSegment) (\s@SegmentDetection' {} a -> s {technicalCueSegment = a} :: SegmentDetection)
 
--- | The type of the segment. Valid values are @TECHNICAL_CUE@ and @SHOT@.
-segmentDetection_type :: Lens.Lens' SegmentDetection (Prelude.Maybe SegmentType)
-segmentDetection_type = Lens.lens (\SegmentDetection' {type'} -> type') (\s@SegmentDetection' {} a -> s {type' = a} :: SegmentDetection)
-
 -- | The duration of the detected segment in milliseconds.
 segmentDetection_durationMillis :: Lens.Lens' SegmentDetection (Prelude.Maybe Prelude.Natural)
 segmentDetection_durationMillis = Lens.lens (\SegmentDetection' {durationMillis} -> durationMillis) (\s@SegmentDetection' {} a -> s {durationMillis = a} :: SegmentDetection)
 
--- | The frame-accurate SMPTE timecode, from the start of a video, for the
--- end of a detected segment. @EndTimecode@ is in /HH:MM:SS:fr/ format (and
--- /;fr/ for drop frame-rates).
-segmentDetection_endTimecodeSMPTE :: Lens.Lens' SegmentDetection (Prelude.Maybe Prelude.Text)
-segmentDetection_endTimecodeSMPTE = Lens.lens (\SegmentDetection' {endTimecodeSMPTE} -> endTimecodeSMPTE) (\s@SegmentDetection' {} a -> s {endTimecodeSMPTE = a} :: SegmentDetection)
+-- | The duration of a video segment, expressed in frames.
+segmentDetection_durationFrames :: Lens.Lens' SegmentDetection (Prelude.Maybe Prelude.Natural)
+segmentDetection_durationFrames = Lens.lens (\SegmentDetection' {durationFrames} -> durationFrames) (\s@SegmentDetection' {} a -> s {durationFrames = a} :: SegmentDetection)
 
 -- | The start time of the detected segment in milliseconds from the start of
 -- the video. This value is rounded down. For example, if the actual
@@ -159,21 +182,34 @@ segmentDetection_endTimecodeSMPTE = Lens.lens (\SegmentDetection' {endTimecodeSM
 segmentDetection_startTimestampMillis :: Lens.Lens' SegmentDetection (Prelude.Maybe Prelude.Integer)
 segmentDetection_startTimestampMillis = Lens.lens (\SegmentDetection' {startTimestampMillis} -> startTimestampMillis) (\s@SegmentDetection' {} a -> s {startTimestampMillis = a} :: SegmentDetection)
 
+-- | The frame-accurate SMPTE timecode, from the start of a video, for the
+-- end of a detected segment. @EndTimecode@ is in /HH:MM:SS:fr/ format (and
+-- /;fr/ for drop frame-rates).
+segmentDetection_endTimecodeSMPTE :: Lens.Lens' SegmentDetection (Prelude.Maybe Prelude.Text)
+segmentDetection_endTimecodeSMPTE = Lens.lens (\SegmentDetection' {endTimecodeSMPTE} -> endTimecodeSMPTE) (\s@SegmentDetection' {} a -> s {endTimecodeSMPTE = a} :: SegmentDetection)
+
+-- | The type of the segment. Valid values are @TECHNICAL_CUE@ and @SHOT@.
+segmentDetection_type :: Lens.Lens' SegmentDetection (Prelude.Maybe SegmentType)
+segmentDetection_type = Lens.lens (\SegmentDetection' {type'} -> type') (\s@SegmentDetection' {} a -> s {type' = a} :: SegmentDetection)
+
 instance Core.FromJSON SegmentDetection where
   parseJSON =
     Core.withObject
       "SegmentDetection"
       ( \x ->
           SegmentDetection'
-            Prelude.<$> (x Core..:? "ShotSegment")
+            Prelude.<$> (x Core..:? "EndFrameNumber")
+            Prelude.<*> (x Core..:? "StartFrameNumber")
+            Prelude.<*> (x Core..:? "ShotSegment")
             Prelude.<*> (x Core..:? "EndTimestampMillis")
             Prelude.<*> (x Core..:? "StartTimecodeSMPTE")
             Prelude.<*> (x Core..:? "DurationSMPTE")
             Prelude.<*> (x Core..:? "TechnicalCueSegment")
-            Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "DurationMillis")
-            Prelude.<*> (x Core..:? "EndTimecodeSMPTE")
+            Prelude.<*> (x Core..:? "DurationFrames")
             Prelude.<*> (x Core..:? "StartTimestampMillis")
+            Prelude.<*> (x Core..:? "EndTimecodeSMPTE")
+            Prelude.<*> (x Core..:? "Type")
       )
 
 instance Prelude.Hashable SegmentDetection

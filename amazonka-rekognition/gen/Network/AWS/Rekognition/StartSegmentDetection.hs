@@ -77,7 +77,9 @@ import qualified Network.AWS.Response as Response
 data StartSegmentDetection = StartSegmentDetection'
   { -- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition
     -- Video to publish the completion status of the segment detection
-    -- operation.
+    -- operation. Note that the Amazon SNS topic must have a topic name that
+    -- begins with /AmazonRekognition/ if you are using the
+    -- AmazonRekognitionServiceRole permissions policy to access the topic.
     notificationChannel :: Prelude.Maybe NotificationChannel,
     -- | Filters for technical cue or shot detection.
     filters :: Prelude.Maybe StartSegmentDetectionFilters,
@@ -108,7 +110,9 @@ data StartSegmentDetection = StartSegmentDetection'
 --
 -- 'notificationChannel', 'startSegmentDetection_notificationChannel' - The ARN of the Amazon SNS topic to which you want Amazon Rekognition
 -- Video to publish the completion status of the segment detection
--- operation.
+-- operation. Note that the Amazon SNS topic must have a topic name that
+-- begins with /AmazonRekognition/ if you are using the
+-- AmazonRekognitionServiceRole permissions policy to access the topic.
 --
 -- 'filters', 'startSegmentDetection_filters' - Filters for technical cue or shot detection.
 --
@@ -145,7 +149,9 @@ newStartSegmentDetection pVideo_ pSegmentTypes_ =
 
 -- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition
 -- Video to publish the completion status of the segment detection
--- operation.
+-- operation. Note that the Amazon SNS topic must have a topic name that
+-- begins with /AmazonRekognition/ if you are using the
+-- AmazonRekognitionServiceRole permissions policy to access the topic.
 startSegmentDetection_notificationChannel :: Lens.Lens' StartSegmentDetection (Prelude.Maybe NotificationChannel)
 startSegmentDetection_notificationChannel = Lens.lens (\StartSegmentDetection' {notificationChannel} -> notificationChannel) (\s@StartSegmentDetection' {} a -> s {notificationChannel = a} :: StartSegmentDetection)
 

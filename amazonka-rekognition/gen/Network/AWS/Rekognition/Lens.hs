@@ -24,25 +24,6 @@ module Network.AWS.Rekognition.Lens
     startFaceSearchResponse_jobId,
     startFaceSearchResponse_httpStatus,
 
-    -- ** DescribeStreamProcessor
-    describeStreamProcessor_name,
-    describeStreamProcessorResponse_creationTimestamp,
-    describeStreamProcessorResponse_statusMessage,
-    describeStreamProcessorResponse_status,
-    describeStreamProcessorResponse_roleArn,
-    describeStreamProcessorResponse_input,
-    describeStreamProcessorResponse_streamProcessorArn,
-    describeStreamProcessorResponse_output,
-    describeStreamProcessorResponse_name,
-    describeStreamProcessorResponse_lastUpdateTimestamp,
-    describeStreamProcessorResponse_settings,
-    describeStreamProcessorResponse_httpStatus,
-
-    -- ** DeleteCollection
-    deleteCollection_collectionId,
-    deleteCollectionResponse_statusCode,
-    deleteCollectionResponse_httpStatus,
-
     -- ** GetLabelDetection
     getLabelDetection_nextToken,
     getLabelDetection_maxResults,
@@ -55,6 +36,25 @@ module Network.AWS.Rekognition.Lens
     getLabelDetectionResponse_jobStatus,
     getLabelDetectionResponse_labels,
     getLabelDetectionResponse_httpStatus,
+
+    -- ** DeleteCollection
+    deleteCollection_collectionId,
+    deleteCollectionResponse_statusCode,
+    deleteCollectionResponse_httpStatus,
+
+    -- ** DescribeStreamProcessor
+    describeStreamProcessor_name,
+    describeStreamProcessorResponse_creationTimestamp,
+    describeStreamProcessorResponse_statusMessage,
+    describeStreamProcessorResponse_status,
+    describeStreamProcessorResponse_roleArn,
+    describeStreamProcessorResponse_input,
+    describeStreamProcessorResponse_name,
+    describeStreamProcessorResponse_streamProcessorArn,
+    describeStreamProcessorResponse_output,
+    describeStreamProcessorResponse_lastUpdateTimestamp,
+    describeStreamProcessorResponse_settings,
+    describeStreamProcessorResponse_httpStatus,
 
     -- ** SearchFaces
     searchFaces_maxFaces,
@@ -99,8 +99,8 @@ module Network.AWS.Rekognition.Lens
     recognizeCelebritiesResponse_httpStatus,
 
     -- ** StartFaceDetection
-    startFaceDetection_notificationChannel,
     startFaceDetection_faceAttributes,
+    startFaceDetection_notificationChannel,
     startFaceDetection_clientRequestToken,
     startFaceDetection_jobTag,
     startFaceDetection_video,
@@ -116,18 +116,16 @@ module Network.AWS.Rekognition.Lens
     detectModerationLabelsResponse_humanLoopActivationOutput,
     detectModerationLabelsResponse_httpStatus,
 
-    -- ** DeleteFaces
-    deleteFaces_collectionId,
-    deleteFaces_faceIds,
-    deleteFacesResponse_deletedFaces,
-    deleteFacesResponse_httpStatus,
-
     -- ** ListStreamProcessors
     listStreamProcessors_nextToken,
     listStreamProcessors_maxResults,
     listStreamProcessorsResponse_nextToken,
     listStreamProcessorsResponse_streamProcessors,
     listStreamProcessorsResponse_httpStatus,
+
+    -- ** DeleteStreamProcessor
+    deleteStreamProcessor_name,
+    deleteStreamProcessorResponse_httpStatus,
 
     -- ** DescribeCollection
     describeCollection_collectionId,
@@ -137,9 +135,16 @@ module Network.AWS.Rekognition.Lens
     describeCollectionResponse_faceCount,
     describeCollectionResponse_httpStatus,
 
-    -- ** DeleteStreamProcessor
-    deleteStreamProcessor_name,
-    deleteStreamProcessorResponse_httpStatus,
+    -- ** DeleteFaces
+    deleteFaces_collectionId,
+    deleteFaces_faceIds,
+    deleteFacesResponse_deletedFaces,
+    deleteFacesResponse_httpStatus,
+
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+    untagResourceResponse_httpStatus,
 
     -- ** ListFaces
     listFaces_nextToken,
@@ -149,6 +154,11 @@ module Network.AWS.Rekognition.Lens
     listFacesResponse_nextToken,
     listFacesResponse_faces,
     listFacesResponse_httpStatus,
+
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+    tagResourceResponse_httpStatus,
 
     -- ** SearchFacesByImage
     searchFacesByImage_qualityFilter,
@@ -167,12 +177,20 @@ module Network.AWS.Rekognition.Lens
     compareFaces_similarityThreshold,
     compareFaces_sourceImage,
     compareFaces_targetImage,
-    compareFacesResponse_sourceImageFace,
     compareFacesResponse_unmatchedFaces,
+    compareFacesResponse_sourceImageFace,
     compareFacesResponse_faceMatches,
     compareFacesResponse_targetImageOrientationCorrection,
     compareFacesResponse_sourceImageOrientationCorrection,
     compareFacesResponse_httpStatus,
+
+    -- ** CreateCollection
+    createCollection_tags,
+    createCollection_collectionId,
+    createCollectionResponse_faceModelVersion,
+    createCollectionResponse_collectionArn,
+    createCollectionResponse_statusCode,
+    createCollectionResponse_httpStatus,
 
     -- ** DetectLabels
     detectLabels_maxLabels,
@@ -196,6 +214,14 @@ module Network.AWS.Rekognition.Lens
     getSegmentDetectionResponse_segments,
     getSegmentDetectionResponse_httpStatus,
 
+    -- ** StartPersonTracking
+    startPersonTracking_notificationChannel,
+    startPersonTracking_clientRequestToken,
+    startPersonTracking_jobTag,
+    startPersonTracking_video,
+    startPersonTrackingResponse_jobId,
+    startPersonTrackingResponse_httpStatus,
+
     -- ** GetCelebrityRecognition
     getCelebrityRecognition_nextToken,
     getCelebrityRecognition_maxResults,
@@ -207,26 +233,6 @@ module Network.AWS.Rekognition.Lens
     getCelebrityRecognitionResponse_jobStatus,
     getCelebrityRecognitionResponse_celebrities,
     getCelebrityRecognitionResponse_httpStatus,
-
-    -- ** StartPersonTracking
-    startPersonTracking_notificationChannel,
-    startPersonTracking_clientRequestToken,
-    startPersonTracking_jobTag,
-    startPersonTracking_video,
-    startPersonTrackingResponse_jobId,
-    startPersonTrackingResponse_httpStatus,
-
-    -- ** CreateCollection
-    createCollection_collectionId,
-    createCollectionResponse_faceModelVersion,
-    createCollectionResponse_collectionArn,
-    createCollectionResponse_statusCode,
-    createCollectionResponse_httpStatus,
-
-    -- ** StopProjectVersion
-    stopProjectVersion_projectVersionArn,
-    stopProjectVersionResponse_status,
-    stopProjectVersionResponse_httpStatus,
 
     -- ** StartProjectVersion
     startProjectVersion_projectVersionArn,
@@ -242,30 +248,10 @@ module Network.AWS.Rekognition.Lens
     listCollectionsResponse_collectionIds,
     listCollectionsResponse_httpStatus,
 
-    -- ** DetectProtectiveEquipment
-    detectProtectiveEquipment_summarizationAttributes,
-    detectProtectiveEquipment_image,
-    detectProtectiveEquipmentResponse_protectiveEquipmentModelVersion,
-    detectProtectiveEquipmentResponse_summary,
-    detectProtectiveEquipmentResponse_persons,
-    detectProtectiveEquipmentResponse_httpStatus,
-
-    -- ** GetPersonTracking
-    getPersonTracking_nextToken,
-    getPersonTracking_maxResults,
-    getPersonTracking_sortBy,
-    getPersonTracking_jobId,
-    getPersonTrackingResponse_statusMessage,
-    getPersonTrackingResponse_videoMetadata,
-    getPersonTrackingResponse_nextToken,
-    getPersonTrackingResponse_jobStatus,
-    getPersonTrackingResponse_persons,
-    getPersonTrackingResponse_httpStatus,
-
-    -- ** DeleteProject
-    deleteProject_projectArn,
-    deleteProjectResponse_status,
-    deleteProjectResponse_httpStatus,
+    -- ** StopProjectVersion
+    stopProjectVersion_projectVersionArn,
+    stopProjectVersionResponse_status,
+    stopProjectVersionResponse_httpStatus,
 
     -- ** IndexFaces
     indexFaces_detectionAttributes,
@@ -290,6 +276,19 @@ module Network.AWS.Rekognition.Lens
     startSegmentDetectionResponse_jobId,
     startSegmentDetectionResponse_httpStatus,
 
+    -- ** DetectProtectiveEquipment
+    detectProtectiveEquipment_summarizationAttributes,
+    detectProtectiveEquipment_image,
+    detectProtectiveEquipmentResponse_protectiveEquipmentModelVersion,
+    detectProtectiveEquipmentResponse_summary,
+    detectProtectiveEquipmentResponse_persons,
+    detectProtectiveEquipmentResponse_httpStatus,
+
+    -- ** DeleteProject
+    deleteProject_projectArn,
+    deleteProjectResponse_status,
+    deleteProjectResponse_httpStatus,
+
     -- ** StartCelebrityRecognition
     startCelebrityRecognition_notificationChannel,
     startCelebrityRecognition_clientRequestToken,
@@ -297,6 +296,36 @@ module Network.AWS.Rekognition.Lens
     startCelebrityRecognition_video,
     startCelebrityRecognitionResponse_jobId,
     startCelebrityRecognitionResponse_httpStatus,
+
+    -- ** GetPersonTracking
+    getPersonTracking_nextToken,
+    getPersonTracking_maxResults,
+    getPersonTracking_sortBy,
+    getPersonTracking_jobId,
+    getPersonTrackingResponse_statusMessage,
+    getPersonTrackingResponse_videoMetadata,
+    getPersonTrackingResponse_nextToken,
+    getPersonTrackingResponse_jobStatus,
+    getPersonTrackingResponse_persons,
+    getPersonTrackingResponse_httpStatus,
+
+    -- ** StartLabelDetection
+    startLabelDetection_notificationChannel,
+    startLabelDetection_minConfidence,
+    startLabelDetection_clientRequestToken,
+    startLabelDetection_jobTag,
+    startLabelDetection_video,
+    startLabelDetectionResponse_jobId,
+    startLabelDetectionResponse_httpStatus,
+
+    -- ** DescribeProjectVersions
+    describeProjectVersions_nextToken,
+    describeProjectVersions_maxResults,
+    describeProjectVersions_versionNames,
+    describeProjectVersions_projectArn,
+    describeProjectVersionsResponse_nextToken,
+    describeProjectVersionsResponse_projectVersionDescriptions,
+    describeProjectVersionsResponse_httpStatus,
 
     -- ** GetFaceSearch
     getFaceSearch_nextToken,
@@ -310,30 +339,13 @@ module Network.AWS.Rekognition.Lens
     getFaceSearchResponse_persons,
     getFaceSearchResponse_httpStatus,
 
-    -- ** StartLabelDetection
-    startLabelDetection_notificationChannel,
-    startLabelDetection_minConfidence,
-    startLabelDetection_clientRequestToken,
-    startLabelDetection_jobTag,
-    startLabelDetection_video,
-    startLabelDetectionResponse_jobId,
-    startLabelDetectionResponse_httpStatus,
-
-    -- ** DescribeProjectVersions
-    describeProjectVersions_nextToken,
-    describeProjectVersions_versionNames,
-    describeProjectVersions_maxResults,
-    describeProjectVersions_projectArn,
-    describeProjectVersionsResponse_nextToken,
-    describeProjectVersionsResponse_projectVersionDescriptions,
-    describeProjectVersionsResponse_httpStatus,
-
     -- ** DeleteProjectVersion
     deleteProjectVersion_projectVersionArn,
     deleteProjectVersionResponse_status,
     deleteProjectVersionResponse_httpStatus,
 
     -- ** CreateStreamProcessor
+    createStreamProcessor_tags,
     createStreamProcessor_input,
     createStreamProcessor_output,
     createStreamProcessor_name,
@@ -341,6 +353,13 @@ module Network.AWS.Rekognition.Lens
     createStreamProcessor_roleArn,
     createStreamProcessorResponse_streamProcessorArn,
     createStreamProcessorResponse_httpStatus,
+
+    -- ** GetCelebrityInfo
+    getCelebrityInfo_id,
+    getCelebrityInfoResponse_knownGender,
+    getCelebrityInfoResponse_urls,
+    getCelebrityInfoResponse_name,
+    getCelebrityInfoResponse_httpStatus,
 
     -- ** GetContentModeration
     getContentModeration_nextToken,
@@ -355,12 +374,6 @@ module Network.AWS.Rekognition.Lens
     getContentModerationResponse_moderationModelVersion,
     getContentModerationResponse_httpStatus,
 
-    -- ** GetCelebrityInfo
-    getCelebrityInfo_id,
-    getCelebrityInfoResponse_urls,
-    getCelebrityInfoResponse_name,
-    getCelebrityInfoResponse_httpStatus,
-
     -- ** DescribeProjects
     describeProjects_nextToken,
     describeProjects_maxResults,
@@ -369,6 +382,8 @@ module Network.AWS.Rekognition.Lens
     describeProjectsResponse_httpStatus,
 
     -- ** CreateProjectVersion
+    createProjectVersion_kmsKeyId,
+    createProjectVersion_tags,
     createProjectVersion_projectArn,
     createProjectVersion_versionName,
     createProjectVersion_outputConfig,
@@ -388,6 +403,13 @@ module Network.AWS.Rekognition.Lens
     getFaceDetectionResponse_faces,
     getFaceDetectionResponse_httpStatus,
 
+    -- ** DetectFaces
+    detectFaces_attributes,
+    detectFaces_image,
+    detectFacesResponse_faceDetails,
+    detectFacesResponse_orientationCorrection,
+    detectFacesResponse_httpStatus,
+
     -- ** StartContentModeration
     startContentModeration_notificationChannel,
     startContentModeration_minConfidence,
@@ -397,12 +419,9 @@ module Network.AWS.Rekognition.Lens
     startContentModerationResponse_jobId,
     startContentModerationResponse_httpStatus,
 
-    -- ** DetectFaces
-    detectFaces_attributes,
-    detectFaces_image,
-    detectFacesResponse_faceDetails,
-    detectFacesResponse_orientationCorrection,
-    detectFacesResponse_httpStatus,
+    -- ** StartStreamProcessor
+    startStreamProcessor_name,
+    startStreamProcessorResponse_httpStatus,
 
     -- ** DetectText
     detectText_filters,
@@ -410,6 +429,15 @@ module Network.AWS.Rekognition.Lens
     detectTextResponse_textDetections,
     detectTextResponse_textModelVersion,
     detectTextResponse_httpStatus,
+
+    -- ** ListTagsForResource
+    listTagsForResource_resourceArn,
+    listTagsForResourceResponse_tags,
+    listTagsForResourceResponse_httpStatus,
+
+    -- ** StopStreamProcessor
+    stopStreamProcessor_name,
+    stopStreamProcessorResponse_httpStatus,
 
     -- ** StartTextDetection
     startTextDetection_notificationChannel,
@@ -419,14 +447,6 @@ module Network.AWS.Rekognition.Lens
     startTextDetection_video,
     startTextDetectionResponse_jobId,
     startTextDetectionResponse_httpStatus,
-
-    -- ** StopStreamProcessor
-    stopStreamProcessor_name,
-    stopStreamProcessorResponse_httpStatus,
-
-    -- ** StartStreamProcessor
-    startStreamProcessor_name,
-    startStreamProcessorResponse_httpStatus,
 
     -- * Types
 
@@ -447,24 +467,29 @@ module Network.AWS.Rekognition.Lens
     beard_confidence,
     beard_value,
 
+    -- ** BlackFrame
+    blackFrame_minCoveragePercentage,
+    blackFrame_maxPixelThreshold,
+
     -- ** BoundingBox
     boundingBox_height,
     boundingBox_width,
-    boundingBox_top,
     boundingBox_left,
+    boundingBox_top,
 
     -- ** Celebrity
+    celebrity_knownGender,
     celebrity_urls,
     celebrity_id,
-    celebrity_matchConfidence,
     celebrity_name,
+    celebrity_matchConfidence,
     celebrity_face,
 
     -- ** CelebrityDetail
     celebrityDetail_urls,
     celebrityDetail_id,
-    celebrityDetail_boundingBox,
     celebrityDetail_name,
+    celebrityDetail_boundingBox,
     celebrityDetail_confidence,
     celebrityDetail_face,
 
@@ -477,10 +502,12 @@ module Network.AWS.Rekognition.Lens
     compareFacesMatch_face,
 
     -- ** ComparedFace
-    comparedFace_pose,
     comparedFace_landmarks,
+    comparedFace_pose,
+    comparedFace_emotions,
     comparedFace_boundingBox,
     comparedFace_confidence,
+    comparedFace_smile,
     comparedFace_quality,
 
     -- ** ComparedSourceImageFace
@@ -541,14 +568,14 @@ module Network.AWS.Rekognition.Lens
     -- ** FaceDetail
     faceDetail_sunglasses,
     faceDetail_ageRange,
-    faceDetail_pose,
     faceDetail_landmarks,
+    faceDetail_pose,
     faceDetail_beard,
     faceDetail_emotions,
     faceDetail_eyeglasses,
+    faceDetail_mouthOpen,
     faceDetail_gender,
     faceDetail_boundingBox,
-    faceDetail_mouthOpen,
     faceDetail_confidence,
     faceDetail_smile,
     faceDetail_eyesOpen,
@@ -613,6 +640,9 @@ module Network.AWS.Rekognition.Lens
     -- ** KinesisVideoStream
     kinesisVideoStream_arn,
 
+    -- ** KnownGender
+    knownGender_type,
+
     -- ** Label
     label_parents,
     label_instances,
@@ -620,8 +650,8 @@ module Network.AWS.Rekognition.Lens
     label_confidence,
 
     -- ** LabelDetection
-    labelDetection_label,
     labelDetection_timestamp,
+    labelDetection_label,
 
     -- ** Landmark
     landmark_y,
@@ -681,14 +711,15 @@ module Network.AWS.Rekognition.Lens
     projectDescription_projectArn,
 
     -- ** ProjectVersionDescription
-    projectVersionDescription_creationTimestamp,
-    projectVersionDescription_statusMessage,
     projectVersionDescription_testingDataResult,
     projectVersionDescription_evaluationResult,
+    projectVersionDescription_creationTimestamp,
+    projectVersionDescription_statusMessage,
     projectVersionDescription_status,
     projectVersionDescription_billableTrainingTimeInSeconds,
     projectVersionDescription_outputConfig,
     projectVersionDescription_projectVersionArn,
+    projectVersionDescription_kmsKeyId,
     projectVersionDescription_minInferenceUnits,
     projectVersionDescription_trainingDataResult,
     projectVersionDescription_trainingEndTimestamp,
@@ -723,15 +754,18 @@ module Network.AWS.Rekognition.Lens
     s3Object_bucket,
 
     -- ** SegmentDetection
+    segmentDetection_endFrameNumber,
+    segmentDetection_startFrameNumber,
     segmentDetection_shotSegment,
     segmentDetection_endTimestampMillis,
     segmentDetection_startTimecodeSMPTE,
     segmentDetection_durationSMPTE,
     segmentDetection_technicalCueSegment,
-    segmentDetection_type,
     segmentDetection_durationMillis,
-    segmentDetection_endTimecodeSMPTE,
+    segmentDetection_durationFrames,
     segmentDetection_startTimestampMillis,
+    segmentDetection_endTimecodeSMPTE,
+    segmentDetection_type,
 
     -- ** SegmentTypeInfo
     segmentTypeInfo_modelVersion,
@@ -754,6 +788,7 @@ module Network.AWS.Rekognition.Lens
 
     -- ** StartTechnicalCueDetectionFilter
     startTechnicalCueDetectionFilter_minSegmentConfidence,
+    startTechnicalCueDetectionFilter_blackFrame,
 
     -- ** StartTextDetectionFilters
     startTextDetectionFilters_regionsOfInterest,
@@ -825,6 +860,7 @@ module Network.AWS.Rekognition.Lens
     -- ** VideoMetadata
     videoMetadata_codec,
     videoMetadata_format,
+    videoMetadata_colorRange,
     videoMetadata_frameHeight,
     videoMetadata_frameRate,
     videoMetadata_frameWidth,
@@ -865,6 +901,7 @@ import Network.AWS.Rekognition.IndexFaces
 import Network.AWS.Rekognition.ListCollections
 import Network.AWS.Rekognition.ListFaces
 import Network.AWS.Rekognition.ListStreamProcessors
+import Network.AWS.Rekognition.ListTagsForResource
 import Network.AWS.Rekognition.RecognizeCelebrities
 import Network.AWS.Rekognition.SearchFaces
 import Network.AWS.Rekognition.SearchFacesByImage
@@ -880,10 +917,12 @@ import Network.AWS.Rekognition.StartStreamProcessor
 import Network.AWS.Rekognition.StartTextDetection
 import Network.AWS.Rekognition.StopProjectVersion
 import Network.AWS.Rekognition.StopStreamProcessor
+import Network.AWS.Rekognition.TagResource
 import Network.AWS.Rekognition.Types.AgeRange
 import Network.AWS.Rekognition.Types.Asset
 import Network.AWS.Rekognition.Types.AudioMetadata
 import Network.AWS.Rekognition.Types.Beard
+import Network.AWS.Rekognition.Types.BlackFrame
 import Network.AWS.Rekognition.Types.BoundingBox
 import Network.AWS.Rekognition.Types.Celebrity
 import Network.AWS.Rekognition.Types.CelebrityDetail
@@ -918,6 +957,7 @@ import Network.AWS.Rekognition.Types.ImageQuality
 import Network.AWS.Rekognition.Types.Instance
 import Network.AWS.Rekognition.Types.KinesisDataStream
 import Network.AWS.Rekognition.Types.KinesisVideoStream
+import Network.AWS.Rekognition.Types.KnownGender
 import Network.AWS.Rekognition.Types.Label
 import Network.AWS.Rekognition.Types.LabelDetection
 import Network.AWS.Rekognition.Types.Landmark
@@ -965,3 +1005,4 @@ import Network.AWS.Rekognition.Types.UnindexedFace
 import Network.AWS.Rekognition.Types.ValidationData
 import Network.AWS.Rekognition.Types.Video
 import Network.AWS.Rekognition.Types.VideoMetadata
+import Network.AWS.Rekognition.UntagResource

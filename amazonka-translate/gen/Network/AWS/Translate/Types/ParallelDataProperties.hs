@@ -50,16 +50,16 @@ data ParallelDataProperties = ParallelDataProperties'
     -- resource.
     message :: Prelude.Maybe Prelude.Text,
     encryptionKey :: Prelude.Maybe EncryptionKey,
-    -- | The Amazon Resource Name (ARN) of the parallel data resource.
-    arn :: Prelude.Maybe Prelude.Text,
-    -- | The language codes for the target languages available in the parallel
-    -- data file. All possible target languages are returned as an array.
-    targetLanguageCodes :: Prelude.Maybe [Prelude.Text],
     -- | The time at which the parallel data resource was created.
     createdAt :: Prelude.Maybe Core.POSIX,
+    -- | The Amazon Resource Name (ARN) of the parallel data resource.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The number of records unsuccessfully imported from the parallel data
     -- input file.
     failedRecordCount :: Prelude.Maybe Prelude.Integer,
+    -- | The language codes for the target languages available in the parallel
+    -- data file. All possible target languages are returned as an array.
+    targetLanguageCodes :: Prelude.Maybe [Prelude.Text],
     -- | The time that the most recent update was attempted.
     latestUpdateAttemptAt :: Prelude.Maybe Core.POSIX,
     -- | The custom name assigned to the parallel data resource.
@@ -70,11 +70,11 @@ data ParallelDataProperties = ParallelDataProperties'
     description :: Prelude.Maybe Prelude.Text,
     -- | The source language of the translations in the parallel data file.
     sourceLanguageCode :: Prelude.Maybe Prelude.Text,
+    -- | The time at which the parallel data resource was last updated.
+    lastUpdatedAt :: Prelude.Maybe Core.POSIX,
     -- | The number of records successfully imported from the parallel data input
     -- file.
-    importedRecordCount :: Prelude.Maybe Prelude.Integer,
-    -- | The time at which the parallel data resource was last updated.
-    lastUpdatedAt :: Prelude.Maybe Core.POSIX
+    importedRecordCount :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -107,15 +107,15 @@ data ParallelDataProperties = ParallelDataProperties'
 --
 -- 'encryptionKey', 'parallelDataProperties_encryptionKey' - Undocumented member.
 --
--- 'arn', 'parallelDataProperties_arn' - The Amazon Resource Name (ARN) of the parallel data resource.
---
--- 'targetLanguageCodes', 'parallelDataProperties_targetLanguageCodes' - The language codes for the target languages available in the parallel
--- data file. All possible target languages are returned as an array.
---
 -- 'createdAt', 'parallelDataProperties_createdAt' - The time at which the parallel data resource was created.
+--
+-- 'arn', 'parallelDataProperties_arn' - The Amazon Resource Name (ARN) of the parallel data resource.
 --
 -- 'failedRecordCount', 'parallelDataProperties_failedRecordCount' - The number of records unsuccessfully imported from the parallel data
 -- input file.
+--
+-- 'targetLanguageCodes', 'parallelDataProperties_targetLanguageCodes' - The language codes for the target languages available in the parallel
+-- data file. All possible target languages are returned as an array.
 --
 -- 'latestUpdateAttemptAt', 'parallelDataProperties_latestUpdateAttemptAt' - The time that the most recent update was attempted.
 --
@@ -127,10 +127,10 @@ data ParallelDataProperties = ParallelDataProperties'
 --
 -- 'sourceLanguageCode', 'parallelDataProperties_sourceLanguageCode' - The source language of the translations in the parallel data file.
 --
+-- 'lastUpdatedAt', 'parallelDataProperties_lastUpdatedAt' - The time at which the parallel data resource was last updated.
+--
 -- 'importedRecordCount', 'parallelDataProperties_importedRecordCount' - The number of records successfully imported from the parallel data input
 -- file.
---
--- 'lastUpdatedAt', 'parallelDataProperties_lastUpdatedAt' - The time at which the parallel data resource was last updated.
 newParallelDataProperties ::
   ParallelDataProperties
 newParallelDataProperties =
@@ -141,17 +141,17 @@ newParallelDataProperties =
       latestUpdateAttemptStatus = Prelude.Nothing,
       message = Prelude.Nothing,
       encryptionKey = Prelude.Nothing,
-      arn = Prelude.Nothing,
-      targetLanguageCodes = Prelude.Nothing,
       createdAt = Prelude.Nothing,
+      arn = Prelude.Nothing,
       failedRecordCount = Prelude.Nothing,
+      targetLanguageCodes = Prelude.Nothing,
       latestUpdateAttemptAt = Prelude.Nothing,
       name = Prelude.Nothing,
       parallelDataConfig = Prelude.Nothing,
       description = Prelude.Nothing,
       sourceLanguageCode = Prelude.Nothing,
-      importedRecordCount = Prelude.Nothing,
-      lastUpdatedAt = Prelude.Nothing
+      lastUpdatedAt = Prelude.Nothing,
+      importedRecordCount = Prelude.Nothing
     }
 
 -- | The status of the parallel data resource. When the parallel data is
@@ -187,23 +187,23 @@ parallelDataProperties_message = Lens.lens (\ParallelDataProperties' {message} -
 parallelDataProperties_encryptionKey :: Lens.Lens' ParallelDataProperties (Prelude.Maybe EncryptionKey)
 parallelDataProperties_encryptionKey = Lens.lens (\ParallelDataProperties' {encryptionKey} -> encryptionKey) (\s@ParallelDataProperties' {} a -> s {encryptionKey = a} :: ParallelDataProperties)
 
--- | The Amazon Resource Name (ARN) of the parallel data resource.
-parallelDataProperties_arn :: Lens.Lens' ParallelDataProperties (Prelude.Maybe Prelude.Text)
-parallelDataProperties_arn = Lens.lens (\ParallelDataProperties' {arn} -> arn) (\s@ParallelDataProperties' {} a -> s {arn = a} :: ParallelDataProperties)
-
--- | The language codes for the target languages available in the parallel
--- data file. All possible target languages are returned as an array.
-parallelDataProperties_targetLanguageCodes :: Lens.Lens' ParallelDataProperties (Prelude.Maybe [Prelude.Text])
-parallelDataProperties_targetLanguageCodes = Lens.lens (\ParallelDataProperties' {targetLanguageCodes} -> targetLanguageCodes) (\s@ParallelDataProperties' {} a -> s {targetLanguageCodes = a} :: ParallelDataProperties) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The time at which the parallel data resource was created.
 parallelDataProperties_createdAt :: Lens.Lens' ParallelDataProperties (Prelude.Maybe Prelude.UTCTime)
 parallelDataProperties_createdAt = Lens.lens (\ParallelDataProperties' {createdAt} -> createdAt) (\s@ParallelDataProperties' {} a -> s {createdAt = a} :: ParallelDataProperties) Prelude.. Lens.mapping Core._Time
+
+-- | The Amazon Resource Name (ARN) of the parallel data resource.
+parallelDataProperties_arn :: Lens.Lens' ParallelDataProperties (Prelude.Maybe Prelude.Text)
+parallelDataProperties_arn = Lens.lens (\ParallelDataProperties' {arn} -> arn) (\s@ParallelDataProperties' {} a -> s {arn = a} :: ParallelDataProperties)
 
 -- | The number of records unsuccessfully imported from the parallel data
 -- input file.
 parallelDataProperties_failedRecordCount :: Lens.Lens' ParallelDataProperties (Prelude.Maybe Prelude.Integer)
 parallelDataProperties_failedRecordCount = Lens.lens (\ParallelDataProperties' {failedRecordCount} -> failedRecordCount) (\s@ParallelDataProperties' {} a -> s {failedRecordCount = a} :: ParallelDataProperties)
+
+-- | The language codes for the target languages available in the parallel
+-- data file. All possible target languages are returned as an array.
+parallelDataProperties_targetLanguageCodes :: Lens.Lens' ParallelDataProperties (Prelude.Maybe [Prelude.Text])
+parallelDataProperties_targetLanguageCodes = Lens.lens (\ParallelDataProperties' {targetLanguageCodes} -> targetLanguageCodes) (\s@ParallelDataProperties' {} a -> s {targetLanguageCodes = a} :: ParallelDataProperties) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The time that the most recent update was attempted.
 parallelDataProperties_latestUpdateAttemptAt :: Lens.Lens' ParallelDataProperties (Prelude.Maybe Prelude.UTCTime)
@@ -225,14 +225,14 @@ parallelDataProperties_description = Lens.lens (\ParallelDataProperties' {descri
 parallelDataProperties_sourceLanguageCode :: Lens.Lens' ParallelDataProperties (Prelude.Maybe Prelude.Text)
 parallelDataProperties_sourceLanguageCode = Lens.lens (\ParallelDataProperties' {sourceLanguageCode} -> sourceLanguageCode) (\s@ParallelDataProperties' {} a -> s {sourceLanguageCode = a} :: ParallelDataProperties)
 
+-- | The time at which the parallel data resource was last updated.
+parallelDataProperties_lastUpdatedAt :: Lens.Lens' ParallelDataProperties (Prelude.Maybe Prelude.UTCTime)
+parallelDataProperties_lastUpdatedAt = Lens.lens (\ParallelDataProperties' {lastUpdatedAt} -> lastUpdatedAt) (\s@ParallelDataProperties' {} a -> s {lastUpdatedAt = a} :: ParallelDataProperties) Prelude.. Lens.mapping Core._Time
+
 -- | The number of records successfully imported from the parallel data input
 -- file.
 parallelDataProperties_importedRecordCount :: Lens.Lens' ParallelDataProperties (Prelude.Maybe Prelude.Integer)
 parallelDataProperties_importedRecordCount = Lens.lens (\ParallelDataProperties' {importedRecordCount} -> importedRecordCount) (\s@ParallelDataProperties' {} a -> s {importedRecordCount = a} :: ParallelDataProperties)
-
--- | The time at which the parallel data resource was last updated.
-parallelDataProperties_lastUpdatedAt :: Lens.Lens' ParallelDataProperties (Prelude.Maybe Prelude.UTCTime)
-parallelDataProperties_lastUpdatedAt = Lens.lens (\ParallelDataProperties' {lastUpdatedAt} -> lastUpdatedAt) (\s@ParallelDataProperties' {} a -> s {lastUpdatedAt = a} :: ParallelDataProperties) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON ParallelDataProperties where
   parseJSON =
@@ -246,19 +246,19 @@ instance Core.FromJSON ParallelDataProperties where
             Prelude.<*> (x Core..:? "LatestUpdateAttemptStatus")
             Prelude.<*> (x Core..:? "Message")
             Prelude.<*> (x Core..:? "EncryptionKey")
+            Prelude.<*> (x Core..:? "CreatedAt")
             Prelude.<*> (x Core..:? "Arn")
+            Prelude.<*> (x Core..:? "FailedRecordCount")
             Prelude.<*> ( x Core..:? "TargetLanguageCodes"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "FailedRecordCount")
             Prelude.<*> (x Core..:? "LatestUpdateAttemptAt")
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "ParallelDataConfig")
             Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "SourceLanguageCode")
-            Prelude.<*> (x Core..:? "ImportedRecordCount")
             Prelude.<*> (x Core..:? "LastUpdatedAt")
+            Prelude.<*> (x Core..:? "ImportedRecordCount")
       )
 
 instance Prelude.Hashable ParallelDataProperties

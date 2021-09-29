@@ -22,7 +22,7 @@
 --
 -- Sets the password for the guest user @smbguest@. The @smbguest@ user is
 -- the user when the authentication method for the file share is set to
--- @GuestAccess@.
+-- @GuestAccess@. This operation only supported for S3 File Gateways
 module Network.AWS.StorageGateway.SetSMBGuestPassword
   ( -- * Creating a Request
     SetSMBGuestPassword (..),
@@ -53,8 +53,8 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'newSetSMBGuestPassword' smart constructor.
 data SetSMBGuestPassword = SetSMBGuestPassword'
-  { -- | The Amazon Resource Name (ARN) of the file gateway the SMB file share is
-    -- associated with.
+  { -- | The Amazon Resource Name (ARN) of the S3 File Gateway the SMB file share
+    -- is associated with.
     gatewayARN :: Prelude.Text,
     -- | The password that you want to set for your SMB server.
     password :: Core.Sensitive Prelude.Text
@@ -69,8 +69,8 @@ data SetSMBGuestPassword = SetSMBGuestPassword'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'gatewayARN', 'setSMBGuestPassword_gatewayARN' - The Amazon Resource Name (ARN) of the file gateway the SMB file share is
--- associated with.
+-- 'gatewayARN', 'setSMBGuestPassword_gatewayARN' - The Amazon Resource Name (ARN) of the S3 File Gateway the SMB file share
+-- is associated with.
 --
 -- 'password', 'setSMBGuestPassword_password' - The password that you want to set for your SMB server.
 newSetSMBGuestPassword ::
@@ -85,8 +85,8 @@ newSetSMBGuestPassword pGatewayARN_ pPassword_ =
       password = Core._Sensitive Lens.# pPassword_
     }
 
--- | The Amazon Resource Name (ARN) of the file gateway the SMB file share is
--- associated with.
+-- | The Amazon Resource Name (ARN) of the S3 File Gateway the SMB file share
+-- is associated with.
 setSMBGuestPassword_gatewayARN :: Lens.Lens' SetSMBGuestPassword Prelude.Text
 setSMBGuestPassword_gatewayARN = Lens.lens (\SetSMBGuestPassword' {gatewayARN} -> gatewayARN) (\s@SetSMBGuestPassword' {} a -> s {gatewayARN = a} :: SetSMBGuestPassword)
 

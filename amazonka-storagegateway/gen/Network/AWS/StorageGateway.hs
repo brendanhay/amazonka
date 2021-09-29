@@ -11,39 +11,39 @@
 --
 -- Derived from API version @2013-06-30@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS Storage Gateway Service
+-- Storage Gateway Service
 --
--- AWS Storage Gateway is the service that connects an on-premises software
+-- Storage Gateway is the service that connects an on-premises software
 -- appliance with cloud-based storage to provide seamless and secure
 -- integration between an organization\'s on-premises IT environment and
--- the AWS storage infrastructure. The service enables you to securely
--- upload data to the AWS Cloud for cost effective backup and rapid
+-- the Amazon Web Services storage infrastructure. The service enables you
+-- to securely upload data to the Cloud for cost effective backup and rapid
 -- disaster recovery.
 --
--- Use the following links to get started using the /AWS Storage Gateway
+-- Use the following links to get started using the /Storage Gateway
 -- Service API Reference/:
 --
--- -   <https://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#AWSStorageGatewayHTTPRequestsHeaders AWS Storage Gateway required request headers>:
+-- -   <https://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#AWSStorageGatewayHTTPRequestsHeaders Storage Gateway required request headers>:
 --     Describes the required headers that you must send with every POST
---     request to AWS Storage Gateway.
+--     request to Storage Gateway.
 --
 -- -   <https://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#AWSStorageGatewaySigningRequests Signing requests>:
---     AWS Storage Gateway requires that you authenticate every request you
+--     Storage Gateway requires that you authenticate every request you
 --     send; this topic describes how sign such a request.
 --
 -- -   <https://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPI.html#APIErrorResponses Error responses>:
---     Provides reference information about AWS Storage Gateway errors.
+--     Provides reference information about Storage Gateway errors.
 --
--- -   <https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_Operations.html Operations in AWS Storage Gateway>:
---     Contains detailed descriptions of all AWS Storage Gateway
---     operations, their request parameters, response elements, possible
---     errors, and examples of requests and responses.
+-- -   <https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_Operations.html Operations in Storage Gateway>:
+--     Contains detailed descriptions of all Storage Gateway operations,
+--     their request parameters, response elements, possible errors, and
+--     examples of requests and responses.
 --
--- -   <https://docs.aws.amazon.com/general/latest/gr/sg.html AWS Storage Gateway endpoints and quotas>:
---     Provides a list of each AWS Region and the endpoints available for
---     use with AWS Storage Gateway.
+-- -   <https://docs.aws.amazon.com/general/latest/gr/sg.html Storage Gateway endpoints and quotas>:
+--     Provides a list of each Region and the endpoints available for use
+--     with Storage Gateway.
 --
--- AWS Storage Gateway resource IDs are in uppercase. When you use these
+-- Storage Gateway resource IDs are in uppercase. When you use these
 -- resource IDs with the Amazon EC2 API, EC2 expects resource IDs in
 -- lowercase. You must change your resource ID to lowercase to use it with
 -- the EC2 API. For example, in Storage Gateway the ID for a volume might
@@ -68,7 +68,7 @@
 -- @snap-78e226633445566ee@.
 --
 -- For more information, see
--- <http://forums.aws.amazon.com/ann.jspa?annID=3557 Announcement: Heads-up – Longer AWS Storage Gateway volume and snapshot IDs coming in 2016>.
+-- <http://forums.aws.amazon.com/ann.jspa?annID=3557 Announcement: Heads-up – Longer Storage Gateway volume and snapshot IDs coming in 2016>.
 module Network.AWS.StorageGateway
   ( -- * Service Configuration
     defaultService,
@@ -97,11 +97,11 @@ module Network.AWS.StorageGateway
     DetachVolumeResponse (DetachVolumeResponse'),
     newDetachVolumeResponse,
 
-    -- ** CreateNFSFileShare
-    CreateNFSFileShare (CreateNFSFileShare'),
-    newCreateNFSFileShare,
-    CreateNFSFileShareResponse (CreateNFSFileShareResponse'),
-    newCreateNFSFileShareResponse,
+    -- ** DescribeSMBSettings
+    DescribeSMBSettings (DescribeSMBSettings'),
+    newDescribeSMBSettings,
+    DescribeSMBSettingsResponse (DescribeSMBSettingsResponse'),
+    newDescribeSMBSettingsResponse,
 
     -- ** RetrieveTapeArchive
     RetrieveTapeArchive (RetrieveTapeArchive'),
@@ -115,35 +115,23 @@ module Network.AWS.StorageGateway
     CancelArchivalResponse (CancelArchivalResponse'),
     newCancelArchivalResponse,
 
-    -- ** DescribeSMBSettings
-    DescribeSMBSettings (DescribeSMBSettings'),
-    newDescribeSMBSettings,
-    DescribeSMBSettingsResponse (DescribeSMBSettingsResponse'),
-    newDescribeSMBSettingsResponse,
+    -- ** DescribeFileSystemAssociations
+    DescribeFileSystemAssociations (DescribeFileSystemAssociations'),
+    newDescribeFileSystemAssociations,
+    DescribeFileSystemAssociationsResponse (DescribeFileSystemAssociationsResponse'),
+    newDescribeFileSystemAssociationsResponse,
 
-    -- ** AddWorkingStorage
-    AddWorkingStorage (AddWorkingStorage'),
-    newAddWorkingStorage,
-    AddWorkingStorageResponse (AddWorkingStorageResponse'),
-    newAddWorkingStorageResponse,
+    -- ** CreateNFSFileShare
+    CreateNFSFileShare (CreateNFSFileShare'),
+    newCreateNFSFileShare,
+    CreateNFSFileShareResponse (CreateNFSFileShareResponse'),
+    newCreateNFSFileShareResponse,
 
-    -- ** ListTapes (Paginated)
-    ListTapes (ListTapes'),
-    newListTapes,
-    ListTapesResponse (ListTapesResponse'),
-    newListTapesResponse,
-
-    -- ** ListVolumes (Paginated)
-    ListVolumes (ListVolumes'),
-    newListVolumes,
-    ListVolumesResponse (ListVolumesResponse'),
-    newListVolumesResponse,
-
-    -- ** DescribeSMBFileShares
-    DescribeSMBFileShares (DescribeSMBFileShares'),
-    newDescribeSMBFileShares,
-    DescribeSMBFileSharesResponse (DescribeSMBFileSharesResponse'),
-    newDescribeSMBFileSharesResponse,
+    -- ** DisassociateFileSystem
+    DisassociateFileSystem (DisassociateFileSystem'),
+    newDisassociateFileSystem,
+    DisassociateFileSystemResponse (DisassociateFileSystemResponse'),
+    newDisassociateFileSystemResponse,
 
     -- ** DescribeCache
     DescribeCache (DescribeCache'),
@@ -151,29 +139,23 @@ module Network.AWS.StorageGateway
     DescribeCacheResponse (DescribeCacheResponse'),
     newDescribeCacheResponse,
 
-    -- ** UpdateMaintenanceStartTime
-    UpdateMaintenanceStartTime (UpdateMaintenanceStartTime'),
-    newUpdateMaintenanceStartTime,
-    UpdateMaintenanceStartTimeResponse (UpdateMaintenanceStartTimeResponse'),
-    newUpdateMaintenanceStartTimeResponse,
-
-    -- ** DescribeGatewayInformation
-    DescribeGatewayInformation (DescribeGatewayInformation'),
-    newDescribeGatewayInformation,
-    DescribeGatewayInformationResponse (DescribeGatewayInformationResponse'),
-    newDescribeGatewayInformationResponse,
-
-    -- ** ActivateGateway
-    ActivateGateway (ActivateGateway'),
-    newActivateGateway,
-    ActivateGatewayResponse (ActivateGatewayResponse'),
-    newActivateGatewayResponse,
-
     -- ** RefreshCache
     RefreshCache (RefreshCache'),
     newRefreshCache,
     RefreshCacheResponse (RefreshCacheResponse'),
     newRefreshCacheResponse,
+
+    -- ** ListTapes (Paginated)
+    ListTapes (ListTapes'),
+    newListTapes,
+    ListTapesResponse (ListTapesResponse'),
+    newListTapesResponse,
+
+    -- ** DescribeSMBFileShares
+    DescribeSMBFileShares (DescribeSMBFileShares'),
+    newDescribeSMBFileShares,
+    DescribeSMBFileSharesResponse (DescribeSMBFileSharesResponse'),
+    newDescribeSMBFileSharesResponse,
 
     -- ** UpdateNFSFileShare
     UpdateNFSFileShare (UpdateNFSFileShare'),
@@ -181,11 +163,35 @@ module Network.AWS.StorageGateway
     UpdateNFSFileShareResponse (UpdateNFSFileShareResponse'),
     newUpdateNFSFileShareResponse,
 
-    -- ** DescribeTapes (Paginated)
-    DescribeTapes (DescribeTapes'),
-    newDescribeTapes,
-    DescribeTapesResponse (DescribeTapesResponse'),
-    newDescribeTapesResponse,
+    -- ** DescribeGatewayInformation
+    DescribeGatewayInformation (DescribeGatewayInformation'),
+    newDescribeGatewayInformation,
+    DescribeGatewayInformationResponse (DescribeGatewayInformationResponse'),
+    newDescribeGatewayInformationResponse,
+
+    -- ** ListVolumes (Paginated)
+    ListVolumes (ListVolumes'),
+    newListVolumes,
+    ListVolumesResponse (ListVolumesResponse'),
+    newListVolumesResponse,
+
+    -- ** AddWorkingStorage
+    AddWorkingStorage (AddWorkingStorage'),
+    newAddWorkingStorage,
+    AddWorkingStorageResponse (AddWorkingStorageResponse'),
+    newAddWorkingStorageResponse,
+
+    -- ** UpdateMaintenanceStartTime
+    UpdateMaintenanceStartTime (UpdateMaintenanceStartTime'),
+    newUpdateMaintenanceStartTime,
+    UpdateMaintenanceStartTimeResponse (UpdateMaintenanceStartTimeResponse'),
+    newUpdateMaintenanceStartTimeResponse,
+
+    -- ** ActivateGateway
+    ActivateGateway (ActivateGateway'),
+    newActivateGateway,
+    ActivateGatewayResponse (ActivateGatewayResponse'),
+    newActivateGatewayResponse,
 
     -- ** ListVolumeRecoveryPoints
     ListVolumeRecoveryPoints (ListVolumeRecoveryPoints'),
@@ -193,17 +199,23 @@ module Network.AWS.StorageGateway
     ListVolumeRecoveryPointsResponse (ListVolumeRecoveryPointsResponse'),
     newListVolumeRecoveryPointsResponse,
 
+    -- ** DescribeAvailabilityMonitorTest
+    DescribeAvailabilityMonitorTest (DescribeAvailabilityMonitorTest'),
+    newDescribeAvailabilityMonitorTest,
+    DescribeAvailabilityMonitorTestResponse (DescribeAvailabilityMonitorTestResponse'),
+    newDescribeAvailabilityMonitorTestResponse,
+
     -- ** UpdateSMBFileShare
     UpdateSMBFileShare (UpdateSMBFileShare'),
     newUpdateSMBFileShare,
     UpdateSMBFileShareResponse (UpdateSMBFileShareResponse'),
     newUpdateSMBFileShareResponse,
 
-    -- ** DescribeAvailabilityMonitorTest
-    DescribeAvailabilityMonitorTest (DescribeAvailabilityMonitorTest'),
-    newDescribeAvailabilityMonitorTest,
-    DescribeAvailabilityMonitorTestResponse (DescribeAvailabilityMonitorTestResponse'),
-    newDescribeAvailabilityMonitorTestResponse,
+    -- ** DescribeTapes (Paginated)
+    DescribeTapes (DescribeTapes'),
+    newDescribeTapes,
+    DescribeTapesResponse (DescribeTapesResponse'),
+    newDescribeTapesResponse,
 
     -- ** RemoveTagsFromResource
     RemoveTagsFromResource (RemoveTagsFromResource'),
@@ -229,11 +241,11 @@ module Network.AWS.StorageGateway
     CreateSMBFileShareResponse (CreateSMBFileShareResponse'),
     newCreateSMBFileShareResponse,
 
-    -- ** UpdateGatewaySoftwareNow
-    UpdateGatewaySoftwareNow (UpdateGatewaySoftwareNow'),
-    newUpdateGatewaySoftwareNow,
-    UpdateGatewaySoftwareNowResponse (UpdateGatewaySoftwareNowResponse'),
-    newUpdateGatewaySoftwareNowResponse,
+    -- ** UpdateSMBSecurityStrategy
+    UpdateSMBSecurityStrategy (UpdateSMBSecurityStrategy'),
+    newUpdateSMBSecurityStrategy,
+    UpdateSMBSecurityStrategyResponse (UpdateSMBSecurityStrategyResponse'),
+    newUpdateSMBSecurityStrategyResponse,
 
     -- ** StartGateway
     StartGateway (StartGateway'),
@@ -241,17 +253,11 @@ module Network.AWS.StorageGateway
     StartGatewayResponse (StartGatewayResponse'),
     newStartGatewayResponse,
 
-    -- ** UpdateSMBSecurityStrategy
-    UpdateSMBSecurityStrategy (UpdateSMBSecurityStrategy'),
-    newUpdateSMBSecurityStrategy,
-    UpdateSMBSecurityStrategyResponse (UpdateSMBSecurityStrategyResponse'),
-    newUpdateSMBSecurityStrategyResponse,
-
-    -- ** CreateTapePool
-    CreateTapePool (CreateTapePool'),
-    newCreateTapePool,
-    CreateTapePoolResponse (CreateTapePoolResponse'),
-    newCreateTapePoolResponse,
+    -- ** UpdateGatewaySoftwareNow
+    UpdateGatewaySoftwareNow (UpdateGatewaySoftwareNow'),
+    newUpdateGatewaySoftwareNow,
+    UpdateGatewaySoftwareNowResponse (UpdateGatewaySoftwareNowResponse'),
+    newUpdateGatewaySoftwareNowResponse,
 
     -- ** CancelRetrieval
     CancelRetrieval (CancelRetrieval'),
@@ -259,11 +265,11 @@ module Network.AWS.StorageGateway
     CancelRetrievalResponse (CancelRetrievalResponse'),
     newCancelRetrievalResponse,
 
-    -- ** DescribeBandwidthRateLimit
-    DescribeBandwidthRateLimit (DescribeBandwidthRateLimit'),
-    newDescribeBandwidthRateLimit,
-    DescribeBandwidthRateLimitResponse (DescribeBandwidthRateLimitResponse'),
-    newDescribeBandwidthRateLimitResponse,
+    -- ** CreateTapePool
+    CreateTapePool (CreateTapePool'),
+    newCreateTapePool,
+    CreateTapePoolResponse (CreateTapePoolResponse'),
+    newCreateTapePoolResponse,
 
     -- ** ListTapePools (Paginated)
     ListTapePools (ListTapePools'),
@@ -271,23 +277,11 @@ module Network.AWS.StorageGateway
     ListTapePoolsResponse (ListTapePoolsResponse'),
     newListTapePoolsResponse,
 
-    -- ** JoinDomain
-    JoinDomain (JoinDomain'),
-    newJoinDomain,
-    JoinDomainResponse (JoinDomainResponse'),
-    newJoinDomainResponse,
-
-    -- ** ListFileShares (Paginated)
-    ListFileShares (ListFileShares'),
-    newListFileShares,
-    ListFileSharesResponse (ListFileSharesResponse'),
-    newListFileSharesResponse,
-
-    -- ** ListVolumeInitiators
-    ListVolumeInitiators (ListVolumeInitiators'),
-    newListVolumeInitiators,
-    ListVolumeInitiatorsResponse (ListVolumeInitiatorsResponse'),
-    newListVolumeInitiatorsResponse,
+    -- ** DescribeBandwidthRateLimit
+    DescribeBandwidthRateLimit (DescribeBandwidthRateLimit'),
+    newDescribeBandwidthRateLimit,
+    DescribeBandwidthRateLimitResponse (DescribeBandwidthRateLimitResponse'),
+    newDescribeBandwidthRateLimitResponse,
 
     -- ** CreateTapeWithBarcode
     CreateTapeWithBarcode (CreateTapeWithBarcode'),
@@ -295,17 +289,23 @@ module Network.AWS.StorageGateway
     CreateTapeWithBarcodeResponse (CreateTapeWithBarcodeResponse'),
     newCreateTapeWithBarcodeResponse,
 
-    -- ** SetLocalConsolePassword
-    SetLocalConsolePassword (SetLocalConsolePassword'),
-    newSetLocalConsolePassword,
-    SetLocalConsolePasswordResponse (SetLocalConsolePasswordResponse'),
-    newSetLocalConsolePasswordResponse,
+    -- ** JoinDomain
+    JoinDomain (JoinDomain'),
+    newJoinDomain,
+    JoinDomainResponse (JoinDomainResponse'),
+    newJoinDomainResponse,
 
-    -- ** DescribeChapCredentials
-    DescribeChapCredentials (DescribeChapCredentials'),
-    newDescribeChapCredentials,
-    DescribeChapCredentialsResponse (DescribeChapCredentialsResponse'),
-    newDescribeChapCredentialsResponse,
+    -- ** ListVolumeInitiators
+    ListVolumeInitiators (ListVolumeInitiators'),
+    newListVolumeInitiators,
+    ListVolumeInitiatorsResponse (ListVolumeInitiatorsResponse'),
+    newListVolumeInitiatorsResponse,
+
+    -- ** ListFileShares (Paginated)
+    ListFileShares (ListFileShares'),
+    newListFileShares,
+    ListFileSharesResponse (ListFileSharesResponse'),
+    newListFileSharesResponse,
 
     -- ** CreateTapes
     CreateTapes (CreateTapes'),
@@ -325,11 +325,23 @@ module Network.AWS.StorageGateway
     CreateCachediSCSIVolumeResponse (CreateCachediSCSIVolumeResponse'),
     newCreateCachediSCSIVolumeResponse,
 
-    -- ** DescribeSnapshotSchedule
-    DescribeSnapshotSchedule (DescribeSnapshotSchedule'),
-    newDescribeSnapshotSchedule,
-    DescribeSnapshotScheduleResponse (DescribeSnapshotScheduleResponse'),
-    newDescribeSnapshotScheduleResponse,
+    -- ** SetLocalConsolePassword
+    SetLocalConsolePassword (SetLocalConsolePassword'),
+    newSetLocalConsolePassword,
+    SetLocalConsolePasswordResponse (SetLocalConsolePasswordResponse'),
+    newSetLocalConsolePasswordResponse,
+
+    -- ** AssociateFileSystem
+    AssociateFileSystem (AssociateFileSystem'),
+    newAssociateFileSystem,
+    AssociateFileSystemResponse (AssociateFileSystemResponse'),
+    newAssociateFileSystemResponse,
+
+    -- ** DescribeChapCredentials
+    DescribeChapCredentials (DescribeChapCredentials'),
+    newDescribeChapCredentials,
+    DescribeChapCredentialsResponse (DescribeChapCredentialsResponse'),
+    newDescribeChapCredentialsResponse,
 
     -- ** UpdateBandwidthRateLimitSchedule
     UpdateBandwidthRateLimitSchedule (UpdateBandwidthRateLimitSchedule'),
@@ -343,11 +355,11 @@ module Network.AWS.StorageGateway
     DisableGatewayResponse (DisableGatewayResponse'),
     newDisableGatewayResponse,
 
-    -- ** CreateStorediSCSIVolume
-    CreateStorediSCSIVolume (CreateStorediSCSIVolume'),
-    newCreateStorediSCSIVolume,
-    CreateStorediSCSIVolumeResponse (CreateStorediSCSIVolumeResponse'),
-    newCreateStorediSCSIVolumeResponse,
+    -- ** DescribeSnapshotSchedule
+    DescribeSnapshotSchedule (DescribeSnapshotSchedule'),
+    newDescribeSnapshotSchedule,
+    DescribeSnapshotScheduleResponse (DescribeSnapshotScheduleResponse'),
+    newDescribeSnapshotScheduleResponse,
 
     -- ** DescribeTapeArchives (Paginated)
     DescribeTapeArchives (DescribeTapeArchives'),
@@ -355,29 +367,17 @@ module Network.AWS.StorageGateway
     DescribeTapeArchivesResponse (DescribeTapeArchivesResponse'),
     newDescribeTapeArchivesResponse,
 
-    -- ** DeleteTape
-    DeleteTape (DeleteTape'),
-    newDeleteTape,
-    DeleteTapeResponse (DeleteTapeResponse'),
-    newDeleteTapeResponse,
-
-    -- ** ResetCache
-    ResetCache (ResetCache'),
-    newResetCache,
-    ResetCacheResponse (ResetCacheResponse'),
-    newResetCacheResponse,
+    -- ** CreateStorediSCSIVolume
+    CreateStorediSCSIVolume (CreateStorediSCSIVolume'),
+    newCreateStorediSCSIVolume,
+    CreateStorediSCSIVolumeResponse (CreateStorediSCSIVolumeResponse'),
+    newCreateStorediSCSIVolumeResponse,
 
     -- ** AddTagsToResource
     AddTagsToResource (AddTagsToResource'),
     newAddTagsToResource,
     AddTagsToResourceResponse (AddTagsToResourceResponse'),
     newAddTagsToResourceResponse,
-
-    -- ** SetSMBGuestPassword
-    SetSMBGuestPassword (SetSMBGuestPassword'),
-    newSetSMBGuestPassword,
-    SetSMBGuestPasswordResponse (SetSMBGuestPasswordResponse'),
-    newSetSMBGuestPasswordResponse,
 
     -- ** DeleteGateway
     DeleteGateway (DeleteGateway'),
@@ -391,11 +391,11 @@ module Network.AWS.StorageGateway
     CreateSnapshotFromVolumeRecoveryPointResponse (CreateSnapshotFromVolumeRecoveryPointResponse'),
     newCreateSnapshotFromVolumeRecoveryPointResponse,
 
-    -- ** UpdateBandwidthRateLimit
-    UpdateBandwidthRateLimit (UpdateBandwidthRateLimit'),
-    newUpdateBandwidthRateLimit,
-    UpdateBandwidthRateLimitResponse (UpdateBandwidthRateLimitResponse'),
-    newUpdateBandwidthRateLimitResponse,
+    -- ** DeleteBandwidthRateLimit
+    DeleteBandwidthRateLimit (DeleteBandwidthRateLimit'),
+    newDeleteBandwidthRateLimit,
+    DeleteBandwidthRateLimitResponse (DeleteBandwidthRateLimitResponse'),
+    newDeleteBandwidthRateLimitResponse,
 
     -- ** DescribeTapeRecoveryPoints (Paginated)
     DescribeTapeRecoveryPoints (DescribeTapeRecoveryPoints'),
@@ -403,23 +403,17 @@ module Network.AWS.StorageGateway
     DescribeTapeRecoveryPointsResponse (DescribeTapeRecoveryPointsResponse'),
     newDescribeTapeRecoveryPointsResponse,
 
-    -- ** DeleteVolume
-    DeleteVolume (DeleteVolume'),
-    newDeleteVolume,
-    DeleteVolumeResponse (DeleteVolumeResponse'),
-    newDeleteVolumeResponse,
+    -- ** SetSMBGuestPassword
+    SetSMBGuestPassword (SetSMBGuestPassword'),
+    newSetSMBGuestPassword,
+    SetSMBGuestPasswordResponse (SetSMBGuestPasswordResponse'),
+    newSetSMBGuestPasswordResponse,
 
-    -- ** ListLocalDisks
-    ListLocalDisks (ListLocalDisks'),
-    newListLocalDisks,
-    ListLocalDisksResponse (ListLocalDisksResponse'),
-    newListLocalDisksResponse,
-
-    -- ** DeleteBandwidthRateLimit
-    DeleteBandwidthRateLimit (DeleteBandwidthRateLimit'),
-    newDeleteBandwidthRateLimit,
-    DeleteBandwidthRateLimitResponse (DeleteBandwidthRateLimitResponse'),
-    newDeleteBandwidthRateLimitResponse,
+    -- ** UpdateBandwidthRateLimit
+    UpdateBandwidthRateLimit (UpdateBandwidthRateLimit'),
+    newUpdateBandwidthRateLimit,
+    UpdateBandwidthRateLimitResponse (UpdateBandwidthRateLimitResponse'),
+    newUpdateBandwidthRateLimitResponse,
 
     -- ** RetrieveTapeRecoveryPoint
     RetrieveTapeRecoveryPoint (RetrieveTapeRecoveryPoint'),
@@ -433,6 +427,36 @@ module Network.AWS.StorageGateway
     ListGatewaysResponse (ListGatewaysResponse'),
     newListGatewaysResponse,
 
+    -- ** ListLocalDisks
+    ListLocalDisks (ListLocalDisks'),
+    newListLocalDisks,
+    ListLocalDisksResponse (ListLocalDisksResponse'),
+    newListLocalDisksResponse,
+
+    -- ** DeleteVolume
+    DeleteVolume (DeleteVolume'),
+    newDeleteVolume,
+    DeleteVolumeResponse (DeleteVolumeResponse'),
+    newDeleteVolumeResponse,
+
+    -- ** DeleteTape
+    DeleteTape (DeleteTape'),
+    newDeleteTape,
+    DeleteTapeResponse (DeleteTapeResponse'),
+    newDeleteTapeResponse,
+
+    -- ** ResetCache
+    ResetCache (ResetCache'),
+    newResetCache,
+    ResetCacheResponse (ResetCacheResponse'),
+    newResetCacheResponse,
+
+    -- ** DescribeUploadBuffer
+    DescribeUploadBuffer (DescribeUploadBuffer'),
+    newDescribeUploadBuffer,
+    DescribeUploadBufferResponse (DescribeUploadBufferResponse'),
+    newDescribeUploadBufferResponse,
+
     -- ** DescribeNFSFileShares
     DescribeNFSFileShares (DescribeNFSFileShares'),
     newDescribeNFSFileShares,
@@ -445,23 +469,23 @@ module Network.AWS.StorageGateway
     DescribeStorediSCSIVolumesResponse (DescribeStorediSCSIVolumesResponse'),
     newDescribeStorediSCSIVolumesResponse,
 
-    -- ** DescribeUploadBuffer
-    DescribeUploadBuffer (DescribeUploadBuffer'),
-    newDescribeUploadBuffer,
-    DescribeUploadBufferResponse (DescribeUploadBufferResponse'),
-    newDescribeUploadBufferResponse,
-
-    -- ** StartAvailabilityMonitorTest
-    StartAvailabilityMonitorTest (StartAvailabilityMonitorTest'),
-    newStartAvailabilityMonitorTest,
-    StartAvailabilityMonitorTestResponse (StartAvailabilityMonitorTestResponse'),
-    newStartAvailabilityMonitorTestResponse,
-
     -- ** DeleteChapCredentials
     DeleteChapCredentials (DeleteChapCredentials'),
     newDeleteChapCredentials,
     DeleteChapCredentialsResponse (DeleteChapCredentialsResponse'),
     newDeleteChapCredentialsResponse,
+
+    -- ** ListFileSystemAssociations (Paginated)
+    ListFileSystemAssociations (ListFileSystemAssociations'),
+    newListFileSystemAssociations,
+    ListFileSystemAssociationsResponse (ListFileSystemAssociationsResponse'),
+    newListFileSystemAssociationsResponse,
+
+    -- ** UpdateFileSystemAssociation
+    UpdateFileSystemAssociation (UpdateFileSystemAssociation'),
+    newUpdateFileSystemAssociation,
+    UpdateFileSystemAssociationResponse (UpdateFileSystemAssociationResponse'),
+    newUpdateFileSystemAssociationResponse,
 
     -- ** UpdateChapCredentials
     UpdateChapCredentials (UpdateChapCredentials'),
@@ -469,35 +493,11 @@ module Network.AWS.StorageGateway
     UpdateChapCredentialsResponse (UpdateChapCredentialsResponse'),
     newUpdateChapCredentialsResponse,
 
-    -- ** DeleteSnapshotSchedule
-    DeleteSnapshotSchedule (DeleteSnapshotSchedule'),
-    newDeleteSnapshotSchedule,
-    DeleteSnapshotScheduleResponse (DeleteSnapshotScheduleResponse'),
-    newDeleteSnapshotScheduleResponse,
-
-    -- ** ShutdownGateway
-    ShutdownGateway (ShutdownGateway'),
-    newShutdownGateway,
-    ShutdownGatewayResponse (ShutdownGatewayResponse'),
-    newShutdownGatewayResponse,
-
-    -- ** DescribeBandwidthRateLimitSchedule
-    DescribeBandwidthRateLimitSchedule (DescribeBandwidthRateLimitSchedule'),
-    newDescribeBandwidthRateLimitSchedule,
-    DescribeBandwidthRateLimitScheduleResponse (DescribeBandwidthRateLimitScheduleResponse'),
-    newDescribeBandwidthRateLimitScheduleResponse,
-
-    -- ** DescribeVTLDevices (Paginated)
-    DescribeVTLDevices (DescribeVTLDevices'),
-    newDescribeVTLDevices,
-    DescribeVTLDevicesResponse (DescribeVTLDevicesResponse'),
-    newDescribeVTLDevicesResponse,
-
-    -- ** CreateSnapshot
-    CreateSnapshot (CreateSnapshot'),
-    newCreateSnapshot,
-    CreateSnapshotResponse (CreateSnapshotResponse'),
-    newCreateSnapshotResponse,
+    -- ** StartAvailabilityMonitorTest
+    StartAvailabilityMonitorTest (StartAvailabilityMonitorTest'),
+    newStartAvailabilityMonitorTest,
+    StartAvailabilityMonitorTestResponse (StartAvailabilityMonitorTestResponse'),
+    newStartAvailabilityMonitorTestResponse,
 
     -- ** UpdateSnapshotSchedule
     UpdateSnapshotSchedule (UpdateSnapshotSchedule'),
@@ -505,11 +505,17 @@ module Network.AWS.StorageGateway
     UpdateSnapshotScheduleResponse (UpdateSnapshotScheduleResponse'),
     newUpdateSnapshotScheduleResponse,
 
-    -- ** UpdateSMBFileShareVisibility
-    UpdateSMBFileShareVisibility (UpdateSMBFileShareVisibility'),
-    newUpdateSMBFileShareVisibility,
-    UpdateSMBFileShareVisibilityResponse (UpdateSMBFileShareVisibilityResponse'),
-    newUpdateSMBFileShareVisibilityResponse,
+    -- ** DescribeVTLDevices (Paginated)
+    DescribeVTLDevices (DescribeVTLDevices'),
+    newDescribeVTLDevices,
+    DescribeVTLDevicesResponse (DescribeVTLDevicesResponse'),
+    newDescribeVTLDevicesResponse,
+
+    -- ** DeleteSnapshotSchedule
+    DeleteSnapshotSchedule (DeleteSnapshotSchedule'),
+    newDeleteSnapshotSchedule,
+    DeleteSnapshotScheduleResponse (DeleteSnapshotScheduleResponse'),
+    newDeleteSnapshotScheduleResponse,
 
     -- ** ListAutomaticTapeCreationPolicies
     ListAutomaticTapeCreationPolicies (ListAutomaticTapeCreationPolicies'),
@@ -517,53 +523,29 @@ module Network.AWS.StorageGateway
     ListAutomaticTapeCreationPoliciesResponse (ListAutomaticTapeCreationPoliciesResponse'),
     newListAutomaticTapeCreationPoliciesResponse,
 
-    -- ** AddCache
-    AddCache (AddCache'),
-    newAddCache,
-    AddCacheResponse (AddCacheResponse'),
-    newAddCacheResponse,
+    -- ** CreateSnapshot
+    CreateSnapshot (CreateSnapshot'),
+    newCreateSnapshot,
+    CreateSnapshotResponse (CreateSnapshotResponse'),
+    newCreateSnapshotResponse,
 
-    -- ** NotifyWhenUploaded
-    NotifyWhenUploaded (NotifyWhenUploaded'),
-    newNotifyWhenUploaded,
-    NotifyWhenUploadedResponse (NotifyWhenUploadedResponse'),
-    newNotifyWhenUploadedResponse,
+    -- ** ShutdownGateway
+    ShutdownGateway (ShutdownGateway'),
+    newShutdownGateway,
+    ShutdownGatewayResponse (ShutdownGatewayResponse'),
+    newShutdownGatewayResponse,
 
-    -- ** DescribeCachediSCSIVolumes
-    DescribeCachediSCSIVolumes (DescribeCachediSCSIVolumes'),
-    newDescribeCachediSCSIVolumes,
-    DescribeCachediSCSIVolumesResponse (DescribeCachediSCSIVolumesResponse'),
-    newDescribeCachediSCSIVolumesResponse,
+    -- ** UpdateSMBFileShareVisibility
+    UpdateSMBFileShareVisibility (UpdateSMBFileShareVisibility'),
+    newUpdateSMBFileShareVisibility,
+    UpdateSMBFileShareVisibilityResponse (UpdateSMBFileShareVisibilityResponse'),
+    newUpdateSMBFileShareVisibilityResponse,
 
-    -- ** DeleteAutomaticTapeCreationPolicy
-    DeleteAutomaticTapeCreationPolicy (DeleteAutomaticTapeCreationPolicy'),
-    newDeleteAutomaticTapeCreationPolicy,
-    DeleteAutomaticTapeCreationPolicyResponse (DeleteAutomaticTapeCreationPolicyResponse'),
-    newDeleteAutomaticTapeCreationPolicyResponse,
-
-    -- ** UpdateAutomaticTapeCreationPolicy
-    UpdateAutomaticTapeCreationPolicy (UpdateAutomaticTapeCreationPolicy'),
-    newUpdateAutomaticTapeCreationPolicy,
-    UpdateAutomaticTapeCreationPolicyResponse (UpdateAutomaticTapeCreationPolicyResponse'),
-    newUpdateAutomaticTapeCreationPolicyResponse,
-
-    -- ** DescribeWorkingStorage
-    DescribeWorkingStorage (DescribeWorkingStorage'),
-    newDescribeWorkingStorage,
-    DescribeWorkingStorageResponse (DescribeWorkingStorageResponse'),
-    newDescribeWorkingStorageResponse,
-
-    -- ** UpdateGatewayInformation
-    UpdateGatewayInformation (UpdateGatewayInformation'),
-    newUpdateGatewayInformation,
-    UpdateGatewayInformationResponse (UpdateGatewayInformationResponse'),
-    newUpdateGatewayInformationResponse,
-
-    -- ** DescribeMaintenanceStartTime
-    DescribeMaintenanceStartTime (DescribeMaintenanceStartTime'),
-    newDescribeMaintenanceStartTime,
-    DescribeMaintenanceStartTimeResponse (DescribeMaintenanceStartTimeResponse'),
-    newDescribeMaintenanceStartTimeResponse,
+    -- ** DescribeBandwidthRateLimitSchedule
+    DescribeBandwidthRateLimitSchedule (DescribeBandwidthRateLimitSchedule'),
+    newDescribeBandwidthRateLimitSchedule,
+    DescribeBandwidthRateLimitScheduleResponse (DescribeBandwidthRateLimitScheduleResponse'),
+    newDescribeBandwidthRateLimitScheduleResponse,
 
     -- ** AssignTapePool
     AssignTapePool (AssignTapePool'),
@@ -571,11 +553,65 @@ module Network.AWS.StorageGateway
     AssignTapePoolResponse (AssignTapePoolResponse'),
     newAssignTapePoolResponse,
 
+    -- ** DescribeCachediSCSIVolumes
+    DescribeCachediSCSIVolumes (DescribeCachediSCSIVolumes'),
+    newDescribeCachediSCSIVolumes,
+    DescribeCachediSCSIVolumesResponse (DescribeCachediSCSIVolumesResponse'),
+    newDescribeCachediSCSIVolumesResponse,
+
+    -- ** NotifyWhenUploaded
+    NotifyWhenUploaded (NotifyWhenUploaded'),
+    newNotifyWhenUploaded,
+    NotifyWhenUploadedResponse (NotifyWhenUploadedResponse'),
+    newNotifyWhenUploadedResponse,
+
+    -- ** DescribeMaintenanceStartTime
+    DescribeMaintenanceStartTime (DescribeMaintenanceStartTime'),
+    newDescribeMaintenanceStartTime,
+    DescribeMaintenanceStartTimeResponse (DescribeMaintenanceStartTimeResponse'),
+    newDescribeMaintenanceStartTimeResponse,
+
+    -- ** UpdateGatewayInformation
+    UpdateGatewayInformation (UpdateGatewayInformation'),
+    newUpdateGatewayInformation,
+    UpdateGatewayInformationResponse (UpdateGatewayInformationResponse'),
+    newUpdateGatewayInformationResponse,
+
+    -- ** DeleteAutomaticTapeCreationPolicy
+    DeleteAutomaticTapeCreationPolicy (DeleteAutomaticTapeCreationPolicy'),
+    newDeleteAutomaticTapeCreationPolicy,
+    DeleteAutomaticTapeCreationPolicyResponse (DeleteAutomaticTapeCreationPolicyResponse'),
+    newDeleteAutomaticTapeCreationPolicyResponse,
+
+    -- ** DescribeWorkingStorage
+    DescribeWorkingStorage (DescribeWorkingStorage'),
+    newDescribeWorkingStorage,
+    DescribeWorkingStorageResponse (DescribeWorkingStorageResponse'),
+    newDescribeWorkingStorageResponse,
+
     -- ** DeleteTapePool
     DeleteTapePool (DeleteTapePool'),
     newDeleteTapePool,
     DeleteTapePoolResponse (DeleteTapePoolResponse'),
     newDeleteTapePoolResponse,
+
+    -- ** UpdateAutomaticTapeCreationPolicy
+    UpdateAutomaticTapeCreationPolicy (UpdateAutomaticTapeCreationPolicy'),
+    newUpdateAutomaticTapeCreationPolicy,
+    UpdateAutomaticTapeCreationPolicyResponse (UpdateAutomaticTapeCreationPolicyResponse'),
+    newUpdateAutomaticTapeCreationPolicyResponse,
+
+    -- ** AddCache
+    AddCache (AddCache'),
+    newAddCache,
+    AddCacheResponse (AddCacheResponse'),
+    newAddCacheResponse,
+
+    -- ** AddUploadBuffer
+    AddUploadBuffer (AddUploadBuffer'),
+    newAddUploadBuffer,
+    AddUploadBufferResponse (AddUploadBufferResponse'),
+    newAddUploadBufferResponse,
 
     -- ** ListTagsForResource (Paginated)
     ListTagsForResource (ListTagsForResource'),
@@ -588,12 +624,6 @@ module Network.AWS.StorageGateway
     newDeleteFileShare,
     DeleteFileShareResponse (DeleteFileShareResponse'),
     newDeleteFileShareResponse,
-
-    -- ** AddUploadBuffer
-    AddUploadBuffer (AddUploadBuffer'),
-    newAddUploadBuffer,
-    AddUploadBufferResponse (AddUploadBufferResponse'),
-    newAddUploadBufferResponse,
 
     -- * Types
 
@@ -608,6 +638,9 @@ module Network.AWS.StorageGateway
 
     -- ** FileShareType
     FileShareType (..),
+
+    -- ** GatewayCapacity
+    GatewayCapacity (..),
 
     -- ** HostEnvironment
     HostEnvironment (..),
@@ -659,9 +692,21 @@ module Network.AWS.StorageGateway
     Disk (Disk'),
     newDisk,
 
+    -- ** EndpointNetworkConfiguration
+    EndpointNetworkConfiguration (EndpointNetworkConfiguration'),
+    newEndpointNetworkConfiguration,
+
     -- ** FileShareInfo
     FileShareInfo (FileShareInfo'),
     newFileShareInfo,
+
+    -- ** FileSystemAssociationInfo
+    FileSystemAssociationInfo (FileSystemAssociationInfo'),
+    newFileSystemAssociationInfo,
+
+    -- ** FileSystemAssociationSummary
+    FileSystemAssociationSummary (FileSystemAssociationSummary'),
+    newFileSystemAssociationSummary,
 
     -- ** GatewayInfo
     GatewayInfo (GatewayInfo'),
@@ -735,6 +780,7 @@ import Network.AWS.StorageGateway.AddTagsToResource
 import Network.AWS.StorageGateway.AddUploadBuffer
 import Network.AWS.StorageGateway.AddWorkingStorage
 import Network.AWS.StorageGateway.AssignTapePool
+import Network.AWS.StorageGateway.AssociateFileSystem
 import Network.AWS.StorageGateway.AttachVolume
 import Network.AWS.StorageGateway.CancelArchival
 import Network.AWS.StorageGateway.CancelRetrieval
@@ -763,6 +809,7 @@ import Network.AWS.StorageGateway.DescribeBandwidthRateLimitSchedule
 import Network.AWS.StorageGateway.DescribeCache
 import Network.AWS.StorageGateway.DescribeCachediSCSIVolumes
 import Network.AWS.StorageGateway.DescribeChapCredentials
+import Network.AWS.StorageGateway.DescribeFileSystemAssociations
 import Network.AWS.StorageGateway.DescribeGatewayInformation
 import Network.AWS.StorageGateway.DescribeMaintenanceStartTime
 import Network.AWS.StorageGateway.DescribeNFSFileShares
@@ -778,10 +825,12 @@ import Network.AWS.StorageGateway.DescribeVTLDevices
 import Network.AWS.StorageGateway.DescribeWorkingStorage
 import Network.AWS.StorageGateway.DetachVolume
 import Network.AWS.StorageGateway.DisableGateway
+import Network.AWS.StorageGateway.DisassociateFileSystem
 import Network.AWS.StorageGateway.JoinDomain
 import Network.AWS.StorageGateway.Lens
 import Network.AWS.StorageGateway.ListAutomaticTapeCreationPolicies
 import Network.AWS.StorageGateway.ListFileShares
+import Network.AWS.StorageGateway.ListFileSystemAssociations
 import Network.AWS.StorageGateway.ListGateways
 import Network.AWS.StorageGateway.ListLocalDisks
 import Network.AWS.StorageGateway.ListTagsForResource
@@ -806,6 +855,7 @@ import Network.AWS.StorageGateway.UpdateAutomaticTapeCreationPolicy
 import Network.AWS.StorageGateway.UpdateBandwidthRateLimit
 import Network.AWS.StorageGateway.UpdateBandwidthRateLimitSchedule
 import Network.AWS.StorageGateway.UpdateChapCredentials
+import Network.AWS.StorageGateway.UpdateFileSystemAssociation
 import Network.AWS.StorageGateway.UpdateGatewayInformation
 import Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
 import Network.AWS.StorageGateway.UpdateMaintenanceStartTime

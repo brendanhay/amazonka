@@ -29,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 data VolumeRecoveryPointInfo = VolumeRecoveryPointInfo'
   { -- | The Amazon Resource Name (ARN) of the volume target.
     volumeARN :: Prelude.Maybe Prelude.Text,
-    -- | The size of the volume in bytes.
-    volumeSizeInBytes :: Prelude.Maybe Prelude.Integer,
     -- | The size of the data stored on the volume in bytes.
     --
     -- This value is not available for volumes created prior to May 13, 2015,
     -- until you store data on the volume.
     volumeUsageInBytes :: Prelude.Maybe Prelude.Integer,
+    -- | The size of the volume in bytes.
+    volumeSizeInBytes :: Prelude.Maybe Prelude.Integer,
     -- | The time the recovery point was taken.
     volumeRecoveryPointTime :: Prelude.Maybe Prelude.Text
   }
@@ -51,12 +51,12 @@ data VolumeRecoveryPointInfo = VolumeRecoveryPointInfo'
 --
 -- 'volumeARN', 'volumeRecoveryPointInfo_volumeARN' - The Amazon Resource Name (ARN) of the volume target.
 --
--- 'volumeSizeInBytes', 'volumeRecoveryPointInfo_volumeSizeInBytes' - The size of the volume in bytes.
---
 -- 'volumeUsageInBytes', 'volumeRecoveryPointInfo_volumeUsageInBytes' - The size of the data stored on the volume in bytes.
 --
 -- This value is not available for volumes created prior to May 13, 2015,
 -- until you store data on the volume.
+--
+-- 'volumeSizeInBytes', 'volumeRecoveryPointInfo_volumeSizeInBytes' - The size of the volume in bytes.
 --
 -- 'volumeRecoveryPointTime', 'volumeRecoveryPointInfo_volumeRecoveryPointTime' - The time the recovery point was taken.
 newVolumeRecoveryPointInfo ::
@@ -65,8 +65,8 @@ newVolumeRecoveryPointInfo =
   VolumeRecoveryPointInfo'
     { volumeARN =
         Prelude.Nothing,
-      volumeSizeInBytes = Prelude.Nothing,
       volumeUsageInBytes = Prelude.Nothing,
+      volumeSizeInBytes = Prelude.Nothing,
       volumeRecoveryPointTime = Prelude.Nothing
     }
 
@@ -74,16 +74,16 @@ newVolumeRecoveryPointInfo =
 volumeRecoveryPointInfo_volumeARN :: Lens.Lens' VolumeRecoveryPointInfo (Prelude.Maybe Prelude.Text)
 volumeRecoveryPointInfo_volumeARN = Lens.lens (\VolumeRecoveryPointInfo' {volumeARN} -> volumeARN) (\s@VolumeRecoveryPointInfo' {} a -> s {volumeARN = a} :: VolumeRecoveryPointInfo)
 
--- | The size of the volume in bytes.
-volumeRecoveryPointInfo_volumeSizeInBytes :: Lens.Lens' VolumeRecoveryPointInfo (Prelude.Maybe Prelude.Integer)
-volumeRecoveryPointInfo_volumeSizeInBytes = Lens.lens (\VolumeRecoveryPointInfo' {volumeSizeInBytes} -> volumeSizeInBytes) (\s@VolumeRecoveryPointInfo' {} a -> s {volumeSizeInBytes = a} :: VolumeRecoveryPointInfo)
-
 -- | The size of the data stored on the volume in bytes.
 --
 -- This value is not available for volumes created prior to May 13, 2015,
 -- until you store data on the volume.
 volumeRecoveryPointInfo_volumeUsageInBytes :: Lens.Lens' VolumeRecoveryPointInfo (Prelude.Maybe Prelude.Integer)
 volumeRecoveryPointInfo_volumeUsageInBytes = Lens.lens (\VolumeRecoveryPointInfo' {volumeUsageInBytes} -> volumeUsageInBytes) (\s@VolumeRecoveryPointInfo' {} a -> s {volumeUsageInBytes = a} :: VolumeRecoveryPointInfo)
+
+-- | The size of the volume in bytes.
+volumeRecoveryPointInfo_volumeSizeInBytes :: Lens.Lens' VolumeRecoveryPointInfo (Prelude.Maybe Prelude.Integer)
+volumeRecoveryPointInfo_volumeSizeInBytes = Lens.lens (\VolumeRecoveryPointInfo' {volumeSizeInBytes} -> volumeSizeInBytes) (\s@VolumeRecoveryPointInfo' {} a -> s {volumeSizeInBytes = a} :: VolumeRecoveryPointInfo)
 
 -- | The time the recovery point was taken.
 volumeRecoveryPointInfo_volumeRecoveryPointTime :: Lens.Lens' VolumeRecoveryPointInfo (Prelude.Maybe Prelude.Text)
@@ -96,8 +96,8 @@ instance Core.FromJSON VolumeRecoveryPointInfo where
       ( \x ->
           VolumeRecoveryPointInfo'
             Prelude.<$> (x Core..:? "VolumeARN")
-            Prelude.<*> (x Core..:? "VolumeSizeInBytes")
             Prelude.<*> (x Core..:? "VolumeUsageInBytes")
+            Prelude.<*> (x Core..:? "VolumeSizeInBytes")
             Prelude.<*> (x Core..:? "VolumeRecoveryPointTime")
       )
 

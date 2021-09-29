@@ -24,7 +24,7 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.StorageGateway.Types.FileShareType
 
--- | Describes a file share.
+-- | Describes a file share. Only supported S3 File Gateway.
 --
 -- /See:/ 'newFileShareInfo' smart constructor.
 data FileShareInfo = FileShareInfo'

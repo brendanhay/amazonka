@@ -34,6 +34,7 @@ module Network.AWS.StorageGateway.UpdateGatewayInformation
 
     -- * Request Lenses
     updateGatewayInformation_gatewayName,
+    updateGatewayInformation_gatewayCapacity,
     updateGatewayInformation_gatewayTimezone,
     updateGatewayInformation_cloudWatchLogGroupARN,
     updateGatewayInformation_gatewayARN,
@@ -59,6 +60,8 @@ import Network.AWS.StorageGateway.Types
 -- | /See:/ 'newUpdateGatewayInformation' smart constructor.
 data UpdateGatewayInformation = UpdateGatewayInformation'
   { gatewayName :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the size of the gateway\'s metadata cache.
+    gatewayCapacity :: Prelude.Maybe GatewayCapacity,
     -- | A value that indicates the time zone of the gateway.
     gatewayTimezone :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that
@@ -81,6 +84,8 @@ data UpdateGatewayInformation = UpdateGatewayInformation'
 --
 -- 'gatewayName', 'updateGatewayInformation_gatewayName' - Undocumented member.
 --
+-- 'gatewayCapacity', 'updateGatewayInformation_gatewayCapacity' - Specifies the size of the gateway\'s metadata cache.
+--
 -- 'gatewayTimezone', 'updateGatewayInformation_gatewayTimezone' - A value that indicates the time zone of the gateway.
 --
 -- 'cloudWatchLogGroupARN', 'updateGatewayInformation_cloudWatchLogGroupARN' - The Amazon Resource Name (ARN) of the Amazon CloudWatch log group that
@@ -98,6 +103,7 @@ newUpdateGatewayInformation pGatewayARN_ =
   UpdateGatewayInformation'
     { gatewayName =
         Prelude.Nothing,
+      gatewayCapacity = Prelude.Nothing,
       gatewayTimezone = Prelude.Nothing,
       cloudWatchLogGroupARN = Prelude.Nothing,
       gatewayARN = pGatewayARN_
@@ -106,6 +112,10 @@ newUpdateGatewayInformation pGatewayARN_ =
 -- | Undocumented member.
 updateGatewayInformation_gatewayName :: Lens.Lens' UpdateGatewayInformation (Prelude.Maybe Prelude.Text)
 updateGatewayInformation_gatewayName = Lens.lens (\UpdateGatewayInformation' {gatewayName} -> gatewayName) (\s@UpdateGatewayInformation' {} a -> s {gatewayName = a} :: UpdateGatewayInformation)
+
+-- | Specifies the size of the gateway\'s metadata cache.
+updateGatewayInformation_gatewayCapacity :: Lens.Lens' UpdateGatewayInformation (Prelude.Maybe GatewayCapacity)
+updateGatewayInformation_gatewayCapacity = Lens.lens (\UpdateGatewayInformation' {gatewayCapacity} -> gatewayCapacity) (\s@UpdateGatewayInformation' {} a -> s {gatewayCapacity = a} :: UpdateGatewayInformation)
 
 -- | A value that indicates the time zone of the gateway.
 updateGatewayInformation_gatewayTimezone :: Lens.Lens' UpdateGatewayInformation (Prelude.Maybe Prelude.Text)
@@ -161,6 +171,8 @@ instance Core.ToJSON UpdateGatewayInformation where
     Core.object
       ( Prelude.catMaybes
           [ ("GatewayName" Core..=) Prelude.<$> gatewayName,
+            ("GatewayCapacity" Core..=)
+              Prelude.<$> gatewayCapacity,
             ("GatewayTimezone" Core..=)
               Prelude.<$> gatewayTimezone,
             ("CloudWatchLogGroupARN" Core..=)

@@ -54,10 +54,10 @@ import Network.AWS.StorageGateway.Types
 -- | /See:/ 'newCreateTapePool' smart constructor.
 data CreateTapePool = CreateTapePool'
   { -- | Tape retention lock can be configured in two modes. When configured in
-    -- governance mode, AWS accounts with specific IAM permissions are
-    -- authorized to remove the tape retention lock from archived virtual
-    -- tapes. When configured in compliance mode, the tape retention lock
-    -- cannot be removed by any user, including the root AWS account.
+    -- governance mode, accounts with specific IAM permissions are authorized
+    -- to remove the tape retention lock from archived virtual tapes. When
+    -- configured in compliance mode, the tape retention lock cannot be removed
+    -- by any user, including the root account.
     retentionLockType :: Prelude.Maybe RetentionLockType,
     -- | A list of up to 50 tags that can be assigned to tape pool. Each tag is a
     -- key-value pair.
@@ -89,10 +89,10 @@ data CreateTapePool = CreateTapePool'
 -- for backwards compatibility:
 --
 -- 'retentionLockType', 'createTapePool_retentionLockType' - Tape retention lock can be configured in two modes. When configured in
--- governance mode, AWS accounts with specific IAM permissions are
--- authorized to remove the tape retention lock from archived virtual
--- tapes. When configured in compliance mode, the tape retention lock
--- cannot be removed by any user, including the root AWS account.
+-- governance mode, accounts with specific IAM permissions are authorized
+-- to remove the tape retention lock from archived virtual tapes. When
+-- configured in compliance mode, the tape retention lock cannot be removed
+-- by any user, including the root account.
 --
 -- 'tags', 'createTapePool_tags' - A list of up to 50 tags that can be assigned to tape pool. Each tag is a
 -- key-value pair.
@@ -128,10 +128,10 @@ newCreateTapePool pPoolName_ pStorageClass_ =
     }
 
 -- | Tape retention lock can be configured in two modes. When configured in
--- governance mode, AWS accounts with specific IAM permissions are
--- authorized to remove the tape retention lock from archived virtual
--- tapes. When configured in compliance mode, the tape retention lock
--- cannot be removed by any user, including the root AWS account.
+-- governance mode, accounts with specific IAM permissions are authorized
+-- to remove the tape retention lock from archived virtual tapes. When
+-- configured in compliance mode, the tape retention lock cannot be removed
+-- by any user, including the root account.
 createTapePool_retentionLockType :: Lens.Lens' CreateTapePool (Prelude.Maybe RetentionLockType)
 createTapePool_retentionLockType = Lens.lens (\CreateTapePool' {retentionLockType} -> retentionLockType) (\s@CreateTapePool' {} a -> s {retentionLockType = a} :: CreateTapePool)
 
@@ -217,7 +217,7 @@ instance Core.ToQuery CreateTapePool where
 data CreateTapePoolResponse = CreateTapePoolResponse'
   { -- | The unique Amazon Resource Name (ARN) that represents the custom tape
     -- pool. Use the ListTapePools operation to return a list of tape pools for
-    -- your account and AWS Region.
+    -- your account and Region.
     poolARN :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -234,7 +234,7 @@ data CreateTapePoolResponse = CreateTapePoolResponse'
 --
 -- 'poolARN', 'createTapePoolResponse_poolARN' - The unique Amazon Resource Name (ARN) that represents the custom tape
 -- pool. Use the ListTapePools operation to return a list of tape pools for
--- your account and AWS Region.
+-- your account and Region.
 --
 -- 'httpStatus', 'createTapePoolResponse_httpStatus' - The response's http status code.
 newCreateTapePoolResponse ::
@@ -249,7 +249,7 @@ newCreateTapePoolResponse pHttpStatus_ =
 
 -- | The unique Amazon Resource Name (ARN) that represents the custom tape
 -- pool. Use the ListTapePools operation to return a list of tape pools for
--- your account and AWS Region.
+-- your account and Region.
 createTapePoolResponse_poolARN :: Lens.Lens' CreateTapePoolResponse (Prelude.Maybe Prelude.Text)
 createTapePoolResponse_poolARN = Lens.lens (\CreateTapePoolResponse' {poolARN} -> poolARN) (\s@CreateTapePoolResponse' {} a -> s {poolARN = a} :: CreateTapePoolResponse)
 

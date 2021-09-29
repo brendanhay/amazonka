@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a description of virtual tape library (VTL) devices for the
--- specified tape gateway. In the response, AWS Storage Gateway returns VTL
+-- specified tape gateway. In the response, Storage Gateway returns VTL
 -- device information.
 --
 -- This operation is only supported in the tape gateway type.
@@ -43,8 +43,8 @@ module Network.AWS.StorageGateway.DescribeVTLDevices
     newDescribeVTLDevicesResponse,
 
     -- * Response Lenses
-    describeVTLDevicesResponse_vTLDevices,
     describeVTLDevicesResponse_gatewayARN,
+    describeVTLDevicesResponse_vTLDevices,
     describeVTLDevicesResponse_marker,
     describeVTLDevicesResponse_httpStatus,
   )
@@ -167,8 +167,8 @@ instance Core.AWSRequest DescribeVTLDevices where
     Response.receiveJSON
       ( \s h x ->
           DescribeVTLDevicesResponse'
-            Prelude.<$> (x Core..?> "VTLDevices" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "GatewayARN")
+            Prelude.<$> (x Core..?> "GatewayARN")
+            Prelude.<*> (x Core..?> "VTLDevices" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -213,10 +213,10 @@ instance Core.ToQuery DescribeVTLDevices where
 --
 -- /See:/ 'newDescribeVTLDevicesResponse' smart constructor.
 data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse'
-  { -- | An array of VTL device objects composed of the Amazon Resource Name
+  { gatewayARN :: Prelude.Maybe Prelude.Text,
+    -- | An array of VTL device objects composed of the Amazon Resource Name
     -- (ARN) of the VTL devices.
     vTLDevices :: Prelude.Maybe [VTLDevice],
-    gatewayARN :: Prelude.Maybe Prelude.Text,
     -- | An opaque string that indicates the position at which the VTL devices
     -- that were fetched for description ended. Use the marker in your next
     -- request to fetch the next set of VTL devices in the list. If there are
@@ -236,10 +236,10 @@ data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'gatewayARN', 'describeVTLDevicesResponse_gatewayARN' - Undocumented member.
+--
 -- 'vTLDevices', 'describeVTLDevicesResponse_vTLDevices' - An array of VTL device objects composed of the Amazon Resource Name
 -- (ARN) of the VTL devices.
---
--- 'gatewayARN', 'describeVTLDevicesResponse_gatewayARN' - Undocumented member.
 --
 -- 'marker', 'describeVTLDevicesResponse_marker' - An opaque string that indicates the position at which the VTL devices
 -- that were fetched for description ended. Use the marker in your next
@@ -254,21 +254,21 @@ newDescribeVTLDevicesResponse ::
   DescribeVTLDevicesResponse
 newDescribeVTLDevicesResponse pHttpStatus_ =
   DescribeVTLDevicesResponse'
-    { vTLDevices =
+    { gatewayARN =
         Prelude.Nothing,
-      gatewayARN = Prelude.Nothing,
+      vTLDevices = Prelude.Nothing,
       marker = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
+
+-- | Undocumented member.
+describeVTLDevicesResponse_gatewayARN :: Lens.Lens' DescribeVTLDevicesResponse (Prelude.Maybe Prelude.Text)
+describeVTLDevicesResponse_gatewayARN = Lens.lens (\DescribeVTLDevicesResponse' {gatewayARN} -> gatewayARN) (\s@DescribeVTLDevicesResponse' {} a -> s {gatewayARN = a} :: DescribeVTLDevicesResponse)
 
 -- | An array of VTL device objects composed of the Amazon Resource Name
 -- (ARN) of the VTL devices.
 describeVTLDevicesResponse_vTLDevices :: Lens.Lens' DescribeVTLDevicesResponse (Prelude.Maybe [VTLDevice])
 describeVTLDevicesResponse_vTLDevices = Lens.lens (\DescribeVTLDevicesResponse' {vTLDevices} -> vTLDevices) (\s@DescribeVTLDevicesResponse' {} a -> s {vTLDevices = a} :: DescribeVTLDevicesResponse) Prelude.. Lens.mapping Lens._Coerce
-
--- | Undocumented member.
-describeVTLDevicesResponse_gatewayARN :: Lens.Lens' DescribeVTLDevicesResponse (Prelude.Maybe Prelude.Text)
-describeVTLDevicesResponse_gatewayARN = Lens.lens (\DescribeVTLDevicesResponse' {gatewayARN} -> gatewayARN) (\s@DescribeVTLDevicesResponse' {} a -> s {gatewayARN = a} :: DescribeVTLDevicesResponse)
 
 -- | An opaque string that indicates the position at which the VTL devices
 -- that were fetched for description ended. Use the marker in your next

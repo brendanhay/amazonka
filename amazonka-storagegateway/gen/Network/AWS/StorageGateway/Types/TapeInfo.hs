@@ -49,7 +49,7 @@ data TapeInfo = TapeInfo'
     -- | The date that the tape became subject to tape retention lock.
     retentionStartDate :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
-    -- operation to return a list of gateways for your account and AWS Region.
+    -- operation to return a list of gateways for your account and Region.
     gatewayARN :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -84,7 +84,7 @@ data TapeInfo = TapeInfo'
 -- 'retentionStartDate', 'tapeInfo_retentionStartDate' - The date that the tape became subject to tape retention lock.
 --
 -- 'gatewayARN', 'tapeInfo_gatewayARN' - The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and AWS Region.
+-- operation to return a list of gateways for your account and Region.
 newTapeInfo ::
   TapeInfo
 newTapeInfo =
@@ -135,7 +135,7 @@ tapeInfo_retentionStartDate :: Lens.Lens' TapeInfo (Prelude.Maybe Prelude.UTCTim
 tapeInfo_retentionStartDate = Lens.lens (\TapeInfo' {retentionStartDate} -> retentionStartDate) (\s@TapeInfo' {} a -> s {retentionStartDate = a} :: TapeInfo) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the gateway. Use the ListGateways
--- operation to return a list of gateways for your account and AWS Region.
+-- operation to return a list of gateways for your account and Region.
 tapeInfo_gatewayARN :: Lens.Lens' TapeInfo (Prelude.Maybe Prelude.Text)
 tapeInfo_gatewayARN = Lens.lens (\TapeInfo' {gatewayARN} -> gatewayARN) (\s@TapeInfo' {} a -> s {gatewayARN = a} :: TapeInfo)
 

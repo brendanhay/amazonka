@@ -21,11 +21,11 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Activates the gateway you previously deployed on your host. In the
--- activation process, you specify information such as the AWS Region that
--- you want to use for storing snapshots or tapes, the time zone for
--- scheduled snapshots the gateway snapshot schedule window, an activation
--- key, and a name for your gateway. The activation process also associates
--- your gateway with your account. For more information, see
+-- activation process, you specify information such as the Region that you
+-- want to use for storing snapshots or tapes, the time zone for scheduled
+-- snapshots the gateway snapshot schedule window, an activation key, and a
+-- name for your gateway. The activation process also associates your
+-- gateway with your account. For more information, see
 -- UpdateGatewayInformation.
 --
 -- You must turn on the gateway VM before you can activate your gateway.
@@ -37,8 +37,8 @@ module Network.AWS.StorageGateway.ActivateGateway
     -- * Request Lenses
     activateGateway_tapeDriveType,
     activateGateway_gatewayType,
-    activateGateway_mediumChangerType,
     activateGateway_tags,
+    activateGateway_mediumChangerType,
     activateGateway_activationKey,
     activateGateway_gatewayName,
     activateGateway_gatewayTimezone,
@@ -88,13 +88,8 @@ data ActivateGateway = ActivateGateway'
     -- is critical to all later functions of the gateway and cannot be changed
     -- after activation. The default value is @CACHED@.
     --
-    -- Valid Values: @STORED@ | @CACHED@ | @VTL@ | @FILE_S3@
+    -- Valid Values: @STORED@ | @CACHED@ | @VTL@ | @FILE_S3@ | @FILE_FSX_SMB|@
     gatewayType :: Prelude.Maybe Prelude.Text,
-    -- | The value that indicates the type of medium changer to use for tape
-    -- gateway. This field is optional.
-    --
-    -- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
-    mediumChangerType :: Prelude.Maybe Prelude.Text,
     -- | A list of up to 50 tags that you can assign to the gateway. Each tag is
     -- a key-value pair.
     --
@@ -103,6 +98,11 @@ data ActivateGateway = ActivateGateway'
     -- characters: + - = . _ : \/ \@. The maximum length of a tag\'s key is 128
     -- characters, and the maximum length for a tag\'s value is 256 characters.
     tags :: Prelude.Maybe [Tag],
+    -- | The value that indicates the type of medium changer to use for tape
+    -- gateway. This field is optional.
+    --
+    -- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
+    mediumChangerType :: Prelude.Maybe Prelude.Text,
     -- | Your gateway activation key. You can obtain the activation key by
     -- sending an HTTP GET request with redirects enabled to the gateway IP
     -- address (port 80). The redirect URL returned in the response provides
@@ -114,7 +114,7 @@ data ActivateGateway = ActivateGateway'
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html Getting activation key>
-    -- in the /AWS Storage Gateway User Guide/.
+    -- in the /Storage Gateway User Guide/.
     activationKey :: Prelude.Text,
     -- | The name you configured for your gateway.
     gatewayName :: Prelude.Text,
@@ -125,16 +125,16 @@ data ActivateGateway = ActivateGateway'
     -- example, for scheduling snapshots and your gateway\'s maintenance
     -- schedule.
     gatewayTimezone :: Prelude.Text,
-    -- | A value that indicates the AWS Region where you want to store your data.
-    -- The gateway AWS Region specified must be the same AWS Region as the AWS
-    -- Region in your @Host@ header in the request. For more information about
-    -- available AWS Regions and endpoints for AWS Storage Gateway, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/sg.html AWS Storage Gateway endpoints and quotas>
-    -- in the /AWS General Reference/.
+    -- | A value that indicates the Region where you want to store your data. The
+    -- gateway Region specified must be the same Region as the Region in your
+    -- @Host@ header in the request. For more information about available
+    -- Regions and endpoints for Storage Gateway, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/sg.html Storage Gateway endpoints and quotas>
+    -- in the /Amazon Web Services General Reference/.
     --
     -- Valid Values: See
-    -- <https://docs.aws.amazon.com/general/latest/gr/sg.html AWS Storage Gateway endpoints and quotas>
-    -- in the /AWS General Reference/.
+    -- <https://docs.aws.amazon.com/general/latest/gr/sg.html Storage Gateway endpoints and quotas>
+    -- in the /Amazon Web Services General Reference/.
     gatewayRegion :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -156,12 +156,7 @@ data ActivateGateway = ActivateGateway'
 -- is critical to all later functions of the gateway and cannot be changed
 -- after activation. The default value is @CACHED@.
 --
--- Valid Values: @STORED@ | @CACHED@ | @VTL@ | @FILE_S3@
---
--- 'mediumChangerType', 'activateGateway_mediumChangerType' - The value that indicates the type of medium changer to use for tape
--- gateway. This field is optional.
---
--- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
+-- Valid Values: @STORED@ | @CACHED@ | @VTL@ | @FILE_S3@ | @FILE_FSX_SMB|@
 --
 -- 'tags', 'activateGateway_tags' - A list of up to 50 tags that you can assign to the gateway. Each tag is
 -- a key-value pair.
@@ -170,6 +165,11 @@ data ActivateGateway = ActivateGateway'
 -- can be represented in UTF-8 format, and the following special
 -- characters: + - = . _ : \/ \@. The maximum length of a tag\'s key is 128
 -- characters, and the maximum length for a tag\'s value is 256 characters.
+--
+-- 'mediumChangerType', 'activateGateway_mediumChangerType' - The value that indicates the type of medium changer to use for tape
+-- gateway. This field is optional.
+--
+-- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
 --
 -- 'activationKey', 'activateGateway_activationKey' - Your gateway activation key. You can obtain the activation key by
 -- sending an HTTP GET request with redirects enabled to the gateway IP
@@ -182,7 +182,7 @@ data ActivateGateway = ActivateGateway'
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html Getting activation key>
--- in the /AWS Storage Gateway User Guide/.
+-- in the /Storage Gateway User Guide/.
 --
 -- 'gatewayName', 'activateGateway_gatewayName' - The name you configured for your gateway.
 --
@@ -193,16 +193,16 @@ data ActivateGateway = ActivateGateway'
 -- example, for scheduling snapshots and your gateway\'s maintenance
 -- schedule.
 --
--- 'gatewayRegion', 'activateGateway_gatewayRegion' - A value that indicates the AWS Region where you want to store your data.
--- The gateway AWS Region specified must be the same AWS Region as the AWS
--- Region in your @Host@ header in the request. For more information about
--- available AWS Regions and endpoints for AWS Storage Gateway, see
--- <https://docs.aws.amazon.com/general/latest/gr/sg.html AWS Storage Gateway endpoints and quotas>
--- in the /AWS General Reference/.
+-- 'gatewayRegion', 'activateGateway_gatewayRegion' - A value that indicates the Region where you want to store your data. The
+-- gateway Region specified must be the same Region as the Region in your
+-- @Host@ header in the request. For more information about available
+-- Regions and endpoints for Storage Gateway, see
+-- <https://docs.aws.amazon.com/general/latest/gr/sg.html Storage Gateway endpoints and quotas>
+-- in the /Amazon Web Services General Reference/.
 --
 -- Valid Values: See
--- <https://docs.aws.amazon.com/general/latest/gr/sg.html AWS Storage Gateway endpoints and quotas>
--- in the /AWS General Reference/.
+-- <https://docs.aws.amazon.com/general/latest/gr/sg.html Storage Gateway endpoints and quotas>
+-- in the /Amazon Web Services General Reference/.
 newActivateGateway ::
   -- | 'activationKey'
   Prelude.Text ->
@@ -221,8 +221,8 @@ newActivateGateway
     ActivateGateway'
       { tapeDriveType = Prelude.Nothing,
         gatewayType = Prelude.Nothing,
-        mediumChangerType = Prelude.Nothing,
         tags = Prelude.Nothing,
+        mediumChangerType = Prelude.Nothing,
         activationKey = pActivationKey_,
         gatewayName = pGatewayName_,
         gatewayTimezone = pGatewayTimezone_,
@@ -240,16 +240,9 @@ activateGateway_tapeDriveType = Lens.lens (\ActivateGateway' {tapeDriveType} -> 
 -- is critical to all later functions of the gateway and cannot be changed
 -- after activation. The default value is @CACHED@.
 --
--- Valid Values: @STORED@ | @CACHED@ | @VTL@ | @FILE_S3@
+-- Valid Values: @STORED@ | @CACHED@ | @VTL@ | @FILE_S3@ | @FILE_FSX_SMB|@
 activateGateway_gatewayType :: Lens.Lens' ActivateGateway (Prelude.Maybe Prelude.Text)
 activateGateway_gatewayType = Lens.lens (\ActivateGateway' {gatewayType} -> gatewayType) (\s@ActivateGateway' {} a -> s {gatewayType = a} :: ActivateGateway)
-
--- | The value that indicates the type of medium changer to use for tape
--- gateway. This field is optional.
---
--- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
-activateGateway_mediumChangerType :: Lens.Lens' ActivateGateway (Prelude.Maybe Prelude.Text)
-activateGateway_mediumChangerType = Lens.lens (\ActivateGateway' {mediumChangerType} -> mediumChangerType) (\s@ActivateGateway' {} a -> s {mediumChangerType = a} :: ActivateGateway)
 
 -- | A list of up to 50 tags that you can assign to the gateway. Each tag is
 -- a key-value pair.
@@ -260,6 +253,13 @@ activateGateway_mediumChangerType = Lens.lens (\ActivateGateway' {mediumChangerT
 -- characters, and the maximum length for a tag\'s value is 256 characters.
 activateGateway_tags :: Lens.Lens' ActivateGateway (Prelude.Maybe [Tag])
 activateGateway_tags = Lens.lens (\ActivateGateway' {tags} -> tags) (\s@ActivateGateway' {} a -> s {tags = a} :: ActivateGateway) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The value that indicates the type of medium changer to use for tape
+-- gateway. This field is optional.
+--
+-- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
+activateGateway_mediumChangerType :: Lens.Lens' ActivateGateway (Prelude.Maybe Prelude.Text)
+activateGateway_mediumChangerType = Lens.lens (\ActivateGateway' {mediumChangerType} -> mediumChangerType) (\s@ActivateGateway' {} a -> s {mediumChangerType = a} :: ActivateGateway)
 
 -- | Your gateway activation key. You can obtain the activation key by
 -- sending an HTTP GET request with redirects enabled to the gateway IP
@@ -272,7 +272,7 @@ activateGateway_tags = Lens.lens (\ActivateGateway' {tags} -> tags) (\s@Activate
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html Getting activation key>
--- in the /AWS Storage Gateway User Guide/.
+-- in the /Storage Gateway User Guide/.
 activateGateway_activationKey :: Lens.Lens' ActivateGateway Prelude.Text
 activateGateway_activationKey = Lens.lens (\ActivateGateway' {activationKey} -> activationKey) (\s@ActivateGateway' {} a -> s {activationKey = a} :: ActivateGateway)
 
@@ -289,16 +289,16 @@ activateGateway_gatewayName = Lens.lens (\ActivateGateway' {gatewayName} -> gate
 activateGateway_gatewayTimezone :: Lens.Lens' ActivateGateway Prelude.Text
 activateGateway_gatewayTimezone = Lens.lens (\ActivateGateway' {gatewayTimezone} -> gatewayTimezone) (\s@ActivateGateway' {} a -> s {gatewayTimezone = a} :: ActivateGateway)
 
--- | A value that indicates the AWS Region where you want to store your data.
--- The gateway AWS Region specified must be the same AWS Region as the AWS
--- Region in your @Host@ header in the request. For more information about
--- available AWS Regions and endpoints for AWS Storage Gateway, see
--- <https://docs.aws.amazon.com/general/latest/gr/sg.html AWS Storage Gateway endpoints and quotas>
--- in the /AWS General Reference/.
+-- | A value that indicates the Region where you want to store your data. The
+-- gateway Region specified must be the same Region as the Region in your
+-- @Host@ header in the request. For more information about available
+-- Regions and endpoints for Storage Gateway, see
+-- <https://docs.aws.amazon.com/general/latest/gr/sg.html Storage Gateway endpoints and quotas>
+-- in the /Amazon Web Services General Reference/.
 --
 -- Valid Values: See
--- <https://docs.aws.amazon.com/general/latest/gr/sg.html AWS Storage Gateway endpoints and quotas>
--- in the /AWS General Reference/.
+-- <https://docs.aws.amazon.com/general/latest/gr/sg.html Storage Gateway endpoints and quotas>
+-- in the /Amazon Web Services General Reference/.
 activateGateway_gatewayRegion :: Lens.Lens' ActivateGateway Prelude.Text
 activateGateway_gatewayRegion = Lens.lens (\ActivateGateway' {gatewayRegion} -> gatewayRegion) (\s@ActivateGateway' {} a -> s {gatewayRegion = a} :: ActivateGateway)
 
@@ -340,9 +340,9 @@ instance Core.ToJSON ActivateGateway where
       ( Prelude.catMaybes
           [ ("TapeDriveType" Core..=) Prelude.<$> tapeDriveType,
             ("GatewayType" Core..=) Prelude.<$> gatewayType,
+            ("Tags" Core..=) Prelude.<$> tags,
             ("MediumChangerType" Core..=)
               Prelude.<$> mediumChangerType,
-            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("ActivationKey" Core..= activationKey),
             Prelude.Just ("GatewayName" Core..= gatewayName),
             Prelude.Just
@@ -358,10 +358,10 @@ instance Core.ToPath ActivateGateway where
 instance Core.ToQuery ActivateGateway where
   toQuery = Prelude.const Prelude.mempty
 
--- | AWS Storage Gateway returns the Amazon Resource Name (ARN) of the
--- activated gateway. It is a string made of information such as your
--- account, gateway name, and AWS Region. This ARN is used to reference the
--- gateway in other API operations as well as resource-based authorization.
+-- | Storage Gateway returns the Amazon Resource Name (ARN) of the activated
+-- gateway. It is a string made of information such as your account,
+-- gateway name, and Region. This ARN is used to reference the gateway in
+-- other API operations as well as resource-based authorization.
 --
 -- For gateways activated prior to September 02, 2015, the gateway ARN
 -- contains the gateway name rather than the gateway ID. Changing the name

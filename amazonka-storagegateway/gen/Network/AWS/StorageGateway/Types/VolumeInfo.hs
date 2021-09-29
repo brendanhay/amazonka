@@ -51,16 +51,16 @@ data VolumeInfo = VolumeInfo'
     -- volume.
     volumeType :: Prelude.Maybe Prelude.Text,
     gatewayARN :: Prelude.Maybe Prelude.Text,
-    -- | One of the VolumeStatus values that indicates the state of the storage
-    -- volume.
-    volumeAttachmentStatus :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier assigned to your gateway during activation. This
     -- ID becomes part of the gateway Amazon Resource Name (ARN), which you use
     -- as input for other operations.
     --
     -- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and
     -- hyphens (-).
-    gatewayId :: Prelude.Maybe Prelude.Text
+    gatewayId :: Prelude.Maybe Prelude.Text,
+    -- | One of the VolumeStatus values that indicates the state of the storage
+    -- volume.
+    volumeAttachmentStatus :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -97,15 +97,15 @@ data VolumeInfo = VolumeInfo'
 --
 -- 'gatewayARN', 'volumeInfo_gatewayARN' - Undocumented member.
 --
--- 'volumeAttachmentStatus', 'volumeInfo_volumeAttachmentStatus' - One of the VolumeStatus values that indicates the state of the storage
--- volume.
---
 -- 'gatewayId', 'volumeInfo_gatewayId' - The unique identifier assigned to your gateway during activation. This
 -- ID becomes part of the gateway Amazon Resource Name (ARN), which you use
 -- as input for other operations.
 --
 -- Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and
 -- hyphens (-).
+--
+-- 'volumeAttachmentStatus', 'volumeInfo_volumeAttachmentStatus' - One of the VolumeStatus values that indicates the state of the storage
+-- volume.
 newVolumeInfo ::
   VolumeInfo
 newVolumeInfo =
@@ -115,8 +115,8 @@ newVolumeInfo =
       volumeSizeInBytes = Prelude.Nothing,
       volumeType = Prelude.Nothing,
       gatewayARN = Prelude.Nothing,
-      volumeAttachmentStatus = Prelude.Nothing,
-      gatewayId = Prelude.Nothing
+      gatewayId = Prelude.Nothing,
+      volumeAttachmentStatus = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) for the storage volume. For example, the
@@ -154,11 +154,6 @@ volumeInfo_volumeType = Lens.lens (\VolumeInfo' {volumeType} -> volumeType) (\s@
 volumeInfo_gatewayARN :: Lens.Lens' VolumeInfo (Prelude.Maybe Prelude.Text)
 volumeInfo_gatewayARN = Lens.lens (\VolumeInfo' {gatewayARN} -> gatewayARN) (\s@VolumeInfo' {} a -> s {gatewayARN = a} :: VolumeInfo)
 
--- | One of the VolumeStatus values that indicates the state of the storage
--- volume.
-volumeInfo_volumeAttachmentStatus :: Lens.Lens' VolumeInfo (Prelude.Maybe Prelude.Text)
-volumeInfo_volumeAttachmentStatus = Lens.lens (\VolumeInfo' {volumeAttachmentStatus} -> volumeAttachmentStatus) (\s@VolumeInfo' {} a -> s {volumeAttachmentStatus = a} :: VolumeInfo)
-
 -- | The unique identifier assigned to your gateway during activation. This
 -- ID becomes part of the gateway Amazon Resource Name (ARN), which you use
 -- as input for other operations.
@@ -167,6 +162,11 @@ volumeInfo_volumeAttachmentStatus = Lens.lens (\VolumeInfo' {volumeAttachmentSta
 -- hyphens (-).
 volumeInfo_gatewayId :: Lens.Lens' VolumeInfo (Prelude.Maybe Prelude.Text)
 volumeInfo_gatewayId = Lens.lens (\VolumeInfo' {gatewayId} -> gatewayId) (\s@VolumeInfo' {} a -> s {gatewayId = a} :: VolumeInfo)
+
+-- | One of the VolumeStatus values that indicates the state of the storage
+-- volume.
+volumeInfo_volumeAttachmentStatus :: Lens.Lens' VolumeInfo (Prelude.Maybe Prelude.Text)
+volumeInfo_volumeAttachmentStatus = Lens.lens (\VolumeInfo' {volumeAttachmentStatus} -> volumeAttachmentStatus) (\s@VolumeInfo' {} a -> s {volumeAttachmentStatus = a} :: VolumeInfo)
 
 instance Core.FromJSON VolumeInfo where
   parseJSON =
@@ -179,8 +179,8 @@ instance Core.FromJSON VolumeInfo where
             Prelude.<*> (x Core..:? "VolumeSizeInBytes")
             Prelude.<*> (x Core..:? "VolumeType")
             Prelude.<*> (x Core..:? "GatewayARN")
-            Prelude.<*> (x Core..:? "VolumeAttachmentStatus")
             Prelude.<*> (x Core..:? "GatewayId")
+            Prelude.<*> (x Core..:? "VolumeAttachmentStatus")
       )
 
 instance Prelude.Hashable VolumeInfo

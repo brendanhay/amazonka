@@ -33,10 +33,10 @@ data TapeArchive = TapeArchive'
     -- The default timestamp format is in the ISO8601 extended
     -- YYYY-MM-DD\'T\'HH:MM:SS\'Z\' format.
     poolEntryDate :: Prelude.Maybe Core.POSIX,
-    -- | The current state of the archived virtual tape.
-    tapeStatus :: Prelude.Maybe Prelude.Text,
     -- | The date the virtual tape was created.
     tapeCreatedDate :: Prelude.Maybe Core.POSIX,
+    -- | The current state of the archived virtual tape.
+    tapeStatus :: Prelude.Maybe Prelude.Text,
     -- | The ID of the pool that was used to archive the tape. The tapes in this
     -- pool are archived in the S3 storage class that is associated with the
     -- pool.
@@ -86,9 +86,9 @@ data TapeArchive = TapeArchive'
 -- The default timestamp format is in the ISO8601 extended
 -- YYYY-MM-DD\'T\'HH:MM:SS\'Z\' format.
 --
--- 'tapeStatus', 'tapeArchive_tapeStatus' - The current state of the archived virtual tape.
---
 -- 'tapeCreatedDate', 'tapeArchive_tapeCreatedDate' - The date the virtual tape was created.
+--
+-- 'tapeStatus', 'tapeArchive_tapeStatus' - The current state of the archived virtual tape.
 --
 -- 'poolId', 'tapeArchive_poolId' - The ID of the pool that was used to archive the tape. The tapes in this
 -- pool are archived in the S3 storage class that is associated with the
@@ -128,8 +128,8 @@ newTapeArchive ::
 newTapeArchive =
   TapeArchive'
     { poolEntryDate = Prelude.Nothing,
-      tapeStatus = Prelude.Nothing,
       tapeCreatedDate = Prelude.Nothing,
+      tapeStatus = Prelude.Nothing,
       poolId = Prelude.Nothing,
       completionTime = Prelude.Nothing,
       retrievedTo = Prelude.Nothing,
@@ -149,13 +149,13 @@ newTapeArchive =
 tapeArchive_poolEntryDate :: Lens.Lens' TapeArchive (Prelude.Maybe Prelude.UTCTime)
 tapeArchive_poolEntryDate = Lens.lens (\TapeArchive' {poolEntryDate} -> poolEntryDate) (\s@TapeArchive' {} a -> s {poolEntryDate = a} :: TapeArchive) Prelude.. Lens.mapping Core._Time
 
--- | The current state of the archived virtual tape.
-tapeArchive_tapeStatus :: Lens.Lens' TapeArchive (Prelude.Maybe Prelude.Text)
-tapeArchive_tapeStatus = Lens.lens (\TapeArchive' {tapeStatus} -> tapeStatus) (\s@TapeArchive' {} a -> s {tapeStatus = a} :: TapeArchive)
-
 -- | The date the virtual tape was created.
 tapeArchive_tapeCreatedDate :: Lens.Lens' TapeArchive (Prelude.Maybe Prelude.UTCTime)
 tapeArchive_tapeCreatedDate = Lens.lens (\TapeArchive' {tapeCreatedDate} -> tapeCreatedDate) (\s@TapeArchive' {} a -> s {tapeCreatedDate = a} :: TapeArchive) Prelude.. Lens.mapping Core._Time
+
+-- | The current state of the archived virtual tape.
+tapeArchive_tapeStatus :: Lens.Lens' TapeArchive (Prelude.Maybe Prelude.Text)
+tapeArchive_tapeStatus = Lens.lens (\TapeArchive' {tapeStatus} -> tapeStatus) (\s@TapeArchive' {} a -> s {tapeStatus = a} :: TapeArchive)
 
 -- | The ID of the pool that was used to archive the tape. The tapes in this
 -- pool are archived in the S3 storage class that is associated with the
@@ -218,8 +218,8 @@ instance Core.FromJSON TapeArchive where
       ( \x ->
           TapeArchive'
             Prelude.<$> (x Core..:? "PoolEntryDate")
-            Prelude.<*> (x Core..:? "TapeStatus")
             Prelude.<*> (x Core..:? "TapeCreatedDate")
+            Prelude.<*> (x Core..:? "TapeStatus")
             Prelude.<*> (x Core..:? "PoolId")
             Prelude.<*> (x Core..:? "CompletionTime")
             Prelude.<*> (x Core..:? "RetrievedTo")

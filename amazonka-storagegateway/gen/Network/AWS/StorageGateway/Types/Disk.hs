@@ -42,10 +42,10 @@ data Disk = Disk'
     -- | The unique device ID or other distinguishing data that identifies a
     -- local disk.
     diskId :: Prelude.Maybe Prelude.Text,
-    diskAllocationType :: Prelude.Maybe Prelude.Text,
     -- | The device node of a local disk as assigned by the virtualization
     -- environment.
-    diskNode :: Prelude.Maybe Prelude.Text
+    diskNode :: Prelude.Maybe Prelude.Text,
+    diskAllocationType :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,10 +73,10 @@ data Disk = Disk'
 -- 'diskId', 'disk_diskId' - The unique device ID or other distinguishing data that identifies a
 -- local disk.
 --
--- 'diskAllocationType', 'disk_diskAllocationType' - Undocumented member.
---
 -- 'diskNode', 'disk_diskNode' - The device node of a local disk as assigned by the virtualization
 -- environment.
+--
+-- 'diskAllocationType', 'disk_diskAllocationType' - Undocumented member.
 newDisk ::
   Disk
 newDisk =
@@ -87,8 +87,8 @@ newDisk =
       diskAttributeList = Prelude.Nothing,
       diskPath = Prelude.Nothing,
       diskId = Prelude.Nothing,
-      diskAllocationType = Prelude.Nothing,
-      diskNode = Prelude.Nothing
+      diskNode = Prelude.Nothing,
+      diskAllocationType = Prelude.Nothing
     }
 
 -- | The iSCSI qualified name (IQN) that is defined for a disk. This field is
@@ -119,14 +119,14 @@ disk_diskPath = Lens.lens (\Disk' {diskPath} -> diskPath) (\s@Disk' {} a -> s {d
 disk_diskId :: Lens.Lens' Disk (Prelude.Maybe Prelude.Text)
 disk_diskId = Lens.lens (\Disk' {diskId} -> diskId) (\s@Disk' {} a -> s {diskId = a} :: Disk)
 
--- | Undocumented member.
-disk_diskAllocationType :: Lens.Lens' Disk (Prelude.Maybe Prelude.Text)
-disk_diskAllocationType = Lens.lens (\Disk' {diskAllocationType} -> diskAllocationType) (\s@Disk' {} a -> s {diskAllocationType = a} :: Disk)
-
 -- | The device node of a local disk as assigned by the virtualization
 -- environment.
 disk_diskNode :: Lens.Lens' Disk (Prelude.Maybe Prelude.Text)
 disk_diskNode = Lens.lens (\Disk' {diskNode} -> diskNode) (\s@Disk' {} a -> s {diskNode = a} :: Disk)
+
+-- | Undocumented member.
+disk_diskAllocationType :: Lens.Lens' Disk (Prelude.Maybe Prelude.Text)
+disk_diskAllocationType = Lens.lens (\Disk' {diskAllocationType} -> diskAllocationType) (\s@Disk' {} a -> s {diskAllocationType = a} :: Disk)
 
 instance Core.FromJSON Disk where
   parseJSON =
@@ -142,8 +142,8 @@ instance Core.FromJSON Disk where
                         )
             Prelude.<*> (x Core..:? "DiskPath")
             Prelude.<*> (x Core..:? "DiskId")
-            Prelude.<*> (x Core..:? "DiskAllocationType")
             Prelude.<*> (x Core..:? "DiskNode")
+            Prelude.<*> (x Core..:? "DiskAllocationType")
       )
 
 instance Prelude.Hashable Disk

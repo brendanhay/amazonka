@@ -40,8 +40,8 @@ module Network.AWS.StorageGateway.ListVolumes
     newListVolumes,
 
     -- * Request Lenses
-    listVolumes_limit,
     listVolumes_gatewayARN,
+    listVolumes_limit,
     listVolumes_marker,
 
     -- * Destructuring the Response
@@ -71,10 +71,10 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'newListVolumes' smart constructor.
 data ListVolumes = ListVolumes'
-  { -- | Specifies that the list of volumes returned be limited to the specified
+  { gatewayARN :: Prelude.Maybe Prelude.Text,
+    -- | Specifies that the list of volumes returned be limited to the specified
     -- number of items.
     limit :: Prelude.Maybe Prelude.Natural,
-    gatewayARN :: Prelude.Maybe Prelude.Text,
     -- | A string that indicates the position at which to begin the returned list
     -- of volumes. Obtain the marker from the response of a previous List iSCSI
     -- Volumes request.
@@ -90,10 +90,10 @@ data ListVolumes = ListVolumes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'gatewayARN', 'listVolumes_gatewayARN' - Undocumented member.
+--
 -- 'limit', 'listVolumes_limit' - Specifies that the list of volumes returned be limited to the specified
 -- number of items.
---
--- 'gatewayARN', 'listVolumes_gatewayARN' - Undocumented member.
 --
 -- 'marker', 'listVolumes_marker' - A string that indicates the position at which to begin the returned list
 -- of volumes. Obtain the marker from the response of a previous List iSCSI
@@ -102,19 +102,19 @@ newListVolumes ::
   ListVolumes
 newListVolumes =
   ListVolumes'
-    { limit = Prelude.Nothing,
-      gatewayARN = Prelude.Nothing,
+    { gatewayARN = Prelude.Nothing,
+      limit = Prelude.Nothing,
       marker = Prelude.Nothing
     }
+
+-- | Undocumented member.
+listVolumes_gatewayARN :: Lens.Lens' ListVolumes (Prelude.Maybe Prelude.Text)
+listVolumes_gatewayARN = Lens.lens (\ListVolumes' {gatewayARN} -> gatewayARN) (\s@ListVolumes' {} a -> s {gatewayARN = a} :: ListVolumes)
 
 -- | Specifies that the list of volumes returned be limited to the specified
 -- number of items.
 listVolumes_limit :: Lens.Lens' ListVolumes (Prelude.Maybe Prelude.Natural)
 listVolumes_limit = Lens.lens (\ListVolumes' {limit} -> limit) (\s@ListVolumes' {} a -> s {limit = a} :: ListVolumes)
-
--- | Undocumented member.
-listVolumes_gatewayARN :: Lens.Lens' ListVolumes (Prelude.Maybe Prelude.Text)
-listVolumes_gatewayARN = Lens.lens (\ListVolumes' {gatewayARN} -> gatewayARN) (\s@ListVolumes' {} a -> s {gatewayARN = a} :: ListVolumes)
 
 -- | A string that indicates the position at which to begin the returned list
 -- of volumes. Obtain the marker from the response of a previous List iSCSI
@@ -177,8 +177,8 @@ instance Core.ToJSON ListVolumes where
   toJSON ListVolumes' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Limit" Core..=) Prelude.<$> limit,
-            ("GatewayARN" Core..=) Prelude.<$> gatewayARN,
+          [ ("GatewayARN" Core..=) Prelude.<$> gatewayARN,
+            ("Limit" Core..=) Prelude.<$> limit,
             ("Marker" Core..=) Prelude.<$> marker
           ]
       )

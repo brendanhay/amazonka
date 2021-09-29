@@ -35,7 +35,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
 -- | A value that sets the access control list (ACL) permission for objects
--- in the S3 bucket that a file gateway puts objects into. The default
+-- in the S3 bucket that an S3 File Gateway puts objects into. The default
 -- value is @private@.
 newtype ObjectACL = ObjectACL'
   { fromObjectACL ::

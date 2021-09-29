@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about the most recent High Availability monitoring
+-- Returns information about the most recent high availability monitoring
 -- test that was performed on the host in a cluster. If a test isn\'t
 -- performed, the status and start time in the response would be null.
 module Network.AWS.StorageGateway.DescribeAvailabilityMonitorTest
@@ -138,10 +138,10 @@ instance Core.ToQuery DescribeAvailabilityMonitorTest where
 
 -- | /See:/ 'newDescribeAvailabilityMonitorTestResponse' smart constructor.
 data DescribeAvailabilityMonitorTestResponse = DescribeAvailabilityMonitorTestResponse'
-  { -- | The status of the High Availability monitoring test. If a test hasn\'t
+  { -- | The status of the high availability monitoring test. If a test hasn\'t
     -- been performed, the value of this field is null.
     status :: Prelude.Maybe AvailabilityMonitorTestStatus,
-    -- | The time the High Availability monitoring test was started. If a test
+    -- | The time the high availability monitoring test was started. If a test
     -- hasn\'t been performed, the value of this field is null.
     startTime :: Prelude.Maybe Core.POSIX,
     gatewayARN :: Prelude.Maybe Prelude.Text,
@@ -158,10 +158,10 @@ data DescribeAvailabilityMonitorTestResponse = DescribeAvailabilityMonitorTestRe
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'describeAvailabilityMonitorTestResponse_status' - The status of the High Availability monitoring test. If a test hasn\'t
+-- 'status', 'describeAvailabilityMonitorTestResponse_status' - The status of the high availability monitoring test. If a test hasn\'t
 -- been performed, the value of this field is null.
 --
--- 'startTime', 'describeAvailabilityMonitorTestResponse_startTime' - The time the High Availability monitoring test was started. If a test
+-- 'startTime', 'describeAvailabilityMonitorTestResponse_startTime' - The time the high availability monitoring test was started. If a test
 -- hasn\'t been performed, the value of this field is null.
 --
 -- 'gatewayARN', 'describeAvailabilityMonitorTestResponse_gatewayARN' - Undocumented member.
@@ -181,12 +181,12 @@ newDescribeAvailabilityMonitorTestResponse
         httpStatus = pHttpStatus_
       }
 
--- | The status of the High Availability monitoring test. If a test hasn\'t
+-- | The status of the high availability monitoring test. If a test hasn\'t
 -- been performed, the value of this field is null.
 describeAvailabilityMonitorTestResponse_status :: Lens.Lens' DescribeAvailabilityMonitorTestResponse (Prelude.Maybe AvailabilityMonitorTestStatus)
 describeAvailabilityMonitorTestResponse_status = Lens.lens (\DescribeAvailabilityMonitorTestResponse' {status} -> status) (\s@DescribeAvailabilityMonitorTestResponse' {} a -> s {status = a} :: DescribeAvailabilityMonitorTestResponse)
 
--- | The time the High Availability monitoring test was started. If a test
+-- | The time the high availability monitoring test was started. If a test
 -- hasn\'t been performed, the value of this field is null.
 describeAvailabilityMonitorTestResponse_startTime :: Lens.Lens' DescribeAvailabilityMonitorTestResponse (Prelude.Maybe Prelude.UTCTime)
 describeAvailabilityMonitorTestResponse_startTime = Lens.lens (\DescribeAvailabilityMonitorTestResponse' {startTime} -> startTime) (\s@DescribeAvailabilityMonitorTestResponse' {} a -> s {startTime = a} :: DescribeAvailabilityMonitorTestResponse) Prelude.. Lens.mapping Core._Time

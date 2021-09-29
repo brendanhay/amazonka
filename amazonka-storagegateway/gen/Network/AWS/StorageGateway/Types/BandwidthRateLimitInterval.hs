@@ -54,7 +54,7 @@ data BandwidthRateLimitInterval = BandwidthRateLimitInterval'
     endMinuteOfHour :: Prelude.Natural,
     -- | The days of the week component of the bandwidth rate limit interval,
     -- represented as ordinal numbers from 0 to 6, where 0 represents Sunday
-    -- and 6 Saturday.
+    -- and 6 represents Saturday.
     daysOfWeek :: Prelude.NonEmpty Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -90,7 +90,7 @@ data BandwidthRateLimitInterval = BandwidthRateLimitInterval'
 --
 -- 'daysOfWeek', 'bandwidthRateLimitInterval_daysOfWeek' - The days of the week component of the bandwidth rate limit interval,
 -- represented as ordinal numbers from 0 to 6, where 0 represents Sunday
--- and 6 Saturday.
+-- and 6 represents Saturday.
 newBandwidthRateLimitInterval ::
   -- | 'startHourOfDay'
   Prelude.Natural ->
@@ -156,7 +156,7 @@ bandwidthRateLimitInterval_endMinuteOfHour = Lens.lens (\BandwidthRateLimitInter
 
 -- | The days of the week component of the bandwidth rate limit interval,
 -- represented as ordinal numbers from 0 to 6, where 0 represents Sunday
--- and 6 Saturday.
+-- and 6 represents Saturday.
 bandwidthRateLimitInterval_daysOfWeek :: Lens.Lens' BandwidthRateLimitInterval (Prelude.NonEmpty Prelude.Natural)
 bandwidthRateLimitInterval_daysOfWeek = Lens.lens (\BandwidthRateLimitInterval' {daysOfWeek} -> daysOfWeek) (\s@BandwidthRateLimitInterval' {} a -> s {daysOfWeek = a} :: BandwidthRateLimitInterval) Prelude.. Lens._Coerce
 

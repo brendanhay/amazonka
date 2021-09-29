@@ -73,8 +73,8 @@ data CreateTapeWithBarcode = CreateTapeWithBarcode'
     --
     -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
     poolId :: Prelude.Maybe Prelude.Text,
-    -- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS
-    -- KMS key, or @false@ to use a key managed by Amazon S3. Optional.
+    -- | Set to @true@ to use Amazon S3 server-side encryption with your own KMS
+    -- key, or @false@ to use a key managed by Amazon S3. Optional.
     --
     -- Valid Values: @true@ | @false@
     kmsEncrypted :: Prelude.Maybe Prelude.Bool,
@@ -96,7 +96,7 @@ data CreateTapeWithBarcode = CreateTapeWithBarcode'
     tags :: Prelude.Maybe [Tag],
     -- | The unique Amazon Resource Name (ARN) that represents the gateway to
     -- associate the virtual tape with. Use the ListGateways operation to
-    -- return a list of gateways for your account and AWS Region.
+    -- return a list of gateways for your account and Region.
     gatewayARN :: Prelude.Text,
     -- | The size, in bytes, of the virtual tape that you want to create.
     --
@@ -126,8 +126,8 @@ data CreateTapeWithBarcode = CreateTapeWithBarcode'
 --
 -- Valid Values: @GLACIER@ | @DEEP_ARCHIVE@
 --
--- 'kmsEncrypted', 'createTapeWithBarcode_kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own AWS
--- KMS key, or @false@ to use a key managed by Amazon S3. Optional.
+-- 'kmsEncrypted', 'createTapeWithBarcode_kmsEncrypted' - Set to @true@ to use Amazon S3 server-side encryption with your own KMS
+-- key, or @false@ to use a key managed by Amazon S3. Optional.
 --
 -- Valid Values: @true@ | @false@
 --
@@ -149,7 +149,7 @@ data CreateTapeWithBarcode = CreateTapeWithBarcode'
 --
 -- 'gatewayARN', 'createTapeWithBarcode_gatewayARN' - The unique Amazon Resource Name (ARN) that represents the gateway to
 -- associate the virtual tape with. Use the ListGateways operation to
--- return a list of gateways for your account and AWS Region.
+-- return a list of gateways for your account and Region.
 --
 -- 'tapeSizeInBytes', 'createTapeWithBarcode_tapeSizeInBytes' - The size, in bytes, of the virtual tape that you want to create.
 --
@@ -192,8 +192,8 @@ newCreateTapeWithBarcode
 createTapeWithBarcode_poolId :: Lens.Lens' CreateTapeWithBarcode (Prelude.Maybe Prelude.Text)
 createTapeWithBarcode_poolId = Lens.lens (\CreateTapeWithBarcode' {poolId} -> poolId) (\s@CreateTapeWithBarcode' {} a -> s {poolId = a} :: CreateTapeWithBarcode)
 
--- | Set to @true@ to use Amazon S3 server-side encryption with your own AWS
--- KMS key, or @false@ to use a key managed by Amazon S3. Optional.
+-- | Set to @true@ to use Amazon S3 server-side encryption with your own KMS
+-- key, or @false@ to use a key managed by Amazon S3. Optional.
 --
 -- Valid Values: @true@ | @false@
 createTapeWithBarcode_kmsEncrypted :: Lens.Lens' CreateTapeWithBarcode (Prelude.Maybe Prelude.Bool)
@@ -223,7 +223,7 @@ createTapeWithBarcode_tags = Lens.lens (\CreateTapeWithBarcode' {tags} -> tags) 
 
 -- | The unique Amazon Resource Name (ARN) that represents the gateway to
 -- associate the virtual tape with. Use the ListGateways operation to
--- return a list of gateways for your account and AWS Region.
+-- return a list of gateways for your account and Region.
 createTapeWithBarcode_gatewayARN :: Lens.Lens' CreateTapeWithBarcode Prelude.Text
 createTapeWithBarcode_gatewayARN = Lens.lens (\CreateTapeWithBarcode' {gatewayARN} -> gatewayARN) (\s@CreateTapeWithBarcode' {} a -> s {gatewayARN = a} :: CreateTapeWithBarcode)
 

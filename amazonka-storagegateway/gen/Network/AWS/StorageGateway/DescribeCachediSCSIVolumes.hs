@@ -24,7 +24,7 @@
 -- This operation is only supported in the cached volume gateway types.
 --
 -- The list of gateway volumes in the request must be from one gateway. In
--- the response, AWS Storage Gateway returns volume information sorted by
+-- the response, Storage Gateway returns volume information sorted by
 -- volume Amazon Resource Name (ARN).
 module Network.AWS.StorageGateway.DescribeCachediSCSIVolumes
   ( -- * Creating a Request

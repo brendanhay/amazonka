@@ -29,7 +29,7 @@
 --
 -- This action does not return any expired export jobs. For more
 -- information, see
--- <https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration Export Job Expiration>
+-- <https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration Export job expiration>
 -- in the /Amazon QLDB Developer Guide/.
 module Network.AWS.QLDB.ListJournalS3ExportsForLedger
   ( -- * Creating a Request

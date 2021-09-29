@@ -70,14 +70,14 @@ data GetBlock = GetBlock'
     -- proof. An address is an Amazon Ion structure that has two fields:
     -- @strandId@ and @sequenceNo@.
     --
-    -- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:49}@
+    -- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:49}@.
     digestTipAddress :: Prelude.Maybe (Core.Sensitive ValueHolder),
     -- | The name of the ledger.
     name :: Prelude.Text,
     -- | The location of the block that you want to request. An address is an
     -- Amazon Ion structure that has two fields: @strandId@ and @sequenceNo@.
     --
-    -- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:14}@
+    -- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:14}@.
     blockAddress :: Core.Sensitive ValueHolder
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -94,14 +94,14 @@ data GetBlock = GetBlock'
 -- proof. An address is an Amazon Ion structure that has two fields:
 -- @strandId@ and @sequenceNo@.
 --
--- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:49}@
+-- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:49}@.
 --
 -- 'name', 'getBlock_name' - The name of the ledger.
 --
 -- 'blockAddress', 'getBlock_blockAddress' - The location of the block that you want to request. An address is an
 -- Amazon Ion structure that has two fields: @strandId@ and @sequenceNo@.
 --
--- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:14}@
+-- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:14}@.
 newGetBlock ::
   -- | 'name'
   Prelude.Text ->
@@ -119,7 +119,7 @@ newGetBlock pName_ pBlockAddress_ =
 -- proof. An address is an Amazon Ion structure that has two fields:
 -- @strandId@ and @sequenceNo@.
 --
--- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:49}@
+-- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:49}@.
 getBlock_digestTipAddress :: Lens.Lens' GetBlock (Prelude.Maybe ValueHolder)
 getBlock_digestTipAddress = Lens.lens (\GetBlock' {digestTipAddress} -> digestTipAddress) (\s@GetBlock' {} a -> s {digestTipAddress = a} :: GetBlock) Prelude.. Lens.mapping Core._Sensitive
 
@@ -130,7 +130,7 @@ getBlock_name = Lens.lens (\GetBlock' {name} -> name) (\s@GetBlock' {} a -> s {n
 -- | The location of the block that you want to request. An address is an
 -- Amazon Ion structure that has two fields: @strandId@ and @sequenceNo@.
 --
--- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:14}@
+-- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:14}@.
 getBlock_blockAddress :: Lens.Lens' GetBlock ValueHolder
 getBlock_blockAddress = Lens.lens (\GetBlock' {blockAddress} -> blockAddress) (\s@GetBlock' {} a -> s {blockAddress = a} :: GetBlock) Prelude.. Core._Sensitive
 

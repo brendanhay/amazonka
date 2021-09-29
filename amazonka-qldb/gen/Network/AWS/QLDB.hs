@@ -25,11 +25,11 @@ module Network.AWS.QLDB
     -- ** InvalidParameterException
     _InvalidParameterException,
 
-    -- ** ResourceInUseException
-    _ResourceInUseException,
-
     -- ** LimitExceededException
     _LimitExceededException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
@@ -43,17 +43,23 @@ module Network.AWS.QLDB
     -- * Operations
     -- $operations
 
-    -- ** DeleteLedger
-    DeleteLedger (DeleteLedger'),
-    newDeleteLedger,
-    DeleteLedgerResponse (DeleteLedgerResponse'),
-    newDeleteLedgerResponse,
+    -- ** UpdateLedgerPermissionsMode
+    UpdateLedgerPermissionsMode (UpdateLedgerPermissionsMode'),
+    newUpdateLedgerPermissionsMode,
+    UpdateLedgerPermissionsModeResponse (UpdateLedgerPermissionsModeResponse'),
+    newUpdateLedgerPermissionsModeResponse,
 
     -- ** UpdateLedger
     UpdateLedger (UpdateLedger'),
     newUpdateLedger,
     UpdateLedgerResponse (UpdateLedgerResponse'),
     newUpdateLedgerResponse,
+
+    -- ** DeleteLedger
+    DeleteLedger (DeleteLedger'),
+    newDeleteLedger,
+    DeleteLedgerResponse (DeleteLedgerResponse'),
+    newDeleteLedgerResponse,
 
     -- ** ListLedgers
     ListLedgers (ListLedgers'),
@@ -73,17 +79,17 @@ module Network.AWS.QLDB
     ExportJournalToSResponse (ExportJournalToSResponse'),
     newExportJournalToSResponse,
 
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
     -- ** CancelJournalKinesisStream
     CancelJournalKinesisStream (CancelJournalKinesisStream'),
     newCancelJournalKinesisStream,
     CancelJournalKinesisStreamResponse (CancelJournalKinesisStreamResponse'),
     newCancelJournalKinesisStreamResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
 
     -- ** DescribeLedger
     DescribeLedger (DescribeLedger'),
@@ -109,17 +115,17 @@ module Network.AWS.QLDB
     GetRevisionResponse (GetRevisionResponse'),
     newGetRevisionResponse,
 
-    -- ** ListJournalKinesisStreamsForLedger
-    ListJournalKinesisStreamsForLedger (ListJournalKinesisStreamsForLedger'),
-    newListJournalKinesisStreamsForLedger,
-    ListJournalKinesisStreamsForLedgerResponse (ListJournalKinesisStreamsForLedgerResponse'),
-    newListJournalKinesisStreamsForLedgerResponse,
-
     -- ** ListJournalS3ExportsForLedger
     ListJournalS3ExportsForLedger (ListJournalS3ExportsForLedger'),
     newListJournalS3ExportsForLedger,
     ListJournalS3ExportsForLedgerResponse (ListJournalS3ExportsForLedgerResponse'),
     newListJournalS3ExportsForLedgerResponse,
+
+    -- ** ListJournalKinesisStreamsForLedger
+    ListJournalKinesisStreamsForLedger (ListJournalKinesisStreamsForLedger'),
+    newListJournalKinesisStreamsForLedger,
+    ListJournalKinesisStreamsForLedgerResponse (ListJournalKinesisStreamsForLedgerResponse'),
+    newListJournalKinesisStreamsForLedgerResponse,
 
     -- ** GetBlock
     GetBlock (GetBlock'),
@@ -159,6 +165,9 @@ module Network.AWS.QLDB
 
     -- * Types
 
+    -- ** EncryptionStatus
+    EncryptionStatus (..),
+
     -- ** ErrorCause
     ErrorCause (..),
 
@@ -188,6 +197,10 @@ module Network.AWS.QLDB
     -- ** KinesisConfiguration
     KinesisConfiguration (KinesisConfiguration'),
     newKinesisConfiguration,
+
+    -- ** LedgerEncryptionDescription
+    LedgerEncryptionDescription (LedgerEncryptionDescription'),
+    newLedgerEncryptionDescription,
 
     -- ** LedgerSummary
     LedgerSummary (LedgerSummary'),
@@ -228,6 +241,7 @@ import Network.AWS.QLDB.TagResource
 import Network.AWS.QLDB.Types
 import Network.AWS.QLDB.UntagResource
 import Network.AWS.QLDB.UpdateLedger
+import Network.AWS.QLDB.UpdateLedgerPermissionsMode
 import Network.AWS.QLDB.Waiters
 
 -- $errors

@@ -24,16 +24,22 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | The configuration settings of the Amazon Kinesis Data Streams
--- destination for your Amazon QLDB journal stream.
+-- destination for an Amazon QLDB journal stream.
 --
 -- /See:/ 'newKinesisConfiguration' smart constructor.
 data KinesisConfiguration = KinesisConfiguration'
   { -- | Enables QLDB to publish multiple data records in a single Kinesis Data
-    -- Streams record. To learn more, see
+    -- Streams record, increasing the number of records sent per API call.
+    --
+    -- /This option is enabled by default./ Record aggregation has important
+    -- implications for processing records and requires de-aggregation in your
+    -- stream consumer. To learn more, see
     -- <https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-concepts.html KPL Key Concepts>
+    -- and
+    -- <https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-consumer-deaggregation.html Consumer De-aggregation>
     -- in the /Amazon Kinesis Data Streams Developer Guide/.
     aggregationEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The Amazon Resource Name (ARN) of the Kinesis data stream resource.
+    -- | The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
     streamArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -47,11 +53,17 @@ data KinesisConfiguration = KinesisConfiguration'
 -- for backwards compatibility:
 --
 -- 'aggregationEnabled', 'kinesisConfiguration_aggregationEnabled' - Enables QLDB to publish multiple data records in a single Kinesis Data
--- Streams record. To learn more, see
+-- Streams record, increasing the number of records sent per API call.
+--
+-- /This option is enabled by default./ Record aggregation has important
+-- implications for processing records and requires de-aggregation in your
+-- stream consumer. To learn more, see
 -- <https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-concepts.html KPL Key Concepts>
+-- and
+-- <https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-consumer-deaggregation.html Consumer De-aggregation>
 -- in the /Amazon Kinesis Data Streams Developer Guide/.
 --
--- 'streamArn', 'kinesisConfiguration_streamArn' - The Amazon Resource Name (ARN) of the Kinesis data stream resource.
+-- 'streamArn', 'kinesisConfiguration_streamArn' - The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
 newKinesisConfiguration ::
   -- | 'streamArn'
   Prelude.Text ->
@@ -64,13 +76,19 @@ newKinesisConfiguration pStreamArn_ =
     }
 
 -- | Enables QLDB to publish multiple data records in a single Kinesis Data
--- Streams record. To learn more, see
+-- Streams record, increasing the number of records sent per API call.
+--
+-- /This option is enabled by default./ Record aggregation has important
+-- implications for processing records and requires de-aggregation in your
+-- stream consumer. To learn more, see
 -- <https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-concepts.html KPL Key Concepts>
+-- and
+-- <https://docs.aws.amazon.com/streams/latest/dev/kinesis-kpl-consumer-deaggregation.html Consumer De-aggregation>
 -- in the /Amazon Kinesis Data Streams Developer Guide/.
 kinesisConfiguration_aggregationEnabled :: Lens.Lens' KinesisConfiguration (Prelude.Maybe Prelude.Bool)
 kinesisConfiguration_aggregationEnabled = Lens.lens (\KinesisConfiguration' {aggregationEnabled} -> aggregationEnabled) (\s@KinesisConfiguration' {} a -> s {aggregationEnabled = a} :: KinesisConfiguration)
 
--- | The Amazon Resource Name (ARN) of the Kinesis data stream resource.
+-- | The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
 kinesisConfiguration_streamArn :: Lens.Lens' KinesisConfiguration Prelude.Text
 kinesisConfiguration_streamArn = Lens.lens (\KinesisConfiguration' {streamArn} -> streamArn) (\s@KinesisConfiguration' {} a -> s {streamArn = a} :: KinesisConfiguration)
 

@@ -58,7 +58,7 @@ data GetRevision = GetRevision'
     -- proof. An address is an Amazon Ion structure that has two fields:
     -- @strandId@ and @sequenceNo@.
     --
-    -- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:49}@
+    -- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:49}@.
     digestTipAddress :: Prelude.Maybe (Core.Sensitive ValueHolder),
     -- | The name of the ledger.
     name :: Prelude.Text,
@@ -66,9 +66,10 @@ data GetRevision = GetRevision'
     -- is an Amazon Ion structure that has two fields: @strandId@ and
     -- @sequenceNo@.
     --
-    -- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:14}@
+    -- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:14}@.
     blockAddress :: Core.Sensitive ValueHolder,
-    -- | The unique ID of the document to be verified.
+    -- | The UUID (represented in Base62-encoded text) of the document to be
+    -- verified.
     documentId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -85,7 +86,7 @@ data GetRevision = GetRevision'
 -- proof. An address is an Amazon Ion structure that has two fields:
 -- @strandId@ and @sequenceNo@.
 --
--- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:49}@
+-- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:49}@.
 --
 -- 'name', 'getRevision_name' - The name of the ledger.
 --
@@ -93,9 +94,10 @@ data GetRevision = GetRevision'
 -- is an Amazon Ion structure that has two fields: @strandId@ and
 -- @sequenceNo@.
 --
--- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:14}@
+-- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:14}@.
 --
--- 'documentId', 'getRevision_documentId' - The unique ID of the document to be verified.
+-- 'documentId', 'getRevision_documentId' - The UUID (represented in Base62-encoded text) of the document to be
+-- verified.
 newGetRevision ::
   -- | 'name'
   Prelude.Text ->
@@ -116,7 +118,7 @@ newGetRevision pName_ pBlockAddress_ pDocumentId_ =
 -- proof. An address is an Amazon Ion structure that has two fields:
 -- @strandId@ and @sequenceNo@.
 --
--- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:49}@
+-- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:49}@.
 getRevision_digestTipAddress :: Lens.Lens' GetRevision (Prelude.Maybe ValueHolder)
 getRevision_digestTipAddress = Lens.lens (\GetRevision' {digestTipAddress} -> digestTipAddress) (\s@GetRevision' {} a -> s {digestTipAddress = a} :: GetRevision) Prelude.. Lens.mapping Core._Sensitive
 
@@ -128,11 +130,12 @@ getRevision_name = Lens.lens (\GetRevision' {name} -> name) (\s@GetRevision' {} 
 -- is an Amazon Ion structure that has two fields: @strandId@ and
 -- @sequenceNo@.
 --
--- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:14}@
+-- For example: @{strandId:\"BlFTjlSXze9BIh1KOszcE3\",sequenceNo:14}@.
 getRevision_blockAddress :: Lens.Lens' GetRevision ValueHolder
 getRevision_blockAddress = Lens.lens (\GetRevision' {blockAddress} -> blockAddress) (\s@GetRevision' {} a -> s {blockAddress = a} :: GetRevision) Prelude.. Core._Sensitive
 
--- | The unique ID of the document to be verified.
+-- | The UUID (represented in Base62-encoded text) of the document to be
+-- verified.
 getRevision_documentId :: Lens.Lens' GetRevision Prelude.Text
 getRevision_documentId = Lens.lens (\GetRevision' {documentId} -> documentId) (\s@GetRevision' {} a -> s {documentId = a} :: GetRevision)
 

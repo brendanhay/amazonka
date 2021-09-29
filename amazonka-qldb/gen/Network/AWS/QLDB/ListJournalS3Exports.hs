@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns an array of journal export job descriptions for all ledgers that
--- are associated with the current AWS account and Region.
+-- are associated with the current account and Region.
 --
 -- This action returns a maximum of @MaxResults@ items, and is paginated so
 -- that you can retrieve all the items by calling @ListJournalS3Exports@
@@ -29,7 +29,7 @@
 --
 -- This action does not return any expired export jobs. For more
 -- information, see
--- <https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration Export Job Expiration>
+-- <https://docs.aws.amazon.com/qldb/latest/developerguide/export-journal.request.html#export-journal.request.expiration Export job expiration>
 -- in the /Amazon QLDB Developer Guide/.
 module Network.AWS.QLDB.ListJournalS3Exports
   ( -- * Creating a Request
@@ -160,7 +160,7 @@ data ListJournalS3ExportsResponse = ListJournalS3ExportsResponse'
     --     @NextToken@ in a subsequent @ListJournalS3Exports@ call.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The array of journal export job descriptions for all ledgers that are
-    -- associated with the current AWS account and Region.
+    -- associated with the current account and Region.
     journalS3Exports :: Prelude.Maybe [JournalS3ExportDescription],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -183,7 +183,7 @@ data ListJournalS3ExportsResponse = ListJournalS3ExportsResponse'
 --     @NextToken@ in a subsequent @ListJournalS3Exports@ call.
 --
 -- 'journalS3Exports', 'listJournalS3ExportsResponse_journalS3Exports' - The array of journal export job descriptions for all ledgers that are
--- associated with the current AWS account and Region.
+-- associated with the current account and Region.
 --
 -- 'httpStatus', 'listJournalS3ExportsResponse_httpStatus' - The response's http status code.
 newListJournalS3ExportsResponse ::
@@ -208,7 +208,7 @@ listJournalS3ExportsResponse_nextToken :: Lens.Lens' ListJournalS3ExportsRespons
 listJournalS3ExportsResponse_nextToken = Lens.lens (\ListJournalS3ExportsResponse' {nextToken} -> nextToken) (\s@ListJournalS3ExportsResponse' {} a -> s {nextToken = a} :: ListJournalS3ExportsResponse)
 
 -- | The array of journal export job descriptions for all ledgers that are
--- associated with the current AWS account and Region.
+-- associated with the current account and Region.
 listJournalS3ExportsResponse_journalS3Exports :: Lens.Lens' ListJournalS3ExportsResponse (Prelude.Maybe [JournalS3ExportDescription])
 listJournalS3ExportsResponse_journalS3Exports = Lens.lens (\ListJournalS3ExportsResponse' {journalS3Exports} -> journalS3Exports) (\s@ListJournalS3ExportsResponse' {} a -> s {journalS3Exports = a} :: ListJournalS3ExportsResponse) Prelude.. Lens.mapping Lens._Coerce
 

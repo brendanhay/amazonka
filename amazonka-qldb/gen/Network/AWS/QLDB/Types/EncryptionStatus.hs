@@ -11,17 +11,18 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.QLDB.Types.PermissionsMode
+-- Module      : Network.AWS.QLDB.Types.EncryptionStatus
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.QLDB.Types.PermissionsMode
-  ( PermissionsMode
+module Network.AWS.QLDB.Types.EncryptionStatus
+  ( EncryptionStatus
       ( ..,
-        PermissionsMode_ALLOW_ALL,
-        PermissionsMode_STANDARD
+        EncryptionStatus_ENABLED,
+        EncryptionStatus_KMS_KEY_INACCESSIBLE,
+        EncryptionStatus_UPDATING
       ),
   )
 where
@@ -29,8 +30,8 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
-newtype PermissionsMode = PermissionsMode'
-  { fromPermissionsMode ::
+newtype EncryptionStatus = EncryptionStatus'
+  { fromEncryptionStatus ::
       Core.Text
   }
   deriving stock
@@ -57,14 +58,18 @@ newtype PermissionsMode = PermissionsMode'
       Core.ToXML
     )
 
-pattern PermissionsMode_ALLOW_ALL :: PermissionsMode
-pattern PermissionsMode_ALLOW_ALL = PermissionsMode' "ALLOW_ALL"
+pattern EncryptionStatus_ENABLED :: EncryptionStatus
+pattern EncryptionStatus_ENABLED = EncryptionStatus' "ENABLED"
 
-pattern PermissionsMode_STANDARD :: PermissionsMode
-pattern PermissionsMode_STANDARD = PermissionsMode' "STANDARD"
+pattern EncryptionStatus_KMS_KEY_INACCESSIBLE :: EncryptionStatus
+pattern EncryptionStatus_KMS_KEY_INACCESSIBLE = EncryptionStatus' "KMS_KEY_INACCESSIBLE"
+
+pattern EncryptionStatus_UPDATING :: EncryptionStatus
+pattern EncryptionStatus_UPDATING = EncryptionStatus' "UPDATING"
 
 {-# COMPLETE
-  PermissionsMode_ALLOW_ALL,
-  PermissionsMode_STANDARD,
-  PermissionsMode'
+  EncryptionStatus_ENABLED,
+  EncryptionStatus_KMS_KEY_INACCESSIBLE,
+  EncryptionStatus_UPDATING,
+  EncryptionStatus'
   #-}

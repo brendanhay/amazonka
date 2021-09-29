@@ -56,7 +56,8 @@ import qualified Network.AWS.Response as Response
 data CancelJournalKinesisStream = CancelJournalKinesisStream'
   { -- | The name of the ledger.
     ledgerName :: Prelude.Text,
-    -- | The unique ID that QLDB assigns to each QLDB journal stream.
+    -- | The UUID (represented in Base62-encoded text) of the QLDB journal stream
+    -- to be canceled.
     streamId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,7 +72,8 @@ data CancelJournalKinesisStream = CancelJournalKinesisStream'
 --
 -- 'ledgerName', 'cancelJournalKinesisStream_ledgerName' - The name of the ledger.
 --
--- 'streamId', 'cancelJournalKinesisStream_streamId' - The unique ID that QLDB assigns to each QLDB journal stream.
+-- 'streamId', 'cancelJournalKinesisStream_streamId' - The UUID (represented in Base62-encoded text) of the QLDB journal stream
+-- to be canceled.
 newCancelJournalKinesisStream ::
   -- | 'ledgerName'
   Prelude.Text ->
@@ -89,7 +91,8 @@ newCancelJournalKinesisStream pLedgerName_ pStreamId_ =
 cancelJournalKinesisStream_ledgerName :: Lens.Lens' CancelJournalKinesisStream Prelude.Text
 cancelJournalKinesisStream_ledgerName = Lens.lens (\CancelJournalKinesisStream' {ledgerName} -> ledgerName) (\s@CancelJournalKinesisStream' {} a -> s {ledgerName = a} :: CancelJournalKinesisStream)
 
--- | The unique ID that QLDB assigns to each QLDB journal stream.
+-- | The UUID (represented in Base62-encoded text) of the QLDB journal stream
+-- to be canceled.
 cancelJournalKinesisStream_streamId :: Lens.Lens' CancelJournalKinesisStream Prelude.Text
 cancelJournalKinesisStream_streamId = Lens.lens (\CancelJournalKinesisStream' {streamId} -> streamId) (\s@CancelJournalKinesisStream' {} a -> s {streamId = a} :: CancelJournalKinesisStream)
 
@@ -135,7 +138,7 @@ instance Core.ToQuery CancelJournalKinesisStream where
 
 -- | /See:/ 'newCancelJournalKinesisStreamResponse' smart constructor.
 data CancelJournalKinesisStreamResponse = CancelJournalKinesisStreamResponse'
-  { -- | The unique ID that QLDB assigns to each QLDB journal stream.
+  { -- | The UUID (Base62-encoded text) of the canceled QLDB journal stream.
     streamId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -150,7 +153,7 @@ data CancelJournalKinesisStreamResponse = CancelJournalKinesisStreamResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'streamId', 'cancelJournalKinesisStreamResponse_streamId' - The unique ID that QLDB assigns to each QLDB journal stream.
+-- 'streamId', 'cancelJournalKinesisStreamResponse_streamId' - The UUID (Base62-encoded text) of the canceled QLDB journal stream.
 --
 -- 'httpStatus', 'cancelJournalKinesisStreamResponse_httpStatus' - The response's http status code.
 newCancelJournalKinesisStreamResponse ::
@@ -164,7 +167,7 @@ newCancelJournalKinesisStreamResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The unique ID that QLDB assigns to each QLDB journal stream.
+-- | The UUID (Base62-encoded text) of the canceled QLDB journal stream.
 cancelJournalKinesisStreamResponse_streamId :: Lens.Lens' CancelJournalKinesisStreamResponse (Prelude.Maybe Prelude.Text)
 cancelJournalKinesisStreamResponse_streamId = Lens.lens (\CancelJournalKinesisStreamResponse' {streamId} -> streamId) (\s@CancelJournalKinesisStreamResponse' {} a -> s {streamId = a} :: CancelJournalKinesisStreamResponse)
 

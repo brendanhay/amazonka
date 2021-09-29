@@ -50,8 +50,8 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newBatchGetProjects' smart constructor.
 data BatchGetProjects = BatchGetProjects'
   { -- | The names or ARNs of the build projects. To get information about a
-    -- project shared with your AWS account, its ARN must be specified. You
-    -- cannot specify a shared project using its name.
+    -- project shared with your Amazon Web Services account, its ARN must be
+    -- specified. You cannot specify a shared project using its name.
     names :: Prelude.NonEmpty Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -65,8 +65,8 @@ data BatchGetProjects = BatchGetProjects'
 -- for backwards compatibility:
 --
 -- 'names', 'batchGetProjects_names' - The names or ARNs of the build projects. To get information about a
--- project shared with your AWS account, its ARN must be specified. You
--- cannot specify a shared project using its name.
+-- project shared with your Amazon Web Services account, its ARN must be
+-- specified. You cannot specify a shared project using its name.
 newBatchGetProjects ::
   -- | 'names'
   Prelude.NonEmpty Prelude.Text ->
@@ -78,8 +78,8 @@ newBatchGetProjects pNames_ =
     }
 
 -- | The names or ARNs of the build projects. To get information about a
--- project shared with your AWS account, its ARN must be specified. You
--- cannot specify a shared project using its name.
+-- project shared with your Amazon Web Services account, its ARN must be
+-- specified. You cannot specify a shared project using its name.
 batchGetProjects_names :: Lens.Lens' BatchGetProjects (Prelude.NonEmpty Prelude.Text)
 batchGetProjects_names = Lens.lens (\BatchGetProjects' {names} -> names) (\s@BatchGetProjects' {} a -> s {names = a} :: BatchGetProjects) Prelude.. Lens._Coerce
 

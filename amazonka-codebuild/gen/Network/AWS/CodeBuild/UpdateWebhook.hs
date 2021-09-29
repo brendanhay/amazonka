@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the webhook associated with an AWS CodeBuild build project.
+-- Updates the webhook associated with an CodeBuild build project.
 --
 -- If you use Bitbucket for your repository, @rotateSecret@ is ignored.
 module Network.AWS.CodeBuild.UpdateWebhook
@@ -71,7 +71,7 @@ data UpdateWebhook = UpdateWebhook'
     filterGroups :: Prelude.Maybe [[WebhookFilter]],
     -- | Specifies the type of build this webhook will trigger.
     buildType :: Prelude.Maybe WebhookBuildType,
-    -- | The name of the AWS CodeBuild project.
+    -- | The name of the CodeBuild project.
     projectName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -101,7 +101,7 @@ data UpdateWebhook = UpdateWebhook'
 --
 -- 'buildType', 'updateWebhook_buildType' - Specifies the type of build this webhook will trigger.
 --
--- 'projectName', 'updateWebhook_projectName' - The name of the AWS CodeBuild project.
+-- 'projectName', 'updateWebhook_projectName' - The name of the CodeBuild project.
 newUpdateWebhook ::
   -- | 'projectName'
   Prelude.Text ->
@@ -140,7 +140,7 @@ updateWebhook_filterGroups = Lens.lens (\UpdateWebhook' {filterGroups} -> filter
 updateWebhook_buildType :: Lens.Lens' UpdateWebhook (Prelude.Maybe WebhookBuildType)
 updateWebhook_buildType = Lens.lens (\UpdateWebhook' {buildType} -> buildType) (\s@UpdateWebhook' {} a -> s {buildType = a} :: UpdateWebhook)
 
--- | The name of the AWS CodeBuild project.
+-- | The name of the CodeBuild project.
 updateWebhook_projectName :: Lens.Lens' UpdateWebhook Prelude.Text
 updateWebhook_projectName = Lens.lens (\UpdateWebhook' {projectName} -> projectName) (\s@UpdateWebhook' {} a -> s {projectName = a} :: UpdateWebhook)
 
@@ -197,7 +197,7 @@ instance Core.ToQuery UpdateWebhook where
 -- | /See:/ 'newUpdateWebhookResponse' smart constructor.
 data UpdateWebhookResponse = UpdateWebhookResponse'
   { -- | Information about a repository\'s webhook that is associated with a
-    -- project in AWS CodeBuild.
+    -- project in CodeBuild.
     webhook :: Prelude.Maybe Webhook,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -213,7 +213,7 @@ data UpdateWebhookResponse = UpdateWebhookResponse'
 -- for backwards compatibility:
 --
 -- 'webhook', 'updateWebhookResponse_webhook' - Information about a repository\'s webhook that is associated with a
--- project in AWS CodeBuild.
+-- project in CodeBuild.
 --
 -- 'httpStatus', 'updateWebhookResponse_httpStatus' - The response's http status code.
 newUpdateWebhookResponse ::
@@ -227,7 +227,7 @@ newUpdateWebhookResponse pHttpStatus_ =
     }
 
 -- | Information about a repository\'s webhook that is associated with a
--- project in AWS CodeBuild.
+-- project in CodeBuild.
 updateWebhookResponse_webhook :: Lens.Lens' UpdateWebhookResponse (Prelude.Maybe Webhook)
 updateWebhookResponse_webhook = Lens.lens (\UpdateWebhookResponse' {webhook} -> webhook) (\s@UpdateWebhookResponse' {} a -> s {webhook = a} :: UpdateWebhookResponse)
 

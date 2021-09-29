@@ -59,8 +59,8 @@ data UpdateReportGroup = UpdateReportGroup'
     -- | An updated list of tag key and value pairs associated with this report
     -- group.
     --
-    -- These tags are available for use by AWS services that support AWS
-    -- CodeBuild report group tags.
+    -- These tags are available for use by Amazon Web Services services that
+    -- support CodeBuild report group tags.
     tags :: Prelude.Maybe [Tag],
     -- | The ARN of the report group to update.
     arn :: Prelude.Text
@@ -84,8 +84,8 @@ data UpdateReportGroup = UpdateReportGroup'
 -- 'tags', 'updateReportGroup_tags' - An updated list of tag key and value pairs associated with this report
 -- group.
 --
--- These tags are available for use by AWS services that support AWS
--- CodeBuild report group tags.
+-- These tags are available for use by Amazon Web Services services that
+-- support CodeBuild report group tags.
 --
 -- 'arn', 'updateReportGroup_arn' - The ARN of the report group to update.
 newUpdateReportGroup ::
@@ -110,8 +110,8 @@ updateReportGroup_exportConfig = Lens.lens (\UpdateReportGroup' {exportConfig} -
 -- | An updated list of tag key and value pairs associated with this report
 -- group.
 --
--- These tags are available for use by AWS services that support AWS
--- CodeBuild report group tags.
+-- These tags are available for use by Amazon Web Services services that
+-- support CodeBuild report group tags.
 updateReportGroup_tags :: Lens.Lens' UpdateReportGroup (Prelude.Maybe [Tag])
 updateReportGroup_tags = Lens.lens (\UpdateReportGroup' {tags} -> tags) (\s@UpdateReportGroup' {} a -> s {tags = a} :: UpdateReportGroup) Prelude.. Lens.mapping Lens._Coerce
 

@@ -30,8 +30,8 @@ module Network.AWS.CodeBuild.ListBuilds
     newListBuilds,
 
     -- * Request Lenses
-    listBuilds_sortOrder,
     listBuilds_nextToken,
+    listBuilds_sortOrder,
 
     -- * Destructuring the Response
     ListBuildsResponse (..),
@@ -53,19 +53,19 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListBuilds' smart constructor.
 data ListBuilds = ListBuilds'
-  { -- | The order to list build IDs. Valid values include:
-    --
-    -- -   @ASCENDING@: List the build IDs in ascending order by build ID.
-    --
-    -- -   @DESCENDING@: List the build IDs in descending order by build ID.
-    sortOrder :: Prelude.Maybe SortOrderType,
-    -- | During a previous call, if there are more than 100 items in the list,
+  { -- | During a previous call, if there are more than 100 items in the list,
     -- only the first 100 items are returned, along with a unique string called
     -- a /nextToken/. To get the next batch of items in the list, call this
     -- operation again, adding the next token to the call. To get all of the
     -- items in the list, keep calling this operation with each subsequent next
     -- token that is returned, until no more next tokens are returned.
-    nextToken :: Prelude.Maybe Prelude.Text
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The order to list build IDs. Valid values include:
+    --
+    -- -   @ASCENDING@: List the build IDs in ascending order by build ID.
+    --
+    -- -   @DESCENDING@: List the build IDs in descending order by build ID.
+    sortOrder :: Prelude.Maybe SortOrderType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -77,33 +77,25 @@ data ListBuilds = ListBuilds'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listBuilds_sortOrder' - The order to list build IDs. Valid values include:
---
--- -   @ASCENDING@: List the build IDs in ascending order by build ID.
---
--- -   @DESCENDING@: List the build IDs in descending order by build ID.
---
 -- 'nextToken', 'listBuilds_nextToken' - During a previous call, if there are more than 100 items in the list,
 -- only the first 100 items are returned, along with a unique string called
 -- a /nextToken/. To get the next batch of items in the list, call this
 -- operation again, adding the next token to the call. To get all of the
 -- items in the list, keep calling this operation with each subsequent next
 -- token that is returned, until no more next tokens are returned.
-newListBuilds ::
-  ListBuilds
-newListBuilds =
-  ListBuilds'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing
-    }
-
--- | The order to list build IDs. Valid values include:
+--
+-- 'sortOrder', 'listBuilds_sortOrder' - The order to list build IDs. Valid values include:
 --
 -- -   @ASCENDING@: List the build IDs in ascending order by build ID.
 --
 -- -   @DESCENDING@: List the build IDs in descending order by build ID.
-listBuilds_sortOrder :: Lens.Lens' ListBuilds (Prelude.Maybe SortOrderType)
-listBuilds_sortOrder = Lens.lens (\ListBuilds' {sortOrder} -> sortOrder) (\s@ListBuilds' {} a -> s {sortOrder = a} :: ListBuilds)
+newListBuilds ::
+  ListBuilds
+newListBuilds =
+  ListBuilds'
+    { nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing
+    }
 
 -- | During a previous call, if there are more than 100 items in the list,
 -- only the first 100 items are returned, along with a unique string called
@@ -113,6 +105,14 @@ listBuilds_sortOrder = Lens.lens (\ListBuilds' {sortOrder} -> sortOrder) (\s@Lis
 -- token that is returned, until no more next tokens are returned.
 listBuilds_nextToken :: Lens.Lens' ListBuilds (Prelude.Maybe Prelude.Text)
 listBuilds_nextToken = Lens.lens (\ListBuilds' {nextToken} -> nextToken) (\s@ListBuilds' {} a -> s {nextToken = a} :: ListBuilds)
+
+-- | The order to list build IDs. Valid values include:
+--
+-- -   @ASCENDING@: List the build IDs in ascending order by build ID.
+--
+-- -   @DESCENDING@: List the build IDs in descending order by build ID.
+listBuilds_sortOrder :: Lens.Lens' ListBuilds (Prelude.Maybe SortOrderType)
+listBuilds_sortOrder = Lens.lens (\ListBuilds' {sortOrder} -> sortOrder) (\s@ListBuilds' {} a -> s {sortOrder = a} :: ListBuilds)
 
 instance Core.AWSPager ListBuilds where
   page rq rs
@@ -169,8 +169,8 @@ instance Core.ToJSON ListBuilds where
   toJSON ListBuilds' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Core..=) Prelude.<$> sortOrder,
-            ("nextToken" Core..=) Prelude.<$> nextToken
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("sortOrder" Core..=) Prelude.<$> sortOrder
           ]
       )
 

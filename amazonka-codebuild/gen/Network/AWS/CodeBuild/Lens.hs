@@ -14,6 +14,13 @@
 module Network.AWS.CodeBuild.Lens
   ( -- * Operations
 
+    -- ** ListBuilds
+    listBuilds_nextToken,
+    listBuilds_sortOrder,
+    listBuildsResponse_nextToken,
+    listBuildsResponse_ids,
+    listBuildsResponse_httpStatus,
+
     -- ** DeleteReport
     deleteReport_arn,
     deleteReportResponse_httpStatus,
@@ -24,21 +31,14 @@ module Network.AWS.CodeBuild.Lens
     batchGetReportsResponse_reportsNotFound,
     batchGetReportsResponse_httpStatus,
 
-    -- ** ListBuilds
-    listBuilds_sortOrder,
-    listBuilds_nextToken,
-    listBuildsResponse_nextToken,
-    listBuildsResponse_ids,
-    listBuildsResponse_httpStatus,
-
     -- ** GetResourcePolicy
     getResourcePolicy_resourceArn,
     getResourcePolicyResponse_policy,
     getResourcePolicyResponse_httpStatus,
 
     -- ** ListProjects
-    listProjects_sortOrder,
     listProjects_nextToken,
+    listProjects_sortOrder,
     listProjects_sortBy,
     listProjectsResponse_nextToken,
     listProjectsResponse_projects,
@@ -53,28 +53,20 @@ module Network.AWS.CodeBuild.Lens
     describeTestCasesResponse_testCases,
     describeTestCasesResponse_httpStatus,
 
-    -- ** ListBuildsForProject
-    listBuildsForProject_sortOrder,
-    listBuildsForProject_nextToken,
-    listBuildsForProject_projectName,
-    listBuildsForProjectResponse_nextToken,
-    listBuildsForProjectResponse_ids,
-    listBuildsForProjectResponse_httpStatus,
-
     -- ** CreateProject
     createProject_vpcConfig,
-    createProject_secondaryArtifacts,
     createProject_sourceVersion,
+    createProject_secondaryArtifacts,
     createProject_cache,
     createProject_secondarySourceVersions,
-    createProject_encryptionKey,
     createProject_badgeEnabled,
     createProject_concurrentBuildLimit,
+    createProject_encryptionKey,
     createProject_logsConfig,
     createProject_queuedTimeoutInMinutes,
     createProject_secondarySources,
-    createProject_tags,
     createProject_timeoutInMinutes,
+    createProject_tags,
     createProject_description,
     createProject_buildBatchConfig,
     createProject_fileSystemLocations,
@@ -86,21 +78,22 @@ module Network.AWS.CodeBuild.Lens
     createProjectResponse_project,
     createProjectResponse_httpStatus,
 
+    -- ** ListBuildsForProject
+    listBuildsForProject_nextToken,
+    listBuildsForProject_sortOrder,
+    listBuildsForProject_projectName,
+    listBuildsForProjectResponse_nextToken,
+    listBuildsForProjectResponse_ids,
+    listBuildsForProjectResponse_httpStatus,
+
     -- ** ListBuildBatches
-    listBuildBatches_sortOrder,
     listBuildBatches_nextToken,
+    listBuildBatches_sortOrder,
     listBuildBatches_maxResults,
     listBuildBatches_filter,
     listBuildBatchesResponse_nextToken,
     listBuildBatchesResponse_ids,
     listBuildBatchesResponse_httpStatus,
-
-    -- ** DeleteBuildBatch
-    deleteBuildBatch_id,
-    deleteBuildBatchResponse_statusCode,
-    deleteBuildBatchResponse_buildsDeleted,
-    deleteBuildBatchResponse_buildsNotDeleted,
-    deleteBuildBatchResponse_httpStatus,
 
     -- ** PutResourcePolicy
     putResourcePolicy_policy,
@@ -108,22 +101,12 @@ module Network.AWS.CodeBuild.Lens
     putResourcePolicyResponse_resourceArn,
     putResourcePolicyResponse_httpStatus,
 
-    -- ** DeleteReportGroup
-    deleteReportGroup_deleteReports,
-    deleteReportGroup_arn,
-    deleteReportGroupResponse_httpStatus,
-
-    -- ** BatchDeleteBuilds
-    batchDeleteBuilds_ids,
-    batchDeleteBuildsResponse_buildsDeleted,
-    batchDeleteBuildsResponse_buildsNotDeleted,
-    batchDeleteBuildsResponse_httpStatus,
-
-    -- ** BatchGetReportGroups
-    batchGetReportGroups_reportGroupArns,
-    batchGetReportGroupsResponse_reportGroupsNotFound,
-    batchGetReportGroupsResponse_reportGroups,
-    batchGetReportGroupsResponse_httpStatus,
+    -- ** DeleteBuildBatch
+    deleteBuildBatch_id,
+    deleteBuildBatchResponse_statusCode,
+    deleteBuildBatchResponse_buildsDeleted,
+    deleteBuildBatchResponse_buildsNotDeleted,
+    deleteBuildBatchResponse_httpStatus,
 
     -- ** UpdateReportGroup
     updateReportGroup_exportConfig,
@@ -133,14 +116,31 @@ module Network.AWS.CodeBuild.Lens
     updateReportGroupResponse_httpStatus,
 
     -- ** ListBuildBatchesForProject
-    listBuildBatchesForProject_sortOrder,
     listBuildBatchesForProject_nextToken,
+    listBuildBatchesForProject_sortOrder,
     listBuildBatchesForProject_maxResults,
     listBuildBatchesForProject_projectName,
     listBuildBatchesForProject_filter,
     listBuildBatchesForProjectResponse_nextToken,
     listBuildBatchesForProjectResponse_ids,
     listBuildBatchesForProjectResponse_httpStatus,
+
+    -- ** BatchGetReportGroups
+    batchGetReportGroups_reportGroupArns,
+    batchGetReportGroupsResponse_reportGroupsNotFound,
+    batchGetReportGroupsResponse_reportGroups,
+    batchGetReportGroupsResponse_httpStatus,
+
+    -- ** BatchDeleteBuilds
+    batchDeleteBuilds_ids,
+    batchDeleteBuildsResponse_buildsDeleted,
+    batchDeleteBuildsResponse_buildsNotDeleted,
+    batchDeleteBuildsResponse_httpStatus,
+
+    -- ** DeleteReportGroup
+    deleteReportGroup_deleteReports,
+    deleteReportGroup_arn,
+    deleteReportGroupResponse_httpStatus,
 
     -- ** CreateReportGroup
     createReportGroup_tags,
@@ -151,9 +151,9 @@ module Network.AWS.CodeBuild.Lens
     createReportGroupResponse_httpStatus,
 
     -- ** DescribeCodeCoverages
-    describeCodeCoverages_sortOrder,
-    describeCodeCoverages_nextToken,
     describeCodeCoverages_maxLineCoveragePercentage,
+    describeCodeCoverages_nextToken,
+    describeCodeCoverages_sortOrder,
     describeCodeCoverages_maxResults,
     describeCodeCoverages_sortBy,
     describeCodeCoverages_minLineCoveragePercentage,
@@ -163,31 +163,31 @@ module Network.AWS.CodeBuild.Lens
     describeCodeCoveragesResponse_httpStatus,
 
     -- ** StartBuildBatch
-    startBuildBatch_buildspecOverride,
     startBuildBatch_sourceVersion,
-    startBuildBatch_environmentVariablesOverride,
+    startBuildBatch_buildspecOverride,
+    startBuildBatch_sourceLocationOverride,
     startBuildBatch_idempotencyToken,
     startBuildBatch_buildBatchConfigOverride,
-    startBuildBatch_sourceLocationOverride,
+    startBuildBatch_environmentVariablesOverride,
     startBuildBatch_logsConfigOverride,
-    startBuildBatch_artifactsOverride,
     startBuildBatch_sourceAuthOverride,
-    startBuildBatch_buildTimeoutInMinutesOverride,
+    startBuildBatch_artifactsOverride,
     startBuildBatch_imageOverride,
-    startBuildBatch_queuedTimeoutInMinutesOverride,
+    startBuildBatch_buildTimeoutInMinutesOverride,
     startBuildBatch_insecureSslOverride,
+    startBuildBatch_queuedTimeoutInMinutesOverride,
     startBuildBatch_secondarySourcesOverride,
     startBuildBatch_serviceRoleOverride,
-    startBuildBatch_registryCredentialOverride,
     startBuildBatch_secondarySourcesVersionOverride,
+    startBuildBatch_registryCredentialOverride,
+    startBuildBatch_reportBuildBatchStatusOverride,
     startBuildBatch_encryptionKeyOverride,
     startBuildBatch_privilegedModeOverride,
-    startBuildBatch_reportBuildBatchStatusOverride,
     startBuildBatch_gitSubmodulesConfigOverride,
-    startBuildBatch_computeTypeOverride,
-    startBuildBatch_certificateOverride,
     startBuildBatch_sourceTypeOverride,
     startBuildBatch_environmentTypeOverride,
+    startBuildBatch_certificateOverride,
+    startBuildBatch_computeTypeOverride,
     startBuildBatch_imagePullCredentialsTypeOverride,
     startBuildBatch_secondaryArtifactsOverride,
     startBuildBatch_gitCloneDepthOverride,
@@ -196,6 +196,31 @@ module Network.AWS.CodeBuild.Lens
     startBuildBatch_projectName,
     startBuildBatchResponse_buildBatch,
     startBuildBatchResponse_httpStatus,
+
+    -- ** DeleteWebhook
+    deleteWebhook_projectName,
+    deleteWebhookResponse_httpStatus,
+
+    -- ** UpdateProjectVisibility
+    updateProjectVisibility_resourceAccessRole,
+    updateProjectVisibility_projectArn,
+    updateProjectVisibility_projectVisibility,
+    updateProjectVisibilityResponse_projectVisibility,
+    updateProjectVisibilityResponse_projectArn,
+    updateProjectVisibilityResponse_publicProjectAlias,
+    updateProjectVisibilityResponse_httpStatus,
+
+    -- ** RetryBuildBatch
+    retryBuildBatch_idempotencyToken,
+    retryBuildBatch_retryType,
+    retryBuildBatch_id,
+    retryBuildBatchResponse_buildBatch,
+    retryBuildBatchResponse_httpStatus,
+
+    -- ** StopBuildBatch
+    stopBuildBatch_id,
+    stopBuildBatchResponse_buildBatch,
+    stopBuildBatchResponse_httpStatus,
 
     -- ** UpdateWebhook
     updateWebhook_rotateSecret,
@@ -206,25 +231,20 @@ module Network.AWS.CodeBuild.Lens
     updateWebhookResponse_webhook,
     updateWebhookResponse_httpStatus,
 
-    -- ** RetryBuildBatch
-    retryBuildBatch_idempotencyToken,
-    retryBuildBatch_retryType,
-    retryBuildBatch_id,
-    retryBuildBatchResponse_buildBatch,
-    retryBuildBatchResponse_httpStatus,
+    -- ** BatchGetBuilds
+    batchGetBuilds_ids,
+    batchGetBuildsResponse_buildsNotFound,
+    batchGetBuildsResponse_builds,
+    batchGetBuildsResponse_httpStatus,
 
-    -- ** DeleteWebhook
-    deleteWebhook_projectName,
-    deleteWebhookResponse_httpStatus,
-
-    -- ** StopBuildBatch
-    stopBuildBatch_id,
-    stopBuildBatchResponse_buildBatch,
-    stopBuildBatchResponse_httpStatus,
-
-    -- ** ListSourceCredentials
-    listSourceCredentialsResponse_sourceCredentialsInfos,
-    listSourceCredentialsResponse_httpStatus,
+    -- ** ListReports
+    listReports_nextToken,
+    listReports_sortOrder,
+    listReports_maxResults,
+    listReports_filter,
+    listReportsResponse_nextToken,
+    listReportsResponse_reports,
+    listReportsResponse_httpStatus,
 
     -- ** CreateWebhook
     createWebhook_branchFilter,
@@ -234,49 +254,28 @@ module Network.AWS.CodeBuild.Lens
     createWebhookResponse_webhook,
     createWebhookResponse_httpStatus,
 
-    -- ** BatchGetBuilds
-    batchGetBuilds_ids,
-    batchGetBuildsResponse_buildsNotFound,
-    batchGetBuildsResponse_builds,
-    batchGetBuildsResponse_httpStatus,
-
-    -- ** ListReports
-    listReports_sortOrder,
-    listReports_nextToken,
-    listReports_maxResults,
-    listReports_filter,
-    listReportsResponse_nextToken,
-    listReportsResponse_reports,
-    listReportsResponse_httpStatus,
-
-    -- ** BatchGetProjects
-    batchGetProjects_names,
-    batchGetProjectsResponse_projects,
-    batchGetProjectsResponse_projectsNotFound,
-    batchGetProjectsResponse_httpStatus,
-
-    -- ** DeleteProject
-    deleteProject_name,
-    deleteProjectResponse_httpStatus,
+    -- ** ListSourceCredentials
+    listSourceCredentialsResponse_sourceCredentialsInfos,
+    listSourceCredentialsResponse_httpStatus,
 
     -- ** UpdateProject
     updateProject_vpcConfig,
-    updateProject_secondaryArtifacts,
     updateProject_sourceVersion,
+    updateProject_secondaryArtifacts,
     updateProject_cache,
     updateProject_serviceRole,
     updateProject_secondarySourceVersions,
-    updateProject_encryptionKey,
     updateProject_badgeEnabled,
     updateProject_concurrentBuildLimit,
-    updateProject_artifacts,
+    updateProject_encryptionKey,
     updateProject_environment,
     updateProject_source,
     updateProject_logsConfig,
+    updateProject_artifacts,
     updateProject_queuedTimeoutInMinutes,
     updateProject_secondarySources,
-    updateProject_tags,
     updateProject_timeoutInMinutes,
+    updateProject_tags,
     updateProject_description,
     updateProject_buildBatchConfig,
     updateProject_fileSystemLocations,
@@ -284,24 +283,29 @@ module Network.AWS.CodeBuild.Lens
     updateProjectResponse_project,
     updateProjectResponse_httpStatus,
 
+    -- ** DeleteProject
+    deleteProject_name,
+    deleteProjectResponse_httpStatus,
+
     -- ** DeleteSourceCredentials
     deleteSourceCredentials_arn,
     deleteSourceCredentialsResponse_arn,
     deleteSourceCredentialsResponse_httpStatus,
 
+    -- ** BatchGetProjects
+    batchGetProjects_names,
+    batchGetProjectsResponse_projects,
+    batchGetProjectsResponse_projectsNotFound,
+    batchGetProjectsResponse_httpStatus,
+
     -- ** ListSharedReportGroups
-    listSharedReportGroups_sortOrder,
     listSharedReportGroups_nextToken,
+    listSharedReportGroups_sortOrder,
     listSharedReportGroups_maxResults,
     listSharedReportGroups_sortBy,
     listSharedReportGroupsResponse_nextToken,
     listSharedReportGroupsResponse_reportGroups,
     listSharedReportGroupsResponse_httpStatus,
-
-    -- ** StopBuild
-    stopBuild_id,
-    stopBuildResponse_build,
-    stopBuildResponse_httpStatus,
 
     -- ** RetryBuild
     retryBuild_idempotencyToken,
@@ -309,45 +313,42 @@ module Network.AWS.CodeBuild.Lens
     retryBuildResponse_build,
     retryBuildResponse_httpStatus,
 
+    -- ** StopBuild
+    stopBuild_id,
+    stopBuildResponse_build,
+    stopBuildResponse_httpStatus,
+
     -- ** BatchGetBuildBatches
     batchGetBuildBatches_ids,
     batchGetBuildBatchesResponse_buildBatchesNotFound,
     batchGetBuildBatchesResponse_buildBatches,
     batchGetBuildBatchesResponse_httpStatus,
 
-    -- ** GetReportGroupTrend
-    getReportGroupTrend_numOfReports,
-    getReportGroupTrend_reportGroupArn,
-    getReportGroupTrend_trendField,
-    getReportGroupTrendResponse_rawData,
-    getReportGroupTrendResponse_stats,
-    getReportGroupTrendResponse_httpStatus,
-
     -- ** StartBuild
-    startBuild_buildspecOverride,
     startBuild_sourceVersion,
-    startBuild_environmentVariablesOverride,
-    startBuild_idempotencyToken,
+    startBuild_buildspecOverride,
     startBuild_sourceLocationOverride,
+    startBuild_idempotencyToken,
+    startBuild_environmentVariablesOverride,
     startBuild_logsConfigOverride,
-    startBuild_artifactsOverride,
     startBuild_sourceAuthOverride,
+    startBuild_artifactsOverride,
     startBuild_imageOverride,
-    startBuild_queuedTimeoutInMinutesOverride,
     startBuild_insecureSslOverride,
-    startBuild_secondarySourcesOverride,
+    startBuild_queuedTimeoutInMinutesOverride,
     startBuild_reportBuildStatusOverride,
+    startBuild_secondarySourcesOverride,
     startBuild_serviceRoleOverride,
-    startBuild_registryCredentialOverride,
     startBuild_secondarySourcesVersionOverride,
+    startBuild_registryCredentialOverride,
     startBuild_buildStatusConfigOverride,
     startBuild_encryptionKeyOverride,
     startBuild_privilegedModeOverride,
     startBuild_gitSubmodulesConfigOverride,
-    startBuild_computeTypeOverride,
-    startBuild_certificateOverride,
     startBuild_sourceTypeOverride,
     startBuild_environmentTypeOverride,
+    startBuild_certificateOverride,
+    startBuild_computeTypeOverride,
     startBuild_imagePullCredentialsTypeOverride,
     startBuild_secondaryArtifactsOverride,
     startBuild_gitCloneDepthOverride,
@@ -358,6 +359,14 @@ module Network.AWS.CodeBuild.Lens
     startBuildResponse_build,
     startBuildResponse_httpStatus,
 
+    -- ** GetReportGroupTrend
+    getReportGroupTrend_numOfReports,
+    getReportGroupTrend_reportGroupArn,
+    getReportGroupTrend_trendField,
+    getReportGroupTrendResponse_rawData,
+    getReportGroupTrendResponse_stats,
+    getReportGroupTrendResponse_httpStatus,
+
     -- ** DeleteResourcePolicy
     deleteResourcePolicy_resourceArn,
     deleteResourcePolicyResponse_httpStatus,
@@ -367,13 +376,17 @@ module Network.AWS.CodeBuild.Lens
     listCuratedEnvironmentImagesResponse_httpStatus,
 
     -- ** ListReportGroups
-    listReportGroups_sortOrder,
     listReportGroups_nextToken,
+    listReportGroups_sortOrder,
     listReportGroups_maxResults,
     listReportGroups_sortBy,
     listReportGroupsResponse_nextToken,
     listReportGroupsResponse_reportGroups,
     listReportGroupsResponse_httpStatus,
+
+    -- ** InvalidateProjectCache
+    invalidateProjectCache_projectName,
+    invalidateProjectCacheResponse_httpStatus,
 
     -- ** ImportSourceCredentials
     importSourceCredentials_shouldOverwrite,
@@ -384,13 +397,9 @@ module Network.AWS.CodeBuild.Lens
     importSourceCredentialsResponse_arn,
     importSourceCredentialsResponse_httpStatus,
 
-    -- ** InvalidateProjectCache
-    invalidateProjectCache_projectName,
-    invalidateProjectCacheResponse_httpStatus,
-
     -- ** ListReportsForReportGroup
-    listReportsForReportGroup_sortOrder,
     listReportsForReportGroup_nextToken,
+    listReportsForReportGroup_sortOrder,
     listReportsForReportGroup_maxResults,
     listReportsForReportGroup_filter,
     listReportsForReportGroup_reportGroupArn,
@@ -399,8 +408,8 @@ module Network.AWS.CodeBuild.Lens
     listReportsForReportGroupResponse_httpStatus,
 
     -- ** ListSharedProjects
-    listSharedProjects_sortOrder,
     listSharedProjects_nextToken,
+    listSharedProjects_sortOrder,
     listSharedProjects_maxResults,
     listSharedProjects_sortBy,
     listSharedProjectsResponse_nextToken,
@@ -415,28 +424,28 @@ module Network.AWS.CodeBuild.Lens
 
     -- ** Build
     build_vpcConfig,
-    build_buildBatchArn,
-    build_resolvedSourceVersion,
-    build_secondaryArtifacts,
     build_sourceVersion,
+    build_buildBatchArn,
+    build_secondaryArtifacts,
+    build_resolvedSourceVersion,
     build_phases,
     build_cache,
     build_serviceRole,
     build_secondarySourceVersions,
     build_networkInterface,
     build_encryptionKey,
-    build_artifacts,
-    build_buildNumber,
-    build_startTime,
     build_id,
     build_environment,
     build_source,
+    build_startTime,
     build_arn,
+    build_buildNumber,
+    build_artifacts,
     build_projectName,
-    build_endTime,
     build_buildStatus,
-    build_logs,
+    build_endTime,
     build_buildComplete,
+    build_logs,
     build_debugSession,
     build_queuedTimeoutInMinutes,
     build_secondarySources,
@@ -444,34 +453,35 @@ module Network.AWS.CodeBuild.Lens
     build_currentPhase,
     build_initiator,
     build_reportArns,
-    build_fileSystemLocations,
     build_exportedEnvironmentVariables,
+    build_fileSystemLocations,
 
     -- ** BuildArtifacts
+    buildArtifacts_bucketOwnerAccess,
     buildArtifacts_sha256sum,
-    buildArtifacts_overrideArtifactName,
     buildArtifacts_artifactIdentifier,
-    buildArtifacts_md5sum,
+    buildArtifacts_overrideArtifactName,
     buildArtifacts_encryptionDisabled,
+    buildArtifacts_md5sum,
     buildArtifacts_location,
 
     -- ** BuildBatch
     buildBatch_vpcConfig,
-    buildBatch_resolvedSourceVersion,
-    buildBatch_secondaryArtifacts,
     buildBatch_sourceVersion,
+    buildBatch_secondaryArtifacts,
+    buildBatch_resolvedSourceVersion,
     buildBatch_phases,
     buildBatch_cache,
     buildBatch_serviceRole,
     buildBatch_buildBatchNumber,
     buildBatch_secondarySourceVersions,
     buildBatch_encryptionKey,
-    buildBatch_artifacts,
-    buildBatch_startTime,
     buildBatch_id,
     buildBatch_environment,
     buildBatch_source,
+    buildBatch_startTime,
     buildBatch_arn,
+    buildBatch_artifacts,
     buildBatch_projectName,
     buildBatch_endTime,
     buildBatch_buildGroups,
@@ -479,9 +489,9 @@ module Network.AWS.CodeBuild.Lens
     buildBatch_queuedTimeoutInMinutes,
     buildBatch_secondarySources,
     buildBatch_complete,
-    buildBatch_logConfig,
     buildBatch_currentPhase,
     buildBatch_buildBatchStatus,
+    buildBatch_logConfig,
     buildBatch_initiator,
     buildBatch_buildBatchConfig,
     buildBatch_fileSystemLocations,
@@ -500,8 +510,8 @@ module Network.AWS.CodeBuild.Lens
 
     -- ** BuildGroup
     buildGroup_dependsOn,
-    buildGroup_currentBuildSummary,
     buildGroup_identifier,
+    buildGroup_currentBuildSummary,
     buildGroup_ignoreFailure,
     buildGroup_priorBuildSummaryList,
 
@@ -606,40 +616,44 @@ module Network.AWS.CodeBuild.Lens
 
     -- ** Project
     project_vpcConfig,
-    project_secondaryArtifacts,
     project_sourceVersion,
+    project_secondaryArtifacts,
     project_cache,
     project_serviceRole,
     project_secondarySourceVersions,
+    project_projectVisibility,
     project_webhook,
-    project_encryptionKey,
     project_concurrentBuildLimit,
-    project_artifacts,
+    project_encryptionKey,
     project_environment,
     project_source,
     project_arn,
     project_logsConfig,
+    project_artifacts,
+    project_resourceAccessRole,
     project_name,
     project_queuedTimeoutInMinutes,
     project_secondarySources,
-    project_tags,
     project_timeoutInMinutes,
+    project_tags,
     project_description,
     project_lastModified,
-    project_created,
     project_buildBatchConfig,
+    project_created,
     project_badge,
     project_fileSystemLocations,
+    project_publicProjectAlias,
 
     -- ** ProjectArtifacts
+    projectArtifacts_bucketOwnerAccess,
     projectArtifacts_namespaceType,
-    projectArtifacts_overrideArtifactName,
     projectArtifacts_artifactIdentifier,
+    projectArtifacts_overrideArtifactName,
+    projectArtifacts_encryptionDisabled,
     projectArtifacts_name,
     projectArtifacts_packaging,
-    projectArtifacts_encryptionDisabled,
-    projectArtifacts_location,
     projectArtifacts_path,
+    projectArtifacts_location,
     projectArtifacts_type,
 
     -- ** ProjectBadge
@@ -678,12 +692,12 @@ module Network.AWS.CodeBuild.Lens
     projectSource_gitCloneDepth,
     projectSource_buildStatusConfig,
     projectSource_auth,
-    projectSource_reportBuildStatus,
     projectSource_insecureSsl,
+    projectSource_reportBuildStatus,
     projectSource_sourceIdentifier,
     projectSource_buildspec,
-    projectSource_location,
     projectSource_gitSubmodulesConfig,
+    projectSource_location,
     projectSource_type,
 
     -- ** ProjectSourceVersion
@@ -696,16 +710,16 @@ module Network.AWS.CodeBuild.Lens
 
     -- ** Report
     report_codeCoverageSummary,
-    report_reportGroupArn,
     report_status,
+    report_reportGroupArn,
     report_exportConfig,
     report_arn,
     report_testSummary,
-    report_name,
-    report_expired,
     report_executionId,
-    report_created,
+    report_expired,
+    report_name,
     report_type,
+    report_created,
     report_truncated,
 
     -- ** ReportExportConfig
@@ -722,8 +736,8 @@ module Network.AWS.CodeBuild.Lens
     reportGroup_name,
     reportGroup_tags,
     reportGroup_lastModified,
-    reportGroup_created,
     reportGroup_type,
+    reportGroup_created,
 
     -- ** ReportGroupTrendStats
     reportGroupTrendStats_min,
@@ -740,6 +754,7 @@ module Network.AWS.CodeBuild.Lens
     resolvedArtifact_location,
 
     -- ** S3LogsConfig
+    s3LogsConfig_bucketOwnerAccess,
     s3LogsConfig_encryptionDisabled,
     s3LogsConfig_location,
     s3LogsConfig_status,
@@ -747,8 +762,8 @@ module Network.AWS.CodeBuild.Lens
     -- ** S3ReportExportConfig
     s3ReportExportConfig_bucketOwner,
     s3ReportExportConfig_encryptionKey,
-    s3ReportExportConfig_packaging,
     s3ReportExportConfig_encryptionDisabled,
+    s3ReportExportConfig_packaging,
     s3ReportExportConfig_bucket,
     s3ReportExportConfig_path,
 
@@ -771,8 +786,8 @@ module Network.AWS.CodeBuild.Lens
     testCase_message,
     testCase_reportArn,
     testCase_prefix,
-    testCase_name,
     testCase_expired,
+    testCase_name,
     testCase_durationInNanoSeconds,
 
     -- ** TestCaseFilter
@@ -786,8 +801,8 @@ module Network.AWS.CodeBuild.Lens
 
     -- ** VpcConfig
     vpcConfig_securityGroupIds,
-    vpcConfig_vpcId,
     vpcConfig_subnets,
+    vpcConfig_vpcId,
 
     -- ** Webhook
     webhook_branchFilter,
@@ -900,5 +915,6 @@ import Network.AWS.CodeBuild.Types.VpcConfig
 import Network.AWS.CodeBuild.Types.Webhook
 import Network.AWS.CodeBuild.Types.WebhookFilter
 import Network.AWS.CodeBuild.UpdateProject
+import Network.AWS.CodeBuild.UpdateProjectVisibility
 import Network.AWS.CodeBuild.UpdateReportGroup
 import Network.AWS.CodeBuild.UpdateWebhook

@@ -54,19 +54,19 @@ data ProjectEnvironment = ProjectEnvironment'
     --
     -- @- timeout -t 15 sh -c \"until docker info; do echo .; sleep 1; done\"@
     privilegedMode :: Prelude.Maybe Prelude.Bool,
-    -- | The type of credentials AWS CodeBuild uses to pull images in your build.
+    -- | The type of credentials CodeBuild uses to pull images in your build.
     -- There are two valid values:
     --
-    -- -   @CODEBUILD@ specifies that AWS CodeBuild uses its own credentials.
-    --     This requires that you modify your ECR repository policy to trust
-    --     AWS CodeBuild\'s service principal.
+    -- -   @CODEBUILD@ specifies that CodeBuild uses its own credentials. This
+    --     requires that you modify your ECR repository policy to trust
+    --     CodeBuild service principal.
     --
-    -- -   @SERVICE_ROLE@ specifies that AWS CodeBuild uses your build
-    --     project\'s service role.
+    -- -   @SERVICE_ROLE@ specifies that CodeBuild uses your build project\'s
+    --     service role.
     --
     -- When you use a cross-account or private registry image, you must use
-    -- SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image,
-    -- you must use CODEBUILD credentials.
+    -- SERVICE_ROLE credentials. When you use an CodeBuild curated image, you
+    -- must use CODEBUILD credentials.
     imagePullCredentialsType :: Prelude.Maybe ImagePullCredentialsType,
     -- | The credentials for access to a private registry.
     registryCredential :: Prelude.Maybe RegistryCredential,
@@ -77,7 +77,7 @@ data ProjectEnvironment = ProjectEnvironment'
     -- contains the PEM-encoded certificate for the build project. For more
     -- information, see
     -- <https://docs.aws.amazon.com/codebuild/latest/userguide/create-project-cli.html#cli.environment.certificate certificate>
-    -- in the /AWS CodeBuild User Guide/.
+    -- in the /CodeBuild User Guide/.
     certificate :: Prelude.Maybe Prelude.Text,
     -- | The type of build environment to use for related builds.
     --
@@ -98,6 +98,15 @@ data ProjectEnvironment = ProjectEnvironment'
     --     Canada (Central), EU (Ireland), EU (London), EU (Frankfurt), Asia
     --     Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Singapore),
     --     Asia Pacific (Sydney) , China (Beijing), and China (Ningxia).
+    --
+    -- -   The environment types @WINDOWS_CONTAINER@ and
+    --     @WINDOWS_SERVER_2019_CONTAINER@ are available only in regions US
+    --     East (N. Virginia), US East (Ohio), US West (Oregon), and EU
+    --     (Ireland).
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html Build environment compute types>
+    -- in the /CodeBuild user guide/.
     type' :: EnvironmentType,
     -- | The image tag or image digest that identifies the Docker image to use
     -- for this build project. Use the following formats:
@@ -111,6 +120,10 @@ data ProjectEnvironment = ProjectEnvironment'
     --     \"sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf,\"
     --     use
     --     @\<registry>\/\<repository>\@sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf@.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html Docker images provided by CodeBuild>
+    -- in the /CodeBuild user guide/.
     image :: Prelude.Text,
     -- | Information about the compute resources the build project uses.
     -- Available values include:
@@ -141,7 +154,7 @@ data ProjectEnvironment = ProjectEnvironment'
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html Build Environment Compute Types>
-    -- in the /AWS CodeBuild User Guide./
+    -- in the /CodeBuild User Guide./
     computeType :: ComputeType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -176,19 +189,19 @@ data ProjectEnvironment = ProjectEnvironment'
 --
 -- @- timeout -t 15 sh -c \"until docker info; do echo .; sleep 1; done\"@
 --
--- 'imagePullCredentialsType', 'projectEnvironment_imagePullCredentialsType' - The type of credentials AWS CodeBuild uses to pull images in your build.
+-- 'imagePullCredentialsType', 'projectEnvironment_imagePullCredentialsType' - The type of credentials CodeBuild uses to pull images in your build.
 -- There are two valid values:
 --
--- -   @CODEBUILD@ specifies that AWS CodeBuild uses its own credentials.
---     This requires that you modify your ECR repository policy to trust
---     AWS CodeBuild\'s service principal.
+-- -   @CODEBUILD@ specifies that CodeBuild uses its own credentials. This
+--     requires that you modify your ECR repository policy to trust
+--     CodeBuild service principal.
 --
--- -   @SERVICE_ROLE@ specifies that AWS CodeBuild uses your build
---     project\'s service role.
+-- -   @SERVICE_ROLE@ specifies that CodeBuild uses your build project\'s
+--     service role.
 --
 -- When you use a cross-account or private registry image, you must use
--- SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image,
--- you must use CODEBUILD credentials.
+-- SERVICE_ROLE credentials. When you use an CodeBuild curated image, you
+-- must use CODEBUILD credentials.
 --
 -- 'registryCredential', 'projectEnvironment_registryCredential' - The credentials for access to a private registry.
 --
@@ -199,7 +212,7 @@ data ProjectEnvironment = ProjectEnvironment'
 -- contains the PEM-encoded certificate for the build project. For more
 -- information, see
 -- <https://docs.aws.amazon.com/codebuild/latest/userguide/create-project-cli.html#cli.environment.certificate certificate>
--- in the /AWS CodeBuild User Guide/.
+-- in the /CodeBuild User Guide/.
 --
 -- 'type'', 'projectEnvironment_type' - The type of build environment to use for related builds.
 --
@@ -221,6 +234,15 @@ data ProjectEnvironment = ProjectEnvironment'
 --     Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Singapore),
 --     Asia Pacific (Sydney) , China (Beijing), and China (Ningxia).
 --
+-- -   The environment types @WINDOWS_CONTAINER@ and
+--     @WINDOWS_SERVER_2019_CONTAINER@ are available only in regions US
+--     East (N. Virginia), US East (Ohio), US West (Oregon), and EU
+--     (Ireland).
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html Build environment compute types>
+-- in the /CodeBuild user guide/.
+--
 -- 'image', 'projectEnvironment_image' - The image tag or image digest that identifies the Docker image to use
 -- for this build project. Use the following formats:
 --
@@ -233,6 +255,10 @@ data ProjectEnvironment = ProjectEnvironment'
 --     \"sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf,\"
 --     use
 --     @\<registry>\/\<repository>\@sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html Docker images provided by CodeBuild>
+-- in the /CodeBuild user guide/.
 --
 -- 'computeType', 'projectEnvironment_computeType' - Information about the compute resources the build project uses.
 -- Available values include:
@@ -263,7 +289,7 @@ data ProjectEnvironment = ProjectEnvironment'
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html Build Environment Compute Types>
--- in the /AWS CodeBuild User Guide./
+-- in the /CodeBuild User Guide./
 newProjectEnvironment ::
   -- | 'type''
   EnvironmentType ->
@@ -309,19 +335,19 @@ newProjectEnvironment pType_ pImage_ pComputeType_ =
 projectEnvironment_privilegedMode :: Lens.Lens' ProjectEnvironment (Prelude.Maybe Prelude.Bool)
 projectEnvironment_privilegedMode = Lens.lens (\ProjectEnvironment' {privilegedMode} -> privilegedMode) (\s@ProjectEnvironment' {} a -> s {privilegedMode = a} :: ProjectEnvironment)
 
--- | The type of credentials AWS CodeBuild uses to pull images in your build.
+-- | The type of credentials CodeBuild uses to pull images in your build.
 -- There are two valid values:
 --
--- -   @CODEBUILD@ specifies that AWS CodeBuild uses its own credentials.
---     This requires that you modify your ECR repository policy to trust
---     AWS CodeBuild\'s service principal.
+-- -   @CODEBUILD@ specifies that CodeBuild uses its own credentials. This
+--     requires that you modify your ECR repository policy to trust
+--     CodeBuild service principal.
 --
--- -   @SERVICE_ROLE@ specifies that AWS CodeBuild uses your build
---     project\'s service role.
+-- -   @SERVICE_ROLE@ specifies that CodeBuild uses your build project\'s
+--     service role.
 --
 -- When you use a cross-account or private registry image, you must use
--- SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image,
--- you must use CODEBUILD credentials.
+-- SERVICE_ROLE credentials. When you use an CodeBuild curated image, you
+-- must use CODEBUILD credentials.
 projectEnvironment_imagePullCredentialsType :: Lens.Lens' ProjectEnvironment (Prelude.Maybe ImagePullCredentialsType)
 projectEnvironment_imagePullCredentialsType = Lens.lens (\ProjectEnvironment' {imagePullCredentialsType} -> imagePullCredentialsType) (\s@ProjectEnvironment' {} a -> s {imagePullCredentialsType = a} :: ProjectEnvironment)
 
@@ -338,7 +364,7 @@ projectEnvironment_environmentVariables = Lens.lens (\ProjectEnvironment' {envir
 -- contains the PEM-encoded certificate for the build project. For more
 -- information, see
 -- <https://docs.aws.amazon.com/codebuild/latest/userguide/create-project-cli.html#cli.environment.certificate certificate>
--- in the /AWS CodeBuild User Guide/.
+-- in the /CodeBuild User Guide/.
 projectEnvironment_certificate :: Lens.Lens' ProjectEnvironment (Prelude.Maybe Prelude.Text)
 projectEnvironment_certificate = Lens.lens (\ProjectEnvironment' {certificate} -> certificate) (\s@ProjectEnvironment' {} a -> s {certificate = a} :: ProjectEnvironment)
 
@@ -361,6 +387,15 @@ projectEnvironment_certificate = Lens.lens (\ProjectEnvironment' {certificate} -
 --     Canada (Central), EU (Ireland), EU (London), EU (Frankfurt), Asia
 --     Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Singapore),
 --     Asia Pacific (Sydney) , China (Beijing), and China (Ningxia).
+--
+-- -   The environment types @WINDOWS_CONTAINER@ and
+--     @WINDOWS_SERVER_2019_CONTAINER@ are available only in regions US
+--     East (N. Virginia), US East (Ohio), US West (Oregon), and EU
+--     (Ireland).
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html Build environment compute types>
+-- in the /CodeBuild user guide/.
 projectEnvironment_type :: Lens.Lens' ProjectEnvironment EnvironmentType
 projectEnvironment_type = Lens.lens (\ProjectEnvironment' {type'} -> type') (\s@ProjectEnvironment' {} a -> s {type' = a} :: ProjectEnvironment)
 
@@ -376,6 +411,10 @@ projectEnvironment_type = Lens.lens (\ProjectEnvironment' {type'} -> type') (\s@
 --     \"sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf,\"
 --     use
 --     @\<registry>\/\<repository>\@sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf@.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html Docker images provided by CodeBuild>
+-- in the /CodeBuild user guide/.
 projectEnvironment_image :: Lens.Lens' ProjectEnvironment Prelude.Text
 projectEnvironment_image = Lens.lens (\ProjectEnvironment' {image} -> image) (\s@ProjectEnvironment' {} a -> s {image = a} :: ProjectEnvironment)
 
@@ -408,7 +447,7 @@ projectEnvironment_image = Lens.lens (\ProjectEnvironment' {image} -> image) (\s
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html Build Environment Compute Types>
--- in the /AWS CodeBuild User Guide./
+-- in the /CodeBuild User Guide./
 projectEnvironment_computeType :: Lens.Lens' ProjectEnvironment ComputeType
 projectEnvironment_computeType = Lens.lens (\ProjectEnvironment' {computeType} -> computeType) (\s@ProjectEnvironment' {} a -> s {computeType = a} :: ProjectEnvironment)
 

@@ -23,13 +23,12 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Information about the Git submodules configuration for an AWS CodeBuild
+-- | Information about the Git submodules configuration for an CodeBuild
 -- build project.
 --
 -- /See:/ 'newGitSubmodulesConfig' smart constructor.
 data GitSubmodulesConfig = GitSubmodulesConfig'
-  { -- | Set to true to fetch Git submodules for your AWS CodeBuild build
-    -- project.
+  { -- | Set to true to fetch Git submodules for your CodeBuild build project.
     fetchSubmodules :: Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,8 +41,7 @@ data GitSubmodulesConfig = GitSubmodulesConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'fetchSubmodules', 'gitSubmodulesConfig_fetchSubmodules' - Set to true to fetch Git submodules for your AWS CodeBuild build
--- project.
+-- 'fetchSubmodules', 'gitSubmodulesConfig_fetchSubmodules' - Set to true to fetch Git submodules for your CodeBuild build project.
 newGitSubmodulesConfig ::
   -- | 'fetchSubmodules'
   Prelude.Bool ->
@@ -54,8 +52,7 @@ newGitSubmodulesConfig pFetchSubmodules_ =
         pFetchSubmodules_
     }
 
--- | Set to true to fetch Git submodules for your AWS CodeBuild build
--- project.
+-- | Set to true to fetch Git submodules for your CodeBuild build project.
 gitSubmodulesConfig_fetchSubmodules :: Lens.Lens' GitSubmodulesConfig Prelude.Bool
 gitSubmodulesConfig_fetchSubmodules = Lens.lens (\GitSubmodulesConfig' {fetchSubmodules} -> fetchSubmodules) (\s@GitSubmodulesConfig' {} a -> s {fetchSubmodules = a} :: GitSubmodulesConfig)
 

@@ -20,10 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- For an existing AWS CodeBuild build project that has its source code
--- stored in a GitHub or Bitbucket repository, stops AWS CodeBuild from
--- rebuilding the source code every time a code change is pushed to the
--- repository.
+-- For an existing CodeBuild build project that has its source code stored
+-- in a GitHub or Bitbucket repository, stops CodeBuild from rebuilding the
+-- source code every time a code change is pushed to the repository.
 module Network.AWS.CodeBuild.DeleteWebhook
   ( -- * Creating a Request
     DeleteWebhook (..),
@@ -50,7 +49,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteWebhook' smart constructor.
 data DeleteWebhook = DeleteWebhook'
-  { -- | The name of the AWS CodeBuild project.
+  { -- | The name of the CodeBuild project.
     projectName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -63,7 +62,7 @@ data DeleteWebhook = DeleteWebhook'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'projectName', 'deleteWebhook_projectName' - The name of the AWS CodeBuild project.
+-- 'projectName', 'deleteWebhook_projectName' - The name of the CodeBuild project.
 newDeleteWebhook ::
   -- | 'projectName'
   Prelude.Text ->
@@ -71,7 +70,7 @@ newDeleteWebhook ::
 newDeleteWebhook pProjectName_ =
   DeleteWebhook' {projectName = pProjectName_}
 
--- | The name of the AWS CodeBuild project.
+-- | The name of the CodeBuild project.
 deleteWebhook_projectName :: Lens.Lens' DeleteWebhook Prelude.Text
 deleteWebhook_projectName = Lens.lens (\DeleteWebhook' {projectName} -> projectName) (\s@DeleteWebhook' {} a -> s {projectName = a} :: DeleteWebhook)
 

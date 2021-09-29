@@ -20,19 +20,18 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- For an existing AWS CodeBuild build project that has its source code
--- stored in a GitHub or Bitbucket repository, enables AWS CodeBuild to
--- start rebuilding the source code every time a code change is pushed to
--- the repository.
+-- For an existing CodeBuild build project that has its source code stored
+-- in a GitHub or Bitbucket repository, enables CodeBuild to start
+-- rebuilding the source code every time a code change is pushed to the
+-- repository.
 --
--- If you enable webhooks for an AWS CodeBuild project, and the project is
--- used as a build step in AWS CodePipeline, then two identical builds are
--- created for each commit. One build is triggered through webhooks, and
--- one through AWS CodePipeline. Because billing is on a per-build basis,
--- you are billed for both builds. Therefore, if you are using AWS
--- CodePipeline, we recommend that you disable webhooks in AWS CodeBuild.
--- In the AWS CodeBuild console, clear the Webhook box. For more
--- information, see step 5 in
+-- If you enable webhooks for an CodeBuild project, and the project is used
+-- as a build step in CodePipeline, then two identical builds are created
+-- for each commit. One build is triggered through webhooks, and one
+-- through CodePipeline. Because billing is on a per-build basis, you are
+-- billed for both builds. Therefore, if you are using CodePipeline, we
+-- recommend that you disable webhooks in CodeBuild. In the CodeBuild
+-- console, clear the Webhook box. For more information, see step 5 in
 -- <https://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html#change-project-console Change a Build Project\'s Settings>.
 module Network.AWS.CodeBuild.CreateWebhook
   ( -- * Creating a Request
@@ -81,7 +80,7 @@ data CreateWebhook = CreateWebhook'
     filterGroups :: Prelude.Maybe [[WebhookFilter]],
     -- | Specifies the type of build this webhook will trigger.
     buildType :: Prelude.Maybe WebhookBuildType,
-    -- | The name of the AWS CodeBuild project.
+    -- | The name of the CodeBuild project.
     projectName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -111,7 +110,7 @@ data CreateWebhook = CreateWebhook'
 --
 -- 'buildType', 'createWebhook_buildType' - Specifies the type of build this webhook will trigger.
 --
--- 'projectName', 'createWebhook_projectName' - The name of the AWS CodeBuild project.
+-- 'projectName', 'createWebhook_projectName' - The name of the CodeBuild project.
 newCreateWebhook ::
   -- | 'projectName'
   Prelude.Text ->
@@ -147,7 +146,7 @@ createWebhook_filterGroups = Lens.lens (\CreateWebhook' {filterGroups} -> filter
 createWebhook_buildType :: Lens.Lens' CreateWebhook (Prelude.Maybe WebhookBuildType)
 createWebhook_buildType = Lens.lens (\CreateWebhook' {buildType} -> buildType) (\s@CreateWebhook' {} a -> s {buildType = a} :: CreateWebhook)
 
--- | The name of the AWS CodeBuild project.
+-- | The name of the CodeBuild project.
 createWebhook_projectName :: Lens.Lens' CreateWebhook Prelude.Text
 createWebhook_projectName = Lens.lens (\CreateWebhook' {projectName} -> projectName) (\s@CreateWebhook' {} a -> s {projectName = a} :: CreateWebhook)
 
@@ -203,7 +202,7 @@ instance Core.ToQuery CreateWebhook where
 -- | /See:/ 'newCreateWebhookResponse' smart constructor.
 data CreateWebhookResponse = CreateWebhookResponse'
   { -- | Information about a webhook that connects repository events to a build
-    -- project in AWS CodeBuild.
+    -- project in CodeBuild.
     webhook :: Prelude.Maybe Webhook,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -219,7 +218,7 @@ data CreateWebhookResponse = CreateWebhookResponse'
 -- for backwards compatibility:
 --
 -- 'webhook', 'createWebhookResponse_webhook' - Information about a webhook that connects repository events to a build
--- project in AWS CodeBuild.
+-- project in CodeBuild.
 --
 -- 'httpStatus', 'createWebhookResponse_httpStatus' - The response's http status code.
 newCreateWebhookResponse ::
@@ -233,7 +232,7 @@ newCreateWebhookResponse pHttpStatus_ =
     }
 
 -- | Information about a webhook that connects repository events to a build
--- project in AWS CodeBuild.
+-- project in CodeBuild.
 createWebhookResponse_webhook :: Lens.Lens' CreateWebhookResponse (Prelude.Maybe Webhook)
 createWebhookResponse_webhook = Lens.lens (\CreateWebhookResponse' {webhook} -> webhook) (\s@CreateWebhookResponse' {} a -> s {webhook = a} :: CreateWebhookResponse)
 

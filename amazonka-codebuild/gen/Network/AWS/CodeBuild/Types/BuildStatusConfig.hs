@@ -23,7 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Contains information that defines how the AWS CodeBuild build project
+-- | Contains information that defines how the CodeBuild build project
 -- reports the build status to the source provider.
 --
 -- /See:/ 'newBuildStatusConfig' smart constructor.

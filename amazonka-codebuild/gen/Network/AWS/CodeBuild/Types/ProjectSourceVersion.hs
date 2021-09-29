@@ -34,7 +34,7 @@ data ProjectSourceVersion = ProjectSourceVersion'
     -- | The source version for the corresponding source identifier. If
     -- specified, must be one of:
     --
-    -- -   For AWS CodeCommit: the commit ID, branch, or Git tag to use.
+    -- -   For CodeCommit: the commit ID, branch, or Git tag to use.
     --
     -- -   For GitHub: the commit ID, pull request ID, branch name, or tag name
     --     that corresponds to the version of the source code you want to
@@ -53,7 +53,7 @@ data ProjectSourceVersion = ProjectSourceVersion'
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild>
-    -- in the /AWS CodeBuild User Guide/.
+    -- in the /CodeBuild User Guide/.
     sourceVersion :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,7 +73,7 @@ data ProjectSourceVersion = ProjectSourceVersion'
 -- 'sourceVersion', 'projectSourceVersion_sourceVersion' - The source version for the corresponding source identifier. If
 -- specified, must be one of:
 --
--- -   For AWS CodeCommit: the commit ID, branch, or Git tag to use.
+-- -   For CodeCommit: the commit ID, branch, or Git tag to use.
 --
 -- -   For GitHub: the commit ID, pull request ID, branch name, or tag name
 --     that corresponds to the version of the source code you want to
@@ -92,7 +92,7 @@ data ProjectSourceVersion = ProjectSourceVersion'
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild>
--- in the /AWS CodeBuild User Guide/.
+-- in the /CodeBuild User Guide/.
 newProjectSourceVersion ::
   -- | 'sourceIdentifier'
   Prelude.Text ->
@@ -117,7 +117,7 @@ projectSourceVersion_sourceIdentifier = Lens.lens (\ProjectSourceVersion' {sourc
 -- | The source version for the corresponding source identifier. If
 -- specified, must be one of:
 --
--- -   For AWS CodeCommit: the commit ID, branch, or Git tag to use.
+-- -   For CodeCommit: the commit ID, branch, or Git tag to use.
 --
 -- -   For GitHub: the commit ID, pull request ID, branch name, or tag name
 --     that corresponds to the version of the source code you want to
@@ -136,7 +136,7 @@ projectSourceVersion_sourceIdentifier = Lens.lens (\ProjectSourceVersion' {sourc
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild>
--- in the /AWS CodeBuild User Guide/.
+-- in the /CodeBuild User Guide/.
 projectSourceVersion_sourceVersion :: Lens.Lens' ProjectSourceVersion Prelude.Text
 projectSourceVersion_sourceVersion = Lens.lens (\ProjectSourceVersion' {sourceVersion} -> sourceVersion) (\s@ProjectSourceVersion' {} a -> s {sourceVersion = a} :: ProjectSourceVersion)
 

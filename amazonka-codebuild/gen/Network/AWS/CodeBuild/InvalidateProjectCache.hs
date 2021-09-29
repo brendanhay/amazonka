@@ -47,7 +47,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newInvalidateProjectCache' smart constructor.
 data InvalidateProjectCache = InvalidateProjectCache'
-  { -- | The name of the AWS CodeBuild build project that the cache is reset for.
+  { -- | The name of the CodeBuild build project that the cache is reset for.
     projectName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -60,7 +60,7 @@ data InvalidateProjectCache = InvalidateProjectCache'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'projectName', 'invalidateProjectCache_projectName' - The name of the AWS CodeBuild build project that the cache is reset for.
+-- 'projectName', 'invalidateProjectCache_projectName' - The name of the CodeBuild build project that the cache is reset for.
 newInvalidateProjectCache ::
   -- | 'projectName'
   Prelude.Text ->
@@ -71,7 +71,7 @@ newInvalidateProjectCache pProjectName_ =
         pProjectName_
     }
 
--- | The name of the AWS CodeBuild build project that the cache is reset for.
+-- | The name of the CodeBuild build project that the cache is reset for.
 invalidateProjectCache_projectName :: Lens.Lens' InvalidateProjectCache Prelude.Text
 invalidateProjectCache_projectName = Lens.lens (\InvalidateProjectCache' {projectName} -> projectName) (\s@InvalidateProjectCache' {} a -> s {projectName = a} :: InvalidateProjectCache)
 

@@ -23,7 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Information about a Docker image that is managed by AWS CodeBuild.
+-- | Information about a Docker image that is managed by CodeBuild.
 --
 -- /See:/ 'newEnvironmentImage' smart constructor.
 data EnvironmentImage = EnvironmentImage'

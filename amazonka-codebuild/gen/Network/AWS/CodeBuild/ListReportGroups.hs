@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a list ARNs for the report groups in the current AWS account.
+-- Gets a list ARNs for the report groups in the current Amazon Web
+-- Services account.
 --
 -- This operation returns paginated results.
 module Network.AWS.CodeBuild.ListReportGroups
@@ -29,8 +30,8 @@ module Network.AWS.CodeBuild.ListReportGroups
     newListReportGroups,
 
     -- * Request Lenses
-    listReportGroups_sortOrder,
     listReportGroups_nextToken,
+    listReportGroups_sortOrder,
     listReportGroups_maxResults,
     listReportGroups_sortBy,
 
@@ -54,10 +55,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListReportGroups' smart constructor.
 data ListReportGroups = ListReportGroups'
-  { -- | Used to specify the order to sort the list of returned report groups.
-    -- Valid values are @ASCENDING@ and @DESCENDING@.
-    sortOrder :: Prelude.Maybe SortOrderType,
-    -- | During a previous call, the maximum number of items that can be returned
+  { -- | During a previous call, the maximum number of items that can be returned
     -- is the value specified in @maxResults@. If there more items in the list,
     -- then a unique string called a /nextToken/ is returned. To get the next
     -- batch of items in the list, call this operation again, adding the next
@@ -65,6 +63,9 @@ data ListReportGroups = ListReportGroups'
     -- this operation with each subsequent next token that is returned, until
     -- no more next tokens are returned.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Used to specify the order to sort the list of returned report groups.
+    -- Valid values are @ASCENDING@ and @DESCENDING@.
+    sortOrder :: Prelude.Maybe SortOrderType,
     -- | The maximum number of paginated report groups returned per response. Use
     -- @nextToken@ to iterate pages in the list of returned @ReportGroup@
     -- objects. The default value is 100.
@@ -90,9 +91,6 @@ data ListReportGroups = ListReportGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listReportGroups_sortOrder' - Used to specify the order to sort the list of returned report groups.
--- Valid values are @ASCENDING@ and @DESCENDING@.
---
 -- 'nextToken', 'listReportGroups_nextToken' - During a previous call, the maximum number of items that can be returned
 -- is the value specified in @maxResults@. If there more items in the list,
 -- then a unique string called a /nextToken/ is returned. To get the next
@@ -100,6 +98,9 @@ data ListReportGroups = ListReportGroups'
 -- token to the call. To get all of the items in the list, keep calling
 -- this operation with each subsequent next token that is returned, until
 -- no more next tokens are returned.
+--
+-- 'sortOrder', 'listReportGroups_sortOrder' - Used to specify the order to sort the list of returned report groups.
+-- Valid values are @ASCENDING@ and @DESCENDING@.
 --
 -- 'maxResults', 'listReportGroups_maxResults' - The maximum number of paginated report groups returned per response. Use
 -- @nextToken@ to iterate pages in the list of returned @ReportGroup@
@@ -118,16 +119,11 @@ newListReportGroups ::
   ListReportGroups
 newListReportGroups =
   ListReportGroups'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       sortBy = Prelude.Nothing
     }
-
--- | Used to specify the order to sort the list of returned report groups.
--- Valid values are @ASCENDING@ and @DESCENDING@.
-listReportGroups_sortOrder :: Lens.Lens' ListReportGroups (Prelude.Maybe SortOrderType)
-listReportGroups_sortOrder = Lens.lens (\ListReportGroups' {sortOrder} -> sortOrder) (\s@ListReportGroups' {} a -> s {sortOrder = a} :: ListReportGroups)
 
 -- | During a previous call, the maximum number of items that can be returned
 -- is the value specified in @maxResults@. If there more items in the list,
@@ -138,6 +134,11 @@ listReportGroups_sortOrder = Lens.lens (\ListReportGroups' {sortOrder} -> sortOr
 -- no more next tokens are returned.
 listReportGroups_nextToken :: Lens.Lens' ListReportGroups (Prelude.Maybe Prelude.Text)
 listReportGroups_nextToken = Lens.lens (\ListReportGroups' {nextToken} -> nextToken) (\s@ListReportGroups' {} a -> s {nextToken = a} :: ListReportGroups)
+
+-- | Used to specify the order to sort the list of returned report groups.
+-- Valid values are @ASCENDING@ and @DESCENDING@.
+listReportGroups_sortOrder :: Lens.Lens' ListReportGroups (Prelude.Maybe SortOrderType)
+listReportGroups_sortOrder = Lens.lens (\ListReportGroups' {sortOrder} -> sortOrder) (\s@ListReportGroups' {} a -> s {sortOrder = a} :: ListReportGroups)
 
 -- | The maximum number of paginated report groups returned per response. Use
 -- @nextToken@ to iterate pages in the list of returned @ReportGroup@
@@ -217,8 +218,8 @@ instance Core.ToJSON ListReportGroups where
   toJSON ListReportGroups' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Core..=) Prelude.<$> sortOrder,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("sortOrder" Core..=) Prelude.<$> sortOrder,
             ("maxResults" Core..=) Prelude.<$> maxResults,
             ("sortBy" Core..=) Prelude.<$> sortBy
           ]
@@ -240,7 +241,8 @@ data ListReportGroupsResponse = ListReportGroupsResponse'
     -- this operation with each subsequent next token that is returned, until
     -- no more next tokens are returned.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of ARNs for the report groups in the current AWS account.
+    -- | The list of ARNs for the report groups in the current Amazon Web
+    -- Services account.
     reportGroups :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -263,7 +265,8 @@ data ListReportGroupsResponse = ListReportGroupsResponse'
 -- this operation with each subsequent next token that is returned, until
 -- no more next tokens are returned.
 --
--- 'reportGroups', 'listReportGroupsResponse_reportGroups' - The list of ARNs for the report groups in the current AWS account.
+-- 'reportGroups', 'listReportGroupsResponse_reportGroups' - The list of ARNs for the report groups in the current Amazon Web
+-- Services account.
 --
 -- 'httpStatus', 'listReportGroupsResponse_httpStatus' - The response's http status code.
 newListReportGroupsResponse ::
@@ -288,7 +291,8 @@ newListReportGroupsResponse pHttpStatus_ =
 listReportGroupsResponse_nextToken :: Lens.Lens' ListReportGroupsResponse (Prelude.Maybe Prelude.Text)
 listReportGroupsResponse_nextToken = Lens.lens (\ListReportGroupsResponse' {nextToken} -> nextToken) (\s@ListReportGroupsResponse' {} a -> s {nextToken = a} :: ListReportGroupsResponse)
 
--- | The list of ARNs for the report groups in the current AWS account.
+-- | The list of ARNs for the report groups in the current Amazon Web
+-- Services account.
 listReportGroupsResponse_reportGroups :: Lens.Lens' ListReportGroupsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 listReportGroupsResponse_reportGroups = Lens.lens (\ListReportGroupsResponse' {reportGroups} -> reportGroups) (\s@ListReportGroupsResponse' {} a -> s {reportGroups = a} :: ListReportGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 

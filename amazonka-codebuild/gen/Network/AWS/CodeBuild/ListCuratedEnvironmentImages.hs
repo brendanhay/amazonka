@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets information about Docker images that are managed by AWS CodeBuild.
+-- Gets information about Docker images that are managed by CodeBuild.
 module Network.AWS.CodeBuild.ListCuratedEnvironmentImages
   ( -- * Creating a Request
     ListCuratedEnvironmentImages (..),
@@ -104,7 +104,7 @@ instance Core.ToQuery ListCuratedEnvironmentImages where
 -- | /See:/ 'newListCuratedEnvironmentImagesResponse' smart constructor.
 data ListCuratedEnvironmentImagesResponse = ListCuratedEnvironmentImagesResponse'
   { -- | Information about supported platforms for Docker images that are managed
-    -- by AWS CodeBuild.
+    -- by CodeBuild.
     platforms :: Prelude.Maybe [EnvironmentPlatform],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -120,7 +120,7 @@ data ListCuratedEnvironmentImagesResponse = ListCuratedEnvironmentImagesResponse
 -- for backwards compatibility:
 --
 -- 'platforms', 'listCuratedEnvironmentImagesResponse_platforms' - Information about supported platforms for Docker images that are managed
--- by AWS CodeBuild.
+-- by CodeBuild.
 --
 -- 'httpStatus', 'listCuratedEnvironmentImagesResponse_httpStatus' - The response's http status code.
 newListCuratedEnvironmentImagesResponse ::
@@ -135,7 +135,7 @@ newListCuratedEnvironmentImagesResponse pHttpStatus_ =
     }
 
 -- | Information about supported platforms for Docker images that are managed
--- by AWS CodeBuild.
+-- by CodeBuild.
 listCuratedEnvironmentImagesResponse_platforms :: Lens.Lens' ListCuratedEnvironmentImagesResponse (Prelude.Maybe [EnvironmentPlatform])
 listCuratedEnvironmentImagesResponse_platforms = Lens.lens (\ListCuratedEnvironmentImagesResponse' {platforms} -> platforms) (\s@ListCuratedEnvironmentImagesResponse' {} a -> s {platforms = a} :: ListCuratedEnvironmentImagesResponse) Prelude.. Lens.mapping Lens._Coerce
 

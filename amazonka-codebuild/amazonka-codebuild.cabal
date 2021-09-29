@@ -94,6 +94,7 @@ library
     Network.AWS.CodeBuild.Types.ArtifactsType
     Network.AWS.CodeBuild.Types.AuthType
     Network.AWS.CodeBuild.Types.BatchRestrictions
+    Network.AWS.CodeBuild.Types.BucketOwnerAccess
     Network.AWS.CodeBuild.Types.Build
     Network.AWS.CodeBuild.Types.BuildArtifacts
     Network.AWS.CodeBuild.Types.BuildBatch
@@ -141,6 +142,7 @@ library
     Network.AWS.CodeBuild.Types.ProjectSortByType
     Network.AWS.CodeBuild.Types.ProjectSource
     Network.AWS.CodeBuild.Types.ProjectSourceVersion
+    Network.AWS.CodeBuild.Types.ProjectVisibilityType
     Network.AWS.CodeBuild.Types.RegistryCredential
     Network.AWS.CodeBuild.Types.Report
     Network.AWS.CodeBuild.Types.ReportCodeCoverageSortByType
@@ -178,6 +180,7 @@ library
     Network.AWS.CodeBuild.Types.WebhookFilter
     Network.AWS.CodeBuild.Types.WebhookFilterType
     Network.AWS.CodeBuild.UpdateProject
+    Network.AWS.CodeBuild.UpdateProjectVisibility
     Network.AWS.CodeBuild.UpdateReportGroup
     Network.AWS.CodeBuild.UpdateWebhook
     Network.AWS.CodeBuild.Waiters

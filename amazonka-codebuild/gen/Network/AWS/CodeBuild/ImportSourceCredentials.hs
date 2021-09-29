@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Imports the source repository credentials for an AWS CodeBuild project
--- that has its source code stored in a GitHub, GitHub Enterprise, or
--- Bitbucket repository.
+-- Imports the source repository credentials for an CodeBuild project that
+-- has its source code stored in a GitHub, GitHub Enterprise, or Bitbucket
+-- repository.
 module Network.AWS.CodeBuild.ImportSourceCredentials
   ( -- * Creating a Request
     ImportSourceCredentials (..),
@@ -68,8 +68,7 @@ data ImportSourceCredentials = ImportSourceCredentials'
     serverType :: ServerType,
     -- | The type of authentication used to connect to a GitHub, GitHub
     -- Enterprise, or Bitbucket repository. An OAUTH connection is not
-    -- supported by the API and must be created using the AWS CodeBuild
-    -- console.
+    -- supported by the API and must be created using the CodeBuild console.
     authType :: AuthType
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -96,8 +95,7 @@ data ImportSourceCredentials = ImportSourceCredentials'
 --
 -- 'authType', 'importSourceCredentials_authType' - The type of authentication used to connect to a GitHub, GitHub
 -- Enterprise, or Bitbucket repository. An OAUTH connection is not
--- supported by the API and must be created using the AWS CodeBuild
--- console.
+-- supported by the API and must be created using the CodeBuild console.
 newImportSourceCredentials ::
   -- | 'token'
   Prelude.Text ->
@@ -141,8 +139,7 @@ importSourceCredentials_serverType = Lens.lens (\ImportSourceCredentials' {serve
 
 -- | The type of authentication used to connect to a GitHub, GitHub
 -- Enterprise, or Bitbucket repository. An OAUTH connection is not
--- supported by the API and must be created using the AWS CodeBuild
--- console.
+-- supported by the API and must be created using the CodeBuild console.
 importSourceCredentials_authType :: Lens.Lens' ImportSourceCredentials AuthType
 importSourceCredentials_authType = Lens.lens (\ImportSourceCredentials' {authType} -> authType) (\s@ImportSourceCredentials' {} a -> s {authType = a} :: ImportSourceCredentials)
 

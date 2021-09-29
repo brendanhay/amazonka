@@ -24,10 +24,10 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Information about the authorization settings for AWS CodeBuild to access
--- the source code to be built.
+-- | Information about the authorization settings for CodeBuild to access the
+-- source code to be built.
 --
--- This information is for the AWS CodeBuild console\'s use only. Your code
+-- This information is for the CodeBuild console\'s use only. Your code
 -- should not get or set this information directly.
 --
 -- /See:/ 'newSourceAuth' smart constructor.

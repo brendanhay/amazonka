@@ -29,9 +29,9 @@ module Network.AWS.CodeBuild.DescribeCodeCoverages
     newDescribeCodeCoverages,
 
     -- * Request Lenses
-    describeCodeCoverages_sortOrder,
-    describeCodeCoverages_nextToken,
     describeCodeCoverages_maxLineCoveragePercentage,
+    describeCodeCoverages_nextToken,
+    describeCodeCoverages_sortOrder,
     describeCodeCoverages_maxResults,
     describeCodeCoverages_sortBy,
     describeCodeCoverages_minLineCoveragePercentage,
@@ -57,14 +57,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeCodeCoverages' smart constructor.
 data DescribeCodeCoverages = DescribeCodeCoverages'
-  { -- | Specifies if the results are sorted in ascending or descending order.
-    sortOrder :: Prelude.Maybe SortOrderType,
+  { -- | The maximum line coverage percentage to report.
+    maxLineCoveragePercentage :: Prelude.Maybe Prelude.Double,
     -- | The @nextToken@ value returned from a previous call to
     -- @DescribeCodeCoverages@. This specifies the next item to return. To
     -- return the beginning of the list, exclude this parameter.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum line coverage percentage to report.
-    maxLineCoveragePercentage :: Prelude.Maybe Prelude.Double,
+    -- | Specifies if the results are sorted in ascending or descending order.
+    sortOrder :: Prelude.Maybe SortOrderType,
     -- | The maximum number of results to return.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Specifies how the results are sorted. Possible values are:
@@ -90,13 +90,13 @@ data DescribeCodeCoverages = DescribeCodeCoverages'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'describeCodeCoverages_sortOrder' - Specifies if the results are sorted in ascending or descending order.
+-- 'maxLineCoveragePercentage', 'describeCodeCoverages_maxLineCoveragePercentage' - The maximum line coverage percentage to report.
 --
 -- 'nextToken', 'describeCodeCoverages_nextToken' - The @nextToken@ value returned from a previous call to
 -- @DescribeCodeCoverages@. This specifies the next item to return. To
 -- return the beginning of the list, exclude this parameter.
 --
--- 'maxLineCoveragePercentage', 'describeCodeCoverages_maxLineCoveragePercentage' - The maximum line coverage percentage to report.
+-- 'sortOrder', 'describeCodeCoverages_sortOrder' - Specifies if the results are sorted in ascending or descending order.
 --
 -- 'maxResults', 'describeCodeCoverages_maxResults' - The maximum number of results to return.
 --
@@ -117,18 +117,19 @@ newDescribeCodeCoverages ::
   DescribeCodeCoverages
 newDescribeCodeCoverages pReportArn_ =
   DescribeCodeCoverages'
-    { sortOrder = Prelude.Nothing,
+    { maxLineCoveragePercentage =
+        Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      maxLineCoveragePercentage = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       sortBy = Prelude.Nothing,
       minLineCoveragePercentage = Prelude.Nothing,
       reportArn = pReportArn_
     }
 
--- | Specifies if the results are sorted in ascending or descending order.
-describeCodeCoverages_sortOrder :: Lens.Lens' DescribeCodeCoverages (Prelude.Maybe SortOrderType)
-describeCodeCoverages_sortOrder = Lens.lens (\DescribeCodeCoverages' {sortOrder} -> sortOrder) (\s@DescribeCodeCoverages' {} a -> s {sortOrder = a} :: DescribeCodeCoverages)
+-- | The maximum line coverage percentage to report.
+describeCodeCoverages_maxLineCoveragePercentage :: Lens.Lens' DescribeCodeCoverages (Prelude.Maybe Prelude.Double)
+describeCodeCoverages_maxLineCoveragePercentage = Lens.lens (\DescribeCodeCoverages' {maxLineCoveragePercentage} -> maxLineCoveragePercentage) (\s@DescribeCodeCoverages' {} a -> s {maxLineCoveragePercentage = a} :: DescribeCodeCoverages)
 
 -- | The @nextToken@ value returned from a previous call to
 -- @DescribeCodeCoverages@. This specifies the next item to return. To
@@ -136,9 +137,9 @@ describeCodeCoverages_sortOrder = Lens.lens (\DescribeCodeCoverages' {sortOrder}
 describeCodeCoverages_nextToken :: Lens.Lens' DescribeCodeCoverages (Prelude.Maybe Prelude.Text)
 describeCodeCoverages_nextToken = Lens.lens (\DescribeCodeCoverages' {nextToken} -> nextToken) (\s@DescribeCodeCoverages' {} a -> s {nextToken = a} :: DescribeCodeCoverages)
 
--- | The maximum line coverage percentage to report.
-describeCodeCoverages_maxLineCoveragePercentage :: Lens.Lens' DescribeCodeCoverages (Prelude.Maybe Prelude.Double)
-describeCodeCoverages_maxLineCoveragePercentage = Lens.lens (\DescribeCodeCoverages' {maxLineCoveragePercentage} -> maxLineCoveragePercentage) (\s@DescribeCodeCoverages' {} a -> s {maxLineCoveragePercentage = a} :: DescribeCodeCoverages)
+-- | Specifies if the results are sorted in ascending or descending order.
+describeCodeCoverages_sortOrder :: Lens.Lens' DescribeCodeCoverages (Prelude.Maybe SortOrderType)
+describeCodeCoverages_sortOrder = Lens.lens (\DescribeCodeCoverages' {sortOrder} -> sortOrder) (\s@DescribeCodeCoverages' {} a -> s {sortOrder = a} :: DescribeCodeCoverages)
 
 -- | The maximum number of results to return.
 describeCodeCoverages_maxResults :: Lens.Lens' DescribeCodeCoverages (Prelude.Maybe Prelude.Natural)
@@ -221,10 +222,10 @@ instance Core.ToJSON DescribeCodeCoverages where
   toJSON DescribeCodeCoverages' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Core..=) Prelude.<$> sortOrder,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
-            ("maxLineCoveragePercentage" Core..=)
+          [ ("maxLineCoveragePercentage" Core..=)
               Prelude.<$> maxLineCoveragePercentage,
+            ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("sortOrder" Core..=) Prelude.<$> sortOrder,
             ("maxResults" Core..=) Prelude.<$> maxResults,
             ("sortBy" Core..=) Prelude.<$> sortBy,
             ("minLineCoveragePercentage" Core..=)

@@ -53,13 +53,11 @@ data ReportGroup = ReportGroup'
     name :: Prelude.Maybe Prelude.Text,
     -- | A list of tag key and value pairs associated with this report group.
     --
-    -- These tags are available for use by AWS services that support AWS
-    -- CodeBuild report group tags.
+    -- These tags are available for use by Amazon Web Services services that
+    -- support CodeBuild report group tags.
     tags :: Prelude.Maybe [Tag],
     -- | The date and time this @ReportGroup@ was last modified.
     lastModified :: Prelude.Maybe Core.POSIX,
-    -- | The date and time this @ReportGroup@ was created.
-    created :: Prelude.Maybe Core.POSIX,
     -- | The type of the @ReportGroup@. This can be one of the following values:
     --
     -- [CODE_COVERAGE]
@@ -67,7 +65,9 @@ data ReportGroup = ReportGroup'
     --
     -- [TEST]
     --     The report group contains test reports.
-    type' :: Prelude.Maybe ReportType
+    type' :: Prelude.Maybe ReportType,
+    -- | The date and time this @ReportGroup@ was created.
+    created :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -98,12 +98,10 @@ data ReportGroup = ReportGroup'
 --
 -- 'tags', 'reportGroup_tags' - A list of tag key and value pairs associated with this report group.
 --
--- These tags are available for use by AWS services that support AWS
--- CodeBuild report group tags.
+-- These tags are available for use by Amazon Web Services services that
+-- support CodeBuild report group tags.
 --
 -- 'lastModified', 'reportGroup_lastModified' - The date and time this @ReportGroup@ was last modified.
---
--- 'created', 'reportGroup_created' - The date and time this @ReportGroup@ was created.
 --
 -- 'type'', 'reportGroup_type' - The type of the @ReportGroup@. This can be one of the following values:
 --
@@ -112,6 +110,8 @@ data ReportGroup = ReportGroup'
 --
 -- [TEST]
 --     The report group contains test reports.
+--
+-- 'created', 'reportGroup_created' - The date and time this @ReportGroup@ was created.
 newReportGroup ::
   ReportGroup
 newReportGroup =
@@ -122,8 +122,8 @@ newReportGroup =
       name = Prelude.Nothing,
       tags = Prelude.Nothing,
       lastModified = Prelude.Nothing,
-      created = Prelude.Nothing,
-      type' = Prelude.Nothing
+      type' = Prelude.Nothing,
+      created = Prelude.Nothing
     }
 
 -- | The status of the report group. This property is read-only.
@@ -153,18 +153,14 @@ reportGroup_name = Lens.lens (\ReportGroup' {name} -> name) (\s@ReportGroup' {} 
 
 -- | A list of tag key and value pairs associated with this report group.
 --
--- These tags are available for use by AWS services that support AWS
--- CodeBuild report group tags.
+-- These tags are available for use by Amazon Web Services services that
+-- support CodeBuild report group tags.
 reportGroup_tags :: Lens.Lens' ReportGroup (Prelude.Maybe [Tag])
 reportGroup_tags = Lens.lens (\ReportGroup' {tags} -> tags) (\s@ReportGroup' {} a -> s {tags = a} :: ReportGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The date and time this @ReportGroup@ was last modified.
 reportGroup_lastModified :: Lens.Lens' ReportGroup (Prelude.Maybe Prelude.UTCTime)
 reportGroup_lastModified = Lens.lens (\ReportGroup' {lastModified} -> lastModified) (\s@ReportGroup' {} a -> s {lastModified = a} :: ReportGroup) Prelude.. Lens.mapping Core._Time
-
--- | The date and time this @ReportGroup@ was created.
-reportGroup_created :: Lens.Lens' ReportGroup (Prelude.Maybe Prelude.UTCTime)
-reportGroup_created = Lens.lens (\ReportGroup' {created} -> created) (\s@ReportGroup' {} a -> s {created = a} :: ReportGroup) Prelude.. Lens.mapping Core._Time
 
 -- | The type of the @ReportGroup@. This can be one of the following values:
 --
@@ -175,6 +171,10 @@ reportGroup_created = Lens.lens (\ReportGroup' {created} -> created) (\s@ReportG
 --     The report group contains test reports.
 reportGroup_type :: Lens.Lens' ReportGroup (Prelude.Maybe ReportType)
 reportGroup_type = Lens.lens (\ReportGroup' {type'} -> type') (\s@ReportGroup' {} a -> s {type' = a} :: ReportGroup)
+
+-- | The date and time this @ReportGroup@ was created.
+reportGroup_created :: Lens.Lens' ReportGroup (Prelude.Maybe Prelude.UTCTime)
+reportGroup_created = Lens.lens (\ReportGroup' {created} -> created) (\s@ReportGroup' {} a -> s {created = a} :: ReportGroup) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON ReportGroup where
   parseJSON =
@@ -188,8 +188,8 @@ instance Core.FromJSON ReportGroup where
             Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "lastModified")
-            Prelude.<*> (x Core..:? "created")
             Prelude.<*> (x Core..:? "type")
+            Prelude.<*> (x Core..:? "created")
       )
 
 instance Prelude.Hashable ReportGroup

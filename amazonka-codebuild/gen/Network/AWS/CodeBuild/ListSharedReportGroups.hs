@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a list of report groups that are shared with other AWS accounts or
--- users.
+-- Gets a list of report groups that are shared with other Amazon Web
+-- Services accounts or users.
 --
 -- This operation returns paginated results.
 module Network.AWS.CodeBuild.ListSharedReportGroups
@@ -30,8 +30,8 @@ module Network.AWS.CodeBuild.ListSharedReportGroups
     newListSharedReportGroups,
 
     -- * Request Lenses
-    listSharedReportGroups_sortOrder,
     listSharedReportGroups_nextToken,
+    listSharedReportGroups_sortOrder,
     listSharedReportGroups_maxResults,
     listSharedReportGroups_sortBy,
 
@@ -55,13 +55,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newListSharedReportGroups' smart constructor.
 data ListSharedReportGroups = ListSharedReportGroups'
-  { -- | The order in which to list shared report groups. Valid values include:
-    --
-    -- -   @ASCENDING@: List in ascending order.
-    --
-    -- -   @DESCENDING@: List in descending order.
-    sortOrder :: Prelude.Maybe SortOrderType,
-    -- | During a previous call, the maximum number of items that can be returned
+  { -- | During a previous call, the maximum number of items that can be returned
     -- is the value specified in @maxResults@. If there more items in the list,
     -- then a unique string called a /nextToken/ is returned. To get the next
     -- batch of items in the list, call this operation again, adding the next
@@ -69,12 +63,18 @@ data ListSharedReportGroups = ListSharedReportGroups'
     -- this operation with each subsequent next token that is returned, until
     -- no more next tokens are returned.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The order in which to list shared report groups. Valid values include:
+    --
+    -- -   @ASCENDING@: List in ascending order.
+    --
+    -- -   @DESCENDING@: List in descending order.
+    sortOrder :: Prelude.Maybe SortOrderType,
     -- | The maximum number of paginated shared report groups per response. Use
     -- @nextToken@ to iterate pages in the list of returned @ReportGroup@
     -- objects. The default value is 100.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The criterion to be used to list report groups shared with the current
-    -- AWS account or user. Valid values include:
+    -- Amazon Web Services account or user. Valid values include:
     --
     -- -   @ARN@: List based on the ARN.
     --
@@ -92,12 +92,6 @@ data ListSharedReportGroups = ListSharedReportGroups'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listSharedReportGroups_sortOrder' - The order in which to list shared report groups. Valid values include:
---
--- -   @ASCENDING@: List in ascending order.
---
--- -   @DESCENDING@: List in descending order.
---
 -- 'nextToken', 'listSharedReportGroups_nextToken' - During a previous call, the maximum number of items that can be returned
 -- is the value specified in @maxResults@. If there more items in the list,
 -- then a unique string called a /nextToken/ is returned. To get the next
@@ -106,12 +100,18 @@ data ListSharedReportGroups = ListSharedReportGroups'
 -- this operation with each subsequent next token that is returned, until
 -- no more next tokens are returned.
 --
+-- 'sortOrder', 'listSharedReportGroups_sortOrder' - The order in which to list shared report groups. Valid values include:
+--
+-- -   @ASCENDING@: List in ascending order.
+--
+-- -   @DESCENDING@: List in descending order.
+--
 -- 'maxResults', 'listSharedReportGroups_maxResults' - The maximum number of paginated shared report groups per response. Use
 -- @nextToken@ to iterate pages in the list of returned @ReportGroup@
 -- objects. The default value is 100.
 --
 -- 'sortBy', 'listSharedReportGroups_sortBy' - The criterion to be used to list report groups shared with the current
--- AWS account or user. Valid values include:
+-- Amazon Web Services account or user. Valid values include:
 --
 -- -   @ARN@: List based on the ARN.
 --
@@ -121,20 +121,12 @@ newListSharedReportGroups ::
   ListSharedReportGroups
 newListSharedReportGroups =
   ListSharedReportGroups'
-    { sortOrder =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       sortBy = Prelude.Nothing
     }
-
--- | The order in which to list shared report groups. Valid values include:
---
--- -   @ASCENDING@: List in ascending order.
---
--- -   @DESCENDING@: List in descending order.
-listSharedReportGroups_sortOrder :: Lens.Lens' ListSharedReportGroups (Prelude.Maybe SortOrderType)
-listSharedReportGroups_sortOrder = Lens.lens (\ListSharedReportGroups' {sortOrder} -> sortOrder) (\s@ListSharedReportGroups' {} a -> s {sortOrder = a} :: ListSharedReportGroups)
 
 -- | During a previous call, the maximum number of items that can be returned
 -- is the value specified in @maxResults@. If there more items in the list,
@@ -146,6 +138,14 @@ listSharedReportGroups_sortOrder = Lens.lens (\ListSharedReportGroups' {sortOrde
 listSharedReportGroups_nextToken :: Lens.Lens' ListSharedReportGroups (Prelude.Maybe Prelude.Text)
 listSharedReportGroups_nextToken = Lens.lens (\ListSharedReportGroups' {nextToken} -> nextToken) (\s@ListSharedReportGroups' {} a -> s {nextToken = a} :: ListSharedReportGroups)
 
+-- | The order in which to list shared report groups. Valid values include:
+--
+-- -   @ASCENDING@: List in ascending order.
+--
+-- -   @DESCENDING@: List in descending order.
+listSharedReportGroups_sortOrder :: Lens.Lens' ListSharedReportGroups (Prelude.Maybe SortOrderType)
+listSharedReportGroups_sortOrder = Lens.lens (\ListSharedReportGroups' {sortOrder} -> sortOrder) (\s@ListSharedReportGroups' {} a -> s {sortOrder = a} :: ListSharedReportGroups)
+
 -- | The maximum number of paginated shared report groups per response. Use
 -- @nextToken@ to iterate pages in the list of returned @ReportGroup@
 -- objects. The default value is 100.
@@ -153,7 +153,7 @@ listSharedReportGroups_maxResults :: Lens.Lens' ListSharedReportGroups (Prelude.
 listSharedReportGroups_maxResults = Lens.lens (\ListSharedReportGroups' {maxResults} -> maxResults) (\s@ListSharedReportGroups' {} a -> s {maxResults = a} :: ListSharedReportGroups)
 
 -- | The criterion to be used to list report groups shared with the current
--- AWS account or user. Valid values include:
+-- Amazon Web Services account or user. Valid values include:
 --
 -- -   @ARN@: List based on the ARN.
 --
@@ -222,8 +222,8 @@ instance Core.ToJSON ListSharedReportGroups where
   toJSON ListSharedReportGroups' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("sortOrder" Core..=) Prelude.<$> sortOrder,
-            ("nextToken" Core..=) Prelude.<$> nextToken,
+          [ ("nextToken" Core..=) Prelude.<$> nextToken,
+            ("sortOrder" Core..=) Prelude.<$> sortOrder,
             ("maxResults" Core..=) Prelude.<$> maxResults,
             ("sortBy" Core..=) Prelude.<$> sortBy
           ]
@@ -245,8 +245,8 @@ data ListSharedReportGroupsResponse = ListSharedReportGroupsResponse'
     -- this operation with each subsequent next token that is returned, until
     -- no more next tokens are returned.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of ARNs for the report groups shared with the current AWS
-    -- account or user.
+    -- | The list of ARNs for the report groups shared with the current Amazon
+    -- Web Services account or user.
     reportGroups :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -269,8 +269,8 @@ data ListSharedReportGroupsResponse = ListSharedReportGroupsResponse'
 -- this operation with each subsequent next token that is returned, until
 -- no more next tokens are returned.
 --
--- 'reportGroups', 'listSharedReportGroupsResponse_reportGroups' - The list of ARNs for the report groups shared with the current AWS
--- account or user.
+-- 'reportGroups', 'listSharedReportGroupsResponse_reportGroups' - The list of ARNs for the report groups shared with the current Amazon
+-- Web Services account or user.
 --
 -- 'httpStatus', 'listSharedReportGroupsResponse_httpStatus' - The response's http status code.
 newListSharedReportGroupsResponse ::
@@ -295,8 +295,8 @@ newListSharedReportGroupsResponse pHttpStatus_ =
 listSharedReportGroupsResponse_nextToken :: Lens.Lens' ListSharedReportGroupsResponse (Prelude.Maybe Prelude.Text)
 listSharedReportGroupsResponse_nextToken = Lens.lens (\ListSharedReportGroupsResponse' {nextToken} -> nextToken) (\s@ListSharedReportGroupsResponse' {} a -> s {nextToken = a} :: ListSharedReportGroupsResponse)
 
--- | The list of ARNs for the report groups shared with the current AWS
--- account or user.
+-- | The list of ARNs for the report groups shared with the current Amazon
+-- Web Services account or user.
 listSharedReportGroupsResponse_reportGroups :: Lens.Lens' ListSharedReportGroupsResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 listSharedReportGroupsResponse_reportGroups = Lens.lens (\ListSharedReportGroupsResponse' {reportGroups} -> reportGroups) (\s@ListSharedReportGroupsResponse' {} a -> s {reportGroups = a} :: ListSharedReportGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 

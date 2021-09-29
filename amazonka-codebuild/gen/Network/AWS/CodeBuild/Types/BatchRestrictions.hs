@@ -30,7 +30,7 @@ data BatchRestrictions = BatchRestrictions'
   { -- | An array of strings that specify the compute types that are allowed for
     -- the batch build. See
     -- <https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html Build environment compute types>
-    -- in the /AWS CodeBuild User Guide/ for these values.
+    -- in the /CodeBuild User Guide/ for these values.
     computeTypesAllowed :: Prelude.Maybe [Prelude.Text],
     -- | Specifies the maximum number of builds allowed.
     maximumBuildsAllowed :: Prelude.Maybe Prelude.Int
@@ -48,7 +48,7 @@ data BatchRestrictions = BatchRestrictions'
 -- 'computeTypesAllowed', 'batchRestrictions_computeTypesAllowed' - An array of strings that specify the compute types that are allowed for
 -- the batch build. See
 -- <https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html Build environment compute types>
--- in the /AWS CodeBuild User Guide/ for these values.
+-- in the /CodeBuild User Guide/ for these values.
 --
 -- 'maximumBuildsAllowed', 'batchRestrictions_maximumBuildsAllowed' - Specifies the maximum number of builds allowed.
 newBatchRestrictions ::
@@ -63,7 +63,7 @@ newBatchRestrictions =
 -- | An array of strings that specify the compute types that are allowed for
 -- the batch build. See
 -- <https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html Build environment compute types>
--- in the /AWS CodeBuild User Guide/ for these values.
+-- in the /CodeBuild User Guide/ for these values.
 batchRestrictions_computeTypesAllowed :: Lens.Lens' BatchRestrictions (Prelude.Maybe [Prelude.Text])
 batchRestrictions_computeTypesAllowed = Lens.lens (\BatchRestrictions' {computeTypesAllowed} -> computeTypesAllowed) (\s@BatchRestrictions' {} a -> s {computeTypesAllowed = a} :: BatchRestrictions) Prelude.. Lens.mapping Lens._Coerce
 

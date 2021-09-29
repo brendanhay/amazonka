@@ -26,7 +26,7 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | Information about a webhook that connects repository events to a build
--- project in AWS CodeBuild.
+-- project in CodeBuild.
 --
 -- /See:/ 'newWebhook' smart constructor.
 data Webhook = Webhook'
@@ -37,7 +37,7 @@ data Webhook = Webhook'
     --
     -- It is recommended that you use @filterGroups@ instead of @branchFilter@.
     branchFilter :: Prelude.Maybe Prelude.Text,
-    -- | The AWS CodeBuild endpoint where webhook events are sent.
+    -- | The CodeBuild endpoint where webhook events are sent.
     payloadUrl :: Prelude.Maybe Prelude.Text,
     -- | An array of arrays of @WebhookFilter@ objects used to determine which
     -- webhooks are triggered. At least one @WebhookFilter@ in the array must
@@ -76,7 +76,7 @@ data Webhook = Webhook'
 --
 -- It is recommended that you use @filterGroups@ instead of @branchFilter@.
 --
--- 'payloadUrl', 'webhook_payloadUrl' - The AWS CodeBuild endpoint where webhook events are sent.
+-- 'payloadUrl', 'webhook_payloadUrl' - The CodeBuild endpoint where webhook events are sent.
 --
 -- 'filterGroups', 'webhook_filterGroups' - An array of arrays of @WebhookFilter@ objects used to determine which
 -- webhooks are triggered. At least one @WebhookFilter@ in the array must
@@ -118,7 +118,7 @@ newWebhook =
 webhook_branchFilter :: Lens.Lens' Webhook (Prelude.Maybe Prelude.Text)
 webhook_branchFilter = Lens.lens (\Webhook' {branchFilter} -> branchFilter) (\s@Webhook' {} a -> s {branchFilter = a} :: Webhook)
 
--- | The AWS CodeBuild endpoint where webhook events are sent.
+-- | The CodeBuild endpoint where webhook events are sent.
 webhook_payloadUrl :: Lens.Lens' Webhook (Prelude.Maybe Prelude.Text)
 webhook_payloadUrl = Lens.lens (\Webhook' {payloadUrl} -> payloadUrl) (\s@Webhook' {} a -> s {payloadUrl = a} :: Webhook)
 

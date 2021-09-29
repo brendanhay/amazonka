@@ -54,7 +54,7 @@ data PutResourcePolicy = PutResourcePolicy'
     -- <https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share Sharing a Project>
     -- and
     -- <https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share Sharing a Report Group>
-    -- in the /AWS CodeBuild User Guide/.
+    -- in the /CodeBuild User Guide/.
     policy :: Prelude.Text,
     -- | The ARN of the @Project@ or @ReportGroup@ resource you want to associate
     -- with a resource policy.
@@ -74,7 +74,7 @@ data PutResourcePolicy = PutResourcePolicy'
 -- <https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share Sharing a Project>
 -- and
 -- <https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share Sharing a Report Group>
--- in the /AWS CodeBuild User Guide/.
+-- in the /CodeBuild User Guide/.
 --
 -- 'resourceArn', 'putResourcePolicy_resourceArn' - The ARN of the @Project@ or @ReportGroup@ resource you want to associate
 -- with a resource policy.
@@ -94,7 +94,7 @@ newPutResourcePolicy pPolicy_ pResourceArn_ =
 -- <https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share Sharing a Project>
 -- and
 -- <https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share Sharing a Report Group>
--- in the /AWS CodeBuild User Guide/.
+-- in the /CodeBuild User Guide/.
 putResourcePolicy_policy :: Lens.Lens' PutResourcePolicy Prelude.Text
 putResourcePolicy_policy = Lens.lens (\PutResourcePolicy' {policy} -> policy) (\s@PutResourcePolicy' {} a -> s {policy = a} :: PutResourcePolicy)
 

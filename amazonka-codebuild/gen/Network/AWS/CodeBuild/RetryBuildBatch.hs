@@ -55,7 +55,7 @@ data RetryBuildBatch = RetryBuildBatch'
     -- idempotency of the @RetryBuildBatch@ request. The token is included in
     -- the @RetryBuildBatch@ request and is valid for five minutes. If you
     -- repeat the @RetryBuildBatch@ request with the same token, but change a
-    -- parameter, AWS CodeBuild returns a parameter mismatch error.
+    -- parameter, CodeBuild returns a parameter mismatch error.
     idempotencyToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies the type of retry to perform.
     retryType :: Prelude.Maybe RetryBuildBatchType,
@@ -76,7 +76,7 @@ data RetryBuildBatch = RetryBuildBatch'
 -- idempotency of the @RetryBuildBatch@ request. The token is included in
 -- the @RetryBuildBatch@ request and is valid for five minutes. If you
 -- repeat the @RetryBuildBatch@ request with the same token, but change a
--- parameter, AWS CodeBuild returns a parameter mismatch error.
+-- parameter, CodeBuild returns a parameter mismatch error.
 --
 -- 'retryType', 'retryBuildBatch_retryType' - Specifies the type of retry to perform.
 --
@@ -95,7 +95,7 @@ newRetryBuildBatch =
 -- idempotency of the @RetryBuildBatch@ request. The token is included in
 -- the @RetryBuildBatch@ request and is valid for five minutes. If you
 -- repeat the @RetryBuildBatch@ request with the same token, but change a
--- parameter, AWS CodeBuild returns a parameter mismatch error.
+-- parameter, CodeBuild returns a parameter mismatch error.
 retryBuildBatch_idempotencyToken :: Lens.Lens' RetryBuildBatch (Prelude.Maybe Prelude.Text)
 retryBuildBatch_idempotencyToken = Lens.lens (\RetryBuildBatch' {idempotencyToken} -> idempotencyToken) (\s@RetryBuildBatch' {} a -> s {idempotencyToken = a} :: RetryBuildBatch)
 

@@ -27,15 +27,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- This value should not be present if @PlaybackType@ is @LIVE@.
 --
--- The values in the @DASHimestampRange@ are inclusive. Fragments that
--- begin before the start time but continue past it, or fragments that
--- begin before the end time but continue past it, are included in the
--- session.
+-- The values in @DASHimestampRange@ are inclusive. Fragments that start
+-- exactly at or after the start time are included in the session.
+-- Fragments that start before the start time and continue past it are not
+-- included in the session.
 --
 -- /See:/ 'newDASHTimestampRange' smart constructor.
 data DASHTimestampRange = DASHTimestampRange'
   { -- | The end of the timestamp range for the requested media. This value must
-    -- be within 3 hours of the specified @StartTimestamp@, and it must be
+    -- be within 24 hours of the specified @StartTimestamp@, and it must be
     -- later than the @StartTimestamp@ value.
     --
     -- If @FragmentSelectorType@ for the request is @SERVER_TIMESTAMP@, this
@@ -55,8 +55,9 @@ data DASHTimestampRange = DASHTimestampRange'
     -- If the @DASHTimestampRange@ value is specified, the @StartTimestamp@
     -- value is required.
     --
-    -- This value is inclusive. Fragments that start before the
-    -- @StartTimestamp@ and continue past it are included in the session. If
+    -- Only fragments that start exactly at or after @StartTimestamp@ are
+    -- included in the session. Fragments that start before @StartTimestamp@
+    -- and continue past it aren\'t included in the session. If
     -- @FragmentSelectorType@ is @SERVER_TIMESTAMP@, the @StartTimestamp@ must
     -- be later than the stream head.
     startTimestamp :: Prelude.Maybe Core.POSIX
@@ -72,7 +73,7 @@ data DASHTimestampRange = DASHTimestampRange'
 -- for backwards compatibility:
 --
 -- 'endTimestamp', 'dASHTimestampRange_endTimestamp' - The end of the timestamp range for the requested media. This value must
--- be within 3 hours of the specified @StartTimestamp@, and it must be
+-- be within 24 hours of the specified @StartTimestamp@, and it must be
 -- later than the @StartTimestamp@ value.
 --
 -- If @FragmentSelectorType@ for the request is @SERVER_TIMESTAMP@, this
@@ -92,8 +93,9 @@ data DASHTimestampRange = DASHTimestampRange'
 -- If the @DASHTimestampRange@ value is specified, the @StartTimestamp@
 -- value is required.
 --
--- This value is inclusive. Fragments that start before the
--- @StartTimestamp@ and continue past it are included in the session. If
+-- Only fragments that start exactly at or after @StartTimestamp@ are
+-- included in the session. Fragments that start before @StartTimestamp@
+-- and continue past it aren\'t included in the session. If
 -- @FragmentSelectorType@ is @SERVER_TIMESTAMP@, the @StartTimestamp@ must
 -- be later than the stream head.
 newDASHTimestampRange ::
@@ -105,7 +107,7 @@ newDASHTimestampRange =
     }
 
 -- | The end of the timestamp range for the requested media. This value must
--- be within 3 hours of the specified @StartTimestamp@, and it must be
+-- be within 24 hours of the specified @StartTimestamp@, and it must be
 -- later than the @StartTimestamp@ value.
 --
 -- If @FragmentSelectorType@ for the request is @SERVER_TIMESTAMP@, this
@@ -127,8 +129,9 @@ dASHTimestampRange_endTimestamp = Lens.lens (\DASHTimestampRange' {endTimestamp}
 -- If the @DASHTimestampRange@ value is specified, the @StartTimestamp@
 -- value is required.
 --
--- This value is inclusive. Fragments that start before the
--- @StartTimestamp@ and continue past it are included in the session. If
+-- Only fragments that start exactly at or after @StartTimestamp@ are
+-- included in the session. Fragments that start before @StartTimestamp@
+-- and continue past it aren\'t included in the session. If
 -- @FragmentSelectorType@ is @SERVER_TIMESTAMP@, the @StartTimestamp@ must
 -- be later than the stream head.
 dASHTimestampRange_startTimestamp :: Lens.Lens' DASHTimestampRange (Prelude.Maybe Prelude.UTCTime)

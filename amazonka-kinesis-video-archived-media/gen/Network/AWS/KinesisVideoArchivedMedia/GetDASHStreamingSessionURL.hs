@@ -67,10 +67,10 @@
 --     includes an encrypted session token) for the session\'s MPEG-DASH
 --     /manifest/ (the root resource needed for streaming with MPEG-DASH).
 --
---     Don\'t share or store this token where an unauthorized entity could
+--     Don\'t share or store this token where an unauthorized entity can
 --     access it. The token provides access to the content of the stream.
---     Safeguard the token with the same measures that you would use with
---     your AWS credentials.
+--     Safeguard the token with the same measures that you use with your
+--     AWS credentials.
 --
 --     The media that is made available through the manifest consists only
 --     of the requested stream, time range, and format. No other media data
@@ -121,23 +121,8 @@
 --         <https://aws.amazon.com/kinesis/video-streams/pricing/ Pricing>
 --         for details.
 --
--- The following restrictions apply to MPEG-DASH sessions:
---
--- -   A streaming session URL should not be shared between players. The
---     service might throttle a session if multiple media players are
---     sharing it. For connection limits, see
---     <http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html Kinesis Video Streams Limits>.
---
--- -   A Kinesis video stream can have a maximum of ten active MPEG-DASH
---     streaming sessions. If a new session is created when the maximum
---     number of sessions is already active, the oldest (earliest created)
---     session is closed. The number of active @GetMedia@ connections on a
---     Kinesis video stream does not count against this limit, and the
---     number of active MPEG-DASH sessions does not count against the
---     active @GetMedia@ connection limit.
---
---     The maximum limits for active HLS and MPEG-DASH streaming sessions
---     are independent of each other.
+-- For restrictions that apply to MPEG-DASH sessions, see
+-- <http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html Kinesis Video Streams Limits>.
 --
 -- You can monitor the amount of data that the media player consumes by
 -- monitoring the @GetMP4MediaFragment.OutgoingBytes@ Amazon CloudWatch
@@ -300,7 +285,7 @@ data GetDASHStreamingSessionURL = GetDASHStreamingSessionURL'
     --
     -- -   __@ON_DEMAND@__ : For sessions of this type, the MPEG-DASH manifest
     --     contains all the fragments for the session, up to the number that is
-    --     specified in @MaxMediaPlaylistFragmentResults@. The manifest must be
+    --     specified in @MaxManifestFragmentResults@. The manifest must be
     --     retrieved only once for each session. When this type of session is
     --     played in a media player, the user interface typically displays a
     --     scrubber control for choosing the position in the playback window to
@@ -438,7 +423,7 @@ data GetDASHStreamingSessionURL = GetDASHStreamingSessionURL'
 --
 -- -   __@ON_DEMAND@__ : For sessions of this type, the MPEG-DASH manifest
 --     contains all the fragments for the session, up to the number that is
---     specified in @MaxMediaPlaylistFragmentResults@. The manifest must be
+--     specified in @MaxManifestFragmentResults@. The manifest must be
 --     retrieved only once for each session. When this type of session is
 --     played in a media player, the user interface typically displays a
 --     scrubber control for choosing the position in the playback window to
@@ -587,7 +572,7 @@ getDASHStreamingSessionURL_dASHFragmentSelector = Lens.lens (\GetDASHStreamingSe
 --
 -- -   __@ON_DEMAND@__ : For sessions of this type, the MPEG-DASH manifest
 --     contains all the fragments for the session, up to the number that is
---     specified in @MaxMediaPlaylistFragmentResults@. The manifest must be
+--     specified in @MaxManifestFragmentResults@. The manifest must be
 --     retrieved only once for each session. When this type of session is
 --     played in a media player, the user interface typically displays a
 --     scrubber control for choosing the position in the playback window to

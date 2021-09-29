@@ -148,23 +148,10 @@
 --         information, see
 --         <https://aws.amazon.com/kinesis/video-streams/pricing/ Kinesis Video Streams pricing>.
 --
--- The following restrictions apply to HLS sessions:
---
--- -   A streaming session URL should not be shared between players. The
---     service might throttle a session if multiple media players are
---     sharing it. For connection limits, see
---     <http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html Kinesis Video Streams Limits>.
---
--- -   A Kinesis video stream can have a maximum of ten active HLS
---     streaming sessions. If a new session is created when the maximum
---     number of sessions is already active, the oldest (earliest created)
---     session is closed. The number of active @GetMedia@ connections on a
---     Kinesis video stream does not count against this limit, and the
---     number of active HLS sessions does not count against the active
---     @GetMedia@ connection limit.
---
---     The maximum limits for active HLS and MPEG-DASH streaming sessions
---     are independent of each other.
+-- A streaming session URL must not be shared between players. The service
+-- might throttle a session if multiple media players are sharing it. For
+-- connection limits, see
+-- <http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html Kinesis Video Streams Limits>.
 --
 -- You can monitor the amount of data that the media player consumes by
 -- monitoring the @GetMP4MediaFragment.OutgoingBytes@ Amazon CloudWatch
@@ -252,9 +239,9 @@ data GetHLSStreamingSessionURL = GetHLSStreamingSessionURL'
     -- The default is 5 fragments if @PlaybackMode@ is @LIVE@ or @LIVE_REPLAY@,
     -- and 1,000 if @PlaybackMode@ is @ON_DEMAND@.
     --
-    -- The maximum value of 1,000 fragments corresponds to more than 16 minutes
-    -- of video on streams with 1-second fragments, and more than 2 1\/2 hours
-    -- of video on streams with 10-second fragments.
+    -- The maximum value of 5,000 fragments corresponds to more than 80 minutes
+    -- of video on streams with 1-second fragments, and more than 13 hours of
+    -- video on streams with 10-second fragments.
     maxMediaPlaylistFragmentResults :: Prelude.Maybe Prelude.Natural,
     -- | Specifies which format should be used for packaging the media.
     -- Specifying the @FRAGMENTED_MP4@ container format packages the media into
@@ -325,11 +312,12 @@ data GetHLSStreamingSessionURL = GetHLSStreamingSessionURL'
     --
     -- In all playback modes, if @FragmentSelectorType@ is
     -- @PRODUCER_TIMESTAMP@, and if there are multiple fragments with the same
-    -- start timestamp, the fragment that has the larger fragment number (that
-    -- is, the newer fragment) is included in the HLS media playlist. The other
-    -- fragments are not included. Fragments that have different timestamps but
-    -- have overlapping durations are still included in the HLS media playlist.
-    -- This can lead to unexpected behavior in the media player.
+    -- start timestamp, the fragment that has the largest fragment number (that
+    -- is, the newest fragment) is included in the HLS media playlist. The
+    -- other fragments are not included. Fragments that have different
+    -- timestamps but have overlapping durations are still included in the HLS
+    -- media playlist. This can lead to unexpected behavior in the media
+    -- player.
     --
     -- The default is @LIVE@.
     playbackMode :: Prelude.Maybe HLSPlaybackMode,
@@ -376,7 +364,7 @@ data GetHLSStreamingSessionURL = GetHLSStreamingSessionURL'
     --     recommended to use a value of @NEVER@ to ensure the media player
     --     timeline most accurately maps to the producer timestamps.
     --
-    -- -   @ON_DISCONTIUNITY@: a discontinuity marker is placed between
+    -- -   @ON_DISCONTINUITY@: a discontinuity marker is placed between
     --     fragments that have a gap or overlap of more than 50 milliseconds.
     --     For most playback scenarios, it is recommended to use a value of
     --     @ON_DISCONTINUITY@ so that the media player timeline is only reset
@@ -424,9 +412,9 @@ data GetHLSStreamingSessionURL = GetHLSStreamingSessionURL'
 -- The default is 5 fragments if @PlaybackMode@ is @LIVE@ or @LIVE_REPLAY@,
 -- and 1,000 if @PlaybackMode@ is @ON_DEMAND@.
 --
--- The maximum value of 1,000 fragments corresponds to more than 16 minutes
--- of video on streams with 1-second fragments, and more than 2 1\/2 hours
--- of video on streams with 10-second fragments.
+-- The maximum value of 5,000 fragments corresponds to more than 80 minutes
+-- of video on streams with 1-second fragments, and more than 13 hours of
+-- video on streams with 10-second fragments.
 --
 -- 'containerFormat', 'getHLSStreamingSessionURL_containerFormat' - Specifies which format should be used for packaging the media.
 -- Specifying the @FRAGMENTED_MP4@ container format packages the media into
@@ -497,11 +485,12 @@ data GetHLSStreamingSessionURL = GetHLSStreamingSessionURL'
 --
 -- In all playback modes, if @FragmentSelectorType@ is
 -- @PRODUCER_TIMESTAMP@, and if there are multiple fragments with the same
--- start timestamp, the fragment that has the larger fragment number (that
--- is, the newer fragment) is included in the HLS media playlist. The other
--- fragments are not included. Fragments that have different timestamps but
--- have overlapping durations are still included in the HLS media playlist.
--- This can lead to unexpected behavior in the media player.
+-- start timestamp, the fragment that has the largest fragment number (that
+-- is, the newest fragment) is included in the HLS media playlist. The
+-- other fragments are not included. Fragments that have different
+-- timestamps but have overlapping durations are still included in the HLS
+-- media playlist. This can lead to unexpected behavior in the media
+-- player.
 --
 -- The default is @LIVE@.
 --
@@ -548,7 +537,7 @@ data GetHLSStreamingSessionURL = GetHLSStreamingSessionURL'
 --     recommended to use a value of @NEVER@ to ensure the media player
 --     timeline most accurately maps to the producer timestamps.
 --
--- -   @ON_DISCONTIUNITY@: a discontinuity marker is placed between
+-- -   @ON_DISCONTINUITY@: a discontinuity marker is placed between
 --     fragments that have a gap or overlap of more than 50 milliseconds.
 --     For most playback scenarios, it is recommended to use a value of
 --     @ON_DISCONTINUITY@ so that the media player timeline is only reset
@@ -600,9 +589,9 @@ newGetHLSStreamingSessionURL =
 -- The default is 5 fragments if @PlaybackMode@ is @LIVE@ or @LIVE_REPLAY@,
 -- and 1,000 if @PlaybackMode@ is @ON_DEMAND@.
 --
--- The maximum value of 1,000 fragments corresponds to more than 16 minutes
--- of video on streams with 1-second fragments, and more than 2 1\/2 hours
--- of video on streams with 10-second fragments.
+-- The maximum value of 5,000 fragments corresponds to more than 80 minutes
+-- of video on streams with 1-second fragments, and more than 13 hours of
+-- video on streams with 10-second fragments.
 getHLSStreamingSessionURL_maxMediaPlaylistFragmentResults :: Lens.Lens' GetHLSStreamingSessionURL (Prelude.Maybe Prelude.Natural)
 getHLSStreamingSessionURL_maxMediaPlaylistFragmentResults = Lens.lens (\GetHLSStreamingSessionURL' {maxMediaPlaylistFragmentResults} -> maxMediaPlaylistFragmentResults) (\s@GetHLSStreamingSessionURL' {} a -> s {maxMediaPlaylistFragmentResults = a} :: GetHLSStreamingSessionURL)
 
@@ -679,11 +668,12 @@ getHLSStreamingSessionURL_displayFragmentTimestamp = Lens.lens (\GetHLSStreaming
 --
 -- In all playback modes, if @FragmentSelectorType@ is
 -- @PRODUCER_TIMESTAMP@, and if there are multiple fragments with the same
--- start timestamp, the fragment that has the larger fragment number (that
--- is, the newer fragment) is included in the HLS media playlist. The other
--- fragments are not included. Fragments that have different timestamps but
--- have overlapping durations are still included in the HLS media playlist.
--- This can lead to unexpected behavior in the media player.
+-- start timestamp, the fragment that has the largest fragment number (that
+-- is, the newest fragment) is included in the HLS media playlist. The
+-- other fragments are not included. Fragments that have different
+-- timestamps but have overlapping durations are still included in the HLS
+-- media playlist. This can lead to unexpected behavior in the media
+-- player.
 --
 -- The default is @LIVE@.
 getHLSStreamingSessionURL_playbackMode :: Lens.Lens' GetHLSStreamingSessionURL (Prelude.Maybe HLSPlaybackMode)
@@ -738,7 +728,7 @@ getHLSStreamingSessionURL_expires = Lens.lens (\GetHLSStreamingSessionURL' {expi
 --     recommended to use a value of @NEVER@ to ensure the media player
 --     timeline most accurately maps to the producer timestamps.
 --
--- -   @ON_DISCONTIUNITY@: a discontinuity marker is placed between
+-- -   @ON_DISCONTINUITY@: a discontinuity marker is placed between
 --     fragments that have a gap or overlap of more than 50 milliseconds.
 --     For most playback scenarios, it is recommended to use a value of
 --     @ON_DISCONTINUITY@ so that the media player timeline is only reset

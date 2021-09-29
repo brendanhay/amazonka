@@ -29,14 +29,14 @@ import qualified Network.AWS.Prelude as Prelude
 data Fragment = Fragment'
   { -- | The timestamp from the producer corresponding to the fragment.
     producerTimestamp :: Prelude.Maybe Core.POSIX,
+    -- | The timestamp from the AWS server corresponding to the fragment.
+    serverTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The unique identifier of the fragment. This value monotonically
     -- increases based on the ingestion order.
     fragmentNumber :: Prelude.Maybe Prelude.Text,
     -- | The total fragment size, including information about the fragment and
     -- contained media data.
     fragmentSizeInBytes :: Prelude.Maybe Prelude.Integer,
-    -- | The timestamp from the AWS server corresponding to the fragment.
-    serverTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The playback duration or other time value associated with the fragment.
     fragmentLengthInMilliseconds :: Prelude.Maybe Prelude.Integer
   }
@@ -52,13 +52,13 @@ data Fragment = Fragment'
 --
 -- 'producerTimestamp', 'fragment_producerTimestamp' - The timestamp from the producer corresponding to the fragment.
 --
+-- 'serverTimestamp', 'fragment_serverTimestamp' - The timestamp from the AWS server corresponding to the fragment.
+--
 -- 'fragmentNumber', 'fragment_fragmentNumber' - The unique identifier of the fragment. This value monotonically
 -- increases based on the ingestion order.
 --
 -- 'fragmentSizeInBytes', 'fragment_fragmentSizeInBytes' - The total fragment size, including information about the fragment and
 -- contained media data.
---
--- 'serverTimestamp', 'fragment_serverTimestamp' - The timestamp from the AWS server corresponding to the fragment.
 --
 -- 'fragmentLengthInMilliseconds', 'fragment_fragmentLengthInMilliseconds' - The playback duration or other time value associated with the fragment.
 newFragment ::
@@ -66,15 +66,19 @@ newFragment ::
 newFragment =
   Fragment'
     { producerTimestamp = Prelude.Nothing,
+      serverTimestamp = Prelude.Nothing,
       fragmentNumber = Prelude.Nothing,
       fragmentSizeInBytes = Prelude.Nothing,
-      serverTimestamp = Prelude.Nothing,
       fragmentLengthInMilliseconds = Prelude.Nothing
     }
 
 -- | The timestamp from the producer corresponding to the fragment.
 fragment_producerTimestamp :: Lens.Lens' Fragment (Prelude.Maybe Prelude.UTCTime)
 fragment_producerTimestamp = Lens.lens (\Fragment' {producerTimestamp} -> producerTimestamp) (\s@Fragment' {} a -> s {producerTimestamp = a} :: Fragment) Prelude.. Lens.mapping Core._Time
+
+-- | The timestamp from the AWS server corresponding to the fragment.
+fragment_serverTimestamp :: Lens.Lens' Fragment (Prelude.Maybe Prelude.UTCTime)
+fragment_serverTimestamp = Lens.lens (\Fragment' {serverTimestamp} -> serverTimestamp) (\s@Fragment' {} a -> s {serverTimestamp = a} :: Fragment) Prelude.. Lens.mapping Core._Time
 
 -- | The unique identifier of the fragment. This value monotonically
 -- increases based on the ingestion order.
@@ -85,10 +89,6 @@ fragment_fragmentNumber = Lens.lens (\Fragment' {fragmentNumber} -> fragmentNumb
 -- contained media data.
 fragment_fragmentSizeInBytes :: Lens.Lens' Fragment (Prelude.Maybe Prelude.Integer)
 fragment_fragmentSizeInBytes = Lens.lens (\Fragment' {fragmentSizeInBytes} -> fragmentSizeInBytes) (\s@Fragment' {} a -> s {fragmentSizeInBytes = a} :: Fragment)
-
--- | The timestamp from the AWS server corresponding to the fragment.
-fragment_serverTimestamp :: Lens.Lens' Fragment (Prelude.Maybe Prelude.UTCTime)
-fragment_serverTimestamp = Lens.lens (\Fragment' {serverTimestamp} -> serverTimestamp) (\s@Fragment' {} a -> s {serverTimestamp = a} :: Fragment) Prelude.. Lens.mapping Core._Time
 
 -- | The playback duration or other time value associated with the fragment.
 fragment_fragmentLengthInMilliseconds :: Lens.Lens' Fragment (Prelude.Maybe Prelude.Integer)
@@ -101,9 +101,9 @@ instance Core.FromJSON Fragment where
       ( \x ->
           Fragment'
             Prelude.<$> (x Core..:? "ProducerTimestamp")
+            Prelude.<*> (x Core..:? "ServerTimestamp")
             Prelude.<*> (x Core..:? "FragmentNumber")
             Prelude.<*> (x Core..:? "FragmentSizeInBytes")
-            Prelude.<*> (x Core..:? "ServerTimestamp")
             Prelude.<*> (x Core..:? "FragmentLengthInMilliseconds")
       )
 

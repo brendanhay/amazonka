@@ -88,9 +88,9 @@ module Network.AWS.KinesisVideoArchivedMedia.Types
     Fragment (..),
     newFragment,
     fragment_producerTimestamp,
+    fragment_serverTimestamp,
     fragment_fragmentNumber,
     fragment_fragmentSizeInBytes,
-    fragment_serverTimestamp,
     fragment_fragmentLengthInMilliseconds,
 
     -- * FragmentSelector
@@ -226,7 +226,9 @@ _InvalidMediaFrameException =
     Prelude.. Core.hasStatus 400
 
 -- | Kinesis Video Streams has throttled the request because you have
--- exceeded the limit of allowed client calls. Try making the call later.
+-- exceeded a limit. Try making the call later. For information about
+-- limits, see
+-- <http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html Kinesis Video Streams Limits>.
 _ClientLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ClientLimitExceededException =
   Core._MatchServiceError

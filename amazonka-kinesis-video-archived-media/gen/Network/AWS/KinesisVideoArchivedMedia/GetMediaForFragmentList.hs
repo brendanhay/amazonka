@@ -27,14 +27,8 @@
 -- send the @GetMediaForFragmentList@ requests to this endpoint using the
 -- <https://docs.aws.amazon.com/cli/latest/reference/ --endpoint-url parameter>.
 --
--- The following limits apply when using the @GetMediaForFragmentList@ API:
---
--- -   A client can call @GetMediaForFragmentList@ up to five times per
---     second per stream.
---
--- -   Kinesis Video Streams sends media data at a rate of up to 25
---     megabytes per second (or 200 megabits per second) during a
---     @GetMediaForFragmentList@ session.
+-- For limits, see
+-- <http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/limits.html Kinesis Video Streams Limits>.
 --
 -- If an error is thrown after invoking a Kinesis Video Streams archived
 -- media API, in addition to the HTTP status code and the response body, it

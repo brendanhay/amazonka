@@ -30,8 +30,8 @@ module Network.AWS.AlexaBusiness.CreateUser
     createUser_email,
     createUser_tags,
     createUser_clientRequestToken,
-    createUser_firstName,
     createUser_lastName,
+    createUser_firstName,
     createUser_userId,
 
     -- * Destructuring the Response
@@ -60,10 +60,10 @@ data CreateUser = CreateUser'
     -- | A unique, user-specified identifier for this request that ensures
     -- idempotency.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The first name for the user.
-    firstName :: Prelude.Maybe Prelude.Text,
     -- | The last name for the user.
     lastName :: Prelude.Maybe Prelude.Text,
+    -- | The first name for the user.
+    firstName :: Prelude.Maybe Prelude.Text,
     -- | The ARN for the user.
     userId :: Prelude.Text
   }
@@ -84,9 +84,9 @@ data CreateUser = CreateUser'
 -- 'clientRequestToken', 'createUser_clientRequestToken' - A unique, user-specified identifier for this request that ensures
 -- idempotency.
 --
--- 'firstName', 'createUser_firstName' - The first name for the user.
---
 -- 'lastName', 'createUser_lastName' - The last name for the user.
+--
+-- 'firstName', 'createUser_firstName' - The first name for the user.
 --
 -- 'userId', 'createUser_userId' - The ARN for the user.
 newCreateUser ::
@@ -98,8 +98,8 @@ newCreateUser pUserId_ =
     { email = Prelude.Nothing,
       tags = Prelude.Nothing,
       clientRequestToken = Prelude.Nothing,
-      firstName = Prelude.Nothing,
       lastName = Prelude.Nothing,
+      firstName = Prelude.Nothing,
       userId = pUserId_
     }
 
@@ -116,13 +116,13 @@ createUser_tags = Lens.lens (\CreateUser' {tags} -> tags) (\s@CreateUser' {} a -
 createUser_clientRequestToken :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
 createUser_clientRequestToken = Lens.lens (\CreateUser' {clientRequestToken} -> clientRequestToken) (\s@CreateUser' {} a -> s {clientRequestToken = a} :: CreateUser)
 
--- | The first name for the user.
-createUser_firstName :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
-createUser_firstName = Lens.lens (\CreateUser' {firstName} -> firstName) (\s@CreateUser' {} a -> s {firstName = a} :: CreateUser)
-
 -- | The last name for the user.
 createUser_lastName :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
 createUser_lastName = Lens.lens (\CreateUser' {lastName} -> lastName) (\s@CreateUser' {} a -> s {lastName = a} :: CreateUser)
+
+-- | The first name for the user.
+createUser_firstName :: Lens.Lens' CreateUser (Prelude.Maybe Prelude.Text)
+createUser_firstName = Lens.lens (\CreateUser' {firstName} -> firstName) (\s@CreateUser' {} a -> s {firstName = a} :: CreateUser)
 
 -- | The ARN for the user.
 createUser_userId :: Lens.Lens' CreateUser Prelude.Text
@@ -166,8 +166,8 @@ instance Core.ToJSON CreateUser where
             ("Tags" Core..=) Prelude.<$> tags,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
-            ("FirstName" Core..=) Prelude.<$> firstName,
             ("LastName" Core..=) Prelude.<$> lastName,
+            ("FirstName" Core..=) Prelude.<$> firstName,
             Prelude.Just ("UserId" Core..= userId)
           ]
       )

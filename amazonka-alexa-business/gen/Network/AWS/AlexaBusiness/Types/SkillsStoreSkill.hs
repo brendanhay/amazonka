@@ -36,10 +36,10 @@ data SkillsStoreSkill = SkillsStoreSkill'
     shortDescription :: Prelude.Maybe Prelude.Text,
     -- | Linking support for a skill.
     supportsLinking :: Prelude.Maybe Prelude.Bool,
-    -- | The name of the skill.
-    skillName :: Prelude.Maybe Prelude.Text,
     -- | Sample utterances that interact with the skill.
     sampleUtterances :: Prelude.Maybe [Prelude.Text],
+    -- | The name of the skill.
+    skillName :: Prelude.Maybe Prelude.Text,
     -- | Information about the skill.
     skillDetails :: Prelude.Maybe SkillDetails
   }
@@ -61,9 +61,9 @@ data SkillsStoreSkill = SkillsStoreSkill'
 --
 -- 'supportsLinking', 'skillsStoreSkill_supportsLinking' - Linking support for a skill.
 --
--- 'skillName', 'skillsStoreSkill_skillName' - The name of the skill.
---
 -- 'sampleUtterances', 'skillsStoreSkill_sampleUtterances' - Sample utterances that interact with the skill.
+--
+-- 'skillName', 'skillsStoreSkill_skillName' - The name of the skill.
 --
 -- 'skillDetails', 'skillsStoreSkill_skillDetails' - Information about the skill.
 newSkillsStoreSkill ::
@@ -74,8 +74,8 @@ newSkillsStoreSkill =
       skillId = Prelude.Nothing,
       shortDescription = Prelude.Nothing,
       supportsLinking = Prelude.Nothing,
-      skillName = Prelude.Nothing,
       sampleUtterances = Prelude.Nothing,
+      skillName = Prelude.Nothing,
       skillDetails = Prelude.Nothing
     }
 
@@ -95,13 +95,13 @@ skillsStoreSkill_shortDescription = Lens.lens (\SkillsStoreSkill' {shortDescript
 skillsStoreSkill_supportsLinking :: Lens.Lens' SkillsStoreSkill (Prelude.Maybe Prelude.Bool)
 skillsStoreSkill_supportsLinking = Lens.lens (\SkillsStoreSkill' {supportsLinking} -> supportsLinking) (\s@SkillsStoreSkill' {} a -> s {supportsLinking = a} :: SkillsStoreSkill)
 
--- | The name of the skill.
-skillsStoreSkill_skillName :: Lens.Lens' SkillsStoreSkill (Prelude.Maybe Prelude.Text)
-skillsStoreSkill_skillName = Lens.lens (\SkillsStoreSkill' {skillName} -> skillName) (\s@SkillsStoreSkill' {} a -> s {skillName = a} :: SkillsStoreSkill)
-
 -- | Sample utterances that interact with the skill.
 skillsStoreSkill_sampleUtterances :: Lens.Lens' SkillsStoreSkill (Prelude.Maybe [Prelude.Text])
 skillsStoreSkill_sampleUtterances = Lens.lens (\SkillsStoreSkill' {sampleUtterances} -> sampleUtterances) (\s@SkillsStoreSkill' {} a -> s {sampleUtterances = a} :: SkillsStoreSkill) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The name of the skill.
+skillsStoreSkill_skillName :: Lens.Lens' SkillsStoreSkill (Prelude.Maybe Prelude.Text)
+skillsStoreSkill_skillName = Lens.lens (\SkillsStoreSkill' {skillName} -> skillName) (\s@SkillsStoreSkill' {} a -> s {skillName = a} :: SkillsStoreSkill)
 
 -- | Information about the skill.
 skillsStoreSkill_skillDetails :: Lens.Lens' SkillsStoreSkill (Prelude.Maybe SkillDetails)
@@ -117,10 +117,10 @@ instance Core.FromJSON SkillsStoreSkill where
             Prelude.<*> (x Core..:? "SkillId")
             Prelude.<*> (x Core..:? "ShortDescription")
             Prelude.<*> (x Core..:? "SupportsLinking")
-            Prelude.<*> (x Core..:? "SkillName")
             Prelude.<*> ( x Core..:? "SampleUtterances"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "SkillName")
             Prelude.<*> (x Core..:? "SkillDetails")
       )
 

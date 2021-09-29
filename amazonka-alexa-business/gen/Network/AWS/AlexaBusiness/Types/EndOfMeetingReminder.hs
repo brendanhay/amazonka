@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEndOfMeetingReminder' smart constructor.
 data EndOfMeetingReminder = EndOfMeetingReminder'
-  { -- | The type of sound that users hear during the end of meeting reminder.
-    reminderType :: Prelude.Maybe EndOfMeetingReminderType,
-    -- | A range of 3 to 15 minutes that determines when the reminder begins.
+  { -- | A range of 3 to 15 minutes that determines when the reminder begins.
     reminderAtMinutes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Int),
+    -- | The type of sound that users hear during the end of meeting reminder.
+    reminderType :: Prelude.Maybe EndOfMeetingReminderType,
     -- | Whether an end of meeting reminder is enabled or not.
     enabled :: Prelude.Maybe Prelude.Bool
   }
@@ -47,28 +47,28 @@ data EndOfMeetingReminder = EndOfMeetingReminder'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reminderType', 'endOfMeetingReminder_reminderType' - The type of sound that users hear during the end of meeting reminder.
---
 -- 'reminderAtMinutes', 'endOfMeetingReminder_reminderAtMinutes' - A range of 3 to 15 minutes that determines when the reminder begins.
+--
+-- 'reminderType', 'endOfMeetingReminder_reminderType' - The type of sound that users hear during the end of meeting reminder.
 --
 -- 'enabled', 'endOfMeetingReminder_enabled' - Whether an end of meeting reminder is enabled or not.
 newEndOfMeetingReminder ::
   EndOfMeetingReminder
 newEndOfMeetingReminder =
   EndOfMeetingReminder'
-    { reminderType =
+    { reminderAtMinutes =
         Prelude.Nothing,
-      reminderAtMinutes = Prelude.Nothing,
+      reminderType = Prelude.Nothing,
       enabled = Prelude.Nothing
     }
-
--- | The type of sound that users hear during the end of meeting reminder.
-endOfMeetingReminder_reminderType :: Lens.Lens' EndOfMeetingReminder (Prelude.Maybe EndOfMeetingReminderType)
-endOfMeetingReminder_reminderType = Lens.lens (\EndOfMeetingReminder' {reminderType} -> reminderType) (\s@EndOfMeetingReminder' {} a -> s {reminderType = a} :: EndOfMeetingReminder)
 
 -- | A range of 3 to 15 minutes that determines when the reminder begins.
 endOfMeetingReminder_reminderAtMinutes :: Lens.Lens' EndOfMeetingReminder (Prelude.Maybe (Prelude.NonEmpty Prelude.Int))
 endOfMeetingReminder_reminderAtMinutes = Lens.lens (\EndOfMeetingReminder' {reminderAtMinutes} -> reminderAtMinutes) (\s@EndOfMeetingReminder' {} a -> s {reminderAtMinutes = a} :: EndOfMeetingReminder) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The type of sound that users hear during the end of meeting reminder.
+endOfMeetingReminder_reminderType :: Lens.Lens' EndOfMeetingReminder (Prelude.Maybe EndOfMeetingReminderType)
+endOfMeetingReminder_reminderType = Lens.lens (\EndOfMeetingReminder' {reminderType} -> reminderType) (\s@EndOfMeetingReminder' {} a -> s {reminderType = a} :: EndOfMeetingReminder)
 
 -- | Whether an end of meeting reminder is enabled or not.
 endOfMeetingReminder_enabled :: Lens.Lens' EndOfMeetingReminder (Prelude.Maybe Prelude.Bool)
@@ -80,8 +80,8 @@ instance Core.FromJSON EndOfMeetingReminder where
       "EndOfMeetingReminder"
       ( \x ->
           EndOfMeetingReminder'
-            Prelude.<$> (x Core..:? "ReminderType")
-            Prelude.<*> (x Core..:? "ReminderAtMinutes")
+            Prelude.<$> (x Core..:? "ReminderAtMinutes")
+            Prelude.<*> (x Core..:? "ReminderType")
             Prelude.<*> (x Core..:? "Enabled")
       )
 

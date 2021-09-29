@@ -32,17 +32,17 @@ data SkillDetails = SkillDetails'
     newInThisVersionBulletPoints' :: Prelude.Maybe [Prelude.Text],
     -- | The types of skills.
     skillTypes :: Prelude.Maybe [Prelude.Text],
+    -- | The details about what the skill supports organized as bullet points.
+    bulletPoints :: Prelude.Maybe [Prelude.Text],
     -- | /This member has been deprecated./
     --
     -- The list of reviews for the skill, including Key and Value pair.
     reviews :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The details about what the skill supports organized as bullet points.
-    bulletPoints :: Prelude.Maybe [Prelude.Text],
+    -- | The URL of the end user license agreement.
+    endUserLicenseAgreement :: Prelude.Maybe Prelude.Text,
     -- | The generic keywords associated with the skill that can be used to find
     -- a skill.
     genericKeywords :: Prelude.Maybe [Prelude.Text],
-    -- | The URL of the end user license agreement.
-    endUserLicenseAgreement :: Prelude.Maybe Prelude.Text,
     -- | The details about the developer that published the skill.
     developerInfo :: Prelude.Maybe DeveloperInfo,
     -- | The description of the product.
@@ -66,16 +66,16 @@ data SkillDetails = SkillDetails'
 --
 -- 'skillTypes', 'skillDetails_skillTypes' - The types of skills.
 --
+-- 'bulletPoints', 'skillDetails_bulletPoints' - The details about what the skill supports organized as bullet points.
+--
 -- 'reviews', 'skillDetails_reviews' - /This member has been deprecated./
 --
 -- The list of reviews for the skill, including Key and Value pair.
 --
--- 'bulletPoints', 'skillDetails_bulletPoints' - The details about what the skill supports organized as bullet points.
+-- 'endUserLicenseAgreement', 'skillDetails_endUserLicenseAgreement' - The URL of the end user license agreement.
 --
 -- 'genericKeywords', 'skillDetails_genericKeywords' - The generic keywords associated with the skill that can be used to find
 -- a skill.
---
--- 'endUserLicenseAgreement', 'skillDetails_endUserLicenseAgreement' - The URL of the end user license agreement.
 --
 -- 'developerInfo', 'skillDetails_developerInfo' - The details about the developer that published the skill.
 --
@@ -91,10 +91,10 @@ newSkillDetails =
     { newInThisVersionBulletPoints' =
         Prelude.Nothing,
       skillTypes = Prelude.Nothing,
-      reviews = Prelude.Nothing,
       bulletPoints = Prelude.Nothing,
-      genericKeywords = Prelude.Nothing,
+      reviews = Prelude.Nothing,
       endUserLicenseAgreement = Prelude.Nothing,
+      genericKeywords = Prelude.Nothing,
       developerInfo = Prelude.Nothing,
       productDescription = Prelude.Nothing,
       invocationPhrase = Prelude.Nothing,
@@ -109,24 +109,24 @@ skillDetails_newInThisVersionBulletPoints = Lens.lens (\SkillDetails' {newInThis
 skillDetails_skillTypes :: Lens.Lens' SkillDetails (Prelude.Maybe [Prelude.Text])
 skillDetails_skillTypes = Lens.lens (\SkillDetails' {skillTypes} -> skillTypes) (\s@SkillDetails' {} a -> s {skillTypes = a} :: SkillDetails) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The details about what the skill supports organized as bullet points.
+skillDetails_bulletPoints :: Lens.Lens' SkillDetails (Prelude.Maybe [Prelude.Text])
+skillDetails_bulletPoints = Lens.lens (\SkillDetails' {bulletPoints} -> bulletPoints) (\s@SkillDetails' {} a -> s {bulletPoints = a} :: SkillDetails) Prelude.. Lens.mapping Lens._Coerce
+
 -- | /This member has been deprecated./
 --
 -- The list of reviews for the skill, including Key and Value pair.
 skillDetails_reviews :: Lens.Lens' SkillDetails (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 skillDetails_reviews = Lens.lens (\SkillDetails' {reviews} -> reviews) (\s@SkillDetails' {} a -> s {reviews = a} :: SkillDetails) Prelude.. Lens.mapping Lens._Coerce
 
--- | The details about what the skill supports organized as bullet points.
-skillDetails_bulletPoints :: Lens.Lens' SkillDetails (Prelude.Maybe [Prelude.Text])
-skillDetails_bulletPoints = Lens.lens (\SkillDetails' {bulletPoints} -> bulletPoints) (\s@SkillDetails' {} a -> s {bulletPoints = a} :: SkillDetails) Prelude.. Lens.mapping Lens._Coerce
+-- | The URL of the end user license agreement.
+skillDetails_endUserLicenseAgreement :: Lens.Lens' SkillDetails (Prelude.Maybe Prelude.Text)
+skillDetails_endUserLicenseAgreement = Lens.lens (\SkillDetails' {endUserLicenseAgreement} -> endUserLicenseAgreement) (\s@SkillDetails' {} a -> s {endUserLicenseAgreement = a} :: SkillDetails)
 
 -- | The generic keywords associated with the skill that can be used to find
 -- a skill.
 skillDetails_genericKeywords :: Lens.Lens' SkillDetails (Prelude.Maybe [Prelude.Text])
 skillDetails_genericKeywords = Lens.lens (\SkillDetails' {genericKeywords} -> genericKeywords) (\s@SkillDetails' {} a -> s {genericKeywords = a} :: SkillDetails) Prelude.. Lens.mapping Lens._Coerce
-
--- | The URL of the end user license agreement.
-skillDetails_endUserLicenseAgreement :: Lens.Lens' SkillDetails (Prelude.Maybe Prelude.Text)
-skillDetails_endUserLicenseAgreement = Lens.lens (\SkillDetails' {endUserLicenseAgreement} -> endUserLicenseAgreement) (\s@SkillDetails' {} a -> s {endUserLicenseAgreement = a} :: SkillDetails)
 
 -- | The details about the developer that published the skill.
 skillDetails_developerInfo :: Lens.Lens' SkillDetails (Prelude.Maybe DeveloperInfo)
@@ -154,12 +154,12 @@ instance Core.FromJSON SkillDetails where
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "SkillTypes" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Reviews" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "BulletPoints" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "Reviews" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "EndUserLicenseAgreement")
             Prelude.<*> ( x Core..:? "GenericKeywords"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "EndUserLicenseAgreement")
             Prelude.<*> (x Core..:? "DeveloperInfo")
             Prelude.<*> (x Core..:? "ProductDescription")
             Prelude.<*> (x Core..:? "InvocationPhrase")

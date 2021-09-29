@@ -22,12 +22,13 @@ module Network.AWS.AlexaBusiness.Lens
 
     -- ** CreateProfile
     createProfile_locale,
-    createProfile_setupModeDisabled,
     createProfile_pSTNEnabled,
-    createProfile_tags,
+    createProfile_setupModeDisabled,
     createProfile_maxVolumeLimit,
+    createProfile_tags,
     createProfile_meetingRoomConfiguration,
     createProfile_clientRequestToken,
+    createProfile_dataRetentionOptIn,
     createProfile_profileName,
     createProfile_timezone,
     createProfile_address,
@@ -37,21 +38,16 @@ module Network.AWS.AlexaBusiness.Lens
     createProfileResponse_profileArn,
     createProfileResponse_httpStatus,
 
-    -- ** CreateContact
-    createContact_phoneNumber,
-    createContact_phoneNumbers,
-    createContact_tags,
-    createContact_clientRequestToken,
-    createContact_displayName,
-    createContact_lastName,
-    createContact_sipAddresses,
-    createContact_firstName,
-    createContactResponse_contactArn,
-    createContactResponse_httpStatus,
-
     -- ** DeleteBusinessReportSchedule
     deleteBusinessReportSchedule_scheduleArn,
     deleteBusinessReportScheduleResponse_httpStatus,
+
+    -- ** ListBusinessReportSchedules
+    listBusinessReportSchedules_nextToken,
+    listBusinessReportSchedules_maxResults,
+    listBusinessReportSchedulesResponse_nextToken,
+    listBusinessReportSchedulesResponse_businessReportSchedules,
+    listBusinessReportSchedulesResponse_httpStatus,
 
     -- ** UpdateNetworkProfile
     updateNetworkProfile_certificateAuthorityArn,
@@ -63,16 +59,26 @@ module Network.AWS.AlexaBusiness.Lens
     updateNetworkProfile_networkProfileArn,
     updateNetworkProfileResponse_httpStatus,
 
-    -- ** ListBusinessReportSchedules
-    listBusinessReportSchedules_nextToken,
-    listBusinessReportSchedules_maxResults,
-    listBusinessReportSchedulesResponse_nextToken,
-    listBusinessReportSchedulesResponse_businessReportSchedules,
-    listBusinessReportSchedulesResponse_httpStatus,
+    -- ** DeleteDeviceUsageData
+    deleteDeviceUsageData_deviceArn,
+    deleteDeviceUsageData_deviceUsageType,
+    deleteDeviceUsageDataResponse_httpStatus,
 
     -- ** DeleteNetworkProfile
     deleteNetworkProfile_networkProfileArn,
     deleteNetworkProfileResponse_httpStatus,
+
+    -- ** CreateContact
+    createContact_phoneNumber,
+    createContact_phoneNumbers,
+    createContact_tags,
+    createContact_clientRequestToken,
+    createContact_lastName,
+    createContact_displayName,
+    createContact_sipAddresses,
+    createContact_firstName,
+    createContactResponse_contactArn,
+    createContactResponse_httpStatus,
 
     -- ** UpdateBusinessReportSchedule
     updateBusinessReportSchedule_format,
@@ -83,15 +89,39 @@ module Network.AWS.AlexaBusiness.Lens
     updateBusinessReportSchedule_scheduleArn,
     updateBusinessReportScheduleResponse_httpStatus,
 
-    -- ** DeleteDeviceUsageData
-    deleteDeviceUsageData_deviceArn,
-    deleteDeviceUsageData_deviceUsageType,
-    deleteDeviceUsageDataResponse_httpStatus,
+    -- ** AssociateContactWithAddressBook
+    associateContactWithAddressBook_contactArn,
+    associateContactWithAddressBook_addressBookArn,
+    associateContactWithAddressBookResponse_httpStatus,
+
+    -- ** ListSkillsStoreCategories
+    listSkillsStoreCategories_nextToken,
+    listSkillsStoreCategories_maxResults,
+    listSkillsStoreCategoriesResponse_nextToken,
+    listSkillsStoreCategoriesResponse_categoryList,
+    listSkillsStoreCategoriesResponse_httpStatus,
 
     -- ** GetConferenceProvider
     getConferenceProvider_conferenceProviderArn,
     getConferenceProviderResponse_conferenceProvider,
     getConferenceProviderResponse_httpStatus,
+
+    -- ** GetAddressBook
+    getAddressBook_addressBookArn,
+    getAddressBookResponse_addressBook,
+    getAddressBookResponse_httpStatus,
+
+    -- ** CreateBusinessReportSchedule
+    createBusinessReportSchedule_s3KeyPrefix,
+    createBusinessReportSchedule_recurrence,
+    createBusinessReportSchedule_tags,
+    createBusinessReportSchedule_s3BucketName,
+    createBusinessReportSchedule_clientRequestToken,
+    createBusinessReportSchedule_scheduleName,
+    createBusinessReportSchedule_format,
+    createBusinessReportSchedule_contentRange,
+    createBusinessReportScheduleResponse_scheduleArn,
+    createBusinessReportScheduleResponse_httpStatus,
 
     -- ** GetGatewayGroup
     getGatewayGroup_gatewayGroupArn,
@@ -118,54 +148,6 @@ module Network.AWS.AlexaBusiness.Lens
     createNetworkProfileResponse_networkProfileArn,
     createNetworkProfileResponse_httpStatus,
 
-    -- ** ListSkillsStoreCategories
-    listSkillsStoreCategories_nextToken,
-    listSkillsStoreCategories_maxResults,
-    listSkillsStoreCategoriesResponse_nextToken,
-    listSkillsStoreCategoriesResponse_categoryList,
-    listSkillsStoreCategoriesResponse_httpStatus,
-
-    -- ** CreateBusinessReportSchedule
-    createBusinessReportSchedule_s3KeyPrefix,
-    createBusinessReportSchedule_recurrence,
-    createBusinessReportSchedule_tags,
-    createBusinessReportSchedule_s3BucketName,
-    createBusinessReportSchedule_clientRequestToken,
-    createBusinessReportSchedule_scheduleName,
-    createBusinessReportSchedule_format,
-    createBusinessReportSchedule_contentRange,
-    createBusinessReportScheduleResponse_scheduleArn,
-    createBusinessReportScheduleResponse_httpStatus,
-
-    -- ** GetAddressBook
-    getAddressBook_addressBookArn,
-    getAddressBookResponse_addressBook,
-    getAddressBookResponse_httpStatus,
-
-    -- ** AssociateContactWithAddressBook
-    associateContactWithAddressBook_contactArn,
-    associateContactWithAddressBook_addressBookArn,
-    associateContactWithAddressBookResponse_httpStatus,
-
-    -- ** GetDevice
-    getDevice_deviceArn,
-    getDeviceResponse_device,
-    getDeviceResponse_httpStatus,
-
-    -- ** DeleteRoomSkillParameter
-    deleteRoomSkillParameter_roomArn,
-    deleteRoomSkillParameter_skillId,
-    deleteRoomSkillParameter_parameterKey,
-    deleteRoomSkillParameterResponse_httpStatus,
-
-    -- ** ListSkillsStoreSkillsByCategory
-    listSkillsStoreSkillsByCategory_nextToken,
-    listSkillsStoreSkillsByCategory_maxResults,
-    listSkillsStoreSkillsByCategory_categoryId,
-    listSkillsStoreSkillsByCategoryResponse_skillsStoreSkills,
-    listSkillsStoreSkillsByCategoryResponse_nextToken,
-    listSkillsStoreSkillsByCategoryResponse_httpStatus,
-
     -- ** SearchProfiles
     searchProfiles_nextToken,
     searchProfiles_sortCriteria,
@@ -186,6 +168,41 @@ module Network.AWS.AlexaBusiness.Lens
     updateAddressBook_addressBookArn,
     updateAddressBookResponse_httpStatus,
 
+    -- ** DeleteRoomSkillParameter
+    deleteRoomSkillParameter_roomArn,
+    deleteRoomSkillParameter_skillId,
+    deleteRoomSkillParameter_parameterKey,
+    deleteRoomSkillParameterResponse_httpStatus,
+
+    -- ** GetDevice
+    getDevice_deviceArn,
+    getDeviceResponse_device,
+    getDeviceResponse_httpStatus,
+
+    -- ** ListSkillsStoreSkillsByCategory
+    listSkillsStoreSkillsByCategory_nextToken,
+    listSkillsStoreSkillsByCategory_maxResults,
+    listSkillsStoreSkillsByCategory_categoryId,
+    listSkillsStoreSkillsByCategoryResponse_skillsStoreSkills,
+    listSkillsStoreSkillsByCategoryResponse_nextToken,
+    listSkillsStoreSkillsByCategoryResponse_httpStatus,
+
+    -- ** PutSkillAuthorization
+    putSkillAuthorization_roomArn,
+    putSkillAuthorization_authorizationResult,
+    putSkillAuthorization_skillId,
+    putSkillAuthorizationResponse_httpStatus,
+
+    -- ** DisassociateContactFromAddressBook
+    disassociateContactFromAddressBook_contactArn,
+    disassociateContactFromAddressBook_addressBookArn,
+    disassociateContactFromAddressBookResponse_httpStatus,
+
+    -- ** AssociateDeviceWithNetworkProfile
+    associateDeviceWithNetworkProfile_deviceArn,
+    associateDeviceWithNetworkProfile_networkProfileArn,
+    associateDeviceWithNetworkProfileResponse_httpStatus,
+
     -- ** SearchSkillGroups
     searchSkillGroups_nextToken,
     searchSkillGroups_sortCriteria,
@@ -204,26 +221,10 @@ module Network.AWS.AlexaBusiness.Lens
     resolveRoomResponse_roomName,
     resolveRoomResponse_httpStatus,
 
-    -- ** PutSkillAuthorization
-    putSkillAuthorization_roomArn,
-    putSkillAuthorization_authorizationResult,
-    putSkillAuthorization_skillId,
-    putSkillAuthorizationResponse_httpStatus,
-
     -- ** UntagResource
     untagResource_arn,
     untagResource_tagKeys,
     untagResourceResponse_httpStatus,
-
-    -- ** DisassociateContactFromAddressBook
-    disassociateContactFromAddressBook_contactArn,
-    disassociateContactFromAddressBook_addressBookArn,
-    disassociateContactFromAddressBookResponse_httpStatus,
-
-    -- ** AssociateDeviceWithNetworkProfile
-    associateDeviceWithNetworkProfile_deviceArn,
-    associateDeviceWithNetworkProfile_networkProfileArn,
-    associateDeviceWithNetworkProfileResponse_httpStatus,
 
     -- ** SearchNetworkProfiles
     searchNetworkProfiles_nextToken,
@@ -234,11 +235,6 @@ module Network.AWS.AlexaBusiness.Lens
     searchNetworkProfilesResponse_networkProfiles,
     searchNetworkProfilesResponse_totalCount,
     searchNetworkProfilesResponse_httpStatus,
-
-    -- ** GetSkillGroup
-    getSkillGroup_skillGroupArn,
-    getSkillGroupResponse_skillGroup,
-    getSkillGroupResponse_httpStatus,
 
     -- ** PutInvitationConfiguration
     putInvitationConfiguration_contactEmail,
@@ -251,52 +247,23 @@ module Network.AWS.AlexaBusiness.Lens
     tagResource_tags,
     tagResourceResponse_httpStatus,
 
+    -- ** GetSkillGroup
+    getSkillGroup_skillGroupArn,
+    getSkillGroupResponse_skillGroup,
+    getSkillGroupResponse_httpStatus,
+
+    -- ** SendInvitation
+    sendInvitation_userArn,
+    sendInvitationResponse_httpStatus,
+
     -- ** ListDeviceEvents
-    listDeviceEvents_nextToken,
     listDeviceEvents_eventType,
+    listDeviceEvents_nextToken,
     listDeviceEvents_maxResults,
     listDeviceEvents_deviceArn,
     listDeviceEventsResponse_nextToken,
     listDeviceEventsResponse_deviceEvents,
     listDeviceEventsResponse_httpStatus,
-
-    -- ** SendAnnouncement
-    sendAnnouncement_timeToLiveInSeconds,
-    sendAnnouncement_roomFilters,
-    sendAnnouncement_content,
-    sendAnnouncement_clientRequestToken,
-    sendAnnouncementResponse_announcementArn,
-    sendAnnouncementResponse_httpStatus,
-
-    -- ** DisassociateSkillGroupFromRoom
-    disassociateSkillGroupFromRoom_roomArn,
-    disassociateSkillGroupFromRoom_skillGroupArn,
-    disassociateSkillGroupFromRoomResponse_httpStatus,
-
-    -- ** GetProfile
-    getProfile_profileArn,
-    getProfileResponse_profile,
-    getProfileResponse_httpStatus,
-
-    -- ** CreateUser
-    createUser_email,
-    createUser_tags,
-    createUser_clientRequestToken,
-    createUser_firstName,
-    createUser_lastName,
-    createUser_userId,
-    createUserResponse_userArn,
-    createUserResponse_httpStatus,
-
-    -- ** SearchContacts
-    searchContacts_nextToken,
-    searchContacts_sortCriteria,
-    searchContacts_maxResults,
-    searchContacts_filters,
-    searchContactsResponse_nextToken,
-    searchContactsResponse_totalCount,
-    searchContactsResponse_contacts,
-    searchContactsResponse_httpStatus,
 
     -- ** RegisterAVSDevice
     registerAVSDevice_roomArn,
@@ -309,17 +276,56 @@ module Network.AWS.AlexaBusiness.Lens
     registerAVSDeviceResponse_deviceArn,
     registerAVSDeviceResponse_httpStatus,
 
-    -- ** SendInvitation
-    sendInvitation_userArn,
-    sendInvitationResponse_httpStatus,
+    -- ** GetProfile
+    getProfile_profileArn,
+    getProfileResponse_profile,
+    getProfileResponse_httpStatus,
+
+    -- ** SearchContacts
+    searchContacts_nextToken,
+    searchContacts_sortCriteria,
+    searchContacts_maxResults,
+    searchContacts_filters,
+    searchContactsResponse_nextToken,
+    searchContactsResponse_totalCount,
+    searchContactsResponse_contacts,
+    searchContactsResponse_httpStatus,
+
+    -- ** DisassociateSkillGroupFromRoom
+    disassociateSkillGroupFromRoom_roomArn,
+    disassociateSkillGroupFromRoom_skillGroupArn,
+    disassociateSkillGroupFromRoomResponse_httpStatus,
+
+    -- ** AssociateSkillWithUsers
+    associateSkillWithUsers_skillId,
+    associateSkillWithUsersResponse_httpStatus,
+
+    -- ** CreateUser
+    createUser_email,
+    createUser_tags,
+    createUser_clientRequestToken,
+    createUser_lastName,
+    createUser_firstName,
+    createUser_userId,
+    createUserResponse_userArn,
+    createUserResponse_httpStatus,
 
     -- ** ForgetSmartHomeAppliances
     forgetSmartHomeAppliances_roomArn,
     forgetSmartHomeAppliancesResponse_httpStatus,
 
-    -- ** AssociateSkillWithUsers
-    associateSkillWithUsers_skillId,
-    associateSkillWithUsersResponse_httpStatus,
+    -- ** SendAnnouncement
+    sendAnnouncement_timeToLiveInSeconds,
+    sendAnnouncement_roomFilters,
+    sendAnnouncement_content,
+    sendAnnouncement_clientRequestToken,
+    sendAnnouncementResponse_announcementArn,
+    sendAnnouncementResponse_httpStatus,
+
+    -- ** AssociateSkillGroupWithRoom
+    associateSkillGroupWithRoom_roomArn,
+    associateSkillGroupWithRoom_skillGroupArn,
+    associateSkillGroupWithRoomResponse_httpStatus,
 
     -- ** GetInvitationConfiguration
     getInvitationConfigurationResponse_organizationName,
@@ -331,20 +337,15 @@ module Network.AWS.AlexaBusiness.Lens
     disassociateSkillFromUsers_skillId,
     disassociateSkillFromUsersResponse_httpStatus,
 
-    -- ** DeleteSkillGroup
-    deleteSkillGroup_skillGroupArn,
-    deleteSkillGroupResponse_httpStatus,
-
     -- ** UpdateSkillGroup
     updateSkillGroup_skillGroupName,
     updateSkillGroup_description,
     updateSkillGroup_skillGroupArn,
     updateSkillGroupResponse_httpStatus,
 
-    -- ** AssociateSkillGroupWithRoom
-    associateSkillGroupWithRoom_roomArn,
-    associateSkillGroupWithRoom_skillGroupArn,
-    associateSkillGroupWithRoomResponse_httpStatus,
+    -- ** DeleteSkillGroup
+    deleteSkillGroup_skillGroupArn,
+    deleteSkillGroupResponse_httpStatus,
 
     -- ** SearchUsers
     searchUsers_nextToken,
@@ -360,35 +361,12 @@ module Network.AWS.AlexaBusiness.Lens
     putConferencePreference_conferencePreference,
     putConferencePreferenceResponse_httpStatus,
 
-    -- ** UpdateGateway
-    updateGateway_name,
-    updateGateway_description,
-    updateGateway_softwareVersion,
-    updateGateway_gatewayArn,
-    updateGatewayResponse_httpStatus,
-
-    -- ** DeleteDevice
-    deleteDevice_deviceArn,
-    deleteDeviceResponse_httpStatus,
-
-    -- ** RevokeInvitation
-    revokeInvitation_userArn,
-    revokeInvitation_enrollmentId,
-    revokeInvitationResponse_httpStatus,
-
-    -- ** GetRoomSkillParameter
-    getRoomSkillParameter_roomArn,
-    getRoomSkillParameter_skillId,
-    getRoomSkillParameter_parameterKey,
-    getRoomSkillParameterResponse_roomSkillParameter,
-    getRoomSkillParameterResponse_httpStatus,
-
     -- ** UpdateContact
     updateContact_phoneNumber,
     updateContact_phoneNumbers,
-    updateContact_displayName,
-    updateContact_firstName,
     updateContact_lastName,
+    updateContact_firstName,
+    updateContact_displayName,
     updateContact_sipAddresses,
     updateContact_contactArn,
     updateContactResponse_httpStatus,
@@ -401,20 +379,39 @@ module Network.AWS.AlexaBusiness.Lens
     deleteContact_contactArn,
     deleteContactResponse_httpStatus,
 
-    -- ** UpdateDevice
-    updateDevice_deviceArn,
-    updateDevice_deviceName,
-    updateDeviceResponse_httpStatus,
-
-    -- ** AssociateDeviceWithRoom
-    associateDeviceWithRoom_deviceArn,
-    associateDeviceWithRoom_roomArn,
-    associateDeviceWithRoomResponse_httpStatus,
+    -- ** RevokeInvitation
+    revokeInvitation_userArn,
+    revokeInvitation_enrollmentId,
+    revokeInvitationResponse_httpStatus,
 
     -- ** AssociateSkillWithSkillGroup
     associateSkillWithSkillGroup_skillGroupArn,
     associateSkillWithSkillGroup_skillId,
     associateSkillWithSkillGroupResponse_httpStatus,
+
+    -- ** UpdateDevice
+    updateDevice_deviceArn,
+    updateDevice_deviceName,
+    updateDeviceResponse_httpStatus,
+
+    -- ** GetRoomSkillParameter
+    getRoomSkillParameter_roomArn,
+    getRoomSkillParameter_skillId,
+    getRoomSkillParameter_parameterKey,
+    getRoomSkillParameterResponse_roomSkillParameter,
+    getRoomSkillParameterResponse_httpStatus,
+
+    -- ** UpdateGateway
+    updateGateway_name,
+    updateGateway_description,
+    updateGateway_softwareVersion,
+    updateGateway_gatewayArn,
+    updateGatewayResponse_httpStatus,
+
+    -- ** AssociateDeviceWithRoom
+    associateDeviceWithRoom_deviceArn,
+    associateDeviceWithRoom_roomArn,
+    associateDeviceWithRoomResponse_httpStatus,
 
     -- ** ListGateways
     listGateways_nextToken,
@@ -424,51 +421,17 @@ module Network.AWS.AlexaBusiness.Lens
     listGatewaysResponse_gateways,
     listGatewaysResponse_httpStatus,
 
-    -- ** DeleteRoom
-    deleteRoom_roomArn,
-    deleteRoomResponse_httpStatus,
-
-    -- ** ListConferenceProviders
-    listConferenceProviders_nextToken,
-    listConferenceProviders_maxResults,
-    listConferenceProvidersResponse_nextToken,
-    listConferenceProvidersResponse_conferenceProviders,
-    listConferenceProvidersResponse_httpStatus,
-
-    -- ** DeleteGatewayGroup
-    deleteGatewayGroup_gatewayGroupArn,
-    deleteGatewayGroupResponse_httpStatus,
+    -- ** DeleteDevice
+    deleteDevice_deviceArn,
+    deleteDeviceResponse_httpStatus,
 
     -- ** UpdateRoom
     updateRoom_roomArn,
-    updateRoom_providerCalendarId,
     updateRoom_profileArn,
     updateRoom_description,
+    updateRoom_providerCalendarId,
     updateRoom_roomName,
     updateRoomResponse_httpStatus,
-
-    -- ** DeleteConferenceProvider
-    deleteConferenceProvider_conferenceProviderArn,
-    deleteConferenceProviderResponse_httpStatus,
-
-    -- ** GetGateway
-    getGateway_gatewayArn,
-    getGatewayResponse_gateway,
-    getGatewayResponse_httpStatus,
-
-    -- ** UpdateConferenceProvider
-    updateConferenceProvider_iPDialIn,
-    updateConferenceProvider_pSTNDialIn,
-    updateConferenceProvider_conferenceProviderArn,
-    updateConferenceProvider_conferenceProviderType,
-    updateConferenceProvider_meetingSetting,
-    updateConferenceProviderResponse_httpStatus,
-
-    -- ** UpdateGatewayGroup
-    updateGatewayGroup_name,
-    updateGatewayGroup_description,
-    updateGatewayGroup_gatewayGroupArn,
-    updateGatewayGroupResponse_httpStatus,
 
     -- ** ListGatewayGroups
     listGatewayGroups_nextToken,
@@ -476,10 +439,6 @@ module Network.AWS.AlexaBusiness.Lens
     listGatewayGroupsResponse_nextToken,
     listGatewayGroupsResponse_gatewayGroups,
     listGatewayGroupsResponse_httpStatus,
-
-    -- ** ApproveSkill
-    approveSkill_skillId,
-    approveSkillResponse_httpStatus,
 
     -- ** GetContact
     getContact_contactArn,
@@ -490,53 +449,61 @@ module Network.AWS.AlexaBusiness.Lens
     rejectSkill_skillId,
     rejectSkillResponse_httpStatus,
 
+    -- ** ListConferenceProviders
+    listConferenceProviders_nextToken,
+    listConferenceProviders_maxResults,
+    listConferenceProvidersResponse_nextToken,
+    listConferenceProvidersResponse_conferenceProviders,
+    listConferenceProvidersResponse_httpStatus,
+
+    -- ** UpdateConferenceProvider
+    updateConferenceProvider_iPDialIn,
+    updateConferenceProvider_pSTNDialIn,
+    updateConferenceProvider_conferenceProviderArn,
+    updateConferenceProvider_conferenceProviderType,
+    updateConferenceProvider_meetingSetting,
+    updateConferenceProviderResponse_httpStatus,
+
+    -- ** DeleteRoom
+    deleteRoom_roomArn,
+    deleteRoomResponse_httpStatus,
+
+    -- ** ApproveSkill
+    approveSkill_skillId,
+    approveSkillResponse_httpStatus,
+
+    -- ** DeleteGatewayGroup
+    deleteGatewayGroup_gatewayGroupArn,
+    deleteGatewayGroupResponse_httpStatus,
+
+    -- ** DeleteConferenceProvider
+    deleteConferenceProvider_conferenceProviderArn,
+    deleteConferenceProviderResponse_httpStatus,
+
+    -- ** GetGateway
+    getGateway_gatewayArn,
+    getGatewayResponse_gateway,
+    getGatewayResponse_httpStatus,
+
     -- ** PutRoomSkillParameter
     putRoomSkillParameter_roomArn,
     putRoomSkillParameter_skillId,
     putRoomSkillParameter_roomSkillParameter,
     putRoomSkillParameterResponse_httpStatus,
 
-    -- ** DisassociateDeviceFromRoom
-    disassociateDeviceFromRoom_deviceArn,
-    disassociateDeviceFromRoomResponse_httpStatus,
+    -- ** UpdateGatewayGroup
+    updateGatewayGroup_name,
+    updateGatewayGroup_description,
+    updateGatewayGroup_gatewayGroupArn,
+    updateGatewayGroupResponse_httpStatus,
 
-    -- ** CreateAddressBook
-    createAddressBook_tags,
-    createAddressBook_description,
-    createAddressBook_clientRequestToken,
-    createAddressBook_name,
-    createAddressBookResponse_addressBookArn,
-    createAddressBookResponse_httpStatus,
-
-    -- ** CreateRoom
-    createRoom_tags,
-    createRoom_providerCalendarId,
-    createRoom_profileArn,
-    createRoom_description,
-    createRoom_clientRequestToken,
-    createRoom_roomName,
-    createRoomResponse_roomArn,
-    createRoomResponse_httpStatus,
-
-    -- ** CreateConferenceProvider
-    createConferenceProvider_iPDialIn,
-    createConferenceProvider_tags,
-    createConferenceProvider_pSTNDialIn,
-    createConferenceProvider_clientRequestToken,
-    createConferenceProvider_conferenceProviderName,
-    createConferenceProvider_conferenceProviderType,
-    createConferenceProvider_meetingSetting,
-    createConferenceProviderResponse_conferenceProviderArn,
-    createConferenceProviderResponse_httpStatus,
-
-    -- ** GetNetworkProfile
-    getNetworkProfile_networkProfileArn,
-    getNetworkProfileResponse_networkProfile,
-    getNetworkProfileResponse_httpStatus,
-
-    -- ** GetConferencePreference
-    getConferencePreferenceResponse_preference,
-    getConferencePreferenceResponse_httpStatus,
+    -- ** ListTags
+    listTags_nextToken,
+    listTags_maxResults,
+    listTags_arn,
+    listTagsResponse_nextToken,
+    listTagsResponse_tags,
+    listTagsResponse_httpStatus,
 
     -- ** DeleteSkillAuthorization
     deleteSkillAuthorization_roomArn,
@@ -551,23 +518,52 @@ module Network.AWS.AlexaBusiness.Lens
     createGatewayGroupResponse_gatewayGroupArn,
     createGatewayGroupResponse_httpStatus,
 
-    -- ** ListTags
-    listTags_nextToken,
-    listTags_maxResults,
-    listTags_arn,
-    listTagsResponse_nextToken,
-    listTagsResponse_tags,
-    listTagsResponse_httpStatus,
+    -- ** GetNetworkProfile
+    getNetworkProfile_networkProfileArn,
+    getNetworkProfileResponse_networkProfile,
+    getNetworkProfileResponse_httpStatus,
+
+    -- ** DisassociateDeviceFromRoom
+    disassociateDeviceFromRoom_deviceArn,
+    disassociateDeviceFromRoomResponse_httpStatus,
+
+    -- ** GetConferencePreference
+    getConferencePreferenceResponse_preference,
+    getConferencePreferenceResponse_httpStatus,
+
+    -- ** CreateRoom
+    createRoom_tags,
+    createRoom_profileArn,
+    createRoom_description,
+    createRoom_providerCalendarId,
+    createRoom_clientRequestToken,
+    createRoom_roomName,
+    createRoomResponse_roomArn,
+    createRoomResponse_httpStatus,
+
+    -- ** CreateAddressBook
+    createAddressBook_tags,
+    createAddressBook_description,
+    createAddressBook_clientRequestToken,
+    createAddressBook_name,
+    createAddressBookResponse_addressBookArn,
+    createAddressBookResponse_httpStatus,
 
     -- ** DisassociateSkillFromSkillGroup
     disassociateSkillFromSkillGroup_skillGroupArn,
     disassociateSkillFromSkillGroup_skillId,
     disassociateSkillFromSkillGroupResponse_httpStatus,
 
-    -- ** DeleteUser
-    deleteUser_userArn,
-    deleteUser_enrollmentId,
-    deleteUserResponse_httpStatus,
+    -- ** CreateConferenceProvider
+    createConferenceProvider_iPDialIn,
+    createConferenceProvider_tags,
+    createConferenceProvider_pSTNDialIn,
+    createConferenceProvider_clientRequestToken,
+    createConferenceProvider_conferenceProviderName,
+    createConferenceProvider_conferenceProviderType,
+    createConferenceProvider_meetingSetting,
+    createConferenceProviderResponse_conferenceProviderArn,
+    createConferenceProviderResponse_httpStatus,
 
     -- ** ListSkills
     listSkills_nextToken,
@@ -578,6 +574,11 @@ module Network.AWS.AlexaBusiness.Lens
     listSkillsResponse_nextToken,
     listSkillsResponse_skillSummaries,
     listSkillsResponse_httpStatus,
+
+    -- ** DeleteUser
+    deleteUser_userArn,
+    deleteUser_enrollmentId,
+    deleteUserResponse_httpStatus,
 
     -- ** SearchDevices
     searchDevices_nextToken,
@@ -599,6 +600,26 @@ module Network.AWS.AlexaBusiness.Lens
     searchRoomsResponse_totalCount,
     searchRoomsResponse_httpStatus,
 
+    -- ** CreateSkillGroup
+    createSkillGroup_tags,
+    createSkillGroup_description,
+    createSkillGroup_clientRequestToken,
+    createSkillGroup_skillGroupName,
+    createSkillGroupResponse_skillGroupArn,
+    createSkillGroupResponse_httpStatus,
+
+    -- ** DeleteProfile
+    deleteProfile_profileArn,
+    deleteProfileResponse_httpStatus,
+
+    -- ** ListSmartHomeAppliances
+    listSmartHomeAppliances_nextToken,
+    listSmartHomeAppliances_maxResults,
+    listSmartHomeAppliances_roomArn,
+    listSmartHomeAppliancesResponse_nextToken,
+    listSmartHomeAppliancesResponse_smartHomeAppliances,
+    listSmartHomeAppliancesResponse_httpStatus,
+
     -- ** SearchAddressBooks
     searchAddressBooks_nextToken,
     searchAddressBooks_sortCriteria,
@@ -609,39 +630,20 @@ module Network.AWS.AlexaBusiness.Lens
     searchAddressBooksResponse_totalCount,
     searchAddressBooksResponse_httpStatus,
 
-    -- ** ListSmartHomeAppliances
-    listSmartHomeAppliances_nextToken,
-    listSmartHomeAppliances_maxResults,
-    listSmartHomeAppliances_roomArn,
-    listSmartHomeAppliancesResponse_nextToken,
-    listSmartHomeAppliancesResponse_smartHomeAppliances,
-    listSmartHomeAppliancesResponse_httpStatus,
-
-    -- ** DeleteProfile
-    deleteProfile_profileArn,
-    deleteProfileResponse_httpStatus,
-
-    -- ** CreateSkillGroup
-    createSkillGroup_tags,
-    createSkillGroup_description,
-    createSkillGroup_clientRequestToken,
-    createSkillGroup_skillGroupName,
-    createSkillGroupResponse_skillGroupArn,
-    createSkillGroupResponse_httpStatus,
-
     -- ** UpdateProfile
     updateProfile_profileName,
     updateProfile_isDefault,
     updateProfile_address,
     updateProfile_locale,
     updateProfile_temperatureUnit,
-    updateProfile_setupModeDisabled,
     updateProfile_pSTNEnabled,
+    updateProfile_setupModeDisabled,
     updateProfile_maxVolumeLimit,
-    updateProfile_meetingRoomConfiguration,
     updateProfile_wakeWord,
     updateProfile_profileArn,
+    updateProfile_meetingRoomConfiguration,
     updateProfile_timezone,
+    updateProfile_dataRetentionOptIn,
     updateProfile_distanceUnit,
     updateProfileResponse_httpStatus,
 
@@ -706,19 +708,19 @@ module Network.AWS.AlexaBusiness.Lens
     -- ** Contact
     contact_phoneNumber,
     contact_phoneNumbers,
-    contact_displayName,
-    contact_contactArn,
-    contact_firstName,
     contact_lastName,
+    contact_firstName,
+    contact_contactArn,
+    contact_displayName,
     contact_sipAddresses,
 
     -- ** ContactData
     contactData_phoneNumber,
     contactData_phoneNumbers,
-    contactData_displayName,
-    contactData_contactArn,
-    contactData_firstName,
     contactData_lastName,
+    contactData_firstName,
+    contactData_contactArn,
+    contactData_displayName,
     contactData_sipAddresses,
 
     -- ** Content
@@ -755,11 +757,11 @@ module Network.AWS.AlexaBusiness.Lens
     device_deviceStatus,
     device_macAddress,
     device_deviceArn,
-    device_roomArn,
     device_deviceStatusInfo,
+    device_roomArn,
     device_deviceName,
-    device_networkProfileInfo,
     device_deviceSerialNumber,
+    device_networkProfileInfo,
     device_deviceType,
     device_softwareVersion,
 
@@ -768,13 +770,13 @@ module Network.AWS.AlexaBusiness.Lens
     deviceData_macAddress,
     deviceData_createdTime,
     deviceData_deviceArn,
-    deviceData_roomArn,
     deviceData_networkProfileName,
     deviceData_deviceStatusInfo,
+    deviceData_roomArn,
     deviceData_deviceName,
     deviceData_deviceSerialNumber,
-    deviceData_roomName,
     deviceData_deviceType,
+    deviceData_roomName,
     deviceData_networkProfileArn,
     deviceData_softwareVersion,
 
@@ -798,8 +800,8 @@ module Network.AWS.AlexaBusiness.Lens
     deviceStatusInfo_connectionStatus,
 
     -- ** EndOfMeetingReminder
-    endOfMeetingReminder_reminderType,
     endOfMeetingReminder_reminderAtMinutes,
+    endOfMeetingReminder_reminderType,
     endOfMeetingReminder_enabled,
 
     -- ** Filter
@@ -853,8 +855,8 @@ module Network.AWS.AlexaBusiness.Lens
     networkProfile_currentPassword,
     networkProfile_eapMethod,
     networkProfile_networkProfileName,
-    networkProfile_securityType,
     networkProfile_description,
+    networkProfile_securityType,
     networkProfile_nextPassword,
     networkProfile_networkProfileArn,
     networkProfile_ssid,
@@ -863,8 +865,8 @@ module Network.AWS.AlexaBusiness.Lens
     networkProfileData_certificateAuthorityArn,
     networkProfileData_eapMethod,
     networkProfileData_networkProfileName,
-    networkProfileData_securityType,
     networkProfileData_description,
+    networkProfileData_securityType,
     networkProfileData_networkProfileArn,
     networkProfileData_ssid,
 
@@ -885,13 +887,14 @@ module Network.AWS.AlexaBusiness.Lens
     profile_locale,
     profile_temperatureUnit,
     profile_addressBookArn,
-    profile_setupModeDisabled,
     profile_pSTNEnabled,
+    profile_setupModeDisabled,
     profile_maxVolumeLimit,
-    profile_meetingRoomConfiguration,
     profile_wakeWord,
     profile_profileArn,
+    profile_meetingRoomConfiguration,
     profile_timezone,
+    profile_dataRetentionOptIn,
     profile_distanceUnit,
 
     -- ** ProfileData
@@ -911,17 +914,17 @@ module Network.AWS.AlexaBusiness.Lens
 
     -- ** Room
     room_roomArn,
-    room_providerCalendarId,
     room_profileArn,
     room_description,
+    room_providerCalendarId,
     room_roomName,
 
     -- ** RoomData
     roomData_profileName,
     roomData_roomArn,
-    roomData_providerCalendarId,
     roomData_profileArn,
     roomData_description,
+    roomData_providerCalendarId,
     roomData_roomName,
 
     -- ** RoomSkillParameter
@@ -935,10 +938,10 @@ module Network.AWS.AlexaBusiness.Lens
     -- ** SkillDetails
     skillDetails_newInThisVersionBulletPoints,
     skillDetails_skillTypes,
-    skillDetails_reviews,
     skillDetails_bulletPoints,
-    skillDetails_genericKeywords,
+    skillDetails_reviews,
     skillDetails_endUserLicenseAgreement,
+    skillDetails_genericKeywords,
     skillDetails_developerInfo,
     skillDetails_productDescription,
     skillDetails_invocationPhrase,
@@ -966,8 +969,8 @@ module Network.AWS.AlexaBusiness.Lens
     skillsStoreSkill_skillId,
     skillsStoreSkill_shortDescription,
     skillsStoreSkill_supportsLinking,
-    skillsStoreSkill_skillName,
     skillsStoreSkill_sampleUtterances,
+    skillsStoreSkill_skillName,
     skillsStoreSkill_skillDetails,
 
     -- ** SmartHomeAppliance
@@ -992,8 +995,8 @@ module Network.AWS.AlexaBusiness.Lens
     textMessage_value,
 
     -- ** UpdateEndOfMeetingReminder
-    updateEndOfMeetingReminder_reminderType,
     updateEndOfMeetingReminder_reminderAtMinutes,
+    updateEndOfMeetingReminder_reminderType,
     updateEndOfMeetingReminder_enabled,
 
     -- ** UpdateInstantBooking
@@ -1015,8 +1018,8 @@ module Network.AWS.AlexaBusiness.Lens
     userData_enrollmentId,
     userData_email,
     userData_enrollmentStatus,
-    userData_firstName,
     userData_lastName,
+    userData_firstName,
   )
 where
 

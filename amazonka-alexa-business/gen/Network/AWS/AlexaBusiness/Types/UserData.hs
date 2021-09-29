@@ -36,10 +36,10 @@ data UserData = UserData'
     email :: Prelude.Maybe Prelude.Text,
     -- | The enrollment status of a user.
     enrollmentStatus :: Prelude.Maybe EnrollmentStatus,
-    -- | The first name of a user.
-    firstName :: Prelude.Maybe Prelude.Text,
     -- | The last name of a user.
-    lastName :: Prelude.Maybe Prelude.Text
+    lastName :: Prelude.Maybe Prelude.Text,
+    -- | The first name of a user.
+    firstName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,9 +59,9 @@ data UserData = UserData'
 --
 -- 'enrollmentStatus', 'userData_enrollmentStatus' - The enrollment status of a user.
 --
--- 'firstName', 'userData_firstName' - The first name of a user.
---
 -- 'lastName', 'userData_lastName' - The last name of a user.
+--
+-- 'firstName', 'userData_firstName' - The first name of a user.
 newUserData ::
   UserData
 newUserData =
@@ -70,8 +70,8 @@ newUserData =
       enrollmentId = Prelude.Nothing,
       email = Prelude.Nothing,
       enrollmentStatus = Prelude.Nothing,
-      firstName = Prelude.Nothing,
-      lastName = Prelude.Nothing
+      lastName = Prelude.Nothing,
+      firstName = Prelude.Nothing
     }
 
 -- | The ARN of a user.
@@ -90,13 +90,13 @@ userData_email = Lens.lens (\UserData' {email} -> email) (\s@UserData' {} a -> s
 userData_enrollmentStatus :: Lens.Lens' UserData (Prelude.Maybe EnrollmentStatus)
 userData_enrollmentStatus = Lens.lens (\UserData' {enrollmentStatus} -> enrollmentStatus) (\s@UserData' {} a -> s {enrollmentStatus = a} :: UserData)
 
--- | The first name of a user.
-userData_firstName :: Lens.Lens' UserData (Prelude.Maybe Prelude.Text)
-userData_firstName = Lens.lens (\UserData' {firstName} -> firstName) (\s@UserData' {} a -> s {firstName = a} :: UserData)
-
 -- | The last name of a user.
 userData_lastName :: Lens.Lens' UserData (Prelude.Maybe Prelude.Text)
 userData_lastName = Lens.lens (\UserData' {lastName} -> lastName) (\s@UserData' {} a -> s {lastName = a} :: UserData)
+
+-- | The first name of a user.
+userData_firstName :: Lens.Lens' UserData (Prelude.Maybe Prelude.Text)
+userData_firstName = Lens.lens (\UserData' {firstName} -> firstName) (\s@UserData' {} a -> s {firstName = a} :: UserData)
 
 instance Core.FromJSON UserData where
   parseJSON =
@@ -108,8 +108,8 @@ instance Core.FromJSON UserData where
             Prelude.<*> (x Core..:? "EnrollmentId")
             Prelude.<*> (x Core..:? "Email")
             Prelude.<*> (x Core..:? "EnrollmentStatus")
-            Prelude.<*> (x Core..:? "FirstName")
             Prelude.<*> (x Core..:? "LastName")
+            Prelude.<*> (x Core..:? "FirstName")
       )
 
 instance Prelude.Hashable UserData

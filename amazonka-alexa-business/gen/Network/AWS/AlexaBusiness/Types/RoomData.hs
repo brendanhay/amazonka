@@ -31,12 +31,12 @@ data RoomData = RoomData'
     profileName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of a room.
     roomArn :: Prelude.Maybe Prelude.Text,
-    -- | The provider calendar ARN of a room.
-    providerCalendarId :: Prelude.Maybe Prelude.Text,
     -- | The profile ARN of a room.
     profileArn :: Prelude.Maybe Prelude.Text,
     -- | The description of a room.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The provider calendar ARN of a room.
+    providerCalendarId :: Prelude.Maybe Prelude.Text,
     -- | The name of a room.
     roomName :: Prelude.Maybe Prelude.Text
   }
@@ -54,11 +54,11 @@ data RoomData = RoomData'
 --
 -- 'roomArn', 'roomData_roomArn' - The ARN of a room.
 --
--- 'providerCalendarId', 'roomData_providerCalendarId' - The provider calendar ARN of a room.
---
 -- 'profileArn', 'roomData_profileArn' - The profile ARN of a room.
 --
 -- 'description', 'roomData_description' - The description of a room.
+--
+-- 'providerCalendarId', 'roomData_providerCalendarId' - The provider calendar ARN of a room.
 --
 -- 'roomName', 'roomData_roomName' - The name of a room.
 newRoomData ::
@@ -67,9 +67,9 @@ newRoomData =
   RoomData'
     { profileName = Prelude.Nothing,
       roomArn = Prelude.Nothing,
-      providerCalendarId = Prelude.Nothing,
       profileArn = Prelude.Nothing,
       description = Prelude.Nothing,
+      providerCalendarId = Prelude.Nothing,
       roomName = Prelude.Nothing
     }
 
@@ -81,10 +81,6 @@ roomData_profileName = Lens.lens (\RoomData' {profileName} -> profileName) (\s@R
 roomData_roomArn :: Lens.Lens' RoomData (Prelude.Maybe Prelude.Text)
 roomData_roomArn = Lens.lens (\RoomData' {roomArn} -> roomArn) (\s@RoomData' {} a -> s {roomArn = a} :: RoomData)
 
--- | The provider calendar ARN of a room.
-roomData_providerCalendarId :: Lens.Lens' RoomData (Prelude.Maybe Prelude.Text)
-roomData_providerCalendarId = Lens.lens (\RoomData' {providerCalendarId} -> providerCalendarId) (\s@RoomData' {} a -> s {providerCalendarId = a} :: RoomData)
-
 -- | The profile ARN of a room.
 roomData_profileArn :: Lens.Lens' RoomData (Prelude.Maybe Prelude.Text)
 roomData_profileArn = Lens.lens (\RoomData' {profileArn} -> profileArn) (\s@RoomData' {} a -> s {profileArn = a} :: RoomData)
@@ -92,6 +88,10 @@ roomData_profileArn = Lens.lens (\RoomData' {profileArn} -> profileArn) (\s@Room
 -- | The description of a room.
 roomData_description :: Lens.Lens' RoomData (Prelude.Maybe Prelude.Text)
 roomData_description = Lens.lens (\RoomData' {description} -> description) (\s@RoomData' {} a -> s {description = a} :: RoomData)
+
+-- | The provider calendar ARN of a room.
+roomData_providerCalendarId :: Lens.Lens' RoomData (Prelude.Maybe Prelude.Text)
+roomData_providerCalendarId = Lens.lens (\RoomData' {providerCalendarId} -> providerCalendarId) (\s@RoomData' {} a -> s {providerCalendarId = a} :: RoomData)
 
 -- | The name of a room.
 roomData_roomName :: Lens.Lens' RoomData (Prelude.Maybe Prelude.Text)
@@ -105,9 +105,9 @@ instance Core.FromJSON RoomData where
           RoomData'
             Prelude.<$> (x Core..:? "ProfileName")
             Prelude.<*> (x Core..:? "RoomArn")
-            Prelude.<*> (x Core..:? "ProviderCalendarId")
             Prelude.<*> (x Core..:? "ProfileArn")
             Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "ProviderCalendarId")
             Prelude.<*> (x Core..:? "RoomName")
       )
 

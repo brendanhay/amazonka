@@ -31,8 +31,8 @@ module Network.AWS.AlexaBusiness.CreateContact
     createContact_phoneNumbers,
     createContact_tags,
     createContact_clientRequestToken,
-    createContact_displayName,
     createContact_lastName,
+    createContact_displayName,
     createContact_sipAddresses,
     createContact_firstName,
 
@@ -68,11 +68,11 @@ data CreateContact = CreateContact'
     -- | A unique, user-specified identifier for this request that ensures
     -- idempotency.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of the contact to display on the console.
-    displayName :: Prelude.Maybe Prelude.Text,
     -- | The last name of the contact that is used to call the contact on the
     -- device.
     lastName :: Prelude.Maybe Prelude.Text,
+    -- | The name of the contact to display on the console.
+    displayName :: Prelude.Maybe Prelude.Text,
     -- | The list of SIP addresses for the contact.
     sipAddresses :: Prelude.Maybe [SipAddress],
     -- | The first name of the contact that is used to call the contact on the
@@ -102,10 +102,10 @@ data CreateContact = CreateContact'
 -- 'clientRequestToken', 'createContact_clientRequestToken' - A unique, user-specified identifier for this request that ensures
 -- idempotency.
 --
--- 'displayName', 'createContact_displayName' - The name of the contact to display on the console.
---
 -- 'lastName', 'createContact_lastName' - The last name of the contact that is used to call the contact on the
 -- device.
+--
+-- 'displayName', 'createContact_displayName' - The name of the contact to display on the console.
 --
 -- 'sipAddresses', 'createContact_sipAddresses' - The list of SIP addresses for the contact.
 --
@@ -121,8 +121,8 @@ newCreateContact pFirstName_ =
       phoneNumbers = Prelude.Nothing,
       tags = Prelude.Nothing,
       clientRequestToken = Prelude.Nothing,
-      displayName = Prelude.Nothing,
       lastName = Prelude.Nothing,
+      displayName = Prelude.Nothing,
       sipAddresses = Prelude.Nothing,
       firstName = pFirstName_
     }
@@ -148,14 +148,14 @@ createContact_tags = Lens.lens (\CreateContact' {tags} -> tags) (\s@CreateContac
 createContact_clientRequestToken :: Lens.Lens' CreateContact (Prelude.Maybe Prelude.Text)
 createContact_clientRequestToken = Lens.lens (\CreateContact' {clientRequestToken} -> clientRequestToken) (\s@CreateContact' {} a -> s {clientRequestToken = a} :: CreateContact)
 
--- | The name of the contact to display on the console.
-createContact_displayName :: Lens.Lens' CreateContact (Prelude.Maybe Prelude.Text)
-createContact_displayName = Lens.lens (\CreateContact' {displayName} -> displayName) (\s@CreateContact' {} a -> s {displayName = a} :: CreateContact)
-
 -- | The last name of the contact that is used to call the contact on the
 -- device.
 createContact_lastName :: Lens.Lens' CreateContact (Prelude.Maybe Prelude.Text)
 createContact_lastName = Lens.lens (\CreateContact' {lastName} -> lastName) (\s@CreateContact' {} a -> s {lastName = a} :: CreateContact)
+
+-- | The name of the contact to display on the console.
+createContact_displayName :: Lens.Lens' CreateContact (Prelude.Maybe Prelude.Text)
+createContact_displayName = Lens.lens (\CreateContact' {displayName} -> displayName) (\s@CreateContact' {} a -> s {displayName = a} :: CreateContact)
 
 -- | The list of SIP addresses for the contact.
 createContact_sipAddresses :: Lens.Lens' CreateContact (Prelude.Maybe [SipAddress])
@@ -207,8 +207,8 @@ instance Core.ToJSON CreateContact where
             ("Tags" Core..=) Prelude.<$> tags,
             ("ClientRequestToken" Core..=)
               Prelude.<$> clientRequestToken,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
             ("LastName" Core..=) Prelude.<$> lastName,
+            ("DisplayName" Core..=) Prelude.<$> displayName,
             ("SipAddresses" Core..=) Prelude.<$> sipAddresses,
             Prelude.Just ("FirstName" Core..= firstName)
           ]

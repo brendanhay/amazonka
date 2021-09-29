@@ -30,12 +30,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newUpdateEndOfMeetingReminder' smart constructor.
 data UpdateEndOfMeetingReminder = UpdateEndOfMeetingReminder'
-  { -- | The type of sound that users hear during the end of meeting reminder.
-    reminderType :: Prelude.Maybe EndOfMeetingReminderType,
-    -- | Updates settings for the end of meeting reminder feature that are
+  { -- | Updates settings for the end of meeting reminder feature that are
     -- applied to a room profile. The end of meeting reminder enables Alexa to
     -- remind users when a meeting is ending.
     reminderAtMinutes :: Prelude.Maybe (Prelude.NonEmpty Prelude.Int),
+    -- | The type of sound that users hear during the end of meeting reminder.
+    reminderType :: Prelude.Maybe EndOfMeetingReminderType,
     -- | Whether an end of meeting reminder is enabled or not.
     enabled :: Prelude.Maybe Prelude.Bool
   }
@@ -49,32 +49,32 @@ data UpdateEndOfMeetingReminder = UpdateEndOfMeetingReminder'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reminderType', 'updateEndOfMeetingReminder_reminderType' - The type of sound that users hear during the end of meeting reminder.
---
 -- 'reminderAtMinutes', 'updateEndOfMeetingReminder_reminderAtMinutes' - Updates settings for the end of meeting reminder feature that are
 -- applied to a room profile. The end of meeting reminder enables Alexa to
 -- remind users when a meeting is ending.
+--
+-- 'reminderType', 'updateEndOfMeetingReminder_reminderType' - The type of sound that users hear during the end of meeting reminder.
 --
 -- 'enabled', 'updateEndOfMeetingReminder_enabled' - Whether an end of meeting reminder is enabled or not.
 newUpdateEndOfMeetingReminder ::
   UpdateEndOfMeetingReminder
 newUpdateEndOfMeetingReminder =
   UpdateEndOfMeetingReminder'
-    { reminderType =
+    { reminderAtMinutes =
         Prelude.Nothing,
-      reminderAtMinutes = Prelude.Nothing,
+      reminderType = Prelude.Nothing,
       enabled = Prelude.Nothing
     }
-
--- | The type of sound that users hear during the end of meeting reminder.
-updateEndOfMeetingReminder_reminderType :: Lens.Lens' UpdateEndOfMeetingReminder (Prelude.Maybe EndOfMeetingReminderType)
-updateEndOfMeetingReminder_reminderType = Lens.lens (\UpdateEndOfMeetingReminder' {reminderType} -> reminderType) (\s@UpdateEndOfMeetingReminder' {} a -> s {reminderType = a} :: UpdateEndOfMeetingReminder)
 
 -- | Updates settings for the end of meeting reminder feature that are
 -- applied to a room profile. The end of meeting reminder enables Alexa to
 -- remind users when a meeting is ending.
 updateEndOfMeetingReminder_reminderAtMinutes :: Lens.Lens' UpdateEndOfMeetingReminder (Prelude.Maybe (Prelude.NonEmpty Prelude.Int))
 updateEndOfMeetingReminder_reminderAtMinutes = Lens.lens (\UpdateEndOfMeetingReminder' {reminderAtMinutes} -> reminderAtMinutes) (\s@UpdateEndOfMeetingReminder' {} a -> s {reminderAtMinutes = a} :: UpdateEndOfMeetingReminder) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The type of sound that users hear during the end of meeting reminder.
+updateEndOfMeetingReminder_reminderType :: Lens.Lens' UpdateEndOfMeetingReminder (Prelude.Maybe EndOfMeetingReminderType)
+updateEndOfMeetingReminder_reminderType = Lens.lens (\UpdateEndOfMeetingReminder' {reminderType} -> reminderType) (\s@UpdateEndOfMeetingReminder' {} a -> s {reminderType = a} :: UpdateEndOfMeetingReminder)
 
 -- | Whether an end of meeting reminder is enabled or not.
 updateEndOfMeetingReminder_enabled :: Lens.Lens' UpdateEndOfMeetingReminder (Prelude.Maybe Prelude.Bool)
@@ -88,9 +88,9 @@ instance Core.ToJSON UpdateEndOfMeetingReminder where
   toJSON UpdateEndOfMeetingReminder' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ReminderType" Core..=) Prelude.<$> reminderType,
-            ("ReminderAtMinutes" Core..=)
+          [ ("ReminderAtMinutes" Core..=)
               Prelude.<$> reminderAtMinutes,
+            ("ReminderType" Core..=) Prelude.<$> reminderType,
             ("Enabled" Core..=) Prelude.<$> enabled
           ]
       )

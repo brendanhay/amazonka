@@ -19,16 +19,16 @@ module Network.AWS.AlexaBusiness.Types
     -- * Errors
     _NotFoundException,
     _InvalidServiceLinkedRoleStateException,
-    _UnauthorizedException,
     _InvalidUserStatusException,
+    _UnauthorizedException,
     _ResourceAssociatedException,
+    _InvalidCertificateAuthorityException,
     _ConcurrentModificationException,
     _DeviceNotRegisteredException,
-    _InvalidCertificateAuthorityException,
     _NameInUseException,
-    _ResourceInUseException,
-    _LimitExceededException,
     _AlreadyExistsException,
+    _LimitExceededException,
+    _ResourceInUseException,
     _InvalidDeviceException,
     _SkillNotLinkedException,
     _InvalidSecretsManagerResourceException,
@@ -200,10 +200,10 @@ module Network.AWS.AlexaBusiness.Types
     newContact,
     contact_phoneNumber,
     contact_phoneNumbers,
-    contact_displayName,
-    contact_contactArn,
-    contact_firstName,
     contact_lastName,
+    contact_firstName,
+    contact_contactArn,
+    contact_displayName,
     contact_sipAddresses,
 
     -- * ContactData
@@ -211,10 +211,10 @@ module Network.AWS.AlexaBusiness.Types
     newContactData,
     contactData_phoneNumber,
     contactData_phoneNumbers,
-    contactData_displayName,
-    contactData_contactArn,
-    contactData_firstName,
     contactData_lastName,
+    contactData_firstName,
+    contactData_contactArn,
+    contactData_displayName,
     contactData_sipAddresses,
 
     -- * Content
@@ -265,11 +265,11 @@ module Network.AWS.AlexaBusiness.Types
     device_deviceStatus,
     device_macAddress,
     device_deviceArn,
-    device_roomArn,
     device_deviceStatusInfo,
+    device_roomArn,
     device_deviceName,
-    device_networkProfileInfo,
     device_deviceSerialNumber,
+    device_networkProfileInfo,
     device_deviceType,
     device_softwareVersion,
 
@@ -280,13 +280,13 @@ module Network.AWS.AlexaBusiness.Types
     deviceData_macAddress,
     deviceData_createdTime,
     deviceData_deviceArn,
-    deviceData_roomArn,
     deviceData_networkProfileName,
     deviceData_deviceStatusInfo,
+    deviceData_roomArn,
     deviceData_deviceName,
     deviceData_deviceSerialNumber,
-    deviceData_roomName,
     deviceData_deviceType,
+    deviceData_roomName,
     deviceData_networkProfileArn,
     deviceData_softwareVersion,
 
@@ -320,8 +320,8 @@ module Network.AWS.AlexaBusiness.Types
     -- * EndOfMeetingReminder
     EndOfMeetingReminder (..),
     newEndOfMeetingReminder,
-    endOfMeetingReminder_reminderType,
     endOfMeetingReminder_reminderAtMinutes,
+    endOfMeetingReminder_reminderType,
     endOfMeetingReminder_enabled,
 
     -- * Filter
@@ -395,8 +395,8 @@ module Network.AWS.AlexaBusiness.Types
     networkProfile_currentPassword,
     networkProfile_eapMethod,
     networkProfile_networkProfileName,
-    networkProfile_securityType,
     networkProfile_description,
+    networkProfile_securityType,
     networkProfile_nextPassword,
     networkProfile_networkProfileArn,
     networkProfile_ssid,
@@ -407,8 +407,8 @@ module Network.AWS.AlexaBusiness.Types
     networkProfileData_certificateAuthorityArn,
     networkProfileData_eapMethod,
     networkProfileData_networkProfileName,
-    networkProfileData_securityType,
     networkProfileData_description,
+    networkProfileData_securityType,
     networkProfileData_networkProfileArn,
     networkProfileData_ssid,
 
@@ -435,13 +435,14 @@ module Network.AWS.AlexaBusiness.Types
     profile_locale,
     profile_temperatureUnit,
     profile_addressBookArn,
-    profile_setupModeDisabled,
     profile_pSTNEnabled,
+    profile_setupModeDisabled,
     profile_maxVolumeLimit,
-    profile_meetingRoomConfiguration,
     profile_wakeWord,
     profile_profileArn,
+    profile_meetingRoomConfiguration,
     profile_timezone,
+    profile_dataRetentionOptIn,
     profile_distanceUnit,
 
     -- * ProfileData
@@ -467,9 +468,9 @@ module Network.AWS.AlexaBusiness.Types
     Room (..),
     newRoom,
     room_roomArn,
-    room_providerCalendarId,
     room_profileArn,
     room_description,
+    room_providerCalendarId,
     room_roomName,
 
     -- * RoomData
@@ -477,9 +478,9 @@ module Network.AWS.AlexaBusiness.Types
     newRoomData,
     roomData_profileName,
     roomData_roomArn,
-    roomData_providerCalendarId,
     roomData_profileArn,
     roomData_description,
+    roomData_providerCalendarId,
     roomData_roomName,
 
     -- * RoomSkillParameter
@@ -499,10 +500,10 @@ module Network.AWS.AlexaBusiness.Types
     newSkillDetails,
     skillDetails_newInThisVersionBulletPoints,
     skillDetails_skillTypes,
-    skillDetails_reviews,
     skillDetails_bulletPoints,
-    skillDetails_genericKeywords,
+    skillDetails_reviews,
     skillDetails_endUserLicenseAgreement,
+    skillDetails_genericKeywords,
     skillDetails_developerInfo,
     skillDetails_productDescription,
     skillDetails_invocationPhrase,
@@ -538,8 +539,8 @@ module Network.AWS.AlexaBusiness.Types
     skillsStoreSkill_skillId,
     skillsStoreSkill_shortDescription,
     skillsStoreSkill_supportsLinking,
-    skillsStoreSkill_skillName,
     skillsStoreSkill_sampleUtterances,
+    skillsStoreSkill_skillName,
     skillsStoreSkill_skillDetails,
 
     -- * SmartHomeAppliance
@@ -576,8 +577,8 @@ module Network.AWS.AlexaBusiness.Types
     -- * UpdateEndOfMeetingReminder
     UpdateEndOfMeetingReminder (..),
     newUpdateEndOfMeetingReminder,
-    updateEndOfMeetingReminder_reminderType,
     updateEndOfMeetingReminder_reminderAtMinutes,
+    updateEndOfMeetingReminder_reminderType,
     updateEndOfMeetingReminder_enabled,
 
     -- * UpdateInstantBooking
@@ -607,8 +608,8 @@ module Network.AWS.AlexaBusiness.Types
     userData_enrollmentId,
     userData_email,
     userData_enrollmentStatus,
-    userData_firstName,
     userData_lastName,
+    userData_firstName,
   )
 where
 
@@ -791,14 +792,6 @@ _InvalidServiceLinkedRoleStateException =
     defaultService
     "InvalidServiceLinkedRoleStateException"
 
--- | The caller has no permissions to operate on the resource involved in the
--- API call.
-_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnauthorizedException =
-  Core._MatchServiceError
-    defaultService
-    "UnauthorizedException"
-
 -- | The attempt to update a user is invalid due to the user\'s current
 -- status.
 _InvalidUserStatusException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -807,12 +800,27 @@ _InvalidUserStatusException =
     defaultService
     "InvalidUserStatusException"
 
+-- | The caller has no permissions to operate on the resource involved in the
+-- API call.
+_UnauthorizedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedException =
+  Core._MatchServiceError
+    defaultService
+    "UnauthorizedException"
+
 -- | Another resource is associated with the resource in the request.
 _ResourceAssociatedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceAssociatedException =
   Core._MatchServiceError
     defaultService
     "ResourceAssociatedException"
+
+-- | The Certificate Authority can\'t issue or revoke a certificate.
+_InvalidCertificateAuthorityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InvalidCertificateAuthorityException =
+  Core._MatchServiceError
+    defaultService
+    "InvalidCertificateAuthorityException"
 
 -- | There is a concurrent modification of resources.
 _ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -829,13 +837,6 @@ _DeviceNotRegisteredException =
     defaultService
     "DeviceNotRegisteredException"
 
--- | The Certificate Authority can\'t issue or revoke a certificate.
-_InvalidCertificateAuthorityException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InvalidCertificateAuthorityException =
-  Core._MatchServiceError
-    defaultService
-    "InvalidCertificateAuthorityException"
-
 -- | The name sent in the request is already in use.
 _NameInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _NameInUseException =
@@ -843,12 +844,12 @@ _NameInUseException =
     defaultService
     "NameInUseException"
 
--- | The resource in the request is already in use.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
+-- | The resource being created already exists.
+_AlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AlreadyExistsException =
   Core._MatchServiceError
     defaultService
-    "ResourceInUseException"
+    "AlreadyExistsException"
 
 -- | You are performing an action that would put you beyond your account\'s
 -- limits.
@@ -858,12 +859,12 @@ _LimitExceededException =
     defaultService
     "LimitExceededException"
 
--- | The resource being created already exists.
-_AlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AlreadyExistsException =
+-- | The resource in the request is already in use.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
   Core._MatchServiceError
     defaultService
-    "AlreadyExistsException"
+    "ResourceInUseException"
 
 -- | The device is in an invalid state.
 _InvalidDeviceException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

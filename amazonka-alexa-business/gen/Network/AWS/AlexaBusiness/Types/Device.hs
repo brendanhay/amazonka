@@ -37,16 +37,16 @@ data Device = Device'
     macAddress :: Prelude.Maybe Prelude.Text,
     -- | The ARN of a device.
     deviceArn :: Prelude.Maybe Prelude.Text,
-    -- | The room ARN of a device.
-    roomArn :: Prelude.Maybe Prelude.Text,
     -- | Detailed information about a device\'s status.
     deviceStatusInfo :: Prelude.Maybe DeviceStatusInfo,
+    -- | The room ARN of a device.
+    roomArn :: Prelude.Maybe Prelude.Text,
     -- | The name of a device.
     deviceName :: Prelude.Maybe Prelude.Text,
-    -- | Detailed information about a device\'s network profile.
-    networkProfileInfo :: Prelude.Maybe DeviceNetworkProfileInfo,
     -- | The serial number of a device.
     deviceSerialNumber :: Prelude.Maybe Prelude.Text,
+    -- | Detailed information about a device\'s network profile.
+    networkProfileInfo :: Prelude.Maybe DeviceNetworkProfileInfo,
     -- | The type of a device.
     deviceType :: Prelude.Maybe Prelude.Text,
     -- | The software version of a device.
@@ -69,15 +69,15 @@ data Device = Device'
 --
 -- 'deviceArn', 'device_deviceArn' - The ARN of a device.
 --
--- 'roomArn', 'device_roomArn' - The room ARN of a device.
---
 -- 'deviceStatusInfo', 'device_deviceStatusInfo' - Detailed information about a device\'s status.
+--
+-- 'roomArn', 'device_roomArn' - The room ARN of a device.
 --
 -- 'deviceName', 'device_deviceName' - The name of a device.
 --
--- 'networkProfileInfo', 'device_networkProfileInfo' - Detailed information about a device\'s network profile.
---
 -- 'deviceSerialNumber', 'device_deviceSerialNumber' - The serial number of a device.
+--
+-- 'networkProfileInfo', 'device_networkProfileInfo' - Detailed information about a device\'s network profile.
 --
 -- 'deviceType', 'device_deviceType' - The type of a device.
 --
@@ -89,11 +89,11 @@ newDevice =
     { deviceStatus = Prelude.Nothing,
       macAddress = Prelude.Nothing,
       deviceArn = Prelude.Nothing,
-      roomArn = Prelude.Nothing,
       deviceStatusInfo = Prelude.Nothing,
+      roomArn = Prelude.Nothing,
       deviceName = Prelude.Nothing,
-      networkProfileInfo = Prelude.Nothing,
       deviceSerialNumber = Prelude.Nothing,
+      networkProfileInfo = Prelude.Nothing,
       deviceType = Prelude.Nothing,
       softwareVersion = Prelude.Nothing
     }
@@ -111,25 +111,25 @@ device_macAddress = Lens.lens (\Device' {macAddress} -> macAddress) (\s@Device' 
 device_deviceArn :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
 device_deviceArn = Lens.lens (\Device' {deviceArn} -> deviceArn) (\s@Device' {} a -> s {deviceArn = a} :: Device)
 
--- | The room ARN of a device.
-device_roomArn :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
-device_roomArn = Lens.lens (\Device' {roomArn} -> roomArn) (\s@Device' {} a -> s {roomArn = a} :: Device)
-
 -- | Detailed information about a device\'s status.
 device_deviceStatusInfo :: Lens.Lens' Device (Prelude.Maybe DeviceStatusInfo)
 device_deviceStatusInfo = Lens.lens (\Device' {deviceStatusInfo} -> deviceStatusInfo) (\s@Device' {} a -> s {deviceStatusInfo = a} :: Device)
+
+-- | The room ARN of a device.
+device_roomArn :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
+device_roomArn = Lens.lens (\Device' {roomArn} -> roomArn) (\s@Device' {} a -> s {roomArn = a} :: Device)
 
 -- | The name of a device.
 device_deviceName :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
 device_deviceName = Lens.lens (\Device' {deviceName} -> deviceName) (\s@Device' {} a -> s {deviceName = a} :: Device)
 
--- | Detailed information about a device\'s network profile.
-device_networkProfileInfo :: Lens.Lens' Device (Prelude.Maybe DeviceNetworkProfileInfo)
-device_networkProfileInfo = Lens.lens (\Device' {networkProfileInfo} -> networkProfileInfo) (\s@Device' {} a -> s {networkProfileInfo = a} :: Device)
-
 -- | The serial number of a device.
 device_deviceSerialNumber :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
 device_deviceSerialNumber = Lens.lens (\Device' {deviceSerialNumber} -> deviceSerialNumber) (\s@Device' {} a -> s {deviceSerialNumber = a} :: Device)
+
+-- | Detailed information about a device\'s network profile.
+device_networkProfileInfo :: Lens.Lens' Device (Prelude.Maybe DeviceNetworkProfileInfo)
+device_networkProfileInfo = Lens.lens (\Device' {networkProfileInfo} -> networkProfileInfo) (\s@Device' {} a -> s {networkProfileInfo = a} :: Device)
 
 -- | The type of a device.
 device_deviceType :: Lens.Lens' Device (Prelude.Maybe Prelude.Text)
@@ -148,11 +148,11 @@ instance Core.FromJSON Device where
             Prelude.<$> (x Core..:? "DeviceStatus")
             Prelude.<*> (x Core..:? "MacAddress")
             Prelude.<*> (x Core..:? "DeviceArn")
-            Prelude.<*> (x Core..:? "RoomArn")
             Prelude.<*> (x Core..:? "DeviceStatusInfo")
+            Prelude.<*> (x Core..:? "RoomArn")
             Prelude.<*> (x Core..:? "DeviceName")
-            Prelude.<*> (x Core..:? "NetworkProfileInfo")
             Prelude.<*> (x Core..:? "DeviceSerialNumber")
+            Prelude.<*> (x Core..:? "NetworkProfileInfo")
             Prelude.<*> (x Core..:? "DeviceType")
             Prelude.<*> (x Core..:? "SoftwareVersion")
       )

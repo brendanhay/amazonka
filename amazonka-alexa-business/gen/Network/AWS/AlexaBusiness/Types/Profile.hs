@@ -44,20 +44,22 @@ data Profile = Profile'
     temperatureUnit :: Prelude.Maybe TemperatureUnit,
     -- | The ARN of the address book.
     addressBookArn :: Prelude.Maybe Prelude.Text,
-    -- | The setup mode of a room profile.
-    setupModeDisabled :: Prelude.Maybe Prelude.Bool,
     -- | The PSTN setting of a room profile.
     pSTNEnabled :: Prelude.Maybe Prelude.Bool,
+    -- | The setup mode of a room profile.
+    setupModeDisabled :: Prelude.Maybe Prelude.Bool,
     -- | The max volume limit of a room profile.
     maxVolumeLimit :: Prelude.Maybe Prelude.Int,
-    -- | Meeting room settings of a room profile.
-    meetingRoomConfiguration :: Prelude.Maybe MeetingRoomConfiguration,
     -- | The wake word of a room profile.
     wakeWord :: Prelude.Maybe WakeWord,
     -- | The ARN of a room profile.
     profileArn :: Prelude.Maybe Prelude.Text,
+    -- | Meeting room settings of a room profile.
+    meetingRoomConfiguration :: Prelude.Maybe MeetingRoomConfiguration,
     -- | The time zone of a room profile.
     timezone :: Prelude.Maybe Prelude.Text,
+    -- | Whether data retention of the profile is enabled.
+    dataRetentionOptIn :: Prelude.Maybe Prelude.Bool,
     -- | The distance unit of a room profile.
     distanceUnit :: Prelude.Maybe DistanceUnit
   }
@@ -84,19 +86,21 @@ data Profile = Profile'
 --
 -- 'addressBookArn', 'profile_addressBookArn' - The ARN of the address book.
 --
--- 'setupModeDisabled', 'profile_setupModeDisabled' - The setup mode of a room profile.
---
 -- 'pSTNEnabled', 'profile_pSTNEnabled' - The PSTN setting of a room profile.
 --
--- 'maxVolumeLimit', 'profile_maxVolumeLimit' - The max volume limit of a room profile.
+-- 'setupModeDisabled', 'profile_setupModeDisabled' - The setup mode of a room profile.
 --
--- 'meetingRoomConfiguration', 'profile_meetingRoomConfiguration' - Meeting room settings of a room profile.
+-- 'maxVolumeLimit', 'profile_maxVolumeLimit' - The max volume limit of a room profile.
 --
 -- 'wakeWord', 'profile_wakeWord' - The wake word of a room profile.
 --
 -- 'profileArn', 'profile_profileArn' - The ARN of a room profile.
 --
+-- 'meetingRoomConfiguration', 'profile_meetingRoomConfiguration' - Meeting room settings of a room profile.
+--
 -- 'timezone', 'profile_timezone' - The time zone of a room profile.
+--
+-- 'dataRetentionOptIn', 'profile_dataRetentionOptIn' - Whether data retention of the profile is enabled.
 --
 -- 'distanceUnit', 'profile_distanceUnit' - The distance unit of a room profile.
 newProfile ::
@@ -109,13 +113,14 @@ newProfile =
       locale = Prelude.Nothing,
       temperatureUnit = Prelude.Nothing,
       addressBookArn = Prelude.Nothing,
-      setupModeDisabled = Prelude.Nothing,
       pSTNEnabled = Prelude.Nothing,
+      setupModeDisabled = Prelude.Nothing,
       maxVolumeLimit = Prelude.Nothing,
-      meetingRoomConfiguration = Prelude.Nothing,
       wakeWord = Prelude.Nothing,
       profileArn = Prelude.Nothing,
+      meetingRoomConfiguration = Prelude.Nothing,
       timezone = Prelude.Nothing,
+      dataRetentionOptIn = Prelude.Nothing,
       distanceUnit = Prelude.Nothing
     }
 
@@ -144,21 +149,17 @@ profile_temperatureUnit = Lens.lens (\Profile' {temperatureUnit} -> temperatureU
 profile_addressBookArn :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
 profile_addressBookArn = Lens.lens (\Profile' {addressBookArn} -> addressBookArn) (\s@Profile' {} a -> s {addressBookArn = a} :: Profile)
 
--- | The setup mode of a room profile.
-profile_setupModeDisabled :: Lens.Lens' Profile (Prelude.Maybe Prelude.Bool)
-profile_setupModeDisabled = Lens.lens (\Profile' {setupModeDisabled} -> setupModeDisabled) (\s@Profile' {} a -> s {setupModeDisabled = a} :: Profile)
-
 -- | The PSTN setting of a room profile.
 profile_pSTNEnabled :: Lens.Lens' Profile (Prelude.Maybe Prelude.Bool)
 profile_pSTNEnabled = Lens.lens (\Profile' {pSTNEnabled} -> pSTNEnabled) (\s@Profile' {} a -> s {pSTNEnabled = a} :: Profile)
 
+-- | The setup mode of a room profile.
+profile_setupModeDisabled :: Lens.Lens' Profile (Prelude.Maybe Prelude.Bool)
+profile_setupModeDisabled = Lens.lens (\Profile' {setupModeDisabled} -> setupModeDisabled) (\s@Profile' {} a -> s {setupModeDisabled = a} :: Profile)
+
 -- | The max volume limit of a room profile.
 profile_maxVolumeLimit :: Lens.Lens' Profile (Prelude.Maybe Prelude.Int)
 profile_maxVolumeLimit = Lens.lens (\Profile' {maxVolumeLimit} -> maxVolumeLimit) (\s@Profile' {} a -> s {maxVolumeLimit = a} :: Profile)
-
--- | Meeting room settings of a room profile.
-profile_meetingRoomConfiguration :: Lens.Lens' Profile (Prelude.Maybe MeetingRoomConfiguration)
-profile_meetingRoomConfiguration = Lens.lens (\Profile' {meetingRoomConfiguration} -> meetingRoomConfiguration) (\s@Profile' {} a -> s {meetingRoomConfiguration = a} :: Profile)
 
 -- | The wake word of a room profile.
 profile_wakeWord :: Lens.Lens' Profile (Prelude.Maybe WakeWord)
@@ -168,9 +169,17 @@ profile_wakeWord = Lens.lens (\Profile' {wakeWord} -> wakeWord) (\s@Profile' {} 
 profile_profileArn :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
 profile_profileArn = Lens.lens (\Profile' {profileArn} -> profileArn) (\s@Profile' {} a -> s {profileArn = a} :: Profile)
 
+-- | Meeting room settings of a room profile.
+profile_meetingRoomConfiguration :: Lens.Lens' Profile (Prelude.Maybe MeetingRoomConfiguration)
+profile_meetingRoomConfiguration = Lens.lens (\Profile' {meetingRoomConfiguration} -> meetingRoomConfiguration) (\s@Profile' {} a -> s {meetingRoomConfiguration = a} :: Profile)
+
 -- | The time zone of a room profile.
 profile_timezone :: Lens.Lens' Profile (Prelude.Maybe Prelude.Text)
 profile_timezone = Lens.lens (\Profile' {timezone} -> timezone) (\s@Profile' {} a -> s {timezone = a} :: Profile)
+
+-- | Whether data retention of the profile is enabled.
+profile_dataRetentionOptIn :: Lens.Lens' Profile (Prelude.Maybe Prelude.Bool)
+profile_dataRetentionOptIn = Lens.lens (\Profile' {dataRetentionOptIn} -> dataRetentionOptIn) (\s@Profile' {} a -> s {dataRetentionOptIn = a} :: Profile)
 
 -- | The distance unit of a room profile.
 profile_distanceUnit :: Lens.Lens' Profile (Prelude.Maybe DistanceUnit)
@@ -188,13 +197,14 @@ instance Core.FromJSON Profile where
             Prelude.<*> (x Core..:? "Locale")
             Prelude.<*> (x Core..:? "TemperatureUnit")
             Prelude.<*> (x Core..:? "AddressBookArn")
-            Prelude.<*> (x Core..:? "SetupModeDisabled")
             Prelude.<*> (x Core..:? "PSTNEnabled")
+            Prelude.<*> (x Core..:? "SetupModeDisabled")
             Prelude.<*> (x Core..:? "MaxVolumeLimit")
-            Prelude.<*> (x Core..:? "MeetingRoomConfiguration")
             Prelude.<*> (x Core..:? "WakeWord")
             Prelude.<*> (x Core..:? "ProfileArn")
+            Prelude.<*> (x Core..:? "MeetingRoomConfiguration")
             Prelude.<*> (x Core..:? "Timezone")
+            Prelude.<*> (x Core..:? "DataRetentionOptIn")
             Prelude.<*> (x Core..:? "DistanceUnit")
       )
 

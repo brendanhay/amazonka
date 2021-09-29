@@ -37,20 +37,20 @@ data DeviceData = DeviceData'
     createdTime :: Prelude.Maybe Core.POSIX,
     -- | The ARN of a device.
     deviceArn :: Prelude.Maybe Prelude.Text,
-    -- | The room ARN associated with a device.
-    roomArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the network profile associated with a device.
     networkProfileName :: Prelude.Maybe Prelude.Text,
     -- | Detailed information about a device\'s status.
     deviceStatusInfo :: Prelude.Maybe DeviceStatusInfo,
+    -- | The room ARN associated with a device.
+    roomArn :: Prelude.Maybe Prelude.Text,
     -- | The name of a device.
     deviceName :: Prelude.Maybe Prelude.Text,
     -- | The serial number of a device.
     deviceSerialNumber :: Prelude.Maybe Prelude.Text,
-    -- | The name of the room associated with a device.
-    roomName :: Prelude.Maybe Prelude.Text,
     -- | The type of a device.
     deviceType :: Prelude.Maybe Prelude.Text,
+    -- | The name of the room associated with a device.
+    roomName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the network profile associated with a device.
     networkProfileArn :: Prelude.Maybe Prelude.Text,
     -- | The software version of a device.
@@ -74,19 +74,19 @@ data DeviceData = DeviceData'
 --
 -- 'deviceArn', 'deviceData_deviceArn' - The ARN of a device.
 --
--- 'roomArn', 'deviceData_roomArn' - The room ARN associated with a device.
---
 -- 'networkProfileName', 'deviceData_networkProfileName' - The name of the network profile associated with a device.
 --
 -- 'deviceStatusInfo', 'deviceData_deviceStatusInfo' - Detailed information about a device\'s status.
+--
+-- 'roomArn', 'deviceData_roomArn' - The room ARN associated with a device.
 --
 -- 'deviceName', 'deviceData_deviceName' - The name of a device.
 --
 -- 'deviceSerialNumber', 'deviceData_deviceSerialNumber' - The serial number of a device.
 --
--- 'roomName', 'deviceData_roomName' - The name of the room associated with a device.
---
 -- 'deviceType', 'deviceData_deviceType' - The type of a device.
+--
+-- 'roomName', 'deviceData_roomName' - The name of the room associated with a device.
 --
 -- 'networkProfileArn', 'deviceData_networkProfileArn' - The ARN of the network profile associated with a device.
 --
@@ -99,13 +99,13 @@ newDeviceData =
       macAddress = Prelude.Nothing,
       createdTime = Prelude.Nothing,
       deviceArn = Prelude.Nothing,
-      roomArn = Prelude.Nothing,
       networkProfileName = Prelude.Nothing,
       deviceStatusInfo = Prelude.Nothing,
+      roomArn = Prelude.Nothing,
       deviceName = Prelude.Nothing,
       deviceSerialNumber = Prelude.Nothing,
-      roomName = Prelude.Nothing,
       deviceType = Prelude.Nothing,
+      roomName = Prelude.Nothing,
       networkProfileArn = Prelude.Nothing,
       softwareVersion = Prelude.Nothing
     }
@@ -126,10 +126,6 @@ deviceData_createdTime = Lens.lens (\DeviceData' {createdTime} -> createdTime) (
 deviceData_deviceArn :: Lens.Lens' DeviceData (Prelude.Maybe Prelude.Text)
 deviceData_deviceArn = Lens.lens (\DeviceData' {deviceArn} -> deviceArn) (\s@DeviceData' {} a -> s {deviceArn = a} :: DeviceData)
 
--- | The room ARN associated with a device.
-deviceData_roomArn :: Lens.Lens' DeviceData (Prelude.Maybe Prelude.Text)
-deviceData_roomArn = Lens.lens (\DeviceData' {roomArn} -> roomArn) (\s@DeviceData' {} a -> s {roomArn = a} :: DeviceData)
-
 -- | The name of the network profile associated with a device.
 deviceData_networkProfileName :: Lens.Lens' DeviceData (Prelude.Maybe Prelude.Text)
 deviceData_networkProfileName = Lens.lens (\DeviceData' {networkProfileName} -> networkProfileName) (\s@DeviceData' {} a -> s {networkProfileName = a} :: DeviceData)
@@ -137,6 +133,10 @@ deviceData_networkProfileName = Lens.lens (\DeviceData' {networkProfileName} -> 
 -- | Detailed information about a device\'s status.
 deviceData_deviceStatusInfo :: Lens.Lens' DeviceData (Prelude.Maybe DeviceStatusInfo)
 deviceData_deviceStatusInfo = Lens.lens (\DeviceData' {deviceStatusInfo} -> deviceStatusInfo) (\s@DeviceData' {} a -> s {deviceStatusInfo = a} :: DeviceData)
+
+-- | The room ARN associated with a device.
+deviceData_roomArn :: Lens.Lens' DeviceData (Prelude.Maybe Prelude.Text)
+deviceData_roomArn = Lens.lens (\DeviceData' {roomArn} -> roomArn) (\s@DeviceData' {} a -> s {roomArn = a} :: DeviceData)
 
 -- | The name of a device.
 deviceData_deviceName :: Lens.Lens' DeviceData (Prelude.Maybe Prelude.Text)
@@ -146,13 +146,13 @@ deviceData_deviceName = Lens.lens (\DeviceData' {deviceName} -> deviceName) (\s@
 deviceData_deviceSerialNumber :: Lens.Lens' DeviceData (Prelude.Maybe Prelude.Text)
 deviceData_deviceSerialNumber = Lens.lens (\DeviceData' {deviceSerialNumber} -> deviceSerialNumber) (\s@DeviceData' {} a -> s {deviceSerialNumber = a} :: DeviceData)
 
--- | The name of the room associated with a device.
-deviceData_roomName :: Lens.Lens' DeviceData (Prelude.Maybe Prelude.Text)
-deviceData_roomName = Lens.lens (\DeviceData' {roomName} -> roomName) (\s@DeviceData' {} a -> s {roomName = a} :: DeviceData)
-
 -- | The type of a device.
 deviceData_deviceType :: Lens.Lens' DeviceData (Prelude.Maybe Prelude.Text)
 deviceData_deviceType = Lens.lens (\DeviceData' {deviceType} -> deviceType) (\s@DeviceData' {} a -> s {deviceType = a} :: DeviceData)
+
+-- | The name of the room associated with a device.
+deviceData_roomName :: Lens.Lens' DeviceData (Prelude.Maybe Prelude.Text)
+deviceData_roomName = Lens.lens (\DeviceData' {roomName} -> roomName) (\s@DeviceData' {} a -> s {roomName = a} :: DeviceData)
 
 -- | The ARN of the network profile associated with a device.
 deviceData_networkProfileArn :: Lens.Lens' DeviceData (Prelude.Maybe Prelude.Text)
@@ -172,13 +172,13 @@ instance Core.FromJSON DeviceData where
             Prelude.<*> (x Core..:? "MacAddress")
             Prelude.<*> (x Core..:? "CreatedTime")
             Prelude.<*> (x Core..:? "DeviceArn")
-            Prelude.<*> (x Core..:? "RoomArn")
             Prelude.<*> (x Core..:? "NetworkProfileName")
             Prelude.<*> (x Core..:? "DeviceStatusInfo")
+            Prelude.<*> (x Core..:? "RoomArn")
             Prelude.<*> (x Core..:? "DeviceName")
             Prelude.<*> (x Core..:? "DeviceSerialNumber")
-            Prelude.<*> (x Core..:? "RoomName")
             Prelude.<*> (x Core..:? "DeviceType")
+            Prelude.<*> (x Core..:? "RoomName")
             Prelude.<*> (x Core..:? "NetworkProfileArn")
             Prelude.<*> (x Core..:? "SoftwareVersion")
       )

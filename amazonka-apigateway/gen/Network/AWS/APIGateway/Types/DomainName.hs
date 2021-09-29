@@ -62,6 +62,10 @@ data DomainName = DomainName'
     -- | The endpoint configuration of this DomainName showing the endpoint types
     -- of the domain name.
     endpointConfiguration :: Prelude.Maybe EndpointConfiguration,
+    -- | The reference to an AWS-managed certificate that will be used by
+    -- edge-optimized endpoint for this domain name. AWS Certificate Manager is
+    -- the only supported source.
+    certificateArn :: Prelude.Maybe Prelude.Text,
     -- | The region-agnostic Amazon Route 53 Hosted Zone ID of the edge-optimized
     -- endpoint. The valid value is @Z2FDTNDATAQYW2@ for all the regions. For
     -- more information, see
@@ -69,10 +73,6 @@ data DomainName = DomainName'
     -- and
     -- <https://docs.aws.amazon.com/general/latest/gr/rande.html#apigateway_region AWS Regions and Endpoints for API Gateway>.
     distributionHostedZoneId :: Prelude.Maybe Prelude.Text,
-    -- | The reference to an AWS-managed certificate that will be used by
-    -- edge-optimized endpoint for this domain name. AWS Certificate Manager is
-    -- the only supported source.
-    certificateArn :: Prelude.Maybe Prelude.Text,
     -- | An optional text message containing detailed information about status of
     -- the DomainName migration.
     domainNameStatusMessage :: Prelude.Maybe Prelude.Text,
@@ -95,15 +95,21 @@ data DomainName = DomainName'
     -- | The Transport Layer Security (TLS) version + cipher suite for this
     -- DomainName. The valid values are @TLS_1_0@ and @TLS_1_2@.
     securityPolicy :: Prelude.Maybe SecurityPolicy,
-    -- | The status of the DomainName migration. The valid values are @AVAILABLE@
-    -- and @UPDATING@. If the status is @UPDATING@, the domain cannot be
-    -- modified further until the existing operation is complete. If it is
-    -- @AVAILABLE@, the domain can be updated.
+    -- | The status of the DomainName migration. The valid values are
+    -- @AVAILABLE@, @UPDATING@, @PENDING_CERTIFICATE_REIMPORT@, and
+    -- @PENDING_OWNERSHIP_VERIFICATION@. If the status is @UPDATING@, the
+    -- domain cannot be modified further until the existing operation is
+    -- complete. If it is @AVAILABLE@, the domain can be updated.
     domainNameStatus :: Prelude.Maybe DomainNameStatus,
     -- | The reference to an AWS-managed certificate that will be used for
     -- validating the regional domain name. AWS Certificate Manager is the only
     -- supported source.
     regionalCertificateArn :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the public certificate issued by ACM to validate ownership of
+    -- your custom domain. Only required when configuring mutual TLS and using
+    -- an ACM imported or private CA certificate ARN as the
+    -- regionalCertificateArn.
+    ownershipVerificationCertificateArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the certificate that will be used by edge-optimized endpoint
     -- for this domain name.
     certificateName :: Prelude.Maybe Prelude.Text,
@@ -141,16 +147,16 @@ data DomainName = DomainName'
 -- 'endpointConfiguration', 'domainName_endpointConfiguration' - The endpoint configuration of this DomainName showing the endpoint types
 -- of the domain name.
 --
+-- 'certificateArn', 'domainName_certificateArn' - The reference to an AWS-managed certificate that will be used by
+-- edge-optimized endpoint for this domain name. AWS Certificate Manager is
+-- the only supported source.
+--
 -- 'distributionHostedZoneId', 'domainName_distributionHostedZoneId' - The region-agnostic Amazon Route 53 Hosted Zone ID of the edge-optimized
 -- endpoint. The valid value is @Z2FDTNDATAQYW2@ for all the regions. For
 -- more information, see
 -- <https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-regional-api-custom-domain-create.html Set up a Regional Custom Domain Name>
 -- and
 -- <https://docs.aws.amazon.com/general/latest/gr/rande.html#apigateway_region AWS Regions and Endpoints for API Gateway>.
---
--- 'certificateArn', 'domainName_certificateArn' - The reference to an AWS-managed certificate that will be used by
--- edge-optimized endpoint for this domain name. AWS Certificate Manager is
--- the only supported source.
 --
 -- 'domainNameStatusMessage', 'domainName_domainNameStatusMessage' - An optional text message containing detailed information about status of
 -- the DomainName migration.
@@ -174,14 +180,20 @@ data DomainName = DomainName'
 -- 'securityPolicy', 'domainName_securityPolicy' - The Transport Layer Security (TLS) version + cipher suite for this
 -- DomainName. The valid values are @TLS_1_0@ and @TLS_1_2@.
 --
--- 'domainNameStatus', 'domainName_domainNameStatus' - The status of the DomainName migration. The valid values are @AVAILABLE@
--- and @UPDATING@. If the status is @UPDATING@, the domain cannot be
--- modified further until the existing operation is complete. If it is
--- @AVAILABLE@, the domain can be updated.
+-- 'domainNameStatus', 'domainName_domainNameStatus' - The status of the DomainName migration. The valid values are
+-- @AVAILABLE@, @UPDATING@, @PENDING_CERTIFICATE_REIMPORT@, and
+-- @PENDING_OWNERSHIP_VERIFICATION@. If the status is @UPDATING@, the
+-- domain cannot be modified further until the existing operation is
+-- complete. If it is @AVAILABLE@, the domain can be updated.
 --
 -- 'regionalCertificateArn', 'domainName_regionalCertificateArn' - The reference to an AWS-managed certificate that will be used for
 -- validating the regional domain name. AWS Certificate Manager is the only
 -- supported source.
+--
+-- 'ownershipVerificationCertificateArn', 'domainName_ownershipVerificationCertificateArn' - The ARN of the public certificate issued by ACM to validate ownership of
+-- your custom domain. Only required when configuring mutual TLS and using
+-- an ACM imported or private CA certificate ARN as the
+-- regionalCertificateArn.
 --
 -- 'certificateName', 'domainName_certificateName' - The name of the certificate that will be used by edge-optimized endpoint
 -- for this domain name.
@@ -199,8 +211,8 @@ newDomainName =
       regionalCertificateName = Prelude.Nothing,
       mutualTlsAuthentication = Prelude.Nothing,
       endpointConfiguration = Prelude.Nothing,
-      distributionHostedZoneId = Prelude.Nothing,
       certificateArn = Prelude.Nothing,
+      distributionHostedZoneId = Prelude.Nothing,
       domainNameStatusMessage = Prelude.Nothing,
       distributionDomainName = Prelude.Nothing,
       certificateUploadDate = Prelude.Nothing,
@@ -209,6 +221,8 @@ newDomainName =
       securityPolicy = Prelude.Nothing,
       domainNameStatus = Prelude.Nothing,
       regionalCertificateArn = Prelude.Nothing,
+      ownershipVerificationCertificateArn =
+        Prelude.Nothing,
       certificateName = Prelude.Nothing,
       regionalDomainName = Prelude.Nothing
     }
@@ -238,6 +252,12 @@ domainName_mutualTlsAuthentication = Lens.lens (\DomainName' {mutualTlsAuthentic
 domainName_endpointConfiguration :: Lens.Lens' DomainName (Prelude.Maybe EndpointConfiguration)
 domainName_endpointConfiguration = Lens.lens (\DomainName' {endpointConfiguration} -> endpointConfiguration) (\s@DomainName' {} a -> s {endpointConfiguration = a} :: DomainName)
 
+-- | The reference to an AWS-managed certificate that will be used by
+-- edge-optimized endpoint for this domain name. AWS Certificate Manager is
+-- the only supported source.
+domainName_certificateArn :: Lens.Lens' DomainName (Prelude.Maybe Prelude.Text)
+domainName_certificateArn = Lens.lens (\DomainName' {certificateArn} -> certificateArn) (\s@DomainName' {} a -> s {certificateArn = a} :: DomainName)
+
 -- | The region-agnostic Amazon Route 53 Hosted Zone ID of the edge-optimized
 -- endpoint. The valid value is @Z2FDTNDATAQYW2@ for all the regions. For
 -- more information, see
@@ -246,12 +266,6 @@ domainName_endpointConfiguration = Lens.lens (\DomainName' {endpointConfiguratio
 -- <https://docs.aws.amazon.com/general/latest/gr/rande.html#apigateway_region AWS Regions and Endpoints for API Gateway>.
 domainName_distributionHostedZoneId :: Lens.Lens' DomainName (Prelude.Maybe Prelude.Text)
 domainName_distributionHostedZoneId = Lens.lens (\DomainName' {distributionHostedZoneId} -> distributionHostedZoneId) (\s@DomainName' {} a -> s {distributionHostedZoneId = a} :: DomainName)
-
--- | The reference to an AWS-managed certificate that will be used by
--- edge-optimized endpoint for this domain name. AWS Certificate Manager is
--- the only supported source.
-domainName_certificateArn :: Lens.Lens' DomainName (Prelude.Maybe Prelude.Text)
-domainName_certificateArn = Lens.lens (\DomainName' {certificateArn} -> certificateArn) (\s@DomainName' {} a -> s {certificateArn = a} :: DomainName)
 
 -- | An optional text message containing detailed information about status of
 -- the DomainName migration.
@@ -287,10 +301,11 @@ domainName_tags = Lens.lens (\DomainName' {tags} -> tags) (\s@DomainName' {} a -
 domainName_securityPolicy :: Lens.Lens' DomainName (Prelude.Maybe SecurityPolicy)
 domainName_securityPolicy = Lens.lens (\DomainName' {securityPolicy} -> securityPolicy) (\s@DomainName' {} a -> s {securityPolicy = a} :: DomainName)
 
--- | The status of the DomainName migration. The valid values are @AVAILABLE@
--- and @UPDATING@. If the status is @UPDATING@, the domain cannot be
--- modified further until the existing operation is complete. If it is
--- @AVAILABLE@, the domain can be updated.
+-- | The status of the DomainName migration. The valid values are
+-- @AVAILABLE@, @UPDATING@, @PENDING_CERTIFICATE_REIMPORT@, and
+-- @PENDING_OWNERSHIP_VERIFICATION@. If the status is @UPDATING@, the
+-- domain cannot be modified further until the existing operation is
+-- complete. If it is @AVAILABLE@, the domain can be updated.
 domainName_domainNameStatus :: Lens.Lens' DomainName (Prelude.Maybe DomainNameStatus)
 domainName_domainNameStatus = Lens.lens (\DomainName' {domainNameStatus} -> domainNameStatus) (\s@DomainName' {} a -> s {domainNameStatus = a} :: DomainName)
 
@@ -299,6 +314,13 @@ domainName_domainNameStatus = Lens.lens (\DomainName' {domainNameStatus} -> doma
 -- supported source.
 domainName_regionalCertificateArn :: Lens.Lens' DomainName (Prelude.Maybe Prelude.Text)
 domainName_regionalCertificateArn = Lens.lens (\DomainName' {regionalCertificateArn} -> regionalCertificateArn) (\s@DomainName' {} a -> s {regionalCertificateArn = a} :: DomainName)
+
+-- | The ARN of the public certificate issued by ACM to validate ownership of
+-- your custom domain. Only required when configuring mutual TLS and using
+-- an ACM imported or private CA certificate ARN as the
+-- regionalCertificateArn.
+domainName_ownershipVerificationCertificateArn :: Lens.Lens' DomainName (Prelude.Maybe Prelude.Text)
+domainName_ownershipVerificationCertificateArn = Lens.lens (\DomainName' {ownershipVerificationCertificateArn} -> ownershipVerificationCertificateArn) (\s@DomainName' {} a -> s {ownershipVerificationCertificateArn = a} :: DomainName)
 
 -- | The name of the certificate that will be used by edge-optimized endpoint
 -- for this domain name.
@@ -323,8 +345,8 @@ instance Core.FromJSON DomainName where
             Prelude.<*> (x Core..:? "regionalCertificateName")
             Prelude.<*> (x Core..:? "mutualTlsAuthentication")
             Prelude.<*> (x Core..:? "endpointConfiguration")
-            Prelude.<*> (x Core..:? "distributionHostedZoneId")
             Prelude.<*> (x Core..:? "certificateArn")
+            Prelude.<*> (x Core..:? "distributionHostedZoneId")
             Prelude.<*> (x Core..:? "domainNameStatusMessage")
             Prelude.<*> (x Core..:? "distributionDomainName")
             Prelude.<*> (x Core..:? "certificateUploadDate")
@@ -333,6 +355,7 @@ instance Core.FromJSON DomainName where
             Prelude.<*> (x Core..:? "securityPolicy")
             Prelude.<*> (x Core..:? "domainNameStatus")
             Prelude.<*> (x Core..:? "regionalCertificateArn")
+            Prelude.<*> (x Core..:? "ownershipVerificationCertificateArn")
             Prelude.<*> (x Core..:? "certificateName")
             Prelude.<*> (x Core..:? "regionalDomainName")
       )

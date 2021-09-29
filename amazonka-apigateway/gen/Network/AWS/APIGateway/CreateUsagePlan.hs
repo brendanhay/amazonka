@@ -41,12 +41,12 @@ module Network.AWS.APIGateway.CreateUsagePlan
 
     -- * Response Lenses
     usagePlan_id,
-    usagePlan_name,
     usagePlan_apiStages,
+    usagePlan_name,
     usagePlan_tags,
+    usagePlan_productCode,
     usagePlan_description,
     usagePlan_quota,
-    usagePlan_productCode,
     usagePlan_throttle,
   )
 where

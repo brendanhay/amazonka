@@ -34,8 +34,8 @@ module Network.AWS.APIGateway.CreateStage
     createStage_variables,
     createStage_tags,
     createStage_description,
-    createStage_canarySettings,
     createStage_cacheClusterSize,
+    createStage_canarySettings,
     createStage_restApiId,
     createStage_stageName,
     createStage_deploymentId,
@@ -45,23 +45,23 @@ module Network.AWS.APIGateway.CreateStage
     newStage,
 
     -- * Response Lenses
-    stage_deploymentId,
     stage_createdDate,
+    stage_deploymentId,
     stage_tracingEnabled,
-    stage_webAclArn,
     stage_lastUpdatedDate,
     stage_cacheClusterEnabled,
     stage_stageName,
+    stage_webAclArn,
     stage_documentationVersion,
-    stage_variables,
     stage_accessLogSettings,
-    stage_tags,
+    stage_variables,
     stage_clientCertificateId,
+    stage_tags,
     stage_description,
-    stage_canarySettings,
     stage_cacheClusterSize,
-    stage_methodSettings,
+    stage_canarySettings,
     stage_cacheClusterStatus,
+    stage_methodSettings,
   )
 where
 
@@ -92,10 +92,10 @@ data CreateStage = CreateStage'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The description of the Stage resource.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The canary deployment settings of this stage.
-    canarySettings :: Prelude.Maybe CanarySettings,
     -- | The stage\'s cache cluster size.
     cacheClusterSize :: Prelude.Maybe CacheClusterSize,
+    -- | The canary deployment settings of this stage.
+    canarySettings :: Prelude.Maybe CanarySettings,
     -- | [Required] The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
     -- | [Required] The name for the Stage resource. Stage names can only contain
@@ -132,9 +132,9 @@ data CreateStage = CreateStage'
 --
 -- 'description', 'createStage_description' - The description of the Stage resource.
 --
--- 'canarySettings', 'createStage_canarySettings' - The canary deployment settings of this stage.
---
 -- 'cacheClusterSize', 'createStage_cacheClusterSize' - The stage\'s cache cluster size.
+--
+-- 'canarySettings', 'createStage_canarySettings' - The canary deployment settings of this stage.
 --
 -- 'restApiId', 'createStage_restApiId' - [Required] The string identifier of the associated RestApi.
 --
@@ -160,8 +160,8 @@ newCreateStage pRestApiId_ pStageName_ pDeploymentId_ =
       variables = Prelude.Nothing,
       tags = Prelude.Nothing,
       description = Prelude.Nothing,
-      canarySettings = Prelude.Nothing,
       cacheClusterSize = Prelude.Nothing,
+      canarySettings = Prelude.Nothing,
       restApiId = pRestApiId_,
       stageName = pStageName_,
       deploymentId = pDeploymentId_
@@ -195,13 +195,13 @@ createStage_tags = Lens.lens (\CreateStage' {tags} -> tags) (\s@CreateStage' {} 
 createStage_description :: Lens.Lens' CreateStage (Prelude.Maybe Prelude.Text)
 createStage_description = Lens.lens (\CreateStage' {description} -> description) (\s@CreateStage' {} a -> s {description = a} :: CreateStage)
 
--- | The canary deployment settings of this stage.
-createStage_canarySettings :: Lens.Lens' CreateStage (Prelude.Maybe CanarySettings)
-createStage_canarySettings = Lens.lens (\CreateStage' {canarySettings} -> canarySettings) (\s@CreateStage' {} a -> s {canarySettings = a} :: CreateStage)
-
 -- | The stage\'s cache cluster size.
 createStage_cacheClusterSize :: Lens.Lens' CreateStage (Prelude.Maybe CacheClusterSize)
 createStage_cacheClusterSize = Lens.lens (\CreateStage' {cacheClusterSize} -> cacheClusterSize) (\s@CreateStage' {} a -> s {cacheClusterSize = a} :: CreateStage)
+
+-- | The canary deployment settings of this stage.
+createStage_canarySettings :: Lens.Lens' CreateStage (Prelude.Maybe CanarySettings)
+createStage_canarySettings = Lens.lens (\CreateStage' {canarySettings} -> canarySettings) (\s@CreateStage' {} a -> s {canarySettings = a} :: CreateStage)
 
 -- | [Required] The string identifier of the associated RestApi.
 createStage_restApiId :: Lens.Lens' CreateStage Prelude.Text
@@ -251,10 +251,10 @@ instance Core.ToJSON CreateStage where
             ("variables" Core..=) Prelude.<$> variables,
             ("tags" Core..=) Prelude.<$> tags,
             ("description" Core..=) Prelude.<$> description,
-            ("canarySettings" Core..=)
-              Prelude.<$> canarySettings,
             ("cacheClusterSize" Core..=)
               Prelude.<$> cacheClusterSize,
+            ("canarySettings" Core..=)
+              Prelude.<$> canarySettings,
             Prelude.Just ("stageName" Core..= stageName),
             Prelude.Just ("deploymentId" Core..= deploymentId)
           ]

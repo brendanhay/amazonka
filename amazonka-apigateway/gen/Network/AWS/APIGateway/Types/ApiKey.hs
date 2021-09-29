@@ -41,10 +41,10 @@ data ApiKey = ApiKey'
     lastUpdatedDate :: Prelude.Maybe Core.POSIX,
     -- | A list of Stage resources that are associated with the ApiKey resource.
     stageKeys :: Prelude.Maybe [Prelude.Text],
-    -- | Specifies whether the API Key can be used by callers.
-    enabled :: Prelude.Maybe Prelude.Bool,
     -- | The identifier of the API Key.
     id :: Prelude.Maybe Prelude.Text,
+    -- | Specifies whether the API Key can be used by callers.
+    enabled :: Prelude.Maybe Prelude.Bool,
     -- | The name of the API Key.
     name :: Prelude.Maybe Prelude.Text,
     -- | The collection of tags. Each tag element is associated with a given
@@ -74,9 +74,9 @@ data ApiKey = ApiKey'
 --
 -- 'stageKeys', 'apiKey_stageKeys' - A list of Stage resources that are associated with the ApiKey resource.
 --
--- 'enabled', 'apiKey_enabled' - Specifies whether the API Key can be used by callers.
---
 -- 'id', 'apiKey_id' - The identifier of the API Key.
+--
+-- 'enabled', 'apiKey_enabled' - Specifies whether the API Key can be used by callers.
 --
 -- 'name', 'apiKey_name' - The name of the API Key.
 --
@@ -94,8 +94,8 @@ newApiKey =
       customerId = Prelude.Nothing,
       lastUpdatedDate = Prelude.Nothing,
       stageKeys = Prelude.Nothing,
-      enabled = Prelude.Nothing,
       id = Prelude.Nothing,
+      enabled = Prelude.Nothing,
       name = Prelude.Nothing,
       tags = Prelude.Nothing,
       description = Prelude.Nothing,
@@ -119,13 +119,13 @@ apiKey_lastUpdatedDate = Lens.lens (\ApiKey' {lastUpdatedDate} -> lastUpdatedDat
 apiKey_stageKeys :: Lens.Lens' ApiKey (Prelude.Maybe [Prelude.Text])
 apiKey_stageKeys = Lens.lens (\ApiKey' {stageKeys} -> stageKeys) (\s@ApiKey' {} a -> s {stageKeys = a} :: ApiKey) Prelude.. Lens.mapping Lens._Coerce
 
--- | Specifies whether the API Key can be used by callers.
-apiKey_enabled :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.Bool)
-apiKey_enabled = Lens.lens (\ApiKey' {enabled} -> enabled) (\s@ApiKey' {} a -> s {enabled = a} :: ApiKey)
-
 -- | The identifier of the API Key.
 apiKey_id :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.Text)
 apiKey_id = Lens.lens (\ApiKey' {id} -> id) (\s@ApiKey' {} a -> s {id = a} :: ApiKey)
+
+-- | Specifies whether the API Key can be used by callers.
+apiKey_enabled :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.Bool)
+apiKey_enabled = Lens.lens (\ApiKey' {enabled} -> enabled) (\s@ApiKey' {} a -> s {enabled = a} :: ApiKey)
 
 -- | The name of the API Key.
 apiKey_name :: Lens.Lens' ApiKey (Prelude.Maybe Prelude.Text)
@@ -154,8 +154,8 @@ instance Core.FromJSON ApiKey where
             Prelude.<*> (x Core..:? "customerId")
             Prelude.<*> (x Core..:? "lastUpdatedDate")
             Prelude.<*> (x Core..:? "stageKeys" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "enabled")
             Prelude.<*> (x Core..:? "id")
+            Prelude.<*> (x Core..:? "enabled")
             Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "description")

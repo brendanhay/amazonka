@@ -28,11 +28,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newQuotaSettings' smart constructor.
 data QuotaSettings = QuotaSettings'
-  { -- | The time period in which the limit applies. Valid values are \"DAY\",
+  { -- | The maximum number of requests that can be made in a given time period.
+    limit :: Prelude.Maybe Prelude.Int,
+    -- | The time period in which the limit applies. Valid values are \"DAY\",
     -- \"WEEK\" or \"MONTH\".
     period :: Prelude.Maybe QuotaPeriodType,
-    -- | The maximum number of requests that can be made in a given time period.
-    limit :: Prelude.Maybe Prelude.Int,
     -- | The day that a time period starts. For example, with a time period of
     -- @WEEK@, an offset of @0@ starts on Sunday, and an offset of @1@ starts
     -- on Monday.
@@ -48,10 +48,10 @@ data QuotaSettings = QuotaSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'limit', 'quotaSettings_limit' - The maximum number of requests that can be made in a given time period.
+--
 -- 'period', 'quotaSettings_period' - The time period in which the limit applies. Valid values are \"DAY\",
 -- \"WEEK\" or \"MONTH\".
---
--- 'limit', 'quotaSettings_limit' - The maximum number of requests that can be made in a given time period.
 --
 -- 'offset', 'quotaSettings_offset' - The day that a time period starts. For example, with a time period of
 -- @WEEK@, an offset of @0@ starts on Sunday, and an offset of @1@ starts
@@ -60,19 +60,19 @@ newQuotaSettings ::
   QuotaSettings
 newQuotaSettings =
   QuotaSettings'
-    { period = Prelude.Nothing,
-      limit = Prelude.Nothing,
+    { limit = Prelude.Nothing,
+      period = Prelude.Nothing,
       offset = Prelude.Nothing
     }
+
+-- | The maximum number of requests that can be made in a given time period.
+quotaSettings_limit :: Lens.Lens' QuotaSettings (Prelude.Maybe Prelude.Int)
+quotaSettings_limit = Lens.lens (\QuotaSettings' {limit} -> limit) (\s@QuotaSettings' {} a -> s {limit = a} :: QuotaSettings)
 
 -- | The time period in which the limit applies. Valid values are \"DAY\",
 -- \"WEEK\" or \"MONTH\".
 quotaSettings_period :: Lens.Lens' QuotaSettings (Prelude.Maybe QuotaPeriodType)
 quotaSettings_period = Lens.lens (\QuotaSettings' {period} -> period) (\s@QuotaSettings' {} a -> s {period = a} :: QuotaSettings)
-
--- | The maximum number of requests that can be made in a given time period.
-quotaSettings_limit :: Lens.Lens' QuotaSettings (Prelude.Maybe Prelude.Int)
-quotaSettings_limit = Lens.lens (\QuotaSettings' {limit} -> limit) (\s@QuotaSettings' {} a -> s {limit = a} :: QuotaSettings)
 
 -- | The day that a time period starts. For example, with a time period of
 -- @WEEK@, an offset of @0@ starts on Sunday, and an offset of @1@ starts
@@ -86,8 +86,8 @@ instance Core.FromJSON QuotaSettings where
       "QuotaSettings"
       ( \x ->
           QuotaSettings'
-            Prelude.<$> (x Core..:? "period")
-            Prelude.<*> (x Core..:? "limit")
+            Prelude.<$> (x Core..:? "limit")
+            Prelude.<*> (x Core..:? "period")
             Prelude.<*> (x Core..:? "offset")
       )
 
@@ -99,8 +99,8 @@ instance Core.ToJSON QuotaSettings where
   toJSON QuotaSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("period" Core..=) Prelude.<$> period,
-            ("limit" Core..=) Prelude.<$> limit,
+          [ ("limit" Core..=) Prelude.<$> limit,
+            ("period" Core..=) Prelude.<$> period,
             ("offset" Core..=) Prelude.<$> offset
           ]
       )

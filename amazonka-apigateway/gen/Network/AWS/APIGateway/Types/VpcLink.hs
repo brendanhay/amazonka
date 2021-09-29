@@ -46,12 +46,12 @@ data VpcLink = VpcLink'
     -- | The identifier of the VpcLink. It is used in an Integration to reference
     -- this VpcLink.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The name used to label and identify the VPC link.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the network load balancer of the VPC targeted by the VPC
     -- link. The network load balancer must be owned by the same AWS account of
     -- the API owner.
     targetArns :: Prelude.Maybe [Prelude.Text],
+    -- | The name used to label and identify the VPC link.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The collection of tags. Each tag element is associated with a given
     -- resource.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
@@ -77,11 +77,11 @@ data VpcLink = VpcLink'
 -- 'id', 'vpcLink_id' - The identifier of the VpcLink. It is used in an Integration to reference
 -- this VpcLink.
 --
--- 'name', 'vpcLink_name' - The name used to label and identify the VPC link.
---
 -- 'targetArns', 'vpcLink_targetArns' - The ARN of the network load balancer of the VPC targeted by the VPC
 -- link. The network load balancer must be owned by the same AWS account of
 -- the API owner.
+--
+-- 'name', 'vpcLink_name' - The name used to label and identify the VPC link.
 --
 -- 'tags', 'vpcLink_tags' - The collection of tags. Each tag element is associated with a given
 -- resource.
@@ -94,8 +94,8 @@ newVpcLink =
     { statusMessage = Prelude.Nothing,
       status = Prelude.Nothing,
       id = Prelude.Nothing,
-      name = Prelude.Nothing,
       targetArns = Prelude.Nothing,
+      name = Prelude.Nothing,
       tags = Prelude.Nothing,
       description = Prelude.Nothing
     }
@@ -115,15 +115,15 @@ vpcLink_status = Lens.lens (\VpcLink' {status} -> status) (\s@VpcLink' {} a -> s
 vpcLink_id :: Lens.Lens' VpcLink (Prelude.Maybe Prelude.Text)
 vpcLink_id = Lens.lens (\VpcLink' {id} -> id) (\s@VpcLink' {} a -> s {id = a} :: VpcLink)
 
--- | The name used to label and identify the VPC link.
-vpcLink_name :: Lens.Lens' VpcLink (Prelude.Maybe Prelude.Text)
-vpcLink_name = Lens.lens (\VpcLink' {name} -> name) (\s@VpcLink' {} a -> s {name = a} :: VpcLink)
-
 -- | The ARN of the network load balancer of the VPC targeted by the VPC
 -- link. The network load balancer must be owned by the same AWS account of
 -- the API owner.
 vpcLink_targetArns :: Lens.Lens' VpcLink (Prelude.Maybe [Prelude.Text])
 vpcLink_targetArns = Lens.lens (\VpcLink' {targetArns} -> targetArns) (\s@VpcLink' {} a -> s {targetArns = a} :: VpcLink) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The name used to label and identify the VPC link.
+vpcLink_name :: Lens.Lens' VpcLink (Prelude.Maybe Prelude.Text)
+vpcLink_name = Lens.lens (\VpcLink' {name} -> name) (\s@VpcLink' {} a -> s {name = a} :: VpcLink)
 
 -- | The collection of tags. Each tag element is associated with a given
 -- resource.
@@ -143,8 +143,8 @@ instance Core.FromJSON VpcLink where
             Prelude.<$> (x Core..:? "statusMessage")
             Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "targetArns" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "description")
       )

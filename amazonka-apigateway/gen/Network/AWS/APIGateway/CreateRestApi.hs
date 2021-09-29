@@ -32,8 +32,8 @@ module Network.AWS.APIGateway.CreateRestApi
     createRestApi_version,
     createRestApi_tags,
     createRestApi_description,
-    createRestApi_disableExecuteApiEndpoint,
     createRestApi_policy,
+    createRestApi_disableExecuteApiEndpoint,
     createRestApi_cloneFrom,
     createRestApi_minimumCompressionSize,
     createRestApi_apiKeySource,
@@ -53,8 +53,8 @@ module Network.AWS.APIGateway.CreateRestApi
     restApi_name,
     restApi_tags,
     restApi_description,
-    restApi_disableExecuteApiEndpoint,
     restApi_policy,
+    restApi_disableExecuteApiEndpoint,
     restApi_minimumCompressionSize,
     restApi_apiKeySource,
   )
@@ -85,15 +85,15 @@ data CreateRestApi = CreateRestApi'
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | The description of the RestApi.
     description :: Prelude.Maybe Prelude.Text,
+    -- | A stringified JSON policy document that applies to this RestApi
+    -- regardless of the caller and Method configuration.
+    policy :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether clients can invoke your API by using the default
     -- @execute-api@ endpoint. By default, clients can invoke your API with the
     -- default https:\/\/{api_id}.execute-api.{region}.amazonaws.com endpoint.
     -- To require that clients use a custom domain name to invoke your API,
     -- disable the default endpoint.
     disableExecuteApiEndpoint :: Prelude.Maybe Prelude.Bool,
-    -- | A stringified JSON policy document that applies to this RestApi
-    -- regardless of the caller and Method configuration.
-    policy :: Prelude.Maybe Prelude.Text,
     -- | The ID of the RestApi that you want to clone from.
     cloneFrom :: Prelude.Maybe Prelude.Text,
     -- | A nullable integer that is used to enable compression (with non-negative
@@ -138,14 +138,14 @@ data CreateRestApi = CreateRestApi'
 --
 -- 'description', 'createRestApi_description' - The description of the RestApi.
 --
+-- 'policy', 'createRestApi_policy' - A stringified JSON policy document that applies to this RestApi
+-- regardless of the caller and Method configuration.
+--
 -- 'disableExecuteApiEndpoint', 'createRestApi_disableExecuteApiEndpoint' - Specifies whether clients can invoke your API by using the default
 -- @execute-api@ endpoint. By default, clients can invoke your API with the
 -- default https:\/\/{api_id}.execute-api.{region}.amazonaws.com endpoint.
 -- To require that clients use a custom domain name to invoke your API,
 -- disable the default endpoint.
---
--- 'policy', 'createRestApi_policy' - A stringified JSON policy document that applies to this RestApi
--- regardless of the caller and Method configuration.
 --
 -- 'cloneFrom', 'createRestApi_cloneFrom' - The ID of the RestApi that you want to clone from.
 --
@@ -177,8 +177,8 @@ newCreateRestApi pName_ =
       version = Prelude.Nothing,
       tags = Prelude.Nothing,
       description = Prelude.Nothing,
-      disableExecuteApiEndpoint = Prelude.Nothing,
       policy = Prelude.Nothing,
+      disableExecuteApiEndpoint = Prelude.Nothing,
       cloneFrom = Prelude.Nothing,
       minimumCompressionSize = Prelude.Nothing,
       apiKeySource = Prelude.Nothing,
@@ -209,6 +209,11 @@ createRestApi_tags = Lens.lens (\CreateRestApi' {tags} -> tags) (\s@CreateRestAp
 createRestApi_description :: Lens.Lens' CreateRestApi (Prelude.Maybe Prelude.Text)
 createRestApi_description = Lens.lens (\CreateRestApi' {description} -> description) (\s@CreateRestApi' {} a -> s {description = a} :: CreateRestApi)
 
+-- | A stringified JSON policy document that applies to this RestApi
+-- regardless of the caller and Method configuration.
+createRestApi_policy :: Lens.Lens' CreateRestApi (Prelude.Maybe Prelude.Text)
+createRestApi_policy = Lens.lens (\CreateRestApi' {policy} -> policy) (\s@CreateRestApi' {} a -> s {policy = a} :: CreateRestApi)
+
 -- | Specifies whether clients can invoke your API by using the default
 -- @execute-api@ endpoint. By default, clients can invoke your API with the
 -- default https:\/\/{api_id}.execute-api.{region}.amazonaws.com endpoint.
@@ -216,11 +221,6 @@ createRestApi_description = Lens.lens (\CreateRestApi' {description} -> descript
 -- disable the default endpoint.
 createRestApi_disableExecuteApiEndpoint :: Lens.Lens' CreateRestApi (Prelude.Maybe Prelude.Bool)
 createRestApi_disableExecuteApiEndpoint = Lens.lens (\CreateRestApi' {disableExecuteApiEndpoint} -> disableExecuteApiEndpoint) (\s@CreateRestApi' {} a -> s {disableExecuteApiEndpoint = a} :: CreateRestApi)
-
--- | A stringified JSON policy document that applies to this RestApi
--- regardless of the caller and Method configuration.
-createRestApi_policy :: Lens.Lens' CreateRestApi (Prelude.Maybe Prelude.Text)
-createRestApi_policy = Lens.lens (\CreateRestApi' {policy} -> policy) (\s@CreateRestApi' {} a -> s {policy = a} :: CreateRestApi)
 
 -- | The ID of the RestApi that you want to clone from.
 createRestApi_cloneFrom :: Lens.Lens' CreateRestApi (Prelude.Maybe Prelude.Text)
@@ -280,9 +280,9 @@ instance Core.ToJSON CreateRestApi where
             ("version" Core..=) Prelude.<$> version,
             ("tags" Core..=) Prelude.<$> tags,
             ("description" Core..=) Prelude.<$> description,
+            ("policy" Core..=) Prelude.<$> policy,
             ("disableExecuteApiEndpoint" Core..=)
               Prelude.<$> disableExecuteApiEndpoint,
-            ("policy" Core..=) Prelude.<$> policy,
             ("cloneFrom" Core..=) Prelude.<$> cloneFrom,
             ("minimumCompressionSize" Core..=)
               Prelude.<$> minimumCompressionSize,

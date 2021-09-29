@@ -37,8 +37,8 @@ module Network.AWS.APIGateway.GetGatewayResponse
 
     -- * Response Lenses
     gatewayResponse_responseTemplates,
-    gatewayResponse_statusCode,
     gatewayResponse_responseParameters,
+    gatewayResponse_statusCode,
     gatewayResponse_responseType,
     gatewayResponse_defaultResponse,
   )
@@ -60,28 +60,7 @@ data GetGatewayResponse = GetGatewayResponse'
     restApiId :: Prelude.Text,
     -- | [Required]
     --
-    -- The response type of the associated GatewayResponse. Valid values are
-    --
-    -- -   ACCESS_DENIED
-    -- -   API_CONFIGURATION_ERROR
-    -- -   AUTHORIZER_FAILURE
-    -- -   AUTHORIZER_CONFIGURATION_ERROR
-    -- -   BAD_REQUEST_PARAMETERS
-    -- -   BAD_REQUEST_BODY
-    -- -   DEFAULT_4XX
-    -- -   DEFAULT_5XX
-    -- -   EXPIRED_TOKEN
-    -- -   INVALID_SIGNATURE
-    -- -   INTEGRATION_FAILURE
-    -- -   INTEGRATION_TIMEOUT
-    -- -   INVALID_API_KEY
-    -- -   MISSING_AUTHENTICATION_TOKEN
-    -- -   QUOTA_EXCEEDED
-    -- -   REQUEST_TOO_LARGE
-    -- -   RESOURCE_NOT_FOUND
-    -- -   THROTTLED
-    -- -   UNAUTHORIZED
-    -- -   UNSUPPORTED_MEDIA_TYPE
+    -- The response type of the associated GatewayResponse.
     responseType :: GatewayResponseType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -98,28 +77,7 @@ data GetGatewayResponse = GetGatewayResponse'
 --
 -- 'responseType', 'getGatewayResponse_responseType' - [Required]
 --
--- The response type of the associated GatewayResponse. Valid values are
---
--- -   ACCESS_DENIED
--- -   API_CONFIGURATION_ERROR
--- -   AUTHORIZER_FAILURE
--- -   AUTHORIZER_CONFIGURATION_ERROR
--- -   BAD_REQUEST_PARAMETERS
--- -   BAD_REQUEST_BODY
--- -   DEFAULT_4XX
--- -   DEFAULT_5XX
--- -   EXPIRED_TOKEN
--- -   INVALID_SIGNATURE
--- -   INTEGRATION_FAILURE
--- -   INTEGRATION_TIMEOUT
--- -   INVALID_API_KEY
--- -   MISSING_AUTHENTICATION_TOKEN
--- -   QUOTA_EXCEEDED
--- -   REQUEST_TOO_LARGE
--- -   RESOURCE_NOT_FOUND
--- -   THROTTLED
--- -   UNAUTHORIZED
--- -   UNSUPPORTED_MEDIA_TYPE
+-- The response type of the associated GatewayResponse.
 newGetGatewayResponse ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -138,28 +96,7 @@ getGatewayResponse_restApiId = Lens.lens (\GetGatewayResponse' {restApiId} -> re
 
 -- | [Required]
 --
--- The response type of the associated GatewayResponse. Valid values are
---
--- -   ACCESS_DENIED
--- -   API_CONFIGURATION_ERROR
--- -   AUTHORIZER_FAILURE
--- -   AUTHORIZER_CONFIGURATION_ERROR
--- -   BAD_REQUEST_PARAMETERS
--- -   BAD_REQUEST_BODY
--- -   DEFAULT_4XX
--- -   DEFAULT_5XX
--- -   EXPIRED_TOKEN
--- -   INVALID_SIGNATURE
--- -   INTEGRATION_FAILURE
--- -   INTEGRATION_TIMEOUT
--- -   INVALID_API_KEY
--- -   MISSING_AUTHENTICATION_TOKEN
--- -   QUOTA_EXCEEDED
--- -   REQUEST_TOO_LARGE
--- -   RESOURCE_NOT_FOUND
--- -   THROTTLED
--- -   UNAUTHORIZED
--- -   UNSUPPORTED_MEDIA_TYPE
+-- The response type of the associated GatewayResponse.
 getGatewayResponse_responseType :: Lens.Lens' GetGatewayResponse GatewayResponseType
 getGatewayResponse_responseType = Lens.lens (\GetGatewayResponse' {responseType} -> responseType) (\s@GetGatewayResponse' {} a -> s {responseType = a} :: GetGatewayResponse)
 

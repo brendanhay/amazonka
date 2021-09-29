@@ -34,8 +34,8 @@ module Network.AWS.APIGateway.CreateDeployment
     createDeployment_variables,
     createDeployment_stageDescription,
     createDeployment_description,
-    createDeployment_canarySettings,
     createDeployment_cacheClusterSize,
+    createDeployment_canarySettings,
     createDeployment_restApiId,
 
     -- * Destructuring the Response
@@ -77,12 +77,12 @@ data CreateDeployment = CreateDeployment'
     stageDescription :: Prelude.Maybe Prelude.Text,
     -- | The description for the Deployment resource to create.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The input configuration for the canary deployment when the deployment is
-    -- a canary release deployment.
-    canarySettings :: Prelude.Maybe DeploymentCanarySettings,
     -- | Specifies the cache cluster size for the Stage resource specified in the
     -- input, if a cache cluster is enabled.
     cacheClusterSize :: Prelude.Maybe CacheClusterSize,
+    -- | The input configuration for the canary deployment when the deployment is
+    -- a canary release deployment.
+    canarySettings :: Prelude.Maybe DeploymentCanarySettings,
     -- | [Required] The string identifier of the associated RestApi.
     restApiId :: Prelude.Text
   }
@@ -112,11 +112,11 @@ data CreateDeployment = CreateDeployment'
 --
 -- 'description', 'createDeployment_description' - The description for the Deployment resource to create.
 --
--- 'canarySettings', 'createDeployment_canarySettings' - The input configuration for the canary deployment when the deployment is
--- a canary release deployment.
---
 -- 'cacheClusterSize', 'createDeployment_cacheClusterSize' - Specifies the cache cluster size for the Stage resource specified in the
 -- input, if a cache cluster is enabled.
+--
+-- 'canarySettings', 'createDeployment_canarySettings' - The input configuration for the canary deployment when the deployment is
+-- a canary release deployment.
 --
 -- 'restApiId', 'createDeployment_restApiId' - [Required] The string identifier of the associated RestApi.
 newCreateDeployment ::
@@ -131,8 +131,8 @@ newCreateDeployment pRestApiId_ =
       variables = Prelude.Nothing,
       stageDescription = Prelude.Nothing,
       description = Prelude.Nothing,
-      canarySettings = Prelude.Nothing,
       cacheClusterSize = Prelude.Nothing,
+      canarySettings = Prelude.Nothing,
       restApiId = pRestApiId_
     }
 
@@ -164,15 +164,15 @@ createDeployment_stageDescription = Lens.lens (\CreateDeployment' {stageDescript
 createDeployment_description :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
 createDeployment_description = Lens.lens (\CreateDeployment' {description} -> description) (\s@CreateDeployment' {} a -> s {description = a} :: CreateDeployment)
 
--- | The input configuration for the canary deployment when the deployment is
--- a canary release deployment.
-createDeployment_canarySettings :: Lens.Lens' CreateDeployment (Prelude.Maybe DeploymentCanarySettings)
-createDeployment_canarySettings = Lens.lens (\CreateDeployment' {canarySettings} -> canarySettings) (\s@CreateDeployment' {} a -> s {canarySettings = a} :: CreateDeployment)
-
 -- | Specifies the cache cluster size for the Stage resource specified in the
 -- input, if a cache cluster is enabled.
 createDeployment_cacheClusterSize :: Lens.Lens' CreateDeployment (Prelude.Maybe CacheClusterSize)
 createDeployment_cacheClusterSize = Lens.lens (\CreateDeployment' {cacheClusterSize} -> cacheClusterSize) (\s@CreateDeployment' {} a -> s {cacheClusterSize = a} :: CreateDeployment)
+
+-- | The input configuration for the canary deployment when the deployment is
+-- a canary release deployment.
+createDeployment_canarySettings :: Lens.Lens' CreateDeployment (Prelude.Maybe DeploymentCanarySettings)
+createDeployment_canarySettings = Lens.lens (\CreateDeployment' {canarySettings} -> canarySettings) (\s@CreateDeployment' {} a -> s {canarySettings = a} :: CreateDeployment)
 
 -- | [Required] The string identifier of the associated RestApi.
 createDeployment_restApiId :: Lens.Lens' CreateDeployment Prelude.Text
@@ -211,10 +211,10 @@ instance Core.ToJSON CreateDeployment where
             ("stageDescription" Core..=)
               Prelude.<$> stageDescription,
             ("description" Core..=) Prelude.<$> description,
-            ("canarySettings" Core..=)
-              Prelude.<$> canarySettings,
             ("cacheClusterSize" Core..=)
-              Prelude.<$> cacheClusterSize
+              Prelude.<$> cacheClusterSize,
+            ("canarySettings" Core..=)
+              Prelude.<$> canarySettings
           ]
       )
 

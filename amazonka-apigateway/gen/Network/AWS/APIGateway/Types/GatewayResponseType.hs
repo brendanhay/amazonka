@@ -39,7 +39,8 @@ module Network.AWS.APIGateway.Types.GatewayResponseType
         GatewayResponseType_RESOURCE_NOT_FOUND,
         GatewayResponseType_THROTTLED,
         GatewayResponseType_UNAUTHORIZED,
-        GatewayResponseType_UNSUPPORTED_MEDIA_TYPE
+        GatewayResponseType_UNSUPPORTED_MEDIA_TYPE,
+        GatewayResponseType_WAF_FILTERED
       ),
   )
 where
@@ -135,6 +136,9 @@ pattern GatewayResponseType_UNAUTHORIZED = GatewayResponseType' "UNAUTHORIZED"
 pattern GatewayResponseType_UNSUPPORTED_MEDIA_TYPE :: GatewayResponseType
 pattern GatewayResponseType_UNSUPPORTED_MEDIA_TYPE = GatewayResponseType' "UNSUPPORTED_MEDIA_TYPE"
 
+pattern GatewayResponseType_WAF_FILTERED :: GatewayResponseType
+pattern GatewayResponseType_WAF_FILTERED = GatewayResponseType' "WAF_FILTERED"
+
 {-# COMPLETE
   GatewayResponseType_ACCESS_DENIED,
   GatewayResponseType_API_CONFIGURATION_ERROR,
@@ -156,5 +160,6 @@ pattern GatewayResponseType_UNSUPPORTED_MEDIA_TYPE = GatewayResponseType' "UNSUP
   GatewayResponseType_THROTTLED,
   GatewayResponseType_UNAUTHORIZED,
   GatewayResponseType_UNSUPPORTED_MEDIA_TYPE,
+  GatewayResponseType_WAF_FILTERED,
   GatewayResponseType'
   #-}

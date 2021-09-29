@@ -31,8 +31,8 @@ module Network.AWS.APIGateway.PutRestApi
 
     -- * Request Lenses
     putRestApi_mode,
-    putRestApi_parameters,
     putRestApi_failOnWarnings,
+    putRestApi_parameters,
     putRestApi_restApiId,
     putRestApi_body,
 
@@ -50,8 +50,8 @@ module Network.AWS.APIGateway.PutRestApi
     restApi_name,
     restApi_tags,
     restApi_description,
-    restApi_disableExecuteApiEndpoint,
     restApi_policy,
+    restApi_disableExecuteApiEndpoint,
     restApi_minimumCompressionSize,
     restApi_apiKeySource,
   )
@@ -72,15 +72,15 @@ data PutRestApi = PutRestApi'
   { -- | The @mode@ query parameter to specify the update mode. Valid values are
     -- \"merge\" and \"overwrite\". By default, the update mode is \"merge\".
     mode :: Prelude.Maybe PutMode,
+    -- | A query parameter to indicate whether to rollback the API update
+    -- (@true@) or not (@false@) when a warning is encountered. The default
+    -- value is @false@.
+    failOnWarnings :: Prelude.Maybe Prelude.Bool,
     -- | Custom header parameters as part of the request. For example, to exclude
     -- DocumentationParts from an imported API, set @ignore=documentation@ as a
     -- @parameters@ value, as in the AWS CLI command of
     -- @aws apigateway import-rest-api --parameters ignore=documentation --body \'file:\/\/\/path\/to\/imported-api-body.json\'@.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | A query parameter to indicate whether to rollback the API update
-    -- (@true@) or not (@false@) when a warning is encountered. The default
-    -- value is @false@.
-    failOnWarnings :: Prelude.Maybe Prelude.Bool,
     -- | [Required] The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
     -- | [Required] The PUT request body containing external API definitions.
@@ -101,14 +101,14 @@ data PutRestApi = PutRestApi'
 -- 'mode', 'putRestApi_mode' - The @mode@ query parameter to specify the update mode. Valid values are
 -- \"merge\" and \"overwrite\". By default, the update mode is \"merge\".
 --
+-- 'failOnWarnings', 'putRestApi_failOnWarnings' - A query parameter to indicate whether to rollback the API update
+-- (@true@) or not (@false@) when a warning is encountered. The default
+-- value is @false@.
+--
 -- 'parameters', 'putRestApi_parameters' - Custom header parameters as part of the request. For example, to exclude
 -- DocumentationParts from an imported API, set @ignore=documentation@ as a
 -- @parameters@ value, as in the AWS CLI command of
 -- @aws apigateway import-rest-api --parameters ignore=documentation --body \'file:\/\/\/path\/to\/imported-api-body.json\'@.
---
--- 'failOnWarnings', 'putRestApi_failOnWarnings' - A query parameter to indicate whether to rollback the API update
--- (@true@) or not (@false@) when a warning is encountered. The default
--- value is @false@.
 --
 -- 'restApiId', 'putRestApi_restApiId' - [Required] The string identifier of the associated RestApi.
 --
@@ -124,8 +124,8 @@ newPutRestApi ::
 newPutRestApi pRestApiId_ pBody_ =
   PutRestApi'
     { mode = Prelude.Nothing,
-      parameters = Prelude.Nothing,
       failOnWarnings = Prelude.Nothing,
+      parameters = Prelude.Nothing,
       restApiId = pRestApiId_,
       body = pBody_
     }
@@ -135,18 +135,18 @@ newPutRestApi pRestApiId_ pBody_ =
 putRestApi_mode :: Lens.Lens' PutRestApi (Prelude.Maybe PutMode)
 putRestApi_mode = Lens.lens (\PutRestApi' {mode} -> mode) (\s@PutRestApi' {} a -> s {mode = a} :: PutRestApi)
 
+-- | A query parameter to indicate whether to rollback the API update
+-- (@true@) or not (@false@) when a warning is encountered. The default
+-- value is @false@.
+putRestApi_failOnWarnings :: Lens.Lens' PutRestApi (Prelude.Maybe Prelude.Bool)
+putRestApi_failOnWarnings = Lens.lens (\PutRestApi' {failOnWarnings} -> failOnWarnings) (\s@PutRestApi' {} a -> s {failOnWarnings = a} :: PutRestApi)
+
 -- | Custom header parameters as part of the request. For example, to exclude
 -- DocumentationParts from an imported API, set @ignore=documentation@ as a
 -- @parameters@ value, as in the AWS CLI command of
 -- @aws apigateway import-rest-api --parameters ignore=documentation --body \'file:\/\/\/path\/to\/imported-api-body.json\'@.
 putRestApi_parameters :: Lens.Lens' PutRestApi (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 putRestApi_parameters = Lens.lens (\PutRestApi' {parameters} -> parameters) (\s@PutRestApi' {} a -> s {parameters = a} :: PutRestApi) Prelude.. Lens.mapping Lens._Coerce
-
--- | A query parameter to indicate whether to rollback the API update
--- (@true@) or not (@false@) when a warning is encountered. The default
--- value is @false@.
-putRestApi_failOnWarnings :: Lens.Lens' PutRestApi (Prelude.Maybe Prelude.Bool)
-putRestApi_failOnWarnings = Lens.lens (\PutRestApi' {failOnWarnings} -> failOnWarnings) (\s@PutRestApi' {} a -> s {failOnWarnings = a} :: PutRestApi)
 
 -- | [Required] The string identifier of the associated RestApi.
 putRestApi_restApiId :: Lens.Lens' PutRestApi Prelude.Text
@@ -189,10 +189,10 @@ instance Core.ToQuery PutRestApi where
   toQuery PutRestApi' {..} =
     Prelude.mconcat
       [ "mode" Core.=: mode,
+        "failonwarnings" Core.=: failOnWarnings,
         "parameters"
           Core.=: Core.toQuery
             ( Core.toQueryMap "entry" "key" "value"
                 Prelude.<$> parameters
-            ),
-        "failonwarnings" Core.=: failOnWarnings
+            )
       ]

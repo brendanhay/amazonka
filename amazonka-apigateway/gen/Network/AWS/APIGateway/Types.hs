@@ -21,8 +21,8 @@ module Network.AWS.APIGateway.Types
     _BadRequestException,
     _UnauthorizedException,
     _ServiceUnavailableException,
-    _LimitExceededException,
     _ConflictException,
+    _LimitExceededException,
     _TooManyRequestsException,
 
     -- * ApiKeySourceType
@@ -103,8 +103,8 @@ module Network.AWS.APIGateway.Types
     apiKey_customerId,
     apiKey_lastUpdatedDate,
     apiKey_stageKeys,
-    apiKey_enabled,
     apiKey_id,
+    apiKey_enabled,
     apiKey_name,
     apiKey_tags,
     apiKey_description,
@@ -123,13 +123,13 @@ module Network.AWS.APIGateway.Types
     authorizer_identityValidationExpression,
     authorizer_authorizerCredentials,
     authorizer_id,
-    authorizer_name,
-    authorizer_providerARNs,
     authorizer_authorizerUri,
+    authorizer_providerARNs,
+    authorizer_name,
     authorizer_identitySource,
-    authorizer_type,
-    authorizer_authType,
     authorizer_authorizerResultTtlInSeconds,
+    authorizer_authType,
+    authorizer_type,
 
     -- * BasePathMapping
     BasePathMapping (..),
@@ -150,10 +150,10 @@ module Network.AWS.APIGateway.Types
     ClientCertificate (..),
     newClientCertificate,
     clientCertificate_createdDate,
-    clientCertificate_expirationDate,
     clientCertificate_pemEncodedCertificate,
-    clientCertificate_tags,
+    clientCertificate_expirationDate,
     clientCertificate_clientCertificateId,
+    clientCertificate_tags,
     clientCertificate_description,
 
     -- * Deployment
@@ -181,8 +181,8 @@ module Network.AWS.APIGateway.Types
     -- * DocumentationPartLocation
     DocumentationPartLocation (..),
     newDocumentationPartLocation,
-    documentationPartLocation_name,
     documentationPartLocation_method,
+    documentationPartLocation_name,
     documentationPartLocation_statusCode,
     documentationPartLocation_path,
     documentationPartLocation_type,
@@ -201,8 +201,8 @@ module Network.AWS.APIGateway.Types
     domainName_regionalCertificateName,
     domainName_mutualTlsAuthentication,
     domainName_endpointConfiguration,
-    domainName_distributionHostedZoneId,
     domainName_certificateArn,
+    domainName_distributionHostedZoneId,
     domainName_domainNameStatusMessage,
     domainName_distributionDomainName,
     domainName_certificateUploadDate,
@@ -211,6 +211,7 @@ module Network.AWS.APIGateway.Types
     domainName_securityPolicy,
     domainName_domainNameStatus,
     domainName_regionalCertificateArn,
+    domainName_ownershipVerificationCertificateArn,
     domainName_certificateName,
     domainName_regionalDomainName,
 
@@ -224,8 +225,8 @@ module Network.AWS.APIGateway.Types
     GatewayResponse (..),
     newGatewayResponse,
     gatewayResponse_responseTemplates,
-    gatewayResponse_statusCode,
     gatewayResponse_responseParameters,
+    gatewayResponse_statusCode,
     gatewayResponse_responseType,
     gatewayResponse_defaultResponse,
 
@@ -233,28 +234,28 @@ module Network.AWS.APIGateway.Types
     Integration (..),
     newIntegration,
     integration_httpMethod,
-    integration_passthroughBehavior,
     integration_contentHandling,
     integration_uri,
     integration_connectionType,
+    integration_passthroughBehavior,
     integration_connectionId,
-    integration_requestTemplates,
     integration_timeoutInMillis,
+    integration_requestTemplates,
     integration_cacheNamespace,
-    integration_cacheKeyParameters,
     integration_tlsConfig,
+    integration_cacheKeyParameters,
     integration_integrationResponses,
     integration_requestParameters,
-    integration_type,
     integration_credentials,
+    integration_type,
 
     -- * IntegrationResponse
     IntegrationResponse (..),
     newIntegrationResponse,
     integrationResponse_contentHandling,
     integrationResponse_responseTemplates,
-    integrationResponse_statusCode,
     integrationResponse_responseParameters,
+    integrationResponse_statusCode,
     integrationResponse_selectionPattern,
 
     -- * Method
@@ -265,8 +266,8 @@ module Network.AWS.APIGateway.Types
     method_apiKeyRequired,
     method_authorizationType,
     method_requestModels,
-    method_operationName,
     method_requestValidatorId,
+    method_operationName,
     method_methodResponses,
     method_authorizerId,
     method_requestParameters,
@@ -276,17 +277,17 @@ module Network.AWS.APIGateway.Types
     MethodResponse (..),
     newMethodResponse,
     methodResponse_responseModels,
-    methodResponse_statusCode,
     methodResponse_responseParameters,
+    methodResponse_statusCode,
 
     -- * MethodSetting
     MethodSetting (..),
     newMethodSetting,
     methodSetting_dataTraceEnabled,
     methodSetting_requireAuthorizationForCacheControl,
-    methodSetting_cacheDataEncrypted,
     methodSetting_throttlingRateLimit,
     methodSetting_throttlingBurstLimit,
+    methodSetting_cacheDataEncrypted,
     methodSetting_cacheTtlInSeconds,
     methodSetting_cachingEnabled,
     methodSetting_unauthorizedCacheControlHeaderStrategy,
@@ -302,8 +303,8 @@ module Network.AWS.APIGateway.Types
     -- * Model
     Model (..),
     newModel,
-    model_contentType,
     model_schema,
+    model_contentType,
     model_id,
     model_name,
     model_description,
@@ -332,8 +333,8 @@ module Network.AWS.APIGateway.Types
     -- * QuotaSettings
     QuotaSettings (..),
     newQuotaSettings,
-    quotaSettings_period,
     quotaSettings_limit,
+    quotaSettings_period,
     quotaSettings_offset,
 
     -- * RequestValidator
@@ -365,8 +366,8 @@ module Network.AWS.APIGateway.Types
     restApi_name,
     restApi_tags,
     restApi_description,
-    restApi_disableExecuteApiEndpoint,
     restApi_policy,
+    restApi_disableExecuteApiEndpoint,
     restApi_minimumCompressionSize,
     restApi_apiKeySource,
 
@@ -390,23 +391,23 @@ module Network.AWS.APIGateway.Types
     -- * Stage
     Stage (..),
     newStage,
-    stage_deploymentId,
     stage_createdDate,
+    stage_deploymentId,
     stage_tracingEnabled,
-    stage_webAclArn,
     stage_lastUpdatedDate,
     stage_cacheClusterEnabled,
     stage_stageName,
+    stage_webAclArn,
     stage_documentationVersion,
-    stage_variables,
     stage_accessLogSettings,
-    stage_tags,
+    stage_variables,
     stage_clientCertificateId,
+    stage_tags,
     stage_description,
-    stage_canarySettings,
     stage_cacheClusterSize,
-    stage_methodSettings,
+    stage_canarySettings,
     stage_cacheClusterStatus,
+    stage_methodSettings,
 
     -- * StageKey
     StageKey (..),
@@ -431,19 +432,19 @@ module Network.AWS.APIGateway.Types
     usage_startDate,
     usage_items,
     usage_position,
-    usage_usagePlanId,
     usage_endDate,
+    usage_usagePlanId,
 
     -- * UsagePlan
     UsagePlan (..),
     newUsagePlan,
     usagePlan_id,
-    usagePlan_name,
     usagePlan_apiStages,
+    usagePlan_name,
     usagePlan_tags,
+    usagePlan_productCode,
     usagePlan_description,
     usagePlan_quota,
-    usagePlan_productCode,
     usagePlan_throttle,
 
     -- * UsagePlanKey
@@ -460,8 +461,8 @@ module Network.AWS.APIGateway.Types
     vpcLink_statusMessage,
     vpcLink_status,
     vpcLink_id,
-    vpcLink_name,
     vpcLink_targetArns,
+    vpcLink_name,
     vpcLink_tags,
     vpcLink_description,
   )
@@ -637,15 +638,6 @@ _ServiceUnavailableException =
     "ServiceUnavailableException"
     Prelude.. Core.hasStatus 503
 
--- | The request exceeded the rate limit. Retry after the specified time
--- period.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError
-    defaultService
-    "LimitExceededException"
-    Prelude.. Core.hasStatus 429
-
 -- | The request configuration has conflicts. For details, see the
 -- accompanying error message.
 _ConflictException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -654,6 +646,15 @@ _ConflictException =
     defaultService
     "ConflictException"
     Prelude.. Core.hasStatus 409
+
+-- | The request exceeded the rate limit. Retry after the specified time
+-- period.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError
+    defaultService
+    "LimitExceededException"
+    Prelude.. Core.hasStatus 429
 
 -- | The request has reached its throttling limit. Retry after the specified
 -- time period.

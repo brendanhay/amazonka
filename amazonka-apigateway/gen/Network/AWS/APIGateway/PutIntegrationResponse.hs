@@ -43,8 +43,8 @@ module Network.AWS.APIGateway.PutIntegrationResponse
     -- * Response Lenses
     integrationResponse_contentHandling,
     integrationResponse_responseTemplates,
-    integrationResponse_statusCode,
     integrationResponse_responseParameters,
+    integrationResponse_statusCode,
     integrationResponse_selectionPattern,
   )
 where

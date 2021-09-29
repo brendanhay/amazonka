@@ -29,8 +29,8 @@ module Network.AWS.APIGateway.PutGatewayResponse
 
     -- * Request Lenses
     putGatewayResponse_responseTemplates,
-    putGatewayResponse_statusCode,
     putGatewayResponse_responseParameters,
+    putGatewayResponse_statusCode,
     putGatewayResponse_restApiId,
     putGatewayResponse_responseType,
 
@@ -40,8 +40,8 @@ module Network.AWS.APIGateway.PutGatewayResponse
 
     -- * Response Lenses
     gatewayResponse_responseTemplates,
-    gatewayResponse_statusCode,
     gatewayResponse_responseParameters,
+    gatewayResponse_statusCode,
     gatewayResponse_responseType,
     gatewayResponse_defaultResponse,
   )
@@ -62,37 +62,16 @@ data PutGatewayResponse = PutGatewayResponse'
   { -- | Response templates of the GatewayResponse as a string-to-string map of
     -- key-value pairs.
     responseTemplates :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The HTTP status code of the GatewayResponse.
-    statusCode :: Prelude.Maybe Prelude.Text,
     -- | Response parameters (paths, query strings and headers) of the
     -- GatewayResponse as a string-to-string map of key-value pairs.
     responseParameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The HTTP status code of the GatewayResponse.
+    statusCode :: Prelude.Maybe Prelude.Text,
     -- | [Required] The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
     -- | [Required]
     --
-    -- The response type of the associated GatewayResponse. Valid values are
-    --
-    -- -   ACCESS_DENIED
-    -- -   API_CONFIGURATION_ERROR
-    -- -   AUTHORIZER_FAILURE
-    -- -   AUTHORIZER_CONFIGURATION_ERROR
-    -- -   BAD_REQUEST_PARAMETERS
-    -- -   BAD_REQUEST_BODY
-    -- -   DEFAULT_4XX
-    -- -   DEFAULT_5XX
-    -- -   EXPIRED_TOKEN
-    -- -   INVALID_SIGNATURE
-    -- -   INTEGRATION_FAILURE
-    -- -   INTEGRATION_TIMEOUT
-    -- -   INVALID_API_KEY
-    -- -   MISSING_AUTHENTICATION_TOKEN
-    -- -   QUOTA_EXCEEDED
-    -- -   REQUEST_TOO_LARGE
-    -- -   RESOURCE_NOT_FOUND
-    -- -   THROTTLED
-    -- -   UNAUTHORIZED
-    -- -   UNSUPPORTED_MEDIA_TYPE
+    -- The response type of the associated GatewayResponse.
     responseType :: GatewayResponseType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -108,37 +87,16 @@ data PutGatewayResponse = PutGatewayResponse'
 -- 'responseTemplates', 'putGatewayResponse_responseTemplates' - Response templates of the GatewayResponse as a string-to-string map of
 -- key-value pairs.
 --
--- 'statusCode', 'putGatewayResponse_statusCode' - The HTTP status code of the GatewayResponse.
---
 -- 'responseParameters', 'putGatewayResponse_responseParameters' - Response parameters (paths, query strings and headers) of the
 -- GatewayResponse as a string-to-string map of key-value pairs.
+--
+-- 'statusCode', 'putGatewayResponse_statusCode' - The HTTP status code of the GatewayResponse.
 --
 -- 'restApiId', 'putGatewayResponse_restApiId' - [Required] The string identifier of the associated RestApi.
 --
 -- 'responseType', 'putGatewayResponse_responseType' - [Required]
 --
--- The response type of the associated GatewayResponse. Valid values are
---
--- -   ACCESS_DENIED
--- -   API_CONFIGURATION_ERROR
--- -   AUTHORIZER_FAILURE
--- -   AUTHORIZER_CONFIGURATION_ERROR
--- -   BAD_REQUEST_PARAMETERS
--- -   BAD_REQUEST_BODY
--- -   DEFAULT_4XX
--- -   DEFAULT_5XX
--- -   EXPIRED_TOKEN
--- -   INVALID_SIGNATURE
--- -   INTEGRATION_FAILURE
--- -   INTEGRATION_TIMEOUT
--- -   INVALID_API_KEY
--- -   MISSING_AUTHENTICATION_TOKEN
--- -   QUOTA_EXCEEDED
--- -   REQUEST_TOO_LARGE
--- -   RESOURCE_NOT_FOUND
--- -   THROTTLED
--- -   UNAUTHORIZED
--- -   UNSUPPORTED_MEDIA_TYPE
+-- The response type of the associated GatewayResponse.
 newPutGatewayResponse ::
   -- | 'restApiId'
   Prelude.Text ->
@@ -149,8 +107,8 @@ newPutGatewayResponse pRestApiId_ pResponseType_ =
   PutGatewayResponse'
     { responseTemplates =
         Prelude.Nothing,
-      statusCode = Prelude.Nothing,
       responseParameters = Prelude.Nothing,
+      statusCode = Prelude.Nothing,
       restApiId = pRestApiId_,
       responseType = pResponseType_
     }
@@ -160,14 +118,14 @@ newPutGatewayResponse pRestApiId_ pResponseType_ =
 putGatewayResponse_responseTemplates :: Lens.Lens' PutGatewayResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 putGatewayResponse_responseTemplates = Lens.lens (\PutGatewayResponse' {responseTemplates} -> responseTemplates) (\s@PutGatewayResponse' {} a -> s {responseTemplates = a} :: PutGatewayResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | The HTTP status code of the GatewayResponse.
-putGatewayResponse_statusCode :: Lens.Lens' PutGatewayResponse (Prelude.Maybe Prelude.Text)
-putGatewayResponse_statusCode = Lens.lens (\PutGatewayResponse' {statusCode} -> statusCode) (\s@PutGatewayResponse' {} a -> s {statusCode = a} :: PutGatewayResponse)
-
 -- | Response parameters (paths, query strings and headers) of the
 -- GatewayResponse as a string-to-string map of key-value pairs.
 putGatewayResponse_responseParameters :: Lens.Lens' PutGatewayResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 putGatewayResponse_responseParameters = Lens.lens (\PutGatewayResponse' {responseParameters} -> responseParameters) (\s@PutGatewayResponse' {} a -> s {responseParameters = a} :: PutGatewayResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The HTTP status code of the GatewayResponse.
+putGatewayResponse_statusCode :: Lens.Lens' PutGatewayResponse (Prelude.Maybe Prelude.Text)
+putGatewayResponse_statusCode = Lens.lens (\PutGatewayResponse' {statusCode} -> statusCode) (\s@PutGatewayResponse' {} a -> s {statusCode = a} :: PutGatewayResponse)
 
 -- | [Required] The string identifier of the associated RestApi.
 putGatewayResponse_restApiId :: Lens.Lens' PutGatewayResponse Prelude.Text
@@ -175,28 +133,7 @@ putGatewayResponse_restApiId = Lens.lens (\PutGatewayResponse' {restApiId} -> re
 
 -- | [Required]
 --
--- The response type of the associated GatewayResponse. Valid values are
---
--- -   ACCESS_DENIED
--- -   API_CONFIGURATION_ERROR
--- -   AUTHORIZER_FAILURE
--- -   AUTHORIZER_CONFIGURATION_ERROR
--- -   BAD_REQUEST_PARAMETERS
--- -   BAD_REQUEST_BODY
--- -   DEFAULT_4XX
--- -   DEFAULT_5XX
--- -   EXPIRED_TOKEN
--- -   INVALID_SIGNATURE
--- -   INTEGRATION_FAILURE
--- -   INTEGRATION_TIMEOUT
--- -   INVALID_API_KEY
--- -   MISSING_AUTHENTICATION_TOKEN
--- -   QUOTA_EXCEEDED
--- -   REQUEST_TOO_LARGE
--- -   RESOURCE_NOT_FOUND
--- -   THROTTLED
--- -   UNAUTHORIZED
--- -   UNSUPPORTED_MEDIA_TYPE
+-- The response type of the associated GatewayResponse.
 putGatewayResponse_responseType :: Lens.Lens' PutGatewayResponse GatewayResponseType
 putGatewayResponse_responseType = Lens.lens (\PutGatewayResponse' {responseType} -> responseType) (\s@PutGatewayResponse' {} a -> s {responseType = a} :: PutGatewayResponse)
 
@@ -226,9 +163,9 @@ instance Core.ToJSON PutGatewayResponse where
       ( Prelude.catMaybes
           [ ("responseTemplates" Core..=)
               Prelude.<$> responseTemplates,
-            ("statusCode" Core..=) Prelude.<$> statusCode,
             ("responseParameters" Core..=)
-              Prelude.<$> responseParameters
+              Prelude.<$> responseParameters,
+            ("statusCode" Core..=) Prelude.<$> statusCode
           ]
       )
 

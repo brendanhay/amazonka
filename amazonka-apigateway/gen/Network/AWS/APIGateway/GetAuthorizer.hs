@@ -40,13 +40,13 @@ module Network.AWS.APIGateway.GetAuthorizer
     authorizer_identityValidationExpression,
     authorizer_authorizerCredentials,
     authorizer_id,
-    authorizer_name,
-    authorizer_providerARNs,
     authorizer_authorizerUri,
+    authorizer_providerARNs,
+    authorizer_name,
     authorizer_identitySource,
-    authorizer_type,
-    authorizer_authType,
     authorizer_authorizerResultTtlInSeconds,
+    authorizer_authType,
+    authorizer_type,
   )
 where
 

@@ -99,12 +99,12 @@ data Method = Method'
     -- (as the mapped value) of the request payloads of given content types (as
     -- the mapping key).
     requestModels :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The identifier of a RequestValidator for request validation.
+    requestValidatorId :: Prelude.Maybe Prelude.Text,
     -- | A human-friendly operation identifier for the method. For example, you
     -- can assign the @operationName@ of @ListPets@ for the @GET \/pets@ method
     -- in the @PetStore@ example.
     operationName :: Prelude.Maybe Prelude.Text,
-    -- | The identifier of a RequestValidator for request validation.
-    requestValidatorId :: Prelude.Maybe Prelude.Text,
     -- | Gets a method response associated with a given HTTP status code.
     --
     -- The collection of method responses are encapsulated in a key-value map,
@@ -193,11 +193,11 @@ data Method = Method'
 -- (as the mapped value) of the request payloads of given content types (as
 -- the mapping key).
 --
+-- 'requestValidatorId', 'method_requestValidatorId' - The identifier of a RequestValidator for request validation.
+--
 -- 'operationName', 'method_operationName' - A human-friendly operation identifier for the method. For example, you
 -- can assign the @operationName@ of @ListPets@ for the @GET \/pets@ method
 -- in the @PetStore@ example.
---
--- 'requestValidatorId', 'method_requestValidatorId' - The identifier of a RequestValidator for request validation.
 --
 -- 'methodResponses', 'method_methodResponses' - Gets a method response associated with a given HTTP status code.
 --
@@ -251,8 +251,8 @@ newMethod =
       apiKeyRequired = Prelude.Nothing,
       authorizationType = Prelude.Nothing,
       requestModels = Prelude.Nothing,
-      operationName = Prelude.Nothing,
       requestValidatorId = Prelude.Nothing,
+      operationName = Prelude.Nothing,
       methodResponses = Prelude.Nothing,
       authorizerId = Prelude.Nothing,
       requestParameters = Prelude.Nothing,
@@ -302,15 +302,15 @@ method_authorizationType = Lens.lens (\Method' {authorizationType} -> authorizat
 method_requestModels :: Lens.Lens' Method (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 method_requestModels = Lens.lens (\Method' {requestModels} -> requestModels) (\s@Method' {} a -> s {requestModels = a} :: Method) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The identifier of a RequestValidator for request validation.
+method_requestValidatorId :: Lens.Lens' Method (Prelude.Maybe Prelude.Text)
+method_requestValidatorId = Lens.lens (\Method' {requestValidatorId} -> requestValidatorId) (\s@Method' {} a -> s {requestValidatorId = a} :: Method)
+
 -- | A human-friendly operation identifier for the method. For example, you
 -- can assign the @operationName@ of @ListPets@ for the @GET \/pets@ method
 -- in the @PetStore@ example.
 method_operationName :: Lens.Lens' Method (Prelude.Maybe Prelude.Text)
 method_operationName = Lens.lens (\Method' {operationName} -> operationName) (\s@Method' {} a -> s {operationName = a} :: Method)
-
--- | The identifier of a RequestValidator for request validation.
-method_requestValidatorId :: Lens.Lens' Method (Prelude.Maybe Prelude.Text)
-method_requestValidatorId = Lens.lens (\Method' {requestValidatorId} -> requestValidatorId) (\s@Method' {} a -> s {requestValidatorId = a} :: Method)
 
 -- | Gets a method response associated with a given HTTP status code.
 --
@@ -375,8 +375,8 @@ instance Core.FromJSON Method where
             Prelude.<*> (x Core..:? "apiKeyRequired")
             Prelude.<*> (x Core..:? "authorizationType")
             Prelude.<*> (x Core..:? "requestModels" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "operationName")
             Prelude.<*> (x Core..:? "requestValidatorId")
+            Prelude.<*> (x Core..:? "operationName")
             Prelude.<*> ( x Core..:? "methodResponses"
                             Core..!= Prelude.mempty
                         )

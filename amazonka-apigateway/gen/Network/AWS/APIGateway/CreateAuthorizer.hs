@@ -31,11 +31,11 @@ module Network.AWS.APIGateway.CreateAuthorizer
     -- * Request Lenses
     createAuthorizer_identityValidationExpression,
     createAuthorizer_authorizerCredentials,
-    createAuthorizer_providerARNs,
     createAuthorizer_authorizerUri,
+    createAuthorizer_providerARNs,
     createAuthorizer_identitySource,
-    createAuthorizer_authType,
     createAuthorizer_authorizerResultTtlInSeconds,
+    createAuthorizer_authType,
     createAuthorizer_restApiId,
     createAuthorizer_name,
     createAuthorizer_type,
@@ -48,13 +48,13 @@ module Network.AWS.APIGateway.CreateAuthorizer
     authorizer_identityValidationExpression,
     authorizer_authorizerCredentials,
     authorizer_id,
-    authorizer_name,
-    authorizer_providerARNs,
     authorizer_authorizerUri,
+    authorizer_providerARNs,
+    authorizer_name,
     authorizer_identitySource,
-    authorizer_type,
-    authorizer_authType,
     authorizer_authorizerResultTtlInSeconds,
+    authorizer_authType,
+    authorizer_type,
   )
 where
 
@@ -83,11 +83,6 @@ data CreateAuthorizer = CreateAuthorizer'
     -- use the role\'s Amazon Resource Name (ARN). To use resource-based
     -- permissions on the Lambda function, specify null.
     authorizerCredentials :: Prelude.Maybe Prelude.Text,
-    -- | A list of the Amazon Cognito user pool ARNs for the @COGNITO_USER_POOLS@
-    -- authorizer. Each element is of this format:
-    -- @arn:aws:cognito-idp:{region}:{account_id}:userpool\/{user_pool_id}@.
-    -- For a @TOKEN@ or @REQUEST@ authorizer, this is not defined.
-    providerARNs :: Prelude.Maybe [Prelude.Text],
     -- | Specifies the authorizer\'s Uniform Resource Identifier (URI). For
     -- @TOKEN@ or @REQUEST@ authorizers, this must be a well-formed Lambda
     -- function URI, for example,
@@ -100,6 +95,11 @@ data CreateAuthorizer = CreateAuthorizer'
     -- functions, this is usually of the form
     -- @\/2015-03-31\/functions\/[FunctionARN]\/invocations@.
     authorizerUri :: Prelude.Maybe Prelude.Text,
+    -- | A list of the Amazon Cognito user pool ARNs for the @COGNITO_USER_POOLS@
+    -- authorizer. Each element is of this format:
+    -- @arn:aws:cognito-idp:{region}:{account_id}:userpool\/{user_pool_id}@.
+    -- For a @TOKEN@ or @REQUEST@ authorizer, this is not defined.
+    providerARNs :: Prelude.Maybe [Prelude.Text],
     -- | The identity source for which authorization is requested.
     --
     -- -   For a @TOKEN@ or @COGNITO_USER_POOLS@ authorizer, this is required
@@ -123,14 +123,14 @@ data CreateAuthorizer = CreateAuthorizer'
     --     expressions of the specified request parameters. When the
     --     authorization caching is not enabled, this property is optional.
     identitySource :: Prelude.Maybe Prelude.Text,
-    -- | Optional customer-defined field, used in OpenAPI imports and exports
-    -- without functional impact.
-    authType :: Prelude.Maybe Prelude.Text,
     -- | The TTL in seconds of cached authorizer results. If it equals 0,
     -- authorization caching is disabled. If it is greater than 0, API Gateway
     -- will cache authorizer responses. If this field is not set, the default
     -- value is 300. The maximum value is 3600, or 1 hour.
     authorizerResultTtlInSeconds :: Prelude.Maybe Prelude.Int,
+    -- | Optional customer-defined field, used in OpenAPI imports and exports
+    -- without functional impact.
+    authType :: Prelude.Maybe Prelude.Text,
     -- | [Required] The string identifier of the associated RestApi.
     restApiId :: Prelude.Text,
     -- | [Required] The name of the authorizer.
@@ -166,11 +166,6 @@ data CreateAuthorizer = CreateAuthorizer'
 -- use the role\'s Amazon Resource Name (ARN). To use resource-based
 -- permissions on the Lambda function, specify null.
 --
--- 'providerARNs', 'createAuthorizer_providerARNs' - A list of the Amazon Cognito user pool ARNs for the @COGNITO_USER_POOLS@
--- authorizer. Each element is of this format:
--- @arn:aws:cognito-idp:{region}:{account_id}:userpool\/{user_pool_id}@.
--- For a @TOKEN@ or @REQUEST@ authorizer, this is not defined.
---
 -- 'authorizerUri', 'createAuthorizer_authorizerUri' - Specifies the authorizer\'s Uniform Resource Identifier (URI). For
 -- @TOKEN@ or @REQUEST@ authorizers, this must be a well-formed Lambda
 -- function URI, for example,
@@ -182,6 +177,11 @@ data CreateAuthorizer = CreateAuthorizer'
 -- the path to the resource, including the initial @\/@. For Lambda
 -- functions, this is usually of the form
 -- @\/2015-03-31\/functions\/[FunctionARN]\/invocations@.
+--
+-- 'providerARNs', 'createAuthorizer_providerARNs' - A list of the Amazon Cognito user pool ARNs for the @COGNITO_USER_POOLS@
+-- authorizer. Each element is of this format:
+-- @arn:aws:cognito-idp:{region}:{account_id}:userpool\/{user_pool_id}@.
+-- For a @TOKEN@ or @REQUEST@ authorizer, this is not defined.
 --
 -- 'identitySource', 'createAuthorizer_identitySource' - The identity source for which authorization is requested.
 --
@@ -206,13 +206,13 @@ data CreateAuthorizer = CreateAuthorizer'
 --     expressions of the specified request parameters. When the
 --     authorization caching is not enabled, this property is optional.
 --
--- 'authType', 'createAuthorizer_authType' - Optional customer-defined field, used in OpenAPI imports and exports
--- without functional impact.
---
 -- 'authorizerResultTtlInSeconds', 'createAuthorizer_authorizerResultTtlInSeconds' - The TTL in seconds of cached authorizer results. If it equals 0,
 -- authorization caching is disabled. If it is greater than 0, API Gateway
 -- will cache authorizer responses. If this field is not set, the default
 -- value is 300. The maximum value is 3600, or 1 hour.
+--
+-- 'authType', 'createAuthorizer_authType' - Optional customer-defined field, used in OpenAPI imports and exports
+-- without functional impact.
 --
 -- 'restApiId', 'createAuthorizer_restApiId' - [Required] The string identifier of the associated RestApi.
 --
@@ -236,11 +236,11 @@ newCreateAuthorizer pRestApiId_ pName_ pType_ =
     { identityValidationExpression =
         Prelude.Nothing,
       authorizerCredentials = Prelude.Nothing,
-      providerARNs = Prelude.Nothing,
       authorizerUri = Prelude.Nothing,
+      providerARNs = Prelude.Nothing,
       identitySource = Prelude.Nothing,
-      authType = Prelude.Nothing,
       authorizerResultTtlInSeconds = Prelude.Nothing,
+      authType = Prelude.Nothing,
       restApiId = pRestApiId_,
       name = pName_,
       type' = pType_
@@ -264,13 +264,6 @@ createAuthorizer_identityValidationExpression = Lens.lens (\CreateAuthorizer' {i
 createAuthorizer_authorizerCredentials :: Lens.Lens' CreateAuthorizer (Prelude.Maybe Prelude.Text)
 createAuthorizer_authorizerCredentials = Lens.lens (\CreateAuthorizer' {authorizerCredentials} -> authorizerCredentials) (\s@CreateAuthorizer' {} a -> s {authorizerCredentials = a} :: CreateAuthorizer)
 
--- | A list of the Amazon Cognito user pool ARNs for the @COGNITO_USER_POOLS@
--- authorizer. Each element is of this format:
--- @arn:aws:cognito-idp:{region}:{account_id}:userpool\/{user_pool_id}@.
--- For a @TOKEN@ or @REQUEST@ authorizer, this is not defined.
-createAuthorizer_providerARNs :: Lens.Lens' CreateAuthorizer (Prelude.Maybe [Prelude.Text])
-createAuthorizer_providerARNs = Lens.lens (\CreateAuthorizer' {providerARNs} -> providerARNs) (\s@CreateAuthorizer' {} a -> s {providerARNs = a} :: CreateAuthorizer) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Specifies the authorizer\'s Uniform Resource Identifier (URI). For
 -- @TOKEN@ or @REQUEST@ authorizers, this must be a well-formed Lambda
 -- function URI, for example,
@@ -284,6 +277,13 @@ createAuthorizer_providerARNs = Lens.lens (\CreateAuthorizer' {providerARNs} -> 
 -- @\/2015-03-31\/functions\/[FunctionARN]\/invocations@.
 createAuthorizer_authorizerUri :: Lens.Lens' CreateAuthorizer (Prelude.Maybe Prelude.Text)
 createAuthorizer_authorizerUri = Lens.lens (\CreateAuthorizer' {authorizerUri} -> authorizerUri) (\s@CreateAuthorizer' {} a -> s {authorizerUri = a} :: CreateAuthorizer)
+
+-- | A list of the Amazon Cognito user pool ARNs for the @COGNITO_USER_POOLS@
+-- authorizer. Each element is of this format:
+-- @arn:aws:cognito-idp:{region}:{account_id}:userpool\/{user_pool_id}@.
+-- For a @TOKEN@ or @REQUEST@ authorizer, this is not defined.
+createAuthorizer_providerARNs :: Lens.Lens' CreateAuthorizer (Prelude.Maybe [Prelude.Text])
+createAuthorizer_providerARNs = Lens.lens (\CreateAuthorizer' {providerARNs} -> providerARNs) (\s@CreateAuthorizer' {} a -> s {providerARNs = a} :: CreateAuthorizer) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The identity source for which authorization is requested.
 --
@@ -310,17 +310,17 @@ createAuthorizer_authorizerUri = Lens.lens (\CreateAuthorizer' {authorizerUri} -
 createAuthorizer_identitySource :: Lens.Lens' CreateAuthorizer (Prelude.Maybe Prelude.Text)
 createAuthorizer_identitySource = Lens.lens (\CreateAuthorizer' {identitySource} -> identitySource) (\s@CreateAuthorizer' {} a -> s {identitySource = a} :: CreateAuthorizer)
 
--- | Optional customer-defined field, used in OpenAPI imports and exports
--- without functional impact.
-createAuthorizer_authType :: Lens.Lens' CreateAuthorizer (Prelude.Maybe Prelude.Text)
-createAuthorizer_authType = Lens.lens (\CreateAuthorizer' {authType} -> authType) (\s@CreateAuthorizer' {} a -> s {authType = a} :: CreateAuthorizer)
-
 -- | The TTL in seconds of cached authorizer results. If it equals 0,
 -- authorization caching is disabled. If it is greater than 0, API Gateway
 -- will cache authorizer responses. If this field is not set, the default
 -- value is 300. The maximum value is 3600, or 1 hour.
 createAuthorizer_authorizerResultTtlInSeconds :: Lens.Lens' CreateAuthorizer (Prelude.Maybe Prelude.Int)
 createAuthorizer_authorizerResultTtlInSeconds = Lens.lens (\CreateAuthorizer' {authorizerResultTtlInSeconds} -> authorizerResultTtlInSeconds) (\s@CreateAuthorizer' {} a -> s {authorizerResultTtlInSeconds = a} :: CreateAuthorizer)
+
+-- | Optional customer-defined field, used in OpenAPI imports and exports
+-- without functional impact.
+createAuthorizer_authType :: Lens.Lens' CreateAuthorizer (Prelude.Maybe Prelude.Text)
+createAuthorizer_authType = Lens.lens (\CreateAuthorizer' {authType} -> authType) (\s@CreateAuthorizer' {} a -> s {authType = a} :: CreateAuthorizer)
 
 -- | [Required] The string identifier of the associated RestApi.
 createAuthorizer_restApiId :: Lens.Lens' CreateAuthorizer Prelude.Text
@@ -366,13 +366,13 @@ instance Core.ToJSON CreateAuthorizer where
               Prelude.<$> identityValidationExpression,
             ("authorizerCredentials" Core..=)
               Prelude.<$> authorizerCredentials,
-            ("providerARNs" Core..=) Prelude.<$> providerARNs,
             ("authorizerUri" Core..=) Prelude.<$> authorizerUri,
+            ("providerARNs" Core..=) Prelude.<$> providerARNs,
             ("identitySource" Core..=)
               Prelude.<$> identitySource,
-            ("authType" Core..=) Prelude.<$> authType,
             ("authorizerResultTtlInSeconds" Core..=)
               Prelude.<$> authorizerResultTtlInSeconds,
+            ("authType" Core..=) Prelude.<$> authType,
             Prelude.Just ("name" Core..= name),
             Prelude.Just ("type" Core..= type')
           ]

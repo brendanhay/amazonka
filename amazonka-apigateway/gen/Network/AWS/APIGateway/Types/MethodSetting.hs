@@ -38,10 +38,6 @@ data MethodSetting = MethodSetting'
     -- @\/{method_setting_key}\/caching\/requireAuthorizationForCacheControl@,
     -- and the value is a Boolean.
     requireAuthorizationForCacheControl :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies whether the cached responses are encrypted. The PATCH path for
-    -- this setting is @\/{method_setting_key}\/caching\/dataEncrypted@, and
-    -- the value is a Boolean.
-    cacheDataEncrypted :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the throttling rate limit. The PATCH path for this setting is
     -- @\/{method_setting_key}\/throttling\/rateLimit@, and the value is a
     -- double.
@@ -50,6 +46,10 @@ data MethodSetting = MethodSetting'
     -- @\/{method_setting_key}\/throttling\/burstLimit@, and the value is an
     -- integer.
     throttlingBurstLimit :: Prelude.Maybe Prelude.Int,
+    -- | Specifies whether the cached responses are encrypted. The PATCH path for
+    -- this setting is @\/{method_setting_key}\/caching\/dataEncrypted@, and
+    -- the value is a Boolean.
+    cacheDataEncrypted :: Prelude.Maybe Prelude.Bool,
     -- | Specifies the time to live (TTL), in seconds, for cached responses. The
     -- higher the TTL, the longer the response will be cached. The PATCH path
     -- for this setting is @\/{method_setting_key}\/caching\/ttlInSeconds@, and
@@ -98,10 +98,6 @@ data MethodSetting = MethodSetting'
 -- @\/{method_setting_key}\/caching\/requireAuthorizationForCacheControl@,
 -- and the value is a Boolean.
 --
--- 'cacheDataEncrypted', 'methodSetting_cacheDataEncrypted' - Specifies whether the cached responses are encrypted. The PATCH path for
--- this setting is @\/{method_setting_key}\/caching\/dataEncrypted@, and
--- the value is a Boolean.
---
 -- 'throttlingRateLimit', 'methodSetting_throttlingRateLimit' - Specifies the throttling rate limit. The PATCH path for this setting is
 -- @\/{method_setting_key}\/throttling\/rateLimit@, and the value is a
 -- double.
@@ -109,6 +105,10 @@ data MethodSetting = MethodSetting'
 -- 'throttlingBurstLimit', 'methodSetting_throttlingBurstLimit' - Specifies the throttling burst limit. The PATCH path for this setting is
 -- @\/{method_setting_key}\/throttling\/burstLimit@, and the value is an
 -- integer.
+--
+-- 'cacheDataEncrypted', 'methodSetting_cacheDataEncrypted' - Specifies whether the cached responses are encrypted. The PATCH path for
+-- this setting is @\/{method_setting_key}\/caching\/dataEncrypted@, and
+-- the value is a Boolean.
 --
 -- 'cacheTtlInSeconds', 'methodSetting_cacheTtlInSeconds' - Specifies the time to live (TTL), in seconds, for cached responses. The
 -- higher the TTL, the longer the response will be cached. The PATCH path
@@ -143,9 +143,9 @@ newMethodSetting =
     { dataTraceEnabled = Prelude.Nothing,
       requireAuthorizationForCacheControl =
         Prelude.Nothing,
-      cacheDataEncrypted = Prelude.Nothing,
       throttlingRateLimit = Prelude.Nothing,
       throttlingBurstLimit = Prelude.Nothing,
+      cacheDataEncrypted = Prelude.Nothing,
       cacheTtlInSeconds = Prelude.Nothing,
       cachingEnabled = Prelude.Nothing,
       unauthorizedCacheControlHeaderStrategy =
@@ -168,12 +168,6 @@ methodSetting_dataTraceEnabled = Lens.lens (\MethodSetting' {dataTraceEnabled} -
 methodSetting_requireAuthorizationForCacheControl :: Lens.Lens' MethodSetting (Prelude.Maybe Prelude.Bool)
 methodSetting_requireAuthorizationForCacheControl = Lens.lens (\MethodSetting' {requireAuthorizationForCacheControl} -> requireAuthorizationForCacheControl) (\s@MethodSetting' {} a -> s {requireAuthorizationForCacheControl = a} :: MethodSetting)
 
--- | Specifies whether the cached responses are encrypted. The PATCH path for
--- this setting is @\/{method_setting_key}\/caching\/dataEncrypted@, and
--- the value is a Boolean.
-methodSetting_cacheDataEncrypted :: Lens.Lens' MethodSetting (Prelude.Maybe Prelude.Bool)
-methodSetting_cacheDataEncrypted = Lens.lens (\MethodSetting' {cacheDataEncrypted} -> cacheDataEncrypted) (\s@MethodSetting' {} a -> s {cacheDataEncrypted = a} :: MethodSetting)
-
 -- | Specifies the throttling rate limit. The PATCH path for this setting is
 -- @\/{method_setting_key}\/throttling\/rateLimit@, and the value is a
 -- double.
@@ -185,6 +179,12 @@ methodSetting_throttlingRateLimit = Lens.lens (\MethodSetting' {throttlingRateLi
 -- integer.
 methodSetting_throttlingBurstLimit :: Lens.Lens' MethodSetting (Prelude.Maybe Prelude.Int)
 methodSetting_throttlingBurstLimit = Lens.lens (\MethodSetting' {throttlingBurstLimit} -> throttlingBurstLimit) (\s@MethodSetting' {} a -> s {throttlingBurstLimit = a} :: MethodSetting)
+
+-- | Specifies whether the cached responses are encrypted. The PATCH path for
+-- this setting is @\/{method_setting_key}\/caching\/dataEncrypted@, and
+-- the value is a Boolean.
+methodSetting_cacheDataEncrypted :: Lens.Lens' MethodSetting (Prelude.Maybe Prelude.Bool)
+methodSetting_cacheDataEncrypted = Lens.lens (\MethodSetting' {cacheDataEncrypted} -> cacheDataEncrypted) (\s@MethodSetting' {} a -> s {cacheDataEncrypted = a} :: MethodSetting)
 
 -- | Specifies the time to live (TTL), in seconds, for cached responses. The
 -- higher the TTL, the longer the response will be cached. The PATCH path
@@ -231,9 +231,9 @@ instance Core.FromJSON MethodSetting where
           MethodSetting'
             Prelude.<$> (x Core..:? "dataTraceEnabled")
             Prelude.<*> (x Core..:? "requireAuthorizationForCacheControl")
-            Prelude.<*> (x Core..:? "cacheDataEncrypted")
             Prelude.<*> (x Core..:? "throttlingRateLimit")
             Prelude.<*> (x Core..:? "throttlingBurstLimit")
+            Prelude.<*> (x Core..:? "cacheDataEncrypted")
             Prelude.<*> (x Core..:? "cacheTtlInSeconds")
             Prelude.<*> (x Core..:? "cachingEnabled")
             Prelude.<*> (x Core..:? "unauthorizedCacheControlHeaderStrategy")

@@ -35,8 +35,9 @@ module Network.AWS.APIGateway.CreateDomainName
     createDomainName_tags,
     createDomainName_securityPolicy,
     createDomainName_certificateChain,
-    createDomainName_certificateBody,
     createDomainName_regionalCertificateArn,
+    createDomainName_certificateBody,
+    createDomainName_ownershipVerificationCertificateArn,
     createDomainName_certificateName,
     createDomainName_domainName,
 
@@ -49,8 +50,8 @@ module Network.AWS.APIGateway.CreateDomainName
     domainName_regionalCertificateName,
     domainName_mutualTlsAuthentication,
     domainName_endpointConfiguration,
-    domainName_distributionHostedZoneId,
     domainName_certificateArn,
+    domainName_distributionHostedZoneId,
     domainName_domainNameStatusMessage,
     domainName_distributionDomainName,
     domainName_certificateUploadDate,
@@ -59,6 +60,7 @@ module Network.AWS.APIGateway.CreateDomainName
     domainName_securityPolicy,
     domainName_domainNameStatus,
     domainName_regionalCertificateArn,
+    domainName_ownershipVerificationCertificateArn,
     domainName_certificateName,
     domainName_regionalDomainName,
   )
@@ -104,14 +106,19 @@ data CreateDomainName = CreateDomainName'
     -- certificates that were provided by your certificate authority. Do not
     -- include any intermediaries that are not in the chain of trust path.
     certificateChain :: Prelude.Maybe Prelude.Text,
-    -- | [Deprecated] The body of the server certificate that will be used by
-    -- edge-optimized endpoint for this domain name provided by your
-    -- certificate authority.
-    certificateBody :: Prelude.Maybe Prelude.Text,
     -- | The reference to an AWS-managed certificate that will be used by
     -- regional endpoint for this domain name. AWS Certificate Manager is the
     -- only supported source.
     regionalCertificateArn :: Prelude.Maybe Prelude.Text,
+    -- | [Deprecated] The body of the server certificate that will be used by
+    -- edge-optimized endpoint for this domain name provided by your
+    -- certificate authority.
+    certificateBody :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the public certificate issued by ACM to validate ownership of
+    -- your custom domain. Only required when configuring mutual TLS and using
+    -- an ACM imported or private CA certificate ARN as the
+    -- regionalCertificateArn.
+    ownershipVerificationCertificateArn :: Prelude.Maybe Prelude.Text,
     -- | The user-friendly name of the certificate that will be used by
     -- edge-optimized endpoint for this domain name.
     certificateName :: Prelude.Maybe Prelude.Text,
@@ -158,13 +165,18 @@ data CreateDomainName = CreateDomainName'
 -- certificates that were provided by your certificate authority. Do not
 -- include any intermediaries that are not in the chain of trust path.
 --
+-- 'regionalCertificateArn', 'createDomainName_regionalCertificateArn' - The reference to an AWS-managed certificate that will be used by
+-- regional endpoint for this domain name. AWS Certificate Manager is the
+-- only supported source.
+--
 -- 'certificateBody', 'createDomainName_certificateBody' - [Deprecated] The body of the server certificate that will be used by
 -- edge-optimized endpoint for this domain name provided by your
 -- certificate authority.
 --
--- 'regionalCertificateArn', 'createDomainName_regionalCertificateArn' - The reference to an AWS-managed certificate that will be used by
--- regional endpoint for this domain name. AWS Certificate Manager is the
--- only supported source.
+-- 'ownershipVerificationCertificateArn', 'createDomainName_ownershipVerificationCertificateArn' - The ARN of the public certificate issued by ACM to validate ownership of
+-- your custom domain. Only required when configuring mutual TLS and using
+-- an ACM imported or private CA certificate ARN as the
+-- regionalCertificateArn.
 --
 -- 'certificateName', 'createDomainName_certificateName' - The user-friendly name of the certificate that will be used by
 -- edge-optimized endpoint for this domain name.
@@ -185,8 +197,10 @@ newCreateDomainName pDomainName_ =
       tags = Prelude.Nothing,
       securityPolicy = Prelude.Nothing,
       certificateChain = Prelude.Nothing,
-      certificateBody = Prelude.Nothing,
       regionalCertificateArn = Prelude.Nothing,
+      certificateBody = Prelude.Nothing,
+      ownershipVerificationCertificateArn =
+        Prelude.Nothing,
       certificateName = Prelude.Nothing,
       domainName = pDomainName_
     }
@@ -237,17 +251,24 @@ createDomainName_securityPolicy = Lens.lens (\CreateDomainName' {securityPolicy}
 createDomainName_certificateChain :: Lens.Lens' CreateDomainName (Prelude.Maybe Prelude.Text)
 createDomainName_certificateChain = Lens.lens (\CreateDomainName' {certificateChain} -> certificateChain) (\s@CreateDomainName' {} a -> s {certificateChain = a} :: CreateDomainName)
 
+-- | The reference to an AWS-managed certificate that will be used by
+-- regional endpoint for this domain name. AWS Certificate Manager is the
+-- only supported source.
+createDomainName_regionalCertificateArn :: Lens.Lens' CreateDomainName (Prelude.Maybe Prelude.Text)
+createDomainName_regionalCertificateArn = Lens.lens (\CreateDomainName' {regionalCertificateArn} -> regionalCertificateArn) (\s@CreateDomainName' {} a -> s {regionalCertificateArn = a} :: CreateDomainName)
+
 -- | [Deprecated] The body of the server certificate that will be used by
 -- edge-optimized endpoint for this domain name provided by your
 -- certificate authority.
 createDomainName_certificateBody :: Lens.Lens' CreateDomainName (Prelude.Maybe Prelude.Text)
 createDomainName_certificateBody = Lens.lens (\CreateDomainName' {certificateBody} -> certificateBody) (\s@CreateDomainName' {} a -> s {certificateBody = a} :: CreateDomainName)
 
--- | The reference to an AWS-managed certificate that will be used by
--- regional endpoint for this domain name. AWS Certificate Manager is the
--- only supported source.
-createDomainName_regionalCertificateArn :: Lens.Lens' CreateDomainName (Prelude.Maybe Prelude.Text)
-createDomainName_regionalCertificateArn = Lens.lens (\CreateDomainName' {regionalCertificateArn} -> regionalCertificateArn) (\s@CreateDomainName' {} a -> s {regionalCertificateArn = a} :: CreateDomainName)
+-- | The ARN of the public certificate issued by ACM to validate ownership of
+-- your custom domain. Only required when configuring mutual TLS and using
+-- an ACM imported or private CA certificate ARN as the
+-- regionalCertificateArn.
+createDomainName_ownershipVerificationCertificateArn :: Lens.Lens' CreateDomainName (Prelude.Maybe Prelude.Text)
+createDomainName_ownershipVerificationCertificateArn = Lens.lens (\CreateDomainName' {ownershipVerificationCertificateArn} -> ownershipVerificationCertificateArn) (\s@CreateDomainName' {} a -> s {ownershipVerificationCertificateArn = a} :: CreateDomainName)
 
 -- | The user-friendly name of the certificate that will be used by
 -- edge-optimized endpoint for this domain name.
@@ -297,10 +318,12 @@ instance Core.ToJSON CreateDomainName where
               Prelude.<$> securityPolicy,
             ("certificateChain" Core..=)
               Prelude.<$> certificateChain,
-            ("certificateBody" Core..=)
-              Prelude.<$> certificateBody,
             ("regionalCertificateArn" Core..=)
               Prelude.<$> regionalCertificateArn,
+            ("certificateBody" Core..=)
+              Prelude.<$> certificateBody,
+            ("ownershipVerificationCertificateArn" Core..=)
+              Prelude.<$> ownershipVerificationCertificateArn,
             ("certificateName" Core..=)
               Prelude.<$> certificateName,
             Prelude.Just ("domainName" Core..= domainName)

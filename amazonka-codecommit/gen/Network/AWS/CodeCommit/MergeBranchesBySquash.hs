@@ -27,12 +27,12 @@ module Network.AWS.CodeCommit.MergeBranchesBySquash
     newMergeBranchesBySquash,
 
     -- * Request Lenses
-    mergeBranchesBySquash_commitMessage,
     mergeBranchesBySquash_authorName,
+    mergeBranchesBySquash_commitMessage,
     mergeBranchesBySquash_email,
     mergeBranchesBySquash_conflictDetailLevel,
-    mergeBranchesBySquash_conflictResolutionStrategy,
     mergeBranchesBySquash_keepEmptyFolders,
+    mergeBranchesBySquash_conflictResolutionStrategy,
     mergeBranchesBySquash_conflictResolution,
     mergeBranchesBySquash_targetBranch,
     mergeBranchesBySquash_repositoryName,
@@ -59,11 +59,11 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newMergeBranchesBySquash' smart constructor.
 data MergeBranchesBySquash = MergeBranchesBySquash'
-  { -- | The commit message for the merge.
-    commitMessage :: Prelude.Maybe Prelude.Text,
-    -- | The name of the author who created the commit. This information is used
+  { -- | The name of the author who created the commit. This information is used
     -- as both the author and committer for the commit.
     authorName :: Prelude.Maybe Prelude.Text,
+    -- | The commit message for the merge.
+    commitMessage :: Prelude.Maybe Prelude.Text,
     -- | The email address of the person merging the branches. This information
     -- is used in the commit information for the merge.
     email :: Prelude.Maybe Prelude.Text,
@@ -73,16 +73,16 @@ data MergeBranchesBySquash = MergeBranchesBySquash'
     -- conflict is considered not mergeable if the same file in both branches
     -- has differences on the same line.
     conflictDetailLevel :: Prelude.Maybe ConflictDetailLevelTypeEnum,
-    -- | Specifies which branch to use when resolving conflicts, or whether to
-    -- attempt automatically merging two versions of a file. The default is
-    -- NONE, which requires any conflicts to be resolved manually before the
-    -- merge operation is successful.
-    conflictResolutionStrategy :: Prelude.Maybe ConflictResolutionStrategyTypeEnum,
     -- | If the commit contains deletions, whether to keep a folder or folder
     -- structure if the changes leave the folders empty. If this is specified
     -- as true, a .gitkeep file is created for empty folders. The default is
     -- false.
     keepEmptyFolders :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies which branch to use when resolving conflicts, or whether to
+    -- attempt automatically merging two versions of a file. The default is
+    -- NONE, which requires any conflicts to be resolved manually before the
+    -- merge operation is successful.
+    conflictResolutionStrategy :: Prelude.Maybe ConflictResolutionStrategyTypeEnum,
     -- | If AUTOMERGE is the conflict resolution strategy, a list of inputs to
     -- use when resolving conflicts during a merge.
     conflictResolution :: Prelude.Maybe ConflictResolution,
@@ -107,10 +107,10 @@ data MergeBranchesBySquash = MergeBranchesBySquash'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'commitMessage', 'mergeBranchesBySquash_commitMessage' - The commit message for the merge.
---
 -- 'authorName', 'mergeBranchesBySquash_authorName' - The name of the author who created the commit. This information is used
 -- as both the author and committer for the commit.
+--
+-- 'commitMessage', 'mergeBranchesBySquash_commitMessage' - The commit message for the merge.
 --
 -- 'email', 'mergeBranchesBySquash_email' - The email address of the person merging the branches. This information
 -- is used in the commit information for the merge.
@@ -121,15 +121,15 @@ data MergeBranchesBySquash = MergeBranchesBySquash'
 -- conflict is considered not mergeable if the same file in both branches
 -- has differences on the same line.
 --
--- 'conflictResolutionStrategy', 'mergeBranchesBySquash_conflictResolutionStrategy' - Specifies which branch to use when resolving conflicts, or whether to
--- attempt automatically merging two versions of a file. The default is
--- NONE, which requires any conflicts to be resolved manually before the
--- merge operation is successful.
---
 -- 'keepEmptyFolders', 'mergeBranchesBySquash_keepEmptyFolders' - If the commit contains deletions, whether to keep a folder or folder
 -- structure if the changes leave the folders empty. If this is specified
 -- as true, a .gitkeep file is created for empty folders. The default is
 -- false.
+--
+-- 'conflictResolutionStrategy', 'mergeBranchesBySquash_conflictResolutionStrategy' - Specifies which branch to use when resolving conflicts, or whether to
+-- attempt automatically merging two versions of a file. The default is
+-- NONE, which requires any conflicts to be resolved manually before the
+-- merge operation is successful.
 --
 -- 'conflictResolution', 'mergeBranchesBySquash_conflictResolution' - If AUTOMERGE is the conflict resolution strategy, a list of inputs to
 -- use when resolving conflicts during a merge.
@@ -156,13 +156,13 @@ newMergeBranchesBySquash
   pSourceCommitSpecifier_
   pDestinationCommitSpecifier_ =
     MergeBranchesBySquash'
-      { commitMessage =
+      { authorName =
           Prelude.Nothing,
-        authorName = Prelude.Nothing,
+        commitMessage = Prelude.Nothing,
         email = Prelude.Nothing,
         conflictDetailLevel = Prelude.Nothing,
-        conflictResolutionStrategy = Prelude.Nothing,
         keepEmptyFolders = Prelude.Nothing,
+        conflictResolutionStrategy = Prelude.Nothing,
         conflictResolution = Prelude.Nothing,
         targetBranch = Prelude.Nothing,
         repositoryName = pRepositoryName_,
@@ -171,14 +171,14 @@ newMergeBranchesBySquash
           pDestinationCommitSpecifier_
       }
 
--- | The commit message for the merge.
-mergeBranchesBySquash_commitMessage :: Lens.Lens' MergeBranchesBySquash (Prelude.Maybe Prelude.Text)
-mergeBranchesBySquash_commitMessage = Lens.lens (\MergeBranchesBySquash' {commitMessage} -> commitMessage) (\s@MergeBranchesBySquash' {} a -> s {commitMessage = a} :: MergeBranchesBySquash)
-
 -- | The name of the author who created the commit. This information is used
 -- as both the author and committer for the commit.
 mergeBranchesBySquash_authorName :: Lens.Lens' MergeBranchesBySquash (Prelude.Maybe Prelude.Text)
 mergeBranchesBySquash_authorName = Lens.lens (\MergeBranchesBySquash' {authorName} -> authorName) (\s@MergeBranchesBySquash' {} a -> s {authorName = a} :: MergeBranchesBySquash)
+
+-- | The commit message for the merge.
+mergeBranchesBySquash_commitMessage :: Lens.Lens' MergeBranchesBySquash (Prelude.Maybe Prelude.Text)
+mergeBranchesBySquash_commitMessage = Lens.lens (\MergeBranchesBySquash' {commitMessage} -> commitMessage) (\s@MergeBranchesBySquash' {} a -> s {commitMessage = a} :: MergeBranchesBySquash)
 
 -- | The email address of the person merging the branches. This information
 -- is used in the commit information for the merge.
@@ -193,19 +193,19 @@ mergeBranchesBySquash_email = Lens.lens (\MergeBranchesBySquash' {email} -> emai
 mergeBranchesBySquash_conflictDetailLevel :: Lens.Lens' MergeBranchesBySquash (Prelude.Maybe ConflictDetailLevelTypeEnum)
 mergeBranchesBySquash_conflictDetailLevel = Lens.lens (\MergeBranchesBySquash' {conflictDetailLevel} -> conflictDetailLevel) (\s@MergeBranchesBySquash' {} a -> s {conflictDetailLevel = a} :: MergeBranchesBySquash)
 
--- | Specifies which branch to use when resolving conflicts, or whether to
--- attempt automatically merging two versions of a file. The default is
--- NONE, which requires any conflicts to be resolved manually before the
--- merge operation is successful.
-mergeBranchesBySquash_conflictResolutionStrategy :: Lens.Lens' MergeBranchesBySquash (Prelude.Maybe ConflictResolutionStrategyTypeEnum)
-mergeBranchesBySquash_conflictResolutionStrategy = Lens.lens (\MergeBranchesBySquash' {conflictResolutionStrategy} -> conflictResolutionStrategy) (\s@MergeBranchesBySquash' {} a -> s {conflictResolutionStrategy = a} :: MergeBranchesBySquash)
-
 -- | If the commit contains deletions, whether to keep a folder or folder
 -- structure if the changes leave the folders empty. If this is specified
 -- as true, a .gitkeep file is created for empty folders. The default is
 -- false.
 mergeBranchesBySquash_keepEmptyFolders :: Lens.Lens' MergeBranchesBySquash (Prelude.Maybe Prelude.Bool)
 mergeBranchesBySquash_keepEmptyFolders = Lens.lens (\MergeBranchesBySquash' {keepEmptyFolders} -> keepEmptyFolders) (\s@MergeBranchesBySquash' {} a -> s {keepEmptyFolders = a} :: MergeBranchesBySquash)
+
+-- | Specifies which branch to use when resolving conflicts, or whether to
+-- attempt automatically merging two versions of a file. The default is
+-- NONE, which requires any conflicts to be resolved manually before the
+-- merge operation is successful.
+mergeBranchesBySquash_conflictResolutionStrategy :: Lens.Lens' MergeBranchesBySquash (Prelude.Maybe ConflictResolutionStrategyTypeEnum)
+mergeBranchesBySquash_conflictResolutionStrategy = Lens.lens (\MergeBranchesBySquash' {conflictResolutionStrategy} -> conflictResolutionStrategy) (\s@MergeBranchesBySquash' {} a -> s {conflictResolutionStrategy = a} :: MergeBranchesBySquash)
 
 -- | If AUTOMERGE is the conflict resolution strategy, a list of inputs to
 -- use when resolving conflicts during a merge.
@@ -267,15 +267,15 @@ instance Core.ToJSON MergeBranchesBySquash where
   toJSON MergeBranchesBySquash' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("commitMessage" Core..=) Prelude.<$> commitMessage,
-            ("authorName" Core..=) Prelude.<$> authorName,
+          [ ("authorName" Core..=) Prelude.<$> authorName,
+            ("commitMessage" Core..=) Prelude.<$> commitMessage,
             ("email" Core..=) Prelude.<$> email,
             ("conflictDetailLevel" Core..=)
               Prelude.<$> conflictDetailLevel,
-            ("conflictResolutionStrategy" Core..=)
-              Prelude.<$> conflictResolutionStrategy,
             ("keepEmptyFolders" Core..=)
               Prelude.<$> keepEmptyFolders,
+            ("conflictResolutionStrategy" Core..=)
+              Prelude.<$> conflictResolutionStrategy,
             ("conflictResolution" Core..=)
               Prelude.<$> conflictResolution,
             ("targetBranch" Core..=) Prelude.<$> targetBranch,

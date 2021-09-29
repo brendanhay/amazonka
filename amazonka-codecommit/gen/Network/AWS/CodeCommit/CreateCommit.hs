@@ -30,8 +30,8 @@ module Network.AWS.CodeCommit.CreateCommit
     createCommit_deleteFiles,
     createCommit_setFileModes,
     createCommit_parentCommitId,
-    createCommit_commitMessage,
     createCommit_authorName,
+    createCommit_commitMessage,
     createCommit_putFiles,
     createCommit_email,
     createCommit_keepEmptyFolders,
@@ -46,8 +46,8 @@ module Network.AWS.CodeCommit.CreateCommit
     createCommitResponse_commitId,
     createCommitResponse_treeId,
     createCommitResponse_filesAdded,
-    createCommitResponse_filesUpdated,
     createCommitResponse_filesDeleted,
+    createCommitResponse_filesUpdated,
     createCommitResponse_httpStatus,
   )
 where
@@ -69,13 +69,13 @@ data CreateCommit = CreateCommit'
     -- | The ID of the commit that is the parent of the commit you create. Not
     -- required if this is an empty repository.
     parentCommitId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the author who created the commit. This information is used
+    -- as both the author and committer for the commit.
+    authorName :: Prelude.Maybe Prelude.Text,
     -- | The commit message you want to include in the commit. Commit messages
     -- are limited to 256 KB. If no message is specified, a default message is
     -- used.
     commitMessage :: Prelude.Maybe Prelude.Text,
-    -- | The name of the author who created the commit. This information is used
-    -- as both the author and committer for the commit.
-    authorName :: Prelude.Maybe Prelude.Text,
     -- | The files to add or update in this commit.
     putFiles :: Prelude.Maybe [PutFileEntry],
     -- | The email address of the person who created the commit.
@@ -107,12 +107,12 @@ data CreateCommit = CreateCommit'
 -- 'parentCommitId', 'createCommit_parentCommitId' - The ID of the commit that is the parent of the commit you create. Not
 -- required if this is an empty repository.
 --
+-- 'authorName', 'createCommit_authorName' - The name of the author who created the commit. This information is used
+-- as both the author and committer for the commit.
+--
 -- 'commitMessage', 'createCommit_commitMessage' - The commit message you want to include in the commit. Commit messages
 -- are limited to 256 KB. If no message is specified, a default message is
 -- used.
---
--- 'authorName', 'createCommit_authorName' - The name of the author who created the commit. This information is used
--- as both the author and committer for the commit.
 --
 -- 'putFiles', 'createCommit_putFiles' - The files to add or update in this commit.
 --
@@ -136,8 +136,8 @@ newCreateCommit pRepositoryName_ pBranchName_ =
     { deleteFiles = Prelude.Nothing,
       setFileModes = Prelude.Nothing,
       parentCommitId = Prelude.Nothing,
-      commitMessage = Prelude.Nothing,
       authorName = Prelude.Nothing,
+      commitMessage = Prelude.Nothing,
       putFiles = Prelude.Nothing,
       email = Prelude.Nothing,
       keepEmptyFolders = Prelude.Nothing,
@@ -159,16 +159,16 @@ createCommit_setFileModes = Lens.lens (\CreateCommit' {setFileModes} -> setFileM
 createCommit_parentCommitId :: Lens.Lens' CreateCommit (Prelude.Maybe Prelude.Text)
 createCommit_parentCommitId = Lens.lens (\CreateCommit' {parentCommitId} -> parentCommitId) (\s@CreateCommit' {} a -> s {parentCommitId = a} :: CreateCommit)
 
+-- | The name of the author who created the commit. This information is used
+-- as both the author and committer for the commit.
+createCommit_authorName :: Lens.Lens' CreateCommit (Prelude.Maybe Prelude.Text)
+createCommit_authorName = Lens.lens (\CreateCommit' {authorName} -> authorName) (\s@CreateCommit' {} a -> s {authorName = a} :: CreateCommit)
+
 -- | The commit message you want to include in the commit. Commit messages
 -- are limited to 256 KB. If no message is specified, a default message is
 -- used.
 createCommit_commitMessage :: Lens.Lens' CreateCommit (Prelude.Maybe Prelude.Text)
 createCommit_commitMessage = Lens.lens (\CreateCommit' {commitMessage} -> commitMessage) (\s@CreateCommit' {} a -> s {commitMessage = a} :: CreateCommit)
-
--- | The name of the author who created the commit. This information is used
--- as both the author and committer for the commit.
-createCommit_authorName :: Lens.Lens' CreateCommit (Prelude.Maybe Prelude.Text)
-createCommit_authorName = Lens.lens (\CreateCommit' {authorName} -> authorName) (\s@CreateCommit' {} a -> s {authorName = a} :: CreateCommit)
 
 -- | The files to add or update in this commit.
 createCommit_putFiles :: Lens.Lens' CreateCommit (Prelude.Maybe [PutFileEntry])
@@ -202,8 +202,8 @@ instance Core.AWSRequest CreateCommit where
             Prelude.<$> (x Core..?> "commitId")
             Prelude.<*> (x Core..?> "treeId")
             Prelude.<*> (x Core..?> "filesAdded" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "filesUpdated" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "filesDeleted" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "filesUpdated" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -234,8 +234,8 @@ instance Core.ToJSON CreateCommit where
             ("setFileModes" Core..=) Prelude.<$> setFileModes,
             ("parentCommitId" Core..=)
               Prelude.<$> parentCommitId,
-            ("commitMessage" Core..=) Prelude.<$> commitMessage,
             ("authorName" Core..=) Prelude.<$> authorName,
+            ("commitMessage" Core..=) Prelude.<$> commitMessage,
             ("putFiles" Core..=) Prelude.<$> putFiles,
             ("email" Core..=) Prelude.<$> email,
             ("keepEmptyFolders" Core..=)
@@ -262,10 +262,10 @@ data CreateCommitResponse = CreateCommitResponse'
     treeId :: Prelude.Maybe Prelude.Text,
     -- | The files added as part of the committed file changes.
     filesAdded :: Prelude.Maybe [FileMetadata],
-    -- | The files updated as part of the commited file changes.
-    filesUpdated :: Prelude.Maybe [FileMetadata],
     -- | The files deleted as part of the committed file changes.
     filesDeleted :: Prelude.Maybe [FileMetadata],
+    -- | The files updated as part of the commited file changes.
+    filesUpdated :: Prelude.Maybe [FileMetadata],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -287,9 +287,9 @@ data CreateCommitResponse = CreateCommitResponse'
 --
 -- 'filesAdded', 'createCommitResponse_filesAdded' - The files added as part of the committed file changes.
 --
--- 'filesUpdated', 'createCommitResponse_filesUpdated' - The files updated as part of the commited file changes.
---
 -- 'filesDeleted', 'createCommitResponse_filesDeleted' - The files deleted as part of the committed file changes.
+--
+-- 'filesUpdated', 'createCommitResponse_filesUpdated' - The files updated as part of the commited file changes.
 --
 -- 'httpStatus', 'createCommitResponse_httpStatus' - The response's http status code.
 newCreateCommitResponse ::
@@ -301,8 +301,8 @@ newCreateCommitResponse pHttpStatus_ =
     { commitId = Prelude.Nothing,
       treeId = Prelude.Nothing,
       filesAdded = Prelude.Nothing,
-      filesUpdated = Prelude.Nothing,
       filesDeleted = Prelude.Nothing,
+      filesUpdated = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -320,13 +320,13 @@ createCommitResponse_treeId = Lens.lens (\CreateCommitResponse' {treeId} -> tree
 createCommitResponse_filesAdded :: Lens.Lens' CreateCommitResponse (Prelude.Maybe [FileMetadata])
 createCommitResponse_filesAdded = Lens.lens (\CreateCommitResponse' {filesAdded} -> filesAdded) (\s@CreateCommitResponse' {} a -> s {filesAdded = a} :: CreateCommitResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | The files updated as part of the commited file changes.
-createCommitResponse_filesUpdated :: Lens.Lens' CreateCommitResponse (Prelude.Maybe [FileMetadata])
-createCommitResponse_filesUpdated = Lens.lens (\CreateCommitResponse' {filesUpdated} -> filesUpdated) (\s@CreateCommitResponse' {} a -> s {filesUpdated = a} :: CreateCommitResponse) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The files deleted as part of the committed file changes.
 createCommitResponse_filesDeleted :: Lens.Lens' CreateCommitResponse (Prelude.Maybe [FileMetadata])
 createCommitResponse_filesDeleted = Lens.lens (\CreateCommitResponse' {filesDeleted} -> filesDeleted) (\s@CreateCommitResponse' {} a -> s {filesDeleted = a} :: CreateCommitResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The files updated as part of the commited file changes.
+createCommitResponse_filesUpdated :: Lens.Lens' CreateCommitResponse (Prelude.Maybe [FileMetadata])
+createCommitResponse_filesUpdated = Lens.lens (\CreateCommitResponse' {filesUpdated} -> filesUpdated) (\s@CreateCommitResponse' {} a -> s {filesUpdated = a} :: CreateCommitResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 createCommitResponse_httpStatus :: Lens.Lens' CreateCommitResponse Prelude.Int

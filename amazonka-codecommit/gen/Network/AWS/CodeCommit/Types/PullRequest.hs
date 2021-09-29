@@ -30,11 +30,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newPullRequest' smart constructor.
 data PullRequest = PullRequest'
-  { -- | The system-generated revision ID for the pull request.
-    revisionId :: Prelude.Maybe Prelude.Text,
-    -- | The targets of the pull request, including the source branch and
+  { -- | The targets of the pull request, including the source branch and
     -- destination branch for the pull request.
     pullRequestTargets :: Prelude.Maybe [PullRequestTarget],
+    -- | The system-generated revision ID for the pull request.
+    revisionId :: Prelude.Maybe Prelude.Text,
     -- | The user-defined title of the pull request. This title is displayed in
     -- the list of pull requests to other repository users.
     title :: Prelude.Maybe Prelude.Text,
@@ -50,15 +50,15 @@ data PullRequest = PullRequest'
     -- be used to clarify what should be reviewed and other details of the
     -- request.
     description :: Prelude.Maybe Prelude.Text,
+    -- | The day and time of the last user or system activity on the pull
+    -- request, in timestamp format.
+    lastActivityDate :: Prelude.Maybe Core.POSIX,
     -- | A unique, client-generated idempotency token that, when provided in a
     -- request, ensures the request cannot be repeated with a changed
     -- parameter. If a request is received with the same parameters and a token
     -- is included, the request returns information about the initial request
     -- that used that token.
     clientRequestToken :: Prelude.Maybe Prelude.Text,
-    -- | The day and time of the last user or system activity on the pull
-    -- request, in timestamp format.
-    lastActivityDate :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the user who created the pull request.
     authorArn :: Prelude.Maybe Prelude.Text,
     -- | The approval rules applied to the pull request.
@@ -74,10 +74,10 @@ data PullRequest = PullRequest'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'revisionId', 'pullRequest_revisionId' - The system-generated revision ID for the pull request.
---
 -- 'pullRequestTargets', 'pullRequest_pullRequestTargets' - The targets of the pull request, including the source branch and
 -- destination branch for the pull request.
+--
+-- 'revisionId', 'pullRequest_revisionId' - The system-generated revision ID for the pull request.
 --
 -- 'title', 'pullRequest_title' - The user-defined title of the pull request. This title is displayed in
 -- the list of pull requests to other repository users.
@@ -94,14 +94,14 @@ data PullRequest = PullRequest'
 -- be used to clarify what should be reviewed and other details of the
 -- request.
 --
+-- 'lastActivityDate', 'pullRequest_lastActivityDate' - The day and time of the last user or system activity on the pull
+-- request, in timestamp format.
+--
 -- 'clientRequestToken', 'pullRequest_clientRequestToken' - A unique, client-generated idempotency token that, when provided in a
 -- request, ensures the request cannot be repeated with a changed
 -- parameter. If a request is received with the same parameters and a token
 -- is included, the request returns information about the initial request
 -- that used that token.
---
--- 'lastActivityDate', 'pullRequest_lastActivityDate' - The day and time of the last user or system activity on the pull
--- request, in timestamp format.
 --
 -- 'authorArn', 'pullRequest_authorArn' - The Amazon Resource Name (ARN) of the user who created the pull request.
 --
@@ -110,27 +110,27 @@ newPullRequest ::
   PullRequest
 newPullRequest =
   PullRequest'
-    { revisionId = Prelude.Nothing,
-      pullRequestTargets = Prelude.Nothing,
+    { pullRequestTargets = Prelude.Nothing,
+      revisionId = Prelude.Nothing,
       title = Prelude.Nothing,
       pullRequestStatus = Prelude.Nothing,
       creationDate = Prelude.Nothing,
       pullRequestId = Prelude.Nothing,
       description = Prelude.Nothing,
-      clientRequestToken = Prelude.Nothing,
       lastActivityDate = Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
       authorArn = Prelude.Nothing,
       approvalRules = Prelude.Nothing
     }
-
--- | The system-generated revision ID for the pull request.
-pullRequest_revisionId :: Lens.Lens' PullRequest (Prelude.Maybe Prelude.Text)
-pullRequest_revisionId = Lens.lens (\PullRequest' {revisionId} -> revisionId) (\s@PullRequest' {} a -> s {revisionId = a} :: PullRequest)
 
 -- | The targets of the pull request, including the source branch and
 -- destination branch for the pull request.
 pullRequest_pullRequestTargets :: Lens.Lens' PullRequest (Prelude.Maybe [PullRequestTarget])
 pullRequest_pullRequestTargets = Lens.lens (\PullRequest' {pullRequestTargets} -> pullRequestTargets) (\s@PullRequest' {} a -> s {pullRequestTargets = a} :: PullRequest) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The system-generated revision ID for the pull request.
+pullRequest_revisionId :: Lens.Lens' PullRequest (Prelude.Maybe Prelude.Text)
+pullRequest_revisionId = Lens.lens (\PullRequest' {revisionId} -> revisionId) (\s@PullRequest' {} a -> s {revisionId = a} :: PullRequest)
 
 -- | The user-defined title of the pull request. This title is displayed in
 -- the list of pull requests to other repository users.
@@ -157,6 +157,11 @@ pullRequest_pullRequestId = Lens.lens (\PullRequest' {pullRequestId} -> pullRequ
 pullRequest_description :: Lens.Lens' PullRequest (Prelude.Maybe Prelude.Text)
 pullRequest_description = Lens.lens (\PullRequest' {description} -> description) (\s@PullRequest' {} a -> s {description = a} :: PullRequest)
 
+-- | The day and time of the last user or system activity on the pull
+-- request, in timestamp format.
+pullRequest_lastActivityDate :: Lens.Lens' PullRequest (Prelude.Maybe Prelude.UTCTime)
+pullRequest_lastActivityDate = Lens.lens (\PullRequest' {lastActivityDate} -> lastActivityDate) (\s@PullRequest' {} a -> s {lastActivityDate = a} :: PullRequest) Prelude.. Lens.mapping Core._Time
+
 -- | A unique, client-generated idempotency token that, when provided in a
 -- request, ensures the request cannot be repeated with a changed
 -- parameter. If a request is received with the same parameters and a token
@@ -164,11 +169,6 @@ pullRequest_description = Lens.lens (\PullRequest' {description} -> description)
 -- that used that token.
 pullRequest_clientRequestToken :: Lens.Lens' PullRequest (Prelude.Maybe Prelude.Text)
 pullRequest_clientRequestToken = Lens.lens (\PullRequest' {clientRequestToken} -> clientRequestToken) (\s@PullRequest' {} a -> s {clientRequestToken = a} :: PullRequest)
-
--- | The day and time of the last user or system activity on the pull
--- request, in timestamp format.
-pullRequest_lastActivityDate :: Lens.Lens' PullRequest (Prelude.Maybe Prelude.UTCTime)
-pullRequest_lastActivityDate = Lens.lens (\PullRequest' {lastActivityDate} -> lastActivityDate) (\s@PullRequest' {} a -> s {lastActivityDate = a} :: PullRequest) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the user who created the pull request.
 pullRequest_authorArn :: Lens.Lens' PullRequest (Prelude.Maybe Prelude.Text)
@@ -184,17 +184,17 @@ instance Core.FromJSON PullRequest where
       "PullRequest"
       ( \x ->
           PullRequest'
-            Prelude.<$> (x Core..:? "revisionId")
-            Prelude.<*> ( x Core..:? "pullRequestTargets"
+            Prelude.<$> ( x Core..:? "pullRequestTargets"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "revisionId")
             Prelude.<*> (x Core..:? "title")
             Prelude.<*> (x Core..:? "pullRequestStatus")
             Prelude.<*> (x Core..:? "creationDate")
             Prelude.<*> (x Core..:? "pullRequestId")
             Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "clientRequestToken")
             Prelude.<*> (x Core..:? "lastActivityDate")
+            Prelude.<*> (x Core..:? "clientRequestToken")
             Prelude.<*> (x Core..:? "authorArn")
             Prelude.<*> (x Core..:? "approvalRules" Core..!= Prelude.mempty)
       )

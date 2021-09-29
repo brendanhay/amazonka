@@ -45,12 +45,12 @@ data PullRequestTarget = PullRequestTarget'
     -- | The branch of the repository that contains the changes for the pull
     -- request. Also known as the source branch.
     sourceReference :: Prelude.Maybe Prelude.Text,
-    -- | The full commit ID that is the tip of the destination branch. This is
-    -- the commit where the pull request was or will be merged.
-    destinationCommit :: Prelude.Maybe Prelude.Text,
     -- | The commit ID of the most recent commit that the source branch and the
     -- destination branch have in common.
-    mergeBase :: Prelude.Maybe Prelude.Text
+    mergeBase :: Prelude.Maybe Prelude.Text,
+    -- | The full commit ID that is the tip of the destination branch. This is
+    -- the commit where the pull request was or will be merged.
+    destinationCommit :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,11 +79,11 @@ data PullRequestTarget = PullRequestTarget'
 -- 'sourceReference', 'pullRequestTarget_sourceReference' - The branch of the repository that contains the changes for the pull
 -- request. Also known as the source branch.
 --
--- 'destinationCommit', 'pullRequestTarget_destinationCommit' - The full commit ID that is the tip of the destination branch. This is
--- the commit where the pull request was or will be merged.
---
 -- 'mergeBase', 'pullRequestTarget_mergeBase' - The commit ID of the most recent commit that the source branch and the
 -- destination branch have in common.
+--
+-- 'destinationCommit', 'pullRequestTarget_destinationCommit' - The full commit ID that is the tip of the destination branch. This is
+-- the commit where the pull request was or will be merged.
 newPullRequestTarget ::
   PullRequestTarget
 newPullRequestTarget =
@@ -94,8 +94,8 @@ newPullRequestTarget =
       mergeMetadata = Prelude.Nothing,
       repositoryName = Prelude.Nothing,
       sourceReference = Prelude.Nothing,
-      destinationCommit = Prelude.Nothing,
-      mergeBase = Prelude.Nothing
+      mergeBase = Prelude.Nothing,
+      destinationCommit = Prelude.Nothing
     }
 
 -- | The branch of the repository where the pull request changes are merged.
@@ -125,15 +125,15 @@ pullRequestTarget_repositoryName = Lens.lens (\PullRequestTarget' {repositoryNam
 pullRequestTarget_sourceReference :: Lens.Lens' PullRequestTarget (Prelude.Maybe Prelude.Text)
 pullRequestTarget_sourceReference = Lens.lens (\PullRequestTarget' {sourceReference} -> sourceReference) (\s@PullRequestTarget' {} a -> s {sourceReference = a} :: PullRequestTarget)
 
--- | The full commit ID that is the tip of the destination branch. This is
--- the commit where the pull request was or will be merged.
-pullRequestTarget_destinationCommit :: Lens.Lens' PullRequestTarget (Prelude.Maybe Prelude.Text)
-pullRequestTarget_destinationCommit = Lens.lens (\PullRequestTarget' {destinationCommit} -> destinationCommit) (\s@PullRequestTarget' {} a -> s {destinationCommit = a} :: PullRequestTarget)
-
 -- | The commit ID of the most recent commit that the source branch and the
 -- destination branch have in common.
 pullRequestTarget_mergeBase :: Lens.Lens' PullRequestTarget (Prelude.Maybe Prelude.Text)
 pullRequestTarget_mergeBase = Lens.lens (\PullRequestTarget' {mergeBase} -> mergeBase) (\s@PullRequestTarget' {} a -> s {mergeBase = a} :: PullRequestTarget)
+
+-- | The full commit ID that is the tip of the destination branch. This is
+-- the commit where the pull request was or will be merged.
+pullRequestTarget_destinationCommit :: Lens.Lens' PullRequestTarget (Prelude.Maybe Prelude.Text)
+pullRequestTarget_destinationCommit = Lens.lens (\PullRequestTarget' {destinationCommit} -> destinationCommit) (\s@PullRequestTarget' {} a -> s {destinationCommit = a} :: PullRequestTarget)
 
 instance Core.FromJSON PullRequestTarget where
   parseJSON =
@@ -146,8 +146,8 @@ instance Core.FromJSON PullRequestTarget where
             Prelude.<*> (x Core..:? "mergeMetadata")
             Prelude.<*> (x Core..:? "repositoryName")
             Prelude.<*> (x Core..:? "sourceReference")
-            Prelude.<*> (x Core..:? "destinationCommit")
             Prelude.<*> (x Core..:? "mergeBase")
+            Prelude.<*> (x Core..:? "destinationCommit")
       )
 
 instance Prelude.Hashable PullRequestTarget

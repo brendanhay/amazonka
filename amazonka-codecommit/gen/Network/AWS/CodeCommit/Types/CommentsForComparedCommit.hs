@@ -41,12 +41,12 @@ data CommentsForComparedCommit = CommentsForComparedCommit'
     -- | The full blob ID of the commit used to establish the after of the
     -- comparison.
     afterBlobId :: Prelude.Maybe Prelude.Text,
-    -- | An array of comment objects. Each comment object contains information
-    -- about a comment on the comparison between commits.
-    comments :: Prelude.Maybe [Comment],
     -- | The full commit ID of the commit used to establish the after of the
     -- comparison.
     afterCommitId :: Prelude.Maybe Prelude.Text,
+    -- | An array of comment objects. Each comment object contains information
+    -- about a comment on the comparison between commits.
+    comments :: Prelude.Maybe [Comment],
     -- | Location information about the comment on the comparison, including the
     -- file name, line number, and whether the version of the file where the
     -- comment was made is BEFORE or AFTER.
@@ -73,11 +73,11 @@ data CommentsForComparedCommit = CommentsForComparedCommit'
 -- 'afterBlobId', 'commentsForComparedCommit_afterBlobId' - The full blob ID of the commit used to establish the after of the
 -- comparison.
 --
--- 'comments', 'commentsForComparedCommit_comments' - An array of comment objects. Each comment object contains information
--- about a comment on the comparison between commits.
---
 -- 'afterCommitId', 'commentsForComparedCommit_afterCommitId' - The full commit ID of the commit used to establish the after of the
 -- comparison.
+--
+-- 'comments', 'commentsForComparedCommit_comments' - An array of comment objects. Each comment object contains information
+-- about a comment on the comparison between commits.
 --
 -- 'location', 'commentsForComparedCommit_location' - Location information about the comment on the comparison, including the
 -- file name, line number, and whether the version of the file where the
@@ -91,8 +91,8 @@ newCommentsForComparedCommit =
       repositoryName = Prelude.Nothing,
       beforeCommitId = Prelude.Nothing,
       afterBlobId = Prelude.Nothing,
-      comments = Prelude.Nothing,
       afterCommitId = Prelude.Nothing,
+      comments = Prelude.Nothing,
       location = Prelude.Nothing
     }
 
@@ -115,15 +115,15 @@ commentsForComparedCommit_beforeCommitId = Lens.lens (\CommentsForComparedCommit
 commentsForComparedCommit_afterBlobId :: Lens.Lens' CommentsForComparedCommit (Prelude.Maybe Prelude.Text)
 commentsForComparedCommit_afterBlobId = Lens.lens (\CommentsForComparedCommit' {afterBlobId} -> afterBlobId) (\s@CommentsForComparedCommit' {} a -> s {afterBlobId = a} :: CommentsForComparedCommit)
 
--- | An array of comment objects. Each comment object contains information
--- about a comment on the comparison between commits.
-commentsForComparedCommit_comments :: Lens.Lens' CommentsForComparedCommit (Prelude.Maybe [Comment])
-commentsForComparedCommit_comments = Lens.lens (\CommentsForComparedCommit' {comments} -> comments) (\s@CommentsForComparedCommit' {} a -> s {comments = a} :: CommentsForComparedCommit) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The full commit ID of the commit used to establish the after of the
 -- comparison.
 commentsForComparedCommit_afterCommitId :: Lens.Lens' CommentsForComparedCommit (Prelude.Maybe Prelude.Text)
 commentsForComparedCommit_afterCommitId = Lens.lens (\CommentsForComparedCommit' {afterCommitId} -> afterCommitId) (\s@CommentsForComparedCommit' {} a -> s {afterCommitId = a} :: CommentsForComparedCommit)
+
+-- | An array of comment objects. Each comment object contains information
+-- about a comment on the comparison between commits.
+commentsForComparedCommit_comments :: Lens.Lens' CommentsForComparedCommit (Prelude.Maybe [Comment])
+commentsForComparedCommit_comments = Lens.lens (\CommentsForComparedCommit' {comments} -> comments) (\s@CommentsForComparedCommit' {} a -> s {comments = a} :: CommentsForComparedCommit) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Location information about the comment on the comparison, including the
 -- file name, line number, and whether the version of the file where the
@@ -141,8 +141,8 @@ instance Core.FromJSON CommentsForComparedCommit where
             Prelude.<*> (x Core..:? "repositoryName")
             Prelude.<*> (x Core..:? "beforeCommitId")
             Prelude.<*> (x Core..:? "afterBlobId")
-            Prelude.<*> (x Core..:? "comments" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "afterCommitId")
+            Prelude.<*> (x Core..:? "comments" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "location")
       )
 

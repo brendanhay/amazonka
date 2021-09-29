@@ -35,15 +35,15 @@ data Comment = Comment'
     lastModifiedDate :: Prelude.Maybe Core.POSIX,
     -- | The date and time the comment was created, in timestamp format.
     creationDate :: Prelude.Maybe Core.POSIX,
+    -- | The content of the comment.
+    content :: Prelude.Maybe Prelude.Text,
     -- | A string to integer map that represents the number of individual users
     -- who have responded to a comment with the specified reactions.
     reactionCounts :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Int),
-    -- | The content of the comment.
-    content :: Prelude.Maybe Prelude.Text,
-    -- | The system-generated comment ID.
-    commentId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the comment for which this comment is a reply, if any.
     inReplyTo :: Prelude.Maybe Prelude.Text,
+    -- | The system-generated comment ID.
+    commentId :: Prelude.Maybe Prelude.Text,
     -- | A unique, client-generated idempotency token that, when provided in a
     -- request, ensures the request cannot be repeated with a changed
     -- parameter. If a request is received with the same parameters and a token
@@ -73,14 +73,14 @@ data Comment = Comment'
 --
 -- 'creationDate', 'comment_creationDate' - The date and time the comment was created, in timestamp format.
 --
+-- 'content', 'comment_content' - The content of the comment.
+--
 -- 'reactionCounts', 'comment_reactionCounts' - A string to integer map that represents the number of individual users
 -- who have responded to a comment with the specified reactions.
 --
--- 'content', 'comment_content' - The content of the comment.
+-- 'inReplyTo', 'comment_inReplyTo' - The ID of the comment for which this comment is a reply, if any.
 --
 -- 'commentId', 'comment_commentId' - The system-generated comment ID.
---
--- 'inReplyTo', 'comment_inReplyTo' - The ID of the comment for which this comment is a reply, if any.
 --
 -- 'clientRequestToken', 'comment_clientRequestToken' - A unique, client-generated idempotency token that, when provided in a
 -- request, ensures the request cannot be repeated with a changed
@@ -98,10 +98,10 @@ newComment =
     { callerReactions = Prelude.Nothing,
       lastModifiedDate = Prelude.Nothing,
       creationDate = Prelude.Nothing,
-      reactionCounts = Prelude.Nothing,
       content = Prelude.Nothing,
-      commentId = Prelude.Nothing,
+      reactionCounts = Prelude.Nothing,
       inReplyTo = Prelude.Nothing,
+      commentId = Prelude.Nothing,
       clientRequestToken = Prelude.Nothing,
       authorArn = Prelude.Nothing,
       deleted = Prelude.Nothing
@@ -121,22 +121,22 @@ comment_lastModifiedDate = Lens.lens (\Comment' {lastModifiedDate} -> lastModifi
 comment_creationDate :: Lens.Lens' Comment (Prelude.Maybe Prelude.UTCTime)
 comment_creationDate = Lens.lens (\Comment' {creationDate} -> creationDate) (\s@Comment' {} a -> s {creationDate = a} :: Comment) Prelude.. Lens.mapping Core._Time
 
+-- | The content of the comment.
+comment_content :: Lens.Lens' Comment (Prelude.Maybe Prelude.Text)
+comment_content = Lens.lens (\Comment' {content} -> content) (\s@Comment' {} a -> s {content = a} :: Comment)
+
 -- | A string to integer map that represents the number of individual users
 -- who have responded to a comment with the specified reactions.
 comment_reactionCounts :: Lens.Lens' Comment (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Int))
 comment_reactionCounts = Lens.lens (\Comment' {reactionCounts} -> reactionCounts) (\s@Comment' {} a -> s {reactionCounts = a} :: Comment) Prelude.. Lens.mapping Lens._Coerce
 
--- | The content of the comment.
-comment_content :: Lens.Lens' Comment (Prelude.Maybe Prelude.Text)
-comment_content = Lens.lens (\Comment' {content} -> content) (\s@Comment' {} a -> s {content = a} :: Comment)
+-- | The ID of the comment for which this comment is a reply, if any.
+comment_inReplyTo :: Lens.Lens' Comment (Prelude.Maybe Prelude.Text)
+comment_inReplyTo = Lens.lens (\Comment' {inReplyTo} -> inReplyTo) (\s@Comment' {} a -> s {inReplyTo = a} :: Comment)
 
 -- | The system-generated comment ID.
 comment_commentId :: Lens.Lens' Comment (Prelude.Maybe Prelude.Text)
 comment_commentId = Lens.lens (\Comment' {commentId} -> commentId) (\s@Comment' {} a -> s {commentId = a} :: Comment)
-
--- | The ID of the comment for which this comment is a reply, if any.
-comment_inReplyTo :: Lens.Lens' Comment (Prelude.Maybe Prelude.Text)
-comment_inReplyTo = Lens.lens (\Comment' {inReplyTo} -> inReplyTo) (\s@Comment' {} a -> s {inReplyTo = a} :: Comment)
 
 -- | A unique, client-generated idempotency token that, when provided in a
 -- request, ensures the request cannot be repeated with a changed
@@ -165,10 +165,10 @@ instance Core.FromJSON Comment where
                         )
             Prelude.<*> (x Core..:? "lastModifiedDate")
             Prelude.<*> (x Core..:? "creationDate")
-            Prelude.<*> (x Core..:? "reactionCounts" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "content")
-            Prelude.<*> (x Core..:? "commentId")
+            Prelude.<*> (x Core..:? "reactionCounts" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "inReplyTo")
+            Prelude.<*> (x Core..:? "commentId")
             Prelude.<*> (x Core..:? "clientRequestToken")
             Prelude.<*> (x Core..:? "authorArn")
             Prelude.<*> (x Core..:? "deleted")

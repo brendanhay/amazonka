@@ -33,10 +33,10 @@ data ApprovalRule = ApprovalRule'
     lastModifiedDate :: Prelude.Maybe Core.POSIX,
     -- | The content of the approval rule.
     approvalRuleContent :: Prelude.Maybe Prelude.Text,
-    -- | The approval rule template used to create the rule.
-    originApprovalRuleTemplate :: Prelude.Maybe OriginApprovalRuleTemplate,
     -- | The date the approval rule was created, in timestamp format.
     creationDate :: Prelude.Maybe Core.POSIX,
+    -- | The approval rule template used to create the rule.
+    originApprovalRuleTemplate :: Prelude.Maybe OriginApprovalRuleTemplate,
     -- | The SHA-256 hash signature for the content of the approval rule.
     ruleContentSha256 :: Prelude.Maybe Prelude.Text,
     -- | The system-generated ID of the approval rule.
@@ -62,9 +62,9 @@ data ApprovalRule = ApprovalRule'
 --
 -- 'approvalRuleContent', 'approvalRule_approvalRuleContent' - The content of the approval rule.
 --
--- 'originApprovalRuleTemplate', 'approvalRule_originApprovalRuleTemplate' - The approval rule template used to create the rule.
---
 -- 'creationDate', 'approvalRule_creationDate' - The date the approval rule was created, in timestamp format.
+--
+-- 'originApprovalRuleTemplate', 'approvalRule_originApprovalRuleTemplate' - The approval rule template used to create the rule.
 --
 -- 'ruleContentSha256', 'approvalRule_ruleContentSha256' - The SHA-256 hash signature for the content of the approval rule.
 --
@@ -80,8 +80,8 @@ newApprovalRule =
   ApprovalRule'
     { lastModifiedDate = Prelude.Nothing,
       approvalRuleContent = Prelude.Nothing,
-      originApprovalRuleTemplate = Prelude.Nothing,
       creationDate = Prelude.Nothing,
+      originApprovalRuleTemplate = Prelude.Nothing,
       ruleContentSha256 = Prelude.Nothing,
       approvalRuleId = Prelude.Nothing,
       approvalRuleName = Prelude.Nothing,
@@ -97,13 +97,13 @@ approvalRule_lastModifiedDate = Lens.lens (\ApprovalRule' {lastModifiedDate} -> 
 approvalRule_approvalRuleContent :: Lens.Lens' ApprovalRule (Prelude.Maybe Prelude.Text)
 approvalRule_approvalRuleContent = Lens.lens (\ApprovalRule' {approvalRuleContent} -> approvalRuleContent) (\s@ApprovalRule' {} a -> s {approvalRuleContent = a} :: ApprovalRule)
 
--- | The approval rule template used to create the rule.
-approvalRule_originApprovalRuleTemplate :: Lens.Lens' ApprovalRule (Prelude.Maybe OriginApprovalRuleTemplate)
-approvalRule_originApprovalRuleTemplate = Lens.lens (\ApprovalRule' {originApprovalRuleTemplate} -> originApprovalRuleTemplate) (\s@ApprovalRule' {} a -> s {originApprovalRuleTemplate = a} :: ApprovalRule)
-
 -- | The date the approval rule was created, in timestamp format.
 approvalRule_creationDate :: Lens.Lens' ApprovalRule (Prelude.Maybe Prelude.UTCTime)
 approvalRule_creationDate = Lens.lens (\ApprovalRule' {creationDate} -> creationDate) (\s@ApprovalRule' {} a -> s {creationDate = a} :: ApprovalRule) Prelude.. Lens.mapping Core._Time
+
+-- | The approval rule template used to create the rule.
+approvalRule_originApprovalRuleTemplate :: Lens.Lens' ApprovalRule (Prelude.Maybe OriginApprovalRuleTemplate)
+approvalRule_originApprovalRuleTemplate = Lens.lens (\ApprovalRule' {originApprovalRuleTemplate} -> originApprovalRuleTemplate) (\s@ApprovalRule' {} a -> s {originApprovalRuleTemplate = a} :: ApprovalRule)
 
 -- | The SHA-256 hash signature for the content of the approval rule.
 approvalRule_ruleContentSha256 :: Lens.Lens' ApprovalRule (Prelude.Maybe Prelude.Text)
@@ -130,8 +130,8 @@ instance Core.FromJSON ApprovalRule where
           ApprovalRule'
             Prelude.<$> (x Core..:? "lastModifiedDate")
             Prelude.<*> (x Core..:? "approvalRuleContent")
-            Prelude.<*> (x Core..:? "originApprovalRuleTemplate")
             Prelude.<*> (x Core..:? "creationDate")
+            Prelude.<*> (x Core..:? "originApprovalRuleTemplate")
             Prelude.<*> (x Core..:? "ruleContentSha256")
             Prelude.<*> (x Core..:? "approvalRuleId")
             Prelude.<*> (x Core..:? "approvalRuleName")

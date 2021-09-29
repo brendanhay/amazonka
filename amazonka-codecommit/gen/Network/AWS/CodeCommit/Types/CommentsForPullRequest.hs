@@ -44,12 +44,12 @@ data CommentsForPullRequest = CommentsForPullRequest'
     afterBlobId :: Prelude.Maybe Prelude.Text,
     -- | The system-generated ID of the pull request.
     pullRequestId :: Prelude.Maybe Prelude.Text,
-    -- | An array of comment objects. Each comment object contains information
-    -- about a comment on the pull request.
-    comments :: Prelude.Maybe [Comment],
     -- | The full commit ID of the commit that was the tip of the source branch
     -- at the time the comment was made.
     afterCommitId :: Prelude.Maybe Prelude.Text,
+    -- | An array of comment objects. Each comment object contains information
+    -- about a comment on the pull request.
+    comments :: Prelude.Maybe [Comment],
     -- | Location information about the comment on the pull request, including
     -- the file name, line number, and whether the version of the file where
     -- the comment was made is BEFORE (destination branch) or AFTER (source
@@ -81,11 +81,11 @@ data CommentsForPullRequest = CommentsForPullRequest'
 --
 -- 'pullRequestId', 'commentsForPullRequest_pullRequestId' - The system-generated ID of the pull request.
 --
--- 'comments', 'commentsForPullRequest_comments' - An array of comment objects. Each comment object contains information
--- about a comment on the pull request.
---
 -- 'afterCommitId', 'commentsForPullRequest_afterCommitId' - The full commit ID of the commit that was the tip of the source branch
 -- at the time the comment was made.
+--
+-- 'comments', 'commentsForPullRequest_comments' - An array of comment objects. Each comment object contains information
+-- about a comment on the pull request.
 --
 -- 'location', 'commentsForPullRequest_location' - Location information about the comment on the pull request, including
 -- the file name, line number, and whether the version of the file where
@@ -101,8 +101,8 @@ newCommentsForPullRequest =
       beforeCommitId = Prelude.Nothing,
       afterBlobId = Prelude.Nothing,
       pullRequestId = Prelude.Nothing,
-      comments = Prelude.Nothing,
       afterCommitId = Prelude.Nothing,
+      comments = Prelude.Nothing,
       location = Prelude.Nothing
     }
 
@@ -131,15 +131,15 @@ commentsForPullRequest_afterBlobId = Lens.lens (\CommentsForPullRequest' {afterB
 commentsForPullRequest_pullRequestId :: Lens.Lens' CommentsForPullRequest (Prelude.Maybe Prelude.Text)
 commentsForPullRequest_pullRequestId = Lens.lens (\CommentsForPullRequest' {pullRequestId} -> pullRequestId) (\s@CommentsForPullRequest' {} a -> s {pullRequestId = a} :: CommentsForPullRequest)
 
--- | An array of comment objects. Each comment object contains information
--- about a comment on the pull request.
-commentsForPullRequest_comments :: Lens.Lens' CommentsForPullRequest (Prelude.Maybe [Comment])
-commentsForPullRequest_comments = Lens.lens (\CommentsForPullRequest' {comments} -> comments) (\s@CommentsForPullRequest' {} a -> s {comments = a} :: CommentsForPullRequest) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The full commit ID of the commit that was the tip of the source branch
 -- at the time the comment was made.
 commentsForPullRequest_afterCommitId :: Lens.Lens' CommentsForPullRequest (Prelude.Maybe Prelude.Text)
 commentsForPullRequest_afterCommitId = Lens.lens (\CommentsForPullRequest' {afterCommitId} -> afterCommitId) (\s@CommentsForPullRequest' {} a -> s {afterCommitId = a} :: CommentsForPullRequest)
+
+-- | An array of comment objects. Each comment object contains information
+-- about a comment on the pull request.
+commentsForPullRequest_comments :: Lens.Lens' CommentsForPullRequest (Prelude.Maybe [Comment])
+commentsForPullRequest_comments = Lens.lens (\CommentsForPullRequest' {comments} -> comments) (\s@CommentsForPullRequest' {} a -> s {comments = a} :: CommentsForPullRequest) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Location information about the comment on the pull request, including
 -- the file name, line number, and whether the version of the file where
@@ -159,8 +159,8 @@ instance Core.FromJSON CommentsForPullRequest where
             Prelude.<*> (x Core..:? "beforeCommitId")
             Prelude.<*> (x Core..:? "afterBlobId")
             Prelude.<*> (x Core..:? "pullRequestId")
-            Prelude.<*> (x Core..:? "comments" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "afterCommitId")
+            Prelude.<*> (x Core..:? "comments" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "location")
       )
 

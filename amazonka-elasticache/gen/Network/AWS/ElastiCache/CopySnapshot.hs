@@ -104,6 +104,7 @@ module Network.AWS.ElastiCache.CopySnapshot
     -- * Request Lenses
     copySnapshot_targetBucket,
     copySnapshot_kmsKeyId,
+    copySnapshot_tags,
     copySnapshot_sourceSnapshotName,
     copySnapshot_targetSnapshotName,
 
@@ -134,15 +135,18 @@ data CopySnapshot = CopySnapshot'
     -- When using this parameter to export a snapshot, be sure Amazon
     -- ElastiCache has the needed permissions to this S3 bucket. For more
     -- information, see
-    -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-grant-access Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket>
+    -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-grant-access Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket>
     -- in the /Amazon ElastiCache User Guide/.
     --
     -- For more information, see
-    -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Snapshots.Exporting.html Exporting a Snapshot>
+    -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html Exporting a Snapshot>
     -- in the /Amazon ElastiCache User Guide/.
     targetBucket :: Prelude.Maybe Prelude.Text,
     -- | The ID of the KMS key used to encrypt the target snapshot.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | A list of tags to be added to this resource. A tag is a key-value pair.
+    -- A tag key must be accompanied by a tag value, although null is accepted.
+    tags :: Prelude.Maybe [Tag],
     -- | The name of an existing snapshot from which to make a copy.
     sourceSnapshotName :: Prelude.Text,
     -- | A name for the snapshot copy. ElastiCache does not permit overwriting a
@@ -166,14 +170,17 @@ data CopySnapshot = CopySnapshot'
 -- When using this parameter to export a snapshot, be sure Amazon
 -- ElastiCache has the needed permissions to this S3 bucket. For more
 -- information, see
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-grant-access Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket>
+-- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-grant-access Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket>
 -- in the /Amazon ElastiCache User Guide/.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Snapshots.Exporting.html Exporting a Snapshot>
+-- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html Exporting a Snapshot>
 -- in the /Amazon ElastiCache User Guide/.
 --
 -- 'kmsKeyId', 'copySnapshot_kmsKeyId' - The ID of the KMS key used to encrypt the target snapshot.
+--
+-- 'tags', 'copySnapshot_tags' - A list of tags to be added to this resource. A tag is a key-value pair.
+-- A tag key must be accompanied by a tag value, although null is accepted.
 --
 -- 'sourceSnapshotName', 'copySnapshot_sourceSnapshotName' - The name of an existing snapshot from which to make a copy.
 --
@@ -192,6 +199,7 @@ newCopySnapshot
     CopySnapshot'
       { targetBucket = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
+        tags = Prelude.Nothing,
         sourceSnapshotName = pSourceSnapshotName_,
         targetSnapshotName = pTargetSnapshotName_
       }
@@ -202,11 +210,11 @@ newCopySnapshot
 -- When using this parameter to export a snapshot, be sure Amazon
 -- ElastiCache has the needed permissions to this S3 bucket. For more
 -- information, see
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-grant-access Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket>
+-- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-grant-access Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket>
 -- in the /Amazon ElastiCache User Guide/.
 --
 -- For more information, see
--- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Snapshots.Exporting.html Exporting a Snapshot>
+-- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html Exporting a Snapshot>
 -- in the /Amazon ElastiCache User Guide/.
 copySnapshot_targetBucket :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Text)
 copySnapshot_targetBucket = Lens.lens (\CopySnapshot' {targetBucket} -> targetBucket) (\s@CopySnapshot' {} a -> s {targetBucket = a} :: CopySnapshot)
@@ -214,6 +222,11 @@ copySnapshot_targetBucket = Lens.lens (\CopySnapshot' {targetBucket} -> targetBu
 -- | The ID of the KMS key used to encrypt the target snapshot.
 copySnapshot_kmsKeyId :: Lens.Lens' CopySnapshot (Prelude.Maybe Prelude.Text)
 copySnapshot_kmsKeyId = Lens.lens (\CopySnapshot' {kmsKeyId} -> kmsKeyId) (\s@CopySnapshot' {} a -> s {kmsKeyId = a} :: CopySnapshot)
+
+-- | A list of tags to be added to this resource. A tag is a key-value pair.
+-- A tag key must be accompanied by a tag value, although null is accepted.
+copySnapshot_tags :: Lens.Lens' CopySnapshot (Prelude.Maybe [Tag])
+copySnapshot_tags = Lens.lens (\CopySnapshot' {tags} -> tags) (\s@CopySnapshot' {} a -> s {tags = a} :: CopySnapshot) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of an existing snapshot from which to make a copy.
 copySnapshot_sourceSnapshotName :: Lens.Lens' CopySnapshot Prelude.Text
@@ -256,6 +269,9 @@ instance Core.ToQuery CopySnapshot where
           Core.=: ("2015-02-02" :: Prelude.ByteString),
         "TargetBucket" Core.=: targetBucket,
         "KmsKeyId" Core.=: kmsKeyId,
+        "Tags"
+          Core.=: Core.toQuery
+            (Core.toQueryList "Tag" Prelude.<$> tags),
         "SourceSnapshotName" Core.=: sourceSnapshotName,
         "TargetSnapshotName" Core.=: targetSnapshotName
       ]

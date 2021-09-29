@@ -24,7 +24,7 @@
 -- enabled) replication group.
 --
 -- This API can be used to create a standalone regional replication group
--- or a secondary replication group associated with a Global Datastore.
+-- or a secondary replication group associated with a Global datastore.
 --
 -- A Redis (cluster mode disabled) replication group is a collection of
 -- clusters, where one of the clusters is a read\/write primary and the
@@ -49,7 +49,7 @@
 -- For versions below 5.0.6, the limit is 250 per cluster.
 --
 -- To request a limit increase, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html AWS Service Limits>
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html Amazon Service Limits>
 -- and choose the limit type __Nodes per cluster per instance type__.
 --
 -- When a Redis (cluster mode disabled) replication group has been
@@ -67,8 +67,8 @@ module Network.AWS.ElastiCache.CreateReplicationGroup
     newCreateReplicationGroup,
 
     -- * Request Lenses
-    createReplicationGroup_securityGroupIds,
     createReplicationGroup_nodeGroupConfiguration,
+    createReplicationGroup_securityGroupIds,
     createReplicationGroup_automaticFailoverEnabled,
     createReplicationGroup_cacheSecurityGroupNames,
     createReplicationGroup_primaryClusterId,
@@ -77,24 +77,25 @@ module Network.AWS.ElastiCache.CreateReplicationGroup
     createReplicationGroup_cacheParameterGroupName,
     createReplicationGroup_snapshotRetentionLimit,
     createReplicationGroup_globalReplicationGroupId,
-    createReplicationGroup_snapshotArns,
     createReplicationGroup_numNodeGroups,
-    createReplicationGroup_atRestEncryptionEnabled,
-    createReplicationGroup_multiAZEnabled,
+    createReplicationGroup_snapshotArns,
     createReplicationGroup_kmsKeyId,
+    createReplicationGroup_atRestEncryptionEnabled,
     createReplicationGroup_cacheSubnetGroupName,
+    createReplicationGroup_multiAZEnabled,
     createReplicationGroup_engineVersion,
-    createReplicationGroup_preferredMaintenanceWindow,
     createReplicationGroup_cacheNodeType,
+    createReplicationGroup_preferredMaintenanceWindow,
     createReplicationGroup_tags,
     createReplicationGroup_notificationTopicArn,
     createReplicationGroup_port,
     createReplicationGroup_engine,
-    createReplicationGroup_replicasPerNodeGroup,
     createReplicationGroup_snapshotName,
-    createReplicationGroup_preferredCacheClusterAZs,
-    createReplicationGroup_authToken,
+    createReplicationGroup_replicasPerNodeGroup,
     createReplicationGroup_numCacheClusters,
+    createReplicationGroup_authToken,
+    createReplicationGroup_logDeliveryConfigurations,
+    createReplicationGroup_preferredCacheClusterAZs,
     createReplicationGroup_transitEncryptionEnabled,
     createReplicationGroup_autoMinorVersionUpgrade,
     createReplicationGroup_replicationGroupId,
@@ -121,13 +122,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateReplicationGroup' smart constructor.
 data CreateReplicationGroup = CreateReplicationGroup'
-  { -- | One or more Amazon VPC security groups associated with this replication
-    -- group.
-    --
-    -- Use this parameter only when you are creating a replication group in an
-    -- Amazon Virtual Private Cloud (Amazon VPC).
-    securityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | A list of node group (shard) configuration options. Each node group
+  { -- | A list of node group (shard) configuration options. Each node group
     -- (shard) configuration has the following members:
     -- @PrimaryAvailabilityZone@, @ReplicaAvailabilityZones@, @ReplicaCount@,
     -- and @Slots@.
@@ -140,6 +135,12 @@ data CreateReplicationGroup = CreateReplicationGroup'
     -- (shard) using this parameter because you must specify the slots for each
     -- node group.
     nodeGroupConfiguration :: Prelude.Maybe [NodeGroupConfiguration],
+    -- | One or more Amazon VPC security groups associated with this replication
+    -- group.
+    --
+    -- Use this parameter only when you are creating a replication group in an
+    -- Amazon Virtual Private Cloud (Amazon VPC).
+    securityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | Specifies whether a read-only replica is automatically promoted to
     -- read\/write primary if the existing primary fails.
     --
@@ -158,7 +159,7 @@ data CreateReplicationGroup = CreateReplicationGroup'
     -- This parameter is not required if @NumCacheClusters@, @NumNodeGroups@,
     -- or @ReplicasPerNodeGroup@ is specified.
     primaryClusterId :: Prelude.Maybe Prelude.Text,
-    -- | The list of user groups to associate with the replication group.
+    -- | The user group to associate with the replication group.
     userGroupIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The daily time range (in UTC) during which ElastiCache begins taking a
     -- daily snapshot of your node group (shard).
@@ -189,8 +190,14 @@ data CreateReplicationGroup = CreateReplicationGroup'
     --
     -- Default: 0 (i.e., automatic backups are disabled for this cluster).
     snapshotRetentionLimit :: Prelude.Maybe Prelude.Int,
-    -- | The name of the Global Datastore
+    -- | The name of the Global datastore
     globalReplicationGroupId :: Prelude.Maybe Prelude.Text,
+    -- | An optional parameter that specifies the number of node groups (shards)
+    -- for this Redis (cluster mode enabled) replication group. For Redis
+    -- (cluster mode disabled) either omit this parameter or set it to 1.
+    --
+    -- Default: 1
+    numNodeGroups :: Prelude.Maybe Prelude.Int,
     -- | A list of Amazon Resource Names (ARN) that uniquely identify the Redis
     -- RDB snapshot files stored in Amazon S3. The snapshot files are used to
     -- populate the new replication group. The Amazon S3 object name in the ARN
@@ -202,12 +209,8 @@ data CreateReplicationGroup = CreateReplicationGroup'
     --
     -- Example of an Amazon S3 ARN: @arn:aws:s3:::my_bucket\/snapshot1.rdb@
     snapshotArns :: Prelude.Maybe [Prelude.Text],
-    -- | An optional parameter that specifies the number of node groups (shards)
-    -- for this Redis (cluster mode enabled) replication group. For Redis
-    -- (cluster mode disabled) either omit this parameter or set it to 1.
-    --
-    -- Default: 1
-    numNodeGroups :: Prelude.Maybe Prelude.Int,
+    -- | The ID of the KMS key used to encrypt the disk in the cluster.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | A flag that enables encryption at rest when set to @true@.
     --
     -- You cannot modify the value of @AtRestEncryptionEnabled@ after the
@@ -220,12 +223,6 @@ data CreateReplicationGroup = CreateReplicationGroup'
     --
     -- Default: @false@
     atRestEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | A flag indicating if you have Multi-AZ enabled to enhance fault
-    -- tolerance. For more information, see
-    -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html Minimizing Downtime: Multi-AZ>.
-    multiAZEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | The ID of the KMS key used to encrypt the disk in the cluster.
-    kmsKeyId :: Prelude.Maybe Prelude.Text,
     -- | The name of the cache subnet group to be used for the replication group.
     --
     -- If you\'re going to launch your cluster in an Amazon VPC, you need to
@@ -233,6 +230,10 @@ data CreateReplicationGroup = CreateReplicationGroup'
     -- information, see
     -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.html Subnets and Subnet Groups>.
     cacheSubnetGroupName :: Prelude.Maybe Prelude.Text,
+    -- | A flag indicating if you have Multi-AZ enabled to enhance fault
+    -- tolerance. For more information, see
+    -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html Minimizing Downtime: Multi-AZ>.
+    multiAZEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The version number of the cache engine to be used for the clusters in
     -- this replication group. To view the supported cache engine versions, use
     -- the @DescribeCacheEngineVersions@ operation.
@@ -244,34 +245,6 @@ data CreateReplicationGroup = CreateReplicationGroup'
     -- delete the existing cluster or replication group and create it anew with
     -- the earlier engine version.
     engineVersion :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the weekly time range during which maintenance on the cluster
-    -- is performed. It is specified as a range in the format
-    -- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
-    -- is a 60 minute period. Valid values for @ddd@ are:
-    --
-    -- Specifies the weekly time range during which maintenance on the cluster
-    -- is performed. It is specified as a range in the format
-    -- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
-    -- is a 60 minute period.
-    --
-    -- Valid values for @ddd@ are:
-    --
-    -- -   @sun@
-    --
-    -- -   @mon@
-    --
-    -- -   @tue@
-    --
-    -- -   @wed@
-    --
-    -- -   @thu@
-    --
-    -- -   @fri@
-    --
-    -- -   @sat@
-    --
-    -- Example: @sun:23:00-mon:01:30@
-    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
     -- | The compute and memory capacity of the nodes in the node group (shard).
     --
     -- The following node types are supported by ElastiCache. Generally
@@ -366,10 +339,39 @@ data CreateReplicationGroup = CreateReplicationGroup'
     -- -   Redis configuration variables @appendonly@ and @appendfsync@ are not
     --     supported on Redis version 2.8.22 and later.
     cacheNodeType :: Prelude.Maybe Prelude.Text,
-    -- | A list of cost allocation tags to be added to this resource. Tags are
-    -- comma-separated key,value pairs (e.g. Key=@myKey@, Value=@myKeyValue@.
-    -- You can include multiple tags as shown following: Key=@myKey@,
-    -- Value=@myKeyValue@ Key=@mySecondKey@, Value=@mySecondKeyValue@.
+    -- | Specifies the weekly time range during which maintenance on the cluster
+    -- is performed. It is specified as a range in the format
+    -- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
+    -- is a 60 minute period. Valid values for @ddd@ are:
+    --
+    -- Specifies the weekly time range during which maintenance on the cluster
+    -- is performed. It is specified as a range in the format
+    -- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
+    -- is a 60 minute period.
+    --
+    -- Valid values for @ddd@ are:
+    --
+    -- -   @sun@
+    --
+    -- -   @mon@
+    --
+    -- -   @tue@
+    --
+    -- -   @wed@
+    --
+    -- -   @thu@
+    --
+    -- -   @fri@
+    --
+    -- -   @sat@
+    --
+    -- Example: @sun:23:00-mon:01:30@
+    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
+    -- | A list of tags to be added to this resource. Tags are comma-separated
+    -- key,value pairs (e.g. Key=@myKey@, Value=@myKeyValue@. You can include
+    -- multiple tags as shown following: Key=@myKey@, Value=@myKeyValue@
+    -- Key=@mySecondKey@, Value=@mySecondKeyValue@. Tags on replication groups
+    -- will be replicated to all nodes.
     tags :: Prelude.Maybe [Tag],
     -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
     -- (SNS) topic to which notifications are sent.
@@ -382,30 +384,26 @@ data CreateReplicationGroup = CreateReplicationGroup'
     -- | The name of the cache engine to be used for the clusters in this
     -- replication group. Must be Redis.
     engine :: Prelude.Maybe Prelude.Text,
-    -- | An optional parameter that specifies the number of replica nodes in each
-    -- node group (shard). Valid values are 0 to 5.
-    replicasPerNodeGroup :: Prelude.Maybe Prelude.Int,
     -- | The name of a snapshot from which to restore data into the new
     -- replication group. The snapshot status changes to @restoring@ while the
     -- new replication group is being created.
     snapshotName :: Prelude.Maybe Prelude.Text,
-    -- | A list of EC2 Availability Zones in which the replication group\'s
-    -- clusters are created. The order of the Availability Zones in the list is
-    -- the order in which clusters are allocated. The primary cluster is
-    -- created in the first AZ in the list.
+    -- | An optional parameter that specifies the number of replica nodes in each
+    -- node group (shard). Valid values are 0 to 5.
+    replicasPerNodeGroup :: Prelude.Maybe Prelude.Int,
+    -- | The number of clusters this replication group initially has.
     --
     -- This parameter is not used if there is more than one node group (shard).
-    -- You should use @NodeGroupConfiguration@ instead.
+    -- You should use @ReplicasPerNodeGroup@ instead.
     --
-    -- If you are creating your replication group in an Amazon VPC
-    -- (recommended), you can only locate clusters in Availability Zones
-    -- associated with the subnets in the selected subnet group.
+    -- If @AutomaticFailoverEnabled@ is @true@, the value of this parameter
+    -- must be at least 2. If @AutomaticFailoverEnabled@ is @false@ you can
+    -- omit this parameter (it will default to 1), or you can explicitly set it
+    -- to a value between 2 and 6.
     --
-    -- The number of Availability Zones listed must equal the value of
-    -- @NumCacheClusters@.
-    --
-    -- Default: system chosen Availability Zones.
-    preferredCacheClusterAZs :: Prelude.Maybe [Prelude.Text],
+    -- The maximum permitted value for @NumCacheClusters@ is 6 (1 primary plus
+    -- 5 replicas).
+    numCacheClusters :: Prelude.Maybe Prelude.Int,
     -- | __Reserved parameter.__ The password used to access a password protected
     -- server.
     --
@@ -429,19 +427,25 @@ data CreateReplicationGroup = CreateReplicationGroup'
     -- For more information, see <http://redis.io/commands/AUTH AUTH password>
     -- at http:\/\/redis.io\/commands\/AUTH.
     authToken :: Prelude.Maybe Prelude.Text,
-    -- | The number of clusters this replication group initially has.
+    -- | Specifies the destination, format and type of the logs.
+    logDeliveryConfigurations :: Prelude.Maybe [LogDeliveryConfigurationRequest],
+    -- | A list of EC2 Availability Zones in which the replication group\'s
+    -- clusters are created. The order of the Availability Zones in the list is
+    -- the order in which clusters are allocated. The primary cluster is
+    -- created in the first AZ in the list.
     --
     -- This parameter is not used if there is more than one node group (shard).
-    -- You should use @ReplicasPerNodeGroup@ instead.
+    -- You should use @NodeGroupConfiguration@ instead.
     --
-    -- If @AutomaticFailoverEnabled@ is @true@, the value of this parameter
-    -- must be at least 2. If @AutomaticFailoverEnabled@ is @false@ you can
-    -- omit this parameter (it will default to 1), or you can explicitly set it
-    -- to a value between 2 and 6.
+    -- If you are creating your replication group in an Amazon VPC
+    -- (recommended), you can only locate clusters in Availability Zones
+    -- associated with the subnets in the selected subnet group.
     --
-    -- The maximum permitted value for @NumCacheClusters@ is 6 (1 primary plus
-    -- 5 replicas).
-    numCacheClusters :: Prelude.Maybe Prelude.Int,
+    -- The number of Availability Zones listed must equal the value of
+    -- @NumCacheClusters@.
+    --
+    -- Default: system chosen Availability Zones.
+    preferredCacheClusterAZs :: Prelude.Maybe [Prelude.Text],
     -- | A flag that enables in-transit encryption when set to @true@.
     --
     -- You cannot modify the value of @TransitEncryptionEnabled@ after the
@@ -489,12 +493,6 @@ data CreateReplicationGroup = CreateReplicationGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'securityGroupIds', 'createReplicationGroup_securityGroupIds' - One or more Amazon VPC security groups associated with this replication
--- group.
---
--- Use this parameter only when you are creating a replication group in an
--- Amazon Virtual Private Cloud (Amazon VPC).
---
 -- 'nodeGroupConfiguration', 'createReplicationGroup_nodeGroupConfiguration' - A list of node group (shard) configuration options. Each node group
 -- (shard) configuration has the following members:
 -- @PrimaryAvailabilityZone@, @ReplicaAvailabilityZones@, @ReplicaCount@,
@@ -507,6 +505,12 @@ data CreateReplicationGroup = CreateReplicationGroup'
 -- enabled) cluster from a S3 rdb file. You must configure each node group
 -- (shard) using this parameter because you must specify the slots for each
 -- node group.
+--
+-- 'securityGroupIds', 'createReplicationGroup_securityGroupIds' - One or more Amazon VPC security groups associated with this replication
+-- group.
+--
+-- Use this parameter only when you are creating a replication group in an
+-- Amazon Virtual Private Cloud (Amazon VPC).
 --
 -- 'automaticFailoverEnabled', 'createReplicationGroup_automaticFailoverEnabled' - Specifies whether a read-only replica is automatically promoted to
 -- read\/write primary if the existing primary fails.
@@ -526,7 +530,7 @@ data CreateReplicationGroup = CreateReplicationGroup'
 -- This parameter is not required if @NumCacheClusters@, @NumNodeGroups@,
 -- or @ReplicasPerNodeGroup@ is specified.
 --
--- 'userGroupIds', 'createReplicationGroup_userGroupIds' - The list of user groups to associate with the replication group.
+-- 'userGroupIds', 'createReplicationGroup_userGroupIds' - The user group to associate with the replication group.
 --
 -- 'snapshotWindow', 'createReplicationGroup_snapshotWindow' - The daily time range (in UTC) during which ElastiCache begins taking a
 -- daily snapshot of your node group (shard).
@@ -557,7 +561,13 @@ data CreateReplicationGroup = CreateReplicationGroup'
 --
 -- Default: 0 (i.e., automatic backups are disabled for this cluster).
 --
--- 'globalReplicationGroupId', 'createReplicationGroup_globalReplicationGroupId' - The name of the Global Datastore
+-- 'globalReplicationGroupId', 'createReplicationGroup_globalReplicationGroupId' - The name of the Global datastore
+--
+-- 'numNodeGroups', 'createReplicationGroup_numNodeGroups' - An optional parameter that specifies the number of node groups (shards)
+-- for this Redis (cluster mode enabled) replication group. For Redis
+-- (cluster mode disabled) either omit this parameter or set it to 1.
+--
+-- Default: 1
 --
 -- 'snapshotArns', 'createReplicationGroup_snapshotArns' - A list of Amazon Resource Names (ARN) that uniquely identify the Redis
 -- RDB snapshot files stored in Amazon S3. The snapshot files are used to
@@ -570,11 +580,7 @@ data CreateReplicationGroup = CreateReplicationGroup'
 --
 -- Example of an Amazon S3 ARN: @arn:aws:s3:::my_bucket\/snapshot1.rdb@
 --
--- 'numNodeGroups', 'createReplicationGroup_numNodeGroups' - An optional parameter that specifies the number of node groups (shards)
--- for this Redis (cluster mode enabled) replication group. For Redis
--- (cluster mode disabled) either omit this parameter or set it to 1.
---
--- Default: 1
+-- 'kmsKeyId', 'createReplicationGroup_kmsKeyId' - The ID of the KMS key used to encrypt the disk in the cluster.
 --
 -- 'atRestEncryptionEnabled', 'createReplicationGroup_atRestEncryptionEnabled' - A flag that enables encryption at rest when set to @true@.
 --
@@ -588,18 +594,16 @@ data CreateReplicationGroup = CreateReplicationGroup'
 --
 -- Default: @false@
 --
--- 'multiAZEnabled', 'createReplicationGroup_multiAZEnabled' - A flag indicating if you have Multi-AZ enabled to enhance fault
--- tolerance. For more information, see
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html Minimizing Downtime: Multi-AZ>.
---
--- 'kmsKeyId', 'createReplicationGroup_kmsKeyId' - The ID of the KMS key used to encrypt the disk in the cluster.
---
 -- 'cacheSubnetGroupName', 'createReplicationGroup_cacheSubnetGroupName' - The name of the cache subnet group to be used for the replication group.
 --
 -- If you\'re going to launch your cluster in an Amazon VPC, you need to
 -- create a subnet group before you start creating a cluster. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.html Subnets and Subnet Groups>.
+--
+-- 'multiAZEnabled', 'createReplicationGroup_multiAZEnabled' - A flag indicating if you have Multi-AZ enabled to enhance fault
+-- tolerance. For more information, see
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html Minimizing Downtime: Multi-AZ>.
 --
 -- 'engineVersion', 'createReplicationGroup_engineVersion' - The version number of the cache engine to be used for the clusters in
 -- this replication group. To view the supported cache engine versions, use
@@ -611,34 +615,6 @@ data CreateReplicationGroup = CreateReplicationGroup'
 -- engine version. If you want to use an earlier engine version, you must
 -- delete the existing cluster or replication group and create it anew with
 -- the earlier engine version.
---
--- 'preferredMaintenanceWindow', 'createReplicationGroup_preferredMaintenanceWindow' - Specifies the weekly time range during which maintenance on the cluster
--- is performed. It is specified as a range in the format
--- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
--- is a 60 minute period. Valid values for @ddd@ are:
---
--- Specifies the weekly time range during which maintenance on the cluster
--- is performed. It is specified as a range in the format
--- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
--- is a 60 minute period.
---
--- Valid values for @ddd@ are:
---
--- -   @sun@
---
--- -   @mon@
---
--- -   @tue@
---
--- -   @wed@
---
--- -   @thu@
---
--- -   @fri@
---
--- -   @sat@
---
--- Example: @sun:23:00-mon:01:30@
 --
 -- 'cacheNodeType', 'createReplicationGroup_cacheNodeType' - The compute and memory capacity of the nodes in the node group (shard).
 --
@@ -734,10 +710,39 @@ data CreateReplicationGroup = CreateReplicationGroup'
 -- -   Redis configuration variables @appendonly@ and @appendfsync@ are not
 --     supported on Redis version 2.8.22 and later.
 --
--- 'tags', 'createReplicationGroup_tags' - A list of cost allocation tags to be added to this resource. Tags are
--- comma-separated key,value pairs (e.g. Key=@myKey@, Value=@myKeyValue@.
--- You can include multiple tags as shown following: Key=@myKey@,
--- Value=@myKeyValue@ Key=@mySecondKey@, Value=@mySecondKeyValue@.
+-- 'preferredMaintenanceWindow', 'createReplicationGroup_preferredMaintenanceWindow' - Specifies the weekly time range during which maintenance on the cluster
+-- is performed. It is specified as a range in the format
+-- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
+-- is a 60 minute period. Valid values for @ddd@ are:
+--
+-- Specifies the weekly time range during which maintenance on the cluster
+-- is performed. It is specified as a range in the format
+-- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
+-- is a 60 minute period.
+--
+-- Valid values for @ddd@ are:
+--
+-- -   @sun@
+--
+-- -   @mon@
+--
+-- -   @tue@
+--
+-- -   @wed@
+--
+-- -   @thu@
+--
+-- -   @fri@
+--
+-- -   @sat@
+--
+-- Example: @sun:23:00-mon:01:30@
+--
+-- 'tags', 'createReplicationGroup_tags' - A list of tags to be added to this resource. Tags are comma-separated
+-- key,value pairs (e.g. Key=@myKey@, Value=@myKeyValue@. You can include
+-- multiple tags as shown following: Key=@myKey@, Value=@myKeyValue@
+-- Key=@mySecondKey@, Value=@mySecondKeyValue@. Tags on replication groups
+-- will be replicated to all nodes.
 --
 -- 'notificationTopicArn', 'createReplicationGroup_notificationTopicArn' - The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (SNS) topic to which notifications are sent.
@@ -750,29 +755,25 @@ data CreateReplicationGroup = CreateReplicationGroup'
 -- 'engine', 'createReplicationGroup_engine' - The name of the cache engine to be used for the clusters in this
 -- replication group. Must be Redis.
 --
--- 'replicasPerNodeGroup', 'createReplicationGroup_replicasPerNodeGroup' - An optional parameter that specifies the number of replica nodes in each
--- node group (shard). Valid values are 0 to 5.
---
 -- 'snapshotName', 'createReplicationGroup_snapshotName' - The name of a snapshot from which to restore data into the new
 -- replication group. The snapshot status changes to @restoring@ while the
 -- new replication group is being created.
 --
--- 'preferredCacheClusterAZs', 'createReplicationGroup_preferredCacheClusterAZs' - A list of EC2 Availability Zones in which the replication group\'s
--- clusters are created. The order of the Availability Zones in the list is
--- the order in which clusters are allocated. The primary cluster is
--- created in the first AZ in the list.
+-- 'replicasPerNodeGroup', 'createReplicationGroup_replicasPerNodeGroup' - An optional parameter that specifies the number of replica nodes in each
+-- node group (shard). Valid values are 0 to 5.
+--
+-- 'numCacheClusters', 'createReplicationGroup_numCacheClusters' - The number of clusters this replication group initially has.
 --
 -- This parameter is not used if there is more than one node group (shard).
--- You should use @NodeGroupConfiguration@ instead.
+-- You should use @ReplicasPerNodeGroup@ instead.
 --
--- If you are creating your replication group in an Amazon VPC
--- (recommended), you can only locate clusters in Availability Zones
--- associated with the subnets in the selected subnet group.
+-- If @AutomaticFailoverEnabled@ is @true@, the value of this parameter
+-- must be at least 2. If @AutomaticFailoverEnabled@ is @false@ you can
+-- omit this parameter (it will default to 1), or you can explicitly set it
+-- to a value between 2 and 6.
 --
--- The number of Availability Zones listed must equal the value of
--- @NumCacheClusters@.
---
--- Default: system chosen Availability Zones.
+-- The maximum permitted value for @NumCacheClusters@ is 6 (1 primary plus
+-- 5 replicas).
 --
 -- 'authToken', 'createReplicationGroup_authToken' - __Reserved parameter.__ The password used to access a password protected
 -- server.
@@ -797,18 +798,24 @@ data CreateReplicationGroup = CreateReplicationGroup'
 -- For more information, see <http://redis.io/commands/AUTH AUTH password>
 -- at http:\/\/redis.io\/commands\/AUTH.
 --
--- 'numCacheClusters', 'createReplicationGroup_numCacheClusters' - The number of clusters this replication group initially has.
+-- 'logDeliveryConfigurations', 'createReplicationGroup_logDeliveryConfigurations' - Specifies the destination, format and type of the logs.
+--
+-- 'preferredCacheClusterAZs', 'createReplicationGroup_preferredCacheClusterAZs' - A list of EC2 Availability Zones in which the replication group\'s
+-- clusters are created. The order of the Availability Zones in the list is
+-- the order in which clusters are allocated. The primary cluster is
+-- created in the first AZ in the list.
 --
 -- This parameter is not used if there is more than one node group (shard).
--- You should use @ReplicasPerNodeGroup@ instead.
+-- You should use @NodeGroupConfiguration@ instead.
 --
--- If @AutomaticFailoverEnabled@ is @true@, the value of this parameter
--- must be at least 2. If @AutomaticFailoverEnabled@ is @false@ you can
--- omit this parameter (it will default to 1), or you can explicitly set it
--- to a value between 2 and 6.
+-- If you are creating your replication group in an Amazon VPC
+-- (recommended), you can only locate clusters in Availability Zones
+-- associated with the subnets in the selected subnet group.
 --
--- The maximum permitted value for @NumCacheClusters@ is 6 (1 primary plus
--- 5 replicas).
+-- The number of Availability Zones listed must equal the value of
+-- @NumCacheClusters@.
+--
+-- Default: system chosen Availability Zones.
 --
 -- 'transitEncryptionEnabled', 'createReplicationGroup_transitEncryptionEnabled' - A flag that enables in-transit encryption when set to @true@.
 --
@@ -855,9 +862,9 @@ newCreateReplicationGroup
   pReplicationGroupId_
   pReplicationGroupDescription_ =
     CreateReplicationGroup'
-      { securityGroupIds =
+      { nodeGroupConfiguration =
           Prelude.Nothing,
-        nodeGroupConfiguration = Prelude.Nothing,
+        securityGroupIds = Prelude.Nothing,
         automaticFailoverEnabled = Prelude.Nothing,
         cacheSecurityGroupNames = Prelude.Nothing,
         primaryClusterId = Prelude.Nothing,
@@ -866,38 +873,31 @@ newCreateReplicationGroup
         cacheParameterGroupName = Prelude.Nothing,
         snapshotRetentionLimit = Prelude.Nothing,
         globalReplicationGroupId = Prelude.Nothing,
-        snapshotArns = Prelude.Nothing,
         numNodeGroups = Prelude.Nothing,
-        atRestEncryptionEnabled = Prelude.Nothing,
-        multiAZEnabled = Prelude.Nothing,
+        snapshotArns = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
+        atRestEncryptionEnabled = Prelude.Nothing,
         cacheSubnetGroupName = Prelude.Nothing,
+        multiAZEnabled = Prelude.Nothing,
         engineVersion = Prelude.Nothing,
-        preferredMaintenanceWindow = Prelude.Nothing,
         cacheNodeType = Prelude.Nothing,
+        preferredMaintenanceWindow = Prelude.Nothing,
         tags = Prelude.Nothing,
         notificationTopicArn = Prelude.Nothing,
         port = Prelude.Nothing,
         engine = Prelude.Nothing,
-        replicasPerNodeGroup = Prelude.Nothing,
         snapshotName = Prelude.Nothing,
-        preferredCacheClusterAZs = Prelude.Nothing,
-        authToken = Prelude.Nothing,
+        replicasPerNodeGroup = Prelude.Nothing,
         numCacheClusters = Prelude.Nothing,
+        authToken = Prelude.Nothing,
+        logDeliveryConfigurations = Prelude.Nothing,
+        preferredCacheClusterAZs = Prelude.Nothing,
         transitEncryptionEnabled = Prelude.Nothing,
         autoMinorVersionUpgrade = Prelude.Nothing,
         replicationGroupId = pReplicationGroupId_,
         replicationGroupDescription =
           pReplicationGroupDescription_
       }
-
--- | One or more Amazon VPC security groups associated with this replication
--- group.
---
--- Use this parameter only when you are creating a replication group in an
--- Amazon Virtual Private Cloud (Amazon VPC).
-createReplicationGroup_securityGroupIds :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe [Prelude.Text])
-createReplicationGroup_securityGroupIds = Lens.lens (\CreateReplicationGroup' {securityGroupIds} -> securityGroupIds) (\s@CreateReplicationGroup' {} a -> s {securityGroupIds = a} :: CreateReplicationGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A list of node group (shard) configuration options. Each node group
 -- (shard) configuration has the following members:
@@ -913,6 +913,14 @@ createReplicationGroup_securityGroupIds = Lens.lens (\CreateReplicationGroup' {s
 -- node group.
 createReplicationGroup_nodeGroupConfiguration :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe [NodeGroupConfiguration])
 createReplicationGroup_nodeGroupConfiguration = Lens.lens (\CreateReplicationGroup' {nodeGroupConfiguration} -> nodeGroupConfiguration) (\s@CreateReplicationGroup' {} a -> s {nodeGroupConfiguration = a} :: CreateReplicationGroup) Prelude.. Lens.mapping Lens._Coerce
+
+-- | One or more Amazon VPC security groups associated with this replication
+-- group.
+--
+-- Use this parameter only when you are creating a replication group in an
+-- Amazon Virtual Private Cloud (Amazon VPC).
+createReplicationGroup_securityGroupIds :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe [Prelude.Text])
+createReplicationGroup_securityGroupIds = Lens.lens (\CreateReplicationGroup' {securityGroupIds} -> securityGroupIds) (\s@CreateReplicationGroup' {} a -> s {securityGroupIds = a} :: CreateReplicationGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Specifies whether a read-only replica is automatically promoted to
 -- read\/write primary if the existing primary fails.
@@ -938,7 +946,7 @@ createReplicationGroup_cacheSecurityGroupNames = Lens.lens (\CreateReplicationGr
 createReplicationGroup_primaryClusterId :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe Prelude.Text)
 createReplicationGroup_primaryClusterId = Lens.lens (\CreateReplicationGroup' {primaryClusterId} -> primaryClusterId) (\s@CreateReplicationGroup' {} a -> s {primaryClusterId = a} :: CreateReplicationGroup)
 
--- | The list of user groups to associate with the replication group.
+-- | The user group to associate with the replication group.
 createReplicationGroup_userGroupIds :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 createReplicationGroup_userGroupIds = Lens.lens (\CreateReplicationGroup' {userGroupIds} -> userGroupIds) (\s@CreateReplicationGroup' {} a -> s {userGroupIds = a} :: CreateReplicationGroup) Prelude.. Lens.mapping Lens._Coerce
 
@@ -977,9 +985,17 @@ createReplicationGroup_cacheParameterGroupName = Lens.lens (\CreateReplicationGr
 createReplicationGroup_snapshotRetentionLimit :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe Prelude.Int)
 createReplicationGroup_snapshotRetentionLimit = Lens.lens (\CreateReplicationGroup' {snapshotRetentionLimit} -> snapshotRetentionLimit) (\s@CreateReplicationGroup' {} a -> s {snapshotRetentionLimit = a} :: CreateReplicationGroup)
 
--- | The name of the Global Datastore
+-- | The name of the Global datastore
 createReplicationGroup_globalReplicationGroupId :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe Prelude.Text)
 createReplicationGroup_globalReplicationGroupId = Lens.lens (\CreateReplicationGroup' {globalReplicationGroupId} -> globalReplicationGroupId) (\s@CreateReplicationGroup' {} a -> s {globalReplicationGroupId = a} :: CreateReplicationGroup)
+
+-- | An optional parameter that specifies the number of node groups (shards)
+-- for this Redis (cluster mode enabled) replication group. For Redis
+-- (cluster mode disabled) either omit this parameter or set it to 1.
+--
+-- Default: 1
+createReplicationGroup_numNodeGroups :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe Prelude.Int)
+createReplicationGroup_numNodeGroups = Lens.lens (\CreateReplicationGroup' {numNodeGroups} -> numNodeGroups) (\s@CreateReplicationGroup' {} a -> s {numNodeGroups = a} :: CreateReplicationGroup)
 
 -- | A list of Amazon Resource Names (ARN) that uniquely identify the Redis
 -- RDB snapshot files stored in Amazon S3. The snapshot files are used to
@@ -994,13 +1010,9 @@ createReplicationGroup_globalReplicationGroupId = Lens.lens (\CreateReplicationG
 createReplicationGroup_snapshotArns :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe [Prelude.Text])
 createReplicationGroup_snapshotArns = Lens.lens (\CreateReplicationGroup' {snapshotArns} -> snapshotArns) (\s@CreateReplicationGroup' {} a -> s {snapshotArns = a} :: CreateReplicationGroup) Prelude.. Lens.mapping Lens._Coerce
 
--- | An optional parameter that specifies the number of node groups (shards)
--- for this Redis (cluster mode enabled) replication group. For Redis
--- (cluster mode disabled) either omit this parameter or set it to 1.
---
--- Default: 1
-createReplicationGroup_numNodeGroups :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe Prelude.Int)
-createReplicationGroup_numNodeGroups = Lens.lens (\CreateReplicationGroup' {numNodeGroups} -> numNodeGroups) (\s@CreateReplicationGroup' {} a -> s {numNodeGroups = a} :: CreateReplicationGroup)
+-- | The ID of the KMS key used to encrypt the disk in the cluster.
+createReplicationGroup_kmsKeyId :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe Prelude.Text)
+createReplicationGroup_kmsKeyId = Lens.lens (\CreateReplicationGroup' {kmsKeyId} -> kmsKeyId) (\s@CreateReplicationGroup' {} a -> s {kmsKeyId = a} :: CreateReplicationGroup)
 
 -- | A flag that enables encryption at rest when set to @true@.
 --
@@ -1016,16 +1028,6 @@ createReplicationGroup_numNodeGroups = Lens.lens (\CreateReplicationGroup' {numN
 createReplicationGroup_atRestEncryptionEnabled :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe Prelude.Bool)
 createReplicationGroup_atRestEncryptionEnabled = Lens.lens (\CreateReplicationGroup' {atRestEncryptionEnabled} -> atRestEncryptionEnabled) (\s@CreateReplicationGroup' {} a -> s {atRestEncryptionEnabled = a} :: CreateReplicationGroup)
 
--- | A flag indicating if you have Multi-AZ enabled to enhance fault
--- tolerance. For more information, see
--- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html Minimizing Downtime: Multi-AZ>.
-createReplicationGroup_multiAZEnabled :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe Prelude.Bool)
-createReplicationGroup_multiAZEnabled = Lens.lens (\CreateReplicationGroup' {multiAZEnabled} -> multiAZEnabled) (\s@CreateReplicationGroup' {} a -> s {multiAZEnabled = a} :: CreateReplicationGroup)
-
--- | The ID of the KMS key used to encrypt the disk in the cluster.
-createReplicationGroup_kmsKeyId :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe Prelude.Text)
-createReplicationGroup_kmsKeyId = Lens.lens (\CreateReplicationGroup' {kmsKeyId} -> kmsKeyId) (\s@CreateReplicationGroup' {} a -> s {kmsKeyId = a} :: CreateReplicationGroup)
-
 -- | The name of the cache subnet group to be used for the replication group.
 --
 -- If you\'re going to launch your cluster in an Amazon VPC, you need to
@@ -1034,6 +1036,12 @@ createReplicationGroup_kmsKeyId = Lens.lens (\CreateReplicationGroup' {kmsKeyId}
 -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.html Subnets and Subnet Groups>.
 createReplicationGroup_cacheSubnetGroupName :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe Prelude.Text)
 createReplicationGroup_cacheSubnetGroupName = Lens.lens (\CreateReplicationGroup' {cacheSubnetGroupName} -> cacheSubnetGroupName) (\s@CreateReplicationGroup' {} a -> s {cacheSubnetGroupName = a} :: CreateReplicationGroup)
+
+-- | A flag indicating if you have Multi-AZ enabled to enhance fault
+-- tolerance. For more information, see
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html Minimizing Downtime: Multi-AZ>.
+createReplicationGroup_multiAZEnabled :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe Prelude.Bool)
+createReplicationGroup_multiAZEnabled = Lens.lens (\CreateReplicationGroup' {multiAZEnabled} -> multiAZEnabled) (\s@CreateReplicationGroup' {} a -> s {multiAZEnabled = a} :: CreateReplicationGroup)
 
 -- | The version number of the cache engine to be used for the clusters in
 -- this replication group. To view the supported cache engine versions, use
@@ -1047,36 +1055,6 @@ createReplicationGroup_cacheSubnetGroupName = Lens.lens (\CreateReplicationGroup
 -- the earlier engine version.
 createReplicationGroup_engineVersion :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe Prelude.Text)
 createReplicationGroup_engineVersion = Lens.lens (\CreateReplicationGroup' {engineVersion} -> engineVersion) (\s@CreateReplicationGroup' {} a -> s {engineVersion = a} :: CreateReplicationGroup)
-
--- | Specifies the weekly time range during which maintenance on the cluster
--- is performed. It is specified as a range in the format
--- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
--- is a 60 minute period. Valid values for @ddd@ are:
---
--- Specifies the weekly time range during which maintenance on the cluster
--- is performed. It is specified as a range in the format
--- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
--- is a 60 minute period.
---
--- Valid values for @ddd@ are:
---
--- -   @sun@
---
--- -   @mon@
---
--- -   @tue@
---
--- -   @wed@
---
--- -   @thu@
---
--- -   @fri@
---
--- -   @sat@
---
--- Example: @sun:23:00-mon:01:30@
-createReplicationGroup_preferredMaintenanceWindow :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe Prelude.Text)
-createReplicationGroup_preferredMaintenanceWindow = Lens.lens (\CreateReplicationGroup' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@CreateReplicationGroup' {} a -> s {preferredMaintenanceWindow = a} :: CreateReplicationGroup)
 
 -- | The compute and memory capacity of the nodes in the node group (shard).
 --
@@ -1174,10 +1152,41 @@ createReplicationGroup_preferredMaintenanceWindow = Lens.lens (\CreateReplicatio
 createReplicationGroup_cacheNodeType :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe Prelude.Text)
 createReplicationGroup_cacheNodeType = Lens.lens (\CreateReplicationGroup' {cacheNodeType} -> cacheNodeType) (\s@CreateReplicationGroup' {} a -> s {cacheNodeType = a} :: CreateReplicationGroup)
 
--- | A list of cost allocation tags to be added to this resource. Tags are
--- comma-separated key,value pairs (e.g. Key=@myKey@, Value=@myKeyValue@.
--- You can include multiple tags as shown following: Key=@myKey@,
--- Value=@myKeyValue@ Key=@mySecondKey@, Value=@mySecondKeyValue@.
+-- | Specifies the weekly time range during which maintenance on the cluster
+-- is performed. It is specified as a range in the format
+-- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
+-- is a 60 minute period. Valid values for @ddd@ are:
+--
+-- Specifies the weekly time range during which maintenance on the cluster
+-- is performed. It is specified as a range in the format
+-- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
+-- is a 60 minute period.
+--
+-- Valid values for @ddd@ are:
+--
+-- -   @sun@
+--
+-- -   @mon@
+--
+-- -   @tue@
+--
+-- -   @wed@
+--
+-- -   @thu@
+--
+-- -   @fri@
+--
+-- -   @sat@
+--
+-- Example: @sun:23:00-mon:01:30@
+createReplicationGroup_preferredMaintenanceWindow :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe Prelude.Text)
+createReplicationGroup_preferredMaintenanceWindow = Lens.lens (\CreateReplicationGroup' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@CreateReplicationGroup' {} a -> s {preferredMaintenanceWindow = a} :: CreateReplicationGroup)
+
+-- | A list of tags to be added to this resource. Tags are comma-separated
+-- key,value pairs (e.g. Key=@myKey@, Value=@myKeyValue@. You can include
+-- multiple tags as shown following: Key=@myKey@, Value=@myKeyValue@
+-- Key=@mySecondKey@, Value=@mySecondKeyValue@. Tags on replication groups
+-- will be replicated to all nodes.
 createReplicationGroup_tags :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe [Tag])
 createReplicationGroup_tags = Lens.lens (\CreateReplicationGroup' {tags} -> tags) (\s@CreateReplicationGroup' {} a -> s {tags = a} :: CreateReplicationGroup) Prelude.. Lens.mapping Lens._Coerce
 
@@ -1198,35 +1207,31 @@ createReplicationGroup_port = Lens.lens (\CreateReplicationGroup' {port} -> port
 createReplicationGroup_engine :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe Prelude.Text)
 createReplicationGroup_engine = Lens.lens (\CreateReplicationGroup' {engine} -> engine) (\s@CreateReplicationGroup' {} a -> s {engine = a} :: CreateReplicationGroup)
 
--- | An optional parameter that specifies the number of replica nodes in each
--- node group (shard). Valid values are 0 to 5.
-createReplicationGroup_replicasPerNodeGroup :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe Prelude.Int)
-createReplicationGroup_replicasPerNodeGroup = Lens.lens (\CreateReplicationGroup' {replicasPerNodeGroup} -> replicasPerNodeGroup) (\s@CreateReplicationGroup' {} a -> s {replicasPerNodeGroup = a} :: CreateReplicationGroup)
-
 -- | The name of a snapshot from which to restore data into the new
 -- replication group. The snapshot status changes to @restoring@ while the
 -- new replication group is being created.
 createReplicationGroup_snapshotName :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe Prelude.Text)
 createReplicationGroup_snapshotName = Lens.lens (\CreateReplicationGroup' {snapshotName} -> snapshotName) (\s@CreateReplicationGroup' {} a -> s {snapshotName = a} :: CreateReplicationGroup)
 
--- | A list of EC2 Availability Zones in which the replication group\'s
--- clusters are created. The order of the Availability Zones in the list is
--- the order in which clusters are allocated. The primary cluster is
--- created in the first AZ in the list.
+-- | An optional parameter that specifies the number of replica nodes in each
+-- node group (shard). Valid values are 0 to 5.
+createReplicationGroup_replicasPerNodeGroup :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe Prelude.Int)
+createReplicationGroup_replicasPerNodeGroup = Lens.lens (\CreateReplicationGroup' {replicasPerNodeGroup} -> replicasPerNodeGroup) (\s@CreateReplicationGroup' {} a -> s {replicasPerNodeGroup = a} :: CreateReplicationGroup)
+
+-- | The number of clusters this replication group initially has.
 --
 -- This parameter is not used if there is more than one node group (shard).
--- You should use @NodeGroupConfiguration@ instead.
+-- You should use @ReplicasPerNodeGroup@ instead.
 --
--- If you are creating your replication group in an Amazon VPC
--- (recommended), you can only locate clusters in Availability Zones
--- associated with the subnets in the selected subnet group.
+-- If @AutomaticFailoverEnabled@ is @true@, the value of this parameter
+-- must be at least 2. If @AutomaticFailoverEnabled@ is @false@ you can
+-- omit this parameter (it will default to 1), or you can explicitly set it
+-- to a value between 2 and 6.
 --
--- The number of Availability Zones listed must equal the value of
--- @NumCacheClusters@.
---
--- Default: system chosen Availability Zones.
-createReplicationGroup_preferredCacheClusterAZs :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe [Prelude.Text])
-createReplicationGroup_preferredCacheClusterAZs = Lens.lens (\CreateReplicationGroup' {preferredCacheClusterAZs} -> preferredCacheClusterAZs) (\s@CreateReplicationGroup' {} a -> s {preferredCacheClusterAZs = a} :: CreateReplicationGroup) Prelude.. Lens.mapping Lens._Coerce
+-- The maximum permitted value for @NumCacheClusters@ is 6 (1 primary plus
+-- 5 replicas).
+createReplicationGroup_numCacheClusters :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe Prelude.Int)
+createReplicationGroup_numCacheClusters = Lens.lens (\CreateReplicationGroup' {numCacheClusters} -> numCacheClusters) (\s@CreateReplicationGroup' {} a -> s {numCacheClusters = a} :: CreateReplicationGroup)
 
 -- | __Reserved parameter.__ The password used to access a password protected
 -- server.
@@ -1253,20 +1258,28 @@ createReplicationGroup_preferredCacheClusterAZs = Lens.lens (\CreateReplicationG
 createReplicationGroup_authToken :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe Prelude.Text)
 createReplicationGroup_authToken = Lens.lens (\CreateReplicationGroup' {authToken} -> authToken) (\s@CreateReplicationGroup' {} a -> s {authToken = a} :: CreateReplicationGroup)
 
--- | The number of clusters this replication group initially has.
+-- | Specifies the destination, format and type of the logs.
+createReplicationGroup_logDeliveryConfigurations :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe [LogDeliveryConfigurationRequest])
+createReplicationGroup_logDeliveryConfigurations = Lens.lens (\CreateReplicationGroup' {logDeliveryConfigurations} -> logDeliveryConfigurations) (\s@CreateReplicationGroup' {} a -> s {logDeliveryConfigurations = a} :: CreateReplicationGroup) Prelude.. Lens.mapping Lens._Coerce
+
+-- | A list of EC2 Availability Zones in which the replication group\'s
+-- clusters are created. The order of the Availability Zones in the list is
+-- the order in which clusters are allocated. The primary cluster is
+-- created in the first AZ in the list.
 --
 -- This parameter is not used if there is more than one node group (shard).
--- You should use @ReplicasPerNodeGroup@ instead.
+-- You should use @NodeGroupConfiguration@ instead.
 --
--- If @AutomaticFailoverEnabled@ is @true@, the value of this parameter
--- must be at least 2. If @AutomaticFailoverEnabled@ is @false@ you can
--- omit this parameter (it will default to 1), or you can explicitly set it
--- to a value between 2 and 6.
+-- If you are creating your replication group in an Amazon VPC
+-- (recommended), you can only locate clusters in Availability Zones
+-- associated with the subnets in the selected subnet group.
 --
--- The maximum permitted value for @NumCacheClusters@ is 6 (1 primary plus
--- 5 replicas).
-createReplicationGroup_numCacheClusters :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe Prelude.Int)
-createReplicationGroup_numCacheClusters = Lens.lens (\CreateReplicationGroup' {numCacheClusters} -> numCacheClusters) (\s@CreateReplicationGroup' {} a -> s {numCacheClusters = a} :: CreateReplicationGroup)
+-- The number of Availability Zones listed must equal the value of
+-- @NumCacheClusters@.
+--
+-- Default: system chosen Availability Zones.
+createReplicationGroup_preferredCacheClusterAZs :: Lens.Lens' CreateReplicationGroup (Prelude.Maybe [Prelude.Text])
+createReplicationGroup_preferredCacheClusterAZs = Lens.lens (\CreateReplicationGroup' {preferredCacheClusterAZs} -> preferredCacheClusterAZs) (\s@CreateReplicationGroup' {} a -> s {preferredCacheClusterAZs = a} :: CreateReplicationGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A flag that enables in-transit encryption when set to @true@.
 --
@@ -1343,15 +1356,15 @@ instance Core.ToQuery CreateReplicationGroup where
           Core.=: ("CreateReplicationGroup" :: Prelude.ByteString),
         "Version"
           Core.=: ("2015-02-02" :: Prelude.ByteString),
-        "SecurityGroupIds"
-          Core.=: Core.toQuery
-            ( Core.toQueryList "SecurityGroupId"
-                Prelude.<$> securityGroupIds
-            ),
         "NodeGroupConfiguration"
           Core.=: Core.toQuery
             ( Core.toQueryList "NodeGroupConfiguration"
                 Prelude.<$> nodeGroupConfiguration
+            ),
+        "SecurityGroupIds"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "SecurityGroupId"
+                Prelude.<$> securityGroupIds
             ),
         "AutomaticFailoverEnabled"
           Core.=: automaticFailoverEnabled,
@@ -1371,36 +1384,41 @@ instance Core.ToQuery CreateReplicationGroup where
           Core.=: snapshotRetentionLimit,
         "GlobalReplicationGroupId"
           Core.=: globalReplicationGroupId,
+        "NumNodeGroups" Core.=: numNodeGroups,
         "SnapshotArns"
           Core.=: Core.toQuery
             ( Core.toQueryList "SnapshotArn"
                 Prelude.<$> snapshotArns
             ),
-        "NumNodeGroups" Core.=: numNodeGroups,
+        "KmsKeyId" Core.=: kmsKeyId,
         "AtRestEncryptionEnabled"
           Core.=: atRestEncryptionEnabled,
-        "MultiAZEnabled" Core.=: multiAZEnabled,
-        "KmsKeyId" Core.=: kmsKeyId,
         "CacheSubnetGroupName" Core.=: cacheSubnetGroupName,
+        "MultiAZEnabled" Core.=: multiAZEnabled,
         "EngineVersion" Core.=: engineVersion,
+        "CacheNodeType" Core.=: cacheNodeType,
         "PreferredMaintenanceWindow"
           Core.=: preferredMaintenanceWindow,
-        "CacheNodeType" Core.=: cacheNodeType,
         "Tags"
           Core.=: Core.toQuery
             (Core.toQueryList "Tag" Prelude.<$> tags),
         "NotificationTopicArn" Core.=: notificationTopicArn,
         "Port" Core.=: port,
         "Engine" Core.=: engine,
-        "ReplicasPerNodeGroup" Core.=: replicasPerNodeGroup,
         "SnapshotName" Core.=: snapshotName,
+        "ReplicasPerNodeGroup" Core.=: replicasPerNodeGroup,
+        "NumCacheClusters" Core.=: numCacheClusters,
+        "AuthToken" Core.=: authToken,
+        "LogDeliveryConfigurations"
+          Core.=: Core.toQuery
+            ( Core.toQueryList "LogDeliveryConfigurationRequest"
+                Prelude.<$> logDeliveryConfigurations
+            ),
         "PreferredCacheClusterAZs"
           Core.=: Core.toQuery
             ( Core.toQueryList "AvailabilityZone"
                 Prelude.<$> preferredCacheClusterAZs
             ),
-        "AuthToken" Core.=: authToken,
-        "NumCacheClusters" Core.=: numCacheClusters,
         "TransitEncryptionEnabled"
           Core.=: transitEncryptionEnabled,
         "AutoMinorVersionUpgrade"

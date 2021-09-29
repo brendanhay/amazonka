@@ -51,27 +51,27 @@ data UpdateAction = UpdateAction'
     -- group have not been updated by the recommended apply-by date. If N\/A,
     -- the replication group was created after the recommended apply-by date.
     slaMet :: Prelude.Maybe SlaMet,
-    -- | The date that the service update is available to a replication group
-    updateActionAvailableDate :: Prelude.Maybe Core.ISO8601,
-    -- | The status of the service update on the node group
-    nodeGroupUpdateStatus :: Prelude.Maybe [NodeGroupUpdateStatus],
     -- | The recommended date to apply the service update to ensure compliance.
     -- For information on compliance, see
     -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance.html#elasticache-compliance-self-service Self-Service Security Updates for Compliance>.
     serviceUpdateRecommendedApplyByDate :: Prelude.Maybe Core.ISO8601,
+    -- | The date that the service update is available to a replication group
+    updateActionAvailableDate :: Prelude.Maybe Core.ISO8601,
+    -- | The status of the service update on the node group
+    nodeGroupUpdateStatus :: Prelude.Maybe [NodeGroupUpdateStatus],
     -- | Reflects the nature of the service update
     serviceUpdateType :: Prelude.Maybe ServiceUpdateType,
     -- | The status of the service update on the cache node
     cacheNodeUpdateStatus :: Prelude.Maybe [CacheNodeUpdateStatus],
     -- | The progress of the service update on the replication group
     nodesUpdated :: Prelude.Maybe Prelude.Text,
+    -- | The Elasticache engine to which the update applies. Either Redis or
+    -- Memcached
+    engine :: Prelude.Maybe Prelude.Text,
     -- | The estimated length of time for the update to complete
     estimatedUpdateTime :: Prelude.Maybe Prelude.Text,
     -- | The date when the UpdateActionStatus was last modified
     updateActionStatusModifiedDate :: Prelude.Maybe Core.ISO8601,
-    -- | The Elasticache engine to which the update applies. Either Redis or
-    -- Memcached
-    engine :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of the service update
     serviceUpdateName :: Prelude.Maybe Prelude.Text
   }
@@ -102,13 +102,13 @@ data UpdateAction = UpdateAction'
 -- group have not been updated by the recommended apply-by date. If N\/A,
 -- the replication group was created after the recommended apply-by date.
 --
--- 'updateActionAvailableDate', 'updateAction_updateActionAvailableDate' - The date that the service update is available to a replication group
---
--- 'nodeGroupUpdateStatus', 'updateAction_nodeGroupUpdateStatus' - The status of the service update on the node group
---
 -- 'serviceUpdateRecommendedApplyByDate', 'updateAction_serviceUpdateRecommendedApplyByDate' - The recommended date to apply the service update to ensure compliance.
 -- For information on compliance, see
 -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance.html#elasticache-compliance-self-service Self-Service Security Updates for Compliance>.
+--
+-- 'updateActionAvailableDate', 'updateAction_updateActionAvailableDate' - The date that the service update is available to a replication group
+--
+-- 'nodeGroupUpdateStatus', 'updateAction_nodeGroupUpdateStatus' - The status of the service update on the node group
 --
 -- 'serviceUpdateType', 'updateAction_serviceUpdateType' - Reflects the nature of the service update
 --
@@ -116,12 +116,12 @@ data UpdateAction = UpdateAction'
 --
 -- 'nodesUpdated', 'updateAction_nodesUpdated' - The progress of the service update on the replication group
 --
+-- 'engine', 'updateAction_engine' - The Elasticache engine to which the update applies. Either Redis or
+-- Memcached
+--
 -- 'estimatedUpdateTime', 'updateAction_estimatedUpdateTime' - The estimated length of time for the update to complete
 --
 -- 'updateActionStatusModifiedDate', 'updateAction_updateActionStatusModifiedDate' - The date when the UpdateActionStatus was last modified
---
--- 'engine', 'updateAction_engine' - The Elasticache engine to which the update applies. Either Redis or
--- Memcached
 --
 -- 'serviceUpdateName', 'updateAction_serviceUpdateName' - The unique ID of the service update
 newUpdateAction ::
@@ -136,16 +136,16 @@ newUpdateAction =
       cacheClusterId = Prelude.Nothing,
       serviceUpdateStatus = Prelude.Nothing,
       slaMet = Prelude.Nothing,
-      updateActionAvailableDate = Prelude.Nothing,
-      nodeGroupUpdateStatus = Prelude.Nothing,
       serviceUpdateRecommendedApplyByDate =
         Prelude.Nothing,
+      updateActionAvailableDate = Prelude.Nothing,
+      nodeGroupUpdateStatus = Prelude.Nothing,
       serviceUpdateType = Prelude.Nothing,
       cacheNodeUpdateStatus = Prelude.Nothing,
       nodesUpdated = Prelude.Nothing,
+      engine = Prelude.Nothing,
       estimatedUpdateTime = Prelude.Nothing,
       updateActionStatusModifiedDate = Prelude.Nothing,
-      engine = Prelude.Nothing,
       serviceUpdateName = Prelude.Nothing
     }
 
@@ -180,6 +180,12 @@ updateAction_serviceUpdateStatus = Lens.lens (\UpdateAction' {serviceUpdateStatu
 updateAction_slaMet :: Lens.Lens' UpdateAction (Prelude.Maybe SlaMet)
 updateAction_slaMet = Lens.lens (\UpdateAction' {slaMet} -> slaMet) (\s@UpdateAction' {} a -> s {slaMet = a} :: UpdateAction)
 
+-- | The recommended date to apply the service update to ensure compliance.
+-- For information on compliance, see
+-- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance.html#elasticache-compliance-self-service Self-Service Security Updates for Compliance>.
+updateAction_serviceUpdateRecommendedApplyByDate :: Lens.Lens' UpdateAction (Prelude.Maybe Prelude.UTCTime)
+updateAction_serviceUpdateRecommendedApplyByDate = Lens.lens (\UpdateAction' {serviceUpdateRecommendedApplyByDate} -> serviceUpdateRecommendedApplyByDate) (\s@UpdateAction' {} a -> s {serviceUpdateRecommendedApplyByDate = a} :: UpdateAction) Prelude.. Lens.mapping Core._Time
+
 -- | The date that the service update is available to a replication group
 updateAction_updateActionAvailableDate :: Lens.Lens' UpdateAction (Prelude.Maybe Prelude.UTCTime)
 updateAction_updateActionAvailableDate = Lens.lens (\UpdateAction' {updateActionAvailableDate} -> updateActionAvailableDate) (\s@UpdateAction' {} a -> s {updateActionAvailableDate = a} :: UpdateAction) Prelude.. Lens.mapping Core._Time
@@ -187,12 +193,6 @@ updateAction_updateActionAvailableDate = Lens.lens (\UpdateAction' {updateAction
 -- | The status of the service update on the node group
 updateAction_nodeGroupUpdateStatus :: Lens.Lens' UpdateAction (Prelude.Maybe [NodeGroupUpdateStatus])
 updateAction_nodeGroupUpdateStatus = Lens.lens (\UpdateAction' {nodeGroupUpdateStatus} -> nodeGroupUpdateStatus) (\s@UpdateAction' {} a -> s {nodeGroupUpdateStatus = a} :: UpdateAction) Prelude.. Lens.mapping Lens._Coerce
-
--- | The recommended date to apply the service update to ensure compliance.
--- For information on compliance, see
--- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance.html#elasticache-compliance-self-service Self-Service Security Updates for Compliance>.
-updateAction_serviceUpdateRecommendedApplyByDate :: Lens.Lens' UpdateAction (Prelude.Maybe Prelude.UTCTime)
-updateAction_serviceUpdateRecommendedApplyByDate = Lens.lens (\UpdateAction' {serviceUpdateRecommendedApplyByDate} -> serviceUpdateRecommendedApplyByDate) (\s@UpdateAction' {} a -> s {serviceUpdateRecommendedApplyByDate = a} :: UpdateAction) Prelude.. Lens.mapping Core._Time
 
 -- | Reflects the nature of the service update
 updateAction_serviceUpdateType :: Lens.Lens' UpdateAction (Prelude.Maybe ServiceUpdateType)
@@ -206,6 +206,11 @@ updateAction_cacheNodeUpdateStatus = Lens.lens (\UpdateAction' {cacheNodeUpdateS
 updateAction_nodesUpdated :: Lens.Lens' UpdateAction (Prelude.Maybe Prelude.Text)
 updateAction_nodesUpdated = Lens.lens (\UpdateAction' {nodesUpdated} -> nodesUpdated) (\s@UpdateAction' {} a -> s {nodesUpdated = a} :: UpdateAction)
 
+-- | The Elasticache engine to which the update applies. Either Redis or
+-- Memcached
+updateAction_engine :: Lens.Lens' UpdateAction (Prelude.Maybe Prelude.Text)
+updateAction_engine = Lens.lens (\UpdateAction' {engine} -> engine) (\s@UpdateAction' {} a -> s {engine = a} :: UpdateAction)
+
 -- | The estimated length of time for the update to complete
 updateAction_estimatedUpdateTime :: Lens.Lens' UpdateAction (Prelude.Maybe Prelude.Text)
 updateAction_estimatedUpdateTime = Lens.lens (\UpdateAction' {estimatedUpdateTime} -> estimatedUpdateTime) (\s@UpdateAction' {} a -> s {estimatedUpdateTime = a} :: UpdateAction)
@@ -213,11 +218,6 @@ updateAction_estimatedUpdateTime = Lens.lens (\UpdateAction' {estimatedUpdateTim
 -- | The date when the UpdateActionStatus was last modified
 updateAction_updateActionStatusModifiedDate :: Lens.Lens' UpdateAction (Prelude.Maybe Prelude.UTCTime)
 updateAction_updateActionStatusModifiedDate = Lens.lens (\UpdateAction' {updateActionStatusModifiedDate} -> updateActionStatusModifiedDate) (\s@UpdateAction' {} a -> s {updateActionStatusModifiedDate = a} :: UpdateAction) Prelude.. Lens.mapping Core._Time
-
--- | The Elasticache engine to which the update applies. Either Redis or
--- Memcached
-updateAction_engine :: Lens.Lens' UpdateAction (Prelude.Maybe Prelude.Text)
-updateAction_engine = Lens.lens (\UpdateAction' {engine} -> engine) (\s@UpdateAction' {} a -> s {engine = a} :: UpdateAction)
 
 -- | The unique ID of the service update
 updateAction_serviceUpdateName :: Lens.Lens' UpdateAction (Prelude.Maybe Prelude.Text)
@@ -233,21 +233,21 @@ instance Core.FromXML UpdateAction where
       Prelude.<*> (x Core..@? "CacheClusterId")
       Prelude.<*> (x Core..@? "ServiceUpdateStatus")
       Prelude.<*> (x Core..@? "SlaMet")
+      Prelude.<*> (x Core..@? "ServiceUpdateRecommendedApplyByDate")
       Prelude.<*> (x Core..@? "UpdateActionAvailableDate")
       Prelude.<*> ( x Core..@? "NodeGroupUpdateStatus"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "NodeGroupUpdateStatus")
                   )
-      Prelude.<*> (x Core..@? "ServiceUpdateRecommendedApplyByDate")
       Prelude.<*> (x Core..@? "ServiceUpdateType")
       Prelude.<*> ( x Core..@? "CacheNodeUpdateStatus"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "CacheNodeUpdateStatus")
                   )
       Prelude.<*> (x Core..@? "NodesUpdated")
+      Prelude.<*> (x Core..@? "Engine")
       Prelude.<*> (x Core..@? "EstimatedUpdateTime")
       Prelude.<*> (x Core..@? "UpdateActionStatusModifiedDate")
-      Prelude.<*> (x Core..@? "Engine")
       Prelude.<*> (x Core..@? "ServiceUpdateName")
 
 instance Prelude.Hashable UpdateAction

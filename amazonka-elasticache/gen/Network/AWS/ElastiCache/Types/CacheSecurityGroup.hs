@@ -34,7 +34,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCacheSecurityGroup' smart constructor.
 data CacheSecurityGroup = CacheSecurityGroup'
-  { -- | The AWS account ID of the cache security group owner.
+  { -- | The Amazon account ID of the cache security group owner.
     ownerId :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the cache security group,
     arn :: Prelude.Maybe Prelude.Text,
@@ -56,7 +56,7 @@ data CacheSecurityGroup = CacheSecurityGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'ownerId', 'cacheSecurityGroup_ownerId' - The AWS account ID of the cache security group owner.
+-- 'ownerId', 'cacheSecurityGroup_ownerId' - The Amazon account ID of the cache security group owner.
 --
 -- 'arn', 'cacheSecurityGroup_arn' - The ARN of the cache security group,
 --
@@ -77,7 +77,7 @@ newCacheSecurityGroup =
       description = Prelude.Nothing
     }
 
--- | The AWS account ID of the cache security group owner.
+-- | The Amazon account ID of the cache security group owner.
 cacheSecurityGroup_ownerId :: Lens.Lens' CacheSecurityGroup (Prelude.Maybe Prelude.Text)
 cacheSecurityGroup_ownerId = Lens.lens (\CacheSecurityGroup' {ownerId} -> ownerId) (\s@CacheSecurityGroup' {} a -> s {ownerId = a} :: CacheSecurityGroup)
 

@@ -28,10 +28,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newReservedCacheNodesOffering' smart constructor.
 data ReservedCacheNodesOffering = ReservedCacheNodesOffering'
-  { -- | A unique identifier for the reserved cache node offering.
-    reservedCacheNodesOfferingId :: Prelude.Maybe Prelude.Text,
-    -- | The duration of the offering. in seconds.
+  { -- | The duration of the offering. in seconds.
     duration :: Prelude.Maybe Prelude.Int,
+    -- | A unique identifier for the reserved cache node offering.
+    reservedCacheNodesOfferingId :: Prelude.Maybe Prelude.Text,
     -- | The cache node type for the reserved cache node.
     --
     -- The following node types are supported by ElastiCache. Generally
@@ -147,9 +147,9 @@ data ReservedCacheNodesOffering = ReservedCacheNodesOffering'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'reservedCacheNodesOfferingId', 'reservedCacheNodesOffering_reservedCacheNodesOfferingId' - A unique identifier for the reserved cache node offering.
---
 -- 'duration', 'reservedCacheNodesOffering_duration' - The duration of the offering. in seconds.
+--
+-- 'reservedCacheNodesOfferingId', 'reservedCacheNodesOffering_reservedCacheNodesOfferingId' - A unique identifier for the reserved cache node offering.
 --
 -- 'cacheNodeType', 'reservedCacheNodesOffering_cacheNodeType' - The cache node type for the reserved cache node.
 --
@@ -258,9 +258,9 @@ newReservedCacheNodesOffering ::
   ReservedCacheNodesOffering
 newReservedCacheNodesOffering =
   ReservedCacheNodesOffering'
-    { reservedCacheNodesOfferingId =
+    { duration =
         Prelude.Nothing,
-      duration = Prelude.Nothing,
+      reservedCacheNodesOfferingId = Prelude.Nothing,
       cacheNodeType = Prelude.Nothing,
       fixedPrice = Prelude.Nothing,
       usagePrice = Prelude.Nothing,
@@ -269,13 +269,13 @@ newReservedCacheNodesOffering =
       productDescription = Prelude.Nothing
     }
 
--- | A unique identifier for the reserved cache node offering.
-reservedCacheNodesOffering_reservedCacheNodesOfferingId :: Lens.Lens' ReservedCacheNodesOffering (Prelude.Maybe Prelude.Text)
-reservedCacheNodesOffering_reservedCacheNodesOfferingId = Lens.lens (\ReservedCacheNodesOffering' {reservedCacheNodesOfferingId} -> reservedCacheNodesOfferingId) (\s@ReservedCacheNodesOffering' {} a -> s {reservedCacheNodesOfferingId = a} :: ReservedCacheNodesOffering)
-
 -- | The duration of the offering. in seconds.
 reservedCacheNodesOffering_duration :: Lens.Lens' ReservedCacheNodesOffering (Prelude.Maybe Prelude.Int)
 reservedCacheNodesOffering_duration = Lens.lens (\ReservedCacheNodesOffering' {duration} -> duration) (\s@ReservedCacheNodesOffering' {} a -> s {duration = a} :: ReservedCacheNodesOffering)
+
+-- | A unique identifier for the reserved cache node offering.
+reservedCacheNodesOffering_reservedCacheNodesOfferingId :: Lens.Lens' ReservedCacheNodesOffering (Prelude.Maybe Prelude.Text)
+reservedCacheNodesOffering_reservedCacheNodesOfferingId = Lens.lens (\ReservedCacheNodesOffering' {reservedCacheNodesOfferingId} -> reservedCacheNodesOfferingId) (\s@ReservedCacheNodesOffering' {} a -> s {reservedCacheNodesOfferingId = a} :: ReservedCacheNodesOffering)
 
 -- | The cache node type for the reserved cache node.
 --
@@ -396,8 +396,8 @@ reservedCacheNodesOffering_productDescription = Lens.lens (\ReservedCacheNodesOf
 instance Core.FromXML ReservedCacheNodesOffering where
   parseXML x =
     ReservedCacheNodesOffering'
-      Prelude.<$> (x Core..@? "ReservedCacheNodesOfferingId")
-      Prelude.<*> (x Core..@? "Duration")
+      Prelude.<$> (x Core..@? "Duration")
+      Prelude.<*> (x Core..@? "ReservedCacheNodesOfferingId")
       Prelude.<*> (x Core..@? "CacheNodeType")
       Prelude.<*> (x Core..@? "FixedPrice")
       Prelude.<*> (x Core..@? "UsagePrice")

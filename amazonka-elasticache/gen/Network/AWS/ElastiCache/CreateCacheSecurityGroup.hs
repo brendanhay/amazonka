@@ -34,6 +34,7 @@ module Network.AWS.ElastiCache.CreateCacheSecurityGroup
     newCreateCacheSecurityGroup,
 
     -- * Request Lenses
+    createCacheSecurityGroup_tags,
     createCacheSecurityGroup_cacheSecurityGroupName,
     createCacheSecurityGroup_description,
 
@@ -58,7 +59,10 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateCacheSecurityGroup' smart constructor.
 data CreateCacheSecurityGroup = CreateCacheSecurityGroup'
-  { -- | A name for the cache security group. This value is stored as a lowercase
+  { -- | A list of tags to be added to this resource. A tag is a key-value pair.
+    -- A tag key must be accompanied by a tag value, although null is accepted.
+    tags :: Prelude.Maybe [Tag],
+    -- | A name for the cache security group. This value is stored as a lowercase
     -- string.
     --
     -- Constraints: Must contain no more than 255 alphanumeric characters.
@@ -79,6 +83,9 @@ data CreateCacheSecurityGroup = CreateCacheSecurityGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'tags', 'createCacheSecurityGroup_tags' - A list of tags to be added to this resource. A tag is a key-value pair.
+-- A tag key must be accompanied by a tag value, although null is accepted.
+--
 -- 'cacheSecurityGroupName', 'createCacheSecurityGroup_cacheSecurityGroupName' - A name for the cache security group. This value is stored as a lowercase
 -- string.
 --
@@ -98,10 +105,15 @@ newCreateCacheSecurityGroup
   pCacheSecurityGroupName_
   pDescription_ =
     CreateCacheSecurityGroup'
-      { cacheSecurityGroupName =
-          pCacheSecurityGroupName_,
+      { tags = Prelude.Nothing,
+        cacheSecurityGroupName = pCacheSecurityGroupName_,
         description = pDescription_
       }
+
+-- | A list of tags to be added to this resource. A tag is a key-value pair.
+-- A tag key must be accompanied by a tag value, although null is accepted.
+createCacheSecurityGroup_tags :: Lens.Lens' CreateCacheSecurityGroup (Prelude.Maybe [Tag])
+createCacheSecurityGroup_tags = Lens.lens (\CreateCacheSecurityGroup' {tags} -> tags) (\s@CreateCacheSecurityGroup' {} a -> s {tags = a} :: CreateCacheSecurityGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A name for the cache security group. This value is stored as a lowercase
 -- string.
@@ -148,6 +160,9 @@ instance Core.ToQuery CreateCacheSecurityGroup where
           Core.=: ("CreateCacheSecurityGroup" :: Prelude.ByteString),
         "Version"
           Core.=: ("2015-02-02" :: Prelude.ByteString),
+        "Tags"
+          Core.=: Core.toQuery
+            (Core.toQueryList "Tag" Prelude.<$> tags),
         "CacheSecurityGroupName"
           Core.=: cacheSecurityGroupName,
         "Description" Core.=: description

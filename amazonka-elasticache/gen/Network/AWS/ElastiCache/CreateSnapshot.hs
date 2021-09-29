@@ -33,6 +33,7 @@ module Network.AWS.ElastiCache.CreateSnapshot
     createSnapshot_replicationGroupId,
     createSnapshot_cacheClusterId,
     createSnapshot_kmsKeyId,
+    createSnapshot_tags,
     createSnapshot_snapshotName,
 
     -- * Destructuring the Response
@@ -64,6 +65,9 @@ data CreateSnapshot = CreateSnapshot'
     cacheClusterId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the KMS key used to encrypt the snapshot.
     kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | A list of tags to be added to this resource. A tag is a key-value pair.
+    -- A tag key must be accompanied by a tag value, although null is accepted.
+    tags :: Prelude.Maybe [Tag],
     -- | A name for the snapshot being created.
     snapshotName :: Prelude.Text
   }
@@ -85,6 +89,9 @@ data CreateSnapshot = CreateSnapshot'
 --
 -- 'kmsKeyId', 'createSnapshot_kmsKeyId' - The ID of the KMS key used to encrypt the snapshot.
 --
+-- 'tags', 'createSnapshot_tags' - A list of tags to be added to this resource. A tag is a key-value pair.
+-- A tag key must be accompanied by a tag value, although null is accepted.
+--
 -- 'snapshotName', 'createSnapshot_snapshotName' - A name for the snapshot being created.
 newCreateSnapshot ::
   -- | 'snapshotName'
@@ -96,6 +103,7 @@ newCreateSnapshot pSnapshotName_ =
         Prelude.Nothing,
       cacheClusterId = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
+      tags = Prelude.Nothing,
       snapshotName = pSnapshotName_
     }
 
@@ -112,6 +120,11 @@ createSnapshot_cacheClusterId = Lens.lens (\CreateSnapshot' {cacheClusterId} -> 
 -- | The ID of the KMS key used to encrypt the snapshot.
 createSnapshot_kmsKeyId :: Lens.Lens' CreateSnapshot (Prelude.Maybe Prelude.Text)
 createSnapshot_kmsKeyId = Lens.lens (\CreateSnapshot' {kmsKeyId} -> kmsKeyId) (\s@CreateSnapshot' {} a -> s {kmsKeyId = a} :: CreateSnapshot)
+
+-- | A list of tags to be added to this resource. A tag is a key-value pair.
+-- A tag key must be accompanied by a tag value, although null is accepted.
+createSnapshot_tags :: Lens.Lens' CreateSnapshot (Prelude.Maybe [Tag])
+createSnapshot_tags = Lens.lens (\CreateSnapshot' {tags} -> tags) (\s@CreateSnapshot' {} a -> s {tags = a} :: CreateSnapshot) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A name for the snapshot being created.
 createSnapshot_snapshotName :: Lens.Lens' CreateSnapshot Prelude.Text
@@ -151,6 +164,9 @@ instance Core.ToQuery CreateSnapshot where
         "ReplicationGroupId" Core.=: replicationGroupId,
         "CacheClusterId" Core.=: cacheClusterId,
         "KmsKeyId" Core.=: kmsKeyId,
+        "Tags"
+          Core.=: Core.toQuery
+            (Core.toQueryList "Tag" Prelude.<$> tags),
         "SnapshotName" Core.=: snapshotName
       ]
 

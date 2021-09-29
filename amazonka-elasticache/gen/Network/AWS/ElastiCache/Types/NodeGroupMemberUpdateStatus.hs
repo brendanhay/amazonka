@@ -33,11 +33,11 @@ data NodeGroupMemberUpdateStatus = NodeGroupMemberUpdateStatus'
     cacheClusterId :: Prelude.Maybe Prelude.Text,
     -- | The date when the NodeUpdateStatus was last modified
     nodeUpdateStatusModifiedDate :: Prelude.Maybe Core.ISO8601,
-    -- | The update status of the node
-    nodeUpdateStatus :: Prelude.Maybe NodeUpdateStatus,
     -- | Reflects whether the update was initiated by the customer or
     -- automatically applied
     nodeUpdateInitiatedBy :: Prelude.Maybe NodeUpdateInitiatedBy,
+    -- | The update status of the node
+    nodeUpdateStatus :: Prelude.Maybe NodeUpdateStatus,
     -- | The date when the update is triggered
     nodeUpdateInitiatedDate :: Prelude.Maybe Core.ISO8601,
     -- | The node ID of the cache cluster
@@ -63,10 +63,10 @@ data NodeGroupMemberUpdateStatus = NodeGroupMemberUpdateStatus'
 --
 -- 'nodeUpdateStatusModifiedDate', 'nodeGroupMemberUpdateStatus_nodeUpdateStatusModifiedDate' - The date when the NodeUpdateStatus was last modified
 --
--- 'nodeUpdateStatus', 'nodeGroupMemberUpdateStatus_nodeUpdateStatus' - The update status of the node
---
 -- 'nodeUpdateInitiatedBy', 'nodeGroupMemberUpdateStatus_nodeUpdateInitiatedBy' - Reflects whether the update was initiated by the customer or
 -- automatically applied
+--
+-- 'nodeUpdateStatus', 'nodeGroupMemberUpdateStatus_nodeUpdateStatus' - The update status of the node
 --
 -- 'nodeUpdateInitiatedDate', 'nodeGroupMemberUpdateStatus_nodeUpdateInitiatedDate' - The date when the update is triggered
 --
@@ -84,8 +84,8 @@ newNodeGroupMemberUpdateStatus =
     { cacheClusterId =
         Prelude.Nothing,
       nodeUpdateStatusModifiedDate = Prelude.Nothing,
-      nodeUpdateStatus = Prelude.Nothing,
       nodeUpdateInitiatedBy = Prelude.Nothing,
+      nodeUpdateStatus = Prelude.Nothing,
       nodeUpdateInitiatedDate = Prelude.Nothing,
       cacheNodeId = Prelude.Nothing,
       nodeDeletionDate = Prelude.Nothing,
@@ -101,14 +101,14 @@ nodeGroupMemberUpdateStatus_cacheClusterId = Lens.lens (\NodeGroupMemberUpdateSt
 nodeGroupMemberUpdateStatus_nodeUpdateStatusModifiedDate :: Lens.Lens' NodeGroupMemberUpdateStatus (Prelude.Maybe Prelude.UTCTime)
 nodeGroupMemberUpdateStatus_nodeUpdateStatusModifiedDate = Lens.lens (\NodeGroupMemberUpdateStatus' {nodeUpdateStatusModifiedDate} -> nodeUpdateStatusModifiedDate) (\s@NodeGroupMemberUpdateStatus' {} a -> s {nodeUpdateStatusModifiedDate = a} :: NodeGroupMemberUpdateStatus) Prelude.. Lens.mapping Core._Time
 
--- | The update status of the node
-nodeGroupMemberUpdateStatus_nodeUpdateStatus :: Lens.Lens' NodeGroupMemberUpdateStatus (Prelude.Maybe NodeUpdateStatus)
-nodeGroupMemberUpdateStatus_nodeUpdateStatus = Lens.lens (\NodeGroupMemberUpdateStatus' {nodeUpdateStatus} -> nodeUpdateStatus) (\s@NodeGroupMemberUpdateStatus' {} a -> s {nodeUpdateStatus = a} :: NodeGroupMemberUpdateStatus)
-
 -- | Reflects whether the update was initiated by the customer or
 -- automatically applied
 nodeGroupMemberUpdateStatus_nodeUpdateInitiatedBy :: Lens.Lens' NodeGroupMemberUpdateStatus (Prelude.Maybe NodeUpdateInitiatedBy)
 nodeGroupMemberUpdateStatus_nodeUpdateInitiatedBy = Lens.lens (\NodeGroupMemberUpdateStatus' {nodeUpdateInitiatedBy} -> nodeUpdateInitiatedBy) (\s@NodeGroupMemberUpdateStatus' {} a -> s {nodeUpdateInitiatedBy = a} :: NodeGroupMemberUpdateStatus)
+
+-- | The update status of the node
+nodeGroupMemberUpdateStatus_nodeUpdateStatus :: Lens.Lens' NodeGroupMemberUpdateStatus (Prelude.Maybe NodeUpdateStatus)
+nodeGroupMemberUpdateStatus_nodeUpdateStatus = Lens.lens (\NodeGroupMemberUpdateStatus' {nodeUpdateStatus} -> nodeUpdateStatus) (\s@NodeGroupMemberUpdateStatus' {} a -> s {nodeUpdateStatus = a} :: NodeGroupMemberUpdateStatus)
 
 -- | The date when the update is triggered
 nodeGroupMemberUpdateStatus_nodeUpdateInitiatedDate :: Lens.Lens' NodeGroupMemberUpdateStatus (Prelude.Maybe Prelude.UTCTime)
@@ -135,8 +135,8 @@ instance Core.FromXML NodeGroupMemberUpdateStatus where
     NodeGroupMemberUpdateStatus'
       Prelude.<$> (x Core..@? "CacheClusterId")
       Prelude.<*> (x Core..@? "NodeUpdateStatusModifiedDate")
-      Prelude.<*> (x Core..@? "NodeUpdateStatus")
       Prelude.<*> (x Core..@? "NodeUpdateInitiatedBy")
+      Prelude.<*> (x Core..@? "NodeUpdateStatus")
       Prelude.<*> (x Core..@? "NodeUpdateInitiatedDate")
       Prelude.<*> (x Core..@? "CacheNodeId")
       Prelude.<*> (x Core..@? "NodeDeletionDate")

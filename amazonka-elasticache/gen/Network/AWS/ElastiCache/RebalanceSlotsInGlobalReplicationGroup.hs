@@ -50,7 +50,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newRebalanceSlotsInGlobalReplicationGroup' smart constructor.
 data RebalanceSlotsInGlobalReplicationGroup = RebalanceSlotsInGlobalReplicationGroup'
-  { -- | The name of the Global Datastore
+  { -- | The name of the Global datastore
     globalReplicationGroupId :: Prelude.Text,
     -- | If @True@, redistribution is applied immediately.
     applyImmediately :: Prelude.Bool
@@ -65,7 +65,7 @@ data RebalanceSlotsInGlobalReplicationGroup = RebalanceSlotsInGlobalReplicationG
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'globalReplicationGroupId', 'rebalanceSlotsInGlobalReplicationGroup_globalReplicationGroupId' - The name of the Global Datastore
+-- 'globalReplicationGroupId', 'rebalanceSlotsInGlobalReplicationGroup_globalReplicationGroupId' - The name of the Global datastore
 --
 -- 'applyImmediately', 'rebalanceSlotsInGlobalReplicationGroup_applyImmediately' - If @True@, redistribution is applied immediately.
 newRebalanceSlotsInGlobalReplicationGroup ::
@@ -84,7 +84,7 @@ newRebalanceSlotsInGlobalReplicationGroup
           pApplyImmediately_
       }
 
--- | The name of the Global Datastore
+-- | The name of the Global datastore
 rebalanceSlotsInGlobalReplicationGroup_globalReplicationGroupId :: Lens.Lens' RebalanceSlotsInGlobalReplicationGroup Prelude.Text
 rebalanceSlotsInGlobalReplicationGroup_globalReplicationGroupId = Lens.lens (\RebalanceSlotsInGlobalReplicationGroup' {globalReplicationGroupId} -> globalReplicationGroupId) (\s@RebalanceSlotsInGlobalReplicationGroup' {} a -> s {globalReplicationGroupId = a} :: RebalanceSlotsInGlobalReplicationGroup)
 

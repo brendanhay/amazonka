@@ -133,8 +133,11 @@ library
     Network.AWS.ElastiCache.Types.CacheSecurityGroupMembership
     Network.AWS.ElastiCache.Types.CacheSubnetGroup
     Network.AWS.ElastiCache.Types.ChangeType
+    Network.AWS.ElastiCache.Types.CloudWatchLogsDestinationDetails
     Network.AWS.ElastiCache.Types.ConfigureShard
     Network.AWS.ElastiCache.Types.CustomerNodeEndpoint
+    Network.AWS.ElastiCache.Types.DestinationDetails
+    Network.AWS.ElastiCache.Types.DestinationType
     Network.AWS.ElastiCache.Types.EC2SecurityGroup
     Network.AWS.ElastiCache.Types.Endpoint
     Network.AWS.ElastiCache.Types.EngineDefaults
@@ -144,6 +147,12 @@ library
     Network.AWS.ElastiCache.Types.GlobalReplicationGroup
     Network.AWS.ElastiCache.Types.GlobalReplicationGroupInfo
     Network.AWS.ElastiCache.Types.GlobalReplicationGroupMember
+    Network.AWS.ElastiCache.Types.KinesisFirehoseDestinationDetails
+    Network.AWS.ElastiCache.Types.LogDeliveryConfiguration
+    Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest
+    Network.AWS.ElastiCache.Types.LogDeliveryConfigurationStatus
+    Network.AWS.ElastiCache.Types.LogFormat
+    Network.AWS.ElastiCache.Types.LogType
     Network.AWS.ElastiCache.Types.MultiAZStatus
     Network.AWS.ElastiCache.Types.NodeGroup
     Network.AWS.ElastiCache.Types.NodeGroupConfiguration
@@ -158,6 +167,7 @@ library
     Network.AWS.ElastiCache.Types.Parameter
     Network.AWS.ElastiCache.Types.ParameterNameValue
     Network.AWS.ElastiCache.Types.PendingAutomaticFailoverStatus
+    Network.AWS.ElastiCache.Types.PendingLogDeliveryConfiguration
     Network.AWS.ElastiCache.Types.PendingModifiedValues
     Network.AWS.ElastiCache.Types.ProcessedUpdateAction
     Network.AWS.ElastiCache.Types.RecurringCharge

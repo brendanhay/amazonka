@@ -50,11 +50,11 @@ data ServiceUpdate = ServiceUpdate'
     engineVersion :: Prelude.Maybe Prelude.Text,
     -- | Reflects the nature of the service update
     serviceUpdateType :: Prelude.Maybe ServiceUpdateType,
-    -- | The estimated length of time the service update will take
-    estimatedUpdateTime :: Prelude.Maybe Prelude.Text,
     -- | The Elasticache engine to which the update applies. Either Redis or
     -- Memcached
     engine :: Prelude.Maybe Prelude.Text,
+    -- | The estimated length of time the service update will take
+    estimatedUpdateTime :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of the service update
     serviceUpdateName :: Prelude.Maybe Prelude.Text,
     -- | Provides details of the service update
@@ -90,10 +90,10 @@ data ServiceUpdate = ServiceUpdate'
 --
 -- 'serviceUpdateType', 'serviceUpdate_serviceUpdateType' - Reflects the nature of the service update
 --
--- 'estimatedUpdateTime', 'serviceUpdate_estimatedUpdateTime' - The estimated length of time the service update will take
---
 -- 'engine', 'serviceUpdate_engine' - The Elasticache engine to which the update applies. Either Redis or
 -- Memcached
+--
+-- 'estimatedUpdateTime', 'serviceUpdate_estimatedUpdateTime' - The estimated length of time the service update will take
 --
 -- 'serviceUpdateName', 'serviceUpdate_serviceUpdateName' - The unique ID of the service update
 --
@@ -113,8 +113,8 @@ newServiceUpdate =
       serviceUpdateEndDate = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
       serviceUpdateType = Prelude.Nothing,
-      estimatedUpdateTime = Prelude.Nothing,
       engine = Prelude.Nothing,
+      estimatedUpdateTime = Prelude.Nothing,
       serviceUpdateName = Prelude.Nothing,
       serviceUpdateDescription = Prelude.Nothing
     }
@@ -155,14 +155,14 @@ serviceUpdate_engineVersion = Lens.lens (\ServiceUpdate' {engineVersion} -> engi
 serviceUpdate_serviceUpdateType :: Lens.Lens' ServiceUpdate (Prelude.Maybe ServiceUpdateType)
 serviceUpdate_serviceUpdateType = Lens.lens (\ServiceUpdate' {serviceUpdateType} -> serviceUpdateType) (\s@ServiceUpdate' {} a -> s {serviceUpdateType = a} :: ServiceUpdate)
 
--- | The estimated length of time the service update will take
-serviceUpdate_estimatedUpdateTime :: Lens.Lens' ServiceUpdate (Prelude.Maybe Prelude.Text)
-serviceUpdate_estimatedUpdateTime = Lens.lens (\ServiceUpdate' {estimatedUpdateTime} -> estimatedUpdateTime) (\s@ServiceUpdate' {} a -> s {estimatedUpdateTime = a} :: ServiceUpdate)
-
 -- | The Elasticache engine to which the update applies. Either Redis or
 -- Memcached
 serviceUpdate_engine :: Lens.Lens' ServiceUpdate (Prelude.Maybe Prelude.Text)
 serviceUpdate_engine = Lens.lens (\ServiceUpdate' {engine} -> engine) (\s@ServiceUpdate' {} a -> s {engine = a} :: ServiceUpdate)
+
+-- | The estimated length of time the service update will take
+serviceUpdate_estimatedUpdateTime :: Lens.Lens' ServiceUpdate (Prelude.Maybe Prelude.Text)
+serviceUpdate_estimatedUpdateTime = Lens.lens (\ServiceUpdate' {estimatedUpdateTime} -> estimatedUpdateTime) (\s@ServiceUpdate' {} a -> s {estimatedUpdateTime = a} :: ServiceUpdate)
 
 -- | The unique ID of the service update
 serviceUpdate_serviceUpdateName :: Lens.Lens' ServiceUpdate (Prelude.Maybe Prelude.Text)
@@ -183,8 +183,8 @@ instance Core.FromXML ServiceUpdate where
       Prelude.<*> (x Core..@? "ServiceUpdateEndDate")
       Prelude.<*> (x Core..@? "EngineVersion")
       Prelude.<*> (x Core..@? "ServiceUpdateType")
-      Prelude.<*> (x Core..@? "EstimatedUpdateTime")
       Prelude.<*> (x Core..@? "Engine")
+      Prelude.<*> (x Core..@? "EstimatedUpdateTime")
       Prelude.<*> (x Core..@? "ServiceUpdateName")
       Prelude.<*> (x Core..@? "ServiceUpdateDescription")
 

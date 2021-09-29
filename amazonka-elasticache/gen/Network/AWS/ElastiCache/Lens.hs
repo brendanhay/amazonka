@@ -15,8 +15,8 @@ module Network.AWS.ElastiCache.Lens
   ( -- * Operations
 
     -- ** CreateReplicationGroup
-    createReplicationGroup_securityGroupIds,
     createReplicationGroup_nodeGroupConfiguration,
+    createReplicationGroup_securityGroupIds,
     createReplicationGroup_automaticFailoverEnabled,
     createReplicationGroup_cacheSecurityGroupNames,
     createReplicationGroup_primaryClusterId,
@@ -25,24 +25,25 @@ module Network.AWS.ElastiCache.Lens
     createReplicationGroup_cacheParameterGroupName,
     createReplicationGroup_snapshotRetentionLimit,
     createReplicationGroup_globalReplicationGroupId,
-    createReplicationGroup_snapshotArns,
     createReplicationGroup_numNodeGroups,
-    createReplicationGroup_atRestEncryptionEnabled,
-    createReplicationGroup_multiAZEnabled,
+    createReplicationGroup_snapshotArns,
     createReplicationGroup_kmsKeyId,
+    createReplicationGroup_atRestEncryptionEnabled,
     createReplicationGroup_cacheSubnetGroupName,
+    createReplicationGroup_multiAZEnabled,
     createReplicationGroup_engineVersion,
-    createReplicationGroup_preferredMaintenanceWindow,
     createReplicationGroup_cacheNodeType,
+    createReplicationGroup_preferredMaintenanceWindow,
     createReplicationGroup_tags,
     createReplicationGroup_notificationTopicArn,
     createReplicationGroup_port,
     createReplicationGroup_engine,
-    createReplicationGroup_replicasPerNodeGroup,
     createReplicationGroup_snapshotName,
-    createReplicationGroup_preferredCacheClusterAZs,
-    createReplicationGroup_authToken,
+    createReplicationGroup_replicasPerNodeGroup,
     createReplicationGroup_numCacheClusters,
+    createReplicationGroup_authToken,
+    createReplicationGroup_logDeliveryConfigurations,
+    createReplicationGroup_preferredCacheClusterAZs,
     createReplicationGroup_transitEncryptionEnabled,
     createReplicationGroup_autoMinorVersionUpgrade,
     createReplicationGroup_replicationGroupId,
@@ -55,6 +56,16 @@ module Network.AWS.ElastiCache.Lens
     deleteCacheCluster_cacheClusterId,
     deleteCacheClusterResponse_cacheCluster,
     deleteCacheClusterResponse_httpStatus,
+
+    -- ** DeleteUserGroup
+    deleteUserGroup_userGroupId,
+    userGroup_status,
+    userGroup_replicationGroups,
+    userGroup_arn,
+    userGroup_userIds,
+    userGroup_engine,
+    userGroup_userGroupId,
+    userGroup_pendingChanges,
 
     -- ** RebootCacheCluster
     rebootCacheCluster_cacheClusterId,
@@ -70,24 +81,14 @@ module Network.AWS.ElastiCache.Lens
     increaseNodeGroupsInGlobalReplicationGroupResponse_globalReplicationGroup,
     increaseNodeGroupsInGlobalReplicationGroupResponse_httpStatus,
 
-    -- ** DeleteUserGroup
-    deleteUserGroup_userGroupId,
-    userGroup_status,
-    userGroup_replicationGroups,
-    userGroup_arn,
-    userGroup_userIds,
-    userGroup_engine,
-    userGroup_userGroupId,
-    userGroup_pendingChanges,
-
-    -- ** DeleteCacheSecurityGroup
-    deleteCacheSecurityGroup_cacheSecurityGroupName,
-
     -- ** StartMigration
     startMigration_replicationGroupId,
     startMigration_customerNodeEndpointList,
     startMigrationResponse_replicationGroup,
     startMigrationResponse_httpStatus,
+
+    -- ** DeleteCacheSecurityGroup
+    deleteCacheSecurityGroup_cacheSecurityGroupName,
 
     -- ** AuthorizeCacheSecurityGroupIngress
     authorizeCacheSecurityGroupIngress_cacheSecurityGroupName,
@@ -95,14 +96,6 @@ module Network.AWS.ElastiCache.Lens
     authorizeCacheSecurityGroupIngress_eC2SecurityGroupOwnerId,
     authorizeCacheSecurityGroupIngressResponse_cacheSecurityGroup,
     authorizeCacheSecurityGroupIngressResponse_httpStatus,
-
-    -- ** CopySnapshot
-    copySnapshot_targetBucket,
-    copySnapshot_kmsKeyId,
-    copySnapshot_sourceSnapshotName,
-    copySnapshot_targetSnapshotName,
-    copySnapshotResponse_snapshot,
-    copySnapshotResponse_httpStatus,
 
     -- ** DecreaseReplicaCount
     decreaseReplicaCount_newReplicaCount,
@@ -113,51 +106,45 @@ module Network.AWS.ElastiCache.Lens
     decreaseReplicaCountResponse_replicationGroup,
     decreaseReplicaCountResponse_httpStatus,
 
+    -- ** CreateCacheSecurityGroup
+    createCacheSecurityGroup_tags,
+    createCacheSecurityGroup_cacheSecurityGroupName,
+    createCacheSecurityGroup_description,
+    createCacheSecurityGroupResponse_cacheSecurityGroup,
+    createCacheSecurityGroupResponse_httpStatus,
+
     -- ** RebalanceSlotsInGlobalReplicationGroup
     rebalanceSlotsInGlobalReplicationGroup_globalReplicationGroupId,
     rebalanceSlotsInGlobalReplicationGroup_applyImmediately,
     rebalanceSlotsInGlobalReplicationGroupResponse_globalReplicationGroup,
     rebalanceSlotsInGlobalReplicationGroupResponse_httpStatus,
 
-    -- ** CreateCacheSecurityGroup
-    createCacheSecurityGroup_cacheSecurityGroupName,
-    createCacheSecurityGroup_description,
-    createCacheSecurityGroupResponse_cacheSecurityGroup,
-    createCacheSecurityGroupResponse_httpStatus,
-
-    -- ** DescribeCacheSubnetGroups
-    describeCacheSubnetGroups_cacheSubnetGroupName,
-    describeCacheSubnetGroups_marker,
-    describeCacheSubnetGroups_maxRecords,
-    describeCacheSubnetGroupsResponse_cacheSubnetGroups,
-    describeCacheSubnetGroupsResponse_marker,
-    describeCacheSubnetGroupsResponse_httpStatus,
-
-    -- ** DescribeGlobalReplicationGroups
-    describeGlobalReplicationGroups_globalReplicationGroupId,
-    describeGlobalReplicationGroups_showMemberInfo,
-    describeGlobalReplicationGroups_marker,
-    describeGlobalReplicationGroups_maxRecords,
-    describeGlobalReplicationGroupsResponse_globalReplicationGroups,
-    describeGlobalReplicationGroupsResponse_marker,
-    describeGlobalReplicationGroupsResponse_httpStatus,
+    -- ** CopySnapshot
+    copySnapshot_targetBucket,
+    copySnapshot_kmsKeyId,
+    copySnapshot_tags,
+    copySnapshot_sourceSnapshotName,
+    copySnapshot_targetSnapshotName,
+    copySnapshotResponse_snapshot,
+    copySnapshotResponse_httpStatus,
 
     -- ** ModifyCacheCluster
     modifyCacheCluster_securityGroupIds,
     modifyCacheCluster_numCacheNodes,
-    modifyCacheCluster_authTokenUpdateStrategy,
     modifyCacheCluster_cacheSecurityGroupNames,
-    modifyCacheCluster_newAvailabilityZones,
+    modifyCacheCluster_authTokenUpdateStrategy,
     modifyCacheCluster_snapshotWindow,
     modifyCacheCluster_notificationTopicStatus,
+    modifyCacheCluster_newAvailabilityZones,
     modifyCacheCluster_cacheParameterGroupName,
     modifyCacheCluster_snapshotRetentionLimit,
     modifyCacheCluster_cacheNodeIdsToRemove,
     modifyCacheCluster_engineVersion,
-    modifyCacheCluster_preferredMaintenanceWindow,
     modifyCacheCluster_cacheNodeType,
+    modifyCacheCluster_preferredMaintenanceWindow,
     modifyCacheCluster_notificationTopicArn,
     modifyCacheCluster_authToken,
+    modifyCacheCluster_logDeliveryConfigurations,
     modifyCacheCluster_aZMode,
     modifyCacheCluster_applyImmediately,
     modifyCacheCluster_autoMinorVersionUpgrade,
@@ -165,15 +152,32 @@ module Network.AWS.ElastiCache.Lens
     modifyCacheClusterResponse_cacheCluster,
     modifyCacheClusterResponse_httpStatus,
 
+    -- ** DescribeCacheSubnetGroups
+    describeCacheSubnetGroups_cacheSubnetGroupName,
+    describeCacheSubnetGroups_maxRecords,
+    describeCacheSubnetGroups_marker,
+    describeCacheSubnetGroupsResponse_cacheSubnetGroups,
+    describeCacheSubnetGroupsResponse_marker,
+    describeCacheSubnetGroupsResponse_httpStatus,
+
+    -- ** DescribeGlobalReplicationGroups
+    describeGlobalReplicationGroups_globalReplicationGroupId,
+    describeGlobalReplicationGroups_showMemberInfo,
+    describeGlobalReplicationGroups_maxRecords,
+    describeGlobalReplicationGroups_marker,
+    describeGlobalReplicationGroupsResponse_globalReplicationGroups,
+    describeGlobalReplicationGroupsResponse_marker,
+    describeGlobalReplicationGroupsResponse_httpStatus,
+
     -- ** DescribeReservedCacheNodes
-    describeReservedCacheNodes_reservedCacheNodesOfferingId,
     describeReservedCacheNodes_duration,
+    describeReservedCacheNodes_reservedCacheNodesOfferingId,
     describeReservedCacheNodes_cacheNodeType,
     describeReservedCacheNodes_offeringType,
-    describeReservedCacheNodes_productDescription,
     describeReservedCacheNodes_reservedCacheNodeId,
-    describeReservedCacheNodes_marker,
+    describeReservedCacheNodes_productDescription,
     describeReservedCacheNodes_maxRecords,
+    describeReservedCacheNodes_marker,
     describeReservedCacheNodesResponse_reservedCacheNodes,
     describeReservedCacheNodesResponse_marker,
     describeReservedCacheNodesResponse_httpStatus,
@@ -188,11 +192,40 @@ module Network.AWS.ElastiCache.Lens
 
     -- ** DescribeCacheSecurityGroups
     describeCacheSecurityGroups_cacheSecurityGroupName,
-    describeCacheSecurityGroups_marker,
     describeCacheSecurityGroups_maxRecords,
+    describeCacheSecurityGroups_marker,
     describeCacheSecurityGroupsResponse_cacheSecurityGroups,
     describeCacheSecurityGroupsResponse_marker,
     describeCacheSecurityGroupsResponse_httpStatus,
+
+    -- ** ModifyReplicationGroup
+    modifyReplicationGroup_securityGroupIds,
+    modifyReplicationGroup_automaticFailoverEnabled,
+    modifyReplicationGroup_cacheSecurityGroupNames,
+    modifyReplicationGroup_authTokenUpdateStrategy,
+    modifyReplicationGroup_primaryClusterId,
+    modifyReplicationGroup_snapshotWindow,
+    modifyReplicationGroup_notificationTopicStatus,
+    modifyReplicationGroup_cacheParameterGroupName,
+    modifyReplicationGroup_userGroupIdsToRemove,
+    modifyReplicationGroup_replicationGroupDescription,
+    modifyReplicationGroup_snapshotRetentionLimit,
+    modifyReplicationGroup_userGroupIdsToAdd,
+    modifyReplicationGroup_nodeGroupId,
+    modifyReplicationGroup_snapshottingClusterId,
+    modifyReplicationGroup_multiAZEnabled,
+    modifyReplicationGroup_engineVersion,
+    modifyReplicationGroup_cacheNodeType,
+    modifyReplicationGroup_preferredMaintenanceWindow,
+    modifyReplicationGroup_notificationTopicArn,
+    modifyReplicationGroup_removeUserGroups,
+    modifyReplicationGroup_authToken,
+    modifyReplicationGroup_logDeliveryConfigurations,
+    modifyReplicationGroup_applyImmediately,
+    modifyReplicationGroup_autoMinorVersionUpgrade,
+    modifyReplicationGroup_replicationGroupId,
+    modifyReplicationGroupResponse_replicationGroup,
+    modifyReplicationGroupResponse_httpStatus,
 
     -- ** BatchStopUpdateAction
     batchStopUpdateAction_cacheClusterIds,
@@ -201,44 +234,23 @@ module Network.AWS.ElastiCache.Lens
     updateActionResultsMessage_processedUpdateActions,
     updateActionResultsMessage_unprocessedUpdateActions,
 
-    -- ** ModifyReplicationGroup
-    modifyReplicationGroup_securityGroupIds,
-    modifyReplicationGroup_automaticFailoverEnabled,
-    modifyReplicationGroup_authTokenUpdateStrategy,
-    modifyReplicationGroup_cacheSecurityGroupNames,
-    modifyReplicationGroup_primaryClusterId,
-    modifyReplicationGroup_snapshotWindow,
-    modifyReplicationGroup_notificationTopicStatus,
-    modifyReplicationGroup_userGroupIdsToRemove,
-    modifyReplicationGroup_replicationGroupDescription,
-    modifyReplicationGroup_cacheParameterGroupName,
-    modifyReplicationGroup_snapshotRetentionLimit,
-    modifyReplicationGroup_nodeGroupId,
-    modifyReplicationGroup_userGroupIdsToAdd,
-    modifyReplicationGroup_multiAZEnabled,
-    modifyReplicationGroup_snapshottingClusterId,
-    modifyReplicationGroup_engineVersion,
-    modifyReplicationGroup_preferredMaintenanceWindow,
-    modifyReplicationGroup_cacheNodeType,
-    modifyReplicationGroup_notificationTopicArn,
-    modifyReplicationGroup_authToken,
-    modifyReplicationGroup_removeUserGroups,
-    modifyReplicationGroup_applyImmediately,
-    modifyReplicationGroup_autoMinorVersionUpgrade,
-    modifyReplicationGroup_replicationGroupId,
-    modifyReplicationGroupResponse_replicationGroup,
-    modifyReplicationGroupResponse_httpStatus,
-
     -- ** PurchaseReservedCacheNodesOffering
     purchaseReservedCacheNodesOffering_cacheNodeCount,
+    purchaseReservedCacheNodesOffering_tags,
     purchaseReservedCacheNodesOffering_reservedCacheNodeId,
     purchaseReservedCacheNodesOffering_reservedCacheNodesOfferingId,
     purchaseReservedCacheNodesOfferingResponse_reservedCacheNode,
     purchaseReservedCacheNodesOfferingResponse_httpStatus,
 
+    -- ** DeleteSnapshot
+    deleteSnapshot_snapshotName,
+    deleteSnapshotResponse_snapshot,
+    deleteSnapshotResponse_httpStatus,
+
     -- ** CreateUser
     createUser_passwords,
     createUser_noPasswordRequired,
+    createUser_tags,
     createUser_userId,
     createUser_userName,
     createUser_engine,
@@ -252,46 +264,41 @@ module Network.AWS.ElastiCache.Lens
     user_engine,
     user_userName,
 
-    -- ** DeleteSnapshot
-    deleteSnapshot_snapshotName,
-    deleteSnapshotResponse_snapshot,
-    deleteSnapshotResponse_httpStatus,
-
     -- ** CompleteMigration
     completeMigration_force,
     completeMigration_replicationGroupId,
     completeMigrationResponse_replicationGroup,
     completeMigrationResponse_httpStatus,
 
-    -- ** CreateCacheCluster
-    createCacheCluster_securityGroupIds,
-    createCacheCluster_preferredAvailabilityZones,
-    createCacheCluster_numCacheNodes,
-    createCacheCluster_cacheSecurityGroupNames,
-    createCacheCluster_replicationGroupId,
-    createCacheCluster_snapshotWindow,
-    createCacheCluster_preferredOutpostArns,
-    createCacheCluster_outpostMode,
-    createCacheCluster_cacheParameterGroupName,
-    createCacheCluster_snapshotRetentionLimit,
-    createCacheCluster_snapshotArns,
-    createCacheCluster_preferredAvailabilityZone,
-    createCacheCluster_cacheSubnetGroupName,
-    createCacheCluster_engineVersion,
-    createCacheCluster_preferredMaintenanceWindow,
-    createCacheCluster_cacheNodeType,
-    createCacheCluster_tags,
-    createCacheCluster_notificationTopicArn,
-    createCacheCluster_port,
-    createCacheCluster_engine,
-    createCacheCluster_preferredOutpostArn,
-    createCacheCluster_snapshotName,
-    createCacheCluster_authToken,
-    createCacheCluster_aZMode,
-    createCacheCluster_autoMinorVersionUpgrade,
-    createCacheCluster_cacheClusterId,
-    createCacheClusterResponse_cacheCluster,
-    createCacheClusterResponse_httpStatus,
+    -- ** DescribeEvents
+    describeEvents_duration,
+    describeEvents_startTime,
+    describeEvents_endTime,
+    describeEvents_sourceIdentifier,
+    describeEvents_sourceType,
+    describeEvents_maxRecords,
+    describeEvents_marker,
+    describeEventsResponse_events,
+    describeEventsResponse_marker,
+    describeEventsResponse_httpStatus,
+
+    -- ** TestFailover
+    testFailover_replicationGroupId,
+    testFailover_nodeGroupId,
+    testFailoverResponse_replicationGroup,
+    testFailoverResponse_httpStatus,
+
+    -- ** DescribeSnapshots
+    describeSnapshots_replicationGroupId,
+    describeSnapshots_cacheClusterId,
+    describeSnapshots_snapshotSource,
+    describeSnapshots_showNodeGroupConfig,
+    describeSnapshots_snapshotName,
+    describeSnapshots_maxRecords,
+    describeSnapshots_marker,
+    describeSnapshotsResponse_snapshots,
+    describeSnapshotsResponse_marker,
+    describeSnapshotsResponse_httpStatus,
 
     -- ** DisassociateGlobalReplicationGroup
     disassociateGlobalReplicationGroup_globalReplicationGroupId,
@@ -300,42 +307,43 @@ module Network.AWS.ElastiCache.Lens
     disassociateGlobalReplicationGroupResponse_globalReplicationGroup,
     disassociateGlobalReplicationGroupResponse_httpStatus,
 
-    -- ** DescribeEvents
-    describeEvents_duration,
-    describeEvents_startTime,
-    describeEvents_endTime,
-    describeEvents_sourceIdentifier,
-    describeEvents_sourceType,
-    describeEvents_marker,
-    describeEvents_maxRecords,
-    describeEventsResponse_events,
-    describeEventsResponse_marker,
-    describeEventsResponse_httpStatus,
-
     -- ** DeleteReplicationGroup
-    deleteReplicationGroup_retainPrimaryCluster,
     deleteReplicationGroup_finalSnapshotIdentifier,
+    deleteReplicationGroup_retainPrimaryCluster,
     deleteReplicationGroup_replicationGroupId,
     deleteReplicationGroupResponse_replicationGroup,
     deleteReplicationGroupResponse_httpStatus,
 
-    -- ** DescribeSnapshots
-    describeSnapshots_replicationGroupId,
-    describeSnapshots_cacheClusterId,
-    describeSnapshots_snapshotSource,
-    describeSnapshots_showNodeGroupConfig,
-    describeSnapshots_snapshotName,
-    describeSnapshots_marker,
-    describeSnapshots_maxRecords,
-    describeSnapshotsResponse_snapshots,
-    describeSnapshotsResponse_marker,
-    describeSnapshotsResponse_httpStatus,
-
-    -- ** TestFailover
-    testFailover_replicationGroupId,
-    testFailover_nodeGroupId,
-    testFailoverResponse_replicationGroup,
-    testFailoverResponse_httpStatus,
+    -- ** CreateCacheCluster
+    createCacheCluster_securityGroupIds,
+    createCacheCluster_numCacheNodes,
+    createCacheCluster_cacheSecurityGroupNames,
+    createCacheCluster_preferredAvailabilityZones,
+    createCacheCluster_replicationGroupId,
+    createCacheCluster_snapshotWindow,
+    createCacheCluster_cacheParameterGroupName,
+    createCacheCluster_outpostMode,
+    createCacheCluster_snapshotRetentionLimit,
+    createCacheCluster_preferredOutpostArns,
+    createCacheCluster_preferredAvailabilityZone,
+    createCacheCluster_snapshotArns,
+    createCacheCluster_cacheSubnetGroupName,
+    createCacheCluster_engineVersion,
+    createCacheCluster_cacheNodeType,
+    createCacheCluster_preferredMaintenanceWindow,
+    createCacheCluster_tags,
+    createCacheCluster_notificationTopicArn,
+    createCacheCluster_port,
+    createCacheCluster_preferredOutpostArn,
+    createCacheCluster_engine,
+    createCacheCluster_snapshotName,
+    createCacheCluster_authToken,
+    createCacheCluster_logDeliveryConfigurations,
+    createCacheCluster_aZMode,
+    createCacheCluster_autoMinorVersionUpgrade,
+    createCacheCluster_cacheClusterId,
+    createCacheClusterResponse_cacheCluster,
+    createCacheClusterResponse_httpStatus,
 
     -- ** BatchApplyUpdateAction
     batchApplyUpdateAction_cacheClusterIds,
@@ -344,6 +352,13 @@ module Network.AWS.ElastiCache.Lens
     updateActionResultsMessage_processedUpdateActions,
     updateActionResultsMessage_unprocessedUpdateActions,
 
+    -- ** ListAllowedNodeTypeModifications
+    listAllowedNodeTypeModifications_replicationGroupId,
+    listAllowedNodeTypeModifications_cacheClusterId,
+    listAllowedNodeTypeModificationsResponse_scaleUpModifications,
+    listAllowedNodeTypeModificationsResponse_scaleDownModifications,
+    listAllowedNodeTypeModificationsResponse_httpStatus,
+
     -- ** IncreaseReplicaCount
     increaseReplicaCount_newReplicaCount,
     increaseReplicaCount_replicaConfiguration,
@@ -351,6 +366,12 @@ module Network.AWS.ElastiCache.Lens
     increaseReplicaCount_applyImmediately,
     increaseReplicaCountResponse_replicationGroup,
     increaseReplicaCountResponse_httpStatus,
+
+    -- ** ResetCacheParameterGroup
+    resetCacheParameterGroup_resetAllParameters,
+    resetCacheParameterGroup_parameterNameValues,
+    resetCacheParameterGroup_cacheParameterGroupName,
+    cacheParameterGroupNameMessage_cacheParameterGroupName,
 
     -- ** ModifyReplicationGroupShardConfiguration
     modifyReplicationGroupShardConfiguration_nodeGroupsToRetain,
@@ -366,26 +387,14 @@ module Network.AWS.ElastiCache.Lens
     describeUsers_userId,
     describeUsers_engine,
     describeUsers_filters,
-    describeUsers_marker,
     describeUsers_maxRecords,
+    describeUsers_marker,
     describeUsersResponse_users,
     describeUsersResponse_marker,
     describeUsersResponse_httpStatus,
 
-    -- ** ListAllowedNodeTypeModifications
-    listAllowedNodeTypeModifications_replicationGroupId,
-    listAllowedNodeTypeModifications_cacheClusterId,
-    listAllowedNodeTypeModificationsResponse_scaleUpModifications,
-    listAllowedNodeTypeModificationsResponse_scaleDownModifications,
-    listAllowedNodeTypeModificationsResponse_httpStatus,
-
-    -- ** ResetCacheParameterGroup
-    resetCacheParameterGroup_resetAllParameters,
-    resetCacheParameterGroup_parameterNameValues,
-    resetCacheParameterGroup_cacheParameterGroupName,
-    cacheParameterGroupNameMessage_cacheParameterGroupName,
-
     -- ** CreateCacheSubnetGroup
+    createCacheSubnetGroup_tags,
     createCacheSubnetGroup_cacheSubnetGroupName,
     createCacheSubnetGroup_cacheSubnetGroupDescription,
     createCacheSubnetGroup_subnetIds,
@@ -401,8 +410,8 @@ module Network.AWS.ElastiCache.Lens
 
     -- ** DescribeCacheParameterGroups
     describeCacheParameterGroups_cacheParameterGroupName,
-    describeCacheParameterGroups_marker,
     describeCacheParameterGroups_maxRecords,
+    describeCacheParameterGroups_marker,
     describeCacheParameterGroupsResponse_cacheParameterGroups,
     describeCacheParameterGroupsResponse_marker,
     describeCacheParameterGroupsResponse_httpStatus,
@@ -428,20 +437,11 @@ module Network.AWS.ElastiCache.Lens
     decreaseNodeGroupsInGlobalReplicationGroupResponse_globalReplicationGroup,
     decreaseNodeGroupsInGlobalReplicationGroupResponse_httpStatus,
 
-    -- ** DescribeUpdateActions
-    describeUpdateActions_updateActionStatus,
-    describeUpdateActions_showNodeLevelUpdateStatus,
-    describeUpdateActions_serviceUpdateStatus,
-    describeUpdateActions_engine,
-    describeUpdateActions_serviceUpdateTimeRange,
-    describeUpdateActions_serviceUpdateName,
-    describeUpdateActions_cacheClusterIds,
-    describeUpdateActions_replicationGroupIds,
-    describeUpdateActions_marker,
-    describeUpdateActions_maxRecords,
-    describeUpdateActionsResponse_updateActions,
-    describeUpdateActionsResponse_marker,
-    describeUpdateActionsResponse_httpStatus,
+    -- ** DeleteGlobalReplicationGroup
+    deleteGlobalReplicationGroup_globalReplicationGroupId,
+    deleteGlobalReplicationGroup_retainPrimaryReplicationGroup,
+    deleteGlobalReplicationGroupResponse_globalReplicationGroup,
+    deleteGlobalReplicationGroupResponse_httpStatus,
 
     -- ** ModifyUser
     modifyUser_appendAccessString,
@@ -461,26 +461,28 @@ module Network.AWS.ElastiCache.Lens
     -- ** DeleteCacheSubnetGroup
     deleteCacheSubnetGroup_cacheSubnetGroupName,
 
-    -- ** DeleteGlobalReplicationGroup
-    deleteGlobalReplicationGroup_globalReplicationGroupId,
-    deleteGlobalReplicationGroup_retainPrimaryReplicationGroup,
-    deleteGlobalReplicationGroupResponse_globalReplicationGroup,
-    deleteGlobalReplicationGroupResponse_httpStatus,
-
-    -- ** CreateCacheParameterGroup
-    createCacheParameterGroup_cacheParameterGroupName,
-    createCacheParameterGroup_cacheParameterGroupFamily,
-    createCacheParameterGroup_description,
-    createCacheParameterGroupResponse_cacheParameterGroup,
-    createCacheParameterGroupResponse_httpStatus,
+    -- ** DescribeUpdateActions
+    describeUpdateActions_updateActionStatus,
+    describeUpdateActions_serviceUpdateStatus,
+    describeUpdateActions_showNodeLevelUpdateStatus,
+    describeUpdateActions_engine,
+    describeUpdateActions_serviceUpdateTimeRange,
+    describeUpdateActions_serviceUpdateName,
+    describeUpdateActions_cacheClusterIds,
+    describeUpdateActions_replicationGroupIds,
+    describeUpdateActions_maxRecords,
+    describeUpdateActions_marker,
+    describeUpdateActionsResponse_updateActions,
+    describeUpdateActionsResponse_marker,
+    describeUpdateActionsResponse_httpStatus,
 
     -- ** DescribeCacheEngineVersions
     describeCacheEngineVersions_defaultOnly,
     describeCacheEngineVersions_engineVersion,
     describeCacheEngineVersions_cacheParameterGroupFamily,
     describeCacheEngineVersions_engine,
-    describeCacheEngineVersions_marker,
     describeCacheEngineVersions_maxRecords,
+    describeCacheEngineVersions_marker,
     describeCacheEngineVersionsResponse_cacheEngineVersions,
     describeCacheEngineVersionsResponse_marker,
     describeCacheEngineVersionsResponse_httpStatus,
@@ -497,15 +499,50 @@ module Network.AWS.ElastiCache.Lens
     userGroup_userGroupId,
     userGroup_pendingChanges,
 
+    -- ** CreateCacheParameterGroup
+    createCacheParameterGroup_tags,
+    createCacheParameterGroup_cacheParameterGroupName,
+    createCacheParameterGroup_cacheParameterGroupFamily,
+    createCacheParameterGroup_description,
+    createCacheParameterGroupResponse_cacheParameterGroup,
+    createCacheParameterGroupResponse_httpStatus,
+
     -- ** DescribeCacheParameters
     describeCacheParameters_source,
-    describeCacheParameters_marker,
     describeCacheParameters_maxRecords,
+    describeCacheParameters_marker,
     describeCacheParameters_cacheParameterGroupName,
     describeCacheParametersResponse_cacheNodeTypeSpecificParameters,
     describeCacheParametersResponse_parameters,
     describeCacheParametersResponse_marker,
     describeCacheParametersResponse_httpStatus,
+
+    -- ** DescribeUserGroups
+    describeUserGroups_userGroupId,
+    describeUserGroups_maxRecords,
+    describeUserGroups_marker,
+    describeUserGroupsResponse_userGroups,
+    describeUserGroupsResponse_marker,
+    describeUserGroupsResponse_httpStatus,
+
+    -- ** DescribeCacheClusters
+    describeCacheClusters_showCacheNodeInfo,
+    describeCacheClusters_cacheClusterId,
+    describeCacheClusters_showCacheClustersNotInReplicationGroups,
+    describeCacheClusters_maxRecords,
+    describeCacheClusters_marker,
+    describeCacheClustersResponse_cacheClusters,
+    describeCacheClustersResponse_marker,
+    describeCacheClustersResponse_httpStatus,
+
+    -- ** CreateSnapshot
+    createSnapshot_replicationGroupId,
+    createSnapshot_cacheClusterId,
+    createSnapshot_kmsKeyId,
+    createSnapshot_tags,
+    createSnapshot_snapshotName,
+    createSnapshotResponse_snapshot,
+    createSnapshotResponse_httpStatus,
 
     -- ** ModifyGlobalReplicationGroup
     modifyGlobalReplicationGroup_automaticFailoverEnabled,
@@ -536,79 +573,47 @@ module Network.AWS.ElastiCache.Lens
     user_engine,
     user_userName,
 
-    -- ** DescribeUserGroups
-    describeUserGroups_userGroupId,
-    describeUserGroups_marker,
-    describeUserGroups_maxRecords,
-    describeUserGroupsResponse_userGroups,
-    describeUserGroupsResponse_marker,
-    describeUserGroupsResponse_httpStatus,
-
-    -- ** CreateSnapshot
-    createSnapshot_replicationGroupId,
-    createSnapshot_cacheClusterId,
-    createSnapshot_kmsKeyId,
-    createSnapshot_snapshotName,
-    createSnapshotResponse_snapshot,
-    createSnapshotResponse_httpStatus,
-
-    -- ** DescribeCacheClusters
-    describeCacheClusters_showCacheNodeInfo,
-    describeCacheClusters_cacheClusterId,
-    describeCacheClusters_showCacheClustersNotInReplicationGroups,
-    describeCacheClusters_marker,
-    describeCacheClusters_maxRecords,
-    describeCacheClustersResponse_cacheClusters,
-    describeCacheClustersResponse_marker,
-    describeCacheClustersResponse_httpStatus,
+    -- ** DescribeReplicationGroups
+    describeReplicationGroups_replicationGroupId,
+    describeReplicationGroups_maxRecords,
+    describeReplicationGroups_marker,
+    describeReplicationGroupsResponse_replicationGroups,
+    describeReplicationGroupsResponse_marker,
+    describeReplicationGroupsResponse_httpStatus,
 
     -- ** DescribeReservedCacheNodesOfferings
-    describeReservedCacheNodesOfferings_reservedCacheNodesOfferingId,
     describeReservedCacheNodesOfferings_duration,
+    describeReservedCacheNodesOfferings_reservedCacheNodesOfferingId,
     describeReservedCacheNodesOfferings_cacheNodeType,
     describeReservedCacheNodesOfferings_offeringType,
     describeReservedCacheNodesOfferings_productDescription,
-    describeReservedCacheNodesOfferings_marker,
     describeReservedCacheNodesOfferings_maxRecords,
+    describeReservedCacheNodesOfferings_marker,
     describeReservedCacheNodesOfferingsResponse_reservedCacheNodesOfferings,
     describeReservedCacheNodesOfferingsResponse_marker,
     describeReservedCacheNodesOfferingsResponse_httpStatus,
 
-    -- ** DescribeReplicationGroups
-    describeReplicationGroups_replicationGroupId,
-    describeReplicationGroups_marker,
-    describeReplicationGroups_maxRecords,
-    describeReplicationGroupsResponse_replicationGroups,
-    describeReplicationGroupsResponse_marker,
-    describeReplicationGroupsResponse_httpStatus,
+    -- ** DescribeEngineDefaultParameters
+    describeEngineDefaultParameters_maxRecords,
+    describeEngineDefaultParameters_marker,
+    describeEngineDefaultParameters_cacheParameterGroupFamily,
+    describeEngineDefaultParametersResponse_httpStatus,
+    describeEngineDefaultParametersResponse_engineDefaults,
 
     -- ** ListTagsForResource
     listTagsForResource_resourceName,
     tagListMessage_tagList,
 
-    -- ** ModifyCacheParameterGroup
-    modifyCacheParameterGroup_cacheParameterGroupName,
-    modifyCacheParameterGroup_parameterNameValues,
-    cacheParameterGroupNameMessage_cacheParameterGroupName,
-
-    -- ** DescribeServiceUpdates
-    describeServiceUpdates_serviceUpdateStatus,
-    describeServiceUpdates_serviceUpdateName,
-    describeServiceUpdates_marker,
-    describeServiceUpdates_maxRecords,
-    describeServiceUpdatesResponse_serviceUpdates,
-    describeServiceUpdatesResponse_marker,
-    describeServiceUpdatesResponse_httpStatus,
-
-    -- ** DescribeEngineDefaultParameters
-    describeEngineDefaultParameters_marker,
-    describeEngineDefaultParameters_maxRecords,
-    describeEngineDefaultParameters_cacheParameterGroupFamily,
-    describeEngineDefaultParametersResponse_httpStatus,
-    describeEngineDefaultParametersResponse_engineDefaults,
+    -- ** RevokeCacheSecurityGroupIngress
+    revokeCacheSecurityGroupIngress_cacheSecurityGroupName,
+    revokeCacheSecurityGroupIngress_eC2SecurityGroupName,
+    revokeCacheSecurityGroupIngress_eC2SecurityGroupOwnerId,
+    revokeCacheSecurityGroupIngressResponse_cacheSecurityGroup,
+    revokeCacheSecurityGroupIngressResponse_httpStatus,
 
     -- ** CreateUserGroup
     createUserGroup_userIds,
+    createUserGroup_tags,
     createUserGroup_userGroupId,
     createUserGroup_engine,
     userGroup_status,
@@ -619,12 +624,19 @@ module Network.AWS.ElastiCache.Lens
     userGroup_userGroupId,
     userGroup_pendingChanges,
 
-    -- ** RevokeCacheSecurityGroupIngress
-    revokeCacheSecurityGroupIngress_cacheSecurityGroupName,
-    revokeCacheSecurityGroupIngress_eC2SecurityGroupName,
-    revokeCacheSecurityGroupIngress_eC2SecurityGroupOwnerId,
-    revokeCacheSecurityGroupIngressResponse_cacheSecurityGroup,
-    revokeCacheSecurityGroupIngressResponse_httpStatus,
+    -- ** ModifyCacheParameterGroup
+    modifyCacheParameterGroup_cacheParameterGroupName,
+    modifyCacheParameterGroup_parameterNameValues,
+    cacheParameterGroupNameMessage_cacheParameterGroupName,
+
+    -- ** DescribeServiceUpdates
+    describeServiceUpdates_serviceUpdateStatus,
+    describeServiceUpdates_serviceUpdateName,
+    describeServiceUpdates_maxRecords,
+    describeServiceUpdates_marker,
+    describeServiceUpdatesResponse_serviceUpdates,
+    describeServiceUpdatesResponse_marker,
+    describeServiceUpdatesResponse_httpStatus,
 
     -- * Types
 
@@ -639,31 +651,33 @@ module Network.AWS.ElastiCache.Lens
     cacheCluster_cacheNodes,
     cacheCluster_cacheClusterCreateTime,
     cacheCluster_numCacheNodes,
-    cacheCluster_cacheSecurityGroups,
     cacheCluster_replicationGroupId,
+    cacheCluster_cacheSecurityGroups,
     cacheCluster_cacheClusterId,
     cacheCluster_snapshotWindow,
-    cacheCluster_arn,
     cacheCluster_notificationConfiguration,
     cacheCluster_snapshotRetentionLimit,
+    cacheCluster_arn,
+    cacheCluster_preferredAvailabilityZone,
     cacheCluster_cacheParameterGroup,
     cacheCluster_securityGroups,
-    cacheCluster_preferredAvailabilityZone,
     cacheCluster_atRestEncryptionEnabled,
     cacheCluster_cacheSubnetGroupName,
     cacheCluster_engineVersion,
-    cacheCluster_preferredMaintenanceWindow,
-    cacheCluster_cacheNodeType,
     cacheCluster_authTokenLastModifiedDate,
+    cacheCluster_cacheNodeType,
+    cacheCluster_preferredMaintenanceWindow,
     cacheCluster_clientDownloadLandingPage,
-    cacheCluster_engine,
     cacheCluster_preferredOutpostArn,
-    cacheCluster_authTokenEnabled,
+    cacheCluster_engine,
+    cacheCluster_replicationGroupLogDeliveryEnabled,
     cacheCluster_pendingModifiedValues,
+    cacheCluster_authTokenEnabled,
     cacheCluster_configurationEndpoint,
+    cacheCluster_logDeliveryConfigurations,
     cacheCluster_transitEncryptionEnabled,
-    cacheCluster_autoMinorVersionUpgrade,
     cacheCluster_cacheClusterStatus,
+    cacheCluster_autoMinorVersionUpgrade,
 
     -- ** CacheEngineVersion
     cacheEngineVersion_cacheEngineDescription,
@@ -699,8 +713,8 @@ module Network.AWS.ElastiCache.Lens
 
     -- ** CacheNodeUpdateStatus
     cacheNodeUpdateStatus_nodeUpdateStatusModifiedDate,
-    cacheNodeUpdateStatus_nodeUpdateStatus,
     cacheNodeUpdateStatus_nodeUpdateInitiatedBy,
+    cacheNodeUpdateStatus_nodeUpdateStatus,
     cacheNodeUpdateStatus_nodeUpdateInitiatedDate,
     cacheNodeUpdateStatus_cacheNodeId,
     cacheNodeUpdateStatus_nodeDeletionDate,
@@ -709,8 +723,8 @@ module Network.AWS.ElastiCache.Lens
 
     -- ** CacheParameterGroup
     cacheParameterGroup_isGlobal,
-    cacheParameterGroup_arn,
     cacheParameterGroup_cacheParameterGroupName,
+    cacheParameterGroup_arn,
     cacheParameterGroup_cacheParameterGroupFamily,
     cacheParameterGroup_description,
 
@@ -737,8 +751,11 @@ module Network.AWS.ElastiCache.Lens
     cacheSubnetGroup_arn,
     cacheSubnetGroup_cacheSubnetGroupName,
     cacheSubnetGroup_cacheSubnetGroupDescription,
-    cacheSubnetGroup_subnets,
     cacheSubnetGroup_vpcId,
+    cacheSubnetGroup_subnets,
+
+    -- ** CloudWatchLogsDestinationDetails
+    cloudWatchLogsDestinationDetails_logGroup,
 
     -- ** ConfigureShard
     configureShard_preferredAvailabilityZones,
@@ -749,6 +766,10 @@ module Network.AWS.ElastiCache.Lens
     -- ** CustomerNodeEndpoint
     customerNodeEndpoint_address,
     customerNodeEndpoint_port,
+
+    -- ** DestinationDetails
+    destinationDetails_cloudWatchLogsDetails,
+    destinationDetails_kinesisFirehoseDetails,
 
     -- ** EC2SecurityGroup
     eC2SecurityGroup_status,
@@ -782,10 +803,10 @@ module Network.AWS.ElastiCache.Lens
     -- ** GlobalReplicationGroup
     globalReplicationGroup_clusterEnabled,
     globalReplicationGroup_status,
-    globalReplicationGroup_arn,
     globalReplicationGroup_globalReplicationGroupId,
-    globalReplicationGroup_atRestEncryptionEnabled,
+    globalReplicationGroup_arn,
     globalReplicationGroup_globalNodeGroups,
+    globalReplicationGroup_atRestEncryptionEnabled,
     globalReplicationGroup_engineVersion,
     globalReplicationGroup_cacheNodeType,
     globalReplicationGroup_globalReplicationGroupDescription,
@@ -805,12 +826,30 @@ module Network.AWS.ElastiCache.Lens
     globalReplicationGroupMember_replicationGroupRegion,
     globalReplicationGroupMember_role,
 
+    -- ** KinesisFirehoseDestinationDetails
+    kinesisFirehoseDestinationDetails_deliveryStream,
+
+    -- ** LogDeliveryConfiguration
+    logDeliveryConfiguration_status,
+    logDeliveryConfiguration_destinationType,
+    logDeliveryConfiguration_logType,
+    logDeliveryConfiguration_message,
+    logDeliveryConfiguration_logFormat,
+    logDeliveryConfiguration_destinationDetails,
+
+    -- ** LogDeliveryConfigurationRequest
+    logDeliveryConfigurationRequest_destinationType,
+    logDeliveryConfigurationRequest_logType,
+    logDeliveryConfigurationRequest_enabled,
+    logDeliveryConfigurationRequest_logFormat,
+    logDeliveryConfigurationRequest_destinationDetails,
+
     -- ** NodeGroup
     nodeGroup_status,
     nodeGroup_readerEndpoint,
     nodeGroup_nodeGroupId,
-    nodeGroup_primaryEndpoint,
     nodeGroup_slots,
+    nodeGroup_primaryEndpoint,
     nodeGroup_nodeGroupMembers,
 
     -- ** NodeGroupConfiguration
@@ -833,8 +872,8 @@ module Network.AWS.ElastiCache.Lens
     -- ** NodeGroupMemberUpdateStatus
     nodeGroupMemberUpdateStatus_cacheClusterId,
     nodeGroupMemberUpdateStatus_nodeUpdateStatusModifiedDate,
-    nodeGroupMemberUpdateStatus_nodeUpdateStatus,
     nodeGroupMemberUpdateStatus_nodeUpdateInitiatedBy,
+    nodeGroupMemberUpdateStatus_nodeUpdateStatus,
     nodeGroupMemberUpdateStatus_nodeUpdateInitiatedDate,
     nodeGroupMemberUpdateStatus_cacheNodeId,
     nodeGroupMemberUpdateStatus_nodeDeletionDate,
@@ -849,8 +888,8 @@ module Network.AWS.ElastiCache.Lens
     nodeSnapshot_nodeGroupConfiguration,
     nodeSnapshot_cacheSize,
     nodeSnapshot_cacheClusterId,
-    nodeSnapshot_snapshotCreateTime,
     nodeSnapshot_cacheNodeCreateTime,
+    nodeSnapshot_snapshotCreateTime,
     nodeSnapshot_nodeGroupId,
     nodeSnapshot_cacheNodeId,
 
@@ -873,12 +912,19 @@ module Network.AWS.ElastiCache.Lens
     parameterNameValue_parameterValue,
     parameterNameValue_parameterName,
 
+    -- ** PendingLogDeliveryConfiguration
+    pendingLogDeliveryConfiguration_destinationType,
+    pendingLogDeliveryConfiguration_logType,
+    pendingLogDeliveryConfiguration_logFormat,
+    pendingLogDeliveryConfiguration_destinationDetails,
+
     -- ** PendingModifiedValues
     pendingModifiedValues_numCacheNodes,
     pendingModifiedValues_cacheNodeIdsToRemove,
     pendingModifiedValues_authTokenStatus,
     pendingModifiedValues_engineVersion,
     pendingModifiedValues_cacheNodeType,
+    pendingModifiedValues_logDeliveryConfigurations,
 
     -- ** ProcessedUpdateAction
     processedUpdateAction_replicationGroupId,
@@ -902,49 +948,52 @@ module Network.AWS.ElastiCache.Lens
     replicationGroup_automaticFailover,
     replicationGroup_memberClustersOutpostArns,
     replicationGroup_memberClusters,
-    replicationGroup_globalReplicationGroupInfo,
     replicationGroup_replicationGroupId,
+    replicationGroup_globalReplicationGroupInfo,
     replicationGroup_userGroupIds,
     replicationGroup_snapshotWindow,
-    replicationGroup_arn,
     replicationGroup_snapshotRetentionLimit,
+    replicationGroup_arn,
     replicationGroup_multiAZ,
-    replicationGroup_atRestEncryptionEnabled,
+    replicationGroup_replicationGroupCreateTime,
     replicationGroup_kmsKeyId,
     replicationGroup_snapshottingClusterId,
-    replicationGroup_cacheNodeType,
+    replicationGroup_atRestEncryptionEnabled,
     replicationGroup_authTokenLastModifiedDate,
-    replicationGroup_authTokenEnabled,
+    replicationGroup_cacheNodeType,
     replicationGroup_description,
     replicationGroup_pendingModifiedValues,
+    replicationGroup_authTokenEnabled,
     replicationGroup_configurationEndpoint,
+    replicationGroup_logDeliveryConfigurations,
     replicationGroup_transitEncryptionEnabled,
 
     -- ** ReplicationGroupPendingModifiedValues
     replicationGroupPendingModifiedValues_resharding,
     replicationGroupPendingModifiedValues_primaryClusterId,
     replicationGroupPendingModifiedValues_authTokenStatus,
-    replicationGroupPendingModifiedValues_userGroups,
+    replicationGroupPendingModifiedValues_logDeliveryConfigurations,
     replicationGroupPendingModifiedValues_automaticFailoverStatus,
+    replicationGroupPendingModifiedValues_userGroups,
 
     -- ** ReservedCacheNode
-    reservedCacheNode_reservedCacheNodesOfferingId,
     reservedCacheNode_duration,
+    reservedCacheNode_reservedCacheNodesOfferingId,
     reservedCacheNode_startTime,
-    reservedCacheNode_state,
     reservedCacheNode_cacheNodeCount,
+    reservedCacheNode_state,
     reservedCacheNode_cacheNodeType,
     reservedCacheNode_fixedPrice,
     reservedCacheNode_usagePrice,
     reservedCacheNode_offeringType,
     reservedCacheNode_recurringCharges,
-    reservedCacheNode_productDescription,
     reservedCacheNode_reservedCacheNodeId,
+    reservedCacheNode_productDescription,
     reservedCacheNode_reservationARN,
 
     -- ** ReservedCacheNodesOffering
-    reservedCacheNodesOffering_reservedCacheNodesOfferingId,
     reservedCacheNodesOffering_duration,
+    reservedCacheNodesOffering_reservedCacheNodesOfferingId,
     reservedCacheNodesOffering_cacheNodeType,
     reservedCacheNodesOffering_fixedPrice,
     reservedCacheNodesOffering_usagePrice,
@@ -972,8 +1021,8 @@ module Network.AWS.ElastiCache.Lens
     serviceUpdate_serviceUpdateEndDate,
     serviceUpdate_engineVersion,
     serviceUpdate_serviceUpdateType,
-    serviceUpdate_estimatedUpdateTime,
     serviceUpdate_engine,
+    serviceUpdate_estimatedUpdateTime,
     serviceUpdate_serviceUpdateName,
     serviceUpdate_serviceUpdateDescription,
 
@@ -987,24 +1036,24 @@ module Network.AWS.ElastiCache.Lens
     snapshot_numCacheNodes,
     snapshot_replicationGroupId,
     snapshot_cacheClusterId,
-    snapshot_snapshotWindow,
     snapshot_snapshotStatus,
-    snapshot_arn,
-    snapshot_replicationGroupDescription,
+    snapshot_snapshotWindow,
     snapshot_cacheParameterGroupName,
+    snapshot_replicationGroupDescription,
     snapshot_snapshotRetentionLimit,
-    snapshot_numNodeGroups,
+    snapshot_arn,
     snapshot_preferredAvailabilityZone,
+    snapshot_numNodeGroups,
     snapshot_kmsKeyId,
     snapshot_cacheSubnetGroupName,
     snapshot_engineVersion,
-    snapshot_preferredMaintenanceWindow,
     snapshot_cacheNodeType,
+    snapshot_preferredMaintenanceWindow,
     snapshot_topicArn,
-    snapshot_port,
     snapshot_snapshotSource,
-    snapshot_engine,
+    snapshot_port,
     snapshot_preferredOutpostArn,
+    snapshot_engine,
     snapshot_snapshotName,
     snapshot_vpcId,
     snapshot_autoMinorVersionUpgrade,
@@ -1043,15 +1092,15 @@ module Network.AWS.ElastiCache.Lens
     updateAction_cacheClusterId,
     updateAction_serviceUpdateStatus,
     updateAction_slaMet,
+    updateAction_serviceUpdateRecommendedApplyByDate,
     updateAction_updateActionAvailableDate,
     updateAction_nodeGroupUpdateStatus,
-    updateAction_serviceUpdateRecommendedApplyByDate,
     updateAction_serviceUpdateType,
     updateAction_cacheNodeUpdateStatus,
     updateAction_nodesUpdated,
+    updateAction_engine,
     updateAction_estimatedUpdateTime,
     updateAction_updateActionStatusModifiedDate,
-    updateAction_engine,
     updateAction_serviceUpdateName,
 
     -- ** UpdateActionResultsMessage
@@ -1166,8 +1215,10 @@ import Network.AWS.ElastiCache.Types.CacheParameterGroupStatus
 import Network.AWS.ElastiCache.Types.CacheSecurityGroup
 import Network.AWS.ElastiCache.Types.CacheSecurityGroupMembership
 import Network.AWS.ElastiCache.Types.CacheSubnetGroup
+import Network.AWS.ElastiCache.Types.CloudWatchLogsDestinationDetails
 import Network.AWS.ElastiCache.Types.ConfigureShard
 import Network.AWS.ElastiCache.Types.CustomerNodeEndpoint
+import Network.AWS.ElastiCache.Types.DestinationDetails
 import Network.AWS.ElastiCache.Types.EC2SecurityGroup
 import Network.AWS.ElastiCache.Types.Endpoint
 import Network.AWS.ElastiCache.Types.EngineDefaults
@@ -1177,6 +1228,9 @@ import Network.AWS.ElastiCache.Types.GlobalNodeGroup
 import Network.AWS.ElastiCache.Types.GlobalReplicationGroup
 import Network.AWS.ElastiCache.Types.GlobalReplicationGroupInfo
 import Network.AWS.ElastiCache.Types.GlobalReplicationGroupMember
+import Network.AWS.ElastiCache.Types.KinesisFirehoseDestinationDetails
+import Network.AWS.ElastiCache.Types.LogDeliveryConfiguration
+import Network.AWS.ElastiCache.Types.LogDeliveryConfigurationRequest
 import Network.AWS.ElastiCache.Types.NodeGroup
 import Network.AWS.ElastiCache.Types.NodeGroupConfiguration
 import Network.AWS.ElastiCache.Types.NodeGroupMember
@@ -1186,6 +1240,7 @@ import Network.AWS.ElastiCache.Types.NodeSnapshot
 import Network.AWS.ElastiCache.Types.NotificationConfiguration
 import Network.AWS.ElastiCache.Types.Parameter
 import Network.AWS.ElastiCache.Types.ParameterNameValue
+import Network.AWS.ElastiCache.Types.PendingLogDeliveryConfiguration
 import Network.AWS.ElastiCache.Types.PendingModifiedValues
 import Network.AWS.ElastiCache.Types.ProcessedUpdateAction
 import Network.AWS.ElastiCache.Types.RecurringCharge

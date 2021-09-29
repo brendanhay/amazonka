@@ -41,6 +41,7 @@ module Network.AWS.ElastiCache.CreateCacheParameterGroup
     newCreateCacheParameterGroup,
 
     -- * Request Lenses
+    createCacheParameterGroup_tags,
     createCacheParameterGroup_cacheParameterGroupName,
     createCacheParameterGroup_cacheParameterGroupFamily,
     createCacheParameterGroup_description,
@@ -66,7 +67,10 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateCacheParameterGroup' smart constructor.
 data CreateCacheParameterGroup = CreateCacheParameterGroup'
-  { -- | A user-specified name for the cache parameter group.
+  { -- | A list of tags to be added to this resource. A tag is a key-value pair.
+    -- A tag key must be accompanied by a tag value, although null is accepted.
+    tags :: Prelude.Maybe [Tag],
+    -- | A user-specified name for the cache parameter group.
     cacheParameterGroupName :: Prelude.Text,
     -- | The name of the cache parameter group family that the cache parameter
     -- group can be used with.
@@ -87,6 +91,9 @@ data CreateCacheParameterGroup = CreateCacheParameterGroup'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'tags', 'createCacheParameterGroup_tags' - A list of tags to be added to this resource. A tag is a key-value pair.
+-- A tag key must be accompanied by a tag value, although null is accepted.
 --
 -- 'cacheParameterGroupName', 'createCacheParameterGroup_cacheParameterGroupName' - A user-specified name for the cache parameter group.
 --
@@ -111,12 +118,18 @@ newCreateCacheParameterGroup
   pCacheParameterGroupFamily_
   pDescription_ =
     CreateCacheParameterGroup'
-      { cacheParameterGroupName =
+      { tags = Prelude.Nothing,
+        cacheParameterGroupName =
           pCacheParameterGroupName_,
         cacheParameterGroupFamily =
           pCacheParameterGroupFamily_,
         description = pDescription_
       }
+
+-- | A list of tags to be added to this resource. A tag is a key-value pair.
+-- A tag key must be accompanied by a tag value, although null is accepted.
+createCacheParameterGroup_tags :: Lens.Lens' CreateCacheParameterGroup (Prelude.Maybe [Tag])
+createCacheParameterGroup_tags = Lens.lens (\CreateCacheParameterGroup' {tags} -> tags) (\s@CreateCacheParameterGroup' {} a -> s {tags = a} :: CreateCacheParameterGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A user-specified name for the cache parameter group.
 createCacheParameterGroup_cacheParameterGroupName :: Lens.Lens' CreateCacheParameterGroup Prelude.Text
@@ -166,6 +179,9 @@ instance Core.ToQuery CreateCacheParameterGroup where
           Core.=: ("CreateCacheParameterGroup" :: Prelude.ByteString),
         "Version"
           Core.=: ("2015-02-02" :: Prelude.ByteString),
+        "Tags"
+          Core.=: Core.toQuery
+            (Core.toQueryList "Tag" Prelude.<$> tags),
         "CacheParameterGroupName"
           Core.=: cacheParameterGroupName,
         "CacheParameterGroupFamily"

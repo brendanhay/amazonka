@@ -30,6 +30,7 @@ module Network.AWS.ElastiCache.CreateUserGroup
 
     -- * Request Lenses
     createUserGroup_userIds,
+    createUserGroup_tags,
     createUserGroup_userGroupId,
     createUserGroup_engine,
 
@@ -59,6 +60,9 @@ import qualified Network.AWS.Response as Response
 data CreateUserGroup = CreateUserGroup'
   { -- | The list of user IDs that belong to the user group.
     userIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | A list of tags to be added to this resource. A tag is a key-value pair.
+    -- A tag key must be accompanied by a tag value, although null is accepted.
+    tags :: Prelude.Maybe [Tag],
     -- | The ID of the user group.
     userGroupId :: Prelude.Text,
     -- | The current supported value is Redis.
@@ -76,6 +80,9 @@ data CreateUserGroup = CreateUserGroup'
 --
 -- 'userIds', 'createUserGroup_userIds' - The list of user IDs that belong to the user group.
 --
+-- 'tags', 'createUserGroup_tags' - A list of tags to be added to this resource. A tag is a key-value pair.
+-- A tag key must be accompanied by a tag value, although null is accepted.
+--
 -- 'userGroupId', 'createUserGroup_userGroupId' - The ID of the user group.
 --
 -- 'engine', 'createUserGroup_engine' - The current supported value is Redis.
@@ -88,6 +95,7 @@ newCreateUserGroup ::
 newCreateUserGroup pUserGroupId_ pEngine_ =
   CreateUserGroup'
     { userIds = Prelude.Nothing,
+      tags = Prelude.Nothing,
       userGroupId = pUserGroupId_,
       engine = pEngine_
     }
@@ -95,6 +103,11 @@ newCreateUserGroup pUserGroupId_ pEngine_ =
 -- | The list of user IDs that belong to the user group.
 createUserGroup_userIds :: Lens.Lens' CreateUserGroup (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 createUserGroup_userIds = Lens.lens (\CreateUserGroup' {userIds} -> userIds) (\s@CreateUserGroup' {} a -> s {userIds = a} :: CreateUserGroup) Prelude.. Lens.mapping Lens._Coerce
+
+-- | A list of tags to be added to this resource. A tag is a key-value pair.
+-- A tag key must be accompanied by a tag value, although null is accepted.
+createUserGroup_tags :: Lens.Lens' CreateUserGroup (Prelude.Maybe [Tag])
+createUserGroup_tags = Lens.lens (\CreateUserGroup' {tags} -> tags) (\s@CreateUserGroup' {} a -> s {tags = a} :: CreateUserGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The ID of the user group.
 createUserGroup_userGroupId :: Lens.Lens' CreateUserGroup Prelude.Text
@@ -132,6 +145,9 @@ instance Core.ToQuery CreateUserGroup where
         "UserIds"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> userIds),
+        "Tags"
+          Core.=: Core.toQuery
+            (Core.toQueryList "Tag" Prelude.<$> tags),
         "UserGroupId" Core.=: userGroupId,
         "Engine" Core.=: engine
       ]

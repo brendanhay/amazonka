@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Decreases the number of node groups in a Global Datastore
+-- Decreases the number of node groups in a Global datastore
 module Network.AWS.ElastiCache.DecreaseNodeGroupsInGlobalReplicationGroup
   ( -- * Creating a Request
     DecreaseNodeGroupsInGlobalReplicationGroup (..),
@@ -54,17 +54,17 @@ import qualified Network.AWS.Response as Response
 data DecreaseNodeGroupsInGlobalReplicationGroup = DecreaseNodeGroupsInGlobalReplicationGroup'
   { -- | If the value of NodeGroupCount is less than the current number of node
     -- groups (shards), then either NodeGroupsToRemove or NodeGroupsToRetain is
-    -- required. NodeGroupsToRemove is a list of NodeGroupIds to remove from
-    -- the cluster. ElastiCache for Redis will attempt to remove all node
-    -- groups listed by NodeGroupsToRemove from the cluster.
+    -- required. GlobalNodeGroupsToRemove is a list of NodeGroupIds to remove
+    -- from the cluster. ElastiCache for Redis will attempt to remove all node
+    -- groups listed by GlobalNodeGroupsToRemove from the cluster.
     globalNodeGroupsToRemove :: Prelude.Maybe [Prelude.Text],
     -- | If the value of NodeGroupCount is less than the current number of node
     -- groups (shards), then either NodeGroupsToRemove or NodeGroupsToRetain is
-    -- required. NodeGroupsToRemove is a list of NodeGroupIds to remove from
-    -- the cluster. ElastiCache for Redis will attempt to remove all node
-    -- groups listed by NodeGroupsToRemove from the cluster.
+    -- required. GlobalNodeGroupsToRetain is a list of NodeGroupIds to retain
+    -- from the cluster. ElastiCache for Redis will attempt to retain all node
+    -- groups listed by GlobalNodeGroupsToRetain from the cluster.
     globalNodeGroupsToRetain :: Prelude.Maybe [Prelude.Text],
-    -- | The name of the Global Datastore
+    -- | The name of the Global datastore
     globalReplicationGroupId :: Prelude.Text,
     -- | The number of node groups (shards) that results from the modification of
     -- the shard configuration
@@ -85,17 +85,17 @@ data DecreaseNodeGroupsInGlobalReplicationGroup = DecreaseNodeGroupsInGlobalRepl
 --
 -- 'globalNodeGroupsToRemove', 'decreaseNodeGroupsInGlobalReplicationGroup_globalNodeGroupsToRemove' - If the value of NodeGroupCount is less than the current number of node
 -- groups (shards), then either NodeGroupsToRemove or NodeGroupsToRetain is
--- required. NodeGroupsToRemove is a list of NodeGroupIds to remove from
--- the cluster. ElastiCache for Redis will attempt to remove all node
--- groups listed by NodeGroupsToRemove from the cluster.
+-- required. GlobalNodeGroupsToRemove is a list of NodeGroupIds to remove
+-- from the cluster. ElastiCache for Redis will attempt to remove all node
+-- groups listed by GlobalNodeGroupsToRemove from the cluster.
 --
 -- 'globalNodeGroupsToRetain', 'decreaseNodeGroupsInGlobalReplicationGroup_globalNodeGroupsToRetain' - If the value of NodeGroupCount is less than the current number of node
 -- groups (shards), then either NodeGroupsToRemove or NodeGroupsToRetain is
--- required. NodeGroupsToRemove is a list of NodeGroupIds to remove from
--- the cluster. ElastiCache for Redis will attempt to remove all node
--- groups listed by NodeGroupsToRemove from the cluster.
+-- required. GlobalNodeGroupsToRetain is a list of NodeGroupIds to retain
+-- from the cluster. ElastiCache for Redis will attempt to retain all node
+-- groups listed by GlobalNodeGroupsToRetain from the cluster.
 --
--- 'globalReplicationGroupId', 'decreaseNodeGroupsInGlobalReplicationGroup_globalReplicationGroupId' - The name of the Global Datastore
+-- 'globalReplicationGroupId', 'decreaseNodeGroupsInGlobalReplicationGroup_globalReplicationGroupId' - The name of the Global datastore
 --
 -- 'nodeGroupCount', 'decreaseNodeGroupsInGlobalReplicationGroup_nodeGroupCount' - The number of node groups (shards) that results from the modification of
 -- the shard configuration
@@ -129,21 +129,21 @@ newDecreaseNodeGroupsInGlobalReplicationGroup
 
 -- | If the value of NodeGroupCount is less than the current number of node
 -- groups (shards), then either NodeGroupsToRemove or NodeGroupsToRetain is
--- required. NodeGroupsToRemove is a list of NodeGroupIds to remove from
--- the cluster. ElastiCache for Redis will attempt to remove all node
--- groups listed by NodeGroupsToRemove from the cluster.
+-- required. GlobalNodeGroupsToRemove is a list of NodeGroupIds to remove
+-- from the cluster. ElastiCache for Redis will attempt to remove all node
+-- groups listed by GlobalNodeGroupsToRemove from the cluster.
 decreaseNodeGroupsInGlobalReplicationGroup_globalNodeGroupsToRemove :: Lens.Lens' DecreaseNodeGroupsInGlobalReplicationGroup (Prelude.Maybe [Prelude.Text])
 decreaseNodeGroupsInGlobalReplicationGroup_globalNodeGroupsToRemove = Lens.lens (\DecreaseNodeGroupsInGlobalReplicationGroup' {globalNodeGroupsToRemove} -> globalNodeGroupsToRemove) (\s@DecreaseNodeGroupsInGlobalReplicationGroup' {} a -> s {globalNodeGroupsToRemove = a} :: DecreaseNodeGroupsInGlobalReplicationGroup) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If the value of NodeGroupCount is less than the current number of node
 -- groups (shards), then either NodeGroupsToRemove or NodeGroupsToRetain is
--- required. NodeGroupsToRemove is a list of NodeGroupIds to remove from
--- the cluster. ElastiCache for Redis will attempt to remove all node
--- groups listed by NodeGroupsToRemove from the cluster.
+-- required. GlobalNodeGroupsToRetain is a list of NodeGroupIds to retain
+-- from the cluster. ElastiCache for Redis will attempt to retain all node
+-- groups listed by GlobalNodeGroupsToRetain from the cluster.
 decreaseNodeGroupsInGlobalReplicationGroup_globalNodeGroupsToRetain :: Lens.Lens' DecreaseNodeGroupsInGlobalReplicationGroup (Prelude.Maybe [Prelude.Text])
 decreaseNodeGroupsInGlobalReplicationGroup_globalNodeGroupsToRetain = Lens.lens (\DecreaseNodeGroupsInGlobalReplicationGroup' {globalNodeGroupsToRetain} -> globalNodeGroupsToRetain) (\s@DecreaseNodeGroupsInGlobalReplicationGroup' {} a -> s {globalNodeGroupsToRetain = a} :: DecreaseNodeGroupsInGlobalReplicationGroup) Prelude.. Lens.mapping Lens._Coerce
 
--- | The name of the Global Datastore
+-- | The name of the Global datastore
 decreaseNodeGroupsInGlobalReplicationGroup_globalReplicationGroupId :: Lens.Lens' DecreaseNodeGroupsInGlobalReplicationGroup Prelude.Text
 decreaseNodeGroupsInGlobalReplicationGroup_globalReplicationGroupId = Lens.lens (\DecreaseNodeGroupsInGlobalReplicationGroup' {globalReplicationGroupId} -> globalReplicationGroupId) (\s@DecreaseNodeGroupsInGlobalReplicationGroup' {} a -> s {globalReplicationGroupId = a} :: DecreaseNodeGroupsInGlobalReplicationGroup)
 

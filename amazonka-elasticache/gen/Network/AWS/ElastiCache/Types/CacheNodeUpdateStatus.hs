@@ -31,11 +31,11 @@ import qualified Network.AWS.Prelude as Prelude
 data CacheNodeUpdateStatus = CacheNodeUpdateStatus'
   { -- | The date when the NodeUpdateStatus was last modified>
     nodeUpdateStatusModifiedDate :: Prelude.Maybe Core.ISO8601,
-    -- | The update status of the node
-    nodeUpdateStatus :: Prelude.Maybe NodeUpdateStatus,
     -- | Reflects whether the update was initiated by the customer or
     -- automatically applied
     nodeUpdateInitiatedBy :: Prelude.Maybe NodeUpdateInitiatedBy,
+    -- | The update status of the node
+    nodeUpdateStatus :: Prelude.Maybe NodeUpdateStatus,
     -- | The date when the update is triggered
     nodeUpdateInitiatedDate :: Prelude.Maybe Core.ISO8601,
     -- | The node ID of the cache cluster
@@ -59,10 +59,10 @@ data CacheNodeUpdateStatus = CacheNodeUpdateStatus'
 --
 -- 'nodeUpdateStatusModifiedDate', 'cacheNodeUpdateStatus_nodeUpdateStatusModifiedDate' - The date when the NodeUpdateStatus was last modified>
 --
--- 'nodeUpdateStatus', 'cacheNodeUpdateStatus_nodeUpdateStatus' - The update status of the node
---
 -- 'nodeUpdateInitiatedBy', 'cacheNodeUpdateStatus_nodeUpdateInitiatedBy' - Reflects whether the update was initiated by the customer or
 -- automatically applied
+--
+-- 'nodeUpdateStatus', 'cacheNodeUpdateStatus_nodeUpdateStatus' - The update status of the node
 --
 -- 'nodeUpdateInitiatedDate', 'cacheNodeUpdateStatus_nodeUpdateInitiatedDate' - The date when the update is triggered
 --
@@ -79,8 +79,8 @@ newCacheNodeUpdateStatus =
   CacheNodeUpdateStatus'
     { nodeUpdateStatusModifiedDate =
         Prelude.Nothing,
-      nodeUpdateStatus = Prelude.Nothing,
       nodeUpdateInitiatedBy = Prelude.Nothing,
+      nodeUpdateStatus = Prelude.Nothing,
       nodeUpdateInitiatedDate = Prelude.Nothing,
       cacheNodeId = Prelude.Nothing,
       nodeDeletionDate = Prelude.Nothing,
@@ -92,14 +92,14 @@ newCacheNodeUpdateStatus =
 cacheNodeUpdateStatus_nodeUpdateStatusModifiedDate :: Lens.Lens' CacheNodeUpdateStatus (Prelude.Maybe Prelude.UTCTime)
 cacheNodeUpdateStatus_nodeUpdateStatusModifiedDate = Lens.lens (\CacheNodeUpdateStatus' {nodeUpdateStatusModifiedDate} -> nodeUpdateStatusModifiedDate) (\s@CacheNodeUpdateStatus' {} a -> s {nodeUpdateStatusModifiedDate = a} :: CacheNodeUpdateStatus) Prelude.. Lens.mapping Core._Time
 
--- | The update status of the node
-cacheNodeUpdateStatus_nodeUpdateStatus :: Lens.Lens' CacheNodeUpdateStatus (Prelude.Maybe NodeUpdateStatus)
-cacheNodeUpdateStatus_nodeUpdateStatus = Lens.lens (\CacheNodeUpdateStatus' {nodeUpdateStatus} -> nodeUpdateStatus) (\s@CacheNodeUpdateStatus' {} a -> s {nodeUpdateStatus = a} :: CacheNodeUpdateStatus)
-
 -- | Reflects whether the update was initiated by the customer or
 -- automatically applied
 cacheNodeUpdateStatus_nodeUpdateInitiatedBy :: Lens.Lens' CacheNodeUpdateStatus (Prelude.Maybe NodeUpdateInitiatedBy)
 cacheNodeUpdateStatus_nodeUpdateInitiatedBy = Lens.lens (\CacheNodeUpdateStatus' {nodeUpdateInitiatedBy} -> nodeUpdateInitiatedBy) (\s@CacheNodeUpdateStatus' {} a -> s {nodeUpdateInitiatedBy = a} :: CacheNodeUpdateStatus)
+
+-- | The update status of the node
+cacheNodeUpdateStatus_nodeUpdateStatus :: Lens.Lens' CacheNodeUpdateStatus (Prelude.Maybe NodeUpdateStatus)
+cacheNodeUpdateStatus_nodeUpdateStatus = Lens.lens (\CacheNodeUpdateStatus' {nodeUpdateStatus} -> nodeUpdateStatus) (\s@CacheNodeUpdateStatus' {} a -> s {nodeUpdateStatus = a} :: CacheNodeUpdateStatus)
 
 -- | The date when the update is triggered
 cacheNodeUpdateStatus_nodeUpdateInitiatedDate :: Lens.Lens' CacheNodeUpdateStatus (Prelude.Maybe Prelude.UTCTime)
@@ -125,8 +125,8 @@ instance Core.FromXML CacheNodeUpdateStatus where
   parseXML x =
     CacheNodeUpdateStatus'
       Prelude.<$> (x Core..@? "NodeUpdateStatusModifiedDate")
-      Prelude.<*> (x Core..@? "NodeUpdateStatus")
       Prelude.<*> (x Core..@? "NodeUpdateInitiatedBy")
+      Prelude.<*> (x Core..@? "NodeUpdateStatus")
       Prelude.<*> (x Core..@? "NodeUpdateInitiatedDate")
       Prelude.<*> (x Core..@? "CacheNodeId")
       Prelude.<*> (x Core..@? "NodeDeletionDate")

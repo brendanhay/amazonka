@@ -29,7 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newTagListMessage' smart constructor.
 data TagListMessage = TagListMessage'
-  { -- | A list of cost allocation tags as key-value pairs.
+  { -- | A list of tags as key-value pairs.
     tagList :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -42,13 +42,13 @@ data TagListMessage = TagListMessage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tagList', 'tagListMessage_tagList' - A list of cost allocation tags as key-value pairs.
+-- 'tagList', 'tagListMessage_tagList' - A list of tags as key-value pairs.
 newTagListMessage ::
   TagListMessage
 newTagListMessage =
   TagListMessage' {tagList = Prelude.Nothing}
 
--- | A list of cost allocation tags as key-value pairs.
+-- | A list of tags as key-value pairs.
 tagListMessage_tagList :: Lens.Lens' TagListMessage (Prelude.Maybe [Tag])
 tagListMessage_tagList = Lens.lens (\TagListMessage' {tagList} -> tagList) (\s@TagListMessage' {} a -> s {tagList = a} :: TagListMessage) Prelude.. Lens.mapping Lens._Coerce
 

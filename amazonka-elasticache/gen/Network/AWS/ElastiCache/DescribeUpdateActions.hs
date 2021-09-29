@@ -30,15 +30,15 @@ module Network.AWS.ElastiCache.DescribeUpdateActions
 
     -- * Request Lenses
     describeUpdateActions_updateActionStatus,
-    describeUpdateActions_showNodeLevelUpdateStatus,
     describeUpdateActions_serviceUpdateStatus,
+    describeUpdateActions_showNodeLevelUpdateStatus,
     describeUpdateActions_engine,
     describeUpdateActions_serviceUpdateTimeRange,
     describeUpdateActions_serviceUpdateName,
     describeUpdateActions_cacheClusterIds,
     describeUpdateActions_replicationGroupIds,
-    describeUpdateActions_marker,
     describeUpdateActions_maxRecords,
+    describeUpdateActions_marker,
 
     -- * Destructuring the Response
     DescribeUpdateActionsResponse (..),
@@ -62,10 +62,10 @@ import qualified Network.AWS.Response as Response
 data DescribeUpdateActions = DescribeUpdateActions'
   { -- | The status of the update action.
     updateActionStatus :: Prelude.Maybe [UpdateActionStatus],
-    -- | Dictates whether to include node level update status in the response
-    showNodeLevelUpdateStatus :: Prelude.Maybe Prelude.Bool,
     -- | The status of the service update
     serviceUpdateStatus :: Prelude.Maybe [ServiceUpdateStatus],
+    -- | Dictates whether to include node level update status in the response
+    showNodeLevelUpdateStatus :: Prelude.Maybe Prelude.Bool,
     -- | The Elasticache engine to which the update applies. Either Redis or
     -- Memcached
     engine :: Prelude.Maybe Prelude.Text,
@@ -78,13 +78,13 @@ data DescribeUpdateActions = DescribeUpdateActions'
     cacheClusterIds :: Prelude.Maybe [Prelude.Text],
     -- | The replication group IDs
     replicationGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- | The maximum number of records to include in the response
+    maxRecords :: Prelude.Maybe Prelude.Int,
     -- | An optional marker returned from a prior request. Use this marker for
     -- pagination of results from this operation. If this parameter is
     -- specified, the response includes only records beyond the marker, up to
     -- the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of records to include in the response
-    maxRecords :: Prelude.Maybe Prelude.Int
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -98,9 +98,9 @@ data DescribeUpdateActions = DescribeUpdateActions'
 --
 -- 'updateActionStatus', 'describeUpdateActions_updateActionStatus' - The status of the update action.
 --
--- 'showNodeLevelUpdateStatus', 'describeUpdateActions_showNodeLevelUpdateStatus' - Dictates whether to include node level update status in the response
---
 -- 'serviceUpdateStatus', 'describeUpdateActions_serviceUpdateStatus' - The status of the service update
+--
+-- 'showNodeLevelUpdateStatus', 'describeUpdateActions_showNodeLevelUpdateStatus' - Dictates whether to include node level update status in the response
 --
 -- 'engine', 'describeUpdateActions_engine' - The Elasticache engine to which the update applies. Either Redis or
 -- Memcached
@@ -114,40 +114,40 @@ data DescribeUpdateActions = DescribeUpdateActions'
 --
 -- 'replicationGroupIds', 'describeUpdateActions_replicationGroupIds' - The replication group IDs
 --
+-- 'maxRecords', 'describeUpdateActions_maxRecords' - The maximum number of records to include in the response
+--
 -- 'marker', 'describeUpdateActions_marker' - An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by @MaxRecords@.
---
--- 'maxRecords', 'describeUpdateActions_maxRecords' - The maximum number of records to include in the response
 newDescribeUpdateActions ::
   DescribeUpdateActions
 newDescribeUpdateActions =
   DescribeUpdateActions'
     { updateActionStatus =
         Prelude.Nothing,
-      showNodeLevelUpdateStatus = Prelude.Nothing,
       serviceUpdateStatus = Prelude.Nothing,
+      showNodeLevelUpdateStatus = Prelude.Nothing,
       engine = Prelude.Nothing,
       serviceUpdateTimeRange = Prelude.Nothing,
       serviceUpdateName = Prelude.Nothing,
       cacheClusterIds = Prelude.Nothing,
       replicationGroupIds = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The status of the update action.
 describeUpdateActions_updateActionStatus :: Lens.Lens' DescribeUpdateActions (Prelude.Maybe [UpdateActionStatus])
 describeUpdateActions_updateActionStatus = Lens.lens (\DescribeUpdateActions' {updateActionStatus} -> updateActionStatus) (\s@DescribeUpdateActions' {} a -> s {updateActionStatus = a} :: DescribeUpdateActions) Prelude.. Lens.mapping Lens._Coerce
 
--- | Dictates whether to include node level update status in the response
-describeUpdateActions_showNodeLevelUpdateStatus :: Lens.Lens' DescribeUpdateActions (Prelude.Maybe Prelude.Bool)
-describeUpdateActions_showNodeLevelUpdateStatus = Lens.lens (\DescribeUpdateActions' {showNodeLevelUpdateStatus} -> showNodeLevelUpdateStatus) (\s@DescribeUpdateActions' {} a -> s {showNodeLevelUpdateStatus = a} :: DescribeUpdateActions)
-
 -- | The status of the service update
 describeUpdateActions_serviceUpdateStatus :: Lens.Lens' DescribeUpdateActions (Prelude.Maybe [ServiceUpdateStatus])
 describeUpdateActions_serviceUpdateStatus = Lens.lens (\DescribeUpdateActions' {serviceUpdateStatus} -> serviceUpdateStatus) (\s@DescribeUpdateActions' {} a -> s {serviceUpdateStatus = a} :: DescribeUpdateActions) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Dictates whether to include node level update status in the response
+describeUpdateActions_showNodeLevelUpdateStatus :: Lens.Lens' DescribeUpdateActions (Prelude.Maybe Prelude.Bool)
+describeUpdateActions_showNodeLevelUpdateStatus = Lens.lens (\DescribeUpdateActions' {showNodeLevelUpdateStatus} -> showNodeLevelUpdateStatus) (\s@DescribeUpdateActions' {} a -> s {showNodeLevelUpdateStatus = a} :: DescribeUpdateActions)
 
 -- | The Elasticache engine to which the update applies. Either Redis or
 -- Memcached
@@ -171,16 +171,16 @@ describeUpdateActions_cacheClusterIds = Lens.lens (\DescribeUpdateActions' {cach
 describeUpdateActions_replicationGroupIds :: Lens.Lens' DescribeUpdateActions (Prelude.Maybe [Prelude.Text])
 describeUpdateActions_replicationGroupIds = Lens.lens (\DescribeUpdateActions' {replicationGroupIds} -> replicationGroupIds) (\s@DescribeUpdateActions' {} a -> s {replicationGroupIds = a} :: DescribeUpdateActions) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The maximum number of records to include in the response
+describeUpdateActions_maxRecords :: Lens.Lens' DescribeUpdateActions (Prelude.Maybe Prelude.Int)
+describeUpdateActions_maxRecords = Lens.lens (\DescribeUpdateActions' {maxRecords} -> maxRecords) (\s@DescribeUpdateActions' {} a -> s {maxRecords = a} :: DescribeUpdateActions)
+
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by @MaxRecords@.
 describeUpdateActions_marker :: Lens.Lens' DescribeUpdateActions (Prelude.Maybe Prelude.Text)
 describeUpdateActions_marker = Lens.lens (\DescribeUpdateActions' {marker} -> marker) (\s@DescribeUpdateActions' {} a -> s {marker = a} :: DescribeUpdateActions)
-
--- | The maximum number of records to include in the response
-describeUpdateActions_maxRecords :: Lens.Lens' DescribeUpdateActions (Prelude.Maybe Prelude.Int)
-describeUpdateActions_maxRecords = Lens.lens (\DescribeUpdateActions' {maxRecords} -> maxRecords) (\s@DescribeUpdateActions' {} a -> s {maxRecords = a} :: DescribeUpdateActions)
 
 instance Core.AWSPager DescribeUpdateActions where
   page rq rs
@@ -243,13 +243,13 @@ instance Core.ToQuery DescribeUpdateActions where
             ( Core.toQueryList "member"
                 Prelude.<$> updateActionStatus
             ),
-        "ShowNodeLevelUpdateStatus"
-          Core.=: showNodeLevelUpdateStatus,
         "ServiceUpdateStatus"
           Core.=: Core.toQuery
             ( Core.toQueryList "member"
                 Prelude.<$> serviceUpdateStatus
             ),
+        "ShowNodeLevelUpdateStatus"
+          Core.=: showNodeLevelUpdateStatus,
         "Engine" Core.=: engine,
         "ServiceUpdateTimeRange"
           Core.=: serviceUpdateTimeRange,
@@ -264,8 +264,8 @@ instance Core.ToQuery DescribeUpdateActions where
             ( Core.toQueryList "member"
                 Prelude.<$> replicationGroupIds
             ),
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- | /See:/ 'newDescribeUpdateActionsResponse' smart constructor.

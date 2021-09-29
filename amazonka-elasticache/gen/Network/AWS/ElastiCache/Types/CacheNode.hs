@@ -139,7 +139,7 @@ data CacheNode = CacheNode'
     sourceCacheNodeId :: Prelude.Maybe Prelude.Text,
     -- | The cache node identifier. A node ID is a numeric identifier (0001,
     -- 0002, etc.). The combination of cluster ID and node ID uniquely
-    -- identifies every cache node used in a customer\'s AWS account.
+    -- identifies every cache node used in a customer\'s Amazon account.
     cacheNodeId :: Prelude.Maybe Prelude.Text,
     -- | The hostname for connecting to this cache node.
     endpoint :: Prelude.Maybe Endpoint
@@ -171,7 +171,7 @@ data CacheNode = CacheNode'
 --
 -- 'cacheNodeId', 'cacheNode_cacheNodeId' - The cache node identifier. A node ID is a numeric identifier (0001,
 -- 0002, etc.). The combination of cluster ID and node ID uniquely
--- identifies every cache node used in a customer\'s AWS account.
+-- identifies every cache node used in a customer\'s Amazon account.
 --
 -- 'endpoint', 'cacheNode_endpoint' - The hostname for connecting to this cache node.
 newCacheNode ::
@@ -218,7 +218,7 @@ cacheNode_sourceCacheNodeId = Lens.lens (\CacheNode' {sourceCacheNodeId} -> sour
 
 -- | The cache node identifier. A node ID is a numeric identifier (0001,
 -- 0002, etc.). The combination of cluster ID and node ID uniquely
--- identifies every cache node used in a customer\'s AWS account.
+-- identifies every cache node used in a customer\'s Amazon account.
 cacheNode_cacheNodeId :: Lens.Lens' CacheNode (Prelude.Maybe Prelude.Text)
 cacheNode_cacheNodeId = Lens.lens (\CacheNode' {cacheNodeId} -> cacheNodeId) (\s@CacheNode' {} a -> s {cacheNodeId = a} :: CacheNode)
 

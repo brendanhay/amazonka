@@ -20,17 +20,21 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds up to 50 cost allocation tags to the named resource. A cost
--- allocation tag is a key-value pair where the key and value are
--- case-sensitive. You can use cost allocation tags to categorize and track
--- your AWS costs.
+-- A tag is a key-value pair where the key and value are case-sensitive.
+-- You can use tags to categorize and track all your ElastiCache resources,
+-- with the exception of global replication group. When you add or remove
+-- tags on replication groups, those actions will be replicated to all
+-- nodes in the replication group. For more information, see
+-- <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ResourceLevelPermissions.html Resource-level permissions>.
 --
--- When you apply tags to your ElastiCache resources, AWS generates a cost
--- allocation report as a comma-separated value (CSV) file with your usage
--- and costs aggregated by your tags. You can apply tags that represent
--- business categories (such as cost centers, application names, or owners)
--- to organize your costs across multiple services. For more information,
--- see
+-- For example, you can use cost-allocation tags to your ElastiCache
+-- resources, Amazon generates a cost allocation report as a
+-- comma-separated value (CSV) file with your usage and costs aggregated by
+-- your tags. You can apply tags that represent business categories (such
+-- as cost centers, application names, or owners) to organize your costs
+-- across multiple services.
+--
+-- For more information, see
 -- <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Tagging.html Using Cost Allocation Tags in Amazon ElastiCache>
 -- in the /ElastiCache User Guide/.
 module Network.AWS.ElastiCache.AddTagsToResource
@@ -69,10 +73,10 @@ data AddTagsToResource = AddTagsToResource'
     -- ElastiCache resources are /cluster/ and /snapshot/.
     --
     -- For more information about ARNs, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Service Namespaces>.
     resourceName :: Prelude.Text,
-    -- | A list of cost allocation tags to be added to this resource. A tag is a
-    -- key-value pair. A tag key must be accompanied by a tag value.
+    -- | A list of tags to be added to this resource. A tag is a key-value pair.
+    -- A tag key must be accompanied by a tag value, although null is accepted.
     tags :: [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -92,10 +96,10 @@ data AddTagsToResource = AddTagsToResource'
 -- ElastiCache resources are /cluster/ and /snapshot/.
 --
 -- For more information about ARNs, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Service Namespaces>.
 --
--- 'tags', 'addTagsToResource_tags' - A list of cost allocation tags to be added to this resource. A tag is a
--- key-value pair. A tag key must be accompanied by a tag value.
+-- 'tags', 'addTagsToResource_tags' - A list of tags to be added to this resource. A tag is a key-value pair.
+-- A tag key must be accompanied by a tag value, although null is accepted.
 newAddTagsToResource ::
   -- | 'resourceName'
   Prelude.Text ->
@@ -113,12 +117,12 @@ newAddTagsToResource pResourceName_ =
 -- ElastiCache resources are /cluster/ and /snapshot/.
 --
 -- For more information about ARNs, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and Amazon Service Namespaces>.
 addTagsToResource_resourceName :: Lens.Lens' AddTagsToResource Prelude.Text
 addTagsToResource_resourceName = Lens.lens (\AddTagsToResource' {resourceName} -> resourceName) (\s@AddTagsToResource' {} a -> s {resourceName = a} :: AddTagsToResource)
 
--- | A list of cost allocation tags to be added to this resource. A tag is a
--- key-value pair. A tag key must be accompanied by a tag value.
+-- | A list of tags to be added to this resource. A tag is a key-value pair.
+-- A tag key must be accompanied by a tag value, although null is accepted.
 addTagsToResource_tags :: Lens.Lens' AddTagsToResource [Tag]
 addTagsToResource_tags = Lens.lens (\AddTagsToResource' {tags} -> tags) (\s@AddTagsToResource' {} a -> s {tags = a} :: AddTagsToResource) Prelude.. Lens._Coerce
 

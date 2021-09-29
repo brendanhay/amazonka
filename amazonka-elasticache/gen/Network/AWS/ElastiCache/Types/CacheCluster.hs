@@ -24,6 +24,7 @@ import Network.AWS.ElastiCache.Types.CacheNode
 import Network.AWS.ElastiCache.Types.CacheParameterGroupStatus
 import Network.AWS.ElastiCache.Types.CacheSecurityGroupMembership
 import Network.AWS.ElastiCache.Types.Endpoint
+import Network.AWS.ElastiCache.Types.LogDeliveryConfiguration
 import Network.AWS.ElastiCache.Types.NotificationConfiguration
 import Network.AWS.ElastiCache.Types.PendingModifiedValues
 import Network.AWS.ElastiCache.Types.SecurityGroupMembership
@@ -41,14 +42,14 @@ data CacheCluster = CacheCluster'
     -- | The number of cache nodes in the cluster.
     --
     -- For clusters running Redis, this value must be 1. For clusters running
-    -- Memcached, this value must be between 1 and 20.
+    -- Memcached, this value must be between 1 and 40.
     numCacheNodes :: Prelude.Maybe Prelude.Int,
-    -- | A list of cache security group elements, composed of name and status
-    -- sub-elements.
-    cacheSecurityGroups :: Prelude.Maybe [CacheSecurityGroupMembership],
     -- | The replication group to which this cluster belongs. If this field is
     -- empty, the cluster is not associated with any replication group.
     replicationGroupId :: Prelude.Maybe Prelude.Text,
+    -- | A list of cache security group elements, composed of name and status
+    -- sub-elements.
+    cacheSecurityGroups :: Prelude.Maybe [CacheSecurityGroupMembership],
     -- | The user-supplied identifier of the cluster. This identifier is a unique
     -- key that identifies a cluster.
     cacheClusterId :: Prelude.Maybe Prelude.Text,
@@ -57,8 +58,6 @@ data CacheCluster = CacheCluster'
     --
     -- Example: @05:00-09:00@
     snapshotWindow :: Prelude.Maybe Prelude.Text,
-    -- | The ARN (Amazon Resource Name) of the cache cluster.
-    arn :: Prelude.Maybe Prelude.Text,
     -- | Describes a notification topic and its status. Notification topics are
     -- used for publishing ElastiCache events to subscribers using Amazon
     -- Simple Notification Service (SNS).
@@ -71,14 +70,16 @@ data CacheCluster = CacheCluster'
     -- If the value of SnapshotRetentionLimit is set to zero (0), backups are
     -- turned off.
     snapshotRetentionLimit :: Prelude.Maybe Prelude.Int,
-    -- | Status of the cache parameter group.
-    cacheParameterGroup :: Prelude.Maybe CacheParameterGroupStatus,
-    -- | A list of VPC Security Groups associated with the cluster.
-    securityGroups :: Prelude.Maybe [SecurityGroupMembership],
+    -- | The ARN (Amazon Resource Name) of the cache cluster.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The name of the Availability Zone in which the cluster is located or
     -- \"Multiple\" if the cache nodes are located in different Availability
     -- Zones.
     preferredAvailabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | Status of the cache parameter group.
+    cacheParameterGroup :: Prelude.Maybe CacheParameterGroupStatus,
+    -- | A list of VPC Security Groups associated with the cluster.
+    securityGroups :: Prelude.Maybe [SecurityGroupMembership],
     -- | A flag that enables encryption at-rest when set to @true@.
     --
     -- You cannot modify the value of @AtRestEncryptionEnabled@ after the
@@ -94,29 +95,8 @@ data CacheCluster = CacheCluster'
     cacheSubnetGroupName :: Prelude.Maybe Prelude.Text,
     -- | The version of the cache engine that is used in this cluster.
     engineVersion :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the weekly time range during which maintenance on the cluster
-    -- is performed. It is specified as a range in the format
-    -- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
-    -- is a 60 minute period.
-    --
-    -- Valid values for @ddd@ are:
-    --
-    -- -   @sun@
-    --
-    -- -   @mon@
-    --
-    -- -   @tue@
-    --
-    -- -   @wed@
-    --
-    -- -   @thu@
-    --
-    -- -   @fri@
-    --
-    -- -   @sat@
-    --
-    -- Example: @sun:23:00-mon:01:30@
-    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
+    -- | The date the auth token was last modified
+    authTokenLastModifiedDate :: Prelude.Maybe Core.ISO8601,
     -- | The name of the compute and memory capacity node type for the cluster.
     --
     -- The following node types are supported by ElastiCache. Generally
@@ -211,28 +191,54 @@ data CacheCluster = CacheCluster'
     -- -   Redis configuration variables @appendonly@ and @appendfsync@ are not
     --     supported on Redis version 2.8.22 and later.
     cacheNodeType :: Prelude.Maybe Prelude.Text,
-    -- | The date the auth token was last modified
-    authTokenLastModifiedDate :: Prelude.Maybe Core.ISO8601,
+    -- | Specifies the weekly time range during which maintenance on the cluster
+    -- is performed. It is specified as a range in the format
+    -- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
+    -- is a 60 minute period.
+    --
+    -- Valid values for @ddd@ are:
+    --
+    -- -   @sun@
+    --
+    -- -   @mon@
+    --
+    -- -   @tue@
+    --
+    -- -   @wed@
+    --
+    -- -   @thu@
+    --
+    -- -   @fri@
+    --
+    -- -   @sat@
+    --
+    -- Example: @sun:23:00-mon:01:30@
+    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
     -- | The URL of the web page where you can download the latest ElastiCache
     -- client library.
     clientDownloadLandingPage :: Prelude.Maybe Prelude.Text,
+    -- | The outpost ARN in which the cache cluster is created.
+    preferredOutpostArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the cache engine (@memcached@ or @redis@) to be used for
     -- this cluster.
     engine :: Prelude.Maybe Prelude.Text,
-    -- | The outpost ARN in which the cache cluster is created.
-    preferredOutpostArn :: Prelude.Maybe Prelude.Text,
+    -- | A boolean value indicating whether log delivery is enabled for the
+    -- replication group.
+    replicationGroupLogDeliveryEnabled :: Prelude.Maybe Prelude.Bool,
+    pendingModifiedValues :: Prelude.Maybe PendingModifiedValues,
     -- | A flag that enables using an @AuthToken@ (password) when issuing Redis
     -- commands.
     --
     -- Default: @false@
     authTokenEnabled :: Prelude.Maybe Prelude.Bool,
-    pendingModifiedValues :: Prelude.Maybe PendingModifiedValues,
     -- | Represents a Memcached cluster endpoint which can be used by an
     -- application to connect to any node in the cluster. The configuration
     -- endpoint will always have @.cfg@ in it.
     --
     -- Example: @mem-3.9dvc4r.cfg.usw2.cache.amazonaws.com:11211@
     configurationEndpoint :: Prelude.Maybe Endpoint,
+    -- | Returns the destination, format and type of the logs.
+    logDeliveryConfigurations :: Prelude.Maybe [LogDeliveryConfiguration],
     -- | A flag that enables in-transit encryption when set to @true@.
     --
     -- You cannot modify the value of @TransitEncryptionEnabled@ after the
@@ -244,13 +250,13 @@ data CacheCluster = CacheCluster'
     --
     -- Default: @false@
     transitEncryptionEnabled :: Prelude.Maybe Prelude.Bool,
-    -- | This parameter is currently disabled.
-    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | The current state of this cluster, one of the following values:
     -- @available@, @creating@, @deleted@, @deleting@, @incompatible-network@,
     -- @modifying@, @rebooting cluster nodes@, @restore-failed@, or
     -- @snapshotting@.
-    cacheClusterStatus :: Prelude.Maybe Prelude.Text
+    cacheClusterStatus :: Prelude.Maybe Prelude.Text,
+    -- | This parameter is currently disabled.
+    autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -269,13 +275,13 @@ data CacheCluster = CacheCluster'
 -- 'numCacheNodes', 'cacheCluster_numCacheNodes' - The number of cache nodes in the cluster.
 --
 -- For clusters running Redis, this value must be 1. For clusters running
--- Memcached, this value must be between 1 and 20.
---
--- 'cacheSecurityGroups', 'cacheCluster_cacheSecurityGroups' - A list of cache security group elements, composed of name and status
--- sub-elements.
+-- Memcached, this value must be between 1 and 40.
 --
 -- 'replicationGroupId', 'cacheCluster_replicationGroupId' - The replication group to which this cluster belongs. If this field is
 -- empty, the cluster is not associated with any replication group.
+--
+-- 'cacheSecurityGroups', 'cacheCluster_cacheSecurityGroups' - A list of cache security group elements, composed of name and status
+-- sub-elements.
 --
 -- 'cacheClusterId', 'cacheCluster_cacheClusterId' - The user-supplied identifier of the cluster. This identifier is a unique
 -- key that identifies a cluster.
@@ -284,8 +290,6 @@ data CacheCluster = CacheCluster'
 -- daily snapshot of your cluster.
 --
 -- Example: @05:00-09:00@
---
--- 'arn', 'cacheCluster_arn' - The ARN (Amazon Resource Name) of the cache cluster.
 --
 -- 'notificationConfiguration', 'cacheCluster_notificationConfiguration' - Describes a notification topic and its status. Notification topics are
 -- used for publishing ElastiCache events to subscribers using Amazon
@@ -299,13 +303,15 @@ data CacheCluster = CacheCluster'
 -- If the value of SnapshotRetentionLimit is set to zero (0), backups are
 -- turned off.
 --
--- 'cacheParameterGroup', 'cacheCluster_cacheParameterGroup' - Status of the cache parameter group.
---
--- 'securityGroups', 'cacheCluster_securityGroups' - A list of VPC Security Groups associated with the cluster.
+-- 'arn', 'cacheCluster_arn' - The ARN (Amazon Resource Name) of the cache cluster.
 --
 -- 'preferredAvailabilityZone', 'cacheCluster_preferredAvailabilityZone' - The name of the Availability Zone in which the cluster is located or
 -- \"Multiple\" if the cache nodes are located in different Availability
 -- Zones.
+--
+-- 'cacheParameterGroup', 'cacheCluster_cacheParameterGroup' - Status of the cache parameter group.
+--
+-- 'securityGroups', 'cacheCluster_securityGroups' - A list of VPC Security Groups associated with the cluster.
 --
 -- 'atRestEncryptionEnabled', 'cacheCluster_atRestEncryptionEnabled' - A flag that enables encryption at-rest when set to @true@.
 --
@@ -322,28 +328,7 @@ data CacheCluster = CacheCluster'
 --
 -- 'engineVersion', 'cacheCluster_engineVersion' - The version of the cache engine that is used in this cluster.
 --
--- 'preferredMaintenanceWindow', 'cacheCluster_preferredMaintenanceWindow' - Specifies the weekly time range during which maintenance on the cluster
--- is performed. It is specified as a range in the format
--- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
--- is a 60 minute period.
---
--- Valid values for @ddd@ are:
---
--- -   @sun@
---
--- -   @mon@
---
--- -   @tue@
---
--- -   @wed@
---
--- -   @thu@
---
--- -   @fri@
---
--- -   @sat@
---
--- Example: @sun:23:00-mon:01:30@
+-- 'authTokenLastModifiedDate', 'cacheCluster_authTokenLastModifiedDate' - The date the auth token was last modified
 --
 -- 'cacheNodeType', 'cacheCluster_cacheNodeType' - The name of the compute and memory capacity node type for the cluster.
 --
@@ -439,28 +424,54 @@ data CacheCluster = CacheCluster'
 -- -   Redis configuration variables @appendonly@ and @appendfsync@ are not
 --     supported on Redis version 2.8.22 and later.
 --
--- 'authTokenLastModifiedDate', 'cacheCluster_authTokenLastModifiedDate' - The date the auth token was last modified
+-- 'preferredMaintenanceWindow', 'cacheCluster_preferredMaintenanceWindow' - Specifies the weekly time range during which maintenance on the cluster
+-- is performed. It is specified as a range in the format
+-- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
+-- is a 60 minute period.
+--
+-- Valid values for @ddd@ are:
+--
+-- -   @sun@
+--
+-- -   @mon@
+--
+-- -   @tue@
+--
+-- -   @wed@
+--
+-- -   @thu@
+--
+-- -   @fri@
+--
+-- -   @sat@
+--
+-- Example: @sun:23:00-mon:01:30@
 --
 -- 'clientDownloadLandingPage', 'cacheCluster_clientDownloadLandingPage' - The URL of the web page where you can download the latest ElastiCache
 -- client library.
 --
+-- 'preferredOutpostArn', 'cacheCluster_preferredOutpostArn' - The outpost ARN in which the cache cluster is created.
+--
 -- 'engine', 'cacheCluster_engine' - The name of the cache engine (@memcached@ or @redis@) to be used for
 -- this cluster.
 --
--- 'preferredOutpostArn', 'cacheCluster_preferredOutpostArn' - The outpost ARN in which the cache cluster is created.
+-- 'replicationGroupLogDeliveryEnabled', 'cacheCluster_replicationGroupLogDeliveryEnabled' - A boolean value indicating whether log delivery is enabled for the
+-- replication group.
+--
+-- 'pendingModifiedValues', 'cacheCluster_pendingModifiedValues' - Undocumented member.
 --
 -- 'authTokenEnabled', 'cacheCluster_authTokenEnabled' - A flag that enables using an @AuthToken@ (password) when issuing Redis
 -- commands.
 --
 -- Default: @false@
 --
--- 'pendingModifiedValues', 'cacheCluster_pendingModifiedValues' - Undocumented member.
---
 -- 'configurationEndpoint', 'cacheCluster_configurationEndpoint' - Represents a Memcached cluster endpoint which can be used by an
 -- application to connect to any node in the cluster. The configuration
 -- endpoint will always have @.cfg@ in it.
 --
 -- Example: @mem-3.9dvc4r.cfg.usw2.cache.amazonaws.com:11211@
+--
+-- 'logDeliveryConfigurations', 'cacheCluster_logDeliveryConfigurations' - Returns the destination, format and type of the logs.
 --
 -- 'transitEncryptionEnabled', 'cacheCluster_transitEncryptionEnabled' - A flag that enables in-transit encryption when set to @true@.
 --
@@ -473,12 +484,12 @@ data CacheCluster = CacheCluster'
 --
 -- Default: @false@
 --
--- 'autoMinorVersionUpgrade', 'cacheCluster_autoMinorVersionUpgrade' - This parameter is currently disabled.
---
 -- 'cacheClusterStatus', 'cacheCluster_cacheClusterStatus' - The current state of this cluster, one of the following values:
 -- @available@, @creating@, @deleted@, @deleting@, @incompatible-network@,
 -- @modifying@, @rebooting cluster nodes@, @restore-failed@, or
 -- @snapshotting@.
+--
+-- 'autoMinorVersionUpgrade', 'cacheCluster_autoMinorVersionUpgrade' - This parameter is currently disabled.
 newCacheCluster ::
   CacheCluster
 newCacheCluster =
@@ -486,31 +497,33 @@ newCacheCluster =
     { cacheNodes = Prelude.Nothing,
       cacheClusterCreateTime = Prelude.Nothing,
       numCacheNodes = Prelude.Nothing,
-      cacheSecurityGroups = Prelude.Nothing,
       replicationGroupId = Prelude.Nothing,
+      cacheSecurityGroups = Prelude.Nothing,
       cacheClusterId = Prelude.Nothing,
       snapshotWindow = Prelude.Nothing,
-      arn = Prelude.Nothing,
       notificationConfiguration = Prelude.Nothing,
       snapshotRetentionLimit = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      preferredAvailabilityZone = Prelude.Nothing,
       cacheParameterGroup = Prelude.Nothing,
       securityGroups = Prelude.Nothing,
-      preferredAvailabilityZone = Prelude.Nothing,
       atRestEncryptionEnabled = Prelude.Nothing,
       cacheSubnetGroupName = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
-      preferredMaintenanceWindow = Prelude.Nothing,
-      cacheNodeType = Prelude.Nothing,
       authTokenLastModifiedDate = Prelude.Nothing,
+      cacheNodeType = Prelude.Nothing,
+      preferredMaintenanceWindow = Prelude.Nothing,
       clientDownloadLandingPage = Prelude.Nothing,
-      engine = Prelude.Nothing,
       preferredOutpostArn = Prelude.Nothing,
-      authTokenEnabled = Prelude.Nothing,
+      engine = Prelude.Nothing,
+      replicationGroupLogDeliveryEnabled = Prelude.Nothing,
       pendingModifiedValues = Prelude.Nothing,
+      authTokenEnabled = Prelude.Nothing,
       configurationEndpoint = Prelude.Nothing,
+      logDeliveryConfigurations = Prelude.Nothing,
       transitEncryptionEnabled = Prelude.Nothing,
-      autoMinorVersionUpgrade = Prelude.Nothing,
-      cacheClusterStatus = Prelude.Nothing
+      cacheClusterStatus = Prelude.Nothing,
+      autoMinorVersionUpgrade = Prelude.Nothing
     }
 
 -- | A list of cache nodes that are members of the cluster.
@@ -524,19 +537,19 @@ cacheCluster_cacheClusterCreateTime = Lens.lens (\CacheCluster' {cacheClusterCre
 -- | The number of cache nodes in the cluster.
 --
 -- For clusters running Redis, this value must be 1. For clusters running
--- Memcached, this value must be between 1 and 20.
+-- Memcached, this value must be between 1 and 40.
 cacheCluster_numCacheNodes :: Lens.Lens' CacheCluster (Prelude.Maybe Prelude.Int)
 cacheCluster_numCacheNodes = Lens.lens (\CacheCluster' {numCacheNodes} -> numCacheNodes) (\s@CacheCluster' {} a -> s {numCacheNodes = a} :: CacheCluster)
-
--- | A list of cache security group elements, composed of name and status
--- sub-elements.
-cacheCluster_cacheSecurityGroups :: Lens.Lens' CacheCluster (Prelude.Maybe [CacheSecurityGroupMembership])
-cacheCluster_cacheSecurityGroups = Lens.lens (\CacheCluster' {cacheSecurityGroups} -> cacheSecurityGroups) (\s@CacheCluster' {} a -> s {cacheSecurityGroups = a} :: CacheCluster) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The replication group to which this cluster belongs. If this field is
 -- empty, the cluster is not associated with any replication group.
 cacheCluster_replicationGroupId :: Lens.Lens' CacheCluster (Prelude.Maybe Prelude.Text)
 cacheCluster_replicationGroupId = Lens.lens (\CacheCluster' {replicationGroupId} -> replicationGroupId) (\s@CacheCluster' {} a -> s {replicationGroupId = a} :: CacheCluster)
+
+-- | A list of cache security group elements, composed of name and status
+-- sub-elements.
+cacheCluster_cacheSecurityGroups :: Lens.Lens' CacheCluster (Prelude.Maybe [CacheSecurityGroupMembership])
+cacheCluster_cacheSecurityGroups = Lens.lens (\CacheCluster' {cacheSecurityGroups} -> cacheSecurityGroups) (\s@CacheCluster' {} a -> s {cacheSecurityGroups = a} :: CacheCluster) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The user-supplied identifier of the cluster. This identifier is a unique
 -- key that identifies a cluster.
@@ -549,10 +562,6 @@ cacheCluster_cacheClusterId = Lens.lens (\CacheCluster' {cacheClusterId} -> cach
 -- Example: @05:00-09:00@
 cacheCluster_snapshotWindow :: Lens.Lens' CacheCluster (Prelude.Maybe Prelude.Text)
 cacheCluster_snapshotWindow = Lens.lens (\CacheCluster' {snapshotWindow} -> snapshotWindow) (\s@CacheCluster' {} a -> s {snapshotWindow = a} :: CacheCluster)
-
--- | The ARN (Amazon Resource Name) of the cache cluster.
-cacheCluster_arn :: Lens.Lens' CacheCluster (Prelude.Maybe Prelude.Text)
-cacheCluster_arn = Lens.lens (\CacheCluster' {arn} -> arn) (\s@CacheCluster' {} a -> s {arn = a} :: CacheCluster)
 
 -- | Describes a notification topic and its status. Notification topics are
 -- used for publishing ElastiCache events to subscribers using Amazon
@@ -570,6 +579,16 @@ cacheCluster_notificationConfiguration = Lens.lens (\CacheCluster' {notification
 cacheCluster_snapshotRetentionLimit :: Lens.Lens' CacheCluster (Prelude.Maybe Prelude.Int)
 cacheCluster_snapshotRetentionLimit = Lens.lens (\CacheCluster' {snapshotRetentionLimit} -> snapshotRetentionLimit) (\s@CacheCluster' {} a -> s {snapshotRetentionLimit = a} :: CacheCluster)
 
+-- | The ARN (Amazon Resource Name) of the cache cluster.
+cacheCluster_arn :: Lens.Lens' CacheCluster (Prelude.Maybe Prelude.Text)
+cacheCluster_arn = Lens.lens (\CacheCluster' {arn} -> arn) (\s@CacheCluster' {} a -> s {arn = a} :: CacheCluster)
+
+-- | The name of the Availability Zone in which the cluster is located or
+-- \"Multiple\" if the cache nodes are located in different Availability
+-- Zones.
+cacheCluster_preferredAvailabilityZone :: Lens.Lens' CacheCluster (Prelude.Maybe Prelude.Text)
+cacheCluster_preferredAvailabilityZone = Lens.lens (\CacheCluster' {preferredAvailabilityZone} -> preferredAvailabilityZone) (\s@CacheCluster' {} a -> s {preferredAvailabilityZone = a} :: CacheCluster)
+
 -- | Status of the cache parameter group.
 cacheCluster_cacheParameterGroup :: Lens.Lens' CacheCluster (Prelude.Maybe CacheParameterGroupStatus)
 cacheCluster_cacheParameterGroup = Lens.lens (\CacheCluster' {cacheParameterGroup} -> cacheParameterGroup) (\s@CacheCluster' {} a -> s {cacheParameterGroup = a} :: CacheCluster)
@@ -577,12 +596,6 @@ cacheCluster_cacheParameterGroup = Lens.lens (\CacheCluster' {cacheParameterGrou
 -- | A list of VPC Security Groups associated with the cluster.
 cacheCluster_securityGroups :: Lens.Lens' CacheCluster (Prelude.Maybe [SecurityGroupMembership])
 cacheCluster_securityGroups = Lens.lens (\CacheCluster' {securityGroups} -> securityGroups) (\s@CacheCluster' {} a -> s {securityGroups = a} :: CacheCluster) Prelude.. Lens.mapping Lens._Coerce
-
--- | The name of the Availability Zone in which the cluster is located or
--- \"Multiple\" if the cache nodes are located in different Availability
--- Zones.
-cacheCluster_preferredAvailabilityZone :: Lens.Lens' CacheCluster (Prelude.Maybe Prelude.Text)
-cacheCluster_preferredAvailabilityZone = Lens.lens (\CacheCluster' {preferredAvailabilityZone} -> preferredAvailabilityZone) (\s@CacheCluster' {} a -> s {preferredAvailabilityZone = a} :: CacheCluster)
 
 -- | A flag that enables encryption at-rest when set to @true@.
 --
@@ -605,30 +618,9 @@ cacheCluster_cacheSubnetGroupName = Lens.lens (\CacheCluster' {cacheSubnetGroupN
 cacheCluster_engineVersion :: Lens.Lens' CacheCluster (Prelude.Maybe Prelude.Text)
 cacheCluster_engineVersion = Lens.lens (\CacheCluster' {engineVersion} -> engineVersion) (\s@CacheCluster' {} a -> s {engineVersion = a} :: CacheCluster)
 
--- | Specifies the weekly time range during which maintenance on the cluster
--- is performed. It is specified as a range in the format
--- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
--- is a 60 minute period.
---
--- Valid values for @ddd@ are:
---
--- -   @sun@
---
--- -   @mon@
---
--- -   @tue@
---
--- -   @wed@
---
--- -   @thu@
---
--- -   @fri@
---
--- -   @sat@
---
--- Example: @sun:23:00-mon:01:30@
-cacheCluster_preferredMaintenanceWindow :: Lens.Lens' CacheCluster (Prelude.Maybe Prelude.Text)
-cacheCluster_preferredMaintenanceWindow = Lens.lens (\CacheCluster' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@CacheCluster' {} a -> s {preferredMaintenanceWindow = a} :: CacheCluster)
+-- | The date the auth token was last modified
+cacheCluster_authTokenLastModifiedDate :: Lens.Lens' CacheCluster (Prelude.Maybe Prelude.UTCTime)
+cacheCluster_authTokenLastModifiedDate = Lens.lens (\CacheCluster' {authTokenLastModifiedDate} -> authTokenLastModifiedDate) (\s@CacheCluster' {} a -> s {authTokenLastModifiedDate = a} :: CacheCluster) Prelude.. Lens.mapping Core._Time
 
 -- | The name of the compute and memory capacity node type for the cluster.
 --
@@ -726,23 +718,53 @@ cacheCluster_preferredMaintenanceWindow = Lens.lens (\CacheCluster' {preferredMa
 cacheCluster_cacheNodeType :: Lens.Lens' CacheCluster (Prelude.Maybe Prelude.Text)
 cacheCluster_cacheNodeType = Lens.lens (\CacheCluster' {cacheNodeType} -> cacheNodeType) (\s@CacheCluster' {} a -> s {cacheNodeType = a} :: CacheCluster)
 
--- | The date the auth token was last modified
-cacheCluster_authTokenLastModifiedDate :: Lens.Lens' CacheCluster (Prelude.Maybe Prelude.UTCTime)
-cacheCluster_authTokenLastModifiedDate = Lens.lens (\CacheCluster' {authTokenLastModifiedDate} -> authTokenLastModifiedDate) (\s@CacheCluster' {} a -> s {authTokenLastModifiedDate = a} :: CacheCluster) Prelude.. Lens.mapping Core._Time
+-- | Specifies the weekly time range during which maintenance on the cluster
+-- is performed. It is specified as a range in the format
+-- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window
+-- is a 60 minute period.
+--
+-- Valid values for @ddd@ are:
+--
+-- -   @sun@
+--
+-- -   @mon@
+--
+-- -   @tue@
+--
+-- -   @wed@
+--
+-- -   @thu@
+--
+-- -   @fri@
+--
+-- -   @sat@
+--
+-- Example: @sun:23:00-mon:01:30@
+cacheCluster_preferredMaintenanceWindow :: Lens.Lens' CacheCluster (Prelude.Maybe Prelude.Text)
+cacheCluster_preferredMaintenanceWindow = Lens.lens (\CacheCluster' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@CacheCluster' {} a -> s {preferredMaintenanceWindow = a} :: CacheCluster)
 
 -- | The URL of the web page where you can download the latest ElastiCache
 -- client library.
 cacheCluster_clientDownloadLandingPage :: Lens.Lens' CacheCluster (Prelude.Maybe Prelude.Text)
 cacheCluster_clientDownloadLandingPage = Lens.lens (\CacheCluster' {clientDownloadLandingPage} -> clientDownloadLandingPage) (\s@CacheCluster' {} a -> s {clientDownloadLandingPage = a} :: CacheCluster)
 
+-- | The outpost ARN in which the cache cluster is created.
+cacheCluster_preferredOutpostArn :: Lens.Lens' CacheCluster (Prelude.Maybe Prelude.Text)
+cacheCluster_preferredOutpostArn = Lens.lens (\CacheCluster' {preferredOutpostArn} -> preferredOutpostArn) (\s@CacheCluster' {} a -> s {preferredOutpostArn = a} :: CacheCluster)
+
 -- | The name of the cache engine (@memcached@ or @redis@) to be used for
 -- this cluster.
 cacheCluster_engine :: Lens.Lens' CacheCluster (Prelude.Maybe Prelude.Text)
 cacheCluster_engine = Lens.lens (\CacheCluster' {engine} -> engine) (\s@CacheCluster' {} a -> s {engine = a} :: CacheCluster)
 
--- | The outpost ARN in which the cache cluster is created.
-cacheCluster_preferredOutpostArn :: Lens.Lens' CacheCluster (Prelude.Maybe Prelude.Text)
-cacheCluster_preferredOutpostArn = Lens.lens (\CacheCluster' {preferredOutpostArn} -> preferredOutpostArn) (\s@CacheCluster' {} a -> s {preferredOutpostArn = a} :: CacheCluster)
+-- | A boolean value indicating whether log delivery is enabled for the
+-- replication group.
+cacheCluster_replicationGroupLogDeliveryEnabled :: Lens.Lens' CacheCluster (Prelude.Maybe Prelude.Bool)
+cacheCluster_replicationGroupLogDeliveryEnabled = Lens.lens (\CacheCluster' {replicationGroupLogDeliveryEnabled} -> replicationGroupLogDeliveryEnabled) (\s@CacheCluster' {} a -> s {replicationGroupLogDeliveryEnabled = a} :: CacheCluster)
+
+-- | Undocumented member.
+cacheCluster_pendingModifiedValues :: Lens.Lens' CacheCluster (Prelude.Maybe PendingModifiedValues)
+cacheCluster_pendingModifiedValues = Lens.lens (\CacheCluster' {pendingModifiedValues} -> pendingModifiedValues) (\s@CacheCluster' {} a -> s {pendingModifiedValues = a} :: CacheCluster)
 
 -- | A flag that enables using an @AuthToken@ (password) when issuing Redis
 -- commands.
@@ -751,10 +773,6 @@ cacheCluster_preferredOutpostArn = Lens.lens (\CacheCluster' {preferredOutpostAr
 cacheCluster_authTokenEnabled :: Lens.Lens' CacheCluster (Prelude.Maybe Prelude.Bool)
 cacheCluster_authTokenEnabled = Lens.lens (\CacheCluster' {authTokenEnabled} -> authTokenEnabled) (\s@CacheCluster' {} a -> s {authTokenEnabled = a} :: CacheCluster)
 
--- | Undocumented member.
-cacheCluster_pendingModifiedValues :: Lens.Lens' CacheCluster (Prelude.Maybe PendingModifiedValues)
-cacheCluster_pendingModifiedValues = Lens.lens (\CacheCluster' {pendingModifiedValues} -> pendingModifiedValues) (\s@CacheCluster' {} a -> s {pendingModifiedValues = a} :: CacheCluster)
-
 -- | Represents a Memcached cluster endpoint which can be used by an
 -- application to connect to any node in the cluster. The configuration
 -- endpoint will always have @.cfg@ in it.
@@ -762,6 +780,10 @@ cacheCluster_pendingModifiedValues = Lens.lens (\CacheCluster' {pendingModifiedV
 -- Example: @mem-3.9dvc4r.cfg.usw2.cache.amazonaws.com:11211@
 cacheCluster_configurationEndpoint :: Lens.Lens' CacheCluster (Prelude.Maybe Endpoint)
 cacheCluster_configurationEndpoint = Lens.lens (\CacheCluster' {configurationEndpoint} -> configurationEndpoint) (\s@CacheCluster' {} a -> s {configurationEndpoint = a} :: CacheCluster)
+
+-- | Returns the destination, format and type of the logs.
+cacheCluster_logDeliveryConfigurations :: Lens.Lens' CacheCluster (Prelude.Maybe [LogDeliveryConfiguration])
+cacheCluster_logDeliveryConfigurations = Lens.lens (\CacheCluster' {logDeliveryConfigurations} -> logDeliveryConfigurations) (\s@CacheCluster' {} a -> s {logDeliveryConfigurations = a} :: CacheCluster) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A flag that enables in-transit encryption when set to @true@.
 --
@@ -776,16 +798,16 @@ cacheCluster_configurationEndpoint = Lens.lens (\CacheCluster' {configurationEnd
 cacheCluster_transitEncryptionEnabled :: Lens.Lens' CacheCluster (Prelude.Maybe Prelude.Bool)
 cacheCluster_transitEncryptionEnabled = Lens.lens (\CacheCluster' {transitEncryptionEnabled} -> transitEncryptionEnabled) (\s@CacheCluster' {} a -> s {transitEncryptionEnabled = a} :: CacheCluster)
 
--- | This parameter is currently disabled.
-cacheCluster_autoMinorVersionUpgrade :: Lens.Lens' CacheCluster (Prelude.Maybe Prelude.Bool)
-cacheCluster_autoMinorVersionUpgrade = Lens.lens (\CacheCluster' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@CacheCluster' {} a -> s {autoMinorVersionUpgrade = a} :: CacheCluster)
-
 -- | The current state of this cluster, one of the following values:
 -- @available@, @creating@, @deleted@, @deleting@, @incompatible-network@,
 -- @modifying@, @rebooting cluster nodes@, @restore-failed@, or
 -- @snapshotting@.
 cacheCluster_cacheClusterStatus :: Lens.Lens' CacheCluster (Prelude.Maybe Prelude.Text)
 cacheCluster_cacheClusterStatus = Lens.lens (\CacheCluster' {cacheClusterStatus} -> cacheClusterStatus) (\s@CacheCluster' {} a -> s {cacheClusterStatus = a} :: CacheCluster)
+
+-- | This parameter is currently disabled.
+cacheCluster_autoMinorVersionUpgrade :: Lens.Lens' CacheCluster (Prelude.Maybe Prelude.Bool)
+cacheCluster_autoMinorVersionUpgrade = Lens.lens (\CacheCluster' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@CacheCluster' {} a -> s {autoMinorVersionUpgrade = a} :: CacheCluster)
 
 instance Core.FromXML CacheCluster where
   parseXML x =
@@ -795,36 +817,42 @@ instance Core.FromXML CacheCluster where
                   )
       Prelude.<*> (x Core..@? "CacheClusterCreateTime")
       Prelude.<*> (x Core..@? "NumCacheNodes")
+      Prelude.<*> (x Core..@? "ReplicationGroupId")
       Prelude.<*> ( x Core..@? "CacheSecurityGroups"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "CacheSecurityGroup")
                   )
-      Prelude.<*> (x Core..@? "ReplicationGroupId")
       Prelude.<*> (x Core..@? "CacheClusterId")
       Prelude.<*> (x Core..@? "SnapshotWindow")
-      Prelude.<*> (x Core..@? "ARN")
       Prelude.<*> (x Core..@? "NotificationConfiguration")
       Prelude.<*> (x Core..@? "SnapshotRetentionLimit")
+      Prelude.<*> (x Core..@? "ARN")
+      Prelude.<*> (x Core..@? "PreferredAvailabilityZone")
       Prelude.<*> (x Core..@? "CacheParameterGroup")
       Prelude.<*> ( x Core..@? "SecurityGroups" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "PreferredAvailabilityZone")
       Prelude.<*> (x Core..@? "AtRestEncryptionEnabled")
       Prelude.<*> (x Core..@? "CacheSubnetGroupName")
       Prelude.<*> (x Core..@? "EngineVersion")
-      Prelude.<*> (x Core..@? "PreferredMaintenanceWindow")
-      Prelude.<*> (x Core..@? "CacheNodeType")
       Prelude.<*> (x Core..@? "AuthTokenLastModifiedDate")
+      Prelude.<*> (x Core..@? "CacheNodeType")
+      Prelude.<*> (x Core..@? "PreferredMaintenanceWindow")
       Prelude.<*> (x Core..@? "ClientDownloadLandingPage")
-      Prelude.<*> (x Core..@? "Engine")
       Prelude.<*> (x Core..@? "PreferredOutpostArn")
-      Prelude.<*> (x Core..@? "AuthTokenEnabled")
+      Prelude.<*> (x Core..@? "Engine")
+      Prelude.<*> (x Core..@? "ReplicationGroupLogDeliveryEnabled")
       Prelude.<*> (x Core..@? "PendingModifiedValues")
+      Prelude.<*> (x Core..@? "AuthTokenEnabled")
       Prelude.<*> (x Core..@? "ConfigurationEndpoint")
+      Prelude.<*> ( x Core..@? "LogDeliveryConfigurations"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may
+                        (Core.parseXMLList "LogDeliveryConfiguration")
+                  )
       Prelude.<*> (x Core..@? "TransitEncryptionEnabled")
-      Prelude.<*> (x Core..@? "AutoMinorVersionUpgrade")
       Prelude.<*> (x Core..@? "CacheClusterStatus")
+      Prelude.<*> (x Core..@? "AutoMinorVersionUpgrade")
 
 instance Prelude.Hashable CacheCluster
 

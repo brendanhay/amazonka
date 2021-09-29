@@ -54,8 +54,8 @@ module Network.AWS.ElastiCache.DescribeCacheClusters
     describeCacheClusters_showCacheNodeInfo,
     describeCacheClusters_cacheClusterId,
     describeCacheClusters_showCacheClustersNotInReplicationGroups,
-    describeCacheClusters_marker,
     describeCacheClusters_maxRecords,
+    describeCacheClusters_marker,
 
     -- * Destructuring the Response
     DescribeCacheClustersResponse (..),
@@ -91,11 +91,6 @@ data DescribeCacheClusters = DescribeCacheClusters'
     -- a replication group. In practice, this mean Memcached and single node
     -- Redis clusters.
     showCacheClustersNotInReplicationGroups :: Prelude.Maybe Prelude.Bool,
-    -- | An optional marker returned from a prior request. Use this marker for
-    -- pagination of results from this operation. If this parameter is
-    -- specified, the response includes only records beyond the marker, up to
-    -- the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a marker is
     -- included in the response so that the remaining results can be retrieved.
@@ -103,7 +98,12 @@ data DescribeCacheClusters = DescribeCacheClusters'
     -- Default: 100
     --
     -- Constraints: minimum 20; maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional marker returned from a prior request. Use this marker for
+    -- pagination of results from this operation. If this parameter is
+    -- specified, the response includes only records beyond the marker, up to
+    -- the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -127,11 +127,6 @@ data DescribeCacheClusters = DescribeCacheClusters'
 -- a replication group. In practice, this mean Memcached and single node
 -- Redis clusters.
 --
--- 'marker', 'describeCacheClusters_marker' - An optional marker returned from a prior request. Use this marker for
--- pagination of results from this operation. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@.
---
 -- 'maxRecords', 'describeCacheClusters_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a marker is
 -- included in the response so that the remaining results can be retrieved.
@@ -139,6 +134,11 @@ data DescribeCacheClusters = DescribeCacheClusters'
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
+--
+-- 'marker', 'describeCacheClusters_marker' - An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this operation. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
 newDescribeCacheClusters ::
   DescribeCacheClusters
 newDescribeCacheClusters =
@@ -148,8 +148,8 @@ newDescribeCacheClusters =
       cacheClusterId = Prelude.Nothing,
       showCacheClustersNotInReplicationGroups =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | An optional flag that can be included in the @DescribeCacheCluster@
@@ -170,13 +170,6 @@ describeCacheClusters_cacheClusterId = Lens.lens (\DescribeCacheClusters' {cache
 describeCacheClusters_showCacheClustersNotInReplicationGroups :: Lens.Lens' DescribeCacheClusters (Prelude.Maybe Prelude.Bool)
 describeCacheClusters_showCacheClustersNotInReplicationGroups = Lens.lens (\DescribeCacheClusters' {showCacheClustersNotInReplicationGroups} -> showCacheClustersNotInReplicationGroups) (\s@DescribeCacheClusters' {} a -> s {showCacheClustersNotInReplicationGroups = a} :: DescribeCacheClusters)
 
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this operation. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@.
-describeCacheClusters_marker :: Lens.Lens' DescribeCacheClusters (Prelude.Maybe Prelude.Text)
-describeCacheClusters_marker = Lens.lens (\DescribeCacheClusters' {marker} -> marker) (\s@DescribeCacheClusters' {} a -> s {marker = a} :: DescribeCacheClusters)
-
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a marker is
 -- included in the response so that the remaining results can be retrieved.
@@ -186,6 +179,13 @@ describeCacheClusters_marker = Lens.lens (\DescribeCacheClusters' {marker} -> ma
 -- Constraints: minimum 20; maximum 100.
 describeCacheClusters_maxRecords :: Lens.Lens' DescribeCacheClusters (Prelude.Maybe Prelude.Int)
 describeCacheClusters_maxRecords = Lens.lens (\DescribeCacheClusters' {maxRecords} -> maxRecords) (\s@DescribeCacheClusters' {} a -> s {maxRecords = a} :: DescribeCacheClusters)
+
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this operation. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
+describeCacheClusters_marker :: Lens.Lens' DescribeCacheClusters (Prelude.Maybe Prelude.Text)
+describeCacheClusters_marker = Lens.lens (\DescribeCacheClusters' {marker} -> marker) (\s@DescribeCacheClusters' {} a -> s {marker = a} :: DescribeCacheClusters)
 
 instance Core.AWSPager DescribeCacheClusters where
   page rq rs
@@ -247,8 +247,8 @@ instance Core.ToQuery DescribeCacheClusters where
         "CacheClusterId" Core.=: cacheClusterId,
         "ShowCacheClustersNotInReplicationGroups"
           Core.=: showCacheClustersNotInReplicationGroups,
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- | Represents the output of a @DescribeCacheClusters@ operation.

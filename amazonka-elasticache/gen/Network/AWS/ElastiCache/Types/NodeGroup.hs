@@ -42,10 +42,10 @@ data NodeGroup = NodeGroup'
     -- contains 1 to 90 node groups numbered 0001 to 0090. Optionally, the user
     -- can provide the id for a node group.
     nodeGroupId :: Prelude.Maybe Prelude.Text,
-    -- | The endpoint of the primary node in this node group (shard).
-    primaryEndpoint :: Prelude.Maybe Endpoint,
     -- | The keyspace for this node group (shard).
     slots :: Prelude.Maybe Prelude.Text,
+    -- | The endpoint of the primary node in this node group (shard).
+    primaryEndpoint :: Prelude.Maybe Endpoint,
     -- | A list containing information about individual nodes within the node
     -- group (shard).
     nodeGroupMembers :: Prelude.Maybe [NodeGroupMember]
@@ -71,9 +71,9 @@ data NodeGroup = NodeGroup'
 -- contains 1 to 90 node groups numbered 0001 to 0090. Optionally, the user
 -- can provide the id for a node group.
 --
--- 'primaryEndpoint', 'nodeGroup_primaryEndpoint' - The endpoint of the primary node in this node group (shard).
---
 -- 'slots', 'nodeGroup_slots' - The keyspace for this node group (shard).
+--
+-- 'primaryEndpoint', 'nodeGroup_primaryEndpoint' - The endpoint of the primary node in this node group (shard).
 --
 -- 'nodeGroupMembers', 'nodeGroup_nodeGroupMembers' - A list containing information about individual nodes within the node
 -- group (shard).
@@ -84,8 +84,8 @@ newNodeGroup =
     { status = Prelude.Nothing,
       readerEndpoint = Prelude.Nothing,
       nodeGroupId = Prelude.Nothing,
-      primaryEndpoint = Prelude.Nothing,
       slots = Prelude.Nothing,
+      primaryEndpoint = Prelude.Nothing,
       nodeGroupMembers = Prelude.Nothing
     }
 
@@ -106,13 +106,13 @@ nodeGroup_readerEndpoint = Lens.lens (\NodeGroup' {readerEndpoint} -> readerEndp
 nodeGroup_nodeGroupId :: Lens.Lens' NodeGroup (Prelude.Maybe Prelude.Text)
 nodeGroup_nodeGroupId = Lens.lens (\NodeGroup' {nodeGroupId} -> nodeGroupId) (\s@NodeGroup' {} a -> s {nodeGroupId = a} :: NodeGroup)
 
--- | The endpoint of the primary node in this node group (shard).
-nodeGroup_primaryEndpoint :: Lens.Lens' NodeGroup (Prelude.Maybe Endpoint)
-nodeGroup_primaryEndpoint = Lens.lens (\NodeGroup' {primaryEndpoint} -> primaryEndpoint) (\s@NodeGroup' {} a -> s {primaryEndpoint = a} :: NodeGroup)
-
 -- | The keyspace for this node group (shard).
 nodeGroup_slots :: Lens.Lens' NodeGroup (Prelude.Maybe Prelude.Text)
 nodeGroup_slots = Lens.lens (\NodeGroup' {slots} -> slots) (\s@NodeGroup' {} a -> s {slots = a} :: NodeGroup)
+
+-- | The endpoint of the primary node in this node group (shard).
+nodeGroup_primaryEndpoint :: Lens.Lens' NodeGroup (Prelude.Maybe Endpoint)
+nodeGroup_primaryEndpoint = Lens.lens (\NodeGroup' {primaryEndpoint} -> primaryEndpoint) (\s@NodeGroup' {} a -> s {primaryEndpoint = a} :: NodeGroup)
 
 -- | A list containing information about individual nodes within the node
 -- group (shard).
@@ -125,8 +125,8 @@ instance Core.FromXML NodeGroup where
       Prelude.<$> (x Core..@? "Status")
       Prelude.<*> (x Core..@? "ReaderEndpoint")
       Prelude.<*> (x Core..@? "NodeGroupId")
-      Prelude.<*> (x Core..@? "PrimaryEndpoint")
       Prelude.<*> (x Core..@? "Slots")
+      Prelude.<*> (x Core..@? "PrimaryEndpoint")
       Prelude.<*> ( x Core..@? "NodeGroupMembers"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "NodeGroupMember")

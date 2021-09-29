@@ -34,8 +34,8 @@ module Network.AWS.ElastiCache.DescribeReplicationGroups
 
     -- * Request Lenses
     describeReplicationGroups_replicationGroupId,
-    describeReplicationGroups_marker,
     describeReplicationGroups_maxRecords,
+    describeReplicationGroups_marker,
 
     -- * Destructuring the Response
     DescribeReplicationGroupsResponse (..),
@@ -65,11 +65,6 @@ data DescribeReplicationGroups = DescribeReplicationGroups'
     -- If you do not specify this parameter, information about all replication
     -- groups is returned.
     replicationGroupId :: Prelude.Maybe Prelude.Text,
-    -- | An optional marker returned from a prior request. Use this marker for
-    -- pagination of results from this operation. If this parameter is
-    -- specified, the response includes only records beyond the marker, up to
-    -- the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a marker is
     -- included in the response so that the remaining results can be retrieved.
@@ -77,7 +72,12 @@ data DescribeReplicationGroups = DescribeReplicationGroups'
     -- Default: 100
     --
     -- Constraints: minimum 20; maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional marker returned from a prior request. Use this marker for
+    -- pagination of results from this operation. If this parameter is
+    -- specified, the response includes only records beyond the marker, up to
+    -- the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -95,11 +95,6 @@ data DescribeReplicationGroups = DescribeReplicationGroups'
 -- If you do not specify this parameter, information about all replication
 -- groups is returned.
 --
--- 'marker', 'describeReplicationGroups_marker' - An optional marker returned from a prior request. Use this marker for
--- pagination of results from this operation. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@.
---
 -- 'maxRecords', 'describeReplicationGroups_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a marker is
 -- included in the response so that the remaining results can be retrieved.
@@ -107,14 +102,19 @@ data DescribeReplicationGroups = DescribeReplicationGroups'
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
+--
+-- 'marker', 'describeReplicationGroups_marker' - An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this operation. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
 newDescribeReplicationGroups ::
   DescribeReplicationGroups
 newDescribeReplicationGroups =
   DescribeReplicationGroups'
     { replicationGroupId =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | The identifier for the replication group to be described. This parameter
@@ -125,13 +125,6 @@ newDescribeReplicationGroups =
 describeReplicationGroups_replicationGroupId :: Lens.Lens' DescribeReplicationGroups (Prelude.Maybe Prelude.Text)
 describeReplicationGroups_replicationGroupId = Lens.lens (\DescribeReplicationGroups' {replicationGroupId} -> replicationGroupId) (\s@DescribeReplicationGroups' {} a -> s {replicationGroupId = a} :: DescribeReplicationGroups)
 
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this operation. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@.
-describeReplicationGroups_marker :: Lens.Lens' DescribeReplicationGroups (Prelude.Maybe Prelude.Text)
-describeReplicationGroups_marker = Lens.lens (\DescribeReplicationGroups' {marker} -> marker) (\s@DescribeReplicationGroups' {} a -> s {marker = a} :: DescribeReplicationGroups)
-
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a marker is
 -- included in the response so that the remaining results can be retrieved.
@@ -141,6 +134,13 @@ describeReplicationGroups_marker = Lens.lens (\DescribeReplicationGroups' {marke
 -- Constraints: minimum 20; maximum 100.
 describeReplicationGroups_maxRecords :: Lens.Lens' DescribeReplicationGroups (Prelude.Maybe Prelude.Int)
 describeReplicationGroups_maxRecords = Lens.lens (\DescribeReplicationGroups' {maxRecords} -> maxRecords) (\s@DescribeReplicationGroups' {} a -> s {maxRecords = a} :: DescribeReplicationGroups)
+
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this operation. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
+describeReplicationGroups_marker :: Lens.Lens' DescribeReplicationGroups (Prelude.Maybe Prelude.Text)
+describeReplicationGroups_marker = Lens.lens (\DescribeReplicationGroups' {marker} -> marker) (\s@DescribeReplicationGroups' {} a -> s {marker = a} :: DescribeReplicationGroups)
 
 instance Core.AWSPager DescribeReplicationGroups where
   page rq rs
@@ -200,8 +200,8 @@ instance Core.ToQuery DescribeReplicationGroups where
         "Version"
           Core.=: ("2015-02-02" :: Prelude.ByteString),
         "ReplicationGroupId" Core.=: replicationGroupId,
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- | Represents the output of a @DescribeReplicationGroups@ operation.

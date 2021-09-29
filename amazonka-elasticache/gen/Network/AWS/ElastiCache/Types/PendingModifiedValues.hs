@@ -21,6 +21,7 @@ module Network.AWS.ElastiCache.Types.PendingModifiedValues where
 
 import qualified Network.AWS.Core as Core
 import Network.AWS.ElastiCache.Types.AuthTokenUpdateStatus
+import Network.AWS.ElastiCache.Types.PendingLogDeliveryConfiguration
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
@@ -32,7 +33,7 @@ data PendingModifiedValues = PendingModifiedValues'
   { -- | The new number of cache nodes for the cluster.
     --
     -- For clusters running Redis, this value must be 1. For clusters running
-    -- Memcached, this value must be between 1 and 20.
+    -- Memcached, this value must be between 1 and 40.
     numCacheNodes :: Prelude.Maybe Prelude.Int,
     -- | A list of cache node IDs that are being removed (or will be removed)
     -- from the cluster. A node ID is a 4-digit numeric identifier (0001, 0002,
@@ -43,7 +44,9 @@ data PendingModifiedValues = PendingModifiedValues'
     -- | The new cache engine version that the cluster runs.
     engineVersion :: Prelude.Maybe Prelude.Text,
     -- | The cache node type that this cluster or replication group is scaled to.
-    cacheNodeType :: Prelude.Maybe Prelude.Text
+    cacheNodeType :: Prelude.Maybe Prelude.Text,
+    -- | The log delivery configurations being modified
+    logDeliveryConfigurations :: Prelude.Maybe [PendingLogDeliveryConfiguration]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -58,7 +61,7 @@ data PendingModifiedValues = PendingModifiedValues'
 -- 'numCacheNodes', 'pendingModifiedValues_numCacheNodes' - The new number of cache nodes for the cluster.
 --
 -- For clusters running Redis, this value must be 1. For clusters running
--- Memcached, this value must be between 1 and 20.
+-- Memcached, this value must be between 1 and 40.
 --
 -- 'cacheNodeIdsToRemove', 'pendingModifiedValues_cacheNodeIdsToRemove' - A list of cache node IDs that are being removed (or will be removed)
 -- from the cluster. A node ID is a 4-digit numeric identifier (0001, 0002,
@@ -69,6 +72,8 @@ data PendingModifiedValues = PendingModifiedValues'
 -- 'engineVersion', 'pendingModifiedValues_engineVersion' - The new cache engine version that the cluster runs.
 --
 -- 'cacheNodeType', 'pendingModifiedValues_cacheNodeType' - The cache node type that this cluster or replication group is scaled to.
+--
+-- 'logDeliveryConfigurations', 'pendingModifiedValues_logDeliveryConfigurations' - The log delivery configurations being modified
 newPendingModifiedValues ::
   PendingModifiedValues
 newPendingModifiedValues =
@@ -78,13 +83,14 @@ newPendingModifiedValues =
       cacheNodeIdsToRemove = Prelude.Nothing,
       authTokenStatus = Prelude.Nothing,
       engineVersion = Prelude.Nothing,
-      cacheNodeType = Prelude.Nothing
+      cacheNodeType = Prelude.Nothing,
+      logDeliveryConfigurations = Prelude.Nothing
     }
 
 -- | The new number of cache nodes for the cluster.
 --
 -- For clusters running Redis, this value must be 1. For clusters running
--- Memcached, this value must be between 1 and 20.
+-- Memcached, this value must be between 1 and 40.
 pendingModifiedValues_numCacheNodes :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Int)
 pendingModifiedValues_numCacheNodes = Lens.lens (\PendingModifiedValues' {numCacheNodes} -> numCacheNodes) (\s@PendingModifiedValues' {} a -> s {numCacheNodes = a} :: PendingModifiedValues)
 
@@ -106,6 +112,10 @@ pendingModifiedValues_engineVersion = Lens.lens (\PendingModifiedValues' {engine
 pendingModifiedValues_cacheNodeType :: Lens.Lens' PendingModifiedValues (Prelude.Maybe Prelude.Text)
 pendingModifiedValues_cacheNodeType = Lens.lens (\PendingModifiedValues' {cacheNodeType} -> cacheNodeType) (\s@PendingModifiedValues' {} a -> s {cacheNodeType = a} :: PendingModifiedValues)
 
+-- | The log delivery configurations being modified
+pendingModifiedValues_logDeliveryConfigurations :: Lens.Lens' PendingModifiedValues (Prelude.Maybe [PendingLogDeliveryConfiguration])
+pendingModifiedValues_logDeliveryConfigurations = Lens.lens (\PendingModifiedValues' {logDeliveryConfigurations} -> logDeliveryConfigurations) (\s@PendingModifiedValues' {} a -> s {logDeliveryConfigurations = a} :: PendingModifiedValues) Prelude.. Lens.mapping Lens._Coerce
+
 instance Core.FromXML PendingModifiedValues where
   parseXML x =
     PendingModifiedValues'
@@ -117,6 +127,10 @@ instance Core.FromXML PendingModifiedValues where
       Prelude.<*> (x Core..@? "AuthTokenStatus")
       Prelude.<*> (x Core..@? "EngineVersion")
       Prelude.<*> (x Core..@? "CacheNodeType")
+      Prelude.<*> ( x Core..@? "LogDeliveryConfigurations"
+                      Core..!@ Prelude.mempty
+                      Prelude.>>= Core.may (Core.parseXMLList "member")
+                  )
 
 instance Prelude.Hashable PendingModifiedValues
 

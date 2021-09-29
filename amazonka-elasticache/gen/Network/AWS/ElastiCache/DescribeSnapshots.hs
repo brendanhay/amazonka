@@ -39,8 +39,8 @@ module Network.AWS.ElastiCache.DescribeSnapshots
     describeSnapshots_snapshotSource,
     describeSnapshots_showNodeGroupConfig,
     describeSnapshots_snapshotName,
-    describeSnapshots_marker,
     describeSnapshots_maxRecords,
+    describeSnapshots_marker,
 
     -- * Destructuring the Response
     DescribeSnapshotsResponse (..),
@@ -82,11 +82,6 @@ data DescribeSnapshots = DescribeSnapshots'
     -- | A user-supplied name of the snapshot. If this parameter is specified,
     -- only this snapshot are described.
     snapshotName :: Prelude.Maybe Prelude.Text,
-    -- | An optional marker returned from a prior request. Use this marker for
-    -- pagination of results from this operation. If this parameter is
-    -- specified, the response includes only records beyond the marker, up to
-    -- the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a marker is
     -- included in the response so that the remaining results can be retrieved.
@@ -94,7 +89,12 @@ data DescribeSnapshots = DescribeSnapshots'
     -- Default: 50
     --
     -- Constraints: minimum 20; maximum 50.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional marker returned from a prior request. Use this marker for
+    -- pagination of results from this operation. If this parameter is
+    -- specified, the response includes only records beyond the marker, up to
+    -- the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -124,11 +124,6 @@ data DescribeSnapshots = DescribeSnapshots'
 -- 'snapshotName', 'describeSnapshots_snapshotName' - A user-supplied name of the snapshot. If this parameter is specified,
 -- only this snapshot are described.
 --
--- 'marker', 'describeSnapshots_marker' - An optional marker returned from a prior request. Use this marker for
--- pagination of results from this operation. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@.
---
 -- 'maxRecords', 'describeSnapshots_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a marker is
 -- included in the response so that the remaining results can be retrieved.
@@ -136,6 +131,11 @@ data DescribeSnapshots = DescribeSnapshots'
 -- Default: 50
 --
 -- Constraints: minimum 20; maximum 50.
+--
+-- 'marker', 'describeSnapshots_marker' - An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this operation. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
 newDescribeSnapshots ::
   DescribeSnapshots
 newDescribeSnapshots =
@@ -146,8 +146,8 @@ newDescribeSnapshots =
       snapshotSource = Prelude.Nothing,
       showNodeGroupConfig = Prelude.Nothing,
       snapshotName = Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | A user-supplied replication group identifier. If this parameter is
@@ -178,13 +178,6 @@ describeSnapshots_showNodeGroupConfig = Lens.lens (\DescribeSnapshots' {showNode
 describeSnapshots_snapshotName :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Text)
 describeSnapshots_snapshotName = Lens.lens (\DescribeSnapshots' {snapshotName} -> snapshotName) (\s@DescribeSnapshots' {} a -> s {snapshotName = a} :: DescribeSnapshots)
 
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this operation. If this parameter is
--- specified, the response includes only records beyond the marker, up to
--- the value specified by @MaxRecords@.
-describeSnapshots_marker :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Text)
-describeSnapshots_marker = Lens.lens (\DescribeSnapshots' {marker} -> marker) (\s@DescribeSnapshots' {} a -> s {marker = a} :: DescribeSnapshots)
-
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a marker is
 -- included in the response so that the remaining results can be retrieved.
@@ -194,6 +187,13 @@ describeSnapshots_marker = Lens.lens (\DescribeSnapshots' {marker} -> marker) (\
 -- Constraints: minimum 20; maximum 50.
 describeSnapshots_maxRecords :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Int)
 describeSnapshots_maxRecords = Lens.lens (\DescribeSnapshots' {maxRecords} -> maxRecords) (\s@DescribeSnapshots' {} a -> s {maxRecords = a} :: DescribeSnapshots)
+
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this operation. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
+describeSnapshots_marker :: Lens.Lens' DescribeSnapshots (Prelude.Maybe Prelude.Text)
+describeSnapshots_marker = Lens.lens (\DescribeSnapshots' {marker} -> marker) (\s@DescribeSnapshots' {} a -> s {marker = a} :: DescribeSnapshots)
 
 instance Core.AWSPager DescribeSnapshots where
   page rq rs
@@ -255,8 +255,8 @@ instance Core.ToQuery DescribeSnapshots where
         "SnapshotSource" Core.=: snapshotSource,
         "ShowNodeGroupConfig" Core.=: showNodeGroupConfig,
         "SnapshotName" Core.=: snapshotName,
-        "Marker" Core.=: marker,
-        "MaxRecords" Core.=: maxRecords
+        "MaxRecords" Core.=: maxRecords,
+        "Marker" Core.=: marker
       ]
 
 -- | Represents the output of a @DescribeSnapshots@ operation.

@@ -28,9 +28,9 @@
 --
 -- For information about replication configuration, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html Replication>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 --
--- This operation requires permissions for the
+-- This action requires permissions for the
 -- @s3:GetReplicationConfiguration@ action. For more information about
 -- permissions, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html Using Bucket Policies and User Policies>.
@@ -75,7 +75,7 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newGetBucketReplication' smart constructor.
 data GetBucketReplication = GetBucketReplication'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
@@ -92,7 +92,7 @@ data GetBucketReplication = GetBucketReplication'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'getBucketReplication_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'getBucketReplication_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
@@ -108,7 +108,7 @@ newGetBucketReplication pBucket_ =
       bucket = pBucket_
     }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 getBucketReplication_expectedBucketOwner :: Lens.Lens' GetBucketReplication (Prelude.Maybe Prelude.Text)

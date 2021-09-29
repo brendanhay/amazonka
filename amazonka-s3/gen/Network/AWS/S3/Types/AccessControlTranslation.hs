@@ -31,7 +31,7 @@ import Network.AWS.S3.Types.OwnerOverride
 data AccessControlTranslation = AccessControlTranslation'
   { -- | Specifies the replica ownership. For default and valid values, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html PUT bucket replication>
-    -- in the /Amazon Simple Storage Service API Reference/.
+    -- in the /Amazon S3 API Reference/.
     owner :: OwnerOverride
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,7 +46,7 @@ data AccessControlTranslation = AccessControlTranslation'
 --
 -- 'owner', 'accessControlTranslation_owner' - Specifies the replica ownership. For default and valid values, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html PUT bucket replication>
--- in the /Amazon Simple Storage Service API Reference/.
+-- in the /Amazon S3 API Reference/.
 newAccessControlTranslation ::
   -- | 'owner'
   OwnerOverride ->
@@ -56,7 +56,7 @@ newAccessControlTranslation pOwner_ =
 
 -- | Specifies the replica ownership. For default and valid values, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html PUT bucket replication>
--- in the /Amazon Simple Storage Service API Reference/.
+-- in the /Amazon S3 API Reference/.
 accessControlTranslation_owner :: Lens.Lens' AccessControlTranslation OwnerOverride
 accessControlTranslation_owner = Lens.lens (\AccessControlTranslation' {owner} -> owner) (\s@AccessControlTranslation' {} a -> s {owner = a} :: AccessControlTranslation)
 

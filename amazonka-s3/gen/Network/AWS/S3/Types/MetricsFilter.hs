@@ -28,12 +28,16 @@ import Network.AWS.S3.Types.Tag
 
 -- | Specifies a metrics configuration filter. The metrics configuration only
 -- includes objects that meet the filter\'s criteria. A filter must be a
--- prefix, a tag, or a conjunction (MetricsAndOperator).
+-- prefix, an object tag, an access point ARN, or a conjunction
+-- (MetricsAndOperator). For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketMetricsConfiguration.html PutBucketMetricsConfiguration>.
 --
 -- /See:/ 'newMetricsFilter' smart constructor.
 data MetricsFilter = MetricsFilter'
   { -- | The prefix used when evaluating a metrics filter.
     prefix :: Prelude.Maybe Prelude.Text,
+    -- | The access point ARN used when evaluating a metrics filter.
+    accessPointArn :: Prelude.Maybe Prelude.Text,
     -- | A conjunction (logical AND) of predicates, which is used in evaluating a
     -- metrics filter. The operator must have at least two predicates, and an
     -- object must match all of the predicates in order for the filter to
@@ -54,6 +58,8 @@ data MetricsFilter = MetricsFilter'
 --
 -- 'prefix', 'metricsFilter_prefix' - The prefix used when evaluating a metrics filter.
 --
+-- 'accessPointArn', 'metricsFilter_accessPointArn' - The access point ARN used when evaluating a metrics filter.
+--
 -- 'and', 'metricsFilter_and' - A conjunction (logical AND) of predicates, which is used in evaluating a
 -- metrics filter. The operator must have at least two predicates, and an
 -- object must match all of the predicates in order for the filter to
@@ -65,6 +71,7 @@ newMetricsFilter ::
 newMetricsFilter =
   MetricsFilter'
     { prefix = Prelude.Nothing,
+      accessPointArn = Prelude.Nothing,
       and = Prelude.Nothing,
       tag = Prelude.Nothing
     }
@@ -72,6 +79,10 @@ newMetricsFilter =
 -- | The prefix used when evaluating a metrics filter.
 metricsFilter_prefix :: Lens.Lens' MetricsFilter (Prelude.Maybe Prelude.Text)
 metricsFilter_prefix = Lens.lens (\MetricsFilter' {prefix} -> prefix) (\s@MetricsFilter' {} a -> s {prefix = a} :: MetricsFilter)
+
+-- | The access point ARN used when evaluating a metrics filter.
+metricsFilter_accessPointArn :: Lens.Lens' MetricsFilter (Prelude.Maybe Prelude.Text)
+metricsFilter_accessPointArn = Lens.lens (\MetricsFilter' {accessPointArn} -> accessPointArn) (\s@MetricsFilter' {} a -> s {accessPointArn = a} :: MetricsFilter)
 
 -- | A conjunction (logical AND) of predicates, which is used in evaluating a
 -- metrics filter. The operator must have at least two predicates, and an
@@ -88,6 +99,7 @@ instance Core.FromXML MetricsFilter where
   parseXML x =
     MetricsFilter'
       Prelude.<$> (x Core..@? "Prefix")
+      Prelude.<*> (x Core..@? "AccessPointArn")
       Prelude.<*> (x Core..@? "And")
       Prelude.<*> (x Core..@? "Tag")
 
@@ -99,6 +111,7 @@ instance Core.ToXML MetricsFilter where
   toXML MetricsFilter' {..} =
     Prelude.mconcat
       [ "Prefix" Core.@= prefix,
+        "AccessPointArn" Core.@= accessPointArn,
         "And" Core.@= and,
         "Tag" Core.@= tag
       ]

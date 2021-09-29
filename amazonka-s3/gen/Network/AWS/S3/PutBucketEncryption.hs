@@ -20,32 +20,31 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation uses the @encryption@ subresource to configure default
+-- This action uses the @encryption@ subresource to configure default
 -- encryption and Amazon S3 Bucket Key for an existing bucket.
 --
 -- Default encryption for a bucket can use server-side encryption with
--- Amazon S3-managed keys (SSE-S3) or AWS KMS customer master keys
--- (SSE-KMS). If you specify default encryption using SSE-KMS, you can also
--- configure Amazon S3 Bucket Key. For information about default
--- encryption, see
+-- Amazon S3-managed keys (SSE-S3) or customer managed keys (SSE-KMS). If
+-- you specify default encryption using SSE-KMS, you can also configure
+-- Amazon S3 Bucket Key. For information about default encryption, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html Amazon S3 default bucket encryption>
--- in the /Amazon Simple Storage Service Developer Guide/. For more
--- information about S3 Bucket Keys, see
+-- in the /Amazon S3 User Guide/. For more information about S3 Bucket
+-- Keys, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html Amazon S3 Bucket Keys>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 --
--- This operation requires AWS Signature Version 4. For more information,
--- see
--- <sig-v4-authenticating-requests.html Authenticating Requests (AWS Signature Version 4)>.
+-- This action requires Amazon Web Services Signature Version 4. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html Authenticating Requests (Amazon Web Services Signature Version 4)>.
 --
 -- To use this operation, you must have permissions to perform the
 -- @s3:PutEncryptionConfiguration@ action. The bucket owner has this
 -- permission by default. The bucket owner can grant this permission to
 -- others. For more information about permissions, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources Permissions Related to Bucket Subresource Operations>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources Permissions Related to Bucket Subresource Operations>
 -- and
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources>
--- in the Amazon Simple Storage Service Developer Guide.
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources>
+-- in the Amazon S3 User Guide.
 --
 -- __Related Resources__
 --
@@ -78,22 +77,22 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newPutBucketEncryption' smart constructor.
 data PutBucketEncryption = PutBucketEncryption'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The base64-encoded 128-bit MD5 digest of the server-side encryption
     -- configuration.
     --
-    -- For requests made using the AWS Command Line Interface (CLI) or AWS
-    -- SDKs, this field is calculated automatically.
+    -- For requests made using the Amazon Web Services Command Line Interface
+    -- (CLI) or Amazon Web Services SDKs, this field is calculated
+    -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
     -- | Specifies default encryption for a bucket using server-side encryption
-    -- with Amazon S3-managed keys (SSE-S3) or customer master keys stored in
-    -- AWS KMS (SSE-KMS). For information about the Amazon S3 default
-    -- encryption feature, see
+    -- with Amazon S3-managed keys (SSE-S3) or customer managed keys (SSE-KMS).
+    -- For information about the Amazon S3 default encryption feature, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html Amazon S3 Default Bucket Encryption>
-    -- in the /Amazon Simple Storage Service Developer Guide/.
+    -- in the /Amazon S3 User Guide/.
     bucket :: BucketName,
     serverSideEncryptionConfiguration :: ServerSideEncryptionConfiguration
   }
@@ -107,22 +106,22 @@ data PutBucketEncryption = PutBucketEncryption'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'putBucketEncryption_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'putBucketEncryption_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
 -- 'contentMD5', 'putBucketEncryption_contentMD5' - The base64-encoded 128-bit MD5 digest of the server-side encryption
 -- configuration.
 --
--- For requests made using the AWS Command Line Interface (CLI) or AWS
--- SDKs, this field is calculated automatically.
+-- For requests made using the Amazon Web Services Command Line Interface
+-- (CLI) or Amazon Web Services SDKs, this field is calculated
+-- automatically.
 --
 -- 'bucket', 'putBucketEncryption_bucket' - Specifies default encryption for a bucket using server-side encryption
--- with Amazon S3-managed keys (SSE-S3) or customer master keys stored in
--- AWS KMS (SSE-KMS). For information about the Amazon S3 default
--- encryption feature, see
+-- with Amazon S3-managed keys (SSE-S3) or customer managed keys (SSE-KMS).
+-- For information about the Amazon S3 default encryption feature, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html Amazon S3 Default Bucket Encryption>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 --
 -- 'serverSideEncryptionConfiguration', 'putBucketEncryption_serverSideEncryptionConfiguration' - Undocumented member.
 newPutBucketEncryption ::
@@ -143,7 +142,7 @@ newPutBucketEncryption
           pServerSideEncryptionConfiguration_
       }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 putBucketEncryption_expectedBucketOwner :: Lens.Lens' PutBucketEncryption (Prelude.Maybe Prelude.Text)
@@ -152,17 +151,17 @@ putBucketEncryption_expectedBucketOwner = Lens.lens (\PutBucketEncryption' {expe
 -- | The base64-encoded 128-bit MD5 digest of the server-side encryption
 -- configuration.
 --
--- For requests made using the AWS Command Line Interface (CLI) or AWS
--- SDKs, this field is calculated automatically.
+-- For requests made using the Amazon Web Services Command Line Interface
+-- (CLI) or Amazon Web Services SDKs, this field is calculated
+-- automatically.
 putBucketEncryption_contentMD5 :: Lens.Lens' PutBucketEncryption (Prelude.Maybe Prelude.Text)
 putBucketEncryption_contentMD5 = Lens.lens (\PutBucketEncryption' {contentMD5} -> contentMD5) (\s@PutBucketEncryption' {} a -> s {contentMD5 = a} :: PutBucketEncryption)
 
 -- | Specifies default encryption for a bucket using server-side encryption
--- with Amazon S3-managed keys (SSE-S3) or customer master keys stored in
--- AWS KMS (SSE-KMS). For information about the Amazon S3 default
--- encryption feature, see
+-- with Amazon S3-managed keys (SSE-S3) or customer managed keys (SSE-KMS).
+-- For information about the Amazon S3 default encryption feature, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html Amazon S3 Default Bucket Encryption>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 putBucketEncryption_bucket :: Lens.Lens' PutBucketEncryption BucketName
 putBucketEncryption_bucket = Lens.lens (\PutBucketEncryption' {bucket} -> bucket) (\s@PutBucketEncryption' {} a -> s {bucket = a} :: PutBucketEncryption)
 

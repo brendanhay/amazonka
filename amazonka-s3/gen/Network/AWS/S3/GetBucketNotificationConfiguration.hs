@@ -22,7 +22,7 @@
 --
 -- Returns the notification configuration of a bucket.
 --
--- If notifications are not enabled on the bucket, the operation returns an
+-- If notifications are not enabled on the bucket, the action returns an
 -- empty @NotificationConfiguration@ element.
 --
 -- By default, you must be the bucket owner to read the notification
@@ -36,7 +36,7 @@
 -- For more information about bucket policies, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html Using Bucket Policies>.
 --
--- The following operation is related to @GetBucketNotification@:
+-- The following action is related to @GetBucketNotification@:
 --
 -- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketNotification.html PutBucketNotification>
 module Network.AWS.S3.GetBucketNotificationConfiguration
@@ -68,7 +68,7 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newGetBucketNotificationConfiguration' smart constructor.
 data GetBucketNotificationConfiguration = GetBucketNotificationConfiguration'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
@@ -85,7 +85,7 @@ data GetBucketNotificationConfiguration = GetBucketNotificationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'getBucketNotificationConfiguration_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'getBucketNotificationConfiguration_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
@@ -101,7 +101,7 @@ newGetBucketNotificationConfiguration pBucket_ =
       bucket = pBucket_
     }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 getBucketNotificationConfiguration_expectedBucketOwner :: Lens.Lens' GetBucketNotificationConfiguration (Prelude.Maybe Prelude.Text)

@@ -322,6 +322,7 @@ library
     Network.AWS.S3.UploadPart
     Network.AWS.S3.UploadPartCopy
     Network.AWS.S3.Waiters
+    Network.AWS.S3.WriteGetObjectResponse
 
   reexported-modules: Network.AWS
   build-depends:

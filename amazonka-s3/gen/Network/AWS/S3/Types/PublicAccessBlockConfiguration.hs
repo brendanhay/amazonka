@@ -29,7 +29,7 @@ import Network.AWS.S3.Internal
 -- combination. For more information about when Amazon S3 considers a
 -- bucket or object public, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status The Meaning of \"Public\">
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 --
 -- /See:/ 'newPublicAccessBlockConfiguration' smart constructor.
 data PublicAccessBlockConfiguration = PublicAccessBlockConfiguration'
@@ -55,8 +55,8 @@ data PublicAccessBlockConfiguration = PublicAccessBlockConfiguration'
     blockPublicAcls :: Prelude.Maybe Prelude.Bool,
     -- | Specifies whether Amazon S3 should restrict public bucket policies for
     -- this bucket. Setting this element to @TRUE@ restricts access to this
-    -- bucket to only AWS service principals and authorized users within this
-    -- account if the bucket has a public policy.
+    -- bucket to only Amazon Web Service principals and authorized users within
+    -- this account if the bucket has a public policy.
     --
     -- Enabling this setting doesn\'t affect previously stored bucket policies,
     -- except that public and cross-account access within any public bucket
@@ -103,8 +103,8 @@ data PublicAccessBlockConfiguration = PublicAccessBlockConfiguration'
 --
 -- 'restrictPublicBuckets', 'publicAccessBlockConfiguration_restrictPublicBuckets' - Specifies whether Amazon S3 should restrict public bucket policies for
 -- this bucket. Setting this element to @TRUE@ restricts access to this
--- bucket to only AWS service principals and authorized users within this
--- account if the bucket has a public policy.
+-- bucket to only Amazon Web Service principals and authorized users within
+-- this account if the bucket has a public policy.
 --
 -- Enabling this setting doesn\'t affect previously stored bucket policies,
 -- except that public and cross-account access within any public bucket
@@ -154,8 +154,8 @@ publicAccessBlockConfiguration_blockPublicAcls = Lens.lens (\PublicAccessBlockCo
 
 -- | Specifies whether Amazon S3 should restrict public bucket policies for
 -- this bucket. Setting this element to @TRUE@ restricts access to this
--- bucket to only AWS service principals and authorized users within this
--- account if the bucket has a public policy.
+-- bucket to only Amazon Web Service principals and authorized users within
+-- this account if the bucket has a public policy.
 --
 -- Enabling this setting doesn\'t affect previously stored bucket policies,
 -- except that public and cross-account access within any public bucket

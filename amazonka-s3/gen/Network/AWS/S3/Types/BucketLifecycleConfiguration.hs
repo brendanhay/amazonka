@@ -28,7 +28,7 @@ import Network.AWS.S3.Types.LifecycleRule
 -- | Specifies the lifecycle configuration for objects in an Amazon S3
 -- bucket. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html Object Lifecycle Management>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 --
 -- /See:/ 'newBucketLifecycleConfiguration' smart constructor.
 data BucketLifecycleConfiguration = BucketLifecycleConfiguration'

@@ -35,7 +35,7 @@ data FilterRule = FilterRule'
     -- characters. Overlapping prefixes and suffixes are not supported. For
     -- more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications>
-    -- in the /Amazon Simple Storage Service Developer Guide/.
+    -- in the /Amazon S3 User Guide/.
     name :: Prelude.Maybe FilterRuleName,
     -- | The value that the filter searches for in object key names.
     value :: Prelude.Maybe Prelude.Text
@@ -55,7 +55,7 @@ data FilterRule = FilterRule'
 -- characters. Overlapping prefixes and suffixes are not supported. For
 -- more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 --
 -- 'value', 'filterRule_value' - The value that the filter searches for in object key names.
 newFilterRule ::
@@ -71,7 +71,7 @@ newFilterRule =
 -- characters. Overlapping prefixes and suffixes are not supported. For
 -- more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 filterRule_name :: Lens.Lens' FilterRule (Prelude.Maybe FilterRuleName)
 filterRule_name = Lens.lens (\FilterRule' {name} -> name) (\s@FilterRule' {} a -> s {name = a} :: FilterRule)
 

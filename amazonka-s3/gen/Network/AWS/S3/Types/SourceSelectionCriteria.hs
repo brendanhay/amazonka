@@ -30,8 +30,8 @@ import Network.AWS.S3.Types.SseKmsEncryptedObjects
 -- objects that you want to replicate. You can choose to enable or disable
 -- the replication of these objects. Currently, Amazon S3 supports only the
 -- filter that you can specify for objects created with server-side
--- encryption using a customer master key (CMK) stored in AWS Key
--- Management Service (SSE-KMS).
+-- encryption using a customer managed key stored in Amazon Web Services
+-- Key Management Service (SSE-KMS).
 --
 -- /See:/ 'newSourceSelectionCriteria' smart constructor.
 data SourceSelectionCriteria = SourceSelectionCriteria'
@@ -46,8 +46,9 @@ data SourceSelectionCriteria = SourceSelectionCriteria'
     -- version, this element is not allowed
     replicaModifications :: Prelude.Maybe ReplicaModifications,
     -- | A container for filter information for the selection of Amazon S3
-    -- objects encrypted with AWS KMS. If you include @SourceSelectionCriteria@
-    -- in the replication configuration, this element is required.
+    -- objects encrypted with Amazon Web Services KMS. If you include
+    -- @SourceSelectionCriteria@ in the replication configuration, this element
+    -- is required.
     sseKmsEncryptedObjects :: Prelude.Maybe SseKmsEncryptedObjects
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -71,8 +72,9 @@ data SourceSelectionCriteria = SourceSelectionCriteria'
 -- version, this element is not allowed
 --
 -- 'sseKmsEncryptedObjects', 'sourceSelectionCriteria_sseKmsEncryptedObjects' - A container for filter information for the selection of Amazon S3
--- objects encrypted with AWS KMS. If you include @SourceSelectionCriteria@
--- in the replication configuration, this element is required.
+-- objects encrypted with Amazon Web Services KMS. If you include
+-- @SourceSelectionCriteria@ in the replication configuration, this element
+-- is required.
 newSourceSelectionCriteria ::
   SourceSelectionCriteria
 newSourceSelectionCriteria =
@@ -95,8 +97,9 @@ sourceSelectionCriteria_replicaModifications :: Lens.Lens' SourceSelectionCriter
 sourceSelectionCriteria_replicaModifications = Lens.lens (\SourceSelectionCriteria' {replicaModifications} -> replicaModifications) (\s@SourceSelectionCriteria' {} a -> s {replicaModifications = a} :: SourceSelectionCriteria)
 
 -- | A container for filter information for the selection of Amazon S3
--- objects encrypted with AWS KMS. If you include @SourceSelectionCriteria@
--- in the replication configuration, this element is required.
+-- objects encrypted with Amazon Web Services KMS. If you include
+-- @SourceSelectionCriteria@ in the replication configuration, this element
+-- is required.
 sourceSelectionCriteria_sseKmsEncryptedObjects :: Lens.Lens' SourceSelectionCriteria (Prelude.Maybe SseKmsEncryptedObjects)
 sourceSelectionCriteria_sseKmsEncryptedObjects = Lens.lens (\SourceSelectionCriteria' {sseKmsEncryptedObjects} -> sseKmsEncryptedObjects) (\s@SourceSelectionCriteria' {} a -> s {sseKmsEncryptedObjects = a} :: SourceSelectionCriteria)
 

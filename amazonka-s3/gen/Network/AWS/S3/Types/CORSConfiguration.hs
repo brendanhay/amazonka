@@ -28,7 +28,7 @@ import Network.AWS.S3.Types.CORSRule
 -- | Describes the cross-origin access configuration for objects in an Amazon
 -- S3 bucket. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html Enabling Cross-Origin Resource Sharing>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 --
 -- /See:/ 'newCORSConfiguration' smart constructor.
 data CORSConfiguration = CORSConfiguration'

@@ -39,7 +39,7 @@
 --
 -- For information on permissions required to use the multipart upload API,
 -- see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html Multipart Upload API and Permissions>.
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html Multipart Upload and Permissions>.
 --
 -- The following operations are related to @ListParts@:
 --
@@ -73,11 +73,11 @@ module Network.AWS.S3.ListParts
     newListPartsResponse,
 
     -- * Response Lenses
-    listPartsResponse_requestCharged,
     listPartsResponse_key,
+    listPartsResponse_requestCharged,
     listPartsResponse_nextPartNumberMarker,
-    listPartsResponse_uploadId,
     listPartsResponse_abortDate,
+    listPartsResponse_uploadId,
     listPartsResponse_partNumberMarker,
     listPartsResponse_maxParts,
     listPartsResponse_isTruncated,
@@ -100,7 +100,7 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newListParts' smart constructor.
 data ListParts = ListParts'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
@@ -112,24 +112,24 @@ data ListParts = ListParts'
     requestPayer :: Prelude.Maybe RequestPayer,
     -- | The name of the bucket to which the parts are being uploaded.
     --
-    -- When using this API with an access point, you must direct requests to
+    -- When using this action with an access point, you must direct requests to
     -- the access point hostname. The access point hostname takes the form
     -- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.
-    -- When using this operation with an access point through the AWS SDKs, you
-    -- provide the access point ARN in place of the bucket name. For more
-    -- information about access point ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points>
-    -- in the /Amazon Simple Storage Service Developer Guide/.
+    -- When using this action with an access point through the Amazon Web
+    -- Services SDKs, you provide the access point ARN in place of the bucket
+    -- name. For more information about access point ARNs, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
+    -- in the /Amazon S3 User Guide/.
     --
-    -- When using this API with Amazon S3 on Outposts, you must direct requests
-    -- to the S3 on Outposts hostname. The S3 on Outposts hostname takes the
-    -- form
+    -- When using this action with Amazon S3 on Outposts, you must direct
+    -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
+    -- takes the form
     -- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
-    -- When using this operation using S3 on Outposts through the AWS SDKs, you
-    -- provide the Outposts bucket ARN in place of the bucket name. For more
-    -- information about S3 on Outposts ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts>
-    -- in the /Amazon Simple Storage Service Developer Guide/.
+    -- When using this action using S3 on Outposts through the Amazon Web
+    -- Services SDKs, you provide the Outposts bucket ARN in place of the
+    -- bucket name. For more information about S3 on Outposts ARNs, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+    -- in the /Amazon S3 User Guide/.
     bucket :: BucketName,
     -- | Object key for which the multipart upload was initiated.
     key :: ObjectKey,
@@ -146,7 +146,7 @@ data ListParts = ListParts'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'listParts_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'listParts_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
@@ -159,24 +159,24 @@ data ListParts = ListParts'
 --
 -- 'bucket', 'listParts_bucket' - The name of the bucket to which the parts are being uploaded.
 --
--- When using this API with an access point, you must direct requests to
+-- When using this action with an access point, you must direct requests to
 -- the access point hostname. The access point hostname takes the form
 -- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.
--- When using this operation with an access point through the AWS SDKs, you
--- provide the access point ARN in place of the bucket name. For more
--- information about access point ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- When using this action with an access point through the Amazon Web
+-- Services SDKs, you provide the access point ARN in place of the bucket
+-- name. For more information about access point ARNs, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
+-- in the /Amazon S3 User Guide/.
 --
--- When using this API with Amazon S3 on Outposts, you must direct requests
--- to the S3 on Outposts hostname. The S3 on Outposts hostname takes the
--- form
+-- When using this action with Amazon S3 on Outposts, you must direct
+-- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
+-- takes the form
 -- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
--- When using this operation using S3 on Outposts through the AWS SDKs, you
--- provide the Outposts bucket ARN in place of the bucket name. For more
--- information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- When using this action using S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- bucket name. For more information about S3 on Outposts ARNs, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+-- in the /Amazon S3 User Guide/.
 --
 -- 'key', 'listParts_key' - Object key for which the multipart upload was initiated.
 --
@@ -200,7 +200,7 @@ newListParts pBucket_ pKey_ pUploadId_ =
       uploadId = pUploadId_
     }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 listParts_expectedBucketOwner :: Lens.Lens' ListParts (Prelude.Maybe Prelude.Text)
@@ -221,24 +221,24 @@ listParts_requestPayer = Lens.lens (\ListParts' {requestPayer} -> requestPayer) 
 
 -- | The name of the bucket to which the parts are being uploaded.
 --
--- When using this API with an access point, you must direct requests to
+-- When using this action with an access point, you must direct requests to
 -- the access point hostname. The access point hostname takes the form
 -- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.
--- When using this operation with an access point through the AWS SDKs, you
--- provide the access point ARN in place of the bucket name. For more
--- information about access point ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- When using this action with an access point through the Amazon Web
+-- Services SDKs, you provide the access point ARN in place of the bucket
+-- name. For more information about access point ARNs, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
+-- in the /Amazon S3 User Guide/.
 --
--- When using this API with Amazon S3 on Outposts, you must direct requests
--- to the S3 on Outposts hostname. The S3 on Outposts hostname takes the
--- form
+-- When using this action with Amazon S3 on Outposts, you must direct
+-- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
+-- takes the form
 -- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
--- When using this operation using S3 on Outposts through the AWS SDKs, you
--- provide the Outposts bucket ARN in place of the bucket name. For more
--- information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- When using this action using S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- bucket name. For more information about S3 on Outposts ARNs, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+-- in the /Amazon S3 User Guide/.
 listParts_bucket :: Lens.Lens' ListParts BucketName
 listParts_bucket = Lens.lens (\ListParts' {bucket} -> bucket) (\s@ListParts' {} a -> s {bucket = a} :: ListParts)
 
@@ -278,11 +278,11 @@ instance Core.AWSRequest ListParts where
     Response.receiveXML
       ( \s h x ->
           ListPartsResponse'
-            Prelude.<$> (h Core..#? "x-amz-request-charged")
-            Prelude.<*> (x Core..@? "Key")
+            Prelude.<$> (x Core..@? "Key")
+            Prelude.<*> (h Core..#? "x-amz-request-charged")
             Prelude.<*> (x Core..@? "NextPartNumberMarker")
-            Prelude.<*> (x Core..@? "UploadId")
             Prelude.<*> (h Core..#? "x-amz-abort-date")
+            Prelude.<*> (x Core..@? "UploadId")
             Prelude.<*> (x Core..@? "PartNumberMarker")
             Prelude.<*> (x Core..@? "MaxParts")
             Prelude.<*> (x Core..@? "IsTruncated")
@@ -322,15 +322,13 @@ instance Core.ToQuery ListParts where
 
 -- | /See:/ 'newListPartsResponse' smart constructor.
 data ListPartsResponse = ListPartsResponse'
-  { requestCharged :: Prelude.Maybe RequestCharged,
-    -- | Object key for which the multipart upload was initiated.
+  { -- | Object key for which the multipart upload was initiated.
     key :: Prelude.Maybe ObjectKey,
+    requestCharged :: Prelude.Maybe RequestCharged,
     -- | When a list is truncated, this element specifies the last part in the
     -- list, as well as the value to use for the part-number-marker request
     -- parameter in a subsequent request.
     nextPartNumberMarker :: Prelude.Maybe Prelude.Int,
-    -- | Upload ID identifying the multipart upload whose parts are being listed.
-    uploadId :: Prelude.Maybe Prelude.Text,
     -- | If the bucket has a lifecycle rule configured with an action to abort
     -- incomplete multipart uploads and the prefix in the lifecycle rule
     -- matches the object name in the request, then the response includes this
@@ -342,6 +340,8 @@ data ListPartsResponse = ListPartsResponse'
     -- will provide the ID of the lifecycle configuration rule that defines
     -- this action.
     abortDate :: Prelude.Maybe Core.ISO8601,
+    -- | Upload ID identifying the multipart upload whose parts are being listed.
+    uploadId :: Prelude.Maybe Prelude.Text,
     -- | When a list is truncated, this element specifies the last part in the
     -- list, as well as the value to use for the part-number-marker request
     -- parameter in a subsequent request.
@@ -366,12 +366,13 @@ data ListPartsResponse = ListPartsResponse'
     -- created. If multipart upload is initiated by an IAM user, this element
     -- provides the parent account ID and display name.
     owner :: Prelude.Maybe Owner,
-    -- | The name of the bucket to which the multipart upload was initiated.
+    -- | The name of the bucket to which the multipart upload was initiated. Does
+    -- not return the access point ARN or access point alias if used.
     bucket :: Prelude.Maybe BucketName,
     -- | Container element that identifies who initiated the multipart upload. If
-    -- the initiator is an AWS account, this element provides the same
-    -- information as the @Owner@ element. If the initiator is an IAM User,
-    -- this element provides the user ARN and display name.
+    -- the initiator is an Amazon Web Services account, this element provides
+    -- the same information as the @Owner@ element. If the initiator is an IAM
+    -- User, this element provides the user ARN and display name.
     initiator :: Prelude.Maybe Initiator,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -386,15 +387,13 @@ data ListPartsResponse = ListPartsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'requestCharged', 'listPartsResponse_requestCharged' - Undocumented member.
---
 -- 'key', 'listPartsResponse_key' - Object key for which the multipart upload was initiated.
+--
+-- 'requestCharged', 'listPartsResponse_requestCharged' - Undocumented member.
 --
 -- 'nextPartNumberMarker', 'listPartsResponse_nextPartNumberMarker' - When a list is truncated, this element specifies the last part in the
 -- list, as well as the value to use for the part-number-marker request
 -- parameter in a subsequent request.
---
--- 'uploadId', 'listPartsResponse_uploadId' - Upload ID identifying the multipart upload whose parts are being listed.
 --
 -- 'abortDate', 'listPartsResponse_abortDate' - If the bucket has a lifecycle rule configured with an action to abort
 -- incomplete multipart uploads and the prefix in the lifecycle rule
@@ -406,6 +405,8 @@ data ListPartsResponse = ListPartsResponse'
 -- The response will also include the @x-amz-abort-rule-id@ header that
 -- will provide the ID of the lifecycle configuration rule that defines
 -- this action.
+--
+-- 'uploadId', 'listPartsResponse_uploadId' - Upload ID identifying the multipart upload whose parts are being listed.
 --
 -- 'partNumberMarker', 'listPartsResponse_partNumberMarker' - When a list is truncated, this element specifies the last part in the
 -- list, as well as the value to use for the part-number-marker request
@@ -431,12 +432,13 @@ data ListPartsResponse = ListPartsResponse'
 -- created. If multipart upload is initiated by an IAM user, this element
 -- provides the parent account ID and display name.
 --
--- 'bucket', 'listPartsResponse_bucket' - The name of the bucket to which the multipart upload was initiated.
+-- 'bucket', 'listPartsResponse_bucket' - The name of the bucket to which the multipart upload was initiated. Does
+-- not return the access point ARN or access point alias if used.
 --
 -- 'initiator', 'listPartsResponse_initiator' - Container element that identifies who initiated the multipart upload. If
--- the initiator is an AWS account, this element provides the same
--- information as the @Owner@ element. If the initiator is an IAM User,
--- this element provides the user ARN and display name.
+-- the initiator is an Amazon Web Services account, this element provides
+-- the same information as the @Owner@ element. If the initiator is an IAM
+-- User, this element provides the user ARN and display name.
 --
 -- 'httpStatus', 'listPartsResponse_httpStatus' - The response's http status code.
 newListPartsResponse ::
@@ -445,12 +447,11 @@ newListPartsResponse ::
   ListPartsResponse
 newListPartsResponse pHttpStatus_ =
   ListPartsResponse'
-    { requestCharged =
-        Prelude.Nothing,
-      key = Prelude.Nothing,
+    { key = Prelude.Nothing,
+      requestCharged = Prelude.Nothing,
       nextPartNumberMarker = Prelude.Nothing,
-      uploadId = Prelude.Nothing,
       abortDate = Prelude.Nothing,
+      uploadId = Prelude.Nothing,
       partNumberMarker = Prelude.Nothing,
       maxParts = Prelude.Nothing,
       isTruncated = Prelude.Nothing,
@@ -463,23 +464,19 @@ newListPartsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Undocumented member.
-listPartsResponse_requestCharged :: Lens.Lens' ListPartsResponse (Prelude.Maybe RequestCharged)
-listPartsResponse_requestCharged = Lens.lens (\ListPartsResponse' {requestCharged} -> requestCharged) (\s@ListPartsResponse' {} a -> s {requestCharged = a} :: ListPartsResponse)
-
 -- | Object key for which the multipart upload was initiated.
 listPartsResponse_key :: Lens.Lens' ListPartsResponse (Prelude.Maybe ObjectKey)
 listPartsResponse_key = Lens.lens (\ListPartsResponse' {key} -> key) (\s@ListPartsResponse' {} a -> s {key = a} :: ListPartsResponse)
+
+-- | Undocumented member.
+listPartsResponse_requestCharged :: Lens.Lens' ListPartsResponse (Prelude.Maybe RequestCharged)
+listPartsResponse_requestCharged = Lens.lens (\ListPartsResponse' {requestCharged} -> requestCharged) (\s@ListPartsResponse' {} a -> s {requestCharged = a} :: ListPartsResponse)
 
 -- | When a list is truncated, this element specifies the last part in the
 -- list, as well as the value to use for the part-number-marker request
 -- parameter in a subsequent request.
 listPartsResponse_nextPartNumberMarker :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.Int)
 listPartsResponse_nextPartNumberMarker = Lens.lens (\ListPartsResponse' {nextPartNumberMarker} -> nextPartNumberMarker) (\s@ListPartsResponse' {} a -> s {nextPartNumberMarker = a} :: ListPartsResponse)
-
--- | Upload ID identifying the multipart upload whose parts are being listed.
-listPartsResponse_uploadId :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.Text)
-listPartsResponse_uploadId = Lens.lens (\ListPartsResponse' {uploadId} -> uploadId) (\s@ListPartsResponse' {} a -> s {uploadId = a} :: ListPartsResponse)
 
 -- | If the bucket has a lifecycle rule configured with an action to abort
 -- incomplete multipart uploads and the prefix in the lifecycle rule
@@ -493,6 +490,10 @@ listPartsResponse_uploadId = Lens.lens (\ListPartsResponse' {uploadId} -> upload
 -- this action.
 listPartsResponse_abortDate :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.UTCTime)
 listPartsResponse_abortDate = Lens.lens (\ListPartsResponse' {abortDate} -> abortDate) (\s@ListPartsResponse' {} a -> s {abortDate = a} :: ListPartsResponse) Prelude.. Lens.mapping Core._Time
+
+-- | Upload ID identifying the multipart upload whose parts are being listed.
+listPartsResponse_uploadId :: Lens.Lens' ListPartsResponse (Prelude.Maybe Prelude.Text)
+listPartsResponse_uploadId = Lens.lens (\ListPartsResponse' {uploadId} -> uploadId) (\s@ListPartsResponse' {} a -> s {uploadId = a} :: ListPartsResponse)
 
 -- | When a list is truncated, this element specifies the last part in the
 -- list, as well as the value to use for the part-number-marker request
@@ -532,14 +533,15 @@ listPartsResponse_abortRuleId = Lens.lens (\ListPartsResponse' {abortRuleId} -> 
 listPartsResponse_owner :: Lens.Lens' ListPartsResponse (Prelude.Maybe Owner)
 listPartsResponse_owner = Lens.lens (\ListPartsResponse' {owner} -> owner) (\s@ListPartsResponse' {} a -> s {owner = a} :: ListPartsResponse)
 
--- | The name of the bucket to which the multipart upload was initiated.
+-- | The name of the bucket to which the multipart upload was initiated. Does
+-- not return the access point ARN or access point alias if used.
 listPartsResponse_bucket :: Lens.Lens' ListPartsResponse (Prelude.Maybe BucketName)
 listPartsResponse_bucket = Lens.lens (\ListPartsResponse' {bucket} -> bucket) (\s@ListPartsResponse' {} a -> s {bucket = a} :: ListPartsResponse)
 
 -- | Container element that identifies who initiated the multipart upload. If
--- the initiator is an AWS account, this element provides the same
--- information as the @Owner@ element. If the initiator is an IAM User,
--- this element provides the user ARN and display name.
+-- the initiator is an Amazon Web Services account, this element provides
+-- the same information as the @Owner@ element. If the initiator is an IAM
+-- User, this element provides the user ARN and display name.
 listPartsResponse_initiator :: Lens.Lens' ListPartsResponse (Prelude.Maybe Initiator)
 listPartsResponse_initiator = Lens.lens (\ListPartsResponse' {initiator} -> initiator) (\s@ListPartsResponse' {} a -> s {initiator = a} :: ListPartsResponse)
 

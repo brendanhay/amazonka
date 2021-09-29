@@ -22,14 +22,19 @@
 --
 -- Places an Object Lock configuration on the specified bucket. The rule
 -- specified in the Object Lock configuration will be applied by default to
--- every new object placed in the specified bucket.
+-- every new object placed in the specified bucket. For more information,
+-- see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Locking Objects>.
 --
--- @DefaultRetention@ requires either Days or Years. You can\'t specify
--- both at the same time.
+-- -   The @DefaultRetention@ settings require both a mode and a period.
 --
--- __Related Resources__
+-- -   The @DefaultRetention@ period can be either @Days@ or @Years@ but
+--     you must select one. You cannot specify @Days@ and @Years@ at the
+--     same time.
 --
--- -   <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html Locking Objects>
+-- -   You can only enable Object Lock for new buckets. If you want to turn
+--     on Object Lock for an existing bucket, contact Amazon Web Services
+--     Support.
 module Network.AWS.S3.PutObjectLockConfiguration
   ( -- * Creating a Request
     PutObjectLockConfiguration (..),
@@ -62,7 +67,7 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newPutObjectLockConfiguration' smart constructor.
 data PutObjectLockConfiguration = PutObjectLockConfiguration'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
@@ -71,8 +76,9 @@ data PutObjectLockConfiguration = PutObjectLockConfiguration'
     objectLockConfiguration :: Prelude.Maybe ObjectLockConfiguration,
     -- | The MD5 hash for the request body.
     --
-    -- For requests made using the AWS Command Line Interface (CLI) or AWS
-    -- SDKs, this field is calculated automatically.
+    -- For requests made using the Amazon Web Services Command Line Interface
+    -- (CLI) or Amazon Web Services SDKs, this field is calculated
+    -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
     requestPayer :: Prelude.Maybe RequestPayer,
     -- | A token to allow Object Lock to be enabled for an existing bucket.
@@ -91,7 +97,7 @@ data PutObjectLockConfiguration = PutObjectLockConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'putObjectLockConfiguration_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'putObjectLockConfiguration_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
@@ -100,8 +106,9 @@ data PutObjectLockConfiguration = PutObjectLockConfiguration'
 --
 -- 'contentMD5', 'putObjectLockConfiguration_contentMD5' - The MD5 hash for the request body.
 --
--- For requests made using the AWS Command Line Interface (CLI) or AWS
--- SDKs, this field is calculated automatically.
+-- For requests made using the Amazon Web Services Command Line Interface
+-- (CLI) or Amazon Web Services SDKs, this field is calculated
+-- automatically.
 --
 -- 'requestPayer', 'putObjectLockConfiguration_requestPayer' - Undocumented member.
 --
@@ -124,7 +131,7 @@ newPutObjectLockConfiguration pBucket_ =
       bucket = pBucket_
     }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 putObjectLockConfiguration_expectedBucketOwner :: Lens.Lens' PutObjectLockConfiguration (Prelude.Maybe Prelude.Text)
@@ -137,8 +144,9 @@ putObjectLockConfiguration_objectLockConfiguration = Lens.lens (\PutObjectLockCo
 
 -- | The MD5 hash for the request body.
 --
--- For requests made using the AWS Command Line Interface (CLI) or AWS
--- SDKs, this field is calculated automatically.
+-- For requests made using the Amazon Web Services Command Line Interface
+-- (CLI) or Amazon Web Services SDKs, this field is calculated
+-- automatically.
 putObjectLockConfiguration_contentMD5 :: Lens.Lens' PutObjectLockConfiguration (Prelude.Maybe Prelude.Text)
 putObjectLockConfiguration_contentMD5 = Lens.lens (\PutObjectLockConfiguration' {contentMD5} -> contentMD5) (\s@PutObjectLockConfiguration' {} a -> s {contentMD5 = a} :: PutObjectLockConfiguration)
 

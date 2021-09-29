@@ -23,7 +23,7 @@
 -- Creates a new lifecycle configuration for the bucket or replaces an
 -- existing lifecycle configuration. For information about lifecycle
 -- configuration, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources>.
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html Managing your storage lifecycle>.
 --
 -- Bucket lifecycle configuration now supports specifying a lifecycle rule
 -- using an object key name prefix, one or more object tags, or a
@@ -62,10 +62,10 @@
 --
 -- By default, all Amazon S3 resources are private, including buckets,
 -- objects, and related subresources (for example, lifecycle configuration
--- and website configuration). Only the resource owner (that is, the AWS
--- account that created it) can access the resource. The resource owner can
--- optionally grant access permissions to others by writing an access
--- policy. For this operation, a user must get the
+-- and website configuration). Only the resource owner (that is, the Amazon
+-- Web Services account that created it) can access the resource. The
+-- resource owner can optionally grant access permissions to others by
+-- writing an access policy. For this operation, a user must get the
 -- s3:PutLifecycleConfiguration permission.
 --
 -- You can also explicitly deny permissions. Explicit deny also supersedes
@@ -80,7 +80,7 @@
 -- -   s3:PutLifecycleConfiguration
 --
 -- For more information about permissions, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources>.
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources>.
 --
 -- The following are related to @PutBucketLifecycleConfiguration@:
 --
@@ -114,7 +114,7 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newPutBucketLifecycleConfiguration' smart constructor.
 data PutBucketLifecycleConfiguration = PutBucketLifecycleConfiguration'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
@@ -133,7 +133,7 @@ data PutBucketLifecycleConfiguration = PutBucketLifecycleConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'putBucketLifecycleConfiguration_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'putBucketLifecycleConfiguration_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
@@ -152,7 +152,7 @@ newPutBucketLifecycleConfiguration pBucket_ =
       bucket = pBucket_
     }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 putBucketLifecycleConfiguration_expectedBucketOwner :: Lens.Lens' PutBucketLifecycleConfiguration (Prelude.Maybe Prelude.Text)

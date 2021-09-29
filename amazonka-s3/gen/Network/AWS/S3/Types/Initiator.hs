@@ -28,8 +28,9 @@ import Network.AWS.S3.Internal
 --
 -- /See:/ 'newInitiator' smart constructor.
 data Initiator = Initiator'
-  { -- | If the principal is an AWS account, it provides the Canonical User ID.
-    -- If the principal is an IAM User, it provides a user ARN value.
+  { -- | If the principal is an Amazon Web Services account, it provides the
+    -- Canonical User ID. If the principal is an IAM User, it provides a user
+    -- ARN value.
     id :: Prelude.Maybe Prelude.Text,
     -- | Name of the Principal.
     displayName :: Prelude.Maybe Prelude.Text
@@ -44,8 +45,9 @@ data Initiator = Initiator'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'id', 'initiator_id' - If the principal is an AWS account, it provides the Canonical User ID.
--- If the principal is an IAM User, it provides a user ARN value.
+-- 'id', 'initiator_id' - If the principal is an Amazon Web Services account, it provides the
+-- Canonical User ID. If the principal is an IAM User, it provides a user
+-- ARN value.
 --
 -- 'displayName', 'initiator_displayName' - Name of the Principal.
 newInitiator ::
@@ -56,8 +58,9 @@ newInitiator =
       displayName = Prelude.Nothing
     }
 
--- | If the principal is an AWS account, it provides the Canonical User ID.
--- If the principal is an IAM User, it provides a user ARN value.
+-- | If the principal is an Amazon Web Services account, it provides the
+-- Canonical User ID. If the principal is an IAM User, it provides a user
+-- ARN value.
 initiator_id :: Lens.Lens' Initiator (Prelude.Maybe Prelude.Text)
 initiator_id = Lens.lens (\Initiator' {id} -> id) (\s@Initiator' {} a -> s {id = a} :: Initiator)
 

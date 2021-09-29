@@ -29,8 +29,11 @@ import Network.AWS.S3.Types.DefaultRetention
 --
 -- /See:/ 'newObjectLockRule' smart constructor.
 data ObjectLockRule = ObjectLockRule'
-  { -- | The default retention period that you want to apply to new objects
-    -- placed in the specified bucket.
+  { -- | The default Object Lock retention mode and period that you want to apply
+    -- to new objects placed in the specified bucket. Bucket settings require
+    -- both a mode and a period. The period can be either @Days@ or @Years@ but
+    -- you must select one. You cannot specify @Days@ and @Years@ at the same
+    -- time.
     defaultRetention :: Prelude.Maybe DefaultRetention
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -43,15 +46,21 @@ data ObjectLockRule = ObjectLockRule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'defaultRetention', 'objectLockRule_defaultRetention' - The default retention period that you want to apply to new objects
--- placed in the specified bucket.
+-- 'defaultRetention', 'objectLockRule_defaultRetention' - The default Object Lock retention mode and period that you want to apply
+-- to new objects placed in the specified bucket. Bucket settings require
+-- both a mode and a period. The period can be either @Days@ or @Years@ but
+-- you must select one. You cannot specify @Days@ and @Years@ at the same
+-- time.
 newObjectLockRule ::
   ObjectLockRule
 newObjectLockRule =
   ObjectLockRule' {defaultRetention = Prelude.Nothing}
 
--- | The default retention period that you want to apply to new objects
--- placed in the specified bucket.
+-- | The default Object Lock retention mode and period that you want to apply
+-- to new objects placed in the specified bucket. Bucket settings require
+-- both a mode and a period. The period can be either @Days@ or @Years@ but
+-- you must select one. You cannot specify @Days@ and @Years@ at the same
+-- time.
 objectLockRule_defaultRetention :: Lens.Lens' ObjectLockRule (Prelude.Maybe DefaultRetention)
 objectLockRule_defaultRetention = Lens.lens (\ObjectLockRule' {defaultRetention} -> defaultRetention) (\s@ObjectLockRule' {} a -> s {defaultRetention = a} :: ObjectLockRule)
 

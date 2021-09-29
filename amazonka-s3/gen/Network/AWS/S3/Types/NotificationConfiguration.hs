@@ -32,7 +32,7 @@ import Network.AWS.S3.Types.TopicConfiguration
 --
 -- /See:/ 'newNotificationConfiguration' smart constructor.
 data NotificationConfiguration = NotificationConfiguration'
-  { -- | Describes the AWS Lambda functions to invoke and the events for which to
+  { -- | Describes the Lambda functions to invoke and the events for which to
     -- invoke them.
     lambdaFunctionConfigurations :: Prelude.Maybe [LambdaFunctionConfiguration],
     -- | The Amazon Simple Queue Service queues to publish messages to and the
@@ -52,7 +52,7 @@ data NotificationConfiguration = NotificationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'lambdaFunctionConfigurations', 'notificationConfiguration_lambdaFunctionConfigurations' - Describes the AWS Lambda functions to invoke and the events for which to
+-- 'lambdaFunctionConfigurations', 'notificationConfiguration_lambdaFunctionConfigurations' - Describes the Lambda functions to invoke and the events for which to
 -- invoke them.
 --
 -- 'queueConfigurations', 'notificationConfiguration_queueConfigurations' - The Amazon Simple Queue Service queues to publish messages to and the
@@ -70,7 +70,7 @@ newNotificationConfiguration =
       topicConfigurations = Prelude.Nothing
     }
 
--- | Describes the AWS Lambda functions to invoke and the events for which to
+-- | Describes the Lambda functions to invoke and the events for which to
 -- invoke them.
 notificationConfiguration_lambdaFunctionConfigurations :: Lens.Lens' NotificationConfiguration (Prelude.Maybe [LambdaFunctionConfiguration])
 notificationConfiguration_lambdaFunctionConfigurations = Lens.lens (\NotificationConfiguration' {lambdaFunctionConfigurations} -> lambdaFunctionConfigurations) (\s@NotificationConfiguration' {} a -> s {lambdaFunctionConfigurations = a} :: NotificationConfiguration) Prelude.. Lens.mapping Lens._Coerce

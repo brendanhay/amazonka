@@ -22,8 +22,8 @@
 --
 -- Set the logging parameters for a bucket and to specify permissions for
 -- who can view and modify the logging parameters. All logs are saved to
--- buckets in the same AWS Region as the source bucket. To set the logging
--- status of a bucket, you must be the bucket owner.
+-- buckets in the same Amazon Web Services Region as the source bucket. To
+-- set the logging status of a bucket, you must be the bucket owner.
 --
 -- The bucket owner is automatically granted FULL_CONTROL to all logs. You
 -- use the @Grantee@ request element to grant access to other people. The
@@ -101,14 +101,15 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newPutBucketLogging' smart constructor.
 data PutBucketLogging = PutBucketLogging'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
     -- | The MD5 hash of the @PutBucketLogging@ request body.
     --
-    -- For requests made using the AWS Command Line Interface (CLI) or AWS
-    -- SDKs, this field is calculated automatically.
+    -- For requests made using the Amazon Web Services Command Line Interface
+    -- (CLI) or Amazon Web Services SDKs, this field is calculated
+    -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
     -- | The name of the bucket for which to set the logging parameters.
     bucket :: BucketName,
@@ -125,14 +126,15 @@ data PutBucketLogging = PutBucketLogging'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'putBucketLogging_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'putBucketLogging_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
 -- 'contentMD5', 'putBucketLogging_contentMD5' - The MD5 hash of the @PutBucketLogging@ request body.
 --
--- For requests made using the AWS Command Line Interface (CLI) or AWS
--- SDKs, this field is calculated automatically.
+-- For requests made using the Amazon Web Services Command Line Interface
+-- (CLI) or Amazon Web Services SDKs, this field is calculated
+-- automatically.
 --
 -- 'bucket', 'putBucketLogging_bucket' - The name of the bucket for which to set the logging parameters.
 --
@@ -152,7 +154,7 @@ newPutBucketLogging pBucket_ pBucketLoggingStatus_ =
       bucketLoggingStatus = pBucketLoggingStatus_
     }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 putBucketLogging_expectedBucketOwner :: Lens.Lens' PutBucketLogging (Prelude.Maybe Prelude.Text)
@@ -160,8 +162,9 @@ putBucketLogging_expectedBucketOwner = Lens.lens (\PutBucketLogging' {expectedBu
 
 -- | The MD5 hash of the @PutBucketLogging@ request body.
 --
--- For requests made using the AWS Command Line Interface (CLI) or AWS
--- SDKs, this field is calculated automatically.
+-- For requests made using the Amazon Web Services Command Line Interface
+-- (CLI) or Amazon Web Services SDKs, this field is calculated
+-- automatically.
 putBucketLogging_contentMD5 :: Lens.Lens' PutBucketLogging (Prelude.Maybe Prelude.Text)
 putBucketLogging_contentMD5 = Lens.lens (\PutBucketLogging' {contentMD5} -> contentMD5) (\s@PutBucketLogging' {} a -> s {contentMD5 = a} :: PutBucketLogging)
 

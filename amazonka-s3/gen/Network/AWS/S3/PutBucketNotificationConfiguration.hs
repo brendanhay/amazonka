@@ -38,14 +38,14 @@
 --
 -- @\<\/NotificationConfiguration>@
 --
--- This operation replaces the existing notification configuration with the
+-- This action replaces the existing notification configuration with the
 -- configuration you include in the request body.
 --
 -- After Amazon S3 receives this request, it first verifies that any Amazon
 -- Simple Notification Service (Amazon SNS) or Amazon Simple Queue Service
 -- (Amazon SQS) destination exists, and that the bucket owner has
 -- permission to publish to it by sending a test notification. In the case
--- of AWS Lambda destinations, Amazon S3 verifies that the Lambda function
+-- of Lambda destinations, Amazon S3 verifies that the Lambda function
 -- permissions grant Amazon S3 permission to invoke the function from the
 -- Amazon S3 bucket. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Notifications for Amazon S3 Events>.
@@ -62,8 +62,8 @@
 -- notification configuration includes SNS topic, SQS queue, and Lambda
 -- function configurations. When you send a PUT request with this
 -- configuration, Amazon S3 sends test messages to your SNS topic. If the
--- message fails, the entire PUT operation will fail, and Amazon S3 will
--- not add the configuration to your bucket.
+-- message fails, the entire PUT action will fail, and Amazon S3 will not
+-- add the configuration to your bucket.
 --
 -- __Responses__
 --
@@ -73,8 +73,7 @@
 -- include the @x-amz-sns-test-message-id@ header containing the message ID
 -- of the test notification sent to the topic.
 --
--- The following operation is related to
--- @PutBucketNotificationConfiguration@:
+-- The following action is related to @PutBucketNotificationConfiguration@:
 --
 -- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketNotificationConfiguration.html GetBucketNotificationConfiguration>
 module Network.AWS.S3.PutBucketNotificationConfiguration
@@ -102,7 +101,7 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newPutBucketNotificationConfiguration' smart constructor.
 data PutBucketNotificationConfiguration = PutBucketNotificationConfiguration'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
@@ -120,7 +119,7 @@ data PutBucketNotificationConfiguration = PutBucketNotificationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'putBucketNotificationConfiguration_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'putBucketNotificationConfiguration_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
@@ -144,7 +143,7 @@ newPutBucketNotificationConfiguration
           pNotificationConfiguration_
       }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 putBucketNotificationConfiguration_expectedBucketOwner :: Lens.Lens' PutBucketNotificationConfiguration (Prelude.Maybe Prelude.Text)

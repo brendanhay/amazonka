@@ -20,22 +20,21 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This implementation of the GET operation returns an analytics
--- configuration (identified by the analytics configuration ID) from the
--- bucket.
+-- This implementation of the GET action returns an analytics configuration
+-- (identified by the analytics configuration ID) from the bucket.
 --
 -- To use this operation, you must have permissions to perform the
 -- @s3:GetAnalyticsConfiguration@ action. The bucket owner has this
 -- permission by default. The bucket owner can grant this permission to
 -- others. For more information about permissions, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources Permissions Related to Bucket Subresource Operations>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources Permissions Related to Bucket Subresource Operations>
 -- and
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources>
+-- in the /Amazon S3 User Guide/.
 --
 -- For information about Amazon S3 analytics feature, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html Amazon S3 Analytics – Storage Class Analysis>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 --
 -- __Related Resources__
 --
@@ -73,7 +72,7 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newGetBucketAnalyticsConfiguration' smart constructor.
 data GetBucketAnalyticsConfiguration = GetBucketAnalyticsConfiguration'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
@@ -93,7 +92,7 @@ data GetBucketAnalyticsConfiguration = GetBucketAnalyticsConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'getBucketAnalyticsConfiguration_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'getBucketAnalyticsConfiguration_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
@@ -115,7 +114,7 @@ newGetBucketAnalyticsConfiguration pBucket_ pId_ =
       id = pId_
     }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 getBucketAnalyticsConfiguration_expectedBucketOwner :: Lens.Lens' GetBucketAnalyticsConfiguration (Prelude.Maybe Prelude.Text)

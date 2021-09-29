@@ -55,26 +55,27 @@
 -- -   Specify access permissions explicitly with the @x-amz-grant-read@,
 --     @x-amz-grant-read-acp@, @x-amz-grant-write-acp@, and
 --     @x-amz-grant-full-control@ headers. When using these headers, you
---     specify explicit access permissions and grantees (AWS accounts or
---     Amazon S3 groups) who will receive the permission. If you use these
---     ACL-specific headers, you cannot use the @x-amz-acl@ header to set a
---     canned ACL. These parameters map to the set of permissions that
---     Amazon S3 supports in an ACL. For more information, see
+--     specify explicit access permissions and grantees (Amazon Web
+--     Services accounts or Amazon S3 groups) who will receive the
+--     permission. If you use these ACL-specific headers, you cannot use
+--     the @x-amz-acl@ header to set a canned ACL. These parameters map to
+--     the set of permissions that Amazon S3 supports in an ACL. For more
+--     information, see
 --     <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html Access Control List (ACL) Overview>.
 --
 --     You specify each grantee as a type=value pair, where the type is one
 --     of the following:
 --
---     -   @id@ – if the value specified is the canonical user ID of an AWS
---         account
+--     -   @id@ – if the value specified is the canonical user ID of an
+--         Amazon Web Services account
 --
 --     -   @uri@ – if you are granting permissions to a predefined group
 --
 --     -   @emailAddress@ – if the value specified is the email address of
---         an AWS account
+--         an Amazon Web Services account
 --
 --         Using email addresses to specify a grantee is only supported in
---         the following AWS Regions:
+--         the following Amazon Web Services Regions:
 --
 --         -   US East (N. Virginia)
 --
@@ -95,12 +96,12 @@
 --         For a list of all the Amazon S3 supported Regions and endpoints,
 --         see
 --         <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region Regions and Endpoints>
---         in the AWS General Reference.
+--         in the Amazon Web Services General Reference.
 --
 --     For example, the following @x-amz-grant-write@ header grants create,
 --     overwrite, and delete objects permission to LogDelivery group
---     predefined by Amazon S3 and two AWS accounts identified by their
---     email addresses.
+--     predefined by Amazon S3 and two Amazon Web Services accounts
+--     identified by their email addresses.
 --
 --     @x-amz-grant-write: uri=\"http:\/\/acs.amazonaws.com\/groups\/s3\/LogDelivery\", id=\"111122223333\", id=\"555566667777\" @
 --
@@ -130,7 +131,7 @@
 --     GET Object acl request, appears as the CanonicalUser.
 --
 --     Using email addresses to specify a grantee is only supported in the
---     following AWS Regions:
+--     following Amazon Web Services Regions:
 --
 --     -   US East (N. Virginia)
 --
@@ -150,7 +151,7 @@
 --
 --     For a list of all the Amazon S3 supported Regions and endpoints, see
 --     <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region Regions and Endpoints>
---     in the AWS General Reference.
+--     in the Amazon Web Services General Reference.
 --
 -- __Related Resources__
 --
@@ -170,8 +171,8 @@ module Network.AWS.S3.PutBucketAcl
     putBucketAcl_accessControlPolicy,
     putBucketAcl_contentMD5,
     putBucketAcl_grantWriteACP,
-    putBucketAcl_grantReadACP,
     putBucketAcl_acl,
+    putBucketAcl_grantReadACP,
     putBucketAcl_grantWrite,
     putBucketAcl_grantFullControl,
     putBucketAcl_bucket,
@@ -193,7 +194,7 @@ import Network.AWS.S3.Types
 data PutBucketAcl = PutBucketAcl'
   { -- | Allows grantee to list the objects in the bucket.
     grantRead :: Prelude.Maybe Prelude.Text,
-    -- | The account id of the expected bucket owner. If the bucket is owned by a
+    -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
@@ -205,17 +206,20 @@ data PutBucketAcl = PutBucketAcl'
     -- not corrupted in transit. For more information, go to
     -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864.>
     --
-    -- For requests made using the AWS Command Line Interface (CLI) or AWS
-    -- SDKs, this field is calculated automatically.
+    -- For requests made using the Amazon Web Services Command Line Interface
+    -- (CLI) or Amazon Web Services SDKs, this field is calculated
+    -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
     -- | Allows grantee to write the ACL for the applicable bucket.
     grantWriteACP :: Prelude.Maybe Prelude.Text,
-    -- | Allows grantee to read the bucket ACL.
-    grantReadACP :: Prelude.Maybe Prelude.Text,
     -- | The canned ACL to apply to the bucket.
     acl :: Prelude.Maybe BucketCannedACL,
-    -- | Allows grantee to create, overwrite, and delete any object in the
-    -- bucket.
+    -- | Allows grantee to read the bucket ACL.
+    grantReadACP :: Prelude.Maybe Prelude.Text,
+    -- | Allows grantee to create new objects in the bucket.
+    --
+    -- For the bucket and object owners of existing objects, also allows
+    -- deletions and overwrites of those objects.
     grantWrite :: Prelude.Maybe Prelude.Text,
     -- | Allows grantee the read, write, read ACP, and write ACP permissions on
     -- the bucket.
@@ -235,7 +239,7 @@ data PutBucketAcl = PutBucketAcl'
 --
 -- 'grantRead', 'putBucketAcl_grantRead' - Allows grantee to list the objects in the bucket.
 --
--- 'expectedBucketOwner', 'putBucketAcl_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'putBucketAcl_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
@@ -247,17 +251,20 @@ data PutBucketAcl = PutBucketAcl'
 -- not corrupted in transit. For more information, go to
 -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864.>
 --
--- For requests made using the AWS Command Line Interface (CLI) or AWS
--- SDKs, this field is calculated automatically.
+-- For requests made using the Amazon Web Services Command Line Interface
+-- (CLI) or Amazon Web Services SDKs, this field is calculated
+-- automatically.
 --
 -- 'grantWriteACP', 'putBucketAcl_grantWriteACP' - Allows grantee to write the ACL for the applicable bucket.
 --
--- 'grantReadACP', 'putBucketAcl_grantReadACP' - Allows grantee to read the bucket ACL.
---
 -- 'acl', 'putBucketAcl_acl' - The canned ACL to apply to the bucket.
 --
--- 'grantWrite', 'putBucketAcl_grantWrite' - Allows grantee to create, overwrite, and delete any object in the
--- bucket.
+-- 'grantReadACP', 'putBucketAcl_grantReadACP' - Allows grantee to read the bucket ACL.
+--
+-- 'grantWrite', 'putBucketAcl_grantWrite' - Allows grantee to create new objects in the bucket.
+--
+-- For the bucket and object owners of existing objects, also allows
+-- deletions and overwrites of those objects.
 --
 -- 'grantFullControl', 'putBucketAcl_grantFullControl' - Allows grantee the read, write, read ACP, and write ACP permissions on
 -- the bucket.
@@ -274,8 +281,8 @@ newPutBucketAcl pBucket_ =
       accessControlPolicy = Prelude.Nothing,
       contentMD5 = Prelude.Nothing,
       grantWriteACP = Prelude.Nothing,
-      grantReadACP = Prelude.Nothing,
       acl = Prelude.Nothing,
+      grantReadACP = Prelude.Nothing,
       grantWrite = Prelude.Nothing,
       grantFullControl = Prelude.Nothing,
       bucket = pBucket_
@@ -285,7 +292,7 @@ newPutBucketAcl pBucket_ =
 putBucketAcl_grantRead :: Lens.Lens' PutBucketAcl (Prelude.Maybe Prelude.Text)
 putBucketAcl_grantRead = Lens.lens (\PutBucketAcl' {grantRead} -> grantRead) (\s@PutBucketAcl' {} a -> s {grantRead = a} :: PutBucketAcl)
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 putBucketAcl_expectedBucketOwner :: Lens.Lens' PutBucketAcl (Prelude.Maybe Prelude.Text)
@@ -301,8 +308,9 @@ putBucketAcl_accessControlPolicy = Lens.lens (\PutBucketAcl' {accessControlPolic
 -- not corrupted in transit. For more information, go to
 -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864.>
 --
--- For requests made using the AWS Command Line Interface (CLI) or AWS
--- SDKs, this field is calculated automatically.
+-- For requests made using the Amazon Web Services Command Line Interface
+-- (CLI) or Amazon Web Services SDKs, this field is calculated
+-- automatically.
 putBucketAcl_contentMD5 :: Lens.Lens' PutBucketAcl (Prelude.Maybe Prelude.Text)
 putBucketAcl_contentMD5 = Lens.lens (\PutBucketAcl' {contentMD5} -> contentMD5) (\s@PutBucketAcl' {} a -> s {contentMD5 = a} :: PutBucketAcl)
 
@@ -310,16 +318,18 @@ putBucketAcl_contentMD5 = Lens.lens (\PutBucketAcl' {contentMD5} -> contentMD5) 
 putBucketAcl_grantWriteACP :: Lens.Lens' PutBucketAcl (Prelude.Maybe Prelude.Text)
 putBucketAcl_grantWriteACP = Lens.lens (\PutBucketAcl' {grantWriteACP} -> grantWriteACP) (\s@PutBucketAcl' {} a -> s {grantWriteACP = a} :: PutBucketAcl)
 
--- | Allows grantee to read the bucket ACL.
-putBucketAcl_grantReadACP :: Lens.Lens' PutBucketAcl (Prelude.Maybe Prelude.Text)
-putBucketAcl_grantReadACP = Lens.lens (\PutBucketAcl' {grantReadACP} -> grantReadACP) (\s@PutBucketAcl' {} a -> s {grantReadACP = a} :: PutBucketAcl)
-
 -- | The canned ACL to apply to the bucket.
 putBucketAcl_acl :: Lens.Lens' PutBucketAcl (Prelude.Maybe BucketCannedACL)
 putBucketAcl_acl = Lens.lens (\PutBucketAcl' {acl} -> acl) (\s@PutBucketAcl' {} a -> s {acl = a} :: PutBucketAcl)
 
--- | Allows grantee to create, overwrite, and delete any object in the
--- bucket.
+-- | Allows grantee to read the bucket ACL.
+putBucketAcl_grantReadACP :: Lens.Lens' PutBucketAcl (Prelude.Maybe Prelude.Text)
+putBucketAcl_grantReadACP = Lens.lens (\PutBucketAcl' {grantReadACP} -> grantReadACP) (\s@PutBucketAcl' {} a -> s {grantReadACP = a} :: PutBucketAcl)
+
+-- | Allows grantee to create new objects in the bucket.
+--
+-- For the bucket and object owners of existing objects, also allows
+-- deletions and overwrites of those objects.
 putBucketAcl_grantWrite :: Lens.Lens' PutBucketAcl (Prelude.Maybe Prelude.Text)
 putBucketAcl_grantWrite = Lens.lens (\PutBucketAcl' {grantWrite} -> grantWrite) (\s@PutBucketAcl' {} a -> s {grantWrite = a} :: PutBucketAcl)
 
@@ -355,8 +365,8 @@ instance Core.ToHeaders PutBucketAcl where
           Core.=# expectedBucketOwner,
         "Content-MD5" Core.=# contentMD5,
         "x-amz-grant-write-acp" Core.=# grantWriteACP,
-        "x-amz-grant-read-acp" Core.=# grantReadACP,
         "x-amz-acl" Core.=# acl,
+        "x-amz-grant-read-acp" Core.=# grantReadACP,
         "x-amz-grant-write" Core.=# grantWrite,
         "x-amz-grant-full-control" Core.=# grantFullControl
       ]

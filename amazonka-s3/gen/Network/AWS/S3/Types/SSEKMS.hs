@@ -28,9 +28,9 @@ import Network.AWS.S3.Internal
 --
 -- /See:/ 'newSSEKMS' smart constructor.
 data SSEKMS = SSEKMS'
-  { -- | Specifies the ID of the AWS Key Management Service (AWS KMS) symmetric
-    -- customer managed customer master key (CMK) to use for encrypting
-    -- inventory reports.
+  { -- | Specifies the ID of the Amazon Web Services Key Management Service
+    -- (Amazon Web Services KMS) symmetric customer managed key to use for
+    -- encrypting inventory reports.
     keyId :: Core.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -43,9 +43,9 @@ data SSEKMS = SSEKMS'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'keyId', 'ssekms_keyId' - Specifies the ID of the AWS Key Management Service (AWS KMS) symmetric
--- customer managed customer master key (CMK) to use for encrypting
--- inventory reports.
+-- 'keyId', 'ssekms_keyId' - Specifies the ID of the Amazon Web Services Key Management Service
+-- (Amazon Web Services KMS) symmetric customer managed key to use for
+-- encrypting inventory reports.
 newSSEKMS ::
   -- | 'keyId'
   Prelude.Text ->
@@ -53,9 +53,9 @@ newSSEKMS ::
 newSSEKMS pKeyId_ =
   SSEKMS' {keyId = Core._Sensitive Lens.# pKeyId_}
 
--- | Specifies the ID of the AWS Key Management Service (AWS KMS) symmetric
--- customer managed customer master key (CMK) to use for encrypting
--- inventory reports.
+-- | Specifies the ID of the Amazon Web Services Key Management Service
+-- (Amazon Web Services KMS) symmetric customer managed key to use for
+-- encrypting inventory reports.
 ssekms_keyId :: Lens.Lens' SSEKMS Prelude.Text
 ssekms_keyId = Lens.lens (\SSEKMS' {keyId} -> keyId) (\s@SSEKMS' {} a -> s {keyId = a} :: SSEKMS) Prelude.. Core._Sensitive
 

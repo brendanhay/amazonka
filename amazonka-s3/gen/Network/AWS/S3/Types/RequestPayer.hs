@@ -34,7 +34,7 @@ import Network.AWS.S3.Internal
 -- requests. For information about downloading objects from requester pays
 -- buckets, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html Downloading Objects in Requestor Pays Buckets>
--- in the /Amazon S3 Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 newtype RequestPayer = RequestPayer'
   { fromRequestPayer ::
       Core.Text

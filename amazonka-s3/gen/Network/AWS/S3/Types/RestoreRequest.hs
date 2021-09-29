@@ -45,13 +45,13 @@ data RestoreRequest = RestoreRequest'
     description :: Prelude.Maybe Prelude.Text,
     -- | Type of restore request.
     type' :: Prelude.Maybe RestoreRequestType,
-    -- | Describes the location where the restore job\'s output is stored.
-    outputLocation :: Prelude.Maybe OutputLocation,
-    -- | Retrieval tier at which the restore will be processed.
-    tier :: Prelude.Maybe Tier,
     -- | S3 Glacier related parameters pertaining to this job. Do not use with
     -- restores that specify @OutputLocation@.
-    glacierJobParameters :: Prelude.Maybe GlacierJobParameters
+    glacierJobParameters :: Prelude.Maybe GlacierJobParameters,
+    -- | Retrieval tier at which the restore will be processed.
+    tier :: Prelude.Maybe Tier,
+    -- | Describes the location where the restore job\'s output is stored.
+    outputLocation :: Prelude.Maybe OutputLocation
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -75,12 +75,12 @@ data RestoreRequest = RestoreRequest'
 --
 -- 'type'', 'restoreRequest_type' - Type of restore request.
 --
--- 'outputLocation', 'restoreRequest_outputLocation' - Describes the location where the restore job\'s output is stored.
+-- 'glacierJobParameters', 'restoreRequest_glacierJobParameters' - S3 Glacier related parameters pertaining to this job. Do not use with
+-- restores that specify @OutputLocation@.
 --
 -- 'tier', 'restoreRequest_tier' - Retrieval tier at which the restore will be processed.
 --
--- 'glacierJobParameters', 'restoreRequest_glacierJobParameters' - S3 Glacier related parameters pertaining to this job. Do not use with
--- restores that specify @OutputLocation@.
+-- 'outputLocation', 'restoreRequest_outputLocation' - Describes the location where the restore job\'s output is stored.
 newRestoreRequest ::
   RestoreRequest
 newRestoreRequest =
@@ -89,9 +89,9 @@ newRestoreRequest =
       selectParameters = Prelude.Nothing,
       description = Prelude.Nothing,
       type' = Prelude.Nothing,
-      outputLocation = Prelude.Nothing,
+      glacierJobParameters = Prelude.Nothing,
       tier = Prelude.Nothing,
-      glacierJobParameters = Prelude.Nothing
+      outputLocation = Prelude.Nothing
     }
 
 -- | Lifetime of the active copy in days. Do not use with restores that
@@ -114,18 +114,18 @@ restoreRequest_description = Lens.lens (\RestoreRequest' {description} -> descri
 restoreRequest_type :: Lens.Lens' RestoreRequest (Prelude.Maybe RestoreRequestType)
 restoreRequest_type = Lens.lens (\RestoreRequest' {type'} -> type') (\s@RestoreRequest' {} a -> s {type' = a} :: RestoreRequest)
 
--- | Describes the location where the restore job\'s output is stored.
-restoreRequest_outputLocation :: Lens.Lens' RestoreRequest (Prelude.Maybe OutputLocation)
-restoreRequest_outputLocation = Lens.lens (\RestoreRequest' {outputLocation} -> outputLocation) (\s@RestoreRequest' {} a -> s {outputLocation = a} :: RestoreRequest)
+-- | S3 Glacier related parameters pertaining to this job. Do not use with
+-- restores that specify @OutputLocation@.
+restoreRequest_glacierJobParameters :: Lens.Lens' RestoreRequest (Prelude.Maybe GlacierJobParameters)
+restoreRequest_glacierJobParameters = Lens.lens (\RestoreRequest' {glacierJobParameters} -> glacierJobParameters) (\s@RestoreRequest' {} a -> s {glacierJobParameters = a} :: RestoreRequest)
 
 -- | Retrieval tier at which the restore will be processed.
 restoreRequest_tier :: Lens.Lens' RestoreRequest (Prelude.Maybe Tier)
 restoreRequest_tier = Lens.lens (\RestoreRequest' {tier} -> tier) (\s@RestoreRequest' {} a -> s {tier = a} :: RestoreRequest)
 
--- | S3 Glacier related parameters pertaining to this job. Do not use with
--- restores that specify @OutputLocation@.
-restoreRequest_glacierJobParameters :: Lens.Lens' RestoreRequest (Prelude.Maybe GlacierJobParameters)
-restoreRequest_glacierJobParameters = Lens.lens (\RestoreRequest' {glacierJobParameters} -> glacierJobParameters) (\s@RestoreRequest' {} a -> s {glacierJobParameters = a} :: RestoreRequest)
+-- | Describes the location where the restore job\'s output is stored.
+restoreRequest_outputLocation :: Lens.Lens' RestoreRequest (Prelude.Maybe OutputLocation)
+restoreRequest_outputLocation = Lens.lens (\RestoreRequest' {outputLocation} -> outputLocation) (\s@RestoreRequest' {} a -> s {outputLocation = a} :: RestoreRequest)
 
 instance Prelude.Hashable RestoreRequest
 
@@ -138,7 +138,7 @@ instance Core.ToXML RestoreRequest where
         "SelectParameters" Core.@= selectParameters,
         "Description" Core.@= description,
         "Type" Core.@= type',
-        "OutputLocation" Core.@= outputLocation,
+        "GlacierJobParameters" Core.@= glacierJobParameters,
         "Tier" Core.@= tier,
-        "GlacierJobParameters" Core.@= glacierJobParameters
+        "OutputLocation" Core.@= outputLocation
       ]

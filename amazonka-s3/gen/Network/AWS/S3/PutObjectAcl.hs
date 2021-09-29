@@ -25,7 +25,7 @@
 -- @WRITE_ACP@ permission to set the ACL of an object. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#permissions What permissions can I grant?>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 --
 -- This action is not supported by Amazon S3 on Outposts.
 --
@@ -34,7 +34,7 @@
 -- have an existing application that updates a bucket ACL using the request
 -- body, you can continue to use that approach. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html Access Control List (ACL) Overview>
--- in the /Amazon S3 Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 --
 -- __Access Permissions__
 --
@@ -51,26 +51,27 @@
 -- -   Specify access permissions explicitly with the @x-amz-grant-read@,
 --     @x-amz-grant-read-acp@, @x-amz-grant-write-acp@, and
 --     @x-amz-grant-full-control@ headers. When using these headers, you
---     specify explicit access permissions and grantees (AWS accounts or
---     Amazon S3 groups) who will receive the permission. If you use these
---     ACL-specific headers, you cannot use @x-amz-acl@ header to set a
---     canned ACL. These parameters map to the set of permissions that
---     Amazon S3 supports in an ACL. For more information, see
+--     specify explicit access permissions and grantees (Amazon Web
+--     Services accounts or Amazon S3 groups) who will receive the
+--     permission. If you use these ACL-specific headers, you cannot use
+--     @x-amz-acl@ header to set a canned ACL. These parameters map to the
+--     set of permissions that Amazon S3 supports in an ACL. For more
+--     information, see
 --     <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html Access Control List (ACL) Overview>.
 --
 --     You specify each grantee as a type=value pair, where the type is one
 --     of the following:
 --
---     -   @id@ – if the value specified is the canonical user ID of an AWS
---         account
+--     -   @id@ – if the value specified is the canonical user ID of an
+--         Amazon Web Services account
 --
 --     -   @uri@ – if you are granting permissions to a predefined group
 --
 --     -   @emailAddress@ – if the value specified is the email address of
---         an AWS account
+--         an Amazon Web Services account
 --
 --         Using email addresses to specify a grantee is only supported in
---         the following AWS Regions:
+--         the following Amazon Web Services Regions:
 --
 --         -   US East (N. Virginia)
 --
@@ -91,11 +92,11 @@
 --         For a list of all the Amazon S3 supported Regions and endpoints,
 --         see
 --         <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region Regions and Endpoints>
---         in the AWS General Reference.
+--         in the Amazon Web Services General Reference.
 --
 --     For example, the following @x-amz-grant-read@ header grants list
---     objects permission to the two AWS accounts identified by their email
---     addresses.
+--     objects permission to the two Amazon Web Services accounts
+--     identified by their email addresses.
 --
 --     @x-amz-grant-read: emailAddress=\"xyz\@amazon.com\", emailAddress=\"abc\@amazon.com\" @
 --
@@ -125,7 +126,7 @@
 --     GET Object acl request, appears as the CanonicalUser.
 --
 --     Using email addresses to specify a grantee is only supported in the
---     following AWS Regions:
+--     following Amazon Web Services Regions:
 --
 --     -   US East (N. Virginia)
 --
@@ -145,7 +146,7 @@
 --
 --     For a list of all the Amazon S3 supported Regions and endpoints, see
 --     <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region Regions and Endpoints>
---     in the AWS General Reference.
+--     in the Amazon Web Services General Reference.
 --
 -- __Versioning__
 --
@@ -170,8 +171,8 @@ module Network.AWS.S3.PutObjectAcl
     putObjectAcl_contentMD5,
     putObjectAcl_versionId,
     putObjectAcl_grantWriteACP,
-    putObjectAcl_grantReadACP,
     putObjectAcl_acl,
+    putObjectAcl_grantReadACP,
     putObjectAcl_requestPayer,
     putObjectAcl_grantWrite,
     putObjectAcl_grantFullControl,
@@ -201,7 +202,7 @@ data PutObjectAcl = PutObjectAcl'
     --
     -- This action is not supported by Amazon S3 on Outposts.
     grantRead :: Prelude.Maybe Prelude.Text,
-    -- | The account id of the expected bucket owner. If the bucket is owned by a
+    -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
@@ -213,8 +214,9 @@ data PutObjectAcl = PutObjectAcl'
     -- not corrupted in transit. For more information, go to
     -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864.>>
     --
-    -- For requests made using the AWS Command Line Interface (CLI) or AWS
-    -- SDKs, this field is calculated automatically.
+    -- For requests made using the Amazon Web Services Command Line Interface
+    -- (CLI) or Amazon Web Services SDKs, this field is calculated
+    -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
     -- | VersionId used to reference a specific version of the object.
     versionId :: Prelude.Maybe ObjectVersionId,
@@ -222,16 +224,18 @@ data PutObjectAcl = PutObjectAcl'
     --
     -- This action is not supported by Amazon S3 on Outposts.
     grantWriteACP :: Prelude.Maybe Prelude.Text,
+    -- | The canned ACL to apply to the object. For more information, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL Canned ACL>.
+    acl :: Prelude.Maybe ObjectCannedACL,
     -- | Allows grantee to read the bucket ACL.
     --
     -- This action is not supported by Amazon S3 on Outposts.
     grantReadACP :: Prelude.Maybe Prelude.Text,
-    -- | The canned ACL to apply to the object. For more information, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL Canned ACL>.
-    acl :: Prelude.Maybe ObjectCannedACL,
     requestPayer :: Prelude.Maybe RequestPayer,
-    -- | Allows grantee to create, overwrite, and delete any object in the
-    -- bucket.
+    -- | Allows grantee to create new objects in the bucket.
+    --
+    -- For the bucket and object owners of existing objects, also allows
+    -- deletions and overwrites of those objects.
     grantWrite :: Prelude.Maybe Prelude.Text,
     -- | Allows grantee the read, write, read ACP, and write ACP permissions on
     -- the bucket.
@@ -241,35 +245,35 @@ data PutObjectAcl = PutObjectAcl'
     -- | The bucket name that contains the object to which you want to attach the
     -- ACL.
     --
-    -- When using this API with an access point, you must direct requests to
+    -- When using this action with an access point, you must direct requests to
     -- the access point hostname. The access point hostname takes the form
     -- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.
-    -- When using this operation with an access point through the AWS SDKs, you
-    -- provide the access point ARN in place of the bucket name. For more
-    -- information about access point ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points>
-    -- in the /Amazon Simple Storage Service Developer Guide/.
+    -- When using this action with an access point through the Amazon Web
+    -- Services SDKs, you provide the access point ARN in place of the bucket
+    -- name. For more information about access point ARNs, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
+    -- in the /Amazon S3 User Guide/.
     bucket :: BucketName,
-    -- | Key for which the PUT operation was initiated.
+    -- | Key for which the PUT action was initiated.
     --
-    -- When using this API with an access point, you must direct requests to
+    -- When using this action with an access point, you must direct requests to
     -- the access point hostname. The access point hostname takes the form
     -- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.
-    -- When using this operation with an access point through the AWS SDKs, you
-    -- provide the access point ARN in place of the bucket name. For more
-    -- information about access point ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points>
-    -- in the /Amazon Simple Storage Service Developer Guide/.
+    -- When using this action with an access point through the Amazon Web
+    -- Services SDKs, you provide the access point ARN in place of the bucket
+    -- name. For more information about access point ARNs, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
+    -- in the /Amazon S3 User Guide/.
     --
-    -- When using this API with Amazon S3 on Outposts, you must direct requests
-    -- to the S3 on Outposts hostname. The S3 on Outposts hostname takes the
-    -- form
+    -- When using this action with Amazon S3 on Outposts, you must direct
+    -- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
+    -- takes the form
     -- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
-    -- When using this operation using S3 on Outposts through the AWS SDKs, you
-    -- provide the Outposts bucket ARN in place of the bucket name. For more
-    -- information about S3 on Outposts ARNs, see
-    -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts>
-    -- in the /Amazon Simple Storage Service Developer Guide/.
+    -- When using this action using S3 on Outposts through the Amazon Web
+    -- Services SDKs, you provide the Outposts bucket ARN in place of the
+    -- bucket name. For more information about S3 on Outposts ARNs, see
+    -- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+    -- in the /Amazon S3 User Guide/.
     key :: ObjectKey
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -286,7 +290,7 @@ data PutObjectAcl = PutObjectAcl'
 --
 -- This action is not supported by Amazon S3 on Outposts.
 --
--- 'expectedBucketOwner', 'putObjectAcl_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'putObjectAcl_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
@@ -298,8 +302,9 @@ data PutObjectAcl = PutObjectAcl'
 -- not corrupted in transit. For more information, go to
 -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864.>>
 --
--- For requests made using the AWS Command Line Interface (CLI) or AWS
--- SDKs, this field is calculated automatically.
+-- For requests made using the Amazon Web Services Command Line Interface
+-- (CLI) or Amazon Web Services SDKs, this field is calculated
+-- automatically.
 --
 -- 'versionId', 'putObjectAcl_versionId' - VersionId used to reference a specific version of the object.
 --
@@ -307,17 +312,19 @@ data PutObjectAcl = PutObjectAcl'
 --
 -- This action is not supported by Amazon S3 on Outposts.
 --
+-- 'acl', 'putObjectAcl_acl' - The canned ACL to apply to the object. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL Canned ACL>.
+--
 -- 'grantReadACP', 'putObjectAcl_grantReadACP' - Allows grantee to read the bucket ACL.
 --
 -- This action is not supported by Amazon S3 on Outposts.
 --
--- 'acl', 'putObjectAcl_acl' - The canned ACL to apply to the object. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL Canned ACL>.
---
 -- 'requestPayer', 'putObjectAcl_requestPayer' - Undocumented member.
 --
--- 'grantWrite', 'putObjectAcl_grantWrite' - Allows grantee to create, overwrite, and delete any object in the
--- bucket.
+-- 'grantWrite', 'putObjectAcl_grantWrite' - Allows grantee to create new objects in the bucket.
+--
+-- For the bucket and object owners of existing objects, also allows
+-- deletions and overwrites of those objects.
 --
 -- 'grantFullControl', 'putObjectAcl_grantFullControl' - Allows grantee the read, write, read ACP, and write ACP permissions on
 -- the bucket.
@@ -327,35 +334,35 @@ data PutObjectAcl = PutObjectAcl'
 -- 'bucket', 'putObjectAcl_bucket' - The bucket name that contains the object to which you want to attach the
 -- ACL.
 --
--- When using this API with an access point, you must direct requests to
+-- When using this action with an access point, you must direct requests to
 -- the access point hostname. The access point hostname takes the form
 -- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.
--- When using this operation with an access point through the AWS SDKs, you
--- provide the access point ARN in place of the bucket name. For more
--- information about access point ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- When using this action with an access point through the Amazon Web
+-- Services SDKs, you provide the access point ARN in place of the bucket
+-- name. For more information about access point ARNs, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
+-- in the /Amazon S3 User Guide/.
 --
--- 'key', 'putObjectAcl_key' - Key for which the PUT operation was initiated.
+-- 'key', 'putObjectAcl_key' - Key for which the PUT action was initiated.
 --
--- When using this API with an access point, you must direct requests to
+-- When using this action with an access point, you must direct requests to
 -- the access point hostname. The access point hostname takes the form
 -- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.
--- When using this operation with an access point through the AWS SDKs, you
--- provide the access point ARN in place of the bucket name. For more
--- information about access point ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- When using this action with an access point through the Amazon Web
+-- Services SDKs, you provide the access point ARN in place of the bucket
+-- name. For more information about access point ARNs, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
+-- in the /Amazon S3 User Guide/.
 --
--- When using this API with Amazon S3 on Outposts, you must direct requests
--- to the S3 on Outposts hostname. The S3 on Outposts hostname takes the
--- form
+-- When using this action with Amazon S3 on Outposts, you must direct
+-- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
+-- takes the form
 -- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
--- When using this operation using S3 on Outposts through the AWS SDKs, you
--- provide the Outposts bucket ARN in place of the bucket name. For more
--- information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- When using this action using S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- bucket name. For more information about S3 on Outposts ARNs, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+-- in the /Amazon S3 User Guide/.
 newPutObjectAcl ::
   -- | 'bucket'
   BucketName ->
@@ -370,8 +377,8 @@ newPutObjectAcl pBucket_ pKey_ =
       contentMD5 = Prelude.Nothing,
       versionId = Prelude.Nothing,
       grantWriteACP = Prelude.Nothing,
-      grantReadACP = Prelude.Nothing,
       acl = Prelude.Nothing,
+      grantReadACP = Prelude.Nothing,
       requestPayer = Prelude.Nothing,
       grantWrite = Prelude.Nothing,
       grantFullControl = Prelude.Nothing,
@@ -385,7 +392,7 @@ newPutObjectAcl pBucket_ pKey_ =
 putObjectAcl_grantRead :: Lens.Lens' PutObjectAcl (Prelude.Maybe Prelude.Text)
 putObjectAcl_grantRead = Lens.lens (\PutObjectAcl' {grantRead} -> grantRead) (\s@PutObjectAcl' {} a -> s {grantRead = a} :: PutObjectAcl)
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 putObjectAcl_expectedBucketOwner :: Lens.Lens' PutObjectAcl (Prelude.Maybe Prelude.Text)
@@ -401,8 +408,9 @@ putObjectAcl_accessControlPolicy = Lens.lens (\PutObjectAcl' {accessControlPolic
 -- not corrupted in transit. For more information, go to
 -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864.>>
 --
--- For requests made using the AWS Command Line Interface (CLI) or AWS
--- SDKs, this field is calculated automatically.
+-- For requests made using the Amazon Web Services Command Line Interface
+-- (CLI) or Amazon Web Services SDKs, this field is calculated
+-- automatically.
 putObjectAcl_contentMD5 :: Lens.Lens' PutObjectAcl (Prelude.Maybe Prelude.Text)
 putObjectAcl_contentMD5 = Lens.lens (\PutObjectAcl' {contentMD5} -> contentMD5) (\s@PutObjectAcl' {} a -> s {contentMD5 = a} :: PutObjectAcl)
 
@@ -416,23 +424,25 @@ putObjectAcl_versionId = Lens.lens (\PutObjectAcl' {versionId} -> versionId) (\s
 putObjectAcl_grantWriteACP :: Lens.Lens' PutObjectAcl (Prelude.Maybe Prelude.Text)
 putObjectAcl_grantWriteACP = Lens.lens (\PutObjectAcl' {grantWriteACP} -> grantWriteACP) (\s@PutObjectAcl' {} a -> s {grantWriteACP = a} :: PutObjectAcl)
 
+-- | The canned ACL to apply to the object. For more information, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL Canned ACL>.
+putObjectAcl_acl :: Lens.Lens' PutObjectAcl (Prelude.Maybe ObjectCannedACL)
+putObjectAcl_acl = Lens.lens (\PutObjectAcl' {acl} -> acl) (\s@PutObjectAcl' {} a -> s {acl = a} :: PutObjectAcl)
+
 -- | Allows grantee to read the bucket ACL.
 --
 -- This action is not supported by Amazon S3 on Outposts.
 putObjectAcl_grantReadACP :: Lens.Lens' PutObjectAcl (Prelude.Maybe Prelude.Text)
 putObjectAcl_grantReadACP = Lens.lens (\PutObjectAcl' {grantReadACP} -> grantReadACP) (\s@PutObjectAcl' {} a -> s {grantReadACP = a} :: PutObjectAcl)
 
--- | The canned ACL to apply to the object. For more information, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL Canned ACL>.
-putObjectAcl_acl :: Lens.Lens' PutObjectAcl (Prelude.Maybe ObjectCannedACL)
-putObjectAcl_acl = Lens.lens (\PutObjectAcl' {acl} -> acl) (\s@PutObjectAcl' {} a -> s {acl = a} :: PutObjectAcl)
-
 -- | Undocumented member.
 putObjectAcl_requestPayer :: Lens.Lens' PutObjectAcl (Prelude.Maybe RequestPayer)
 putObjectAcl_requestPayer = Lens.lens (\PutObjectAcl' {requestPayer} -> requestPayer) (\s@PutObjectAcl' {} a -> s {requestPayer = a} :: PutObjectAcl)
 
--- | Allows grantee to create, overwrite, and delete any object in the
--- bucket.
+-- | Allows grantee to create new objects in the bucket.
+--
+-- For the bucket and object owners of existing objects, also allows
+-- deletions and overwrites of those objects.
 putObjectAcl_grantWrite :: Lens.Lens' PutObjectAcl (Prelude.Maybe Prelude.Text)
 putObjectAcl_grantWrite = Lens.lens (\PutObjectAcl' {grantWrite} -> grantWrite) (\s@PutObjectAcl' {} a -> s {grantWrite = a} :: PutObjectAcl)
 
@@ -446,37 +456,37 @@ putObjectAcl_grantFullControl = Lens.lens (\PutObjectAcl' {grantFullControl} -> 
 -- | The bucket name that contains the object to which you want to attach the
 -- ACL.
 --
--- When using this API with an access point, you must direct requests to
+-- When using this action with an access point, you must direct requests to
 -- the access point hostname. The access point hostname takes the form
 -- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.
--- When using this operation with an access point through the AWS SDKs, you
--- provide the access point ARN in place of the bucket name. For more
--- information about access point ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- When using this action with an access point through the Amazon Web
+-- Services SDKs, you provide the access point ARN in place of the bucket
+-- name. For more information about access point ARNs, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
+-- in the /Amazon S3 User Guide/.
 putObjectAcl_bucket :: Lens.Lens' PutObjectAcl BucketName
 putObjectAcl_bucket = Lens.lens (\PutObjectAcl' {bucket} -> bucket) (\s@PutObjectAcl' {} a -> s {bucket = a} :: PutObjectAcl)
 
--- | Key for which the PUT operation was initiated.
+-- | Key for which the PUT action was initiated.
 --
--- When using this API with an access point, you must direct requests to
+-- When using this action with an access point, you must direct requests to
 -- the access point hostname. The access point hostname takes the form
 -- /AccessPointName/-/AccountId/.s3-accesspoint./Region/.amazonaws.com.
--- When using this operation with an access point through the AWS SDKs, you
--- provide the access point ARN in place of the bucket name. For more
--- information about access point ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- When using this action with an access point through the Amazon Web
+-- Services SDKs, you provide the access point ARN in place of the bucket
+-- name. For more information about access point ARNs, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html Using access points>
+-- in the /Amazon S3 User Guide/.
 --
--- When using this API with Amazon S3 on Outposts, you must direct requests
--- to the S3 on Outposts hostname. The S3 on Outposts hostname takes the
--- form
+-- When using this action with Amazon S3 on Outposts, you must direct
+-- requests to the S3 on Outposts hostname. The S3 on Outposts hostname
+-- takes the form
 -- /AccessPointName/-/AccountId/./outpostID/.s3-outposts./Region/.amazonaws.com.
--- When using this operation using S3 on Outposts through the AWS SDKs, you
--- provide the Outposts bucket ARN in place of the bucket name. For more
--- information about S3 on Outposts ARNs, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- When using this action using S3 on Outposts through the Amazon Web
+-- Services SDKs, you provide the Outposts bucket ARN in place of the
+-- bucket name. For more information about S3 on Outposts ARNs, see
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html Using S3 on Outposts>
+-- in the /Amazon S3 User Guide/.
 putObjectAcl_key :: Lens.Lens' PutObjectAcl ObjectKey
 putObjectAcl_key = Lens.lens (\PutObjectAcl' {key} -> key) (\s@PutObjectAcl' {} a -> s {key = a} :: PutObjectAcl)
 
@@ -509,8 +519,8 @@ instance Core.ToHeaders PutObjectAcl where
           Core.=# expectedBucketOwner,
         "Content-MD5" Core.=# contentMD5,
         "x-amz-grant-write-acp" Core.=# grantWriteACP,
-        "x-amz-grant-read-acp" Core.=# grantReadACP,
         "x-amz-acl" Core.=# acl,
+        "x-amz-grant-read-acp" Core.=# grantReadACP,
         "x-amz-request-payer" Core.=# requestPayer,
         "x-amz-grant-write" Core.=# grantWrite,
         "x-amz-grant-full-control" Core.=# grantFullControl

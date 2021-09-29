@@ -28,7 +28,7 @@ import Network.AWS.S3.Types.TransitionStorageClass
 -- | Specifies when an object transitions to a specified storage class. For
 -- more information about Amazon S3 lifecycle configuration rules, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-transition-general-considerations.html Transitioning Objects Using Amazon S3 Lifecycle>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 --
 -- /See:/ 'newTransition' smart constructor.
 data Transition = Transition'

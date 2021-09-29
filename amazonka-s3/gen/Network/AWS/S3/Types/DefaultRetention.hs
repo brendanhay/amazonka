@@ -28,16 +28,23 @@ import Network.AWS.S3.Types.ObjectLockRetentionMode
 -- | The container element for specifying the default Object Lock retention
 -- settings for new objects placed in the specified bucket.
 --
+-- -   The @DefaultRetention@ settings require both a mode and a period.
+--
+-- -   The @DefaultRetention@ period can be either @Days@ or @Years@ but
+--     you must select one. You cannot specify @Days@ and @Years@ at the
+--     same time.
+--
 -- /See:/ 'newDefaultRetention' smart constructor.
 data DefaultRetention = DefaultRetention'
   { -- | The number of days that you want to specify for the default retention
-    -- period.
+    -- period. Must be used with @Mode@.
     days :: Prelude.Maybe Prelude.Int,
     -- | The number of years that you want to specify for the default retention
-    -- period.
+    -- period. Must be used with @Mode@.
     years :: Prelude.Maybe Prelude.Int,
     -- | The default Object Lock retention mode you want to apply to new objects
-    -- placed in the specified bucket.
+    -- placed in the specified bucket. Must be used with either @Days@ or
+    -- @Years@.
     mode :: Prelude.Maybe ObjectLockRetentionMode
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -51,13 +58,14 @@ data DefaultRetention = DefaultRetention'
 -- for backwards compatibility:
 --
 -- 'days', 'defaultRetention_days' - The number of days that you want to specify for the default retention
--- period.
+-- period. Must be used with @Mode@.
 --
 -- 'years', 'defaultRetention_years' - The number of years that you want to specify for the default retention
--- period.
+-- period. Must be used with @Mode@.
 --
 -- 'mode', 'defaultRetention_mode' - The default Object Lock retention mode you want to apply to new objects
--- placed in the specified bucket.
+-- placed in the specified bucket. Must be used with either @Days@ or
+-- @Years@.
 newDefaultRetention ::
   DefaultRetention
 newDefaultRetention =
@@ -68,17 +76,18 @@ newDefaultRetention =
     }
 
 -- | The number of days that you want to specify for the default retention
--- period.
+-- period. Must be used with @Mode@.
 defaultRetention_days :: Lens.Lens' DefaultRetention (Prelude.Maybe Prelude.Int)
 defaultRetention_days = Lens.lens (\DefaultRetention' {days} -> days) (\s@DefaultRetention' {} a -> s {days = a} :: DefaultRetention)
 
 -- | The number of years that you want to specify for the default retention
--- period.
+-- period. Must be used with @Mode@.
 defaultRetention_years :: Lens.Lens' DefaultRetention (Prelude.Maybe Prelude.Int)
 defaultRetention_years = Lens.lens (\DefaultRetention' {years} -> years) (\s@DefaultRetention' {} a -> s {years = a} :: DefaultRetention)
 
 -- | The default Object Lock retention mode you want to apply to new objects
--- placed in the specified bucket.
+-- placed in the specified bucket. Must be used with either @Days@ or
+-- @Years@.
 defaultRetention_mode :: Lens.Lens' DefaultRetention (Prelude.Maybe ObjectLockRetentionMode)
 defaultRetention_mode = Lens.lens (\DefaultRetention' {mode} -> mode) (\s@DefaultRetention' {} a -> s {mode = a} :: DefaultRetention)
 

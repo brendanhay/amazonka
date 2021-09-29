@@ -27,7 +27,7 @@
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html Hosting Websites on Amazon S3>.
 --
--- This PUT operation requires the @S3:PutBucketWebsite@ permission. By
+-- This PUT action requires the @S3:PutBucketWebsite@ permission. By
 -- default, only the bucket owner can configure the website attached to a
 -- bucket; however, bucket owners can allow other users to set the website
 -- configuration by writing a bucket policy that grants them the
@@ -88,7 +88,7 @@
 -- configuration. If you require more than 50 routing rules, you can use
 -- object redirect. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html Configuring an Object Redirect>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 module Network.AWS.S3.PutBucketWebsite
   ( -- * Creating a Request
     PutBucketWebsite (..),
@@ -115,7 +115,7 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newPutBucketWebsite' smart constructor.
 data PutBucketWebsite = PutBucketWebsite'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
@@ -124,8 +124,9 @@ data PutBucketWebsite = PutBucketWebsite'
     -- not corrupted in transit. For more information, see
     -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864>.
     --
-    -- For requests made using the AWS Command Line Interface (CLI) or AWS
-    -- SDKs, this field is calculated automatically.
+    -- For requests made using the Amazon Web Services Command Line Interface
+    -- (CLI) or Amazon Web Services SDKs, this field is calculated
+    -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
     -- | The bucket name.
     bucket :: BucketName,
@@ -142,7 +143,7 @@ data PutBucketWebsite = PutBucketWebsite'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'putBucketWebsite_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'putBucketWebsite_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
@@ -151,8 +152,9 @@ data PutBucketWebsite = PutBucketWebsite'
 -- not corrupted in transit. For more information, see
 -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864>.
 --
--- For requests made using the AWS Command Line Interface (CLI) or AWS
--- SDKs, this field is calculated automatically.
+-- For requests made using the Amazon Web Services Command Line Interface
+-- (CLI) or Amazon Web Services SDKs, this field is calculated
+-- automatically.
 --
 -- 'bucket', 'putBucketWebsite_bucket' - The bucket name.
 --
@@ -172,7 +174,7 @@ newPutBucketWebsite pBucket_ pWebsiteConfiguration_ =
       websiteConfiguration = pWebsiteConfiguration_
     }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 putBucketWebsite_expectedBucketOwner :: Lens.Lens' PutBucketWebsite (Prelude.Maybe Prelude.Text)
@@ -183,8 +185,9 @@ putBucketWebsite_expectedBucketOwner = Lens.lens (\PutBucketWebsite' {expectedBu
 -- not corrupted in transit. For more information, see
 -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864>.
 --
--- For requests made using the AWS Command Line Interface (CLI) or AWS
--- SDKs, this field is calculated automatically.
+-- For requests made using the Amazon Web Services Command Line Interface
+-- (CLI) or Amazon Web Services SDKs, this field is calculated
+-- automatically.
 putBucketWebsite_contentMD5 :: Lens.Lens' PutBucketWebsite (Prelude.Maybe Prelude.Text)
 putBucketWebsite_contentMD5 = Lens.lens (\PutBucketWebsite' {contentMD5} -> contentMD5) (\s@PutBucketWebsite' {} a -> s {contentMD5 = a} :: PutBucketWebsite)
 

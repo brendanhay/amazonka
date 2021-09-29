@@ -23,11 +23,11 @@
 -- Returns a list of inventory configurations for the bucket. You can have
 -- up to 1,000 analytics configurations per bucket.
 --
--- This operation supports list pagination and does not return more than
--- 100 configurations at a time. Always check the @IsTruncated@ element in
--- the response. If there are no more configurations to list, @IsTruncated@
--- is set to false. If there are more configurations to list, @IsTruncated@
--- is set to true, and there is a value in @NextContinuationToken@. You use
+-- This action supports list pagination and does not return more than 100
+-- configurations at a time. Always check the @IsTruncated@ element in the
+-- response. If there are no more configurations to list, @IsTruncated@ is
+-- set to false. If there are more configurations to list, @IsTruncated@ is
+-- set to true, and there is a value in @NextContinuationToken@. You use
 -- the @NextContinuationToken@ value to continue the pagination of the list
 -- by passing the value in continuation-token in the request to @GET@ the
 -- next page.
@@ -36,9 +36,9 @@
 -- @s3:GetInventoryConfiguration@ action. The bucket owner has this
 -- permission by default. The bucket owner can grant this permission to
 -- others. For more information about permissions, see
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources Permissions Related to Bucket Subresource Operations>
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources Permissions Related to Bucket Subresource Operations>
 -- and
--- <https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources>.
+-- <https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html Managing Access Permissions to Your Amazon S3 Resources>.
 --
 -- For information about the Amazon S3 inventory feature, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html Amazon S3 Inventory>
@@ -83,7 +83,7 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newListBucketInventoryConfigurations' smart constructor.
 data ListBucketInventoryConfigurations = ListBucketInventoryConfigurations'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
@@ -106,7 +106,7 @@ data ListBucketInventoryConfigurations = ListBucketInventoryConfigurations'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'listBucketInventoryConfigurations_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'listBucketInventoryConfigurations_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
@@ -129,7 +129,7 @@ newListBucketInventoryConfigurations pBucket_ =
       bucket = pBucket_
     }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 listBucketInventoryConfigurations_expectedBucketOwner :: Lens.Lens' ListBucketInventoryConfigurations (Prelude.Maybe Prelude.Text)

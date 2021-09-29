@@ -29,13 +29,13 @@ import Network.AWS.S3.Internal
 --
 -- /See:/ 'newEncryptionConfiguration' smart constructor.
 data EncryptionConfiguration = EncryptionConfiguration'
-  { -- | Specifies the ID (Key ARN or Alias ARN) of the customer managed customer
-    -- master key (CMK) stored in AWS Key Management Service (KMS) for the
-    -- destination bucket. Amazon S3 uses this key to encrypt replica objects.
-    -- Amazon S3 only supports symmetric customer managed CMKs. For more
-    -- information, see
-    -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using Symmetric and Asymmetric Keys>
-    -- in the /AWS Key Management Service Developer Guide/.
+  { -- | Specifies the ID (Key ARN or Alias ARN) of the customer managed Amazon
+    -- Web Services KMS key stored in Amazon Web Services Key Management
+    -- Service (KMS) for the destination bucket. Amazon S3 uses this key to
+    -- encrypt replica objects. Amazon S3 only supports symmetric, customer
+    -- managed KMS keys. For more information, see
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using symmetric and asymmetric keys>
+    -- in the /Amazon Web Services Key Management Service Developer Guide/.
     replicaKmsKeyID :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,13 +48,13 @@ data EncryptionConfiguration = EncryptionConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'replicaKmsKeyID', 'encryptionConfiguration_replicaKmsKeyID' - Specifies the ID (Key ARN or Alias ARN) of the customer managed customer
--- master key (CMK) stored in AWS Key Management Service (KMS) for the
--- destination bucket. Amazon S3 uses this key to encrypt replica objects.
--- Amazon S3 only supports symmetric customer managed CMKs. For more
--- information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using Symmetric and Asymmetric Keys>
--- in the /AWS Key Management Service Developer Guide/.
+-- 'replicaKmsKeyID', 'encryptionConfiguration_replicaKmsKeyID' - Specifies the ID (Key ARN or Alias ARN) of the customer managed Amazon
+-- Web Services KMS key stored in Amazon Web Services Key Management
+-- Service (KMS) for the destination bucket. Amazon S3 uses this key to
+-- encrypt replica objects. Amazon S3 only supports symmetric, customer
+-- managed KMS keys. For more information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using symmetric and asymmetric keys>
+-- in the /Amazon Web Services Key Management Service Developer Guide/.
 newEncryptionConfiguration ::
   EncryptionConfiguration
 newEncryptionConfiguration =
@@ -63,13 +63,13 @@ newEncryptionConfiguration =
         Prelude.Nothing
     }
 
--- | Specifies the ID (Key ARN or Alias ARN) of the customer managed customer
--- master key (CMK) stored in AWS Key Management Service (KMS) for the
--- destination bucket. Amazon S3 uses this key to encrypt replica objects.
--- Amazon S3 only supports symmetric customer managed CMKs. For more
--- information, see
--- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using Symmetric and Asymmetric Keys>
--- in the /AWS Key Management Service Developer Guide/.
+-- | Specifies the ID (Key ARN or Alias ARN) of the customer managed Amazon
+-- Web Services KMS key stored in Amazon Web Services Key Management
+-- Service (KMS) for the destination bucket. Amazon S3 uses this key to
+-- encrypt replica objects. Amazon S3 only supports symmetric, customer
+-- managed KMS keys. For more information, see
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html Using symmetric and asymmetric keys>
+-- in the /Amazon Web Services Key Management Service Developer Guide/.
 encryptionConfiguration_replicaKmsKeyID :: Lens.Lens' EncryptionConfiguration (Prelude.Maybe Prelude.Text)
 encryptionConfiguration_replicaKmsKeyID = Lens.lens (\EncryptionConfiguration' {replicaKmsKeyID} -> replicaKmsKeyID) (\s@EncryptionConfiguration' {} a -> s {replicaKmsKeyID = a} :: EncryptionConfiguration)
 

@@ -26,13 +26,13 @@ import Network.AWS.S3.Internal
 import Network.AWS.S3.Types.SseKmsEncryptedObjectsStatus
 
 -- | A container for filter information for the selection of S3 objects
--- encrypted with AWS KMS.
+-- encrypted with Amazon Web Services KMS.
 --
 -- /See:/ 'newSseKmsEncryptedObjects' smart constructor.
 data SseKmsEncryptedObjects = SseKmsEncryptedObjects'
   { -- | Specifies whether Amazon S3 replicates objects created with server-side
-    -- encryption using a customer master key (CMK) stored in AWS Key
-    -- Management Service.
+    -- encryption using an Amazon Web Services KMS key stored in Amazon Web
+    -- Services Key Management Service.
     status :: SseKmsEncryptedObjectsStatus
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,8 +46,8 @@ data SseKmsEncryptedObjects = SseKmsEncryptedObjects'
 -- for backwards compatibility:
 --
 -- 'status', 'sseKmsEncryptedObjects_status' - Specifies whether Amazon S3 replicates objects created with server-side
--- encryption using a customer master key (CMK) stored in AWS Key
--- Management Service.
+-- encryption using an Amazon Web Services KMS key stored in Amazon Web
+-- Services Key Management Service.
 newSseKmsEncryptedObjects ::
   -- | 'status'
   SseKmsEncryptedObjectsStatus ->
@@ -56,8 +56,8 @@ newSseKmsEncryptedObjects pStatus_ =
   SseKmsEncryptedObjects' {status = pStatus_}
 
 -- | Specifies whether Amazon S3 replicates objects created with server-side
--- encryption using a customer master key (CMK) stored in AWS Key
--- Management Service.
+-- encryption using an Amazon Web Services KMS key stored in Amazon Web
+-- Services Key Management Service.
 sseKmsEncryptedObjects_status :: Lens.Lens' SseKmsEncryptedObjects SseKmsEncryptedObjectsStatus
 sseKmsEncryptedObjects_status = Lens.lens (\SseKmsEncryptedObjects' {status} -> status) (\s@SseKmsEncryptedObjects' {} a -> s {status = a} :: SseKmsEncryptedObjects)
 

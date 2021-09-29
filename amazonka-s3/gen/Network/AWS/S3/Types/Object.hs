@@ -38,13 +38,14 @@ data Object = Object'
     -- the object was created and how it is encrypted as described below:
     --
     -- -   Objects created by the PUT Object, POST Object, or Copy operation,
-    --     or through the AWS Management Console, and are encrypted by SSE-S3
-    --     or plaintext, have ETags that are an MD5 digest of their object
-    --     data.
+    --     or through the Amazon Web Services Management Console, and are
+    --     encrypted by SSE-S3 or plaintext, have ETags that are an MD5 digest
+    --     of their object data.
     --
     -- -   Objects created by the PUT Object, POST Object, or Copy operation,
-    --     or through the AWS Management Console, and are encrypted by SSE-C or
-    --     SSE-KMS, have ETags that are not an MD5 digest of their object data.
+    --     or through the Amazon Web Services Management Console, and are
+    --     encrypted by SSE-C or SSE-KMS, have ETags that are not an MD5 digest
+    --     of their object data.
     --
     -- -   If an object is created by either the Multipart Upload or Part Copy
     --     operation, the ETag is not an MD5 digest, regardless of the method
@@ -78,13 +79,14 @@ data Object = Object'
 -- the object was created and how it is encrypted as described below:
 --
 -- -   Objects created by the PUT Object, POST Object, or Copy operation,
---     or through the AWS Management Console, and are encrypted by SSE-S3
---     or plaintext, have ETags that are an MD5 digest of their object
---     data.
+--     or through the Amazon Web Services Management Console, and are
+--     encrypted by SSE-S3 or plaintext, have ETags that are an MD5 digest
+--     of their object data.
 --
 -- -   Objects created by the PUT Object, POST Object, or Copy operation,
---     or through the AWS Management Console, and are encrypted by SSE-C or
---     SSE-KMS, have ETags that are not an MD5 digest of their object data.
+--     or through the Amazon Web Services Management Console, and are
+--     encrypted by SSE-C or SSE-KMS, have ETags that are not an MD5 digest
+--     of their object data.
 --
 -- -   If an object is created by either the Multipart Upload or Part Copy
 --     operation, the ETag is not an MD5 digest, regardless of the method
@@ -135,13 +137,14 @@ object_owner = Lens.lens (\Object' {owner} -> owner) (\s@Object' {} a -> s {owne
 -- the object was created and how it is encrypted as described below:
 --
 -- -   Objects created by the PUT Object, POST Object, or Copy operation,
---     or through the AWS Management Console, and are encrypted by SSE-S3
---     or plaintext, have ETags that are an MD5 digest of their object
---     data.
+--     or through the Amazon Web Services Management Console, and are
+--     encrypted by SSE-S3 or plaintext, have ETags that are an MD5 digest
+--     of their object data.
 --
 -- -   Objects created by the PUT Object, POST Object, or Copy operation,
---     or through the AWS Management Console, and are encrypted by SSE-C or
---     SSE-KMS, have ETags that are not an MD5 digest of their object data.
+--     or through the Amazon Web Services Management Console, and are
+--     encrypted by SSE-C or SSE-KMS, have ETags that are not an MD5 digest
+--     of their object data.
 --
 -- -   If an object is created by either the Multipart Upload or Part Copy
 --     operation, the ETag is not an MD5 digest, regardless of the method

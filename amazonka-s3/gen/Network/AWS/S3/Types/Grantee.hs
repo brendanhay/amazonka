@@ -38,7 +38,7 @@ data Grantee = Grantee'
     -- | Email address of the grantee.
     --
     -- Using email addresses to specify a grantee is only supported in the
-    -- following AWS Regions:
+    -- following Amazon Web Services Regions:
     --
     -- -   US East (N. Virginia)
     --
@@ -58,7 +58,7 @@ data Grantee = Grantee'
     --
     -- For a list of all the Amazon S3 supported Regions and endpoints, see
     -- <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region Regions and Endpoints>
-    -- in the AWS General Reference.
+    -- in the Amazon Web Services General Reference.
     emailAddress :: Prelude.Maybe Prelude.Text,
     -- | Type of grantee
     type' :: Type
@@ -82,7 +82,7 @@ data Grantee = Grantee'
 -- 'emailAddress', 'grantee_emailAddress' - Email address of the grantee.
 --
 -- Using email addresses to specify a grantee is only supported in the
--- following AWS Regions:
+-- following Amazon Web Services Regions:
 --
 -- -   US East (N. Virginia)
 --
@@ -102,7 +102,7 @@ data Grantee = Grantee'
 --
 -- For a list of all the Amazon S3 supported Regions and endpoints, see
 -- <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region Regions and Endpoints>
--- in the AWS General Reference.
+-- in the Amazon Web Services General Reference.
 --
 -- 'type'', 'grantee_type' - Type of grantee
 newGrantee ::
@@ -133,7 +133,7 @@ grantee_displayName = Lens.lens (\Grantee' {displayName} -> displayName) (\s@Gra
 -- | Email address of the grantee.
 --
 -- Using email addresses to specify a grantee is only supported in the
--- following AWS Regions:
+-- following Amazon Web Services Regions:
 --
 -- -   US East (N. Virginia)
 --
@@ -153,7 +153,7 @@ grantee_displayName = Lens.lens (\Grantee' {displayName} -> displayName) (\s@Gra
 --
 -- For a list of all the Amazon S3 supported Regions and endpoints, see
 -- <https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region Regions and Endpoints>
--- in the AWS General Reference.
+-- in the Amazon Web Services General Reference.
 grantee_emailAddress :: Lens.Lens' Grantee (Prelude.Maybe Prelude.Text)
 grantee_emailAddress = Lens.lens (\Grantee' {emailAddress} -> emailAddress) (\s@Grantee' {} a -> s {emailAddress = a} :: Grantee)
 

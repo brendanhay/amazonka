@@ -56,15 +56,15 @@ data ReplicationRule = ReplicationRule'
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html Replication>
-    -- in the /Amazon Simple Storage Service Developer Guide/.
+    -- in the /Amazon S3 User Guide/.
     priority :: Prelude.Maybe Prelude.Int,
     deleteMarkerReplication :: Prelude.Maybe DeleteMarkerReplication,
     -- | A container that describes additional filters for identifying the source
     -- objects that you want to replicate. You can choose to enable or disable
     -- the replication of these objects. Currently, Amazon S3 supports only the
     -- filter that you can specify for objects created with server-side
-    -- encryption using a customer master key (CMK) stored in AWS Key
-    -- Management Service (SSE-KMS).
+    -- encryption using a customer managed key stored in Amazon Web Services
+    -- Key Management Service (SSE-KMS).
     sourceSelectionCriteria :: Prelude.Maybe SourceSelectionCriteria,
     filter' :: Prelude.Maybe ReplicationRuleFilter,
     -- | Specifies whether the rule is enabled.
@@ -106,7 +106,7 @@ data ReplicationRule = ReplicationRule'
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html Replication>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 --
 -- 'deleteMarkerReplication', 'replicationRule_deleteMarkerReplication' - Undocumented member.
 --
@@ -114,8 +114,8 @@ data ReplicationRule = ReplicationRule'
 -- objects that you want to replicate. You can choose to enable or disable
 -- the replication of these objects. Currently, Amazon S3 supports only the
 -- filter that you can specify for objects created with server-side
--- encryption using a customer master key (CMK) stored in AWS Key
--- Management Service (SSE-KMS).
+-- encryption using a customer managed key stored in Amazon Web Services
+-- Key Management Service (SSE-KMS).
 --
 -- 'filter'', 'replicationRule_filter' - Undocumented member.
 --
@@ -171,7 +171,7 @@ replicationRule_existingObjectReplication = Lens.lens (\ReplicationRule' {existi
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html Replication>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 replicationRule_priority :: Lens.Lens' ReplicationRule (Prelude.Maybe Prelude.Int)
 replicationRule_priority = Lens.lens (\ReplicationRule' {priority} -> priority) (\s@ReplicationRule' {} a -> s {priority = a} :: ReplicationRule)
 
@@ -183,8 +183,8 @@ replicationRule_deleteMarkerReplication = Lens.lens (\ReplicationRule' {deleteMa
 -- objects that you want to replicate. You can choose to enable or disable
 -- the replication of these objects. Currently, Amazon S3 supports only the
 -- filter that you can specify for objects created with server-side
--- encryption using a customer master key (CMK) stored in AWS Key
--- Management Service (SSE-KMS).
+-- encryption using a customer managed key stored in Amazon Web Services
+-- Key Management Service (SSE-KMS).
 replicationRule_sourceSelectionCriteria :: Lens.Lens' ReplicationRule (Prelude.Maybe SourceSelectionCriteria)
 replicationRule_sourceSelectionCriteria = Lens.lens (\ReplicationRule' {sourceSelectionCriteria} -> sourceSelectionCriteria) (\s@ReplicationRule' {} a -> s {sourceSelectionCriteria = a} :: ReplicationRule)
 

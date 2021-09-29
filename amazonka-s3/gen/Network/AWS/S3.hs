@@ -34,11 +34,11 @@ module Network.AWS.S3
     -- ** ObjectAlreadyInActiveTierError
     _ObjectAlreadyInActiveTierError,
 
-    -- ** BucketAlreadyOwnedByYou
-    _BucketAlreadyOwnedByYou,
-
     -- ** NoSuchUpload
     _NoSuchUpload,
+
+    -- ** BucketAlreadyOwnedByYou
+    _BucketAlreadyOwnedByYou,
 
     -- ** InvalidObjectState
     _InvalidObjectState,
@@ -73,12 +73,6 @@ module Network.AWS.S3
     PutBucketPolicyResponse (PutBucketPolicyResponse'),
     newPutBucketPolicyResponse,
 
-    -- ** GetBucketEncryption
-    GetBucketEncryption (GetBucketEncryption'),
-    newGetBucketEncryption,
-    GetBucketEncryptionResponse (GetBucketEncryptionResponse'),
-    newGetBucketEncryptionResponse,
-
     -- ** DeleteBucket
     DeleteBucket (DeleteBucket'),
     newDeleteBucket,
@@ -91,17 +85,11 @@ module Network.AWS.S3
     DeleteObjectsResponse (DeleteObjectsResponse'),
     newDeleteObjectsResponse,
 
-    -- ** PutBucketLogging
-    PutBucketLogging (PutBucketLogging'),
-    newPutBucketLogging,
-    PutBucketLoggingResponse (PutBucketLoggingResponse'),
-    newPutBucketLoggingResponse,
-
-    -- ** DeleteBucketWebsite
-    DeleteBucketWebsite (DeleteBucketWebsite'),
-    newDeleteBucketWebsite,
-    DeleteBucketWebsiteResponse (DeleteBucketWebsiteResponse'),
-    newDeleteBucketWebsiteResponse,
+    -- ** GetBucketEncryption
+    GetBucketEncryption (GetBucketEncryption'),
+    newGetBucketEncryption,
+    GetBucketEncryptionResponse (GetBucketEncryptionResponse'),
+    newGetBucketEncryptionResponse,
 
     -- ** CompleteMultipartUpload
     CompleteMultipartUpload (CompleteMultipartUpload'),
@@ -109,23 +97,11 @@ module Network.AWS.S3
     CompleteMultipartUploadResponse (CompleteMultipartUploadResponse'),
     newCompleteMultipartUploadResponse,
 
-    -- ** SelectObjectContent
-    SelectObjectContent (SelectObjectContent'),
-    newSelectObjectContent,
-    SelectObjectContentResponse (SelectObjectContentResponse'),
-    newSelectObjectContentResponse,
-
     -- ** GetBucketPolicyStatus
     GetBucketPolicyStatus (GetBucketPolicyStatus'),
     newGetBucketPolicyStatus,
     GetBucketPolicyStatusResponse (GetBucketPolicyStatusResponse'),
     newGetBucketPolicyStatusResponse,
-
-    -- ** ListObjects (Paginated)
-    ListObjects (ListObjects'),
-    newListObjects,
-    ListObjectsResponse (ListObjectsResponse'),
-    newListObjectsResponse,
 
     -- ** DeleteObject
     DeleteObject (DeleteObject'),
@@ -133,11 +109,29 @@ module Network.AWS.S3
     DeleteObjectResponse (DeleteObjectResponse'),
     newDeleteObjectResponse,
 
-    -- ** DeleteBucketAnalyticsConfiguration
-    DeleteBucketAnalyticsConfiguration (DeleteBucketAnalyticsConfiguration'),
-    newDeleteBucketAnalyticsConfiguration,
-    DeleteBucketAnalyticsConfigurationResponse (DeleteBucketAnalyticsConfigurationResponse'),
-    newDeleteBucketAnalyticsConfigurationResponse,
+    -- ** SelectObjectContent
+    SelectObjectContent (SelectObjectContent'),
+    newSelectObjectContent,
+    SelectObjectContentResponse (SelectObjectContentResponse'),
+    newSelectObjectContentResponse,
+
+    -- ** DeleteBucketWebsite
+    DeleteBucketWebsite (DeleteBucketWebsite'),
+    newDeleteBucketWebsite,
+    DeleteBucketWebsiteResponse (DeleteBucketWebsiteResponse'),
+    newDeleteBucketWebsiteResponse,
+
+    -- ** PutBucketLogging
+    PutBucketLogging (PutBucketLogging'),
+    newPutBucketLogging,
+    PutBucketLoggingResponse (PutBucketLoggingResponse'),
+    newPutBucketLoggingResponse,
+
+    -- ** ListObjects (Paginated)
+    ListObjects (ListObjects'),
+    newListObjects,
+    ListObjectsResponse (ListObjectsResponse'),
+    newListObjectsResponse,
 
     -- ** DeleteObjectTagging
     DeleteObjectTagging (DeleteObjectTagging'),
@@ -145,11 +139,11 @@ module Network.AWS.S3
     DeleteObjectTaggingResponse (DeleteObjectTaggingResponse'),
     newDeleteObjectTaggingResponse,
 
-    -- ** GetBucketAcl
-    GetBucketAcl (GetBucketAcl'),
-    newGetBucketAcl,
-    GetBucketAclResponse (GetBucketAclResponse'),
-    newGetBucketAclResponse,
+    -- ** DeleteBucketAnalyticsConfiguration
+    DeleteBucketAnalyticsConfiguration (DeleteBucketAnalyticsConfiguration'),
+    newDeleteBucketAnalyticsConfiguration,
+    DeleteBucketAnalyticsConfigurationResponse (DeleteBucketAnalyticsConfigurationResponse'),
+    newDeleteBucketAnalyticsConfigurationResponse,
 
     -- ** GetObjectTagging
     GetObjectTagging (GetObjectTagging'),
@@ -157,11 +151,11 @@ module Network.AWS.S3
     GetObjectTaggingResponse (GetObjectTaggingResponse'),
     newGetObjectTaggingResponse,
 
-    -- ** PutBucketReplication
-    PutBucketReplication (PutBucketReplication'),
-    newPutBucketReplication,
-    PutBucketReplicationResponse (PutBucketReplicationResponse'),
-    newPutBucketReplicationResponse,
+    -- ** GetBucketAcl
+    GetBucketAcl (GetBucketAcl'),
+    newGetBucketAcl,
+    GetBucketAclResponse (GetBucketAclResponse'),
+    newGetBucketAclResponse,
 
     -- ** GetBucketWebsite
     GetBucketWebsite (GetBucketWebsite'),
@@ -169,11 +163,11 @@ module Network.AWS.S3
     GetBucketWebsiteResponse (GetBucketWebsiteResponse'),
     newGetBucketWebsiteResponse,
 
-    -- ** GetObjectLockConfiguration
-    GetObjectLockConfiguration (GetObjectLockConfiguration'),
-    newGetObjectLockConfiguration,
-    GetObjectLockConfigurationResponse (GetObjectLockConfigurationResponse'),
-    newGetObjectLockConfigurationResponse,
+    -- ** PutBucketReplication
+    PutBucketReplication (PutBucketReplication'),
+    newPutBucketReplication,
+    PutBucketReplicationResponse (PutBucketReplicationResponse'),
+    newPutBucketReplicationResponse,
 
     -- ** DeleteBucketMetricsConfiguration
     DeleteBucketMetricsConfiguration (DeleteBucketMetricsConfiguration'),
@@ -181,17 +175,41 @@ module Network.AWS.S3
     DeleteBucketMetricsConfigurationResponse (DeleteBucketMetricsConfigurationResponse'),
     newDeleteBucketMetricsConfigurationResponse,
 
+    -- ** PutBucketOwnershipControls
+    PutBucketOwnershipControls (PutBucketOwnershipControls'),
+    newPutBucketOwnershipControls,
+    PutBucketOwnershipControlsResponse (PutBucketOwnershipControlsResponse'),
+    newPutBucketOwnershipControlsResponse,
+
+    -- ** PutObjectLegalHold
+    PutObjectLegalHold (PutObjectLegalHold'),
+    newPutObjectLegalHold,
+    PutObjectLegalHoldResponse (PutObjectLegalHoldResponse'),
+    newPutObjectLegalHoldResponse,
+
     -- ** GetBucketPolicy
     GetBucketPolicy (GetBucketPolicy'),
     newGetBucketPolicy,
     GetBucketPolicyResponse (GetBucketPolicyResponse'),
     newGetBucketPolicyResponse,
 
+    -- ** PutObjectRetention
+    PutObjectRetention (PutObjectRetention'),
+    newPutObjectRetention,
+    PutObjectRetentionResponse (PutObjectRetentionResponse'),
+    newPutObjectRetentionResponse,
+
     -- ** PutBucketEncryption
     PutBucketEncryption (PutBucketEncryption'),
     newPutBucketEncryption,
     PutBucketEncryptionResponse (PutBucketEncryptionResponse'),
     newPutBucketEncryptionResponse,
+
+    -- ** GetObjectLockConfiguration
+    GetObjectLockConfiguration (GetObjectLockConfiguration'),
+    newGetObjectLockConfiguration,
+    GetObjectLockConfigurationResponse (GetObjectLockConfigurationResponse'),
+    newGetObjectLockConfigurationResponse,
 
     -- ** ListBucketMetricsConfigurations
     ListBucketMetricsConfigurations (ListBucketMetricsConfigurations'),
@@ -205,41 +223,11 @@ module Network.AWS.S3
     PutBucketAccelerateConfigurationResponse (PutBucketAccelerateConfigurationResponse'),
     newPutBucketAccelerateConfigurationResponse,
 
-    -- ** PutBucketOwnershipControls
-    PutBucketOwnershipControls (PutBucketOwnershipControls'),
-    newPutBucketOwnershipControls,
-    PutBucketOwnershipControlsResponse (PutBucketOwnershipControlsResponse'),
-    newPutBucketOwnershipControlsResponse,
-
-    -- ** PutObjectRetention
-    PutObjectRetention (PutObjectRetention'),
-    newPutObjectRetention,
-    PutObjectRetentionResponse (PutObjectRetentionResponse'),
-    newPutObjectRetentionResponse,
-
-    -- ** PutObjectLegalHold
-    PutObjectLegalHold (PutObjectLegalHold'),
-    newPutObjectLegalHold,
-    PutObjectLegalHoldResponse (PutObjectLegalHoldResponse'),
-    newPutObjectLegalHoldResponse,
-
     -- ** HeadObject
     HeadObject (HeadObject'),
     newHeadObject,
     HeadObjectResponse (HeadObjectResponse'),
     newHeadObjectResponse,
-
-    -- ** GetBucketTagging
-    GetBucketTagging (GetBucketTagging'),
-    newGetBucketTagging,
-    GetBucketTaggingResponse (GetBucketTaggingResponse'),
-    newGetBucketTaggingResponse,
-
-    -- ** GetBucketLocation
-    GetBucketLocation (GetBucketLocation'),
-    newGetBucketLocation,
-    GetBucketLocationResponse (GetBucketLocationResponse'),
-    newGetBucketLocationResponse,
 
     -- ** PutBucketInventoryConfiguration
     PutBucketInventoryConfiguration (PutBucketInventoryConfiguration'),
@@ -247,17 +235,17 @@ module Network.AWS.S3
     PutBucketInventoryConfigurationResponse (PutBucketInventoryConfigurationResponse'),
     newPutBucketInventoryConfigurationResponse,
 
-    -- ** ListBucketInventoryConfigurations
-    ListBucketInventoryConfigurations (ListBucketInventoryConfigurations'),
-    newListBucketInventoryConfigurations,
-    ListBucketInventoryConfigurationsResponse (ListBucketInventoryConfigurationsResponse'),
-    newListBucketInventoryConfigurationsResponse,
+    -- ** WriteGetObjectResponse
+    WriteGetObjectResponse (WriteGetObjectResponse'),
+    newWriteGetObjectResponse,
+    WriteGetObjectResponseResponse (WriteGetObjectResponseResponse'),
+    newWriteGetObjectResponseResponse,
 
-    -- ** GetObjectAcl
-    GetObjectAcl (GetObjectAcl'),
-    newGetObjectAcl,
-    GetObjectAclResponse (GetObjectAclResponse'),
-    newGetObjectAclResponse,
+    -- ** GetBucketLocation
+    GetBucketLocation (GetBucketLocation'),
+    newGetBucketLocation,
+    GetBucketLocationResponse (GetBucketLocationResponse'),
+    newGetBucketLocationResponse,
 
     -- ** DeletePublicAccessBlock
     DeletePublicAccessBlock (DeletePublicAccessBlock'),
@@ -265,11 +253,35 @@ module Network.AWS.S3
     DeletePublicAccessBlockResponse (DeletePublicAccessBlockResponse'),
     newDeletePublicAccessBlockResponse,
 
-    -- ** DeleteBucketIntelligentTieringConfiguration
-    DeleteBucketIntelligentTieringConfiguration (DeleteBucketIntelligentTieringConfiguration'),
-    newDeleteBucketIntelligentTieringConfiguration,
-    DeleteBucketIntelligentTieringConfigurationResponse (DeleteBucketIntelligentTieringConfigurationResponse'),
-    newDeleteBucketIntelligentTieringConfigurationResponse,
+    -- ** ListBucketInventoryConfigurations
+    ListBucketInventoryConfigurations (ListBucketInventoryConfigurations'),
+    newListBucketInventoryConfigurations,
+    ListBucketInventoryConfigurationsResponse (ListBucketInventoryConfigurationsResponse'),
+    newListBucketInventoryConfigurationsResponse,
+
+    -- ** GetBucketTagging
+    GetBucketTagging (GetBucketTagging'),
+    newGetBucketTagging,
+    GetBucketTaggingResponse (GetBucketTaggingResponse'),
+    newGetBucketTaggingResponse,
+
+    -- ** GetObjectAcl
+    GetObjectAcl (GetObjectAcl'),
+    newGetObjectAcl,
+    GetObjectAclResponse (GetObjectAclResponse'),
+    newGetObjectAclResponse,
+
+    -- ** PutObjectAcl
+    PutObjectAcl (PutObjectAcl'),
+    newPutObjectAcl,
+    PutObjectAclResponse (PutObjectAclResponse'),
+    newPutObjectAclResponse,
+
+    -- ** CreateBucket
+    CreateBucket (CreateBucket'),
+    newCreateBucket,
+    CreateBucketResponse (CreateBucketResponse'),
+    newCreateBucketResponse,
 
     -- ** GetBucketVersioning
     GetBucketVersioning (GetBucketVersioning'),
@@ -283,71 +295,29 @@ module Network.AWS.S3
     PutBucketTaggingResponse (PutBucketTaggingResponse'),
     newPutBucketTaggingResponse,
 
-    -- ** CreateBucket
-    CreateBucket (CreateBucket'),
-    newCreateBucket,
-    CreateBucketResponse (CreateBucketResponse'),
-    newCreateBucketResponse,
-
-    -- ** PutObjectAcl
-    PutObjectAcl (PutObjectAcl'),
-    newPutObjectAcl,
-    PutObjectAclResponse (PutObjectAclResponse'),
-    newPutObjectAclResponse,
-
     -- ** PutBucketCors
     PutBucketCors (PutBucketCors'),
     newPutBucketCors,
     PutBucketCorsResponse (PutBucketCorsResponse'),
     newPutBucketCorsResponse,
 
-    -- ** GetObjectRetention
-    GetObjectRetention (GetObjectRetention'),
-    newGetObjectRetention,
-    GetObjectRetentionResponse (GetObjectRetentionResponse'),
-    newGetObjectRetentionResponse,
-
-    -- ** GetObjectTorrent
-    GetObjectTorrent (GetObjectTorrent'),
-    newGetObjectTorrent,
-    GetObjectTorrentResponse (GetObjectTorrentResponse'),
-    newGetObjectTorrentResponse,
-
-    -- ** GetBucketOwnershipControls
-    GetBucketOwnershipControls (GetBucketOwnershipControls'),
-    newGetBucketOwnershipControls,
-    GetBucketOwnershipControlsResponse (GetBucketOwnershipControlsResponse'),
-    newGetBucketOwnershipControlsResponse,
-
-    -- ** GetBucketMetricsConfiguration
-    GetBucketMetricsConfiguration (GetBucketMetricsConfiguration'),
-    newGetBucketMetricsConfiguration,
-    GetBucketMetricsConfigurationResponse (GetBucketMetricsConfigurationResponse'),
-    newGetBucketMetricsConfigurationResponse,
-
-    -- ** GetBucketAccelerateConfiguration
-    GetBucketAccelerateConfiguration (GetBucketAccelerateConfiguration'),
-    newGetBucketAccelerateConfiguration,
-    GetBucketAccelerateConfigurationResponse (GetBucketAccelerateConfigurationResponse'),
-    newGetBucketAccelerateConfigurationResponse,
-
-    -- ** GetObjectLegalHold
-    GetObjectLegalHold (GetObjectLegalHold'),
-    newGetObjectLegalHold,
-    GetObjectLegalHoldResponse (GetObjectLegalHoldResponse'),
-    newGetObjectLegalHoldResponse,
-
-    -- ** ListBuckets
-    ListBuckets (ListBuckets'),
-    newListBuckets,
-    ListBucketsResponse (ListBucketsResponse'),
-    newListBucketsResponse,
+    -- ** DeleteBucketIntelligentTieringConfiguration
+    DeleteBucketIntelligentTieringConfiguration (DeleteBucketIntelligentTieringConfiguration'),
+    newDeleteBucketIntelligentTieringConfiguration,
+    DeleteBucketIntelligentTieringConfigurationResponse (DeleteBucketIntelligentTieringConfigurationResponse'),
+    newDeleteBucketIntelligentTieringConfigurationResponse,
 
     -- ** DeleteBucketPolicy
     DeleteBucketPolicy (DeleteBucketPolicy'),
     newDeleteBucketPolicy,
     DeleteBucketPolicyResponse (DeleteBucketPolicyResponse'),
     newDeleteBucketPolicyResponse,
+
+    -- ** GetObjectRetention
+    GetObjectRetention (GetObjectRetention'),
+    newGetObjectRetention,
+    GetObjectRetentionResponse (GetObjectRetentionResponse'),
+    newGetObjectRetentionResponse,
 
     -- ** PutObjectLockConfiguration
     PutObjectLockConfiguration (PutObjectLockConfiguration'),
@@ -361,11 +331,41 @@ module Network.AWS.S3
     AbortMultipartUploadResponse (AbortMultipartUploadResponse'),
     newAbortMultipartUploadResponse,
 
-    -- ** UploadPart
-    UploadPart (UploadPart'),
-    newUploadPart,
-    UploadPartResponse (UploadPartResponse'),
-    newUploadPartResponse,
+    -- ** GetBucketOwnershipControls
+    GetBucketOwnershipControls (GetBucketOwnershipControls'),
+    newGetBucketOwnershipControls,
+    GetBucketOwnershipControlsResponse (GetBucketOwnershipControlsResponse'),
+    newGetBucketOwnershipControlsResponse,
+
+    -- ** GetObjectLegalHold
+    GetObjectLegalHold (GetObjectLegalHold'),
+    newGetObjectLegalHold,
+    GetObjectLegalHoldResponse (GetObjectLegalHoldResponse'),
+    newGetObjectLegalHoldResponse,
+
+    -- ** GetBucketMetricsConfiguration
+    GetBucketMetricsConfiguration (GetBucketMetricsConfiguration'),
+    newGetBucketMetricsConfiguration,
+    GetBucketMetricsConfigurationResponse (GetBucketMetricsConfigurationResponse'),
+    newGetBucketMetricsConfigurationResponse,
+
+    -- ** GetBucketAccelerateConfiguration
+    GetBucketAccelerateConfiguration (GetBucketAccelerateConfiguration'),
+    newGetBucketAccelerateConfiguration,
+    GetBucketAccelerateConfigurationResponse (GetBucketAccelerateConfigurationResponse'),
+    newGetBucketAccelerateConfigurationResponse,
+
+    -- ** ListBuckets
+    ListBuckets (ListBuckets'),
+    newListBuckets,
+    ListBucketsResponse (ListBucketsResponse'),
+    newListBucketsResponse,
+
+    -- ** GetObjectTorrent
+    GetObjectTorrent (GetObjectTorrent'),
+    newGetObjectTorrent,
+    GetObjectTorrentResponse (GetObjectTorrentResponse'),
+    newGetObjectTorrentResponse,
 
     -- ** PutObject
     PutObject (PutObject'),
@@ -373,11 +373,11 @@ module Network.AWS.S3
     PutObjectResponse (PutObjectResponse'),
     newPutObjectResponse,
 
-    -- ** PutBucketRequestPayment
-    PutBucketRequestPayment (PutBucketRequestPayment'),
-    newPutBucketRequestPayment,
-    PutBucketRequestPaymentResponse (PutBucketRequestPaymentResponse'),
-    newPutBucketRequestPaymentResponse,
+    -- ** PutBucketWebsite
+    PutBucketWebsite (PutBucketWebsite'),
+    newPutBucketWebsite,
+    PutBucketWebsiteResponse (PutBucketWebsiteResponse'),
+    newPutBucketWebsiteResponse,
 
     -- ** ListMultipartUploads (Paginated)
     ListMultipartUploads (ListMultipartUploads'),
@@ -385,23 +385,23 @@ module Network.AWS.S3
     ListMultipartUploadsResponse (ListMultipartUploadsResponse'),
     newListMultipartUploadsResponse,
 
+    -- ** PutBucketRequestPayment
+    PutBucketRequestPayment (PutBucketRequestPayment'),
+    newPutBucketRequestPayment,
+    PutBucketRequestPaymentResponse (PutBucketRequestPaymentResponse'),
+    newPutBucketRequestPaymentResponse,
+
+    -- ** UploadPart
+    UploadPart (UploadPart'),
+    newUploadPart,
+    UploadPartResponse (UploadPartResponse'),
+    newUploadPartResponse,
+
     -- ** GetBucketReplication
     GetBucketReplication (GetBucketReplication'),
     newGetBucketReplication,
     GetBucketReplicationResponse (GetBucketReplicationResponse'),
     newGetBucketReplicationResponse,
-
-    -- ** PutBucketWebsite
-    PutBucketWebsite (PutBucketWebsite'),
-    newPutBucketWebsite,
-    PutBucketWebsiteResponse (PutBucketWebsiteResponse'),
-    newPutBucketWebsiteResponse,
-
-    -- ** PutBucketAnalyticsConfiguration
-    PutBucketAnalyticsConfiguration (PutBucketAnalyticsConfiguration'),
-    newPutBucketAnalyticsConfiguration,
-    PutBucketAnalyticsConfigurationResponse (PutBucketAnalyticsConfigurationResponse'),
-    newPutBucketAnalyticsConfigurationResponse,
 
     -- ** PutObjectTagging
     PutObjectTagging (PutObjectTagging'),
@@ -415,17 +415,17 @@ module Network.AWS.S3
     UploadPartCopyResponse (UploadPartCopyResponse'),
     newUploadPartCopyResponse,
 
-    -- ** CreateMultipartUpload
-    CreateMultipartUpload (CreateMultipartUpload'),
-    newCreateMultipartUpload,
-    CreateMultipartUploadResponse (CreateMultipartUploadResponse'),
-    newCreateMultipartUploadResponse,
+    -- ** PutBucketAnalyticsConfiguration
+    PutBucketAnalyticsConfiguration (PutBucketAnalyticsConfiguration'),
+    newPutBucketAnalyticsConfiguration,
+    PutBucketAnalyticsConfigurationResponse (PutBucketAnalyticsConfigurationResponse'),
+    newPutBucketAnalyticsConfigurationResponse,
 
-    -- ** PutBucketLifecycleConfiguration
-    PutBucketLifecycleConfiguration (PutBucketLifecycleConfiguration'),
-    newPutBucketLifecycleConfiguration,
-    PutBucketLifecycleConfigurationResponse (PutBucketLifecycleConfigurationResponse'),
-    newPutBucketLifecycleConfigurationResponse,
+    -- ** ListBucketAnalyticsConfigurations
+    ListBucketAnalyticsConfigurations (ListBucketAnalyticsConfigurations'),
+    newListBucketAnalyticsConfigurations,
+    ListBucketAnalyticsConfigurationsResponse (ListBucketAnalyticsConfigurationsResponse'),
+    newListBucketAnalyticsConfigurationsResponse,
 
     -- ** PutBucketAcl
     PutBucketAcl (PutBucketAcl'),
@@ -439,29 +439,17 @@ module Network.AWS.S3
     DeleteBucketLifecycleResponse (DeleteBucketLifecycleResponse'),
     newDeleteBucketLifecycleResponse,
 
-    -- ** ListBucketAnalyticsConfigurations
-    ListBucketAnalyticsConfigurations (ListBucketAnalyticsConfigurations'),
-    newListBucketAnalyticsConfigurations,
-    ListBucketAnalyticsConfigurationsResponse (ListBucketAnalyticsConfigurationsResponse'),
-    newListBucketAnalyticsConfigurationsResponse,
+    -- ** PutBucketLifecycleConfiguration
+    PutBucketLifecycleConfiguration (PutBucketLifecycleConfiguration'),
+    newPutBucketLifecycleConfiguration,
+    PutBucketLifecycleConfigurationResponse (PutBucketLifecycleConfigurationResponse'),
+    newPutBucketLifecycleConfigurationResponse,
 
-    -- ** GetBucketAnalyticsConfiguration
-    GetBucketAnalyticsConfiguration (GetBucketAnalyticsConfiguration'),
-    newGetBucketAnalyticsConfiguration,
-    GetBucketAnalyticsConfigurationResponse (GetBucketAnalyticsConfigurationResponse'),
-    newGetBucketAnalyticsConfigurationResponse,
-
-    -- ** HeadBucket
-    HeadBucket (HeadBucket'),
-    newHeadBucket,
-    HeadBucketResponse (HeadBucketResponse'),
-    newHeadBucketResponse,
-
-    -- ** ListObjectVersions (Paginated)
-    ListObjectVersions (ListObjectVersions'),
-    newListObjectVersions,
-    ListObjectVersionsResponse (ListObjectVersionsResponse'),
-    newListObjectVersionsResponse,
+    -- ** CreateMultipartUpload
+    CreateMultipartUpload (CreateMultipartUpload'),
+    newCreateMultipartUpload,
+    CreateMultipartUploadResponse (CreateMultipartUploadResponse'),
+    newCreateMultipartUploadResponse,
 
     -- ** GetBucketLifecycleConfiguration
     GetBucketLifecycleConfiguration (GetBucketLifecycleConfiguration'),
@@ -475,6 +463,36 @@ module Network.AWS.S3
     ListPartsResponse (ListPartsResponse'),
     newListPartsResponse,
 
+    -- ** GetBucketAnalyticsConfiguration
+    GetBucketAnalyticsConfiguration (GetBucketAnalyticsConfiguration'),
+    newGetBucketAnalyticsConfiguration,
+    GetBucketAnalyticsConfigurationResponse (GetBucketAnalyticsConfigurationResponse'),
+    newGetBucketAnalyticsConfigurationResponse,
+
+    -- ** ListObjectVersions (Paginated)
+    ListObjectVersions (ListObjectVersions'),
+    newListObjectVersions,
+    ListObjectVersionsResponse (ListObjectVersionsResponse'),
+    newListObjectVersionsResponse,
+
+    -- ** HeadBucket
+    HeadBucket (HeadBucket'),
+    newHeadBucket,
+    HeadBucketResponse (HeadBucketResponse'),
+    newHeadBucketResponse,
+
+    -- ** GetObject
+    GetObject (GetObject'),
+    newGetObject,
+    GetObjectResponse (GetObjectResponse'),
+    newGetObjectResponse,
+
+    -- ** GetBucketLogging
+    GetBucketLogging (GetBucketLogging'),
+    newGetBucketLogging,
+    GetBucketLoggingResponse (GetBucketLoggingResponse'),
+    newGetBucketLoggingResponse,
+
     -- ** GetBucketRequestPayment
     GetBucketRequestPayment (GetBucketRequestPayment'),
     newGetBucketRequestPayment,
@@ -487,17 +505,17 @@ module Network.AWS.S3
     DeleteBucketReplicationResponse (DeleteBucketReplicationResponse'),
     newDeleteBucketReplicationResponse,
 
-    -- ** GetBucketLogging
-    GetBucketLogging (GetBucketLogging'),
-    newGetBucketLogging,
-    GetBucketLoggingResponse (GetBucketLoggingResponse'),
-    newGetBucketLoggingResponse,
+    -- ** ListObjectsV
+    ListObjectsV (ListObjectsV'),
+    newListObjectsV,
+    ListObjectsVResponse (ListObjectsVResponse'),
+    newListObjectsVResponse,
 
-    -- ** GetObject
-    GetObject (GetObject'),
-    newGetObject,
-    GetObjectResponse (GetObjectResponse'),
-    newGetObjectResponse,
+    -- ** DeleteBucketEncryption
+    DeleteBucketEncryption (DeleteBucketEncryption'),
+    newDeleteBucketEncryption,
+    DeleteBucketEncryptionResponse (DeleteBucketEncryptionResponse'),
+    newDeleteBucketEncryptionResponse,
 
     -- ** DeleteBucketOwnershipControls
     DeleteBucketOwnershipControls (DeleteBucketOwnershipControls'),
@@ -511,35 +529,11 @@ module Network.AWS.S3
     PutBucketMetricsConfigurationResponse (PutBucketMetricsConfigurationResponse'),
     newPutBucketMetricsConfigurationResponse,
 
-    -- ** ListObjectsV
-    ListObjectsV (ListObjectsV'),
-    newListObjectsV,
-    ListObjectsVResponse (ListObjectsVResponse'),
-    newListObjectsVResponse,
-
     -- ** CopyObject
     CopyObject (CopyObject'),
     newCopyObject,
     CopyObjectResponse (CopyObjectResponse'),
     newCopyObjectResponse,
-
-    -- ** DeleteBucketEncryption
-    DeleteBucketEncryption (DeleteBucketEncryption'),
-    newDeleteBucketEncryption,
-    DeleteBucketEncryptionResponse (DeleteBucketEncryptionResponse'),
-    newDeleteBucketEncryptionResponse,
-
-    -- ** PutBucketVersioning
-    PutBucketVersioning (PutBucketVersioning'),
-    newPutBucketVersioning,
-    PutBucketVersioningResponse (PutBucketVersioningResponse'),
-    newPutBucketVersioningResponse,
-
-    -- ** GetBucketNotificationConfiguration
-    GetBucketNotificationConfiguration (GetBucketNotificationConfiguration'),
-    newGetBucketNotificationConfiguration,
-    NotificationConfiguration (NotificationConfiguration'),
-    newNotificationConfiguration,
 
     -- ** PutPublicAccessBlock
     PutPublicAccessBlock (PutPublicAccessBlock'),
@@ -547,23 +541,11 @@ module Network.AWS.S3
     PutPublicAccessBlockResponse (PutPublicAccessBlockResponse'),
     newPutPublicAccessBlockResponse,
 
-    -- ** DeleteBucketInventoryConfiguration
-    DeleteBucketInventoryConfiguration (DeleteBucketInventoryConfiguration'),
-    newDeleteBucketInventoryConfiguration,
-    DeleteBucketInventoryConfigurationResponse (DeleteBucketInventoryConfigurationResponse'),
-    newDeleteBucketInventoryConfigurationResponse,
-
-    -- ** GetBucketIntelligentTieringConfiguration
-    GetBucketIntelligentTieringConfiguration (GetBucketIntelligentTieringConfiguration'),
-    newGetBucketIntelligentTieringConfiguration,
-    GetBucketIntelligentTieringConfigurationResponse (GetBucketIntelligentTieringConfigurationResponse'),
-    newGetBucketIntelligentTieringConfigurationResponse,
-
-    -- ** RestoreObject
-    RestoreObject (RestoreObject'),
-    newRestoreObject,
-    RestoreObjectResponse (RestoreObjectResponse'),
-    newRestoreObjectResponse,
+    -- ** GetBucketNotificationConfiguration
+    GetBucketNotificationConfiguration (GetBucketNotificationConfiguration'),
+    newGetBucketNotificationConfiguration,
+    NotificationConfiguration (NotificationConfiguration'),
+    newNotificationConfiguration,
 
     -- ** GetBucketCors
     GetBucketCors (GetBucketCors'),
@@ -571,11 +553,35 @@ module Network.AWS.S3
     GetBucketCorsResponse (GetBucketCorsResponse'),
     newGetBucketCorsResponse,
 
-    -- ** GetBucketInventoryConfiguration
-    GetBucketInventoryConfiguration (GetBucketInventoryConfiguration'),
-    newGetBucketInventoryConfiguration,
-    GetBucketInventoryConfigurationResponse (GetBucketInventoryConfigurationResponse'),
-    newGetBucketInventoryConfigurationResponse,
+    -- ** PutBucketVersioning
+    PutBucketVersioning (PutBucketVersioning'),
+    newPutBucketVersioning,
+    PutBucketVersioningResponse (PutBucketVersioningResponse'),
+    newPutBucketVersioningResponse,
+
+    -- ** RestoreObject
+    RestoreObject (RestoreObject'),
+    newRestoreObject,
+    RestoreObjectResponse (RestoreObjectResponse'),
+    newRestoreObjectResponse,
+
+    -- ** GetBucketIntelligentTieringConfiguration
+    GetBucketIntelligentTieringConfiguration (GetBucketIntelligentTieringConfiguration'),
+    newGetBucketIntelligentTieringConfiguration,
+    GetBucketIntelligentTieringConfigurationResponse (GetBucketIntelligentTieringConfigurationResponse'),
+    newGetBucketIntelligentTieringConfigurationResponse,
+
+    -- ** DeleteBucketInventoryConfiguration
+    DeleteBucketInventoryConfiguration (DeleteBucketInventoryConfiguration'),
+    newDeleteBucketInventoryConfiguration,
+    DeleteBucketInventoryConfigurationResponse (DeleteBucketInventoryConfigurationResponse'),
+    newDeleteBucketInventoryConfigurationResponse,
+
+    -- ** DeleteBucketTagging
+    DeleteBucketTagging (DeleteBucketTagging'),
+    newDeleteBucketTagging,
+    DeleteBucketTaggingResponse (DeleteBucketTaggingResponse'),
+    newDeleteBucketTaggingResponse,
 
     -- ** GetPublicAccessBlock
     GetPublicAccessBlock (GetPublicAccessBlock'),
@@ -583,17 +589,23 @@ module Network.AWS.S3
     GetPublicAccessBlockResponse (GetPublicAccessBlockResponse'),
     newGetPublicAccessBlockResponse,
 
+    -- ** PutBucketIntelligentTieringConfiguration
+    PutBucketIntelligentTieringConfiguration (PutBucketIntelligentTieringConfiguration'),
+    newPutBucketIntelligentTieringConfiguration,
+    PutBucketIntelligentTieringConfigurationResponse (PutBucketIntelligentTieringConfigurationResponse'),
+    newPutBucketIntelligentTieringConfigurationResponse,
+
+    -- ** GetBucketInventoryConfiguration
+    GetBucketInventoryConfiguration (GetBucketInventoryConfiguration'),
+    newGetBucketInventoryConfiguration,
+    GetBucketInventoryConfigurationResponse (GetBucketInventoryConfigurationResponse'),
+    newGetBucketInventoryConfigurationResponse,
+
     -- ** DeleteBucketCors
     DeleteBucketCors (DeleteBucketCors'),
     newDeleteBucketCors,
     DeleteBucketCorsResponse (DeleteBucketCorsResponse'),
     newDeleteBucketCorsResponse,
-
-    -- ** DeleteBucketTagging
-    DeleteBucketTagging (DeleteBucketTagging'),
-    newDeleteBucketTagging,
-    DeleteBucketTaggingResponse (DeleteBucketTaggingResponse'),
-    newDeleteBucketTaggingResponse,
 
     -- ** ListBucketIntelligentTieringConfigurations
     ListBucketIntelligentTieringConfigurations (ListBucketIntelligentTieringConfigurations'),
@@ -606,12 +618,6 @@ module Network.AWS.S3
     newPutBucketNotificationConfiguration,
     PutBucketNotificationConfigurationResponse (PutBucketNotificationConfigurationResponse'),
     newPutBucketNotificationConfigurationResponse,
-
-    -- ** PutBucketIntelligentTieringConfiguration
-    PutBucketIntelligentTieringConfiguration (PutBucketIntelligentTieringConfiguration'),
-    newPutBucketIntelligentTieringConfiguration,
-    PutBucketIntelligentTieringConfigurationResponse (PutBucketIntelligentTieringConfigurationResponse'),
-    newPutBucketIntelligentTieringConfigurationResponse,
 
     -- * Types
 
@@ -1385,6 +1391,7 @@ import Network.AWS.S3.Types
 import Network.AWS.S3.UploadPart
 import Network.AWS.S3.UploadPartCopy
 import Network.AWS.S3.Waiters
+import Network.AWS.S3.WriteGetObjectResponse
 
 -- $errors
 -- Error matchers are designed for use with the functions provided by

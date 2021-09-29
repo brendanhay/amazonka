@@ -27,8 +27,8 @@ import Network.AWS.S3.Types.ExistingObjectReplicationStatus
 
 -- | Optional configuration to replicate existing source bucket objects. For
 -- more information, see
--- <%20https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-what-is-isnot-replicated.html#existing-object-replication Replicating Existing Objects>
--- in the /Amazon S3 Developer Guide/.
+-- <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-what-is-isnot-replicated.html#existing-object-replication Replicating Existing Objects>
+-- in the /Amazon S3 User Guide/.
 --
 -- /See:/ 'newExistingObjectReplication' smart constructor.
 data ExistingObjectReplication = ExistingObjectReplication'

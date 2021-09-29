@@ -57,7 +57,7 @@
 --
 -- For more information about CORS, go to
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html Enabling Cross-Origin Resource Sharing>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 --
 -- __Related Resources__
 --
@@ -92,7 +92,7 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newPutBucketCors' smart constructor.
 data PutBucketCors = PutBucketCors'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
@@ -101,15 +101,16 @@ data PutBucketCors = PutBucketCors'
     -- not corrupted in transit. For more information, go to
     -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864.>
     --
-    -- For requests made using the AWS Command Line Interface (CLI) or AWS
-    -- SDKs, this field is calculated automatically.
+    -- For requests made using the Amazon Web Services Command Line Interface
+    -- (CLI) or Amazon Web Services SDKs, this field is calculated
+    -- automatically.
     contentMD5 :: Prelude.Maybe Prelude.Text,
     -- | Specifies the bucket impacted by the @cors@configuration.
     bucket :: BucketName,
     -- | Describes the cross-origin access configuration for objects in an Amazon
     -- S3 bucket. For more information, see
     -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html Enabling Cross-Origin Resource Sharing>
-    -- in the /Amazon Simple Storage Service Developer Guide/.
+    -- in the /Amazon S3 User Guide/.
     cORSConfiguration :: CORSConfiguration
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -122,7 +123,7 @@ data PutBucketCors = PutBucketCors'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'putBucketCors_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'putBucketCors_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
@@ -131,15 +132,16 @@ data PutBucketCors = PutBucketCors'
 -- not corrupted in transit. For more information, go to
 -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864.>
 --
--- For requests made using the AWS Command Line Interface (CLI) or AWS
--- SDKs, this field is calculated automatically.
+-- For requests made using the Amazon Web Services Command Line Interface
+-- (CLI) or Amazon Web Services SDKs, this field is calculated
+-- automatically.
 --
 -- 'bucket', 'putBucketCors_bucket' - Specifies the bucket impacted by the @cors@configuration.
 --
 -- 'cORSConfiguration', 'putBucketCors_cORSConfiguration' - Describes the cross-origin access configuration for objects in an Amazon
 -- S3 bucket. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html Enabling Cross-Origin Resource Sharing>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 newPutBucketCors ::
   -- | 'bucket'
   BucketName ->
@@ -155,7 +157,7 @@ newPutBucketCors pBucket_ pCORSConfiguration_ =
       cORSConfiguration = pCORSConfiguration_
     }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 putBucketCors_expectedBucketOwner :: Lens.Lens' PutBucketCors (Prelude.Maybe Prelude.Text)
@@ -166,8 +168,9 @@ putBucketCors_expectedBucketOwner = Lens.lens (\PutBucketCors' {expectedBucketOw
 -- not corrupted in transit. For more information, go to
 -- <http://www.ietf.org/rfc/rfc1864.txt RFC 1864.>
 --
--- For requests made using the AWS Command Line Interface (CLI) or AWS
--- SDKs, this field is calculated automatically.
+-- For requests made using the Amazon Web Services Command Line Interface
+-- (CLI) or Amazon Web Services SDKs, this field is calculated
+-- automatically.
 putBucketCors_contentMD5 :: Lens.Lens' PutBucketCors (Prelude.Maybe Prelude.Text)
 putBucketCors_contentMD5 = Lens.lens (\PutBucketCors' {contentMD5} -> contentMD5) (\s@PutBucketCors' {} a -> s {contentMD5 = a} :: PutBucketCors)
 
@@ -178,7 +181,7 @@ putBucketCors_bucket = Lens.lens (\PutBucketCors' {bucket} -> bucket) (\s@PutBuc
 -- | Describes the cross-origin access configuration for objects in an Amazon
 -- S3 bucket. For more information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html Enabling Cross-Origin Resource Sharing>
--- in the /Amazon Simple Storage Service Developer Guide/.
+-- in the /Amazon S3 User Guide/.
 putBucketCors_cORSConfiguration :: Lens.Lens' PutBucketCors CORSConfiguration
 putBucketCors_cORSConfiguration = Lens.lens (\PutBucketCors' {cORSConfiguration} -> cORSConfiguration) (\s@PutBucketCors' {} a -> s {cORSConfiguration = a} :: PutBucketCors)
 

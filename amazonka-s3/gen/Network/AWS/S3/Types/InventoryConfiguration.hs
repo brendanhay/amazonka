@@ -32,7 +32,7 @@ import Network.AWS.S3.Types.InventorySchedule
 -- | Specifies the inventory configuration for an Amazon S3 bucket. For more
 -- information, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketGETInventoryConfig.html GET Bucket inventory>
--- in the /Amazon Simple Storage Service API Reference/.
+-- in the /Amazon S3 API Reference/.
 --
 -- /See:/ 'newInventoryConfiguration' smart constructor.
 data InventoryConfiguration = InventoryConfiguration'

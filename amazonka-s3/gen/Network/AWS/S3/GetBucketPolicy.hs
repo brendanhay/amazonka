@@ -21,24 +21,25 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the policy of a specified bucket. If you are using an identity
--- other than the root user of the AWS account that owns the bucket, the
--- calling identity must have the @GetBucketPolicy@ permissions on the
--- specified bucket and belong to the bucket owner\'s account in order to
--- use this operation.
+-- other than the root user of the Amazon Web Services account that owns
+-- the bucket, the calling identity must have the @GetBucketPolicy@
+-- permissions on the specified bucket and belong to the bucket owner\'s
+-- account in order to use this operation.
 --
 -- If you don\'t have @GetBucketPolicy@ permissions, Amazon S3 returns a
 -- @403 Access Denied@ error. If you have the correct permissions, but
 -- you\'re not using an identity that belongs to the bucket owner\'s
 -- account, Amazon S3 returns a @405 Method Not Allowed@ error.
 --
--- As a security precaution, the root user of the AWS account that owns a
--- bucket can always use this operation, even if the policy explicitly
--- denies the root user the ability to perform this action.
+-- As a security precaution, the root user of the Amazon Web Services
+-- account that owns a bucket can always use this operation, even if the
+-- policy explicitly denies the root user the ability to perform this
+-- action.
 --
 -- For more information about bucket policies, see
 -- <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html Using Bucket Policies and User Policies>.
 --
--- The following operation is related to @GetBucketPolicy@:
+-- The following action is related to @GetBucketPolicy@:
 --
 -- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html GetObject>
 module Network.AWS.S3.GetBucketPolicy
@@ -69,7 +70,7 @@ import Network.AWS.S3.Types
 
 -- | /See:/ 'newGetBucketPolicy' smart constructor.
 data GetBucketPolicy = GetBucketPolicy'
-  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+  { -- | The account ID of the expected bucket owner. If the bucket is owned by a
     -- different account, the request will fail with an HTTP
     -- @403 (Access Denied)@ error.
     expectedBucketOwner :: Prelude.Maybe Prelude.Text,
@@ -86,7 +87,7 @@ data GetBucketPolicy = GetBucketPolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expectedBucketOwner', 'getBucketPolicy_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- 'expectedBucketOwner', 'getBucketPolicy_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 --
@@ -102,7 +103,7 @@ newGetBucketPolicy pBucket_ =
       bucket = pBucket_
     }
 
--- | The account id of the expected bucket owner. If the bucket is owned by a
+-- | The account ID of the expected bucket owner. If the bucket is owned by a
 -- different account, the request will fail with an HTTP
 -- @403 (Access Denied)@ error.
 getBucketPolicy_expectedBucketOwner :: Lens.Lens' GetBucketPolicy (Prelude.Maybe Prelude.Text)

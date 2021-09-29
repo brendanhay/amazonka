@@ -33,6 +33,9 @@ data CORSRule = CORSRule'
     -- response to any preflight OPTIONS request, Amazon S3 returns any
     -- requested headers that are allowed.
     allowedHeaders :: Prelude.Maybe [Prelude.Text],
+    -- | Unique identifier for the rule. The value cannot be longer than 255
+    -- characters.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The time in seconds that your browser is to cache the preflight response
     -- for the specified resource.
     maxAgeSeconds :: Prelude.Maybe Prelude.Int,
@@ -62,6 +65,9 @@ data CORSRule = CORSRule'
 -- response to any preflight OPTIONS request, Amazon S3 returns any
 -- requested headers that are allowed.
 --
+-- 'id', 'cORSRule_id' - Unique identifier for the rule. The value cannot be longer than 255
+-- characters.
+--
 -- 'maxAgeSeconds', 'cORSRule_maxAgeSeconds' - The time in seconds that your browser is to cache the preflight response
 -- for the specified resource.
 --
@@ -79,6 +85,7 @@ newCORSRule ::
 newCORSRule =
   CORSRule'
     { allowedHeaders = Prelude.Nothing,
+      id = Prelude.Nothing,
       maxAgeSeconds = Prelude.Nothing,
       exposeHeaders = Prelude.Nothing,
       allowedMethods = Prelude.mempty,
@@ -91,6 +98,11 @@ newCORSRule =
 -- requested headers that are allowed.
 cORSRule_allowedHeaders :: Lens.Lens' CORSRule (Prelude.Maybe [Prelude.Text])
 cORSRule_allowedHeaders = Lens.lens (\CORSRule' {allowedHeaders} -> allowedHeaders) (\s@CORSRule' {} a -> s {allowedHeaders = a} :: CORSRule) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Unique identifier for the rule. The value cannot be longer than 255
+-- characters.
+cORSRule_id :: Lens.Lens' CORSRule (Prelude.Maybe Prelude.Text)
+cORSRule_id = Lens.lens (\CORSRule' {id} -> id) (\s@CORSRule' {} a -> s {id = a} :: CORSRule)
 
 -- | The time in seconds that your browser is to cache the preflight response
 -- for the specified resource.
@@ -117,6 +129,7 @@ instance Core.FromXML CORSRule where
   parseXML x =
     CORSRule'
       Prelude.<$> (Core.may (Core.parseXMLList "AllowedHeader") x)
+      Prelude.<*> (x Core..@? "ID")
       Prelude.<*> (x Core..@? "MaxAgeSeconds")
       Prelude.<*> (Core.may (Core.parseXMLList "ExposeHeader") x)
       Prelude.<*> (Core.parseXMLList "AllowedMethod" x)
@@ -133,6 +146,7 @@ instance Core.ToXML CORSRule where
           ( Core.toXMLList "AllowedHeader"
               Prelude.<$> allowedHeaders
           ),
+        "ID" Core.@= id,
         "MaxAgeSeconds" Core.@= maxAgeSeconds,
         Core.toXML
           ( Core.toXMLList "ExposeHeader"

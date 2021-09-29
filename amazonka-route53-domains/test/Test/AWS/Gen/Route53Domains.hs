@@ -27,17 +27,17 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestTransferDomainToAnotherAwsAccount $
---             newTransferDomainToAnotherAwsAccount
---
---         , requestUpdateDomainContactPrivacy $
---             newUpdateDomainContactPrivacy
+--         [ requestCheckDomainTransferability $
+--             newCheckDomainTransferability
 --
 --         , requestCheckDomainAvailability $
 --             newCheckDomainAvailability
 --
---         , requestCheckDomainTransferability $
---             newCheckDomainTransferability
+--         , requestTransferDomainToAnotherAwsAccount $
+--             newTransferDomainToAnotherAwsAccount
+--
+--         , requestUpdateDomainContactPrivacy $
+--             newUpdateDomainContactPrivacy
 --
 --         , requestListOperations $
 --             newListOperations
@@ -45,29 +45,29 @@ import Test.Tasty
 --         , requestDisableDomainTransferLock $
 --             newDisableDomainTransferLock
 --
+--         , requestEnableDomainTransferLock $
+--             newEnableDomainTransferLock
+--
 --         , requestRegisterDomain $
 --             newRegisterDomain
 --
 --         , requestGetDomainSuggestions $
 --             newGetDomainSuggestions
 --
---         , requestListDomains $
---             newListDomains
---
 --         , requestCancelDomainTransferToAnotherAwsAccount $
 --             newCancelDomainTransferToAnotherAwsAccount
 --
---         , requestEnableDomainTransferLock $
---             newEnableDomainTransferLock
+--         , requestListDomains $
+--             newListDomains
 --
 --         , requestViewBilling $
 --             newViewBilling
 --
---         , requestDeleteTagsForDomain $
---             newDeleteTagsForDomain
---
 --         , requestUpdateTagsForDomain $
 --             newUpdateTagsForDomain
+--
+--         , requestDeleteTagsForDomain $
+--             newDeleteTagsForDomain
 --
 --         , requestListTagsForDomain $
 --             newListTagsForDomain
@@ -90,11 +90,11 @@ import Test.Tasty
 --         , requestRejectDomainTransferFromAnotherAwsAccount $
 --             newRejectDomainTransferFromAnotherAwsAccount
 --
---         , requestAcceptDomainTransferFromAnotherAwsAccount $
---             newAcceptDomainTransferFromAnotherAwsAccount
---
 --         , requestGetOperationDetail $
 --             newGetOperationDetail
+--
+--         , requestAcceptDomainTransferFromAnotherAwsAccount $
+--             newAcceptDomainTransferFromAnotherAwsAccount
 --
 --         , requestGetDomainDetail $
 --             newGetDomainDetail
@@ -102,11 +102,11 @@ import Test.Tasty
 --         , requestUpdateDomainContact $
 --             newUpdateDomainContact
 --
---         , requestTransferDomain $
---             newTransferDomain
---
 --         , requestRenewDomain $
 --             newRenewDomain
+--
+--         , requestTransferDomain $
+--             newTransferDomain
 --
 --         , requestRetrieveDomainAuthCode $
 --             newRetrieveDomainAuthCode
@@ -114,17 +114,17 @@ import Test.Tasty
 --           ]
 
 --     , testGroup "response"
---         [ responseTransferDomainToAnotherAwsAccount $
---             newTransferDomainToAnotherAwsAccountResponse
---
---         , responseUpdateDomainContactPrivacy $
---             newUpdateDomainContactPrivacyResponse
+--         [ responseCheckDomainTransferability $
+--             newCheckDomainTransferabilityResponse
 --
 --         , responseCheckDomainAvailability $
 --             newCheckDomainAvailabilityResponse
 --
---         , responseCheckDomainTransferability $
---             newCheckDomainTransferabilityResponse
+--         , responseTransferDomainToAnotherAwsAccount $
+--             newTransferDomainToAnotherAwsAccountResponse
+--
+--         , responseUpdateDomainContactPrivacy $
+--             newUpdateDomainContactPrivacyResponse
 --
 --         , responseListOperations $
 --             newListOperationsResponse
@@ -132,29 +132,29 @@ import Test.Tasty
 --         , responseDisableDomainTransferLock $
 --             newDisableDomainTransferLockResponse
 --
+--         , responseEnableDomainTransferLock $
+--             newEnableDomainTransferLockResponse
+--
 --         , responseRegisterDomain $
 --             newRegisterDomainResponse
 --
 --         , responseGetDomainSuggestions $
 --             newGetDomainSuggestionsResponse
 --
---         , responseListDomains $
---             newListDomainsResponse
---
 --         , responseCancelDomainTransferToAnotherAwsAccount $
 --             newCancelDomainTransferToAnotherAwsAccountResponse
 --
---         , responseEnableDomainTransferLock $
---             newEnableDomainTransferLockResponse
+--         , responseListDomains $
+--             newListDomainsResponse
 --
 --         , responseViewBilling $
 --             newViewBillingResponse
 --
---         , responseDeleteTagsForDomain $
---             newDeleteTagsForDomainResponse
---
 --         , responseUpdateTagsForDomain $
 --             newUpdateTagsForDomainResponse
+--
+--         , responseDeleteTagsForDomain $
+--             newDeleteTagsForDomainResponse
 --
 --         , responseListTagsForDomain $
 --             newListTagsForDomainResponse
@@ -177,11 +177,11 @@ import Test.Tasty
 --         , responseRejectDomainTransferFromAnotherAwsAccount $
 --             newRejectDomainTransferFromAnotherAwsAccountResponse
 --
---         , responseAcceptDomainTransferFromAnotherAwsAccount $
---             newAcceptDomainTransferFromAnotherAwsAccountResponse
---
 --         , responseGetOperationDetail $
 --             newGetOperationDetailResponse
+--
+--         , responseAcceptDomainTransferFromAnotherAwsAccount $
+--             newAcceptDomainTransferFromAnotherAwsAccountResponse
 --
 --         , responseGetDomainDetail $
 --             newGetDomainDetailResponse
@@ -189,11 +189,11 @@ import Test.Tasty
 --         , responseUpdateDomainContact $
 --             newUpdateDomainContactResponse
 --
---         , responseTransferDomain $
---             newTransferDomainResponse
---
 --         , responseRenewDomain $
 --             newRenewDomainResponse
+--
+--         , responseTransferDomain $
+--             newTransferDomainResponse
 --
 --         , responseRetrieveDomainAuthCode $
 --             newRetrieveDomainAuthCodeResponse
@@ -202,6 +202,18 @@ import Test.Tasty
 --     ]
 
 -- Requests
+
+requestCheckDomainTransferability :: CheckDomainTransferability -> TestTree
+requestCheckDomainTransferability =
+  req
+    "CheckDomainTransferability"
+    "fixture/CheckDomainTransferability.yaml"
+
+requestCheckDomainAvailability :: CheckDomainAvailability -> TestTree
+requestCheckDomainAvailability =
+  req
+    "CheckDomainAvailability"
+    "fixture/CheckDomainAvailability.yaml"
 
 requestTransferDomainToAnotherAwsAccount :: TransferDomainToAnotherAwsAccount -> TestTree
 requestTransferDomainToAnotherAwsAccount =
@@ -215,18 +227,6 @@ requestUpdateDomainContactPrivacy =
     "UpdateDomainContactPrivacy"
     "fixture/UpdateDomainContactPrivacy.yaml"
 
-requestCheckDomainAvailability :: CheckDomainAvailability -> TestTree
-requestCheckDomainAvailability =
-  req
-    "CheckDomainAvailability"
-    "fixture/CheckDomainAvailability.yaml"
-
-requestCheckDomainTransferability :: CheckDomainTransferability -> TestTree
-requestCheckDomainTransferability =
-  req
-    "CheckDomainTransferability"
-    "fixture/CheckDomainTransferability.yaml"
-
 requestListOperations :: ListOperations -> TestTree
 requestListOperations =
   req
@@ -238,6 +238,12 @@ requestDisableDomainTransferLock =
   req
     "DisableDomainTransferLock"
     "fixture/DisableDomainTransferLock.yaml"
+
+requestEnableDomainTransferLock :: EnableDomainTransferLock -> TestTree
+requestEnableDomainTransferLock =
+  req
+    "EnableDomainTransferLock"
+    "fixture/EnableDomainTransferLock.yaml"
 
 requestRegisterDomain :: RegisterDomain -> TestTree
 requestRegisterDomain =
@@ -251,23 +257,17 @@ requestGetDomainSuggestions =
     "GetDomainSuggestions"
     "fixture/GetDomainSuggestions.yaml"
 
-requestListDomains :: ListDomains -> TestTree
-requestListDomains =
-  req
-    "ListDomains"
-    "fixture/ListDomains.yaml"
-
 requestCancelDomainTransferToAnotherAwsAccount :: CancelDomainTransferToAnotherAwsAccount -> TestTree
 requestCancelDomainTransferToAnotherAwsAccount =
   req
     "CancelDomainTransferToAnotherAwsAccount"
     "fixture/CancelDomainTransferToAnotherAwsAccount.yaml"
 
-requestEnableDomainTransferLock :: EnableDomainTransferLock -> TestTree
-requestEnableDomainTransferLock =
+requestListDomains :: ListDomains -> TestTree
+requestListDomains =
   req
-    "EnableDomainTransferLock"
-    "fixture/EnableDomainTransferLock.yaml"
+    "ListDomains"
+    "fixture/ListDomains.yaml"
 
 requestViewBilling :: ViewBilling -> TestTree
 requestViewBilling =
@@ -275,17 +275,17 @@ requestViewBilling =
     "ViewBilling"
     "fixture/ViewBilling.yaml"
 
-requestDeleteTagsForDomain :: DeleteTagsForDomain -> TestTree
-requestDeleteTagsForDomain =
-  req
-    "DeleteTagsForDomain"
-    "fixture/DeleteTagsForDomain.yaml"
-
 requestUpdateTagsForDomain :: UpdateTagsForDomain -> TestTree
 requestUpdateTagsForDomain =
   req
     "UpdateTagsForDomain"
     "fixture/UpdateTagsForDomain.yaml"
+
+requestDeleteTagsForDomain :: DeleteTagsForDomain -> TestTree
+requestDeleteTagsForDomain =
+  req
+    "DeleteTagsForDomain"
+    "fixture/DeleteTagsForDomain.yaml"
 
 requestListTagsForDomain :: ListTagsForDomain -> TestTree
 requestListTagsForDomain =
@@ -329,17 +329,17 @@ requestRejectDomainTransferFromAnotherAwsAccount =
     "RejectDomainTransferFromAnotherAwsAccount"
     "fixture/RejectDomainTransferFromAnotherAwsAccount.yaml"
 
-requestAcceptDomainTransferFromAnotherAwsAccount :: AcceptDomainTransferFromAnotherAwsAccount -> TestTree
-requestAcceptDomainTransferFromAnotherAwsAccount =
-  req
-    "AcceptDomainTransferFromAnotherAwsAccount"
-    "fixture/AcceptDomainTransferFromAnotherAwsAccount.yaml"
-
 requestGetOperationDetail :: GetOperationDetail -> TestTree
 requestGetOperationDetail =
   req
     "GetOperationDetail"
     "fixture/GetOperationDetail.yaml"
+
+requestAcceptDomainTransferFromAnotherAwsAccount :: AcceptDomainTransferFromAnotherAwsAccount -> TestTree
+requestAcceptDomainTransferFromAnotherAwsAccount =
+  req
+    "AcceptDomainTransferFromAnotherAwsAccount"
+    "fixture/AcceptDomainTransferFromAnotherAwsAccount.yaml"
 
 requestGetDomainDetail :: GetDomainDetail -> TestTree
 requestGetDomainDetail =
@@ -353,17 +353,17 @@ requestUpdateDomainContact =
     "UpdateDomainContact"
     "fixture/UpdateDomainContact.yaml"
 
-requestTransferDomain :: TransferDomain -> TestTree
-requestTransferDomain =
-  req
-    "TransferDomain"
-    "fixture/TransferDomain.yaml"
-
 requestRenewDomain :: RenewDomain -> TestTree
 requestRenewDomain =
   req
     "RenewDomain"
     "fixture/RenewDomain.yaml"
+
+requestTransferDomain :: TransferDomain -> TestTree
+requestTransferDomain =
+  req
+    "TransferDomain"
+    "fixture/TransferDomain.yaml"
 
 requestRetrieveDomainAuthCode :: RetrieveDomainAuthCode -> TestTree
 requestRetrieveDomainAuthCode =
@@ -372,6 +372,22 @@ requestRetrieveDomainAuthCode =
     "fixture/RetrieveDomainAuthCode.yaml"
 
 -- Responses
+
+responseCheckDomainTransferability :: CheckDomainTransferabilityResponse -> TestTree
+responseCheckDomainTransferability =
+  res
+    "CheckDomainTransferabilityResponse"
+    "fixture/CheckDomainTransferabilityResponse.proto"
+    defaultService
+    (Proxy :: Proxy CheckDomainTransferability)
+
+responseCheckDomainAvailability :: CheckDomainAvailabilityResponse -> TestTree
+responseCheckDomainAvailability =
+  res
+    "CheckDomainAvailabilityResponse"
+    "fixture/CheckDomainAvailabilityResponse.proto"
+    defaultService
+    (Proxy :: Proxy CheckDomainAvailability)
 
 responseTransferDomainToAnotherAwsAccount :: TransferDomainToAnotherAwsAccountResponse -> TestTree
 responseTransferDomainToAnotherAwsAccount =
@@ -389,22 +405,6 @@ responseUpdateDomainContactPrivacy =
     defaultService
     (Proxy :: Proxy UpdateDomainContactPrivacy)
 
-responseCheckDomainAvailability :: CheckDomainAvailabilityResponse -> TestTree
-responseCheckDomainAvailability =
-  res
-    "CheckDomainAvailabilityResponse"
-    "fixture/CheckDomainAvailabilityResponse.proto"
-    defaultService
-    (Proxy :: Proxy CheckDomainAvailability)
-
-responseCheckDomainTransferability :: CheckDomainTransferabilityResponse -> TestTree
-responseCheckDomainTransferability =
-  res
-    "CheckDomainTransferabilityResponse"
-    "fixture/CheckDomainTransferabilityResponse.proto"
-    defaultService
-    (Proxy :: Proxy CheckDomainTransferability)
-
 responseListOperations :: ListOperationsResponse -> TestTree
 responseListOperations =
   res
@@ -420,6 +420,14 @@ responseDisableDomainTransferLock =
     "fixture/DisableDomainTransferLockResponse.proto"
     defaultService
     (Proxy :: Proxy DisableDomainTransferLock)
+
+responseEnableDomainTransferLock :: EnableDomainTransferLockResponse -> TestTree
+responseEnableDomainTransferLock =
+  res
+    "EnableDomainTransferLockResponse"
+    "fixture/EnableDomainTransferLockResponse.proto"
+    defaultService
+    (Proxy :: Proxy EnableDomainTransferLock)
 
 responseRegisterDomain :: RegisterDomainResponse -> TestTree
 responseRegisterDomain =
@@ -437,14 +445,6 @@ responseGetDomainSuggestions =
     defaultService
     (Proxy :: Proxy GetDomainSuggestions)
 
-responseListDomains :: ListDomainsResponse -> TestTree
-responseListDomains =
-  res
-    "ListDomainsResponse"
-    "fixture/ListDomainsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListDomains)
-
 responseCancelDomainTransferToAnotherAwsAccount :: CancelDomainTransferToAnotherAwsAccountResponse -> TestTree
 responseCancelDomainTransferToAnotherAwsAccount =
   res
@@ -453,13 +453,13 @@ responseCancelDomainTransferToAnotherAwsAccount =
     defaultService
     (Proxy :: Proxy CancelDomainTransferToAnotherAwsAccount)
 
-responseEnableDomainTransferLock :: EnableDomainTransferLockResponse -> TestTree
-responseEnableDomainTransferLock =
+responseListDomains :: ListDomainsResponse -> TestTree
+responseListDomains =
   res
-    "EnableDomainTransferLockResponse"
-    "fixture/EnableDomainTransferLockResponse.proto"
+    "ListDomainsResponse"
+    "fixture/ListDomainsResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableDomainTransferLock)
+    (Proxy :: Proxy ListDomains)
 
 responseViewBilling :: ViewBillingResponse -> TestTree
 responseViewBilling =
@@ -469,14 +469,6 @@ responseViewBilling =
     defaultService
     (Proxy :: Proxy ViewBilling)
 
-responseDeleteTagsForDomain :: DeleteTagsForDomainResponse -> TestTree
-responseDeleteTagsForDomain =
-  res
-    "DeleteTagsForDomainResponse"
-    "fixture/DeleteTagsForDomainResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteTagsForDomain)
-
 responseUpdateTagsForDomain :: UpdateTagsForDomainResponse -> TestTree
 responseUpdateTagsForDomain =
   res
@@ -484,6 +476,14 @@ responseUpdateTagsForDomain =
     "fixture/UpdateTagsForDomainResponse.proto"
     defaultService
     (Proxy :: Proxy UpdateTagsForDomain)
+
+responseDeleteTagsForDomain :: DeleteTagsForDomainResponse -> TestTree
+responseDeleteTagsForDomain =
+  res
+    "DeleteTagsForDomainResponse"
+    "fixture/DeleteTagsForDomainResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteTagsForDomain)
 
 responseListTagsForDomain :: ListTagsForDomainResponse -> TestTree
 responseListTagsForDomain =
@@ -541,14 +541,6 @@ responseRejectDomainTransferFromAnotherAwsAccount =
     defaultService
     (Proxy :: Proxy RejectDomainTransferFromAnotherAwsAccount)
 
-responseAcceptDomainTransferFromAnotherAwsAccount :: AcceptDomainTransferFromAnotherAwsAccountResponse -> TestTree
-responseAcceptDomainTransferFromAnotherAwsAccount =
-  res
-    "AcceptDomainTransferFromAnotherAwsAccountResponse"
-    "fixture/AcceptDomainTransferFromAnotherAwsAccountResponse.proto"
-    defaultService
-    (Proxy :: Proxy AcceptDomainTransferFromAnotherAwsAccount)
-
 responseGetOperationDetail :: GetOperationDetailResponse -> TestTree
 responseGetOperationDetail =
   res
@@ -556,6 +548,14 @@ responseGetOperationDetail =
     "fixture/GetOperationDetailResponse.proto"
     defaultService
     (Proxy :: Proxy GetOperationDetail)
+
+responseAcceptDomainTransferFromAnotherAwsAccount :: AcceptDomainTransferFromAnotherAwsAccountResponse -> TestTree
+responseAcceptDomainTransferFromAnotherAwsAccount =
+  res
+    "AcceptDomainTransferFromAnotherAwsAccountResponse"
+    "fixture/AcceptDomainTransferFromAnotherAwsAccountResponse.proto"
+    defaultService
+    (Proxy :: Proxy AcceptDomainTransferFromAnotherAwsAccount)
 
 responseGetDomainDetail :: GetDomainDetailResponse -> TestTree
 responseGetDomainDetail =
@@ -573,14 +573,6 @@ responseUpdateDomainContact =
     defaultService
     (Proxy :: Proxy UpdateDomainContact)
 
-responseTransferDomain :: TransferDomainResponse -> TestTree
-responseTransferDomain =
-  res
-    "TransferDomainResponse"
-    "fixture/TransferDomainResponse.proto"
-    defaultService
-    (Proxy :: Proxy TransferDomain)
-
 responseRenewDomain :: RenewDomainResponse -> TestTree
 responseRenewDomain =
   res
@@ -588,6 +580,14 @@ responseRenewDomain =
     "fixture/RenewDomainResponse.proto"
     defaultService
     (Proxy :: Proxy RenewDomain)
+
+responseTransferDomain :: TransferDomainResponse -> TestTree
+responseTransferDomain =
+  res
+    "TransferDomainResponse"
+    "fixture/TransferDomainResponse.proto"
+    defaultService
+    (Proxy :: Proxy TransferDomain)
 
 responseRetrieveDomainAuthCode :: RetrieveDomainAuthCodeResponse -> TestTree
 responseRetrieveDomainAuthCode =

@@ -43,6 +43,18 @@ module Network.AWS.Route53Domains
     -- * Operations
     -- $operations
 
+    -- ** CheckDomainTransferability
+    CheckDomainTransferability (CheckDomainTransferability'),
+    newCheckDomainTransferability,
+    CheckDomainTransferabilityResponse (CheckDomainTransferabilityResponse'),
+    newCheckDomainTransferabilityResponse,
+
+    -- ** CheckDomainAvailability
+    CheckDomainAvailability (CheckDomainAvailability'),
+    newCheckDomainAvailability,
+    CheckDomainAvailabilityResponse (CheckDomainAvailabilityResponse'),
+    newCheckDomainAvailabilityResponse,
+
     -- ** TransferDomainToAnotherAwsAccount
     TransferDomainToAnotherAwsAccount (TransferDomainToAnotherAwsAccount'),
     newTransferDomainToAnotherAwsAccount,
@@ -54,18 +66,6 @@ module Network.AWS.Route53Domains
     newUpdateDomainContactPrivacy,
     UpdateDomainContactPrivacyResponse (UpdateDomainContactPrivacyResponse'),
     newUpdateDomainContactPrivacyResponse,
-
-    -- ** CheckDomainAvailability
-    CheckDomainAvailability (CheckDomainAvailability'),
-    newCheckDomainAvailability,
-    CheckDomainAvailabilityResponse (CheckDomainAvailabilityResponse'),
-    newCheckDomainAvailabilityResponse,
-
-    -- ** CheckDomainTransferability
-    CheckDomainTransferability (CheckDomainTransferability'),
-    newCheckDomainTransferability,
-    CheckDomainTransferabilityResponse (CheckDomainTransferabilityResponse'),
-    newCheckDomainTransferabilityResponse,
 
     -- ** ListOperations (Paginated)
     ListOperations (ListOperations'),
@@ -79,6 +79,12 @@ module Network.AWS.Route53Domains
     DisableDomainTransferLockResponse (DisableDomainTransferLockResponse'),
     newDisableDomainTransferLockResponse,
 
+    -- ** EnableDomainTransferLock
+    EnableDomainTransferLock (EnableDomainTransferLock'),
+    newEnableDomainTransferLock,
+    EnableDomainTransferLockResponse (EnableDomainTransferLockResponse'),
+    newEnableDomainTransferLockResponse,
+
     -- ** RegisterDomain
     RegisterDomain (RegisterDomain'),
     newRegisterDomain,
@@ -91,23 +97,17 @@ module Network.AWS.Route53Domains
     GetDomainSuggestionsResponse (GetDomainSuggestionsResponse'),
     newGetDomainSuggestionsResponse,
 
-    -- ** ListDomains (Paginated)
-    ListDomains (ListDomains'),
-    newListDomains,
-    ListDomainsResponse (ListDomainsResponse'),
-    newListDomainsResponse,
-
     -- ** CancelDomainTransferToAnotherAwsAccount
     CancelDomainTransferToAnotherAwsAccount (CancelDomainTransferToAnotherAwsAccount'),
     newCancelDomainTransferToAnotherAwsAccount,
     CancelDomainTransferToAnotherAwsAccountResponse (CancelDomainTransferToAnotherAwsAccountResponse'),
     newCancelDomainTransferToAnotherAwsAccountResponse,
 
-    -- ** EnableDomainTransferLock
-    EnableDomainTransferLock (EnableDomainTransferLock'),
-    newEnableDomainTransferLock,
-    EnableDomainTransferLockResponse (EnableDomainTransferLockResponse'),
-    newEnableDomainTransferLockResponse,
+    -- ** ListDomains (Paginated)
+    ListDomains (ListDomains'),
+    newListDomains,
+    ListDomainsResponse (ListDomainsResponse'),
+    newListDomainsResponse,
 
     -- ** ViewBilling (Paginated)
     ViewBilling (ViewBilling'),
@@ -115,17 +115,17 @@ module Network.AWS.Route53Domains
     ViewBillingResponse (ViewBillingResponse'),
     newViewBillingResponse,
 
-    -- ** DeleteTagsForDomain
-    DeleteTagsForDomain (DeleteTagsForDomain'),
-    newDeleteTagsForDomain,
-    DeleteTagsForDomainResponse (DeleteTagsForDomainResponse'),
-    newDeleteTagsForDomainResponse,
-
     -- ** UpdateTagsForDomain
     UpdateTagsForDomain (UpdateTagsForDomain'),
     newUpdateTagsForDomain,
     UpdateTagsForDomainResponse (UpdateTagsForDomainResponse'),
     newUpdateTagsForDomainResponse,
+
+    -- ** DeleteTagsForDomain
+    DeleteTagsForDomain (DeleteTagsForDomain'),
+    newDeleteTagsForDomain,
+    DeleteTagsForDomainResponse (DeleteTagsForDomainResponse'),
+    newDeleteTagsForDomainResponse,
 
     -- ** ListTagsForDomain
     ListTagsForDomain (ListTagsForDomain'),
@@ -169,17 +169,17 @@ module Network.AWS.Route53Domains
     RejectDomainTransferFromAnotherAwsAccountResponse (RejectDomainTransferFromAnotherAwsAccountResponse'),
     newRejectDomainTransferFromAnotherAwsAccountResponse,
 
-    -- ** AcceptDomainTransferFromAnotherAwsAccount
-    AcceptDomainTransferFromAnotherAwsAccount (AcceptDomainTransferFromAnotherAwsAccount'),
-    newAcceptDomainTransferFromAnotherAwsAccount,
-    AcceptDomainTransferFromAnotherAwsAccountResponse (AcceptDomainTransferFromAnotherAwsAccountResponse'),
-    newAcceptDomainTransferFromAnotherAwsAccountResponse,
-
     -- ** GetOperationDetail
     GetOperationDetail (GetOperationDetail'),
     newGetOperationDetail,
     GetOperationDetailResponse (GetOperationDetailResponse'),
     newGetOperationDetailResponse,
+
+    -- ** AcceptDomainTransferFromAnotherAwsAccount
+    AcceptDomainTransferFromAnotherAwsAccount (AcceptDomainTransferFromAnotherAwsAccount'),
+    newAcceptDomainTransferFromAnotherAwsAccount,
+    AcceptDomainTransferFromAnotherAwsAccountResponse (AcceptDomainTransferFromAnotherAwsAccountResponse'),
+    newAcceptDomainTransferFromAnotherAwsAccountResponse,
 
     -- ** GetDomainDetail
     GetDomainDetail (GetDomainDetail'),
@@ -193,17 +193,17 @@ module Network.AWS.Route53Domains
     UpdateDomainContactResponse (UpdateDomainContactResponse'),
     newUpdateDomainContactResponse,
 
-    -- ** TransferDomain
-    TransferDomain (TransferDomain'),
-    newTransferDomain,
-    TransferDomainResponse (TransferDomainResponse'),
-    newTransferDomainResponse,
-
     -- ** RenewDomain
     RenewDomain (RenewDomain'),
     newRenewDomain,
     RenewDomainResponse (RenewDomainResponse'),
     newRenewDomainResponse,
+
+    -- ** TransferDomain
+    TransferDomain (TransferDomain'),
+    newTransferDomain,
+    TransferDomainResponse (TransferDomainResponse'),
+    newTransferDomainResponse,
 
     -- ** RetrieveDomainAuthCode
     RetrieveDomainAuthCode (RetrieveDomainAuthCode'),

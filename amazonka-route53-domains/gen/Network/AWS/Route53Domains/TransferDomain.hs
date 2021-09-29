@@ -71,8 +71,8 @@ module Network.AWS.Route53Domains.TransferDomain
     transferDomain_authCode,
     transferDomain_idnLangCode,
     transferDomain_privacyProtectTechContact,
-    transferDomain_privacyProtectRegistrantContact,
     transferDomain_privacyProtectAdminContact,
+    transferDomain_privacyProtectRegistrantContact,
     transferDomain_domainName,
     transferDomain_durationInYears,
     transferDomain_adminContact,
@@ -126,19 +126,19 @@ data TransferDomain = TransferDomain'
     -- information either for Amazon Registrar (for .com, .net, and .org
     -- domains) or for our registrar associate, Gandi (for all other TLDs). If
     -- you specify @false@, WHOIS queries return the information that you
-    -- entered for the registrant contact (domain owner).
+    -- entered for the admin contact.
     --
     -- Default: @true@
-    privacyProtectRegistrantContact :: Prelude.Maybe Prelude.Bool,
+    privacyProtectAdminContact :: Prelude.Maybe Prelude.Bool,
     -- | Whether you want to conceal contact information from WHOIS queries. If
     -- you specify @true@, WHOIS (\"who is\") queries return contact
     -- information either for Amazon Registrar (for .com, .net, and .org
     -- domains) or for our registrar associate, Gandi (for all other TLDs). If
     -- you specify @false@, WHOIS queries return the information that you
-    -- entered for the admin contact.
+    -- entered for the registrant contact (domain owner).
     --
     -- Default: @true@
-    privacyProtectAdminContact :: Prelude.Maybe Prelude.Bool,
+    privacyProtectRegistrantContact :: Prelude.Maybe Prelude.Bool,
     -- | The name of the domain that you want to transfer to Route 53. The
     -- top-level domain (TLD), such as .com, must be a TLD that Route 53
     -- supports. For a list of supported TLDs, see
@@ -201,21 +201,21 @@ data TransferDomain = TransferDomain'
 --
 -- Default: @true@
 --
--- 'privacyProtectRegistrantContact', 'transferDomain_privacyProtectRegistrantContact' - Whether you want to conceal contact information from WHOIS queries. If
--- you specify @true@, WHOIS (\"who is\") queries return contact
--- information either for Amazon Registrar (for .com, .net, and .org
--- domains) or for our registrar associate, Gandi (for all other TLDs). If
--- you specify @false@, WHOIS queries return the information that you
--- entered for the registrant contact (domain owner).
---
--- Default: @true@
---
 -- 'privacyProtectAdminContact', 'transferDomain_privacyProtectAdminContact' - Whether you want to conceal contact information from WHOIS queries. If
 -- you specify @true@, WHOIS (\"who is\") queries return contact
 -- information either for Amazon Registrar (for .com, .net, and .org
 -- domains) or for our registrar associate, Gandi (for all other TLDs). If
 -- you specify @false@, WHOIS queries return the information that you
 -- entered for the admin contact.
+--
+-- Default: @true@
+--
+-- 'privacyProtectRegistrantContact', 'transferDomain_privacyProtectRegistrantContact' - Whether you want to conceal contact information from WHOIS queries. If
+-- you specify @true@, WHOIS (\"who is\") queries return contact
+-- information either for Amazon Registrar (for .com, .net, and .org
+-- domains) or for our registrar associate, Gandi (for all other TLDs). If
+-- you specify @false@, WHOIS queries return the information that you
+-- entered for the registrant contact (domain owner).
 --
 -- Default: @true@
 --
@@ -272,8 +272,8 @@ newTransferDomain
         authCode = Prelude.Nothing,
         idnLangCode = Prelude.Nothing,
         privacyProtectTechContact = Prelude.Nothing,
-        privacyProtectRegistrantContact = Prelude.Nothing,
         privacyProtectAdminContact = Prelude.Nothing,
+        privacyProtectRegistrantContact = Prelude.Nothing,
         domainName = pDomainName_,
         durationInYears = pDurationInYears_,
         adminContact = Core._Sensitive Lens.# pAdminContact_,
@@ -318,22 +318,22 @@ transferDomain_privacyProtectTechContact = Lens.lens (\TransferDomain' {privacyP
 -- information either for Amazon Registrar (for .com, .net, and .org
 -- domains) or for our registrar associate, Gandi (for all other TLDs). If
 -- you specify @false@, WHOIS queries return the information that you
--- entered for the registrant contact (domain owner).
+-- entered for the admin contact.
 --
 -- Default: @true@
-transferDomain_privacyProtectRegistrantContact :: Lens.Lens' TransferDomain (Prelude.Maybe Prelude.Bool)
-transferDomain_privacyProtectRegistrantContact = Lens.lens (\TransferDomain' {privacyProtectRegistrantContact} -> privacyProtectRegistrantContact) (\s@TransferDomain' {} a -> s {privacyProtectRegistrantContact = a} :: TransferDomain)
+transferDomain_privacyProtectAdminContact :: Lens.Lens' TransferDomain (Prelude.Maybe Prelude.Bool)
+transferDomain_privacyProtectAdminContact = Lens.lens (\TransferDomain' {privacyProtectAdminContact} -> privacyProtectAdminContact) (\s@TransferDomain' {} a -> s {privacyProtectAdminContact = a} :: TransferDomain)
 
 -- | Whether you want to conceal contact information from WHOIS queries. If
 -- you specify @true@, WHOIS (\"who is\") queries return contact
 -- information either for Amazon Registrar (for .com, .net, and .org
 -- domains) or for our registrar associate, Gandi (for all other TLDs). If
 -- you specify @false@, WHOIS queries return the information that you
--- entered for the admin contact.
+-- entered for the registrant contact (domain owner).
 --
 -- Default: @true@
-transferDomain_privacyProtectAdminContact :: Lens.Lens' TransferDomain (Prelude.Maybe Prelude.Bool)
-transferDomain_privacyProtectAdminContact = Lens.lens (\TransferDomain' {privacyProtectAdminContact} -> privacyProtectAdminContact) (\s@TransferDomain' {} a -> s {privacyProtectAdminContact = a} :: TransferDomain)
+transferDomain_privacyProtectRegistrantContact :: Lens.Lens' TransferDomain (Prelude.Maybe Prelude.Bool)
+transferDomain_privacyProtectRegistrantContact = Lens.lens (\TransferDomain' {privacyProtectRegistrantContact} -> privacyProtectRegistrantContact) (\s@TransferDomain' {} a -> s {privacyProtectRegistrantContact = a} :: TransferDomain)
 
 -- | The name of the domain that you want to transfer to Route 53. The
 -- top-level domain (TLD), such as .com, must be a TLD that Route 53
@@ -417,10 +417,10 @@ instance Core.ToJSON TransferDomain where
             ("IdnLangCode" Core..=) Prelude.<$> idnLangCode,
             ("PrivacyProtectTechContact" Core..=)
               Prelude.<$> privacyProtectTechContact,
-            ("PrivacyProtectRegistrantContact" Core..=)
-              Prelude.<$> privacyProtectRegistrantContact,
             ("PrivacyProtectAdminContact" Core..=)
               Prelude.<$> privacyProtectAdminContact,
+            ("PrivacyProtectRegistrantContact" Core..=)
+              Prelude.<$> privacyProtectRegistrantContact,
             Prelude.Just ("DomainName" Core..= domainName),
             Prelude.Just
               ("DurationInYears" Core..= durationInYears),

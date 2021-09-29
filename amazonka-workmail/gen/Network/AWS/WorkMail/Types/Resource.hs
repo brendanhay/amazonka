@@ -34,15 +34,15 @@ data Resource = Resource'
     enabledDate :: Prelude.Maybe Core.POSIX,
     -- | The identifier of the resource.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The state of the resource, which can be ENABLED, DISABLED, or DELETED.
-    state :: Prelude.Maybe EntityState,
     -- | The name of the resource.
     name :: Prelude.Maybe Prelude.Text,
-    -- | The email of the resource.
-    email :: Prelude.Maybe Prelude.Text,
+    -- | The state of the resource, which can be ENABLED, DISABLED, or DELETED.
+    state :: Prelude.Maybe EntityState,
     -- | The date indicating when the resource was disabled from Amazon WorkMail
     -- use.
     disabledDate :: Prelude.Maybe Core.POSIX,
+    -- | The email of the resource.
+    email :: Prelude.Maybe Prelude.Text,
     -- | The type of the resource: equipment or room.
     type' :: Prelude.Maybe ResourceType
   }
@@ -61,14 +61,14 @@ data Resource = Resource'
 --
 -- 'id', 'resource_id' - The identifier of the resource.
 --
--- 'state', 'resource_state' - The state of the resource, which can be ENABLED, DISABLED, or DELETED.
---
 -- 'name', 'resource_name' - The name of the resource.
 --
--- 'email', 'resource_email' - The email of the resource.
+-- 'state', 'resource_state' - The state of the resource, which can be ENABLED, DISABLED, or DELETED.
 --
 -- 'disabledDate', 'resource_disabledDate' - The date indicating when the resource was disabled from Amazon WorkMail
 -- use.
+--
+-- 'email', 'resource_email' - The email of the resource.
 --
 -- 'type'', 'resource_type' - The type of the resource: equipment or room.
 newResource ::
@@ -77,10 +77,10 @@ newResource =
   Resource'
     { enabledDate = Prelude.Nothing,
       id = Prelude.Nothing,
-      state = Prelude.Nothing,
       name = Prelude.Nothing,
-      email = Prelude.Nothing,
+      state = Prelude.Nothing,
       disabledDate = Prelude.Nothing,
+      email = Prelude.Nothing,
       type' = Prelude.Nothing
     }
 
@@ -93,22 +93,22 @@ resource_enabledDate = Lens.lens (\Resource' {enabledDate} -> enabledDate) (\s@R
 resource_id :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
 resource_id = Lens.lens (\Resource' {id} -> id) (\s@Resource' {} a -> s {id = a} :: Resource)
 
--- | The state of the resource, which can be ENABLED, DISABLED, or DELETED.
-resource_state :: Lens.Lens' Resource (Prelude.Maybe EntityState)
-resource_state = Lens.lens (\Resource' {state} -> state) (\s@Resource' {} a -> s {state = a} :: Resource)
-
 -- | The name of the resource.
 resource_name :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
 resource_name = Lens.lens (\Resource' {name} -> name) (\s@Resource' {} a -> s {name = a} :: Resource)
 
--- | The email of the resource.
-resource_email :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
-resource_email = Lens.lens (\Resource' {email} -> email) (\s@Resource' {} a -> s {email = a} :: Resource)
+-- | The state of the resource, which can be ENABLED, DISABLED, or DELETED.
+resource_state :: Lens.Lens' Resource (Prelude.Maybe EntityState)
+resource_state = Lens.lens (\Resource' {state} -> state) (\s@Resource' {} a -> s {state = a} :: Resource)
 
 -- | The date indicating when the resource was disabled from Amazon WorkMail
 -- use.
 resource_disabledDate :: Lens.Lens' Resource (Prelude.Maybe Prelude.UTCTime)
 resource_disabledDate = Lens.lens (\Resource' {disabledDate} -> disabledDate) (\s@Resource' {} a -> s {disabledDate = a} :: Resource) Prelude.. Lens.mapping Core._Time
+
+-- | The email of the resource.
+resource_email :: Lens.Lens' Resource (Prelude.Maybe Prelude.Text)
+resource_email = Lens.lens (\Resource' {email} -> email) (\s@Resource' {} a -> s {email = a} :: Resource)
 
 -- | The type of the resource: equipment or room.
 resource_type :: Lens.Lens' Resource (Prelude.Maybe ResourceType)
@@ -122,10 +122,10 @@ instance Core.FromJSON Resource where
           Resource'
             Prelude.<$> (x Core..:? "EnabledDate")
             Prelude.<*> (x Core..:? "Id")
-            Prelude.<*> (x Core..:? "State")
             Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "Email")
+            Prelude.<*> (x Core..:? "State")
             Prelude.<*> (x Core..:? "DisabledDate")
+            Prelude.<*> (x Core..:? "Email")
             Prelude.<*> (x Core..:? "Type")
       )
 

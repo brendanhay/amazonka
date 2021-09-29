@@ -51,6 +51,7 @@ library
     Network.AWS.WorkMail.CancelMailboxExportJob
     Network.AWS.WorkMail.CreateAlias
     Network.AWS.WorkMail.CreateGroup
+    Network.AWS.WorkMail.CreateMobileDeviceAccessRule
     Network.AWS.WorkMail.CreateOrganization
     Network.AWS.WorkMail.CreateResource
     Network.AWS.WorkMail.CreateUser
@@ -58,6 +59,7 @@ library
     Network.AWS.WorkMail.DeleteAlias
     Network.AWS.WorkMail.DeleteGroup
     Network.AWS.WorkMail.DeleteMailboxPermissions
+    Network.AWS.WorkMail.DeleteMobileDeviceAccessRule
     Network.AWS.WorkMail.DeleteOrganization
     Network.AWS.WorkMail.DeleteResource
     Network.AWS.WorkMail.DeleteRetentionPolicy
@@ -73,6 +75,7 @@ library
     Network.AWS.WorkMail.GetAccessControlEffect
     Network.AWS.WorkMail.GetDefaultRetentionPolicy
     Network.AWS.WorkMail.GetMailboxDetails
+    Network.AWS.WorkMail.GetMobileDeviceAccessEffect
     Network.AWS.WorkMail.Lens
     Network.AWS.WorkMail.ListAccessControlRules
     Network.AWS.WorkMail.ListAliases
@@ -80,6 +83,7 @@ library
     Network.AWS.WorkMail.ListGroups
     Network.AWS.WorkMail.ListMailboxExportJobs
     Network.AWS.WorkMail.ListMailboxPermissions
+    Network.AWS.WorkMail.ListMobileDeviceAccessRules
     Network.AWS.WorkMail.ListOrganizations
     Network.AWS.WorkMail.ListResourceDelegates
     Network.AWS.WorkMail.ListResources
@@ -106,6 +110,9 @@ library
     Network.AWS.WorkMail.Types.MailboxExportJobState
     Network.AWS.WorkMail.Types.Member
     Network.AWS.WorkMail.Types.MemberType
+    Network.AWS.WorkMail.Types.MobileDeviceAccessMatchedRule
+    Network.AWS.WorkMail.Types.MobileDeviceAccessRule
+    Network.AWS.WorkMail.Types.MobileDeviceAccessRuleEffect
     Network.AWS.WorkMail.Types.OrganizationSummary
     Network.AWS.WorkMail.Types.Permission
     Network.AWS.WorkMail.Types.PermissionType
@@ -117,6 +124,7 @@ library
     Network.AWS.WorkMail.Types.UserRole
     Network.AWS.WorkMail.UntagResource
     Network.AWS.WorkMail.UpdateMailboxQuota
+    Network.AWS.WorkMail.UpdateMobileDeviceAccessRule
     Network.AWS.WorkMail.UpdatePrimaryEmailAddress
     Network.AWS.WorkMail.UpdateResource
     Network.AWS.WorkMail.Waiters

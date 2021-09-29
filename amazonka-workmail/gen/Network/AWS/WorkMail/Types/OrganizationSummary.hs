@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newOrganizationSummary' smart constructor.
 data OrganizationSummary = OrganizationSummary'
-  { -- | The identifier associated with the organization.
-    organizationId :: Prelude.Maybe Prelude.Text,
-    -- | The alias associated with the organization.
+  { -- | The alias associated with the organization.
     alias :: Prelude.Maybe Prelude.Text,
+    -- | The identifier associated with the organization.
+    organizationId :: Prelude.Maybe Prelude.Text,
     -- | The default email domain associated with the organization.
     defaultMailDomain :: Prelude.Maybe Prelude.Text,
     -- | The state associated with the organization.
@@ -50,9 +50,9 @@ data OrganizationSummary = OrganizationSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'organizationId', 'organizationSummary_organizationId' - The identifier associated with the organization.
---
 -- 'alias', 'organizationSummary_alias' - The alias associated with the organization.
+--
+-- 'organizationId', 'organizationSummary_organizationId' - The identifier associated with the organization.
 --
 -- 'defaultMailDomain', 'organizationSummary_defaultMailDomain' - The default email domain associated with the organization.
 --
@@ -65,21 +65,20 @@ newOrganizationSummary ::
   OrganizationSummary
 newOrganizationSummary =
   OrganizationSummary'
-    { organizationId =
-        Prelude.Nothing,
-      alias = Prelude.Nothing,
+    { alias = Prelude.Nothing,
+      organizationId = Prelude.Nothing,
       defaultMailDomain = Prelude.Nothing,
       state = Prelude.Nothing,
       errorMessage = Prelude.Nothing
     }
 
--- | The identifier associated with the organization.
-organizationSummary_organizationId :: Lens.Lens' OrganizationSummary (Prelude.Maybe Prelude.Text)
-organizationSummary_organizationId = Lens.lens (\OrganizationSummary' {organizationId} -> organizationId) (\s@OrganizationSummary' {} a -> s {organizationId = a} :: OrganizationSummary)
-
 -- | The alias associated with the organization.
 organizationSummary_alias :: Lens.Lens' OrganizationSummary (Prelude.Maybe Prelude.Text)
 organizationSummary_alias = Lens.lens (\OrganizationSummary' {alias} -> alias) (\s@OrganizationSummary' {} a -> s {alias = a} :: OrganizationSummary)
+
+-- | The identifier associated with the organization.
+organizationSummary_organizationId :: Lens.Lens' OrganizationSummary (Prelude.Maybe Prelude.Text)
+organizationSummary_organizationId = Lens.lens (\OrganizationSummary' {organizationId} -> organizationId) (\s@OrganizationSummary' {} a -> s {organizationId = a} :: OrganizationSummary)
 
 -- | The default email domain associated with the organization.
 organizationSummary_defaultMailDomain :: Lens.Lens' OrganizationSummary (Prelude.Maybe Prelude.Text)
@@ -101,8 +100,8 @@ instance Core.FromJSON OrganizationSummary where
       "OrganizationSummary"
       ( \x ->
           OrganizationSummary'
-            Prelude.<$> (x Core..:? "OrganizationId")
-            Prelude.<*> (x Core..:? "Alias")
+            Prelude.<$> (x Core..:? "Alias")
+            Prelude.<*> (x Core..:? "OrganizationId")
             Prelude.<*> (x Core..:? "DefaultMailDomain")
             Prelude.<*> (x Core..:? "State")
             Prelude.<*> (x Core..:? "ErrorMessage")

@@ -35,8 +35,8 @@ module Network.AWS.WorkMail.DescribeOrganization
     newDescribeOrganizationResponse,
 
     -- * Response Lenses
-    describeOrganizationResponse_organizationId,
     describeOrganizationResponse_alias,
+    describeOrganizationResponse_organizationId,
     describeOrganizationResponse_arn,
     describeOrganizationResponse_defaultMailDomain,
     describeOrganizationResponse_state,
@@ -94,8 +94,8 @@ instance Core.AWSRequest DescribeOrganization where
     Response.receiveJSON
       ( \s h x ->
           DescribeOrganizationResponse'
-            Prelude.<$> (x Core..?> "OrganizationId")
-            Prelude.<*> (x Core..?> "Alias")
+            Prelude.<$> (x Core..?> "Alias")
+            Prelude.<*> (x Core..?> "OrganizationId")
             Prelude.<*> (x Core..?> "ARN")
             Prelude.<*> (x Core..?> "DefaultMailDomain")
             Prelude.<*> (x Core..?> "State")
@@ -142,10 +142,10 @@ instance Core.ToQuery DescribeOrganization where
 
 -- | /See:/ 'newDescribeOrganizationResponse' smart constructor.
 data DescribeOrganizationResponse = DescribeOrganizationResponse'
-  { -- | The identifier of an organization.
-    organizationId :: Prelude.Maybe Prelude.Text,
-    -- | The alias for an organization.
+  { -- | The alias for an organization.
     alias :: Prelude.Maybe Prelude.Text,
+    -- | The identifier of an organization.
+    organizationId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the organization.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The default mail domain associated with the organization.
@@ -176,9 +176,9 @@ data DescribeOrganizationResponse = DescribeOrganizationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'organizationId', 'describeOrganizationResponse_organizationId' - The identifier of an organization.
---
 -- 'alias', 'describeOrganizationResponse_alias' - The alias for an organization.
+--
+-- 'organizationId', 'describeOrganizationResponse_organizationId' - The identifier of an organization.
 --
 -- 'arn', 'describeOrganizationResponse_arn' - The Amazon Resource Name (ARN) of the organization.
 --
@@ -204,9 +204,9 @@ newDescribeOrganizationResponse ::
   DescribeOrganizationResponse
 newDescribeOrganizationResponse pHttpStatus_ =
   DescribeOrganizationResponse'
-    { organizationId =
+    { alias =
         Prelude.Nothing,
-      alias = Prelude.Nothing,
+      organizationId = Prelude.Nothing,
       arn = Prelude.Nothing,
       defaultMailDomain = Prelude.Nothing,
       state = Prelude.Nothing,
@@ -217,13 +217,13 @@ newDescribeOrganizationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The identifier of an organization.
-describeOrganizationResponse_organizationId :: Lens.Lens' DescribeOrganizationResponse (Prelude.Maybe Prelude.Text)
-describeOrganizationResponse_organizationId = Lens.lens (\DescribeOrganizationResponse' {organizationId} -> organizationId) (\s@DescribeOrganizationResponse' {} a -> s {organizationId = a} :: DescribeOrganizationResponse)
-
 -- | The alias for an organization.
 describeOrganizationResponse_alias :: Lens.Lens' DescribeOrganizationResponse (Prelude.Maybe Prelude.Text)
 describeOrganizationResponse_alias = Lens.lens (\DescribeOrganizationResponse' {alias} -> alias) (\s@DescribeOrganizationResponse' {} a -> s {alias = a} :: DescribeOrganizationResponse)
+
+-- | The identifier of an organization.
+describeOrganizationResponse_organizationId :: Lens.Lens' DescribeOrganizationResponse (Prelude.Maybe Prelude.Text)
+describeOrganizationResponse_organizationId = Lens.lens (\DescribeOrganizationResponse' {organizationId} -> organizationId) (\s@DescribeOrganizationResponse' {} a -> s {organizationId = a} :: DescribeOrganizationResponse)
 
 -- | The Amazon Resource Name (ARN) of the organization.
 describeOrganizationResponse_arn :: Lens.Lens' DescribeOrganizationResponse (Prelude.Maybe Prelude.Text)

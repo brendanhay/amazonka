@@ -47,8 +47,8 @@ module Network.AWS.ResourceGroupsTagging.GetComplianceSummary
     -- * Request Lenses
     getComplianceSummary_maxResults,
     getComplianceSummary_regionFilters,
-    getComplianceSummary_targetIdFilters,
     getComplianceSummary_paginationToken,
+    getComplianceSummary_targetIdFilters,
     getComplianceSummary_groupBy,
     getComplianceSummary_resourceTypeFilters,
     getComplianceSummary_tagKeyFilters,
@@ -83,15 +83,15 @@ data GetComplianceSummary = GetComplianceSummary'
     -- parameter, the count of returned noncompliant resources includes only
     -- resources in the specified Regions.
     regionFilters :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | Specifies a @PaginationToken@ response value from a previous request to
+    -- indicate that you want the next page of results. Leave this parameter
+    -- empty in your initial request.
+    paginationToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies target identifiers (usually, specific account IDs) to limit
     -- the output by. If you use this parameter, the count of returned
     -- noncompliant resources includes only resources with the specified target
     -- IDs.
     targetIdFilters :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Specifies a @PaginationToken@ response value from a previous request to
-    -- indicate that you want the next page of results. Leave this parameter
-    -- empty in your initial request.
-    paginationToken :: Prelude.Maybe Prelude.Text,
     -- | Specifies a list of attributes to group the counts of noncompliant
     -- resources by. If supplied, the counts are sorted by those attributes.
     groupBy :: Prelude.Maybe [GroupByAttribute],
@@ -144,14 +144,14 @@ data GetComplianceSummary = GetComplianceSummary'
 -- parameter, the count of returned noncompliant resources includes only
 -- resources in the specified Regions.
 --
+-- 'paginationToken', 'getComplianceSummary_paginationToken' - Specifies a @PaginationToken@ response value from a previous request to
+-- indicate that you want the next page of results. Leave this parameter
+-- empty in your initial request.
+--
 -- 'targetIdFilters', 'getComplianceSummary_targetIdFilters' - Specifies target identifiers (usually, specific account IDs) to limit
 -- the output by. If you use this parameter, the count of returned
 -- noncompliant resources includes only resources with the specified target
 -- IDs.
---
--- 'paginationToken', 'getComplianceSummary_paginationToken' - Specifies a @PaginationToken@ response value from a previous request to
--- indicate that you want the next page of results. Leave this parameter
--- empty in your initial request.
 --
 -- 'groupBy', 'getComplianceSummary_groupBy' - Specifies a list of attributes to group the counts of noncompliant
 -- resources by. If supplied, the counts are sorted by those attributes.
@@ -189,8 +189,8 @@ newGetComplianceSummary =
   GetComplianceSummary'
     { maxResults = Prelude.Nothing,
       regionFilters = Prelude.Nothing,
-      targetIdFilters = Prelude.Nothing,
       paginationToken = Prelude.Nothing,
+      targetIdFilters = Prelude.Nothing,
       groupBy = Prelude.Nothing,
       resourceTypeFilters = Prelude.Nothing,
       tagKeyFilters = Prelude.Nothing
@@ -210,18 +210,18 @@ getComplianceSummary_maxResults = Lens.lens (\GetComplianceSummary' {maxResults}
 getComplianceSummary_regionFilters :: Lens.Lens' GetComplianceSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 getComplianceSummary_regionFilters = Lens.lens (\GetComplianceSummary' {regionFilters} -> regionFilters) (\s@GetComplianceSummary' {} a -> s {regionFilters = a} :: GetComplianceSummary) Prelude.. Lens.mapping Lens._Coerce
 
+-- | Specifies a @PaginationToken@ response value from a previous request to
+-- indicate that you want the next page of results. Leave this parameter
+-- empty in your initial request.
+getComplianceSummary_paginationToken :: Lens.Lens' GetComplianceSummary (Prelude.Maybe Prelude.Text)
+getComplianceSummary_paginationToken = Lens.lens (\GetComplianceSummary' {paginationToken} -> paginationToken) (\s@GetComplianceSummary' {} a -> s {paginationToken = a} :: GetComplianceSummary)
+
 -- | Specifies target identifiers (usually, specific account IDs) to limit
 -- the output by. If you use this parameter, the count of returned
 -- noncompliant resources includes only resources with the specified target
 -- IDs.
 getComplianceSummary_targetIdFilters :: Lens.Lens' GetComplianceSummary (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 getComplianceSummary_targetIdFilters = Lens.lens (\GetComplianceSummary' {targetIdFilters} -> targetIdFilters) (\s@GetComplianceSummary' {} a -> s {targetIdFilters = a} :: GetComplianceSummary) Prelude.. Lens.mapping Lens._Coerce
-
--- | Specifies a @PaginationToken@ response value from a previous request to
--- indicate that you want the next page of results. Leave this parameter
--- empty in your initial request.
-getComplianceSummary_paginationToken :: Lens.Lens' GetComplianceSummary (Prelude.Maybe Prelude.Text)
-getComplianceSummary_paginationToken = Lens.lens (\GetComplianceSummary' {paginationToken} -> paginationToken) (\s@GetComplianceSummary' {} a -> s {paginationToken = a} :: GetComplianceSummary)
 
 -- | Specifies a list of attributes to group the counts of noncompliant
 -- resources by. If supplied, the counts are sorted by those attributes.
@@ -321,10 +321,10 @@ instance Core.ToJSON GetComplianceSummary where
       ( Prelude.catMaybes
           [ ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("RegionFilters" Core..=) Prelude.<$> regionFilters,
-            ("TargetIdFilters" Core..=)
-              Prelude.<$> targetIdFilters,
             ("PaginationToken" Core..=)
               Prelude.<$> paginationToken,
+            ("TargetIdFilters" Core..=)
+              Prelude.<$> targetIdFilters,
             ("GroupBy" Core..=) Prelude.<$> groupBy,
             ("ResourceTypeFilters" Core..=)
               Prelude.<$> resourceTypeFilters,

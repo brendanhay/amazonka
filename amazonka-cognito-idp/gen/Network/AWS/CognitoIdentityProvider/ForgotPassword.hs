@@ -30,6 +30,26 @@
 -- number nor a verified email exists, an @InvalidParameterException@ is
 -- thrown. To use the confirmation code for resetting the password, call
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.html ConfirmForgotPassword>.
+--
+-- This action might generate an SMS text message. Starting June 1, 2021,
+-- U.S. telecom carriers require that you register an origination phone
+-- number before you can send SMS messages to U.S. phone numbers. If you
+-- use SMS text messages in Amazon Cognito, you must register a phone
+-- number with
+-- <https://console.aws.amazon.com/pinpoint/home/ Amazon Pinpoint>. Cognito
+-- will use the the registered number automatically. Otherwise, Cognito
+-- users that must receive SMS messages might be unable to sign up,
+-- activate their accounts, or sign in.
+--
+-- If you have never used SMS text messages with Amazon Cognito or any
+-- other Amazon Web Service, Amazon SNS might place your account in SMS
+-- sandbox. In
+-- /<https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html sandbox mode>/
+-- , you’ll have limitations, such as sending messages to only verified
+-- phone numbers. After testing in the sandbox environment, you can move
+-- out of the SMS sandbox and into production. For more information, see
+-- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html SMS message settings for Cognito User Pools>
+-- in the /Amazon Cognito Developer Guide/.
 module Network.AWS.CognitoIdentityProvider.ForgotPassword
   ( -- * Creating a Request
     ForgotPassword (..),
@@ -67,16 +87,16 @@ data ForgotPassword = ForgotPassword'
   { -- | A map of custom key-value pairs that you can provide as input for any
     -- custom workflows that this action triggers.
     --
-    -- You create custom workflows by assigning AWS Lambda functions to user
-    -- pool triggers. When you use the ForgotPassword API action, Amazon
-    -- Cognito invokes any functions that are assigned to the following
-    -- triggers: /pre sign-up/, /custom message/, and /user migration/. When
-    -- Amazon Cognito invokes any of these functions, it passes a JSON payload,
-    -- which the function receives as input. This payload contains a
-    -- @clientMetadata@ attribute, which provides the data that you assigned to
-    -- the ClientMetadata parameter in your ForgotPassword request. In your
-    -- function code in AWS Lambda, you can process the @clientMetadata@ value
-    -- to enhance your workflow for your specific needs.
+    -- You create custom workflows by assigning Lambda functions to user pool
+    -- triggers. When you use the ForgotPassword API action, Amazon Cognito
+    -- invokes any functions that are assigned to the following triggers: /pre
+    -- sign-up/, /custom message/, and /user migration/. When Amazon Cognito
+    -- invokes any of these functions, it passes a JSON payload, which the
+    -- function receives as input. This payload contains a @clientMetadata@
+    -- attribute, which provides the data that you assigned to the
+    -- ClientMetadata parameter in your ForgotPassword request. In your
+    -- function code in Lambda, you can process the @clientMetadata@ value to
+    -- enhance your workflow for your specific needs.
     --
     -- For more information, see
     -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers>
@@ -86,9 +106,9 @@ data ForgotPassword = ForgotPassword'
     -- ClientMetadata parameter:
     --
     -- -   Amazon Cognito does not store the ClientMetadata value. This data is
-    --     available only to AWS Lambda triggers that are assigned to a user
-    --     pool to support custom workflows. If your user pool configuration
-    --     does not include triggers, the ClientMetadata parameter serves no
+    --     available only to Lambda triggers that are assigned to a user pool
+    --     to support custom workflows. If your user pool configuration does
+    --     not include triggers, the ClientMetadata parameter serves no
     --     purpose.
     --
     -- -   Amazon Cognito does not validate the ClientMetadata value.
@@ -126,16 +146,16 @@ data ForgotPassword = ForgotPassword'
 -- 'clientMetadata', 'forgotPassword_clientMetadata' - A map of custom key-value pairs that you can provide as input for any
 -- custom workflows that this action triggers.
 --
--- You create custom workflows by assigning AWS Lambda functions to user
--- pool triggers. When you use the ForgotPassword API action, Amazon
--- Cognito invokes any functions that are assigned to the following
--- triggers: /pre sign-up/, /custom message/, and /user migration/. When
--- Amazon Cognito invokes any of these functions, it passes a JSON payload,
--- which the function receives as input. This payload contains a
--- @clientMetadata@ attribute, which provides the data that you assigned to
--- the ClientMetadata parameter in your ForgotPassword request. In your
--- function code in AWS Lambda, you can process the @clientMetadata@ value
--- to enhance your workflow for your specific needs.
+-- You create custom workflows by assigning Lambda functions to user pool
+-- triggers. When you use the ForgotPassword API action, Amazon Cognito
+-- invokes any functions that are assigned to the following triggers: /pre
+-- sign-up/, /custom message/, and /user migration/. When Amazon Cognito
+-- invokes any of these functions, it passes a JSON payload, which the
+-- function receives as input. This payload contains a @clientMetadata@
+-- attribute, which provides the data that you assigned to the
+-- ClientMetadata parameter in your ForgotPassword request. In your
+-- function code in Lambda, you can process the @clientMetadata@ value to
+-- enhance your workflow for your specific needs.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers>
@@ -145,9 +165,9 @@ data ForgotPassword = ForgotPassword'
 -- ClientMetadata parameter:
 --
 -- -   Amazon Cognito does not store the ClientMetadata value. This data is
---     available only to AWS Lambda triggers that are assigned to a user
---     pool to support custom workflows. If your user pool configuration
---     does not include triggers, the ClientMetadata parameter serves no
+--     available only to Lambda triggers that are assigned to a user pool
+--     to support custom workflows. If your user pool configuration does
+--     not include triggers, the ClientMetadata parameter serves no
 --     purpose.
 --
 -- -   Amazon Cognito does not validate the ClientMetadata value.
@@ -189,16 +209,16 @@ newForgotPassword pClientId_ pUsername_ =
 -- | A map of custom key-value pairs that you can provide as input for any
 -- custom workflows that this action triggers.
 --
--- You create custom workflows by assigning AWS Lambda functions to user
--- pool triggers. When you use the ForgotPassword API action, Amazon
--- Cognito invokes any functions that are assigned to the following
--- triggers: /pre sign-up/, /custom message/, and /user migration/. When
--- Amazon Cognito invokes any of these functions, it passes a JSON payload,
--- which the function receives as input. This payload contains a
--- @clientMetadata@ attribute, which provides the data that you assigned to
--- the ClientMetadata parameter in your ForgotPassword request. In your
--- function code in AWS Lambda, you can process the @clientMetadata@ value
--- to enhance your workflow for your specific needs.
+-- You create custom workflows by assigning Lambda functions to user pool
+-- triggers. When you use the ForgotPassword API action, Amazon Cognito
+-- invokes any functions that are assigned to the following triggers: /pre
+-- sign-up/, /custom message/, and /user migration/. When Amazon Cognito
+-- invokes any of these functions, it passes a JSON payload, which the
+-- function receives as input. This payload contains a @clientMetadata@
+-- attribute, which provides the data that you assigned to the
+-- ClientMetadata parameter in your ForgotPassword request. In your
+-- function code in Lambda, you can process the @clientMetadata@ value to
+-- enhance your workflow for your specific needs.
 --
 -- For more information, see
 -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers>
@@ -208,9 +228,9 @@ newForgotPassword pClientId_ pUsername_ =
 -- ClientMetadata parameter:
 --
 -- -   Amazon Cognito does not store the ClientMetadata value. This data is
---     available only to AWS Lambda triggers that are assigned to a user
---     pool to support custom workflows. If your user pool configuration
---     does not include triggers, the ClientMetadata parameter serves no
+--     available only to Lambda triggers that are assigned to a user pool
+--     to support custom workflows. If your user pool configuration does
+--     not include triggers, the ClientMetadata parameter serves no
 --     purpose.
 --
 -- -   Amazon Cognito does not validate the ClientMetadata value.

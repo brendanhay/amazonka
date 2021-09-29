@@ -21,6 +21,26 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Set the user pool multi-factor authentication (MFA) configuration.
+--
+-- This action might generate an SMS text message. Starting June 1, 2021,
+-- U.S. telecom carriers require that you register an origination phone
+-- number before you can send SMS messages to U.S. phone numbers. If you
+-- use SMS text messages in Amazon Cognito, you must register a phone
+-- number with
+-- <https://console.aws.amazon.com/pinpoint/home/ Amazon Pinpoint>. Cognito
+-- will use the the registered number automatically. Otherwise, Cognito
+-- users that must receive SMS messages might be unable to sign up,
+-- activate their accounts, or sign in.
+--
+-- If you have never used SMS text messages with Amazon Cognito or any
+-- other Amazon Web Service, Amazon SNS might place your account in SMS
+-- sandbox. In
+-- /<https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html sandbox mode>/
+-- , you’ll have limitations, such as sending messages to only verified
+-- phone numbers. After testing in the sandbox environment, you can move
+-- out of the SMS sandbox and into production. For more information, see
+-- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-sms-userpool-settings.html SMS message settings for Cognito User Pools>
+-- in the /Amazon Cognito Developer Guide/.
 module Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig
   ( -- * Creating a Request
     SetUserPoolMfaConfig (..),
@@ -57,7 +77,10 @@ data SetUserPoolMfaConfig = SetUserPoolMfaConfig'
     softwareTokenMfaConfiguration :: Prelude.Maybe SoftwareTokenMfaConfigType,
     -- | The SMS text message MFA configuration.
     smsMfaConfiguration :: Prelude.Maybe SmsMfaConfigType,
-    -- | The MFA configuration. Valid values include:
+    -- | The MFA configuration. Users who don\'t have an MFA factor set up won\'t
+    -- be able to sign-in if you set the MfaConfiguration value to ‘ON’. See
+    -- <cognito/latest/developerguide/user-pool-settings-mfa.html Adding Multi-Factor Authentication (MFA) to a User Pool>
+    -- to learn more. Valid values include:
     --
     -- -   @OFF@ MFA will not be used for any users.
     --
@@ -83,7 +106,10 @@ data SetUserPoolMfaConfig = SetUserPoolMfaConfig'
 --
 -- 'smsMfaConfiguration', 'setUserPoolMfaConfig_smsMfaConfiguration' - The SMS text message MFA configuration.
 --
--- 'mfaConfiguration', 'setUserPoolMfaConfig_mfaConfiguration' - The MFA configuration. Valid values include:
+-- 'mfaConfiguration', 'setUserPoolMfaConfig_mfaConfiguration' - The MFA configuration. Users who don\'t have an MFA factor set up won\'t
+-- be able to sign-in if you set the MfaConfiguration value to ‘ON’. See
+-- <cognito/latest/developerguide/user-pool-settings-mfa.html Adding Multi-Factor Authentication (MFA) to a User Pool>
+-- to learn more. Valid values include:
 --
 -- -   @OFF@ MFA will not be used for any users.
 --
@@ -114,7 +140,10 @@ setUserPoolMfaConfig_softwareTokenMfaConfiguration = Lens.lens (\SetUserPoolMfaC
 setUserPoolMfaConfig_smsMfaConfiguration :: Lens.Lens' SetUserPoolMfaConfig (Prelude.Maybe SmsMfaConfigType)
 setUserPoolMfaConfig_smsMfaConfiguration = Lens.lens (\SetUserPoolMfaConfig' {smsMfaConfiguration} -> smsMfaConfiguration) (\s@SetUserPoolMfaConfig' {} a -> s {smsMfaConfiguration = a} :: SetUserPoolMfaConfig)
 
--- | The MFA configuration. Valid values include:
+-- | The MFA configuration. Users who don\'t have an MFA factor set up won\'t
+-- be able to sign-in if you set the MfaConfiguration value to ‘ON’. See
+-- <cognito/latest/developerguide/user-pool-settings-mfa.html Adding Multi-Factor Authentication (MFA) to a User Pool>
+-- to learn more. Valid values include:
 --
 -- -   @OFF@ MFA will not be used for any users.
 --

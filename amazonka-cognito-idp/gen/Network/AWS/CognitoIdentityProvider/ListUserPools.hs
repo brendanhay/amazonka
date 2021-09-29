@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the user pools associated with an AWS account.
+-- Lists the user pools associated with an account.
 --
 -- This operation returns paginated results.
 module Network.AWS.CognitoIdentityProvider.ListUserPools

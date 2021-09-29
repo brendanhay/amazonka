@@ -38,8 +38,8 @@ module Network.AWS.CognitoIdentityProvider.AdminGetUser
     newAdminGetUserResponse,
 
     -- * Response Lenses
-    adminGetUserResponse_preferredMfaSetting,
     adminGetUserResponse_userCreateDate,
+    adminGetUserResponse_preferredMfaSetting,
     adminGetUserResponse_userLastModifiedDate,
     adminGetUserResponse_enabled,
     adminGetUserResponse_userMFASettingList,
@@ -110,8 +110,8 @@ instance Core.AWSRequest AdminGetUser where
     Response.receiveJSON
       ( \s h x ->
           AdminGetUserResponse'
-            Prelude.<$> (x Core..?> "PreferredMfaSetting")
-            Prelude.<*> (x Core..?> "UserCreateDate")
+            Prelude.<$> (x Core..?> "UserCreateDate")
+            Prelude.<*> (x Core..?> "PreferredMfaSetting")
             Prelude.<*> (x Core..?> "UserLastModifiedDate")
             Prelude.<*> (x Core..?> "Enabled")
             Prelude.<*> ( x Core..?> "UserMFASettingList"
@@ -163,10 +163,10 @@ instance Core.ToQuery AdminGetUser where
 --
 -- /See:/ 'newAdminGetUserResponse' smart constructor.
 data AdminGetUserResponse = AdminGetUserResponse'
-  { -- | The user\'s preferred MFA setting.
-    preferredMfaSetting :: Prelude.Maybe Prelude.Text,
-    -- | The date the user was created.
+  { -- | The date the user was created.
     userCreateDate :: Prelude.Maybe Core.POSIX,
+    -- | The user\'s preferred MFA setting.
+    preferredMfaSetting :: Prelude.Maybe Prelude.Text,
     -- | The date the user was last modified.
     userLastModifiedDate :: Prelude.Maybe Core.POSIX,
     -- | Indicates that the status is enabled.
@@ -217,9 +217,9 @@ data AdminGetUserResponse = AdminGetUserResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'preferredMfaSetting', 'adminGetUserResponse_preferredMfaSetting' - The user\'s preferred MFA setting.
---
 -- 'userCreateDate', 'adminGetUserResponse_userCreateDate' - The date the user was created.
+--
+-- 'preferredMfaSetting', 'adminGetUserResponse_preferredMfaSetting' - The user\'s preferred MFA setting.
 --
 -- 'userLastModifiedDate', 'adminGetUserResponse_userLastModifiedDate' - The date the user was last modified.
 --
@@ -267,9 +267,9 @@ newAdminGetUserResponse ::
   AdminGetUserResponse
 newAdminGetUserResponse pHttpStatus_ pUsername_ =
   AdminGetUserResponse'
-    { preferredMfaSetting =
+    { userCreateDate =
         Prelude.Nothing,
-      userCreateDate = Prelude.Nothing,
+      preferredMfaSetting = Prelude.Nothing,
       userLastModifiedDate = Prelude.Nothing,
       enabled = Prelude.Nothing,
       userMFASettingList = Prelude.Nothing,
@@ -280,13 +280,13 @@ newAdminGetUserResponse pHttpStatus_ pUsername_ =
       username = Core._Sensitive Lens.# pUsername_
     }
 
--- | The user\'s preferred MFA setting.
-adminGetUserResponse_preferredMfaSetting :: Lens.Lens' AdminGetUserResponse (Prelude.Maybe Prelude.Text)
-adminGetUserResponse_preferredMfaSetting = Lens.lens (\AdminGetUserResponse' {preferredMfaSetting} -> preferredMfaSetting) (\s@AdminGetUserResponse' {} a -> s {preferredMfaSetting = a} :: AdminGetUserResponse)
-
 -- | The date the user was created.
 adminGetUserResponse_userCreateDate :: Lens.Lens' AdminGetUserResponse (Prelude.Maybe Prelude.UTCTime)
 adminGetUserResponse_userCreateDate = Lens.lens (\AdminGetUserResponse' {userCreateDate} -> userCreateDate) (\s@AdminGetUserResponse' {} a -> s {userCreateDate = a} :: AdminGetUserResponse) Prelude.. Lens.mapping Core._Time
+
+-- | The user\'s preferred MFA setting.
+adminGetUserResponse_preferredMfaSetting :: Lens.Lens' AdminGetUserResponse (Prelude.Maybe Prelude.Text)
+adminGetUserResponse_preferredMfaSetting = Lens.lens (\AdminGetUserResponse' {preferredMfaSetting} -> preferredMfaSetting) (\s@AdminGetUserResponse' {} a -> s {preferredMfaSetting = a} :: AdminGetUserResponse)
 
 -- | The date the user was last modified.
 adminGetUserResponse_userLastModifiedDate :: Lens.Lens' AdminGetUserResponse (Prelude.Maybe Prelude.UTCTime)

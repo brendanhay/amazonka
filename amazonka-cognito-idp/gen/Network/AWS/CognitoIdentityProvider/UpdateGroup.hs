@@ -23,9 +23,6 @@
 -- Updates the specified group with the specified attributes.
 --
 -- Calling this action requires developer credentials.
---
--- If you don\'t provide a value for an attribute, it will be set to the
--- default value.
 module Network.AWS.CognitoIdentityProvider.UpdateGroup
   ( -- * Creating a Request
     UpdateGroup (..),

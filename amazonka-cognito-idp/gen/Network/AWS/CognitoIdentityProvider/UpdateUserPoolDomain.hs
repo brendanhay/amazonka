@@ -29,7 +29,7 @@
 --
 -- A custom domain is used to host the Amazon Cognito hosted UI, which
 -- provides sign-up and sign-in pages for your application. When you set up
--- a custom domain, you provide a certificate that you manage with AWS
+-- a custom domain, you provide a certificate that you manage with
 -- Certificate Manager (ACM). When necessary, you can use this operation to
 -- change the certificate that you applied to your custom domain.
 --
@@ -43,7 +43,7 @@
 -- your custom domain, you must provide this ARN to Amazon Cognito.
 --
 -- When you add your new certificate in ACM, you must choose US East (N.
--- Virginia) as the AWS Region.
+-- Virginia) as the Region.
 --
 -- After you submit your request, Amazon Cognito requires up to 1 hour to
 -- distribute your new certificate to your custom domain.

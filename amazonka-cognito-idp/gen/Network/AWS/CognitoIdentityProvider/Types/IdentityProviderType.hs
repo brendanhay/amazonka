@@ -91,8 +91,6 @@ data IdentityProviderType = IdentityProviderType'
     --     -   jwks_uri /if not available from discovery URL specified by
     --         oidc_issuer key/
     --
-    --     -   authorize_scopes
-    --
     -- -   For SAML providers:
     --
     --     -   MetadataFile OR MetadataURL
@@ -181,8 +179,6 @@ data IdentityProviderType = IdentityProviderType'
 --
 --     -   jwks_uri /if not available from discovery URL specified by
 --         oidc_issuer key/
---
---     -   authorize_scopes
 --
 -- -   For SAML providers:
 --
@@ -281,8 +277,6 @@ identityProviderType_providerName = Lens.lens (\IdentityProviderType' {providerN
 --
 --     -   jwks_uri /if not available from discovery URL specified by
 --         oidc_issuer key/
---
---     -   authorize_scopes
 --
 -- -   For SAML providers:
 --

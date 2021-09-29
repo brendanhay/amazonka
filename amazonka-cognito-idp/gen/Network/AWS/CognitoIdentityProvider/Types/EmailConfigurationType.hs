@@ -79,7 +79,7 @@ data EmailConfigurationType = EmailConfigurationType'
     --     configuration. Amazon Cognito calls Amazon SES on your behalf to
     --     send email from your verified email address. When you use this
     --     option, the email delivery limits are the same limits that apply to
-    --     your Amazon SES verified email address in your AWS account.
+    --     your Amazon SES verified email address in your account.
     --
     --     If you use this option, you must provide the ARN of an Amazon SES
     --     verified email address for the @SourceArn@ parameter.
@@ -87,7 +87,7 @@ data EmailConfigurationType = EmailConfigurationType'
     --     Before Amazon Cognito can email your users, it requires additional
     --     permissions to call Amazon SES on your behalf. When you update your
     --     user pool with this option, Amazon Cognito creates a /service-linked
-    --     role/, which is a type of IAM role, in your AWS account. This role
+    --     role/, which is a type of IAM role, in your account. This role
     --     contains the permissions that allow Amazon Cognito to access Amazon
     --     SES and send email messages with your address. For more information
     --     about the service-linked role that Amazon Cognito creates, see
@@ -122,7 +122,7 @@ data EmailConfigurationType = EmailConfigurationType'
     -- -   Event publishing – Amazon SES can track the number of send,
     --     delivery, open, click, bounce, and complaint events for each email
     --     sent. Use event publishing to send information about these events to
-    --     other AWS services such as SNS and CloudWatch.
+    --     other Amazon Web Services services such as SNS and CloudWatch.
     --
     -- -   IP pool management – When leasing dedicated IP addresses with Amazon
     --     SES, you can create groups of IP addresses, called dedicated IP
@@ -187,7 +187,7 @@ data EmailConfigurationType = EmailConfigurationType'
 --     configuration. Amazon Cognito calls Amazon SES on your behalf to
 --     send email from your verified email address. When you use this
 --     option, the email delivery limits are the same limits that apply to
---     your Amazon SES verified email address in your AWS account.
+--     your Amazon SES verified email address in your account.
 --
 --     If you use this option, you must provide the ARN of an Amazon SES
 --     verified email address for the @SourceArn@ parameter.
@@ -195,7 +195,7 @@ data EmailConfigurationType = EmailConfigurationType'
 --     Before Amazon Cognito can email your users, it requires additional
 --     permissions to call Amazon SES on your behalf. When you update your
 --     user pool with this option, Amazon Cognito creates a /service-linked
---     role/, which is a type of IAM role, in your AWS account. This role
+--     role/, which is a type of IAM role, in your account. This role
 --     contains the permissions that allow Amazon Cognito to access Amazon
 --     SES and send email messages with your address. For more information
 --     about the service-linked role that Amazon Cognito creates, see
@@ -230,7 +230,7 @@ data EmailConfigurationType = EmailConfigurationType'
 -- -   Event publishing – Amazon SES can track the number of send,
 --     delivery, open, click, bounce, and complaint events for each email
 --     sent. Use event publishing to send information about these events to
---     other AWS services such as SNS and CloudWatch.
+--     other Amazon Web Services services such as SNS and CloudWatch.
 --
 -- -   IP pool management – When leasing dedicated IP addresses with Amazon
 --     SES, you can create groups of IP addresses, called dedicated IP
@@ -295,7 +295,7 @@ newEmailConfigurationType =
 --     configuration. Amazon Cognito calls Amazon SES on your behalf to
 --     send email from your verified email address. When you use this
 --     option, the email delivery limits are the same limits that apply to
---     your Amazon SES verified email address in your AWS account.
+--     your Amazon SES verified email address in your account.
 --
 --     If you use this option, you must provide the ARN of an Amazon SES
 --     verified email address for the @SourceArn@ parameter.
@@ -303,7 +303,7 @@ newEmailConfigurationType =
 --     Before Amazon Cognito can email your users, it requires additional
 --     permissions to call Amazon SES on your behalf. When you update your
 --     user pool with this option, Amazon Cognito creates a /service-linked
---     role/, which is a type of IAM role, in your AWS account. This role
+--     role/, which is a type of IAM role, in your account. This role
 --     contains the permissions that allow Amazon Cognito to access Amazon
 --     SES and send email messages with your address. For more information
 --     about the service-linked role that Amazon Cognito creates, see
@@ -346,7 +346,7 @@ emailConfigurationType_sourceArn = Lens.lens (\EmailConfigurationType' {sourceAr
 -- -   Event publishing – Amazon SES can track the number of send,
 --     delivery, open, click, bounce, and complaint events for each email
 --     sent. Use event publishing to send information about these events to
---     other AWS services such as SNS and CloudWatch.
+--     other Amazon Web Services services such as SNS and CloudWatch.
 --
 -- -   IP pool management – When leasing dedicated IP addresses with Amazon
 --     SES, you can create groups of IP addresses, called dedicated IP

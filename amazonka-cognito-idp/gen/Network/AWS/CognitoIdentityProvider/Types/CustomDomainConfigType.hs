@@ -28,7 +28,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCustomDomainConfigType' smart constructor.
 data CustomDomainConfigType = CustomDomainConfigType'
-  { -- | The Amazon Resource Name (ARN) of an AWS Certificate Manager SSL
+  { -- | The Amazon Resource Name (ARN) of an Certificate Manager SSL
     -- certificate. You use this certificate for the subdomain of your custom
     -- domain.
     certificateArn :: Prelude.Text
@@ -43,7 +43,7 @@ data CustomDomainConfigType = CustomDomainConfigType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'certificateArn', 'customDomainConfigType_certificateArn' - The Amazon Resource Name (ARN) of an AWS Certificate Manager SSL
+-- 'certificateArn', 'customDomainConfigType_certificateArn' - The Amazon Resource Name (ARN) of an Certificate Manager SSL
 -- certificate. You use this certificate for the subdomain of your custom
 -- domain.
 newCustomDomainConfigType ::
@@ -56,7 +56,7 @@ newCustomDomainConfigType pCertificateArn_ =
         pCertificateArn_
     }
 
--- | The Amazon Resource Name (ARN) of an AWS Certificate Manager SSL
+-- | The Amazon Resource Name (ARN) of an Certificate Manager SSL
 -- certificate. You use this certificate for the subdomain of your custom
 -- domain.
 customDomainConfigType_certificateArn :: Lens.Lens' CustomDomainConfigType Prelude.Text

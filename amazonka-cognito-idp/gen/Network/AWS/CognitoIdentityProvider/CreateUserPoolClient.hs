@@ -21,29 +21,34 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates the user pool client.
+--
+-- When you create a new user pool client, token revocation is
+-- automatically enabled. For more information about revoking tokens, see
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html RevokeToken>.
 module Network.AWS.CognitoIdentityProvider.CreateUserPoolClient
   ( -- * Creating a Request
     CreateUserPoolClient (..),
     newCreateUserPoolClient,
 
     -- * Request Lenses
-    createUserPoolClient_refreshTokenValidity,
     createUserPoolClient_idTokenValidity,
+    createUserPoolClient_refreshTokenValidity,
     createUserPoolClient_allowedOAuthScopes,
     createUserPoolClient_analyticsConfiguration,
     createUserPoolClient_readAttributes,
-    createUserPoolClient_logoutURLs,
-    createUserPoolClient_writeAttributes,
     createUserPoolClient_supportedIdentityProviders,
-    createUserPoolClient_explicitAuthFlows,
+    createUserPoolClient_writeAttributes,
+    createUserPoolClient_logoutURLs,
+    createUserPoolClient_enableTokenRevocation,
     createUserPoolClient_defaultRedirectURI,
+    createUserPoolClient_explicitAuthFlows,
     createUserPoolClient_tokenValidityUnits,
     createUserPoolClient_callbackURLs,
     createUserPoolClient_allowedOAuthFlows,
     createUserPoolClient_accessTokenValidity,
     createUserPoolClient_generateSecret,
-    createUserPoolClient_preventUserExistenceErrors,
     createUserPoolClient_allowedOAuthFlowsUserPoolClient,
+    createUserPoolClient_preventUserExistenceErrors,
     createUserPoolClient_userPoolId,
     createUserPoolClient_clientName,
 
@@ -68,17 +73,17 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreateUserPoolClient' smart constructor.
 data CreateUserPoolClient = CreateUserPoolClient'
-  { -- | The time limit, in days, after which the refresh token is no longer
-    -- valid and cannot be used.
-    refreshTokenValidity :: Prelude.Maybe Prelude.Natural,
-    -- | The time limit, between 5 minutes and 1 day, after which the ID token is
+  { -- | The time limit, between 5 minutes and 1 day, after which the ID token is
     -- no longer valid and cannot be used. This value will be overridden if you
     -- have entered a value in TokenValidityUnits.
     idTokenValidity :: Prelude.Maybe Prelude.Natural,
+    -- | The time limit, in days, after which the refresh token is no longer
+    -- valid and cannot be used.
+    refreshTokenValidity :: Prelude.Maybe Prelude.Natural,
     -- | The allowed OAuth scopes. Possible values provided by OAuth are:
     -- @phone@, @email@, @openid@, and @profile@. Possible values provided by
-    -- AWS are: @aws.cognito.signin.user.admin@. Custom scopes created in
-    -- Resource Servers are also supported.
+    -- Amazon Web Services are: @aws.cognito.signin.user.admin@. Custom scopes
+    -- created in Resource Servers are also supported.
     allowedOAuthScopes :: Prelude.Maybe [Prelude.Text],
     -- | The Amazon Pinpoint analytics configuration for collecting metrics for
     -- this user pool.
@@ -90,8 +95,10 @@ data CreateUserPoolClient = CreateUserPoolClient'
     analyticsConfiguration :: Prelude.Maybe AnalyticsConfigurationType,
     -- | The read attributes.
     readAttributes :: Prelude.Maybe [Prelude.Text],
-    -- | A list of allowed logout URLs for the identity providers.
-    logoutURLs :: Prelude.Maybe [Prelude.Text],
+    -- | A list of provider names for the identity providers that are supported
+    -- on this client. The following are supported: @COGNITO@, @Facebook@,
+    -- @Google@ and @LoginWithAmazon@.
+    supportedIdentityProviders :: Prelude.Maybe [Prelude.Text],
     -- | The user pool attributes that the app client can write to.
     --
     -- If your app client allows users to sign in through an identity provider,
@@ -103,10 +110,33 @@ data CreateUserPoolClient = CreateUserPoolClient'
     -- see
     -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html Specifying Identity Provider Attribute Mappings for Your User Pool>.
     writeAttributes :: Prelude.Maybe [Prelude.Text],
-    -- | A list of provider names for the identity providers that are supported
-    -- on this client. The following are supported: @COGNITO@, @Facebook@,
-    -- @Google@ and @LoginWithAmazon@.
-    supportedIdentityProviders :: Prelude.Maybe [Prelude.Text],
+    -- | A list of allowed logout URLs for the identity providers.
+    logoutURLs :: Prelude.Maybe [Prelude.Text],
+    -- | Enables or disables token revocation. For more information about
+    -- revoking tokens, see
+    -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html RevokeToken>.
+    --
+    -- If you don\'t include this parameter, token revocation is automatically
+    -- enabled for the new user pool client.
+    enableTokenRevocation :: Prelude.Maybe Prelude.Bool,
+    -- | The default redirect URI. Must be in the @CallbackURLs@ list.
+    --
+    -- A redirect URI must:
+    --
+    -- -   Be an absolute URI.
+    --
+    -- -   Be registered with the authorization server.
+    --
+    -- -   Not include a fragment component.
+    --
+    -- See
+    -- <https://tools.ietf.org/html/rfc6749#section-3.1.2 OAuth 2.0 - Redirection Endpoint>.
+    --
+    -- Amazon Cognito requires HTTPS over HTTP except for http:\/\/localhost
+    -- for testing purposes only.
+    --
+    -- App callback URLs such as myapp:\/\/example are also supported.
+    defaultRedirectURI :: Prelude.Maybe Prelude.Text,
     -- | The authentication flows that are supported by the user pool clients.
     -- Flow names without the @ALLOW_@ prefix are deprecated in favor of new
     -- names with the @ALLOW_@ prefix. Note that values with @ALLOW_@ prefix
@@ -131,24 +161,6 @@ data CreateUserPoolClient = CreateUserPoolClient'
     --
     -- -   @ALLOW_REFRESH_TOKEN_AUTH@: Enable authflow to refresh tokens.
     explicitAuthFlows :: Prelude.Maybe [ExplicitAuthFlowsType],
-    -- | The default redirect URI. Must be in the @CallbackURLs@ list.
-    --
-    -- A redirect URI must:
-    --
-    -- -   Be an absolute URI.
-    --
-    -- -   Be registered with the authorization server.
-    --
-    -- -   Not include a fragment component.
-    --
-    -- See
-    -- <https://tools.ietf.org/html/rfc6749#section-3.1.2 OAuth 2.0 - Redirection Endpoint>.
-    --
-    -- Amazon Cognito requires HTTPS over HTTP except for http:\/\/localhost
-    -- for testing purposes only.
-    --
-    -- App callback URLs such as myapp:\/\/example are also supported.
-    defaultRedirectURI :: Prelude.Maybe Prelude.Text,
     -- | The units in which the validity times are represented in. Default for
     -- RefreshToken is days, and default for ID and access tokens are hours.
     tokenValidityUnits :: Prelude.Maybe TokenValidityUnitsType,
@@ -190,6 +202,9 @@ data CreateUserPoolClient = CreateUserPoolClient'
     -- | Boolean to specify whether you want to generate a secret for the user
     -- pool client being created.
     generateSecret :: Prelude.Maybe Prelude.Bool,
+    -- | Set to true if the client is allowed to follow the OAuth protocol when
+    -- interacting with Cognito user pools.
+    allowedOAuthFlowsUserPoolClient :: Prelude.Maybe Prelude.Bool,
     -- | Use this setting to choose which errors and responses are returned by
     -- Cognito APIs during authentication, account confirmation, and password
     -- recovery when the user does not exist in the user pool. When set to
@@ -211,9 +226,6 @@ data CreateUserPoolClient = CreateUserPoolClient'
     -- default to @ENABLED@ for newly created user pool clients if no value is
     -- provided.
     preventUserExistenceErrors :: Prelude.Maybe PreventUserExistenceErrorTypes,
-    -- | Set to true if the client is allowed to follow the OAuth protocol when
-    -- interacting with Cognito user pools.
-    allowedOAuthFlowsUserPoolClient :: Prelude.Maybe Prelude.Bool,
     -- | The user pool ID for the user pool where you want to create a user pool
     -- client.
     userPoolId :: Prelude.Text,
@@ -230,17 +242,17 @@ data CreateUserPoolClient = CreateUserPoolClient'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'refreshTokenValidity', 'createUserPoolClient_refreshTokenValidity' - The time limit, in days, after which the refresh token is no longer
--- valid and cannot be used.
---
 -- 'idTokenValidity', 'createUserPoolClient_idTokenValidity' - The time limit, between 5 minutes and 1 day, after which the ID token is
 -- no longer valid and cannot be used. This value will be overridden if you
 -- have entered a value in TokenValidityUnits.
 --
+-- 'refreshTokenValidity', 'createUserPoolClient_refreshTokenValidity' - The time limit, in days, after which the refresh token is no longer
+-- valid and cannot be used.
+--
 -- 'allowedOAuthScopes', 'createUserPoolClient_allowedOAuthScopes' - The allowed OAuth scopes. Possible values provided by OAuth are:
 -- @phone@, @email@, @openid@, and @profile@. Possible values provided by
--- AWS are: @aws.cognito.signin.user.admin@. Custom scopes created in
--- Resource Servers are also supported.
+-- Amazon Web Services are: @aws.cognito.signin.user.admin@. Custom scopes
+-- created in Resource Servers are also supported.
 --
 -- 'analyticsConfiguration', 'createUserPoolClient_analyticsConfiguration' - The Amazon Pinpoint analytics configuration for collecting metrics for
 -- this user pool.
@@ -252,7 +264,9 @@ data CreateUserPoolClient = CreateUserPoolClient'
 --
 -- 'readAttributes', 'createUserPoolClient_readAttributes' - The read attributes.
 --
--- 'logoutURLs', 'createUserPoolClient_logoutURLs' - A list of allowed logout URLs for the identity providers.
+-- 'supportedIdentityProviders', 'createUserPoolClient_supportedIdentityProviders' - A list of provider names for the identity providers that are supported
+-- on this client. The following are supported: @COGNITO@, @Facebook@,
+-- @Google@ and @LoginWithAmazon@.
 --
 -- 'writeAttributes', 'createUserPoolClient_writeAttributes' - The user pool attributes that the app client can write to.
 --
@@ -265,9 +279,32 @@ data CreateUserPoolClient = CreateUserPoolClient'
 -- see
 -- <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html Specifying Identity Provider Attribute Mappings for Your User Pool>.
 --
--- 'supportedIdentityProviders', 'createUserPoolClient_supportedIdentityProviders' - A list of provider names for the identity providers that are supported
--- on this client. The following are supported: @COGNITO@, @Facebook@,
--- @Google@ and @LoginWithAmazon@.
+-- 'logoutURLs', 'createUserPoolClient_logoutURLs' - A list of allowed logout URLs for the identity providers.
+--
+-- 'enableTokenRevocation', 'createUserPoolClient_enableTokenRevocation' - Enables or disables token revocation. For more information about
+-- revoking tokens, see
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html RevokeToken>.
+--
+-- If you don\'t include this parameter, token revocation is automatically
+-- enabled for the new user pool client.
+--
+-- 'defaultRedirectURI', 'createUserPoolClient_defaultRedirectURI' - The default redirect URI. Must be in the @CallbackURLs@ list.
+--
+-- A redirect URI must:
+--
+-- -   Be an absolute URI.
+--
+-- -   Be registered with the authorization server.
+--
+-- -   Not include a fragment component.
+--
+-- See
+-- <https://tools.ietf.org/html/rfc6749#section-3.1.2 OAuth 2.0 - Redirection Endpoint>.
+--
+-- Amazon Cognito requires HTTPS over HTTP except for http:\/\/localhost
+-- for testing purposes only.
+--
+-- App callback URLs such as myapp:\/\/example are also supported.
 --
 -- 'explicitAuthFlows', 'createUserPoolClient_explicitAuthFlows' - The authentication flows that are supported by the user pool clients.
 -- Flow names without the @ALLOW_@ prefix are deprecated in favor of new
@@ -292,24 +329,6 @@ data CreateUserPoolClient = CreateUserPoolClient'
 -- -   @ALLOW_USER_SRP_AUTH@: Enable SRP based authentication.
 --
 -- -   @ALLOW_REFRESH_TOKEN_AUTH@: Enable authflow to refresh tokens.
---
--- 'defaultRedirectURI', 'createUserPoolClient_defaultRedirectURI' - The default redirect URI. Must be in the @CallbackURLs@ list.
---
--- A redirect URI must:
---
--- -   Be an absolute URI.
---
--- -   Be registered with the authorization server.
---
--- -   Not include a fragment component.
---
--- See
--- <https://tools.ietf.org/html/rfc6749#section-3.1.2 OAuth 2.0 - Redirection Endpoint>.
---
--- Amazon Cognito requires HTTPS over HTTP except for http:\/\/localhost
--- for testing purposes only.
---
--- App callback URLs such as myapp:\/\/example are also supported.
 --
 -- 'tokenValidityUnits', 'createUserPoolClient_tokenValidityUnits' - The units in which the validity times are represented in. Default for
 -- RefreshToken is days, and default for ID and access tokens are hours.
@@ -352,6 +371,9 @@ data CreateUserPoolClient = CreateUserPoolClient'
 -- 'generateSecret', 'createUserPoolClient_generateSecret' - Boolean to specify whether you want to generate a secret for the user
 -- pool client being created.
 --
+-- 'allowedOAuthFlowsUserPoolClient', 'createUserPoolClient_allowedOAuthFlowsUserPoolClient' - Set to true if the client is allowed to follow the OAuth protocol when
+-- interacting with Cognito user pools.
+--
 -- 'preventUserExistenceErrors', 'createUserPoolClient_preventUserExistenceErrors' - Use this setting to choose which errors and responses are returned by
 -- Cognito APIs during authentication, account confirmation, and password
 -- recovery when the user does not exist in the user pool. When set to
@@ -373,9 +395,6 @@ data CreateUserPoolClient = CreateUserPoolClient'
 -- default to @ENABLED@ for newly created user pool clients if no value is
 -- provided.
 --
--- 'allowedOAuthFlowsUserPoolClient', 'createUserPoolClient_allowedOAuthFlowsUserPoolClient' - Set to true if the client is allowed to follow the OAuth protocol when
--- interacting with Cognito user pools.
---
 -- 'userPoolId', 'createUserPoolClient_userPoolId' - The user pool ID for the user pool where you want to create a user pool
 -- client.
 --
@@ -388,32 +407,28 @@ newCreateUserPoolClient ::
   CreateUserPoolClient
 newCreateUserPoolClient pUserPoolId_ pClientName_ =
   CreateUserPoolClient'
-    { refreshTokenValidity =
+    { idTokenValidity =
         Prelude.Nothing,
-      idTokenValidity = Prelude.Nothing,
+      refreshTokenValidity = Prelude.Nothing,
       allowedOAuthScopes = Prelude.Nothing,
       analyticsConfiguration = Prelude.Nothing,
       readAttributes = Prelude.Nothing,
-      logoutURLs = Prelude.Nothing,
-      writeAttributes = Prelude.Nothing,
       supportedIdentityProviders = Prelude.Nothing,
-      explicitAuthFlows = Prelude.Nothing,
+      writeAttributes = Prelude.Nothing,
+      logoutURLs = Prelude.Nothing,
+      enableTokenRevocation = Prelude.Nothing,
       defaultRedirectURI = Prelude.Nothing,
+      explicitAuthFlows = Prelude.Nothing,
       tokenValidityUnits = Prelude.Nothing,
       callbackURLs = Prelude.Nothing,
       allowedOAuthFlows = Prelude.Nothing,
       accessTokenValidity = Prelude.Nothing,
       generateSecret = Prelude.Nothing,
-      preventUserExistenceErrors = Prelude.Nothing,
       allowedOAuthFlowsUserPoolClient = Prelude.Nothing,
+      preventUserExistenceErrors = Prelude.Nothing,
       userPoolId = pUserPoolId_,
       clientName = pClientName_
     }
-
--- | The time limit, in days, after which the refresh token is no longer
--- valid and cannot be used.
-createUserPoolClient_refreshTokenValidity :: Lens.Lens' CreateUserPoolClient (Prelude.Maybe Prelude.Natural)
-createUserPoolClient_refreshTokenValidity = Lens.lens (\CreateUserPoolClient' {refreshTokenValidity} -> refreshTokenValidity) (\s@CreateUserPoolClient' {} a -> s {refreshTokenValidity = a} :: CreateUserPoolClient)
 
 -- | The time limit, between 5 minutes and 1 day, after which the ID token is
 -- no longer valid and cannot be used. This value will be overridden if you
@@ -421,10 +436,15 @@ createUserPoolClient_refreshTokenValidity = Lens.lens (\CreateUserPoolClient' {r
 createUserPoolClient_idTokenValidity :: Lens.Lens' CreateUserPoolClient (Prelude.Maybe Prelude.Natural)
 createUserPoolClient_idTokenValidity = Lens.lens (\CreateUserPoolClient' {idTokenValidity} -> idTokenValidity) (\s@CreateUserPoolClient' {} a -> s {idTokenValidity = a} :: CreateUserPoolClient)
 
+-- | The time limit, in days, after which the refresh token is no longer
+-- valid and cannot be used.
+createUserPoolClient_refreshTokenValidity :: Lens.Lens' CreateUserPoolClient (Prelude.Maybe Prelude.Natural)
+createUserPoolClient_refreshTokenValidity = Lens.lens (\CreateUserPoolClient' {refreshTokenValidity} -> refreshTokenValidity) (\s@CreateUserPoolClient' {} a -> s {refreshTokenValidity = a} :: CreateUserPoolClient)
+
 -- | The allowed OAuth scopes. Possible values provided by OAuth are:
 -- @phone@, @email@, @openid@, and @profile@. Possible values provided by
--- AWS are: @aws.cognito.signin.user.admin@. Custom scopes created in
--- Resource Servers are also supported.
+-- Amazon Web Services are: @aws.cognito.signin.user.admin@. Custom scopes
+-- created in Resource Servers are also supported.
 createUserPoolClient_allowedOAuthScopes :: Lens.Lens' CreateUserPoolClient (Prelude.Maybe [Prelude.Text])
 createUserPoolClient_allowedOAuthScopes = Lens.lens (\CreateUserPoolClient' {allowedOAuthScopes} -> allowedOAuthScopes) (\s@CreateUserPoolClient' {} a -> s {allowedOAuthScopes = a} :: CreateUserPoolClient) Prelude.. Lens.mapping Lens._Coerce
 
@@ -442,9 +462,11 @@ createUserPoolClient_analyticsConfiguration = Lens.lens (\CreateUserPoolClient' 
 createUserPoolClient_readAttributes :: Lens.Lens' CreateUserPoolClient (Prelude.Maybe [Prelude.Text])
 createUserPoolClient_readAttributes = Lens.lens (\CreateUserPoolClient' {readAttributes} -> readAttributes) (\s@CreateUserPoolClient' {} a -> s {readAttributes = a} :: CreateUserPoolClient) Prelude.. Lens.mapping Lens._Coerce
 
--- | A list of allowed logout URLs for the identity providers.
-createUserPoolClient_logoutURLs :: Lens.Lens' CreateUserPoolClient (Prelude.Maybe [Prelude.Text])
-createUserPoolClient_logoutURLs = Lens.lens (\CreateUserPoolClient' {logoutURLs} -> logoutURLs) (\s@CreateUserPoolClient' {} a -> s {logoutURLs = a} :: CreateUserPoolClient) Prelude.. Lens.mapping Lens._Coerce
+-- | A list of provider names for the identity providers that are supported
+-- on this client. The following are supported: @COGNITO@, @Facebook@,
+-- @Google@ and @LoginWithAmazon@.
+createUserPoolClient_supportedIdentityProviders :: Lens.Lens' CreateUserPoolClient (Prelude.Maybe [Prelude.Text])
+createUserPoolClient_supportedIdentityProviders = Lens.lens (\CreateUserPoolClient' {supportedIdentityProviders} -> supportedIdentityProviders) (\s@CreateUserPoolClient' {} a -> s {supportedIdentityProviders = a} :: CreateUserPoolClient) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The user pool attributes that the app client can write to.
 --
@@ -459,11 +481,38 @@ createUserPoolClient_logoutURLs = Lens.lens (\CreateUserPoolClient' {logoutURLs}
 createUserPoolClient_writeAttributes :: Lens.Lens' CreateUserPoolClient (Prelude.Maybe [Prelude.Text])
 createUserPoolClient_writeAttributes = Lens.lens (\CreateUserPoolClient' {writeAttributes} -> writeAttributes) (\s@CreateUserPoolClient' {} a -> s {writeAttributes = a} :: CreateUserPoolClient) Prelude.. Lens.mapping Lens._Coerce
 
--- | A list of provider names for the identity providers that are supported
--- on this client. The following are supported: @COGNITO@, @Facebook@,
--- @Google@ and @LoginWithAmazon@.
-createUserPoolClient_supportedIdentityProviders :: Lens.Lens' CreateUserPoolClient (Prelude.Maybe [Prelude.Text])
-createUserPoolClient_supportedIdentityProviders = Lens.lens (\CreateUserPoolClient' {supportedIdentityProviders} -> supportedIdentityProviders) (\s@CreateUserPoolClient' {} a -> s {supportedIdentityProviders = a} :: CreateUserPoolClient) Prelude.. Lens.mapping Lens._Coerce
+-- | A list of allowed logout URLs for the identity providers.
+createUserPoolClient_logoutURLs :: Lens.Lens' CreateUserPoolClient (Prelude.Maybe [Prelude.Text])
+createUserPoolClient_logoutURLs = Lens.lens (\CreateUserPoolClient' {logoutURLs} -> logoutURLs) (\s@CreateUserPoolClient' {} a -> s {logoutURLs = a} :: CreateUserPoolClient) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Enables or disables token revocation. For more information about
+-- revoking tokens, see
+-- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html RevokeToken>.
+--
+-- If you don\'t include this parameter, token revocation is automatically
+-- enabled for the new user pool client.
+createUserPoolClient_enableTokenRevocation :: Lens.Lens' CreateUserPoolClient (Prelude.Maybe Prelude.Bool)
+createUserPoolClient_enableTokenRevocation = Lens.lens (\CreateUserPoolClient' {enableTokenRevocation} -> enableTokenRevocation) (\s@CreateUserPoolClient' {} a -> s {enableTokenRevocation = a} :: CreateUserPoolClient)
+
+-- | The default redirect URI. Must be in the @CallbackURLs@ list.
+--
+-- A redirect URI must:
+--
+-- -   Be an absolute URI.
+--
+-- -   Be registered with the authorization server.
+--
+-- -   Not include a fragment component.
+--
+-- See
+-- <https://tools.ietf.org/html/rfc6749#section-3.1.2 OAuth 2.0 - Redirection Endpoint>.
+--
+-- Amazon Cognito requires HTTPS over HTTP except for http:\/\/localhost
+-- for testing purposes only.
+--
+-- App callback URLs such as myapp:\/\/example are also supported.
+createUserPoolClient_defaultRedirectURI :: Lens.Lens' CreateUserPoolClient (Prelude.Maybe Prelude.Text)
+createUserPoolClient_defaultRedirectURI = Lens.lens (\CreateUserPoolClient' {defaultRedirectURI} -> defaultRedirectURI) (\s@CreateUserPoolClient' {} a -> s {defaultRedirectURI = a} :: CreateUserPoolClient)
 
 -- | The authentication flows that are supported by the user pool clients.
 -- Flow names without the @ALLOW_@ prefix are deprecated in favor of new
@@ -490,26 +539,6 @@ createUserPoolClient_supportedIdentityProviders = Lens.lens (\CreateUserPoolClie
 -- -   @ALLOW_REFRESH_TOKEN_AUTH@: Enable authflow to refresh tokens.
 createUserPoolClient_explicitAuthFlows :: Lens.Lens' CreateUserPoolClient (Prelude.Maybe [ExplicitAuthFlowsType])
 createUserPoolClient_explicitAuthFlows = Lens.lens (\CreateUserPoolClient' {explicitAuthFlows} -> explicitAuthFlows) (\s@CreateUserPoolClient' {} a -> s {explicitAuthFlows = a} :: CreateUserPoolClient) Prelude.. Lens.mapping Lens._Coerce
-
--- | The default redirect URI. Must be in the @CallbackURLs@ list.
---
--- A redirect URI must:
---
--- -   Be an absolute URI.
---
--- -   Be registered with the authorization server.
---
--- -   Not include a fragment component.
---
--- See
--- <https://tools.ietf.org/html/rfc6749#section-3.1.2 OAuth 2.0 - Redirection Endpoint>.
---
--- Amazon Cognito requires HTTPS over HTTP except for http:\/\/localhost
--- for testing purposes only.
---
--- App callback URLs such as myapp:\/\/example are also supported.
-createUserPoolClient_defaultRedirectURI :: Lens.Lens' CreateUserPoolClient (Prelude.Maybe Prelude.Text)
-createUserPoolClient_defaultRedirectURI = Lens.lens (\CreateUserPoolClient' {defaultRedirectURI} -> defaultRedirectURI) (\s@CreateUserPoolClient' {} a -> s {defaultRedirectURI = a} :: CreateUserPoolClient)
 
 -- | The units in which the validity times are represented in. Default for
 -- RefreshToken is days, and default for ID and access tokens are hours.
@@ -562,6 +591,11 @@ createUserPoolClient_accessTokenValidity = Lens.lens (\CreateUserPoolClient' {ac
 createUserPoolClient_generateSecret :: Lens.Lens' CreateUserPoolClient (Prelude.Maybe Prelude.Bool)
 createUserPoolClient_generateSecret = Lens.lens (\CreateUserPoolClient' {generateSecret} -> generateSecret) (\s@CreateUserPoolClient' {} a -> s {generateSecret = a} :: CreateUserPoolClient)
 
+-- | Set to true if the client is allowed to follow the OAuth protocol when
+-- interacting with Cognito user pools.
+createUserPoolClient_allowedOAuthFlowsUserPoolClient :: Lens.Lens' CreateUserPoolClient (Prelude.Maybe Prelude.Bool)
+createUserPoolClient_allowedOAuthFlowsUserPoolClient = Lens.lens (\CreateUserPoolClient' {allowedOAuthFlowsUserPoolClient} -> allowedOAuthFlowsUserPoolClient) (\s@CreateUserPoolClient' {} a -> s {allowedOAuthFlowsUserPoolClient = a} :: CreateUserPoolClient)
+
 -- | Use this setting to choose which errors and responses are returned by
 -- Cognito APIs during authentication, account confirmation, and password
 -- recovery when the user does not exist in the user pool. When set to
@@ -584,11 +618,6 @@ createUserPoolClient_generateSecret = Lens.lens (\CreateUserPoolClient' {generat
 -- provided.
 createUserPoolClient_preventUserExistenceErrors :: Lens.Lens' CreateUserPoolClient (Prelude.Maybe PreventUserExistenceErrorTypes)
 createUserPoolClient_preventUserExistenceErrors = Lens.lens (\CreateUserPoolClient' {preventUserExistenceErrors} -> preventUserExistenceErrors) (\s@CreateUserPoolClient' {} a -> s {preventUserExistenceErrors = a} :: CreateUserPoolClient)
-
--- | Set to true if the client is allowed to follow the OAuth protocol when
--- interacting with Cognito user pools.
-createUserPoolClient_allowedOAuthFlowsUserPoolClient :: Lens.Lens' CreateUserPoolClient (Prelude.Maybe Prelude.Bool)
-createUserPoolClient_allowedOAuthFlowsUserPoolClient = Lens.lens (\CreateUserPoolClient' {allowedOAuthFlowsUserPoolClient} -> allowedOAuthFlowsUserPoolClient) (\s@CreateUserPoolClient' {} a -> s {allowedOAuthFlowsUserPoolClient = a} :: CreateUserPoolClient)
 
 -- | The user pool ID for the user pool where you want to create a user pool
 -- client.
@@ -635,25 +664,27 @@ instance Core.ToJSON CreateUserPoolClient where
   toJSON CreateUserPoolClient' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RefreshTokenValidity" Core..=)
-              Prelude.<$> refreshTokenValidity,
-            ("IdTokenValidity" Core..=)
+          [ ("IdTokenValidity" Core..=)
               Prelude.<$> idTokenValidity,
+            ("RefreshTokenValidity" Core..=)
+              Prelude.<$> refreshTokenValidity,
             ("AllowedOAuthScopes" Core..=)
               Prelude.<$> allowedOAuthScopes,
             ("AnalyticsConfiguration" Core..=)
               Prelude.<$> analyticsConfiguration,
             ("ReadAttributes" Core..=)
               Prelude.<$> readAttributes,
-            ("LogoutURLs" Core..=) Prelude.<$> logoutURLs,
-            ("WriteAttributes" Core..=)
-              Prelude.<$> writeAttributes,
             ("SupportedIdentityProviders" Core..=)
               Prelude.<$> supportedIdentityProviders,
-            ("ExplicitAuthFlows" Core..=)
-              Prelude.<$> explicitAuthFlows,
+            ("WriteAttributes" Core..=)
+              Prelude.<$> writeAttributes,
+            ("LogoutURLs" Core..=) Prelude.<$> logoutURLs,
+            ("EnableTokenRevocation" Core..=)
+              Prelude.<$> enableTokenRevocation,
             ("DefaultRedirectURI" Core..=)
               Prelude.<$> defaultRedirectURI,
+            ("ExplicitAuthFlows" Core..=)
+              Prelude.<$> explicitAuthFlows,
             ("TokenValidityUnits" Core..=)
               Prelude.<$> tokenValidityUnits,
             ("CallbackURLs" Core..=) Prelude.<$> callbackURLs,
@@ -663,10 +694,10 @@ instance Core.ToJSON CreateUserPoolClient where
               Prelude.<$> accessTokenValidity,
             ("GenerateSecret" Core..=)
               Prelude.<$> generateSecret,
-            ("PreventUserExistenceErrors" Core..=)
-              Prelude.<$> preventUserExistenceErrors,
             ("AllowedOAuthFlowsUserPoolClient" Core..=)
               Prelude.<$> allowedOAuthFlowsUserPoolClient,
+            ("PreventUserExistenceErrors" Core..=)
+              Prelude.<$> preventUserExistenceErrors,
             Prelude.Just ("UserPoolId" Core..= userPoolId),
             Prelude.Just ("ClientName" Core..= clientName)
           ]

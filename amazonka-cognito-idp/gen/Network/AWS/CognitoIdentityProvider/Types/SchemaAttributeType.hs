@@ -32,12 +32,12 @@ import qualified Network.AWS.Prelude as Prelude
 data SchemaAttributeType = SchemaAttributeType'
   { -- | The attribute data type.
     attributeDataType :: Prelude.Maybe AttributeDataType,
+    -- | Specifies the constraints for an attribute of the number type.
+    numberAttributeConstraints :: Prelude.Maybe NumberAttributeConstraintsType,
     -- | Specifies whether a user pool attribute is required. If the attribute is
     -- required and the user does not provide a value, registration or sign-in
     -- will fail.
     required :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies the constraints for an attribute of the number type.
-    numberAttributeConstraints :: Prelude.Maybe NumberAttributeConstraintsType,
     -- | We recommend that you use
     -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserPoolClientType.html#CognitoUserPools-Type-UserPoolClientType-WriteAttributes WriteAttributes>
     -- in the user pool client to control how attributes can be mutated for new
@@ -49,10 +49,10 @@ data SchemaAttributeType = SchemaAttributeType'
     -- @DeveloperOnlyAttribute@ can be modified using AdminUpdateUserAttributes
     -- but cannot be updated using UpdateUserAttributes.
     developerOnlyAttribute :: Prelude.Maybe Prelude.Bool,
-    -- | Specifies the constraints for an attribute of the string type.
-    stringAttributeConstraints :: Prelude.Maybe StringAttributeConstraintsType,
     -- | A schema attribute of the name type.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the constraints for an attribute of the string type.
+    stringAttributeConstraints :: Prelude.Maybe StringAttributeConstraintsType,
     -- | Specifies whether the value of the attribute can be changed.
     --
     -- For any user pool attribute that\'s mapped to an identity provider
@@ -76,11 +76,11 @@ data SchemaAttributeType = SchemaAttributeType'
 --
 -- 'attributeDataType', 'schemaAttributeType_attributeDataType' - The attribute data type.
 --
+-- 'numberAttributeConstraints', 'schemaAttributeType_numberAttributeConstraints' - Specifies the constraints for an attribute of the number type.
+--
 -- 'required', 'schemaAttributeType_required' - Specifies whether a user pool attribute is required. If the attribute is
 -- required and the user does not provide a value, registration or sign-in
 -- will fail.
---
--- 'numberAttributeConstraints', 'schemaAttributeType_numberAttributeConstraints' - Specifies the constraints for an attribute of the number type.
 --
 -- 'developerOnlyAttribute', 'schemaAttributeType_developerOnlyAttribute' - We recommend that you use
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserPoolClientType.html#CognitoUserPools-Type-UserPoolClientType-WriteAttributes WriteAttributes>
@@ -93,9 +93,9 @@ data SchemaAttributeType = SchemaAttributeType'
 -- @DeveloperOnlyAttribute@ can be modified using AdminUpdateUserAttributes
 -- but cannot be updated using UpdateUserAttributes.
 --
--- 'stringAttributeConstraints', 'schemaAttributeType_stringAttributeConstraints' - Specifies the constraints for an attribute of the string type.
---
 -- 'name', 'schemaAttributeType_name' - A schema attribute of the name type.
+--
+-- 'stringAttributeConstraints', 'schemaAttributeType_stringAttributeConstraints' - Specifies the constraints for an attribute of the string type.
 --
 -- 'mutable', 'schemaAttributeType_mutable' - Specifies whether the value of the attribute can be changed.
 --
@@ -112,11 +112,11 @@ newSchemaAttributeType =
   SchemaAttributeType'
     { attributeDataType =
         Prelude.Nothing,
-      required = Prelude.Nothing,
       numberAttributeConstraints = Prelude.Nothing,
+      required = Prelude.Nothing,
       developerOnlyAttribute = Prelude.Nothing,
-      stringAttributeConstraints = Prelude.Nothing,
       name = Prelude.Nothing,
+      stringAttributeConstraints = Prelude.Nothing,
       mutable = Prelude.Nothing
     }
 
@@ -124,15 +124,15 @@ newSchemaAttributeType =
 schemaAttributeType_attributeDataType :: Lens.Lens' SchemaAttributeType (Prelude.Maybe AttributeDataType)
 schemaAttributeType_attributeDataType = Lens.lens (\SchemaAttributeType' {attributeDataType} -> attributeDataType) (\s@SchemaAttributeType' {} a -> s {attributeDataType = a} :: SchemaAttributeType)
 
+-- | Specifies the constraints for an attribute of the number type.
+schemaAttributeType_numberAttributeConstraints :: Lens.Lens' SchemaAttributeType (Prelude.Maybe NumberAttributeConstraintsType)
+schemaAttributeType_numberAttributeConstraints = Lens.lens (\SchemaAttributeType' {numberAttributeConstraints} -> numberAttributeConstraints) (\s@SchemaAttributeType' {} a -> s {numberAttributeConstraints = a} :: SchemaAttributeType)
+
 -- | Specifies whether a user pool attribute is required. If the attribute is
 -- required and the user does not provide a value, registration or sign-in
 -- will fail.
 schemaAttributeType_required :: Lens.Lens' SchemaAttributeType (Prelude.Maybe Prelude.Bool)
 schemaAttributeType_required = Lens.lens (\SchemaAttributeType' {required} -> required) (\s@SchemaAttributeType' {} a -> s {required = a} :: SchemaAttributeType)
-
--- | Specifies the constraints for an attribute of the number type.
-schemaAttributeType_numberAttributeConstraints :: Lens.Lens' SchemaAttributeType (Prelude.Maybe NumberAttributeConstraintsType)
-schemaAttributeType_numberAttributeConstraints = Lens.lens (\SchemaAttributeType' {numberAttributeConstraints} -> numberAttributeConstraints) (\s@SchemaAttributeType' {} a -> s {numberAttributeConstraints = a} :: SchemaAttributeType)
 
 -- | We recommend that you use
 -- <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserPoolClientType.html#CognitoUserPools-Type-UserPoolClientType-WriteAttributes WriteAttributes>
@@ -147,13 +147,13 @@ schemaAttributeType_numberAttributeConstraints = Lens.lens (\SchemaAttributeType
 schemaAttributeType_developerOnlyAttribute :: Lens.Lens' SchemaAttributeType (Prelude.Maybe Prelude.Bool)
 schemaAttributeType_developerOnlyAttribute = Lens.lens (\SchemaAttributeType' {developerOnlyAttribute} -> developerOnlyAttribute) (\s@SchemaAttributeType' {} a -> s {developerOnlyAttribute = a} :: SchemaAttributeType)
 
--- | Specifies the constraints for an attribute of the string type.
-schemaAttributeType_stringAttributeConstraints :: Lens.Lens' SchemaAttributeType (Prelude.Maybe StringAttributeConstraintsType)
-schemaAttributeType_stringAttributeConstraints = Lens.lens (\SchemaAttributeType' {stringAttributeConstraints} -> stringAttributeConstraints) (\s@SchemaAttributeType' {} a -> s {stringAttributeConstraints = a} :: SchemaAttributeType)
-
 -- | A schema attribute of the name type.
 schemaAttributeType_name :: Lens.Lens' SchemaAttributeType (Prelude.Maybe Prelude.Text)
 schemaAttributeType_name = Lens.lens (\SchemaAttributeType' {name} -> name) (\s@SchemaAttributeType' {} a -> s {name = a} :: SchemaAttributeType)
+
+-- | Specifies the constraints for an attribute of the string type.
+schemaAttributeType_stringAttributeConstraints :: Lens.Lens' SchemaAttributeType (Prelude.Maybe StringAttributeConstraintsType)
+schemaAttributeType_stringAttributeConstraints = Lens.lens (\SchemaAttributeType' {stringAttributeConstraints} -> stringAttributeConstraints) (\s@SchemaAttributeType' {} a -> s {stringAttributeConstraints = a} :: SchemaAttributeType)
 
 -- | Specifies whether the value of the attribute can be changed.
 --
@@ -174,11 +174,11 @@ instance Core.FromJSON SchemaAttributeType where
       ( \x ->
           SchemaAttributeType'
             Prelude.<$> (x Core..:? "AttributeDataType")
-            Prelude.<*> (x Core..:? "Required")
             Prelude.<*> (x Core..:? "NumberAttributeConstraints")
+            Prelude.<*> (x Core..:? "Required")
             Prelude.<*> (x Core..:? "DeveloperOnlyAttribute")
-            Prelude.<*> (x Core..:? "StringAttributeConstraints")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "StringAttributeConstraints")
             Prelude.<*> (x Core..:? "Mutable")
       )
 
@@ -192,14 +192,14 @@ instance Core.ToJSON SchemaAttributeType where
       ( Prelude.catMaybes
           [ ("AttributeDataType" Core..=)
               Prelude.<$> attributeDataType,
-            ("Required" Core..=) Prelude.<$> required,
             ("NumberAttributeConstraints" Core..=)
               Prelude.<$> numberAttributeConstraints,
+            ("Required" Core..=) Prelude.<$> required,
             ("DeveloperOnlyAttribute" Core..=)
               Prelude.<$> developerOnlyAttribute,
+            ("Name" Core..=) Prelude.<$> name,
             ("StringAttributeConstraints" Core..=)
               Prelude.<$> stringAttributeConstraints,
-            ("Name" Core..=) Prelude.<$> name,
             ("Mutable" Core..=) Prelude.<$> mutable
           ]
       )

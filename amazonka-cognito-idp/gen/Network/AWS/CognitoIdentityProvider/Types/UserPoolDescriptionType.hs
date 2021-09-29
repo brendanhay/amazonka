@@ -33,12 +33,12 @@ data UserPoolDescriptionType = UserPoolDescriptionType'
     lastModifiedDate :: Prelude.Maybe Core.POSIX,
     -- | The user pool status in a user pool description.
     status :: Prelude.Maybe StatusType,
-    -- | The ID in a user pool description.
-    id :: Prelude.Maybe Prelude.Text,
     -- | The date the user pool description was created.
     creationDate :: Prelude.Maybe Core.POSIX,
-    -- | The AWS Lambda configuration information in a user pool description.
+    -- | The Lambda configuration information in a user pool description.
     lambdaConfig :: Prelude.Maybe LambdaConfigType,
+    -- | The ID in a user pool description.
+    id :: Prelude.Maybe Prelude.Text,
     -- | The name in a user pool description.
     name :: Prelude.Maybe Prelude.Text
   }
@@ -56,11 +56,11 @@ data UserPoolDescriptionType = UserPoolDescriptionType'
 --
 -- 'status', 'userPoolDescriptionType_status' - The user pool status in a user pool description.
 --
--- 'id', 'userPoolDescriptionType_id' - The ID in a user pool description.
---
 -- 'creationDate', 'userPoolDescriptionType_creationDate' - The date the user pool description was created.
 --
--- 'lambdaConfig', 'userPoolDescriptionType_lambdaConfig' - The AWS Lambda configuration information in a user pool description.
+-- 'lambdaConfig', 'userPoolDescriptionType_lambdaConfig' - The Lambda configuration information in a user pool description.
+--
+-- 'id', 'userPoolDescriptionType_id' - The ID in a user pool description.
 --
 -- 'name', 'userPoolDescriptionType_name' - The name in a user pool description.
 newUserPoolDescriptionType ::
@@ -70,9 +70,9 @@ newUserPoolDescriptionType =
     { lastModifiedDate =
         Prelude.Nothing,
       status = Prelude.Nothing,
-      id = Prelude.Nothing,
       creationDate = Prelude.Nothing,
       lambdaConfig = Prelude.Nothing,
+      id = Prelude.Nothing,
       name = Prelude.Nothing
     }
 
@@ -84,17 +84,17 @@ userPoolDescriptionType_lastModifiedDate = Lens.lens (\UserPoolDescriptionType' 
 userPoolDescriptionType_status :: Lens.Lens' UserPoolDescriptionType (Prelude.Maybe StatusType)
 userPoolDescriptionType_status = Lens.lens (\UserPoolDescriptionType' {status} -> status) (\s@UserPoolDescriptionType' {} a -> s {status = a} :: UserPoolDescriptionType)
 
--- | The ID in a user pool description.
-userPoolDescriptionType_id :: Lens.Lens' UserPoolDescriptionType (Prelude.Maybe Prelude.Text)
-userPoolDescriptionType_id = Lens.lens (\UserPoolDescriptionType' {id} -> id) (\s@UserPoolDescriptionType' {} a -> s {id = a} :: UserPoolDescriptionType)
-
 -- | The date the user pool description was created.
 userPoolDescriptionType_creationDate :: Lens.Lens' UserPoolDescriptionType (Prelude.Maybe Prelude.UTCTime)
 userPoolDescriptionType_creationDate = Lens.lens (\UserPoolDescriptionType' {creationDate} -> creationDate) (\s@UserPoolDescriptionType' {} a -> s {creationDate = a} :: UserPoolDescriptionType) Prelude.. Lens.mapping Core._Time
 
--- | The AWS Lambda configuration information in a user pool description.
+-- | The Lambda configuration information in a user pool description.
 userPoolDescriptionType_lambdaConfig :: Lens.Lens' UserPoolDescriptionType (Prelude.Maybe LambdaConfigType)
 userPoolDescriptionType_lambdaConfig = Lens.lens (\UserPoolDescriptionType' {lambdaConfig} -> lambdaConfig) (\s@UserPoolDescriptionType' {} a -> s {lambdaConfig = a} :: UserPoolDescriptionType)
+
+-- | The ID in a user pool description.
+userPoolDescriptionType_id :: Lens.Lens' UserPoolDescriptionType (Prelude.Maybe Prelude.Text)
+userPoolDescriptionType_id = Lens.lens (\UserPoolDescriptionType' {id} -> id) (\s@UserPoolDescriptionType' {} a -> s {id = a} :: UserPoolDescriptionType)
 
 -- | The name in a user pool description.
 userPoolDescriptionType_name :: Lens.Lens' UserPoolDescriptionType (Prelude.Maybe Prelude.Text)
@@ -108,9 +108,9 @@ instance Core.FromJSON UserPoolDescriptionType where
           UserPoolDescriptionType'
             Prelude.<$> (x Core..:? "LastModifiedDate")
             Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "CreationDate")
             Prelude.<*> (x Core..:? "LambdaConfig")
+            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Name")
       )
 

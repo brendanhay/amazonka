@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a group. Currently only groups with no members can be deleted.
+-- Deletes a group.
 --
 -- Calling this action requires developer credentials.
 module Network.AWS.CognitoIdentityProvider.DeleteGroup

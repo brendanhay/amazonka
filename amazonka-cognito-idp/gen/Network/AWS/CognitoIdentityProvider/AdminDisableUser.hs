@@ -48,7 +48,7 @@ import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
--- | Represents the request to disable any user as an administrator.
+-- | Represents the request to disable the user as an administrator.
 --
 -- /See:/ 'newAdminDisableUser' smart constructor.
 data AdminDisableUser = AdminDisableUser'

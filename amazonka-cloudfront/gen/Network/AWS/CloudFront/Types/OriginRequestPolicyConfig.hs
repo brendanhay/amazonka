@@ -49,7 +49,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newOriginRequestPolicyConfig' smart constructor.
 data OriginRequestPolicyConfig = OriginRequestPolicyConfig'
-  { -- | A comment to describe the origin request policy.
+  { -- | A comment to describe the origin request policy. The comment cannot be
+    -- longer than 128 characters.
     comment :: Prelude.Maybe Prelude.Text,
     -- | A unique name to identify the origin request policy.
     name :: Prelude.Text,
@@ -72,7 +73,8 @@ data OriginRequestPolicyConfig = OriginRequestPolicyConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'comment', 'originRequestPolicyConfig_comment' - A comment to describe the origin request policy.
+-- 'comment', 'originRequestPolicyConfig_comment' - A comment to describe the origin request policy. The comment cannot be
+-- longer than 128 characters.
 --
 -- 'name', 'originRequestPolicyConfig_name' - A unique name to identify the origin request policy.
 --
@@ -107,7 +109,8 @@ newOriginRequestPolicyConfig
         queryStringsConfig = pQueryStringsConfig_
       }
 
--- | A comment to describe the origin request policy.
+-- | A comment to describe the origin request policy. The comment cannot be
+-- longer than 128 characters.
 originRequestPolicyConfig_comment :: Lens.Lens' OriginRequestPolicyConfig (Prelude.Maybe Prelude.Text)
 originRequestPolicyConfig_comment = Lens.lens (\OriginRequestPolicyConfig' {comment} -> comment) (\s@OriginRequestPolicyConfig' {} a -> s {comment = a} :: OriginRequestPolicyConfig)
 

@@ -29,7 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newDistributionList' smart constructor.
 data DistributionList = DistributionList'
   { -- | A complex type that contains one @DistributionSummary@ element for each
-    -- distribution that was created by the current AWS account.
+    -- distribution that was created by the current account.
     items :: Prelude.Maybe [DistributionSummary],
     -- | If @IsTruncated@ is @true@, this element is present and contains the
     -- value you can use for the @Marker@ request parameter to continue listing
@@ -44,8 +44,7 @@ data DistributionList = DistributionList'
     -- using the @Marker@ request parameter to retrieve more distributions in
     -- the list.
     isTruncated :: Prelude.Bool,
-    -- | The number of distributions that were created by the current AWS
-    -- account.
+    -- | The number of distributions that were created by the current account.
     quantity :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -59,7 +58,7 @@ data DistributionList = DistributionList'
 -- for backwards compatibility:
 --
 -- 'items', 'distributionList_items' - A complex type that contains one @DistributionSummary@ element for each
--- distribution that was created by the current AWS account.
+-- distribution that was created by the current account.
 --
 -- 'nextMarker', 'distributionList_nextMarker' - If @IsTruncated@ is @true@, this element is present and contains the
 -- value you can use for the @Marker@ request parameter to continue listing
@@ -74,8 +73,7 @@ data DistributionList = DistributionList'
 -- using the @Marker@ request parameter to retrieve more distributions in
 -- the list.
 --
--- 'quantity', 'distributionList_quantity' - The number of distributions that were created by the current AWS
--- account.
+-- 'quantity', 'distributionList_quantity' - The number of distributions that were created by the current account.
 newDistributionList ::
   -- | 'marker'
   Prelude.Text ->
@@ -101,7 +99,7 @@ newDistributionList
       }
 
 -- | A complex type that contains one @DistributionSummary@ element for each
--- distribution that was created by the current AWS account.
+-- distribution that was created by the current account.
 distributionList_items :: Lens.Lens' DistributionList (Prelude.Maybe [DistributionSummary])
 distributionList_items = Lens.lens (\DistributionList' {items} -> items) (\s@DistributionList' {} a -> s {items = a} :: DistributionList) Prelude.. Lens.mapping Lens._Coerce
 
@@ -126,8 +124,7 @@ distributionList_maxItems = Lens.lens (\DistributionList' {maxItems} -> maxItems
 distributionList_isTruncated :: Lens.Lens' DistributionList Prelude.Bool
 distributionList_isTruncated = Lens.lens (\DistributionList' {isTruncated} -> isTruncated) (\s@DistributionList' {} a -> s {isTruncated = a} :: DistributionList)
 
--- | The number of distributions that were created by the current AWS
--- account.
+-- | The number of distributions that were created by the current account.
 distributionList_quantity :: Lens.Lens' DistributionList Prelude.Int
 distributionList_quantity = Lens.lens (\DistributionList' {quantity} -> quantity) (\s@DistributionList' {} a -> s {quantity = a} :: DistributionList)
 

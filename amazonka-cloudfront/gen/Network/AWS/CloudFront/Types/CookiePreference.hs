@@ -70,7 +70,7 @@ data CookiePreference = CookiePreference'
     -- For the current limit on the number of cookie names that you can
     -- whitelist for each cache behavior, see
     -- <https://docs.aws.amazon.com/general/latest/gr/xrefaws_service_limits.html#limits_cloudfront CloudFront Limits>
-    -- in the /AWS General Reference/.
+    -- in the /Amazon Web Services General Reference/.
     whitelistedNames :: Prelude.Maybe CookieNames,
     -- | This field is deprecated. We recommend that you use a cache policy or an
     -- origin request policy instead of this field.
@@ -131,7 +131,7 @@ data CookiePreference = CookiePreference'
 -- For the current limit on the number of cookie names that you can
 -- whitelist for each cache behavior, see
 -- <https://docs.aws.amazon.com/general/latest/gr/xrefaws_service_limits.html#limits_cloudfront CloudFront Limits>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 --
 -- 'forward', 'cookiePreference_forward' - This field is deprecated. We recommend that you use a cache policy or an
 -- origin request policy instead of this field.
@@ -191,7 +191,7 @@ newCookiePreference pForward_ =
 -- For the current limit on the number of cookie names that you can
 -- whitelist for each cache behavior, see
 -- <https://docs.aws.amazon.com/general/latest/gr/xrefaws_service_limits.html#limits_cloudfront CloudFront Limits>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 cookiePreference_whitelistedNames :: Lens.Lens' CookiePreference (Prelude.Maybe CookieNames)
 cookiePreference_whitelistedNames = Lens.lens (\CookiePreference' {whitelistedNames} -> whitelistedNames) (\s@CookiePreference' {} a -> s {whitelistedNames = a} :: CookiePreference)
 

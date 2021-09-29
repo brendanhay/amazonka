@@ -30,7 +30,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newKeyGroupConfig' smart constructor.
 data KeyGroupConfig = KeyGroupConfig'
-  { -- | A comment to describe the key group.
+  { -- | A comment to describe the key group. The comment cannot be longer than
+    -- 128 characters.
     comment :: Prelude.Maybe Prelude.Text,
     -- | A name to identify the key group.
     name :: Prelude.Text,
@@ -47,7 +48,8 @@ data KeyGroupConfig = KeyGroupConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'comment', 'keyGroupConfig_comment' - A comment to describe the key group.
+-- 'comment', 'keyGroupConfig_comment' - A comment to describe the key group. The comment cannot be longer than
+-- 128 characters.
 --
 -- 'name', 'keyGroupConfig_name' - A name to identify the key group.
 --
@@ -63,7 +65,8 @@ newKeyGroupConfig pName_ =
       items = Prelude.mempty
     }
 
--- | A comment to describe the key group.
+-- | A comment to describe the key group. The comment cannot be longer than
+-- 128 characters.
 keyGroupConfig_comment :: Lens.Lens' KeyGroupConfig (Prelude.Maybe Prelude.Text)
 keyGroupConfig_comment = Lens.lens (\KeyGroupConfig' {comment} -> comment) (\s@KeyGroupConfig' {} a -> s {comment = a} :: KeyGroupConfig)
 

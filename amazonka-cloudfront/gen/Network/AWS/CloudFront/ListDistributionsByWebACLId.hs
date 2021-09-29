@@ -20,8 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List the distributions that are associated with a specified AWS WAF web
--- ACL.
+-- List the distributions that are associated with a specified WAF web ACL.
 module Network.AWS.CloudFront.ListDistributionsByWebACLId
   ( -- * Creating a Request
     ListDistributionsByWebACLId (..),
@@ -50,7 +49,7 @@ import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
 -- | The request to list distributions that are associated with a specified
--- AWS WAF web ACL.
+-- WAF web ACL.
 --
 -- /See:/ 'newListDistributionsByWebACLId' smart constructor.
 data ListDistributionsByWebACLId = ListDistributionsByWebACLId'
@@ -64,7 +63,7 @@ data ListDistributionsByWebACLId = ListDistributionsByWebACLId'
     -- value of @NextMarker@ from the last response. (For the first request,
     -- omit @Marker@.)
     marker :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the AWS WAF web ACL that you want to list the associated
+    -- | The ID of the WAF web ACL that you want to list the associated
     -- distributions. If you specify \"null\" for the ID, the request returns a
     -- list of the distributions that aren\'t associated with a web ACL.
     webACLId :: Prelude.Text
@@ -89,7 +88,7 @@ data ListDistributionsByWebACLId = ListDistributionsByWebACLId'
 -- value of @NextMarker@ from the last response. (For the first request,
 -- omit @Marker@.)
 --
--- 'webACLId', 'listDistributionsByWebACLId_webACLId' - The ID of the AWS WAF web ACL that you want to list the associated
+-- 'webACLId', 'listDistributionsByWebACLId_webACLId' - The ID of the WAF web ACL that you want to list the associated
 -- distributions. If you specify \"null\" for the ID, the request returns a
 -- list of the distributions that aren\'t associated with a web ACL.
 newListDistributionsByWebACLId ::
@@ -118,7 +117,7 @@ listDistributionsByWebACLId_maxItems = Lens.lens (\ListDistributionsByWebACLId' 
 listDistributionsByWebACLId_marker :: Lens.Lens' ListDistributionsByWebACLId (Prelude.Maybe Prelude.Text)
 listDistributionsByWebACLId_marker = Lens.lens (\ListDistributionsByWebACLId' {marker} -> marker) (\s@ListDistributionsByWebACLId' {} a -> s {marker = a} :: ListDistributionsByWebACLId)
 
--- | The ID of the AWS WAF web ACL that you want to list the associated
+-- | The ID of the WAF web ACL that you want to list the associated
 -- distributions. If you specify \"null\" for the ID, the request returns a
 -- list of the distributions that aren\'t associated with a web ACL.
 listDistributionsByWebACLId_webACLId :: Lens.Lens' ListDistributionsByWebACLId Prelude.Text
@@ -159,7 +158,7 @@ instance Core.ToQuery ListDistributionsByWebACLId where
       ]
 
 -- | The response to a request to list the distributions that are associated
--- with a specified AWS WAF web ACL.
+-- with a specified WAF web ACL.
 --
 -- /See:/ 'newListDistributionsByWebACLIdResponse' smart constructor.
 data ListDistributionsByWebACLIdResponse = ListDistributionsByWebACLIdResponse'

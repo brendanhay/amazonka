@@ -27,17 +27,23 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestUpdatePublicKey $
---             newUpdatePublicKey
---
---         , requestDeletePublicKey $
+--         [ requestDeletePublicKey $
 --             newDeletePublicKey
 --
 --         , requestListPublicKeys $
 --             newListPublicKeys
 --
+--         , requestUpdatePublicKey $
+--             newUpdatePublicKey
+--
 --         , requestGetDistribution $
 --             newGetDistribution
+--
+--         , requestGetFunction $
+--             newGetFunction
+--
+--         , requestListConflictingAliases $
+--             newListConflictingAliases
 --
 --         , requestGetKeyGroupConfig $
 --             newGetKeyGroupConfig
@@ -45,20 +51,20 @@ import Test.Tasty
 --         , requestCreateFieldLevelEncryptionProfile $
 --             newCreateFieldLevelEncryptionProfile
 --
+--         , requestListKeyGroups $
+--             newListKeyGroups
+--
 --         , requestGetMonitoringSubscription $
 --             newGetMonitoringSubscription
---
---         , requestCreateOriginRequestPolicy $
---             newCreateOriginRequestPolicy
 --
 --         , requestListDistributionsByCachePolicyId $
 --             newListDistributionsByCachePolicyId
 --
---         , requestListKeyGroups $
---             newListKeyGroups
---
 --         , requestListOriginRequestPolicies $
 --             newListOriginRequestPolicies
+--
+--         , requestCreateOriginRequestPolicy $
+--             newCreateOriginRequestPolicy
 --
 --         , requestGetKeyGroup $
 --             newGetKeyGroup
@@ -66,26 +72,41 @@ import Test.Tasty
 --         , requestGetDistributionConfig $
 --             newGetDistributionConfig
 --
---         , requestListDistributions $
---             newListDistributions
---
---         , requestUntagResource $
---             newUntagResource
+--         , requestListFunctions $
+--             newListFunctions
 --
 --         , requestListDistributionsByWebACLId $
 --             newListDistributionsByWebACLId
 --
+--         , requestListDistributions $
+--             newListDistributions
+--
+--         , requestPublishFunction $
+--             newPublishFunction
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestUpdateFieldLevelEncryptionConfig $
+--             newUpdateFieldLevelEncryptionConfig
+--
 --         , requestGetCloudFrontOriginAccessIdentity $
 --             newGetCloudFrontOriginAccessIdentity
 --
---         , requestGetPublicKey $
---             newGetPublicKey
+--         , requestDeleteFieldLevelEncryptionConfig $
+--             newDeleteFieldLevelEncryptionConfig
 --
 --         , requestListRealtimeLogConfigs $
 --             newListRealtimeLogConfigs
 --
---         , requestUpdateFieldLevelEncryptionConfig $
---             newUpdateFieldLevelEncryptionConfig
+--         , requestListCachePolicies $
+--             newListCachePolicies
+--
+--         , requestGetPublicKey $
+--             newGetPublicKey
 --
 --         , requestCreateCachePolicy $
 --             newCreateCachePolicy
@@ -93,23 +114,11 @@ import Test.Tasty
 --         , requestListDistributionsByKeyGroup $
 --             newListDistributionsByKeyGroup
 --
---         , requestTagResource $
---             newTagResource
---
---         , requestListCachePolicies $
---             newListCachePolicies
---
 --         , requestListDistributionsByOriginRequestPolicyId $
 --             newListDistributionsByOriginRequestPolicyId
 --
 --         , requestListFieldLevelEncryptionConfigs $
 --             newListFieldLevelEncryptionConfigs
---
---         , requestDeleteFieldLevelEncryptionConfig $
---             newDeleteFieldLevelEncryptionConfig
---
---         , requestDeleteCachePolicy $
---             newDeleteCachePolicy
 --
 --         , requestGetFieldLevelEncryption $
 --             newGetFieldLevelEncryption
@@ -117,8 +126,14 @@ import Test.Tasty
 --         , requestUpdateCachePolicy $
 --             newUpdateCachePolicy
 --
+--         , requestDeleteCachePolicy $
+--             newDeleteCachePolicy
+--
 --         , requestGetInvalidation $
 --             newGetInvalidation
+--
+--         , requestCreateStreamingDistribution $
+--             newCreateStreamingDistribution
 --
 --         , requestGetPublicKeyConfig $
 --             newGetPublicKeyConfig
@@ -126,35 +141,29 @@ import Test.Tasty
 --         , requestGetCloudFrontOriginAccessIdentityConfig $
 --             newGetCloudFrontOriginAccessIdentityConfig
 --
---         , requestCreateStreamingDistribution $
---             newCreateStreamingDistribution
---
---         , requestDeleteCloudFrontOriginAccessIdentity $
---             newDeleteCloudFrontOriginAccessIdentity
---
---         , requestDeleteStreamingDistribution $
---             newDeleteStreamingDistribution
---
---         , requestGetFieldLevelEncryptionConfig $
---             newGetFieldLevelEncryptionConfig
+--         , requestUpdateCloudFrontOriginAccessIdentity $
+--             newUpdateCloudFrontOriginAccessIdentity
 --
 --         , requestGetRealtimeLogConfig $
 --             newGetRealtimeLogConfig
 --
---         , requestUpdateCloudFrontOriginAccessIdentity $
---             newUpdateCloudFrontOriginAccessIdentity
+--         , requestDeleteStreamingDistribution $
+--             newDeleteStreamingDistribution
 --
 --         , requestUpdateStreamingDistribution $
 --             newUpdateStreamingDistribution
 --
+--         , requestDescribeFunction $
+--             newDescribeFunction
+--
+--         , requestDeleteCloudFrontOriginAccessIdentity $
+--             newDeleteCloudFrontOriginAccessIdentity
+--
+--         , requestGetFieldLevelEncryptionConfig $
+--             newGetFieldLevelEncryptionConfig
+--
 --         , requestListStreamingDistributions $
 --             newListStreamingDistributions
---
---         , requestCreateKeyGroup $
---             newCreateKeyGroup
---
---         , requestUpdateOriginRequestPolicy $
---             newUpdateOriginRequestPolicy
 --
 --         , requestGetFieldLevelEncryptionProfileConfig $
 --             newGetFieldLevelEncryptionProfileConfig
@@ -162,20 +171,32 @@ import Test.Tasty
 --         , requestDeleteOriginRequestPolicy $
 --             newDeleteOriginRequestPolicy
 --
+--         , requestTestFunction $
+--             newTestFunction
+--
+--         , requestCreateKeyGroup $
+--             newCreateKeyGroup
+--
+--         , requestUpdateOriginRequestPolicy $
+--             newUpdateOriginRequestPolicy
+--
+--         , requestUpdateFieldLevelEncryptionProfile $
+--             newUpdateFieldLevelEncryptionProfile
+--
+--         , requestDeleteKeyGroup $
+--             newDeleteKeyGroup
+--
+--         , requestGetOriginRequestPolicyConfig $
+--             newGetOriginRequestPolicyConfig
+--
 --         , requestListFieldLevelEncryptionProfiles $
 --             newListFieldLevelEncryptionProfiles
 --
 --         , requestDeleteFieldLevelEncryptionProfile $
 --             newDeleteFieldLevelEncryptionProfile
 --
---         , requestGetOriginRequestPolicyConfig $
---             newGetOriginRequestPolicyConfig
---
 --         , requestUpdateKeyGroup $
 --             newUpdateKeyGroup
---
---         , requestDeleteKeyGroup $
---             newDeleteKeyGroup
 --
 --         , requestCreateStreamingDistributionWithTags $
 --             newCreateStreamingDistributionWithTags
@@ -183,11 +204,8 @@ import Test.Tasty
 --         , requestListDistributionsByRealtimeLogConfig $
 --             newListDistributionsByRealtimeLogConfig
 --
---         , requestUpdateFieldLevelEncryptionProfile $
---             newUpdateFieldLevelEncryptionProfile
---
---         , requestCreateDistribution $
---             newCreateDistribution
+--         , requestCreateFunction $
+--             newCreateFunction
 --
 --         , requestDeleteMonitoringSubscription $
 --             newDeleteMonitoringSubscription
@@ -195,20 +213,29 @@ import Test.Tasty
 --         , requestGetFieldLevelEncryptionProfile $
 --             newGetFieldLevelEncryptionProfile
 --
+--         , requestCreateDistribution $
+--             newCreateDistribution
+--
+--         , requestDeleteDistribution $
+--             newDeleteDistribution
+--
+--         , requestDeleteFunction $
+--             newDeleteFunction
+--
+--         , requestUpdateDistribution $
+--             newUpdateDistribution
+--
 --         , requestCreateMonitoringSubscription $
 --             newCreateMonitoringSubscription
 --
 --         , requestGetOriginRequestPolicy $
 --             newGetOriginRequestPolicy
 --
---         , requestUpdateDistribution $
---             newUpdateDistribution
+--         , requestUpdateFunction $
+--             newUpdateFunction
 --
---         , requestDeleteDistribution $
---             newDeleteDistribution
---
---         , requestDeleteRealtimeLogConfig $
---             newDeleteRealtimeLogConfig
+--         , requestGetCachePolicyConfig $
+--             newGetCachePolicyConfig
 --
 --         , requestGetStreamingDistribution $
 --             newGetStreamingDistribution
@@ -216,14 +243,14 @@ import Test.Tasty
 --         , requestCreateInvalidation $
 --             newCreateInvalidation
 --
---         , requestGetCachePolicyConfig $
---             newGetCachePolicyConfig
---
 --         , requestUpdateRealtimeLogConfig $
 --             newUpdateRealtimeLogConfig
 --
---         , requestCreateRealtimeLogConfig $
---             newCreateRealtimeLogConfig
+--         , requestDeleteRealtimeLogConfig $
+--             newDeleteRealtimeLogConfig
+--
+--         , requestListInvalidations $
+--             newListInvalidations
 --
 --         , requestCreateDistributionWithTags $
 --             newCreateDistributionWithTags
@@ -231,14 +258,8 @@ import Test.Tasty
 --         , requestCreateFieldLevelEncryptionConfig $
 --             newCreateFieldLevelEncryptionConfig
 --
---         , requestListInvalidations $
---             newListInvalidations
---
---         , requestListCloudFrontOriginAccessIdentities $
---             newListCloudFrontOriginAccessIdentities
---
---         , requestListTagsForResource $
---             newListTagsForResource
+--         , requestCreateRealtimeLogConfig $
+--             newCreateRealtimeLogConfig
 --
 --         , requestGetStreamingDistributionConfig $
 --             newGetStreamingDistributionConfig
@@ -246,26 +267,41 @@ import Test.Tasty
 --         , requestGetCachePolicy $
 --             newGetCachePolicy
 --
---         , requestCreateCloudFrontOriginAccessIdentity $
---             newCreateCloudFrontOriginAccessIdentity
+--         , requestListTagsForResource $
+--             newListTagsForResource
 --
 --         , requestCreatePublicKey $
 --             newCreatePublicKey
 --
+--         , requestCreateCloudFrontOriginAccessIdentity $
+--             newCreateCloudFrontOriginAccessIdentity
+--
+--         , requestListCloudFrontOriginAccessIdentities $
+--             newListCloudFrontOriginAccessIdentities
+--
+--         , requestAssociateAlias $
+--             newAssociateAlias
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseUpdatePublicKey $
---             newUpdatePublicKeyResponse
---
---         , responseDeletePublicKey $
+--         [ responseDeletePublicKey $
 --             newDeletePublicKeyResponse
 --
 --         , responseListPublicKeys $
 --             newListPublicKeysResponse
 --
+--         , responseUpdatePublicKey $
+--             newUpdatePublicKeyResponse
+--
 --         , responseGetDistribution $
 --             newGetDistributionResponse
+--
+--         , responseGetFunction $
+--             newGetFunctionResponse
+--
+--         , responseListConflictingAliases $
+--             newListConflictingAliasesResponse
 --
 --         , responseGetKeyGroupConfig $
 --             newGetKeyGroupConfigResponse
@@ -273,20 +309,20 @@ import Test.Tasty
 --         , responseCreateFieldLevelEncryptionProfile $
 --             newCreateFieldLevelEncryptionProfileResponse
 --
+--         , responseListKeyGroups $
+--             newListKeyGroupsResponse
+--
 --         , responseGetMonitoringSubscription $
 --             newGetMonitoringSubscriptionResponse
---
---         , responseCreateOriginRequestPolicy $
---             newCreateOriginRequestPolicyResponse
 --
 --         , responseListDistributionsByCachePolicyId $
 --             newListDistributionsByCachePolicyIdResponse
 --
---         , responseListKeyGroups $
---             newListKeyGroupsResponse
---
 --         , responseListOriginRequestPolicies $
 --             newListOriginRequestPoliciesResponse
+--
+--         , responseCreateOriginRequestPolicy $
+--             newCreateOriginRequestPolicyResponse
 --
 --         , responseGetKeyGroup $
 --             newGetKeyGroupResponse
@@ -294,26 +330,41 @@ import Test.Tasty
 --         , responseGetDistributionConfig $
 --             newGetDistributionConfigResponse
 --
---         , responseListDistributions $
---             newListDistributionsResponse
---
---         , responseUntagResource $
---             newUntagResourceResponse
+--         , responseListFunctions $
+--             newListFunctionsResponse
 --
 --         , responseListDistributionsByWebACLId $
 --             newListDistributionsByWebACLIdResponse
 --
+--         , responseListDistributions $
+--             newListDistributionsResponse
+--
+--         , responsePublishFunction $
+--             newPublishFunctionResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseUpdateFieldLevelEncryptionConfig $
+--             newUpdateFieldLevelEncryptionConfigResponse
+--
 --         , responseGetCloudFrontOriginAccessIdentity $
 --             newGetCloudFrontOriginAccessIdentityResponse
 --
---         , responseGetPublicKey $
---             newGetPublicKeyResponse
+--         , responseDeleteFieldLevelEncryptionConfig $
+--             newDeleteFieldLevelEncryptionConfigResponse
 --
 --         , responseListRealtimeLogConfigs $
 --             newListRealtimeLogConfigsResponse
 --
---         , responseUpdateFieldLevelEncryptionConfig $
---             newUpdateFieldLevelEncryptionConfigResponse
+--         , responseListCachePolicies $
+--             newListCachePoliciesResponse
+--
+--         , responseGetPublicKey $
+--             newGetPublicKeyResponse
 --
 --         , responseCreateCachePolicy $
 --             newCreateCachePolicyResponse
@@ -321,23 +372,11 @@ import Test.Tasty
 --         , responseListDistributionsByKeyGroup $
 --             newListDistributionsByKeyGroupResponse
 --
---         , responseTagResource $
---             newTagResourceResponse
---
---         , responseListCachePolicies $
---             newListCachePoliciesResponse
---
 --         , responseListDistributionsByOriginRequestPolicyId $
 --             newListDistributionsByOriginRequestPolicyIdResponse
 --
 --         , responseListFieldLevelEncryptionConfigs $
 --             newListFieldLevelEncryptionConfigsResponse
---
---         , responseDeleteFieldLevelEncryptionConfig $
---             newDeleteFieldLevelEncryptionConfigResponse
---
---         , responseDeleteCachePolicy $
---             newDeleteCachePolicyResponse
 --
 --         , responseGetFieldLevelEncryption $
 --             newGetFieldLevelEncryptionResponse
@@ -345,8 +384,14 @@ import Test.Tasty
 --         , responseUpdateCachePolicy $
 --             newUpdateCachePolicyResponse
 --
+--         , responseDeleteCachePolicy $
+--             newDeleteCachePolicyResponse
+--
 --         , responseGetInvalidation $
 --             newGetInvalidationResponse
+--
+--         , responseCreateStreamingDistribution $
+--             newCreateStreamingDistributionResponse
 --
 --         , responseGetPublicKeyConfig $
 --             newGetPublicKeyConfigResponse
@@ -354,35 +399,29 @@ import Test.Tasty
 --         , responseGetCloudFrontOriginAccessIdentityConfig $
 --             newGetCloudFrontOriginAccessIdentityConfigResponse
 --
---         , responseCreateStreamingDistribution $
---             newCreateStreamingDistributionResponse
---
---         , responseDeleteCloudFrontOriginAccessIdentity $
---             newDeleteCloudFrontOriginAccessIdentityResponse
---
---         , responseDeleteStreamingDistribution $
---             newDeleteStreamingDistributionResponse
---
---         , responseGetFieldLevelEncryptionConfig $
---             newGetFieldLevelEncryptionConfigResponse
+--         , responseUpdateCloudFrontOriginAccessIdentity $
+--             newUpdateCloudFrontOriginAccessIdentityResponse
 --
 --         , responseGetRealtimeLogConfig $
 --             newGetRealtimeLogConfigResponse
 --
---         , responseUpdateCloudFrontOriginAccessIdentity $
---             newUpdateCloudFrontOriginAccessIdentityResponse
+--         , responseDeleteStreamingDistribution $
+--             newDeleteStreamingDistributionResponse
 --
 --         , responseUpdateStreamingDistribution $
 --             newUpdateStreamingDistributionResponse
 --
+--         , responseDescribeFunction $
+--             newDescribeFunctionResponse
+--
+--         , responseDeleteCloudFrontOriginAccessIdentity $
+--             newDeleteCloudFrontOriginAccessIdentityResponse
+--
+--         , responseGetFieldLevelEncryptionConfig $
+--             newGetFieldLevelEncryptionConfigResponse
+--
 --         , responseListStreamingDistributions $
 --             newListStreamingDistributionsResponse
---
---         , responseCreateKeyGroup $
---             newCreateKeyGroupResponse
---
---         , responseUpdateOriginRequestPolicy $
---             newUpdateOriginRequestPolicyResponse
 --
 --         , responseGetFieldLevelEncryptionProfileConfig $
 --             newGetFieldLevelEncryptionProfileConfigResponse
@@ -390,20 +429,32 @@ import Test.Tasty
 --         , responseDeleteOriginRequestPolicy $
 --             newDeleteOriginRequestPolicyResponse
 --
+--         , responseTestFunction $
+--             newTestFunctionResponse
+--
+--         , responseCreateKeyGroup $
+--             newCreateKeyGroupResponse
+--
+--         , responseUpdateOriginRequestPolicy $
+--             newUpdateOriginRequestPolicyResponse
+--
+--         , responseUpdateFieldLevelEncryptionProfile $
+--             newUpdateFieldLevelEncryptionProfileResponse
+--
+--         , responseDeleteKeyGroup $
+--             newDeleteKeyGroupResponse
+--
+--         , responseGetOriginRequestPolicyConfig $
+--             newGetOriginRequestPolicyConfigResponse
+--
 --         , responseListFieldLevelEncryptionProfiles $
 --             newListFieldLevelEncryptionProfilesResponse
 --
 --         , responseDeleteFieldLevelEncryptionProfile $
 --             newDeleteFieldLevelEncryptionProfileResponse
 --
---         , responseGetOriginRequestPolicyConfig $
---             newGetOriginRequestPolicyConfigResponse
---
 --         , responseUpdateKeyGroup $
 --             newUpdateKeyGroupResponse
---
---         , responseDeleteKeyGroup $
---             newDeleteKeyGroupResponse
 --
 --         , responseCreateStreamingDistributionWithTags $
 --             newCreateStreamingDistributionWithTagsResponse
@@ -411,11 +462,8 @@ import Test.Tasty
 --         , responseListDistributionsByRealtimeLogConfig $
 --             newListDistributionsByRealtimeLogConfigResponse
 --
---         , responseUpdateFieldLevelEncryptionProfile $
---             newUpdateFieldLevelEncryptionProfileResponse
---
---         , responseCreateDistribution $
---             newCreateDistributionResponse
+--         , responseCreateFunction $
+--             newCreateFunctionResponse
 --
 --         , responseDeleteMonitoringSubscription $
 --             newDeleteMonitoringSubscriptionResponse
@@ -423,20 +471,29 @@ import Test.Tasty
 --         , responseGetFieldLevelEncryptionProfile $
 --             newGetFieldLevelEncryptionProfileResponse
 --
+--         , responseCreateDistribution $
+--             newCreateDistributionResponse
+--
+--         , responseDeleteDistribution $
+--             newDeleteDistributionResponse
+--
+--         , responseDeleteFunction $
+--             newDeleteFunctionResponse
+--
+--         , responseUpdateDistribution $
+--             newUpdateDistributionResponse
+--
 --         , responseCreateMonitoringSubscription $
 --             newCreateMonitoringSubscriptionResponse
 --
 --         , responseGetOriginRequestPolicy $
 --             newGetOriginRequestPolicyResponse
 --
---         , responseUpdateDistribution $
---             newUpdateDistributionResponse
+--         , responseUpdateFunction $
+--             newUpdateFunctionResponse
 --
---         , responseDeleteDistribution $
---             newDeleteDistributionResponse
---
---         , responseDeleteRealtimeLogConfig $
---             newDeleteRealtimeLogConfigResponse
+--         , responseGetCachePolicyConfig $
+--             newGetCachePolicyConfigResponse
 --
 --         , responseGetStreamingDistribution $
 --             newGetStreamingDistributionResponse
@@ -444,14 +501,14 @@ import Test.Tasty
 --         , responseCreateInvalidation $
 --             newCreateInvalidationResponse
 --
---         , responseGetCachePolicyConfig $
---             newGetCachePolicyConfigResponse
---
 --         , responseUpdateRealtimeLogConfig $
 --             newUpdateRealtimeLogConfigResponse
 --
---         , responseCreateRealtimeLogConfig $
---             newCreateRealtimeLogConfigResponse
+--         , responseDeleteRealtimeLogConfig $
+--             newDeleteRealtimeLogConfigResponse
+--
+--         , responseListInvalidations $
+--             newListInvalidationsResponse
 --
 --         , responseCreateDistributionWithTags $
 --             newCreateDistributionWithTagsResponse
@@ -459,14 +516,8 @@ import Test.Tasty
 --         , responseCreateFieldLevelEncryptionConfig $
 --             newCreateFieldLevelEncryptionConfigResponse
 --
---         , responseListInvalidations $
---             newListInvalidationsResponse
---
---         , responseListCloudFrontOriginAccessIdentities $
---             newListCloudFrontOriginAccessIdentitiesResponse
---
---         , responseListTagsForResource $
---             newListTagsForResourceResponse
+--         , responseCreateRealtimeLogConfig $
+--             newCreateRealtimeLogConfigResponse
 --
 --         , responseGetStreamingDistributionConfig $
 --             newGetStreamingDistributionConfigResponse
@@ -474,22 +525,25 @@ import Test.Tasty
 --         , responseGetCachePolicy $
 --             newGetCachePolicyResponse
 --
---         , responseCreateCloudFrontOriginAccessIdentity $
---             newCreateCloudFrontOriginAccessIdentityResponse
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
 --
 --         , responseCreatePublicKey $
 --             newCreatePublicKeyResponse
+--
+--         , responseCreateCloudFrontOriginAccessIdentity $
+--             newCreateCloudFrontOriginAccessIdentityResponse
+--
+--         , responseListCloudFrontOriginAccessIdentities $
+--             newListCloudFrontOriginAccessIdentitiesResponse
+--
+--         , responseAssociateAlias $
+--             newAssociateAliasResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestUpdatePublicKey :: UpdatePublicKey -> TestTree
-requestUpdatePublicKey =
-  req
-    "UpdatePublicKey"
-    "fixture/UpdatePublicKey.yaml"
 
 requestDeletePublicKey :: DeletePublicKey -> TestTree
 requestDeletePublicKey =
@@ -503,11 +557,29 @@ requestListPublicKeys =
     "ListPublicKeys"
     "fixture/ListPublicKeys.yaml"
 
+requestUpdatePublicKey :: UpdatePublicKey -> TestTree
+requestUpdatePublicKey =
+  req
+    "UpdatePublicKey"
+    "fixture/UpdatePublicKey.yaml"
+
 requestGetDistribution :: GetDistribution -> TestTree
 requestGetDistribution =
   req
     "GetDistribution"
     "fixture/GetDistribution.yaml"
+
+requestGetFunction :: GetFunction -> TestTree
+requestGetFunction =
+  req
+    "GetFunction"
+    "fixture/GetFunction.yaml"
+
+requestListConflictingAliases :: ListConflictingAliases -> TestTree
+requestListConflictingAliases =
+  req
+    "ListConflictingAliases"
+    "fixture/ListConflictingAliases.yaml"
 
 requestGetKeyGroupConfig :: GetKeyGroupConfig -> TestTree
 requestGetKeyGroupConfig =
@@ -521,17 +593,17 @@ requestCreateFieldLevelEncryptionProfile =
     "CreateFieldLevelEncryptionProfile"
     "fixture/CreateFieldLevelEncryptionProfile.yaml"
 
+requestListKeyGroups :: ListKeyGroups -> TestTree
+requestListKeyGroups =
+  req
+    "ListKeyGroups"
+    "fixture/ListKeyGroups.yaml"
+
 requestGetMonitoringSubscription :: GetMonitoringSubscription -> TestTree
 requestGetMonitoringSubscription =
   req
     "GetMonitoringSubscription"
     "fixture/GetMonitoringSubscription.yaml"
-
-requestCreateOriginRequestPolicy :: CreateOriginRequestPolicy -> TestTree
-requestCreateOriginRequestPolicy =
-  req
-    "CreateOriginRequestPolicy"
-    "fixture/CreateOriginRequestPolicy.yaml"
 
 requestListDistributionsByCachePolicyId :: ListDistributionsByCachePolicyId -> TestTree
 requestListDistributionsByCachePolicyId =
@@ -539,17 +611,17 @@ requestListDistributionsByCachePolicyId =
     "ListDistributionsByCachePolicyId"
     "fixture/ListDistributionsByCachePolicyId.yaml"
 
-requestListKeyGroups :: ListKeyGroups -> TestTree
-requestListKeyGroups =
-  req
-    "ListKeyGroups"
-    "fixture/ListKeyGroups.yaml"
-
 requestListOriginRequestPolicies :: ListOriginRequestPolicies -> TestTree
 requestListOriginRequestPolicies =
   req
     "ListOriginRequestPolicies"
     "fixture/ListOriginRequestPolicies.yaml"
+
+requestCreateOriginRequestPolicy :: CreateOriginRequestPolicy -> TestTree
+requestCreateOriginRequestPolicy =
+  req
+    "CreateOriginRequestPolicy"
+    "fixture/CreateOriginRequestPolicy.yaml"
 
 requestGetKeyGroup :: GetKeyGroup -> TestTree
 requestGetKeyGroup =
@@ -563,17 +635,11 @@ requestGetDistributionConfig =
     "GetDistributionConfig"
     "fixture/GetDistributionConfig.yaml"
 
-requestListDistributions :: ListDistributions -> TestTree
-requestListDistributions =
+requestListFunctions :: ListFunctions -> TestTree
+requestListFunctions =
   req
-    "ListDistributions"
-    "fixture/ListDistributions.yaml"
-
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
+    "ListFunctions"
+    "fixture/ListFunctions.yaml"
 
 requestListDistributionsByWebACLId :: ListDistributionsByWebACLId -> TestTree
 requestListDistributionsByWebACLId =
@@ -581,17 +647,47 @@ requestListDistributionsByWebACLId =
     "ListDistributionsByWebACLId"
     "fixture/ListDistributionsByWebACLId.yaml"
 
+requestListDistributions :: ListDistributions -> TestTree
+requestListDistributions =
+  req
+    "ListDistributions"
+    "fixture/ListDistributions.yaml"
+
+requestPublishFunction :: PublishFunction -> TestTree
+requestPublishFunction =
+  req
+    "PublishFunction"
+    "fixture/PublishFunction.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestUpdateFieldLevelEncryptionConfig :: UpdateFieldLevelEncryptionConfig -> TestTree
+requestUpdateFieldLevelEncryptionConfig =
+  req
+    "UpdateFieldLevelEncryptionConfig"
+    "fixture/UpdateFieldLevelEncryptionConfig.yaml"
+
 requestGetCloudFrontOriginAccessIdentity :: GetCloudFrontOriginAccessIdentity -> TestTree
 requestGetCloudFrontOriginAccessIdentity =
   req
     "GetCloudFrontOriginAccessIdentity"
     "fixture/GetCloudFrontOriginAccessIdentity.yaml"
 
-requestGetPublicKey :: GetPublicKey -> TestTree
-requestGetPublicKey =
+requestDeleteFieldLevelEncryptionConfig :: DeleteFieldLevelEncryptionConfig -> TestTree
+requestDeleteFieldLevelEncryptionConfig =
   req
-    "GetPublicKey"
-    "fixture/GetPublicKey.yaml"
+    "DeleteFieldLevelEncryptionConfig"
+    "fixture/DeleteFieldLevelEncryptionConfig.yaml"
 
 requestListRealtimeLogConfigs :: ListRealtimeLogConfigs -> TestTree
 requestListRealtimeLogConfigs =
@@ -599,11 +695,17 @@ requestListRealtimeLogConfigs =
     "ListRealtimeLogConfigs"
     "fixture/ListRealtimeLogConfigs.yaml"
 
-requestUpdateFieldLevelEncryptionConfig :: UpdateFieldLevelEncryptionConfig -> TestTree
-requestUpdateFieldLevelEncryptionConfig =
+requestListCachePolicies :: ListCachePolicies -> TestTree
+requestListCachePolicies =
   req
-    "UpdateFieldLevelEncryptionConfig"
-    "fixture/UpdateFieldLevelEncryptionConfig.yaml"
+    "ListCachePolicies"
+    "fixture/ListCachePolicies.yaml"
+
+requestGetPublicKey :: GetPublicKey -> TestTree
+requestGetPublicKey =
+  req
+    "GetPublicKey"
+    "fixture/GetPublicKey.yaml"
 
 requestCreateCachePolicy :: CreateCachePolicy -> TestTree
 requestCreateCachePolicy =
@@ -617,18 +719,6 @@ requestListDistributionsByKeyGroup =
     "ListDistributionsByKeyGroup"
     "fixture/ListDistributionsByKeyGroup.yaml"
 
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
-    "TagResource"
-    "fixture/TagResource.yaml"
-
-requestListCachePolicies :: ListCachePolicies -> TestTree
-requestListCachePolicies =
-  req
-    "ListCachePolicies"
-    "fixture/ListCachePolicies.yaml"
-
 requestListDistributionsByOriginRequestPolicyId :: ListDistributionsByOriginRequestPolicyId -> TestTree
 requestListDistributionsByOriginRequestPolicyId =
   req
@@ -640,18 +730,6 @@ requestListFieldLevelEncryptionConfigs =
   req
     "ListFieldLevelEncryptionConfigs"
     "fixture/ListFieldLevelEncryptionConfigs.yaml"
-
-requestDeleteFieldLevelEncryptionConfig :: DeleteFieldLevelEncryptionConfig -> TestTree
-requestDeleteFieldLevelEncryptionConfig =
-  req
-    "DeleteFieldLevelEncryptionConfig"
-    "fixture/DeleteFieldLevelEncryptionConfig.yaml"
-
-requestDeleteCachePolicy :: DeleteCachePolicy -> TestTree
-requestDeleteCachePolicy =
-  req
-    "DeleteCachePolicy"
-    "fixture/DeleteCachePolicy.yaml"
 
 requestGetFieldLevelEncryption :: GetFieldLevelEncryption -> TestTree
 requestGetFieldLevelEncryption =
@@ -665,11 +743,23 @@ requestUpdateCachePolicy =
     "UpdateCachePolicy"
     "fixture/UpdateCachePolicy.yaml"
 
+requestDeleteCachePolicy :: DeleteCachePolicy -> TestTree
+requestDeleteCachePolicy =
+  req
+    "DeleteCachePolicy"
+    "fixture/DeleteCachePolicy.yaml"
+
 requestGetInvalidation :: GetInvalidation -> TestTree
 requestGetInvalidation =
   req
     "GetInvalidation"
     "fixture/GetInvalidation.yaml"
+
+requestCreateStreamingDistribution :: CreateStreamingDistribution -> TestTree
+requestCreateStreamingDistribution =
+  req
+    "CreateStreamingDistribution"
+    "fixture/CreateStreamingDistribution.yaml"
 
 requestGetPublicKeyConfig :: GetPublicKeyConfig -> TestTree
 requestGetPublicKeyConfig =
@@ -683,29 +773,11 @@ requestGetCloudFrontOriginAccessIdentityConfig =
     "GetCloudFrontOriginAccessIdentityConfig"
     "fixture/GetCloudFrontOriginAccessIdentityConfig.yaml"
 
-requestCreateStreamingDistribution :: CreateStreamingDistribution -> TestTree
-requestCreateStreamingDistribution =
+requestUpdateCloudFrontOriginAccessIdentity :: UpdateCloudFrontOriginAccessIdentity -> TestTree
+requestUpdateCloudFrontOriginAccessIdentity =
   req
-    "CreateStreamingDistribution"
-    "fixture/CreateStreamingDistribution.yaml"
-
-requestDeleteCloudFrontOriginAccessIdentity :: DeleteCloudFrontOriginAccessIdentity -> TestTree
-requestDeleteCloudFrontOriginAccessIdentity =
-  req
-    "DeleteCloudFrontOriginAccessIdentity"
-    "fixture/DeleteCloudFrontOriginAccessIdentity.yaml"
-
-requestDeleteStreamingDistribution :: DeleteStreamingDistribution -> TestTree
-requestDeleteStreamingDistribution =
-  req
-    "DeleteStreamingDistribution"
-    "fixture/DeleteStreamingDistribution.yaml"
-
-requestGetFieldLevelEncryptionConfig :: GetFieldLevelEncryptionConfig -> TestTree
-requestGetFieldLevelEncryptionConfig =
-  req
-    "GetFieldLevelEncryptionConfig"
-    "fixture/GetFieldLevelEncryptionConfig.yaml"
+    "UpdateCloudFrontOriginAccessIdentity"
+    "fixture/UpdateCloudFrontOriginAccessIdentity.yaml"
 
 requestGetRealtimeLogConfig :: GetRealtimeLogConfig -> TestTree
 requestGetRealtimeLogConfig =
@@ -713,11 +785,11 @@ requestGetRealtimeLogConfig =
     "GetRealtimeLogConfig"
     "fixture/GetRealtimeLogConfig.yaml"
 
-requestUpdateCloudFrontOriginAccessIdentity :: UpdateCloudFrontOriginAccessIdentity -> TestTree
-requestUpdateCloudFrontOriginAccessIdentity =
+requestDeleteStreamingDistribution :: DeleteStreamingDistribution -> TestTree
+requestDeleteStreamingDistribution =
   req
-    "UpdateCloudFrontOriginAccessIdentity"
-    "fixture/UpdateCloudFrontOriginAccessIdentity.yaml"
+    "DeleteStreamingDistribution"
+    "fixture/DeleteStreamingDistribution.yaml"
 
 requestUpdateStreamingDistribution :: UpdateStreamingDistribution -> TestTree
 requestUpdateStreamingDistribution =
@@ -725,23 +797,29 @@ requestUpdateStreamingDistribution =
     "UpdateStreamingDistribution"
     "fixture/UpdateStreamingDistribution.yaml"
 
+requestDescribeFunction :: DescribeFunction -> TestTree
+requestDescribeFunction =
+  req
+    "DescribeFunction"
+    "fixture/DescribeFunction.yaml"
+
+requestDeleteCloudFrontOriginAccessIdentity :: DeleteCloudFrontOriginAccessIdentity -> TestTree
+requestDeleteCloudFrontOriginAccessIdentity =
+  req
+    "DeleteCloudFrontOriginAccessIdentity"
+    "fixture/DeleteCloudFrontOriginAccessIdentity.yaml"
+
+requestGetFieldLevelEncryptionConfig :: GetFieldLevelEncryptionConfig -> TestTree
+requestGetFieldLevelEncryptionConfig =
+  req
+    "GetFieldLevelEncryptionConfig"
+    "fixture/GetFieldLevelEncryptionConfig.yaml"
+
 requestListStreamingDistributions :: ListStreamingDistributions -> TestTree
 requestListStreamingDistributions =
   req
     "ListStreamingDistributions"
     "fixture/ListStreamingDistributions.yaml"
-
-requestCreateKeyGroup :: CreateKeyGroup -> TestTree
-requestCreateKeyGroup =
-  req
-    "CreateKeyGroup"
-    "fixture/CreateKeyGroup.yaml"
-
-requestUpdateOriginRequestPolicy :: UpdateOriginRequestPolicy -> TestTree
-requestUpdateOriginRequestPolicy =
-  req
-    "UpdateOriginRequestPolicy"
-    "fixture/UpdateOriginRequestPolicy.yaml"
 
 requestGetFieldLevelEncryptionProfileConfig :: GetFieldLevelEncryptionProfileConfig -> TestTree
 requestGetFieldLevelEncryptionProfileConfig =
@@ -755,6 +833,42 @@ requestDeleteOriginRequestPolicy =
     "DeleteOriginRequestPolicy"
     "fixture/DeleteOriginRequestPolicy.yaml"
 
+requestTestFunction :: TestFunction -> TestTree
+requestTestFunction =
+  req
+    "TestFunction"
+    "fixture/TestFunction.yaml"
+
+requestCreateKeyGroup :: CreateKeyGroup -> TestTree
+requestCreateKeyGroup =
+  req
+    "CreateKeyGroup"
+    "fixture/CreateKeyGroup.yaml"
+
+requestUpdateOriginRequestPolicy :: UpdateOriginRequestPolicy -> TestTree
+requestUpdateOriginRequestPolicy =
+  req
+    "UpdateOriginRequestPolicy"
+    "fixture/UpdateOriginRequestPolicy.yaml"
+
+requestUpdateFieldLevelEncryptionProfile :: UpdateFieldLevelEncryptionProfile -> TestTree
+requestUpdateFieldLevelEncryptionProfile =
+  req
+    "UpdateFieldLevelEncryptionProfile"
+    "fixture/UpdateFieldLevelEncryptionProfile.yaml"
+
+requestDeleteKeyGroup :: DeleteKeyGroup -> TestTree
+requestDeleteKeyGroup =
+  req
+    "DeleteKeyGroup"
+    "fixture/DeleteKeyGroup.yaml"
+
+requestGetOriginRequestPolicyConfig :: GetOriginRequestPolicyConfig -> TestTree
+requestGetOriginRequestPolicyConfig =
+  req
+    "GetOriginRequestPolicyConfig"
+    "fixture/GetOriginRequestPolicyConfig.yaml"
+
 requestListFieldLevelEncryptionProfiles :: ListFieldLevelEncryptionProfiles -> TestTree
 requestListFieldLevelEncryptionProfiles =
   req
@@ -767,23 +881,11 @@ requestDeleteFieldLevelEncryptionProfile =
     "DeleteFieldLevelEncryptionProfile"
     "fixture/DeleteFieldLevelEncryptionProfile.yaml"
 
-requestGetOriginRequestPolicyConfig :: GetOriginRequestPolicyConfig -> TestTree
-requestGetOriginRequestPolicyConfig =
-  req
-    "GetOriginRequestPolicyConfig"
-    "fixture/GetOriginRequestPolicyConfig.yaml"
-
 requestUpdateKeyGroup :: UpdateKeyGroup -> TestTree
 requestUpdateKeyGroup =
   req
     "UpdateKeyGroup"
     "fixture/UpdateKeyGroup.yaml"
-
-requestDeleteKeyGroup :: DeleteKeyGroup -> TestTree
-requestDeleteKeyGroup =
-  req
-    "DeleteKeyGroup"
-    "fixture/DeleteKeyGroup.yaml"
 
 requestCreateStreamingDistributionWithTags :: CreateStreamingDistributionWithTags -> TestTree
 requestCreateStreamingDistributionWithTags =
@@ -797,17 +899,11 @@ requestListDistributionsByRealtimeLogConfig =
     "ListDistributionsByRealtimeLogConfig"
     "fixture/ListDistributionsByRealtimeLogConfig.yaml"
 
-requestUpdateFieldLevelEncryptionProfile :: UpdateFieldLevelEncryptionProfile -> TestTree
-requestUpdateFieldLevelEncryptionProfile =
+requestCreateFunction :: CreateFunction -> TestTree
+requestCreateFunction =
   req
-    "UpdateFieldLevelEncryptionProfile"
-    "fixture/UpdateFieldLevelEncryptionProfile.yaml"
-
-requestCreateDistribution :: CreateDistribution -> TestTree
-requestCreateDistribution =
-  req
-    "CreateDistribution"
-    "fixture/CreateDistribution.yaml"
+    "CreateFunction"
+    "fixture/CreateFunction.yaml"
 
 requestDeleteMonitoringSubscription :: DeleteMonitoringSubscription -> TestTree
 requestDeleteMonitoringSubscription =
@@ -821,6 +917,30 @@ requestGetFieldLevelEncryptionProfile =
     "GetFieldLevelEncryptionProfile"
     "fixture/GetFieldLevelEncryptionProfile.yaml"
 
+requestCreateDistribution :: CreateDistribution -> TestTree
+requestCreateDistribution =
+  req
+    "CreateDistribution"
+    "fixture/CreateDistribution.yaml"
+
+requestDeleteDistribution :: DeleteDistribution -> TestTree
+requestDeleteDistribution =
+  req
+    "DeleteDistribution"
+    "fixture/DeleteDistribution.yaml"
+
+requestDeleteFunction :: DeleteFunction -> TestTree
+requestDeleteFunction =
+  req
+    "DeleteFunction"
+    "fixture/DeleteFunction.yaml"
+
+requestUpdateDistribution :: UpdateDistribution -> TestTree
+requestUpdateDistribution =
+  req
+    "UpdateDistribution"
+    "fixture/UpdateDistribution.yaml"
+
 requestCreateMonitoringSubscription :: CreateMonitoringSubscription -> TestTree
 requestCreateMonitoringSubscription =
   req
@@ -833,23 +953,17 @@ requestGetOriginRequestPolicy =
     "GetOriginRequestPolicy"
     "fixture/GetOriginRequestPolicy.yaml"
 
-requestUpdateDistribution :: UpdateDistribution -> TestTree
-requestUpdateDistribution =
+requestUpdateFunction :: UpdateFunction -> TestTree
+requestUpdateFunction =
   req
-    "UpdateDistribution"
-    "fixture/UpdateDistribution.yaml"
+    "UpdateFunction"
+    "fixture/UpdateFunction.yaml"
 
-requestDeleteDistribution :: DeleteDistribution -> TestTree
-requestDeleteDistribution =
+requestGetCachePolicyConfig :: GetCachePolicyConfig -> TestTree
+requestGetCachePolicyConfig =
   req
-    "DeleteDistribution"
-    "fixture/DeleteDistribution.yaml"
-
-requestDeleteRealtimeLogConfig :: DeleteRealtimeLogConfig -> TestTree
-requestDeleteRealtimeLogConfig =
-  req
-    "DeleteRealtimeLogConfig"
-    "fixture/DeleteRealtimeLogConfig.yaml"
+    "GetCachePolicyConfig"
+    "fixture/GetCachePolicyConfig.yaml"
 
 requestGetStreamingDistribution :: GetStreamingDistribution -> TestTree
 requestGetStreamingDistribution =
@@ -863,23 +977,23 @@ requestCreateInvalidation =
     "CreateInvalidation"
     "fixture/CreateInvalidation.yaml"
 
-requestGetCachePolicyConfig :: GetCachePolicyConfig -> TestTree
-requestGetCachePolicyConfig =
-  req
-    "GetCachePolicyConfig"
-    "fixture/GetCachePolicyConfig.yaml"
-
 requestUpdateRealtimeLogConfig :: UpdateRealtimeLogConfig -> TestTree
 requestUpdateRealtimeLogConfig =
   req
     "UpdateRealtimeLogConfig"
     "fixture/UpdateRealtimeLogConfig.yaml"
 
-requestCreateRealtimeLogConfig :: CreateRealtimeLogConfig -> TestTree
-requestCreateRealtimeLogConfig =
+requestDeleteRealtimeLogConfig :: DeleteRealtimeLogConfig -> TestTree
+requestDeleteRealtimeLogConfig =
   req
-    "CreateRealtimeLogConfig"
-    "fixture/CreateRealtimeLogConfig.yaml"
+    "DeleteRealtimeLogConfig"
+    "fixture/DeleteRealtimeLogConfig.yaml"
+
+requestListInvalidations :: ListInvalidations -> TestTree
+requestListInvalidations =
+  req
+    "ListInvalidations"
+    "fixture/ListInvalidations.yaml"
 
 requestCreateDistributionWithTags :: CreateDistributionWithTags -> TestTree
 requestCreateDistributionWithTags =
@@ -893,23 +1007,11 @@ requestCreateFieldLevelEncryptionConfig =
     "CreateFieldLevelEncryptionConfig"
     "fixture/CreateFieldLevelEncryptionConfig.yaml"
 
-requestListInvalidations :: ListInvalidations -> TestTree
-requestListInvalidations =
+requestCreateRealtimeLogConfig :: CreateRealtimeLogConfig -> TestTree
+requestCreateRealtimeLogConfig =
   req
-    "ListInvalidations"
-    "fixture/ListInvalidations.yaml"
-
-requestListCloudFrontOriginAccessIdentities :: ListCloudFrontOriginAccessIdentities -> TestTree
-requestListCloudFrontOriginAccessIdentities =
-  req
-    "ListCloudFrontOriginAccessIdentities"
-    "fixture/ListCloudFrontOriginAccessIdentities.yaml"
-
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
+    "CreateRealtimeLogConfig"
+    "fixture/CreateRealtimeLogConfig.yaml"
 
 requestGetStreamingDistributionConfig :: GetStreamingDistributionConfig -> TestTree
 requestGetStreamingDistributionConfig =
@@ -923,11 +1025,11 @@ requestGetCachePolicy =
     "GetCachePolicy"
     "fixture/GetCachePolicy.yaml"
 
-requestCreateCloudFrontOriginAccessIdentity :: CreateCloudFrontOriginAccessIdentity -> TestTree
-requestCreateCloudFrontOriginAccessIdentity =
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
   req
-    "CreateCloudFrontOriginAccessIdentity"
-    "fixture/CreateCloudFrontOriginAccessIdentity.yaml"
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
 requestCreatePublicKey :: CreatePublicKey -> TestTree
 requestCreatePublicKey =
@@ -935,15 +1037,25 @@ requestCreatePublicKey =
     "CreatePublicKey"
     "fixture/CreatePublicKey.yaml"
 
--- Responses
+requestCreateCloudFrontOriginAccessIdentity :: CreateCloudFrontOriginAccessIdentity -> TestTree
+requestCreateCloudFrontOriginAccessIdentity =
+  req
+    "CreateCloudFrontOriginAccessIdentity"
+    "fixture/CreateCloudFrontOriginAccessIdentity.yaml"
 
-responseUpdatePublicKey :: UpdatePublicKeyResponse -> TestTree
-responseUpdatePublicKey =
-  res
-    "UpdatePublicKeyResponse"
-    "fixture/UpdatePublicKeyResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdatePublicKey)
+requestListCloudFrontOriginAccessIdentities :: ListCloudFrontOriginAccessIdentities -> TestTree
+requestListCloudFrontOriginAccessIdentities =
+  req
+    "ListCloudFrontOriginAccessIdentities"
+    "fixture/ListCloudFrontOriginAccessIdentities.yaml"
+
+requestAssociateAlias :: AssociateAlias -> TestTree
+requestAssociateAlias =
+  req
+    "AssociateAlias"
+    "fixture/AssociateAlias.yaml"
+
+-- Responses
 
 responseDeletePublicKey :: DeletePublicKeyResponse -> TestTree
 responseDeletePublicKey =
@@ -961,6 +1073,14 @@ responseListPublicKeys =
     defaultService
     (Proxy :: Proxy ListPublicKeys)
 
+responseUpdatePublicKey :: UpdatePublicKeyResponse -> TestTree
+responseUpdatePublicKey =
+  res
+    "UpdatePublicKeyResponse"
+    "fixture/UpdatePublicKeyResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdatePublicKey)
+
 responseGetDistribution :: GetDistributionResponse -> TestTree
 responseGetDistribution =
   res
@@ -968,6 +1088,22 @@ responseGetDistribution =
     "fixture/GetDistributionResponse.proto"
     defaultService
     (Proxy :: Proxy GetDistribution)
+
+responseGetFunction :: GetFunctionResponse -> TestTree
+responseGetFunction =
+  res
+    "GetFunctionResponse"
+    "fixture/GetFunctionResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetFunction)
+
+responseListConflictingAliases :: ListConflictingAliasesResponse -> TestTree
+responseListConflictingAliases =
+  res
+    "ListConflictingAliasesResponse"
+    "fixture/ListConflictingAliasesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListConflictingAliases)
 
 responseGetKeyGroupConfig :: GetKeyGroupConfigResponse -> TestTree
 responseGetKeyGroupConfig =
@@ -985,6 +1121,14 @@ responseCreateFieldLevelEncryptionProfile =
     defaultService
     (Proxy :: Proxy CreateFieldLevelEncryptionProfile)
 
+responseListKeyGroups :: ListKeyGroupsResponse -> TestTree
+responseListKeyGroups =
+  res
+    "ListKeyGroupsResponse"
+    "fixture/ListKeyGroupsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListKeyGroups)
+
 responseGetMonitoringSubscription :: GetMonitoringSubscriptionResponse -> TestTree
 responseGetMonitoringSubscription =
   res
@@ -992,14 +1136,6 @@ responseGetMonitoringSubscription =
     "fixture/GetMonitoringSubscriptionResponse.proto"
     defaultService
     (Proxy :: Proxy GetMonitoringSubscription)
-
-responseCreateOriginRequestPolicy :: CreateOriginRequestPolicyResponse -> TestTree
-responseCreateOriginRequestPolicy =
-  res
-    "CreateOriginRequestPolicyResponse"
-    "fixture/CreateOriginRequestPolicyResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateOriginRequestPolicy)
 
 responseListDistributionsByCachePolicyId :: ListDistributionsByCachePolicyIdResponse -> TestTree
 responseListDistributionsByCachePolicyId =
@@ -1009,14 +1145,6 @@ responseListDistributionsByCachePolicyId =
     defaultService
     (Proxy :: Proxy ListDistributionsByCachePolicyId)
 
-responseListKeyGroups :: ListKeyGroupsResponse -> TestTree
-responseListKeyGroups =
-  res
-    "ListKeyGroupsResponse"
-    "fixture/ListKeyGroupsResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListKeyGroups)
-
 responseListOriginRequestPolicies :: ListOriginRequestPoliciesResponse -> TestTree
 responseListOriginRequestPolicies =
   res
@@ -1024,6 +1152,14 @@ responseListOriginRequestPolicies =
     "fixture/ListOriginRequestPoliciesResponse.proto"
     defaultService
     (Proxy :: Proxy ListOriginRequestPolicies)
+
+responseCreateOriginRequestPolicy :: CreateOriginRequestPolicyResponse -> TestTree
+responseCreateOriginRequestPolicy =
+  res
+    "CreateOriginRequestPolicyResponse"
+    "fixture/CreateOriginRequestPolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateOriginRequestPolicy)
 
 responseGetKeyGroup :: GetKeyGroupResponse -> TestTree
 responseGetKeyGroup =
@@ -1041,21 +1177,13 @@ responseGetDistributionConfig =
     defaultService
     (Proxy :: Proxy GetDistributionConfig)
 
-responseListDistributions :: ListDistributionsResponse -> TestTree
-responseListDistributions =
+responseListFunctions :: ListFunctionsResponse -> TestTree
+responseListFunctions =
   res
-    "ListDistributionsResponse"
-    "fixture/ListDistributionsResponse.proto"
+    "ListFunctionsResponse"
+    "fixture/ListFunctionsResponse.proto"
     defaultService
-    (Proxy :: Proxy ListDistributions)
-
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy UntagResource)
+    (Proxy :: Proxy ListFunctions)
 
 responseListDistributionsByWebACLId :: ListDistributionsByWebACLIdResponse -> TestTree
 responseListDistributionsByWebACLId =
@@ -1065,6 +1193,46 @@ responseListDistributionsByWebACLId =
     defaultService
     (Proxy :: Proxy ListDistributionsByWebACLId)
 
+responseListDistributions :: ListDistributionsResponse -> TestTree
+responseListDistributions =
+  res
+    "ListDistributionsResponse"
+    "fixture/ListDistributionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListDistributions)
+
+responsePublishFunction :: PublishFunctionResponse -> TestTree
+responsePublishFunction =
+  res
+    "PublishFunctionResponse"
+    "fixture/PublishFunctionResponse.proto"
+    defaultService
+    (Proxy :: Proxy PublishFunction)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy UntagResource)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy TagResource)
+
+responseUpdateFieldLevelEncryptionConfig :: UpdateFieldLevelEncryptionConfigResponse -> TestTree
+responseUpdateFieldLevelEncryptionConfig =
+  res
+    "UpdateFieldLevelEncryptionConfigResponse"
+    "fixture/UpdateFieldLevelEncryptionConfigResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateFieldLevelEncryptionConfig)
+
 responseGetCloudFrontOriginAccessIdentity :: GetCloudFrontOriginAccessIdentityResponse -> TestTree
 responseGetCloudFrontOriginAccessIdentity =
   res
@@ -1073,13 +1241,13 @@ responseGetCloudFrontOriginAccessIdentity =
     defaultService
     (Proxy :: Proxy GetCloudFrontOriginAccessIdentity)
 
-responseGetPublicKey :: GetPublicKeyResponse -> TestTree
-responseGetPublicKey =
+responseDeleteFieldLevelEncryptionConfig :: DeleteFieldLevelEncryptionConfigResponse -> TestTree
+responseDeleteFieldLevelEncryptionConfig =
   res
-    "GetPublicKeyResponse"
-    "fixture/GetPublicKeyResponse.proto"
+    "DeleteFieldLevelEncryptionConfigResponse"
+    "fixture/DeleteFieldLevelEncryptionConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy GetPublicKey)
+    (Proxy :: Proxy DeleteFieldLevelEncryptionConfig)
 
 responseListRealtimeLogConfigs :: ListRealtimeLogConfigsResponse -> TestTree
 responseListRealtimeLogConfigs =
@@ -1089,13 +1257,21 @@ responseListRealtimeLogConfigs =
     defaultService
     (Proxy :: Proxy ListRealtimeLogConfigs)
 
-responseUpdateFieldLevelEncryptionConfig :: UpdateFieldLevelEncryptionConfigResponse -> TestTree
-responseUpdateFieldLevelEncryptionConfig =
+responseListCachePolicies :: ListCachePoliciesResponse -> TestTree
+responseListCachePolicies =
   res
-    "UpdateFieldLevelEncryptionConfigResponse"
-    "fixture/UpdateFieldLevelEncryptionConfigResponse.proto"
+    "ListCachePoliciesResponse"
+    "fixture/ListCachePoliciesResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFieldLevelEncryptionConfig)
+    (Proxy :: Proxy ListCachePolicies)
+
+responseGetPublicKey :: GetPublicKeyResponse -> TestTree
+responseGetPublicKey =
+  res
+    "GetPublicKeyResponse"
+    "fixture/GetPublicKeyResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetPublicKey)
 
 responseCreateCachePolicy :: CreateCachePolicyResponse -> TestTree
 responseCreateCachePolicy =
@@ -1113,22 +1289,6 @@ responseListDistributionsByKeyGroup =
     defaultService
     (Proxy :: Proxy ListDistributionsByKeyGroup)
 
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy TagResource)
-
-responseListCachePolicies :: ListCachePoliciesResponse -> TestTree
-responseListCachePolicies =
-  res
-    "ListCachePoliciesResponse"
-    "fixture/ListCachePoliciesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListCachePolicies)
-
 responseListDistributionsByOriginRequestPolicyId :: ListDistributionsByOriginRequestPolicyIdResponse -> TestTree
 responseListDistributionsByOriginRequestPolicyId =
   res
@@ -1144,22 +1304,6 @@ responseListFieldLevelEncryptionConfigs =
     "fixture/ListFieldLevelEncryptionConfigsResponse.proto"
     defaultService
     (Proxy :: Proxy ListFieldLevelEncryptionConfigs)
-
-responseDeleteFieldLevelEncryptionConfig :: DeleteFieldLevelEncryptionConfigResponse -> TestTree
-responseDeleteFieldLevelEncryptionConfig =
-  res
-    "DeleteFieldLevelEncryptionConfigResponse"
-    "fixture/DeleteFieldLevelEncryptionConfigResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteFieldLevelEncryptionConfig)
-
-responseDeleteCachePolicy :: DeleteCachePolicyResponse -> TestTree
-responseDeleteCachePolicy =
-  res
-    "DeleteCachePolicyResponse"
-    "fixture/DeleteCachePolicyResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteCachePolicy)
 
 responseGetFieldLevelEncryption :: GetFieldLevelEncryptionResponse -> TestTree
 responseGetFieldLevelEncryption =
@@ -1177,6 +1321,14 @@ responseUpdateCachePolicy =
     defaultService
     (Proxy :: Proxy UpdateCachePolicy)
 
+responseDeleteCachePolicy :: DeleteCachePolicyResponse -> TestTree
+responseDeleteCachePolicy =
+  res
+    "DeleteCachePolicyResponse"
+    "fixture/DeleteCachePolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteCachePolicy)
+
 responseGetInvalidation :: GetInvalidationResponse -> TestTree
 responseGetInvalidation =
   res
@@ -1184,6 +1336,14 @@ responseGetInvalidation =
     "fixture/GetInvalidationResponse.proto"
     defaultService
     (Proxy :: Proxy GetInvalidation)
+
+responseCreateStreamingDistribution :: CreateStreamingDistributionResponse -> TestTree
+responseCreateStreamingDistribution =
+  res
+    "CreateStreamingDistributionResponse"
+    "fixture/CreateStreamingDistributionResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateStreamingDistribution)
 
 responseGetPublicKeyConfig :: GetPublicKeyConfigResponse -> TestTree
 responseGetPublicKeyConfig =
@@ -1201,37 +1361,13 @@ responseGetCloudFrontOriginAccessIdentityConfig =
     defaultService
     (Proxy :: Proxy GetCloudFrontOriginAccessIdentityConfig)
 
-responseCreateStreamingDistribution :: CreateStreamingDistributionResponse -> TestTree
-responseCreateStreamingDistribution =
+responseUpdateCloudFrontOriginAccessIdentity :: UpdateCloudFrontOriginAccessIdentityResponse -> TestTree
+responseUpdateCloudFrontOriginAccessIdentity =
   res
-    "CreateStreamingDistributionResponse"
-    "fixture/CreateStreamingDistributionResponse.proto"
+    "UpdateCloudFrontOriginAccessIdentityResponse"
+    "fixture/UpdateCloudFrontOriginAccessIdentityResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateStreamingDistribution)
-
-responseDeleteCloudFrontOriginAccessIdentity :: DeleteCloudFrontOriginAccessIdentityResponse -> TestTree
-responseDeleteCloudFrontOriginAccessIdentity =
-  res
-    "DeleteCloudFrontOriginAccessIdentityResponse"
-    "fixture/DeleteCloudFrontOriginAccessIdentityResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteCloudFrontOriginAccessIdentity)
-
-responseDeleteStreamingDistribution :: DeleteStreamingDistributionResponse -> TestTree
-responseDeleteStreamingDistribution =
-  res
-    "DeleteStreamingDistributionResponse"
-    "fixture/DeleteStreamingDistributionResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteStreamingDistribution)
-
-responseGetFieldLevelEncryptionConfig :: GetFieldLevelEncryptionConfigResponse -> TestTree
-responseGetFieldLevelEncryptionConfig =
-  res
-    "GetFieldLevelEncryptionConfigResponse"
-    "fixture/GetFieldLevelEncryptionConfigResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetFieldLevelEncryptionConfig)
+    (Proxy :: Proxy UpdateCloudFrontOriginAccessIdentity)
 
 responseGetRealtimeLogConfig :: GetRealtimeLogConfigResponse -> TestTree
 responseGetRealtimeLogConfig =
@@ -1241,13 +1377,13 @@ responseGetRealtimeLogConfig =
     defaultService
     (Proxy :: Proxy GetRealtimeLogConfig)
 
-responseUpdateCloudFrontOriginAccessIdentity :: UpdateCloudFrontOriginAccessIdentityResponse -> TestTree
-responseUpdateCloudFrontOriginAccessIdentity =
+responseDeleteStreamingDistribution :: DeleteStreamingDistributionResponse -> TestTree
+responseDeleteStreamingDistribution =
   res
-    "UpdateCloudFrontOriginAccessIdentityResponse"
-    "fixture/UpdateCloudFrontOriginAccessIdentityResponse.proto"
+    "DeleteStreamingDistributionResponse"
+    "fixture/DeleteStreamingDistributionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateCloudFrontOriginAccessIdentity)
+    (Proxy :: Proxy DeleteStreamingDistribution)
 
 responseUpdateStreamingDistribution :: UpdateStreamingDistributionResponse -> TestTree
 responseUpdateStreamingDistribution =
@@ -1257,6 +1393,30 @@ responseUpdateStreamingDistribution =
     defaultService
     (Proxy :: Proxy UpdateStreamingDistribution)
 
+responseDescribeFunction :: DescribeFunctionResponse -> TestTree
+responseDescribeFunction =
+  res
+    "DescribeFunctionResponse"
+    "fixture/DescribeFunctionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeFunction)
+
+responseDeleteCloudFrontOriginAccessIdentity :: DeleteCloudFrontOriginAccessIdentityResponse -> TestTree
+responseDeleteCloudFrontOriginAccessIdentity =
+  res
+    "DeleteCloudFrontOriginAccessIdentityResponse"
+    "fixture/DeleteCloudFrontOriginAccessIdentityResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteCloudFrontOriginAccessIdentity)
+
+responseGetFieldLevelEncryptionConfig :: GetFieldLevelEncryptionConfigResponse -> TestTree
+responseGetFieldLevelEncryptionConfig =
+  res
+    "GetFieldLevelEncryptionConfigResponse"
+    "fixture/GetFieldLevelEncryptionConfigResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetFieldLevelEncryptionConfig)
+
 responseListStreamingDistributions :: ListStreamingDistributionsResponse -> TestTree
 responseListStreamingDistributions =
   res
@@ -1264,22 +1424,6 @@ responseListStreamingDistributions =
     "fixture/ListStreamingDistributionsResponse.proto"
     defaultService
     (Proxy :: Proxy ListStreamingDistributions)
-
-responseCreateKeyGroup :: CreateKeyGroupResponse -> TestTree
-responseCreateKeyGroup =
-  res
-    "CreateKeyGroupResponse"
-    "fixture/CreateKeyGroupResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateKeyGroup)
-
-responseUpdateOriginRequestPolicy :: UpdateOriginRequestPolicyResponse -> TestTree
-responseUpdateOriginRequestPolicy =
-  res
-    "UpdateOriginRequestPolicyResponse"
-    "fixture/UpdateOriginRequestPolicyResponse.proto"
-    defaultService
-    (Proxy :: Proxy UpdateOriginRequestPolicy)
 
 responseGetFieldLevelEncryptionProfileConfig :: GetFieldLevelEncryptionProfileConfigResponse -> TestTree
 responseGetFieldLevelEncryptionProfileConfig =
@@ -1297,6 +1441,54 @@ responseDeleteOriginRequestPolicy =
     defaultService
     (Proxy :: Proxy DeleteOriginRequestPolicy)
 
+responseTestFunction :: TestFunctionResponse -> TestTree
+responseTestFunction =
+  res
+    "TestFunctionResponse"
+    "fixture/TestFunctionResponse.proto"
+    defaultService
+    (Proxy :: Proxy TestFunction)
+
+responseCreateKeyGroup :: CreateKeyGroupResponse -> TestTree
+responseCreateKeyGroup =
+  res
+    "CreateKeyGroupResponse"
+    "fixture/CreateKeyGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateKeyGroup)
+
+responseUpdateOriginRequestPolicy :: UpdateOriginRequestPolicyResponse -> TestTree
+responseUpdateOriginRequestPolicy =
+  res
+    "UpdateOriginRequestPolicyResponse"
+    "fixture/UpdateOriginRequestPolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateOriginRequestPolicy)
+
+responseUpdateFieldLevelEncryptionProfile :: UpdateFieldLevelEncryptionProfileResponse -> TestTree
+responseUpdateFieldLevelEncryptionProfile =
+  res
+    "UpdateFieldLevelEncryptionProfileResponse"
+    "fixture/UpdateFieldLevelEncryptionProfileResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateFieldLevelEncryptionProfile)
+
+responseDeleteKeyGroup :: DeleteKeyGroupResponse -> TestTree
+responseDeleteKeyGroup =
+  res
+    "DeleteKeyGroupResponse"
+    "fixture/DeleteKeyGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteKeyGroup)
+
+responseGetOriginRequestPolicyConfig :: GetOriginRequestPolicyConfigResponse -> TestTree
+responseGetOriginRequestPolicyConfig =
+  res
+    "GetOriginRequestPolicyConfigResponse"
+    "fixture/GetOriginRequestPolicyConfigResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetOriginRequestPolicyConfig)
+
 responseListFieldLevelEncryptionProfiles :: ListFieldLevelEncryptionProfilesResponse -> TestTree
 responseListFieldLevelEncryptionProfiles =
   res
@@ -1313,14 +1505,6 @@ responseDeleteFieldLevelEncryptionProfile =
     defaultService
     (Proxy :: Proxy DeleteFieldLevelEncryptionProfile)
 
-responseGetOriginRequestPolicyConfig :: GetOriginRequestPolicyConfigResponse -> TestTree
-responseGetOriginRequestPolicyConfig =
-  res
-    "GetOriginRequestPolicyConfigResponse"
-    "fixture/GetOriginRequestPolicyConfigResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetOriginRequestPolicyConfig)
-
 responseUpdateKeyGroup :: UpdateKeyGroupResponse -> TestTree
 responseUpdateKeyGroup =
   res
@@ -1328,14 +1512,6 @@ responseUpdateKeyGroup =
     "fixture/UpdateKeyGroupResponse.proto"
     defaultService
     (Proxy :: Proxy UpdateKeyGroup)
-
-responseDeleteKeyGroup :: DeleteKeyGroupResponse -> TestTree
-responseDeleteKeyGroup =
-  res
-    "DeleteKeyGroupResponse"
-    "fixture/DeleteKeyGroupResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteKeyGroup)
 
 responseCreateStreamingDistributionWithTags :: CreateStreamingDistributionWithTagsResponse -> TestTree
 responseCreateStreamingDistributionWithTags =
@@ -1353,21 +1529,13 @@ responseListDistributionsByRealtimeLogConfig =
     defaultService
     (Proxy :: Proxy ListDistributionsByRealtimeLogConfig)
 
-responseUpdateFieldLevelEncryptionProfile :: UpdateFieldLevelEncryptionProfileResponse -> TestTree
-responseUpdateFieldLevelEncryptionProfile =
+responseCreateFunction :: CreateFunctionResponse -> TestTree
+responseCreateFunction =
   res
-    "UpdateFieldLevelEncryptionProfileResponse"
-    "fixture/UpdateFieldLevelEncryptionProfileResponse.proto"
+    "CreateFunctionResponse"
+    "fixture/CreateFunctionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateFieldLevelEncryptionProfile)
-
-responseCreateDistribution :: CreateDistributionResponse -> TestTree
-responseCreateDistribution =
-  res
-    "CreateDistributionResponse"
-    "fixture/CreateDistributionResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateDistribution)
+    (Proxy :: Proxy CreateFunction)
 
 responseDeleteMonitoringSubscription :: DeleteMonitoringSubscriptionResponse -> TestTree
 responseDeleteMonitoringSubscription =
@@ -1385,6 +1553,38 @@ responseGetFieldLevelEncryptionProfile =
     defaultService
     (Proxy :: Proxy GetFieldLevelEncryptionProfile)
 
+responseCreateDistribution :: CreateDistributionResponse -> TestTree
+responseCreateDistribution =
+  res
+    "CreateDistributionResponse"
+    "fixture/CreateDistributionResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateDistribution)
+
+responseDeleteDistribution :: DeleteDistributionResponse -> TestTree
+responseDeleteDistribution =
+  res
+    "DeleteDistributionResponse"
+    "fixture/DeleteDistributionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteDistribution)
+
+responseDeleteFunction :: DeleteFunctionResponse -> TestTree
+responseDeleteFunction =
+  res
+    "DeleteFunctionResponse"
+    "fixture/DeleteFunctionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteFunction)
+
+responseUpdateDistribution :: UpdateDistributionResponse -> TestTree
+responseUpdateDistribution =
+  res
+    "UpdateDistributionResponse"
+    "fixture/UpdateDistributionResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateDistribution)
+
 responseCreateMonitoringSubscription :: CreateMonitoringSubscriptionResponse -> TestTree
 responseCreateMonitoringSubscription =
   res
@@ -1401,29 +1601,21 @@ responseGetOriginRequestPolicy =
     defaultService
     (Proxy :: Proxy GetOriginRequestPolicy)
 
-responseUpdateDistribution :: UpdateDistributionResponse -> TestTree
-responseUpdateDistribution =
+responseUpdateFunction :: UpdateFunctionResponse -> TestTree
+responseUpdateFunction =
   res
-    "UpdateDistributionResponse"
-    "fixture/UpdateDistributionResponse.proto"
+    "UpdateFunctionResponse"
+    "fixture/UpdateFunctionResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDistribution)
+    (Proxy :: Proxy UpdateFunction)
 
-responseDeleteDistribution :: DeleteDistributionResponse -> TestTree
-responseDeleteDistribution =
+responseGetCachePolicyConfig :: GetCachePolicyConfigResponse -> TestTree
+responseGetCachePolicyConfig =
   res
-    "DeleteDistributionResponse"
-    "fixture/DeleteDistributionResponse.proto"
+    "GetCachePolicyConfigResponse"
+    "fixture/GetCachePolicyConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteDistribution)
-
-responseDeleteRealtimeLogConfig :: DeleteRealtimeLogConfigResponse -> TestTree
-responseDeleteRealtimeLogConfig =
-  res
-    "DeleteRealtimeLogConfigResponse"
-    "fixture/DeleteRealtimeLogConfigResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteRealtimeLogConfig)
+    (Proxy :: Proxy GetCachePolicyConfig)
 
 responseGetStreamingDistribution :: GetStreamingDistributionResponse -> TestTree
 responseGetStreamingDistribution =
@@ -1441,14 +1633,6 @@ responseCreateInvalidation =
     defaultService
     (Proxy :: Proxy CreateInvalidation)
 
-responseGetCachePolicyConfig :: GetCachePolicyConfigResponse -> TestTree
-responseGetCachePolicyConfig =
-  res
-    "GetCachePolicyConfigResponse"
-    "fixture/GetCachePolicyConfigResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetCachePolicyConfig)
-
 responseUpdateRealtimeLogConfig :: UpdateRealtimeLogConfigResponse -> TestTree
 responseUpdateRealtimeLogConfig =
   res
@@ -1457,13 +1641,21 @@ responseUpdateRealtimeLogConfig =
     defaultService
     (Proxy :: Proxy UpdateRealtimeLogConfig)
 
-responseCreateRealtimeLogConfig :: CreateRealtimeLogConfigResponse -> TestTree
-responseCreateRealtimeLogConfig =
+responseDeleteRealtimeLogConfig :: DeleteRealtimeLogConfigResponse -> TestTree
+responseDeleteRealtimeLogConfig =
   res
-    "CreateRealtimeLogConfigResponse"
-    "fixture/CreateRealtimeLogConfigResponse.proto"
+    "DeleteRealtimeLogConfigResponse"
+    "fixture/DeleteRealtimeLogConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateRealtimeLogConfig)
+    (Proxy :: Proxy DeleteRealtimeLogConfig)
+
+responseListInvalidations :: ListInvalidationsResponse -> TestTree
+responseListInvalidations =
+  res
+    "ListInvalidationsResponse"
+    "fixture/ListInvalidationsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListInvalidations)
 
 responseCreateDistributionWithTags :: CreateDistributionWithTagsResponse -> TestTree
 responseCreateDistributionWithTags =
@@ -1481,29 +1673,13 @@ responseCreateFieldLevelEncryptionConfig =
     defaultService
     (Proxy :: Proxy CreateFieldLevelEncryptionConfig)
 
-responseListInvalidations :: ListInvalidationsResponse -> TestTree
-responseListInvalidations =
+responseCreateRealtimeLogConfig :: CreateRealtimeLogConfigResponse -> TestTree
+responseCreateRealtimeLogConfig =
   res
-    "ListInvalidationsResponse"
-    "fixture/ListInvalidationsResponse.proto"
+    "CreateRealtimeLogConfigResponse"
+    "fixture/CreateRealtimeLogConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy ListInvalidations)
-
-responseListCloudFrontOriginAccessIdentities :: ListCloudFrontOriginAccessIdentitiesResponse -> TestTree
-responseListCloudFrontOriginAccessIdentities =
-  res
-    "ListCloudFrontOriginAccessIdentitiesResponse"
-    "fixture/ListCloudFrontOriginAccessIdentitiesResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListCloudFrontOriginAccessIdentities)
-
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListTagsForResource)
+    (Proxy :: Proxy CreateRealtimeLogConfig)
 
 responseGetStreamingDistributionConfig :: GetStreamingDistributionConfigResponse -> TestTree
 responseGetStreamingDistributionConfig =
@@ -1521,13 +1697,13 @@ responseGetCachePolicy =
     defaultService
     (Proxy :: Proxy GetCachePolicy)
 
-responseCreateCloudFrontOriginAccessIdentity :: CreateCloudFrontOriginAccessIdentityResponse -> TestTree
-responseCreateCloudFrontOriginAccessIdentity =
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
   res
-    "CreateCloudFrontOriginAccessIdentityResponse"
-    "fixture/CreateCloudFrontOriginAccessIdentityResponse.proto"
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateCloudFrontOriginAccessIdentity)
+    (Proxy :: Proxy ListTagsForResource)
 
 responseCreatePublicKey :: CreatePublicKeyResponse -> TestTree
 responseCreatePublicKey =
@@ -1536,3 +1712,27 @@ responseCreatePublicKey =
     "fixture/CreatePublicKeyResponse.proto"
     defaultService
     (Proxy :: Proxy CreatePublicKey)
+
+responseCreateCloudFrontOriginAccessIdentity :: CreateCloudFrontOriginAccessIdentityResponse -> TestTree
+responseCreateCloudFrontOriginAccessIdentity =
+  res
+    "CreateCloudFrontOriginAccessIdentityResponse"
+    "fixture/CreateCloudFrontOriginAccessIdentityResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateCloudFrontOriginAccessIdentity)
+
+responseListCloudFrontOriginAccessIdentities :: ListCloudFrontOriginAccessIdentitiesResponse -> TestTree
+responseListCloudFrontOriginAccessIdentities =
+  res
+    "ListCloudFrontOriginAccessIdentitiesResponse"
+    "fixture/ListCloudFrontOriginAccessIdentitiesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListCloudFrontOriginAccessIdentities)
+
+responseAssociateAlias :: AssociateAliasResponse -> TestTree
+responseAssociateAlias =
+  res
+    "AssociateAliasResponse"
+    "fixture/AssociateAliasResponse.proto"
+    defaultService
+    (Proxy :: Proxy AssociateAlias)

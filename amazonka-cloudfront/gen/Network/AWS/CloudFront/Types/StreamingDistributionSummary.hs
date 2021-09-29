@@ -36,7 +36,7 @@ data StreamingDistributionSummary = StreamingDistributionSummary'
     -- | The ARN (Amazon Resource Name) for the streaming distribution. For
     -- example:
     -- @arn:aws:cloudfront::123456789012:streaming-distribution\/EDFDVBD632BHDS5@,
-    -- where @123456789012@ is your AWS account ID.
+    -- where @123456789012@ is your account ID.
     arn :: Prelude.Text,
     -- | Indicates the current status of the distribution. When the status is
     -- @Deployed@, the distribution\'s information is fully propagated
@@ -53,7 +53,7 @@ data StreamingDistributionSummary = StreamingDistributionSummary'
     -- | A complex type that contains information about CNAMEs (alternate domain
     -- names), if any, for this streaming distribution.
     aliases :: Aliases,
-    -- | A complex type that specifies the AWS accounts, if any, that you want to
+    -- | A complex type that specifies the accounts, if any, that you want to
     -- allow to create signed URLs for private content. If you want to require
     -- signed URLs in requests for objects in the target origin that match the
     -- @PathPattern@ for this cache behavior, specify @true@ for @Enabled@, and
@@ -93,7 +93,7 @@ data StreamingDistributionSummary = StreamingDistributionSummary'
 -- 'arn', 'streamingDistributionSummary_arn' - The ARN (Amazon Resource Name) for the streaming distribution. For
 -- example:
 -- @arn:aws:cloudfront::123456789012:streaming-distribution\/EDFDVBD632BHDS5@,
--- where @123456789012@ is your AWS account ID.
+-- where @123456789012@ is your account ID.
 --
 -- 'status', 'streamingDistributionSummary_status' - Indicates the current status of the distribution. When the status is
 -- @Deployed@, the distribution\'s information is fully propagated
@@ -110,7 +110,7 @@ data StreamingDistributionSummary = StreamingDistributionSummary'
 -- 'aliases', 'streamingDistributionSummary_aliases' - A complex type that contains information about CNAMEs (alternate domain
 -- names), if any, for this streaming distribution.
 --
--- 'trustedSigners', 'streamingDistributionSummary_trustedSigners' - A complex type that specifies the AWS accounts, if any, that you want to
+-- 'trustedSigners', 'streamingDistributionSummary_trustedSigners' - A complex type that specifies the accounts, if any, that you want to
 -- allow to create signed URLs for private content. If you want to require
 -- signed URLs in requests for objects in the target origin that match the
 -- @PathPattern@ for this cache behavior, specify @true@ for @Enabled@, and
@@ -191,7 +191,7 @@ streamingDistributionSummary_id = Lens.lens (\StreamingDistributionSummary' {id}
 -- | The ARN (Amazon Resource Name) for the streaming distribution. For
 -- example:
 -- @arn:aws:cloudfront::123456789012:streaming-distribution\/EDFDVBD632BHDS5@,
--- where @123456789012@ is your AWS account ID.
+-- where @123456789012@ is your account ID.
 streamingDistributionSummary_arn :: Lens.Lens' StreamingDistributionSummary Prelude.Text
 streamingDistributionSummary_arn = Lens.lens (\StreamingDistributionSummary' {arn} -> arn) (\s@StreamingDistributionSummary' {} a -> s {arn = a} :: StreamingDistributionSummary)
 
@@ -220,7 +220,7 @@ streamingDistributionSummary_s3Origin = Lens.lens (\StreamingDistributionSummary
 streamingDistributionSummary_aliases :: Lens.Lens' StreamingDistributionSummary Aliases
 streamingDistributionSummary_aliases = Lens.lens (\StreamingDistributionSummary' {aliases} -> aliases) (\s@StreamingDistributionSummary' {} a -> s {aliases = a} :: StreamingDistributionSummary)
 
--- | A complex type that specifies the AWS accounts, if any, that you want to
+-- | A complex type that specifies the accounts, if any, that you want to
 -- allow to create signed URLs for private content. If you want to require
 -- signed URLs in requests for objects in the target origin that match the
 -- @PathPattern@ for this cache behavior, specify @true@ for @Enabled@, and

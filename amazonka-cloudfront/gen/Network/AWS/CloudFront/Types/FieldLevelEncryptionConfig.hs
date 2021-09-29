@@ -30,7 +30,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newFieldLevelEncryptionConfig' smart constructor.
 data FieldLevelEncryptionConfig = FieldLevelEncryptionConfig'
-  { -- | An optional comment about the configuration.
+  { -- | An optional comment about the configuration. The comment cannot be
+    -- longer than 128 characters.
     comment :: Prelude.Maybe Prelude.Text,
     -- | A complex data type that specifies when to forward content if a content
     -- type isn\'t recognized and profiles to use as by default in a request if
@@ -53,7 +54,8 @@ data FieldLevelEncryptionConfig = FieldLevelEncryptionConfig'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'comment', 'fieldLevelEncryptionConfig_comment' - An optional comment about the configuration.
+-- 'comment', 'fieldLevelEncryptionConfig_comment' - An optional comment about the configuration. The comment cannot be
+-- longer than 128 characters.
 --
 -- 'contentTypeProfileConfig', 'fieldLevelEncryptionConfig_contentTypeProfileConfig' - A complex data type that specifies when to forward content if a content
 -- type isn\'t recognized and profiles to use as by default in a request if
@@ -77,7 +79,8 @@ newFieldLevelEncryptionConfig pCallerReference_ =
       callerReference = pCallerReference_
     }
 
--- | An optional comment about the configuration.
+-- | An optional comment about the configuration. The comment cannot be
+-- longer than 128 characters.
 fieldLevelEncryptionConfig_comment :: Lens.Lens' FieldLevelEncryptionConfig (Prelude.Maybe Prelude.Text)
 fieldLevelEncryptionConfig_comment = Lens.lens (\FieldLevelEncryptionConfig' {comment} -> comment) (\s@FieldLevelEncryptionConfig' {} a -> s {comment = a} :: FieldLevelEncryptionConfig)
 

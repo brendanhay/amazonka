@@ -46,7 +46,8 @@ data CloudFrontOriginAccessIdentityConfig = CloudFrontOriginAccessIdentityConfig
     -- request, CloudFront returns a
     -- @CloudFrontOriginAccessIdentityAlreadyExists@ error.
     callerReference :: Prelude.Text,
-    -- | Any comments you want to include about the origin access identity.
+    -- | A comment to describe the origin access identity. The comment cannot be
+    -- longer than 128 characters.
     comment :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -77,7 +78,8 @@ data CloudFrontOriginAccessIdentityConfig = CloudFrontOriginAccessIdentityConfig
 -- request, CloudFront returns a
 -- @CloudFrontOriginAccessIdentityAlreadyExists@ error.
 --
--- 'comment', 'cloudFrontOriginAccessIdentityConfig_comment' - Any comments you want to include about the origin access identity.
+-- 'comment', 'cloudFrontOriginAccessIdentityConfig_comment' - A comment to describe the origin access identity. The comment cannot be
+-- longer than 128 characters.
 newCloudFrontOriginAccessIdentityConfig ::
   -- | 'callerReference'
   Prelude.Text ->
@@ -113,7 +115,8 @@ newCloudFrontOriginAccessIdentityConfig
 cloudFrontOriginAccessIdentityConfig_callerReference :: Lens.Lens' CloudFrontOriginAccessIdentityConfig Prelude.Text
 cloudFrontOriginAccessIdentityConfig_callerReference = Lens.lens (\CloudFrontOriginAccessIdentityConfig' {callerReference} -> callerReference) (\s@CloudFrontOriginAccessIdentityConfig' {} a -> s {callerReference = a} :: CloudFrontOriginAccessIdentityConfig)
 
--- | Any comments you want to include about the origin access identity.
+-- | A comment to describe the origin access identity. The comment cannot be
+-- longer than 128 characters.
 cloudFrontOriginAccessIdentityConfig_comment :: Lens.Lens' CloudFrontOriginAccessIdentityConfig Prelude.Text
 cloudFrontOriginAccessIdentityConfig_comment = Lens.lens (\CloudFrontOriginAccessIdentityConfig' {comment} -> comment) (\s@CloudFrontOriginAccessIdentityConfig' {} a -> s {comment = a} :: CloudFrontOriginAccessIdentityConfig)
 

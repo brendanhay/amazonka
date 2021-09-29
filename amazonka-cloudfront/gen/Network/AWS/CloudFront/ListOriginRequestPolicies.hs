@@ -23,7 +23,8 @@
 -- Gets a list of origin request policies.
 --
 -- You can optionally apply a filter to return only the managed policies
--- created by AWS, or only the custom policies created in your AWS account.
+-- created by Amazon Web Services, or only the custom policies created in
+-- your account.
 --
 -- You can optionally specify the maximum number of items to receive in the
 -- response. If the total number of items in the list exceeds the maximum
@@ -63,10 +64,10 @@ data ListOriginRequestPolicies = ListOriginRequestPolicies'
   { -- | A filter to return only the specified kinds of origin request policies.
     -- Valid values are:
     --
-    -- -   @managed@ – Returns only the managed policies created by AWS.
+    -- -   @managed@ – Returns only the managed policies created by Amazon Web
+    --     Services.
     --
-    -- -   @custom@ – Returns only the custom policies created in your AWS
-    --     account.
+    -- -   @custom@ – Returns only the custom policies created in your account.
     type' :: Prelude.Maybe OriginRequestPolicyType,
     -- | The maximum number of origin request policies that you want in the
     -- response.
@@ -91,10 +92,10 @@ data ListOriginRequestPolicies = ListOriginRequestPolicies'
 -- 'type'', 'listOriginRequestPolicies_type' - A filter to return only the specified kinds of origin request policies.
 -- Valid values are:
 --
--- -   @managed@ – Returns only the managed policies created by AWS.
+-- -   @managed@ – Returns only the managed policies created by Amazon Web
+--     Services.
 --
--- -   @custom@ – Returns only the custom policies created in your AWS
---     account.
+-- -   @custom@ – Returns only the custom policies created in your account.
 --
 -- 'maxItems', 'listOriginRequestPolicies_maxItems' - The maximum number of origin request policies that you want in the
 -- response.
@@ -116,10 +117,10 @@ newListOriginRequestPolicies =
 -- | A filter to return only the specified kinds of origin request policies.
 -- Valid values are:
 --
--- -   @managed@ – Returns only the managed policies created by AWS.
+-- -   @managed@ – Returns only the managed policies created by Amazon Web
+--     Services.
 --
--- -   @custom@ – Returns only the custom policies created in your AWS
---     account.
+-- -   @custom@ – Returns only the custom policies created in your account.
 listOriginRequestPolicies_type :: Lens.Lens' ListOriginRequestPolicies (Prelude.Maybe OriginRequestPolicyType)
 listOriginRequestPolicies_type = Lens.lens (\ListOriginRequestPolicies' {type'} -> type') (\s@ListOriginRequestPolicies' {} a -> s {type' = a} :: ListOriginRequestPolicies)
 

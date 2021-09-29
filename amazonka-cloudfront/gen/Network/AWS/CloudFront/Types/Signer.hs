@@ -24,17 +24,16 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | A list of AWS accounts and the active CloudFront key pairs in each
--- account that CloudFront can use to verify the signatures of signed URLs
--- and signed cookies.
+-- | A list of accounts and the active CloudFront key pairs in each account
+-- that CloudFront can use to verify the signatures of signed URLs and
+-- signed cookies.
 --
 -- /See:/ 'newSigner' smart constructor.
 data Signer = Signer'
-  { -- | An AWS account number that contains active CloudFront key pairs that
+  { -- | An account number that contains active CloudFront key pairs that
     -- CloudFront can use to verify the signatures of signed URLs and signed
-    -- cookies. If the AWS account that owns the key pairs is the same account
-    -- that owns the CloudFront distribution, the value of this field is
-    -- @self@.
+    -- cookies. If the account that owns the key pairs is the same account that
+    -- owns the CloudFront distribution, the value of this field is @self@.
     awsAccountNumber :: Prelude.Maybe Prelude.Text,
     -- | A list of CloudFront key pair identifiers.
     keyPairIds :: Prelude.Maybe KeyPairIds
@@ -49,11 +48,10 @@ data Signer = Signer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'awsAccountNumber', 'signer_awsAccountNumber' - An AWS account number that contains active CloudFront key pairs that
+-- 'awsAccountNumber', 'signer_awsAccountNumber' - An account number that contains active CloudFront key pairs that
 -- CloudFront can use to verify the signatures of signed URLs and signed
--- cookies. If the AWS account that owns the key pairs is the same account
--- that owns the CloudFront distribution, the value of this field is
--- @self@.
+-- cookies. If the account that owns the key pairs is the same account that
+-- owns the CloudFront distribution, the value of this field is @self@.
 --
 -- 'keyPairIds', 'signer_keyPairIds' - A list of CloudFront key pair identifiers.
 newSigner ::
@@ -64,11 +62,10 @@ newSigner =
       keyPairIds = Prelude.Nothing
     }
 
--- | An AWS account number that contains active CloudFront key pairs that
+-- | An account number that contains active CloudFront key pairs that
 -- CloudFront can use to verify the signatures of signed URLs and signed
--- cookies. If the AWS account that owns the key pairs is the same account
--- that owns the CloudFront distribution, the value of this field is
--- @self@.
+-- cookies. If the account that owns the key pairs is the same account that
+-- owns the CloudFront distribution, the value of this field is @self@.
 signer_awsAccountNumber :: Lens.Lens' Signer (Prelude.Maybe Prelude.Text)
 signer_awsAccountNumber = Lens.lens (\Signer' {awsAccountNumber} -> awsAccountNumber) (\s@Signer' {} a -> s {awsAccountNumber = a} :: Signer)
 

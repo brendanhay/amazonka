@@ -29,8 +29,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newOriginRequestPolicySummary' smart constructor.
 data OriginRequestPolicySummary = OriginRequestPolicySummary'
-  { -- | The type of origin request policy, either @managed@ (created by AWS) or
-    -- @custom@ (created in this AWS account).
+  { -- | The type of origin request policy, either @managed@ (created by Amazon
+    -- Web Services) or @custom@ (created in this account).
     type' :: OriginRequestPolicyType,
     -- | The origin request policy.
     originRequestPolicy :: OriginRequestPolicy
@@ -45,8 +45,8 @@ data OriginRequestPolicySummary = OriginRequestPolicySummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'type'', 'originRequestPolicySummary_type' - The type of origin request policy, either @managed@ (created by AWS) or
--- @custom@ (created in this AWS account).
+-- 'type'', 'originRequestPolicySummary_type' - The type of origin request policy, either @managed@ (created by Amazon
+-- Web Services) or @custom@ (created in this account).
 --
 -- 'originRequestPolicy', 'originRequestPolicySummary_originRequestPolicy' - The origin request policy.
 newOriginRequestPolicySummary ::
@@ -63,8 +63,8 @@ newOriginRequestPolicySummary
         originRequestPolicy = pOriginRequestPolicy_
       }
 
--- | The type of origin request policy, either @managed@ (created by AWS) or
--- @custom@ (created in this AWS account).
+-- | The type of origin request policy, either @managed@ (created by Amazon
+-- Web Services) or @custom@ (created in this account).
 originRequestPolicySummary_type :: Lens.Lens' OriginRequestPolicySummary OriginRequestPolicyType
 originRequestPolicySummary_type = Lens.lens (\OriginRequestPolicySummary' {type'} -> type') (\s@OriginRequestPolicySummary' {} a -> s {type' = a} :: OriginRequestPolicySummary)
 

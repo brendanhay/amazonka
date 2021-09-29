@@ -29,23 +29,41 @@ module Network.AWS.CloudFront
     -- * Errors
     -- $errors
 
+    -- ** InvalidResponseCode
+    _InvalidResponseCode,
+
+    -- ** TestFunctionFailed
+    _TestFunctionFailed,
+
     -- ** RealtimeLogConfigAlreadyExists
     _RealtimeLogConfigAlreadyExists,
 
     -- ** FieldLevelEncryptionConfigAlreadyExists
     _FieldLevelEncryptionConfigAlreadyExists,
 
-    -- ** IllegalDelete
-    _IllegalDelete,
-
-    -- ** InvalidResponseCode
-    _InvalidResponseCode,
+    -- ** InvalidIfMatchVersion
+    _InvalidIfMatchVersion,
 
     -- ** IllegalUpdate
     _IllegalUpdate,
 
-    -- ** InvalidIfMatchVersion
-    _InvalidIfMatchVersion,
+    -- ** IllegalDelete
+    _IllegalDelete,
+
+    -- ** InvalidOriginReadTimeout
+    _InvalidOriginReadTimeout,
+
+    -- ** FunctionAlreadyExists
+    _FunctionAlreadyExists,
+
+    -- ** TooManyDistributionsWithFunctionAssociations
+    _TooManyDistributionsWithFunctionAssociations,
+
+    -- ** MissingBody
+    _MissingBody,
+
+    -- ** TooManyOriginCustomHeaders
+    _TooManyOriginCustomHeaders,
 
     -- ** DistributionAlreadyExists
     _DistributionAlreadyExists,
@@ -53,68 +71,65 @@ module Network.AWS.CloudFront
     -- ** IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior
     _IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior,
 
-    -- ** InvalidErrorCode
-    _InvalidErrorCode,
+    -- ** FieldLevelEncryptionProfileInUse
+    _FieldLevelEncryptionProfileInUse,
 
     -- ** InvalidTagging
     _InvalidTagging,
 
-    -- ** TooManyOriginCustomHeaders
-    _TooManyOriginCustomHeaders,
+    -- ** RealtimeLogConfigOwnerMismatch
+    _RealtimeLogConfigOwnerMismatch,
 
-    -- ** InvalidOriginReadTimeout
-    _InvalidOriginReadTimeout,
-
-    -- ** MissingBody
-    _MissingBody,
-
-    -- ** FieldLevelEncryptionProfileInUse
-    _FieldLevelEncryptionProfileInUse,
-
-    -- ** TooManyDistributionsAssociatedToCachePolicy
-    _TooManyDistributionsAssociatedToCachePolicy,
+    -- ** InvalidErrorCode
+    _InvalidErrorCode,
 
     -- ** InvalidLocationCode
     _InvalidLocationCode,
 
-    -- ** KeyGroupAlreadyExists
-    _KeyGroupAlreadyExists,
-
-    -- ** TrustedKeyGroupDoesNotExist
-    _TrustedKeyGroupDoesNotExist,
-
-    -- ** InvalidRequiredProtocol
-    _InvalidRequiredProtocol,
+    -- ** TooManyDistributionsAssociatedToCachePolicy
+    _TooManyDistributionsAssociatedToCachePolicy,
 
     -- ** TooManyHeadersInForwardedValues
     _TooManyHeadersInForwardedValues,
 
-    -- ** TooManyFieldLevelEncryptionEncryptionEntities
-    _TooManyFieldLevelEncryptionEncryptionEntities,
-
-    -- ** ResourceInUse
-    _ResourceInUse,
-
     -- ** InvalidViewerCertificate
     _InvalidViewerCertificate,
+
+    -- ** InvalidRequiredProtocol
+    _InvalidRequiredProtocol,
+
+    -- ** TooManyFieldLevelEncryptionEncryptionEntities
+    _TooManyFieldLevelEncryptionEncryptionEntities,
 
     -- ** NoSuchDistribution
     _NoSuchDistribution,
 
-    -- ** InvalidMinimumProtocolVersion
-    _InvalidMinimumProtocolVersion,
+    -- ** NoSuchFunctionExists
+    _NoSuchFunctionExists,
 
-    -- ** StreamingDistributionNotDisabled
-    _StreamingDistributionNotDisabled,
+    -- ** ResourceInUse
+    _ResourceInUse,
+
+    -- ** TrustedKeyGroupDoesNotExist
+    _TrustedKeyGroupDoesNotExist,
+
+    -- ** KeyGroupAlreadyExists
+    _KeyGroupAlreadyExists,
 
     -- ** OriginRequestPolicyAlreadyExists
     _OriginRequestPolicyAlreadyExists,
 
+    -- ** StreamingDistributionNotDisabled
+    _StreamingDistributionNotDisabled,
+
     -- ** TooManyCookiesInCachePolicy
     _TooManyCookiesInCachePolicy,
 
-    -- ** CachePolicyInUse
-    _CachePolicyInUse,
+    -- ** InvalidMinimumProtocolVersion
+    _InvalidMinimumProtocolVersion,
+
+    -- ** InvalidRelativePath
+    _InvalidRelativePath,
 
     -- ** TooManyLambdaFunctionAssociations
     _TooManyLambdaFunctionAssociations,
@@ -122,14 +137,17 @@ module Network.AWS.CloudFront
     -- ** CloudFrontOriginAccessIdentityAlreadyExists
     _CloudFrontOriginAccessIdentityAlreadyExists,
 
-    -- ** InvalidRelativePath
-    _InvalidRelativePath,
+    -- ** CachePolicyInUse
+    _CachePolicyInUse,
+
+    -- ** NoSuchInvalidation
+    _NoSuchInvalidation,
 
     -- ** NoSuchOrigin
     _NoSuchOrigin,
 
-    -- ** NoSuchInvalidation
-    _NoSuchInvalidation,
+    -- ** UnsupportedOperation
+    _UnsupportedOperation,
 
     -- ** PublicKeyAlreadyExists
     _PublicKeyAlreadyExists,
@@ -137,35 +155,32 @@ module Network.AWS.CloudFront
     -- ** TooManyDistributionsAssociatedToOriginRequestPolicy
     _TooManyDistributionsAssociatedToOriginRequestPolicy,
 
-    -- ** TooManyFieldLevelEncryptionConfigs
-    _TooManyFieldLevelEncryptionConfigs,
-
-    -- ** TooManyFieldLevelEncryptionFieldPatterns
-    _TooManyFieldLevelEncryptionFieldPatterns,
-
-    -- ** TooManyFieldLevelEncryptionContentTypeProfiles
-    _TooManyFieldLevelEncryptionContentTypeProfiles,
-
-    -- ** BatchTooLarge
-    _BatchTooLarge,
-
-    -- ** NoSuchRealtimeLogConfig
-    _NoSuchRealtimeLogConfig,
-
-    -- ** InvalidOrigin
-    _InvalidOrigin,
-
-    -- ** TooManyCachePolicies
-    _TooManyCachePolicies,
-
-    -- ** TooManyPublicKeysInKeyGroup
-    _TooManyPublicKeysInKeyGroup,
+    -- ** TooManyCookieNamesInWhiteList
+    _TooManyCookieNamesInWhiteList,
 
     -- ** NoSuchFieldLevelEncryptionConfig
     _NoSuchFieldLevelEncryptionConfig,
 
-    -- ** TooManyCookieNamesInWhiteList
-    _TooManyCookieNamesInWhiteList,
+    -- ** TooManyTrustedSigners
+    _TooManyTrustedSigners,
+
+    -- ** TooManyFieldLevelEncryptionConfigs
+    _TooManyFieldLevelEncryptionConfigs,
+
+    -- ** TooManyFieldLevelEncryptionContentTypeProfiles
+    _TooManyFieldLevelEncryptionContentTypeProfiles,
+
+    -- ** TooManyCachePolicies
+    _TooManyCachePolicies,
+
+    -- ** TooManyFieldLevelEncryptionFieldPatterns
+    _TooManyFieldLevelEncryptionFieldPatterns,
+
+    -- ** InvalidOrigin
+    _InvalidOrigin,
+
+    -- ** BatchTooLarge
+    _BatchTooLarge,
 
     -- ** RealtimeLogConfigInUse
     _RealtimeLogConfigInUse,
@@ -176,41 +191,50 @@ module Network.AWS.CloudFront
     -- ** FieldLevelEncryptionConfigInUse
     _FieldLevelEncryptionConfigInUse,
 
-    -- ** TooManyTrustedSigners
-    _TooManyTrustedSigners,
+    -- ** NoSuchRealtimeLogConfig
+    _NoSuchRealtimeLogConfig,
+
+    -- ** TooManyPublicKeysInKeyGroup
+    _TooManyPublicKeysInKeyGroup,
 
     -- ** InvalidHeadersForS3Origin
     _InvalidHeadersForS3Origin,
 
-    -- ** InconsistentQuantities
-    _InconsistentQuantities,
-
     -- ** TooManyCookiesInOriginRequestPolicy
     _TooManyCookiesInOriginRequestPolicy,
-
-    -- ** InvalidProtocolSettings
-    _InvalidProtocolSettings,
-
-    -- ** TooManyQueryStringParameters
-    _TooManyQueryStringParameters,
-
-    -- ** CannotChangeImmutablePublicKeyFields
-    _CannotChangeImmutablePublicKeyFields,
-
-    -- ** NoSuchCloudFrontOriginAccessIdentity
-    _NoSuchCloudFrontOriginAccessIdentity,
 
     -- ** TooManyPublicKeys
     _TooManyPublicKeys,
 
-    -- ** TrustedSignerDoesNotExist
-    _TrustedSignerDoesNotExist,
-
     -- ** TooManyInvalidationsInProgress
     _TooManyInvalidationsInProgress,
 
+    -- ** TooManyQueryStringParameters
+    _TooManyQueryStringParameters,
+
+    -- ** InvalidFunctionAssociation
+    _InvalidFunctionAssociation,
+
+    -- ** TrustedSignerDoesNotExist
+    _TrustedSignerDoesNotExist,
+
+    -- ** NoSuchCloudFrontOriginAccessIdentity
+    _NoSuchCloudFrontOriginAccessIdentity,
+
+    -- ** CannotChangeImmutablePublicKeyFields
+    _CannotChangeImmutablePublicKeyFields,
+
+    -- ** InvalidProtocolSettings
+    _InvalidProtocolSettings,
+
+    -- ** InconsistentQuantities
+    _InconsistentQuantities,
+
     -- ** NoSuchPublicKey
     _NoSuchPublicKey,
+
+    -- ** PreconditionFailed
+    _PreconditionFailed,
 
     -- ** DistributionNotDisabled
     _DistributionNotDisabled,
@@ -221,14 +245,14 @@ module Network.AWS.CloudFront
     -- ** InvalidOriginAccessIdentity
     _InvalidOriginAccessIdentity,
 
-    -- ** PreconditionFailed
-    _PreconditionFailed,
+    -- ** TooManyFunctionAssociations
+    _TooManyFunctionAssociations,
 
-    -- ** TooManyFieldLevelEncryptionProfiles
-    _TooManyFieldLevelEncryptionProfiles,
+    -- ** NoSuchFieldLevelEncryptionProfile
+    _NoSuchFieldLevelEncryptionProfile,
 
-    -- ** InvalidQueryStringParameters
-    _InvalidQueryStringParameters,
+    -- ** TooManyDistributionsAssociatedToFieldLevelEncryptionConfig
+    _TooManyDistributionsAssociatedToFieldLevelEncryptionConfig,
 
     -- ** TooManyCacheBehaviors
     _TooManyCacheBehaviors,
@@ -236,29 +260,35 @@ module Network.AWS.CloudFront
     -- ** TooManyOriginRequestPolicies
     _TooManyOriginRequestPolicies,
 
-    -- ** NoSuchFieldLevelEncryptionProfile
-    _NoSuchFieldLevelEncryptionProfile,
+    -- ** TooManyFieldLevelEncryptionProfiles
+    _TooManyFieldLevelEncryptionProfiles,
+
+    -- ** InvalidQueryStringParameters
+    _InvalidQueryStringParameters,
 
     -- ** TooManyKeyGroups
     _TooManyKeyGroups,
 
-    -- ** TooManyDistributionsAssociatedToFieldLevelEncryptionConfig
-    _TooManyDistributionsAssociatedToFieldLevelEncryptionConfig,
+    -- ** TooManyHeadersInOriginRequestPolicy
+    _TooManyHeadersInOriginRequestPolicy,
 
     -- ** TooManyQueryStringsInOriginRequestPolicy
     _TooManyQueryStringsInOriginRequestPolicy,
 
+    -- ** TooManyCertificates
+    _TooManyCertificates,
+
+    -- ** InvalidDefaultRootObject
+    _InvalidDefaultRootObject,
+
     -- ** TooManyDistributionsWithSingleFunctionARN
     _TooManyDistributionsWithSingleFunctionARN,
 
+    -- ** OriginRequestPolicyInUse
+    _OriginRequestPolicyInUse,
+
     -- ** InvalidGeoRestrictionParameter
     _InvalidGeoRestrictionParameter,
-
-    -- ** TooManyHeadersInOriginRequestPolicy
-    _TooManyHeadersInOriginRequestPolicy,
-
-    -- ** TooManyCertificates
-    _TooManyCertificates,
 
     -- ** NoSuchOriginRequestPolicy
     _NoSuchOriginRequestPolicy,
@@ -266,26 +296,29 @@ module Network.AWS.CloudFront
     -- ** TooManyDistributionsWithLambdaAssociations
     _TooManyDistributionsWithLambdaAssociations,
 
-    -- ** InvalidDefaultRootObject
-    _InvalidDefaultRootObject,
+    -- ** FunctionSizeLimitExceeded
+    _FunctionSizeLimitExceeded,
 
-    -- ** OriginRequestPolicyInUse
-    _OriginRequestPolicyInUse,
+    -- ** FieldLevelEncryptionProfileAlreadyExists
+    _FieldLevelEncryptionProfileAlreadyExists,
+
+    -- ** TooManyFunctions
+    _TooManyFunctions,
 
     -- ** TooManyStreamingDistributionCNAMEs
     _TooManyStreamingDistributionCNAMEs,
+
+    -- ** TooManyDistributions
+    _TooManyDistributions,
+
+    -- ** FunctionInUse
+    _FunctionInUse,
 
     -- ** FieldLevelEncryptionProfileSizeExceeded
     _FieldLevelEncryptionProfileSizeExceeded,
 
     -- ** NoSuchResource
     _NoSuchResource,
-
-    -- ** FieldLevelEncryptionProfileAlreadyExists
-    _FieldLevelEncryptionProfileAlreadyExists,
-
-    -- ** TooManyDistributions
-    _TooManyDistributions,
 
     -- ** InvalidTTLOrder
     _InvalidTTLOrder,
@@ -296,32 +329,38 @@ module Network.AWS.CloudFront
     -- ** QueryArgProfileEmpty
     _QueryArgProfileEmpty,
 
-    -- ** TooManyQueryStringsInCachePolicy
-    _TooManyQueryStringsInCachePolicy,
-
     -- ** TooManyOrigins
     _TooManyOrigins,
+
+    -- ** TooManyQueryStringsInCachePolicy
+    _TooManyQueryStringsInCachePolicy,
 
     -- ** TooManyHeadersInCachePolicy
     _TooManyHeadersInCachePolicy,
 
-    -- ** StreamingDistributionAlreadyExists
-    _StreamingDistributionAlreadyExists,
-
     -- ** NoSuchCachePolicy
     _NoSuchCachePolicy,
+
+    -- ** StreamingDistributionAlreadyExists
+    _StreamingDistributionAlreadyExists,
 
     -- ** TooManyKeyGroupsAssociatedToDistribution
     _TooManyKeyGroupsAssociatedToDistribution,
 
-    -- ** TooManyRealtimeLogConfigs
-    _TooManyRealtimeLogConfigs,
+    -- ** InvalidLambdaFunctionAssociation
+    _InvalidLambdaFunctionAssociation,
 
     -- ** TooManyDistributionsAssociatedToKeyGroup
     _TooManyDistributionsAssociatedToKeyGroup,
 
-    -- ** InvalidLambdaFunctionAssociation
-    _InvalidLambdaFunctionAssociation,
+    -- ** TooManyRealtimeLogConfigs
+    _TooManyRealtimeLogConfigs,
+
+    -- ** TooManyOriginGroupsPerDistribution
+    _TooManyOriginGroupsPerDistribution,
+
+    -- ** CloudFrontOriginAccessIdentityInUse
+    _CloudFrontOriginAccessIdentityInUse,
 
     -- ** CachePolicyAlreadyExists
     _CachePolicyAlreadyExists,
@@ -329,20 +368,8 @@ module Network.AWS.CloudFront
     -- ** TooManyFieldLevelEncryptionQueryArgProfiles
     _TooManyFieldLevelEncryptionQueryArgProfiles,
 
-    -- ** PublicKeyInUse
-    _PublicKeyInUse,
-
-    -- ** CNAMEAlreadyExists
-    _CNAMEAlreadyExists,
-
-    -- ** InvalidWebACLId
-    _InvalidWebACLId,
-
-    -- ** CloudFrontOriginAccessIdentityInUse
-    _CloudFrontOriginAccessIdentityInUse,
-
-    -- ** TooManyOriginGroupsPerDistribution
-    _TooManyOriginGroupsPerDistribution,
+    -- ** TooManyStreamingDistributions
+    _TooManyStreamingDistributions,
 
     -- ** TooManyDistributionCNAMEs
     _TooManyDistributionCNAMEs,
@@ -350,11 +377,17 @@ module Network.AWS.CloudFront
     -- ** NoSuchStreamingDistribution
     _NoSuchStreamingDistribution,
 
+    -- ** CNAMEAlreadyExists
+    _CNAMEAlreadyExists,
+
+    -- ** InvalidWebACLId
+    _InvalidWebACLId,
+
     -- ** InvalidOriginKeepaliveTimeout
     _InvalidOriginKeepaliveTimeout,
 
-    -- ** TooManyStreamingDistributions
-    _TooManyStreamingDistributions,
+    -- ** PublicKeyInUse
+    _PublicKeyInUse,
 
     -- ** InvalidArgument
     _InvalidArgument,
@@ -374,12 +407,6 @@ module Network.AWS.CloudFront
     -- * Operations
     -- $operations
 
-    -- ** UpdatePublicKey
-    UpdatePublicKey (UpdatePublicKey'),
-    newUpdatePublicKey,
-    UpdatePublicKeyResponse (UpdatePublicKeyResponse'),
-    newUpdatePublicKeyResponse,
-
     -- ** DeletePublicKey
     DeletePublicKey (DeletePublicKey'),
     newDeletePublicKey,
@@ -392,11 +419,29 @@ module Network.AWS.CloudFront
     ListPublicKeysResponse (ListPublicKeysResponse'),
     newListPublicKeysResponse,
 
+    -- ** UpdatePublicKey
+    UpdatePublicKey (UpdatePublicKey'),
+    newUpdatePublicKey,
+    UpdatePublicKeyResponse (UpdatePublicKeyResponse'),
+    newUpdatePublicKeyResponse,
+
     -- ** GetDistribution
     GetDistribution (GetDistribution'),
     newGetDistribution,
     GetDistributionResponse (GetDistributionResponse'),
     newGetDistributionResponse,
+
+    -- ** GetFunction
+    GetFunction (GetFunction'),
+    newGetFunction,
+    GetFunctionResponse (GetFunctionResponse'),
+    newGetFunctionResponse,
+
+    -- ** ListConflictingAliases
+    ListConflictingAliases (ListConflictingAliases'),
+    newListConflictingAliases,
+    ListConflictingAliasesResponse (ListConflictingAliasesResponse'),
+    newListConflictingAliasesResponse,
 
     -- ** GetKeyGroupConfig
     GetKeyGroupConfig (GetKeyGroupConfig'),
@@ -410,17 +455,17 @@ module Network.AWS.CloudFront
     CreateFieldLevelEncryptionProfileResponse (CreateFieldLevelEncryptionProfileResponse'),
     newCreateFieldLevelEncryptionProfileResponse,
 
+    -- ** ListKeyGroups
+    ListKeyGroups (ListKeyGroups'),
+    newListKeyGroups,
+    ListKeyGroupsResponse (ListKeyGroupsResponse'),
+    newListKeyGroupsResponse,
+
     -- ** GetMonitoringSubscription
     GetMonitoringSubscription (GetMonitoringSubscription'),
     newGetMonitoringSubscription,
     GetMonitoringSubscriptionResponse (GetMonitoringSubscriptionResponse'),
     newGetMonitoringSubscriptionResponse,
-
-    -- ** CreateOriginRequestPolicy
-    CreateOriginRequestPolicy (CreateOriginRequestPolicy'),
-    newCreateOriginRequestPolicy,
-    CreateOriginRequestPolicyResponse (CreateOriginRequestPolicyResponse'),
-    newCreateOriginRequestPolicyResponse,
 
     -- ** ListDistributionsByCachePolicyId
     ListDistributionsByCachePolicyId (ListDistributionsByCachePolicyId'),
@@ -428,17 +473,17 @@ module Network.AWS.CloudFront
     ListDistributionsByCachePolicyIdResponse (ListDistributionsByCachePolicyIdResponse'),
     newListDistributionsByCachePolicyIdResponse,
 
-    -- ** ListKeyGroups
-    ListKeyGroups (ListKeyGroups'),
-    newListKeyGroups,
-    ListKeyGroupsResponse (ListKeyGroupsResponse'),
-    newListKeyGroupsResponse,
-
     -- ** ListOriginRequestPolicies
     ListOriginRequestPolicies (ListOriginRequestPolicies'),
     newListOriginRequestPolicies,
     ListOriginRequestPoliciesResponse (ListOriginRequestPoliciesResponse'),
     newListOriginRequestPoliciesResponse,
+
+    -- ** CreateOriginRequestPolicy
+    CreateOriginRequestPolicy (CreateOriginRequestPolicy'),
+    newCreateOriginRequestPolicy,
+    CreateOriginRequestPolicyResponse (CreateOriginRequestPolicyResponse'),
+    newCreateOriginRequestPolicyResponse,
 
     -- ** GetKeyGroup
     GetKeyGroup (GetKeyGroup'),
@@ -452,17 +497,11 @@ module Network.AWS.CloudFront
     GetDistributionConfigResponse (GetDistributionConfigResponse'),
     newGetDistributionConfigResponse,
 
-    -- ** ListDistributions (Paginated)
-    ListDistributions (ListDistributions'),
-    newListDistributions,
-    ListDistributionsResponse (ListDistributionsResponse'),
-    newListDistributionsResponse,
-
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
+    -- ** ListFunctions
+    ListFunctions (ListFunctions'),
+    newListFunctions,
+    ListFunctionsResponse (ListFunctionsResponse'),
+    newListFunctionsResponse,
 
     -- ** ListDistributionsByWebACLId
     ListDistributionsByWebACLId (ListDistributionsByWebACLId'),
@@ -470,17 +509,47 @@ module Network.AWS.CloudFront
     ListDistributionsByWebACLIdResponse (ListDistributionsByWebACLIdResponse'),
     newListDistributionsByWebACLIdResponse,
 
+    -- ** ListDistributions (Paginated)
+    ListDistributions (ListDistributions'),
+    newListDistributions,
+    ListDistributionsResponse (ListDistributionsResponse'),
+    newListDistributionsResponse,
+
+    -- ** PublishFunction
+    PublishFunction (PublishFunction'),
+    newPublishFunction,
+    PublishFunctionResponse (PublishFunctionResponse'),
+    newPublishFunctionResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** UpdateFieldLevelEncryptionConfig
+    UpdateFieldLevelEncryptionConfig (UpdateFieldLevelEncryptionConfig'),
+    newUpdateFieldLevelEncryptionConfig,
+    UpdateFieldLevelEncryptionConfigResponse (UpdateFieldLevelEncryptionConfigResponse'),
+    newUpdateFieldLevelEncryptionConfigResponse,
+
     -- ** GetCloudFrontOriginAccessIdentity
     GetCloudFrontOriginAccessIdentity (GetCloudFrontOriginAccessIdentity'),
     newGetCloudFrontOriginAccessIdentity,
     GetCloudFrontOriginAccessIdentityResponse (GetCloudFrontOriginAccessIdentityResponse'),
     newGetCloudFrontOriginAccessIdentityResponse,
 
-    -- ** GetPublicKey
-    GetPublicKey (GetPublicKey'),
-    newGetPublicKey,
-    GetPublicKeyResponse (GetPublicKeyResponse'),
-    newGetPublicKeyResponse,
+    -- ** DeleteFieldLevelEncryptionConfig
+    DeleteFieldLevelEncryptionConfig (DeleteFieldLevelEncryptionConfig'),
+    newDeleteFieldLevelEncryptionConfig,
+    DeleteFieldLevelEncryptionConfigResponse (DeleteFieldLevelEncryptionConfigResponse'),
+    newDeleteFieldLevelEncryptionConfigResponse,
 
     -- ** ListRealtimeLogConfigs
     ListRealtimeLogConfigs (ListRealtimeLogConfigs'),
@@ -488,11 +557,17 @@ module Network.AWS.CloudFront
     ListRealtimeLogConfigsResponse (ListRealtimeLogConfigsResponse'),
     newListRealtimeLogConfigsResponse,
 
-    -- ** UpdateFieldLevelEncryptionConfig
-    UpdateFieldLevelEncryptionConfig (UpdateFieldLevelEncryptionConfig'),
-    newUpdateFieldLevelEncryptionConfig,
-    UpdateFieldLevelEncryptionConfigResponse (UpdateFieldLevelEncryptionConfigResponse'),
-    newUpdateFieldLevelEncryptionConfigResponse,
+    -- ** ListCachePolicies
+    ListCachePolicies (ListCachePolicies'),
+    newListCachePolicies,
+    ListCachePoliciesResponse (ListCachePoliciesResponse'),
+    newListCachePoliciesResponse,
+
+    -- ** GetPublicKey
+    GetPublicKey (GetPublicKey'),
+    newGetPublicKey,
+    GetPublicKeyResponse (GetPublicKeyResponse'),
+    newGetPublicKeyResponse,
 
     -- ** CreateCachePolicy
     CreateCachePolicy (CreateCachePolicy'),
@@ -506,18 +581,6 @@ module Network.AWS.CloudFront
     ListDistributionsByKeyGroupResponse (ListDistributionsByKeyGroupResponse'),
     newListDistributionsByKeyGroupResponse,
 
-    -- ** TagResource
-    TagResource (TagResource'),
-    newTagResource,
-    TagResourceResponse (TagResourceResponse'),
-    newTagResourceResponse,
-
-    -- ** ListCachePolicies
-    ListCachePolicies (ListCachePolicies'),
-    newListCachePolicies,
-    ListCachePoliciesResponse (ListCachePoliciesResponse'),
-    newListCachePoliciesResponse,
-
     -- ** ListDistributionsByOriginRequestPolicyId
     ListDistributionsByOriginRequestPolicyId (ListDistributionsByOriginRequestPolicyId'),
     newListDistributionsByOriginRequestPolicyId,
@@ -529,18 +592,6 @@ module Network.AWS.CloudFront
     newListFieldLevelEncryptionConfigs,
     ListFieldLevelEncryptionConfigsResponse (ListFieldLevelEncryptionConfigsResponse'),
     newListFieldLevelEncryptionConfigsResponse,
-
-    -- ** DeleteFieldLevelEncryptionConfig
-    DeleteFieldLevelEncryptionConfig (DeleteFieldLevelEncryptionConfig'),
-    newDeleteFieldLevelEncryptionConfig,
-    DeleteFieldLevelEncryptionConfigResponse (DeleteFieldLevelEncryptionConfigResponse'),
-    newDeleteFieldLevelEncryptionConfigResponse,
-
-    -- ** DeleteCachePolicy
-    DeleteCachePolicy (DeleteCachePolicy'),
-    newDeleteCachePolicy,
-    DeleteCachePolicyResponse (DeleteCachePolicyResponse'),
-    newDeleteCachePolicyResponse,
 
     -- ** GetFieldLevelEncryption
     GetFieldLevelEncryption (GetFieldLevelEncryption'),
@@ -554,11 +605,23 @@ module Network.AWS.CloudFront
     UpdateCachePolicyResponse (UpdateCachePolicyResponse'),
     newUpdateCachePolicyResponse,
 
+    -- ** DeleteCachePolicy
+    DeleteCachePolicy (DeleteCachePolicy'),
+    newDeleteCachePolicy,
+    DeleteCachePolicyResponse (DeleteCachePolicyResponse'),
+    newDeleteCachePolicyResponse,
+
     -- ** GetInvalidation
     GetInvalidation (GetInvalidation'),
     newGetInvalidation,
     GetInvalidationResponse (GetInvalidationResponse'),
     newGetInvalidationResponse,
+
+    -- ** CreateStreamingDistribution
+    CreateStreamingDistribution (CreateStreamingDistribution'),
+    newCreateStreamingDistribution,
+    CreateStreamingDistributionResponse (CreateStreamingDistributionResponse'),
+    newCreateStreamingDistributionResponse,
 
     -- ** GetPublicKeyConfig
     GetPublicKeyConfig (GetPublicKeyConfig'),
@@ -572,29 +635,11 @@ module Network.AWS.CloudFront
     GetCloudFrontOriginAccessIdentityConfigResponse (GetCloudFrontOriginAccessIdentityConfigResponse'),
     newGetCloudFrontOriginAccessIdentityConfigResponse,
 
-    -- ** CreateStreamingDistribution
-    CreateStreamingDistribution (CreateStreamingDistribution'),
-    newCreateStreamingDistribution,
-    CreateStreamingDistributionResponse (CreateStreamingDistributionResponse'),
-    newCreateStreamingDistributionResponse,
-
-    -- ** DeleteCloudFrontOriginAccessIdentity
-    DeleteCloudFrontOriginAccessIdentity (DeleteCloudFrontOriginAccessIdentity'),
-    newDeleteCloudFrontOriginAccessIdentity,
-    DeleteCloudFrontOriginAccessIdentityResponse (DeleteCloudFrontOriginAccessIdentityResponse'),
-    newDeleteCloudFrontOriginAccessIdentityResponse,
-
-    -- ** DeleteStreamingDistribution
-    DeleteStreamingDistribution (DeleteStreamingDistribution'),
-    newDeleteStreamingDistribution,
-    DeleteStreamingDistributionResponse (DeleteStreamingDistributionResponse'),
-    newDeleteStreamingDistributionResponse,
-
-    -- ** GetFieldLevelEncryptionConfig
-    GetFieldLevelEncryptionConfig (GetFieldLevelEncryptionConfig'),
-    newGetFieldLevelEncryptionConfig,
-    GetFieldLevelEncryptionConfigResponse (GetFieldLevelEncryptionConfigResponse'),
-    newGetFieldLevelEncryptionConfigResponse,
+    -- ** UpdateCloudFrontOriginAccessIdentity
+    UpdateCloudFrontOriginAccessIdentity (UpdateCloudFrontOriginAccessIdentity'),
+    newUpdateCloudFrontOriginAccessIdentity,
+    UpdateCloudFrontOriginAccessIdentityResponse (UpdateCloudFrontOriginAccessIdentityResponse'),
+    newUpdateCloudFrontOriginAccessIdentityResponse,
 
     -- ** GetRealtimeLogConfig
     GetRealtimeLogConfig (GetRealtimeLogConfig'),
@@ -602,11 +647,11 @@ module Network.AWS.CloudFront
     GetRealtimeLogConfigResponse (GetRealtimeLogConfigResponse'),
     newGetRealtimeLogConfigResponse,
 
-    -- ** UpdateCloudFrontOriginAccessIdentity
-    UpdateCloudFrontOriginAccessIdentity (UpdateCloudFrontOriginAccessIdentity'),
-    newUpdateCloudFrontOriginAccessIdentity,
-    UpdateCloudFrontOriginAccessIdentityResponse (UpdateCloudFrontOriginAccessIdentityResponse'),
-    newUpdateCloudFrontOriginAccessIdentityResponse,
+    -- ** DeleteStreamingDistribution
+    DeleteStreamingDistribution (DeleteStreamingDistribution'),
+    newDeleteStreamingDistribution,
+    DeleteStreamingDistributionResponse (DeleteStreamingDistributionResponse'),
+    newDeleteStreamingDistributionResponse,
 
     -- ** UpdateStreamingDistribution
     UpdateStreamingDistribution (UpdateStreamingDistribution'),
@@ -614,23 +659,29 @@ module Network.AWS.CloudFront
     UpdateStreamingDistributionResponse (UpdateStreamingDistributionResponse'),
     newUpdateStreamingDistributionResponse,
 
+    -- ** DescribeFunction
+    DescribeFunction (DescribeFunction'),
+    newDescribeFunction,
+    DescribeFunctionResponse (DescribeFunctionResponse'),
+    newDescribeFunctionResponse,
+
+    -- ** DeleteCloudFrontOriginAccessIdentity
+    DeleteCloudFrontOriginAccessIdentity (DeleteCloudFrontOriginAccessIdentity'),
+    newDeleteCloudFrontOriginAccessIdentity,
+    DeleteCloudFrontOriginAccessIdentityResponse (DeleteCloudFrontOriginAccessIdentityResponse'),
+    newDeleteCloudFrontOriginAccessIdentityResponse,
+
+    -- ** GetFieldLevelEncryptionConfig
+    GetFieldLevelEncryptionConfig (GetFieldLevelEncryptionConfig'),
+    newGetFieldLevelEncryptionConfig,
+    GetFieldLevelEncryptionConfigResponse (GetFieldLevelEncryptionConfigResponse'),
+    newGetFieldLevelEncryptionConfigResponse,
+
     -- ** ListStreamingDistributions (Paginated)
     ListStreamingDistributions (ListStreamingDistributions'),
     newListStreamingDistributions,
     ListStreamingDistributionsResponse (ListStreamingDistributionsResponse'),
     newListStreamingDistributionsResponse,
-
-    -- ** CreateKeyGroup
-    CreateKeyGroup (CreateKeyGroup'),
-    newCreateKeyGroup,
-    CreateKeyGroupResponse (CreateKeyGroupResponse'),
-    newCreateKeyGroupResponse,
-
-    -- ** UpdateOriginRequestPolicy
-    UpdateOriginRequestPolicy (UpdateOriginRequestPolicy'),
-    newUpdateOriginRequestPolicy,
-    UpdateOriginRequestPolicyResponse (UpdateOriginRequestPolicyResponse'),
-    newUpdateOriginRequestPolicyResponse,
 
     -- ** GetFieldLevelEncryptionProfileConfig
     GetFieldLevelEncryptionProfileConfig (GetFieldLevelEncryptionProfileConfig'),
@@ -644,6 +695,42 @@ module Network.AWS.CloudFront
     DeleteOriginRequestPolicyResponse (DeleteOriginRequestPolicyResponse'),
     newDeleteOriginRequestPolicyResponse,
 
+    -- ** TestFunction
+    TestFunction (TestFunction'),
+    newTestFunction,
+    TestFunctionResponse (TestFunctionResponse'),
+    newTestFunctionResponse,
+
+    -- ** CreateKeyGroup
+    CreateKeyGroup (CreateKeyGroup'),
+    newCreateKeyGroup,
+    CreateKeyGroupResponse (CreateKeyGroupResponse'),
+    newCreateKeyGroupResponse,
+
+    -- ** UpdateOriginRequestPolicy
+    UpdateOriginRequestPolicy (UpdateOriginRequestPolicy'),
+    newUpdateOriginRequestPolicy,
+    UpdateOriginRequestPolicyResponse (UpdateOriginRequestPolicyResponse'),
+    newUpdateOriginRequestPolicyResponse,
+
+    -- ** UpdateFieldLevelEncryptionProfile
+    UpdateFieldLevelEncryptionProfile (UpdateFieldLevelEncryptionProfile'),
+    newUpdateFieldLevelEncryptionProfile,
+    UpdateFieldLevelEncryptionProfileResponse (UpdateFieldLevelEncryptionProfileResponse'),
+    newUpdateFieldLevelEncryptionProfileResponse,
+
+    -- ** DeleteKeyGroup
+    DeleteKeyGroup (DeleteKeyGroup'),
+    newDeleteKeyGroup,
+    DeleteKeyGroupResponse (DeleteKeyGroupResponse'),
+    newDeleteKeyGroupResponse,
+
+    -- ** GetOriginRequestPolicyConfig
+    GetOriginRequestPolicyConfig (GetOriginRequestPolicyConfig'),
+    newGetOriginRequestPolicyConfig,
+    GetOriginRequestPolicyConfigResponse (GetOriginRequestPolicyConfigResponse'),
+    newGetOriginRequestPolicyConfigResponse,
+
     -- ** ListFieldLevelEncryptionProfiles
     ListFieldLevelEncryptionProfiles (ListFieldLevelEncryptionProfiles'),
     newListFieldLevelEncryptionProfiles,
@@ -656,23 +743,11 @@ module Network.AWS.CloudFront
     DeleteFieldLevelEncryptionProfileResponse (DeleteFieldLevelEncryptionProfileResponse'),
     newDeleteFieldLevelEncryptionProfileResponse,
 
-    -- ** GetOriginRequestPolicyConfig
-    GetOriginRequestPolicyConfig (GetOriginRequestPolicyConfig'),
-    newGetOriginRequestPolicyConfig,
-    GetOriginRequestPolicyConfigResponse (GetOriginRequestPolicyConfigResponse'),
-    newGetOriginRequestPolicyConfigResponse,
-
     -- ** UpdateKeyGroup
     UpdateKeyGroup (UpdateKeyGroup'),
     newUpdateKeyGroup,
     UpdateKeyGroupResponse (UpdateKeyGroupResponse'),
     newUpdateKeyGroupResponse,
-
-    -- ** DeleteKeyGroup
-    DeleteKeyGroup (DeleteKeyGroup'),
-    newDeleteKeyGroup,
-    DeleteKeyGroupResponse (DeleteKeyGroupResponse'),
-    newDeleteKeyGroupResponse,
 
     -- ** CreateStreamingDistributionWithTags
     CreateStreamingDistributionWithTags (CreateStreamingDistributionWithTags'),
@@ -686,17 +761,11 @@ module Network.AWS.CloudFront
     ListDistributionsByRealtimeLogConfigResponse (ListDistributionsByRealtimeLogConfigResponse'),
     newListDistributionsByRealtimeLogConfigResponse,
 
-    -- ** UpdateFieldLevelEncryptionProfile
-    UpdateFieldLevelEncryptionProfile (UpdateFieldLevelEncryptionProfile'),
-    newUpdateFieldLevelEncryptionProfile,
-    UpdateFieldLevelEncryptionProfileResponse (UpdateFieldLevelEncryptionProfileResponse'),
-    newUpdateFieldLevelEncryptionProfileResponse,
-
-    -- ** CreateDistribution
-    CreateDistribution (CreateDistribution'),
-    newCreateDistribution,
-    CreateDistributionResponse (CreateDistributionResponse'),
-    newCreateDistributionResponse,
+    -- ** CreateFunction
+    CreateFunction (CreateFunction'),
+    newCreateFunction,
+    CreateFunctionResponse (CreateFunctionResponse'),
+    newCreateFunctionResponse,
 
     -- ** DeleteMonitoringSubscription
     DeleteMonitoringSubscription (DeleteMonitoringSubscription'),
@@ -710,6 +779,30 @@ module Network.AWS.CloudFront
     GetFieldLevelEncryptionProfileResponse (GetFieldLevelEncryptionProfileResponse'),
     newGetFieldLevelEncryptionProfileResponse,
 
+    -- ** CreateDistribution
+    CreateDistribution (CreateDistribution'),
+    newCreateDistribution,
+    CreateDistributionResponse (CreateDistributionResponse'),
+    newCreateDistributionResponse,
+
+    -- ** DeleteDistribution
+    DeleteDistribution (DeleteDistribution'),
+    newDeleteDistribution,
+    DeleteDistributionResponse (DeleteDistributionResponse'),
+    newDeleteDistributionResponse,
+
+    -- ** DeleteFunction
+    DeleteFunction (DeleteFunction'),
+    newDeleteFunction,
+    DeleteFunctionResponse (DeleteFunctionResponse'),
+    newDeleteFunctionResponse,
+
+    -- ** UpdateDistribution
+    UpdateDistribution (UpdateDistribution'),
+    newUpdateDistribution,
+    UpdateDistributionResponse (UpdateDistributionResponse'),
+    newUpdateDistributionResponse,
+
     -- ** CreateMonitoringSubscription
     CreateMonitoringSubscription (CreateMonitoringSubscription'),
     newCreateMonitoringSubscription,
@@ -722,23 +815,17 @@ module Network.AWS.CloudFront
     GetOriginRequestPolicyResponse (GetOriginRequestPolicyResponse'),
     newGetOriginRequestPolicyResponse,
 
-    -- ** UpdateDistribution
-    UpdateDistribution (UpdateDistribution'),
-    newUpdateDistribution,
-    UpdateDistributionResponse (UpdateDistributionResponse'),
-    newUpdateDistributionResponse,
+    -- ** UpdateFunction
+    UpdateFunction (UpdateFunction'),
+    newUpdateFunction,
+    UpdateFunctionResponse (UpdateFunctionResponse'),
+    newUpdateFunctionResponse,
 
-    -- ** DeleteDistribution
-    DeleteDistribution (DeleteDistribution'),
-    newDeleteDistribution,
-    DeleteDistributionResponse (DeleteDistributionResponse'),
-    newDeleteDistributionResponse,
-
-    -- ** DeleteRealtimeLogConfig
-    DeleteRealtimeLogConfig (DeleteRealtimeLogConfig'),
-    newDeleteRealtimeLogConfig,
-    DeleteRealtimeLogConfigResponse (DeleteRealtimeLogConfigResponse'),
-    newDeleteRealtimeLogConfigResponse,
+    -- ** GetCachePolicyConfig
+    GetCachePolicyConfig (GetCachePolicyConfig'),
+    newGetCachePolicyConfig,
+    GetCachePolicyConfigResponse (GetCachePolicyConfigResponse'),
+    newGetCachePolicyConfigResponse,
 
     -- ** GetStreamingDistribution
     GetStreamingDistribution (GetStreamingDistribution'),
@@ -752,23 +839,23 @@ module Network.AWS.CloudFront
     CreateInvalidationResponse (CreateInvalidationResponse'),
     newCreateInvalidationResponse,
 
-    -- ** GetCachePolicyConfig
-    GetCachePolicyConfig (GetCachePolicyConfig'),
-    newGetCachePolicyConfig,
-    GetCachePolicyConfigResponse (GetCachePolicyConfigResponse'),
-    newGetCachePolicyConfigResponse,
-
     -- ** UpdateRealtimeLogConfig
     UpdateRealtimeLogConfig (UpdateRealtimeLogConfig'),
     newUpdateRealtimeLogConfig,
     UpdateRealtimeLogConfigResponse (UpdateRealtimeLogConfigResponse'),
     newUpdateRealtimeLogConfigResponse,
 
-    -- ** CreateRealtimeLogConfig
-    CreateRealtimeLogConfig (CreateRealtimeLogConfig'),
-    newCreateRealtimeLogConfig,
-    CreateRealtimeLogConfigResponse (CreateRealtimeLogConfigResponse'),
-    newCreateRealtimeLogConfigResponse,
+    -- ** DeleteRealtimeLogConfig
+    DeleteRealtimeLogConfig (DeleteRealtimeLogConfig'),
+    newDeleteRealtimeLogConfig,
+    DeleteRealtimeLogConfigResponse (DeleteRealtimeLogConfigResponse'),
+    newDeleteRealtimeLogConfigResponse,
+
+    -- ** ListInvalidations (Paginated)
+    ListInvalidations (ListInvalidations'),
+    newListInvalidations,
+    ListInvalidationsResponse (ListInvalidationsResponse'),
+    newListInvalidationsResponse,
 
     -- ** CreateDistributionWithTags
     CreateDistributionWithTags (CreateDistributionWithTags'),
@@ -782,23 +869,11 @@ module Network.AWS.CloudFront
     CreateFieldLevelEncryptionConfigResponse (CreateFieldLevelEncryptionConfigResponse'),
     newCreateFieldLevelEncryptionConfigResponse,
 
-    -- ** ListInvalidations (Paginated)
-    ListInvalidations (ListInvalidations'),
-    newListInvalidations,
-    ListInvalidationsResponse (ListInvalidationsResponse'),
-    newListInvalidationsResponse,
-
-    -- ** ListCloudFrontOriginAccessIdentities (Paginated)
-    ListCloudFrontOriginAccessIdentities (ListCloudFrontOriginAccessIdentities'),
-    newListCloudFrontOriginAccessIdentities,
-    ListCloudFrontOriginAccessIdentitiesResponse (ListCloudFrontOriginAccessIdentitiesResponse'),
-    newListCloudFrontOriginAccessIdentitiesResponse,
-
-    -- ** ListTagsForResource
-    ListTagsForResource (ListTagsForResource'),
-    newListTagsForResource,
-    ListTagsForResourceResponse (ListTagsForResourceResponse'),
-    newListTagsForResourceResponse,
+    -- ** CreateRealtimeLogConfig
+    CreateRealtimeLogConfig (CreateRealtimeLogConfig'),
+    newCreateRealtimeLogConfig,
+    CreateRealtimeLogConfigResponse (CreateRealtimeLogConfigResponse'),
+    newCreateRealtimeLogConfigResponse,
 
     -- ** GetStreamingDistributionConfig
     GetStreamingDistributionConfig (GetStreamingDistributionConfig'),
@@ -812,17 +887,35 @@ module Network.AWS.CloudFront
     GetCachePolicyResponse (GetCachePolicyResponse'),
     newGetCachePolicyResponse,
 
-    -- ** CreateCloudFrontOriginAccessIdentity
-    CreateCloudFrontOriginAccessIdentity (CreateCloudFrontOriginAccessIdentity'),
-    newCreateCloudFrontOriginAccessIdentity,
-    CreateCloudFrontOriginAccessIdentityResponse (CreateCloudFrontOriginAccessIdentityResponse'),
-    newCreateCloudFrontOriginAccessIdentityResponse,
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- ** CreatePublicKey
     CreatePublicKey (CreatePublicKey'),
     newCreatePublicKey,
     CreatePublicKeyResponse (CreatePublicKeyResponse'),
     newCreatePublicKeyResponse,
+
+    -- ** CreateCloudFrontOriginAccessIdentity
+    CreateCloudFrontOriginAccessIdentity (CreateCloudFrontOriginAccessIdentity'),
+    newCreateCloudFrontOriginAccessIdentity,
+    CreateCloudFrontOriginAccessIdentityResponse (CreateCloudFrontOriginAccessIdentityResponse'),
+    newCreateCloudFrontOriginAccessIdentityResponse,
+
+    -- ** ListCloudFrontOriginAccessIdentities (Paginated)
+    ListCloudFrontOriginAccessIdentities (ListCloudFrontOriginAccessIdentities'),
+    newListCloudFrontOriginAccessIdentities,
+    ListCloudFrontOriginAccessIdentitiesResponse (ListCloudFrontOriginAccessIdentitiesResponse'),
+    newListCloudFrontOriginAccessIdentitiesResponse,
+
+    -- ** AssociateAlias
+    AssociateAlias (AssociateAlias'),
+    newAssociateAlias,
+    AssociateAliasResponse (AssociateAliasResponse'),
+    newAssociateAliasResponse,
 
     -- * Types
 
@@ -846,6 +939,12 @@ module Network.AWS.CloudFront
 
     -- ** Format
     Format (..),
+
+    -- ** FunctionRuntime
+    FunctionRuntime (..),
+
+    -- ** FunctionStage
+    FunctionStage (..),
 
     -- ** GeoRestrictionType
     GeoRestrictionType (..),
@@ -971,6 +1070,14 @@ module Network.AWS.CloudFront
     CloudFrontOriginAccessIdentitySummary (CloudFrontOriginAccessIdentitySummary'),
     newCloudFrontOriginAccessIdentitySummary,
 
+    -- ** ConflictingAlias
+    ConflictingAlias (ConflictingAlias'),
+    newConflictingAlias,
+
+    -- ** ConflictingAliasesList
+    ConflictingAliasesList (ConflictingAliasesList'),
+    newConflictingAliasesList,
+
     -- ** ContentTypeProfile
     ContentTypeProfile (ContentTypeProfile'),
     newContentTypeProfile,
@@ -1086,6 +1193,30 @@ module Network.AWS.CloudFront
     -- ** ForwardedValues
     ForwardedValues (ForwardedValues'),
     newForwardedValues,
+
+    -- ** FunctionAssociation
+    FunctionAssociation (FunctionAssociation'),
+    newFunctionAssociation,
+
+    -- ** FunctionAssociations
+    FunctionAssociations (FunctionAssociations'),
+    newFunctionAssociations,
+
+    -- ** FunctionConfig
+    FunctionConfig (FunctionConfig'),
+    newFunctionConfig,
+
+    -- ** FunctionList
+    FunctionList (FunctionList'),
+    newFunctionList,
+
+    -- ** FunctionMetadata
+    FunctionMetadata (FunctionMetadata'),
+    newFunctionMetadata,
+
+    -- ** FunctionSummary
+    FunctionSummary (FunctionSummary'),
+    newFunctionSummary,
 
     -- ** GeoRestriction
     GeoRestriction (GeoRestriction'),
@@ -1335,6 +1466,10 @@ module Network.AWS.CloudFront
     Tags (Tags'),
     newTags,
 
+    -- ** TestResult
+    TestResult (TestResult'),
+    newTestResult,
+
     -- ** TrustedKeyGroups
     TrustedKeyGroups (TrustedKeyGroups'),
     newTrustedKeyGroups,
@@ -1349,12 +1484,14 @@ module Network.AWS.CloudFront
   )
 where
 
+import Network.AWS.CloudFront.AssociateAlias
 import Network.AWS.CloudFront.CreateCachePolicy
 import Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
 import Network.AWS.CloudFront.CreateDistribution
 import Network.AWS.CloudFront.CreateDistributionWithTags
 import Network.AWS.CloudFront.CreateFieldLevelEncryptionConfig
 import Network.AWS.CloudFront.CreateFieldLevelEncryptionProfile
+import Network.AWS.CloudFront.CreateFunction
 import Network.AWS.CloudFront.CreateInvalidation
 import Network.AWS.CloudFront.CreateKeyGroup
 import Network.AWS.CloudFront.CreateMonitoringSubscription
@@ -1368,12 +1505,14 @@ import Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
 import Network.AWS.CloudFront.DeleteDistribution
 import Network.AWS.CloudFront.DeleteFieldLevelEncryptionConfig
 import Network.AWS.CloudFront.DeleteFieldLevelEncryptionProfile
+import Network.AWS.CloudFront.DeleteFunction
 import Network.AWS.CloudFront.DeleteKeyGroup
 import Network.AWS.CloudFront.DeleteMonitoringSubscription
 import Network.AWS.CloudFront.DeleteOriginRequestPolicy
 import Network.AWS.CloudFront.DeletePublicKey
 import Network.AWS.CloudFront.DeleteRealtimeLogConfig
 import Network.AWS.CloudFront.DeleteStreamingDistribution
+import Network.AWS.CloudFront.DescribeFunction
 import Network.AWS.CloudFront.GetCachePolicy
 import Network.AWS.CloudFront.GetCachePolicyConfig
 import Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
@@ -1384,6 +1523,7 @@ import Network.AWS.CloudFront.GetFieldLevelEncryption
 import Network.AWS.CloudFront.GetFieldLevelEncryptionConfig
 import Network.AWS.CloudFront.GetFieldLevelEncryptionProfile
 import Network.AWS.CloudFront.GetFieldLevelEncryptionProfileConfig
+import Network.AWS.CloudFront.GetFunction
 import Network.AWS.CloudFront.GetInvalidation
 import Network.AWS.CloudFront.GetKeyGroup
 import Network.AWS.CloudFront.GetKeyGroupConfig
@@ -1398,6 +1538,7 @@ import Network.AWS.CloudFront.GetStreamingDistributionConfig
 import Network.AWS.CloudFront.Lens
 import Network.AWS.CloudFront.ListCachePolicies
 import Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
+import Network.AWS.CloudFront.ListConflictingAliases
 import Network.AWS.CloudFront.ListDistributions
 import Network.AWS.CloudFront.ListDistributionsByCachePolicyId
 import Network.AWS.CloudFront.ListDistributionsByKeyGroup
@@ -1406,6 +1547,7 @@ import Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig
 import Network.AWS.CloudFront.ListDistributionsByWebACLId
 import Network.AWS.CloudFront.ListFieldLevelEncryptionConfigs
 import Network.AWS.CloudFront.ListFieldLevelEncryptionProfiles
+import Network.AWS.CloudFront.ListFunctions
 import Network.AWS.CloudFront.ListInvalidations
 import Network.AWS.CloudFront.ListKeyGroups
 import Network.AWS.CloudFront.ListOriginRequestPolicies
@@ -1413,7 +1555,9 @@ import Network.AWS.CloudFront.ListPublicKeys
 import Network.AWS.CloudFront.ListRealtimeLogConfigs
 import Network.AWS.CloudFront.ListStreamingDistributions
 import Network.AWS.CloudFront.ListTagsForResource
+import Network.AWS.CloudFront.PublishFunction
 import Network.AWS.CloudFront.TagResource
+import Network.AWS.CloudFront.TestFunction
 import Network.AWS.CloudFront.Types
 import Network.AWS.CloudFront.UntagResource
 import Network.AWS.CloudFront.UpdateCachePolicy
@@ -1421,6 +1565,7 @@ import Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
 import Network.AWS.CloudFront.UpdateDistribution
 import Network.AWS.CloudFront.UpdateFieldLevelEncryptionConfig
 import Network.AWS.CloudFront.UpdateFieldLevelEncryptionProfile
+import Network.AWS.CloudFront.UpdateFunction
 import Network.AWS.CloudFront.UpdateKeyGroup
 import Network.AWS.CloudFront.UpdateOriginRequestPolicy
 import Network.AWS.CloudFront.UpdatePublicKey

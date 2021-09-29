@@ -24,20 +24,20 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | A complex type that contains a Lambda function association.
+-- | A complex type that contains a Lambda\@Edge function association.
 --
 -- /See:/ 'newLambdaFunctionAssociation' smart constructor.
 data LambdaFunctionAssociation = LambdaFunctionAssociation'
-  { -- | A flag that allows a Lambda function to have read access to the body
-    -- content. For more information, see
+  { -- | A flag that allows a Lambda\@Edge function to have read access to the
+    -- body content. For more information, see
     -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-include-body-access.html Accessing the Request Body by Choosing the Include Body Option>
     -- in the Amazon CloudFront Developer Guide.
     includeBody :: Prelude.Maybe Prelude.Bool,
-    -- | The ARN of the Lambda function. You must specify the ARN of a function
-    -- version; you can\'t specify a Lambda alias or $LATEST.
+    -- | The ARN of the Lambda\@Edge function. You must specify the ARN of a
+    -- function version; you can\'t specify an alias or $LATEST.
     lambdaFunctionARN :: Prelude.Text,
-    -- | Specifies the event type that triggers a Lambda function invocation. You
-    -- can specify the following values:
+    -- | Specifies the event type that triggers a Lambda\@Edge function
+    -- invocation. You can specify the following values:
     --
     -- -   @viewer-request@: The function executes when CloudFront receives a
     --     request from a viewer and before it checks to see whether the
@@ -70,16 +70,16 @@ data LambdaFunctionAssociation = LambdaFunctionAssociation'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'includeBody', 'lambdaFunctionAssociation_includeBody' - A flag that allows a Lambda function to have read access to the body
--- content. For more information, see
+-- 'includeBody', 'lambdaFunctionAssociation_includeBody' - A flag that allows a Lambda\@Edge function to have read access to the
+-- body content. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-include-body-access.html Accessing the Request Body by Choosing the Include Body Option>
 -- in the Amazon CloudFront Developer Guide.
 --
--- 'lambdaFunctionARN', 'lambdaFunctionAssociation_lambdaFunctionARN' - The ARN of the Lambda function. You must specify the ARN of a function
--- version; you can\'t specify a Lambda alias or $LATEST.
+-- 'lambdaFunctionARN', 'lambdaFunctionAssociation_lambdaFunctionARN' - The ARN of the Lambda\@Edge function. You must specify the ARN of a
+-- function version; you can\'t specify an alias or $LATEST.
 --
--- 'eventType', 'lambdaFunctionAssociation_eventType' - Specifies the event type that triggers a Lambda function invocation. You
--- can specify the following values:
+-- 'eventType', 'lambdaFunctionAssociation_eventType' - Specifies the event type that triggers a Lambda\@Edge function
+-- invocation. You can specify the following values:
 --
 -- -   @viewer-request@: The function executes when CloudFront receives a
 --     request from a viewer and before it checks to see whether the
@@ -116,20 +116,20 @@ newLambdaFunctionAssociation
         eventType = pEventType_
       }
 
--- | A flag that allows a Lambda function to have read access to the body
--- content. For more information, see
+-- | A flag that allows a Lambda\@Edge function to have read access to the
+-- body content. For more information, see
 -- <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-include-body-access.html Accessing the Request Body by Choosing the Include Body Option>
 -- in the Amazon CloudFront Developer Guide.
 lambdaFunctionAssociation_includeBody :: Lens.Lens' LambdaFunctionAssociation (Prelude.Maybe Prelude.Bool)
 lambdaFunctionAssociation_includeBody = Lens.lens (\LambdaFunctionAssociation' {includeBody} -> includeBody) (\s@LambdaFunctionAssociation' {} a -> s {includeBody = a} :: LambdaFunctionAssociation)
 
--- | The ARN of the Lambda function. You must specify the ARN of a function
--- version; you can\'t specify a Lambda alias or $LATEST.
+-- | The ARN of the Lambda\@Edge function. You must specify the ARN of a
+-- function version; you can\'t specify an alias or $LATEST.
 lambdaFunctionAssociation_lambdaFunctionARN :: Lens.Lens' LambdaFunctionAssociation Prelude.Text
 lambdaFunctionAssociation_lambdaFunctionARN = Lens.lens (\LambdaFunctionAssociation' {lambdaFunctionARN} -> lambdaFunctionARN) (\s@LambdaFunctionAssociation' {} a -> s {lambdaFunctionARN = a} :: LambdaFunctionAssociation)
 
--- | Specifies the event type that triggers a Lambda function invocation. You
--- can specify the following values:
+-- | Specifies the event type that triggers a Lambda\@Edge function
+-- invocation. You can specify the following values:
 --
 -- -   @viewer-request@: The function executes when CloudFront receives a
 --     request from a viewer and before it checks to see whether the

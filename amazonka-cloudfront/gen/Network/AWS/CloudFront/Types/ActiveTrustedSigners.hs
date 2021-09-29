@@ -24,21 +24,21 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | A list of AWS accounts and the active CloudFront key pairs in each
--- account that CloudFront can use to verify the signatures of signed URLs
--- and signed cookies.
+-- | A list of accounts and the active CloudFront key pairs in each account
+-- that CloudFront can use to verify the signatures of signed URLs and
+-- signed cookies.
 --
 -- /See:/ 'newActiveTrustedSigners' smart constructor.
 data ActiveTrustedSigners = ActiveTrustedSigners'
-  { -- | A list of AWS accounts and the identifiers of active CloudFront key
-    -- pairs in each account that CloudFront can use to verify the signatures
-    -- of signed URLs and signed cookies.
+  { -- | A list of accounts and the identifiers of active CloudFront key pairs in
+    -- each account that CloudFront can use to verify the signatures of signed
+    -- URLs and signed cookies.
     items :: Prelude.Maybe [Signer],
-    -- | This field is @true@ if any of the AWS accounts in the list have active
+    -- | This field is @true@ if any of the accounts in the list have active
     -- CloudFront key pairs that CloudFront can use to verify the signatures of
     -- signed URLs and signed cookies. If not, this field is @false@.
     enabled :: Prelude.Bool,
-    -- | The number of AWS accounts in the list.
+    -- | The number of accounts in the list.
     quantity :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -51,15 +51,15 @@ data ActiveTrustedSigners = ActiveTrustedSigners'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'items', 'activeTrustedSigners_items' - A list of AWS accounts and the identifiers of active CloudFront key
--- pairs in each account that CloudFront can use to verify the signatures
--- of signed URLs and signed cookies.
+-- 'items', 'activeTrustedSigners_items' - A list of accounts and the identifiers of active CloudFront key pairs in
+-- each account that CloudFront can use to verify the signatures of signed
+-- URLs and signed cookies.
 --
--- 'enabled', 'activeTrustedSigners_enabled' - This field is @true@ if any of the AWS accounts in the list have active
+-- 'enabled', 'activeTrustedSigners_enabled' - This field is @true@ if any of the accounts in the list have active
 -- CloudFront key pairs that CloudFront can use to verify the signatures of
 -- signed URLs and signed cookies. If not, this field is @false@.
 --
--- 'quantity', 'activeTrustedSigners_quantity' - The number of AWS accounts in the list.
+-- 'quantity', 'activeTrustedSigners_quantity' - The number of accounts in the list.
 newActiveTrustedSigners ::
   -- | 'enabled'
   Prelude.Bool ->
@@ -73,19 +73,19 @@ newActiveTrustedSigners pEnabled_ pQuantity_ =
       quantity = pQuantity_
     }
 
--- | A list of AWS accounts and the identifiers of active CloudFront key
--- pairs in each account that CloudFront can use to verify the signatures
--- of signed URLs and signed cookies.
+-- | A list of accounts and the identifiers of active CloudFront key pairs in
+-- each account that CloudFront can use to verify the signatures of signed
+-- URLs and signed cookies.
 activeTrustedSigners_items :: Lens.Lens' ActiveTrustedSigners (Prelude.Maybe [Signer])
 activeTrustedSigners_items = Lens.lens (\ActiveTrustedSigners' {items} -> items) (\s@ActiveTrustedSigners' {} a -> s {items = a} :: ActiveTrustedSigners) Prelude.. Lens.mapping Lens._Coerce
 
--- | This field is @true@ if any of the AWS accounts in the list have active
+-- | This field is @true@ if any of the accounts in the list have active
 -- CloudFront key pairs that CloudFront can use to verify the signatures of
 -- signed URLs and signed cookies. If not, this field is @false@.
 activeTrustedSigners_enabled :: Lens.Lens' ActiveTrustedSigners Prelude.Bool
 activeTrustedSigners_enabled = Lens.lens (\ActiveTrustedSigners' {enabled} -> enabled) (\s@ActiveTrustedSigners' {} a -> s {enabled = a} :: ActiveTrustedSigners)
 
--- | The number of AWS accounts in the list.
+-- | The number of accounts in the list.
 activeTrustedSigners_quantity :: Lens.Lens' ActiveTrustedSigners Prelude.Int
 activeTrustedSigners_quantity = Lens.lens (\ActiveTrustedSigners' {quantity} -> quantity) (\s@ActiveTrustedSigners' {} a -> s {quantity = a} :: ActiveTrustedSigners)
 

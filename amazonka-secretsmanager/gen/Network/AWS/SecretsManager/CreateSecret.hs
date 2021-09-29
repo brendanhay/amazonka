@@ -42,25 +42,27 @@
 --
 -- -   If you call an operation to encrypt or decrypt the @SecretString@ or
 --     @SecretBinary@ for a secret in the same account as the calling user
---     and that secret doesn\'t specify a AWS KMS encryption key, Secrets
---     Manager uses the account\'s default AWS managed customer master key
---     (CMK) with the alias @aws\/secretsmanager@. If this key doesn\'t
---     already exist in your account then Secrets Manager creates it for
---     you automatically. All users and roles in the same AWS account
+--     and that secret doesn\'t specify a Amazon Web Services KMS
+--     encryption key, Secrets Manager uses the account\'s default Amazon
+--     Web Services managed customer master key (CMK) with the alias
+--     @aws\/secretsmanager@. If this key doesn\'t already exist in your
+--     account then Secrets Manager creates it for you automatically. All
+--     users and roles in the same Amazon Web Services account
 --     automatically have access to use the default CMK. Note that if an
---     Secrets Manager API call results in AWS creating the account\'s
---     AWS-managed CMK, it can result in a one-time significant delay in
---     returning the result.
+--     Secrets Manager API call results in Amazon Web Services creating the
+--     account\'s Amazon Web Services-managed CMK, it can result in a
+--     one-time significant delay in returning the result.
 --
--- -   If the secret resides in a different AWS account from the
---     credentials calling an API that requires encryption or decryption of
---     the secret value then you must create and use a custom AWS KMS CMK
---     because you can\'t access the default CMK for the account using
---     credentials from a different AWS account. Store the ARN of the CMK
---     in the secret when you create the secret or when you update it by
---     including it in the @KMSKeyId@. If you call an API that must encrypt
---     or decrypt @SecretString@ or @SecretBinary@ using credentials from a
---     different account then the AWS KMS key policy must grant
+-- -   If the secret resides in a different Amazon Web Services account
+--     from the credentials calling an API that requires encryption or
+--     decryption of the secret value then you must create and use a custom
+--     Amazon Web Services KMS CMK because you can\'t access the default
+--     CMK for the account using credentials from a different Amazon Web
+--     Services account. Store the ARN of the CMK in the secret when you
+--     create the secret or when you update it by including it in the
+--     @KMSKeyId@. If you call an API that must encrypt or decrypt
+--     @SecretString@ or @SecretBinary@ using credentials from a different
+--     account then the Amazon Web Services KMS key policy must grant
 --     cross-account access to that other account\'s user or role for both
 --     the kms:GenerateDataKey and kms:Decrypt operations.
 --
@@ -70,13 +72,15 @@
 --
 -- -   secretsmanager:CreateSecret
 --
--- -   kms:GenerateDataKey - needed only if you use a customer-managed AWS
---     KMS key to encrypt the secret. You do not need this permission to
---     use the account default AWS managed CMK for Secrets Manager.
+-- -   kms:GenerateDataKey - needed only if you use a customer-managed
+--     Amazon Web Services KMS key to encrypt the secret. You do not need
+--     this permission to use the account default Amazon Web Services
+--     managed CMK for Secrets Manager.
 --
--- -   kms:Decrypt - needed only if you use a customer-managed AWS KMS key
---     to encrypt the secret. You do not need this permission to use the
---     account default AWS managed CMK for Secrets Manager.
+-- -   kms:Decrypt - needed only if you use a customer-managed Amazon Web
+--     Services KMS key to encrypt the secret. You do not need this
+--     permission to use the account default Amazon Web Services managed
+--     CMK for Secrets Manager.
 --
 -- -   secretsmanager:TagResource - needed only if you include the @Tags@
 --     parameter.
@@ -122,8 +126,8 @@ module Network.AWS.SecretsManager.CreateSecret
     -- * Response Lenses
     createSecretResponse_replicationStatus,
     createSecretResponse_arn,
-    createSecretResponse_versionId,
     createSecretResponse_name,
+    createSecretResponse_versionId,
     createSecretResponse_httpStatus,
   )
 where
@@ -147,24 +151,27 @@ data CreateSecret = CreateSecret'
     -- They cannot both be empty.
     --
     -- This parameter is not available using the Secrets Manager console. It
-    -- can be accessed only by using the AWS CLI or one of the AWS SDKs.
+    -- can be accessed only by using the Amazon Web Services CLI or one of the
+    -- Amazon Web Services SDKs.
     secretBinary :: Prelude.Maybe (Core.Sensitive Core.Base64),
     -- | (Optional) If set, the replication overwrites a secret with the same
     -- name in the destination region.
     forceOverwriteReplicaSecret :: Prelude.Maybe Prelude.Bool,
-    -- | (Optional) Specifies the ARN, Key ID, or alias of the AWS KMS customer
-    -- master key (CMK) to be used to encrypt the @SecretString@ or
-    -- @SecretBinary@ values in the versions stored in this secret.
+    -- | (Optional) Specifies the ARN, Key ID, or alias of the Amazon Web
+    -- Services KMS customer master key (CMK) to be used to encrypt the
+    -- @SecretString@ or @SecretBinary@ values in the versions stored in this
+    -- secret.
     --
-    -- You can specify any of the supported ways to identify a AWS KMS key ID.
-    -- If you need to reference a CMK in a different account, you can use only
-    -- the key ARN or the alias ARN.
+    -- You can specify any of the supported ways to identify a Amazon Web
+    -- Services KMS key ID. If you need to reference a CMK in a different
+    -- account, you can use only the key ARN or the alias ARN.
     --
     -- If you don\'t specify this value, then Secrets Manager defaults to using
-    -- the AWS account\'s default CMK (the one named @aws\/secretsmanager@). If
-    -- a AWS KMS CMK with that name doesn\'t yet exist, then Secrets Manager
-    -- creates it for you automatically the first time it needs to encrypt a
-    -- version\'s @SecretString@ or @SecretBinary@ fields.
+    -- the Amazon Web Services account\'s default CMK (the one named
+    -- @aws\/secretsmanager@). If a Amazon Web Services KMS CMK with that name
+    -- doesn\'t yet exist, then Secrets Manager creates it for you
+    -- automatically the first time it needs to encrypt a version\'s
+    -- @SecretString@ or @SecretBinary@ fields.
     --
     -- You can use the account default CMK to encrypt and decrypt only if you
     -- call this operation using credentials from the same account that owns
@@ -189,7 +196,7 @@ data CreateSecret = CreateSecret'
     -- how to format a JSON parameter for the various command line tool
     -- environments, see
     -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
-    -- in the /AWS CLI User Guide/. For example:
+    -- in the /CLI User Guide/. For example:
     --
     -- @[{\"Key\":\"CostCenter\",\"Value\":\"12345\"},{\"Key\":\"environment\",\"Value\":\"production\"}]@
     --
@@ -207,10 +214,10 @@ data CreateSecret = CreateSecret'
     --
     -- -   Tag keys and values are case sensitive.
     --
-    -- -   Do not use the @aws:@ prefix in your tag names or values because AWS
-    --     reserves it for AWS use. You can\'t edit or delete tag names or
-    --     values with this prefix. Tags with this prefix do not count against
-    --     your tags per secret limit.
+    -- -   Do not use the @aws:@ prefix in your tag names or values because
+    --     Amazon Web Services reserves it for Amazon Web Services use. You
+    --     can\'t edit or delete tag names or values with this prefix. Tags
+    --     with this prefix do not count against your tags per secret limit.
     --
     -- -   If you use your tagging schema across multiple services and
     --     resources, remember other services might have restrictions on
@@ -237,7 +244,7 @@ data CreateSecret = CreateSecret'
     -- format a JSON parameter for the various command line tool environments,
     -- see
     -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
-    -- in the /AWS CLI User Guide/. For example:
+    -- in the /CLI User Guide/. For example:
     --
     -- @{\"username\":\"bob\",\"password\":\"abc123xyz456\"}@
     --
@@ -249,13 +256,13 @@ data CreateSecret = CreateSecret'
     -- initial version is created as part of the secret, and this parameter
     -- specifies a unique identifier for the new version.
     --
-    -- If you use the AWS CLI or one of the AWS SDK to call this operation,
-    -- then you can leave this parameter empty. The CLI or SDK generates a
-    -- random UUID for you and includes it as the value for this parameter in
-    -- the request. If you don\'t use the SDK and instead generate a raw HTTP
-    -- request to the Secrets Manager service endpoint, then you must generate
-    -- a @ClientRequestToken@ yourself for the new version and include the
-    -- value in the request.
+    -- If you use the Amazon Web Services CLI or one of the Amazon Web Services
+    -- SDK to call this operation, then you can leave this parameter empty. The
+    -- CLI or SDK generates a random UUID for you and includes it as the value
+    -- for this parameter in the request. If you don\'t use the SDK and instead
+    -- generate a raw HTTP request to the Secrets Manager service endpoint,
+    -- then you must generate a @ClientRequestToken@ yourself for the new
+    -- version and include the value in the request.
     --
     -- This value helps ensure idempotency. Secrets Manager uses this value to
     -- prevent the accidental creation of duplicate versions if there are
@@ -313,7 +320,8 @@ data CreateSecret = CreateSecret'
 -- They cannot both be empty.
 --
 -- This parameter is not available using the Secrets Manager console. It
--- can be accessed only by using the AWS CLI or one of the AWS SDKs.--
+-- can be accessed only by using the Amazon Web Services CLI or one of the
+-- Amazon Web Services SDKs.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -322,19 +330,21 @@ data CreateSecret = CreateSecret'
 -- 'forceOverwriteReplicaSecret', 'createSecret_forceOverwriteReplicaSecret' - (Optional) If set, the replication overwrites a secret with the same
 -- name in the destination region.
 --
--- 'kmsKeyId', 'createSecret_kmsKeyId' - (Optional) Specifies the ARN, Key ID, or alias of the AWS KMS customer
--- master key (CMK) to be used to encrypt the @SecretString@ or
--- @SecretBinary@ values in the versions stored in this secret.
+-- 'kmsKeyId', 'createSecret_kmsKeyId' - (Optional) Specifies the ARN, Key ID, or alias of the Amazon Web
+-- Services KMS customer master key (CMK) to be used to encrypt the
+-- @SecretString@ or @SecretBinary@ values in the versions stored in this
+-- secret.
 --
--- You can specify any of the supported ways to identify a AWS KMS key ID.
--- If you need to reference a CMK in a different account, you can use only
--- the key ARN or the alias ARN.
+-- You can specify any of the supported ways to identify a Amazon Web
+-- Services KMS key ID. If you need to reference a CMK in a different
+-- account, you can use only the key ARN or the alias ARN.
 --
 -- If you don\'t specify this value, then Secrets Manager defaults to using
--- the AWS account\'s default CMK (the one named @aws\/secretsmanager@). If
--- a AWS KMS CMK with that name doesn\'t yet exist, then Secrets Manager
--- creates it for you automatically the first time it needs to encrypt a
--- version\'s @SecretString@ or @SecretBinary@ fields.
+-- the Amazon Web Services account\'s default CMK (the one named
+-- @aws\/secretsmanager@). If a Amazon Web Services KMS CMK with that name
+-- doesn\'t yet exist, then Secrets Manager creates it for you
+-- automatically the first time it needs to encrypt a version\'s
+-- @SecretString@ or @SecretBinary@ fields.
 --
 -- You can use the account default CMK to encrypt and decrypt only if you
 -- call this operation using credentials from the same account that owns
@@ -359,7 +369,7 @@ data CreateSecret = CreateSecret'
 -- how to format a JSON parameter for the various command line tool
 -- environments, see
 -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
--- in the /AWS CLI User Guide/. For example:
+-- in the /CLI User Guide/. For example:
 --
 -- @[{\"Key\":\"CostCenter\",\"Value\":\"12345\"},{\"Key\":\"environment\",\"Value\":\"production\"}]@
 --
@@ -377,10 +387,10 @@ data CreateSecret = CreateSecret'
 --
 -- -   Tag keys and values are case sensitive.
 --
--- -   Do not use the @aws:@ prefix in your tag names or values because AWS
---     reserves it for AWS use. You can\'t edit or delete tag names or
---     values with this prefix. Tags with this prefix do not count against
---     your tags per secret limit.
+-- -   Do not use the @aws:@ prefix in your tag names or values because
+--     Amazon Web Services reserves it for Amazon Web Services use. You
+--     can\'t edit or delete tag names or values with this prefix. Tags
+--     with this prefix do not count against your tags per secret limit.
 --
 -- -   If you use your tagging schema across multiple services and
 --     resources, remember other services might have restrictions on
@@ -407,7 +417,7 @@ data CreateSecret = CreateSecret'
 -- format a JSON parameter for the various command line tool environments,
 -- see
 -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
--- in the /AWS CLI User Guide/. For example:
+-- in the /CLI User Guide/. For example:
 --
 -- @{\"username\":\"bob\",\"password\":\"abc123xyz456\"}@
 --
@@ -419,13 +429,13 @@ data CreateSecret = CreateSecret'
 -- initial version is created as part of the secret, and this parameter
 -- specifies a unique identifier for the new version.
 --
--- If you use the AWS CLI or one of the AWS SDK to call this operation,
--- then you can leave this parameter empty. The CLI or SDK generates a
--- random UUID for you and includes it as the value for this parameter in
--- the request. If you don\'t use the SDK and instead generate a raw HTTP
--- request to the Secrets Manager service endpoint, then you must generate
--- a @ClientRequestToken@ yourself for the new version and include the
--- value in the request.
+-- If you use the Amazon Web Services CLI or one of the Amazon Web Services
+-- SDK to call this operation, then you can leave this parameter empty. The
+-- CLI or SDK generates a random UUID for you and includes it as the value
+-- for this parameter in the request. If you don\'t use the SDK and instead
+-- generate a raw HTTP request to the Secrets Manager service endpoint,
+-- then you must generate a @ClientRequestToken@ yourself for the new
+-- version and include the value in the request.
 --
 -- This value helps ensure idempotency. Secrets Manager uses this value to
 -- prevent the accidental creation of duplicate versions if there are
@@ -488,7 +498,8 @@ newCreateSecret pName_ =
 -- They cannot both be empty.
 --
 -- This parameter is not available using the Secrets Manager console. It
--- can be accessed only by using the AWS CLI or one of the AWS SDKs.--
+-- can be accessed only by using the Amazon Web Services CLI or one of the
+-- Amazon Web Services SDKs.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -501,19 +512,21 @@ createSecret_secretBinary = Lens.lens (\CreateSecret' {secretBinary} -> secretBi
 createSecret_forceOverwriteReplicaSecret :: Lens.Lens' CreateSecret (Prelude.Maybe Prelude.Bool)
 createSecret_forceOverwriteReplicaSecret = Lens.lens (\CreateSecret' {forceOverwriteReplicaSecret} -> forceOverwriteReplicaSecret) (\s@CreateSecret' {} a -> s {forceOverwriteReplicaSecret = a} :: CreateSecret)
 
--- | (Optional) Specifies the ARN, Key ID, or alias of the AWS KMS customer
--- master key (CMK) to be used to encrypt the @SecretString@ or
--- @SecretBinary@ values in the versions stored in this secret.
+-- | (Optional) Specifies the ARN, Key ID, or alias of the Amazon Web
+-- Services KMS customer master key (CMK) to be used to encrypt the
+-- @SecretString@ or @SecretBinary@ values in the versions stored in this
+-- secret.
 --
--- You can specify any of the supported ways to identify a AWS KMS key ID.
--- If you need to reference a CMK in a different account, you can use only
--- the key ARN or the alias ARN.
+-- You can specify any of the supported ways to identify a Amazon Web
+-- Services KMS key ID. If you need to reference a CMK in a different
+-- account, you can use only the key ARN or the alias ARN.
 --
 -- If you don\'t specify this value, then Secrets Manager defaults to using
--- the AWS account\'s default CMK (the one named @aws\/secretsmanager@). If
--- a AWS KMS CMK with that name doesn\'t yet exist, then Secrets Manager
--- creates it for you automatically the first time it needs to encrypt a
--- version\'s @SecretString@ or @SecretBinary@ fields.
+-- the Amazon Web Services account\'s default CMK (the one named
+-- @aws\/secretsmanager@). If a Amazon Web Services KMS CMK with that name
+-- doesn\'t yet exist, then Secrets Manager creates it for you
+-- automatically the first time it needs to encrypt a version\'s
+-- @SecretString@ or @SecretBinary@ fields.
 --
 -- You can use the account default CMK to encrypt and decrypt only if you
 -- call this operation using credentials from the same account that owns
@@ -540,7 +553,7 @@ createSecret_kmsKeyId = Lens.lens (\CreateSecret' {kmsKeyId} -> kmsKeyId) (\s@Cr
 -- how to format a JSON parameter for the various command line tool
 -- environments, see
 -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
--- in the /AWS CLI User Guide/. For example:
+-- in the /CLI User Guide/. For example:
 --
 -- @[{\"Key\":\"CostCenter\",\"Value\":\"12345\"},{\"Key\":\"environment\",\"Value\":\"production\"}]@
 --
@@ -558,10 +571,10 @@ createSecret_kmsKeyId = Lens.lens (\CreateSecret' {kmsKeyId} -> kmsKeyId) (\s@Cr
 --
 -- -   Tag keys and values are case sensitive.
 --
--- -   Do not use the @aws:@ prefix in your tag names or values because AWS
---     reserves it for AWS use. You can\'t edit or delete tag names or
---     values with this prefix. Tags with this prefix do not count against
---     your tags per secret limit.
+-- -   Do not use the @aws:@ prefix in your tag names or values because
+--     Amazon Web Services reserves it for Amazon Web Services use. You
+--     can\'t edit or delete tag names or values with this prefix. Tags
+--     with this prefix do not count against your tags per secret limit.
 --
 -- -   If you use your tagging schema across multiple services and
 --     resources, remember other services might have restrictions on
@@ -592,7 +605,7 @@ createSecret_description = Lens.lens (\CreateSecret' {description} -> descriptio
 -- format a JSON parameter for the various command line tool environments,
 -- see
 -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
--- in the /AWS CLI User Guide/. For example:
+-- in the /CLI User Guide/. For example:
 --
 -- @{\"username\":\"bob\",\"password\":\"abc123xyz456\"}@
 --
@@ -606,13 +619,13 @@ createSecret_secretString = Lens.lens (\CreateSecret' {secretString} -> secretSt
 -- initial version is created as part of the secret, and this parameter
 -- specifies a unique identifier for the new version.
 --
--- If you use the AWS CLI or one of the AWS SDK to call this operation,
--- then you can leave this parameter empty. The CLI or SDK generates a
--- random UUID for you and includes it as the value for this parameter in
--- the request. If you don\'t use the SDK and instead generate a raw HTTP
--- request to the Secrets Manager service endpoint, then you must generate
--- a @ClientRequestToken@ yourself for the new version and include the
--- value in the request.
+-- If you use the Amazon Web Services CLI or one of the Amazon Web Services
+-- SDK to call this operation, then you can leave this parameter empty. The
+-- CLI or SDK generates a random UUID for you and includes it as the value
+-- for this parameter in the request. If you don\'t use the SDK and instead
+-- generate a raw HTTP request to the Secrets Manager service endpoint,
+-- then you must generate a @ClientRequestToken@ yourself for the new
+-- version and include the value in the request.
 --
 -- This value helps ensure idempotency. Secrets Manager uses this value to
 -- prevent the accidental creation of duplicate versions if there are
@@ -666,8 +679,8 @@ instance Core.AWSRequest CreateSecret where
                             Core..!@ Prelude.mempty
                         )
             Prelude.<*> (x Core..?> "ARN")
-            Prelude.<*> (x Core..?> "VersionId")
             Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -730,11 +743,11 @@ data CreateSecretResponse = CreateSecretResponse'
     -- automatically get access to the new secret because the ARNs are
     -- different.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The friendly name of the secret that you just created.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The unique identifier associated with the version of the secret you just
     -- created.
     versionId :: Prelude.Maybe Prelude.Text,
-    -- | The friendly name of the secret that you just created.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -761,10 +774,10 @@ data CreateSecretResponse = CreateSecretResponse'
 -- automatically get access to the new secret because the ARNs are
 -- different.
 --
+-- 'name', 'createSecretResponse_name' - The friendly name of the secret that you just created.
+--
 -- 'versionId', 'createSecretResponse_versionId' - The unique identifier associated with the version of the secret you just
 -- created.
---
--- 'name', 'createSecretResponse_name' - The friendly name of the secret that you just created.
 --
 -- 'httpStatus', 'createSecretResponse_httpStatus' - The response's http status code.
 newCreateSecretResponse ::
@@ -776,8 +789,8 @@ newCreateSecretResponse pHttpStatus_ =
     { replicationStatus =
         Prelude.Nothing,
       arn = Prelude.Nothing,
-      versionId = Prelude.Nothing,
       name = Prelude.Nothing,
+      versionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -798,14 +811,14 @@ createSecretResponse_replicationStatus = Lens.lens (\CreateSecretResponse' {repl
 createSecretResponse_arn :: Lens.Lens' CreateSecretResponse (Prelude.Maybe Prelude.Text)
 createSecretResponse_arn = Lens.lens (\CreateSecretResponse' {arn} -> arn) (\s@CreateSecretResponse' {} a -> s {arn = a} :: CreateSecretResponse)
 
+-- | The friendly name of the secret that you just created.
+createSecretResponse_name :: Lens.Lens' CreateSecretResponse (Prelude.Maybe Prelude.Text)
+createSecretResponse_name = Lens.lens (\CreateSecretResponse' {name} -> name) (\s@CreateSecretResponse' {} a -> s {name = a} :: CreateSecretResponse)
+
 -- | The unique identifier associated with the version of the secret you just
 -- created.
 createSecretResponse_versionId :: Lens.Lens' CreateSecretResponse (Prelude.Maybe Prelude.Text)
 createSecretResponse_versionId = Lens.lens (\CreateSecretResponse' {versionId} -> versionId) (\s@CreateSecretResponse' {} a -> s {versionId = a} :: CreateSecretResponse)
-
--- | The friendly name of the secret that you just created.
-createSecretResponse_name :: Lens.Lens' CreateSecretResponse (Prelude.Maybe Prelude.Text)
-createSecretResponse_name = Lens.lens (\CreateSecretResponse' {name} -> name) (\s@CreateSecretResponse' {} a -> s {name = a} :: CreateSecretResponse)
 
 -- | The response's http status code.
 createSecretResponse_httpStatus :: Lens.Lens' CreateSecretResponse Prelude.Int

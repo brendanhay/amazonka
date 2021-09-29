@@ -28,7 +28,7 @@
 --
 -- The Secrets Manager console uses only the @SecretString@ field. To add
 -- binary data to a secret with the @SecretBinary@ field you must use the
--- AWS CLI or one of the AWS SDKs.
+-- Amazon Web Services CLI or one of the Amazon Web Services SDKs.
 --
 -- -   If this operation creates the first version for the secret then
 --     Secrets Manager automatically attaches the staging label
@@ -52,25 +52,27 @@
 --
 -- -   If you call an operation to encrypt or decrypt the @SecretString@ or
 --     @SecretBinary@ for a secret in the same account as the calling user
---     and that secret doesn\'t specify a AWS KMS encryption key, Secrets
---     Manager uses the account\'s default AWS managed customer master key
---     (CMK) with the alias @aws\/secretsmanager@. If this key doesn\'t
---     already exist in your account then Secrets Manager creates it for
---     you automatically. All users and roles in the same AWS account
+--     and that secret doesn\'t specify a Amazon Web Services KMS
+--     encryption key, Secrets Manager uses the account\'s default Amazon
+--     Web Services managed customer master key (CMK) with the alias
+--     @aws\/secretsmanager@. If this key doesn\'t already exist in your
+--     account then Secrets Manager creates it for you automatically. All
+--     users and roles in the same Amazon Web Services account
 --     automatically have access to use the default CMK. Note that if an
---     Secrets Manager API call results in AWS creating the account\'s
---     AWS-managed CMK, it can result in a one-time significant delay in
---     returning the result.
+--     Secrets Manager API call results in Amazon Web Services creating the
+--     account\'s Amazon Web Services-managed CMK, it can result in a
+--     one-time significant delay in returning the result.
 --
--- -   If the secret resides in a different AWS account from the
---     credentials calling an API that requires encryption or decryption of
---     the secret value then you must create and use a custom AWS KMS CMK
---     because you can\'t access the default CMK for the account using
---     credentials from a different AWS account. Store the ARN of the CMK
---     in the secret when you create the secret or when you update it by
---     including it in the @KMSKeyId@. If you call an API that must encrypt
---     or decrypt @SecretString@ or @SecretBinary@ using credentials from a
---     different account then the AWS KMS key policy must grant
+-- -   If the secret resides in a different Amazon Web Services account
+--     from the credentials calling an API that requires encryption or
+--     decryption of the secret value then you must create and use a custom
+--     Amazon Web Services KMS CMK because you can\'t access the default
+--     CMK for the account using credentials from a different Amazon Web
+--     Services account. Store the ARN of the CMK in the secret when you
+--     create the secret or when you update it by including it in the
+--     @KMSKeyId@. If you call an API that must encrypt or decrypt
+--     @SecretString@ or @SecretBinary@ using credentials from a different
+--     account then the Amazon Web Services KMS key policy must grant
 --     cross-account access to that other account\'s user or role for both
 --     the kms:GenerateDataKey and kms:Decrypt operations.
 --
@@ -80,9 +82,10 @@
 --
 -- -   secretsmanager:PutSecretValue
 --
--- -   kms:GenerateDataKey - needed only if you use a customer-managed AWS
---     KMS key to encrypt the secret. You do not need this permission to
---     use the account\'s default AWS managed CMK for Secrets Manager.
+-- -   kms:GenerateDataKey - needed only if you use a customer-managed
+--     Amazon Web Services KMS key to encrypt the secret. You do not need
+--     this permission to use the account\'s default Amazon Web Services
+--     managed CMK for Secrets Manager.
 --
 -- __Related operations__
 --
@@ -113,8 +116,8 @@ module Network.AWS.SecretsManager.PutSecretValue
     -- * Response Lenses
     putSecretValueResponse_versionStages,
     putSecretValueResponse_arn,
-    putSecretValueResponse_versionId,
     putSecretValueResponse_name,
+    putSecretValueResponse_versionId,
     putSecretValueResponse_httpStatus,
   )
 where
@@ -165,7 +168,7 @@ data PutSecretValue = PutSecretValue'
     -- format a JSON parameter for the various command line tool environments,
     -- see
     -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
-    -- in the /AWS CLI User Guide/.
+    -- in the /CLI User Guide/.
     --
     -- For example:
     --
@@ -178,12 +181,13 @@ data PutSecretValue = PutSecretValue'
     -- | (Optional) Specifies a unique identifier for the new version of the
     -- secret.
     --
-    -- If you use the AWS CLI or one of the AWS SDK to call this operation,
-    -- then you can leave this parameter empty. The CLI or SDK generates a
-    -- random UUID for you and includes that in the request. If you don\'t use
-    -- the SDK and instead generate a raw HTTP request to the Secrets Manager
-    -- service endpoint, then you must generate a @ClientRequestToken@ yourself
-    -- for new versions and include that value in the request.
+    -- If you use the Amazon Web Services CLI or one of the Amazon Web Services
+    -- SDK to call this operation, then you can leave this parameter empty. The
+    -- CLI or SDK generates a random UUID for you and includes that in the
+    -- request. If you don\'t use the SDK and instead generate a raw HTTP
+    -- request to the Secrets Manager service endpoint, then you must generate
+    -- a @ClientRequestToken@ yourself for new versions and include that value
+    -- in the request.
     --
     -- This value helps ensure idempotency. Secrets Manager uses this value to
     -- prevent the accidental creation of duplicate versions if there are
@@ -282,7 +286,7 @@ data PutSecretValue = PutSecretValue'
 -- format a JSON parameter for the various command line tool environments,
 -- see
 -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
--- in the /AWS CLI User Guide/.
+-- in the /CLI User Guide/.
 --
 -- For example:
 --
@@ -295,12 +299,13 @@ data PutSecretValue = PutSecretValue'
 -- 'clientRequestToken', 'putSecretValue_clientRequestToken' - (Optional) Specifies a unique identifier for the new version of the
 -- secret.
 --
--- If you use the AWS CLI or one of the AWS SDK to call this operation,
--- then you can leave this parameter empty. The CLI or SDK generates a
--- random UUID for you and includes that in the request. If you don\'t use
--- the SDK and instead generate a raw HTTP request to the Secrets Manager
--- service endpoint, then you must generate a @ClientRequestToken@ yourself
--- for new versions and include that value in the request.
+-- If you use the Amazon Web Services CLI or one of the Amazon Web Services
+-- SDK to call this operation, then you can leave this parameter empty. The
+-- CLI or SDK generates a random UUID for you and includes that in the
+-- request. If you don\'t use the SDK and instead generate a raw HTTP
+-- request to the Secrets Manager service endpoint, then you must generate
+-- a @ClientRequestToken@ yourself for new versions and include that value
+-- in the request.
 --
 -- This value helps ensure idempotency. Secrets Manager uses this value to
 -- prevent the accidental creation of duplicate versions if there are
@@ -404,7 +409,7 @@ putSecretValue_versionStages = Lens.lens (\PutSecretValue' {versionStages} -> ve
 -- format a JSON parameter for the various command line tool environments,
 -- see
 -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
--- in the /AWS CLI User Guide/.
+-- in the /CLI User Guide/.
 --
 -- For example:
 --
@@ -419,12 +424,13 @@ putSecretValue_secretString = Lens.lens (\PutSecretValue' {secretString} -> secr
 -- | (Optional) Specifies a unique identifier for the new version of the
 -- secret.
 --
--- If you use the AWS CLI or one of the AWS SDK to call this operation,
--- then you can leave this parameter empty. The CLI or SDK generates a
--- random UUID for you and includes that in the request. If you don\'t use
--- the SDK and instead generate a raw HTTP request to the Secrets Manager
--- service endpoint, then you must generate a @ClientRequestToken@ yourself
--- for new versions and include that value in the request.
+-- If you use the Amazon Web Services CLI or one of the Amazon Web Services
+-- SDK to call this operation, then you can leave this parameter empty. The
+-- CLI or SDK generates a random UUID for you and includes that in the
+-- request. If you don\'t use the SDK and instead generate a raw HTTP
+-- request to the Secrets Manager service endpoint, then you must generate
+-- a @ClientRequestToken@ yourself for new versions and include that value
+-- in the request.
 --
 -- This value helps ensure idempotency. Secrets Manager uses this value to
 -- prevent the accidental creation of duplicate versions if there are
@@ -486,8 +492,8 @@ instance Core.AWSRequest PutSecretValue where
           PutSecretValueResponse'
             Prelude.<$> (x Core..?> "VersionStages")
             Prelude.<*> (x Core..?> "ARN")
-            Prelude.<*> (x Core..?> "VersionId")
             Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -538,12 +544,12 @@ data PutSecretValueResponse = PutSecretValueResponse'
     -- | The Amazon Resource Name (ARN) for the secret for which you just created
     -- a version.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The unique identifier of the version of the secret you just created or
-    -- updated.
-    versionId :: Prelude.Maybe Prelude.Text,
     -- | The friendly name of the secret for which you just created or updated a
     -- version.
     name :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier of the version of the secret you just created or
+    -- updated.
+    versionId :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -564,11 +570,11 @@ data PutSecretValueResponse = PutSecretValueResponse'
 -- 'arn', 'putSecretValueResponse_arn' - The Amazon Resource Name (ARN) for the secret for which you just created
 -- a version.
 --
--- 'versionId', 'putSecretValueResponse_versionId' - The unique identifier of the version of the secret you just created or
--- updated.
---
 -- 'name', 'putSecretValueResponse_name' - The friendly name of the secret for which you just created or updated a
 -- version.
+--
+-- 'versionId', 'putSecretValueResponse_versionId' - The unique identifier of the version of the secret you just created or
+-- updated.
 --
 -- 'httpStatus', 'putSecretValueResponse_httpStatus' - The response's http status code.
 newPutSecretValueResponse ::
@@ -580,8 +586,8 @@ newPutSecretValueResponse pHttpStatus_ =
     { versionStages =
         Prelude.Nothing,
       arn = Prelude.Nothing,
-      versionId = Prelude.Nothing,
       name = Prelude.Nothing,
+      versionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -596,15 +602,15 @@ putSecretValueResponse_versionStages = Lens.lens (\PutSecretValueResponse' {vers
 putSecretValueResponse_arn :: Lens.Lens' PutSecretValueResponse (Prelude.Maybe Prelude.Text)
 putSecretValueResponse_arn = Lens.lens (\PutSecretValueResponse' {arn} -> arn) (\s@PutSecretValueResponse' {} a -> s {arn = a} :: PutSecretValueResponse)
 
--- | The unique identifier of the version of the secret you just created or
--- updated.
-putSecretValueResponse_versionId :: Lens.Lens' PutSecretValueResponse (Prelude.Maybe Prelude.Text)
-putSecretValueResponse_versionId = Lens.lens (\PutSecretValueResponse' {versionId} -> versionId) (\s@PutSecretValueResponse' {} a -> s {versionId = a} :: PutSecretValueResponse)
-
 -- | The friendly name of the secret for which you just created or updated a
 -- version.
 putSecretValueResponse_name :: Lens.Lens' PutSecretValueResponse (Prelude.Maybe Prelude.Text)
 putSecretValueResponse_name = Lens.lens (\PutSecretValueResponse' {name} -> name) (\s@PutSecretValueResponse' {} a -> s {name = a} :: PutSecretValueResponse)
+
+-- | The unique identifier of the version of the secret you just created or
+-- updated.
+putSecretValueResponse_versionId :: Lens.Lens' PutSecretValueResponse (Prelude.Maybe Prelude.Text)
+putSecretValueResponse_versionId = Lens.lens (\PutSecretValueResponse' {versionId} -> versionId) (\s@PutSecretValueResponse' {} a -> s {versionId = a} :: PutSecretValueResponse)
 
 -- | The response's http status code.
 putSecretValueResponse_httpStatus :: Lens.Lens' PutSecretValueResponse Prelude.Int

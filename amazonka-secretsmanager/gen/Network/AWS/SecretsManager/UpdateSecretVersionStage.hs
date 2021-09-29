@@ -28,7 +28,7 @@
 -- first and then attached to this one. For more information about staging
 -- labels, see
 -- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/terms-concepts.html#term_staging-label Staging Labels>
--- in the /AWS Secrets Manager User Guide/.
+-- in the /Amazon Web Services Secrets Manager User Guide/.
 --
 -- The staging labels that you specify in the @VersionStage@ parameter are
 -- added to the existing list of staging labels--they don\'t replace it.

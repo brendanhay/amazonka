@@ -20,11 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all of the secrets that are stored by Secrets Manager in the AWS
--- account. To list the versions currently stored for a specific secret,
--- use ListSecretVersionIds. The encrypted fields @SecretString@ and
--- @SecretBinary@ are not included in the output. To get that information,
--- call the GetSecretValue operation.
+-- Lists all of the secrets that are stored by Secrets Manager in the
+-- Amazon Web Services account. To list the versions currently stored for a
+-- specific secret, use ListSecretVersionIds. The encrypted fields
+-- @SecretString@ and @SecretBinary@ are not included in the output. To get
+-- that information, call the GetSecretValue operation.
 --
 -- Always check the @NextToken@ response parameter when calling any of the
 -- @List*@ operations. These operations can occasionally return an empty or
@@ -50,8 +50,8 @@ module Network.AWS.SecretsManager.ListSecrets
     newListSecrets,
 
     -- * Request Lenses
-    listSecrets_sortOrder,
     listSecrets_nextToken,
+    listSecrets_sortOrder,
     listSecrets_maxResults,
     listSecrets_filters,
 
@@ -75,14 +75,14 @@ import Network.AWS.SecretsManager.Types
 
 -- | /See:/ 'newListSecrets' smart constructor.
 data ListSecrets = ListSecrets'
-  { -- | Lists secrets in the requested order.
-    sortOrder :: Prelude.Maybe SortOrderType,
-    -- | (Optional) Use this parameter in a request if you receive a @NextToken@
+  { -- | (Optional) Use this parameter in a request if you receive a @NextToken@
     -- response in a previous request indicating there\'s more output
     -- available. In a subsequent call, set it to the value of the previous
     -- call @NextToken@ response to indicate where the output should continue
     -- from.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Lists secrets in the requested order.
+    sortOrder :: Prelude.Maybe SortOrderType,
     -- | (Optional) Limits the number of results you want to include in the
     -- response. If you don\'t include this parameter, it defaults to a value
     -- that\'s specific to the operation. If additional items exist beyond the
@@ -107,13 +107,13 @@ data ListSecrets = ListSecrets'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'listSecrets_sortOrder' - Lists secrets in the requested order.
---
 -- 'nextToken', 'listSecrets_nextToken' - (Optional) Use this parameter in a request if you receive a @NextToken@
 -- response in a previous request indicating there\'s more output
 -- available. In a subsequent call, set it to the value of the previous
 -- call @NextToken@ response to indicate where the output should continue
 -- from.
+--
+-- 'sortOrder', 'listSecrets_sortOrder' - Lists secrets in the requested order.
 --
 -- 'maxResults', 'listSecrets_maxResults' - (Optional) Limits the number of results you want to include in the
 -- response. If you don\'t include this parameter, it defaults to a value
@@ -131,15 +131,11 @@ newListSecrets ::
   ListSecrets
 newListSecrets =
   ListSecrets'
-    { sortOrder = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+    { nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       filters = Prelude.Nothing
     }
-
--- | Lists secrets in the requested order.
-listSecrets_sortOrder :: Lens.Lens' ListSecrets (Prelude.Maybe SortOrderType)
-listSecrets_sortOrder = Lens.lens (\ListSecrets' {sortOrder} -> sortOrder) (\s@ListSecrets' {} a -> s {sortOrder = a} :: ListSecrets)
 
 -- | (Optional) Use this parameter in a request if you receive a @NextToken@
 -- response in a previous request indicating there\'s more output
@@ -148,6 +144,10 @@ listSecrets_sortOrder = Lens.lens (\ListSecrets' {sortOrder} -> sortOrder) (\s@L
 -- from.
 listSecrets_nextToken :: Lens.Lens' ListSecrets (Prelude.Maybe Prelude.Text)
 listSecrets_nextToken = Lens.lens (\ListSecrets' {nextToken} -> nextToken) (\s@ListSecrets' {} a -> s {nextToken = a} :: ListSecrets)
+
+-- | Lists secrets in the requested order.
+listSecrets_sortOrder :: Lens.Lens' ListSecrets (Prelude.Maybe SortOrderType)
+listSecrets_sortOrder = Lens.lens (\ListSecrets' {sortOrder} -> sortOrder) (\s@ListSecrets' {} a -> s {sortOrder = a} :: ListSecrets)
 
 -- | (Optional) Limits the number of results you want to include in the
 -- response. If you don\'t include this parameter, it defaults to a value
@@ -218,8 +218,8 @@ instance Core.ToJSON ListSecrets where
   toJSON ListSecrets' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
+          [ ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("Filters" Core..=) Prelude.<$> filters
           ]

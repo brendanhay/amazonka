@@ -97,12 +97,12 @@ data ValidateResourcePolicy = ValidateResourcePolicy'
     -- /AccessDeniedException/ error, depending on your permissions.
     secretId :: Prelude.Maybe Prelude.Text,
     -- | A JSON-formatted string constructed according to the grammar and syntax
-    -- for an AWS resource-based policy. The policy in the string identifies
-    -- who can access or manage this secret and its versions. For information
-    -- on how to format a JSON parameter for the various command line tool
-    -- environments, see
+    -- for an Amazon Web Services resource-based policy. The policy in the
+    -- string identifies who can access or manage this secret and its versions.
+    -- For information on how to format a JSON parameter for the various
+    -- command line tool environments, see
     -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
-    -- in the /AWS CLI User Guide/.publi
+    -- in the /CLI User Guide/.publi
     resourcePolicy :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -139,12 +139,12 @@ data ValidateResourcePolicy = ValidateResourcePolicy'
 -- /AccessDeniedException/ error, depending on your permissions.
 --
 -- 'resourcePolicy', 'validateResourcePolicy_resourcePolicy' - A JSON-formatted string constructed according to the grammar and syntax
--- for an AWS resource-based policy. The policy in the string identifies
--- who can access or manage this secret and its versions. For information
--- on how to format a JSON parameter for the various command line tool
--- environments, see
+-- for an Amazon Web Services resource-based policy. The policy in the
+-- string identifies who can access or manage this secret and its versions.
+-- For information on how to format a JSON parameter for the various
+-- command line tool environments, see
 -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
--- in the /AWS CLI User Guide/.publi
+-- in the /CLI User Guide/.publi
 newValidateResourcePolicy ::
   -- | 'resourcePolicy'
   Prelude.Text ->
@@ -181,12 +181,12 @@ validateResourcePolicy_secretId :: Lens.Lens' ValidateResourcePolicy (Prelude.Ma
 validateResourcePolicy_secretId = Lens.lens (\ValidateResourcePolicy' {secretId} -> secretId) (\s@ValidateResourcePolicy' {} a -> s {secretId = a} :: ValidateResourcePolicy)
 
 -- | A JSON-formatted string constructed according to the grammar and syntax
--- for an AWS resource-based policy. The policy in the string identifies
--- who can access or manage this secret and its versions. For information
--- on how to format a JSON parameter for the various command line tool
--- environments, see
+-- for an Amazon Web Services resource-based policy. The policy in the
+-- string identifies who can access or manage this secret and its versions.
+-- For information on how to format a JSON parameter for the various
+-- command line tool environments, see
 -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
--- in the /AWS CLI User Guide/.publi
+-- in the /CLI User Guide/.publi
 validateResourcePolicy_resourcePolicy :: Lens.Lens' ValidateResourcePolicy Prelude.Text
 validateResourcePolicy_resourcePolicy = Lens.lens (\ValidateResourcePolicy' {resourcePolicy} -> resourcePolicy) (\s@ValidateResourcePolicy' {} a -> s {resourcePolicy = a} :: ValidateResourcePolicy)
 

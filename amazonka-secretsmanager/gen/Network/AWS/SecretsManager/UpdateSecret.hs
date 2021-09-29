@@ -30,7 +30,8 @@
 -- The Secrets Manager console uses only the @SecretString@ parameter and
 -- therefore limits you to encrypting and storing only a text string. To
 -- encrypt and store binary data as part of the version of a secret, you
--- must use either the AWS CLI or one of the AWS SDKs.
+-- must use either the Amazon Web Services CLI or one of the Amazon Web
+-- Services SDKs.
 --
 -- -   If a version with a @VersionId@ with the same value as the
 --     @ClientRequestToken@ parameter already exists, the operation results
@@ -43,25 +44,27 @@
 --
 -- -   If you call an operation to encrypt or decrypt the @SecretString@ or
 --     @SecretBinary@ for a secret in the same account as the calling user
---     and that secret doesn\'t specify a AWS KMS encryption key, Secrets
---     Manager uses the account\'s default AWS managed customer master key
---     (CMK) with the alias @aws\/secretsmanager@. If this key doesn\'t
---     already exist in your account then Secrets Manager creates it for
---     you automatically. All users and roles in the same AWS account
+--     and that secret doesn\'t specify a Amazon Web Services KMS
+--     encryption key, Secrets Manager uses the account\'s default Amazon
+--     Web Services managed customer master key (CMK) with the alias
+--     @aws\/secretsmanager@. If this key doesn\'t already exist in your
+--     account then Secrets Manager creates it for you automatically. All
+--     users and roles in the same Amazon Web Services account
 --     automatically have access to use the default CMK. Note that if an
---     Secrets Manager API call results in AWS creating the account\'s
---     AWS-managed CMK, it can result in a one-time significant delay in
---     returning the result.
+--     Secrets Manager API call results in Amazon Web Services creating the
+--     account\'s Amazon Web Services-managed CMK, it can result in a
+--     one-time significant delay in returning the result.
 --
--- -   If the secret resides in a different AWS account from the
---     credentials calling an API that requires encryption or decryption of
---     the secret value then you must create and use a custom AWS KMS CMK
---     because you can\'t access the default CMK for the account using
---     credentials from a different AWS account. Store the ARN of the CMK
---     in the secret when you create the secret or when you update it by
---     including it in the @KMSKeyId@. If you call an API that must encrypt
---     or decrypt @SecretString@ or @SecretBinary@ using credentials from a
---     different account then the AWS KMS key policy must grant
+-- -   If the secret resides in a different Amazon Web Services account
+--     from the credentials calling an API that requires encryption or
+--     decryption of the secret value then you must create and use a custom
+--     Amazon Web Services KMS CMK because you can\'t access the default
+--     CMK for the account using credentials from a different Amazon Web
+--     Services account. Store the ARN of the CMK in the secret when you
+--     create the secret or when you update it by including it in the
+--     @KMSKeyId@. If you call an API that must encrypt or decrypt
+--     @SecretString@ or @SecretBinary@ using credentials from a different
+--     account then the Amazon Web Services KMS key policy must grant
 --     cross-account access to that other account\'s user or role for both
 --     the kms:GenerateDataKey and kms:Decrypt operations.
 --
@@ -71,13 +74,15 @@
 --
 -- -   secretsmanager:UpdateSecret
 --
--- -   kms:GenerateDataKey - needed only if you use a custom AWS KMS key to
---     encrypt the secret. You do not need this permission to use the
---     account\'s AWS managed CMK for Secrets Manager.
+-- -   kms:GenerateDataKey - needed only if you use a custom Amazon Web
+--     Services KMS key to encrypt the secret. You do not need this
+--     permission to use the account\'s Amazon Web Services managed CMK for
+--     Secrets Manager.
 --
--- -   kms:Decrypt - needed only if you use a custom AWS KMS key to encrypt
---     the secret. You do not need this permission to use the account\'s
---     AWS managed CMK for Secrets Manager.
+-- -   kms:Decrypt - needed only if you use a custom Amazon Web Services
+--     KMS key to encrypt the secret. You do not need this permission to
+--     use the account\'s Amazon Web Services managed CMK for Secrets
+--     Manager.
 --
 -- __Related operations__
 --
@@ -108,8 +113,8 @@ module Network.AWS.SecretsManager.UpdateSecret
 
     -- * Response Lenses
     updateSecretResponse_arn,
-    updateSecretResponse_versionId,
     updateSecretResponse_name,
+    updateSecretResponse_versionId,
     updateSecretResponse_httpStatus,
   )
 where
@@ -133,9 +138,9 @@ data UpdateSecret = UpdateSecret'
     --
     -- This parameter is not accessible using the Secrets Manager console.
     secretBinary :: Prelude.Maybe (Core.Sensitive Core.Base64),
-    -- | (Optional) Specifies an updated ARN or alias of the AWS KMS customer
-    -- master key (CMK) to be used to encrypt the protected text in new
-    -- versions of this secret.
+    -- | (Optional) Specifies an updated ARN or alias of the Amazon Web Services
+    -- KMS customer master key (CMK) to be used to encrypt the protected text
+    -- in new versions of this secret.
     --
     -- You can only use the account\'s default CMK to encrypt and decrypt if
     -- you call this operation using credentials from the same account that
@@ -162,7 +167,7 @@ data UpdateSecret = UpdateSecret'
     -- format a JSON parameter for the various command line tool environments,
     -- see
     -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
-    -- in the /AWS CLI User Guide/. For example:
+    -- in the /CLI User Guide/. For example:
     --
     -- @[{\"username\":\"bob\"},{\"password\":\"abc123xyz456\"}]@
     --
@@ -179,12 +184,13 @@ data UpdateSecret = UpdateSecret'
     -- parameter specifies a unique identifier for the new version that helps
     -- ensure idempotency.
     --
-    -- If you use the AWS CLI or one of the AWS SDK to call this operation,
-    -- then you can leave this parameter empty. The CLI or SDK generates a
-    -- random UUID for you and includes that in the request. If you don\'t use
-    -- the SDK and instead generate a raw HTTP request to the Secrets Manager
-    -- service endpoint, then you must generate a @ClientRequestToken@ yourself
-    -- for new versions and include that value in the request.
+    -- If you use the Amazon Web Services CLI or one of the Amazon Web Services
+    -- SDK to call this operation, then you can leave this parameter empty. The
+    -- CLI or SDK generates a random UUID for you and includes that in the
+    -- request. If you don\'t use the SDK and instead generate a raw HTTP
+    -- request to the Secrets Manager service endpoint, then you must generate
+    -- a @ClientRequestToken@ yourself for new versions and include that value
+    -- in the request.
     --
     -- You typically only need to interact with this value if you implement
     -- your own retry logic and want to ensure that a given secret is not
@@ -259,9 +265,9 @@ data UpdateSecret = UpdateSecret'
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
--- 'kmsKeyId', 'updateSecret_kmsKeyId' - (Optional) Specifies an updated ARN or alias of the AWS KMS customer
--- master key (CMK) to be used to encrypt the protected text in new
--- versions of this secret.
+-- 'kmsKeyId', 'updateSecret_kmsKeyId' - (Optional) Specifies an updated ARN or alias of the Amazon Web Services
+-- KMS customer master key (CMK) to be used to encrypt the protected text
+-- in new versions of this secret.
 --
 -- You can only use the account\'s default CMK to encrypt and decrypt if
 -- you call this operation using credentials from the same account that
@@ -288,7 +294,7 @@ data UpdateSecret = UpdateSecret'
 -- format a JSON parameter for the various command line tool environments,
 -- see
 -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
--- in the /AWS CLI User Guide/. For example:
+-- in the /CLI User Guide/. For example:
 --
 -- @[{\"username\":\"bob\"},{\"password\":\"abc123xyz456\"}]@
 --
@@ -305,12 +311,13 @@ data UpdateSecret = UpdateSecret'
 -- parameter specifies a unique identifier for the new version that helps
 -- ensure idempotency.
 --
--- If you use the AWS CLI or one of the AWS SDK to call this operation,
--- then you can leave this parameter empty. The CLI or SDK generates a
--- random UUID for you and includes that in the request. If you don\'t use
--- the SDK and instead generate a raw HTTP request to the Secrets Manager
--- service endpoint, then you must generate a @ClientRequestToken@ yourself
--- for new versions and include that value in the request.
+-- If you use the Amazon Web Services CLI or one of the Amazon Web Services
+-- SDK to call this operation, then you can leave this parameter empty. The
+-- CLI or SDK generates a random UUID for you and includes that in the
+-- request. If you don\'t use the SDK and instead generate a raw HTTP
+-- request to the Secrets Manager service endpoint, then you must generate
+-- a @ClientRequestToken@ yourself for new versions and include that value
+-- in the request.
 --
 -- You typically only need to interact with this value if you implement
 -- your own retry logic and want to ensure that a given secret is not
@@ -389,9 +396,9 @@ newUpdateSecret pSecretId_ =
 updateSecret_secretBinary :: Lens.Lens' UpdateSecret (Prelude.Maybe Prelude.ByteString)
 updateSecret_secretBinary = Lens.lens (\UpdateSecret' {secretBinary} -> secretBinary) (\s@UpdateSecret' {} a -> s {secretBinary = a} :: UpdateSecret) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
 
--- | (Optional) Specifies an updated ARN or alias of the AWS KMS customer
--- master key (CMK) to be used to encrypt the protected text in new
--- versions of this secret.
+-- | (Optional) Specifies an updated ARN or alias of the Amazon Web Services
+-- KMS customer master key (CMK) to be used to encrypt the protected text
+-- in new versions of this secret.
 --
 -- You can only use the account\'s default CMK to encrypt and decrypt if
 -- you call this operation using credentials from the same account that
@@ -422,7 +429,7 @@ updateSecret_description = Lens.lens (\UpdateSecret' {description} -> descriptio
 -- format a JSON parameter for the various command line tool environments,
 -- see
 -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
--- in the /AWS CLI User Guide/. For example:
+-- in the /CLI User Guide/. For example:
 --
 -- @[{\"username\":\"bob\"},{\"password\":\"abc123xyz456\"}]@
 --
@@ -441,12 +448,13 @@ updateSecret_secretString = Lens.lens (\UpdateSecret' {secretString} -> secretSt
 -- parameter specifies a unique identifier for the new version that helps
 -- ensure idempotency.
 --
--- If you use the AWS CLI or one of the AWS SDK to call this operation,
--- then you can leave this parameter empty. The CLI or SDK generates a
--- random UUID for you and includes that in the request. If you don\'t use
--- the SDK and instead generate a raw HTTP request to the Secrets Manager
--- service endpoint, then you must generate a @ClientRequestToken@ yourself
--- for new versions and include that value in the request.
+-- If you use the Amazon Web Services CLI or one of the Amazon Web Services
+-- SDK to call this operation, then you can leave this parameter empty. The
+-- CLI or SDK generates a random UUID for you and includes that in the
+-- request. If you don\'t use the SDK and instead generate a raw HTTP
+-- request to the Secrets Manager service endpoint, then you must generate
+-- a @ClientRequestToken@ yourself for new versions and include that value
+-- in the request.
 --
 -- You typically only need to interact with this value if you implement
 -- your own retry logic and want to ensure that a given secret is not
@@ -508,8 +516,8 @@ instance Core.AWSRequest UpdateSecret where
       ( \s h x ->
           UpdateSecretResponse'
             Prelude.<$> (x Core..?> "ARN")
-            Prelude.<*> (x Core..?> "VersionId")
             Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -564,11 +572,11 @@ data UpdateSecretResponse = UpdateSecretResponse'
     -- automatically get access to the new secret because the ARNs are
     -- different.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The friendly name of the secret that was updated.
+    name :: Prelude.Maybe Prelude.Text,
     -- | If a new version of the secret was created by this operation, then
     -- @VersionId@ contains the unique identifier of the new version.
     versionId :: Prelude.Maybe Prelude.Text,
-    -- | The friendly name of the secret that was updated.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -592,10 +600,10 @@ data UpdateSecretResponse = UpdateSecretResponse'
 -- automatically get access to the new secret because the ARNs are
 -- different.
 --
+-- 'name', 'updateSecretResponse_name' - The friendly name of the secret that was updated.
+--
 -- 'versionId', 'updateSecretResponse_versionId' - If a new version of the secret was created by this operation, then
 -- @VersionId@ contains the unique identifier of the new version.
---
--- 'name', 'updateSecretResponse_name' - The friendly name of the secret that was updated.
 --
 -- 'httpStatus', 'updateSecretResponse_httpStatus' - The response's http status code.
 newUpdateSecretResponse ::
@@ -605,8 +613,8 @@ newUpdateSecretResponse ::
 newUpdateSecretResponse pHttpStatus_ =
   UpdateSecretResponse'
     { arn = Prelude.Nothing,
-      versionId = Prelude.Nothing,
       name = Prelude.Nothing,
+      versionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -622,14 +630,14 @@ newUpdateSecretResponse pHttpStatus_ =
 updateSecretResponse_arn :: Lens.Lens' UpdateSecretResponse (Prelude.Maybe Prelude.Text)
 updateSecretResponse_arn = Lens.lens (\UpdateSecretResponse' {arn} -> arn) (\s@UpdateSecretResponse' {} a -> s {arn = a} :: UpdateSecretResponse)
 
+-- | The friendly name of the secret that was updated.
+updateSecretResponse_name :: Lens.Lens' UpdateSecretResponse (Prelude.Maybe Prelude.Text)
+updateSecretResponse_name = Lens.lens (\UpdateSecretResponse' {name} -> name) (\s@UpdateSecretResponse' {} a -> s {name = a} :: UpdateSecretResponse)
+
 -- | If a new version of the secret was created by this operation, then
 -- @VersionId@ contains the unique identifier of the new version.
 updateSecretResponse_versionId :: Lens.Lens' UpdateSecretResponse (Prelude.Maybe Prelude.Text)
 updateSecretResponse_versionId = Lens.lens (\UpdateSecretResponse' {versionId} -> versionId) (\s@UpdateSecretResponse' {} a -> s {versionId = a} :: UpdateSecretResponse)
-
--- | The friendly name of the secret that was updated.
-updateSecretResponse_name :: Lens.Lens' UpdateSecretResponse (Prelude.Maybe Prelude.Text)
-updateSecretResponse_name = Lens.lens (\UpdateSecretResponse' {name} -> name) (\s@UpdateSecretResponse' {} a -> s {name = a} :: UpdateSecretResponse)
 
 -- | The response's http status code.
 updateSecretResponse_httpStatus :: Lens.Lens' UpdateSecretResponse Prelude.Int

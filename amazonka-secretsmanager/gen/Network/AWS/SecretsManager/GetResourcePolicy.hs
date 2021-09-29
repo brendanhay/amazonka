@@ -212,8 +212,8 @@ data GetResourcePolicyResponse = GetResourcePolicyResponse'
     -- any permissions that are associated with the user or role that attempts
     -- to access this secret. The combined permissions specify who can access
     -- the secret and what actions they can perform. For more information, see
-    -- <http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and Access Control for AWS Secrets Manager>
-    -- in the /AWS Secrets Manager User Guide/.
+    -- <http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and Access Control for Amazon Web Services Secrets Manager>
+    -- in the /Amazon Web Services Secrets Manager User Guide/.
     resourcePolicy :: Prelude.Maybe Prelude.Text,
     -- | The friendly name of the secret that the resource-based policy was
     -- retrieved for.
@@ -238,8 +238,8 @@ data GetResourcePolicyResponse = GetResourcePolicyResponse'
 -- any permissions that are associated with the user or role that attempts
 -- to access this secret. The combined permissions specify who can access
 -- the secret and what actions they can perform. For more information, see
--- <http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and Access Control for AWS Secrets Manager>
--- in the /AWS Secrets Manager User Guide/.
+-- <http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and Access Control for Amazon Web Services Secrets Manager>
+-- in the /Amazon Web Services Secrets Manager User Guide/.
 --
 -- 'name', 'getResourcePolicyResponse_name' - The friendly name of the secret that the resource-based policy was
 -- retrieved for.
@@ -266,8 +266,8 @@ getResourcePolicyResponse_arn = Lens.lens (\GetResourcePolicyResponse' {arn} -> 
 -- any permissions that are associated with the user or role that attempts
 -- to access this secret. The combined permissions specify who can access
 -- the secret and what actions they can perform. For more information, see
--- <http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and Access Control for AWS Secrets Manager>
--- in the /AWS Secrets Manager User Guide/.
+-- <http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and Access Control for Amazon Web Services Secrets Manager>
+-- in the /Amazon Web Services Secrets Manager User Guide/.
 getResourcePolicyResponse_resourcePolicy :: Lens.Lens' GetResourcePolicyResponse (Prelude.Maybe Prelude.Text)
 getResourcePolicyResponse_resourcePolicy = Lens.lens (\GetResourcePolicyResponse' {resourcePolicy} -> resourcePolicy) (\s@GetResourcePolicyResponse' {} a -> s {resourcePolicy = a} :: GetResourcePolicyResponse)
 

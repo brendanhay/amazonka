@@ -28,17 +28,17 @@
 -- rotation completes, the protected service and its clients all use the
 -- new version of the secret.
 --
--- This required configuration information includes the ARN of an AWS
--- Lambda function and the time between scheduled rotations. The Lambda
--- rotation function creates a new version of the secret and creates or
--- updates the credentials on the protected service to match. After testing
--- the new credentials, the function marks the new secret with the staging
--- label @AWSCURRENT@ so that your clients all immediately begin to use the
--- new version. For more information about rotating secrets and how to
--- configure a Lambda function to rotate the secrets for your protected
--- service, see
--- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html Rotating Secrets in AWS Secrets Manager>
--- in the /AWS Secrets Manager User Guide/.
+-- This required configuration information includes the ARN of an Amazon
+-- Web Services Lambda function and optionally, the time between scheduled
+-- rotations. The Lambda rotation function creates a new version of the
+-- secret and creates or updates the credentials on the protected service
+-- to match. After testing the new credentials, the function marks the new
+-- secret with the staging label @AWSCURRENT@ so that your clients all
+-- immediately begin to use the new version. For more information about
+-- rotating secrets and how to configure a Lambda function to rotate the
+-- secrets for your protected service, see
+-- <https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html Rotating Secrets in Amazon Web Services Secrets Manager>
+-- in the /Amazon Web Services Secrets Manager User Guide/.
 --
 -- Secrets Manager schedules the next rotation when the previous one
 -- completes. Secrets Manager schedules the date by adding the rotation
@@ -98,8 +98,8 @@ module Network.AWS.SecretsManager.RotateSecret
 
     -- * Response Lenses
     rotateSecretResponse_arn,
-    rotateSecretResponse_versionId,
     rotateSecretResponse_name,
+    rotateSecretResponse_versionId,
     rotateSecretResponse_httpStatus,
   )
 where
@@ -121,13 +121,13 @@ data RotateSecret = RotateSecret'
     -- | (Optional) Specifies a unique identifier for the new version of the
     -- secret that helps ensure idempotency.
     --
-    -- If you use the AWS CLI or one of the AWS SDK to call this operation,
-    -- then you can leave this parameter empty. The CLI or SDK generates a
-    -- random UUID for you and includes that in the request for this parameter.
-    -- If you don\'t use the SDK and instead generate a raw HTTP request to the
-    -- Secrets Manager service endpoint, then you must generate a
-    -- @ClientRequestToken@ yourself for new versions and include that value in
-    -- the request.
+    -- If you use the Amazon Web Services CLI or one of the Amazon Web Services
+    -- SDK to call this operation, then you can leave this parameter empty. The
+    -- CLI or SDK generates a random UUID for you and includes that in the
+    -- request for this parameter. If you don\'t use the SDK and instead
+    -- generate a raw HTTP request to the Secrets Manager service endpoint,
+    -- then you must generate a @ClientRequestToken@ yourself for new versions
+    -- and include that value in the request.
     --
     -- You only need to specify your own value if you implement your own retry
     -- logic and want to ensure that a given secret is not created twice. We
@@ -181,13 +181,13 @@ data RotateSecret = RotateSecret'
 -- 'clientRequestToken', 'rotateSecret_clientRequestToken' - (Optional) Specifies a unique identifier for the new version of the
 -- secret that helps ensure idempotency.
 --
--- If you use the AWS CLI or one of the AWS SDK to call this operation,
--- then you can leave this parameter empty. The CLI or SDK generates a
--- random UUID for you and includes that in the request for this parameter.
--- If you don\'t use the SDK and instead generate a raw HTTP request to the
--- Secrets Manager service endpoint, then you must generate a
--- @ClientRequestToken@ yourself for new versions and include that value in
--- the request.
+-- If you use the Amazon Web Services CLI or one of the Amazon Web Services
+-- SDK to call this operation, then you can leave this parameter empty. The
+-- CLI or SDK generates a random UUID for you and includes that in the
+-- request for this parameter. If you don\'t use the SDK and instead
+-- generate a raw HTTP request to the Secrets Manager service endpoint,
+-- then you must generate a @ClientRequestToken@ yourself for new versions
+-- and include that value in the request.
 --
 -- You only need to specify your own value if you implement your own retry
 -- logic and want to ensure that a given secret is not created twice. We
@@ -245,13 +245,13 @@ rotateSecret_rotationLambdaARN = Lens.lens (\RotateSecret' {rotationLambdaARN} -
 -- | (Optional) Specifies a unique identifier for the new version of the
 -- secret that helps ensure idempotency.
 --
--- If you use the AWS CLI or one of the AWS SDK to call this operation,
--- then you can leave this parameter empty. The CLI or SDK generates a
--- random UUID for you and includes that in the request for this parameter.
--- If you don\'t use the SDK and instead generate a raw HTTP request to the
--- Secrets Manager service endpoint, then you must generate a
--- @ClientRequestToken@ yourself for new versions and include that value in
--- the request.
+-- If you use the Amazon Web Services CLI or one of the Amazon Web Services
+-- SDK to call this operation, then you can leave this parameter empty. The
+-- CLI or SDK generates a random UUID for you and includes that in the
+-- request for this parameter. If you don\'t use the SDK and instead
+-- generate a raw HTTP request to the Secrets Manager service endpoint,
+-- then you must generate a @ClientRequestToken@ yourself for new versions
+-- and include that value in the request.
 --
 -- You only need to specify your own value if you implement your own retry
 -- logic and want to ensure that a given secret is not created twice. We
@@ -298,8 +298,8 @@ instance Core.AWSRequest RotateSecret where
       ( \s h x ->
           RotateSecretResponse'
             Prelude.<$> (x Core..?> "ARN")
-            Prelude.<*> (x Core..?> "VersionId")
             Prelude.<*> (x Core..?> "Name")
+            Prelude.<*> (x Core..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -345,11 +345,11 @@ instance Core.ToQuery RotateSecret where
 data RotateSecretResponse = RotateSecretResponse'
   { -- | The ARN of the secret.
     arn :: Prelude.Maybe Prelude.Text,
+    -- | The friendly name of the secret.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The ID of the new version of the secret created by the rotation started
     -- by this request.
     versionId :: Prelude.Maybe Prelude.Text,
-    -- | The friendly name of the secret.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -365,10 +365,10 @@ data RotateSecretResponse = RotateSecretResponse'
 --
 -- 'arn', 'rotateSecretResponse_arn' - The ARN of the secret.
 --
+-- 'name', 'rotateSecretResponse_name' - The friendly name of the secret.
+--
 -- 'versionId', 'rotateSecretResponse_versionId' - The ID of the new version of the secret created by the rotation started
 -- by this request.
---
--- 'name', 'rotateSecretResponse_name' - The friendly name of the secret.
 --
 -- 'httpStatus', 'rotateSecretResponse_httpStatus' - The response's http status code.
 newRotateSecretResponse ::
@@ -378,8 +378,8 @@ newRotateSecretResponse ::
 newRotateSecretResponse pHttpStatus_ =
   RotateSecretResponse'
     { arn = Prelude.Nothing,
-      versionId = Prelude.Nothing,
       name = Prelude.Nothing,
+      versionId = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -387,14 +387,14 @@ newRotateSecretResponse pHttpStatus_ =
 rotateSecretResponse_arn :: Lens.Lens' RotateSecretResponse (Prelude.Maybe Prelude.Text)
 rotateSecretResponse_arn = Lens.lens (\RotateSecretResponse' {arn} -> arn) (\s@RotateSecretResponse' {} a -> s {arn = a} :: RotateSecretResponse)
 
+-- | The friendly name of the secret.
+rotateSecretResponse_name :: Lens.Lens' RotateSecretResponse (Prelude.Maybe Prelude.Text)
+rotateSecretResponse_name = Lens.lens (\RotateSecretResponse' {name} -> name) (\s@RotateSecretResponse' {} a -> s {name = a} :: RotateSecretResponse)
+
 -- | The ID of the new version of the secret created by the rotation started
 -- by this request.
 rotateSecretResponse_versionId :: Lens.Lens' RotateSecretResponse (Prelude.Maybe Prelude.Text)
 rotateSecretResponse_versionId = Lens.lens (\RotateSecretResponse' {versionId} -> versionId) (\s@RotateSecretResponse' {} a -> s {versionId = a} :: RotateSecretResponse)
-
--- | The friendly name of the secret.
-rotateSecretResponse_name :: Lens.Lens' RotateSecretResponse (Prelude.Maybe Prelude.Text)
-rotateSecretResponse_name = Lens.lens (\RotateSecretResponse' {name} -> name) (\s@RotateSecretResponse' {} a -> s {name = a} :: RotateSecretResponse)
 
 -- | The response's http status code.
 rotateSecretResponse_httpStatus :: Lens.Lens' RotateSecretResponse Prelude.Int

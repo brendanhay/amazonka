@@ -27,8 +27,9 @@
 -- can also use a combination of both identity-based and resource-based
 -- policies. The affected users and roles receive the permissions that are
 -- permitted by all of the relevant policies. For more information, see
--- <http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html Using Resource-Based Policies for AWS Secrets Manager>.
--- For the complete description of the AWS policy syntax and grammar, see
+-- <http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html Using Resource-Based Policies for Amazon Web Services Secrets Manager>.
+-- For the complete description of the Amazon Web Services policy syntax
+-- and grammar, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html IAM JSON Policy Reference>
 -- in the /IAM User Guide/.
 --
@@ -103,12 +104,12 @@ data PutResourcePolicy = PutResourcePolicy'
     -- /AccessDeniedException/ error, depending on your permissions.
     secretId :: Prelude.Text,
     -- | A JSON-formatted string constructed according to the grammar and syntax
-    -- for an AWS resource-based policy. The policy in the string identifies
-    -- who can access or manage this secret and its versions. For information
-    -- on how to format a JSON parameter for the various command line tool
-    -- environments, see
+    -- for an Amazon Web Services resource-based policy. The policy in the
+    -- string identifies who can access or manage this secret and its versions.
+    -- For information on how to format a JSON parameter for the various
+    -- command line tool environments, see
     -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
-    -- in the /AWS CLI User Guide/.
+    -- in the /CLI User Guide/.
     resourcePolicy :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -147,12 +148,12 @@ data PutResourcePolicy = PutResourcePolicy'
 -- /AccessDeniedException/ error, depending on your permissions.
 --
 -- 'resourcePolicy', 'putResourcePolicy_resourcePolicy' - A JSON-formatted string constructed according to the grammar and syntax
--- for an AWS resource-based policy. The policy in the string identifies
--- who can access or manage this secret and its versions. For information
--- on how to format a JSON parameter for the various command line tool
--- environments, see
+-- for an Amazon Web Services resource-based policy. The policy in the
+-- string identifies who can access or manage this secret and its versions.
+-- For information on how to format a JSON parameter for the various
+-- command line tool environments, see
 -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
--- in the /AWS CLI User Guide/.
+-- in the /CLI User Guide/.
 newPutResourcePolicy ::
   -- | 'secretId'
   Prelude.Text ->
@@ -197,12 +198,12 @@ putResourcePolicy_secretId :: Lens.Lens' PutResourcePolicy Prelude.Text
 putResourcePolicy_secretId = Lens.lens (\PutResourcePolicy' {secretId} -> secretId) (\s@PutResourcePolicy' {} a -> s {secretId = a} :: PutResourcePolicy)
 
 -- | A JSON-formatted string constructed according to the grammar and syntax
--- for an AWS resource-based policy. The policy in the string identifies
--- who can access or manage this secret and its versions. For information
--- on how to format a JSON parameter for the various command line tool
--- environments, see
+-- for an Amazon Web Services resource-based policy. The policy in the
+-- string identifies who can access or manage this secret and its versions.
+-- For information on how to format a JSON parameter for the various
+-- command line tool environments, see
 -- <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
--- in the /AWS CLI User Guide/.
+-- in the /CLI User Guide/.
 putResourcePolicy_resourcePolicy :: Lens.Lens' PutResourcePolicy Prelude.Text
 putResourcePolicy_resourcePolicy = Lens.lens (\PutResourcePolicy' {resourcePolicy} -> resourcePolicy) (\s@PutResourcePolicy' {} a -> s {resourcePolicy = a} :: PutResourcePolicy)
 

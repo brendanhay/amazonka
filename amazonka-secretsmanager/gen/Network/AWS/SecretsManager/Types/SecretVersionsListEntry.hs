@@ -29,6 +29,8 @@ import qualified Network.AWS.Prelude as Prelude
 data SecretVersionsListEntry = SecretVersionsListEntry'
   { -- | The date and time this version of the secret was created.
     createdDate :: Prelude.Maybe Core.POSIX,
+    -- | The KMS keys used to encrypt the secret version.
+    kmsKeyIds :: Prelude.Maybe [Prelude.Text],
     -- | An array of staging labels that are currently associated with this
     -- version of the secret.
     versionStages :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
@@ -51,6 +53,8 @@ data SecretVersionsListEntry = SecretVersionsListEntry'
 --
 -- 'createdDate', 'secretVersionsListEntry_createdDate' - The date and time this version of the secret was created.
 --
+-- 'kmsKeyIds', 'secretVersionsListEntry_kmsKeyIds' - The KMS keys used to encrypt the secret version.
+--
 -- 'versionStages', 'secretVersionsListEntry_versionStages' - An array of staging labels that are currently associated with this
 -- version of the secret.
 --
@@ -65,6 +69,7 @@ newSecretVersionsListEntry =
   SecretVersionsListEntry'
     { createdDate =
         Prelude.Nothing,
+      kmsKeyIds = Prelude.Nothing,
       versionStages = Prelude.Nothing,
       versionId = Prelude.Nothing,
       lastAccessedDate = Prelude.Nothing
@@ -73,6 +78,10 @@ newSecretVersionsListEntry =
 -- | The date and time this version of the secret was created.
 secretVersionsListEntry_createdDate :: Lens.Lens' SecretVersionsListEntry (Prelude.Maybe Prelude.UTCTime)
 secretVersionsListEntry_createdDate = Lens.lens (\SecretVersionsListEntry' {createdDate} -> createdDate) (\s@SecretVersionsListEntry' {} a -> s {createdDate = a} :: SecretVersionsListEntry) Prelude.. Lens.mapping Core._Time
+
+-- | The KMS keys used to encrypt the secret version.
+secretVersionsListEntry_kmsKeyIds :: Lens.Lens' SecretVersionsListEntry (Prelude.Maybe [Prelude.Text])
+secretVersionsListEntry_kmsKeyIds = Lens.lens (\SecretVersionsListEntry' {kmsKeyIds} -> kmsKeyIds) (\s@SecretVersionsListEntry' {} a -> s {kmsKeyIds = a} :: SecretVersionsListEntry) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An array of staging labels that are currently associated with this
 -- version of the secret.
@@ -96,6 +105,7 @@ instance Core.FromJSON SecretVersionsListEntry where
       ( \x ->
           SecretVersionsListEntry'
             Prelude.<$> (x Core..:? "CreatedDate")
+            Prelude.<*> (x Core..:? "KmsKeyIds" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "VersionStages")
             Prelude.<*> (x Core..:? "VersionId")
             Prelude.<*> (x Core..:? "LastAccessedDate")

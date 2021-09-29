@@ -96,7 +96,7 @@ data UntagResource = UntagResource'
     -- information on how to format a JSON parameter for the various command
     -- line tool environments, see
     -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
-    -- in the /AWS CLI User Guide/.
+    -- in the /CLI User Guide/.
     tagKeys :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -139,7 +139,7 @@ data UntagResource = UntagResource'
 -- information on how to format a JSON parameter for the various command
 -- line tool environments, see
 -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
--- in the /AWS CLI User Guide/.
+-- in the /CLI User Guide/.
 newUntagResource ::
   -- | 'secretId'
   Prelude.Text ->
@@ -182,7 +182,7 @@ untagResource_secretId = Lens.lens (\UntagResource' {secretId} -> secretId) (\s@
 -- information on how to format a JSON parameter for the various command
 -- line tool environments, see
 -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
--- in the /AWS CLI User Guide/.
+-- in the /CLI User Guide/.
 untagResource_tagKeys :: Lens.Lens' UntagResource [Prelude.Text]
 untagResource_tagKeys = Lens.lens (\UntagResource' {tagKeys} -> tagKeys) (\s@UntagResource' {} a -> s {tagKeys = a} :: UntagResource) Prelude.. Lens._Coerce
 

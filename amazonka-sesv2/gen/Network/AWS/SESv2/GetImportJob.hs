@@ -35,8 +35,8 @@ module Network.AWS.SESv2.GetImportJob
 
     -- * Response Lenses
     getImportJobResponse_failedRecordsCount,
-    getImportJobResponse_createdTimestamp,
     getImportJobResponse_failureInfo,
+    getImportJobResponse_createdTimestamp,
     getImportJobResponse_jobStatus,
     getImportJobResponse_completedTimestamp,
     getImportJobResponse_importDataSource,
@@ -92,8 +92,8 @@ instance Core.AWSRequest GetImportJob where
       ( \s h x ->
           GetImportJobResponse'
             Prelude.<$> (x Core..?> "FailedRecordsCount")
-            Prelude.<*> (x Core..?> "CreatedTimestamp")
             Prelude.<*> (x Core..?> "FailureInfo")
+            Prelude.<*> (x Core..?> "CreatedTimestamp")
             Prelude.<*> (x Core..?> "JobStatus")
             Prelude.<*> (x Core..?> "CompletedTimestamp")
             Prelude.<*> (x Core..?> "ImportDataSource")
@@ -134,10 +134,10 @@ data GetImportJobResponse = GetImportJobResponse'
   { -- | The number of records that failed processing because of invalid input or
     -- other reasons.
     failedRecordsCount :: Prelude.Maybe Prelude.Int,
-    -- | The time stamp of when the import job was created.
-    createdTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The failure details about an import job.
     failureInfo :: Prelude.Maybe FailureInfo,
+    -- | The time stamp of when the import job was created.
+    createdTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The status of the import job.
     jobStatus :: Prelude.Maybe JobStatus,
     -- | The time stamp of when the import job was completed.
@@ -166,9 +166,9 @@ data GetImportJobResponse = GetImportJobResponse'
 -- 'failedRecordsCount', 'getImportJobResponse_failedRecordsCount' - The number of records that failed processing because of invalid input or
 -- other reasons.
 --
--- 'createdTimestamp', 'getImportJobResponse_createdTimestamp' - The time stamp of when the import job was created.
---
 -- 'failureInfo', 'getImportJobResponse_failureInfo' - The failure details about an import job.
+--
+-- 'createdTimestamp', 'getImportJobResponse_createdTimestamp' - The time stamp of when the import job was created.
 --
 -- 'jobStatus', 'getImportJobResponse_jobStatus' - The status of the import job.
 --
@@ -191,8 +191,8 @@ newGetImportJobResponse pHttpStatus_ =
   GetImportJobResponse'
     { failedRecordsCount =
         Prelude.Nothing,
-      createdTimestamp = Prelude.Nothing,
       failureInfo = Prelude.Nothing,
+      createdTimestamp = Prelude.Nothing,
       jobStatus = Prelude.Nothing,
       completedTimestamp = Prelude.Nothing,
       importDataSource = Prelude.Nothing,
@@ -207,13 +207,13 @@ newGetImportJobResponse pHttpStatus_ =
 getImportJobResponse_failedRecordsCount :: Lens.Lens' GetImportJobResponse (Prelude.Maybe Prelude.Int)
 getImportJobResponse_failedRecordsCount = Lens.lens (\GetImportJobResponse' {failedRecordsCount} -> failedRecordsCount) (\s@GetImportJobResponse' {} a -> s {failedRecordsCount = a} :: GetImportJobResponse)
 
--- | The time stamp of when the import job was created.
-getImportJobResponse_createdTimestamp :: Lens.Lens' GetImportJobResponse (Prelude.Maybe Prelude.UTCTime)
-getImportJobResponse_createdTimestamp = Lens.lens (\GetImportJobResponse' {createdTimestamp} -> createdTimestamp) (\s@GetImportJobResponse' {} a -> s {createdTimestamp = a} :: GetImportJobResponse) Prelude.. Lens.mapping Core._Time
-
 -- | The failure details about an import job.
 getImportJobResponse_failureInfo :: Lens.Lens' GetImportJobResponse (Prelude.Maybe FailureInfo)
 getImportJobResponse_failureInfo = Lens.lens (\GetImportJobResponse' {failureInfo} -> failureInfo) (\s@GetImportJobResponse' {} a -> s {failureInfo = a} :: GetImportJobResponse)
+
+-- | The time stamp of when the import job was created.
+getImportJobResponse_createdTimestamp :: Lens.Lens' GetImportJobResponse (Prelude.Maybe Prelude.UTCTime)
+getImportJobResponse_createdTimestamp = Lens.lens (\GetImportJobResponse' {createdTimestamp} -> createdTimestamp) (\s@GetImportJobResponse' {} a -> s {createdTimestamp = a} :: GetImportJobResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The status of the import job.
 getImportJobResponse_jobStatus :: Lens.Lens' GetImportJobResponse (Prelude.Maybe JobStatus)

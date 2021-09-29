@@ -20,13 +20,13 @@ module Network.AWS.SESv2.Types
     _NotFoundException,
     _BadRequestException,
     _MailFromDomainNotVerifiedException,
-    _SendingPausedException,
     _MessageRejected,
+    _SendingPausedException,
     _ConcurrentModificationException,
     _InvalidNextTokenException,
-    _LimitExceededException,
-    _ConflictException,
     _AlreadyExistsException,
+    _ConflictException,
+    _LimitExceededException,
     _AccountSuspendedException,
     _TooManyRequestsException,
 
@@ -153,8 +153,8 @@ module Network.AWS.SESv2.Types
     -- * Contact
     Contact (..),
     newContact,
-    contact_unsubscribeAll,
     contact_topicDefaultPreferences,
+    contact_unsubscribeAll,
     contact_topicPreferences,
     contact_lastUpdatedTimestamp,
     contact_emailAddress,
@@ -228,8 +228,8 @@ module Network.AWS.SESv2.Types
     DkimAttributes (..),
     newDkimAttributes,
     dkimAttributes_status,
-    dkimAttributes_tokens,
     dkimAttributes_signingAttributesOrigin,
+    dkimAttributes_tokens,
     dkimAttributes_signingEnabled,
 
     -- * DkimSigningAttributes
@@ -242,18 +242,18 @@ module Network.AWS.SESv2.Types
     DomainDeliverabilityCampaign (..),
     newDomainDeliverabilityCampaign,
     domainDeliverabilityCampaign_projectedVolume,
-    domainDeliverabilityCampaign_readDeleteRate,
     domainDeliverabilityCampaign_inboxCount,
+    domainDeliverabilityCampaign_readDeleteRate,
     domainDeliverabilityCampaign_firstSeenDateTime,
     domainDeliverabilityCampaign_lastSeenDateTime,
-    domainDeliverabilityCampaign_deleteRate,
     domainDeliverabilityCampaign_campaignId,
-    domainDeliverabilityCampaign_spamCount,
+    domainDeliverabilityCampaign_deleteRate,
     domainDeliverabilityCampaign_imageUrl,
+    domainDeliverabilityCampaign_spamCount,
     domainDeliverabilityCampaign_subject,
     domainDeliverabilityCampaign_sendingIps,
-    domainDeliverabilityCampaign_fromAddress,
     domainDeliverabilityCampaign_readRate,
+    domainDeliverabilityCampaign_fromAddress,
     domainDeliverabilityCampaign_esps,
 
     -- * DomainDeliverabilityTrackingOption
@@ -322,8 +322,8 @@ module Network.AWS.SESv2.Types
     -- * IdentityInfo
     IdentityInfo (..),
     newIdentityInfo,
-    identityInfo_identityName,
     identityInfo_sendingEnabled,
+    identityInfo_identityName,
     identityInfo_identityType,
 
     -- * ImportDataSource
@@ -730,6 +730,14 @@ _MailFromDomainNotVerifiedException =
     "MailFromDomainNotVerifiedException"
     Prelude.. Core.hasStatus 400
 
+-- | The message can\'t be sent because it contains invalid content.
+_MessageRejected :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_MessageRejected =
+  Core._MatchServiceError
+    defaultService
+    "MessageRejected"
+    Prelude.. Core.hasStatus 400
+
 -- | The message can\'t be sent because the account\'s ability to send email
 -- is currently paused.
 _SendingPausedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -737,14 +745,6 @@ _SendingPausedException =
   Core._MatchServiceError
     defaultService
     "SendingPausedException"
-    Prelude.. Core.hasStatus 400
-
--- | The message can\'t be sent because it contains invalid content.
-_MessageRejected :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_MessageRejected =
-  Core._MatchServiceError
-    defaultService
-    "MessageRejected"
     Prelude.. Core.hasStatus 400
 
 -- | The resource is being modified by another operation or thread.
@@ -763,12 +763,12 @@ _InvalidNextTokenException =
     "InvalidNextTokenException"
     Prelude.. Core.hasStatus 400
 
--- | There are too many instances of the specified resource type.
-_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
+-- | The resource specified in your request already exists.
+_AlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AlreadyExistsException =
   Core._MatchServiceError
     defaultService
-    "LimitExceededException"
+    "AlreadyExistsException"
     Prelude.. Core.hasStatus 400
 
 -- | If there is already an ongoing account details update under review.
@@ -779,12 +779,12 @@ _ConflictException =
     "ConflictException"
     Prelude.. Core.hasStatus 409
 
--- | The resource specified in your request already exists.
-_AlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AlreadyExistsException =
+-- | There are too many instances of the specified resource type.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
   Core._MatchServiceError
     defaultService
-    "AlreadyExistsException"
+    "LimitExceededException"
     Prelude.. Core.hasStatus 400
 
 -- | The message can\'t be sent because the account\'s ability to send email

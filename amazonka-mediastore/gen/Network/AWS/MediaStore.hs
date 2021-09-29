@@ -30,11 +30,11 @@ module Network.AWS.MediaStore
     -- ** PolicyNotFoundException
     _PolicyNotFoundException,
 
-    -- ** LimitExceededException
-    _LimitExceededException,
-
     -- ** CorsPolicyNotFoundException
     _CorsPolicyNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- ** ContainerNotFoundException
     _ContainerNotFoundException,
@@ -57,17 +57,17 @@ module Network.AWS.MediaStore
     PutCorsPolicyResponse (PutCorsPolicyResponse'),
     newPutCorsPolicyResponse,
 
-    -- ** PutContainerPolicy
-    PutContainerPolicy (PutContainerPolicy'),
-    newPutContainerPolicy,
-    PutContainerPolicyResponse (PutContainerPolicyResponse'),
-    newPutContainerPolicyResponse,
-
     -- ** DeleteContainer
     DeleteContainer (DeleteContainer'),
     newDeleteContainer,
     DeleteContainerResponse (DeleteContainerResponse'),
     newDeleteContainerResponse,
+
+    -- ** PutContainerPolicy
+    PutContainerPolicy (PutContainerPolicy'),
+    newPutContainerPolicy,
+    PutContainerPolicyResponse (PutContainerPolicyResponse'),
+    newPutContainerPolicyResponse,
 
     -- ** GetCorsPolicy
     GetCorsPolicy (GetCorsPolicy'),
@@ -105,6 +105,12 @@ module Network.AWS.MediaStore
     GetMetricPolicyResponse (GetMetricPolicyResponse'),
     newGetMetricPolicyResponse,
 
+    -- ** StopAccessLogging
+    StopAccessLogging (StopAccessLogging'),
+    newStopAccessLogging,
+    StopAccessLoggingResponse (StopAccessLoggingResponse'),
+    newStopAccessLoggingResponse,
+
     -- ** StartAccessLogging
     StartAccessLogging (StartAccessLogging'),
     newStartAccessLogging,
@@ -116,12 +122,6 @@ module Network.AWS.MediaStore
     newDeleteLifecyclePolicy,
     DeleteLifecyclePolicyResponse (DeleteLifecyclePolicyResponse'),
     newDeleteLifecyclePolicyResponse,
-
-    -- ** StopAccessLogging
-    StopAccessLogging (StopAccessLogging'),
-    newStopAccessLogging,
-    StopAccessLoggingResponse (StopAccessLoggingResponse'),
-    newStopAccessLoggingResponse,
 
     -- ** DeleteCorsPolicy
     DeleteCorsPolicy (DeleteCorsPolicy'),

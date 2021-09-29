@@ -29,13 +29,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newContainer' smart constructor.
 data Container = Container'
-  { -- | The status of container creation or deletion. The status is one of the
+  { -- | Unix timestamp.
+    creationTime :: Prelude.Maybe Core.POSIX,
+    -- | The status of container creation or deletion. The status is one of the
     -- following: @CREATING@, @ACTIVE@, or @DELETING@. While the service is
     -- creating the container, the status is @CREATING@. When the endpoint is
     -- available, the status changes to @ACTIVE@.
     status :: Prelude.Maybe ContainerStatus,
-    -- | Unix timestamp.
-    creationTime :: Prelude.Maybe Core.POSIX,
     -- | The Amazon Resource Name (ARN) of the container. The ARN has the
     -- following format:
     --
@@ -69,12 +69,12 @@ data Container = Container'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'creationTime', 'container_creationTime' - Unix timestamp.
+--
 -- 'status', 'container_status' - The status of container creation or deletion. The status is one of the
 -- following: @CREATING@, @ACTIVE@, or @DELETING@. While the service is
 -- creating the container, the status is @CREATING@. When the endpoint is
 -- available, the status changes to @ACTIVE@.
---
--- 'creationTime', 'container_creationTime' - Unix timestamp.
 --
 -- 'arn', 'container_arn' - The Amazon Resource Name (ARN) of the container. The ARN has the
 -- following format:
@@ -101,13 +101,17 @@ newContainer ::
   Container
 newContainer =
   Container'
-    { status = Prelude.Nothing,
-      creationTime = Prelude.Nothing,
+    { creationTime = Prelude.Nothing,
+      status = Prelude.Nothing,
       arn = Prelude.Nothing,
       accessLoggingEnabled = Prelude.Nothing,
       name = Prelude.Nothing,
       endpoint = Prelude.Nothing
     }
+
+-- | Unix timestamp.
+container_creationTime :: Lens.Lens' Container (Prelude.Maybe Prelude.UTCTime)
+container_creationTime = Lens.lens (\Container' {creationTime} -> creationTime) (\s@Container' {} a -> s {creationTime = a} :: Container) Prelude.. Lens.mapping Core._Time
 
 -- | The status of container creation or deletion. The status is one of the
 -- following: @CREATING@, @ACTIVE@, or @DELETING@. While the service is
@@ -115,10 +119,6 @@ newContainer =
 -- available, the status changes to @ACTIVE@.
 container_status :: Lens.Lens' Container (Prelude.Maybe ContainerStatus)
 container_status = Lens.lens (\Container' {status} -> status) (\s@Container' {} a -> s {status = a} :: Container)
-
--- | Unix timestamp.
-container_creationTime :: Lens.Lens' Container (Prelude.Maybe Prelude.UTCTime)
-container_creationTime = Lens.lens (\Container' {creationTime} -> creationTime) (\s@Container' {} a -> s {creationTime = a} :: Container) Prelude.. Lens.mapping Core._Time
 
 -- | The Amazon Resource Name (ARN) of the container. The ARN has the
 -- following format:
@@ -156,8 +156,8 @@ instance Core.FromJSON Container where
       "Container"
       ( \x ->
           Container'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "ARN")
             Prelude.<*> (x Core..:? "AccessLoggingEnabled")
             Prelude.<*> (x Core..:? "Name")

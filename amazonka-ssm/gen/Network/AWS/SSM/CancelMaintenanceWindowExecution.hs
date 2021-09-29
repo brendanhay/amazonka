@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Stops a maintenance window execution that is already in progress and
--- cancels any tasks in the window that have not already starting running.
--- (Tasks already in progress will continue to completion.)
+-- cancels any tasks in the window that haven\'t already starting running.
+-- Tasks already in progress will continue to completion.
 module Network.AWS.SSM.CancelMaintenanceWindowExecution
   ( -- * Creating a Request
     CancelMaintenanceWindowExecution (..),

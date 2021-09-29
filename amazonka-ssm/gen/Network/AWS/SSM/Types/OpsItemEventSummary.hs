@@ -24,14 +24,15 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.OpsItemIdentity
 
--- | Summary information about an OpsItem event.
+-- | Summary information about an OpsItem event or that associated an OpsItem
+-- with a related item.
 --
 -- /See:/ 'newOpsItemEventSummary' smart constructor.
 data OpsItemEventSummary = OpsItemEventSummary'
-  { -- | The ID of the OpsItem event.
-    eventId :: Prelude.Maybe Prelude.Text,
-    -- | The type of information provided as a detail.
+  { -- | The type of information provided as a detail.
     detailType :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the OpsItem event.
+    eventId :: Prelude.Maybe Prelude.Text,
     -- | The source of the OpsItem event.
     source :: Prelude.Maybe Prelude.Text,
     -- | The date and time the OpsItem event was created.
@@ -53,9 +54,9 @@ data OpsItemEventSummary = OpsItemEventSummary'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'eventId', 'opsItemEventSummary_eventId' - The ID of the OpsItem event.
---
 -- 'detailType', 'opsItemEventSummary_detailType' - The type of information provided as a detail.
+--
+-- 'eventId', 'opsItemEventSummary_eventId' - The ID of the OpsItem event.
 --
 -- 'source', 'opsItemEventSummary_source' - The source of the OpsItem event.
 --
@@ -70,8 +71,8 @@ newOpsItemEventSummary ::
   OpsItemEventSummary
 newOpsItemEventSummary =
   OpsItemEventSummary'
-    { eventId = Prelude.Nothing,
-      detailType = Prelude.Nothing,
+    { detailType = Prelude.Nothing,
+      eventId = Prelude.Nothing,
       source = Prelude.Nothing,
       createdTime = Prelude.Nothing,
       opsItemId = Prelude.Nothing,
@@ -79,13 +80,13 @@ newOpsItemEventSummary =
       createdBy = Prelude.Nothing
     }
 
--- | The ID of the OpsItem event.
-opsItemEventSummary_eventId :: Lens.Lens' OpsItemEventSummary (Prelude.Maybe Prelude.Text)
-opsItemEventSummary_eventId = Lens.lens (\OpsItemEventSummary' {eventId} -> eventId) (\s@OpsItemEventSummary' {} a -> s {eventId = a} :: OpsItemEventSummary)
-
 -- | The type of information provided as a detail.
 opsItemEventSummary_detailType :: Lens.Lens' OpsItemEventSummary (Prelude.Maybe Prelude.Text)
 opsItemEventSummary_detailType = Lens.lens (\OpsItemEventSummary' {detailType} -> detailType) (\s@OpsItemEventSummary' {} a -> s {detailType = a} :: OpsItemEventSummary)
+
+-- | The ID of the OpsItem event.
+opsItemEventSummary_eventId :: Lens.Lens' OpsItemEventSummary (Prelude.Maybe Prelude.Text)
+opsItemEventSummary_eventId = Lens.lens (\OpsItemEventSummary' {eventId} -> eventId) (\s@OpsItemEventSummary' {} a -> s {eventId = a} :: OpsItemEventSummary)
 
 -- | The source of the OpsItem event.
 opsItemEventSummary_source :: Lens.Lens' OpsItemEventSummary (Prelude.Maybe Prelude.Text)
@@ -113,8 +114,8 @@ instance Core.FromJSON OpsItemEventSummary where
       "OpsItemEventSummary"
       ( \x ->
           OpsItemEventSummary'
-            Prelude.<$> (x Core..:? "EventId")
-            Prelude.<*> (x Core..:? "DetailType")
+            Prelude.<$> (x Core..:? "DetailType")
+            Prelude.<*> (x Core..:? "EventId")
             Prelude.<*> (x Core..:? "Source")
             Prelude.<*> (x Core..:? "CreatedTime")
             Prelude.<*> (x Core..:? "OpsItemId")

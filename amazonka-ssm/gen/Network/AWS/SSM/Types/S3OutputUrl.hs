@@ -23,8 +23,8 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | A URL for the S3 bucket where you want to store the results of this
--- request.
+-- | A URL for the Amazon Web Services Systems Manager (Systems Manager)
+-- bucket where you want to store the results of this request.
 --
 -- /See:/ 'newS3OutputUrl' smart constructor.
 data S3OutputUrl = S3OutputUrl'

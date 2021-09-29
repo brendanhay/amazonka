@@ -25,8 +25,8 @@ import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.Target
 import Network.AWS.SSM.Types.TargetLocation
 
--- | Information about an Automation runbook (Automation document) used in a
--- runbook workflow in Change Manager.
+-- | Information about an Automation runbook used in a runbook workflow in
+-- Change Manager.
 --
 -- The Automation runbooks specified for the runbook workflow can\'t run
 -- until all required approvals for the change request have been received.
@@ -37,11 +37,11 @@ data Runbook = Runbook'
     -- indicating the maximum number of errors that can occur during the
     -- operation before the updates are stopped or rolled back.
     maxErrors :: Prelude.Maybe Prelude.Text,
-    -- | A key-value mapping to target resources that the Runbook operation
+    -- | A key-value mapping to target resources that the runbook operation
     -- performs tasks on. Required if you specify @TargetParameterName@.
     targets :: Prelude.Maybe [Target],
-    -- | Information about the AWS Regions and accounts targeted by the current
-    -- Runbook operation.
+    -- | Information about the Amazon Web Services Regions and Amazon Web
+    -- Services accounts targeted by the current Runbook operation.
     targetLocations :: Prelude.Maybe (Prelude.NonEmpty TargetLocation),
     -- | The name of the parameter used as the target resource for the
     -- rate-controlled runbook workflow. Required if you specify @Targets@.
@@ -50,14 +50,12 @@ data Runbook = Runbook'
     -- started, indicating the maximum number of resources that the runbook
     -- operation can run on at the same time.
     maxConcurrency :: Prelude.Maybe Prelude.Text,
-    -- | The version of the Automation runbook (Automation document) used in a
-    -- runbook workflow.
+    -- | The version of the Automation runbook used in a runbook workflow.
     documentVersion :: Prelude.Maybe Prelude.Text,
     -- | The key-value map of execution parameters, which were supplied when
     -- calling @StartChangeRequestExecution@.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
-    -- | The name of the Automation runbook (Automation document) used in a
-    -- runbook workflow.
+    -- | The name of the Automation runbook used in a runbook workflow.
     documentName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -74,11 +72,11 @@ data Runbook = Runbook'
 -- indicating the maximum number of errors that can occur during the
 -- operation before the updates are stopped or rolled back.
 --
--- 'targets', 'runbook_targets' - A key-value mapping to target resources that the Runbook operation
+-- 'targets', 'runbook_targets' - A key-value mapping to target resources that the runbook operation
 -- performs tasks on. Required if you specify @TargetParameterName@.
 --
--- 'targetLocations', 'runbook_targetLocations' - Information about the AWS Regions and accounts targeted by the current
--- Runbook operation.
+-- 'targetLocations', 'runbook_targetLocations' - Information about the Amazon Web Services Regions and Amazon Web
+-- Services accounts targeted by the current Runbook operation.
 --
 -- 'targetParameterName', 'runbook_targetParameterName' - The name of the parameter used as the target resource for the
 -- rate-controlled runbook workflow. Required if you specify @Targets@.
@@ -87,14 +85,12 @@ data Runbook = Runbook'
 -- started, indicating the maximum number of resources that the runbook
 -- operation can run on at the same time.
 --
--- 'documentVersion', 'runbook_documentVersion' - The version of the Automation runbook (Automation document) used in a
--- runbook workflow.
+-- 'documentVersion', 'runbook_documentVersion' - The version of the Automation runbook used in a runbook workflow.
 --
 -- 'parameters', 'runbook_parameters' - The key-value map of execution parameters, which were supplied when
 -- calling @StartChangeRequestExecution@.
 --
--- 'documentName', 'runbook_documentName' - The name of the Automation runbook (Automation document) used in a
--- runbook workflow.
+-- 'documentName', 'runbook_documentName' - The name of the Automation runbook used in a runbook workflow.
 newRunbook ::
   -- | 'documentName'
   Prelude.Text ->
@@ -117,13 +113,13 @@ newRunbook pDocumentName_ =
 runbook_maxErrors :: Lens.Lens' Runbook (Prelude.Maybe Prelude.Text)
 runbook_maxErrors = Lens.lens (\Runbook' {maxErrors} -> maxErrors) (\s@Runbook' {} a -> s {maxErrors = a} :: Runbook)
 
--- | A key-value mapping to target resources that the Runbook operation
+-- | A key-value mapping to target resources that the runbook operation
 -- performs tasks on. Required if you specify @TargetParameterName@.
 runbook_targets :: Lens.Lens' Runbook (Prelude.Maybe [Target])
 runbook_targets = Lens.lens (\Runbook' {targets} -> targets) (\s@Runbook' {} a -> s {targets = a} :: Runbook) Prelude.. Lens.mapping Lens._Coerce
 
--- | Information about the AWS Regions and accounts targeted by the current
--- Runbook operation.
+-- | Information about the Amazon Web Services Regions and Amazon Web
+-- Services accounts targeted by the current Runbook operation.
 runbook_targetLocations :: Lens.Lens' Runbook (Prelude.Maybe (Prelude.NonEmpty TargetLocation))
 runbook_targetLocations = Lens.lens (\Runbook' {targetLocations} -> targetLocations) (\s@Runbook' {} a -> s {targetLocations = a} :: Runbook) Prelude.. Lens.mapping Lens._Coerce
 
@@ -138,8 +134,7 @@ runbook_targetParameterName = Lens.lens (\Runbook' {targetParameterName} -> targ
 runbook_maxConcurrency :: Lens.Lens' Runbook (Prelude.Maybe Prelude.Text)
 runbook_maxConcurrency = Lens.lens (\Runbook' {maxConcurrency} -> maxConcurrency) (\s@Runbook' {} a -> s {maxConcurrency = a} :: Runbook)
 
--- | The version of the Automation runbook (Automation document) used in a
--- runbook workflow.
+-- | The version of the Automation runbook used in a runbook workflow.
 runbook_documentVersion :: Lens.Lens' Runbook (Prelude.Maybe Prelude.Text)
 runbook_documentVersion = Lens.lens (\Runbook' {documentVersion} -> documentVersion) (\s@Runbook' {} a -> s {documentVersion = a} :: Runbook)
 
@@ -148,8 +143,7 @@ runbook_documentVersion = Lens.lens (\Runbook' {documentVersion} -> documentVers
 runbook_parameters :: Lens.Lens' Runbook (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
 runbook_parameters = Lens.lens (\Runbook' {parameters} -> parameters) (\s@Runbook' {} a -> s {parameters = a} :: Runbook) Prelude.. Lens.mapping Lens._Coerce
 
--- | The name of the Automation runbook (Automation document) used in a
--- runbook workflow.
+-- | The name of the Automation runbook used in a runbook workflow.
 runbook_documentName :: Lens.Lens' Runbook Prelude.Text
 runbook_documentName = Lens.lens (\Runbook' {documentName} -> documentName) (\s@Runbook' {} a -> s {documentName = a} :: Runbook)
 

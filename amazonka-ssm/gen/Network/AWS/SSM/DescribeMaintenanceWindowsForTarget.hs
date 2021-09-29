@@ -62,10 +62,10 @@ data DescribeMaintenanceWindowsForTarget = DescribeMaintenanceWindowsForTarget'
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The instance ID or key\/value pair to retrieve information about.
+    -- | The instance ID or key-value pair to retrieve information about.
     targets :: [Target],
     -- | The type of resource you want to retrieve information about. For
-    -- example, \"INSTANCE\".
+    -- example, @INSTANCE@.
     resourceType :: MaintenanceWindowResourceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -85,10 +85,10 @@ data DescribeMaintenanceWindowsForTarget = DescribeMaintenanceWindowsForTarget'
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
 --
--- 'targets', 'describeMaintenanceWindowsForTarget_targets' - The instance ID or key\/value pair to retrieve information about.
+-- 'targets', 'describeMaintenanceWindowsForTarget_targets' - The instance ID or key-value pair to retrieve information about.
 --
 -- 'resourceType', 'describeMaintenanceWindowsForTarget_resourceType' - The type of resource you want to retrieve information about. For
--- example, \"INSTANCE\".
+-- example, @INSTANCE@.
 newDescribeMaintenanceWindowsForTarget ::
   -- | 'resourceType'
   MaintenanceWindowResourceType ->
@@ -113,12 +113,12 @@ describeMaintenanceWindowsForTarget_nextToken = Lens.lens (\DescribeMaintenanceW
 describeMaintenanceWindowsForTarget_maxResults :: Lens.Lens' DescribeMaintenanceWindowsForTarget (Prelude.Maybe Prelude.Natural)
 describeMaintenanceWindowsForTarget_maxResults = Lens.lens (\DescribeMaintenanceWindowsForTarget' {maxResults} -> maxResults) (\s@DescribeMaintenanceWindowsForTarget' {} a -> s {maxResults = a} :: DescribeMaintenanceWindowsForTarget)
 
--- | The instance ID or key\/value pair to retrieve information about.
+-- | The instance ID or key-value pair to retrieve information about.
 describeMaintenanceWindowsForTarget_targets :: Lens.Lens' DescribeMaintenanceWindowsForTarget [Target]
 describeMaintenanceWindowsForTarget_targets = Lens.lens (\DescribeMaintenanceWindowsForTarget' {targets} -> targets) (\s@DescribeMaintenanceWindowsForTarget' {} a -> s {targets = a} :: DescribeMaintenanceWindowsForTarget) Prelude.. Lens._Coerce
 
 -- | The type of resource you want to retrieve information about. For
--- example, \"INSTANCE\".
+-- example, @INSTANCE@.
 describeMaintenanceWindowsForTarget_resourceType :: Lens.Lens' DescribeMaintenanceWindowsForTarget MaintenanceWindowResourceType
 describeMaintenanceWindowsForTarget_resourceType = Lens.lens (\DescribeMaintenanceWindowsForTarget' {resourceType} -> resourceType) (\s@DescribeMaintenanceWindowsForTarget' {} a -> s {resourceType = a} :: DescribeMaintenanceWindowsForTarget)
 

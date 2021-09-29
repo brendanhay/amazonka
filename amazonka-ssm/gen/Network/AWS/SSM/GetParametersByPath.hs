@@ -41,8 +41,8 @@ module Network.AWS.SSM.GetParametersByPath
     getParametersByPath_withDecryption,
     getParametersByPath_nextToken,
     getParametersByPath_maxResults,
-    getParametersByPath_recursive,
     getParametersByPath_parameterFilters,
+    getParametersByPath_recursive,
     getParametersByPath_path,
 
     -- * Destructuring the Response
@@ -74,27 +74,27 @@ data GetParametersByPath = GetParametersByPath'
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Filters to limit the request results.
+    --
+    -- The following @Key@ values are supported for @GetParametersByPath@:
+    -- @Type@, @KeyId@, and @Label@.
+    --
+    -- The following @Key@ values aren\'t supported for @GetParametersByPath@:
+    -- @tag@, @DataType@, @Name@, @Path@, and @Tier@.
+    parameterFilters :: Prelude.Maybe [ParameterStringFilter],
     -- | Retrieve all parameters within a hierarchy.
     --
     -- If a user has access to a path, then the user can access all levels of
     -- that path. For example, if a user has permission to access path @\/a@,
     -- then the user can also access @\/a\/b@. Even if a user has explicitly
     -- been denied access in IAM for parameter @\/a\/b@, they can still call
-    -- the GetParametersByPath API action recursively for @\/a@ and view
+    -- the GetParametersByPath API operation recursively for @\/a@ and view
     -- @\/a\/b@.
     recursive :: Prelude.Maybe Prelude.Bool,
-    -- | Filters to limit the request results.
-    --
-    -- For @GetParametersByPath@, the following filter @Key@ names are
-    -- supported: @Type@, @KeyId@, @Label@, and @DataType@.
-    --
-    -- The following @Key@ values are not supported for @GetParametersByPath@:
-    -- @tag@, @Name@, @Path@, and @Tier@.
-    parameterFilters :: Prelude.Maybe [ParameterStringFilter],
     -- | The hierarchy for the parameter. Hierarchies start with a forward slash
     -- (\/). The hierachy is the parameter name except the last part of the
     -- parameter. For the API call to succeeed, the last part of the parameter
-    -- name cannot be in the path. A parameter name hierarchy can have a
+    -- name can\'t be in the path. A parameter name hierarchy can have a
     -- maximum of 15 levels. Here is an example of a hierarchy:
     -- @\/Finance\/Prod\/IAD\/WinServ2016\/license33 @
     path :: Prelude.Text
@@ -118,27 +118,27 @@ data GetParametersByPath = GetParametersByPath'
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
 --
+-- 'parameterFilters', 'getParametersByPath_parameterFilters' - Filters to limit the request results.
+--
+-- The following @Key@ values are supported for @GetParametersByPath@:
+-- @Type@, @KeyId@, and @Label@.
+--
+-- The following @Key@ values aren\'t supported for @GetParametersByPath@:
+-- @tag@, @DataType@, @Name@, @Path@, and @Tier@.
+--
 -- 'recursive', 'getParametersByPath_recursive' - Retrieve all parameters within a hierarchy.
 --
 -- If a user has access to a path, then the user can access all levels of
 -- that path. For example, if a user has permission to access path @\/a@,
 -- then the user can also access @\/a\/b@. Even if a user has explicitly
 -- been denied access in IAM for parameter @\/a\/b@, they can still call
--- the GetParametersByPath API action recursively for @\/a@ and view
+-- the GetParametersByPath API operation recursively for @\/a@ and view
 -- @\/a\/b@.
---
--- 'parameterFilters', 'getParametersByPath_parameterFilters' - Filters to limit the request results.
---
--- For @GetParametersByPath@, the following filter @Key@ names are
--- supported: @Type@, @KeyId@, @Label@, and @DataType@.
---
--- The following @Key@ values are not supported for @GetParametersByPath@:
--- @tag@, @Name@, @Path@, and @Tier@.
 --
 -- 'path', 'getParametersByPath_path' - The hierarchy for the parameter. Hierarchies start with a forward slash
 -- (\/). The hierachy is the parameter name except the last part of the
 -- parameter. For the API call to succeeed, the last part of the parameter
--- name cannot be in the path. A parameter name hierarchy can have a
+-- name can\'t be in the path. A parameter name hierarchy can have a
 -- maximum of 15 levels. Here is an example of a hierarchy:
 -- @\/Finance\/Prod\/IAD\/WinServ2016\/license33 @
 newGetParametersByPath ::
@@ -151,8 +151,8 @@ newGetParametersByPath pPath_ =
         Prelude.Nothing,
       nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
-      recursive = Prelude.Nothing,
       parameterFilters = Prelude.Nothing,
+      recursive = Prelude.Nothing,
       path = pPath_
     }
 
@@ -171,31 +171,31 @@ getParametersByPath_nextToken = Lens.lens (\GetParametersByPath' {nextToken} -> 
 getParametersByPath_maxResults :: Lens.Lens' GetParametersByPath (Prelude.Maybe Prelude.Natural)
 getParametersByPath_maxResults = Lens.lens (\GetParametersByPath' {maxResults} -> maxResults) (\s@GetParametersByPath' {} a -> s {maxResults = a} :: GetParametersByPath)
 
+-- | Filters to limit the request results.
+--
+-- The following @Key@ values are supported for @GetParametersByPath@:
+-- @Type@, @KeyId@, and @Label@.
+--
+-- The following @Key@ values aren\'t supported for @GetParametersByPath@:
+-- @tag@, @DataType@, @Name@, @Path@, and @Tier@.
+getParametersByPath_parameterFilters :: Lens.Lens' GetParametersByPath (Prelude.Maybe [ParameterStringFilter])
+getParametersByPath_parameterFilters = Lens.lens (\GetParametersByPath' {parameterFilters} -> parameterFilters) (\s@GetParametersByPath' {} a -> s {parameterFilters = a} :: GetParametersByPath) Prelude.. Lens.mapping Lens._Coerce
+
 -- | Retrieve all parameters within a hierarchy.
 --
 -- If a user has access to a path, then the user can access all levels of
 -- that path. For example, if a user has permission to access path @\/a@,
 -- then the user can also access @\/a\/b@. Even if a user has explicitly
 -- been denied access in IAM for parameter @\/a\/b@, they can still call
--- the GetParametersByPath API action recursively for @\/a@ and view
+-- the GetParametersByPath API operation recursively for @\/a@ and view
 -- @\/a\/b@.
 getParametersByPath_recursive :: Lens.Lens' GetParametersByPath (Prelude.Maybe Prelude.Bool)
 getParametersByPath_recursive = Lens.lens (\GetParametersByPath' {recursive} -> recursive) (\s@GetParametersByPath' {} a -> s {recursive = a} :: GetParametersByPath)
 
--- | Filters to limit the request results.
---
--- For @GetParametersByPath@, the following filter @Key@ names are
--- supported: @Type@, @KeyId@, @Label@, and @DataType@.
---
--- The following @Key@ values are not supported for @GetParametersByPath@:
--- @tag@, @Name@, @Path@, and @Tier@.
-getParametersByPath_parameterFilters :: Lens.Lens' GetParametersByPath (Prelude.Maybe [ParameterStringFilter])
-getParametersByPath_parameterFilters = Lens.lens (\GetParametersByPath' {parameterFilters} -> parameterFilters) (\s@GetParametersByPath' {} a -> s {parameterFilters = a} :: GetParametersByPath) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The hierarchy for the parameter. Hierarchies start with a forward slash
 -- (\/). The hierachy is the parameter name except the last part of the
 -- parameter. For the API call to succeeed, the last part of the parameter
--- name cannot be in the path. A parameter name hierarchy can have a
+-- name can\'t be in the path. A parameter name hierarchy can have a
 -- maximum of 15 levels. Here is an example of a hierarchy:
 -- @\/Finance\/Prod\/IAD\/WinServ2016\/license33 @
 getParametersByPath_path :: Lens.Lens' GetParametersByPath Prelude.Text
@@ -264,9 +264,9 @@ instance Core.ToJSON GetParametersByPath where
               Prelude.<$> withDecryption,
             ("NextToken" Core..=) Prelude.<$> nextToken,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
-            ("Recursive" Core..=) Prelude.<$> recursive,
             ("ParameterFilters" Core..=)
               Prelude.<$> parameterFilters,
+            ("Recursive" Core..=) Prelude.<$> recursive,
             Prelude.Just ("Path" Core..= path)
           ]
       )
@@ -287,7 +287,7 @@ data GetParametersByPathResponse = GetParametersByPathResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetParametersByPathResponse' with all optional fields omitted.

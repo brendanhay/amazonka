@@ -20,23 +20,24 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- @ServiceSetting@ is an account-level setting for an AWS service. This
--- setting defines how a user interacts with or uses a service or a feature
--- of a service. For example, if an AWS service charges money to the
--- account based on feature or service usage, then the AWS service team
--- might create a default setting of \"false\". This means the user can\'t
--- use this feature unless they change the setting to \"true\" and
--- intentionally opt in for a paid feature.
+-- @ServiceSetting@ is an account-level setting for an Amazon Web Services
+-- service. This setting defines how a user interacts with or uses a
+-- service or a feature of a service. For example, if an Amazon Web
+-- Services service charges money to the account based on feature or
+-- service usage, then the Amazon Web Services service team might create a
+-- default setting of \"false\". This means the user can\'t use this
+-- feature unless they change the setting to \"true\" and intentionally opt
+-- in for a paid feature.
 --
--- Services map a @SettingId@ object to a setting value. AWS services teams
--- define the default value for a @SettingId@. You can\'t create a new
--- @SettingId@, but you can overwrite the default value if you have the
--- @ssm:UpdateServiceSetting@ permission for the setting. Use the
--- GetServiceSetting API action to view the current value. Use the
--- UpdateServiceSetting API action to change the default setting.
+-- Services map a @SettingId@ object to a setting value. Amazon Web
+-- Services services teams define the default value for a @SettingId@. You
+-- can\'t create a new @SettingId@, but you can overwrite the default value
+-- if you have the @ssm:UpdateServiceSetting@ permission for the setting.
+-- Use the GetServiceSetting API operation to view the current value. Use
+-- the UpdateServiceSetting API operation to change the default setting.
 --
 -- Reset the service setting for the account to the default value as
--- provisioned by the AWS service team.
+-- provisioned by the Amazon Web Services service team.
 module Network.AWS.SSM.ResetServiceSetting
   ( -- * Creating a Request
     ResetServiceSetting (..),
@@ -62,17 +63,24 @@ import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
 
--- | The request body of the ResetServiceSetting API action.
+-- | The request body of the ResetServiceSetting API operation.
 --
 -- /See:/ 'newResetServiceSetting' smart constructor.
 data ResetServiceSetting = ResetServiceSetting'
   { -- | The Amazon Resource Name (ARN) of the service setting to reset. The
-    -- setting ID can be @\/ssm\/automation\/customer-script-log-destination@,
-    -- @\/ssm\/automation\/customer-script-log-group-name@,
-    -- @\/ssm\/parameter-store\/default-parameter-tier@,
-    -- @\/ssm\/parameter-store\/high-throughput-enabled@, or
-    -- @\/ssm\/managed-instance\/activation-tier@. For example,
-    -- @arn:aws:ssm:us-east-1:111122223333:servicesetting\/ssm\/parameter-store\/high-throughput-enabled@.
+    -- setting ID can be one of the following.
+    --
+    -- -   @\/ssm\/automation\/customer-script-log-destination@
+    --
+    -- -   @\/ssm\/automation\/customer-script-log-group-name@
+    --
+    -- -   @\/ssm\/documents\/console\/public-sharing-permission@
+    --
+    -- -   @\/ssm\/parameter-store\/default-parameter-tier@
+    --
+    -- -   @\/ssm\/parameter-store\/high-throughput-enabled@
+    --
+    -- -   @\/ssm\/managed-instance\/activation-tier@
     settingId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -86,12 +94,19 @@ data ResetServiceSetting = ResetServiceSetting'
 -- for backwards compatibility:
 --
 -- 'settingId', 'resetServiceSetting_settingId' - The Amazon Resource Name (ARN) of the service setting to reset. The
--- setting ID can be @\/ssm\/automation\/customer-script-log-destination@,
--- @\/ssm\/automation\/customer-script-log-group-name@,
--- @\/ssm\/parameter-store\/default-parameter-tier@,
--- @\/ssm\/parameter-store\/high-throughput-enabled@, or
--- @\/ssm\/managed-instance\/activation-tier@. For example,
--- @arn:aws:ssm:us-east-1:111122223333:servicesetting\/ssm\/parameter-store\/high-throughput-enabled@.
+-- setting ID can be one of the following.
+--
+-- -   @\/ssm\/automation\/customer-script-log-destination@
+--
+-- -   @\/ssm\/automation\/customer-script-log-group-name@
+--
+-- -   @\/ssm\/documents\/console\/public-sharing-permission@
+--
+-- -   @\/ssm\/parameter-store\/default-parameter-tier@
+--
+-- -   @\/ssm\/parameter-store\/high-throughput-enabled@
+--
+-- -   @\/ssm\/managed-instance\/activation-tier@
 newResetServiceSetting ::
   -- | 'settingId'
   Prelude.Text ->
@@ -100,12 +115,19 @@ newResetServiceSetting pSettingId_ =
   ResetServiceSetting' {settingId = pSettingId_}
 
 -- | The Amazon Resource Name (ARN) of the service setting to reset. The
--- setting ID can be @\/ssm\/automation\/customer-script-log-destination@,
--- @\/ssm\/automation\/customer-script-log-group-name@,
--- @\/ssm\/parameter-store\/default-parameter-tier@,
--- @\/ssm\/parameter-store\/high-throughput-enabled@, or
--- @\/ssm\/managed-instance\/activation-tier@. For example,
--- @arn:aws:ssm:us-east-1:111122223333:servicesetting\/ssm\/parameter-store\/high-throughput-enabled@.
+-- setting ID can be one of the following.
+--
+-- -   @\/ssm\/automation\/customer-script-log-destination@
+--
+-- -   @\/ssm\/automation\/customer-script-log-group-name@
+--
+-- -   @\/ssm\/documents\/console\/public-sharing-permission@
+--
+-- -   @\/ssm\/parameter-store\/default-parameter-tier@
+--
+-- -   @\/ssm\/parameter-store\/high-throughput-enabled@
+--
+-- -   @\/ssm\/managed-instance\/activation-tier@
 resetServiceSetting_settingId :: Lens.Lens' ResetServiceSetting Prelude.Text
 resetServiceSetting_settingId = Lens.lens (\ResetServiceSetting' {settingId} -> settingId) (\s@ResetServiceSetting' {} a -> s {settingId = a} :: ResetServiceSetting)
 
@@ -154,12 +176,12 @@ instance Core.ToPath ResetServiceSetting where
 instance Core.ToQuery ResetServiceSetting where
   toQuery = Prelude.const Prelude.mempty
 
--- | The result body of the ResetServiceSetting API action.
+-- | The result body of the ResetServiceSetting API operation.
 --
 -- /See:/ 'newResetServiceSettingResponse' smart constructor.
 data ResetServiceSettingResponse = ResetServiceSettingResponse'
   { -- | The current, effective service setting after calling the
-    -- ResetServiceSetting API action.
+    -- ResetServiceSetting API operation.
     serviceSetting :: Prelude.Maybe ServiceSetting,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -175,7 +197,7 @@ data ResetServiceSettingResponse = ResetServiceSettingResponse'
 -- for backwards compatibility:
 --
 -- 'serviceSetting', 'resetServiceSettingResponse_serviceSetting' - The current, effective service setting after calling the
--- ResetServiceSetting API action.
+-- ResetServiceSetting API operation.
 --
 -- 'httpStatus', 'resetServiceSettingResponse_httpStatus' - The response's http status code.
 newResetServiceSettingResponse ::
@@ -190,7 +212,7 @@ newResetServiceSettingResponse pHttpStatus_ =
     }
 
 -- | The current, effective service setting after calling the
--- ResetServiceSetting API action.
+-- ResetServiceSetting API operation.
 resetServiceSettingResponse_serviceSetting :: Lens.Lens' ResetServiceSettingResponse (Prelude.Maybe ServiceSetting)
 resetServiceSettingResponse_serviceSetting = Lens.lens (\ResetServiceSettingResponse' {serviceSetting} -> serviceSetting) (\s@ResetServiceSettingResponse' {} a -> s {serviceSetting = a} :: ResetServiceSettingResponse)
 

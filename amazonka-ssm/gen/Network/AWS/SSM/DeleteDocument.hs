@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the Systems Manager document and all instance associations to
--- the document.
+-- Deletes the Amazon Web Services Systems Manager document (SSM document)
+-- and all instance associations to the document.
 --
 -- Before you delete the document, we recommend that you use
 -- DeleteAssociation to disassociate all instances that are associated with
@@ -58,7 +58,7 @@ data DeleteDocument = DeleteDocument'
   { -- | Some SSM document types require that you specify a @Force@ flag before
     -- you can delete the document. For example, you must specify a @Force@
     -- flag to delete a document of type @ApplicationConfigurationSchema@. You
-    -- can restrict access to the @Force@ flag in an AWS Identity and Access
+    -- can restrict access to the @Force@ flag in an Identity and Access
     -- Management (IAM) policy.
     force :: Prelude.Maybe Prelude.Bool,
     -- | The version name of the document that you want to delete. If not
@@ -83,7 +83,7 @@ data DeleteDocument = DeleteDocument'
 -- 'force', 'deleteDocument_force' - Some SSM document types require that you specify a @Force@ flag before
 -- you can delete the document. For example, you must specify a @Force@
 -- flag to delete a document of type @ApplicationConfigurationSchema@. You
--- can restrict access to the @Force@ flag in an AWS Identity and Access
+-- can restrict access to the @Force@ flag in an Identity and Access
 -- Management (IAM) policy.
 --
 -- 'versionName', 'deleteDocument_versionName' - The version name of the document that you want to delete. If not
@@ -108,7 +108,7 @@ newDeleteDocument pName_ =
 -- | Some SSM document types require that you specify a @Force@ flag before
 -- you can delete the document. For example, you must specify a @Force@
 -- flag to delete a document of type @ApplicationConfigurationSchema@. You
--- can restrict access to the @Force@ flag in an AWS Identity and Access
+-- can restrict access to the @Force@ flag in an Identity and Access
 -- Management (IAM) policy.
 deleteDocument_force :: Lens.Lens' DeleteDocument (Prelude.Maybe Prelude.Bool)
 deleteDocument_force = Lens.lens (\DeleteDocument' {force} -> force) (\s@DeleteDocument' {} a -> s {force = a} :: DeleteDocument)

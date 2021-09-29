@@ -63,8 +63,8 @@ data DescribeAutomationStepExecutions = DescribeAutomationStepExecutions'
     -- returns a token that you can specify in a subsequent call to get the
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | A boolean that indicates whether to list step executions in reverse
-    -- order by start time. The default value is false.
+    -- | Indicates whether to list step executions in reverse order by start
+    -- time. The default value is \'false\'.
     reverseOrder :: Prelude.Maybe Prelude.Bool,
     -- | One or more filters to limit the number of step executions returned by
     -- the request.
@@ -90,8 +90,8 @@ data DescribeAutomationStepExecutions = DescribeAutomationStepExecutions'
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
 --
--- 'reverseOrder', 'describeAutomationStepExecutions_reverseOrder' - A boolean that indicates whether to list step executions in reverse
--- order by start time. The default value is false.
+-- 'reverseOrder', 'describeAutomationStepExecutions_reverseOrder' - Indicates whether to list step executions in reverse order by start
+-- time. The default value is \'false\'.
 --
 -- 'filters', 'describeAutomationStepExecutions_filters' - One or more filters to limit the number of step executions returned by
 -- the request.
@@ -125,8 +125,8 @@ describeAutomationStepExecutions_nextToken = Lens.lens (\DescribeAutomationStepE
 describeAutomationStepExecutions_maxResults :: Lens.Lens' DescribeAutomationStepExecutions (Prelude.Maybe Prelude.Natural)
 describeAutomationStepExecutions_maxResults = Lens.lens (\DescribeAutomationStepExecutions' {maxResults} -> maxResults) (\s@DescribeAutomationStepExecutions' {} a -> s {maxResults = a} :: DescribeAutomationStepExecutions)
 
--- | A boolean that indicates whether to list step executions in reverse
--- order by start time. The default value is false.
+-- | Indicates whether to list step executions in reverse order by start
+-- time. The default value is \'false\'.
 describeAutomationStepExecutions_reverseOrder :: Lens.Lens' DescribeAutomationStepExecutions (Prelude.Maybe Prelude.Bool)
 describeAutomationStepExecutions_reverseOrder = Lens.lens (\DescribeAutomationStepExecutions' {reverseOrder} -> reverseOrder) (\s@DescribeAutomationStepExecutions' {} a -> s {reverseOrder = a} :: DescribeAutomationStepExecutions)
 

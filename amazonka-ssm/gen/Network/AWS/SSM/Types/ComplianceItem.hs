@@ -46,13 +46,13 @@ data ComplianceItem = ComplianceItem'
     -- patch; for example: Security Update for Active Directory Federation
     -- Services.
     title :: Prelude.Maybe Prelude.Text,
+    -- | The compliance type. For example, Association (for a State Manager
+    -- association), Patch, or Custom:@string@ are all valid compliance types.
+    complianceType :: Prelude.Maybe Prelude.Text,
     -- | An ID for the compliance item. For example, if the compliance item is a
     -- Windows patch, the ID could be the number of the KB article; for
     -- example: KB4010320.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The compliance type. For example, Association (for a State Manager
-    -- association), Patch, or Custom:@string@ are all valid compliance types.
-    complianceType :: Prelude.Maybe Prelude.Text,
     -- | The type of resource. @ManagedInstance@ is currently the only supported
     -- resource type.
     resourceType :: Prelude.Maybe Prelude.Text,
@@ -86,12 +86,12 @@ data ComplianceItem = ComplianceItem'
 -- patch; for example: Security Update for Active Directory Federation
 -- Services.
 --
+-- 'complianceType', 'complianceItem_complianceType' - The compliance type. For example, Association (for a State Manager
+-- association), Patch, or Custom:@string@ are all valid compliance types.
+--
 -- 'id', 'complianceItem_id' - An ID for the compliance item. For example, if the compliance item is a
 -- Windows patch, the ID could be the number of the KB article; for
 -- example: KB4010320.
---
--- 'complianceType', 'complianceItem_complianceType' - The compliance type. For example, Association (for a State Manager
--- association), Patch, or Custom:@string@ are all valid compliance types.
 --
 -- 'resourceType', 'complianceItem_resourceType' - The type of resource. @ManagedInstance@ is currently the only supported
 -- resource type.
@@ -108,8 +108,8 @@ newComplianceItem =
       status = Prelude.Nothing,
       severity = Prelude.Nothing,
       title = Prelude.Nothing,
-      id = Prelude.Nothing,
       complianceType = Prelude.Nothing,
+      id = Prelude.Nothing,
       resourceType = Prelude.Nothing,
       details = Prelude.Nothing,
       executionSummary = Prelude.Nothing
@@ -137,16 +137,16 @@ complianceItem_severity = Lens.lens (\ComplianceItem' {severity} -> severity) (\
 complianceItem_title :: Lens.Lens' ComplianceItem (Prelude.Maybe Prelude.Text)
 complianceItem_title = Lens.lens (\ComplianceItem' {title} -> title) (\s@ComplianceItem' {} a -> s {title = a} :: ComplianceItem)
 
+-- | The compliance type. For example, Association (for a State Manager
+-- association), Patch, or Custom:@string@ are all valid compliance types.
+complianceItem_complianceType :: Lens.Lens' ComplianceItem (Prelude.Maybe Prelude.Text)
+complianceItem_complianceType = Lens.lens (\ComplianceItem' {complianceType} -> complianceType) (\s@ComplianceItem' {} a -> s {complianceType = a} :: ComplianceItem)
+
 -- | An ID for the compliance item. For example, if the compliance item is a
 -- Windows patch, the ID could be the number of the KB article; for
 -- example: KB4010320.
 complianceItem_id :: Lens.Lens' ComplianceItem (Prelude.Maybe Prelude.Text)
 complianceItem_id = Lens.lens (\ComplianceItem' {id} -> id) (\s@ComplianceItem' {} a -> s {id = a} :: ComplianceItem)
-
--- | The compliance type. For example, Association (for a State Manager
--- association), Patch, or Custom:@string@ are all valid compliance types.
-complianceItem_complianceType :: Lens.Lens' ComplianceItem (Prelude.Maybe Prelude.Text)
-complianceItem_complianceType = Lens.lens (\ComplianceItem' {complianceType} -> complianceType) (\s@ComplianceItem' {} a -> s {complianceType = a} :: ComplianceItem)
 
 -- | The type of resource. @ManagedInstance@ is currently the only supported
 -- resource type.
@@ -172,8 +172,8 @@ instance Core.FromJSON ComplianceItem where
             Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "Severity")
             Prelude.<*> (x Core..:? "Title")
-            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "ComplianceType")
+            Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "ResourceType")
             Prelude.<*> (x Core..:? "Details" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "ExecutionSummary")

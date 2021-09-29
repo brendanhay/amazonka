@@ -20,16 +20,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Edit or change an OpsItem. You must have permission in AWS Identity and
+-- Edit or change an OpsItem. You must have permission in Identity and
 -- Access Management (IAM) to update an OpsItem. For more information, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html Getting started with OpsCenter>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
--- Operations engineers and IT professionals use OpsCenter to view,
--- investigate, and remediate operational issues impacting the performance
--- and health of their AWS resources. For more information, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html AWS Systems Manager OpsCenter>
--- in the /AWS Systems Manager User Guide/.
+-- Operations engineers and IT professionals use Amazon Web Services
+-- Systems Manager OpsCenter to view, investigate, and remediate
+-- operational issues impacting the performance and health of their Amazon
+-- Web Services resources. For more information, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html OpsCenter>
+-- in the /Amazon Web Services Systems Manager User Guide/.
 module Network.AWS.SSM.UpdateOpsItem
   ( -- * Creating a Request
     UpdateOpsItem (..),
@@ -73,7 +74,7 @@ data UpdateOpsItem = UpdateOpsItem'
   { -- | The OpsItem status. Status can be @Open@, @In Progress@, or @Resolved@.
     -- For more information, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems.html#OpsCenter-working-with-OpsItems-editing-details Editing OpsItem details>
-    -- in the /AWS Systems Manager User Guide/.
+    -- in the /Amazon Web Services Systems Manager User Guide/.
     status :: Prelude.Maybe OpsItemStatus,
     -- | The time specified in a change request for a runbook workflow to end.
     -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
@@ -94,22 +95,23 @@ data UpdateOpsItem = UpdateOpsItem'
     -- enter operational data as key-value pairs. The key has a maximum length
     -- of 128 characters. The value has a maximum size of 20 KB.
     --
-    -- Operational data keys /can\'t/ begin with the following: amazon, aws,
-    -- amzn, ssm, \/amazon, \/aws, \/amzn, \/ssm.
+    -- Operational data keys /can\'t/ begin with the following: @amazon@,
+    -- @aws@, @amzn@, @ssm@, @\/amazon@, @\/aws@, @\/amzn@, @\/ssm@.
     --
     -- You can choose to make the data searchable by other users in the account
     -- or you can restrict search access. Searchable data means that all users
     -- with access to the OpsItem Overview page (as provided by the
-    -- DescribeOpsItems API action) can view and search on the specified data.
-    -- Operational data that is not searchable is only viewable by users who
-    -- have access to the OpsItem (as provided by the GetOpsItem API action).
+    -- DescribeOpsItems API operation) can view and search on the specified
+    -- data. Operational data that isn\'t searchable is only viewable by users
+    -- who have access to the OpsItem (as provided by the GetOpsItem API
+    -- operation).
     --
     -- Use the @\/aws\/resources@ key in OperationalData to specify a related
     -- resource in the request. Use the @\/aws\/automations@ key in
     -- OperationalData to associate an Automation runbook with the OpsItem. To
-    -- view AWS CLI example commands that use these keys, see
+    -- view Amazon Web Services CLI example commands that use these keys, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems Creating OpsItems manually>
-    -- in the /AWS Systems Manager User Guide/.
+    -- in the /Amazon Web Services Systems Manager User Guide/.
     operationalData :: Prelude.Maybe (Prelude.HashMap Prelude.Text OpsItemDataValue),
     -- | A short heading that describes the nature of the OpsItem and the
     -- impacted resource.
@@ -152,7 +154,7 @@ data UpdateOpsItem = UpdateOpsItem'
 -- 'status', 'updateOpsItem_status' - The OpsItem status. Status can be @Open@, @In Progress@, or @Resolved@.
 -- For more information, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems.html#OpsCenter-working-with-OpsItems-editing-details Editing OpsItem details>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
 -- 'plannedEndTime', 'updateOpsItem_plannedEndTime' - The time specified in a change request for a runbook workflow to end.
 -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
@@ -173,22 +175,23 @@ data UpdateOpsItem = UpdateOpsItem'
 -- enter operational data as key-value pairs. The key has a maximum length
 -- of 128 characters. The value has a maximum size of 20 KB.
 --
--- Operational data keys /can\'t/ begin with the following: amazon, aws,
--- amzn, ssm, \/amazon, \/aws, \/amzn, \/ssm.
+-- Operational data keys /can\'t/ begin with the following: @amazon@,
+-- @aws@, @amzn@, @ssm@, @\/amazon@, @\/aws@, @\/amzn@, @\/ssm@.
 --
 -- You can choose to make the data searchable by other users in the account
 -- or you can restrict search access. Searchable data means that all users
 -- with access to the OpsItem Overview page (as provided by the
--- DescribeOpsItems API action) can view and search on the specified data.
--- Operational data that is not searchable is only viewable by users who
--- have access to the OpsItem (as provided by the GetOpsItem API action).
+-- DescribeOpsItems API operation) can view and search on the specified
+-- data. Operational data that isn\'t searchable is only viewable by users
+-- who have access to the OpsItem (as provided by the GetOpsItem API
+-- operation).
 --
 -- Use the @\/aws\/resources@ key in OperationalData to specify a related
 -- resource in the request. Use the @\/aws\/automations@ key in
 -- OperationalData to associate an Automation runbook with the OpsItem. To
--- view AWS CLI example commands that use these keys, see
+-- view Amazon Web Services CLI example commands that use these keys, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems Creating OpsItems manually>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
 -- 'title', 'updateOpsItem_title' - A short heading that describes the nature of the OpsItem and the
 -- impacted resource.
@@ -242,7 +245,7 @@ newUpdateOpsItem pOpsItemId_ =
 -- | The OpsItem status. Status can be @Open@, @In Progress@, or @Resolved@.
 -- For more information, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems.html#OpsCenter-working-with-OpsItems-editing-details Editing OpsItem details>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 updateOpsItem_status :: Lens.Lens' UpdateOpsItem (Prelude.Maybe OpsItemStatus)
 updateOpsItem_status = Lens.lens (\UpdateOpsItem' {status} -> status) (\s@UpdateOpsItem' {} a -> s {status = a} :: UpdateOpsItem)
 
@@ -273,22 +276,23 @@ updateOpsItem_category = Lens.lens (\UpdateOpsItem' {category} -> category) (\s@
 -- enter operational data as key-value pairs. The key has a maximum length
 -- of 128 characters. The value has a maximum size of 20 KB.
 --
--- Operational data keys /can\'t/ begin with the following: amazon, aws,
--- amzn, ssm, \/amazon, \/aws, \/amzn, \/ssm.
+-- Operational data keys /can\'t/ begin with the following: @amazon@,
+-- @aws@, @amzn@, @ssm@, @\/amazon@, @\/aws@, @\/amzn@, @\/ssm@.
 --
 -- You can choose to make the data searchable by other users in the account
 -- or you can restrict search access. Searchable data means that all users
 -- with access to the OpsItem Overview page (as provided by the
--- DescribeOpsItems API action) can view and search on the specified data.
--- Operational data that is not searchable is only viewable by users who
--- have access to the OpsItem (as provided by the GetOpsItem API action).
+-- DescribeOpsItems API operation) can view and search on the specified
+-- data. Operational data that isn\'t searchable is only viewable by users
+-- who have access to the OpsItem (as provided by the GetOpsItem API
+-- operation).
 --
 -- Use the @\/aws\/resources@ key in OperationalData to specify a related
 -- resource in the request. Use the @\/aws\/automations@ key in
 -- OperationalData to associate an Automation runbook with the OpsItem. To
--- view AWS CLI example commands that use these keys, see
+-- view Amazon Web Services CLI example commands that use these keys, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems Creating OpsItems manually>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 updateOpsItem_operationalData :: Lens.Lens' UpdateOpsItem (Prelude.Maybe (Prelude.HashMap Prelude.Text OpsItemDataValue))
 updateOpsItem_operationalData = Lens.lens (\UpdateOpsItem' {operationalData} -> operationalData) (\s@UpdateOpsItem' {} a -> s {operationalData = a} :: UpdateOpsItem) Prelude.. Lens.mapping Lens._Coerce
 

@@ -58,8 +58,9 @@ data RegisterTargetWithMaintenanceWindow = RegisterTargetWithMaintenanceWindow'
     name :: Prelude.Maybe Prelude.Text,
     -- | An optional description for the target.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | User-provided value that will be included in any CloudWatch events
-    -- raised while running tasks for these targets in this maintenance window.
+    -- | User-provided value that will be included in any Amazon CloudWatch
+    -- Events events raised while running tasks for these targets in this
+    -- maintenance window.
     ownerInformation :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | User-provided idempotency token.
     clientToken :: Prelude.Maybe Prelude.Text,
@@ -106,7 +107,7 @@ data RegisterTargetWithMaintenanceWindow = RegisterTargetWithMaintenanceWindow'
     -- For more information about these examples formats, including the best
     -- use case for each one, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html Examples: Register targets with a maintenance window>
-    -- in the /AWS Systems Manager User Guide/.
+    -- in the /Amazon Web Services Systems Manager User Guide/.
     targets :: [Target]
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -123,8 +124,9 @@ data RegisterTargetWithMaintenanceWindow = RegisterTargetWithMaintenanceWindow'
 --
 -- 'description', 'registerTargetWithMaintenanceWindow_description' - An optional description for the target.
 --
--- 'ownerInformation', 'registerTargetWithMaintenanceWindow_ownerInformation' - User-provided value that will be included in any CloudWatch events
--- raised while running tasks for these targets in this maintenance window.
+-- 'ownerInformation', 'registerTargetWithMaintenanceWindow_ownerInformation' - User-provided value that will be included in any Amazon CloudWatch
+-- Events events raised while running tasks for these targets in this
+-- maintenance window.
 --
 -- 'clientToken', 'registerTargetWithMaintenanceWindow_clientToken' - User-provided idempotency token.
 --
@@ -171,7 +173,7 @@ data RegisterTargetWithMaintenanceWindow = RegisterTargetWithMaintenanceWindow'
 -- For more information about these examples formats, including the best
 -- use case for each one, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html Examples: Register targets with a maintenance window>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 newRegisterTargetWithMaintenanceWindow ::
   -- | 'windowId'
   Prelude.Text ->
@@ -200,8 +202,9 @@ registerTargetWithMaintenanceWindow_name = Lens.lens (\RegisterTargetWithMainten
 registerTargetWithMaintenanceWindow_description :: Lens.Lens' RegisterTargetWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
 registerTargetWithMaintenanceWindow_description = Lens.lens (\RegisterTargetWithMaintenanceWindow' {description} -> description) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {description = a} :: RegisterTargetWithMaintenanceWindow) Prelude.. Lens.mapping Core._Sensitive
 
--- | User-provided value that will be included in any CloudWatch events
--- raised while running tasks for these targets in this maintenance window.
+-- | User-provided value that will be included in any Amazon CloudWatch
+-- Events events raised while running tasks for these targets in this
+-- maintenance window.
 registerTargetWithMaintenanceWindow_ownerInformation :: Lens.Lens' RegisterTargetWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
 registerTargetWithMaintenanceWindow_ownerInformation = Lens.lens (\RegisterTargetWithMaintenanceWindow' {ownerInformation} -> ownerInformation) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {ownerInformation = a} :: RegisterTargetWithMaintenanceWindow) Prelude.. Lens.mapping Core._Sensitive
 
@@ -256,7 +259,7 @@ registerTargetWithMaintenanceWindow_resourceType = Lens.lens (\RegisterTargetWit
 -- For more information about these examples formats, including the best
 -- use case for each one, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-tutorial-targets-examples.html Examples: Register targets with a maintenance window>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 registerTargetWithMaintenanceWindow_targets :: Lens.Lens' RegisterTargetWithMaintenanceWindow [Target]
 registerTargetWithMaintenanceWindow_targets = Lens.lens (\RegisterTargetWithMaintenanceWindow' {targets} -> targets) (\s@RegisterTargetWithMaintenanceWindow' {} a -> s {targets = a} :: RegisterTargetWithMaintenanceWindow) Prelude.. Lens._Coerce
 

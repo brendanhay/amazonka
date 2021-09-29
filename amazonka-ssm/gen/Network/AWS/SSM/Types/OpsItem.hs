@@ -27,18 +27,35 @@ import Network.AWS.SSM.Types.OpsItemNotification
 import Network.AWS.SSM.Types.OpsItemStatus
 import Network.AWS.SSM.Types.RelatedOpsItem
 
--- | Operations engineers and IT professionals use OpsCenter to view,
--- investigate, and remediate operational issues impacting the performance
--- and health of their AWS resources. For more information, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html AWS Systems Manager OpsCenter>
--- in the /AWS Systems Manager User Guide/.
+-- | Operations engineers and IT professionals use Amazon Web Services
+-- Systems Manager OpsCenter to view, investigate, and remediate
+-- operational work items (OpsItems) impacting the performance and health
+-- of their Amazon Web Services resources. OpsCenter is integrated with
+-- Amazon EventBridge and Amazon CloudWatch. This means you can configure
+-- these services to automatically create an OpsItem in OpsCenter when a
+-- CloudWatch alarm enters the ALARM state or when EventBridge processes an
+-- event from any Amazon Web Services service that publishes events.
+-- Configuring Amazon CloudWatch alarms and EventBridge events to
+-- automatically create OpsItems allows you to quickly diagnose and
+-- remediate issues with Amazon Web Services resources from a single
+-- console.
+--
+-- To help you diagnose issues, each OpsItem includes contextually relevant
+-- information such as the name and ID of the Amazon Web Services resource
+-- that generated the OpsItem, alarm or event details, alarm history, and
+-- an alarm timeline graph. For the Amazon Web Services resource, OpsCenter
+-- aggregates information from Config, CloudTrail logs, and EventBridge, so
+-- you don\'t have to navigate across multiple console pages during your
+-- investigation. For more information, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html OpsCenter>
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
 -- /See:/ 'newOpsItem' smart constructor.
 data OpsItem = OpsItem'
   { -- | The OpsItem status. Status can be @Open@, @In Progress@, or @Resolved@.
     -- For more information, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems-editing-details.html Editing OpsItem details>
-    -- in the /AWS Systems Manager User Guide/.
+    -- in the /Amazon Web Services Systems Manager User Guide/.
     status :: Prelude.Maybe OpsItemStatus,
     -- | The time specified in a change request for a runbook workflow to end.
     -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
@@ -57,22 +74,23 @@ data OpsItem = OpsItem'
     -- enter operational data as key-value pairs. The key has a maximum length
     -- of 128 characters. The value has a maximum size of 20 KB.
     --
-    -- Operational data keys /can\'t/ begin with the following: amazon, aws,
-    -- amzn, ssm, \/amazon, \/aws, \/amzn, \/ssm.
+    -- Operational data keys /can\'t/ begin with the following: @amazon@,
+    -- @aws@, @amzn@, @ssm@, @\/amazon@, @\/aws@, @\/amzn@, @\/ssm@.
     --
     -- You can choose to make the data searchable by other users in the account
     -- or you can restrict search access. Searchable data means that all users
     -- with access to the OpsItem Overview page (as provided by the
-    -- DescribeOpsItems API action) can view and search on the specified data.
-    -- Operational data that is not searchable is only viewable by users who
-    -- have access to the OpsItem (as provided by the GetOpsItem API action).
+    -- DescribeOpsItems API operation) can view and search on the specified
+    -- data. Operational data that isn\'t searchable is only viewable by users
+    -- who have access to the OpsItem (as provided by the GetOpsItem API
+    -- operation).
     --
     -- Use the @\/aws\/resources@ key in OperationalData to specify a related
     -- resource in the request. Use the @\/aws\/automations@ key in
     -- OperationalData to associate an Automation runbook with the OpsItem. To
-    -- view AWS CLI example commands that use these keys, see
+    -- view Amazon Web Services CLI example commands that use these keys, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems Creating OpsItems manually>
-    -- in the /AWS Systems Manager User Guide/.
+    -- in the /Amazon Web Services Systems Manager User Guide/.
     operationalData :: Prelude.Maybe (Prelude.HashMap Prelude.Text OpsItemDataValue),
     -- | A short heading that describes the nature of the OpsItem and the
     -- impacted resource.
@@ -93,22 +111,24 @@ data OpsItem = OpsItem'
     actualEndTime :: Prelude.Maybe Core.POSIX,
     -- | The ID of the OpsItem.
     opsItemId :: Prelude.Maybe Prelude.Text,
-    -- | The type of OpsItem. Currently, the only valid values are
-    -- @\/aws\/changerequest@ and @\/aws\/issue@.
-    opsItemType :: Prelude.Maybe Prelude.Text,
     -- | The time specified in a change request for a runbook workflow to start.
     -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
     plannedStartTime :: Prelude.Maybe Core.POSIX,
+    -- | The type of OpsItem. Currently, the only valid values are
+    -- @\/aws\/changerequest@ and @\/aws\/issue@.
+    opsItemType :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of an Amazon Simple Notification Service
+    -- (Amazon SNS) topic where notifications are sent when this OpsItem is
+    -- edited or changed.
+    notifications :: Prelude.Maybe [OpsItemNotification],
     -- | The date and time the OpsItem was last updated.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
-    -- | The Amazon Resource Name (ARN) of an SNS topic where notifications are
-    -- sent when this OpsItem is edited or changed.
-    notifications :: Prelude.Maybe [OpsItemNotification],
     -- | The OpsItem description.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the AWS account that created the OpsItem.
+    -- | The ARN of the Amazon Web Services account that created the OpsItem.
     createdBy :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the AWS account that last updated the OpsItem.
+    -- | The ARN of the Amazon Web Services account that last updated the
+    -- OpsItem.
     lastModifiedBy :: Prelude.Maybe Prelude.Text,
     -- | One or more OpsItems that share something in common with the current
     -- OpsItem. For example, related OpsItems can include OpsItems with similar
@@ -129,7 +149,7 @@ data OpsItem = OpsItem'
 -- 'status', 'opsItem_status' - The OpsItem status. Status can be @Open@, @In Progress@, or @Resolved@.
 -- For more information, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems-editing-details.html Editing OpsItem details>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
 -- 'plannedEndTime', 'opsItem_plannedEndTime' - The time specified in a change request for a runbook workflow to end.
 -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
@@ -148,22 +168,23 @@ data OpsItem = OpsItem'
 -- enter operational data as key-value pairs. The key has a maximum length
 -- of 128 characters. The value has a maximum size of 20 KB.
 --
--- Operational data keys /can\'t/ begin with the following: amazon, aws,
--- amzn, ssm, \/amazon, \/aws, \/amzn, \/ssm.
+-- Operational data keys /can\'t/ begin with the following: @amazon@,
+-- @aws@, @amzn@, @ssm@, @\/amazon@, @\/aws@, @\/amzn@, @\/ssm@.
 --
 -- You can choose to make the data searchable by other users in the account
 -- or you can restrict search access. Searchable data means that all users
 -- with access to the OpsItem Overview page (as provided by the
--- DescribeOpsItems API action) can view and search on the specified data.
--- Operational data that is not searchable is only viewable by users who
--- have access to the OpsItem (as provided by the GetOpsItem API action).
+-- DescribeOpsItems API operation) can view and search on the specified
+-- data. Operational data that isn\'t searchable is only viewable by users
+-- who have access to the OpsItem (as provided by the GetOpsItem API
+-- operation).
 --
 -- Use the @\/aws\/resources@ key in OperationalData to specify a related
 -- resource in the request. Use the @\/aws\/automations@ key in
 -- OperationalData to associate an Automation runbook with the OpsItem. To
--- view AWS CLI example commands that use these keys, see
+-- view Amazon Web Services CLI example commands that use these keys, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems Creating OpsItems manually>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
 -- 'title', 'opsItem_title' - A short heading that describes the nature of the OpsItem and the
 -- impacted resource.
@@ -184,22 +205,24 @@ data OpsItem = OpsItem'
 --
 -- 'opsItemId', 'opsItem_opsItemId' - The ID of the OpsItem.
 --
--- 'opsItemType', 'opsItem_opsItemType' - The type of OpsItem. Currently, the only valid values are
--- @\/aws\/changerequest@ and @\/aws\/issue@.
---
 -- 'plannedStartTime', 'opsItem_plannedStartTime' - The time specified in a change request for a runbook workflow to start.
 -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
 --
--- 'lastModifiedTime', 'opsItem_lastModifiedTime' - The date and time the OpsItem was last updated.
+-- 'opsItemType', 'opsItem_opsItemType' - The type of OpsItem. Currently, the only valid values are
+-- @\/aws\/changerequest@ and @\/aws\/issue@.
 --
--- 'notifications', 'opsItem_notifications' - The Amazon Resource Name (ARN) of an SNS topic where notifications are
--- sent when this OpsItem is edited or changed.
+-- 'notifications', 'opsItem_notifications' - The Amazon Resource Name (ARN) of an Amazon Simple Notification Service
+-- (Amazon SNS) topic where notifications are sent when this OpsItem is
+-- edited or changed.
+--
+-- 'lastModifiedTime', 'opsItem_lastModifiedTime' - The date and time the OpsItem was last updated.
 --
 -- 'description', 'opsItem_description' - The OpsItem description.
 --
--- 'createdBy', 'opsItem_createdBy' - The ARN of the AWS account that created the OpsItem.
+-- 'createdBy', 'opsItem_createdBy' - The ARN of the Amazon Web Services account that created the OpsItem.
 --
--- 'lastModifiedBy', 'opsItem_lastModifiedBy' - The ARN of the AWS account that last updated the OpsItem.
+-- 'lastModifiedBy', 'opsItem_lastModifiedBy' - The ARN of the Amazon Web Services account that last updated the
+-- OpsItem.
 --
 -- 'relatedOpsItems', 'opsItem_relatedOpsItems' - One or more OpsItems that share something in common with the current
 -- OpsItem. For example, related OpsItems can include OpsItems with similar
@@ -222,10 +245,10 @@ newOpsItem =
       priority = Prelude.Nothing,
       actualEndTime = Prelude.Nothing,
       opsItemId = Prelude.Nothing,
-      opsItemType = Prelude.Nothing,
       plannedStartTime = Prelude.Nothing,
-      lastModifiedTime = Prelude.Nothing,
+      opsItemType = Prelude.Nothing,
       notifications = Prelude.Nothing,
+      lastModifiedTime = Prelude.Nothing,
       description = Prelude.Nothing,
       createdBy = Prelude.Nothing,
       lastModifiedBy = Prelude.Nothing,
@@ -235,7 +258,7 @@ newOpsItem =
 -- | The OpsItem status. Status can be @Open@, @In Progress@, or @Resolved@.
 -- For more information, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems-editing-details.html Editing OpsItem details>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 opsItem_status :: Lens.Lens' OpsItem (Prelude.Maybe OpsItemStatus)
 opsItem_status = Lens.lens (\OpsItem' {status} -> status) (\s@OpsItem' {} a -> s {status = a} :: OpsItem)
 
@@ -264,22 +287,23 @@ opsItem_category = Lens.lens (\OpsItem' {category} -> category) (\s@OpsItem' {} 
 -- enter operational data as key-value pairs. The key has a maximum length
 -- of 128 characters. The value has a maximum size of 20 KB.
 --
--- Operational data keys /can\'t/ begin with the following: amazon, aws,
--- amzn, ssm, \/amazon, \/aws, \/amzn, \/ssm.
+-- Operational data keys /can\'t/ begin with the following: @amazon@,
+-- @aws@, @amzn@, @ssm@, @\/amazon@, @\/aws@, @\/amzn@, @\/ssm@.
 --
 -- You can choose to make the data searchable by other users in the account
 -- or you can restrict search access. Searchable data means that all users
 -- with access to the OpsItem Overview page (as provided by the
--- DescribeOpsItems API action) can view and search on the specified data.
--- Operational data that is not searchable is only viewable by users who
--- have access to the OpsItem (as provided by the GetOpsItem API action).
+-- DescribeOpsItems API operation) can view and search on the specified
+-- data. Operational data that isn\'t searchable is only viewable by users
+-- who have access to the OpsItem (as provided by the GetOpsItem API
+-- operation).
 --
 -- Use the @\/aws\/resources@ key in OperationalData to specify a related
 -- resource in the request. Use the @\/aws\/automations@ key in
 -- OperationalData to associate an Automation runbook with the OpsItem. To
--- view AWS CLI example commands that use these keys, see
+-- view Amazon Web Services CLI example commands that use these keys, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems Creating OpsItems manually>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 opsItem_operationalData :: Lens.Lens' OpsItem (Prelude.Maybe (Prelude.HashMap Prelude.Text OpsItemDataValue))
 opsItem_operationalData = Lens.lens (\OpsItem' {operationalData} -> operationalData) (\s@OpsItem' {} a -> s {operationalData = a} :: OpsItem) Prelude.. Lens.mapping Lens._Coerce
 
@@ -316,34 +340,36 @@ opsItem_actualEndTime = Lens.lens (\OpsItem' {actualEndTime} -> actualEndTime) (
 opsItem_opsItemId :: Lens.Lens' OpsItem (Prelude.Maybe Prelude.Text)
 opsItem_opsItemId = Lens.lens (\OpsItem' {opsItemId} -> opsItemId) (\s@OpsItem' {} a -> s {opsItemId = a} :: OpsItem)
 
--- | The type of OpsItem. Currently, the only valid values are
--- @\/aws\/changerequest@ and @\/aws\/issue@.
-opsItem_opsItemType :: Lens.Lens' OpsItem (Prelude.Maybe Prelude.Text)
-opsItem_opsItemType = Lens.lens (\OpsItem' {opsItemType} -> opsItemType) (\s@OpsItem' {} a -> s {opsItemType = a} :: OpsItem)
-
 -- | The time specified in a change request for a runbook workflow to start.
 -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
 opsItem_plannedStartTime :: Lens.Lens' OpsItem (Prelude.Maybe Prelude.UTCTime)
 opsItem_plannedStartTime = Lens.lens (\OpsItem' {plannedStartTime} -> plannedStartTime) (\s@OpsItem' {} a -> s {plannedStartTime = a} :: OpsItem) Prelude.. Lens.mapping Core._Time
 
+-- | The type of OpsItem. Currently, the only valid values are
+-- @\/aws\/changerequest@ and @\/aws\/issue@.
+opsItem_opsItemType :: Lens.Lens' OpsItem (Prelude.Maybe Prelude.Text)
+opsItem_opsItemType = Lens.lens (\OpsItem' {opsItemType} -> opsItemType) (\s@OpsItem' {} a -> s {opsItemType = a} :: OpsItem)
+
+-- | The Amazon Resource Name (ARN) of an Amazon Simple Notification Service
+-- (Amazon SNS) topic where notifications are sent when this OpsItem is
+-- edited or changed.
+opsItem_notifications :: Lens.Lens' OpsItem (Prelude.Maybe [OpsItemNotification])
+opsItem_notifications = Lens.lens (\OpsItem' {notifications} -> notifications) (\s@OpsItem' {} a -> s {notifications = a} :: OpsItem) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The date and time the OpsItem was last updated.
 opsItem_lastModifiedTime :: Lens.Lens' OpsItem (Prelude.Maybe Prelude.UTCTime)
 opsItem_lastModifiedTime = Lens.lens (\OpsItem' {lastModifiedTime} -> lastModifiedTime) (\s@OpsItem' {} a -> s {lastModifiedTime = a} :: OpsItem) Prelude.. Lens.mapping Core._Time
-
--- | The Amazon Resource Name (ARN) of an SNS topic where notifications are
--- sent when this OpsItem is edited or changed.
-opsItem_notifications :: Lens.Lens' OpsItem (Prelude.Maybe [OpsItemNotification])
-opsItem_notifications = Lens.lens (\OpsItem' {notifications} -> notifications) (\s@OpsItem' {} a -> s {notifications = a} :: OpsItem) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The OpsItem description.
 opsItem_description :: Lens.Lens' OpsItem (Prelude.Maybe Prelude.Text)
 opsItem_description = Lens.lens (\OpsItem' {description} -> description) (\s@OpsItem' {} a -> s {description = a} :: OpsItem)
 
--- | The ARN of the AWS account that created the OpsItem.
+-- | The ARN of the Amazon Web Services account that created the OpsItem.
 opsItem_createdBy :: Lens.Lens' OpsItem (Prelude.Maybe Prelude.Text)
 opsItem_createdBy = Lens.lens (\OpsItem' {createdBy} -> createdBy) (\s@OpsItem' {} a -> s {createdBy = a} :: OpsItem)
 
--- | The ARN of the AWS account that last updated the OpsItem.
+-- | The ARN of the Amazon Web Services account that last updated the
+-- OpsItem.
 opsItem_lastModifiedBy :: Lens.Lens' OpsItem (Prelude.Maybe Prelude.Text)
 opsItem_lastModifiedBy = Lens.lens (\OpsItem' {lastModifiedBy} -> lastModifiedBy) (\s@OpsItem' {} a -> s {lastModifiedBy = a} :: OpsItem)
 
@@ -375,10 +401,10 @@ instance Core.FromJSON OpsItem where
             Prelude.<*> (x Core..:? "Priority")
             Prelude.<*> (x Core..:? "ActualEndTime")
             Prelude.<*> (x Core..:? "OpsItemId")
-            Prelude.<*> (x Core..:? "OpsItemType")
             Prelude.<*> (x Core..:? "PlannedStartTime")
-            Prelude.<*> (x Core..:? "LastModifiedTime")
+            Prelude.<*> (x Core..:? "OpsItemType")
             Prelude.<*> (x Core..:? "Notifications" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "LastModifiedTime")
             Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "CreatedBy")
             Prelude.<*> (x Core..:? "LastModifiedBy")

@@ -51,7 +51,7 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'newGetConnectionStatus' smart constructor.
 data GetConnectionStatus = GetConnectionStatus'
-  { -- | The ID of the instance.
+  { -- | The instance ID.
     target :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -64,7 +64,7 @@ data GetConnectionStatus = GetConnectionStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'target', 'getConnectionStatus_target' - The ID of the instance.
+-- 'target', 'getConnectionStatus_target' - The instance ID.
 newGetConnectionStatus ::
   -- | 'target'
   Prelude.Text ->
@@ -72,7 +72,7 @@ newGetConnectionStatus ::
 newGetConnectionStatus pTarget_ =
   GetConnectionStatus' {target = pTarget_}
 
--- | The ID of the instance.
+-- | The instance ID.
 getConnectionStatus_target :: Lens.Lens' GetConnectionStatus Prelude.Text
 getConnectionStatus_target = Lens.lens (\GetConnectionStatus' {target} -> target) (\s@GetConnectionStatus' {} a -> s {target = a} :: GetConnectionStatus)
 

@@ -39,54 +39,55 @@ data CommandInvocation = CommandInvocation'
   { -- | Configurations for sending notifications about command status changes on
     -- a per instance basis.
     notificationConfig :: Prelude.Maybe NotificationConfig,
-    -- | The URL to the plugin\'s StdOut file in Amazon S3, if the S3 bucket was
-    -- defined for the parent command. For an invocation, StandardOutputUrl is
-    -- populated if there is just one plugin defined for the command, and the
-    -- S3 bucket was defined for the command.
+    -- | The URL to the plugin\'s StdOut file in Amazon Simple Storage Service
+    -- (Amazon S3), if the S3 bucket was defined for the parent command. For an
+    -- invocation, @StandardOutputUrl@ is populated if there is just one plugin
+    -- defined for the command, and the S3 bucket was defined for the command.
     standardOutputUrl :: Prelude.Maybe Prelude.Text,
     -- | Whether or not the invocation succeeded, failed, or is pending.
     status :: Prelude.Maybe CommandInvocationStatus,
     -- | The instance ID in which this invocation was requested.
     instanceId :: Prelude.Maybe Prelude.Text,
-    -- | The IAM service role that Run Command uses to act on your behalf when
-    -- sending notifications about command status changes on a per instance
-    -- basis.
-    serviceRole :: Prelude.Maybe Prelude.Text,
     -- | The time and date the request was sent to this instance.
     requestedDateTime :: Prelude.Maybe Core.POSIX,
+    -- | The Identity and Access Management (IAM) service role that Run Command,
+    -- a capability of Amazon Web Services Systems Manager, uses to act on your
+    -- behalf when sending notifications about command status changes on a per
+    -- instance basis.
+    serviceRole :: Prelude.Maybe Prelude.Text,
     -- | A detailed status of the command execution for each invocation (each
     -- instance targeted by the command). StatusDetails includes more
     -- information than Status because it includes states resulting from error
     -- and concurrency control parameters. StatusDetails can show different
     -- results than Status. For more information about these statuses, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html Understanding command statuses>
-    -- in the /AWS Systems Manager User Guide/. StatusDetails can be one of the
-    -- following values:
+    -- in the /Amazon Web Services Systems Manager User Guide/. StatusDetails
+    -- can be one of the following values:
     --
-    -- -   Pending: The command has not been sent to the instance.
+    -- -   Pending: The command hasn\'t been sent to the instance.
     --
-    -- -   In Progress: The command has been sent to the instance but has not
+    -- -   In Progress: The command has been sent to the instance but hasn\'t
     --     reached a terminal state.
     --
     -- -   Success: The execution of the command or plugin was successfully
     --     completed. This is a terminal state.
     --
-    -- -   Delivery Timed Out: The command was not delivered to the instance
-    --     before the delivery timeout expired. Delivery timeouts do not count
-    --     against the parent command\'s MaxErrors limit, but they do
+    -- -   Delivery Timed Out: The command wasn\'t delivered to the instance
+    --     before the delivery timeout expired. Delivery timeouts don\'t count
+    --     against the parent command\'s @MaxErrors@ limit, but they do
     --     contribute to whether the parent command status is Success or
     --     Incomplete. This is a terminal state.
     --
     -- -   Execution Timed Out: Command execution started on the instance, but
-    --     the execution was not complete before the execution timeout expired.
-    --     Execution timeouts count against the MaxErrors limit of the parent
+    --     the execution wasn\'t complete before the execution timeout expired.
+    --     Execution timeouts count against the @MaxErrors@ limit of the parent
     --     command. This is a terminal state.
     --
-    -- -   Failed: The command was not successful on the instance. For a
-    --     plugin, this indicates that the result code was not zero. For a
+    -- -   Failed: The command wasn\'t successful on the instance. For a
+    --     plugin, this indicates that the result code wasn\'t zero. For a
     --     command invocation, this indicates that the result code for one or
-    --     more plugins was not zero. Invocation failures count against the
-    --     MaxErrors limit of the parent command. This is a terminal state.
+    --     more plugins wasn\'t zero. Invocation failures count against the
+    --     @MaxErrors@ limit of the parent command. This is a terminal state.
     --
     -- -   Canceled: The command was terminated before it was completed. This
     --     is a terminal state.
@@ -101,17 +102,15 @@ data CommandInvocation = CommandInvocation'
     --     subsequent command invocations were canceled by the system. This is
     --     a terminal state.
     statusDetails :: Prelude.Maybe Prelude.Text,
-    -- | The name of the invocation target. For EC2 instances this is the value
-    -- for the aws:Name tag. For on-premises instances, this is the name of the
-    -- instance.
+    -- | The fully qualified host name of the managed instance.
     instanceName :: Prelude.Maybe Prelude.Text,
     -- | User-specified information about the command, such as a brief
     -- description of what the command should do.
     comment :: Prelude.Maybe Prelude.Text,
-    -- | The URL to the plugin\'s StdErr file in Amazon S3, if the S3 bucket was
-    -- defined for the parent command. For an invocation, StandardErrorUrl is
-    -- populated if there is just one plugin defined for the command, and the
-    -- S3 bucket was defined for the command.
+    -- | The URL to the plugin\'s StdErr file in Amazon Simple Storage Service
+    -- (Amazon S3), if the S3 bucket was defined for the parent command. For an
+    -- invocation, @StandardErrorUrl@ is populated if there is just one plugin
+    -- defined for the command, and the S3 bucket was defined for the command.
     standardErrorUrl :: Prelude.Maybe Prelude.Text,
     -- | The document name that was requested for execution.
     documentName :: Prelude.Maybe Prelude.Text,
@@ -119,11 +118,12 @@ data CommandInvocation = CommandInvocation'
     commandId :: Prelude.Maybe Prelude.Text,
     -- | Gets the trace output sent by the agent.
     traceOutput :: Prelude.Maybe Prelude.Text,
-    -- | CloudWatch Logs information where you want Systems Manager to send the
-    -- command output.
-    cloudWatchOutputConfig :: Prelude.Maybe CloudWatchOutputConfig,
+    -- | Plugins processed by the command.
     commandPlugins :: Prelude.Maybe [CommandPlugin],
-    -- | The SSM document version.
+    -- | Amazon CloudWatch Logs information where you want Amazon Web Services
+    -- Systems Manager to send the command output.
+    cloudWatchOutputConfig :: Prelude.Maybe CloudWatchOutputConfig,
+    -- | The Systems Manager document (SSM document) version.
     documentVersion :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -139,20 +139,21 @@ data CommandInvocation = CommandInvocation'
 -- 'notificationConfig', 'commandInvocation_notificationConfig' - Configurations for sending notifications about command status changes on
 -- a per instance basis.
 --
--- 'standardOutputUrl', 'commandInvocation_standardOutputUrl' - The URL to the plugin\'s StdOut file in Amazon S3, if the S3 bucket was
--- defined for the parent command. For an invocation, StandardOutputUrl is
--- populated if there is just one plugin defined for the command, and the
--- S3 bucket was defined for the command.
+-- 'standardOutputUrl', 'commandInvocation_standardOutputUrl' - The URL to the plugin\'s StdOut file in Amazon Simple Storage Service
+-- (Amazon S3), if the S3 bucket was defined for the parent command. For an
+-- invocation, @StandardOutputUrl@ is populated if there is just one plugin
+-- defined for the command, and the S3 bucket was defined for the command.
 --
 -- 'status', 'commandInvocation_status' - Whether or not the invocation succeeded, failed, or is pending.
 --
 -- 'instanceId', 'commandInvocation_instanceId' - The instance ID in which this invocation was requested.
 --
--- 'serviceRole', 'commandInvocation_serviceRole' - The IAM service role that Run Command uses to act on your behalf when
--- sending notifications about command status changes on a per instance
--- basis.
---
 -- 'requestedDateTime', 'commandInvocation_requestedDateTime' - The time and date the request was sent to this instance.
+--
+-- 'serviceRole', 'commandInvocation_serviceRole' - The Identity and Access Management (IAM) service role that Run Command,
+-- a capability of Amazon Web Services Systems Manager, uses to act on your
+-- behalf when sending notifications about command status changes on a per
+-- instance basis.
 --
 -- 'statusDetails', 'commandInvocation_statusDetails' - A detailed status of the command execution for each invocation (each
 -- instance targeted by the command). StatusDetails includes more
@@ -160,33 +161,33 @@ data CommandInvocation = CommandInvocation'
 -- and concurrency control parameters. StatusDetails can show different
 -- results than Status. For more information about these statuses, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html Understanding command statuses>
--- in the /AWS Systems Manager User Guide/. StatusDetails can be one of the
--- following values:
+-- in the /Amazon Web Services Systems Manager User Guide/. StatusDetails
+-- can be one of the following values:
 --
--- -   Pending: The command has not been sent to the instance.
+-- -   Pending: The command hasn\'t been sent to the instance.
 --
--- -   In Progress: The command has been sent to the instance but has not
+-- -   In Progress: The command has been sent to the instance but hasn\'t
 --     reached a terminal state.
 --
 -- -   Success: The execution of the command or plugin was successfully
 --     completed. This is a terminal state.
 --
--- -   Delivery Timed Out: The command was not delivered to the instance
---     before the delivery timeout expired. Delivery timeouts do not count
---     against the parent command\'s MaxErrors limit, but they do
+-- -   Delivery Timed Out: The command wasn\'t delivered to the instance
+--     before the delivery timeout expired. Delivery timeouts don\'t count
+--     against the parent command\'s @MaxErrors@ limit, but they do
 --     contribute to whether the parent command status is Success or
 --     Incomplete. This is a terminal state.
 --
 -- -   Execution Timed Out: Command execution started on the instance, but
---     the execution was not complete before the execution timeout expired.
---     Execution timeouts count against the MaxErrors limit of the parent
+--     the execution wasn\'t complete before the execution timeout expired.
+--     Execution timeouts count against the @MaxErrors@ limit of the parent
 --     command. This is a terminal state.
 --
--- -   Failed: The command was not successful on the instance. For a
---     plugin, this indicates that the result code was not zero. For a
+-- -   Failed: The command wasn\'t successful on the instance. For a
+--     plugin, this indicates that the result code wasn\'t zero. For a
 --     command invocation, this indicates that the result code for one or
---     more plugins was not zero. Invocation failures count against the
---     MaxErrors limit of the parent command. This is a terminal state.
+--     more plugins wasn\'t zero. Invocation failures count against the
+--     @MaxErrors@ limit of the parent command. This is a terminal state.
 --
 -- -   Canceled: The command was terminated before it was completed. This
 --     is a terminal state.
@@ -201,17 +202,15 @@ data CommandInvocation = CommandInvocation'
 --     subsequent command invocations were canceled by the system. This is
 --     a terminal state.
 --
--- 'instanceName', 'commandInvocation_instanceName' - The name of the invocation target. For EC2 instances this is the value
--- for the aws:Name tag. For on-premises instances, this is the name of the
--- instance.
+-- 'instanceName', 'commandInvocation_instanceName' - The fully qualified host name of the managed instance.
 --
 -- 'comment', 'commandInvocation_comment' - User-specified information about the command, such as a brief
 -- description of what the command should do.
 --
--- 'standardErrorUrl', 'commandInvocation_standardErrorUrl' - The URL to the plugin\'s StdErr file in Amazon S3, if the S3 bucket was
--- defined for the parent command. For an invocation, StandardErrorUrl is
--- populated if there is just one plugin defined for the command, and the
--- S3 bucket was defined for the command.
+-- 'standardErrorUrl', 'commandInvocation_standardErrorUrl' - The URL to the plugin\'s StdErr file in Amazon Simple Storage Service
+-- (Amazon S3), if the S3 bucket was defined for the parent command. For an
+-- invocation, @StandardErrorUrl@ is populated if there is just one plugin
+-- defined for the command, and the S3 bucket was defined for the command.
 --
 -- 'documentName', 'commandInvocation_documentName' - The document name that was requested for execution.
 --
@@ -219,12 +218,12 @@ data CommandInvocation = CommandInvocation'
 --
 -- 'traceOutput', 'commandInvocation_traceOutput' - Gets the trace output sent by the agent.
 --
--- 'cloudWatchOutputConfig', 'commandInvocation_cloudWatchOutputConfig' - CloudWatch Logs information where you want Systems Manager to send the
--- command output.
+-- 'commandPlugins', 'commandInvocation_commandPlugins' - Plugins processed by the command.
 --
--- 'commandPlugins', 'commandInvocation_commandPlugins' - Undocumented member.
+-- 'cloudWatchOutputConfig', 'commandInvocation_cloudWatchOutputConfig' - Amazon CloudWatch Logs information where you want Amazon Web Services
+-- Systems Manager to send the command output.
 --
--- 'documentVersion', 'commandInvocation_documentVersion' - The SSM document version.
+-- 'documentVersion', 'commandInvocation_documentVersion' - The Systems Manager document (SSM document) version.
 newCommandInvocation ::
   CommandInvocation
 newCommandInvocation =
@@ -234,8 +233,8 @@ newCommandInvocation =
       standardOutputUrl = Prelude.Nothing,
       status = Prelude.Nothing,
       instanceId = Prelude.Nothing,
-      serviceRole = Prelude.Nothing,
       requestedDateTime = Prelude.Nothing,
+      serviceRole = Prelude.Nothing,
       statusDetails = Prelude.Nothing,
       instanceName = Prelude.Nothing,
       comment = Prelude.Nothing,
@@ -243,8 +242,8 @@ newCommandInvocation =
       documentName = Prelude.Nothing,
       commandId = Prelude.Nothing,
       traceOutput = Prelude.Nothing,
-      cloudWatchOutputConfig = Prelude.Nothing,
       commandPlugins = Prelude.Nothing,
+      cloudWatchOutputConfig = Prelude.Nothing,
       documentVersion = Prelude.Nothing
     }
 
@@ -253,10 +252,10 @@ newCommandInvocation =
 commandInvocation_notificationConfig :: Lens.Lens' CommandInvocation (Prelude.Maybe NotificationConfig)
 commandInvocation_notificationConfig = Lens.lens (\CommandInvocation' {notificationConfig} -> notificationConfig) (\s@CommandInvocation' {} a -> s {notificationConfig = a} :: CommandInvocation)
 
--- | The URL to the plugin\'s StdOut file in Amazon S3, if the S3 bucket was
--- defined for the parent command. For an invocation, StandardOutputUrl is
--- populated if there is just one plugin defined for the command, and the
--- S3 bucket was defined for the command.
+-- | The URL to the plugin\'s StdOut file in Amazon Simple Storage Service
+-- (Amazon S3), if the S3 bucket was defined for the parent command. For an
+-- invocation, @StandardOutputUrl@ is populated if there is just one plugin
+-- defined for the command, and the S3 bucket was defined for the command.
 commandInvocation_standardOutputUrl :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
 commandInvocation_standardOutputUrl = Lens.lens (\CommandInvocation' {standardOutputUrl} -> standardOutputUrl) (\s@CommandInvocation' {} a -> s {standardOutputUrl = a} :: CommandInvocation)
 
@@ -268,15 +267,16 @@ commandInvocation_status = Lens.lens (\CommandInvocation' {status} -> status) (\
 commandInvocation_instanceId :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
 commandInvocation_instanceId = Lens.lens (\CommandInvocation' {instanceId} -> instanceId) (\s@CommandInvocation' {} a -> s {instanceId = a} :: CommandInvocation)
 
--- | The IAM service role that Run Command uses to act on your behalf when
--- sending notifications about command status changes on a per instance
--- basis.
-commandInvocation_serviceRole :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
-commandInvocation_serviceRole = Lens.lens (\CommandInvocation' {serviceRole} -> serviceRole) (\s@CommandInvocation' {} a -> s {serviceRole = a} :: CommandInvocation)
-
 -- | The time and date the request was sent to this instance.
 commandInvocation_requestedDateTime :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.UTCTime)
 commandInvocation_requestedDateTime = Lens.lens (\CommandInvocation' {requestedDateTime} -> requestedDateTime) (\s@CommandInvocation' {} a -> s {requestedDateTime = a} :: CommandInvocation) Prelude.. Lens.mapping Core._Time
+
+-- | The Identity and Access Management (IAM) service role that Run Command,
+-- a capability of Amazon Web Services Systems Manager, uses to act on your
+-- behalf when sending notifications about command status changes on a per
+-- instance basis.
+commandInvocation_serviceRole :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
+commandInvocation_serviceRole = Lens.lens (\CommandInvocation' {serviceRole} -> serviceRole) (\s@CommandInvocation' {} a -> s {serviceRole = a} :: CommandInvocation)
 
 -- | A detailed status of the command execution for each invocation (each
 -- instance targeted by the command). StatusDetails includes more
@@ -284,33 +284,33 @@ commandInvocation_requestedDateTime = Lens.lens (\CommandInvocation' {requestedD
 -- and concurrency control parameters. StatusDetails can show different
 -- results than Status. For more information about these statuses, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html Understanding command statuses>
--- in the /AWS Systems Manager User Guide/. StatusDetails can be one of the
--- following values:
+-- in the /Amazon Web Services Systems Manager User Guide/. StatusDetails
+-- can be one of the following values:
 --
--- -   Pending: The command has not been sent to the instance.
+-- -   Pending: The command hasn\'t been sent to the instance.
 --
--- -   In Progress: The command has been sent to the instance but has not
+-- -   In Progress: The command has been sent to the instance but hasn\'t
 --     reached a terminal state.
 --
 -- -   Success: The execution of the command or plugin was successfully
 --     completed. This is a terminal state.
 --
--- -   Delivery Timed Out: The command was not delivered to the instance
---     before the delivery timeout expired. Delivery timeouts do not count
---     against the parent command\'s MaxErrors limit, but they do
+-- -   Delivery Timed Out: The command wasn\'t delivered to the instance
+--     before the delivery timeout expired. Delivery timeouts don\'t count
+--     against the parent command\'s @MaxErrors@ limit, but they do
 --     contribute to whether the parent command status is Success or
 --     Incomplete. This is a terminal state.
 --
 -- -   Execution Timed Out: Command execution started on the instance, but
---     the execution was not complete before the execution timeout expired.
---     Execution timeouts count against the MaxErrors limit of the parent
+--     the execution wasn\'t complete before the execution timeout expired.
+--     Execution timeouts count against the @MaxErrors@ limit of the parent
 --     command. This is a terminal state.
 --
--- -   Failed: The command was not successful on the instance. For a
---     plugin, this indicates that the result code was not zero. For a
+-- -   Failed: The command wasn\'t successful on the instance. For a
+--     plugin, this indicates that the result code wasn\'t zero. For a
 --     command invocation, this indicates that the result code for one or
---     more plugins was not zero. Invocation failures count against the
---     MaxErrors limit of the parent command. This is a terminal state.
+--     more plugins wasn\'t zero. Invocation failures count against the
+--     @MaxErrors@ limit of the parent command. This is a terminal state.
 --
 -- -   Canceled: The command was terminated before it was completed. This
 --     is a terminal state.
@@ -327,9 +327,7 @@ commandInvocation_requestedDateTime = Lens.lens (\CommandInvocation' {requestedD
 commandInvocation_statusDetails :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
 commandInvocation_statusDetails = Lens.lens (\CommandInvocation' {statusDetails} -> statusDetails) (\s@CommandInvocation' {} a -> s {statusDetails = a} :: CommandInvocation)
 
--- | The name of the invocation target. For EC2 instances this is the value
--- for the aws:Name tag. For on-premises instances, this is the name of the
--- instance.
+-- | The fully qualified host name of the managed instance.
 commandInvocation_instanceName :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
 commandInvocation_instanceName = Lens.lens (\CommandInvocation' {instanceName} -> instanceName) (\s@CommandInvocation' {} a -> s {instanceName = a} :: CommandInvocation)
 
@@ -338,10 +336,10 @@ commandInvocation_instanceName = Lens.lens (\CommandInvocation' {instanceName} -
 commandInvocation_comment :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
 commandInvocation_comment = Lens.lens (\CommandInvocation' {comment} -> comment) (\s@CommandInvocation' {} a -> s {comment = a} :: CommandInvocation)
 
--- | The URL to the plugin\'s StdErr file in Amazon S3, if the S3 bucket was
--- defined for the parent command. For an invocation, StandardErrorUrl is
--- populated if there is just one plugin defined for the command, and the
--- S3 bucket was defined for the command.
+-- | The URL to the plugin\'s StdErr file in Amazon Simple Storage Service
+-- (Amazon S3), if the S3 bucket was defined for the parent command. For an
+-- invocation, @StandardErrorUrl@ is populated if there is just one plugin
+-- defined for the command, and the S3 bucket was defined for the command.
 commandInvocation_standardErrorUrl :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
 commandInvocation_standardErrorUrl = Lens.lens (\CommandInvocation' {standardErrorUrl} -> standardErrorUrl) (\s@CommandInvocation' {} a -> s {standardErrorUrl = a} :: CommandInvocation)
 
@@ -357,16 +355,16 @@ commandInvocation_commandId = Lens.lens (\CommandInvocation' {commandId} -> comm
 commandInvocation_traceOutput :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
 commandInvocation_traceOutput = Lens.lens (\CommandInvocation' {traceOutput} -> traceOutput) (\s@CommandInvocation' {} a -> s {traceOutput = a} :: CommandInvocation)
 
--- | CloudWatch Logs information where you want Systems Manager to send the
--- command output.
-commandInvocation_cloudWatchOutputConfig :: Lens.Lens' CommandInvocation (Prelude.Maybe CloudWatchOutputConfig)
-commandInvocation_cloudWatchOutputConfig = Lens.lens (\CommandInvocation' {cloudWatchOutputConfig} -> cloudWatchOutputConfig) (\s@CommandInvocation' {} a -> s {cloudWatchOutputConfig = a} :: CommandInvocation)
-
--- | Undocumented member.
+-- | Plugins processed by the command.
 commandInvocation_commandPlugins :: Lens.Lens' CommandInvocation (Prelude.Maybe [CommandPlugin])
 commandInvocation_commandPlugins = Lens.lens (\CommandInvocation' {commandPlugins} -> commandPlugins) (\s@CommandInvocation' {} a -> s {commandPlugins = a} :: CommandInvocation) Prelude.. Lens.mapping Lens._Coerce
 
--- | The SSM document version.
+-- | Amazon CloudWatch Logs information where you want Amazon Web Services
+-- Systems Manager to send the command output.
+commandInvocation_cloudWatchOutputConfig :: Lens.Lens' CommandInvocation (Prelude.Maybe CloudWatchOutputConfig)
+commandInvocation_cloudWatchOutputConfig = Lens.lens (\CommandInvocation' {cloudWatchOutputConfig} -> cloudWatchOutputConfig) (\s@CommandInvocation' {} a -> s {cloudWatchOutputConfig = a} :: CommandInvocation)
+
+-- | The Systems Manager document (SSM document) version.
 commandInvocation_documentVersion :: Lens.Lens' CommandInvocation (Prelude.Maybe Prelude.Text)
 commandInvocation_documentVersion = Lens.lens (\CommandInvocation' {documentVersion} -> documentVersion) (\s@CommandInvocation' {} a -> s {documentVersion = a} :: CommandInvocation)
 
@@ -380,8 +378,8 @@ instance Core.FromJSON CommandInvocation where
             Prelude.<*> (x Core..:? "StandardOutputUrl")
             Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "InstanceId")
-            Prelude.<*> (x Core..:? "ServiceRole")
             Prelude.<*> (x Core..:? "RequestedDateTime")
+            Prelude.<*> (x Core..:? "ServiceRole")
             Prelude.<*> (x Core..:? "StatusDetails")
             Prelude.<*> (x Core..:? "InstanceName")
             Prelude.<*> (x Core..:? "Comment")
@@ -389,8 +387,8 @@ instance Core.FromJSON CommandInvocation where
             Prelude.<*> (x Core..:? "DocumentName")
             Prelude.<*> (x Core..:? "CommandId")
             Prelude.<*> (x Core..:? "TraceOutput")
-            Prelude.<*> (x Core..:? "CloudWatchOutputConfig")
             Prelude.<*> (x Core..:? "CommandPlugins" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "CloudWatchOutputConfig")
             Prelude.<*> (x Core..:? "DocumentVersion")
       )
 

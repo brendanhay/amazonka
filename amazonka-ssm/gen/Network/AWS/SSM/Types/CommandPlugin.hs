@@ -29,42 +29,42 @@ import Network.AWS.SSM.Types.CommandPluginStatus
 -- /See:/ 'newCommandPlugin' smart constructor.
 data CommandPlugin = CommandPlugin'
   { -- | The URL for the complete text written by the plugin to stdout in Amazon
-    -- S3. If the S3 bucket for the command was not specified, then this string
+    -- S3. If the S3 bucket for the command wasn\'t specified, then this string
     -- is empty.
     standardOutputUrl :: Prelude.Maybe Prelude.Text,
     -- | The status of this plugin. You can run a document with multiple plugins.
     status :: Prelude.Maybe CommandPluginStatus,
-    -- | A detailed status of the plugin execution. StatusDetails includes more
+    -- | A detailed status of the plugin execution. @StatusDetails@ includes more
     -- information than Status because it includes states resulting from error
     -- and concurrency control parameters. StatusDetails can show different
     -- results than Status. For more information about these statuses, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html Understanding command statuses>
-    -- in the /AWS Systems Manager User Guide/. StatusDetails can be one of the
-    -- following values:
+    -- in the /Amazon Web Services Systems Manager User Guide/. StatusDetails
+    -- can be one of the following values:
     --
-    -- -   Pending: The command has not been sent to the instance.
+    -- -   Pending: The command hasn\'t been sent to the instance.
     --
-    -- -   In Progress: The command has been sent to the instance but has not
+    -- -   In Progress: The command has been sent to the instance but hasn\'t
     --     reached a terminal state.
     --
     -- -   Success: The execution of the command or plugin was successfully
     --     completed. This is a terminal state.
     --
-    -- -   Delivery Timed Out: The command was not delivered to the instance
-    --     before the delivery timeout expired. Delivery timeouts do not count
-    --     against the parent command\'s MaxErrors limit, but they do
+    -- -   Delivery Timed Out: The command wasn\'t delivered to the instance
+    --     before the delivery timeout expired. Delivery timeouts don\'t count
+    --     against the parent command\'s @MaxErrors@ limit, but they do
     --     contribute to whether the parent command status is Success or
     --     Incomplete. This is a terminal state.
     --
     -- -   Execution Timed Out: Command execution started on the instance, but
-    --     the execution was not complete before the execution timeout expired.
-    --     Execution timeouts count against the MaxErrors limit of the parent
+    --     the execution wasn\'t complete before the execution timeout expired.
+    --     Execution timeouts count against the @MaxErrors@ limit of the parent
     --     command. This is a terminal state.
     --
-    -- -   Failed: The command was not successful on the instance. For a
-    --     plugin, this indicates that the result code was not zero. For a
+    -- -   Failed: The command wasn\'t successful on the instance. For a
+    --     plugin, this indicates that the result code wasn\'t zero. For a
     --     command invocation, this indicates that the result code for one or
-    --     more plugins was not zero. Invocation failures count against the
+    --     more plugins wasn\'t zero. Invocation failures count against the
     --     MaxErrors limit of the parent command. This is a terminal state.
     --
     -- -   Canceled: The command was terminated before it was completed. This
@@ -84,29 +84,30 @@ data CommandPlugin = CommandPlugin'
     -- stored. This was requested when issuing the command. For example, in the
     -- following response:
     --
-    -- doc-example-bucket\/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix\/i-02573cafcfEXAMPLE\/awsrunShellScript
+    -- @doc-example-bucket\/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix\/i-02573cafcfEXAMPLE\/awsrunShellScript@
     --
-    -- doc-example-bucket is the name of the S3 bucket;
+    -- @doc-example-bucket@ is the name of the S3 bucket;
     --
-    -- ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix is the name of the S3 prefix;
+    -- @ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix@ is the name of the S3 prefix;
     --
-    -- i-02573cafcfEXAMPLE is the instance ID;
+    -- @i-02573cafcfEXAMPLE@ is the instance ID;
     --
-    -- awsrunShellScript is the name of the plugin.
+    -- @awsrunShellScript@ is the name of the plugin.
     outputS3BucketName :: Prelude.Maybe Prelude.Text,
     -- | The URL for the complete text written by the plugin to stderr. If
-    -- execution is not yet complete, then this string is empty.
+    -- execution isn\'t yet complete, then this string is empty.
     standardErrorUrl :: Prelude.Maybe Prelude.Text,
+    -- | The name of the plugin. Must be one of the following: @aws:updateAgent@,
+    -- @aws:domainjoin@, @aws:applications@, @aws:runPowerShellScript@,
+    -- @aws:psmodule@, @aws:cloudWatch@, @aws:runShellScript@, or
+    -- @aws:updateSSMAgent@.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | (Deprecated) You can no longer specify this parameter. The system
+    -- ignores it. Instead, Amazon Web Services Systems Manager automatically
+    -- determines the S3 bucket region.
+    outputS3Region :: Prelude.Maybe Prelude.Text,
     -- | Output of the plugin execution.
     output :: Prelude.Maybe Prelude.Text,
-    -- | (Deprecated) You can no longer specify this parameter. The system
-    -- ignores it. Instead, Systems Manager automatically determines the S3
-    -- bucket region.
-    outputS3Region :: Prelude.Maybe Prelude.Text,
-    -- | The name of the plugin. Must be one of the following: aws:updateAgent,
-    -- aws:domainjoin, aws:applications, aws:runPowerShellScript, aws:psmodule,
-    -- aws:cloudWatch, aws:runShellScript, or aws:updateSSMAgent.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The time the plugin stopped running. Could stop prematurely if, for
     -- example, a cancel command was sent.
     responseFinishDateTime :: Prelude.Maybe Core.POSIX,
@@ -116,15 +117,15 @@ data CommandPlugin = CommandPlugin'
     -- command executions should be stored. This was requested when issuing the
     -- command. For example, in the following response:
     --
-    -- doc-example-bucket\/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix\/i-02573cafcfEXAMPLE\/awsrunShellScript
+    -- @doc-example-bucket\/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix\/i-02573cafcfEXAMPLE\/awsrunShellScript@
     --
-    -- doc-example-bucket is the name of the S3 bucket;
+    -- @doc-example-bucket@ is the name of the S3 bucket;
     --
-    -- ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix is the name of the S3 prefix;
+    -- @ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix@ is the name of the S3 prefix;
     --
-    -- i-02573cafcfEXAMPLE is the instance ID;
+    -- @i-02573cafcfEXAMPLE@ is the instance ID;
     --
-    -- awsrunShellScript is the name of the plugin.
+    -- @awsrunShellScript@ is the name of the plugin.
     outputS3KeyPrefix :: Prelude.Maybe Prelude.Text,
     -- | The time the plugin started running.
     responseStartDateTime :: Prelude.Maybe Core.POSIX
@@ -140,42 +141,42 @@ data CommandPlugin = CommandPlugin'
 -- for backwards compatibility:
 --
 -- 'standardOutputUrl', 'commandPlugin_standardOutputUrl' - The URL for the complete text written by the plugin to stdout in Amazon
--- S3. If the S3 bucket for the command was not specified, then this string
+-- S3. If the S3 bucket for the command wasn\'t specified, then this string
 -- is empty.
 --
 -- 'status', 'commandPlugin_status' - The status of this plugin. You can run a document with multiple plugins.
 --
--- 'statusDetails', 'commandPlugin_statusDetails' - A detailed status of the plugin execution. StatusDetails includes more
+-- 'statusDetails', 'commandPlugin_statusDetails' - A detailed status of the plugin execution. @StatusDetails@ includes more
 -- information than Status because it includes states resulting from error
 -- and concurrency control parameters. StatusDetails can show different
 -- results than Status. For more information about these statuses, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html Understanding command statuses>
--- in the /AWS Systems Manager User Guide/. StatusDetails can be one of the
--- following values:
+-- in the /Amazon Web Services Systems Manager User Guide/. StatusDetails
+-- can be one of the following values:
 --
--- -   Pending: The command has not been sent to the instance.
+-- -   Pending: The command hasn\'t been sent to the instance.
 --
--- -   In Progress: The command has been sent to the instance but has not
+-- -   In Progress: The command has been sent to the instance but hasn\'t
 --     reached a terminal state.
 --
 -- -   Success: The execution of the command or plugin was successfully
 --     completed. This is a terminal state.
 --
--- -   Delivery Timed Out: The command was not delivered to the instance
---     before the delivery timeout expired. Delivery timeouts do not count
---     against the parent command\'s MaxErrors limit, but they do
+-- -   Delivery Timed Out: The command wasn\'t delivered to the instance
+--     before the delivery timeout expired. Delivery timeouts don\'t count
+--     against the parent command\'s @MaxErrors@ limit, but they do
 --     contribute to whether the parent command status is Success or
 --     Incomplete. This is a terminal state.
 --
 -- -   Execution Timed Out: Command execution started on the instance, but
---     the execution was not complete before the execution timeout expired.
---     Execution timeouts count against the MaxErrors limit of the parent
+--     the execution wasn\'t complete before the execution timeout expired.
+--     Execution timeouts count against the @MaxErrors@ limit of the parent
 --     command. This is a terminal state.
 --
--- -   Failed: The command was not successful on the instance. For a
---     plugin, this indicates that the result code was not zero. For a
+-- -   Failed: The command wasn\'t successful on the instance. For a
+--     plugin, this indicates that the result code wasn\'t zero. For a
 --     command invocation, this indicates that the result code for one or
---     more plugins was not zero. Invocation failures count against the
+--     more plugins wasn\'t zero. Invocation failures count against the
 --     MaxErrors limit of the parent command. This is a terminal state.
 --
 -- -   Canceled: The command was terminated before it was completed. This
@@ -195,28 +196,29 @@ data CommandPlugin = CommandPlugin'
 -- stored. This was requested when issuing the command. For example, in the
 -- following response:
 --
--- doc-example-bucket\/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix\/i-02573cafcfEXAMPLE\/awsrunShellScript
+-- @doc-example-bucket\/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix\/i-02573cafcfEXAMPLE\/awsrunShellScript@
 --
--- doc-example-bucket is the name of the S3 bucket;
+-- @doc-example-bucket@ is the name of the S3 bucket;
 --
--- ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix is the name of the S3 prefix;
+-- @ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix@ is the name of the S3 prefix;
 --
--- i-02573cafcfEXAMPLE is the instance ID;
+-- @i-02573cafcfEXAMPLE@ is the instance ID;
 --
--- awsrunShellScript is the name of the plugin.
+-- @awsrunShellScript@ is the name of the plugin.
 --
 -- 'standardErrorUrl', 'commandPlugin_standardErrorUrl' - The URL for the complete text written by the plugin to stderr. If
--- execution is not yet complete, then this string is empty.
+-- execution isn\'t yet complete, then this string is empty.
 --
--- 'output', 'commandPlugin_output' - Output of the plugin execution.
+-- 'name', 'commandPlugin_name' - The name of the plugin. Must be one of the following: @aws:updateAgent@,
+-- @aws:domainjoin@, @aws:applications@, @aws:runPowerShellScript@,
+-- @aws:psmodule@, @aws:cloudWatch@, @aws:runShellScript@, or
+-- @aws:updateSSMAgent@.
 --
 -- 'outputS3Region', 'commandPlugin_outputS3Region' - (Deprecated) You can no longer specify this parameter. The system
--- ignores it. Instead, Systems Manager automatically determines the S3
--- bucket region.
+-- ignores it. Instead, Amazon Web Services Systems Manager automatically
+-- determines the S3 bucket region.
 --
--- 'name', 'commandPlugin_name' - The name of the plugin. Must be one of the following: aws:updateAgent,
--- aws:domainjoin, aws:applications, aws:runPowerShellScript, aws:psmodule,
--- aws:cloudWatch, aws:runShellScript, or aws:updateSSMAgent.
+-- 'output', 'commandPlugin_output' - Output of the plugin execution.
 --
 -- 'responseFinishDateTime', 'commandPlugin_responseFinishDateTime' - The time the plugin stopped running. Could stop prematurely if, for
 -- example, a cancel command was sent.
@@ -227,15 +229,15 @@ data CommandPlugin = CommandPlugin'
 -- command executions should be stored. This was requested when issuing the
 -- command. For example, in the following response:
 --
--- doc-example-bucket\/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix\/i-02573cafcfEXAMPLE\/awsrunShellScript
+-- @doc-example-bucket\/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix\/i-02573cafcfEXAMPLE\/awsrunShellScript@
 --
--- doc-example-bucket is the name of the S3 bucket;
+-- @doc-example-bucket@ is the name of the S3 bucket;
 --
--- ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix is the name of the S3 prefix;
+-- @ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix@ is the name of the S3 prefix;
 --
--- i-02573cafcfEXAMPLE is the instance ID;
+-- @i-02573cafcfEXAMPLE@ is the instance ID;
 --
--- awsrunShellScript is the name of the plugin.
+-- @awsrunShellScript@ is the name of the plugin.
 --
 -- 'responseStartDateTime', 'commandPlugin_responseStartDateTime' - The time the plugin started running.
 newCommandPlugin ::
@@ -247,9 +249,9 @@ newCommandPlugin =
       statusDetails = Prelude.Nothing,
       outputS3BucketName = Prelude.Nothing,
       standardErrorUrl = Prelude.Nothing,
-      output = Prelude.Nothing,
-      outputS3Region = Prelude.Nothing,
       name = Prelude.Nothing,
+      outputS3Region = Prelude.Nothing,
+      output = Prelude.Nothing,
       responseFinishDateTime = Prelude.Nothing,
       responseCode = Prelude.Nothing,
       outputS3KeyPrefix = Prelude.Nothing,
@@ -257,7 +259,7 @@ newCommandPlugin =
     }
 
 -- | The URL for the complete text written by the plugin to stdout in Amazon
--- S3. If the S3 bucket for the command was not specified, then this string
+-- S3. If the S3 bucket for the command wasn\'t specified, then this string
 -- is empty.
 commandPlugin_standardOutputUrl :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
 commandPlugin_standardOutputUrl = Lens.lens (\CommandPlugin' {standardOutputUrl} -> standardOutputUrl) (\s@CommandPlugin' {} a -> s {standardOutputUrl = a} :: CommandPlugin)
@@ -266,37 +268,37 @@ commandPlugin_standardOutputUrl = Lens.lens (\CommandPlugin' {standardOutputUrl}
 commandPlugin_status :: Lens.Lens' CommandPlugin (Prelude.Maybe CommandPluginStatus)
 commandPlugin_status = Lens.lens (\CommandPlugin' {status} -> status) (\s@CommandPlugin' {} a -> s {status = a} :: CommandPlugin)
 
--- | A detailed status of the plugin execution. StatusDetails includes more
+-- | A detailed status of the plugin execution. @StatusDetails@ includes more
 -- information than Status because it includes states resulting from error
 -- and concurrency control parameters. StatusDetails can show different
 -- results than Status. For more information about these statuses, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html Understanding command statuses>
--- in the /AWS Systems Manager User Guide/. StatusDetails can be one of the
--- following values:
+-- in the /Amazon Web Services Systems Manager User Guide/. StatusDetails
+-- can be one of the following values:
 --
--- -   Pending: The command has not been sent to the instance.
+-- -   Pending: The command hasn\'t been sent to the instance.
 --
--- -   In Progress: The command has been sent to the instance but has not
+-- -   In Progress: The command has been sent to the instance but hasn\'t
 --     reached a terminal state.
 --
 -- -   Success: The execution of the command or plugin was successfully
 --     completed. This is a terminal state.
 --
--- -   Delivery Timed Out: The command was not delivered to the instance
---     before the delivery timeout expired. Delivery timeouts do not count
---     against the parent command\'s MaxErrors limit, but they do
+-- -   Delivery Timed Out: The command wasn\'t delivered to the instance
+--     before the delivery timeout expired. Delivery timeouts don\'t count
+--     against the parent command\'s @MaxErrors@ limit, but they do
 --     contribute to whether the parent command status is Success or
 --     Incomplete. This is a terminal state.
 --
 -- -   Execution Timed Out: Command execution started on the instance, but
---     the execution was not complete before the execution timeout expired.
---     Execution timeouts count against the MaxErrors limit of the parent
+--     the execution wasn\'t complete before the execution timeout expired.
+--     Execution timeouts count against the @MaxErrors@ limit of the parent
 --     command. This is a terminal state.
 --
--- -   Failed: The command was not successful on the instance. For a
---     plugin, this indicates that the result code was not zero. For a
+-- -   Failed: The command wasn\'t successful on the instance. For a
+--     plugin, this indicates that the result code wasn\'t zero. For a
 --     command invocation, this indicates that the result code for one or
---     more plugins was not zero. Invocation failures count against the
+--     more plugins wasn\'t zero. Invocation failures count against the
 --     MaxErrors limit of the parent command. This is a terminal state.
 --
 -- -   Canceled: The command was terminated before it was completed. This
@@ -318,38 +320,39 @@ commandPlugin_statusDetails = Lens.lens (\CommandPlugin' {statusDetails} -> stat
 -- stored. This was requested when issuing the command. For example, in the
 -- following response:
 --
--- doc-example-bucket\/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix\/i-02573cafcfEXAMPLE\/awsrunShellScript
+-- @doc-example-bucket\/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix\/i-02573cafcfEXAMPLE\/awsrunShellScript@
 --
--- doc-example-bucket is the name of the S3 bucket;
+-- @doc-example-bucket@ is the name of the S3 bucket;
 --
--- ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix is the name of the S3 prefix;
+-- @ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix@ is the name of the S3 prefix;
 --
--- i-02573cafcfEXAMPLE is the instance ID;
+-- @i-02573cafcfEXAMPLE@ is the instance ID;
 --
--- awsrunShellScript is the name of the plugin.
+-- @awsrunShellScript@ is the name of the plugin.
 commandPlugin_outputS3BucketName :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
 commandPlugin_outputS3BucketName = Lens.lens (\CommandPlugin' {outputS3BucketName} -> outputS3BucketName) (\s@CommandPlugin' {} a -> s {outputS3BucketName = a} :: CommandPlugin)
 
 -- | The URL for the complete text written by the plugin to stderr. If
--- execution is not yet complete, then this string is empty.
+-- execution isn\'t yet complete, then this string is empty.
 commandPlugin_standardErrorUrl :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
 commandPlugin_standardErrorUrl = Lens.lens (\CommandPlugin' {standardErrorUrl} -> standardErrorUrl) (\s@CommandPlugin' {} a -> s {standardErrorUrl = a} :: CommandPlugin)
+
+-- | The name of the plugin. Must be one of the following: @aws:updateAgent@,
+-- @aws:domainjoin@, @aws:applications@, @aws:runPowerShellScript@,
+-- @aws:psmodule@, @aws:cloudWatch@, @aws:runShellScript@, or
+-- @aws:updateSSMAgent@.
+commandPlugin_name :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
+commandPlugin_name = Lens.lens (\CommandPlugin' {name} -> name) (\s@CommandPlugin' {} a -> s {name = a} :: CommandPlugin)
+
+-- | (Deprecated) You can no longer specify this parameter. The system
+-- ignores it. Instead, Amazon Web Services Systems Manager automatically
+-- determines the S3 bucket region.
+commandPlugin_outputS3Region :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
+commandPlugin_outputS3Region = Lens.lens (\CommandPlugin' {outputS3Region} -> outputS3Region) (\s@CommandPlugin' {} a -> s {outputS3Region = a} :: CommandPlugin)
 
 -- | Output of the plugin execution.
 commandPlugin_output :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
 commandPlugin_output = Lens.lens (\CommandPlugin' {output} -> output) (\s@CommandPlugin' {} a -> s {output = a} :: CommandPlugin)
-
--- | (Deprecated) You can no longer specify this parameter. The system
--- ignores it. Instead, Systems Manager automatically determines the S3
--- bucket region.
-commandPlugin_outputS3Region :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
-commandPlugin_outputS3Region = Lens.lens (\CommandPlugin' {outputS3Region} -> outputS3Region) (\s@CommandPlugin' {} a -> s {outputS3Region = a} :: CommandPlugin)
-
--- | The name of the plugin. Must be one of the following: aws:updateAgent,
--- aws:domainjoin, aws:applications, aws:runPowerShellScript, aws:psmodule,
--- aws:cloudWatch, aws:runShellScript, or aws:updateSSMAgent.
-commandPlugin_name :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
-commandPlugin_name = Lens.lens (\CommandPlugin' {name} -> name) (\s@CommandPlugin' {} a -> s {name = a} :: CommandPlugin)
 
 -- | The time the plugin stopped running. Could stop prematurely if, for
 -- example, a cancel command was sent.
@@ -364,15 +367,15 @@ commandPlugin_responseCode = Lens.lens (\CommandPlugin' {responseCode} -> respon
 -- command executions should be stored. This was requested when issuing the
 -- command. For example, in the following response:
 --
--- doc-example-bucket\/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix\/i-02573cafcfEXAMPLE\/awsrunShellScript
+-- @doc-example-bucket\/ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix\/i-02573cafcfEXAMPLE\/awsrunShellScript@
 --
--- doc-example-bucket is the name of the S3 bucket;
+-- @doc-example-bucket@ is the name of the S3 bucket;
 --
--- ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix is the name of the S3 prefix;
+-- @ab19cb99-a030-46dd-9dfc-8eSAMPLEPre-Fix@ is the name of the S3 prefix;
 --
--- i-02573cafcfEXAMPLE is the instance ID;
+-- @i-02573cafcfEXAMPLE@ is the instance ID;
 --
--- awsrunShellScript is the name of the plugin.
+-- @awsrunShellScript@ is the name of the plugin.
 commandPlugin_outputS3KeyPrefix :: Lens.Lens' CommandPlugin (Prelude.Maybe Prelude.Text)
 commandPlugin_outputS3KeyPrefix = Lens.lens (\CommandPlugin' {outputS3KeyPrefix} -> outputS3KeyPrefix) (\s@CommandPlugin' {} a -> s {outputS3KeyPrefix = a} :: CommandPlugin)
 
@@ -391,9 +394,9 @@ instance Core.FromJSON CommandPlugin where
             Prelude.<*> (x Core..:? "StatusDetails")
             Prelude.<*> (x Core..:? "OutputS3BucketName")
             Prelude.<*> (x Core..:? "StandardErrorUrl")
-            Prelude.<*> (x Core..:? "Output")
-            Prelude.<*> (x Core..:? "OutputS3Region")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "OutputS3Region")
+            Prelude.<*> (x Core..:? "Output")
             Prelude.<*> (x Core..:? "ResponseFinishDateTime")
             Prelude.<*> (x Core..:? "ResponseCode")
             Prelude.<*> (x Core..:? "OutputS3KeyPrefix")

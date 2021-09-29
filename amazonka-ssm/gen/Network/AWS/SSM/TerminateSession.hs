@@ -22,7 +22,7 @@
 --
 -- Permanently ends a session and closes the data connection between the
 -- Session Manager client and SSM Agent on the instance. A terminated
--- session cannot be resumed.
+-- session isn\'t be resumed.
 module Network.AWS.SSM.TerminateSession
   ( -- * Creating a Request
     TerminateSession (..),

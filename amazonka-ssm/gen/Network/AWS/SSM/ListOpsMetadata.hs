@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Systems Manager calls this API action when displaying all Application
--- Manager OpsMetadata objects or blobs.
+-- Amazon Web Services Systems Manager calls this API operation when
+-- displaying all Application Manager OpsMetadata objects or blobs.
 --
 -- This operation returns paginated results.
 module Network.AWS.SSM.ListOpsMetadata

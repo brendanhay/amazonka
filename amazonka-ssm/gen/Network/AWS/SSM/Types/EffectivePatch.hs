@@ -25,7 +25,7 @@ import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.Patch
 import Network.AWS.SSM.Types.PatchStatus
 
--- | The EffectivePatch structure defines metadata about a patch along with
+-- | The @EffectivePatch@ structure defines metadata about a patch along with
 -- the approval state of the patch in a particular patch baseline. The
 -- approval state includes information about whether the patch is currently
 -- approved, due to be approved by a rule, explicitly approved, or

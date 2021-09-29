@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Systems Manager calls this API action when you edit OpsMetadata in
--- Application Manager.
+-- Amazon Web Services Systems Manager calls this API operation when you
+-- edit OpsMetadata in Application Manager.
 module Network.AWS.SSM.UpdateOpsMetadata
   ( -- * Creating a Request
     UpdateOpsMetadata (..),

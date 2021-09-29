@@ -30,19 +30,19 @@ import Network.AWS.SSM.Types.ReviewStatus
 --
 -- /See:/ 'newDocumentVersionInfo' smart constructor.
 data DocumentVersionInfo = DocumentVersionInfo'
-  { -- | The status of the Systems Manager document, such as @Creating@,
-    -- @Active@, @Failed@, and @Deleting@.
-    status :: Prelude.Maybe DocumentStatus,
-    -- | The date the document was created.
+  { -- | The date the document was created.
     createdDate :: Prelude.Maybe Core.POSIX,
-    -- | A message returned by AWS Systems Manager that explains the @Status@
-    -- value. For example, a @Failed@ status might be explained by the
-    -- @StatusInformation@ message, \"The specified S3 bucket does not exist.
-    -- Verify that the URL of the S3 bucket is correct.\"
+    -- | The status of the SSM document, such as @Creating@, @Active@, @Failed@,
+    -- and @Deleting@.
+    status :: Prelude.Maybe DocumentStatus,
+    -- | A message returned by Amazon Web Services Systems Manager that explains
+    -- the @Status@ value. For example, a @Failed@ status might be explained by
+    -- the @StatusInformation@ message, \"The specified S3 bucket doesn\'t
+    -- exist. Verify that the URL of the S3 bucket is correct.\"
     statusInformation :: Prelude.Maybe Prelude.Text,
     -- | The version of the artifact associated with the document. For example,
     -- \"Release 12, Update 6\". This value is unique across all versions of a
-    -- document, and cannot be changed.
+    -- document, and can\'t be changed.
     versionName :: Prelude.Maybe Prelude.Text,
     -- | The document name.
     name :: Prelude.Maybe Prelude.Text,
@@ -54,7 +54,11 @@ data DocumentVersionInfo = DocumentVersionInfo'
     -- | An identifier for the default version of the document.
     isDefaultVersion :: Prelude.Maybe Prelude.Bool,
     -- | The document version.
-    documentVersion :: Prelude.Maybe Prelude.Text
+    documentVersion :: Prelude.Maybe Prelude.Text,
+    -- | The friendly name of the SSM document. This value can differ for each
+    -- version of the document. If you want to update this value, see
+    -- UpdateDocument.
+    displayName :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,19 +70,19 @@ data DocumentVersionInfo = DocumentVersionInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'status', 'documentVersionInfo_status' - The status of the Systems Manager document, such as @Creating@,
--- @Active@, @Failed@, and @Deleting@.
---
 -- 'createdDate', 'documentVersionInfo_createdDate' - The date the document was created.
 --
--- 'statusInformation', 'documentVersionInfo_statusInformation' - A message returned by AWS Systems Manager that explains the @Status@
--- value. For example, a @Failed@ status might be explained by the
--- @StatusInformation@ message, \"The specified S3 bucket does not exist.
--- Verify that the URL of the S3 bucket is correct.\"
+-- 'status', 'documentVersionInfo_status' - The status of the SSM document, such as @Creating@, @Active@, @Failed@,
+-- and @Deleting@.
+--
+-- 'statusInformation', 'documentVersionInfo_statusInformation' - A message returned by Amazon Web Services Systems Manager that explains
+-- the @Status@ value. For example, a @Failed@ status might be explained by
+-- the @StatusInformation@ message, \"The specified S3 bucket doesn\'t
+-- exist. Verify that the URL of the S3 bucket is correct.\"
 --
 -- 'versionName', 'documentVersionInfo_versionName' - The version of the artifact associated with the document. For example,
 -- \"Release 12, Update 6\". This value is unique across all versions of a
--- document, and cannot be changed.
+-- document, and can\'t be changed.
 --
 -- 'name', 'documentVersionInfo_name' - The document name.
 --
@@ -90,40 +94,45 @@ data DocumentVersionInfo = DocumentVersionInfo'
 -- 'isDefaultVersion', 'documentVersionInfo_isDefaultVersion' - An identifier for the default version of the document.
 --
 -- 'documentVersion', 'documentVersionInfo_documentVersion' - The document version.
+--
+-- 'displayName', 'documentVersionInfo_displayName' - The friendly name of the SSM document. This value can differ for each
+-- version of the document. If you want to update this value, see
+-- UpdateDocument.
 newDocumentVersionInfo ::
   DocumentVersionInfo
 newDocumentVersionInfo =
   DocumentVersionInfo'
-    { status = Prelude.Nothing,
-      createdDate = Prelude.Nothing,
+    { createdDate = Prelude.Nothing,
+      status = Prelude.Nothing,
       statusInformation = Prelude.Nothing,
       versionName = Prelude.Nothing,
       name = Prelude.Nothing,
       documentFormat = Prelude.Nothing,
       reviewStatus = Prelude.Nothing,
       isDefaultVersion = Prelude.Nothing,
-      documentVersion = Prelude.Nothing
+      documentVersion = Prelude.Nothing,
+      displayName = Prelude.Nothing
     }
-
--- | The status of the Systems Manager document, such as @Creating@,
--- @Active@, @Failed@, and @Deleting@.
-documentVersionInfo_status :: Lens.Lens' DocumentVersionInfo (Prelude.Maybe DocumentStatus)
-documentVersionInfo_status = Lens.lens (\DocumentVersionInfo' {status} -> status) (\s@DocumentVersionInfo' {} a -> s {status = a} :: DocumentVersionInfo)
 
 -- | The date the document was created.
 documentVersionInfo_createdDate :: Lens.Lens' DocumentVersionInfo (Prelude.Maybe Prelude.UTCTime)
 documentVersionInfo_createdDate = Lens.lens (\DocumentVersionInfo' {createdDate} -> createdDate) (\s@DocumentVersionInfo' {} a -> s {createdDate = a} :: DocumentVersionInfo) Prelude.. Lens.mapping Core._Time
 
--- | A message returned by AWS Systems Manager that explains the @Status@
--- value. For example, a @Failed@ status might be explained by the
--- @StatusInformation@ message, \"The specified S3 bucket does not exist.
--- Verify that the URL of the S3 bucket is correct.\"
+-- | The status of the SSM document, such as @Creating@, @Active@, @Failed@,
+-- and @Deleting@.
+documentVersionInfo_status :: Lens.Lens' DocumentVersionInfo (Prelude.Maybe DocumentStatus)
+documentVersionInfo_status = Lens.lens (\DocumentVersionInfo' {status} -> status) (\s@DocumentVersionInfo' {} a -> s {status = a} :: DocumentVersionInfo)
+
+-- | A message returned by Amazon Web Services Systems Manager that explains
+-- the @Status@ value. For example, a @Failed@ status might be explained by
+-- the @StatusInformation@ message, \"The specified S3 bucket doesn\'t
+-- exist. Verify that the URL of the S3 bucket is correct.\"
 documentVersionInfo_statusInformation :: Lens.Lens' DocumentVersionInfo (Prelude.Maybe Prelude.Text)
 documentVersionInfo_statusInformation = Lens.lens (\DocumentVersionInfo' {statusInformation} -> statusInformation) (\s@DocumentVersionInfo' {} a -> s {statusInformation = a} :: DocumentVersionInfo)
 
 -- | The version of the artifact associated with the document. For example,
 -- \"Release 12, Update 6\". This value is unique across all versions of a
--- document, and cannot be changed.
+-- document, and can\'t be changed.
 documentVersionInfo_versionName :: Lens.Lens' DocumentVersionInfo (Prelude.Maybe Prelude.Text)
 documentVersionInfo_versionName = Lens.lens (\DocumentVersionInfo' {versionName} -> versionName) (\s@DocumentVersionInfo' {} a -> s {versionName = a} :: DocumentVersionInfo)
 
@@ -148,14 +157,20 @@ documentVersionInfo_isDefaultVersion = Lens.lens (\DocumentVersionInfo' {isDefau
 documentVersionInfo_documentVersion :: Lens.Lens' DocumentVersionInfo (Prelude.Maybe Prelude.Text)
 documentVersionInfo_documentVersion = Lens.lens (\DocumentVersionInfo' {documentVersion} -> documentVersion) (\s@DocumentVersionInfo' {} a -> s {documentVersion = a} :: DocumentVersionInfo)
 
+-- | The friendly name of the SSM document. This value can differ for each
+-- version of the document. If you want to update this value, see
+-- UpdateDocument.
+documentVersionInfo_displayName :: Lens.Lens' DocumentVersionInfo (Prelude.Maybe Prelude.Text)
+documentVersionInfo_displayName = Lens.lens (\DocumentVersionInfo' {displayName} -> displayName) (\s@DocumentVersionInfo' {} a -> s {displayName = a} :: DocumentVersionInfo)
+
 instance Core.FromJSON DocumentVersionInfo where
   parseJSON =
     Core.withObject
       "DocumentVersionInfo"
       ( \x ->
           DocumentVersionInfo'
-            Prelude.<$> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "CreatedDate")
+            Prelude.<$> (x Core..:? "CreatedDate")
+            Prelude.<*> (x Core..:? "Status")
             Prelude.<*> (x Core..:? "StatusInformation")
             Prelude.<*> (x Core..:? "VersionName")
             Prelude.<*> (x Core..:? "Name")
@@ -163,6 +178,7 @@ instance Core.FromJSON DocumentVersionInfo where
             Prelude.<*> (x Core..:? "ReviewStatus")
             Prelude.<*> (x Core..:? "IsDefaultVersion")
             Prelude.<*> (x Core..:? "DocumentVersion")
+            Prelude.<*> (x Core..:? "DisplayName")
       )
 
 instance Prelude.Hashable DocumentVersionInfo

@@ -23,8 +23,8 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The combination of AWS Regions and accounts targeted by the current
--- Automation execution.
+-- | The combination of Amazon Web Services Regions and Amazon Web Services
+-- accounts targeted by the current Automation execution.
 --
 -- /See:/ 'newTargetLocation' smart constructor.
 data TargetLocation = TargetLocation'
@@ -32,15 +32,17 @@ data TargetLocation = TargetLocation'
     -- If not specified, the default value is
     -- @AWS-SystemsManager-AutomationExecutionRole@.
     executionRoleName :: Prelude.Maybe Prelude.Text,
-    -- | The AWS accounts targeted by the current Automation execution.
+    -- | The Amazon Web Services accounts targeted by the current Automation
+    -- execution.
     accounts :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The AWS Regions targeted by the current Automation execution.
+    -- | The Amazon Web Services Regions targeted by the current Automation
+    -- execution.
     regions :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The maximum number of errors allowed before the system stops queueing
     -- additional Automation executions for the currently running Automation.
     targetLocationMaxErrors :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of AWS accounts and AWS regions allowed to run the
-    -- Automation concurrently.
+    -- | The maximum number of Amazon Web Services Regions and Amazon Web
+    -- Services accounts allowed to run the Automation concurrently.
     targetLocationMaxConcurrency :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -57,15 +59,17 @@ data TargetLocation = TargetLocation'
 -- If not specified, the default value is
 -- @AWS-SystemsManager-AutomationExecutionRole@.
 --
--- 'accounts', 'targetLocation_accounts' - The AWS accounts targeted by the current Automation execution.
+-- 'accounts', 'targetLocation_accounts' - The Amazon Web Services accounts targeted by the current Automation
+-- execution.
 --
--- 'regions', 'targetLocation_regions' - The AWS Regions targeted by the current Automation execution.
+-- 'regions', 'targetLocation_regions' - The Amazon Web Services Regions targeted by the current Automation
+-- execution.
 --
 -- 'targetLocationMaxErrors', 'targetLocation_targetLocationMaxErrors' - The maximum number of errors allowed before the system stops queueing
 -- additional Automation executions for the currently running Automation.
 --
--- 'targetLocationMaxConcurrency', 'targetLocation_targetLocationMaxConcurrency' - The maximum number of AWS accounts and AWS regions allowed to run the
--- Automation concurrently.
+-- 'targetLocationMaxConcurrency', 'targetLocation_targetLocationMaxConcurrency' - The maximum number of Amazon Web Services Regions and Amazon Web
+-- Services accounts allowed to run the Automation concurrently.
 newTargetLocation ::
   TargetLocation
 newTargetLocation =
@@ -84,11 +88,13 @@ newTargetLocation =
 targetLocation_executionRoleName :: Lens.Lens' TargetLocation (Prelude.Maybe Prelude.Text)
 targetLocation_executionRoleName = Lens.lens (\TargetLocation' {executionRoleName} -> executionRoleName) (\s@TargetLocation' {} a -> s {executionRoleName = a} :: TargetLocation)
 
--- | The AWS accounts targeted by the current Automation execution.
+-- | The Amazon Web Services accounts targeted by the current Automation
+-- execution.
 targetLocation_accounts :: Lens.Lens' TargetLocation (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 targetLocation_accounts = Lens.lens (\TargetLocation' {accounts} -> accounts) (\s@TargetLocation' {} a -> s {accounts = a} :: TargetLocation) Prelude.. Lens.mapping Lens._Coerce
 
--- | The AWS Regions targeted by the current Automation execution.
+-- | The Amazon Web Services Regions targeted by the current Automation
+-- execution.
 targetLocation_regions :: Lens.Lens' TargetLocation (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 targetLocation_regions = Lens.lens (\TargetLocation' {regions} -> regions) (\s@TargetLocation' {} a -> s {regions = a} :: TargetLocation) Prelude.. Lens.mapping Lens._Coerce
 
@@ -97,8 +103,8 @@ targetLocation_regions = Lens.lens (\TargetLocation' {regions} -> regions) (\s@T
 targetLocation_targetLocationMaxErrors :: Lens.Lens' TargetLocation (Prelude.Maybe Prelude.Text)
 targetLocation_targetLocationMaxErrors = Lens.lens (\TargetLocation' {targetLocationMaxErrors} -> targetLocationMaxErrors) (\s@TargetLocation' {} a -> s {targetLocationMaxErrors = a} :: TargetLocation)
 
--- | The maximum number of AWS accounts and AWS regions allowed to run the
--- Automation concurrently.
+-- | The maximum number of Amazon Web Services Regions and Amazon Web
+-- Services accounts allowed to run the Automation concurrently.
 targetLocation_targetLocationMaxConcurrency :: Lens.Lens' TargetLocation (Prelude.Maybe Prelude.Text)
 targetLocation_targetLocationMaxConcurrency = Lens.lens (\TargetLocation' {targetLocationMaxConcurrency} -> targetLocationMaxConcurrency) (\s@TargetLocation' {} a -> s {targetLocationMaxConcurrency = a} :: TargetLocation)
 

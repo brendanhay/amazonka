@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Delete a list of parameters.
+-- Delete a list of parameters. After deleting a parameter, wait for at
+-- least 30 seconds to create a parameter with the same name.
 module Network.AWS.SSM.DeleteParameters
   ( -- * Creating a Request
     DeleteParameters (..),
@@ -49,7 +50,8 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'newDeleteParameters' smart constructor.
 data DeleteParameters = DeleteParameters'
-  { -- | The names of the parameters to delete.
+  { -- | The names of the parameters to delete. After deleting a parameter, wait
+    -- for at least 30 seconds to create a parameter with the same name.
     names :: Prelude.NonEmpty Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,7 +64,8 @@ data DeleteParameters = DeleteParameters'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'names', 'deleteParameters_names' - The names of the parameters to delete.
+-- 'names', 'deleteParameters_names' - The names of the parameters to delete. After deleting a parameter, wait
+-- for at least 30 seconds to create a parameter with the same name.
 newDeleteParameters ::
   -- | 'names'
   Prelude.NonEmpty Prelude.Text ->
@@ -73,7 +76,8 @@ newDeleteParameters pNames_ =
         Lens._Coerce Lens.# pNames_
     }
 
--- | The names of the parameters to delete.
+-- | The names of the parameters to delete. After deleting a parameter, wait
+-- for at least 30 seconds to create a parameter with the same name.
 deleteParameters_names :: Lens.Lens' DeleteParameters (Prelude.NonEmpty Prelude.Text)
 deleteParameters_names = Lens.lens (\DeleteParameters' {names} -> names) (\s@DeleteParameters' {} a -> s {names = a} :: DeleteParameters) Prelude.. Lens._Coerce
 
@@ -123,8 +127,8 @@ instance Core.ToQuery DeleteParameters where
 
 -- | /See:/ 'newDeleteParametersResponse' smart constructor.
 data DeleteParametersResponse = DeleteParametersResponse'
-  { -- | The names of parameters that weren\'t deleted because the parameters are
-    -- not valid.
+  { -- | The names of parameters that weren\'t deleted because the parameters
+    -- aren\'t valid.
     invalidParameters :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
     -- | The names of the deleted parameters.
     deletedParameters :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
@@ -141,8 +145,8 @@ data DeleteParametersResponse = DeleteParametersResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'invalidParameters', 'deleteParametersResponse_invalidParameters' - The names of parameters that weren\'t deleted because the parameters are
--- not valid.
+-- 'invalidParameters', 'deleteParametersResponse_invalidParameters' - The names of parameters that weren\'t deleted because the parameters
+-- aren\'t valid.
 --
 -- 'deletedParameters', 'deleteParametersResponse_deletedParameters' - The names of the deleted parameters.
 --
@@ -159,8 +163,8 @@ newDeleteParametersResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The names of parameters that weren\'t deleted because the parameters are
--- not valid.
+-- | The names of parameters that weren\'t deleted because the parameters
+-- aren\'t valid.
 deleteParametersResponse_invalidParameters :: Lens.Lens' DeleteParametersResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 deleteParametersResponse_invalidParameters = Lens.lens (\DeleteParametersResponse' {invalidParameters} -> invalidParameters) (\s@DeleteParametersResponse' {} a -> s {invalidParameters = a} :: DeleteParametersResponse) Prelude.. Lens.mapping Lens._Coerce
 

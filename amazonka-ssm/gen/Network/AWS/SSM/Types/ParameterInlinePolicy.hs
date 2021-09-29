@@ -27,14 +27,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newParameterInlinePolicy' smart constructor.
 data ParameterInlinePolicy = ParameterInlinePolicy'
-  { -- | The type of policy. Parameter Store supports the following policy types:
+  { -- | The type of policy. Parameter Store, a capablility of Amazon Web
+    -- Services Systems Manager, supports the following policy types:
     -- Expiration, ExpirationNotification, and NoChangeNotification.
     policyType :: Prelude.Maybe Prelude.Text,
     -- | The JSON text of the policy.
     policyText :: Prelude.Maybe Prelude.Text,
     -- | The status of the policy. Policies report the following statuses:
-    -- Pending (the policy has not been enforced or applied yet), Finished (the
-    -- policy was applied), Failed (the policy was not applied), or InProgress
+    -- Pending (the policy hasn\'t been enforced or applied yet), Finished (the
+    -- policy was applied), Failed (the policy wasn\'t applied), or InProgress
     -- (the policy is being applied now).
     policyStatus :: Prelude.Maybe Prelude.Text
   }
@@ -48,14 +49,15 @@ data ParameterInlinePolicy = ParameterInlinePolicy'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'policyType', 'parameterInlinePolicy_policyType' - The type of policy. Parameter Store supports the following policy types:
+-- 'policyType', 'parameterInlinePolicy_policyType' - The type of policy. Parameter Store, a capablility of Amazon Web
+-- Services Systems Manager, supports the following policy types:
 -- Expiration, ExpirationNotification, and NoChangeNotification.
 --
 -- 'policyText', 'parameterInlinePolicy_policyText' - The JSON text of the policy.
 --
 -- 'policyStatus', 'parameterInlinePolicy_policyStatus' - The status of the policy. Policies report the following statuses:
--- Pending (the policy has not been enforced or applied yet), Finished (the
--- policy was applied), Failed (the policy was not applied), or InProgress
+-- Pending (the policy hasn\'t been enforced or applied yet), Finished (the
+-- policy was applied), Failed (the policy wasn\'t applied), or InProgress
 -- (the policy is being applied now).
 newParameterInlinePolicy ::
   ParameterInlinePolicy
@@ -67,7 +69,8 @@ newParameterInlinePolicy =
       policyStatus = Prelude.Nothing
     }
 
--- | The type of policy. Parameter Store supports the following policy types:
+-- | The type of policy. Parameter Store, a capablility of Amazon Web
+-- Services Systems Manager, supports the following policy types:
 -- Expiration, ExpirationNotification, and NoChangeNotification.
 parameterInlinePolicy_policyType :: Lens.Lens' ParameterInlinePolicy (Prelude.Maybe Prelude.Text)
 parameterInlinePolicy_policyType = Lens.lens (\ParameterInlinePolicy' {policyType} -> policyType) (\s@ParameterInlinePolicy' {} a -> s {policyType = a} :: ParameterInlinePolicy)
@@ -77,8 +80,8 @@ parameterInlinePolicy_policyText :: Lens.Lens' ParameterInlinePolicy (Prelude.Ma
 parameterInlinePolicy_policyText = Lens.lens (\ParameterInlinePolicy' {policyText} -> policyText) (\s@ParameterInlinePolicy' {} a -> s {policyText = a} :: ParameterInlinePolicy)
 
 -- | The status of the policy. Policies report the following statuses:
--- Pending (the policy has not been enforced or applied yet), Finished (the
--- policy was applied), Failed (the policy was not applied), or InProgress
+-- Pending (the policy hasn\'t been enforced or applied yet), Finished (the
+-- policy was applied), Failed (the policy wasn\'t applied), or InProgress
 -- (the policy is being applied now).
 parameterInlinePolicy_policyStatus :: Lens.Lens' ParameterInlinePolicy (Prelude.Maybe Prelude.Text)
 parameterInlinePolicy_policyStatus = Lens.lens (\ParameterInlinePolicy' {policyStatus} -> policyStatus) (\s@ParameterInlinePolicy' {} a -> s {policyStatus = a} :: ParameterInlinePolicy)

@@ -22,10 +22,7 @@
 --
 -- Describes the association for the specified target or instance. If you
 -- created the association by using the @Targets@ parameter, then you must
--- retrieve the association by using the association ID. If you created the
--- association by specifying an instance ID and a Systems Manager document,
--- then you retrieve the association by specifying the document name and
--- the instance ID.
+-- retrieve the association by using the association ID.
 module Network.AWS.SSM.DescribeAssociation
   ( -- * Creating a Request
     DescribeAssociation (..),
@@ -58,7 +55,7 @@ import Network.AWS.SSM.Types
 data DescribeAssociation = DescribeAssociation'
   { -- | The instance ID.
     instanceId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Systems Manager document.
+    -- | The name of the SSM document.
     name :: Prelude.Maybe Prelude.Text,
     -- | The association ID for which you want information.
     associationId :: Prelude.Maybe Prelude.Text,
@@ -81,7 +78,7 @@ data DescribeAssociation = DescribeAssociation'
 --
 -- 'instanceId', 'describeAssociation_instanceId' - The instance ID.
 --
--- 'name', 'describeAssociation_name' - The name of the Systems Manager document.
+-- 'name', 'describeAssociation_name' - The name of the SSM document.
 --
 -- 'associationId', 'describeAssociation_associationId' - The association ID for which you want information.
 --
@@ -104,7 +101,7 @@ newDescribeAssociation =
 describeAssociation_instanceId :: Lens.Lens' DescribeAssociation (Prelude.Maybe Prelude.Text)
 describeAssociation_instanceId = Lens.lens (\DescribeAssociation' {instanceId} -> instanceId) (\s@DescribeAssociation' {} a -> s {instanceId = a} :: DescribeAssociation)
 
--- | The name of the Systems Manager document.
+-- | The name of the SSM document.
 describeAssociation_name :: Lens.Lens' DescribeAssociation (Prelude.Maybe Prelude.Text)
 describeAssociation_name = Lens.lens (\DescribeAssociation' {name} -> name) (\s@DescribeAssociation' {} a -> s {name = a} :: DescribeAssociation)
 

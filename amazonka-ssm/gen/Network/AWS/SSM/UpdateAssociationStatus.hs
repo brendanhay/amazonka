@@ -20,8 +20,13 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the status of the Systems Manager document associated with the
--- specified instance.
+-- Updates the status of the Amazon Web Services Systems Manager document
+-- (SSM document) associated with the specified instance.
+--
+-- @UpdateAssociationStatus@ is primarily used by the Amazon Web Services
+-- Systems Manager Agent (SSM Agent) to report status updates about your
+-- associations and is only used for associations created with the
+-- @InstanceId@ legacy parameter.
 module Network.AWS.SSM.UpdateAssociationStatus
   ( -- * Creating a Request
     UpdateAssociationStatus (..),
@@ -51,9 +56,9 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'newUpdateAssociationStatus' smart constructor.
 data UpdateAssociationStatus = UpdateAssociationStatus'
-  { -- | The name of the Systems Manager document.
+  { -- | The name of the SSM document.
     name :: Prelude.Text,
-    -- | The ID of the instance.
+    -- | The instance ID.
     instanceId :: Prelude.Text,
     -- | The association status.
     associationStatus :: AssociationStatus
@@ -68,9 +73,9 @@ data UpdateAssociationStatus = UpdateAssociationStatus'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updateAssociationStatus_name' - The name of the Systems Manager document.
+-- 'name', 'updateAssociationStatus_name' - The name of the SSM document.
 --
--- 'instanceId', 'updateAssociationStatus_instanceId' - The ID of the instance.
+-- 'instanceId', 'updateAssociationStatus_instanceId' - The instance ID.
 --
 -- 'associationStatus', 'updateAssociationStatus_associationStatus' - The association status.
 newUpdateAssociationStatus ::
@@ -91,11 +96,11 @@ newUpdateAssociationStatus
         associationStatus = pAssociationStatus_
       }
 
--- | The name of the Systems Manager document.
+-- | The name of the SSM document.
 updateAssociationStatus_name :: Lens.Lens' UpdateAssociationStatus Prelude.Text
 updateAssociationStatus_name = Lens.lens (\UpdateAssociationStatus' {name} -> name) (\s@UpdateAssociationStatus' {} a -> s {name = a} :: UpdateAssociationStatus)
 
--- | The ID of the instance.
+-- | The instance ID.
 updateAssociationStatus_instanceId :: Lens.Lens' UpdateAssociationStatus Prelude.Text
 updateAssociationStatus_instanceId = Lens.lens (\UpdateAssociationStatus' {instanceId} -> instanceId) (\s@UpdateAssociationStatus' {} a -> s {instanceId = a} :: UpdateAssociationStatus)
 

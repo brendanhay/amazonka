@@ -44,9 +44,9 @@ module Network.AWS.SSM.GetMaintenanceWindowExecutionTaskInvocation
     getMaintenanceWindowExecutionTaskInvocationResponse_endTime,
     getMaintenanceWindowExecutionTaskInvocationResponse_executionId,
     getMaintenanceWindowExecutionTaskInvocationResponse_windowExecutionId,
+    getMaintenanceWindowExecutionTaskInvocationResponse_invocationId,
     getMaintenanceWindowExecutionTaskInvocationResponse_ownerInformation,
     getMaintenanceWindowExecutionTaskInvocationResponse_taskType,
-    getMaintenanceWindowExecutionTaskInvocationResponse_invocationId,
     getMaintenanceWindowExecutionTaskInvocationResponse_parameters,
     getMaintenanceWindowExecutionTaskInvocationResponse_taskExecutionId,
     getMaintenanceWindowExecutionTaskInvocationResponse_httpStatus,
@@ -138,9 +138,9 @@ instance
               Prelude.<*> (x Core..?> "EndTime")
               Prelude.<*> (x Core..?> "ExecutionId")
               Prelude.<*> (x Core..?> "WindowExecutionId")
+              Prelude.<*> (x Core..?> "InvocationId")
               Prelude.<*> (x Core..?> "OwnerInformation")
               Prelude.<*> (x Core..?> "TaskType")
-              Prelude.<*> (x Core..?> "InvocationId")
               Prelude.<*> (x Core..?> "Parameters")
               Prelude.<*> (x Core..?> "TaskExecutionId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
@@ -216,14 +216,14 @@ data GetMaintenanceWindowExecutionTaskInvocationResponse = GetMaintenanceWindowE
     executionId :: Prelude.Maybe Prelude.Text,
     -- | The maintenance window execution ID.
     windowExecutionId :: Prelude.Maybe Prelude.Text,
-    -- | User-provided value to be included in any CloudWatch events raised while
-    -- running tasks for these targets in this maintenance window.
-    ownerInformation :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | Retrieves the task type for a maintenance window. Task types include the
-    -- following: LAMBDA, STEP_FUNCTIONS, AUTOMATION, RUN_COMMAND.
-    taskType :: Prelude.Maybe MaintenanceWindowTaskType,
     -- | The invocation ID.
     invocationId :: Prelude.Maybe Prelude.Text,
+    -- | User-provided value to be included in any Amazon CloudWatch Events or
+    -- Amazon EventBridge events raised while running tasks for these targets
+    -- in this maintenance window.
+    ownerInformation :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | Retrieves the task type for a maintenance window.
+    taskType :: Prelude.Maybe MaintenanceWindowTaskType,
     -- | The parameters used at the time that the task ran.
     parameters :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The task execution ID.
@@ -256,13 +256,13 @@ data GetMaintenanceWindowExecutionTaskInvocationResponse = GetMaintenanceWindowE
 --
 -- 'windowExecutionId', 'getMaintenanceWindowExecutionTaskInvocationResponse_windowExecutionId' - The maintenance window execution ID.
 --
--- 'ownerInformation', 'getMaintenanceWindowExecutionTaskInvocationResponse_ownerInformation' - User-provided value to be included in any CloudWatch events raised while
--- running tasks for these targets in this maintenance window.
---
--- 'taskType', 'getMaintenanceWindowExecutionTaskInvocationResponse_taskType' - Retrieves the task type for a maintenance window. Task types include the
--- following: LAMBDA, STEP_FUNCTIONS, AUTOMATION, RUN_COMMAND.
---
 -- 'invocationId', 'getMaintenanceWindowExecutionTaskInvocationResponse_invocationId' - The invocation ID.
+--
+-- 'ownerInformation', 'getMaintenanceWindowExecutionTaskInvocationResponse_ownerInformation' - User-provided value to be included in any Amazon CloudWatch Events or
+-- Amazon EventBridge events raised while running tasks for these targets
+-- in this maintenance window.
+--
+-- 'taskType', 'getMaintenanceWindowExecutionTaskInvocationResponse_taskType' - Retrieves the task type for a maintenance window.
 --
 -- 'parameters', 'getMaintenanceWindowExecutionTaskInvocationResponse_parameters' - The parameters used at the time that the task ran.
 --
@@ -290,11 +290,11 @@ newGetMaintenanceWindowExecutionTaskInvocationResponse
           Prelude.Nothing,
         windowExecutionId =
           Prelude.Nothing,
+        invocationId =
+          Prelude.Nothing,
         ownerInformation =
           Prelude.Nothing,
         taskType =
-          Prelude.Nothing,
-        invocationId =
           Prelude.Nothing,
         parameters =
           Prelude.Nothing,
@@ -333,19 +333,19 @@ getMaintenanceWindowExecutionTaskInvocationResponse_executionId = Lens.lens (\Ge
 getMaintenanceWindowExecutionTaskInvocationResponse_windowExecutionId :: Lens.Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Prelude.Maybe Prelude.Text)
 getMaintenanceWindowExecutionTaskInvocationResponse_windowExecutionId = Lens.lens (\GetMaintenanceWindowExecutionTaskInvocationResponse' {windowExecutionId} -> windowExecutionId) (\s@GetMaintenanceWindowExecutionTaskInvocationResponse' {} a -> s {windowExecutionId = a} :: GetMaintenanceWindowExecutionTaskInvocationResponse)
 
--- | User-provided value to be included in any CloudWatch events raised while
--- running tasks for these targets in this maintenance window.
-getMaintenanceWindowExecutionTaskInvocationResponse_ownerInformation :: Lens.Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Prelude.Maybe Prelude.Text)
-getMaintenanceWindowExecutionTaskInvocationResponse_ownerInformation = Lens.lens (\GetMaintenanceWindowExecutionTaskInvocationResponse' {ownerInformation} -> ownerInformation) (\s@GetMaintenanceWindowExecutionTaskInvocationResponse' {} a -> s {ownerInformation = a} :: GetMaintenanceWindowExecutionTaskInvocationResponse) Prelude.. Lens.mapping Core._Sensitive
-
--- | Retrieves the task type for a maintenance window. Task types include the
--- following: LAMBDA, STEP_FUNCTIONS, AUTOMATION, RUN_COMMAND.
-getMaintenanceWindowExecutionTaskInvocationResponse_taskType :: Lens.Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Prelude.Maybe MaintenanceWindowTaskType)
-getMaintenanceWindowExecutionTaskInvocationResponse_taskType = Lens.lens (\GetMaintenanceWindowExecutionTaskInvocationResponse' {taskType} -> taskType) (\s@GetMaintenanceWindowExecutionTaskInvocationResponse' {} a -> s {taskType = a} :: GetMaintenanceWindowExecutionTaskInvocationResponse)
-
 -- | The invocation ID.
 getMaintenanceWindowExecutionTaskInvocationResponse_invocationId :: Lens.Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Prelude.Maybe Prelude.Text)
 getMaintenanceWindowExecutionTaskInvocationResponse_invocationId = Lens.lens (\GetMaintenanceWindowExecutionTaskInvocationResponse' {invocationId} -> invocationId) (\s@GetMaintenanceWindowExecutionTaskInvocationResponse' {} a -> s {invocationId = a} :: GetMaintenanceWindowExecutionTaskInvocationResponse)
+
+-- | User-provided value to be included in any Amazon CloudWatch Events or
+-- Amazon EventBridge events raised while running tasks for these targets
+-- in this maintenance window.
+getMaintenanceWindowExecutionTaskInvocationResponse_ownerInformation :: Lens.Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Prelude.Maybe Prelude.Text)
+getMaintenanceWindowExecutionTaskInvocationResponse_ownerInformation = Lens.lens (\GetMaintenanceWindowExecutionTaskInvocationResponse' {ownerInformation} -> ownerInformation) (\s@GetMaintenanceWindowExecutionTaskInvocationResponse' {} a -> s {ownerInformation = a} :: GetMaintenanceWindowExecutionTaskInvocationResponse) Prelude.. Lens.mapping Core._Sensitive
+
+-- | Retrieves the task type for a maintenance window.
+getMaintenanceWindowExecutionTaskInvocationResponse_taskType :: Lens.Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Prelude.Maybe MaintenanceWindowTaskType)
+getMaintenanceWindowExecutionTaskInvocationResponse_taskType = Lens.lens (\GetMaintenanceWindowExecutionTaskInvocationResponse' {taskType} -> taskType) (\s@GetMaintenanceWindowExecutionTaskInvocationResponse' {} a -> s {taskType = a} :: GetMaintenanceWindowExecutionTaskInvocationResponse)
 
 -- | The parameters used at the time that the task ran.
 getMaintenanceWindowExecutionTaskInvocationResponse_parameters :: Lens.Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Prelude.Maybe Prelude.Text)

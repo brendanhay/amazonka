@@ -36,19 +36,20 @@ data PatchComplianceData = PatchComplianceData'
     title :: Prelude.Text,
     -- | The operating system-specific ID of the patch.
     kBId :: Prelude.Text,
-    -- | The classification of the patch (for example, SecurityUpdates, Updates,
-    -- CriticalUpdates).
+    -- | The classification of the patch, such as @SecurityUpdates@, @Updates@,
+    -- and @CriticalUpdates@.
     classification :: Prelude.Text,
-    -- | The severity of the patch (for example, Critical, Important, Moderate).
+    -- | The severity of the patchsuch as @Critical@, @Important@, and
+    -- @Moderate@.
     severity :: Prelude.Text,
     -- | The state of the patch on the instance, such as INSTALLED or FAILED.
     --
     -- For descriptions of each patch state, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-compliance-about.html#sysman-compliance-monitor-patch About patch compliance>
-    -- in the /AWS Systems Manager User Guide/.
+    -- in the /Amazon Web Services Systems Manager User Guide/.
     state :: PatchComplianceDataState,
-    -- | The date\/time the patch was installed on the instance. Note that not
-    -- all operating systems provide this level of information.
+    -- | The date\/time the patch was installed on the instance. Not all
+    -- operating systems provide this level of information.
     installedTime :: Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -68,19 +69,20 @@ data PatchComplianceData = PatchComplianceData'
 --
 -- 'kBId', 'patchComplianceData_kBId' - The operating system-specific ID of the patch.
 --
--- 'classification', 'patchComplianceData_classification' - The classification of the patch (for example, SecurityUpdates, Updates,
--- CriticalUpdates).
+-- 'classification', 'patchComplianceData_classification' - The classification of the patch, such as @SecurityUpdates@, @Updates@,
+-- and @CriticalUpdates@.
 --
--- 'severity', 'patchComplianceData_severity' - The severity of the patch (for example, Critical, Important, Moderate).
+-- 'severity', 'patchComplianceData_severity' - The severity of the patchsuch as @Critical@, @Important@, and
+-- @Moderate@.
 --
 -- 'state', 'patchComplianceData_state' - The state of the patch on the instance, such as INSTALLED or FAILED.
 --
 -- For descriptions of each patch state, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-compliance-about.html#sysman-compliance-monitor-patch About patch compliance>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
--- 'installedTime', 'patchComplianceData_installedTime' - The date\/time the patch was installed on the instance. Note that not
--- all operating systems provide this level of information.
+-- 'installedTime', 'patchComplianceData_installedTime' - The date\/time the patch was installed on the instance. Not all
+-- operating systems provide this level of information.
 newPatchComplianceData ::
   -- | 'title'
   Prelude.Text ->
@@ -125,12 +127,13 @@ patchComplianceData_title = Lens.lens (\PatchComplianceData' {title} -> title) (
 patchComplianceData_kBId :: Lens.Lens' PatchComplianceData Prelude.Text
 patchComplianceData_kBId = Lens.lens (\PatchComplianceData' {kBId} -> kBId) (\s@PatchComplianceData' {} a -> s {kBId = a} :: PatchComplianceData)
 
--- | The classification of the patch (for example, SecurityUpdates, Updates,
--- CriticalUpdates).
+-- | The classification of the patch, such as @SecurityUpdates@, @Updates@,
+-- and @CriticalUpdates@.
 patchComplianceData_classification :: Lens.Lens' PatchComplianceData Prelude.Text
 patchComplianceData_classification = Lens.lens (\PatchComplianceData' {classification} -> classification) (\s@PatchComplianceData' {} a -> s {classification = a} :: PatchComplianceData)
 
--- | The severity of the patch (for example, Critical, Important, Moderate).
+-- | The severity of the patchsuch as @Critical@, @Important@, and
+-- @Moderate@.
 patchComplianceData_severity :: Lens.Lens' PatchComplianceData Prelude.Text
 patchComplianceData_severity = Lens.lens (\PatchComplianceData' {severity} -> severity) (\s@PatchComplianceData' {} a -> s {severity = a} :: PatchComplianceData)
 
@@ -138,12 +141,12 @@ patchComplianceData_severity = Lens.lens (\PatchComplianceData' {severity} -> se
 --
 -- For descriptions of each patch state, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-compliance-about.html#sysman-compliance-monitor-patch About patch compliance>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 patchComplianceData_state :: Lens.Lens' PatchComplianceData PatchComplianceDataState
 patchComplianceData_state = Lens.lens (\PatchComplianceData' {state} -> state) (\s@PatchComplianceData' {} a -> s {state = a} :: PatchComplianceData)
 
--- | The date\/time the patch was installed on the instance. Note that not
--- all operating systems provide this level of information.
+-- | The date\/time the patch was installed on the instance. Not all
+-- operating systems provide this level of information.
 patchComplianceData_installedTime :: Lens.Lens' PatchComplianceData Prelude.UTCTime
 patchComplianceData_installedTime = Lens.lens (\PatchComplianceData' {installedTime} -> installedTime) (\s@PatchComplianceData' {} a -> s {installedTime = a} :: PatchComplianceData) Prelude.. Core._Time
 

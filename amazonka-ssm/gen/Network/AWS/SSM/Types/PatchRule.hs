@@ -38,14 +38,14 @@ data PatchRule = PatchRule'
     -- released on or before this date are installed automatically. Not
     -- supported on Debian Server or Ubuntu Server.
     --
-    -- Enter dates in the format @YYYY-MM-DD@. For example, @2020-12-31@.
+    -- Enter dates in the format @YYYY-MM-DD@. For example, @2021-12-31@.
     approveUntilDate :: Prelude.Maybe Prelude.Text,
     -- | A compliance severity level for all approved patches in a patch
     -- baseline.
     complianceLevel :: Prelude.Maybe PatchComplianceLevel,
     -- | For instances identified by the approval rule filters, enables a patch
     -- baseline to apply non-security updates available in the specified
-    -- repository. The default value is \'false\'. Applies to Linux instances
+    -- repository. The default value is @false@. Applies to Linux instances
     -- only.
     enableNonSecurity :: Prelude.Maybe Prelude.Bool,
     -- | The patch filter group that defines the criteria for the rule.
@@ -70,14 +70,14 @@ data PatchRule = PatchRule'
 -- released on or before this date are installed automatically. Not
 -- supported on Debian Server or Ubuntu Server.
 --
--- Enter dates in the format @YYYY-MM-DD@. For example, @2020-12-31@.
+-- Enter dates in the format @YYYY-MM-DD@. For example, @2021-12-31@.
 --
 -- 'complianceLevel', 'patchRule_complianceLevel' - A compliance severity level for all approved patches in a patch
 -- baseline.
 --
 -- 'enableNonSecurity', 'patchRule_enableNonSecurity' - For instances identified by the approval rule filters, enables a patch
 -- baseline to apply non-security updates available in the specified
--- repository. The default value is \'false\'. Applies to Linux instances
+-- repository. The default value is @false@. Applies to Linux instances
 -- only.
 --
 -- 'patchFilterGroup', 'patchRule_patchFilterGroup' - The patch filter group that defines the criteria for the rule.
@@ -105,7 +105,7 @@ patchRule_approveAfterDays = Lens.lens (\PatchRule' {approveAfterDays} -> approv
 -- released on or before this date are installed automatically. Not
 -- supported on Debian Server or Ubuntu Server.
 --
--- Enter dates in the format @YYYY-MM-DD@. For example, @2020-12-31@.
+-- Enter dates in the format @YYYY-MM-DD@. For example, @2021-12-31@.
 patchRule_approveUntilDate :: Lens.Lens' PatchRule (Prelude.Maybe Prelude.Text)
 patchRule_approveUntilDate = Lens.lens (\PatchRule' {approveUntilDate} -> approveUntilDate) (\s@PatchRule' {} a -> s {approveUntilDate = a} :: PatchRule)
 
@@ -116,7 +116,7 @@ patchRule_complianceLevel = Lens.lens (\PatchRule' {complianceLevel} -> complian
 
 -- | For instances identified by the approval rule filters, enables a patch
 -- baseline to apply non-security updates available in the specified
--- repository. The default value is \'false\'. Applies to Linux instances
+-- repository. The default value is @false@. Applies to Linux instances
 -- only.
 patchRule_enableNonSecurity :: Lens.Lens' PatchRule (Prelude.Maybe Prelude.Bool)
 patchRule_enableNonSecurity = Lens.lens (\PatchRule' {enableNonSecurity} -> enableNonSecurity) (\s@PatchRule' {} a -> s {enableNonSecurity = a} :: PatchRule)

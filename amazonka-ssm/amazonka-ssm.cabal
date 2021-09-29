@@ -47,6 +47,7 @@ library
   exposed-modules:
     Network.AWS.SSM
     Network.AWS.SSM.AddTagsToResource
+    Network.AWS.SSM.AssociateOpsItemRelatedItem
     Network.AWS.SSM.CancelCommand
     Network.AWS.SSM.CancelMaintenanceWindowExecution
     Network.AWS.SSM.CreateActivation
@@ -104,6 +105,7 @@ library
     Network.AWS.SSM.DescribePatchGroupState
     Network.AWS.SSM.DescribePatchProperties
     Network.AWS.SSM.DescribeSessions
+    Network.AWS.SSM.DisassociateOpsItemRelatedItem
     Network.AWS.SSM.GetAutomationExecution
     Network.AWS.SSM.GetCalendarState
     Network.AWS.SSM.GetCommandInvocation
@@ -141,6 +143,7 @@ library
     Network.AWS.SSM.ListDocumentVersions
     Network.AWS.SSM.ListInventoryEntries
     Network.AWS.SSM.ListOpsItemEvents
+    Network.AWS.SSM.ListOpsItemRelatedItems
     Network.AWS.SSM.ListOpsMetadata
     Network.AWS.SSM.ListResourceComplianceSummaries
     Network.AWS.SSM.ListResourceDataSync
@@ -291,6 +294,7 @@ library
     Network.AWS.SSM.Types.MaintenanceWindowStepFunctionsParameters
     Network.AWS.SSM.Types.MaintenanceWindowTarget
     Network.AWS.SSM.Types.MaintenanceWindowTask
+    Network.AWS.SSM.Types.MaintenanceWindowTaskCutoffBehavior
     Network.AWS.SSM.Types.MaintenanceWindowTaskInvocationParameters
     Network.AWS.SSM.Types.MaintenanceWindowTaskParameterValueExpression
     Network.AWS.SSM.Types.MaintenanceWindowTaskType
@@ -317,6 +321,10 @@ library
     Network.AWS.SSM.Types.OpsItemFilterOperator
     Network.AWS.SSM.Types.OpsItemIdentity
     Network.AWS.SSM.Types.OpsItemNotification
+    Network.AWS.SSM.Types.OpsItemRelatedItemsFilter
+    Network.AWS.SSM.Types.OpsItemRelatedItemsFilterKey
+    Network.AWS.SSM.Types.OpsItemRelatedItemsFilterOperator
+    Network.AWS.SSM.Types.OpsItemRelatedItemSummary
     Network.AWS.SSM.Types.OpsItemStatus
     Network.AWS.SSM.Types.OpsItemSummary
     Network.AWS.SSM.Types.OpsMetadata
@@ -391,6 +399,7 @@ library
     Network.AWS.SSM.Types.Tag
     Network.AWS.SSM.Types.Target
     Network.AWS.SSM.Types.TargetLocation
+    Network.AWS.SSM.UnlabelParameterVersion
     Network.AWS.SSM.UpdateAssociation
     Network.AWS.SSM.UpdateAssociationStatus
     Network.AWS.SSM.UpdateDocument

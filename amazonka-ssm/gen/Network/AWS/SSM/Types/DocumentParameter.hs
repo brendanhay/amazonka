@@ -34,12 +34,12 @@ data DocumentParameter = DocumentParameter'
     -- | A description of what the parameter does, how to use it, the default
     -- value, and whether or not the parameter is optional.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The type of parameter. The type can be either String or StringList.
-    type' :: Prelude.Maybe DocumentParameterType,
     -- | If specified, the default values for the parameters. Parameters without
     -- a default value are required. Parameters with a default value are
     -- optional.
-    defaultValue :: Prelude.Maybe Prelude.Text
+    defaultValue :: Prelude.Maybe Prelude.Text,
+    -- | The type of parameter. The type can be either String or StringList.
+    type' :: Prelude.Maybe DocumentParameterType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -56,19 +56,19 @@ data DocumentParameter = DocumentParameter'
 -- 'description', 'documentParameter_description' - A description of what the parameter does, how to use it, the default
 -- value, and whether or not the parameter is optional.
 --
--- 'type'', 'documentParameter_type' - The type of parameter. The type can be either String or StringList.
---
 -- 'defaultValue', 'documentParameter_defaultValue' - If specified, the default values for the parameters. Parameters without
 -- a default value are required. Parameters with a default value are
 -- optional.
+--
+-- 'type'', 'documentParameter_type' - The type of parameter. The type can be either String or StringList.
 newDocumentParameter ::
   DocumentParameter
 newDocumentParameter =
   DocumentParameter'
     { name = Prelude.Nothing,
       description = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      defaultValue = Prelude.Nothing
+      defaultValue = Prelude.Nothing,
+      type' = Prelude.Nothing
     }
 
 -- | The name of the parameter.
@@ -80,15 +80,15 @@ documentParameter_name = Lens.lens (\DocumentParameter' {name} -> name) (\s@Docu
 documentParameter_description :: Lens.Lens' DocumentParameter (Prelude.Maybe Prelude.Text)
 documentParameter_description = Lens.lens (\DocumentParameter' {description} -> description) (\s@DocumentParameter' {} a -> s {description = a} :: DocumentParameter)
 
--- | The type of parameter. The type can be either String or StringList.
-documentParameter_type :: Lens.Lens' DocumentParameter (Prelude.Maybe DocumentParameterType)
-documentParameter_type = Lens.lens (\DocumentParameter' {type'} -> type') (\s@DocumentParameter' {} a -> s {type' = a} :: DocumentParameter)
-
 -- | If specified, the default values for the parameters. Parameters without
 -- a default value are required. Parameters with a default value are
 -- optional.
 documentParameter_defaultValue :: Lens.Lens' DocumentParameter (Prelude.Maybe Prelude.Text)
 documentParameter_defaultValue = Lens.lens (\DocumentParameter' {defaultValue} -> defaultValue) (\s@DocumentParameter' {} a -> s {defaultValue = a} :: DocumentParameter)
+
+-- | The type of parameter. The type can be either String or StringList.
+documentParameter_type :: Lens.Lens' DocumentParameter (Prelude.Maybe DocumentParameterType)
+documentParameter_type = Lens.lens (\DocumentParameter' {type'} -> type') (\s@DocumentParameter' {} a -> s {type' = a} :: DocumentParameter)
 
 instance Core.FromJSON DocumentParameter where
   parseJSON =
@@ -98,8 +98,8 @@ instance Core.FromJSON DocumentParameter where
           DocumentParameter'
             Prelude.<$> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "DefaultValue")
+            Prelude.<*> (x Core..:? "Type")
       )
 
 instance Prelude.Hashable DocumentParameter

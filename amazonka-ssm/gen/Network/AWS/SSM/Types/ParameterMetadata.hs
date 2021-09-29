@@ -41,9 +41,6 @@ data ParameterMetadata = ParameterMetadata'
     name :: Prelude.Maybe Prelude.Text,
     -- | Description of the parameter actions.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The type of parameter. Valid parameter types include the following:
-    -- @String@, @StringList@, and @SecureString@.
-    type' :: Prelude.Maybe ParameterType,
     -- | The data type of the parameter, such as @text@ or @aws:ec2:image@. The
     -- default is @text@.
     dataType :: Prelude.Maybe Prelude.Text,
@@ -51,8 +48,11 @@ data ParameterMetadata = ParameterMetadata'
     --
     -- a-zA-Z0-9_.-
     allowedPattern :: Prelude.Maybe Prelude.Text,
-    -- | Amazon Resource Name (ARN) of the AWS user who last changed the
-    -- parameter.
+    -- | The type of parameter. Valid parameter types include the following:
+    -- @String@, @StringList@, and @SecureString@.
+    type' :: Prelude.Maybe ParameterType,
+    -- | Amazon Resource Name (ARN) of the Amazon Web Services user who last
+    -- changed the parameter.
     lastModifiedUser :: Prelude.Maybe Prelude.Text,
     -- | The parameter tier.
     tier :: Prelude.Maybe ParameterTier,
@@ -79,9 +79,6 @@ data ParameterMetadata = ParameterMetadata'
 --
 -- 'description', 'parameterMetadata_description' - Description of the parameter actions.
 --
--- 'type'', 'parameterMetadata_type' - The type of parameter. Valid parameter types include the following:
--- @String@, @StringList@, and @SecureString@.
---
 -- 'dataType', 'parameterMetadata_dataType' - The data type of the parameter, such as @text@ or @aws:ec2:image@. The
 -- default is @text@.
 --
@@ -89,8 +86,11 @@ data ParameterMetadata = ParameterMetadata'
 --
 -- a-zA-Z0-9_.-
 --
--- 'lastModifiedUser', 'parameterMetadata_lastModifiedUser' - Amazon Resource Name (ARN) of the AWS user who last changed the
--- parameter.
+-- 'type'', 'parameterMetadata_type' - The type of parameter. Valid parameter types include the following:
+-- @String@, @StringList@, and @SecureString@.
+--
+-- 'lastModifiedUser', 'parameterMetadata_lastModifiedUser' - Amazon Resource Name (ARN) of the Amazon Web Services user who last
+-- changed the parameter.
 --
 -- 'tier', 'parameterMetadata_tier' - The parameter tier.
 --
@@ -105,9 +105,9 @@ newParameterMetadata =
       version = Prelude.Nothing,
       name = Prelude.Nothing,
       description = Prelude.Nothing,
-      type' = Prelude.Nothing,
       dataType = Prelude.Nothing,
       allowedPattern = Prelude.Nothing,
+      type' = Prelude.Nothing,
       lastModifiedUser = Prelude.Nothing,
       tier = Prelude.Nothing,
       keyId = Prelude.Nothing
@@ -133,11 +133,6 @@ parameterMetadata_name = Lens.lens (\ParameterMetadata' {name} -> name) (\s@Para
 parameterMetadata_description :: Lens.Lens' ParameterMetadata (Prelude.Maybe Prelude.Text)
 parameterMetadata_description = Lens.lens (\ParameterMetadata' {description} -> description) (\s@ParameterMetadata' {} a -> s {description = a} :: ParameterMetadata)
 
--- | The type of parameter. Valid parameter types include the following:
--- @String@, @StringList@, and @SecureString@.
-parameterMetadata_type :: Lens.Lens' ParameterMetadata (Prelude.Maybe ParameterType)
-parameterMetadata_type = Lens.lens (\ParameterMetadata' {type'} -> type') (\s@ParameterMetadata' {} a -> s {type' = a} :: ParameterMetadata)
-
 -- | The data type of the parameter, such as @text@ or @aws:ec2:image@. The
 -- default is @text@.
 parameterMetadata_dataType :: Lens.Lens' ParameterMetadata (Prelude.Maybe Prelude.Text)
@@ -149,8 +144,13 @@ parameterMetadata_dataType = Lens.lens (\ParameterMetadata' {dataType} -> dataTy
 parameterMetadata_allowedPattern :: Lens.Lens' ParameterMetadata (Prelude.Maybe Prelude.Text)
 parameterMetadata_allowedPattern = Lens.lens (\ParameterMetadata' {allowedPattern} -> allowedPattern) (\s@ParameterMetadata' {} a -> s {allowedPattern = a} :: ParameterMetadata)
 
--- | Amazon Resource Name (ARN) of the AWS user who last changed the
--- parameter.
+-- | The type of parameter. Valid parameter types include the following:
+-- @String@, @StringList@, and @SecureString@.
+parameterMetadata_type :: Lens.Lens' ParameterMetadata (Prelude.Maybe ParameterType)
+parameterMetadata_type = Lens.lens (\ParameterMetadata' {type'} -> type') (\s@ParameterMetadata' {} a -> s {type' = a} :: ParameterMetadata)
+
+-- | Amazon Resource Name (ARN) of the Amazon Web Services user who last
+-- changed the parameter.
 parameterMetadata_lastModifiedUser :: Lens.Lens' ParameterMetadata (Prelude.Maybe Prelude.Text)
 parameterMetadata_lastModifiedUser = Lens.lens (\ParameterMetadata' {lastModifiedUser} -> lastModifiedUser) (\s@ParameterMetadata' {} a -> s {lastModifiedUser = a} :: ParameterMetadata)
 
@@ -173,9 +173,9 @@ instance Core.FromJSON ParameterMetadata where
             Prelude.<*> (x Core..:? "Version")
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "DataType")
             Prelude.<*> (x Core..:? "AllowedPattern")
+            Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "LastModifiedUser")
             Prelude.<*> (x Core..:? "Tier")
             Prelude.<*> (x Core..:? "KeyId")

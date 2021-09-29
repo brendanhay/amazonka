@@ -30,7 +30,7 @@ import Network.AWS.SSM.Types.InventoryDeletionSummaryItem
 data InventoryDeletionSummary = InventoryDeletionSummary'
   { -- | Remaining number of items to delete.
     remainingCount :: Prelude.Maybe Prelude.Int,
-    -- | The total number of items to delete. This count does not change during
+    -- | The total number of items to delete. This count doesn\'t change during
     -- the delete operation.
     totalCount :: Prelude.Maybe Prelude.Int,
     -- | A list of counts and versions for deleted items.
@@ -48,7 +48,7 @@ data InventoryDeletionSummary = InventoryDeletionSummary'
 --
 -- 'remainingCount', 'inventoryDeletionSummary_remainingCount' - Remaining number of items to delete.
 --
--- 'totalCount', 'inventoryDeletionSummary_totalCount' - The total number of items to delete. This count does not change during
+-- 'totalCount', 'inventoryDeletionSummary_totalCount' - The total number of items to delete. This count doesn\'t change during
 -- the delete operation.
 --
 -- 'summaryItems', 'inventoryDeletionSummary_summaryItems' - A list of counts and versions for deleted items.
@@ -66,7 +66,7 @@ newInventoryDeletionSummary =
 inventoryDeletionSummary_remainingCount :: Lens.Lens' InventoryDeletionSummary (Prelude.Maybe Prelude.Int)
 inventoryDeletionSummary_remainingCount = Lens.lens (\InventoryDeletionSummary' {remainingCount} -> remainingCount) (\s@InventoryDeletionSummary' {} a -> s {remainingCount = a} :: InventoryDeletionSummary)
 
--- | The total number of items to delete. This count does not change during
+-- | The total number of items to delete. This count doesn\'t change during
 -- the delete operation.
 inventoryDeletionSummary_totalCount :: Lens.Lens' InventoryDeletionSummary (Prelude.Maybe Prelude.Int)
 inventoryDeletionSummary_totalCount = Lens.lens (\InventoryDeletionSummary' {totalCount} -> totalCount) (\s@InventoryDeletionSummary' {} a -> s {totalCount = a} :: InventoryDeletionSummary)

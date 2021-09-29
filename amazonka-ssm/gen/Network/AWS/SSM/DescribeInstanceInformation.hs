@@ -25,13 +25,13 @@
 -- instance, instance status, and so on.
 --
 -- If you specify one or more instance IDs, it returns information for
--- those instances. If you do not specify instance IDs, it returns
+-- those instances. If you don\'t specify instance IDs, it returns
 -- information for all your instances. If you specify an instance ID that
--- is not valid or an instance that you do not own, you receive an error.
+-- isn\'t valid or an instance that you don\'t own, you receive an error.
 --
--- The IamRole field for this API action is the Amazon Identity and Access
--- Management (IAM) role assigned to on-premises instances. This call does
--- not return the IAM role for EC2 instances.
+-- The @IamRole@ field for this API operation is the Identity and Access
+-- Management (IAM) role assigned to on-premises instances. This call
+-- doesn\'t return the IAM role for EC2 instances.
 --
 -- This operation returns paginated results.
 module Network.AWS.SSM.DescribeInstanceInformation

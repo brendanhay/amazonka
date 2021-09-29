@@ -20,9 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a Resource Data Sync configuration. After the configuration is
+-- Deletes a resource data sync configuration. After the configuration is
 -- deleted, changes to data on managed instances are no longer synced to or
--- from the target. Deleting a sync configuration does not delete data.
+-- from the target. Deleting a sync configuration doesn\'t delete data.
 module Network.AWS.SSM.DeleteResourceDataSync
   ( -- * Creating a Request
     DeleteResourceDataSync (..),

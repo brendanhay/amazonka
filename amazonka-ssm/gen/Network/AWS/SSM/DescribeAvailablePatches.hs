@@ -58,7 +58,96 @@ data DescribeAvailablePatches = DescribeAvailablePatches'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of patches to return (per page).
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Filters used to scope down the returned patches.
+    -- | Each element in the array is a structure containing a key-value pair.
+    --
+    -- __Windows Server__
+    --
+    -- Supported keys for Windows Server instance patches include the
+    -- following:
+    --
+    -- -   __@PATCH_SET@__
+    --
+    --     Sample values: @OS@ | @APPLICATION@
+    --
+    -- -   __@PRODUCT@__
+    --
+    --     Sample values: @WindowsServer2012@ | @Office 2010@ |
+    --     @MicrosoftDefenderAntivirus@
+    --
+    -- -   __@PRODUCT_FAMILY@__
+    --
+    --     Sample values: @Windows@ | @Office@
+    --
+    -- -   __@MSRC_SEVERITY@__
+    --
+    --     Sample values: @ServicePacks@ | @Important@ | @Moderate@
+    --
+    -- -   __@CLASSIFICATION@__
+    --
+    --     Sample values: @ServicePacks@ | @SecurityUpdates@ |
+    --     @DefinitionUpdates@
+    --
+    -- -   __@PATCH_ID@__
+    --
+    --     Sample values: @KB123456@ | @KB4516046@
+    --
+    -- __Linux__
+    --
+    -- When specifying filters for Linux patches, you must specify a key-pair
+    -- for @PRODUCT@. For example, using the Command Line Interface (CLI), the
+    -- following command fails:
+    --
+    -- @aws ssm describe-available-patches --filters Key=CVE_ID,Values=CVE-2018-3615@
+    --
+    -- However, the following command succeeds:
+    --
+    -- @aws ssm describe-available-patches --filters Key=PRODUCT,Values=AmazonLinux2018.03 Key=CVE_ID,Values=CVE-2018-3615@
+    --
+    -- Supported keys for Linux instance patches include the following:
+    --
+    -- -   __@PRODUCT@__
+    --
+    --     Sample values: @AmazonLinux2018.03@ | @AmazonLinux2.0@
+    --
+    -- -   __@NAME@__
+    --
+    --     Sample values: @kernel-headers@ | @samba-python@ | @php@
+    --
+    -- -   __@SEVERITY@__
+    --
+    --     Sample values: @Critical@ | @Important@ | @Medium@ | @Low@
+    --
+    -- -   __@EPOCH@__
+    --
+    --     Sample values: @0@ | @1@
+    --
+    -- -   __@VERSION@__
+    --
+    --     Sample values: @78.6.1@ | @4.10.16@
+    --
+    -- -   __@RELEASE@__
+    --
+    --     Sample values: @9.56.amzn1@ | @1.amzn2@
+    --
+    -- -   __@ARCH@__
+    --
+    --     Sample values: @i686@ | @x86_64@
+    --
+    -- -   __@REPOSITORY@__
+    --
+    --     Sample values: @Core@ | @Updates@
+    --
+    -- -   __@ADVISORY_ID@__
+    --
+    --     Sample values: @ALAS-2018-1058@ | @ALAS2-2021-1594@
+    --
+    -- -   __@CVE_ID@__
+    --
+    --     Sample values: @CVE-2018-3615@ | @CVE-2020-1472@
+    --
+    -- -   __@BUGZILLA_ID@__
+    --
+    --     Sample values: @1463241@
     filters :: Prelude.Maybe [PatchOrchestratorFilter]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,7 +165,96 @@ data DescribeAvailablePatches = DescribeAvailablePatches'
 --
 -- 'maxResults', 'describeAvailablePatches_maxResults' - The maximum number of patches to return (per page).
 --
--- 'filters', 'describeAvailablePatches_filters' - Filters used to scope down the returned patches.
+-- 'filters', 'describeAvailablePatches_filters' - Each element in the array is a structure containing a key-value pair.
+--
+-- __Windows Server__
+--
+-- Supported keys for Windows Server instance patches include the
+-- following:
+--
+-- -   __@PATCH_SET@__
+--
+--     Sample values: @OS@ | @APPLICATION@
+--
+-- -   __@PRODUCT@__
+--
+--     Sample values: @WindowsServer2012@ | @Office 2010@ |
+--     @MicrosoftDefenderAntivirus@
+--
+-- -   __@PRODUCT_FAMILY@__
+--
+--     Sample values: @Windows@ | @Office@
+--
+-- -   __@MSRC_SEVERITY@__
+--
+--     Sample values: @ServicePacks@ | @Important@ | @Moderate@
+--
+-- -   __@CLASSIFICATION@__
+--
+--     Sample values: @ServicePacks@ | @SecurityUpdates@ |
+--     @DefinitionUpdates@
+--
+-- -   __@PATCH_ID@__
+--
+--     Sample values: @KB123456@ | @KB4516046@
+--
+-- __Linux__
+--
+-- When specifying filters for Linux patches, you must specify a key-pair
+-- for @PRODUCT@. For example, using the Command Line Interface (CLI), the
+-- following command fails:
+--
+-- @aws ssm describe-available-patches --filters Key=CVE_ID,Values=CVE-2018-3615@
+--
+-- However, the following command succeeds:
+--
+-- @aws ssm describe-available-patches --filters Key=PRODUCT,Values=AmazonLinux2018.03 Key=CVE_ID,Values=CVE-2018-3615@
+--
+-- Supported keys for Linux instance patches include the following:
+--
+-- -   __@PRODUCT@__
+--
+--     Sample values: @AmazonLinux2018.03@ | @AmazonLinux2.0@
+--
+-- -   __@NAME@__
+--
+--     Sample values: @kernel-headers@ | @samba-python@ | @php@
+--
+-- -   __@SEVERITY@__
+--
+--     Sample values: @Critical@ | @Important@ | @Medium@ | @Low@
+--
+-- -   __@EPOCH@__
+--
+--     Sample values: @0@ | @1@
+--
+-- -   __@VERSION@__
+--
+--     Sample values: @78.6.1@ | @4.10.16@
+--
+-- -   __@RELEASE@__
+--
+--     Sample values: @9.56.amzn1@ | @1.amzn2@
+--
+-- -   __@ARCH@__
+--
+--     Sample values: @i686@ | @x86_64@
+--
+-- -   __@REPOSITORY@__
+--
+--     Sample values: @Core@ | @Updates@
+--
+-- -   __@ADVISORY_ID@__
+--
+--     Sample values: @ALAS-2018-1058@ | @ALAS2-2021-1594@
+--
+-- -   __@CVE_ID@__
+--
+--     Sample values: @CVE-2018-3615@ | @CVE-2020-1472@
+--
+-- -   __@BUGZILLA_ID@__
+--
+--     Sample values: @1463241@
 newDescribeAvailablePatches ::
   DescribeAvailablePatches
 newDescribeAvailablePatches =
@@ -96,7 +274,96 @@ describeAvailablePatches_nextToken = Lens.lens (\DescribeAvailablePatches' {next
 describeAvailablePatches_maxResults :: Lens.Lens' DescribeAvailablePatches (Prelude.Maybe Prelude.Natural)
 describeAvailablePatches_maxResults = Lens.lens (\DescribeAvailablePatches' {maxResults} -> maxResults) (\s@DescribeAvailablePatches' {} a -> s {maxResults = a} :: DescribeAvailablePatches)
 
--- | Filters used to scope down the returned patches.
+-- | Each element in the array is a structure containing a key-value pair.
+--
+-- __Windows Server__
+--
+-- Supported keys for Windows Server instance patches include the
+-- following:
+--
+-- -   __@PATCH_SET@__
+--
+--     Sample values: @OS@ | @APPLICATION@
+--
+-- -   __@PRODUCT@__
+--
+--     Sample values: @WindowsServer2012@ | @Office 2010@ |
+--     @MicrosoftDefenderAntivirus@
+--
+-- -   __@PRODUCT_FAMILY@__
+--
+--     Sample values: @Windows@ | @Office@
+--
+-- -   __@MSRC_SEVERITY@__
+--
+--     Sample values: @ServicePacks@ | @Important@ | @Moderate@
+--
+-- -   __@CLASSIFICATION@__
+--
+--     Sample values: @ServicePacks@ | @SecurityUpdates@ |
+--     @DefinitionUpdates@
+--
+-- -   __@PATCH_ID@__
+--
+--     Sample values: @KB123456@ | @KB4516046@
+--
+-- __Linux__
+--
+-- When specifying filters for Linux patches, you must specify a key-pair
+-- for @PRODUCT@. For example, using the Command Line Interface (CLI), the
+-- following command fails:
+--
+-- @aws ssm describe-available-patches --filters Key=CVE_ID,Values=CVE-2018-3615@
+--
+-- However, the following command succeeds:
+--
+-- @aws ssm describe-available-patches --filters Key=PRODUCT,Values=AmazonLinux2018.03 Key=CVE_ID,Values=CVE-2018-3615@
+--
+-- Supported keys for Linux instance patches include the following:
+--
+-- -   __@PRODUCT@__
+--
+--     Sample values: @AmazonLinux2018.03@ | @AmazonLinux2.0@
+--
+-- -   __@NAME@__
+--
+--     Sample values: @kernel-headers@ | @samba-python@ | @php@
+--
+-- -   __@SEVERITY@__
+--
+--     Sample values: @Critical@ | @Important@ | @Medium@ | @Low@
+--
+-- -   __@EPOCH@__
+--
+--     Sample values: @0@ | @1@
+--
+-- -   __@VERSION@__
+--
+--     Sample values: @78.6.1@ | @4.10.16@
+--
+-- -   __@RELEASE@__
+--
+--     Sample values: @9.56.amzn1@ | @1.amzn2@
+--
+-- -   __@ARCH@__
+--
+--     Sample values: @i686@ | @x86_64@
+--
+-- -   __@REPOSITORY@__
+--
+--     Sample values: @Core@ | @Updates@
+--
+-- -   __@ADVISORY_ID@__
+--
+--     Sample values: @ALAS-2018-1058@ | @ALAS2-2021-1594@
+--
+-- -   __@CVE_ID@__
+--
+--     Sample values: @CVE-2018-3615@ | @CVE-2020-1472@
+--
+-- -   __@BUGZILLA_ID@__
+--
+--     Sample values: @1463241@
 describeAvailablePatches_filters :: Lens.Lens' DescribeAvailablePatches (Prelude.Maybe [PatchOrchestratorFilter])
 describeAvailablePatches_filters = Lens.lens (\DescribeAvailablePatches' {filters} -> filters) (\s@DescribeAvailablePatches' {} a -> s {filters = a} :: DescribeAvailablePatches) Prelude.. Lens.mapping Lens._Coerce
 

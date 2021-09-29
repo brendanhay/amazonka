@@ -31,8 +31,8 @@ module Network.AWS.SSM.GetInventorySchema
 
     -- * Request Lenses
     getInventorySchema_typeName,
-    getInventorySchema_nextToken,
     getInventorySchema_subType,
+    getInventorySchema_nextToken,
     getInventorySchema_aggregator,
     getInventorySchema_maxResults,
 
@@ -58,11 +58,11 @@ import Network.AWS.SSM.Types
 data GetInventorySchema = GetInventorySchema'
   { -- | The type of inventory item to return.
     typeName :: Prelude.Maybe Prelude.Text,
+    -- | Returns the sub-type schema for a specified inventory type.
+    subType :: Prelude.Maybe Prelude.Bool,
     -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Returns the sub-type schema for a specified inventory type.
-    subType :: Prelude.Maybe Prelude.Bool,
     -- | Returns inventory schemas that support aggregation. For example, this
     -- call returns the @AWS:InstanceInformation@ type, because it supports
     -- aggregation based on the @PlatformName@, @PlatformType@, and
@@ -85,10 +85,10 @@ data GetInventorySchema = GetInventorySchema'
 --
 -- 'typeName', 'getInventorySchema_typeName' - The type of inventory item to return.
 --
+-- 'subType', 'getInventorySchema_subType' - Returns the sub-type schema for a specified inventory type.
+--
 -- 'nextToken', 'getInventorySchema_nextToken' - The token for the next set of items to return. (You received this token
 -- from a previous call.)
---
--- 'subType', 'getInventorySchema_subType' - Returns the sub-type schema for a specified inventory type.
 --
 -- 'aggregator', 'getInventorySchema_aggregator' - Returns inventory schemas that support aggregation. For example, this
 -- call returns the @AWS:InstanceInformation@ type, because it supports
@@ -103,8 +103,8 @@ newGetInventorySchema ::
 newGetInventorySchema =
   GetInventorySchema'
     { typeName = Prelude.Nothing,
-      nextToken = Prelude.Nothing,
       subType = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       aggregator = Prelude.Nothing,
       maxResults = Prelude.Nothing
     }
@@ -113,14 +113,14 @@ newGetInventorySchema =
 getInventorySchema_typeName :: Lens.Lens' GetInventorySchema (Prelude.Maybe Prelude.Text)
 getInventorySchema_typeName = Lens.lens (\GetInventorySchema' {typeName} -> typeName) (\s@GetInventorySchema' {} a -> s {typeName = a} :: GetInventorySchema)
 
+-- | Returns the sub-type schema for a specified inventory type.
+getInventorySchema_subType :: Lens.Lens' GetInventorySchema (Prelude.Maybe Prelude.Bool)
+getInventorySchema_subType = Lens.lens (\GetInventorySchema' {subType} -> subType) (\s@GetInventorySchema' {} a -> s {subType = a} :: GetInventorySchema)
+
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
 getInventorySchema_nextToken :: Lens.Lens' GetInventorySchema (Prelude.Maybe Prelude.Text)
 getInventorySchema_nextToken = Lens.lens (\GetInventorySchema' {nextToken} -> nextToken) (\s@GetInventorySchema' {} a -> s {nextToken = a} :: GetInventorySchema)
-
--- | Returns the sub-type schema for a specified inventory type.
-getInventorySchema_subType :: Lens.Lens' GetInventorySchema (Prelude.Maybe Prelude.Bool)
-getInventorySchema_subType = Lens.lens (\GetInventorySchema' {subType} -> subType) (\s@GetInventorySchema' {} a -> s {subType = a} :: GetInventorySchema)
 
 -- | Returns inventory schemas that support aggregation. For example, this
 -- call returns the @AWS:InstanceInformation@ type, because it supports
@@ -195,8 +195,8 @@ instance Core.ToJSON GetInventorySchema where
     Core.object
       ( Prelude.catMaybes
           [ ("TypeName" Core..=) Prelude.<$> typeName,
-            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("SubType" Core..=) Prelude.<$> subType,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("Aggregator" Core..=) Prelude.<$> aggregator,
             ("MaxResults" Core..=) Prelude.<$> maxResults
           ]

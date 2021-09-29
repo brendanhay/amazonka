@@ -25,7 +25,7 @@ import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.ResourceDataSyncDestinationDataSharing
 import Network.AWS.SSM.Types.ResourceDataSyncS3Format
 
--- | Information about the target S3 bucket for the Resource Data Sync.
+-- | Information about the target S3 bucket for the resource data sync.
 --
 -- /See:/ 'newResourceDataSyncS3Destination' smart constructor.
 data ResourceDataSyncS3Destination = ResourceDataSyncS3Destination'
@@ -41,7 +41,8 @@ data ResourceDataSyncS3Destination = ResourceDataSyncS3Destination'
     -- | A supported sync format. The following format is currently supported:
     -- JsonSerDe
     syncFormat :: ResourceDataSyncS3Format,
-    -- | The AWS Region with the S3 bucket targeted by the Resource Data Sync.
+    -- | The Amazon Web Services Region with the S3 bucket targeted by the
+    -- resource data sync.
     region :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,7 +67,8 @@ data ResourceDataSyncS3Destination = ResourceDataSyncS3Destination'
 -- 'syncFormat', 'resourceDataSyncS3Destination_syncFormat' - A supported sync format. The following format is currently supported:
 -- JsonSerDe
 --
--- 'region', 'resourceDataSyncS3Destination_region' - The AWS Region with the S3 bucket targeted by the Resource Data Sync.
+-- 'region', 'resourceDataSyncS3Destination_region' - The Amazon Web Services Region with the S3 bucket targeted by the
+-- resource data sync.
 newResourceDataSyncS3Destination ::
   -- | 'bucketName'
   Prelude.Text ->
@@ -111,7 +113,8 @@ resourceDataSyncS3Destination_bucketName = Lens.lens (\ResourceDataSyncS3Destina
 resourceDataSyncS3Destination_syncFormat :: Lens.Lens' ResourceDataSyncS3Destination ResourceDataSyncS3Format
 resourceDataSyncS3Destination_syncFormat = Lens.lens (\ResourceDataSyncS3Destination' {syncFormat} -> syncFormat) (\s@ResourceDataSyncS3Destination' {} a -> s {syncFormat = a} :: ResourceDataSyncS3Destination)
 
--- | The AWS Region with the S3 bucket targeted by the Resource Data Sync.
+-- | The Amazon Web Services Region with the S3 bucket targeted by the
+-- resource data sync.
 resourceDataSyncS3Destination_region :: Lens.Lens' ResourceDataSyncS3Destination Prelude.Text
 resourceDataSyncS3Destination_region = Lens.lens (\ResourceDataSyncS3Destination' {region} -> region) (\s@ResourceDataSyncS3Destination' {} a -> s {region = a} :: ResourceDataSyncS3Destination)
 

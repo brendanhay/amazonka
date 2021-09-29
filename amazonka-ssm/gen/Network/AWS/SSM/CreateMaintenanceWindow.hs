@@ -38,8 +38,8 @@ module Network.AWS.SSM.CreateMaintenanceWindow
     createMaintenanceWindow_startDate,
     createMaintenanceWindow_scheduleOffset,
     createMaintenanceWindow_tags,
-    createMaintenanceWindow_description,
     createMaintenanceWindow_scheduleTimezone,
+    createMaintenanceWindow_description,
     createMaintenanceWindow_endDate,
     createMaintenanceWindow_clientToken,
     createMaintenanceWindow_name,
@@ -68,10 +68,10 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newCreateMaintenanceWindow' smart constructor.
 data CreateMaintenanceWindow = CreateMaintenanceWindow'
   { -- | The date and time, in ISO-8601 Extended format, for when you want the
-    -- maintenance window to become active. StartDate allows you to delay
+    -- maintenance window to become active. @StartDate@ allows you to delay
     -- activation of the maintenance window until the specified future date.
     startDate :: Prelude.Maybe Prelude.Text,
-    -- | The number of days to wait after the date and time specified by a CRON
+    -- | The number of days to wait after the date and time specified by a cron
     -- expression before running the maintenance window.
     --
     -- For example, the following cron expression schedules a maintenance
@@ -87,7 +87,7 @@ data CreateMaintenanceWindow = CreateMaintenanceWindow'
     -- environment. For example, you might want to tag a maintenance window to
     -- identify the type of tasks it will run, the types of targets, and the
     -- environment it will run in. In this case, you could specify the
-    -- following key name\/value pairs:
+    -- following key-value pairs:
     --
     -- -   @Key=TaskType,Value=AgentUpdate@
     --
@@ -96,11 +96,8 @@ data CreateMaintenanceWindow = CreateMaintenanceWindow'
     -- -   @Key=Environment,Value=Production@
     --
     -- To add tags to an existing maintenance window, use the AddTagsToResource
-    -- action.
+    -- operation.
     tags :: Prelude.Maybe [Tag],
-    -- | An optional description for the maintenance window. We recommend
-    -- specifying a description to help you organize your maintenance windows.
-    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The time zone that the scheduled maintenance window executions are based
     -- on, in Internet Assigned Numbers Authority (IANA) format. For example:
     -- \"America\/Los_Angeles\", \"UTC\", or \"Asia\/Seoul\". For more
@@ -108,9 +105,13 @@ data CreateMaintenanceWindow = CreateMaintenanceWindow'
     -- <https://www.iana.org/time-zones Time Zone Database> on the IANA
     -- website.
     scheduleTimezone :: Prelude.Maybe Prelude.Text,
+    -- | An optional description for the maintenance window. We recommend
+    -- specifying a description to help you organize your maintenance windows.
+    description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The date and time, in ISO-8601 Extended format, for when you want the
-    -- maintenance window to become inactive. EndDate allows you to set a date
-    -- and time in the future when the maintenance window will no longer run.
+    -- maintenance window to become inactive. @EndDate@ allows you to set a
+    -- date and time in the future when the maintenance window will no longer
+    -- run.
     endDate :: Prelude.Maybe Prelude.Text,
     -- | User-provided idempotency token.
     clientToken :: Prelude.Maybe Prelude.Text,
@@ -121,11 +122,11 @@ data CreateMaintenanceWindow = CreateMaintenanceWindow'
     schedule :: Prelude.Text,
     -- | The duration of the maintenance window in hours.
     duration :: Prelude.Natural,
-    -- | The number of hours before the end of the maintenance window that
-    -- Systems Manager stops scheduling new tasks for execution.
+    -- | The number of hours before the end of the maintenance window that Amazon
+    -- Web Services Systems Manager stops scheduling new tasks for execution.
     cutoff :: Prelude.Natural,
     -- | Enables a maintenance window task to run on managed instances, even if
-    -- you have not registered those instances as targets. If enabled, then you
+    -- you haven\'t registered those instances as targets. If enabled, then you
     -- must specify the unregistered instances (by instance ID) when you
     -- register a task with the maintenance window.
     --
@@ -145,10 +146,10 @@ data CreateMaintenanceWindow = CreateMaintenanceWindow'
 -- for backwards compatibility:
 --
 -- 'startDate', 'createMaintenanceWindow_startDate' - The date and time, in ISO-8601 Extended format, for when you want the
--- maintenance window to become active. StartDate allows you to delay
+-- maintenance window to become active. @StartDate@ allows you to delay
 -- activation of the maintenance window until the specified future date.
 --
--- 'scheduleOffset', 'createMaintenanceWindow_scheduleOffset' - The number of days to wait after the date and time specified by a CRON
+-- 'scheduleOffset', 'createMaintenanceWindow_scheduleOffset' - The number of days to wait after the date and time specified by a cron
 -- expression before running the maintenance window.
 --
 -- For example, the following cron expression schedules a maintenance
@@ -164,7 +165,7 @@ data CreateMaintenanceWindow = CreateMaintenanceWindow'
 -- environment. For example, you might want to tag a maintenance window to
 -- identify the type of tasks it will run, the types of targets, and the
 -- environment it will run in. In this case, you could specify the
--- following key name\/value pairs:
+-- following key-value pairs:
 --
 -- -   @Key=TaskType,Value=AgentUpdate@
 --
@@ -173,10 +174,7 @@ data CreateMaintenanceWindow = CreateMaintenanceWindow'
 -- -   @Key=Environment,Value=Production@
 --
 -- To add tags to an existing maintenance window, use the AddTagsToResource
--- action.
---
--- 'description', 'createMaintenanceWindow_description' - An optional description for the maintenance window. We recommend
--- specifying a description to help you organize your maintenance windows.
+-- operation.
 --
 -- 'scheduleTimezone', 'createMaintenanceWindow_scheduleTimezone' - The time zone that the scheduled maintenance window executions are based
 -- on, in Internet Assigned Numbers Authority (IANA) format. For example:
@@ -185,9 +183,13 @@ data CreateMaintenanceWindow = CreateMaintenanceWindow'
 -- <https://www.iana.org/time-zones Time Zone Database> on the IANA
 -- website.
 --
+-- 'description', 'createMaintenanceWindow_description' - An optional description for the maintenance window. We recommend
+-- specifying a description to help you organize your maintenance windows.
+--
 -- 'endDate', 'createMaintenanceWindow_endDate' - The date and time, in ISO-8601 Extended format, for when you want the
--- maintenance window to become inactive. EndDate allows you to set a date
--- and time in the future when the maintenance window will no longer run.
+-- maintenance window to become inactive. @EndDate@ allows you to set a
+-- date and time in the future when the maintenance window will no longer
+-- run.
 --
 -- 'clientToken', 'createMaintenanceWindow_clientToken' - User-provided idempotency token.
 --
@@ -198,11 +200,11 @@ data CreateMaintenanceWindow = CreateMaintenanceWindow'
 --
 -- 'duration', 'createMaintenanceWindow_duration' - The duration of the maintenance window in hours.
 --
--- 'cutoff', 'createMaintenanceWindow_cutoff' - The number of hours before the end of the maintenance window that
--- Systems Manager stops scheduling new tasks for execution.
+-- 'cutoff', 'createMaintenanceWindow_cutoff' - The number of hours before the end of the maintenance window that Amazon
+-- Web Services Systems Manager stops scheduling new tasks for execution.
 --
 -- 'allowUnassociatedTargets', 'createMaintenanceWindow_allowUnassociatedTargets' - Enables a maintenance window task to run on managed instances, even if
--- you have not registered those instances as targets. If enabled, then you
+-- you haven\'t registered those instances as targets. If enabled, then you
 -- must specify the unregistered instances (by instance ID) when you
 -- register a task with the maintenance window.
 --
@@ -232,8 +234,8 @@ newCreateMaintenanceWindow
           Prelude.Nothing,
         scheduleOffset = Prelude.Nothing,
         tags = Prelude.Nothing,
-        description = Prelude.Nothing,
         scheduleTimezone = Prelude.Nothing,
+        description = Prelude.Nothing,
         endDate = Prelude.Nothing,
         clientToken = Prelude.Nothing,
         name = pName_,
@@ -245,12 +247,12 @@ newCreateMaintenanceWindow
       }
 
 -- | The date and time, in ISO-8601 Extended format, for when you want the
--- maintenance window to become active. StartDate allows you to delay
+-- maintenance window to become active. @StartDate@ allows you to delay
 -- activation of the maintenance window until the specified future date.
 createMaintenanceWindow_startDate :: Lens.Lens' CreateMaintenanceWindow (Prelude.Maybe Prelude.Text)
 createMaintenanceWindow_startDate = Lens.lens (\CreateMaintenanceWindow' {startDate} -> startDate) (\s@CreateMaintenanceWindow' {} a -> s {startDate = a} :: CreateMaintenanceWindow)
 
--- | The number of days to wait after the date and time specified by a CRON
+-- | The number of days to wait after the date and time specified by a cron
 -- expression before running the maintenance window.
 --
 -- For example, the following cron expression schedules a maintenance
@@ -268,7 +270,7 @@ createMaintenanceWindow_scheduleOffset = Lens.lens (\CreateMaintenanceWindow' {s
 -- environment. For example, you might want to tag a maintenance window to
 -- identify the type of tasks it will run, the types of targets, and the
 -- environment it will run in. In this case, you could specify the
--- following key name\/value pairs:
+-- following key-value pairs:
 --
 -- -   @Key=TaskType,Value=AgentUpdate@
 --
@@ -277,14 +279,9 @@ createMaintenanceWindow_scheduleOffset = Lens.lens (\CreateMaintenanceWindow' {s
 -- -   @Key=Environment,Value=Production@
 --
 -- To add tags to an existing maintenance window, use the AddTagsToResource
--- action.
+-- operation.
 createMaintenanceWindow_tags :: Lens.Lens' CreateMaintenanceWindow (Prelude.Maybe [Tag])
 createMaintenanceWindow_tags = Lens.lens (\CreateMaintenanceWindow' {tags} -> tags) (\s@CreateMaintenanceWindow' {} a -> s {tags = a} :: CreateMaintenanceWindow) Prelude.. Lens.mapping Lens._Coerce
-
--- | An optional description for the maintenance window. We recommend
--- specifying a description to help you organize your maintenance windows.
-createMaintenanceWindow_description :: Lens.Lens' CreateMaintenanceWindow (Prelude.Maybe Prelude.Text)
-createMaintenanceWindow_description = Lens.lens (\CreateMaintenanceWindow' {description} -> description) (\s@CreateMaintenanceWindow' {} a -> s {description = a} :: CreateMaintenanceWindow) Prelude.. Lens.mapping Core._Sensitive
 
 -- | The time zone that the scheduled maintenance window executions are based
 -- on, in Internet Assigned Numbers Authority (IANA) format. For example:
@@ -295,9 +292,15 @@ createMaintenanceWindow_description = Lens.lens (\CreateMaintenanceWindow' {desc
 createMaintenanceWindow_scheduleTimezone :: Lens.Lens' CreateMaintenanceWindow (Prelude.Maybe Prelude.Text)
 createMaintenanceWindow_scheduleTimezone = Lens.lens (\CreateMaintenanceWindow' {scheduleTimezone} -> scheduleTimezone) (\s@CreateMaintenanceWindow' {} a -> s {scheduleTimezone = a} :: CreateMaintenanceWindow)
 
+-- | An optional description for the maintenance window. We recommend
+-- specifying a description to help you organize your maintenance windows.
+createMaintenanceWindow_description :: Lens.Lens' CreateMaintenanceWindow (Prelude.Maybe Prelude.Text)
+createMaintenanceWindow_description = Lens.lens (\CreateMaintenanceWindow' {description} -> description) (\s@CreateMaintenanceWindow' {} a -> s {description = a} :: CreateMaintenanceWindow) Prelude.. Lens.mapping Core._Sensitive
+
 -- | The date and time, in ISO-8601 Extended format, for when you want the
--- maintenance window to become inactive. EndDate allows you to set a date
--- and time in the future when the maintenance window will no longer run.
+-- maintenance window to become inactive. @EndDate@ allows you to set a
+-- date and time in the future when the maintenance window will no longer
+-- run.
 createMaintenanceWindow_endDate :: Lens.Lens' CreateMaintenanceWindow (Prelude.Maybe Prelude.Text)
 createMaintenanceWindow_endDate = Lens.lens (\CreateMaintenanceWindow' {endDate} -> endDate) (\s@CreateMaintenanceWindow' {} a -> s {endDate = a} :: CreateMaintenanceWindow)
 
@@ -318,13 +321,13 @@ createMaintenanceWindow_schedule = Lens.lens (\CreateMaintenanceWindow' {schedul
 createMaintenanceWindow_duration :: Lens.Lens' CreateMaintenanceWindow Prelude.Natural
 createMaintenanceWindow_duration = Lens.lens (\CreateMaintenanceWindow' {duration} -> duration) (\s@CreateMaintenanceWindow' {} a -> s {duration = a} :: CreateMaintenanceWindow)
 
--- | The number of hours before the end of the maintenance window that
--- Systems Manager stops scheduling new tasks for execution.
+-- | The number of hours before the end of the maintenance window that Amazon
+-- Web Services Systems Manager stops scheduling new tasks for execution.
 createMaintenanceWindow_cutoff :: Lens.Lens' CreateMaintenanceWindow Prelude.Natural
 createMaintenanceWindow_cutoff = Lens.lens (\CreateMaintenanceWindow' {cutoff} -> cutoff) (\s@CreateMaintenanceWindow' {} a -> s {cutoff = a} :: CreateMaintenanceWindow)
 
 -- | Enables a maintenance window task to run on managed instances, even if
--- you have not registered those instances as targets. If enabled, then you
+-- you haven\'t registered those instances as targets. If enabled, then you
 -- must specify the unregistered instances (by instance ID) when you
 -- register a task with the maintenance window.
 --
@@ -374,9 +377,9 @@ instance Core.ToJSON CreateMaintenanceWindow where
             ("ScheduleOffset" Core..=)
               Prelude.<$> scheduleOffset,
             ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
             ("ScheduleTimezone" Core..=)
               Prelude.<$> scheduleTimezone,
+            ("Description" Core..=) Prelude.<$> description,
             ("EndDate" Core..=) Prelude.<$> endDate,
             ("ClientToken" Core..=) Prelude.<$> clientToken,
             Prelude.Just ("Name" Core..= name),

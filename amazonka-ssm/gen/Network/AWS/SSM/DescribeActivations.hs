@@ -21,9 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes details about the activation, such as the date and time the
--- activation was created, its expiration date, the IAM role assigned to
--- the instances in the activation, and the number of instances registered
--- by using this activation.
+-- activation was created, its expiration date, the Identity and Access
+-- Management (IAM) role assigned to the instances in the activation, and
+-- the number of instances registered by using this activation.
 --
 -- This operation returns paginated results.
 module Network.AWS.SSM.DescribeActivations
@@ -184,7 +184,7 @@ data DescribeActivationsResponse = DescribeActivationsResponse'
   { -- | The token for the next set of items to return. Use this token to get the
     -- next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of activations for your AWS account.
+    -- | A list of activations for your Amazon Web Services account.
     activationList :: Prelude.Maybe [Activation],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -202,7 +202,7 @@ data DescribeActivationsResponse = DescribeActivationsResponse'
 -- 'nextToken', 'describeActivationsResponse_nextToken' - The token for the next set of items to return. Use this token to get the
 -- next set of results.
 --
--- 'activationList', 'describeActivationsResponse_activationList' - A list of activations for your AWS account.
+-- 'activationList', 'describeActivationsResponse_activationList' - A list of activations for your Amazon Web Services account.
 --
 -- 'httpStatus', 'describeActivationsResponse_httpStatus' - The response's http status code.
 newDescribeActivationsResponse ::
@@ -222,7 +222,7 @@ newDescribeActivationsResponse pHttpStatus_ =
 describeActivationsResponse_nextToken :: Lens.Lens' DescribeActivationsResponse (Prelude.Maybe Prelude.Text)
 describeActivationsResponse_nextToken = Lens.lens (\DescribeActivationsResponse' {nextToken} -> nextToken) (\s@DescribeActivationsResponse' {} a -> s {nextToken = a} :: DescribeActivationsResponse)
 
--- | A list of activations for your AWS account.
+-- | A list of activations for your Amazon Web Services account.
 describeActivationsResponse_activationList :: Lens.Lens' DescribeActivationsResponse (Prelude.Maybe [Activation])
 describeActivationsResponse_activationList = Lens.lens (\DescribeActivationsResponse' {activationList} -> activationList) (\s@DescribeActivationsResponse' {} a -> s {activationList = a} :: DescribeActivationsResponse) Prelude.. Lens.mapping Lens._Coerce
 

@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Initiates execution of an Automation document.
+-- Initiates execution of an Automation runbook.
 module Network.AWS.SSM.StartAutomationExecution
   ( -- * Creating a Request
     StartAutomationExecution (..),
@@ -32,12 +32,12 @@ module Network.AWS.SSM.StartAutomationExecution
     startAutomationExecution_targets,
     startAutomationExecution_targetLocations,
     startAutomationExecution_targetParameterName,
-    startAutomationExecution_maxConcurrency,
     startAutomationExecution_tags,
+    startAutomationExecution_maxConcurrency,
     startAutomationExecution_targetMaps,
     startAutomationExecution_documentVersion,
-    startAutomationExecution_parameters,
     startAutomationExecution_clientToken,
+    startAutomationExecution_parameters,
     startAutomationExecution_documentName,
 
     -- * Destructuring the Response
@@ -81,50 +81,52 @@ data StartAutomationExecution = StartAutomationExecution'
     -- | A key-value mapping to target resources. Required if you specify
     -- TargetParameterName.
     targets :: Prelude.Maybe [Target],
-    -- | A location is a combination of AWS Regions and\/or AWS accounts where
-    -- you want to run the Automation. Use this action to start an Automation
-    -- in multiple Regions and multiple accounts. For more information, see
-    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html Running Automation workflows in multiple AWS Regions and accounts>
-    -- in the /AWS Systems Manager User Guide/.
+    -- | A location is a combination of Amazon Web Services Regions and\/or
+    -- Amazon Web Services accounts where you want to run the automation. Use
+    -- this operation to start an automation in multiple Amazon Web Services
+    -- Regions and multiple Amazon Web Services accounts. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html Running Automation workflows in multiple Amazon Web Services Regions and Amazon Web Services accounts>
+    -- in the /Amazon Web Services Systems Manager User Guide/.
     targetLocations :: Prelude.Maybe (Prelude.NonEmpty TargetLocation),
     -- | The name of the parameter used as the target resource for the
     -- rate-controlled execution. Required if you specify targets.
     targetParameterName :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of targets allowed to run this task in parallel. You
-    -- can specify a number, such as 10, or a percentage, such as 10%. The
-    -- default value is 10.
-    maxConcurrency :: Prelude.Maybe Prelude.Text,
     -- | Optional metadata that you assign to a resource. You can specify a
     -- maximum of five tags for an automation. Tags enable you to categorize a
     -- resource in different ways, such as by purpose, owner, or environment.
     -- For example, you might want to tag an automation to identify an
     -- environment or operating system. In this case, you could specify the
-    -- following key name\/value pairs:
+    -- following key-value pairs:
     --
     -- -   @Key=environment,Value=test@
     --
     -- -   @Key=OS,Value=Windows@
     --
     -- To add tags to an existing patch baseline, use the AddTagsToResource
-    -- action.
+    -- operation.
     tags :: Prelude.Maybe [Tag],
+    -- | The maximum number of targets allowed to run this task in parallel. You
+    -- can specify a number, such as 10, or a percentage, such as 10%. The
+    -- default value is @10@.
+    maxConcurrency :: Prelude.Maybe Prelude.Text,
     -- | A key-value mapping of document parameters to target resources. Both
-    -- Targets and TargetMaps cannot be specified together.
+    -- Targets and TargetMaps can\'t be specified together.
     targetMaps :: Prelude.Maybe [Prelude.HashMap Prelude.Text [Prelude.Text]],
-    -- | The version of the Automation document to use for this execution.
+    -- | The version of the Automation runbook to use for this execution.
     documentVersion :: Prelude.Maybe Prelude.Text,
-    -- | A key-value map of execution parameters, which match the declared
-    -- parameters in the Automation document.
-    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
     -- | User-provided idempotency token. The token must be unique, is case
     -- insensitive, enforces the UUID format, and can\'t be reused.
     clientToken :: Prelude.Maybe Prelude.Text,
-    -- | The name of the Systems Manager document to run. This can be a public
-    -- document or a custom document. To run a shared document belonging to
-    -- another account, specify the document ARN. For more information about
-    -- how to use shared documents, see
+    -- | A key-value map of execution parameters, which match the declared
+    -- parameters in the Automation runbook.
+    parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]),
+    -- | The name of the SSM document to run. This can be a public document or a
+    -- custom document. To run a shared document belonging to another account,
+    -- specify the document ARN. For more information about how to use shared
+    -- documents, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-using-shared.html Using shared SSM documents>
-    -- in the /AWS Systems Manager User Guide/.
+    -- in the /Amazon Web Services Systems Manager User Guide/.
     documentName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -159,50 +161,52 @@ data StartAutomationExecution = StartAutomationExecution'
 -- 'targets', 'startAutomationExecution_targets' - A key-value mapping to target resources. Required if you specify
 -- TargetParameterName.
 --
--- 'targetLocations', 'startAutomationExecution_targetLocations' - A location is a combination of AWS Regions and\/or AWS accounts where
--- you want to run the Automation. Use this action to start an Automation
--- in multiple Regions and multiple accounts. For more information, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html Running Automation workflows in multiple AWS Regions and accounts>
--- in the /AWS Systems Manager User Guide/.
+-- 'targetLocations', 'startAutomationExecution_targetLocations' - A location is a combination of Amazon Web Services Regions and\/or
+-- Amazon Web Services accounts where you want to run the automation. Use
+-- this operation to start an automation in multiple Amazon Web Services
+-- Regions and multiple Amazon Web Services accounts. For more information,
+-- see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html Running Automation workflows in multiple Amazon Web Services Regions and Amazon Web Services accounts>
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
 -- 'targetParameterName', 'startAutomationExecution_targetParameterName' - The name of the parameter used as the target resource for the
 -- rate-controlled execution. Required if you specify targets.
---
--- 'maxConcurrency', 'startAutomationExecution_maxConcurrency' - The maximum number of targets allowed to run this task in parallel. You
--- can specify a number, such as 10, or a percentage, such as 10%. The
--- default value is 10.
 --
 -- 'tags', 'startAutomationExecution_tags' - Optional metadata that you assign to a resource. You can specify a
 -- maximum of five tags for an automation. Tags enable you to categorize a
 -- resource in different ways, such as by purpose, owner, or environment.
 -- For example, you might want to tag an automation to identify an
 -- environment or operating system. In this case, you could specify the
--- following key name\/value pairs:
+-- following key-value pairs:
 --
 -- -   @Key=environment,Value=test@
 --
 -- -   @Key=OS,Value=Windows@
 --
 -- To add tags to an existing patch baseline, use the AddTagsToResource
--- action.
+-- operation.
+--
+-- 'maxConcurrency', 'startAutomationExecution_maxConcurrency' - The maximum number of targets allowed to run this task in parallel. You
+-- can specify a number, such as 10, or a percentage, such as 10%. The
+-- default value is @10@.
 --
 -- 'targetMaps', 'startAutomationExecution_targetMaps' - A key-value mapping of document parameters to target resources. Both
--- Targets and TargetMaps cannot be specified together.
+-- Targets and TargetMaps can\'t be specified together.
 --
--- 'documentVersion', 'startAutomationExecution_documentVersion' - The version of the Automation document to use for this execution.
---
--- 'parameters', 'startAutomationExecution_parameters' - A key-value map of execution parameters, which match the declared
--- parameters in the Automation document.
+-- 'documentVersion', 'startAutomationExecution_documentVersion' - The version of the Automation runbook to use for this execution.
 --
 -- 'clientToken', 'startAutomationExecution_clientToken' - User-provided idempotency token. The token must be unique, is case
 -- insensitive, enforces the UUID format, and can\'t be reused.
 --
--- 'documentName', 'startAutomationExecution_documentName' - The name of the Systems Manager document to run. This can be a public
--- document or a custom document. To run a shared document belonging to
--- another account, specify the document ARN. For more information about
--- how to use shared documents, see
+-- 'parameters', 'startAutomationExecution_parameters' - A key-value map of execution parameters, which match the declared
+-- parameters in the Automation runbook.
+--
+-- 'documentName', 'startAutomationExecution_documentName' - The name of the SSM document to run. This can be a public document or a
+-- custom document. To run a shared document belonging to another account,
+-- specify the document ARN. For more information about how to use shared
+-- documents, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-using-shared.html Using shared SSM documents>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 newStartAutomationExecution ::
   -- | 'documentName'
   Prelude.Text ->
@@ -215,12 +219,12 @@ newStartAutomationExecution pDocumentName_ =
       targets = Prelude.Nothing,
       targetLocations = Prelude.Nothing,
       targetParameterName = Prelude.Nothing,
-      maxConcurrency = Prelude.Nothing,
       tags = Prelude.Nothing,
+      maxConcurrency = Prelude.Nothing,
       targetMaps = Prelude.Nothing,
       documentVersion = Prelude.Nothing,
-      parameters = Prelude.Nothing,
       clientToken = Prelude.Nothing,
+      parameters = Prelude.Nothing,
       documentName = pDocumentName_
     }
 
@@ -252,11 +256,13 @@ startAutomationExecution_mode = Lens.lens (\StartAutomationExecution' {mode} -> 
 startAutomationExecution_targets :: Lens.Lens' StartAutomationExecution (Prelude.Maybe [Target])
 startAutomationExecution_targets = Lens.lens (\StartAutomationExecution' {targets} -> targets) (\s@StartAutomationExecution' {} a -> s {targets = a} :: StartAutomationExecution) Prelude.. Lens.mapping Lens._Coerce
 
--- | A location is a combination of AWS Regions and\/or AWS accounts where
--- you want to run the Automation. Use this action to start an Automation
--- in multiple Regions and multiple accounts. For more information, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html Running Automation workflows in multiple AWS Regions and accounts>
--- in the /AWS Systems Manager User Guide/.
+-- | A location is a combination of Amazon Web Services Regions and\/or
+-- Amazon Web Services accounts where you want to run the automation. Use
+-- this operation to start an automation in multiple Amazon Web Services
+-- Regions and multiple Amazon Web Services accounts. For more information,
+-- see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html Running Automation workflows in multiple Amazon Web Services Regions and Amazon Web Services accounts>
+-- in the /Amazon Web Services Systems Manager User Guide/.
 startAutomationExecution_targetLocations :: Lens.Lens' StartAutomationExecution (Prelude.Maybe (Prelude.NonEmpty TargetLocation))
 startAutomationExecution_targetLocations = Lens.lens (\StartAutomationExecution' {targetLocations} -> targetLocations) (\s@StartAutomationExecution' {} a -> s {targetLocations = a} :: StartAutomationExecution) Prelude.. Lens.mapping Lens._Coerce
 
@@ -265,53 +271,53 @@ startAutomationExecution_targetLocations = Lens.lens (\StartAutomationExecution'
 startAutomationExecution_targetParameterName :: Lens.Lens' StartAutomationExecution (Prelude.Maybe Prelude.Text)
 startAutomationExecution_targetParameterName = Lens.lens (\StartAutomationExecution' {targetParameterName} -> targetParameterName) (\s@StartAutomationExecution' {} a -> s {targetParameterName = a} :: StartAutomationExecution)
 
--- | The maximum number of targets allowed to run this task in parallel. You
--- can specify a number, such as 10, or a percentage, such as 10%. The
--- default value is 10.
-startAutomationExecution_maxConcurrency :: Lens.Lens' StartAutomationExecution (Prelude.Maybe Prelude.Text)
-startAutomationExecution_maxConcurrency = Lens.lens (\StartAutomationExecution' {maxConcurrency} -> maxConcurrency) (\s@StartAutomationExecution' {} a -> s {maxConcurrency = a} :: StartAutomationExecution)
-
 -- | Optional metadata that you assign to a resource. You can specify a
 -- maximum of five tags for an automation. Tags enable you to categorize a
 -- resource in different ways, such as by purpose, owner, or environment.
 -- For example, you might want to tag an automation to identify an
 -- environment or operating system. In this case, you could specify the
--- following key name\/value pairs:
+-- following key-value pairs:
 --
 -- -   @Key=environment,Value=test@
 --
 -- -   @Key=OS,Value=Windows@
 --
 -- To add tags to an existing patch baseline, use the AddTagsToResource
--- action.
+-- operation.
 startAutomationExecution_tags :: Lens.Lens' StartAutomationExecution (Prelude.Maybe [Tag])
 startAutomationExecution_tags = Lens.lens (\StartAutomationExecution' {tags} -> tags) (\s@StartAutomationExecution' {} a -> s {tags = a} :: StartAutomationExecution) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The maximum number of targets allowed to run this task in parallel. You
+-- can specify a number, such as 10, or a percentage, such as 10%. The
+-- default value is @10@.
+startAutomationExecution_maxConcurrency :: Lens.Lens' StartAutomationExecution (Prelude.Maybe Prelude.Text)
+startAutomationExecution_maxConcurrency = Lens.lens (\StartAutomationExecution' {maxConcurrency} -> maxConcurrency) (\s@StartAutomationExecution' {} a -> s {maxConcurrency = a} :: StartAutomationExecution)
+
 -- | A key-value mapping of document parameters to target resources. Both
--- Targets and TargetMaps cannot be specified together.
+-- Targets and TargetMaps can\'t be specified together.
 startAutomationExecution_targetMaps :: Lens.Lens' StartAutomationExecution (Prelude.Maybe [Prelude.HashMap Prelude.Text [Prelude.Text]])
 startAutomationExecution_targetMaps = Lens.lens (\StartAutomationExecution' {targetMaps} -> targetMaps) (\s@StartAutomationExecution' {} a -> s {targetMaps = a} :: StartAutomationExecution) Prelude.. Lens.mapping Lens._Coerce
 
--- | The version of the Automation document to use for this execution.
+-- | The version of the Automation runbook to use for this execution.
 startAutomationExecution_documentVersion :: Lens.Lens' StartAutomationExecution (Prelude.Maybe Prelude.Text)
 startAutomationExecution_documentVersion = Lens.lens (\StartAutomationExecution' {documentVersion} -> documentVersion) (\s@StartAutomationExecution' {} a -> s {documentVersion = a} :: StartAutomationExecution)
-
--- | A key-value map of execution parameters, which match the declared
--- parameters in the Automation document.
-startAutomationExecution_parameters :: Lens.Lens' StartAutomationExecution (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
-startAutomationExecution_parameters = Lens.lens (\StartAutomationExecution' {parameters} -> parameters) (\s@StartAutomationExecution' {} a -> s {parameters = a} :: StartAutomationExecution) Prelude.. Lens.mapping Lens._Coerce
 
 -- | User-provided idempotency token. The token must be unique, is case
 -- insensitive, enforces the UUID format, and can\'t be reused.
 startAutomationExecution_clientToken :: Lens.Lens' StartAutomationExecution (Prelude.Maybe Prelude.Text)
 startAutomationExecution_clientToken = Lens.lens (\StartAutomationExecution' {clientToken} -> clientToken) (\s@StartAutomationExecution' {} a -> s {clientToken = a} :: StartAutomationExecution)
 
--- | The name of the Systems Manager document to run. This can be a public
--- document or a custom document. To run a shared document belonging to
--- another account, specify the document ARN. For more information about
--- how to use shared documents, see
+-- | A key-value map of execution parameters, which match the declared
+-- parameters in the Automation runbook.
+startAutomationExecution_parameters :: Lens.Lens' StartAutomationExecution (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
+startAutomationExecution_parameters = Lens.lens (\StartAutomationExecution' {parameters} -> parameters) (\s@StartAutomationExecution' {} a -> s {parameters = a} :: StartAutomationExecution) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The name of the SSM document to run. This can be a public document or a
+-- custom document. To run a shared document belonging to another account,
+-- specify the document ARN. For more information about how to use shared
+-- documents, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-using-shared.html Using shared SSM documents>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 startAutomationExecution_documentName :: Lens.Lens' StartAutomationExecution Prelude.Text
 startAutomationExecution_documentName = Lens.lens (\StartAutomationExecution' {documentName} -> documentName) (\s@StartAutomationExecution' {} a -> s {documentName = a} :: StartAutomationExecution)
 
@@ -358,14 +364,14 @@ instance Core.ToJSON StartAutomationExecution where
               Prelude.<$> targetLocations,
             ("TargetParameterName" Core..=)
               Prelude.<$> targetParameterName,
+            ("Tags" Core..=) Prelude.<$> tags,
             ("MaxConcurrency" Core..=)
               Prelude.<$> maxConcurrency,
-            ("Tags" Core..=) Prelude.<$> tags,
             ("TargetMaps" Core..=) Prelude.<$> targetMaps,
             ("DocumentVersion" Core..=)
               Prelude.<$> documentVersion,
-            ("Parameters" Core..=) Prelude.<$> parameters,
             ("ClientToken" Core..=) Prelude.<$> clientToken,
+            ("Parameters" Core..=) Prelude.<$> parameters,
             Prelude.Just ("DocumentName" Core..= documentName)
           ]
       )

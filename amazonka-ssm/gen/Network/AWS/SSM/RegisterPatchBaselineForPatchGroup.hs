@@ -50,10 +50,9 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'newRegisterPatchBaselineForPatchGroup' smart constructor.
 data RegisterPatchBaselineForPatchGroup = RegisterPatchBaselineForPatchGroup'
-  { -- | The ID of the patch baseline to register the patch group with.
+  { -- | The ID of the patch baseline to register with the patch group.
     baselineId :: Prelude.Text,
-    -- | The name of the patch group that should be registered with the patch
-    -- baseline.
+    -- | The name of the patch group to be registered with the patch baseline.
     patchGroup :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,10 +65,9 @@ data RegisterPatchBaselineForPatchGroup = RegisterPatchBaselineForPatchGroup'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'baselineId', 'registerPatchBaselineForPatchGroup_baselineId' - The ID of the patch baseline to register the patch group with.
+-- 'baselineId', 'registerPatchBaselineForPatchGroup_baselineId' - The ID of the patch baseline to register with the patch group.
 --
--- 'patchGroup', 'registerPatchBaselineForPatchGroup_patchGroup' - The name of the patch group that should be registered with the patch
--- baseline.
+-- 'patchGroup', 'registerPatchBaselineForPatchGroup_patchGroup' - The name of the patch group to be registered with the patch baseline.
 newRegisterPatchBaselineForPatchGroup ::
   -- | 'baselineId'
   Prelude.Text ->
@@ -85,12 +83,11 @@ newRegisterPatchBaselineForPatchGroup
         patchGroup = pPatchGroup_
       }
 
--- | The ID of the patch baseline to register the patch group with.
+-- | The ID of the patch baseline to register with the patch group.
 registerPatchBaselineForPatchGroup_baselineId :: Lens.Lens' RegisterPatchBaselineForPatchGroup Prelude.Text
 registerPatchBaselineForPatchGroup_baselineId = Lens.lens (\RegisterPatchBaselineForPatchGroup' {baselineId} -> baselineId) (\s@RegisterPatchBaselineForPatchGroup' {} a -> s {baselineId = a} :: RegisterPatchBaselineForPatchGroup)
 
--- | The name of the patch group that should be registered with the patch
--- baseline.
+-- | The name of the patch group to be registered with the patch baseline.
 registerPatchBaselineForPatchGroup_patchGroup :: Lens.Lens' RegisterPatchBaselineForPatchGroup Prelude.Text
 registerPatchBaselineForPatchGroup_patchGroup = Lens.lens (\RegisterPatchBaselineForPatchGroup' {patchGroup} -> patchGroup) (\s@RegisterPatchBaselineForPatchGroup' {} a -> s {patchGroup = a} :: RegisterPatchBaselineForPatchGroup)
 

@@ -25,6 +25,7 @@ module Network.AWS.SSM.Types.OpsItemStatus
         OpsItemStatus_Cancelling,
         OpsItemStatus_ChangeCalendarOverrideApproved,
         OpsItemStatus_ChangeCalendarOverrideRejected,
+        OpsItemStatus_Closed,
         OpsItemStatus_CompletedWithFailure,
         OpsItemStatus_CompletedWithSuccess,
         OpsItemStatus_Failed,
@@ -88,6 +89,9 @@ pattern OpsItemStatus_ChangeCalendarOverrideApproved = OpsItemStatus' "ChangeCal
 pattern OpsItemStatus_ChangeCalendarOverrideRejected :: OpsItemStatus
 pattern OpsItemStatus_ChangeCalendarOverrideRejected = OpsItemStatus' "ChangeCalendarOverrideRejected"
 
+pattern OpsItemStatus_Closed :: OpsItemStatus
+pattern OpsItemStatus_Closed = OpsItemStatus' "Closed"
+
 pattern OpsItemStatus_CompletedWithFailure :: OpsItemStatus
 pattern OpsItemStatus_CompletedWithFailure = OpsItemStatus' "CompletedWithFailure"
 
@@ -133,6 +137,7 @@ pattern OpsItemStatus_TimedOut = OpsItemStatus' "TimedOut"
   OpsItemStatus_Cancelling,
   OpsItemStatus_ChangeCalendarOverrideApproved,
   OpsItemStatus_ChangeCalendarOverrideRejected,
+  OpsItemStatus_Closed,
   OpsItemStatus_CompletedWithFailure,
   OpsItemStatus_CompletedWithSuccess,
   OpsItemStatus_Failed,

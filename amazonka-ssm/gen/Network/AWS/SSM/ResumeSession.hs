@@ -25,7 +25,7 @@
 -- sessions.
 --
 -- This command is primarily for use by client machines to automatically
--- reconnect during intermittent network issues. It is not intended for any
+-- reconnect during intermittent network issues. It isn\'t intended for any
 -- other use.
 module Network.AWS.SSM.ResumeSession
   ( -- * Creating a Request
@@ -134,12 +134,12 @@ data ResumeSessionResponse = ResumeSessionResponse'
     -- uses to send commands and receive output from the instance. Format:
     -- @wss:\/\/ssmmessages.region.amazonaws.com\/v1\/data-channel\/session-id?stream=(input|output)@.
     --
-    -- __region__ represents the Region identifier for an AWS Region supported
-    -- by AWS Systems Manager, such as @us-east-2@ for the US East (Ohio)
-    -- Region. For a list of supported __region__ values, see the __Region__
-    -- column in
-    -- <http://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region Systems Manager service endpoints>
-    -- in the /AWS General Reference/.
+    -- __region__ represents the Region identifier for an Amazon Web Services
+    -- Region supported by Amazon Web Services Systems Manager, such as
+    -- @us-east-2@ for the US East (Ohio) Region. For a list of supported
+    -- __region__ values, see the __Region__ column in
+    -- <https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region Systems Manager service endpoints>
+    -- in the /Amazon Web Services General Reference/.
     --
     -- __session-id__ represents the ID of a Session Manager session, such as
     -- @1a2b3c4dEXAMPLE@.
@@ -166,12 +166,12 @@ data ResumeSessionResponse = ResumeSessionResponse'
 -- uses to send commands and receive output from the instance. Format:
 -- @wss:\/\/ssmmessages.region.amazonaws.com\/v1\/data-channel\/session-id?stream=(input|output)@.
 --
--- __region__ represents the Region identifier for an AWS Region supported
--- by AWS Systems Manager, such as @us-east-2@ for the US East (Ohio)
--- Region. For a list of supported __region__ values, see the __Region__
--- column in
--- <http://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region Systems Manager service endpoints>
--- in the /AWS General Reference/.
+-- __region__ represents the Region identifier for an Amazon Web Services
+-- Region supported by Amazon Web Services Systems Manager, such as
+-- @us-east-2@ for the US East (Ohio) Region. For a list of supported
+-- __region__ values, see the __Region__ column in
+-- <https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region Systems Manager service endpoints>
+-- in the /Amazon Web Services General Reference/.
 --
 -- __session-id__ represents the ID of a Session Manager session, such as
 -- @1a2b3c4dEXAMPLE@.
@@ -200,12 +200,12 @@ resumeSessionResponse_sessionId = Lens.lens (\ResumeSessionResponse' {sessionId}
 -- uses to send commands and receive output from the instance. Format:
 -- @wss:\/\/ssmmessages.region.amazonaws.com\/v1\/data-channel\/session-id?stream=(input|output)@.
 --
--- __region__ represents the Region identifier for an AWS Region supported
--- by AWS Systems Manager, such as @us-east-2@ for the US East (Ohio)
--- Region. For a list of supported __region__ values, see the __Region__
--- column in
--- <http://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region Systems Manager service endpoints>
--- in the /AWS General Reference/.
+-- __region__ represents the Region identifier for an Amazon Web Services
+-- Region supported by Amazon Web Services Systems Manager, such as
+-- @us-east-2@ for the US East (Ohio) Region. For a list of supported
+-- __region__ values, see the __Region__ column in
+-- <https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region Systems Manager service endpoints>
+-- in the /Amazon Web Services General Reference/.
 --
 -- __session-id__ represents the ID of a Session Manager session, such as
 -- @1a2b3c4dEXAMPLE@.

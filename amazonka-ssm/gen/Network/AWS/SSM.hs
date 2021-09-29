@@ -11,31 +11,44 @@
 --
 -- Derived from API version @2014-11-06@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- AWS Systems Manager
---
--- AWS Systems Manager is a collection of capabilities that helps you
--- automate management tasks such as collecting system inventory, applying
--- operating system (OS) patches, automating the creation of Amazon Machine
--- Images (AMIs), and configuring operating systems (OSs) and applications
--- at scale. Systems Manager lets you remotely and securely manage the
--- configuration of your managed instances. A /managed instance/ is any
--- Amazon Elastic Compute Cloud instance (EC2 instance), or any on-premises
--- server or virtual machine (VM) in your hybrid environment that has been
--- configured for Systems Manager.
+-- Amazon Web Services Systems Manager is a collection of capabilities that
+-- helps you automate management tasks such as collecting system inventory,
+-- applying operating system (OS) patches, automating the creation of
+-- Amazon Machine Images (AMIs), and configuring operating systems (OSs)
+-- and applications at scale. Systems Manager lets you remotely and
+-- securely manage the configuration of your managed instances. A /managed
+-- instance/ is any Amazon Elastic Compute Cloud instance (EC2 instance),
+-- or any on-premises server or virtual machine (VM) in your hybrid
+-- environment that has been configured for Systems Manager.
 --
 -- This reference is intended to be used with the
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/ AWS Systems Manager User Guide>.
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/ Amazon Web Services Systems Manager User Guide>.
 --
 -- To get started, verify prerequisites and configure managed instances.
 -- For more information, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html Setting up AWS Systems Manager>
--- in the /AWS Systems Manager User Guide/.
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html Setting up Amazon Web Services Systems Manager>
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
--- For information about other API actions you can perform on EC2
--- instances, see the
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ Amazon EC2 API Reference>.
--- For information about how to use a Query API, see
--- <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html Making API requests>.
+-- __Related resources__
+--
+-- -   For information about how to use a Query API, see
+--     <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html Making API requests>.
+--
+-- -   For information about other API operations you can perform on EC2
+--     instances, see the
+--     <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ Amazon EC2 API Reference>.
+--
+-- -   For information about AppConfig, a capability of Systems Manager,
+--     see the
+--     <https://docs.aws.amazon.com/appconfig/latest/userguide/ AppConfig User Guide>
+--     and the
+--     <https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/ AppConfig API Reference>.
+--
+-- -   For information about Incident Manager, a capability of Systems
+--     Manager, see the
+--     <https://docs.aws.amazon.com/incident-manager/latest/userguide/ Incident Manager User Guide>
+--     and the
+--     <https://docs.aws.amazon.com/incident-manager/latest/APIReference/ Incident Manager API Reference>.
 module Network.AWS.SSM
   ( -- * Service Configuration
     defaultService,
@@ -43,17 +56,11 @@ module Network.AWS.SSM
     -- * Errors
     -- $errors
 
-    -- ** InvalidAggregatorException
-    _InvalidAggregatorException,
-
-    -- ** InvalidInstanceInformationFilterValue
-    _InvalidInstanceInformationFilterValue,
+    -- ** InvalidAutomationSignalException
+    _InvalidAutomationSignalException,
 
     -- ** InvalidDeleteInventoryParametersException
     _InvalidDeleteInventoryParametersException,
-
-    -- ** ComplianceTypeCountLimitExceededException
-    _ComplianceTypeCountLimitExceededException,
 
     -- ** OpsMetadataKeyLimitExceededException
     _OpsMetadataKeyLimitExceededException,
@@ -61,41 +68,65 @@ module Network.AWS.SSM
     -- ** FeatureNotAvailableException
     _FeatureNotAvailableException,
 
-    -- ** InvalidAutomationSignalException
-    _InvalidAutomationSignalException,
+    -- ** InvalidInstanceInformationFilterValue
+    _InvalidInstanceInformationFilterValue,
 
-    -- ** IdempotentParameterMismatch
-    _IdempotentParameterMismatch,
+    -- ** InvalidAggregatorException
+    _InvalidAggregatorException,
 
-    -- ** ResourceDataSyncConflictException
-    _ResourceDataSyncConflictException,
-
-    -- ** DoesNotExistException
-    _DoesNotExistException,
+    -- ** ComplianceTypeCountLimitExceededException
+    _ComplianceTypeCountLimitExceededException,
 
     -- ** AutomationDefinitionVersionNotFoundException
     _AutomationDefinitionVersionNotFoundException,
 
-    -- ** InvalidDocumentVersion
-    _InvalidDocumentVersion,
-
     -- ** UnsupportedParameterType
     _UnsupportedParameterType,
 
-    -- ** HierarchyTypeMismatchException
-    _HierarchyTypeMismatchException,
-
-    -- ** OpsMetadataInvalidArgumentException
-    _OpsMetadataInvalidArgumentException,
+    -- ** InvalidDocumentVersion
+    _InvalidDocumentVersion,
 
     -- ** AutomationExecutionLimitExceededException
     _AutomationExecutionLimitExceededException,
 
+    -- ** IdempotentParameterMismatch
+    _IdempotentParameterMismatch,
+
+    -- ** OpsMetadataInvalidArgumentException
+    _OpsMetadataInvalidArgumentException,
+
+    -- ** ResourceDataSyncConflictException
+    _ResourceDataSyncConflictException,
+
     -- ** InvalidAutomationStatusUpdateException
     _InvalidAutomationStatusUpdateException,
 
+    -- ** HierarchyTypeMismatchException
+    _HierarchyTypeMismatchException,
+
+    -- ** DoesNotExistException
+    _DoesNotExistException,
+
+    -- ** ItemSizeLimitExceededException
+    _ItemSizeLimitExceededException,
+
+    -- ** DocumentAlreadyExists
+    _DocumentAlreadyExists,
+
+    -- ** ParameterMaxVersionLimitExceeded
+    _ParameterMaxVersionLimitExceeded,
+
+    -- ** DocumentLimitExceeded
+    _DocumentLimitExceeded,
+
+    -- ** AutomationStepNotFoundException
+    _AutomationStepNotFoundException,
+
     -- ** AutomationExecutionNotFoundException
     _AutomationExecutionNotFoundException,
+
+    -- ** DocumentPermissionLimit
+    _DocumentPermissionLimit,
 
     -- ** InvalidFilter
     _InvalidFilter,
@@ -103,62 +134,35 @@ module Network.AWS.SSM
     -- ** InvalidTypeNameException
     _InvalidTypeNameException,
 
-    -- ** DocumentAlreadyExists
-    _DocumentAlreadyExists,
-
-    -- ** DocumentPermissionLimit
-    _DocumentPermissionLimit,
-
-    -- ** ItemSizeLimitExceededException
-    _ItemSizeLimitExceededException,
-
-    -- ** ParameterMaxVersionLimitExceeded
-    _ParameterMaxVersionLimitExceeded,
-
-    -- ** AutomationStepNotFoundException
-    _AutomationStepNotFoundException,
-
-    -- ** DocumentLimitExceeded
-    _DocumentLimitExceeded,
-
-    -- ** TooManyTagsError
-    _TooManyTagsError,
-
-    -- ** InvalidInventoryItemContextException
-    _InvalidInventoryItemContextException,
-
-    -- ** IncompatiblePolicyException
-    _IncompatiblePolicyException,
-
-    -- ** OpsItemInvalidParameterException
-    _OpsItemInvalidParameterException,
-
-    -- ** InvalidDocument
-    _InvalidDocument,
+    -- ** SubTypeCountLimitExceededException
+    _SubTypeCountLimitExceededException,
 
     -- ** AutomationDefinitionNotFoundException
     _AutomationDefinitionNotFoundException,
 
-    -- ** SubTypeCountLimitExceededException
-    _SubTypeCountLimitExceededException,
+    -- ** OpsItemRelatedItemAssociationNotFoundException
+    _OpsItemRelatedItemAssociationNotFoundException,
+
+    -- ** InvalidInventoryItemContextException
+    _InvalidInventoryItemContextException,
+
+    -- ** InvalidDocument
+    _InvalidDocument,
+
+    -- ** TooManyTagsError
+    _TooManyTagsError,
+
+    -- ** OpsItemInvalidParameterException
+    _OpsItemInvalidParameterException,
+
+    -- ** IncompatiblePolicyException
+    _IncompatiblePolicyException,
 
     -- ** InvalidAllowedPatternException
     _InvalidAllowedPatternException,
 
-    -- ** ParameterVersionLabelLimitExceeded
-    _ParameterVersionLabelLimitExceeded,
-
-    -- ** InvalidCommandId
-    _InvalidCommandId,
-
     -- ** OpsMetadataTooManyUpdatesException
     _OpsMetadataTooManyUpdatesException,
-
-    -- ** ResourceLimitExceededException
-    _ResourceLimitExceededException,
-
-    -- ** InvalidOutputLocation
-    _InvalidOutputLocation,
 
     -- ** InvalidParameters
     _InvalidParameters,
@@ -166,32 +170,35 @@ module Network.AWS.SSM
     -- ** TargetNotConnected
     _TargetNotConnected,
 
+    -- ** ParameterVersionLabelLimitExceeded
+    _ParameterVersionLabelLimitExceeded,
+
     -- ** UnsupportedInventorySchemaVersionException
     _UnsupportedInventorySchemaVersionException,
 
-    -- ** InvalidAssociation
-    _InvalidAssociation,
+    -- ** InvalidCommandId
+    _InvalidCommandId,
 
-    -- ** InvalidUpdate
-    _InvalidUpdate,
+    -- ** InvalidOutputLocation
+    _InvalidOutputLocation,
+
+    -- ** ResourceLimitExceededException
+    _ResourceLimitExceededException,
 
     -- ** InvalidTarget
     _InvalidTarget,
 
-    -- ** CustomSchemaCountLimitExceededException
-    _CustomSchemaCountLimitExceededException,
-
     -- ** ServiceSettingNotFound
     _ServiceSettingNotFound,
 
-    -- ** DuplicateDocumentVersionName
-    _DuplicateDocumentVersionName,
+    -- ** CustomSchemaCountLimitExceededException
+    _CustomSchemaCountLimitExceededException,
 
-    -- ** InvalidInstanceId
-    _InvalidInstanceId,
+    -- ** InvalidUpdate
+    _InvalidUpdate,
 
-    -- ** OpsMetadataNotFoundException
-    _OpsMetadataNotFoundException,
+    -- ** InvalidAssociation
+    _InvalidAssociation,
 
     -- ** InvalidDocumentSchemaVersion
     _InvalidDocumentSchemaVersion,
@@ -199,17 +206,29 @@ module Network.AWS.SSM
     -- ** InvalidOptionException
     _InvalidOptionException,
 
-    -- ** TooManyUpdates
-    _TooManyUpdates,
-
     -- ** OpsItemNotFoundException
     _OpsItemNotFoundException,
 
     -- ** StatusUnchanged
     _StatusUnchanged,
 
-    -- ** ParameterNotFound
-    _ParameterNotFound,
+    -- ** OpsMetadataNotFoundException
+    _OpsMetadataNotFoundException,
+
+    -- ** InvalidInstanceId
+    _InvalidInstanceId,
+
+    -- ** TooManyUpdates
+    _TooManyUpdates,
+
+    -- ** DuplicateDocumentVersionName
+    _DuplicateDocumentVersionName,
+
+    -- ** OpsItemRelatedItemAlreadyExistsException
+    _OpsItemRelatedItemAlreadyExistsException,
+
+    -- ** InvalidPolicyAttributeException
+    _InvalidPolicyAttributeException,
 
     -- ** AssociationDoesNotExist
     _AssociationDoesNotExist,
@@ -217,17 +236,35 @@ module Network.AWS.SSM
     -- ** InvalidAssociationVersion
     _InvalidAssociationVersion,
 
+    -- ** InvalidFilterValue
+    _InvalidFilterValue,
+
     -- ** ResourceDataSyncCountExceededException
     _ResourceDataSyncCountExceededException,
-
-    -- ** InvalidPolicyAttributeException
-    _InvalidPolicyAttributeException,
 
     -- ** InternalServerError
     _InternalServerError,
 
-    -- ** InvalidFilterValue
-    _InvalidFilterValue,
+    -- ** ParameterNotFound
+    _ParameterNotFound,
+
+    -- ** AssociationLimitExceeded
+    _AssociationLimitExceeded,
+
+    -- ** AssociationAlreadyExists
+    _AssociationAlreadyExists,
+
+    -- ** ParameterLimitExceeded
+    _ParameterLimitExceeded,
+
+    -- ** InvalidDocumentContent
+    _InvalidDocumentContent,
+
+    -- ** ItemContentMismatchException
+    _ItemContentMismatchException,
+
+    -- ** UnsupportedFeatureRequiredException
+    _UnsupportedFeatureRequiredException,
 
     -- ** PoliciesLimitExceededException
     _PoliciesLimitExceededException,
@@ -235,41 +272,17 @@ module Network.AWS.SSM
     -- ** InvalidPluginName
     _InvalidPluginName,
 
-    -- ** AssociationLimitExceeded
-    _AssociationLimitExceeded,
-
-    -- ** ItemContentMismatchException
-    _ItemContentMismatchException,
-
     -- ** ParameterAlreadyExists
     _ParameterAlreadyExists,
-
-    -- ** InvalidDocumentContent
-    _InvalidDocumentContent,
-
-    -- ** ParameterLimitExceeded
-    _ParameterLimitExceeded,
-
-    -- ** UnsupportedFeatureRequiredException
-    _UnsupportedFeatureRequiredException,
 
     -- ** InvalidDeletionIdException
     _InvalidDeletionIdException,
 
-    -- ** AssociationAlreadyExists
-    _AssociationAlreadyExists,
-
-    -- ** InvalidSchedule
-    _InvalidSchedule,
-
     -- ** ResourceDataSyncAlreadyExistsException
     _ResourceDataSyncAlreadyExistsException,
 
-    -- ** ResourceInUseException
-    _ResourceInUseException,
-
-    -- ** DuplicateDocumentContent
-    _DuplicateDocumentContent,
+    -- ** InvalidSchedule
+    _InvalidSchedule,
 
     -- ** ResourceDataSyncNotFoundException
     _ResourceDataSyncNotFoundException,
@@ -280,59 +293,74 @@ module Network.AWS.SSM
     -- ** InvalidAutomationExecutionParametersException
     _InvalidAutomationExecutionParametersException,
 
+    -- ** DuplicateDocumentContent
+    _DuplicateDocumentContent,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** InvalidPolicyTypeException
+    _InvalidPolicyTypeException,
+
     -- ** InvalidNotificationConfig
     _InvalidNotificationConfig,
 
     -- ** InvalidFilterKey
     _InvalidFilterKey,
 
-    -- ** InvalidPolicyTypeException
-    _InvalidPolicyTypeException,
-
     -- ** InvalidDocumentType
     _InvalidDocumentType,
-
-    -- ** TotalSizeLimitExceededException
-    _TotalSizeLimitExceededException,
 
     -- ** InvalidResourceId
     _InvalidResourceId,
 
-    -- ** InvalidResultAttributeException
-    _InvalidResultAttributeException,
-
-    -- ** InvalidResourceType
-    _InvalidResourceType,
-
-    -- ** ResourceDataSyncInvalidConfigurationException
-    _ResourceDataSyncInvalidConfigurationException,
-
-    -- ** InvalidKeyId
-    _InvalidKeyId,
-
-    -- ** InvalidInventoryGroupException
-    _InvalidInventoryGroupException,
-
-    -- ** DocumentVersionLimitExceeded
-    _DocumentVersionLimitExceeded,
+    -- ** TotalSizeLimitExceededException
+    _TotalSizeLimitExceededException,
 
     -- ** DuplicateInstanceId
     _DuplicateInstanceId,
 
-    -- ** InvocationDoesNotExist
-    _InvocationDoesNotExist,
+    -- ** AutomationDefinitionNotApprovedException
+    _AutomationDefinitionNotApprovedException,
 
     -- ** InvalidDocumentOperation
     _InvalidDocumentOperation,
 
-    -- ** AutomationDefinitionNotApprovedException
-    _AutomationDefinitionNotApprovedException,
+    -- ** InvalidKeyId
+    _InvalidKeyId,
+
+    -- ** InvalidResultAttributeException
+    _InvalidResultAttributeException,
+
+    -- ** InvocationDoesNotExist
+    _InvocationDoesNotExist,
+
+    -- ** InvalidResourceType
+    _InvalidResourceType,
+
+    -- ** DocumentVersionLimitExceeded
+    _DocumentVersionLimitExceeded,
+
+    -- ** ResourceDataSyncInvalidConfigurationException
+    _ResourceDataSyncInvalidConfigurationException,
+
+    -- ** InvalidInventoryGroupException
+    _InvalidInventoryGroupException,
+
+    -- ** AssociationExecutionDoesNotExist
+    _AssociationExecutionDoesNotExist,
+
+    -- ** OpsMetadataLimitExceededException
+    _OpsMetadataLimitExceededException,
 
     -- ** OpsMetadataAlreadyExistsException
     _OpsMetadataAlreadyExistsException,
 
-    -- ** ParameterVersionNotFound
-    _ParameterVersionNotFound,
+    -- ** InvalidOutputFolder
+    _InvalidOutputFolder,
+
+    -- ** HierarchyLevelLimitExceededException
+    _HierarchyLevelLimitExceededException,
 
     -- ** OpsItemLimitExceededException
     _OpsItemLimitExceededException,
@@ -340,17 +368,8 @@ module Network.AWS.SSM
     -- ** UnsupportedCalendarException
     _UnsupportedCalendarException,
 
-    -- ** OpsMetadataLimitExceededException
-    _OpsMetadataLimitExceededException,
-
-    -- ** AssociationExecutionDoesNotExist
-    _AssociationExecutionDoesNotExist,
-
-    -- ** HierarchyLevelLimitExceededException
-    _HierarchyLevelLimitExceededException,
-
-    -- ** InvalidOutputFolder
-    _InvalidOutputFolder,
+    -- ** ParameterVersionNotFound
+    _ParameterVersionNotFound,
 
     -- ** OpsItemAlreadyExistsException
     _OpsItemAlreadyExistsException,
@@ -361,8 +380,11 @@ module Network.AWS.SSM
     -- ** InvalidRole
     _InvalidRole,
 
-    -- ** MaxDocumentSizeExceeded
-    _MaxDocumentSizeExceeded,
+    -- ** InvalidActivation
+    _InvalidActivation,
+
+    -- ** InvalidInventoryRequestException
+    _InvalidInventoryRequestException,
 
     -- ** InvalidNextToken
     _InvalidNextToken,
@@ -370,29 +392,11 @@ module Network.AWS.SSM
     -- ** AssociationVersionLimitExceeded
     _AssociationVersionLimitExceeded,
 
+    -- ** MaxDocumentSizeExceeded
+    _MaxDocumentSizeExceeded,
+
     -- ** UnsupportedOperatingSystem
     _UnsupportedOperatingSystem,
-
-    -- ** InvalidActivation
-    _InvalidActivation,
-
-    -- ** InvalidInventoryRequestException
-    _InvalidInventoryRequestException,
-
-    -- ** InvalidPermissionType
-    _InvalidPermissionType,
-
-    -- ** InvalidFilterOption
-    _InvalidFilterOption,
-
-    -- ** InvalidItemContentException
-    _InvalidItemContentException,
-
-    -- ** TargetInUseException
-    _TargetInUseException,
-
-    -- ** UnsupportedInventoryItemContextException
-    _UnsupportedInventoryItemContextException,
 
     -- ** UnsupportedPlatformType
     _UnsupportedPlatformType,
@@ -400,8 +404,23 @@ module Network.AWS.SSM
     -- ** AssociatedInstances
     _AssociatedInstances,
 
+    -- ** InvalidItemContentException
+    _InvalidItemContentException,
+
+    -- ** InvalidPermissionType
+    _InvalidPermissionType,
+
+    -- ** UnsupportedInventoryItemContextException
+    _UnsupportedInventoryItemContextException,
+
+    -- ** InvalidFilterOption
+    _InvalidFilterOption,
+
     -- ** ParameterPatternMismatchException
     _ParameterPatternMismatchException,
+
+    -- ** TargetInUseException
+    _TargetInUseException,
 
     -- * Waiters
     -- $waiters
@@ -412,29 +431,17 @@ module Network.AWS.SSM
     -- * Operations
     -- $operations
 
-    -- ** ListResourceComplianceSummaries (Paginated)
-    ListResourceComplianceSummaries (ListResourceComplianceSummaries'),
-    newListResourceComplianceSummaries,
-    ListResourceComplianceSummariesResponse (ListResourceComplianceSummariesResponse'),
-    newListResourceComplianceSummariesResponse,
-
-    -- ** DescribePatchGroups (Paginated)
-    DescribePatchGroups (DescribePatchGroups'),
-    newDescribePatchGroups,
-    DescribePatchGroupsResponse (DescribePatchGroupsResponse'),
-    newDescribePatchGroupsResponse,
-
     -- ** DescribeOpsItems (Paginated)
     DescribeOpsItems (DescribeOpsItems'),
     newDescribeOpsItems,
     DescribeOpsItemsResponse (DescribeOpsItemsResponse'),
     newDescribeOpsItemsResponse,
 
-    -- ** TerminateSession
-    TerminateSession (TerminateSession'),
-    newTerminateSession,
-    TerminateSessionResponse (TerminateSessionResponse'),
-    newTerminateSessionResponse,
+    -- ** ListResourceComplianceSummaries (Paginated)
+    ListResourceComplianceSummaries (ListResourceComplianceSummaries'),
+    newListResourceComplianceSummaries,
+    ListResourceComplianceSummariesResponse (ListResourceComplianceSummariesResponse'),
+    newListResourceComplianceSummariesResponse,
 
     -- ** GetParameter
     GetParameter (GetParameter'),
@@ -448,17 +455,11 @@ module Network.AWS.SSM
     GetOpsMetadataResponse (GetOpsMetadataResponse'),
     newGetOpsMetadataResponse,
 
-    -- ** UpdateDocumentDefaultVersion
-    UpdateDocumentDefaultVersion (UpdateDocumentDefaultVersion'),
-    newUpdateDocumentDefaultVersion,
-    UpdateDocumentDefaultVersionResponse (UpdateDocumentDefaultVersionResponse'),
-    newUpdateDocumentDefaultVersionResponse,
-
-    -- ** ListResourceDataSync (Paginated)
-    ListResourceDataSync (ListResourceDataSync'),
-    newListResourceDataSync,
-    ListResourceDataSyncResponse (ListResourceDataSyncResponse'),
-    newListResourceDataSyncResponse,
+    -- ** AssociateOpsItemRelatedItem
+    AssociateOpsItemRelatedItem (AssociateOpsItemRelatedItem'),
+    newAssociateOpsItemRelatedItem,
+    AssociateOpsItemRelatedItemResponse (AssociateOpsItemRelatedItemResponse'),
+    newAssociateOpsItemRelatedItemResponse,
 
     -- ** DescribeParameters (Paginated)
     DescribeParameters (DescribeParameters'),
@@ -472,11 +473,35 @@ module Network.AWS.SSM
     RegisterTaskWithMaintenanceWindowResponse (RegisterTaskWithMaintenanceWindowResponse'),
     newRegisterTaskWithMaintenanceWindowResponse,
 
+    -- ** ListResourceDataSync (Paginated)
+    ListResourceDataSync (ListResourceDataSync'),
+    newListResourceDataSync,
+    ListResourceDataSyncResponse (ListResourceDataSyncResponse'),
+    newListResourceDataSyncResponse,
+
     -- ** GetOpsItem
     GetOpsItem (GetOpsItem'),
     newGetOpsItem,
     GetOpsItemResponse (GetOpsItemResponse'),
     newGetOpsItemResponse,
+
+    -- ** DescribePatchGroups (Paginated)
+    DescribePatchGroups (DescribePatchGroups'),
+    newDescribePatchGroups,
+    DescribePatchGroupsResponse (DescribePatchGroupsResponse'),
+    newDescribePatchGroupsResponse,
+
+    -- ** TerminateSession
+    TerminateSession (TerminateSession'),
+    newTerminateSession,
+    TerminateSessionResponse (TerminateSessionResponse'),
+    newTerminateSessionResponse,
+
+    -- ** UpdateDocumentDefaultVersion
+    UpdateDocumentDefaultVersion (UpdateDocumentDefaultVersion'),
+    newUpdateDocumentDefaultVersion,
+    UpdateDocumentDefaultVersionResponse (UpdateDocumentDefaultVersionResponse'),
+    newUpdateDocumentDefaultVersionResponse,
 
     -- ** GetInventory (Paginated)
     GetInventory (GetInventory'),
@@ -490,11 +515,11 @@ module Network.AWS.SSM
     DescribeAssociationResponse (DescribeAssociationResponse'),
     newDescribeAssociationResponse,
 
-    -- ** UpdateAssociationStatus
-    UpdateAssociationStatus (UpdateAssociationStatus'),
-    newUpdateAssociationStatus,
-    UpdateAssociationStatusResponse (UpdateAssociationStatusResponse'),
-    newUpdateAssociationStatusResponse,
+    -- ** DescribeAssociationExecutionTargets (Paginated)
+    DescribeAssociationExecutionTargets (DescribeAssociationExecutionTargets'),
+    newDescribeAssociationExecutionTargets,
+    DescribeAssociationExecutionTargetsResponse (DescribeAssociationExecutionTargetsResponse'),
+    newDescribeAssociationExecutionTargetsResponse,
 
     -- ** DeregisterManagedInstance
     DeregisterManagedInstance (DeregisterManagedInstance'),
@@ -502,11 +527,17 @@ module Network.AWS.SSM
     DeregisterManagedInstanceResponse (DeregisterManagedInstanceResponse'),
     newDeregisterManagedInstanceResponse,
 
-    -- ** DescribeAssociationExecutionTargets (Paginated)
-    DescribeAssociationExecutionTargets (DescribeAssociationExecutionTargets'),
-    newDescribeAssociationExecutionTargets,
-    DescribeAssociationExecutionTargetsResponse (DescribeAssociationExecutionTargetsResponse'),
-    newDescribeAssociationExecutionTargetsResponse,
+    -- ** UpdateAssociationStatus
+    UpdateAssociationStatus (UpdateAssociationStatus'),
+    newUpdateAssociationStatus,
+    UpdateAssociationStatusResponse (UpdateAssociationStatusResponse'),
+    newUpdateAssociationStatusResponse,
+
+    -- ** CreatePatchBaseline
+    CreatePatchBaseline (CreatePatchBaseline'),
+    newCreatePatchBaseline,
+    CreatePatchBaselineResponse (CreatePatchBaselineResponse'),
+    newCreatePatchBaselineResponse,
 
     -- ** UpdateMaintenanceWindowTarget
     UpdateMaintenanceWindowTarget (UpdateMaintenanceWindowTarget'),
@@ -520,23 +551,11 @@ module Network.AWS.SSM
     DescribeAutomationStepExecutionsResponse (DescribeAutomationStepExecutionsResponse'),
     newDescribeAutomationStepExecutionsResponse,
 
-    -- ** CreatePatchBaseline
-    CreatePatchBaseline (CreatePatchBaseline'),
-    newCreatePatchBaseline,
-    CreatePatchBaselineResponse (CreatePatchBaselineResponse'),
-    newCreatePatchBaselineResponse,
-
     -- ** GetCommandInvocation
     GetCommandInvocation (GetCommandInvocation'),
     newGetCommandInvocation,
     GetCommandInvocationResponse (GetCommandInvocationResponse'),
     newGetCommandInvocationResponse,
-
-    -- ** ListCommands (Paginated)
-    ListCommands (ListCommands'),
-    newListCommands,
-    ListCommandsResponse (ListCommandsResponse'),
-    newListCommandsResponse,
 
     -- ** DeregisterTargetFromMaintenanceWindow
     DeregisterTargetFromMaintenanceWindow (DeregisterTargetFromMaintenanceWindow'),
@@ -544,23 +563,11 @@ module Network.AWS.SSM
     DeregisterTargetFromMaintenanceWindowResponse (DeregisterTargetFromMaintenanceWindowResponse'),
     newDeregisterTargetFromMaintenanceWindowResponse,
 
-    -- ** DescribeInstancePatchStates (Paginated)
-    DescribeInstancePatchStates (DescribeInstancePatchStates'),
-    newDescribeInstancePatchStates,
-    DescribeInstancePatchStatesResponse (DescribeInstancePatchStatesResponse'),
-    newDescribeInstancePatchStatesResponse,
-
-    -- ** UpdateDocument
-    UpdateDocument (UpdateDocument'),
-    newUpdateDocument,
-    UpdateDocumentResponse (UpdateDocumentResponse'),
-    newUpdateDocumentResponse,
-
-    -- ** ListDocuments (Paginated)
-    ListDocuments (ListDocuments'),
-    newListDocuments,
-    ListDocumentsResponse (ListDocumentsResponse'),
-    newListDocumentsResponse,
+    -- ** GetOpsSummary (Paginated)
+    GetOpsSummary (GetOpsSummary'),
+    newGetOpsSummary,
+    GetOpsSummaryResponse (GetOpsSummaryResponse'),
+    newGetOpsSummaryResponse,
 
     -- ** ResetServiceSetting
     ResetServiceSetting (ResetServiceSetting'),
@@ -568,17 +575,29 @@ module Network.AWS.SSM
     ResetServiceSettingResponse (ResetServiceSettingResponse'),
     newResetServiceSettingResponse,
 
-    -- ** StartSession
-    StartSession (StartSession'),
-    newStartSession,
-    StartSessionResponse (StartSessionResponse'),
-    newStartSessionResponse,
+    -- ** ListDocuments (Paginated)
+    ListDocuments (ListDocuments'),
+    newListDocuments,
+    ListDocumentsResponse (ListDocumentsResponse'),
+    newListDocumentsResponse,
 
-    -- ** GetOpsSummary (Paginated)
-    GetOpsSummary (GetOpsSummary'),
-    newGetOpsSummary,
-    GetOpsSummaryResponse (GetOpsSummaryResponse'),
-    newGetOpsSummaryResponse,
+    -- ** DescribeInstancePatchStates (Paginated)
+    DescribeInstancePatchStates (DescribeInstancePatchStates'),
+    newDescribeInstancePatchStates,
+    DescribeInstancePatchStatesResponse (DescribeInstancePatchStatesResponse'),
+    newDescribeInstancePatchStatesResponse,
+
+    -- ** UnlabelParameterVersion
+    UnlabelParameterVersion (UnlabelParameterVersion'),
+    newUnlabelParameterVersion,
+    UnlabelParameterVersionResponse (UnlabelParameterVersionResponse'),
+    newUnlabelParameterVersionResponse,
+
+    -- ** UpdateDocument
+    UpdateDocument (UpdateDocument'),
+    newUpdateDocument,
+    UpdateDocumentResponse (UpdateDocumentResponse'),
+    newUpdateDocumentResponse,
 
     -- ** DeleteDocument
     DeleteDocument (DeleteDocument'),
@@ -586,41 +605,17 @@ module Network.AWS.SSM
     DeleteDocumentResponse (DeleteDocumentResponse'),
     newDeleteDocumentResponse,
 
-    -- ** DeleteInventory
-    DeleteInventory (DeleteInventory'),
-    newDeleteInventory,
-    DeleteInventoryResponse (DeleteInventoryResponse'),
-    newDeleteInventoryResponse,
+    -- ** ListCommands (Paginated)
+    ListCommands (ListCommands'),
+    newListCommands,
+    ListCommandsResponse (ListCommandsResponse'),
+    newListCommandsResponse,
 
-    -- ** DeleteParameters
-    DeleteParameters (DeleteParameters'),
-    newDeleteParameters,
-    DeleteParametersResponse (DeleteParametersResponse'),
-    newDeleteParametersResponse,
-
-    -- ** ListOpsMetadata (Paginated)
-    ListOpsMetadata (ListOpsMetadata'),
-    newListOpsMetadata,
-    ListOpsMetadataResponse (ListOpsMetadataResponse'),
-    newListOpsMetadataResponse,
-
-    -- ** SendCommand
-    SendCommand (SendCommand'),
-    newSendCommand,
-    SendCommandResponse (SendCommandResponse'),
-    newSendCommandResponse,
-
-    -- ** RemoveTagsFromResource
-    RemoveTagsFromResource (RemoveTagsFromResource'),
-    newRemoveTagsFromResource,
-    RemoveTagsFromResourceResponse (RemoveTagsFromResourceResponse'),
-    newRemoveTagsFromResourceResponse,
-
-    -- ** DescribeEffectiveInstanceAssociations (Paginated)
-    DescribeEffectiveInstanceAssociations (DescribeEffectiveInstanceAssociations'),
-    newDescribeEffectiveInstanceAssociations,
-    DescribeEffectiveInstanceAssociationsResponse (DescribeEffectiveInstanceAssociationsResponse'),
-    newDescribeEffectiveInstanceAssociationsResponse,
+    -- ** StartSession
+    StartSession (StartSession'),
+    newStartSession,
+    StartSessionResponse (StartSessionResponse'),
+    newStartSessionResponse,
 
     -- ** CreateDocument
     CreateDocument (CreateDocument'),
@@ -628,11 +623,41 @@ module Network.AWS.SSM
     CreateDocumentResponse (CreateDocumentResponse'),
     newCreateDocumentResponse,
 
+    -- ** DeleteInventory
+    DeleteInventory (DeleteInventory'),
+    newDeleteInventory,
+    DeleteInventoryResponse (DeleteInventoryResponse'),
+    newDeleteInventoryResponse,
+
+    -- ** RemoveTagsFromResource
+    RemoveTagsFromResource (RemoveTagsFromResource'),
+    newRemoveTagsFromResource,
+    RemoveTagsFromResourceResponse (RemoveTagsFromResourceResponse'),
+    newRemoveTagsFromResourceResponse,
+
+    -- ** DeleteParameters
+    DeleteParameters (DeleteParameters'),
+    newDeleteParameters,
+    DeleteParametersResponse (DeleteParametersResponse'),
+    newDeleteParametersResponse,
+
+    -- ** SendCommand
+    SendCommand (SendCommand'),
+    newSendCommand,
+    SendCommandResponse (SendCommandResponse'),
+    newSendCommandResponse,
+
     -- ** GetCalendarState
     GetCalendarState (GetCalendarState'),
     newGetCalendarState,
     GetCalendarStateResponse (GetCalendarStateResponse'),
     newGetCalendarStateResponse,
+
+    -- ** DescribeEffectiveInstanceAssociations (Paginated)
+    DescribeEffectiveInstanceAssociations (DescribeEffectiveInstanceAssociations'),
+    newDescribeEffectiveInstanceAssociations,
+    DescribeEffectiveInstanceAssociationsResponse (DescribeEffectiveInstanceAssociationsResponse'),
+    newDescribeEffectiveInstanceAssociationsResponse,
 
     -- ** RegisterTargetWithMaintenanceWindow
     RegisterTargetWithMaintenanceWindow (RegisterTargetWithMaintenanceWindow'),
@@ -640,53 +665,11 @@ module Network.AWS.SSM
     RegisterTargetWithMaintenanceWindowResponse (RegisterTargetWithMaintenanceWindowResponse'),
     newRegisterTargetWithMaintenanceWindowResponse,
 
-    -- ** DescribeSessions (Paginated)
-    DescribeSessions (DescribeSessions'),
-    newDescribeSessions,
-    DescribeSessionsResponse (DescribeSessionsResponse'),
-    newDescribeSessionsResponse,
-
-    -- ** DeleteOpsMetadata
-    DeleteOpsMetadata (DeleteOpsMetadata'),
-    newDeleteOpsMetadata,
-    DeleteOpsMetadataResponse (DeleteOpsMetadataResponse'),
-    newDeleteOpsMetadataResponse,
-
-    -- ** UpdateOpsItem
-    UpdateOpsItem (UpdateOpsItem'),
-    newUpdateOpsItem,
-    UpdateOpsItemResponse (UpdateOpsItemResponse'),
-    newUpdateOpsItemResponse,
-
-    -- ** DeleteAssociation
-    DeleteAssociation (DeleteAssociation'),
-    newDeleteAssociation,
-    DeleteAssociationResponse (DeleteAssociationResponse'),
-    newDeleteAssociationResponse,
-
-    -- ** UpdateAssociation
-    UpdateAssociation (UpdateAssociation'),
-    newUpdateAssociation,
-    UpdateAssociationResponse (UpdateAssociationResponse'),
-    newUpdateAssociationResponse,
-
-    -- ** UpdateOpsMetadata
-    UpdateOpsMetadata (UpdateOpsMetadata'),
-    newUpdateOpsMetadata,
-    UpdateOpsMetadataResponse (UpdateOpsMetadataResponse'),
-    newUpdateOpsMetadataResponse,
-
-    -- ** DescribeInstanceInformation (Paginated)
-    DescribeInstanceInformation (DescribeInstanceInformation'),
-    newDescribeInstanceInformation,
-    DescribeInstanceInformationResponse (DescribeInstanceInformationResponse'),
-    newDescribeInstanceInformationResponse,
-
-    -- ** DescribeMaintenanceWindowExecutionTaskInvocations (Paginated)
-    DescribeMaintenanceWindowExecutionTaskInvocations (DescribeMaintenanceWindowExecutionTaskInvocations'),
-    newDescribeMaintenanceWindowExecutionTaskInvocations,
-    DescribeMaintenanceWindowExecutionTaskInvocationsResponse (DescribeMaintenanceWindowExecutionTaskInvocationsResponse'),
-    newDescribeMaintenanceWindowExecutionTaskInvocationsResponse,
+    -- ** ListOpsMetadata (Paginated)
+    ListOpsMetadata (ListOpsMetadata'),
+    newListOpsMetadata,
+    ListOpsMetadataResponse (ListOpsMetadataResponse'),
+    newListOpsMetadataResponse,
 
     -- ** DeleteParameter
     DeleteParameter (DeleteParameter'),
@@ -694,29 +677,71 @@ module Network.AWS.SSM
     DeleteParameterResponse (DeleteParameterResponse'),
     newDeleteParameterResponse,
 
-    -- ** GetMaintenanceWindowExecutionTaskInvocation
-    GetMaintenanceWindowExecutionTaskInvocation (GetMaintenanceWindowExecutionTaskInvocation'),
-    newGetMaintenanceWindowExecutionTaskInvocation,
-    GetMaintenanceWindowExecutionTaskInvocationResponse (GetMaintenanceWindowExecutionTaskInvocationResponse'),
-    newGetMaintenanceWindowExecutionTaskInvocationResponse,
-
     -- ** CreateActivation
     CreateActivation (CreateActivation'),
     newCreateActivation,
     CreateActivationResponse (CreateActivationResponse'),
     newCreateActivationResponse,
 
-    -- ** CreateOpsMetadata
-    CreateOpsMetadata (CreateOpsMetadata'),
-    newCreateOpsMetadata,
-    CreateOpsMetadataResponse (CreateOpsMetadataResponse'),
-    newCreateOpsMetadataResponse,
+    -- ** UpdateAssociation
+    UpdateAssociation (UpdateAssociation'),
+    newUpdateAssociation,
+    UpdateAssociationResponse (UpdateAssociationResponse'),
+    newUpdateAssociationResponse,
 
-    -- ** SendAutomationSignal
-    SendAutomationSignal (SendAutomationSignal'),
-    newSendAutomationSignal,
-    SendAutomationSignalResponse (SendAutomationSignalResponse'),
-    newSendAutomationSignalResponse,
+    -- ** DeleteOpsMetadata
+    DeleteOpsMetadata (DeleteOpsMetadata'),
+    newDeleteOpsMetadata,
+    DeleteOpsMetadataResponse (DeleteOpsMetadataResponse'),
+    newDeleteOpsMetadataResponse,
+
+    -- ** UpdateOpsMetadata
+    UpdateOpsMetadata (UpdateOpsMetadata'),
+    newUpdateOpsMetadata,
+    UpdateOpsMetadataResponse (UpdateOpsMetadataResponse'),
+    newUpdateOpsMetadataResponse,
+
+    -- ** DeleteAssociation
+    DeleteAssociation (DeleteAssociation'),
+    newDeleteAssociation,
+    DeleteAssociationResponse (DeleteAssociationResponse'),
+    newDeleteAssociationResponse,
+
+    -- ** DescribeMaintenanceWindowExecutionTaskInvocations (Paginated)
+    DescribeMaintenanceWindowExecutionTaskInvocations (DescribeMaintenanceWindowExecutionTaskInvocations'),
+    newDescribeMaintenanceWindowExecutionTaskInvocations,
+    DescribeMaintenanceWindowExecutionTaskInvocationsResponse (DescribeMaintenanceWindowExecutionTaskInvocationsResponse'),
+    newDescribeMaintenanceWindowExecutionTaskInvocationsResponse,
+
+    -- ** UpdateOpsItem
+    UpdateOpsItem (UpdateOpsItem'),
+    newUpdateOpsItem,
+    UpdateOpsItemResponse (UpdateOpsItemResponse'),
+    newUpdateOpsItemResponse,
+
+    -- ** DescribeSessions (Paginated)
+    DescribeSessions (DescribeSessions'),
+    newDescribeSessions,
+    DescribeSessionsResponse (DescribeSessionsResponse'),
+    newDescribeSessionsResponse,
+
+    -- ** DescribeInstanceInformation (Paginated)
+    DescribeInstanceInformation (DescribeInstanceInformation'),
+    newDescribeInstanceInformation,
+    DescribeInstanceInformationResponse (DescribeInstanceInformationResponse'),
+    newDescribeInstanceInformationResponse,
+
+    -- ** GetMaintenanceWindowExecutionTaskInvocation
+    GetMaintenanceWindowExecutionTaskInvocation (GetMaintenanceWindowExecutionTaskInvocation'),
+    newGetMaintenanceWindowExecutionTaskInvocation,
+    GetMaintenanceWindowExecutionTaskInvocationResponse (GetMaintenanceWindowExecutionTaskInvocationResponse'),
+    newGetMaintenanceWindowExecutionTaskInvocationResponse,
+
+    -- ** StartChangeRequestExecution
+    StartChangeRequestExecution (StartChangeRequestExecution'),
+    newStartChangeRequestExecution,
+    StartChangeRequestExecutionResponse (StartChangeRequestExecutionResponse'),
+    newStartChangeRequestExecutionResponse,
 
     -- ** ListComplianceSummaries (Paginated)
     ListComplianceSummaries (ListComplianceSummaries'),
@@ -730,6 +755,12 @@ module Network.AWS.SSM
     DescribeMaintenanceWindowExecutionsResponse (DescribeMaintenanceWindowExecutionsResponse'),
     newDescribeMaintenanceWindowExecutionsResponse,
 
+    -- ** CreateOpsItem
+    CreateOpsItem (CreateOpsItem'),
+    newCreateOpsItem,
+    CreateOpsItemResponse (CreateOpsItemResponse'),
+    newCreateOpsItemResponse,
+
     -- ** DescribeMaintenanceWindowsForTarget (Paginated)
     DescribeMaintenanceWindowsForTarget (DescribeMaintenanceWindowsForTarget'),
     newDescribeMaintenanceWindowsForTarget,
@@ -742,23 +773,17 @@ module Network.AWS.SSM
     CreateAssociationResponse (CreateAssociationResponse'),
     newCreateAssociationResponse,
 
-    -- ** CreateOpsItem
-    CreateOpsItem (CreateOpsItem'),
-    newCreateOpsItem,
-    CreateOpsItemResponse (CreateOpsItemResponse'),
-    newCreateOpsItemResponse,
+    -- ** CreateOpsMetadata
+    CreateOpsMetadata (CreateOpsMetadata'),
+    newCreateOpsMetadata,
+    CreateOpsMetadataResponse (CreateOpsMetadataResponse'),
+    newCreateOpsMetadataResponse,
 
-    -- ** StartChangeRequestExecution
-    StartChangeRequestExecution (StartChangeRequestExecution'),
-    newStartChangeRequestExecution,
-    StartChangeRequestExecutionResponse (StartChangeRequestExecutionResponse'),
-    newStartChangeRequestExecutionResponse,
-
-    -- ** ListAssociationVersions (Paginated)
-    ListAssociationVersions (ListAssociationVersions'),
-    newListAssociationVersions,
-    ListAssociationVersionsResponse (ListAssociationVersionsResponse'),
-    newListAssociationVersionsResponse,
+    -- ** SendAutomationSignal
+    SendAutomationSignal (SendAutomationSignal'),
+    newSendAutomationSignal,
+    SendAutomationSignalResponse (SendAutomationSignalResponse'),
+    newSendAutomationSignalResponse,
 
     -- ** DescribeDocument
     DescribeDocument (DescribeDocument'),
@@ -766,11 +791,17 @@ module Network.AWS.SSM
     DescribeDocumentResponse (DescribeDocumentResponse'),
     newDescribeDocumentResponse,
 
-    -- ** DeregisterTaskFromMaintenanceWindow
-    DeregisterTaskFromMaintenanceWindow (DeregisterTaskFromMaintenanceWindow'),
-    newDeregisterTaskFromMaintenanceWindow,
-    DeregisterTaskFromMaintenanceWindowResponse (DeregisterTaskFromMaintenanceWindowResponse'),
-    newDeregisterTaskFromMaintenanceWindowResponse,
+    -- ** ListAssociationVersions (Paginated)
+    ListAssociationVersions (ListAssociationVersions'),
+    newListAssociationVersions,
+    ListAssociationVersionsResponse (ListAssociationVersionsResponse'),
+    newListAssociationVersionsResponse,
+
+    -- ** ListOpsItemRelatedItems (Paginated)
+    ListOpsItemRelatedItems (ListOpsItemRelatedItems'),
+    newListOpsItemRelatedItems,
+    ListOpsItemRelatedItemsResponse (ListOpsItemRelatedItemsResponse'),
+    newListOpsItemRelatedItemsResponse,
 
     -- ** PutComplianceItems
     PutComplianceItems (PutComplianceItems'),
@@ -778,23 +809,17 @@ module Network.AWS.SSM
     PutComplianceItemsResponse (PutComplianceItemsResponse'),
     newPutComplianceItemsResponse,
 
+    -- ** DeregisterTaskFromMaintenanceWindow
+    DeregisterTaskFromMaintenanceWindow (DeregisterTaskFromMaintenanceWindow'),
+    newDeregisterTaskFromMaintenanceWindow,
+    DeregisterTaskFromMaintenanceWindowResponse (DeregisterTaskFromMaintenanceWindowResponse'),
+    newDeregisterTaskFromMaintenanceWindowResponse,
+
     -- ** GetMaintenanceWindowTask
     GetMaintenanceWindowTask (GetMaintenanceWindowTask'),
     newGetMaintenanceWindowTask,
     GetMaintenanceWindowTaskResponse (GetMaintenanceWindowTaskResponse'),
     newGetMaintenanceWindowTaskResponse,
-
-    -- ** GetDeployablePatchSnapshotForInstance
-    GetDeployablePatchSnapshotForInstance (GetDeployablePatchSnapshotForInstance'),
-    newGetDeployablePatchSnapshotForInstance,
-    GetDeployablePatchSnapshotForInstanceResponse (GetDeployablePatchSnapshotForInstanceResponse'),
-    newGetDeployablePatchSnapshotForInstanceResponse,
-
-    -- ** GetMaintenanceWindow
-    GetMaintenanceWindow (GetMaintenanceWindow'),
-    newGetMaintenanceWindow,
-    GetMaintenanceWindowResponse (GetMaintenanceWindowResponse'),
-    newGetMaintenanceWindowResponse,
 
     -- ** DeregisterPatchBaselineForPatchGroup
     DeregisterPatchBaselineForPatchGroup (DeregisterPatchBaselineForPatchGroup'),
@@ -802,41 +827,35 @@ module Network.AWS.SSM
     DeregisterPatchBaselineForPatchGroupResponse (DeregisterPatchBaselineForPatchGroupResponse'),
     newDeregisterPatchBaselineForPatchGroupResponse,
 
-    -- ** ResumeSession
-    ResumeSession (ResumeSession'),
-    newResumeSession,
-    ResumeSessionResponse (ResumeSessionResponse'),
-    newResumeSessionResponse,
-
-    -- ** RegisterDefaultPatchBaseline
-    RegisterDefaultPatchBaseline (RegisterDefaultPatchBaseline'),
-    newRegisterDefaultPatchBaseline,
-    RegisterDefaultPatchBaselineResponse (RegisterDefaultPatchBaselineResponse'),
-    newRegisterDefaultPatchBaselineResponse,
-
     -- ** DescribeMaintenanceWindows (Paginated)
     DescribeMaintenanceWindows (DescribeMaintenanceWindows'),
     newDescribeMaintenanceWindows,
     DescribeMaintenanceWindowsResponse (DescribeMaintenanceWindowsResponse'),
     newDescribeMaintenanceWindowsResponse,
 
-    -- ** ModifyDocumentPermission
-    ModifyDocumentPermission (ModifyDocumentPermission'),
-    newModifyDocumentPermission,
-    ModifyDocumentPermissionResponse (ModifyDocumentPermissionResponse'),
-    newModifyDocumentPermissionResponse,
+    -- ** GetDeployablePatchSnapshotForInstance
+    GetDeployablePatchSnapshotForInstance (GetDeployablePatchSnapshotForInstance'),
+    newGetDeployablePatchSnapshotForInstance,
+    GetDeployablePatchSnapshotForInstanceResponse (GetDeployablePatchSnapshotForInstanceResponse'),
+    newGetDeployablePatchSnapshotForInstanceResponse,
 
-    -- ** DescribeInstancePatches (Paginated)
-    DescribeInstancePatches (DescribeInstancePatches'),
-    newDescribeInstancePatches,
-    DescribeInstancePatchesResponse (DescribeInstancePatchesResponse'),
-    newDescribeInstancePatchesResponse,
+    -- ** ResumeSession
+    ResumeSession (ResumeSession'),
+    newResumeSession,
+    ResumeSessionResponse (ResumeSessionResponse'),
+    newResumeSessionResponse,
 
-    -- ** GetParameters
-    GetParameters (GetParameters'),
-    newGetParameters,
-    GetParametersResponse (GetParametersResponse'),
-    newGetParametersResponse,
+    -- ** GetMaintenanceWindow
+    GetMaintenanceWindow (GetMaintenanceWindow'),
+    newGetMaintenanceWindow,
+    GetMaintenanceWindowResponse (GetMaintenanceWindowResponse'),
+    newGetMaintenanceWindowResponse,
+
+    -- ** RegisterDefaultPatchBaseline
+    RegisterDefaultPatchBaseline (RegisterDefaultPatchBaseline'),
+    newRegisterDefaultPatchBaseline,
+    RegisterDefaultPatchBaselineResponse (RegisterDefaultPatchBaselineResponse'),
+    newRegisterDefaultPatchBaselineResponse,
 
     -- ** ListDocumentVersions (Paginated)
     ListDocumentVersions (ListDocumentVersions'),
@@ -856,35 +875,17 @@ module Network.AWS.SSM
     DeletePatchBaselineResponse (DeletePatchBaselineResponse'),
     newDeletePatchBaselineResponse,
 
-    -- ** ListOpsItemEvents (Paginated)
-    ListOpsItemEvents (ListOpsItemEvents'),
-    newListOpsItemEvents,
-    ListOpsItemEventsResponse (ListOpsItemEventsResponse'),
-    newListOpsItemEventsResponse,
-
-    -- ** DeleteResourceDataSync
-    DeleteResourceDataSync (DeleteResourceDataSync'),
-    newDeleteResourceDataSync,
-    DeleteResourceDataSyncResponse (DeleteResourceDataSyncResponse'),
-    newDeleteResourceDataSyncResponse,
-
-    -- ** DescribeInstancePatchStatesForPatchGroup (Paginated)
-    DescribeInstancePatchStatesForPatchGroup (DescribeInstancePatchStatesForPatchGroup'),
-    newDescribeInstancePatchStatesForPatchGroup,
-    DescribeInstancePatchStatesForPatchGroupResponse (DescribeInstancePatchStatesForPatchGroupResponse'),
-    newDescribeInstancePatchStatesForPatchGroupResponse,
-
-    -- ** GetConnectionStatus
-    GetConnectionStatus (GetConnectionStatus'),
-    newGetConnectionStatus,
-    GetConnectionStatusResponse (GetConnectionStatusResponse'),
-    newGetConnectionStatusResponse,
-
     -- ** UpdatePatchBaseline
     UpdatePatchBaseline (UpdatePatchBaseline'),
     newUpdatePatchBaseline,
     UpdatePatchBaselineResponse (UpdatePatchBaselineResponse'),
     newUpdatePatchBaselineResponse,
+
+    -- ** DescribeInstancePatches (Paginated)
+    DescribeInstancePatches (DescribeInstancePatches'),
+    newDescribeInstancePatches,
+    DescribeInstancePatchesResponse (DescribeInstancePatchesResponse'),
+    newDescribeInstancePatchesResponse,
 
     -- ** DescribeAvailablePatches (Paginated)
     DescribeAvailablePatches (DescribeAvailablePatches'),
@@ -892,23 +893,59 @@ module Network.AWS.SSM
     DescribeAvailablePatchesResponse (DescribeAvailablePatchesResponse'),
     newDescribeAvailablePatchesResponse,
 
-    -- ** ListComplianceItems (Paginated)
-    ListComplianceItems (ListComplianceItems'),
-    newListComplianceItems,
-    ListComplianceItemsResponse (ListComplianceItemsResponse'),
-    newListComplianceItemsResponse,
+    -- ** DescribeInstancePatchStatesForPatchGroup (Paginated)
+    DescribeInstancePatchStatesForPatchGroup (DescribeInstancePatchStatesForPatchGroup'),
+    newDescribeInstancePatchStatesForPatchGroup,
+    DescribeInstancePatchStatesForPatchGroupResponse (DescribeInstancePatchStatesForPatchGroupResponse'),
+    newDescribeInstancePatchStatesForPatchGroupResponse,
 
-    -- ** GetDocument
-    GetDocument (GetDocument'),
-    newGetDocument,
-    GetDocumentResponse (GetDocumentResponse'),
-    newGetDocumentResponse,
+    -- ** DeleteResourceDataSync
+    DeleteResourceDataSync (DeleteResourceDataSync'),
+    newDeleteResourceDataSync,
+    DeleteResourceDataSyncResponse (DeleteResourceDataSyncResponse'),
+    newDeleteResourceDataSyncResponse,
+
+    -- ** GetParameters
+    GetParameters (GetParameters'),
+    newGetParameters,
+    GetParametersResponse (GetParametersResponse'),
+    newGetParametersResponse,
+
+    -- ** GetConnectionStatus
+    GetConnectionStatus (GetConnectionStatus'),
+    newGetConnectionStatus,
+    GetConnectionStatusResponse (GetConnectionStatusResponse'),
+    newGetConnectionStatusResponse,
+
+    -- ** ModifyDocumentPermission
+    ModifyDocumentPermission (ModifyDocumentPermission'),
+    newModifyDocumentPermission,
+    ModifyDocumentPermissionResponse (ModifyDocumentPermissionResponse'),
+    newModifyDocumentPermissionResponse,
+
+    -- ** ListOpsItemEvents (Paginated)
+    ListOpsItemEvents (ListOpsItemEvents'),
+    newListOpsItemEvents,
+    ListOpsItemEventsResponse (ListOpsItemEventsResponse'),
+    newListOpsItemEventsResponse,
 
     -- ** AddTagsToResource
     AddTagsToResource (AddTagsToResource'),
     newAddTagsToResource,
     AddTagsToResourceResponse (AddTagsToResourceResponse'),
     newAddTagsToResourceResponse,
+
+    -- ** DescribeDocumentPermission
+    DescribeDocumentPermission (DescribeDocumentPermission'),
+    newDescribeDocumentPermission,
+    DescribeDocumentPermissionResponse (DescribeDocumentPermissionResponse'),
+    newDescribeDocumentPermissionResponse,
+
+    -- ** CreateResourceDataSync
+    CreateResourceDataSync (CreateResourceDataSync'),
+    newCreateResourceDataSync,
+    CreateResourceDataSyncResponse (CreateResourceDataSyncResponse'),
+    newCreateResourceDataSyncResponse,
 
     -- ** GetPatchBaselineForPatchGroup
     GetPatchBaselineForPatchGroup (GetPatchBaselineForPatchGroup'),
@@ -928,11 +965,23 @@ module Network.AWS.SSM
     DescribeMaintenanceWindowScheduleResponse (DescribeMaintenanceWindowScheduleResponse'),
     newDescribeMaintenanceWindowScheduleResponse,
 
-    -- ** CreateResourceDataSync
-    CreateResourceDataSync (CreateResourceDataSync'),
-    newCreateResourceDataSync,
-    CreateResourceDataSyncResponse (CreateResourceDataSyncResponse'),
-    newCreateResourceDataSyncResponse,
+    -- ** CancelCommand
+    CancelCommand (CancelCommand'),
+    newCancelCommand,
+    CancelCommandResponse (CancelCommandResponse'),
+    newCancelCommandResponse,
+
+    -- ** GetDocument
+    GetDocument (GetDocument'),
+    newGetDocument,
+    GetDocumentResponse (GetDocumentResponse'),
+    newGetDocumentResponse,
+
+    -- ** ListComplianceItems (Paginated)
+    ListComplianceItems (ListComplianceItems'),
+    newListComplianceItems,
+    ListComplianceItemsResponse (ListComplianceItemsResponse'),
+    newListComplianceItemsResponse,
 
     -- ** CreateAssociationBatch
     CreateAssociationBatch (CreateAssociationBatch'),
@@ -940,17 +989,17 @@ module Network.AWS.SSM
     CreateAssociationBatchResponse (CreateAssociationBatchResponse'),
     newCreateAssociationBatchResponse,
 
-    -- ** CancelCommand
-    CancelCommand (CancelCommand'),
-    newCancelCommand,
-    CancelCommandResponse (CancelCommandResponse'),
-    newCancelCommandResponse,
+    -- ** DisassociateOpsItemRelatedItem
+    DisassociateOpsItemRelatedItem (DisassociateOpsItemRelatedItem'),
+    newDisassociateOpsItemRelatedItem,
+    DisassociateOpsItemRelatedItemResponse (DisassociateOpsItemRelatedItemResponse'),
+    newDisassociateOpsItemRelatedItemResponse,
 
-    -- ** DescribeDocumentPermission
-    DescribeDocumentPermission (DescribeDocumentPermission'),
-    newDescribeDocumentPermission,
-    DescribeDocumentPermissionResponse (DescribeDocumentPermissionResponse'),
-    newDescribeDocumentPermissionResponse,
+    -- ** ListCommandInvocations (Paginated)
+    ListCommandInvocations (ListCommandInvocations'),
+    newListCommandInvocations,
+    ListCommandInvocationsResponse (ListCommandInvocationsResponse'),
+    newListCommandInvocationsResponse,
 
     -- ** RegisterPatchBaselineForPatchGroup
     RegisterPatchBaselineForPatchGroup (RegisterPatchBaselineForPatchGroup'),
@@ -964,47 +1013,11 @@ module Network.AWS.SSM
     DescribeEffectivePatchesForPatchBaselineResponse (DescribeEffectivePatchesForPatchBaselineResponse'),
     newDescribeEffectivePatchesForPatchBaselineResponse,
 
-    -- ** ListCommandInvocations (Paginated)
-    ListCommandInvocations (ListCommandInvocations'),
-    newListCommandInvocations,
-    ListCommandInvocationsResponse (ListCommandInvocationsResponse'),
-    newListCommandInvocationsResponse,
-
     -- ** DescribeMaintenanceWindowTargets (Paginated)
     DescribeMaintenanceWindowTargets (DescribeMaintenanceWindowTargets'),
     newDescribeMaintenanceWindowTargets,
     DescribeMaintenanceWindowTargetsResponse (DescribeMaintenanceWindowTargetsResponse'),
     newDescribeMaintenanceWindowTargetsResponse,
-
-    -- ** GetAutomationExecution
-    GetAutomationExecution (GetAutomationExecution'),
-    newGetAutomationExecution,
-    GetAutomationExecutionResponse (GetAutomationExecutionResponse'),
-    newGetAutomationExecutionResponse,
-
-    -- ** GetPatchBaseline
-    GetPatchBaseline (GetPatchBaseline'),
-    newGetPatchBaseline,
-    GetPatchBaselineResponse (GetPatchBaselineResponse'),
-    newGetPatchBaselineResponse,
-
-    -- ** DescribePatchGroupState
-    DescribePatchGroupState (DescribePatchGroupState'),
-    newDescribePatchGroupState,
-    DescribePatchGroupStateResponse (DescribePatchGroupStateResponse'),
-    newDescribePatchGroupStateResponse,
-
-    -- ** DescribePatchBaselines (Paginated)
-    DescribePatchBaselines (DescribePatchBaselines'),
-    newDescribePatchBaselines,
-    DescribePatchBaselinesResponse (DescribePatchBaselinesResponse'),
-    newDescribePatchBaselinesResponse,
-
-    -- ** UpdateDocumentMetadata
-    UpdateDocumentMetadata (UpdateDocumentMetadata'),
-    newUpdateDocumentMetadata,
-    UpdateDocumentMetadataResponse (UpdateDocumentMetadataResponse'),
-    newUpdateDocumentMetadataResponse,
 
     -- ** DescribeAutomationExecutions (Paginated)
     DescribeAutomationExecutions (DescribeAutomationExecutions'),
@@ -1012,41 +1025,41 @@ module Network.AWS.SSM
     DescribeAutomationExecutionsResponse (DescribeAutomationExecutionsResponse'),
     newDescribeAutomationExecutionsResponse,
 
+    -- ** DescribePatchBaselines (Paginated)
+    DescribePatchBaselines (DescribePatchBaselines'),
+    newDescribePatchBaselines,
+    DescribePatchBaselinesResponse (DescribePatchBaselinesResponse'),
+    newDescribePatchBaselinesResponse,
+
+    -- ** DescribePatchGroupState
+    DescribePatchGroupState (DescribePatchGroupState'),
+    newDescribePatchGroupState,
+    DescribePatchGroupStateResponse (DescribePatchGroupStateResponse'),
+    newDescribePatchGroupStateResponse,
+
+    -- ** UpdateDocumentMetadata
+    UpdateDocumentMetadata (UpdateDocumentMetadata'),
+    newUpdateDocumentMetadata,
+    UpdateDocumentMetadataResponse (UpdateDocumentMetadataResponse'),
+    newUpdateDocumentMetadataResponse,
+
+    -- ** GetPatchBaseline
+    GetPatchBaseline (GetPatchBaseline'),
+    newGetPatchBaseline,
+    GetPatchBaselineResponse (GetPatchBaselineResponse'),
+    newGetPatchBaselineResponse,
+
     -- ** PutInventory
     PutInventory (PutInventory'),
     newPutInventory,
     PutInventoryResponse (PutInventoryResponse'),
     newPutInventoryResponse,
 
-    -- ** DescribeInventoryDeletions (Paginated)
-    DescribeInventoryDeletions (DescribeInventoryDeletions'),
-    newDescribeInventoryDeletions,
-    DescribeInventoryDeletionsResponse (DescribeInventoryDeletionsResponse'),
-    newDescribeInventoryDeletionsResponse,
-
-    -- ** DescribeMaintenanceWindowExecutionTasks (Paginated)
-    DescribeMaintenanceWindowExecutionTasks (DescribeMaintenanceWindowExecutionTasks'),
-    newDescribeMaintenanceWindowExecutionTasks,
-    DescribeMaintenanceWindowExecutionTasksResponse (DescribeMaintenanceWindowExecutionTasksResponse'),
-    newDescribeMaintenanceWindowExecutionTasksResponse,
-
-    -- ** DeleteMaintenanceWindow
-    DeleteMaintenanceWindow (DeleteMaintenanceWindow'),
-    newDeleteMaintenanceWindow,
-    DeleteMaintenanceWindowResponse (DeleteMaintenanceWindowResponse'),
-    newDeleteMaintenanceWindowResponse,
-
-    -- ** GetDefaultPatchBaseline
-    GetDefaultPatchBaseline (GetDefaultPatchBaseline'),
-    newGetDefaultPatchBaseline,
-    GetDefaultPatchBaselineResponse (GetDefaultPatchBaselineResponse'),
-    newGetDefaultPatchBaselineResponse,
-
-    -- ** PutParameter
-    PutParameter (PutParameter'),
-    newPutParameter,
-    PutParameterResponse (PutParameterResponse'),
-    newPutParameterResponse,
+    -- ** GetAutomationExecution
+    GetAutomationExecution (GetAutomationExecution'),
+    newGetAutomationExecution,
+    GetAutomationExecutionResponse (GetAutomationExecutionResponse'),
+    newGetAutomationExecutionResponse,
 
     -- ** UpdateMaintenanceWindow
     UpdateMaintenanceWindow (UpdateMaintenanceWindow'),
@@ -1054,11 +1067,29 @@ module Network.AWS.SSM
     UpdateMaintenanceWindowResponse (UpdateMaintenanceWindowResponse'),
     newUpdateMaintenanceWindowResponse,
 
+    -- ** DescribeInventoryDeletions (Paginated)
+    DescribeInventoryDeletions (DescribeInventoryDeletions'),
+    newDescribeInventoryDeletions,
+    DescribeInventoryDeletionsResponse (DescribeInventoryDeletionsResponse'),
+    newDescribeInventoryDeletionsResponse,
+
+    -- ** DeleteMaintenanceWindow
+    DeleteMaintenanceWindow (DeleteMaintenanceWindow'),
+    newDeleteMaintenanceWindow,
+    DeleteMaintenanceWindowResponse (DeleteMaintenanceWindowResponse'),
+    newDeleteMaintenanceWindowResponse,
+
     -- ** ListAssociations (Paginated)
     ListAssociations (ListAssociations'),
     newListAssociations,
     ListAssociationsResponse (ListAssociationsResponse'),
     newListAssociationsResponse,
+
+    -- ** PutParameter
+    PutParameter (PutParameter'),
+    newPutParameter,
+    PutParameterResponse (PutParameterResponse'),
+    newPutParameterResponse,
 
     -- ** GetMaintenanceWindowExecutionTask
     GetMaintenanceWindowExecutionTask (GetMaintenanceWindowExecutionTask'),
@@ -1066,23 +1097,17 @@ module Network.AWS.SSM
     GetMaintenanceWindowExecutionTaskResponse (GetMaintenanceWindowExecutionTaskResponse'),
     newGetMaintenanceWindowExecutionTaskResponse,
 
-    -- ** StartAutomationExecution
-    StartAutomationExecution (StartAutomationExecution'),
-    newStartAutomationExecution,
-    StartAutomationExecutionResponse (StartAutomationExecutionResponse'),
-    newStartAutomationExecutionResponse,
+    -- ** DescribeMaintenanceWindowExecutionTasks (Paginated)
+    DescribeMaintenanceWindowExecutionTasks (DescribeMaintenanceWindowExecutionTasks'),
+    newDescribeMaintenanceWindowExecutionTasks,
+    DescribeMaintenanceWindowExecutionTasksResponse (DescribeMaintenanceWindowExecutionTasksResponse'),
+    newDescribeMaintenanceWindowExecutionTasksResponse,
 
-    -- ** DeleteActivation
-    DeleteActivation (DeleteActivation'),
-    newDeleteActivation,
-    DeleteActivationResponse (DeleteActivationResponse'),
-    newDeleteActivationResponse,
-
-    -- ** CreateMaintenanceWindow
-    CreateMaintenanceWindow (CreateMaintenanceWindow'),
-    newCreateMaintenanceWindow,
-    CreateMaintenanceWindowResponse (CreateMaintenanceWindowResponse'),
-    newCreateMaintenanceWindowResponse,
+    -- ** GetDefaultPatchBaseline
+    GetDefaultPatchBaseline (GetDefaultPatchBaseline'),
+    newGetDefaultPatchBaseline,
+    GetDefaultPatchBaselineResponse (GetDefaultPatchBaselineResponse'),
+    newGetDefaultPatchBaselineResponse,
 
     -- ** DescribeAssociationExecutions (Paginated)
     DescribeAssociationExecutions (DescribeAssociationExecutions'),
@@ -1090,11 +1115,11 @@ module Network.AWS.SSM
     DescribeAssociationExecutionsResponse (DescribeAssociationExecutionsResponse'),
     newDescribeAssociationExecutionsResponse,
 
-    -- ** GetMaintenanceWindowExecution
-    GetMaintenanceWindowExecution (GetMaintenanceWindowExecution'),
-    newGetMaintenanceWindowExecution,
-    GetMaintenanceWindowExecutionResponse (GetMaintenanceWindowExecutionResponse'),
-    newGetMaintenanceWindowExecutionResponse,
+    -- ** CancelMaintenanceWindowExecution
+    CancelMaintenanceWindowExecution (CancelMaintenanceWindowExecution'),
+    newCancelMaintenanceWindowExecution,
+    CancelMaintenanceWindowExecutionResponse (CancelMaintenanceWindowExecutionResponse'),
+    newCancelMaintenanceWindowExecutionResponse,
 
     -- ** StopAutomationExecution
     StopAutomationExecution (StopAutomationExecution'),
@@ -1108,23 +1133,11 @@ module Network.AWS.SSM
     GetInventorySchemaResponse (GetInventorySchemaResponse'),
     newGetInventorySchemaResponse,
 
-    -- ** StartAssociationsOnce
-    StartAssociationsOnce (StartAssociationsOnce'),
-    newStartAssociationsOnce,
-    StartAssociationsOnceResponse (StartAssociationsOnceResponse'),
-    newStartAssociationsOnceResponse,
-
-    -- ** CancelMaintenanceWindowExecution
-    CancelMaintenanceWindowExecution (CancelMaintenanceWindowExecution'),
-    newCancelMaintenanceWindowExecution,
-    CancelMaintenanceWindowExecutionResponse (CancelMaintenanceWindowExecutionResponse'),
-    newCancelMaintenanceWindowExecutionResponse,
-
-    -- ** LabelParameterVersion
-    LabelParameterVersion (LabelParameterVersion'),
-    newLabelParameterVersion,
-    LabelParameterVersionResponse (LabelParameterVersionResponse'),
-    newLabelParameterVersionResponse,
+    -- ** CreateMaintenanceWindow
+    CreateMaintenanceWindow (CreateMaintenanceWindow'),
+    newCreateMaintenanceWindow,
+    CreateMaintenanceWindowResponse (CreateMaintenanceWindowResponse'),
+    newCreateMaintenanceWindowResponse,
 
     -- ** GetParameterHistory (Paginated)
     GetParameterHistory (GetParameterHistory'),
@@ -1132,11 +1145,11 @@ module Network.AWS.SSM
     GetParameterHistoryResponse (GetParameterHistoryResponse'),
     newGetParameterHistoryResponse,
 
-    -- ** GetServiceSetting
-    GetServiceSetting (GetServiceSetting'),
-    newGetServiceSetting,
-    GetServiceSettingResponse (GetServiceSettingResponse'),
-    newGetServiceSettingResponse,
+    -- ** DeleteActivation
+    DeleteActivation (DeleteActivation'),
+    newDeleteActivation,
+    DeleteActivationResponse (DeleteActivationResponse'),
+    newDeleteActivationResponse,
 
     -- ** UpdateMaintenanceWindowTask
     UpdateMaintenanceWindowTask (UpdateMaintenanceWindowTask'),
@@ -1144,17 +1157,65 @@ module Network.AWS.SSM
     UpdateMaintenanceWindowTaskResponse (UpdateMaintenanceWindowTaskResponse'),
     newUpdateMaintenanceWindowTaskResponse,
 
-    -- ** ListDocumentMetadataHistory
-    ListDocumentMetadataHistory (ListDocumentMetadataHistory'),
-    newListDocumentMetadataHistory,
-    ListDocumentMetadataHistoryResponse (ListDocumentMetadataHistoryResponse'),
-    newListDocumentMetadataHistoryResponse,
+    -- ** StartAutomationExecution
+    StartAutomationExecution (StartAutomationExecution'),
+    newStartAutomationExecution,
+    StartAutomationExecutionResponse (StartAutomationExecutionResponse'),
+    newStartAutomationExecutionResponse,
+
+    -- ** GetServiceSetting
+    GetServiceSetting (GetServiceSetting'),
+    newGetServiceSetting,
+    GetServiceSettingResponse (GetServiceSettingResponse'),
+    newGetServiceSettingResponse,
+
+    -- ** LabelParameterVersion
+    LabelParameterVersion (LabelParameterVersion'),
+    newLabelParameterVersion,
+    LabelParameterVersionResponse (LabelParameterVersionResponse'),
+    newLabelParameterVersionResponse,
+
+    -- ** GetMaintenanceWindowExecution
+    GetMaintenanceWindowExecution (GetMaintenanceWindowExecution'),
+    newGetMaintenanceWindowExecution,
+    GetMaintenanceWindowExecutionResponse (GetMaintenanceWindowExecutionResponse'),
+    newGetMaintenanceWindowExecutionResponse,
+
+    -- ** StartAssociationsOnce
+    StartAssociationsOnce (StartAssociationsOnce'),
+    newStartAssociationsOnce,
+    StartAssociationsOnceResponse (StartAssociationsOnceResponse'),
+    newStartAssociationsOnceResponse,
+
+    -- ** DescribePatchProperties (Paginated)
+    DescribePatchProperties (DescribePatchProperties'),
+    newDescribePatchProperties,
+    DescribePatchPropertiesResponse (DescribePatchPropertiesResponse'),
+    newDescribePatchPropertiesResponse,
 
     -- ** ListInventoryEntries
     ListInventoryEntries (ListInventoryEntries'),
     newListInventoryEntries,
     ListInventoryEntriesResponse (ListInventoryEntriesResponse'),
     newListInventoryEntriesResponse,
+
+    -- ** DescribeMaintenanceWindowTasks (Paginated)
+    DescribeMaintenanceWindowTasks (DescribeMaintenanceWindowTasks'),
+    newDescribeMaintenanceWindowTasks,
+    DescribeMaintenanceWindowTasksResponse (DescribeMaintenanceWindowTasksResponse'),
+    newDescribeMaintenanceWindowTasksResponse,
+
+    -- ** ListDocumentMetadataHistory
+    ListDocumentMetadataHistory (ListDocumentMetadataHistory'),
+    newListDocumentMetadataHistory,
+    ListDocumentMetadataHistoryResponse (ListDocumentMetadataHistoryResponse'),
+    newListDocumentMetadataHistoryResponse,
+
+    -- ** DescribeActivations (Paginated)
+    DescribeActivations (DescribeActivations'),
+    newDescribeActivations,
+    DescribeActivationsResponse (DescribeActivationsResponse'),
+    newDescribeActivationsResponse,
 
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
@@ -1168,35 +1229,17 @@ module Network.AWS.SSM
     GetParametersByPathResponse (GetParametersByPathResponse'),
     newGetParametersByPathResponse,
 
-    -- ** DescribeActivations (Paginated)
-    DescribeActivations (DescribeActivations'),
-    newDescribeActivations,
-    DescribeActivationsResponse (DescribeActivationsResponse'),
-    newDescribeActivationsResponse,
-
-    -- ** DescribeInstanceAssociationsStatus (Paginated)
-    DescribeInstanceAssociationsStatus (DescribeInstanceAssociationsStatus'),
-    newDescribeInstanceAssociationsStatus,
-    DescribeInstanceAssociationsStatusResponse (DescribeInstanceAssociationsStatusResponse'),
-    newDescribeInstanceAssociationsStatusResponse,
-
-    -- ** DescribePatchProperties (Paginated)
-    DescribePatchProperties (DescribePatchProperties'),
-    newDescribePatchProperties,
-    DescribePatchPropertiesResponse (DescribePatchPropertiesResponse'),
-    newDescribePatchPropertiesResponse,
-
     -- ** UpdateServiceSetting
     UpdateServiceSetting (UpdateServiceSetting'),
     newUpdateServiceSetting,
     UpdateServiceSettingResponse (UpdateServiceSettingResponse'),
     newUpdateServiceSettingResponse,
 
-    -- ** DescribeMaintenanceWindowTasks (Paginated)
-    DescribeMaintenanceWindowTasks (DescribeMaintenanceWindowTasks'),
-    newDescribeMaintenanceWindowTasks,
-    DescribeMaintenanceWindowTasksResponse (DescribeMaintenanceWindowTasksResponse'),
-    newDescribeMaintenanceWindowTasksResponse,
+    -- ** DescribeInstanceAssociationsStatus (Paginated)
+    DescribeInstanceAssociationsStatus (DescribeInstanceAssociationsStatus'),
+    newDescribeInstanceAssociationsStatus,
+    DescribeInstanceAssociationsStatusResponse (DescribeInstanceAssociationsStatusResponse'),
+    newDescribeInstanceAssociationsStatusResponse,
 
     -- * Types
 
@@ -1335,6 +1378,9 @@ module Network.AWS.SSM
     -- ** MaintenanceWindowResourceType
     MaintenanceWindowResourceType (..),
 
+    -- ** MaintenanceWindowTaskCutoffBehavior
+    MaintenanceWindowTaskCutoffBehavior (..),
+
     -- ** MaintenanceWindowTaskType
     MaintenanceWindowTaskType (..),
 
@@ -1364,6 +1410,12 @@ module Network.AWS.SSM
 
     -- ** OpsItemFilterOperator
     OpsItemFilterOperator (..),
+
+    -- ** OpsItemRelatedItemsFilterKey
+    OpsItemRelatedItemsFilterKey (..),
+
+    -- ** OpsItemRelatedItemsFilterOperator
+    OpsItemRelatedItemsFilterOperator (..),
 
     -- ** OpsItemStatus
     OpsItemStatus (..),
@@ -1828,6 +1880,14 @@ module Network.AWS.SSM
     OpsItemNotification (OpsItemNotification'),
     newOpsItemNotification,
 
+    -- ** OpsItemRelatedItemSummary
+    OpsItemRelatedItemSummary (OpsItemRelatedItemSummary'),
+    newOpsItemRelatedItemSummary,
+
+    -- ** OpsItemRelatedItemsFilter
+    OpsItemRelatedItemsFilter (OpsItemRelatedItemsFilter'),
+    newOpsItemRelatedItemsFilter,
+
     -- ** OpsItemSummary
     OpsItemSummary (OpsItemSummary'),
     newOpsItemSummary,
@@ -2027,6 +2087,7 @@ module Network.AWS.SSM
 where
 
 import Network.AWS.SSM.AddTagsToResource
+import Network.AWS.SSM.AssociateOpsItemRelatedItem
 import Network.AWS.SSM.CancelCommand
 import Network.AWS.SSM.CancelMaintenanceWindowExecution
 import Network.AWS.SSM.CreateActivation
@@ -2084,6 +2145,7 @@ import Network.AWS.SSM.DescribePatchGroupState
 import Network.AWS.SSM.DescribePatchGroups
 import Network.AWS.SSM.DescribePatchProperties
 import Network.AWS.SSM.DescribeSessions
+import Network.AWS.SSM.DisassociateOpsItemRelatedItem
 import Network.AWS.SSM.GetAutomationExecution
 import Network.AWS.SSM.GetCalendarState
 import Network.AWS.SSM.GetCommandInvocation
@@ -2121,6 +2183,7 @@ import Network.AWS.SSM.ListDocumentVersions
 import Network.AWS.SSM.ListDocuments
 import Network.AWS.SSM.ListInventoryEntries
 import Network.AWS.SSM.ListOpsItemEvents
+import Network.AWS.SSM.ListOpsItemRelatedItems
 import Network.AWS.SSM.ListOpsMetadata
 import Network.AWS.SSM.ListResourceComplianceSummaries
 import Network.AWS.SSM.ListResourceDataSync
@@ -2145,6 +2208,7 @@ import Network.AWS.SSM.StartSession
 import Network.AWS.SSM.StopAutomationExecution
 import Network.AWS.SSM.TerminateSession
 import Network.AWS.SSM.Types
+import Network.AWS.SSM.UnlabelParameterVersion
 import Network.AWS.SSM.UpdateAssociation
 import Network.AWS.SSM.UpdateAssociationStatus
 import Network.AWS.SSM.UpdateDocument

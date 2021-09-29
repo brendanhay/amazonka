@@ -45,19 +45,19 @@ data Patch = Patch'
     title :: Prelude.Maybe Prelude.Text,
     -- | The ID of the patch. Applies to Windows patches only.
     --
-    -- This ID is not the same as the Microsoft Knowledge Base ID.
+    -- This ID isn\'t the same as the Microsoft Knowledge Base ID.
     id :: Prelude.Maybe Prelude.Text,
     -- | The product family the patch is applicable for. For example, @Windows@
     -- or @Amazon Linux 2@.
     productFamily :: Prelude.Maybe Prelude.Text,
-    -- | The version number of the patch. For example, in
-    -- @example-pkg-1.710.10-2.7.abcd.x86_64@, the version number is indicated
-    -- by @-1@. Applies to Linux-based instances only.
-    version :: Prelude.Maybe Prelude.Text,
     -- | The source patch repository for the operating system and version, such
     -- as @trusty-security@ for Ubuntu Server 14.04 LTE and @focal-security@
     -- for Ubuntu Server 20.04 LTE. Applies to Linux-based instances only.
     repository :: Prelude.Maybe Prelude.Text,
+    -- | The version number of the patch. For example, in
+    -- @example-pkg-1.710.10-2.7.abcd.x86_64@, the version number is indicated
+    -- by @-1@. Applies to Linux-based instances only.
+    version :: Prelude.Maybe Prelude.Text,
     -- | The name of the patch. Applies to Linux-based instances only.
     name :: Prelude.Maybe Prelude.Text,
     -- | The Bugzilla ID of the patch. For example, @1600646@. Applies to
@@ -74,11 +74,11 @@ data Patch = Patch'
     -- | The Common Vulnerabilities and Exposures (CVE) ID of the patch. For
     -- example, @CVE-2011-3192@. Applies to Linux-based instances only.
     cVEIds :: Prelude.Maybe [Prelude.Text],
+    -- | The description of the patch.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The classification of the patch. For example, @SecurityUpdates@,
     -- @Updates@, or @CriticalUpdates@.
     classification :: Prelude.Maybe Prelude.Text,
-    -- | The description of the patch.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The Advisory ID of the patch. For example, @RHSA-2020:3779@. Applies to
     -- Linux-based instances only.
     advisoryIds :: Prelude.Maybe [Prelude.Text],
@@ -124,18 +124,18 @@ data Patch = Patch'
 --
 -- 'id', 'patch_id' - The ID of the patch. Applies to Windows patches only.
 --
--- This ID is not the same as the Microsoft Knowledge Base ID.
+-- This ID isn\'t the same as the Microsoft Knowledge Base ID.
 --
 -- 'productFamily', 'patch_productFamily' - The product family the patch is applicable for. For example, @Windows@
 -- or @Amazon Linux 2@.
 --
--- 'version', 'patch_version' - The version number of the patch. For example, in
--- @example-pkg-1.710.10-2.7.abcd.x86_64@, the version number is indicated
--- by @-1@. Applies to Linux-based instances only.
---
 -- 'repository', 'patch_repository' - The source patch repository for the operating system and version, such
 -- as @trusty-security@ for Ubuntu Server 14.04 LTE and @focal-security@
 -- for Ubuntu Server 20.04 LTE. Applies to Linux-based instances only.
+--
+-- 'version', 'patch_version' - The version number of the patch. For example, in
+-- @example-pkg-1.710.10-2.7.abcd.x86_64@, the version number is indicated
+-- by @-1@. Applies to Linux-based instances only.
 --
 -- 'name', 'patch_name' - The name of the patch. Applies to Linux-based instances only.
 --
@@ -153,10 +153,10 @@ data Patch = Patch'
 -- 'cVEIds', 'patch_cVEIds' - The Common Vulnerabilities and Exposures (CVE) ID of the patch. For
 -- example, @CVE-2011-3192@. Applies to Linux-based instances only.
 --
+-- 'description', 'patch_description' - The description of the patch.
+--
 -- 'classification', 'patch_classification' - The classification of the patch. For example, @SecurityUpdates@,
 -- @Updates@, or @CriticalUpdates@.
---
--- 'description', 'patch_description' - The description of the patch.
 --
 -- 'advisoryIds', 'patch_advisoryIds' - The Advisory ID of the patch. For example, @RHSA-2020:3779@. Applies to
 -- Linux-based instances only.
@@ -185,15 +185,15 @@ newPatch =
       title = Prelude.Nothing,
       id = Prelude.Nothing,
       productFamily = Prelude.Nothing,
-      version = Prelude.Nothing,
       repository = Prelude.Nothing,
+      version = Prelude.Nothing,
       name = Prelude.Nothing,
       bugzillaIds = Prelude.Nothing,
       msrcNumber = Prelude.Nothing,
       release = Prelude.Nothing,
       cVEIds = Prelude.Nothing,
-      classification = Prelude.Nothing,
       description = Prelude.Nothing,
+      classification = Prelude.Nothing,
       advisoryIds = Prelude.Nothing,
       arch = Prelude.Nothing,
       releaseDate = Prelude.Nothing,
@@ -232,7 +232,7 @@ patch_title = Lens.lens (\Patch' {title} -> title) (\s@Patch' {} a -> s {title =
 
 -- | The ID of the patch. Applies to Windows patches only.
 --
--- This ID is not the same as the Microsoft Knowledge Base ID.
+-- This ID isn\'t the same as the Microsoft Knowledge Base ID.
 patch_id :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
 patch_id = Lens.lens (\Patch' {id} -> id) (\s@Patch' {} a -> s {id = a} :: Patch)
 
@@ -241,17 +241,17 @@ patch_id = Lens.lens (\Patch' {id} -> id) (\s@Patch' {} a -> s {id = a} :: Patch
 patch_productFamily :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
 patch_productFamily = Lens.lens (\Patch' {productFamily} -> productFamily) (\s@Patch' {} a -> s {productFamily = a} :: Patch)
 
--- | The version number of the patch. For example, in
--- @example-pkg-1.710.10-2.7.abcd.x86_64@, the version number is indicated
--- by @-1@. Applies to Linux-based instances only.
-patch_version :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
-patch_version = Lens.lens (\Patch' {version} -> version) (\s@Patch' {} a -> s {version = a} :: Patch)
-
 -- | The source patch repository for the operating system and version, such
 -- as @trusty-security@ for Ubuntu Server 14.04 LTE and @focal-security@
 -- for Ubuntu Server 20.04 LTE. Applies to Linux-based instances only.
 patch_repository :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
 patch_repository = Lens.lens (\Patch' {repository} -> repository) (\s@Patch' {} a -> s {repository = a} :: Patch)
+
+-- | The version number of the patch. For example, in
+-- @example-pkg-1.710.10-2.7.abcd.x86_64@, the version number is indicated
+-- by @-1@. Applies to Linux-based instances only.
+patch_version :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
+patch_version = Lens.lens (\Patch' {version} -> version) (\s@Patch' {} a -> s {version = a} :: Patch)
 
 -- | The name of the patch. Applies to Linux-based instances only.
 patch_name :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
@@ -279,14 +279,14 @@ patch_release = Lens.lens (\Patch' {release} -> release) (\s@Patch' {} a -> s {r
 patch_cVEIds :: Lens.Lens' Patch (Prelude.Maybe [Prelude.Text])
 patch_cVEIds = Lens.lens (\Patch' {cVEIds} -> cVEIds) (\s@Patch' {} a -> s {cVEIds = a} :: Patch) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The description of the patch.
+patch_description :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
+patch_description = Lens.lens (\Patch' {description} -> description) (\s@Patch' {} a -> s {description = a} :: Patch)
+
 -- | The classification of the patch. For example, @SecurityUpdates@,
 -- @Updates@, or @CriticalUpdates@.
 patch_classification :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
 patch_classification = Lens.lens (\Patch' {classification} -> classification) (\s@Patch' {} a -> s {classification = a} :: Patch)
-
--- | The description of the patch.
-patch_description :: Lens.Lens' Patch (Prelude.Maybe Prelude.Text)
-patch_description = Lens.lens (\Patch' {description} -> description) (\s@Patch' {} a -> s {description = a} :: Patch)
 
 -- | The Advisory ID of the patch. For example, @RHSA-2020:3779@. Applies to
 -- Linux-based instances only.
@@ -330,15 +330,15 @@ instance Core.FromJSON Patch where
             Prelude.<*> (x Core..:? "Title")
             Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "ProductFamily")
-            Prelude.<*> (x Core..:? "Version")
             Prelude.<*> (x Core..:? "Repository")
+            Prelude.<*> (x Core..:? "Version")
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "BugzillaIds" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "MsrcNumber")
             Prelude.<*> (x Core..:? "Release")
             Prelude.<*> (x Core..:? "CVEIds" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Classification")
             Prelude.<*> (x Core..:? "Description")
+            Prelude.<*> (x Core..:? "Classification")
             Prelude.<*> (x Core..:? "AdvisoryIds" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Arch")
             Prelude.<*> (x Core..:? "ReleaseDate")

@@ -20,10 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Shares a Systems Manager document publicly or privately. If you share a
--- document privately, you must specify the AWS user account IDs for those
--- people who can use the document. If you share a document publicly, you
--- must specify /All/ as the account ID.
+-- Shares a Amazon Web Services Systems Manager document (SSM
+-- document)publicly or privately. If you share a document privately, you
+-- must specify the Amazon Web Services user account IDs for those people
+-- who can use the document. If you share a document publicly, you must
+-- specify /All/ as the account ID.
 module Network.AWS.SSM.ModifyDocumentPermission
   ( -- * Creating a Request
     ModifyDocumentPermission (..),
@@ -54,17 +55,17 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'newModifyDocumentPermission' smart constructor.
 data ModifyDocumentPermission = ModifyDocumentPermission'
-  { -- | The AWS user accounts that should have access to the document. The
-    -- account IDs can either be a group of account IDs or /All/.
+  { -- | The Amazon Web Services user accounts that should have access to the
+    -- document. The account IDs can either be a group of account IDs or /All/.
     accountIdsToAdd :: Prelude.Maybe [Prelude.Text],
-    -- | (Optional) The version of the document to share. If it\'s not specified,
+    -- | (Optional) The version of the document to share. If it isn\'t specified,
     -- the system choose the @Default@ version to share.
     sharedDocumentVersion :: Prelude.Maybe Prelude.Text,
-    -- | The AWS user accounts that should no longer have access to the document.
-    -- The AWS user account can either be a group of account IDs or /All/. This
-    -- action has a higher priority than /AccountIdsToAdd/. If you specify an
-    -- account ID to add and the same ID to remove, the system removes access
-    -- to the document.
+    -- | The Amazon Web Services user accounts that should no longer have access
+    -- to the document. The Amazon Web Services user account can either be a
+    -- group of account IDs or /All/. This action has a higher priority than
+    -- /AccountIdsToAdd/. If you specify an account ID to add and the same ID
+    -- to remove, the system removes access to the document.
     accountIdsToRemove :: Prelude.Maybe [Prelude.Text],
     -- | The name of the document that you want to share.
     name :: Prelude.Text,
@@ -82,17 +83,17 @@ data ModifyDocumentPermission = ModifyDocumentPermission'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountIdsToAdd', 'modifyDocumentPermission_accountIdsToAdd' - The AWS user accounts that should have access to the document. The
--- account IDs can either be a group of account IDs or /All/.
+-- 'accountIdsToAdd', 'modifyDocumentPermission_accountIdsToAdd' - The Amazon Web Services user accounts that should have access to the
+-- document. The account IDs can either be a group of account IDs or /All/.
 --
--- 'sharedDocumentVersion', 'modifyDocumentPermission_sharedDocumentVersion' - (Optional) The version of the document to share. If it\'s not specified,
+-- 'sharedDocumentVersion', 'modifyDocumentPermission_sharedDocumentVersion' - (Optional) The version of the document to share. If it isn\'t specified,
 -- the system choose the @Default@ version to share.
 --
--- 'accountIdsToRemove', 'modifyDocumentPermission_accountIdsToRemove' - The AWS user accounts that should no longer have access to the document.
--- The AWS user account can either be a group of account IDs or /All/. This
--- action has a higher priority than /AccountIdsToAdd/. If you specify an
--- account ID to add and the same ID to remove, the system removes access
--- to the document.
+-- 'accountIdsToRemove', 'modifyDocumentPermission_accountIdsToRemove' - The Amazon Web Services user accounts that should no longer have access
+-- to the document. The Amazon Web Services user account can either be a
+-- group of account IDs or /All/. This action has a higher priority than
+-- /AccountIdsToAdd/. If you specify an account ID to add and the same ID
+-- to remove, the system removes access to the document.
 --
 -- 'name', 'modifyDocumentPermission_name' - The name of the document that you want to share.
 --
@@ -114,21 +115,21 @@ newModifyDocumentPermission pName_ pPermissionType_ =
       permissionType = pPermissionType_
     }
 
--- | The AWS user accounts that should have access to the document. The
--- account IDs can either be a group of account IDs or /All/.
+-- | The Amazon Web Services user accounts that should have access to the
+-- document. The account IDs can either be a group of account IDs or /All/.
 modifyDocumentPermission_accountIdsToAdd :: Lens.Lens' ModifyDocumentPermission (Prelude.Maybe [Prelude.Text])
 modifyDocumentPermission_accountIdsToAdd = Lens.lens (\ModifyDocumentPermission' {accountIdsToAdd} -> accountIdsToAdd) (\s@ModifyDocumentPermission' {} a -> s {accountIdsToAdd = a} :: ModifyDocumentPermission) Prelude.. Lens.mapping Lens._Coerce
 
--- | (Optional) The version of the document to share. If it\'s not specified,
+-- | (Optional) The version of the document to share. If it isn\'t specified,
 -- the system choose the @Default@ version to share.
 modifyDocumentPermission_sharedDocumentVersion :: Lens.Lens' ModifyDocumentPermission (Prelude.Maybe Prelude.Text)
 modifyDocumentPermission_sharedDocumentVersion = Lens.lens (\ModifyDocumentPermission' {sharedDocumentVersion} -> sharedDocumentVersion) (\s@ModifyDocumentPermission' {} a -> s {sharedDocumentVersion = a} :: ModifyDocumentPermission)
 
--- | The AWS user accounts that should no longer have access to the document.
--- The AWS user account can either be a group of account IDs or /All/. This
--- action has a higher priority than /AccountIdsToAdd/. If you specify an
--- account ID to add and the same ID to remove, the system removes access
--- to the document.
+-- | The Amazon Web Services user accounts that should no longer have access
+-- to the document. The Amazon Web Services user account can either be a
+-- group of account IDs or /All/. This action has a higher priority than
+-- /AccountIdsToAdd/. If you specify an account ID to add and the same ID
+-- to remove, the system removes access to the document.
 modifyDocumentPermission_accountIdsToRemove :: Lens.Lens' ModifyDocumentPermission (Prelude.Maybe [Prelude.Text])
 modifyDocumentPermission_accountIdsToRemove = Lens.lens (\ModifyDocumentPermission' {accountIdsToRemove} -> accountIdsToRemove) (\s@ModifyDocumentPermission' {} a -> s {accountIdsToRemove = a} :: ModifyDocumentPermission) Prelude.. Lens.mapping Lens._Coerce
 

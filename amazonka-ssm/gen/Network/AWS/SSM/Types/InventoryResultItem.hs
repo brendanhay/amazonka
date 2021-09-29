@@ -31,8 +31,8 @@ data InventoryResultItem = InventoryResultItem'
     captureTime :: Prelude.Maybe Prelude.Text,
     -- | MD5 hash of the inventory item type contents. The content hash is used
     -- to determine whether to update inventory information. The PutInventory
-    -- API does not update the inventory item type contents if the MD5 hash has
-    -- not changed since last update.
+    -- API doesn\'t update the inventory item type contents if the MD5 hash
+    -- hasn\'t changed since last update.
     contentHash :: Prelude.Maybe Prelude.Text,
     -- | The name of the inventory result item type.
     typeName :: Prelude.Text,
@@ -56,8 +56,8 @@ data InventoryResultItem = InventoryResultItem'
 --
 -- 'contentHash', 'inventoryResultItem_contentHash' - MD5 hash of the inventory item type contents. The content hash is used
 -- to determine whether to update inventory information. The PutInventory
--- API does not update the inventory item type contents if the MD5 hash has
--- not changed since last update.
+-- API doesn\'t update the inventory item type contents if the MD5 hash
+-- hasn\'t changed since last update.
 --
 -- 'typeName', 'inventoryResultItem_typeName' - The name of the inventory result item type.
 --
@@ -86,8 +86,8 @@ inventoryResultItem_captureTime = Lens.lens (\InventoryResultItem' {captureTime}
 
 -- | MD5 hash of the inventory item type contents. The content hash is used
 -- to determine whether to update inventory information. The PutInventory
--- API does not update the inventory item type contents if the MD5 hash has
--- not changed since last update.
+-- API doesn\'t update the inventory item type contents if the MD5 hash
+-- hasn\'t changed since last update.
 inventoryResultItem_contentHash :: Lens.Lens' InventoryResultItem (Prelude.Maybe Prelude.Text)
 inventoryResultItem_contentHash = Lens.lens (\InventoryResultItem' {contentHash} -> contentHash) (\s@InventoryResultItem' {} a -> s {contentHash = a} :: InventoryResultItem)
 

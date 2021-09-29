@@ -43,10 +43,10 @@ data Session = Session'
     details :: Prelude.Maybe Prelude.Text,
     -- | Reserved for future use.
     outputUrl :: Prelude.Maybe SessionManagerOutputUrl,
+    -- | The ID of the Amazon Web Services user account that started the session.
+    owner :: Prelude.Maybe Prelude.Text,
     -- | The instance that the Session Manager session connected to.
     target :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the AWS user account that started the session.
-    owner :: Prelude.Maybe Prelude.Text,
     -- | The date and time, in ISO-8601 Extended format, when the session was
     -- terminated.
     endDate :: Prelude.Maybe Core.POSIX
@@ -75,9 +75,9 @@ data Session = Session'
 --
 -- 'outputUrl', 'session_outputUrl' - Reserved for future use.
 --
--- 'target', 'session_target' - The instance that the Session Manager session connected to.
+-- 'owner', 'session_owner' - The ID of the Amazon Web Services user account that started the session.
 --
--- 'owner', 'session_owner' - The ID of the AWS user account that started the session.
+-- 'target', 'session_target' - The instance that the Session Manager session connected to.
 --
 -- 'endDate', 'session_endDate' - The date and time, in ISO-8601 Extended format, when the session was
 -- terminated.
@@ -91,8 +91,8 @@ newSession =
       documentName = Prelude.Nothing,
       details = Prelude.Nothing,
       outputUrl = Prelude.Nothing,
-      target = Prelude.Nothing,
       owner = Prelude.Nothing,
+      target = Prelude.Nothing,
       endDate = Prelude.Nothing
     }
 
@@ -122,13 +122,13 @@ session_details = Lens.lens (\Session' {details} -> details) (\s@Session' {} a -
 session_outputUrl :: Lens.Lens' Session (Prelude.Maybe SessionManagerOutputUrl)
 session_outputUrl = Lens.lens (\Session' {outputUrl} -> outputUrl) (\s@Session' {} a -> s {outputUrl = a} :: Session)
 
+-- | The ID of the Amazon Web Services user account that started the session.
+session_owner :: Lens.Lens' Session (Prelude.Maybe Prelude.Text)
+session_owner = Lens.lens (\Session' {owner} -> owner) (\s@Session' {} a -> s {owner = a} :: Session)
+
 -- | The instance that the Session Manager session connected to.
 session_target :: Lens.Lens' Session (Prelude.Maybe Prelude.Text)
 session_target = Lens.lens (\Session' {target} -> target) (\s@Session' {} a -> s {target = a} :: Session)
-
--- | The ID of the AWS user account that started the session.
-session_owner :: Lens.Lens' Session (Prelude.Maybe Prelude.Text)
-session_owner = Lens.lens (\Session' {owner} -> owner) (\s@Session' {} a -> s {owner = a} :: Session)
 
 -- | The date and time, in ISO-8601 Extended format, when the session was
 -- terminated.
@@ -147,8 +147,8 @@ instance Core.FromJSON Session where
             Prelude.<*> (x Core..:? "DocumentName")
             Prelude.<*> (x Core..:? "Details")
             Prelude.<*> (x Core..:? "OutputUrl")
-            Prelude.<*> (x Core..:? "Target")
             Prelude.<*> (x Core..:? "Owner")
+            Prelude.<*> (x Core..:? "Target")
             Prelude.<*> (x Core..:? "EndDate")
       )
 

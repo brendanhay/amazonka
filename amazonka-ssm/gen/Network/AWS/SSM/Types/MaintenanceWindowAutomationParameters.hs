@@ -23,21 +23,22 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The parameters for an AUTOMATION task type.
+-- | The parameters for an @AUTOMATION@ task type.
 --
 -- /See:/ 'newMaintenanceWindowAutomationParameters' smart constructor.
 data MaintenanceWindowAutomationParameters = MaintenanceWindowAutomationParameters'
-  { -- | The version of an Automation document to use during task execution.
+  { -- | The version of an Automation runbook to use during task execution.
     documentVersion :: Prelude.Maybe Prelude.Text,
-    -- | The parameters for the AUTOMATION task.
+    -- | The parameters for the @AUTOMATION@ task.
     --
     -- For information about specifying and updating task parameters, see
     -- RegisterTaskWithMaintenanceWindow and UpdateMaintenanceWindowTask.
     --
-    -- @LoggingInfo@ has been deprecated. To specify an S3 bucket to contain
-    -- logs, instead use the @OutputS3BucketName@ and @OutputS3KeyPrefix@
-    -- options in the @TaskInvocationParameters@ structure. For information
-    -- about how Systems Manager handles these options for the supported
+    -- @LoggingInfo@ has been deprecated. To specify an Amazon Simple Storage
+    -- Service (Amazon S3) bucket to contain logs, instead use the
+    -- @OutputS3BucketName@ and @OutputS3KeyPrefix@ options in the
+    -- @TaskInvocationParameters@ structure. For information about how Amazon
+    -- Web Services Systems Manager handles these options for the supported
     -- maintenance window task types, see
     -- MaintenanceWindowTaskInvocationParameters.
     --
@@ -47,8 +48,8 @@ data MaintenanceWindowAutomationParameters = MaintenanceWindowAutomationParamete
     -- Manager handles these options for the supported maintenance window task
     -- types, see MaintenanceWindowTaskInvocationParameters.
     --
-    -- For AUTOMATION task types, Systems Manager ignores any values specified
-    -- for these parameters.
+    -- For @AUTOMATION@ task types, Amazon Web Services Systems Manager ignores
+    -- any values specified for these parameters.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text])
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -61,17 +62,18 @@ data MaintenanceWindowAutomationParameters = MaintenanceWindowAutomationParamete
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'documentVersion', 'maintenanceWindowAutomationParameters_documentVersion' - The version of an Automation document to use during task execution.
+-- 'documentVersion', 'maintenanceWindowAutomationParameters_documentVersion' - The version of an Automation runbook to use during task execution.
 --
--- 'parameters', 'maintenanceWindowAutomationParameters_parameters' - The parameters for the AUTOMATION task.
+-- 'parameters', 'maintenanceWindowAutomationParameters_parameters' - The parameters for the @AUTOMATION@ task.
 --
 -- For information about specifying and updating task parameters, see
 -- RegisterTaskWithMaintenanceWindow and UpdateMaintenanceWindowTask.
 --
--- @LoggingInfo@ has been deprecated. To specify an S3 bucket to contain
--- logs, instead use the @OutputS3BucketName@ and @OutputS3KeyPrefix@
--- options in the @TaskInvocationParameters@ structure. For information
--- about how Systems Manager handles these options for the supported
+-- @LoggingInfo@ has been deprecated. To specify an Amazon Simple Storage
+-- Service (Amazon S3) bucket to contain logs, instead use the
+-- @OutputS3BucketName@ and @OutputS3KeyPrefix@ options in the
+-- @TaskInvocationParameters@ structure. For information about how Amazon
+-- Web Services Systems Manager handles these options for the supported
 -- maintenance window task types, see
 -- MaintenanceWindowTaskInvocationParameters.
 --
@@ -81,8 +83,8 @@ data MaintenanceWindowAutomationParameters = MaintenanceWindowAutomationParamete
 -- Manager handles these options for the supported maintenance window task
 -- types, see MaintenanceWindowTaskInvocationParameters.
 --
--- For AUTOMATION task types, Systems Manager ignores any values specified
--- for these parameters.
+-- For @AUTOMATION@ task types, Amazon Web Services Systems Manager ignores
+-- any values specified for these parameters.
 newMaintenanceWindowAutomationParameters ::
   MaintenanceWindowAutomationParameters
 newMaintenanceWindowAutomationParameters =
@@ -92,19 +94,20 @@ newMaintenanceWindowAutomationParameters =
       parameters = Prelude.Nothing
     }
 
--- | The version of an Automation document to use during task execution.
+-- | The version of an Automation runbook to use during task execution.
 maintenanceWindowAutomationParameters_documentVersion :: Lens.Lens' MaintenanceWindowAutomationParameters (Prelude.Maybe Prelude.Text)
 maintenanceWindowAutomationParameters_documentVersion = Lens.lens (\MaintenanceWindowAutomationParameters' {documentVersion} -> documentVersion) (\s@MaintenanceWindowAutomationParameters' {} a -> s {documentVersion = a} :: MaintenanceWindowAutomationParameters)
 
--- | The parameters for the AUTOMATION task.
+-- | The parameters for the @AUTOMATION@ task.
 --
 -- For information about specifying and updating task parameters, see
 -- RegisterTaskWithMaintenanceWindow and UpdateMaintenanceWindowTask.
 --
--- @LoggingInfo@ has been deprecated. To specify an S3 bucket to contain
--- logs, instead use the @OutputS3BucketName@ and @OutputS3KeyPrefix@
--- options in the @TaskInvocationParameters@ structure. For information
--- about how Systems Manager handles these options for the supported
+-- @LoggingInfo@ has been deprecated. To specify an Amazon Simple Storage
+-- Service (Amazon S3) bucket to contain logs, instead use the
+-- @OutputS3BucketName@ and @OutputS3KeyPrefix@ options in the
+-- @TaskInvocationParameters@ structure. For information about how Amazon
+-- Web Services Systems Manager handles these options for the supported
 -- maintenance window task types, see
 -- MaintenanceWindowTaskInvocationParameters.
 --
@@ -114,8 +117,8 @@ maintenanceWindowAutomationParameters_documentVersion = Lens.lens (\MaintenanceW
 -- Manager handles these options for the supported maintenance window task
 -- types, see MaintenanceWindowTaskInvocationParameters.
 --
--- For AUTOMATION task types, Systems Manager ignores any values specified
--- for these parameters.
+-- For @AUTOMATION@ task types, Amazon Web Services Systems Manager ignores
+-- any values specified for these parameters.
 maintenanceWindowAutomationParameters_parameters :: Lens.Lens' MaintenanceWindowAutomationParameters (Prelude.Maybe (Prelude.HashMap Prelude.Text [Prelude.Text]))
 maintenanceWindowAutomationParameters_parameters = Lens.lens (\MaintenanceWindowAutomationParameters' {parameters} -> parameters) (\s@MaintenanceWindowAutomationParameters' {} a -> s {parameters = a} :: MaintenanceWindowAutomationParameters) Prelude.. Lens.mapping Lens._Coerce
 

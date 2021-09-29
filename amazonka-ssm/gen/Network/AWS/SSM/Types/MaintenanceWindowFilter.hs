@@ -23,7 +23,21 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Filter used in the request. Supported filter keys are Name and Enabled.
+-- | Filter used in the request. Supported filter keys depend on the API
+-- operation that includes the filter. API operations that use
+-- @MaintenanceWindowFilter>@ include the following:
+--
+-- -   DescribeMaintenanceWindowExecutions
+--
+-- -   DescribeMaintenanceWindowExecutionTaskInvocations
+--
+-- -   DescribeMaintenanceWindowExecutionTasks
+--
+-- -   DescribeMaintenanceWindows
+--
+-- -   DescribeMaintenanceWindowTargets
+--
+-- -   DescribeMaintenanceWindowTasks
 --
 -- /See:/ 'newMaintenanceWindowFilter' smart constructor.
 data MaintenanceWindowFilter = MaintenanceWindowFilter'

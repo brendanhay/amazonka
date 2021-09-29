@@ -23,7 +23,7 @@
 -- Lists the properties of available patches organized by product, product
 -- family, classification, severity, and other properties of available
 -- patches. You can use the reported properties in the filters you specify
--- in requests for actions such as CreatePatchBaseline,
+-- in requests for operations such as CreatePatchBaseline,
 -- UpdatePatchBaseline, DescribeAvailablePatches, and
 -- DescribePatchBaselines.
 --
@@ -31,35 +31,35 @@
 -- for each major operating system type:
 --
 -- [AMAZON_LINUX]
---     Valid properties: PRODUCT, CLASSIFICATION, SEVERITY
+--     Valid properties: @PRODUCT@ | @CLASSIFICATION@ | @SEVERITY@
 --
 -- [AMAZON_LINUX_2]
---     Valid properties: PRODUCT, CLASSIFICATION, SEVERITY
+--     Valid properties: @PRODUCT@ | @CLASSIFICATION@ | @SEVERITY@
 --
 -- [CENTOS]
---     Valid properties: PRODUCT, CLASSIFICATION, SEVERITY
+--     Valid properties: @PRODUCT@ | @CLASSIFICATION@ | @SEVERITY@
 --
 -- [DEBIAN]
---     Valid properties: PRODUCT, PRIORITY
+--     Valid properties: @PRODUCT@ | @PRIORITY@
 --
 -- [MACOS]
---     Valid properties: PRODUCT, CLASSIFICATION
+--     Valid properties: @PRODUCT@ | @CLASSIFICATION@
 --
 -- [ORACLE_LINUX]
---     Valid properties: PRODUCT, CLASSIFICATION, SEVERITY
+--     Valid properties: @PRODUCT@ | @CLASSIFICATION@ | @SEVERITY@
 --
 -- [REDHAT_ENTERPRISE_LINUX]
---     Valid properties: PRODUCT, CLASSIFICATION, SEVERITY
+--     Valid properties: @PRODUCT@ | @CLASSIFICATION@ | @SEVERITY@
 --
 -- [SUSE]
---     Valid properties: PRODUCT, CLASSIFICATION, SEVERITY
+--     Valid properties: @PRODUCT@ | @CLASSIFICATION@ | @SEVERITY@
 --
 -- [UBUNTU]
---     Valid properties: PRODUCT, PRIORITY
+--     Valid properties: @PRODUCT@ | @PRIORITY@
 --
 -- [WINDOWS]
---     Valid properties: PRODUCT, PRODUCT_FAMILY, CLASSIFICATION,
---     MSRC_SEVERITY
+--     Valid properties: @PRODUCT@ | @PRODUCT_FAMILY@ | @CLASSIFICATION@ |
+--     @MSRC_SEVERITY@
 --
 -- This operation returns paginated results.
 module Network.AWS.SSM.DescribePatchProperties
@@ -102,8 +102,8 @@ data DescribePatchProperties = DescribePatchProperties'
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Indicates whether to list patches for the Windows operating system or
-    -- for Microsoft applications. Not applicable for the Linux or macOS
-    -- operating systems.
+    -- for applications released by Microsoft. Not applicable for the Linux or
+    -- macOS operating systems.
     patchSet :: Prelude.Maybe PatchSet,
     -- | The operating system type for which to list patches.
     operatingSystem :: OperatingSystem,
@@ -128,8 +128,8 @@ data DescribePatchProperties = DescribePatchProperties'
 -- next set of results.
 --
 -- 'patchSet', 'describePatchProperties_patchSet' - Indicates whether to list patches for the Windows operating system or
--- for Microsoft applications. Not applicable for the Linux or macOS
--- operating systems.
+-- for applications released by Microsoft. Not applicable for the Linux or
+-- macOS operating systems.
 --
 -- 'operatingSystem', 'describePatchProperties_operatingSystem' - The operating system type for which to list patches.
 --
@@ -164,8 +164,8 @@ describePatchProperties_maxResults :: Lens.Lens' DescribePatchProperties (Prelud
 describePatchProperties_maxResults = Lens.lens (\DescribePatchProperties' {maxResults} -> maxResults) (\s@DescribePatchProperties' {} a -> s {maxResults = a} :: DescribePatchProperties)
 
 -- | Indicates whether to list patches for the Windows operating system or
--- for Microsoft applications. Not applicable for the Linux or macOS
--- operating systems.
+-- for applications released by Microsoft. Not applicable for the Linux or
+-- macOS operating systems.
 describePatchProperties_patchSet :: Lens.Lens' DescribePatchProperties (Prelude.Maybe PatchSet)
 describePatchProperties_patchSet = Lens.lens (\DescribePatchProperties' {patchSet} -> patchSet) (\s@DescribePatchProperties' {} a -> s {patchSet = a} :: DescribePatchProperties)
 

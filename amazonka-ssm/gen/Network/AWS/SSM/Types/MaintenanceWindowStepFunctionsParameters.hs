@@ -23,15 +23,16 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The parameters for a STEP_FUNCTIONS task.
+-- | The parameters for a @STEP_FUNCTIONS@ task.
 --
 -- For information about specifying and updating task parameters, see
 -- RegisterTaskWithMaintenanceWindow and UpdateMaintenanceWindowTask.
 --
--- @LoggingInfo@ has been deprecated. To specify an S3 bucket to contain
--- logs, instead use the @OutputS3BucketName@ and @OutputS3KeyPrefix@
--- options in the @TaskInvocationParameters@ structure. For information
--- about how Systems Manager handles these options for the supported
+-- @LoggingInfo@ has been deprecated. To specify an Amazon Simple Storage
+-- Service (Amazon S3) bucket to contain logs, instead use the
+-- @OutputS3BucketName@ and @OutputS3KeyPrefix@ options in the
+-- @TaskInvocationParameters@ structure. For information about how Amazon
+-- Web Services Systems Manager handles these options for the supported
 -- maintenance window task types, see
 -- MaintenanceWindowTaskInvocationParameters.
 --
@@ -46,9 +47,9 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMaintenanceWindowStepFunctionsParameters' smart constructor.
 data MaintenanceWindowStepFunctionsParameters = MaintenanceWindowStepFunctionsParameters'
-  { -- | The inputs for the STEP_FUNCTIONS task.
+  { -- | The inputs for the @STEP_FUNCTIONS@ task.
     input :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | The name of the STEP_FUNCTIONS task.
+    -- | The name of the @STEP_FUNCTIONS@ task.
     name :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -61,9 +62,9 @@ data MaintenanceWindowStepFunctionsParameters = MaintenanceWindowStepFunctionsPa
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'input', 'maintenanceWindowStepFunctionsParameters_input' - The inputs for the STEP_FUNCTIONS task.
+-- 'input', 'maintenanceWindowStepFunctionsParameters_input' - The inputs for the @STEP_FUNCTIONS@ task.
 --
--- 'name', 'maintenanceWindowStepFunctionsParameters_name' - The name of the STEP_FUNCTIONS task.
+-- 'name', 'maintenanceWindowStepFunctionsParameters_name' - The name of the @STEP_FUNCTIONS@ task.
 newMaintenanceWindowStepFunctionsParameters ::
   MaintenanceWindowStepFunctionsParameters
 newMaintenanceWindowStepFunctionsParameters =
@@ -73,11 +74,11 @@ newMaintenanceWindowStepFunctionsParameters =
       name = Prelude.Nothing
     }
 
--- | The inputs for the STEP_FUNCTIONS task.
+-- | The inputs for the @STEP_FUNCTIONS@ task.
 maintenanceWindowStepFunctionsParameters_input :: Lens.Lens' MaintenanceWindowStepFunctionsParameters (Prelude.Maybe Prelude.Text)
 maintenanceWindowStepFunctionsParameters_input = Lens.lens (\MaintenanceWindowStepFunctionsParameters' {input} -> input) (\s@MaintenanceWindowStepFunctionsParameters' {} a -> s {input = a} :: MaintenanceWindowStepFunctionsParameters) Prelude.. Lens.mapping Core._Sensitive
 
--- | The name of the STEP_FUNCTIONS task.
+-- | The name of the @STEP_FUNCTIONS@ task.
 maintenanceWindowStepFunctionsParameters_name :: Lens.Lens' MaintenanceWindowStepFunctionsParameters (Prelude.Maybe Prelude.Text)
 maintenanceWindowStepFunctionsParameters_name = Lens.lens (\MaintenanceWindowStepFunctionsParameters' {name} -> name) (\s@MaintenanceWindowStepFunctionsParameters' {} a -> s {name = a} :: MaintenanceWindowStepFunctionsParameters)
 

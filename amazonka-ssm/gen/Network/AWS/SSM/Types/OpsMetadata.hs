@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newOpsMetadata' smart constructor.
 data OpsMetadata = OpsMetadata'
-  { -- | The ID of the Application Manager application.
-    resourceId :: Prelude.Maybe Prelude.Text,
-    -- | The date the OpsMetadata object was last updated.
+  { -- | The date the OpsMetadata object was last updated.
     lastModifiedDate :: Prelude.Maybe Core.POSIX,
+    -- | The ID of the Application Manager application.
+    resourceId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the OpsMetadata Object or blob.
     opsMetadataArn :: Prelude.Maybe Prelude.Text,
     -- | The date the OpsMetadata objects was created.
@@ -48,9 +48,9 @@ data OpsMetadata = OpsMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceId', 'opsMetadata_resourceId' - The ID of the Application Manager application.
---
 -- 'lastModifiedDate', 'opsMetadata_lastModifiedDate' - The date the OpsMetadata object was last updated.
+--
+-- 'resourceId', 'opsMetadata_resourceId' - The ID of the Application Manager application.
 --
 -- 'opsMetadataArn', 'opsMetadata_opsMetadataArn' - The Amazon Resource Name (ARN) of the OpsMetadata Object or blob.
 --
@@ -61,20 +61,20 @@ newOpsMetadata ::
   OpsMetadata
 newOpsMetadata =
   OpsMetadata'
-    { resourceId = Prelude.Nothing,
-      lastModifiedDate = Prelude.Nothing,
+    { lastModifiedDate = Prelude.Nothing,
+      resourceId = Prelude.Nothing,
       opsMetadataArn = Prelude.Nothing,
       creationDate = Prelude.Nothing,
       lastModifiedUser = Prelude.Nothing
     }
 
--- | The ID of the Application Manager application.
-opsMetadata_resourceId :: Lens.Lens' OpsMetadata (Prelude.Maybe Prelude.Text)
-opsMetadata_resourceId = Lens.lens (\OpsMetadata' {resourceId} -> resourceId) (\s@OpsMetadata' {} a -> s {resourceId = a} :: OpsMetadata)
-
 -- | The date the OpsMetadata object was last updated.
 opsMetadata_lastModifiedDate :: Lens.Lens' OpsMetadata (Prelude.Maybe Prelude.UTCTime)
 opsMetadata_lastModifiedDate = Lens.lens (\OpsMetadata' {lastModifiedDate} -> lastModifiedDate) (\s@OpsMetadata' {} a -> s {lastModifiedDate = a} :: OpsMetadata) Prelude.. Lens.mapping Core._Time
+
+-- | The ID of the Application Manager application.
+opsMetadata_resourceId :: Lens.Lens' OpsMetadata (Prelude.Maybe Prelude.Text)
+opsMetadata_resourceId = Lens.lens (\OpsMetadata' {resourceId} -> resourceId) (\s@OpsMetadata' {} a -> s {resourceId = a} :: OpsMetadata)
 
 -- | The Amazon Resource Name (ARN) of the OpsMetadata Object or blob.
 opsMetadata_opsMetadataArn :: Lens.Lens' OpsMetadata (Prelude.Maybe Prelude.Text)
@@ -94,8 +94,8 @@ instance Core.FromJSON OpsMetadata where
       "OpsMetadata"
       ( \x ->
           OpsMetadata'
-            Prelude.<$> (x Core..:? "ResourceId")
-            Prelude.<*> (x Core..:? "LastModifiedDate")
+            Prelude.<$> (x Core..:? "LastModifiedDate")
+            Prelude.<*> (x Core..:? "ResourceId")
             Prelude.<*> (x Core..:? "OpsMetadataArn")
             Prelude.<*> (x Core..:? "CreationDate")
             Prelude.<*> (x Core..:? "LastModifiedUser")

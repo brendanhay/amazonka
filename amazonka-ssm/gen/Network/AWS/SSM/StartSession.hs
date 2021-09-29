@@ -24,14 +24,15 @@
 -- Session Manager session. Returns a URL and token that can be used to
 -- open a WebSocket connection for sending input and receiving outputs.
 --
--- AWS CLI usage: @start-session@ is an interactive command that requires
--- the Session Manager plugin to be installed on the client machine making
--- the call. For information, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html Install the Session Manager plugin for the AWS CLI>
--- in the /AWS Systems Manager User Guide/.
+-- Amazon Web Services CLI usage: @start-session@ is an interactive command
+-- that requires the Session Manager plugin to be installed on the client
+-- machine making the call. For information, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html Install the Session Manager plugin for the Amazon Web Services CLI>
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
--- AWS Tools for PowerShell usage: Start-SSMSession is not currently
--- supported by AWS Tools for PowerShell on Windows local machines.
+-- Amazon Web Services Tools for PowerShell usage: Start-SSMSession isn\'t
+-- currently supported by Amazon Web Services Tools for PowerShell on
+-- Windows local machines.
 module Network.AWS.SSM.StartSession
   ( -- * Creating a Request
     StartSession (..),
@@ -174,12 +175,12 @@ data StartSessionResponse = StartSessionResponse'
     -- uses to send commands and receive output from the instance. Format:
     -- @wss:\/\/ssmmessages.region.amazonaws.com\/v1\/data-channel\/session-id?stream=(input|output)@
     --
-    -- __region__ represents the Region identifier for an AWS Region supported
-    -- by AWS Systems Manager, such as @us-east-2@ for the US East (Ohio)
-    -- Region. For a list of supported __region__ values, see the __Region__
-    -- column in
-    -- <http://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region Systems Manager service endpoints>
-    -- in the /AWS General Reference/.
+    -- __region__ represents the Region identifier for an Amazon Web Services
+    -- Region supported by Amazon Web Services Systems Manager, such as
+    -- @us-east-2@ for the US East (Ohio) Region. For a list of supported
+    -- __region__ values, see the __Region__ column in
+    -- <https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region Systems Manager service endpoints>
+    -- in the /Amazon Web Services General Reference/.
     --
     -- __session-id__ represents the ID of a Session Manager session, such as
     -- @1a2b3c4dEXAMPLE@.
@@ -206,12 +207,12 @@ data StartSessionResponse = StartSessionResponse'
 -- uses to send commands and receive output from the instance. Format:
 -- @wss:\/\/ssmmessages.region.amazonaws.com\/v1\/data-channel\/session-id?stream=(input|output)@
 --
--- __region__ represents the Region identifier for an AWS Region supported
--- by AWS Systems Manager, such as @us-east-2@ for the US East (Ohio)
--- Region. For a list of supported __region__ values, see the __Region__
--- column in
--- <http://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region Systems Manager service endpoints>
--- in the /AWS General Reference/.
+-- __region__ represents the Region identifier for an Amazon Web Services
+-- Region supported by Amazon Web Services Systems Manager, such as
+-- @us-east-2@ for the US East (Ohio) Region. For a list of supported
+-- __region__ values, see the __Region__ column in
+-- <https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region Systems Manager service endpoints>
+-- in the /Amazon Web Services General Reference/.
 --
 -- __session-id__ represents the ID of a Session Manager session, such as
 -- @1a2b3c4dEXAMPLE@.
@@ -240,12 +241,12 @@ startSessionResponse_sessionId = Lens.lens (\StartSessionResponse' {sessionId} -
 -- uses to send commands and receive output from the instance. Format:
 -- @wss:\/\/ssmmessages.region.amazonaws.com\/v1\/data-channel\/session-id?stream=(input|output)@
 --
--- __region__ represents the Region identifier for an AWS Region supported
--- by AWS Systems Manager, such as @us-east-2@ for the US East (Ohio)
--- Region. For a list of supported __region__ values, see the __Region__
--- column in
--- <http://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region Systems Manager service endpoints>
--- in the /AWS General Reference/.
+-- __region__ represents the Region identifier for an Amazon Web Services
+-- Region supported by Amazon Web Services Systems Manager, such as
+-- @us-east-2@ for the US East (Ohio) Region. For a list of supported
+-- __region__ values, see the __Region__ column in
+-- <https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region Systems Manager service endpoints>
+-- in the /Amazon Web Services General Reference/.
 --
 -- __session-id__ represents the ID of a Session Manager session, such as
 -- @1a2b3c4dEXAMPLE@.

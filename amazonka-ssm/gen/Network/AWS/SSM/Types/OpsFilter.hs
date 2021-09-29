@@ -24,7 +24,7 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.OpsFilterOperatorType
 
--- | A filter for viewing OpsItem summaries.
+-- | A filter for viewing OpsData summaries.
 --
 -- /See:/ 'newOpsFilter' smart constructor.
 data OpsFilter = OpsFilter'

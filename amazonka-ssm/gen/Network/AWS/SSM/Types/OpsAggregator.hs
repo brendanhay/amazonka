@@ -24,24 +24,23 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.OpsFilter
 
--- | One or more aggregators for viewing counts of OpsItems using different
+-- | One or more aggregators for viewing counts of OpsData using different
 -- dimensions such as @Source@, @CreatedTime@, or @Source and CreatedTime@,
 -- to name a few.
 --
 -- /See:/ 'newOpsAggregator' smart constructor.
 data OpsAggregator = OpsAggregator'
-  { -- | The data type name to use for viewing counts of OpsItems.
+  { -- | The data type name to use for viewing counts of OpsData.
     typeName :: Prelude.Maybe Prelude.Text,
-    -- | The name of an OpsItem attribute on which to limit the count of
-    -- OpsItems.
+    -- | The name of an OpsData attribute on which to limit the count of OpsData.
     attributeName :: Prelude.Maybe Prelude.Text,
     -- | The aggregator value.
     values :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | Either a Range or Count aggregator for limiting an OpsItem summary.
+    -- | Either a @Range@ or @Count@ aggregator for limiting an OpsData summary.
     aggregatorType :: Prelude.Maybe Prelude.Text,
     -- | The aggregator filters.
     filters :: Prelude.Maybe (Prelude.NonEmpty OpsFilter),
-    -- | A nested aggregator for viewing counts of OpsItems.
+    -- | A nested aggregator for viewing counts of OpsData.
     aggregators :: Prelude.Maybe (Prelude.NonEmpty OpsAggregator)
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -54,18 +53,17 @@ data OpsAggregator = OpsAggregator'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'typeName', 'opsAggregator_typeName' - The data type name to use for viewing counts of OpsItems.
+-- 'typeName', 'opsAggregator_typeName' - The data type name to use for viewing counts of OpsData.
 --
--- 'attributeName', 'opsAggregator_attributeName' - The name of an OpsItem attribute on which to limit the count of
--- OpsItems.
+-- 'attributeName', 'opsAggregator_attributeName' - The name of an OpsData attribute on which to limit the count of OpsData.
 --
 -- 'values', 'opsAggregator_values' - The aggregator value.
 --
--- 'aggregatorType', 'opsAggregator_aggregatorType' - Either a Range or Count aggregator for limiting an OpsItem summary.
+-- 'aggregatorType', 'opsAggregator_aggregatorType' - Either a @Range@ or @Count@ aggregator for limiting an OpsData summary.
 --
 -- 'filters', 'opsAggregator_filters' - The aggregator filters.
 --
--- 'aggregators', 'opsAggregator_aggregators' - A nested aggregator for viewing counts of OpsItems.
+-- 'aggregators', 'opsAggregator_aggregators' - A nested aggregator for viewing counts of OpsData.
 newOpsAggregator ::
   OpsAggregator
 newOpsAggregator =
@@ -78,12 +76,11 @@ newOpsAggregator =
       aggregators = Prelude.Nothing
     }
 
--- | The data type name to use for viewing counts of OpsItems.
+-- | The data type name to use for viewing counts of OpsData.
 opsAggregator_typeName :: Lens.Lens' OpsAggregator (Prelude.Maybe Prelude.Text)
 opsAggregator_typeName = Lens.lens (\OpsAggregator' {typeName} -> typeName) (\s@OpsAggregator' {} a -> s {typeName = a} :: OpsAggregator)
 
--- | The name of an OpsItem attribute on which to limit the count of
--- OpsItems.
+-- | The name of an OpsData attribute on which to limit the count of OpsData.
 opsAggregator_attributeName :: Lens.Lens' OpsAggregator (Prelude.Maybe Prelude.Text)
 opsAggregator_attributeName = Lens.lens (\OpsAggregator' {attributeName} -> attributeName) (\s@OpsAggregator' {} a -> s {attributeName = a} :: OpsAggregator)
 
@@ -91,7 +88,7 @@ opsAggregator_attributeName = Lens.lens (\OpsAggregator' {attributeName} -> attr
 opsAggregator_values :: Lens.Lens' OpsAggregator (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 opsAggregator_values = Lens.lens (\OpsAggregator' {values} -> values) (\s@OpsAggregator' {} a -> s {values = a} :: OpsAggregator) Prelude.. Lens.mapping Lens._Coerce
 
--- | Either a Range or Count aggregator for limiting an OpsItem summary.
+-- | Either a @Range@ or @Count@ aggregator for limiting an OpsData summary.
 opsAggregator_aggregatorType :: Lens.Lens' OpsAggregator (Prelude.Maybe Prelude.Text)
 opsAggregator_aggregatorType = Lens.lens (\OpsAggregator' {aggregatorType} -> aggregatorType) (\s@OpsAggregator' {} a -> s {aggregatorType = a} :: OpsAggregator)
 
@@ -99,7 +96,7 @@ opsAggregator_aggregatorType = Lens.lens (\OpsAggregator' {aggregatorType} -> ag
 opsAggregator_filters :: Lens.Lens' OpsAggregator (Prelude.Maybe (Prelude.NonEmpty OpsFilter))
 opsAggregator_filters = Lens.lens (\OpsAggregator' {filters} -> filters) (\s@OpsAggregator' {} a -> s {filters = a} :: OpsAggregator) Prelude.. Lens.mapping Lens._Coerce
 
--- | A nested aggregator for viewing counts of OpsItems.
+-- | A nested aggregator for viewing counts of OpsData.
 opsAggregator_aggregators :: Lens.Lens' OpsAggregator (Prelude.Maybe (Prelude.NonEmpty OpsAggregator))
 opsAggregator_aggregators = Lens.lens (\OpsAggregator' {aggregators} -> aggregators) (\s@OpsAggregator' {} a -> s {aggregators = a} :: OpsAggregator) Prelude.. Lens.mapping Lens._Coerce
 

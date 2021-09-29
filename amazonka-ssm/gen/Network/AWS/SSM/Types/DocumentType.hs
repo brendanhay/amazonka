@@ -29,6 +29,8 @@ module Network.AWS.SSM.Types.DocumentType
         DocumentType_DeploymentStrategy,
         DocumentType_Package,
         DocumentType_Policy,
+        DocumentType_ProblemAnalysis,
+        DocumentType_ProblemAnalysisTemplate,
         DocumentType_Session
       ),
   )
@@ -92,6 +94,12 @@ pattern DocumentType_Package = DocumentType' "Package"
 pattern DocumentType_Policy :: DocumentType
 pattern DocumentType_Policy = DocumentType' "Policy"
 
+pattern DocumentType_ProblemAnalysis :: DocumentType
+pattern DocumentType_ProblemAnalysis = DocumentType' "ProblemAnalysis"
+
+pattern DocumentType_ProblemAnalysisTemplate :: DocumentType
+pattern DocumentType_ProblemAnalysisTemplate = DocumentType' "ProblemAnalysisTemplate"
+
 pattern DocumentType_Session :: DocumentType
 pattern DocumentType_Session = DocumentType' "Session"
 
@@ -105,6 +113,8 @@ pattern DocumentType_Session = DocumentType' "Session"
   DocumentType_DeploymentStrategy,
   DocumentType_Package,
   DocumentType_Policy,
+  DocumentType_ProblemAnalysis,
+  DocumentType_ProblemAnalysisTemplate,
   DocumentType_Session,
   DocumentType'
   #-}

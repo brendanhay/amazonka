@@ -62,11 +62,11 @@ data DescribeInstancePatchStatesForPatchGroup = DescribeInstancePatchStatesForPa
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Each entry in the array is a structure containing:
     --
-    -- Key (string between 1 and 200 characters)
+    -- -   Key (string between 1 and 200 characters)
     --
-    -- Values (array containing a single string)
+    -- -   Values (array containing a single string)
     --
-    -- Type (string \"Equal\", \"NotEqual\", \"LessThan\", \"GreaterThan\")
+    -- -   Type (string \"Equal\", \"NotEqual\", \"LessThan\", \"GreaterThan\")
     filters :: Prelude.Maybe [InstancePatchStateFilter],
     -- | The name of the patch group for which the patch state information should
     -- be retrieved.
@@ -89,11 +89,11 @@ data DescribeInstancePatchStatesForPatchGroup = DescribeInstancePatchStatesForPa
 --
 -- 'filters', 'describeInstancePatchStatesForPatchGroup_filters' - Each entry in the array is a structure containing:
 --
--- Key (string between 1 and 200 characters)
+-- -   Key (string between 1 and 200 characters)
 --
--- Values (array containing a single string)
+-- -   Values (array containing a single string)
 --
--- Type (string \"Equal\", \"NotEqual\", \"LessThan\", \"GreaterThan\")
+-- -   Type (string \"Equal\", \"NotEqual\", \"LessThan\", \"GreaterThan\")
 --
 -- 'patchGroup', 'describeInstancePatchStatesForPatchGroup_patchGroup' - The name of the patch group for which the patch state information should
 -- be retrieved.
@@ -122,11 +122,11 @@ describeInstancePatchStatesForPatchGroup_maxResults = Lens.lens (\DescribeInstan
 
 -- | Each entry in the array is a structure containing:
 --
--- Key (string between 1 and 200 characters)
+-- -   Key (string between 1 and 200 characters)
 --
--- Values (array containing a single string)
+-- -   Values (array containing a single string)
 --
--- Type (string \"Equal\", \"NotEqual\", \"LessThan\", \"GreaterThan\")
+-- -   Type (string \"Equal\", \"NotEqual\", \"LessThan\", \"GreaterThan\")
 describeInstancePatchStatesForPatchGroup_filters :: Lens.Lens' DescribeInstancePatchStatesForPatchGroup (Prelude.Maybe [InstancePatchStateFilter])
 describeInstancePatchStatesForPatchGroup_filters = Lens.lens (\DescribeInstancePatchStatesForPatchGroup' {filters} -> filters) (\s@DescribeInstancePatchStatesForPatchGroup' {} a -> s {filters = a} :: DescribeInstancePatchStatesForPatchGroup) Prelude.. Lens.mapping Lens._Coerce
 

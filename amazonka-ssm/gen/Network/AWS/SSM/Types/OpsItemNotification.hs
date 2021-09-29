@@ -27,8 +27,9 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newOpsItemNotification' smart constructor.
 data OpsItemNotification = OpsItemNotification'
-  { -- | The Amazon Resource Name (ARN) of an SNS topic where notifications are
-    -- sent when this OpsItem is edited or changed.
+  { -- | The Amazon Resource Name (ARN) of an Amazon Simple Notification Service
+    -- (Amazon SNS) topic where notifications are sent when this OpsItem is
+    -- edited or changed.
     arn :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,15 +42,17 @@ data OpsItemNotification = OpsItemNotification'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'opsItemNotification_arn' - The Amazon Resource Name (ARN) of an SNS topic where notifications are
--- sent when this OpsItem is edited or changed.
+-- 'arn', 'opsItemNotification_arn' - The Amazon Resource Name (ARN) of an Amazon Simple Notification Service
+-- (Amazon SNS) topic where notifications are sent when this OpsItem is
+-- edited or changed.
 newOpsItemNotification ::
   OpsItemNotification
 newOpsItemNotification =
   OpsItemNotification' {arn = Prelude.Nothing}
 
--- | The Amazon Resource Name (ARN) of an SNS topic where notifications are
--- sent when this OpsItem is edited or changed.
+-- | The Amazon Resource Name (ARN) of an Amazon Simple Notification Service
+-- (Amazon SNS) topic where notifications are sent when this OpsItem is
+-- edited or changed.
 opsItemNotification_arn :: Lens.Lens' OpsItemNotification (Prelude.Maybe Prelude.Text)
 opsItemNotification_arn = Lens.lens (\OpsItemNotification' {arn} -> arn) (\s@OpsItemNotification' {} a -> s {arn = a} :: OpsItemNotification)
 

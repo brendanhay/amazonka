@@ -66,7 +66,7 @@ data ListResourceDataSync = ListResourceDataSync'
   { -- | View a list of resource data syncs according to the sync type. Specify
     -- @SyncToDestination@ to view resource data syncs that synchronize data to
     -- an Amazon S3 bucket. Specify @SyncFromSource@ to view resource data
-    -- syncs from AWS Organizations or from multiple AWS Regions.
+    -- syncs from Organizations or from multiple Amazon Web Services Regions.
     syncType :: Prelude.Maybe Prelude.Text,
     -- | A token to start the list. Use this token to get the next set of
     -- results.
@@ -89,7 +89,7 @@ data ListResourceDataSync = ListResourceDataSync'
 -- 'syncType', 'listResourceDataSync_syncType' - View a list of resource data syncs according to the sync type. Specify
 -- @SyncToDestination@ to view resource data syncs that synchronize data to
 -- an Amazon S3 bucket. Specify @SyncFromSource@ to view resource data
--- syncs from AWS Organizations or from multiple AWS Regions.
+-- syncs from Organizations or from multiple Amazon Web Services Regions.
 --
 -- 'nextToken', 'listResourceDataSync_nextToken' - A token to start the list. Use this token to get the next set of
 -- results.
@@ -109,7 +109,7 @@ newListResourceDataSync =
 -- | View a list of resource data syncs according to the sync type. Specify
 -- @SyncToDestination@ to view resource data syncs that synchronize data to
 -- an Amazon S3 bucket. Specify @SyncFromSource@ to view resource data
--- syncs from AWS Organizations or from multiple AWS Regions.
+-- syncs from Organizations or from multiple Amazon Web Services Regions.
 listResourceDataSync_syncType :: Lens.Lens' ListResourceDataSync (Prelude.Maybe Prelude.Text)
 listResourceDataSync_syncType = Lens.lens (\ListResourceDataSync' {syncType} -> syncType) (\s@ListResourceDataSync' {} a -> s {syncType = a} :: ListResourceDataSync)
 
@@ -202,7 +202,7 @@ data ListResourceDataSyncResponse = ListResourceDataSyncResponse'
   { -- | The token for the next set of items to return. Use this token to get the
     -- next set of results.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | A list of your current Resource Data Sync configurations and their
+    -- | A list of your current resource data sync configurations and their
     -- statuses.
     resourceDataSyncItems :: Prelude.Maybe [ResourceDataSyncItem],
     -- | The response's http status code.
@@ -221,7 +221,7 @@ data ListResourceDataSyncResponse = ListResourceDataSyncResponse'
 -- 'nextToken', 'listResourceDataSyncResponse_nextToken' - The token for the next set of items to return. Use this token to get the
 -- next set of results.
 --
--- 'resourceDataSyncItems', 'listResourceDataSyncResponse_resourceDataSyncItems' - A list of your current Resource Data Sync configurations and their
+-- 'resourceDataSyncItems', 'listResourceDataSyncResponse_resourceDataSyncItems' - A list of your current resource data sync configurations and their
 -- statuses.
 --
 -- 'httpStatus', 'listResourceDataSyncResponse_httpStatus' - The response's http status code.
@@ -242,7 +242,7 @@ newListResourceDataSyncResponse pHttpStatus_ =
 listResourceDataSyncResponse_nextToken :: Lens.Lens' ListResourceDataSyncResponse (Prelude.Maybe Prelude.Text)
 listResourceDataSyncResponse_nextToken = Lens.lens (\ListResourceDataSyncResponse' {nextToken} -> nextToken) (\s@ListResourceDataSyncResponse' {} a -> s {nextToken = a} :: ListResourceDataSyncResponse)
 
--- | A list of your current Resource Data Sync configurations and their
+-- | A list of your current resource data sync configurations and their
 -- statuses.
 listResourceDataSyncResponse_resourceDataSyncItems :: Lens.Lens' ListResourceDataSyncResponse (Prelude.Maybe [ResourceDataSyncItem])
 listResourceDataSyncResponse_resourceDataSyncItems = Lens.lens (\ListResourceDataSyncResponse' {resourceDataSyncItems} -> resourceDataSyncItems) (\s@ListResourceDataSyncResponse' {} a -> s {resourceDataSyncItems = a} :: ListResourceDataSyncResponse) Prelude.. Lens.mapping Lens._Coerce

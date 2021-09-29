@@ -68,8 +68,8 @@ data DeleteInventory = DeleteInventory'
     --
     -- DisableSchema: If you choose this option, the system ignores all
     -- inventory data for the specified version, and any earlier versions. To
-    -- enable this schema again, you must call the @PutInventory@ action for a
-    -- version greater than the disabled version.
+    -- enable this schema again, you must call the @PutInventory@ operation for
+    -- a version greater than the disabled version.
     --
     -- DeleteSchema: This option deletes the specified custom type from the
     -- Inventory service. You can recreate the schema later, if you want.
@@ -103,8 +103,8 @@ data DeleteInventory = DeleteInventory'
 --
 -- DisableSchema: If you choose this option, the system ignores all
 -- inventory data for the specified version, and any earlier versions. To
--- enable this schema again, you must call the @PutInventory@ action for a
--- version greater than the disabled version.
+-- enable this schema again, you must call the @PutInventory@ operation for
+-- a version greater than the disabled version.
 --
 -- DeleteSchema: This option deletes the specified custom type from the
 -- Inventory service. You can recreate the schema later, if you want.
@@ -140,8 +140,8 @@ deleteInventory_dryRun = Lens.lens (\DeleteInventory' {dryRun} -> dryRun) (\s@De
 --
 -- DisableSchema: If you choose this option, the system ignores all
 -- inventory data for the specified version, and any earlier versions. To
--- enable this schema again, you must call the @PutInventory@ action for a
--- version greater than the disabled version.
+-- enable this schema again, you must call the @PutInventory@ operation for
+-- a version greater than the disabled version.
 --
 -- DeleteSchema: This option deletes the specified custom type from the
 -- Inventory service. You can recreate the schema later, if you want.
@@ -211,15 +211,15 @@ instance Core.ToQuery DeleteInventory where
 data DeleteInventoryResponse = DeleteInventoryResponse'
   { -- | The name of the inventory data type specified in the request.
     typeName :: Prelude.Maybe Prelude.Text,
-    -- | Every @DeleteInventory@ action is assigned a unique ID. This option
+    -- | Every @DeleteInventory@ operation is assigned a unique ID. This option
     -- returns a unique ID. You can use this ID to query the status of a delete
     -- operation. This option is useful for ensuring that a delete operation
-    -- has completed before you begin other actions.
+    -- has completed before you begin other operations.
     deletionId :: Prelude.Maybe Prelude.Text,
     -- | A summary of the delete operation. For more information about this
     -- summary, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-custom.html#sysman-inventory-delete-summary Deleting custom inventory>
-    -- in the /AWS Systems Manager User Guide/.
+    -- in the /Amazon Web Services Systems Manager User Guide/.
     deletionSummary :: Prelude.Maybe InventoryDeletionSummary,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -236,15 +236,15 @@ data DeleteInventoryResponse = DeleteInventoryResponse'
 --
 -- 'typeName', 'deleteInventoryResponse_typeName' - The name of the inventory data type specified in the request.
 --
--- 'deletionId', 'deleteInventoryResponse_deletionId' - Every @DeleteInventory@ action is assigned a unique ID. This option
+-- 'deletionId', 'deleteInventoryResponse_deletionId' - Every @DeleteInventory@ operation is assigned a unique ID. This option
 -- returns a unique ID. You can use this ID to query the status of a delete
 -- operation. This option is useful for ensuring that a delete operation
--- has completed before you begin other actions.
+-- has completed before you begin other operations.
 --
 -- 'deletionSummary', 'deleteInventoryResponse_deletionSummary' - A summary of the delete operation. For more information about this
 -- summary, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-custom.html#sysman-inventory-delete-summary Deleting custom inventory>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
 -- 'httpStatus', 'deleteInventoryResponse_httpStatus' - The response's http status code.
 newDeleteInventoryResponse ::
@@ -264,17 +264,17 @@ newDeleteInventoryResponse pHttpStatus_ =
 deleteInventoryResponse_typeName :: Lens.Lens' DeleteInventoryResponse (Prelude.Maybe Prelude.Text)
 deleteInventoryResponse_typeName = Lens.lens (\DeleteInventoryResponse' {typeName} -> typeName) (\s@DeleteInventoryResponse' {} a -> s {typeName = a} :: DeleteInventoryResponse)
 
--- | Every @DeleteInventory@ action is assigned a unique ID. This option
+-- | Every @DeleteInventory@ operation is assigned a unique ID. This option
 -- returns a unique ID. You can use this ID to query the status of a delete
 -- operation. This option is useful for ensuring that a delete operation
--- has completed before you begin other actions.
+-- has completed before you begin other operations.
 deleteInventoryResponse_deletionId :: Lens.Lens' DeleteInventoryResponse (Prelude.Maybe Prelude.Text)
 deleteInventoryResponse_deletionId = Lens.lens (\DeleteInventoryResponse' {deletionId} -> deletionId) (\s@DeleteInventoryResponse' {} a -> s {deletionId = a} :: DeleteInventoryResponse)
 
 -- | A summary of the delete operation. For more information about this
 -- summary, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-custom.html#sysman-inventory-delete-summary Deleting custom inventory>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 deleteInventoryResponse_deletionSummary :: Lens.Lens' DeleteInventoryResponse (Prelude.Maybe InventoryDeletionSummary)
 deleteInventoryResponse_deletionSummary = Lens.lens (\DeleteInventoryResponse' {deletionSummary} -> deletionSummary) (\s@DeleteInventoryResponse' {} a -> s {deletionSummary = a} :: DeleteInventoryResponse)
 

@@ -43,8 +43,8 @@ data SessionFilter = SessionFilter'
     -- -   Target: Specify an instance to which session connections have been
     --     made.
     --
-    -- -   Owner: Specify an AWS user account to see a list of sessions started
-    --     by that user.
+    -- -   Owner: Specify an Amazon Web Services user account to see a list of
+    --     sessions started by that user.
     --
     -- -   Status: Specify a valid session status to see a list of all sessions
     --     with that status. Status values you can specify include:
@@ -89,8 +89,8 @@ data SessionFilter = SessionFilter'
 -- -   Target: Specify an instance to which session connections have been
 --     made.
 --
--- -   Owner: Specify an AWS user account to see a list of sessions started
---     by that user.
+-- -   Owner: Specify an Amazon Web Services user account to see a list of
+--     sessions started by that user.
 --
 -- -   Status: Specify a valid session status to see a list of all sessions
 --     with that status. Status values you can specify include:
@@ -134,8 +134,8 @@ sessionFilter_key = Lens.lens (\SessionFilter' {key} -> key) (\s@SessionFilter' 
 -- -   Target: Specify an instance to which session connections have been
 --     made.
 --
--- -   Owner: Specify an AWS user account to see a list of sessions started
---     by that user.
+-- -   Owner: Specify an Amazon Web Services user account to see a list of
+--     sessions started by that user.
 --
 -- -   Status: Specify a valid session status to see a list of all sessions
 --     with that status. Status values you can specify include:

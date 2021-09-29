@@ -35,9 +35,9 @@ module Network.AWS.SSM.GetPatchBaseline
 
     -- * Response Lenses
     getPatchBaselineResponse_createdDate,
+    getPatchBaselineResponse_rejectedPatches,
     getPatchBaselineResponse_baselineId,
     getPatchBaselineResponse_sources,
-    getPatchBaselineResponse_rejectedPatches,
     getPatchBaselineResponse_approvedPatchesEnableNonSecurity,
     getPatchBaselineResponse_approvedPatchesComplianceLevel,
     getPatchBaselineResponse_modifiedDate,
@@ -63,6 +63,13 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newGetPatchBaseline' smart constructor.
 data GetPatchBaseline = GetPatchBaseline'
   { -- | The ID of the patch baseline to retrieve.
+    --
+    -- To retrieve information about an Amazon Web Services managed patch
+    -- baseline, specify the full Amazon Resource Name (ARN) of the baseline.
+    -- For example, for the baseline @AWS-AmazonLinuxDefaultPatchBaseline@,
+    -- specify
+    -- @arn:aws:ssm:us-east-2:733109147000:patchbaseline\/pb-0e392de35e7c563b7@
+    -- instead of @pb-0e392de35e7c563b7@.
     baselineId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,6 +83,13 @@ data GetPatchBaseline = GetPatchBaseline'
 -- for backwards compatibility:
 --
 -- 'baselineId', 'getPatchBaseline_baselineId' - The ID of the patch baseline to retrieve.
+--
+-- To retrieve information about an Amazon Web Services managed patch
+-- baseline, specify the full Amazon Resource Name (ARN) of the baseline.
+-- For example, for the baseline @AWS-AmazonLinuxDefaultPatchBaseline@,
+-- specify
+-- @arn:aws:ssm:us-east-2:733109147000:patchbaseline\/pb-0e392de35e7c563b7@
+-- instead of @pb-0e392de35e7c563b7@.
 newGetPatchBaseline ::
   -- | 'baselineId'
   Prelude.Text ->
@@ -84,6 +98,13 @@ newGetPatchBaseline pBaselineId_ =
   GetPatchBaseline' {baselineId = pBaselineId_}
 
 -- | The ID of the patch baseline to retrieve.
+--
+-- To retrieve information about an Amazon Web Services managed patch
+-- baseline, specify the full Amazon Resource Name (ARN) of the baseline.
+-- For example, for the baseline @AWS-AmazonLinuxDefaultPatchBaseline@,
+-- specify
+-- @arn:aws:ssm:us-east-2:733109147000:patchbaseline\/pb-0e392de35e7c563b7@
+-- instead of @pb-0e392de35e7c563b7@.
 getPatchBaseline_baselineId :: Lens.Lens' GetPatchBaseline Prelude.Text
 getPatchBaseline_baselineId = Lens.lens (\GetPatchBaseline' {baselineId} -> baselineId) (\s@GetPatchBaseline' {} a -> s {baselineId = a} :: GetPatchBaseline)
 
@@ -97,11 +118,11 @@ instance Core.AWSRequest GetPatchBaseline where
       ( \s h x ->
           GetPatchBaselineResponse'
             Prelude.<$> (x Core..?> "CreatedDate")
-            Prelude.<*> (x Core..?> "BaselineId")
-            Prelude.<*> (x Core..?> "Sources" Core..!@ Prelude.mempty)
             Prelude.<*> ( x Core..?> "RejectedPatches"
                             Core..!@ Prelude.mempty
                         )
+            Prelude.<*> (x Core..?> "BaselineId")
+            Prelude.<*> (x Core..?> "Sources" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "ApprovedPatchesEnableNonSecurity")
             Prelude.<*> (x Core..?> "ApprovedPatchesComplianceLevel")
             Prelude.<*> (x Core..?> "ModifiedDate")
@@ -152,17 +173,17 @@ instance Core.ToQuery GetPatchBaseline where
 data GetPatchBaselineResponse = GetPatchBaselineResponse'
   { -- | The date the patch baseline was created.
     createdDate :: Prelude.Maybe Core.POSIX,
+    -- | A list of explicitly rejected patches for the baseline.
+    rejectedPatches :: Prelude.Maybe [Prelude.Text],
     -- | The ID of the retrieved patch baseline.
     baselineId :: Prelude.Maybe Prelude.Text,
     -- | Information about the patches to use to update the instances, including
     -- target operating systems and source repositories. Applies to Linux
     -- instances only.
     sources :: Prelude.Maybe [PatchSource],
-    -- | A list of explicitly rejected patches for the baseline.
-    rejectedPatches :: Prelude.Maybe [Prelude.Text],
     -- | Indicates whether the list of approved patches includes non-security
     -- updates that should be applied to the instances. The default value is
-    -- \'false\'. Applies to Linux instances only.
+    -- @false@. Applies to Linux instances only.
     approvedPatchesEnableNonSecurity :: Prelude.Maybe Prelude.Bool,
     -- | Returns the specified compliance severity level for approved patches in
     -- the patch baseline.
@@ -177,10 +198,10 @@ data GetPatchBaselineResponse = GetPatchBaselineResponse'
     description :: Prelude.Maybe Prelude.Text,
     -- | A list of explicitly approved patches for the baseline.
     approvedPatches :: Prelude.Maybe [Prelude.Text],
-    -- | The action specified to take on patches included in the RejectedPatches
-    -- list. A patch can be allowed only if it is a dependency of another
-    -- package, or blocked entirely along with packages that include it as a
-    -- dependency.
+    -- | The action specified to take on patches included in the
+    -- @RejectedPatches@ list. A patch can be allowed only if it is a
+    -- dependency of another package, or blocked entirely along with packages
+    -- that include it as a dependency.
     rejectedPatchesAction :: Prelude.Maybe PatchAction,
     -- | Returns the operating system specified for the patch baseline.
     operatingSystem :: Prelude.Maybe OperatingSystem,
@@ -203,17 +224,17 @@ data GetPatchBaselineResponse = GetPatchBaselineResponse'
 --
 -- 'createdDate', 'getPatchBaselineResponse_createdDate' - The date the patch baseline was created.
 --
+-- 'rejectedPatches', 'getPatchBaselineResponse_rejectedPatches' - A list of explicitly rejected patches for the baseline.
+--
 -- 'baselineId', 'getPatchBaselineResponse_baselineId' - The ID of the retrieved patch baseline.
 --
 -- 'sources', 'getPatchBaselineResponse_sources' - Information about the patches to use to update the instances, including
 -- target operating systems and source repositories. Applies to Linux
 -- instances only.
 --
--- 'rejectedPatches', 'getPatchBaselineResponse_rejectedPatches' - A list of explicitly rejected patches for the baseline.
---
 -- 'approvedPatchesEnableNonSecurity', 'getPatchBaselineResponse_approvedPatchesEnableNonSecurity' - Indicates whether the list of approved patches includes non-security
 -- updates that should be applied to the instances. The default value is
--- \'false\'. Applies to Linux instances only.
+-- @false@. Applies to Linux instances only.
 --
 -- 'approvedPatchesComplianceLevel', 'getPatchBaselineResponse_approvedPatchesComplianceLevel' - Returns the specified compliance severity level for approved patches in
 -- the patch baseline.
@@ -228,10 +249,10 @@ data GetPatchBaselineResponse = GetPatchBaselineResponse'
 --
 -- 'approvedPatches', 'getPatchBaselineResponse_approvedPatches' - A list of explicitly approved patches for the baseline.
 --
--- 'rejectedPatchesAction', 'getPatchBaselineResponse_rejectedPatchesAction' - The action specified to take on patches included in the RejectedPatches
--- list. A patch can be allowed only if it is a dependency of another
--- package, or blocked entirely along with packages that include it as a
--- dependency.
+-- 'rejectedPatchesAction', 'getPatchBaselineResponse_rejectedPatchesAction' - The action specified to take on patches included in the
+-- @RejectedPatches@ list. A patch can be allowed only if it is a
+-- dependency of another package, or blocked entirely along with packages
+-- that include it as a dependency.
 --
 -- 'operatingSystem', 'getPatchBaselineResponse_operatingSystem' - Returns the operating system specified for the patch baseline.
 --
@@ -248,9 +269,9 @@ newGetPatchBaselineResponse pHttpStatus_ =
   GetPatchBaselineResponse'
     { createdDate =
         Prelude.Nothing,
+      rejectedPatches = Prelude.Nothing,
       baselineId = Prelude.Nothing,
       sources = Prelude.Nothing,
-      rejectedPatches = Prelude.Nothing,
       approvedPatchesEnableNonSecurity =
         Prelude.Nothing,
       approvedPatchesComplianceLevel = Prelude.Nothing,
@@ -270,6 +291,10 @@ newGetPatchBaselineResponse pHttpStatus_ =
 getPatchBaselineResponse_createdDate :: Lens.Lens' GetPatchBaselineResponse (Prelude.Maybe Prelude.UTCTime)
 getPatchBaselineResponse_createdDate = Lens.lens (\GetPatchBaselineResponse' {createdDate} -> createdDate) (\s@GetPatchBaselineResponse' {} a -> s {createdDate = a} :: GetPatchBaselineResponse) Prelude.. Lens.mapping Core._Time
 
+-- | A list of explicitly rejected patches for the baseline.
+getPatchBaselineResponse_rejectedPatches :: Lens.Lens' GetPatchBaselineResponse (Prelude.Maybe [Prelude.Text])
+getPatchBaselineResponse_rejectedPatches = Lens.lens (\GetPatchBaselineResponse' {rejectedPatches} -> rejectedPatches) (\s@GetPatchBaselineResponse' {} a -> s {rejectedPatches = a} :: GetPatchBaselineResponse) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The ID of the retrieved patch baseline.
 getPatchBaselineResponse_baselineId :: Lens.Lens' GetPatchBaselineResponse (Prelude.Maybe Prelude.Text)
 getPatchBaselineResponse_baselineId = Lens.lens (\GetPatchBaselineResponse' {baselineId} -> baselineId) (\s@GetPatchBaselineResponse' {} a -> s {baselineId = a} :: GetPatchBaselineResponse)
@@ -280,13 +305,9 @@ getPatchBaselineResponse_baselineId = Lens.lens (\GetPatchBaselineResponse' {bas
 getPatchBaselineResponse_sources :: Lens.Lens' GetPatchBaselineResponse (Prelude.Maybe [PatchSource])
 getPatchBaselineResponse_sources = Lens.lens (\GetPatchBaselineResponse' {sources} -> sources) (\s@GetPatchBaselineResponse' {} a -> s {sources = a} :: GetPatchBaselineResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | A list of explicitly rejected patches for the baseline.
-getPatchBaselineResponse_rejectedPatches :: Lens.Lens' GetPatchBaselineResponse (Prelude.Maybe [Prelude.Text])
-getPatchBaselineResponse_rejectedPatches = Lens.lens (\GetPatchBaselineResponse' {rejectedPatches} -> rejectedPatches) (\s@GetPatchBaselineResponse' {} a -> s {rejectedPatches = a} :: GetPatchBaselineResponse) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Indicates whether the list of approved patches includes non-security
 -- updates that should be applied to the instances. The default value is
--- \'false\'. Applies to Linux instances only.
+-- @false@. Applies to Linux instances only.
 getPatchBaselineResponse_approvedPatchesEnableNonSecurity :: Lens.Lens' GetPatchBaselineResponse (Prelude.Maybe Prelude.Bool)
 getPatchBaselineResponse_approvedPatchesEnableNonSecurity = Lens.lens (\GetPatchBaselineResponse' {approvedPatchesEnableNonSecurity} -> approvedPatchesEnableNonSecurity) (\s@GetPatchBaselineResponse' {} a -> s {approvedPatchesEnableNonSecurity = a} :: GetPatchBaselineResponse)
 
@@ -315,10 +336,10 @@ getPatchBaselineResponse_description = Lens.lens (\GetPatchBaselineResponse' {de
 getPatchBaselineResponse_approvedPatches :: Lens.Lens' GetPatchBaselineResponse (Prelude.Maybe [Prelude.Text])
 getPatchBaselineResponse_approvedPatches = Lens.lens (\GetPatchBaselineResponse' {approvedPatches} -> approvedPatches) (\s@GetPatchBaselineResponse' {} a -> s {approvedPatches = a} :: GetPatchBaselineResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | The action specified to take on patches included in the RejectedPatches
--- list. A patch can be allowed only if it is a dependency of another
--- package, or blocked entirely along with packages that include it as a
--- dependency.
+-- | The action specified to take on patches included in the
+-- @RejectedPatches@ list. A patch can be allowed only if it is a
+-- dependency of another package, or blocked entirely along with packages
+-- that include it as a dependency.
 getPatchBaselineResponse_rejectedPatchesAction :: Lens.Lens' GetPatchBaselineResponse (Prelude.Maybe PatchAction)
 getPatchBaselineResponse_rejectedPatchesAction = Lens.lens (\GetPatchBaselineResponse' {rejectedPatchesAction} -> rejectedPatchesAction) (\s@GetPatchBaselineResponse' {} a -> s {rejectedPatchesAction = a} :: GetPatchBaselineResponse)
 

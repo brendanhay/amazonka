@@ -37,14 +37,14 @@ data InventoryItem = InventoryItem'
     content :: Prelude.Maybe [Prelude.HashMap Prelude.Text Prelude.Text],
     -- | MD5 hash of the inventory item type contents. The content hash is used
     -- to determine whether to update inventory information. The PutInventory
-    -- API does not update the inventory item type contents if the MD5 hash has
-    -- not changed since last update.
+    -- API doesn\'t update the inventory item type contents if the MD5 hash
+    -- hasn\'t changed since last update.
     contentHash :: Prelude.Maybe Prelude.Text,
     -- | The name of the inventory type. Default inventory item type names start
-    -- with AWS. Custom inventory type names will start with Custom. Default
-    -- inventory item types include the following: AWS:AWSComponent,
-    -- AWS:Application, AWS:InstanceInformation, AWS:Network, and
-    -- AWS:WindowsUpdate.
+    -- with @AWS@. Custom inventory type names will start with Custom. Default
+    -- inventory item types include the following: @AWS:AWSComponent@,
+    -- @AWS:Application@, @AWS:InstanceInformation@, @AWS:Network@, and
+    -- @AWS:WindowsUpdate@.
     typeName :: Prelude.Text,
     -- | The schema version for the inventory item.
     schemaVersion :: Prelude.Text,
@@ -70,14 +70,14 @@ data InventoryItem = InventoryItem'
 --
 -- 'contentHash', 'inventoryItem_contentHash' - MD5 hash of the inventory item type contents. The content hash is used
 -- to determine whether to update inventory information. The PutInventory
--- API does not update the inventory item type contents if the MD5 hash has
--- not changed since last update.
+-- API doesn\'t update the inventory item type contents if the MD5 hash
+-- hasn\'t changed since last update.
 --
 -- 'typeName', 'inventoryItem_typeName' - The name of the inventory type. Default inventory item type names start
--- with AWS. Custom inventory type names will start with Custom. Default
--- inventory item types include the following: AWS:AWSComponent,
--- AWS:Application, AWS:InstanceInformation, AWS:Network, and
--- AWS:WindowsUpdate.
+-- with @AWS@. Custom inventory type names will start with Custom. Default
+-- inventory item types include the following: @AWS:AWSComponent@,
+-- @AWS:Application@, @AWS:InstanceInformation@, @AWS:Network@, and
+-- @AWS:WindowsUpdate@.
 --
 -- 'schemaVersion', 'inventoryItem_schemaVersion' - The schema version for the inventory item.
 --
@@ -116,16 +116,16 @@ inventoryItem_content = Lens.lens (\InventoryItem' {content} -> content) (\s@Inv
 
 -- | MD5 hash of the inventory item type contents. The content hash is used
 -- to determine whether to update inventory information. The PutInventory
--- API does not update the inventory item type contents if the MD5 hash has
--- not changed since last update.
+-- API doesn\'t update the inventory item type contents if the MD5 hash
+-- hasn\'t changed since last update.
 inventoryItem_contentHash :: Lens.Lens' InventoryItem (Prelude.Maybe Prelude.Text)
 inventoryItem_contentHash = Lens.lens (\InventoryItem' {contentHash} -> contentHash) (\s@InventoryItem' {} a -> s {contentHash = a} :: InventoryItem)
 
 -- | The name of the inventory type. Default inventory item type names start
--- with AWS. Custom inventory type names will start with Custom. Default
--- inventory item types include the following: AWS:AWSComponent,
--- AWS:Application, AWS:InstanceInformation, AWS:Network, and
--- AWS:WindowsUpdate.
+-- with @AWS@. Custom inventory type names will start with Custom. Default
+-- inventory item types include the following: @AWS:AWSComponent@,
+-- @AWS:Application@, @AWS:InstanceInformation@, @AWS:Network@, and
+-- @AWS:WindowsUpdate@.
 inventoryItem_typeName :: Lens.Lens' InventoryItem Prelude.Text
 inventoryItem_typeName = Lens.lens (\InventoryItem' {typeName} -> typeName) (\s@InventoryItem' {} a -> s {typeName = a} :: InventoryItem)
 

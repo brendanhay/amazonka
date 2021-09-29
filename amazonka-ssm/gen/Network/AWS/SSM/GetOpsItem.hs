@@ -21,16 +21,17 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Get information about an OpsItem by using the ID. You must have
--- permission in AWS Identity and Access Management (IAM) to view
--- information about an OpsItem. For more information, see
+-- permission in Identity and Access Management (IAM) to view information
+-- about an OpsItem. For more information, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html Getting started with OpsCenter>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
--- Operations engineers and IT professionals use OpsCenter to view,
--- investigate, and remediate operational issues impacting the performance
--- and health of their AWS resources. For more information, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html AWS Systems Manager OpsCenter>
--- in the /AWS Systems Manager User Guide/.
+-- Operations engineers and IT professionals use Amazon Web Services
+-- Systems Manager OpsCenter to view, investigate, and remediate
+-- operational issues impacting the performance and health of their Amazon
+-- Web Services resources. For more information, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html OpsCenter>
+-- in the /Amazon Web Services Systems Manager User Guide/.
 module Network.AWS.SSM.GetOpsItem
   ( -- * Creating a Request
     GetOpsItem (..),

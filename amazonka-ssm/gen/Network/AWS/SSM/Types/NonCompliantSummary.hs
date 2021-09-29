@@ -24,14 +24,14 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.SSM.Types.SeveritySummary
 
--- | A summary of resources that are not compliant. The summary is organized
+-- | A summary of resources that aren\'t compliant. The summary is organized
 -- according to resource type.
 --
 -- /See:/ 'newNonCompliantSummary' smart constructor.
 data NonCompliantSummary = NonCompliantSummary'
   { -- | A summary of the non-compliance severity by compliance type
     severitySummary :: Prelude.Maybe SeveritySummary,
-    -- | The total number of compliance items that are not compliant.
+    -- | The total number of compliance items that aren\'t compliant.
     nonCompliantCount :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,7 +46,7 @@ data NonCompliantSummary = NonCompliantSummary'
 --
 -- 'severitySummary', 'nonCompliantSummary_severitySummary' - A summary of the non-compliance severity by compliance type
 --
--- 'nonCompliantCount', 'nonCompliantSummary_nonCompliantCount' - The total number of compliance items that are not compliant.
+-- 'nonCompliantCount', 'nonCompliantSummary_nonCompliantCount' - The total number of compliance items that aren\'t compliant.
 newNonCompliantSummary ::
   NonCompliantSummary
 newNonCompliantSummary =
@@ -60,7 +60,7 @@ newNonCompliantSummary =
 nonCompliantSummary_severitySummary :: Lens.Lens' NonCompliantSummary (Prelude.Maybe SeveritySummary)
 nonCompliantSummary_severitySummary = Lens.lens (\NonCompliantSummary' {severitySummary} -> severitySummary) (\s@NonCompliantSummary' {} a -> s {severitySummary = a} :: NonCompliantSummary)
 
--- | The total number of compliance items that are not compliant.
+-- | The total number of compliance items that aren\'t compliant.
 nonCompliantSummary_nonCompliantCount :: Lens.Lens' NonCompliantSummary (Prelude.Maybe Prelude.Int)
 nonCompliantSummary_nonCompliantCount = Lens.lens (\NonCompliantSummary' {nonCompliantCount} -> nonCompliantCount) (\s@NonCompliantSummary' {} a -> s {nonCompliantCount = a} :: NonCompliantSummary)
 

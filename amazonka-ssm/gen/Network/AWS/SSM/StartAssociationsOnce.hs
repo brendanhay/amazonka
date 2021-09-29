@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Use this API action to run an association immediately and only one time.
--- This action can be helpful when troubleshooting associations.
+-- Runs an association immediately and only one time. This operation can be
+-- helpful when troubleshooting associations.
 module Network.AWS.SSM.StartAssociationsOnce
   ( -- * Creating a Request
     StartAssociationsOnce (..),

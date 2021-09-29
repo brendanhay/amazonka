@@ -64,9 +64,9 @@ data DescribeMaintenanceWindowSchedule = DescribeMaintenanceWindowSchedule'
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The type of resource you want to retrieve information about. For
-    -- example, \"INSTANCE\".
+    -- example, @INSTANCE@.
     resourceType :: Prelude.Maybe MaintenanceWindowResourceType,
-    -- | The instance ID or key\/value pair to retrieve information about.
+    -- | The instance ID or key-value pair to retrieve information about.
     targets :: Prelude.Maybe [Target],
     -- | The ID of the maintenance window to retrieve information about.
     windowId :: Prelude.Maybe Prelude.Text,
@@ -93,9 +93,9 @@ data DescribeMaintenanceWindowSchedule = DescribeMaintenanceWindowSchedule'
 -- next set of results.
 --
 -- 'resourceType', 'describeMaintenanceWindowSchedule_resourceType' - The type of resource you want to retrieve information about. For
--- example, \"INSTANCE\".
+-- example, @INSTANCE@.
 --
--- 'targets', 'describeMaintenanceWindowSchedule_targets' - The instance ID or key\/value pair to retrieve information about.
+-- 'targets', 'describeMaintenanceWindowSchedule_targets' - The instance ID or key-value pair to retrieve information about.
 --
 -- 'windowId', 'describeMaintenanceWindowSchedule_windowId' - The ID of the maintenance window to retrieve information about.
 --
@@ -127,11 +127,11 @@ describeMaintenanceWindowSchedule_maxResults :: Lens.Lens' DescribeMaintenanceWi
 describeMaintenanceWindowSchedule_maxResults = Lens.lens (\DescribeMaintenanceWindowSchedule' {maxResults} -> maxResults) (\s@DescribeMaintenanceWindowSchedule' {} a -> s {maxResults = a} :: DescribeMaintenanceWindowSchedule)
 
 -- | The type of resource you want to retrieve information about. For
--- example, \"INSTANCE\".
+-- example, @INSTANCE@.
 describeMaintenanceWindowSchedule_resourceType :: Lens.Lens' DescribeMaintenanceWindowSchedule (Prelude.Maybe MaintenanceWindowResourceType)
 describeMaintenanceWindowSchedule_resourceType = Lens.lens (\DescribeMaintenanceWindowSchedule' {resourceType} -> resourceType) (\s@DescribeMaintenanceWindowSchedule' {} a -> s {resourceType = a} :: DescribeMaintenanceWindowSchedule)
 
--- | The instance ID or key\/value pair to retrieve information about.
+-- | The instance ID or key-value pair to retrieve information about.
 describeMaintenanceWindowSchedule_targets :: Lens.Lens' DescribeMaintenanceWindowSchedule (Prelude.Maybe [Target])
 describeMaintenanceWindowSchedule_targets = Lens.lens (\DescribeMaintenanceWindowSchedule' {targets} -> targets) (\s@DescribeMaintenanceWindowSchedule' {} a -> s {targets = a} :: DescribeMaintenanceWindowSchedule) Prelude.. Lens.mapping Lens._Coerce
 

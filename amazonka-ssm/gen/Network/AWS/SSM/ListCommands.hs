@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the commands requested by users of the AWS account.
+-- Lists the commands requested by users of the Amazon Web Services
+-- account.
 --
 -- This operation returns paginated results.
 module Network.AWS.SSM.ListCommands
@@ -29,8 +30,8 @@ module Network.AWS.SSM.ListCommands
     newListCommands,
 
     -- * Request Lenses
-    listCommands_nextToken,
     listCommands_instanceId,
+    listCommands_nextToken,
     listCommands_maxResults,
     listCommands_commandId,
     listCommands_filters,
@@ -55,15 +56,15 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'newListCommands' smart constructor.
 data ListCommands = ListCommands'
-  { -- | (Optional) The token for the next set of items to return. (You received
-    -- this token from a previous call.)
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | (Optional) Lists commands issued against this instance ID.
+  { -- | (Optional) Lists commands issued against this instance ID.
     --
     -- You can\'t specify an instance ID in the same command that you specify
-    -- @Status@ = @Pending@. This is because the command has not reached the
+    -- @Status@ = @Pending@. This is because the command hasn\'t reached the
     -- instance yet.
     instanceId :: Prelude.Maybe Prelude.Text,
+    -- | (Optional) The token for the next set of items to return. (You received
+    -- this token from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | (Optional) The maximum number of items to return for this call. The call
     -- also returns a token that you can specify in a subsequent call to get
     -- the next set of results.
@@ -84,14 +85,14 @@ data ListCommands = ListCommands'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listCommands_nextToken' - (Optional) The token for the next set of items to return. (You received
--- this token from a previous call.)
---
 -- 'instanceId', 'listCommands_instanceId' - (Optional) Lists commands issued against this instance ID.
 --
 -- You can\'t specify an instance ID in the same command that you specify
--- @Status@ = @Pending@. This is because the command has not reached the
+-- @Status@ = @Pending@. This is because the command hasn\'t reached the
 -- instance yet.
+--
+-- 'nextToken', 'listCommands_nextToken' - (Optional) The token for the next set of items to return. (You received
+-- this token from a previous call.)
 --
 -- 'maxResults', 'listCommands_maxResults' - (Optional) The maximum number of items to return for this call. The call
 -- also returns a token that you can specify in a subsequent call to get
@@ -105,25 +106,25 @@ newListCommands ::
   ListCommands
 newListCommands =
   ListCommands'
-    { nextToken = Prelude.Nothing,
-      instanceId = Prelude.Nothing,
+    { instanceId = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       commandId = Prelude.Nothing,
       filters = Prelude.Nothing
     }
 
+-- | (Optional) Lists commands issued against this instance ID.
+--
+-- You can\'t specify an instance ID in the same command that you specify
+-- @Status@ = @Pending@. This is because the command hasn\'t reached the
+-- instance yet.
+listCommands_instanceId :: Lens.Lens' ListCommands (Prelude.Maybe Prelude.Text)
+listCommands_instanceId = Lens.lens (\ListCommands' {instanceId} -> instanceId) (\s@ListCommands' {} a -> s {instanceId = a} :: ListCommands)
+
 -- | (Optional) The token for the next set of items to return. (You received
 -- this token from a previous call.)
 listCommands_nextToken :: Lens.Lens' ListCommands (Prelude.Maybe Prelude.Text)
 listCommands_nextToken = Lens.lens (\ListCommands' {nextToken} -> nextToken) (\s@ListCommands' {} a -> s {nextToken = a} :: ListCommands)
-
--- | (Optional) Lists commands issued against this instance ID.
---
--- You can\'t specify an instance ID in the same command that you specify
--- @Status@ = @Pending@. This is because the command has not reached the
--- instance yet.
-listCommands_instanceId :: Lens.Lens' ListCommands (Prelude.Maybe Prelude.Text)
-listCommands_instanceId = Lens.lens (\ListCommands' {instanceId} -> instanceId) (\s@ListCommands' {} a -> s {instanceId = a} :: ListCommands)
 
 -- | (Optional) The maximum number of items to return for this call. The call
 -- also returns a token that you can specify in a subsequent call to get
@@ -192,8 +193,8 @@ instance Core.ToJSON ListCommands where
   toJSON ListCommands' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("InstanceId" Core..=) Prelude.<$> instanceId,
+          [ ("InstanceId" Core..=) Prelude.<$> instanceId,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("CommandId" Core..=) Prelude.<$> commandId,
             ("Filters" Core..=) Prelude.<$> filters

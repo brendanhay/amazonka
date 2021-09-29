@@ -25,21 +25,22 @@ import qualified Network.AWS.Prelude as Prelude
 
 -- | The service setting data structure.
 --
--- @ServiceSetting@ is an account-level setting for an AWS service. This
--- setting defines how a user interacts with or uses a service or a feature
--- of a service. For example, if an AWS service charges money to the
--- account based on feature or service usage, then the AWS service team
--- might create a default setting of \"false\". This means the user can\'t
--- use this feature unless they change the setting to \"true\" and
--- intentionally opt in for a paid feature.
+-- @ServiceSetting@ is an account-level setting for an Amazon Web Services
+-- service. This setting defines how a user interacts with or uses a
+-- service or a feature of a service. For example, if an Amazon Web
+-- Services service charges money to the account based on feature or
+-- service usage, then the Amazon Web Services service team might create a
+-- default setting of \"false\". This means the user can\'t use this
+-- feature unless they change the setting to \"true\" and intentionally opt
+-- in for a paid feature.
 --
--- Services map a @SettingId@ object to a setting value. AWS services teams
--- define the default value for a @SettingId@. You can\'t create a new
--- @SettingId@, but you can overwrite the default value if you have the
--- @ssm:UpdateServiceSetting@ permission for the setting. Use the
--- UpdateServiceSetting API action to change the default setting. Or, use
--- the ResetServiceSetting to change the value back to the original value
--- defined by the AWS service team.
+-- Services map a @SettingId@ object to a setting value. Amazon Web
+-- Services services teams define the default value for a @SettingId@. You
+-- can\'t create a new @SettingId@, but you can overwrite the default value
+-- if you have the @ssm:UpdateServiceSetting@ permission for the setting.
+-- Use the UpdateServiceSetting API operation to change the default
+-- setting. Or, use the ResetServiceSetting to change the value back to the
+-- original value defined by the Amazon Web Services service team.
 --
 -- /See:/ 'newServiceSetting' smart constructor.
 data ServiceSetting = ServiceSetting'
@@ -49,7 +50,7 @@ data ServiceSetting = ServiceSetting'
     -- or PendingUpdate.
     --
     -- -   Default: The current setting uses a default value provisioned by the
-    --     AWS service team.
+    --     Amazon Web Services service team.
     --
     -- -   Customized: The current setting use a custom value specified by the
     --     customer.
@@ -57,10 +58,10 @@ data ServiceSetting = ServiceSetting'
     -- -   PendingUpdate: The current setting uses a default or custom value,
     --     but a setting change request is pending approval.
     status :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the service setting.
-    arn :: Prelude.Maybe Prelude.Text,
     -- | The value of the service setting.
     settingValue :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the service setting.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The ID of the service setting.
     settingId :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the last modified user. This field is populated only if the
@@ -83,7 +84,7 @@ data ServiceSetting = ServiceSetting'
 -- or PendingUpdate.
 --
 -- -   Default: The current setting uses a default value provisioned by the
---     AWS service team.
+--     Amazon Web Services service team.
 --
 -- -   Customized: The current setting use a custom value specified by the
 --     customer.
@@ -91,9 +92,9 @@ data ServiceSetting = ServiceSetting'
 -- -   PendingUpdate: The current setting uses a default or custom value,
 --     but a setting change request is pending approval.
 --
--- 'arn', 'serviceSetting_arn' - The ARN of the service setting.
---
 -- 'settingValue', 'serviceSetting_settingValue' - The value of the service setting.
+--
+-- 'arn', 'serviceSetting_arn' - The ARN of the service setting.
 --
 -- 'settingId', 'serviceSetting_settingId' - The ID of the service setting.
 --
@@ -105,8 +106,8 @@ newServiceSetting =
   ServiceSetting'
     { lastModifiedDate = Prelude.Nothing,
       status = Prelude.Nothing,
-      arn = Prelude.Nothing,
       settingValue = Prelude.Nothing,
+      arn = Prelude.Nothing,
       settingId = Prelude.Nothing,
       lastModifiedUser = Prelude.Nothing
     }
@@ -119,7 +120,7 @@ serviceSetting_lastModifiedDate = Lens.lens (\ServiceSetting' {lastModifiedDate}
 -- or PendingUpdate.
 --
 -- -   Default: The current setting uses a default value provisioned by the
---     AWS service team.
+--     Amazon Web Services service team.
 --
 -- -   Customized: The current setting use a custom value specified by the
 --     customer.
@@ -129,13 +130,13 @@ serviceSetting_lastModifiedDate = Lens.lens (\ServiceSetting' {lastModifiedDate}
 serviceSetting_status :: Lens.Lens' ServiceSetting (Prelude.Maybe Prelude.Text)
 serviceSetting_status = Lens.lens (\ServiceSetting' {status} -> status) (\s@ServiceSetting' {} a -> s {status = a} :: ServiceSetting)
 
--- | The ARN of the service setting.
-serviceSetting_arn :: Lens.Lens' ServiceSetting (Prelude.Maybe Prelude.Text)
-serviceSetting_arn = Lens.lens (\ServiceSetting' {arn} -> arn) (\s@ServiceSetting' {} a -> s {arn = a} :: ServiceSetting)
-
 -- | The value of the service setting.
 serviceSetting_settingValue :: Lens.Lens' ServiceSetting (Prelude.Maybe Prelude.Text)
 serviceSetting_settingValue = Lens.lens (\ServiceSetting' {settingValue} -> settingValue) (\s@ServiceSetting' {} a -> s {settingValue = a} :: ServiceSetting)
+
+-- | The ARN of the service setting.
+serviceSetting_arn :: Lens.Lens' ServiceSetting (Prelude.Maybe Prelude.Text)
+serviceSetting_arn = Lens.lens (\ServiceSetting' {arn} -> arn) (\s@ServiceSetting' {} a -> s {arn = a} :: ServiceSetting)
 
 -- | The ID of the service setting.
 serviceSetting_settingId :: Lens.Lens' ServiceSetting (Prelude.Maybe Prelude.Text)
@@ -154,8 +155,8 @@ instance Core.FromJSON ServiceSetting where
           ServiceSetting'
             Prelude.<$> (x Core..:? "LastModifiedDate")
             Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "ARN")
             Prelude.<*> (x Core..:? "SettingValue")
+            Prelude.<*> (x Core..:? "ARN")
             Prelude.<*> (x Core..:? "SettingId")
             Prelude.<*> (x Core..:? "LastModifiedUser")
       )

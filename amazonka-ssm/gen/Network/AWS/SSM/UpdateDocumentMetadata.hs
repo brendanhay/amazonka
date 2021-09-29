@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates information related to approval reviews for a specific version
--- of a document.
+-- of a change template in Change Manager.
 module Network.AWS.SSM.UpdateDocumentMetadata
   ( -- * Creating a Request
     UpdateDocumentMetadata (..),
@@ -50,11 +50,12 @@ import Network.AWS.SSM.Types
 
 -- | /See:/ 'newUpdateDocumentMetadata' smart constructor.
 data UpdateDocumentMetadata = UpdateDocumentMetadata'
-  { -- | The version of a document to update.
+  { -- | The version of a change template in which to update approval metadata.
     documentVersion :: Prelude.Maybe Prelude.Text,
-    -- | The name of the document for which a version is to be updated.
+    -- | The name of the change template for which a version\'s metadata is to be
+    -- updated.
     name :: Prelude.Text,
-    -- | The document review details to update.
+    -- | The change template review details to update.
     documentReviews :: DocumentReviews
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -67,11 +68,12 @@ data UpdateDocumentMetadata = UpdateDocumentMetadata'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'documentVersion', 'updateDocumentMetadata_documentVersion' - The version of a document to update.
+-- 'documentVersion', 'updateDocumentMetadata_documentVersion' - The version of a change template in which to update approval metadata.
 --
--- 'name', 'updateDocumentMetadata_name' - The name of the document for which a version is to be updated.
+-- 'name', 'updateDocumentMetadata_name' - The name of the change template for which a version\'s metadata is to be
+-- updated.
 --
--- 'documentReviews', 'updateDocumentMetadata_documentReviews' - The document review details to update.
+-- 'documentReviews', 'updateDocumentMetadata_documentReviews' - The change template review details to update.
 newUpdateDocumentMetadata ::
   -- | 'name'
   Prelude.Text ->
@@ -86,15 +88,16 @@ newUpdateDocumentMetadata pName_ pDocumentReviews_ =
       documentReviews = pDocumentReviews_
     }
 
--- | The version of a document to update.
+-- | The version of a change template in which to update approval metadata.
 updateDocumentMetadata_documentVersion :: Lens.Lens' UpdateDocumentMetadata (Prelude.Maybe Prelude.Text)
 updateDocumentMetadata_documentVersion = Lens.lens (\UpdateDocumentMetadata' {documentVersion} -> documentVersion) (\s@UpdateDocumentMetadata' {} a -> s {documentVersion = a} :: UpdateDocumentMetadata)
 
--- | The name of the document for which a version is to be updated.
+-- | The name of the change template for which a version\'s metadata is to be
+-- updated.
 updateDocumentMetadata_name :: Lens.Lens' UpdateDocumentMetadata Prelude.Text
 updateDocumentMetadata_name = Lens.lens (\UpdateDocumentMetadata' {name} -> name) (\s@UpdateDocumentMetadata' {} a -> s {name = a} :: UpdateDocumentMetadata)
 
--- | The document review details to update.
+-- | The change template review details to update.
 updateDocumentMetadata_documentReviews :: Lens.Lens' UpdateDocumentMetadata DocumentReviews
 updateDocumentMetadata_documentReviews = Lens.lens (\UpdateDocumentMetadata' {documentReviews} -> documentReviews) (\s@UpdateDocumentMetadata' {} a -> s {documentReviews = a} :: UpdateDocumentMetadata)
 

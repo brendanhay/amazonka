@@ -22,10 +22,10 @@
 --
 -- Lists the tasks in a maintenance window.
 --
--- For maintenance window tasks without a specified target, you cannot
+-- For maintenance window tasks without a specified target, you can\'t
 -- supply values for @--max-errors@ and @--max-concurrency@. Instead, the
 -- system inserts a placeholder value of @1@, which may be reported in the
--- response to this command. These values do not affect the running of your
+-- response to this command. These values don\'t affect the running of your
 -- task and can be ignored.
 --
 -- This operation returns paginated results.
@@ -68,8 +68,8 @@ data DescribeMaintenanceWindowTasks = DescribeMaintenanceWindowTasks'
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Optional filters used to narrow down the scope of the returned tasks.
-    -- The supported filter keys are WindowTaskId, TaskArn, Priority, and
-    -- TaskType.
+    -- The supported filter keys are @WindowTaskId@, @TaskArn@, @Priority@, and
+    -- @TaskType@.
     filters :: Prelude.Maybe [MaintenanceWindowFilter],
     -- | The ID of the maintenance window whose tasks should be retrieved.
     windowId :: Prelude.Text
@@ -92,8 +92,8 @@ data DescribeMaintenanceWindowTasks = DescribeMaintenanceWindowTasks'
 -- next set of results.
 --
 -- 'filters', 'describeMaintenanceWindowTasks_filters' - Optional filters used to narrow down the scope of the returned tasks.
--- The supported filter keys are WindowTaskId, TaskArn, Priority, and
--- TaskType.
+-- The supported filter keys are @WindowTaskId@, @TaskArn@, @Priority@, and
+-- @TaskType@.
 --
 -- 'windowId', 'describeMaintenanceWindowTasks_windowId' - The ID of the maintenance window whose tasks should be retrieved.
 newDescribeMaintenanceWindowTasks ::
@@ -121,8 +121,8 @@ describeMaintenanceWindowTasks_maxResults :: Lens.Lens' DescribeMaintenanceWindo
 describeMaintenanceWindowTasks_maxResults = Lens.lens (\DescribeMaintenanceWindowTasks' {maxResults} -> maxResults) (\s@DescribeMaintenanceWindowTasks' {} a -> s {maxResults = a} :: DescribeMaintenanceWindowTasks)
 
 -- | Optional filters used to narrow down the scope of the returned tasks.
--- The supported filter keys are WindowTaskId, TaskArn, Priority, and
--- TaskType.
+-- The supported filter keys are @WindowTaskId@, @TaskArn@, @Priority@, and
+-- @TaskType@.
 describeMaintenanceWindowTasks_filters :: Lens.Lens' DescribeMaintenanceWindowTasks (Prelude.Maybe [MaintenanceWindowFilter])
 describeMaintenanceWindowTasks_filters = Lens.lens (\DescribeMaintenanceWindowTasks' {filters} -> filters) (\s@DescribeMaintenanceWindowTasks' {} a -> s {filters = a} :: DescribeMaintenanceWindowTasks) Prelude.. Lens.mapping Lens._Coerce
 

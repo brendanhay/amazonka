@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the patch baselines in your AWS account.
+-- Lists the patch baselines in your Amazon Web Services account.
 --
 -- This operation returns paginated results.
 module Network.AWS.SSM.DescribePatchBaselines
@@ -58,11 +58,21 @@ data DescribePatchBaselines = DescribePatchBaselines'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of patch baselines to return (per page).
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | Each element in the array is a structure containing:
+    -- | Each element in the array is a structure containing a key-value pair.
     --
-    -- Key: (string, \"NAME_PREFIX\" or \"OWNER\")
+    -- Supported keys for @DescribePatchBaselines@ include the following:
     --
-    -- Value: (array of strings, exactly 1 entry, between 1 and 255 characters)
+    -- -   __@NAME_PREFIX@__
+    --
+    --     Sample values: @AWS-@ | @My-@
+    --
+    -- -   __@OWNER@__
+    --
+    --     Sample values: @AWS@ | @Self@
+    --
+    -- -   __@OPERATING_SYSTEM@__
+    --
+    --     Sample values: @AMAZON_LINUX@ | @SUSE@ | @WINDOWS@
     filters :: Prelude.Maybe [PatchOrchestratorFilter]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -80,11 +90,21 @@ data DescribePatchBaselines = DescribePatchBaselines'
 --
 -- 'maxResults', 'describePatchBaselines_maxResults' - The maximum number of patch baselines to return (per page).
 --
--- 'filters', 'describePatchBaselines_filters' - Each element in the array is a structure containing:
+-- 'filters', 'describePatchBaselines_filters' - Each element in the array is a structure containing a key-value pair.
 --
--- Key: (string, \"NAME_PREFIX\" or \"OWNER\")
+-- Supported keys for @DescribePatchBaselines@ include the following:
 --
--- Value: (array of strings, exactly 1 entry, between 1 and 255 characters)
+-- -   __@NAME_PREFIX@__
+--
+--     Sample values: @AWS-@ | @My-@
+--
+-- -   __@OWNER@__
+--
+--     Sample values: @AWS@ | @Self@
+--
+-- -   __@OPERATING_SYSTEM@__
+--
+--     Sample values: @AMAZON_LINUX@ | @SUSE@ | @WINDOWS@
 newDescribePatchBaselines ::
   DescribePatchBaselines
 newDescribePatchBaselines =
@@ -104,11 +124,21 @@ describePatchBaselines_nextToken = Lens.lens (\DescribePatchBaselines' {nextToke
 describePatchBaselines_maxResults :: Lens.Lens' DescribePatchBaselines (Prelude.Maybe Prelude.Natural)
 describePatchBaselines_maxResults = Lens.lens (\DescribePatchBaselines' {maxResults} -> maxResults) (\s@DescribePatchBaselines' {} a -> s {maxResults = a} :: DescribePatchBaselines)
 
--- | Each element in the array is a structure containing:
+-- | Each element in the array is a structure containing a key-value pair.
 --
--- Key: (string, \"NAME_PREFIX\" or \"OWNER\")
+-- Supported keys for @DescribePatchBaselines@ include the following:
 --
--- Value: (array of strings, exactly 1 entry, between 1 and 255 characters)
+-- -   __@NAME_PREFIX@__
+--
+--     Sample values: @AWS-@ | @My-@
+--
+-- -   __@OWNER@__
+--
+--     Sample values: @AWS@ | @Self@
+--
+-- -   __@OPERATING_SYSTEM@__
+--
+--     Sample values: @AMAZON_LINUX@ | @SUSE@ | @WINDOWS@
 describePatchBaselines_filters :: Lens.Lens' DescribePatchBaselines (Prelude.Maybe [PatchOrchestratorFilter])
 describePatchBaselines_filters = Lens.lens (\DescribePatchBaselines' {filters} -> filters) (\s@DescribePatchBaselines' {} a -> s {filters = a} :: DescribePatchBaselines) Prelude.. Lens.mapping Lens._Coerce
 
@@ -190,7 +220,7 @@ data DescribePatchBaselinesResponse = DescribePatchBaselinesResponse'
   { -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | An array of PatchBaselineIdentity elements.
+    -- | An array of @PatchBaselineIdentity@ elements.
     baselineIdentities :: Prelude.Maybe [PatchBaselineIdentity],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -208,7 +238,7 @@ data DescribePatchBaselinesResponse = DescribePatchBaselinesResponse'
 -- 'nextToken', 'describePatchBaselinesResponse_nextToken' - The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
 --
--- 'baselineIdentities', 'describePatchBaselinesResponse_baselineIdentities' - An array of PatchBaselineIdentity elements.
+-- 'baselineIdentities', 'describePatchBaselinesResponse_baselineIdentities' - An array of @PatchBaselineIdentity@ elements.
 --
 -- 'httpStatus', 'describePatchBaselinesResponse_httpStatus' - The response's http status code.
 newDescribePatchBaselinesResponse ::
@@ -228,7 +258,7 @@ newDescribePatchBaselinesResponse pHttpStatus_ =
 describePatchBaselinesResponse_nextToken :: Lens.Lens' DescribePatchBaselinesResponse (Prelude.Maybe Prelude.Text)
 describePatchBaselinesResponse_nextToken = Lens.lens (\DescribePatchBaselinesResponse' {nextToken} -> nextToken) (\s@DescribePatchBaselinesResponse' {} a -> s {nextToken = a} :: DescribePatchBaselinesResponse)
 
--- | An array of PatchBaselineIdentity elements.
+-- | An array of @PatchBaselineIdentity@ elements.
 describePatchBaselinesResponse_baselineIdentities :: Lens.Lens' DescribePatchBaselinesResponse (Prelude.Maybe [PatchBaselineIdentity])
 describePatchBaselinesResponse_baselineIdentities = Lens.lens (\DescribePatchBaselinesResponse' {baselineIdentities} -> baselineIdentities) (\s@DescribePatchBaselinesResponse' {} a -> s {baselineIdentities = a} :: DescribePatchBaselinesResponse) Prelude.. Lens.mapping Lens._Coerce
 

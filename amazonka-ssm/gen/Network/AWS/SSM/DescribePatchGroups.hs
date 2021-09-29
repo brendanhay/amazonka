@@ -58,24 +58,17 @@ data DescribePatchGroups = DescribePatchGroups'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of patch groups to return (per page).
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | One or more filters. Use a filter to return a more specific list of
-    -- results.
+    -- | Each element in the array is a structure containing a key-value pair.
     --
-    -- For @DescribePatchGroups@,valid filter keys include the following:
+    -- Supported keys for @DescribePatchGroups@ include the following:
     --
-    -- -   @NAME_PREFIX@: The name of the patch group. Wildcards (*) are
-    --     accepted.
+    -- -   __@NAME_PREFIX@__
     --
-    -- -   @OPERATING_SYSTEM@: The supported operating system type to return
-    --     results for. For valid operating system values, see
-    --     GetDefaultPatchBaselineRequest$OperatingSystem in
-    --     CreatePatchBaseline.
+    --     Sample values: @AWS-@ | @My-@.
     --
-    --     Examples:
+    -- -   __@OPERATING_SYSTEM@__
     --
-    --     -   @--filters Key=NAME_PREFIX,Values=MyPatchGroup*@
-    --
-    --     -   @--filters Key=OPERATING_SYSTEM,Values=AMAZON_LINUX_2@
+    --     Sample values: @AMAZON_LINUX@ | @SUSE@ | @WINDOWS@
     filters :: Prelude.Maybe [PatchOrchestratorFilter]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -93,24 +86,17 @@ data DescribePatchGroups = DescribePatchGroups'
 --
 -- 'maxResults', 'describePatchGroups_maxResults' - The maximum number of patch groups to return (per page).
 --
--- 'filters', 'describePatchGroups_filters' - One or more filters. Use a filter to return a more specific list of
--- results.
+-- 'filters', 'describePatchGroups_filters' - Each element in the array is a structure containing a key-value pair.
 --
--- For @DescribePatchGroups@,valid filter keys include the following:
+-- Supported keys for @DescribePatchGroups@ include the following:
 --
--- -   @NAME_PREFIX@: The name of the patch group. Wildcards (*) are
---     accepted.
+-- -   __@NAME_PREFIX@__
 --
--- -   @OPERATING_SYSTEM@: The supported operating system type to return
---     results for. For valid operating system values, see
---     GetDefaultPatchBaselineRequest$OperatingSystem in
---     CreatePatchBaseline.
+--     Sample values: @AWS-@ | @My-@.
 --
---     Examples:
+-- -   __@OPERATING_SYSTEM@__
 --
---     -   @--filters Key=NAME_PREFIX,Values=MyPatchGroup*@
---
---     -   @--filters Key=OPERATING_SYSTEM,Values=AMAZON_LINUX_2@
+--     Sample values: @AMAZON_LINUX@ | @SUSE@ | @WINDOWS@
 newDescribePatchGroups ::
   DescribePatchGroups
 newDescribePatchGroups =
@@ -129,24 +115,17 @@ describePatchGroups_nextToken = Lens.lens (\DescribePatchGroups' {nextToken} -> 
 describePatchGroups_maxResults :: Lens.Lens' DescribePatchGroups (Prelude.Maybe Prelude.Natural)
 describePatchGroups_maxResults = Lens.lens (\DescribePatchGroups' {maxResults} -> maxResults) (\s@DescribePatchGroups' {} a -> s {maxResults = a} :: DescribePatchGroups)
 
--- | One or more filters. Use a filter to return a more specific list of
--- results.
+-- | Each element in the array is a structure containing a key-value pair.
 --
--- For @DescribePatchGroups@,valid filter keys include the following:
+-- Supported keys for @DescribePatchGroups@ include the following:
 --
--- -   @NAME_PREFIX@: The name of the patch group. Wildcards (*) are
---     accepted.
+-- -   __@NAME_PREFIX@__
 --
--- -   @OPERATING_SYSTEM@: The supported operating system type to return
---     results for. For valid operating system values, see
---     GetDefaultPatchBaselineRequest$OperatingSystem in
---     CreatePatchBaseline.
+--     Sample values: @AWS-@ | @My-@.
 --
---     Examples:
+-- -   __@OPERATING_SYSTEM@__
 --
---     -   @--filters Key=NAME_PREFIX,Values=MyPatchGroup*@
---
---     -   @--filters Key=OPERATING_SYSTEM,Values=AMAZON_LINUX_2@
+--     Sample values: @AMAZON_LINUX@ | @SUSE@ | @WINDOWS@
 describePatchGroups_filters :: Lens.Lens' DescribePatchGroups (Prelude.Maybe [PatchOrchestratorFilter])
 describePatchGroups_filters = Lens.lens (\DescribePatchGroups' {filters} -> filters) (\s@DescribePatchGroups' {} a -> s {filters = a} :: DescribePatchGroups) Prelude.. Lens.mapping Lens._Coerce
 
@@ -225,10 +204,10 @@ instance Core.ToQuery DescribePatchGroups where
 data DescribePatchGroupsResponse = DescribePatchGroupsResponse'
   { -- | Each entry in the array contains:
     --
-    -- PatchGroup: string (between 1 and 256 characters, Regex:
-    -- ^([\\p{L}\\p{Z}\\p{N}_.:\/=+\\-\@]*)$)
+    -- -   @PatchGroup@: string (between 1 and 256 characters. Regex:
+    --     @^([\\p{L}\\p{Z}\\p{N}_.:\/=+\\-\@]*)$)@
     --
-    -- PatchBaselineIdentity: A PatchBaselineIdentity element.
+    -- -   @PatchBaselineIdentity@: A @PatchBaselineIdentity@ element.
     mappings :: Prelude.Maybe [PatchGroupPatchBaselineMapping],
     -- | The token to use when requesting the next set of items. If there are no
     -- additional items to return, the string is empty.
@@ -248,10 +227,10 @@ data DescribePatchGroupsResponse = DescribePatchGroupsResponse'
 --
 -- 'mappings', 'describePatchGroupsResponse_mappings' - Each entry in the array contains:
 --
--- PatchGroup: string (between 1 and 256 characters, Regex:
--- ^([\\p{L}\\p{Z}\\p{N}_.:\/=+\\-\@]*)$)
+-- -   @PatchGroup@: string (between 1 and 256 characters. Regex:
+--     @^([\\p{L}\\p{Z}\\p{N}_.:\/=+\\-\@]*)$)@
 --
--- PatchBaselineIdentity: A PatchBaselineIdentity element.
+-- -   @PatchBaselineIdentity@: A @PatchBaselineIdentity@ element.
 --
 -- 'nextToken', 'describePatchGroupsResponse_nextToken' - The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
@@ -271,10 +250,10 @@ newDescribePatchGroupsResponse pHttpStatus_ =
 
 -- | Each entry in the array contains:
 --
--- PatchGroup: string (between 1 and 256 characters, Regex:
--- ^([\\p{L}\\p{Z}\\p{N}_.:\/=+\\-\@]*)$)
+-- -   @PatchGroup@: string (between 1 and 256 characters. Regex:
+--     @^([\\p{L}\\p{Z}\\p{N}_.:\/=+\\-\@]*)$)@
 --
--- PatchBaselineIdentity: A PatchBaselineIdentity element.
+-- -   @PatchBaselineIdentity@: A @PatchBaselineIdentity@ element.
 describePatchGroupsResponse_mappings :: Lens.Lens' DescribePatchGroupsResponse (Prelude.Maybe [PatchGroupPatchBaselineMapping])
 describePatchGroupsResponse_mappings = Lens.lens (\DescribePatchGroupsResponse' {mappings} -> mappings) (\s@DescribePatchGroupsResponse' {} a -> s {mappings = a} :: DescribePatchGroupsResponse) Prelude.. Lens.mapping Lens._Coerce
 

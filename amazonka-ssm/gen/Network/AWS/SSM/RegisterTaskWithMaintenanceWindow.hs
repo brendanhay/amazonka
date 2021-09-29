@@ -30,10 +30,11 @@ module Network.AWS.SSM.RegisterTaskWithMaintenanceWindow
     registerTaskWithMaintenanceWindow_maxErrors,
     registerTaskWithMaintenanceWindow_taskParameters,
     registerTaskWithMaintenanceWindow_serviceRoleArn,
-    registerTaskWithMaintenanceWindow_priority,
+    registerTaskWithMaintenanceWindow_cutoffBehavior,
     registerTaskWithMaintenanceWindow_targets,
-    registerTaskWithMaintenanceWindow_taskInvocationParameters,
+    registerTaskWithMaintenanceWindow_priority,
     registerTaskWithMaintenanceWindow_name,
+    registerTaskWithMaintenanceWindow_taskInvocationParameters,
     registerTaskWithMaintenanceWindow_maxConcurrency,
     registerTaskWithMaintenanceWindow_description,
     registerTaskWithMaintenanceWindow_loggingInfo,
@@ -64,9 +65,9 @@ data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
   { -- | The maximum number of errors allowed before this task stops being
     -- scheduled.
     --
-    -- For maintenance window tasks without a target specified, you cannot
+    -- For maintenance window tasks without a target specified, you can\'t
     -- supply a value for this option. Instead, the system inserts a
-    -- placeholder value of @1@. This value does not affect the running of your
+    -- placeholder value of @1@. This value doesn\'t affect the running of your
     -- task.
     maxErrors :: Prelude.Maybe Prelude.Text,
     -- | The parameters that should be passed to the task when it is run.
@@ -77,33 +78,49 @@ data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
     -- Manager handles these options for the supported maintenance window task
     -- types, see MaintenanceWindowTaskInvocationParameters.
     taskParameters :: Prelude.Maybe (Core.Sensitive (Prelude.HashMap Prelude.Text (Core.Sensitive MaintenanceWindowTaskParameterValueExpression))),
-    -- | The ARN of the IAM service role for Systems Manager to assume when
-    -- running a maintenance window task. If you do not specify a service role
-    -- ARN, Systems Manager uses your account\'s service-linked role. If no
-    -- service-linked role for Systems Manager exists in your account, it is
-    -- created when you run @RegisterTaskWithMaintenanceWindow@.
+    -- | The Amazon Resource Name (ARN) of the IAM service role for Amazon Web
+    -- Services Systems Manager to assume when running a maintenance window
+    -- task. If you do not specify a service role ARN, Systems Manager uses
+    -- your account\'s service-linked role. If no service-linked role for
+    -- Systems Manager exists in your account, it is created when you run
+    -- @RegisterTaskWithMaintenanceWindow@.
     --
-    -- For more information, see the following topics in the in the /AWS
-    -- Systems Manager User Guide/:
+    -- For more information, see the following topics in the in the /Amazon Web
+    -- Services Systems Manager User Guide/:
     --
     -- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions Using service-linked roles for Systems Manager>
     --
     -- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role Should I use a service-linked role or a custom service role to run maintenance window tasks?>
     serviceRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | The priority of the task in the maintenance window, the lower the number
-    -- the higher the priority. Tasks in a maintenance window are scheduled in
-    -- priority order with tasks that have the same priority scheduled in
-    -- parallel.
-    priority :: Prelude.Maybe Prelude.Natural,
+    -- | Indicates whether tasks should continue to run after the cutoff time
+    -- specified in the maintenance windows is reached.
+    --
+    -- -   @CONTINUE_TASK@: When the cutoff time is reached, any tasks that are
+    --     running continue. The default value.
+    --
+    -- -   @CANCEL_TASK@:
+    --
+    --     -   For Automation, Lambda, Step Functions tasks: When the cutoff
+    --         time is reached, any task invocations that are already running
+    --         continue, but no new task invocations are started.
+    --
+    --     -   For Run Command tasks: When the cutoff time is reached, the
+    --         system sends a CancelCommand operation that attempts to cancel
+    --         the command associated with the task. However, there is no
+    --         guarantee that the command will be terminated and the underlying
+    --         process stopped.
+    --
+    --     The status for tasks that are not completed is @TIMED_OUT@.
+    cutoffBehavior :: Prelude.Maybe MaintenanceWindowTaskCutoffBehavior,
     -- | The targets (either instances or maintenance window targets).
     --
     -- One or more targets must be specified for maintenance window Run
     -- Command-type tasks. Depending on the task, targets are optional for
-    -- other maintenance window task types (Automation, AWS Lambda, and AWS
-    -- Step Functions). For more information about running tasks that do not
-    -- specify targets, see
+    -- other maintenance window task types (Automation, Lambda, and Step
+    -- Functions). For more information about running tasks that don\'t specify
+    -- targets, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html Registering maintenance window tasks without targets>
-    -- in the /AWS Systems Manager User Guide/.
+    -- in the /Amazon Web Services Systems Manager User Guide/.
     --
     -- Specify instances using the following format:
     --
@@ -113,27 +130,33 @@ data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
     --
     -- @Key=WindowTargetIds,Values=\<window-target-id-1>,\<window-target-id-2>@
     targets :: Prelude.Maybe [Target],
+    -- | The priority of the task in the maintenance window, the lower the number
+    -- the higher the priority. Tasks in a maintenance window are scheduled in
+    -- priority order with tasks that have the same priority scheduled in
+    -- parallel.
+    priority :: Prelude.Maybe Prelude.Natural,
+    -- | An optional name for the task.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The parameters that the task should use during execution. Populate only
     -- the fields that match the task type. All other fields should be empty.
     taskInvocationParameters :: Prelude.Maybe MaintenanceWindowTaskInvocationParameters,
-    -- | An optional name for the task.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of targets this task can be run for in parallel.
     --
-    -- For maintenance window tasks without a target specified, you cannot
+    -- For maintenance window tasks without a target specified, you can\'t
     -- supply a value for this option. Instead, the system inserts a
-    -- placeholder value of @1@. This value does not affect the running of your
+    -- placeholder value of @1@. This value doesn\'t affect the running of your
     -- task.
     maxConcurrency :: Prelude.Maybe Prelude.Text,
     -- | An optional description for the task.
     description :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | A structure containing information about an S3 bucket to write
-    -- instance-level logs to.
+    -- | A structure containing information about an Amazon Simple Storage
+    -- Service (Amazon S3) bucket to write instance-level logs to.
     --
-    -- @LoggingInfo@ has been deprecated. To specify an S3 bucket to contain
-    -- logs, instead use the @OutputS3BucketName@ and @OutputS3KeyPrefix@
-    -- options in the @TaskInvocationParameters@ structure. For information
-    -- about how Systems Manager handles these options for the supported
+    -- @LoggingInfo@ has been deprecated. To specify an Amazon Simple Storage
+    -- Service (Amazon S3) bucket to contain logs, instead use the
+    -- @OutputS3BucketName@ and @OutputS3KeyPrefix@ options in the
+    -- @TaskInvocationParameters@ structure. For information about how Amazon
+    -- Web Services Systems Manager handles these options for the supported
     -- maintenance window task types, see
     -- MaintenanceWindowTaskInvocationParameters.
     loggingInfo :: Prelude.Maybe LoggingInfo,
@@ -159,9 +182,9 @@ data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
 -- 'maxErrors', 'registerTaskWithMaintenanceWindow_maxErrors' - The maximum number of errors allowed before this task stops being
 -- scheduled.
 --
--- For maintenance window tasks without a target specified, you cannot
+-- For maintenance window tasks without a target specified, you can\'t
 -- supply a value for this option. Instead, the system inserts a
--- placeholder value of @1@. This value does not affect the running of your
+-- placeholder value of @1@. This value doesn\'t affect the running of your
 -- task.
 --
 -- 'taskParameters', 'registerTaskWithMaintenanceWindow_taskParameters' - The parameters that should be passed to the task when it is run.
@@ -172,33 +195,49 @@ data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
 -- Manager handles these options for the supported maintenance window task
 -- types, see MaintenanceWindowTaskInvocationParameters.
 --
--- 'serviceRoleArn', 'registerTaskWithMaintenanceWindow_serviceRoleArn' - The ARN of the IAM service role for Systems Manager to assume when
--- running a maintenance window task. If you do not specify a service role
--- ARN, Systems Manager uses your account\'s service-linked role. If no
--- service-linked role for Systems Manager exists in your account, it is
--- created when you run @RegisterTaskWithMaintenanceWindow@.
+-- 'serviceRoleArn', 'registerTaskWithMaintenanceWindow_serviceRoleArn' - The Amazon Resource Name (ARN) of the IAM service role for Amazon Web
+-- Services Systems Manager to assume when running a maintenance window
+-- task. If you do not specify a service role ARN, Systems Manager uses
+-- your account\'s service-linked role. If no service-linked role for
+-- Systems Manager exists in your account, it is created when you run
+-- @RegisterTaskWithMaintenanceWindow@.
 --
--- For more information, see the following topics in the in the /AWS
--- Systems Manager User Guide/:
+-- For more information, see the following topics in the in the /Amazon Web
+-- Services Systems Manager User Guide/:
 --
 -- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions Using service-linked roles for Systems Manager>
 --
 -- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role Should I use a service-linked role or a custom service role to run maintenance window tasks?>
 --
--- 'priority', 'registerTaskWithMaintenanceWindow_priority' - The priority of the task in the maintenance window, the lower the number
--- the higher the priority. Tasks in a maintenance window are scheduled in
--- priority order with tasks that have the same priority scheduled in
--- parallel.
+-- 'cutoffBehavior', 'registerTaskWithMaintenanceWindow_cutoffBehavior' - Indicates whether tasks should continue to run after the cutoff time
+-- specified in the maintenance windows is reached.
+--
+-- -   @CONTINUE_TASK@: When the cutoff time is reached, any tasks that are
+--     running continue. The default value.
+--
+-- -   @CANCEL_TASK@:
+--
+--     -   For Automation, Lambda, Step Functions tasks: When the cutoff
+--         time is reached, any task invocations that are already running
+--         continue, but no new task invocations are started.
+--
+--     -   For Run Command tasks: When the cutoff time is reached, the
+--         system sends a CancelCommand operation that attempts to cancel
+--         the command associated with the task. However, there is no
+--         guarantee that the command will be terminated and the underlying
+--         process stopped.
+--
+--     The status for tasks that are not completed is @TIMED_OUT@.
 --
 -- 'targets', 'registerTaskWithMaintenanceWindow_targets' - The targets (either instances or maintenance window targets).
 --
 -- One or more targets must be specified for maintenance window Run
 -- Command-type tasks. Depending on the task, targets are optional for
--- other maintenance window task types (Automation, AWS Lambda, and AWS
--- Step Functions). For more information about running tasks that do not
--- specify targets, see
+-- other maintenance window task types (Automation, Lambda, and Step
+-- Functions). For more information about running tasks that don\'t specify
+-- targets, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html Registering maintenance window tasks without targets>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
 -- Specify instances using the following format:
 --
@@ -208,27 +247,33 @@ data RegisterTaskWithMaintenanceWindow = RegisterTaskWithMaintenanceWindow'
 --
 -- @Key=WindowTargetIds,Values=\<window-target-id-1>,\<window-target-id-2>@
 --
--- 'taskInvocationParameters', 'registerTaskWithMaintenanceWindow_taskInvocationParameters' - The parameters that the task should use during execution. Populate only
--- the fields that match the task type. All other fields should be empty.
+-- 'priority', 'registerTaskWithMaintenanceWindow_priority' - The priority of the task in the maintenance window, the lower the number
+-- the higher the priority. Tasks in a maintenance window are scheduled in
+-- priority order with tasks that have the same priority scheduled in
+-- parallel.
 --
 -- 'name', 'registerTaskWithMaintenanceWindow_name' - An optional name for the task.
 --
+-- 'taskInvocationParameters', 'registerTaskWithMaintenanceWindow_taskInvocationParameters' - The parameters that the task should use during execution. Populate only
+-- the fields that match the task type. All other fields should be empty.
+--
 -- 'maxConcurrency', 'registerTaskWithMaintenanceWindow_maxConcurrency' - The maximum number of targets this task can be run for in parallel.
 --
--- For maintenance window tasks without a target specified, you cannot
+-- For maintenance window tasks without a target specified, you can\'t
 -- supply a value for this option. Instead, the system inserts a
--- placeholder value of @1@. This value does not affect the running of your
+-- placeholder value of @1@. This value doesn\'t affect the running of your
 -- task.
 --
 -- 'description', 'registerTaskWithMaintenanceWindow_description' - An optional description for the task.
 --
--- 'loggingInfo', 'registerTaskWithMaintenanceWindow_loggingInfo' - A structure containing information about an S3 bucket to write
--- instance-level logs to.
+-- 'loggingInfo', 'registerTaskWithMaintenanceWindow_loggingInfo' - A structure containing information about an Amazon Simple Storage
+-- Service (Amazon S3) bucket to write instance-level logs to.
 --
--- @LoggingInfo@ has been deprecated. To specify an S3 bucket to contain
--- logs, instead use the @OutputS3BucketName@ and @OutputS3KeyPrefix@
--- options in the @TaskInvocationParameters@ structure. For information
--- about how Systems Manager handles these options for the supported
+-- @LoggingInfo@ has been deprecated. To specify an Amazon Simple Storage
+-- Service (Amazon S3) bucket to contain logs, instead use the
+-- @OutputS3BucketName@ and @OutputS3KeyPrefix@ options in the
+-- @TaskInvocationParameters@ structure. For information about how Amazon
+-- Web Services Systems Manager handles these options for the supported
 -- maintenance window task types, see
 -- MaintenanceWindowTaskInvocationParameters.
 --
@@ -256,11 +301,12 @@ newRegisterTaskWithMaintenanceWindow
           Prelude.Nothing,
         taskParameters = Prelude.Nothing,
         serviceRoleArn = Prelude.Nothing,
-        priority = Prelude.Nothing,
+        cutoffBehavior = Prelude.Nothing,
         targets = Prelude.Nothing,
+        priority = Prelude.Nothing,
+        name = Prelude.Nothing,
         taskInvocationParameters =
           Prelude.Nothing,
-        name = Prelude.Nothing,
         maxConcurrency = Prelude.Nothing,
         description = Prelude.Nothing,
         loggingInfo = Prelude.Nothing,
@@ -273,9 +319,9 @@ newRegisterTaskWithMaintenanceWindow
 -- | The maximum number of errors allowed before this task stops being
 -- scheduled.
 --
--- For maintenance window tasks without a target specified, you cannot
+-- For maintenance window tasks without a target specified, you can\'t
 -- supply a value for this option. Instead, the system inserts a
--- placeholder value of @1@. This value does not affect the running of your
+-- placeholder value of @1@. This value doesn\'t affect the running of your
 -- task.
 registerTaskWithMaintenanceWindow_maxErrors :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
 registerTaskWithMaintenanceWindow_maxErrors = Lens.lens (\RegisterTaskWithMaintenanceWindow' {maxErrors} -> maxErrors) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {maxErrors = a} :: RegisterTaskWithMaintenanceWindow)
@@ -290,14 +336,15 @@ registerTaskWithMaintenanceWindow_maxErrors = Lens.lens (\RegisterTaskWithMainte
 registerTaskWithMaintenanceWindow_taskParameters :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe (Prelude.HashMap Prelude.Text MaintenanceWindowTaskParameterValueExpression))
 registerTaskWithMaintenanceWindow_taskParameters = Lens.lens (\RegisterTaskWithMaintenanceWindow' {taskParameters} -> taskParameters) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {taskParameters = a} :: RegisterTaskWithMaintenanceWindow) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Lens._Coerce)
 
--- | The ARN of the IAM service role for Systems Manager to assume when
--- running a maintenance window task. If you do not specify a service role
--- ARN, Systems Manager uses your account\'s service-linked role. If no
--- service-linked role for Systems Manager exists in your account, it is
--- created when you run @RegisterTaskWithMaintenanceWindow@.
+-- | The Amazon Resource Name (ARN) of the IAM service role for Amazon Web
+-- Services Systems Manager to assume when running a maintenance window
+-- task. If you do not specify a service role ARN, Systems Manager uses
+-- your account\'s service-linked role. If no service-linked role for
+-- Systems Manager exists in your account, it is created when you run
+-- @RegisterTaskWithMaintenanceWindow@.
 --
--- For more information, see the following topics in the in the /AWS
--- Systems Manager User Guide/:
+-- For more information, see the following topics in the in the /Amazon Web
+-- Services Systems Manager User Guide/:
 --
 -- -   <https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions Using service-linked roles for Systems Manager>
 --
@@ -305,22 +352,37 @@ registerTaskWithMaintenanceWindow_taskParameters = Lens.lens (\RegisterTaskWithM
 registerTaskWithMaintenanceWindow_serviceRoleArn :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
 registerTaskWithMaintenanceWindow_serviceRoleArn = Lens.lens (\RegisterTaskWithMaintenanceWindow' {serviceRoleArn} -> serviceRoleArn) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {serviceRoleArn = a} :: RegisterTaskWithMaintenanceWindow)
 
--- | The priority of the task in the maintenance window, the lower the number
--- the higher the priority. Tasks in a maintenance window are scheduled in
--- priority order with tasks that have the same priority scheduled in
--- parallel.
-registerTaskWithMaintenanceWindow_priority :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe Prelude.Natural)
-registerTaskWithMaintenanceWindow_priority = Lens.lens (\RegisterTaskWithMaintenanceWindow' {priority} -> priority) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {priority = a} :: RegisterTaskWithMaintenanceWindow)
+-- | Indicates whether tasks should continue to run after the cutoff time
+-- specified in the maintenance windows is reached.
+--
+-- -   @CONTINUE_TASK@: When the cutoff time is reached, any tasks that are
+--     running continue. The default value.
+--
+-- -   @CANCEL_TASK@:
+--
+--     -   For Automation, Lambda, Step Functions tasks: When the cutoff
+--         time is reached, any task invocations that are already running
+--         continue, but no new task invocations are started.
+--
+--     -   For Run Command tasks: When the cutoff time is reached, the
+--         system sends a CancelCommand operation that attempts to cancel
+--         the command associated with the task. However, there is no
+--         guarantee that the command will be terminated and the underlying
+--         process stopped.
+--
+--     The status for tasks that are not completed is @TIMED_OUT@.
+registerTaskWithMaintenanceWindow_cutoffBehavior :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe MaintenanceWindowTaskCutoffBehavior)
+registerTaskWithMaintenanceWindow_cutoffBehavior = Lens.lens (\RegisterTaskWithMaintenanceWindow' {cutoffBehavior} -> cutoffBehavior) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {cutoffBehavior = a} :: RegisterTaskWithMaintenanceWindow)
 
 -- | The targets (either instances or maintenance window targets).
 --
 -- One or more targets must be specified for maintenance window Run
 -- Command-type tasks. Depending on the task, targets are optional for
--- other maintenance window task types (Automation, AWS Lambda, and AWS
--- Step Functions). For more information about running tasks that do not
--- specify targets, see
+-- other maintenance window task types (Automation, Lambda, and Step
+-- Functions). For more information about running tasks that don\'t specify
+-- targets, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/maintenance-windows-targetless-tasks.html Registering maintenance window tasks without targets>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
 -- Specify instances using the following format:
 --
@@ -332,20 +394,27 @@ registerTaskWithMaintenanceWindow_priority = Lens.lens (\RegisterTaskWithMainten
 registerTaskWithMaintenanceWindow_targets :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe [Target])
 registerTaskWithMaintenanceWindow_targets = Lens.lens (\RegisterTaskWithMaintenanceWindow' {targets} -> targets) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {targets = a} :: RegisterTaskWithMaintenanceWindow) Prelude.. Lens.mapping Lens._Coerce
 
--- | The parameters that the task should use during execution. Populate only
--- the fields that match the task type. All other fields should be empty.
-registerTaskWithMaintenanceWindow_taskInvocationParameters :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe MaintenanceWindowTaskInvocationParameters)
-registerTaskWithMaintenanceWindow_taskInvocationParameters = Lens.lens (\RegisterTaskWithMaintenanceWindow' {taskInvocationParameters} -> taskInvocationParameters) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {taskInvocationParameters = a} :: RegisterTaskWithMaintenanceWindow)
+-- | The priority of the task in the maintenance window, the lower the number
+-- the higher the priority. Tasks in a maintenance window are scheduled in
+-- priority order with tasks that have the same priority scheduled in
+-- parallel.
+registerTaskWithMaintenanceWindow_priority :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe Prelude.Natural)
+registerTaskWithMaintenanceWindow_priority = Lens.lens (\RegisterTaskWithMaintenanceWindow' {priority} -> priority) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {priority = a} :: RegisterTaskWithMaintenanceWindow)
 
 -- | An optional name for the task.
 registerTaskWithMaintenanceWindow_name :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
 registerTaskWithMaintenanceWindow_name = Lens.lens (\RegisterTaskWithMaintenanceWindow' {name} -> name) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {name = a} :: RegisterTaskWithMaintenanceWindow)
 
+-- | The parameters that the task should use during execution. Populate only
+-- the fields that match the task type. All other fields should be empty.
+registerTaskWithMaintenanceWindow_taskInvocationParameters :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe MaintenanceWindowTaskInvocationParameters)
+registerTaskWithMaintenanceWindow_taskInvocationParameters = Lens.lens (\RegisterTaskWithMaintenanceWindow' {taskInvocationParameters} -> taskInvocationParameters) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {taskInvocationParameters = a} :: RegisterTaskWithMaintenanceWindow)
+
 -- | The maximum number of targets this task can be run for in parallel.
 --
--- For maintenance window tasks without a target specified, you cannot
+-- For maintenance window tasks without a target specified, you can\'t
 -- supply a value for this option. Instead, the system inserts a
--- placeholder value of @1@. This value does not affect the running of your
+-- placeholder value of @1@. This value doesn\'t affect the running of your
 -- task.
 registerTaskWithMaintenanceWindow_maxConcurrency :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
 registerTaskWithMaintenanceWindow_maxConcurrency = Lens.lens (\RegisterTaskWithMaintenanceWindow' {maxConcurrency} -> maxConcurrency) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {maxConcurrency = a} :: RegisterTaskWithMaintenanceWindow)
@@ -354,13 +423,14 @@ registerTaskWithMaintenanceWindow_maxConcurrency = Lens.lens (\RegisterTaskWithM
 registerTaskWithMaintenanceWindow_description :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe Prelude.Text)
 registerTaskWithMaintenanceWindow_description = Lens.lens (\RegisterTaskWithMaintenanceWindow' {description} -> description) (\s@RegisterTaskWithMaintenanceWindow' {} a -> s {description = a} :: RegisterTaskWithMaintenanceWindow) Prelude.. Lens.mapping Core._Sensitive
 
--- | A structure containing information about an S3 bucket to write
--- instance-level logs to.
+-- | A structure containing information about an Amazon Simple Storage
+-- Service (Amazon S3) bucket to write instance-level logs to.
 --
--- @LoggingInfo@ has been deprecated. To specify an S3 bucket to contain
--- logs, instead use the @OutputS3BucketName@ and @OutputS3KeyPrefix@
--- options in the @TaskInvocationParameters@ structure. For information
--- about how Systems Manager handles these options for the supported
+-- @LoggingInfo@ has been deprecated. To specify an Amazon Simple Storage
+-- Service (Amazon S3) bucket to contain logs, instead use the
+-- @OutputS3BucketName@ and @OutputS3KeyPrefix@ options in the
+-- @TaskInvocationParameters@ structure. For information about how Amazon
+-- Web Services Systems Manager handles these options for the supported
 -- maintenance window task types, see
 -- MaintenanceWindowTaskInvocationParameters.
 registerTaskWithMaintenanceWindow_loggingInfo :: Lens.Lens' RegisterTaskWithMaintenanceWindow (Prelude.Maybe LoggingInfo)
@@ -436,11 +506,13 @@ instance
               Prelude.<$> taskParameters,
             ("ServiceRoleArn" Core..=)
               Prelude.<$> serviceRoleArn,
-            ("Priority" Core..=) Prelude.<$> priority,
+            ("CutoffBehavior" Core..=)
+              Prelude.<$> cutoffBehavior,
             ("Targets" Core..=) Prelude.<$> targets,
+            ("Priority" Core..=) Prelude.<$> priority,
+            ("Name" Core..=) Prelude.<$> name,
             ("TaskInvocationParameters" Core..=)
               Prelude.<$> taskInvocationParameters,
-            ("Name" Core..=) Prelude.<$> name,
             ("MaxConcurrency" Core..=)
               Prelude.<$> maxConcurrency,
             ("Description" Core..=) Prelude.<$> description,

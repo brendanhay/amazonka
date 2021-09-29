@@ -22,6 +22,11 @@
 --
 -- Retrieves the history of all changes to a parameter.
 --
+-- If you change the KMS key alias for the KMS key used to encrypt a
+-- parameter, then you must also update the key alias the parameter uses to
+-- reference KMS. Otherwise, @GetParameterHistory@ retrieves whatever the
+-- original key alias was referencing.
+--
 -- This operation returns paginated results.
 module Network.AWS.SSM.GetParameterHistory
   ( -- * Creating a Request
@@ -55,7 +60,7 @@ import Network.AWS.SSM.Types
 -- | /See:/ 'newGetParameterHistory' smart constructor.
 data GetParameterHistory = GetParameterHistory'
   { -- | Return decrypted values for secure string parameters. This flag is
-    -- ignored for String and StringList parameter types.
+    -- ignored for @String@ and @StringList@ parameter types.
     withDecryption :: Prelude.Maybe Prelude.Bool,
     -- | The token for the next set of items to return. (You received this token
     -- from a previous call.)
@@ -78,7 +83,7 @@ data GetParameterHistory = GetParameterHistory'
 -- for backwards compatibility:
 --
 -- 'withDecryption', 'getParameterHistory_withDecryption' - Return decrypted values for secure string parameters. This flag is
--- ignored for String and StringList parameter types.
+-- ignored for @String@ and @StringList@ parameter types.
 --
 -- 'nextToken', 'getParameterHistory_nextToken' - The token for the next set of items to return. (You received this token
 -- from a previous call.)
@@ -102,7 +107,7 @@ newGetParameterHistory pName_ =
     }
 
 -- | Return decrypted values for secure string parameters. This flag is
--- ignored for String and StringList parameter types.
+-- ignored for @String@ and @StringList@ parameter types.
 getParameterHistory_withDecryption :: Lens.Lens' GetParameterHistory (Prelude.Maybe Prelude.Bool)
 getParameterHistory_withDecryption = Lens.lens (\GetParameterHistory' {withDecryption} -> withDecryption) (\s@GetParameterHistory' {} a -> s {withDecryption = a} :: GetParameterHistory)
 
@@ -204,7 +209,7 @@ data GetParameterHistoryResponse = GetParameterHistoryResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetParameterHistoryResponse' with all optional fields omitted.

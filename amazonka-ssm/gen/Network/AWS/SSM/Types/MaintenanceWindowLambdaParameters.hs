@@ -23,15 +23,16 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The parameters for a LAMBDA task type.
+-- | The parameters for a @LAMBDA@ task type.
 --
 -- For information about specifying and updating task parameters, see
 -- RegisterTaskWithMaintenanceWindow and UpdateMaintenanceWindowTask.
 --
--- @LoggingInfo@ has been deprecated. To specify an S3 bucket to contain
--- logs, instead use the @OutputS3BucketName@ and @OutputS3KeyPrefix@
--- options in the @TaskInvocationParameters@ structure. For information
--- about how Systems Manager handles these options for the supported
+-- @LoggingInfo@ has been deprecated. To specify an Amazon Simple Storage
+-- Service (Amazon S3) bucket to contain logs, instead use the
+-- @OutputS3BucketName@ and @OutputS3KeyPrefix@ options in the
+-- @TaskInvocationParameters@ structure. For information about how Amazon
+-- Web Services Systems Manager handles these options for the supported
 -- maintenance window task types, see
 -- MaintenanceWindowTaskInvocationParameters.
 --
@@ -48,11 +49,11 @@ import qualified Network.AWS.Prelude as Prelude
 data MaintenanceWindowLambdaParameters = MaintenanceWindowLambdaParameters'
   { -- | JSON to provide to your Lambda function as input.
     payload :: Prelude.Maybe (Core.Sensitive Core.Base64),
-    -- | (Optional) Specify a Lambda function version or alias name. If you
-    -- specify a function version, the action uses the qualified function ARN
-    -- to invoke a specific Lambda function. If you specify an alias name, the
-    -- action uses the alias ARN to invoke the Lambda function version to which
-    -- the alias points.
+    -- | (Optional) Specify an Lambda function version or alias name. If you
+    -- specify a function version, the operation uses the qualified function
+    -- Amazon Resource Name (ARN) to invoke a specific Lambda function. If you
+    -- specify an alias name, the operation uses the alias ARN to invoke the
+    -- Lambda function version to which the alias points.
     qualifier :: Prelude.Maybe Prelude.Text,
     -- | Pass client-specific information to the Lambda function that you are
     -- invoking. You can then process the client information in your Lambda
@@ -75,11 +76,11 @@ data MaintenanceWindowLambdaParameters = MaintenanceWindowLambdaParameters'
 -- -- serialisation, and decode from Base64 representation during deserialisation.
 -- -- This 'Lens' accepts and returns only raw unencoded data.
 --
--- 'qualifier', 'maintenanceWindowLambdaParameters_qualifier' - (Optional) Specify a Lambda function version or alias name. If you
--- specify a function version, the action uses the qualified function ARN
--- to invoke a specific Lambda function. If you specify an alias name, the
--- action uses the alias ARN to invoke the Lambda function version to which
--- the alias points.
+-- 'qualifier', 'maintenanceWindowLambdaParameters_qualifier' - (Optional) Specify an Lambda function version or alias name. If you
+-- specify a function version, the operation uses the qualified function
+-- Amazon Resource Name (ARN) to invoke a specific Lambda function. If you
+-- specify an alias name, the operation uses the alias ARN to invoke the
+-- Lambda function version to which the alias points.
 --
 -- 'clientContext', 'maintenanceWindowLambdaParameters_clientContext' - Pass client-specific information to the Lambda function that you are
 -- invoking. You can then process the client information in your Lambda
@@ -102,11 +103,11 @@ newMaintenanceWindowLambdaParameters =
 maintenanceWindowLambdaParameters_payload :: Lens.Lens' MaintenanceWindowLambdaParameters (Prelude.Maybe Prelude.ByteString)
 maintenanceWindowLambdaParameters_payload = Lens.lens (\MaintenanceWindowLambdaParameters' {payload} -> payload) (\s@MaintenanceWindowLambdaParameters' {} a -> s {payload = a} :: MaintenanceWindowLambdaParameters) Prelude.. Lens.mapping (Core._Sensitive Prelude.. Core._Base64)
 
--- | (Optional) Specify a Lambda function version or alias name. If you
--- specify a function version, the action uses the qualified function ARN
--- to invoke a specific Lambda function. If you specify an alias name, the
--- action uses the alias ARN to invoke the Lambda function version to which
--- the alias points.
+-- | (Optional) Specify an Lambda function version or alias name. If you
+-- specify a function version, the operation uses the qualified function
+-- Amazon Resource Name (ARN) to invoke a specific Lambda function. If you
+-- specify an alias name, the operation uses the alias ARN to invoke the
+-- Lambda function version to which the alias points.
 maintenanceWindowLambdaParameters_qualifier :: Lens.Lens' MaintenanceWindowLambdaParameters (Prelude.Maybe Prelude.Text)
 maintenanceWindowLambdaParameters_qualifier = Lens.lens (\MaintenanceWindowLambdaParameters' {qualifier} -> qualifier) (\s@MaintenanceWindowLambdaParameters' {} a -> s {qualifier = a} :: MaintenanceWindowLambdaParameters)
 

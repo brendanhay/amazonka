@@ -26,6 +26,11 @@ import Network.AWS.SSM.Types.S3OutputLocation
 
 -- | An S3 bucket where you want to store the results of this request.
 --
+-- For the minimal permissions required to enable Amazon S3 output for an
+-- association, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-state-assoc.html Creating associations>
+-- in the /Systems Manager User Guide/.
+--
 -- /See:/ 'newInstanceAssociationOutputLocation' smart constructor.
 data InstanceAssociationOutputLocation = InstanceAssociationOutputLocation'
   { -- | An S3 bucket where you want to store the results of this request.

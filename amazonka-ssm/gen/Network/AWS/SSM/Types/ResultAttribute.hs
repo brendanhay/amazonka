@@ -27,8 +27,8 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newResultAttribute' smart constructor.
 data ResultAttribute = ResultAttribute'
-  { -- | Name of the inventory item type. Valid value: AWS:InstanceInformation.
-    -- Default Value: AWS:InstanceInformation.
+  { -- | Name of the inventory item type. Valid value: @AWS:InstanceInformation@.
+    -- Default Value: @AWS:InstanceInformation@.
     typeName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -41,8 +41,8 @@ data ResultAttribute = ResultAttribute'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'typeName', 'resultAttribute_typeName' - Name of the inventory item type. Valid value: AWS:InstanceInformation.
--- Default Value: AWS:InstanceInformation.
+-- 'typeName', 'resultAttribute_typeName' - Name of the inventory item type. Valid value: @AWS:InstanceInformation@.
+-- Default Value: @AWS:InstanceInformation@.
 newResultAttribute ::
   -- | 'typeName'
   Prelude.Text ->
@@ -50,8 +50,8 @@ newResultAttribute ::
 newResultAttribute pTypeName_ =
   ResultAttribute' {typeName = pTypeName_}
 
--- | Name of the inventory item type. Valid value: AWS:InstanceInformation.
--- Default Value: AWS:InstanceInformation.
+-- | Name of the inventory item type. Valid value: @AWS:InstanceInformation@.
+-- Default Value: @AWS:InstanceInformation@.
 resultAttribute_typeName :: Lens.Lens' ResultAttribute Prelude.Text
 resultAttribute_typeName = Lens.lens (\ResultAttribute' {typeName} -> typeName) (\s@ResultAttribute' {} a -> s {typeName = a} :: ResultAttribute)
 

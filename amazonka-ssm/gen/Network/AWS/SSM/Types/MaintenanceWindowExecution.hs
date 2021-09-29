@@ -30,8 +30,7 @@ import Network.AWS.SSM.Types.MaintenanceWindowExecutionStatus
 data MaintenanceWindowExecution = MaintenanceWindowExecution'
   { -- | The status of the execution.
     status :: Prelude.Maybe MaintenanceWindowExecutionStatus,
-    -- | The details explaining the Status. Only available for certain status
-    -- values.
+    -- | The details explaining the status. Not available for all status values.
     statusDetails :: Prelude.Maybe Prelude.Text,
     -- | The time the execution started.
     startTime :: Prelude.Maybe Core.POSIX,
@@ -54,8 +53,7 @@ data MaintenanceWindowExecution = MaintenanceWindowExecution'
 --
 -- 'status', 'maintenanceWindowExecution_status' - The status of the execution.
 --
--- 'statusDetails', 'maintenanceWindowExecution_statusDetails' - The details explaining the Status. Only available for certain status
--- values.
+-- 'statusDetails', 'maintenanceWindowExecution_statusDetails' - The details explaining the status. Not available for all status values.
 --
 -- 'startTime', 'maintenanceWindowExecution_startTime' - The time the execution started.
 --
@@ -81,8 +79,7 @@ newMaintenanceWindowExecution =
 maintenanceWindowExecution_status :: Lens.Lens' MaintenanceWindowExecution (Prelude.Maybe MaintenanceWindowExecutionStatus)
 maintenanceWindowExecution_status = Lens.lens (\MaintenanceWindowExecution' {status} -> status) (\s@MaintenanceWindowExecution' {} a -> s {status = a} :: MaintenanceWindowExecution)
 
--- | The details explaining the Status. Only available for certain status
--- values.
+-- | The details explaining the status. Not available for all status values.
 maintenanceWindowExecution_statusDetails :: Lens.Lens' MaintenanceWindowExecution (Prelude.Maybe Prelude.Text)
 maintenanceWindowExecution_statusDetails = Lens.lens (\MaintenanceWindowExecution' {statusDetails} -> statusDetails) (\s@MaintenanceWindowExecution' {} a -> s {statusDetails = a} :: MaintenanceWindowExecution)
 

@@ -24,6 +24,7 @@ module Network.AWS.SSM.Types.ResourceTypeForTagging
         ResourceTypeForTagging_MaintenanceWindow,
         ResourceTypeForTagging_ManagedInstance,
         ResourceTypeForTagging_OpsItem,
+        ResourceTypeForTagging_OpsMetadata,
         ResourceTypeForTagging_Parameter,
         ResourceTypeForTagging_PatchBaseline
       ),
@@ -73,6 +74,9 @@ pattern ResourceTypeForTagging_ManagedInstance = ResourceTypeForTagging' "Manage
 pattern ResourceTypeForTagging_OpsItem :: ResourceTypeForTagging
 pattern ResourceTypeForTagging_OpsItem = ResourceTypeForTagging' "OpsItem"
 
+pattern ResourceTypeForTagging_OpsMetadata :: ResourceTypeForTagging
+pattern ResourceTypeForTagging_OpsMetadata = ResourceTypeForTagging' "OpsMetadata"
+
 pattern ResourceTypeForTagging_Parameter :: ResourceTypeForTagging
 pattern ResourceTypeForTagging_Parameter = ResourceTypeForTagging' "Parameter"
 
@@ -84,6 +88,7 @@ pattern ResourceTypeForTagging_PatchBaseline = ResourceTypeForTagging' "PatchBas
   ResourceTypeForTagging_MaintenanceWindow,
   ResourceTypeForTagging_ManagedInstance,
   ResourceTypeForTagging_OpsItem,
+  ResourceTypeForTagging_OpsMetadata,
   ResourceTypeForTagging_Parameter,
   ResourceTypeForTagging_PatchBaseline,
   ResourceTypeForTagging'

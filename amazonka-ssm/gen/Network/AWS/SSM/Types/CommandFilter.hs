@@ -36,16 +36,18 @@ data CommandFilter = CommandFilter'
     -- | The filter value. Valid values for each filter key are as follows:
     --
     -- -   __InvokedAfter__: Specify a timestamp to limit your results. For
-    --     example, specify @2018-07-07T00:00:00Z@ to see a list of command
-    --     executions occurring July 7, 2018, and later.
+    --     example, specify @2021-07-07T00:00:00Z@ to see a list of command
+    --     executions occurring July 7, 2021, and later.
     --
     -- -   __InvokedBefore__: Specify a timestamp to limit your results. For
-    --     example, specify @2018-07-07T00:00:00Z@ to see a list of command
-    --     executions from before July 7, 2018.
+    --     example, specify @2021-07-07T00:00:00Z@ to see a list of command
+    --     executions from before July 7, 2021.
     --
     -- -   __Status__: Specify a valid command status to see a list of all
-    --     command executions with that status. Status values you can specify
-    --     include:
+    --     command executions with that status. The status choices depend on
+    --     the API you call.
+    --
+    --     The status values you can specify for @ListCommands@ are:
     --
     --     -   @Pending@
     --
@@ -57,14 +59,53 @@ data CommandFilter = CommandFilter'
     --
     --     -   @Failed@
     --
-    --     -   @TimedOut@
+    --     -   @TimedOut@ (this includes both Delivery and Execution time outs)
     --
-    --     -   @Cancelling@
+    --     -   @AccessDenied@
     --
-    -- -   __DocumentName__: Specify name of the SSM document for which you
-    --     want to see command execution results. For example, specify
-    --     @AWS-RunPatchBaseline@ to see command executions that used this SSM
-    --     document to perform security patching operations on instances.
+    --     -   @DeliveryTimedOut@
+    --
+    --     -   @ExecutionTimedOut@
+    --
+    --     -   @Incomplete@
+    --
+    --     -   @NoInstancesInTag@
+    --
+    --     -   @LimitExceeded@
+    --
+    --     The status values you can specify for @ListCommandInvocations@ are:
+    --
+    --     -   @Pending@
+    --
+    --     -   @InProgress@
+    --
+    --     -   @Delayed@
+    --
+    --     -   @Success@
+    --
+    --     -   @Cancelled@
+    --
+    --     -   @Failed@
+    --
+    --     -   @TimedOut@ (this includes both Delivery and Execution time outs)
+    --
+    --     -   @AccessDenied@
+    --
+    --     -   @DeliveryTimedOut@
+    --
+    --     -   @ExecutionTimedOut@
+    --
+    --     -   @Undeliverable@
+    --
+    --     -   @InvalidPlatform@
+    --
+    --     -   @Terminated@
+    --
+    -- -   __DocumentName__: Specify name of the Amazon Web Services Systems
+    --     Manager document (SSM document) for which you want to see command
+    --     execution results. For example, specify @AWS-RunPatchBaseline@ to
+    --     see command executions that used this SSM document to perform
+    --     security patching operations on instances.
     --
     -- -   __ExecutionStage__: Specify one of the following values:
     --
@@ -90,16 +131,18 @@ data CommandFilter = CommandFilter'
 -- 'value', 'commandFilter_value' - The filter value. Valid values for each filter key are as follows:
 --
 -- -   __InvokedAfter__: Specify a timestamp to limit your results. For
---     example, specify @2018-07-07T00:00:00Z@ to see a list of command
---     executions occurring July 7, 2018, and later.
+--     example, specify @2021-07-07T00:00:00Z@ to see a list of command
+--     executions occurring July 7, 2021, and later.
 --
 -- -   __InvokedBefore__: Specify a timestamp to limit your results. For
---     example, specify @2018-07-07T00:00:00Z@ to see a list of command
---     executions from before July 7, 2018.
+--     example, specify @2021-07-07T00:00:00Z@ to see a list of command
+--     executions from before July 7, 2021.
 --
 -- -   __Status__: Specify a valid command status to see a list of all
---     command executions with that status. Status values you can specify
---     include:
+--     command executions with that status. The status choices depend on
+--     the API you call.
+--
+--     The status values you can specify for @ListCommands@ are:
 --
 --     -   @Pending@
 --
@@ -111,14 +154,53 @@ data CommandFilter = CommandFilter'
 --
 --     -   @Failed@
 --
---     -   @TimedOut@
+--     -   @TimedOut@ (this includes both Delivery and Execution time outs)
 --
---     -   @Cancelling@
+--     -   @AccessDenied@
 --
--- -   __DocumentName__: Specify name of the SSM document for which you
---     want to see command execution results. For example, specify
---     @AWS-RunPatchBaseline@ to see command executions that used this SSM
---     document to perform security patching operations on instances.
+--     -   @DeliveryTimedOut@
+--
+--     -   @ExecutionTimedOut@
+--
+--     -   @Incomplete@
+--
+--     -   @NoInstancesInTag@
+--
+--     -   @LimitExceeded@
+--
+--     The status values you can specify for @ListCommandInvocations@ are:
+--
+--     -   @Pending@
+--
+--     -   @InProgress@
+--
+--     -   @Delayed@
+--
+--     -   @Success@
+--
+--     -   @Cancelled@
+--
+--     -   @Failed@
+--
+--     -   @TimedOut@ (this includes both Delivery and Execution time outs)
+--
+--     -   @AccessDenied@
+--
+--     -   @DeliveryTimedOut@
+--
+--     -   @ExecutionTimedOut@
+--
+--     -   @Undeliverable@
+--
+--     -   @InvalidPlatform@
+--
+--     -   @Terminated@
+--
+-- -   __DocumentName__: Specify name of the Amazon Web Services Systems
+--     Manager document (SSM document) for which you want to see command
+--     execution results. For example, specify @AWS-RunPatchBaseline@ to
+--     see command executions that used this SSM document to perform
+--     security patching operations on instances.
 --
 -- -   __ExecutionStage__: Specify one of the following values:
 --
@@ -143,16 +225,18 @@ commandFilter_key = Lens.lens (\CommandFilter' {key} -> key) (\s@CommandFilter' 
 -- | The filter value. Valid values for each filter key are as follows:
 --
 -- -   __InvokedAfter__: Specify a timestamp to limit your results. For
---     example, specify @2018-07-07T00:00:00Z@ to see a list of command
---     executions occurring July 7, 2018, and later.
+--     example, specify @2021-07-07T00:00:00Z@ to see a list of command
+--     executions occurring July 7, 2021, and later.
 --
 -- -   __InvokedBefore__: Specify a timestamp to limit your results. For
---     example, specify @2018-07-07T00:00:00Z@ to see a list of command
---     executions from before July 7, 2018.
+--     example, specify @2021-07-07T00:00:00Z@ to see a list of command
+--     executions from before July 7, 2021.
 --
 -- -   __Status__: Specify a valid command status to see a list of all
---     command executions with that status. Status values you can specify
---     include:
+--     command executions with that status. The status choices depend on
+--     the API you call.
+--
+--     The status values you can specify for @ListCommands@ are:
 --
 --     -   @Pending@
 --
@@ -164,14 +248,53 @@ commandFilter_key = Lens.lens (\CommandFilter' {key} -> key) (\s@CommandFilter' 
 --
 --     -   @Failed@
 --
---     -   @TimedOut@
+--     -   @TimedOut@ (this includes both Delivery and Execution time outs)
 --
---     -   @Cancelling@
+--     -   @AccessDenied@
 --
--- -   __DocumentName__: Specify name of the SSM document for which you
---     want to see command execution results. For example, specify
---     @AWS-RunPatchBaseline@ to see command executions that used this SSM
---     document to perform security patching operations on instances.
+--     -   @DeliveryTimedOut@
+--
+--     -   @ExecutionTimedOut@
+--
+--     -   @Incomplete@
+--
+--     -   @NoInstancesInTag@
+--
+--     -   @LimitExceeded@
+--
+--     The status values you can specify for @ListCommandInvocations@ are:
+--
+--     -   @Pending@
+--
+--     -   @InProgress@
+--
+--     -   @Delayed@
+--
+--     -   @Success@
+--
+--     -   @Cancelled@
+--
+--     -   @Failed@
+--
+--     -   @TimedOut@ (this includes both Delivery and Execution time outs)
+--
+--     -   @AccessDenied@
+--
+--     -   @DeliveryTimedOut@
+--
+--     -   @ExecutionTimedOut@
+--
+--     -   @Undeliverable@
+--
+--     -   @InvalidPlatform@
+--
+--     -   @Terminated@
+--
+-- -   __DocumentName__: Specify name of the Amazon Web Services Systems
+--     Manager document (SSM document) for which you want to see command
+--     execution results. For example, specify @AWS-RunPatchBaseline@ to
+--     see command executions that used this SSM document to perform
+--     security patching operations on instances.
 --
 -- -   __ExecutionStage__: Specify one of the following values:
 --

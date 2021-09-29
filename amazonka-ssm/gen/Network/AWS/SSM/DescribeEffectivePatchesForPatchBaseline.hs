@@ -21,8 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves the current effective patches (the patch and the approval
--- state) for the specified patch baseline. Note that this API applies only
--- to Windows patch baselines.
+-- state) for the specified patch baseline. Applies to patch baselines for
+-- Windows only.
 --
 -- This operation returns paginated results.
 module Network.AWS.SSM.DescribeEffectivePatchesForPatchBaseline

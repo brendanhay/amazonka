@@ -23,12 +23,14 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Information about an S3 bucket to write instance-level logs to.
+-- | Information about an Amazon Simple Storage Service (Amazon S3) bucket to
+-- write instance-level logs to.
 --
--- @LoggingInfo@ has been deprecated. To specify an S3 bucket to contain
--- logs, instead use the @OutputS3BucketName@ and @OutputS3KeyPrefix@
--- options in the @TaskInvocationParameters@ structure. For information
--- about how Systems Manager handles these options for the supported
+-- @LoggingInfo@ has been deprecated. To specify an Amazon Simple Storage
+-- Service (Amazon S3) bucket to contain logs, instead use the
+-- @OutputS3BucketName@ and @OutputS3KeyPrefix@ options in the
+-- @TaskInvocationParameters@ structure. For information about how Amazon
+-- Web Services Systems Manager handles these options for the supported
 -- maintenance window task types, see
 -- MaintenanceWindowTaskInvocationParameters.
 --
@@ -38,7 +40,7 @@ data LoggingInfo = LoggingInfo'
     s3KeyPrefix :: Prelude.Maybe Prelude.Text,
     -- | The name of an S3 bucket where execution logs are stored .
     s3BucketName :: Prelude.Text,
-    -- | The Region where the S3 bucket is located.
+    -- | The Amazon Web Services Region where the S3 bucket is located.
     s3Region :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -55,7 +57,7 @@ data LoggingInfo = LoggingInfo'
 --
 -- 's3BucketName', 'loggingInfo_s3BucketName' - The name of an S3 bucket where execution logs are stored .
 --
--- 's3Region', 'loggingInfo_s3Region' - The Region where the S3 bucket is located.
+-- 's3Region', 'loggingInfo_s3Region' - The Amazon Web Services Region where the S3 bucket is located.
 newLoggingInfo ::
   -- | 's3BucketName'
   Prelude.Text ->
@@ -77,7 +79,7 @@ loggingInfo_s3KeyPrefix = Lens.lens (\LoggingInfo' {s3KeyPrefix} -> s3KeyPrefix)
 loggingInfo_s3BucketName :: Lens.Lens' LoggingInfo Prelude.Text
 loggingInfo_s3BucketName = Lens.lens (\LoggingInfo' {s3BucketName} -> s3BucketName) (\s@LoggingInfo' {} a -> s {s3BucketName = a} :: LoggingInfo)
 
--- | The Region where the S3 bucket is located.
+-- | The Amazon Web Services Region where the S3 bucket is located.
 loggingInfo_s3Region :: Lens.Lens' LoggingInfo Prelude.Text
 loggingInfo_s3Region = Lens.lens (\LoggingInfo' {s3Region} -> s3Region) (\s@LoggingInfo' {} a -> s {s3Region = a} :: LoggingInfo)
 

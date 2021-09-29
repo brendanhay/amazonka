@@ -62,8 +62,8 @@ data DescribeMaintenanceWindowTargets = DescribeMaintenanceWindowTargets'
     -- next set of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | Optional filters that can be used to narrow down the scope of the
-    -- returned window targets. The supported filter keys are Type,
-    -- WindowTargetId and OwnerInformation.
+    -- returned window targets. The supported filter keys are @Type@,
+    -- @WindowTargetId@, and @OwnerInformation@.
     filters :: Prelude.Maybe [MaintenanceWindowFilter],
     -- | The ID of the maintenance window whose targets should be retrieved.
     windowId :: Prelude.Text
@@ -86,8 +86,8 @@ data DescribeMaintenanceWindowTargets = DescribeMaintenanceWindowTargets'
 -- next set of results.
 --
 -- 'filters', 'describeMaintenanceWindowTargets_filters' - Optional filters that can be used to narrow down the scope of the
--- returned window targets. The supported filter keys are Type,
--- WindowTargetId and OwnerInformation.
+-- returned window targets. The supported filter keys are @Type@,
+-- @WindowTargetId@, and @OwnerInformation@.
 --
 -- 'windowId', 'describeMaintenanceWindowTargets_windowId' - The ID of the maintenance window whose targets should be retrieved.
 newDescribeMaintenanceWindowTargets ::
@@ -115,8 +115,8 @@ describeMaintenanceWindowTargets_maxResults :: Lens.Lens' DescribeMaintenanceWin
 describeMaintenanceWindowTargets_maxResults = Lens.lens (\DescribeMaintenanceWindowTargets' {maxResults} -> maxResults) (\s@DescribeMaintenanceWindowTargets' {} a -> s {maxResults = a} :: DescribeMaintenanceWindowTargets)
 
 -- | Optional filters that can be used to narrow down the scope of the
--- returned window targets. The supported filter keys are Type,
--- WindowTargetId and OwnerInformation.
+-- returned window targets. The supported filter keys are @Type@,
+-- @WindowTargetId@, and @OwnerInformation@.
 describeMaintenanceWindowTargets_filters :: Lens.Lens' DescribeMaintenanceWindowTargets (Prelude.Maybe [MaintenanceWindowFilter])
 describeMaintenanceWindowTargets_filters = Lens.lens (\DescribeMaintenanceWindowTargets' {filters} -> filters) (\s@DescribeMaintenanceWindowTargets' {} a -> s {filters = a} :: DescribeMaintenanceWindowTargets) Prelude.. Lens.mapping Lens._Coerce
 

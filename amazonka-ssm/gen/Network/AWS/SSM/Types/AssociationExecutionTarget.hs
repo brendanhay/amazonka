@@ -32,10 +32,10 @@ data AssociationExecutionTarget = AssociationExecutionTarget'
     resourceId :: Prelude.Maybe Prelude.Text,
     -- | The association execution status.
     status :: Prelude.Maybe Prelude.Text,
-    -- | The date of the last execution.
-    lastExecutionDate :: Prelude.Maybe Core.POSIX,
     -- | Detailed information about the execution status.
     detailedStatus :: Prelude.Maybe Prelude.Text,
+    -- | The date of the last execution.
+    lastExecutionDate :: Prelude.Maybe Core.POSIX,
     -- | The resource type, for example, instance.
     resourceType :: Prelude.Maybe Prelude.Text,
     -- | The location where the association details are saved.
@@ -61,9 +61,9 @@ data AssociationExecutionTarget = AssociationExecutionTarget'
 --
 -- 'status', 'associationExecutionTarget_status' - The association execution status.
 --
--- 'lastExecutionDate', 'associationExecutionTarget_lastExecutionDate' - The date of the last execution.
---
 -- 'detailedStatus', 'associationExecutionTarget_detailedStatus' - Detailed information about the execution status.
+--
+-- 'lastExecutionDate', 'associationExecutionTarget_lastExecutionDate' - The date of the last execution.
 --
 -- 'resourceType', 'associationExecutionTarget_resourceType' - The resource type, for example, instance.
 --
@@ -81,8 +81,8 @@ newAssociationExecutionTarget =
     { resourceId =
         Prelude.Nothing,
       status = Prelude.Nothing,
-      lastExecutionDate = Prelude.Nothing,
       detailedStatus = Prelude.Nothing,
+      lastExecutionDate = Prelude.Nothing,
       resourceType = Prelude.Nothing,
       outputSource = Prelude.Nothing,
       executionId = Prelude.Nothing,
@@ -98,13 +98,13 @@ associationExecutionTarget_resourceId = Lens.lens (\AssociationExecutionTarget' 
 associationExecutionTarget_status :: Lens.Lens' AssociationExecutionTarget (Prelude.Maybe Prelude.Text)
 associationExecutionTarget_status = Lens.lens (\AssociationExecutionTarget' {status} -> status) (\s@AssociationExecutionTarget' {} a -> s {status = a} :: AssociationExecutionTarget)
 
--- | The date of the last execution.
-associationExecutionTarget_lastExecutionDate :: Lens.Lens' AssociationExecutionTarget (Prelude.Maybe Prelude.UTCTime)
-associationExecutionTarget_lastExecutionDate = Lens.lens (\AssociationExecutionTarget' {lastExecutionDate} -> lastExecutionDate) (\s@AssociationExecutionTarget' {} a -> s {lastExecutionDate = a} :: AssociationExecutionTarget) Prelude.. Lens.mapping Core._Time
-
 -- | Detailed information about the execution status.
 associationExecutionTarget_detailedStatus :: Lens.Lens' AssociationExecutionTarget (Prelude.Maybe Prelude.Text)
 associationExecutionTarget_detailedStatus = Lens.lens (\AssociationExecutionTarget' {detailedStatus} -> detailedStatus) (\s@AssociationExecutionTarget' {} a -> s {detailedStatus = a} :: AssociationExecutionTarget)
+
+-- | The date of the last execution.
+associationExecutionTarget_lastExecutionDate :: Lens.Lens' AssociationExecutionTarget (Prelude.Maybe Prelude.UTCTime)
+associationExecutionTarget_lastExecutionDate = Lens.lens (\AssociationExecutionTarget' {lastExecutionDate} -> lastExecutionDate) (\s@AssociationExecutionTarget' {} a -> s {lastExecutionDate = a} :: AssociationExecutionTarget) Prelude.. Lens.mapping Core._Time
 
 -- | The resource type, for example, instance.
 associationExecutionTarget_resourceType :: Lens.Lens' AssociationExecutionTarget (Prelude.Maybe Prelude.Text)
@@ -134,8 +134,8 @@ instance Core.FromJSON AssociationExecutionTarget where
           AssociationExecutionTarget'
             Prelude.<$> (x Core..:? "ResourceId")
             Prelude.<*> (x Core..:? "Status")
-            Prelude.<*> (x Core..:? "LastExecutionDate")
             Prelude.<*> (x Core..:? "DetailedStatus")
+            Prelude.<*> (x Core..:? "LastExecutionDate")
             Prelude.<*> (x Core..:? "ResourceType")
             Prelude.<*> (x Core..:? "OutputSource")
             Prelude.<*> (x Core..:? "ExecutionId")

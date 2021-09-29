@@ -20,17 +20,17 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new OpsItem. You must have permission in AWS Identity and
--- Access Management (IAM) to create a new OpsItem. For more information,
--- see
+-- Creates a new OpsItem. You must have permission in Identity and Access
+-- Management (IAM) to create a new OpsItem. For more information, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html Getting started with OpsCenter>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
--- Operations engineers and IT professionals use OpsCenter to view,
--- investigate, and remediate operational issues impacting the performance
--- and health of their AWS resources. For more information, see
--- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html AWS Systems Manager OpsCenter>
--- in the /AWS Systems Manager User Guide/.
+-- Operations engineers and IT professionals use Amazon Web Services
+-- Systems Manager OpsCenter to view, investigate, and remediate
+-- operational issues impacting the performance and health of their Amazon
+-- Web Services resources. For more information, see
+-- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html Amazon Web Services Systems Manager OpsCenter>
+-- in the /Amazon Web Services Systems Manager User Guide/.
 module Network.AWS.SSM.CreateOpsItem
   ( -- * Creating a Request
     CreateOpsItem (..),
@@ -45,8 +45,8 @@ module Network.AWS.SSM.CreateOpsItem
     createOpsItem_priority,
     createOpsItem_actualEndTime,
     createOpsItem_tags,
-    createOpsItem_opsItemType,
     createOpsItem_plannedStartTime,
+    createOpsItem_opsItemType,
     createOpsItem_notifications,
     createOpsItem_relatedOpsItems,
     createOpsItem_description,
@@ -88,22 +88,23 @@ data CreateOpsItem = CreateOpsItem'
     -- enter operational data as key-value pairs. The key has a maximum length
     -- of 128 characters. The value has a maximum size of 20 KB.
     --
-    -- Operational data keys /can\'t/ begin with the following: amazon, aws,
-    -- amzn, ssm, \/amazon, \/aws, \/amzn, \/ssm.
+    -- Operational data keys /can\'t/ begin with the following: @amazon@,
+    -- @aws@, @amzn@, @ssm@, @\/amazon@, @\/aws@, @\/amzn@, @\/ssm@.
     --
     -- You can choose to make the data searchable by other users in the account
     -- or you can restrict search access. Searchable data means that all users
     -- with access to the OpsItem Overview page (as provided by the
-    -- DescribeOpsItems API action) can view and search on the specified data.
-    -- Operational data that is not searchable is only viewable by users who
-    -- have access to the OpsItem (as provided by the GetOpsItem API action).
+    -- DescribeOpsItems API operation) can view and search on the specified
+    -- data. Operational data that isn\'t searchable is only viewable by users
+    -- who have access to the OpsItem (as provided by the GetOpsItem API
+    -- operation).
     --
     -- Use the @\/aws\/resources@ key in OperationalData to specify a related
     -- resource in the request. Use the @\/aws\/automations@ key in
     -- OperationalData to associate an Automation runbook with the OpsItem. To
-    -- view AWS CLI example commands that use these keys, see
+    -- view Amazon Web Services CLI example commands that use these keys, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems Creating OpsItems manually>
-    -- in the /AWS Systems Manager User Guide/.
+    -- in the /Amazon Web Services Systems Manager User Guide/.
     operationalData :: Prelude.Maybe (Prelude.HashMap Prelude.Text OpsItemDataValue),
     -- | The importance of this OpsItem in relation to other OpsItems in the
     -- system.
@@ -115,20 +116,23 @@ data CreateOpsItem = CreateOpsItem'
     -- to OpsItems by using an inline IAM policy that specifies tags. For more
     -- information, see
     -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html#OpsCenter-getting-started-user-permissions Getting started with OpsCenter>
-    -- in the /AWS Systems Manager User Guide/.
+    -- in the /Amazon Web Services Systems Manager User Guide/.
     --
     -- Tags use a key-value pair. For example:
     --
     -- @Key=Department,Value=Finance@
     --
-    -- To add tags to an existing OpsItem, use the AddTagsToResource action.
+    -- To add tags to a new OpsItem, a user must have IAM permissions for both
+    -- the @ssm:CreateOpsItems@ operation and the @ssm:AddTagsToResource@
+    -- operation. To add tags to an existing OpsItem, use the AddTagsToResource
+    -- operation.
     tags :: Prelude.Maybe [Tag],
-    -- | The type of OpsItem to create. Currently, the only valid values are
-    -- @\/aws\/changerequest@ and @\/aws\/issue@.
-    opsItemType :: Prelude.Maybe Prelude.Text,
     -- | The time specified in a change request for a runbook workflow to start.
     -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
     plannedStartTime :: Prelude.Maybe Core.POSIX,
+    -- | The type of OpsItem to create. Currently, the only valid values are
+    -- @\/aws\/changerequest@ and @\/aws\/issue@.
+    opsItemType :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of an SNS topic where notifications are
     -- sent when this OpsItem is edited or changed.
     notifications :: Prelude.Maybe [OpsItemNotification],
@@ -141,8 +145,8 @@ data CreateOpsItem = CreateOpsItem'
     description :: Prelude.Text,
     -- | The origin of the OpsItem, such as Amazon EC2 or Systems Manager.
     --
-    -- The source name can\'t contain the following strings: aws, amazon, and
-    -- amzn.
+    -- The source name can\'t contain the following strings: @aws@, @amazon@,
+    -- and @amzn@.
     source :: Prelude.Text,
     -- | A short heading that describes the nature of the OpsItem and the
     -- impacted resource.
@@ -174,22 +178,23 @@ data CreateOpsItem = CreateOpsItem'
 -- enter operational data as key-value pairs. The key has a maximum length
 -- of 128 characters. The value has a maximum size of 20 KB.
 --
--- Operational data keys /can\'t/ begin with the following: amazon, aws,
--- amzn, ssm, \/amazon, \/aws, \/amzn, \/ssm.
+-- Operational data keys /can\'t/ begin with the following: @amazon@,
+-- @aws@, @amzn@, @ssm@, @\/amazon@, @\/aws@, @\/amzn@, @\/ssm@.
 --
 -- You can choose to make the data searchable by other users in the account
 -- or you can restrict search access. Searchable data means that all users
 -- with access to the OpsItem Overview page (as provided by the
--- DescribeOpsItems API action) can view and search on the specified data.
--- Operational data that is not searchable is only viewable by users who
--- have access to the OpsItem (as provided by the GetOpsItem API action).
+-- DescribeOpsItems API operation) can view and search on the specified
+-- data. Operational data that isn\'t searchable is only viewable by users
+-- who have access to the OpsItem (as provided by the GetOpsItem API
+-- operation).
 --
 -- Use the @\/aws\/resources@ key in OperationalData to specify a related
 -- resource in the request. Use the @\/aws\/automations@ key in
 -- OperationalData to associate an Automation runbook with the OpsItem. To
--- view AWS CLI example commands that use these keys, see
+-- view Amazon Web Services CLI example commands that use these keys, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems Creating OpsItems manually>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
 -- 'priority', 'createOpsItem_priority' - The importance of this OpsItem in relation to other OpsItems in the
 -- system.
@@ -201,19 +206,22 @@ data CreateOpsItem = CreateOpsItem'
 -- to OpsItems by using an inline IAM policy that specifies tags. For more
 -- information, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html#OpsCenter-getting-started-user-permissions Getting started with OpsCenter>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
 -- Tags use a key-value pair. For example:
 --
 -- @Key=Department,Value=Finance@
 --
--- To add tags to an existing OpsItem, use the AddTagsToResource action.
---
--- 'opsItemType', 'createOpsItem_opsItemType' - The type of OpsItem to create. Currently, the only valid values are
--- @\/aws\/changerequest@ and @\/aws\/issue@.
+-- To add tags to a new OpsItem, a user must have IAM permissions for both
+-- the @ssm:CreateOpsItems@ operation and the @ssm:AddTagsToResource@
+-- operation. To add tags to an existing OpsItem, use the AddTagsToResource
+-- operation.
 --
 -- 'plannedStartTime', 'createOpsItem_plannedStartTime' - The time specified in a change request for a runbook workflow to start.
 -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
+--
+-- 'opsItemType', 'createOpsItem_opsItemType' - The type of OpsItem to create. Currently, the only valid values are
+-- @\/aws\/changerequest@ and @\/aws\/issue@.
 --
 -- 'notifications', 'createOpsItem_notifications' - The Amazon Resource Name (ARN) of an SNS topic where notifications are
 -- sent when this OpsItem is edited or changed.
@@ -227,8 +235,8 @@ data CreateOpsItem = CreateOpsItem'
 --
 -- 'source', 'createOpsItem_source' - The origin of the OpsItem, such as Amazon EC2 or Systems Manager.
 --
--- The source name can\'t contain the following strings: aws, amazon, and
--- amzn.
+-- The source name can\'t contain the following strings: @aws@, @amazon@,
+-- and @amzn@.
 --
 -- 'title', 'createOpsItem_title' - A short heading that describes the nature of the OpsItem and the
 -- impacted resource.
@@ -250,8 +258,8 @@ newCreateOpsItem pDescription_ pSource_ pTitle_ =
       priority = Prelude.Nothing,
       actualEndTime = Prelude.Nothing,
       tags = Prelude.Nothing,
-      opsItemType = Prelude.Nothing,
       plannedStartTime = Prelude.Nothing,
+      opsItemType = Prelude.Nothing,
       notifications = Prelude.Nothing,
       relatedOpsItems = Prelude.Nothing,
       description = pDescription_,
@@ -283,22 +291,23 @@ createOpsItem_category = Lens.lens (\CreateOpsItem' {category} -> category) (\s@
 -- enter operational data as key-value pairs. The key has a maximum length
 -- of 128 characters. The value has a maximum size of 20 KB.
 --
--- Operational data keys /can\'t/ begin with the following: amazon, aws,
--- amzn, ssm, \/amazon, \/aws, \/amzn, \/ssm.
+-- Operational data keys /can\'t/ begin with the following: @amazon@,
+-- @aws@, @amzn@, @ssm@, @\/amazon@, @\/aws@, @\/amzn@, @\/ssm@.
 --
 -- You can choose to make the data searchable by other users in the account
 -- or you can restrict search access. Searchable data means that all users
 -- with access to the OpsItem Overview page (as provided by the
--- DescribeOpsItems API action) can view and search on the specified data.
--- Operational data that is not searchable is only viewable by users who
--- have access to the OpsItem (as provided by the GetOpsItem API action).
+-- DescribeOpsItems API operation) can view and search on the specified
+-- data. Operational data that isn\'t searchable is only viewable by users
+-- who have access to the OpsItem (as provided by the GetOpsItem API
+-- operation).
 --
 -- Use the @\/aws\/resources@ key in OperationalData to specify a related
 -- resource in the request. Use the @\/aws\/automations@ key in
 -- OperationalData to associate an Automation runbook with the OpsItem. To
--- view AWS CLI example commands that use these keys, see
+-- view Amazon Web Services CLI example commands that use these keys, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-creating-OpsItems.html#OpsCenter-manually-create-OpsItems Creating OpsItems manually>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 createOpsItem_operationalData :: Lens.Lens' CreateOpsItem (Prelude.Maybe (Prelude.HashMap Prelude.Text OpsItemDataValue))
 createOpsItem_operationalData = Lens.lens (\CreateOpsItem' {operationalData} -> operationalData) (\s@CreateOpsItem' {} a -> s {operationalData = a} :: CreateOpsItem) Prelude.. Lens.mapping Lens._Coerce
 
@@ -316,25 +325,28 @@ createOpsItem_actualEndTime = Lens.lens (\CreateOpsItem' {actualEndTime} -> actu
 -- to OpsItems by using an inline IAM policy that specifies tags. For more
 -- information, see
 -- <https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-getting-started.html#OpsCenter-getting-started-user-permissions Getting started with OpsCenter>
--- in the /AWS Systems Manager User Guide/.
+-- in the /Amazon Web Services Systems Manager User Guide/.
 --
 -- Tags use a key-value pair. For example:
 --
 -- @Key=Department,Value=Finance@
 --
--- To add tags to an existing OpsItem, use the AddTagsToResource action.
+-- To add tags to a new OpsItem, a user must have IAM permissions for both
+-- the @ssm:CreateOpsItems@ operation and the @ssm:AddTagsToResource@
+-- operation. To add tags to an existing OpsItem, use the AddTagsToResource
+-- operation.
 createOpsItem_tags :: Lens.Lens' CreateOpsItem (Prelude.Maybe [Tag])
 createOpsItem_tags = Lens.lens (\CreateOpsItem' {tags} -> tags) (\s@CreateOpsItem' {} a -> s {tags = a} :: CreateOpsItem) Prelude.. Lens.mapping Lens._Coerce
-
--- | The type of OpsItem to create. Currently, the only valid values are
--- @\/aws\/changerequest@ and @\/aws\/issue@.
-createOpsItem_opsItemType :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.Text)
-createOpsItem_opsItemType = Lens.lens (\CreateOpsItem' {opsItemType} -> opsItemType) (\s@CreateOpsItem' {} a -> s {opsItemType = a} :: CreateOpsItem)
 
 -- | The time specified in a change request for a runbook workflow to start.
 -- Currently supported only for the OpsItem type @\/aws\/changerequest@.
 createOpsItem_plannedStartTime :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.UTCTime)
 createOpsItem_plannedStartTime = Lens.lens (\CreateOpsItem' {plannedStartTime} -> plannedStartTime) (\s@CreateOpsItem' {} a -> s {plannedStartTime = a} :: CreateOpsItem) Prelude.. Lens.mapping Core._Time
+
+-- | The type of OpsItem to create. Currently, the only valid values are
+-- @\/aws\/changerequest@ and @\/aws\/issue@.
+createOpsItem_opsItemType :: Lens.Lens' CreateOpsItem (Prelude.Maybe Prelude.Text)
+createOpsItem_opsItemType = Lens.lens (\CreateOpsItem' {opsItemType} -> opsItemType) (\s@CreateOpsItem' {} a -> s {opsItemType = a} :: CreateOpsItem)
 
 -- | The Amazon Resource Name (ARN) of an SNS topic where notifications are
 -- sent when this OpsItem is edited or changed.
@@ -354,8 +366,8 @@ createOpsItem_description = Lens.lens (\CreateOpsItem' {description} -> descript
 
 -- | The origin of the OpsItem, such as Amazon EC2 or Systems Manager.
 --
--- The source name can\'t contain the following strings: aws, amazon, and
--- amzn.
+-- The source name can\'t contain the following strings: @aws@, @amazon@,
+-- and @amzn@.
 createOpsItem_source :: Lens.Lens' CreateOpsItem Prelude.Text
 createOpsItem_source = Lens.lens (\CreateOpsItem' {source} -> source) (\s@CreateOpsItem' {} a -> s {source = a} :: CreateOpsItem)
 
@@ -409,9 +421,9 @@ instance Core.ToJSON CreateOpsItem where
             ("Priority" Core..=) Prelude.<$> priority,
             ("ActualEndTime" Core..=) Prelude.<$> actualEndTime,
             ("Tags" Core..=) Prelude.<$> tags,
-            ("OpsItemType" Core..=) Prelude.<$> opsItemType,
             ("PlannedStartTime" Core..=)
               Prelude.<$> plannedStartTime,
+            ("OpsItemType" Core..=) Prelude.<$> opsItemType,
             ("Notifications" Core..=) Prelude.<$> notifications,
             ("RelatedOpsItems" Core..=)
               Prelude.<$> relatedOpsItems,

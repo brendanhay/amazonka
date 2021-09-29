@@ -23,12 +23,12 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Information includes the AWS account ID where the current document is
--- shared and the version shared with that account.
+-- | Information includes the Amazon Web Services account ID where the
+-- current document is shared and the version shared with that account.
 --
 -- /See:/ 'newAccountSharingInfo' smart constructor.
 data AccountSharingInfo = AccountSharingInfo'
-  { -- | The AWS account ID where the current document is shared.
+  { -- | The Amazon Web Services account ID where the current document is shared.
     accountId :: Prelude.Maybe Prelude.Text,
     -- | The version of the current document shared with the account.
     sharedDocumentVersion :: Prelude.Maybe Prelude.Text
@@ -43,7 +43,7 @@ data AccountSharingInfo = AccountSharingInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accountId', 'accountSharingInfo_accountId' - The AWS account ID where the current document is shared.
+-- 'accountId', 'accountSharingInfo_accountId' - The Amazon Web Services account ID where the current document is shared.
 --
 -- 'sharedDocumentVersion', 'accountSharingInfo_sharedDocumentVersion' - The version of the current document shared with the account.
 newAccountSharingInfo ::
@@ -54,7 +54,7 @@ newAccountSharingInfo =
       sharedDocumentVersion = Prelude.Nothing
     }
 
--- | The AWS account ID where the current document is shared.
+-- | The Amazon Web Services account ID where the current document is shared.
 accountSharingInfo_accountId :: Lens.Lens' AccountSharingInfo (Prelude.Maybe Prelude.Text)
 accountSharingInfo_accountId = Lens.lens (\AccountSharingInfo' {accountId} -> accountId) (\s@AccountSharingInfo' {} a -> s {accountId = a} :: AccountSharingInfo)
 

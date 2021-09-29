@@ -85,6 +85,9 @@ newCommandExecuted =
             ( getCommandInvocationResponse_status
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
-            )
+            ),
+          Core.matchError
+            "InvocationDoesNotExist"
+            Core.AcceptRetry
         ]
     }

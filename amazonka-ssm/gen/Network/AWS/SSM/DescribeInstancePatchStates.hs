@@ -58,7 +58,7 @@ data DescribeInstancePatchStates = DescribeInstancePatchStates'
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of instances to return (per page).
     maxResults :: Prelude.Maybe Prelude.Natural,
-    -- | The ID of the instance whose patch state information should be
+    -- | The ID of the instance for which patch state information should be
     -- retrieved.
     instanceIds :: [Prelude.Text]
   }
@@ -77,7 +77,7 @@ data DescribeInstancePatchStates = DescribeInstancePatchStates'
 --
 -- 'maxResults', 'describeInstancePatchStates_maxResults' - The maximum number of instances to return (per page).
 --
--- 'instanceIds', 'describeInstancePatchStates_instanceIds' - The ID of the instance whose patch state information should be
+-- 'instanceIds', 'describeInstancePatchStates_instanceIds' - The ID of the instance for which patch state information should be
 -- retrieved.
 newDescribeInstancePatchStates ::
   DescribeInstancePatchStates
@@ -98,7 +98,7 @@ describeInstancePatchStates_nextToken = Lens.lens (\DescribeInstancePatchStates'
 describeInstancePatchStates_maxResults :: Lens.Lens' DescribeInstancePatchStates (Prelude.Maybe Prelude.Natural)
 describeInstancePatchStates_maxResults = Lens.lens (\DescribeInstancePatchStates' {maxResults} -> maxResults) (\s@DescribeInstancePatchStates' {} a -> s {maxResults = a} :: DescribeInstancePatchStates)
 
--- | The ID of the instance whose patch state information should be
+-- | The ID of the instance for which patch state information should be
 -- retrieved.
 describeInstancePatchStates_instanceIds :: Lens.Lens' DescribeInstancePatchStates [Prelude.Text]
 describeInstancePatchStates_instanceIds = Lens.lens (\DescribeInstancePatchStates' {instanceIds} -> instanceIds) (\s@DescribeInstancePatchStates' {} a -> s {instanceIds = a} :: DescribeInstancePatchStates) Prelude.. Lens._Coerce

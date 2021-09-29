@@ -52,17 +52,19 @@ import qualified Network.AWS.Response as Response
 -- | /See:/ 'newImportCertificate' smart constructor.
 data ImportCertificate = ImportCertificate'
   { -- | The location of an imported Oracle Wallet certificate for use with SSL.
+    -- Provide the name of a @.sso@ file using the @fileb:\/\/@ prefix. You
+    -- can\'t provide the certificate inline.
     certificateWallet :: Prelude.Maybe Core.Base64,
     -- | The tags associated with the certificate.
     tags :: Prelude.Maybe [Tag],
     -- | The contents of a @.pem@ file, which contains an X.509 certificate.
-    certificatePem :: Prelude.Maybe Prelude.Text,
+    certificatePem :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | A customer-assigned name for the certificate. Identifiers must begin
     -- with a letter and must contain only ASCII letters, digits, and hyphens.
     -- They can\'t end with a hyphen or contain two consecutive hyphens.
     certificateIdentifier :: Prelude.Text
   }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'ImportCertificate' with all optional fields omitted.
@@ -72,7 +74,9 @@ data ImportCertificate = ImportCertificate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'certificateWallet', 'importCertificate_certificateWallet' - The location of an imported Oracle Wallet certificate for use with SSL.--
+-- 'certificateWallet', 'importCertificate_certificateWallet' - The location of an imported Oracle Wallet certificate for use with SSL.
+-- Provide the name of a @.sso@ file using the @fileb:\/\/@ prefix. You
+-- can\'t provide the certificate inline.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -98,7 +102,9 @@ newImportCertificate pCertificateIdentifier_ =
       certificateIdentifier = pCertificateIdentifier_
     }
 
--- | The location of an imported Oracle Wallet certificate for use with SSL.--
+-- | The location of an imported Oracle Wallet certificate for use with SSL.
+-- Provide the name of a @.sso@ file using the @fileb:\/\/@ prefix. You
+-- can\'t provide the certificate inline.--
 -- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
 -- -- The underlying isomorphism will encode to Base64 representation during
 -- -- serialisation, and decode from Base64 representation during deserialisation.
@@ -112,7 +118,7 @@ importCertificate_tags = Lens.lens (\ImportCertificate' {tags} -> tags) (\s@Impo
 
 -- | The contents of a @.pem@ file, which contains an X.509 certificate.
 importCertificate_certificatePem :: Lens.Lens' ImportCertificate (Prelude.Maybe Prelude.Text)
-importCertificate_certificatePem = Lens.lens (\ImportCertificate' {certificatePem} -> certificatePem) (\s@ImportCertificate' {} a -> s {certificatePem = a} :: ImportCertificate)
+importCertificate_certificatePem = Lens.lens (\ImportCertificate' {certificatePem} -> certificatePem) (\s@ImportCertificate' {} a -> s {certificatePem = a} :: ImportCertificate) Prelude.. Lens.mapping Core._Sensitive
 
 -- | A customer-assigned name for the certificate. Identifiers must begin
 -- with a letter and must contain only ASCII letters, digits, and hyphens.

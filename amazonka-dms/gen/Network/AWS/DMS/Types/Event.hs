@@ -27,7 +27,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- | Describes an identifiable significant activity that affects a
 -- replication instance or task. This object can provide the message, the
 -- available event categories, the date and source of the event, and the
--- AWS DMS resource type.
+-- DMS resource type.
 --
 -- /See:/ 'newEvent' smart constructor.
 data Event = Event'
@@ -39,7 +39,7 @@ data Event = Event'
     date :: Prelude.Maybe Core.POSIX,
     -- | The identifier of an event source.
     sourceIdentifier :: Prelude.Maybe Prelude.Text,
-    -- | The type of AWS DMS resource that generates events.
+    -- | The type of DMS resource that generates events.
     --
     -- Valid values: replication-instance | endpoint | replication-task
     sourceType :: Prelude.Maybe SourceType
@@ -62,7 +62,7 @@ data Event = Event'
 --
 -- 'sourceIdentifier', 'event_sourceIdentifier' - The identifier of an event source.
 --
--- 'sourceType', 'event_sourceType' - The type of AWS DMS resource that generates events.
+-- 'sourceType', 'event_sourceType' - The type of DMS resource that generates events.
 --
 -- Valid values: replication-instance | endpoint | replication-task
 newEvent ::
@@ -92,7 +92,7 @@ event_date = Lens.lens (\Event' {date} -> date) (\s@Event' {} a -> s {date = a} 
 event_sourceIdentifier :: Lens.Lens' Event (Prelude.Maybe Prelude.Text)
 event_sourceIdentifier = Lens.lens (\Event' {sourceIdentifier} -> sourceIdentifier) (\s@Event' {} a -> s {sourceIdentifier = a} :: Event)
 
--- | The type of AWS DMS resource that generates events.
+-- | The type of DMS resource that generates events.
 --
 -- Valid values: replication-instance | endpoint | replication-task
 event_sourceType :: Lens.Lens' Event (Prelude.Maybe SourceType)

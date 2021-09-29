@@ -20,7 +20,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes metadata tags from an AWS DMS resource, including replication
+-- Removes metadata tags from an DMS resource, including replication
 -- instance, endpoint, security group, and migration task. For more
 -- information, see
 -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html Tag>
@@ -50,12 +50,12 @@ import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
--- | Removes one or more tags from an AWS DMS resource.
+-- | Removes one or more tags from an DMS resource.
 --
 -- /See:/ 'newRemoveTagsFromResource' smart constructor.
 data RemoveTagsFromResource = RemoveTagsFromResource'
-  { -- | An AWS DMS resource from which you want to remove tag(s). The value for
-    -- this parameter is an Amazon Resource Name (ARN).
+  { -- | An DMS resource from which you want to remove tag(s). The value for this
+    -- parameter is an Amazon Resource Name (ARN).
     resourceArn :: Prelude.Text,
     -- | The tag key (name) of the tag to be removed.
     tagKeys :: [Prelude.Text]
@@ -70,8 +70,8 @@ data RemoveTagsFromResource = RemoveTagsFromResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'removeTagsFromResource_resourceArn' - An AWS DMS resource from which you want to remove tag(s). The value for
--- this parameter is an Amazon Resource Name (ARN).
+-- 'resourceArn', 'removeTagsFromResource_resourceArn' - An DMS resource from which you want to remove tag(s). The value for this
+-- parameter is an Amazon Resource Name (ARN).
 --
 -- 'tagKeys', 'removeTagsFromResource_tagKeys' - The tag key (name) of the tag to be removed.
 newRemoveTagsFromResource ::
@@ -85,8 +85,8 @@ newRemoveTagsFromResource pResourceArn_ =
       tagKeys = Prelude.mempty
     }
 
--- | An AWS DMS resource from which you want to remove tag(s). The value for
--- this parameter is an Amazon Resource Name (ARN).
+-- | An DMS resource from which you want to remove tag(s). The value for this
+-- parameter is an Amazon Resource Name (ARN).
 removeTagsFromResource_resourceArn :: Lens.Lens' RemoveTagsFromResource Prelude.Text
 removeTagsFromResource_resourceArn = Lens.lens (\RemoveTagsFromResource' {resourceArn} -> resourceArn) (\s@RemoveTagsFromResource' {} a -> s {resourceArn = a} :: RemoveTagsFromResource)
 

@@ -67,6 +67,7 @@ library
     Network.AWS.DMS.DescribeCertificates
     Network.AWS.DMS.DescribeConnections
     Network.AWS.DMS.DescribeEndpoints
+    Network.AWS.DMS.DescribeEndpointSettings
     Network.AWS.DMS.DescribeEndpointTypes
     Network.AWS.DMS.DescribeEventCategories
     Network.AWS.DMS.DescribeEvents
@@ -106,6 +107,7 @@ library
     Network.AWS.DMS.Types.AuthMechanismValue
     Network.AWS.DMS.Types.AuthTypeValue
     Network.AWS.DMS.Types.AvailabilityZone
+    Network.AWS.DMS.Types.CannedAclForObjectsValue
     Network.AWS.DMS.Types.Certificate
     Network.AWS.DMS.Types.CharLengthSemantics
     Network.AWS.DMS.Types.CompressionTypeValue
@@ -121,11 +123,14 @@ library
     Network.AWS.DMS.Types.EncodingTypeValue
     Network.AWS.DMS.Types.EncryptionModeValue
     Network.AWS.DMS.Types.Endpoint
+    Network.AWS.DMS.Types.EndpointSetting
+    Network.AWS.DMS.Types.EndpointSettingTypeValue
     Network.AWS.DMS.Types.Event
     Network.AWS.DMS.Types.EventCategoryGroup
     Network.AWS.DMS.Types.EventSubscription
     Network.AWS.DMS.Types.Filter
     Network.AWS.DMS.Types.IBMDb2Settings
+    Network.AWS.DMS.Types.KafkaSecurityProtocol
     Network.AWS.DMS.Types.KafkaSettings
     Network.AWS.DMS.Types.KinesisSettings
     Network.AWS.DMS.Types.MessageFormatValue
@@ -139,7 +144,10 @@ library
     Network.AWS.DMS.Types.OrderableReplicationInstance
     Network.AWS.DMS.Types.ParquetVersionValue
     Network.AWS.DMS.Types.PendingMaintenanceAction
+    Network.AWS.DMS.Types.PluginNameValue
     Network.AWS.DMS.Types.PostgreSQLSettings
+    Network.AWS.DMS.Types.RedisAuthTypeValue
+    Network.AWS.DMS.Types.RedisSettings
     Network.AWS.DMS.Types.RedshiftSettings
     Network.AWS.DMS.Types.RefreshSchemasStatus
     Network.AWS.DMS.Types.RefreshSchemasStatusTypeValue
@@ -160,6 +168,7 @@ library
     Network.AWS.DMS.Types.S3Settings
     Network.AWS.DMS.Types.SafeguardPolicy
     Network.AWS.DMS.Types.SourceType
+    Network.AWS.DMS.Types.SslSecurityProtocolValue
     Network.AWS.DMS.Types.StartReplicationTaskTypeValue
     Network.AWS.DMS.Types.Subnet
     Network.AWS.DMS.Types.SupportedEndpointType

@@ -39,11 +39,11 @@ data SybaseSettings = SybaseSettings'
     port :: Prelude.Maybe Prelude.Int,
     -- | Endpoint connection user name.
     username :: Prelude.Maybe Prelude.Text,
-    -- | The full Amazon Resource Name (ARN) of the IAM role that specifies AWS
-    -- DMS as the trusted entity and grants the required permissions to access
-    -- the value in @SecretsManagerSecret@. @SecretsManagerSecret@ has the
-    -- value of the AWS Secrets Manager secret that allows access to the SAP
-    -- ASE endpoint.
+    -- | The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
+    -- as the trusted entity and grants the required permissions to access the
+    -- value in @SecretsManagerSecret@. The role must allow the @iam:PassRole@
+    -- action. @SecretsManagerSecret@ has the value of the Amazon Web Services
+    -- Secrets Manager secret that allows access to the SAP ASE endpoint.
     --
     -- You can specify one of two sets of values for these permissions. You can
     -- specify the values for this setting and @SecretsManagerSecretId@. Or you
@@ -51,8 +51,8 @@ data SybaseSettings = SybaseSettings'
     -- and @Port@. You can\'t specify both. For more information on creating
     -- this @SecretsManagerSecret@ and the @SecretsManagerAccessRoleArn@ and
     -- @SecretsManagerSecretId@ required to access it, see
-    -- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access AWS Database Migration Service resources>
-    -- in the /AWS Database Migration Service User Guide/.
+    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access Database Migration Service resources>
+    -- in the /Database Migration Service User Guide/.
     secretsManagerAccessRoleArn :: Prelude.Maybe Prelude.Text,
     -- | Database name for the endpoint.
     databaseName :: Prelude.Maybe Prelude.Text
@@ -79,11 +79,11 @@ data SybaseSettings = SybaseSettings'
 --
 -- 'username', 'sybaseSettings_username' - Endpoint connection user name.
 --
--- 'secretsManagerAccessRoleArn', 'sybaseSettings_secretsManagerAccessRoleArn' - The full Amazon Resource Name (ARN) of the IAM role that specifies AWS
--- DMS as the trusted entity and grants the required permissions to access
--- the value in @SecretsManagerSecret@. @SecretsManagerSecret@ has the
--- value of the AWS Secrets Manager secret that allows access to the SAP
--- ASE endpoint.
+-- 'secretsManagerAccessRoleArn', 'sybaseSettings_secretsManagerAccessRoleArn' - The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
+-- as the trusted entity and grants the required permissions to access the
+-- value in @SecretsManagerSecret@. The role must allow the @iam:PassRole@
+-- action. @SecretsManagerSecret@ has the value of the Amazon Web Services
+-- Secrets Manager secret that allows access to the SAP ASE endpoint.
 --
 -- You can specify one of two sets of values for these permissions. You can
 -- specify the values for this setting and @SecretsManagerSecretId@. Or you
@@ -91,8 +91,8 @@ data SybaseSettings = SybaseSettings'
 -- and @Port@. You can\'t specify both. For more information on creating
 -- this @SecretsManagerSecret@ and the @SecretsManagerAccessRoleArn@ and
 -- @SecretsManagerSecretId@ required to access it, see
--- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access AWS Database Migration Service resources>
--- in the /AWS Database Migration Service User Guide/.
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access Database Migration Service resources>
+-- in the /Database Migration Service User Guide/.
 --
 -- 'databaseName', 'sybaseSettings_databaseName' - Database name for the endpoint.
 newSybaseSettings ::
@@ -131,11 +131,11 @@ sybaseSettings_port = Lens.lens (\SybaseSettings' {port} -> port) (\s@SybaseSett
 sybaseSettings_username :: Lens.Lens' SybaseSettings (Prelude.Maybe Prelude.Text)
 sybaseSettings_username = Lens.lens (\SybaseSettings' {username} -> username) (\s@SybaseSettings' {} a -> s {username = a} :: SybaseSettings)
 
--- | The full Amazon Resource Name (ARN) of the IAM role that specifies AWS
--- DMS as the trusted entity and grants the required permissions to access
--- the value in @SecretsManagerSecret@. @SecretsManagerSecret@ has the
--- value of the AWS Secrets Manager secret that allows access to the SAP
--- ASE endpoint.
+-- | The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
+-- as the trusted entity and grants the required permissions to access the
+-- value in @SecretsManagerSecret@. The role must allow the @iam:PassRole@
+-- action. @SecretsManagerSecret@ has the value of the Amazon Web Services
+-- Secrets Manager secret that allows access to the SAP ASE endpoint.
 --
 -- You can specify one of two sets of values for these permissions. You can
 -- specify the values for this setting and @SecretsManagerSecretId@. Or you
@@ -143,8 +143,8 @@ sybaseSettings_username = Lens.lens (\SybaseSettings' {username} -> username) (\
 -- and @Port@. You can\'t specify both. For more information on creating
 -- this @SecretsManagerSecret@ and the @SecretsManagerAccessRoleArn@ and
 -- @SecretsManagerSecretId@ required to access it, see
--- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access AWS Database Migration Service resources>
--- in the /AWS Database Migration Service User Guide/.
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access Database Migration Service resources>
+-- in the /Database Migration Service User Guide/.
 sybaseSettings_secretsManagerAccessRoleArn :: Lens.Lens' SybaseSettings (Prelude.Maybe Prelude.Text)
 sybaseSettings_secretsManagerAccessRoleArn = Lens.lens (\SybaseSettings' {secretsManagerAccessRoleArn} -> secretsManagerAccessRoleArn) (\s@SybaseSettings' {} a -> s {secretsManagerAccessRoleArn = a} :: SybaseSettings)
 

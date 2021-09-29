@@ -32,8 +32,8 @@ module Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments
 
     -- * Request Lenses
     describeReplicationTaskIndividualAssessments_filters,
-    describeReplicationTaskIndividualAssessments_marker,
     describeReplicationTaskIndividualAssessments_maxRecords,
+    describeReplicationTaskIndividualAssessments_marker,
 
     -- * Destructuring the Response
     DescribeReplicationTaskIndividualAssessmentsResponse (..),
@@ -63,15 +63,15 @@ data DescribeReplicationTaskIndividualAssessments = DescribeReplicationTaskIndiv
     -- Valid filter names: @replication-task-assessment-run-arn@,
     -- @replication-task-arn@, @status@
     filters :: Prelude.Maybe [Filter],
-    -- | An optional pagination token provided by a previous request. If this
-    -- parameter is specified, the response includes only records beyond the
-    -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
     -- results can be retrieved.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -89,22 +89,22 @@ data DescribeReplicationTaskIndividualAssessments = DescribeReplicationTaskIndiv
 -- Valid filter names: @replication-task-assessment-run-arn@,
 -- @replication-task-arn@, @status@
 --
--- 'marker', 'describeReplicationTaskIndividualAssessments_marker' - An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
---
 -- 'maxRecords', 'describeReplicationTaskIndividualAssessments_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so that the remaining
 -- results can be retrieved.
+--
+-- 'marker', 'describeReplicationTaskIndividualAssessments_marker' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
 newDescribeReplicationTaskIndividualAssessments ::
   DescribeReplicationTaskIndividualAssessments
 newDescribeReplicationTaskIndividualAssessments =
   DescribeReplicationTaskIndividualAssessments'
     { filters =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
 -- | Filters applied to the individual assessments described in the form of
@@ -115,18 +115,18 @@ newDescribeReplicationTaskIndividualAssessments =
 describeReplicationTaskIndividualAssessments_filters :: Lens.Lens' DescribeReplicationTaskIndividualAssessments (Prelude.Maybe [Filter])
 describeReplicationTaskIndividualAssessments_filters = Lens.lens (\DescribeReplicationTaskIndividualAssessments' {filters} -> filters) (\s@DescribeReplicationTaskIndividualAssessments' {} a -> s {filters = a} :: DescribeReplicationTaskIndividualAssessments) Prelude.. Lens.mapping Lens._Coerce
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
-describeReplicationTaskIndividualAssessments_marker :: Lens.Lens' DescribeReplicationTaskIndividualAssessments (Prelude.Maybe Prelude.Text)
-describeReplicationTaskIndividualAssessments_marker = Lens.lens (\DescribeReplicationTaskIndividualAssessments' {marker} -> marker) (\s@DescribeReplicationTaskIndividualAssessments' {} a -> s {marker = a} :: DescribeReplicationTaskIndividualAssessments)
-
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so that the remaining
 -- results can be retrieved.
 describeReplicationTaskIndividualAssessments_maxRecords :: Lens.Lens' DescribeReplicationTaskIndividualAssessments (Prelude.Maybe Prelude.Int)
 describeReplicationTaskIndividualAssessments_maxRecords = Lens.lens (\DescribeReplicationTaskIndividualAssessments' {maxRecords} -> maxRecords) (\s@DescribeReplicationTaskIndividualAssessments' {} a -> s {maxRecords = a} :: DescribeReplicationTaskIndividualAssessments)
+
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+describeReplicationTaskIndividualAssessments_marker :: Lens.Lens' DescribeReplicationTaskIndividualAssessments (Prelude.Maybe Prelude.Text)
+describeReplicationTaskIndividualAssessments_marker = Lens.lens (\DescribeReplicationTaskIndividualAssessments' {marker} -> marker) (\s@DescribeReplicationTaskIndividualAssessments' {} a -> s {marker = a} :: DescribeReplicationTaskIndividualAssessments)
 
 instance
   Core.AWSRequest
@@ -183,8 +183,8 @@ instance
       Core.object
         ( Prelude.catMaybes
             [ ("Filters" Core..=) Prelude.<$> filters,
-              ("Marker" Core..=) Prelude.<$> marker,
-              ("MaxRecords" Core..=) Prelude.<$> maxRecords
+              ("MaxRecords" Core..=) Prelude.<$> maxRecords,
+              ("Marker" Core..=) Prelude.<$> marker
             ]
         )
 

@@ -34,25 +34,27 @@ data MicrosoftSQLServerSettings = MicrosoftSQLServerSettings'
     -- table option.
     useBcpFullLoad :: Prelude.Maybe Prelude.Bool,
     -- | Use this attribute to minimize the need to access the backup log and
-    -- enable AWS DMS to prevent truncation using one of the following two
-    -- methods.
+    -- enable DMS to prevent truncation using one of the following two methods.
     --
     -- /Start transactions in the database:/ This is the default method. When
-    -- this method is used, AWS DMS prevents TLOG truncation by mimicking a
+    -- this method is used, DMS prevents TLOG truncation by mimicking a
     -- transaction in the database. As long as such a transaction is open,
     -- changes that appear after the transaction started aren\'t truncated. If
     -- you need Microsoft Replication to be enabled in your database, then you
     -- must choose this method.
     --
     -- /Exclusively use sp_repldone within a single task/: When this method is
-    -- used, AWS DMS reads the changes and then uses sp_repldone to mark the
-    -- TLOG transactions as ready for truncation. Although this method doesn\'t
+    -- used, DMS reads the changes and then uses sp_repldone to mark the TLOG
+    -- transactions as ready for truncation. Although this method doesn\'t
     -- involve any transactional activities, it can only be used when Microsoft
-    -- Replication isn\'t running. Also, when using this method, only one AWS
-    -- DMS task can access the database at any given time. Therefore, if you
-    -- need to run parallel AWS DMS tasks against the same database, use the
-    -- default method.
+    -- Replication isn\'t running. Also, when using this method, only one DMS
+    -- task can access the database at any given time. Therefore, if you need
+    -- to run parallel DMS tasks against the same database, use the default
+    -- method.
     safeguardPolicy :: Prelude.Maybe SafeguardPolicy,
+    -- | When this attribute is set to @Y@, DMS processes third-party transaction
+    -- log backups if they are created in native format.
+    useThirdPartyBackupDevice :: Prelude.Maybe Prelude.Bool,
     -- | The full ARN, partial ARN, or friendly name of the
     -- @SecretsManagerSecret@ that contains the SQL Server endpoint connection
     -- details.
@@ -68,11 +70,16 @@ data MicrosoftSQLServerSettings = MicrosoftSQLServerSettings'
     port :: Prelude.Maybe Prelude.Int,
     -- | Endpoint connection user name.
     username :: Prelude.Maybe Prelude.Text,
-    -- | The full Amazon Resource Name (ARN) of the IAM role that specifies AWS
-    -- DMS as the trusted entity and grants the required permissions to access
-    -- the value in @SecretsManagerSecret@. @SecretsManagerSecret@ has the
-    -- value of the AWS Secrets Manager secret that allows access to the SQL
-    -- Server endpoint.
+    -- | Specifies a file group for the DMS internal tables. When the replication
+    -- task starts, all the internal DMS control tables (awsdms_
+    -- apply_exception, awsdms_apply, awsdms_changes) are created for the
+    -- specified file group.
+    controlTablesFileGroup :: Prelude.Maybe Prelude.Text,
+    -- | The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
+    -- as the trusted entity and grants the required permissions to access the
+    -- value in @SecretsManagerSecret@. The role must allow the @iam:PassRole@
+    -- action. @SecretsManagerSecret@ has the value of the Amazon Web Services
+    -- Secrets Manager secret that allows access to the SQL Server endpoint.
     --
     -- You can specify one of two sets of values for these permissions. You can
     -- specify the values for this setting and @SecretsManagerSecretId@. Or you
@@ -80,21 +87,21 @@ data MicrosoftSQLServerSettings = MicrosoftSQLServerSettings'
     -- and @Port@. You can\'t specify both. For more information on creating
     -- this @SecretsManagerSecret@ and the @SecretsManagerAccessRoleArn@ and
     -- @SecretsManagerSecretId@ required to access it, see
-    -- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access AWS Database Migration Service resources>
-    -- in the /AWS Database Migration Service User Guide/.
+    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access Database Migration Service resources>
+    -- in the /Database Migration Service User Guide/.
     secretsManagerAccessRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | Specifies a file group for the AWS DMS internal tables. When the
-    -- replication task starts, all the internal AWS DMS control tables
-    -- (awsdms_ apply_exception, awsdms_apply, awsdms_changes) are created for
-    -- the specified file group.
-    controlTablesFileGroup :: Prelude.Maybe Prelude.Text,
-    -- | When this attribute is set to @Y@, AWS DMS only reads changes from
+    -- | When this attribute is set to @Y@, DMS only reads changes from
     -- transaction log backups and doesn\'t read from the active transaction
     -- log file during ongoing replication. Setting this parameter to @Y@
     -- enables you to control active transaction log file growth during full
     -- load and ongoing replication tasks. However, it can add some source
     -- latency to ongoing replication.
     readBackupOnly :: Prelude.Maybe Prelude.Bool,
+    -- | Cleans and recreates table metadata information on the replication
+    -- instance when a mismatch occurs. An example is a situation where running
+    -- an alter DDL statement on a table might result in different information
+    -- about the table cached in the replication instance.
+    querySingleAlwaysOnNode :: Prelude.Maybe Prelude.Bool,
     -- | Database name for the endpoint.
     databaseName :: Prelude.Maybe Prelude.Text
   }
@@ -114,24 +121,26 @@ data MicrosoftSQLServerSettings = MicrosoftSQLServerSettings'
 -- table option.
 --
 -- 'safeguardPolicy', 'microsoftSQLServerSettings_safeguardPolicy' - Use this attribute to minimize the need to access the backup log and
--- enable AWS DMS to prevent truncation using one of the following two
--- methods.
+-- enable DMS to prevent truncation using one of the following two methods.
 --
 -- /Start transactions in the database:/ This is the default method. When
--- this method is used, AWS DMS prevents TLOG truncation by mimicking a
+-- this method is used, DMS prevents TLOG truncation by mimicking a
 -- transaction in the database. As long as such a transaction is open,
 -- changes that appear after the transaction started aren\'t truncated. If
 -- you need Microsoft Replication to be enabled in your database, then you
 -- must choose this method.
 --
 -- /Exclusively use sp_repldone within a single task/: When this method is
--- used, AWS DMS reads the changes and then uses sp_repldone to mark the
--- TLOG transactions as ready for truncation. Although this method doesn\'t
+-- used, DMS reads the changes and then uses sp_repldone to mark the TLOG
+-- transactions as ready for truncation. Although this method doesn\'t
 -- involve any transactional activities, it can only be used when Microsoft
--- Replication isn\'t running. Also, when using this method, only one AWS
--- DMS task can access the database at any given time. Therefore, if you
--- need to run parallel AWS DMS tasks against the same database, use the
--- default method.
+-- Replication isn\'t running. Also, when using this method, only one DMS
+-- task can access the database at any given time. Therefore, if you need
+-- to run parallel DMS tasks against the same database, use the default
+-- method.
+--
+-- 'useThirdPartyBackupDevice', 'microsoftSQLServerSettings_useThirdPartyBackupDevice' - When this attribute is set to @Y@, DMS processes third-party transaction
+-- log backups if they are created in native format.
 --
 -- 'secretsManagerSecretId', 'microsoftSQLServerSettings_secretsManagerSecretId' - The full ARN, partial ARN, or friendly name of the
 -- @SecretsManagerSecret@ that contains the SQL Server endpoint connection
@@ -148,11 +157,16 @@ data MicrosoftSQLServerSettings = MicrosoftSQLServerSettings'
 --
 -- 'username', 'microsoftSQLServerSettings_username' - Endpoint connection user name.
 --
--- 'secretsManagerAccessRoleArn', 'microsoftSQLServerSettings_secretsManagerAccessRoleArn' - The full Amazon Resource Name (ARN) of the IAM role that specifies AWS
--- DMS as the trusted entity and grants the required permissions to access
--- the value in @SecretsManagerSecret@. @SecretsManagerSecret@ has the
--- value of the AWS Secrets Manager secret that allows access to the SQL
--- Server endpoint.
+-- 'controlTablesFileGroup', 'microsoftSQLServerSettings_controlTablesFileGroup' - Specifies a file group for the DMS internal tables. When the replication
+-- task starts, all the internal DMS control tables (awsdms_
+-- apply_exception, awsdms_apply, awsdms_changes) are created for the
+-- specified file group.
+--
+-- 'secretsManagerAccessRoleArn', 'microsoftSQLServerSettings_secretsManagerAccessRoleArn' - The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
+-- as the trusted entity and grants the required permissions to access the
+-- value in @SecretsManagerSecret@. The role must allow the @iam:PassRole@
+-- action. @SecretsManagerSecret@ has the value of the Amazon Web Services
+-- Secrets Manager secret that allows access to the SQL Server endpoint.
 --
 -- You can specify one of two sets of values for these permissions. You can
 -- specify the values for this setting and @SecretsManagerSecretId@. Or you
@@ -160,20 +174,20 @@ data MicrosoftSQLServerSettings = MicrosoftSQLServerSettings'
 -- and @Port@. You can\'t specify both. For more information on creating
 -- this @SecretsManagerSecret@ and the @SecretsManagerAccessRoleArn@ and
 -- @SecretsManagerSecretId@ required to access it, see
--- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access AWS Database Migration Service resources>
--- in the /AWS Database Migration Service User Guide/.
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access Database Migration Service resources>
+-- in the /Database Migration Service User Guide/.
 --
--- 'controlTablesFileGroup', 'microsoftSQLServerSettings_controlTablesFileGroup' - Specifies a file group for the AWS DMS internal tables. When the
--- replication task starts, all the internal AWS DMS control tables
--- (awsdms_ apply_exception, awsdms_apply, awsdms_changes) are created for
--- the specified file group.
---
--- 'readBackupOnly', 'microsoftSQLServerSettings_readBackupOnly' - When this attribute is set to @Y@, AWS DMS only reads changes from
+-- 'readBackupOnly', 'microsoftSQLServerSettings_readBackupOnly' - When this attribute is set to @Y@, DMS only reads changes from
 -- transaction log backups and doesn\'t read from the active transaction
 -- log file during ongoing replication. Setting this parameter to @Y@
 -- enables you to control active transaction log file growth during full
 -- load and ongoing replication tasks. However, it can add some source
 -- latency to ongoing replication.
+--
+-- 'querySingleAlwaysOnNode', 'microsoftSQLServerSettings_querySingleAlwaysOnNode' - Cleans and recreates table metadata information on the replication
+-- instance when a mismatch occurs. An example is a situation where running
+-- an alter DDL statement on a table might result in different information
+-- about the table cached in the replication instance.
 --
 -- 'databaseName', 'microsoftSQLServerSettings_databaseName' - Database name for the endpoint.
 newMicrosoftSQLServerSettings ::
@@ -183,15 +197,17 @@ newMicrosoftSQLServerSettings =
     { useBcpFullLoad =
         Prelude.Nothing,
       safeguardPolicy = Prelude.Nothing,
+      useThirdPartyBackupDevice = Prelude.Nothing,
       secretsManagerSecretId = Prelude.Nothing,
       serverName = Prelude.Nothing,
       password = Prelude.Nothing,
       bcpPacketSize = Prelude.Nothing,
       port = Prelude.Nothing,
       username = Prelude.Nothing,
-      secretsManagerAccessRoleArn = Prelude.Nothing,
       controlTablesFileGroup = Prelude.Nothing,
+      secretsManagerAccessRoleArn = Prelude.Nothing,
       readBackupOnly = Prelude.Nothing,
+      querySingleAlwaysOnNode = Prelude.Nothing,
       databaseName = Prelude.Nothing
     }
 
@@ -203,26 +219,30 @@ microsoftSQLServerSettings_useBcpFullLoad :: Lens.Lens' MicrosoftSQLServerSettin
 microsoftSQLServerSettings_useBcpFullLoad = Lens.lens (\MicrosoftSQLServerSettings' {useBcpFullLoad} -> useBcpFullLoad) (\s@MicrosoftSQLServerSettings' {} a -> s {useBcpFullLoad = a} :: MicrosoftSQLServerSettings)
 
 -- | Use this attribute to minimize the need to access the backup log and
--- enable AWS DMS to prevent truncation using one of the following two
--- methods.
+-- enable DMS to prevent truncation using one of the following two methods.
 --
 -- /Start transactions in the database:/ This is the default method. When
--- this method is used, AWS DMS prevents TLOG truncation by mimicking a
+-- this method is used, DMS prevents TLOG truncation by mimicking a
 -- transaction in the database. As long as such a transaction is open,
 -- changes that appear after the transaction started aren\'t truncated. If
 -- you need Microsoft Replication to be enabled in your database, then you
 -- must choose this method.
 --
 -- /Exclusively use sp_repldone within a single task/: When this method is
--- used, AWS DMS reads the changes and then uses sp_repldone to mark the
--- TLOG transactions as ready for truncation. Although this method doesn\'t
+-- used, DMS reads the changes and then uses sp_repldone to mark the TLOG
+-- transactions as ready for truncation. Although this method doesn\'t
 -- involve any transactional activities, it can only be used when Microsoft
--- Replication isn\'t running. Also, when using this method, only one AWS
--- DMS task can access the database at any given time. Therefore, if you
--- need to run parallel AWS DMS tasks against the same database, use the
--- default method.
+-- Replication isn\'t running. Also, when using this method, only one DMS
+-- task can access the database at any given time. Therefore, if you need
+-- to run parallel DMS tasks against the same database, use the default
+-- method.
 microsoftSQLServerSettings_safeguardPolicy :: Lens.Lens' MicrosoftSQLServerSettings (Prelude.Maybe SafeguardPolicy)
 microsoftSQLServerSettings_safeguardPolicy = Lens.lens (\MicrosoftSQLServerSettings' {safeguardPolicy} -> safeguardPolicy) (\s@MicrosoftSQLServerSettings' {} a -> s {safeguardPolicy = a} :: MicrosoftSQLServerSettings)
+
+-- | When this attribute is set to @Y@, DMS processes third-party transaction
+-- log backups if they are created in native format.
+microsoftSQLServerSettings_useThirdPartyBackupDevice :: Lens.Lens' MicrosoftSQLServerSettings (Prelude.Maybe Prelude.Bool)
+microsoftSQLServerSettings_useThirdPartyBackupDevice = Lens.lens (\MicrosoftSQLServerSettings' {useThirdPartyBackupDevice} -> useThirdPartyBackupDevice) (\s@MicrosoftSQLServerSettings' {} a -> s {useThirdPartyBackupDevice = a} :: MicrosoftSQLServerSettings)
 
 -- | The full ARN, partial ARN, or friendly name of the
 -- @SecretsManagerSecret@ that contains the SQL Server endpoint connection
@@ -251,11 +271,18 @@ microsoftSQLServerSettings_port = Lens.lens (\MicrosoftSQLServerSettings' {port}
 microsoftSQLServerSettings_username :: Lens.Lens' MicrosoftSQLServerSettings (Prelude.Maybe Prelude.Text)
 microsoftSQLServerSettings_username = Lens.lens (\MicrosoftSQLServerSettings' {username} -> username) (\s@MicrosoftSQLServerSettings' {} a -> s {username = a} :: MicrosoftSQLServerSettings)
 
--- | The full Amazon Resource Name (ARN) of the IAM role that specifies AWS
--- DMS as the trusted entity and grants the required permissions to access
--- the value in @SecretsManagerSecret@. @SecretsManagerSecret@ has the
--- value of the AWS Secrets Manager secret that allows access to the SQL
--- Server endpoint.
+-- | Specifies a file group for the DMS internal tables. When the replication
+-- task starts, all the internal DMS control tables (awsdms_
+-- apply_exception, awsdms_apply, awsdms_changes) are created for the
+-- specified file group.
+microsoftSQLServerSettings_controlTablesFileGroup :: Lens.Lens' MicrosoftSQLServerSettings (Prelude.Maybe Prelude.Text)
+microsoftSQLServerSettings_controlTablesFileGroup = Lens.lens (\MicrosoftSQLServerSettings' {controlTablesFileGroup} -> controlTablesFileGroup) (\s@MicrosoftSQLServerSettings' {} a -> s {controlTablesFileGroup = a} :: MicrosoftSQLServerSettings)
+
+-- | The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
+-- as the trusted entity and grants the required permissions to access the
+-- value in @SecretsManagerSecret@. The role must allow the @iam:PassRole@
+-- action. @SecretsManagerSecret@ has the value of the Amazon Web Services
+-- Secrets Manager secret that allows access to the SQL Server endpoint.
 --
 -- You can specify one of two sets of values for these permissions. You can
 -- specify the values for this setting and @SecretsManagerSecretId@. Or you
@@ -263,19 +290,12 @@ microsoftSQLServerSettings_username = Lens.lens (\MicrosoftSQLServerSettings' {u
 -- and @Port@. You can\'t specify both. For more information on creating
 -- this @SecretsManagerSecret@ and the @SecretsManagerAccessRoleArn@ and
 -- @SecretsManagerSecretId@ required to access it, see
--- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access AWS Database Migration Service resources>
--- in the /AWS Database Migration Service User Guide/.
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access Database Migration Service resources>
+-- in the /Database Migration Service User Guide/.
 microsoftSQLServerSettings_secretsManagerAccessRoleArn :: Lens.Lens' MicrosoftSQLServerSettings (Prelude.Maybe Prelude.Text)
 microsoftSQLServerSettings_secretsManagerAccessRoleArn = Lens.lens (\MicrosoftSQLServerSettings' {secretsManagerAccessRoleArn} -> secretsManagerAccessRoleArn) (\s@MicrosoftSQLServerSettings' {} a -> s {secretsManagerAccessRoleArn = a} :: MicrosoftSQLServerSettings)
 
--- | Specifies a file group for the AWS DMS internal tables. When the
--- replication task starts, all the internal AWS DMS control tables
--- (awsdms_ apply_exception, awsdms_apply, awsdms_changes) are created for
--- the specified file group.
-microsoftSQLServerSettings_controlTablesFileGroup :: Lens.Lens' MicrosoftSQLServerSettings (Prelude.Maybe Prelude.Text)
-microsoftSQLServerSettings_controlTablesFileGroup = Lens.lens (\MicrosoftSQLServerSettings' {controlTablesFileGroup} -> controlTablesFileGroup) (\s@MicrosoftSQLServerSettings' {} a -> s {controlTablesFileGroup = a} :: MicrosoftSQLServerSettings)
-
--- | When this attribute is set to @Y@, AWS DMS only reads changes from
+-- | When this attribute is set to @Y@, DMS only reads changes from
 -- transaction log backups and doesn\'t read from the active transaction
 -- log file during ongoing replication. Setting this parameter to @Y@
 -- enables you to control active transaction log file growth during full
@@ -283,6 +303,13 @@ microsoftSQLServerSettings_controlTablesFileGroup = Lens.lens (\MicrosoftSQLServ
 -- latency to ongoing replication.
 microsoftSQLServerSettings_readBackupOnly :: Lens.Lens' MicrosoftSQLServerSettings (Prelude.Maybe Prelude.Bool)
 microsoftSQLServerSettings_readBackupOnly = Lens.lens (\MicrosoftSQLServerSettings' {readBackupOnly} -> readBackupOnly) (\s@MicrosoftSQLServerSettings' {} a -> s {readBackupOnly = a} :: MicrosoftSQLServerSettings)
+
+-- | Cleans and recreates table metadata information on the replication
+-- instance when a mismatch occurs. An example is a situation where running
+-- an alter DDL statement on a table might result in different information
+-- about the table cached in the replication instance.
+microsoftSQLServerSettings_querySingleAlwaysOnNode :: Lens.Lens' MicrosoftSQLServerSettings (Prelude.Maybe Prelude.Bool)
+microsoftSQLServerSettings_querySingleAlwaysOnNode = Lens.lens (\MicrosoftSQLServerSettings' {querySingleAlwaysOnNode} -> querySingleAlwaysOnNode) (\s@MicrosoftSQLServerSettings' {} a -> s {querySingleAlwaysOnNode = a} :: MicrosoftSQLServerSettings)
 
 -- | Database name for the endpoint.
 microsoftSQLServerSettings_databaseName :: Lens.Lens' MicrosoftSQLServerSettings (Prelude.Maybe Prelude.Text)
@@ -296,15 +323,17 @@ instance Core.FromJSON MicrosoftSQLServerSettings where
           MicrosoftSQLServerSettings'
             Prelude.<$> (x Core..:? "UseBcpFullLoad")
             Prelude.<*> (x Core..:? "SafeguardPolicy")
+            Prelude.<*> (x Core..:? "UseThirdPartyBackupDevice")
             Prelude.<*> (x Core..:? "SecretsManagerSecretId")
             Prelude.<*> (x Core..:? "ServerName")
             Prelude.<*> (x Core..:? "Password")
             Prelude.<*> (x Core..:? "BcpPacketSize")
             Prelude.<*> (x Core..:? "Port")
             Prelude.<*> (x Core..:? "Username")
-            Prelude.<*> (x Core..:? "SecretsManagerAccessRoleArn")
             Prelude.<*> (x Core..:? "ControlTablesFileGroup")
+            Prelude.<*> (x Core..:? "SecretsManagerAccessRoleArn")
             Prelude.<*> (x Core..:? "ReadBackupOnly")
+            Prelude.<*> (x Core..:? "QuerySingleAlwaysOnNode")
             Prelude.<*> (x Core..:? "DatabaseName")
       )
 
@@ -320,6 +349,8 @@ instance Core.ToJSON MicrosoftSQLServerSettings where
               Prelude.<$> useBcpFullLoad,
             ("SafeguardPolicy" Core..=)
               Prelude.<$> safeguardPolicy,
+            ("UseThirdPartyBackupDevice" Core..=)
+              Prelude.<$> useThirdPartyBackupDevice,
             ("SecretsManagerSecretId" Core..=)
               Prelude.<$> secretsManagerSecretId,
             ("ServerName" Core..=) Prelude.<$> serverName,
@@ -327,12 +358,14 @@ instance Core.ToJSON MicrosoftSQLServerSettings where
             ("BcpPacketSize" Core..=) Prelude.<$> bcpPacketSize,
             ("Port" Core..=) Prelude.<$> port,
             ("Username" Core..=) Prelude.<$> username,
-            ("SecretsManagerAccessRoleArn" Core..=)
-              Prelude.<$> secretsManagerAccessRoleArn,
             ("ControlTablesFileGroup" Core..=)
               Prelude.<$> controlTablesFileGroup,
+            ("SecretsManagerAccessRoleArn" Core..=)
+              Prelude.<$> secretsManagerAccessRoleArn,
             ("ReadBackupOnly" Core..=)
               Prelude.<$> readBackupOnly,
+            ("QuerySingleAlwaysOnNode" Core..=)
+              Prelude.<$> querySingleAlwaysOnNode,
             ("DatabaseName" Core..=) Prelude.<$> databaseName
           ]
       )

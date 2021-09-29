@@ -38,15 +38,15 @@ data IBMDb2Settings = IBMDb2Settings'
     serverName :: Prelude.Maybe Prelude.Text,
     -- | Endpoint connection password.
     password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | Endpoint TCP port.
+    -- | Endpoint TCP port. The default value is 50000.
     port :: Prelude.Maybe Prelude.Int,
     -- | Endpoint connection user name.
     username :: Prelude.Maybe Prelude.Text,
-    -- | The full Amazon Resource Name (ARN) of the IAM role that specifies AWS
-    -- DMS as the trusted entity and grants the required permissions to access
-    -- the value in @SecretsManagerSecret@. @SecretsManagerSecret@ has the
-    -- value of the AWS Secrets Manager secret that allows access to the Db2
-    -- LUW endpoint.
+    -- | The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
+    -- as the trusted entity and grants the required permissions to access the
+    -- value in @SecretsManagerSecret@. The role must allow the @iam:PassRole@
+    -- action. @SecretsManagerSecret@ has the value of the Amazon Web Services
+    -- Secrets Manager secret that allows access to the Db2 LUW endpoint.
     --
     -- You can specify one of two sets of values for these permissions. You can
     -- specify the values for this setting and @SecretsManagerSecretId@. Or you
@@ -54,15 +54,15 @@ data IBMDb2Settings = IBMDb2Settings'
     -- and @Port@. You can\'t specify both. For more information on creating
     -- this @SecretsManagerSecret@ and the @SecretsManagerAccessRoleArn@ and
     -- @SecretsManagerSecretId@ required to access it, see
-    -- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access AWS Database Migration Service resources>
-    -- in the /AWS Database Migration Service User Guide/.
+    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access Database Migration Service resources>
+    -- in the /Database Migration Service User Guide/.
     secretsManagerAccessRoleArn :: Prelude.Maybe Prelude.Text,
-    -- | Enables ongoing replication (CDC) as a BOOLEAN value. The default is
-    -- true.
-    setDataCaptureChanges :: Prelude.Maybe Prelude.Bool,
     -- | Maximum number of bytes per read, as a NUMBER value. The default is 64
     -- KB.
     maxKBytesPerRead :: Prelude.Maybe Prelude.Int,
+    -- | Enables ongoing replication (CDC) as a BOOLEAN value. The default is
+    -- true.
+    setDataCaptureChanges :: Prelude.Maybe Prelude.Bool,
     -- | Database name for the endpoint.
     databaseName :: Prelude.Maybe Prelude.Text
   }
@@ -87,15 +87,15 @@ data IBMDb2Settings = IBMDb2Settings'
 --
 -- 'password', 'iBMDb2Settings_password' - Endpoint connection password.
 --
--- 'port', 'iBMDb2Settings_port' - Endpoint TCP port.
+-- 'port', 'iBMDb2Settings_port' - Endpoint TCP port. The default value is 50000.
 --
 -- 'username', 'iBMDb2Settings_username' - Endpoint connection user name.
 --
--- 'secretsManagerAccessRoleArn', 'iBMDb2Settings_secretsManagerAccessRoleArn' - The full Amazon Resource Name (ARN) of the IAM role that specifies AWS
--- DMS as the trusted entity and grants the required permissions to access
--- the value in @SecretsManagerSecret@. @SecretsManagerSecret@ has the
--- value of the AWS Secrets Manager secret that allows access to the Db2
--- LUW endpoint.
+-- 'secretsManagerAccessRoleArn', 'iBMDb2Settings_secretsManagerAccessRoleArn' - The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
+-- as the trusted entity and grants the required permissions to access the
+-- value in @SecretsManagerSecret@. The role must allow the @iam:PassRole@
+-- action. @SecretsManagerSecret@ has the value of the Amazon Web Services
+-- Secrets Manager secret that allows access to the Db2 LUW endpoint.
 --
 -- You can specify one of two sets of values for these permissions. You can
 -- specify the values for this setting and @SecretsManagerSecretId@. Or you
@@ -103,14 +103,14 @@ data IBMDb2Settings = IBMDb2Settings'
 -- and @Port@. You can\'t specify both. For more information on creating
 -- this @SecretsManagerSecret@ and the @SecretsManagerAccessRoleArn@ and
 -- @SecretsManagerSecretId@ required to access it, see
--- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access AWS Database Migration Service resources>
--- in the /AWS Database Migration Service User Guide/.
---
--- 'setDataCaptureChanges', 'iBMDb2Settings_setDataCaptureChanges' - Enables ongoing replication (CDC) as a BOOLEAN value. The default is
--- true.
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access Database Migration Service resources>
+-- in the /Database Migration Service User Guide/.
 --
 -- 'maxKBytesPerRead', 'iBMDb2Settings_maxKBytesPerRead' - Maximum number of bytes per read, as a NUMBER value. The default is 64
 -- KB.
+--
+-- 'setDataCaptureChanges', 'iBMDb2Settings_setDataCaptureChanges' - Enables ongoing replication (CDC) as a BOOLEAN value. The default is
+-- true.
 --
 -- 'databaseName', 'iBMDb2Settings_databaseName' - Database name for the endpoint.
 newIBMDb2Settings ::
@@ -124,8 +124,8 @@ newIBMDb2Settings =
       port = Prelude.Nothing,
       username = Prelude.Nothing,
       secretsManagerAccessRoleArn = Prelude.Nothing,
-      setDataCaptureChanges = Prelude.Nothing,
       maxKBytesPerRead = Prelude.Nothing,
+      setDataCaptureChanges = Prelude.Nothing,
       databaseName = Prelude.Nothing
     }
 
@@ -148,7 +148,7 @@ iBMDb2Settings_serverName = Lens.lens (\IBMDb2Settings' {serverName} -> serverNa
 iBMDb2Settings_password :: Lens.Lens' IBMDb2Settings (Prelude.Maybe Prelude.Text)
 iBMDb2Settings_password = Lens.lens (\IBMDb2Settings' {password} -> password) (\s@IBMDb2Settings' {} a -> s {password = a} :: IBMDb2Settings) Prelude.. Lens.mapping Core._Sensitive
 
--- | Endpoint TCP port.
+-- | Endpoint TCP port. The default value is 50000.
 iBMDb2Settings_port :: Lens.Lens' IBMDb2Settings (Prelude.Maybe Prelude.Int)
 iBMDb2Settings_port = Lens.lens (\IBMDb2Settings' {port} -> port) (\s@IBMDb2Settings' {} a -> s {port = a} :: IBMDb2Settings)
 
@@ -156,11 +156,11 @@ iBMDb2Settings_port = Lens.lens (\IBMDb2Settings' {port} -> port) (\s@IBMDb2Sett
 iBMDb2Settings_username :: Lens.Lens' IBMDb2Settings (Prelude.Maybe Prelude.Text)
 iBMDb2Settings_username = Lens.lens (\IBMDb2Settings' {username} -> username) (\s@IBMDb2Settings' {} a -> s {username = a} :: IBMDb2Settings)
 
--- | The full Amazon Resource Name (ARN) of the IAM role that specifies AWS
--- DMS as the trusted entity and grants the required permissions to access
--- the value in @SecretsManagerSecret@. @SecretsManagerSecret@ has the
--- value of the AWS Secrets Manager secret that allows access to the Db2
--- LUW endpoint.
+-- | The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
+-- as the trusted entity and grants the required permissions to access the
+-- value in @SecretsManagerSecret@. The role must allow the @iam:PassRole@
+-- action. @SecretsManagerSecret@ has the value of the Amazon Web Services
+-- Secrets Manager secret that allows access to the Db2 LUW endpoint.
 --
 -- You can specify one of two sets of values for these permissions. You can
 -- specify the values for this setting and @SecretsManagerSecretId@. Or you
@@ -168,20 +168,20 @@ iBMDb2Settings_username = Lens.lens (\IBMDb2Settings' {username} -> username) (\
 -- and @Port@. You can\'t specify both. For more information on creating
 -- this @SecretsManagerSecret@ and the @SecretsManagerAccessRoleArn@ and
 -- @SecretsManagerSecretId@ required to access it, see
--- <https://docs.aws.amazon.com/https:/docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access AWS Database Migration Service resources>
--- in the /AWS Database Migration Service User Guide/.
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager Using secrets to access Database Migration Service resources>
+-- in the /Database Migration Service User Guide/.
 iBMDb2Settings_secretsManagerAccessRoleArn :: Lens.Lens' IBMDb2Settings (Prelude.Maybe Prelude.Text)
 iBMDb2Settings_secretsManagerAccessRoleArn = Lens.lens (\IBMDb2Settings' {secretsManagerAccessRoleArn} -> secretsManagerAccessRoleArn) (\s@IBMDb2Settings' {} a -> s {secretsManagerAccessRoleArn = a} :: IBMDb2Settings)
-
--- | Enables ongoing replication (CDC) as a BOOLEAN value. The default is
--- true.
-iBMDb2Settings_setDataCaptureChanges :: Lens.Lens' IBMDb2Settings (Prelude.Maybe Prelude.Bool)
-iBMDb2Settings_setDataCaptureChanges = Lens.lens (\IBMDb2Settings' {setDataCaptureChanges} -> setDataCaptureChanges) (\s@IBMDb2Settings' {} a -> s {setDataCaptureChanges = a} :: IBMDb2Settings)
 
 -- | Maximum number of bytes per read, as a NUMBER value. The default is 64
 -- KB.
 iBMDb2Settings_maxKBytesPerRead :: Lens.Lens' IBMDb2Settings (Prelude.Maybe Prelude.Int)
 iBMDb2Settings_maxKBytesPerRead = Lens.lens (\IBMDb2Settings' {maxKBytesPerRead} -> maxKBytesPerRead) (\s@IBMDb2Settings' {} a -> s {maxKBytesPerRead = a} :: IBMDb2Settings)
+
+-- | Enables ongoing replication (CDC) as a BOOLEAN value. The default is
+-- true.
+iBMDb2Settings_setDataCaptureChanges :: Lens.Lens' IBMDb2Settings (Prelude.Maybe Prelude.Bool)
+iBMDb2Settings_setDataCaptureChanges = Lens.lens (\IBMDb2Settings' {setDataCaptureChanges} -> setDataCaptureChanges) (\s@IBMDb2Settings' {} a -> s {setDataCaptureChanges = a} :: IBMDb2Settings)
 
 -- | Database name for the endpoint.
 iBMDb2Settings_databaseName :: Lens.Lens' IBMDb2Settings (Prelude.Maybe Prelude.Text)
@@ -200,8 +200,8 @@ instance Core.FromJSON IBMDb2Settings where
             Prelude.<*> (x Core..:? "Port")
             Prelude.<*> (x Core..:? "Username")
             Prelude.<*> (x Core..:? "SecretsManagerAccessRoleArn")
-            Prelude.<*> (x Core..:? "SetDataCaptureChanges")
             Prelude.<*> (x Core..:? "MaxKBytesPerRead")
+            Prelude.<*> (x Core..:? "SetDataCaptureChanges")
             Prelude.<*> (x Core..:? "DatabaseName")
       )
 
@@ -222,10 +222,10 @@ instance Core.ToJSON IBMDb2Settings where
             ("Username" Core..=) Prelude.<$> username,
             ("SecretsManagerAccessRoleArn" Core..=)
               Prelude.<$> secretsManagerAccessRoleArn,
-            ("SetDataCaptureChanges" Core..=)
-              Prelude.<$> setDataCaptureChanges,
             ("MaxKBytesPerRead" Core..=)
               Prelude.<$> maxKBytesPerRead,
+            ("SetDataCaptureChanges" Core..=)
+              Prelude.<$> setDataCaptureChanges,
             ("DatabaseName" Core..=) Prelude.<$> databaseName
           ]
       )

@@ -23,8 +23,8 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | A user-defined key-value pair that describes metadata added to an AWS
--- DMS resource and that is used by operations such as the following:
+-- | A user-defined key-value pair that describes metadata added to an DMS
+-- resource and that is used by operations such as the following:
 --
 -- -   @AddTagsToResource@
 --
@@ -40,6 +40,9 @@ data Tag = Tag'
     -- digits, white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java
     -- regular expressions: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)$\").
     key :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) string that uniquely identifies the
+    -- resource for which the tag is created.
+    resourceArn :: Prelude.Maybe Prelude.Text,
     -- | A value is the optional value of the tag. The string value can be 1-256
     -- Unicode characters in length and can\'t be prefixed with \"aws:\" or
     -- \"dms:\". The string can only contain only the set of Unicode letters,
@@ -63,6 +66,9 @@ data Tag = Tag'
 -- digits, white-space, \'_\', \'.\', \'\/\', \'=\', \'+\', \'-\' (Java
 -- regular expressions: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)$\").
 --
+-- 'resourceArn', 'tag_resourceArn' - The Amazon Resource Name (ARN) string that uniquely identifies the
+-- resource for which the tag is created.
+--
 -- 'value', 'tag_value' - A value is the optional value of the tag. The string value can be 1-256
 -- Unicode characters in length and can\'t be prefixed with \"aws:\" or
 -- \"dms:\". The string can only contain only the set of Unicode letters,
@@ -73,6 +79,7 @@ newTag ::
 newTag =
   Tag'
     { key = Prelude.Nothing,
+      resourceArn = Prelude.Nothing,
       value = Prelude.Nothing
     }
 
@@ -83,6 +90,11 @@ newTag =
 -- regular expressions: \"^([\\\\p{L}\\\\p{Z}\\\\p{N}_.:\/=+\\\\-]*)$\").
 tag_key :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
 tag_key = Lens.lens (\Tag' {key} -> key) (\s@Tag' {} a -> s {key = a} :: Tag)
+
+-- | The Amazon Resource Name (ARN) string that uniquely identifies the
+-- resource for which the tag is created.
+tag_resourceArn :: Lens.Lens' Tag (Prelude.Maybe Prelude.Text)
+tag_resourceArn = Lens.lens (\Tag' {resourceArn} -> resourceArn) (\s@Tag' {} a -> s {resourceArn = a} :: Tag)
 
 -- | A value is the optional value of the tag. The string value can be 1-256
 -- Unicode characters in length and can\'t be prefixed with \"aws:\" or
@@ -98,7 +110,9 @@ instance Core.FromJSON Tag where
       "Tag"
       ( \x ->
           Tag'
-            Prelude.<$> (x Core..:? "Key") Prelude.<*> (x Core..:? "Value")
+            Prelude.<$> (x Core..:? "Key")
+            Prelude.<*> (x Core..:? "ResourceArn")
+            Prelude.<*> (x Core..:? "Value")
       )
 
 instance Prelude.Hashable Tag
@@ -110,6 +124,7 @@ instance Core.ToJSON Tag where
     Core.object
       ( Prelude.catMaybes
           [ ("Key" Core..=) Prelude.<$> key,
+            ("ResourceArn" Core..=) Prelude.<$> resourceArn,
             ("Value" Core..=) Prelude.<$> value
           ]
       )

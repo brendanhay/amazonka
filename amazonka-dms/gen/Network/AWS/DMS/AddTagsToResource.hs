@@ -20,11 +20,11 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds metadata tags to an AWS DMS resource, including replication
--- instance, endpoint, security group, and migration task. These tags can
--- also be used with cost allocation reporting to track cost associated
--- with DMS resources, or used in a Condition statement in an IAM policy
--- for DMS. For more information, see
+-- Adds metadata tags to an DMS resource, including replication instance,
+-- endpoint, security group, and migration task. These tags can also be
+-- used with cost allocation reporting to track cost associated with DMS
+-- resources, or used in a Condition statement in an IAM policy for DMS.
+-- For more information, see
 -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html Tag>
 -- data type description.
 module Network.AWS.DMS.AddTagsToResource
@@ -52,14 +52,14 @@ import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
--- | Associates a set of tags with an AWS DMS resource.
+-- | Associates a set of tags with an DMS resource.
 --
 -- /See:/ 'newAddTagsToResource' smart constructor.
 data AddTagsToResource = AddTagsToResource'
-  { -- | Identifies the AWS DMS resource to which tags should be added. The value
-    -- for this parameter is an Amazon Resource Name (ARN).
+  { -- | Identifies the DMS resource to which tags should be added. The value for
+    -- this parameter is an Amazon Resource Name (ARN).
     --
-    -- For AWS DMS, you can tag a replication instance, an endpoint, or a
+    -- For DMS, you can tag a replication instance, an endpoint, or a
     -- replication task.
     resourceArn :: Prelude.Text,
     -- | One or more tags to be assigned to the resource.
@@ -75,10 +75,10 @@ data AddTagsToResource = AddTagsToResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'addTagsToResource_resourceArn' - Identifies the AWS DMS resource to which tags should be added. The value
--- for this parameter is an Amazon Resource Name (ARN).
+-- 'resourceArn', 'addTagsToResource_resourceArn' - Identifies the DMS resource to which tags should be added. The value for
+-- this parameter is an Amazon Resource Name (ARN).
 --
--- For AWS DMS, you can tag a replication instance, an endpoint, or a
+-- For DMS, you can tag a replication instance, an endpoint, or a
 -- replication task.
 --
 -- 'tags', 'addTagsToResource_tags' - One or more tags to be assigned to the resource.
@@ -92,10 +92,10 @@ newAddTagsToResource pResourceArn_ =
       tags = Prelude.mempty
     }
 
--- | Identifies the AWS DMS resource to which tags should be added. The value
--- for this parameter is an Amazon Resource Name (ARN).
+-- | Identifies the DMS resource to which tags should be added. The value for
+-- this parameter is an Amazon Resource Name (ARN).
 --
--- For AWS DMS, you can tag a replication instance, an endpoint, or a
+-- For DMS, you can tag a replication instance, an endpoint, or a
 -- replication task.
 addTagsToResource_resourceArn :: Lens.Lens' AddTagsToResource Prelude.Text
 addTagsToResource_resourceArn = Lens.lens (\AddTagsToResource' {resourceArn} -> resourceArn) (\s@AddTagsToResource' {} a -> s {resourceArn = a} :: AddTagsToResource)

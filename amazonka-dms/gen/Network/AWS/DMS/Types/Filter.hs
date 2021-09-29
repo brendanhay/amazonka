@@ -24,7 +24,7 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | Identifies the name and value of a filter object. This filter is used to
--- limit the number and type of AWS DMS objects that are returned for a
+-- limit the number and type of DMS objects that are returned for a
 -- particular @Describe*@ call or similar operation. Filters are used as an
 -- optional parameter for certain API operations.
 --

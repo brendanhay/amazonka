@@ -70,52 +70,53 @@ data StartReplicationTaskAssessmentRun = StartReplicationTaskAssessmentRun'
     -- @ResultEncryptionMode@ to @\"SSE_KMS@\".
     resultKmsKeyArn :: Prelude.Maybe Prelude.Text,
     -- | Encryption mode that you can specify to encrypt the results of this
-    -- assessment run. If you don\'t specify this request parameter, AWS DMS
-    -- stores the assessment run results without encryption. You can specify
-    -- one of the options following:
+    -- assessment run. If you don\'t specify this request parameter, DMS stores
+    -- the assessment run results without encryption. You can specify one of
+    -- the options following:
     --
     -- -   @\"SSE_S3\"@ – The server-side encryption provided as a default by
     --     Amazon S3.
     --
-    -- -   @\"SSE_KMS\"@ – AWS Key Management Service (AWS KMS) encryption.
-    --     This encryption can use either a custom KMS encryption key that you
+    -- -   @\"SSE_KMS\"@ – Key Management Service (KMS) encryption. This
+    --     encryption can use either a custom KMS encryption key that you
     --     specify or the default KMS encryption key that DMS provides.
     resultEncryptionMode :: Prelude.Maybe Prelude.Text,
     -- | Space-separated list of names for specific individual assessments that
     -- you want to exclude. These names come from the default list of
-    -- individual assessments that AWS DMS supports for the associated
-    -- migration task. This task is specified by @ReplicationTaskArn@.
+    -- individual assessments that DMS supports for the associated migration
+    -- task. This task is specified by @ReplicationTaskArn@.
     --
     -- You can\'t set a value for @Exclude@ if you also set a value for
     -- @IncludeOnly@ in the API operation.
     --
-    -- To identify the names of the default individual assessments that AWS DMS
+    -- To identify the names of the default individual assessments that DMS
     -- supports for the associated migration task, run the
     -- @DescribeApplicableIndividualAssessments@ operation using its own
     -- @ReplicationTaskArn@ request parameter.
     exclude :: Prelude.Maybe [Prelude.Text],
     -- | Space-separated list of names for specific individual assessments that
     -- you want to include. These names come from the default list of
-    -- individual assessments that AWS DMS supports for the associated
-    -- migration task. This task is specified by @ReplicationTaskArn@.
+    -- individual assessments that DMS supports for the associated migration
+    -- task. This task is specified by @ReplicationTaskArn@.
     --
     -- You can\'t set a value for @IncludeOnly@ if you also set a value for
     -- @Exclude@ in the API operation.
     --
-    -- To identify the names of the default individual assessments that AWS DMS
+    -- To identify the names of the default individual assessments that DMS
     -- supports for the associated migration task, run the
     -- @DescribeApplicableIndividualAssessments@ operation using its own
     -- @ReplicationTaskArn@ request parameter.
     includeOnly :: Prelude.Maybe [Prelude.Text],
-    -- | Folder within an Amazon S3 bucket where you want AWS DMS to store the
+    -- | Folder within an Amazon S3 bucket where you want DMS to store the
     -- results of this assessment run.
     resultLocationFolder :: Prelude.Maybe Prelude.Text,
     -- | Amazon Resource Name (ARN) of the migration task associated with the
     -- premigration assessment run that you want to start.
     replicationTaskArn :: Prelude.Text,
-    -- | ARN of a service role needed to start the assessment run.
+    -- | ARN of the service role needed to start the assessment run. The role
+    -- must allow the @iam:PassRole@ action.
     serviceAccessRoleArn :: Prelude.Text,
-    -- | Amazon S3 bucket where you want AWS DMS to store the results of this
+    -- | Amazon S3 bucket where you want DMS to store the results of this
     -- assessment run.
     resultLocationBucket :: Prelude.Text,
     -- | Unique name to identify the assessment run.
@@ -135,52 +136,53 @@ data StartReplicationTaskAssessmentRun = StartReplicationTaskAssessmentRun'
 -- @ResultEncryptionMode@ to @\"SSE_KMS@\".
 --
 -- 'resultEncryptionMode', 'startReplicationTaskAssessmentRun_resultEncryptionMode' - Encryption mode that you can specify to encrypt the results of this
--- assessment run. If you don\'t specify this request parameter, AWS DMS
--- stores the assessment run results without encryption. You can specify
--- one of the options following:
+-- assessment run. If you don\'t specify this request parameter, DMS stores
+-- the assessment run results without encryption. You can specify one of
+-- the options following:
 --
 -- -   @\"SSE_S3\"@ – The server-side encryption provided as a default by
 --     Amazon S3.
 --
--- -   @\"SSE_KMS\"@ – AWS Key Management Service (AWS KMS) encryption.
---     This encryption can use either a custom KMS encryption key that you
+-- -   @\"SSE_KMS\"@ – Key Management Service (KMS) encryption. This
+--     encryption can use either a custom KMS encryption key that you
 --     specify or the default KMS encryption key that DMS provides.
 --
 -- 'exclude', 'startReplicationTaskAssessmentRun_exclude' - Space-separated list of names for specific individual assessments that
 -- you want to exclude. These names come from the default list of
--- individual assessments that AWS DMS supports for the associated
--- migration task. This task is specified by @ReplicationTaskArn@.
+-- individual assessments that DMS supports for the associated migration
+-- task. This task is specified by @ReplicationTaskArn@.
 --
 -- You can\'t set a value for @Exclude@ if you also set a value for
 -- @IncludeOnly@ in the API operation.
 --
--- To identify the names of the default individual assessments that AWS DMS
+-- To identify the names of the default individual assessments that DMS
 -- supports for the associated migration task, run the
 -- @DescribeApplicableIndividualAssessments@ operation using its own
 -- @ReplicationTaskArn@ request parameter.
 --
 -- 'includeOnly', 'startReplicationTaskAssessmentRun_includeOnly' - Space-separated list of names for specific individual assessments that
 -- you want to include. These names come from the default list of
--- individual assessments that AWS DMS supports for the associated
--- migration task. This task is specified by @ReplicationTaskArn@.
+-- individual assessments that DMS supports for the associated migration
+-- task. This task is specified by @ReplicationTaskArn@.
 --
 -- You can\'t set a value for @IncludeOnly@ if you also set a value for
 -- @Exclude@ in the API operation.
 --
--- To identify the names of the default individual assessments that AWS DMS
+-- To identify the names of the default individual assessments that DMS
 -- supports for the associated migration task, run the
 -- @DescribeApplicableIndividualAssessments@ operation using its own
 -- @ReplicationTaskArn@ request parameter.
 --
--- 'resultLocationFolder', 'startReplicationTaskAssessmentRun_resultLocationFolder' - Folder within an Amazon S3 bucket where you want AWS DMS to store the
+-- 'resultLocationFolder', 'startReplicationTaskAssessmentRun_resultLocationFolder' - Folder within an Amazon S3 bucket where you want DMS to store the
 -- results of this assessment run.
 --
 -- 'replicationTaskArn', 'startReplicationTaskAssessmentRun_replicationTaskArn' - Amazon Resource Name (ARN) of the migration task associated with the
 -- premigration assessment run that you want to start.
 --
--- 'serviceAccessRoleArn', 'startReplicationTaskAssessmentRun_serviceAccessRoleArn' - ARN of a service role needed to start the assessment run.
+-- 'serviceAccessRoleArn', 'startReplicationTaskAssessmentRun_serviceAccessRoleArn' - ARN of the service role needed to start the assessment run. The role
+-- must allow the @iam:PassRole@ action.
 --
--- 'resultLocationBucket', 'startReplicationTaskAssessmentRun_resultLocationBucket' - Amazon S3 bucket where you want AWS DMS to store the results of this
+-- 'resultLocationBucket', 'startReplicationTaskAssessmentRun_resultLocationBucket' - Amazon S3 bucket where you want DMS to store the results of this
 -- assessment run.
 --
 -- 'assessmentRunName', 'startReplicationTaskAssessmentRun_assessmentRunName' - Unique name to identify the assessment run.
@@ -221,28 +223,28 @@ startReplicationTaskAssessmentRun_resultKmsKeyArn :: Lens.Lens' StartReplication
 startReplicationTaskAssessmentRun_resultKmsKeyArn = Lens.lens (\StartReplicationTaskAssessmentRun' {resultKmsKeyArn} -> resultKmsKeyArn) (\s@StartReplicationTaskAssessmentRun' {} a -> s {resultKmsKeyArn = a} :: StartReplicationTaskAssessmentRun)
 
 -- | Encryption mode that you can specify to encrypt the results of this
--- assessment run. If you don\'t specify this request parameter, AWS DMS
--- stores the assessment run results without encryption. You can specify
--- one of the options following:
+-- assessment run. If you don\'t specify this request parameter, DMS stores
+-- the assessment run results without encryption. You can specify one of
+-- the options following:
 --
 -- -   @\"SSE_S3\"@ – The server-side encryption provided as a default by
 --     Amazon S3.
 --
--- -   @\"SSE_KMS\"@ – AWS Key Management Service (AWS KMS) encryption.
---     This encryption can use either a custom KMS encryption key that you
+-- -   @\"SSE_KMS\"@ – Key Management Service (KMS) encryption. This
+--     encryption can use either a custom KMS encryption key that you
 --     specify or the default KMS encryption key that DMS provides.
 startReplicationTaskAssessmentRun_resultEncryptionMode :: Lens.Lens' StartReplicationTaskAssessmentRun (Prelude.Maybe Prelude.Text)
 startReplicationTaskAssessmentRun_resultEncryptionMode = Lens.lens (\StartReplicationTaskAssessmentRun' {resultEncryptionMode} -> resultEncryptionMode) (\s@StartReplicationTaskAssessmentRun' {} a -> s {resultEncryptionMode = a} :: StartReplicationTaskAssessmentRun)
 
 -- | Space-separated list of names for specific individual assessments that
 -- you want to exclude. These names come from the default list of
--- individual assessments that AWS DMS supports for the associated
--- migration task. This task is specified by @ReplicationTaskArn@.
+-- individual assessments that DMS supports for the associated migration
+-- task. This task is specified by @ReplicationTaskArn@.
 --
 -- You can\'t set a value for @Exclude@ if you also set a value for
 -- @IncludeOnly@ in the API operation.
 --
--- To identify the names of the default individual assessments that AWS DMS
+-- To identify the names of the default individual assessments that DMS
 -- supports for the associated migration task, run the
 -- @DescribeApplicableIndividualAssessments@ operation using its own
 -- @ReplicationTaskArn@ request parameter.
@@ -251,20 +253,20 @@ startReplicationTaskAssessmentRun_exclude = Lens.lens (\StartReplicationTaskAsse
 
 -- | Space-separated list of names for specific individual assessments that
 -- you want to include. These names come from the default list of
--- individual assessments that AWS DMS supports for the associated
--- migration task. This task is specified by @ReplicationTaskArn@.
+-- individual assessments that DMS supports for the associated migration
+-- task. This task is specified by @ReplicationTaskArn@.
 --
 -- You can\'t set a value for @IncludeOnly@ if you also set a value for
 -- @Exclude@ in the API operation.
 --
--- To identify the names of the default individual assessments that AWS DMS
+-- To identify the names of the default individual assessments that DMS
 -- supports for the associated migration task, run the
 -- @DescribeApplicableIndividualAssessments@ operation using its own
 -- @ReplicationTaskArn@ request parameter.
 startReplicationTaskAssessmentRun_includeOnly :: Lens.Lens' StartReplicationTaskAssessmentRun (Prelude.Maybe [Prelude.Text])
 startReplicationTaskAssessmentRun_includeOnly = Lens.lens (\StartReplicationTaskAssessmentRun' {includeOnly} -> includeOnly) (\s@StartReplicationTaskAssessmentRun' {} a -> s {includeOnly = a} :: StartReplicationTaskAssessmentRun) Prelude.. Lens.mapping Lens._Coerce
 
--- | Folder within an Amazon S3 bucket where you want AWS DMS to store the
+-- | Folder within an Amazon S3 bucket where you want DMS to store the
 -- results of this assessment run.
 startReplicationTaskAssessmentRun_resultLocationFolder :: Lens.Lens' StartReplicationTaskAssessmentRun (Prelude.Maybe Prelude.Text)
 startReplicationTaskAssessmentRun_resultLocationFolder = Lens.lens (\StartReplicationTaskAssessmentRun' {resultLocationFolder} -> resultLocationFolder) (\s@StartReplicationTaskAssessmentRun' {} a -> s {resultLocationFolder = a} :: StartReplicationTaskAssessmentRun)
@@ -274,11 +276,12 @@ startReplicationTaskAssessmentRun_resultLocationFolder = Lens.lens (\StartReplic
 startReplicationTaskAssessmentRun_replicationTaskArn :: Lens.Lens' StartReplicationTaskAssessmentRun Prelude.Text
 startReplicationTaskAssessmentRun_replicationTaskArn = Lens.lens (\StartReplicationTaskAssessmentRun' {replicationTaskArn} -> replicationTaskArn) (\s@StartReplicationTaskAssessmentRun' {} a -> s {replicationTaskArn = a} :: StartReplicationTaskAssessmentRun)
 
--- | ARN of a service role needed to start the assessment run.
+-- | ARN of the service role needed to start the assessment run. The role
+-- must allow the @iam:PassRole@ action.
 startReplicationTaskAssessmentRun_serviceAccessRoleArn :: Lens.Lens' StartReplicationTaskAssessmentRun Prelude.Text
 startReplicationTaskAssessmentRun_serviceAccessRoleArn = Lens.lens (\StartReplicationTaskAssessmentRun' {serviceAccessRoleArn} -> serviceAccessRoleArn) (\s@StartReplicationTaskAssessmentRun' {} a -> s {serviceAccessRoleArn = a} :: StartReplicationTaskAssessmentRun)
 
--- | Amazon S3 bucket where you want AWS DMS to store the results of this
+-- | Amazon S3 bucket where you want DMS to store the results of this
 -- assessment run.
 startReplicationTaskAssessmentRun_resultLocationBucket :: Lens.Lens' StartReplicationTaskAssessmentRun Prelude.Text
 startReplicationTaskAssessmentRun_resultLocationBucket = Lens.lens (\StartReplicationTaskAssessmentRun' {resultLocationBucket} -> resultLocationBucket) (\s@StartReplicationTaskAssessmentRun' {} a -> s {resultLocationBucket = a} :: StartReplicationTaskAssessmentRun)

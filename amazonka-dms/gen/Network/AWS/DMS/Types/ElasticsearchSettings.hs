@@ -39,9 +39,10 @@ data ElasticsearchSettings = ElasticsearchSettings'
     -- transfer of all records fail in the last 10 minutes, the full load
     -- operation stops.
     fullLoadErrorPercentage :: Prelude.Maybe Prelude.Int,
-    -- | The Amazon Resource Name (ARN) used by service to access the IAM role.
+    -- | The Amazon Resource Name (ARN) used by the service to access the IAM
+    -- role. The role must allow the @iam:PassRole@ action.
     serviceAccessRoleArn :: Prelude.Text,
-    -- | The endpoint for the Elasticsearch cluster. AWS DMS uses HTTPS if a
+    -- | The endpoint for the Elasticsearch cluster. DMS uses HTTPS if a
     -- transport protocol (http\/https) is not specified.
     endpointUri :: Prelude.Text
   }
@@ -67,9 +68,10 @@ data ElasticsearchSettings = ElasticsearchSettings'
 -- transfer of all records fail in the last 10 minutes, the full load
 -- operation stops.
 --
--- 'serviceAccessRoleArn', 'elasticsearchSettings_serviceAccessRoleArn' - The Amazon Resource Name (ARN) used by service to access the IAM role.
+-- 'serviceAccessRoleArn', 'elasticsearchSettings_serviceAccessRoleArn' - The Amazon Resource Name (ARN) used by the service to access the IAM
+-- role. The role must allow the @iam:PassRole@ action.
 --
--- 'endpointUri', 'elasticsearchSettings_endpointUri' - The endpoint for the Elasticsearch cluster. AWS DMS uses HTTPS if a
+-- 'endpointUri', 'elasticsearchSettings_endpointUri' - The endpoint for the Elasticsearch cluster. DMS uses HTTPS if a
 -- transport protocol (http\/https) is not specified.
 newElasticsearchSettings ::
   -- | 'serviceAccessRoleArn'
@@ -104,11 +106,12 @@ elasticsearchSettings_errorRetryDuration = Lens.lens (\ElasticsearchSettings' {e
 elasticsearchSettings_fullLoadErrorPercentage :: Lens.Lens' ElasticsearchSettings (Prelude.Maybe Prelude.Int)
 elasticsearchSettings_fullLoadErrorPercentage = Lens.lens (\ElasticsearchSettings' {fullLoadErrorPercentage} -> fullLoadErrorPercentage) (\s@ElasticsearchSettings' {} a -> s {fullLoadErrorPercentage = a} :: ElasticsearchSettings)
 
--- | The Amazon Resource Name (ARN) used by service to access the IAM role.
+-- | The Amazon Resource Name (ARN) used by the service to access the IAM
+-- role. The role must allow the @iam:PassRole@ action.
 elasticsearchSettings_serviceAccessRoleArn :: Lens.Lens' ElasticsearchSettings Prelude.Text
 elasticsearchSettings_serviceAccessRoleArn = Lens.lens (\ElasticsearchSettings' {serviceAccessRoleArn} -> serviceAccessRoleArn) (\s@ElasticsearchSettings' {} a -> s {serviceAccessRoleArn = a} :: ElasticsearchSettings)
 
--- | The endpoint for the Elasticsearch cluster. AWS DMS uses HTTPS if a
+-- | The endpoint for the Elasticsearch cluster. DMS uses HTTPS if a
 -- transport protocol (http\/https) is not specified.
 elasticsearchSettings_endpointUri :: Lens.Lens' ElasticsearchSettings Prelude.Text
 elasticsearchSettings_endpointUri = Lens.lens (\ElasticsearchSettings' {endpointUri} -> endpointUri) (\s@ElasticsearchSettings' {} a -> s {endpointUri = a} :: ElasticsearchSettings)

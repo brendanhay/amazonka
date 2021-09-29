@@ -22,6 +22,10 @@
 --
 -- Creates a replication subnet group given a list of the subnet IDs in a
 -- VPC.
+--
+-- The VPC needs to have at least one subnet in at least two availability
+-- zones in the Amazon Web Services Region, otherwise the service will
+-- throw a @ReplicationSubnetGroupDoesNotCoverEnoughAZs@ exception.
 module Network.AWS.DMS.CreateReplicationSubnetGroup
   ( -- * Creating a Request
     CreateReplicationSubnetGroup (..),

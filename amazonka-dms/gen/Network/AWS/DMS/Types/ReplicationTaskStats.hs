@@ -29,10 +29,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newReplicationTaskStats' smart constructor.
 data ReplicationTaskStats = ReplicationTaskStats'
-  { -- | The date the replication task was stopped.
-    stopDate :: Prelude.Maybe Core.POSIX,
-    -- | The number of errors that have occurred during this task.
+  { -- | The number of errors that have occurred during this task.
     tablesErrored :: Prelude.Maybe Prelude.Int,
+    -- | The date the replication task was stopped.
+    stopDate :: Prelude.Maybe Core.POSIX,
     -- | The date the replication task was started either with a fresh start or a
     -- resume. For more information, see
     -- <https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTask.html#DMS-StartReplicationTask-request-StartReplicationTaskType StartReplicationTaskType>.
@@ -50,10 +50,10 @@ data ReplicationTaskStats = ReplicationTaskStats'
     fullLoadProgressPercent :: Prelude.Maybe Prelude.Int,
     -- | The number of tables queued for this task.
     tablesQueued :: Prelude.Maybe Prelude.Int,
-    -- | The date the replication task full load was completed.
-    fullLoadFinishDate :: Prelude.Maybe Core.POSIX,
     -- | The number of tables loaded for this task.
-    tablesLoaded :: Prelude.Maybe Prelude.Int
+    tablesLoaded :: Prelude.Maybe Prelude.Int,
+    -- | The date the replication task full load was completed.
+    fullLoadFinishDate :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,9 +65,9 @@ data ReplicationTaskStats = ReplicationTaskStats'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'stopDate', 'replicationTaskStats_stopDate' - The date the replication task was stopped.
---
 -- 'tablesErrored', 'replicationTaskStats_tablesErrored' - The number of errors that have occurred during this task.
+--
+-- 'stopDate', 'replicationTaskStats_stopDate' - The date the replication task was stopped.
 --
 -- 'startDate', 'replicationTaskStats_startDate' - The date the replication task was started either with a fresh start or a
 -- resume. For more information, see
@@ -86,15 +86,16 @@ data ReplicationTaskStats = ReplicationTaskStats'
 --
 -- 'tablesQueued', 'replicationTaskStats_tablesQueued' - The number of tables queued for this task.
 --
--- 'fullLoadFinishDate', 'replicationTaskStats_fullLoadFinishDate' - The date the replication task full load was completed.
---
 -- 'tablesLoaded', 'replicationTaskStats_tablesLoaded' - The number of tables loaded for this task.
+--
+-- 'fullLoadFinishDate', 'replicationTaskStats_fullLoadFinishDate' - The date the replication task full load was completed.
 newReplicationTaskStats ::
   ReplicationTaskStats
 newReplicationTaskStats =
   ReplicationTaskStats'
-    { stopDate = Prelude.Nothing,
-      tablesErrored = Prelude.Nothing,
+    { tablesErrored =
+        Prelude.Nothing,
+      stopDate = Prelude.Nothing,
       startDate = Prelude.Nothing,
       freshStartDate = Prelude.Nothing,
       tablesLoading = Prelude.Nothing,
@@ -102,17 +103,17 @@ newReplicationTaskStats =
       elapsedTimeMillis = Prelude.Nothing,
       fullLoadProgressPercent = Prelude.Nothing,
       tablesQueued = Prelude.Nothing,
-      fullLoadFinishDate = Prelude.Nothing,
-      tablesLoaded = Prelude.Nothing
+      tablesLoaded = Prelude.Nothing,
+      fullLoadFinishDate = Prelude.Nothing
     }
-
--- | The date the replication task was stopped.
-replicationTaskStats_stopDate :: Lens.Lens' ReplicationTaskStats (Prelude.Maybe Prelude.UTCTime)
-replicationTaskStats_stopDate = Lens.lens (\ReplicationTaskStats' {stopDate} -> stopDate) (\s@ReplicationTaskStats' {} a -> s {stopDate = a} :: ReplicationTaskStats) Prelude.. Lens.mapping Core._Time
 
 -- | The number of errors that have occurred during this task.
 replicationTaskStats_tablesErrored :: Lens.Lens' ReplicationTaskStats (Prelude.Maybe Prelude.Int)
 replicationTaskStats_tablesErrored = Lens.lens (\ReplicationTaskStats' {tablesErrored} -> tablesErrored) (\s@ReplicationTaskStats' {} a -> s {tablesErrored = a} :: ReplicationTaskStats)
+
+-- | The date the replication task was stopped.
+replicationTaskStats_stopDate :: Lens.Lens' ReplicationTaskStats (Prelude.Maybe Prelude.UTCTime)
+replicationTaskStats_stopDate = Lens.lens (\ReplicationTaskStats' {stopDate} -> stopDate) (\s@ReplicationTaskStats' {} a -> s {stopDate = a} :: ReplicationTaskStats) Prelude.. Lens.mapping Core._Time
 
 -- | The date the replication task was started either with a fresh start or a
 -- resume. For more information, see
@@ -145,13 +146,13 @@ replicationTaskStats_fullLoadProgressPercent = Lens.lens (\ReplicationTaskStats'
 replicationTaskStats_tablesQueued :: Lens.Lens' ReplicationTaskStats (Prelude.Maybe Prelude.Int)
 replicationTaskStats_tablesQueued = Lens.lens (\ReplicationTaskStats' {tablesQueued} -> tablesQueued) (\s@ReplicationTaskStats' {} a -> s {tablesQueued = a} :: ReplicationTaskStats)
 
--- | The date the replication task full load was completed.
-replicationTaskStats_fullLoadFinishDate :: Lens.Lens' ReplicationTaskStats (Prelude.Maybe Prelude.UTCTime)
-replicationTaskStats_fullLoadFinishDate = Lens.lens (\ReplicationTaskStats' {fullLoadFinishDate} -> fullLoadFinishDate) (\s@ReplicationTaskStats' {} a -> s {fullLoadFinishDate = a} :: ReplicationTaskStats) Prelude.. Lens.mapping Core._Time
-
 -- | The number of tables loaded for this task.
 replicationTaskStats_tablesLoaded :: Lens.Lens' ReplicationTaskStats (Prelude.Maybe Prelude.Int)
 replicationTaskStats_tablesLoaded = Lens.lens (\ReplicationTaskStats' {tablesLoaded} -> tablesLoaded) (\s@ReplicationTaskStats' {} a -> s {tablesLoaded = a} :: ReplicationTaskStats)
+
+-- | The date the replication task full load was completed.
+replicationTaskStats_fullLoadFinishDate :: Lens.Lens' ReplicationTaskStats (Prelude.Maybe Prelude.UTCTime)
+replicationTaskStats_fullLoadFinishDate = Lens.lens (\ReplicationTaskStats' {fullLoadFinishDate} -> fullLoadFinishDate) (\s@ReplicationTaskStats' {} a -> s {fullLoadFinishDate = a} :: ReplicationTaskStats) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON ReplicationTaskStats where
   parseJSON =
@@ -159,8 +160,8 @@ instance Core.FromJSON ReplicationTaskStats where
       "ReplicationTaskStats"
       ( \x ->
           ReplicationTaskStats'
-            Prelude.<$> (x Core..:? "StopDate")
-            Prelude.<*> (x Core..:? "TablesErrored")
+            Prelude.<$> (x Core..:? "TablesErrored")
+            Prelude.<*> (x Core..:? "StopDate")
             Prelude.<*> (x Core..:? "StartDate")
             Prelude.<*> (x Core..:? "FreshStartDate")
             Prelude.<*> (x Core..:? "TablesLoading")
@@ -168,8 +169,8 @@ instance Core.FromJSON ReplicationTaskStats where
             Prelude.<*> (x Core..:? "ElapsedTimeMillis")
             Prelude.<*> (x Core..:? "FullLoadProgressPercent")
             Prelude.<*> (x Core..:? "TablesQueued")
-            Prelude.<*> (x Core..:? "FullLoadFinishDate")
             Prelude.<*> (x Core..:? "TablesLoaded")
+            Prelude.<*> (x Core..:? "FullLoadFinishDate")
       )
 
 instance Prelude.Hashable ReplicationTaskStats

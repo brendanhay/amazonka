@@ -48,8 +48,7 @@ data OrderableReplicationInstance = OrderableReplicationInstance'
     -- instance is in Beta or test mode. This indicates some features might not
     -- work as expected.
     --
-    -- AWS DMS supports the @ReleaseStatus@ parameter in versions 3.1.4 and
-    -- later.
+    -- DMS supports the @ReleaseStatus@ parameter in versions 3.1.4 and later.
     releaseStatus :: Prelude.Maybe ReleaseStatusValues,
     -- | The version of the replication engine.
     engineVersion :: Prelude.Maybe Prelude.Text,
@@ -59,7 +58,7 @@ data OrderableReplicationInstance = OrderableReplicationInstance'
     --
     -- For more information on the settings and capacities for the available
     -- replication instance classes, see
-    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration>.
+    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right DMS replication instance for your migration>.
     replicationInstanceClass :: Prelude.Maybe Prelude.Text,
     -- | The minimum amount of storage (in gigabytes) that can be allocated for
     -- the replication instance.
@@ -92,8 +91,7 @@ data OrderableReplicationInstance = OrderableReplicationInstance'
 -- instance is in Beta or test mode. This indicates some features might not
 -- work as expected.
 --
--- AWS DMS supports the @ReleaseStatus@ parameter in versions 3.1.4 and
--- later.
+-- DMS supports the @ReleaseStatus@ parameter in versions 3.1.4 and later.
 --
 -- 'engineVersion', 'orderableReplicationInstance_engineVersion' - The version of the replication engine.
 --
@@ -103,7 +101,7 @@ data OrderableReplicationInstance = OrderableReplicationInstance'
 --
 -- For more information on the settings and capacities for the available
 -- replication instance classes, see
--- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration>.
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right DMS replication instance for your migration>.
 --
 -- 'minAllocatedStorage', 'orderableReplicationInstance_minAllocatedStorage' - The minimum amount of storage (in gigabytes) that can be allocated for
 -- the replication instance.
@@ -150,8 +148,7 @@ orderableReplicationInstance_includedAllocatedStorage = Lens.lens (\OrderableRep
 -- instance is in Beta or test mode. This indicates some features might not
 -- work as expected.
 --
--- AWS DMS supports the @ReleaseStatus@ parameter in versions 3.1.4 and
--- later.
+-- DMS supports the @ReleaseStatus@ parameter in versions 3.1.4 and later.
 orderableReplicationInstance_releaseStatus :: Lens.Lens' OrderableReplicationInstance (Prelude.Maybe ReleaseStatusValues)
 orderableReplicationInstance_releaseStatus = Lens.lens (\OrderableReplicationInstance' {releaseStatus} -> releaseStatus) (\s@OrderableReplicationInstance' {} a -> s {releaseStatus = a} :: OrderableReplicationInstance)
 
@@ -165,7 +162,7 @@ orderableReplicationInstance_engineVersion = Lens.lens (\OrderableReplicationIns
 --
 -- For more information on the settings and capacities for the available
 -- replication instance classes, see
--- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration>.
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right DMS replication instance for your migration>.
 orderableReplicationInstance_replicationInstanceClass :: Lens.Lens' OrderableReplicationInstance (Prelude.Maybe Prelude.Text)
 orderableReplicationInstance_replicationInstanceClass = Lens.lens (\OrderableReplicationInstance' {replicationInstanceClass} -> replicationInstanceClass) (\s@OrderableReplicationInstance' {} a -> s {replicationInstanceClass = a} :: OrderableReplicationInstance)
 

@@ -109,7 +109,7 @@ data ModifyReplicationInstance = ModifyReplicationInstance'
     --
     -- For more information on the settings and capacities for the available
     -- replication instance classes, see
-    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration>.
+    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right DMS replication instance for your migration>.
     replicationInstanceClass :: Prelude.Maybe Prelude.Text,
     -- | The amount of storage (in gigabytes) to be allocated for the replication
     -- instance.
@@ -129,7 +129,7 @@ data ModifyReplicationInstance = ModifyReplicationInstance'
     --
     -- -   A newer minor version is available.
     --
-    -- -   AWS DMS has enabled automatic patching for the given engine version.
+    -- -   DMS has enabled automatic patching for the given engine version.
     autoMinorVersionUpgrade :: Prelude.Maybe Prelude.Bool,
     -- | The Amazon Resource Name (ARN) of the replication instance.
     replicationInstanceArn :: Prelude.Text
@@ -189,7 +189,7 @@ data ModifyReplicationInstance = ModifyReplicationInstance'
 --
 -- For more information on the settings and capacities for the available
 -- replication instance classes, see
--- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration>.
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right DMS replication instance for your migration>.
 --
 -- 'allocatedStorage', 'modifyReplicationInstance_allocatedStorage' - The amount of storage (in gigabytes) to be allocated for the replication
 -- instance.
@@ -209,7 +209,7 @@ data ModifyReplicationInstance = ModifyReplicationInstance'
 --
 -- -   A newer minor version is available.
 --
--- -   AWS DMS has enabled automatic patching for the given engine version.
+-- -   DMS has enabled automatic patching for the given engine version.
 --
 -- 'replicationInstanceArn', 'modifyReplicationInstance_replicationInstanceArn' - The Amazon Resource Name (ARN) of the replication instance.
 newModifyReplicationInstance ::
@@ -290,7 +290,7 @@ modifyReplicationInstance_replicationInstanceIdentifier = Lens.lens (\ModifyRepl
 --
 -- For more information on the settings and capacities for the available
 -- replication instance classes, see
--- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right AWS DMS replication instance for your migration>.
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.html#CHAP_ReplicationInstance.InDepth Selecting the right DMS replication instance for your migration>.
 modifyReplicationInstance_replicationInstanceClass :: Lens.Lens' ModifyReplicationInstance (Prelude.Maybe Prelude.Text)
 modifyReplicationInstance_replicationInstanceClass = Lens.lens (\ModifyReplicationInstance' {replicationInstanceClass} -> replicationInstanceClass) (\s@ModifyReplicationInstance' {} a -> s {replicationInstanceClass = a} :: ModifyReplicationInstance)
 
@@ -316,7 +316,7 @@ modifyReplicationInstance_applyImmediately = Lens.lens (\ModifyReplicationInstan
 --
 -- -   A newer minor version is available.
 --
--- -   AWS DMS has enabled automatic patching for the given engine version.
+-- -   DMS has enabled automatic patching for the given engine version.
 modifyReplicationInstance_autoMinorVersionUpgrade :: Lens.Lens' ModifyReplicationInstance (Prelude.Maybe Prelude.Bool)
 modifyReplicationInstance_autoMinorVersionUpgrade = Lens.lens (\ModifyReplicationInstance' {autoMinorVersionUpgrade} -> autoMinorVersionUpgrade) (\s@ModifyReplicationInstance' {} a -> s {autoMinorVersionUpgrade = a} :: ModifyReplicationInstance)
 

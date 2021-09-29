@@ -30,8 +30,8 @@ module Network.AWS.DMS.DescribeOrderableReplicationInstances
     newDescribeOrderableReplicationInstances,
 
     -- * Request Lenses
-    describeOrderableReplicationInstances_marker,
     describeOrderableReplicationInstances_maxRecords,
+    describeOrderableReplicationInstances_marker,
 
     -- * Destructuring the Response
     DescribeOrderableReplicationInstancesResponse (..),
@@ -55,11 +55,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeOrderableReplicationInstances' smart constructor.
 data DescribeOrderableReplicationInstances = DescribeOrderableReplicationInstances'
-  { -- | An optional pagination token provided by a previous request. If this
-    -- parameter is specified, the response includes only records beyond the
-    -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of records to include in the response. If more
+  { -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
     -- results can be retrieved.
@@ -67,7 +63,11 @@ data DescribeOrderableReplicationInstances = DescribeOrderableReplicationInstanc
     -- Default: 100
     --
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Prelude.Maybe Prelude.Int
+    maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -79,10 +79,6 @@ data DescribeOrderableReplicationInstances = DescribeOrderableReplicationInstanc
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'marker', 'describeOrderableReplicationInstances_marker' - An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
---
 -- 'maxRecords', 'describeOrderableReplicationInstances_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so that the remaining
@@ -91,20 +87,18 @@ data DescribeOrderableReplicationInstances = DescribeOrderableReplicationInstanc
 -- Default: 100
 --
 -- Constraints: Minimum 20, maximum 100.
+--
+-- 'marker', 'describeOrderableReplicationInstances_marker' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
 newDescribeOrderableReplicationInstances ::
   DescribeOrderableReplicationInstances
 newDescribeOrderableReplicationInstances =
   DescribeOrderableReplicationInstances'
-    { marker =
+    { maxRecords =
         Prelude.Nothing,
-      maxRecords = Prelude.Nothing
+      marker = Prelude.Nothing
     }
-
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
-describeOrderableReplicationInstances_marker :: Lens.Lens' DescribeOrderableReplicationInstances (Prelude.Maybe Prelude.Text)
-describeOrderableReplicationInstances_marker = Lens.lens (\DescribeOrderableReplicationInstances' {marker} -> marker) (\s@DescribeOrderableReplicationInstances' {} a -> s {marker = a} :: DescribeOrderableReplicationInstances)
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -116,6 +110,12 @@ describeOrderableReplicationInstances_marker = Lens.lens (\DescribeOrderableRepl
 -- Constraints: Minimum 20, maximum 100.
 describeOrderableReplicationInstances_maxRecords :: Lens.Lens' DescribeOrderableReplicationInstances (Prelude.Maybe Prelude.Int)
 describeOrderableReplicationInstances_maxRecords = Lens.lens (\DescribeOrderableReplicationInstances' {maxRecords} -> maxRecords) (\s@DescribeOrderableReplicationInstances' {} a -> s {maxRecords = a} :: DescribeOrderableReplicationInstances)
+
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+describeOrderableReplicationInstances_marker :: Lens.Lens' DescribeOrderableReplicationInstances (Prelude.Maybe Prelude.Text)
+describeOrderableReplicationInstances_marker = Lens.lens (\DescribeOrderableReplicationInstances' {marker} -> marker) (\s@DescribeOrderableReplicationInstances' {} a -> s {marker = a} :: DescribeOrderableReplicationInstances)
 
 instance
   Core.AWSPager
@@ -195,8 +195,8 @@ instance
   toJSON DescribeOrderableReplicationInstances' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Marker" Core..=) Prelude.<$> marker,
-            ("MaxRecords" Core..=) Prelude.<$> maxRecords
+          [ ("MaxRecords" Core..=) Prelude.<$> maxRecords,
+            ("Marker" Core..=) Prelude.<$> marker
           ]
       )
 

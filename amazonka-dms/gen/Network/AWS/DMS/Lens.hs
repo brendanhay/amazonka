@@ -14,55 +14,34 @@
 module Network.AWS.DMS.Lens
   ( -- * Operations
 
-    -- ** DeleteReplicationTaskAssessmentRun
-    deleteReplicationTaskAssessmentRun_replicationTaskAssessmentRunArn,
-    deleteReplicationTaskAssessmentRunResponse_replicationTaskAssessmentRun,
-    deleteReplicationTaskAssessmentRunResponse_httpStatus,
-
-    -- ** DescribeEventCategories
-    describeEventCategories_filters,
-    describeEventCategories_sourceType,
-    describeEventCategoriesResponse_eventCategoryGroupList,
-    describeEventCategoriesResponse_httpStatus,
-
-    -- ** StartReplicationTaskAssessment
-    startReplicationTaskAssessment_replicationTaskArn,
-    startReplicationTaskAssessmentResponse_replicationTask,
-    startReplicationTaskAssessmentResponse_httpStatus,
-
-    -- ** DeleteConnection
-    deleteConnection_endpointArn,
-    deleteConnection_replicationInstanceArn,
-    deleteConnectionResponse_connection,
-    deleteConnectionResponse_httpStatus,
-
     -- ** CreateEndpoint
-    createEndpoint_sslMode,
     createEndpoint_mongoDbSettings,
+    createEndpoint_sslMode,
     createEndpoint_neptuneSettings,
-    createEndpoint_elasticsearchSettings,
+    createEndpoint_redisSettings,
     createEndpoint_externalTableDefinition,
-    createEndpoint_oracleSettings,
+    createEndpoint_elasticsearchSettings,
     createEndpoint_postgreSQLSettings,
-    createEndpoint_serviceAccessRoleArn,
+    createEndpoint_oracleSettings,
     createEndpoint_certificateArn,
+    createEndpoint_serviceAccessRoleArn,
     createEndpoint_s3Settings,
-    createEndpoint_serverName,
     createEndpoint_microsoftSQLServerSettings,
+    createEndpoint_serverName,
     createEndpoint_kmsKeyId,
     createEndpoint_iBMDb2Settings,
-    createEndpoint_mySQLSettings,
     createEndpoint_password,
+    createEndpoint_mySQLSettings,
     createEndpoint_dmsTransferSettings,
     createEndpoint_tags,
-    createEndpoint_port,
     createEndpoint_resourceIdentifier,
+    createEndpoint_port,
     createEndpoint_redshiftSettings,
     createEndpoint_username,
+    createEndpoint_extraConnectionAttributes,
     createEndpoint_kafkaSettings,
     createEndpoint_docDbSettings,
     createEndpoint_dynamoDbSettings,
-    createEndpoint_extraConnectionAttributes,
     createEndpoint_kinesisSettings,
     createEndpoint_sybaseSettings,
     createEndpoint_databaseName,
@@ -72,29 +51,34 @@ module Network.AWS.DMS.Lens
     createEndpointResponse_endpoint,
     createEndpointResponse_httpStatus,
 
+    -- ** DescribeEventCategories
+    describeEventCategories_filters,
+    describeEventCategories_sourceType,
+    describeEventCategoriesResponse_eventCategoryGroupList,
+    describeEventCategoriesResponse_httpStatus,
+
     -- ** DescribeOrderableReplicationInstances
-    describeOrderableReplicationInstances_marker,
     describeOrderableReplicationInstances_maxRecords,
+    describeOrderableReplicationInstances_marker,
     describeOrderableReplicationInstancesResponse_orderableReplicationInstances,
     describeOrderableReplicationInstancesResponse_marker,
     describeOrderableReplicationInstancesResponse_httpStatus,
 
-    -- ** DeleteCertificate
-    deleteCertificate_certificateArn,
-    deleteCertificateResponse_certificate,
-    deleteCertificateResponse_httpStatus,
+    -- ** StartReplicationTaskAssessment
+    startReplicationTaskAssessment_replicationTaskArn,
+    startReplicationTaskAssessmentResponse_replicationTask,
+    startReplicationTaskAssessmentResponse_httpStatus,
 
-    -- ** DescribeApplicableIndividualAssessments
-    describeApplicableIndividualAssessments_migrationType,
-    describeApplicableIndividualAssessments_replicationTaskArn,
-    describeApplicableIndividualAssessments_sourceEngineName,
-    describeApplicableIndividualAssessments_replicationInstanceArn,
-    describeApplicableIndividualAssessments_targetEngineName,
-    describeApplicableIndividualAssessments_marker,
-    describeApplicableIndividualAssessments_maxRecords,
-    describeApplicableIndividualAssessmentsResponse_individualAssessmentNames,
-    describeApplicableIndividualAssessmentsResponse_marker,
-    describeApplicableIndividualAssessmentsResponse_httpStatus,
+    -- ** DeleteReplicationTaskAssessmentRun
+    deleteReplicationTaskAssessmentRun_replicationTaskAssessmentRunArn,
+    deleteReplicationTaskAssessmentRunResponse_replicationTaskAssessmentRun,
+    deleteReplicationTaskAssessmentRunResponse_httpStatus,
+
+    -- ** DeleteConnection
+    deleteConnection_endpointArn,
+    deleteConnection_replicationInstanceArn,
+    deleteConnectionResponse_connection,
+    deleteConnectionResponse_httpStatus,
 
     -- ** ReloadTables
     reloadTables_reloadOption,
@@ -102,6 +86,23 @@ module Network.AWS.DMS.Lens
     reloadTables_tablesToReload,
     reloadTablesResponse_replicationTaskArn,
     reloadTablesResponse_httpStatus,
+
+    -- ** DescribeApplicableIndividualAssessments
+    describeApplicableIndividualAssessments_migrationType,
+    describeApplicableIndividualAssessments_sourceEngineName,
+    describeApplicableIndividualAssessments_replicationTaskArn,
+    describeApplicableIndividualAssessments_replicationInstanceArn,
+    describeApplicableIndividualAssessments_targetEngineName,
+    describeApplicableIndividualAssessments_maxRecords,
+    describeApplicableIndividualAssessments_marker,
+    describeApplicableIndividualAssessmentsResponse_individualAssessmentNames,
+    describeApplicableIndividualAssessmentsResponse_marker,
+    describeApplicableIndividualAssessmentsResponse_httpStatus,
+
+    -- ** DeleteCertificate
+    deleteCertificate_certificateArn,
+    deleteCertificateResponse_certificate,
+    deleteCertificateResponse_httpStatus,
 
     -- ** StartReplicationTask
     startReplicationTask_cdcStartTime,
@@ -112,28 +113,6 @@ module Network.AWS.DMS.Lens
     startReplicationTaskResponse_replicationTask,
     startReplicationTaskResponse_httpStatus,
 
-    -- ** DescribeEventSubscriptions
-    describeEventSubscriptions_subscriptionName,
-    describeEventSubscriptions_filters,
-    describeEventSubscriptions_marker,
-    describeEventSubscriptions_maxRecords,
-    describeEventSubscriptionsResponse_eventSubscriptionsList,
-    describeEventSubscriptionsResponse_marker,
-    describeEventSubscriptionsResponse_httpStatus,
-
-    -- ** ModifyReplicationTask
-    modifyReplicationTask_migrationType,
-    modifyReplicationTask_taskData,
-    modifyReplicationTask_replicationTaskSettings,
-    modifyReplicationTask_tableMappings,
-    modifyReplicationTask_cdcStartTime,
-    modifyReplicationTask_cdcStopPosition,
-    modifyReplicationTask_cdcStartPosition,
-    modifyReplicationTask_replicationTaskIdentifier,
-    modifyReplicationTask_replicationTaskArn,
-    modifyReplicationTaskResponse_replicationTask,
-    modifyReplicationTaskResponse_httpStatus,
-
     -- ** StopReplicationTask
     stopReplicationTask_replicationTaskArn,
     stopReplicationTaskResponse_replicationTask,
@@ -141,8 +120,8 @@ module Network.AWS.DMS.Lens
 
     -- ** CreateReplicationInstance
     createReplicationInstance_replicationSubnetGroupIdentifier,
-    createReplicationInstance_multiAZ,
     createReplicationInstance_publiclyAccessible,
+    createReplicationInstance_multiAZ,
     createReplicationInstance_vpcSecurityGroupIds,
     createReplicationInstance_kmsKeyId,
     createReplicationInstance_availabilityZone,
@@ -158,13 +137,27 @@ module Network.AWS.DMS.Lens
     createReplicationInstanceResponse_replicationInstance,
     createReplicationInstanceResponse_httpStatus,
 
-    -- ** DescribeReplicationSubnetGroups
-    describeReplicationSubnetGroups_filters,
-    describeReplicationSubnetGroups_marker,
-    describeReplicationSubnetGroups_maxRecords,
-    describeReplicationSubnetGroupsResponse_replicationSubnetGroups,
-    describeReplicationSubnetGroupsResponse_marker,
-    describeReplicationSubnetGroupsResponse_httpStatus,
+    -- ** ModifyReplicationTask
+    modifyReplicationTask_migrationType,
+    modifyReplicationTask_taskData,
+    modifyReplicationTask_replicationTaskSettings,
+    modifyReplicationTask_tableMappings,
+    modifyReplicationTask_cdcStartTime,
+    modifyReplicationTask_cdcStopPosition,
+    modifyReplicationTask_cdcStartPosition,
+    modifyReplicationTask_replicationTaskIdentifier,
+    modifyReplicationTask_replicationTaskArn,
+    modifyReplicationTaskResponse_replicationTask,
+    modifyReplicationTaskResponse_httpStatus,
+
+    -- ** DescribeEventSubscriptions
+    describeEventSubscriptions_subscriptionName,
+    describeEventSubscriptions_filters,
+    describeEventSubscriptions_maxRecords,
+    describeEventSubscriptions_marker,
+    describeEventSubscriptionsResponse_eventSubscriptionsList,
+    describeEventSubscriptionsResponse_marker,
+    describeEventSubscriptionsResponse_httpStatus,
 
     -- ** DeleteEventSubscription
     deleteEventSubscription_subscriptionName,
@@ -173,13 +166,26 @@ module Network.AWS.DMS.Lens
 
     -- ** DescribeTableStatistics
     describeTableStatistics_filters,
-    describeTableStatistics_marker,
     describeTableStatistics_maxRecords,
+    describeTableStatistics_marker,
     describeTableStatistics_replicationTaskArn,
     describeTableStatisticsResponse_tableStatistics,
     describeTableStatisticsResponse_replicationTaskArn,
     describeTableStatisticsResponse_marker,
     describeTableStatisticsResponse_httpStatus,
+
+    -- ** DescribeReplicationSubnetGroups
+    describeReplicationSubnetGroups_filters,
+    describeReplicationSubnetGroups_maxRecords,
+    describeReplicationSubnetGroups_marker,
+    describeReplicationSubnetGroupsResponse_replicationSubnetGroups,
+    describeReplicationSubnetGroupsResponse_marker,
+    describeReplicationSubnetGroupsResponse_httpStatus,
+
+    -- ** DescribeRefreshSchemasStatus
+    describeRefreshSchemasStatus_endpointArn,
+    describeRefreshSchemasStatusResponse_refreshSchemasStatus,
+    describeRefreshSchemasStatusResponse_httpStatus,
 
     -- ** StartReplicationTaskAssessmentRun
     startReplicationTaskAssessmentRun_resultKmsKeyArn,
@@ -194,16 +200,6 @@ module Network.AWS.DMS.Lens
     startReplicationTaskAssessmentRunResponse_replicationTaskAssessmentRun,
     startReplicationTaskAssessmentRunResponse_httpStatus,
 
-    -- ** DescribeRefreshSchemasStatus
-    describeRefreshSchemasStatus_endpointArn,
-    describeRefreshSchemasStatusResponse_refreshSchemasStatus,
-    describeRefreshSchemasStatusResponse_httpStatus,
-
-    -- ** DescribeAccountAttributes
-    describeAccountAttributesResponse_accountQuotas,
-    describeAccountAttributesResponse_uniqueAccountIdentifier,
-    describeAccountAttributesResponse_httpStatus,
-
     -- ** RemoveTagsFromResource
     removeTagsFromResource_resourceArn,
     removeTagsFromResource_tagKeys,
@@ -211,38 +207,45 @@ module Network.AWS.DMS.Lens
 
     -- ** DescribeCertificates
     describeCertificates_filters,
-    describeCertificates_marker,
     describeCertificates_maxRecords,
+    describeCertificates_marker,
     describeCertificatesResponse_certificates,
     describeCertificatesResponse_marker,
     describeCertificatesResponse_httpStatus,
 
+    -- ** DescribeAccountAttributes
+    describeAccountAttributesResponse_accountQuotas,
+    describeAccountAttributesResponse_uniqueAccountIdentifier,
+    describeAccountAttributesResponse_httpStatus,
+
     -- ** ModifyEndpoint
-    modifyEndpoint_sslMode,
     modifyEndpoint_mongoDbSettings,
+    modifyEndpoint_sslMode,
     modifyEndpoint_neptuneSettings,
+    modifyEndpoint_redisSettings,
     modifyEndpoint_engineName,
-    modifyEndpoint_elasticsearchSettings,
+    modifyEndpoint_exactSettings,
     modifyEndpoint_externalTableDefinition,
-    modifyEndpoint_endpointType,
-    modifyEndpoint_oracleSettings,
+    modifyEndpoint_elasticsearchSettings,
     modifyEndpoint_postgreSQLSettings,
-    modifyEndpoint_serviceAccessRoleArn,
+    modifyEndpoint_oracleSettings,
+    modifyEndpoint_endpointType,
     modifyEndpoint_certificateArn,
+    modifyEndpoint_serviceAccessRoleArn,
     modifyEndpoint_s3Settings,
-    modifyEndpoint_serverName,
     modifyEndpoint_microsoftSQLServerSettings,
+    modifyEndpoint_serverName,
     modifyEndpoint_iBMDb2Settings,
-    modifyEndpoint_mySQLSettings,
     modifyEndpoint_password,
+    modifyEndpoint_mySQLSettings,
     modifyEndpoint_dmsTransferSettings,
     modifyEndpoint_port,
     modifyEndpoint_redshiftSettings,
     modifyEndpoint_username,
+    modifyEndpoint_extraConnectionAttributes,
     modifyEndpoint_kafkaSettings,
     modifyEndpoint_docDbSettings,
     modifyEndpoint_dynamoDbSettings,
-    modifyEndpoint_extraConnectionAttributes,
     modifyEndpoint_endpointIdentifier,
     modifyEndpoint_kinesisSettings,
     modifyEndpoint_sybaseSettings,
@@ -251,20 +254,13 @@ module Network.AWS.DMS.Lens
     modifyEndpointResponse_endpoint,
     modifyEndpointResponse_httpStatus,
 
-    -- ** TestConnection
-    testConnection_replicationInstanceArn,
-    testConnection_endpointArn,
-    testConnectionResponse_connection,
-    testConnectionResponse_httpStatus,
-
-    -- ** DescribeReplicationTaskAssessmentResults
-    describeReplicationTaskAssessmentResults_replicationTaskArn,
-    describeReplicationTaskAssessmentResults_marker,
-    describeReplicationTaskAssessmentResults_maxRecords,
-    describeReplicationTaskAssessmentResultsResponse_bucketName,
-    describeReplicationTaskAssessmentResultsResponse_replicationTaskAssessmentResults,
-    describeReplicationTaskAssessmentResultsResponse_marker,
-    describeReplicationTaskAssessmentResultsResponse_httpStatus,
+    -- ** DescribeEndpointSettings
+    describeEndpointSettings_maxRecords,
+    describeEndpointSettings_marker,
+    describeEndpointSettings_engineName,
+    describeEndpointSettingsResponse_endpointSettings,
+    describeEndpointSettingsResponse_marker,
+    describeEndpointSettingsResponse_httpStatus,
 
     -- ** ApplyPendingMaintenanceAction
     applyPendingMaintenanceAction_replicationInstanceArn,
@@ -281,49 +277,70 @@ module Network.AWS.DMS.Lens
     importCertificateResponse_certificate,
     importCertificateResponse_httpStatus,
 
+    -- ** DescribeReplicationTaskAssessmentResults
+    describeReplicationTaskAssessmentResults_replicationTaskArn,
+    describeReplicationTaskAssessmentResults_maxRecords,
+    describeReplicationTaskAssessmentResults_marker,
+    describeReplicationTaskAssessmentResultsResponse_bucketName,
+    describeReplicationTaskAssessmentResultsResponse_replicationTaskAssessmentResults,
+    describeReplicationTaskAssessmentResultsResponse_marker,
+    describeReplicationTaskAssessmentResultsResponse_httpStatus,
+
+    -- ** TestConnection
+    testConnection_replicationInstanceArn,
+    testConnection_endpointArn,
+    testConnectionResponse_connection,
+    testConnectionResponse_httpStatus,
+
     -- ** DescribeEndpointTypes
     describeEndpointTypes_filters,
-    describeEndpointTypes_marker,
     describeEndpointTypes_maxRecords,
+    describeEndpointTypes_marker,
     describeEndpointTypesResponse_supportedEndpointTypes,
     describeEndpointTypesResponse_marker,
     describeEndpointTypesResponse_httpStatus,
 
-    -- ** DescribePendingMaintenanceActions
-    describePendingMaintenanceActions_filters,
-    describePendingMaintenanceActions_replicationInstanceArn,
-    describePendingMaintenanceActions_marker,
-    describePendingMaintenanceActions_maxRecords,
-    describePendingMaintenanceActionsResponse_pendingMaintenanceActions,
-    describePendingMaintenanceActionsResponse_marker,
-    describePendingMaintenanceActionsResponse_httpStatus,
+    -- ** DescribeEvents
+    describeEvents_duration,
+    describeEvents_startTime,
+    describeEvents_endTime,
+    describeEvents_eventCategories,
+    describeEvents_sourceIdentifier,
+    describeEvents_filters,
+    describeEvents_sourceType,
+    describeEvents_maxRecords,
+    describeEvents_marker,
+    describeEventsResponse_events,
+    describeEventsResponse_marker,
+    describeEventsResponse_httpStatus,
 
     -- ** DeleteEndpoint
     deleteEndpoint_endpointArn,
     deleteEndpointResponse_endpoint,
     deleteEndpointResponse_httpStatus,
 
-    -- ** DescribeEvents
-    describeEvents_duration,
-    describeEvents_startTime,
-    describeEvents_eventCategories,
-    describeEvents_endTime,
-    describeEvents_sourceIdentifier,
-    describeEvents_filters,
-    describeEvents_sourceType,
-    describeEvents_marker,
-    describeEvents_maxRecords,
-    describeEventsResponse_events,
-    describeEventsResponse_marker,
-    describeEventsResponse_httpStatus,
+    -- ** DescribePendingMaintenanceActions
+    describePendingMaintenanceActions_filters,
+    describePendingMaintenanceActions_replicationInstanceArn,
+    describePendingMaintenanceActions_maxRecords,
+    describePendingMaintenanceActions_marker,
+    describePendingMaintenanceActionsResponse_pendingMaintenanceActions,
+    describePendingMaintenanceActionsResponse_marker,
+    describePendingMaintenanceActionsResponse_httpStatus,
 
     -- ** DescribeSchemas
-    describeSchemas_marker,
     describeSchemas_maxRecords,
+    describeSchemas_marker,
     describeSchemas_endpointArn,
     describeSchemasResponse_schemas,
     describeSchemasResponse_marker,
     describeSchemasResponse_httpStatus,
+
+    -- ** RefreshSchemas
+    refreshSchemas_endpointArn,
+    refreshSchemas_replicationInstanceArn,
+    refreshSchemasResponse_refreshSchemasStatus,
+    refreshSchemasResponse_httpStatus,
 
     -- ** ModifyEventSubscription
     modifyEventSubscription_enabled,
@@ -337,17 +354,11 @@ module Network.AWS.DMS.Lens
     -- ** DescribeReplicationTasks
     describeReplicationTasks_withoutSettings,
     describeReplicationTasks_filters,
-    describeReplicationTasks_marker,
     describeReplicationTasks_maxRecords,
+    describeReplicationTasks_marker,
     describeReplicationTasksResponse_replicationTasks,
     describeReplicationTasksResponse_marker,
     describeReplicationTasksResponse_httpStatus,
-
-    -- ** RefreshSchemas
-    refreshSchemas_endpointArn,
-    refreshSchemas_replicationInstanceArn,
-    refreshSchemasResponse_refreshSchemasStatus,
-    refreshSchemasResponse_httpStatus,
 
     -- ** CreateReplicationSubnetGroup
     createReplicationSubnetGroup_tags,
@@ -357,25 +368,26 @@ module Network.AWS.DMS.Lens
     createReplicationSubnetGroupResponse_replicationSubnetGroup,
     createReplicationSubnetGroupResponse_httpStatus,
 
-    -- ** RebootReplicationInstance
-    rebootReplicationInstance_forceFailover,
-    rebootReplicationInstance_replicationInstanceArn,
-    rebootReplicationInstanceResponse_replicationInstance,
-    rebootReplicationInstanceResponse_httpStatus,
-
     -- ** DeleteReplicationInstance
     deleteReplicationInstance_replicationInstanceArn,
     deleteReplicationInstanceResponse_replicationInstance,
     deleteReplicationInstanceResponse_httpStatus,
 
-    -- ** DeleteReplicationSubnetGroup
-    deleteReplicationSubnetGroup_replicationSubnetGroupIdentifier,
-    deleteReplicationSubnetGroupResponse_httpStatus,
+    -- ** RebootReplicationInstance
+    rebootReplicationInstance_forceFailover,
+    rebootReplicationInstance_forcePlannedFailover,
+    rebootReplicationInstance_replicationInstanceArn,
+    rebootReplicationInstanceResponse_replicationInstance,
+    rebootReplicationInstanceResponse_httpStatus,
 
     -- ** AddTagsToResource
     addTagsToResource_resourceArn,
     addTagsToResource_tags,
     addTagsToResourceResponse_httpStatus,
+
+    -- ** DeleteReplicationSubnetGroup
+    deleteReplicationSubnetGroup_replicationSubnetGroupIdentifier,
+    deleteReplicationSubnetGroupResponse_httpStatus,
 
     -- ** CreateEventSubscription
     createEventSubscription_sourceIds,
@@ -390,29 +402,22 @@ module Network.AWS.DMS.Lens
 
     -- ** DescribeReplicationInstances
     describeReplicationInstances_filters,
-    describeReplicationInstances_marker,
     describeReplicationInstances_maxRecords,
+    describeReplicationInstances_marker,
     describeReplicationInstancesResponse_replicationInstances,
     describeReplicationInstancesResponse_marker,
     describeReplicationInstancesResponse_httpStatus,
 
-    -- ** DescribeReplicationTaskAssessmentRuns
-    describeReplicationTaskAssessmentRuns_filters,
-    describeReplicationTaskAssessmentRuns_marker,
-    describeReplicationTaskAssessmentRuns_maxRecords,
-    describeReplicationTaskAssessmentRunsResponse_replicationTaskAssessmentRuns,
-    describeReplicationTaskAssessmentRunsResponse_marker,
-    describeReplicationTaskAssessmentRunsResponse_httpStatus,
-
-    -- ** CancelReplicationTaskAssessmentRun
-    cancelReplicationTaskAssessmentRun_replicationTaskAssessmentRunArn,
-    cancelReplicationTaskAssessmentRunResponse_replicationTaskAssessmentRun,
-    cancelReplicationTaskAssessmentRunResponse_httpStatus,
+    -- ** MoveReplicationTask
+    moveReplicationTask_replicationTaskArn,
+    moveReplicationTask_targetReplicationInstanceArn,
+    moveReplicationTaskResponse_replicationTask,
+    moveReplicationTaskResponse_httpStatus,
 
     -- ** DescribeConnections
     describeConnections_filters,
-    describeConnections_marker,
     describeConnections_maxRecords,
+    describeConnections_marker,
     describeConnectionsResponse_connections,
     describeConnectionsResponse_marker,
     describeConnectionsResponse_httpStatus,
@@ -429,19 +434,43 @@ module Network.AWS.DMS.Lens
     deleteReplicationTaskResponse_replicationTask,
     deleteReplicationTaskResponse_httpStatus,
 
-    -- ** MoveReplicationTask
-    moveReplicationTask_replicationTaskArn,
-    moveReplicationTask_targetReplicationInstanceArn,
-    moveReplicationTaskResponse_replicationTask,
-    moveReplicationTaskResponse_httpStatus,
+    -- ** CancelReplicationTaskAssessmentRun
+    cancelReplicationTaskAssessmentRun_replicationTaskAssessmentRunArn,
+    cancelReplicationTaskAssessmentRunResponse_replicationTaskAssessmentRun,
+    cancelReplicationTaskAssessmentRunResponse_httpStatus,
+
+    -- ** DescribeReplicationTaskAssessmentRuns
+    describeReplicationTaskAssessmentRuns_filters,
+    describeReplicationTaskAssessmentRuns_maxRecords,
+    describeReplicationTaskAssessmentRuns_marker,
+    describeReplicationTaskAssessmentRunsResponse_replicationTaskAssessmentRuns,
+    describeReplicationTaskAssessmentRunsResponse_marker,
+    describeReplicationTaskAssessmentRunsResponse_httpStatus,
 
     -- ** DescribeReplicationTaskIndividualAssessments
     describeReplicationTaskIndividualAssessments_filters,
-    describeReplicationTaskIndividualAssessments_marker,
     describeReplicationTaskIndividualAssessments_maxRecords,
+    describeReplicationTaskIndividualAssessments_marker,
     describeReplicationTaskIndividualAssessmentsResponse_replicationTaskIndividualAssessments,
     describeReplicationTaskIndividualAssessmentsResponse_marker,
     describeReplicationTaskIndividualAssessmentsResponse_httpStatus,
+
+    -- ** CreateReplicationTask
+    createReplicationTask_taskData,
+    createReplicationTask_replicationTaskSettings,
+    createReplicationTask_tags,
+    createReplicationTask_resourceIdentifier,
+    createReplicationTask_cdcStartTime,
+    createReplicationTask_cdcStopPosition,
+    createReplicationTask_cdcStartPosition,
+    createReplicationTask_replicationTaskIdentifier,
+    createReplicationTask_sourceEndpointArn,
+    createReplicationTask_targetEndpointArn,
+    createReplicationTask_replicationInstanceArn,
+    createReplicationTask_migrationType,
+    createReplicationTask_tableMappings,
+    createReplicationTaskResponse_replicationTask,
+    createReplicationTaskResponse_httpStatus,
 
     -- ** ModifyReplicationInstance
     modifyReplicationInstance_allowMajorVersionUpgrade,
@@ -460,37 +489,21 @@ module Network.AWS.DMS.Lens
 
     -- ** DescribeEndpoints
     describeEndpoints_filters,
-    describeEndpoints_marker,
     describeEndpoints_maxRecords,
+    describeEndpoints_marker,
     describeEndpointsResponse_endpoints,
     describeEndpointsResponse_marker,
     describeEndpointsResponse_httpStatus,
 
-    -- ** CreateReplicationTask
-    createReplicationTask_taskData,
-    createReplicationTask_replicationTaskSettings,
-    createReplicationTask_tags,
-    createReplicationTask_cdcStartTime,
-    createReplicationTask_resourceIdentifier,
-    createReplicationTask_cdcStopPosition,
-    createReplicationTask_cdcStartPosition,
-    createReplicationTask_replicationTaskIdentifier,
-    createReplicationTask_sourceEndpointArn,
-    createReplicationTask_targetEndpointArn,
-    createReplicationTask_replicationInstanceArn,
-    createReplicationTask_migrationType,
-    createReplicationTask_tableMappings,
-    createReplicationTaskResponse_replicationTask,
-    createReplicationTaskResponse_httpStatus,
-
     -- ** ListTagsForResource
     listTagsForResource_resourceArn,
+    listTagsForResource_resourceArnList,
     listTagsForResourceResponse_tagList,
     listTagsForResourceResponse_httpStatus,
 
     -- ** DescribeReplicationInstanceTaskLogs
-    describeReplicationInstanceTaskLogs_marker,
     describeReplicationInstanceTaskLogs_maxRecords,
+    describeReplicationInstanceTaskLogs_marker,
     describeReplicationInstanceTaskLogs_replicationInstanceArn,
     describeReplicationInstanceTaskLogsResponse_replicationInstanceTaskLogs,
     describeReplicationInstanceTaskLogsResponse_replicationInstanceArn,
@@ -522,10 +535,10 @@ module Network.AWS.DMS.Lens
     -- ** Connection
     connection_status,
     connection_lastFailureMessage,
-    connection_endpointArn,
     connection_replicationInstanceIdentifier,
-    connection_replicationInstanceArn,
+    connection_endpointArn,
     connection_endpointIdentifier,
+    connection_replicationInstanceArn,
 
     -- ** DmsTransferSettings
     dmsTransferSettings_bucketName,
@@ -554,39 +567,51 @@ module Network.AWS.DMS.Lens
     elasticsearchSettings_endpointUri,
 
     -- ** Endpoint
-    endpoint_sslMode,
     endpoint_mongoDbSettings,
+    endpoint_sslMode,
     endpoint_status,
     endpoint_neptuneSettings,
+    endpoint_redisSettings,
     endpoint_engineName,
-    endpoint_elasticsearchSettings,
     endpoint_externalTableDefinition,
-    endpoint_endpointType,
-    endpoint_oracleSettings,
+    endpoint_elasticsearchSettings,
     endpoint_postgreSQLSettings,
-    endpoint_serviceAccessRoleArn,
+    endpoint_oracleSettings,
+    endpoint_endpointType,
     endpoint_certificateArn,
+    endpoint_serviceAccessRoleArn,
     endpoint_s3Settings,
-    endpoint_serverName,
     endpoint_microsoftSQLServerSettings,
+    endpoint_serverName,
     endpoint_kmsKeyId,
     endpoint_iBMDb2Settings,
     endpoint_mySQLSettings,
     endpoint_dmsTransferSettings,
     endpoint_port,
-    endpoint_endpointArn,
     endpoint_redshiftSettings,
+    endpoint_endpointArn,
     endpoint_username,
-    endpoint_engineDisplayName,
+    endpoint_extraConnectionAttributes,
     endpoint_kafkaSettings,
     endpoint_docDbSettings,
+    endpoint_engineDisplayName,
     endpoint_dynamoDbSettings,
-    endpoint_extraConnectionAttributes,
-    endpoint_externalId,
     endpoint_endpointIdentifier,
+    endpoint_externalId,
     endpoint_kinesisSettings,
     endpoint_sybaseSettings,
     endpoint_databaseName,
+
+    -- ** EndpointSetting
+    endpointSetting_applicability,
+    endpointSetting_intValueMin,
+    endpointSetting_name,
+    endpointSetting_intValueMax,
+    endpointSetting_sensitive,
+    endpointSetting_enumValues,
+    endpointSetting_defaultValue,
+    endpointSetting_type,
+    endpointSetting_units,
 
     -- ** Event
     event_message,
@@ -622,29 +647,38 @@ module Network.AWS.DMS.Lens
     iBMDb2Settings_port,
     iBMDb2Settings_username,
     iBMDb2Settings_secretsManagerAccessRoleArn,
-    iBMDb2Settings_setDataCaptureChanges,
     iBMDb2Settings_maxKBytesPerRead,
+    iBMDb2Settings_setDataCaptureChanges,
     iBMDb2Settings_databaseName,
 
     -- ** KafkaSettings
+    kafkaSettings_noHexPrefix,
     kafkaSettings_includeNullAndEmpty,
+    kafkaSettings_sslCaCertificateArn,
     kafkaSettings_messageFormat,
-    kafkaSettings_partitionIncludeSchemaTable,
+    kafkaSettings_sslClientCertificateArn,
+    kafkaSettings_sslClientKeyPassword,
+    kafkaSettings_sslClientKeyArn,
     kafkaSettings_includeControlDetails,
+    kafkaSettings_partitionIncludeSchemaTable,
     kafkaSettings_topic,
     kafkaSettings_messageMaxBytes,
     kafkaSettings_broker,
+    kafkaSettings_saslUsername,
+    kafkaSettings_securityProtocol,
     kafkaSettings_includePartitionValue,
     kafkaSettings_includeTransactionDetails,
+    kafkaSettings_saslPassword,
     kafkaSettings_includeTableAlterOperations,
 
     -- ** KinesisSettings
+    kinesisSettings_noHexPrefix,
     kinesisSettings_includeNullAndEmpty,
     kinesisSettings_messageFormat,
     kinesisSettings_serviceAccessRoleArn,
-    kinesisSettings_streamArn,
-    kinesisSettings_partitionIncludeSchemaTable,
     kinesisSettings_includeControlDetails,
+    kinesisSettings_partitionIncludeSchemaTable,
+    kinesisSettings_streamArn,
     kinesisSettings_includePartitionValue,
     kinesisSettings_includeTransactionDetails,
     kinesisSettings_includeTableAlterOperations,
@@ -652,29 +686,31 @@ module Network.AWS.DMS.Lens
     -- ** MicrosoftSQLServerSettings
     microsoftSQLServerSettings_useBcpFullLoad,
     microsoftSQLServerSettings_safeguardPolicy,
+    microsoftSQLServerSettings_useThirdPartyBackupDevice,
     microsoftSQLServerSettings_secretsManagerSecretId,
     microsoftSQLServerSettings_serverName,
     microsoftSQLServerSettings_password,
     microsoftSQLServerSettings_bcpPacketSize,
     microsoftSQLServerSettings_port,
     microsoftSQLServerSettings_username,
-    microsoftSQLServerSettings_secretsManagerAccessRoleArn,
     microsoftSQLServerSettings_controlTablesFileGroup,
+    microsoftSQLServerSettings_secretsManagerAccessRoleArn,
     microsoftSQLServerSettings_readBackupOnly,
+    microsoftSQLServerSettings_querySingleAlwaysOnNode,
     microsoftSQLServerSettings_databaseName,
 
     -- ** MongoDbSettings
-    mongoDbSettings_secretsManagerSecretId,
     mongoDbSettings_authSource,
+    mongoDbSettings_secretsManagerSecretId,
     mongoDbSettings_serverName,
     mongoDbSettings_kmsKeyId,
     mongoDbSettings_password,
     mongoDbSettings_port,
     mongoDbSettings_username,
-    mongoDbSettings_secretsManagerAccessRoleArn,
     mongoDbSettings_authMechanism,
-    mongoDbSettings_extractDocId,
+    mongoDbSettings_secretsManagerAccessRoleArn,
     mongoDbSettings_authType,
+    mongoDbSettings_extractDocId,
     mongoDbSettings_docsToInvestigate,
     mongoDbSettings_nestingLevel,
     mongoDbSettings_databaseName,
@@ -682,8 +718,8 @@ module Network.AWS.DMS.Lens
     -- ** MySQLSettings
     mySQLSettings_targetDbType,
     mySQLSettings_serverTimezone,
-    mySQLSettings_secretsManagerSecretId,
     mySQLSettings_afterConnectScript,
+    mySQLSettings_secretsManagerSecretId,
     mySQLSettings_serverName,
     mySQLSettings_maxFileSize,
     mySQLSettings_password,
@@ -692,6 +728,7 @@ module Network.AWS.DMS.Lens
     mySQLSettings_username,
     mySQLSettings_secretsManagerAccessRoleArn,
     mySQLSettings_parallelLoadThreads,
+    mySQLSettings_cleanSourceMetadataOnMismatch,
     mySQLSettings_databaseName,
 
     -- ** NeptuneSettings
@@ -706,38 +743,44 @@ module Network.AWS.DMS.Lens
     -- ** OracleSettings
     oracleSettings_failTasksOnLobTruncation,
     oracleSettings_retryInterval,
-    oracleSettings_secretsManagerOracleAsmSecretId,
+    oracleSettings_useLogminerReader,
+    oracleSettings_standbyDelayTime,
+    oracleSettings_useBFile,
     oracleSettings_accessAlternateDirectly,
+    oracleSettings_secretsManagerOracleAsmSecretId,
     oracleSettings_useAlternateFolderForOnline,
+    oracleSettings_useDirectPathFullLoad,
     oracleSettings_numberDatatypeScale,
     oracleSettings_oraclePathPrefix,
     oracleSettings_securityDbEncryptionName,
-    oracleSettings_additionalArchivedLogDestId,
     oracleSettings_asmPassword,
-    oracleSettings_secretsManagerSecretId,
+    oracleSettings_additionalArchivedLogDestId,
+    oracleSettings_directPathNoLog,
     oracleSettings_archivedLogsOnly,
     oracleSettings_directPathParallelLoad,
-    oracleSettings_directPathNoLog,
+    oracleSettings_secretsManagerSecretId,
     oracleSettings_serverName,
     oracleSettings_asmServer,
-    oracleSettings_securityDbEncryption,
-    oracleSettings_readTableSpaceName,
     oracleSettings_password,
-    oracleSettings_allowSelectNestedTables,
+    oracleSettings_readTableSpaceName,
+    oracleSettings_securityDbEncryption,
     oracleSettings_archivedLogDestId,
     oracleSettings_replacePathPrefix,
-    oracleSettings_port,
     oracleSettings_readAheadBlocks,
-    oracleSettings_usePathPrefix,
+    oracleSettings_port,
+    oracleSettings_allowSelectNestedTables,
     oracleSettings_asmUser,
+    oracleSettings_usePathPrefix,
     oracleSettings_username,
-    oracleSettings_enableHomogenousTablespace,
-    oracleSettings_secretsManagerAccessRoleArn,
     oracleSettings_parallelAsmReadThreads,
+    oracleSettings_secretsManagerAccessRoleArn,
+    oracleSettings_enableHomogenousTablespace,
+    oracleSettings_extraArchivedLogDestIds,
     oracleSettings_charLengthSemantics,
+    oracleSettings_spatialDataOptionToGeoJsonFunctionName,
     oracleSettings_addSupplementalLogging,
-    oracleSettings_secretsManagerOracleAsmAccessRoleArn,
     oracleSettings_databaseName,
+    oracleSettings_secretsManagerOracleAsmAccessRoleArn,
 
     -- ** OrderableReplicationInstance
     orderableReplicationInstance_availabilityZones,
@@ -761,49 +804,62 @@ module Network.AWS.DMS.Lens
     -- ** PostgreSQLSettings
     postgreSQLSettings_failTasksOnLobTruncation,
     postgreSQLSettings_executeTimeout,
-    postgreSQLSettings_slotName,
+    postgreSQLSettings_heartbeatEnable,
+    postgreSQLSettings_heartbeatSchema,
+    postgreSQLSettings_pluginName,
     postgreSQLSettings_captureDdls,
+    postgreSQLSettings_slotName,
     postgreSQLSettings_ddlArtifactsSchema,
-    postgreSQLSettings_secretsManagerSecretId,
     postgreSQLSettings_afterConnectScript,
+    postgreSQLSettings_secretsManagerSecretId,
     postgreSQLSettings_serverName,
     postgreSQLSettings_maxFileSize,
     postgreSQLSettings_password,
+    postgreSQLSettings_heartbeatFrequency,
     postgreSQLSettings_port,
     postgreSQLSettings_username,
     postgreSQLSettings_secretsManagerAccessRoleArn,
     postgreSQLSettings_databaseName,
 
+    -- ** RedisSettings
+    redisSettings_sslCaCertificateArn,
+    redisSettings_authPassword,
+    redisSettings_sslSecurityProtocol,
+    redisSettings_authUserName,
+    redisSettings_authType,
+    redisSettings_serverName,
+    redisSettings_port,
+
     -- ** RedshiftSettings
     redshiftSettings_replaceChars,
     redshiftSettings_caseSensitiveNames,
-    redshiftSettings_bucketName,
     redshiftSettings_fileTransferUploadStreams,
+    redshiftSettings_bucketName,
+    redshiftSettings_timeFormat,
     redshiftSettings_replaceInvalidChars,
     redshiftSettings_serverSideEncryptionKmsKeyId,
-    redshiftSettings_timeFormat,
+    redshiftSettings_bucketFolder,
     redshiftSettings_writeBufferSize,
     redshiftSettings_serviceAccessRoleArn,
-    redshiftSettings_bucketFolder,
-    redshiftSettings_connectionTimeout,
-    redshiftSettings_secretsManagerSecretId,
-    redshiftSettings_loadTimeout,
     redshiftSettings_afterConnectScript,
-    redshiftSettings_serverName,
+    redshiftSettings_secretsManagerSecretId,
+    redshiftSettings_connectionTimeout,
+    redshiftSettings_loadTimeout,
     redshiftSettings_acceptAnyDate,
-    redshiftSettings_maxFileSize,
-    redshiftSettings_removeQuotes,
-    redshiftSettings_password,
+    redshiftSettings_serverName,
     redshiftSettings_dateFormat,
+    redshiftSettings_maxFileSize,
+    redshiftSettings_password,
+    redshiftSettings_removeQuotes,
     redshiftSettings_encryptionMode,
     redshiftSettings_emptyAsNull,
     redshiftSettings_port,
     redshiftSettings_username,
-    redshiftSettings_secretsManagerAccessRoleArn,
     redshiftSettings_trimBlanks,
     redshiftSettings_truncateColumns,
-    redshiftSettings_compUpdate,
+    redshiftSettings_secretsManagerAccessRoleArn,
     redshiftSettings_explicitIds,
+    redshiftSettings_compUpdate,
     redshiftSettings_databaseName,
 
     -- ** RefreshSchemasStatus
@@ -814,13 +870,13 @@ module Network.AWS.DMS.Lens
     refreshSchemasStatus_replicationInstanceArn,
 
     -- ** ReplicationInstance
-    replicationInstance_replicationInstancePrivateIpAddress,
     replicationInstance_vpcSecurityGroups,
+    replicationInstance_replicationInstancePrivateIpAddress,
     replicationInstance_freeUntil,
-    replicationInstance_replicationSubnetGroup,
     replicationInstance_instanceCreateTime,
-    replicationInstance_multiAZ,
+    replicationInstance_replicationSubnetGroup,
     replicationInstance_publiclyAccessible,
+    replicationInstance_multiAZ,
     replicationInstance_kmsKeyId,
     replicationInstance_availabilityZone,
     replicationInstance_engineVersion,
@@ -829,10 +885,10 @@ module Network.AWS.DMS.Lens
     replicationInstance_replicationInstanceStatus,
     replicationInstance_replicationInstanceIdentifier,
     replicationInstance_pendingModifiedValues,
-    replicationInstance_replicationInstancePublicIpAddress,
     replicationInstance_replicationInstanceClass,
-    replicationInstance_replicationInstanceArn,
+    replicationInstance_replicationInstancePublicIpAddress,
     replicationInstance_dnsNameServers,
+    replicationInstance_replicationInstanceArn,
     replicationInstance_allocatedStorage,
     replicationInstance_replicationInstancePublicIpAddresses,
     replicationInstance_secondaryAvailabilityZone,
@@ -853,22 +909,22 @@ module Network.AWS.DMS.Lens
     replicationSubnetGroup_replicationSubnetGroupIdentifier,
     replicationSubnetGroup_subnetGroupStatus,
     replicationSubnetGroup_replicationSubnetGroupDescription,
-    replicationSubnetGroup_subnets,
     replicationSubnetGroup_vpcId,
+    replicationSubnetGroup_subnets,
 
     -- ** ReplicationTask
     replicationTask_status,
+    replicationTask_stopReason,
     replicationTask_migrationType,
     replicationTask_replicationTaskCreationDate,
-    replicationTask_stopReason,
     replicationTask_recoveryCheckpoint,
     replicationTask_targetReplicationInstanceArn,
     replicationTask_taskData,
     replicationTask_targetEndpointArn,
-    replicationTask_replicationTaskArn,
     replicationTask_replicationTaskSettings,
-    replicationTask_lastFailureMessage,
+    replicationTask_replicationTaskArn,
     replicationTask_tableMappings,
+    replicationTask_lastFailureMessage,
     replicationTask_sourceEndpointArn,
     replicationTask_replicationInstanceArn,
     replicationTask_replicationTaskStats,
@@ -880,18 +936,18 @@ module Network.AWS.DMS.Lens
     -- ** ReplicationTaskAssessmentResult
     replicationTaskAssessmentResult_s3ObjectUrl,
     replicationTaskAssessmentResult_assessmentStatus,
-    replicationTaskAssessmentResult_replicationTaskArn,
     replicationTaskAssessmentResult_assessmentResults,
+    replicationTaskAssessmentResult_replicationTaskArn,
     replicationTaskAssessmentResult_replicationTaskLastAssessmentDate,
-    replicationTaskAssessmentResult_assessmentResultsFile,
     replicationTaskAssessmentResult_replicationTaskIdentifier,
+    replicationTaskAssessmentResult_assessmentResultsFile,
 
     -- ** ReplicationTaskAssessmentRun
     replicationTaskAssessmentRun_status,
     replicationTaskAssessmentRun_resultKmsKeyArn,
+    replicationTaskAssessmentRun_replicationTaskAssessmentRunCreationDate,
     replicationTaskAssessmentRun_assessmentProgress,
     replicationTaskAssessmentRun_replicationTaskAssessmentRunArn,
-    replicationTaskAssessmentRun_replicationTaskAssessmentRunCreationDate,
     replicationTaskAssessmentRun_assessmentRunName,
     replicationTaskAssessmentRun_serviceAccessRoleArn,
     replicationTaskAssessmentRun_resultEncryptionMode,
@@ -912,8 +968,8 @@ module Network.AWS.DMS.Lens
     replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentArn,
 
     -- ** ReplicationTaskStats
-    replicationTaskStats_stopDate,
     replicationTaskStats_tablesErrored,
+    replicationTaskStats_stopDate,
     replicationTaskStats_startDate,
     replicationTaskStats_freshStartDate,
     replicationTaskStats_tablesLoading,
@@ -921,8 +977,8 @@ module Network.AWS.DMS.Lens
     replicationTaskStats_elapsedTimeMillis,
     replicationTaskStats_fullLoadProgressPercent,
     replicationTaskStats_tablesQueued,
-    replicationTaskStats_fullLoadFinishDate,
     replicationTaskStats_tablesLoaded,
+    replicationTaskStats_fullLoadFinishDate,
 
     -- ** ResourcePendingMaintenanceActions
     resourcePendingMaintenanceActions_pendingMaintenanceActionDetails,
@@ -930,32 +986,40 @@ module Network.AWS.DMS.Lens
 
     -- ** S3Settings
     s3Settings_timestampColumnName,
-    s3Settings_preserveTransactions,
     s3Settings_csvRowDelimiter,
+    s3Settings_preserveTransactions,
     s3Settings_parquetVersion,
     s3Settings_datePartitionSequence,
     s3Settings_bucketName,
     s3Settings_cdcPath,
-    s3Settings_externalTableDefinition,
     s3Settings_serverSideEncryptionKmsKeyId,
+    s3Settings_externalTableDefinition,
+    s3Settings_csvNullValue,
     s3Settings_dataPageSize,
-    s3Settings_encodingType,
-    s3Settings_datePartitionEnabled,
     s3Settings_dataFormat,
-    s3Settings_serviceAccessRoleArn,
+    s3Settings_datePartitionEnabled,
+    s3Settings_encodingType,
     s3Settings_bucketFolder,
+    s3Settings_cannedAclForObjects,
+    s3Settings_serviceAccessRoleArn,
+    s3Settings_addColumnName,
     s3Settings_datePartitionDelimiter,
-    s3Settings_enableStatistics,
+    s3Settings_maxFileSize,
     s3Settings_encryptionMode,
     s3Settings_cdcInsertsOnly,
-    s3Settings_cdcInsertsAndUpdates,
+    s3Settings_enableStatistics,
     s3Settings_useCsvNoSupValue,
-    s3Settings_dictPageSizeLimit,
+    s3Settings_cdcInsertsAndUpdates,
     s3Settings_rowGroupLength,
+    s3Settings_dictPageSizeLimit,
+    s3Settings_ignoreHeaderRows,
     s3Settings_compressionType,
+    s3Settings_cdcMaxBatchInterval,
+    s3Settings_cdcMinFileSize,
     s3Settings_includeOpForFullLoad,
     s3Settings_csvDelimiter,
     s3Settings_parquetTimestampInMillisecond,
+    s3Settings_rfc4180,
     s3Settings_csvNoSupValue,
 
     -- ** Subnet
@@ -992,11 +1056,11 @@ module Network.AWS.DMS.Lens
     tableStatistics_deletes,
     tableStatistics_ddls,
     tableStatistics_fullLoadEndTime,
-    tableStatistics_validationState,
     tableStatistics_inserts,
+    tableStatistics_validationState,
+    tableStatistics_validationStateDetails,
     tableStatistics_validationSuspendedRecords,
     tableStatistics_schemaName,
-    tableStatistics_validationStateDetails,
     tableStatistics_fullLoadReloaded,
     tableStatistics_validationPendingRecords,
 
@@ -1006,6 +1070,7 @@ module Network.AWS.DMS.Lens
 
     -- ** Tag
     tag_key,
+    tag_resourceArn,
     tag_value,
 
     -- ** VpcSecurityGroupMembership
@@ -1034,6 +1099,7 @@ import Network.AWS.DMS.DescribeAccountAttributes
 import Network.AWS.DMS.DescribeApplicableIndividualAssessments
 import Network.AWS.DMS.DescribeCertificates
 import Network.AWS.DMS.DescribeConnections
+import Network.AWS.DMS.DescribeEndpointSettings
 import Network.AWS.DMS.DescribeEndpointTypes
 import Network.AWS.DMS.DescribeEndpoints
 import Network.AWS.DMS.DescribeEventCategories
@@ -1077,6 +1143,7 @@ import Network.AWS.DMS.Types.DocDbSettings
 import Network.AWS.DMS.Types.DynamoDbSettings
 import Network.AWS.DMS.Types.ElasticsearchSettings
 import Network.AWS.DMS.Types.Endpoint
+import Network.AWS.DMS.Types.EndpointSetting
 import Network.AWS.DMS.Types.Event
 import Network.AWS.DMS.Types.EventCategoryGroup
 import Network.AWS.DMS.Types.EventSubscription
@@ -1092,6 +1159,7 @@ import Network.AWS.DMS.Types.OracleSettings
 import Network.AWS.DMS.Types.OrderableReplicationInstance
 import Network.AWS.DMS.Types.PendingMaintenanceAction
 import Network.AWS.DMS.Types.PostgreSQLSettings
+import Network.AWS.DMS.Types.RedisSettings
 import Network.AWS.DMS.Types.RedshiftSettings
 import Network.AWS.DMS.Types.RefreshSchemasStatus
 import Network.AWS.DMS.Types.ReplicationInstance

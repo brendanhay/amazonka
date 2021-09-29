@@ -31,9 +31,9 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSupportedEndpointType' smart constructor.
 data SupportedEndpointType = SupportedEndpointType'
-  { -- | The earliest AWS DMS engine version that supports this endpoint engine.
-    -- Note that endpoint engines released with AWS DMS versions earlier than
-    -- 3.1.1 do not return a value for this parameter.
+  { -- | The earliest DMS engine version that supports this endpoint engine. Note
+    -- that endpoint engines released with DMS versions earlier than 3.1.1 do
+    -- not return a value for this parameter.
     replicationInstanceEngineMinimumVersion :: Prelude.Maybe Prelude.Text,
     -- | The database engine name. Valid values, depending on the EndpointType,
     -- include @\"mysql\"@, @\"oracle\"@, @\"postgres\"@, @\"mariadb\"@,
@@ -44,7 +44,7 @@ data SupportedEndpointType = SupportedEndpointType'
     engineName :: Prelude.Maybe Prelude.Text,
     -- | The type of endpoint. Valid values are @source@ and @target@.
     endpointType :: Prelude.Maybe ReplicationEndpointTypeValue,
-    -- | Indicates if Change Data Capture (CDC) is supported.
+    -- | Indicates if change data capture (CDC) is supported.
     supportsCDC :: Prelude.Maybe Prelude.Bool,
     -- | The expanded name for the engine name. For example, if the @EngineName@
     -- parameter is \"aurora,\" this value would be \"Amazon Aurora MySQL.\"
@@ -60,9 +60,9 @@ data SupportedEndpointType = SupportedEndpointType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'replicationInstanceEngineMinimumVersion', 'supportedEndpointType_replicationInstanceEngineMinimumVersion' - The earliest AWS DMS engine version that supports this endpoint engine.
--- Note that endpoint engines released with AWS DMS versions earlier than
--- 3.1.1 do not return a value for this parameter.
+-- 'replicationInstanceEngineMinimumVersion', 'supportedEndpointType_replicationInstanceEngineMinimumVersion' - The earliest DMS engine version that supports this endpoint engine. Note
+-- that endpoint engines released with DMS versions earlier than 3.1.1 do
+-- not return a value for this parameter.
 --
 -- 'engineName', 'supportedEndpointType_engineName' - The database engine name. Valid values, depending on the EndpointType,
 -- include @\"mysql\"@, @\"oracle\"@, @\"postgres\"@, @\"mariadb\"@,
@@ -73,7 +73,7 @@ data SupportedEndpointType = SupportedEndpointType'
 --
 -- 'endpointType', 'supportedEndpointType_endpointType' - The type of endpoint. Valid values are @source@ and @target@.
 --
--- 'supportsCDC', 'supportedEndpointType_supportsCDC' - Indicates if Change Data Capture (CDC) is supported.
+-- 'supportsCDC', 'supportedEndpointType_supportsCDC' - Indicates if change data capture (CDC) is supported.
 --
 -- 'engineDisplayName', 'supportedEndpointType_engineDisplayName' - The expanded name for the engine name. For example, if the @EngineName@
 -- parameter is \"aurora,\" this value would be \"Amazon Aurora MySQL.\"
@@ -89,9 +89,9 @@ newSupportedEndpointType =
       engineDisplayName = Prelude.Nothing
     }
 
--- | The earliest AWS DMS engine version that supports this endpoint engine.
--- Note that endpoint engines released with AWS DMS versions earlier than
--- 3.1.1 do not return a value for this parameter.
+-- | The earliest DMS engine version that supports this endpoint engine. Note
+-- that endpoint engines released with DMS versions earlier than 3.1.1 do
+-- not return a value for this parameter.
 supportedEndpointType_replicationInstanceEngineMinimumVersion :: Lens.Lens' SupportedEndpointType (Prelude.Maybe Prelude.Text)
 supportedEndpointType_replicationInstanceEngineMinimumVersion = Lens.lens (\SupportedEndpointType' {replicationInstanceEngineMinimumVersion} -> replicationInstanceEngineMinimumVersion) (\s@SupportedEndpointType' {} a -> s {replicationInstanceEngineMinimumVersion = a} :: SupportedEndpointType)
 
@@ -108,7 +108,7 @@ supportedEndpointType_engineName = Lens.lens (\SupportedEndpointType' {engineNam
 supportedEndpointType_endpointType :: Lens.Lens' SupportedEndpointType (Prelude.Maybe ReplicationEndpointTypeValue)
 supportedEndpointType_endpointType = Lens.lens (\SupportedEndpointType' {endpointType} -> endpointType) (\s@SupportedEndpointType' {} a -> s {endpointType = a} :: SupportedEndpointType)
 
--- | Indicates if Change Data Capture (CDC) is supported.
+-- | Indicates if change data capture (CDC) is supported.
 supportedEndpointType_supportsCDC :: Lens.Lens' SupportedEndpointType (Prelude.Maybe Prelude.Bool)
 supportedEndpointType_supportsCDC = Lens.lens (\SupportedEndpointType' {supportsCDC} -> supportsCDC) (\s@SupportedEndpointType' {} a -> s {supportsCDC = a} :: SupportedEndpointType)
 

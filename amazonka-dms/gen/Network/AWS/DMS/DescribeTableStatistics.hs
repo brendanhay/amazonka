@@ -24,8 +24,8 @@
 -- name, rows inserted, rows updated, and rows deleted.
 --
 -- Note that the \"last updated\" column the DMS console only indicates the
--- time that AWS DMS last updated the table statistics record for a table.
--- It does not indicate the time of the last update to the table.
+-- time that DMS last updated the table statistics record for a table. It
+-- does not indicate the time of the last update to the table.
 --
 -- This operation returns paginated results.
 module Network.AWS.DMS.DescribeTableStatistics
@@ -35,8 +35,8 @@ module Network.AWS.DMS.DescribeTableStatistics
 
     -- * Request Lenses
     describeTableStatistics_filters,
-    describeTableStatistics_marker,
     describeTableStatistics_maxRecords,
+    describeTableStatistics_marker,
     describeTableStatistics_replicationTaskArn,
 
     -- * Destructuring the Response
@@ -69,10 +69,6 @@ data DescribeTableStatistics = DescribeTableStatistics'
     -- A combination of filters creates an AND condition where each record
     -- matches all specified filters.
     filters :: Prelude.Maybe [Filter],
-    -- | An optional pagination token provided by a previous request. If this
-    -- parameter is specified, the response includes only records beyond the
-    -- marker, up to the value specified by @MaxRecords@.
-    marker :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of records to include in the response. If more
     -- records exist than the specified @MaxRecords@ value, a pagination token
     -- called a marker is included in the response so that the remaining
@@ -82,6 +78,10 @@ data DescribeTableStatistics = DescribeTableStatistics'
     --
     -- Constraints: Minimum 20, maximum 500.
     maxRecords :: Prelude.Maybe Prelude.Int,
+    -- | An optional pagination token provided by a previous request. If this
+    -- parameter is specified, the response includes only records beyond the
+    -- marker, up to the value specified by @MaxRecords@.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the replication task.
     replicationTaskArn :: Prelude.Text
   }
@@ -102,10 +102,6 @@ data DescribeTableStatistics = DescribeTableStatistics'
 -- A combination of filters creates an AND condition where each record
 -- matches all specified filters.
 --
--- 'marker', 'describeTableStatistics_marker' - An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
---
 -- 'maxRecords', 'describeTableStatistics_maxRecords' - The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so that the remaining
@@ -115,6 +111,10 @@ data DescribeTableStatistics = DescribeTableStatistics'
 --
 -- Constraints: Minimum 20, maximum 500.
 --
+-- 'marker', 'describeTableStatistics_marker' - An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+--
 -- 'replicationTaskArn', 'describeTableStatistics_replicationTaskArn' - The Amazon Resource Name (ARN) of the replication task.
 newDescribeTableStatistics ::
   -- | 'replicationTaskArn'
@@ -123,8 +123,8 @@ newDescribeTableStatistics ::
 newDescribeTableStatistics pReplicationTaskArn_ =
   DescribeTableStatistics'
     { filters = Prelude.Nothing,
-      marker = Prelude.Nothing,
       maxRecords = Prelude.Nothing,
+      marker = Prelude.Nothing,
       replicationTaskArn = pReplicationTaskArn_
     }
 
@@ -137,12 +137,6 @@ newDescribeTableStatistics pReplicationTaskArn_ =
 describeTableStatistics_filters :: Lens.Lens' DescribeTableStatistics (Prelude.Maybe [Filter])
 describeTableStatistics_filters = Lens.lens (\DescribeTableStatistics' {filters} -> filters) (\s@DescribeTableStatistics' {} a -> s {filters = a} :: DescribeTableStatistics) Prelude.. Lens.mapping Lens._Coerce
 
--- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the
--- marker, up to the value specified by @MaxRecords@.
-describeTableStatistics_marker :: Lens.Lens' DescribeTableStatistics (Prelude.Maybe Prelude.Text)
-describeTableStatistics_marker = Lens.lens (\DescribeTableStatistics' {marker} -> marker) (\s@DescribeTableStatistics' {} a -> s {marker = a} :: DescribeTableStatistics)
-
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
 -- called a marker is included in the response so that the remaining
@@ -153,6 +147,12 @@ describeTableStatistics_marker = Lens.lens (\DescribeTableStatistics' {marker} -
 -- Constraints: Minimum 20, maximum 500.
 describeTableStatistics_maxRecords :: Lens.Lens' DescribeTableStatistics (Prelude.Maybe Prelude.Int)
 describeTableStatistics_maxRecords = Lens.lens (\DescribeTableStatistics' {maxRecords} -> maxRecords) (\s@DescribeTableStatistics' {} a -> s {maxRecords = a} :: DescribeTableStatistics)
+
+-- | An optional pagination token provided by a previous request. If this
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+describeTableStatistics_marker :: Lens.Lens' DescribeTableStatistics (Prelude.Maybe Prelude.Text)
+describeTableStatistics_marker = Lens.lens (\DescribeTableStatistics' {marker} -> marker) (\s@DescribeTableStatistics' {} a -> s {marker = a} :: DescribeTableStatistics)
 
 -- | The Amazon Resource Name (ARN) of the replication task.
 describeTableStatistics_replicationTaskArn :: Lens.Lens' DescribeTableStatistics Prelude.Text
@@ -221,8 +221,8 @@ instance Core.ToJSON DescribeTableStatistics where
     Core.object
       ( Prelude.catMaybes
           [ ("Filters" Core..=) Prelude.<$> filters,
-            ("Marker" Core..=) Prelude.<$> marker,
             ("MaxRecords" Core..=) Prelude.<$> maxRecords,
+            ("Marker" Core..=) Prelude.<$> marker,
             Prelude.Just
               ("ReplicationTaskArn" Core..= replicationTaskArn)
           ]

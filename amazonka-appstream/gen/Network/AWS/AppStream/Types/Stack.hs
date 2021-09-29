@@ -32,13 +32,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newStack' smart constructor.
 data Stack = Stack'
-  { -- | The list of virtual private cloud (VPC) interface endpoint objects.
+  { -- | The actions that are enabled or disabled for users during their
+    -- streaming sessions. By default these actions are enabled.
+    userSettings :: Prelude.Maybe (Prelude.NonEmpty UserSetting),
+    -- | The list of virtual private cloud (VPC) interface endpoint objects.
     -- Users of the stack can connect to AppStream 2.0 only through the
     -- specified endpoints.
     accessEndpoints :: Prelude.Maybe (Prelude.NonEmpty AccessEndpoint),
-    -- | The actions that are enabled or disabled for users during their
-    -- streaming sessions. By default these actions are enabled.
-    userSettings :: Prelude.Maybe (Prelude.NonEmpty UserSetting),
     -- | The URL that users are redirected to after their streaming session ends.
     redirectURL :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the stack.
@@ -55,10 +55,10 @@ data Stack = Stack'
     -- iframe. You must approve the domains that you want to host embedded
     -- AppStream 2.0 streaming sessions.
     embedHostDomains :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The stack name to display.
-    displayName :: Prelude.Maybe Prelude.Text,
     -- | The errors for the stack.
     stackErrors :: Prelude.Maybe [StackError],
+    -- | The stack name to display.
+    displayName :: Prelude.Maybe Prelude.Text,
     -- | The URL that users are redirected to after they click the Send Feedback
     -- link. If no URL is specified, no Send Feedback link is displayed.
     feedbackURL :: Prelude.Maybe Prelude.Text,
@@ -75,12 +75,12 @@ data Stack = Stack'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'userSettings', 'stack_userSettings' - The actions that are enabled or disabled for users during their
+-- streaming sessions. By default these actions are enabled.
+--
 -- 'accessEndpoints', 'stack_accessEndpoints' - The list of virtual private cloud (VPC) interface endpoint objects.
 -- Users of the stack can connect to AppStream 2.0 only through the
 -- specified endpoints.
---
--- 'userSettings', 'stack_userSettings' - The actions that are enabled or disabled for users during their
--- streaming sessions. By default these actions are enabled.
 --
 -- 'redirectURL', 'stack_redirectURL' - The URL that users are redirected to after their streaming session ends.
 --
@@ -98,9 +98,9 @@ data Stack = Stack'
 -- iframe. You must approve the domains that you want to host embedded
 -- AppStream 2.0 streaming sessions.
 --
--- 'displayName', 'stack_displayName' - The stack name to display.
---
 -- 'stackErrors', 'stack_stackErrors' - The errors for the stack.
+--
+-- 'displayName', 'stack_displayName' - The stack name to display.
 --
 -- 'feedbackURL', 'stack_feedbackURL' - The URL that users are redirected to after they click the Send Feedback
 -- link. If no URL is specified, no Send Feedback link is displayed.
@@ -112,8 +112,8 @@ newStack ::
   Stack
 newStack pName_ =
   Stack'
-    { accessEndpoints = Prelude.Nothing,
-      userSettings = Prelude.Nothing,
+    { userSettings = Prelude.Nothing,
+      accessEndpoints = Prelude.Nothing,
       redirectURL = Prelude.Nothing,
       arn = Prelude.Nothing,
       createdTime = Prelude.Nothing,
@@ -121,22 +121,22 @@ newStack pName_ =
       storageConnectors = Prelude.Nothing,
       description = Prelude.Nothing,
       embedHostDomains = Prelude.Nothing,
-      displayName = Prelude.Nothing,
       stackErrors = Prelude.Nothing,
+      displayName = Prelude.Nothing,
       feedbackURL = Prelude.Nothing,
       name = pName_
     }
+
+-- | The actions that are enabled or disabled for users during their
+-- streaming sessions. By default these actions are enabled.
+stack_userSettings :: Lens.Lens' Stack (Prelude.Maybe (Prelude.NonEmpty UserSetting))
+stack_userSettings = Lens.lens (\Stack' {userSettings} -> userSettings) (\s@Stack' {} a -> s {userSettings = a} :: Stack) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The list of virtual private cloud (VPC) interface endpoint objects.
 -- Users of the stack can connect to AppStream 2.0 only through the
 -- specified endpoints.
 stack_accessEndpoints :: Lens.Lens' Stack (Prelude.Maybe (Prelude.NonEmpty AccessEndpoint))
 stack_accessEndpoints = Lens.lens (\Stack' {accessEndpoints} -> accessEndpoints) (\s@Stack' {} a -> s {accessEndpoints = a} :: Stack) Prelude.. Lens.mapping Lens._Coerce
-
--- | The actions that are enabled or disabled for users during their
--- streaming sessions. By default these actions are enabled.
-stack_userSettings :: Lens.Lens' Stack (Prelude.Maybe (Prelude.NonEmpty UserSetting))
-stack_userSettings = Lens.lens (\Stack' {userSettings} -> userSettings) (\s@Stack' {} a -> s {userSettings = a} :: Stack) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The URL that users are redirected to after their streaming session ends.
 stack_redirectURL :: Lens.Lens' Stack (Prelude.Maybe Prelude.Text)
@@ -168,13 +168,13 @@ stack_description = Lens.lens (\Stack' {description} -> description) (\s@Stack' 
 stack_embedHostDomains :: Lens.Lens' Stack (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 stack_embedHostDomains = Lens.lens (\Stack' {embedHostDomains} -> embedHostDomains) (\s@Stack' {} a -> s {embedHostDomains = a} :: Stack) Prelude.. Lens.mapping Lens._Coerce
 
--- | The stack name to display.
-stack_displayName :: Lens.Lens' Stack (Prelude.Maybe Prelude.Text)
-stack_displayName = Lens.lens (\Stack' {displayName} -> displayName) (\s@Stack' {} a -> s {displayName = a} :: Stack)
-
 -- | The errors for the stack.
 stack_stackErrors :: Lens.Lens' Stack (Prelude.Maybe [StackError])
 stack_stackErrors = Lens.lens (\Stack' {stackErrors} -> stackErrors) (\s@Stack' {} a -> s {stackErrors = a} :: Stack) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The stack name to display.
+stack_displayName :: Lens.Lens' Stack (Prelude.Maybe Prelude.Text)
+stack_displayName = Lens.lens (\Stack' {displayName} -> displayName) (\s@Stack' {} a -> s {displayName = a} :: Stack)
 
 -- | The URL that users are redirected to after they click the Send Feedback
 -- link. If no URL is specified, no Send Feedback link is displayed.
@@ -191,8 +191,8 @@ instance Core.FromJSON Stack where
       "Stack"
       ( \x ->
           Stack'
-            Prelude.<$> (x Core..:? "AccessEndpoints")
-            Prelude.<*> (x Core..:? "UserSettings")
+            Prelude.<$> (x Core..:? "UserSettings")
+            Prelude.<*> (x Core..:? "AccessEndpoints")
             Prelude.<*> (x Core..:? "RedirectURL")
             Prelude.<*> (x Core..:? "Arn")
             Prelude.<*> (x Core..:? "CreatedTime")
@@ -202,8 +202,8 @@ instance Core.FromJSON Stack where
                         )
             Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "EmbedHostDomains")
-            Prelude.<*> (x Core..:? "DisplayName")
             Prelude.<*> (x Core..:? "StackErrors" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "DisplayName")
             Prelude.<*> (x Core..:? "FeedbackURL")
             Prelude.<*> (x Core..: "Name")
       )

@@ -20,13 +20,13 @@ module Network.AWS.AppStream.Types
     _ResourceNotAvailableException,
     _IncompatibleImageException,
     _InvalidParameterCombinationException,
-    _ResourceAlreadyExistsException,
     _InvalidAccountStatusException,
+    _ResourceAlreadyExistsException,
     _OperationNotPermittedException,
-    _ConcurrentModificationException,
     _InvalidRoleException,
-    _ResourceInUseException,
+    _ConcurrentModificationException,
     _LimitExceededException,
+    _ResourceInUseException,
     _ResourceNotFoundException,
     _RequestLimitExceededException,
 
@@ -113,10 +113,10 @@ module Network.AWS.AppStream.Types
     newApplication,
     application_iconURL,
     application_launchPath,
-    application_enabled,
     application_metadata,
-    application_launchParameters,
+    application_enabled,
     application_name,
+    application_launchParameters,
     application_displayName,
 
     -- * ApplicationSettings
@@ -162,8 +162,8 @@ module Network.AWS.AppStream.Types
     -- * Fleet
     Fleet (..),
     newFleet,
-    fleet_maxUserDurationInSeconds,
     fleet_disconnectTimeoutInSeconds,
+    fleet_maxUserDurationInSeconds,
     fleet_vpcConfig,
     fleet_iamRoleArn,
     fleet_domainJoinInfo,
@@ -173,9 +173,9 @@ module Network.AWS.AppStream.Types
     fleet_createdTime,
     fleet_streamView,
     fleet_description,
-    fleet_displayName,
     fleet_enableDefaultInternetAccess,
     fleet_fleetErrors,
+    fleet_displayName,
     fleet_imageArn,
     fleet_arn,
     fleet_name,
@@ -194,16 +194,17 @@ module Network.AWS.AppStream.Types
     newImage,
     image_imagePermissions,
     image_platform,
+    image_imageErrors,
     image_imageBuilderName,
     image_arn,
-    image_stateChangeReason,
     image_createdTime,
-    image_state,
+    image_stateChangeReason,
     image_baseImageArn,
+    image_state,
     image_applications,
-    image_visibility,
     image_appstreamAgentVersion,
     image_description,
+    image_visibility,
     image_imageBuilderSupported,
     image_displayName,
     image_publicBaseImageReleasedDate,
@@ -212,22 +213,22 @@ module Network.AWS.AppStream.Types
     -- * ImageBuilder
     ImageBuilder (..),
     newImageBuilder,
-    imageBuilder_platform,
     imageBuilder_vpcConfig,
+    imageBuilder_platform,
     imageBuilder_iamRoleArn,
     imageBuilder_accessEndpoints,
     imageBuilder_domainJoinInfo,
     imageBuilder_instanceType,
     imageBuilder_arn,
-    imageBuilder_stateChangeReason,
     imageBuilder_createdTime,
+    imageBuilder_stateChangeReason,
     imageBuilder_networkAccessConfiguration,
     imageBuilder_state,
     imageBuilder_appstreamAgentVersion,
     imageBuilder_description,
-    imageBuilder_displayName,
     imageBuilder_enableDefaultInternetAccess,
     imageBuilder_imageBuilderErrors,
+    imageBuilder_displayName,
     imageBuilder_imageArn,
     imageBuilder_name,
 
@@ -297,8 +298,8 @@ module Network.AWS.AppStream.Types
     -- * Stack
     Stack (..),
     newStack,
-    stack_accessEndpoints,
     stack_userSettings,
+    stack_accessEndpoints,
     stack_redirectURL,
     stack_arn,
     stack_createdTime,
@@ -306,8 +307,8 @@ module Network.AWS.AppStream.Types
     stack_storageConnectors,
     stack_description,
     stack_embedHostDomains,
-    stack_displayName,
     stack_stackErrors,
+    stack_displayName,
     stack_feedbackURL,
     stack_name,
 
@@ -340,8 +341,8 @@ module Network.AWS.AppStream.Types
     user_enabled,
     user_createdTime,
     user_userName,
-    user_firstName,
     user_lastName,
+    user_firstName,
     user_authenticationType,
 
     -- * UserSetting
@@ -509,7 +510,7 @@ _ResourceNotAvailableException =
     defaultService
     "ResourceNotAvailableException"
 
--- | The image does not support storage connectors.
+-- | The image can\'t be updated because it\'s not compatible for updates.
 _IncompatibleImageException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _IncompatibleImageException =
   Core._MatchServiceError
@@ -524,13 +525,6 @@ _InvalidParameterCombinationException =
     defaultService
     "InvalidParameterCombinationException"
 
--- | The specified resource already exists.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceAlreadyExistsException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceAlreadyExistsException"
-
 -- | The resource cannot be created because your AWS account is suspended.
 -- For assistance, contact AWS Support.
 _InvalidAccountStatusException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -539,19 +533,19 @@ _InvalidAccountStatusException =
     defaultService
     "InvalidAccountStatusException"
 
+-- | The specified resource already exists.
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceAlreadyExistsException"
+
 -- | The attempted operation is not permitted.
 _OperationNotPermittedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _OperationNotPermittedException =
   Core._MatchServiceError
     defaultService
     "OperationNotPermittedException"
-
--- | An API error occurred. Wait a few minutes and try again.
-_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ConcurrentModificationException =
-  Core._MatchServiceError
-    defaultService
-    "ConcurrentModificationException"
 
 -- | The specified role is invalid.
 _InvalidRoleException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -560,12 +554,12 @@ _InvalidRoleException =
     defaultService
     "InvalidRoleException"
 
--- | The specified resource is in use.
-_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceInUseException =
+-- | An API error occurred. Wait a few minutes and try again.
+_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ConcurrentModificationException =
   Core._MatchServiceError
     defaultService
-    "ResourceInUseException"
+    "ConcurrentModificationException"
 
 -- | The requested limit exceeds the permitted limit for an account.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -573,6 +567,13 @@ _LimitExceededException =
   Core._MatchServiceError
     defaultService
     "LimitExceededException"
+
+-- | The specified resource is in use.
+_ResourceInUseException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceInUseException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceInUseException"
 
 -- | The specified resource was not found.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

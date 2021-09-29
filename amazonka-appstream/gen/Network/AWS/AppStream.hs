@@ -47,26 +47,26 @@ module Network.AWS.AppStream
     -- ** InvalidParameterCombinationException
     _InvalidParameterCombinationException,
 
-    -- ** ResourceAlreadyExistsException
-    _ResourceAlreadyExistsException,
-
     -- ** InvalidAccountStatusException
     _InvalidAccountStatusException,
+
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
 
     -- ** OperationNotPermittedException
     _OperationNotPermittedException,
 
-    -- ** ConcurrentModificationException
-    _ConcurrentModificationException,
-
     -- ** InvalidRoleException
     _InvalidRoleException,
 
-    -- ** ResourceInUseException
-    _ResourceInUseException,
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
 
     -- ** LimitExceededException
     _LimitExceededException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- ** ResourceNotFoundException
     _ResourceNotFoundException,
@@ -86,17 +86,17 @@ module Network.AWS.AppStream
     -- * Operations
     -- $operations
 
+    -- ** ListAssociatedStacks (Paginated)
+    ListAssociatedStacks (ListAssociatedStacks'),
+    newListAssociatedStacks,
+    ListAssociatedStacksResponse (ListAssociatedStacksResponse'),
+    newListAssociatedStacksResponse,
+
     -- ** DeleteImageBuilder
     DeleteImageBuilder (DeleteImageBuilder'),
     newDeleteImageBuilder,
     DeleteImageBuilderResponse (DeleteImageBuilderResponse'),
     newDeleteImageBuilderResponse,
-
-    -- ** ListAssociatedFleets (Paginated)
-    ListAssociatedFleets (ListAssociatedFleets'),
-    newListAssociatedFleets,
-    ListAssociatedFleetsResponse (ListAssociatedFleetsResponse'),
-    newListAssociatedFleetsResponse,
 
     -- ** BatchAssociateUserStack
     BatchAssociateUserStack (BatchAssociateUserStack'),
@@ -104,17 +104,23 @@ module Network.AWS.AppStream
     BatchAssociateUserStackResponse (BatchAssociateUserStackResponse'),
     newBatchAssociateUserStackResponse,
 
-    -- ** ListAssociatedStacks (Paginated)
-    ListAssociatedStacks (ListAssociatedStacks'),
-    newListAssociatedStacks,
-    ListAssociatedStacksResponse (ListAssociatedStacksResponse'),
-    newListAssociatedStacksResponse,
+    -- ** ListAssociatedFleets (Paginated)
+    ListAssociatedFleets (ListAssociatedFleets'),
+    newListAssociatedFleets,
+    ListAssociatedFleetsResponse (ListAssociatedFleetsResponse'),
+    newListAssociatedFleetsResponse,
 
     -- ** DeleteUsageReportSubscription
     DeleteUsageReportSubscription (DeleteUsageReportSubscription'),
     newDeleteUsageReportSubscription,
     DeleteUsageReportSubscriptionResponse (DeleteUsageReportSubscriptionResponse'),
     newDeleteUsageReportSubscriptionResponse,
+
+    -- ** StopFleet
+    StopFleet (StopFleet'),
+    newStopFleet,
+    StopFleetResponse (StopFleetResponse'),
+    newStopFleetResponse,
 
     -- ** StopImageBuilder
     StopImageBuilder (StopImageBuilder'),
@@ -134,41 +140,11 @@ module Network.AWS.AppStream
     StartImageBuilderResponse (StartImageBuilderResponse'),
     newStartImageBuilderResponse,
 
-    -- ** StopFleet
-    StopFleet (StopFleet'),
-    newStopFleet,
-    StopFleetResponse (StopFleetResponse'),
-    newStopFleetResponse,
-
     -- ** UntagResource
     UntagResource (UntagResource'),
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
-
-    -- ** EnableUser
-    EnableUser (EnableUser'),
-    newEnableUser,
-    EnableUserResponse (EnableUserResponse'),
-    newEnableUserResponse,
-
-    -- ** DescribeSessions (Paginated)
-    DescribeSessions (DescribeSessions'),
-    newDescribeSessions,
-    DescribeSessionsResponse (DescribeSessionsResponse'),
-    newDescribeSessionsResponse,
-
-    -- ** DescribeFleets (Paginated)
-    DescribeFleets (DescribeFleets'),
-    newDescribeFleets,
-    DescribeFleetsResponse (DescribeFleetsResponse'),
-    newDescribeFleetsResponse,
-
-    -- ** DescribeStacks (Paginated)
-    DescribeStacks (DescribeStacks'),
-    newDescribeStacks,
-    DescribeStacksResponse (DescribeStacksResponse'),
-    newDescribeStacksResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -176,23 +152,35 @@ module Network.AWS.AppStream
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
 
+    -- ** DescribeFleets (Paginated)
+    DescribeFleets (DescribeFleets'),
+    newDescribeFleets,
+    DescribeFleetsResponse (DescribeFleetsResponse'),
+    newDescribeFleetsResponse,
+
+    -- ** DescribeSessions (Paginated)
+    DescribeSessions (DescribeSessions'),
+    newDescribeSessions,
+    DescribeSessionsResponse (DescribeSessionsResponse'),
+    newDescribeSessionsResponse,
+
+    -- ** EnableUser
+    EnableUser (EnableUser'),
+    newEnableUser,
+    EnableUserResponse (EnableUserResponse'),
+    newEnableUserResponse,
+
+    -- ** DescribeStacks (Paginated)
+    DescribeStacks (DescribeStacks'),
+    newDescribeStacks,
+    DescribeStacksResponse (DescribeStacksResponse'),
+    newDescribeStacksResponse,
+
     -- ** CreateUser
     CreateUser (CreateUser'),
     newCreateUser,
     CreateUserResponse (CreateUserResponse'),
     newCreateUserResponse,
-
-    -- ** UpdateDirectoryConfig
-    UpdateDirectoryConfig (UpdateDirectoryConfig'),
-    newUpdateDirectoryConfig,
-    UpdateDirectoryConfigResponse (UpdateDirectoryConfigResponse'),
-    newUpdateDirectoryConfigResponse,
-
-    -- ** CreateStack
-    CreateStack (CreateStack'),
-    newCreateStack,
-    CreateStackResponse (CreateStackResponse'),
-    newCreateStackResponse,
 
     -- ** DeleteDirectoryConfig
     DeleteDirectoryConfig (DeleteDirectoryConfig'),
@@ -206,17 +194,29 @@ module Network.AWS.AppStream
     CopyImageResponse (CopyImageResponse'),
     newCopyImageResponse,
 
+    -- ** CreateImageBuilder
+    CreateImageBuilder (CreateImageBuilder'),
+    newCreateImageBuilder,
+    CreateImageBuilderResponse (CreateImageBuilderResponse'),
+    newCreateImageBuilderResponse,
+
+    -- ** CreateStack
+    CreateStack (CreateStack'),
+    newCreateStack,
+    CreateStackResponse (CreateStackResponse'),
+    newCreateStackResponse,
+
     -- ** CreateFleet
     CreateFleet (CreateFleet'),
     newCreateFleet,
     CreateFleetResponse (CreateFleetResponse'),
     newCreateFleetResponse,
 
-    -- ** CreateImageBuilder
-    CreateImageBuilder (CreateImageBuilder'),
-    newCreateImageBuilder,
-    CreateImageBuilderResponse (CreateImageBuilderResponse'),
-    newCreateImageBuilderResponse,
+    -- ** UpdateDirectoryConfig
+    UpdateDirectoryConfig (UpdateDirectoryConfig'),
+    newUpdateDirectoryConfig,
+    UpdateDirectoryConfigResponse (UpdateDirectoryConfigResponse'),
+    newUpdateDirectoryConfigResponse,
 
     -- ** AssociateFleet
     AssociateFleet (AssociateFleet'),
@@ -230,12 +230,6 @@ module Network.AWS.AppStream
     CreateDirectoryConfigResponse (CreateDirectoryConfigResponse'),
     newCreateDirectoryConfigResponse,
 
-    -- ** UpdateFleet
-    UpdateFleet (UpdateFleet'),
-    newUpdateFleet,
-    UpdateFleetResponse (UpdateFleetResponse'),
-    newUpdateFleetResponse,
-
     -- ** DeleteStack
     DeleteStack (DeleteStack'),
     newDeleteStack,
@@ -248,17 +242,23 @@ module Network.AWS.AppStream
     DeleteFleetResponse (DeleteFleetResponse'),
     newDeleteFleetResponse,
 
+    -- ** UpdateStack
+    UpdateStack (UpdateStack'),
+    newUpdateStack,
+    UpdateStackResponse (UpdateStackResponse'),
+    newUpdateStackResponse,
+
     -- ** DescribeUsers (Paginated)
     DescribeUsers (DescribeUsers'),
     newDescribeUsers,
     DescribeUsersResponse (DescribeUsersResponse'),
     newDescribeUsersResponse,
 
-    -- ** UpdateStack
-    UpdateStack (UpdateStack'),
-    newUpdateStack,
-    UpdateStackResponse (UpdateStackResponse'),
-    newUpdateStackResponse,
+    -- ** UpdateFleet
+    UpdateFleet (UpdateFleet'),
+    newUpdateFleet,
+    UpdateFleetResponse (UpdateFleetResponse'),
+    newUpdateFleetResponse,
 
     -- ** CreateUsageReportSubscription
     CreateUsageReportSubscription (CreateUsageReportSubscription'),
@@ -272,23 +272,35 @@ module Network.AWS.AppStream
     DisassociateFleetResponse (DisassociateFleetResponse'),
     newDisassociateFleetResponse,
 
-    -- ** DescribeImages (Paginated)
-    DescribeImages (DescribeImages'),
-    newDescribeImages,
-    DescribeImagesResponse (DescribeImagesResponse'),
-    newDescribeImagesResponse,
-
     -- ** BatchDisassociateUserStack
     BatchDisassociateUserStack (BatchDisassociateUserStack'),
     newBatchDisassociateUserStack,
     BatchDisassociateUserStackResponse (BatchDisassociateUserStackResponse'),
     newBatchDisassociateUserStackResponse,
 
+    -- ** DescribeImages (Paginated)
+    DescribeImages (DescribeImages'),
+    newDescribeImages,
+    DescribeImagesResponse (DescribeImagesResponse'),
+    newDescribeImagesResponse,
+
     -- ** DescribeUsageReportSubscriptions
     DescribeUsageReportSubscriptions (DescribeUsageReportSubscriptions'),
     newDescribeUsageReportSubscriptions,
     DescribeUsageReportSubscriptionsResponse (DescribeUsageReportSubscriptionsResponse'),
     newDescribeUsageReportSubscriptionsResponse,
+
+    -- ** UpdateImagePermissions
+    UpdateImagePermissions (UpdateImagePermissions'),
+    newUpdateImagePermissions,
+    UpdateImagePermissionsResponse (UpdateImagePermissionsResponse'),
+    newUpdateImagePermissionsResponse,
+
+    -- ** CreateUpdatedImage
+    CreateUpdatedImage (CreateUpdatedImage'),
+    newCreateUpdatedImage,
+    CreateUpdatedImageResponse (CreateUpdatedImageResponse'),
+    newCreateUpdatedImageResponse,
 
     -- ** DeleteImage
     DeleteImage (DeleteImage'),
@@ -302,29 +314,11 @@ module Network.AWS.AppStream
     DeleteImagePermissionsResponse (DeleteImagePermissionsResponse'),
     newDeleteImagePermissionsResponse,
 
-    -- ** UpdateImagePermissions
-    UpdateImagePermissions (UpdateImagePermissions'),
-    newUpdateImagePermissions,
-    UpdateImagePermissionsResponse (UpdateImagePermissionsResponse'),
-    newUpdateImagePermissionsResponse,
-
     -- ** CreateStreamingURL
     CreateStreamingURL (CreateStreamingURL'),
     newCreateStreamingURL,
     CreateStreamingURLResponse (CreateStreamingURLResponse'),
     newCreateStreamingURLResponse,
-
-    -- ** DeleteUser
-    DeleteUser (DeleteUser'),
-    newDeleteUser,
-    DeleteUserResponse (DeleteUserResponse'),
-    newDeleteUserResponse,
-
-    -- ** DescribeUserStackAssociations (Paginated)
-    DescribeUserStackAssociations (DescribeUserStackAssociations'),
-    newDescribeUserStackAssociations,
-    DescribeUserStackAssociationsResponse (DescribeUserStackAssociationsResponse'),
-    newDescribeUserStackAssociationsResponse,
 
     -- ** DescribeImageBuilders (Paginated)
     DescribeImageBuilders (DescribeImageBuilders'),
@@ -332,11 +326,17 @@ module Network.AWS.AppStream
     DescribeImageBuildersResponse (DescribeImageBuildersResponse'),
     newDescribeImageBuildersResponse,
 
-    -- ** DescribeDirectoryConfigs (Paginated)
-    DescribeDirectoryConfigs (DescribeDirectoryConfigs'),
-    newDescribeDirectoryConfigs,
-    DescribeDirectoryConfigsResponse (DescribeDirectoryConfigsResponse'),
-    newDescribeDirectoryConfigsResponse,
+    -- ** DescribeUserStackAssociations (Paginated)
+    DescribeUserStackAssociations (DescribeUserStackAssociations'),
+    newDescribeUserStackAssociations,
+    DescribeUserStackAssociationsResponse (DescribeUserStackAssociationsResponse'),
+    newDescribeUserStackAssociationsResponse,
+
+    -- ** DeleteUser
+    DeleteUser (DeleteUser'),
+    newDeleteUser,
+    DeleteUserResponse (DeleteUserResponse'),
+    newDeleteUserResponse,
 
     -- ** DisableUser
     DisableUser (DisableUser'),
@@ -344,17 +344,23 @@ module Network.AWS.AppStream
     DisableUserResponse (DisableUserResponse'),
     newDisableUserResponse,
 
+    -- ** CreateImageBuilderStreamingURL
+    CreateImageBuilderStreamingURL (CreateImageBuilderStreamingURL'),
+    newCreateImageBuilderStreamingURL,
+    CreateImageBuilderStreamingURLResponse (CreateImageBuilderStreamingURLResponse'),
+    newCreateImageBuilderStreamingURLResponse,
+
     -- ** ExpireSession
     ExpireSession (ExpireSession'),
     newExpireSession,
     ExpireSessionResponse (ExpireSessionResponse'),
     newExpireSessionResponse,
 
-    -- ** CreateImageBuilderStreamingURL
-    CreateImageBuilderStreamingURL (CreateImageBuilderStreamingURL'),
-    newCreateImageBuilderStreamingURL,
-    CreateImageBuilderStreamingURLResponse (CreateImageBuilderStreamingURLResponse'),
-    newCreateImageBuilderStreamingURLResponse,
+    -- ** DescribeDirectoryConfigs (Paginated)
+    DescribeDirectoryConfigs (DescribeDirectoryConfigs'),
+    newDescribeDirectoryConfigs,
+    DescribeDirectoryConfigsResponse (DescribeDirectoryConfigsResponse'),
+    newDescribeDirectoryConfigsResponse,
 
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
@@ -574,6 +580,7 @@ import Network.AWS.AppStream.CreateImageBuilder
 import Network.AWS.AppStream.CreateImageBuilderStreamingURL
 import Network.AWS.AppStream.CreateStack
 import Network.AWS.AppStream.CreateStreamingURL
+import Network.AWS.AppStream.CreateUpdatedImage
 import Network.AWS.AppStream.CreateUsageReportSubscription
 import Network.AWS.AppStream.CreateUser
 import Network.AWS.AppStream.DeleteDirectoryConfig

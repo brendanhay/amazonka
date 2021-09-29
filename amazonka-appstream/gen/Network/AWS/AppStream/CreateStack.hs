@@ -29,8 +29,8 @@ module Network.AWS.AppStream.CreateStack
     newCreateStack,
 
     -- * Request Lenses
-    createStack_accessEndpoints,
     createStack_userSettings,
+    createStack_accessEndpoints,
     createStack_redirectURL,
     createStack_applicationSettings,
     createStack_tags,
@@ -60,13 +60,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateStack' smart constructor.
 data CreateStack = CreateStack'
-  { -- | The list of interface VPC endpoint (interface endpoint) objects. Users
+  { -- | The actions that are enabled or disabled for users during their
+    -- streaming sessions. By default, these actions are enabled.
+    userSettings :: Prelude.Maybe (Prelude.NonEmpty UserSetting),
+    -- | The list of interface VPC endpoint (interface endpoint) objects. Users
     -- of the stack can connect to AppStream 2.0 only through the specified
     -- endpoints.
     accessEndpoints :: Prelude.Maybe (Prelude.NonEmpty AccessEndpoint),
-    -- | The actions that are enabled or disabled for users during their
-    -- streaming sessions. By default, these actions are enabled.
-    userSettings :: Prelude.Maybe (Prelude.NonEmpty UserSetting),
     -- | The URL that users are redirected to after their streaming session ends.
     redirectURL :: Prelude.Maybe Prelude.Text,
     -- | The persistent application settings for users of a stack. When these
@@ -115,12 +115,12 @@ data CreateStack = CreateStack'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'userSettings', 'createStack_userSettings' - The actions that are enabled or disabled for users during their
+-- streaming sessions. By default, these actions are enabled.
+--
 -- 'accessEndpoints', 'createStack_accessEndpoints' - The list of interface VPC endpoint (interface endpoint) objects. Users
 -- of the stack can connect to AppStream 2.0 only through the specified
 -- endpoints.
---
--- 'userSettings', 'createStack_userSettings' - The actions that are enabled or disabled for users during their
--- streaming sessions. By default, these actions are enabled.
 --
 -- 'redirectURL', 'createStack_redirectURL' - The URL that users are redirected to after their streaming session ends.
 --
@@ -164,8 +164,8 @@ newCreateStack ::
   CreateStack
 newCreateStack pName_ =
   CreateStack'
-    { accessEndpoints = Prelude.Nothing,
-      userSettings = Prelude.Nothing,
+    { userSettings = Prelude.Nothing,
+      accessEndpoints = Prelude.Nothing,
       redirectURL = Prelude.Nothing,
       applicationSettings = Prelude.Nothing,
       tags = Prelude.Nothing,
@@ -177,16 +177,16 @@ newCreateStack pName_ =
       name = pName_
     }
 
+-- | The actions that are enabled or disabled for users during their
+-- streaming sessions. By default, these actions are enabled.
+createStack_userSettings :: Lens.Lens' CreateStack (Prelude.Maybe (Prelude.NonEmpty UserSetting))
+createStack_userSettings = Lens.lens (\CreateStack' {userSettings} -> userSettings) (\s@CreateStack' {} a -> s {userSettings = a} :: CreateStack) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The list of interface VPC endpoint (interface endpoint) objects. Users
 -- of the stack can connect to AppStream 2.0 only through the specified
 -- endpoints.
 createStack_accessEndpoints :: Lens.Lens' CreateStack (Prelude.Maybe (Prelude.NonEmpty AccessEndpoint))
 createStack_accessEndpoints = Lens.lens (\CreateStack' {accessEndpoints} -> accessEndpoints) (\s@CreateStack' {} a -> s {accessEndpoints = a} :: CreateStack) Prelude.. Lens.mapping Lens._Coerce
-
--- | The actions that are enabled or disabled for users during their
--- streaming sessions. By default, these actions are enabled.
-createStack_userSettings :: Lens.Lens' CreateStack (Prelude.Maybe (Prelude.NonEmpty UserSetting))
-createStack_userSettings = Lens.lens (\CreateStack' {userSettings} -> userSettings) (\s@CreateStack' {} a -> s {userSettings = a} :: CreateStack) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The URL that users are redirected to after their streaming session ends.
 createStack_redirectURL :: Lens.Lens' CreateStack (Prelude.Maybe Prelude.Text)
@@ -277,9 +277,9 @@ instance Core.ToJSON CreateStack where
   toJSON CreateStack' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AccessEndpoints" Core..=)
+          [ ("UserSettings" Core..=) Prelude.<$> userSettings,
+            ("AccessEndpoints" Core..=)
               Prelude.<$> accessEndpoints,
-            ("UserSettings" Core..=) Prelude.<$> userSettings,
             ("RedirectURL" Core..=) Prelude.<$> redirectURL,
             ("ApplicationSettings" Core..=)
               Prelude.<$> applicationSettings,

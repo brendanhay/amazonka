@@ -23,11 +23,13 @@ module Network.AWS.AppStream.Types.ImageBuilderState
         ImageBuilderState_DELETING,
         ImageBuilderState_FAILED,
         ImageBuilderState_PENDING,
+        ImageBuilderState_PENDING_QUALIFICATION,
         ImageBuilderState_REBOOTING,
         ImageBuilderState_RUNNING,
         ImageBuilderState_SNAPSHOTTING,
         ImageBuilderState_STOPPED,
         ImageBuilderState_STOPPING,
+        ImageBuilderState_UPDATING,
         ImageBuilderState_UPDATING_AGENT
       ),
   )
@@ -73,6 +75,9 @@ pattern ImageBuilderState_FAILED = ImageBuilderState' "FAILED"
 pattern ImageBuilderState_PENDING :: ImageBuilderState
 pattern ImageBuilderState_PENDING = ImageBuilderState' "PENDING"
 
+pattern ImageBuilderState_PENDING_QUALIFICATION :: ImageBuilderState
+pattern ImageBuilderState_PENDING_QUALIFICATION = ImageBuilderState' "PENDING_QUALIFICATION"
+
 pattern ImageBuilderState_REBOOTING :: ImageBuilderState
 pattern ImageBuilderState_REBOOTING = ImageBuilderState' "REBOOTING"
 
@@ -88,6 +93,9 @@ pattern ImageBuilderState_STOPPED = ImageBuilderState' "STOPPED"
 pattern ImageBuilderState_STOPPING :: ImageBuilderState
 pattern ImageBuilderState_STOPPING = ImageBuilderState' "STOPPING"
 
+pattern ImageBuilderState_UPDATING :: ImageBuilderState
+pattern ImageBuilderState_UPDATING = ImageBuilderState' "UPDATING"
+
 pattern ImageBuilderState_UPDATING_AGENT :: ImageBuilderState
 pattern ImageBuilderState_UPDATING_AGENT = ImageBuilderState' "UPDATING_AGENT"
 
@@ -95,11 +103,13 @@ pattern ImageBuilderState_UPDATING_AGENT = ImageBuilderState' "UPDATING_AGENT"
   ImageBuilderState_DELETING,
   ImageBuilderState_FAILED,
   ImageBuilderState_PENDING,
+  ImageBuilderState_PENDING_QUALIFICATION,
   ImageBuilderState_REBOOTING,
   ImageBuilderState_RUNNING,
   ImageBuilderState_SNAPSHOTTING,
   ImageBuilderState_STOPPED,
   ImageBuilderState_STOPPING,
+  ImageBuilderState_UPDATING,
   ImageBuilderState_UPDATING_AGENT,
   ImageBuilderState'
   #-}

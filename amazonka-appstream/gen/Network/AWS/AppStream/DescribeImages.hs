@@ -33,8 +33,8 @@ module Network.AWS.AppStream.DescribeImages
     -- * Request Lenses
     describeImages_names,
     describeImages_nextToken,
-    describeImages_arns,
     describeImages_maxResults,
+    describeImages_arns,
     describeImages_type,
 
     -- * Destructuring the Response
@@ -62,10 +62,10 @@ data DescribeImages = DescribeImages'
     -- | The pagination token to use to retrieve the next page of results for
     -- this operation. If this value is null, it retrieves the first page.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The ARNs of the public, private, and shared images to describe.
-    arns :: Prelude.Maybe [Prelude.Text],
     -- | The maximum size of each page of results.
     maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The ARNs of the public, private, and shared images to describe.
+    arns :: Prelude.Maybe [Prelude.Text],
     -- | The type of image (public, private, or shared) to describe.
     type' :: Prelude.Maybe VisibilityType
   }
@@ -84,9 +84,9 @@ data DescribeImages = DescribeImages'
 -- 'nextToken', 'describeImages_nextToken' - The pagination token to use to retrieve the next page of results for
 -- this operation. If this value is null, it retrieves the first page.
 --
--- 'arns', 'describeImages_arns' - The ARNs of the public, private, and shared images to describe.
---
 -- 'maxResults', 'describeImages_maxResults' - The maximum size of each page of results.
+--
+-- 'arns', 'describeImages_arns' - The ARNs of the public, private, and shared images to describe.
 --
 -- 'type'', 'describeImages_type' - The type of image (public, private, or shared) to describe.
 newDescribeImages ::
@@ -95,8 +95,8 @@ newDescribeImages =
   DescribeImages'
     { names = Prelude.Nothing,
       nextToken = Prelude.Nothing,
-      arns = Prelude.Nothing,
       maxResults = Prelude.Nothing,
+      arns = Prelude.Nothing,
       type' = Prelude.Nothing
     }
 
@@ -109,13 +109,13 @@ describeImages_names = Lens.lens (\DescribeImages' {names} -> names) (\s@Describ
 describeImages_nextToken :: Lens.Lens' DescribeImages (Prelude.Maybe Prelude.Text)
 describeImages_nextToken = Lens.lens (\DescribeImages' {nextToken} -> nextToken) (\s@DescribeImages' {} a -> s {nextToken = a} :: DescribeImages)
 
--- | The ARNs of the public, private, and shared images to describe.
-describeImages_arns :: Lens.Lens' DescribeImages (Prelude.Maybe [Prelude.Text])
-describeImages_arns = Lens.lens (\DescribeImages' {arns} -> arns) (\s@DescribeImages' {} a -> s {arns = a} :: DescribeImages) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The maximum size of each page of results.
 describeImages_maxResults :: Lens.Lens' DescribeImages (Prelude.Maybe Prelude.Natural)
 describeImages_maxResults = Lens.lens (\DescribeImages' {maxResults} -> maxResults) (\s@DescribeImages' {} a -> s {maxResults = a} :: DescribeImages)
+
+-- | The ARNs of the public, private, and shared images to describe.
+describeImages_arns :: Lens.Lens' DescribeImages (Prelude.Maybe [Prelude.Text])
+describeImages_arns = Lens.lens (\DescribeImages' {arns} -> arns) (\s@DescribeImages' {} a -> s {arns = a} :: DescribeImages) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The type of image (public, private, or shared) to describe.
 describeImages_type :: Lens.Lens' DescribeImages (Prelude.Maybe VisibilityType)
@@ -180,8 +180,8 @@ instance Core.ToJSON DescribeImages where
       ( Prelude.catMaybes
           [ ("Names" Core..=) Prelude.<$> names,
             ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("Arns" Core..=) Prelude.<$> arns,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
+            ("Arns" Core..=) Prelude.<$> arns,
             ("Type" Core..=) Prelude.<$> type'
           ]
       )

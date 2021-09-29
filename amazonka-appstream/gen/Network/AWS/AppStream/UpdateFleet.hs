@@ -34,8 +34,8 @@ module Network.AWS.AppStream.UpdateFleet
     newUpdateFleet,
 
     -- * Request Lenses
-    updateFleet_maxUserDurationInSeconds,
     updateFleet_disconnectTimeoutInSeconds,
+    updateFleet_maxUserDurationInSeconds,
     updateFleet_vpcConfig,
     updateFleet_iamRoleArn,
     updateFleet_domainJoinInfo,
@@ -47,9 +47,9 @@ module Network.AWS.AppStream.UpdateFleet
     updateFleet_name,
     updateFleet_streamView,
     updateFleet_description,
-    updateFleet_displayName,
     updateFleet_enableDefaultInternetAccess,
     updateFleet_attributesToDelete,
+    updateFleet_displayName,
     updateFleet_imageArn,
 
     -- * Destructuring the Response
@@ -71,15 +71,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateFleet' smart constructor.
 data UpdateFleet = UpdateFleet'
-  { -- | The maximum amount of time that a streaming session can remain active,
-    -- in seconds. If users are still connected to a streaming instance five
-    -- minutes before this limit is reached, they are prompted to save any open
-    -- documents before being disconnected. After this time elapses, the
-    -- instance is terminated and replaced by a new instance.
-    --
-    -- Specify a value between 600 and 360000.
-    maxUserDurationInSeconds :: Prelude.Maybe Prelude.Int,
-    -- | The amount of time that a streaming session remains active after users
+  { -- | The amount of time that a streaming session remains active after users
     -- disconnect. If users try to reconnect to the streaming session after a
     -- disconnection or network interruption within this time interval, they
     -- are connected to their previous session. Otherwise, they are connected
@@ -87,6 +79,14 @@ data UpdateFleet = UpdateFleet'
     --
     -- Specify a value between 60 and 360000.
     disconnectTimeoutInSeconds :: Prelude.Maybe Prelude.Int,
+    -- | The maximum amount of time that a streaming session can remain active,
+    -- in seconds. If users are still connected to a streaming instance five
+    -- minutes before this limit is reached, they are prompted to save any open
+    -- documents before being disconnected. After this time elapses, the
+    -- instance is terminated and replaced by a new instance.
+    --
+    -- Specify a value between 600 and 360000.
+    maxUserDurationInSeconds :: Prelude.Maybe Prelude.Int,
     -- | The VPC configuration for the fleet.
     vpcConfig :: Prelude.Maybe VpcConfig,
     -- | The Amazon Resource Name (ARN) of the IAM role to apply to the fleet. To
@@ -214,12 +214,12 @@ data UpdateFleet = UpdateFleet'
     streamView :: Prelude.Maybe StreamView,
     -- | The description to display.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The fleet name to display.
-    displayName :: Prelude.Maybe Prelude.Text,
     -- | Enables or disables default internet access for the fleet.
     enableDefaultInternetAccess :: Prelude.Maybe Prelude.Bool,
     -- | The fleet attributes to delete.
     attributesToDelete :: Prelude.Maybe [FleetAttribute],
+    -- | The fleet name to display.
+    displayName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the public, private, or shared image to use.
     imageArn :: Prelude.Maybe Prelude.Text
   }
@@ -233,14 +233,6 @@ data UpdateFleet = UpdateFleet'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'maxUserDurationInSeconds', 'updateFleet_maxUserDurationInSeconds' - The maximum amount of time that a streaming session can remain active,
--- in seconds. If users are still connected to a streaming instance five
--- minutes before this limit is reached, they are prompted to save any open
--- documents before being disconnected. After this time elapses, the
--- instance is terminated and replaced by a new instance.
---
--- Specify a value between 600 and 360000.
---
 -- 'disconnectTimeoutInSeconds', 'updateFleet_disconnectTimeoutInSeconds' - The amount of time that a streaming session remains active after users
 -- disconnect. If users try to reconnect to the streaming session after a
 -- disconnection or network interruption within this time interval, they
@@ -248,6 +240,14 @@ data UpdateFleet = UpdateFleet'
 -- to a new session with a new streaming instance.
 --
 -- Specify a value between 60 and 360000.
+--
+-- 'maxUserDurationInSeconds', 'updateFleet_maxUserDurationInSeconds' - The maximum amount of time that a streaming session can remain active,
+-- in seconds. If users are still connected to a streaming instance five
+-- minutes before this limit is reached, they are prompted to save any open
+-- documents before being disconnected. After this time elapses, the
+-- instance is terminated and replaced by a new instance.
+--
+-- Specify a value between 600 and 360000.
 --
 -- 'vpcConfig', 'updateFleet_vpcConfig' - The VPC configuration for the fleet.
 --
@@ -376,20 +376,20 @@ data UpdateFleet = UpdateFleet'
 --
 -- 'description', 'updateFleet_description' - The description to display.
 --
--- 'displayName', 'updateFleet_displayName' - The fleet name to display.
---
 -- 'enableDefaultInternetAccess', 'updateFleet_enableDefaultInternetAccess' - Enables or disables default internet access for the fleet.
 --
 -- 'attributesToDelete', 'updateFleet_attributesToDelete' - The fleet attributes to delete.
+--
+-- 'displayName', 'updateFleet_displayName' - The fleet name to display.
 --
 -- 'imageArn', 'updateFleet_imageArn' - The ARN of the public, private, or shared image to use.
 newUpdateFleet ::
   UpdateFleet
 newUpdateFleet =
   UpdateFleet'
-    { maxUserDurationInSeconds =
+    { disconnectTimeoutInSeconds =
         Prelude.Nothing,
-      disconnectTimeoutInSeconds = Prelude.Nothing,
+      maxUserDurationInSeconds = Prelude.Nothing,
       vpcConfig = Prelude.Nothing,
       iamRoleArn = Prelude.Nothing,
       domainJoinInfo = Prelude.Nothing,
@@ -401,21 +401,11 @@ newUpdateFleet =
       name = Prelude.Nothing,
       streamView = Prelude.Nothing,
       description = Prelude.Nothing,
-      displayName = Prelude.Nothing,
       enableDefaultInternetAccess = Prelude.Nothing,
       attributesToDelete = Prelude.Nothing,
+      displayName = Prelude.Nothing,
       imageArn = Prelude.Nothing
     }
-
--- | The maximum amount of time that a streaming session can remain active,
--- in seconds. If users are still connected to a streaming instance five
--- minutes before this limit is reached, they are prompted to save any open
--- documents before being disconnected. After this time elapses, the
--- instance is terminated and replaced by a new instance.
---
--- Specify a value between 600 and 360000.
-updateFleet_maxUserDurationInSeconds :: Lens.Lens' UpdateFleet (Prelude.Maybe Prelude.Int)
-updateFleet_maxUserDurationInSeconds = Lens.lens (\UpdateFleet' {maxUserDurationInSeconds} -> maxUserDurationInSeconds) (\s@UpdateFleet' {} a -> s {maxUserDurationInSeconds = a} :: UpdateFleet)
 
 -- | The amount of time that a streaming session remains active after users
 -- disconnect. If users try to reconnect to the streaming session after a
@@ -426,6 +416,16 @@ updateFleet_maxUserDurationInSeconds = Lens.lens (\UpdateFleet' {maxUserDuration
 -- Specify a value between 60 and 360000.
 updateFleet_disconnectTimeoutInSeconds :: Lens.Lens' UpdateFleet (Prelude.Maybe Prelude.Int)
 updateFleet_disconnectTimeoutInSeconds = Lens.lens (\UpdateFleet' {disconnectTimeoutInSeconds} -> disconnectTimeoutInSeconds) (\s@UpdateFleet' {} a -> s {disconnectTimeoutInSeconds = a} :: UpdateFleet)
+
+-- | The maximum amount of time that a streaming session can remain active,
+-- in seconds. If users are still connected to a streaming instance five
+-- minutes before this limit is reached, they are prompted to save any open
+-- documents before being disconnected. After this time elapses, the
+-- instance is terminated and replaced by a new instance.
+--
+-- Specify a value between 600 and 360000.
+updateFleet_maxUserDurationInSeconds :: Lens.Lens' UpdateFleet (Prelude.Maybe Prelude.Int)
+updateFleet_maxUserDurationInSeconds = Lens.lens (\UpdateFleet' {maxUserDurationInSeconds} -> maxUserDurationInSeconds) (\s@UpdateFleet' {} a -> s {maxUserDurationInSeconds = a} :: UpdateFleet)
 
 -- | The VPC configuration for the fleet.
 updateFleet_vpcConfig :: Lens.Lens' UpdateFleet (Prelude.Maybe VpcConfig)
@@ -576,10 +576,6 @@ updateFleet_streamView = Lens.lens (\UpdateFleet' {streamView} -> streamView) (\
 updateFleet_description :: Lens.Lens' UpdateFleet (Prelude.Maybe Prelude.Text)
 updateFleet_description = Lens.lens (\UpdateFleet' {description} -> description) (\s@UpdateFleet' {} a -> s {description = a} :: UpdateFleet)
 
--- | The fleet name to display.
-updateFleet_displayName :: Lens.Lens' UpdateFleet (Prelude.Maybe Prelude.Text)
-updateFleet_displayName = Lens.lens (\UpdateFleet' {displayName} -> displayName) (\s@UpdateFleet' {} a -> s {displayName = a} :: UpdateFleet)
-
 -- | Enables or disables default internet access for the fleet.
 updateFleet_enableDefaultInternetAccess :: Lens.Lens' UpdateFleet (Prelude.Maybe Prelude.Bool)
 updateFleet_enableDefaultInternetAccess = Lens.lens (\UpdateFleet' {enableDefaultInternetAccess} -> enableDefaultInternetAccess) (\s@UpdateFleet' {} a -> s {enableDefaultInternetAccess = a} :: UpdateFleet)
@@ -587,6 +583,10 @@ updateFleet_enableDefaultInternetAccess = Lens.lens (\UpdateFleet' {enableDefaul
 -- | The fleet attributes to delete.
 updateFleet_attributesToDelete :: Lens.Lens' UpdateFleet (Prelude.Maybe [FleetAttribute])
 updateFleet_attributesToDelete = Lens.lens (\UpdateFleet' {attributesToDelete} -> attributesToDelete) (\s@UpdateFleet' {} a -> s {attributesToDelete = a} :: UpdateFleet) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The fleet name to display.
+updateFleet_displayName :: Lens.Lens' UpdateFleet (Prelude.Maybe Prelude.Text)
+updateFleet_displayName = Lens.lens (\UpdateFleet' {displayName} -> displayName) (\s@UpdateFleet' {} a -> s {displayName = a} :: UpdateFleet)
 
 -- | The ARN of the public, private, or shared image to use.
 updateFleet_imageArn :: Lens.Lens' UpdateFleet (Prelude.Maybe Prelude.Text)
@@ -626,10 +626,10 @@ instance Core.ToJSON UpdateFleet where
   toJSON UpdateFleet' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("MaxUserDurationInSeconds" Core..=)
-              Prelude.<$> maxUserDurationInSeconds,
-            ("DisconnectTimeoutInSeconds" Core..=)
+          [ ("DisconnectTimeoutInSeconds" Core..=)
               Prelude.<$> disconnectTimeoutInSeconds,
+            ("MaxUserDurationInSeconds" Core..=)
+              Prelude.<$> maxUserDurationInSeconds,
             ("VpcConfig" Core..=) Prelude.<$> vpcConfig,
             ("IamRoleArn" Core..=) Prelude.<$> iamRoleArn,
             ("DomainJoinInfo" Core..=)
@@ -645,11 +645,11 @@ instance Core.ToJSON UpdateFleet where
             ("Name" Core..=) Prelude.<$> name,
             ("StreamView" Core..=) Prelude.<$> streamView,
             ("Description" Core..=) Prelude.<$> description,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
             ("EnableDefaultInternetAccess" Core..=)
               Prelude.<$> enableDefaultInternetAccess,
             ("AttributesToDelete" Core..=)
               Prelude.<$> attributesToDelete,
+            ("DisplayName" Core..=) Prelude.<$> displayName,
             ("ImageArn" Core..=) Prelude.<$> imageArn
           ]
       )

@@ -35,10 +35,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newImageBuilder' smart constructor.
 data ImageBuilder = ImageBuilder'
-  { -- | The operating system platform of the image builder.
-    platform :: Prelude.Maybe PlatformType,
-    -- | The VPC configuration of the image builder.
+  { -- | The VPC configuration of the image builder.
     vpcConfig :: Prelude.Maybe VpcConfig,
+    -- | The operating system platform of the image builder.
+    platform :: Prelude.Maybe PlatformType,
     -- | The ARN of the IAM role that is applied to the image builder. To assume
     -- a role, the image builder calls the AWS Security Token Service (STS)
     -- @AssumeRole@ API operation and passes the ARN of the role to use. The
@@ -128,10 +128,10 @@ data ImageBuilder = ImageBuilder'
     instanceType :: Prelude.Maybe Prelude.Text,
     -- | The ARN for the image builder.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The reason why the last state change occurred.
-    stateChangeReason :: Prelude.Maybe ImageBuilderStateChangeReason,
     -- | The time stamp when the image builder was created.
     createdTime :: Prelude.Maybe Core.POSIX,
+    -- | The reason why the last state change occurred.
+    stateChangeReason :: Prelude.Maybe ImageBuilderStateChangeReason,
     networkAccessConfiguration :: Prelude.Maybe NetworkAccessConfiguration,
     -- | The state of the image builder.
     state :: Prelude.Maybe ImageBuilderState,
@@ -140,12 +140,12 @@ data ImageBuilder = ImageBuilder'
     appstreamAgentVersion :: Prelude.Maybe Prelude.Text,
     -- | The description to display.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The image builder name to display.
-    displayName :: Prelude.Maybe Prelude.Text,
     -- | Enables or disables default internet access for the image builder.
     enableDefaultInternetAccess :: Prelude.Maybe Prelude.Bool,
     -- | The image builder errors.
     imageBuilderErrors :: Prelude.Maybe [ResourceError],
+    -- | The image builder name to display.
+    displayName :: Prelude.Maybe Prelude.Text,
     -- | The ARN of the image from which this builder was created.
     imageArn :: Prelude.Maybe Prelude.Text,
     -- | The name of the image builder.
@@ -161,9 +161,9 @@ data ImageBuilder = ImageBuilder'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'platform', 'imageBuilder_platform' - The operating system platform of the image builder.
---
 -- 'vpcConfig', 'imageBuilder_vpcConfig' - The VPC configuration of the image builder.
+--
+-- 'platform', 'imageBuilder_platform' - The operating system platform of the image builder.
 --
 -- 'iamRoleArn', 'imageBuilder_iamRoleArn' - The ARN of the IAM role that is applied to the image builder. To assume
 -- a role, the image builder calls the AWS Security Token Service (STS)
@@ -254,9 +254,9 @@ data ImageBuilder = ImageBuilder'
 --
 -- 'arn', 'imageBuilder_arn' - The ARN for the image builder.
 --
--- 'stateChangeReason', 'imageBuilder_stateChangeReason' - The reason why the last state change occurred.
---
 -- 'createdTime', 'imageBuilder_createdTime' - The time stamp when the image builder was created.
+--
+-- 'stateChangeReason', 'imageBuilder_stateChangeReason' - The reason why the last state change occurred.
 --
 -- 'networkAccessConfiguration', 'imageBuilder_networkAccessConfiguration' - Undocumented member.
 --
@@ -267,11 +267,11 @@ data ImageBuilder = ImageBuilder'
 --
 -- 'description', 'imageBuilder_description' - The description to display.
 --
--- 'displayName', 'imageBuilder_displayName' - The image builder name to display.
---
 -- 'enableDefaultInternetAccess', 'imageBuilder_enableDefaultInternetAccess' - Enables or disables default internet access for the image builder.
 --
 -- 'imageBuilderErrors', 'imageBuilder_imageBuilderErrors' - The image builder errors.
+--
+-- 'displayName', 'imageBuilder_displayName' - The image builder name to display.
 --
 -- 'imageArn', 'imageBuilder_imageArn' - The ARN of the image from which this builder was created.
 --
@@ -282,33 +282,33 @@ newImageBuilder ::
   ImageBuilder
 newImageBuilder pName_ =
   ImageBuilder'
-    { platform = Prelude.Nothing,
-      vpcConfig = Prelude.Nothing,
+    { vpcConfig = Prelude.Nothing,
+      platform = Prelude.Nothing,
       iamRoleArn = Prelude.Nothing,
       accessEndpoints = Prelude.Nothing,
       domainJoinInfo = Prelude.Nothing,
       instanceType = Prelude.Nothing,
       arn = Prelude.Nothing,
-      stateChangeReason = Prelude.Nothing,
       createdTime = Prelude.Nothing,
+      stateChangeReason = Prelude.Nothing,
       networkAccessConfiguration = Prelude.Nothing,
       state = Prelude.Nothing,
       appstreamAgentVersion = Prelude.Nothing,
       description = Prelude.Nothing,
-      displayName = Prelude.Nothing,
       enableDefaultInternetAccess = Prelude.Nothing,
       imageBuilderErrors = Prelude.Nothing,
+      displayName = Prelude.Nothing,
       imageArn = Prelude.Nothing,
       name = pName_
     }
 
--- | The operating system platform of the image builder.
-imageBuilder_platform :: Lens.Lens' ImageBuilder (Prelude.Maybe PlatformType)
-imageBuilder_platform = Lens.lens (\ImageBuilder' {platform} -> platform) (\s@ImageBuilder' {} a -> s {platform = a} :: ImageBuilder)
-
 -- | The VPC configuration of the image builder.
 imageBuilder_vpcConfig :: Lens.Lens' ImageBuilder (Prelude.Maybe VpcConfig)
 imageBuilder_vpcConfig = Lens.lens (\ImageBuilder' {vpcConfig} -> vpcConfig) (\s@ImageBuilder' {} a -> s {vpcConfig = a} :: ImageBuilder)
+
+-- | The operating system platform of the image builder.
+imageBuilder_platform :: Lens.Lens' ImageBuilder (Prelude.Maybe PlatformType)
+imageBuilder_platform = Lens.lens (\ImageBuilder' {platform} -> platform) (\s@ImageBuilder' {} a -> s {platform = a} :: ImageBuilder)
 
 -- | The ARN of the IAM role that is applied to the image builder. To assume
 -- a role, the image builder calls the AWS Security Token Service (STS)
@@ -409,13 +409,13 @@ imageBuilder_instanceType = Lens.lens (\ImageBuilder' {instanceType} -> instance
 imageBuilder_arn :: Lens.Lens' ImageBuilder (Prelude.Maybe Prelude.Text)
 imageBuilder_arn = Lens.lens (\ImageBuilder' {arn} -> arn) (\s@ImageBuilder' {} a -> s {arn = a} :: ImageBuilder)
 
--- | The reason why the last state change occurred.
-imageBuilder_stateChangeReason :: Lens.Lens' ImageBuilder (Prelude.Maybe ImageBuilderStateChangeReason)
-imageBuilder_stateChangeReason = Lens.lens (\ImageBuilder' {stateChangeReason} -> stateChangeReason) (\s@ImageBuilder' {} a -> s {stateChangeReason = a} :: ImageBuilder)
-
 -- | The time stamp when the image builder was created.
 imageBuilder_createdTime :: Lens.Lens' ImageBuilder (Prelude.Maybe Prelude.UTCTime)
 imageBuilder_createdTime = Lens.lens (\ImageBuilder' {createdTime} -> createdTime) (\s@ImageBuilder' {} a -> s {createdTime = a} :: ImageBuilder) Prelude.. Lens.mapping Core._Time
+
+-- | The reason why the last state change occurred.
+imageBuilder_stateChangeReason :: Lens.Lens' ImageBuilder (Prelude.Maybe ImageBuilderStateChangeReason)
+imageBuilder_stateChangeReason = Lens.lens (\ImageBuilder' {stateChangeReason} -> stateChangeReason) (\s@ImageBuilder' {} a -> s {stateChangeReason = a} :: ImageBuilder)
 
 -- | Undocumented member.
 imageBuilder_networkAccessConfiguration :: Lens.Lens' ImageBuilder (Prelude.Maybe NetworkAccessConfiguration)
@@ -434,10 +434,6 @@ imageBuilder_appstreamAgentVersion = Lens.lens (\ImageBuilder' {appstreamAgentVe
 imageBuilder_description :: Lens.Lens' ImageBuilder (Prelude.Maybe Prelude.Text)
 imageBuilder_description = Lens.lens (\ImageBuilder' {description} -> description) (\s@ImageBuilder' {} a -> s {description = a} :: ImageBuilder)
 
--- | The image builder name to display.
-imageBuilder_displayName :: Lens.Lens' ImageBuilder (Prelude.Maybe Prelude.Text)
-imageBuilder_displayName = Lens.lens (\ImageBuilder' {displayName} -> displayName) (\s@ImageBuilder' {} a -> s {displayName = a} :: ImageBuilder)
-
 -- | Enables or disables default internet access for the image builder.
 imageBuilder_enableDefaultInternetAccess :: Lens.Lens' ImageBuilder (Prelude.Maybe Prelude.Bool)
 imageBuilder_enableDefaultInternetAccess = Lens.lens (\ImageBuilder' {enableDefaultInternetAccess} -> enableDefaultInternetAccess) (\s@ImageBuilder' {} a -> s {enableDefaultInternetAccess = a} :: ImageBuilder)
@@ -445,6 +441,10 @@ imageBuilder_enableDefaultInternetAccess = Lens.lens (\ImageBuilder' {enableDefa
 -- | The image builder errors.
 imageBuilder_imageBuilderErrors :: Lens.Lens' ImageBuilder (Prelude.Maybe [ResourceError])
 imageBuilder_imageBuilderErrors = Lens.lens (\ImageBuilder' {imageBuilderErrors} -> imageBuilderErrors) (\s@ImageBuilder' {} a -> s {imageBuilderErrors = a} :: ImageBuilder) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The image builder name to display.
+imageBuilder_displayName :: Lens.Lens' ImageBuilder (Prelude.Maybe Prelude.Text)
+imageBuilder_displayName = Lens.lens (\ImageBuilder' {displayName} -> displayName) (\s@ImageBuilder' {} a -> s {displayName = a} :: ImageBuilder)
 
 -- | The ARN of the image from which this builder was created.
 imageBuilder_imageArn :: Lens.Lens' ImageBuilder (Prelude.Maybe Prelude.Text)
@@ -460,24 +460,24 @@ instance Core.FromJSON ImageBuilder where
       "ImageBuilder"
       ( \x ->
           ImageBuilder'
-            Prelude.<$> (x Core..:? "Platform")
-            Prelude.<*> (x Core..:? "VpcConfig")
+            Prelude.<$> (x Core..:? "VpcConfig")
+            Prelude.<*> (x Core..:? "Platform")
             Prelude.<*> (x Core..:? "IamRoleArn")
             Prelude.<*> (x Core..:? "AccessEndpoints")
             Prelude.<*> (x Core..:? "DomainJoinInfo")
             Prelude.<*> (x Core..:? "InstanceType")
             Prelude.<*> (x Core..:? "Arn")
-            Prelude.<*> (x Core..:? "StateChangeReason")
             Prelude.<*> (x Core..:? "CreatedTime")
+            Prelude.<*> (x Core..:? "StateChangeReason")
             Prelude.<*> (x Core..:? "NetworkAccessConfiguration")
             Prelude.<*> (x Core..:? "State")
             Prelude.<*> (x Core..:? "AppstreamAgentVersion")
             Prelude.<*> (x Core..:? "Description")
-            Prelude.<*> (x Core..:? "DisplayName")
             Prelude.<*> (x Core..:? "EnableDefaultInternetAccess")
             Prelude.<*> ( x Core..:? "ImageBuilderErrors"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "DisplayName")
             Prelude.<*> (x Core..:? "ImageArn")
             Prelude.<*> (x Core..: "Name")
       )

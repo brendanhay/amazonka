@@ -27,16 +27,16 @@ module Network.AWS.AppStream.UpdateStack
     newUpdateStack,
 
     -- * Request Lenses
-    updateStack_accessEndpoints,
     updateStack_userSettings,
+    updateStack_accessEndpoints,
     updateStack_redirectURL,
     updateStack_applicationSettings,
     updateStack_storageConnectors,
     updateStack_description,
-    updateStack_embedHostDomains,
     updateStack_deleteStorageConnectors,
-    updateStack_displayName,
+    updateStack_embedHostDomains,
     updateStack_attributesToDelete,
+    updateStack_displayName,
     updateStack_feedbackURL,
     updateStack_name,
 
@@ -59,13 +59,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newUpdateStack' smart constructor.
 data UpdateStack = UpdateStack'
-  { -- | The list of interface VPC endpoint (interface endpoint) objects. Users
+  { -- | The actions that are enabled or disabled for users during their
+    -- streaming sessions. By default, these actions are enabled.
+    userSettings :: Prelude.Maybe (Prelude.NonEmpty UserSetting),
+    -- | The list of interface VPC endpoint (interface endpoint) objects. Users
     -- of the stack can connect to AppStream 2.0 only through the specified
     -- endpoints.
     accessEndpoints :: Prelude.Maybe (Prelude.NonEmpty AccessEndpoint),
-    -- | The actions that are enabled or disabled for users during their
-    -- streaming sessions. By default, these actions are enabled.
-    userSettings :: Prelude.Maybe (Prelude.NonEmpty UserSetting),
     -- | The URL that users are redirected to after their streaming session ends.
     redirectURL :: Prelude.Maybe Prelude.Text,
     -- | The persistent application settings for users of a stack. When these
@@ -77,16 +77,16 @@ data UpdateStack = UpdateStack'
     storageConnectors :: Prelude.Maybe [StorageConnector],
     -- | The description to display.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Deletes the storage connectors currently enabled for the stack.
+    deleteStorageConnectors :: Prelude.Maybe Prelude.Bool,
     -- | The domains where AppStream 2.0 streaming sessions can be embedded in an
     -- iframe. You must approve the domains that you want to host embedded
     -- AppStream 2.0 streaming sessions.
     embedHostDomains :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | Deletes the storage connectors currently enabled for the stack.
-    deleteStorageConnectors :: Prelude.Maybe Prelude.Bool,
-    -- | The stack name to display.
-    displayName :: Prelude.Maybe Prelude.Text,
     -- | The stack attributes to delete.
     attributesToDelete :: Prelude.Maybe [StackAttribute],
+    -- | The stack name to display.
+    displayName :: Prelude.Maybe Prelude.Text,
     -- | The URL that users are redirected to after they choose the Send Feedback
     -- link. If no URL is specified, no Send Feedback link is displayed.
     feedbackURL :: Prelude.Maybe Prelude.Text,
@@ -103,12 +103,12 @@ data UpdateStack = UpdateStack'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'userSettings', 'updateStack_userSettings' - The actions that are enabled or disabled for users during their
+-- streaming sessions. By default, these actions are enabled.
+--
 -- 'accessEndpoints', 'updateStack_accessEndpoints' - The list of interface VPC endpoint (interface endpoint) objects. Users
 -- of the stack can connect to AppStream 2.0 only through the specified
 -- endpoints.
---
--- 'userSettings', 'updateStack_userSettings' - The actions that are enabled or disabled for users during their
--- streaming sessions. By default, these actions are enabled.
 --
 -- 'redirectURL', 'updateStack_redirectURL' - The URL that users are redirected to after their streaming session ends.
 --
@@ -121,15 +121,15 @@ data UpdateStack = UpdateStack'
 --
 -- 'description', 'updateStack_description' - The description to display.
 --
+-- 'deleteStorageConnectors', 'updateStack_deleteStorageConnectors' - Deletes the storage connectors currently enabled for the stack.
+--
 -- 'embedHostDomains', 'updateStack_embedHostDomains' - The domains where AppStream 2.0 streaming sessions can be embedded in an
 -- iframe. You must approve the domains that you want to host embedded
 -- AppStream 2.0 streaming sessions.
 --
--- 'deleteStorageConnectors', 'updateStack_deleteStorageConnectors' - Deletes the storage connectors currently enabled for the stack.
+-- 'attributesToDelete', 'updateStack_attributesToDelete' - The stack attributes to delete.
 --
 -- 'displayName', 'updateStack_displayName' - The stack name to display.
---
--- 'attributesToDelete', 'updateStack_attributesToDelete' - The stack attributes to delete.
 --
 -- 'feedbackURL', 'updateStack_feedbackURL' - The URL that users are redirected to after they choose the Send Feedback
 -- link. If no URL is specified, no Send Feedback link is displayed.
@@ -141,30 +141,30 @@ newUpdateStack ::
   UpdateStack
 newUpdateStack pName_ =
   UpdateStack'
-    { accessEndpoints = Prelude.Nothing,
-      userSettings = Prelude.Nothing,
+    { userSettings = Prelude.Nothing,
+      accessEndpoints = Prelude.Nothing,
       redirectURL = Prelude.Nothing,
       applicationSettings = Prelude.Nothing,
       storageConnectors = Prelude.Nothing,
       description = Prelude.Nothing,
-      embedHostDomains = Prelude.Nothing,
       deleteStorageConnectors = Prelude.Nothing,
-      displayName = Prelude.Nothing,
+      embedHostDomains = Prelude.Nothing,
       attributesToDelete = Prelude.Nothing,
+      displayName = Prelude.Nothing,
       feedbackURL = Prelude.Nothing,
       name = pName_
     }
+
+-- | The actions that are enabled or disabled for users during their
+-- streaming sessions. By default, these actions are enabled.
+updateStack_userSettings :: Lens.Lens' UpdateStack (Prelude.Maybe (Prelude.NonEmpty UserSetting))
+updateStack_userSettings = Lens.lens (\UpdateStack' {userSettings} -> userSettings) (\s@UpdateStack' {} a -> s {userSettings = a} :: UpdateStack) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The list of interface VPC endpoint (interface endpoint) objects. Users
 -- of the stack can connect to AppStream 2.0 only through the specified
 -- endpoints.
 updateStack_accessEndpoints :: Lens.Lens' UpdateStack (Prelude.Maybe (Prelude.NonEmpty AccessEndpoint))
 updateStack_accessEndpoints = Lens.lens (\UpdateStack' {accessEndpoints} -> accessEndpoints) (\s@UpdateStack' {} a -> s {accessEndpoints = a} :: UpdateStack) Prelude.. Lens.mapping Lens._Coerce
-
--- | The actions that are enabled or disabled for users during their
--- streaming sessions. By default, these actions are enabled.
-updateStack_userSettings :: Lens.Lens' UpdateStack (Prelude.Maybe (Prelude.NonEmpty UserSetting))
-updateStack_userSettings = Lens.lens (\UpdateStack' {userSettings} -> userSettings) (\s@UpdateStack' {} a -> s {userSettings = a} :: UpdateStack) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The URL that users are redirected to after their streaming session ends.
 updateStack_redirectURL :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
@@ -185,23 +185,23 @@ updateStack_storageConnectors = Lens.lens (\UpdateStack' {storageConnectors} -> 
 updateStack_description :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
 updateStack_description = Lens.lens (\UpdateStack' {description} -> description) (\s@UpdateStack' {} a -> s {description = a} :: UpdateStack)
 
+-- | Deletes the storage connectors currently enabled for the stack.
+updateStack_deleteStorageConnectors :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Bool)
+updateStack_deleteStorageConnectors = Lens.lens (\UpdateStack' {deleteStorageConnectors} -> deleteStorageConnectors) (\s@UpdateStack' {} a -> s {deleteStorageConnectors = a} :: UpdateStack)
+
 -- | The domains where AppStream 2.0 streaming sessions can be embedded in an
 -- iframe. You must approve the domains that you want to host embedded
 -- AppStream 2.0 streaming sessions.
 updateStack_embedHostDomains :: Lens.Lens' UpdateStack (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 updateStack_embedHostDomains = Lens.lens (\UpdateStack' {embedHostDomains} -> embedHostDomains) (\s@UpdateStack' {} a -> s {embedHostDomains = a} :: UpdateStack) Prelude.. Lens.mapping Lens._Coerce
 
--- | Deletes the storage connectors currently enabled for the stack.
-updateStack_deleteStorageConnectors :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Bool)
-updateStack_deleteStorageConnectors = Lens.lens (\UpdateStack' {deleteStorageConnectors} -> deleteStorageConnectors) (\s@UpdateStack' {} a -> s {deleteStorageConnectors = a} :: UpdateStack)
+-- | The stack attributes to delete.
+updateStack_attributesToDelete :: Lens.Lens' UpdateStack (Prelude.Maybe [StackAttribute])
+updateStack_attributesToDelete = Lens.lens (\UpdateStack' {attributesToDelete} -> attributesToDelete) (\s@UpdateStack' {} a -> s {attributesToDelete = a} :: UpdateStack) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The stack name to display.
 updateStack_displayName :: Lens.Lens' UpdateStack (Prelude.Maybe Prelude.Text)
 updateStack_displayName = Lens.lens (\UpdateStack' {displayName} -> displayName) (\s@UpdateStack' {} a -> s {displayName = a} :: UpdateStack)
-
--- | The stack attributes to delete.
-updateStack_attributesToDelete :: Lens.Lens' UpdateStack (Prelude.Maybe [StackAttribute])
-updateStack_attributesToDelete = Lens.lens (\UpdateStack' {attributesToDelete} -> attributesToDelete) (\s@UpdateStack' {} a -> s {attributesToDelete = a} :: UpdateStack) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The URL that users are redirected to after they choose the Send Feedback
 -- link. If no URL is specified, no Send Feedback link is displayed.
@@ -246,22 +246,22 @@ instance Core.ToJSON UpdateStack where
   toJSON UpdateStack' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("AccessEndpoints" Core..=)
+          [ ("UserSettings" Core..=) Prelude.<$> userSettings,
+            ("AccessEndpoints" Core..=)
               Prelude.<$> accessEndpoints,
-            ("UserSettings" Core..=) Prelude.<$> userSettings,
             ("RedirectURL" Core..=) Prelude.<$> redirectURL,
             ("ApplicationSettings" Core..=)
               Prelude.<$> applicationSettings,
             ("StorageConnectors" Core..=)
               Prelude.<$> storageConnectors,
             ("Description" Core..=) Prelude.<$> description,
-            ("EmbedHostDomains" Core..=)
-              Prelude.<$> embedHostDomains,
             ("DeleteStorageConnectors" Core..=)
               Prelude.<$> deleteStorageConnectors,
-            ("DisplayName" Core..=) Prelude.<$> displayName,
+            ("EmbedHostDomains" Core..=)
+              Prelude.<$> embedHostDomains,
             ("AttributesToDelete" Core..=)
               Prelude.<$> attributesToDelete,
+            ("DisplayName" Core..=) Prelude.<$> displayName,
             ("FeedbackURL" Core..=) Prelude.<$> feedbackURL,
             Prelude.Just ("Name" Core..= name)
           ]

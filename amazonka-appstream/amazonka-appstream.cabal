@@ -56,6 +56,7 @@ library
     Network.AWS.AppStream.CreateImageBuilderStreamingURL
     Network.AWS.AppStream.CreateStack
     Network.AWS.AppStream.CreateStreamingURL
+    Network.AWS.AppStream.CreateUpdatedImage
     Network.AWS.AppStream.CreateUsageReportSubscription
     Network.AWS.AppStream.CreateUser
     Network.AWS.AppStream.DeleteDirectoryConfig

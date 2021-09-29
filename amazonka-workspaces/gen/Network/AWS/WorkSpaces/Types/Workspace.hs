@@ -46,8 +46,6 @@ data Workspace = Workspace'
     workspaceId :: Prelude.Maybe Prelude.Text,
     -- | The modification states of the WorkSpace.
     modificationStates :: Prelude.Maybe [ModificationState],
-    -- | The IP address of the WorkSpace.
-    ipAddress :: Prelude.Maybe Prelude.Text,
     -- | The operational state of the WorkSpace.
     --
     -- After a WorkSpace is terminated, the @TERMINATED@ state is returned only
@@ -58,6 +56,8 @@ data Workspace = Workspace'
     -- If the WorkSpace ID isn\'t returned, then the WorkSpace has been
     -- successfully terminated.
     state :: Prelude.Maybe WorkspaceState,
+    -- | The IP address of the WorkSpace.
+    ipAddress :: Prelude.Maybe Prelude.Text,
     -- | The identifier of the AWS Directory Service directory for the WorkSpace.
     directoryId :: Prelude.Maybe Prelude.Text,
     -- | The user for the WorkSpace.
@@ -100,8 +100,6 @@ data Workspace = Workspace'
 --
 -- 'modificationStates', 'workspace_modificationStates' - The modification states of the WorkSpace.
 --
--- 'ipAddress', 'workspace_ipAddress' - The IP address of the WorkSpace.
---
 -- 'state', 'workspace_state' - The operational state of the WorkSpace.
 --
 -- After a WorkSpace is terminated, the @TERMINATED@ state is returned only
@@ -111,6 +109,8 @@ data Workspace = Workspace'
 -- <https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html DescribeWorkSpaces>.
 -- If the WorkSpace ID isn\'t returned, then the WorkSpace has been
 -- successfully terminated.
+--
+-- 'ipAddress', 'workspace_ipAddress' - The IP address of the WorkSpace.
 --
 -- 'directoryId', 'workspace_directoryId' - The identifier of the AWS Directory Service directory for the WorkSpace.
 --
@@ -137,8 +137,8 @@ newWorkspace =
       volumeEncryptionKey = Prelude.Nothing,
       workspaceId = Prelude.Nothing,
       modificationStates = Prelude.Nothing,
-      ipAddress = Prelude.Nothing,
       state = Prelude.Nothing,
+      ipAddress = Prelude.Nothing,
       directoryId = Prelude.Nothing,
       userName = Prelude.Nothing,
       subnetId = Prelude.Nothing,
@@ -177,10 +177,6 @@ workspace_workspaceId = Lens.lens (\Workspace' {workspaceId} -> workspaceId) (\s
 workspace_modificationStates :: Lens.Lens' Workspace (Prelude.Maybe [ModificationState])
 workspace_modificationStates = Lens.lens (\Workspace' {modificationStates} -> modificationStates) (\s@Workspace' {} a -> s {modificationStates = a} :: Workspace) Prelude.. Lens.mapping Lens._Coerce
 
--- | The IP address of the WorkSpace.
-workspace_ipAddress :: Lens.Lens' Workspace (Prelude.Maybe Prelude.Text)
-workspace_ipAddress = Lens.lens (\Workspace' {ipAddress} -> ipAddress) (\s@Workspace' {} a -> s {ipAddress = a} :: Workspace)
-
 -- | The operational state of the WorkSpace.
 --
 -- After a WorkSpace is terminated, the @TERMINATED@ state is returned only
@@ -192,6 +188,10 @@ workspace_ipAddress = Lens.lens (\Workspace' {ipAddress} -> ipAddress) (\s@Works
 -- successfully terminated.
 workspace_state :: Lens.Lens' Workspace (Prelude.Maybe WorkspaceState)
 workspace_state = Lens.lens (\Workspace' {state} -> state) (\s@Workspace' {} a -> s {state = a} :: Workspace)
+
+-- | The IP address of the WorkSpace.
+workspace_ipAddress :: Lens.Lens' Workspace (Prelude.Maybe Prelude.Text)
+workspace_ipAddress = Lens.lens (\Workspace' {ipAddress} -> ipAddress) (\s@Workspace' {} a -> s {ipAddress = a} :: Workspace)
 
 -- | The identifier of the AWS Directory Service directory for the WorkSpace.
 workspace_directoryId :: Lens.Lens' Workspace (Prelude.Maybe Prelude.Text)
@@ -235,8 +235,8 @@ instance Core.FromJSON Workspace where
             Prelude.<*> ( x Core..:? "ModificationStates"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "IpAddress")
             Prelude.<*> (x Core..:? "State")
+            Prelude.<*> (x Core..:? "IpAddress")
             Prelude.<*> (x Core..:? "DirectoryId")
             Prelude.<*> (x Core..:? "UserName")
             Prelude.<*> (x Core..:? "SubnetId")

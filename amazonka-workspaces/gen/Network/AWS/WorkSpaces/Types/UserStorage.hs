@@ -23,11 +23,11 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Describes the user storage for a WorkSpace bundle.
+-- | Describes the user volume for a WorkSpace bundle.
 --
 -- /See:/ 'newUserStorage' smart constructor.
 data UserStorage = UserStorage'
-  { -- | The size of the user storage.
+  { -- | The size of the user volume.
     capacity :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -40,13 +40,13 @@ data UserStorage = UserStorage'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'capacity', 'userStorage_capacity' - The size of the user storage.
+-- 'capacity', 'userStorage_capacity' - The size of the user volume.
 newUserStorage ::
   UserStorage
 newUserStorage =
   UserStorage' {capacity = Prelude.Nothing}
 
--- | The size of the user storage.
+-- | The size of the user volume.
 userStorage_capacity :: Lens.Lens' UserStorage (Prelude.Maybe Prelude.Text)
 userStorage_capacity = Lens.lens (\UserStorage' {capacity} -> capacity) (\s@UserStorage' {} a -> s {capacity = a} :: UserStorage)
 
@@ -61,3 +61,10 @@ instance Core.FromJSON UserStorage where
 instance Prelude.Hashable UserStorage
 
 instance Prelude.NFData UserStorage
+
+instance Core.ToJSON UserStorage where
+  toJSON UserStorage' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [("Capacity" Core..=) Prelude.<$> capacity]
+      )

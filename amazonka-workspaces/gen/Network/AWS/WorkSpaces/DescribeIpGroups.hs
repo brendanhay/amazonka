@@ -171,8 +171,8 @@ instance Core.ToQuery DescribeIpGroups where
 
 -- | /See:/ 'newDescribeIpGroupsResponse' smart constructor.
 data DescribeIpGroupsResponse = DescribeIpGroupsResponse'
-  { -- | The token to use to retrieve the next set of results, or null if no more
-    -- results are available.
+  { -- | The token to use to retrieve the next page of results. This value is
+    -- null when there are no more results to return.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | Information about the IP access control groups.
     result :: Prelude.Maybe [WorkspacesIpGroup],
@@ -189,8 +189,8 @@ data DescribeIpGroupsResponse = DescribeIpGroupsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeIpGroupsResponse_nextToken' - The token to use to retrieve the next set of results, or null if no more
--- results are available.
+-- 'nextToken', 'describeIpGroupsResponse_nextToken' - The token to use to retrieve the next page of results. This value is
+-- null when there are no more results to return.
 --
 -- 'result', 'describeIpGroupsResponse_result' - Information about the IP access control groups.
 --
@@ -207,8 +207,8 @@ newDescribeIpGroupsResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The token to use to retrieve the next set of results, or null if no more
--- results are available.
+-- | The token to use to retrieve the next page of results. This value is
+-- null when there are no more results to return.
 describeIpGroupsResponse_nextToken :: Lens.Lens' DescribeIpGroupsResponse (Prelude.Maybe Prelude.Text)
 describeIpGroupsResponse_nextToken = Lens.lens (\DescribeIpGroupsResponse' {nextToken} -> nextToken) (\s@DescribeIpGroupsResponse' {} a -> s {nextToken = a} :: DescribeIpGroupsResponse)
 

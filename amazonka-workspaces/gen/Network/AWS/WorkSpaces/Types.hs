@@ -20,14 +20,14 @@ module Network.AWS.WorkSpaces.Types
     _ResourceUnavailableException,
     _UnsupportedNetworkConfigurationException,
     _OperationNotSupportedException,
-    _ResourceAlreadyExistsException,
     _ResourceLimitExceededException,
+    _ResourceAlreadyExistsException,
     _OperationInProgressException,
     _WorkspacesDefaultRoleNotFoundException,
     _ResourceAssociatedException,
+    _UnsupportedWorkspaceConfigurationException,
     _InvalidParameterValuesException,
     _ResourceCreationFailedException,
-    _UnsupportedWorkspaceConfigurationException,
     _AccessDeniedException,
     _ResourceNotFoundException,
     _InvalidResourceStateException,
@@ -106,8 +106,8 @@ module Network.AWS.WorkSpaces.Types
     newAccountModification,
     accountModification_dedicatedTenancySupport,
     accountModification_startTime,
-    accountModification_dedicatedTenancyManagementCidrRange,
     accountModification_modificationState,
+    accountModification_dedicatedTenancyManagementCidrRange,
     accountModification_errorMessage,
     accountModification_errorCode,
 
@@ -131,8 +131,8 @@ module Network.AWS.WorkSpaces.Types
     ConnectionAlias (..),
     newConnectionAlias,
     connectionAlias_state,
-    connectionAlias_aliasId,
     connectionAlias_connectionString,
+    connectionAlias_aliasId,
     connectionAlias_ownerAccountId,
     connectionAlias_associations,
 
@@ -261,8 +261,8 @@ module Network.AWS.WorkSpaces.Types
     workspace_volumeEncryptionKey,
     workspace_workspaceId,
     workspace_modificationStates,
-    workspace_ipAddress,
     workspace_state,
+    workspace_ipAddress,
     workspace_directoryId,
     workspace_userName,
     workspace_subnetId,
@@ -274,9 +274,10 @@ module Network.AWS.WorkSpaces.Types
     WorkspaceAccessProperties (..),
     newWorkspaceAccessProperties,
     workspaceAccessProperties_deviceTypeOsx,
+    workspaceAccessProperties_deviceTypeLinux,
     workspaceAccessProperties_deviceTypeWindows,
-    workspaceAccessProperties_deviceTypeAndroid,
     workspaceAccessProperties_deviceTypeZeroClient,
+    workspaceAccessProperties_deviceTypeAndroid,
     workspaceAccessProperties_deviceTypeWeb,
     workspaceAccessProperties_deviceTypeIos,
     workspaceAccessProperties_deviceTypeChromeOs,
@@ -285,6 +286,7 @@ module Network.AWS.WorkSpaces.Types
     WorkspaceBundle (..),
     newWorkspaceBundle,
     workspaceBundle_rootStorage,
+    workspaceBundle_creationTime,
     workspaceBundle_bundleId,
     workspaceBundle_userStorage,
     workspaceBundle_imageId,
@@ -318,16 +320,16 @@ module Network.AWS.WorkSpaces.Types
     workspaceDirectory_registrationCode,
     workspaceDirectory_workspaceSecurityGroupId,
     workspaceDirectory_alias,
-    workspaceDirectory_ipGroupIds,
     workspaceDirectory_workspaceAccessProperties,
+    workspaceDirectory_ipGroupIds,
     workspaceDirectory_subnetIds,
-    workspaceDirectory_tenancy,
     workspaceDirectory_customerUserName,
+    workspaceDirectory_tenancy,
     workspaceDirectory_state,
-    workspaceDirectory_iamRoleId,
     workspaceDirectory_directoryId,
-    workspaceDirectory_selfservicePermissions,
+    workspaceDirectory_iamRoleId,
     workspaceDirectory_directoryType,
+    workspaceDirectory_selfservicePermissions,
     workspaceDirectory_directoryName,
     workspaceDirectory_dnsIpAddresses,
     workspaceDirectory_workspaceCreationProperties,
@@ -336,13 +338,13 @@ module Network.AWS.WorkSpaces.Types
     WorkspaceImage (..),
     newWorkspaceImage,
     workspaceImage_imageId,
-    workspaceImage_state,
     workspaceImage_name,
+    workspaceImage_state,
     workspaceImage_description,
-    workspaceImage_errorMessage,
     workspaceImage_requiredTenancy,
-    workspaceImage_operatingSystem,
+    workspaceImage_errorMessage,
     workspaceImage_created,
+    workspaceImage_operatingSystem,
     workspaceImage_ownerAccountId,
     workspaceImage_errorCode,
 
@@ -534,19 +536,19 @@ _OperationNotSupportedException =
     defaultService
     "OperationNotSupportedException"
 
--- | The specified resource already exists.
-_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_ResourceAlreadyExistsException =
-  Core._MatchServiceError
-    defaultService
-    "ResourceAlreadyExistsException"
-
 -- | Your resource limits have been exceeded.
 _ResourceLimitExceededException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _ResourceLimitExceededException =
   Core._MatchServiceError
     defaultService
     "ResourceLimitExceededException"
+
+-- | The specified resource already exists.
+_ResourceAlreadyExistsException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_ResourceAlreadyExistsException =
+  Core._MatchServiceError
+    defaultService
+    "ResourceAlreadyExistsException"
 
 -- | The properties of this WorkSpace are currently being modified. Try again
 -- in a moment.
@@ -574,6 +576,16 @@ _ResourceAssociatedException =
     defaultService
     "ResourceAssociatedException"
 
+-- | The configuration of this WorkSpace is not supported for this operation.
+-- For more information, see
+-- <https://docs.aws.amazon.com/workspaces/latest/adminguide/required-service-components.html Required Configuration and Service Components for WorkSpaces>
+-- .
+_UnsupportedWorkspaceConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_UnsupportedWorkspaceConfigurationException =
+  Core._MatchServiceError
+    defaultService
+    "UnsupportedWorkspaceConfigurationException"
+
 -- | One or more parameter values are not valid.
 _InvalidParameterValuesException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
 _InvalidParameterValuesException =
@@ -587,16 +599,6 @@ _ResourceCreationFailedException =
   Core._MatchServiceError
     defaultService
     "ResourceCreationFailedException"
-
--- | The configuration of this WorkSpace is not supported for this operation.
--- For more information, see
--- <https://docs.aws.amazon.com/workspaces/latest/adminguide/required-service-components.html Required Configuration and Service Components for WorkSpaces>
--- .
-_UnsupportedWorkspaceConfigurationException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_UnsupportedWorkspaceConfigurationException =
-  Core._MatchServiceError
-    defaultService
-    "UnsupportedWorkspaceConfigurationException"
 
 -- | The user is not authorized to access a resource.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

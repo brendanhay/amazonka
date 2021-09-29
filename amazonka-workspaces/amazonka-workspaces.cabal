@@ -53,10 +53,12 @@ library
     Network.AWS.WorkSpaces.CreateConnectionAlias
     Network.AWS.WorkSpaces.CreateIpGroup
     Network.AWS.WorkSpaces.CreateTags
+    Network.AWS.WorkSpaces.CreateWorkspaceBundle
     Network.AWS.WorkSpaces.CreateWorkspaces
     Network.AWS.WorkSpaces.DeleteConnectionAlias
     Network.AWS.WorkSpaces.DeleteIpGroup
     Network.AWS.WorkSpaces.DeleteTags
+    Network.AWS.WorkSpaces.DeleteWorkspaceBundle
     Network.AWS.WorkSpaces.DeleteWorkspaceImage
     Network.AWS.WorkSpaces.DeregisterWorkspaceDirectory
     Network.AWS.WorkSpaces.DescribeAccount
@@ -154,6 +156,7 @@ library
     Network.AWS.WorkSpaces.Types.WorkspaceState
     Network.AWS.WorkSpaces.UpdateConnectionAliasPermission
     Network.AWS.WorkSpaces.UpdateRulesOfIpGroup
+    Network.AWS.WorkSpaces.UpdateWorkspaceBundle
     Network.AWS.WorkSpaces.UpdateWorkspaceImagePermission
     Network.AWS.WorkSpaces.Waiters
 

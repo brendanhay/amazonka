@@ -36,18 +36,21 @@ data WorkspaceAccessProperties = WorkspaceAccessProperties'
     -- For more information, see
     -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/trusted-devices.html Restrict WorkSpaces Access to Trusted Devices>.
     deviceTypeOsx :: Prelude.Maybe AccessPropertyValue,
+    -- | Indicates whether users can use Linux clients to access their
+    -- WorkSpaces.
+    deviceTypeLinux :: Prelude.Maybe AccessPropertyValue,
     -- | Indicates whether users can use Windows clients to access their
     -- WorkSpaces. To restrict WorkSpaces access to trusted devices (also known
     -- as managed devices) with valid certificates, specify a value of @TRUST@.
     -- For more information, see
     -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/trusted-devices.html Restrict WorkSpaces Access to Trusted Devices>.
     deviceTypeWindows :: Prelude.Maybe AccessPropertyValue,
-    -- | Indicates whether users can use Android devices to access their
-    -- WorkSpaces.
-    deviceTypeAndroid :: Prelude.Maybe AccessPropertyValue,
     -- | Indicates whether users can use zero client devices to access their
     -- WorkSpaces.
     deviceTypeZeroClient :: Prelude.Maybe AccessPropertyValue,
+    -- | Indicates whether users can use Android devices to access their
+    -- WorkSpaces.
+    deviceTypeAndroid :: Prelude.Maybe AccessPropertyValue,
     -- | Indicates whether users can access their WorkSpaces through a web
     -- browser.
     deviceTypeWeb :: Prelude.Maybe AccessPropertyValue,
@@ -72,16 +75,19 @@ data WorkspaceAccessProperties = WorkspaceAccessProperties'
 -- For more information, see
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/trusted-devices.html Restrict WorkSpaces Access to Trusted Devices>.
 --
+-- 'deviceTypeLinux', 'workspaceAccessProperties_deviceTypeLinux' - Indicates whether users can use Linux clients to access their
+-- WorkSpaces.
+--
 -- 'deviceTypeWindows', 'workspaceAccessProperties_deviceTypeWindows' - Indicates whether users can use Windows clients to access their
 -- WorkSpaces. To restrict WorkSpaces access to trusted devices (also known
 -- as managed devices) with valid certificates, specify a value of @TRUST@.
 -- For more information, see
 -- <https://docs.aws.amazon.com/workspaces/latest/adminguide/trusted-devices.html Restrict WorkSpaces Access to Trusted Devices>.
 --
--- 'deviceTypeAndroid', 'workspaceAccessProperties_deviceTypeAndroid' - Indicates whether users can use Android devices to access their
+-- 'deviceTypeZeroClient', 'workspaceAccessProperties_deviceTypeZeroClient' - Indicates whether users can use zero client devices to access their
 -- WorkSpaces.
 --
--- 'deviceTypeZeroClient', 'workspaceAccessProperties_deviceTypeZeroClient' - Indicates whether users can use zero client devices to access their
+-- 'deviceTypeAndroid', 'workspaceAccessProperties_deviceTypeAndroid' - Indicates whether users can use Android devices to access their
 -- WorkSpaces.
 --
 -- 'deviceTypeWeb', 'workspaceAccessProperties_deviceTypeWeb' - Indicates whether users can access their WorkSpaces through a web
@@ -96,9 +102,10 @@ newWorkspaceAccessProperties =
   WorkspaceAccessProperties'
     { deviceTypeOsx =
         Prelude.Nothing,
+      deviceTypeLinux = Prelude.Nothing,
       deviceTypeWindows = Prelude.Nothing,
-      deviceTypeAndroid = Prelude.Nothing,
       deviceTypeZeroClient = Prelude.Nothing,
+      deviceTypeAndroid = Prelude.Nothing,
       deviceTypeWeb = Prelude.Nothing,
       deviceTypeIos = Prelude.Nothing,
       deviceTypeChromeOs = Prelude.Nothing
@@ -112,6 +119,11 @@ newWorkspaceAccessProperties =
 workspaceAccessProperties_deviceTypeOsx :: Lens.Lens' WorkspaceAccessProperties (Prelude.Maybe AccessPropertyValue)
 workspaceAccessProperties_deviceTypeOsx = Lens.lens (\WorkspaceAccessProperties' {deviceTypeOsx} -> deviceTypeOsx) (\s@WorkspaceAccessProperties' {} a -> s {deviceTypeOsx = a} :: WorkspaceAccessProperties)
 
+-- | Indicates whether users can use Linux clients to access their
+-- WorkSpaces.
+workspaceAccessProperties_deviceTypeLinux :: Lens.Lens' WorkspaceAccessProperties (Prelude.Maybe AccessPropertyValue)
+workspaceAccessProperties_deviceTypeLinux = Lens.lens (\WorkspaceAccessProperties' {deviceTypeLinux} -> deviceTypeLinux) (\s@WorkspaceAccessProperties' {} a -> s {deviceTypeLinux = a} :: WorkspaceAccessProperties)
+
 -- | Indicates whether users can use Windows clients to access their
 -- WorkSpaces. To restrict WorkSpaces access to trusted devices (also known
 -- as managed devices) with valid certificates, specify a value of @TRUST@.
@@ -120,15 +132,15 @@ workspaceAccessProperties_deviceTypeOsx = Lens.lens (\WorkspaceAccessProperties'
 workspaceAccessProperties_deviceTypeWindows :: Lens.Lens' WorkspaceAccessProperties (Prelude.Maybe AccessPropertyValue)
 workspaceAccessProperties_deviceTypeWindows = Lens.lens (\WorkspaceAccessProperties' {deviceTypeWindows} -> deviceTypeWindows) (\s@WorkspaceAccessProperties' {} a -> s {deviceTypeWindows = a} :: WorkspaceAccessProperties)
 
--- | Indicates whether users can use Android devices to access their
--- WorkSpaces.
-workspaceAccessProperties_deviceTypeAndroid :: Lens.Lens' WorkspaceAccessProperties (Prelude.Maybe AccessPropertyValue)
-workspaceAccessProperties_deviceTypeAndroid = Lens.lens (\WorkspaceAccessProperties' {deviceTypeAndroid} -> deviceTypeAndroid) (\s@WorkspaceAccessProperties' {} a -> s {deviceTypeAndroid = a} :: WorkspaceAccessProperties)
-
 -- | Indicates whether users can use zero client devices to access their
 -- WorkSpaces.
 workspaceAccessProperties_deviceTypeZeroClient :: Lens.Lens' WorkspaceAccessProperties (Prelude.Maybe AccessPropertyValue)
 workspaceAccessProperties_deviceTypeZeroClient = Lens.lens (\WorkspaceAccessProperties' {deviceTypeZeroClient} -> deviceTypeZeroClient) (\s@WorkspaceAccessProperties' {} a -> s {deviceTypeZeroClient = a} :: WorkspaceAccessProperties)
+
+-- | Indicates whether users can use Android devices to access their
+-- WorkSpaces.
+workspaceAccessProperties_deviceTypeAndroid :: Lens.Lens' WorkspaceAccessProperties (Prelude.Maybe AccessPropertyValue)
+workspaceAccessProperties_deviceTypeAndroid = Lens.lens (\WorkspaceAccessProperties' {deviceTypeAndroid} -> deviceTypeAndroid) (\s@WorkspaceAccessProperties' {} a -> s {deviceTypeAndroid = a} :: WorkspaceAccessProperties)
 
 -- | Indicates whether users can access their WorkSpaces through a web
 -- browser.
@@ -150,9 +162,10 @@ instance Core.FromJSON WorkspaceAccessProperties where
       ( \x ->
           WorkspaceAccessProperties'
             Prelude.<$> (x Core..:? "DeviceTypeOsx")
+            Prelude.<*> (x Core..:? "DeviceTypeLinux")
             Prelude.<*> (x Core..:? "DeviceTypeWindows")
-            Prelude.<*> (x Core..:? "DeviceTypeAndroid")
             Prelude.<*> (x Core..:? "DeviceTypeZeroClient")
+            Prelude.<*> (x Core..:? "DeviceTypeAndroid")
             Prelude.<*> (x Core..:? "DeviceTypeWeb")
             Prelude.<*> (x Core..:? "DeviceTypeIos")
             Prelude.<*> (x Core..:? "DeviceTypeChromeOs")
@@ -167,12 +180,14 @@ instance Core.ToJSON WorkspaceAccessProperties where
     Core.object
       ( Prelude.catMaybes
           [ ("DeviceTypeOsx" Core..=) Prelude.<$> deviceTypeOsx,
+            ("DeviceTypeLinux" Core..=)
+              Prelude.<$> deviceTypeLinux,
             ("DeviceTypeWindows" Core..=)
               Prelude.<$> deviceTypeWindows,
-            ("DeviceTypeAndroid" Core..=)
-              Prelude.<$> deviceTypeAndroid,
             ("DeviceTypeZeroClient" Core..=)
               Prelude.<$> deviceTypeZeroClient,
+            ("DeviceTypeAndroid" Core..=)
+              Prelude.<$> deviceTypeAndroid,
             ("DeviceTypeWeb" Core..=) Prelude.<$> deviceTypeWeb,
             ("DeviceTypeIos" Core..=) Prelude.<$> deviceTypeIos,
             ("DeviceTypeChromeOs" Core..=)

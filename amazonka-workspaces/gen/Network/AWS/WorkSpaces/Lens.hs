@@ -14,32 +14,6 @@
 module Network.AWS.WorkSpaces.Lens
   ( -- * Operations
 
-    -- ** DescribeWorkspaceDirectories
-    describeWorkspaceDirectories_nextToken,
-    describeWorkspaceDirectories_directoryIds,
-    describeWorkspaceDirectories_limit,
-    describeWorkspaceDirectoriesResponse_nextToken,
-    describeWorkspaceDirectoriesResponse_directories,
-    describeWorkspaceDirectoriesResponse_httpStatus,
-
-    -- ** TerminateWorkspaces
-    terminateWorkspaces_terminateWorkspaceRequests,
-    terminateWorkspacesResponse_failedRequests,
-    terminateWorkspacesResponse_httpStatus,
-
-    -- ** DisassociateIpGroups
-    disassociateIpGroups_directoryId,
-    disassociateIpGroups_groupIds,
-    disassociateIpGroupsResponse_httpStatus,
-
-    -- ** DescribeWorkspaceBundles
-    describeWorkspaceBundles_nextToken,
-    describeWorkspaceBundles_owner,
-    describeWorkspaceBundles_bundleIds,
-    describeWorkspaceBundlesResponse_nextToken,
-    describeWorkspaceBundlesResponse_bundles,
-    describeWorkspaceBundlesResponse_httpStatus,
-
     -- ** AuthorizeIpRules
     authorizeIpRules_groupId,
     authorizeIpRules_userRules,
@@ -55,9 +29,35 @@ module Network.AWS.WorkSpaces.Lens
     importWorkspaceImageResponse_imageId,
     importWorkspaceImageResponse_httpStatus,
 
+    -- ** DescribeWorkspaceDirectories
+    describeWorkspaceDirectories_nextToken,
+    describeWorkspaceDirectories_directoryIds,
+    describeWorkspaceDirectories_limit,
+    describeWorkspaceDirectoriesResponse_nextToken,
+    describeWorkspaceDirectoriesResponse_directories,
+    describeWorkspaceDirectoriesResponse_httpStatus,
+
+    -- ** DescribeWorkspaceBundles
+    describeWorkspaceBundles_nextToken,
+    describeWorkspaceBundles_owner,
+    describeWorkspaceBundles_bundleIds,
+    describeWorkspaceBundlesResponse_nextToken,
+    describeWorkspaceBundlesResponse_bundles,
+    describeWorkspaceBundlesResponse_httpStatus,
+
     -- ** DeleteIpGroup
     deleteIpGroup_groupId,
     deleteIpGroupResponse_httpStatus,
+
+    -- ** TerminateWorkspaces
+    terminateWorkspaces_terminateWorkspaceRequests,
+    terminateWorkspacesResponse_failedRequests,
+    terminateWorkspacesResponse_httpStatus,
+
+    -- ** DisassociateIpGroups
+    disassociateIpGroups_directoryId,
+    disassociateIpGroups_groupIds,
+    disassociateIpGroupsResponse_httpStatus,
 
     -- ** DeregisterWorkspaceDirectory
     deregisterWorkspaceDirectory_directoryId,
@@ -68,11 +68,6 @@ module Network.AWS.WorkSpaces.Lens
     associateConnectionAlias_resourceId,
     associateConnectionAliasResponse_connectionIdentifier,
     associateConnectionAliasResponse_httpStatus,
-
-    -- ** DescribeTags
-    describeTags_resourceId,
-    describeTagsResponse_tagList,
-    describeTagsResponse_httpStatus,
 
     -- ** CreateConnectionAlias
     createConnectionAlias_tags,
@@ -87,10 +82,15 @@ module Network.AWS.WorkSpaces.Lens
     migrateWorkspaceResponse_sourceWorkspaceId,
     migrateWorkspaceResponse_httpStatus,
 
-    -- ** ModifyAccount
-    modifyAccount_dedicatedTenancySupport,
-    modifyAccount_dedicatedTenancyManagementCidrRange,
-    modifyAccountResponse_httpStatus,
+    -- ** DescribeTags
+    describeTags_resourceId,
+    describeTagsResponse_tagList,
+    describeTagsResponse_httpStatus,
+
+    -- ** ModifySelfservicePermissions
+    modifySelfservicePermissions_resourceId,
+    modifySelfservicePermissions_selfservicePermissions,
+    modifySelfservicePermissionsResponse_httpStatus,
 
     -- ** DescribeWorkspacesConnectionStatus
     describeWorkspacesConnectionStatus_nextToken,
@@ -99,15 +99,10 @@ module Network.AWS.WorkSpaces.Lens
     describeWorkspacesConnectionStatusResponse_workspacesConnectionStatus,
     describeWorkspacesConnectionStatusResponse_httpStatus,
 
-    -- ** ModifySelfservicePermissions
-    modifySelfservicePermissions_resourceId,
-    modifySelfservicePermissions_selfservicePermissions,
-    modifySelfservicePermissionsResponse_httpStatus,
-
-    -- ** UpdateRulesOfIpGroup
-    updateRulesOfIpGroup_groupId,
-    updateRulesOfIpGroup_userRules,
-    updateRulesOfIpGroupResponse_httpStatus,
+    -- ** ModifyAccount
+    modifyAccount_dedicatedTenancySupport,
+    modifyAccount_dedicatedTenancyManagementCidrRange,
+    modifyAccountResponse_httpStatus,
 
     -- ** DescribeConnectionAliases
     describeConnectionAliases_resourceId,
@@ -122,6 +117,20 @@ module Network.AWS.WorkSpaces.Lens
     deleteWorkspaceImage_imageId,
     deleteWorkspaceImageResponse_httpStatus,
 
+    -- ** UpdateRulesOfIpGroup
+    updateRulesOfIpGroup_groupId,
+    updateRulesOfIpGroup_userRules,
+    updateRulesOfIpGroupResponse_httpStatus,
+
+    -- ** UpdateWorkspaceBundle
+    updateWorkspaceBundle_bundleId,
+    updateWorkspaceBundle_imageId,
+    updateWorkspaceBundleResponse_httpStatus,
+
+    -- ** DeleteWorkspaceBundle
+    deleteWorkspaceBundle_bundleId,
+    deleteWorkspaceBundleResponse_httpStatus,
+
     -- ** DeleteTags
     deleteTags_resourceId,
     deleteTags_tagKeys,
@@ -135,15 +144,26 @@ module Network.AWS.WorkSpaces.Lens
     listAvailableManagementCidrRangesResponse_managementCidrRanges,
     listAvailableManagementCidrRangesResponse_httpStatus,
 
-    -- ** ModifyWorkspaceCreationProperties
-    modifyWorkspaceCreationProperties_resourceId,
-    modifyWorkspaceCreationProperties_workspaceCreationProperties,
-    modifyWorkspaceCreationPropertiesResponse_httpStatus,
-
     -- ** DescribeClientProperties
     describeClientProperties_resourceIds,
     describeClientPropertiesResponse_clientPropertiesList,
     describeClientPropertiesResponse_httpStatus,
+
+    -- ** CreateWorkspaceBundle
+    createWorkspaceBundle_rootStorage,
+    createWorkspaceBundle_tags,
+    createWorkspaceBundle_bundleName,
+    createWorkspaceBundle_bundleDescription,
+    createWorkspaceBundle_imageId,
+    createWorkspaceBundle_computeType,
+    createWorkspaceBundle_userStorage,
+    createWorkspaceBundleResponse_workspaceBundle,
+    createWorkspaceBundleResponse_httpStatus,
+
+    -- ** ModifyWorkspaceCreationProperties
+    modifyWorkspaceCreationProperties_resourceId,
+    modifyWorkspaceCreationProperties_workspaceCreationProperties,
+    modifyWorkspaceCreationPropertiesResponse_httpStatus,
 
     -- ** ModifyWorkspaceState
     modifyWorkspaceState_workspaceId,
@@ -164,6 +184,17 @@ module Network.AWS.WorkSpaces.Lens
     copyWorkspaceImageResponse_imageId,
     copyWorkspaceImageResponse_httpStatus,
 
+    -- ** RebuildWorkspaces
+    rebuildWorkspaces_rebuildWorkspaceRequests,
+    rebuildWorkspacesResponse_failedRequests,
+    rebuildWorkspacesResponse_httpStatus,
+
+    -- ** DescribeWorkspaceSnapshots
+    describeWorkspaceSnapshots_workspaceId,
+    describeWorkspaceSnapshotsResponse_rebuildSnapshots,
+    describeWorkspaceSnapshotsResponse_restoreSnapshots,
+    describeWorkspaceSnapshotsResponse_httpStatus,
+
     -- ** DescribeWorkspaceImagePermissions
     describeWorkspaceImagePermissions_nextToken,
     describeWorkspaceImagePermissions_maxResults,
@@ -173,36 +204,25 @@ module Network.AWS.WorkSpaces.Lens
     describeWorkspaceImagePermissionsResponse_imageId,
     describeWorkspaceImagePermissionsResponse_httpStatus,
 
-    -- ** RebuildWorkspaces
-    rebuildWorkspaces_rebuildWorkspaceRequests,
-    rebuildWorkspacesResponse_failedRequests,
-    rebuildWorkspacesResponse_httpStatus,
-
     -- ** RebootWorkspaces
     rebootWorkspaces_rebootWorkspaceRequests,
     rebootWorkspacesResponse_failedRequests,
     rebootWorkspacesResponse_httpStatus,
-
-    -- ** DescribeWorkspaceSnapshots
-    describeWorkspaceSnapshots_workspaceId,
-    describeWorkspaceSnapshotsResponse_rebuildSnapshots,
-    describeWorkspaceSnapshotsResponse_restoreSnapshots,
-    describeWorkspaceSnapshotsResponse_httpStatus,
 
     -- ** DescribeAccount
     describeAccountResponse_dedicatedTenancySupport,
     describeAccountResponse_dedicatedTenancyManagementCidrRange,
     describeAccountResponse_httpStatus,
 
-    -- ** ModifyWorkspaceProperties
-    modifyWorkspaceProperties_workspaceId,
-    modifyWorkspaceProperties_workspaceProperties,
-    modifyWorkspacePropertiesResponse_httpStatus,
-
     -- ** RevokeIpRules
     revokeIpRules_groupId,
     revokeIpRules_userRules,
     revokeIpRulesResponse_httpStatus,
+
+    -- ** ModifyWorkspaceProperties
+    modifyWorkspaceProperties_workspaceId,
+    modifyWorkspaceProperties_workspaceProperties,
+    modifyWorkspacePropertiesResponse_httpStatus,
 
     -- ** DescribeWorkspaceImages
     describeWorkspaceImages_imageType,
@@ -219,24 +239,24 @@ module Network.AWS.WorkSpaces.Lens
     describeAccountModificationsResponse_accountModifications,
     describeAccountModificationsResponse_httpStatus,
 
-    -- ** DeleteConnectionAlias
-    deleteConnectionAlias_aliasId,
-    deleteConnectionAliasResponse_httpStatus,
-
     -- ** AssociateIpGroups
     associateIpGroups_directoryId,
     associateIpGroups_groupIds,
     associateIpGroupsResponse_httpStatus,
 
-    -- ** StopWorkspaces
-    stopWorkspaces_stopWorkspaceRequests,
-    stopWorkspacesResponse_failedRequests,
-    stopWorkspacesResponse_httpStatus,
+    -- ** DeleteConnectionAlias
+    deleteConnectionAlias_aliasId,
+    deleteConnectionAliasResponse_httpStatus,
 
     -- ** StartWorkspaces
     startWorkspaces_startWorkspaceRequests,
     startWorkspacesResponse_failedRequests,
     startWorkspacesResponse_httpStatus,
+
+    -- ** StopWorkspaces
+    stopWorkspaces_stopWorkspaceRequests,
+    stopWorkspacesResponse_failedRequests,
+    stopWorkspacesResponse_httpStatus,
 
     -- ** DescribeWorkspaces
     describeWorkspaces_nextToken,
@@ -249,21 +269,16 @@ module Network.AWS.WorkSpaces.Lens
     describeWorkspacesResponse_workspaces,
     describeWorkspacesResponse_httpStatus,
 
-    -- ** UpdateWorkspaceImagePermission
-    updateWorkspaceImagePermission_imageId,
-    updateWorkspaceImagePermission_allowCopyImage,
-    updateWorkspaceImagePermission_sharedAccountId,
-    updateWorkspaceImagePermissionResponse_httpStatus,
-
     -- ** ModifyClientProperties
     modifyClientProperties_resourceId,
     modifyClientProperties_clientProperties,
     modifyClientPropertiesResponse_httpStatus,
 
-    -- ** ModifyWorkspaceAccessProperties
-    modifyWorkspaceAccessProperties_resourceId,
-    modifyWorkspaceAccessProperties_workspaceAccessProperties,
-    modifyWorkspaceAccessPropertiesResponse_httpStatus,
+    -- ** UpdateWorkspaceImagePermission
+    updateWorkspaceImagePermission_imageId,
+    updateWorkspaceImagePermission_allowCopyImage,
+    updateWorkspaceImagePermission_sharedAccountId,
+    updateWorkspaceImagePermissionResponse_httpStatus,
 
     -- ** DescribeIpGroups
     describeIpGroups_nextToken,
@@ -273,9 +288,23 @@ module Network.AWS.WorkSpaces.Lens
     describeIpGroupsResponse_result,
     describeIpGroupsResponse_httpStatus,
 
+    -- ** ModifyWorkspaceAccessProperties
+    modifyWorkspaceAccessProperties_resourceId,
+    modifyWorkspaceAccessProperties_workspaceAccessProperties,
+    modifyWorkspaceAccessPropertiesResponse_httpStatus,
+
     -- ** RestoreWorkspace
     restoreWorkspace_workspaceId,
     restoreWorkspaceResponse_httpStatus,
+
+    -- ** RegisterWorkspaceDirectory
+    registerWorkspaceDirectory_subnetIds,
+    registerWorkspaceDirectory_tenancy,
+    registerWorkspaceDirectory_tags,
+    registerWorkspaceDirectory_enableSelfService,
+    registerWorkspaceDirectory_directoryId,
+    registerWorkspaceDirectory_enableWorkDocs,
+    registerWorkspaceDirectoryResponse_httpStatus,
 
     -- ** CreateTags
     createTags_resourceId,
@@ -291,21 +320,6 @@ module Network.AWS.WorkSpaces.Lens
     describeConnectionAliasPermissionsResponse_connectionAliasPermissions,
     describeConnectionAliasPermissionsResponse_httpStatus,
 
-    -- ** RegisterWorkspaceDirectory
-    registerWorkspaceDirectory_subnetIds,
-    registerWorkspaceDirectory_tenancy,
-    registerWorkspaceDirectory_tags,
-    registerWorkspaceDirectory_enableSelfService,
-    registerWorkspaceDirectory_directoryId,
-    registerWorkspaceDirectory_enableWorkDocs,
-    registerWorkspaceDirectoryResponse_httpStatus,
-
-    -- ** CreateWorkspaces
-    createWorkspaces_workspaces,
-    createWorkspacesResponse_failedRequests,
-    createWorkspacesResponse_pendingRequests,
-    createWorkspacesResponse_httpStatus,
-
     -- ** CreateIpGroup
     createIpGroup_userRules,
     createIpGroup_groupDesc,
@@ -318,13 +332,19 @@ module Network.AWS.WorkSpaces.Lens
     disassociateConnectionAlias_aliasId,
     disassociateConnectionAliasResponse_httpStatus,
 
+    -- ** CreateWorkspaces
+    createWorkspaces_workspaces,
+    createWorkspacesResponse_failedRequests,
+    createWorkspacesResponse_pendingRequests,
+    createWorkspacesResponse_httpStatus,
+
     -- * Types
 
     -- ** AccountModification
     accountModification_dedicatedTenancySupport,
     accountModification_startTime,
-    accountModification_dedicatedTenancyManagementCidrRange,
     accountModification_modificationState,
+    accountModification_dedicatedTenancyManagementCidrRange,
     accountModification_errorMessage,
     accountModification_errorCode,
 
@@ -340,8 +360,8 @@ module Network.AWS.WorkSpaces.Lens
 
     -- ** ConnectionAlias
     connectionAlias_state,
-    connectionAlias_aliasId,
     connectionAlias_connectionString,
+    connectionAlias_aliasId,
     connectionAlias_ownerAccountId,
     connectionAlias_associations,
 
@@ -430,8 +450,8 @@ module Network.AWS.WorkSpaces.Lens
     workspace_volumeEncryptionKey,
     workspace_workspaceId,
     workspace_modificationStates,
-    workspace_ipAddress,
     workspace_state,
+    workspace_ipAddress,
     workspace_directoryId,
     workspace_userName,
     workspace_subnetId,
@@ -441,15 +461,17 @@ module Network.AWS.WorkSpaces.Lens
 
     -- ** WorkspaceAccessProperties
     workspaceAccessProperties_deviceTypeOsx,
+    workspaceAccessProperties_deviceTypeLinux,
     workspaceAccessProperties_deviceTypeWindows,
-    workspaceAccessProperties_deviceTypeAndroid,
     workspaceAccessProperties_deviceTypeZeroClient,
+    workspaceAccessProperties_deviceTypeAndroid,
     workspaceAccessProperties_deviceTypeWeb,
     workspaceAccessProperties_deviceTypeIos,
     workspaceAccessProperties_deviceTypeChromeOs,
 
     -- ** WorkspaceBundle
     workspaceBundle_rootStorage,
+    workspaceBundle_creationTime,
     workspaceBundle_bundleId,
     workspaceBundle_userStorage,
     workspaceBundle_imageId,
@@ -477,29 +499,29 @@ module Network.AWS.WorkSpaces.Lens
     workspaceDirectory_registrationCode,
     workspaceDirectory_workspaceSecurityGroupId,
     workspaceDirectory_alias,
-    workspaceDirectory_ipGroupIds,
     workspaceDirectory_workspaceAccessProperties,
+    workspaceDirectory_ipGroupIds,
     workspaceDirectory_subnetIds,
-    workspaceDirectory_tenancy,
     workspaceDirectory_customerUserName,
+    workspaceDirectory_tenancy,
     workspaceDirectory_state,
-    workspaceDirectory_iamRoleId,
     workspaceDirectory_directoryId,
-    workspaceDirectory_selfservicePermissions,
+    workspaceDirectory_iamRoleId,
     workspaceDirectory_directoryType,
+    workspaceDirectory_selfservicePermissions,
     workspaceDirectory_directoryName,
     workspaceDirectory_dnsIpAddresses,
     workspaceDirectory_workspaceCreationProperties,
 
     -- ** WorkspaceImage
     workspaceImage_imageId,
-    workspaceImage_state,
     workspaceImage_name,
+    workspaceImage_state,
     workspaceImage_description,
-    workspaceImage_errorMessage,
     workspaceImage_requiredTenancy,
-    workspaceImage_operatingSystem,
+    workspaceImage_errorMessage,
     workspaceImage_created,
+    workspaceImage_operatingSystem,
     workspaceImage_ownerAccountId,
     workspaceImage_errorCode,
 
@@ -535,10 +557,12 @@ import Network.AWS.WorkSpaces.CopyWorkspaceImage
 import Network.AWS.WorkSpaces.CreateConnectionAlias
 import Network.AWS.WorkSpaces.CreateIpGroup
 import Network.AWS.WorkSpaces.CreateTags
+import Network.AWS.WorkSpaces.CreateWorkspaceBundle
 import Network.AWS.WorkSpaces.CreateWorkspaces
 import Network.AWS.WorkSpaces.DeleteConnectionAlias
 import Network.AWS.WorkSpaces.DeleteIpGroup
 import Network.AWS.WorkSpaces.DeleteTags
+import Network.AWS.WorkSpaces.DeleteWorkspaceBundle
 import Network.AWS.WorkSpaces.DeleteWorkspaceImage
 import Network.AWS.WorkSpaces.DeregisterWorkspaceDirectory
 import Network.AWS.WorkSpaces.DescribeAccount
@@ -611,4 +635,5 @@ import Network.AWS.WorkSpaces.Types.WorkspaceRequest
 import Network.AWS.WorkSpaces.Types.WorkspacesIpGroup
 import Network.AWS.WorkSpaces.UpdateConnectionAliasPermission
 import Network.AWS.WorkSpaces.UpdateRulesOfIpGroup
+import Network.AWS.WorkSpaces.UpdateWorkspaceBundle
 import Network.AWS.WorkSpaces.UpdateWorkspaceImagePermission

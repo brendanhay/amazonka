@@ -24,7 +24,7 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.WorkSpaces.Types.Compute
 
--- | Describes the compute type.
+-- | Describes the compute type of the bundle.
 --
 -- /See:/ 'newComputeType' smart constructor.
 data ComputeType = ComputeType'
@@ -59,3 +59,10 @@ instance Core.FromJSON ComputeType where
 instance Prelude.Hashable ComputeType
 
 instance Prelude.NFData ComputeType
+
+instance Core.ToJSON ComputeType where
+  toJSON ComputeType' {..} =
+    Core.object
+      ( Prelude.catMaybes
+          [("Name" Core..=) Prelude.<$> name]
+      )

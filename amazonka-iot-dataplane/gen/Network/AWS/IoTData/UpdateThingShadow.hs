@@ -116,7 +116,7 @@ instance Core.AWSRequest UpdateThingShadow where
     Response.receiveBytes
       ( \s h x ->
           UpdateThingShadowResponse'
-            Prelude.<$> (Prelude.pure (Prelude.Just x))
+            Prelude.<$> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 

@@ -126,7 +126,7 @@ instance Core.ToQuery GetRetainedMessage where
 -- /See:/ 'newGetRetainedMessageResponse' smart constructor.
 data GetRetainedMessageResponse = GetRetainedMessageResponse'
   { -- | The Base64-encoded message payload of the retained message body.
-    payload :: Prelude.Maybe Prelude.ByteString,
+    payload :: Prelude.Maybe Core.Base64,
     -- | The topic name to which the retained message was published.
     topic :: Prelude.Maybe Prelude.Text,
     -- | The Epoch date and time, in milliseconds, when the retained message was
@@ -137,7 +137,7 @@ data GetRetainedMessageResponse = GetRetainedMessageResponse'
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
-  deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
 -- |
 -- Create a value of 'GetRetainedMessageResponse' with all optional fields omitted.
@@ -147,7 +147,11 @@ data GetRetainedMessageResponse = GetRetainedMessageResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'payload', 'getRetainedMessageResponse_payload' - The Base64-encoded message payload of the retained message body.
+-- 'payload', 'getRetainedMessageResponse_payload' - The Base64-encoded message payload of the retained message body.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- 'topic', 'getRetainedMessageResponse_topic' - The topic name to which the retained message was published.
 --
@@ -171,9 +175,13 @@ newGetRetainedMessageResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | The Base64-encoded message payload of the retained message body.
+-- | The Base64-encoded message payload of the retained message body.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
 getRetainedMessageResponse_payload :: Lens.Lens' GetRetainedMessageResponse (Prelude.Maybe Prelude.ByteString)
-getRetainedMessageResponse_payload = Lens.lens (\GetRetainedMessageResponse' {payload} -> payload) (\s@GetRetainedMessageResponse' {} a -> s {payload = a} :: GetRetainedMessageResponse)
+getRetainedMessageResponse_payload = Lens.lens (\GetRetainedMessageResponse' {payload} -> payload) (\s@GetRetainedMessageResponse' {} a -> s {payload = a} :: GetRetainedMessageResponse) Prelude.. Lens.mapping Core._Base64
 
 -- | The topic name to which the retained message was published.
 getRetainedMessageResponse_topic :: Lens.Lens' GetRetainedMessageResponse (Prelude.Maybe Prelude.Text)

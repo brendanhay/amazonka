@@ -104,7 +104,7 @@ instance Core.AWSRequest GetThingShadow where
     Response.receiveBytes
       ( \s h x ->
           GetThingShadowResponse'
-            Prelude.<$> (Prelude.pure (Prelude.Just x))
+            Prelude.<$> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 

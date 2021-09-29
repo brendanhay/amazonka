@@ -47,6 +47,7 @@ library
   exposed-modules:
     Network.AWS.SageMakerRuntime
     Network.AWS.SageMakerRuntime.InvokeEndpoint
+    Network.AWS.SageMakerRuntime.InvokeEndpointAsync
     Network.AWS.SageMakerRuntime.Lens
     Network.AWS.SageMakerRuntime.Types
     Network.AWS.SageMakerRuntime.Waiters

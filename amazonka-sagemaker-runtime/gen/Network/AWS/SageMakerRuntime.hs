@@ -19,11 +19,11 @@ module Network.AWS.SageMakerRuntime
     -- * Errors
     -- $errors
 
-    -- ** ServiceUnavailable
-    _ServiceUnavailable,
-
     -- ** ModelError
     _ModelError,
+
+    -- ** ServiceUnavailable
+    _ServiceUnavailable,
 
     -- ** InternalFailure
     _InternalFailure,
@@ -43,11 +43,18 @@ module Network.AWS.SageMakerRuntime
     InvokeEndpointResponse (InvokeEndpointResponse'),
     newInvokeEndpointResponse,
 
+    -- ** InvokeEndpointAsync
+    InvokeEndpointAsync (InvokeEndpointAsync'),
+    newInvokeEndpointAsync,
+    InvokeEndpointAsyncResponse (InvokeEndpointAsyncResponse'),
+    newInvokeEndpointAsyncResponse,
+
     -- * Types
   )
 where
 
 import Network.AWS.SageMakerRuntime.InvokeEndpoint
+import Network.AWS.SageMakerRuntime.InvokeEndpointAsync
 import Network.AWS.SageMakerRuntime.Lens
 import Network.AWS.SageMakerRuntime.Types
 import Network.AWS.SageMakerRuntime.Waiters

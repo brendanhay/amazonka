@@ -20,8 +20,8 @@ module Network.AWS.SageMakerRuntime.Lens
     invokeEndpoint_targetModel,
     invokeEndpoint_accept,
     invokeEndpoint_customAttributes,
-    invokeEndpoint_inferenceId,
     invokeEndpoint_targetVariant,
+    invokeEndpoint_inferenceId,
     invokeEndpoint_endpointName,
     invokeEndpoint_body,
     invokeEndpointResponse_contentType,
@@ -30,8 +30,21 @@ module Network.AWS.SageMakerRuntime.Lens
     invokeEndpointResponse_httpStatus,
     invokeEndpointResponse_body,
 
+    -- ** InvokeEndpointAsync
+    invokeEndpointAsync_contentType,
+    invokeEndpointAsync_accept,
+    invokeEndpointAsync_customAttributes,
+    invokeEndpointAsync_requestTTLSeconds,
+    invokeEndpointAsync_inferenceId,
+    invokeEndpointAsync_endpointName,
+    invokeEndpointAsync_inputLocation,
+    invokeEndpointAsyncResponse_inferenceId,
+    invokeEndpointAsyncResponse_outputLocation,
+    invokeEndpointAsyncResponse_httpStatus,
+
     -- * Types
   )
 where
 
 import Network.AWS.SageMakerRuntime.InvokeEndpoint
+import Network.AWS.SageMakerRuntime.InvokeEndpointAsync

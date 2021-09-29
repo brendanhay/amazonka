@@ -30,15 +30,35 @@ import Test.Tasty
 --         [ requestInvokeEndpoint $
 --             newInvokeEndpoint
 --
+--         , requestInvokeEndpointAsync $
+--             newInvokeEndpointAsync
+--
 --           ]
 
 --     , testGroup "response"
 --         [ responseInvokeEndpoint $
 --             newInvokeEndpointResponse
 --
+--         , responseInvokeEndpointAsync $
+--             newInvokeEndpointAsyncResponse
+--
 --           ]
 --     ]
 
 -- Requests
 
+requestInvokeEndpointAsync :: InvokeEndpointAsync -> TestTree
+requestInvokeEndpointAsync =
+  req
+    "InvokeEndpointAsync"
+    "fixture/InvokeEndpointAsync.yaml"
+
 -- Responses
+
+responseInvokeEndpointAsync :: InvokeEndpointAsyncResponse -> TestTree
+responseInvokeEndpointAsync =
+  res
+    "InvokeEndpointAsyncResponse"
+    "fixture/InvokeEndpointAsyncResponse.proto"
+    defaultService
+    (Proxy :: Proxy InvokeEndpointAsync)

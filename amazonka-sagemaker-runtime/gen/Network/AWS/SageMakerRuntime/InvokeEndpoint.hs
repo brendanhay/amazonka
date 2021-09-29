@@ -57,8 +57,8 @@ module Network.AWS.SageMakerRuntime.InvokeEndpoint
     invokeEndpoint_targetModel,
     invokeEndpoint_accept,
     invokeEndpoint_customAttributes,
-    invokeEndpoint_inferenceId,
     invokeEndpoint_targetVariant,
+    invokeEndpoint_inferenceId,
     invokeEndpoint_endpointName,
     invokeEndpoint_body,
 
@@ -113,10 +113,6 @@ data InvokeEndpoint = InvokeEndpoint'
     -- This feature is currently supported in the AWS SDKs but not in the
     -- Amazon SageMaker Python SDK.
     customAttributes :: Prelude.Maybe (Core.Sensitive Prelude.Text),
-    -- | If you provide a value, it is added to the captured data when you enable
-    -- data capture on the endpoint. For information about data capture, see
-    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html Capture Data>.
-    inferenceId :: Prelude.Maybe Prelude.Text,
     -- | Specify the production variant to send the inference request to when
     -- invoking an endpoint that is running two or more variants. Note that
     -- this parameter overrides the default behavior for the endpoint, which is
@@ -126,6 +122,10 @@ data InvokeEndpoint = InvokeEndpoint'
     -- testing, see
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-ab-testing.html Test models in production>
     targetVariant :: Prelude.Maybe Prelude.Text,
+    -- | If you provide a value, it is added to the captured data when you enable
+    -- data capture on the endpoint. For information about data capture, see
+    -- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html Capture Data>.
+    inferenceId :: Prelude.Maybe Prelude.Text,
     -- | The name of the endpoint that you specified when you created the
     -- endpoint using the
     -- <https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html CreateEndpoint>
@@ -178,10 +178,6 @@ data InvokeEndpoint = InvokeEndpoint'
 -- This feature is currently supported in the AWS SDKs but not in the
 -- Amazon SageMaker Python SDK.
 --
--- 'inferenceId', 'invokeEndpoint_inferenceId' - If you provide a value, it is added to the captured data when you enable
--- data capture on the endpoint. For information about data capture, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html Capture Data>.
---
 -- 'targetVariant', 'invokeEndpoint_targetVariant' - Specify the production variant to send the inference request to when
 -- invoking an endpoint that is running two or more variants. Note that
 -- this parameter overrides the default behavior for the endpoint, which is
@@ -190,6 +186,10 @@ data InvokeEndpoint = InvokeEndpoint'
 -- For information about how to use variant targeting to perform a\/b
 -- testing, see
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-ab-testing.html Test models in production>
+--
+-- 'inferenceId', 'invokeEndpoint_inferenceId' - If you provide a value, it is added to the captured data when you enable
+-- data capture on the endpoint. For information about data capture, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html Capture Data>.
 --
 -- 'endpointName', 'invokeEndpoint_endpointName' - The name of the endpoint that you specified when you created the
 -- endpoint using the
@@ -216,8 +216,8 @@ newInvokeEndpoint pEndpointName_ pBody_ =
       targetModel = Prelude.Nothing,
       accept = Prelude.Nothing,
       customAttributes = Prelude.Nothing,
-      inferenceId = Prelude.Nothing,
       targetVariant = Prelude.Nothing,
+      inferenceId = Prelude.Nothing,
       endpointName = pEndpointName_,
       body = pBody_
     }
@@ -261,12 +261,6 @@ invokeEndpoint_accept = Lens.lens (\InvokeEndpoint' {accept} -> accept) (\s@Invo
 invokeEndpoint_customAttributes :: Lens.Lens' InvokeEndpoint (Prelude.Maybe Prelude.Text)
 invokeEndpoint_customAttributes = Lens.lens (\InvokeEndpoint' {customAttributes} -> customAttributes) (\s@InvokeEndpoint' {} a -> s {customAttributes = a} :: InvokeEndpoint) Prelude.. Lens.mapping Core._Sensitive
 
--- | If you provide a value, it is added to the captured data when you enable
--- data capture on the endpoint. For information about data capture, see
--- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html Capture Data>.
-invokeEndpoint_inferenceId :: Lens.Lens' InvokeEndpoint (Prelude.Maybe Prelude.Text)
-invokeEndpoint_inferenceId = Lens.lens (\InvokeEndpoint' {inferenceId} -> inferenceId) (\s@InvokeEndpoint' {} a -> s {inferenceId = a} :: InvokeEndpoint)
-
 -- | Specify the production variant to send the inference request to when
 -- invoking an endpoint that is running two or more variants. Note that
 -- this parameter overrides the default behavior for the endpoint, which is
@@ -277,6 +271,12 @@ invokeEndpoint_inferenceId = Lens.lens (\InvokeEndpoint' {inferenceId} -> infere
 -- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-ab-testing.html Test models in production>
 invokeEndpoint_targetVariant :: Lens.Lens' InvokeEndpoint (Prelude.Maybe Prelude.Text)
 invokeEndpoint_targetVariant = Lens.lens (\InvokeEndpoint' {targetVariant} -> targetVariant) (\s@InvokeEndpoint' {} a -> s {targetVariant = a} :: InvokeEndpoint)
+
+-- | If you provide a value, it is added to the captured data when you enable
+-- data capture on the endpoint. For information about data capture, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html Capture Data>.
+invokeEndpoint_inferenceId :: Lens.Lens' InvokeEndpoint (Prelude.Maybe Prelude.Text)
+invokeEndpoint_inferenceId = Lens.lens (\InvokeEndpoint' {inferenceId} -> inferenceId) (\s@InvokeEndpoint' {} a -> s {inferenceId = a} :: InvokeEndpoint)
 
 -- | The name of the endpoint that you specified when you created the
 -- endpoint using the
@@ -324,9 +324,9 @@ instance Core.ToHeaders InvokeEndpoint where
         "Accept" Core.=# accept,
         "X-Amzn-SageMaker-Custom-Attributes"
           Core.=# customAttributes,
-        "X-Amzn-SageMaker-Inference-Id" Core.=# inferenceId,
         "X-Amzn-SageMaker-Target-Variant"
-          Core.=# targetVariant
+          Core.=# targetVariant,
+        "X-Amzn-SageMaker-Inference-Id" Core.=# inferenceId
       ]
 
 instance Core.ToJSON InvokeEndpoint where

@@ -34,15 +34,15 @@ module Network.AWS.OpsWorks.UpdateLayer
 
     -- * Request Lenses
     updateLayer_installUpdatesOnBoot,
-    updateLayer_customInstanceProfileArn,
     updateLayer_customSecurityGroupIds,
+    updateLayer_customInstanceProfileArn,
     updateLayer_packages,
     updateLayer_enableAutoHealing,
-    updateLayer_volumeConfigurations,
     updateLayer_customJson,
+    updateLayer_volumeConfigurations,
     updateLayer_shortname,
-    updateLayer_attributes,
     updateLayer_name,
+    updateLayer_attributes,
     updateLayer_cloudWatchLogsConfiguration,
     updateLayer_autoAssignElasticIps,
     updateLayer_useEbsOptimizedInstances,
@@ -76,24 +76,24 @@ data UpdateLayer = UpdateLayer'
     -- We strongly recommend using the default value of @true@, to ensure that
     -- your instances have the latest security updates.
     installUpdatesOnBoot :: Prelude.Maybe Prelude.Bool,
+    -- | An array containing the layer\'s custom security group IDs.
+    customSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | The ARN of an IAM profile to be used for all of the layer\'s EC2
     -- instances. For more information about IAM ARNs, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
     customInstanceProfileArn :: Prelude.Maybe Prelude.Text,
-    -- | An array containing the layer\'s custom security group IDs.
-    customSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
     -- | An array of @Package@ objects that describe the layer\'s packages.
     packages :: Prelude.Maybe [Prelude.Text],
     -- | Whether to disable auto healing for the layer.
     enableAutoHealing :: Prelude.Maybe Prelude.Bool,
-    -- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
-    -- volumes.
-    volumeConfigurations :: Prelude.Maybe [VolumeConfiguration],
     -- | A JSON-formatted string containing custom stack configuration and
     -- deployment attributes to be installed on the layer\'s instances. For
     -- more information, see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Using Custom JSON>.
     customJson :: Prelude.Maybe Prelude.Text,
+    -- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
+    -- volumes.
+    volumeConfigurations :: Prelude.Maybe [VolumeConfiguration],
     -- | For custom layers only, use this parameter to specify the layer\'s short
     -- name, which is used internally by AWS OpsWorks Stacks and by Chef. The
     -- short name is also used as the name for the directory where your app
@@ -104,11 +104,11 @@ data UpdateLayer = UpdateLayer'
     -- For more information, see the
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference>
     shortname :: Prelude.Maybe Prelude.Text,
+    -- | The layer name, which is used by the console.
+    name :: Prelude.Maybe Prelude.Text,
     -- | One or more user-defined key\/value pairs to be added to the stack
     -- attributes.
     attributes :: Prelude.Maybe (Prelude.HashMap LayerAttributesKeys (Prelude.Maybe Prelude.Text)),
-    -- | The layer name, which is used by the console.
-    name :: Prelude.Maybe Prelude.Text,
     -- | Specifies CloudWatch Logs configuration options for the layer. For more
     -- information, see CloudWatchLogsLogStream.
     cloudWatchLogsConfiguration :: Prelude.Maybe CloudWatchLogsConfiguration,
@@ -150,23 +150,23 @@ data UpdateLayer = UpdateLayer'
 -- We strongly recommend using the default value of @true@, to ensure that
 -- your instances have the latest security updates.
 --
+-- 'customSecurityGroupIds', 'updateLayer_customSecurityGroupIds' - An array containing the layer\'s custom security group IDs.
+--
 -- 'customInstanceProfileArn', 'updateLayer_customInstanceProfileArn' - The ARN of an IAM profile to be used for all of the layer\'s EC2
 -- instances. For more information about IAM ARNs, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
---
--- 'customSecurityGroupIds', 'updateLayer_customSecurityGroupIds' - An array containing the layer\'s custom security group IDs.
 --
 -- 'packages', 'updateLayer_packages' - An array of @Package@ objects that describe the layer\'s packages.
 --
 -- 'enableAutoHealing', 'updateLayer_enableAutoHealing' - Whether to disable auto healing for the layer.
 --
--- 'volumeConfigurations', 'updateLayer_volumeConfigurations' - A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
--- volumes.
---
 -- 'customJson', 'updateLayer_customJson' - A JSON-formatted string containing custom stack configuration and
 -- deployment attributes to be installed on the layer\'s instances. For
 -- more information, see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Using Custom JSON>.
+--
+-- 'volumeConfigurations', 'updateLayer_volumeConfigurations' - A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
+-- volumes.
 --
 -- 'shortname', 'updateLayer_shortname' - For custom layers only, use this parameter to specify the layer\'s short
 -- name, which is used internally by AWS OpsWorks Stacks and by Chef. The
@@ -178,10 +178,10 @@ data UpdateLayer = UpdateLayer'
 -- For more information, see the
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference>
 --
+-- 'name', 'updateLayer_name' - The layer name, which is used by the console.
+--
 -- 'attributes', 'updateLayer_attributes' - One or more user-defined key\/value pairs to be added to the stack
 -- attributes.
---
--- 'name', 'updateLayer_name' - The layer name, which is used by the console.
 --
 -- 'cloudWatchLogsConfiguration', 'updateLayer_cloudWatchLogsConfiguration' - Specifies CloudWatch Logs configuration options for the layer. For more
 -- information, see CloudWatchLogsLogStream.
@@ -211,15 +211,15 @@ newUpdateLayer pLayerId_ =
   UpdateLayer'
     { installUpdatesOnBoot =
         Prelude.Nothing,
-      customInstanceProfileArn = Prelude.Nothing,
       customSecurityGroupIds = Prelude.Nothing,
+      customInstanceProfileArn = Prelude.Nothing,
       packages = Prelude.Nothing,
       enableAutoHealing = Prelude.Nothing,
-      volumeConfigurations = Prelude.Nothing,
       customJson = Prelude.Nothing,
+      volumeConfigurations = Prelude.Nothing,
       shortname = Prelude.Nothing,
-      attributes = Prelude.Nothing,
       name = Prelude.Nothing,
+      attributes = Prelude.Nothing,
       cloudWatchLogsConfiguration = Prelude.Nothing,
       autoAssignElasticIps = Prelude.Nothing,
       useEbsOptimizedInstances = Prelude.Nothing,
@@ -241,15 +241,15 @@ newUpdateLayer pLayerId_ =
 updateLayer_installUpdatesOnBoot :: Lens.Lens' UpdateLayer (Prelude.Maybe Prelude.Bool)
 updateLayer_installUpdatesOnBoot = Lens.lens (\UpdateLayer' {installUpdatesOnBoot} -> installUpdatesOnBoot) (\s@UpdateLayer' {} a -> s {installUpdatesOnBoot = a} :: UpdateLayer)
 
+-- | An array containing the layer\'s custom security group IDs.
+updateLayer_customSecurityGroupIds :: Lens.Lens' UpdateLayer (Prelude.Maybe [Prelude.Text])
+updateLayer_customSecurityGroupIds = Lens.lens (\UpdateLayer' {customSecurityGroupIds} -> customSecurityGroupIds) (\s@UpdateLayer' {} a -> s {customSecurityGroupIds = a} :: UpdateLayer) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The ARN of an IAM profile to be used for all of the layer\'s EC2
 -- instances. For more information about IAM ARNs, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
 updateLayer_customInstanceProfileArn :: Lens.Lens' UpdateLayer (Prelude.Maybe Prelude.Text)
 updateLayer_customInstanceProfileArn = Lens.lens (\UpdateLayer' {customInstanceProfileArn} -> customInstanceProfileArn) (\s@UpdateLayer' {} a -> s {customInstanceProfileArn = a} :: UpdateLayer)
-
--- | An array containing the layer\'s custom security group IDs.
-updateLayer_customSecurityGroupIds :: Lens.Lens' UpdateLayer (Prelude.Maybe [Prelude.Text])
-updateLayer_customSecurityGroupIds = Lens.lens (\UpdateLayer' {customSecurityGroupIds} -> customSecurityGroupIds) (\s@UpdateLayer' {} a -> s {customSecurityGroupIds = a} :: UpdateLayer) Prelude.. Lens.mapping Lens._Coerce
 
 -- | An array of @Package@ objects that describe the layer\'s packages.
 updateLayer_packages :: Lens.Lens' UpdateLayer (Prelude.Maybe [Prelude.Text])
@@ -259,17 +259,17 @@ updateLayer_packages = Lens.lens (\UpdateLayer' {packages} -> packages) (\s@Upda
 updateLayer_enableAutoHealing :: Lens.Lens' UpdateLayer (Prelude.Maybe Prelude.Bool)
 updateLayer_enableAutoHealing = Lens.lens (\UpdateLayer' {enableAutoHealing} -> enableAutoHealing) (\s@UpdateLayer' {} a -> s {enableAutoHealing = a} :: UpdateLayer)
 
--- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
--- volumes.
-updateLayer_volumeConfigurations :: Lens.Lens' UpdateLayer (Prelude.Maybe [VolumeConfiguration])
-updateLayer_volumeConfigurations = Lens.lens (\UpdateLayer' {volumeConfigurations} -> volumeConfigurations) (\s@UpdateLayer' {} a -> s {volumeConfigurations = a} :: UpdateLayer) Prelude.. Lens.mapping Lens._Coerce
-
 -- | A JSON-formatted string containing custom stack configuration and
 -- deployment attributes to be installed on the layer\'s instances. For
 -- more information, see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Using Custom JSON>.
 updateLayer_customJson :: Lens.Lens' UpdateLayer (Prelude.Maybe Prelude.Text)
 updateLayer_customJson = Lens.lens (\UpdateLayer' {customJson} -> customJson) (\s@UpdateLayer' {} a -> s {customJson = a} :: UpdateLayer)
+
+-- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
+-- volumes.
+updateLayer_volumeConfigurations :: Lens.Lens' UpdateLayer (Prelude.Maybe [VolumeConfiguration])
+updateLayer_volumeConfigurations = Lens.lens (\UpdateLayer' {volumeConfigurations} -> volumeConfigurations) (\s@UpdateLayer' {} a -> s {volumeConfigurations = a} :: UpdateLayer) Prelude.. Lens.mapping Lens._Coerce
 
 -- | For custom layers only, use this parameter to specify the layer\'s short
 -- name, which is used internally by AWS OpsWorks Stacks and by Chef. The
@@ -283,14 +283,14 @@ updateLayer_customJson = Lens.lens (\UpdateLayer' {customJson} -> customJson) (\
 updateLayer_shortname :: Lens.Lens' UpdateLayer (Prelude.Maybe Prelude.Text)
 updateLayer_shortname = Lens.lens (\UpdateLayer' {shortname} -> shortname) (\s@UpdateLayer' {} a -> s {shortname = a} :: UpdateLayer)
 
+-- | The layer name, which is used by the console.
+updateLayer_name :: Lens.Lens' UpdateLayer (Prelude.Maybe Prelude.Text)
+updateLayer_name = Lens.lens (\UpdateLayer' {name} -> name) (\s@UpdateLayer' {} a -> s {name = a} :: UpdateLayer)
+
 -- | One or more user-defined key\/value pairs to be added to the stack
 -- attributes.
 updateLayer_attributes :: Lens.Lens' UpdateLayer (Prelude.Maybe (Prelude.HashMap LayerAttributesKeys (Prelude.Maybe Prelude.Text)))
 updateLayer_attributes = Lens.lens (\UpdateLayer' {attributes} -> attributes) (\s@UpdateLayer' {} a -> s {attributes = a} :: UpdateLayer) Prelude.. Lens.mapping Lens._Coerce
-
--- | The layer name, which is used by the console.
-updateLayer_name :: Lens.Lens' UpdateLayer (Prelude.Maybe Prelude.Text)
-updateLayer_name = Lens.lens (\UpdateLayer' {name} -> name) (\s@UpdateLayer' {} a -> s {name = a} :: UpdateLayer)
 
 -- | Specifies CloudWatch Logs configuration options for the layer. For more
 -- information, see CloudWatchLogsLogStream.
@@ -357,19 +357,19 @@ instance Core.ToJSON UpdateLayer where
       ( Prelude.catMaybes
           [ ("InstallUpdatesOnBoot" Core..=)
               Prelude.<$> installUpdatesOnBoot,
-            ("CustomInstanceProfileArn" Core..=)
-              Prelude.<$> customInstanceProfileArn,
             ("CustomSecurityGroupIds" Core..=)
               Prelude.<$> customSecurityGroupIds,
+            ("CustomInstanceProfileArn" Core..=)
+              Prelude.<$> customInstanceProfileArn,
             ("Packages" Core..=) Prelude.<$> packages,
             ("EnableAutoHealing" Core..=)
               Prelude.<$> enableAutoHealing,
+            ("CustomJson" Core..=) Prelude.<$> customJson,
             ("VolumeConfigurations" Core..=)
               Prelude.<$> volumeConfigurations,
-            ("CustomJson" Core..=) Prelude.<$> customJson,
             ("Shortname" Core..=) Prelude.<$> shortname,
-            ("Attributes" Core..=) Prelude.<$> attributes,
             ("Name" Core..=) Prelude.<$> name,
+            ("Attributes" Core..=) Prelude.<$> attributes,
             ("CloudWatchLogsConfiguration" Core..=)
               Prelude.<$> cloudWatchLogsConfiguration,
             ("AutoAssignElasticIps" Core..=)

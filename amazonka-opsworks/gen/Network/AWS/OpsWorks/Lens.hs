@@ -14,13 +14,6 @@
 module Network.AWS.OpsWorks.Lens
   ( -- * Operations
 
-    -- ** DescribeInstances
-    describeInstances_instanceIds,
-    describeInstances_stackId,
-    describeInstances_layerId,
-    describeInstancesResponse_instances,
-    describeInstancesResponse_httpStatus,
-
     -- ** DescribeDeployments
     describeDeployments_deploymentIds,
     describeDeployments_appId,
@@ -31,12 +24,20 @@ module Network.AWS.OpsWorks.Lens
     -- ** UpdateMyUserProfile
     updateMyUserProfile_sshPublicKey,
 
-    -- ** DeregisterElasticIp
-    deregisterElasticIp_elasticIp,
+    -- ** DescribeInstances
+    describeInstances_instanceIds,
+    describeInstances_stackId,
+    describeInstances_layerId,
+    describeInstancesResponse_instances,
+    describeInstancesResponse_httpStatus,
 
     -- ** SetTimeBasedAutoScaling
     setTimeBasedAutoScaling_autoScalingSchedule,
     setTimeBasedAutoScaling_instanceId,
+
+    -- ** AttachElasticLoadBalancer
+    attachElasticLoadBalancer_elasticLoadBalancerName,
+    attachElasticLoadBalancer_layerId,
 
     -- ** DescribeRdsDbInstances
     describeRdsDbInstances_rdsDbInstanceArns,
@@ -44,12 +45,8 @@ module Network.AWS.OpsWorks.Lens
     describeRdsDbInstancesResponse_rdsDbInstances,
     describeRdsDbInstancesResponse_httpStatus,
 
-    -- ** AttachElasticLoadBalancer
-    attachElasticLoadBalancer_elasticLoadBalancerName,
-    attachElasticLoadBalancer_layerId,
-
-    -- ** StartInstance
-    startInstance_instanceId,
+    -- ** DeregisterElasticIp
+    deregisterElasticIp_elasticIp,
 
     -- ** SetPermission
     setPermission_allowSudo,
@@ -64,9 +61,8 @@ module Network.AWS.OpsWorks.Lens
     registerVolumeResponse_volumeId,
     registerVolumeResponse_httpStatus,
 
-    -- ** StopInstance
-    stopInstance_force,
-    stopInstance_instanceId,
+    -- ** StartInstance
+    startInstance_instanceId,
 
     -- ** DescribeEcsClusters
     describeEcsClusters_nextToken,
@@ -77,6 +73,20 @@ module Network.AWS.OpsWorks.Lens
     describeEcsClustersResponse_ecsClusters,
     describeEcsClustersResponse_httpStatus,
 
+    -- ** StopInstance
+    stopInstance_force,
+    stopInstance_instanceId,
+
+    -- ** DisassociateElasticIp
+    disassociateElasticIp_elasticIp,
+
+    -- ** DescribeOperatingSystems
+    describeOperatingSystemsResponse_operatingSystems,
+    describeOperatingSystemsResponse_httpStatus,
+
+    -- ** StopStack
+    stopStack_stackId,
+
     -- ** DescribeVolumes
     describeVolumes_instanceId,
     describeVolumes_volumeIds,
@@ -85,24 +95,19 @@ module Network.AWS.OpsWorks.Lens
     describeVolumesResponse_volumes,
     describeVolumesResponse_httpStatus,
 
-    -- ** DescribeOperatingSystems
-    describeOperatingSystemsResponse_operatingSystems,
-    describeOperatingSystemsResponse_httpStatus,
-
-    -- ** DisassociateElasticIp
-    disassociateElasticIp_elasticIp,
-
     -- ** StartStack
     startStack_stackId,
 
-    -- ** StopStack
-    stopStack_stackId,
+    -- ** UpdateUserProfile
+    updateUserProfile_sshUsername,
+    updateUserProfile_allowSelfManagement,
+    updateUserProfile_sshPublicKey,
+    updateUserProfile_iamUserArn,
 
-    -- ** RegisterRdsDbInstance
-    registerRdsDbInstance_stackId,
-    registerRdsDbInstance_rdsDbInstanceArn,
-    registerRdsDbInstance_dbUser,
-    registerRdsDbInstance_dbPassword,
+    -- ** DescribeTimeBasedAutoScaling
+    describeTimeBasedAutoScaling_instanceIds,
+    describeTimeBasedAutoScalingResponse_timeBasedAutoScalingConfigurations,
+    describeTimeBasedAutoScalingResponse_httpStatus,
 
     -- ** DescribeServiceErrors
     describeServiceErrors_instanceId,
@@ -111,16 +116,14 @@ module Network.AWS.OpsWorks.Lens
     describeServiceErrorsResponse_serviceErrors,
     describeServiceErrorsResponse_httpStatus,
 
-    -- ** DescribeTimeBasedAutoScaling
-    describeTimeBasedAutoScaling_instanceIds,
-    describeTimeBasedAutoScalingResponse_timeBasedAutoScalingConfigurations,
-    describeTimeBasedAutoScalingResponse_httpStatus,
+    -- ** RegisterRdsDbInstance
+    registerRdsDbInstance_stackId,
+    registerRdsDbInstance_rdsDbInstanceArn,
+    registerRdsDbInstance_dbUser,
+    registerRdsDbInstance_dbPassword,
 
-    -- ** UpdateUserProfile
-    updateUserProfile_allowSelfManagement,
-    updateUserProfile_sshUsername,
-    updateUserProfile_sshPublicKey,
-    updateUserProfile_iamUserArn,
+    -- ** DeleteUserProfile
+    deleteUserProfile_iamUserArn,
 
     -- ** DescribeMyUserProfile
     describeMyUserProfileResponse_userProfile,
@@ -130,16 +133,33 @@ module Network.AWS.OpsWorks.Lens
     untagResource_resourceArn,
     untagResource_tagKeys,
 
-    -- ** DeleteUserProfile
-    deleteUserProfile_iamUserArn,
+    -- ** UpdateInstance
+    updateInstance_hostname,
+    updateInstance_installUpdatesOnBoot,
+    updateInstance_ebsOptimized,
+    updateInstance_instanceType,
+    updateInstance_agentVersion,
+    updateInstance_amiId,
+    updateInstance_sshKeyName,
+    updateInstance_architecture,
+    updateInstance_layerIds,
+    updateInstance_autoScalingType,
+    updateInstance_os,
+    updateInstance_instanceId,
 
     -- ** AssignInstance
     assignInstance_instanceId,
     assignInstance_layerIds,
 
-    -- ** DetachElasticLoadBalancer
-    detachElasticLoadBalancer_elasticLoadBalancerName,
-    detachElasticLoadBalancer_layerId,
+    -- ** TagResource
+    tagResource_resourceArn,
+    tagResource_tags,
+
+    -- ** RebootInstance
+    rebootInstance_instanceId,
+
+    -- ** DeregisterVolume
+    deregisterVolume_volumeId,
 
     -- ** DescribeStackProvisioningParameters
     describeStackProvisioningParameters_stackId,
@@ -147,71 +167,51 @@ module Network.AWS.OpsWorks.Lens
     describeStackProvisioningParametersResponse_parameters,
     describeStackProvisioningParametersResponse_httpStatus,
 
-    -- ** DeregisterVolume
-    deregisterVolume_volumeId,
+    -- ** DeleteInstance
+    deleteInstance_deleteVolumes,
+    deleteInstance_deleteElasticIp,
+    deleteInstance_instanceId,
 
     -- ** DescribeStacks
     describeStacks_stackIds,
     describeStacksResponse_stacks,
     describeStacksResponse_httpStatus,
 
-    -- ** DeleteInstance
-    deleteInstance_deleteVolumes,
-    deleteInstance_deleteElasticIp,
-    deleteInstance_instanceId,
-
-    -- ** RebootInstance
-    rebootInstance_instanceId,
-
-    -- ** TagResource
-    tagResource_resourceArn,
-    tagResource_tags,
-
-    -- ** UpdateInstance
-    updateInstance_hostname,
-    updateInstance_installUpdatesOnBoot,
-    updateInstance_instanceType,
-    updateInstance_ebsOptimized,
-    updateInstance_agentVersion,
-    updateInstance_sshKeyName,
-    updateInstance_amiId,
-    updateInstance_layerIds,
-    updateInstance_architecture,
-    updateInstance_autoScalingType,
-    updateInstance_os,
-    updateInstance_instanceId,
-
-    -- ** CloneStack
-    cloneStack_defaultOs,
-    cloneStack_useOpsworksSecurityGroups,
-    cloneStack_customCookbooksSource,
-    cloneStack_defaultAvailabilityZone,
-    cloneStack_agentVersion,
-    cloneStack_clonePermissions,
-    cloneStack_customJson,
-    cloneStack_defaultRootDeviceType,
-    cloneStack_attributes,
-    cloneStack_name,
-    cloneStack_cloneAppIds,
-    cloneStack_defaultInstanceProfileArn,
-    cloneStack_hostnameTheme,
-    cloneStack_defaultSshKeyName,
-    cloneStack_configurationManager,
-    cloneStack_region,
-    cloneStack_vpcId,
-    cloneStack_chefConfiguration,
-    cloneStack_defaultSubnetId,
-    cloneStack_useCustomCookbooks,
-    cloneStack_sourceStackId,
-    cloneStack_serviceRoleArn,
-    cloneStackResponse_stackId,
-    cloneStackResponse_httpStatus,
+    -- ** DetachElasticLoadBalancer
+    detachElasticLoadBalancer_elasticLoadBalancerName,
+    detachElasticLoadBalancer_layerId,
 
     -- ** RegisterElasticIp
     registerElasticIp_elasticIp,
     registerElasticIp_stackId,
     registerElasticIpResponse_elasticIp,
     registerElasticIpResponse_httpStatus,
+
+    -- ** CloneStack
+    cloneStack_useOpsworksSecurityGroups,
+    cloneStack_defaultOs,
+    cloneStack_customCookbooksSource,
+    cloneStack_defaultAvailabilityZone,
+    cloneStack_customJson,
+    cloneStack_agentVersion,
+    cloneStack_clonePermissions,
+    cloneStack_defaultRootDeviceType,
+    cloneStack_name,
+    cloneStack_attributes,
+    cloneStack_defaultInstanceProfileArn,
+    cloneStack_cloneAppIds,
+    cloneStack_hostnameTheme,
+    cloneStack_configurationManager,
+    cloneStack_defaultSshKeyName,
+    cloneStack_chefConfiguration,
+    cloneStack_region,
+    cloneStack_vpcId,
+    cloneStack_defaultSubnetId,
+    cloneStack_useCustomCookbooks,
+    cloneStack_sourceStackId,
+    cloneStack_serviceRoleArn,
+    cloneStackResponse_stackId,
+    cloneStackResponse_httpStatus,
 
     -- ** DescribeAgentVersions
     describeAgentVersions_stackId,
@@ -221,15 +221,15 @@ module Network.AWS.OpsWorks.Lens
 
     -- ** UpdateLayer
     updateLayer_installUpdatesOnBoot,
-    updateLayer_customInstanceProfileArn,
     updateLayer_customSecurityGroupIds,
+    updateLayer_customInstanceProfileArn,
     updateLayer_packages,
     updateLayer_enableAutoHealing,
-    updateLayer_volumeConfigurations,
     updateLayer_customJson,
+    updateLayer_volumeConfigurations,
     updateLayer_shortname,
-    updateLayer_attributes,
     updateLayer_name,
+    updateLayer_attributes,
     updateLayer_cloudWatchLogsConfiguration,
     updateLayer_autoAssignElasticIps,
     updateLayer_useEbsOptimizedInstances,
@@ -239,19 +239,19 @@ module Network.AWS.OpsWorks.Lens
     updateLayer_layerId,
 
     -- ** CreateStack
-    createStack_defaultOs,
     createStack_useOpsworksSecurityGroups,
+    createStack_defaultOs,
     createStack_customCookbooksSource,
     createStack_defaultAvailabilityZone,
-    createStack_agentVersion,
     createStack_customJson,
+    createStack_agentVersion,
     createStack_defaultRootDeviceType,
     createStack_attributes,
     createStack_hostnameTheme,
-    createStack_defaultSshKeyName,
     createStack_configurationManager,
-    createStack_vpcId,
+    createStack_defaultSshKeyName,
     createStack_chefConfiguration,
+    createStack_vpcId,
     createStack_defaultSubnetId,
     createStack_useCustomCookbooks,
     createStack_name,
@@ -260,6 +260,9 @@ module Network.AWS.OpsWorks.Lens
     createStack_defaultInstanceProfileArn,
     createStackResponse_stackId,
     createStackResponse_httpStatus,
+
+    -- ** DeleteLayer
+    deleteLayer_layerId,
 
     -- ** UnassignVolume
     unassignVolume_volumeId,
@@ -270,40 +273,14 @@ module Network.AWS.OpsWorks.Lens
     grantAccessResponse_temporaryCredential,
     grantAccessResponse_httpStatus,
 
-    -- ** DeleteLayer
-    deleteLayer_layerId,
-
-    -- ** DescribeApps
-    describeApps_appIds,
-    describeApps_stackId,
-    describeAppsResponse_apps,
-    describeAppsResponse_httpStatus,
-
-    -- ** DeregisterEcsCluster
-    deregisterEcsCluster_ecsClusterArn,
-
-    -- ** DescribeStackSummary
-    describeStackSummary_stackId,
-    describeStackSummaryResponse_stackSummary,
-    describeStackSummaryResponse_httpStatus,
-
-    -- ** DeleteStack
-    deleteStack_stackId,
-
-    -- ** SetLoadBasedAutoScaling
-    setLoadBasedAutoScaling_downScaling,
-    setLoadBasedAutoScaling_enable,
-    setLoadBasedAutoScaling_upScaling,
-    setLoadBasedAutoScaling_layerId,
-
     -- ** CreateLayer
     createLayer_installUpdatesOnBoot,
-    createLayer_customInstanceProfileArn,
     createLayer_customSecurityGroupIds,
+    createLayer_customInstanceProfileArn,
     createLayer_packages,
     createLayer_enableAutoHealing,
-    createLayer_volumeConfigurations,
     createLayer_customJson,
+    createLayer_volumeConfigurations,
     createLayer_attributes,
     createLayer_cloudWatchLogsConfiguration,
     createLayer_autoAssignElasticIps,
@@ -318,25 +295,48 @@ module Network.AWS.OpsWorks.Lens
     createLayerResponse_layerId,
     createLayerResponse_httpStatus,
 
+    -- ** DeleteStack
+    deleteStack_stackId,
+
     -- ** UpdateStack
-    updateStack_defaultOs,
     updateStack_useOpsworksSecurityGroups,
+    updateStack_defaultOs,
     updateStack_customCookbooksSource,
     updateStack_serviceRoleArn,
     updateStack_defaultAvailabilityZone,
-    updateStack_agentVersion,
     updateStack_customJson,
+    updateStack_agentVersion,
     updateStack_defaultRootDeviceType,
-    updateStack_attributes,
     updateStack_name,
+    updateStack_attributes,
     updateStack_defaultInstanceProfileArn,
     updateStack_hostnameTheme,
-    updateStack_defaultSshKeyName,
     updateStack_configurationManager,
+    updateStack_defaultSshKeyName,
     updateStack_chefConfiguration,
     updateStack_defaultSubnetId,
     updateStack_useCustomCookbooks,
     updateStack_stackId,
+
+    -- ** SetLoadBasedAutoScaling
+    setLoadBasedAutoScaling_downScaling,
+    setLoadBasedAutoScaling_enable,
+    setLoadBasedAutoScaling_upScaling,
+    setLoadBasedAutoScaling_layerId,
+
+    -- ** DescribeStackSummary
+    describeStackSummary_stackId,
+    describeStackSummaryResponse_stackSummary,
+    describeStackSummaryResponse_httpStatus,
+
+    -- ** DescribeApps
+    describeApps_appIds,
+    describeApps_stackId,
+    describeAppsResponse_apps,
+    describeAppsResponse_httpStatus,
+
+    -- ** DeregisterEcsCluster
+    deregisterEcsCluster_ecsClusterArn,
 
     -- ** DescribeUserProfiles
     describeUserProfiles_iamUserArns,
@@ -349,12 +349,22 @@ module Network.AWS.OpsWorks.Lens
     describeElasticLoadBalancersResponse_elasticLoadBalancers,
     describeElasticLoadBalancersResponse_httpStatus,
 
+    -- ** DescribeRaidArrays
+    describeRaidArrays_instanceId,
+    describeRaidArrays_raidArrayIds,
+    describeRaidArrays_stackId,
+    describeRaidArraysResponse_raidArrays,
+    describeRaidArraysResponse_httpStatus,
+
     -- ** DescribeCommands
     describeCommands_deploymentId,
     describeCommands_instanceId,
     describeCommands_commandIds,
     describeCommandsResponse_commands,
     describeCommandsResponse_httpStatus,
+
+    -- ** DeregisterInstance
+    deregisterInstance_instanceId,
 
     -- ** UpdateVolume
     updateVolume_name,
@@ -365,16 +375,6 @@ module Network.AWS.OpsWorks.Lens
     assignVolume_instanceId,
     assignVolume_volumeId,
 
-    -- ** DescribeRaidArrays
-    describeRaidArrays_instanceId,
-    describeRaidArrays_raidArrayIds,
-    describeRaidArrays_stackId,
-    describeRaidArraysResponse_raidArrays,
-    describeRaidArraysResponse_httpStatus,
-
-    -- ** DeregisterInstance
-    deregisterInstance_instanceId,
-
     -- ** RegisterEcsCluster
     registerEcsCluster_ecsClusterArn,
     registerEcsCluster_stackId,
@@ -382,20 +382,12 @@ module Network.AWS.OpsWorks.Lens
     registerEcsClusterResponse_httpStatus,
 
     -- ** CreateUserProfile
-    createUserProfile_allowSelfManagement,
     createUserProfile_sshUsername,
+    createUserProfile_allowSelfManagement,
     createUserProfile_sshPublicKey,
     createUserProfile_iamUserArn,
     createUserProfileResponse_iamUserArn,
     createUserProfileResponse_httpStatus,
-
-    -- ** UpdateRdsDbInstance
-    updateRdsDbInstance_dbUser,
-    updateRdsDbInstance_dbPassword,
-    updateRdsDbInstance_rdsDbInstanceArn,
-
-    -- ** UnassignInstance
-    unassignInstance_instanceId,
 
     -- ** ListTags
     listTags_nextToken,
@@ -405,10 +397,13 @@ module Network.AWS.OpsWorks.Lens
     listTagsResponse_tags,
     listTagsResponse_httpStatus,
 
-    -- ** DescribeLoadBasedAutoScaling
-    describeLoadBasedAutoScaling_layerIds,
-    describeLoadBasedAutoScalingResponse_loadBasedAutoScalingConfigurations,
-    describeLoadBasedAutoScalingResponse_httpStatus,
+    -- ** UnassignInstance
+    unassignInstance_instanceId,
+
+    -- ** UpdateRdsDbInstance
+    updateRdsDbInstance_dbUser,
+    updateRdsDbInstance_dbPassword,
+    updateRdsDbInstance_rdsDbInstanceArn,
 
     -- ** RegisterInstance
     registerInstance_hostname,
@@ -421,8 +416,14 @@ module Network.AWS.OpsWorks.Lens
     registerInstanceResponse_instanceId,
     registerInstanceResponse_httpStatus,
 
-    -- ** DeleteApp
-    deleteApp_appId,
+    -- ** DescribeLoadBasedAutoScaling
+    describeLoadBasedAutoScaling_layerIds,
+    describeLoadBasedAutoScalingResponse_loadBasedAutoScalingConfigurations,
+    describeLoadBasedAutoScalingResponse_httpStatus,
+
+    -- ** AssociateElasticIp
+    associateElasticIp_instanceId,
+    associateElasticIp_elasticIp,
 
     -- ** UpdateApp
     updateApp_sslConfiguration,
@@ -431,25 +432,14 @@ module Network.AWS.OpsWorks.Lens
     updateApp_domains,
     updateApp_enableSsl,
     updateApp_environment,
-    updateApp_attributes,
     updateApp_name,
+    updateApp_attributes,
     updateApp_description,
     updateApp_type,
     updateApp_appId,
 
-    -- ** AssociateElasticIp
-    associateElasticIp_instanceId,
-    associateElasticIp_elasticIp,
-
-    -- ** UpdateElasticIp
-    updateElasticIp_name,
-    updateElasticIp_elasticIp,
-
-    -- ** DescribePermissions
-    describePermissions_iamUserArn,
-    describePermissions_stackId,
-    describePermissionsResponse_permissions,
-    describePermissionsResponse_httpStatus,
+    -- ** DeleteApp
+    deleteApp_appId,
 
     -- ** GetHostnameSuggestion
     getHostnameSuggestion_layerId,
@@ -458,17 +448,17 @@ module Network.AWS.OpsWorks.Lens
     getHostnameSuggestionResponse_httpStatus,
 
     -- ** CreateInstance
-    createInstance_hostname,
     createInstance_virtualizationType,
+    createInstance_hostname,
     createInstance_installUpdatesOnBoot,
     createInstance_ebsOptimized,
     createInstance_rootDeviceType,
     createInstance_agentVersion,
-    createInstance_sshKeyName,
     createInstance_amiId,
+    createInstance_sshKeyName,
     createInstance_architecture,
-    createInstance_tenancy,
     createInstance_autoScalingType,
+    createInstance_tenancy,
     createInstance_availabilityZone,
     createInstance_os,
     createInstance_blockDeviceMappings,
@@ -485,14 +475,25 @@ module Network.AWS.OpsWorks.Lens
     describeLayersResponse_layers,
     describeLayersResponse_httpStatus,
 
+    -- ** CreateDeployment
+    createDeployment_instanceIds,
+    createDeployment_appId,
+    createDeployment_customJson,
+    createDeployment_comment,
+    createDeployment_layerIds,
+    createDeployment_stackId,
+    createDeployment_command,
+    createDeploymentResponse_deploymentId,
+    createDeploymentResponse_httpStatus,
+
     -- ** CreateApp
     createApp_sslConfiguration,
     createApp_appSource,
     createApp_dataSources,
     createApp_domains,
     createApp_enableSsl,
-    createApp_shortname,
     createApp_environment,
+    createApp_shortname,
     createApp_attributes,
     createApp_description,
     createApp_stackId,
@@ -501,19 +502,15 @@ module Network.AWS.OpsWorks.Lens
     createAppResponse_appId,
     createAppResponse_httpStatus,
 
-    -- ** CreateDeployment
-    createDeployment_instanceIds,
-    createDeployment_appId,
-    createDeployment_comment,
-    createDeployment_customJson,
-    createDeployment_layerIds,
-    createDeployment_stackId,
-    createDeployment_command,
-    createDeploymentResponse_deploymentId,
-    createDeploymentResponse_httpStatus,
+    -- ** DescribePermissions
+    describePermissions_iamUserArn,
+    describePermissions_stackId,
+    describePermissionsResponse_permissions,
+    describePermissionsResponse_httpStatus,
 
-    -- ** DeregisterRdsDbInstance
-    deregisterRdsDbInstance_rdsDbInstanceArn,
+    -- ** UpdateElasticIp
+    updateElasticIp_name,
+    updateElasticIp_elasticIp,
 
     -- ** DescribeElasticIps
     describeElasticIps_instanceId,
@@ -522,6 +519,9 @@ module Network.AWS.OpsWorks.Lens
     describeElasticIpsResponse_elasticIps,
     describeElasticIpsResponse_httpStatus,
 
+    -- ** DeregisterRdsDbInstance
+    deregisterRdsDbInstance_rdsDbInstanceArn,
+
     -- * Types
 
     -- ** AgentVersion
@@ -529,18 +529,18 @@ module Network.AWS.OpsWorks.Lens
     agentVersion_configurationManager,
 
     -- ** App
+    app_appId,
     app_sslConfiguration,
     app_appSource,
-    app_appId,
     app_dataSources,
-    app_stackId,
     app_domains,
-    app_enableSsl,
-    app_shortname,
+    app_stackId,
     app_createdAt,
+    app_enableSsl,
     app_environment,
-    app_attributes,
+    app_shortname,
     app_name,
+    app_attributes,
     app_description,
     app_type,
 
@@ -549,8 +549,8 @@ module Network.AWS.OpsWorks.Lens
     autoScalingThresholds_cpuThreshold,
     autoScalingThresholds_memoryThreshold,
     autoScalingThresholds_alarms,
-    autoScalingThresholds_ignoreMetricsTime,
     autoScalingThresholds_thresholdsWaitTime,
+    autoScalingThresholds_ignoreMetricsTime,
     autoScalingThresholds_instanceCount,
 
     -- ** BlockDeviceMapping
@@ -568,9 +568,9 @@ module Network.AWS.OpsWorks.Lens
     cloudWatchLogsConfiguration_logStreams,
 
     -- ** CloudWatchLogsLogStream
-    cloudWatchLogsLogStream_multiLineStartPattern,
     cloudWatchLogsLogStream_initialPosition,
     cloudWatchLogsLogStream_batchCount,
+    cloudWatchLogsLogStream_multiLineStartPattern,
     cloudWatchLogsLogStream_file,
     cloudWatchLogsLogStream_fileFingerprintLines,
     cloudWatchLogsLogStream_logGroupName,
@@ -599,14 +599,14 @@ module Network.AWS.OpsWorks.Lens
 
     -- ** Deployment
     deployment_instanceIds,
+    deployment_appId,
     deployment_status,
     deployment_deploymentId,
-    deployment_appId,
     deployment_iamUserArn,
     deployment_duration,
+    deployment_customJson,
     deployment_stackId,
     deployment_comment,
-    deployment_customJson,
     deployment_completedAt,
     deployment_createdAt,
     deployment_command,
@@ -619,8 +619,8 @@ module Network.AWS.OpsWorks.Lens
     ebsBlockDevice_deleteOnTermination,
     ebsBlockDevice_snapshotId,
     ebsBlockDevice_volumeType,
-    ebsBlockDevice_volumeSize,
     ebsBlockDevice_iops,
+    ebsBlockDevice_volumeSize,
 
     -- ** EcsCluster
     ecsCluster_stackId,
@@ -640,8 +640,8 @@ module Network.AWS.OpsWorks.Lens
     elasticLoadBalancer_stackId,
     elasticLoadBalancer_elasticLoadBalancerName,
     elasticLoadBalancer_subnetIds,
-    elasticLoadBalancer_dnsName,
     elasticLoadBalancer_layerId,
+    elasticLoadBalancer_dnsName,
     elasticLoadBalancer_ec2InstanceIds,
     elasticLoadBalancer_region,
     elasticLoadBalancer_vpcId,
@@ -652,47 +652,47 @@ module Network.AWS.OpsWorks.Lens
     environmentVariable_value,
 
     -- ** Instance
-    instance_hostname,
-    instance_platform,
-    instance_securityGroupIds,
-    instance_sshHostRsaKeyFingerprint,
-    instance_instanceProfileArn,
     instance_virtualizationType,
-    instance_privateDns,
-    instance_elasticIp,
-    instance_status,
+    instance_instanceProfileArn,
+    instance_platform,
+    instance_hostname,
+    instance_sshHostRsaKeyFingerprint,
+    instance_securityGroupIds,
     instance_installUpdatesOnBoot,
+    instance_status,
     instance_instanceId,
+    instance_privateDns,
     instance_reportedAgentVersion,
-    instance_instanceType,
-    instance_sshHostDsaKeyFingerprint,
+    instance_elasticIp,
     instance_ebsOptimized,
+    instance_sshHostDsaKeyFingerprint,
+    instance_instanceType,
     instance_rootDeviceType,
-    instance_stackId,
     instance_agentVersion,
+    instance_stackId,
     instance_rootDeviceVolumeId,
-    instance_sshKeyName,
     instance_publicDns,
     instance_amiId,
-    instance_arn,
+    instance_sshKeyName,
+    instance_architecture,
     instance_createdAt,
     instance_layerIds,
-    instance_architecture,
-    instance_tenancy,
+    instance_arn,
     instance_autoScalingType,
+    instance_tenancy,
     instance_availabilityZone,
     instance_os,
     instance_privateIp,
     instance_infrastructureClass,
+    instance_ecsContainerInstanceArn,
     instance_blockDeviceMappings,
     instance_subnetId,
-    instance_ecsContainerInstanceArn,
     instance_registeredBy,
     instance_reportedOs,
-    instance_publicIp,
     instance_ec2InstanceId,
-    instance_ecsClusterArn,
+    instance_publicIp,
     instance_lastServiceErrorId,
+    instance_ecsClusterArn,
 
     -- ** InstanceIdentity
     instanceIdentity_document,
@@ -703,8 +703,8 @@ module Network.AWS.OpsWorks.Lens
     instancesCount_setupFailed,
     instancesCount_registering,
     instancesCount_booting,
-    instancesCount_stopFailed,
     instancesCount_startFailed,
+    instancesCount_stopFailed,
     instancesCount_runningSetup,
     instancesCount_terminated,
     instancesCount_pending,
@@ -713,35 +713,35 @@ module Network.AWS.OpsWorks.Lens
     instancesCount_assigning,
     instancesCount_stopped,
     instancesCount_rebooting,
-    instancesCount_registered,
-    instancesCount_requested,
-    instancesCount_deregistering,
     instancesCount_stopping,
-    instancesCount_unassigning,
+    instancesCount_requested,
+    instancesCount_registered,
+    instancesCount_deregistering,
     instancesCount_connectionLost,
+    instancesCount_unassigning,
 
     -- ** Layer
     layer_installUpdatesOnBoot,
-    layer_customInstanceProfileArn,
     layer_customSecurityGroupIds,
+    layer_customInstanceProfileArn,
     layer_packages,
     layer_enableAutoHealing,
-    layer_volumeConfigurations,
-    layer_stackId,
     layer_customJson,
+    layer_stackId,
+    layer_volumeConfigurations,
     layer_defaultRecipes,
+    layer_createdAt,
     layer_arn,
     layer_shortname,
-    layer_createdAt,
-    layer_attributes,
     layer_name,
+    layer_attributes,
     layer_cloudWatchLogsConfiguration,
     layer_autoAssignElasticIps,
-    layer_layerId,
     layer_defaultSecurityGroupNames,
-    layer_type,
+    layer_layerId,
     layer_useEbsOptimizedInstances,
     layer_customRecipes,
+    layer_type,
     layer_autoAssignPublicIps,
     layer_lifecycleEventConfiguration,
 
@@ -757,11 +757,11 @@ module Network.AWS.OpsWorks.Lens
     -- ** OperatingSystem
     operatingSystem_supported,
     operatingSystem_configurationManagers,
-    operatingSystem_id,
     operatingSystem_reportedVersion,
+    operatingSystem_id,
     operatingSystem_name,
-    operatingSystem_type,
     operatingSystem_reportedName,
+    operatingSystem_type,
 
     -- ** OperatingSystemConfigurationManager
     operatingSystemConfigurationManager_version,
@@ -775,14 +775,14 @@ module Network.AWS.OpsWorks.Lens
     permission_level,
 
     -- ** RaidArray
-    raidArray_numberOfDisks,
     raidArray_instanceId,
+    raidArray_numberOfDisks,
     raidArray_stackId,
     raidArray_device,
     raidArray_createdAt,
     raidArray_raidArrayId,
-    raidArray_availabilityZone,
     raidArray_name,
+    raidArray_availabilityZone,
     raidArray_mountPoint,
     raidArray_volumeType,
     raidArray_raidLevel,
@@ -801,9 +801,9 @@ module Network.AWS.OpsWorks.Lens
     rdsDbInstance_region,
 
     -- ** Recipes
-    recipes_shutdown,
     recipes_configure,
     recipes_undeploy,
+    recipes_shutdown,
     recipes_setup,
     recipes_deploy,
 
@@ -844,26 +844,26 @@ module Network.AWS.OpsWorks.Lens
     sslConfiguration_chain,
 
     -- ** Stack
-    stack_defaultOs,
     stack_useOpsworksSecurityGroups,
+    stack_defaultOs,
     stack_customCookbooksSource,
     stack_serviceRoleArn,
     stack_defaultAvailabilityZone,
-    stack_stackId,
-    stack_agentVersion,
     stack_customJson,
-    stack_arn,
+    stack_agentVersion,
+    stack_stackId,
     stack_createdAt,
+    stack_arn,
     stack_defaultRootDeviceType,
-    stack_attributes,
     stack_name,
+    stack_attributes,
     stack_defaultInstanceProfileArn,
     stack_hostnameTheme,
-    stack_defaultSshKeyName,
     stack_configurationManager,
+    stack_defaultSshKeyName,
+    stack_chefConfiguration,
     stack_region,
     stack_vpcId,
-    stack_chefConfiguration,
     stack_defaultSubnetId,
     stack_useCustomCookbooks,
 
@@ -876,8 +876,8 @@ module Network.AWS.OpsWorks.Lens
     stackSummary_layersCount,
     stackSummary_arn,
     stackSummary_name,
-    stackSummary_instancesCount,
     stackSummary_appsCount,
+    stackSummary_instancesCount,
 
     -- ** TemporaryCredential
     temporaryCredential_validForInMinutes,
@@ -891,8 +891,8 @@ module Network.AWS.OpsWorks.Lens
 
     -- ** UserProfile
     userProfile_iamUserArn,
-    userProfile_allowSelfManagement,
     userProfile_sshUsername,
+    userProfile_allowSelfManagement,
     userProfile_name,
     userProfile_sshPublicKey,
 
@@ -904,8 +904,8 @@ module Network.AWS.OpsWorks.Lens
     volume_device,
     volume_volumeId,
     volume_raidArrayId,
-    volume_availabilityZone,
     volume_name,
+    volume_availabilityZone,
     volume_mountPoint,
     volume_volumeType,
     volume_region,

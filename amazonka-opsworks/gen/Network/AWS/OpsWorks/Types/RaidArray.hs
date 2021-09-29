@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRaidArray' smart constructor.
 data RaidArray = RaidArray'
-  { -- | The number of disks in the array.
-    numberOfDisks :: Prelude.Maybe Prelude.Int,
-    -- | The instance ID.
+  { -- | The instance ID.
     instanceId :: Prelude.Maybe Prelude.Text,
+    -- | The number of disks in the array.
+    numberOfDisks :: Prelude.Maybe Prelude.Int,
     -- | The stack ID.
     stackId :: Prelude.Maybe Prelude.Text,
     -- | The array\'s Linux device. For example \/dev\/mdadm0.
@@ -39,11 +39,11 @@ data RaidArray = RaidArray'
     createdAt :: Prelude.Maybe Prelude.Text,
     -- | The array ID.
     raidArrayId :: Prelude.Maybe Prelude.Text,
+    -- | The array name.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The array\'s Availability Zone. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
     availabilityZone :: Prelude.Maybe Prelude.Text,
-    -- | The array name.
-    name :: Prelude.Maybe Prelude.Text,
     -- | The array\'s mount point.
     mountPoint :: Prelude.Maybe Prelude.Text,
     -- | The volume type, standard or PIOPS.
@@ -65,9 +65,9 @@ data RaidArray = RaidArray'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'numberOfDisks', 'raidArray_numberOfDisks' - The number of disks in the array.
---
 -- 'instanceId', 'raidArray_instanceId' - The instance ID.
+--
+-- 'numberOfDisks', 'raidArray_numberOfDisks' - The number of disks in the array.
 --
 -- 'stackId', 'raidArray_stackId' - The stack ID.
 --
@@ -77,10 +77,10 @@ data RaidArray = RaidArray'
 --
 -- 'raidArrayId', 'raidArray_raidArrayId' - The array ID.
 --
+-- 'name', 'raidArray_name' - The array name.
+--
 -- 'availabilityZone', 'raidArray_availabilityZone' - The array\'s Availability Zone. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
---
--- 'name', 'raidArray_name' - The array name.
 --
 -- 'mountPoint', 'raidArray_mountPoint' - The array\'s mount point.
 --
@@ -95,14 +95,14 @@ newRaidArray ::
   RaidArray
 newRaidArray =
   RaidArray'
-    { numberOfDisks = Prelude.Nothing,
-      instanceId = Prelude.Nothing,
+    { instanceId = Prelude.Nothing,
+      numberOfDisks = Prelude.Nothing,
       stackId = Prelude.Nothing,
       device = Prelude.Nothing,
       createdAt = Prelude.Nothing,
       raidArrayId = Prelude.Nothing,
-      availabilityZone = Prelude.Nothing,
       name = Prelude.Nothing,
+      availabilityZone = Prelude.Nothing,
       mountPoint = Prelude.Nothing,
       volumeType = Prelude.Nothing,
       raidLevel = Prelude.Nothing,
@@ -110,13 +110,13 @@ newRaidArray =
       size = Prelude.Nothing
     }
 
--- | The number of disks in the array.
-raidArray_numberOfDisks :: Lens.Lens' RaidArray (Prelude.Maybe Prelude.Int)
-raidArray_numberOfDisks = Lens.lens (\RaidArray' {numberOfDisks} -> numberOfDisks) (\s@RaidArray' {} a -> s {numberOfDisks = a} :: RaidArray)
-
 -- | The instance ID.
 raidArray_instanceId :: Lens.Lens' RaidArray (Prelude.Maybe Prelude.Text)
 raidArray_instanceId = Lens.lens (\RaidArray' {instanceId} -> instanceId) (\s@RaidArray' {} a -> s {instanceId = a} :: RaidArray)
+
+-- | The number of disks in the array.
+raidArray_numberOfDisks :: Lens.Lens' RaidArray (Prelude.Maybe Prelude.Int)
+raidArray_numberOfDisks = Lens.lens (\RaidArray' {numberOfDisks} -> numberOfDisks) (\s@RaidArray' {} a -> s {numberOfDisks = a} :: RaidArray)
 
 -- | The stack ID.
 raidArray_stackId :: Lens.Lens' RaidArray (Prelude.Maybe Prelude.Text)
@@ -134,14 +134,14 @@ raidArray_createdAt = Lens.lens (\RaidArray' {createdAt} -> createdAt) (\s@RaidA
 raidArray_raidArrayId :: Lens.Lens' RaidArray (Prelude.Maybe Prelude.Text)
 raidArray_raidArrayId = Lens.lens (\RaidArray' {raidArrayId} -> raidArrayId) (\s@RaidArray' {} a -> s {raidArrayId = a} :: RaidArray)
 
+-- | The array name.
+raidArray_name :: Lens.Lens' RaidArray (Prelude.Maybe Prelude.Text)
+raidArray_name = Lens.lens (\RaidArray' {name} -> name) (\s@RaidArray' {} a -> s {name = a} :: RaidArray)
+
 -- | The array\'s Availability Zone. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
 raidArray_availabilityZone :: Lens.Lens' RaidArray (Prelude.Maybe Prelude.Text)
 raidArray_availabilityZone = Lens.lens (\RaidArray' {availabilityZone} -> availabilityZone) (\s@RaidArray' {} a -> s {availabilityZone = a} :: RaidArray)
-
--- | The array name.
-raidArray_name :: Lens.Lens' RaidArray (Prelude.Maybe Prelude.Text)
-raidArray_name = Lens.lens (\RaidArray' {name} -> name) (\s@RaidArray' {} a -> s {name = a} :: RaidArray)
 
 -- | The array\'s mount point.
 raidArray_mountPoint :: Lens.Lens' RaidArray (Prelude.Maybe Prelude.Text)
@@ -169,14 +169,14 @@ instance Core.FromJSON RaidArray where
       "RaidArray"
       ( \x ->
           RaidArray'
-            Prelude.<$> (x Core..:? "NumberOfDisks")
-            Prelude.<*> (x Core..:? "InstanceId")
+            Prelude.<$> (x Core..:? "InstanceId")
+            Prelude.<*> (x Core..:? "NumberOfDisks")
             Prelude.<*> (x Core..:? "StackId")
             Prelude.<*> (x Core..:? "Device")
             Prelude.<*> (x Core..:? "CreatedAt")
             Prelude.<*> (x Core..:? "RaidArrayId")
-            Prelude.<*> (x Core..:? "AvailabilityZone")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "AvailabilityZone")
             Prelude.<*> (x Core..:? "MountPoint")
             Prelude.<*> (x Core..:? "VolumeType")
             Prelude.<*> (x Core..:? "RaidLevel")

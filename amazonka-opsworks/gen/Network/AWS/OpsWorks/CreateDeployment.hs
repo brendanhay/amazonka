@@ -38,8 +38,8 @@ module Network.AWS.OpsWorks.CreateDeployment
     -- * Request Lenses
     createDeployment_instanceIds,
     createDeployment_appId,
-    createDeployment_comment,
     createDeployment_customJson,
+    createDeployment_comment,
     createDeployment_layerIds,
     createDeployment_stackId,
     createDeployment_command,
@@ -68,8 +68,6 @@ data CreateDeployment = CreateDeployment'
     -- | The app ID. This parameter is required for app deployments, but not for
     -- other deployment commands.
     appId :: Prelude.Maybe Prelude.Text,
-    -- | A user-defined comment.
-    comment :: Prelude.Maybe Prelude.Text,
     -- | A string that contains user-defined, custom JSON. You can use this
     -- parameter to override some corresponding default stack configuration
     -- JSON values. The string should be in the following format:
@@ -81,6 +79,8 @@ data CreateDeployment = CreateDeployment'
     -- and
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Overriding Attributes With Custom JSON>.
     customJson :: Prelude.Maybe Prelude.Text,
+    -- | A user-defined comment.
+    comment :: Prelude.Maybe Prelude.Text,
     -- | The layer IDs for the deployment targets.
     layerIds :: Prelude.Maybe [Prelude.Text],
     -- | The stack ID.
@@ -104,8 +104,6 @@ data CreateDeployment = CreateDeployment'
 -- 'appId', 'createDeployment_appId' - The app ID. This parameter is required for app deployments, but not for
 -- other deployment commands.
 --
--- 'comment', 'createDeployment_comment' - A user-defined comment.
---
 -- 'customJson', 'createDeployment_customJson' - A string that contains user-defined, custom JSON. You can use this
 -- parameter to override some corresponding default stack configuration
 -- JSON values. The string should be in the following format:
@@ -116,6 +114,8 @@ data CreateDeployment = CreateDeployment'
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>
 -- and
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Overriding Attributes With Custom JSON>.
+--
+-- 'comment', 'createDeployment_comment' - A user-defined comment.
 --
 -- 'layerIds', 'createDeployment_layerIds' - The layer IDs for the deployment targets.
 --
@@ -133,8 +133,8 @@ newCreateDeployment pStackId_ pCommand_ =
   CreateDeployment'
     { instanceIds = Prelude.Nothing,
       appId = Prelude.Nothing,
-      comment = Prelude.Nothing,
       customJson = Prelude.Nothing,
+      comment = Prelude.Nothing,
       layerIds = Prelude.Nothing,
       stackId = pStackId_,
       command = pCommand_
@@ -149,10 +149,6 @@ createDeployment_instanceIds = Lens.lens (\CreateDeployment' {instanceIds} -> in
 createDeployment_appId :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
 createDeployment_appId = Lens.lens (\CreateDeployment' {appId} -> appId) (\s@CreateDeployment' {} a -> s {appId = a} :: CreateDeployment)
 
--- | A user-defined comment.
-createDeployment_comment :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
-createDeployment_comment = Lens.lens (\CreateDeployment' {comment} -> comment) (\s@CreateDeployment' {} a -> s {comment = a} :: CreateDeployment)
-
 -- | A string that contains user-defined, custom JSON. You can use this
 -- parameter to override some corresponding default stack configuration
 -- JSON values. The string should be in the following format:
@@ -165,6 +161,10 @@ createDeployment_comment = Lens.lens (\CreateDeployment' {comment} -> comment) (
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Overriding Attributes With Custom JSON>.
 createDeployment_customJson :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
 createDeployment_customJson = Lens.lens (\CreateDeployment' {customJson} -> customJson) (\s@CreateDeployment' {} a -> s {customJson = a} :: CreateDeployment)
+
+-- | A user-defined comment.
+createDeployment_comment :: Lens.Lens' CreateDeployment (Prelude.Maybe Prelude.Text)
+createDeployment_comment = Lens.lens (\CreateDeployment' {comment} -> comment) (\s@CreateDeployment' {} a -> s {comment = a} :: CreateDeployment)
 
 -- | The layer IDs for the deployment targets.
 createDeployment_layerIds :: Lens.Lens' CreateDeployment (Prelude.Maybe [Prelude.Text])
@@ -217,8 +217,8 @@ instance Core.ToJSON CreateDeployment where
       ( Prelude.catMaybes
           [ ("InstanceIds" Core..=) Prelude.<$> instanceIds,
             ("AppId" Core..=) Prelude.<$> appId,
-            ("Comment" Core..=) Prelude.<$> comment,
             ("CustomJson" Core..=) Prelude.<$> customJson,
+            ("Comment" Core..=) Prelude.<$> comment,
             ("LayerIds" Core..=) Prelude.<$> layerIds,
             Prelude.Just ("StackId" Core..= stackId),
             Prelude.Just ("Command" Core..= command)

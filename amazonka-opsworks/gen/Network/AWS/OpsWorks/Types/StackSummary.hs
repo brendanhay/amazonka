@@ -36,10 +36,10 @@ data StackSummary = StackSummary'
     arn :: Prelude.Maybe Prelude.Text,
     -- | The stack name.
     name :: Prelude.Maybe Prelude.Text,
-    -- | An @InstancesCount@ object with the number of instances in each status.
-    instancesCount :: Prelude.Maybe InstancesCount,
     -- | The number of apps.
-    appsCount :: Prelude.Maybe Prelude.Int
+    appsCount :: Prelude.Maybe Prelude.Int,
+    -- | An @InstancesCount@ object with the number of instances in each status.
+    instancesCount :: Prelude.Maybe InstancesCount
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -59,9 +59,9 @@ data StackSummary = StackSummary'
 --
 -- 'name', 'stackSummary_name' - The stack name.
 --
--- 'instancesCount', 'stackSummary_instancesCount' - An @InstancesCount@ object with the number of instances in each status.
---
 -- 'appsCount', 'stackSummary_appsCount' - The number of apps.
+--
+-- 'instancesCount', 'stackSummary_instancesCount' - An @InstancesCount@ object with the number of instances in each status.
 newStackSummary ::
   StackSummary
 newStackSummary =
@@ -70,8 +70,8 @@ newStackSummary =
       layersCount = Prelude.Nothing,
       arn = Prelude.Nothing,
       name = Prelude.Nothing,
-      instancesCount = Prelude.Nothing,
-      appsCount = Prelude.Nothing
+      appsCount = Prelude.Nothing,
+      instancesCount = Prelude.Nothing
     }
 
 -- | The stack ID.
@@ -90,13 +90,13 @@ stackSummary_arn = Lens.lens (\StackSummary' {arn} -> arn) (\s@StackSummary' {} 
 stackSummary_name :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.Text)
 stackSummary_name = Lens.lens (\StackSummary' {name} -> name) (\s@StackSummary' {} a -> s {name = a} :: StackSummary)
 
--- | An @InstancesCount@ object with the number of instances in each status.
-stackSummary_instancesCount :: Lens.Lens' StackSummary (Prelude.Maybe InstancesCount)
-stackSummary_instancesCount = Lens.lens (\StackSummary' {instancesCount} -> instancesCount) (\s@StackSummary' {} a -> s {instancesCount = a} :: StackSummary)
-
 -- | The number of apps.
 stackSummary_appsCount :: Lens.Lens' StackSummary (Prelude.Maybe Prelude.Int)
 stackSummary_appsCount = Lens.lens (\StackSummary' {appsCount} -> appsCount) (\s@StackSummary' {} a -> s {appsCount = a} :: StackSummary)
+
+-- | An @InstancesCount@ object with the number of instances in each status.
+stackSummary_instancesCount :: Lens.Lens' StackSummary (Prelude.Maybe InstancesCount)
+stackSummary_instancesCount = Lens.lens (\StackSummary' {instancesCount} -> instancesCount) (\s@StackSummary' {} a -> s {instancesCount = a} :: StackSummary)
 
 instance Core.FromJSON StackSummary where
   parseJSON =
@@ -108,8 +108,8 @@ instance Core.FromJSON StackSummary where
             Prelude.<*> (x Core..:? "LayersCount")
             Prelude.<*> (x Core..:? "Arn")
             Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "InstancesCount")
             Prelude.<*> (x Core..:? "AppsCount")
+            Prelude.<*> (x Core..:? "InstancesCount")
       )
 
 instance Prelude.Hashable StackSummary

@@ -35,10 +35,10 @@ data InstancesCount = InstancesCount'
     registering :: Prelude.Maybe Prelude.Int,
     -- | The number of instances with @booting@ status.
     booting :: Prelude.Maybe Prelude.Int,
-    -- | The number of instances with @stop_failed@ status.
-    stopFailed :: Prelude.Maybe Prelude.Int,
     -- | The number of instances with @start_failed@ status.
     startFailed :: Prelude.Maybe Prelude.Int,
+    -- | The number of instances with @stop_failed@ status.
+    stopFailed :: Prelude.Maybe Prelude.Int,
     -- | The number of instances with @running_setup@ status.
     runningSetup :: Prelude.Maybe Prelude.Int,
     -- | The number of instances with @terminated@ status.
@@ -55,18 +55,18 @@ data InstancesCount = InstancesCount'
     stopped :: Prelude.Maybe Prelude.Int,
     -- | The number of instances with @rebooting@ status.
     rebooting :: Prelude.Maybe Prelude.Int,
-    -- | The number of instances in the Registered state.
-    registered :: Prelude.Maybe Prelude.Int,
-    -- | The number of instances with @requested@ status.
-    requested :: Prelude.Maybe Prelude.Int,
-    -- | The number of instances in the Deregistering state.
-    deregistering :: Prelude.Maybe Prelude.Int,
     -- | The number of instances with @stopping@ status.
     stopping :: Prelude.Maybe Prelude.Int,
-    -- | The number of instances in the Unassigning state.
-    unassigning :: Prelude.Maybe Prelude.Int,
+    -- | The number of instances with @requested@ status.
+    requested :: Prelude.Maybe Prelude.Int,
+    -- | The number of instances in the Registered state.
+    registered :: Prelude.Maybe Prelude.Int,
+    -- | The number of instances in the Deregistering state.
+    deregistering :: Prelude.Maybe Prelude.Int,
     -- | The number of instances with @connection_lost@ status.
-    connectionLost :: Prelude.Maybe Prelude.Int
+    connectionLost :: Prelude.Maybe Prelude.Int,
+    -- | The number of instances in the Unassigning state.
+    unassigning :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -86,9 +86,9 @@ data InstancesCount = InstancesCount'
 --
 -- 'booting', 'instancesCount_booting' - The number of instances with @booting@ status.
 --
--- 'stopFailed', 'instancesCount_stopFailed' - The number of instances with @stop_failed@ status.
---
 -- 'startFailed', 'instancesCount_startFailed' - The number of instances with @start_failed@ status.
+--
+-- 'stopFailed', 'instancesCount_stopFailed' - The number of instances with @stop_failed@ status.
 --
 -- 'runningSetup', 'instancesCount_runningSetup' - The number of instances with @running_setup@ status.
 --
@@ -106,17 +106,17 @@ data InstancesCount = InstancesCount'
 --
 -- 'rebooting', 'instancesCount_rebooting' - The number of instances with @rebooting@ status.
 --
--- 'registered', 'instancesCount_registered' - The number of instances in the Registered state.
+-- 'stopping', 'instancesCount_stopping' - The number of instances with @stopping@ status.
 --
 -- 'requested', 'instancesCount_requested' - The number of instances with @requested@ status.
 --
+-- 'registered', 'instancesCount_registered' - The number of instances in the Registered state.
+--
 -- 'deregistering', 'instancesCount_deregistering' - The number of instances in the Deregistering state.
 --
--- 'stopping', 'instancesCount_stopping' - The number of instances with @stopping@ status.
+-- 'connectionLost', 'instancesCount_connectionLost' - The number of instances with @connection_lost@ status.
 --
 -- 'unassigning', 'instancesCount_unassigning' - The number of instances in the Unassigning state.
---
--- 'connectionLost', 'instancesCount_connectionLost' - The number of instances with @connection_lost@ status.
 newInstancesCount ::
   InstancesCount
 newInstancesCount =
@@ -125,8 +125,8 @@ newInstancesCount =
       setupFailed = Prelude.Nothing,
       registering = Prelude.Nothing,
       booting = Prelude.Nothing,
-      stopFailed = Prelude.Nothing,
       startFailed = Prelude.Nothing,
+      stopFailed = Prelude.Nothing,
       runningSetup = Prelude.Nothing,
       terminated = Prelude.Nothing,
       pending = Prelude.Nothing,
@@ -135,12 +135,12 @@ newInstancesCount =
       assigning = Prelude.Nothing,
       stopped = Prelude.Nothing,
       rebooting = Prelude.Nothing,
-      registered = Prelude.Nothing,
-      requested = Prelude.Nothing,
-      deregistering = Prelude.Nothing,
       stopping = Prelude.Nothing,
-      unassigning = Prelude.Nothing,
-      connectionLost = Prelude.Nothing
+      requested = Prelude.Nothing,
+      registered = Prelude.Nothing,
+      deregistering = Prelude.Nothing,
+      connectionLost = Prelude.Nothing,
+      unassigning = Prelude.Nothing
     }
 
 -- | The number of instances with @online@ status.
@@ -159,13 +159,13 @@ instancesCount_registering = Lens.lens (\InstancesCount' {registering} -> regist
 instancesCount_booting :: Lens.Lens' InstancesCount (Prelude.Maybe Prelude.Int)
 instancesCount_booting = Lens.lens (\InstancesCount' {booting} -> booting) (\s@InstancesCount' {} a -> s {booting = a} :: InstancesCount)
 
--- | The number of instances with @stop_failed@ status.
-instancesCount_stopFailed :: Lens.Lens' InstancesCount (Prelude.Maybe Prelude.Int)
-instancesCount_stopFailed = Lens.lens (\InstancesCount' {stopFailed} -> stopFailed) (\s@InstancesCount' {} a -> s {stopFailed = a} :: InstancesCount)
-
 -- | The number of instances with @start_failed@ status.
 instancesCount_startFailed :: Lens.Lens' InstancesCount (Prelude.Maybe Prelude.Int)
 instancesCount_startFailed = Lens.lens (\InstancesCount' {startFailed} -> startFailed) (\s@InstancesCount' {} a -> s {startFailed = a} :: InstancesCount)
+
+-- | The number of instances with @stop_failed@ status.
+instancesCount_stopFailed :: Lens.Lens' InstancesCount (Prelude.Maybe Prelude.Int)
+instancesCount_stopFailed = Lens.lens (\InstancesCount' {stopFailed} -> stopFailed) (\s@InstancesCount' {} a -> s {stopFailed = a} :: InstancesCount)
 
 -- | The number of instances with @running_setup@ status.
 instancesCount_runningSetup :: Lens.Lens' InstancesCount (Prelude.Maybe Prelude.Int)
@@ -199,29 +199,29 @@ instancesCount_stopped = Lens.lens (\InstancesCount' {stopped} -> stopped) (\s@I
 instancesCount_rebooting :: Lens.Lens' InstancesCount (Prelude.Maybe Prelude.Int)
 instancesCount_rebooting = Lens.lens (\InstancesCount' {rebooting} -> rebooting) (\s@InstancesCount' {} a -> s {rebooting = a} :: InstancesCount)
 
--- | The number of instances in the Registered state.
-instancesCount_registered :: Lens.Lens' InstancesCount (Prelude.Maybe Prelude.Int)
-instancesCount_registered = Lens.lens (\InstancesCount' {registered} -> registered) (\s@InstancesCount' {} a -> s {registered = a} :: InstancesCount)
+-- | The number of instances with @stopping@ status.
+instancesCount_stopping :: Lens.Lens' InstancesCount (Prelude.Maybe Prelude.Int)
+instancesCount_stopping = Lens.lens (\InstancesCount' {stopping} -> stopping) (\s@InstancesCount' {} a -> s {stopping = a} :: InstancesCount)
 
 -- | The number of instances with @requested@ status.
 instancesCount_requested :: Lens.Lens' InstancesCount (Prelude.Maybe Prelude.Int)
 instancesCount_requested = Lens.lens (\InstancesCount' {requested} -> requested) (\s@InstancesCount' {} a -> s {requested = a} :: InstancesCount)
 
+-- | The number of instances in the Registered state.
+instancesCount_registered :: Lens.Lens' InstancesCount (Prelude.Maybe Prelude.Int)
+instancesCount_registered = Lens.lens (\InstancesCount' {registered} -> registered) (\s@InstancesCount' {} a -> s {registered = a} :: InstancesCount)
+
 -- | The number of instances in the Deregistering state.
 instancesCount_deregistering :: Lens.Lens' InstancesCount (Prelude.Maybe Prelude.Int)
 instancesCount_deregistering = Lens.lens (\InstancesCount' {deregistering} -> deregistering) (\s@InstancesCount' {} a -> s {deregistering = a} :: InstancesCount)
 
--- | The number of instances with @stopping@ status.
-instancesCount_stopping :: Lens.Lens' InstancesCount (Prelude.Maybe Prelude.Int)
-instancesCount_stopping = Lens.lens (\InstancesCount' {stopping} -> stopping) (\s@InstancesCount' {} a -> s {stopping = a} :: InstancesCount)
+-- | The number of instances with @connection_lost@ status.
+instancesCount_connectionLost :: Lens.Lens' InstancesCount (Prelude.Maybe Prelude.Int)
+instancesCount_connectionLost = Lens.lens (\InstancesCount' {connectionLost} -> connectionLost) (\s@InstancesCount' {} a -> s {connectionLost = a} :: InstancesCount)
 
 -- | The number of instances in the Unassigning state.
 instancesCount_unassigning :: Lens.Lens' InstancesCount (Prelude.Maybe Prelude.Int)
 instancesCount_unassigning = Lens.lens (\InstancesCount' {unassigning} -> unassigning) (\s@InstancesCount' {} a -> s {unassigning = a} :: InstancesCount)
-
--- | The number of instances with @connection_lost@ status.
-instancesCount_connectionLost :: Lens.Lens' InstancesCount (Prelude.Maybe Prelude.Int)
-instancesCount_connectionLost = Lens.lens (\InstancesCount' {connectionLost} -> connectionLost) (\s@InstancesCount' {} a -> s {connectionLost = a} :: InstancesCount)
 
 instance Core.FromJSON InstancesCount where
   parseJSON =
@@ -233,8 +233,8 @@ instance Core.FromJSON InstancesCount where
             Prelude.<*> (x Core..:? "SetupFailed")
             Prelude.<*> (x Core..:? "Registering")
             Prelude.<*> (x Core..:? "Booting")
-            Prelude.<*> (x Core..:? "StopFailed")
             Prelude.<*> (x Core..:? "StartFailed")
+            Prelude.<*> (x Core..:? "StopFailed")
             Prelude.<*> (x Core..:? "RunningSetup")
             Prelude.<*> (x Core..:? "Terminated")
             Prelude.<*> (x Core..:? "Pending")
@@ -243,12 +243,12 @@ instance Core.FromJSON InstancesCount where
             Prelude.<*> (x Core..:? "Assigning")
             Prelude.<*> (x Core..:? "Stopped")
             Prelude.<*> (x Core..:? "Rebooting")
-            Prelude.<*> (x Core..:? "Registered")
-            Prelude.<*> (x Core..:? "Requested")
-            Prelude.<*> (x Core..:? "Deregistering")
             Prelude.<*> (x Core..:? "Stopping")
-            Prelude.<*> (x Core..:? "Unassigning")
+            Prelude.<*> (x Core..:? "Requested")
+            Prelude.<*> (x Core..:? "Registered")
+            Prelude.<*> (x Core..:? "Deregistering")
             Prelude.<*> (x Core..:? "ConnectionLost")
+            Prelude.<*> (x Core..:? "Unassigning")
       )
 
 instance Prelude.Hashable InstancesCount

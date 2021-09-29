@@ -35,13 +35,13 @@ module Network.AWS.OpsWorks.UpdateInstance
     -- * Request Lenses
     updateInstance_hostname,
     updateInstance_installUpdatesOnBoot,
-    updateInstance_instanceType,
     updateInstance_ebsOptimized,
+    updateInstance_instanceType,
     updateInstance_agentVersion,
-    updateInstance_sshKeyName,
     updateInstance_amiId,
-    updateInstance_layerIds,
+    updateInstance_sshKeyName,
     updateInstance_architecture,
+    updateInstance_layerIds,
     updateInstance_autoScalingType,
     updateInstance_os,
     updateInstance_instanceId,
@@ -73,6 +73,8 @@ data UpdateInstance = UpdateInstance'
     -- We strongly recommend using the default value of @true@, to ensure that
     -- your instances have the latest security updates.
     installUpdatesOnBoot :: Prelude.Maybe Prelude.Bool,
+    -- | This property cannot be updated.
+    ebsOptimized :: Prelude.Maybe Prelude.Bool,
     -- | The instance type, such as @t2.micro@. For a list of supported instance
     -- types, open the stack in the console, choose __Instances__, and choose
     -- __+ Instance__. The __Size__ list contains the currently supported
@@ -81,8 +83,6 @@ data UpdateInstance = UpdateInstance'
     -- The parameter values that you use to specify the various types are in
     -- the __API Name__ column of the __Available Instance Types__ table.
     instanceType :: Prelude.Maybe Prelude.Text,
-    -- | This property cannot be updated.
-    ebsOptimized :: Prelude.Maybe Prelude.Bool,
     -- | The default AWS OpsWorks Stacks agent version. You have the following
     -- options:
     --
@@ -101,21 +101,21 @@ data UpdateInstance = UpdateInstance'
     --
     -- AgentVersion cannot be set to Chef 12.2.
     agentVersion :: Prelude.Maybe Prelude.Text,
-    -- | The instance\'s Amazon EC2 key name.
-    sshKeyName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the AMI that was used to create the instance. The value of
     -- this parameter must be the same AMI ID that the instance is already
     -- using. You cannot apply a new AMI to an instance by running
     -- UpdateInstance. UpdateInstance does not work on instances that are using
     -- custom AMIs.
     amiId :: Prelude.Maybe Prelude.Text,
-    -- | The instance\'s layer IDs.
-    layerIds :: Prelude.Maybe [Prelude.Text],
+    -- | The instance\'s Amazon EC2 key name.
+    sshKeyName :: Prelude.Maybe Prelude.Text,
     -- | The instance architecture. Instance types do not necessarily support
     -- both architectures. For a list of the architectures that are supported
     -- by the different instance types, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Families and Types>.
     architecture :: Prelude.Maybe Architecture,
+    -- | The instance\'s layer IDs.
+    layerIds :: Prelude.Maybe [Prelude.Text],
     -- | For load-based or time-based instances, the type. Windows stacks can use
     -- only time-based instances.
     autoScalingType :: Prelude.Maybe AutoScalingType,
@@ -180,6 +180,8 @@ data UpdateInstance = UpdateInstance'
 -- We strongly recommend using the default value of @true@, to ensure that
 -- your instances have the latest security updates.
 --
+-- 'ebsOptimized', 'updateInstance_ebsOptimized' - This property cannot be updated.
+--
 -- 'instanceType', 'updateInstance_instanceType' - The instance type, such as @t2.micro@. For a list of supported instance
 -- types, open the stack in the console, choose __Instances__, and choose
 -- __+ Instance__. The __Size__ list contains the currently supported
@@ -187,8 +189,6 @@ data UpdateInstance = UpdateInstance'
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Families and Types>.
 -- The parameter values that you use to specify the various types are in
 -- the __API Name__ column of the __Available Instance Types__ table.
---
--- 'ebsOptimized', 'updateInstance_ebsOptimized' - This property cannot be updated.
 --
 -- 'agentVersion', 'updateInstance_agentVersion' - The default AWS OpsWorks Stacks agent version. You have the following
 -- options:
@@ -208,20 +208,20 @@ data UpdateInstance = UpdateInstance'
 --
 -- AgentVersion cannot be set to Chef 12.2.
 --
--- 'sshKeyName', 'updateInstance_sshKeyName' - The instance\'s Amazon EC2 key name.
---
 -- 'amiId', 'updateInstance_amiId' - The ID of the AMI that was used to create the instance. The value of
 -- this parameter must be the same AMI ID that the instance is already
 -- using. You cannot apply a new AMI to an instance by running
 -- UpdateInstance. UpdateInstance does not work on instances that are using
 -- custom AMIs.
 --
--- 'layerIds', 'updateInstance_layerIds' - The instance\'s layer IDs.
+-- 'sshKeyName', 'updateInstance_sshKeyName' - The instance\'s Amazon EC2 key name.
 --
 -- 'architecture', 'updateInstance_architecture' - The instance architecture. Instance types do not necessarily support
 -- both architectures. For a list of the architectures that are supported
 -- by the different instance types, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Families and Types>.
+--
+-- 'layerIds', 'updateInstance_layerIds' - The instance\'s layer IDs.
 --
 -- 'autoScalingType', 'updateInstance_autoScalingType' - For load-based or time-based instances, the type. Windows stacks can use
 -- only time-based instances.
@@ -271,13 +271,13 @@ newUpdateInstance pInstanceId_ =
   UpdateInstance'
     { hostname = Prelude.Nothing,
       installUpdatesOnBoot = Prelude.Nothing,
-      instanceType = Prelude.Nothing,
       ebsOptimized = Prelude.Nothing,
+      instanceType = Prelude.Nothing,
       agentVersion = Prelude.Nothing,
-      sshKeyName = Prelude.Nothing,
       amiId = Prelude.Nothing,
-      layerIds = Prelude.Nothing,
+      sshKeyName = Prelude.Nothing,
       architecture = Prelude.Nothing,
+      layerIds = Prelude.Nothing,
       autoScalingType = Prelude.Nothing,
       os = Prelude.Nothing,
       instanceId = pInstanceId_
@@ -299,6 +299,10 @@ updateInstance_hostname = Lens.lens (\UpdateInstance' {hostname} -> hostname) (\
 updateInstance_installUpdatesOnBoot :: Lens.Lens' UpdateInstance (Prelude.Maybe Prelude.Bool)
 updateInstance_installUpdatesOnBoot = Lens.lens (\UpdateInstance' {installUpdatesOnBoot} -> installUpdatesOnBoot) (\s@UpdateInstance' {} a -> s {installUpdatesOnBoot = a} :: UpdateInstance)
 
+-- | This property cannot be updated.
+updateInstance_ebsOptimized :: Lens.Lens' UpdateInstance (Prelude.Maybe Prelude.Bool)
+updateInstance_ebsOptimized = Lens.lens (\UpdateInstance' {ebsOptimized} -> ebsOptimized) (\s@UpdateInstance' {} a -> s {ebsOptimized = a} :: UpdateInstance)
+
 -- | The instance type, such as @t2.micro@. For a list of supported instance
 -- types, open the stack in the console, choose __Instances__, and choose
 -- __+ Instance__. The __Size__ list contains the currently supported
@@ -308,10 +312,6 @@ updateInstance_installUpdatesOnBoot = Lens.lens (\UpdateInstance' {installUpdate
 -- the __API Name__ column of the __Available Instance Types__ table.
 updateInstance_instanceType :: Lens.Lens' UpdateInstance (Prelude.Maybe Prelude.Text)
 updateInstance_instanceType = Lens.lens (\UpdateInstance' {instanceType} -> instanceType) (\s@UpdateInstance' {} a -> s {instanceType = a} :: UpdateInstance)
-
--- | This property cannot be updated.
-updateInstance_ebsOptimized :: Lens.Lens' UpdateInstance (Prelude.Maybe Prelude.Bool)
-updateInstance_ebsOptimized = Lens.lens (\UpdateInstance' {ebsOptimized} -> ebsOptimized) (\s@UpdateInstance' {} a -> s {ebsOptimized = a} :: UpdateInstance)
 
 -- | The default AWS OpsWorks Stacks agent version. You have the following
 -- options:
@@ -333,10 +333,6 @@ updateInstance_ebsOptimized = Lens.lens (\UpdateInstance' {ebsOptimized} -> ebsO
 updateInstance_agentVersion :: Lens.Lens' UpdateInstance (Prelude.Maybe Prelude.Text)
 updateInstance_agentVersion = Lens.lens (\UpdateInstance' {agentVersion} -> agentVersion) (\s@UpdateInstance' {} a -> s {agentVersion = a} :: UpdateInstance)
 
--- | The instance\'s Amazon EC2 key name.
-updateInstance_sshKeyName :: Lens.Lens' UpdateInstance (Prelude.Maybe Prelude.Text)
-updateInstance_sshKeyName = Lens.lens (\UpdateInstance' {sshKeyName} -> sshKeyName) (\s@UpdateInstance' {} a -> s {sshKeyName = a} :: UpdateInstance)
-
 -- | The ID of the AMI that was used to create the instance. The value of
 -- this parameter must be the same AMI ID that the instance is already
 -- using. You cannot apply a new AMI to an instance by running
@@ -345,9 +341,9 @@ updateInstance_sshKeyName = Lens.lens (\UpdateInstance' {sshKeyName} -> sshKeyNa
 updateInstance_amiId :: Lens.Lens' UpdateInstance (Prelude.Maybe Prelude.Text)
 updateInstance_amiId = Lens.lens (\UpdateInstance' {amiId} -> amiId) (\s@UpdateInstance' {} a -> s {amiId = a} :: UpdateInstance)
 
--- | The instance\'s layer IDs.
-updateInstance_layerIds :: Lens.Lens' UpdateInstance (Prelude.Maybe [Prelude.Text])
-updateInstance_layerIds = Lens.lens (\UpdateInstance' {layerIds} -> layerIds) (\s@UpdateInstance' {} a -> s {layerIds = a} :: UpdateInstance) Prelude.. Lens.mapping Lens._Coerce
+-- | The instance\'s Amazon EC2 key name.
+updateInstance_sshKeyName :: Lens.Lens' UpdateInstance (Prelude.Maybe Prelude.Text)
+updateInstance_sshKeyName = Lens.lens (\UpdateInstance' {sshKeyName} -> sshKeyName) (\s@UpdateInstance' {} a -> s {sshKeyName = a} :: UpdateInstance)
 
 -- | The instance architecture. Instance types do not necessarily support
 -- both architectures. For a list of the architectures that are supported
@@ -355,6 +351,10 @@ updateInstance_layerIds = Lens.lens (\UpdateInstance' {layerIds} -> layerIds) (\
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Families and Types>.
 updateInstance_architecture :: Lens.Lens' UpdateInstance (Prelude.Maybe Architecture)
 updateInstance_architecture = Lens.lens (\UpdateInstance' {architecture} -> architecture) (\s@UpdateInstance' {} a -> s {architecture = a} :: UpdateInstance)
+
+-- | The instance\'s layer IDs.
+updateInstance_layerIds :: Lens.Lens' UpdateInstance (Prelude.Maybe [Prelude.Text])
+updateInstance_layerIds = Lens.lens (\UpdateInstance' {layerIds} -> layerIds) (\s@UpdateInstance' {} a -> s {layerIds = a} :: UpdateInstance) Prelude.. Lens.mapping Lens._Coerce
 
 -- | For load-based or time-based instances, the type. Windows stacks can use
 -- only time-based instances.
@@ -437,13 +437,13 @@ instance Core.ToJSON UpdateInstance where
           [ ("Hostname" Core..=) Prelude.<$> hostname,
             ("InstallUpdatesOnBoot" Core..=)
               Prelude.<$> installUpdatesOnBoot,
-            ("InstanceType" Core..=) Prelude.<$> instanceType,
             ("EbsOptimized" Core..=) Prelude.<$> ebsOptimized,
+            ("InstanceType" Core..=) Prelude.<$> instanceType,
             ("AgentVersion" Core..=) Prelude.<$> agentVersion,
-            ("SshKeyName" Core..=) Prelude.<$> sshKeyName,
             ("AmiId" Core..=) Prelude.<$> amiId,
-            ("LayerIds" Core..=) Prelude.<$> layerIds,
+            ("SshKeyName" Core..=) Prelude.<$> sshKeyName,
             ("Architecture" Core..=) Prelude.<$> architecture,
+            ("LayerIds" Core..=) Prelude.<$> layerIds,
             ("AutoScalingType" Core..=)
               Prelude.<$> autoScalingType,
             ("Os" Core..=) Prelude.<$> os,

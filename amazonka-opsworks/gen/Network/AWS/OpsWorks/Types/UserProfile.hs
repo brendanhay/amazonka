@@ -29,12 +29,12 @@ import qualified Network.AWS.Prelude as Prelude
 data UserProfile = UserProfile'
   { -- | The user\'s IAM ARN.
     iamUserArn :: Prelude.Maybe Prelude.Text,
+    -- | The user\'s SSH user name.
+    sshUsername :: Prelude.Maybe Prelude.Text,
     -- | Whether users can specify their own SSH public key through the My
     -- Settings page. For more information, see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Managing User Permissions>.
     allowSelfManagement :: Prelude.Maybe Prelude.Bool,
-    -- | The user\'s SSH user name.
-    sshUsername :: Prelude.Maybe Prelude.Text,
     -- | The user\'s name.
     name :: Prelude.Maybe Prelude.Text,
     -- | The user\'s SSH public key.
@@ -52,11 +52,11 @@ data UserProfile = UserProfile'
 --
 -- 'iamUserArn', 'userProfile_iamUserArn' - The user\'s IAM ARN.
 --
+-- 'sshUsername', 'userProfile_sshUsername' - The user\'s SSH user name.
+--
 -- 'allowSelfManagement', 'userProfile_allowSelfManagement' - Whether users can specify their own SSH public key through the My
 -- Settings page. For more information, see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Managing User Permissions>.
---
--- 'sshUsername', 'userProfile_sshUsername' - The user\'s SSH user name.
 --
 -- 'name', 'userProfile_name' - The user\'s name.
 --
@@ -66,8 +66,8 @@ newUserProfile ::
 newUserProfile =
   UserProfile'
     { iamUserArn = Prelude.Nothing,
-      allowSelfManagement = Prelude.Nothing,
       sshUsername = Prelude.Nothing,
+      allowSelfManagement = Prelude.Nothing,
       name = Prelude.Nothing,
       sshPublicKey = Prelude.Nothing
     }
@@ -76,15 +76,15 @@ newUserProfile =
 userProfile_iamUserArn :: Lens.Lens' UserProfile (Prelude.Maybe Prelude.Text)
 userProfile_iamUserArn = Lens.lens (\UserProfile' {iamUserArn} -> iamUserArn) (\s@UserProfile' {} a -> s {iamUserArn = a} :: UserProfile)
 
+-- | The user\'s SSH user name.
+userProfile_sshUsername :: Lens.Lens' UserProfile (Prelude.Maybe Prelude.Text)
+userProfile_sshUsername = Lens.lens (\UserProfile' {sshUsername} -> sshUsername) (\s@UserProfile' {} a -> s {sshUsername = a} :: UserProfile)
+
 -- | Whether users can specify their own SSH public key through the My
 -- Settings page. For more information, see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Managing User Permissions>.
 userProfile_allowSelfManagement :: Lens.Lens' UserProfile (Prelude.Maybe Prelude.Bool)
 userProfile_allowSelfManagement = Lens.lens (\UserProfile' {allowSelfManagement} -> allowSelfManagement) (\s@UserProfile' {} a -> s {allowSelfManagement = a} :: UserProfile)
-
--- | The user\'s SSH user name.
-userProfile_sshUsername :: Lens.Lens' UserProfile (Prelude.Maybe Prelude.Text)
-userProfile_sshUsername = Lens.lens (\UserProfile' {sshUsername} -> sshUsername) (\s@UserProfile' {} a -> s {sshUsername = a} :: UserProfile)
 
 -- | The user\'s name.
 userProfile_name :: Lens.Lens' UserProfile (Prelude.Maybe Prelude.Text)
@@ -101,8 +101,8 @@ instance Core.FromJSON UserProfile where
       ( \x ->
           UserProfile'
             Prelude.<$> (x Core..:? "IamUserArn")
-            Prelude.<*> (x Core..:? "AllowSelfManagement")
             Prelude.<*> (x Core..:? "SshUsername")
+            Prelude.<*> (x Core..:? "AllowSelfManagement")
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "SshPublicKey")
       )

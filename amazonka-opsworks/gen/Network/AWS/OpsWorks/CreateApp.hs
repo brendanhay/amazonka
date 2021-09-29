@@ -39,8 +39,8 @@ module Network.AWS.OpsWorks.CreateApp
     createApp_dataSources,
     createApp_domains,
     createApp_enableSsl,
-    createApp_shortname,
     createApp_environment,
+    createApp_shortname,
     createApp_attributes,
     createApp_description,
     createApp_stackId,
@@ -77,8 +77,6 @@ data CreateApp = CreateApp'
     domains :: Prelude.Maybe [Prelude.Text],
     -- | Whether to enable SSL for the app.
     enableSsl :: Prelude.Maybe Prelude.Bool,
-    -- | The app\'s short name.
-    shortname :: Prelude.Maybe Prelude.Text,
     -- | An array of @EnvironmentVariable@ objects that specify environment
     -- variables to be associated with the app. After you deploy the app, these
     -- variables are defined on the associated app server instance. For more
@@ -95,6 +93,8 @@ data CreateApp = CreateApp'
     -- If you have specified one or more environment variables, you cannot
     -- modify the stack\'s Chef version.
     environment :: Prelude.Maybe [EnvironmentVariable],
+    -- | The app\'s short name.
+    shortname :: Prelude.Maybe Prelude.Text,
     -- | One or more user-defined key\/value pairs to be added to the stack
     -- attributes.
     attributes :: Prelude.Maybe (Prelude.HashMap AppAttributesKeys Prelude.Text),
@@ -133,8 +133,6 @@ data CreateApp = CreateApp'
 --
 -- 'enableSsl', 'createApp_enableSsl' - Whether to enable SSL for the app.
 --
--- 'shortname', 'createApp_shortname' - The app\'s short name.
---
 -- 'environment', 'createApp_environment' - An array of @EnvironmentVariable@ objects that specify environment
 -- variables to be associated with the app. After you deploy the app, these
 -- variables are defined on the associated app server instance. For more
@@ -150,6 +148,8 @@ data CreateApp = CreateApp'
 --
 -- If you have specified one or more environment variables, you cannot
 -- modify the stack\'s Chef version.
+--
+-- 'shortname', 'createApp_shortname' - The app\'s short name.
 --
 -- 'attributes', 'createApp_attributes' - One or more user-defined key\/value pairs to be added to the stack
 -- attributes.
@@ -181,8 +181,8 @@ newCreateApp pStackId_ pName_ pType_ =
       dataSources = Prelude.Nothing,
       domains = Prelude.Nothing,
       enableSsl = Prelude.Nothing,
-      shortname = Prelude.Nothing,
       environment = Prelude.Nothing,
+      shortname = Prelude.Nothing,
       attributes = Prelude.Nothing,
       description = Prelude.Nothing,
       stackId = pStackId_,
@@ -211,10 +211,6 @@ createApp_domains = Lens.lens (\CreateApp' {domains} -> domains) (\s@CreateApp' 
 createApp_enableSsl :: Lens.Lens' CreateApp (Prelude.Maybe Prelude.Bool)
 createApp_enableSsl = Lens.lens (\CreateApp' {enableSsl} -> enableSsl) (\s@CreateApp' {} a -> s {enableSsl = a} :: CreateApp)
 
--- | The app\'s short name.
-createApp_shortname :: Lens.Lens' CreateApp (Prelude.Maybe Prelude.Text)
-createApp_shortname = Lens.lens (\CreateApp' {shortname} -> shortname) (\s@CreateApp' {} a -> s {shortname = a} :: CreateApp)
-
 -- | An array of @EnvironmentVariable@ objects that specify environment
 -- variables to be associated with the app. After you deploy the app, these
 -- variables are defined on the associated app server instance. For more
@@ -232,6 +228,10 @@ createApp_shortname = Lens.lens (\CreateApp' {shortname} -> shortname) (\s@Creat
 -- modify the stack\'s Chef version.
 createApp_environment :: Lens.Lens' CreateApp (Prelude.Maybe [EnvironmentVariable])
 createApp_environment = Lens.lens (\CreateApp' {environment} -> environment) (\s@CreateApp' {} a -> s {environment = a} :: CreateApp) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The app\'s short name.
+createApp_shortname :: Lens.Lens' CreateApp (Prelude.Maybe Prelude.Text)
+createApp_shortname = Lens.lens (\CreateApp' {shortname} -> shortname) (\s@CreateApp' {} a -> s {shortname = a} :: CreateApp)
 
 -- | One or more user-defined key\/value pairs to be added to the stack
 -- attributes.
@@ -299,8 +299,8 @@ instance Core.ToJSON CreateApp where
             ("DataSources" Core..=) Prelude.<$> dataSources,
             ("Domains" Core..=) Prelude.<$> domains,
             ("EnableSsl" Core..=) Prelude.<$> enableSsl,
-            ("Shortname" Core..=) Prelude.<$> shortname,
             ("Environment" Core..=) Prelude.<$> environment,
+            ("Shortname" Core..=) Prelude.<$> shortname,
             ("Attributes" Core..=) Prelude.<$> attributes,
             ("Description" Core..=) Prelude.<$> description,
             Prelude.Just ("StackId" Core..= stackId),

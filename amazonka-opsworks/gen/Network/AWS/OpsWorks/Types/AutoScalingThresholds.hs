@@ -49,6 +49,9 @@ data AutoScalingThresholds = AutoScalingThresholds'
     -- the role manually. For more information, see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-servicerole.html Allowing AWS OpsWorks Stacks to Act on Your Behalf>.
     alarms :: Prelude.Maybe [Prelude.Text],
+    -- | The amount of time, in minutes, that the load must exceed a threshold
+    -- before more instances are added or removed.
+    thresholdsWaitTime :: Prelude.Maybe Prelude.Natural,
     -- | The amount of time (in minutes) after a scaling event occurs that AWS
     -- OpsWorks Stacks should ignore metrics and suppress additional scaling
     -- events. For example, AWS OpsWorks Stacks adds new instances following an
@@ -59,9 +62,6 @@ data AutoScalingThresholds = AutoScalingThresholds'
     -- Stacks to suppress scaling events long enough to get the new instances
     -- online.
     ignoreMetricsTime :: Prelude.Maybe Prelude.Natural,
-    -- | The amount of time, in minutes, that the load must exceed a threshold
-    -- before more instances are added or removed.
-    thresholdsWaitTime :: Prelude.Maybe Prelude.Natural,
     -- | The number of instances to add or remove when the load exceeds a
     -- threshold.
     instanceCount :: Prelude.Maybe Prelude.Int
@@ -96,6 +96,9 @@ data AutoScalingThresholds = AutoScalingThresholds'
 -- the role manually. For more information, see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-servicerole.html Allowing AWS OpsWorks Stacks to Act on Your Behalf>.
 --
+-- 'thresholdsWaitTime', 'autoScalingThresholds_thresholdsWaitTime' - The amount of time, in minutes, that the load must exceed a threshold
+-- before more instances are added or removed.
+--
 -- 'ignoreMetricsTime', 'autoScalingThresholds_ignoreMetricsTime' - The amount of time (in minutes) after a scaling event occurs that AWS
 -- OpsWorks Stacks should ignore metrics and suppress additional scaling
 -- events. For example, AWS OpsWorks Stacks adds new instances following an
@@ -105,9 +108,6 @@ data AutoScalingThresholds = AutoScalingThresholds'
 -- several minutes. @IgnoreMetricsTime@ allows you to direct AWS OpsWorks
 -- Stacks to suppress scaling events long enough to get the new instances
 -- online.
---
--- 'thresholdsWaitTime', 'autoScalingThresholds_thresholdsWaitTime' - The amount of time, in minutes, that the load must exceed a threshold
--- before more instances are added or removed.
 --
 -- 'instanceCount', 'autoScalingThresholds_instanceCount' - The number of instances to add or remove when the load exceeds a
 -- threshold.
@@ -120,8 +120,8 @@ newAutoScalingThresholds =
       cpuThreshold = Prelude.Nothing,
       memoryThreshold = Prelude.Nothing,
       alarms = Prelude.Nothing,
-      ignoreMetricsTime = Prelude.Nothing,
       thresholdsWaitTime = Prelude.Nothing,
+      ignoreMetricsTime = Prelude.Nothing,
       instanceCount = Prelude.Nothing
     }
 
@@ -153,6 +153,11 @@ autoScalingThresholds_memoryThreshold = Lens.lens (\AutoScalingThresholds' {memo
 autoScalingThresholds_alarms :: Lens.Lens' AutoScalingThresholds (Prelude.Maybe [Prelude.Text])
 autoScalingThresholds_alarms = Lens.lens (\AutoScalingThresholds' {alarms} -> alarms) (\s@AutoScalingThresholds' {} a -> s {alarms = a} :: AutoScalingThresholds) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The amount of time, in minutes, that the load must exceed a threshold
+-- before more instances are added or removed.
+autoScalingThresholds_thresholdsWaitTime :: Lens.Lens' AutoScalingThresholds (Prelude.Maybe Prelude.Natural)
+autoScalingThresholds_thresholdsWaitTime = Lens.lens (\AutoScalingThresholds' {thresholdsWaitTime} -> thresholdsWaitTime) (\s@AutoScalingThresholds' {} a -> s {thresholdsWaitTime = a} :: AutoScalingThresholds)
+
 -- | The amount of time (in minutes) after a scaling event occurs that AWS
 -- OpsWorks Stacks should ignore metrics and suppress additional scaling
 -- events. For example, AWS OpsWorks Stacks adds new instances following an
@@ -164,11 +169,6 @@ autoScalingThresholds_alarms = Lens.lens (\AutoScalingThresholds' {alarms} -> al
 -- online.
 autoScalingThresholds_ignoreMetricsTime :: Lens.Lens' AutoScalingThresholds (Prelude.Maybe Prelude.Natural)
 autoScalingThresholds_ignoreMetricsTime = Lens.lens (\AutoScalingThresholds' {ignoreMetricsTime} -> ignoreMetricsTime) (\s@AutoScalingThresholds' {} a -> s {ignoreMetricsTime = a} :: AutoScalingThresholds)
-
--- | The amount of time, in minutes, that the load must exceed a threshold
--- before more instances are added or removed.
-autoScalingThresholds_thresholdsWaitTime :: Lens.Lens' AutoScalingThresholds (Prelude.Maybe Prelude.Natural)
-autoScalingThresholds_thresholdsWaitTime = Lens.lens (\AutoScalingThresholds' {thresholdsWaitTime} -> thresholdsWaitTime) (\s@AutoScalingThresholds' {} a -> s {thresholdsWaitTime = a} :: AutoScalingThresholds)
 
 -- | The number of instances to add or remove when the load exceeds a
 -- threshold.
@@ -185,8 +185,8 @@ instance Core.FromJSON AutoScalingThresholds where
             Prelude.<*> (x Core..:? "CpuThreshold")
             Prelude.<*> (x Core..:? "MemoryThreshold")
             Prelude.<*> (x Core..:? "Alarms" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "IgnoreMetricsTime")
             Prelude.<*> (x Core..:? "ThresholdsWaitTime")
+            Prelude.<*> (x Core..:? "IgnoreMetricsTime")
             Prelude.<*> (x Core..:? "InstanceCount")
       )
 
@@ -203,10 +203,10 @@ instance Core.ToJSON AutoScalingThresholds where
             ("MemoryThreshold" Core..=)
               Prelude.<$> memoryThreshold,
             ("Alarms" Core..=) Prelude.<$> alarms,
-            ("IgnoreMetricsTime" Core..=)
-              Prelude.<$> ignoreMetricsTime,
             ("ThresholdsWaitTime" Core..=)
               Prelude.<$> thresholdsWaitTime,
+            ("IgnoreMetricsTime" Core..=)
+              Prelude.<$> ignoreMetricsTime,
             ("InstanceCount" Core..=) Prelude.<$> instanceCount
           ]
       )

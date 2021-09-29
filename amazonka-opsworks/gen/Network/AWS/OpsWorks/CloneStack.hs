@@ -35,24 +35,24 @@ module Network.AWS.OpsWorks.CloneStack
     newCloneStack,
 
     -- * Request Lenses
-    cloneStack_defaultOs,
     cloneStack_useOpsworksSecurityGroups,
+    cloneStack_defaultOs,
     cloneStack_customCookbooksSource,
     cloneStack_defaultAvailabilityZone,
+    cloneStack_customJson,
     cloneStack_agentVersion,
     cloneStack_clonePermissions,
-    cloneStack_customJson,
     cloneStack_defaultRootDeviceType,
-    cloneStack_attributes,
     cloneStack_name,
-    cloneStack_cloneAppIds,
+    cloneStack_attributes,
     cloneStack_defaultInstanceProfileArn,
+    cloneStack_cloneAppIds,
     cloneStack_hostnameTheme,
-    cloneStack_defaultSshKeyName,
     cloneStack_configurationManager,
+    cloneStack_defaultSshKeyName,
+    cloneStack_chefConfiguration,
     cloneStack_region,
     cloneStack_vpcId,
-    cloneStack_chefConfiguration,
     cloneStack_defaultSubnetId,
     cloneStack_useCustomCookbooks,
     cloneStack_sourceStackId,
@@ -77,7 +77,31 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCloneStack' smart constructor.
 data CloneStack = CloneStack'
-  { -- | The stack\'s operating system, which must be set to one of the
+  { -- | Whether to associate the AWS OpsWorks Stacks built-in security groups
+    -- with the stack\'s layers.
+    --
+    -- AWS OpsWorks Stacks provides a standard set of built-in security groups,
+    -- one for each layer, which are associated with layers by default. With
+    -- @UseOpsworksSecurityGroups@ you can instead provide your own custom
+    -- security groups. @UseOpsworksSecurityGroups@ has the following settings:
+    --
+    -- -   True - AWS OpsWorks Stacks automatically associates the appropriate
+    --     built-in security group with each layer (default setting). You can
+    --     associate additional security groups with a layer after you create
+    --     it but you cannot delete the built-in security group.
+    --
+    -- -   False - AWS OpsWorks Stacks does not associate built-in security
+    --     groups with layers. You must create appropriate Amazon Elastic
+    --     Compute Cloud (Amazon EC2) security groups and associate a security
+    --     group with each layer that you create. However, you can still
+    --     manually associate a built-in security group with a layer on
+    --     creation; custom security groups are required only for those layers
+    --     that need custom settings.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
+    useOpsworksSecurityGroups :: Prelude.Maybe Prelude.Bool,
+    -- | The stack\'s operating system, which must be set to one of the
     -- following.
     --
     -- -   A supported Linux operating system: An Amazon Linux version, such as
@@ -110,30 +134,6 @@ data CloneStack = CloneStack'
     -- You can specify a different Linux operating system for the cloned stack,
     -- but you cannot change from Linux to Windows or Windows to Linux.
     defaultOs :: Prelude.Maybe Prelude.Text,
-    -- | Whether to associate the AWS OpsWorks Stacks built-in security groups
-    -- with the stack\'s layers.
-    --
-    -- AWS OpsWorks Stacks provides a standard set of built-in security groups,
-    -- one for each layer, which are associated with layers by default. With
-    -- @UseOpsworksSecurityGroups@ you can instead provide your own custom
-    -- security groups. @UseOpsworksSecurityGroups@ has the following settings:
-    --
-    -- -   True - AWS OpsWorks Stacks automatically associates the appropriate
-    --     built-in security group with each layer (default setting). You can
-    --     associate additional security groups with a layer after you create
-    --     it but you cannot delete the built-in security group.
-    --
-    -- -   False - AWS OpsWorks Stacks does not associate built-in security
-    --     groups with layers. You must create appropriate Amazon Elastic
-    --     Compute Cloud (Amazon EC2) security groups and associate a security
-    --     group with each layer that you create. However, you can still
-    --     manually associate a built-in security group with a layer on
-    --     creation; custom security groups are required only for those layers
-    --     that need custom settings.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
-    useOpsworksSecurityGroups :: Prelude.Maybe Prelude.Bool,
     -- | Contains the information required to retrieve an app or cookbook from a
     -- repository. For more information, see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Adding Apps>
@@ -147,6 +147,15 @@ data CloneStack = CloneStack'
     -- the same zone. For more information, see the @VpcId@ parameter
     -- description.
     defaultAvailabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | A string that contains user-defined, custom JSON. It is used to override
+    -- the corresponding default stack configuration JSON values. The string
+    -- should be in the following format:
+    --
+    -- @\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"@
+    --
+    -- For more information about custom JSON, see
+    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>
+    customJson :: Prelude.Maybe Prelude.Text,
     -- | The default AWS OpsWorks Stacks agent version. You have the following
     -- options:
     --
@@ -169,32 +178,23 @@ data CloneStack = CloneStack'
     agentVersion :: Prelude.Maybe Prelude.Text,
     -- | Whether to clone the source stack\'s permissions.
     clonePermissions :: Prelude.Maybe Prelude.Bool,
-    -- | A string that contains user-defined, custom JSON. It is used to override
-    -- the corresponding default stack configuration JSON values. The string
-    -- should be in the following format:
-    --
-    -- @\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"@
-    --
-    -- For more information about custom JSON, see
-    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>
-    customJson :: Prelude.Maybe Prelude.Text,
     -- | The default root device type. This value is used by default for all
     -- instances in the cloned stack, but you can override it when you create
     -- an instance. For more information, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
     defaultRootDeviceType :: Prelude.Maybe RootDeviceType,
+    -- | The cloned stack name.
+    name :: Prelude.Maybe Prelude.Text,
     -- | A list of stack attributes and values as key\/value pairs to be added to
     -- the cloned stack.
     attributes :: Prelude.Maybe (Prelude.HashMap StackAttributesKeys (Prelude.Maybe Prelude.Text)),
-    -- | The cloned stack name.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | A list of source stack app IDs to be included in the cloned stack.
-    cloneAppIds :: Prelude.Maybe [Prelude.Text],
     -- | The Amazon Resource Name (ARN) of an IAM profile that is the default
     -- profile for all of the stack\'s EC2 instances. For more information
     -- about IAM ARNs, see
     -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
     defaultInstanceProfileArn :: Prelude.Maybe Prelude.Text,
+    -- | A list of source stack app IDs to be included in the cloned stack.
+    cloneAppIds :: Prelude.Maybe [Prelude.Text],
     -- | The stack\'s host name theme, with spaces are replaced by underscores.
     -- The theme is used to generate host names for the stack\'s instances. By
     -- default, @HostnameTheme@ is set to @Layer_Dependent@, which creates host
@@ -226,6 +226,11 @@ data CloneStack = CloneStack'
     -- To obtain a generated host name, call @GetHostNameSuggestion@, which
     -- returns a host name based on the current theme.
     hostnameTheme :: Prelude.Maybe Prelude.Text,
+    -- | The configuration manager. When you clone a stack we recommend that you
+    -- use the configuration manager to specify the Chef version: 12, 11.10, or
+    -- 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for
+    -- Linux stacks is currently 12.
+    configurationManager :: Prelude.Maybe StackConfigurationManager,
     -- | A default Amazon EC2 key pair name. The default value is none. If you
     -- specify a key pair name, AWS OpsWorks installs the public key on the
     -- instance and you can use the private key with an SSH client to log in to
@@ -237,11 +242,11 @@ data CloneStack = CloneStack'
     -- key pair, when you
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html create an instance>.
     defaultSshKeyName :: Prelude.Maybe Prelude.Text,
-    -- | The configuration manager. When you clone a stack we recommend that you
-    -- use the configuration manager to specify the Chef version: 12, 11.10, or
-    -- 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for
-    -- Linux stacks is currently 12.
-    configurationManager :: Prelude.Maybe StackConfigurationManager,
+    -- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf
+    -- and the Berkshelf version on Chef 11.10 stacks. For more information,
+    -- see
+    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
+    chefConfiguration :: Prelude.Maybe ChefConfiguration,
     -- | The cloned stack AWS region, such as \"ap-northeast-2\". For more
     -- information about AWS regions, see
     -- <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
@@ -275,11 +280,6 @@ data CloneStack = CloneStack'
     -- For more information about default VPC and EC2 Classic, see
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>.
     vpcId :: Prelude.Maybe Prelude.Text,
-    -- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf
-    -- and the Berkshelf version on Chef 11.10 stacks. For more information,
-    -- see
-    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
-    chefConfiguration :: Prelude.Maybe ChefConfiguration,
     -- | The stack\'s default VPC subnet ID. This parameter is required if you
     -- specify a value for the @VpcId@ parameter. All instances are launched
     -- into this subnet unless you specify otherwise when you create the
@@ -315,6 +315,30 @@ data CloneStack = CloneStack'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'useOpsworksSecurityGroups', 'cloneStack_useOpsworksSecurityGroups' - Whether to associate the AWS OpsWorks Stacks built-in security groups
+-- with the stack\'s layers.
+--
+-- AWS OpsWorks Stacks provides a standard set of built-in security groups,
+-- one for each layer, which are associated with layers by default. With
+-- @UseOpsworksSecurityGroups@ you can instead provide your own custom
+-- security groups. @UseOpsworksSecurityGroups@ has the following settings:
+--
+-- -   True - AWS OpsWorks Stacks automatically associates the appropriate
+--     built-in security group with each layer (default setting). You can
+--     associate additional security groups with a layer after you create
+--     it but you cannot delete the built-in security group.
+--
+-- -   False - AWS OpsWorks Stacks does not associate built-in security
+--     groups with layers. You must create appropriate Amazon Elastic
+--     Compute Cloud (Amazon EC2) security groups and associate a security
+--     group with each layer that you create. However, you can still
+--     manually associate a built-in security group with a layer on
+--     creation; custom security groups are required only for those layers
+--     that need custom settings.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
+--
 -- 'defaultOs', 'cloneStack_defaultOs' - The stack\'s operating system, which must be set to one of the
 -- following.
 --
@@ -348,30 +372,6 @@ data CloneStack = CloneStack'
 -- You can specify a different Linux operating system for the cloned stack,
 -- but you cannot change from Linux to Windows or Windows to Linux.
 --
--- 'useOpsworksSecurityGroups', 'cloneStack_useOpsworksSecurityGroups' - Whether to associate the AWS OpsWorks Stacks built-in security groups
--- with the stack\'s layers.
---
--- AWS OpsWorks Stacks provides a standard set of built-in security groups,
--- one for each layer, which are associated with layers by default. With
--- @UseOpsworksSecurityGroups@ you can instead provide your own custom
--- security groups. @UseOpsworksSecurityGroups@ has the following settings:
---
--- -   True - AWS OpsWorks Stacks automatically associates the appropriate
---     built-in security group with each layer (default setting). You can
---     associate additional security groups with a layer after you create
---     it but you cannot delete the built-in security group.
---
--- -   False - AWS OpsWorks Stacks does not associate built-in security
---     groups with layers. You must create appropriate Amazon Elastic
---     Compute Cloud (Amazon EC2) security groups and associate a security
---     group with each layer that you create. However, you can still
---     manually associate a built-in security group with a layer on
---     creation; custom security groups are required only for those layers
---     that need custom settings.
---
--- For more information, see
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
---
 -- 'customCookbooksSource', 'cloneStack_customCookbooksSource' - Contains the information required to retrieve an app or cookbook from a
 -- repository. For more information, see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Adding Apps>
@@ -384,6 +384,15 @@ data CloneStack = CloneStack'
 -- If you also specify a value for @DefaultSubnetId@, the subnet must be in
 -- the same zone. For more information, see the @VpcId@ parameter
 -- description.
+--
+-- 'customJson', 'cloneStack_customJson' - A string that contains user-defined, custom JSON. It is used to override
+-- the corresponding default stack configuration JSON values. The string
+-- should be in the following format:
+--
+-- @\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"@
+--
+-- For more information about custom JSON, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>
 --
 -- 'agentVersion', 'cloneStack_agentVersion' - The default AWS OpsWorks Stacks agent version. You have the following
 -- options:
@@ -407,31 +416,22 @@ data CloneStack = CloneStack'
 --
 -- 'clonePermissions', 'cloneStack_clonePermissions' - Whether to clone the source stack\'s permissions.
 --
--- 'customJson', 'cloneStack_customJson' - A string that contains user-defined, custom JSON. It is used to override
--- the corresponding default stack configuration JSON values. The string
--- should be in the following format:
---
--- @\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"@
---
--- For more information about custom JSON, see
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>
---
 -- 'defaultRootDeviceType', 'cloneStack_defaultRootDeviceType' - The default root device type. This value is used by default for all
 -- instances in the cloned stack, but you can override it when you create
 -- an instance. For more information, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
 --
--- 'attributes', 'cloneStack_attributes' - A list of stack attributes and values as key\/value pairs to be added to
--- the cloned stack.
---
 -- 'name', 'cloneStack_name' - The cloned stack name.
 --
--- 'cloneAppIds', 'cloneStack_cloneAppIds' - A list of source stack app IDs to be included in the cloned stack.
+-- 'attributes', 'cloneStack_attributes' - A list of stack attributes and values as key\/value pairs to be added to
+-- the cloned stack.
 --
 -- 'defaultInstanceProfileArn', 'cloneStack_defaultInstanceProfileArn' - The Amazon Resource Name (ARN) of an IAM profile that is the default
 -- profile for all of the stack\'s EC2 instances. For more information
 -- about IAM ARNs, see
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
+--
+-- 'cloneAppIds', 'cloneStack_cloneAppIds' - A list of source stack app IDs to be included in the cloned stack.
 --
 -- 'hostnameTheme', 'cloneStack_hostnameTheme' - The stack\'s host name theme, with spaces are replaced by underscores.
 -- The theme is used to generate host names for the stack\'s instances. By
@@ -464,6 +464,11 @@ data CloneStack = CloneStack'
 -- To obtain a generated host name, call @GetHostNameSuggestion@, which
 -- returns a host name based on the current theme.
 --
+-- 'configurationManager', 'cloneStack_configurationManager' - The configuration manager. When you clone a stack we recommend that you
+-- use the configuration manager to specify the Chef version: 12, 11.10, or
+-- 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for
+-- Linux stacks is currently 12.
+--
 -- 'defaultSshKeyName', 'cloneStack_defaultSshKeyName' - A default Amazon EC2 key pair name. The default value is none. If you
 -- specify a key pair name, AWS OpsWorks installs the public key on the
 -- instance and you can use the private key with an SSH client to log in to
@@ -475,10 +480,10 @@ data CloneStack = CloneStack'
 -- key pair, when you
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html create an instance>.
 --
--- 'configurationManager', 'cloneStack_configurationManager' - The configuration manager. When you clone a stack we recommend that you
--- use the configuration manager to specify the Chef version: 12, 11.10, or
--- 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for
--- Linux stacks is currently 12.
+-- 'chefConfiguration', 'cloneStack_chefConfiguration' - A @ChefConfiguration@ object that specifies whether to enable Berkshelf
+-- and the Berkshelf version on Chef 11.10 stacks. For more information,
+-- see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
 --
 -- 'region', 'cloneStack_region' - The cloned stack AWS region, such as \"ap-northeast-2\". For more
 -- information about AWS regions, see
@@ -513,11 +518,6 @@ data CloneStack = CloneStack'
 -- For more information about default VPC and EC2 Classic, see
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>.
 --
--- 'chefConfiguration', 'cloneStack_chefConfiguration' - A @ChefConfiguration@ object that specifies whether to enable Berkshelf
--- and the Berkshelf version on Chef 11.10 stacks. For more information,
--- see
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
---
 -- 'defaultSubnetId', 'cloneStack_defaultSubnetId' - The stack\'s default VPC subnet ID. This parameter is required if you
 -- specify a value for the @VpcId@ parameter. All instances are launched
 -- into this subnet unless you specify otherwise when you create the
@@ -549,29 +549,56 @@ newCloneStack ::
   CloneStack
 newCloneStack pSourceStackId_ pServiceRoleArn_ =
   CloneStack'
-    { defaultOs = Prelude.Nothing,
-      useOpsworksSecurityGroups = Prelude.Nothing,
+    { useOpsworksSecurityGroups =
+        Prelude.Nothing,
+      defaultOs = Prelude.Nothing,
       customCookbooksSource = Prelude.Nothing,
       defaultAvailabilityZone = Prelude.Nothing,
+      customJson = Prelude.Nothing,
       agentVersion = Prelude.Nothing,
       clonePermissions = Prelude.Nothing,
-      customJson = Prelude.Nothing,
       defaultRootDeviceType = Prelude.Nothing,
-      attributes = Prelude.Nothing,
       name = Prelude.Nothing,
-      cloneAppIds = Prelude.Nothing,
+      attributes = Prelude.Nothing,
       defaultInstanceProfileArn = Prelude.Nothing,
+      cloneAppIds = Prelude.Nothing,
       hostnameTheme = Prelude.Nothing,
-      defaultSshKeyName = Prelude.Nothing,
       configurationManager = Prelude.Nothing,
+      defaultSshKeyName = Prelude.Nothing,
+      chefConfiguration = Prelude.Nothing,
       region = Prelude.Nothing,
       vpcId = Prelude.Nothing,
-      chefConfiguration = Prelude.Nothing,
       defaultSubnetId = Prelude.Nothing,
       useCustomCookbooks = Prelude.Nothing,
       sourceStackId = pSourceStackId_,
       serviceRoleArn = pServiceRoleArn_
     }
+
+-- | Whether to associate the AWS OpsWorks Stacks built-in security groups
+-- with the stack\'s layers.
+--
+-- AWS OpsWorks Stacks provides a standard set of built-in security groups,
+-- one for each layer, which are associated with layers by default. With
+-- @UseOpsworksSecurityGroups@ you can instead provide your own custom
+-- security groups. @UseOpsworksSecurityGroups@ has the following settings:
+--
+-- -   True - AWS OpsWorks Stacks automatically associates the appropriate
+--     built-in security group with each layer (default setting). You can
+--     associate additional security groups with a layer after you create
+--     it but you cannot delete the built-in security group.
+--
+-- -   False - AWS OpsWorks Stacks does not associate built-in security
+--     groups with layers. You must create appropriate Amazon Elastic
+--     Compute Cloud (Amazon EC2) security groups and associate a security
+--     group with each layer that you create. However, you can still
+--     manually associate a built-in security group with a layer on
+--     creation; custom security groups are required only for those layers
+--     that need custom settings.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
+cloneStack_useOpsworksSecurityGroups :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Bool)
+cloneStack_useOpsworksSecurityGroups = Lens.lens (\CloneStack' {useOpsworksSecurityGroups} -> useOpsworksSecurityGroups) (\s@CloneStack' {} a -> s {useOpsworksSecurityGroups = a} :: CloneStack)
 
 -- | The stack\'s operating system, which must be set to one of the
 -- following.
@@ -608,32 +635,6 @@ newCloneStack pSourceStackId_ pServiceRoleArn_ =
 cloneStack_defaultOs :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
 cloneStack_defaultOs = Lens.lens (\CloneStack' {defaultOs} -> defaultOs) (\s@CloneStack' {} a -> s {defaultOs = a} :: CloneStack)
 
--- | Whether to associate the AWS OpsWorks Stacks built-in security groups
--- with the stack\'s layers.
---
--- AWS OpsWorks Stacks provides a standard set of built-in security groups,
--- one for each layer, which are associated with layers by default. With
--- @UseOpsworksSecurityGroups@ you can instead provide your own custom
--- security groups. @UseOpsworksSecurityGroups@ has the following settings:
---
--- -   True - AWS OpsWorks Stacks automatically associates the appropriate
---     built-in security group with each layer (default setting). You can
---     associate additional security groups with a layer after you create
---     it but you cannot delete the built-in security group.
---
--- -   False - AWS OpsWorks Stacks does not associate built-in security
---     groups with layers. You must create appropriate Amazon Elastic
---     Compute Cloud (Amazon EC2) security groups and associate a security
---     group with each layer that you create. However, you can still
---     manually associate a built-in security group with a layer on
---     creation; custom security groups are required only for those layers
---     that need custom settings.
---
--- For more information, see
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
-cloneStack_useOpsworksSecurityGroups :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Bool)
-cloneStack_useOpsworksSecurityGroups = Lens.lens (\CloneStack' {useOpsworksSecurityGroups} -> useOpsworksSecurityGroups) (\s@CloneStack' {} a -> s {useOpsworksSecurityGroups = a} :: CloneStack)
-
 -- | Contains the information required to retrieve an app or cookbook from a
 -- repository. For more information, see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Adding Apps>
@@ -650,6 +651,17 @@ cloneStack_customCookbooksSource = Lens.lens (\CloneStack' {customCookbooksSourc
 -- description.
 cloneStack_defaultAvailabilityZone :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
 cloneStack_defaultAvailabilityZone = Lens.lens (\CloneStack' {defaultAvailabilityZone} -> defaultAvailabilityZone) (\s@CloneStack' {} a -> s {defaultAvailabilityZone = a} :: CloneStack)
+
+-- | A string that contains user-defined, custom JSON. It is used to override
+-- the corresponding default stack configuration JSON values. The string
+-- should be in the following format:
+--
+-- @\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"@
+--
+-- For more information about custom JSON, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>
+cloneStack_customJson :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
+cloneStack_customJson = Lens.lens (\CloneStack' {customJson} -> customJson) (\s@CloneStack' {} a -> s {customJson = a} :: CloneStack)
 
 -- | The default AWS OpsWorks Stacks agent version. You have the following
 -- options:
@@ -677,17 +689,6 @@ cloneStack_agentVersion = Lens.lens (\CloneStack' {agentVersion} -> agentVersion
 cloneStack_clonePermissions :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Bool)
 cloneStack_clonePermissions = Lens.lens (\CloneStack' {clonePermissions} -> clonePermissions) (\s@CloneStack' {} a -> s {clonePermissions = a} :: CloneStack)
 
--- | A string that contains user-defined, custom JSON. It is used to override
--- the corresponding default stack configuration JSON values. The string
--- should be in the following format:
---
--- @\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"@
---
--- For more information about custom JSON, see
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>
-cloneStack_customJson :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
-cloneStack_customJson = Lens.lens (\CloneStack' {customJson} -> customJson) (\s@CloneStack' {} a -> s {customJson = a} :: CloneStack)
-
 -- | The default root device type. This value is used by default for all
 -- instances in the cloned stack, but you can override it when you create
 -- an instance. For more information, see
@@ -695,18 +696,14 @@ cloneStack_customJson = Lens.lens (\CloneStack' {customJson} -> customJson) (\s@
 cloneStack_defaultRootDeviceType :: Lens.Lens' CloneStack (Prelude.Maybe RootDeviceType)
 cloneStack_defaultRootDeviceType = Lens.lens (\CloneStack' {defaultRootDeviceType} -> defaultRootDeviceType) (\s@CloneStack' {} a -> s {defaultRootDeviceType = a} :: CloneStack)
 
--- | A list of stack attributes and values as key\/value pairs to be added to
--- the cloned stack.
-cloneStack_attributes :: Lens.Lens' CloneStack (Prelude.Maybe (Prelude.HashMap StackAttributesKeys (Prelude.Maybe Prelude.Text)))
-cloneStack_attributes = Lens.lens (\CloneStack' {attributes} -> attributes) (\s@CloneStack' {} a -> s {attributes = a} :: CloneStack) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The cloned stack name.
 cloneStack_name :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
 cloneStack_name = Lens.lens (\CloneStack' {name} -> name) (\s@CloneStack' {} a -> s {name = a} :: CloneStack)
 
--- | A list of source stack app IDs to be included in the cloned stack.
-cloneStack_cloneAppIds :: Lens.Lens' CloneStack (Prelude.Maybe [Prelude.Text])
-cloneStack_cloneAppIds = Lens.lens (\CloneStack' {cloneAppIds} -> cloneAppIds) (\s@CloneStack' {} a -> s {cloneAppIds = a} :: CloneStack) Prelude.. Lens.mapping Lens._Coerce
+-- | A list of stack attributes and values as key\/value pairs to be added to
+-- the cloned stack.
+cloneStack_attributes :: Lens.Lens' CloneStack (Prelude.Maybe (Prelude.HashMap StackAttributesKeys (Prelude.Maybe Prelude.Text)))
+cloneStack_attributes = Lens.lens (\CloneStack' {attributes} -> attributes) (\s@CloneStack' {} a -> s {attributes = a} :: CloneStack) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The Amazon Resource Name (ARN) of an IAM profile that is the default
 -- profile for all of the stack\'s EC2 instances. For more information
@@ -714,6 +711,10 @@ cloneStack_cloneAppIds = Lens.lens (\CloneStack' {cloneAppIds} -> cloneAppIds) (
 -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
 cloneStack_defaultInstanceProfileArn :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
 cloneStack_defaultInstanceProfileArn = Lens.lens (\CloneStack' {defaultInstanceProfileArn} -> defaultInstanceProfileArn) (\s@CloneStack' {} a -> s {defaultInstanceProfileArn = a} :: CloneStack)
+
+-- | A list of source stack app IDs to be included in the cloned stack.
+cloneStack_cloneAppIds :: Lens.Lens' CloneStack (Prelude.Maybe [Prelude.Text])
+cloneStack_cloneAppIds = Lens.lens (\CloneStack' {cloneAppIds} -> cloneAppIds) (\s@CloneStack' {} a -> s {cloneAppIds = a} :: CloneStack) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The stack\'s host name theme, with spaces are replaced by underscores.
 -- The theme is used to generate host names for the stack\'s instances. By
@@ -748,6 +749,13 @@ cloneStack_defaultInstanceProfileArn = Lens.lens (\CloneStack' {defaultInstanceP
 cloneStack_hostnameTheme :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
 cloneStack_hostnameTheme = Lens.lens (\CloneStack' {hostnameTheme} -> hostnameTheme) (\s@CloneStack' {} a -> s {hostnameTheme = a} :: CloneStack)
 
+-- | The configuration manager. When you clone a stack we recommend that you
+-- use the configuration manager to specify the Chef version: 12, 11.10, or
+-- 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for
+-- Linux stacks is currently 12.
+cloneStack_configurationManager :: Lens.Lens' CloneStack (Prelude.Maybe StackConfigurationManager)
+cloneStack_configurationManager = Lens.lens (\CloneStack' {configurationManager} -> configurationManager) (\s@CloneStack' {} a -> s {configurationManager = a} :: CloneStack)
+
 -- | A default Amazon EC2 key pair name. The default value is none. If you
 -- specify a key pair name, AWS OpsWorks installs the public key on the
 -- instance and you can use the private key with an SSH client to log in to
@@ -761,12 +769,12 @@ cloneStack_hostnameTheme = Lens.lens (\CloneStack' {hostnameTheme} -> hostnameTh
 cloneStack_defaultSshKeyName :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
 cloneStack_defaultSshKeyName = Lens.lens (\CloneStack' {defaultSshKeyName} -> defaultSshKeyName) (\s@CloneStack' {} a -> s {defaultSshKeyName = a} :: CloneStack)
 
--- | The configuration manager. When you clone a stack we recommend that you
--- use the configuration manager to specify the Chef version: 12, 11.10, or
--- 11.4 for Linux stacks, or 12.2 for Windows stacks. The default value for
--- Linux stacks is currently 12.
-cloneStack_configurationManager :: Lens.Lens' CloneStack (Prelude.Maybe StackConfigurationManager)
-cloneStack_configurationManager = Lens.lens (\CloneStack' {configurationManager} -> configurationManager) (\s@CloneStack' {} a -> s {configurationManager = a} :: CloneStack)
+-- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf
+-- and the Berkshelf version on Chef 11.10 stacks. For more information,
+-- see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
+cloneStack_chefConfiguration :: Lens.Lens' CloneStack (Prelude.Maybe ChefConfiguration)
+cloneStack_chefConfiguration = Lens.lens (\CloneStack' {chefConfiguration} -> chefConfiguration) (\s@CloneStack' {} a -> s {chefConfiguration = a} :: CloneStack)
 
 -- | The cloned stack AWS region, such as \"ap-northeast-2\". For more
 -- information about AWS regions, see
@@ -804,13 +812,6 @@ cloneStack_region = Lens.lens (\CloneStack' {region} -> region) (\s@CloneStack' 
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>.
 cloneStack_vpcId :: Lens.Lens' CloneStack (Prelude.Maybe Prelude.Text)
 cloneStack_vpcId = Lens.lens (\CloneStack' {vpcId} -> vpcId) (\s@CloneStack' {} a -> s {vpcId = a} :: CloneStack)
-
--- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf
--- and the Berkshelf version on Chef 11.10 stacks. For more information,
--- see
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
-cloneStack_chefConfiguration :: Lens.Lens' CloneStack (Prelude.Maybe ChefConfiguration)
-cloneStack_chefConfiguration = Lens.lens (\CloneStack' {chefConfiguration} -> chefConfiguration) (\s@CloneStack' {} a -> s {chefConfiguration = a} :: CloneStack)
 
 -- | The stack\'s default VPC subnet ID. This parameter is required if you
 -- specify a value for the @VpcId@ parameter. All instances are launched
@@ -878,33 +879,33 @@ instance Core.ToJSON CloneStack where
   toJSON CloneStack' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DefaultOs" Core..=) Prelude.<$> defaultOs,
-            ("UseOpsworksSecurityGroups" Core..=)
+          [ ("UseOpsworksSecurityGroups" Core..=)
               Prelude.<$> useOpsworksSecurityGroups,
+            ("DefaultOs" Core..=) Prelude.<$> defaultOs,
             ("CustomCookbooksSource" Core..=)
               Prelude.<$> customCookbooksSource,
             ("DefaultAvailabilityZone" Core..=)
               Prelude.<$> defaultAvailabilityZone,
+            ("CustomJson" Core..=) Prelude.<$> customJson,
             ("AgentVersion" Core..=) Prelude.<$> agentVersion,
             ("ClonePermissions" Core..=)
               Prelude.<$> clonePermissions,
-            ("CustomJson" Core..=) Prelude.<$> customJson,
             ("DefaultRootDeviceType" Core..=)
               Prelude.<$> defaultRootDeviceType,
-            ("Attributes" Core..=) Prelude.<$> attributes,
             ("Name" Core..=) Prelude.<$> name,
-            ("CloneAppIds" Core..=) Prelude.<$> cloneAppIds,
+            ("Attributes" Core..=) Prelude.<$> attributes,
             ("DefaultInstanceProfileArn" Core..=)
               Prelude.<$> defaultInstanceProfileArn,
+            ("CloneAppIds" Core..=) Prelude.<$> cloneAppIds,
             ("HostnameTheme" Core..=) Prelude.<$> hostnameTheme,
-            ("DefaultSshKeyName" Core..=)
-              Prelude.<$> defaultSshKeyName,
             ("ConfigurationManager" Core..=)
               Prelude.<$> configurationManager,
-            ("Region" Core..=) Prelude.<$> region,
-            ("VpcId" Core..=) Prelude.<$> vpcId,
+            ("DefaultSshKeyName" Core..=)
+              Prelude.<$> defaultSshKeyName,
             ("ChefConfiguration" Core..=)
               Prelude.<$> chefConfiguration,
+            ("Region" Core..=) Prelude.<$> region,
+            ("VpcId" Core..=) Prelude.<$> vpcId,
             ("DefaultSubnetId" Core..=)
               Prelude.<$> defaultSubnetId,
             ("UseCustomCookbooks" Core..=)

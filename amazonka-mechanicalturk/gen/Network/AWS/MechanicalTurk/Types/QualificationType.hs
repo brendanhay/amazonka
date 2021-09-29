@@ -32,12 +32,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newQualificationType' smart constructor.
 data QualificationType = QualificationType'
-  { -- | A unique identifier for the Qualification type. A Qualification type is
+  { -- | The date and time the Qualification type was created.
+    creationTime :: Prelude.Maybe Core.POSIX,
+    -- | A unique identifier for the Qualification type. A Qualification type is
     -- given a Qualification type ID when you call the CreateQualificationType
     -- operation.
     qualificationTypeId :: Prelude.Maybe Prelude.Text,
-    -- | The date and time the Qualification type was created.
-    creationTime :: Prelude.Maybe Core.POSIX,
     -- | Specifies whether the Qualification type is one that a user can request
     -- through the Amazon Mechanical Turk web site, such as by taking a
     -- Qualification test. This value is False for Qualifications assigned
@@ -66,19 +66,19 @@ data QualificationType = QualificationType'
     -- Qualification test, beginning from the time the Worker requests the
     -- Qualification.
     testDurationInSeconds :: Prelude.Maybe Prelude.Integer,
-    -- | A long description for the Qualification type.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The questions for a Qualification test associated with this
     -- Qualification type that a user can take to obtain a Qualification of
     -- this type. This parameter must be specified if AnswerKey is present. A
     -- Qualification type cannot have both a specified Test parameter and an
     -- AutoGranted value of true.
     test :: Prelude.Maybe Prelude.Text,
-    -- | The answers to the Qualification test specified in the Test parameter.
-    answerKey :: Prelude.Maybe Prelude.Text,
+    -- | A long description for the Qualification type.
+    description :: Prelude.Maybe Prelude.Text,
     -- | The Qualification integer value to use for automatically granted
     -- Qualifications, if AutoGranted is true. This is 1 by default.
     autoGrantedValue :: Prelude.Maybe Prelude.Int,
+    -- | The answers to the Qualification test specified in the Test parameter.
+    answerKey :: Prelude.Maybe Prelude.Text,
     -- | One or more words or phrases that describe theQualification type,
     -- separated by commas. The Keywords make the type easier to find using a
     -- search.
@@ -94,11 +94,11 @@ data QualificationType = QualificationType'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'creationTime', 'qualificationType_creationTime' - The date and time the Qualification type was created.
+--
 -- 'qualificationTypeId', 'qualificationType_qualificationTypeId' - A unique identifier for the Qualification type. A Qualification type is
 -- given a Qualification type ID when you call the CreateQualificationType
 -- operation.
---
--- 'creationTime', 'qualificationType_creationTime' - The date and time the Qualification type was created.
 --
 -- 'isRequestable', 'qualificationType_isRequestable' - Specifies whether the Qualification type is one that a user can request
 -- through the Amazon Mechanical Turk web site, such as by taking a
@@ -128,18 +128,18 @@ data QualificationType = QualificationType'
 -- Qualification test, beginning from the time the Worker requests the
 -- Qualification.
 --
--- 'description', 'qualificationType_description' - A long description for the Qualification type.
---
 -- 'test', 'qualificationType_test' - The questions for a Qualification test associated with this
 -- Qualification type that a user can take to obtain a Qualification of
 -- this type. This parameter must be specified if AnswerKey is present. A
 -- Qualification type cannot have both a specified Test parameter and an
 -- AutoGranted value of true.
 --
--- 'answerKey', 'qualificationType_answerKey' - The answers to the Qualification test specified in the Test parameter.
+-- 'description', 'qualificationType_description' - A long description for the Qualification type.
 --
 -- 'autoGrantedValue', 'qualificationType_autoGrantedValue' - The Qualification integer value to use for automatically granted
 -- Qualifications, if AutoGranted is true. This is 1 by default.
+--
+-- 'answerKey', 'qualificationType_answerKey' - The answers to the Qualification test specified in the Test parameter.
 --
 -- 'keywords', 'qualificationType_keywords' - One or more words or phrases that describe theQualification type,
 -- separated by commas. The Keywords make the type easier to find using a
@@ -148,31 +148,30 @@ newQualificationType ::
   QualificationType
 newQualificationType =
   QualificationType'
-    { qualificationTypeId =
-        Prelude.Nothing,
-      creationTime = Prelude.Nothing,
+    { creationTime = Prelude.Nothing,
+      qualificationTypeId = Prelude.Nothing,
       isRequestable = Prelude.Nothing,
       retryDelayInSeconds = Prelude.Nothing,
       autoGranted = Prelude.Nothing,
       qualificationTypeStatus = Prelude.Nothing,
       name = Prelude.Nothing,
       testDurationInSeconds = Prelude.Nothing,
-      description = Prelude.Nothing,
       test = Prelude.Nothing,
-      answerKey = Prelude.Nothing,
+      description = Prelude.Nothing,
       autoGrantedValue = Prelude.Nothing,
+      answerKey = Prelude.Nothing,
       keywords = Prelude.Nothing
     }
+
+-- | The date and time the Qualification type was created.
+qualificationType_creationTime :: Lens.Lens' QualificationType (Prelude.Maybe Prelude.UTCTime)
+qualificationType_creationTime = Lens.lens (\QualificationType' {creationTime} -> creationTime) (\s@QualificationType' {} a -> s {creationTime = a} :: QualificationType) Prelude.. Lens.mapping Core._Time
 
 -- | A unique identifier for the Qualification type. A Qualification type is
 -- given a Qualification type ID when you call the CreateQualificationType
 -- operation.
 qualificationType_qualificationTypeId :: Lens.Lens' QualificationType (Prelude.Maybe Prelude.Text)
 qualificationType_qualificationTypeId = Lens.lens (\QualificationType' {qualificationTypeId} -> qualificationTypeId) (\s@QualificationType' {} a -> s {qualificationTypeId = a} :: QualificationType)
-
--- | The date and time the Qualification type was created.
-qualificationType_creationTime :: Lens.Lens' QualificationType (Prelude.Maybe Prelude.UTCTime)
-qualificationType_creationTime = Lens.lens (\QualificationType' {creationTime} -> creationTime) (\s@QualificationType' {} a -> s {creationTime = a} :: QualificationType) Prelude.. Lens.mapping Core._Time
 
 -- | Specifies whether the Qualification type is one that a user can request
 -- through the Amazon Mechanical Turk web site, such as by taking a
@@ -214,10 +213,6 @@ qualificationType_name = Lens.lens (\QualificationType' {name} -> name) (\s@Qual
 qualificationType_testDurationInSeconds :: Lens.Lens' QualificationType (Prelude.Maybe Prelude.Integer)
 qualificationType_testDurationInSeconds = Lens.lens (\QualificationType' {testDurationInSeconds} -> testDurationInSeconds) (\s@QualificationType' {} a -> s {testDurationInSeconds = a} :: QualificationType)
 
--- | A long description for the Qualification type.
-qualificationType_description :: Lens.Lens' QualificationType (Prelude.Maybe Prelude.Text)
-qualificationType_description = Lens.lens (\QualificationType' {description} -> description) (\s@QualificationType' {} a -> s {description = a} :: QualificationType)
-
 -- | The questions for a Qualification test associated with this
 -- Qualification type that a user can take to obtain a Qualification of
 -- this type. This parameter must be specified if AnswerKey is present. A
@@ -226,14 +221,18 @@ qualificationType_description = Lens.lens (\QualificationType' {description} -> 
 qualificationType_test :: Lens.Lens' QualificationType (Prelude.Maybe Prelude.Text)
 qualificationType_test = Lens.lens (\QualificationType' {test} -> test) (\s@QualificationType' {} a -> s {test = a} :: QualificationType)
 
--- | The answers to the Qualification test specified in the Test parameter.
-qualificationType_answerKey :: Lens.Lens' QualificationType (Prelude.Maybe Prelude.Text)
-qualificationType_answerKey = Lens.lens (\QualificationType' {answerKey} -> answerKey) (\s@QualificationType' {} a -> s {answerKey = a} :: QualificationType)
+-- | A long description for the Qualification type.
+qualificationType_description :: Lens.Lens' QualificationType (Prelude.Maybe Prelude.Text)
+qualificationType_description = Lens.lens (\QualificationType' {description} -> description) (\s@QualificationType' {} a -> s {description = a} :: QualificationType)
 
 -- | The Qualification integer value to use for automatically granted
 -- Qualifications, if AutoGranted is true. This is 1 by default.
 qualificationType_autoGrantedValue :: Lens.Lens' QualificationType (Prelude.Maybe Prelude.Int)
 qualificationType_autoGrantedValue = Lens.lens (\QualificationType' {autoGrantedValue} -> autoGrantedValue) (\s@QualificationType' {} a -> s {autoGrantedValue = a} :: QualificationType)
+
+-- | The answers to the Qualification test specified in the Test parameter.
+qualificationType_answerKey :: Lens.Lens' QualificationType (Prelude.Maybe Prelude.Text)
+qualificationType_answerKey = Lens.lens (\QualificationType' {answerKey} -> answerKey) (\s@QualificationType' {} a -> s {answerKey = a} :: QualificationType)
 
 -- | One or more words or phrases that describe theQualification type,
 -- separated by commas. The Keywords make the type easier to find using a
@@ -247,18 +246,18 @@ instance Core.FromJSON QualificationType where
       "QualificationType"
       ( \x ->
           QualificationType'
-            Prelude.<$> (x Core..:? "QualificationTypeId")
-            Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<$> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "QualificationTypeId")
             Prelude.<*> (x Core..:? "IsRequestable")
             Prelude.<*> (x Core..:? "RetryDelayInSeconds")
             Prelude.<*> (x Core..:? "AutoGranted")
             Prelude.<*> (x Core..:? "QualificationTypeStatus")
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "TestDurationInSeconds")
-            Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "Test")
-            Prelude.<*> (x Core..:? "AnswerKey")
+            Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "AutoGrantedValue")
+            Prelude.<*> (x Core..:? "AnswerKey")
             Prelude.<*> (x Core..:? "Keywords")
       )
 

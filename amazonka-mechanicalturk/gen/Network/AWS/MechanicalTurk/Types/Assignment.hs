@@ -64,15 +64,15 @@ data Assignment = Assignment'
     workerId :: Prelude.Maybe Prelude.Text,
     -- | The date and time the Worker accepted the assignment.
     acceptTime :: Prelude.Maybe Core.POSIX,
+    -- | The date and time of the deadline for the assignment. This value is
+    -- derived from the deadline specification for the HIT and the date and
+    -- time the Worker accepted the HIT.
+    deadline :: Prelude.Maybe Core.POSIX,
     -- | If the Worker has submitted results and the Requester has approved the
     -- results, ApprovalTime is the date and time the Requester approved the
     -- results. This value is omitted from the assignment if the Requester has
     -- not yet approved the results.
-    approvalTime :: Prelude.Maybe Core.POSIX,
-    -- | The date and time of the deadline for the assignment. This value is
-    -- derived from the deadline specification for the HIT and the date and
-    -- time the Worker accepted the HIT.
-    deadline :: Prelude.Maybe Core.POSIX
+    approvalTime :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -118,14 +118,14 @@ data Assignment = Assignment'
 --
 -- 'acceptTime', 'assignment_acceptTime' - The date and time the Worker accepted the assignment.
 --
+-- 'deadline', 'assignment_deadline' - The date and time of the deadline for the assignment. This value is
+-- derived from the deadline specification for the HIT and the date and
+-- time the Worker accepted the HIT.
+--
 -- 'approvalTime', 'assignment_approvalTime' - If the Worker has submitted results and the Requester has approved the
 -- results, ApprovalTime is the date and time the Requester approved the
 -- results. This value is omitted from the assignment if the Requester has
 -- not yet approved the results.
---
--- 'deadline', 'assignment_deadline' - The date and time of the deadline for the assignment. This value is
--- derived from the deadline specification for the HIT and the date and
--- time the Worker accepted the HIT.
 newAssignment ::
   Assignment
 newAssignment =
@@ -140,8 +140,8 @@ newAssignment =
       submitTime = Prelude.Nothing,
       workerId = Prelude.Nothing,
       acceptTime = Prelude.Nothing,
-      approvalTime = Prelude.Nothing,
-      deadline = Prelude.Nothing
+      deadline = Prelude.Nothing,
+      approvalTime = Prelude.Nothing
     }
 
 -- | The feedback string included with the call to the ApproveAssignment
@@ -198,18 +198,18 @@ assignment_workerId = Lens.lens (\Assignment' {workerId} -> workerId) (\s@Assign
 assignment_acceptTime :: Lens.Lens' Assignment (Prelude.Maybe Prelude.UTCTime)
 assignment_acceptTime = Lens.lens (\Assignment' {acceptTime} -> acceptTime) (\s@Assignment' {} a -> s {acceptTime = a} :: Assignment) Prelude.. Lens.mapping Core._Time
 
+-- | The date and time of the deadline for the assignment. This value is
+-- derived from the deadline specification for the HIT and the date and
+-- time the Worker accepted the HIT.
+assignment_deadline :: Lens.Lens' Assignment (Prelude.Maybe Prelude.UTCTime)
+assignment_deadline = Lens.lens (\Assignment' {deadline} -> deadline) (\s@Assignment' {} a -> s {deadline = a} :: Assignment) Prelude.. Lens.mapping Core._Time
+
 -- | If the Worker has submitted results and the Requester has approved the
 -- results, ApprovalTime is the date and time the Requester approved the
 -- results. This value is omitted from the assignment if the Requester has
 -- not yet approved the results.
 assignment_approvalTime :: Lens.Lens' Assignment (Prelude.Maybe Prelude.UTCTime)
 assignment_approvalTime = Lens.lens (\Assignment' {approvalTime} -> approvalTime) (\s@Assignment' {} a -> s {approvalTime = a} :: Assignment) Prelude.. Lens.mapping Core._Time
-
--- | The date and time of the deadline for the assignment. This value is
--- derived from the deadline specification for the HIT and the date and
--- time the Worker accepted the HIT.
-assignment_deadline :: Lens.Lens' Assignment (Prelude.Maybe Prelude.UTCTime)
-assignment_deadline = Lens.lens (\Assignment' {deadline} -> deadline) (\s@Assignment' {} a -> s {deadline = a} :: Assignment) Prelude.. Lens.mapping Core._Time
 
 instance Core.FromJSON Assignment where
   parseJSON =
@@ -227,8 +227,8 @@ instance Core.FromJSON Assignment where
             Prelude.<*> (x Core..:? "SubmitTime")
             Prelude.<*> (x Core..:? "WorkerId")
             Prelude.<*> (x Core..:? "AcceptTime")
-            Prelude.<*> (x Core..:? "ApprovalTime")
             Prelude.<*> (x Core..:? "Deadline")
+            Prelude.<*> (x Core..:? "ApprovalTime")
       )
 
 instance Prelude.Hashable Assignment

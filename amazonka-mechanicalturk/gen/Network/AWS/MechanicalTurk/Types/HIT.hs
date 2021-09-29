@@ -53,25 +53,25 @@ data HIT = HIT'
     -- | Indicates the review status of the HIT. Valid Values are NotReviewed |
     -- MarkedForReview | ReviewedAppropriate | ReviewedInappropriate.
     hITReviewStatus :: Prelude.Maybe HITReviewStatus,
-    -- | The title of the HIT.
-    title :: Prelude.Maybe Prelude.Text,
     -- | A unique identifier for the HIT.
     hITId :: Prelude.Maybe Prelude.Text,
+    -- | The title of the HIT.
+    title :: Prelude.Maybe Prelude.Text,
     -- | The ID of the HIT Layout of this HIT.
     hITLayoutId :: Prelude.Maybe Prelude.Text,
+    reward :: Prelude.Maybe Prelude.Text,
     -- | The number of assignments for this HIT that have been approved or
     -- rejected.
     numberOfAssignmentsCompleted :: Prelude.Maybe Prelude.Int,
-    reward :: Prelude.Maybe Prelude.Text,
     -- | The number of times the HIT can be accepted and completed before the HIT
     -- becomes unavailable.
     maxAssignments :: Prelude.Maybe Prelude.Int,
-    -- | The status of the HIT and its assignments. Valid Values are Assignable |
-    -- Unassignable | Reviewable | Reviewing | Disposed.
-    hITStatus :: Prelude.Maybe HITStatus,
     -- | An arbitrary data field the Requester who created the HIT can use. This
     -- field is visible only to the creator of the HIT.
     requesterAnnotation :: Prelude.Maybe Prelude.Text,
+    -- | The status of the HIT and its assignments. Valid Values are Assignable |
+    -- Unassignable | Reviewable | Reviewing | Disposed.
+    hITStatus :: Prelude.Maybe HITStatus,
     -- | A general description of the HIT.
     description :: Prelude.Maybe Prelude.Text,
     -- | The number of assignments for this HIT that are available for Workers to
@@ -79,16 +79,16 @@ data HIT = HIT'
     numberOfAssignmentsAvailable :: Prelude.Maybe Prelude.Int,
     -- | The ID of the HIT type of this HIT
     hITTypeId :: Prelude.Maybe Prelude.Text,
+    -- | The number of assignments for this HIT that are being previewed or have
+    -- been accepted by Workers, but have not yet been submitted, returned, or
+    -- abandoned.
+    numberOfAssignmentsPending :: Prelude.Maybe Prelude.Int,
     -- | Conditions that a Worker\'s Qualifications must meet in order to accept
     -- the HIT. A HIT can have between zero and ten Qualification requirements.
     -- All requirements must be met in order for a Worker to accept the HIT.
     -- Additionally, other actions can be restricted using the @ActionsGuarded@
     -- field on each @QualificationRequirement@ structure.
     qualificationRequirements :: Prelude.Maybe [QualificationRequirement],
-    -- | The number of assignments for this HIT that are being previewed or have
-    -- been accepted by Workers, but have not yet been submitted, returned, or
-    -- abandoned.
-    numberOfAssignmentsPending :: Prelude.Maybe Prelude.Int,
     -- | One or more words or phrases that describe the HIT, separated by commas.
     -- Search terms similar to the keywords of a HIT are more likely to have
     -- the HIT in the search results.
@@ -126,25 +126,25 @@ data HIT = HIT'
 -- 'hITReviewStatus', 'hit_hITReviewStatus' - Indicates the review status of the HIT. Valid Values are NotReviewed |
 -- MarkedForReview | ReviewedAppropriate | ReviewedInappropriate.
 --
--- 'title', 'hit_title' - The title of the HIT.
---
 -- 'hITId', 'hit_hITId' - A unique identifier for the HIT.
 --
+-- 'title', 'hit_title' - The title of the HIT.
+--
 -- 'hITLayoutId', 'hit_hITLayoutId' - The ID of the HIT Layout of this HIT.
+--
+-- 'reward', 'hit_reward' - Undocumented member.
 --
 -- 'numberOfAssignmentsCompleted', 'hit_numberOfAssignmentsCompleted' - The number of assignments for this HIT that have been approved or
 -- rejected.
 --
--- 'reward', 'hit_reward' - Undocumented member.
---
 -- 'maxAssignments', 'hit_maxAssignments' - The number of times the HIT can be accepted and completed before the HIT
 -- becomes unavailable.
 --
--- 'hITStatus', 'hit_hITStatus' - The status of the HIT and its assignments. Valid Values are Assignable |
--- Unassignable | Reviewable | Reviewing | Disposed.
---
 -- 'requesterAnnotation', 'hit_requesterAnnotation' - An arbitrary data field the Requester who created the HIT can use. This
 -- field is visible only to the creator of the HIT.
+--
+-- 'hITStatus', 'hit_hITStatus' - The status of the HIT and its assignments. Valid Values are Assignable |
+-- Unassignable | Reviewable | Reviewing | Disposed.
 --
 -- 'description', 'hit_description' - A general description of the HIT.
 --
@@ -153,15 +153,15 @@ data HIT = HIT'
 --
 -- 'hITTypeId', 'hit_hITTypeId' - The ID of the HIT type of this HIT
 --
+-- 'numberOfAssignmentsPending', 'hit_numberOfAssignmentsPending' - The number of assignments for this HIT that are being previewed or have
+-- been accepted by Workers, but have not yet been submitted, returned, or
+-- abandoned.
+--
 -- 'qualificationRequirements', 'hit_qualificationRequirements' - Conditions that a Worker\'s Qualifications must meet in order to accept
 -- the HIT. A HIT can have between zero and ten Qualification requirements.
 -- All requirements must be met in order for a Worker to accept the HIT.
 -- Additionally, other actions can be restricted using the @ActionsGuarded@
 -- field on each @QualificationRequirement@ structure.
---
--- 'numberOfAssignmentsPending', 'hit_numberOfAssignmentsPending' - The number of assignments for this HIT that are being previewed or have
--- been accepted by Workers, but have not yet been submitted, returned, or
--- abandoned.
 --
 -- 'keywords', 'hit_keywords' - One or more words or phrases that describe the HIT, separated by commas.
 -- Search terms similar to the keywords of a HIT are more likely to have
@@ -177,19 +177,19 @@ newHIT =
       question = Prelude.Nothing,
       expiration = Prelude.Nothing,
       hITReviewStatus = Prelude.Nothing,
-      title = Prelude.Nothing,
       hITId = Prelude.Nothing,
+      title = Prelude.Nothing,
       hITLayoutId = Prelude.Nothing,
-      numberOfAssignmentsCompleted = Prelude.Nothing,
       reward = Prelude.Nothing,
+      numberOfAssignmentsCompleted = Prelude.Nothing,
       maxAssignments = Prelude.Nothing,
-      hITStatus = Prelude.Nothing,
       requesterAnnotation = Prelude.Nothing,
+      hITStatus = Prelude.Nothing,
       description = Prelude.Nothing,
       numberOfAssignmentsAvailable = Prelude.Nothing,
       hITTypeId = Prelude.Nothing,
-      qualificationRequirements = Prelude.Nothing,
       numberOfAssignmentsPending = Prelude.Nothing,
+      qualificationRequirements = Prelude.Nothing,
       keywords = Prelude.Nothing
     }
 
@@ -229,41 +229,41 @@ hit_expiration = Lens.lens (\HIT' {expiration} -> expiration) (\s@HIT' {} a -> s
 hit_hITReviewStatus :: Lens.Lens' HIT (Prelude.Maybe HITReviewStatus)
 hit_hITReviewStatus = Lens.lens (\HIT' {hITReviewStatus} -> hITReviewStatus) (\s@HIT' {} a -> s {hITReviewStatus = a} :: HIT)
 
--- | The title of the HIT.
-hit_title :: Lens.Lens' HIT (Prelude.Maybe Prelude.Text)
-hit_title = Lens.lens (\HIT' {title} -> title) (\s@HIT' {} a -> s {title = a} :: HIT)
-
 -- | A unique identifier for the HIT.
 hit_hITId :: Lens.Lens' HIT (Prelude.Maybe Prelude.Text)
 hit_hITId = Lens.lens (\HIT' {hITId} -> hITId) (\s@HIT' {} a -> s {hITId = a} :: HIT)
 
+-- | The title of the HIT.
+hit_title :: Lens.Lens' HIT (Prelude.Maybe Prelude.Text)
+hit_title = Lens.lens (\HIT' {title} -> title) (\s@HIT' {} a -> s {title = a} :: HIT)
+
 -- | The ID of the HIT Layout of this HIT.
 hit_hITLayoutId :: Lens.Lens' HIT (Prelude.Maybe Prelude.Text)
 hit_hITLayoutId = Lens.lens (\HIT' {hITLayoutId} -> hITLayoutId) (\s@HIT' {} a -> s {hITLayoutId = a} :: HIT)
+
+-- | Undocumented member.
+hit_reward :: Lens.Lens' HIT (Prelude.Maybe Prelude.Text)
+hit_reward = Lens.lens (\HIT' {reward} -> reward) (\s@HIT' {} a -> s {reward = a} :: HIT)
 
 -- | The number of assignments for this HIT that have been approved or
 -- rejected.
 hit_numberOfAssignmentsCompleted :: Lens.Lens' HIT (Prelude.Maybe Prelude.Int)
 hit_numberOfAssignmentsCompleted = Lens.lens (\HIT' {numberOfAssignmentsCompleted} -> numberOfAssignmentsCompleted) (\s@HIT' {} a -> s {numberOfAssignmentsCompleted = a} :: HIT)
 
--- | Undocumented member.
-hit_reward :: Lens.Lens' HIT (Prelude.Maybe Prelude.Text)
-hit_reward = Lens.lens (\HIT' {reward} -> reward) (\s@HIT' {} a -> s {reward = a} :: HIT)
-
 -- | The number of times the HIT can be accepted and completed before the HIT
 -- becomes unavailable.
 hit_maxAssignments :: Lens.Lens' HIT (Prelude.Maybe Prelude.Int)
 hit_maxAssignments = Lens.lens (\HIT' {maxAssignments} -> maxAssignments) (\s@HIT' {} a -> s {maxAssignments = a} :: HIT)
 
--- | The status of the HIT and its assignments. Valid Values are Assignable |
--- Unassignable | Reviewable | Reviewing | Disposed.
-hit_hITStatus :: Lens.Lens' HIT (Prelude.Maybe HITStatus)
-hit_hITStatus = Lens.lens (\HIT' {hITStatus} -> hITStatus) (\s@HIT' {} a -> s {hITStatus = a} :: HIT)
-
 -- | An arbitrary data field the Requester who created the HIT can use. This
 -- field is visible only to the creator of the HIT.
 hit_requesterAnnotation :: Lens.Lens' HIT (Prelude.Maybe Prelude.Text)
 hit_requesterAnnotation = Lens.lens (\HIT' {requesterAnnotation} -> requesterAnnotation) (\s@HIT' {} a -> s {requesterAnnotation = a} :: HIT)
+
+-- | The status of the HIT and its assignments. Valid Values are Assignable |
+-- Unassignable | Reviewable | Reviewing | Disposed.
+hit_hITStatus :: Lens.Lens' HIT (Prelude.Maybe HITStatus)
+hit_hITStatus = Lens.lens (\HIT' {hITStatus} -> hITStatus) (\s@HIT' {} a -> s {hITStatus = a} :: HIT)
 
 -- | A general description of the HIT.
 hit_description :: Lens.Lens' HIT (Prelude.Maybe Prelude.Text)
@@ -278,6 +278,12 @@ hit_numberOfAssignmentsAvailable = Lens.lens (\HIT' {numberOfAssignmentsAvailabl
 hit_hITTypeId :: Lens.Lens' HIT (Prelude.Maybe Prelude.Text)
 hit_hITTypeId = Lens.lens (\HIT' {hITTypeId} -> hITTypeId) (\s@HIT' {} a -> s {hITTypeId = a} :: HIT)
 
+-- | The number of assignments for this HIT that are being previewed or have
+-- been accepted by Workers, but have not yet been submitted, returned, or
+-- abandoned.
+hit_numberOfAssignmentsPending :: Lens.Lens' HIT (Prelude.Maybe Prelude.Int)
+hit_numberOfAssignmentsPending = Lens.lens (\HIT' {numberOfAssignmentsPending} -> numberOfAssignmentsPending) (\s@HIT' {} a -> s {numberOfAssignmentsPending = a} :: HIT)
+
 -- | Conditions that a Worker\'s Qualifications must meet in order to accept
 -- the HIT. A HIT can have between zero and ten Qualification requirements.
 -- All requirements must be met in order for a Worker to accept the HIT.
@@ -285,12 +291,6 @@ hit_hITTypeId = Lens.lens (\HIT' {hITTypeId} -> hITTypeId) (\s@HIT' {} a -> s {h
 -- field on each @QualificationRequirement@ structure.
 hit_qualificationRequirements :: Lens.Lens' HIT (Prelude.Maybe [QualificationRequirement])
 hit_qualificationRequirements = Lens.lens (\HIT' {qualificationRequirements} -> qualificationRequirements) (\s@HIT' {} a -> s {qualificationRequirements = a} :: HIT) Prelude.. Lens.mapping Lens._Coerce
-
--- | The number of assignments for this HIT that are being previewed or have
--- been accepted by Workers, but have not yet been submitted, returned, or
--- abandoned.
-hit_numberOfAssignmentsPending :: Lens.Lens' HIT (Prelude.Maybe Prelude.Int)
-hit_numberOfAssignmentsPending = Lens.lens (\HIT' {numberOfAssignmentsPending} -> numberOfAssignmentsPending) (\s@HIT' {} a -> s {numberOfAssignmentsPending = a} :: HIT)
 
 -- | One or more words or phrases that describe the HIT, separated by commas.
 -- Search terms similar to the keywords of a HIT are more likely to have
@@ -311,21 +311,21 @@ instance Core.FromJSON HIT where
             Prelude.<*> (x Core..:? "Question")
             Prelude.<*> (x Core..:? "Expiration")
             Prelude.<*> (x Core..:? "HITReviewStatus")
-            Prelude.<*> (x Core..:? "Title")
             Prelude.<*> (x Core..:? "HITId")
+            Prelude.<*> (x Core..:? "Title")
             Prelude.<*> (x Core..:? "HITLayoutId")
-            Prelude.<*> (x Core..:? "NumberOfAssignmentsCompleted")
             Prelude.<*> (x Core..:? "Reward")
+            Prelude.<*> (x Core..:? "NumberOfAssignmentsCompleted")
             Prelude.<*> (x Core..:? "MaxAssignments")
-            Prelude.<*> (x Core..:? "HITStatus")
             Prelude.<*> (x Core..:? "RequesterAnnotation")
+            Prelude.<*> (x Core..:? "HITStatus")
             Prelude.<*> (x Core..:? "Description")
             Prelude.<*> (x Core..:? "NumberOfAssignmentsAvailable")
             Prelude.<*> (x Core..:? "HITTypeId")
+            Prelude.<*> (x Core..:? "NumberOfAssignmentsPending")
             Prelude.<*> ( x Core..:? "QualificationRequirements"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "NumberOfAssignmentsPending")
             Prelude.<*> (x Core..:? "Keywords")
       )
 

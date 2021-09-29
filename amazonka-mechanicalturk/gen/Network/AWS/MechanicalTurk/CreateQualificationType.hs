@@ -32,8 +32,8 @@ module Network.AWS.MechanicalTurk.CreateQualificationType
     createQualificationType_autoGranted,
     createQualificationType_testDurationInSeconds,
     createQualificationType_test,
-    createQualificationType_answerKey,
     createQualificationType_autoGrantedValue,
+    createQualificationType_answerKey,
     createQualificationType_keywords,
     createQualificationType_name,
     createQualificationType_description,
@@ -90,6 +90,9 @@ data CreateQualificationType = CreateQualificationType'
     -- Constraints: None. If not specified, the Worker may request the
     -- Qualification without answering any questions.
     test :: Prelude.Maybe Prelude.Text,
+    -- | The Qualification value to use for automatically granted Qualifications.
+    -- This parameter is used only if the AutoGranted parameter is true.
+    autoGrantedValue :: Prelude.Maybe Prelude.Int,
     -- | The answers to the Qualification test specified in the Test parameter,
     -- in the form of an AnswerKey data structure.
     --
@@ -98,9 +101,6 @@ data CreateQualificationType = CreateQualificationType'
     -- Constraints: None. If not specified, you must process Qualification
     -- requests manually.
     answerKey :: Prelude.Maybe Prelude.Text,
-    -- | The Qualification value to use for automatically granted Qualifications.
-    -- This parameter is used only if the AutoGranted parameter is true.
-    autoGrantedValue :: Prelude.Maybe Prelude.Int,
     -- | One or more words or phrases that describe the Qualification type,
     -- separated by commas. The keywords of a type make the type easier to find
     -- during a search.
@@ -161,6 +161,9 @@ data CreateQualificationType = CreateQualificationType'
 -- Constraints: None. If not specified, the Worker may request the
 -- Qualification without answering any questions.
 --
+-- 'autoGrantedValue', 'createQualificationType_autoGrantedValue' - The Qualification value to use for automatically granted Qualifications.
+-- This parameter is used only if the AutoGranted parameter is true.
+--
 -- 'answerKey', 'createQualificationType_answerKey' - The answers to the Qualification test specified in the Test parameter,
 -- in the form of an AnswerKey data structure.
 --
@@ -168,9 +171,6 @@ data CreateQualificationType = CreateQualificationType'
 --
 -- Constraints: None. If not specified, you must process Qualification
 -- requests manually.
---
--- 'autoGrantedValue', 'createQualificationType_autoGrantedValue' - The Qualification value to use for automatically granted Qualifications.
--- This parameter is used only if the AutoGranted parameter is true.
 --
 -- 'keywords', 'createQualificationType_keywords' - One or more words or phrases that describe the Qualification type,
 -- separated by commas. The keywords of a type make the type easier to find
@@ -206,8 +206,8 @@ newCreateQualificationType
         autoGranted = Prelude.Nothing,
         testDurationInSeconds = Prelude.Nothing,
         test = Prelude.Nothing,
-        answerKey = Prelude.Nothing,
         autoGrantedValue = Prelude.Nothing,
+        answerKey = Prelude.Nothing,
         keywords = Prelude.Nothing,
         name = pName_,
         description = pDescription_,
@@ -255,6 +255,11 @@ createQualificationType_testDurationInSeconds = Lens.lens (\CreateQualificationT
 createQualificationType_test :: Lens.Lens' CreateQualificationType (Prelude.Maybe Prelude.Text)
 createQualificationType_test = Lens.lens (\CreateQualificationType' {test} -> test) (\s@CreateQualificationType' {} a -> s {test = a} :: CreateQualificationType)
 
+-- | The Qualification value to use for automatically granted Qualifications.
+-- This parameter is used only if the AutoGranted parameter is true.
+createQualificationType_autoGrantedValue :: Lens.Lens' CreateQualificationType (Prelude.Maybe Prelude.Int)
+createQualificationType_autoGrantedValue = Lens.lens (\CreateQualificationType' {autoGrantedValue} -> autoGrantedValue) (\s@CreateQualificationType' {} a -> s {autoGrantedValue = a} :: CreateQualificationType)
+
 -- | The answers to the Qualification test specified in the Test parameter,
 -- in the form of an AnswerKey data structure.
 --
@@ -264,11 +269,6 @@ createQualificationType_test = Lens.lens (\CreateQualificationType' {test} -> te
 -- requests manually.
 createQualificationType_answerKey :: Lens.Lens' CreateQualificationType (Prelude.Maybe Prelude.Text)
 createQualificationType_answerKey = Lens.lens (\CreateQualificationType' {answerKey} -> answerKey) (\s@CreateQualificationType' {} a -> s {answerKey = a} :: CreateQualificationType)
-
--- | The Qualification value to use for automatically granted Qualifications.
--- This parameter is used only if the AutoGranted parameter is true.
-createQualificationType_autoGrantedValue :: Lens.Lens' CreateQualificationType (Prelude.Maybe Prelude.Int)
-createQualificationType_autoGrantedValue = Lens.lens (\CreateQualificationType' {autoGrantedValue} -> autoGrantedValue) (\s@CreateQualificationType' {} a -> s {autoGrantedValue = a} :: CreateQualificationType)
 
 -- | One or more words or phrases that describe the Qualification type,
 -- separated by commas. The keywords of a type make the type easier to find
@@ -337,9 +337,9 @@ instance Core.ToJSON CreateQualificationType where
             ("TestDurationInSeconds" Core..=)
               Prelude.<$> testDurationInSeconds,
             ("Test" Core..=) Prelude.<$> test,
-            ("AnswerKey" Core..=) Prelude.<$> answerKey,
             ("AutoGrantedValue" Core..=)
               Prelude.<$> autoGrantedValue,
+            ("AnswerKey" Core..=) Prelude.<$> answerKey,
             ("Keywords" Core..=) Prelude.<$> keywords,
             Prelude.Just ("Name" Core..= name),
             Prelude.Just ("Description" Core..= description),

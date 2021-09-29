@@ -29,6 +29,12 @@
 --
 -- -   @resource-groups:ListGroupResources@
 --
+-- -   @cloudformation:DescribeStacks@
+--
+-- -   @cloudformation:ListStackResources@
+--
+-- -   @tag:GetResources@
+--
 -- This operation returns paginated results.
 module Network.AWS.ResourceGroups.ListGroupResources
   ( -- * Creating a Request
@@ -49,8 +55,8 @@ module Network.AWS.ResourceGroups.ListGroupResources
     -- * Response Lenses
     listGroupResourcesResponse_nextToken,
     listGroupResourcesResponse_resourceIdentifiers,
-    listGroupResourcesResponse_resources,
     listGroupResourcesResponse_queryErrors,
+    listGroupResourcesResponse_resources,
     listGroupResourcesResponse_httpStatus,
   )
 where
@@ -280,8 +286,8 @@ instance Core.AWSRequest ListGroupResources where
             Prelude.<*> ( x Core..?> "ResourceIdentifiers"
                             Core..!@ Prelude.mempty
                         )
-            Prelude.<*> (x Core..?> "Resources" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "QueryErrors" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "Resources" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -321,14 +327,14 @@ data ListGroupResourcesResponse = ListGroupResourcesResponse'
     -- | __/Deprecated - don\'t use this parameter. Use the @Resources@ response
     -- field instead./__
     resourceIdentifiers :: Prelude.Maybe [ResourceIdentifier],
-    -- | An array of resources from which you can determine each resource\'s
-    -- identity, type, and group membership status.
-    resources :: Prelude.Maybe [ListGroupResourcesItem],
     -- | A list of @QueryError@ objects. Each error is an object that contains
     -- @ErrorCode@ and @Message@ structures. Possible values for @ErrorCode@
     -- are @CLOUDFORMATION_STACK_INACTIVE@ and
     -- @CLOUDFORMATION_STACK_NOT_EXISTING@.
     queryErrors :: Prelude.Maybe [QueryError],
+    -- | An array of resources from which you can determine each resource\'s
+    -- identity, type, and group membership status.
+    resources :: Prelude.Maybe [ListGroupResourcesItem],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -351,13 +357,13 @@ data ListGroupResourcesResponse = ListGroupResourcesResponse'
 -- 'resourceIdentifiers', 'listGroupResourcesResponse_resourceIdentifiers' - __/Deprecated - don\'t use this parameter. Use the @Resources@ response
 -- field instead./__
 --
--- 'resources', 'listGroupResourcesResponse_resources' - An array of resources from which you can determine each resource\'s
--- identity, type, and group membership status.
---
 -- 'queryErrors', 'listGroupResourcesResponse_queryErrors' - A list of @QueryError@ objects. Each error is an object that contains
 -- @ErrorCode@ and @Message@ structures. Possible values for @ErrorCode@
 -- are @CLOUDFORMATION_STACK_INACTIVE@ and
 -- @CLOUDFORMATION_STACK_NOT_EXISTING@.
+--
+-- 'resources', 'listGroupResourcesResponse_resources' - An array of resources from which you can determine each resource\'s
+-- identity, type, and group membership status.
 --
 -- 'httpStatus', 'listGroupResourcesResponse_httpStatus' - The response's http status code.
 newListGroupResourcesResponse ::
@@ -369,8 +375,8 @@ newListGroupResourcesResponse pHttpStatus_ =
     { nextToken =
         Prelude.Nothing,
       resourceIdentifiers = Prelude.Nothing,
-      resources = Prelude.Nothing,
       queryErrors = Prelude.Nothing,
+      resources = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -387,17 +393,17 @@ listGroupResourcesResponse_nextToken = Lens.lens (\ListGroupResourcesResponse' {
 listGroupResourcesResponse_resourceIdentifiers :: Lens.Lens' ListGroupResourcesResponse (Prelude.Maybe [ResourceIdentifier])
 listGroupResourcesResponse_resourceIdentifiers = Lens.lens (\ListGroupResourcesResponse' {resourceIdentifiers} -> resourceIdentifiers) (\s@ListGroupResourcesResponse' {} a -> s {resourceIdentifiers = a} :: ListGroupResourcesResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | An array of resources from which you can determine each resource\'s
--- identity, type, and group membership status.
-listGroupResourcesResponse_resources :: Lens.Lens' ListGroupResourcesResponse (Prelude.Maybe [ListGroupResourcesItem])
-listGroupResourcesResponse_resources = Lens.lens (\ListGroupResourcesResponse' {resources} -> resources) (\s@ListGroupResourcesResponse' {} a -> s {resources = a} :: ListGroupResourcesResponse) Prelude.. Lens.mapping Lens._Coerce
-
 -- | A list of @QueryError@ objects. Each error is an object that contains
 -- @ErrorCode@ and @Message@ structures. Possible values for @ErrorCode@
 -- are @CLOUDFORMATION_STACK_INACTIVE@ and
 -- @CLOUDFORMATION_STACK_NOT_EXISTING@.
 listGroupResourcesResponse_queryErrors :: Lens.Lens' ListGroupResourcesResponse (Prelude.Maybe [QueryError])
 listGroupResourcesResponse_queryErrors = Lens.lens (\ListGroupResourcesResponse' {queryErrors} -> queryErrors) (\s@ListGroupResourcesResponse' {} a -> s {queryErrors = a} :: ListGroupResourcesResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | An array of resources from which you can determine each resource\'s
+-- identity, type, and group membership status.
+listGroupResourcesResponse_resources :: Lens.Lens' ListGroupResourcesResponse (Prelude.Maybe [ListGroupResourcesItem])
+listGroupResourcesResponse_resources = Lens.lens (\ListGroupResourcesResponse' {resources} -> resources) (\s@ListGroupResourcesResponse' {} a -> s {resources = a} :: ListGroupResourcesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listGroupResourcesResponse_httpStatus :: Lens.Lens' ListGroupResourcesResponse Prelude.Int

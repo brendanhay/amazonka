@@ -88,17 +88,17 @@ module Network.AWS.ResourceGroups
     GetGroupConfigurationResponse (GetGroupConfigurationResponse'),
     newGetGroupConfigurationResponse,
 
-    -- ** ListGroups (Paginated)
-    ListGroups (ListGroups'),
-    newListGroups,
-    ListGroupsResponse (ListGroupsResponse'),
-    newListGroupsResponse,
-
     -- ** PutGroupConfiguration
     PutGroupConfiguration (PutGroupConfiguration'),
     newPutGroupConfiguration,
     PutGroupConfigurationResponse (PutGroupConfigurationResponse'),
     newPutGroupConfigurationResponse,
+
+    -- ** ListGroups (Paginated)
+    ListGroups (ListGroups'),
+    newListGroups,
+    ListGroupsResponse (ListGroupsResponse'),
+    newListGroupsResponse,
 
     -- ** CreateGroup
     CreateGroup (CreateGroup'),
@@ -112,23 +112,17 @@ module Network.AWS.ResourceGroups
     GetGroupQueryResponse (GetGroupQueryResponse'),
     newGetGroupQueryResponse,
 
-    -- ** GetTags
-    GetTags (GetTags'),
-    newGetTags,
-    GetTagsResponse (GetTagsResponse'),
-    newGetTagsResponse,
-
     -- ** SearchResources (Paginated)
     SearchResources (SearchResources'),
     newSearchResources,
     SearchResourcesResponse (SearchResourcesResponse'),
     newSearchResourcesResponse,
 
-    -- ** ListGroupResources (Paginated)
-    ListGroupResources (ListGroupResources'),
-    newListGroupResources,
-    ListGroupResourcesResponse (ListGroupResourcesResponse'),
-    newListGroupResourcesResponse,
+    -- ** GetTags
+    GetTags (GetTags'),
+    newGetTags,
+    GetTagsResponse (GetTagsResponse'),
+    newGetTagsResponse,
 
     -- ** UpdateGroupQuery
     UpdateGroupQuery (UpdateGroupQuery'),
@@ -136,11 +130,11 @@ module Network.AWS.ResourceGroups
     UpdateGroupQueryResponse (UpdateGroupQueryResponse'),
     newUpdateGroupQueryResponse,
 
-    -- ** GetGroup
-    GetGroup (GetGroup'),
-    newGetGroup,
-    GetGroupResponse (GetGroupResponse'),
-    newGetGroupResponse,
+    -- ** ListGroupResources (Paginated)
+    ListGroupResources (ListGroupResources'),
+    newListGroupResources,
+    ListGroupResourcesResponse (ListGroupResourcesResponse'),
+    newListGroupResourcesResponse,
 
     -- ** Untag
     Untag (Untag'),
@@ -148,11 +142,17 @@ module Network.AWS.ResourceGroups
     UntagResponse (UntagResponse'),
     newUntagResponse,
 
-    -- ** UpdateGroup
-    UpdateGroup (UpdateGroup'),
-    newUpdateGroup,
-    UpdateGroupResponse (UpdateGroupResponse'),
-    newUpdateGroupResponse,
+    -- ** GetGroup
+    GetGroup (GetGroup'),
+    newGetGroup,
+    GetGroupResponse (GetGroupResponse'),
+    newGetGroupResponse,
+
+    -- ** DeleteGroup
+    DeleteGroup (DeleteGroup'),
+    newDeleteGroup,
+    DeleteGroupResponse (DeleteGroupResponse'),
+    newDeleteGroupResponse,
 
     -- ** GroupResources
     GroupResources (GroupResources'),
@@ -160,11 +160,11 @@ module Network.AWS.ResourceGroups
     GroupResourcesResponse (GroupResourcesResponse'),
     newGroupResourcesResponse,
 
-    -- ** DeleteGroup
-    DeleteGroup (DeleteGroup'),
-    newDeleteGroup,
-    DeleteGroupResponse (DeleteGroupResponse'),
-    newDeleteGroupResponse,
+    -- ** UpdateGroup
+    UpdateGroup (UpdateGroup'),
+    newUpdateGroup,
+    UpdateGroupResponse (UpdateGroupResponse'),
+    newUpdateGroupResponse,
 
     -- ** UngroupResources
     UngroupResources (UngroupResources'),

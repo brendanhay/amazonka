@@ -19,6 +19,11 @@ module Network.AWS.ResourceGroups.Lens
     getGroupConfigurationResponse_groupConfiguration,
     getGroupConfigurationResponse_httpStatus,
 
+    -- ** PutGroupConfiguration
+    putGroupConfiguration_configuration,
+    putGroupConfiguration_group,
+    putGroupConfigurationResponse_httpStatus,
+
     -- ** ListGroups
     listGroups_nextToken,
     listGroups_maxResults,
@@ -27,11 +32,6 @@ module Network.AWS.ResourceGroups.Lens
     listGroupsResponse_nextToken,
     listGroupsResponse_groupIdentifiers,
     listGroupsResponse_httpStatus,
-
-    -- ** PutGroupConfiguration
-    putGroupConfiguration_configuration,
-    putGroupConfiguration_group,
-    putGroupConfigurationResponse_httpStatus,
 
     -- ** CreateGroup
     createGroup_configuration,
@@ -51,12 +51,6 @@ module Network.AWS.ResourceGroups.Lens
     getGroupQueryResponse_groupQuery,
     getGroupQueryResponse_httpStatus,
 
-    -- ** GetTags
-    getTags_arn,
-    getTagsResponse_arn,
-    getTagsResponse_tags,
-    getTagsResponse_httpStatus,
-
     -- ** SearchResources
     searchResources_nextToken,
     searchResources_maxResults,
@@ -66,17 +60,11 @@ module Network.AWS.ResourceGroups.Lens
     searchResourcesResponse_queryErrors,
     searchResourcesResponse_httpStatus,
 
-    -- ** ListGroupResources
-    listGroupResources_nextToken,
-    listGroupResources_maxResults,
-    listGroupResources_groupName,
-    listGroupResources_group,
-    listGroupResources_filters,
-    listGroupResourcesResponse_nextToken,
-    listGroupResourcesResponse_resourceIdentifiers,
-    listGroupResourcesResponse_resources,
-    listGroupResourcesResponse_queryErrors,
-    listGroupResourcesResponse_httpStatus,
+    -- ** GetTags
+    getTags_arn,
+    getTagsResponse_arn,
+    getTagsResponse_tags,
+    getTagsResponse_httpStatus,
 
     -- ** UpdateGroupQuery
     updateGroupQuery_groupName,
@@ -85,11 +73,17 @@ module Network.AWS.ResourceGroups.Lens
     updateGroupQueryResponse_groupQuery,
     updateGroupQueryResponse_httpStatus,
 
-    -- ** GetGroup
-    getGroup_groupName,
-    getGroup_group,
-    getGroupResponse_group,
-    getGroupResponse_httpStatus,
+    -- ** ListGroupResources
+    listGroupResources_nextToken,
+    listGroupResources_maxResults,
+    listGroupResources_groupName,
+    listGroupResources_group,
+    listGroupResources_filters,
+    listGroupResourcesResponse_nextToken,
+    listGroupResourcesResponse_resourceIdentifiers,
+    listGroupResourcesResponse_queryErrors,
+    listGroupResourcesResponse_resources,
+    listGroupResourcesResponse_httpStatus,
 
     -- ** Untag
     untag_arn,
@@ -98,12 +92,17 @@ module Network.AWS.ResourceGroups.Lens
     untagResponse_keys,
     untagResponse_httpStatus,
 
-    -- ** UpdateGroup
-    updateGroup_groupName,
-    updateGroup_group,
-    updateGroup_description,
-    updateGroupResponse_group,
-    updateGroupResponse_httpStatus,
+    -- ** GetGroup
+    getGroup_groupName,
+    getGroup_group,
+    getGroupResponse_group,
+    getGroupResponse_httpStatus,
+
+    -- ** DeleteGroup
+    deleteGroup_groupName,
+    deleteGroup_group,
+    deleteGroupResponse_group,
+    deleteGroupResponse_httpStatus,
 
     -- ** GroupResources
     groupResources_group,
@@ -113,11 +112,12 @@ module Network.AWS.ResourceGroups.Lens
     groupResourcesResponse_failed,
     groupResourcesResponse_httpStatus,
 
-    -- ** DeleteGroup
-    deleteGroup_groupName,
-    deleteGroup_group,
-    deleteGroupResponse_group,
-    deleteGroupResponse_httpStatus,
+    -- ** UpdateGroup
+    updateGroup_groupName,
+    updateGroup_group,
+    updateGroup_description,
+    updateGroupResponse_group,
+    updateGroupResponse_httpStatus,
 
     -- ** UngroupResources
     ungroupResources_group,

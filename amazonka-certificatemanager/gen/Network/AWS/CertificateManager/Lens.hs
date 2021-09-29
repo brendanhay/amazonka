@@ -18,16 +18,16 @@ module Network.AWS.CertificateManager.Lens
     getAccountConfigurationResponse_expiryEvents,
     getAccountConfigurationResponse_httpStatus,
 
+    -- ** RemoveTagsFromCertificate
+    removeTagsFromCertificate_certificateArn,
+    removeTagsFromCertificate_tags,
+
     -- ** DeleteCertificate
     deleteCertificate_certificateArn,
 
     -- ** UpdateCertificateOptions
     updateCertificateOptions_certificateArn,
     updateCertificateOptions_options,
-
-    -- ** RemoveTagsFromCertificate
-    removeTagsFromCertificate_certificateArn,
-    removeTagsFromCertificate_tags,
 
     -- ** ExportCertificate
     exportCertificate_certificateArn,
@@ -46,15 +46,6 @@ module Network.AWS.CertificateManager.Lens
     getCertificateResponse_certificate,
     getCertificateResponse_httpStatus,
 
-    -- ** DescribeCertificate
-    describeCertificate_certificateArn,
-    describeCertificateResponse_certificate,
-    describeCertificateResponse_httpStatus,
-
-    -- ** PutAccountConfiguration
-    putAccountConfiguration_expiryEvents,
-    putAccountConfiguration_idempotencyToken,
-
     -- ** ImportCertificate
     importCertificate_certificateArn,
     importCertificate_tags,
@@ -64,10 +55,24 @@ module Network.AWS.CertificateManager.Lens
     importCertificateResponse_certificateArn,
     importCertificateResponse_httpStatus,
 
+    -- ** DescribeCertificate
+    describeCertificate_certificateArn,
+    describeCertificateResponse_certificate,
+    describeCertificateResponse_httpStatus,
+
+    -- ** PutAccountConfiguration
+    putAccountConfiguration_expiryEvents,
+    putAccountConfiguration_idempotencyToken,
+
+    -- ** ResendValidationEmail
+    resendValidationEmail_certificateArn,
+    resendValidationEmail_domain,
+    resendValidationEmail_validationDomain,
+
     -- ** ListCertificates
     listCertificates_nextToken,
-    listCertificates_includes,
     listCertificates_certificateStatuses,
+    listCertificates_includes,
     listCertificates_maxItems,
     listCertificatesResponse_nextToken,
     listCertificatesResponse_certificateSummaryList,
@@ -84,11 +89,6 @@ module Network.AWS.CertificateManager.Lens
     requestCertificate_domainName,
     requestCertificateResponse_certificateArn,
     requestCertificateResponse_httpStatus,
-
-    -- ** ResendValidationEmail
-    resendValidationEmail_certificateArn,
-    resendValidationEmail_domain,
-    resendValidationEmail_validationDomain,
 
     -- ** AddTagsToCertificate
     addTagsToCertificate_certificateArn,
@@ -114,19 +114,19 @@ module Network.AWS.CertificateManager.Lens
     certificateDetail_certificateArn,
     certificateDetail_createdAt,
     certificateDetail_inUseBy,
-    certificateDetail_subjectAlternativeNames,
     certificateDetail_domainName,
+    certificateDetail_subjectAlternativeNames,
     certificateDetail_revocationReason,
-    certificateDetail_subject,
     certificateDetail_failureReason,
-    certificateDetail_keyUsages,
-    certificateDetail_revokedAt,
+    certificateDetail_subject,
     certificateDetail_notAfter,
-    certificateDetail_signatureAlgorithm,
+    certificateDetail_revokedAt,
+    certificateDetail_keyUsages,
     certificateDetail_issuer,
-    certificateDetail_type,
-    certificateDetail_keyAlgorithm,
+    certificateDetail_signatureAlgorithm,
     certificateDetail_issuedAt,
+    certificateDetail_keyAlgorithm,
+    certificateDetail_type,
     certificateDetail_renewalSummary,
 
     -- ** CertificateOptions
@@ -138,8 +138,8 @@ module Network.AWS.CertificateManager.Lens
 
     -- ** DomainValidation
     domainValidation_resourceRecord,
-    domainValidation_validationEmails,
     domainValidation_validationMethod,
+    domainValidation_validationEmails,
     domainValidation_validationStatus,
     domainValidation_validationDomain,
     domainValidation_domainName,

@@ -30,14 +30,14 @@ import Test.Tasty
 --         [ requestGetAccountConfiguration $
 --             newGetAccountConfiguration
 --
+--         , requestRemoveTagsFromCertificate $
+--             newRemoveTagsFromCertificate
+--
 --         , requestDeleteCertificate $
 --             newDeleteCertificate
 --
 --         , requestUpdateCertificateOptions $
 --             newUpdateCertificateOptions
---
---         , requestRemoveTagsFromCertificate $
---             newRemoveTagsFromCertificate
 --
 --         , requestExportCertificate $
 --             newExportCertificate
@@ -48,23 +48,23 @@ import Test.Tasty
 --         , requestGetCertificate $
 --             newGetCertificate
 --
+--         , requestImportCertificate $
+--             newImportCertificate
+--
 --         , requestDescribeCertificate $
 --             newDescribeCertificate
 --
 --         , requestPutAccountConfiguration $
 --             newPutAccountConfiguration
 --
---         , requestImportCertificate $
---             newImportCertificate
+--         , requestResendValidationEmail $
+--             newResendValidationEmail
 --
 --         , requestListCertificates $
 --             newListCertificates
 --
 --         , requestRequestCertificate $
 --             newRequestCertificate
---
---         , requestResendValidationEmail $
---             newResendValidationEmail
 --
 --         , requestAddTagsToCertificate $
 --             newAddTagsToCertificate
@@ -78,14 +78,14 @@ import Test.Tasty
 --         [ responseGetAccountConfiguration $
 --             newGetAccountConfigurationResponse
 --
+--         , responseRemoveTagsFromCertificate $
+--             newRemoveTagsFromCertificateResponse
+--
 --         , responseDeleteCertificate $
 --             newDeleteCertificateResponse
 --
 --         , responseUpdateCertificateOptions $
 --             newUpdateCertificateOptionsResponse
---
---         , responseRemoveTagsFromCertificate $
---             newRemoveTagsFromCertificateResponse
 --
 --         , responseExportCertificate $
 --             newExportCertificateResponse
@@ -96,23 +96,23 @@ import Test.Tasty
 --         , responseGetCertificate $
 --             newGetCertificateResponse
 --
+--         , responseImportCertificate $
+--             newImportCertificateResponse
+--
 --         , responseDescribeCertificate $
 --             newDescribeCertificateResponse
 --
 --         , responsePutAccountConfiguration $
 --             newPutAccountConfigurationResponse
 --
---         , responseImportCertificate $
---             newImportCertificateResponse
+--         , responseResendValidationEmail $
+--             newResendValidationEmailResponse
 --
 --         , responseListCertificates $
 --             newListCertificatesResponse
 --
 --         , responseRequestCertificate $
 --             newRequestCertificateResponse
---
---         , responseResendValidationEmail $
---             newResendValidationEmailResponse
 --
 --         , responseAddTagsToCertificate $
 --             newAddTagsToCertificateResponse
@@ -131,6 +131,12 @@ requestGetAccountConfiguration =
     "GetAccountConfiguration"
     "fixture/GetAccountConfiguration.yaml"
 
+requestRemoveTagsFromCertificate :: RemoveTagsFromCertificate -> TestTree
+requestRemoveTagsFromCertificate =
+  req
+    "RemoveTagsFromCertificate"
+    "fixture/RemoveTagsFromCertificate.yaml"
+
 requestDeleteCertificate :: DeleteCertificate -> TestTree
 requestDeleteCertificate =
   req
@@ -142,12 +148,6 @@ requestUpdateCertificateOptions =
   req
     "UpdateCertificateOptions"
     "fixture/UpdateCertificateOptions.yaml"
-
-requestRemoveTagsFromCertificate :: RemoveTagsFromCertificate -> TestTree
-requestRemoveTagsFromCertificate =
-  req
-    "RemoveTagsFromCertificate"
-    "fixture/RemoveTagsFromCertificate.yaml"
 
 requestExportCertificate :: ExportCertificate -> TestTree
 requestExportCertificate =
@@ -167,6 +167,12 @@ requestGetCertificate =
     "GetCertificate"
     "fixture/GetCertificate.yaml"
 
+requestImportCertificate :: ImportCertificate -> TestTree
+requestImportCertificate =
+  req
+    "ImportCertificate"
+    "fixture/ImportCertificate.yaml"
+
 requestDescribeCertificate :: DescribeCertificate -> TestTree
 requestDescribeCertificate =
   req
@@ -179,11 +185,11 @@ requestPutAccountConfiguration =
     "PutAccountConfiguration"
     "fixture/PutAccountConfiguration.yaml"
 
-requestImportCertificate :: ImportCertificate -> TestTree
-requestImportCertificate =
+requestResendValidationEmail :: ResendValidationEmail -> TestTree
+requestResendValidationEmail =
   req
-    "ImportCertificate"
-    "fixture/ImportCertificate.yaml"
+    "ResendValidationEmail"
+    "fixture/ResendValidationEmail.yaml"
 
 requestListCertificates :: ListCertificates -> TestTree
 requestListCertificates =
@@ -196,12 +202,6 @@ requestRequestCertificate =
   req
     "RequestCertificate"
     "fixture/RequestCertificate.yaml"
-
-requestResendValidationEmail :: ResendValidationEmail -> TestTree
-requestResendValidationEmail =
-  req
-    "ResendValidationEmail"
-    "fixture/ResendValidationEmail.yaml"
 
 requestAddTagsToCertificate :: AddTagsToCertificate -> TestTree
 requestAddTagsToCertificate =
@@ -225,6 +225,14 @@ responseGetAccountConfiguration =
     defaultService
     (Proxy :: Proxy GetAccountConfiguration)
 
+responseRemoveTagsFromCertificate :: RemoveTagsFromCertificateResponse -> TestTree
+responseRemoveTagsFromCertificate =
+  res
+    "RemoveTagsFromCertificateResponse"
+    "fixture/RemoveTagsFromCertificateResponse.proto"
+    defaultService
+    (Proxy :: Proxy RemoveTagsFromCertificate)
+
 responseDeleteCertificate :: DeleteCertificateResponse -> TestTree
 responseDeleteCertificate =
   res
@@ -240,14 +248,6 @@ responseUpdateCertificateOptions =
     "fixture/UpdateCertificateOptionsResponse.proto"
     defaultService
     (Proxy :: Proxy UpdateCertificateOptions)
-
-responseRemoveTagsFromCertificate :: RemoveTagsFromCertificateResponse -> TestTree
-responseRemoveTagsFromCertificate =
-  res
-    "RemoveTagsFromCertificateResponse"
-    "fixture/RemoveTagsFromCertificateResponse.proto"
-    defaultService
-    (Proxy :: Proxy RemoveTagsFromCertificate)
 
 responseExportCertificate :: ExportCertificateResponse -> TestTree
 responseExportCertificate =
@@ -273,6 +273,14 @@ responseGetCertificate =
     defaultService
     (Proxy :: Proxy GetCertificate)
 
+responseImportCertificate :: ImportCertificateResponse -> TestTree
+responseImportCertificate =
+  res
+    "ImportCertificateResponse"
+    "fixture/ImportCertificateResponse.proto"
+    defaultService
+    (Proxy :: Proxy ImportCertificate)
+
 responseDescribeCertificate :: DescribeCertificateResponse -> TestTree
 responseDescribeCertificate =
   res
@@ -289,13 +297,13 @@ responsePutAccountConfiguration =
     defaultService
     (Proxy :: Proxy PutAccountConfiguration)
 
-responseImportCertificate :: ImportCertificateResponse -> TestTree
-responseImportCertificate =
+responseResendValidationEmail :: ResendValidationEmailResponse -> TestTree
+responseResendValidationEmail =
   res
-    "ImportCertificateResponse"
-    "fixture/ImportCertificateResponse.proto"
+    "ResendValidationEmailResponse"
+    "fixture/ResendValidationEmailResponse.proto"
     defaultService
-    (Proxy :: Proxy ImportCertificate)
+    (Proxy :: Proxy ResendValidationEmail)
 
 responseListCertificates :: ListCertificatesResponse -> TestTree
 responseListCertificates =
@@ -312,14 +320,6 @@ responseRequestCertificate =
     "fixture/RequestCertificateResponse.proto"
     defaultService
     (Proxy :: Proxy RequestCertificate)
-
-responseResendValidationEmail :: ResendValidationEmailResponse -> TestTree
-responseResendValidationEmail =
-  res
-    "ResendValidationEmailResponse"
-    "fixture/ResendValidationEmailResponse.proto"
-    defaultService
-    (Proxy :: Proxy ResendValidationEmail)
 
 responseAddTagsToCertificate :: AddTagsToCertificateResponse -> TestTree
 responseAddTagsToCertificate =

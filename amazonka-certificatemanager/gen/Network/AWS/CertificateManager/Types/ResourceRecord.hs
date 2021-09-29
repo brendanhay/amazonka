@@ -24,9 +24,8 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Contains a DNS record value that you can use to can use to validate
--- ownership or control of a domain. This is used by the
--- DescribeCertificate action.
+-- | Contains a DNS record value that you can use to validate ownership or
+-- control of a domain. This is used by the DescribeCertificate action.
 --
 -- /See:/ 'newResourceRecord' smart constructor.
 data ResourceRecord = ResourceRecord'

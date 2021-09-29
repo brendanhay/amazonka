@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the account configuration options associated with an AWS
--- account.
+-- Returns the account configuration options associated with an Amazon Web
+-- Services account.
 module Network.AWS.CertificateManager.GetAccountConfiguration
   ( -- * Creating a Request
     GetAccountConfiguration (..),
@@ -101,7 +101,8 @@ instance Core.ToQuery GetAccountConfiguration where
 
 -- | /See:/ 'newGetAccountConfigurationResponse' smart constructor.
 data GetAccountConfigurationResponse = GetAccountConfigurationResponse'
-  { -- | Expiration events configuration options associated with the AWS account.
+  { -- | Expiration events configuration options associated with the Amazon Web
+    -- Services account.
     expiryEvents :: Prelude.Maybe ExpiryEventsConfiguration,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -116,7 +117,8 @@ data GetAccountConfigurationResponse = GetAccountConfigurationResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'expiryEvents', 'getAccountConfigurationResponse_expiryEvents' - Expiration events configuration options associated with the AWS account.
+-- 'expiryEvents', 'getAccountConfigurationResponse_expiryEvents' - Expiration events configuration options associated with the Amazon Web
+-- Services account.
 --
 -- 'httpStatus', 'getAccountConfigurationResponse_httpStatus' - The response's http status code.
 newGetAccountConfigurationResponse ::
@@ -130,7 +132,8 @@ newGetAccountConfigurationResponse pHttpStatus_ =
       httpStatus = pHttpStatus_
     }
 
--- | Expiration events configuration options associated with the AWS account.
+-- | Expiration events configuration options associated with the Amazon Web
+-- Services account.
 getAccountConfigurationResponse_expiryEvents :: Lens.Lens' GetAccountConfigurationResponse (Prelude.Maybe ExpiryEventsConfiguration)
 getAccountConfigurationResponse_expiryEvents = Lens.lens (\GetAccountConfigurationResponse' {expiryEvents} -> expiryEvents) (\s@GetAccountConfigurationResponse' {} a -> s {expiryEvents = a} :: GetAccountConfigurationResponse)
 

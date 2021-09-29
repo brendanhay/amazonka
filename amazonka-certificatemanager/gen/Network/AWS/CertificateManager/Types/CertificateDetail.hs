@@ -75,48 +75,54 @@ data CertificateDetail = CertificateDetail'
     -- | The Amazon Resource Name (ARN) of the certificate. For more information
     -- about ARNs, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
-    -- in the /AWS General Reference/.
+    -- in the /Amazon Web Services General Reference/.
     certificateArn :: Prelude.Maybe Prelude.Text,
     -- | The time at which the certificate was requested.
     createdAt :: Prelude.Maybe Core.POSIX,
-    -- | A list of ARNs for the AWS resources that are using the certificate. A
-    -- certificate can be used by multiple AWS resources.
+    -- | A list of ARNs for the Amazon Web Services resources that are using the
+    -- certificate. A certificate can be used by multiple Amazon Web Services
+    -- resources.
     inUseBy :: Prelude.Maybe [Prelude.Text],
+    -- | The fully qualified domain name for the certificate, such as
+    -- www.example.com or example.com.
+    domainName :: Prelude.Maybe Prelude.Text,
     -- | One or more domain names (subject alternative names) included in the
     -- certificate. This list contains the domain names that are bound to the
     -- public key that is contained in the certificate. The subject alternative
     -- names include the canonical domain name (CN) of the certificate and
     -- additional domain names that can be used to connect to the website.
     subjectAlternativeNames :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | The fully qualified domain name for the certificate, such as
-    -- www.example.com or example.com.
-    domainName :: Prelude.Maybe Prelude.Text,
     -- | The reason the certificate was revoked. This value exists only when the
     -- certificate status is @REVOKED@.
     revocationReason :: Prelude.Maybe RevocationReason,
-    -- | The name of the entity that is associated with the public key contained
-    -- in the certificate.
-    subject :: Prelude.Maybe Prelude.Text,
     -- | The reason the certificate request failed. This value exists only when
     -- the certificate status is @FAILED@. For more information, see
     -- <https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed Certificate Request Failed>
-    -- in the /AWS Certificate Manager User Guide/.
+    -- in the /Amazon Web Services Certificate Manager User Guide/.
     failureReason :: Prelude.Maybe FailureReason,
+    -- | The name of the entity that is associated with the public key contained
+    -- in the certificate.
+    subject :: Prelude.Maybe Prelude.Text,
+    -- | The time after which the certificate is not valid.
+    notAfter :: Prelude.Maybe Core.POSIX,
+    -- | The time at which the certificate was revoked. This value exists only
+    -- when the certificate status is @REVOKED@.
+    revokedAt :: Prelude.Maybe Core.POSIX,
     -- | A list of Key Usage X.509 v3 extension objects. Each object is a string
     -- value that identifies the purpose of the public key contained in the
     -- certificate. Possible extension values include DIGITAL_SIGNATURE,
     -- KEY_ENCHIPHERMENT, NON_REPUDIATION, and more.
     keyUsages :: Prelude.Maybe [KeyUsage],
-    -- | The time at which the certificate was revoked. This value exists only
-    -- when the certificate status is @REVOKED@.
-    revokedAt :: Prelude.Maybe Core.POSIX,
-    -- | The time after which the certificate is not valid.
-    notAfter :: Prelude.Maybe Core.POSIX,
-    -- | The algorithm that was used to sign the certificate.
-    signatureAlgorithm :: Prelude.Maybe Prelude.Text,
     -- | The name of the certificate authority that issued and signed the
     -- certificate.
     issuer :: Prelude.Maybe Prelude.Text,
+    -- | The algorithm that was used to sign the certificate.
+    signatureAlgorithm :: Prelude.Maybe Prelude.Text,
+    -- | The time at which the certificate was issued. This value exists only
+    -- when the certificate type is @AMAZON_ISSUED@.
+    issuedAt :: Prelude.Maybe Core.POSIX,
+    -- | The algorithm that was used to generate the public-private key pair.
+    keyAlgorithm :: Prelude.Maybe KeyAlgorithm,
     -- | The source of the certificate. For certificates provided by ACM, this
     -- value is @AMAZON_ISSUED@. For certificates that you imported with
     -- ImportCertificate, this value is @IMPORTED@. ACM does not provide
@@ -124,13 +130,8 @@ data CertificateDetail = CertificateDetail'
     -- for imported certificates. For more information about the differences
     -- between certificates that you import and those that ACM provides, see
     -- <https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html Importing Certificates>
-    -- in the /AWS Certificate Manager User Guide/.
+    -- in the /Amazon Web Services Certificate Manager User Guide/.
     type' :: Prelude.Maybe CertificateType,
-    -- | The algorithm that was used to generate the public-private key pair.
-    keyAlgorithm :: Prelude.Maybe KeyAlgorithm,
-    -- | The time at which the certificate was issued. This value exists only
-    -- when the certificate type is @AMAZON_ISSUED@.
-    issuedAt :: Prelude.Maybe Core.POSIX,
     -- | Contains information about the status of ACM\'s
     -- <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal>
     -- for the certificate. This field exists only when the certificate type is
@@ -183,12 +184,16 @@ data CertificateDetail = CertificateDetail'
 -- 'certificateArn', 'certificateDetail_certificateArn' - The Amazon Resource Name (ARN) of the certificate. For more information
 -- about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 --
 -- 'createdAt', 'certificateDetail_createdAt' - The time at which the certificate was requested.
 --
--- 'inUseBy', 'certificateDetail_inUseBy' - A list of ARNs for the AWS resources that are using the certificate. A
--- certificate can be used by multiple AWS resources.
+-- 'inUseBy', 'certificateDetail_inUseBy' - A list of ARNs for the Amazon Web Services resources that are using the
+-- certificate. A certificate can be used by multiple Amazon Web Services
+-- resources.
+--
+-- 'domainName', 'certificateDetail_domainName' - The fully qualified domain name for the certificate, such as
+-- www.example.com or example.com.
 --
 -- 'subjectAlternativeNames', 'certificateDetail_subjectAlternativeNames' - One or more domain names (subject alternative names) included in the
 -- certificate. This list contains the domain names that are bound to the
@@ -196,34 +201,36 @@ data CertificateDetail = CertificateDetail'
 -- names include the canonical domain name (CN) of the certificate and
 -- additional domain names that can be used to connect to the website.
 --
--- 'domainName', 'certificateDetail_domainName' - The fully qualified domain name for the certificate, such as
--- www.example.com or example.com.
---
 -- 'revocationReason', 'certificateDetail_revocationReason' - The reason the certificate was revoked. This value exists only when the
 -- certificate status is @REVOKED@.
---
--- 'subject', 'certificateDetail_subject' - The name of the entity that is associated with the public key contained
--- in the certificate.
 --
 -- 'failureReason', 'certificateDetail_failureReason' - The reason the certificate request failed. This value exists only when
 -- the certificate status is @FAILED@. For more information, see
 -- <https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed Certificate Request Failed>
--- in the /AWS Certificate Manager User Guide/.
+-- in the /Amazon Web Services Certificate Manager User Guide/.
+--
+-- 'subject', 'certificateDetail_subject' - The name of the entity that is associated with the public key contained
+-- in the certificate.
+--
+-- 'notAfter', 'certificateDetail_notAfter' - The time after which the certificate is not valid.
+--
+-- 'revokedAt', 'certificateDetail_revokedAt' - The time at which the certificate was revoked. This value exists only
+-- when the certificate status is @REVOKED@.
 --
 -- 'keyUsages', 'certificateDetail_keyUsages' - A list of Key Usage X.509 v3 extension objects. Each object is a string
 -- value that identifies the purpose of the public key contained in the
 -- certificate. Possible extension values include DIGITAL_SIGNATURE,
 -- KEY_ENCHIPHERMENT, NON_REPUDIATION, and more.
 --
--- 'revokedAt', 'certificateDetail_revokedAt' - The time at which the certificate was revoked. This value exists only
--- when the certificate status is @REVOKED@.
---
--- 'notAfter', 'certificateDetail_notAfter' - The time after which the certificate is not valid.
+-- 'issuer', 'certificateDetail_issuer' - The name of the certificate authority that issued and signed the
+-- certificate.
 --
 -- 'signatureAlgorithm', 'certificateDetail_signatureAlgorithm' - The algorithm that was used to sign the certificate.
 --
--- 'issuer', 'certificateDetail_issuer' - The name of the certificate authority that issued and signed the
--- certificate.
+-- 'issuedAt', 'certificateDetail_issuedAt' - The time at which the certificate was issued. This value exists only
+-- when the certificate type is @AMAZON_ISSUED@.
+--
+-- 'keyAlgorithm', 'certificateDetail_keyAlgorithm' - The algorithm that was used to generate the public-private key pair.
 --
 -- 'type'', 'certificateDetail_type' - The source of the certificate. For certificates provided by ACM, this
 -- value is @AMAZON_ISSUED@. For certificates that you imported with
@@ -232,12 +239,7 @@ data CertificateDetail = CertificateDetail'
 -- for imported certificates. For more information about the differences
 -- between certificates that you import and those that ACM provides, see
 -- <https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html Importing Certificates>
--- in the /AWS Certificate Manager User Guide/.
---
--- 'keyAlgorithm', 'certificateDetail_keyAlgorithm' - The algorithm that was used to generate the public-private key pair.
---
--- 'issuedAt', 'certificateDetail_issuedAt' - The time at which the certificate was issued. This value exists only
--- when the certificate type is @AMAZON_ISSUED@.
+-- in the /Amazon Web Services Certificate Manager User Guide/.
 --
 -- 'renewalSummary', 'certificateDetail_renewalSummary' - Contains information about the status of ACM\'s
 -- <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal>
@@ -259,19 +261,19 @@ newCertificateDetail =
       certificateArn = Prelude.Nothing,
       createdAt = Prelude.Nothing,
       inUseBy = Prelude.Nothing,
-      subjectAlternativeNames = Prelude.Nothing,
       domainName = Prelude.Nothing,
+      subjectAlternativeNames = Prelude.Nothing,
       revocationReason = Prelude.Nothing,
-      subject = Prelude.Nothing,
       failureReason = Prelude.Nothing,
-      keyUsages = Prelude.Nothing,
-      revokedAt = Prelude.Nothing,
+      subject = Prelude.Nothing,
       notAfter = Prelude.Nothing,
-      signatureAlgorithm = Prelude.Nothing,
+      revokedAt = Prelude.Nothing,
+      keyUsages = Prelude.Nothing,
       issuer = Prelude.Nothing,
-      type' = Prelude.Nothing,
-      keyAlgorithm = Prelude.Nothing,
+      signatureAlgorithm = Prelude.Nothing,
       issuedAt = Prelude.Nothing,
+      keyAlgorithm = Prelude.Nothing,
+      type' = Prelude.Nothing,
       renewalSummary = Prelude.Nothing
     }
 
@@ -329,7 +331,7 @@ certificateDetail_serial = Lens.lens (\CertificateDetail' {serial} -> serial) (\
 -- | The Amazon Resource Name (ARN) of the certificate. For more information
 -- about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>
--- in the /AWS General Reference/.
+-- in the /Amazon Web Services General Reference/.
 certificateDetail_certificateArn :: Lens.Lens' CertificateDetail (Prelude.Maybe Prelude.Text)
 certificateDetail_certificateArn = Lens.lens (\CertificateDetail' {certificateArn} -> certificateArn) (\s@CertificateDetail' {} a -> s {certificateArn = a} :: CertificateDetail)
 
@@ -337,10 +339,16 @@ certificateDetail_certificateArn = Lens.lens (\CertificateDetail' {certificateAr
 certificateDetail_createdAt :: Lens.Lens' CertificateDetail (Prelude.Maybe Prelude.UTCTime)
 certificateDetail_createdAt = Lens.lens (\CertificateDetail' {createdAt} -> createdAt) (\s@CertificateDetail' {} a -> s {createdAt = a} :: CertificateDetail) Prelude.. Lens.mapping Core._Time
 
--- | A list of ARNs for the AWS resources that are using the certificate. A
--- certificate can be used by multiple AWS resources.
+-- | A list of ARNs for the Amazon Web Services resources that are using the
+-- certificate. A certificate can be used by multiple Amazon Web Services
+-- resources.
 certificateDetail_inUseBy :: Lens.Lens' CertificateDetail (Prelude.Maybe [Prelude.Text])
 certificateDetail_inUseBy = Lens.lens (\CertificateDetail' {inUseBy} -> inUseBy) (\s@CertificateDetail' {} a -> s {inUseBy = a} :: CertificateDetail) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The fully qualified domain name for the certificate, such as
+-- www.example.com or example.com.
+certificateDetail_domainName :: Lens.Lens' CertificateDetail (Prelude.Maybe Prelude.Text)
+certificateDetail_domainName = Lens.lens (\CertificateDetail' {domainName} -> domainName) (\s@CertificateDetail' {} a -> s {domainName = a} :: CertificateDetail)
 
 -- | One or more domain names (subject alternative names) included in the
 -- certificate. This list contains the domain names that are bound to the
@@ -350,27 +358,31 @@ certificateDetail_inUseBy = Lens.lens (\CertificateDetail' {inUseBy} -> inUseBy)
 certificateDetail_subjectAlternativeNames :: Lens.Lens' CertificateDetail (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 certificateDetail_subjectAlternativeNames = Lens.lens (\CertificateDetail' {subjectAlternativeNames} -> subjectAlternativeNames) (\s@CertificateDetail' {} a -> s {subjectAlternativeNames = a} :: CertificateDetail) Prelude.. Lens.mapping Lens._Coerce
 
--- | The fully qualified domain name for the certificate, such as
--- www.example.com or example.com.
-certificateDetail_domainName :: Lens.Lens' CertificateDetail (Prelude.Maybe Prelude.Text)
-certificateDetail_domainName = Lens.lens (\CertificateDetail' {domainName} -> domainName) (\s@CertificateDetail' {} a -> s {domainName = a} :: CertificateDetail)
-
 -- | The reason the certificate was revoked. This value exists only when the
 -- certificate status is @REVOKED@.
 certificateDetail_revocationReason :: Lens.Lens' CertificateDetail (Prelude.Maybe RevocationReason)
 certificateDetail_revocationReason = Lens.lens (\CertificateDetail' {revocationReason} -> revocationReason) (\s@CertificateDetail' {} a -> s {revocationReason = a} :: CertificateDetail)
+
+-- | The reason the certificate request failed. This value exists only when
+-- the certificate status is @FAILED@. For more information, see
+-- <https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed Certificate Request Failed>
+-- in the /Amazon Web Services Certificate Manager User Guide/.
+certificateDetail_failureReason :: Lens.Lens' CertificateDetail (Prelude.Maybe FailureReason)
+certificateDetail_failureReason = Lens.lens (\CertificateDetail' {failureReason} -> failureReason) (\s@CertificateDetail' {} a -> s {failureReason = a} :: CertificateDetail)
 
 -- | The name of the entity that is associated with the public key contained
 -- in the certificate.
 certificateDetail_subject :: Lens.Lens' CertificateDetail (Prelude.Maybe Prelude.Text)
 certificateDetail_subject = Lens.lens (\CertificateDetail' {subject} -> subject) (\s@CertificateDetail' {} a -> s {subject = a} :: CertificateDetail)
 
--- | The reason the certificate request failed. This value exists only when
--- the certificate status is @FAILED@. For more information, see
--- <https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed Certificate Request Failed>
--- in the /AWS Certificate Manager User Guide/.
-certificateDetail_failureReason :: Lens.Lens' CertificateDetail (Prelude.Maybe FailureReason)
-certificateDetail_failureReason = Lens.lens (\CertificateDetail' {failureReason} -> failureReason) (\s@CertificateDetail' {} a -> s {failureReason = a} :: CertificateDetail)
+-- | The time after which the certificate is not valid.
+certificateDetail_notAfter :: Lens.Lens' CertificateDetail (Prelude.Maybe Prelude.UTCTime)
+certificateDetail_notAfter = Lens.lens (\CertificateDetail' {notAfter} -> notAfter) (\s@CertificateDetail' {} a -> s {notAfter = a} :: CertificateDetail) Prelude.. Lens.mapping Core._Time
+
+-- | The time at which the certificate was revoked. This value exists only
+-- when the certificate status is @REVOKED@.
+certificateDetail_revokedAt :: Lens.Lens' CertificateDetail (Prelude.Maybe Prelude.UTCTime)
+certificateDetail_revokedAt = Lens.lens (\CertificateDetail' {revokedAt} -> revokedAt) (\s@CertificateDetail' {} a -> s {revokedAt = a} :: CertificateDetail) Prelude.. Lens.mapping Core._Time
 
 -- | A list of Key Usage X.509 v3 extension objects. Each object is a string
 -- value that identifies the purpose of the public key contained in the
@@ -379,23 +391,23 @@ certificateDetail_failureReason = Lens.lens (\CertificateDetail' {failureReason}
 certificateDetail_keyUsages :: Lens.Lens' CertificateDetail (Prelude.Maybe [KeyUsage])
 certificateDetail_keyUsages = Lens.lens (\CertificateDetail' {keyUsages} -> keyUsages) (\s@CertificateDetail' {} a -> s {keyUsages = a} :: CertificateDetail) Prelude.. Lens.mapping Lens._Coerce
 
--- | The time at which the certificate was revoked. This value exists only
--- when the certificate status is @REVOKED@.
-certificateDetail_revokedAt :: Lens.Lens' CertificateDetail (Prelude.Maybe Prelude.UTCTime)
-certificateDetail_revokedAt = Lens.lens (\CertificateDetail' {revokedAt} -> revokedAt) (\s@CertificateDetail' {} a -> s {revokedAt = a} :: CertificateDetail) Prelude.. Lens.mapping Core._Time
-
--- | The time after which the certificate is not valid.
-certificateDetail_notAfter :: Lens.Lens' CertificateDetail (Prelude.Maybe Prelude.UTCTime)
-certificateDetail_notAfter = Lens.lens (\CertificateDetail' {notAfter} -> notAfter) (\s@CertificateDetail' {} a -> s {notAfter = a} :: CertificateDetail) Prelude.. Lens.mapping Core._Time
+-- | The name of the certificate authority that issued and signed the
+-- certificate.
+certificateDetail_issuer :: Lens.Lens' CertificateDetail (Prelude.Maybe Prelude.Text)
+certificateDetail_issuer = Lens.lens (\CertificateDetail' {issuer} -> issuer) (\s@CertificateDetail' {} a -> s {issuer = a} :: CertificateDetail)
 
 -- | The algorithm that was used to sign the certificate.
 certificateDetail_signatureAlgorithm :: Lens.Lens' CertificateDetail (Prelude.Maybe Prelude.Text)
 certificateDetail_signatureAlgorithm = Lens.lens (\CertificateDetail' {signatureAlgorithm} -> signatureAlgorithm) (\s@CertificateDetail' {} a -> s {signatureAlgorithm = a} :: CertificateDetail)
 
--- | The name of the certificate authority that issued and signed the
--- certificate.
-certificateDetail_issuer :: Lens.Lens' CertificateDetail (Prelude.Maybe Prelude.Text)
-certificateDetail_issuer = Lens.lens (\CertificateDetail' {issuer} -> issuer) (\s@CertificateDetail' {} a -> s {issuer = a} :: CertificateDetail)
+-- | The time at which the certificate was issued. This value exists only
+-- when the certificate type is @AMAZON_ISSUED@.
+certificateDetail_issuedAt :: Lens.Lens' CertificateDetail (Prelude.Maybe Prelude.UTCTime)
+certificateDetail_issuedAt = Lens.lens (\CertificateDetail' {issuedAt} -> issuedAt) (\s@CertificateDetail' {} a -> s {issuedAt = a} :: CertificateDetail) Prelude.. Lens.mapping Core._Time
+
+-- | The algorithm that was used to generate the public-private key pair.
+certificateDetail_keyAlgorithm :: Lens.Lens' CertificateDetail (Prelude.Maybe KeyAlgorithm)
+certificateDetail_keyAlgorithm = Lens.lens (\CertificateDetail' {keyAlgorithm} -> keyAlgorithm) (\s@CertificateDetail' {} a -> s {keyAlgorithm = a} :: CertificateDetail)
 
 -- | The source of the certificate. For certificates provided by ACM, this
 -- value is @AMAZON_ISSUED@. For certificates that you imported with
@@ -404,18 +416,9 @@ certificateDetail_issuer = Lens.lens (\CertificateDetail' {issuer} -> issuer) (\
 -- for imported certificates. For more information about the differences
 -- between certificates that you import and those that ACM provides, see
 -- <https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html Importing Certificates>
--- in the /AWS Certificate Manager User Guide/.
+-- in the /Amazon Web Services Certificate Manager User Guide/.
 certificateDetail_type :: Lens.Lens' CertificateDetail (Prelude.Maybe CertificateType)
 certificateDetail_type = Lens.lens (\CertificateDetail' {type'} -> type') (\s@CertificateDetail' {} a -> s {type' = a} :: CertificateDetail)
-
--- | The algorithm that was used to generate the public-private key pair.
-certificateDetail_keyAlgorithm :: Lens.Lens' CertificateDetail (Prelude.Maybe KeyAlgorithm)
-certificateDetail_keyAlgorithm = Lens.lens (\CertificateDetail' {keyAlgorithm} -> keyAlgorithm) (\s@CertificateDetail' {} a -> s {keyAlgorithm = a} :: CertificateDetail)
-
--- | The time at which the certificate was issued. This value exists only
--- when the certificate type is @AMAZON_ISSUED@.
-certificateDetail_issuedAt :: Lens.Lens' CertificateDetail (Prelude.Maybe Prelude.UTCTime)
-certificateDetail_issuedAt = Lens.lens (\CertificateDetail' {issuedAt} -> issuedAt) (\s@CertificateDetail' {} a -> s {issuedAt = a} :: CertificateDetail) Prelude.. Lens.mapping Core._Time
 
 -- | Contains information about the status of ACM\'s
 -- <https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html managed renewal>
@@ -444,19 +447,19 @@ instance Core.FromJSON CertificateDetail where
             Prelude.<*> (x Core..:? "CertificateArn")
             Prelude.<*> (x Core..:? "CreatedAt")
             Prelude.<*> (x Core..:? "InUseBy" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "SubjectAlternativeNames")
             Prelude.<*> (x Core..:? "DomainName")
+            Prelude.<*> (x Core..:? "SubjectAlternativeNames")
             Prelude.<*> (x Core..:? "RevocationReason")
-            Prelude.<*> (x Core..:? "Subject")
             Prelude.<*> (x Core..:? "FailureReason")
-            Prelude.<*> (x Core..:? "KeyUsages" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "RevokedAt")
+            Prelude.<*> (x Core..:? "Subject")
             Prelude.<*> (x Core..:? "NotAfter")
-            Prelude.<*> (x Core..:? "SignatureAlgorithm")
+            Prelude.<*> (x Core..:? "RevokedAt")
+            Prelude.<*> (x Core..:? "KeyUsages" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Issuer")
-            Prelude.<*> (x Core..:? "Type")
-            Prelude.<*> (x Core..:? "KeyAlgorithm")
+            Prelude.<*> (x Core..:? "SignatureAlgorithm")
             Prelude.<*> (x Core..:? "IssuedAt")
+            Prelude.<*> (x Core..:? "KeyAlgorithm")
+            Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "RenewalSummary")
       )
 

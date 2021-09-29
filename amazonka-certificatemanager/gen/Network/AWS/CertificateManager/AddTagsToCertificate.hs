@@ -21,10 +21,10 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds one or more tags to an ACM certificate. Tags are labels that you
--- can use to identify and organize your AWS resources. Each tag consists
--- of a @key@ and an optional @value@. You specify the certificate on input
--- by its Amazon Resource Name (ARN). You specify the tag by using a
--- key-value pair.
+-- can use to identify and organize your Amazon Web Services resources.
+-- Each tag consists of a @key@ and an optional @value@. You specify the
+-- certificate on input by its Amazon Resource Name (ARN). You specify the
+-- tag by using a key-value pair.
 --
 -- You can apply a tag to just one certificate if you want to identify a
 -- specific characteristic of that certificate, or you can apply the same

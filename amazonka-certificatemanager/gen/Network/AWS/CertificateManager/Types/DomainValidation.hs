@@ -41,11 +41,11 @@ data DomainValidation = DomainValidation'
     -- \"_a79865eb4cd1a6ab990a45779b4e0b96.yourdomain.com\", only
     -- \"_a79865eb4cd1a6ab990a45779b4e0b96\" must be used.
     resourceRecord :: Prelude.Maybe ResourceRecord,
+    -- | Specifies the domain validation method.
+    validationMethod :: Prelude.Maybe ValidationMethod,
     -- | A list of email addresses that ACM used to send domain validation
     -- emails.
     validationEmails :: Prelude.Maybe [Prelude.Text],
-    -- | Specifies the domain validation method.
-    validationMethod :: Prelude.Maybe ValidationMethod,
     -- | The validation status of the domain name. This can be one of the
     -- following values:
     --
@@ -81,10 +81,10 @@ data DomainValidation = DomainValidation'
 -- \"_a79865eb4cd1a6ab990a45779b4e0b96.yourdomain.com\", only
 -- \"_a79865eb4cd1a6ab990a45779b4e0b96\" must be used.
 --
+-- 'validationMethod', 'domainValidation_validationMethod' - Specifies the domain validation method.
+--
 -- 'validationEmails', 'domainValidation_validationEmails' - A list of email addresses that ACM used to send domain validation
 -- emails.
---
--- 'validationMethod', 'domainValidation_validationMethod' - Specifies the domain validation method.
 --
 -- 'validationStatus', 'domainValidation_validationStatus' - The validation status of the domain name. This can be one of the
 -- following values:
@@ -106,8 +106,8 @@ newDomainValidation ::
 newDomainValidation pDomainName_ =
   DomainValidation'
     { resourceRecord = Prelude.Nothing,
-      validationEmails = Prelude.Nothing,
       validationMethod = Prelude.Nothing,
+      validationEmails = Prelude.Nothing,
       validationStatus = Prelude.Nothing,
       validationDomain = Prelude.Nothing,
       domainName = pDomainName_
@@ -125,14 +125,14 @@ newDomainValidation pDomainName_ =
 domainValidation_resourceRecord :: Lens.Lens' DomainValidation (Prelude.Maybe ResourceRecord)
 domainValidation_resourceRecord = Lens.lens (\DomainValidation' {resourceRecord} -> resourceRecord) (\s@DomainValidation' {} a -> s {resourceRecord = a} :: DomainValidation)
 
+-- | Specifies the domain validation method.
+domainValidation_validationMethod :: Lens.Lens' DomainValidation (Prelude.Maybe ValidationMethod)
+domainValidation_validationMethod = Lens.lens (\DomainValidation' {validationMethod} -> validationMethod) (\s@DomainValidation' {} a -> s {validationMethod = a} :: DomainValidation)
+
 -- | A list of email addresses that ACM used to send domain validation
 -- emails.
 domainValidation_validationEmails :: Lens.Lens' DomainValidation (Prelude.Maybe [Prelude.Text])
 domainValidation_validationEmails = Lens.lens (\DomainValidation' {validationEmails} -> validationEmails) (\s@DomainValidation' {} a -> s {validationEmails = a} :: DomainValidation) Prelude.. Lens.mapping Lens._Coerce
-
--- | Specifies the domain validation method.
-domainValidation_validationMethod :: Lens.Lens' DomainValidation (Prelude.Maybe ValidationMethod)
-domainValidation_validationMethod = Lens.lens (\DomainValidation' {validationMethod} -> validationMethod) (\s@DomainValidation' {} a -> s {validationMethod = a} :: DomainValidation)
 
 -- | The validation status of the domain name. This can be one of the
 -- following values:
@@ -161,10 +161,10 @@ instance Core.FromJSON DomainValidation where
       ( \x ->
           DomainValidation'
             Prelude.<$> (x Core..:? "ResourceRecord")
+            Prelude.<*> (x Core..:? "ValidationMethod")
             Prelude.<*> ( x Core..:? "ValidationEmails"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "ValidationMethod")
             Prelude.<*> (x Core..:? "ValidationStatus")
             Prelude.<*> (x Core..:? "ValidationDomain")
             Prelude.<*> (x Core..: "DomainName")

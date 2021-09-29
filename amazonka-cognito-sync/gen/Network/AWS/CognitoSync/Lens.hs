@@ -27,15 +27,15 @@ module Network.AWS.CognitoSync.Lens
 
     -- ** ListRecords
     listRecords_nextToken,
-    listRecords_lastSyncCount,
     listRecords_maxResults,
+    listRecords_lastSyncCount,
     listRecords_syncSessionToken,
     listRecords_identityPoolId,
     listRecords_identityId,
     listRecords_datasetName,
     listRecordsResponse_nextToken,
-    listRecordsResponse_records,
     listRecordsResponse_datasetSyncCount,
+    listRecordsResponse_records,
     listRecordsResponse_datasetDeletedAfterRequestedSyncCount,
     listRecordsResponse_count,
     listRecordsResponse_lastModifiedBy,
@@ -52,17 +52,17 @@ module Network.AWS.CognitoSync.Lens
     registerDeviceResponse_deviceId,
     registerDeviceResponse_httpStatus,
 
+    -- ** BulkPublish
+    bulkPublish_identityPoolId,
+    bulkPublishResponse_identityPoolId,
+    bulkPublishResponse_httpStatus,
+
     -- ** SubscribeToDataset
     subscribeToDataset_identityPoolId,
     subscribeToDataset_identityId,
     subscribeToDataset_datasetName,
     subscribeToDataset_deviceId,
     subscribeToDatasetResponse_httpStatus,
-
-    -- ** BulkPublish
-    bulkPublish_identityPoolId,
-    bulkPublishResponse_identityPoolId,
-    bulkPublishResponse_httpStatus,
 
     -- ** DescribeIdentityUsage
     describeIdentityUsage_identityPoolId,
@@ -127,13 +127,6 @@ module Network.AWS.CognitoSync.Lens
     getCognitoEventsResponse_events,
     getCognitoEventsResponse_httpStatus,
 
-    -- ** DeleteDataset
-    deleteDataset_identityPoolId,
-    deleteDataset_identityId,
-    deleteDataset_datasetName,
-    deleteDatasetResponse_dataset,
-    deleteDatasetResponse_httpStatus,
-
     -- ** ListDatasets
     listDatasets_nextToken,
     listDatasets_maxResults,
@@ -143,6 +136,13 @@ module Network.AWS.CognitoSync.Lens
     listDatasetsResponse_datasets,
     listDatasetsResponse_count,
     listDatasetsResponse_httpStatus,
+
+    -- ** DeleteDataset
+    deleteDataset_identityPoolId,
+    deleteDataset_identityId,
+    deleteDataset_datasetName,
+    deleteDatasetResponse_dataset,
+    deleteDatasetResponse_httpStatus,
 
     -- ** DescribeIdentityPoolUsage
     describeIdentityPoolUsage_identityPoolId,
@@ -183,9 +183,9 @@ module Network.AWS.CognitoSync.Lens
     pushSync_applicationArns,
 
     -- ** Record
+    record_key,
     record_deviceLastModifiedDate,
     record_lastModifiedDate,
-    record_key,
     record_syncCount,
     record_value,
     record_lastModifiedBy,

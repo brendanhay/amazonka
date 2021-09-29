@@ -36,11 +36,11 @@ import Test.Tasty
 --         , requestRegisterDevice $
 --             newRegisterDevice
 --
---         , requestSubscribeToDataset $
---             newSubscribeToDataset
---
 --         , requestBulkPublish $
 --             newBulkPublish
+--
+--         , requestSubscribeToDataset $
+--             newSubscribeToDataset
 --
 --         , requestDescribeIdentityUsage $
 --             newDescribeIdentityUsage
@@ -69,11 +69,11 @@ import Test.Tasty
 --         , requestGetCognitoEvents $
 --             newGetCognitoEvents
 --
---         , requestDeleteDataset $
---             newDeleteDataset
---
 --         , requestListDatasets $
 --             newListDatasets
+--
+--         , requestDeleteDataset $
+--             newDeleteDataset
 --
 --         , requestDescribeIdentityPoolUsage $
 --             newDescribeIdentityPoolUsage
@@ -90,11 +90,11 @@ import Test.Tasty
 --         , responseRegisterDevice $
 --             newRegisterDeviceResponse
 --
---         , responseSubscribeToDataset $
---             newSubscribeToDatasetResponse
---
 --         , responseBulkPublish $
 --             newBulkPublishResponse
+--
+--         , responseSubscribeToDataset $
+--             newSubscribeToDatasetResponse
 --
 --         , responseDescribeIdentityUsage $
 --             newDescribeIdentityUsageResponse
@@ -123,11 +123,11 @@ import Test.Tasty
 --         , responseGetCognitoEvents $
 --             newGetCognitoEventsResponse
 --
---         , responseDeleteDataset $
---             newDeleteDatasetResponse
---
 --         , responseListDatasets $
 --             newListDatasetsResponse
+--
+--         , responseDeleteDataset $
+--             newDeleteDatasetResponse
 --
 --         , responseDescribeIdentityPoolUsage $
 --             newDescribeIdentityPoolUsageResponse
@@ -155,17 +155,17 @@ requestRegisterDevice =
     "RegisterDevice"
     "fixture/RegisterDevice.yaml"
 
-requestSubscribeToDataset :: SubscribeToDataset -> TestTree
-requestSubscribeToDataset =
-  req
-    "SubscribeToDataset"
-    "fixture/SubscribeToDataset.yaml"
-
 requestBulkPublish :: BulkPublish -> TestTree
 requestBulkPublish =
   req
     "BulkPublish"
     "fixture/BulkPublish.yaml"
+
+requestSubscribeToDataset :: SubscribeToDataset -> TestTree
+requestSubscribeToDataset =
+  req
+    "SubscribeToDataset"
+    "fixture/SubscribeToDataset.yaml"
 
 requestDescribeIdentityUsage :: DescribeIdentityUsage -> TestTree
 requestDescribeIdentityUsage =
@@ -221,17 +221,17 @@ requestGetCognitoEvents =
     "GetCognitoEvents"
     "fixture/GetCognitoEvents.yaml"
 
-requestDeleteDataset :: DeleteDataset -> TestTree
-requestDeleteDataset =
-  req
-    "DeleteDataset"
-    "fixture/DeleteDataset.yaml"
-
 requestListDatasets :: ListDatasets -> TestTree
 requestListDatasets =
   req
     "ListDatasets"
     "fixture/ListDatasets.yaml"
+
+requestDeleteDataset :: DeleteDataset -> TestTree
+requestDeleteDataset =
+  req
+    "DeleteDataset"
+    "fixture/DeleteDataset.yaml"
 
 requestDescribeIdentityPoolUsage :: DescribeIdentityPoolUsage -> TestTree
 requestDescribeIdentityPoolUsage =
@@ -265,14 +265,6 @@ responseRegisterDevice =
     defaultService
     (Proxy :: Proxy RegisterDevice)
 
-responseSubscribeToDataset :: SubscribeToDatasetResponse -> TestTree
-responseSubscribeToDataset =
-  res
-    "SubscribeToDatasetResponse"
-    "fixture/SubscribeToDatasetResponse.proto"
-    defaultService
-    (Proxy :: Proxy SubscribeToDataset)
-
 responseBulkPublish :: BulkPublishResponse -> TestTree
 responseBulkPublish =
   res
@@ -280,6 +272,14 @@ responseBulkPublish =
     "fixture/BulkPublishResponse.proto"
     defaultService
     (Proxy :: Proxy BulkPublish)
+
+responseSubscribeToDataset :: SubscribeToDatasetResponse -> TestTree
+responseSubscribeToDataset =
+  res
+    "SubscribeToDatasetResponse"
+    "fixture/SubscribeToDatasetResponse.proto"
+    defaultService
+    (Proxy :: Proxy SubscribeToDataset)
 
 responseDescribeIdentityUsage :: DescribeIdentityUsageResponse -> TestTree
 responseDescribeIdentityUsage =
@@ -353,14 +353,6 @@ responseGetCognitoEvents =
     defaultService
     (Proxy :: Proxy GetCognitoEvents)
 
-responseDeleteDataset :: DeleteDatasetResponse -> TestTree
-responseDeleteDataset =
-  res
-    "DeleteDatasetResponse"
-    "fixture/DeleteDatasetResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteDataset)
-
 responseListDatasets :: ListDatasetsResponse -> TestTree
 responseListDatasets =
   res
@@ -368,6 +360,14 @@ responseListDatasets =
     "fixture/ListDatasetsResponse.proto"
     defaultService
     (Proxy :: Proxy ListDatasets)
+
+responseDeleteDataset :: DeleteDatasetResponse -> TestTree
+responseDeleteDataset =
+  res
+    "DeleteDatasetResponse"
+    "fixture/DeleteDatasetResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteDataset)
 
 responseDescribeIdentityPoolUsage :: DescribeIdentityPoolUsageResponse -> TestTree
 responseDescribeIdentityPoolUsage =

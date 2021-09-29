@@ -35,14 +35,14 @@ data AssessmentRunFilter = AssessmentRunFilter'
     -- __assessmentRunState__ property of the AssessmentRun data type.
     states :: Prelude.Maybe [AssessmentRunState],
     -- | For a record to match a filter, the value that is specified for this
-    -- data type property must be contained in the list of values of the
-    -- __rulesPackages__ property of the AssessmentRun data type.
-    rulesPackageArns :: Prelude.Maybe [Prelude.Text],
-    -- | For a record to match a filter, the value that is specified for this
     -- data type property must inclusively match any value between the
     -- specified minimum and maximum values of the __durationInSeconds__
     -- property of the AssessmentRun data type.
     durationRange :: Prelude.Maybe DurationRange,
+    -- | For a record to match a filter, the value that is specified for this
+    -- data type property must be contained in the list of values of the
+    -- __rulesPackages__ property of the AssessmentRun data type.
+    rulesPackageArns :: Prelude.Maybe [Prelude.Text],
     -- | For a record to match a filter, the value that is specified for this
     -- data type property must match the __stateChangedAt__ property of the
     -- AssessmentRun data type.
@@ -77,14 +77,14 @@ data AssessmentRunFilter = AssessmentRunFilter'
 -- data type property must be the exact match of the value of the
 -- __assessmentRunState__ property of the AssessmentRun data type.
 --
--- 'rulesPackageArns', 'assessmentRunFilter_rulesPackageArns' - For a record to match a filter, the value that is specified for this
--- data type property must be contained in the list of values of the
--- __rulesPackages__ property of the AssessmentRun data type.
---
 -- 'durationRange', 'assessmentRunFilter_durationRange' - For a record to match a filter, the value that is specified for this
 -- data type property must inclusively match any value between the
 -- specified minimum and maximum values of the __durationInSeconds__
 -- property of the AssessmentRun data type.
+--
+-- 'rulesPackageArns', 'assessmentRunFilter_rulesPackageArns' - For a record to match a filter, the value that is specified for this
+-- data type property must be contained in the list of values of the
+-- __rulesPackages__ property of the AssessmentRun data type.
 --
 -- 'stateChangeTimeRange', 'assessmentRunFilter_stateChangeTimeRange' - For a record to match a filter, the value that is specified for this
 -- data type property must match the __stateChangedAt__ property of the
@@ -109,8 +109,8 @@ newAssessmentRunFilter ::
 newAssessmentRunFilter =
   AssessmentRunFilter'
     { states = Prelude.Nothing,
-      rulesPackageArns = Prelude.Nothing,
       durationRange = Prelude.Nothing,
+      rulesPackageArns = Prelude.Nothing,
       stateChangeTimeRange = Prelude.Nothing,
       startTimeRange = Prelude.Nothing,
       namePattern = Prelude.Nothing,
@@ -124,17 +124,17 @@ assessmentRunFilter_states :: Lens.Lens' AssessmentRunFilter (Prelude.Maybe [Ass
 assessmentRunFilter_states = Lens.lens (\AssessmentRunFilter' {states} -> states) (\s@AssessmentRunFilter' {} a -> s {states = a} :: AssessmentRunFilter) Prelude.. Lens.mapping Lens._Coerce
 
 -- | For a record to match a filter, the value that is specified for this
--- data type property must be contained in the list of values of the
--- __rulesPackages__ property of the AssessmentRun data type.
-assessmentRunFilter_rulesPackageArns :: Lens.Lens' AssessmentRunFilter (Prelude.Maybe [Prelude.Text])
-assessmentRunFilter_rulesPackageArns = Lens.lens (\AssessmentRunFilter' {rulesPackageArns} -> rulesPackageArns) (\s@AssessmentRunFilter' {} a -> s {rulesPackageArns = a} :: AssessmentRunFilter) Prelude.. Lens.mapping Lens._Coerce
-
--- | For a record to match a filter, the value that is specified for this
 -- data type property must inclusively match any value between the
 -- specified minimum and maximum values of the __durationInSeconds__
 -- property of the AssessmentRun data type.
 assessmentRunFilter_durationRange :: Lens.Lens' AssessmentRunFilter (Prelude.Maybe DurationRange)
 assessmentRunFilter_durationRange = Lens.lens (\AssessmentRunFilter' {durationRange} -> durationRange) (\s@AssessmentRunFilter' {} a -> s {durationRange = a} :: AssessmentRunFilter)
+
+-- | For a record to match a filter, the value that is specified for this
+-- data type property must be contained in the list of values of the
+-- __rulesPackages__ property of the AssessmentRun data type.
+assessmentRunFilter_rulesPackageArns :: Lens.Lens' AssessmentRunFilter (Prelude.Maybe [Prelude.Text])
+assessmentRunFilter_rulesPackageArns = Lens.lens (\AssessmentRunFilter' {rulesPackageArns} -> rulesPackageArns) (\s@AssessmentRunFilter' {} a -> s {rulesPackageArns = a} :: AssessmentRunFilter) Prelude.. Lens.mapping Lens._Coerce
 
 -- | For a record to match a filter, the value that is specified for this
 -- data type property must match the __stateChangedAt__ property of the
@@ -172,9 +172,9 @@ instance Core.ToJSON AssessmentRunFilter where
     Core.object
       ( Prelude.catMaybes
           [ ("states" Core..=) Prelude.<$> states,
+            ("durationRange" Core..=) Prelude.<$> durationRange,
             ("rulesPackageArns" Core..=)
               Prelude.<$> rulesPackageArns,
-            ("durationRange" Core..=) Prelude.<$> durationRange,
             ("stateChangeTimeRange" Core..=)
               Prelude.<$> stateChangeTimeRange,
             ("startTimeRange" Core..=)

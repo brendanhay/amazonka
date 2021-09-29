@@ -33,20 +33,20 @@ module Network.AWS.Inspector
     -- ** UnsupportedFeatureException
     _UnsupportedFeatureException,
 
-    -- ** InternalException
-    _InternalException,
-
     -- ** InvalidInputException
     _InvalidInputException,
+
+    -- ** InternalException
+    _InternalException,
 
     -- ** InvalidCrossAccountRoleException
     _InvalidCrossAccountRoleException,
 
-    -- ** AssessmentRunInProgressException
-    _AssessmentRunInProgressException,
-
     -- ** AgentsAlreadyRunningAssessmentException
     _AgentsAlreadyRunningAssessmentException,
+
+    -- ** AssessmentRunInProgressException
+    _AssessmentRunInProgressException,
 
     -- ** AccessDeniedException
     _AccessDeniedException,
@@ -62,12 +62,6 @@ module Network.AWS.Inspector
 
     -- * Operations
     -- $operations
-
-    -- ** StartAssessmentRun
-    StartAssessmentRun (StartAssessmentRun'),
-    newStartAssessmentRun,
-    StartAssessmentRunResponse (StartAssessmentRunResponse'),
-    newStartAssessmentRunResponse,
 
     -- ** DeleteAssessmentTemplate
     DeleteAssessmentTemplate (DeleteAssessmentTemplate'),
@@ -87,11 +81,11 @@ module Network.AWS.Inspector
     StopAssessmentRunResponse (StopAssessmentRunResponse'),
     newStopAssessmentRunResponse,
 
-    -- ** GetTelemetryMetadata
-    GetTelemetryMetadata (GetTelemetryMetadata'),
-    newGetTelemetryMetadata,
-    GetTelemetryMetadataResponse (GetTelemetryMetadataResponse'),
-    newGetTelemetryMetadataResponse,
+    -- ** StartAssessmentRun
+    StartAssessmentRun (StartAssessmentRun'),
+    newStartAssessmentRun,
+    StartAssessmentRunResponse (StartAssessmentRunResponse'),
+    newStartAssessmentRunResponse,
 
     -- ** ListFindings (Paginated)
     ListFindings (ListFindings'),
@@ -99,23 +93,17 @@ module Network.AWS.Inspector
     ListFindingsResponse (ListFindingsResponse'),
     newListFindingsResponse,
 
+    -- ** GetTelemetryMetadata
+    GetTelemetryMetadata (GetTelemetryMetadata'),
+    newGetTelemetryMetadata,
+    GetTelemetryMetadataResponse (GetTelemetryMetadataResponse'),
+    newGetTelemetryMetadataResponse,
+
     -- ** DescribeAssessmentTargets
     DescribeAssessmentTargets (DescribeAssessmentTargets'),
     newDescribeAssessmentTargets,
     DescribeAssessmentTargetsResponse (DescribeAssessmentTargetsResponse'),
     newDescribeAssessmentTargetsResponse,
-
-    -- ** UpdateAssessmentTarget
-    UpdateAssessmentTarget (UpdateAssessmentTarget'),
-    newUpdateAssessmentTarget,
-    UpdateAssessmentTargetResponse (UpdateAssessmentTargetResponse'),
-    newUpdateAssessmentTargetResponse,
-
-    -- ** ListAssessmentTargets (Paginated)
-    ListAssessmentTargets (ListAssessmentTargets'),
-    newListAssessmentTargets,
-    ListAssessmentTargetsResponse (ListAssessmentTargetsResponse'),
-    newListAssessmentTargetsResponse,
 
     -- ** ListAssessmentRuns (Paginated)
     ListAssessmentRuns (ListAssessmentRuns'),
@@ -129,6 +117,30 @@ module Network.AWS.Inspector
     DeleteAssessmentTargetResponse (DeleteAssessmentTargetResponse'),
     newDeleteAssessmentTargetResponse,
 
+    -- ** ListAssessmentTargets (Paginated)
+    ListAssessmentTargets (ListAssessmentTargets'),
+    newListAssessmentTargets,
+    ListAssessmentTargetsResponse (ListAssessmentTargetsResponse'),
+    newListAssessmentTargetsResponse,
+
+    -- ** UpdateAssessmentTarget
+    UpdateAssessmentTarget (UpdateAssessmentTarget'),
+    newUpdateAssessmentTarget,
+    UpdateAssessmentTargetResponse (UpdateAssessmentTargetResponse'),
+    newUpdateAssessmentTargetResponse,
+
+    -- ** DescribeResourceGroups
+    DescribeResourceGroups (DescribeResourceGroups'),
+    newDescribeResourceGroups,
+    DescribeResourceGroupsResponse (DescribeResourceGroupsResponse'),
+    newDescribeResourceGroupsResponse,
+
+    -- ** GetExclusionsPreview
+    GetExclusionsPreview (GetExclusionsPreview'),
+    newGetExclusionsPreview,
+    GetExclusionsPreviewResponse (GetExclusionsPreviewResponse'),
+    newGetExclusionsPreviewResponse,
+
     -- ** AddAttributesToFindings
     AddAttributesToFindings (AddAttributesToFindings'),
     newAddAttributesToFindings,
@@ -140,18 +152,6 @@ module Network.AWS.Inspector
     newCreateAssessmentTarget,
     CreateAssessmentTargetResponse (CreateAssessmentTargetResponse'),
     newCreateAssessmentTargetResponse,
-
-    -- ** GetExclusionsPreview
-    GetExclusionsPreview (GetExclusionsPreview'),
-    newGetExclusionsPreview,
-    GetExclusionsPreviewResponse (GetExclusionsPreviewResponse'),
-    newGetExclusionsPreviewResponse,
-
-    -- ** DescribeResourceGroups
-    DescribeResourceGroups (DescribeResourceGroups'),
-    newDescribeResourceGroups,
-    DescribeResourceGroupsResponse (DescribeResourceGroupsResponse'),
-    newDescribeResourceGroupsResponse,
 
     -- ** PreviewAgents (Paginated)
     PreviewAgents (PreviewAgents'),
@@ -171,17 +171,17 @@ module Network.AWS.Inspector
     CreateAssessmentTemplateResponse (CreateAssessmentTemplateResponse'),
     newCreateAssessmentTemplateResponse,
 
-    -- ** DescribeCrossAccountAccessRole
-    DescribeCrossAccountAccessRole (DescribeCrossAccountAccessRole'),
-    newDescribeCrossAccountAccessRole,
-    DescribeCrossAccountAccessRoleResponse (DescribeCrossAccountAccessRoleResponse'),
-    newDescribeCrossAccountAccessRoleResponse,
-
     -- ** SetTagsForResource
     SetTagsForResource (SetTagsForResource'),
     newSetTagsForResource,
     SetTagsForResourceResponse (SetTagsForResourceResponse'),
     newSetTagsForResourceResponse,
+
+    -- ** DescribeCrossAccountAccessRole
+    DescribeCrossAccountAccessRole (DescribeCrossAccountAccessRole'),
+    newDescribeCrossAccountAccessRole,
+    DescribeCrossAccountAccessRoleResponse (DescribeCrossAccountAccessRoleResponse'),
+    newDescribeCrossAccountAccessRoleResponse,
 
     -- ** DescribeExclusions
     DescribeExclusions (DescribeExclusions'),
@@ -201,17 +201,17 @@ module Network.AWS.Inspector
     ListAssessmentRunAgentsResponse (ListAssessmentRunAgentsResponse'),
     newListAssessmentRunAgentsResponse,
 
+    -- ** UnsubscribeFromEvent
+    UnsubscribeFromEvent (UnsubscribeFromEvent'),
+    newUnsubscribeFromEvent,
+    UnsubscribeFromEventResponse (UnsubscribeFromEventResponse'),
+    newUnsubscribeFromEventResponse,
+
     -- ** DescribeAssessmentRuns
     DescribeAssessmentRuns (DescribeAssessmentRuns'),
     newDescribeAssessmentRuns,
     DescribeAssessmentRunsResponse (DescribeAssessmentRunsResponse'),
     newDescribeAssessmentRunsResponse,
-
-    -- ** DescribeRulesPackages
-    DescribeRulesPackages (DescribeRulesPackages'),
-    newDescribeRulesPackages,
-    DescribeRulesPackagesResponse (DescribeRulesPackagesResponse'),
-    newDescribeRulesPackagesResponse,
 
     -- ** CreateExclusionsPreview
     CreateExclusionsPreview (CreateExclusionsPreview'),
@@ -219,17 +219,11 @@ module Network.AWS.Inspector
     CreateExclusionsPreviewResponse (CreateExclusionsPreviewResponse'),
     newCreateExclusionsPreviewResponse,
 
-    -- ** CreateResourceGroup
-    CreateResourceGroup (CreateResourceGroup'),
-    newCreateResourceGroup,
-    CreateResourceGroupResponse (CreateResourceGroupResponse'),
-    newCreateResourceGroupResponse,
-
-    -- ** UnsubscribeFromEvent
-    UnsubscribeFromEvent (UnsubscribeFromEvent'),
-    newUnsubscribeFromEvent,
-    UnsubscribeFromEventResponse (UnsubscribeFromEventResponse'),
-    newUnsubscribeFromEventResponse,
+    -- ** DescribeRulesPackages
+    DescribeRulesPackages (DescribeRulesPackages'),
+    newDescribeRulesPackages,
+    DescribeRulesPackagesResponse (DescribeRulesPackagesResponse'),
+    newDescribeRulesPackagesResponse,
 
     -- ** RemoveAttributesFromFindings
     RemoveAttributesFromFindings (RemoveAttributesFromFindings'),
@@ -237,23 +231,11 @@ module Network.AWS.Inspector
     RemoveAttributesFromFindingsResponse (RemoveAttributesFromFindingsResponse'),
     newRemoveAttributesFromFindingsResponse,
 
-    -- ** DeleteAssessmentRun
-    DeleteAssessmentRun (DeleteAssessmentRun'),
-    newDeleteAssessmentRun,
-    DeleteAssessmentRunResponse (DeleteAssessmentRunResponse'),
-    newDeleteAssessmentRunResponse,
-
-    -- ** RegisterCrossAccountAccessRole
-    RegisterCrossAccountAccessRole (RegisterCrossAccountAccessRole'),
-    newRegisterCrossAccountAccessRole,
-    RegisterCrossAccountAccessRoleResponse (RegisterCrossAccountAccessRoleResponse'),
-    newRegisterCrossAccountAccessRoleResponse,
-
-    -- ** ListEventSubscriptions (Paginated)
-    ListEventSubscriptions (ListEventSubscriptions'),
-    newListEventSubscriptions,
-    ListEventSubscriptionsResponse (ListEventSubscriptionsResponse'),
-    newListEventSubscriptionsResponse,
+    -- ** CreateResourceGroup
+    CreateResourceGroup (CreateResourceGroup'),
+    newCreateResourceGroup,
+    CreateResourceGroupResponse (CreateResourceGroupResponse'),
+    newCreateResourceGroupResponse,
 
     -- ** GetAssessmentReport
     GetAssessmentReport (GetAssessmentReport'),
@@ -261,11 +243,29 @@ module Network.AWS.Inspector
     GetAssessmentReportResponse (GetAssessmentReportResponse'),
     newGetAssessmentReportResponse,
 
+    -- ** DeleteAssessmentRun
+    DeleteAssessmentRun (DeleteAssessmentRun'),
+    newDeleteAssessmentRun,
+    DeleteAssessmentRunResponse (DeleteAssessmentRunResponse'),
+    newDeleteAssessmentRunResponse,
+
+    -- ** ListEventSubscriptions (Paginated)
+    ListEventSubscriptions (ListEventSubscriptions'),
+    newListEventSubscriptions,
+    ListEventSubscriptionsResponse (ListEventSubscriptionsResponse'),
+    newListEventSubscriptionsResponse,
+
     -- ** ListRulesPackages (Paginated)
     ListRulesPackages (ListRulesPackages'),
     newListRulesPackages,
     ListRulesPackagesResponse (ListRulesPackagesResponse'),
     newListRulesPackagesResponse,
+
+    -- ** RegisterCrossAccountAccessRole
+    RegisterCrossAccountAccessRole (RegisterCrossAccountAccessRole'),
+    newRegisterCrossAccountAccessRole,
+    RegisterCrossAccountAccessRoleResponse (RegisterCrossAccountAccessRoleResponse'),
+    newRegisterCrossAccountAccessRoleResponse,
 
     -- ** DescribeFindings
     DescribeFindings (DescribeFindings'),

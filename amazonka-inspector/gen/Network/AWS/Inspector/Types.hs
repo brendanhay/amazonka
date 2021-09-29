@@ -20,11 +20,11 @@ module Network.AWS.Inspector.Types
     _PreviewGenerationInProgressException,
     _ServiceTemporarilyUnavailableException,
     _UnsupportedFeatureException,
-    _InternalException,
     _InvalidInputException,
+    _InternalException,
     _InvalidCrossAccountRoleException,
-    _AssessmentRunInProgressException,
     _AgentsAlreadyRunningAssessmentException,
+    _AssessmentRunInProgressException,
     _AccessDeniedException,
     _LimitExceededException,
     _NoSuchEntityException,
@@ -126,8 +126,8 @@ module Network.AWS.Inspector.Types
     AssessmentRunFilter (..),
     newAssessmentRunFilter,
     assessmentRunFilter_states,
-    assessmentRunFilter_rulesPackageArns,
     assessmentRunFilter_durationRange,
+    assessmentRunFilter_rulesPackageArns,
     assessmentRunFilter_stateChangeTimeRange,
     assessmentRunFilter_startTimeRange,
     assessmentRunFilter_namePattern,
@@ -179,8 +179,8 @@ module Network.AWS.Inspector.Types
     -- * AssessmentTemplateFilter
     AssessmentTemplateFilter (..),
     newAssessmentTemplateFilter,
-    assessmentTemplateFilter_rulesPackageArns,
     assessmentTemplateFilter_durationRange,
+    assessmentTemplateFilter_rulesPackageArns,
     assessmentTemplateFilter_namePattern,
 
     -- * AssetAttributes
@@ -243,9 +243,9 @@ module Network.AWS.Inspector.Types
     newFinding,
     finding_assetAttributes,
     finding_severity,
-    finding_title,
     finding_assetType,
     finding_numericSeverity,
+    finding_title,
     finding_id,
     finding_service,
     finding_serviceAttributes,
@@ -509,13 +509,6 @@ _UnsupportedFeatureException =
     defaultService
     "UnsupportedFeatureException"
 
--- | Internal server error.
-_InternalException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_InternalException =
-  Core._MatchServiceError
-    defaultService
-    "InternalException"
-
 -- | The request was rejected because an invalid or out-of-range value was
 -- supplied for an input parameter.
 _InvalidInputException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -523,6 +516,13 @@ _InvalidInputException =
   Core._MatchServiceError
     defaultService
     "InvalidInputException"
+
+-- | Internal server error.
+_InternalException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_InternalException =
+  Core._MatchServiceError
+    defaultService
+    "InternalException"
 
 -- | Amazon Inspector cannot assume the cross-account role that it needs to
 -- list your EC2 instances during the assessment run.
@@ -532,14 +532,6 @@ _InvalidCrossAccountRoleException =
     defaultService
     "InvalidCrossAccountRoleException"
 
--- | You cannot perform a specified action if an assessment run is currently
--- in progress.
-_AssessmentRunInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
-_AssessmentRunInProgressException =
-  Core._MatchServiceError
-    defaultService
-    "AssessmentRunInProgressException"
-
 -- | You started an assessment run, but one of the instances is already
 -- participating in another assessment run.
 _AgentsAlreadyRunningAssessmentException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
@@ -547,6 +539,14 @@ _AgentsAlreadyRunningAssessmentException =
   Core._MatchServiceError
     defaultService
     "AgentsAlreadyRunningAssessmentException"
+
+-- | You cannot perform a specified action if an assessment run is currently
+-- in progress.
+_AssessmentRunInProgressException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError
+_AssessmentRunInProgressException =
+  Core._MatchServiceError
+    defaultService
+    "AssessmentRunInProgressException"
 
 -- | You do not have required permissions to access the requested resource.
 _AccessDeniedException :: Core.AsError a => Lens.Getting (Prelude.First Core.ServiceError) a Core.ServiceError

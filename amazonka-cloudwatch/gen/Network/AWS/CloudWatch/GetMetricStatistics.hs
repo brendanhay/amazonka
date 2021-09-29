@@ -74,8 +74,8 @@
 -- CloudWatch started retaining 5-minute and 1-hour metric data as of July
 -- 9, 2016.
 --
--- For information about metrics and dimensions supported by AWS services,
--- see the
+-- For information about metrics and dimensions supported by Amazon Web
+-- Services services, see the
 -- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html Amazon CloudWatch Metrics and Dimensions Reference>
 -- in the /Amazon CloudWatch User Guide/.
 module Network.AWS.CloudWatch.GetMetricStatistics

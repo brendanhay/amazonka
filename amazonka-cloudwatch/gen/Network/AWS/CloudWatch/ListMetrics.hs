@@ -51,8 +51,8 @@ module Network.AWS.CloudWatch.ListMetrics
     -- * Request Lenses
     listMetrics_nextToken,
     listMetrics_metricName,
-    listMetrics_dimensions,
     listMetrics_namespace,
+    listMetrics_dimensions,
     listMetrics_recentlyActive,
 
     -- * Destructuring the Response
@@ -81,12 +81,12 @@ data ListMetrics = ListMetrics'
     -- | The name of the metric to filter against. Only the metrics with names
     -- that match exactly will be returned.
     metricName :: Prelude.Maybe Prelude.Text,
-    -- | The dimensions to filter against. Only the dimensions that match exactly
-    -- will be returned.
-    dimensions :: Prelude.Maybe [DimensionFilter],
     -- | The metric namespace to filter against. Only the namespace that matches
     -- exactly will be returned.
     namespace :: Prelude.Maybe Prelude.Text,
+    -- | The dimensions to filter against. Only the dimensions that match exactly
+    -- will be returned.
+    dimensions :: Prelude.Maybe [DimensionFilter],
     -- | To filter the results to show only metrics that have had data points
     -- published in the past three hours, specify this parameter with a value
     -- of @PT3H@. This is the only valid value for this parameter.
@@ -113,11 +113,11 @@ data ListMetrics = ListMetrics'
 -- 'metricName', 'listMetrics_metricName' - The name of the metric to filter against. Only the metrics with names
 -- that match exactly will be returned.
 --
--- 'dimensions', 'listMetrics_dimensions' - The dimensions to filter against. Only the dimensions that match exactly
--- will be returned.
---
 -- 'namespace', 'listMetrics_namespace' - The metric namespace to filter against. Only the namespace that matches
 -- exactly will be returned.
+--
+-- 'dimensions', 'listMetrics_dimensions' - The dimensions to filter against. Only the dimensions that match exactly
+-- will be returned.
 --
 -- 'recentlyActive', 'listMetrics_recentlyActive' - To filter the results to show only metrics that have had data points
 -- published in the past three hours, specify this parameter with a value
@@ -133,8 +133,8 @@ newListMetrics =
   ListMetrics'
     { nextToken = Prelude.Nothing,
       metricName = Prelude.Nothing,
-      dimensions = Prelude.Nothing,
       namespace = Prelude.Nothing,
+      dimensions = Prelude.Nothing,
       recentlyActive = Prelude.Nothing
     }
 
@@ -148,15 +148,15 @@ listMetrics_nextToken = Lens.lens (\ListMetrics' {nextToken} -> nextToken) (\s@L
 listMetrics_metricName :: Lens.Lens' ListMetrics (Prelude.Maybe Prelude.Text)
 listMetrics_metricName = Lens.lens (\ListMetrics' {metricName} -> metricName) (\s@ListMetrics' {} a -> s {metricName = a} :: ListMetrics)
 
--- | The dimensions to filter against. Only the dimensions that match exactly
--- will be returned.
-listMetrics_dimensions :: Lens.Lens' ListMetrics (Prelude.Maybe [DimensionFilter])
-listMetrics_dimensions = Lens.lens (\ListMetrics' {dimensions} -> dimensions) (\s@ListMetrics' {} a -> s {dimensions = a} :: ListMetrics) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The metric namespace to filter against. Only the namespace that matches
 -- exactly will be returned.
 listMetrics_namespace :: Lens.Lens' ListMetrics (Prelude.Maybe Prelude.Text)
 listMetrics_namespace = Lens.lens (\ListMetrics' {namespace} -> namespace) (\s@ListMetrics' {} a -> s {namespace = a} :: ListMetrics)
+
+-- | The dimensions to filter against. Only the dimensions that match exactly
+-- will be returned.
+listMetrics_dimensions :: Lens.Lens' ListMetrics (Prelude.Maybe [DimensionFilter])
+listMetrics_dimensions = Lens.lens (\ListMetrics' {dimensions} -> dimensions) (\s@ListMetrics' {} a -> s {dimensions = a} :: ListMetrics) Prelude.. Lens.mapping Lens._Coerce
 
 -- | To filter the results to show only metrics that have had data points
 -- published in the past three hours, specify this parameter with a value
@@ -222,10 +222,10 @@ instance Core.ToQuery ListMetrics where
           Core.=: ("2010-08-01" :: Prelude.ByteString),
         "NextToken" Core.=: nextToken,
         "MetricName" Core.=: metricName,
+        "Namespace" Core.=: namespace,
         "Dimensions"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> dimensions),
-        "Namespace" Core.=: namespace,
         "RecentlyActive" Core.=: recentlyActive
       ]
 

@@ -34,8 +34,8 @@ module Network.AWS.CloudWatch.DescribeAlarms
     describeAlarms_nextToken,
     describeAlarms_alarmTypes,
     describeAlarms_alarmNames,
-    describeAlarms_stateValue,
     describeAlarms_alarmNamePrefix,
+    describeAlarms_stateValue,
     describeAlarms_actionPrefix,
     describeAlarms_childrenOfAlarmName,
     describeAlarms_parentsOfAlarmName,
@@ -46,8 +46,8 @@ module Network.AWS.CloudWatch.DescribeAlarms
     newDescribeAlarmsResponse,
 
     -- * Response Lenses
-    describeAlarmsResponse_nextToken,
     describeAlarmsResponse_metricAlarms,
+    describeAlarmsResponse_nextToken,
     describeAlarmsResponse_compositeAlarms,
     describeAlarmsResponse_httpStatus,
   )
@@ -71,15 +71,15 @@ data DescribeAlarms = DescribeAlarms'
     alarmTypes :: Prelude.Maybe [AlarmType],
     -- | The names of the alarms to retrieve information about.
     alarmNames :: Prelude.Maybe [Prelude.Text],
-    -- | Specify this parameter to receive information only about alarms that are
-    -- currently in the state that you specify.
-    stateValue :: Prelude.Maybe StateValue,
     -- | An alarm name prefix. If you specify this parameter, you receive
     -- information about all alarms that have names that start with this
     -- prefix.
     --
     -- If this parameter is specified, you cannot specify @AlarmNames@.
     alarmNamePrefix :: Prelude.Maybe Prelude.Text,
+    -- | Specify this parameter to receive information only about alarms that are
+    -- currently in the state that you specify.
+    stateValue :: Prelude.Maybe StateValue,
     -- | Use this parameter to filter the results of the operation to only those
     -- alarms that use a certain alarm action. For example, you could specify
     -- the ARN of an SNS topic to find all alarms that send notifications to
@@ -141,14 +141,14 @@ data DescribeAlarms = DescribeAlarms'
 --
 -- 'alarmNames', 'describeAlarms_alarmNames' - The names of the alarms to retrieve information about.
 --
--- 'stateValue', 'describeAlarms_stateValue' - Specify this parameter to receive information only about alarms that are
--- currently in the state that you specify.
---
 -- 'alarmNamePrefix', 'describeAlarms_alarmNamePrefix' - An alarm name prefix. If you specify this parameter, you receive
 -- information about all alarms that have names that start with this
 -- prefix.
 --
 -- If this parameter is specified, you cannot specify @AlarmNames@.
+--
+-- 'stateValue', 'describeAlarms_stateValue' - Specify this parameter to receive information only about alarms that are
+-- currently in the state that you specify.
 --
 -- 'actionPrefix', 'describeAlarms_actionPrefix' - Use this parameter to filter the results of the operation to only those
 -- alarms that use a certain alarm action. For example, you could specify
@@ -197,8 +197,8 @@ newDescribeAlarms =
     { nextToken = Prelude.Nothing,
       alarmTypes = Prelude.Nothing,
       alarmNames = Prelude.Nothing,
-      stateValue = Prelude.Nothing,
       alarmNamePrefix = Prelude.Nothing,
+      stateValue = Prelude.Nothing,
       actionPrefix = Prelude.Nothing,
       childrenOfAlarmName = Prelude.Nothing,
       parentsOfAlarmName = Prelude.Nothing,
@@ -220,11 +220,6 @@ describeAlarms_alarmTypes = Lens.lens (\DescribeAlarms' {alarmTypes} -> alarmTyp
 describeAlarms_alarmNames :: Lens.Lens' DescribeAlarms (Prelude.Maybe [Prelude.Text])
 describeAlarms_alarmNames = Lens.lens (\DescribeAlarms' {alarmNames} -> alarmNames) (\s@DescribeAlarms' {} a -> s {alarmNames = a} :: DescribeAlarms) Prelude.. Lens.mapping Lens._Coerce
 
--- | Specify this parameter to receive information only about alarms that are
--- currently in the state that you specify.
-describeAlarms_stateValue :: Lens.Lens' DescribeAlarms (Prelude.Maybe StateValue)
-describeAlarms_stateValue = Lens.lens (\DescribeAlarms' {stateValue} -> stateValue) (\s@DescribeAlarms' {} a -> s {stateValue = a} :: DescribeAlarms)
-
 -- | An alarm name prefix. If you specify this parameter, you receive
 -- information about all alarms that have names that start with this
 -- prefix.
@@ -232,6 +227,11 @@ describeAlarms_stateValue = Lens.lens (\DescribeAlarms' {stateValue} -> stateVal
 -- If this parameter is specified, you cannot specify @AlarmNames@.
 describeAlarms_alarmNamePrefix :: Lens.Lens' DescribeAlarms (Prelude.Maybe Prelude.Text)
 describeAlarms_alarmNamePrefix = Lens.lens (\DescribeAlarms' {alarmNamePrefix} -> alarmNamePrefix) (\s@DescribeAlarms' {} a -> s {alarmNamePrefix = a} :: DescribeAlarms)
+
+-- | Specify this parameter to receive information only about alarms that are
+-- currently in the state that you specify.
+describeAlarms_stateValue :: Lens.Lens' DescribeAlarms (Prelude.Maybe StateValue)
+describeAlarms_stateValue = Lens.lens (\DescribeAlarms' {stateValue} -> stateValue) (\s@DescribeAlarms' {} a -> s {stateValue = a} :: DescribeAlarms)
 
 -- | Use this parameter to filter the results of the operation to only those
 -- alarms that use a certain alarm action. For example, you could specify
@@ -319,10 +319,10 @@ instance Core.AWSRequest DescribeAlarms where
       "DescribeAlarmsResult"
       ( \s h x ->
           DescribeAlarmsResponse'
-            Prelude.<$> (x Core..@? "NextToken")
-            Prelude.<*> ( x Core..@? "MetricAlarms" Core..!@ Prelude.mempty
+            Prelude.<$> ( x Core..@? "MetricAlarms" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
+            Prelude.<*> (x Core..@? "NextToken")
             Prelude.<*> ( x Core..@? "CompositeAlarms" Core..!@ Prelude.mempty
                             Prelude.>>= Core.may (Core.parseXMLList "member")
                         )
@@ -353,8 +353,8 @@ instance Core.ToQuery DescribeAlarms where
         "AlarmNames"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> alarmNames),
-        "StateValue" Core.=: stateValue,
         "AlarmNamePrefix" Core.=: alarmNamePrefix,
+        "StateValue" Core.=: stateValue,
         "ActionPrefix" Core.=: actionPrefix,
         "ChildrenOfAlarmName" Core.=: childrenOfAlarmName,
         "ParentsOfAlarmName" Core.=: parentsOfAlarmName,
@@ -363,10 +363,10 @@ instance Core.ToQuery DescribeAlarms where
 
 -- | /See:/ 'newDescribeAlarmsResponse' smart constructor.
 data DescribeAlarmsResponse = DescribeAlarmsResponse'
-  { -- | The token that marks the start of the next batch of returned results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The information about any metric alarms returned by the operation.
+  { -- | The information about any metric alarms returned by the operation.
     metricAlarms :: Prelude.Maybe [MetricAlarm],
+    -- | The token that marks the start of the next batch of returned results.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The information about any composite alarms returned by the operation.
     compositeAlarms :: Prelude.Maybe [CompositeAlarm],
     -- | The response's http status code.
@@ -382,9 +382,9 @@ data DescribeAlarmsResponse = DescribeAlarmsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeAlarmsResponse_nextToken' - The token that marks the start of the next batch of returned results.
---
 -- 'metricAlarms', 'describeAlarmsResponse_metricAlarms' - The information about any metric alarms returned by the operation.
+--
+-- 'nextToken', 'describeAlarmsResponse_nextToken' - The token that marks the start of the next batch of returned results.
 --
 -- 'compositeAlarms', 'describeAlarmsResponse_compositeAlarms' - The information about any composite alarms returned by the operation.
 --
@@ -395,20 +395,20 @@ newDescribeAlarmsResponse ::
   DescribeAlarmsResponse
 newDescribeAlarmsResponse pHttpStatus_ =
   DescribeAlarmsResponse'
-    { nextToken =
+    { metricAlarms =
         Prelude.Nothing,
-      metricAlarms = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       compositeAlarms = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The token that marks the start of the next batch of returned results.
-describeAlarmsResponse_nextToken :: Lens.Lens' DescribeAlarmsResponse (Prelude.Maybe Prelude.Text)
-describeAlarmsResponse_nextToken = Lens.lens (\DescribeAlarmsResponse' {nextToken} -> nextToken) (\s@DescribeAlarmsResponse' {} a -> s {nextToken = a} :: DescribeAlarmsResponse)
-
 -- | The information about any metric alarms returned by the operation.
 describeAlarmsResponse_metricAlarms :: Lens.Lens' DescribeAlarmsResponse (Prelude.Maybe [MetricAlarm])
 describeAlarmsResponse_metricAlarms = Lens.lens (\DescribeAlarmsResponse' {metricAlarms} -> metricAlarms) (\s@DescribeAlarmsResponse' {} a -> s {metricAlarms = a} :: DescribeAlarmsResponse) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The token that marks the start of the next batch of returned results.
+describeAlarmsResponse_nextToken :: Lens.Lens' DescribeAlarmsResponse (Prelude.Maybe Prelude.Text)
+describeAlarmsResponse_nextToken = Lens.lens (\DescribeAlarmsResponse' {nextToken} -> nextToken) (\s@DescribeAlarmsResponse' {} a -> s {nextToken = a} :: DescribeAlarmsResponse)
 
 -- | The information about any composite alarms returned by the operation.
 describeAlarmsResponse_compositeAlarms :: Lens.Lens' DescribeAlarmsResponse (Prelude.Maybe [CompositeAlarm])

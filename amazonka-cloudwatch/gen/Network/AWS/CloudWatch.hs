@@ -11,10 +11,11 @@
 --
 -- Derived from API version @2010-08-01@ of the AWS service descriptions, licensed under Apache 2.0.
 --
--- Amazon CloudWatch monitors your Amazon Web Services (AWS) resources and
--- the applications you run on AWS in real time. You can use CloudWatch to
--- collect and track metrics, which are the variables you want to measure
--- for your resources and applications.
+-- Amazon CloudWatch monitors your Amazon Web Services (Amazon Web
+-- Services) resources and the applications you run on Amazon Web Services
+-- in real time. You can use CloudWatch to collect and track metrics, which
+-- are the variables you want to measure for your resources and
+-- applications.
 --
 -- CloudWatch alarms send notifications or automatically change the
 -- resources you are monitoring based on rules that you define. For
@@ -23,9 +24,9 @@
 -- should launch additional instances to handle increased load. You can
 -- also use this data to stop under-used instances to save money.
 --
--- In addition to monitoring the built-in metrics that come with AWS, you
--- can monitor your own custom metrics. With CloudWatch, you gain
--- system-wide visibility into resource utilization, application
+-- In addition to monitoring the built-in metrics that come with Amazon Web
+-- Services, you can monitor your own custom metrics. With CloudWatch, you
+-- gain system-wide visibility into resource utilization, application
 -- performance, and operational health.
 module Network.AWS.CloudWatch
   ( -- * Service Configuration
@@ -43,11 +44,11 @@ module Network.AWS.CloudWatch
     -- ** InvalidParameterCombinationException
     _InvalidParameterCombinationException,
 
-    -- ** MissingRequiredParameterException
-    _MissingRequiredParameterException,
-
     -- ** DashboardInvalidInputError
     _DashboardInvalidInputError,
+
+    -- ** MissingRequiredParameterException
+    _MissingRequiredParameterException,
 
     -- ** InternalServiceFault
     _InternalServiceFault,
@@ -85,29 +86,17 @@ module Network.AWS.CloudWatch
     -- * Operations
     -- $operations
 
-    -- ** EnableAlarmActions
-    EnableAlarmActions (EnableAlarmActions'),
-    newEnableAlarmActions,
-    EnableAlarmActionsResponse (EnableAlarmActionsResponse'),
-    newEnableAlarmActionsResponse,
-
     -- ** GetMetricStatistics
     GetMetricStatistics (GetMetricStatistics'),
     newGetMetricStatistics,
     GetMetricStatisticsResponse (GetMetricStatisticsResponse'),
     newGetMetricStatisticsResponse,
 
-    -- ** PutInsightRule
-    PutInsightRule (PutInsightRule'),
-    newPutInsightRule,
-    PutInsightRuleResponse (PutInsightRuleResponse'),
-    newPutInsightRuleResponse,
-
-    -- ** DeleteAlarms
-    DeleteAlarms (DeleteAlarms'),
-    newDeleteAlarms,
-    DeleteAlarmsResponse (DeleteAlarmsResponse'),
-    newDeleteAlarmsResponse,
+    -- ** EnableAlarmActions
+    EnableAlarmActions (EnableAlarmActions'),
+    newEnableAlarmActions,
+    EnableAlarmActionsResponse (EnableAlarmActionsResponse'),
+    newEnableAlarmActionsResponse,
 
     -- ** GetMetricWidgetImage
     GetMetricWidgetImage (GetMetricWidgetImage'),
@@ -115,11 +104,23 @@ module Network.AWS.CloudWatch
     GetMetricWidgetImageResponse (GetMetricWidgetImageResponse'),
     newGetMetricWidgetImageResponse,
 
-    -- ** DescribeInsightRules
-    DescribeInsightRules (DescribeInsightRules'),
-    newDescribeInsightRules,
-    DescribeInsightRulesResponse (DescribeInsightRulesResponse'),
-    newDescribeInsightRulesResponse,
+    -- ** PutInsightRule
+    PutInsightRule (PutInsightRule'),
+    newPutInsightRule,
+    PutInsightRuleResponse (PutInsightRuleResponse'),
+    newPutInsightRuleResponse,
+
+    -- ** DeleteMetricStream
+    DeleteMetricStream (DeleteMetricStream'),
+    newDeleteMetricStream,
+    DeleteMetricStreamResponse (DeleteMetricStreamResponse'),
+    newDeleteMetricStreamResponse,
+
+    -- ** DeleteAlarms
+    DeleteAlarms (DeleteAlarms'),
+    newDeleteAlarms,
+    DeleteAlarmsResponse (DeleteAlarmsResponse'),
+    newDeleteAlarmsResponse,
 
     -- ** PutMetricAlarm
     PutMetricAlarm (PutMetricAlarm'),
@@ -127,17 +128,29 @@ module Network.AWS.CloudWatch
     PutMetricAlarmResponse (PutMetricAlarmResponse'),
     newPutMetricAlarmResponse,
 
+    -- ** DescribeInsightRules
+    DescribeInsightRules (DescribeInsightRules'),
+    newDescribeInsightRules,
+    DescribeInsightRulesResponse (DescribeInsightRulesResponse'),
+    newDescribeInsightRulesResponse,
+
+    -- ** StartMetricStreams
+    StartMetricStreams (StartMetricStreams'),
+    newStartMetricStreams,
+    StartMetricStreamsResponse (StartMetricStreamsResponse'),
+    newStartMetricStreamsResponse,
+
+    -- ** StopMetricStreams
+    StopMetricStreams (StopMetricStreams'),
+    newStopMetricStreams,
+    StopMetricStreamsResponse (StopMetricStreamsResponse'),
+    newStopMetricStreamsResponse,
+
     -- ** UntagResource
     UntagResource (UntagResource'),
     newUntagResource,
     UntagResourceResponse (UntagResourceResponse'),
     newUntagResourceResponse,
-
-    -- ** GetInsightRuleReport
-    GetInsightRuleReport (GetInsightRuleReport'),
-    newGetInsightRuleReport,
-    GetInsightRuleReportResponse (GetInsightRuleReportResponse'),
-    newGetInsightRuleReportResponse,
 
     -- ** TagResource
     TagResource (TagResource'),
@@ -145,17 +158,17 @@ module Network.AWS.CloudWatch
     TagResourceResponse (TagResourceResponse'),
     newTagResourceResponse,
 
+    -- ** GetInsightRuleReport
+    GetInsightRuleReport (GetInsightRuleReport'),
+    newGetInsightRuleReport,
+    GetInsightRuleReportResponse (GetInsightRuleReportResponse'),
+    newGetInsightRuleReportResponse,
+
     -- ** DescribeAnomalyDetectors
     DescribeAnomalyDetectors (DescribeAnomalyDetectors'),
     newDescribeAnomalyDetectors,
     DescribeAnomalyDetectorsResponse (DescribeAnomalyDetectorsResponse'),
     newDescribeAnomalyDetectorsResponse,
-
-    -- ** ListMetrics (Paginated)
-    ListMetrics (ListMetrics'),
-    newListMetrics,
-    ListMetricsResponse (ListMetricsResponse'),
-    newListMetricsResponse,
 
     -- ** PutMetricData
     PutMetricData (PutMetricData'),
@@ -163,23 +176,17 @@ module Network.AWS.CloudWatch
     PutMetricDataResponse (PutMetricDataResponse'),
     newPutMetricDataResponse,
 
+    -- ** ListMetrics (Paginated)
+    ListMetrics (ListMetrics'),
+    newListMetrics,
+    ListMetricsResponse (ListMetricsResponse'),
+    newListMetricsResponse,
+
     -- ** PutDashboard
     PutDashboard (PutDashboard'),
     newPutDashboard,
     PutDashboardResponse (PutDashboardResponse'),
     newPutDashboardResponse,
-
-    -- ** DescribeAlarmsForMetric
-    DescribeAlarmsForMetric (DescribeAlarmsForMetric'),
-    newDescribeAlarmsForMetric,
-    DescribeAlarmsForMetricResponse (DescribeAlarmsForMetricResponse'),
-    newDescribeAlarmsForMetricResponse,
-
-    -- ** PutAnomalyDetector
-    PutAnomalyDetector (PutAnomalyDetector'),
-    newPutAnomalyDetector,
-    PutAnomalyDetectorResponse (PutAnomalyDetectorResponse'),
-    newPutAnomalyDetectorResponse,
 
     -- ** DeleteInsightRules
     DeleteInsightRules (DeleteInsightRules'),
@@ -187,23 +194,29 @@ module Network.AWS.CloudWatch
     DeleteInsightRulesResponse (DeleteInsightRulesResponse'),
     newDeleteInsightRulesResponse,
 
-    -- ** DisableAlarmActions
-    DisableAlarmActions (DisableAlarmActions'),
-    newDisableAlarmActions,
-    DisableAlarmActionsResponse (DisableAlarmActionsResponse'),
-    newDisableAlarmActionsResponse,
-
     -- ** GetDashboard
     GetDashboard (GetDashboard'),
     newGetDashboard,
     GetDashboardResponse (GetDashboardResponse'),
     newGetDashboardResponse,
 
-    -- ** PutCompositeAlarm
-    PutCompositeAlarm (PutCompositeAlarm'),
-    newPutCompositeAlarm,
-    PutCompositeAlarmResponse (PutCompositeAlarmResponse'),
-    newPutCompositeAlarmResponse,
+    -- ** DescribeAlarmsForMetric
+    DescribeAlarmsForMetric (DescribeAlarmsForMetric'),
+    newDescribeAlarmsForMetric,
+    DescribeAlarmsForMetricResponse (DescribeAlarmsForMetricResponse'),
+    newDescribeAlarmsForMetricResponse,
+
+    -- ** DisableAlarmActions
+    DisableAlarmActions (DisableAlarmActions'),
+    newDisableAlarmActions,
+    DisableAlarmActionsResponse (DisableAlarmActionsResponse'),
+    newDisableAlarmActionsResponse,
+
+    -- ** PutAnomalyDetector
+    PutAnomalyDetector (PutAnomalyDetector'),
+    newPutAnomalyDetector,
+    PutAnomalyDetectorResponse (PutAnomalyDetectorResponse'),
+    newPutAnomalyDetectorResponse,
 
     -- ** DisableInsightRules
     DisableInsightRules (DisableInsightRules'),
@@ -211,23 +224,47 @@ module Network.AWS.CloudWatch
     DisableInsightRulesResponse (DisableInsightRulesResponse'),
     newDisableInsightRulesResponse,
 
+    -- ** PutCompositeAlarm
+    PutCompositeAlarm (PutCompositeAlarm'),
+    newPutCompositeAlarm,
+    PutCompositeAlarmResponse (PutCompositeAlarmResponse'),
+    newPutCompositeAlarmResponse,
+
     -- ** DescribeAlarmHistory (Paginated)
     DescribeAlarmHistory (DescribeAlarmHistory'),
     newDescribeAlarmHistory,
     DescribeAlarmHistoryResponse (DescribeAlarmHistoryResponse'),
     newDescribeAlarmHistoryResponse,
 
-    -- ** DeleteDashboards
-    DeleteDashboards (DeleteDashboards'),
-    newDeleteDashboards,
-    DeleteDashboardsResponse (DeleteDashboardsResponse'),
-    newDeleteDashboardsResponse,
+    -- ** PutMetricStream
+    PutMetricStream (PutMetricStream'),
+    newPutMetricStream,
+    PutMetricStreamResponse (PutMetricStreamResponse'),
+    newPutMetricStreamResponse,
+
+    -- ** ListMetricStreams
+    ListMetricStreams (ListMetricStreams'),
+    newListMetricStreams,
+    ListMetricStreamsResponse (ListMetricStreamsResponse'),
+    newListMetricStreamsResponse,
+
+    -- ** GetMetricStream
+    GetMetricStream (GetMetricStream'),
+    newGetMetricStream,
+    GetMetricStreamResponse (GetMetricStreamResponse'),
+    newGetMetricStreamResponse,
 
     -- ** SetAlarmState
     SetAlarmState (SetAlarmState'),
     newSetAlarmState,
     SetAlarmStateResponse (SetAlarmStateResponse'),
     newSetAlarmStateResponse,
+
+    -- ** DeleteDashboards
+    DeleteDashboards (DeleteDashboards'),
+    newDeleteDashboards,
+    DeleteDashboardsResponse (DeleteDashboardsResponse'),
+    newDeleteDashboardsResponse,
 
     -- ** ListDashboards (Paginated)
     ListDashboards (ListDashboards'),
@@ -241,6 +278,12 @@ module Network.AWS.CloudWatch
     DescribeAlarmsResponse (DescribeAlarmsResponse'),
     newDescribeAlarmsResponse,
 
+    -- ** EnableInsightRules
+    EnableInsightRules (EnableInsightRules'),
+    newEnableInsightRules,
+    EnableInsightRulesResponse (EnableInsightRulesResponse'),
+    newEnableInsightRulesResponse,
+
     -- ** ListTagsForResource
     ListTagsForResource (ListTagsForResource'),
     newListTagsForResource,
@@ -252,12 +295,6 @@ module Network.AWS.CloudWatch
     newDeleteAnomalyDetector,
     DeleteAnomalyDetectorResponse (DeleteAnomalyDetectorResponse'),
     newDeleteAnomalyDetectorResponse,
-
-    -- ** EnableInsightRules
-    EnableInsightRules (EnableInsightRules'),
-    newEnableInsightRules,
-    EnableInsightRulesResponse (EnableInsightRulesResponse'),
-    newEnableInsightRulesResponse,
 
     -- ** GetMetricData (Paginated)
     GetMetricData (GetMetricData'),
@@ -278,6 +315,9 @@ module Network.AWS.CloudWatch
 
     -- ** HistoryItemType
     HistoryItemType (..),
+
+    -- ** MetricStreamOutputFormat
+    MetricStreamOutputFormat (..),
 
     -- ** RecentlyActive
     RecentlyActive (..),
@@ -381,6 +421,14 @@ module Network.AWS.CloudWatch
     MetricStat (MetricStat'),
     newMetricStat,
 
+    -- ** MetricStreamEntry
+    MetricStreamEntry (MetricStreamEntry'),
+    newMetricStreamEntry,
+
+    -- ** MetricStreamFilter
+    MetricStreamFilter (MetricStreamFilter'),
+    newMetricStreamFilter,
+
     -- ** PartialFailure
     PartialFailure (PartialFailure'),
     newPartialFailure,
@@ -403,6 +451,7 @@ import Network.AWS.CloudWatch.DeleteAlarms
 import Network.AWS.CloudWatch.DeleteAnomalyDetector
 import Network.AWS.CloudWatch.DeleteDashboards
 import Network.AWS.CloudWatch.DeleteInsightRules
+import Network.AWS.CloudWatch.DeleteMetricStream
 import Network.AWS.CloudWatch.DescribeAlarmHistory
 import Network.AWS.CloudWatch.DescribeAlarms
 import Network.AWS.CloudWatch.DescribeAlarmsForMetric
@@ -416,9 +465,11 @@ import Network.AWS.CloudWatch.GetDashboard
 import Network.AWS.CloudWatch.GetInsightRuleReport
 import Network.AWS.CloudWatch.GetMetricData
 import Network.AWS.CloudWatch.GetMetricStatistics
+import Network.AWS.CloudWatch.GetMetricStream
 import Network.AWS.CloudWatch.GetMetricWidgetImage
 import Network.AWS.CloudWatch.Lens
 import Network.AWS.CloudWatch.ListDashboards
+import Network.AWS.CloudWatch.ListMetricStreams
 import Network.AWS.CloudWatch.ListMetrics
 import Network.AWS.CloudWatch.ListTagsForResource
 import Network.AWS.CloudWatch.PutAnomalyDetector
@@ -427,7 +478,10 @@ import Network.AWS.CloudWatch.PutDashboard
 import Network.AWS.CloudWatch.PutInsightRule
 import Network.AWS.CloudWatch.PutMetricAlarm
 import Network.AWS.CloudWatch.PutMetricData
+import Network.AWS.CloudWatch.PutMetricStream
 import Network.AWS.CloudWatch.SetAlarmState
+import Network.AWS.CloudWatch.StartMetricStreams
+import Network.AWS.CloudWatch.StopMetricStreams
 import Network.AWS.CloudWatch.TagResource
 import Network.AWS.CloudWatch.Types
 import Network.AWS.CloudWatch.UntagResource

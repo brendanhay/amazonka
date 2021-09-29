@@ -33,8 +33,8 @@ module Network.AWS.CloudWatch.DescribeAnomalyDetectors
     describeAnomalyDetectors_nextToken,
     describeAnomalyDetectors_maxResults,
     describeAnomalyDetectors_metricName,
-    describeAnomalyDetectors_dimensions,
     describeAnomalyDetectors_namespace,
+    describeAnomalyDetectors_dimensions,
 
     -- * Destructuring the Response
     DescribeAnomalyDetectorsResponse (..),
@@ -71,13 +71,13 @@ data DescribeAnomalyDetectors = DescribeAnomalyDetectors'
     -- models, they\'re all returned.
     metricName :: Prelude.Maybe Prelude.Text,
     -- | Limits the results to only the anomaly detection models that are
+    -- associated with the specified namespace.
+    namespace :: Prelude.Maybe Prelude.Text,
+    -- | Limits the results to only the anomaly detection models that are
     -- associated with the specified metric dimensions. If there are multiple
     -- metrics that have these dimensions and have anomaly detection models
     -- associated, they\'re all returned.
-    dimensions :: Prelude.Maybe [Dimension],
-    -- | Limits the results to only the anomaly detection models that are
-    -- associated with the specified namespace.
-    namespace :: Prelude.Maybe Prelude.Text
+    dimensions :: Prelude.Maybe [Dimension]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -103,13 +103,13 @@ data DescribeAnomalyDetectors = DescribeAnomalyDetectors'
 -- with this name in different namespaces that have anomaly detection
 -- models, they\'re all returned.
 --
+-- 'namespace', 'describeAnomalyDetectors_namespace' - Limits the results to only the anomaly detection models that are
+-- associated with the specified namespace.
+--
 -- 'dimensions', 'describeAnomalyDetectors_dimensions' - Limits the results to only the anomaly detection models that are
 -- associated with the specified metric dimensions. If there are multiple
 -- metrics that have these dimensions and have anomaly detection models
 -- associated, they\'re all returned.
---
--- 'namespace', 'describeAnomalyDetectors_namespace' - Limits the results to only the anomaly detection models that are
--- associated with the specified namespace.
 newDescribeAnomalyDetectors ::
   DescribeAnomalyDetectors
 newDescribeAnomalyDetectors =
@@ -118,8 +118,8 @@ newDescribeAnomalyDetectors =
         Prelude.Nothing,
       maxResults = Prelude.Nothing,
       metricName = Prelude.Nothing,
-      dimensions = Prelude.Nothing,
-      namespace = Prelude.Nothing
+      namespace = Prelude.Nothing,
+      dimensions = Prelude.Nothing
     }
 
 -- | Use the token returned by the previous operation to request the next
@@ -143,16 +143,16 @@ describeAnomalyDetectors_metricName :: Lens.Lens' DescribeAnomalyDetectors (Prel
 describeAnomalyDetectors_metricName = Lens.lens (\DescribeAnomalyDetectors' {metricName} -> metricName) (\s@DescribeAnomalyDetectors' {} a -> s {metricName = a} :: DescribeAnomalyDetectors)
 
 -- | Limits the results to only the anomaly detection models that are
+-- associated with the specified namespace.
+describeAnomalyDetectors_namespace :: Lens.Lens' DescribeAnomalyDetectors (Prelude.Maybe Prelude.Text)
+describeAnomalyDetectors_namespace = Lens.lens (\DescribeAnomalyDetectors' {namespace} -> namespace) (\s@DescribeAnomalyDetectors' {} a -> s {namespace = a} :: DescribeAnomalyDetectors)
+
+-- | Limits the results to only the anomaly detection models that are
 -- associated with the specified metric dimensions. If there are multiple
 -- metrics that have these dimensions and have anomaly detection models
 -- associated, they\'re all returned.
 describeAnomalyDetectors_dimensions :: Lens.Lens' DescribeAnomalyDetectors (Prelude.Maybe [Dimension])
 describeAnomalyDetectors_dimensions = Lens.lens (\DescribeAnomalyDetectors' {dimensions} -> dimensions) (\s@DescribeAnomalyDetectors' {} a -> s {dimensions = a} :: DescribeAnomalyDetectors) Prelude.. Lens.mapping Lens._Coerce
-
--- | Limits the results to only the anomaly detection models that are
--- associated with the specified namespace.
-describeAnomalyDetectors_namespace :: Lens.Lens' DescribeAnomalyDetectors (Prelude.Maybe Prelude.Text)
-describeAnomalyDetectors_namespace = Lens.lens (\DescribeAnomalyDetectors' {namespace} -> namespace) (\s@DescribeAnomalyDetectors' {} a -> s {namespace = a} :: DescribeAnomalyDetectors)
 
 instance Core.AWSRequest DescribeAnomalyDetectors where
   type
@@ -192,10 +192,10 @@ instance Core.ToQuery DescribeAnomalyDetectors where
         "NextToken" Core.=: nextToken,
         "MaxResults" Core.=: maxResults,
         "MetricName" Core.=: metricName,
+        "Namespace" Core.=: namespace,
         "Dimensions"
           Core.=: Core.toQuery
-            (Core.toQueryList "member" Prelude.<$> dimensions),
-        "Namespace" Core.=: namespace
+            (Core.toQueryList "member" Prelude.<$> dimensions)
       ]
 
 -- | /See:/ 'newDescribeAnomalyDetectorsResponse' smart constructor.

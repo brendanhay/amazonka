@@ -68,11 +68,11 @@ data MetricDatum = MetricDatum'
     -- for each count. If you include a @Counts@ array, it must include the
     -- same amount of values as the @Values@ array.
     counts :: Prelude.Maybe [Prelude.Double],
+    -- | The statistical values for the metric.
+    statisticValues :: Prelude.Maybe StatisticSet,
     -- | The time the metric data was received, expressed as the number of
     -- milliseconds since Jan 1, 1970 00:00:00 UTC.
     timestamp :: Prelude.Maybe Core.ISO8601,
-    -- | The statistical values for the metric.
-    statisticValues :: Prelude.Maybe StatisticSet,
     -- | The value for the metric.
     --
     -- Although the parameter accepts numbers of type Double, CloudWatch
@@ -132,10 +132,10 @@ data MetricDatum = MetricDatum'
 -- for each count. If you include a @Counts@ array, it must include the
 -- same amount of values as the @Values@ array.
 --
+-- 'statisticValues', 'metricDatum_statisticValues' - The statistical values for the metric.
+--
 -- 'timestamp', 'metricDatum_timestamp' - The time the metric data was received, expressed as the number of
 -- milliseconds since Jan 1, 1970 00:00:00 UTC.
---
--- 'statisticValues', 'metricDatum_statisticValues' - The statistical values for the metric.
 --
 -- 'value', 'metricDatum_value' - The value for the metric.
 --
@@ -157,8 +157,8 @@ newMetricDatum pMetricName_ =
       unit = Prelude.Nothing,
       values = Prelude.Nothing,
       counts = Prelude.Nothing,
-      timestamp = Prelude.Nothing,
       statisticValues = Prelude.Nothing,
+      timestamp = Prelude.Nothing,
       value = Prelude.Nothing,
       dimensions = Prelude.Nothing,
       metricName = pMetricName_
@@ -209,14 +209,14 @@ metricDatum_values = Lens.lens (\MetricDatum' {values} -> values) (\s@MetricDatu
 metricDatum_counts :: Lens.Lens' MetricDatum (Prelude.Maybe [Prelude.Double])
 metricDatum_counts = Lens.lens (\MetricDatum' {counts} -> counts) (\s@MetricDatum' {} a -> s {counts = a} :: MetricDatum) Prelude.. Lens.mapping Lens._Coerce
 
+-- | The statistical values for the metric.
+metricDatum_statisticValues :: Lens.Lens' MetricDatum (Prelude.Maybe StatisticSet)
+metricDatum_statisticValues = Lens.lens (\MetricDatum' {statisticValues} -> statisticValues) (\s@MetricDatum' {} a -> s {statisticValues = a} :: MetricDatum)
+
 -- | The time the metric data was received, expressed as the number of
 -- milliseconds since Jan 1, 1970 00:00:00 UTC.
 metricDatum_timestamp :: Lens.Lens' MetricDatum (Prelude.Maybe Prelude.UTCTime)
 metricDatum_timestamp = Lens.lens (\MetricDatum' {timestamp} -> timestamp) (\s@MetricDatum' {} a -> s {timestamp = a} :: MetricDatum) Prelude.. Lens.mapping Core._Time
-
--- | The statistical values for the metric.
-metricDatum_statisticValues :: Lens.Lens' MetricDatum (Prelude.Maybe StatisticSet)
-metricDatum_statisticValues = Lens.lens (\MetricDatum' {statisticValues} -> statisticValues) (\s@MetricDatum' {} a -> s {statisticValues = a} :: MetricDatum)
 
 -- | The value for the metric.
 --
@@ -250,8 +250,8 @@ instance Core.ToQuery MetricDatum where
         "Counts"
           Core.=: Core.toQuery
             (Core.toQueryList "member" Prelude.<$> counts),
-        "Timestamp" Core.=: timestamp,
         "StatisticValues" Core.=: statisticValues,
+        "Timestamp" Core.=: timestamp,
         "Value" Core.=: value,
         "Dimensions"
           Core.=: Core.toQuery

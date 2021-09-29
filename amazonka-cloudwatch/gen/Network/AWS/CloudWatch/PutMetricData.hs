@@ -100,8 +100,8 @@ import qualified Network.AWS.Response as Response
 data PutMetricData = PutMetricData'
   { -- | The namespace for the metric data.
     --
-    -- To avoid conflicts with AWS service namespaces, you should not specify a
-    -- namespace that begins with @AWS\/@
+    -- To avoid conflicts with Amazon Web Services service namespaces, you
+    -- should not specify a namespace that begins with @AWS\/@
     namespace :: Prelude.Text,
     -- | The data for the metric. The array can include no more than 20 metrics
     -- per call.
@@ -119,8 +119,8 @@ data PutMetricData = PutMetricData'
 --
 -- 'namespace', 'putMetricData_namespace' - The namespace for the metric data.
 --
--- To avoid conflicts with AWS service namespaces, you should not specify a
--- namespace that begins with @AWS\/@
+-- To avoid conflicts with Amazon Web Services service namespaces, you
+-- should not specify a namespace that begins with @AWS\/@
 --
 -- 'metricData', 'putMetricData_metricData' - The data for the metric. The array can include no more than 20 metrics
 -- per call.
@@ -136,8 +136,8 @@ newPutMetricData pNamespace_ =
 
 -- | The namespace for the metric data.
 --
--- To avoid conflicts with AWS service namespaces, you should not specify a
--- namespace that begins with @AWS\/@
+-- To avoid conflicts with Amazon Web Services service namespaces, you
+-- should not specify a namespace that begins with @AWS\/@
 putMetricData_namespace :: Lens.Lens' PutMetricData Prelude.Text
 putMetricData_namespace = Lens.lens (\PutMetricData' {namespace} -> namespace) (\s@PutMetricData' {} a -> s {namespace = a} :: PutMetricData)
 

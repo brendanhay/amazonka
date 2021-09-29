@@ -56,7 +56,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newMetricDataQuery' smart constructor.
 data MetricDataQuery = MetricDataQuery'
-  { -- | The metric to be returned, along with statistics, period, and units. Use
+  { -- | The ID of the account where the metrics are located, if this is a
+    -- cross-account alarm.
+    --
+    -- Use this field only for @PutMetricAlarm@ operations. It is not used in
+    -- @GetMetricData@ operations.
+    accountId :: Prelude.Maybe Prelude.Text,
+    -- | The metric to be returned, along with statistics, period, and units. Use
     -- this parameter only if this object is retrieving a metric and not
     -- performing a math expression on returned data.
     --
@@ -120,6 +126,12 @@ data MetricDataQuery = MetricDataQuery'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'accountId', 'metricDataQuery_accountId' - The ID of the account where the metrics are located, if this is a
+-- cross-account alarm.
+--
+-- Use this field only for @PutMetricAlarm@ operations. It is not used in
+-- @GetMetricData@ operations.
+--
 -- 'metricStat', 'metricDataQuery_metricStat' - The metric to be returned, along with statistics, period, and units. Use
 -- this parameter only if this object is retrieving a metric and not
 -- performing a math expression on returned data.
@@ -178,13 +190,22 @@ newMetricDataQuery ::
   MetricDataQuery
 newMetricDataQuery pId_ =
   MetricDataQuery'
-    { metricStat = Prelude.Nothing,
+    { accountId = Prelude.Nothing,
+      metricStat = Prelude.Nothing,
       returnData = Prelude.Nothing,
       label = Prelude.Nothing,
       period = Prelude.Nothing,
       expression = Prelude.Nothing,
       id = pId_
     }
+
+-- | The ID of the account where the metrics are located, if this is a
+-- cross-account alarm.
+--
+-- Use this field only for @PutMetricAlarm@ operations. It is not used in
+-- @GetMetricData@ operations.
+metricDataQuery_accountId :: Lens.Lens' MetricDataQuery (Prelude.Maybe Prelude.Text)
+metricDataQuery_accountId = Lens.lens (\MetricDataQuery' {accountId} -> accountId) (\s@MetricDataQuery' {} a -> s {accountId = a} :: MetricDataQuery)
 
 -- | The metric to be returned, along with statistics, period, and units. Use
 -- this parameter only if this object is retrieving a metric and not
@@ -254,7 +275,8 @@ metricDataQuery_id = Lens.lens (\MetricDataQuery' {id} -> id) (\s@MetricDataQuer
 instance Core.FromXML MetricDataQuery where
   parseXML x =
     MetricDataQuery'
-      Prelude.<$> (x Core..@? "MetricStat")
+      Prelude.<$> (x Core..@? "AccountId")
+      Prelude.<*> (x Core..@? "MetricStat")
       Prelude.<*> (x Core..@? "ReturnData")
       Prelude.<*> (x Core..@? "Label")
       Prelude.<*> (x Core..@? "Period")
@@ -268,7 +290,8 @@ instance Prelude.NFData MetricDataQuery
 instance Core.ToQuery MetricDataQuery where
   toQuery MetricDataQuery' {..} =
     Prelude.mconcat
-      [ "MetricStat" Core.=: metricStat,
+      [ "AccountId" Core.=: accountId,
+        "MetricStat" Core.=: metricStat,
         "ReturnData" Core.=: returnData,
         "Label" Core.=: label,
         "Period" Core.=: period,

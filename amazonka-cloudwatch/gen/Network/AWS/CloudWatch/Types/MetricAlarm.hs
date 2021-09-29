@@ -50,24 +50,24 @@ data MetricAlarm = MetricAlarm'
     -- | The percentile statistic for the metric associated with the alarm.
     -- Specify a value between p0.0 and p100.
     extendedStatistic :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the alarm.
-    alarmArn :: Prelude.Maybe Prelude.Text,
+    -- | In an alarm based on an anomaly detection model, this is the ID of the
+    -- @ANOMALY_DETECTION_BAND@ function used as the threshold for the alarm.
+    thresholdMetricId :: Prelude.Maybe Prelude.Text,
     -- | The actions to execute when this alarm transitions to the @ALARM@ state
     -- from any other state. Each action is specified as an Amazon Resource
     -- Name (ARN).
     alarmActions :: Prelude.Maybe [Prelude.Text],
     -- | The unit of the metric associated with the alarm.
     unit :: Prelude.Maybe StandardUnit,
-    -- | In an alarm based on an anomaly detection model, this is the ID of the
-    -- @ANOMALY_DETECTION_BAND@ function used as the threshold for the alarm.
-    thresholdMetricId :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the alarm.
+    alarmArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the metric associated with the alarm, if this is an alarm
+    -- based on a single metric.
+    metricName :: Prelude.Maybe Prelude.Text,
     -- | An explanation for the alarm state, in text format.
     stateReason :: Prelude.Maybe Prelude.Text,
     -- | An explanation for the alarm state, in JSON format.
     stateReasonData :: Prelude.Maybe Prelude.Text,
-    -- | The name of the metric associated with the alarm, if this is an alarm
-    -- based on a single metric.
-    metricName :: Prelude.Maybe Prelude.Text,
     -- | The actions to execute when this alarm transitions to the
     -- @INSUFFICIENT_DATA@ state from any other state. Each action is specified
     -- as an Amazon Resource Name (ARN).
@@ -81,12 +81,12 @@ data MetricAlarm = MetricAlarm'
     -- expression that the alarm watches. This expression by designated by
     -- having @ReturnData@ set to true.
     metrics :: Prelude.Maybe [MetricDataQuery],
-    -- | The time stamp of the last update to the alarm state.
-    stateUpdatedTimestamp :: Prelude.Maybe Core.ISO8601,
-    -- | The state value for the alarm.
-    stateValue :: Prelude.Maybe StateValue,
     -- | The name of the alarm.
     alarmName :: Prelude.Maybe Prelude.Text,
+    -- | The state value for the alarm.
+    stateValue :: Prelude.Maybe StateValue,
+    -- | The time stamp of the last update to the alarm state.
+    stateUpdatedTimestamp :: Prelude.Maybe Core.ISO8601,
     -- | The actions to execute when this alarm transitions to the @OK@ state
     -- from any other state. Each action is specified as an Amazon Resource
     -- Name (ARN).
@@ -94,10 +94,10 @@ data MetricAlarm = MetricAlarm'
     -- | The statistic for the metric associated with the alarm, other than
     -- percentile. For percentile statistics, use @ExtendedStatistic@.
     statistic :: Prelude.Maybe Statistic,
-    -- | The dimensions for the metric associated with the alarm.
-    dimensions :: Prelude.Maybe [Dimension],
     -- | The namespace of the metric associated with the alarm.
     namespace :: Prelude.Maybe Prelude.Text,
+    -- | The dimensions for the metric associated with the alarm.
+    dimensions :: Prelude.Maybe [Dimension],
     -- | The number of periods over which data is compared to the specified
     -- threshold.
     evaluationPeriods :: Prelude.Maybe Prelude.Natural,
@@ -106,10 +106,10 @@ data MetricAlarm = MetricAlarm'
     actionsEnabled :: Prelude.Maybe Prelude.Bool,
     -- | The time stamp of the last update to the alarm configuration.
     alarmConfigurationUpdatedTimestamp :: Prelude.Maybe Core.ISO8601,
-    -- | The description of the alarm.
-    alarmDescription :: Prelude.Maybe Prelude.Text,
     -- | The period, in seconds, over which the statistic is applied.
-    period :: Prelude.Maybe Prelude.Natural
+    period :: Prelude.Maybe Prelude.Natural,
+    -- | The description of the alarm.
+    alarmDescription :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -138,7 +138,8 @@ data MetricAlarm = MetricAlarm'
 -- 'extendedStatistic', 'metricAlarm_extendedStatistic' - The percentile statistic for the metric associated with the alarm.
 -- Specify a value between p0.0 and p100.
 --
--- 'alarmArn', 'metricAlarm_alarmArn' - The Amazon Resource Name (ARN) of the alarm.
+-- 'thresholdMetricId', 'metricAlarm_thresholdMetricId' - In an alarm based on an anomaly detection model, this is the ID of the
+-- @ANOMALY_DETECTION_BAND@ function used as the threshold for the alarm.
 --
 -- 'alarmActions', 'metricAlarm_alarmActions' - The actions to execute when this alarm transitions to the @ALARM@ state
 -- from any other state. Each action is specified as an Amazon Resource
@@ -146,15 +147,14 @@ data MetricAlarm = MetricAlarm'
 --
 -- 'unit', 'metricAlarm_unit' - The unit of the metric associated with the alarm.
 --
--- 'thresholdMetricId', 'metricAlarm_thresholdMetricId' - In an alarm based on an anomaly detection model, this is the ID of the
--- @ANOMALY_DETECTION_BAND@ function used as the threshold for the alarm.
+-- 'alarmArn', 'metricAlarm_alarmArn' - The Amazon Resource Name (ARN) of the alarm.
+--
+-- 'metricName', 'metricAlarm_metricName' - The name of the metric associated with the alarm, if this is an alarm
+-- based on a single metric.
 --
 -- 'stateReason', 'metricAlarm_stateReason' - An explanation for the alarm state, in text format.
 --
 -- 'stateReasonData', 'metricAlarm_stateReasonData' - An explanation for the alarm state, in JSON format.
---
--- 'metricName', 'metricAlarm_metricName' - The name of the metric associated with the alarm, if this is an alarm
--- based on a single metric.
 --
 -- 'insufficientDataActions', 'metricAlarm_insufficientDataActions' - The actions to execute when this alarm transitions to the
 -- @INSUFFICIENT_DATA@ state from any other state. Each action is specified
@@ -169,11 +169,11 @@ data MetricAlarm = MetricAlarm'
 -- expression that the alarm watches. This expression by designated by
 -- having @ReturnData@ set to true.
 --
--- 'stateUpdatedTimestamp', 'metricAlarm_stateUpdatedTimestamp' - The time stamp of the last update to the alarm state.
+-- 'alarmName', 'metricAlarm_alarmName' - The name of the alarm.
 --
 -- 'stateValue', 'metricAlarm_stateValue' - The state value for the alarm.
 --
--- 'alarmName', 'metricAlarm_alarmName' - The name of the alarm.
+-- 'stateUpdatedTimestamp', 'metricAlarm_stateUpdatedTimestamp' - The time stamp of the last update to the alarm state.
 --
 -- 'oKActions', 'metricAlarm_oKActions' - The actions to execute when this alarm transitions to the @OK@ state
 -- from any other state. Each action is specified as an Amazon Resource
@@ -182,9 +182,9 @@ data MetricAlarm = MetricAlarm'
 -- 'statistic', 'metricAlarm_statistic' - The statistic for the metric associated with the alarm, other than
 -- percentile. For percentile statistics, use @ExtendedStatistic@.
 --
--- 'dimensions', 'metricAlarm_dimensions' - The dimensions for the metric associated with the alarm.
---
 -- 'namespace', 'metricAlarm_namespace' - The namespace of the metric associated with the alarm.
+--
+-- 'dimensions', 'metricAlarm_dimensions' - The dimensions for the metric associated with the alarm.
 --
 -- 'evaluationPeriods', 'metricAlarm_evaluationPeriods' - The number of periods over which data is compared to the specified
 -- threshold.
@@ -194,9 +194,9 @@ data MetricAlarm = MetricAlarm'
 --
 -- 'alarmConfigurationUpdatedTimestamp', 'metricAlarm_alarmConfigurationUpdatedTimestamp' - The time stamp of the last update to the alarm configuration.
 --
--- 'alarmDescription', 'metricAlarm_alarmDescription' - The description of the alarm.
---
 -- 'period', 'metricAlarm_period' - The period, in seconds, over which the statistic is applied.
+--
+-- 'alarmDescription', 'metricAlarm_alarmDescription' - The description of the alarm.
 newMetricAlarm ::
   MetricAlarm
 newMetricAlarm =
@@ -206,28 +206,28 @@ newMetricAlarm =
       evaluateLowSampleCountPercentile = Prelude.Nothing,
       comparisonOperator = Prelude.Nothing,
       extendedStatistic = Prelude.Nothing,
-      alarmArn = Prelude.Nothing,
+      thresholdMetricId = Prelude.Nothing,
       alarmActions = Prelude.Nothing,
       unit = Prelude.Nothing,
-      thresholdMetricId = Prelude.Nothing,
+      alarmArn = Prelude.Nothing,
+      metricName = Prelude.Nothing,
       stateReason = Prelude.Nothing,
       stateReasonData = Prelude.Nothing,
-      metricName = Prelude.Nothing,
       insufficientDataActions = Prelude.Nothing,
       treatMissingData = Prelude.Nothing,
       metrics = Prelude.Nothing,
-      stateUpdatedTimestamp = Prelude.Nothing,
-      stateValue = Prelude.Nothing,
       alarmName = Prelude.Nothing,
+      stateValue = Prelude.Nothing,
+      stateUpdatedTimestamp = Prelude.Nothing,
       oKActions = Prelude.Nothing,
       statistic = Prelude.Nothing,
-      dimensions = Prelude.Nothing,
       namespace = Prelude.Nothing,
+      dimensions = Prelude.Nothing,
       evaluationPeriods = Prelude.Nothing,
       actionsEnabled = Prelude.Nothing,
       alarmConfigurationUpdatedTimestamp = Prelude.Nothing,
-      alarmDescription = Prelude.Nothing,
-      period = Prelude.Nothing
+      period = Prelude.Nothing,
+      alarmDescription = Prelude.Nothing
     }
 
 -- | The value to compare with the specified statistic.
@@ -257,9 +257,10 @@ metricAlarm_comparisonOperator = Lens.lens (\MetricAlarm' {comparisonOperator} -
 metricAlarm_extendedStatistic :: Lens.Lens' MetricAlarm (Prelude.Maybe Prelude.Text)
 metricAlarm_extendedStatistic = Lens.lens (\MetricAlarm' {extendedStatistic} -> extendedStatistic) (\s@MetricAlarm' {} a -> s {extendedStatistic = a} :: MetricAlarm)
 
--- | The Amazon Resource Name (ARN) of the alarm.
-metricAlarm_alarmArn :: Lens.Lens' MetricAlarm (Prelude.Maybe Prelude.Text)
-metricAlarm_alarmArn = Lens.lens (\MetricAlarm' {alarmArn} -> alarmArn) (\s@MetricAlarm' {} a -> s {alarmArn = a} :: MetricAlarm)
+-- | In an alarm based on an anomaly detection model, this is the ID of the
+-- @ANOMALY_DETECTION_BAND@ function used as the threshold for the alarm.
+metricAlarm_thresholdMetricId :: Lens.Lens' MetricAlarm (Prelude.Maybe Prelude.Text)
+metricAlarm_thresholdMetricId = Lens.lens (\MetricAlarm' {thresholdMetricId} -> thresholdMetricId) (\s@MetricAlarm' {} a -> s {thresholdMetricId = a} :: MetricAlarm)
 
 -- | The actions to execute when this alarm transitions to the @ALARM@ state
 -- from any other state. Each action is specified as an Amazon Resource
@@ -271,10 +272,14 @@ metricAlarm_alarmActions = Lens.lens (\MetricAlarm' {alarmActions} -> alarmActio
 metricAlarm_unit :: Lens.Lens' MetricAlarm (Prelude.Maybe StandardUnit)
 metricAlarm_unit = Lens.lens (\MetricAlarm' {unit} -> unit) (\s@MetricAlarm' {} a -> s {unit = a} :: MetricAlarm)
 
--- | In an alarm based on an anomaly detection model, this is the ID of the
--- @ANOMALY_DETECTION_BAND@ function used as the threshold for the alarm.
-metricAlarm_thresholdMetricId :: Lens.Lens' MetricAlarm (Prelude.Maybe Prelude.Text)
-metricAlarm_thresholdMetricId = Lens.lens (\MetricAlarm' {thresholdMetricId} -> thresholdMetricId) (\s@MetricAlarm' {} a -> s {thresholdMetricId = a} :: MetricAlarm)
+-- | The Amazon Resource Name (ARN) of the alarm.
+metricAlarm_alarmArn :: Lens.Lens' MetricAlarm (Prelude.Maybe Prelude.Text)
+metricAlarm_alarmArn = Lens.lens (\MetricAlarm' {alarmArn} -> alarmArn) (\s@MetricAlarm' {} a -> s {alarmArn = a} :: MetricAlarm)
+
+-- | The name of the metric associated with the alarm, if this is an alarm
+-- based on a single metric.
+metricAlarm_metricName :: Lens.Lens' MetricAlarm (Prelude.Maybe Prelude.Text)
+metricAlarm_metricName = Lens.lens (\MetricAlarm' {metricName} -> metricName) (\s@MetricAlarm' {} a -> s {metricName = a} :: MetricAlarm)
 
 -- | An explanation for the alarm state, in text format.
 metricAlarm_stateReason :: Lens.Lens' MetricAlarm (Prelude.Maybe Prelude.Text)
@@ -283,11 +288,6 @@ metricAlarm_stateReason = Lens.lens (\MetricAlarm' {stateReason} -> stateReason)
 -- | An explanation for the alarm state, in JSON format.
 metricAlarm_stateReasonData :: Lens.Lens' MetricAlarm (Prelude.Maybe Prelude.Text)
 metricAlarm_stateReasonData = Lens.lens (\MetricAlarm' {stateReasonData} -> stateReasonData) (\s@MetricAlarm' {} a -> s {stateReasonData = a} :: MetricAlarm)
-
--- | The name of the metric associated with the alarm, if this is an alarm
--- based on a single metric.
-metricAlarm_metricName :: Lens.Lens' MetricAlarm (Prelude.Maybe Prelude.Text)
-metricAlarm_metricName = Lens.lens (\MetricAlarm' {metricName} -> metricName) (\s@MetricAlarm' {} a -> s {metricName = a} :: MetricAlarm)
 
 -- | The actions to execute when this alarm transitions to the
 -- @INSUFFICIENT_DATA@ state from any other state. Each action is specified
@@ -308,17 +308,17 @@ metricAlarm_treatMissingData = Lens.lens (\MetricAlarm' {treatMissingData} -> tr
 metricAlarm_metrics :: Lens.Lens' MetricAlarm (Prelude.Maybe [MetricDataQuery])
 metricAlarm_metrics = Lens.lens (\MetricAlarm' {metrics} -> metrics) (\s@MetricAlarm' {} a -> s {metrics = a} :: MetricAlarm) Prelude.. Lens.mapping Lens._Coerce
 
--- | The time stamp of the last update to the alarm state.
-metricAlarm_stateUpdatedTimestamp :: Lens.Lens' MetricAlarm (Prelude.Maybe Prelude.UTCTime)
-metricAlarm_stateUpdatedTimestamp = Lens.lens (\MetricAlarm' {stateUpdatedTimestamp} -> stateUpdatedTimestamp) (\s@MetricAlarm' {} a -> s {stateUpdatedTimestamp = a} :: MetricAlarm) Prelude.. Lens.mapping Core._Time
+-- | The name of the alarm.
+metricAlarm_alarmName :: Lens.Lens' MetricAlarm (Prelude.Maybe Prelude.Text)
+metricAlarm_alarmName = Lens.lens (\MetricAlarm' {alarmName} -> alarmName) (\s@MetricAlarm' {} a -> s {alarmName = a} :: MetricAlarm)
 
 -- | The state value for the alarm.
 metricAlarm_stateValue :: Lens.Lens' MetricAlarm (Prelude.Maybe StateValue)
 metricAlarm_stateValue = Lens.lens (\MetricAlarm' {stateValue} -> stateValue) (\s@MetricAlarm' {} a -> s {stateValue = a} :: MetricAlarm)
 
--- | The name of the alarm.
-metricAlarm_alarmName :: Lens.Lens' MetricAlarm (Prelude.Maybe Prelude.Text)
-metricAlarm_alarmName = Lens.lens (\MetricAlarm' {alarmName} -> alarmName) (\s@MetricAlarm' {} a -> s {alarmName = a} :: MetricAlarm)
+-- | The time stamp of the last update to the alarm state.
+metricAlarm_stateUpdatedTimestamp :: Lens.Lens' MetricAlarm (Prelude.Maybe Prelude.UTCTime)
+metricAlarm_stateUpdatedTimestamp = Lens.lens (\MetricAlarm' {stateUpdatedTimestamp} -> stateUpdatedTimestamp) (\s@MetricAlarm' {} a -> s {stateUpdatedTimestamp = a} :: MetricAlarm) Prelude.. Lens.mapping Core._Time
 
 -- | The actions to execute when this alarm transitions to the @OK@ state
 -- from any other state. Each action is specified as an Amazon Resource
@@ -331,13 +331,13 @@ metricAlarm_oKActions = Lens.lens (\MetricAlarm' {oKActions} -> oKActions) (\s@M
 metricAlarm_statistic :: Lens.Lens' MetricAlarm (Prelude.Maybe Statistic)
 metricAlarm_statistic = Lens.lens (\MetricAlarm' {statistic} -> statistic) (\s@MetricAlarm' {} a -> s {statistic = a} :: MetricAlarm)
 
--- | The dimensions for the metric associated with the alarm.
-metricAlarm_dimensions :: Lens.Lens' MetricAlarm (Prelude.Maybe [Dimension])
-metricAlarm_dimensions = Lens.lens (\MetricAlarm' {dimensions} -> dimensions) (\s@MetricAlarm' {} a -> s {dimensions = a} :: MetricAlarm) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The namespace of the metric associated with the alarm.
 metricAlarm_namespace :: Lens.Lens' MetricAlarm (Prelude.Maybe Prelude.Text)
 metricAlarm_namespace = Lens.lens (\MetricAlarm' {namespace} -> namespace) (\s@MetricAlarm' {} a -> s {namespace = a} :: MetricAlarm)
+
+-- | The dimensions for the metric associated with the alarm.
+metricAlarm_dimensions :: Lens.Lens' MetricAlarm (Prelude.Maybe [Dimension])
+metricAlarm_dimensions = Lens.lens (\MetricAlarm' {dimensions} -> dimensions) (\s@MetricAlarm' {} a -> s {dimensions = a} :: MetricAlarm) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The number of periods over which data is compared to the specified
 -- threshold.
@@ -353,13 +353,13 @@ metricAlarm_actionsEnabled = Lens.lens (\MetricAlarm' {actionsEnabled} -> action
 metricAlarm_alarmConfigurationUpdatedTimestamp :: Lens.Lens' MetricAlarm (Prelude.Maybe Prelude.UTCTime)
 metricAlarm_alarmConfigurationUpdatedTimestamp = Lens.lens (\MetricAlarm' {alarmConfigurationUpdatedTimestamp} -> alarmConfigurationUpdatedTimestamp) (\s@MetricAlarm' {} a -> s {alarmConfigurationUpdatedTimestamp = a} :: MetricAlarm) Prelude.. Lens.mapping Core._Time
 
--- | The description of the alarm.
-metricAlarm_alarmDescription :: Lens.Lens' MetricAlarm (Prelude.Maybe Prelude.Text)
-metricAlarm_alarmDescription = Lens.lens (\MetricAlarm' {alarmDescription} -> alarmDescription) (\s@MetricAlarm' {} a -> s {alarmDescription = a} :: MetricAlarm)
-
 -- | The period, in seconds, over which the statistic is applied.
 metricAlarm_period :: Lens.Lens' MetricAlarm (Prelude.Maybe Prelude.Natural)
 metricAlarm_period = Lens.lens (\MetricAlarm' {period} -> period) (\s@MetricAlarm' {} a -> s {period = a} :: MetricAlarm)
+
+-- | The description of the alarm.
+metricAlarm_alarmDescription :: Lens.Lens' MetricAlarm (Prelude.Maybe Prelude.Text)
+metricAlarm_alarmDescription = Lens.lens (\MetricAlarm' {alarmDescription} -> alarmDescription) (\s@MetricAlarm' {} a -> s {alarmDescription = a} :: MetricAlarm)
 
 instance Core.FromXML MetricAlarm where
   parseXML x =
@@ -369,15 +369,15 @@ instance Core.FromXML MetricAlarm where
       Prelude.<*> (x Core..@? "EvaluateLowSampleCountPercentile")
       Prelude.<*> (x Core..@? "ComparisonOperator")
       Prelude.<*> (x Core..@? "ExtendedStatistic")
-      Prelude.<*> (x Core..@? "AlarmArn")
+      Prelude.<*> (x Core..@? "ThresholdMetricId")
       Prelude.<*> ( x Core..@? "AlarmActions" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
       Prelude.<*> (x Core..@? "Unit")
-      Prelude.<*> (x Core..@? "ThresholdMetricId")
+      Prelude.<*> (x Core..@? "AlarmArn")
+      Prelude.<*> (x Core..@? "MetricName")
       Prelude.<*> (x Core..@? "StateReason")
       Prelude.<*> (x Core..@? "StateReasonData")
-      Prelude.<*> (x Core..@? "MetricName")
       Prelude.<*> ( x Core..@? "InsufficientDataActions"
                       Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
@@ -386,22 +386,22 @@ instance Core.FromXML MetricAlarm where
       Prelude.<*> ( x Core..@? "Metrics" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "StateUpdatedTimestamp")
-      Prelude.<*> (x Core..@? "StateValue")
       Prelude.<*> (x Core..@? "AlarmName")
+      Prelude.<*> (x Core..@? "StateValue")
+      Prelude.<*> (x Core..@? "StateUpdatedTimestamp")
       Prelude.<*> ( x Core..@? "OKActions" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
       Prelude.<*> (x Core..@? "Statistic")
+      Prelude.<*> (x Core..@? "Namespace")
       Prelude.<*> ( x Core..@? "Dimensions" Core..!@ Prelude.mempty
                       Prelude.>>= Core.may (Core.parseXMLList "member")
                   )
-      Prelude.<*> (x Core..@? "Namespace")
       Prelude.<*> (x Core..@? "EvaluationPeriods")
       Prelude.<*> (x Core..@? "ActionsEnabled")
       Prelude.<*> (x Core..@? "AlarmConfigurationUpdatedTimestamp")
-      Prelude.<*> (x Core..@? "AlarmDescription")
       Prelude.<*> (x Core..@? "Period")
+      Prelude.<*> (x Core..@? "AlarmDescription")
 
 instance Prelude.Hashable MetricAlarm
 

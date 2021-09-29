@@ -28,8 +28,8 @@
 -- use them to scope user permissions by granting a user permission to
 -- access or change only resources with certain tag values.
 --
--- Tags don\'t have any semantic meaning to AWS and are interpreted
--- strictly as strings of characters.
+-- Tags don\'t have any semantic meaning to Amazon Web Services and are
+-- interpreted strictly as strings of characters.
 --
 -- You can use the @TagResource@ action with an alarm that already has
 -- tags. If you specify a new tag key for the alarm, this tag is appended

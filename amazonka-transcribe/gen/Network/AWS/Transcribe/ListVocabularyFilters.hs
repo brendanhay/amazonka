@@ -57,9 +57,10 @@ data ListVocabularyFilters = ListVocabularyFilters'
     -- | Filters the response so that it only contains vocabulary filters whose
     -- name contains the specified string.
     nameContains :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of filters to return in the response. If there are
-    -- fewer results in the list, this response contains only the actual
-    -- results.
+    -- | The maximum number of filters to return in each page of results. If
+    -- there are fewer results than the value you specify, only the actual
+    -- results are returned. If you do not specify a value, the default of 5 is
+    -- used.
     maxResults :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -78,9 +79,10 @@ data ListVocabularyFilters = ListVocabularyFilters'
 -- 'nameContains', 'listVocabularyFilters_nameContains' - Filters the response so that it only contains vocabulary filters whose
 -- name contains the specified string.
 --
--- 'maxResults', 'listVocabularyFilters_maxResults' - The maximum number of filters to return in the response. If there are
--- fewer results in the list, this response contains only the actual
--- results.
+-- 'maxResults', 'listVocabularyFilters_maxResults' - The maximum number of filters to return in each page of results. If
+-- there are fewer results than the value you specify, only the actual
+-- results are returned. If you do not specify a value, the default of 5 is
+-- used.
 newListVocabularyFilters ::
   ListVocabularyFilters
 newListVocabularyFilters =
@@ -100,9 +102,10 @@ listVocabularyFilters_nextToken = Lens.lens (\ListVocabularyFilters' {nextToken}
 listVocabularyFilters_nameContains :: Lens.Lens' ListVocabularyFilters (Prelude.Maybe Prelude.Text)
 listVocabularyFilters_nameContains = Lens.lens (\ListVocabularyFilters' {nameContains} -> nameContains) (\s@ListVocabularyFilters' {} a -> s {nameContains = a} :: ListVocabularyFilters)
 
--- | The maximum number of filters to return in the response. If there are
--- fewer results in the list, this response contains only the actual
--- results.
+-- | The maximum number of filters to return in each page of results. If
+-- there are fewer results than the value you specify, only the actual
+-- results are returned. If you do not specify a value, the default of 5 is
+-- used.
 listVocabularyFilters_maxResults :: Lens.Lens' ListVocabularyFilters (Prelude.Maybe Prelude.Natural)
 listVocabularyFilters_maxResults = Lens.lens (\ListVocabularyFilters' {maxResults} -> maxResults) (\s@ListVocabularyFilters' {} a -> s {maxResults = a} :: ListVocabularyFilters)
 

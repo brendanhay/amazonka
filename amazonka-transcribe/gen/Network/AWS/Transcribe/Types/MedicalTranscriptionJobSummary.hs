@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Transcribe.Types.LanguageCode
+import Network.AWS.Transcribe.Types.MedicalContentIdentificationType
 import Network.AWS.Transcribe.Types.OutputLocationType
 import Network.AWS.Transcribe.Types.Specialty
 import Network.AWS.Transcribe.Types.TranscriptionJobStatus
@@ -38,17 +39,22 @@ data MedicalTranscriptionJobSummary = MedicalTranscriptionJobSummary'
     creationTime :: Prelude.Maybe Core.POSIX,
     -- | A timestamp that shows when the job was completed.
     completionTime :: Prelude.Maybe Core.POSIX,
-    -- | A timestamp that shows when the job began processing.
-    startTime :: Prelude.Maybe Core.POSIX,
+    -- | Shows the type of information you\'ve configured Amazon Transcribe
+    -- Medical to identify in a transcription job. If the value is @PHI@,
+    -- you\'ve configured the transcription job to identify personal health
+    -- information (PHI).
+    contentIdentificationType :: Prelude.Maybe MedicalContentIdentificationType,
     -- | The status of the medical transcription job.
     transcriptionJobStatus :: Prelude.Maybe TranscriptionJobStatus,
-    -- | Indicates the location of the transcription job\'s output.
-    --
-    -- The @CUSTOMER_BUCKET@ is the S3 location provided in the
-    -- @OutputBucketName@ field when the
+    -- | A timestamp that shows when the job began processing.
+    startTime :: Prelude.Maybe Core.POSIX,
+    -- | Indicates the location of the transcription job\'s output. This field
+    -- must be the path of an S3 bucket; if you don\'t already have an S3
+    -- bucket, one is created based on the path you add.
     outputLocationType :: Prelude.Maybe OutputLocationType,
-    -- | The medical specialty of the transcription job. @Primary care@ is the
-    -- only valid value.
+    -- | The medical specialty of the transcription job. Refer to
+    -- <https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-medical-conversation.html Transcribing a medical conversation>for
+    -- a list of supported specialties.
     specialty :: Prelude.Maybe Specialty,
     -- | If the @TranscriptionJobStatus@ field is @FAILED@, a description of the
     -- error.
@@ -74,17 +80,22 @@ data MedicalTranscriptionJobSummary = MedicalTranscriptionJobSummary'
 --
 -- 'completionTime', 'medicalTranscriptionJobSummary_completionTime' - A timestamp that shows when the job was completed.
 --
--- 'startTime', 'medicalTranscriptionJobSummary_startTime' - A timestamp that shows when the job began processing.
+-- 'contentIdentificationType', 'medicalTranscriptionJobSummary_contentIdentificationType' - Shows the type of information you\'ve configured Amazon Transcribe
+-- Medical to identify in a transcription job. If the value is @PHI@,
+-- you\'ve configured the transcription job to identify personal health
+-- information (PHI).
 --
 -- 'transcriptionJobStatus', 'medicalTranscriptionJobSummary_transcriptionJobStatus' - The status of the medical transcription job.
 --
--- 'outputLocationType', 'medicalTranscriptionJobSummary_outputLocationType' - Indicates the location of the transcription job\'s output.
+-- 'startTime', 'medicalTranscriptionJobSummary_startTime' - A timestamp that shows when the job began processing.
 --
--- The @CUSTOMER_BUCKET@ is the S3 location provided in the
--- @OutputBucketName@ field when the
+-- 'outputLocationType', 'medicalTranscriptionJobSummary_outputLocationType' - Indicates the location of the transcription job\'s output. This field
+-- must be the path of an S3 bucket; if you don\'t already have an S3
+-- bucket, one is created based on the path you add.
 --
--- 'specialty', 'medicalTranscriptionJobSummary_specialty' - The medical specialty of the transcription job. @Primary care@ is the
--- only valid value.
+-- 'specialty', 'medicalTranscriptionJobSummary_specialty' - The medical specialty of the transcription job. Refer to
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-medical-conversation.html Transcribing a medical conversation>for
+-- a list of supported specialties.
 --
 -- 'failureReason', 'medicalTranscriptionJobSummary_failureReason' - If the @TranscriptionJobStatus@ field is @FAILED@, a description of the
 -- error.
@@ -100,8 +111,9 @@ newMedicalTranscriptionJobSummary =
         Prelude.Nothing,
       creationTime = Prelude.Nothing,
       completionTime = Prelude.Nothing,
-      startTime = Prelude.Nothing,
+      contentIdentificationType = Prelude.Nothing,
       transcriptionJobStatus = Prelude.Nothing,
+      startTime = Prelude.Nothing,
       outputLocationType = Prelude.Nothing,
       specialty = Prelude.Nothing,
       failureReason = Prelude.Nothing,
@@ -122,23 +134,30 @@ medicalTranscriptionJobSummary_creationTime = Lens.lens (\MedicalTranscriptionJo
 medicalTranscriptionJobSummary_completionTime :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe Prelude.UTCTime)
 medicalTranscriptionJobSummary_completionTime = Lens.lens (\MedicalTranscriptionJobSummary' {completionTime} -> completionTime) (\s@MedicalTranscriptionJobSummary' {} a -> s {completionTime = a} :: MedicalTranscriptionJobSummary) Prelude.. Lens.mapping Core._Time
 
--- | A timestamp that shows when the job began processing.
-medicalTranscriptionJobSummary_startTime :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe Prelude.UTCTime)
-medicalTranscriptionJobSummary_startTime = Lens.lens (\MedicalTranscriptionJobSummary' {startTime} -> startTime) (\s@MedicalTranscriptionJobSummary' {} a -> s {startTime = a} :: MedicalTranscriptionJobSummary) Prelude.. Lens.mapping Core._Time
+-- | Shows the type of information you\'ve configured Amazon Transcribe
+-- Medical to identify in a transcription job. If the value is @PHI@,
+-- you\'ve configured the transcription job to identify personal health
+-- information (PHI).
+medicalTranscriptionJobSummary_contentIdentificationType :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe MedicalContentIdentificationType)
+medicalTranscriptionJobSummary_contentIdentificationType = Lens.lens (\MedicalTranscriptionJobSummary' {contentIdentificationType} -> contentIdentificationType) (\s@MedicalTranscriptionJobSummary' {} a -> s {contentIdentificationType = a} :: MedicalTranscriptionJobSummary)
 
 -- | The status of the medical transcription job.
 medicalTranscriptionJobSummary_transcriptionJobStatus :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe TranscriptionJobStatus)
 medicalTranscriptionJobSummary_transcriptionJobStatus = Lens.lens (\MedicalTranscriptionJobSummary' {transcriptionJobStatus} -> transcriptionJobStatus) (\s@MedicalTranscriptionJobSummary' {} a -> s {transcriptionJobStatus = a} :: MedicalTranscriptionJobSummary)
 
--- | Indicates the location of the transcription job\'s output.
---
--- The @CUSTOMER_BUCKET@ is the S3 location provided in the
--- @OutputBucketName@ field when the
+-- | A timestamp that shows when the job began processing.
+medicalTranscriptionJobSummary_startTime :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe Prelude.UTCTime)
+medicalTranscriptionJobSummary_startTime = Lens.lens (\MedicalTranscriptionJobSummary' {startTime} -> startTime) (\s@MedicalTranscriptionJobSummary' {} a -> s {startTime = a} :: MedicalTranscriptionJobSummary) Prelude.. Lens.mapping Core._Time
+
+-- | Indicates the location of the transcription job\'s output. This field
+-- must be the path of an S3 bucket; if you don\'t already have an S3
+-- bucket, one is created based on the path you add.
 medicalTranscriptionJobSummary_outputLocationType :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe OutputLocationType)
 medicalTranscriptionJobSummary_outputLocationType = Lens.lens (\MedicalTranscriptionJobSummary' {outputLocationType} -> outputLocationType) (\s@MedicalTranscriptionJobSummary' {} a -> s {outputLocationType = a} :: MedicalTranscriptionJobSummary)
 
--- | The medical specialty of the transcription job. @Primary care@ is the
--- only valid value.
+-- | The medical specialty of the transcription job. Refer to
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-medical-conversation.html Transcribing a medical conversation>for
+-- a list of supported specialties.
 medicalTranscriptionJobSummary_specialty :: Lens.Lens' MedicalTranscriptionJobSummary (Prelude.Maybe Specialty)
 medicalTranscriptionJobSummary_specialty = Lens.lens (\MedicalTranscriptionJobSummary' {specialty} -> specialty) (\s@MedicalTranscriptionJobSummary' {} a -> s {specialty = a} :: MedicalTranscriptionJobSummary)
 
@@ -164,8 +183,9 @@ instance Core.FromJSON MedicalTranscriptionJobSummary where
             Prelude.<$> (x Core..:? "LanguageCode")
             Prelude.<*> (x Core..:? "CreationTime")
             Prelude.<*> (x Core..:? "CompletionTime")
-            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<*> (x Core..:? "ContentIdentificationType")
             Prelude.<*> (x Core..:? "TranscriptionJobStatus")
+            Prelude.<*> (x Core..:? "StartTime")
             Prelude.<*> (x Core..:? "OutputLocationType")
             Prelude.<*> (x Core..:? "Specialty")
             Prelude.<*> (x Core..:? "FailureReason")

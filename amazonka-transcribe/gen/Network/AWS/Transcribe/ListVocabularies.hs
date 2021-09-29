@@ -62,9 +62,10 @@ data ListVocabularies = ListVocabularies'
     -- case sensitive, @ListVocabularies@ returns both \"vocabularyname\" and
     -- \"VocabularyName\" in the response list.
     nameContains :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of vocabularies to return in the response. If there
-    -- are fewer results in the list, this response contains only the actual
-    -- results.
+    -- | The maximum number of vocabularies to return in each page of results. If
+    -- there are fewer results than the value you specify, only the actual
+    -- results are returned. If you do not specify a value, the default of 5 is
+    -- used.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | When specified, only returns vocabularies with the @VocabularyState@
     -- field equal to the specified state.
@@ -88,9 +89,10 @@ data ListVocabularies = ListVocabularies'
 -- case sensitive, @ListVocabularies@ returns both \"vocabularyname\" and
 -- \"VocabularyName\" in the response list.
 --
--- 'maxResults', 'listVocabularies_maxResults' - The maximum number of vocabularies to return in the response. If there
--- are fewer results in the list, this response contains only the actual
--- results.
+-- 'maxResults', 'listVocabularies_maxResults' - The maximum number of vocabularies to return in each page of results. If
+-- there are fewer results than the value you specify, only the actual
+-- results are returned. If you do not specify a value, the default of 5 is
+-- used.
 --
 -- 'stateEquals', 'listVocabularies_stateEquals' - When specified, only returns vocabularies with the @VocabularyState@
 -- field equal to the specified state.
@@ -116,9 +118,10 @@ listVocabularies_nextToken = Lens.lens (\ListVocabularies' {nextToken} -> nextTo
 listVocabularies_nameContains :: Lens.Lens' ListVocabularies (Prelude.Maybe Prelude.Text)
 listVocabularies_nameContains = Lens.lens (\ListVocabularies' {nameContains} -> nameContains) (\s@ListVocabularies' {} a -> s {nameContains = a} :: ListVocabularies)
 
--- | The maximum number of vocabularies to return in the response. If there
--- are fewer results in the list, this response contains only the actual
--- results.
+-- | The maximum number of vocabularies to return in each page of results. If
+-- there are fewer results than the value you specify, only the actual
+-- results are returned. If you do not specify a value, the default of 5 is
+-- used.
 listVocabularies_maxResults :: Lens.Lens' ListVocabularies (Prelude.Maybe Prelude.Natural)
 listVocabularies_maxResults = Lens.lens (\ListVocabularies' {maxResults} -> maxResults) (\s@ListVocabularies' {} a -> s {maxResults = a} :: ListVocabularies)
 

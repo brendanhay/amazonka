@@ -20,7 +20,11 @@
 module Network.AWS.Transcribe.Types.CLMLanguageCode
   ( CLMLanguageCode
       ( ..,
-        CLMLanguageCode_En_US
+        CLMLanguageCode_En_AU,
+        CLMLanguageCode_En_GB,
+        CLMLanguageCode_En_US,
+        CLMLanguageCode_Es_US,
+        CLMLanguageCode_Hi_IN
       ),
   )
 where
@@ -56,10 +60,26 @@ newtype CLMLanguageCode = CLMLanguageCode'
       Core.ToXML
     )
 
+pattern CLMLanguageCode_En_AU :: CLMLanguageCode
+pattern CLMLanguageCode_En_AU = CLMLanguageCode' "en-AU"
+
+pattern CLMLanguageCode_En_GB :: CLMLanguageCode
+pattern CLMLanguageCode_En_GB = CLMLanguageCode' "en-GB"
+
 pattern CLMLanguageCode_En_US :: CLMLanguageCode
 pattern CLMLanguageCode_En_US = CLMLanguageCode' "en-US"
 
+pattern CLMLanguageCode_Es_US :: CLMLanguageCode
+pattern CLMLanguageCode_Es_US = CLMLanguageCode' "es-US"
+
+pattern CLMLanguageCode_Hi_IN :: CLMLanguageCode
+pattern CLMLanguageCode_Hi_IN = CLMLanguageCode' "hi-IN"
+
 {-# COMPLETE
+  CLMLanguageCode_En_AU,
+  CLMLanguageCode_En_GB,
   CLMLanguageCode_En_US,
+  CLMLanguageCode_Es_US,
+  CLMLanguageCode_Hi_IN,
   CLMLanguageCode'
   #-}

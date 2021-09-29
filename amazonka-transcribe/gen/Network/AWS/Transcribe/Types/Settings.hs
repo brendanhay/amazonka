@@ -28,14 +28,17 @@ import Network.AWS.Transcribe.Types.VocabularyFilterMethod
 --
 -- /See:/ 'newSettings' smart constructor.
 data Settings = Settings'
-  { -- | Set to @mask@ to remove filtered text from the transcript and replace it
-    -- with three asterisks (\"***\") as placeholder text. Set to @remove@ to
-    -- remove filtered text from the transcript without using placeholder text.
-    vocabularyFilterMethod :: Prelude.Maybe VocabularyFilterMethod,
-    -- | The name of the vocabulary filter to use when transcribing the audio.
+  { -- | The name of the vocabulary filter to use when transcribing the audio.
     -- The filter that you specify must have the same language code as the
     -- transcription job.
     vocabularyFilterName :: Prelude.Maybe Prelude.Text,
+    -- | Set to @mask@ to remove filtered text from the transcript and replace it
+    -- with three asterisks (\"***\") as placeholder text. Set to @remove@ to
+    -- remove filtered text from the transcript without using placeholder text.
+    -- Set to @tag@ to mark the word in the transcription output that matches
+    -- the vocabulary filter. When you set the filter method to @tag@, the
+    -- words matching your vocabulary filter are not masked or removed.
+    vocabularyFilterMethod :: Prelude.Maybe VocabularyFilterMethod,
     -- | Determines whether the transcription contains alternative
     -- transcriptions. If you set the @ShowAlternatives@ field to true, you
     -- must also set the maximum number of alternatives to return in the
@@ -86,13 +89,16 @@ data Settings = Settings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'vocabularyFilterMethod', 'settings_vocabularyFilterMethod' - Set to @mask@ to remove filtered text from the transcript and replace it
--- with three asterisks (\"***\") as placeholder text. Set to @remove@ to
--- remove filtered text from the transcript without using placeholder text.
---
 -- 'vocabularyFilterName', 'settings_vocabularyFilterName' - The name of the vocabulary filter to use when transcribing the audio.
 -- The filter that you specify must have the same language code as the
 -- transcription job.
+--
+-- 'vocabularyFilterMethod', 'settings_vocabularyFilterMethod' - Set to @mask@ to remove filtered text from the transcript and replace it
+-- with three asterisks (\"***\") as placeholder text. Set to @remove@ to
+-- remove filtered text from the transcript without using placeholder text.
+-- Set to @tag@ to mark the word in the transcription output that matches
+-- the vocabulary filter. When you set the filter method to @tag@, the
+-- words matching your vocabulary filter are not masked or removed.
 --
 -- 'showAlternatives', 'settings_showAlternatives' - Determines whether the transcription contains alternative
 -- transcriptions. If you set the @ShowAlternatives@ field to true, you
@@ -136,8 +142,8 @@ newSettings ::
   Settings
 newSettings =
   Settings'
-    { vocabularyFilterMethod = Prelude.Nothing,
-      vocabularyFilterName = Prelude.Nothing,
+    { vocabularyFilterName = Prelude.Nothing,
+      vocabularyFilterMethod = Prelude.Nothing,
       showAlternatives = Prelude.Nothing,
       channelIdentification = Prelude.Nothing,
       maxAlternatives = Prelude.Nothing,
@@ -146,17 +152,20 @@ newSettings =
       maxSpeakerLabels = Prelude.Nothing
     }
 
--- | Set to @mask@ to remove filtered text from the transcript and replace it
--- with three asterisks (\"***\") as placeholder text. Set to @remove@ to
--- remove filtered text from the transcript without using placeholder text.
-settings_vocabularyFilterMethod :: Lens.Lens' Settings (Prelude.Maybe VocabularyFilterMethod)
-settings_vocabularyFilterMethod = Lens.lens (\Settings' {vocabularyFilterMethod} -> vocabularyFilterMethod) (\s@Settings' {} a -> s {vocabularyFilterMethod = a} :: Settings)
-
 -- | The name of the vocabulary filter to use when transcribing the audio.
 -- The filter that you specify must have the same language code as the
 -- transcription job.
 settings_vocabularyFilterName :: Lens.Lens' Settings (Prelude.Maybe Prelude.Text)
 settings_vocabularyFilterName = Lens.lens (\Settings' {vocabularyFilterName} -> vocabularyFilterName) (\s@Settings' {} a -> s {vocabularyFilterName = a} :: Settings)
+
+-- | Set to @mask@ to remove filtered text from the transcript and replace it
+-- with three asterisks (\"***\") as placeholder text. Set to @remove@ to
+-- remove filtered text from the transcript without using placeholder text.
+-- Set to @tag@ to mark the word in the transcription output that matches
+-- the vocabulary filter. When you set the filter method to @tag@, the
+-- words matching your vocabulary filter are not masked or removed.
+settings_vocabularyFilterMethod :: Lens.Lens' Settings (Prelude.Maybe VocabularyFilterMethod)
+settings_vocabularyFilterMethod = Lens.lens (\Settings' {vocabularyFilterMethod} -> vocabularyFilterMethod) (\s@Settings' {} a -> s {vocabularyFilterMethod = a} :: Settings)
 
 -- | Determines whether the transcription contains alternative
 -- transcriptions. If you set the @ShowAlternatives@ field to true, you
@@ -215,8 +224,8 @@ instance Core.FromJSON Settings where
       "Settings"
       ( \x ->
           Settings'
-            Prelude.<$> (x Core..:? "VocabularyFilterMethod")
-            Prelude.<*> (x Core..:? "VocabularyFilterName")
+            Prelude.<$> (x Core..:? "VocabularyFilterName")
+            Prelude.<*> (x Core..:? "VocabularyFilterMethod")
             Prelude.<*> (x Core..:? "ShowAlternatives")
             Prelude.<*> (x Core..:? "ChannelIdentification")
             Prelude.<*> (x Core..:? "MaxAlternatives")
@@ -233,10 +242,10 @@ instance Core.ToJSON Settings where
   toJSON Settings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("VocabularyFilterMethod" Core..=)
-              Prelude.<$> vocabularyFilterMethod,
-            ("VocabularyFilterName" Core..=)
+          [ ("VocabularyFilterName" Core..=)
               Prelude.<$> vocabularyFilterName,
+            ("VocabularyFilterMethod" Core..=)
+              Prelude.<$> vocabularyFilterMethod,
             ("ShowAlternatives" Core..=)
               Prelude.<$> showAlternatives,
             ("ChannelIdentification" Core..=)

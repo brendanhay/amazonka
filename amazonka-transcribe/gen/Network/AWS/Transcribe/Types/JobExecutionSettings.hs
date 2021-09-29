@@ -34,6 +34,8 @@ data JobExecutionSettings = JobExecutionSettings'
     -- limit. If the field is false, Amazon Transcribe returns a
     -- @LimitExceededException@ exception.
     --
+    -- Note that job queuing is enabled by default for call analytics jobs.
+    --
     -- If you specify the @AllowDeferredExecution@ field, you must specify the
     -- @DataAccessRoleArn@ field.
     allowDeferredExecution :: Prelude.Maybe Prelude.Bool,
@@ -64,6 +66,8 @@ data JobExecutionSettings = JobExecutionSettings'
 -- limit. If the field is false, Amazon Transcribe returns a
 -- @LimitExceededException@ exception.
 --
+-- Note that job queuing is enabled by default for call analytics jobs.
+--
 -- If you specify the @AllowDeferredExecution@ field, you must specify the
 -- @DataAccessRoleArn@ field.
 --
@@ -90,6 +94,8 @@ newJobExecutionSettings =
 -- when the number of executing jobs falls below the concurrent execution
 -- limit. If the field is false, Amazon Transcribe returns a
 -- @LimitExceededException@ exception.
+--
+-- Note that job queuing is enabled by default for call analytics jobs.
 --
 -- If you specify the @AllowDeferredExecution@ field, you must specify the
 -- @DataAccessRoleArn@ field.

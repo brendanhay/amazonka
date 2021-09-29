@@ -28,8 +28,11 @@ module Network.AWS.Transcribe.StartMedicalTranscriptionJob
 
     -- * Request Lenses
     startMedicalTranscriptionJob_mediaFormat,
+    startMedicalTranscriptionJob_contentIdentificationType,
     startMedicalTranscriptionJob_outputKey,
+    startMedicalTranscriptionJob_kmsEncryptionContext,
     startMedicalTranscriptionJob_outputEncryptionKMSKeyId,
+    startMedicalTranscriptionJob_tags,
     startMedicalTranscriptionJob_mediaSampleRateHertz,
     startMedicalTranscriptionJob_settings,
     startMedicalTranscriptionJob_medicalTranscriptionJobName,
@@ -60,6 +63,11 @@ import Network.AWS.Transcribe.Types
 data StartMedicalTranscriptionJob = StartMedicalTranscriptionJob'
   { -- | The audio format of the input media file.
     mediaFormat :: Prelude.Maybe MediaFormat,
+    -- | You can configure Amazon Transcribe Medical to label content in the
+    -- transcription output. If you specify @PHI@, Amazon Transcribe Medical
+    -- labels the personal health information (PHI) that it identifies in the
+    -- transcription output.
+    contentIdentificationType :: Prelude.Maybe MedicalContentIdentificationType,
     -- | You can specify a location in an Amazon S3 bucket to store the output of
     -- your medical transcription job.
     --
@@ -80,10 +88,13 @@ data StartMedicalTranscriptionJob = StartMedicalTranscriptionJob'
     -- If you specify an output key, you must also specify an S3 bucket in the
     -- @OutputBucketName@ parameter.
     outputKey :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS)
-    -- key used to encrypt the output of the transcription job. The user
-    -- calling the StartMedicalTranscriptionJob operation must have permission
-    -- to use the specified KMS key.
+    -- | A map of plain text, non-secret key:value pairs, known as encryption
+    -- context pairs, that provide an added layer of security for your data.
+    kmsEncryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The Amazon Resource Name (ARN) of the Amazon Web Services Key Management
+    -- Service (KMS) key used to encrypt the output of the transcription job.
+    -- The user calling the StartMedicalTranscriptionJob operation must have
+    -- permission to use the specified KMS key.
     --
     -- You use either of the following to identify a KMS key in the current
     -- account:
@@ -108,6 +119,8 @@ data StartMedicalTranscriptionJob = StartMedicalTranscriptionJob'
     -- If you specify a KMS key to encrypt your output, you must also specify
     -- an output location in the @OutputBucketName@ parameter.
     outputEncryptionKMSKeyId :: Prelude.Maybe Prelude.Text,
+    -- | Add tags to an Amazon Transcribe medical transcription job.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The sample rate, in Hertz, of the audio track in the input media file.
     --
     -- If you do not specify the media sample rate, Amazon Transcribe Medical
@@ -120,9 +133,9 @@ data StartMedicalTranscriptionJob = StartMedicalTranscriptionJob'
     settings :: Prelude.Maybe MedicalTranscriptionSetting,
     -- | The name of the medical transcription job. You can\'t use the strings
     -- \"@.@\" or \"@..@\" by themselves as the job name. The name must also be
-    -- unique within an AWS account. If you try to create a medical
-    -- transcription job with the same name as a previous medical transcription
-    -- job, you get a @ConflictException@ error.
+    -- unique within an Amazon Web Services account. If you try to create a
+    -- medical transcription job with the same name as a previous medical
+    -- transcription job, you get a @ConflictException@ error.
     medicalTranscriptionJobName :: Prelude.Text,
     -- | The language code for the language spoken in the input media file. US
     -- English (en-US) is the valid value for medical transcription jobs. Any
@@ -140,18 +153,18 @@ data StartMedicalTranscriptionJob = StartMedicalTranscriptionJob'
     -- in the bucket. For more information, see
     -- <https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user Permissions Required for IAM User Roles>.
     --
-    -- You can specify an AWS Key Management Service (KMS) key to encrypt the
-    -- output of your transcription using the @OutputEncryptionKMSKeyId@
-    -- parameter. If you don\'t specify a KMS key, Amazon Transcribe Medical
-    -- uses the default Amazon S3 key for server-side encryption of transcripts
-    -- that are placed in your S3 bucket.
+    -- You can specify an Amazon Web Services Key Management Service (KMS) key
+    -- to encrypt the output of your transcription using the
+    -- @OutputEncryptionKMSKeyId@ parameter. If you don\'t specify a KMS key,
+    -- Amazon Transcribe Medical uses the default Amazon S3 key for server-side
+    -- encryption of transcripts that are placed in your S3 bucket.
     outputBucketName :: Prelude.Text,
     -- | The medical specialty of any clinician speaking in the input media.
     specialty :: Specialty,
     -- | The type of speech in the input audio. @CONVERSATION@ refers to
     -- conversations between two or more speakers, e.g., a conversations
     -- between doctors and patients. @DICTATION@ refers to single-speaker
-    -- dictated speech, e.g., for clinical notes.
+    -- dictated speech, such as clinical notes.
     type' :: Type
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -165,6 +178,11 @@ data StartMedicalTranscriptionJob = StartMedicalTranscriptionJob'
 -- for backwards compatibility:
 --
 -- 'mediaFormat', 'startMedicalTranscriptionJob_mediaFormat' - The audio format of the input media file.
+--
+-- 'contentIdentificationType', 'startMedicalTranscriptionJob_contentIdentificationType' - You can configure Amazon Transcribe Medical to label content in the
+-- transcription output. If you specify @PHI@, Amazon Transcribe Medical
+-- labels the personal health information (PHI) that it identifies in the
+-- transcription output.
 --
 -- 'outputKey', 'startMedicalTranscriptionJob_outputKey' - You can specify a location in an Amazon S3 bucket to store the output of
 -- your medical transcription job.
@@ -186,10 +204,13 @@ data StartMedicalTranscriptionJob = StartMedicalTranscriptionJob'
 -- If you specify an output key, you must also specify an S3 bucket in the
 -- @OutputBucketName@ parameter.
 --
--- 'outputEncryptionKMSKeyId', 'startMedicalTranscriptionJob_outputEncryptionKMSKeyId' - The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS)
--- key used to encrypt the output of the transcription job. The user
--- calling the StartMedicalTranscriptionJob operation must have permission
--- to use the specified KMS key.
+-- 'kmsEncryptionContext', 'startMedicalTranscriptionJob_kmsEncryptionContext' - A map of plain text, non-secret key:value pairs, known as encryption
+-- context pairs, that provide an added layer of security for your data.
+--
+-- 'outputEncryptionKMSKeyId', 'startMedicalTranscriptionJob_outputEncryptionKMSKeyId' - The Amazon Resource Name (ARN) of the Amazon Web Services Key Management
+-- Service (KMS) key used to encrypt the output of the transcription job.
+-- The user calling the StartMedicalTranscriptionJob operation must have
+-- permission to use the specified KMS key.
 --
 -- You use either of the following to identify a KMS key in the current
 -- account:
@@ -214,6 +235,8 @@ data StartMedicalTranscriptionJob = StartMedicalTranscriptionJob'
 -- If you specify a KMS key to encrypt your output, you must also specify
 -- an output location in the @OutputBucketName@ parameter.
 --
+-- 'tags', 'startMedicalTranscriptionJob_tags' - Add tags to an Amazon Transcribe medical transcription job.
+--
 -- 'mediaSampleRateHertz', 'startMedicalTranscriptionJob_mediaSampleRateHertz' - The sample rate, in Hertz, of the audio track in the input media file.
 --
 -- If you do not specify the media sample rate, Amazon Transcribe Medical
@@ -226,9 +249,9 @@ data StartMedicalTranscriptionJob = StartMedicalTranscriptionJob'
 --
 -- 'medicalTranscriptionJobName', 'startMedicalTranscriptionJob_medicalTranscriptionJobName' - The name of the medical transcription job. You can\'t use the strings
 -- \"@.@\" or \"@..@\" by themselves as the job name. The name must also be
--- unique within an AWS account. If you try to create a medical
--- transcription job with the same name as a previous medical transcription
--- job, you get a @ConflictException@ error.
+-- unique within an Amazon Web Services account. If you try to create a
+-- medical transcription job with the same name as a previous medical
+-- transcription job, you get a @ConflictException@ error.
 --
 -- 'languageCode', 'startMedicalTranscriptionJob_languageCode' - The language code for the language spoken in the input media file. US
 -- English (en-US) is the valid value for medical transcription jobs. Any
@@ -247,18 +270,18 @@ data StartMedicalTranscriptionJob = StartMedicalTranscriptionJob'
 -- in the bucket. For more information, see
 -- <https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user Permissions Required for IAM User Roles>.
 --
--- You can specify an AWS Key Management Service (KMS) key to encrypt the
--- output of your transcription using the @OutputEncryptionKMSKeyId@
--- parameter. If you don\'t specify a KMS key, Amazon Transcribe Medical
--- uses the default Amazon S3 key for server-side encryption of transcripts
--- that are placed in your S3 bucket.
+-- You can specify an Amazon Web Services Key Management Service (KMS) key
+-- to encrypt the output of your transcription using the
+-- @OutputEncryptionKMSKeyId@ parameter. If you don\'t specify a KMS key,
+-- Amazon Transcribe Medical uses the default Amazon S3 key for server-side
+-- encryption of transcripts that are placed in your S3 bucket.
 --
 -- 'specialty', 'startMedicalTranscriptionJob_specialty' - The medical specialty of any clinician speaking in the input media.
 --
 -- 'type'', 'startMedicalTranscriptionJob_type' - The type of speech in the input audio. @CONVERSATION@ refers to
 -- conversations between two or more speakers, e.g., a conversations
 -- between doctors and patients. @DICTATION@ refers to single-speaker
--- dictated speech, e.g., for clinical notes.
+-- dictated speech, such as clinical notes.
 newStartMedicalTranscriptionJob ::
   -- | 'medicalTranscriptionJobName'
   Prelude.Text ->
@@ -283,8 +306,11 @@ newStartMedicalTranscriptionJob
     StartMedicalTranscriptionJob'
       { mediaFormat =
           Prelude.Nothing,
+        contentIdentificationType = Prelude.Nothing,
         outputKey = Prelude.Nothing,
+        kmsEncryptionContext = Prelude.Nothing,
         outputEncryptionKMSKeyId = Prelude.Nothing,
+        tags = Prelude.Nothing,
         mediaSampleRateHertz = Prelude.Nothing,
         settings = Prelude.Nothing,
         medicalTranscriptionJobName =
@@ -299,6 +325,13 @@ newStartMedicalTranscriptionJob
 -- | The audio format of the input media file.
 startMedicalTranscriptionJob_mediaFormat :: Lens.Lens' StartMedicalTranscriptionJob (Prelude.Maybe MediaFormat)
 startMedicalTranscriptionJob_mediaFormat = Lens.lens (\StartMedicalTranscriptionJob' {mediaFormat} -> mediaFormat) (\s@StartMedicalTranscriptionJob' {} a -> s {mediaFormat = a} :: StartMedicalTranscriptionJob)
+
+-- | You can configure Amazon Transcribe Medical to label content in the
+-- transcription output. If you specify @PHI@, Amazon Transcribe Medical
+-- labels the personal health information (PHI) that it identifies in the
+-- transcription output.
+startMedicalTranscriptionJob_contentIdentificationType :: Lens.Lens' StartMedicalTranscriptionJob (Prelude.Maybe MedicalContentIdentificationType)
+startMedicalTranscriptionJob_contentIdentificationType = Lens.lens (\StartMedicalTranscriptionJob' {contentIdentificationType} -> contentIdentificationType) (\s@StartMedicalTranscriptionJob' {} a -> s {contentIdentificationType = a} :: StartMedicalTranscriptionJob)
 
 -- | You can specify a location in an Amazon S3 bucket to store the output of
 -- your medical transcription job.
@@ -322,10 +355,15 @@ startMedicalTranscriptionJob_mediaFormat = Lens.lens (\StartMedicalTranscription
 startMedicalTranscriptionJob_outputKey :: Lens.Lens' StartMedicalTranscriptionJob (Prelude.Maybe Prelude.Text)
 startMedicalTranscriptionJob_outputKey = Lens.lens (\StartMedicalTranscriptionJob' {outputKey} -> outputKey) (\s@StartMedicalTranscriptionJob' {} a -> s {outputKey = a} :: StartMedicalTranscriptionJob)
 
--- | The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS)
--- key used to encrypt the output of the transcription job. The user
--- calling the StartMedicalTranscriptionJob operation must have permission
--- to use the specified KMS key.
+-- | A map of plain text, non-secret key:value pairs, known as encryption
+-- context pairs, that provide an added layer of security for your data.
+startMedicalTranscriptionJob_kmsEncryptionContext :: Lens.Lens' StartMedicalTranscriptionJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+startMedicalTranscriptionJob_kmsEncryptionContext = Lens.lens (\StartMedicalTranscriptionJob' {kmsEncryptionContext} -> kmsEncryptionContext) (\s@StartMedicalTranscriptionJob' {} a -> s {kmsEncryptionContext = a} :: StartMedicalTranscriptionJob) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The Amazon Resource Name (ARN) of the Amazon Web Services Key Management
+-- Service (KMS) key used to encrypt the output of the transcription job.
+-- The user calling the StartMedicalTranscriptionJob operation must have
+-- permission to use the specified KMS key.
 --
 -- You use either of the following to identify a KMS key in the current
 -- account:
@@ -352,6 +390,10 @@ startMedicalTranscriptionJob_outputKey = Lens.lens (\StartMedicalTranscriptionJo
 startMedicalTranscriptionJob_outputEncryptionKMSKeyId :: Lens.Lens' StartMedicalTranscriptionJob (Prelude.Maybe Prelude.Text)
 startMedicalTranscriptionJob_outputEncryptionKMSKeyId = Lens.lens (\StartMedicalTranscriptionJob' {outputEncryptionKMSKeyId} -> outputEncryptionKMSKeyId) (\s@StartMedicalTranscriptionJob' {} a -> s {outputEncryptionKMSKeyId = a} :: StartMedicalTranscriptionJob)
 
+-- | Add tags to an Amazon Transcribe medical transcription job.
+startMedicalTranscriptionJob_tags :: Lens.Lens' StartMedicalTranscriptionJob (Prelude.Maybe (Prelude.NonEmpty Tag))
+startMedicalTranscriptionJob_tags = Lens.lens (\StartMedicalTranscriptionJob' {tags} -> tags) (\s@StartMedicalTranscriptionJob' {} a -> s {tags = a} :: StartMedicalTranscriptionJob) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The sample rate, in Hertz, of the audio track in the input media file.
 --
 -- If you do not specify the media sample rate, Amazon Transcribe Medical
@@ -368,9 +410,9 @@ startMedicalTranscriptionJob_settings = Lens.lens (\StartMedicalTranscriptionJob
 
 -- | The name of the medical transcription job. You can\'t use the strings
 -- \"@.@\" or \"@..@\" by themselves as the job name. The name must also be
--- unique within an AWS account. If you try to create a medical
--- transcription job with the same name as a previous medical transcription
--- job, you get a @ConflictException@ error.
+-- unique within an Amazon Web Services account. If you try to create a
+-- medical transcription job with the same name as a previous medical
+-- transcription job, you get a @ConflictException@ error.
 startMedicalTranscriptionJob_medicalTranscriptionJobName :: Lens.Lens' StartMedicalTranscriptionJob Prelude.Text
 startMedicalTranscriptionJob_medicalTranscriptionJobName = Lens.lens (\StartMedicalTranscriptionJob' {medicalTranscriptionJobName} -> medicalTranscriptionJobName) (\s@StartMedicalTranscriptionJob' {} a -> s {medicalTranscriptionJobName = a} :: StartMedicalTranscriptionJob)
 
@@ -395,11 +437,11 @@ startMedicalTranscriptionJob_media = Lens.lens (\StartMedicalTranscriptionJob' {
 -- in the bucket. For more information, see
 -- <https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user Permissions Required for IAM User Roles>.
 --
--- You can specify an AWS Key Management Service (KMS) key to encrypt the
--- output of your transcription using the @OutputEncryptionKMSKeyId@
--- parameter. If you don\'t specify a KMS key, Amazon Transcribe Medical
--- uses the default Amazon S3 key for server-side encryption of transcripts
--- that are placed in your S3 bucket.
+-- You can specify an Amazon Web Services Key Management Service (KMS) key
+-- to encrypt the output of your transcription using the
+-- @OutputEncryptionKMSKeyId@ parameter. If you don\'t specify a KMS key,
+-- Amazon Transcribe Medical uses the default Amazon S3 key for server-side
+-- encryption of transcripts that are placed in your S3 bucket.
 startMedicalTranscriptionJob_outputBucketName :: Lens.Lens' StartMedicalTranscriptionJob Prelude.Text
 startMedicalTranscriptionJob_outputBucketName = Lens.lens (\StartMedicalTranscriptionJob' {outputBucketName} -> outputBucketName) (\s@StartMedicalTranscriptionJob' {} a -> s {outputBucketName = a} :: StartMedicalTranscriptionJob)
 
@@ -410,7 +452,7 @@ startMedicalTranscriptionJob_specialty = Lens.lens (\StartMedicalTranscriptionJo
 -- | The type of speech in the input audio. @CONVERSATION@ refers to
 -- conversations between two or more speakers, e.g., a conversations
 -- between doctors and patients. @DICTATION@ refers to single-speaker
--- dictated speech, e.g., for clinical notes.
+-- dictated speech, such as clinical notes.
 startMedicalTranscriptionJob_type :: Lens.Lens' StartMedicalTranscriptionJob Type
 startMedicalTranscriptionJob_type = Lens.lens (\StartMedicalTranscriptionJob' {type'} -> type') (\s@StartMedicalTranscriptionJob' {} a -> s {type' = a} :: StartMedicalTranscriptionJob)
 
@@ -453,9 +495,14 @@ instance Core.ToJSON StartMedicalTranscriptionJob where
     Core.object
       ( Prelude.catMaybes
           [ ("MediaFormat" Core..=) Prelude.<$> mediaFormat,
+            ("ContentIdentificationType" Core..=)
+              Prelude.<$> contentIdentificationType,
             ("OutputKey" Core..=) Prelude.<$> outputKey,
+            ("KMSEncryptionContext" Core..=)
+              Prelude.<$> kmsEncryptionContext,
             ("OutputEncryptionKMSKeyId" Core..=)
               Prelude.<$> outputEncryptionKMSKeyId,
+            ("Tags" Core..=) Prelude.<$> tags,
             ("MediaSampleRateHertz" Core..=)
               Prelude.<$> mediaSampleRateHertz,
             ("Settings" Core..=) Prelude.<$> settings,

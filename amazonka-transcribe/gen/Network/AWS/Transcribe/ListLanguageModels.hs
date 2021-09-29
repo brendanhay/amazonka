@@ -61,9 +61,10 @@ data ListLanguageModels = ListLanguageModels'
     -- | When specified, the custom language model names returned contain the
     -- substring you\'ve specified.
     nameContains :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of language models to return in the response. If
-    -- there are fewer results in the list, the response contains only the
-    -- actual results.
+    -- | The maximum number of language models to return in each page of results.
+    -- If there are fewer results than the value you specify, only the actual
+    -- results are returned. If you do not specify a value, the default of 5 is
+    -- used.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | When specified, returns only custom language models with the specified
     -- status. Language models are ordered by creation date, with the newest
@@ -87,9 +88,10 @@ data ListLanguageModels = ListLanguageModels'
 -- 'nameContains', 'listLanguageModels_nameContains' - When specified, the custom language model names returned contain the
 -- substring you\'ve specified.
 --
--- 'maxResults', 'listLanguageModels_maxResults' - The maximum number of language models to return in the response. If
--- there are fewer results in the list, the response contains only the
--- actual results.
+-- 'maxResults', 'listLanguageModels_maxResults' - The maximum number of language models to return in each page of results.
+-- If there are fewer results than the value you specify, only the actual
+-- results are returned. If you do not specify a value, the default of 5 is
+-- used.
 --
 -- 'statusEquals', 'listLanguageModels_statusEquals' - When specified, returns only custom language models with the specified
 -- status. Language models are ordered by creation date, with the newest
@@ -115,9 +117,10 @@ listLanguageModels_nextToken = Lens.lens (\ListLanguageModels' {nextToken} -> ne
 listLanguageModels_nameContains :: Lens.Lens' ListLanguageModels (Prelude.Maybe Prelude.Text)
 listLanguageModels_nameContains = Lens.lens (\ListLanguageModels' {nameContains} -> nameContains) (\s@ListLanguageModels' {} a -> s {nameContains = a} :: ListLanguageModels)
 
--- | The maximum number of language models to return in the response. If
--- there are fewer results in the list, the response contains only the
--- actual results.
+-- | The maximum number of language models to return in each page of results.
+-- If there are fewer results than the value you specify, only the actual
+-- results are returned. If you do not specify a value, the default of 5 is
+-- used.
 listLanguageModels_maxResults :: Lens.Lens' ListLanguageModels (Prelude.Maybe Prelude.Natural)
 listLanguageModels_maxResults = Lens.lens (\ListLanguageModels' {maxResults} -> maxResults) (\s@ListLanguageModels' {} a -> s {maxResults = a} :: ListLanguageModels)
 

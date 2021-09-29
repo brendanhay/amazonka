@@ -46,10 +46,13 @@ library
 
   exposed-modules:
     Network.AWS.Transcribe
+    Network.AWS.Transcribe.CreateCallAnalyticsCategory
     Network.AWS.Transcribe.CreateLanguageModel
     Network.AWS.Transcribe.CreateMedicalVocabulary
     Network.AWS.Transcribe.CreateVocabulary
     Network.AWS.Transcribe.CreateVocabularyFilter
+    Network.AWS.Transcribe.DeleteCallAnalyticsCategory
+    Network.AWS.Transcribe.DeleteCallAnalyticsJob
     Network.AWS.Transcribe.DeleteLanguageModel
     Network.AWS.Transcribe.DeleteMedicalTranscriptionJob
     Network.AWS.Transcribe.DeleteMedicalVocabulary
@@ -57,42 +60,70 @@ library
     Network.AWS.Transcribe.DeleteVocabulary
     Network.AWS.Transcribe.DeleteVocabularyFilter
     Network.AWS.Transcribe.DescribeLanguageModel
+    Network.AWS.Transcribe.GetCallAnalyticsCategory
+    Network.AWS.Transcribe.GetCallAnalyticsJob
     Network.AWS.Transcribe.GetMedicalTranscriptionJob
     Network.AWS.Transcribe.GetMedicalVocabulary
     Network.AWS.Transcribe.GetTranscriptionJob
     Network.AWS.Transcribe.GetVocabulary
     Network.AWS.Transcribe.GetVocabularyFilter
     Network.AWS.Transcribe.Lens
+    Network.AWS.Transcribe.ListCallAnalyticsCategories
+    Network.AWS.Transcribe.ListCallAnalyticsJobs
     Network.AWS.Transcribe.ListLanguageModels
     Network.AWS.Transcribe.ListMedicalTranscriptionJobs
     Network.AWS.Transcribe.ListMedicalVocabularies
+    Network.AWS.Transcribe.ListTagsForResource
     Network.AWS.Transcribe.ListTranscriptionJobs
     Network.AWS.Transcribe.ListVocabularies
     Network.AWS.Transcribe.ListVocabularyFilters
+    Network.AWS.Transcribe.StartCallAnalyticsJob
     Network.AWS.Transcribe.StartMedicalTranscriptionJob
     Network.AWS.Transcribe.StartTranscriptionJob
+    Network.AWS.Transcribe.TagResource
     Network.AWS.Transcribe.Types
+    Network.AWS.Transcribe.Types.AbsoluteTimeRange
     Network.AWS.Transcribe.Types.BaseModelName
+    Network.AWS.Transcribe.Types.CallAnalyticsJob
+    Network.AWS.Transcribe.Types.CallAnalyticsJobSettings
+    Network.AWS.Transcribe.Types.CallAnalyticsJobStatus
+    Network.AWS.Transcribe.Types.CallAnalyticsJobSummary
+    Network.AWS.Transcribe.Types.CategoryProperties
+    Network.AWS.Transcribe.Types.ChannelDefinition
     Network.AWS.Transcribe.Types.CLMLanguageCode
     Network.AWS.Transcribe.Types.ContentRedaction
     Network.AWS.Transcribe.Types.InputDataConfig
+    Network.AWS.Transcribe.Types.InterruptionFilter
     Network.AWS.Transcribe.Types.JobExecutionSettings
     Network.AWS.Transcribe.Types.LanguageCode
     Network.AWS.Transcribe.Types.LanguageModel
     Network.AWS.Transcribe.Types.Media
     Network.AWS.Transcribe.Types.MediaFormat
+    Network.AWS.Transcribe.Types.MedicalContentIdentificationType
     Network.AWS.Transcribe.Types.MedicalTranscript
     Network.AWS.Transcribe.Types.MedicalTranscriptionJob
     Network.AWS.Transcribe.Types.MedicalTranscriptionJobSummary
     Network.AWS.Transcribe.Types.MedicalTranscriptionSetting
     Network.AWS.Transcribe.Types.ModelSettings
     Network.AWS.Transcribe.Types.ModelStatus
+    Network.AWS.Transcribe.Types.NonTalkTimeFilter
     Network.AWS.Transcribe.Types.OutputLocationType
+    Network.AWS.Transcribe.Types.ParticipantRole
     Network.AWS.Transcribe.Types.RedactionOutput
     Network.AWS.Transcribe.Types.RedactionType
+    Network.AWS.Transcribe.Types.RelativeTimeRange
+    Network.AWS.Transcribe.Types.Rule
+    Network.AWS.Transcribe.Types.SentimentFilter
+    Network.AWS.Transcribe.Types.SentimentValue
     Network.AWS.Transcribe.Types.Settings
     Network.AWS.Transcribe.Types.Specialty
+    Network.AWS.Transcribe.Types.SubtitleFormat
+    Network.AWS.Transcribe.Types.Subtitles
+    Network.AWS.Transcribe.Types.SubtitlesOutput
+    Network.AWS.Transcribe.Types.Tag
     Network.AWS.Transcribe.Types.Transcript
+    Network.AWS.Transcribe.Types.TranscriptFilter
+    Network.AWS.Transcribe.Types.TranscriptFilterType
     Network.AWS.Transcribe.Types.TranscriptionJob
     Network.AWS.Transcribe.Types.TranscriptionJobStatus
     Network.AWS.Transcribe.Types.TranscriptionJobSummary
@@ -101,6 +132,8 @@ library
     Network.AWS.Transcribe.Types.VocabularyFilterMethod
     Network.AWS.Transcribe.Types.VocabularyInfo
     Network.AWS.Transcribe.Types.VocabularyState
+    Network.AWS.Transcribe.UntagResource
+    Network.AWS.Transcribe.UpdateCallAnalyticsCategory
     Network.AWS.Transcribe.UpdateMedicalVocabulary
     Network.AWS.Transcribe.UpdateVocabulary
     Network.AWS.Transcribe.UpdateVocabularyFilter

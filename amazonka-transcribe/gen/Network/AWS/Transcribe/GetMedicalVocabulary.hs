@@ -37,8 +37,8 @@ module Network.AWS.Transcribe.GetMedicalVocabulary
     getMedicalVocabularyResponse_languageCode,
     getMedicalVocabularyResponse_failureReason,
     getMedicalVocabularyResponse_lastModifiedTime,
-    getMedicalVocabularyResponse_vocabularyState,
     getMedicalVocabularyResponse_vocabularyName,
+    getMedicalVocabularyResponse_vocabularyState,
     getMedicalVocabularyResponse_downloadUri,
     getMedicalVocabularyResponse_httpStatus,
   )
@@ -96,8 +96,8 @@ instance Core.AWSRequest GetMedicalVocabulary where
             Prelude.<$> (x Core..?> "LanguageCode")
             Prelude.<*> (x Core..?> "FailureReason")
             Prelude.<*> (x Core..?> "LastModifiedTime")
-            Prelude.<*> (x Core..?> "VocabularyState")
             Prelude.<*> (x Core..?> "VocabularyName")
+            Prelude.<*> (x Core..?> "VocabularyState")
             Prelude.<*> (x Core..?> "DownloadUri")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
@@ -146,12 +146,12 @@ data GetMedicalVocabularyResponse = GetMedicalVocabularyResponse'
     -- | The date and time that the vocabulary was last modified with a text file
     -- different from the one that was previously used.
     lastModifiedTime :: Prelude.Maybe Core.POSIX,
+    -- | The name of the vocabulary returned by Amazon Transcribe Medical.
+    vocabularyName :: Prelude.Maybe Prelude.Text,
     -- | The processing state of the vocabulary. If the @VocabularyState@ is
     -- @READY@ then you can use it in the @StartMedicalTranscriptionJob@
     -- operation.
     vocabularyState :: Prelude.Maybe VocabularyState,
-    -- | The name of the vocabulary returned by Amazon Transcribe Medical.
-    vocabularyName :: Prelude.Maybe Prelude.Text,
     -- | The location in Amazon S3 where the vocabulary is stored. Use this URI
     -- to get the contents of the vocabulary. You can download your vocabulary
     -- from the URI for a limited time.
@@ -177,11 +177,11 @@ data GetMedicalVocabularyResponse = GetMedicalVocabularyResponse'
 -- 'lastModifiedTime', 'getMedicalVocabularyResponse_lastModifiedTime' - The date and time that the vocabulary was last modified with a text file
 -- different from the one that was previously used.
 --
+-- 'vocabularyName', 'getMedicalVocabularyResponse_vocabularyName' - The name of the vocabulary returned by Amazon Transcribe Medical.
+--
 -- 'vocabularyState', 'getMedicalVocabularyResponse_vocabularyState' - The processing state of the vocabulary. If the @VocabularyState@ is
 -- @READY@ then you can use it in the @StartMedicalTranscriptionJob@
 -- operation.
---
--- 'vocabularyName', 'getMedicalVocabularyResponse_vocabularyName' - The name of the vocabulary returned by Amazon Transcribe Medical.
 --
 -- 'downloadUri', 'getMedicalVocabularyResponse_downloadUri' - The location in Amazon S3 where the vocabulary is stored. Use this URI
 -- to get the contents of the vocabulary. You can download your vocabulary
@@ -198,8 +198,8 @@ newGetMedicalVocabularyResponse pHttpStatus_ =
         Prelude.Nothing,
       failureReason = Prelude.Nothing,
       lastModifiedTime = Prelude.Nothing,
-      vocabularyState = Prelude.Nothing,
       vocabularyName = Prelude.Nothing,
+      vocabularyState = Prelude.Nothing,
       downloadUri = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
@@ -218,15 +218,15 @@ getMedicalVocabularyResponse_failureReason = Lens.lens (\GetMedicalVocabularyRes
 getMedicalVocabularyResponse_lastModifiedTime :: Lens.Lens' GetMedicalVocabularyResponse (Prelude.Maybe Prelude.UTCTime)
 getMedicalVocabularyResponse_lastModifiedTime = Lens.lens (\GetMedicalVocabularyResponse' {lastModifiedTime} -> lastModifiedTime) (\s@GetMedicalVocabularyResponse' {} a -> s {lastModifiedTime = a} :: GetMedicalVocabularyResponse) Prelude.. Lens.mapping Core._Time
 
+-- | The name of the vocabulary returned by Amazon Transcribe Medical.
+getMedicalVocabularyResponse_vocabularyName :: Lens.Lens' GetMedicalVocabularyResponse (Prelude.Maybe Prelude.Text)
+getMedicalVocabularyResponse_vocabularyName = Lens.lens (\GetMedicalVocabularyResponse' {vocabularyName} -> vocabularyName) (\s@GetMedicalVocabularyResponse' {} a -> s {vocabularyName = a} :: GetMedicalVocabularyResponse)
+
 -- | The processing state of the vocabulary. If the @VocabularyState@ is
 -- @READY@ then you can use it in the @StartMedicalTranscriptionJob@
 -- operation.
 getMedicalVocabularyResponse_vocabularyState :: Lens.Lens' GetMedicalVocabularyResponse (Prelude.Maybe VocabularyState)
 getMedicalVocabularyResponse_vocabularyState = Lens.lens (\GetMedicalVocabularyResponse' {vocabularyState} -> vocabularyState) (\s@GetMedicalVocabularyResponse' {} a -> s {vocabularyState = a} :: GetMedicalVocabularyResponse)
-
--- | The name of the vocabulary returned by Amazon Transcribe Medical.
-getMedicalVocabularyResponse_vocabularyName :: Lens.Lens' GetMedicalVocabularyResponse (Prelude.Maybe Prelude.Text)
-getMedicalVocabularyResponse_vocabularyName = Lens.lens (\GetMedicalVocabularyResponse' {vocabularyName} -> vocabularyName) (\s@GetMedicalVocabularyResponse' {} a -> s {vocabularyName = a} :: GetMedicalVocabularyResponse)
 
 -- | The location in Amazon S3 where the vocabulary is stored. Use this URI
 -- to get the contents of the vocabulary. You can download your vocabulary

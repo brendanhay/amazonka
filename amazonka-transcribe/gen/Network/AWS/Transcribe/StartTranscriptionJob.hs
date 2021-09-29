@@ -32,8 +32,11 @@ module Network.AWS.Transcribe.StartTranscriptionJob
     startTranscriptionJob_contentRedaction,
     startTranscriptionJob_identifyLanguage,
     startTranscriptionJob_outputKey,
+    startTranscriptionJob_kmsEncryptionContext,
     startTranscriptionJob_modelSettings,
     startTranscriptionJob_outputEncryptionKMSKeyId,
+    startTranscriptionJob_subtitles,
+    startTranscriptionJob_tags,
     startTranscriptionJob_mediaSampleRateHertz,
     startTranscriptionJob_outputBucketName,
     startTranscriptionJob_jobExecutionSettings,
@@ -62,6 +65,9 @@ import Network.AWS.Transcribe.Types
 -- | /See:/ 'newStartTranscriptionJob' smart constructor.
 data StartTranscriptionJob = StartTranscriptionJob'
   { -- | The language code for the language used in the input media file.
+    --
+    -- To transcribe speech in Modern Standard Arabic (ar-SA), your audio or
+    -- video file must be encoded at a sample rate of 16,000 Hz or higher.
     languageCode :: Prelude.Maybe LanguageCode,
     -- | The format of the input media file.
     mediaFormat :: Prelude.Maybe MediaFormat,
@@ -90,13 +96,16 @@ data StartTranscriptionJob = StartTranscriptionJob'
     -- If you specify an output key, you must also specify an S3 bucket in the
     -- @OutputBucketName@ parameter.
     outputKey :: Prelude.Maybe Prelude.Text,
+    -- | A map of plain text, non-secret key:value pairs, known as encryption
+    -- context pairs, that provide an added layer of security for your data.
+    kmsEncryptionContext :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Choose the custom language model you use for your transcription job in
     -- this parameter.
     modelSettings :: Prelude.Maybe ModelSettings,
-    -- | The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS)
-    -- key used to encrypt the output of the transcription job. The user
-    -- calling the @StartTranscriptionJob@ operation must have permission to
-    -- use the specified KMS key.
+    -- | The Amazon Resource Name (ARN) of the Amazon Web Services Key Management
+    -- Service (KMS) key used to encrypt the output of the transcription job.
+    -- The user calling the @StartTranscriptionJob@ operation must have
+    -- permission to use the specified KMS key.
     --
     -- You can use either of the following to identify a KMS key in the current
     -- account:
@@ -121,6 +130,10 @@ data StartTranscriptionJob = StartTranscriptionJob'
     -- If you specify a KMS key to encrypt your output, you must also specify
     -- an output location in the @OutputBucketName@ parameter.
     outputEncryptionKMSKeyId :: Prelude.Maybe Prelude.Text,
+    -- | Add subtitles to your batch transcription job.
+    subtitles :: Prelude.Maybe Subtitles,
+    -- | Add tags to an Amazon Transcribe transcription job.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The sample rate, in Hertz, of the audio track in the input media file.
     --
     -- If you do not specify the media sample rate, Amazon Transcribe
@@ -142,11 +155,11 @@ data StartTranscriptionJob = StartTranscriptionJob'
     -- in the bucket. For more information, see
     -- <https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user Permissions Required for IAM User Roles>.
     --
-    -- You can specify an AWS Key Management Service (KMS) key to encrypt the
-    -- output of your transcription using the @OutputEncryptionKMSKeyId@
-    -- parameter. If you don\'t specify a KMS key, Amazon Transcribe uses the
-    -- default Amazon S3 key for server-side encryption of transcripts that are
-    -- placed in your S3 bucket.
+    -- You can specify an Amazon Web Services Key Management Service (KMS) key
+    -- to encrypt the output of your transcription using the
+    -- @OutputEncryptionKMSKeyId@ parameter. If you don\'t specify a KMS key,
+    -- Amazon Transcribe uses the default Amazon S3 key for server-side
+    -- encryption of transcripts that are placed in your S3 bucket.
     --
     -- If you don\'t set the @OutputBucketName@, Amazon Transcribe generates a
     -- pre-signed URL, a shareable URL that provides secure access to your
@@ -164,11 +177,15 @@ data StartTranscriptionJob = StartTranscriptionJob'
     -- | An object containing a list of languages that might be present in your
     -- collection of audio files. Automatic language identification chooses a
     -- language that best matches the source audio from that list.
+    --
+    -- To transcribe speech in Modern Standard Arabic (ar-SA), your audio or
+    -- video file must be encoded at a sample rate of 16,000 Hz or higher.
     languageOptions :: Prelude.Maybe (Prelude.NonEmpty LanguageCode),
     -- | The name of the job. You can\'t use the strings \"@.@\" or \"@..@\" by
-    -- themselves as the job name. The name must also be unique within an AWS
-    -- account. If you try to create a transcription job with the same name as
-    -- a previous transcription job, you get a @ConflictException@ error.
+    -- themselves as the job name. The name must also be unique within an
+    -- Amazon Web Services account. If you try to create a transcription job
+    -- with the same name as a previous transcription job, you get a
+    -- @ConflictException@ error.
     transcriptionJobName :: Prelude.Text,
     -- | An object that describes the input media for a transcription job.
     media :: Media
@@ -184,6 +201,9 @@ data StartTranscriptionJob = StartTranscriptionJob'
 -- for backwards compatibility:
 --
 -- 'languageCode', 'startTranscriptionJob_languageCode' - The language code for the language used in the input media file.
+--
+-- To transcribe speech in Modern Standard Arabic (ar-SA), your audio or
+-- video file must be encoded at a sample rate of 16,000 Hz or higher.
 --
 -- 'mediaFormat', 'startTranscriptionJob_mediaFormat' - The format of the input media file.
 --
@@ -212,13 +232,16 @@ data StartTranscriptionJob = StartTranscriptionJob'
 -- If you specify an output key, you must also specify an S3 bucket in the
 -- @OutputBucketName@ parameter.
 --
+-- 'kmsEncryptionContext', 'startTranscriptionJob_kmsEncryptionContext' - A map of plain text, non-secret key:value pairs, known as encryption
+-- context pairs, that provide an added layer of security for your data.
+--
 -- 'modelSettings', 'startTranscriptionJob_modelSettings' - Choose the custom language model you use for your transcription job in
 -- this parameter.
 --
--- 'outputEncryptionKMSKeyId', 'startTranscriptionJob_outputEncryptionKMSKeyId' - The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS)
--- key used to encrypt the output of the transcription job. The user
--- calling the @StartTranscriptionJob@ operation must have permission to
--- use the specified KMS key.
+-- 'outputEncryptionKMSKeyId', 'startTranscriptionJob_outputEncryptionKMSKeyId' - The Amazon Resource Name (ARN) of the Amazon Web Services Key Management
+-- Service (KMS) key used to encrypt the output of the transcription job.
+-- The user calling the @StartTranscriptionJob@ operation must have
+-- permission to use the specified KMS key.
 --
 -- You can use either of the following to identify a KMS key in the current
 -- account:
@@ -243,6 +266,10 @@ data StartTranscriptionJob = StartTranscriptionJob'
 -- If you specify a KMS key to encrypt your output, you must also specify
 -- an output location in the @OutputBucketName@ parameter.
 --
+-- 'subtitles', 'startTranscriptionJob_subtitles' - Add subtitles to your batch transcription job.
+--
+-- 'tags', 'startTranscriptionJob_tags' - Add tags to an Amazon Transcribe transcription job.
+--
 -- 'mediaSampleRateHertz', 'startTranscriptionJob_mediaSampleRateHertz' - The sample rate, in Hertz, of the audio track in the input media file.
 --
 -- If you do not specify the media sample rate, Amazon Transcribe
@@ -264,11 +291,11 @@ data StartTranscriptionJob = StartTranscriptionJob'
 -- in the bucket. For more information, see
 -- <https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user Permissions Required for IAM User Roles>.
 --
--- You can specify an AWS Key Management Service (KMS) key to encrypt the
--- output of your transcription using the @OutputEncryptionKMSKeyId@
--- parameter. If you don\'t specify a KMS key, Amazon Transcribe uses the
--- default Amazon S3 key for server-side encryption of transcripts that are
--- placed in your S3 bucket.
+-- You can specify an Amazon Web Services Key Management Service (KMS) key
+-- to encrypt the output of your transcription using the
+-- @OutputEncryptionKMSKeyId@ parameter. If you don\'t specify a KMS key,
+-- Amazon Transcribe uses the default Amazon S3 key for server-side
+-- encryption of transcripts that are placed in your S3 bucket.
 --
 -- If you don\'t set the @OutputBucketName@, Amazon Transcribe generates a
 -- pre-signed URL, a shareable URL that provides secure access to your
@@ -287,10 +314,14 @@ data StartTranscriptionJob = StartTranscriptionJob'
 -- collection of audio files. Automatic language identification chooses a
 -- language that best matches the source audio from that list.
 --
+-- To transcribe speech in Modern Standard Arabic (ar-SA), your audio or
+-- video file must be encoded at a sample rate of 16,000 Hz or higher.
+--
 -- 'transcriptionJobName', 'startTranscriptionJob_transcriptionJobName' - The name of the job. You can\'t use the strings \"@.@\" or \"@..@\" by
--- themselves as the job name. The name must also be unique within an AWS
--- account. If you try to create a transcription job with the same name as
--- a previous transcription job, you get a @ConflictException@ error.
+-- themselves as the job name. The name must also be unique within an
+-- Amazon Web Services account. If you try to create a transcription job
+-- with the same name as a previous transcription job, you get a
+-- @ConflictException@ error.
 --
 -- 'media', 'startTranscriptionJob_media' - An object that describes the input media for a transcription job.
 newStartTranscriptionJob ::
@@ -309,8 +340,11 @@ newStartTranscriptionJob
         contentRedaction = Prelude.Nothing,
         identifyLanguage = Prelude.Nothing,
         outputKey = Prelude.Nothing,
+        kmsEncryptionContext = Prelude.Nothing,
         modelSettings = Prelude.Nothing,
         outputEncryptionKMSKeyId = Prelude.Nothing,
+        subtitles = Prelude.Nothing,
+        tags = Prelude.Nothing,
         mediaSampleRateHertz = Prelude.Nothing,
         outputBucketName = Prelude.Nothing,
         jobExecutionSettings = Prelude.Nothing,
@@ -321,6 +355,9 @@ newStartTranscriptionJob
       }
 
 -- | The language code for the language used in the input media file.
+--
+-- To transcribe speech in Modern Standard Arabic (ar-SA), your audio or
+-- video file must be encoded at a sample rate of 16,000 Hz or higher.
 startTranscriptionJob_languageCode :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe LanguageCode)
 startTranscriptionJob_languageCode = Lens.lens (\StartTranscriptionJob' {languageCode} -> languageCode) (\s@StartTranscriptionJob' {} a -> s {languageCode = a} :: StartTranscriptionJob)
 
@@ -359,15 +396,20 @@ startTranscriptionJob_identifyLanguage = Lens.lens (\StartTranscriptionJob' {ide
 startTranscriptionJob_outputKey :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe Prelude.Text)
 startTranscriptionJob_outputKey = Lens.lens (\StartTranscriptionJob' {outputKey} -> outputKey) (\s@StartTranscriptionJob' {} a -> s {outputKey = a} :: StartTranscriptionJob)
 
+-- | A map of plain text, non-secret key:value pairs, known as encryption
+-- context pairs, that provide an added layer of security for your data.
+startTranscriptionJob_kmsEncryptionContext :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+startTranscriptionJob_kmsEncryptionContext = Lens.lens (\StartTranscriptionJob' {kmsEncryptionContext} -> kmsEncryptionContext) (\s@StartTranscriptionJob' {} a -> s {kmsEncryptionContext = a} :: StartTranscriptionJob) Prelude.. Lens.mapping Lens._Coerce
+
 -- | Choose the custom language model you use for your transcription job in
 -- this parameter.
 startTranscriptionJob_modelSettings :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe ModelSettings)
 startTranscriptionJob_modelSettings = Lens.lens (\StartTranscriptionJob' {modelSettings} -> modelSettings) (\s@StartTranscriptionJob' {} a -> s {modelSettings = a} :: StartTranscriptionJob)
 
--- | The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS)
--- key used to encrypt the output of the transcription job. The user
--- calling the @StartTranscriptionJob@ operation must have permission to
--- use the specified KMS key.
+-- | The Amazon Resource Name (ARN) of the Amazon Web Services Key Management
+-- Service (KMS) key used to encrypt the output of the transcription job.
+-- The user calling the @StartTranscriptionJob@ operation must have
+-- permission to use the specified KMS key.
 --
 -- You can use either of the following to identify a KMS key in the current
 -- account:
@@ -394,6 +436,14 @@ startTranscriptionJob_modelSettings = Lens.lens (\StartTranscriptionJob' {modelS
 startTranscriptionJob_outputEncryptionKMSKeyId :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe Prelude.Text)
 startTranscriptionJob_outputEncryptionKMSKeyId = Lens.lens (\StartTranscriptionJob' {outputEncryptionKMSKeyId} -> outputEncryptionKMSKeyId) (\s@StartTranscriptionJob' {} a -> s {outputEncryptionKMSKeyId = a} :: StartTranscriptionJob)
 
+-- | Add subtitles to your batch transcription job.
+startTranscriptionJob_subtitles :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe Subtitles)
+startTranscriptionJob_subtitles = Lens.lens (\StartTranscriptionJob' {subtitles} -> subtitles) (\s@StartTranscriptionJob' {} a -> s {subtitles = a} :: StartTranscriptionJob)
+
+-- | Add tags to an Amazon Transcribe transcription job.
+startTranscriptionJob_tags :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe (Prelude.NonEmpty Tag))
+startTranscriptionJob_tags = Lens.lens (\StartTranscriptionJob' {tags} -> tags) (\s@StartTranscriptionJob' {} a -> s {tags = a} :: StartTranscriptionJob) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The sample rate, in Hertz, of the audio track in the input media file.
 --
 -- If you do not specify the media sample rate, Amazon Transcribe
@@ -417,11 +467,11 @@ startTranscriptionJob_mediaSampleRateHertz = Lens.lens (\StartTranscriptionJob' 
 -- in the bucket. For more information, see
 -- <https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user Permissions Required for IAM User Roles>.
 --
--- You can specify an AWS Key Management Service (KMS) key to encrypt the
--- output of your transcription using the @OutputEncryptionKMSKeyId@
--- parameter. If you don\'t specify a KMS key, Amazon Transcribe uses the
--- default Amazon S3 key for server-side encryption of transcripts that are
--- placed in your S3 bucket.
+-- You can specify an Amazon Web Services Key Management Service (KMS) key
+-- to encrypt the output of your transcription using the
+-- @OutputEncryptionKMSKeyId@ parameter. If you don\'t specify a KMS key,
+-- Amazon Transcribe uses the default Amazon S3 key for server-side
+-- encryption of transcripts that are placed in your S3 bucket.
 --
 -- If you don\'t set the @OutputBucketName@, Amazon Transcribe generates a
 -- pre-signed URL, a shareable URL that provides secure access to your
@@ -445,13 +495,17 @@ startTranscriptionJob_settings = Lens.lens (\StartTranscriptionJob' {settings} -
 -- | An object containing a list of languages that might be present in your
 -- collection of audio files. Automatic language identification chooses a
 -- language that best matches the source audio from that list.
+--
+-- To transcribe speech in Modern Standard Arabic (ar-SA), your audio or
+-- video file must be encoded at a sample rate of 16,000 Hz or higher.
 startTranscriptionJob_languageOptions :: Lens.Lens' StartTranscriptionJob (Prelude.Maybe (Prelude.NonEmpty LanguageCode))
 startTranscriptionJob_languageOptions = Lens.lens (\StartTranscriptionJob' {languageOptions} -> languageOptions) (\s@StartTranscriptionJob' {} a -> s {languageOptions = a} :: StartTranscriptionJob) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the job. You can\'t use the strings \"@.@\" or \"@..@\" by
--- themselves as the job name. The name must also be unique within an AWS
--- account. If you try to create a transcription job with the same name as
--- a previous transcription job, you get a @ConflictException@ error.
+-- themselves as the job name. The name must also be unique within an
+-- Amazon Web Services account. If you try to create a transcription job
+-- with the same name as a previous transcription job, you get a
+-- @ConflictException@ error.
 startTranscriptionJob_transcriptionJobName :: Lens.Lens' StartTranscriptionJob Prelude.Text
 startTranscriptionJob_transcriptionJobName = Lens.lens (\StartTranscriptionJob' {transcriptionJobName} -> transcriptionJobName) (\s@StartTranscriptionJob' {} a -> s {transcriptionJobName = a} :: StartTranscriptionJob)
 
@@ -502,9 +556,13 @@ instance Core.ToJSON StartTranscriptionJob where
             ("IdentifyLanguage" Core..=)
               Prelude.<$> identifyLanguage,
             ("OutputKey" Core..=) Prelude.<$> outputKey,
+            ("KMSEncryptionContext" Core..=)
+              Prelude.<$> kmsEncryptionContext,
             ("ModelSettings" Core..=) Prelude.<$> modelSettings,
             ("OutputEncryptionKMSKeyId" Core..=)
               Prelude.<$> outputEncryptionKMSKeyId,
+            ("Subtitles" Core..=) Prelude.<$> subtitles,
+            ("Tags" Core..=) Prelude.<$> tags,
             ("MediaSampleRateHertz" Core..=)
               Prelude.<$> mediaSampleRateHertz,
             ("OutputBucketName" Core..=)

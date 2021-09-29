@@ -58,11 +58,12 @@ data ListTranscriptionJobs = ListTranscriptionJobs'
     -- first. If you don’t specify a status, Amazon Transcribe returns all
     -- transcription jobs ordered by creation date.
     status :: Prelude.Maybe TranscriptionJobStatus,
-    -- | If the result of the previous request to @ListTranscriptionJobs@ was
+    -- | If the result of the previous request to @ListTranscriptionJobs@ is
     -- truncated, include the @NextToken@ to fetch the next set of jobs.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of jobs to return in the response. If there are fewer
-    -- results in the list, this response contains only the actual results.
+    -- | The maximum number of jobs to return in each page of results. If there
+    -- are fewer results than the value you specify, only the actual results
+    -- are returned. If you do not specify a value, the default of 5 is used.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | When specified, the jobs returned in the list are limited to jobs whose
     -- name contains the specified string.
@@ -83,11 +84,12 @@ data ListTranscriptionJobs = ListTranscriptionJobs'
 -- first. If you don’t specify a status, Amazon Transcribe returns all
 -- transcription jobs ordered by creation date.
 --
--- 'nextToken', 'listTranscriptionJobs_nextToken' - If the result of the previous request to @ListTranscriptionJobs@ was
+-- 'nextToken', 'listTranscriptionJobs_nextToken' - If the result of the previous request to @ListTranscriptionJobs@ is
 -- truncated, include the @NextToken@ to fetch the next set of jobs.
 --
--- 'maxResults', 'listTranscriptionJobs_maxResults' - The maximum number of jobs to return in the response. If there are fewer
--- results in the list, this response contains only the actual results.
+-- 'maxResults', 'listTranscriptionJobs_maxResults' - The maximum number of jobs to return in each page of results. If there
+-- are fewer results than the value you specify, only the actual results
+-- are returned. If you do not specify a value, the default of 5 is used.
 --
 -- 'jobNameContains', 'listTranscriptionJobs_jobNameContains' - When specified, the jobs returned in the list are limited to jobs whose
 -- name contains the specified string.
@@ -108,13 +110,14 @@ newListTranscriptionJobs =
 listTranscriptionJobs_status :: Lens.Lens' ListTranscriptionJobs (Prelude.Maybe TranscriptionJobStatus)
 listTranscriptionJobs_status = Lens.lens (\ListTranscriptionJobs' {status} -> status) (\s@ListTranscriptionJobs' {} a -> s {status = a} :: ListTranscriptionJobs)
 
--- | If the result of the previous request to @ListTranscriptionJobs@ was
+-- | If the result of the previous request to @ListTranscriptionJobs@ is
 -- truncated, include the @NextToken@ to fetch the next set of jobs.
 listTranscriptionJobs_nextToken :: Lens.Lens' ListTranscriptionJobs (Prelude.Maybe Prelude.Text)
 listTranscriptionJobs_nextToken = Lens.lens (\ListTranscriptionJobs' {nextToken} -> nextToken) (\s@ListTranscriptionJobs' {} a -> s {nextToken = a} :: ListTranscriptionJobs)
 
--- | The maximum number of jobs to return in the response. If there are fewer
--- results in the list, this response contains only the actual results.
+-- | The maximum number of jobs to return in each page of results. If there
+-- are fewer results than the value you specify, only the actual results
+-- are returned. If you do not specify a value, the default of 5 is used.
 listTranscriptionJobs_maxResults :: Lens.Lens' ListTranscriptionJobs (Prelude.Maybe Prelude.Natural)
 listTranscriptionJobs_maxResults = Lens.lens (\ListTranscriptionJobs' {maxResults} -> maxResults) (\s@ListTranscriptionJobs' {} a -> s {maxResults = a} :: ListTranscriptionJobs)
 

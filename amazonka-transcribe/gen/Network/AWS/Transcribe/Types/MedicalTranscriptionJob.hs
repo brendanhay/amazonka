@@ -25,9 +25,11 @@ import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Transcribe.Types.LanguageCode
 import Network.AWS.Transcribe.Types.Media
 import Network.AWS.Transcribe.Types.MediaFormat
+import Network.AWS.Transcribe.Types.MedicalContentIdentificationType
 import Network.AWS.Transcribe.Types.MedicalTranscript
 import Network.AWS.Transcribe.Types.MedicalTranscriptionSetting
 import Network.AWS.Transcribe.Types.Specialty
+import Network.AWS.Transcribe.Types.Tag
 import Network.AWS.Transcribe.Types.TranscriptionJobStatus
 import Network.AWS.Transcribe.Types.Type
 
@@ -43,24 +45,27 @@ data MedicalTranscriptionJob = MedicalTranscriptionJob'
     languageCode :: Prelude.Maybe LanguageCode,
     -- | The format of the input media file.
     mediaFormat :: Prelude.Maybe MediaFormat,
-    media :: Prelude.Maybe Media,
     -- | A timestamp that shows when the job was created.
     creationTime :: Prelude.Maybe Core.POSIX,
+    media :: Prelude.Maybe Media,
     -- | A timestamp that shows when the job was completed.
     completionTime :: Prelude.Maybe Core.POSIX,
     -- | An object that contains the @MedicalTranscript@. The @MedicalTranscript@
     -- contains the @TranscriptFileUri@.
     transcript :: Prelude.Maybe MedicalTranscript,
-    -- | A timestamp that shows when the job started processing.
-    startTime :: Prelude.Maybe Core.POSIX,
+    -- | Shows the type of content that you\'ve configured Amazon Transcribe
+    -- Medical to identify in a transcription job. If the value is @PHI@,
+    -- you\'ve configured the job to identify personal health information (PHI)
+    -- in the transcription output.
+    contentIdentificationType :: Prelude.Maybe MedicalContentIdentificationType,
     -- | The completion status of a medical transcription job.
     transcriptionJobStatus :: Prelude.Maybe TranscriptionJobStatus,
+    -- | A timestamp that shows when the job started processing.
+    startTime :: Prelude.Maybe Core.POSIX,
     -- | The medical specialty of any clinicians providing a dictation or having
-    -- a conversation. @PRIMARYCARE@ is the only available setting for this
-    -- object. This specialty enables you to generate transcriptions for the
-    -- following medical fields:
-    --
-    -- -   Family Medicine
+    -- a conversation. Refer to
+    -- <https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-medical-conversation.html Transcribing a medical conversation>for
+    -- a list of supported specialties.
     specialty :: Prelude.Maybe Specialty,
     -- | If the @TranscriptionJobStatus@ field is @FAILED@, this field contains
     -- information about why the job failed.
@@ -78,7 +83,7 @@ data MedicalTranscriptionJob = MedicalTranscriptionJob'
     --
     -- -   @Invalid sample rate for audio file@- The sample rate specified in
     --     the @MediaSampleRateHertz@ of the request isn\'t valid. The sample
-    --     rate must be between 8000 and 48000 Hertz.
+    --     rate must be between 8,000 and 48,000 Hertz.
     --
     -- -   @The sample rate provided does not match the detected sample rate@-
     --     The sample rate in the audio file doesn\'t match the sample rate
@@ -98,19 +103,22 @@ data MedicalTranscriptionJob = MedicalTranscriptionJob'
     --     <https://docs.aws.amazon.com/general/latest/gr/transcribe-medical.html Amazon Transcribe Medical Endpoints and Quotas>
     --     in the /Amazon Web Services General Reference/
     failureReason :: Prelude.Maybe Prelude.Text,
+    -- | A key:value pair assigned to a given medical transcription job.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
     -- | The sample rate, in Hertz, of the source audio containing medical
     -- information.
     --
     -- If you don\'t specify the sample rate, Amazon Transcribe Medical
     -- determines it for you. If you choose to specify the sample rate, it must
     -- match the rate detected by Amazon Transcribe Medical. In most cases, you
-    -- should leave the @MediaSampleHertz@ blank and let Amazon Transcribe
-    -- Medical determine the sample rate.
+    -- should leave the @MedicalMediaSampleHertz@ blank and let Amazon
+    -- Transcribe Medical determine the sample rate.
     mediaSampleRateHertz :: Prelude.Maybe Prelude.Natural,
     -- | The type of speech in the transcription job. @CONVERSATION@ is generally
     -- used for patient-physician dialogues. @DICTATION@ is the setting for
     -- physicians speaking their notes after seeing a patient. For more
-    -- information, see how-it-works-med
+    -- information, see
+    -- <https://docs.aws.amazon.com/transcribe/latest/dg/what-is-transcribe-med.html What is Amazon Transcribe Medical?>.
     type' :: Prelude.Maybe Type,
     -- | The name for a given medical transcription job.
     medicalTranscriptionJobName :: Prelude.Maybe Prelude.Text,
@@ -134,25 +142,28 @@ data MedicalTranscriptionJob = MedicalTranscriptionJob'
 --
 -- 'mediaFormat', 'medicalTranscriptionJob_mediaFormat' - The format of the input media file.
 --
--- 'media', 'medicalTranscriptionJob_media' - Undocumented member.
---
 -- 'creationTime', 'medicalTranscriptionJob_creationTime' - A timestamp that shows when the job was created.
+--
+-- 'media', 'medicalTranscriptionJob_media' - Undocumented member.
 --
 -- 'completionTime', 'medicalTranscriptionJob_completionTime' - A timestamp that shows when the job was completed.
 --
 -- 'transcript', 'medicalTranscriptionJob_transcript' - An object that contains the @MedicalTranscript@. The @MedicalTranscript@
 -- contains the @TranscriptFileUri@.
 --
--- 'startTime', 'medicalTranscriptionJob_startTime' - A timestamp that shows when the job started processing.
+-- 'contentIdentificationType', 'medicalTranscriptionJob_contentIdentificationType' - Shows the type of content that you\'ve configured Amazon Transcribe
+-- Medical to identify in a transcription job. If the value is @PHI@,
+-- you\'ve configured the job to identify personal health information (PHI)
+-- in the transcription output.
 --
 -- 'transcriptionJobStatus', 'medicalTranscriptionJob_transcriptionJobStatus' - The completion status of a medical transcription job.
 --
--- 'specialty', 'medicalTranscriptionJob_specialty' - The medical specialty of any clinicians providing a dictation or having
--- a conversation. @PRIMARYCARE@ is the only available setting for this
--- object. This specialty enables you to generate transcriptions for the
--- following medical fields:
+-- 'startTime', 'medicalTranscriptionJob_startTime' - A timestamp that shows when the job started processing.
 --
--- -   Family Medicine
+-- 'specialty', 'medicalTranscriptionJob_specialty' - The medical specialty of any clinicians providing a dictation or having
+-- a conversation. Refer to
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-medical-conversation.html Transcribing a medical conversation>for
+-- a list of supported specialties.
 --
 -- 'failureReason', 'medicalTranscriptionJob_failureReason' - If the @TranscriptionJobStatus@ field is @FAILED@, this field contains
 -- information about why the job failed.
@@ -170,7 +181,7 @@ data MedicalTranscriptionJob = MedicalTranscriptionJob'
 --
 -- -   @Invalid sample rate for audio file@- The sample rate specified in
 --     the @MediaSampleRateHertz@ of the request isn\'t valid. The sample
---     rate must be between 8000 and 48000 Hertz.
+--     rate must be between 8,000 and 48,000 Hertz.
 --
 -- -   @The sample rate provided does not match the detected sample rate@-
 --     The sample rate in the audio file doesn\'t match the sample rate
@@ -190,19 +201,22 @@ data MedicalTranscriptionJob = MedicalTranscriptionJob'
 --     <https://docs.aws.amazon.com/general/latest/gr/transcribe-medical.html Amazon Transcribe Medical Endpoints and Quotas>
 --     in the /Amazon Web Services General Reference/
 --
+-- 'tags', 'medicalTranscriptionJob_tags' - A key:value pair assigned to a given medical transcription job.
+--
 -- 'mediaSampleRateHertz', 'medicalTranscriptionJob_mediaSampleRateHertz' - The sample rate, in Hertz, of the source audio containing medical
 -- information.
 --
 -- If you don\'t specify the sample rate, Amazon Transcribe Medical
 -- determines it for you. If you choose to specify the sample rate, it must
 -- match the rate detected by Amazon Transcribe Medical. In most cases, you
--- should leave the @MediaSampleHertz@ blank and let Amazon Transcribe
--- Medical determine the sample rate.
+-- should leave the @MedicalMediaSampleHertz@ blank and let Amazon
+-- Transcribe Medical determine the sample rate.
 --
 -- 'type'', 'medicalTranscriptionJob_type' - The type of speech in the transcription job. @CONVERSATION@ is generally
 -- used for patient-physician dialogues. @DICTATION@ is the setting for
 -- physicians speaking their notes after seeing a patient. For more
--- information, see how-it-works-med
+-- information, see
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/what-is-transcribe-med.html What is Amazon Transcribe Medical?>.
 --
 -- 'medicalTranscriptionJobName', 'medicalTranscriptionJob_medicalTranscriptionJobName' - The name for a given medical transcription job.
 --
@@ -214,14 +228,16 @@ newMedicalTranscriptionJob =
     { languageCode =
         Prelude.Nothing,
       mediaFormat = Prelude.Nothing,
-      media = Prelude.Nothing,
       creationTime = Prelude.Nothing,
+      media = Prelude.Nothing,
       completionTime = Prelude.Nothing,
       transcript = Prelude.Nothing,
-      startTime = Prelude.Nothing,
+      contentIdentificationType = Prelude.Nothing,
       transcriptionJobStatus = Prelude.Nothing,
+      startTime = Prelude.Nothing,
       specialty = Prelude.Nothing,
       failureReason = Prelude.Nothing,
+      tags = Prelude.Nothing,
       mediaSampleRateHertz = Prelude.Nothing,
       type' = Prelude.Nothing,
       medicalTranscriptionJobName = Prelude.Nothing,
@@ -239,13 +255,13 @@ medicalTranscriptionJob_languageCode = Lens.lens (\MedicalTranscriptionJob' {lan
 medicalTranscriptionJob_mediaFormat :: Lens.Lens' MedicalTranscriptionJob (Prelude.Maybe MediaFormat)
 medicalTranscriptionJob_mediaFormat = Lens.lens (\MedicalTranscriptionJob' {mediaFormat} -> mediaFormat) (\s@MedicalTranscriptionJob' {} a -> s {mediaFormat = a} :: MedicalTranscriptionJob)
 
--- | Undocumented member.
-medicalTranscriptionJob_media :: Lens.Lens' MedicalTranscriptionJob (Prelude.Maybe Media)
-medicalTranscriptionJob_media = Lens.lens (\MedicalTranscriptionJob' {media} -> media) (\s@MedicalTranscriptionJob' {} a -> s {media = a} :: MedicalTranscriptionJob)
-
 -- | A timestamp that shows when the job was created.
 medicalTranscriptionJob_creationTime :: Lens.Lens' MedicalTranscriptionJob (Prelude.Maybe Prelude.UTCTime)
 medicalTranscriptionJob_creationTime = Lens.lens (\MedicalTranscriptionJob' {creationTime} -> creationTime) (\s@MedicalTranscriptionJob' {} a -> s {creationTime = a} :: MedicalTranscriptionJob) Prelude.. Lens.mapping Core._Time
+
+-- | Undocumented member.
+medicalTranscriptionJob_media :: Lens.Lens' MedicalTranscriptionJob (Prelude.Maybe Media)
+medicalTranscriptionJob_media = Lens.lens (\MedicalTranscriptionJob' {media} -> media) (\s@MedicalTranscriptionJob' {} a -> s {media = a} :: MedicalTranscriptionJob)
 
 -- | A timestamp that shows when the job was completed.
 medicalTranscriptionJob_completionTime :: Lens.Lens' MedicalTranscriptionJob (Prelude.Maybe Prelude.UTCTime)
@@ -256,20 +272,25 @@ medicalTranscriptionJob_completionTime = Lens.lens (\MedicalTranscriptionJob' {c
 medicalTranscriptionJob_transcript :: Lens.Lens' MedicalTranscriptionJob (Prelude.Maybe MedicalTranscript)
 medicalTranscriptionJob_transcript = Lens.lens (\MedicalTranscriptionJob' {transcript} -> transcript) (\s@MedicalTranscriptionJob' {} a -> s {transcript = a} :: MedicalTranscriptionJob)
 
--- | A timestamp that shows when the job started processing.
-medicalTranscriptionJob_startTime :: Lens.Lens' MedicalTranscriptionJob (Prelude.Maybe Prelude.UTCTime)
-medicalTranscriptionJob_startTime = Lens.lens (\MedicalTranscriptionJob' {startTime} -> startTime) (\s@MedicalTranscriptionJob' {} a -> s {startTime = a} :: MedicalTranscriptionJob) Prelude.. Lens.mapping Core._Time
+-- | Shows the type of content that you\'ve configured Amazon Transcribe
+-- Medical to identify in a transcription job. If the value is @PHI@,
+-- you\'ve configured the job to identify personal health information (PHI)
+-- in the transcription output.
+medicalTranscriptionJob_contentIdentificationType :: Lens.Lens' MedicalTranscriptionJob (Prelude.Maybe MedicalContentIdentificationType)
+medicalTranscriptionJob_contentIdentificationType = Lens.lens (\MedicalTranscriptionJob' {contentIdentificationType} -> contentIdentificationType) (\s@MedicalTranscriptionJob' {} a -> s {contentIdentificationType = a} :: MedicalTranscriptionJob)
 
 -- | The completion status of a medical transcription job.
 medicalTranscriptionJob_transcriptionJobStatus :: Lens.Lens' MedicalTranscriptionJob (Prelude.Maybe TranscriptionJobStatus)
 medicalTranscriptionJob_transcriptionJobStatus = Lens.lens (\MedicalTranscriptionJob' {transcriptionJobStatus} -> transcriptionJobStatus) (\s@MedicalTranscriptionJob' {} a -> s {transcriptionJobStatus = a} :: MedicalTranscriptionJob)
 
+-- | A timestamp that shows when the job started processing.
+medicalTranscriptionJob_startTime :: Lens.Lens' MedicalTranscriptionJob (Prelude.Maybe Prelude.UTCTime)
+medicalTranscriptionJob_startTime = Lens.lens (\MedicalTranscriptionJob' {startTime} -> startTime) (\s@MedicalTranscriptionJob' {} a -> s {startTime = a} :: MedicalTranscriptionJob) Prelude.. Lens.mapping Core._Time
+
 -- | The medical specialty of any clinicians providing a dictation or having
--- a conversation. @PRIMARYCARE@ is the only available setting for this
--- object. This specialty enables you to generate transcriptions for the
--- following medical fields:
---
--- -   Family Medicine
+-- a conversation. Refer to
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-medical-conversation.html Transcribing a medical conversation>for
+-- a list of supported specialties.
 medicalTranscriptionJob_specialty :: Lens.Lens' MedicalTranscriptionJob (Prelude.Maybe Specialty)
 medicalTranscriptionJob_specialty = Lens.lens (\MedicalTranscriptionJob' {specialty} -> specialty) (\s@MedicalTranscriptionJob' {} a -> s {specialty = a} :: MedicalTranscriptionJob)
 
@@ -289,7 +310,7 @@ medicalTranscriptionJob_specialty = Lens.lens (\MedicalTranscriptionJob' {specia
 --
 -- -   @Invalid sample rate for audio file@- The sample rate specified in
 --     the @MediaSampleRateHertz@ of the request isn\'t valid. The sample
---     rate must be between 8000 and 48000 Hertz.
+--     rate must be between 8,000 and 48,000 Hertz.
 --
 -- -   @The sample rate provided does not match the detected sample rate@-
 --     The sample rate in the audio file doesn\'t match the sample rate
@@ -311,21 +332,26 @@ medicalTranscriptionJob_specialty = Lens.lens (\MedicalTranscriptionJob' {specia
 medicalTranscriptionJob_failureReason :: Lens.Lens' MedicalTranscriptionJob (Prelude.Maybe Prelude.Text)
 medicalTranscriptionJob_failureReason = Lens.lens (\MedicalTranscriptionJob' {failureReason} -> failureReason) (\s@MedicalTranscriptionJob' {} a -> s {failureReason = a} :: MedicalTranscriptionJob)
 
+-- | A key:value pair assigned to a given medical transcription job.
+medicalTranscriptionJob_tags :: Lens.Lens' MedicalTranscriptionJob (Prelude.Maybe (Prelude.NonEmpty Tag))
+medicalTranscriptionJob_tags = Lens.lens (\MedicalTranscriptionJob' {tags} -> tags) (\s@MedicalTranscriptionJob' {} a -> s {tags = a} :: MedicalTranscriptionJob) Prelude.. Lens.mapping Lens._Coerce
+
 -- | The sample rate, in Hertz, of the source audio containing medical
 -- information.
 --
 -- If you don\'t specify the sample rate, Amazon Transcribe Medical
 -- determines it for you. If you choose to specify the sample rate, it must
 -- match the rate detected by Amazon Transcribe Medical. In most cases, you
--- should leave the @MediaSampleHertz@ blank and let Amazon Transcribe
--- Medical determine the sample rate.
+-- should leave the @MedicalMediaSampleHertz@ blank and let Amazon
+-- Transcribe Medical determine the sample rate.
 medicalTranscriptionJob_mediaSampleRateHertz :: Lens.Lens' MedicalTranscriptionJob (Prelude.Maybe Prelude.Natural)
 medicalTranscriptionJob_mediaSampleRateHertz = Lens.lens (\MedicalTranscriptionJob' {mediaSampleRateHertz} -> mediaSampleRateHertz) (\s@MedicalTranscriptionJob' {} a -> s {mediaSampleRateHertz = a} :: MedicalTranscriptionJob)
 
 -- | The type of speech in the transcription job. @CONVERSATION@ is generally
 -- used for patient-physician dialogues. @DICTATION@ is the setting for
 -- physicians speaking their notes after seeing a patient. For more
--- information, see how-it-works-med
+-- information, see
+-- <https://docs.aws.amazon.com/transcribe/latest/dg/what-is-transcribe-med.html What is Amazon Transcribe Medical?>.
 medicalTranscriptionJob_type :: Lens.Lens' MedicalTranscriptionJob (Prelude.Maybe Type)
 medicalTranscriptionJob_type = Lens.lens (\MedicalTranscriptionJob' {type'} -> type') (\s@MedicalTranscriptionJob' {} a -> s {type' = a} :: MedicalTranscriptionJob)
 
@@ -345,14 +371,16 @@ instance Core.FromJSON MedicalTranscriptionJob where
           MedicalTranscriptionJob'
             Prelude.<$> (x Core..:? "LanguageCode")
             Prelude.<*> (x Core..:? "MediaFormat")
-            Prelude.<*> (x Core..:? "Media")
             Prelude.<*> (x Core..:? "CreationTime")
+            Prelude.<*> (x Core..:? "Media")
             Prelude.<*> (x Core..:? "CompletionTime")
             Prelude.<*> (x Core..:? "Transcript")
-            Prelude.<*> (x Core..:? "StartTime")
+            Prelude.<*> (x Core..:? "ContentIdentificationType")
             Prelude.<*> (x Core..:? "TranscriptionJobStatus")
+            Prelude.<*> (x Core..:? "StartTime")
             Prelude.<*> (x Core..:? "Specialty")
             Prelude.<*> (x Core..:? "FailureReason")
+            Prelude.<*> (x Core..:? "Tags")
             Prelude.<*> (x Core..:? "MediaSampleRateHertz")
             Prelude.<*> (x Core..:? "Type")
             Prelude.<*> (x Core..:? "MedicalTranscriptionJobName")

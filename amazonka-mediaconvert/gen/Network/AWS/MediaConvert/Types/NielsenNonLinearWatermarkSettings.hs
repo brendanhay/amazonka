@@ -53,14 +53,6 @@ data NielsenNonLinearWatermarkSettings = NielsenNonLinearWatermarkSettings'
     -- non-linear watermarking to only clean content that doesn\'t already have
     -- non-linear Nielsen watermarks.
     sourceWatermarkStatus :: Prelude.Maybe NielsenSourceWatermarkStatusType,
-    -- | Specify the endpoint for the TIC server that you have deployed and
-    -- configured in the AWS Cloud. Required for all Nielsen non-linear
-    -- watermarking. MediaConvert can\'t connect directly to a TIC server.
-    -- Instead, you must use API Gateway to provide a RESTful interface between
-    -- MediaConvert and a TIC server that you deploy in your AWS account. For
-    -- more information on deploying a TIC server in your AWS account and the
-    -- required API Gateway, contact Nielsen support.
-    ticServerUrl :: Prelude.Maybe Prelude.Text,
     -- | Use the SID that Nielsen provides to you. This source ID should be
     -- unique to your Nielsen account but common to all of your output assets.
     -- Required for all Nielsen non-linear watermarking. This ID should be
@@ -72,6 +64,14 @@ data NielsenNonLinearWatermarkSettings = NielsenNonLinearWatermarkSettings'
     -- that have CBET watermarking. Required when you choose a value for the
     -- setting Watermark types (ActiveWatermarkProcess) that includes CBET.
     cbetSourceId :: Prelude.Maybe Prelude.Text,
+    -- | Specify the endpoint for the TIC server that you have deployed and
+    -- configured in the AWS Cloud. Required for all Nielsen non-linear
+    -- watermarking. MediaConvert can\'t connect directly to a TIC server.
+    -- Instead, you must use API Gateway to provide a RESTful interface between
+    -- MediaConvert and a TIC server that you deploy in your AWS account. For
+    -- more information on deploying a TIC server in your AWS account and the
+    -- required API Gateway, contact Nielsen support.
+    ticServerUrl :: Prelude.Maybe Prelude.Text,
     -- | Optional. If this asset uses an episode ID with Nielsen, provide it
     -- here.
     episodeId :: Prelude.Maybe Prelude.Text,
@@ -126,14 +126,6 @@ data NielsenNonLinearWatermarkSettings = NielsenNonLinearWatermarkSettings'
 -- non-linear watermarking to only clean content that doesn\'t already have
 -- non-linear Nielsen watermarks.
 --
--- 'ticServerUrl', 'nielsenNonLinearWatermarkSettings_ticServerUrl' - Specify the endpoint for the TIC server that you have deployed and
--- configured in the AWS Cloud. Required for all Nielsen non-linear
--- watermarking. MediaConvert can\'t connect directly to a TIC server.
--- Instead, you must use API Gateway to provide a RESTful interface between
--- MediaConvert and a TIC server that you deploy in your AWS account. For
--- more information on deploying a TIC server in your AWS account and the
--- required API Gateway, contact Nielsen support.
---
 -- 'sourceId', 'nielsenNonLinearWatermarkSettings_sourceId' - Use the SID that Nielsen provides to you. This source ID should be
 -- unique to your Nielsen account but common to all of your output assets.
 -- Required for all Nielsen non-linear watermarking. This ID should be
@@ -144,6 +136,14 @@ data NielsenNonLinearWatermarkSettings = NielsenNonLinearWatermarkSettings'
 -- unique to your Nielsen account but common to all of your output assets
 -- that have CBET watermarking. Required when you choose a value for the
 -- setting Watermark types (ActiveWatermarkProcess) that includes CBET.
+--
+-- 'ticServerUrl', 'nielsenNonLinearWatermarkSettings_ticServerUrl' - Specify the endpoint for the TIC server that you have deployed and
+-- configured in the AWS Cloud. Required for all Nielsen non-linear
+-- watermarking. MediaConvert can\'t connect directly to a TIC server.
+-- Instead, you must use API Gateway to provide a RESTful interface between
+-- MediaConvert and a TIC server that you deploy in your AWS account. For
+-- more information on deploying a TIC server in your AWS account and the
+-- required API Gateway, contact Nielsen support.
 --
 -- 'episodeId', 'nielsenNonLinearWatermarkSettings_episodeId' - Optional. If this asset uses an episode ID with Nielsen, provide it
 -- here.
@@ -179,9 +179,9 @@ newNielsenNonLinearWatermarkSettings =
         Prelude.Nothing,
       activeWatermarkProcess = Prelude.Nothing,
       sourceWatermarkStatus = Prelude.Nothing,
-      ticServerUrl = Prelude.Nothing,
       sourceId = Prelude.Nothing,
       cbetSourceId = Prelude.Nothing,
+      ticServerUrl = Prelude.Nothing,
       episodeId = Prelude.Nothing,
       metadataDestination = Prelude.Nothing,
       uniqueTicPerAudioTrack = Prelude.Nothing,
@@ -211,16 +211,6 @@ nielsenNonLinearWatermarkSettings_activeWatermarkProcess = Lens.lens (\NielsenNo
 nielsenNonLinearWatermarkSettings_sourceWatermarkStatus :: Lens.Lens' NielsenNonLinearWatermarkSettings (Prelude.Maybe NielsenSourceWatermarkStatusType)
 nielsenNonLinearWatermarkSettings_sourceWatermarkStatus = Lens.lens (\NielsenNonLinearWatermarkSettings' {sourceWatermarkStatus} -> sourceWatermarkStatus) (\s@NielsenNonLinearWatermarkSettings' {} a -> s {sourceWatermarkStatus = a} :: NielsenNonLinearWatermarkSettings)
 
--- | Specify the endpoint for the TIC server that you have deployed and
--- configured in the AWS Cloud. Required for all Nielsen non-linear
--- watermarking. MediaConvert can\'t connect directly to a TIC server.
--- Instead, you must use API Gateway to provide a RESTful interface between
--- MediaConvert and a TIC server that you deploy in your AWS account. For
--- more information on deploying a TIC server in your AWS account and the
--- required API Gateway, contact Nielsen support.
-nielsenNonLinearWatermarkSettings_ticServerUrl :: Lens.Lens' NielsenNonLinearWatermarkSettings (Prelude.Maybe Prelude.Text)
-nielsenNonLinearWatermarkSettings_ticServerUrl = Lens.lens (\NielsenNonLinearWatermarkSettings' {ticServerUrl} -> ticServerUrl) (\s@NielsenNonLinearWatermarkSettings' {} a -> s {ticServerUrl = a} :: NielsenNonLinearWatermarkSettings)
-
 -- | Use the SID that Nielsen provides to you. This source ID should be
 -- unique to your Nielsen account but common to all of your output assets.
 -- Required for all Nielsen non-linear watermarking. This ID should be
@@ -235,6 +225,16 @@ nielsenNonLinearWatermarkSettings_sourceId = Lens.lens (\NielsenNonLinearWaterma
 -- setting Watermark types (ActiveWatermarkProcess) that includes CBET.
 nielsenNonLinearWatermarkSettings_cbetSourceId :: Lens.Lens' NielsenNonLinearWatermarkSettings (Prelude.Maybe Prelude.Text)
 nielsenNonLinearWatermarkSettings_cbetSourceId = Lens.lens (\NielsenNonLinearWatermarkSettings' {cbetSourceId} -> cbetSourceId) (\s@NielsenNonLinearWatermarkSettings' {} a -> s {cbetSourceId = a} :: NielsenNonLinearWatermarkSettings)
+
+-- | Specify the endpoint for the TIC server that you have deployed and
+-- configured in the AWS Cloud. Required for all Nielsen non-linear
+-- watermarking. MediaConvert can\'t connect directly to a TIC server.
+-- Instead, you must use API Gateway to provide a RESTful interface between
+-- MediaConvert and a TIC server that you deploy in your AWS account. For
+-- more information on deploying a TIC server in your AWS account and the
+-- required API Gateway, contact Nielsen support.
+nielsenNonLinearWatermarkSettings_ticServerUrl :: Lens.Lens' NielsenNonLinearWatermarkSettings (Prelude.Maybe Prelude.Text)
+nielsenNonLinearWatermarkSettings_ticServerUrl = Lens.lens (\NielsenNonLinearWatermarkSettings' {ticServerUrl} -> ticServerUrl) (\s@NielsenNonLinearWatermarkSettings' {} a -> s {ticServerUrl = a} :: NielsenNonLinearWatermarkSettings)
 
 -- | Optional. If this asset uses an episode ID with Nielsen, provide it
 -- here.
@@ -285,9 +285,9 @@ instance
             Prelude.<$> (x Core..:? "assetName")
             Prelude.<*> (x Core..:? "activeWatermarkProcess")
             Prelude.<*> (x Core..:? "sourceWatermarkStatus")
-            Prelude.<*> (x Core..:? "ticServerUrl")
             Prelude.<*> (x Core..:? "sourceId")
             Prelude.<*> (x Core..:? "cbetSourceId")
+            Prelude.<*> (x Core..:? "ticServerUrl")
             Prelude.<*> (x Core..:? "episodeId")
             Prelude.<*> (x Core..:? "metadataDestination")
             Prelude.<*> (x Core..:? "uniqueTicPerAudioTrack")
@@ -315,9 +315,9 @@ instance
               Prelude.<$> activeWatermarkProcess,
             ("sourceWatermarkStatus" Core..=)
               Prelude.<$> sourceWatermarkStatus,
-            ("ticServerUrl" Core..=) Prelude.<$> ticServerUrl,
             ("sourceId" Core..=) Prelude.<$> sourceId,
             ("cbetSourceId" Core..=) Prelude.<$> cbetSourceId,
+            ("ticServerUrl" Core..=) Prelude.<$> ticServerUrl,
             ("episodeId" Core..=) Prelude.<$> episodeId,
             ("metadataDestination" Core..=)
               Prelude.<$> metadataDestination,

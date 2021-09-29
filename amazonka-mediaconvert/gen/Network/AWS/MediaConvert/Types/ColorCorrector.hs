@@ -23,6 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.ColorSpaceConversion
 import Network.AWS.MediaConvert.Types.Hdr10Metadata
+import Network.AWS.MediaConvert.Types.SampleRangeConversion
 import qualified Network.AWS.Prelude as Prelude
 
 -- | Settings for color correction.
@@ -53,6 +54,18 @@ data ColorCorrector = ColorCorrector'
     -- P3D65 color space. For more information about MediaConvert HDR jobs, see
     -- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/hdr.
     hdr10Metadata :: Prelude.Maybe Hdr10Metadata,
+    -- | Specify the video color sample range for this output. To create a full
+    -- range output, you must start with a full range YUV input and keep the
+    -- default value, None (NONE). To create a limited range output from a full
+    -- range input, choose Limited range (LIMITED_RANGE_SQUEEZE). With RGB
+    -- inputs, your output is always limited range, regardless of your choice
+    -- here. When you create a limited range output from a full range input,
+    -- MediaConvert limits the active pixel values in a way that depends on the
+    -- output\'s bit depth: 8-bit outputs contain only values from 16 through
+    -- 235 and 10-bit outputs contain only values from 64 through 940. With
+    -- this conversion, MediaConvert also changes the output metadata to note
+    -- the limited range.
+    sampleRangeConversion :: Prelude.Maybe SampleRangeConversion,
     -- | Brightness level.
     brightness :: Prelude.Maybe Prelude.Natural,
     -- | Hue in degrees.
@@ -94,6 +107,18 @@ data ColorCorrector = ColorCorrector'
 -- P3D65 color space. For more information about MediaConvert HDR jobs, see
 -- https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/hdr.
 --
+-- 'sampleRangeConversion', 'colorCorrector_sampleRangeConversion' - Specify the video color sample range for this output. To create a full
+-- range output, you must start with a full range YUV input and keep the
+-- default value, None (NONE). To create a limited range output from a full
+-- range input, choose Limited range (LIMITED_RANGE_SQUEEZE). With RGB
+-- inputs, your output is always limited range, regardless of your choice
+-- here. When you create a limited range output from a full range input,
+-- MediaConvert limits the active pixel values in a way that depends on the
+-- output\'s bit depth: 8-bit outputs contain only values from 16 through
+-- 235 and 10-bit outputs contain only values from 64 through 940. With
+-- this conversion, MediaConvert also changes the output metadata to note
+-- the limited range.
+--
 -- 'brightness', 'colorCorrector_brightness' - Brightness level.
 --
 -- 'hue', 'colorCorrector_hue' - Hue in degrees.
@@ -106,6 +131,7 @@ newColorCorrector =
     { saturation = Prelude.Nothing,
       colorSpaceConversion = Prelude.Nothing,
       hdr10Metadata = Prelude.Nothing,
+      sampleRangeConversion = Prelude.Nothing,
       brightness = Prelude.Nothing,
       hue = Prelude.Nothing,
       contrast = Prelude.Nothing
@@ -141,6 +167,20 @@ colorCorrector_colorSpaceConversion = Lens.lens (\ColorCorrector' {colorSpaceCon
 colorCorrector_hdr10Metadata :: Lens.Lens' ColorCorrector (Prelude.Maybe Hdr10Metadata)
 colorCorrector_hdr10Metadata = Lens.lens (\ColorCorrector' {hdr10Metadata} -> hdr10Metadata) (\s@ColorCorrector' {} a -> s {hdr10Metadata = a} :: ColorCorrector)
 
+-- | Specify the video color sample range for this output. To create a full
+-- range output, you must start with a full range YUV input and keep the
+-- default value, None (NONE). To create a limited range output from a full
+-- range input, choose Limited range (LIMITED_RANGE_SQUEEZE). With RGB
+-- inputs, your output is always limited range, regardless of your choice
+-- here. When you create a limited range output from a full range input,
+-- MediaConvert limits the active pixel values in a way that depends on the
+-- output\'s bit depth: 8-bit outputs contain only values from 16 through
+-- 235 and 10-bit outputs contain only values from 64 through 940. With
+-- this conversion, MediaConvert also changes the output metadata to note
+-- the limited range.
+colorCorrector_sampleRangeConversion :: Lens.Lens' ColorCorrector (Prelude.Maybe SampleRangeConversion)
+colorCorrector_sampleRangeConversion = Lens.lens (\ColorCorrector' {sampleRangeConversion} -> sampleRangeConversion) (\s@ColorCorrector' {} a -> s {sampleRangeConversion = a} :: ColorCorrector)
+
 -- | Brightness level.
 colorCorrector_brightness :: Lens.Lens' ColorCorrector (Prelude.Maybe Prelude.Natural)
 colorCorrector_brightness = Lens.lens (\ColorCorrector' {brightness} -> brightness) (\s@ColorCorrector' {} a -> s {brightness = a} :: ColorCorrector)
@@ -162,6 +202,7 @@ instance Core.FromJSON ColorCorrector where
             Prelude.<$> (x Core..:? "saturation")
             Prelude.<*> (x Core..:? "colorSpaceConversion")
             Prelude.<*> (x Core..:? "hdr10Metadata")
+            Prelude.<*> (x Core..:? "sampleRangeConversion")
             Prelude.<*> (x Core..:? "brightness")
             Prelude.<*> (x Core..:? "hue")
             Prelude.<*> (x Core..:? "contrast")
@@ -179,6 +220,8 @@ instance Core.ToJSON ColorCorrector where
             ("colorSpaceConversion" Core..=)
               Prelude.<$> colorSpaceConversion,
             ("hdr10Metadata" Core..=) Prelude.<$> hdr10Metadata,
+            ("sampleRangeConversion" Core..=)
+              Prelude.<$> sampleRangeConversion,
             ("brightness" Core..=) Prelude.<$> brightness,
             ("hue" Core..=) Prelude.<$> hue,
             ("contrast" Core..=) Prelude.<$> contrast

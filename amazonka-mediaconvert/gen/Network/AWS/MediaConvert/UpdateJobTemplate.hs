@@ -29,8 +29,8 @@ module Network.AWS.MediaConvert.UpdateJobTemplate
     -- * Request Lenses
     updateJobTemplate_accelerationSettings,
     updateJobTemplate_category,
-    updateJobTemplate_priority,
     updateJobTemplate_statusUpdateInterval,
+    updateJobTemplate_priority,
     updateJobTemplate_queue,
     updateJobTemplate_description,
     updateJobTemplate_hopDestinations,
@@ -63,18 +63,18 @@ data UpdateJobTemplate = UpdateJobTemplate'
     accelerationSettings :: Prelude.Maybe AccelerationSettings,
     -- | The new category for the job template, if you are changing it.
     category :: Prelude.Maybe Prelude.Text,
-    -- | Specify the relative priority for this job. In any given queue, the
-    -- service begins processing the job with the highest value first. When
-    -- more than one job has the same priority, the service begins processing
-    -- the job that you submitted first. If you don\'t specify a priority, the
-    -- service uses the default value 0.
-    priority :: Prelude.Maybe Prelude.Int,
     -- | Specify how often MediaConvert sends STATUS_UPDATE events to Amazon
     -- CloudWatch Events. Set the interval, in seconds, between status updates.
     -- MediaConvert sends an update at this interval from the time the service
     -- begins processing your job to the time it completes the transcode or
     -- encounters an error.
     statusUpdateInterval :: Prelude.Maybe StatusUpdateInterval,
+    -- | Specify the relative priority for this job. In any given queue, the
+    -- service begins processing the job with the highest value first. When
+    -- more than one job has the same priority, the service begins processing
+    -- the job that you submitted first. If you don\'t specify a priority, the
+    -- service uses the default value 0.
+    priority :: Prelude.Maybe Prelude.Int,
     -- | The new queue for the job template, if you are changing it.
     queue :: Prelude.Maybe Prelude.Text,
     -- | The new description for the job template, if you are changing it.
@@ -104,17 +104,17 @@ data UpdateJobTemplate = UpdateJobTemplate'
 --
 -- 'category', 'updateJobTemplate_category' - The new category for the job template, if you are changing it.
 --
--- 'priority', 'updateJobTemplate_priority' - Specify the relative priority for this job. In any given queue, the
--- service begins processing the job with the highest value first. When
--- more than one job has the same priority, the service begins processing
--- the job that you submitted first. If you don\'t specify a priority, the
--- service uses the default value 0.
---
 -- 'statusUpdateInterval', 'updateJobTemplate_statusUpdateInterval' - Specify how often MediaConvert sends STATUS_UPDATE events to Amazon
 -- CloudWatch Events. Set the interval, in seconds, between status updates.
 -- MediaConvert sends an update at this interval from the time the service
 -- begins processing your job to the time it completes the transcode or
 -- encounters an error.
+--
+-- 'priority', 'updateJobTemplate_priority' - Specify the relative priority for this job. In any given queue, the
+-- service begins processing the job with the highest value first. When
+-- more than one job has the same priority, the service begins processing
+-- the job that you submitted first. If you don\'t specify a priority, the
+-- service uses the default value 0.
 --
 -- 'queue', 'updateJobTemplate_queue' - The new queue for the job template, if you are changing it.
 --
@@ -135,8 +135,8 @@ newUpdateJobTemplate pName_ =
     { accelerationSettings =
         Prelude.Nothing,
       category = Prelude.Nothing,
-      priority = Prelude.Nothing,
       statusUpdateInterval = Prelude.Nothing,
+      priority = Prelude.Nothing,
       queue = Prelude.Nothing,
       description = Prelude.Nothing,
       hopDestinations = Prelude.Nothing,
@@ -155,14 +155,6 @@ updateJobTemplate_accelerationSettings = Lens.lens (\UpdateJobTemplate' {acceler
 updateJobTemplate_category :: Lens.Lens' UpdateJobTemplate (Prelude.Maybe Prelude.Text)
 updateJobTemplate_category = Lens.lens (\UpdateJobTemplate' {category} -> category) (\s@UpdateJobTemplate' {} a -> s {category = a} :: UpdateJobTemplate)
 
--- | Specify the relative priority for this job. In any given queue, the
--- service begins processing the job with the highest value first. When
--- more than one job has the same priority, the service begins processing
--- the job that you submitted first. If you don\'t specify a priority, the
--- service uses the default value 0.
-updateJobTemplate_priority :: Lens.Lens' UpdateJobTemplate (Prelude.Maybe Prelude.Int)
-updateJobTemplate_priority = Lens.lens (\UpdateJobTemplate' {priority} -> priority) (\s@UpdateJobTemplate' {} a -> s {priority = a} :: UpdateJobTemplate)
-
 -- | Specify how often MediaConvert sends STATUS_UPDATE events to Amazon
 -- CloudWatch Events. Set the interval, in seconds, between status updates.
 -- MediaConvert sends an update at this interval from the time the service
@@ -170,6 +162,14 @@ updateJobTemplate_priority = Lens.lens (\UpdateJobTemplate' {priority} -> priori
 -- encounters an error.
 updateJobTemplate_statusUpdateInterval :: Lens.Lens' UpdateJobTemplate (Prelude.Maybe StatusUpdateInterval)
 updateJobTemplate_statusUpdateInterval = Lens.lens (\UpdateJobTemplate' {statusUpdateInterval} -> statusUpdateInterval) (\s@UpdateJobTemplate' {} a -> s {statusUpdateInterval = a} :: UpdateJobTemplate)
+
+-- | Specify the relative priority for this job. In any given queue, the
+-- service begins processing the job with the highest value first. When
+-- more than one job has the same priority, the service begins processing
+-- the job that you submitted first. If you don\'t specify a priority, the
+-- service uses the default value 0.
+updateJobTemplate_priority :: Lens.Lens' UpdateJobTemplate (Prelude.Maybe Prelude.Int)
+updateJobTemplate_priority = Lens.lens (\UpdateJobTemplate' {priority} -> priority) (\s@UpdateJobTemplate' {} a -> s {priority = a} :: UpdateJobTemplate)
 
 -- | The new queue for the job template, if you are changing it.
 updateJobTemplate_queue :: Lens.Lens' UpdateJobTemplate (Prelude.Maybe Prelude.Text)
@@ -227,9 +227,9 @@ instance Core.ToJSON UpdateJobTemplate where
           [ ("accelerationSettings" Core..=)
               Prelude.<$> accelerationSettings,
             ("category" Core..=) Prelude.<$> category,
-            ("priority" Core..=) Prelude.<$> priority,
             ("statusUpdateInterval" Core..=)
               Prelude.<$> statusUpdateInterval,
+            ("priority" Core..=) Prelude.<$> priority,
             ("queue" Core..=) Prelude.<$> queue,
             ("description" Core..=) Prelude.<$> description,
             ("hopDestinations" Core..=)

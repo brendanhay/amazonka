@@ -25,9 +25,9 @@ import Network.AWS.MediaConvert.Types.CaptionSourceFramerate
 import Network.AWS.MediaConvert.Types.FileSourceConvert608To708
 import qualified Network.AWS.Prelude as Prelude
 
--- | If your input captions are SCC, SMI, SRT, STL, TTML, or IMSC 1.1 in an
--- xml file, specify the URI of the input caption source file. If your
--- caption source is IMSC in an IMF package, use TrackSourceSettings
+-- | If your input captions are SCC, SMI, SRT, STL, TTML, WebVTT, or IMSC 1.1
+-- in an xml file, specify the URI of the input caption source file. If
+-- your caption source is IMSC in an IMF package, use TrackSourceSettings
 -- instead of FileSoureSettings.
 --
 -- /See:/ 'newFileSourceSettings' smart constructor.
@@ -48,7 +48,7 @@ data FileSourceSettings = FileSourceSettings'
     framerate :: Prelude.Maybe CaptionSourceFramerate,
     -- | External caption file used for loading captions. Accepted file
     -- extensions are \'scc\', \'ttml\', \'dfxp\', \'stl\', \'srt\', \'xml\',
-    -- and \'smi\'.
+    -- \'smi\', \'webvtt\', and \'vtt\'.
     sourceFile :: Prelude.Maybe Prelude.Text,
     -- | Specifies a time delta in seconds to offset the captions from the source
     -- file.
@@ -80,7 +80,7 @@ data FileSourceSettings = FileSourceSettings'
 --
 -- 'sourceFile', 'fileSourceSettings_sourceFile' - External caption file used for loading captions. Accepted file
 -- extensions are \'scc\', \'ttml\', \'dfxp\', \'stl\', \'srt\', \'xml\',
--- and \'smi\'.
+-- \'smi\', \'webvtt\', and \'vtt\'.
 --
 -- 'timeDelta', 'fileSourceSettings_timeDelta' - Specifies a time delta in seconds to offset the captions from the source
 -- file.
@@ -115,7 +115,7 @@ fileSourceSettings_framerate = Lens.lens (\FileSourceSettings' {framerate} -> fr
 
 -- | External caption file used for loading captions. Accepted file
 -- extensions are \'scc\', \'ttml\', \'dfxp\', \'stl\', \'srt\', \'xml\',
--- and \'smi\'.
+-- \'smi\', \'webvtt\', and \'vtt\'.
 fileSourceSettings_sourceFile :: Lens.Lens' FileSourceSettings (Prelude.Maybe Prelude.Text)
 fileSourceSettings_sourceFile = Lens.lens (\FileSourceSettings' {sourceFile} -> sourceFile) (\s@FileSourceSettings' {} a -> s {sourceFile = a} :: FileSourceSettings)
 

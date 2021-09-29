@@ -27,8 +27,10 @@ import Network.AWS.MediaConvert.Types.MotionImageInsertionOffset
 import Network.AWS.MediaConvert.Types.MotionImagePlayback
 import qualified Network.AWS.Prelude as Prelude
 
--- | Overlay motion graphics on top of your video at the time that you
--- specify.
+-- | Overlay motion graphics on top of your video. The motion graphics that
+-- you specify here appear on all outputs in all output groups. For more
+-- information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/motion-graphic-overlay.html.
 --
 -- /See:/ 'newMotionImageInserter' smart constructor.
 data MotionImageInserter = MotionImageInserter'
@@ -60,9 +62,6 @@ data MotionImageInserter = MotionImageInserter'
     -- settings specification at settings>timecodeConfig>source and
     -- settings>inputs>timecodeSource.
     startTime :: Prelude.Maybe Prelude.Text,
-    -- | Specify whether your motion graphic overlay repeats on a loop or plays
-    -- only once.
-    playback :: Prelude.Maybe MotionImagePlayback,
     -- | If your motion graphic asset is a .mov file, keep this setting
     -- unspecified. If your motion graphic asset is a series of .png files,
     -- specify the frame rate of the overlay in frames per second, as a
@@ -72,6 +71,9 @@ data MotionImageInserter = MotionImageInserter'
     -- fps, you should have 900 .png images. This overlay frame rate doesn\'t
     -- need to match the frame rate of the underlying video.
     framerate :: Prelude.Maybe MotionImageInsertionFramerate,
+    -- | Specify whether your motion graphic overlay repeats on a loop or plays
+    -- only once.
+    playback :: Prelude.Maybe MotionImagePlayback,
     -- | Use Offset to specify the placement of your motion graphic overlay on
     -- the video frame. Specify in pixels, from the upper-left corner of the
     -- frame. If you don\'t specify an offset, the service scales your overlay
@@ -118,9 +120,6 @@ data MotionImageInserter = MotionImageInserter'
 -- settings specification at settings>timecodeConfig>source and
 -- settings>inputs>timecodeSource.
 --
--- 'playback', 'motionImageInserter_playback' - Specify whether your motion graphic overlay repeats on a loop or plays
--- only once.
---
 -- 'framerate', 'motionImageInserter_framerate' - If your motion graphic asset is a .mov file, keep this setting
 -- unspecified. If your motion graphic asset is a series of .png files,
 -- specify the frame rate of the overlay in frames per second, as a
@@ -129,6 +128,9 @@ data MotionImageInserter = MotionImageInserter'
 -- overlay duration. For example, if you want a 30-second overlay at 30
 -- fps, you should have 900 .png images. This overlay frame rate doesn\'t
 -- need to match the frame rate of the underlying video.
+--
+-- 'playback', 'motionImageInserter_playback' - Specify whether your motion graphic overlay repeats on a loop or plays
+-- only once.
 --
 -- 'offset', 'motionImageInserter_offset' - Use Offset to specify the placement of your motion graphic overlay on
 -- the video frame. Specify in pixels, from the upper-left corner of the
@@ -144,8 +146,8 @@ newMotionImageInserter =
         Prelude.Nothing,
       input = Prelude.Nothing,
       startTime = Prelude.Nothing,
-      playback = Prelude.Nothing,
       framerate = Prelude.Nothing,
+      playback = Prelude.Nothing,
       offset = Prelude.Nothing
     }
 
@@ -183,11 +185,6 @@ motionImageInserter_input = Lens.lens (\MotionImageInserter' {input} -> input) (
 motionImageInserter_startTime :: Lens.Lens' MotionImageInserter (Prelude.Maybe Prelude.Text)
 motionImageInserter_startTime = Lens.lens (\MotionImageInserter' {startTime} -> startTime) (\s@MotionImageInserter' {} a -> s {startTime = a} :: MotionImageInserter)
 
--- | Specify whether your motion graphic overlay repeats on a loop or plays
--- only once.
-motionImageInserter_playback :: Lens.Lens' MotionImageInserter (Prelude.Maybe MotionImagePlayback)
-motionImageInserter_playback = Lens.lens (\MotionImageInserter' {playback} -> playback) (\s@MotionImageInserter' {} a -> s {playback = a} :: MotionImageInserter)
-
 -- | If your motion graphic asset is a .mov file, keep this setting
 -- unspecified. If your motion graphic asset is a series of .png files,
 -- specify the frame rate of the overlay in frames per second, as a
@@ -198,6 +195,11 @@ motionImageInserter_playback = Lens.lens (\MotionImageInserter' {playback} -> pl
 -- need to match the frame rate of the underlying video.
 motionImageInserter_framerate :: Lens.Lens' MotionImageInserter (Prelude.Maybe MotionImageInsertionFramerate)
 motionImageInserter_framerate = Lens.lens (\MotionImageInserter' {framerate} -> framerate) (\s@MotionImageInserter' {} a -> s {framerate = a} :: MotionImageInserter)
+
+-- | Specify whether your motion graphic overlay repeats on a loop or plays
+-- only once.
+motionImageInserter_playback :: Lens.Lens' MotionImageInserter (Prelude.Maybe MotionImagePlayback)
+motionImageInserter_playback = Lens.lens (\MotionImageInserter' {playback} -> playback) (\s@MotionImageInserter' {} a -> s {playback = a} :: MotionImageInserter)
 
 -- | Use Offset to specify the placement of your motion graphic overlay on
 -- the video frame. Specify in pixels, from the upper-left corner of the
@@ -217,8 +219,8 @@ instance Core.FromJSON MotionImageInserter where
             Prelude.<$> (x Core..:? "insertionMode")
             Prelude.<*> (x Core..:? "input")
             Prelude.<*> (x Core..:? "startTime")
-            Prelude.<*> (x Core..:? "playback")
             Prelude.<*> (x Core..:? "framerate")
+            Prelude.<*> (x Core..:? "playback")
             Prelude.<*> (x Core..:? "offset")
       )
 
@@ -233,8 +235,8 @@ instance Core.ToJSON MotionImageInserter where
           [ ("insertionMode" Core..=) Prelude.<$> insertionMode,
             ("input" Core..=) Prelude.<$> input,
             ("startTime" Core..=) Prelude.<$> startTime,
-            ("playback" Core..=) Prelude.<$> playback,
             ("framerate" Core..=) Prelude.<$> framerate,
+            ("playback" Core..=) Prelude.<$> playback,
             ("offset" Core..=) Prelude.<$> offset
           ]
       )

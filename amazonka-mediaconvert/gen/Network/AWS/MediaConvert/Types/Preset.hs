@@ -33,10 +33,10 @@ import qualified Network.AWS.Prelude as Prelude
 data Preset = Preset'
   { -- | An optional category you create to organize your presets.
     category :: Prelude.Maybe Prelude.Text,
-    -- | An identifier for this resource that is unique within all of AWS.
-    arn :: Prelude.Maybe Prelude.Text,
     -- | The timestamp in epoch seconds for preset creation.
     createdAt :: Prelude.Maybe Core.POSIX,
+    -- | An identifier for this resource that is unique within all of AWS.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | The timestamp in epoch seconds when the preset was last updated.
     lastUpdated :: Prelude.Maybe Core.POSIX,
     -- | An optional description you create for each preset.
@@ -62,9 +62,9 @@ data Preset = Preset'
 --
 -- 'category', 'preset_category' - An optional category you create to organize your presets.
 --
--- 'arn', 'preset_arn' - An identifier for this resource that is unique within all of AWS.
---
 -- 'createdAt', 'preset_createdAt' - The timestamp in epoch seconds for preset creation.
+--
+-- 'arn', 'preset_arn' - An identifier for this resource that is unique within all of AWS.
 --
 -- 'lastUpdated', 'preset_lastUpdated' - The timestamp in epoch seconds when the preset was last updated.
 --
@@ -86,8 +86,8 @@ newPreset ::
 newPreset pSettings_ pName_ =
   Preset'
     { category = Prelude.Nothing,
-      arn = Prelude.Nothing,
       createdAt = Prelude.Nothing,
+      arn = Prelude.Nothing,
       lastUpdated = Prelude.Nothing,
       description = Prelude.Nothing,
       type' = Prelude.Nothing,
@@ -99,13 +99,13 @@ newPreset pSettings_ pName_ =
 preset_category :: Lens.Lens' Preset (Prelude.Maybe Prelude.Text)
 preset_category = Lens.lens (\Preset' {category} -> category) (\s@Preset' {} a -> s {category = a} :: Preset)
 
--- | An identifier for this resource that is unique within all of AWS.
-preset_arn :: Lens.Lens' Preset (Prelude.Maybe Prelude.Text)
-preset_arn = Lens.lens (\Preset' {arn} -> arn) (\s@Preset' {} a -> s {arn = a} :: Preset)
-
 -- | The timestamp in epoch seconds for preset creation.
 preset_createdAt :: Lens.Lens' Preset (Prelude.Maybe Prelude.UTCTime)
 preset_createdAt = Lens.lens (\Preset' {createdAt} -> createdAt) (\s@Preset' {} a -> s {createdAt = a} :: Preset) Prelude.. Lens.mapping Core._Time
+
+-- | An identifier for this resource that is unique within all of AWS.
+preset_arn :: Lens.Lens' Preset (Prelude.Maybe Prelude.Text)
+preset_arn = Lens.lens (\Preset' {arn} -> arn) (\s@Preset' {} a -> s {arn = a} :: Preset)
 
 -- | The timestamp in epoch seconds when the preset was last updated.
 preset_lastUpdated :: Lens.Lens' Preset (Prelude.Maybe Prelude.UTCTime)
@@ -136,8 +136,8 @@ instance Core.FromJSON Preset where
       ( \x ->
           Preset'
             Prelude.<$> (x Core..:? "category")
-            Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "createdAt")
+            Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "lastUpdated")
             Prelude.<*> (x Core..:? "description")
             Prelude.<*> (x Core..:? "type")

@@ -20,6 +20,7 @@
 module Network.AWS.MediaConvert.Types.AudioSelectorType
   ( AudioSelectorType
       ( ..,
+        AudioSelectorType_HLS_RENDITION_GROUP,
         AudioSelectorType_LANGUAGE_CODE,
         AudioSelectorType_PID,
         AudioSelectorType_TRACK
@@ -59,6 +60,9 @@ newtype AudioSelectorType = AudioSelectorType'
       Core.ToXML
     )
 
+pattern AudioSelectorType_HLS_RENDITION_GROUP :: AudioSelectorType
+pattern AudioSelectorType_HLS_RENDITION_GROUP = AudioSelectorType' "HLS_RENDITION_GROUP"
+
 pattern AudioSelectorType_LANGUAGE_CODE :: AudioSelectorType
 pattern AudioSelectorType_LANGUAGE_CODE = AudioSelectorType' "LANGUAGE_CODE"
 
@@ -69,6 +73,7 @@ pattern AudioSelectorType_TRACK :: AudioSelectorType
 pattern AudioSelectorType_TRACK = AudioSelectorType' "TRACK"
 
 {-# COMPLETE
+  AudioSelectorType_HLS_RENDITION_GROUP,
   AudioSelectorType_LANGUAGE_CODE,
   AudioSelectorType_PID,
   AudioSelectorType_TRACK,

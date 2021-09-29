@@ -40,12 +40,14 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
 -- | Specify the format for this set of captions on this output. The default
--- format is embedded without SCTE-20. Other options are embedded with
--- SCTE-20, burn-in, DVB-sub, IMSC, SCC, SRT, teletext, TTML, and web-VTT.
--- If you are using SCTE-20, choose SCTE-20 plus embedded
--- (SCTE20_PLUS_EMBEDDED) to create an output that complies with the
--- SCTE-43 spec. To create a non-compliant output where the embedded
--- captions come first, choose Embedded plus SCTE-20
+-- format is embedded without SCTE-20. Note that your choice of video
+-- output container constrains your choice of output captions format. For
+-- more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/captions-support-tables.html.
+-- If you are using SCTE-20 and you want to create an output that complies
+-- with the SCTE-43 spec, choose SCTE-20 plus embedded
+-- (SCTE20_PLUS_EMBEDDED). To create a non-compliant output where the
+-- embedded captions come first, choose Embedded plus SCTE-20
 -- (EMBEDDED_PLUS_SCTE20).
 newtype CaptionDestinationType = CaptionDestinationType'
   { fromCaptionDestinationType ::

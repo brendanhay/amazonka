@@ -28,8 +28,10 @@ import Network.AWS.MediaConvert.Types.OutputSettings
 import Network.AWS.MediaConvert.Types.VideoDescription
 import qualified Network.AWS.Prelude as Prelude
 
--- | An output object describes the settings for a single output file or
--- stream in an output group.
+-- | Each output in your job is a collection of settings that describes how
+-- you want MediaConvert to encode a single output file or stream. For more
+-- information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/create-outputs.html.
 --
 -- /See:/ 'newOutput' smart constructor.
 data Output = Output'
@@ -43,10 +45,9 @@ data Output = Output'
     preset :: Prelude.Maybe Prelude.Text,
     -- | Container specific settings.
     containerSettings :: Prelude.Maybe ContainerSettings,
-    -- | (VideoDescription) contains a group of video encoding settings. The
-    -- specific video settings depend on the video codec that you choose when
-    -- you specify a value for Video codec (codec). Include one instance of
-    -- (VideoDescription) per output.
+    -- | VideoDescription contains a group of video encoding settings. The
+    -- specific video settings depend on the video codec that you choose for
+    -- the property codec. Include one instance of VideoDescription per output.
     videoDescription :: Prelude.Maybe VideoDescription,
     -- | Use Extension (Extension) to specify the file extension for outputs in
     -- File output groups. If you do not specify a value, the service will use
@@ -90,10 +91,9 @@ data Output = Output'
 --
 -- 'containerSettings', 'output_containerSettings' - Container specific settings.
 --
--- 'videoDescription', 'output_videoDescription' - (VideoDescription) contains a group of video encoding settings. The
--- specific video settings depend on the video codec that you choose when
--- you specify a value for Video codec (codec). Include one instance of
--- (VideoDescription) per output.
+-- 'videoDescription', 'output_videoDescription' - VideoDescription contains a group of video encoding settings. The
+-- specific video settings depend on the video codec that you choose for
+-- the property codec. Include one instance of VideoDescription per output.
 --
 -- 'extension', 'output_extension' - Use Extension (Extension) to specify the file extension for outputs in
 -- File output groups. If you do not specify a value, the service will use
@@ -145,10 +145,9 @@ output_preset = Lens.lens (\Output' {preset} -> preset) (\s@Output' {} a -> s {p
 output_containerSettings :: Lens.Lens' Output (Prelude.Maybe ContainerSettings)
 output_containerSettings = Lens.lens (\Output' {containerSettings} -> containerSettings) (\s@Output' {} a -> s {containerSettings = a} :: Output)
 
--- | (VideoDescription) contains a group of video encoding settings. The
--- specific video settings depend on the video codec that you choose when
--- you specify a value for Video codec (codec). Include one instance of
--- (VideoDescription) per output.
+-- | VideoDescription contains a group of video encoding settings. The
+-- specific video settings depend on the video codec that you choose for
+-- the property codec. Include one instance of VideoDescription per output.
 output_videoDescription :: Lens.Lens' Output (Prelude.Maybe VideoDescription)
 output_videoDescription = Lens.lens (\Output' {videoDescription} -> videoDescription) (\s@Output' {} a -> s {videoDescription = a} :: Output)
 

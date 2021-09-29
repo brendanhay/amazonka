@@ -37,19 +37,16 @@ import Network.AWS.MediaConvert.Types.Rectangle
 import Network.AWS.MediaConvert.Types.VideoSelector
 import qualified Network.AWS.Prelude as Prelude
 
--- | Specifies media input
+-- | Use inputs to define the source files used in your transcoding job. For
+-- more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/specify-input-settings.html.
+-- You can use multiple video inputs to do input stitching. For more
+-- information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/assembling-multiple-inputs-and-input-clips.html
 --
 -- /See:/ 'newInput' smart constructor.
 data Input = Input'
-  { -- | Enable the image inserter feature to include a graphic overlay on your
-    -- video. Enable or disable this feature for each input individually. This
-    -- setting is disabled by default.
-    imageInserter :: Prelude.Maybe ImageInserter,
-    -- | Enable Denoise (InputDenoiseFilter) to filter noise from the input.
-    -- Default is disabled. Only applicable to MPEG2, H.264, H.265, and
-    -- uncompressed video inputs.
-    denoiseFilter :: Prelude.Maybe InputDenoiseFilter,
-    -- | Provide a list of any necessary supplemental IMPs. You need supplemental
+  { -- | Provide a list of any necessary supplemental IMPs. You need supplemental
     -- IMPs if the CPL that you\'re using for your input is in an incomplete
     -- IMP. Specify either the supplemental IMP directories with a trailing
     -- slash or the ASSETMAP.xml files. For example [\"s3:\/\/bucket\/ov\/\",
@@ -57,6 +54,14 @@ data Input = Input'
     -- IMP that contains your input CPL, because the service automatically
     -- detects it.
     supplementalImps :: Prelude.Maybe [Prelude.Text],
+    -- | Enable the image inserter feature to include a graphic overlay on your
+    -- video. Enable or disable this feature for each input individually. This
+    -- setting is disabled by default.
+    imageInserter :: Prelude.Maybe ImageInserter,
+    -- | Enable Denoise (InputDenoiseFilter) to filter noise from the input.
+    -- Default is disabled. Only applicable to MPEG2, H.264, H.265, and
+    -- uncompressed video inputs.
+    denoiseFilter :: Prelude.Maybe InputDenoiseFilter,
     -- | When you have a progressive segmented frame (PsF) input, use this
     -- setting to flag the input as PsF. MediaConvert doesn\'t automatically
     -- detect PsF. Therefore, flagging your input as PsF results in better
@@ -83,12 +88,6 @@ data Input = Input'
     -- to specify any supplemental IMPs that contain assets referenced by the
     -- CPL.
     fileInput :: Prelude.Maybe Prelude.Text,
-    -- | Specify the timecode that you want the service to use for this input\'s
-    -- initial frame. To use this setting, you must set the Timecode source
-    -- setting, located under the input settings (InputTimecodeSource), to
-    -- Specified start (SPECIFIEDSTART). For more information about timecodes,
-    -- see https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/timecode.
-    timecodeStart :: Prelude.Maybe Prelude.Text,
     -- | Settings for decrypting any input files that you encrypt before you
     -- upload them to Amazon S3. MediaConvert can decrypt files only when you
     -- use AWS Key Management Service (KMS) to encrypt the data key that you
@@ -98,35 +97,35 @@ data Input = Input'
     -- from the input that you will use in your outputs. You can use multiple
     -- Audio selectors per input.
     audioSelectors :: Prelude.Maybe (Prelude.HashMap Prelude.Text AudioSelector),
-    -- | Use Filter strength (FilterStrength) to adjust the magnitude the input
-    -- filter settings (Deblock and Denoise). The range is -5 to 5. Default is
-    -- 0.
-    filterStrength :: Prelude.Maybe Prelude.Int,
+    -- | Specify the timecode that you want the service to use for this input\'s
+    -- initial frame. To use this setting, you must set the Timecode source
+    -- setting, located under the input settings (InputTimecodeSource), to
+    -- Specified start (SPECIFIEDSTART). For more information about timecodes,
+    -- see https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/timecode.
+    timecodeStart :: Prelude.Maybe Prelude.Text,
     -- | Set PSI control (InputPsiControl) for transport stream inputs to specify
     -- which data the demux process to scans. * Ignore PSI - Scan all PIDs for
     -- audio and video. * Use PSI - Scan only PSI data.
     psiControl :: Prelude.Maybe InputPsiControl,
+    -- | Use Filter strength (FilterStrength) to adjust the magnitude the input
+    -- filter settings (Deblock and Denoise). The range is -5 to 5. Default is
+    -- 0.
+    filterStrength :: Prelude.Maybe Prelude.Int,
     -- | Use Program (programNumber) to select a specific program from within a
     -- multi-program transport stream. Note that Quad 4K is not currently
     -- supported. Default is the first program within the transport stream. If
     -- the program you specify doesn\'t exist, the transcoding service will use
     -- this default.
     programNumber :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies set of audio selectors within an input to combine. An input
-    -- may have multiple audio selector groups. See \"Audio Selector
-    -- Group\":#inputs-audio_selector_group for more information.
+    -- | Use audio selector groups to combine multiple sidecar audio inputs so
+    -- that you can assign them to a single output audio tab
+    -- (AudioDescription). Note that, if you\'re working with embedded audio,
+    -- it\'s simpler to assign multiple input tracks into a single audio
+    -- selector rather than use an audio selector group.
     audioSelectorGroups :: Prelude.Maybe (Prelude.HashMap Prelude.Text AudioSelectorGroup),
-    -- | Selector for video.
+    -- | Input video selectors contain the video settings for the input. Each of
+    -- your inputs can have up to one video selector.
     videoSelector :: Prelude.Maybe VideoSelector,
-    -- | Specify how the transcoding service applies the denoise and deblock
-    -- filters. You must also enable the filters separately, with Denoise
-    -- (InputDenoiseFilter) and Deblock (InputDeblockFilter). * Auto - The
-    -- transcoding service determines whether to apply filtering, depending on
-    -- input type and quality. * Disable - The input is not filtered. This is
-    -- true even if you use the API to enable them in (InputDeblockFilter) and
-    -- (InputDeblockFilter). * Force - The input is filtered regardless of
-    -- input type.
-    filterEnable :: Prelude.Maybe InputFilterEnable,
     -- | Use Selection placement (position) to define the video area in your
     -- output frame. The area outside of the rectangle that you specify here is
     -- black. If you specify a value here, it will override any value that you
@@ -136,6 +135,15 @@ data Input = Input'
     -- you specify a value here, this will ignore anything that you specify for
     -- the setting Scaling Behavior (scalingBehavior).
     position :: Prelude.Maybe Rectangle,
+    -- | Specify how the transcoding service applies the denoise and deblock
+    -- filters. You must also enable the filters separately, with Denoise
+    -- (InputDenoiseFilter) and Deblock (InputDeblockFilter). * Auto - The
+    -- transcoding service determines whether to apply filtering, depending on
+    -- input type and quality. * Disable - The input is not filtered. This is
+    -- true even if you use the API to enable them in (InputDeblockFilter) and
+    -- (InputDeblockFilter). * Force - The input is filtered regardless of
+    -- input type.
+    filterEnable :: Prelude.Maybe InputFilterEnable,
     -- | Use Cropping selection (crop) to specify the video area that the service
     -- will include in the output video frame. If you specify a value here, it
     -- will override any value that you specify in the output setting Cropping
@@ -173,14 +181,6 @@ data Input = Input'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'imageInserter', 'input_imageInserter' - Enable the image inserter feature to include a graphic overlay on your
--- video. Enable or disable this feature for each input individually. This
--- setting is disabled by default.
---
--- 'denoiseFilter', 'input_denoiseFilter' - Enable Denoise (InputDenoiseFilter) to filter noise from the input.
--- Default is disabled. Only applicable to MPEG2, H.264, H.265, and
--- uncompressed video inputs.
---
 -- 'supplementalImps', 'input_supplementalImps' - Provide a list of any necessary supplemental IMPs. You need supplemental
 -- IMPs if the CPL that you\'re using for your input is in an incomplete
 -- IMP. Specify either the supplemental IMP directories with a trailing
@@ -188,6 +188,14 @@ data Input = Input'
 -- \"s3:\/\/bucket\/vf2\/ASSETMAP.xml\"]. You don\'t need to specify the
 -- IMP that contains your input CPL, because the service automatically
 -- detects it.
+--
+-- 'imageInserter', 'input_imageInserter' - Enable the image inserter feature to include a graphic overlay on your
+-- video. Enable or disable this feature for each input individually. This
+-- setting is disabled by default.
+--
+-- 'denoiseFilter', 'input_denoiseFilter' - Enable Denoise (InputDenoiseFilter) to filter noise from the input.
+-- Default is disabled. Only applicable to MPEG2, H.264, H.265, and
+-- uncompressed video inputs.
 --
 -- 'inputScanType', 'input_inputScanType' - When you have a progressive segmented frame (PsF) input, use this
 -- setting to flag the input as PsF. MediaConvert doesn\'t automatically
@@ -215,12 +223,6 @@ data Input = Input'
 -- to specify any supplemental IMPs that contain assets referenced by the
 -- CPL.
 --
--- 'timecodeStart', 'input_timecodeStart' - Specify the timecode that you want the service to use for this input\'s
--- initial frame. To use this setting, you must set the Timecode source
--- setting, located under the input settings (InputTimecodeSource), to
--- Specified start (SPECIFIEDSTART). For more information about timecodes,
--- see https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/timecode.
---
 -- 'decryptionSettings', 'input_decryptionSettings' - Settings for decrypting any input files that you encrypt before you
 -- upload them to Amazon S3. MediaConvert can decrypt files only when you
 -- use AWS Key Management Service (KMS) to encrypt the data key that you
@@ -230,13 +232,19 @@ data Input = Input'
 -- from the input that you will use in your outputs. You can use multiple
 -- Audio selectors per input.
 --
--- 'filterStrength', 'input_filterStrength' - Use Filter strength (FilterStrength) to adjust the magnitude the input
--- filter settings (Deblock and Denoise). The range is -5 to 5. Default is
--- 0.
+-- 'timecodeStart', 'input_timecodeStart' - Specify the timecode that you want the service to use for this input\'s
+-- initial frame. To use this setting, you must set the Timecode source
+-- setting, located under the input settings (InputTimecodeSource), to
+-- Specified start (SPECIFIEDSTART). For more information about timecodes,
+-- see https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/timecode.
 --
 -- 'psiControl', 'input_psiControl' - Set PSI control (InputPsiControl) for transport stream inputs to specify
 -- which data the demux process to scans. * Ignore PSI - Scan all PIDs for
 -- audio and video. * Use PSI - Scan only PSI data.
+--
+-- 'filterStrength', 'input_filterStrength' - Use Filter strength (FilterStrength) to adjust the magnitude the input
+-- filter settings (Deblock and Denoise). The range is -5 to 5. Default is
+-- 0.
 --
 -- 'programNumber', 'input_programNumber' - Use Program (programNumber) to select a specific program from within a
 -- multi-program transport stream. Note that Quad 4K is not currently
@@ -244,20 +252,14 @@ data Input = Input'
 -- the program you specify doesn\'t exist, the transcoding service will use
 -- this default.
 --
--- 'audioSelectorGroups', 'input_audioSelectorGroups' - Specifies set of audio selectors within an input to combine. An input
--- may have multiple audio selector groups. See \"Audio Selector
--- Group\":#inputs-audio_selector_group for more information.
+-- 'audioSelectorGroups', 'input_audioSelectorGroups' - Use audio selector groups to combine multiple sidecar audio inputs so
+-- that you can assign them to a single output audio tab
+-- (AudioDescription). Note that, if you\'re working with embedded audio,
+-- it\'s simpler to assign multiple input tracks into a single audio
+-- selector rather than use an audio selector group.
 --
--- 'videoSelector', 'input_videoSelector' - Selector for video.
---
--- 'filterEnable', 'input_filterEnable' - Specify how the transcoding service applies the denoise and deblock
--- filters. You must also enable the filters separately, with Denoise
--- (InputDenoiseFilter) and Deblock (InputDeblockFilter). * Auto - The
--- transcoding service determines whether to apply filtering, depending on
--- input type and quality. * Disable - The input is not filtered. This is
--- true even if you use the API to enable them in (InputDeblockFilter) and
--- (InputDeblockFilter). * Force - The input is filtered regardless of
--- input type.
+-- 'videoSelector', 'input_videoSelector' - Input video selectors contain the video settings for the input. Each of
+-- your inputs can have up to one video selector.
 --
 -- 'position', 'input_position' - Use Selection placement (position) to define the video area in your
 -- output frame. The area outside of the rectangle that you specify here is
@@ -267,6 +269,15 @@ data Input = Input'
 -- even if you set Respond to AFD (RespondToAfd) to Respond (RESPOND). If
 -- you specify a value here, this will ignore anything that you specify for
 -- the setting Scaling Behavior (scalingBehavior).
+--
+-- 'filterEnable', 'input_filterEnable' - Specify how the transcoding service applies the denoise and deblock
+-- filters. You must also enable the filters separately, with Denoise
+-- (InputDenoiseFilter) and Deblock (InputDeblockFilter). * Auto - The
+-- transcoding service determines whether to apply filtering, depending on
+-- input type and quality. * Disable - The input is not filtered. This is
+-- true even if you use the API to enable them in (InputDeblockFilter) and
+-- (InputDeblockFilter). * Force - The input is filtered regardless of
+-- input type.
 --
 -- 'crop', 'input_crop' - Use Cropping selection (crop) to specify the video area that the service
 -- will include in the output video frame. If you specify a value here, it
@@ -297,27 +308,37 @@ newInput ::
   Input
 newInput =
   Input'
-    { imageInserter = Prelude.Nothing,
+    { supplementalImps = Prelude.Nothing,
+      imageInserter = Prelude.Nothing,
       denoiseFilter = Prelude.Nothing,
-      supplementalImps = Prelude.Nothing,
       inputScanType = Prelude.Nothing,
       inputClippings = Prelude.Nothing,
       fileInput = Prelude.Nothing,
-      timecodeStart = Prelude.Nothing,
       decryptionSettings = Prelude.Nothing,
       audioSelectors = Prelude.Nothing,
-      filterStrength = Prelude.Nothing,
+      timecodeStart = Prelude.Nothing,
       psiControl = Prelude.Nothing,
+      filterStrength = Prelude.Nothing,
       programNumber = Prelude.Nothing,
       audioSelectorGroups = Prelude.Nothing,
       videoSelector = Prelude.Nothing,
-      filterEnable = Prelude.Nothing,
       position = Prelude.Nothing,
+      filterEnable = Prelude.Nothing,
       crop = Prelude.Nothing,
       deblockFilter = Prelude.Nothing,
       captionSelectors = Prelude.Nothing,
       timecodeSource = Prelude.Nothing
     }
+
+-- | Provide a list of any necessary supplemental IMPs. You need supplemental
+-- IMPs if the CPL that you\'re using for your input is in an incomplete
+-- IMP. Specify either the supplemental IMP directories with a trailing
+-- slash or the ASSETMAP.xml files. For example [\"s3:\/\/bucket\/ov\/\",
+-- \"s3:\/\/bucket\/vf2\/ASSETMAP.xml\"]. You don\'t need to specify the
+-- IMP that contains your input CPL, because the service automatically
+-- detects it.
+input_supplementalImps :: Lens.Lens' Input (Prelude.Maybe [Prelude.Text])
+input_supplementalImps = Lens.lens (\Input' {supplementalImps} -> supplementalImps) (\s@Input' {} a -> s {supplementalImps = a} :: Input) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Enable the image inserter feature to include a graphic overlay on your
 -- video. Enable or disable this feature for each input individually. This
@@ -330,16 +351,6 @@ input_imageInserter = Lens.lens (\Input' {imageInserter} -> imageInserter) (\s@I
 -- uncompressed video inputs.
 input_denoiseFilter :: Lens.Lens' Input (Prelude.Maybe InputDenoiseFilter)
 input_denoiseFilter = Lens.lens (\Input' {denoiseFilter} -> denoiseFilter) (\s@Input' {} a -> s {denoiseFilter = a} :: Input)
-
--- | Provide a list of any necessary supplemental IMPs. You need supplemental
--- IMPs if the CPL that you\'re using for your input is in an incomplete
--- IMP. Specify either the supplemental IMP directories with a trailing
--- slash or the ASSETMAP.xml files. For example [\"s3:\/\/bucket\/ov\/\",
--- \"s3:\/\/bucket\/vf2\/ASSETMAP.xml\"]. You don\'t need to specify the
--- IMP that contains your input CPL, because the service automatically
--- detects it.
-input_supplementalImps :: Lens.Lens' Input (Prelude.Maybe [Prelude.Text])
-input_supplementalImps = Lens.lens (\Input' {supplementalImps} -> supplementalImps) (\s@Input' {} a -> s {supplementalImps = a} :: Input) Prelude.. Lens.mapping Lens._Coerce
 
 -- | When you have a progressive segmented frame (PsF) input, use this
 -- setting to flag the input as PsF. MediaConvert doesn\'t automatically
@@ -373,14 +384,6 @@ input_inputClippings = Lens.lens (\Input' {inputClippings} -> inputClippings) (\
 input_fileInput :: Lens.Lens' Input (Prelude.Maybe Prelude.Text)
 input_fileInput = Lens.lens (\Input' {fileInput} -> fileInput) (\s@Input' {} a -> s {fileInput = a} :: Input)
 
--- | Specify the timecode that you want the service to use for this input\'s
--- initial frame. To use this setting, you must set the Timecode source
--- setting, located under the input settings (InputTimecodeSource), to
--- Specified start (SPECIFIEDSTART). For more information about timecodes,
--- see https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/timecode.
-input_timecodeStart :: Lens.Lens' Input (Prelude.Maybe Prelude.Text)
-input_timecodeStart = Lens.lens (\Input' {timecodeStart} -> timecodeStart) (\s@Input' {} a -> s {timecodeStart = a} :: Input)
-
 -- | Settings for decrypting any input files that you encrypt before you
 -- upload them to Amazon S3. MediaConvert can decrypt files only when you
 -- use AWS Key Management Service (KMS) to encrypt the data key that you
@@ -394,17 +397,25 @@ input_decryptionSettings = Lens.lens (\Input' {decryptionSettings} -> decryption
 input_audioSelectors :: Lens.Lens' Input (Prelude.Maybe (Prelude.HashMap Prelude.Text AudioSelector))
 input_audioSelectors = Lens.lens (\Input' {audioSelectors} -> audioSelectors) (\s@Input' {} a -> s {audioSelectors = a} :: Input) Prelude.. Lens.mapping Lens._Coerce
 
--- | Use Filter strength (FilterStrength) to adjust the magnitude the input
--- filter settings (Deblock and Denoise). The range is -5 to 5. Default is
--- 0.
-input_filterStrength :: Lens.Lens' Input (Prelude.Maybe Prelude.Int)
-input_filterStrength = Lens.lens (\Input' {filterStrength} -> filterStrength) (\s@Input' {} a -> s {filterStrength = a} :: Input)
+-- | Specify the timecode that you want the service to use for this input\'s
+-- initial frame. To use this setting, you must set the Timecode source
+-- setting, located under the input settings (InputTimecodeSource), to
+-- Specified start (SPECIFIEDSTART). For more information about timecodes,
+-- see https:\/\/docs.aws.amazon.com\/console\/mediaconvert\/timecode.
+input_timecodeStart :: Lens.Lens' Input (Prelude.Maybe Prelude.Text)
+input_timecodeStart = Lens.lens (\Input' {timecodeStart} -> timecodeStart) (\s@Input' {} a -> s {timecodeStart = a} :: Input)
 
 -- | Set PSI control (InputPsiControl) for transport stream inputs to specify
 -- which data the demux process to scans. * Ignore PSI - Scan all PIDs for
 -- audio and video. * Use PSI - Scan only PSI data.
 input_psiControl :: Lens.Lens' Input (Prelude.Maybe InputPsiControl)
 input_psiControl = Lens.lens (\Input' {psiControl} -> psiControl) (\s@Input' {} a -> s {psiControl = a} :: Input)
+
+-- | Use Filter strength (FilterStrength) to adjust the magnitude the input
+-- filter settings (Deblock and Denoise). The range is -5 to 5. Default is
+-- 0.
+input_filterStrength :: Lens.Lens' Input (Prelude.Maybe Prelude.Int)
+input_filterStrength = Lens.lens (\Input' {filterStrength} -> filterStrength) (\s@Input' {} a -> s {filterStrength = a} :: Input)
 
 -- | Use Program (programNumber) to select a specific program from within a
 -- multi-program transport stream. Note that Quad 4K is not currently
@@ -414,26 +425,18 @@ input_psiControl = Lens.lens (\Input' {psiControl} -> psiControl) (\s@Input' {} 
 input_programNumber :: Lens.Lens' Input (Prelude.Maybe Prelude.Natural)
 input_programNumber = Lens.lens (\Input' {programNumber} -> programNumber) (\s@Input' {} a -> s {programNumber = a} :: Input)
 
--- | Specifies set of audio selectors within an input to combine. An input
--- may have multiple audio selector groups. See \"Audio Selector
--- Group\":#inputs-audio_selector_group for more information.
+-- | Use audio selector groups to combine multiple sidecar audio inputs so
+-- that you can assign them to a single output audio tab
+-- (AudioDescription). Note that, if you\'re working with embedded audio,
+-- it\'s simpler to assign multiple input tracks into a single audio
+-- selector rather than use an audio selector group.
 input_audioSelectorGroups :: Lens.Lens' Input (Prelude.Maybe (Prelude.HashMap Prelude.Text AudioSelectorGroup))
 input_audioSelectorGroups = Lens.lens (\Input' {audioSelectorGroups} -> audioSelectorGroups) (\s@Input' {} a -> s {audioSelectorGroups = a} :: Input) Prelude.. Lens.mapping Lens._Coerce
 
--- | Selector for video.
+-- | Input video selectors contain the video settings for the input. Each of
+-- your inputs can have up to one video selector.
 input_videoSelector :: Lens.Lens' Input (Prelude.Maybe VideoSelector)
 input_videoSelector = Lens.lens (\Input' {videoSelector} -> videoSelector) (\s@Input' {} a -> s {videoSelector = a} :: Input)
-
--- | Specify how the transcoding service applies the denoise and deblock
--- filters. You must also enable the filters separately, with Denoise
--- (InputDenoiseFilter) and Deblock (InputDeblockFilter). * Auto - The
--- transcoding service determines whether to apply filtering, depending on
--- input type and quality. * Disable - The input is not filtered. This is
--- true even if you use the API to enable them in (InputDeblockFilter) and
--- (InputDeblockFilter). * Force - The input is filtered regardless of
--- input type.
-input_filterEnable :: Lens.Lens' Input (Prelude.Maybe InputFilterEnable)
-input_filterEnable = Lens.lens (\Input' {filterEnable} -> filterEnable) (\s@Input' {} a -> s {filterEnable = a} :: Input)
 
 -- | Use Selection placement (position) to define the video area in your
 -- output frame. The area outside of the rectangle that you specify here is
@@ -445,6 +448,17 @@ input_filterEnable = Lens.lens (\Input' {filterEnable} -> filterEnable) (\s@Inpu
 -- the setting Scaling Behavior (scalingBehavior).
 input_position :: Lens.Lens' Input (Prelude.Maybe Rectangle)
 input_position = Lens.lens (\Input' {position} -> position) (\s@Input' {} a -> s {position = a} :: Input)
+
+-- | Specify how the transcoding service applies the denoise and deblock
+-- filters. You must also enable the filters separately, with Denoise
+-- (InputDenoiseFilter) and Deblock (InputDeblockFilter). * Auto - The
+-- transcoding service determines whether to apply filtering, depending on
+-- input type and quality. * Disable - The input is not filtered. This is
+-- true even if you use the API to enable them in (InputDeblockFilter) and
+-- (InputDeblockFilter). * Force - The input is filtered regardless of
+-- input type.
+input_filterEnable :: Lens.Lens' Input (Prelude.Maybe InputFilterEnable)
+input_filterEnable = Lens.lens (\Input' {filterEnable} -> filterEnable) (\s@Input' {} a -> s {filterEnable = a} :: Input)
 
 -- | Use Cropping selection (crop) to specify the video area that the service
 -- will include in the output video frame. If you specify a value here, it
@@ -486,26 +500,26 @@ instance Core.FromJSON Input where
       "Input"
       ( \x ->
           Input'
-            Prelude.<$> (x Core..:? "imageInserter")
-            Prelude.<*> (x Core..:? "denoiseFilter")
-            Prelude.<*> ( x Core..:? "supplementalImps"
+            Prelude.<$> ( x Core..:? "supplementalImps"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "imageInserter")
+            Prelude.<*> (x Core..:? "denoiseFilter")
             Prelude.<*> (x Core..:? "inputScanType")
             Prelude.<*> (x Core..:? "inputClippings" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "fileInput")
-            Prelude.<*> (x Core..:? "timecodeStart")
             Prelude.<*> (x Core..:? "decryptionSettings")
             Prelude.<*> (x Core..:? "audioSelectors" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "filterStrength")
+            Prelude.<*> (x Core..:? "timecodeStart")
             Prelude.<*> (x Core..:? "psiControl")
+            Prelude.<*> (x Core..:? "filterStrength")
             Prelude.<*> (x Core..:? "programNumber")
             Prelude.<*> ( x Core..:? "audioSelectorGroups"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "videoSelector")
-            Prelude.<*> (x Core..:? "filterEnable")
             Prelude.<*> (x Core..:? "position")
+            Prelude.<*> (x Core..:? "filterEnable")
             Prelude.<*> (x Core..:? "crop")
             Prelude.<*> (x Core..:? "deblockFilter")
             Prelude.<*> ( x Core..:? "captionSelectors"
@@ -522,28 +536,28 @@ instance Core.ToJSON Input where
   toJSON Input' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("imageInserter" Core..=) Prelude.<$> imageInserter,
-            ("denoiseFilter" Core..=) Prelude.<$> denoiseFilter,
-            ("supplementalImps" Core..=)
+          [ ("supplementalImps" Core..=)
               Prelude.<$> supplementalImps,
+            ("imageInserter" Core..=) Prelude.<$> imageInserter,
+            ("denoiseFilter" Core..=) Prelude.<$> denoiseFilter,
             ("inputScanType" Core..=) Prelude.<$> inputScanType,
             ("inputClippings" Core..=)
               Prelude.<$> inputClippings,
             ("fileInput" Core..=) Prelude.<$> fileInput,
-            ("timecodeStart" Core..=) Prelude.<$> timecodeStart,
             ("decryptionSettings" Core..=)
               Prelude.<$> decryptionSettings,
             ("audioSelectors" Core..=)
               Prelude.<$> audioSelectors,
+            ("timecodeStart" Core..=) Prelude.<$> timecodeStart,
+            ("psiControl" Core..=) Prelude.<$> psiControl,
             ("filterStrength" Core..=)
               Prelude.<$> filterStrength,
-            ("psiControl" Core..=) Prelude.<$> psiControl,
             ("programNumber" Core..=) Prelude.<$> programNumber,
             ("audioSelectorGroups" Core..=)
               Prelude.<$> audioSelectorGroups,
             ("videoSelector" Core..=) Prelude.<$> videoSelector,
-            ("filterEnable" Core..=) Prelude.<$> filterEnable,
             ("position" Core..=) Prelude.<$> position,
+            ("filterEnable" Core..=) Prelude.<$> filterEnable,
             ("crop" Core..=) Prelude.<$> crop,
             ("deblockFilter" Core..=) Prelude.<$> deblockFilter,
             ("captionSelectors" Core..=)

@@ -20,6 +20,7 @@
 module Network.AWS.MediaConvert.Types.DvbSubtitleTeletextSpacing
   ( DvbSubtitleTeletextSpacing
       ( ..,
+        DvbSubtitleTeletextSpacing_AUTO,
         DvbSubtitleTeletextSpacing_FIXED_GRID,
         DvbSubtitleTeletextSpacing_PROPORTIONAL
       ),
@@ -63,6 +64,9 @@ newtype DvbSubtitleTeletextSpacing = DvbSubtitleTeletextSpacing'
       Core.ToXML
     )
 
+pattern DvbSubtitleTeletextSpacing_AUTO :: DvbSubtitleTeletextSpacing
+pattern DvbSubtitleTeletextSpacing_AUTO = DvbSubtitleTeletextSpacing' "AUTO"
+
 pattern DvbSubtitleTeletextSpacing_FIXED_GRID :: DvbSubtitleTeletextSpacing
 pattern DvbSubtitleTeletextSpacing_FIXED_GRID = DvbSubtitleTeletextSpacing' "FIXED_GRID"
 
@@ -70,6 +74,7 @@ pattern DvbSubtitleTeletextSpacing_PROPORTIONAL :: DvbSubtitleTeletextSpacing
 pattern DvbSubtitleTeletextSpacing_PROPORTIONAL = DvbSubtitleTeletextSpacing' "PROPORTIONAL"
 
 {-# COMPLETE
+  DvbSubtitleTeletextSpacing_AUTO,
   DvbSubtitleTeletextSpacing_FIXED_GRID,
   DvbSubtitleTeletextSpacing_PROPORTIONAL,
   DvbSubtitleTeletextSpacing'

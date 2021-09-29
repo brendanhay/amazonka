@@ -37,13 +37,13 @@ data PresetSettings = PresetSettings'
     audioDescriptions :: Prelude.Maybe [AudioDescription],
     -- | Container specific settings.
     containerSettings :: Prelude.Maybe ContainerSettings,
-    -- | (VideoDescription) contains a group of video encoding settings. The
-    -- specific video settings depend on the video codec that you choose when
-    -- you specify a value for Video codec (codec). Include one instance of
-    -- (VideoDescription) per output.
+    -- | VideoDescription contains a group of video encoding settings. The
+    -- specific video settings depend on the video codec that you choose for
+    -- the property codec. Include one instance of VideoDescription per output.
     videoDescription :: Prelude.Maybe VideoDescription,
-    -- | Caption settings for this preset. There can be multiple caption settings
-    -- in a single output.
+    -- | This object holds groups of settings related to captions for one output.
+    -- For each output that has captions, include one instance of
+    -- CaptionDescriptions.
     captionDescriptions :: Prelude.Maybe [CaptionDescriptionPreset]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -62,13 +62,13 @@ data PresetSettings = PresetSettings'
 --
 -- 'containerSettings', 'presetSettings_containerSettings' - Container specific settings.
 --
--- 'videoDescription', 'presetSettings_videoDescription' - (VideoDescription) contains a group of video encoding settings. The
--- specific video settings depend on the video codec that you choose when
--- you specify a value for Video codec (codec). Include one instance of
--- (VideoDescription) per output.
+-- 'videoDescription', 'presetSettings_videoDescription' - VideoDescription contains a group of video encoding settings. The
+-- specific video settings depend on the video codec that you choose for
+-- the property codec. Include one instance of VideoDescription per output.
 --
--- 'captionDescriptions', 'presetSettings_captionDescriptions' - Caption settings for this preset. There can be multiple caption settings
--- in a single output.
+-- 'captionDescriptions', 'presetSettings_captionDescriptions' - This object holds groups of settings related to captions for one output.
+-- For each output that has captions, include one instance of
+-- CaptionDescriptions.
 newPresetSettings ::
   PresetSettings
 newPresetSettings =
@@ -90,15 +90,15 @@ presetSettings_audioDescriptions = Lens.lens (\PresetSettings' {audioDescription
 presetSettings_containerSettings :: Lens.Lens' PresetSettings (Prelude.Maybe ContainerSettings)
 presetSettings_containerSettings = Lens.lens (\PresetSettings' {containerSettings} -> containerSettings) (\s@PresetSettings' {} a -> s {containerSettings = a} :: PresetSettings)
 
--- | (VideoDescription) contains a group of video encoding settings. The
--- specific video settings depend on the video codec that you choose when
--- you specify a value for Video codec (codec). Include one instance of
--- (VideoDescription) per output.
+-- | VideoDescription contains a group of video encoding settings. The
+-- specific video settings depend on the video codec that you choose for
+-- the property codec. Include one instance of VideoDescription per output.
 presetSettings_videoDescription :: Lens.Lens' PresetSettings (Prelude.Maybe VideoDescription)
 presetSettings_videoDescription = Lens.lens (\PresetSettings' {videoDescription} -> videoDescription) (\s@PresetSettings' {} a -> s {videoDescription = a} :: PresetSettings)
 
--- | Caption settings for this preset. There can be multiple caption settings
--- in a single output.
+-- | This object holds groups of settings related to captions for one output.
+-- For each output that has captions, include one instance of
+-- CaptionDescriptions.
 presetSettings_captionDescriptions :: Lens.Lens' PresetSettings (Prelude.Maybe [CaptionDescriptionPreset])
 presetSettings_captionDescriptions = Lens.lens (\PresetSettings' {captionDescriptions} -> captionDescriptions) (\s@PresetSettings' {} a -> s {captionDescriptions = a} :: PresetSettings) Prelude.. Lens.mapping Lens._Coerce
 

@@ -20,6 +20,7 @@
 module Network.AWS.MediaConvert.Types.BurninSubtitleOutlineColor
   ( BurninSubtitleOutlineColor
       ( ..,
+        BurninSubtitleOutlineColor_AUTO,
         BurninSubtitleOutlineColor_BLACK,
         BurninSubtitleOutlineColor_BLUE,
         BurninSubtitleOutlineColor_GREEN,
@@ -65,6 +66,9 @@ newtype BurninSubtitleOutlineColor = BurninSubtitleOutlineColor'
       Core.ToXML
     )
 
+pattern BurninSubtitleOutlineColor_AUTO :: BurninSubtitleOutlineColor
+pattern BurninSubtitleOutlineColor_AUTO = BurninSubtitleOutlineColor' "AUTO"
+
 pattern BurninSubtitleOutlineColor_BLACK :: BurninSubtitleOutlineColor
 pattern BurninSubtitleOutlineColor_BLACK = BurninSubtitleOutlineColor' "BLACK"
 
@@ -84,6 +88,7 @@ pattern BurninSubtitleOutlineColor_YELLOW :: BurninSubtitleOutlineColor
 pattern BurninSubtitleOutlineColor_YELLOW = BurninSubtitleOutlineColor' "YELLOW"
 
 {-# COMPLETE
+  BurninSubtitleOutlineColor_AUTO,
   BurninSubtitleOutlineColor_BLACK,
   BurninSubtitleOutlineColor_BLUE,
   BurninSubtitleOutlineColor_GREEN,

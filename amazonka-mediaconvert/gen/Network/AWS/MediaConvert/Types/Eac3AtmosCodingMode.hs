@@ -20,7 +20,10 @@
 module Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode
   ( Eac3AtmosCodingMode
       ( ..,
-        Eac3AtmosCodingMode_CODING_MODE_9_1_6
+        Eac3AtmosCodingMode_CODING_MODE_5_1_4,
+        Eac3AtmosCodingMode_CODING_MODE_7_1_4,
+        Eac3AtmosCodingMode_CODING_MODE_9_1_6,
+        Eac3AtmosCodingMode_CODING_MODE_AUTO
       ),
   )
 where
@@ -28,8 +31,7 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
--- | The coding mode for Dolby Digital Plus JOC (Atmos) is always 9.1.6
--- (CODING_MODE_9_1_6).
+-- | The coding mode for Dolby Digital Plus JOC (Atmos).
 newtype Eac3AtmosCodingMode = Eac3AtmosCodingMode'
   { fromEac3AtmosCodingMode ::
       Core.Text
@@ -58,10 +60,22 @@ newtype Eac3AtmosCodingMode = Eac3AtmosCodingMode'
       Core.ToXML
     )
 
+pattern Eac3AtmosCodingMode_CODING_MODE_5_1_4 :: Eac3AtmosCodingMode
+pattern Eac3AtmosCodingMode_CODING_MODE_5_1_4 = Eac3AtmosCodingMode' "CODING_MODE_5_1_4"
+
+pattern Eac3AtmosCodingMode_CODING_MODE_7_1_4 :: Eac3AtmosCodingMode
+pattern Eac3AtmosCodingMode_CODING_MODE_7_1_4 = Eac3AtmosCodingMode' "CODING_MODE_7_1_4"
+
 pattern Eac3AtmosCodingMode_CODING_MODE_9_1_6 :: Eac3AtmosCodingMode
 pattern Eac3AtmosCodingMode_CODING_MODE_9_1_6 = Eac3AtmosCodingMode' "CODING_MODE_9_1_6"
 
+pattern Eac3AtmosCodingMode_CODING_MODE_AUTO :: Eac3AtmosCodingMode
+pattern Eac3AtmosCodingMode_CODING_MODE_AUTO = Eac3AtmosCodingMode' "CODING_MODE_AUTO"
+
 {-# COMPLETE
+  Eac3AtmosCodingMode_CODING_MODE_5_1_4,
+  Eac3AtmosCodingMode_CODING_MODE_7_1_4,
   Eac3AtmosCodingMode_CODING_MODE_9_1_6,
+  Eac3AtmosCodingMode_CODING_MODE_AUTO,
   Eac3AtmosCodingMode'
   #-}

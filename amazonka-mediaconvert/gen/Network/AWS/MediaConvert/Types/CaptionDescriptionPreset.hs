@@ -51,9 +51,13 @@ data CaptionDescriptionPreset = CaptionDescriptionPreset'
     -- outputs are those that are in one of the following output groups: CMAF,
     -- DASH ISO, Apple HLS, or Microsoft Smooth Streaming.
     customLanguageCode :: Prelude.Maybe Prelude.Text,
-    -- | Specific settings required by destination type. Note that
-    -- burnin_destination_settings are not available if the source of the
-    -- caption data is Embedded or Teletext.
+    -- | Settings related to one captions tab on the MediaConvert console. In
+    -- your job JSON, an instance of captions DestinationSettings is equivalent
+    -- to one captions tab in the console. Usually, one captions tab
+    -- corresponds to one output captions track. Depending on your output
+    -- captions format, one tab might correspond to a set of output captions
+    -- tracks. For more information, see
+    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/including-captions.html.
     destinationSettings :: Prelude.Maybe CaptionDestinationSettings
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -88,9 +92,13 @@ data CaptionDescriptionPreset = CaptionDescriptionPreset'
 -- outputs are those that are in one of the following output groups: CMAF,
 -- DASH ISO, Apple HLS, or Microsoft Smooth Streaming.
 --
--- 'destinationSettings', 'captionDescriptionPreset_destinationSettings' - Specific settings required by destination type. Note that
--- burnin_destination_settings are not available if the source of the
--- caption data is Embedded or Teletext.
+-- 'destinationSettings', 'captionDescriptionPreset_destinationSettings' - Settings related to one captions tab on the MediaConvert console. In
+-- your job JSON, an instance of captions DestinationSettings is equivalent
+-- to one captions tab in the console. Usually, one captions tab
+-- corresponds to one output captions track. Depending on your output
+-- captions format, one tab might correspond to a set of output captions
+-- tracks. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/including-captions.html.
 newCaptionDescriptionPreset ::
   CaptionDescriptionPreset
 newCaptionDescriptionPreset =
@@ -130,9 +138,13 @@ captionDescriptionPreset_languageDescription = Lens.lens (\CaptionDescriptionPre
 captionDescriptionPreset_customLanguageCode :: Lens.Lens' CaptionDescriptionPreset (Prelude.Maybe Prelude.Text)
 captionDescriptionPreset_customLanguageCode = Lens.lens (\CaptionDescriptionPreset' {customLanguageCode} -> customLanguageCode) (\s@CaptionDescriptionPreset' {} a -> s {customLanguageCode = a} :: CaptionDescriptionPreset)
 
--- | Specific settings required by destination type. Note that
--- burnin_destination_settings are not available if the source of the
--- caption data is Embedded or Teletext.
+-- | Settings related to one captions tab on the MediaConvert console. In
+-- your job JSON, an instance of captions DestinationSettings is equivalent
+-- to one captions tab in the console. Usually, one captions tab
+-- corresponds to one output captions track. Depending on your output
+-- captions format, one tab might correspond to a set of output captions
+-- tracks. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/including-captions.html.
 captionDescriptionPreset_destinationSettings :: Lens.Lens' CaptionDescriptionPreset (Prelude.Maybe CaptionDestinationSettings)
 captionDescriptionPreset_destinationSettings = Lens.lens (\CaptionDescriptionPreset' {destinationSettings} -> destinationSettings) (\s@CaptionDescriptionPreset' {} a -> s {destinationSettings = a} :: CaptionDescriptionPreset)
 

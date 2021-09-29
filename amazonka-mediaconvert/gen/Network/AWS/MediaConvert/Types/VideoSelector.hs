@@ -26,9 +26,11 @@ import Network.AWS.MediaConvert.Types.ColorSpace
 import Network.AWS.MediaConvert.Types.ColorSpaceUsage
 import Network.AWS.MediaConvert.Types.Hdr10Metadata
 import Network.AWS.MediaConvert.Types.InputRotate
+import Network.AWS.MediaConvert.Types.InputSampleRange
 import qualified Network.AWS.Prelude as Prelude
 
--- | Selector for video.
+-- | Input video selectors contain the video settings for the input. Each of
+-- your inputs can have up to one video selector.
 --
 -- /See:/ 'newVideoSelector' smart constructor.
 data VideoSelector = VideoSelector'
@@ -43,6 +45,18 @@ data VideoSelector = VideoSelector'
     -- file, the service defaults to using values you specify in the input
     -- settings.
     colorSpaceUsage :: Prelude.Maybe ColorSpaceUsage,
+    -- | Use this setting when your input video codec is AVC-Intra. Ignore this
+    -- setting for all other inputs. If the sample range metadata in your input
+    -- video is accurate, or if you don\'t know about sample range, keep the
+    -- default value, Follow (FOLLOW), for this setting. When you do, the
+    -- service automatically detects your input sample range. If your input
+    -- video has metadata indicating the wrong sample range, specify the
+    -- accurate sample range here. When you do, MediaConvert ignores any sample
+    -- range information in the input metadata. Regardless of whether
+    -- MediaConvert uses the input sample range or the sample range that you
+    -- specify, MediaConvert uses the sample range for transcoding and also
+    -- writes it to the output metadata.
+    sampleRange :: Prelude.Maybe InputSampleRange,
     -- | Use these settings to provide HDR 10 metadata that is missing or
     -- inaccurate in your input video. Appropriate values vary depending on the
     -- input video and must be provided by a color grader. The color grader
@@ -118,6 +132,18 @@ data VideoSelector = VideoSelector'
 -- file, the service defaults to using values you specify in the input
 -- settings.
 --
+-- 'sampleRange', 'videoSelector_sampleRange' - Use this setting when your input video codec is AVC-Intra. Ignore this
+-- setting for all other inputs. If the sample range metadata in your input
+-- video is accurate, or if you don\'t know about sample range, keep the
+-- default value, Follow (FOLLOW), for this setting. When you do, the
+-- service automatically detects your input sample range. If your input
+-- video has metadata indicating the wrong sample range, specify the
+-- accurate sample range here. When you do, MediaConvert ignores any sample
+-- range information in the input metadata. Regardless of whether
+-- MediaConvert uses the input sample range or the sample range that you
+-- specify, MediaConvert uses the sample range for transcoding and also
+-- writes it to the output metadata.
+--
 -- 'hdr10Metadata', 'videoSelector_hdr10Metadata' - Use these settings to provide HDR 10 metadata that is missing or
 -- inaccurate in your input video. Appropriate values vary depending on the
 -- input video and must be provided by a color grader. The color grader
@@ -175,6 +201,7 @@ newVideoSelector ::
 newVideoSelector =
   VideoSelector'
     { colorSpaceUsage = Prelude.Nothing,
+      sampleRange = Prelude.Nothing,
       hdr10Metadata = Prelude.Nothing,
       programNumber = Prelude.Nothing,
       rotate = Prelude.Nothing,
@@ -195,6 +222,20 @@ newVideoSelector =
 -- settings.
 videoSelector_colorSpaceUsage :: Lens.Lens' VideoSelector (Prelude.Maybe ColorSpaceUsage)
 videoSelector_colorSpaceUsage = Lens.lens (\VideoSelector' {colorSpaceUsage} -> colorSpaceUsage) (\s@VideoSelector' {} a -> s {colorSpaceUsage = a} :: VideoSelector)
+
+-- | Use this setting when your input video codec is AVC-Intra. Ignore this
+-- setting for all other inputs. If the sample range metadata in your input
+-- video is accurate, or if you don\'t know about sample range, keep the
+-- default value, Follow (FOLLOW), for this setting. When you do, the
+-- service automatically detects your input sample range. If your input
+-- video has metadata indicating the wrong sample range, specify the
+-- accurate sample range here. When you do, MediaConvert ignores any sample
+-- range information in the input metadata. Regardless of whether
+-- MediaConvert uses the input sample range or the sample range that you
+-- specify, MediaConvert uses the sample range for transcoding and also
+-- writes it to the output metadata.
+videoSelector_sampleRange :: Lens.Lens' VideoSelector (Prelude.Maybe InputSampleRange)
+videoSelector_sampleRange = Lens.lens (\VideoSelector' {sampleRange} -> sampleRange) (\s@VideoSelector' {} a -> s {sampleRange = a} :: VideoSelector)
 
 -- | Use these settings to provide HDR 10 metadata that is missing or
 -- inaccurate in your input video. Appropriate values vary depending on the
@@ -268,6 +309,7 @@ instance Core.FromJSON VideoSelector where
       ( \x ->
           VideoSelector'
             Prelude.<$> (x Core..:? "colorSpaceUsage")
+            Prelude.<*> (x Core..:? "sampleRange")
             Prelude.<*> (x Core..:? "hdr10Metadata")
             Prelude.<*> (x Core..:? "programNumber")
             Prelude.<*> (x Core..:? "rotate")
@@ -286,6 +328,7 @@ instance Core.ToJSON VideoSelector where
       ( Prelude.catMaybes
           [ ("colorSpaceUsage" Core..=)
               Prelude.<$> colorSpaceUsage,
+            ("sampleRange" Core..=) Prelude.<$> sampleRange,
             ("hdr10Metadata" Core..=) Prelude.<$> hdr10Metadata,
             ("programNumber" Core..=) Prelude.<$> programNumber,
             ("rotate" Core..=) Prelude.<$> rotate,

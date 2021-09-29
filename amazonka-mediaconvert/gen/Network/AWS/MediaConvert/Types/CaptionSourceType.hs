@@ -32,7 +32,8 @@ module Network.AWS.MediaConvert.Types.CaptionSourceType
         CaptionSourceType_SRT,
         CaptionSourceType_STL,
         CaptionSourceType_TELETEXT,
-        CaptionSourceType_TTML
+        CaptionSourceType_TTML,
+        CaptionSourceType_WEBVTT
       ),
   )
 where
@@ -109,6 +110,9 @@ pattern CaptionSourceType_TELETEXT = CaptionSourceType' "TELETEXT"
 pattern CaptionSourceType_TTML :: CaptionSourceType
 pattern CaptionSourceType_TTML = CaptionSourceType' "TTML"
 
+pattern CaptionSourceType_WEBVTT :: CaptionSourceType
+pattern CaptionSourceType_WEBVTT = CaptionSourceType' "WEBVTT"
+
 {-# COMPLETE
   CaptionSourceType_ANCILLARY,
   CaptionSourceType_DVB_SUB,
@@ -123,5 +127,6 @@ pattern CaptionSourceType_TTML = CaptionSourceType' "TTML"
   CaptionSourceType_STL,
   CaptionSourceType_TELETEXT,
   CaptionSourceType_TTML,
+  CaptionSourceType_WEBVTT,
   CaptionSourceType'
   #-}

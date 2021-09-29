@@ -20,9 +20,11 @@
 module Network.AWS.MediaConvert.Types.BurninSubtitleFontColor
   ( BurninSubtitleFontColor
       ( ..,
+        BurninSubtitleFontColor_AUTO,
         BurninSubtitleFontColor_BLACK,
         BurninSubtitleFontColor_BLUE,
         BurninSubtitleFontColor_GREEN,
+        BurninSubtitleFontColor_HEX,
         BurninSubtitleFontColor_RED,
         BurninSubtitleFontColor_WHITE,
         BurninSubtitleFontColor_YELLOW
@@ -65,6 +67,9 @@ newtype BurninSubtitleFontColor = BurninSubtitleFontColor'
       Core.ToXML
     )
 
+pattern BurninSubtitleFontColor_AUTO :: BurninSubtitleFontColor
+pattern BurninSubtitleFontColor_AUTO = BurninSubtitleFontColor' "AUTO"
+
 pattern BurninSubtitleFontColor_BLACK :: BurninSubtitleFontColor
 pattern BurninSubtitleFontColor_BLACK = BurninSubtitleFontColor' "BLACK"
 
@@ -73,6 +78,9 @@ pattern BurninSubtitleFontColor_BLUE = BurninSubtitleFontColor' "BLUE"
 
 pattern BurninSubtitleFontColor_GREEN :: BurninSubtitleFontColor
 pattern BurninSubtitleFontColor_GREEN = BurninSubtitleFontColor' "GREEN"
+
+pattern BurninSubtitleFontColor_HEX :: BurninSubtitleFontColor
+pattern BurninSubtitleFontColor_HEX = BurninSubtitleFontColor' "HEX"
 
 pattern BurninSubtitleFontColor_RED :: BurninSubtitleFontColor
 pattern BurninSubtitleFontColor_RED = BurninSubtitleFontColor' "RED"
@@ -84,9 +92,11 @@ pattern BurninSubtitleFontColor_YELLOW :: BurninSubtitleFontColor
 pattern BurninSubtitleFontColor_YELLOW = BurninSubtitleFontColor' "YELLOW"
 
 {-# COMPLETE
+  BurninSubtitleFontColor_AUTO,
   BurninSubtitleFontColor_BLACK,
   BurninSubtitleFontColor_BLUE,
   BurninSubtitleFontColor_GREEN,
+  BurninSubtitleFontColor_HEX,
   BurninSubtitleFontColor_RED,
   BurninSubtitleFontColor_WHITE,
   BurninSubtitleFontColor_YELLOW,

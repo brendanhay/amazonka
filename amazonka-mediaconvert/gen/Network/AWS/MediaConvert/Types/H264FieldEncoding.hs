@@ -21,6 +21,7 @@ module Network.AWS.MediaConvert.Types.H264FieldEncoding
   ( H264FieldEncoding
       ( ..,
         H264FieldEncoding_FORCE_FIELD,
+        H264FieldEncoding_MBAFF,
         H264FieldEncoding_PAFF
       ),
   )
@@ -29,9 +30,11 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
--- | Keep the default value, PAFF, to have MediaConvert use PAFF encoding for
--- interlaced outputs. Choose Force field (FORCE_FIELD) to disable PAFF
--- encoding and create separate interlaced fields.
+-- | The video encoding method for your MPEG-4 AVC output. Keep the default
+-- value, PAFF, to have MediaConvert use PAFF encoding for interlaced
+-- outputs. Choose Force field (FORCE_FIELD) to disable PAFF encoding and
+-- create separate interlaced fields. Choose MBAFF to disable PAFF and have
+-- MediaConvert use MBAFF encoding for interlaced outputs.
 newtype H264FieldEncoding = H264FieldEncoding'
   { fromH264FieldEncoding ::
       Core.Text
@@ -63,11 +66,15 @@ newtype H264FieldEncoding = H264FieldEncoding'
 pattern H264FieldEncoding_FORCE_FIELD :: H264FieldEncoding
 pattern H264FieldEncoding_FORCE_FIELD = H264FieldEncoding' "FORCE_FIELD"
 
+pattern H264FieldEncoding_MBAFF :: H264FieldEncoding
+pattern H264FieldEncoding_MBAFF = H264FieldEncoding' "MBAFF"
+
 pattern H264FieldEncoding_PAFF :: H264FieldEncoding
 pattern H264FieldEncoding_PAFF = H264FieldEncoding' "PAFF"
 
 {-# COMPLETE
   H264FieldEncoding_FORCE_FIELD,
+  H264FieldEncoding_MBAFF,
   H264FieldEncoding_PAFF,
   H264FieldEncoding'
   #-}

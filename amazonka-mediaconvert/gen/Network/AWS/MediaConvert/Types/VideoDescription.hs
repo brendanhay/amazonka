@@ -33,7 +33,10 @@ import Network.AWS.MediaConvert.Types.VideoPreprocessor
 import Network.AWS.MediaConvert.Types.VideoTimecodeInsertion
 import qualified Network.AWS.Prelude as Prelude
 
--- | Settings for video outputs
+-- | Settings related to video encoding of your output. The specific video
+-- settings depend on the video codec that you choose. When you work
+-- directly in your JSON job specification, include one instance of Video
+-- description (VideoDescription) per output.
 --
 -- /See:/ 'newVideoDescription' smart constructor.
 data VideoDescription = VideoDescription'
@@ -72,7 +75,7 @@ data VideoDescription = VideoDescription'
     -- pairs. * AV1, Av1Settings * AVC_INTRA, AvcIntraSettings * FRAME_CAPTURE,
     -- FrameCaptureSettings * H_264, H264Settings * H_265, H265Settings *
     -- MPEG2, Mpeg2Settings * PRORES, ProresSettings * VC3, Vc3Settings * VP8,
-    -- Vp8Settings * VP9, Vp9Settings
+    -- Vp8Settings * VP9, Vp9Settings * XAVC, XavcSettings
     codecSettings :: Prelude.Maybe VideoCodecSettings,
     -- | Choose Insert (INSERT) for this setting to include color metadata in
     -- this output. Choose Ignore (IGNORE) to exclude color metadata from this
@@ -97,6 +100,10 @@ data VideoDescription = VideoDescription'
     -- not affect the timecodes that are inserted in the output. Source under
     -- Job settings > Timecode configuration (TimecodeSource) does.
     timecodeInsertion :: Prelude.Maybe VideoTimecodeInsertion,
+    -- | Use Selection placement (position) to define the video area in your
+    -- output frame. The area outside of the rectangle that you specify here is
+    -- black.
+    position :: Prelude.Maybe Rectangle,
     -- | Specify how the service handles outputs that have a different aspect
     -- ratio from the input aspect ratio. Choose Stretch to output
     -- (STRETCH_TO_OUTPUT) to have the service stretch your video image to fit.
@@ -104,10 +111,6 @@ data VideoDescription = VideoDescription'
     -- video instead. This setting overrides any value that you specify for the
     -- setting Selection placement (position) in this output.
     scalingBehavior :: Prelude.Maybe ScalingBehavior,
-    -- | Use Selection placement (position) to define the video area in your
-    -- output frame. The area outside of the rectangle that you specify here is
-    -- black.
-    position :: Prelude.Maybe Rectangle,
     -- | Use Cropping selection (crop) to specify the video area that the service
     -- will include in the output video frame.
     crop :: Prelude.Maybe Rectangle,
@@ -175,7 +178,7 @@ data VideoDescription = VideoDescription'
 -- pairs. * AV1, Av1Settings * AVC_INTRA, AvcIntraSettings * FRAME_CAPTURE,
 -- FrameCaptureSettings * H_264, H264Settings * H_265, H265Settings *
 -- MPEG2, Mpeg2Settings * PRORES, ProresSettings * VC3, Vc3Settings * VP8,
--- Vp8Settings * VP9, Vp9Settings
+-- Vp8Settings * VP9, Vp9Settings * XAVC, XavcSettings
 --
 -- 'colorMetadata', 'videoDescription_colorMetadata' - Choose Insert (INSERT) for this setting to include color metadata in
 -- this output. Choose Ignore (IGNORE) to exclude color metadata from this
@@ -200,16 +203,16 @@ data VideoDescription = VideoDescription'
 -- not affect the timecodes that are inserted in the output. Source under
 -- Job settings > Timecode configuration (TimecodeSource) does.
 --
+-- 'position', 'videoDescription_position' - Use Selection placement (position) to define the video area in your
+-- output frame. The area outside of the rectangle that you specify here is
+-- black.
+--
 -- 'scalingBehavior', 'videoDescription_scalingBehavior' - Specify how the service handles outputs that have a different aspect
 -- ratio from the input aspect ratio. Choose Stretch to output
 -- (STRETCH_TO_OUTPUT) to have the service stretch your video image to fit.
 -- Keep the setting Default (DEFAULT) to have the service letterbox your
 -- video instead. This setting overrides any value that you specify for the
 -- setting Selection placement (position) in this output.
---
--- 'position', 'videoDescription_position' - Use Selection placement (position) to define the video area in your
--- output frame. The area outside of the rectangle that you specify here is
--- black.
 --
 -- 'crop', 'videoDescription_crop' - Use Cropping selection (crop) to specify the video area that the service
 -- will include in the output video frame.
@@ -244,8 +247,8 @@ newVideoDescription =
       colorMetadata = Prelude.Nothing,
       fixedAfd = Prelude.Nothing,
       timecodeInsertion = Prelude.Nothing,
-      scalingBehavior = Prelude.Nothing,
       position = Prelude.Nothing,
+      scalingBehavior = Prelude.Nothing,
       crop = Prelude.Nothing,
       videoPreprocessors = Prelude.Nothing,
       sharpness = Prelude.Nothing,
@@ -297,7 +300,7 @@ videoDescription_width = Lens.lens (\VideoDescription' {width} -> width) (\s@Vid
 -- pairs. * AV1, Av1Settings * AVC_INTRA, AvcIntraSettings * FRAME_CAPTURE,
 -- FrameCaptureSettings * H_264, H264Settings * H_265, H265Settings *
 -- MPEG2, Mpeg2Settings * PRORES, ProresSettings * VC3, Vc3Settings * VP8,
--- Vp8Settings * VP9, Vp9Settings
+-- Vp8Settings * VP9, Vp9Settings * XAVC, XavcSettings
 videoDescription_codecSettings :: Lens.Lens' VideoDescription (Prelude.Maybe VideoCodecSettings)
 videoDescription_codecSettings = Lens.lens (\VideoDescription' {codecSettings} -> codecSettings) (\s@VideoDescription' {} a -> s {codecSettings = a} :: VideoDescription)
 
@@ -330,6 +333,12 @@ videoDescription_fixedAfd = Lens.lens (\VideoDescription' {fixedAfd} -> fixedAfd
 videoDescription_timecodeInsertion :: Lens.Lens' VideoDescription (Prelude.Maybe VideoTimecodeInsertion)
 videoDescription_timecodeInsertion = Lens.lens (\VideoDescription' {timecodeInsertion} -> timecodeInsertion) (\s@VideoDescription' {} a -> s {timecodeInsertion = a} :: VideoDescription)
 
+-- | Use Selection placement (position) to define the video area in your
+-- output frame. The area outside of the rectangle that you specify here is
+-- black.
+videoDescription_position :: Lens.Lens' VideoDescription (Prelude.Maybe Rectangle)
+videoDescription_position = Lens.lens (\VideoDescription' {position} -> position) (\s@VideoDescription' {} a -> s {position = a} :: VideoDescription)
+
 -- | Specify how the service handles outputs that have a different aspect
 -- ratio from the input aspect ratio. Choose Stretch to output
 -- (STRETCH_TO_OUTPUT) to have the service stretch your video image to fit.
@@ -338,12 +347,6 @@ videoDescription_timecodeInsertion = Lens.lens (\VideoDescription' {timecodeInse
 -- setting Selection placement (position) in this output.
 videoDescription_scalingBehavior :: Lens.Lens' VideoDescription (Prelude.Maybe ScalingBehavior)
 videoDescription_scalingBehavior = Lens.lens (\VideoDescription' {scalingBehavior} -> scalingBehavior) (\s@VideoDescription' {} a -> s {scalingBehavior = a} :: VideoDescription)
-
--- | Use Selection placement (position) to define the video area in your
--- output frame. The area outside of the rectangle that you specify here is
--- black.
-videoDescription_position :: Lens.Lens' VideoDescription (Prelude.Maybe Rectangle)
-videoDescription_position = Lens.lens (\VideoDescription' {position} -> position) (\s@VideoDescription' {} a -> s {position = a} :: VideoDescription)
 
 -- | Use Cropping selection (crop) to specify the video area that the service
 -- will include in the output video frame.
@@ -389,8 +392,8 @@ instance Core.FromJSON VideoDescription where
             Prelude.<*> (x Core..:? "colorMetadata")
             Prelude.<*> (x Core..:? "fixedAfd")
             Prelude.<*> (x Core..:? "timecodeInsertion")
-            Prelude.<*> (x Core..:? "scalingBehavior")
             Prelude.<*> (x Core..:? "position")
+            Prelude.<*> (x Core..:? "scalingBehavior")
             Prelude.<*> (x Core..:? "crop")
             Prelude.<*> (x Core..:? "videoPreprocessors")
             Prelude.<*> (x Core..:? "sharpness")
@@ -416,9 +419,9 @@ instance Core.ToJSON VideoDescription where
             ("fixedAfd" Core..=) Prelude.<$> fixedAfd,
             ("timecodeInsertion" Core..=)
               Prelude.<$> timecodeInsertion,
+            ("position" Core..=) Prelude.<$> position,
             ("scalingBehavior" Core..=)
               Prelude.<$> scalingBehavior,
-            ("position" Core..=) Prelude.<$> position,
             ("crop" Core..=) Prelude.<$> crop,
             ("videoPreprocessors" Core..=)
               Prelude.<$> videoPreprocessors,

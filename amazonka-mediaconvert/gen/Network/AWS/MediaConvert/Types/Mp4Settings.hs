@@ -27,8 +27,9 @@ import Network.AWS.MediaConvert.Types.Mp4FreeSpaceBox
 import Network.AWS.MediaConvert.Types.Mp4MoovPlacement
 import qualified Network.AWS.Prelude as Prelude
 
--- | Settings for MP4 container. You can create audio-only AAC outputs with
--- this container.
+-- | These settings relate to your MP4 output container. You can create audio
+-- only outputs with this container. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/supported-codecs-containers-audio-only.html#output-codecs-and-containers-supported-for-audio-only.
 --
 -- /See:/ 'newMp4Settings' smart constructor.
 data Mp4Settings = Mp4Settings'
@@ -58,10 +59,6 @@ data Mp4Settings = Mp4Settings'
     audioDuration :: Prelude.Maybe CmfcAudioDuration,
     -- | Inserts a free-space box immediately after the moov box.
     freeSpaceBox :: Prelude.Maybe Mp4FreeSpaceBox,
-    -- | If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the
-    -- beginning of the archive as required for progressive downloading.
-    -- Otherwise it is placed normally at the end.
-    moovPlacement :: Prelude.Maybe Mp4MoovPlacement,
     -- | Ignore this setting unless compliance to the CTTS box version
     -- specification matters in your workflow. Specify a value of 1 to set your
     -- CTTS box version to 1 and make your output compliant with the
@@ -69,7 +66,11 @@ data Mp4Settings = Mp4Settings'
     -- atom (cslgAtom) to the value INCLUDE. Keep the default value 0 to set
     -- your CTTS box version to 0. This can provide backward compatibility for
     -- some players and packagers.
-    cttsVersion :: Prelude.Maybe Prelude.Natural
+    cttsVersion :: Prelude.Maybe Prelude.Natural,
+    -- | If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the
+    -- beginning of the archive as required for progressive downloading.
+    -- Otherwise it is placed normally at the end.
+    moovPlacement :: Prelude.Maybe Mp4MoovPlacement
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -107,10 +108,6 @@ data Mp4Settings = Mp4Settings'
 --
 -- 'freeSpaceBox', 'mp4Settings_freeSpaceBox' - Inserts a free-space box immediately after the moov box.
 --
--- 'moovPlacement', 'mp4Settings_moovPlacement' - If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the
--- beginning of the archive as required for progressive downloading.
--- Otherwise it is placed normally at the end.
---
 -- 'cttsVersion', 'mp4Settings_cttsVersion' - Ignore this setting unless compliance to the CTTS box version
 -- specification matters in your workflow. Specify a value of 1 to set your
 -- CTTS box version to 1 and make your output compliant with the
@@ -118,6 +115,10 @@ data Mp4Settings = Mp4Settings'
 -- atom (cslgAtom) to the value INCLUDE. Keep the default value 0 to set
 -- your CTTS box version to 0. This can provide backward compatibility for
 -- some players and packagers.
+--
+-- 'moovPlacement', 'mp4Settings_moovPlacement' - If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the
+-- beginning of the archive as required for progressive downloading.
+-- Otherwise it is placed normally at the end.
 newMp4Settings ::
   Mp4Settings
 newMp4Settings =
@@ -126,8 +127,8 @@ newMp4Settings =
       mp4MajorBrand = Prelude.Nothing,
       audioDuration = Prelude.Nothing,
       freeSpaceBox = Prelude.Nothing,
-      moovPlacement = Prelude.Nothing,
-      cttsVersion = Prelude.Nothing
+      cttsVersion = Prelude.Nothing,
+      moovPlacement = Prelude.Nothing
     }
 
 -- | When enabled, file composition times will start at zero, composition
@@ -164,12 +165,6 @@ mp4Settings_audioDuration = Lens.lens (\Mp4Settings' {audioDuration} -> audioDur
 mp4Settings_freeSpaceBox :: Lens.Lens' Mp4Settings (Prelude.Maybe Mp4FreeSpaceBox)
 mp4Settings_freeSpaceBox = Lens.lens (\Mp4Settings' {freeSpaceBox} -> freeSpaceBox) (\s@Mp4Settings' {} a -> s {freeSpaceBox = a} :: Mp4Settings)
 
--- | If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the
--- beginning of the archive as required for progressive downloading.
--- Otherwise it is placed normally at the end.
-mp4Settings_moovPlacement :: Lens.Lens' Mp4Settings (Prelude.Maybe Mp4MoovPlacement)
-mp4Settings_moovPlacement = Lens.lens (\Mp4Settings' {moovPlacement} -> moovPlacement) (\s@Mp4Settings' {} a -> s {moovPlacement = a} :: Mp4Settings)
-
 -- | Ignore this setting unless compliance to the CTTS box version
 -- specification matters in your workflow. Specify a value of 1 to set your
 -- CTTS box version to 1 and make your output compliant with the
@@ -179,6 +174,12 @@ mp4Settings_moovPlacement = Lens.lens (\Mp4Settings' {moovPlacement} -> moovPlac
 -- some players and packagers.
 mp4Settings_cttsVersion :: Lens.Lens' Mp4Settings (Prelude.Maybe Prelude.Natural)
 mp4Settings_cttsVersion = Lens.lens (\Mp4Settings' {cttsVersion} -> cttsVersion) (\s@Mp4Settings' {} a -> s {cttsVersion = a} :: Mp4Settings)
+
+-- | If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the
+-- beginning of the archive as required for progressive downloading.
+-- Otherwise it is placed normally at the end.
+mp4Settings_moovPlacement :: Lens.Lens' Mp4Settings (Prelude.Maybe Mp4MoovPlacement)
+mp4Settings_moovPlacement = Lens.lens (\Mp4Settings' {moovPlacement} -> moovPlacement) (\s@Mp4Settings' {} a -> s {moovPlacement = a} :: Mp4Settings)
 
 instance Core.FromJSON Mp4Settings where
   parseJSON =
@@ -190,8 +191,8 @@ instance Core.FromJSON Mp4Settings where
             Prelude.<*> (x Core..:? "mp4MajorBrand")
             Prelude.<*> (x Core..:? "audioDuration")
             Prelude.<*> (x Core..:? "freeSpaceBox")
-            Prelude.<*> (x Core..:? "moovPlacement")
             Prelude.<*> (x Core..:? "cttsVersion")
+            Prelude.<*> (x Core..:? "moovPlacement")
       )
 
 instance Prelude.Hashable Mp4Settings
@@ -206,7 +207,7 @@ instance Core.ToJSON Mp4Settings where
             ("mp4MajorBrand" Core..=) Prelude.<$> mp4MajorBrand,
             ("audioDuration" Core..=) Prelude.<$> audioDuration,
             ("freeSpaceBox" Core..=) Prelude.<$> freeSpaceBox,
-            ("moovPlacement" Core..=) Prelude.<$> moovPlacement,
-            ("cttsVersion" Core..=) Prelude.<$> cttsVersion
+            ("cttsVersion" Core..=) Prelude.<$> cttsVersion,
+            ("moovPlacement" Core..=) Prelude.<$> moovPlacement
           ]
       )

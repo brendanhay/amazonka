@@ -55,23 +55,17 @@ module Network.AWS.MediaConvert
     UpdatePresetResponse (UpdatePresetResponse'),
     newUpdatePresetResponse,
 
-    -- ** ListPresets (Paginated)
-    ListPresets (ListPresets'),
-    newListPresets,
-    ListPresetsResponse (ListPresetsResponse'),
-    newListPresetsResponse,
-
     -- ** DeletePreset
     DeletePreset (DeletePreset'),
     newDeletePreset,
     DeletePresetResponse (DeletePresetResponse'),
     newDeletePresetResponse,
 
-    -- ** CancelJob
-    CancelJob (CancelJob'),
-    newCancelJob,
-    CancelJobResponse (CancelJobResponse'),
-    newCancelJobResponse,
+    -- ** ListPresets (Paginated)
+    ListPresets (ListPresets'),
+    newListPresets,
+    ListPresetsResponse (ListPresetsResponse'),
+    newListPresetsResponse,
 
     -- ** CreatePreset
     CreatePreset (CreatePreset'),
@@ -85,23 +79,29 @@ module Network.AWS.MediaConvert
     GetJobResponse (GetJobResponse'),
     newGetJobResponse,
 
+    -- ** CancelJob
+    CancelJob (CancelJob'),
+    newCancelJob,
+    CancelJobResponse (CancelJobResponse'),
+    newCancelJobResponse,
+
     -- ** ListJobTemplates (Paginated)
     ListJobTemplates (ListJobTemplates'),
     newListJobTemplates,
     ListJobTemplatesResponse (ListJobTemplatesResponse'),
     newListJobTemplatesResponse,
 
-    -- ** UntagResource
-    UntagResource (UntagResource'),
-    newUntagResource,
-    UntagResourceResponse (UntagResourceResponse'),
-    newUntagResourceResponse,
-
     -- ** CreateJobTemplate
     CreateJobTemplate (CreateJobTemplate'),
     newCreateJobTemplate,
     CreateJobTemplateResponse (CreateJobTemplateResponse'),
     newCreateJobTemplateResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
 
     -- ** ListQueues (Paginated)
     ListQueues (ListQueues'),
@@ -121,23 +121,17 @@ module Network.AWS.MediaConvert
     GetQueueResponse (GetQueueResponse'),
     newGetQueueResponse,
 
-    -- ** GetJobTemplate
-    GetJobTemplate (GetJobTemplate'),
-    newGetJobTemplate,
-    GetJobTemplateResponse (GetJobTemplateResponse'),
-    newGetJobTemplateResponse,
-
     -- ** AssociateCertificate
     AssociateCertificate (AssociateCertificate'),
     newAssociateCertificate,
     AssociateCertificateResponse (AssociateCertificateResponse'),
     newAssociateCertificateResponse,
 
-    -- ** ListJobs (Paginated)
-    ListJobs (ListJobs'),
-    newListJobs,
-    ListJobsResponse (ListJobsResponse'),
-    newListJobsResponse,
+    -- ** GetJobTemplate
+    GetJobTemplate (GetJobTemplate'),
+    newGetJobTemplate,
+    GetJobTemplateResponse (GetJobTemplateResponse'),
+    newGetJobTemplateResponse,
 
     -- ** UpdateJobTemplate
     UpdateJobTemplate (UpdateJobTemplate'),
@@ -150,6 +144,12 @@ module Network.AWS.MediaConvert
     newDeleteJobTemplate,
     DeleteJobTemplateResponse (DeleteJobTemplateResponse'),
     newDeleteJobTemplateResponse,
+
+    -- ** ListJobs (Paginated)
+    ListJobs (ListJobs'),
+    newListJobs,
+    ListJobsResponse (ListJobsResponse'),
+    newListJobsResponse,
 
     -- ** CreateJob
     CreateJob (CreateJob'),
@@ -222,8 +222,14 @@ module Network.AWS.MediaConvert
     -- ** Ac3CodingMode
     Ac3CodingMode (..),
 
+    -- ** Ac3DynamicRangeCompressionLine
+    Ac3DynamicRangeCompressionLine (..),
+
     -- ** Ac3DynamicRangeCompressionProfile
     Ac3DynamicRangeCompressionProfile (..),
+
+    -- ** Ac3DynamicRangeCompressionRf
+    Ac3DynamicRangeCompressionRf (..),
 
     -- ** Ac3LfeFilter
     Ac3LfeFilter (..),
@@ -324,11 +330,20 @@ module Network.AWS.MediaConvert
     -- ** BillingTagsSource
     BillingTagsSource (..),
 
+    -- ** BurnInSubtitleStylePassthrough
+    BurnInSubtitleStylePassthrough (..),
+
     -- ** BurninSubtitleAlignment
     BurninSubtitleAlignment (..),
 
+    -- ** BurninSubtitleApplyFontColor
+    BurninSubtitleApplyFontColor (..),
+
     -- ** BurninSubtitleBackgroundColor
     BurninSubtitleBackgroundColor (..),
+
+    -- ** BurninSubtitleFallbackFont
+    BurninSubtitleFallbackFont (..),
 
     -- ** BurninSubtitleFontColor
     BurninSubtitleFontColor (..),
@@ -357,8 +372,14 @@ module Network.AWS.MediaConvert
     -- ** CmafEncryptionType
     CmafEncryptionType (..),
 
+    -- ** CmafImageBasedTrickPlay
+    CmafImageBasedTrickPlay (..),
+
     -- ** CmafInitializationVectorInManifest
     CmafInitializationVectorInManifest (..),
+
+    -- ** CmafIntervalCadence
+    CmafIntervalCadence (..),
 
     -- ** CmafKeyProviderType
     CmafKeyProviderType (..),
@@ -372,11 +393,20 @@ module Network.AWS.MediaConvert
     -- ** CmafMpdProfile
     CmafMpdProfile (..),
 
+    -- ** CmafPtsOffsetHandlingForBFrames
+    CmafPtsOffsetHandlingForBFrames (..),
+
     -- ** CmafSegmentControl
     CmafSegmentControl (..),
 
+    -- ** CmafSegmentLengthControl
+    CmafSegmentLengthControl (..),
+
     -- ** CmafStreamInfResolution
     CmafStreamInfResolution (..),
+
+    -- ** CmafTargetDurationCompatibilityMode
+    CmafTargetDurationCompatibilityMode (..),
 
     -- ** CmafWriteDASHManifest
     CmafWriteDASHManifest (..),
@@ -389,6 +419,12 @@ module Network.AWS.MediaConvert
 
     -- ** CmfcAudioDuration
     CmfcAudioDuration (..),
+
+    -- ** CmfcAudioTrackType
+    CmfcAudioTrackType (..),
+
+    -- ** CmfcDescriptiveVideoServiceFlag
+    CmfcDescriptiveVideoServiceFlag (..),
 
     -- ** CmfcIFrameOnlyManifest
     CmfcIFrameOnlyManifest (..),
@@ -417,8 +453,20 @@ module Network.AWS.MediaConvert
     -- ** ContainerType
     ContainerType (..),
 
+    -- ** CopyProtectionAction
+    CopyProtectionAction (..),
+
+    -- ** DashIsoGroupAudioChannelConfigSchemeIdUri
+    DashIsoGroupAudioChannelConfigSchemeIdUri (..),
+
     -- ** DashIsoHbbtvCompliance
     DashIsoHbbtvCompliance (..),
+
+    -- ** DashIsoImageBasedTrickPlay
+    DashIsoImageBasedTrickPlay (..),
+
+    -- ** DashIsoIntervalCadence
+    DashIsoIntervalCadence (..),
 
     -- ** DashIsoMpdProfile
     DashIsoMpdProfile (..),
@@ -426,8 +474,14 @@ module Network.AWS.MediaConvert
     -- ** DashIsoPlaybackDeviceCompatibility
     DashIsoPlaybackDeviceCompatibility (..),
 
+    -- ** DashIsoPtsOffsetHandlingForBFrames
+    DashIsoPtsOffsetHandlingForBFrames (..),
+
     -- ** DashIsoSegmentControl
     DashIsoSegmentControl (..),
+
+    -- ** DashIsoSegmentLengthControl
+    DashIsoSegmentLengthControl (..),
 
     -- ** DashIsoWriteSegmentTimelineInRepresentation
     DashIsoWriteSegmentTimelineInRepresentation (..),
@@ -456,8 +510,14 @@ module Network.AWS.MediaConvert
     -- ** DropFrameTimecode
     DropFrameTimecode (..),
 
+    -- ** DvbSubSubtitleFallbackFont
+    DvbSubSubtitleFallbackFont (..),
+
     -- ** DvbSubtitleAlignment
     DvbSubtitleAlignment (..),
+
+    -- ** DvbSubtitleApplyFontColor
+    DvbSubtitleApplyFontColor (..),
 
     -- ** DvbSubtitleBackgroundColor
     DvbSubtitleBackgroundColor (..),
@@ -471,11 +531,17 @@ module Network.AWS.MediaConvert
     -- ** DvbSubtitleShadowColor
     DvbSubtitleShadowColor (..),
 
+    -- ** DvbSubtitleStylePassthrough
+    DvbSubtitleStylePassthrough (..),
+
     -- ** DvbSubtitleTeletextSpacing
     DvbSubtitleTeletextSpacing (..),
 
     -- ** DvbSubtitlingType
     DvbSubtitlingType (..),
+
+    -- ** DvbddsHandling
+    DvbddsHandling (..),
 
     -- ** Eac3AtmosBitstreamMode
     Eac3AtmosBitstreamMode (..),
@@ -486,11 +552,17 @@ module Network.AWS.MediaConvert
     -- ** Eac3AtmosDialogueIntelligence
     Eac3AtmosDialogueIntelligence (..),
 
+    -- ** Eac3AtmosDownmixControl
+    Eac3AtmosDownmixControl (..),
+
     -- ** Eac3AtmosDynamicRangeCompressionLine
     Eac3AtmosDynamicRangeCompressionLine (..),
 
     -- ** Eac3AtmosDynamicRangeCompressionRf
     Eac3AtmosDynamicRangeCompressionRf (..),
+
+    -- ** Eac3AtmosDynamicRangeControl
+    Eac3AtmosDynamicRangeControl (..),
 
     -- ** Eac3AtmosMeteringMode
     Eac3AtmosMeteringMode (..),
@@ -726,6 +798,9 @@ module Network.AWS.MediaConvert
     -- ** HlsCodecSpecification
     HlsCodecSpecification (..),
 
+    -- ** HlsDescriptiveVideoServiceFlag
+    HlsDescriptiveVideoServiceFlag (..),
+
     -- ** HlsDirectoryStructure
     HlsDirectoryStructure (..),
 
@@ -735,8 +810,14 @@ module Network.AWS.MediaConvert
     -- ** HlsIFrameOnlyManifest
     HlsIFrameOnlyManifest (..),
 
+    -- ** HlsImageBasedTrickPlay
+    HlsImageBasedTrickPlay (..),
+
     -- ** HlsInitializationVectorInManifest
     HlsInitializationVectorInManifest (..),
+
+    -- ** HlsIntervalCadence
+    HlsIntervalCadence (..),
 
     -- ** HlsKeyProviderType
     HlsKeyProviderType (..),
@@ -759,8 +840,14 @@ module Network.AWS.MediaConvert
     -- ** HlsSegmentControl
     HlsSegmentControl (..),
 
+    -- ** HlsSegmentLengthControl
+    HlsSegmentLengthControl (..),
+
     -- ** HlsStreamInfResolution
     HlsStreamInfResolution (..),
+
+    -- ** HlsTargetDurationCompatibilityMode
+    HlsTargetDurationCompatibilityMode (..),
 
     -- ** HlsTimedMetadataId3Frame
     HlsTimedMetadataId3Frame (..),
@@ -782,6 +869,9 @@ module Network.AWS.MediaConvert
 
     -- ** InputRotate
     InputRotate (..),
+
+    -- ** InputSampleRange
+    InputSampleRange (..),
 
     -- ** InputScanType
     InputScanType (..),
@@ -809,6 +899,9 @@ module Network.AWS.MediaConvert
 
     -- ** M2tsBufferModel
     M2tsBufferModel (..),
+
+    -- ** M2tsDataPtsControl
+    M2tsDataPtsControl (..),
 
     -- ** M2tsEbpAudioInterval
     M2tsEbpAudioInterval (..),
@@ -842,6 +935,9 @@ module Network.AWS.MediaConvert
 
     -- ** M3u8AudioDuration
     M3u8AudioDuration (..),
+
+    -- ** M3u8DataPtsControl
+    M3u8DataPtsControl (..),
 
     -- ** M3u8NielsenId3
     M3u8NielsenId3 (..),
@@ -960,6 +1056,9 @@ module Network.AWS.MediaConvert
     -- ** MsSmoothAudioDeduplication
     MsSmoothAudioDeduplication (..),
 
+    -- ** MsSmoothFragmentLengthControl
+    MsSmoothFragmentLengthControl (..),
+
     -- ** MsSmoothManifestEncoding
     MsSmoothManifestEncoding (..),
 
@@ -968,6 +1067,9 @@ module Network.AWS.MediaConvert
 
     -- ** MxfProfile
     MxfProfile (..),
+
+    -- ** MxfXavcDurationMode
+    MxfXavcDurationMode (..),
 
     -- ** NielsenActiveWatermarkProcessType
     NielsenActiveWatermarkProcessType (..),
@@ -998,6 +1100,9 @@ module Network.AWS.MediaConvert
 
     -- ** PricingPlan
     PricingPlan (..),
+
+    -- ** ProresChromaSampling
+    ProresChromaSampling (..),
 
     -- ** ProresCodecProfile
     ProresCodecProfile (..),
@@ -1044,6 +1149,9 @@ module Network.AWS.MediaConvert
     -- ** S3ServerSideEncryptionType
     S3ServerSideEncryptionType (..),
 
+    -- ** SampleRangeConversion
+    SampleRangeConversion (..),
+
     -- ** ScalingBehavior
     ScalingBehavior (..),
 
@@ -1052,6 +1160,9 @@ module Network.AWS.MediaConvert
 
     -- ** SimulateReservedQueue
     SimulateReservedQueue (..),
+
+    -- ** SrtStylePassthrough
+    SrtStylePassthrough (..),
 
     -- ** StatusUpdateInterval
     StatusUpdateInterval (..),
@@ -1095,6 +1206,9 @@ module Network.AWS.MediaConvert
     -- ** Vc3Telecine
     Vc3Telecine (..),
 
+    -- ** VchipAction
+    VchipAction (..),
+
     -- ** VideoCodec
     VideoCodec (..),
 
@@ -1136,6 +1250,69 @@ module Network.AWS.MediaConvert
 
     -- ** WavFormat
     WavFormat (..),
+
+    -- ** WebvttStylePassthrough
+    WebvttStylePassthrough (..),
+
+    -- ** Xavc4kIntraCbgProfileClass
+    Xavc4kIntraCbgProfileClass (..),
+
+    -- ** Xavc4kIntraVbrProfileClass
+    Xavc4kIntraVbrProfileClass (..),
+
+    -- ** Xavc4kProfileBitrateClass
+    Xavc4kProfileBitrateClass (..),
+
+    -- ** Xavc4kProfileCodecProfile
+    Xavc4kProfileCodecProfile (..),
+
+    -- ** Xavc4kProfileQualityTuningLevel
+    Xavc4kProfileQualityTuningLevel (..),
+
+    -- ** XavcAdaptiveQuantization
+    XavcAdaptiveQuantization (..),
+
+    -- ** XavcEntropyEncoding
+    XavcEntropyEncoding (..),
+
+    -- ** XavcFlickerAdaptiveQuantization
+    XavcFlickerAdaptiveQuantization (..),
+
+    -- ** XavcFramerateControl
+    XavcFramerateControl (..),
+
+    -- ** XavcFramerateConversionAlgorithm
+    XavcFramerateConversionAlgorithm (..),
+
+    -- ** XavcGopBReference
+    XavcGopBReference (..),
+
+    -- ** XavcHdIntraCbgProfileClass
+    XavcHdIntraCbgProfileClass (..),
+
+    -- ** XavcHdProfileBitrateClass
+    XavcHdProfileBitrateClass (..),
+
+    -- ** XavcHdProfileQualityTuningLevel
+    XavcHdProfileQualityTuningLevel (..),
+
+    -- ** XavcHdProfileTelecine
+    XavcHdProfileTelecine (..),
+
+    -- ** XavcInterlaceMode
+    XavcInterlaceMode (..),
+
+    -- ** XavcProfile
+    XavcProfile (..),
+
+    -- ** XavcSlowPal
+    XavcSlowPal (..),
+
+    -- ** XavcSpatialAdaptiveQuantization
+    XavcSpatialAdaptiveQuantization (..),
+
+    -- ** XavcTemporalAdaptiveQuantization
+    XavcTemporalAdaptiveQuantization (..),
 
     -- ** AacSettings
     AacSettings (AacSettings'),
@@ -1253,6 +1430,10 @@ module Network.AWS.MediaConvert
     CmafGroupSettings (CmafGroupSettings'),
     newCmafGroupSettings,
 
+    -- ** CmafImageBasedTrickPlaySettings
+    CmafImageBasedTrickPlaySettings (CmafImageBasedTrickPlaySettings'),
+    newCmafImageBasedTrickPlaySettings,
+
     -- ** CmfcSettings
     CmfcSettings (CmfcSettings'),
     newCmfcSettings,
@@ -1276,6 +1457,10 @@ module Network.AWS.MediaConvert
     -- ** DashIsoGroupSettings
     DashIsoGroupSettings (DashIsoGroupSettings'),
     newDashIsoGroupSettings,
+
+    -- ** DashIsoImageBasedTrickPlaySettings
+    DashIsoImageBasedTrickPlaySettings (DashIsoImageBasedTrickPlaySettings'),
+    newDashIsoImageBasedTrickPlaySettings,
 
     -- ** Deinterlacer
     Deinterlacer (Deinterlacer'),
@@ -1345,6 +1530,10 @@ module Network.AWS.MediaConvert
     EsamSignalProcessingNotification (EsamSignalProcessingNotification'),
     newEsamSignalProcessingNotification,
 
+    -- ** ExtendedDataServices
+    ExtendedDataServices (ExtendedDataServices'),
+    newExtendedDataServices,
+
     -- ** F4vSettings
     F4vSettings (F4vSettings'),
     newF4vSettings,
@@ -1381,6 +1570,10 @@ module Network.AWS.MediaConvert
     Hdr10Metadata (Hdr10Metadata'),
     newHdr10Metadata,
 
+    -- ** Hdr10Plus
+    Hdr10Plus (Hdr10Plus'),
+    newHdr10Plus,
+
     -- ** HlsAdditionalManifest
     HlsAdditionalManifest (HlsAdditionalManifest'),
     newHlsAdditionalManifest,
@@ -1396,6 +1589,14 @@ module Network.AWS.MediaConvert
     -- ** HlsGroupSettings
     HlsGroupSettings (HlsGroupSettings'),
     newHlsGroupSettings,
+
+    -- ** HlsImageBasedTrickPlaySettings
+    HlsImageBasedTrickPlaySettings (HlsImageBasedTrickPlaySettings'),
+    newHlsImageBasedTrickPlaySettings,
+
+    -- ** HlsRenditionGroupSettings
+    HlsRenditionGroupSettings (HlsRenditionGroupSettings'),
+    newHlsRenditionGroupSettings,
 
     -- ** HlsSettings
     HlsSettings (HlsSettings'),
@@ -1456,6 +1657,10 @@ module Network.AWS.MediaConvert
     -- ** JobTemplateSettings
     JobTemplateSettings (JobTemplateSettings'),
     newJobTemplateSettings,
+
+    -- ** KantarWatermarkSettings
+    KantarWatermarkSettings (KantarWatermarkSettings'),
+    newKantarWatermarkSettings,
 
     -- ** M2tsScte35Esam
     M2tsScte35Esam (M2tsScte35Esam'),
@@ -1520,6 +1725,10 @@ module Network.AWS.MediaConvert
     -- ** MxfSettings
     MxfSettings (MxfSettings'),
     newMxfSettings,
+
+    -- ** MxfXavcProfileSettings
+    MxfXavcProfileSettings (MxfXavcProfileSettings'),
+    newMxfXavcProfileSettings,
 
     -- ** NexGuardFileMarkerSettings
     NexGuardFileMarkerSettings (NexGuardFileMarkerSettings'),
@@ -1649,6 +1858,10 @@ module Network.AWS.MediaConvert
     SpekeKeyProviderCmaf (SpekeKeyProviderCmaf'),
     newSpekeKeyProviderCmaf,
 
+    -- ** SrtDestinationSettings
+    SrtDestinationSettings (SrtDestinationSettings'),
+    newSrtDestinationSettings,
+
     -- ** StaticKeyProvider
     StaticKeyProvider (StaticKeyProvider'),
     newStaticKeyProvider,
@@ -1724,6 +1937,38 @@ module Network.AWS.MediaConvert
     -- ** WavSettings
     WavSettings (WavSettings'),
     newWavSettings,
+
+    -- ** WebvttDestinationSettings
+    WebvttDestinationSettings (WebvttDestinationSettings'),
+    newWebvttDestinationSettings,
+
+    -- ** WebvttHlsSourceSettings
+    WebvttHlsSourceSettings (WebvttHlsSourceSettings'),
+    newWebvttHlsSourceSettings,
+
+    -- ** Xavc4kIntraCbgProfileSettings
+    Xavc4kIntraCbgProfileSettings (Xavc4kIntraCbgProfileSettings'),
+    newXavc4kIntraCbgProfileSettings,
+
+    -- ** Xavc4kIntraVbrProfileSettings
+    Xavc4kIntraVbrProfileSettings (Xavc4kIntraVbrProfileSettings'),
+    newXavc4kIntraVbrProfileSettings,
+
+    -- ** Xavc4kProfileSettings
+    Xavc4kProfileSettings (Xavc4kProfileSettings'),
+    newXavc4kProfileSettings,
+
+    -- ** XavcHdIntraCbgProfileSettings
+    XavcHdIntraCbgProfileSettings (XavcHdIntraCbgProfileSettings'),
+    newXavcHdIntraCbgProfileSettings,
+
+    -- ** XavcHdProfileSettings
+    XavcHdProfileSettings (XavcHdProfileSettings'),
+    newXavcHdProfileSettings,
+
+    -- ** XavcSettings
+    XavcSettings (XavcSettings'),
+    newXavcSettings,
   )
 where
 

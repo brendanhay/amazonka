@@ -22,6 +22,7 @@ module Network.AWS.MediaConvert.Types.MxfProfile
       ( ..,
         MxfProfile_D_10,
         MxfProfile_OP1A,
+        MxfProfile_XAVC,
         MxfProfile_XDCAM
       ),
   )
@@ -70,12 +71,16 @@ pattern MxfProfile_D_10 = MxfProfile' "D_10"
 pattern MxfProfile_OP1A :: MxfProfile
 pattern MxfProfile_OP1A = MxfProfile' "OP1A"
 
+pattern MxfProfile_XAVC :: MxfProfile
+pattern MxfProfile_XAVC = MxfProfile' "XAVC"
+
 pattern MxfProfile_XDCAM :: MxfProfile
 pattern MxfProfile_XDCAM = MxfProfile' "XDCAM"
 
 {-# COMPLETE
   MxfProfile_D_10,
   MxfProfile_OP1A,
+  MxfProfile_XAVC,
   MxfProfile_XDCAM,
   MxfProfile'
   #-}

@@ -34,15 +34,8 @@ import Network.AWS.MediaConvert.Types.VorbisSettings
 import Network.AWS.MediaConvert.Types.WavSettings
 import qualified Network.AWS.Prelude as Prelude
 
--- | Audio codec settings (CodecSettings) under (AudioDescriptions) contains
--- the group of settings related to audio encoding. The settings in this
--- group vary depending on the value that you choose for Audio codec
--- (Codec). For each codec enum that you choose, define the corresponding
--- settings object. The following lists the codec enum, settings object
--- pairs. * AAC, AacSettings * MP2, Mp2Settings * MP3, Mp3Settings * WAV,
--- WavSettings * AIFF, AiffSettings * AC3, Ac3Settings * EAC3, Eac3Settings
--- * EAC3_ATMOS, Eac3AtmosSettings * VORBIS, VorbisSettings * OPUS,
--- OpusSettings
+-- | Settings related to audio encoding. The settings in this group vary
+-- depending on the value that you choose for your audio codec.
 --
 -- /See:/ 'newAudioCodecSettings' smart constructor.
 data AudioCodecSettings = AudioCodecSettings'
@@ -52,7 +45,17 @@ data AudioCodecSettings = AudioCodecSettings'
     -- | Required when you set Codec, under AudioDescriptions>CodecSettings, to
     -- the value Vorbis.
     vorbisSettings :: Prelude.Maybe VorbisSettings,
-    -- | Type of Audio codec.
+    -- | Choose the audio codec for this output. Note that the option Dolby
+    -- Digital passthrough (PASSTHROUGH) applies only to Dolby Digital and
+    -- Dolby Digital Plus audio inputs. Make sure that you choose a codec
+    -- that\'s supported with your output container:
+    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/reference-codecs-containers.html#reference-codecs-containers-output-audio
+    -- For audio-only outputs, make sure that both your input audio codec and
+    -- your output audio codec are supported for audio-only workflows. For more
+    -- information, see:
+    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/reference-codecs-containers-input.html#reference-codecs-containers-input-audio-only
+    -- and
+    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/reference-codecs-containers.html#audio-only-output
     codec :: Prelude.Maybe AudioCodec,
     -- | Required when you set Codec, under AudioDescriptions>CodecSettings, to
     -- the value MP3.
@@ -75,14 +78,14 @@ data AudioCodecSettings = AudioCodecSettings'
     -- (bitrate). Defaults and valid values depend on the rate control mode.
     aacSettings :: Prelude.Maybe AacSettings,
     -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings)
-    -- to the value WAV.
-    wavSettings :: Prelude.Maybe WavSettings,
-    -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings)
     -- to the value AIFF.
     aiffSettings :: Prelude.Maybe AiffSettings,
     -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings)
     -- to the value EAC3_ATMOS.
-    eac3AtmosSettings :: Prelude.Maybe Eac3AtmosSettings
+    eac3AtmosSettings :: Prelude.Maybe Eac3AtmosSettings,
+    -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings)
+    -- to the value WAV.
+    wavSettings :: Prelude.Maybe WavSettings
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -100,7 +103,17 @@ data AudioCodecSettings = AudioCodecSettings'
 -- 'vorbisSettings', 'audioCodecSettings_vorbisSettings' - Required when you set Codec, under AudioDescriptions>CodecSettings, to
 -- the value Vorbis.
 --
--- 'codec', 'audioCodecSettings_codec' - Type of Audio codec.
+-- 'codec', 'audioCodecSettings_codec' - Choose the audio codec for this output. Note that the option Dolby
+-- Digital passthrough (PASSTHROUGH) applies only to Dolby Digital and
+-- Dolby Digital Plus audio inputs. Make sure that you choose a codec
+-- that\'s supported with your output container:
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/reference-codecs-containers.html#reference-codecs-containers-output-audio
+-- For audio-only outputs, make sure that both your input audio codec and
+-- your output audio codec are supported for audio-only workflows. For more
+-- information, see:
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/reference-codecs-containers-input.html#reference-codecs-containers-input-audio-only
+-- and
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/reference-codecs-containers.html#audio-only-output
 --
 -- 'mp3Settings', 'audioCodecSettings_mp3Settings' - Required when you set Codec, under AudioDescriptions>CodecSettings, to
 -- the value MP3.
@@ -122,14 +135,14 @@ data AudioCodecSettings = AudioCodecSettings'
 -- quality (vbrQuality). In CBR mode, you use the setting Bitrate
 -- (bitrate). Defaults and valid values depend on the rate control mode.
 --
--- 'wavSettings', 'audioCodecSettings_wavSettings' - Required when you set (Codec) under (AudioDescriptions)>(CodecSettings)
--- to the value WAV.
---
 -- 'aiffSettings', 'audioCodecSettings_aiffSettings' - Required when you set (Codec) under (AudioDescriptions)>(CodecSettings)
 -- to the value AIFF.
 --
 -- 'eac3AtmosSettings', 'audioCodecSettings_eac3AtmosSettings' - Required when you set (Codec) under (AudioDescriptions)>(CodecSettings)
 -- to the value EAC3_ATMOS.
+--
+-- 'wavSettings', 'audioCodecSettings_wavSettings' - Required when you set (Codec) under (AudioDescriptions)>(CodecSettings)
+-- to the value WAV.
 newAudioCodecSettings ::
   AudioCodecSettings
 newAudioCodecSettings =
@@ -142,9 +155,9 @@ newAudioCodecSettings =
       opusSettings = Prelude.Nothing,
       eac3Settings = Prelude.Nothing,
       aacSettings = Prelude.Nothing,
-      wavSettings = Prelude.Nothing,
       aiffSettings = Prelude.Nothing,
-      eac3AtmosSettings = Prelude.Nothing
+      eac3AtmosSettings = Prelude.Nothing,
+      wavSettings = Prelude.Nothing
     }
 
 -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings)
@@ -157,7 +170,17 @@ audioCodecSettings_ac3Settings = Lens.lens (\AudioCodecSettings' {ac3Settings} -
 audioCodecSettings_vorbisSettings :: Lens.Lens' AudioCodecSettings (Prelude.Maybe VorbisSettings)
 audioCodecSettings_vorbisSettings = Lens.lens (\AudioCodecSettings' {vorbisSettings} -> vorbisSettings) (\s@AudioCodecSettings' {} a -> s {vorbisSettings = a} :: AudioCodecSettings)
 
--- | Type of Audio codec.
+-- | Choose the audio codec for this output. Note that the option Dolby
+-- Digital passthrough (PASSTHROUGH) applies only to Dolby Digital and
+-- Dolby Digital Plus audio inputs. Make sure that you choose a codec
+-- that\'s supported with your output container:
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/reference-codecs-containers.html#reference-codecs-containers-output-audio
+-- For audio-only outputs, make sure that both your input audio codec and
+-- your output audio codec are supported for audio-only workflows. For more
+-- information, see:
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/reference-codecs-containers-input.html#reference-codecs-containers-input-audio-only
+-- and
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/reference-codecs-containers.html#audio-only-output
 audioCodecSettings_codec :: Lens.Lens' AudioCodecSettings (Prelude.Maybe AudioCodec)
 audioCodecSettings_codec = Lens.lens (\AudioCodecSettings' {codec} -> codec) (\s@AudioCodecSettings' {} a -> s {codec = a} :: AudioCodecSettings)
 
@@ -192,11 +215,6 @@ audioCodecSettings_aacSettings :: Lens.Lens' AudioCodecSettings (Prelude.Maybe A
 audioCodecSettings_aacSettings = Lens.lens (\AudioCodecSettings' {aacSettings} -> aacSettings) (\s@AudioCodecSettings' {} a -> s {aacSettings = a} :: AudioCodecSettings)
 
 -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings)
--- to the value WAV.
-audioCodecSettings_wavSettings :: Lens.Lens' AudioCodecSettings (Prelude.Maybe WavSettings)
-audioCodecSettings_wavSettings = Lens.lens (\AudioCodecSettings' {wavSettings} -> wavSettings) (\s@AudioCodecSettings' {} a -> s {wavSettings = a} :: AudioCodecSettings)
-
--- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings)
 -- to the value AIFF.
 audioCodecSettings_aiffSettings :: Lens.Lens' AudioCodecSettings (Prelude.Maybe AiffSettings)
 audioCodecSettings_aiffSettings = Lens.lens (\AudioCodecSettings' {aiffSettings} -> aiffSettings) (\s@AudioCodecSettings' {} a -> s {aiffSettings = a} :: AudioCodecSettings)
@@ -205,6 +223,11 @@ audioCodecSettings_aiffSettings = Lens.lens (\AudioCodecSettings' {aiffSettings}
 -- to the value EAC3_ATMOS.
 audioCodecSettings_eac3AtmosSettings :: Lens.Lens' AudioCodecSettings (Prelude.Maybe Eac3AtmosSettings)
 audioCodecSettings_eac3AtmosSettings = Lens.lens (\AudioCodecSettings' {eac3AtmosSettings} -> eac3AtmosSettings) (\s@AudioCodecSettings' {} a -> s {eac3AtmosSettings = a} :: AudioCodecSettings)
+
+-- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings)
+-- to the value WAV.
+audioCodecSettings_wavSettings :: Lens.Lens' AudioCodecSettings (Prelude.Maybe WavSettings)
+audioCodecSettings_wavSettings = Lens.lens (\AudioCodecSettings' {wavSettings} -> wavSettings) (\s@AudioCodecSettings' {} a -> s {wavSettings = a} :: AudioCodecSettings)
 
 instance Core.FromJSON AudioCodecSettings where
   parseJSON =
@@ -220,9 +243,9 @@ instance Core.FromJSON AudioCodecSettings where
             Prelude.<*> (x Core..:? "opusSettings")
             Prelude.<*> (x Core..:? "eac3Settings")
             Prelude.<*> (x Core..:? "aacSettings")
-            Prelude.<*> (x Core..:? "wavSettings")
             Prelude.<*> (x Core..:? "aiffSettings")
             Prelude.<*> (x Core..:? "eac3AtmosSettings")
+            Prelude.<*> (x Core..:? "wavSettings")
       )
 
 instance Prelude.Hashable AudioCodecSettings
@@ -242,9 +265,9 @@ instance Core.ToJSON AudioCodecSettings where
             ("opusSettings" Core..=) Prelude.<$> opusSettings,
             ("eac3Settings" Core..=) Prelude.<$> eac3Settings,
             ("aacSettings" Core..=) Prelude.<$> aacSettings,
-            ("wavSettings" Core..=) Prelude.<$> wavSettings,
             ("aiffSettings" Core..=) Prelude.<$> aiffSettings,
             ("eac3AtmosSettings" Core..=)
-              Prelude.<$> eac3AtmosSettings
+              Prelude.<$> eac3AtmosSettings,
+            ("wavSettings" Core..=) Prelude.<$> wavSettings
           ]
       )

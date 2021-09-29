@@ -23,9 +23,10 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.MxfAfdSignaling
 import Network.AWS.MediaConvert.Types.MxfProfile
+import Network.AWS.MediaConvert.Types.MxfXavcProfileSettings
 import qualified Network.AWS.Prelude as Prelude
 
--- | MXF settings
+-- | These settings relate to your MXF output container.
 --
 -- /See:/ 'newMxfSettings' smart constructor.
 data MxfSettings = MxfSettings'
@@ -45,7 +46,10 @@ data MxfSettings = MxfSettings'
     -- video stream. Related settings: To set up your output to include or
     -- exclude AFD values, see AfdSignaling, under VideoDescription. On the
     -- console, find AFD signaling under the output\'s video encoding settings.
-    afdSignaling :: Prelude.Maybe MxfAfdSignaling
+    afdSignaling :: Prelude.Maybe MxfAfdSignaling,
+    -- | Specify the XAVC profile settings for MXF outputs when you set your MXF
+    -- profile to XAVC.
+    xavcProfileSettings :: Prelude.Maybe MxfXavcProfileSettings
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -73,12 +77,16 @@ data MxfSettings = MxfSettings'
 -- video stream. Related settings: To set up your output to include or
 -- exclude AFD values, see AfdSignaling, under VideoDescription. On the
 -- console, find AFD signaling under the output\'s video encoding settings.
+--
+-- 'xavcProfileSettings', 'mxfSettings_xavcProfileSettings' - Specify the XAVC profile settings for MXF outputs when you set your MXF
+-- profile to XAVC.
 newMxfSettings ::
   MxfSettings
 newMxfSettings =
   MxfSettings'
     { profile = Prelude.Nothing,
-      afdSignaling = Prelude.Nothing
+      afdSignaling = Prelude.Nothing,
+      xavcProfileSettings = Prelude.Nothing
     }
 
 -- | Specify the MXF profile, also called shim, for this output. When you
@@ -102,6 +110,11 @@ mxfSettings_profile = Lens.lens (\MxfSettings' {profile} -> profile) (\s@MxfSett
 mxfSettings_afdSignaling :: Lens.Lens' MxfSettings (Prelude.Maybe MxfAfdSignaling)
 mxfSettings_afdSignaling = Lens.lens (\MxfSettings' {afdSignaling} -> afdSignaling) (\s@MxfSettings' {} a -> s {afdSignaling = a} :: MxfSettings)
 
+-- | Specify the XAVC profile settings for MXF outputs when you set your MXF
+-- profile to XAVC.
+mxfSettings_xavcProfileSettings :: Lens.Lens' MxfSettings (Prelude.Maybe MxfXavcProfileSettings)
+mxfSettings_xavcProfileSettings = Lens.lens (\MxfSettings' {xavcProfileSettings} -> xavcProfileSettings) (\s@MxfSettings' {} a -> s {xavcProfileSettings = a} :: MxfSettings)
+
 instance Core.FromJSON MxfSettings where
   parseJSON =
     Core.withObject
@@ -110,6 +123,7 @@ instance Core.FromJSON MxfSettings where
           MxfSettings'
             Prelude.<$> (x Core..:? "profile")
             Prelude.<*> (x Core..:? "afdSignaling")
+            Prelude.<*> (x Core..:? "xavcProfileSettings")
       )
 
 instance Prelude.Hashable MxfSettings
@@ -121,6 +135,8 @@ instance Core.ToJSON MxfSettings where
     Core.object
       ( Prelude.catMaybes
           [ ("profile" Core..=) Prelude.<$> profile,
-            ("afdSignaling" Core..=) Prelude.<$> afdSignaling
+            ("afdSignaling" Core..=) Prelude.<$> afdSignaling,
+            ("xavcProfileSettings" Core..=)
+              Prelude.<$> xavcProfileSettings
           ]
       )

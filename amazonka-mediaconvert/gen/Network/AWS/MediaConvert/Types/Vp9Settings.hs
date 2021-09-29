@@ -48,8 +48,6 @@ data Vp9Settings = Vp9Settings'
     -- | With the VP9 codec, you can use only the variable bitrate (VBR) rate
     -- control mode.
     rateControlMode :: Prelude.Maybe Vp9RateControlMode,
-    -- | GOP Length (keyframe interval) in frames. Must be greater than zero.
-    gopSize :: Prelude.Maybe Prelude.Double,
     -- | When you use the API for transcode jobs that use frame rate conversion,
     -- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
     -- 23.976 fps. Use FramerateDenominator to specify the denominator of this
@@ -58,6 +56,8 @@ data Vp9Settings = Vp9Settings'
     -- use frame rate conversion, provide the value as a decimal number for
     -- Framerate. In this example, specify 23.976.
     framerateDenominator :: Prelude.Maybe Prelude.Natural,
+    -- | GOP Length (keyframe interval) in frames. Must be greater than zero.
+    gopSize :: Prelude.Maybe Prelude.Double,
     -- | Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On
     -- the console, this corresponds to any value other than Follow source.
     -- When you specify an output pixel aspect ratio (PAR) that is different
@@ -139,8 +139,6 @@ data Vp9Settings = Vp9Settings'
 -- 'rateControlMode', 'vp9Settings_rateControlMode' - With the VP9 codec, you can use only the variable bitrate (VBR) rate
 -- control mode.
 --
--- 'gopSize', 'vp9Settings_gopSize' - GOP Length (keyframe interval) in frames. Must be greater than zero.
---
 -- 'framerateDenominator', 'vp9Settings_framerateDenominator' - When you use the API for transcode jobs that use frame rate conversion,
 -- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
 -- 23.976 fps. Use FramerateDenominator to specify the denominator of this
@@ -148,6 +146,8 @@ data Vp9Settings = Vp9Settings'
 -- FramerateDenominator. When you use the console for transcode jobs that
 -- use frame rate conversion, provide the value as a decimal number for
 -- Framerate. In this example, specify 23.976.
+--
+-- 'gopSize', 'vp9Settings_gopSize' - GOP Length (keyframe interval) in frames. Must be greater than zero.
 --
 -- 'parNumerator', 'vp9Settings_parNumerator' - Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On
 -- the console, this corresponds to any value other than Follow source.
@@ -210,8 +210,8 @@ newVp9Settings =
     { qualityTuningLevel = Prelude.Nothing,
       framerateNumerator = Prelude.Nothing,
       rateControlMode = Prelude.Nothing,
-      gopSize = Prelude.Nothing,
       framerateDenominator = Prelude.Nothing,
+      gopSize = Prelude.Nothing,
       parNumerator = Prelude.Nothing,
       parControl = Prelude.Nothing,
       parDenominator = Prelude.Nothing,
@@ -243,10 +243,6 @@ vp9Settings_framerateNumerator = Lens.lens (\Vp9Settings' {framerateNumerator} -
 vp9Settings_rateControlMode :: Lens.Lens' Vp9Settings (Prelude.Maybe Vp9RateControlMode)
 vp9Settings_rateControlMode = Lens.lens (\Vp9Settings' {rateControlMode} -> rateControlMode) (\s@Vp9Settings' {} a -> s {rateControlMode = a} :: Vp9Settings)
 
--- | GOP Length (keyframe interval) in frames. Must be greater than zero.
-vp9Settings_gopSize :: Lens.Lens' Vp9Settings (Prelude.Maybe Prelude.Double)
-vp9Settings_gopSize = Lens.lens (\Vp9Settings' {gopSize} -> gopSize) (\s@Vp9Settings' {} a -> s {gopSize = a} :: Vp9Settings)
-
 -- | When you use the API for transcode jobs that use frame rate conversion,
 -- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
 -- 23.976 fps. Use FramerateDenominator to specify the denominator of this
@@ -256,6 +252,10 @@ vp9Settings_gopSize = Lens.lens (\Vp9Settings' {gopSize} -> gopSize) (\s@Vp9Sett
 -- Framerate. In this example, specify 23.976.
 vp9Settings_framerateDenominator :: Lens.Lens' Vp9Settings (Prelude.Maybe Prelude.Natural)
 vp9Settings_framerateDenominator = Lens.lens (\Vp9Settings' {framerateDenominator} -> framerateDenominator) (\s@Vp9Settings' {} a -> s {framerateDenominator = a} :: Vp9Settings)
+
+-- | GOP Length (keyframe interval) in frames. Must be greater than zero.
+vp9Settings_gopSize :: Lens.Lens' Vp9Settings (Prelude.Maybe Prelude.Double)
+vp9Settings_gopSize = Lens.lens (\Vp9Settings' {gopSize} -> gopSize) (\s@Vp9Settings' {} a -> s {gopSize = a} :: Vp9Settings)
 
 -- | Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On
 -- the console, this corresponds to any value other than Follow source.
@@ -337,8 +337,8 @@ instance Core.FromJSON Vp9Settings where
             Prelude.<$> (x Core..:? "qualityTuningLevel")
             Prelude.<*> (x Core..:? "framerateNumerator")
             Prelude.<*> (x Core..:? "rateControlMode")
-            Prelude.<*> (x Core..:? "gopSize")
             Prelude.<*> (x Core..:? "framerateDenominator")
+            Prelude.<*> (x Core..:? "gopSize")
             Prelude.<*> (x Core..:? "parNumerator")
             Prelude.<*> (x Core..:? "parControl")
             Prelude.<*> (x Core..:? "parDenominator")
@@ -363,9 +363,9 @@ instance Core.ToJSON Vp9Settings where
               Prelude.<$> framerateNumerator,
             ("rateControlMode" Core..=)
               Prelude.<$> rateControlMode,
-            ("gopSize" Core..=) Prelude.<$> gopSize,
             ("framerateDenominator" Core..=)
               Prelude.<$> framerateDenominator,
+            ("gopSize" Core..=) Prelude.<$> gopSize,
             ("parNumerator" Core..=) Prelude.<$> parNumerator,
             ("parControl" Core..=) Prelude.<$> parControl,
             ("parDenominator" Core..=)

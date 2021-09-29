@@ -24,8 +24,8 @@ import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.TimecodeBurninPosition
 import qualified Network.AWS.Prelude as Prelude
 
--- | Timecode burn-in (TimecodeBurnIn)--Burns the output timecode and
--- specified prefix into the output.
+-- | Settings for burning the output timecode and specified prefix into the
+-- output.
 --
 -- /See:/ 'newTimecodeBurnin' smart constructor.
 data TimecodeBurnin = TimecodeBurnin'

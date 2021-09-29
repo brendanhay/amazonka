@@ -38,18 +38,18 @@ data JobTemplate = JobTemplate'
     accelerationSettings :: Prelude.Maybe AccelerationSettings,
     -- | An optional category you create to organize your job templates.
     category :: Prelude.Maybe Prelude.Text,
-    -- | An identifier for this resource that is unique within all of AWS.
-    arn :: Prelude.Maybe Prelude.Text,
     -- | The timestamp in epoch seconds for Job template creation.
     createdAt :: Prelude.Maybe Core.POSIX,
-    -- | Relative priority on the job.
-    priority :: Prelude.Maybe Prelude.Int,
+    -- | An identifier for this resource that is unique within all of AWS.
+    arn :: Prelude.Maybe Prelude.Text,
     -- | Specify how often MediaConvert sends STATUS_UPDATE events to Amazon
     -- CloudWatch Events. Set the interval, in seconds, between status updates.
     -- MediaConvert sends an update at this interval from the time the service
     -- begins processing your job to the time it completes the transcode or
     -- encounters an error.
     statusUpdateInterval :: Prelude.Maybe StatusUpdateInterval,
+    -- | Relative priority on the job.
+    priority :: Prelude.Maybe Prelude.Int,
     -- | The timestamp in epoch seconds when the Job template was last updated.
     lastUpdated :: Prelude.Maybe Core.POSIX,
     -- | Optional. The queue that jobs created from this template are assigned
@@ -57,11 +57,11 @@ data JobTemplate = JobTemplate'
     queue :: Prelude.Maybe Prelude.Text,
     -- | An optional description you create for each job template.
     description :: Prelude.Maybe Prelude.Text,
+    -- | Optional list of hop destinations.
+    hopDestinations :: Prelude.Maybe [HopDestination],
     -- | A job template can be of two types: system or custom. System or built-in
     -- job templates can\'t be modified or deleted by the user.
     type' :: Prelude.Maybe Type,
-    -- | Optional list of hop destinations.
-    hopDestinations :: Prelude.Maybe [HopDestination],
     -- | JobTemplateSettings contains all the transcode settings saved in the
     -- template that will be applied to jobs created from it.
     settings :: JobTemplateSettings,
@@ -84,17 +84,17 @@ data JobTemplate = JobTemplate'
 --
 -- 'category', 'jobTemplate_category' - An optional category you create to organize your job templates.
 --
--- 'arn', 'jobTemplate_arn' - An identifier for this resource that is unique within all of AWS.
---
 -- 'createdAt', 'jobTemplate_createdAt' - The timestamp in epoch seconds for Job template creation.
 --
--- 'priority', 'jobTemplate_priority' - Relative priority on the job.
+-- 'arn', 'jobTemplate_arn' - An identifier for this resource that is unique within all of AWS.
 --
 -- 'statusUpdateInterval', 'jobTemplate_statusUpdateInterval' - Specify how often MediaConvert sends STATUS_UPDATE events to Amazon
 -- CloudWatch Events. Set the interval, in seconds, between status updates.
 -- MediaConvert sends an update at this interval from the time the service
 -- begins processing your job to the time it completes the transcode or
 -- encounters an error.
+--
+-- 'priority', 'jobTemplate_priority' - Relative priority on the job.
 --
 -- 'lastUpdated', 'jobTemplate_lastUpdated' - The timestamp in epoch seconds when the Job template was last updated.
 --
@@ -103,10 +103,10 @@ data JobTemplate = JobTemplate'
 --
 -- 'description', 'jobTemplate_description' - An optional description you create for each job template.
 --
+-- 'hopDestinations', 'jobTemplate_hopDestinations' - Optional list of hop destinations.
+--
 -- 'type'', 'jobTemplate_type' - A job template can be of two types: system or custom. System or built-in
 -- job templates can\'t be modified or deleted by the user.
---
--- 'hopDestinations', 'jobTemplate_hopDestinations' - Optional list of hop destinations.
 --
 -- 'settings', 'jobTemplate_settings' - JobTemplateSettings contains all the transcode settings saved in the
 -- template that will be applied to jobs created from it.
@@ -124,15 +124,15 @@ newJobTemplate pSettings_ pName_ =
     { accelerationSettings =
         Prelude.Nothing,
       category = Prelude.Nothing,
-      arn = Prelude.Nothing,
       createdAt = Prelude.Nothing,
-      priority = Prelude.Nothing,
+      arn = Prelude.Nothing,
       statusUpdateInterval = Prelude.Nothing,
+      priority = Prelude.Nothing,
       lastUpdated = Prelude.Nothing,
       queue = Prelude.Nothing,
       description = Prelude.Nothing,
-      type' = Prelude.Nothing,
       hopDestinations = Prelude.Nothing,
+      type' = Prelude.Nothing,
       settings = pSettings_,
       name = pName_
     }
@@ -146,17 +146,13 @@ jobTemplate_accelerationSettings = Lens.lens (\JobTemplate' {accelerationSetting
 jobTemplate_category :: Lens.Lens' JobTemplate (Prelude.Maybe Prelude.Text)
 jobTemplate_category = Lens.lens (\JobTemplate' {category} -> category) (\s@JobTemplate' {} a -> s {category = a} :: JobTemplate)
 
--- | An identifier for this resource that is unique within all of AWS.
-jobTemplate_arn :: Lens.Lens' JobTemplate (Prelude.Maybe Prelude.Text)
-jobTemplate_arn = Lens.lens (\JobTemplate' {arn} -> arn) (\s@JobTemplate' {} a -> s {arn = a} :: JobTemplate)
-
 -- | The timestamp in epoch seconds for Job template creation.
 jobTemplate_createdAt :: Lens.Lens' JobTemplate (Prelude.Maybe Prelude.UTCTime)
 jobTemplate_createdAt = Lens.lens (\JobTemplate' {createdAt} -> createdAt) (\s@JobTemplate' {} a -> s {createdAt = a} :: JobTemplate) Prelude.. Lens.mapping Core._Time
 
--- | Relative priority on the job.
-jobTemplate_priority :: Lens.Lens' JobTemplate (Prelude.Maybe Prelude.Int)
-jobTemplate_priority = Lens.lens (\JobTemplate' {priority} -> priority) (\s@JobTemplate' {} a -> s {priority = a} :: JobTemplate)
+-- | An identifier for this resource that is unique within all of AWS.
+jobTemplate_arn :: Lens.Lens' JobTemplate (Prelude.Maybe Prelude.Text)
+jobTemplate_arn = Lens.lens (\JobTemplate' {arn} -> arn) (\s@JobTemplate' {} a -> s {arn = a} :: JobTemplate)
 
 -- | Specify how often MediaConvert sends STATUS_UPDATE events to Amazon
 -- CloudWatch Events. Set the interval, in seconds, between status updates.
@@ -165,6 +161,10 @@ jobTemplate_priority = Lens.lens (\JobTemplate' {priority} -> priority) (\s@JobT
 -- encounters an error.
 jobTemplate_statusUpdateInterval :: Lens.Lens' JobTemplate (Prelude.Maybe StatusUpdateInterval)
 jobTemplate_statusUpdateInterval = Lens.lens (\JobTemplate' {statusUpdateInterval} -> statusUpdateInterval) (\s@JobTemplate' {} a -> s {statusUpdateInterval = a} :: JobTemplate)
+
+-- | Relative priority on the job.
+jobTemplate_priority :: Lens.Lens' JobTemplate (Prelude.Maybe Prelude.Int)
+jobTemplate_priority = Lens.lens (\JobTemplate' {priority} -> priority) (\s@JobTemplate' {} a -> s {priority = a} :: JobTemplate)
 
 -- | The timestamp in epoch seconds when the Job template was last updated.
 jobTemplate_lastUpdated :: Lens.Lens' JobTemplate (Prelude.Maybe Prelude.UTCTime)
@@ -179,14 +179,14 @@ jobTemplate_queue = Lens.lens (\JobTemplate' {queue} -> queue) (\s@JobTemplate' 
 jobTemplate_description :: Lens.Lens' JobTemplate (Prelude.Maybe Prelude.Text)
 jobTemplate_description = Lens.lens (\JobTemplate' {description} -> description) (\s@JobTemplate' {} a -> s {description = a} :: JobTemplate)
 
+-- | Optional list of hop destinations.
+jobTemplate_hopDestinations :: Lens.Lens' JobTemplate (Prelude.Maybe [HopDestination])
+jobTemplate_hopDestinations = Lens.lens (\JobTemplate' {hopDestinations} -> hopDestinations) (\s@JobTemplate' {} a -> s {hopDestinations = a} :: JobTemplate) Prelude.. Lens.mapping Lens._Coerce
+
 -- | A job template can be of two types: system or custom. System or built-in
 -- job templates can\'t be modified or deleted by the user.
 jobTemplate_type :: Lens.Lens' JobTemplate (Prelude.Maybe Type)
 jobTemplate_type = Lens.lens (\JobTemplate' {type'} -> type') (\s@JobTemplate' {} a -> s {type' = a} :: JobTemplate)
-
--- | Optional list of hop destinations.
-jobTemplate_hopDestinations :: Lens.Lens' JobTemplate (Prelude.Maybe [HopDestination])
-jobTemplate_hopDestinations = Lens.lens (\JobTemplate' {hopDestinations} -> hopDestinations) (\s@JobTemplate' {} a -> s {hopDestinations = a} :: JobTemplate) Prelude.. Lens.mapping Lens._Coerce
 
 -- | JobTemplateSettings contains all the transcode settings saved in the
 -- template that will be applied to jobs created from it.
@@ -206,17 +206,17 @@ instance Core.FromJSON JobTemplate where
           JobTemplate'
             Prelude.<$> (x Core..:? "accelerationSettings")
             Prelude.<*> (x Core..:? "category")
-            Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "priority")
+            Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "statusUpdateInterval")
+            Prelude.<*> (x Core..:? "priority")
             Prelude.<*> (x Core..:? "lastUpdated")
             Prelude.<*> (x Core..:? "queue")
             Prelude.<*> (x Core..:? "description")
-            Prelude.<*> (x Core..:? "type")
             Prelude.<*> ( x Core..:? "hopDestinations"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "type")
             Prelude.<*> (x Core..: "settings")
             Prelude.<*> (x Core..: "name")
       )

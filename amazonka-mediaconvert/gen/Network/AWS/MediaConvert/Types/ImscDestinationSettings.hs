@@ -24,7 +24,13 @@ import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types.ImscStylePassthrough
 import qualified Network.AWS.Prelude as Prelude
 
--- | Settings specific to IMSC caption outputs.
+-- | Settings related to IMSC captions. IMSC is a sidecar format that holds
+-- captions in a file that is separate from the video container. Set up
+-- sidecar captions in the same output group, but different output from
+-- your video. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/ttml-and-webvtt-output-captions.html.
+-- When you work directly in your JSON job specification, include this
+-- object and any required children when you set destinationType to IMSC.
 --
 -- /See:/ 'newImscDestinationSettings' smart constructor.
 data ImscDestinationSettings = ImscDestinationSettings'

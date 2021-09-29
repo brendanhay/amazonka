@@ -20,6 +20,7 @@
 module Network.AWS.MediaConvert.Types.DvbSubtitleOutlineColor
   ( DvbSubtitleOutlineColor
       ( ..,
+        DvbSubtitleOutlineColor_AUTO,
         DvbSubtitleOutlineColor_BLACK,
         DvbSubtitleOutlineColor_BLUE,
         DvbSubtitleOutlineColor_GREEN,
@@ -65,6 +66,9 @@ newtype DvbSubtitleOutlineColor = DvbSubtitleOutlineColor'
       Core.ToXML
     )
 
+pattern DvbSubtitleOutlineColor_AUTO :: DvbSubtitleOutlineColor
+pattern DvbSubtitleOutlineColor_AUTO = DvbSubtitleOutlineColor' "AUTO"
+
 pattern DvbSubtitleOutlineColor_BLACK :: DvbSubtitleOutlineColor
 pattern DvbSubtitleOutlineColor_BLACK = DvbSubtitleOutlineColor' "BLACK"
 
@@ -84,6 +88,7 @@ pattern DvbSubtitleOutlineColor_YELLOW :: DvbSubtitleOutlineColor
 pattern DvbSubtitleOutlineColor_YELLOW = DvbSubtitleOutlineColor' "YELLOW"
 
 {-# COMPLETE
+  DvbSubtitleOutlineColor_AUTO,
   DvbSubtitleOutlineColor_BLACK,
   DvbSubtitleOutlineColor_BLUE,
   DvbSubtitleOutlineColor_GREEN,

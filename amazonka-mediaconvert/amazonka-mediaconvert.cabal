@@ -79,7 +79,9 @@ library
     Network.AWS.MediaConvert.Types.AacVbrQuality
     Network.AWS.MediaConvert.Types.Ac3BitstreamMode
     Network.AWS.MediaConvert.Types.Ac3CodingMode
+    Network.AWS.MediaConvert.Types.Ac3DynamicRangeCompressionLine
     Network.AWS.MediaConvert.Types.Ac3DynamicRangeCompressionProfile
+    Network.AWS.MediaConvert.Types.Ac3DynamicRangeCompressionRf
     Network.AWS.MediaConvert.Types.Ac3LfeFilter
     Network.AWS.MediaConvert.Types.Ac3MetadataControl
     Network.AWS.MediaConvert.Types.Ac3Settings
@@ -132,10 +134,13 @@ library
     Network.AWS.MediaConvert.Types.BillingTagsSource
     Network.AWS.MediaConvert.Types.BurninDestinationSettings
     Network.AWS.MediaConvert.Types.BurninSubtitleAlignment
+    Network.AWS.MediaConvert.Types.BurninSubtitleApplyFontColor
     Network.AWS.MediaConvert.Types.BurninSubtitleBackgroundColor
+    Network.AWS.MediaConvert.Types.BurninSubtitleFallbackFont
     Network.AWS.MediaConvert.Types.BurninSubtitleFontColor
     Network.AWS.MediaConvert.Types.BurninSubtitleOutlineColor
     Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor
+    Network.AWS.MediaConvert.Types.BurnInSubtitleStylePassthrough
     Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing
     Network.AWS.MediaConvert.Types.CaptionDescription
     Network.AWS.MediaConvert.Types.CaptionDescriptionPreset
@@ -152,17 +157,25 @@ library
     Network.AWS.MediaConvert.Types.CmafEncryptionSettings
     Network.AWS.MediaConvert.Types.CmafEncryptionType
     Network.AWS.MediaConvert.Types.CmafGroupSettings
+    Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlay
+    Network.AWS.MediaConvert.Types.CmafImageBasedTrickPlaySettings
     Network.AWS.MediaConvert.Types.CmafInitializationVectorInManifest
+    Network.AWS.MediaConvert.Types.CmafIntervalCadence
     Network.AWS.MediaConvert.Types.CmafKeyProviderType
     Network.AWS.MediaConvert.Types.CmafManifestCompression
     Network.AWS.MediaConvert.Types.CmafManifestDurationFormat
     Network.AWS.MediaConvert.Types.CmafMpdProfile
+    Network.AWS.MediaConvert.Types.CmafPtsOffsetHandlingForBFrames
     Network.AWS.MediaConvert.Types.CmafSegmentControl
+    Network.AWS.MediaConvert.Types.CmafSegmentLengthControl
     Network.AWS.MediaConvert.Types.CmafStreamInfResolution
+    Network.AWS.MediaConvert.Types.CmafTargetDurationCompatibilityMode
     Network.AWS.MediaConvert.Types.CmafWriteDASHManifest
     Network.AWS.MediaConvert.Types.CmafWriteHLSManifest
     Network.AWS.MediaConvert.Types.CmafWriteSegmentTimelineInRepresentation
     Network.AWS.MediaConvert.Types.CmfcAudioDuration
+    Network.AWS.MediaConvert.Types.CmfcAudioTrackType
+    Network.AWS.MediaConvert.Types.CmfcDescriptiveVideoServiceFlag
     Network.AWS.MediaConvert.Types.CmfcIFrameOnlyManifest
     Network.AWS.MediaConvert.Types.CmfcScte35Esam
     Network.AWS.MediaConvert.Types.CmfcScte35Source
@@ -175,13 +188,20 @@ library
     Network.AWS.MediaConvert.Types.Commitment
     Network.AWS.MediaConvert.Types.ContainerSettings
     Network.AWS.MediaConvert.Types.ContainerType
+    Network.AWS.MediaConvert.Types.CopyProtectionAction
     Network.AWS.MediaConvert.Types.DashAdditionalManifest
     Network.AWS.MediaConvert.Types.DashIsoEncryptionSettings
+    Network.AWS.MediaConvert.Types.DashIsoGroupAudioChannelConfigSchemeIdUri
     Network.AWS.MediaConvert.Types.DashIsoGroupSettings
     Network.AWS.MediaConvert.Types.DashIsoHbbtvCompliance
+    Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlay
+    Network.AWS.MediaConvert.Types.DashIsoImageBasedTrickPlaySettings
+    Network.AWS.MediaConvert.Types.DashIsoIntervalCadence
     Network.AWS.MediaConvert.Types.DashIsoMpdProfile
     Network.AWS.MediaConvert.Types.DashIsoPlaybackDeviceCompatibility
+    Network.AWS.MediaConvert.Types.DashIsoPtsOffsetHandlingForBFrames
     Network.AWS.MediaConvert.Types.DashIsoSegmentControl
+    Network.AWS.MediaConvert.Types.DashIsoSegmentLengthControl
     Network.AWS.MediaConvert.Types.DashIsoWriteSegmentTimelineInRepresentation
     Network.AWS.MediaConvert.Types.DecryptionMode
     Network.AWS.MediaConvert.Types.DeinterlaceAlgorithm
@@ -195,23 +215,29 @@ library
     Network.AWS.MediaConvert.Types.DolbyVisionLevel6Mode
     Network.AWS.MediaConvert.Types.DolbyVisionProfile
     Network.AWS.MediaConvert.Types.DropFrameTimecode
+    Network.AWS.MediaConvert.Types.DvbddsHandling
     Network.AWS.MediaConvert.Types.DvbNitSettings
     Network.AWS.MediaConvert.Types.DvbSdtSettings
     Network.AWS.MediaConvert.Types.DvbSubDestinationSettings
     Network.AWS.MediaConvert.Types.DvbSubSourceSettings
+    Network.AWS.MediaConvert.Types.DvbSubSubtitleFallbackFont
     Network.AWS.MediaConvert.Types.DvbSubtitleAlignment
+    Network.AWS.MediaConvert.Types.DvbSubtitleApplyFontColor
     Network.AWS.MediaConvert.Types.DvbSubtitleBackgroundColor
     Network.AWS.MediaConvert.Types.DvbSubtitleFontColor
     Network.AWS.MediaConvert.Types.DvbSubtitleOutlineColor
     Network.AWS.MediaConvert.Types.DvbSubtitleShadowColor
+    Network.AWS.MediaConvert.Types.DvbSubtitleStylePassthrough
     Network.AWS.MediaConvert.Types.DvbSubtitleTeletextSpacing
     Network.AWS.MediaConvert.Types.DvbSubtitlingType
     Network.AWS.MediaConvert.Types.DvbTdtSettings
     Network.AWS.MediaConvert.Types.Eac3AtmosBitstreamMode
     Network.AWS.MediaConvert.Types.Eac3AtmosCodingMode
     Network.AWS.MediaConvert.Types.Eac3AtmosDialogueIntelligence
+    Network.AWS.MediaConvert.Types.Eac3AtmosDownmixControl
     Network.AWS.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionLine
     Network.AWS.MediaConvert.Types.Eac3AtmosDynamicRangeCompressionRf
+    Network.AWS.MediaConvert.Types.Eac3AtmosDynamicRangeControl
     Network.AWS.MediaConvert.Types.Eac3AtmosMeteringMode
     Network.AWS.MediaConvert.Types.Eac3AtmosSettings
     Network.AWS.MediaConvert.Types.Eac3AtmosStereoDownmix
@@ -239,6 +265,7 @@ library
     Network.AWS.MediaConvert.Types.EsamManifestConfirmConditionNotification
     Network.AWS.MediaConvert.Types.EsamSettings
     Network.AWS.MediaConvert.Types.EsamSignalProcessingNotification
+    Network.AWS.MediaConvert.Types.ExtendedDataServices
     Network.AWS.MediaConvert.Types.F4vMoovPlacement
     Network.AWS.MediaConvert.Types.F4vSettings
     Network.AWS.MediaConvert.Types.FileGroupSettings
@@ -300,6 +327,7 @@ library
     Network.AWS.MediaConvert.Types.H265UnregisteredSeiTimecode
     Network.AWS.MediaConvert.Types.H265WriteMp4PackagingType
     Network.AWS.MediaConvert.Types.Hdr10Metadata
+    Network.AWS.MediaConvert.Types.Hdr10Plus
     Network.AWS.MediaConvert.Types.HlsAdditionalManifest
     Network.AWS.MediaConvert.Types.HlsAdMarkers
     Network.AWS.MediaConvert.Types.HlsAudioOnlyContainer
@@ -309,21 +337,28 @@ library
     Network.AWS.MediaConvert.Types.HlsCaptionLanguageSetting
     Network.AWS.MediaConvert.Types.HlsClientCache
     Network.AWS.MediaConvert.Types.HlsCodecSpecification
+    Network.AWS.MediaConvert.Types.HlsDescriptiveVideoServiceFlag
     Network.AWS.MediaConvert.Types.HlsDirectoryStructure
     Network.AWS.MediaConvert.Types.HlsEncryptionSettings
     Network.AWS.MediaConvert.Types.HlsEncryptionType
     Network.AWS.MediaConvert.Types.HlsGroupSettings
     Network.AWS.MediaConvert.Types.HlsIFrameOnlyManifest
+    Network.AWS.MediaConvert.Types.HlsImageBasedTrickPlay
+    Network.AWS.MediaConvert.Types.HlsImageBasedTrickPlaySettings
     Network.AWS.MediaConvert.Types.HlsInitializationVectorInManifest
+    Network.AWS.MediaConvert.Types.HlsIntervalCadence
     Network.AWS.MediaConvert.Types.HlsKeyProviderType
     Network.AWS.MediaConvert.Types.HlsManifestCompression
     Network.AWS.MediaConvert.Types.HlsManifestDurationFormat
     Network.AWS.MediaConvert.Types.HlsOfflineEncrypted
     Network.AWS.MediaConvert.Types.HlsOutputSelection
     Network.AWS.MediaConvert.Types.HlsProgramDateTime
+    Network.AWS.MediaConvert.Types.HlsRenditionGroupSettings
     Network.AWS.MediaConvert.Types.HlsSegmentControl
+    Network.AWS.MediaConvert.Types.HlsSegmentLengthControl
     Network.AWS.MediaConvert.Types.HlsSettings
     Network.AWS.MediaConvert.Types.HlsStreamInfResolution
+    Network.AWS.MediaConvert.Types.HlsTargetDurationCompatibilityMode
     Network.AWS.MediaConvert.Types.HlsTimedMetadataId3Frame
     Network.AWS.MediaConvert.Types.HopDestination
     Network.AWS.MediaConvert.Types.Id3Insertion
@@ -338,6 +373,7 @@ library
     Network.AWS.MediaConvert.Types.InputFilterEnable
     Network.AWS.MediaConvert.Types.InputPsiControl
     Network.AWS.MediaConvert.Types.InputRotate
+    Network.AWS.MediaConvert.Types.InputSampleRange
     Network.AWS.MediaConvert.Types.InputScanType
     Network.AWS.MediaConvert.Types.InputTemplate
     Network.AWS.MediaConvert.Types.InputTimecodeSource
@@ -350,10 +386,12 @@ library
     Network.AWS.MediaConvert.Types.JobTemplate
     Network.AWS.MediaConvert.Types.JobTemplateListBy
     Network.AWS.MediaConvert.Types.JobTemplateSettings
+    Network.AWS.MediaConvert.Types.KantarWatermarkSettings
     Network.AWS.MediaConvert.Types.LanguageCode
     Network.AWS.MediaConvert.Types.M2tsAudioBufferModel
     Network.AWS.MediaConvert.Types.M2tsAudioDuration
     Network.AWS.MediaConvert.Types.M2tsBufferModel
+    Network.AWS.MediaConvert.Types.M2tsDataPtsControl
     Network.AWS.MediaConvert.Types.M2tsEbpAudioInterval
     Network.AWS.MediaConvert.Types.M2tsEbpPlacement
     Network.AWS.MediaConvert.Types.M2tsEsRateInPes
@@ -367,6 +405,7 @@ library
     Network.AWS.MediaConvert.Types.M2tsSegmentationStyle
     Network.AWS.MediaConvert.Types.M2tsSettings
     Network.AWS.MediaConvert.Types.M3u8AudioDuration
+    Network.AWS.MediaConvert.Types.M3u8DataPtsControl
     Network.AWS.MediaConvert.Types.M3u8NielsenId3
     Network.AWS.MediaConvert.Types.M3u8PcrControl
     Network.AWS.MediaConvert.Types.M3u8Scte35Source
@@ -418,11 +457,14 @@ library
     Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest
     Network.AWS.MediaConvert.Types.MsSmoothAudioDeduplication
     Network.AWS.MediaConvert.Types.MsSmoothEncryptionSettings
+    Network.AWS.MediaConvert.Types.MsSmoothFragmentLengthControl
     Network.AWS.MediaConvert.Types.MsSmoothGroupSettings
     Network.AWS.MediaConvert.Types.MsSmoothManifestEncoding
     Network.AWS.MediaConvert.Types.MxfAfdSignaling
     Network.AWS.MediaConvert.Types.MxfProfile
     Network.AWS.MediaConvert.Types.MxfSettings
+    Network.AWS.MediaConvert.Types.MxfXavcDurationMode
+    Network.AWS.MediaConvert.Types.MxfXavcProfileSettings
     Network.AWS.MediaConvert.Types.NexGuardFileMarkerSettings
     Network.AWS.MediaConvert.Types.NielsenActiveWatermarkProcessType
     Network.AWS.MediaConvert.Types.NielsenConfiguration
@@ -451,6 +493,7 @@ library
     Network.AWS.MediaConvert.Types.PresetListBy
     Network.AWS.MediaConvert.Types.PresetSettings
     Network.AWS.MediaConvert.Types.PricingPlan
+    Network.AWS.MediaConvert.Types.ProresChromaSampling
     Network.AWS.MediaConvert.Types.ProresCodecProfile
     Network.AWS.MediaConvert.Types.ProresFramerateControl
     Network.AWS.MediaConvert.Types.ProresFramerateConversionAlgorithm
@@ -477,12 +520,15 @@ library
     Network.AWS.MediaConvert.Types.S3EncryptionSettings
     Network.AWS.MediaConvert.Types.S3ObjectCannedAcl
     Network.AWS.MediaConvert.Types.S3ServerSideEncryptionType
+    Network.AWS.MediaConvert.Types.SampleRangeConversion
     Network.AWS.MediaConvert.Types.ScalingBehavior
     Network.AWS.MediaConvert.Types.SccDestinationFramerate
     Network.AWS.MediaConvert.Types.SccDestinationSettings
     Network.AWS.MediaConvert.Types.SimulateReservedQueue
     Network.AWS.MediaConvert.Types.SpekeKeyProvider
     Network.AWS.MediaConvert.Types.SpekeKeyProviderCmaf
+    Network.AWS.MediaConvert.Types.SrtDestinationSettings
+    Network.AWS.MediaConvert.Types.SrtStylePassthrough
     Network.AWS.MediaConvert.Types.StaticKeyProvider
     Network.AWS.MediaConvert.Types.StatusUpdateInterval
     Network.AWS.MediaConvert.Types.TeletextDestinationSettings
@@ -507,6 +553,7 @@ library
     Network.AWS.MediaConvert.Types.Vc3Settings
     Network.AWS.MediaConvert.Types.Vc3SlowPal
     Network.AWS.MediaConvert.Types.Vc3Telecine
+    Network.AWS.MediaConvert.Types.VchipAction
     Network.AWS.MediaConvert.Types.VideoCodec
     Network.AWS.MediaConvert.Types.VideoCodecSettings
     Network.AWS.MediaConvert.Types.VideoDescription
@@ -530,6 +577,35 @@ library
     Network.AWS.MediaConvert.Types.WatermarkingStrength
     Network.AWS.MediaConvert.Types.WavFormat
     Network.AWS.MediaConvert.Types.WavSettings
+    Network.AWS.MediaConvert.Types.WebvttDestinationSettings
+    Network.AWS.MediaConvert.Types.WebvttHlsSourceSettings
+    Network.AWS.MediaConvert.Types.WebvttStylePassthrough
+    Network.AWS.MediaConvert.Types.Xavc4kIntraCbgProfileClass
+    Network.AWS.MediaConvert.Types.Xavc4kIntraCbgProfileSettings
+    Network.AWS.MediaConvert.Types.Xavc4kIntraVbrProfileClass
+    Network.AWS.MediaConvert.Types.Xavc4kIntraVbrProfileSettings
+    Network.AWS.MediaConvert.Types.Xavc4kProfileBitrateClass
+    Network.AWS.MediaConvert.Types.Xavc4kProfileCodecProfile
+    Network.AWS.MediaConvert.Types.Xavc4kProfileQualityTuningLevel
+    Network.AWS.MediaConvert.Types.Xavc4kProfileSettings
+    Network.AWS.MediaConvert.Types.XavcAdaptiveQuantization
+    Network.AWS.MediaConvert.Types.XavcEntropyEncoding
+    Network.AWS.MediaConvert.Types.XavcFlickerAdaptiveQuantization
+    Network.AWS.MediaConvert.Types.XavcFramerateControl
+    Network.AWS.MediaConvert.Types.XavcFramerateConversionAlgorithm
+    Network.AWS.MediaConvert.Types.XavcGopBReference
+    Network.AWS.MediaConvert.Types.XavcHdIntraCbgProfileClass
+    Network.AWS.MediaConvert.Types.XavcHdIntraCbgProfileSettings
+    Network.AWS.MediaConvert.Types.XavcHdProfileBitrateClass
+    Network.AWS.MediaConvert.Types.XavcHdProfileQualityTuningLevel
+    Network.AWS.MediaConvert.Types.XavcHdProfileSettings
+    Network.AWS.MediaConvert.Types.XavcHdProfileTelecine
+    Network.AWS.MediaConvert.Types.XavcInterlaceMode
+    Network.AWS.MediaConvert.Types.XavcProfile
+    Network.AWS.MediaConvert.Types.XavcSettings
+    Network.AWS.MediaConvert.Types.XavcSlowPal
+    Network.AWS.MediaConvert.Types.XavcSpatialAdaptiveQuantization
+    Network.AWS.MediaConvert.Types.XavcTemporalAdaptiveQuantization
     Network.AWS.MediaConvert.UntagResource
     Network.AWS.MediaConvert.UpdateJobTemplate
     Network.AWS.MediaConvert.UpdatePreset

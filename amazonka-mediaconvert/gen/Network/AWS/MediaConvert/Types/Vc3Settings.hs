@@ -91,6 +91,16 @@ data Vc3Settings = Vc3Settings'
     -- frame rate you specify in the settings FramerateNumerator and
     -- FramerateDenominator.
     framerateControl :: Prelude.Maybe Vc3FramerateControl,
+    -- | Specify the VC3 class to choose the quality characteristics for this
+    -- output. VC3 class, together with the settings Framerate
+    -- (framerateNumerator and framerateDenominator) and Resolution (height and
+    -- width), determine your output bitrate. For example, say that your video
+    -- resolution is 1920x1080 and your framerate is 29.97. Then Class 145
+    -- (CLASS_145) gives you an output with a bitrate of approximately 145 Mbps
+    -- and Class 220 (CLASS_220) gives you and output with a bitrate of
+    -- approximately 220 Mbps. VC3 class also specifies the color bit depth of
+    -- your output.
+    vc3Class :: Prelude.Maybe Vc3Class,
     -- | Choose the method that you want MediaConvert to use when increasing or
     -- decreasing the frame rate. We recommend using drop duplicate
     -- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to
@@ -103,16 +113,6 @@ data Vc3Settings = Vc3Settings'
     -- conversion method frame by frame. Note that using FrameFormer increases
     -- the transcoding time and incurs a significant add-on cost.
     framerateConversionAlgorithm :: Prelude.Maybe Vc3FramerateConversionAlgorithm,
-    -- | Specify the VC3 class to choose the quality characteristics for this
-    -- output. VC3 class, together with the settings Framerate
-    -- (framerateNumerator and framerateDenominator) and Resolution (height and
-    -- width), determine your output bitrate. For example, say that your video
-    -- resolution is 1920x1080 and your framerate is 29.97. Then Class 145
-    -- (CLASS_145) gives you an output with a bitrate of approximately 145 Mbps
-    -- and Class 220 (CLASS_220) gives you and output with a bitrate of
-    -- approximately 220 Mbps. VC3 class also specifies the color bit depth of
-    -- your output.
-    vc3Class :: Prelude.Maybe Vc3Class,
     -- | Ignore this setting unless your input frame rate is 23.976 or 24 frames
     -- per second (fps). Enable slow PAL to create a 25 fps output by
     -- relabeling the video frames and resampling your audio. Note that
@@ -188,6 +188,16 @@ data Vc3Settings = Vc3Settings'
 -- frame rate you specify in the settings FramerateNumerator and
 -- FramerateDenominator.
 --
+-- 'vc3Class', 'vc3Settings_vc3Class' - Specify the VC3 class to choose the quality characteristics for this
+-- output. VC3 class, together with the settings Framerate
+-- (framerateNumerator and framerateDenominator) and Resolution (height and
+-- width), determine your output bitrate. For example, say that your video
+-- resolution is 1920x1080 and your framerate is 29.97. Then Class 145
+-- (CLASS_145) gives you an output with a bitrate of approximately 145 Mbps
+-- and Class 220 (CLASS_220) gives you and output with a bitrate of
+-- approximately 220 Mbps. VC3 class also specifies the color bit depth of
+-- your output.
+--
 -- 'framerateConversionAlgorithm', 'vc3Settings_framerateConversionAlgorithm' - Choose the method that you want MediaConvert to use when increasing or
 -- decreasing the frame rate. We recommend using drop duplicate
 -- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to
@@ -199,16 +209,6 @@ data Vc3Settings = Vc3Settings'
 -- motion-compensated interpolation. FrameFormer chooses the best
 -- conversion method frame by frame. Note that using FrameFormer increases
 -- the transcoding time and incurs a significant add-on cost.
---
--- 'vc3Class', 'vc3Settings_vc3Class' - Specify the VC3 class to choose the quality characteristics for this
--- output. VC3 class, together with the settings Framerate
--- (framerateNumerator and framerateDenominator) and Resolution (height and
--- width), determine your output bitrate. For example, say that your video
--- resolution is 1920x1080 and your framerate is 29.97. Then Class 145
--- (CLASS_145) gives you an output with a bitrate of approximately 145 Mbps
--- and Class 220 (CLASS_220) gives you and output with a bitrate of
--- approximately 220 Mbps. VC3 class also specifies the color bit depth of
--- your output.
 --
 -- 'slowPal', 'vc3Settings_slowPal' - Ignore this setting unless your input frame rate is 23.976 or 24 frames
 -- per second (fps). Enable slow PAL to create a 25 fps output by
@@ -227,8 +227,8 @@ newVc3Settings =
       framerateDenominator = Prelude.Nothing,
       scanTypeConversionMode = Prelude.Nothing,
       framerateControl = Prelude.Nothing,
-      framerateConversionAlgorithm = Prelude.Nothing,
       vc3Class = Prelude.Nothing,
+      framerateConversionAlgorithm = Prelude.Nothing,
       slowPal = Prelude.Nothing
     }
 
@@ -300,6 +300,18 @@ vc3Settings_scanTypeConversionMode = Lens.lens (\Vc3Settings' {scanTypeConversio
 vc3Settings_framerateControl :: Lens.Lens' Vc3Settings (Prelude.Maybe Vc3FramerateControl)
 vc3Settings_framerateControl = Lens.lens (\Vc3Settings' {framerateControl} -> framerateControl) (\s@Vc3Settings' {} a -> s {framerateControl = a} :: Vc3Settings)
 
+-- | Specify the VC3 class to choose the quality characteristics for this
+-- output. VC3 class, together with the settings Framerate
+-- (framerateNumerator and framerateDenominator) and Resolution (height and
+-- width), determine your output bitrate. For example, say that your video
+-- resolution is 1920x1080 and your framerate is 29.97. Then Class 145
+-- (CLASS_145) gives you an output with a bitrate of approximately 145 Mbps
+-- and Class 220 (CLASS_220) gives you and output with a bitrate of
+-- approximately 220 Mbps. VC3 class also specifies the color bit depth of
+-- your output.
+vc3Settings_vc3Class :: Lens.Lens' Vc3Settings (Prelude.Maybe Vc3Class)
+vc3Settings_vc3Class = Lens.lens (\Vc3Settings' {vc3Class} -> vc3Class) (\s@Vc3Settings' {} a -> s {vc3Class = a} :: Vc3Settings)
+
 -- | Choose the method that you want MediaConvert to use when increasing or
 -- decreasing the frame rate. We recommend using drop duplicate
 -- (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to
@@ -313,18 +325,6 @@ vc3Settings_framerateControl = Lens.lens (\Vc3Settings' {framerateControl} -> fr
 -- the transcoding time and incurs a significant add-on cost.
 vc3Settings_framerateConversionAlgorithm :: Lens.Lens' Vc3Settings (Prelude.Maybe Vc3FramerateConversionAlgorithm)
 vc3Settings_framerateConversionAlgorithm = Lens.lens (\Vc3Settings' {framerateConversionAlgorithm} -> framerateConversionAlgorithm) (\s@Vc3Settings' {} a -> s {framerateConversionAlgorithm = a} :: Vc3Settings)
-
--- | Specify the VC3 class to choose the quality characteristics for this
--- output. VC3 class, together with the settings Framerate
--- (framerateNumerator and framerateDenominator) and Resolution (height and
--- width), determine your output bitrate. For example, say that your video
--- resolution is 1920x1080 and your framerate is 29.97. Then Class 145
--- (CLASS_145) gives you an output with a bitrate of approximately 145 Mbps
--- and Class 220 (CLASS_220) gives you and output with a bitrate of
--- approximately 220 Mbps. VC3 class also specifies the color bit depth of
--- your output.
-vc3Settings_vc3Class :: Lens.Lens' Vc3Settings (Prelude.Maybe Vc3Class)
-vc3Settings_vc3Class = Lens.lens (\Vc3Settings' {vc3Class} -> vc3Class) (\s@Vc3Settings' {} a -> s {vc3Class = a} :: Vc3Settings)
 
 -- | Ignore this setting unless your input frame rate is 23.976 or 24 frames
 -- per second (fps). Enable slow PAL to create a 25 fps output by
@@ -348,8 +348,8 @@ instance Core.FromJSON Vc3Settings where
             Prelude.<*> (x Core..:? "framerateDenominator")
             Prelude.<*> (x Core..:? "scanTypeConversionMode")
             Prelude.<*> (x Core..:? "framerateControl")
-            Prelude.<*> (x Core..:? "framerateConversionAlgorithm")
             Prelude.<*> (x Core..:? "vc3Class")
+            Prelude.<*> (x Core..:? "framerateConversionAlgorithm")
             Prelude.<*> (x Core..:? "slowPal")
       )
 
@@ -371,9 +371,9 @@ instance Core.ToJSON Vc3Settings where
               Prelude.<$> scanTypeConversionMode,
             ("framerateControl" Core..=)
               Prelude.<$> framerateControl,
+            ("vc3Class" Core..=) Prelude.<$> vc3Class,
             ("framerateConversionAlgorithm" Core..=)
               Prelude.<$> framerateConversionAlgorithm,
-            ("vc3Class" Core..=) Prelude.<$> vc3Class,
             ("slowPal" Core..=) Prelude.<$> slowPal
           ]
       )

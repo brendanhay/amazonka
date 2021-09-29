@@ -21,8 +21,11 @@ module Network.AWS.MediaConvert.Types.BurninDestinationSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import Network.AWS.MediaConvert.Types.BurnInSubtitleStylePassthrough
 import Network.AWS.MediaConvert.Types.BurninSubtitleAlignment
+import Network.AWS.MediaConvert.Types.BurninSubtitleApplyFontColor
 import Network.AWS.MediaConvert.Types.BurninSubtitleBackgroundColor
+import Network.AWS.MediaConvert.Types.BurninSubtitleFallbackFont
 import Network.AWS.MediaConvert.Types.BurninSubtitleFontColor
 import Network.AWS.MediaConvert.Types.BurninSubtitleOutlineColor
 import Network.AWS.MediaConvert.Types.BurninSubtitleShadowColor
@@ -30,7 +33,12 @@ import Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing
 import Network.AWS.MediaConvert.Types.FontScript
 import qualified Network.AWS.Prelude as Prelude
 
--- | Burn-In Destination Settings.
+-- | Settings related to burn-in captions. Set up burn-in captions in the
+-- same output as your video. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/burn-in-output-captions.html.
+-- When you work directly in your JSON job specification, include this
+-- object and any required children when you set destinationType to
+-- BURN_IN.
 --
 -- /See:/ 'newBurninDestinationSettings' smart constructor.
 data BurninDestinationSettings = BurninDestinationSettings'
@@ -44,6 +52,16 @@ data BurninDestinationSettings = BurninDestinationSettings'
     -- settings are already pre-defined by the caption stream. All burn-in and
     -- DVB-Sub font settings must match.
     alignment :: Prelude.Maybe BurninSubtitleAlignment,
+    -- | Specify the font that you want the service to use for your burn in
+    -- captions when your input captions specify a font that MediaConvert
+    -- doesn\'t support. When you keep the default value, Best match
+    -- (BEST_MATCH), MediaConvert uses a supported font that most closely
+    -- matches the font that your input captions specify. When there are
+    -- multiple unsupported fonts in your input captions, MediaConvert matches
+    -- each font with the supported font that matches best. When you explicitly
+    -- choose a replacement font, MediaConvert uses that font to replace all
+    -- unsupported fonts from your input.
+    fallbackFont :: Prelude.Maybe BurninSubtitleFallbackFont,
     -- | Specifies the opacity of the shadow. 255 is opaque; 0 is transparent.
     -- Leaving this parameter blank is equivalent to setting it to 0
     -- (transparent). All burn-in and DVB-Sub font settings must match.
@@ -63,6 +81,15 @@ data BurninDestinationSettings = BurninDestinationSettings'
     -- settings are already pre-defined by the caption stream. All burn-in and
     -- DVB-Sub font settings must match.
     outlineColor :: Prelude.Maybe BurninSubtitleOutlineColor,
+    -- | Ignore this setting unless your output captions are burned in. Choose
+    -- which set of style and position values the service applies to your
+    -- output captions. When you choose ENABLED, the service uses the input
+    -- style and position information from your input. When you choose
+    -- DISABLED, the service uses any style values that you specify in your
+    -- output settings. If you don\'t specify values, the service uses default
+    -- style and position values. When you choose DISABLED, the service ignores
+    -- all style and position values from your input.
+    stylePassthrough :: Prelude.Maybe BurnInSubtitleStylePassthrough,
     -- | Specifies the opacity of the background rectangle. 255 is opaque; 0 is
     -- transparent. Leaving this parameter blank is equivalent to setting it to
     -- 0 (transparent). All burn-in and DVB-Sub font settings must match.
@@ -91,13 +118,19 @@ data BurninDestinationSettings = BurninDestinationSettings'
     -- automatic font size selection. All burn-in and DVB-Sub font settings
     -- must match.
     fontSize :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies the color of the rectangle behind the captions. All burn-in
-    -- and DVB-Sub font settings must match.
-    backgroundColor :: Prelude.Maybe BurninSubtitleBackgroundColor,
     -- | Specifies the horizontal offset of the shadow relative to the captions
     -- in pixels. A value of -2 would result in a shadow offset 2 pixels to the
     -- left. All burn-in and DVB-Sub font settings must match.
     shadowXOffset :: Prelude.Maybe Prelude.Int,
+    -- | Ignore this setting unless your BurninSubtitleFontColor setting is HEX.
+    -- Format is six or eight hexidecimal digits, representing the red, green,
+    -- and blue components, with the two extra digits used for an optional
+    -- alpha value. For example a value of 1122AABB is a red value of 0x11, a
+    -- green value of 0x22, a blue value of 0xAA, and an alpha value of 0xBB.
+    hexFontColor :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the color of the rectangle behind the captions. All burn-in
+    -- and DVB-Sub font settings must match.
+    backgroundColor :: Prelude.Maybe BurninSubtitleBackgroundColor,
     -- | Specifies the vertical position of the caption relative to the top of
     -- the output in pixels. A value of 10 would result in the captions
     -- starting 10 pixels from the top of the output. If no explicit y_position
@@ -106,21 +139,31 @@ data BurninDestinationSettings = BurninDestinationSettings'
     -- 608\/embedded or teletext. These source settings are already pre-defined
     -- by the caption stream. All burn-in and DVB-Sub font settings must match.
     yPosition :: Prelude.Maybe Prelude.Natural,
-    -- | Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in
-    -- and DVB-Sub font settings must match.
-    fontResolution :: Prelude.Maybe Prelude.Natural,
     -- | Specifies font outline size in pixels. This option is not valid for
     -- source captions that are either 608\/embedded or teletext. These source
     -- settings are already pre-defined by the caption stream. All burn-in and
     -- DVB-Sub font settings must match.
     outlineSize :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies the opacity of the burned-in captions. 255 is opaque; 0 is
-    -- transparent. All burn-in and DVB-Sub font settings must match.
-    fontOpacity :: Prelude.Maybe Prelude.Natural,
+    -- | Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in
+    -- and DVB-Sub font settings must match.
+    fontResolution :: Prelude.Maybe Prelude.Natural,
     -- | Specifies the vertical offset of the shadow relative to the captions in
     -- pixels. A value of -2 would result in a shadow offset 2 pixels above the
     -- text. All burn-in and DVB-Sub font settings must match.
-    shadowYOffset :: Prelude.Maybe Prelude.Int
+    shadowYOffset :: Prelude.Maybe Prelude.Int,
+    -- | Ignore this setting unless your input captions are STL, any type of 608,
+    -- teletext, or TTML, and your output captions are burned in. Specify how
+    -- the service applies the color specified in the setting Font color
+    -- (BurninSubtitleFontColor). By default, this color is white. When you
+    -- choose WHITE_TEXT_ONLY, the service uses the specified font color only
+    -- for text that is white in the input. When you choose ALL_TEXT, the
+    -- service uses the specified font color for all output captions text. If
+    -- you leave both settings at their default value, your output font color
+    -- is the same as your input font color.
+    applyFontColor :: Prelude.Maybe BurninSubtitleApplyFontColor,
+    -- | Specifies the opacity of the burned-in captions. 255 is opaque; 0 is
+    -- transparent. All burn-in and DVB-Sub font settings must match.
+    fontOpacity :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -142,6 +185,16 @@ data BurninDestinationSettings = BurninDestinationSettings'
 -- settings are already pre-defined by the caption stream. All burn-in and
 -- DVB-Sub font settings must match.
 --
+-- 'fallbackFont', 'burninDestinationSettings_fallbackFont' - Specify the font that you want the service to use for your burn in
+-- captions when your input captions specify a font that MediaConvert
+-- doesn\'t support. When you keep the default value, Best match
+-- (BEST_MATCH), MediaConvert uses a supported font that most closely
+-- matches the font that your input captions specify. When there are
+-- multiple unsupported fonts in your input captions, MediaConvert matches
+-- each font with the supported font that matches best. When you explicitly
+-- choose a replacement font, MediaConvert uses that font to replace all
+-- unsupported fonts from your input.
+--
 -- 'shadowOpacity', 'burninDestinationSettings_shadowOpacity' - Specifies the opacity of the shadow. 255 is opaque; 0 is transparent.
 -- Leaving this parameter blank is equivalent to setting it to 0
 -- (transparent). All burn-in and DVB-Sub font settings must match.
@@ -160,6 +213,15 @@ data BurninDestinationSettings = BurninDestinationSettings'
 -- captions that are either 608\/embedded or teletext. These source
 -- settings are already pre-defined by the caption stream. All burn-in and
 -- DVB-Sub font settings must match.
+--
+-- 'stylePassthrough', 'burninDestinationSettings_stylePassthrough' - Ignore this setting unless your output captions are burned in. Choose
+-- which set of style and position values the service applies to your
+-- output captions. When you choose ENABLED, the service uses the input
+-- style and position information from your input. When you choose
+-- DISABLED, the service uses any style values that you specify in your
+-- output settings. If you don\'t specify values, the service uses default
+-- style and position values. When you choose DISABLED, the service ignores
+-- all style and position values from your input.
 --
 -- 'backgroundOpacity', 'burninDestinationSettings_backgroundOpacity' - Specifies the opacity of the background rectangle. 255 is opaque; 0 is
 -- transparent. Leaving this parameter blank is equivalent to setting it to
@@ -189,12 +251,18 @@ data BurninDestinationSettings = BurninDestinationSettings'
 -- automatic font size selection. All burn-in and DVB-Sub font settings
 -- must match.
 --
--- 'backgroundColor', 'burninDestinationSettings_backgroundColor' - Specifies the color of the rectangle behind the captions. All burn-in
--- and DVB-Sub font settings must match.
---
 -- 'shadowXOffset', 'burninDestinationSettings_shadowXOffset' - Specifies the horizontal offset of the shadow relative to the captions
 -- in pixels. A value of -2 would result in a shadow offset 2 pixels to the
 -- left. All burn-in and DVB-Sub font settings must match.
+--
+-- 'hexFontColor', 'burninDestinationSettings_hexFontColor' - Ignore this setting unless your BurninSubtitleFontColor setting is HEX.
+-- Format is six or eight hexidecimal digits, representing the red, green,
+-- and blue components, with the two extra digits used for an optional
+-- alpha value. For example a value of 1122AABB is a red value of 0x11, a
+-- green value of 0x22, a blue value of 0xAA, and an alpha value of 0xBB.
+--
+-- 'backgroundColor', 'burninDestinationSettings_backgroundColor' - Specifies the color of the rectangle behind the captions. All burn-in
+-- and DVB-Sub font settings must match.
 --
 -- 'yPosition', 'burninDestinationSettings_yPosition' - Specifies the vertical position of the caption relative to the top of
 -- the output in pixels. A value of 10 would result in the captions
@@ -204,42 +272,56 @@ data BurninDestinationSettings = BurninDestinationSettings'
 -- 608\/embedded or teletext. These source settings are already pre-defined
 -- by the caption stream. All burn-in and DVB-Sub font settings must match.
 --
--- 'fontResolution', 'burninDestinationSettings_fontResolution' - Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in
--- and DVB-Sub font settings must match.
---
 -- 'outlineSize', 'burninDestinationSettings_outlineSize' - Specifies font outline size in pixels. This option is not valid for
 -- source captions that are either 608\/embedded or teletext. These source
 -- settings are already pre-defined by the caption stream. All burn-in and
 -- DVB-Sub font settings must match.
 --
--- 'fontOpacity', 'burninDestinationSettings_fontOpacity' - Specifies the opacity of the burned-in captions. 255 is opaque; 0 is
--- transparent. All burn-in and DVB-Sub font settings must match.
+-- 'fontResolution', 'burninDestinationSettings_fontResolution' - Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in
+-- and DVB-Sub font settings must match.
 --
 -- 'shadowYOffset', 'burninDestinationSettings_shadowYOffset' - Specifies the vertical offset of the shadow relative to the captions in
 -- pixels. A value of -2 would result in a shadow offset 2 pixels above the
 -- text. All burn-in and DVB-Sub font settings must match.
+--
+-- 'applyFontColor', 'burninDestinationSettings_applyFontColor' - Ignore this setting unless your input captions are STL, any type of 608,
+-- teletext, or TTML, and your output captions are burned in. Specify how
+-- the service applies the color specified in the setting Font color
+-- (BurninSubtitleFontColor). By default, this color is white. When you
+-- choose WHITE_TEXT_ONLY, the service uses the specified font color only
+-- for text that is white in the input. When you choose ALL_TEXT, the
+-- service uses the specified font color for all output captions text. If
+-- you leave both settings at their default value, your output font color
+-- is the same as your input font color.
+--
+-- 'fontOpacity', 'burninDestinationSettings_fontOpacity' - Specifies the opacity of the burned-in captions. 255 is opaque; 0 is
+-- transparent. All burn-in and DVB-Sub font settings must match.
 newBurninDestinationSettings ::
   BurninDestinationSettings
 newBurninDestinationSettings =
   BurninDestinationSettings'
     { alignment =
         Prelude.Nothing,
+      fallbackFont = Prelude.Nothing,
       shadowOpacity = Prelude.Nothing,
       teletextSpacing = Prelude.Nothing,
       shadowColor = Prelude.Nothing,
       outlineColor = Prelude.Nothing,
+      stylePassthrough = Prelude.Nothing,
       backgroundOpacity = Prelude.Nothing,
       fontScript = Prelude.Nothing,
       xPosition = Prelude.Nothing,
       fontColor = Prelude.Nothing,
       fontSize = Prelude.Nothing,
-      backgroundColor = Prelude.Nothing,
       shadowXOffset = Prelude.Nothing,
+      hexFontColor = Prelude.Nothing,
+      backgroundColor = Prelude.Nothing,
       yPosition = Prelude.Nothing,
-      fontResolution = Prelude.Nothing,
       outlineSize = Prelude.Nothing,
-      fontOpacity = Prelude.Nothing,
-      shadowYOffset = Prelude.Nothing
+      fontResolution = Prelude.Nothing,
+      shadowYOffset = Prelude.Nothing,
+      applyFontColor = Prelude.Nothing,
+      fontOpacity = Prelude.Nothing
     }
 
 -- | If no explicit x_position or y_position is provided, setting alignment
@@ -253,6 +335,18 @@ newBurninDestinationSettings =
 -- DVB-Sub font settings must match.
 burninDestinationSettings_alignment :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe BurninSubtitleAlignment)
 burninDestinationSettings_alignment = Lens.lens (\BurninDestinationSettings' {alignment} -> alignment) (\s@BurninDestinationSettings' {} a -> s {alignment = a} :: BurninDestinationSettings)
+
+-- | Specify the font that you want the service to use for your burn in
+-- captions when your input captions specify a font that MediaConvert
+-- doesn\'t support. When you keep the default value, Best match
+-- (BEST_MATCH), MediaConvert uses a supported font that most closely
+-- matches the font that your input captions specify. When there are
+-- multiple unsupported fonts in your input captions, MediaConvert matches
+-- each font with the supported font that matches best. When you explicitly
+-- choose a replacement font, MediaConvert uses that font to replace all
+-- unsupported fonts from your input.
+burninDestinationSettings_fallbackFont :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe BurninSubtitleFallbackFont)
+burninDestinationSettings_fallbackFont = Lens.lens (\BurninDestinationSettings' {fallbackFont} -> fallbackFont) (\s@BurninDestinationSettings' {} a -> s {fallbackFont = a} :: BurninDestinationSettings)
 
 -- | Specifies the opacity of the shadow. 255 is opaque; 0 is transparent.
 -- Leaving this parameter blank is equivalent to setting it to 0
@@ -280,6 +374,17 @@ burninDestinationSettings_shadowColor = Lens.lens (\BurninDestinationSettings' {
 -- DVB-Sub font settings must match.
 burninDestinationSettings_outlineColor :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe BurninSubtitleOutlineColor)
 burninDestinationSettings_outlineColor = Lens.lens (\BurninDestinationSettings' {outlineColor} -> outlineColor) (\s@BurninDestinationSettings' {} a -> s {outlineColor = a} :: BurninDestinationSettings)
+
+-- | Ignore this setting unless your output captions are burned in. Choose
+-- which set of style and position values the service applies to your
+-- output captions. When you choose ENABLED, the service uses the input
+-- style and position information from your input. When you choose
+-- DISABLED, the service uses any style values that you specify in your
+-- output settings. If you don\'t specify values, the service uses default
+-- style and position values. When you choose DISABLED, the service ignores
+-- all style and position values from your input.
+burninDestinationSettings_stylePassthrough :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe BurnInSubtitleStylePassthrough)
+burninDestinationSettings_stylePassthrough = Lens.lens (\BurninDestinationSettings' {stylePassthrough} -> stylePassthrough) (\s@BurninDestinationSettings' {} a -> s {stylePassthrough = a} :: BurninDestinationSettings)
 
 -- | Specifies the opacity of the background rectangle. 255 is opaque; 0 is
 -- transparent. Leaving this parameter blank is equivalent to setting it to
@@ -319,16 +424,24 @@ burninDestinationSettings_fontColor = Lens.lens (\BurninDestinationSettings' {fo
 burninDestinationSettings_fontSize :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe Prelude.Natural)
 burninDestinationSettings_fontSize = Lens.lens (\BurninDestinationSettings' {fontSize} -> fontSize) (\s@BurninDestinationSettings' {} a -> s {fontSize = a} :: BurninDestinationSettings)
 
--- | Specifies the color of the rectangle behind the captions. All burn-in
--- and DVB-Sub font settings must match.
-burninDestinationSettings_backgroundColor :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe BurninSubtitleBackgroundColor)
-burninDestinationSettings_backgroundColor = Lens.lens (\BurninDestinationSettings' {backgroundColor} -> backgroundColor) (\s@BurninDestinationSettings' {} a -> s {backgroundColor = a} :: BurninDestinationSettings)
-
 -- | Specifies the horizontal offset of the shadow relative to the captions
 -- in pixels. A value of -2 would result in a shadow offset 2 pixels to the
 -- left. All burn-in and DVB-Sub font settings must match.
 burninDestinationSettings_shadowXOffset :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe Prelude.Int)
 burninDestinationSettings_shadowXOffset = Lens.lens (\BurninDestinationSettings' {shadowXOffset} -> shadowXOffset) (\s@BurninDestinationSettings' {} a -> s {shadowXOffset = a} :: BurninDestinationSettings)
+
+-- | Ignore this setting unless your BurninSubtitleFontColor setting is HEX.
+-- Format is six or eight hexidecimal digits, representing the red, green,
+-- and blue components, with the two extra digits used for an optional
+-- alpha value. For example a value of 1122AABB is a red value of 0x11, a
+-- green value of 0x22, a blue value of 0xAA, and an alpha value of 0xBB.
+burninDestinationSettings_hexFontColor :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe Prelude.Text)
+burninDestinationSettings_hexFontColor = Lens.lens (\BurninDestinationSettings' {hexFontColor} -> hexFontColor) (\s@BurninDestinationSettings' {} a -> s {hexFontColor = a} :: BurninDestinationSettings)
+
+-- | Specifies the color of the rectangle behind the captions. All burn-in
+-- and DVB-Sub font settings must match.
+burninDestinationSettings_backgroundColor :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe BurninSubtitleBackgroundColor)
+burninDestinationSettings_backgroundColor = Lens.lens (\BurninDestinationSettings' {backgroundColor} -> backgroundColor) (\s@BurninDestinationSettings' {} a -> s {backgroundColor = a} :: BurninDestinationSettings)
 
 -- | Specifies the vertical position of the caption relative to the top of
 -- the output in pixels. A value of 10 would result in the captions
@@ -340,11 +453,6 @@ burninDestinationSettings_shadowXOffset = Lens.lens (\BurninDestinationSettings'
 burninDestinationSettings_yPosition :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe Prelude.Natural)
 burninDestinationSettings_yPosition = Lens.lens (\BurninDestinationSettings' {yPosition} -> yPosition) (\s@BurninDestinationSettings' {} a -> s {yPosition = a} :: BurninDestinationSettings)
 
--- | Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in
--- and DVB-Sub font settings must match.
-burninDestinationSettings_fontResolution :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe Prelude.Natural)
-burninDestinationSettings_fontResolution = Lens.lens (\BurninDestinationSettings' {fontResolution} -> fontResolution) (\s@BurninDestinationSettings' {} a -> s {fontResolution = a} :: BurninDestinationSettings)
-
 -- | Specifies font outline size in pixels. This option is not valid for
 -- source captions that are either 608\/embedded or teletext. These source
 -- settings are already pre-defined by the caption stream. All burn-in and
@@ -352,16 +460,33 @@ burninDestinationSettings_fontResolution = Lens.lens (\BurninDestinationSettings
 burninDestinationSettings_outlineSize :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe Prelude.Natural)
 burninDestinationSettings_outlineSize = Lens.lens (\BurninDestinationSettings' {outlineSize} -> outlineSize) (\s@BurninDestinationSettings' {} a -> s {outlineSize = a} :: BurninDestinationSettings)
 
--- | Specifies the opacity of the burned-in captions. 255 is opaque; 0 is
--- transparent. All burn-in and DVB-Sub font settings must match.
-burninDestinationSettings_fontOpacity :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe Prelude.Natural)
-burninDestinationSettings_fontOpacity = Lens.lens (\BurninDestinationSettings' {fontOpacity} -> fontOpacity) (\s@BurninDestinationSettings' {} a -> s {fontOpacity = a} :: BurninDestinationSettings)
+-- | Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in
+-- and DVB-Sub font settings must match.
+burninDestinationSettings_fontResolution :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe Prelude.Natural)
+burninDestinationSettings_fontResolution = Lens.lens (\BurninDestinationSettings' {fontResolution} -> fontResolution) (\s@BurninDestinationSettings' {} a -> s {fontResolution = a} :: BurninDestinationSettings)
 
 -- | Specifies the vertical offset of the shadow relative to the captions in
 -- pixels. A value of -2 would result in a shadow offset 2 pixels above the
 -- text. All burn-in and DVB-Sub font settings must match.
 burninDestinationSettings_shadowYOffset :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe Prelude.Int)
 burninDestinationSettings_shadowYOffset = Lens.lens (\BurninDestinationSettings' {shadowYOffset} -> shadowYOffset) (\s@BurninDestinationSettings' {} a -> s {shadowYOffset = a} :: BurninDestinationSettings)
+
+-- | Ignore this setting unless your input captions are STL, any type of 608,
+-- teletext, or TTML, and your output captions are burned in. Specify how
+-- the service applies the color specified in the setting Font color
+-- (BurninSubtitleFontColor). By default, this color is white. When you
+-- choose WHITE_TEXT_ONLY, the service uses the specified font color only
+-- for text that is white in the input. When you choose ALL_TEXT, the
+-- service uses the specified font color for all output captions text. If
+-- you leave both settings at their default value, your output font color
+-- is the same as your input font color.
+burninDestinationSettings_applyFontColor :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe BurninSubtitleApplyFontColor)
+burninDestinationSettings_applyFontColor = Lens.lens (\BurninDestinationSettings' {applyFontColor} -> applyFontColor) (\s@BurninDestinationSettings' {} a -> s {applyFontColor = a} :: BurninDestinationSettings)
+
+-- | Specifies the opacity of the burned-in captions. 255 is opaque; 0 is
+-- transparent. All burn-in and DVB-Sub font settings must match.
+burninDestinationSettings_fontOpacity :: Lens.Lens' BurninDestinationSettings (Prelude.Maybe Prelude.Natural)
+burninDestinationSettings_fontOpacity = Lens.lens (\BurninDestinationSettings' {fontOpacity} -> fontOpacity) (\s@BurninDestinationSettings' {} a -> s {fontOpacity = a} :: BurninDestinationSettings)
 
 instance Core.FromJSON BurninDestinationSettings where
   parseJSON =
@@ -370,22 +495,26 @@ instance Core.FromJSON BurninDestinationSettings where
       ( \x ->
           BurninDestinationSettings'
             Prelude.<$> (x Core..:? "alignment")
+            Prelude.<*> (x Core..:? "fallbackFont")
             Prelude.<*> (x Core..:? "shadowOpacity")
             Prelude.<*> (x Core..:? "teletextSpacing")
             Prelude.<*> (x Core..:? "shadowColor")
             Prelude.<*> (x Core..:? "outlineColor")
+            Prelude.<*> (x Core..:? "stylePassthrough")
             Prelude.<*> (x Core..:? "backgroundOpacity")
             Prelude.<*> (x Core..:? "fontScript")
             Prelude.<*> (x Core..:? "xPosition")
             Prelude.<*> (x Core..:? "fontColor")
             Prelude.<*> (x Core..:? "fontSize")
-            Prelude.<*> (x Core..:? "backgroundColor")
             Prelude.<*> (x Core..:? "shadowXOffset")
+            Prelude.<*> (x Core..:? "hexFontColor")
+            Prelude.<*> (x Core..:? "backgroundColor")
             Prelude.<*> (x Core..:? "yPosition")
-            Prelude.<*> (x Core..:? "fontResolution")
             Prelude.<*> (x Core..:? "outlineSize")
-            Prelude.<*> (x Core..:? "fontOpacity")
+            Prelude.<*> (x Core..:? "fontResolution")
             Prelude.<*> (x Core..:? "shadowYOffset")
+            Prelude.<*> (x Core..:? "applyFontColor")
+            Prelude.<*> (x Core..:? "fontOpacity")
       )
 
 instance Prelude.Hashable BurninDestinationSettings
@@ -397,25 +526,31 @@ instance Core.ToJSON BurninDestinationSettings where
     Core.object
       ( Prelude.catMaybes
           [ ("alignment" Core..=) Prelude.<$> alignment,
+            ("fallbackFont" Core..=) Prelude.<$> fallbackFont,
             ("shadowOpacity" Core..=) Prelude.<$> shadowOpacity,
             ("teletextSpacing" Core..=)
               Prelude.<$> teletextSpacing,
             ("shadowColor" Core..=) Prelude.<$> shadowColor,
             ("outlineColor" Core..=) Prelude.<$> outlineColor,
+            ("stylePassthrough" Core..=)
+              Prelude.<$> stylePassthrough,
             ("backgroundOpacity" Core..=)
               Prelude.<$> backgroundOpacity,
             ("fontScript" Core..=) Prelude.<$> fontScript,
             ("xPosition" Core..=) Prelude.<$> xPosition,
             ("fontColor" Core..=) Prelude.<$> fontColor,
             ("fontSize" Core..=) Prelude.<$> fontSize,
+            ("shadowXOffset" Core..=) Prelude.<$> shadowXOffset,
+            ("hexFontColor" Core..=) Prelude.<$> hexFontColor,
             ("backgroundColor" Core..=)
               Prelude.<$> backgroundColor,
-            ("shadowXOffset" Core..=) Prelude.<$> shadowXOffset,
             ("yPosition" Core..=) Prelude.<$> yPosition,
+            ("outlineSize" Core..=) Prelude.<$> outlineSize,
             ("fontResolution" Core..=)
               Prelude.<$> fontResolution,
-            ("outlineSize" Core..=) Prelude.<$> outlineSize,
-            ("fontOpacity" Core..=) Prelude.<$> fontOpacity,
-            ("shadowYOffset" Core..=) Prelude.<$> shadowYOffset
+            ("shadowYOffset" Core..=) Prelude.<$> shadowYOffset,
+            ("applyFontColor" Core..=)
+              Prelude.<$> applyFontColor,
+            ("fontOpacity" Core..=) Prelude.<$> fontOpacity
           ]
       )

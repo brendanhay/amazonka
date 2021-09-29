@@ -23,7 +23,9 @@ module Network.AWS.MediaConvert.Types.ProresCodecProfile
         ProresCodecProfile_APPLE_PRORES_422,
         ProresCodecProfile_APPLE_PRORES_422_HQ,
         ProresCodecProfile_APPLE_PRORES_422_LT,
-        ProresCodecProfile_APPLE_PRORES_422_PROXY
+        ProresCodecProfile_APPLE_PRORES_422_PROXY,
+        ProresCodecProfile_APPLE_PRORES_4444,
+        ProresCodecProfile_APPLE_PRORES_4444_XQ
       ),
   )
 where
@@ -73,10 +75,18 @@ pattern ProresCodecProfile_APPLE_PRORES_422_LT = ProresCodecProfile' "APPLE_PROR
 pattern ProresCodecProfile_APPLE_PRORES_422_PROXY :: ProresCodecProfile
 pattern ProresCodecProfile_APPLE_PRORES_422_PROXY = ProresCodecProfile' "APPLE_PRORES_422_PROXY"
 
+pattern ProresCodecProfile_APPLE_PRORES_4444 :: ProresCodecProfile
+pattern ProresCodecProfile_APPLE_PRORES_4444 = ProresCodecProfile' "APPLE_PRORES_4444"
+
+pattern ProresCodecProfile_APPLE_PRORES_4444_XQ :: ProresCodecProfile
+pattern ProresCodecProfile_APPLE_PRORES_4444_XQ = ProresCodecProfile' "APPLE_PRORES_4444_XQ"
+
 {-# COMPLETE
   ProresCodecProfile_APPLE_PRORES_422,
   ProresCodecProfile_APPLE_PRORES_422_HQ,
   ProresCodecProfile_APPLE_PRORES_422_LT,
   ProresCodecProfile_APPLE_PRORES_422_PROXY,
+  ProresCodecProfile_APPLE_PRORES_4444,
+  ProresCodecProfile_APPLE_PRORES_4444_XQ,
   ProresCodecProfile'
   #-}

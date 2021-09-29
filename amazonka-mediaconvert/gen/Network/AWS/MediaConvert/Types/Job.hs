@@ -42,12 +42,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newJob' smart constructor.
 data Job = Job'
-  { -- | Accelerated transcoding can significantly speed up jobs with long,
-    -- visually complex content.
-    accelerationSettings :: Prelude.Maybe AccelerationSettings,
-    -- | The tag type that AWS Billing and Cost Management will use to sort your
+  { -- | The tag type that AWS Billing and Cost Management will use to sort your
     -- AWS Elemental MediaConvert costs on any billing report that you set up.
     billingTagsSource :: Prelude.Maybe BillingTagsSource,
+    -- | Accelerated transcoding can significantly speed up jobs with long,
+    -- visually complex content.
+    accelerationSettings :: Prelude.Maybe AccelerationSettings,
     -- | A job\'s status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or
     -- ERROR.
     status :: Prelude.Maybe JobStatus,
@@ -68,6 +68,8 @@ data Job = Job'
     -- | The number of times that the service automatically attempted to process
     -- your job after encountering an error.
     retryCount :: Prelude.Maybe Prelude.Int,
+    -- | The time, in Unix epoch format in seconds, when the job got created.
+    createdAt :: Prelude.Maybe Core.POSIX,
     -- | The job\'s queue hopping history.
     queueTransitions :: Prelude.Maybe [QueueTransition],
     -- | An identifier for this resource that is unique within all of AWS.
@@ -85,16 +87,14 @@ data Job = Job'
     -- jobs, the service can\'t provide information about job progress. In
     -- those cases, jobPercentComplete returns a null value.
     jobPercentComplete :: Prelude.Maybe Prelude.Int,
-    -- | The time, in Unix epoch format in seconds, when the job got created.
-    createdAt :: Prelude.Maybe Core.POSIX,
-    -- | Relative priority on the job.
-    priority :: Prelude.Maybe Prelude.Int,
     -- | Specify how often MediaConvert sends STATUS_UPDATE events to Amazon
     -- CloudWatch Events. Set the interval, in seconds, between status updates.
     -- MediaConvert sends an update at this interval from the time the service
     -- begins processing your job to the time it completes the transcode or
     -- encounters an error.
     statusUpdateInterval :: Prelude.Maybe StatusUpdateInterval,
+    -- | Relative priority on the job.
+    priority :: Prelude.Maybe Prelude.Int,
     -- | The job template that the job is created from, if it is created from a
     -- job template.
     jobTemplate :: Prelude.Maybe Prelude.Text,
@@ -145,11 +145,11 @@ data Job = Job'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'accelerationSettings', 'job_accelerationSettings' - Accelerated transcoding can significantly speed up jobs with long,
--- visually complex content.
---
 -- 'billingTagsSource', 'job_billingTagsSource' - The tag type that AWS Billing and Cost Management will use to sort your
 -- AWS Elemental MediaConvert costs on any billing report that you set up.
+--
+-- 'accelerationSettings', 'job_accelerationSettings' - Accelerated transcoding can significantly speed up jobs with long,
+-- visually complex content.
 --
 -- 'status', 'job_status' - A job\'s status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or
 -- ERROR.
@@ -171,6 +171,8 @@ data Job = Job'
 -- 'retryCount', 'job_retryCount' - The number of times that the service automatically attempted to process
 -- your job after encountering an error.
 --
+-- 'createdAt', 'job_createdAt' - The time, in Unix epoch format in seconds, when the job got created.
+--
 -- 'queueTransitions', 'job_queueTransitions' - The job\'s queue hopping history.
 --
 -- 'arn', 'job_arn' - An identifier for this resource that is unique within all of AWS.
@@ -188,15 +190,13 @@ data Job = Job'
 -- jobs, the service can\'t provide information about job progress. In
 -- those cases, jobPercentComplete returns a null value.
 --
--- 'createdAt', 'job_createdAt' - The time, in Unix epoch format in seconds, when the job got created.
---
--- 'priority', 'job_priority' - Relative priority on the job.
---
 -- 'statusUpdateInterval', 'job_statusUpdateInterval' - Specify how often MediaConvert sends STATUS_UPDATE events to Amazon
 -- CloudWatch Events. Set the interval, in seconds, between status updates.
 -- MediaConvert sends an update at this interval from the time the service
 -- begins processing your job to the time it completes the transcode or
 -- encounters an error.
+--
+-- 'priority', 'job_priority' - Relative priority on the job.
 --
 -- 'jobTemplate', 'job_jobTemplate' - The job template that the job is created from, if it is created from a
 -- job template.
@@ -244,18 +244,18 @@ newJob ::
   Job
 newJob pRole_ pSettings_ =
   Job'
-    { accelerationSettings = Prelude.Nothing,
-      billingTagsSource = Prelude.Nothing,
+    { billingTagsSource = Prelude.Nothing,
+      accelerationSettings = Prelude.Nothing,
       status = Prelude.Nothing,
       accelerationStatus = Prelude.Nothing,
       retryCount = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
       queueTransitions = Prelude.Nothing,
       arn = Prelude.Nothing,
       id = Prelude.Nothing,
       jobPercentComplete = Prelude.Nothing,
-      createdAt = Prelude.Nothing,
-      priority = Prelude.Nothing,
       statusUpdateInterval = Prelude.Nothing,
+      priority = Prelude.Nothing,
       jobTemplate = Prelude.Nothing,
       userMetadata = Prelude.Nothing,
       queue = Prelude.Nothing,
@@ -271,15 +271,15 @@ newJob pRole_ pSettings_ =
       settings = pSettings_
     }
 
--- | Accelerated transcoding can significantly speed up jobs with long,
--- visually complex content.
-job_accelerationSettings :: Lens.Lens' Job (Prelude.Maybe AccelerationSettings)
-job_accelerationSettings = Lens.lens (\Job' {accelerationSettings} -> accelerationSettings) (\s@Job' {} a -> s {accelerationSettings = a} :: Job)
-
 -- | The tag type that AWS Billing and Cost Management will use to sort your
 -- AWS Elemental MediaConvert costs on any billing report that you set up.
 job_billingTagsSource :: Lens.Lens' Job (Prelude.Maybe BillingTagsSource)
 job_billingTagsSource = Lens.lens (\Job' {billingTagsSource} -> billingTagsSource) (\s@Job' {} a -> s {billingTagsSource = a} :: Job)
+
+-- | Accelerated transcoding can significantly speed up jobs with long,
+-- visually complex content.
+job_accelerationSettings :: Lens.Lens' Job (Prelude.Maybe AccelerationSettings)
+job_accelerationSettings = Lens.lens (\Job' {accelerationSettings} -> accelerationSettings) (\s@Job' {} a -> s {accelerationSettings = a} :: Job)
 
 -- | A job\'s status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or
 -- ERROR.
@@ -307,6 +307,10 @@ job_accelerationStatus = Lens.lens (\Job' {accelerationStatus} -> accelerationSt
 job_retryCount :: Lens.Lens' Job (Prelude.Maybe Prelude.Int)
 job_retryCount = Lens.lens (\Job' {retryCount} -> retryCount) (\s@Job' {} a -> s {retryCount = a} :: Job)
 
+-- | The time, in Unix epoch format in seconds, when the job got created.
+job_createdAt :: Lens.Lens' Job (Prelude.Maybe Prelude.UTCTime)
+job_createdAt = Lens.lens (\Job' {createdAt} -> createdAt) (\s@Job' {} a -> s {createdAt = a} :: Job) Prelude.. Lens.mapping Core._Time
+
 -- | The job\'s queue hopping history.
 job_queueTransitions :: Lens.Lens' Job (Prelude.Maybe [QueueTransition])
 job_queueTransitions = Lens.lens (\Job' {queueTransitions} -> queueTransitions) (\s@Job' {} a -> s {queueTransitions = a} :: Job) Prelude.. Lens.mapping Lens._Coerce
@@ -332,14 +336,6 @@ job_id = Lens.lens (\Job' {id} -> id) (\s@Job' {} a -> s {id = a} :: Job)
 job_jobPercentComplete :: Lens.Lens' Job (Prelude.Maybe Prelude.Int)
 job_jobPercentComplete = Lens.lens (\Job' {jobPercentComplete} -> jobPercentComplete) (\s@Job' {} a -> s {jobPercentComplete = a} :: Job)
 
--- | The time, in Unix epoch format in seconds, when the job got created.
-job_createdAt :: Lens.Lens' Job (Prelude.Maybe Prelude.UTCTime)
-job_createdAt = Lens.lens (\Job' {createdAt} -> createdAt) (\s@Job' {} a -> s {createdAt = a} :: Job) Prelude.. Lens.mapping Core._Time
-
--- | Relative priority on the job.
-job_priority :: Lens.Lens' Job (Prelude.Maybe Prelude.Int)
-job_priority = Lens.lens (\Job' {priority} -> priority) (\s@Job' {} a -> s {priority = a} :: Job)
-
 -- | Specify how often MediaConvert sends STATUS_UPDATE events to Amazon
 -- CloudWatch Events. Set the interval, in seconds, between status updates.
 -- MediaConvert sends an update at this interval from the time the service
@@ -347,6 +343,10 @@ job_priority = Lens.lens (\Job' {priority} -> priority) (\s@Job' {} a -> s {prio
 -- encounters an error.
 job_statusUpdateInterval :: Lens.Lens' Job (Prelude.Maybe StatusUpdateInterval)
 job_statusUpdateInterval = Lens.lens (\Job' {statusUpdateInterval} -> statusUpdateInterval) (\s@Job' {} a -> s {statusUpdateInterval = a} :: Job)
+
+-- | Relative priority on the job.
+job_priority :: Lens.Lens' Job (Prelude.Maybe Prelude.Int)
+job_priority = Lens.lens (\Job' {priority} -> priority) (\s@Job' {} a -> s {priority = a} :: Job)
 
 -- | The job template that the job is created from, if it is created from a
 -- job template.
@@ -419,20 +419,20 @@ instance Core.FromJSON Job where
       "Job"
       ( \x ->
           Job'
-            Prelude.<$> (x Core..:? "accelerationSettings")
-            Prelude.<*> (x Core..:? "billingTagsSource")
+            Prelude.<$> (x Core..:? "billingTagsSource")
+            Prelude.<*> (x Core..:? "accelerationSettings")
             Prelude.<*> (x Core..:? "status")
             Prelude.<*> (x Core..:? "accelerationStatus")
             Prelude.<*> (x Core..:? "retryCount")
+            Prelude.<*> (x Core..:? "createdAt")
             Prelude.<*> ( x Core..:? "queueTransitions"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "id")
             Prelude.<*> (x Core..:? "jobPercentComplete")
-            Prelude.<*> (x Core..:? "createdAt")
-            Prelude.<*> (x Core..:? "priority")
             Prelude.<*> (x Core..:? "statusUpdateInterval")
+            Prelude.<*> (x Core..:? "priority")
             Prelude.<*> (x Core..:? "jobTemplate")
             Prelude.<*> (x Core..:? "userMetadata" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "queue")

@@ -31,7 +31,11 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
--- | Choose how the service does stereo downmixing.
+-- | Choose how the service does stereo downmixing. Default value: Not
+-- indicated (ATMOS_STORAGE_DDP_DMIXMOD_NOT_INDICATED) Related setting: To
+-- have MediaConvert use this value, keep the default value, Custom
+-- (SPECIFIED) for the setting Downmix control (DownmixControl). Otherwise,
+-- MediaConvert ignores Stereo downmix (StereoDownmix).
 newtype Eac3AtmosStereoDownmix = Eac3AtmosStereoDownmix'
   { fromEac3AtmosStereoDownmix ::
       Core.Text

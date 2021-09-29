@@ -21,6 +21,7 @@ module Network.AWS.MediaConvert.Types.ProresSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import Network.AWS.MediaConvert.Types.ProresChromaSampling
 import Network.AWS.MediaConvert.Types.ProresCodecProfile
 import Network.AWS.MediaConvert.Types.ProresFramerateControl
 import Network.AWS.MediaConvert.Types.ProresFramerateConversionAlgorithm
@@ -65,9 +66,6 @@ data ProresSettings = ProresSettings'
     -- frame rate conversion, provide the value as a decimal number for
     -- Framerate. In this example, specify 23.976.
     framerateNumerator :: Prelude.Maybe Prelude.Natural,
-    -- | Use Profile (ProResCodecProfile) to specify the type of Apple ProRes
-    -- codec to use for this output.
-    codecProfile :: Prelude.Maybe ProresCodecProfile,
     -- | When you use the API for transcode jobs that use frame rate conversion,
     -- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
     -- 23.976 fps. Use FramerateDenominator to specify the denominator of this
@@ -76,6 +74,9 @@ data ProresSettings = ProresSettings'
     -- use frame rate conversion, provide the value as a decimal number for
     -- Framerate. In this example, specify 23.976.
     framerateDenominator :: Prelude.Maybe Prelude.Natural,
+    -- | Use Profile (ProResCodecProfile) to specify the type of Apple ProRes
+    -- codec to use for this output.
+    codecProfile :: Prelude.Maybe ProresCodecProfile,
     -- | Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On
     -- the console, this corresponds to any value other than Follow source.
     -- When you specify an output pixel aspect ratio (PAR) that is different
@@ -83,6 +84,15 @@ data ProresSettings = ProresSettings'
     -- example, for D1\/DV NTSC widescreen, you would specify the ratio 40:33.
     -- In this example, the value for parNumerator is 40.
     parNumerator :: Prelude.Maybe Prelude.Natural,
+    -- | Optional. Specify how the service determines the pixel aspect ratio
+    -- (PAR) for this output. The default behavior, Follow source
+    -- (INITIALIZE_FROM_SOURCE), uses the PAR from your input video for your
+    -- output. To specify a different PAR in the console, choose any value
+    -- other than Follow source. To specify a different PAR by editing the JSON
+    -- job specification, choose SPECIFIED. When you choose SPECIFIED for this
+    -- setting, you must also specify values for the parNumerator and
+    -- parDenominator settings.
+    parControl :: Prelude.Maybe ProresParControl,
     -- | Use this setting for interlaced outputs, when your output frame rate is
     -- half of your input frame rate. In this situation, choose Optimized
     -- interlacing (INTERLACED_OPTIMIZE) to create a better quality interlaced
@@ -99,15 +109,22 @@ data ProresSettings = ProresSettings'
     -- Interlace mode (interlaceMode) to a value other than Progressive
     -- (PROGRESSIVE).
     scanTypeConversionMode :: Prelude.Maybe ProresScanTypeConversionMode,
-    -- | Optional. Specify how the service determines the pixel aspect ratio
-    -- (PAR) for this output. The default behavior, Follow source
-    -- (INITIALIZE_FROM_SOURCE), uses the PAR from your input video for your
-    -- output. To specify a different PAR in the console, choose any value
-    -- other than Follow source. To specify a different PAR by editing the JSON
-    -- job specification, choose SPECIFIED. When you choose SPECIFIED for this
-    -- setting, you must also specify values for the parNumerator and
-    -- parDenominator settings.
-    parControl :: Prelude.Maybe ProresParControl,
+    -- | This setting applies only to ProRes 4444 and ProRes 4444 XQ outputs that
+    -- you create from inputs that use 4:4:4 chroma sampling. Set Preserve
+    -- 4:4:4 sampling (PRESERVE_444_SAMPLING) to allow outputs to also use
+    -- 4:4:4 chroma sampling. You must specify a value for this setting when
+    -- your output codec profile supports 4:4:4 chroma sampling. Related
+    -- Settings: When you set Chroma sampling to Preserve 4:4:4 sampling
+    -- (PRESERVE_444_SAMPLING), you must choose an output codec profile that
+    -- supports 4:4:4 chroma sampling. These values for Profile (CodecProfile)
+    -- support 4:4:4 chroma sampling: Apple ProRes 4444 (APPLE_PRORES_4444) or
+    -- Apple ProRes 4444 XQ (APPLE_PRORES_4444_XQ). When you set Chroma
+    -- sampling to Preserve 4:4:4 sampling, you must disable all video
+    -- preprocessors except for Nexguard file marker (PartnerWatermarking).
+    -- When you set Chroma sampling to Preserve 4:4:4 sampling and use
+    -- framerate conversion, you must set Frame rate conversion algorithm
+    -- (FramerateConversionAlgorithm) to Drop duplicate (DUPLICATE_DROP).
+    chromaSampling :: Prelude.Maybe ProresChromaSampling,
     -- | Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On
     -- the console, this corresponds to any value other than Follow source.
     -- When you specify an output pixel aspect ratio (PAR) that is different
@@ -190,9 +207,6 @@ data ProresSettings = ProresSettings'
 -- frame rate conversion, provide the value as a decimal number for
 -- Framerate. In this example, specify 23.976.
 --
--- 'codecProfile', 'proresSettings_codecProfile' - Use Profile (ProResCodecProfile) to specify the type of Apple ProRes
--- codec to use for this output.
---
 -- 'framerateDenominator', 'proresSettings_framerateDenominator' - When you use the API for transcode jobs that use frame rate conversion,
 -- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
 -- 23.976 fps. Use FramerateDenominator to specify the denominator of this
@@ -201,12 +215,24 @@ data ProresSettings = ProresSettings'
 -- use frame rate conversion, provide the value as a decimal number for
 -- Framerate. In this example, specify 23.976.
 --
+-- 'codecProfile', 'proresSettings_codecProfile' - Use Profile (ProResCodecProfile) to specify the type of Apple ProRes
+-- codec to use for this output.
+--
 -- 'parNumerator', 'proresSettings_parNumerator' - Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On
 -- the console, this corresponds to any value other than Follow source.
 -- When you specify an output pixel aspect ratio (PAR) that is different
 -- from your input video PAR, provide your output PAR as a ratio. For
 -- example, for D1\/DV NTSC widescreen, you would specify the ratio 40:33.
 -- In this example, the value for parNumerator is 40.
+--
+-- 'parControl', 'proresSettings_parControl' - Optional. Specify how the service determines the pixel aspect ratio
+-- (PAR) for this output. The default behavior, Follow source
+-- (INITIALIZE_FROM_SOURCE), uses the PAR from your input video for your
+-- output. To specify a different PAR in the console, choose any value
+-- other than Follow source. To specify a different PAR by editing the JSON
+-- job specification, choose SPECIFIED. When you choose SPECIFIED for this
+-- setting, you must also specify values for the parNumerator and
+-- parDenominator settings.
 --
 -- 'scanTypeConversionMode', 'proresSettings_scanTypeConversionMode' - Use this setting for interlaced outputs, when your output frame rate is
 -- half of your input frame rate. In this situation, choose Optimized
@@ -224,14 +250,21 @@ data ProresSettings = ProresSettings'
 -- Interlace mode (interlaceMode) to a value other than Progressive
 -- (PROGRESSIVE).
 --
--- 'parControl', 'proresSettings_parControl' - Optional. Specify how the service determines the pixel aspect ratio
--- (PAR) for this output. The default behavior, Follow source
--- (INITIALIZE_FROM_SOURCE), uses the PAR from your input video for your
--- output. To specify a different PAR in the console, choose any value
--- other than Follow source. To specify a different PAR by editing the JSON
--- job specification, choose SPECIFIED. When you choose SPECIFIED for this
--- setting, you must also specify values for the parNumerator and
--- parDenominator settings.
+-- 'chromaSampling', 'proresSettings_chromaSampling' - This setting applies only to ProRes 4444 and ProRes 4444 XQ outputs that
+-- you create from inputs that use 4:4:4 chroma sampling. Set Preserve
+-- 4:4:4 sampling (PRESERVE_444_SAMPLING) to allow outputs to also use
+-- 4:4:4 chroma sampling. You must specify a value for this setting when
+-- your output codec profile supports 4:4:4 chroma sampling. Related
+-- Settings: When you set Chroma sampling to Preserve 4:4:4 sampling
+-- (PRESERVE_444_SAMPLING), you must choose an output codec profile that
+-- supports 4:4:4 chroma sampling. These values for Profile (CodecProfile)
+-- support 4:4:4 chroma sampling: Apple ProRes 4444 (APPLE_PRORES_4444) or
+-- Apple ProRes 4444 XQ (APPLE_PRORES_4444_XQ). When you set Chroma
+-- sampling to Preserve 4:4:4 sampling, you must disable all video
+-- preprocessors except for Nexguard file marker (PartnerWatermarking).
+-- When you set Chroma sampling to Preserve 4:4:4 sampling and use
+-- framerate conversion, you must set Frame rate conversion algorithm
+-- (FramerateConversionAlgorithm) to Drop duplicate (DUPLICATE_DROP).
 --
 -- 'parDenominator', 'proresSettings_parDenominator' - Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On
 -- the console, this corresponds to any value other than Follow source.
@@ -281,11 +314,12 @@ newProresSettings =
     { interlaceMode = Prelude.Nothing,
       telecine = Prelude.Nothing,
       framerateNumerator = Prelude.Nothing,
-      codecProfile = Prelude.Nothing,
       framerateDenominator = Prelude.Nothing,
+      codecProfile = Prelude.Nothing,
       parNumerator = Prelude.Nothing,
-      scanTypeConversionMode = Prelude.Nothing,
       parControl = Prelude.Nothing,
+      scanTypeConversionMode = Prelude.Nothing,
+      chromaSampling = Prelude.Nothing,
       parDenominator = Prelude.Nothing,
       framerateControl = Prelude.Nothing,
       framerateConversionAlgorithm = Prelude.Nothing,
@@ -327,11 +361,6 @@ proresSettings_telecine = Lens.lens (\ProresSettings' {telecine} -> telecine) (\
 proresSettings_framerateNumerator :: Lens.Lens' ProresSettings (Prelude.Maybe Prelude.Natural)
 proresSettings_framerateNumerator = Lens.lens (\ProresSettings' {framerateNumerator} -> framerateNumerator) (\s@ProresSettings' {} a -> s {framerateNumerator = a} :: ProresSettings)
 
--- | Use Profile (ProResCodecProfile) to specify the type of Apple ProRes
--- codec to use for this output.
-proresSettings_codecProfile :: Lens.Lens' ProresSettings (Prelude.Maybe ProresCodecProfile)
-proresSettings_codecProfile = Lens.lens (\ProresSettings' {codecProfile} -> codecProfile) (\s@ProresSettings' {} a -> s {codecProfile = a} :: ProresSettings)
-
 -- | When you use the API for transcode jobs that use frame rate conversion,
 -- specify the frame rate as a fraction. For example, 24000 \/ 1001 =
 -- 23.976 fps. Use FramerateDenominator to specify the denominator of this
@@ -342,6 +371,11 @@ proresSettings_codecProfile = Lens.lens (\ProresSettings' {codecProfile} -> code
 proresSettings_framerateDenominator :: Lens.Lens' ProresSettings (Prelude.Maybe Prelude.Natural)
 proresSettings_framerateDenominator = Lens.lens (\ProresSettings' {framerateDenominator} -> framerateDenominator) (\s@ProresSettings' {} a -> s {framerateDenominator = a} :: ProresSettings)
 
+-- | Use Profile (ProResCodecProfile) to specify the type of Apple ProRes
+-- codec to use for this output.
+proresSettings_codecProfile :: Lens.Lens' ProresSettings (Prelude.Maybe ProresCodecProfile)
+proresSettings_codecProfile = Lens.lens (\ProresSettings' {codecProfile} -> codecProfile) (\s@ProresSettings' {} a -> s {codecProfile = a} :: ProresSettings)
+
 -- | Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On
 -- the console, this corresponds to any value other than Follow source.
 -- When you specify an output pixel aspect ratio (PAR) that is different
@@ -350,6 +384,17 @@ proresSettings_framerateDenominator = Lens.lens (\ProresSettings' {framerateDeno
 -- In this example, the value for parNumerator is 40.
 proresSettings_parNumerator :: Lens.Lens' ProresSettings (Prelude.Maybe Prelude.Natural)
 proresSettings_parNumerator = Lens.lens (\ProresSettings' {parNumerator} -> parNumerator) (\s@ProresSettings' {} a -> s {parNumerator = a} :: ProresSettings)
+
+-- | Optional. Specify how the service determines the pixel aspect ratio
+-- (PAR) for this output. The default behavior, Follow source
+-- (INITIALIZE_FROM_SOURCE), uses the PAR from your input video for your
+-- output. To specify a different PAR in the console, choose any value
+-- other than Follow source. To specify a different PAR by editing the JSON
+-- job specification, choose SPECIFIED. When you choose SPECIFIED for this
+-- setting, you must also specify values for the parNumerator and
+-- parDenominator settings.
+proresSettings_parControl :: Lens.Lens' ProresSettings (Prelude.Maybe ProresParControl)
+proresSettings_parControl = Lens.lens (\ProresSettings' {parControl} -> parControl) (\s@ProresSettings' {} a -> s {parControl = a} :: ProresSettings)
 
 -- | Use this setting for interlaced outputs, when your output frame rate is
 -- half of your input frame rate. In this situation, choose Optimized
@@ -369,16 +414,23 @@ proresSettings_parNumerator = Lens.lens (\ProresSettings' {parNumerator} -> parN
 proresSettings_scanTypeConversionMode :: Lens.Lens' ProresSettings (Prelude.Maybe ProresScanTypeConversionMode)
 proresSettings_scanTypeConversionMode = Lens.lens (\ProresSettings' {scanTypeConversionMode} -> scanTypeConversionMode) (\s@ProresSettings' {} a -> s {scanTypeConversionMode = a} :: ProresSettings)
 
--- | Optional. Specify how the service determines the pixel aspect ratio
--- (PAR) for this output. The default behavior, Follow source
--- (INITIALIZE_FROM_SOURCE), uses the PAR from your input video for your
--- output. To specify a different PAR in the console, choose any value
--- other than Follow source. To specify a different PAR by editing the JSON
--- job specification, choose SPECIFIED. When you choose SPECIFIED for this
--- setting, you must also specify values for the parNumerator and
--- parDenominator settings.
-proresSettings_parControl :: Lens.Lens' ProresSettings (Prelude.Maybe ProresParControl)
-proresSettings_parControl = Lens.lens (\ProresSettings' {parControl} -> parControl) (\s@ProresSettings' {} a -> s {parControl = a} :: ProresSettings)
+-- | This setting applies only to ProRes 4444 and ProRes 4444 XQ outputs that
+-- you create from inputs that use 4:4:4 chroma sampling. Set Preserve
+-- 4:4:4 sampling (PRESERVE_444_SAMPLING) to allow outputs to also use
+-- 4:4:4 chroma sampling. You must specify a value for this setting when
+-- your output codec profile supports 4:4:4 chroma sampling. Related
+-- Settings: When you set Chroma sampling to Preserve 4:4:4 sampling
+-- (PRESERVE_444_SAMPLING), you must choose an output codec profile that
+-- supports 4:4:4 chroma sampling. These values for Profile (CodecProfile)
+-- support 4:4:4 chroma sampling: Apple ProRes 4444 (APPLE_PRORES_4444) or
+-- Apple ProRes 4444 XQ (APPLE_PRORES_4444_XQ). When you set Chroma
+-- sampling to Preserve 4:4:4 sampling, you must disable all video
+-- preprocessors except for Nexguard file marker (PartnerWatermarking).
+-- When you set Chroma sampling to Preserve 4:4:4 sampling and use
+-- framerate conversion, you must set Frame rate conversion algorithm
+-- (FramerateConversionAlgorithm) to Drop duplicate (DUPLICATE_DROP).
+proresSettings_chromaSampling :: Lens.Lens' ProresSettings (Prelude.Maybe ProresChromaSampling)
+proresSettings_chromaSampling = Lens.lens (\ProresSettings' {chromaSampling} -> chromaSampling) (\s@ProresSettings' {} a -> s {chromaSampling = a} :: ProresSettings)
 
 -- | Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On
 -- the console, this corresponds to any value other than Follow source.
@@ -439,11 +491,12 @@ instance Core.FromJSON ProresSettings where
             Prelude.<$> (x Core..:? "interlaceMode")
             Prelude.<*> (x Core..:? "telecine")
             Prelude.<*> (x Core..:? "framerateNumerator")
-            Prelude.<*> (x Core..:? "codecProfile")
             Prelude.<*> (x Core..:? "framerateDenominator")
+            Prelude.<*> (x Core..:? "codecProfile")
             Prelude.<*> (x Core..:? "parNumerator")
-            Prelude.<*> (x Core..:? "scanTypeConversionMode")
             Prelude.<*> (x Core..:? "parControl")
+            Prelude.<*> (x Core..:? "scanTypeConversionMode")
+            Prelude.<*> (x Core..:? "chromaSampling")
             Prelude.<*> (x Core..:? "parDenominator")
             Prelude.<*> (x Core..:? "framerateControl")
             Prelude.<*> (x Core..:? "framerateConversionAlgorithm")
@@ -462,13 +515,15 @@ instance Core.ToJSON ProresSettings where
             ("telecine" Core..=) Prelude.<$> telecine,
             ("framerateNumerator" Core..=)
               Prelude.<$> framerateNumerator,
-            ("codecProfile" Core..=) Prelude.<$> codecProfile,
             ("framerateDenominator" Core..=)
               Prelude.<$> framerateDenominator,
+            ("codecProfile" Core..=) Prelude.<$> codecProfile,
             ("parNumerator" Core..=) Prelude.<$> parNumerator,
+            ("parControl" Core..=) Prelude.<$> parControl,
             ("scanTypeConversionMode" Core..=)
               Prelude.<$> scanTypeConversionMode,
-            ("parControl" Core..=) Prelude.<$> parControl,
+            ("chromaSampling" Core..=)
+              Prelude.<$> chromaSampling,
             ("parDenominator" Core..=)
               Prelude.<$> parDenominator,
             ("framerateControl" Core..=)

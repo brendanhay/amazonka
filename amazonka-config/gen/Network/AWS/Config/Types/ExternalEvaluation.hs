@@ -24,21 +24,21 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Identifies an AWS resource and indicates whether it complies with the
--- AWS Config rule that it was evaluated against.
+-- | Identifies an Amazon Web Services resource and indicates whether it
+-- complies with the Config rule that it was evaluated against.
 --
 -- /See:/ 'newExternalEvaluation' smart constructor.
 data ExternalEvaluation = ExternalEvaluation'
   { -- | Supplementary information about the reason of compliance. For example,
     -- this task was completed on a specific date.
     annotation :: Prelude.Maybe Prelude.Text,
-    -- | The evaluated compliance resource type. AWS Config accepts
-    -- @AWS::::Account@ resource type.
+    -- | The evaluated compliance resource type. Config accepts @AWS::::Account@
+    -- resource type.
     complianceResourceType :: Prelude.Text,
-    -- | The evaluated compliance resource ID. AWS Config accepts only AWS
-    -- account ID.
+    -- | The evaluated compliance resource ID. Config accepts only Amazon Web
+    -- Services account ID.
     complianceResourceId :: Prelude.Text,
-    -- | The compliance of the AWS resource. The valid values are
+    -- | The compliance of the Amazon Web Services resource. The valid values are
     -- @COMPLIANT, NON_COMPLIANT, @ and @NOT_APPLICABLE@.
     complianceType :: ComplianceType,
     -- | The time when the compliance was recorded.
@@ -57,13 +57,13 @@ data ExternalEvaluation = ExternalEvaluation'
 -- 'annotation', 'externalEvaluation_annotation' - Supplementary information about the reason of compliance. For example,
 -- this task was completed on a specific date.
 --
--- 'complianceResourceType', 'externalEvaluation_complianceResourceType' - The evaluated compliance resource type. AWS Config accepts
--- @AWS::::Account@ resource type.
+-- 'complianceResourceType', 'externalEvaluation_complianceResourceType' - The evaluated compliance resource type. Config accepts @AWS::::Account@
+-- resource type.
 --
--- 'complianceResourceId', 'externalEvaluation_complianceResourceId' - The evaluated compliance resource ID. AWS Config accepts only AWS
--- account ID.
+-- 'complianceResourceId', 'externalEvaluation_complianceResourceId' - The evaluated compliance resource ID. Config accepts only Amazon Web
+-- Services account ID.
 --
--- 'complianceType', 'externalEvaluation_complianceType' - The compliance of the AWS resource. The valid values are
+-- 'complianceType', 'externalEvaluation_complianceType' - The compliance of the Amazon Web Services resource. The valid values are
 -- @COMPLIANT, NON_COMPLIANT, @ and @NOT_APPLICABLE@.
 --
 -- 'orderingTimestamp', 'externalEvaluation_orderingTimestamp' - The time when the compliance was recorded.
@@ -96,17 +96,17 @@ newExternalEvaluation
 externalEvaluation_annotation :: Lens.Lens' ExternalEvaluation (Prelude.Maybe Prelude.Text)
 externalEvaluation_annotation = Lens.lens (\ExternalEvaluation' {annotation} -> annotation) (\s@ExternalEvaluation' {} a -> s {annotation = a} :: ExternalEvaluation)
 
--- | The evaluated compliance resource type. AWS Config accepts
--- @AWS::::Account@ resource type.
+-- | The evaluated compliance resource type. Config accepts @AWS::::Account@
+-- resource type.
 externalEvaluation_complianceResourceType :: Lens.Lens' ExternalEvaluation Prelude.Text
 externalEvaluation_complianceResourceType = Lens.lens (\ExternalEvaluation' {complianceResourceType} -> complianceResourceType) (\s@ExternalEvaluation' {} a -> s {complianceResourceType = a} :: ExternalEvaluation)
 
--- | The evaluated compliance resource ID. AWS Config accepts only AWS
--- account ID.
+-- | The evaluated compliance resource ID. Config accepts only Amazon Web
+-- Services account ID.
 externalEvaluation_complianceResourceId :: Lens.Lens' ExternalEvaluation Prelude.Text
 externalEvaluation_complianceResourceId = Lens.lens (\ExternalEvaluation' {complianceResourceId} -> complianceResourceId) (\s@ExternalEvaluation' {} a -> s {complianceResourceId = a} :: ExternalEvaluation)
 
--- | The compliance of the AWS resource. The valid values are
+-- | The compliance of the Amazon Web Services resource. The valid values are
 -- @COMPLIANT, NON_COMPLIANT, @ and @NOT_APPLICABLE@.
 externalEvaluation_complianceType :: Lens.Lens' ExternalEvaluation ComplianceType
 externalEvaluation_complianceType = Lens.lens (\ExternalEvaluation' {complianceType} -> complianceType) (\s@ExternalEvaluation' {} a -> s {complianceType = a} :: ExternalEvaluation)

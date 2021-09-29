@@ -20,32 +20,32 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Indicates whether the specified AWS resources are compliant. If a
--- resource is noncompliant, this action returns the number of AWS Config
--- rules that the resource does not comply with.
+-- Indicates whether the specified Amazon Web Services resources are
+-- compliant. If a resource is noncompliant, this action returns the number
+-- of Config rules that the resource does not comply with.
 --
--- A resource is compliant if it complies with all the AWS Config rules
--- that evaluate it. It is noncompliant if it does not comply with one or
--- more of these rules.
+-- A resource is compliant if it complies with all the Config rules that
+-- evaluate it. It is noncompliant if it does not comply with one or more
+-- of these rules.
 --
--- If AWS Config has no current evaluation results for the resource, it
--- returns @INSUFFICIENT_DATA@. This result might indicate one of the
--- following conditions about the rules that evaluate the resource:
+-- If Config has no current evaluation results for the resource, it returns
+-- @INSUFFICIENT_DATA@. This result might indicate one of the following
+-- conditions about the rules that evaluate the resource:
 --
--- -   AWS Config has never invoked an evaluation for the rule. To check
+-- -   Config has never invoked an evaluation for the rule. To check
 --     whether it has, use the @DescribeConfigRuleEvaluationStatus@ action
 --     to get the @LastSuccessfulInvocationTime@ and
 --     @LastFailedInvocationTime@.
 --
--- -   The rule\'s AWS Lambda function is failing to send evaluation
---     results to AWS Config. Verify that the role that you assigned to
---     your configuration recorder includes the @config:PutEvaluations@
---     permission. If the rule is a custom rule, verify that the AWS Lambda
---     execution role includes the @config:PutEvaluations@ permission.
+-- -   The rule\'s Lambda function is failing to send evaluation results to
+--     Config. Verify that the role that you assigned to your configuration
+--     recorder includes the @config:PutEvaluations@ permission. If the
+--     rule is a custom rule, verify that the Lambda execution role
+--     includes the @config:PutEvaluations@ permission.
 --
--- -   The rule\'s AWS Lambda function has returned @NOT_APPLICABLE@ for
---     all evaluation results. This can occur if the resources were deleted
---     or removed from the rule\'s scope.
+-- -   The rule\'s Lambda function has returned @NOT_APPLICABLE@ for all
+--     evaluation results. This can occur if the resources were deleted or
+--     removed from the rule\'s scope.
 --
 -- This operation returns paginated results.
 module Network.AWS.Config.DescribeComplianceByResource
@@ -82,9 +82,9 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDescribeComplianceByResource' smart constructor.
 data DescribeComplianceByResource = DescribeComplianceByResource'
-  { -- | The ID of the AWS resource for which you want compliance information.
-    -- You can specify only one resource ID. If you specify a resource ID, you
-    -- must also specify a type for @ResourceType@.
+  { -- | The ID of the Amazon Web Services resource for which you want compliance
+    -- information. You can specify only one resource ID. If you specify a
+    -- resource ID, you must also specify a type for @ResourceType@.
     resourceId :: Prelude.Maybe Prelude.Text,
     -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
@@ -94,13 +94,14 @@ data DescribeComplianceByResource = DescribeComplianceByResource'
     -- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
     -- @INSUFFICIENT_DATA@.
     complianceTypes :: Prelude.Maybe [ComplianceType],
-    -- | The types of AWS resources for which you want compliance information
-    -- (for example, @AWS::EC2::Instance@). For this action, you can specify
-    -- that the resource type is an AWS account by specifying @AWS::::Account@.
+    -- | The types of Amazon Web Services resources for which you want compliance
+    -- information (for example, @AWS::EC2::Instance@). For this action, you
+    -- can specify that the resource type is an Amazon Web Services account by
+    -- specifying @AWS::::Account@.
     resourceType :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of evaluation results returned on each page. The
     -- default is 10. You cannot specify a number greater than 100. If you
-    -- specify 0, AWS Config uses the default.
+    -- specify 0, Config uses the default.
     limit :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -113,9 +114,9 @@ data DescribeComplianceByResource = DescribeComplianceByResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceId', 'describeComplianceByResource_resourceId' - The ID of the AWS resource for which you want compliance information.
--- You can specify only one resource ID. If you specify a resource ID, you
--- must also specify a type for @ResourceType@.
+-- 'resourceId', 'describeComplianceByResource_resourceId' - The ID of the Amazon Web Services resource for which you want compliance
+-- information. You can specify only one resource ID. If you specify a
+-- resource ID, you must also specify a type for @ResourceType@.
 --
 -- 'nextToken', 'describeComplianceByResource_nextToken' - The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
@@ -125,13 +126,14 @@ data DescribeComplianceByResource = DescribeComplianceByResource'
 -- The allowed values are @COMPLIANT@, @NON_COMPLIANT@, and
 -- @INSUFFICIENT_DATA@.
 --
--- 'resourceType', 'describeComplianceByResource_resourceType' - The types of AWS resources for which you want compliance information
--- (for example, @AWS::EC2::Instance@). For this action, you can specify
--- that the resource type is an AWS account by specifying @AWS::::Account@.
+-- 'resourceType', 'describeComplianceByResource_resourceType' - The types of Amazon Web Services resources for which you want compliance
+-- information (for example, @AWS::EC2::Instance@). For this action, you
+-- can specify that the resource type is an Amazon Web Services account by
+-- specifying @AWS::::Account@.
 --
 -- 'limit', 'describeComplianceByResource_limit' - The maximum number of evaluation results returned on each page. The
 -- default is 10. You cannot specify a number greater than 100. If you
--- specify 0, AWS Config uses the default.
+-- specify 0, Config uses the default.
 newDescribeComplianceByResource ::
   DescribeComplianceByResource
 newDescribeComplianceByResource =
@@ -144,9 +146,9 @@ newDescribeComplianceByResource =
       limit = Prelude.Nothing
     }
 
--- | The ID of the AWS resource for which you want compliance information.
--- You can specify only one resource ID. If you specify a resource ID, you
--- must also specify a type for @ResourceType@.
+-- | The ID of the Amazon Web Services resource for which you want compliance
+-- information. You can specify only one resource ID. If you specify a
+-- resource ID, you must also specify a type for @ResourceType@.
 describeComplianceByResource_resourceId :: Lens.Lens' DescribeComplianceByResource (Prelude.Maybe Prelude.Text)
 describeComplianceByResource_resourceId = Lens.lens (\DescribeComplianceByResource' {resourceId} -> resourceId) (\s@DescribeComplianceByResource' {} a -> s {resourceId = a} :: DescribeComplianceByResource)
 
@@ -162,15 +164,16 @@ describeComplianceByResource_nextToken = Lens.lens (\DescribeComplianceByResourc
 describeComplianceByResource_complianceTypes :: Lens.Lens' DescribeComplianceByResource (Prelude.Maybe [ComplianceType])
 describeComplianceByResource_complianceTypes = Lens.lens (\DescribeComplianceByResource' {complianceTypes} -> complianceTypes) (\s@DescribeComplianceByResource' {} a -> s {complianceTypes = a} :: DescribeComplianceByResource) Prelude.. Lens.mapping Lens._Coerce
 
--- | The types of AWS resources for which you want compliance information
--- (for example, @AWS::EC2::Instance@). For this action, you can specify
--- that the resource type is an AWS account by specifying @AWS::::Account@.
+-- | The types of Amazon Web Services resources for which you want compliance
+-- information (for example, @AWS::EC2::Instance@). For this action, you
+-- can specify that the resource type is an Amazon Web Services account by
+-- specifying @AWS::::Account@.
 describeComplianceByResource_resourceType :: Lens.Lens' DescribeComplianceByResource (Prelude.Maybe Prelude.Text)
 describeComplianceByResource_resourceType = Lens.lens (\DescribeComplianceByResource' {resourceType} -> resourceType) (\s@DescribeComplianceByResource' {} a -> s {resourceType = a} :: DescribeComplianceByResource)
 
 -- | The maximum number of evaluation results returned on each page. The
 -- default is 10. You cannot specify a number greater than 100. If you
--- specify 0, AWS Config uses the default.
+-- specify 0, Config uses the default.
 describeComplianceByResource_limit :: Lens.Lens' DescribeComplianceByResource (Prelude.Maybe Prelude.Natural)
 describeComplianceByResource_limit = Lens.lens (\DescribeComplianceByResource' {limit} -> limit) (\s@DescribeComplianceByResource' {} a -> s {limit = a} :: DescribeComplianceByResource)
 
@@ -259,8 +262,8 @@ data DescribeComplianceByResourceResponse = DescribeComplianceByResourceResponse
   { -- | The string that you use in a subsequent request to get the next page of
     -- results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the specified AWS resource complies with all of the
-    -- AWS Config rules that evaluate it.
+    -- | Indicates whether the specified Amazon Web Services resource complies
+    -- with all of the Config rules that evaluate it.
     complianceByResources :: Prelude.Maybe [ComplianceByResource],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -278,8 +281,8 @@ data DescribeComplianceByResourceResponse = DescribeComplianceByResourceResponse
 -- 'nextToken', 'describeComplianceByResourceResponse_nextToken' - The string that you use in a subsequent request to get the next page of
 -- results in a paginated response.
 --
--- 'complianceByResources', 'describeComplianceByResourceResponse_complianceByResources' - Indicates whether the specified AWS resource complies with all of the
--- AWS Config rules that evaluate it.
+-- 'complianceByResources', 'describeComplianceByResourceResponse_complianceByResources' - Indicates whether the specified Amazon Web Services resource complies
+-- with all of the Config rules that evaluate it.
 --
 -- 'httpStatus', 'describeComplianceByResourceResponse_httpStatus' - The response's http status code.
 newDescribeComplianceByResourceResponse ::
@@ -300,8 +303,8 @@ newDescribeComplianceByResourceResponse pHttpStatus_ =
 describeComplianceByResourceResponse_nextToken :: Lens.Lens' DescribeComplianceByResourceResponse (Prelude.Maybe Prelude.Text)
 describeComplianceByResourceResponse_nextToken = Lens.lens (\DescribeComplianceByResourceResponse' {nextToken} -> nextToken) (\s@DescribeComplianceByResourceResponse' {} a -> s {nextToken = a} :: DescribeComplianceByResourceResponse)
 
--- | Indicates whether the specified AWS resource complies with all of the
--- AWS Config rules that evaluate it.
+-- | Indicates whether the specified Amazon Web Services resource complies
+-- with all of the Config rules that evaluate it.
 describeComplianceByResourceResponse_complianceByResources :: Lens.Lens' DescribeComplianceByResourceResponse (Prelude.Maybe [ComplianceByResource])
 describeComplianceByResourceResponse_complianceByResources = Lens.lens (\DescribeComplianceByResourceResponse' {complianceByResources} -> complianceByResources) (\s@DescribeComplianceByResourceResponse' {} a -> s {complianceByResources = a} :: DescribeComplianceByResourceResponse) Prelude.. Lens.mapping Lens._Coerce
 

@@ -31,12 +31,12 @@ import qualified Network.AWS.Prelude as Prelude
 data ConfigRuleComplianceFilters = ConfigRuleComplianceFilters'
   { -- | The 12-digit account ID of the source account.
     accountId :: Prelude.Maybe Prelude.Text,
-    -- | The name of the AWS Config rule.
+    -- | The name of the Config rule.
     configRuleName :: Prelude.Maybe Prelude.Text,
     -- | The rule compliance status.
     --
-    -- For the @ConfigRuleComplianceFilters@ data type, AWS Config supports
-    -- only @COMPLIANT@ and @NON_COMPLIANT@. AWS Config does not support the
+    -- For the @ConfigRuleComplianceFilters@ data type, Config supports only
+    -- @COMPLIANT@ and @NON_COMPLIANT@. Config does not support the
     -- @NOT_APPLICABLE@ and the @INSUFFICIENT_DATA@ values.
     complianceType :: Prelude.Maybe ComplianceType,
     -- | The source region where the data is aggregated.
@@ -54,12 +54,12 @@ data ConfigRuleComplianceFilters = ConfigRuleComplianceFilters'
 --
 -- 'accountId', 'configRuleComplianceFilters_accountId' - The 12-digit account ID of the source account.
 --
--- 'configRuleName', 'configRuleComplianceFilters_configRuleName' - The name of the AWS Config rule.
+-- 'configRuleName', 'configRuleComplianceFilters_configRuleName' - The name of the Config rule.
 --
 -- 'complianceType', 'configRuleComplianceFilters_complianceType' - The rule compliance status.
 --
--- For the @ConfigRuleComplianceFilters@ data type, AWS Config supports
--- only @COMPLIANT@ and @NON_COMPLIANT@. AWS Config does not support the
+-- For the @ConfigRuleComplianceFilters@ data type, Config supports only
+-- @COMPLIANT@ and @NON_COMPLIANT@. Config does not support the
 -- @NOT_APPLICABLE@ and the @INSUFFICIENT_DATA@ values.
 --
 -- 'awsRegion', 'configRuleComplianceFilters_awsRegion' - The source region where the data is aggregated.
@@ -78,14 +78,14 @@ newConfigRuleComplianceFilters =
 configRuleComplianceFilters_accountId :: Lens.Lens' ConfigRuleComplianceFilters (Prelude.Maybe Prelude.Text)
 configRuleComplianceFilters_accountId = Lens.lens (\ConfigRuleComplianceFilters' {accountId} -> accountId) (\s@ConfigRuleComplianceFilters' {} a -> s {accountId = a} :: ConfigRuleComplianceFilters)
 
--- | The name of the AWS Config rule.
+-- | The name of the Config rule.
 configRuleComplianceFilters_configRuleName :: Lens.Lens' ConfigRuleComplianceFilters (Prelude.Maybe Prelude.Text)
 configRuleComplianceFilters_configRuleName = Lens.lens (\ConfigRuleComplianceFilters' {configRuleName} -> configRuleName) (\s@ConfigRuleComplianceFilters' {} a -> s {configRuleName = a} :: ConfigRuleComplianceFilters)
 
 -- | The rule compliance status.
 --
--- For the @ConfigRuleComplianceFilters@ data type, AWS Config supports
--- only @COMPLIANT@ and @NON_COMPLIANT@. AWS Config does not support the
+-- For the @ConfigRuleComplianceFilters@ data type, Config supports only
+-- @COMPLIANT@ and @NON_COMPLIANT@. Config does not support the
 -- @NOT_APPLICABLE@ and the @INSUFFICIENT_DATA@ values.
 configRuleComplianceFilters_complianceType :: Lens.Lens' ConfigRuleComplianceFilters (Prelude.Maybe ComplianceType)
 configRuleComplianceFilters_complianceType = Lens.lens (\ConfigRuleComplianceFilters' {complianceType} -> complianceType) (\s@ConfigRuleComplianceFilters' {} a -> s {complianceType = a} :: ConfigRuleComplianceFilters)

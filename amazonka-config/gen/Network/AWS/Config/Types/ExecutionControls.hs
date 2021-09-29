@@ -24,7 +24,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The controls that AWS Config uses for executing remediations.
+-- | The controls that Config uses for executing remediations.
 --
 -- /See:/ 'newExecutionControls' smart constructor.
 data ExecutionControls = ExecutionControls'

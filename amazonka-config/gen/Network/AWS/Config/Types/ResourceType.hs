@@ -29,6 +29,10 @@ module Network.AWS.Config.Types.ResourceType
         ResourceType_AWS__AutoScaling__LaunchConfiguration,
         ResourceType_AWS__AutoScaling__ScalingPolicy,
         ResourceType_AWS__AutoScaling__ScheduledAction,
+        ResourceType_AWS__Backup__BackupPlan,
+        ResourceType_AWS__Backup__BackupSelection,
+        ResourceType_AWS__Backup__BackupVault,
+        ResourceType_AWS__Backup__RecoveryPoint,
         ResourceType_AWS__CloudFormation__Stack,
         ResourceType_AWS__CloudFront__Distribution,
         ResourceType_AWS__CloudFront__StreamingDistribution,
@@ -36,6 +40,7 @@ module Network.AWS.Config.Types.ResourceType
         ResourceType_AWS__CloudWatch__Alarm,
         ResourceType_AWS__CodeBuild__Project,
         ResourceType_AWS__CodePipeline__Pipeline,
+        ResourceType_AWS__Config__ConformancePackCompliance,
         ResourceType_AWS__Config__ResourceCompliance,
         ResourceType_AWS__DynamoDB__Table,
         ResourceType_AWS__EC2__CustomerGateway,
@@ -59,6 +64,13 @@ module Network.AWS.Config.Types.ResourceType
         ResourceType_AWS__EC2__VPNConnection,
         ResourceType_AWS__EC2__VPNGateway,
         ResourceType_AWS__EC2__Volume,
+        ResourceType_AWS__ECR__Repository,
+        ResourceType_AWS__ECS__Cluster,
+        ResourceType_AWS__ECS__Service,
+        ResourceType_AWS__ECS__TaskDefinition,
+        ResourceType_AWS__EFS__AccessPoint,
+        ResourceType_AWS__EFS__FileSystem,
+        ResourceType_AWS__EKS__Cluster,
         ResourceType_AWS__ElasticBeanstalk__Application,
         ResourceType_AWS__ElasticBeanstalk__ApplicationVersion,
         ResourceType_AWS__ElasticBeanstalk__Environment,
@@ -178,6 +190,18 @@ pattern ResourceType_AWS__AutoScaling__ScalingPolicy = ResourceType' "AWS::AutoS
 pattern ResourceType_AWS__AutoScaling__ScheduledAction :: ResourceType
 pattern ResourceType_AWS__AutoScaling__ScheduledAction = ResourceType' "AWS::AutoScaling::ScheduledAction"
 
+pattern ResourceType_AWS__Backup__BackupPlan :: ResourceType
+pattern ResourceType_AWS__Backup__BackupPlan = ResourceType' "AWS::Backup::BackupPlan"
+
+pattern ResourceType_AWS__Backup__BackupSelection :: ResourceType
+pattern ResourceType_AWS__Backup__BackupSelection = ResourceType' "AWS::Backup::BackupSelection"
+
+pattern ResourceType_AWS__Backup__BackupVault :: ResourceType
+pattern ResourceType_AWS__Backup__BackupVault = ResourceType' "AWS::Backup::BackupVault"
+
+pattern ResourceType_AWS__Backup__RecoveryPoint :: ResourceType
+pattern ResourceType_AWS__Backup__RecoveryPoint = ResourceType' "AWS::Backup::RecoveryPoint"
+
 pattern ResourceType_AWS__CloudFormation__Stack :: ResourceType
 pattern ResourceType_AWS__CloudFormation__Stack = ResourceType' "AWS::CloudFormation::Stack"
 
@@ -198,6 +222,9 @@ pattern ResourceType_AWS__CodeBuild__Project = ResourceType' "AWS::CodeBuild::Pr
 
 pattern ResourceType_AWS__CodePipeline__Pipeline :: ResourceType
 pattern ResourceType_AWS__CodePipeline__Pipeline = ResourceType' "AWS::CodePipeline::Pipeline"
+
+pattern ResourceType_AWS__Config__ConformancePackCompliance :: ResourceType
+pattern ResourceType_AWS__Config__ConformancePackCompliance = ResourceType' "AWS::Config::ConformancePackCompliance"
 
 pattern ResourceType_AWS__Config__ResourceCompliance :: ResourceType
 pattern ResourceType_AWS__Config__ResourceCompliance = ResourceType' "AWS::Config::ResourceCompliance"
@@ -267,6 +294,27 @@ pattern ResourceType_AWS__EC2__VPNGateway = ResourceType' "AWS::EC2::VPNGateway"
 
 pattern ResourceType_AWS__EC2__Volume :: ResourceType
 pattern ResourceType_AWS__EC2__Volume = ResourceType' "AWS::EC2::Volume"
+
+pattern ResourceType_AWS__ECR__Repository :: ResourceType
+pattern ResourceType_AWS__ECR__Repository = ResourceType' "AWS::ECR::Repository"
+
+pattern ResourceType_AWS__ECS__Cluster :: ResourceType
+pattern ResourceType_AWS__ECS__Cluster = ResourceType' "AWS::ECS::Cluster"
+
+pattern ResourceType_AWS__ECS__Service :: ResourceType
+pattern ResourceType_AWS__ECS__Service = ResourceType' "AWS::ECS::Service"
+
+pattern ResourceType_AWS__ECS__TaskDefinition :: ResourceType
+pattern ResourceType_AWS__ECS__TaskDefinition = ResourceType' "AWS::ECS::TaskDefinition"
+
+pattern ResourceType_AWS__EFS__AccessPoint :: ResourceType
+pattern ResourceType_AWS__EFS__AccessPoint = ResourceType' "AWS::EFS::AccessPoint"
+
+pattern ResourceType_AWS__EFS__FileSystem :: ResourceType
+pattern ResourceType_AWS__EFS__FileSystem = ResourceType' "AWS::EFS::FileSystem"
+
+pattern ResourceType_AWS__EKS__Cluster :: ResourceType
+pattern ResourceType_AWS__EKS__Cluster = ResourceType' "AWS::EKS::Cluster"
 
 pattern ResourceType_AWS__ElasticBeanstalk__Application :: ResourceType
 pattern ResourceType_AWS__ElasticBeanstalk__Application = ResourceType' "AWS::ElasticBeanstalk::Application"
@@ -449,6 +497,10 @@ pattern ResourceType_AWS__XRay__EncryptionConfig = ResourceType' "AWS::XRay::Enc
   ResourceType_AWS__AutoScaling__LaunchConfiguration,
   ResourceType_AWS__AutoScaling__ScalingPolicy,
   ResourceType_AWS__AutoScaling__ScheduledAction,
+  ResourceType_AWS__Backup__BackupPlan,
+  ResourceType_AWS__Backup__BackupSelection,
+  ResourceType_AWS__Backup__BackupVault,
+  ResourceType_AWS__Backup__RecoveryPoint,
   ResourceType_AWS__CloudFormation__Stack,
   ResourceType_AWS__CloudFront__Distribution,
   ResourceType_AWS__CloudFront__StreamingDistribution,
@@ -456,6 +508,7 @@ pattern ResourceType_AWS__XRay__EncryptionConfig = ResourceType' "AWS::XRay::Enc
   ResourceType_AWS__CloudWatch__Alarm,
   ResourceType_AWS__CodeBuild__Project,
   ResourceType_AWS__CodePipeline__Pipeline,
+  ResourceType_AWS__Config__ConformancePackCompliance,
   ResourceType_AWS__Config__ResourceCompliance,
   ResourceType_AWS__DynamoDB__Table,
   ResourceType_AWS__EC2__CustomerGateway,
@@ -479,6 +532,13 @@ pattern ResourceType_AWS__XRay__EncryptionConfig = ResourceType' "AWS::XRay::Enc
   ResourceType_AWS__EC2__VPNConnection,
   ResourceType_AWS__EC2__VPNGateway,
   ResourceType_AWS__EC2__Volume,
+  ResourceType_AWS__ECR__Repository,
+  ResourceType_AWS__ECS__Cluster,
+  ResourceType_AWS__ECS__Service,
+  ResourceType_AWS__ECS__TaskDefinition,
+  ResourceType_AWS__EFS__AccessPoint,
+  ResourceType_AWS__EFS__FileSystem,
+  ResourceType_AWS__EKS__Cluster,
   ResourceType_AWS__ElasticBeanstalk__Application,
   ResourceType_AWS__ElasticBeanstalk__ApplicationVersion,
   ResourceType_AWS__ElasticBeanstalk__Environment,

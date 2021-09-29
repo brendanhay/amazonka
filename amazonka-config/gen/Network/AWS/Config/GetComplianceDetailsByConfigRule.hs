@@ -20,10 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the evaluation results for the specified AWS Config rule. The
--- results indicate which AWS resources were evaluated by the rule, when
--- each resource was last evaluated, and whether each resource complies
--- with the rule.
+-- Returns the evaluation results for the specified Config rule. The
+-- results indicate which Amazon Web Services resources were evaluated by
+-- the rule, when each resource was last evaluated, and whether each
+-- resource complies with the rule.
 --
 -- This operation returns paginated results.
 module Network.AWS.Config.GetComplianceDetailsByConfigRule
@@ -69,10 +69,9 @@ data GetComplianceDetailsByConfigRule = GetComplianceDetailsByConfigRule'
     complianceTypes :: Prelude.Maybe [ComplianceType],
     -- | The maximum number of evaluation results returned on each page. The
     -- default is 10. You cannot specify a number greater than 100. If you
-    -- specify 0, AWS Config uses the default.
+    -- specify 0, Config uses the default.
     limit :: Prelude.Maybe Prelude.Natural,
-    -- | The name of the AWS Config rule for which you want compliance
-    -- information.
+    -- | The name of the Config rule for which you want compliance information.
     configRuleName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -95,10 +94,9 @@ data GetComplianceDetailsByConfigRule = GetComplianceDetailsByConfigRule'
 --
 -- 'limit', 'getComplianceDetailsByConfigRule_limit' - The maximum number of evaluation results returned on each page. The
 -- default is 10. You cannot specify a number greater than 100. If you
--- specify 0, AWS Config uses the default.
+-- specify 0, Config uses the default.
 --
--- 'configRuleName', 'getComplianceDetailsByConfigRule_configRuleName' - The name of the AWS Config rule for which you want compliance
--- information.
+-- 'configRuleName', 'getComplianceDetailsByConfigRule_configRuleName' - The name of the Config rule for which you want compliance information.
 newGetComplianceDetailsByConfigRule ::
   -- | 'configRuleName'
   Prelude.Text ->
@@ -126,12 +124,11 @@ getComplianceDetailsByConfigRule_complianceTypes = Lens.lens (\GetComplianceDeta
 
 -- | The maximum number of evaluation results returned on each page. The
 -- default is 10. You cannot specify a number greater than 100. If you
--- specify 0, AWS Config uses the default.
+-- specify 0, Config uses the default.
 getComplianceDetailsByConfigRule_limit :: Lens.Lens' GetComplianceDetailsByConfigRule (Prelude.Maybe Prelude.Natural)
 getComplianceDetailsByConfigRule_limit = Lens.lens (\GetComplianceDetailsByConfigRule' {limit} -> limit) (\s@GetComplianceDetailsByConfigRule' {} a -> s {limit = a} :: GetComplianceDetailsByConfigRule)
 
--- | The name of the AWS Config rule for which you want compliance
--- information.
+-- | The name of the Config rule for which you want compliance information.
 getComplianceDetailsByConfigRule_configRuleName :: Lens.Lens' GetComplianceDetailsByConfigRule Prelude.Text
 getComplianceDetailsByConfigRule_configRuleName = Lens.lens (\GetComplianceDetailsByConfigRule' {configRuleName} -> configRuleName) (\s@GetComplianceDetailsByConfigRule' {} a -> s {configRuleName = a} :: GetComplianceDetailsByConfigRule)
 
@@ -234,8 +231,8 @@ data GetComplianceDetailsByConfigRuleResponse = GetComplianceDetailsByConfigRule
   { -- | The string that you use in a subsequent request to get the next page of
     -- results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the AWS resource complies with the specified AWS
-    -- Config rule.
+    -- | Indicates whether the Amazon Web Services resource complies with the
+    -- specified Config rule.
     evaluationResults :: Prelude.Maybe [EvaluationResult],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -253,8 +250,8 @@ data GetComplianceDetailsByConfigRuleResponse = GetComplianceDetailsByConfigRule
 -- 'nextToken', 'getComplianceDetailsByConfigRuleResponse_nextToken' - The string that you use in a subsequent request to get the next page of
 -- results in a paginated response.
 --
--- 'evaluationResults', 'getComplianceDetailsByConfigRuleResponse_evaluationResults' - Indicates whether the AWS resource complies with the specified AWS
--- Config rule.
+-- 'evaluationResults', 'getComplianceDetailsByConfigRuleResponse_evaluationResults' - Indicates whether the Amazon Web Services resource complies with the
+-- specified Config rule.
 --
 -- 'httpStatus', 'getComplianceDetailsByConfigRuleResponse_httpStatus' - The response's http status code.
 newGetComplianceDetailsByConfigRuleResponse ::
@@ -276,8 +273,8 @@ newGetComplianceDetailsByConfigRuleResponse
 getComplianceDetailsByConfigRuleResponse_nextToken :: Lens.Lens' GetComplianceDetailsByConfigRuleResponse (Prelude.Maybe Prelude.Text)
 getComplianceDetailsByConfigRuleResponse_nextToken = Lens.lens (\GetComplianceDetailsByConfigRuleResponse' {nextToken} -> nextToken) (\s@GetComplianceDetailsByConfigRuleResponse' {} a -> s {nextToken = a} :: GetComplianceDetailsByConfigRuleResponse)
 
--- | Indicates whether the AWS resource complies with the specified AWS
--- Config rule.
+-- | Indicates whether the Amazon Web Services resource complies with the
+-- specified Config rule.
 getComplianceDetailsByConfigRuleResponse_evaluationResults :: Lens.Lens' GetComplianceDetailsByConfigRuleResponse (Prelude.Maybe [EvaluationResult])
 getComplianceDetailsByConfigRuleResponse_evaluationResults = Lens.lens (\GetComplianceDetailsByConfigRuleResponse' {evaluationResults} -> evaluationResults) (\s@GetComplianceDetailsByConfigRuleResponse' {} a -> s {evaluationResults = a} :: GetComplianceDetailsByConfigRuleResponse) Prelude.. Lens.mapping Lens._Coerce
 

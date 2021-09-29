@@ -57,9 +57,9 @@ data GetComplianceSummaryByResourceType = GetComplianceSummaryByResourceType'
     -- are compliant and the number that are noncompliant for each resource
     -- type.
     --
-    -- For this request, you can specify an AWS resource type such as
-    -- @AWS::EC2::Instance@. You can specify that the resource type is an AWS
-    -- account by specifying @AWS::::Account@.
+    -- For this request, you can specify an Amazon Web Services resource type
+    -- such as @AWS::EC2::Instance@. You can specify that the resource type is
+    -- an Amazon Web Services account by specifying @AWS::::Account@.
     resourceTypes :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -76,9 +76,9 @@ data GetComplianceSummaryByResourceType = GetComplianceSummaryByResourceType'
 -- are compliant and the number that are noncompliant for each resource
 -- type.
 --
--- For this request, you can specify an AWS resource type such as
--- @AWS::EC2::Instance@. You can specify that the resource type is an AWS
--- account by specifying @AWS::::Account@.
+-- For this request, you can specify an Amazon Web Services resource type
+-- such as @AWS::EC2::Instance@. You can specify that the resource type is
+-- an Amazon Web Services account by specifying @AWS::::Account@.
 newGetComplianceSummaryByResourceType ::
   GetComplianceSummaryByResourceType
 newGetComplianceSummaryByResourceType =
@@ -91,9 +91,9 @@ newGetComplianceSummaryByResourceType =
 -- are compliant and the number that are noncompliant for each resource
 -- type.
 --
--- For this request, you can specify an AWS resource type such as
--- @AWS::EC2::Instance@. You can specify that the resource type is an AWS
--- account by specifying @AWS::::Account@.
+-- For this request, you can specify an Amazon Web Services resource type
+-- such as @AWS::EC2::Instance@. You can specify that the resource type is
+-- an Amazon Web Services account by specifying @AWS::::Account@.
 getComplianceSummaryByResourceType_resourceTypes :: Lens.Lens' GetComplianceSummaryByResourceType (Prelude.Maybe [Prelude.Text])
 getComplianceSummaryByResourceType_resourceTypes = Lens.lens (\GetComplianceSummaryByResourceType' {resourceTypes} -> resourceTypes) (\s@GetComplianceSummaryByResourceType' {} a -> s {resourceTypes = a} :: GetComplianceSummaryByResourceType) Prelude.. Lens.mapping Lens._Coerce
 

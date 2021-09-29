@@ -23,15 +23,15 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The number of AWS resources or AWS Config rules responsible for the
--- current compliance of the item, up to a maximum number.
+-- | The number of Amazon Web Services resources or Config rules responsible
+-- for the current compliance of the item, up to a maximum number.
 --
 -- /See:/ 'newComplianceContributorCount' smart constructor.
 data ComplianceContributorCount = ComplianceContributorCount'
   { -- | Indicates whether the maximum count is reached.
     capExceeded :: Prelude.Maybe Prelude.Bool,
-    -- | The number of AWS resources or AWS Config rules responsible for the
-    -- current compliance of the item.
+    -- | The number of Amazon Web Services resources or Config rules responsible
+    -- for the current compliance of the item.
     cappedCount :: Prelude.Maybe Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,8 +46,8 @@ data ComplianceContributorCount = ComplianceContributorCount'
 --
 -- 'capExceeded', 'complianceContributorCount_capExceeded' - Indicates whether the maximum count is reached.
 --
--- 'cappedCount', 'complianceContributorCount_cappedCount' - The number of AWS resources or AWS Config rules responsible for the
--- current compliance of the item.
+-- 'cappedCount', 'complianceContributorCount_cappedCount' - The number of Amazon Web Services resources or Config rules responsible
+-- for the current compliance of the item.
 newComplianceContributorCount ::
   ComplianceContributorCount
 newComplianceContributorCount =
@@ -61,8 +61,8 @@ newComplianceContributorCount =
 complianceContributorCount_capExceeded :: Lens.Lens' ComplianceContributorCount (Prelude.Maybe Prelude.Bool)
 complianceContributorCount_capExceeded = Lens.lens (\ComplianceContributorCount' {capExceeded} -> capExceeded) (\s@ComplianceContributorCount' {} a -> s {capExceeded = a} :: ComplianceContributorCount)
 
--- | The number of AWS resources or AWS Config rules responsible for the
--- current compliance of the item.
+-- | The number of Amazon Web Services resources or Config rules responsible
+-- for the current compliance of the item.
 complianceContributorCount_cappedCount :: Lens.Lens' ComplianceContributorCount (Prelude.Maybe Prelude.Int)
 complianceContributorCount_cappedCount = Lens.lens (\ComplianceContributorCount' {cappedCount} -> cappedCount) (\s@ComplianceContributorCount' {} a -> s {cappedCount = a} :: ComplianceContributorCount)
 

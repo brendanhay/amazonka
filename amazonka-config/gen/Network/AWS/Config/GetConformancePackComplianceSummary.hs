@@ -22,6 +22,8 @@
 --
 -- Returns compliance details for the conformance pack based on the
 -- cumulative compliance results of all the rules in that conformance pack.
+--
+-- This operation returns paginated results.
 module Network.AWS.Config.GetConformancePackComplianceSummary
   ( -- * Creating a Request
     GetConformancePackComplianceSummary (..),
@@ -103,6 +105,32 @@ getConformancePackComplianceSummary_limit = Lens.lens (\GetConformancePackCompli
 -- | Names of conformance packs.
 getConformancePackComplianceSummary_conformancePackNames :: Lens.Lens' GetConformancePackComplianceSummary (Prelude.NonEmpty Prelude.Text)
 getConformancePackComplianceSummary_conformancePackNames = Lens.lens (\GetConformancePackComplianceSummary' {conformancePackNames} -> conformancePackNames) (\s@GetConformancePackComplianceSummary' {} a -> s {conformancePackNames = a} :: GetConformancePackComplianceSummary) Prelude.. Lens._Coerce
+
+instance
+  Core.AWSPager
+    GetConformancePackComplianceSummary
+  where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? getConformancePackComplianceSummaryResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? getConformancePackComplianceSummaryResponse_conformancePackComplianceSummaryList
+              Prelude.. Lens._Just
+              Prelude.. Lens.to Prelude.toList
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& getConformancePackComplianceSummary_nextToken
+          Lens..~ rs
+          Lens.^? getConformancePackComplianceSummaryResponse_nextToken
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest

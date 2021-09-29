@@ -28,14 +28,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEvaluationResultIdentifier' smart constructor.
 data EvaluationResultIdentifier = EvaluationResultIdentifier'
-  { -- | Identifies an AWS Config rule used to evaluate an AWS resource, and
-    -- provides the type and ID of the evaluated resource.
+  { -- | Identifies an Config rule used to evaluate an Amazon Web Services
+    -- resource, and provides the type and ID of the evaluated resource.
     evaluationResultQualifier :: Prelude.Maybe EvaluationResultQualifier,
-    -- | The time of the event that triggered the evaluation of your AWS
-    -- resources. The time can indicate when AWS Config delivered a
-    -- configuration item change notification, or it can indicate when AWS
-    -- Config delivered the configuration snapshot, depending on which event
-    -- triggered the evaluation.
+    -- | The time of the event that triggered the evaluation of your Amazon Web
+    -- Services resources. The time can indicate when Config delivered a
+    -- configuration item change notification, or it can indicate when Config
+    -- delivered the configuration snapshot, depending on which event triggered
+    -- the evaluation.
     orderingTimestamp :: Prelude.Maybe Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -48,14 +48,14 @@ data EvaluationResultIdentifier = EvaluationResultIdentifier'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'evaluationResultQualifier', 'evaluationResultIdentifier_evaluationResultQualifier' - Identifies an AWS Config rule used to evaluate an AWS resource, and
--- provides the type and ID of the evaluated resource.
+-- 'evaluationResultQualifier', 'evaluationResultIdentifier_evaluationResultQualifier' - Identifies an Config rule used to evaluate an Amazon Web Services
+-- resource, and provides the type and ID of the evaluated resource.
 --
--- 'orderingTimestamp', 'evaluationResultIdentifier_orderingTimestamp' - The time of the event that triggered the evaluation of your AWS
--- resources. The time can indicate when AWS Config delivered a
--- configuration item change notification, or it can indicate when AWS
--- Config delivered the configuration snapshot, depending on which event
--- triggered the evaluation.
+-- 'orderingTimestamp', 'evaluationResultIdentifier_orderingTimestamp' - The time of the event that triggered the evaluation of your Amazon Web
+-- Services resources. The time can indicate when Config delivered a
+-- configuration item change notification, or it can indicate when Config
+-- delivered the configuration snapshot, depending on which event triggered
+-- the evaluation.
 newEvaluationResultIdentifier ::
   EvaluationResultIdentifier
 newEvaluationResultIdentifier =
@@ -65,16 +65,16 @@ newEvaluationResultIdentifier =
       orderingTimestamp = Prelude.Nothing
     }
 
--- | Identifies an AWS Config rule used to evaluate an AWS resource, and
--- provides the type and ID of the evaluated resource.
+-- | Identifies an Config rule used to evaluate an Amazon Web Services
+-- resource, and provides the type and ID of the evaluated resource.
 evaluationResultIdentifier_evaluationResultQualifier :: Lens.Lens' EvaluationResultIdentifier (Prelude.Maybe EvaluationResultQualifier)
 evaluationResultIdentifier_evaluationResultQualifier = Lens.lens (\EvaluationResultIdentifier' {evaluationResultQualifier} -> evaluationResultQualifier) (\s@EvaluationResultIdentifier' {} a -> s {evaluationResultQualifier = a} :: EvaluationResultIdentifier)
 
--- | The time of the event that triggered the evaluation of your AWS
--- resources. The time can indicate when AWS Config delivered a
--- configuration item change notification, or it can indicate when AWS
--- Config delivered the configuration snapshot, depending on which event
--- triggered the evaluation.
+-- | The time of the event that triggered the evaluation of your Amazon Web
+-- Services resources. The time can indicate when Config delivered a
+-- configuration item change notification, or it can indicate when Config
+-- delivered the configuration snapshot, depending on which event triggered
+-- the evaluation.
 evaluationResultIdentifier_orderingTimestamp :: Lens.Lens' EvaluationResultIdentifier (Prelude.Maybe Prelude.UTCTime)
 evaluationResultIdentifier_orderingTimestamp = Lens.lens (\EvaluationResultIdentifier' {orderingTimestamp} -> orderingTimestamp) (\s@EvaluationResultIdentifier' {} a -> s {orderingTimestamp = a} :: EvaluationResultIdentifier) Prelude.. Lens.mapping Core._Time
 

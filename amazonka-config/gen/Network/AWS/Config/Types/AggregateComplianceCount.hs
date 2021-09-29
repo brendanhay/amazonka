@@ -29,7 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newAggregateComplianceCount' smart constructor.
 data AggregateComplianceCount = AggregateComplianceCount'
-  { -- | The number of compliant and noncompliant AWS Config rules.
+  { -- | The number of compliant and noncompliant Config rules.
     complianceSummary :: Prelude.Maybe ComplianceSummary,
     -- | The 12-digit account ID or region based on the GroupByKey value.
     groupName :: Prelude.Maybe Prelude.Text
@@ -44,7 +44,7 @@ data AggregateComplianceCount = AggregateComplianceCount'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'complianceSummary', 'aggregateComplianceCount_complianceSummary' - The number of compliant and noncompliant AWS Config rules.
+-- 'complianceSummary', 'aggregateComplianceCount_complianceSummary' - The number of compliant and noncompliant Config rules.
 --
 -- 'groupName', 'aggregateComplianceCount_groupName' - The 12-digit account ID or region based on the GroupByKey value.
 newAggregateComplianceCount ::
@@ -56,7 +56,7 @@ newAggregateComplianceCount =
       groupName = Prelude.Nothing
     }
 
--- | The number of compliant and noncompliant AWS Config rules.
+-- | The number of compliant and noncompliant Config rules.
 aggregateComplianceCount_complianceSummary :: Lens.Lens' AggregateComplianceCount (Prelude.Maybe ComplianceSummary)
 aggregateComplianceCount_complianceSummary = Lens.lens (\AggregateComplianceCount' {complianceSummary} -> complianceSummary) (\s@AggregateComplianceCount' {} a -> s {complianceSummary = a} :: AggregateComplianceCount)
 

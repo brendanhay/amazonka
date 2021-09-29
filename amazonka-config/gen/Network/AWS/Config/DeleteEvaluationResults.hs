@@ -20,10 +20,10 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the evaluation results for the specified AWS Config rule. You
--- can specify one AWS Config rule per request. After you delete the
--- evaluation results, you can call the StartConfigRulesEvaluation API to
--- start evaluating your AWS resources against the rule.
+-- Deletes the evaluation results for the specified Config rule. You can
+-- specify one Config rule per request. After you delete the evaluation
+-- results, you can call the StartConfigRulesEvaluation API to start
+-- evaluating your Amazon Web Services resources against the rule.
 module Network.AWS.Config.DeleteEvaluationResults
   ( -- * Creating a Request
     DeleteEvaluationResults (..),
@@ -52,8 +52,8 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newDeleteEvaluationResults' smart constructor.
 data DeleteEvaluationResults = DeleteEvaluationResults'
-  { -- | The name of the AWS Config rule for which you want to delete the
-    -- evaluation results.
+  { -- | The name of the Config rule for which you want to delete the evaluation
+    -- results.
     configRuleName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -66,8 +66,8 @@ data DeleteEvaluationResults = DeleteEvaluationResults'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configRuleName', 'deleteEvaluationResults_configRuleName' - The name of the AWS Config rule for which you want to delete the
--- evaluation results.
+-- 'configRuleName', 'deleteEvaluationResults_configRuleName' - The name of the Config rule for which you want to delete the evaluation
+-- results.
 newDeleteEvaluationResults ::
   -- | 'configRuleName'
   Prelude.Text ->
@@ -78,8 +78,8 @@ newDeleteEvaluationResults pConfigRuleName_ =
         pConfigRuleName_
     }
 
--- | The name of the AWS Config rule for which you want to delete the
--- evaluation results.
+-- | The name of the Config rule for which you want to delete the evaluation
+-- results.
 deleteEvaluationResults_configRuleName :: Lens.Lens' DeleteEvaluationResults Prelude.Text
 deleteEvaluationResults_configRuleName = Lens.lens (\DeleteEvaluationResults' {configRuleName} -> configRuleName) (\s@DeleteEvaluationResults' {} a -> s {configRuleName = a} :: DeleteEvaluationResults)
 
@@ -129,7 +129,7 @@ instance Core.ToPath DeleteEvaluationResults where
 instance Core.ToQuery DeleteEvaluationResults where
   toQuery = Prelude.const Prelude.mempty
 
--- | The output when you delete the evaluation results for the specified AWS
+-- | The output when you delete the evaluation results for the specified
 -- Config rule.
 --
 -- /See:/ 'newDeleteEvaluationResultsResponse' smart constructor.

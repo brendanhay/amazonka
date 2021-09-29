@@ -37,7 +37,7 @@ data ConfigStreamDeliveryInfo = ConfigStreamDeliveryInfo'
     --
     -- __Note__ Providing an SNS topic on a
     -- <https://docs.aws.amazon.com/config/latest/APIReference/API_DeliveryChannel.html DeliveryChannel>
-    -- for AWS Config is optional. If the SNS delivery is turned off, the last
+    -- for Config is optional. If the SNS delivery is turned off, the last
     -- status will be __Not_Applicable__.
     lastStatus :: Prelude.Maybe DeliveryStatus,
     -- | The time from the last status change.
@@ -61,7 +61,7 @@ data ConfigStreamDeliveryInfo = ConfigStreamDeliveryInfo'
 --
 -- __Note__ Providing an SNS topic on a
 -- <https://docs.aws.amazon.com/config/latest/APIReference/API_DeliveryChannel.html DeliveryChannel>
--- for AWS Config is optional. If the SNS delivery is turned off, the last
+-- for Config is optional. If the SNS delivery is turned off, the last
 -- status will be __Not_Applicable__.
 --
 -- 'lastStatusChangeTime', 'configStreamDeliveryInfo_lastStatusChangeTime' - The time from the last status change.
@@ -88,7 +88,7 @@ configStreamDeliveryInfo_lastErrorCode = Lens.lens (\ConfigStreamDeliveryInfo' {
 --
 -- __Note__ Providing an SNS topic on a
 -- <https://docs.aws.amazon.com/config/latest/APIReference/API_DeliveryChannel.html DeliveryChannel>
--- for AWS Config is optional. If the SNS delivery is turned off, the last
+-- for Config is optional. If the SNS delivery is turned off, the last
 -- status will be __Not_Applicable__.
 configStreamDeliveryInfo_lastStatus :: Lens.Lens' ConfigStreamDeliveryInfo (Prelude.Maybe DeliveryStatus)
 configStreamDeliveryInfo_lastStatus = Lens.lens (\ConfigStreamDeliveryInfo' {lastStatus} -> lastStatus) (\s@ConfigStreamDeliveryInfo' {} a -> s {lastStatus = a} :: ConfigStreamDeliveryInfo)

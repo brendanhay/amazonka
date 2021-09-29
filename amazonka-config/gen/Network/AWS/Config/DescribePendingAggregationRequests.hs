@@ -56,7 +56,7 @@ data DescribePendingAggregationRequests = DescribePendingAggregationRequests'
     -- the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of evaluation results returned on each page. The
-    -- default is maximum. If you specify 0, AWS Config uses the default.
+    -- default is maximum. If you specify 0, Config uses the default.
     limit :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -73,7 +73,7 @@ data DescribePendingAggregationRequests = DescribePendingAggregationRequests'
 -- the next page of results in a paginated response.
 --
 -- 'limit', 'describePendingAggregationRequests_limit' - The maximum number of evaluation results returned on each page. The
--- default is maximum. If you specify 0, AWS Config uses the default.
+-- default is maximum. If you specify 0, Config uses the default.
 newDescribePendingAggregationRequests ::
   DescribePendingAggregationRequests
 newDescribePendingAggregationRequests =
@@ -89,7 +89,7 @@ describePendingAggregationRequests_nextToken :: Lens.Lens' DescribePendingAggreg
 describePendingAggregationRequests_nextToken = Lens.lens (\DescribePendingAggregationRequests' {nextToken} -> nextToken) (\s@DescribePendingAggregationRequests' {} a -> s {nextToken = a} :: DescribePendingAggregationRequests)
 
 -- | The maximum number of evaluation results returned on each page. The
--- default is maximum. If you specify 0, AWS Config uses the default.
+-- default is maximum. If you specify 0, Config uses the default.
 describePendingAggregationRequests_limit :: Lens.Lens' DescribePendingAggregationRequests (Prelude.Maybe Prelude.Natural)
 describePendingAggregationRequests_limit = Lens.lens (\DescribePendingAggregationRequests' {limit} -> limit) (\s@DescribePendingAggregationRequests' {} a -> s {limit = a} :: DescribePendingAggregationRequests)
 

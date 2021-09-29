@@ -28,12 +28,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newOrganizationAggregationSource' smart constructor.
 data OrganizationAggregationSource = OrganizationAggregationSource'
-  { -- | If true, aggregate existing AWS Config regions and future regions.
+  { -- | If true, aggregate existing Config regions and future regions.
     allAwsRegions :: Prelude.Maybe Prelude.Bool,
     -- | The source regions being aggregated.
     awsRegions :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
-    -- | ARN of the IAM role used to retrieve AWS Organization details associated
-    -- with the aggregator account.
+    -- | ARN of the IAM role used to retrieve Amazon Web Services Organization
+    -- details associated with the aggregator account.
     roleArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -46,12 +46,12 @@ data OrganizationAggregationSource = OrganizationAggregationSource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'allAwsRegions', 'organizationAggregationSource_allAwsRegions' - If true, aggregate existing AWS Config regions and future regions.
+-- 'allAwsRegions', 'organizationAggregationSource_allAwsRegions' - If true, aggregate existing Config regions and future regions.
 --
 -- 'awsRegions', 'organizationAggregationSource_awsRegions' - The source regions being aggregated.
 --
--- 'roleArn', 'organizationAggregationSource_roleArn' - ARN of the IAM role used to retrieve AWS Organization details associated
--- with the aggregator account.
+-- 'roleArn', 'organizationAggregationSource_roleArn' - ARN of the IAM role used to retrieve Amazon Web Services Organization
+-- details associated with the aggregator account.
 newOrganizationAggregationSource ::
   -- | 'roleArn'
   Prelude.Text ->
@@ -64,7 +64,7 @@ newOrganizationAggregationSource pRoleArn_ =
       roleArn = pRoleArn_
     }
 
--- | If true, aggregate existing AWS Config regions and future regions.
+-- | If true, aggregate existing Config regions and future regions.
 organizationAggregationSource_allAwsRegions :: Lens.Lens' OrganizationAggregationSource (Prelude.Maybe Prelude.Bool)
 organizationAggregationSource_allAwsRegions = Lens.lens (\OrganizationAggregationSource' {allAwsRegions} -> allAwsRegions) (\s@OrganizationAggregationSource' {} a -> s {allAwsRegions = a} :: OrganizationAggregationSource)
 
@@ -72,8 +72,8 @@ organizationAggregationSource_allAwsRegions = Lens.lens (\OrganizationAggregatio
 organizationAggregationSource_awsRegions :: Lens.Lens' OrganizationAggregationSource (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
 organizationAggregationSource_awsRegions = Lens.lens (\OrganizationAggregationSource' {awsRegions} -> awsRegions) (\s@OrganizationAggregationSource' {} a -> s {awsRegions = a} :: OrganizationAggregationSource) Prelude.. Lens.mapping Lens._Coerce
 
--- | ARN of the IAM role used to retrieve AWS Organization details associated
--- with the aggregator account.
+-- | ARN of the IAM role used to retrieve Amazon Web Services Organization
+-- details associated with the aggregator account.
 organizationAggregationSource_roleArn :: Lens.Lens' OrganizationAggregationSource Prelude.Text
 organizationAggregationSource_roleArn = Lens.lens (\OrganizationAggregationSource' {roleArn} -> roleArn) (\s@OrganizationAggregationSource' {} a -> s {roleArn = a} :: OrganizationAggregationSource)
 

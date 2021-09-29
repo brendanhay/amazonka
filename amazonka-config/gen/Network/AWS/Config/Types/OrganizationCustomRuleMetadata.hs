@@ -26,51 +26,50 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | An object that specifies organization custom rule metadata such as
--- resource type, resource ID of AWS resource, Lamdba function ARN, and
--- organization trigger types that trigger AWS Config to evaluate your AWS
--- resources against a rule. It also provides the frequency with which you
--- want AWS Config to run evaluations for the rule if the trigger type is
--- periodic.
+-- resource type, resource ID of Amazon Web Services resource, Lambda
+-- function ARN, and organization trigger types that trigger Config to
+-- evaluate your Amazon Web Services resources against a rule. It also
+-- provides the frequency with which you want Config to run evaluations for
+-- the rule if the trigger type is periodic.
 --
 -- /See:/ 'newOrganizationCustomRuleMetadata' smart constructor.
 data OrganizationCustomRuleMetadata = OrganizationCustomRuleMetadata'
   { -- | One part of a key-value pair that make up a tag. A key is a general
     -- label that acts like a category for more specific tag values.
     tagKeyScope :: Prelude.Maybe Prelude.Text,
-    -- | The maximum frequency with which AWS Config runs evaluations for a rule.
-    -- Your custom rule is triggered when AWS Config delivers the configuration
+    -- | The maximum frequency with which Config runs evaluations for a rule.
+    -- Your custom rule is triggered when Config delivers the configuration
     -- snapshot. For more information, see ConfigSnapshotDeliveryProperties.
     --
     -- By default, rules with a periodic trigger are evaluated every 24 hours.
     -- To change the frequency, specify a valid value for the
     -- @MaximumExecutionFrequency@ parameter.
     maximumExecutionFrequency :: Prelude.Maybe MaximumExecutionFrequency,
-    -- | The ID of the AWS resource that was evaluated.
+    -- | The ID of the Amazon Web Services resource that was evaluated.
     resourceIdScope :: Prelude.Maybe Prelude.Text,
     -- | A string, in JSON format, that is passed to organization config rule
     -- Lambda function.
     inputParameters :: Prelude.Maybe Prelude.Text,
     -- | The description that you provide for organization config rule.
     description :: Prelude.Maybe Prelude.Text,
-    -- | The type of the AWS resource that was evaluated.
+    -- | The type of the Amazon Web Services resource that was evaluated.
     resourceTypesScope :: Prelude.Maybe [Prelude.Text],
     -- | The optional part of a key-value pair that make up a tag. A value acts
     -- as a descriptor within a tag category (key).
     tagValueScope :: Prelude.Maybe Prelude.Text,
     -- | The lambda function ARN.
     lambdaFunctionArn :: Prelude.Text,
-    -- | The type of notification that triggers AWS Config to run an evaluation
-    -- for a rule. You can specify the following notification types:
+    -- | The type of notification that triggers Config to run an evaluation for a
+    -- rule. You can specify the following notification types:
     --
     -- -   @ConfigurationItemChangeNotification@ - Triggers an evaluation when
-    --     AWS Config delivers a configuration item as a result of a resource
+    --     Config delivers a configuration item as a result of a resource
     --     change.
     --
     -- -   @OversizedConfigurationItemChangeNotification@ - Triggers an
-    --     evaluation when AWS Config delivers an oversized configuration item.
-    --     AWS Config may generate this notification type when a resource
-    --     changes and the notification exceeds the maximum size allowed by
-    --     Amazon SNS.
+    --     evaluation when Config delivers an oversized configuration item.
+    --     Config may generate this notification type when a resource changes
+    --     and the notification exceeds the maximum size allowed by Amazon SNS.
     --
     -- -   @ScheduledNotification@ - Triggers a periodic evaluation at the
     --     frequency specified for @MaximumExecutionFrequency@.
@@ -89,40 +88,39 @@ data OrganizationCustomRuleMetadata = OrganizationCustomRuleMetadata'
 -- 'tagKeyScope', 'organizationCustomRuleMetadata_tagKeyScope' - One part of a key-value pair that make up a tag. A key is a general
 -- label that acts like a category for more specific tag values.
 --
--- 'maximumExecutionFrequency', 'organizationCustomRuleMetadata_maximumExecutionFrequency' - The maximum frequency with which AWS Config runs evaluations for a rule.
--- Your custom rule is triggered when AWS Config delivers the configuration
+-- 'maximumExecutionFrequency', 'organizationCustomRuleMetadata_maximumExecutionFrequency' - The maximum frequency with which Config runs evaluations for a rule.
+-- Your custom rule is triggered when Config delivers the configuration
 -- snapshot. For more information, see ConfigSnapshotDeliveryProperties.
 --
 -- By default, rules with a periodic trigger are evaluated every 24 hours.
 -- To change the frequency, specify a valid value for the
 -- @MaximumExecutionFrequency@ parameter.
 --
--- 'resourceIdScope', 'organizationCustomRuleMetadata_resourceIdScope' - The ID of the AWS resource that was evaluated.
+-- 'resourceIdScope', 'organizationCustomRuleMetadata_resourceIdScope' - The ID of the Amazon Web Services resource that was evaluated.
 --
 -- 'inputParameters', 'organizationCustomRuleMetadata_inputParameters' - A string, in JSON format, that is passed to organization config rule
 -- Lambda function.
 --
 -- 'description', 'organizationCustomRuleMetadata_description' - The description that you provide for organization config rule.
 --
--- 'resourceTypesScope', 'organizationCustomRuleMetadata_resourceTypesScope' - The type of the AWS resource that was evaluated.
+-- 'resourceTypesScope', 'organizationCustomRuleMetadata_resourceTypesScope' - The type of the Amazon Web Services resource that was evaluated.
 --
 -- 'tagValueScope', 'organizationCustomRuleMetadata_tagValueScope' - The optional part of a key-value pair that make up a tag. A value acts
 -- as a descriptor within a tag category (key).
 --
 -- 'lambdaFunctionArn', 'organizationCustomRuleMetadata_lambdaFunctionArn' - The lambda function ARN.
 --
--- 'organizationConfigRuleTriggerTypes', 'organizationCustomRuleMetadata_organizationConfigRuleTriggerTypes' - The type of notification that triggers AWS Config to run an evaluation
--- for a rule. You can specify the following notification types:
+-- 'organizationConfigRuleTriggerTypes', 'organizationCustomRuleMetadata_organizationConfigRuleTriggerTypes' - The type of notification that triggers Config to run an evaluation for a
+-- rule. You can specify the following notification types:
 --
 -- -   @ConfigurationItemChangeNotification@ - Triggers an evaluation when
---     AWS Config delivers a configuration item as a result of a resource
+--     Config delivers a configuration item as a result of a resource
 --     change.
 --
 -- -   @OversizedConfigurationItemChangeNotification@ - Triggers an
---     evaluation when AWS Config delivers an oversized configuration item.
---     AWS Config may generate this notification type when a resource
---     changes and the notification exceeds the maximum size allowed by
---     Amazon SNS.
+--     evaluation when Config delivers an oversized configuration item.
+--     Config may generate this notification type when a resource changes
+--     and the notification exceeds the maximum size allowed by Amazon SNS.
 --
 -- -   @ScheduledNotification@ - Triggers a periodic evaluation at the
 --     frequency specified for @MaximumExecutionFrequency@.
@@ -150,8 +148,8 @@ newOrganizationCustomRuleMetadata pLambdaFunctionArn_ =
 organizationCustomRuleMetadata_tagKeyScope :: Lens.Lens' OrganizationCustomRuleMetadata (Prelude.Maybe Prelude.Text)
 organizationCustomRuleMetadata_tagKeyScope = Lens.lens (\OrganizationCustomRuleMetadata' {tagKeyScope} -> tagKeyScope) (\s@OrganizationCustomRuleMetadata' {} a -> s {tagKeyScope = a} :: OrganizationCustomRuleMetadata)
 
--- | The maximum frequency with which AWS Config runs evaluations for a rule.
--- Your custom rule is triggered when AWS Config delivers the configuration
+-- | The maximum frequency with which Config runs evaluations for a rule.
+-- Your custom rule is triggered when Config delivers the configuration
 -- snapshot. For more information, see ConfigSnapshotDeliveryProperties.
 --
 -- By default, rules with a periodic trigger are evaluated every 24 hours.
@@ -160,7 +158,7 @@ organizationCustomRuleMetadata_tagKeyScope = Lens.lens (\OrganizationCustomRuleM
 organizationCustomRuleMetadata_maximumExecutionFrequency :: Lens.Lens' OrganizationCustomRuleMetadata (Prelude.Maybe MaximumExecutionFrequency)
 organizationCustomRuleMetadata_maximumExecutionFrequency = Lens.lens (\OrganizationCustomRuleMetadata' {maximumExecutionFrequency} -> maximumExecutionFrequency) (\s@OrganizationCustomRuleMetadata' {} a -> s {maximumExecutionFrequency = a} :: OrganizationCustomRuleMetadata)
 
--- | The ID of the AWS resource that was evaluated.
+-- | The ID of the Amazon Web Services resource that was evaluated.
 organizationCustomRuleMetadata_resourceIdScope :: Lens.Lens' OrganizationCustomRuleMetadata (Prelude.Maybe Prelude.Text)
 organizationCustomRuleMetadata_resourceIdScope = Lens.lens (\OrganizationCustomRuleMetadata' {resourceIdScope} -> resourceIdScope) (\s@OrganizationCustomRuleMetadata' {} a -> s {resourceIdScope = a} :: OrganizationCustomRuleMetadata)
 
@@ -173,7 +171,7 @@ organizationCustomRuleMetadata_inputParameters = Lens.lens (\OrganizationCustomR
 organizationCustomRuleMetadata_description :: Lens.Lens' OrganizationCustomRuleMetadata (Prelude.Maybe Prelude.Text)
 organizationCustomRuleMetadata_description = Lens.lens (\OrganizationCustomRuleMetadata' {description} -> description) (\s@OrganizationCustomRuleMetadata' {} a -> s {description = a} :: OrganizationCustomRuleMetadata)
 
--- | The type of the AWS resource that was evaluated.
+-- | The type of the Amazon Web Services resource that was evaluated.
 organizationCustomRuleMetadata_resourceTypesScope :: Lens.Lens' OrganizationCustomRuleMetadata (Prelude.Maybe [Prelude.Text])
 organizationCustomRuleMetadata_resourceTypesScope = Lens.lens (\OrganizationCustomRuleMetadata' {resourceTypesScope} -> resourceTypesScope) (\s@OrganizationCustomRuleMetadata' {} a -> s {resourceTypesScope = a} :: OrganizationCustomRuleMetadata) Prelude.. Lens.mapping Lens._Coerce
 
@@ -186,18 +184,17 @@ organizationCustomRuleMetadata_tagValueScope = Lens.lens (\OrganizationCustomRul
 organizationCustomRuleMetadata_lambdaFunctionArn :: Lens.Lens' OrganizationCustomRuleMetadata Prelude.Text
 organizationCustomRuleMetadata_lambdaFunctionArn = Lens.lens (\OrganizationCustomRuleMetadata' {lambdaFunctionArn} -> lambdaFunctionArn) (\s@OrganizationCustomRuleMetadata' {} a -> s {lambdaFunctionArn = a} :: OrganizationCustomRuleMetadata)
 
--- | The type of notification that triggers AWS Config to run an evaluation
--- for a rule. You can specify the following notification types:
+-- | The type of notification that triggers Config to run an evaluation for a
+-- rule. You can specify the following notification types:
 --
 -- -   @ConfigurationItemChangeNotification@ - Triggers an evaluation when
---     AWS Config delivers a configuration item as a result of a resource
+--     Config delivers a configuration item as a result of a resource
 --     change.
 --
 -- -   @OversizedConfigurationItemChangeNotification@ - Triggers an
---     evaluation when AWS Config delivers an oversized configuration item.
---     AWS Config may generate this notification type when a resource
---     changes and the notification exceeds the maximum size allowed by
---     Amazon SNS.
+--     evaluation when Config delivers an oversized configuration item.
+--     Config may generate this notification type when a resource changes
+--     and the notification exceeds the maximum size allowed by Amazon SNS.
 --
 -- -   @ScheduledNotification@ - Triggers a periodic evaluation at the
 --     frequency specified for @MaximumExecutionFrequency@.

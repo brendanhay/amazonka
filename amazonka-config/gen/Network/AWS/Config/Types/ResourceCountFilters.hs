@@ -31,7 +31,7 @@ import qualified Network.AWS.Prelude as Prelude
 data ResourceCountFilters = ResourceCountFilters'
   { -- | The 12-digit ID of the account.
     accountId :: Prelude.Maybe Prelude.Text,
-    -- | The type of the AWS resource.
+    -- | The type of the Amazon Web Services resource.
     resourceType :: Prelude.Maybe ResourceType,
     -- | The region where the account is located.
     region :: Prelude.Maybe Prelude.Text
@@ -48,7 +48,7 @@ data ResourceCountFilters = ResourceCountFilters'
 --
 -- 'accountId', 'resourceCountFilters_accountId' - The 12-digit ID of the account.
 --
--- 'resourceType', 'resourceCountFilters_resourceType' - The type of the AWS resource.
+-- 'resourceType', 'resourceCountFilters_resourceType' - The type of the Amazon Web Services resource.
 --
 -- 'region', 'resourceCountFilters_region' - The region where the account is located.
 newResourceCountFilters ::
@@ -64,7 +64,7 @@ newResourceCountFilters =
 resourceCountFilters_accountId :: Lens.Lens' ResourceCountFilters (Prelude.Maybe Prelude.Text)
 resourceCountFilters_accountId = Lens.lens (\ResourceCountFilters' {accountId} -> accountId) (\s@ResourceCountFilters' {} a -> s {accountId = a} :: ResourceCountFilters)
 
--- | The type of the AWS resource.
+-- | The type of the Amazon Web Services resource.
 resourceCountFilters_resourceType :: Lens.Lens' ResourceCountFilters (Prelude.Maybe ResourceType)
 resourceCountFilters_resourceType = Lens.lens (\ResourceCountFilters' {resourceType} -> resourceType) (\s@ResourceCountFilters' {} a -> s {resourceType = a} :: ResourceCountFilters)
 

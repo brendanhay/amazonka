@@ -20,14 +20,14 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of configuration items for the specified resource. The
+-- Returns a list of @ConfigurationItems@ for the specified resource. The
 -- list contains details about each state of the resource during the
 -- specified time interval. If you specified a retention period to retain
 -- your @ConfigurationItems@ between a minimum of 30 days and a maximum of
--- 7 years (2557 days), AWS Config returns the @ConfigurationItems@ for the
+-- 7 years (2557 days), Config returns the @ConfigurationItems@ for the
 -- specified retention period.
 --
--- The response is paginated. By default, AWS Config returns a limit of 10
+-- The response is paginated. By default, Config returns a limit of 10
 -- configuration items per page. You can customize this number with the
 -- @limit@ parameter. The response includes a @nextToken@ string. To get
 -- the next page of results, run the request again and specify the string
@@ -90,7 +90,7 @@ data GetResourceConfigHistory = GetResourceConfigHistory'
     chronologicalOrder :: Prelude.Maybe ChronologicalOrder,
     -- | The maximum number of configuration items returned on each page. The
     -- default is 10. You cannot specify a number greater than 100. If you
-    -- specify 0, AWS Config uses the default.
+    -- specify 0, Config uses the default.
     limit :: Prelude.Maybe Prelude.Natural,
     -- | The resource type.
     resourceType :: ResourceType,
@@ -122,7 +122,7 @@ data GetResourceConfigHistory = GetResourceConfigHistory'
 --
 -- 'limit', 'getResourceConfigHistory_limit' - The maximum number of configuration items returned on each page. The
 -- default is 10. You cannot specify a number greater than 100. If you
--- specify 0, AWS Config uses the default.
+-- specify 0, Config uses the default.
 --
 -- 'resourceType', 'getResourceConfigHistory_resourceType' - The resource type.
 --
@@ -170,7 +170,7 @@ getResourceConfigHistory_chronologicalOrder = Lens.lens (\GetResourceConfigHisto
 
 -- | The maximum number of configuration items returned on each page. The
 -- default is 10. You cannot specify a number greater than 100. If you
--- specify 0, AWS Config uses the default.
+-- specify 0, Config uses the default.
 getResourceConfigHistory_limit :: Lens.Lens' GetResourceConfigHistory (Prelude.Maybe Prelude.Natural)
 getResourceConfigHistory_limit = Lens.lens (\GetResourceConfigHistory' {limit} -> limit) (\s@GetResourceConfigHistory' {} a -> s {limit = a} :: GetResourceConfigHistory)
 

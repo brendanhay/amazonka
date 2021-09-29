@@ -40,7 +40,7 @@ data ConformancePackStatusDetail = ConformancePackStatusDetail'
     conformancePackArn :: Prelude.Text,
     -- | Indicates deployment status of conformance pack.
     --
-    -- AWS Config sets the state of the conformance pack to:
+    -- Config sets the state of the conformance pack to:
     --
     -- -   CREATE_IN_PROGRESS when a conformance pack creation is in progress
     --     for an account.
@@ -56,7 +56,7 @@ data ConformancePackStatusDetail = ConformancePackStatusDetail'
     -- -   DELETE_FAILED when a conformance pack deletion failed in your
     --     account.
     conformancePackState :: ConformancePackState,
-    -- | Amazon Resource Name (ARN) of AWS CloudFormation stack.
+    -- | Amazon Resource Name (ARN) of CloudFormation stack.
     stackArn :: Prelude.Text,
     -- | Last time when conformation pack creation and update was requested.
     lastUpdateRequestedTime :: Core.POSIX
@@ -83,7 +83,7 @@ data ConformancePackStatusDetail = ConformancePackStatusDetail'
 --
 -- 'conformancePackState', 'conformancePackStatusDetail_conformancePackState' - Indicates deployment status of conformance pack.
 --
--- AWS Config sets the state of the conformance pack to:
+-- Config sets the state of the conformance pack to:
 --
 -- -   CREATE_IN_PROGRESS when a conformance pack creation is in progress
 --     for an account.
@@ -99,7 +99,7 @@ data ConformancePackStatusDetail = ConformancePackStatusDetail'
 -- -   DELETE_FAILED when a conformance pack deletion failed in your
 --     account.
 --
--- 'stackArn', 'conformancePackStatusDetail_stackArn' - Amazon Resource Name (ARN) of AWS CloudFormation stack.
+-- 'stackArn', 'conformancePackStatusDetail_stackArn' - Amazon Resource Name (ARN) of CloudFormation stack.
 --
 -- 'lastUpdateRequestedTime', 'conformancePackStatusDetail_lastUpdateRequestedTime' - Last time when conformation pack creation and update was requested.
 newConformancePackStatusDetail ::
@@ -158,7 +158,7 @@ conformancePackStatusDetail_conformancePackArn = Lens.lens (\ConformancePackStat
 
 -- | Indicates deployment status of conformance pack.
 --
--- AWS Config sets the state of the conformance pack to:
+-- Config sets the state of the conformance pack to:
 --
 -- -   CREATE_IN_PROGRESS when a conformance pack creation is in progress
 --     for an account.
@@ -176,7 +176,7 @@ conformancePackStatusDetail_conformancePackArn = Lens.lens (\ConformancePackStat
 conformancePackStatusDetail_conformancePackState :: Lens.Lens' ConformancePackStatusDetail ConformancePackState
 conformancePackStatusDetail_conformancePackState = Lens.lens (\ConformancePackStatusDetail' {conformancePackState} -> conformancePackState) (\s@ConformancePackStatusDetail' {} a -> s {conformancePackState = a} :: ConformancePackStatusDetail)
 
--- | Amazon Resource Name (ARN) of AWS CloudFormation stack.
+-- | Amazon Resource Name (ARN) of CloudFormation stack.
 conformancePackStatusDetail_stackArn :: Lens.Lens' ConformancePackStatusDetail Prelude.Text
 conformancePackStatusDetail_stackArn = Lens.lens (\ConformancePackStatusDetail' {stackArn} -> stackArn) (\s@ConformancePackStatusDetail' {} a -> s {stackArn = a} :: ConformancePackStatusDetail)
 

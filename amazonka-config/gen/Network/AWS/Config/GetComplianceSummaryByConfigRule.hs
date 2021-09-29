@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the number of AWS Config rules that are compliant and
--- noncompliant, up to a maximum of 25 for each.
+-- Returns the number of Config rules that are compliant and noncompliant,
+-- up to a maximum of 25 for each.
 module Network.AWS.Config.GetComplianceSummaryByConfigRule
   ( -- * Creating a Request
     GetComplianceSummaryByConfigRule (..),
@@ -117,8 +117,8 @@ instance
 --
 -- /See:/ 'newGetComplianceSummaryByConfigRuleResponse' smart constructor.
 data GetComplianceSummaryByConfigRuleResponse = GetComplianceSummaryByConfigRuleResponse'
-  { -- | The number of AWS Config rules that are compliant and the number that
-    -- are noncompliant, up to a maximum of 25 for each.
+  { -- | The number of Config rules that are compliant and the number that are
+    -- noncompliant, up to a maximum of 25 for each.
     complianceSummary :: Prelude.Maybe ComplianceSummary,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -133,8 +133,8 @@ data GetComplianceSummaryByConfigRuleResponse = GetComplianceSummaryByConfigRule
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'complianceSummary', 'getComplianceSummaryByConfigRuleResponse_complianceSummary' - The number of AWS Config rules that are compliant and the number that
--- are noncompliant, up to a maximum of 25 for each.
+-- 'complianceSummary', 'getComplianceSummaryByConfigRuleResponse_complianceSummary' - The number of Config rules that are compliant and the number that are
+-- noncompliant, up to a maximum of 25 for each.
 --
 -- 'httpStatus', 'getComplianceSummaryByConfigRuleResponse_httpStatus' - The response's http status code.
 newGetComplianceSummaryByConfigRuleResponse ::
@@ -149,8 +149,8 @@ newGetComplianceSummaryByConfigRuleResponse
         httpStatus = pHttpStatus_
       }
 
--- | The number of AWS Config rules that are compliant and the number that
--- are noncompliant, up to a maximum of 25 for each.
+-- | The number of Config rules that are compliant and the number that are
+-- noncompliant, up to a maximum of 25 for each.
 getComplianceSummaryByConfigRuleResponse_complianceSummary :: Lens.Lens' GetComplianceSummaryByConfigRuleResponse (Prelude.Maybe ComplianceSummary)
 getComplianceSummaryByConfigRuleResponse_complianceSummary = Lens.lens (\GetComplianceSummaryByConfigRuleResponse' {complianceSummary} -> complianceSummary) (\s@GetComplianceSummaryByConfigRuleResponse' {} a -> s {complianceSummary = a} :: GetComplianceSummaryByConfigRuleResponse)
 

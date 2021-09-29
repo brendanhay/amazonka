@@ -23,7 +23,7 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | AWS Systems Manager (SSM) specific remediation controls.
+-- | Amazon Web Services Systems Manager (SSM) specific remediation controls.
 --
 -- /See:/ 'newSsmControls' smart constructor.
 data SsmControls = SsmControls'

@@ -21,7 +21,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns a list of compliant and noncompliant rules with the number of
--- resources for compliant and noncompliant rules.
+-- resources for compliant and noncompliant rules. Does not display rules
+-- that do not have compliance results.
 --
 -- The results can return an empty result page, but if you have a
 -- @nextToken@, the results are displayed on the next page.
@@ -64,7 +65,7 @@ data DescribeAggregateComplianceByConfigRules = DescribeAggregateComplianceByCon
     -- | Filters the results by ConfigRuleComplianceFilters object.
     filters :: Prelude.Maybe ConfigRuleComplianceFilters,
     -- | The maximum number of evaluation results returned on each page. The
-    -- default is maximum. If you specify 0, AWS Config uses the default.
+    -- default is maximum. If you specify 0, Config uses the default.
     limit :: Prelude.Maybe Prelude.Natural,
     -- | The name of the configuration aggregator.
     configurationAggregatorName :: Prelude.Text
@@ -85,7 +86,7 @@ data DescribeAggregateComplianceByConfigRules = DescribeAggregateComplianceByCon
 -- 'filters', 'describeAggregateComplianceByConfigRules_filters' - Filters the results by ConfigRuleComplianceFilters object.
 --
 -- 'limit', 'describeAggregateComplianceByConfigRules_limit' - The maximum number of evaluation results returned on each page. The
--- default is maximum. If you specify 0, AWS Config uses the default.
+-- default is maximum. If you specify 0, Config uses the default.
 --
 -- 'configurationAggregatorName', 'describeAggregateComplianceByConfigRules_configurationAggregatorName' - The name of the configuration aggregator.
 newDescribeAggregateComplianceByConfigRules ::
@@ -113,7 +114,7 @@ describeAggregateComplianceByConfigRules_filters :: Lens.Lens' DescribeAggregate
 describeAggregateComplianceByConfigRules_filters = Lens.lens (\DescribeAggregateComplianceByConfigRules' {filters} -> filters) (\s@DescribeAggregateComplianceByConfigRules' {} a -> s {filters = a} :: DescribeAggregateComplianceByConfigRules)
 
 -- | The maximum number of evaluation results returned on each page. The
--- default is maximum. If you specify 0, AWS Config uses the default.
+-- default is maximum. If you specify 0, Config uses the default.
 describeAggregateComplianceByConfigRules_limit :: Lens.Lens' DescribeAggregateComplianceByConfigRules (Prelude.Maybe Prelude.Natural)
 describeAggregateComplianceByConfigRules_limit = Lens.lens (\DescribeAggregateComplianceByConfigRules' {limit} -> limit) (\s@DescribeAggregateComplianceByConfigRules' {} a -> s {limit = a} :: DescribeAggregateComplianceByConfigRules)
 

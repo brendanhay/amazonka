@@ -28,6 +28,8 @@
 -- Limit and next token are not applicable if you specify organization
 -- conformance packs names. They are only applicable, when you request all
 -- the organization conformance packs.
+--
+-- This operation returns paginated results.
 module Network.AWS.Config.DescribeOrganizationConformancePacks
   ( -- * Creating a Request
     DescribeOrganizationConformancePacks (..),
@@ -64,8 +66,8 @@ data DescribeOrganizationConformancePacks = DescribeOrganizationConformancePacks
     -- | The name that you assign to an organization conformance pack.
     organizationConformancePackNames :: Prelude.Maybe [Prelude.Text],
     -- | The maximum number of organization config packs returned on each page.
-    -- If you do no specify a number, AWS Config uses the default. The default
-    -- is 100.
+    -- If you do no specify a number, Config uses the default. The default is
+    -- 100.
     limit :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -84,8 +86,8 @@ data DescribeOrganizationConformancePacks = DescribeOrganizationConformancePacks
 -- 'organizationConformancePackNames', 'describeOrganizationConformancePacks_organizationConformancePackNames' - The name that you assign to an organization conformance pack.
 --
 -- 'limit', 'describeOrganizationConformancePacks_limit' - The maximum number of organization config packs returned on each page.
--- If you do no specify a number, AWS Config uses the default. The default
--- is 100.
+-- If you do no specify a number, Config uses the default. The default is
+-- 100.
 newDescribeOrganizationConformancePacks ::
   DescribeOrganizationConformancePacks
 newDescribeOrganizationConformancePacks =
@@ -107,10 +109,35 @@ describeOrganizationConformancePacks_organizationConformancePackNames :: Lens.Le
 describeOrganizationConformancePacks_organizationConformancePackNames = Lens.lens (\DescribeOrganizationConformancePacks' {organizationConformancePackNames} -> organizationConformancePackNames) (\s@DescribeOrganizationConformancePacks' {} a -> s {organizationConformancePackNames = a} :: DescribeOrganizationConformancePacks) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The maximum number of organization config packs returned on each page.
--- If you do no specify a number, AWS Config uses the default. The default
--- is 100.
+-- If you do no specify a number, Config uses the default. The default is
+-- 100.
 describeOrganizationConformancePacks_limit :: Lens.Lens' DescribeOrganizationConformancePacks (Prelude.Maybe Prelude.Natural)
 describeOrganizationConformancePacks_limit = Lens.lens (\DescribeOrganizationConformancePacks' {limit} -> limit) (\s@DescribeOrganizationConformancePacks' {} a -> s {limit = a} :: DescribeOrganizationConformancePacks)
+
+instance
+  Core.AWSPager
+    DescribeOrganizationConformancePacks
+  where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeOrganizationConformancePacksResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeOrganizationConformancePacksResponse_organizationConformancePacks
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeOrganizationConformancePacks_nextToken
+          Lens..~ rs
+            Lens.^? describeOrganizationConformancePacksResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest

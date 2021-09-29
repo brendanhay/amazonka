@@ -20,10 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Runs an on-demand remediation for the specified AWS Config rules against
--- the last known remediation configuration. It runs an execution against
--- the current state of your resources. Remediation execution is
--- asynchronous.
+-- Runs an on-demand remediation for the specified Config rules against the
+-- last known remediation configuration. It runs an execution against the
+-- current state of your resources. Remediation execution is asynchronous.
 --
 -- You can specify up to 100 resource keys per request. An existing
 -- StartRemediationExecution call for the specified resource keys must
@@ -57,7 +56,7 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newStartRemediationExecution' smart constructor.
 data StartRemediationExecution = StartRemediationExecution'
-  { -- | The list of names of AWS Config rules that you want to run remediation
+  { -- | The list of names of Config rules that you want to run remediation
     -- execution for.
     configRuleName :: Prelude.Text,
     -- | A list of resource keys to be processed with the current request. Each
@@ -74,7 +73,7 @@ data StartRemediationExecution = StartRemediationExecution'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configRuleName', 'startRemediationExecution_configRuleName' - The list of names of AWS Config rules that you want to run remediation
+-- 'configRuleName', 'startRemediationExecution_configRuleName' - The list of names of Config rules that you want to run remediation
 -- execution for.
 --
 -- 'resourceKeys', 'startRemediationExecution_resourceKeys' - A list of resource keys to be processed with the current request. Each
@@ -95,7 +94,7 @@ newStartRemediationExecution
           Lens._Coerce Lens.# pResourceKeys_
       }
 
--- | The list of names of AWS Config rules that you want to run remediation
+-- | The list of names of Config rules that you want to run remediation
 -- execution for.
 startRemediationExecution_configRuleName :: Lens.Lens' StartRemediationExecution Prelude.Text
 startRemediationExecution_configRuleName = Lens.lens (\StartRemediationExecution' {configRuleName} -> configRuleName) (\s@StartRemediationExecution' {} a -> s {configRuleName = a} :: StartRemediationExecution)

@@ -25,23 +25,24 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | Returns details of a conformance pack. A conformance pack is a
--- collection of AWS Config rules and remediation actions that can be
--- easily deployed in an account and a region.
+-- collection of Config rules and remediation actions that can be easily
+-- deployed in an account and a region.
 --
 -- /See:/ 'newConformancePackDetail' smart constructor.
 data ConformancePackDetail = ConformancePackDetail'
   { -- | Last time when conformation pack update was requested.
     lastUpdateRequestedTime :: Prelude.Maybe Core.POSIX,
-    -- | Amazon S3 bucket where AWS Config stores conformance pack templates.
+    -- | The name of the Amazon S3 bucket where Config stores conformance pack
+    -- templates.
     --
     -- This field is optional.
     deliveryS3Bucket :: Prelude.Maybe Prelude.Text,
+    -- | Amazon Web Services service that created the conformance pack.
+    createdBy :: Prelude.Maybe Prelude.Text,
     -- | The prefix for the Amazon S3 bucket.
     --
     -- This field is optional.
     deliveryS3KeyPrefix :: Prelude.Maybe Prelude.Text,
-    -- | AWS service that created the conformance pack.
-    createdBy :: Prelude.Maybe Prelude.Text,
     -- | A list of @ConformancePackInputParameter@ objects.
     conformancePackInputParameters :: Prelude.Maybe [ConformancePackInputParameter],
     -- | Name of the conformance pack.
@@ -63,15 +64,16 @@ data ConformancePackDetail = ConformancePackDetail'
 --
 -- 'lastUpdateRequestedTime', 'conformancePackDetail_lastUpdateRequestedTime' - Last time when conformation pack update was requested.
 --
--- 'deliveryS3Bucket', 'conformancePackDetail_deliveryS3Bucket' - Amazon S3 bucket where AWS Config stores conformance pack templates.
+-- 'deliveryS3Bucket', 'conformancePackDetail_deliveryS3Bucket' - The name of the Amazon S3 bucket where Config stores conformance pack
+-- templates.
 --
 -- This field is optional.
+--
+-- 'createdBy', 'conformancePackDetail_createdBy' - Amazon Web Services service that created the conformance pack.
 --
 -- 'deliveryS3KeyPrefix', 'conformancePackDetail_deliveryS3KeyPrefix' - The prefix for the Amazon S3 bucket.
 --
 -- This field is optional.
---
--- 'createdBy', 'conformancePackDetail_createdBy' - AWS service that created the conformance pack.
 --
 -- 'conformancePackInputParameters', 'conformancePackDetail_conformancePackInputParameters' - A list of @ConformancePackInputParameter@ objects.
 --
@@ -96,8 +98,8 @@ newConformancePackDetail
       { lastUpdateRequestedTime =
           Prelude.Nothing,
         deliveryS3Bucket = Prelude.Nothing,
-        deliveryS3KeyPrefix = Prelude.Nothing,
         createdBy = Prelude.Nothing,
+        deliveryS3KeyPrefix = Prelude.Nothing,
         conformancePackInputParameters = Prelude.Nothing,
         conformancePackName = pConformancePackName_,
         conformancePackArn = pConformancePackArn_,
@@ -108,21 +110,22 @@ newConformancePackDetail
 conformancePackDetail_lastUpdateRequestedTime :: Lens.Lens' ConformancePackDetail (Prelude.Maybe Prelude.UTCTime)
 conformancePackDetail_lastUpdateRequestedTime = Lens.lens (\ConformancePackDetail' {lastUpdateRequestedTime} -> lastUpdateRequestedTime) (\s@ConformancePackDetail' {} a -> s {lastUpdateRequestedTime = a} :: ConformancePackDetail) Prelude.. Lens.mapping Core._Time
 
--- | Amazon S3 bucket where AWS Config stores conformance pack templates.
+-- | The name of the Amazon S3 bucket where Config stores conformance pack
+-- templates.
 --
 -- This field is optional.
 conformancePackDetail_deliveryS3Bucket :: Lens.Lens' ConformancePackDetail (Prelude.Maybe Prelude.Text)
 conformancePackDetail_deliveryS3Bucket = Lens.lens (\ConformancePackDetail' {deliveryS3Bucket} -> deliveryS3Bucket) (\s@ConformancePackDetail' {} a -> s {deliveryS3Bucket = a} :: ConformancePackDetail)
+
+-- | Amazon Web Services service that created the conformance pack.
+conformancePackDetail_createdBy :: Lens.Lens' ConformancePackDetail (Prelude.Maybe Prelude.Text)
+conformancePackDetail_createdBy = Lens.lens (\ConformancePackDetail' {createdBy} -> createdBy) (\s@ConformancePackDetail' {} a -> s {createdBy = a} :: ConformancePackDetail)
 
 -- | The prefix for the Amazon S3 bucket.
 --
 -- This field is optional.
 conformancePackDetail_deliveryS3KeyPrefix :: Lens.Lens' ConformancePackDetail (Prelude.Maybe Prelude.Text)
 conformancePackDetail_deliveryS3KeyPrefix = Lens.lens (\ConformancePackDetail' {deliveryS3KeyPrefix} -> deliveryS3KeyPrefix) (\s@ConformancePackDetail' {} a -> s {deliveryS3KeyPrefix = a} :: ConformancePackDetail)
-
--- | AWS service that created the conformance pack.
-conformancePackDetail_createdBy :: Lens.Lens' ConformancePackDetail (Prelude.Maybe Prelude.Text)
-conformancePackDetail_createdBy = Lens.lens (\ConformancePackDetail' {createdBy} -> createdBy) (\s@ConformancePackDetail' {} a -> s {createdBy = a} :: ConformancePackDetail)
 
 -- | A list of @ConformancePackInputParameter@ objects.
 conformancePackDetail_conformancePackInputParameters :: Lens.Lens' ConformancePackDetail (Prelude.Maybe [ConformancePackInputParameter])
@@ -148,8 +151,8 @@ instance Core.FromJSON ConformancePackDetail where
           ConformancePackDetail'
             Prelude.<$> (x Core..:? "LastUpdateRequestedTime")
             Prelude.<*> (x Core..:? "DeliveryS3Bucket")
-            Prelude.<*> (x Core..:? "DeliveryS3KeyPrefix")
             Prelude.<*> (x Core..:? "CreatedBy")
+            Prelude.<*> (x Core..:? "DeliveryS3KeyPrefix")
             Prelude.<*> ( x Core..:? "ConformancePackInputParameters"
                             Core..!= Prelude.mempty
                         )

@@ -24,8 +24,8 @@
 -- retention configuration name is not specified, this action returns the
 -- details for all the retention configurations for that account.
 --
--- Currently, AWS Config supports only one retention configuration per
--- region in your account.
+-- Currently, Config supports only one retention configuration per region
+-- in your account.
 --
 -- This operation returns paginated results.
 module Network.AWS.Config.DescribeRetentionConfigurations
@@ -61,11 +61,11 @@ data DescribeRetentionConfigurations = DescribeRetentionConfigurations'
     -- the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | A list of names of retention configurations for which you want details.
-    -- If you do not specify a name, AWS Config returns details for all the
+    -- If you do not specify a name, Config returns details for all the
     -- retention configurations for that account.
     --
-    -- Currently, AWS Config supports only one retention configuration per
-    -- region in your account.
+    -- Currently, Config supports only one retention configuration per region
+    -- in your account.
     retentionConfigurationNames :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -82,11 +82,11 @@ data DescribeRetentionConfigurations = DescribeRetentionConfigurations'
 -- the next page of results in a paginated response.
 --
 -- 'retentionConfigurationNames', 'describeRetentionConfigurations_retentionConfigurationNames' - A list of names of retention configurations for which you want details.
--- If you do not specify a name, AWS Config returns details for all the
+-- If you do not specify a name, Config returns details for all the
 -- retention configurations for that account.
 --
--- Currently, AWS Config supports only one retention configuration per
--- region in your account.
+-- Currently, Config supports only one retention configuration per region
+-- in your account.
 newDescribeRetentionConfigurations ::
   DescribeRetentionConfigurations
 newDescribeRetentionConfigurations =
@@ -103,11 +103,11 @@ describeRetentionConfigurations_nextToken :: Lens.Lens' DescribeRetentionConfigu
 describeRetentionConfigurations_nextToken = Lens.lens (\DescribeRetentionConfigurations' {nextToken} -> nextToken) (\s@DescribeRetentionConfigurations' {} a -> s {nextToken = a} :: DescribeRetentionConfigurations)
 
 -- | A list of names of retention configurations for which you want details.
--- If you do not specify a name, AWS Config returns details for all the
+-- If you do not specify a name, Config returns details for all the
 -- retention configurations for that account.
 --
--- Currently, AWS Config supports only one retention configuration per
--- region in your account.
+-- Currently, Config supports only one retention configuration per region
+-- in your account.
 describeRetentionConfigurations_retentionConfigurationNames :: Lens.Lens' DescribeRetentionConfigurations (Prelude.Maybe [Prelude.Text])
 describeRetentionConfigurations_retentionConfigurationNames = Lens.lens (\DescribeRetentionConfigurations' {retentionConfigurationNames} -> retentionConfigurationNames) (\s@DescribeRetentionConfigurations' {} a -> s {retentionConfigurationNames = a} :: DescribeRetentionConfigurations) Prelude.. Lens.mapping Lens._Coerce
 

@@ -23,9 +23,9 @@
 -- Deletes one or more remediation exceptions mentioned in the resource
 -- keys.
 --
--- AWS Config generates a remediation exception when a problem occurs
--- executing a remediation action to a specific resource. Remediation
--- exceptions blocks auto-remediation until the exception is cleared.
+-- Config generates a remediation exception when a problem occurs executing
+-- a remediation action to a specific resource. Remediation exceptions
+-- blocks auto-remediation until the exception is cleared.
 module Network.AWS.Config.DeleteRemediationExceptions
   ( -- * Creating a Request
     DeleteRemediationExceptions (..),
@@ -54,12 +54,12 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDeleteRemediationExceptions' smart constructor.
 data DeleteRemediationExceptions = DeleteRemediationExceptions'
-  { -- | The name of the AWS Config rule for which you want to delete remediation
+  { -- | The name of the Config rule for which you want to delete remediation
     -- exception configuration.
     configRuleName :: Prelude.Text,
     -- | An exception list of resource exception keys to be processed with the
-    -- current request. AWS Config adds exception for each resource key. For
-    -- example, AWS Config adds 3 exceptions for 3 resource keys.
+    -- current request. Config adds exception for each resource key. For
+    -- example, Config adds 3 exceptions for 3 resource keys.
     resourceKeys :: Prelude.NonEmpty RemediationExceptionResourceKey
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -72,12 +72,12 @@ data DeleteRemediationExceptions = DeleteRemediationExceptions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'configRuleName', 'deleteRemediationExceptions_configRuleName' - The name of the AWS Config rule for which you want to delete remediation
+-- 'configRuleName', 'deleteRemediationExceptions_configRuleName' - The name of the Config rule for which you want to delete remediation
 -- exception configuration.
 --
 -- 'resourceKeys', 'deleteRemediationExceptions_resourceKeys' - An exception list of resource exception keys to be processed with the
--- current request. AWS Config adds exception for each resource key. For
--- example, AWS Config adds 3 exceptions for 3 resource keys.
+-- current request. Config adds exception for each resource key. For
+-- example, Config adds 3 exceptions for 3 resource keys.
 newDeleteRemediationExceptions ::
   -- | 'configRuleName'
   Prelude.Text ->
@@ -94,14 +94,14 @@ newDeleteRemediationExceptions
           Lens._Coerce Lens.# pResourceKeys_
       }
 
--- | The name of the AWS Config rule for which you want to delete remediation
+-- | The name of the Config rule for which you want to delete remediation
 -- exception configuration.
 deleteRemediationExceptions_configRuleName :: Lens.Lens' DeleteRemediationExceptions Prelude.Text
 deleteRemediationExceptions_configRuleName = Lens.lens (\DeleteRemediationExceptions' {configRuleName} -> configRuleName) (\s@DeleteRemediationExceptions' {} a -> s {configRuleName = a} :: DeleteRemediationExceptions)
 
 -- | An exception list of resource exception keys to be processed with the
--- current request. AWS Config adds exception for each resource key. For
--- example, AWS Config adds 3 exceptions for 3 resource keys.
+-- current request. Config adds exception for each resource key. For
+-- example, Config adds 3 exceptions for 3 resource keys.
 deleteRemediationExceptions_resourceKeys :: Lens.Lens' DeleteRemediationExceptions (Prelude.NonEmpty RemediationExceptionResourceKey)
 deleteRemediationExceptions_resourceKeys = Lens.lens (\DeleteRemediationExceptions' {resourceKeys} -> resourceKeys) (\s@DeleteRemediationExceptions' {} a -> s {resourceKeys = a} :: DeleteRemediationExceptions) Prelude.. Lens._Coerce
 

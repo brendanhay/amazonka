@@ -23,6 +23,8 @@
 -- Provides one or more conformance packs deployment status.
 --
 -- If there are no conformance packs then you will see an empty result.
+--
+-- This operation returns paginated results.
 module Network.AWS.Config.DescribeConformancePackStatus
   ( -- * Creating a Request
     DescribeConformancePackStatus (..),
@@ -99,6 +101,28 @@ describeConformancePackStatus_conformancePackNames = Lens.lens (\DescribeConform
 -- | The maximum number of conformance packs status returned on each page.
 describeConformancePackStatus_limit :: Lens.Lens' DescribeConformancePackStatus (Prelude.Maybe Prelude.Natural)
 describeConformancePackStatus_limit = Lens.lens (\DescribeConformancePackStatus' {limit} -> limit) (\s@DescribeConformancePackStatus' {} a -> s {limit = a} :: DescribeConformancePackStatus)
+
+instance Core.AWSPager DescribeConformancePackStatus where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? describeConformancePackStatusResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? describeConformancePackStatusResponse_conformancePackStatusDetails
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& describeConformancePackStatus_nextToken
+          Lens..~ rs
+          Lens.^? describeConformancePackStatusResponse_nextToken
+            Prelude.. Lens._Just
 
 instance
   Core.AWSRequest

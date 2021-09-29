@@ -50,7 +50,7 @@ import qualified Network.AWS.Response as Response
 data DeleteRemediationConfiguration = DeleteRemediationConfiguration'
   { -- | The type of a resource.
     resourceType :: Prelude.Maybe Prelude.Text,
-    -- | The name of the AWS Config rule for which you want to delete remediation
+    -- | The name of the Config rule for which you want to delete remediation
     -- configuration.
     configRuleName :: Prelude.Text
   }
@@ -66,7 +66,7 @@ data DeleteRemediationConfiguration = DeleteRemediationConfiguration'
 --
 -- 'resourceType', 'deleteRemediationConfiguration_resourceType' - The type of a resource.
 --
--- 'configRuleName', 'deleteRemediationConfiguration_configRuleName' - The name of the AWS Config rule for which you want to delete remediation
+-- 'configRuleName', 'deleteRemediationConfiguration_configRuleName' - The name of the Config rule for which you want to delete remediation
 -- configuration.
 newDeleteRemediationConfiguration ::
   -- | 'configRuleName'
@@ -83,7 +83,7 @@ newDeleteRemediationConfiguration pConfigRuleName_ =
 deleteRemediationConfiguration_resourceType :: Lens.Lens' DeleteRemediationConfiguration (Prelude.Maybe Prelude.Text)
 deleteRemediationConfiguration_resourceType = Lens.lens (\DeleteRemediationConfiguration' {resourceType} -> resourceType) (\s@DeleteRemediationConfiguration' {} a -> s {resourceType = a} :: DeleteRemediationConfiguration)
 
--- | The name of the AWS Config rule for which you want to delete remediation
+-- | The name of the Config rule for which you want to delete remediation
 -- configuration.
 deleteRemediationConfiguration_configRuleName :: Lens.Lens' DeleteRemediationConfiguration Prelude.Text
 deleteRemediationConfiguration_configRuleName = Lens.lens (\DeleteRemediationConfiguration' {configRuleName} -> configRuleName) (\s@DeleteRemediationConfiguration' {} a -> s {configRuleName = a} :: DeleteRemediationConfiguration)

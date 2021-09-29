@@ -50,7 +50,7 @@ data MemberAccountStatus = MemberAccountStatus'
     -- is deleted when the master account deletes @OrganizationConfigRule@ and
     -- disables service access for @config-multiaccountsetup.amazonaws.com@.
     --
-    -- AWS Config sets the state of the rule to:
+    -- Config sets the state of the rule to:
     --
     -- -   @CREATE_SUCCESSFUL@ when config rule has been created in the member
     --     account.
@@ -110,7 +110,7 @@ data MemberAccountStatus = MemberAccountStatus'
 -- is deleted when the master account deletes @OrganizationConfigRule@ and
 -- disables service access for @config-multiaccountsetup.amazonaws.com@.
 --
--- AWS Config sets the state of the rule to:
+-- Config sets the state of the rule to:
 --
 -- -   @CREATE_SUCCESSFUL@ when config rule has been created in the member
 --     account.
@@ -190,7 +190,7 @@ memberAccountStatus_configRuleName = Lens.lens (\MemberAccountStatus' {configRul
 -- is deleted when the master account deletes @OrganizationConfigRule@ and
 -- disables service access for @config-multiaccountsetup.amazonaws.com@.
 --
--- AWS Config sets the state of the rule to:
+-- Config sets the state of the rule to:
 --
 -- -   @CREATE_SUCCESSFUL@ when config rule has been created in the member
 --     account.

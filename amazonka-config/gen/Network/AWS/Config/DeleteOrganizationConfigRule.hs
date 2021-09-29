@@ -25,12 +25,11 @@
 --
 -- Only a master account and a delegated administrator account can delete
 -- an organization config rule. When calling this API with a delegated
--- administrator, you must ensure AWS Organizations
+-- administrator, you must ensure Organizations
 -- @ListDelegatedAdministrator@ permissions are added.
 --
--- AWS Config sets the state of a rule to DELETE_IN_PROGRESS until the
--- deletion is complete. You cannot update a rule while it is in this
--- state.
+-- Config sets the state of a rule to DELETE_IN_PROGRESS until the deletion
+-- is complete. You cannot update a rule while it is in this state.
 module Network.AWS.Config.DeleteOrganizationConfigRule
   ( -- * Creating a Request
     DeleteOrganizationConfigRule (..),

@@ -26,7 +26,7 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | An organization config rule that has information about config rules that
--- AWS Config creates in member accounts.
+-- Config creates in member accounts.
 --
 -- /See:/ 'newOrganizationConfigRule' smart constructor.
 data OrganizationConfigRule = OrganizationConfigRule'

@@ -20,11 +20,12 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deploys conformance packs across member accounts in an AWS Organization.
+-- Deploys conformance packs across member accounts in an Amazon Web
+-- Services Organization.
 --
 -- Only a master account and a delegated administrator can call this API.
 -- When calling this API with a delegated administrator, you must ensure
--- AWS Organizations @ListDelegatedAdministrator@ permissions are added.
+-- Organizations @ListDelegatedAdministrator@ permissions are added.
 --
 -- This API enables organization service access for
 -- @config-multiaccountsetup.amazonaws.com@ through the
@@ -33,21 +34,21 @@
 -- administrator account of your organization. The service linked role is
 -- created only when the role does not exist in the caller account. To use
 -- this API with delegated administrator, register a delegated
--- administrator by calling AWS Organization @register-delegate-admin@ for
--- @config-multiaccountsetup.amazonaws.com@.
+-- administrator by calling Amazon Web Services Organization
+-- @register-delegate-admin@ for @config-multiaccountsetup.amazonaws.com@.
 --
 -- Prerequisite: Ensure you call @EnableAllFeatures@ API to enable all
 -- features in an organization.
 --
 -- You must specify either the @TemplateS3Uri@ or the @TemplateBody@
--- parameter, but not both. If you provide both AWS Config uses the
+-- parameter, but not both. If you provide both Config uses the
 -- @TemplateS3Uri@ parameter and ignores the @TemplateBody@ parameter.
 --
--- AWS Config sets the state of a conformance pack to CREATE_IN_PROGRESS
--- and UPDATE_IN_PROGRESS until the conformance pack is created or updated.
--- You cannot update a conformance pack while it is in this state.
+-- Config sets the state of a conformance pack to CREATE_IN_PROGRESS and
+-- UPDATE_IN_PROGRESS until the conformance pack is created or updated. You
+-- cannot update a conformance pack while it is in this state.
 --
--- You can create 6 conformance packs with 25 AWS Config rules in each pack
+-- You can create 50 conformance packs with 25 Config rules in each pack
 -- and 3 delegated administrator per organization.
 module Network.AWS.Config.PutOrganizationConformancePack
   ( -- * Creating a Request
@@ -58,9 +59,9 @@ module Network.AWS.Config.PutOrganizationConformancePack
     putOrganizationConformancePack_templateS3Uri,
     putOrganizationConformancePack_deliveryS3Bucket,
     putOrganizationConformancePack_deliveryS3KeyPrefix,
-    putOrganizationConformancePack_excludedAccounts,
     putOrganizationConformancePack_templateBody,
     putOrganizationConformancePack_conformancePackInputParameters,
+    putOrganizationConformancePack_excludedAccounts,
     putOrganizationConformancePack_organizationConformancePackName,
 
     -- * Destructuring the Response
@@ -87,23 +88,25 @@ data PutOrganizationConformancePack = PutOrganizationConformancePack'
     --
     -- You must have access to read Amazon S3 bucket.
     templateS3Uri :: Prelude.Maybe Prelude.Text,
-    -- | Amazon S3 bucket where AWS Config stores conformance pack templates.
+    -- | The name of the Amazon S3 bucket where Config stores conformance pack
+    -- templates.
     --
-    -- This field is optional.
+    -- This field is optional. If used, it must be prefixed with
+    -- @awsconfigconforms@.
     deliveryS3Bucket :: Prelude.Maybe Prelude.Text,
     -- | The prefix for the Amazon S3 bucket.
     --
     -- This field is optional.
     deliveryS3KeyPrefix :: Prelude.Maybe Prelude.Text,
-    -- | A list of AWS accounts to be excluded from an organization conformance
-    -- pack while deploying a conformance pack.
-    excludedAccounts :: Prelude.Maybe [Prelude.Text],
     -- | A string containing full conformance pack template body. Structure
     -- containing the template body with a minimum length of 1 byte and a
     -- maximum length of 51,200 bytes.
     templateBody :: Prelude.Maybe Prelude.Text,
     -- | A list of @ConformancePackInputParameter@ objects.
     conformancePackInputParameters :: Prelude.Maybe [ConformancePackInputParameter],
+    -- | A list of Amazon Web Services accounts to be excluded from an
+    -- organization conformance pack while deploying a conformance pack.
+    excludedAccounts :: Prelude.Maybe [Prelude.Text],
     -- | Name of the organization conformance pack you want to create.
     organizationConformancePackName :: Prelude.Text
   }
@@ -122,22 +125,24 @@ data PutOrganizationConformancePack = PutOrganizationConformancePack'
 --
 -- You must have access to read Amazon S3 bucket.
 --
--- 'deliveryS3Bucket', 'putOrganizationConformancePack_deliveryS3Bucket' - Amazon S3 bucket where AWS Config stores conformance pack templates.
+-- 'deliveryS3Bucket', 'putOrganizationConformancePack_deliveryS3Bucket' - The name of the Amazon S3 bucket where Config stores conformance pack
+-- templates.
 --
--- This field is optional.
+-- This field is optional. If used, it must be prefixed with
+-- @awsconfigconforms@.
 --
 -- 'deliveryS3KeyPrefix', 'putOrganizationConformancePack_deliveryS3KeyPrefix' - The prefix for the Amazon S3 bucket.
 --
 -- This field is optional.
---
--- 'excludedAccounts', 'putOrganizationConformancePack_excludedAccounts' - A list of AWS accounts to be excluded from an organization conformance
--- pack while deploying a conformance pack.
 --
 -- 'templateBody', 'putOrganizationConformancePack_templateBody' - A string containing full conformance pack template body. Structure
 -- containing the template body with a minimum length of 1 byte and a
 -- maximum length of 51,200 bytes.
 --
 -- 'conformancePackInputParameters', 'putOrganizationConformancePack_conformancePackInputParameters' - A list of @ConformancePackInputParameter@ objects.
+--
+-- 'excludedAccounts', 'putOrganizationConformancePack_excludedAccounts' - A list of Amazon Web Services accounts to be excluded from an
+-- organization conformance pack while deploying a conformance pack.
 --
 -- 'organizationConformancePackName', 'putOrganizationConformancePack_organizationConformancePackName' - Name of the organization conformance pack you want to create.
 newPutOrganizationConformancePack ::
@@ -151,10 +156,10 @@ newPutOrganizationConformancePack
           Prelude.Nothing,
         deliveryS3Bucket = Prelude.Nothing,
         deliveryS3KeyPrefix = Prelude.Nothing,
-        excludedAccounts = Prelude.Nothing,
         templateBody = Prelude.Nothing,
         conformancePackInputParameters =
           Prelude.Nothing,
+        excludedAccounts = Prelude.Nothing,
         organizationConformancePackName =
           pOrganizationConformancePackName_
       }
@@ -166,9 +171,11 @@ newPutOrganizationConformancePack
 putOrganizationConformancePack_templateS3Uri :: Lens.Lens' PutOrganizationConformancePack (Prelude.Maybe Prelude.Text)
 putOrganizationConformancePack_templateS3Uri = Lens.lens (\PutOrganizationConformancePack' {templateS3Uri} -> templateS3Uri) (\s@PutOrganizationConformancePack' {} a -> s {templateS3Uri = a} :: PutOrganizationConformancePack)
 
--- | Amazon S3 bucket where AWS Config stores conformance pack templates.
+-- | The name of the Amazon S3 bucket where Config stores conformance pack
+-- templates.
 --
--- This field is optional.
+-- This field is optional. If used, it must be prefixed with
+-- @awsconfigconforms@.
 putOrganizationConformancePack_deliveryS3Bucket :: Lens.Lens' PutOrganizationConformancePack (Prelude.Maybe Prelude.Text)
 putOrganizationConformancePack_deliveryS3Bucket = Lens.lens (\PutOrganizationConformancePack' {deliveryS3Bucket} -> deliveryS3Bucket) (\s@PutOrganizationConformancePack' {} a -> s {deliveryS3Bucket = a} :: PutOrganizationConformancePack)
 
@@ -177,11 +184,6 @@ putOrganizationConformancePack_deliveryS3Bucket = Lens.lens (\PutOrganizationCon
 -- This field is optional.
 putOrganizationConformancePack_deliveryS3KeyPrefix :: Lens.Lens' PutOrganizationConformancePack (Prelude.Maybe Prelude.Text)
 putOrganizationConformancePack_deliveryS3KeyPrefix = Lens.lens (\PutOrganizationConformancePack' {deliveryS3KeyPrefix} -> deliveryS3KeyPrefix) (\s@PutOrganizationConformancePack' {} a -> s {deliveryS3KeyPrefix = a} :: PutOrganizationConformancePack)
-
--- | A list of AWS accounts to be excluded from an organization conformance
--- pack while deploying a conformance pack.
-putOrganizationConformancePack_excludedAccounts :: Lens.Lens' PutOrganizationConformancePack (Prelude.Maybe [Prelude.Text])
-putOrganizationConformancePack_excludedAccounts = Lens.lens (\PutOrganizationConformancePack' {excludedAccounts} -> excludedAccounts) (\s@PutOrganizationConformancePack' {} a -> s {excludedAccounts = a} :: PutOrganizationConformancePack) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A string containing full conformance pack template body. Structure
 -- containing the template body with a minimum length of 1 byte and a
@@ -192,6 +194,11 @@ putOrganizationConformancePack_templateBody = Lens.lens (\PutOrganizationConform
 -- | A list of @ConformancePackInputParameter@ objects.
 putOrganizationConformancePack_conformancePackInputParameters :: Lens.Lens' PutOrganizationConformancePack (Prelude.Maybe [ConformancePackInputParameter])
 putOrganizationConformancePack_conformancePackInputParameters = Lens.lens (\PutOrganizationConformancePack' {conformancePackInputParameters} -> conformancePackInputParameters) (\s@PutOrganizationConformancePack' {} a -> s {conformancePackInputParameters = a} :: PutOrganizationConformancePack) Prelude.. Lens.mapping Lens._Coerce
+
+-- | A list of Amazon Web Services accounts to be excluded from an
+-- organization conformance pack while deploying a conformance pack.
+putOrganizationConformancePack_excludedAccounts :: Lens.Lens' PutOrganizationConformancePack (Prelude.Maybe [Prelude.Text])
+putOrganizationConformancePack_excludedAccounts = Lens.lens (\PutOrganizationConformancePack' {excludedAccounts} -> excludedAccounts) (\s@PutOrganizationConformancePack' {} a -> s {excludedAccounts = a} :: PutOrganizationConformancePack) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Name of the organization conformance pack you want to create.
 putOrganizationConformancePack_organizationConformancePackName :: Lens.Lens' PutOrganizationConformancePack Prelude.Text
@@ -248,11 +255,11 @@ instance Core.ToJSON PutOrganizationConformancePack where
               Prelude.<$> deliveryS3Bucket,
             ("DeliveryS3KeyPrefix" Core..=)
               Prelude.<$> deliveryS3KeyPrefix,
-            ("ExcludedAccounts" Core..=)
-              Prelude.<$> excludedAccounts,
             ("TemplateBody" Core..=) Prelude.<$> templateBody,
             ("ConformancePackInputParameters" Core..=)
               Prelude.<$> conformancePackInputParameters,
+            ("ExcludedAccounts" Core..=)
+              Prelude.<$> excludedAccounts,
             Prelude.Just
               ( "OrganizationConformancePackName"
                   Core..= organizationConformancePackName

@@ -23,15 +23,14 @@
 -- Accepts a resource type and returns a list of resource identifiers for
 -- the resources of that type. A resource identifier includes the resource
 -- type, ID, and (if available) the custom resource name. The results
--- consist of resources that AWS Config has discovered, including those
--- that AWS Config is not currently recording. You can narrow the results
--- to include only resources that have specific resource IDs or a resource
--- name.
+-- consist of resources that Config has discovered, including those that
+-- Config is not currently recording. You can narrow the results to include
+-- only resources that have specific resource IDs or a resource name.
 --
 -- You can specify either resource IDs or a resource name, but not both, in
 -- the same request.
 --
--- The response is paginated. By default, AWS Config lists 100 resource
+-- The response is paginated. By default, Config lists 100 resource
 -- identifiers on each page. You can customize this number with the @limit@
 -- parameter. The response includes a @nextToken@ string. To get the next
 -- page of results, run the request again and specify the string for the
@@ -47,8 +46,8 @@ module Network.AWS.Config.ListDiscoveredResources
     listDiscoveredResources_nextToken,
     listDiscoveredResources_resourceIds,
     listDiscoveredResources_includeDeletedResources,
-    listDiscoveredResources_resourceName,
     listDiscoveredResources_limit,
+    listDiscoveredResources_resourceName,
     listDiscoveredResources_resourceType,
 
     -- * Destructuring the Response
@@ -76,22 +75,22 @@ data ListDiscoveredResources = ListDiscoveredResources'
   { -- | The @nextToken@ string returned on a previous page that you use to get
     -- the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The IDs of only those resources that you want AWS Config to list in the
-    -- response. If you do not specify this parameter, AWS Config lists all
+    -- | The IDs of only those resources that you want Config to list in the
+    -- response. If you do not specify this parameter, Config lists all
     -- resources of the specified type that it has discovered.
     resourceIds :: Prelude.Maybe [Prelude.Text],
-    -- | Specifies whether AWS Config includes deleted resources in the results.
-    -- By default, deleted resources are not included.
+    -- | Specifies whether Config includes deleted resources in the results. By
+    -- default, deleted resources are not included.
     includeDeletedResources :: Prelude.Maybe Prelude.Bool,
-    -- | The custom name of only those resources that you want AWS Config to list
-    -- in the response. If you do not specify this parameter, AWS Config lists
-    -- all resources of the specified type that it has discovered.
-    resourceName :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of resource identifiers returned on each page. The
     -- default is 100. You cannot specify a number greater than 100. If you
-    -- specify 0, AWS Config uses the default.
+    -- specify 0, Config uses the default.
     limit :: Prelude.Maybe Prelude.Natural,
-    -- | The type of resources that you want AWS Config to list in the response.
+    -- | The custom name of only those resources that you want Config to list in
+    -- the response. If you do not specify this parameter, Config lists all
+    -- resources of the specified type that it has discovered.
+    resourceName :: Prelude.Maybe Prelude.Text,
+    -- | The type of resources that you want Config to list in the response.
     resourceType :: ResourceType
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -107,22 +106,22 @@ data ListDiscoveredResources = ListDiscoveredResources'
 -- 'nextToken', 'listDiscoveredResources_nextToken' - The @nextToken@ string returned on a previous page that you use to get
 -- the next page of results in a paginated response.
 --
--- 'resourceIds', 'listDiscoveredResources_resourceIds' - The IDs of only those resources that you want AWS Config to list in the
--- response. If you do not specify this parameter, AWS Config lists all
+-- 'resourceIds', 'listDiscoveredResources_resourceIds' - The IDs of only those resources that you want Config to list in the
+-- response. If you do not specify this parameter, Config lists all
 -- resources of the specified type that it has discovered.
 --
--- 'includeDeletedResources', 'listDiscoveredResources_includeDeletedResources' - Specifies whether AWS Config includes deleted resources in the results.
--- By default, deleted resources are not included.
---
--- 'resourceName', 'listDiscoveredResources_resourceName' - The custom name of only those resources that you want AWS Config to list
--- in the response. If you do not specify this parameter, AWS Config lists
--- all resources of the specified type that it has discovered.
+-- 'includeDeletedResources', 'listDiscoveredResources_includeDeletedResources' - Specifies whether Config includes deleted resources in the results. By
+-- default, deleted resources are not included.
 --
 -- 'limit', 'listDiscoveredResources_limit' - The maximum number of resource identifiers returned on each page. The
 -- default is 100. You cannot specify a number greater than 100. If you
--- specify 0, AWS Config uses the default.
+-- specify 0, Config uses the default.
 --
--- 'resourceType', 'listDiscoveredResources_resourceType' - The type of resources that you want AWS Config to list in the response.
+-- 'resourceName', 'listDiscoveredResources_resourceName' - The custom name of only those resources that you want Config to list in
+-- the response. If you do not specify this parameter, Config lists all
+-- resources of the specified type that it has discovered.
+--
+-- 'resourceType', 'listDiscoveredResources_resourceType' - The type of resources that you want Config to list in the response.
 newListDiscoveredResources ::
   -- | 'resourceType'
   ResourceType ->
@@ -133,8 +132,8 @@ newListDiscoveredResources pResourceType_ =
         Prelude.Nothing,
       resourceIds = Prelude.Nothing,
       includeDeletedResources = Prelude.Nothing,
-      resourceName = Prelude.Nothing,
       limit = Prelude.Nothing,
+      resourceName = Prelude.Nothing,
       resourceType = pResourceType_
     }
 
@@ -143,30 +142,30 @@ newListDiscoveredResources pResourceType_ =
 listDiscoveredResources_nextToken :: Lens.Lens' ListDiscoveredResources (Prelude.Maybe Prelude.Text)
 listDiscoveredResources_nextToken = Lens.lens (\ListDiscoveredResources' {nextToken} -> nextToken) (\s@ListDiscoveredResources' {} a -> s {nextToken = a} :: ListDiscoveredResources)
 
--- | The IDs of only those resources that you want AWS Config to list in the
--- response. If you do not specify this parameter, AWS Config lists all
+-- | The IDs of only those resources that you want Config to list in the
+-- response. If you do not specify this parameter, Config lists all
 -- resources of the specified type that it has discovered.
 listDiscoveredResources_resourceIds :: Lens.Lens' ListDiscoveredResources (Prelude.Maybe [Prelude.Text])
 listDiscoveredResources_resourceIds = Lens.lens (\ListDiscoveredResources' {resourceIds} -> resourceIds) (\s@ListDiscoveredResources' {} a -> s {resourceIds = a} :: ListDiscoveredResources) Prelude.. Lens.mapping Lens._Coerce
 
--- | Specifies whether AWS Config includes deleted resources in the results.
--- By default, deleted resources are not included.
+-- | Specifies whether Config includes deleted resources in the results. By
+-- default, deleted resources are not included.
 listDiscoveredResources_includeDeletedResources :: Lens.Lens' ListDiscoveredResources (Prelude.Maybe Prelude.Bool)
 listDiscoveredResources_includeDeletedResources = Lens.lens (\ListDiscoveredResources' {includeDeletedResources} -> includeDeletedResources) (\s@ListDiscoveredResources' {} a -> s {includeDeletedResources = a} :: ListDiscoveredResources)
 
--- | The custom name of only those resources that you want AWS Config to list
--- in the response. If you do not specify this parameter, AWS Config lists
--- all resources of the specified type that it has discovered.
-listDiscoveredResources_resourceName :: Lens.Lens' ListDiscoveredResources (Prelude.Maybe Prelude.Text)
-listDiscoveredResources_resourceName = Lens.lens (\ListDiscoveredResources' {resourceName} -> resourceName) (\s@ListDiscoveredResources' {} a -> s {resourceName = a} :: ListDiscoveredResources)
-
 -- | The maximum number of resource identifiers returned on each page. The
 -- default is 100. You cannot specify a number greater than 100. If you
--- specify 0, AWS Config uses the default.
+-- specify 0, Config uses the default.
 listDiscoveredResources_limit :: Lens.Lens' ListDiscoveredResources (Prelude.Maybe Prelude.Natural)
 listDiscoveredResources_limit = Lens.lens (\ListDiscoveredResources' {limit} -> limit) (\s@ListDiscoveredResources' {} a -> s {limit = a} :: ListDiscoveredResources)
 
--- | The type of resources that you want AWS Config to list in the response.
+-- | The custom name of only those resources that you want Config to list in
+-- the response. If you do not specify this parameter, Config lists all
+-- resources of the specified type that it has discovered.
+listDiscoveredResources_resourceName :: Lens.Lens' ListDiscoveredResources (Prelude.Maybe Prelude.Text)
+listDiscoveredResources_resourceName = Lens.lens (\ListDiscoveredResources' {resourceName} -> resourceName) (\s@ListDiscoveredResources' {} a -> s {resourceName = a} :: ListDiscoveredResources)
+
+-- | The type of resources that you want Config to list in the response.
 listDiscoveredResources_resourceType :: Lens.Lens' ListDiscoveredResources ResourceType
 listDiscoveredResources_resourceType = Lens.lens (\ListDiscoveredResources' {resourceType} -> resourceType) (\s@ListDiscoveredResources' {} a -> s {resourceType = a} :: ListDiscoveredResources)
 
@@ -235,8 +234,8 @@ instance Core.ToJSON ListDiscoveredResources where
             ("resourceIds" Core..=) Prelude.<$> resourceIds,
             ("includeDeletedResources" Core..=)
               Prelude.<$> includeDeletedResources,
-            ("resourceName" Core..=) Prelude.<$> resourceName,
             ("limit" Core..=) Prelude.<$> limit,
+            ("resourceName" Core..=) Prelude.<$> resourceName,
             Prelude.Just ("resourceType" Core..= resourceType)
           ]
       )
@@ -254,7 +253,7 @@ data ListDiscoveredResourcesResponse = ListDiscoveredResourcesResponse'
   { -- | The string that you use in a subsequent request to get the next page of
     -- results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The details that identify a resource that is discovered by AWS Config,
+    -- | The details that identify a resource that is discovered by Config,
     -- including the resource type, ID, and (if available) the custom resource
     -- name.
     resourceIdentifiers :: Prelude.Maybe [ResourceIdentifier],
@@ -274,7 +273,7 @@ data ListDiscoveredResourcesResponse = ListDiscoveredResourcesResponse'
 -- 'nextToken', 'listDiscoveredResourcesResponse_nextToken' - The string that you use in a subsequent request to get the next page of
 -- results in a paginated response.
 --
--- 'resourceIdentifiers', 'listDiscoveredResourcesResponse_resourceIdentifiers' - The details that identify a resource that is discovered by AWS Config,
+-- 'resourceIdentifiers', 'listDiscoveredResourcesResponse_resourceIdentifiers' - The details that identify a resource that is discovered by Config,
 -- including the resource type, ID, and (if available) the custom resource
 -- name.
 --
@@ -296,7 +295,7 @@ newListDiscoveredResourcesResponse pHttpStatus_ =
 listDiscoveredResourcesResponse_nextToken :: Lens.Lens' ListDiscoveredResourcesResponse (Prelude.Maybe Prelude.Text)
 listDiscoveredResourcesResponse_nextToken = Lens.lens (\ListDiscoveredResourcesResponse' {nextToken} -> nextToken) (\s@ListDiscoveredResourcesResponse' {} a -> s {nextToken = a} :: ListDiscoveredResourcesResponse)
 
--- | The details that identify a resource that is discovered by AWS Config,
+-- | The details that identify a resource that is discovered by Config,
 -- including the resource type, ID, and (if available) the custom resource
 -- name.
 listDiscoveredResourcesResponse_resourceIdentifiers :: Lens.Lens' ListDiscoveredResourcesResponse (Prelude.Maybe [ResourceIdentifier])

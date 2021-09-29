@@ -22,6 +22,25 @@ module Network.AWS.Config.Lens
     describeComplianceByConfigRuleResponse_complianceByConfigRules,
     describeComplianceByConfigRuleResponse_httpStatus,
 
+    -- ** GetAggregateResourceConfig
+    getAggregateResourceConfig_configurationAggregatorName,
+    getAggregateResourceConfig_resourceIdentifier,
+    getAggregateResourceConfigResponse_configurationItem,
+    getAggregateResourceConfigResponse_httpStatus,
+
+    -- ** GetStoredQuery
+    getStoredQuery_queryName,
+    getStoredQueryResponse_storedQuery,
+    getStoredQueryResponse_httpStatus,
+
+    -- ** DescribeConfigurationAggregators
+    describeConfigurationAggregators_nextToken,
+    describeConfigurationAggregators_configurationAggregatorNames,
+    describeConfigurationAggregators_limit,
+    describeConfigurationAggregatorsResponse_nextToken,
+    describeConfigurationAggregatorsResponse_configurationAggregators,
+    describeConfigurationAggregatorsResponse_httpStatus,
+
     -- ** GetAggregateComplianceDetailsByConfigRule
     getAggregateComplianceDetailsByConfigRule_nextToken,
     getAggregateComplianceDetailsByConfigRule_complianceType,
@@ -33,41 +52,6 @@ module Network.AWS.Config.Lens
     getAggregateComplianceDetailsByConfigRuleResponse_nextToken,
     getAggregateComplianceDetailsByConfigRuleResponse_aggregateEvaluationResults,
     getAggregateComplianceDetailsByConfigRuleResponse_httpStatus,
-
-    -- ** GetStoredQuery
-    getStoredQuery_queryName,
-    getStoredQueryResponse_storedQuery,
-    getStoredQueryResponse_httpStatus,
-
-    -- ** GetAggregateResourceConfig
-    getAggregateResourceConfig_configurationAggregatorName,
-    getAggregateResourceConfig_resourceIdentifier,
-    getAggregateResourceConfigResponse_configurationItem,
-    getAggregateResourceConfigResponse_httpStatus,
-
-    -- ** DescribeConfigurationAggregators
-    describeConfigurationAggregators_nextToken,
-    describeConfigurationAggregators_configurationAggregatorNames,
-    describeConfigurationAggregators_limit,
-    describeConfigurationAggregatorsResponse_nextToken,
-    describeConfigurationAggregatorsResponse_configurationAggregators,
-    describeConfigurationAggregatorsResponse_httpStatus,
-
-    -- ** DescribePendingAggregationRequests
-    describePendingAggregationRequests_nextToken,
-    describePendingAggregationRequests_limit,
-    describePendingAggregationRequestsResponse_nextToken,
-    describePendingAggregationRequestsResponse_pendingAggregationRequests,
-    describePendingAggregationRequestsResponse_httpStatus,
-
-    -- ** DescribeRemediationExecutionStatus
-    describeRemediationExecutionStatus_nextToken,
-    describeRemediationExecutionStatus_resourceKeys,
-    describeRemediationExecutionStatus_limit,
-    describeRemediationExecutionStatus_configRuleName,
-    describeRemediationExecutionStatusResponse_remediationExecutionStatuses,
-    describeRemediationExecutionStatusResponse_nextToken,
-    describeRemediationExecutionStatusResponse_httpStatus,
 
     -- ** GetResourceConfigHistory
     getResourceConfigHistory_nextToken,
@@ -81,6 +65,22 @@ module Network.AWS.Config.Lens
     getResourceConfigHistoryResponse_configurationItems,
     getResourceConfigHistoryResponse_httpStatus,
 
+    -- ** DescribeRemediationExecutionStatus
+    describeRemediationExecutionStatus_nextToken,
+    describeRemediationExecutionStatus_resourceKeys,
+    describeRemediationExecutionStatus_limit,
+    describeRemediationExecutionStatus_configRuleName,
+    describeRemediationExecutionStatusResponse_remediationExecutionStatuses,
+    describeRemediationExecutionStatusResponse_nextToken,
+    describeRemediationExecutionStatusResponse_httpStatus,
+
+    -- ** DescribePendingAggregationRequests
+    describePendingAggregationRequests_nextToken,
+    describePendingAggregationRequests_limit,
+    describePendingAggregationRequestsResponse_nextToken,
+    describePendingAggregationRequestsResponse_pendingAggregationRequests,
+    describePendingAggregationRequestsResponse_httpStatus,
+
     -- ** DescribeConformancePackCompliance
     describeConformancePackCompliance_nextToken,
     describeConformancePackCompliance_filters,
@@ -91,20 +91,16 @@ module Network.AWS.Config.Lens
     describeConformancePackComplianceResponse_conformancePackName,
     describeConformancePackComplianceResponse_conformancePackRuleComplianceList,
 
-    -- ** DescribeOrganizationConformancePacks
-    describeOrganizationConformancePacks_nextToken,
-    describeOrganizationConformancePacks_organizationConformancePackNames,
-    describeOrganizationConformancePacks_limit,
-    describeOrganizationConformancePacksResponse_nextToken,
-    describeOrganizationConformancePacksResponse_organizationConformancePacks,
-    describeOrganizationConformancePacksResponse_httpStatus,
+    -- ** StartConfigRulesEvaluation
+    startConfigRulesEvaluation_configRuleNames,
+    startConfigRulesEvaluationResponse_httpStatus,
 
     -- ** ListDiscoveredResources
     listDiscoveredResources_nextToken,
     listDiscoveredResources_resourceIds,
     listDiscoveredResources_includeDeletedResources,
-    listDiscoveredResources_resourceName,
     listDiscoveredResources_limit,
+    listDiscoveredResources_resourceName,
     listDiscoveredResources_resourceType,
     listDiscoveredResourcesResponse_nextToken,
     listDiscoveredResourcesResponse_resourceIdentifiers,
@@ -117,15 +113,6 @@ module Network.AWS.Config.Lens
     describeAggregationAuthorizationsResponse_aggregationAuthorizations,
     describeAggregationAuthorizationsResponse_httpStatus,
 
-    -- ** DescribeRemediationConfigurations
-    describeRemediationConfigurations_configRuleNames,
-    describeRemediationConfigurationsResponse_remediationConfigurations,
-    describeRemediationConfigurationsResponse_httpStatus,
-
-    -- ** DeleteResourceConfig
-    deleteResourceConfig_resourceType,
-    deleteResourceConfig_resourceId,
-
     -- ** DescribeComplianceByResource
     describeComplianceByResource_resourceId,
     describeComplianceByResource_nextToken,
@@ -136,55 +123,22 @@ module Network.AWS.Config.Lens
     describeComplianceByResourceResponse_complianceByResources,
     describeComplianceByResourceResponse_httpStatus,
 
-    -- ** StartConfigRulesEvaluation
-    startConfigRulesEvaluation_configRuleNames,
-    startConfigRulesEvaluationResponse_httpStatus,
+    -- ** DescribeOrganizationConformancePacks
+    describeOrganizationConformancePacks_nextToken,
+    describeOrganizationConformancePacks_organizationConformancePackNames,
+    describeOrganizationConformancePacks_limit,
+    describeOrganizationConformancePacksResponse_nextToken,
+    describeOrganizationConformancePacksResponse_organizationConformancePacks,
+    describeOrganizationConformancePacksResponse_httpStatus,
 
-    -- ** DescribeRemediationExceptions
-    describeRemediationExceptions_nextToken,
-    describeRemediationExceptions_resourceKeys,
-    describeRemediationExceptions_limit,
-    describeRemediationExceptions_configRuleName,
-    describeRemediationExceptionsResponse_nextToken,
-    describeRemediationExceptionsResponse_remediationExceptions,
-    describeRemediationExceptionsResponse_httpStatus,
+    -- ** DescribeRemediationConfigurations
+    describeRemediationConfigurations_configRuleNames,
+    describeRemediationConfigurationsResponse_remediationConfigurations,
+    describeRemediationConfigurationsResponse_httpStatus,
 
-    -- ** DeleteOrganizationConformancePack
-    deleteOrganizationConformancePack_organizationConformancePackName,
-
-    -- ** GetComplianceDetailsByConfigRule
-    getComplianceDetailsByConfigRule_nextToken,
-    getComplianceDetailsByConfigRule_complianceTypes,
-    getComplianceDetailsByConfigRule_limit,
-    getComplianceDetailsByConfigRule_configRuleName,
-    getComplianceDetailsByConfigRuleResponse_nextToken,
-    getComplianceDetailsByConfigRuleResponse_evaluationResults,
-    getComplianceDetailsByConfigRuleResponse_httpStatus,
-
-    -- ** PutOrganizationConfigRule
-    putOrganizationConfigRule_organizationManagedRuleMetadata,
-    putOrganizationConfigRule_organizationCustomRuleMetadata,
-    putOrganizationConfigRule_excludedAccounts,
-    putOrganizationConfigRule_organizationConfigRuleName,
-    putOrganizationConfigRuleResponse_organizationConfigRuleArn,
-    putOrganizationConfigRuleResponse_httpStatus,
-
-    -- ** GetDiscoveredResourceCounts
-    getDiscoveredResourceCounts_nextToken,
-    getDiscoveredResourceCounts_resourceTypes,
-    getDiscoveredResourceCounts_limit,
-    getDiscoveredResourceCountsResponse_nextToken,
-    getDiscoveredResourceCountsResponse_totalDiscoveredResources,
-    getDiscoveredResourceCountsResponse_resourceCounts,
-    getDiscoveredResourceCountsResponse_httpStatus,
-
-    -- ** GetComplianceSummaryByResourceType
-    getComplianceSummaryByResourceType_resourceTypes,
-    getComplianceSummaryByResourceTypeResponse_complianceSummariesByResourceType,
-    getComplianceSummaryByResourceTypeResponse_httpStatus,
-
-    -- ** PutDeliveryChannel
-    putDeliveryChannel_deliveryChannel,
+    -- ** DeleteResourceConfig
+    deleteResourceConfig_resourceType,
+    deleteResourceConfig_resourceId,
 
     -- ** DescribeConfigurationAggregatorSourcesStatus
     describeConfigurationAggregatorSourcesStatus_nextToken,
@@ -195,19 +149,60 @@ module Network.AWS.Config.Lens
     describeConfigurationAggregatorSourcesStatusResponse_aggregatedSourceStatusList,
     describeConfigurationAggregatorSourcesStatusResponse_httpStatus,
 
-    -- ** DeleteRemediationConfiguration
-    deleteRemediationConfiguration_resourceType,
-    deleteRemediationConfiguration_configRuleName,
-    deleteRemediationConfigurationResponse_httpStatus,
+    -- ** DeleteOrganizationConformancePack
+    deleteOrganizationConformancePack_organizationConformancePackName,
 
     -- ** DeleteAggregationAuthorization
     deleteAggregationAuthorization_authorizedAccountId,
     deleteAggregationAuthorization_authorizedAwsRegion,
 
-    -- ** DescribeConfigurationRecorderStatus
-    describeConfigurationRecorderStatus_configurationRecorderNames,
-    describeConfigurationRecorderStatusResponse_configurationRecordersStatus,
-    describeConfigurationRecorderStatusResponse_httpStatus,
+    -- ** DescribeRemediationExceptions
+    describeRemediationExceptions_nextToken,
+    describeRemediationExceptions_resourceKeys,
+    describeRemediationExceptions_limit,
+    describeRemediationExceptions_configRuleName,
+    describeRemediationExceptionsResponse_nextToken,
+    describeRemediationExceptionsResponse_remediationExceptions,
+    describeRemediationExceptionsResponse_httpStatus,
+
+    -- ** DeleteRemediationConfiguration
+    deleteRemediationConfiguration_resourceType,
+    deleteRemediationConfiguration_configRuleName,
+    deleteRemediationConfigurationResponse_httpStatus,
+
+    -- ** GetComplianceSummaryByResourceType
+    getComplianceSummaryByResourceType_resourceTypes,
+    getComplianceSummaryByResourceTypeResponse_complianceSummariesByResourceType,
+    getComplianceSummaryByResourceTypeResponse_httpStatus,
+
+    -- ** GetComplianceDetailsByConfigRule
+    getComplianceDetailsByConfigRule_nextToken,
+    getComplianceDetailsByConfigRule_complianceTypes,
+    getComplianceDetailsByConfigRule_limit,
+    getComplianceDetailsByConfigRule_configRuleName,
+    getComplianceDetailsByConfigRuleResponse_nextToken,
+    getComplianceDetailsByConfigRuleResponse_evaluationResults,
+    getComplianceDetailsByConfigRuleResponse_httpStatus,
+
+    -- ** GetDiscoveredResourceCounts
+    getDiscoveredResourceCounts_nextToken,
+    getDiscoveredResourceCounts_resourceTypes,
+    getDiscoveredResourceCounts_limit,
+    getDiscoveredResourceCountsResponse_nextToken,
+    getDiscoveredResourceCountsResponse_totalDiscoveredResources,
+    getDiscoveredResourceCountsResponse_resourceCounts,
+    getDiscoveredResourceCountsResponse_httpStatus,
+
+    -- ** PutDeliveryChannel
+    putDeliveryChannel_deliveryChannel,
+
+    -- ** PutOrganizationConfigRule
+    putOrganizationConfigRule_organizationManagedRuleMetadata,
+    putOrganizationConfigRule_organizationCustomRuleMetadata,
+    putOrganizationConfigRule_excludedAccounts,
+    putOrganizationConfigRule_organizationConfigRuleName,
+    putOrganizationConfigRuleResponse_organizationConfigRuleArn,
+    putOrganizationConfigRuleResponse_httpStatus,
 
     -- ** DeleteConfigurationRecorder
     deleteConfigurationRecorder_configurationRecorderName,
@@ -220,9 +215,10 @@ module Network.AWS.Config.Lens
     getConformancePackComplianceSummaryResponse_nextToken,
     getConformancePackComplianceSummaryResponse_httpStatus,
 
-    -- ** UntagResource
-    untagResource_resourceArn,
-    untagResource_tagKeys,
+    -- ** DescribeConfigurationRecorderStatus
+    describeConfigurationRecorderStatus_configurationRecorderNames,
+    describeConfigurationRecorderStatusResponse_configurationRecordersStatus,
+    describeConfigurationRecorderStatusResponse_httpStatus,
 
     -- ** DescribeConfigRuleEvaluationStatus
     describeConfigRuleEvaluationStatus_nextToken,
@@ -232,29 +228,12 @@ module Network.AWS.Config.Lens
     describeConfigRuleEvaluationStatusResponse_configRulesEvaluationStatus,
     describeConfigRuleEvaluationStatusResponse_httpStatus,
 
+    -- ** UntagResource
+    untagResource_resourceArn,
+    untagResource_tagKeys,
+
     -- ** DeleteConfigurationAggregator
     deleteConfigurationAggregator_configurationAggregatorName,
-
-    -- ** DeleteStoredQuery
-    deleteStoredQuery_queryName,
-    deleteStoredQueryResponse_httpStatus,
-
-    -- ** DescribeOrganizationConfigRuleStatuses
-    describeOrganizationConfigRuleStatuses_nextToken,
-    describeOrganizationConfigRuleStatuses_organizationConfigRuleNames,
-    describeOrganizationConfigRuleStatuses_limit,
-    describeOrganizationConfigRuleStatusesResponse_nextToken,
-    describeOrganizationConfigRuleStatusesResponse_organizationConfigRuleStatuses,
-    describeOrganizationConfigRuleStatusesResponse_httpStatus,
-
-    -- ** GetComplianceDetailsByResource
-    getComplianceDetailsByResource_nextToken,
-    getComplianceDetailsByResource_complianceTypes,
-    getComplianceDetailsByResource_resourceType,
-    getComplianceDetailsByResource_resourceId,
-    getComplianceDetailsByResourceResponse_nextToken,
-    getComplianceDetailsByResourceResponse_evaluationResults,
-    getComplianceDetailsByResourceResponse_httpStatus,
 
     -- ** ListAggregateDiscoveredResources
     listAggregateDiscoveredResources_nextToken,
@@ -266,33 +245,55 @@ module Network.AWS.Config.Lens
     listAggregateDiscoveredResourcesResponse_resourceIdentifiers,
     listAggregateDiscoveredResourcesResponse_httpStatus,
 
-    -- ** SelectResourceConfig
-    selectResourceConfig_nextToken,
-    selectResourceConfig_limit,
-    selectResourceConfig_expression,
-    selectResourceConfigResponse_nextToken,
-    selectResourceConfigResponse_queryInfo,
-    selectResourceConfigResponse_results,
-    selectResourceConfigResponse_httpStatus,
-
     -- ** TagResource
     tagResource_resourceArn,
     tagResource_tags,
 
-    -- ** PutRetentionConfiguration
-    putRetentionConfiguration_retentionPeriodInDays,
-    putRetentionConfigurationResponse_retentionConfiguration,
-    putRetentionConfigurationResponse_httpStatus,
+    -- ** DescribeOrganizationConfigRuleStatuses
+    describeOrganizationConfigRuleStatuses_nextToken,
+    describeOrganizationConfigRuleStatuses_organizationConfigRuleNames,
+    describeOrganizationConfigRuleStatuses_limit,
+    describeOrganizationConfigRuleStatusesResponse_nextToken,
+    describeOrganizationConfigRuleStatusesResponse_organizationConfigRuleStatuses,
+    describeOrganizationConfigRuleStatusesResponse_httpStatus,
 
-    -- ** GetConformancePackComplianceDetails
-    getConformancePackComplianceDetails_nextToken,
-    getConformancePackComplianceDetails_filters,
-    getConformancePackComplianceDetails_limit,
-    getConformancePackComplianceDetails_conformancePackName,
-    getConformancePackComplianceDetailsResponse_nextToken,
-    getConformancePackComplianceDetailsResponse_conformancePackRuleEvaluationResults,
-    getConformancePackComplianceDetailsResponse_httpStatus,
-    getConformancePackComplianceDetailsResponse_conformancePackName,
+    -- ** SelectResourceConfig
+    selectResourceConfig_nextToken,
+    selectResourceConfig_limit,
+    selectResourceConfig_expression,
+    selectResourceConfigResponse_queryInfo,
+    selectResourceConfigResponse_nextToken,
+    selectResourceConfigResponse_results,
+    selectResourceConfigResponse_httpStatus,
+
+    -- ** DeleteStoredQuery
+    deleteStoredQuery_queryName,
+    deleteStoredQueryResponse_httpStatus,
+
+    -- ** GetComplianceDetailsByResource
+    getComplianceDetailsByResource_nextToken,
+    getComplianceDetailsByResource_complianceTypes,
+    getComplianceDetailsByResource_resourceType,
+    getComplianceDetailsByResource_resourceId,
+    getComplianceDetailsByResourceResponse_nextToken,
+    getComplianceDetailsByResourceResponse_evaluationResults,
+    getComplianceDetailsByResourceResponse_httpStatus,
+
+    -- ** ListStoredQueries
+    listStoredQueries_nextToken,
+    listStoredQueries_maxResults,
+    listStoredQueriesResponse_nextToken,
+    listStoredQueriesResponse_storedQueryMetadata,
+    listStoredQueriesResponse_httpStatus,
+
+    -- ** DescribeAggregateComplianceByConformancePacks
+    describeAggregateComplianceByConformancePacks_nextToken,
+    describeAggregateComplianceByConformancePacks_filters,
+    describeAggregateComplianceByConformancePacks_limit,
+    describeAggregateComplianceByConformancePacks_configurationAggregatorName,
+    describeAggregateComplianceByConformancePacksResponse_nextToken,
+    describeAggregateComplianceByConformancePacksResponse_aggregateComplianceByConformancePacks,
+    describeAggregateComplianceByConformancePacksResponse_httpStatus,
 
     -- ** DeleteEvaluationResults
     deleteEvaluationResults_configRuleName,
@@ -307,6 +308,11 @@ module Network.AWS.Config.Lens
     putConfigRule_tags,
     putConfigRule_configRule,
 
+    -- ** PutRetentionConfiguration
+    putRetentionConfiguration_retentionPeriodInDays,
+    putRetentionConfigurationResponse_retentionConfiguration,
+    putRetentionConfigurationResponse_httpStatus,
+
     -- ** PutConformancePack
     putConformancePack_templateS3Uri,
     putConformancePack_deliveryS3Bucket,
@@ -317,18 +323,15 @@ module Network.AWS.Config.Lens
     putConformancePackResponse_conformancePackArn,
     putConformancePackResponse_httpStatus,
 
-    -- ** ListStoredQueries
-    listStoredQueries_nextToken,
-    listStoredQueries_maxResults,
-    listStoredQueriesResponse_nextToken,
-    listStoredQueriesResponse_storedQueryMetadata,
-    listStoredQueriesResponse_httpStatus,
-
-    -- ** DeleteRemediationExceptions
-    deleteRemediationExceptions_configRuleName,
-    deleteRemediationExceptions_resourceKeys,
-    deleteRemediationExceptionsResponse_failedBatches,
-    deleteRemediationExceptionsResponse_httpStatus,
+    -- ** GetConformancePackComplianceDetails
+    getConformancePackComplianceDetails_nextToken,
+    getConformancePackComplianceDetails_filters,
+    getConformancePackComplianceDetails_limit,
+    getConformancePackComplianceDetails_conformancePackName,
+    getConformancePackComplianceDetailsResponse_nextToken,
+    getConformancePackComplianceDetailsResponse_conformancePackRuleEvaluationResults,
+    getConformancePackComplianceDetailsResponse_httpStatus,
+    getConformancePackComplianceDetailsResponse_conformancePackName,
 
     -- ** PutExternalEvaluation
     putExternalEvaluation_configRuleName,
@@ -340,6 +343,12 @@ module Network.AWS.Config.Lens
     batchGetResourceConfigResponse_unprocessedResourceKeys,
     batchGetResourceConfigResponse_baseConfigurationItems,
     batchGetResourceConfigResponse_httpStatus,
+
+    -- ** DeleteRemediationExceptions
+    deleteRemediationExceptions_configRuleName,
+    deleteRemediationExceptions_resourceKeys,
+    deleteRemediationExceptionsResponse_failedBatches,
+    deleteRemediationExceptionsResponse_httpStatus,
 
     -- ** GetAggregateDiscoveredResourceCounts
     getAggregateDiscoveredResourceCounts_nextToken,
@@ -365,24 +374,21 @@ module Network.AWS.Config.Lens
     describeConfigurationRecordersResponse_configurationRecorders,
     describeConfigurationRecordersResponse_httpStatus,
 
-    -- ** DescribeOrganizationConfigRules
-    describeOrganizationConfigRules_nextToken,
-    describeOrganizationConfigRules_organizationConfigRuleNames,
-    describeOrganizationConfigRules_limit,
-    describeOrganizationConfigRulesResponse_nextToken,
-    describeOrganizationConfigRulesResponse_organizationConfigRules,
-    describeOrganizationConfigRulesResponse_httpStatus,
-
     -- ** SelectAggregateResourceConfig
     selectAggregateResourceConfig_nextToken,
     selectAggregateResourceConfig_maxResults,
     selectAggregateResourceConfig_limit,
     selectAggregateResourceConfig_expression,
     selectAggregateResourceConfig_configurationAggregatorName,
-    selectAggregateResourceConfigResponse_nextToken,
     selectAggregateResourceConfigResponse_queryInfo,
+    selectAggregateResourceConfigResponse_nextToken,
     selectAggregateResourceConfigResponse_results,
     selectAggregateResourceConfigResponse_httpStatus,
+
+    -- ** DescribeDeliveryChannels
+    describeDeliveryChannels_deliveryChannelNames,
+    describeDeliveryChannelsResponse_deliveryChannels,
+    describeDeliveryChannelsResponse_httpStatus,
 
     -- ** PutResourceConfig
     putResourceConfig_tags,
@@ -392,21 +398,27 @@ module Network.AWS.Config.Lens
     putResourceConfig_resourceId,
     putResourceConfig_configuration,
 
-    -- ** DescribeDeliveryChannels
-    describeDeliveryChannels_deliveryChannelNames,
-    describeDeliveryChannelsResponse_deliveryChannels,
-    describeDeliveryChannelsResponse_httpStatus,
+    -- ** DescribeOrganizationConfigRules
+    describeOrganizationConfigRules_nextToken,
+    describeOrganizationConfigRules_organizationConfigRuleNames,
+    describeOrganizationConfigRules_limit,
+    describeOrganizationConfigRulesResponse_nextToken,
+    describeOrganizationConfigRulesResponse_organizationConfigRules,
+    describeOrganizationConfigRulesResponse_httpStatus,
 
     -- ** DeleteDeliveryChannel
     deleteDeliveryChannel_deliveryChannelName,
 
-    -- ** DescribeDeliveryChannelStatus
-    describeDeliveryChannelStatus_deliveryChannelNames,
-    describeDeliveryChannelStatusResponse_deliveryChannelsStatus,
-    describeDeliveryChannelStatusResponse_httpStatus,
-
-    -- ** DeleteOrganizationConfigRule
-    deleteOrganizationConfigRule_organizationConfigRuleName,
+    -- ** PutOrganizationConformancePack
+    putOrganizationConformancePack_templateS3Uri,
+    putOrganizationConformancePack_deliveryS3Bucket,
+    putOrganizationConformancePack_deliveryS3KeyPrefix,
+    putOrganizationConformancePack_templateBody,
+    putOrganizationConformancePack_conformancePackInputParameters,
+    putOrganizationConformancePack_excludedAccounts,
+    putOrganizationConformancePack_organizationConformancePackName,
+    putOrganizationConformancePackResponse_organizationConformancePackArn,
+    putOrganizationConformancePackResponse_httpStatus,
 
     -- ** PutAggregationAuthorization
     putAggregationAuthorization_tags,
@@ -415,16 +427,20 @@ module Network.AWS.Config.Lens
     putAggregationAuthorizationResponse_aggregationAuthorization,
     putAggregationAuthorizationResponse_httpStatus,
 
-    -- ** PutOrganizationConformancePack
-    putOrganizationConformancePack_templateS3Uri,
-    putOrganizationConformancePack_deliveryS3Bucket,
-    putOrganizationConformancePack_deliveryS3KeyPrefix,
-    putOrganizationConformancePack_excludedAccounts,
-    putOrganizationConformancePack_templateBody,
-    putOrganizationConformancePack_conformancePackInputParameters,
-    putOrganizationConformancePack_organizationConformancePackName,
-    putOrganizationConformancePackResponse_organizationConformancePackArn,
-    putOrganizationConformancePackResponse_httpStatus,
+    -- ** DeleteOrganizationConfigRule
+    deleteOrganizationConfigRule_organizationConfigRuleName,
+
+    -- ** DescribeDeliveryChannelStatus
+    describeDeliveryChannelStatus_deliveryChannelNames,
+    describeDeliveryChannelStatusResponse_deliveryChannelsStatus,
+    describeDeliveryChannelStatusResponse_httpStatus,
+
+    -- ** BatchGetAggregateResourceConfig
+    batchGetAggregateResourceConfig_configurationAggregatorName,
+    batchGetAggregateResourceConfig_resourceIdentifiers,
+    batchGetAggregateResourceConfigResponse_baseConfigurationItems,
+    batchGetAggregateResourceConfigResponse_unprocessedResourceIdentifiers,
+    batchGetAggregateResourceConfigResponse_httpStatus,
 
     -- ** PutConfigurationRecorder
     putConfigurationRecorder_configurationRecorder,
@@ -438,12 +454,19 @@ module Network.AWS.Config.Lens
     deliverConfigSnapshotResponse_configSnapshotId,
     deliverConfigSnapshotResponse_httpStatus,
 
-    -- ** BatchGetAggregateResourceConfig
-    batchGetAggregateResourceConfig_configurationAggregatorName,
-    batchGetAggregateResourceConfig_resourceIdentifiers,
-    batchGetAggregateResourceConfigResponse_baseConfigurationItems,
-    batchGetAggregateResourceConfigResponse_unprocessedResourceIdentifiers,
-    batchGetAggregateResourceConfigResponse_httpStatus,
+    -- ** PutConfigurationAggregator
+    putConfigurationAggregator_tags,
+    putConfigurationAggregator_accountAggregationSources,
+    putConfigurationAggregator_organizationAggregationSource,
+    putConfigurationAggregator_configurationAggregatorName,
+    putConfigurationAggregatorResponse_configurationAggregator,
+    putConfigurationAggregatorResponse_httpStatus,
+
+    -- ** PutStoredQuery
+    putStoredQuery_tags,
+    putStoredQuery_storedQuery,
+    putStoredQueryResponse_queryArn,
+    putStoredQueryResponse_httpStatus,
 
     -- ** GetComplianceSummaryByConfigRule
     getComplianceSummaryByConfigRuleResponse_complianceSummary,
@@ -457,20 +480,6 @@ module Network.AWS.Config.Lens
     describeOrganizationConformancePackStatusesResponse_organizationConformancePackStatuses,
     describeOrganizationConformancePackStatusesResponse_httpStatus,
 
-    -- ** PutStoredQuery
-    putStoredQuery_tags,
-    putStoredQuery_storedQuery,
-    putStoredQueryResponse_queryArn,
-    putStoredQueryResponse_httpStatus,
-
-    -- ** PutConfigurationAggregator
-    putConfigurationAggregator_tags,
-    putConfigurationAggregator_accountAggregationSources,
-    putConfigurationAggregator_organizationAggregationSource,
-    putConfigurationAggregator_configurationAggregatorName,
-    putConfigurationAggregatorResponse_configurationAggregator,
-    putConfigurationAggregatorResponse_httpStatus,
-
     -- ** GetOrganizationConfigRuleDetailedStatus
     getOrganizationConfigRuleDetailedStatus_nextToken,
     getOrganizationConfigRuleDetailedStatus_filters,
@@ -479,39 +488,6 @@ module Network.AWS.Config.Lens
     getOrganizationConfigRuleDetailedStatusResponse_nextToken,
     getOrganizationConfigRuleDetailedStatusResponse_organizationConfigRuleDetailedStatus,
     getOrganizationConfigRuleDetailedStatusResponse_httpStatus,
-
-    -- ** StartRemediationExecution
-    startRemediationExecution_configRuleName,
-    startRemediationExecution_resourceKeys,
-    startRemediationExecutionResponse_failureMessage,
-    startRemediationExecutionResponse_failedItems,
-    startRemediationExecutionResponse_httpStatus,
-
-    -- ** DescribeConformancePackStatus
-    describeConformancePackStatus_nextToken,
-    describeConformancePackStatus_conformancePackNames,
-    describeConformancePackStatus_limit,
-    describeConformancePackStatusResponse_nextToken,
-    describeConformancePackStatusResponse_conformancePackStatusDetails,
-    describeConformancePackStatusResponse_httpStatus,
-
-    -- ** DeleteConfigRule
-    deleteConfigRule_configRuleName,
-
-    -- ** DeleteRetentionConfiguration
-    deleteRetentionConfiguration_retentionConfigurationName,
-
-    -- ** DeleteConformancePack
-    deleteConformancePack_conformancePackName,
-
-    -- ** GetOrganizationConformancePackDetailedStatus
-    getOrganizationConformancePackDetailedStatus_nextToken,
-    getOrganizationConformancePackDetailedStatus_filters,
-    getOrganizationConformancePackDetailedStatus_limit,
-    getOrganizationConformancePackDetailedStatus_organizationConformancePackName,
-    getOrganizationConformancePackDetailedStatusResponse_nextToken,
-    getOrganizationConformancePackDetailedStatusResponse_organizationConformancePackDetailedStatuses,
-    getOrganizationConformancePackDetailedStatusResponse_httpStatus,
 
     -- ** DescribeAggregateComplianceByConfigRules
     describeAggregateComplianceByConfigRules_nextToken,
@@ -522,8 +498,67 @@ module Network.AWS.Config.Lens
     describeAggregateComplianceByConfigRulesResponse_aggregateComplianceByConfigRules,
     describeAggregateComplianceByConfigRulesResponse_httpStatus,
 
-    -- ** StartConfigurationRecorder
-    startConfigurationRecorder_configurationRecorderName,
+    -- ** DeleteConfigRule
+    deleteConfigRule_configRuleName,
+
+    -- ** DescribeConformancePackStatus
+    describeConformancePackStatus_nextToken,
+    describeConformancePackStatus_conformancePackNames,
+    describeConformancePackStatus_limit,
+    describeConformancePackStatusResponse_nextToken,
+    describeConformancePackStatusResponse_conformancePackStatusDetails,
+    describeConformancePackStatusResponse_httpStatus,
+
+    -- ** DeleteConformancePack
+    deleteConformancePack_conformancePackName,
+
+    -- ** StartRemediationExecution
+    startRemediationExecution_configRuleName,
+    startRemediationExecution_resourceKeys,
+    startRemediationExecutionResponse_failureMessage,
+    startRemediationExecutionResponse_failedItems,
+    startRemediationExecutionResponse_httpStatus,
+
+    -- ** GetOrganizationConformancePackDetailedStatus
+    getOrganizationConformancePackDetailedStatus_nextToken,
+    getOrganizationConformancePackDetailedStatus_filters,
+    getOrganizationConformancePackDetailedStatus_limit,
+    getOrganizationConformancePackDetailedStatus_organizationConformancePackName,
+    getOrganizationConformancePackDetailedStatusResponse_nextToken,
+    getOrganizationConformancePackDetailedStatusResponse_organizationConformancePackDetailedStatuses,
+    getOrganizationConformancePackDetailedStatusResponse_httpStatus,
+
+    -- ** DeleteRetentionConfiguration
+    deleteRetentionConfiguration_retentionConfigurationName,
+
+    -- ** GetAggregateConformancePackComplianceSummary
+    getAggregateConformancePackComplianceSummary_nextToken,
+    getAggregateConformancePackComplianceSummary_filters,
+    getAggregateConformancePackComplianceSummary_groupByKey,
+    getAggregateConformancePackComplianceSummary_limit,
+    getAggregateConformancePackComplianceSummary_configurationAggregatorName,
+    getAggregateConformancePackComplianceSummaryResponse_nextToken,
+    getAggregateConformancePackComplianceSummaryResponse_aggregateConformancePackComplianceSummaries,
+    getAggregateConformancePackComplianceSummaryResponse_groupByKey,
+    getAggregateConformancePackComplianceSummaryResponse_httpStatus,
+
+    -- ** PutRemediationExceptions
+    putRemediationExceptions_expirationTime,
+    putRemediationExceptions_message,
+    putRemediationExceptions_configRuleName,
+    putRemediationExceptions_resourceKeys,
+    putRemediationExceptionsResponse_failedBatches,
+    putRemediationExceptionsResponse_httpStatus,
+
+    -- ** StopConfigurationRecorder
+    stopConfigurationRecorder_configurationRecorderName,
+
+    -- ** DescribeConfigRules
+    describeConfigRules_nextToken,
+    describeConfigRules_configRuleNames,
+    describeConfigRulesResponse_nextToken,
+    describeConfigRulesResponse_configRules,
+    describeConfigRulesResponse_httpStatus,
 
     -- ** ListTagsForResource
     listTagsForResource_nextToken,
@@ -532,6 +567,16 @@ module Network.AWS.Config.Lens
     listTagsForResourceResponse_nextToken,
     listTagsForResourceResponse_tags,
     listTagsForResourceResponse_httpStatus,
+
+    -- ** DescribeRetentionConfigurations
+    describeRetentionConfigurations_nextToken,
+    describeRetentionConfigurations_retentionConfigurationNames,
+    describeRetentionConfigurationsResponse_nextToken,
+    describeRetentionConfigurationsResponse_retentionConfigurations,
+    describeRetentionConfigurationsResponse_httpStatus,
+
+    -- ** StartConfigurationRecorder
+    startConfigurationRecorder_configurationRecorderName,
 
     -- ** GetAggregateConfigRuleComplianceSummary
     getAggregateConfigRuleComplianceSummary_nextToken,
@@ -544,24 +589,6 @@ module Network.AWS.Config.Lens
     getAggregateConfigRuleComplianceSummaryResponse_groupByKey,
     getAggregateConfigRuleComplianceSummaryResponse_httpStatus,
 
-    -- ** PutRemediationExceptions
-    putRemediationExceptions_expirationTime,
-    putRemediationExceptions_message,
-    putRemediationExceptions_configRuleName,
-    putRemediationExceptions_resourceKeys,
-    putRemediationExceptionsResponse_failedBatches,
-    putRemediationExceptionsResponse_httpStatus,
-
-    -- ** DescribeConfigRules
-    describeConfigRules_nextToken,
-    describeConfigRules_configRuleNames,
-    describeConfigRulesResponse_nextToken,
-    describeConfigRulesResponse_configRules,
-    describeConfigRulesResponse_httpStatus,
-
-    -- ** StopConfigurationRecorder
-    stopConfigurationRecorder_configurationRecorderName,
-
     -- ** DescribeConformancePacks
     describeConformancePacks_nextToken,
     describeConformancePacks_conformancePackNames,
@@ -569,13 +596,6 @@ module Network.AWS.Config.Lens
     describeConformancePacksResponse_nextToken,
     describeConformancePacksResponse_conformancePackDetails,
     describeConformancePacksResponse_httpStatus,
-
-    -- ** DescribeRetentionConfigurations
-    describeRetentionConfigurations_nextToken,
-    describeRetentionConfigurations_retentionConfigurationNames,
-    describeRetentionConfigurationsResponse_nextToken,
-    describeRetentionConfigurationsResponse_retentionConfigurations,
-    describeRetentionConfigurationsResponse_httpStatus,
 
     -- * Types
 
@@ -587,12 +607,42 @@ module Network.AWS.Config.Lens
     -- ** AggregateComplianceByConfigRule
     aggregateComplianceByConfigRule_accountId,
     aggregateComplianceByConfigRule_configRuleName,
-    aggregateComplianceByConfigRule_compliance,
     aggregateComplianceByConfigRule_awsRegion,
+    aggregateComplianceByConfigRule_compliance,
+
+    -- ** AggregateComplianceByConformancePack
+    aggregateComplianceByConformancePack_accountId,
+    aggregateComplianceByConformancePack_conformancePackName,
+    aggregateComplianceByConformancePack_awsRegion,
+    aggregateComplianceByConformancePack_compliance,
 
     -- ** AggregateComplianceCount
     aggregateComplianceCount_complianceSummary,
     aggregateComplianceCount_groupName,
+
+    -- ** AggregateConformancePackCompliance
+    aggregateConformancePackCompliance_totalRuleCount,
+    aggregateConformancePackCompliance_complianceType,
+    aggregateConformancePackCompliance_nonCompliantRuleCount,
+    aggregateConformancePackCompliance_compliantRuleCount,
+
+    -- ** AggregateConformancePackComplianceCount
+    aggregateConformancePackComplianceCount_nonCompliantConformancePackCount,
+    aggregateConformancePackComplianceCount_compliantConformancePackCount,
+
+    -- ** AggregateConformancePackComplianceFilters
+    aggregateConformancePackComplianceFilters_accountId,
+    aggregateConformancePackComplianceFilters_complianceType,
+    aggregateConformancePackComplianceFilters_conformancePackName,
+    aggregateConformancePackComplianceFilters_awsRegion,
+
+    -- ** AggregateConformancePackComplianceSummary
+    aggregateConformancePackComplianceSummary_complianceSummary,
+    aggregateConformancePackComplianceSummary_groupName,
+
+    -- ** AggregateConformancePackComplianceSummaryFilters
+    aggregateConformancePackComplianceSummaryFilters_accountId,
+    aggregateConformancePackComplianceSummaryFilters_awsRegion,
 
     -- ** AggregateEvaluationResult
     aggregateEvaluationResult_annotation,
@@ -622,24 +672,24 @@ module Network.AWS.Config.Lens
     -- ** AggregationAuthorization
     aggregationAuthorization_creationTime,
     aggregationAuthorization_authorizedAccountId,
-    aggregationAuthorization_authorizedAwsRegion,
     aggregationAuthorization_aggregationAuthorizationArn,
+    aggregationAuthorization_authorizedAwsRegion,
 
     -- ** BaseConfigurationItem
     baseConfigurationItem_resourceId,
     baseConfigurationItem_accountId,
     baseConfigurationItem_configuration,
     baseConfigurationItem_arn,
-    baseConfigurationItem_version,
     baseConfigurationItem_configurationStateId,
+    baseConfigurationItem_version,
     baseConfigurationItem_resourceType,
     baseConfigurationItem_supplementaryConfiguration,
     baseConfigurationItem_availabilityZone,
     baseConfigurationItem_configurationItemCaptureTime,
     baseConfigurationItem_configurationItemStatus,
     baseConfigurationItem_resourceCreationTime,
-    baseConfigurationItem_awsRegion,
     baseConfigurationItem_resourceName,
+    baseConfigurationItem_awsRegion,
 
     -- ** Compliance
     compliance_complianceType,
@@ -676,8 +726,8 @@ module Network.AWS.Config.Lens
     configExportDeliveryInfo_lastAttemptTime,
 
     -- ** ConfigRule
-    configRule_configRuleId,
     configRule_configRuleArn,
+    configRule_configRuleId,
     configRule_maximumExecutionFrequency,
     configRule_configRuleName,
     configRule_configRuleState,
@@ -699,16 +749,16 @@ module Network.AWS.Config.Lens
 
     -- ** ConfigRuleEvaluationStatus
     configRuleEvaluationStatus_lastErrorMessage,
-    configRuleEvaluationStatus_configRuleId,
     configRuleEvaluationStatus_configRuleArn,
+    configRuleEvaluationStatus_configRuleId,
     configRuleEvaluationStatus_configRuleName,
     configRuleEvaluationStatus_firstEvaluationStarted,
-    configRuleEvaluationStatus_lastFailedEvaluationTime,
     configRuleEvaluationStatus_firstActivatedTime,
+    configRuleEvaluationStatus_lastFailedEvaluationTime,
     configRuleEvaluationStatus_lastErrorCode,
     configRuleEvaluationStatus_lastFailedInvocationTime,
-    configRuleEvaluationStatus_lastSuccessfulInvocationTime,
     configRuleEvaluationStatus_lastDeactivatedTime,
+    configRuleEvaluationStatus_lastSuccessfulInvocationTime,
     configRuleEvaluationStatus_lastSuccessfulEvaluationTime,
 
     -- ** ConfigSnapshotDeliveryProperties
@@ -724,8 +774,8 @@ module Network.AWS.Config.Lens
     configurationAggregator_creationTime,
     configurationAggregator_configurationAggregatorArn,
     configurationAggregator_configurationAggregatorName,
-    configurationAggregator_accountAggregationSources,
     configurationAggregator_createdBy,
+    configurationAggregator_accountAggregationSources,
     configurationAggregator_lastUpdatedTime,
     configurationAggregator_organizationAggregationSource,
 
@@ -733,11 +783,11 @@ module Network.AWS.Config.Lens
     configurationItem_relationships,
     configurationItem_resourceId,
     configurationItem_accountId,
-    configurationItem_relatedEvents,
     configurationItem_configuration,
+    configurationItem_relatedEvents,
     configurationItem_arn,
-    configurationItem_version,
     configurationItem_configurationStateId,
+    configurationItem_version,
     configurationItem_resourceType,
     configurationItem_supplementaryConfiguration,
     configurationItem_availabilityZone,
@@ -746,8 +796,8 @@ module Network.AWS.Config.Lens
     configurationItem_tags,
     configurationItem_resourceCreationTime,
     configurationItem_configurationItemMD5Hash,
-    configurationItem_awsRegion,
     configurationItem_resourceName,
+    configurationItem_awsRegion,
 
     -- ** ConfigurationRecorder
     configurationRecorder_roleARN,
@@ -755,12 +805,12 @@ module Network.AWS.Config.Lens
     configurationRecorder_recordingGroup,
 
     -- ** ConfigurationRecorderStatus
-    configurationRecorderStatus_lastStopTime,
     configurationRecorderStatus_lastStartTime,
+    configurationRecorderStatus_lastStopTime,
     configurationRecorderStatus_lastErrorMessage,
     configurationRecorderStatus_recording,
-    configurationRecorderStatus_name,
     configurationRecorderStatus_lastErrorCode,
+    configurationRecorderStatus_name,
     configurationRecorderStatus_lastStatus,
     configurationRecorderStatus_lastStatusChangeTime,
 
@@ -775,8 +825,8 @@ module Network.AWS.Config.Lens
     -- ** ConformancePackDetail
     conformancePackDetail_lastUpdateRequestedTime,
     conformancePackDetail_deliveryS3Bucket,
-    conformancePackDetail_deliveryS3KeyPrefix,
     conformancePackDetail_createdBy,
+    conformancePackDetail_deliveryS3KeyPrefix,
     conformancePackDetail_conformancePackInputParameters,
     conformancePackDetail_conformancePackName,
     conformancePackDetail_conformancePackArn,
@@ -800,6 +850,7 @@ module Network.AWS.Config.Lens
     conformancePackInputParameter_parameterValue,
 
     -- ** ConformancePackRuleCompliance
+    conformancePackRuleCompliance_controls,
     conformancePackRuleCompliance_configRuleName,
     conformancePackRuleCompliance_complianceType,
 
@@ -822,8 +873,8 @@ module Network.AWS.Config.Lens
     deliveryChannel_snsTopicARN,
 
     -- ** DeliveryChannelStatus
-    deliveryChannelStatus_configSnapshotDeliveryInfo,
     deliveryChannelStatus_configStreamDeliveryInfo,
+    deliveryChannelStatus_configSnapshotDeliveryInfo,
     deliveryChannelStatus_name,
     deliveryChannelStatus_configHistoryDeliveryInfo,
 
@@ -911,8 +962,8 @@ module Network.AWS.Config.Lens
     -- ** OrganizationConformancePack
     organizationConformancePack_deliveryS3Bucket,
     organizationConformancePack_deliveryS3KeyPrefix,
-    organizationConformancePack_excludedAccounts,
     organizationConformancePack_conformancePackInputParameters,
+    organizationConformancePack_excludedAccounts,
     organizationConformancePack_organizationConformancePackName,
     organizationConformancePack_organizationConformancePackArn,
     organizationConformancePack_lastUpdateTime,
@@ -976,8 +1027,8 @@ module Network.AWS.Config.Lens
     relationship_resourceName,
 
     -- ** RemediationConfiguration
-    remediationConfiguration_retryAttemptSeconds,
     remediationConfiguration_executionControls,
+    remediationConfiguration_retryAttemptSeconds,
     remediationConfiguration_targetVersion,
     remediationConfiguration_arn,
     remediationConfiguration_automatic,
@@ -1008,10 +1059,10 @@ module Network.AWS.Config.Lens
     remediationExecutionStatus_lastUpdatedTime,
 
     -- ** RemediationExecutionStep
-    remediationExecutionStep_startTime,
     remediationExecutionStep_stopTime,
-    remediationExecutionStep_state,
+    remediationExecutionStep_startTime,
     remediationExecutionStep_name,
+    remediationExecutionStep_state,
     remediationExecutionStep_errorMessage,
 
     -- ** RemediationParameterValue
@@ -1115,6 +1166,7 @@ import Network.AWS.Config.DeleteRetentionConfiguration
 import Network.AWS.Config.DeleteStoredQuery
 import Network.AWS.Config.DeliverConfigSnapshot
 import Network.AWS.Config.DescribeAggregateComplianceByConfigRules
+import Network.AWS.Config.DescribeAggregateComplianceByConformancePacks
 import Network.AWS.Config.DescribeAggregationAuthorizations
 import Network.AWS.Config.DescribeComplianceByConfigRule
 import Network.AWS.Config.DescribeComplianceByResource
@@ -1140,6 +1192,7 @@ import Network.AWS.Config.DescribeRemediationExecutionStatus
 import Network.AWS.Config.DescribeRetentionConfigurations
 import Network.AWS.Config.GetAggregateComplianceDetailsByConfigRule
 import Network.AWS.Config.GetAggregateConfigRuleComplianceSummary
+import Network.AWS.Config.GetAggregateConformancePackComplianceSummary
 import Network.AWS.Config.GetAggregateDiscoveredResourceCounts
 import Network.AWS.Config.GetAggregateResourceConfig
 import Network.AWS.Config.GetComplianceDetailsByConfigRule
@@ -1181,7 +1234,13 @@ import Network.AWS.Config.StopConfigurationRecorder
 import Network.AWS.Config.TagResource
 import Network.AWS.Config.Types.AccountAggregationSource
 import Network.AWS.Config.Types.AggregateComplianceByConfigRule
+import Network.AWS.Config.Types.AggregateComplianceByConformancePack
 import Network.AWS.Config.Types.AggregateComplianceCount
+import Network.AWS.Config.Types.AggregateConformancePackCompliance
+import Network.AWS.Config.Types.AggregateConformancePackComplianceCount
+import Network.AWS.Config.Types.AggregateConformancePackComplianceFilters
+import Network.AWS.Config.Types.AggregateConformancePackComplianceSummary
+import Network.AWS.Config.Types.AggregateConformancePackComplianceSummaryFilters
 import Network.AWS.Config.Types.AggregateEvaluationResult
 import Network.AWS.Config.Types.AggregateResourceIdentifier
 import Network.AWS.Config.Types.AggregatedSourceStatus

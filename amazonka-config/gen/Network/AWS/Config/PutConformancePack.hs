@@ -21,15 +21,15 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates or updates a conformance pack. A conformance pack is a
--- collection of AWS Config rules that can be easily deployed in an account
--- and a region and across AWS Organization.
+-- collection of Config rules that can be easily deployed in an account and
+-- a region and across Amazon Web Services Organization.
 --
 -- This API creates a service linked role @AWSServiceRoleForConfigConforms@
 -- in your account. The service linked role is created only when the role
 -- does not exist in your account.
 --
 -- You must specify either the @TemplateS3Uri@ or the @TemplateBody@
--- parameter, but not both. If you provide both AWS Config uses the
+-- parameter, but not both. If you provide both Config uses the
 -- @TemplateS3Uri@ parameter and ignores the @TemplateBody@ parameter.
 module Network.AWS.Config.PutConformancePack
   ( -- * Creating a Request
@@ -70,7 +70,8 @@ data PutConformancePack = PutConformancePack'
     --
     -- You must have access to read Amazon S3 bucket.
     templateS3Uri :: Prelude.Maybe Prelude.Text,
-    -- | Amazon S3 bucket where AWS Config stores conformance pack templates.
+    -- | The name of the Amazon S3 bucket where Config stores conformance pack
+    -- templates.
     --
     -- This field is optional.
     deliveryS3Bucket :: Prelude.Maybe Prelude.Text,
@@ -107,7 +108,8 @@ data PutConformancePack = PutConformancePack'
 --
 -- You must have access to read Amazon S3 bucket.
 --
--- 'deliveryS3Bucket', 'putConformancePack_deliveryS3Bucket' - Amazon S3 bucket where AWS Config stores conformance pack templates.
+-- 'deliveryS3Bucket', 'putConformancePack_deliveryS3Bucket' - The name of the Amazon S3 bucket where Config stores conformance pack
+-- templates.
 --
 -- This field is optional.
 --
@@ -149,7 +151,8 @@ newPutConformancePack pConformancePackName_ =
 putConformancePack_templateS3Uri :: Lens.Lens' PutConformancePack (Prelude.Maybe Prelude.Text)
 putConformancePack_templateS3Uri = Lens.lens (\PutConformancePack' {templateS3Uri} -> templateS3Uri) (\s@PutConformancePack' {} a -> s {templateS3Uri = a} :: PutConformancePack)
 
--- | Amazon S3 bucket where AWS Config stores conformance pack templates.
+-- | The name of the Amazon S3 bucket where Config stores conformance pack
+-- templates.
 --
 -- This field is optional.
 putConformancePack_deliveryS3Bucket :: Lens.Lens' PutConformancePack (Prelude.Maybe Prelude.Text)

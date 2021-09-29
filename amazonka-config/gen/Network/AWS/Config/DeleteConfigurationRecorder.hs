@@ -22,15 +22,15 @@
 --
 -- Deletes the configuration recorder.
 --
--- After the configuration recorder is deleted, AWS Config will not record
+-- After the configuration recorder is deleted, Config will not record
 -- resource configuration changes until you create a new configuration
 -- recorder.
 --
 -- This action does not delete the configuration information that was
 -- previously recorded. You will be able to access the previously recorded
 -- information by using the @GetResourceConfigHistory@ action, but you will
--- not be able to access this information in the AWS Config console until
--- you create a new configuration recorder.
+-- not be able to access this information in the Config console until you
+-- create a new configuration recorder.
 module Network.AWS.Config.DeleteConfigurationRecorder
   ( -- * Creating a Request
     DeleteConfigurationRecorder (..),

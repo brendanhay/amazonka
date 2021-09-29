@@ -20,7 +20,9 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List the tags for AWS Config resource.
+-- List the tags for Config resource.
+--
+-- This operation returns paginated results.
 module Network.AWS.Config.ListTagsForResource
   ( -- * Creating a Request
     ListTagsForResource (..),
@@ -55,7 +57,7 @@ data ListTagsForResource = ListTagsForResource'
     -- the next page of results in a paginated response.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of tags returned on each page. The limit maximum is
-    -- 50. You cannot specify a number greater than 50. If you specify 0, AWS
+    -- 50. You cannot specify a number greater than 50. If you specify 0,
     -- Config uses the default.
     limit :: Prelude.Maybe Prelude.Natural,
     -- | The Amazon Resource Name (ARN) that identifies the resource for which to
@@ -77,7 +79,7 @@ data ListTagsForResource = ListTagsForResource'
 -- the next page of results in a paginated response.
 --
 -- 'limit', 'listTagsForResource_limit' - The maximum number of tags returned on each page. The limit maximum is
--- 50. You cannot specify a number greater than 50. If you specify 0, AWS
+-- 50. You cannot specify a number greater than 50. If you specify 0,
 -- Config uses the default.
 --
 -- 'resourceArn', 'listTagsForResource_resourceArn' - The Amazon Resource Name (ARN) that identifies the resource for which to
@@ -100,7 +102,7 @@ listTagsForResource_nextToken :: Lens.Lens' ListTagsForResource (Prelude.Maybe P
 listTagsForResource_nextToken = Lens.lens (\ListTagsForResource' {nextToken} -> nextToken) (\s@ListTagsForResource' {} a -> s {nextToken = a} :: ListTagsForResource)
 
 -- | The maximum number of tags returned on each page. The limit maximum is
--- 50. You cannot specify a number greater than 50. If you specify 0, AWS
+-- 50. You cannot specify a number greater than 50. If you specify 0,
 -- Config uses the default.
 listTagsForResource_limit :: Lens.Lens' ListTagsForResource (Prelude.Maybe Prelude.Natural)
 listTagsForResource_limit = Lens.lens (\ListTagsForResource' {limit} -> limit) (\s@ListTagsForResource' {} a -> s {limit = a} :: ListTagsForResource)
@@ -110,6 +112,28 @@ listTagsForResource_limit = Lens.lens (\ListTagsForResource' {limit} -> limit) (
 -- @ConfigurationAggregator@ and @AggregatorAuthorization@.
 listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource Prelude.Text
 listTagsForResource_resourceArn = Lens.lens (\ListTagsForResource' {resourceArn} -> resourceArn) (\s@ListTagsForResource' {} a -> s {resourceArn = a} :: ListTagsForResource)
+
+instance Core.AWSPager ListTagsForResource where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? listTagsForResourceResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? listTagsForResourceResponse_tags Prelude.. Lens._Just
+              Prelude.. Lens.to Prelude.toList
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& listTagsForResource_nextToken
+          Lens..~ rs
+          Lens.^? listTagsForResourceResponse_nextToken
+            Prelude.. Lens._Just
 
 instance Core.AWSRequest ListTagsForResource where
   type

@@ -38,7 +38,7 @@ data OrganizationResourceDetailedStatusFilters = OrganizationResourceDetailedSta
     -- account deletes @OrganizationConformancePack@ and disables service
     -- access for @config-multiaccountsetup.amazonaws.com@.
     --
-    -- AWS Config sets the state of the conformance pack to:
+    -- Config sets the state of the conformance pack to:
     --
     -- -   @CREATE_SUCCESSFUL@ when conformance pack has been created in the
     --     member account.
@@ -89,7 +89,7 @@ data OrganizationResourceDetailedStatusFilters = OrganizationResourceDetailedSta
 -- account deletes @OrganizationConformancePack@ and disables service
 -- access for @config-multiaccountsetup.amazonaws.com@.
 --
--- AWS Config sets the state of the conformance pack to:
+-- Config sets the state of the conformance pack to:
 --
 -- -   @CREATE_SUCCESSFUL@ when conformance pack has been created in the
 --     member account.
@@ -137,7 +137,7 @@ newOrganizationResourceDetailedStatusFilters =
 -- account deletes @OrganizationConformancePack@ and disables service
 -- access for @config-multiaccountsetup.amazonaws.com@.
 --
--- AWS Config sets the state of the conformance pack to:
+-- Config sets the state of the conformance pack to:
 --
 -- -   @CREATE_SUCCESSFUL@ when conformance pack has been created in the
 --     member account.

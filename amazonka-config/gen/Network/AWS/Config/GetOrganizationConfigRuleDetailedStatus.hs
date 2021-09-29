@@ -22,6 +22,8 @@
 --
 -- Returns detailed status for each member account within an organization
 -- for a given organization config rule.
+--
+-- This operation returns paginated results.
 module Network.AWS.Config.GetOrganizationConfigRuleDetailedStatus
   ( -- * Creating a Request
     GetOrganizationConfigRuleDetailedStatus (..),
@@ -59,8 +61,8 @@ data GetOrganizationConfigRuleDetailedStatus = GetOrganizationConfigRuleDetailed
     -- | A @StatusDetailFilters@ object.
     filters :: Prelude.Maybe StatusDetailFilters,
     -- | The maximum number of @OrganizationConfigRuleDetailedStatus@ returned on
-    -- each page. If you do not specify a number, AWS Config uses the default.
-    -- The default is 100.
+    -- each page. If you do not specify a number, Config uses the default. The
+    -- default is 100.
     limit :: Prelude.Maybe Prelude.Natural,
     -- | The name of organization config rule for which you want status details
     -- for member accounts.
@@ -82,8 +84,8 @@ data GetOrganizationConfigRuleDetailedStatus = GetOrganizationConfigRuleDetailed
 -- 'filters', 'getOrganizationConfigRuleDetailedStatus_filters' - A @StatusDetailFilters@ object.
 --
 -- 'limit', 'getOrganizationConfigRuleDetailedStatus_limit' - The maximum number of @OrganizationConfigRuleDetailedStatus@ returned on
--- each page. If you do not specify a number, AWS Config uses the default.
--- The default is 100.
+-- each page. If you do not specify a number, Config uses the default. The
+-- default is 100.
 --
 -- 'organizationConfigRuleName', 'getOrganizationConfigRuleDetailedStatus_organizationConfigRuleName' - The name of organization config rule for which you want status details
 -- for member accounts.
@@ -112,8 +114,8 @@ getOrganizationConfigRuleDetailedStatus_filters :: Lens.Lens' GetOrganizationCon
 getOrganizationConfigRuleDetailedStatus_filters = Lens.lens (\GetOrganizationConfigRuleDetailedStatus' {filters} -> filters) (\s@GetOrganizationConfigRuleDetailedStatus' {} a -> s {filters = a} :: GetOrganizationConfigRuleDetailedStatus)
 
 -- | The maximum number of @OrganizationConfigRuleDetailedStatus@ returned on
--- each page. If you do not specify a number, AWS Config uses the default.
--- The default is 100.
+-- each page. If you do not specify a number, Config uses the default. The
+-- default is 100.
 getOrganizationConfigRuleDetailedStatus_limit :: Lens.Lens' GetOrganizationConfigRuleDetailedStatus (Prelude.Maybe Prelude.Natural)
 getOrganizationConfigRuleDetailedStatus_limit = Lens.lens (\GetOrganizationConfigRuleDetailedStatus' {limit} -> limit) (\s@GetOrganizationConfigRuleDetailedStatus' {} a -> s {limit = a} :: GetOrganizationConfigRuleDetailedStatus)
 
@@ -121,6 +123,31 @@ getOrganizationConfigRuleDetailedStatus_limit = Lens.lens (\GetOrganizationConfi
 -- for member accounts.
 getOrganizationConfigRuleDetailedStatus_organizationConfigRuleName :: Lens.Lens' GetOrganizationConfigRuleDetailedStatus Prelude.Text
 getOrganizationConfigRuleDetailedStatus_organizationConfigRuleName = Lens.lens (\GetOrganizationConfigRuleDetailedStatus' {organizationConfigRuleName} -> organizationConfigRuleName) (\s@GetOrganizationConfigRuleDetailedStatus' {} a -> s {organizationConfigRuleName = a} :: GetOrganizationConfigRuleDetailedStatus)
+
+instance
+  Core.AWSPager
+    GetOrganizationConfigRuleDetailedStatus
+  where
+  page rq rs
+    | Core.stop
+        ( rs
+            Lens.^? getOrganizationConfigRuleDetailedStatusResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Core.stop
+        ( rs
+            Lens.^? getOrganizationConfigRuleDetailedStatusResponse_organizationConfigRuleDetailedStatus
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Prelude.& getOrganizationConfigRuleDetailedStatus_nextToken
+          Lens..~ rs
+            Lens.^? getOrganizationConfigRuleDetailedStatusResponse_nextToken
+              Prelude.. Lens._Just
 
 instance
   Core.AWSRequest

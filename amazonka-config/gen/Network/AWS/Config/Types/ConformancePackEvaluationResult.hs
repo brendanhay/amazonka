@@ -25,9 +25,10 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The details of a conformance pack evaluation. Provides AWS Config rule
--- and AWS resource type that was evaluated, the compliance of the
--- conformance pack, related time stamps, and supplementary information.
+-- | The details of a conformance pack evaluation. Provides Config rule and
+-- Amazon Web Services resource type that was evaluated, the compliance of
+-- the conformance pack, related time stamps, and supplementary
+-- information.
 --
 -- /See:/ 'newConformancePackEvaluationResult' smart constructor.
 data ConformancePackEvaluationResult = ConformancePackEvaluationResult'
@@ -35,12 +36,12 @@ data ConformancePackEvaluationResult = ConformancePackEvaluationResult'
     -- compliance.
     annotation :: Prelude.Maybe Prelude.Text,
     -- | The compliance type. The allowed values are @COMPLIANT@ and
-    -- @NON_COMPLIANT@.
+    -- @NON_COMPLIANT@. @INSUFFICIENT_DATA@ is not supported.
     complianceType :: ConformancePackComplianceType,
     evaluationResultIdentifier :: EvaluationResultIdentifier,
-    -- | The time when AWS Config rule evaluated AWS resource.
+    -- | The time when Config rule evaluated Amazon Web Services resource.
     configRuleInvokedTime :: Core.POSIX,
-    -- | The time when AWS Config recorded the evaluation result.
+    -- | The time when Config recorded the evaluation result.
     resultRecordedTime :: Core.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -57,13 +58,13 @@ data ConformancePackEvaluationResult = ConformancePackEvaluationResult'
 -- compliance.
 --
 -- 'complianceType', 'conformancePackEvaluationResult_complianceType' - The compliance type. The allowed values are @COMPLIANT@ and
--- @NON_COMPLIANT@.
+-- @NON_COMPLIANT@. @INSUFFICIENT_DATA@ is not supported.
 --
 -- 'evaluationResultIdentifier', 'conformancePackEvaluationResult_evaluationResultIdentifier' - Undocumented member.
 --
--- 'configRuleInvokedTime', 'conformancePackEvaluationResult_configRuleInvokedTime' - The time when AWS Config rule evaluated AWS resource.
+-- 'configRuleInvokedTime', 'conformancePackEvaluationResult_configRuleInvokedTime' - The time when Config rule evaluated Amazon Web Services resource.
 --
--- 'resultRecordedTime', 'conformancePackEvaluationResult_resultRecordedTime' - The time when AWS Config recorded the evaluation result.
+-- 'resultRecordedTime', 'conformancePackEvaluationResult_resultRecordedTime' - The time when Config recorded the evaluation result.
 newConformancePackEvaluationResult ::
   -- | 'complianceType'
   ConformancePackComplianceType ->
@@ -98,7 +99,7 @@ conformancePackEvaluationResult_annotation :: Lens.Lens' ConformancePackEvaluati
 conformancePackEvaluationResult_annotation = Lens.lens (\ConformancePackEvaluationResult' {annotation} -> annotation) (\s@ConformancePackEvaluationResult' {} a -> s {annotation = a} :: ConformancePackEvaluationResult)
 
 -- | The compliance type. The allowed values are @COMPLIANT@ and
--- @NON_COMPLIANT@.
+-- @NON_COMPLIANT@. @INSUFFICIENT_DATA@ is not supported.
 conformancePackEvaluationResult_complianceType :: Lens.Lens' ConformancePackEvaluationResult ConformancePackComplianceType
 conformancePackEvaluationResult_complianceType = Lens.lens (\ConformancePackEvaluationResult' {complianceType} -> complianceType) (\s@ConformancePackEvaluationResult' {} a -> s {complianceType = a} :: ConformancePackEvaluationResult)
 
@@ -106,11 +107,11 @@ conformancePackEvaluationResult_complianceType = Lens.lens (\ConformancePackEval
 conformancePackEvaluationResult_evaluationResultIdentifier :: Lens.Lens' ConformancePackEvaluationResult EvaluationResultIdentifier
 conformancePackEvaluationResult_evaluationResultIdentifier = Lens.lens (\ConformancePackEvaluationResult' {evaluationResultIdentifier} -> evaluationResultIdentifier) (\s@ConformancePackEvaluationResult' {} a -> s {evaluationResultIdentifier = a} :: ConformancePackEvaluationResult)
 
--- | The time when AWS Config rule evaluated AWS resource.
+-- | The time when Config rule evaluated Amazon Web Services resource.
 conformancePackEvaluationResult_configRuleInvokedTime :: Lens.Lens' ConformancePackEvaluationResult Prelude.UTCTime
 conformancePackEvaluationResult_configRuleInvokedTime = Lens.lens (\ConformancePackEvaluationResult' {configRuleInvokedTime} -> configRuleInvokedTime) (\s@ConformancePackEvaluationResult' {} a -> s {configRuleInvokedTime = a} :: ConformancePackEvaluationResult) Prelude.. Core._Time
 
--- | The time when AWS Config recorded the evaluation result.
+-- | The time when Config recorded the evaluation result.
 conformancePackEvaluationResult_resultRecordedTime :: Lens.Lens' ConformancePackEvaluationResult Prelude.UTCTime
 conformancePackEvaluationResult_resultRecordedTime = Lens.lens (\ConformancePackEvaluationResult' {resultRecordedTime} -> resultRecordedTime) (\s@ConformancePackEvaluationResult' {} a -> s {resultRecordedTime = a} :: ConformancePackEvaluationResult) Prelude.. Core._Time
 

@@ -21,8 +21,9 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Saves a new query or updates an existing saved query. The @QueryName@
--- must be unique for a single AWS account and a single AWS Region. You can
--- create upto 300 queries in a single AWS account and a single AWS Region.
+-- must be unique for a single Amazon Web Services account and a single
+-- Amazon Web Services Region. You can create upto 300 queries in a single
+-- Amazon Web Services account and a single Amazon Web Services Region.
 module Network.AWS.Config.PutStoredQuery
   ( -- * Creating a Request
     PutStoredQuery (..),

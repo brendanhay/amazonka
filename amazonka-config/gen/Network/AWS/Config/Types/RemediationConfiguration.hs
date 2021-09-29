@@ -32,15 +32,15 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newRemediationConfiguration' smart constructor.
 data RemediationConfiguration = RemediationConfiguration'
-  { -- | Maximum time in seconds that AWS Config runs auto-remediation. If you do
-    -- not select a number, the default is 60 seconds.
+  { -- | An ExecutionControls object.
+    executionControls :: Prelude.Maybe ExecutionControls,
+    -- | Maximum time in seconds that Config runs auto-remediation. If you do not
+    -- select a number, the default is 60 seconds.
     --
     -- For example, if you specify RetryAttemptSeconds as 50 seconds and
-    -- MaximumAutomaticAttempts as 5, AWS Config will run auto-remediations 5
-    -- times within 50 seconds before throwing an exception.
+    -- MaximumAutomaticAttempts as 5, Config will run auto-remediations 5 times
+    -- within 50 seconds before throwing an exception.
     retryAttemptSeconds :: Prelude.Maybe Prelude.Natural,
-    -- | An ExecutionControls object.
-    executionControls :: Prelude.Maybe ExecutionControls,
     -- | Version of the target. For example, version of the SSM document.
     --
     -- If you make backward incompatible changes to the SSM document, you must
@@ -59,13 +59,13 @@ data RemediationConfiguration = RemediationConfiguration'
     -- not select a number, the default is 5.
     --
     -- For example, if you specify MaximumAutomaticAttempts as 5 with
-    -- RetryAttemptSeconds as 50 seconds, AWS Config will put a
+    -- RetryAttemptSeconds as 50 seconds, Config will put a
     -- RemediationException on your behalf for the failing resource after the
     -- 5th failed attempt within 50 seconds.
     maximumAutomaticAttempts :: Prelude.Maybe Prelude.Natural,
     -- | An object of the RemediationParameterValue.
     parameters :: Prelude.Maybe (Prelude.HashMap Prelude.Text RemediationParameterValue),
-    -- | The name of the AWS Config rule.
+    -- | The name of the Config rule.
     configRuleName :: Prelude.Text,
     -- | The type of the target. Target executes remediation. For example, SSM
     -- document.
@@ -83,14 +83,14 @@ data RemediationConfiguration = RemediationConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'retryAttemptSeconds', 'remediationConfiguration_retryAttemptSeconds' - Maximum time in seconds that AWS Config runs auto-remediation. If you do
--- not select a number, the default is 60 seconds.
+-- 'executionControls', 'remediationConfiguration_executionControls' - An ExecutionControls object.
+--
+-- 'retryAttemptSeconds', 'remediationConfiguration_retryAttemptSeconds' - Maximum time in seconds that Config runs auto-remediation. If you do not
+-- select a number, the default is 60 seconds.
 --
 -- For example, if you specify RetryAttemptSeconds as 50 seconds and
--- MaximumAutomaticAttempts as 5, AWS Config will run auto-remediations 5
--- times within 50 seconds before throwing an exception.
---
--- 'executionControls', 'remediationConfiguration_executionControls' - An ExecutionControls object.
+-- MaximumAutomaticAttempts as 5, Config will run auto-remediations 5 times
+-- within 50 seconds before throwing an exception.
 --
 -- 'targetVersion', 'remediationConfiguration_targetVersion' - Version of the target. For example, version of the SSM document.
 --
@@ -110,13 +110,13 @@ data RemediationConfiguration = RemediationConfiguration'
 -- not select a number, the default is 5.
 --
 -- For example, if you specify MaximumAutomaticAttempts as 5 with
--- RetryAttemptSeconds as 50 seconds, AWS Config will put a
+-- RetryAttemptSeconds as 50 seconds, Config will put a
 -- RemediationException on your behalf for the failing resource after the
 -- 5th failed attempt within 50 seconds.
 --
 -- 'parameters', 'remediationConfiguration_parameters' - An object of the RemediationParameterValue.
 --
--- 'configRuleName', 'remediationConfiguration_configRuleName' - The name of the AWS Config rule.
+-- 'configRuleName', 'remediationConfiguration_configRuleName' - The name of the Config rule.
 --
 -- 'targetType', 'remediationConfiguration_targetType' - The type of the target. Target executes remediation. For example, SSM
 -- document.
@@ -135,9 +135,9 @@ newRemediationConfiguration
   pTargetType_
   pTargetId_ =
     RemediationConfiguration'
-      { retryAttemptSeconds =
+      { executionControls =
           Prelude.Nothing,
-        executionControls = Prelude.Nothing,
+        retryAttemptSeconds = Prelude.Nothing,
         targetVersion = Prelude.Nothing,
         arn = Prelude.Nothing,
         automatic = Prelude.Nothing,
@@ -150,18 +150,18 @@ newRemediationConfiguration
         targetId = pTargetId_
       }
 
--- | Maximum time in seconds that AWS Config runs auto-remediation. If you do
--- not select a number, the default is 60 seconds.
---
--- For example, if you specify RetryAttemptSeconds as 50 seconds and
--- MaximumAutomaticAttempts as 5, AWS Config will run auto-remediations 5
--- times within 50 seconds before throwing an exception.
-remediationConfiguration_retryAttemptSeconds :: Lens.Lens' RemediationConfiguration (Prelude.Maybe Prelude.Natural)
-remediationConfiguration_retryAttemptSeconds = Lens.lens (\RemediationConfiguration' {retryAttemptSeconds} -> retryAttemptSeconds) (\s@RemediationConfiguration' {} a -> s {retryAttemptSeconds = a} :: RemediationConfiguration)
-
 -- | An ExecutionControls object.
 remediationConfiguration_executionControls :: Lens.Lens' RemediationConfiguration (Prelude.Maybe ExecutionControls)
 remediationConfiguration_executionControls = Lens.lens (\RemediationConfiguration' {executionControls} -> executionControls) (\s@RemediationConfiguration' {} a -> s {executionControls = a} :: RemediationConfiguration)
+
+-- | Maximum time in seconds that Config runs auto-remediation. If you do not
+-- select a number, the default is 60 seconds.
+--
+-- For example, if you specify RetryAttemptSeconds as 50 seconds and
+-- MaximumAutomaticAttempts as 5, Config will run auto-remediations 5 times
+-- within 50 seconds before throwing an exception.
+remediationConfiguration_retryAttemptSeconds :: Lens.Lens' RemediationConfiguration (Prelude.Maybe Prelude.Natural)
+remediationConfiguration_retryAttemptSeconds = Lens.lens (\RemediationConfiguration' {retryAttemptSeconds} -> retryAttemptSeconds) (\s@RemediationConfiguration' {} a -> s {retryAttemptSeconds = a} :: RemediationConfiguration)
 
 -- | Version of the target. For example, version of the SSM document.
 --
@@ -191,7 +191,7 @@ remediationConfiguration_createdByService = Lens.lens (\RemediationConfiguration
 -- not select a number, the default is 5.
 --
 -- For example, if you specify MaximumAutomaticAttempts as 5 with
--- RetryAttemptSeconds as 50 seconds, AWS Config will put a
+-- RetryAttemptSeconds as 50 seconds, Config will put a
 -- RemediationException on your behalf for the failing resource after the
 -- 5th failed attempt within 50 seconds.
 remediationConfiguration_maximumAutomaticAttempts :: Lens.Lens' RemediationConfiguration (Prelude.Maybe Prelude.Natural)
@@ -201,7 +201,7 @@ remediationConfiguration_maximumAutomaticAttempts = Lens.lens (\RemediationConfi
 remediationConfiguration_parameters :: Lens.Lens' RemediationConfiguration (Prelude.Maybe (Prelude.HashMap Prelude.Text RemediationParameterValue))
 remediationConfiguration_parameters = Lens.lens (\RemediationConfiguration' {parameters} -> parameters) (\s@RemediationConfiguration' {} a -> s {parameters = a} :: RemediationConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
--- | The name of the AWS Config rule.
+-- | The name of the Config rule.
 remediationConfiguration_configRuleName :: Lens.Lens' RemediationConfiguration Prelude.Text
 remediationConfiguration_configRuleName = Lens.lens (\RemediationConfiguration' {configRuleName} -> configRuleName) (\s@RemediationConfiguration' {} a -> s {configRuleName = a} :: RemediationConfiguration)
 
@@ -220,8 +220,8 @@ instance Core.FromJSON RemediationConfiguration where
       "RemediationConfiguration"
       ( \x ->
           RemediationConfiguration'
-            Prelude.<$> (x Core..:? "RetryAttemptSeconds")
-            Prelude.<*> (x Core..:? "ExecutionControls")
+            Prelude.<$> (x Core..:? "ExecutionControls")
+            Prelude.<*> (x Core..:? "RetryAttemptSeconds")
             Prelude.<*> (x Core..:? "TargetVersion")
             Prelude.<*> (x Core..:? "Arn")
             Prelude.<*> (x Core..:? "Automatic")
@@ -242,10 +242,10 @@ instance Core.ToJSON RemediationConfiguration where
   toJSON RemediationConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RetryAttemptSeconds" Core..=)
-              Prelude.<$> retryAttemptSeconds,
-            ("ExecutionControls" Core..=)
+          [ ("ExecutionControls" Core..=)
               Prelude.<$> executionControls,
+            ("RetryAttemptSeconds" Core..=)
+              Prelude.<$> retryAttemptSeconds,
             ("TargetVersion" Core..=) Prelude.<$> targetVersion,
             ("Arn" Core..=) Prelude.<$> arn,
             ("Automatic" Core..=) Prelude.<$> automatic,

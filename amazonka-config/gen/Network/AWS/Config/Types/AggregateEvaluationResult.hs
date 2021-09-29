@@ -25,10 +25,10 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | The details of an AWS Config evaluation for an account ID and region in
--- an aggregator. Provides the AWS resource that was evaluated, the
--- compliance of the resource, related time stamps, and supplementary
--- information.
+-- | The details of an Config evaluation for an account ID and region in an
+-- aggregator. Provides the Amazon Web Services resource that was
+-- evaluated, the compliance of the resource, related time stamps, and
+-- supplementary information.
 --
 -- /See:/ 'newAggregateEvaluationResult' smart constructor.
 data AggregateEvaluationResult = AggregateEvaluationResult'
@@ -39,15 +39,16 @@ data AggregateEvaluationResult = AggregateEvaluationResult'
     evaluationResultIdentifier :: Prelude.Maybe EvaluationResultIdentifier,
     -- | The 12-digit account ID of the source account.
     accountId :: Prelude.Maybe Prelude.Text,
-    -- | The time when AWS Config recorded the aggregate evaluation result.
+    -- | The time when Config recorded the aggregate evaluation result.
     resultRecordedTime :: Prelude.Maybe Core.POSIX,
     -- | The resource compliance status.
     --
-    -- For the @AggregationEvaluationResult@ data type, AWS Config supports
-    -- only the @COMPLIANT@ and @NON_COMPLIANT@. AWS Config does not support
-    -- the @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ value.
+    -- For the @AggregationEvaluationResult@ data type, Config supports only
+    -- the @COMPLIANT@ and @NON_COMPLIANT@. Config does not support the
+    -- @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ value.
     complianceType :: Prelude.Maybe ComplianceType,
-    -- | The time when the AWS Config rule evaluated the AWS resource.
+    -- | The time when the Config rule evaluated the Amazon Web Services
+    -- resource.
     configRuleInvokedTime :: Prelude.Maybe Core.POSIX,
     -- | The source region from where the data is aggregated.
     awsRegion :: Prelude.Maybe Prelude.Text
@@ -69,15 +70,16 @@ data AggregateEvaluationResult = AggregateEvaluationResult'
 --
 -- 'accountId', 'aggregateEvaluationResult_accountId' - The 12-digit account ID of the source account.
 --
--- 'resultRecordedTime', 'aggregateEvaluationResult_resultRecordedTime' - The time when AWS Config recorded the aggregate evaluation result.
+-- 'resultRecordedTime', 'aggregateEvaluationResult_resultRecordedTime' - The time when Config recorded the aggregate evaluation result.
 --
 -- 'complianceType', 'aggregateEvaluationResult_complianceType' - The resource compliance status.
 --
--- For the @AggregationEvaluationResult@ data type, AWS Config supports
--- only the @COMPLIANT@ and @NON_COMPLIANT@. AWS Config does not support
--- the @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ value.
+-- For the @AggregationEvaluationResult@ data type, Config supports only
+-- the @COMPLIANT@ and @NON_COMPLIANT@. Config does not support the
+-- @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ value.
 --
--- 'configRuleInvokedTime', 'aggregateEvaluationResult_configRuleInvokedTime' - The time when the AWS Config rule evaluated the AWS resource.
+-- 'configRuleInvokedTime', 'aggregateEvaluationResult_configRuleInvokedTime' - The time when the Config rule evaluated the Amazon Web Services
+-- resource.
 --
 -- 'awsRegion', 'aggregateEvaluationResult_awsRegion' - The source region from where the data is aggregated.
 newAggregateEvaluationResult ::
@@ -107,19 +109,20 @@ aggregateEvaluationResult_evaluationResultIdentifier = Lens.lens (\AggregateEval
 aggregateEvaluationResult_accountId :: Lens.Lens' AggregateEvaluationResult (Prelude.Maybe Prelude.Text)
 aggregateEvaluationResult_accountId = Lens.lens (\AggregateEvaluationResult' {accountId} -> accountId) (\s@AggregateEvaluationResult' {} a -> s {accountId = a} :: AggregateEvaluationResult)
 
--- | The time when AWS Config recorded the aggregate evaluation result.
+-- | The time when Config recorded the aggregate evaluation result.
 aggregateEvaluationResult_resultRecordedTime :: Lens.Lens' AggregateEvaluationResult (Prelude.Maybe Prelude.UTCTime)
 aggregateEvaluationResult_resultRecordedTime = Lens.lens (\AggregateEvaluationResult' {resultRecordedTime} -> resultRecordedTime) (\s@AggregateEvaluationResult' {} a -> s {resultRecordedTime = a} :: AggregateEvaluationResult) Prelude.. Lens.mapping Core._Time
 
 -- | The resource compliance status.
 --
--- For the @AggregationEvaluationResult@ data type, AWS Config supports
--- only the @COMPLIANT@ and @NON_COMPLIANT@. AWS Config does not support
--- the @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ value.
+-- For the @AggregationEvaluationResult@ data type, Config supports only
+-- the @COMPLIANT@ and @NON_COMPLIANT@. Config does not support the
+-- @NOT_APPLICABLE@ and @INSUFFICIENT_DATA@ value.
 aggregateEvaluationResult_complianceType :: Lens.Lens' AggregateEvaluationResult (Prelude.Maybe ComplianceType)
 aggregateEvaluationResult_complianceType = Lens.lens (\AggregateEvaluationResult' {complianceType} -> complianceType) (\s@AggregateEvaluationResult' {} a -> s {complianceType = a} :: AggregateEvaluationResult)
 
--- | The time when the AWS Config rule evaluated the AWS resource.
+-- | The time when the Config rule evaluated the Amazon Web Services
+-- resource.
 aggregateEvaluationResult_configRuleInvokedTime :: Lens.Lens' AggregateEvaluationResult (Prelude.Maybe Prelude.UTCTime)
 aggregateEvaluationResult_configRuleInvokedTime = Lens.lens (\AggregateEvaluationResult' {configRuleInvokedTime} -> configRuleInvokedTime) (\s@AggregateEvaluationResult' {} a -> s {configRuleInvokedTime = a} :: AggregateEvaluationResult) Prelude.. Lens.mapping Core._Time
 

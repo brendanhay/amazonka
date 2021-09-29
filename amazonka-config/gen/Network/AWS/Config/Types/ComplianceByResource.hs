@@ -24,19 +24,20 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Indicates whether an AWS resource that is evaluated according to one or
--- more AWS Config rules is compliant. A resource is compliant if it
--- complies with all of the rules that evaluate it. A resource is
--- noncompliant if it does not comply with one or more of these rules.
+-- | Indicates whether an Amazon Web Services resource that is evaluated
+-- according to one or more Config rules is compliant. A resource is
+-- compliant if it complies with all of the rules that evaluate it. A
+-- resource is noncompliant if it does not comply with one or more of these
+-- rules.
 --
 -- /See:/ 'newComplianceByResource' smart constructor.
 data ComplianceByResource = ComplianceByResource'
-  { -- | The ID of the AWS resource that was evaluated.
+  { -- | The ID of the Amazon Web Services resource that was evaluated.
     resourceId :: Prelude.Maybe Prelude.Text,
-    -- | The type of the AWS resource that was evaluated.
+    -- | The type of the Amazon Web Services resource that was evaluated.
     resourceType :: Prelude.Maybe Prelude.Text,
-    -- | Indicates whether the AWS resource complies with all of the AWS Config
-    -- rules that evaluated it.
+    -- | Indicates whether the Amazon Web Services resource complies with all of
+    -- the Config rules that evaluated it.
     compliance :: Prelude.Maybe Compliance
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -49,12 +50,12 @@ data ComplianceByResource = ComplianceByResource'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceId', 'complianceByResource_resourceId' - The ID of the AWS resource that was evaluated.
+-- 'resourceId', 'complianceByResource_resourceId' - The ID of the Amazon Web Services resource that was evaluated.
 --
--- 'resourceType', 'complianceByResource_resourceType' - The type of the AWS resource that was evaluated.
+-- 'resourceType', 'complianceByResource_resourceType' - The type of the Amazon Web Services resource that was evaluated.
 --
--- 'compliance', 'complianceByResource_compliance' - Indicates whether the AWS resource complies with all of the AWS Config
--- rules that evaluated it.
+-- 'compliance', 'complianceByResource_compliance' - Indicates whether the Amazon Web Services resource complies with all of
+-- the Config rules that evaluated it.
 newComplianceByResource ::
   ComplianceByResource
 newComplianceByResource =
@@ -64,16 +65,16 @@ newComplianceByResource =
       compliance = Prelude.Nothing
     }
 
--- | The ID of the AWS resource that was evaluated.
+-- | The ID of the Amazon Web Services resource that was evaluated.
 complianceByResource_resourceId :: Lens.Lens' ComplianceByResource (Prelude.Maybe Prelude.Text)
 complianceByResource_resourceId = Lens.lens (\ComplianceByResource' {resourceId} -> resourceId) (\s@ComplianceByResource' {} a -> s {resourceId = a} :: ComplianceByResource)
 
--- | The type of the AWS resource that was evaluated.
+-- | The type of the Amazon Web Services resource that was evaluated.
 complianceByResource_resourceType :: Lens.Lens' ComplianceByResource (Prelude.Maybe Prelude.Text)
 complianceByResource_resourceType = Lens.lens (\ComplianceByResource' {resourceType} -> resourceType) (\s@ComplianceByResource' {} a -> s {resourceType = a} :: ComplianceByResource)
 
--- | Indicates whether the AWS resource complies with all of the AWS Config
--- rules that evaluated it.
+-- | Indicates whether the Amazon Web Services resource complies with all of
+-- the Config rules that evaluated it.
 complianceByResource_compliance :: Lens.Lens' ComplianceByResource (Prelude.Maybe Compliance)
 complianceByResource_compliance = Lens.lens (\ComplianceByResource' {compliance} -> compliance) (\s@ComplianceByResource' {} a -> s {compliance = a} :: ComplianceByResource)
 

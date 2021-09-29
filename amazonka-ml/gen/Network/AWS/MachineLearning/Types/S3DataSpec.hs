@@ -27,7 +27,41 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newS3DataSpec' smart constructor.
 data S3DataSpec = S3DataSpec'
-  { -- | A JSON string that represents the splitting and rearrangement processing
+  { -- | A JSON string that represents the schema for an Amazon S3 @DataSource@.
+    -- The @DataSchema@ defines the structure of the observation data in the
+    -- data file(s) referenced in the @DataSource@.
+    --
+    -- You must provide either the @DataSchema@ or the @DataSchemaLocationS3@.
+    --
+    -- Define your @DataSchema@ as a series of key-value pairs. @attributes@
+    -- and @excludedVariableNames@ have an array of key-value pairs for their
+    -- value. Use the following format to define your @DataSchema@.
+    --
+    -- { \"version\": \"1.0\",
+    --
+    -- \"recordAnnotationFieldName\": \"F1\",
+    --
+    -- \"recordWeightFieldName\": \"F2\",
+    --
+    -- \"targetFieldName\": \"F3\",
+    --
+    -- \"dataFormat\": \"CSV\",
+    --
+    -- \"dataFileContainsHeader\": true,
+    --
+    -- \"attributes\": [
+    --
+    -- { \"fieldName\": \"F1\", \"fieldType\": \"TEXT\" }, { \"fieldName\":
+    -- \"F2\", \"fieldType\": \"NUMERIC\" }, { \"fieldName\": \"F3\",
+    -- \"fieldType\": \"CATEGORICAL\" }, { \"fieldName\": \"F4\",
+    -- \"fieldType\": \"NUMERIC\" }, { \"fieldName\": \"F5\", \"fieldType\":
+    -- \"CATEGORICAL\" }, { \"fieldName\": \"F6\", \"fieldType\": \"TEXT\" }, {
+    -- \"fieldName\": \"F7\", \"fieldType\": \"WEIGHTED_INT_SEQUENCE\" }, {
+    -- \"fieldName\": \"F8\", \"fieldType\": \"WEIGHTED_STRING_SEQUENCE\" } ],
+    --
+    -- \"excludedVariableNames\": [ \"F6\" ] }
+    dataSchema :: Prelude.Maybe Prelude.Text,
+    -- | A JSON string that represents the splitting and rearrangement processing
     -- to be applied to a @DataSource@. If the @DataRearrangement@ parameter is
     -- not provided, all of the input data is used to create the @Datasource@.
     --
@@ -114,40 +148,6 @@ data S3DataSpec = S3DataSpec'
     --     Datasource for training:
     --     @{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"random\", \"randomSeed\"=\"s3:\/\/my_s3_path\/bucket\/file.csv\", \"complement\":\"true\"}}@
     dataRearrangement :: Prelude.Maybe Prelude.Text,
-    -- | A JSON string that represents the schema for an Amazon S3 @DataSource@.
-    -- The @DataSchema@ defines the structure of the observation data in the
-    -- data file(s) referenced in the @DataSource@.
-    --
-    -- You must provide either the @DataSchema@ or the @DataSchemaLocationS3@.
-    --
-    -- Define your @DataSchema@ as a series of key-value pairs. @attributes@
-    -- and @excludedVariableNames@ have an array of key-value pairs for their
-    -- value. Use the following format to define your @DataSchema@.
-    --
-    -- { \"version\": \"1.0\",
-    --
-    -- \"recordAnnotationFieldName\": \"F1\",
-    --
-    -- \"recordWeightFieldName\": \"F2\",
-    --
-    -- \"targetFieldName\": \"F3\",
-    --
-    -- \"dataFormat\": \"CSV\",
-    --
-    -- \"dataFileContainsHeader\": true,
-    --
-    -- \"attributes\": [
-    --
-    -- { \"fieldName\": \"F1\", \"fieldType\": \"TEXT\" }, { \"fieldName\":
-    -- \"F2\", \"fieldType\": \"NUMERIC\" }, { \"fieldName\": \"F3\",
-    -- \"fieldType\": \"CATEGORICAL\" }, { \"fieldName\": \"F4\",
-    -- \"fieldType\": \"NUMERIC\" }, { \"fieldName\": \"F5\", \"fieldType\":
-    -- \"CATEGORICAL\" }, { \"fieldName\": \"F6\", \"fieldType\": \"TEXT\" }, {
-    -- \"fieldName\": \"F7\", \"fieldType\": \"WEIGHTED_INT_SEQUENCE\" }, {
-    -- \"fieldName\": \"F8\", \"fieldType\": \"WEIGHTED_STRING_SEQUENCE\" } ],
-    --
-    -- \"excludedVariableNames\": [ \"F6\" ] }
-    dataSchema :: Prelude.Maybe Prelude.Text,
     -- | Describes the schema location in Amazon S3. You must provide either the
     -- @DataSchema@ or the @DataSchemaLocationS3@.
     dataSchemaLocationS3 :: Prelude.Maybe Prelude.Text,
@@ -165,6 +165,40 @@ data S3DataSpec = S3DataSpec'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'dataSchema', 's3DataSpec_dataSchema' - A JSON string that represents the schema for an Amazon S3 @DataSource@.
+-- The @DataSchema@ defines the structure of the observation data in the
+-- data file(s) referenced in the @DataSource@.
+--
+-- You must provide either the @DataSchema@ or the @DataSchemaLocationS3@.
+--
+-- Define your @DataSchema@ as a series of key-value pairs. @attributes@
+-- and @excludedVariableNames@ have an array of key-value pairs for their
+-- value. Use the following format to define your @DataSchema@.
+--
+-- { \"version\": \"1.0\",
+--
+-- \"recordAnnotationFieldName\": \"F1\",
+--
+-- \"recordWeightFieldName\": \"F2\",
+--
+-- \"targetFieldName\": \"F3\",
+--
+-- \"dataFormat\": \"CSV\",
+--
+-- \"dataFileContainsHeader\": true,
+--
+-- \"attributes\": [
+--
+-- { \"fieldName\": \"F1\", \"fieldType\": \"TEXT\" }, { \"fieldName\":
+-- \"F2\", \"fieldType\": \"NUMERIC\" }, { \"fieldName\": \"F3\",
+-- \"fieldType\": \"CATEGORICAL\" }, { \"fieldName\": \"F4\",
+-- \"fieldType\": \"NUMERIC\" }, { \"fieldName\": \"F5\", \"fieldType\":
+-- \"CATEGORICAL\" }, { \"fieldName\": \"F6\", \"fieldType\": \"TEXT\" }, {
+-- \"fieldName\": \"F7\", \"fieldType\": \"WEIGHTED_INT_SEQUENCE\" }, {
+-- \"fieldName\": \"F8\", \"fieldType\": \"WEIGHTED_STRING_SEQUENCE\" } ],
+--
+-- \"excludedVariableNames\": [ \"F6\" ] }
 --
 -- 'dataRearrangement', 's3DataSpec_dataRearrangement' - A JSON string that represents the splitting and rearrangement processing
 -- to be applied to a @DataSource@. If the @DataRearrangement@ parameter is
@@ -253,7 +287,25 @@ data S3DataSpec = S3DataSpec'
 --     Datasource for training:
 --     @{\"splitting\":{\"percentBegin\":70, \"percentEnd\":100, \"strategy\":\"random\", \"randomSeed\"=\"s3:\/\/my_s3_path\/bucket\/file.csv\", \"complement\":\"true\"}}@
 --
--- 'dataSchema', 's3DataSpec_dataSchema' - A JSON string that represents the schema for an Amazon S3 @DataSource@.
+-- 'dataSchemaLocationS3', 's3DataSpec_dataSchemaLocationS3' - Describes the schema location in Amazon S3. You must provide either the
+-- @DataSchema@ or the @DataSchemaLocationS3@.
+--
+-- 'dataLocationS3', 's3DataSpec_dataLocationS3' - The location of the data file(s) used by a @DataSource@. The URI
+-- specifies a data file or an Amazon Simple Storage Service (Amazon S3)
+-- directory or bucket containing data files.
+newS3DataSpec ::
+  -- | 'dataLocationS3'
+  Prelude.Text ->
+  S3DataSpec
+newS3DataSpec pDataLocationS3_ =
+  S3DataSpec'
+    { dataSchema = Prelude.Nothing,
+      dataRearrangement = Prelude.Nothing,
+      dataSchemaLocationS3 = Prelude.Nothing,
+      dataLocationS3 = pDataLocationS3_
+    }
+
+-- | A JSON string that represents the schema for an Amazon S3 @DataSource@.
 -- The @DataSchema@ defines the structure of the observation data in the
 -- data file(s) referenced in the @DataSource@.
 --
@@ -286,24 +338,8 @@ data S3DataSpec = S3DataSpec'
 -- \"fieldName\": \"F8\", \"fieldType\": \"WEIGHTED_STRING_SEQUENCE\" } ],
 --
 -- \"excludedVariableNames\": [ \"F6\" ] }
---
--- 'dataSchemaLocationS3', 's3DataSpec_dataSchemaLocationS3' - Describes the schema location in Amazon S3. You must provide either the
--- @DataSchema@ or the @DataSchemaLocationS3@.
---
--- 'dataLocationS3', 's3DataSpec_dataLocationS3' - The location of the data file(s) used by a @DataSource@. The URI
--- specifies a data file or an Amazon Simple Storage Service (Amazon S3)
--- directory or bucket containing data files.
-newS3DataSpec ::
-  -- | 'dataLocationS3'
-  Prelude.Text ->
-  S3DataSpec
-newS3DataSpec pDataLocationS3_ =
-  S3DataSpec'
-    { dataRearrangement = Prelude.Nothing,
-      dataSchema = Prelude.Nothing,
-      dataSchemaLocationS3 = Prelude.Nothing,
-      dataLocationS3 = pDataLocationS3_
-    }
+s3DataSpec_dataSchema :: Lens.Lens' S3DataSpec (Prelude.Maybe Prelude.Text)
+s3DataSpec_dataSchema = Lens.lens (\S3DataSpec' {dataSchema} -> dataSchema) (\s@S3DataSpec' {} a -> s {dataSchema = a} :: S3DataSpec)
 
 -- | A JSON string that represents the splitting and rearrangement processing
 -- to be applied to a @DataSource@. If the @DataRearrangement@ parameter is
@@ -394,42 +430,6 @@ newS3DataSpec pDataLocationS3_ =
 s3DataSpec_dataRearrangement :: Lens.Lens' S3DataSpec (Prelude.Maybe Prelude.Text)
 s3DataSpec_dataRearrangement = Lens.lens (\S3DataSpec' {dataRearrangement} -> dataRearrangement) (\s@S3DataSpec' {} a -> s {dataRearrangement = a} :: S3DataSpec)
 
--- | A JSON string that represents the schema for an Amazon S3 @DataSource@.
--- The @DataSchema@ defines the structure of the observation data in the
--- data file(s) referenced in the @DataSource@.
---
--- You must provide either the @DataSchema@ or the @DataSchemaLocationS3@.
---
--- Define your @DataSchema@ as a series of key-value pairs. @attributes@
--- and @excludedVariableNames@ have an array of key-value pairs for their
--- value. Use the following format to define your @DataSchema@.
---
--- { \"version\": \"1.0\",
---
--- \"recordAnnotationFieldName\": \"F1\",
---
--- \"recordWeightFieldName\": \"F2\",
---
--- \"targetFieldName\": \"F3\",
---
--- \"dataFormat\": \"CSV\",
---
--- \"dataFileContainsHeader\": true,
---
--- \"attributes\": [
---
--- { \"fieldName\": \"F1\", \"fieldType\": \"TEXT\" }, { \"fieldName\":
--- \"F2\", \"fieldType\": \"NUMERIC\" }, { \"fieldName\": \"F3\",
--- \"fieldType\": \"CATEGORICAL\" }, { \"fieldName\": \"F4\",
--- \"fieldType\": \"NUMERIC\" }, { \"fieldName\": \"F5\", \"fieldType\":
--- \"CATEGORICAL\" }, { \"fieldName\": \"F6\", \"fieldType\": \"TEXT\" }, {
--- \"fieldName\": \"F7\", \"fieldType\": \"WEIGHTED_INT_SEQUENCE\" }, {
--- \"fieldName\": \"F8\", \"fieldType\": \"WEIGHTED_STRING_SEQUENCE\" } ],
---
--- \"excludedVariableNames\": [ \"F6\" ] }
-s3DataSpec_dataSchema :: Lens.Lens' S3DataSpec (Prelude.Maybe Prelude.Text)
-s3DataSpec_dataSchema = Lens.lens (\S3DataSpec' {dataSchema} -> dataSchema) (\s@S3DataSpec' {} a -> s {dataSchema = a} :: S3DataSpec)
-
 -- | Describes the schema location in Amazon S3. You must provide either the
 -- @DataSchema@ or the @DataSchemaLocationS3@.
 s3DataSpec_dataSchemaLocationS3 :: Lens.Lens' S3DataSpec (Prelude.Maybe Prelude.Text)
@@ -449,9 +449,9 @@ instance Core.ToJSON S3DataSpec where
   toJSON S3DataSpec' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DataRearrangement" Core..=)
+          [ ("DataSchema" Core..=) Prelude.<$> dataSchema,
+            ("DataRearrangement" Core..=)
               Prelude.<$> dataRearrangement,
-            ("DataSchema" Core..=) Prelude.<$> dataSchema,
             ("DataSchemaLocationS3" Core..=)
               Prelude.<$> dataSchemaLocationS3,
             Prelude.Just

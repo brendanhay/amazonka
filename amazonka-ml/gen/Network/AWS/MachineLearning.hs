@@ -46,11 +46,11 @@ module Network.AWS.MachineLearning
     -- * Waiters
     -- $waiters
 
-    -- ** MLModelAvailable
-    newMLModelAvailable,
-
     -- ** EvaluationAvailable
     newEvaluationAvailable,
+
+    -- ** MLModelAvailable
+    newMLModelAvailable,
 
     -- ** DataSourceAvailable
     newDataSourceAvailable,
@@ -60,12 +60,6 @@ module Network.AWS.MachineLearning
 
     -- * Operations
     -- $operations
-
-    -- ** DeleteMLModel
-    DeleteMLModel (DeleteMLModel'),
-    newDeleteMLModel,
-    DeleteMLModelResponse (DeleteMLModelResponse'),
-    newDeleteMLModelResponse,
 
     -- ** UpdateMLModel
     UpdateMLModel (UpdateMLModel'),
@@ -79,17 +73,23 @@ module Network.AWS.MachineLearning
     CreateDataSourceFromSResponse (CreateDataSourceFromSResponse'),
     newCreateDataSourceFromSResponse,
 
-    -- ** CreateDataSourceFromRedshift
-    CreateDataSourceFromRedshift (CreateDataSourceFromRedshift'),
-    newCreateDataSourceFromRedshift,
-    CreateDataSourceFromRedshiftResponse (CreateDataSourceFromRedshiftResponse'),
-    newCreateDataSourceFromRedshiftResponse,
+    -- ** DeleteMLModel
+    DeleteMLModel (DeleteMLModel'),
+    newDeleteMLModel,
+    DeleteMLModelResponse (DeleteMLModelResponse'),
+    newDeleteMLModelResponse,
 
     -- ** UpdateDataSource
     UpdateDataSource (UpdateDataSource'),
     newUpdateDataSource,
     UpdateDataSourceResponse (UpdateDataSourceResponse'),
     newUpdateDataSourceResponse,
+
+    -- ** CreateDataSourceFromRedshift
+    CreateDataSourceFromRedshift (CreateDataSourceFromRedshift'),
+    newCreateDataSourceFromRedshift,
+    CreateDataSourceFromRedshiftResponse (CreateDataSourceFromRedshiftResponse'),
+    newCreateDataSourceFromRedshiftResponse,
 
     -- ** DescribeTags
     DescribeTags (DescribeTags'),
@@ -109,17 +109,17 @@ module Network.AWS.MachineLearning
     DescribeDataSourcesResponse (DescribeDataSourcesResponse'),
     newDescribeDataSourcesResponse,
 
+    -- ** DeleteTags
+    DeleteTags (DeleteTags'),
+    newDeleteTags,
+    DeleteTagsResponse (DeleteTagsResponse'),
+    newDeleteTagsResponse,
+
     -- ** DescribeEvaluations (Paginated)
     DescribeEvaluations (DescribeEvaluations'),
     newDescribeEvaluations,
     DescribeEvaluationsResponse (DescribeEvaluationsResponse'),
     newDescribeEvaluationsResponse,
-
-    -- ** AddTags
-    AddTags (AddTags'),
-    newAddTags,
-    AddTagsResponse (AddTagsResponse'),
-    newAddTagsResponse,
 
     -- ** GetMLModel
     GetMLModel (GetMLModel'),
@@ -133,11 +133,11 @@ module Network.AWS.MachineLearning
     GetEvaluationResponse (GetEvaluationResponse'),
     newGetEvaluationResponse,
 
-    -- ** DeleteTags
-    DeleteTags (DeleteTags'),
-    newDeleteTags,
-    DeleteTagsResponse (DeleteTagsResponse'),
-    newDeleteTagsResponse,
+    -- ** AddTags
+    AddTags (AddTags'),
+    newAddTags,
+    AddTagsResponse (AddTagsResponse'),
+    newAddTagsResponse,
 
     -- ** DeleteRealtimeEndpoint
     DeleteRealtimeEndpoint (DeleteRealtimeEndpoint'),
@@ -150,12 +150,6 @@ module Network.AWS.MachineLearning
     newCreateDataSourceFromRDS,
     CreateDataSourceFromRDSResponse (CreateDataSourceFromRDSResponse'),
     newCreateDataSourceFromRDSResponse,
-
-    -- ** GetBatchPrediction
-    GetBatchPrediction (GetBatchPrediction'),
-    newGetBatchPrediction,
-    GetBatchPredictionResponse (GetBatchPredictionResponse'),
-    newGetBatchPredictionResponse,
 
     -- ** DescribeBatchPredictions (Paginated)
     DescribeBatchPredictions (DescribeBatchPredictions'),
@@ -175,11 +169,23 @@ module Network.AWS.MachineLearning
     UpdateEvaluationResponse (UpdateEvaluationResponse'),
     newUpdateEvaluationResponse,
 
+    -- ** GetBatchPrediction
+    GetBatchPrediction (GetBatchPrediction'),
+    newGetBatchPrediction,
+    GetBatchPredictionResponse (GetBatchPredictionResponse'),
+    newGetBatchPredictionResponse,
+
     -- ** GetDataSource
     GetDataSource (GetDataSource'),
     newGetDataSource,
     GetDataSourceResponse (GetDataSourceResponse'),
     newGetDataSourceResponse,
+
+    -- ** DeleteBatchPrediction
+    DeleteBatchPrediction (DeleteBatchPrediction'),
+    newDeleteBatchPrediction,
+    DeleteBatchPredictionResponse (DeleteBatchPredictionResponse'),
+    newDeleteBatchPredictionResponse,
 
     -- ** CreateRealtimeEndpoint
     CreateRealtimeEndpoint (CreateRealtimeEndpoint'),
@@ -193,23 +199,11 @@ module Network.AWS.MachineLearning
     UpdateBatchPredictionResponse (UpdateBatchPredictionResponse'),
     newUpdateBatchPredictionResponse,
 
-    -- ** DeleteBatchPrediction
-    DeleteBatchPrediction (DeleteBatchPrediction'),
-    newDeleteBatchPrediction,
-    DeleteBatchPredictionResponse (DeleteBatchPredictionResponse'),
-    newDeleteBatchPredictionResponse,
-
     -- ** DescribeMLModels (Paginated)
     DescribeMLModels (DescribeMLModels'),
     newDescribeMLModels,
     DescribeMLModelsResponse (DescribeMLModelsResponse'),
     newDescribeMLModelsResponse,
-
-    -- ** CreateBatchPrediction
-    CreateBatchPrediction (CreateBatchPrediction'),
-    newCreateBatchPrediction,
-    CreateBatchPredictionResponse (CreateBatchPredictionResponse'),
-    newCreateBatchPredictionResponse,
 
     -- ** Predict
     Predict (Predict'),
@@ -217,17 +211,23 @@ module Network.AWS.MachineLearning
     PredictResponse (PredictResponse'),
     newPredictResponse,
 
-    -- ** CreateMLModel
-    CreateMLModel (CreateMLModel'),
-    newCreateMLModel,
-    CreateMLModelResponse (CreateMLModelResponse'),
-    newCreateMLModelResponse,
+    -- ** CreateBatchPrediction
+    CreateBatchPrediction (CreateBatchPrediction'),
+    newCreateBatchPrediction,
+    CreateBatchPredictionResponse (CreateBatchPredictionResponse'),
+    newCreateBatchPredictionResponse,
 
     -- ** CreateEvaluation
     CreateEvaluation (CreateEvaluation'),
     newCreateEvaluation,
     CreateEvaluationResponse (CreateEvaluationResponse'),
     newCreateEvaluationResponse,
+
+    -- ** CreateMLModel
+    CreateMLModel (CreateMLModel'),
+    newCreateMLModel,
+    CreateMLModelResponse (CreateMLModelResponse'),
+    newCreateMLModelResponse,
 
     -- * Types
 

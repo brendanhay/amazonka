@@ -27,20 +27,20 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDeleteMLModel $
---             newDeleteMLModel
---
---         , requestUpdateMLModel $
+--         [ requestUpdateMLModel $
 --             newUpdateMLModel
 --
 --         , requestCreateDataSourceFromS $
 --             newCreateDataSourceFromS
 --
---         , requestCreateDataSourceFromRedshift $
---             newCreateDataSourceFromRedshift
+--         , requestDeleteMLModel $
+--             newDeleteMLModel
 --
 --         , requestUpdateDataSource $
 --             newUpdateDataSource
+--
+--         , requestCreateDataSourceFromRedshift $
+--             newCreateDataSourceFromRedshift
 --
 --         , requestDescribeTags $
 --             newDescribeTags
@@ -51,11 +51,11 @@ import Test.Tasty
 --         , requestDescribeDataSources $
 --             newDescribeDataSources
 --
+--         , requestDeleteTags $
+--             newDeleteTags
+--
 --         , requestDescribeEvaluations $
 --             newDescribeEvaluations
---
---         , requestAddTags $
---             newAddTags
 --
 --         , requestGetMLModel $
 --             newGetMLModel
@@ -63,17 +63,14 @@ import Test.Tasty
 --         , requestGetEvaluation $
 --             newGetEvaluation
 --
---         , requestDeleteTags $
---             newDeleteTags
+--         , requestAddTags $
+--             newAddTags
 --
 --         , requestDeleteRealtimeEndpoint $
 --             newDeleteRealtimeEndpoint
 --
 --         , requestCreateDataSourceFromRDS $
 --             newCreateDataSourceFromRDS
---
---         , requestGetBatchPrediction $
---             newGetBatchPrediction
 --
 --         , requestDescribeBatchPredictions $
 --             newDescribeBatchPredictions
@@ -84,8 +81,14 @@ import Test.Tasty
 --         , requestUpdateEvaluation $
 --             newUpdateEvaluation
 --
+--         , requestGetBatchPrediction $
+--             newGetBatchPrediction
+--
 --         , requestGetDataSource $
 --             newGetDataSource
+--
+--         , requestDeleteBatchPrediction $
+--             newDeleteBatchPrediction
 --
 --         , requestCreateRealtimeEndpoint $
 --             newCreateRealtimeEndpoint
@@ -93,41 +96,38 @@ import Test.Tasty
 --         , requestUpdateBatchPrediction $
 --             newUpdateBatchPrediction
 --
---         , requestDeleteBatchPrediction $
---             newDeleteBatchPrediction
---
 --         , requestDescribeMLModels $
 --             newDescribeMLModels
---
---         , requestCreateBatchPrediction $
---             newCreateBatchPrediction
 --
 --         , requestPredict $
 --             newPredict
 --
---         , requestCreateMLModel $
---             newCreateMLModel
+--         , requestCreateBatchPrediction $
+--             newCreateBatchPrediction
 --
 --         , requestCreateEvaluation $
 --             newCreateEvaluation
 --
+--         , requestCreateMLModel $
+--             newCreateMLModel
+--
 --           ]
 
 --     , testGroup "response"
---         [ responseDeleteMLModel $
---             newDeleteMLModelResponse
---
---         , responseUpdateMLModel $
+--         [ responseUpdateMLModel $
 --             newUpdateMLModelResponse
 --
 --         , responseCreateDataSourceFromS $
 --             newCreateDataSourceFromSResponse
 --
---         , responseCreateDataSourceFromRedshift $
---             newCreateDataSourceFromRedshiftResponse
+--         , responseDeleteMLModel $
+--             newDeleteMLModelResponse
 --
 --         , responseUpdateDataSource $
 --             newUpdateDataSourceResponse
+--
+--         , responseCreateDataSourceFromRedshift $
+--             newCreateDataSourceFromRedshiftResponse
 --
 --         , responseDescribeTags $
 --             newDescribeTagsResponse
@@ -138,11 +138,11 @@ import Test.Tasty
 --         , responseDescribeDataSources $
 --             newDescribeDataSourcesResponse
 --
+--         , responseDeleteTags $
+--             newDeleteTagsResponse
+--
 --         , responseDescribeEvaluations $
 --             newDescribeEvaluationsResponse
---
---         , responseAddTags $
---             newAddTagsResponse
 --
 --         , responseGetMLModel $
 --             newGetMLModelResponse
@@ -150,17 +150,14 @@ import Test.Tasty
 --         , responseGetEvaluation $
 --             newGetEvaluationResponse
 --
---         , responseDeleteTags $
---             newDeleteTagsResponse
+--         , responseAddTags $
+--             newAddTagsResponse
 --
 --         , responseDeleteRealtimeEndpoint $
 --             newDeleteRealtimeEndpointResponse
 --
 --         , responseCreateDataSourceFromRDS $
 --             newCreateDataSourceFromRDSResponse
---
---         , responseGetBatchPrediction $
---             newGetBatchPredictionResponse
 --
 --         , responseDescribeBatchPredictions $
 --             newDescribeBatchPredictionsResponse
@@ -171,8 +168,14 @@ import Test.Tasty
 --         , responseUpdateEvaluation $
 --             newUpdateEvaluationResponse
 --
+--         , responseGetBatchPrediction $
+--             newGetBatchPredictionResponse
+--
 --         , responseGetDataSource $
 --             newGetDataSourceResponse
+--
+--         , responseDeleteBatchPrediction $
+--             newDeleteBatchPredictionResponse
 --
 --         , responseCreateRealtimeEndpoint $
 --             newCreateRealtimeEndpointResponse
@@ -180,34 +183,25 @@ import Test.Tasty
 --         , responseUpdateBatchPrediction $
 --             newUpdateBatchPredictionResponse
 --
---         , responseDeleteBatchPrediction $
---             newDeleteBatchPredictionResponse
---
 --         , responseDescribeMLModels $
 --             newDescribeMLModelsResponse
---
---         , responseCreateBatchPrediction $
---             newCreateBatchPredictionResponse
 --
 --         , responsePredict $
 --             newPredictResponse
 --
---         , responseCreateMLModel $
---             newCreateMLModelResponse
+--         , responseCreateBatchPrediction $
+--             newCreateBatchPredictionResponse
 --
 --         , responseCreateEvaluation $
 --             newCreateEvaluationResponse
+--
+--         , responseCreateMLModel $
+--             newCreateMLModelResponse
 --
 --           ]
 --     ]
 
 -- Requests
-
-requestDeleteMLModel :: DeleteMLModel -> TestTree
-requestDeleteMLModel =
-  req
-    "DeleteMLModel"
-    "fixture/DeleteMLModel.yaml"
 
 requestUpdateMLModel :: UpdateMLModel -> TestTree
 requestUpdateMLModel =
@@ -221,17 +215,23 @@ requestCreateDataSourceFromS =
     "CreateDataSourceFromS"
     "fixture/CreateDataSourceFromS.yaml"
 
-requestCreateDataSourceFromRedshift :: CreateDataSourceFromRedshift -> TestTree
-requestCreateDataSourceFromRedshift =
+requestDeleteMLModel :: DeleteMLModel -> TestTree
+requestDeleteMLModel =
   req
-    "CreateDataSourceFromRedshift"
-    "fixture/CreateDataSourceFromRedshift.yaml"
+    "DeleteMLModel"
+    "fixture/DeleteMLModel.yaml"
 
 requestUpdateDataSource :: UpdateDataSource -> TestTree
 requestUpdateDataSource =
   req
     "UpdateDataSource"
     "fixture/UpdateDataSource.yaml"
+
+requestCreateDataSourceFromRedshift :: CreateDataSourceFromRedshift -> TestTree
+requestCreateDataSourceFromRedshift =
+  req
+    "CreateDataSourceFromRedshift"
+    "fixture/CreateDataSourceFromRedshift.yaml"
 
 requestDescribeTags :: DescribeTags -> TestTree
 requestDescribeTags =
@@ -251,17 +251,17 @@ requestDescribeDataSources =
     "DescribeDataSources"
     "fixture/DescribeDataSources.yaml"
 
+requestDeleteTags :: DeleteTags -> TestTree
+requestDeleteTags =
+  req
+    "DeleteTags"
+    "fixture/DeleteTags.yaml"
+
 requestDescribeEvaluations :: DescribeEvaluations -> TestTree
 requestDescribeEvaluations =
   req
     "DescribeEvaluations"
     "fixture/DescribeEvaluations.yaml"
-
-requestAddTags :: AddTags -> TestTree
-requestAddTags =
-  req
-    "AddTags"
-    "fixture/AddTags.yaml"
 
 requestGetMLModel :: GetMLModel -> TestTree
 requestGetMLModel =
@@ -275,11 +275,11 @@ requestGetEvaluation =
     "GetEvaluation"
     "fixture/GetEvaluation.yaml"
 
-requestDeleteTags :: DeleteTags -> TestTree
-requestDeleteTags =
+requestAddTags :: AddTags -> TestTree
+requestAddTags =
   req
-    "DeleteTags"
-    "fixture/DeleteTags.yaml"
+    "AddTags"
+    "fixture/AddTags.yaml"
 
 requestDeleteRealtimeEndpoint :: DeleteRealtimeEndpoint -> TestTree
 requestDeleteRealtimeEndpoint =
@@ -292,12 +292,6 @@ requestCreateDataSourceFromRDS =
   req
     "CreateDataSourceFromRDS"
     "fixture/CreateDataSourceFromRDS.yaml"
-
-requestGetBatchPrediction :: GetBatchPrediction -> TestTree
-requestGetBatchPrediction =
-  req
-    "GetBatchPrediction"
-    "fixture/GetBatchPrediction.yaml"
 
 requestDescribeBatchPredictions :: DescribeBatchPredictions -> TestTree
 requestDescribeBatchPredictions =
@@ -317,11 +311,23 @@ requestUpdateEvaluation =
     "UpdateEvaluation"
     "fixture/UpdateEvaluation.yaml"
 
+requestGetBatchPrediction :: GetBatchPrediction -> TestTree
+requestGetBatchPrediction =
+  req
+    "GetBatchPrediction"
+    "fixture/GetBatchPrediction.yaml"
+
 requestGetDataSource :: GetDataSource -> TestTree
 requestGetDataSource =
   req
     "GetDataSource"
     "fixture/GetDataSource.yaml"
+
+requestDeleteBatchPrediction :: DeleteBatchPrediction -> TestTree
+requestDeleteBatchPrediction =
+  req
+    "DeleteBatchPrediction"
+    "fixture/DeleteBatchPrediction.yaml"
 
 requestCreateRealtimeEndpoint :: CreateRealtimeEndpoint -> TestTree
 requestCreateRealtimeEndpoint =
@@ -335,23 +341,11 @@ requestUpdateBatchPrediction =
     "UpdateBatchPrediction"
     "fixture/UpdateBatchPrediction.yaml"
 
-requestDeleteBatchPrediction :: DeleteBatchPrediction -> TestTree
-requestDeleteBatchPrediction =
-  req
-    "DeleteBatchPrediction"
-    "fixture/DeleteBatchPrediction.yaml"
-
 requestDescribeMLModels :: DescribeMLModels -> TestTree
 requestDescribeMLModels =
   req
     "DescribeMLModels"
     "fixture/DescribeMLModels.yaml"
-
-requestCreateBatchPrediction :: CreateBatchPrediction -> TestTree
-requestCreateBatchPrediction =
-  req
-    "CreateBatchPrediction"
-    "fixture/CreateBatchPrediction.yaml"
 
 requestPredict :: Predict -> TestTree
 requestPredict =
@@ -359,11 +353,11 @@ requestPredict =
     "Predict"
     "fixture/Predict.yaml"
 
-requestCreateMLModel :: CreateMLModel -> TestTree
-requestCreateMLModel =
+requestCreateBatchPrediction :: CreateBatchPrediction -> TestTree
+requestCreateBatchPrediction =
   req
-    "CreateMLModel"
-    "fixture/CreateMLModel.yaml"
+    "CreateBatchPrediction"
+    "fixture/CreateBatchPrediction.yaml"
 
 requestCreateEvaluation :: CreateEvaluation -> TestTree
 requestCreateEvaluation =
@@ -371,15 +365,13 @@ requestCreateEvaluation =
     "CreateEvaluation"
     "fixture/CreateEvaluation.yaml"
 
--- Responses
+requestCreateMLModel :: CreateMLModel -> TestTree
+requestCreateMLModel =
+  req
+    "CreateMLModel"
+    "fixture/CreateMLModel.yaml"
 
-responseDeleteMLModel :: DeleteMLModelResponse -> TestTree
-responseDeleteMLModel =
-  res
-    "DeleteMLModelResponse"
-    "fixture/DeleteMLModelResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteMLModel)
+-- Responses
 
 responseUpdateMLModel :: UpdateMLModelResponse -> TestTree
 responseUpdateMLModel =
@@ -397,13 +389,13 @@ responseCreateDataSourceFromS =
     defaultService
     (Proxy :: Proxy CreateDataSourceFromS)
 
-responseCreateDataSourceFromRedshift :: CreateDataSourceFromRedshiftResponse -> TestTree
-responseCreateDataSourceFromRedshift =
+responseDeleteMLModel :: DeleteMLModelResponse -> TestTree
+responseDeleteMLModel =
   res
-    "CreateDataSourceFromRedshiftResponse"
-    "fixture/CreateDataSourceFromRedshiftResponse.proto"
+    "DeleteMLModelResponse"
+    "fixture/DeleteMLModelResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateDataSourceFromRedshift)
+    (Proxy :: Proxy DeleteMLModel)
 
 responseUpdateDataSource :: UpdateDataSourceResponse -> TestTree
 responseUpdateDataSource =
@@ -412,6 +404,14 @@ responseUpdateDataSource =
     "fixture/UpdateDataSourceResponse.proto"
     defaultService
     (Proxy :: Proxy UpdateDataSource)
+
+responseCreateDataSourceFromRedshift :: CreateDataSourceFromRedshiftResponse -> TestTree
+responseCreateDataSourceFromRedshift =
+  res
+    "CreateDataSourceFromRedshiftResponse"
+    "fixture/CreateDataSourceFromRedshiftResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateDataSourceFromRedshift)
 
 responseDescribeTags :: DescribeTagsResponse -> TestTree
 responseDescribeTags =
@@ -437,6 +437,14 @@ responseDescribeDataSources =
     defaultService
     (Proxy :: Proxy DescribeDataSources)
 
+responseDeleteTags :: DeleteTagsResponse -> TestTree
+responseDeleteTags =
+  res
+    "DeleteTagsResponse"
+    "fixture/DeleteTagsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteTags)
+
 responseDescribeEvaluations :: DescribeEvaluationsResponse -> TestTree
 responseDescribeEvaluations =
   res
@@ -444,14 +452,6 @@ responseDescribeEvaluations =
     "fixture/DescribeEvaluationsResponse.proto"
     defaultService
     (Proxy :: Proxy DescribeEvaluations)
-
-responseAddTags :: AddTagsResponse -> TestTree
-responseAddTags =
-  res
-    "AddTagsResponse"
-    "fixture/AddTagsResponse.proto"
-    defaultService
-    (Proxy :: Proxy AddTags)
 
 responseGetMLModel :: GetMLModelResponse -> TestTree
 responseGetMLModel =
@@ -469,13 +469,13 @@ responseGetEvaluation =
     defaultService
     (Proxy :: Proxy GetEvaluation)
 
-responseDeleteTags :: DeleteTagsResponse -> TestTree
-responseDeleteTags =
+responseAddTags :: AddTagsResponse -> TestTree
+responseAddTags =
   res
-    "DeleteTagsResponse"
-    "fixture/DeleteTagsResponse.proto"
+    "AddTagsResponse"
+    "fixture/AddTagsResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteTags)
+    (Proxy :: Proxy AddTags)
 
 responseDeleteRealtimeEndpoint :: DeleteRealtimeEndpointResponse -> TestTree
 responseDeleteRealtimeEndpoint =
@@ -492,14 +492,6 @@ responseCreateDataSourceFromRDS =
     "fixture/CreateDataSourceFromRDSResponse.proto"
     defaultService
     (Proxy :: Proxy CreateDataSourceFromRDS)
-
-responseGetBatchPrediction :: GetBatchPredictionResponse -> TestTree
-responseGetBatchPrediction =
-  res
-    "GetBatchPredictionResponse"
-    "fixture/GetBatchPredictionResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetBatchPrediction)
 
 responseDescribeBatchPredictions :: DescribeBatchPredictionsResponse -> TestTree
 responseDescribeBatchPredictions =
@@ -525,6 +517,14 @@ responseUpdateEvaluation =
     defaultService
     (Proxy :: Proxy UpdateEvaluation)
 
+responseGetBatchPrediction :: GetBatchPredictionResponse -> TestTree
+responseGetBatchPrediction =
+  res
+    "GetBatchPredictionResponse"
+    "fixture/GetBatchPredictionResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetBatchPrediction)
+
 responseGetDataSource :: GetDataSourceResponse -> TestTree
 responseGetDataSource =
   res
@@ -532,6 +532,14 @@ responseGetDataSource =
     "fixture/GetDataSourceResponse.proto"
     defaultService
     (Proxy :: Proxy GetDataSource)
+
+responseDeleteBatchPrediction :: DeleteBatchPredictionResponse -> TestTree
+responseDeleteBatchPrediction =
+  res
+    "DeleteBatchPredictionResponse"
+    "fixture/DeleteBatchPredictionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteBatchPrediction)
 
 responseCreateRealtimeEndpoint :: CreateRealtimeEndpointResponse -> TestTree
 responseCreateRealtimeEndpoint =
@@ -549,14 +557,6 @@ responseUpdateBatchPrediction =
     defaultService
     (Proxy :: Proxy UpdateBatchPrediction)
 
-responseDeleteBatchPrediction :: DeleteBatchPredictionResponse -> TestTree
-responseDeleteBatchPrediction =
-  res
-    "DeleteBatchPredictionResponse"
-    "fixture/DeleteBatchPredictionResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteBatchPrediction)
-
 responseDescribeMLModels :: DescribeMLModelsResponse -> TestTree
 responseDescribeMLModels =
   res
@@ -564,14 +564,6 @@ responseDescribeMLModels =
     "fixture/DescribeMLModelsResponse.proto"
     defaultService
     (Proxy :: Proxy DescribeMLModels)
-
-responseCreateBatchPrediction :: CreateBatchPredictionResponse -> TestTree
-responseCreateBatchPrediction =
-  res
-    "CreateBatchPredictionResponse"
-    "fixture/CreateBatchPredictionResponse.proto"
-    defaultService
-    (Proxy :: Proxy CreateBatchPrediction)
 
 responsePredict :: PredictResponse -> TestTree
 responsePredict =
@@ -581,13 +573,13 @@ responsePredict =
     defaultService
     (Proxy :: Proxy Predict)
 
-responseCreateMLModel :: CreateMLModelResponse -> TestTree
-responseCreateMLModel =
+responseCreateBatchPrediction :: CreateBatchPredictionResponse -> TestTree
+responseCreateBatchPrediction =
   res
-    "CreateMLModelResponse"
-    "fixture/CreateMLModelResponse.proto"
+    "CreateBatchPredictionResponse"
+    "fixture/CreateBatchPredictionResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateMLModel)
+    (Proxy :: Proxy CreateBatchPrediction)
 
 responseCreateEvaluation :: CreateEvaluationResponse -> TestTree
 responseCreateEvaluation =
@@ -596,3 +588,11 @@ responseCreateEvaluation =
     "fixture/CreateEvaluationResponse.proto"
     defaultService
     (Proxy :: Proxy CreateEvaluation)
+
+responseCreateMLModel :: CreateMLModelResponse -> TestTree
+responseCreateMLModel =
+  res
+    "CreateMLModelResponse"
+    "fixture/CreateMLModelResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateMLModel)

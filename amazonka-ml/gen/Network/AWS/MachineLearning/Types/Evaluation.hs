@@ -48,17 +48,21 @@ data Evaluation = Evaluation'
     --     technique to measure performance.
     --
     -- For more information about performance metrics, please see the
-    -- <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
+    -- <https://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
     performanceMetrics :: Prelude.Maybe PerformanceMetrics,
     -- | The status of the evaluation. This element can have one of the following
     -- values:
     --
     -- -   @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request
     --     to evaluate an @MLModel@.
+    --
     -- -   @INPROGRESS@ - The evaluation is underway.
+    --
     -- -   @FAILED@ - The request to evaluate an @MLModel@ did not run to
     --     completion. It is not usable.
+    --
     -- -   @COMPLETED@ - The evaluation process completed successfully.
+    --
     -- -   @DELETED@ - The @Evaluation@ is marked as deleted. It is not usable.
     status :: Prelude.Maybe EntityStatus,
     startedAt :: Prelude.Maybe Core.POSIX,
@@ -69,17 +73,17 @@ data Evaluation = Evaluation'
     -- | The time that the @Evaluation@ was created. The time is expressed in
     -- epoch time.
     createdAt :: Prelude.Maybe Core.POSIX,
-    finishedAt :: Prelude.Maybe Core.POSIX,
+    -- | A user-supplied name or description of the @Evaluation@.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The AWS user account that invoked the evaluation. The account type can
     -- be either an AWS root account or an AWS Identity and Access Management
     -- (IAM) user account.
     createdByIamUser :: Prelude.Maybe Prelude.Text,
-    -- | A user-supplied name or description of the @Evaluation@.
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The ID that is assigned to the @Evaluation@ at creation.
-    evaluationId :: Prelude.Maybe Prelude.Text,
+    finishedAt :: Prelude.Maybe Core.POSIX,
     -- | The ID of the @MLModel@ that is the focus of the evaluation.
     mLModelId :: Prelude.Maybe Prelude.Text,
+    -- | The ID that is assigned to the @Evaluation@ at creation.
+    evaluationId :: Prelude.Maybe Prelude.Text,
     -- | The location and name of the data in Amazon Simple Storage Server
     -- (Amazon S3) that is used in the evaluation.
     inputDataLocationS3 :: Prelude.Maybe Prelude.Text,
@@ -114,17 +118,21 @@ data Evaluation = Evaluation'
 --     technique to measure performance.
 --
 -- For more information about performance metrics, please see the
--- <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
+-- <https://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
 --
 -- 'status', 'evaluation_status' - The status of the evaluation. This element can have one of the following
 -- values:
 --
 -- -   @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request
 --     to evaluate an @MLModel@.
+--
 -- -   @INPROGRESS@ - The evaluation is underway.
+--
 -- -   @FAILED@ - The request to evaluate an @MLModel@ did not run to
 --     completion. It is not usable.
+--
 -- -   @COMPLETED@ - The evaluation process completed successfully.
+--
 -- -   @DELETED@ - The @Evaluation@ is marked as deleted. It is not usable.
 --
 -- 'startedAt', 'evaluation_startedAt' - Undocumented member.
@@ -136,17 +144,17 @@ data Evaluation = Evaluation'
 -- 'createdAt', 'evaluation_createdAt' - The time that the @Evaluation@ was created. The time is expressed in
 -- epoch time.
 --
--- 'finishedAt', 'evaluation_finishedAt' - Undocumented member.
+-- 'name', 'evaluation_name' - A user-supplied name or description of the @Evaluation@.
 --
 -- 'createdByIamUser', 'evaluation_createdByIamUser' - The AWS user account that invoked the evaluation. The account type can
 -- be either an AWS root account or an AWS Identity and Access Management
 -- (IAM) user account.
 --
--- 'name', 'evaluation_name' - A user-supplied name or description of the @Evaluation@.
---
--- 'evaluationId', 'evaluation_evaluationId' - The ID that is assigned to the @Evaluation@ at creation.
+-- 'finishedAt', 'evaluation_finishedAt' - Undocumented member.
 --
 -- 'mLModelId', 'evaluation_mLModelId' - The ID of the @MLModel@ that is the focus of the evaluation.
+--
+-- 'evaluationId', 'evaluation_evaluationId' - The ID that is assigned to the @Evaluation@ at creation.
 --
 -- 'inputDataLocationS3', 'evaluation_inputDataLocationS3' - The location and name of the data in Amazon Simple Storage Server
 -- (Amazon S3) that is used in the evaluation.
@@ -165,11 +173,11 @@ newEvaluation =
       evaluationDataSourceId = Prelude.Nothing,
       message = Prelude.Nothing,
       createdAt = Prelude.Nothing,
-      finishedAt = Prelude.Nothing,
-      createdByIamUser = Prelude.Nothing,
       name = Prelude.Nothing,
-      evaluationId = Prelude.Nothing,
+      createdByIamUser = Prelude.Nothing,
+      finishedAt = Prelude.Nothing,
       mLModelId = Prelude.Nothing,
+      evaluationId = Prelude.Nothing,
       inputDataLocationS3 = Prelude.Nothing,
       computeTime = Prelude.Nothing,
       lastUpdatedAt = Prelude.Nothing
@@ -191,7 +199,7 @@ newEvaluation =
 --     technique to measure performance.
 --
 -- For more information about performance metrics, please see the
--- <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
+-- <https://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
 evaluation_performanceMetrics :: Lens.Lens' Evaluation (Prelude.Maybe PerformanceMetrics)
 evaluation_performanceMetrics = Lens.lens (\Evaluation' {performanceMetrics} -> performanceMetrics) (\s@Evaluation' {} a -> s {performanceMetrics = a} :: Evaluation)
 
@@ -200,10 +208,14 @@ evaluation_performanceMetrics = Lens.lens (\Evaluation' {performanceMetrics} -> 
 --
 -- -   @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request
 --     to evaluate an @MLModel@.
+--
 -- -   @INPROGRESS@ - The evaluation is underway.
+--
 -- -   @FAILED@ - The request to evaluate an @MLModel@ did not run to
 --     completion. It is not usable.
+--
 -- -   @COMPLETED@ - The evaluation process completed successfully.
+--
 -- -   @DELETED@ - The @Evaluation@ is marked as deleted. It is not usable.
 evaluation_status :: Lens.Lens' Evaluation (Prelude.Maybe EntityStatus)
 evaluation_status = Lens.lens (\Evaluation' {status} -> status) (\s@Evaluation' {} a -> s {status = a} :: Evaluation)
@@ -225,9 +237,9 @@ evaluation_message = Lens.lens (\Evaluation' {message} -> message) (\s@Evaluatio
 evaluation_createdAt :: Lens.Lens' Evaluation (Prelude.Maybe Prelude.UTCTime)
 evaluation_createdAt = Lens.lens (\Evaluation' {createdAt} -> createdAt) (\s@Evaluation' {} a -> s {createdAt = a} :: Evaluation) Prelude.. Lens.mapping Core._Time
 
--- | Undocumented member.
-evaluation_finishedAt :: Lens.Lens' Evaluation (Prelude.Maybe Prelude.UTCTime)
-evaluation_finishedAt = Lens.lens (\Evaluation' {finishedAt} -> finishedAt) (\s@Evaluation' {} a -> s {finishedAt = a} :: Evaluation) Prelude.. Lens.mapping Core._Time
+-- | A user-supplied name or description of the @Evaluation@.
+evaluation_name :: Lens.Lens' Evaluation (Prelude.Maybe Prelude.Text)
+evaluation_name = Lens.lens (\Evaluation' {name} -> name) (\s@Evaluation' {} a -> s {name = a} :: Evaluation)
 
 -- | The AWS user account that invoked the evaluation. The account type can
 -- be either an AWS root account or an AWS Identity and Access Management
@@ -235,17 +247,17 @@ evaluation_finishedAt = Lens.lens (\Evaluation' {finishedAt} -> finishedAt) (\s@
 evaluation_createdByIamUser :: Lens.Lens' Evaluation (Prelude.Maybe Prelude.Text)
 evaluation_createdByIamUser = Lens.lens (\Evaluation' {createdByIamUser} -> createdByIamUser) (\s@Evaluation' {} a -> s {createdByIamUser = a} :: Evaluation)
 
--- | A user-supplied name or description of the @Evaluation@.
-evaluation_name :: Lens.Lens' Evaluation (Prelude.Maybe Prelude.Text)
-evaluation_name = Lens.lens (\Evaluation' {name} -> name) (\s@Evaluation' {} a -> s {name = a} :: Evaluation)
-
--- | The ID that is assigned to the @Evaluation@ at creation.
-evaluation_evaluationId :: Lens.Lens' Evaluation (Prelude.Maybe Prelude.Text)
-evaluation_evaluationId = Lens.lens (\Evaluation' {evaluationId} -> evaluationId) (\s@Evaluation' {} a -> s {evaluationId = a} :: Evaluation)
+-- | Undocumented member.
+evaluation_finishedAt :: Lens.Lens' Evaluation (Prelude.Maybe Prelude.UTCTime)
+evaluation_finishedAt = Lens.lens (\Evaluation' {finishedAt} -> finishedAt) (\s@Evaluation' {} a -> s {finishedAt = a} :: Evaluation) Prelude.. Lens.mapping Core._Time
 
 -- | The ID of the @MLModel@ that is the focus of the evaluation.
 evaluation_mLModelId :: Lens.Lens' Evaluation (Prelude.Maybe Prelude.Text)
 evaluation_mLModelId = Lens.lens (\Evaluation' {mLModelId} -> mLModelId) (\s@Evaluation' {} a -> s {mLModelId = a} :: Evaluation)
+
+-- | The ID that is assigned to the @Evaluation@ at creation.
+evaluation_evaluationId :: Lens.Lens' Evaluation (Prelude.Maybe Prelude.Text)
+evaluation_evaluationId = Lens.lens (\Evaluation' {evaluationId} -> evaluationId) (\s@Evaluation' {} a -> s {evaluationId = a} :: Evaluation)
 
 -- | The location and name of the data in Amazon Simple Storage Server
 -- (Amazon S3) that is used in the evaluation.
@@ -273,11 +285,11 @@ instance Core.FromJSON Evaluation where
             Prelude.<*> (x Core..:? "EvaluationDataSourceId")
             Prelude.<*> (x Core..:? "Message")
             Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "FinishedAt")
-            Prelude.<*> (x Core..:? "CreatedByIamUser")
             Prelude.<*> (x Core..:? "Name")
-            Prelude.<*> (x Core..:? "EvaluationId")
+            Prelude.<*> (x Core..:? "CreatedByIamUser")
+            Prelude.<*> (x Core..:? "FinishedAt")
             Prelude.<*> (x Core..:? "MLModelId")
+            Prelude.<*> (x Core..:? "EvaluationId")
             Prelude.<*> (x Core..:? "InputDataLocationS3")
             Prelude.<*> (x Core..:? "ComputeTime")
             Prelude.<*> (x Core..:? "LastUpdatedAt")

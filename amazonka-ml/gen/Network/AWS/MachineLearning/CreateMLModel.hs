@@ -132,12 +132,14 @@ data CreateMLModel = CreateMLModel'
     --
     -- -   Choose @REGRESSION@ if the @MLModel@ will be used to predict a
     --     numeric value.
+    --
     -- -   Choose @BINARY@ if the @MLModel@ result has two possible values.
+    --
     -- -   Choose @MULTICLASS@ if the @MLModel@ result has a limited number of
     --     values.
     --
     -- For more information, see the
-    -- <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
+    -- <https://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
     mLModelType :: MLModelType,
     -- | The @DataSource@ that points to the training data.
     trainingDataSourceId :: Prelude.Text
@@ -212,12 +214,14 @@ data CreateMLModel = CreateMLModel'
 --
 -- -   Choose @REGRESSION@ if the @MLModel@ will be used to predict a
 --     numeric value.
+--
 -- -   Choose @BINARY@ if the @MLModel@ result has two possible values.
+--
 -- -   Choose @MULTICLASS@ if the @MLModel@ result has a limited number of
 --     values.
 --
 -- For more information, see the
--- <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
+-- <https://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
 --
 -- 'trainingDataSourceId', 'createMLModel_trainingDataSourceId' - The @DataSource@ that points to the training data.
 newCreateMLModel ::
@@ -312,12 +316,14 @@ createMLModel_mLModelId = Lens.lens (\CreateMLModel' {mLModelId} -> mLModelId) (
 --
 -- -   Choose @REGRESSION@ if the @MLModel@ will be used to predict a
 --     numeric value.
+--
 -- -   Choose @BINARY@ if the @MLModel@ result has two possible values.
+--
 -- -   Choose @MULTICLASS@ if the @MLModel@ result has a limited number of
 --     values.
 --
 -- For more information, see the
--- <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
+-- <https://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
 createMLModel_mLModelType :: Lens.Lens' CreateMLModel MLModelType
 createMLModel_mLModelType = Lens.lens (\CreateMLModel' {mLModelType} -> mLModelType) (\s@CreateMLModel' {} a -> s {mLModelType = a} :: CreateMLModel)
 

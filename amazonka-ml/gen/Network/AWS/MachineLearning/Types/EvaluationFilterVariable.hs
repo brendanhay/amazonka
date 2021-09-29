@@ -39,15 +39,21 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- -   @CreatedAt@ - Sets the search criteria to @Evaluation@ creation
 --     date.
+--
 -- -   @Status@ - Sets the search criteria to @Evaluation@ status.
+--
 -- -   @Name@ - Sets the search criteria to the contents of @Evaluation@
 --     ____ @Name@.
+--
 -- -   @IAMUser@ - Sets the search criteria to the user account that
 --     invoked an evaluation.
+--
 -- -   @MLModelId@ - Sets the search criteria to the @Predictor@ that was
 --     evaluated.
+--
 -- -   @DataSourceId@ - Sets the search criteria to the @DataSource@ used
 --     in evaluation.
+--
 -- -   @DataUri@ - Sets the search criteria to the data file(s) used in
 --     evaluation. The URL can identify either a file or an Amazon Simple
 --     Storage Service (Amazon S3) bucket or directory.

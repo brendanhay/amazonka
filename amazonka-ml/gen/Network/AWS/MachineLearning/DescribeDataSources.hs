@@ -30,9 +30,9 @@ module Network.AWS.MachineLearning.DescribeDataSources
     newDescribeDataSources,
 
     -- * Request Lenses
-    describeDataSources_sortOrder,
     describeDataSources_eq,
     describeDataSources_nextToken,
+    describeDataSources_sortOrder,
     describeDataSources_filterVariable,
     describeDataSources_gt,
     describeDataSources_ne,
@@ -62,30 +62,35 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeDataSources' smart constructor.
 data DescribeDataSources = DescribeDataSources'
-  { -- | A two-value parameter that determines the sequence of the resulting list
-    -- of @DataSource@.
-    --
-    -- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
-    -- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
-    --
-    -- Results are sorted by @FilterVariable@.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | The equal to operator. The @DataSource@ results will have
+  { -- | The equal to operator. The @DataSource@ results will have
     -- @FilterVariable@ values that exactly match the value specified with
     -- @EQ@.
     eq :: Prelude.Maybe Prelude.Text,
     -- | The ID of the page in the paginated results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A two-value parameter that determines the sequence of the resulting list
+    -- of @DataSource@.
+    --
+    -- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+    --
+    -- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
+    --
+    -- Results are sorted by @FilterVariable@.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | Use one of the following variables to filter a list of @DataSource@:
     --
     -- -   @CreatedAt@ - Sets the search criteria to @DataSource@ creation
     --     dates.
+    --
     -- -   @Status@ - Sets the search criteria to @DataSource@ statuses.
+    --
     -- -   @Name@ - Sets the search criteria to the contents of @DataSource@
-    --     ____ @Name@.
+    --     @Name@.
+    --
     -- -   @DataUri@ - Sets the search criteria to the URI of data files used
     --     to create the @DataSource@. The URI can identify either a file or an
     --     Amazon Simple Storage Service (Amazon S3) bucket or directory.
+    --
     -- -   @IAMUser@ - Sets the search criteria to the user account that
     --     invoked the @DataSource@ creation.
     filterVariable :: Prelude.Maybe DataSourceFilterVariable,
@@ -135,30 +140,35 @@ data DescribeDataSources = DescribeDataSources'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'describeDataSources_sortOrder' - A two-value parameter that determines the sequence of the resulting list
--- of @DataSource@.
---
--- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
--- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
---
--- Results are sorted by @FilterVariable@.
---
 -- 'eq', 'describeDataSources_eq' - The equal to operator. The @DataSource@ results will have
 -- @FilterVariable@ values that exactly match the value specified with
 -- @EQ@.
 --
 -- 'nextToken', 'describeDataSources_nextToken' - The ID of the page in the paginated results.
 --
+-- 'sortOrder', 'describeDataSources_sortOrder' - A two-value parameter that determines the sequence of the resulting list
+-- of @DataSource@.
+--
+-- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+--
+-- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
+--
+-- Results are sorted by @FilterVariable@.
+--
 -- 'filterVariable', 'describeDataSources_filterVariable' - Use one of the following variables to filter a list of @DataSource@:
 --
 -- -   @CreatedAt@ - Sets the search criteria to @DataSource@ creation
 --     dates.
+--
 -- -   @Status@ - Sets the search criteria to @DataSource@ statuses.
+--
 -- -   @Name@ - Sets the search criteria to the contents of @DataSource@
---     ____ @Name@.
+--     @Name@.
+--
 -- -   @DataUri@ - Sets the search criteria to the URI of data files used
 --     to create the @DataSource@. The URI can identify either a file or an
 --     Amazon Simple Storage Service (Amazon S3) bucket or directory.
+--
 -- -   @IAMUser@ - Sets the search criteria to the user account that
 --     invoked the @DataSource@ creation.
 --
@@ -200,9 +210,9 @@ newDescribeDataSources ::
   DescribeDataSources
 newDescribeDataSources =
   DescribeDataSources'
-    { sortOrder = Prelude.Nothing,
-      eq = Prelude.Nothing,
+    { eq = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       filterVariable = Prelude.Nothing,
       gt = Prelude.Nothing,
       ne = Prelude.Nothing,
@@ -212,16 +222,6 @@ newDescribeDataSources =
       lt = Prelude.Nothing,
       limit = Prelude.Nothing
     }
-
--- | A two-value parameter that determines the sequence of the resulting list
--- of @DataSource@.
---
--- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
--- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
---
--- Results are sorted by @FilterVariable@.
-describeDataSources_sortOrder :: Lens.Lens' DescribeDataSources (Prelude.Maybe SortOrder)
-describeDataSources_sortOrder = Lens.lens (\DescribeDataSources' {sortOrder} -> sortOrder) (\s@DescribeDataSources' {} a -> s {sortOrder = a} :: DescribeDataSources)
 
 -- | The equal to operator. The @DataSource@ results will have
 -- @FilterVariable@ values that exactly match the value specified with
@@ -233,16 +233,31 @@ describeDataSources_eq = Lens.lens (\DescribeDataSources' {eq} -> eq) (\s@Descri
 describeDataSources_nextToken :: Lens.Lens' DescribeDataSources (Prelude.Maybe Prelude.Text)
 describeDataSources_nextToken = Lens.lens (\DescribeDataSources' {nextToken} -> nextToken) (\s@DescribeDataSources' {} a -> s {nextToken = a} :: DescribeDataSources)
 
+-- | A two-value parameter that determines the sequence of the resulting list
+-- of @DataSource@.
+--
+-- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+--
+-- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
+--
+-- Results are sorted by @FilterVariable@.
+describeDataSources_sortOrder :: Lens.Lens' DescribeDataSources (Prelude.Maybe SortOrder)
+describeDataSources_sortOrder = Lens.lens (\DescribeDataSources' {sortOrder} -> sortOrder) (\s@DescribeDataSources' {} a -> s {sortOrder = a} :: DescribeDataSources)
+
 -- | Use one of the following variables to filter a list of @DataSource@:
 --
 -- -   @CreatedAt@ - Sets the search criteria to @DataSource@ creation
 --     dates.
+--
 -- -   @Status@ - Sets the search criteria to @DataSource@ statuses.
+--
 -- -   @Name@ - Sets the search criteria to the contents of @DataSource@
---     ____ @Name@.
+--     @Name@.
+--
 -- -   @DataUri@ - Sets the search criteria to the URI of data files used
 --     to create the @DataSource@. The URI can identify either a file or an
 --     Amazon Simple Storage Service (Amazon S3) bucket or directory.
+--
 -- -   @IAMUser@ - Sets the search criteria to the user account that
 --     invoked the @DataSource@ creation.
 describeDataSources_filterVariable :: Lens.Lens' DescribeDataSources (Prelude.Maybe DataSourceFilterVariable)
@@ -356,9 +371,9 @@ instance Core.ToJSON DescribeDataSources where
   toJSON DescribeDataSources' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("EQ" Core..=) Prelude.<$> eq,
+          [ ("EQ" Core..=) Prelude.<$> eq,
             ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("FilterVariable" Core..=)
               Prelude.<$> filterVariable,
             ("GT" Core..=) Prelude.<$> gt,

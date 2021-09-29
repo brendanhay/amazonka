@@ -31,21 +31,25 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newBatchPrediction' smart constructor.
 data BatchPrediction = BatchPrediction'
-  { -- | The ID assigned to the @BatchPrediction@ at creation. This value should
-    -- be identical to the value of the @BatchPredictionID@ in the request.
-    batchPredictionId :: Prelude.Maybe Prelude.Text,
-    -- | The status of the @BatchPrediction@. This element can have one of the
+  { -- | The status of the @BatchPrediction@. This element can have one of the
     -- following values:
     --
     -- -   @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request
     --     to generate predictions for a batch of observations.
+    --
     -- -   @INPROGRESS@ - The process is underway.
+    --
     -- -   @FAILED@ - The request to perform a batch prediction did not run to
     --     completion. It is not usable.
+    --
     -- -   @COMPLETED@ - The batch prediction process completed successfully.
+    --
     -- -   @DELETED@ - The @BatchPrediction@ is marked as deleted. It is not
     --     usable.
     status :: Prelude.Maybe EntityStatus,
+    -- | The ID assigned to the @BatchPrediction@ at creation. This value should
+    -- be identical to the value of the @BatchPredictionID@ in the request.
+    batchPredictionId :: Prelude.Maybe Prelude.Text,
     startedAt :: Prelude.Maybe Core.POSIX,
     -- | The location of an Amazon S3 bucket or directory to receive the
     -- operation results. The following substrings are not allowed in the
@@ -58,13 +62,13 @@ data BatchPrediction = BatchPrediction'
     -- | The time that the @BatchPrediction@ was created. The time is expressed
     -- in epoch time.
     createdAt :: Prelude.Maybe Core.POSIX,
-    finishedAt :: Prelude.Maybe Core.POSIX,
+    -- | A user-supplied name or description of the @BatchPrediction@.
+    name :: Prelude.Maybe Prelude.Text,
     -- | The AWS user account that invoked the @BatchPrediction@. The account
     -- type can be either an AWS root account or an AWS Identity and Access
     -- Management (IAM) user account.
     createdByIamUser :: Prelude.Maybe Prelude.Text,
-    -- | A user-supplied name or description of the @BatchPrediction@.
-    name :: Prelude.Maybe Prelude.Text,
+    finishedAt :: Prelude.Maybe Core.POSIX,
     invalidRecordCount :: Prelude.Maybe Prelude.Integer,
     totalRecordCount :: Prelude.Maybe Prelude.Integer,
     -- | The ID of the @DataSource@ that points to the group of observations to
@@ -91,20 +95,24 @@ data BatchPrediction = BatchPrediction'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'batchPredictionId', 'batchPrediction_batchPredictionId' - The ID assigned to the @BatchPrediction@ at creation. This value should
--- be identical to the value of the @BatchPredictionID@ in the request.
---
 -- 'status', 'batchPrediction_status' - The status of the @BatchPrediction@. This element can have one of the
 -- following values:
 --
 -- -   @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request
 --     to generate predictions for a batch of observations.
+--
 -- -   @INPROGRESS@ - The process is underway.
+--
 -- -   @FAILED@ - The request to perform a batch prediction did not run to
 --     completion. It is not usable.
+--
 -- -   @COMPLETED@ - The batch prediction process completed successfully.
+--
 -- -   @DELETED@ - The @BatchPrediction@ is marked as deleted. It is not
 --     usable.
+--
+-- 'batchPredictionId', 'batchPrediction_batchPredictionId' - The ID assigned to the @BatchPrediction@ at creation. This value should
+-- be identical to the value of the @BatchPredictionID@ in the request.
 --
 -- 'startedAt', 'batchPrediction_startedAt' - Undocumented member.
 --
@@ -119,13 +127,13 @@ data BatchPrediction = BatchPrediction'
 -- 'createdAt', 'batchPrediction_createdAt' - The time that the @BatchPrediction@ was created. The time is expressed
 -- in epoch time.
 --
--- 'finishedAt', 'batchPrediction_finishedAt' - Undocumented member.
+-- 'name', 'batchPrediction_name' - A user-supplied name or description of the @BatchPrediction@.
 --
 -- 'createdByIamUser', 'batchPrediction_createdByIamUser' - The AWS user account that invoked the @BatchPrediction@. The account
 -- type can be either an AWS root account or an AWS Identity and Access
 -- Management (IAM) user account.
 --
--- 'name', 'batchPrediction_name' - A user-supplied name or description of the @BatchPrediction@.
+-- 'finishedAt', 'batchPrediction_finishedAt' - Undocumented member.
 --
 -- 'invalidRecordCount', 'batchPrediction_invalidRecordCount' - Undocumented member.
 --
@@ -148,16 +156,15 @@ newBatchPrediction ::
   BatchPrediction
 newBatchPrediction =
   BatchPrediction'
-    { batchPredictionId =
-        Prelude.Nothing,
-      status = Prelude.Nothing,
+    { status = Prelude.Nothing,
+      batchPredictionId = Prelude.Nothing,
       startedAt = Prelude.Nothing,
       outputUri = Prelude.Nothing,
       message = Prelude.Nothing,
       createdAt = Prelude.Nothing,
-      finishedAt = Prelude.Nothing,
-      createdByIamUser = Prelude.Nothing,
       name = Prelude.Nothing,
+      createdByIamUser = Prelude.Nothing,
+      finishedAt = Prelude.Nothing,
       invalidRecordCount = Prelude.Nothing,
       totalRecordCount = Prelude.Nothing,
       batchPredictionDataSourceId = Prelude.Nothing,
@@ -167,24 +174,28 @@ newBatchPrediction =
       lastUpdatedAt = Prelude.Nothing
     }
 
--- | The ID assigned to the @BatchPrediction@ at creation. This value should
--- be identical to the value of the @BatchPredictionID@ in the request.
-batchPrediction_batchPredictionId :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
-batchPrediction_batchPredictionId = Lens.lens (\BatchPrediction' {batchPredictionId} -> batchPredictionId) (\s@BatchPrediction' {} a -> s {batchPredictionId = a} :: BatchPrediction)
-
 -- | The status of the @BatchPrediction@. This element can have one of the
 -- following values:
 --
 -- -   @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request
 --     to generate predictions for a batch of observations.
+--
 -- -   @INPROGRESS@ - The process is underway.
+--
 -- -   @FAILED@ - The request to perform a batch prediction did not run to
 --     completion. It is not usable.
+--
 -- -   @COMPLETED@ - The batch prediction process completed successfully.
+--
 -- -   @DELETED@ - The @BatchPrediction@ is marked as deleted. It is not
 --     usable.
 batchPrediction_status :: Lens.Lens' BatchPrediction (Prelude.Maybe EntityStatus)
 batchPrediction_status = Lens.lens (\BatchPrediction' {status} -> status) (\s@BatchPrediction' {} a -> s {status = a} :: BatchPrediction)
+
+-- | The ID assigned to the @BatchPrediction@ at creation. This value should
+-- be identical to the value of the @BatchPredictionID@ in the request.
+batchPrediction_batchPredictionId :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
+batchPrediction_batchPredictionId = Lens.lens (\BatchPrediction' {batchPredictionId} -> batchPredictionId) (\s@BatchPrediction' {} a -> s {batchPredictionId = a} :: BatchPrediction)
 
 -- | Undocumented member.
 batchPrediction_startedAt :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.UTCTime)
@@ -207,9 +218,9 @@ batchPrediction_message = Lens.lens (\BatchPrediction' {message} -> message) (\s
 batchPrediction_createdAt :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.UTCTime)
 batchPrediction_createdAt = Lens.lens (\BatchPrediction' {createdAt} -> createdAt) (\s@BatchPrediction' {} a -> s {createdAt = a} :: BatchPrediction) Prelude.. Lens.mapping Core._Time
 
--- | Undocumented member.
-batchPrediction_finishedAt :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.UTCTime)
-batchPrediction_finishedAt = Lens.lens (\BatchPrediction' {finishedAt} -> finishedAt) (\s@BatchPrediction' {} a -> s {finishedAt = a} :: BatchPrediction) Prelude.. Lens.mapping Core._Time
+-- | A user-supplied name or description of the @BatchPrediction@.
+batchPrediction_name :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
+batchPrediction_name = Lens.lens (\BatchPrediction' {name} -> name) (\s@BatchPrediction' {} a -> s {name = a} :: BatchPrediction)
 
 -- | The AWS user account that invoked the @BatchPrediction@. The account
 -- type can be either an AWS root account or an AWS Identity and Access
@@ -217,9 +228,9 @@ batchPrediction_finishedAt = Lens.lens (\BatchPrediction' {finishedAt} -> finish
 batchPrediction_createdByIamUser :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
 batchPrediction_createdByIamUser = Lens.lens (\BatchPrediction' {createdByIamUser} -> createdByIamUser) (\s@BatchPrediction' {} a -> s {createdByIamUser = a} :: BatchPrediction)
 
--- | A user-supplied name or description of the @BatchPrediction@.
-batchPrediction_name :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Text)
-batchPrediction_name = Lens.lens (\BatchPrediction' {name} -> name) (\s@BatchPrediction' {} a -> s {name = a} :: BatchPrediction)
+-- | Undocumented member.
+batchPrediction_finishedAt :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.UTCTime)
+batchPrediction_finishedAt = Lens.lens (\BatchPrediction' {finishedAt} -> finishedAt) (\s@BatchPrediction' {} a -> s {finishedAt = a} :: BatchPrediction) Prelude.. Lens.mapping Core._Time
 
 -- | Undocumented member.
 batchPrediction_invalidRecordCount :: Lens.Lens' BatchPrediction (Prelude.Maybe Prelude.Integer)
@@ -259,15 +270,15 @@ instance Core.FromJSON BatchPrediction where
       "BatchPrediction"
       ( \x ->
           BatchPrediction'
-            Prelude.<$> (x Core..:? "BatchPredictionId")
-            Prelude.<*> (x Core..:? "Status")
+            Prelude.<$> (x Core..:? "Status")
+            Prelude.<*> (x Core..:? "BatchPredictionId")
             Prelude.<*> (x Core..:? "StartedAt")
             Prelude.<*> (x Core..:? "OutputUri")
             Prelude.<*> (x Core..:? "Message")
             Prelude.<*> (x Core..:? "CreatedAt")
-            Prelude.<*> (x Core..:? "FinishedAt")
-            Prelude.<*> (x Core..:? "CreatedByIamUser")
             Prelude.<*> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "CreatedByIamUser")
+            Prelude.<*> (x Core..:? "FinishedAt")
             Prelude.<*> (x Core..:? "InvalidRecordCount")
             Prelude.<*> (x Core..:? "TotalRecordCount")
             Prelude.<*> (x Core..:? "BatchPredictionDataSourceId")

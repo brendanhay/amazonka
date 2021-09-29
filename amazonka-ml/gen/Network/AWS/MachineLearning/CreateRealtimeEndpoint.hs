@@ -127,8 +127,9 @@ instance Core.ToQuery CreateRealtimeEndpoint where
 -- The result contains the @MLModelId@ and the endpoint information for the
 -- @MLModel@.
 --
--- The endpoint information includes the URI of the @MLModel@; that is, the
--- location to send online prediction requests for the specified @MLModel@.
+-- __Note:__ The endpoint information includes the URI of the @MLModel@;
+-- that is, the location to send online prediction requests for the
+-- specified @MLModel@.
 --
 -- /See:/ 'newCreateRealtimeEndpointResponse' smart constructor.
 data CreateRealtimeEndpointResponse = CreateRealtimeEndpointResponse'

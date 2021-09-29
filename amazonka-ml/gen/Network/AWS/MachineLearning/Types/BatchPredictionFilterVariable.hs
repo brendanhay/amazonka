@@ -40,15 +40,21 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- -   @CreatedAt@ - Sets the search criteria to @BatchPrediction@ creation
 --     date.
+--
 -- -   @Status@ - Sets the search criteria to @BatchPrediction@ status.
+--
 -- -   @Name@ - Sets the search criteria to the contents of
---     @BatchPrediction@ ____ @Name@.
+--     @BatchPrediction@ @Name@.
+--
 -- -   @IAMUser@ - Sets the search criteria to the user account that
 --     invoked the @BatchPrediction@ creation.
+--
 -- -   @MLModelId@ - Sets the search criteria to the @MLModel@ used in the
 --     @BatchPrediction@.
+--
 -- -   @DataSourceId@ - Sets the search criteria to the @DataSource@ used
 --     in the @BatchPrediction@.
+--
 -- -   @DataURI@ - Sets the search criteria to the data file(s) used in the
 --     @BatchPrediction@. The URL can identify either a file or an Amazon
 --     Simple Storage Service (Amazon S3) bucket or directory.

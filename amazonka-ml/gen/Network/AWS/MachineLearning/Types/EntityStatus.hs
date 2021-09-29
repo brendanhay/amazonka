@@ -35,9 +35,13 @@ import qualified Network.AWS.Prelude as Prelude
 -- | Object status with the following possible values:
 --
 -- -   @PENDING@
+--
 -- -   @INPROGRESS@
+--
 -- -   @FAILED@
+--
 -- -   @COMPLETED@
+--
 -- -   @DELETED@
 newtype EntityStatus = EntityStatus'
   { fromEntityStatus ::

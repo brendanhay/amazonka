@@ -30,9 +30,9 @@ module Network.AWS.MachineLearning.DescribeBatchPredictions
     newDescribeBatchPredictions,
 
     -- * Request Lenses
-    describeBatchPredictions_sortOrder,
     describeBatchPredictions_eq,
     describeBatchPredictions_nextToken,
+    describeBatchPredictions_sortOrder,
     describeBatchPredictions_filterVariable,
     describeBatchPredictions_gt,
     describeBatchPredictions_ne,
@@ -62,34 +62,41 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newDescribeBatchPredictions' smart constructor.
 data DescribeBatchPredictions = DescribeBatchPredictions'
-  { -- | A two-value parameter that determines the sequence of the resulting list
-    -- of @MLModel@s.
-    --
-    -- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
-    -- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
-    --
-    -- Results are sorted by @FilterVariable@.
-    sortOrder :: Prelude.Maybe SortOrder,
-    -- | The equal to operator. The @BatchPrediction@ results will have
+  { -- | The equal to operator. The @BatchPrediction@ results will have
     -- @FilterVariable@ values that exactly match the value specified with
     -- @EQ@.
     eq :: Prelude.Maybe Prelude.Text,
     -- | An ID of the page in the paginated results.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A two-value parameter that determines the sequence of the resulting list
+    -- of @MLModel@s.
+    --
+    -- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+    --
+    -- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
+    --
+    -- Results are sorted by @FilterVariable@.
+    sortOrder :: Prelude.Maybe SortOrder,
     -- | Use one of the following variables to filter a list of
     -- @BatchPrediction@:
     --
     -- -   @CreatedAt@ - Sets the search criteria to the @BatchPrediction@
     --     creation date.
+    --
     -- -   @Status@ - Sets the search criteria to the @BatchPrediction@ status.
+    --
     -- -   @Name@ - Sets the search criteria to the contents of the
     --     @BatchPrediction@ ____ @Name@.
+    --
     -- -   @IAMUser@ - Sets the search criteria to the user account that
     --     invoked the @BatchPrediction@ creation.
+    --
     -- -   @MLModelId@ - Sets the search criteria to the @MLModel@ used in the
     --     @BatchPrediction@.
+    --
     -- -   @DataSourceId@ - Sets the search criteria to the @DataSource@ used
     --     in the @BatchPrediction@.
+    --
     -- -   @DataURI@ - Sets the search criteria to the data file(s) used in the
     --     @BatchPrediction@. The URL can identify either a file or an Amazon
     --     Simple Storage Solution (Amazon S3) bucket or directory.
@@ -141,34 +148,41 @@ data DescribeBatchPredictions = DescribeBatchPredictions'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'sortOrder', 'describeBatchPredictions_sortOrder' - A two-value parameter that determines the sequence of the resulting list
--- of @MLModel@s.
---
--- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
--- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
---
--- Results are sorted by @FilterVariable@.
---
 -- 'eq', 'describeBatchPredictions_eq' - The equal to operator. The @BatchPrediction@ results will have
 -- @FilterVariable@ values that exactly match the value specified with
 -- @EQ@.
 --
 -- 'nextToken', 'describeBatchPredictions_nextToken' - An ID of the page in the paginated results.
 --
+-- 'sortOrder', 'describeBatchPredictions_sortOrder' - A two-value parameter that determines the sequence of the resulting list
+-- of @MLModel@s.
+--
+-- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+--
+-- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
+--
+-- Results are sorted by @FilterVariable@.
+--
 -- 'filterVariable', 'describeBatchPredictions_filterVariable' - Use one of the following variables to filter a list of
 -- @BatchPrediction@:
 --
 -- -   @CreatedAt@ - Sets the search criteria to the @BatchPrediction@
 --     creation date.
+--
 -- -   @Status@ - Sets the search criteria to the @BatchPrediction@ status.
+--
 -- -   @Name@ - Sets the search criteria to the contents of the
 --     @BatchPrediction@ ____ @Name@.
+--
 -- -   @IAMUser@ - Sets the search criteria to the user account that
 --     invoked the @BatchPrediction@ creation.
+--
 -- -   @MLModelId@ - Sets the search criteria to the @MLModel@ used in the
 --     @BatchPrediction@.
+--
 -- -   @DataSourceId@ - Sets the search criteria to the @DataSource@ used
 --     in the @BatchPrediction@.
+--
 -- -   @DataURI@ - Sets the search criteria to the data file(s) used in the
 --     @BatchPrediction@. The URL can identify either a file or an Amazon
 --     Simple Storage Solution (Amazon S3) bucket or directory.
@@ -212,10 +226,9 @@ newDescribeBatchPredictions ::
   DescribeBatchPredictions
 newDescribeBatchPredictions =
   DescribeBatchPredictions'
-    { sortOrder =
-        Prelude.Nothing,
-      eq = Prelude.Nothing,
+    { eq = Prelude.Nothing,
       nextToken = Prelude.Nothing,
+      sortOrder = Prelude.Nothing,
       filterVariable = Prelude.Nothing,
       gt = Prelude.Nothing,
       ne = Prelude.Nothing,
@@ -225,16 +238,6 @@ newDescribeBatchPredictions =
       lt = Prelude.Nothing,
       limit = Prelude.Nothing
     }
-
--- | A two-value parameter that determines the sequence of the resulting list
--- of @MLModel@s.
---
--- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
--- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
---
--- Results are sorted by @FilterVariable@.
-describeBatchPredictions_sortOrder :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe SortOrder)
-describeBatchPredictions_sortOrder = Lens.lens (\DescribeBatchPredictions' {sortOrder} -> sortOrder) (\s@DescribeBatchPredictions' {} a -> s {sortOrder = a} :: DescribeBatchPredictions)
 
 -- | The equal to operator. The @BatchPrediction@ results will have
 -- @FilterVariable@ values that exactly match the value specified with
@@ -246,20 +249,37 @@ describeBatchPredictions_eq = Lens.lens (\DescribeBatchPredictions' {eq} -> eq) 
 describeBatchPredictions_nextToken :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe Prelude.Text)
 describeBatchPredictions_nextToken = Lens.lens (\DescribeBatchPredictions' {nextToken} -> nextToken) (\s@DescribeBatchPredictions' {} a -> s {nextToken = a} :: DescribeBatchPredictions)
 
+-- | A two-value parameter that determines the sequence of the resulting list
+-- of @MLModel@s.
+--
+-- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+--
+-- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
+--
+-- Results are sorted by @FilterVariable@.
+describeBatchPredictions_sortOrder :: Lens.Lens' DescribeBatchPredictions (Prelude.Maybe SortOrder)
+describeBatchPredictions_sortOrder = Lens.lens (\DescribeBatchPredictions' {sortOrder} -> sortOrder) (\s@DescribeBatchPredictions' {} a -> s {sortOrder = a} :: DescribeBatchPredictions)
+
 -- | Use one of the following variables to filter a list of
 -- @BatchPrediction@:
 --
 -- -   @CreatedAt@ - Sets the search criteria to the @BatchPrediction@
 --     creation date.
+--
 -- -   @Status@ - Sets the search criteria to the @BatchPrediction@ status.
+--
 -- -   @Name@ - Sets the search criteria to the contents of the
 --     @BatchPrediction@ ____ @Name@.
+--
 -- -   @IAMUser@ - Sets the search criteria to the user account that
 --     invoked the @BatchPrediction@ creation.
+--
 -- -   @MLModelId@ - Sets the search criteria to the @MLModel@ used in the
 --     @BatchPrediction@.
+--
 -- -   @DataSourceId@ - Sets the search criteria to the @DataSource@ used
 --     in the @BatchPrediction@.
+--
 -- -   @DataURI@ - Sets the search criteria to the data file(s) used in the
 --     @BatchPrediction@. The URL can identify either a file or an Amazon
 --     Simple Storage Solution (Amazon S3) bucket or directory.
@@ -375,9 +395,9 @@ instance Core.ToJSON DescribeBatchPredictions where
   toJSON DescribeBatchPredictions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("SortOrder" Core..=) Prelude.<$> sortOrder,
-            ("EQ" Core..=) Prelude.<$> eq,
+          [ ("EQ" Core..=) Prelude.<$> eq,
             ("NextToken" Core..=) Prelude.<$> nextToken,
+            ("SortOrder" Core..=) Prelude.<$> sortOrder,
             ("FilterVariable" Core..=)
               Prelude.<$> filterVariable,
             ("GT" Core..=) Prelude.<$> gt,

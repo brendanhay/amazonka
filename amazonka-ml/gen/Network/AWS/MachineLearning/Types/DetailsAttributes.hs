@@ -29,9 +29,12 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
--- | Contains the key values of @DetailsMap@: @PredictiveModelType@ -
--- Indicates the type of the @MLModel@. @Algorithm@ - Indicates the
--- algorithm that was used for the @MLModel@.
+-- | Contains the key values of @DetailsMap@:
+--
+-- -   @PredictiveModelType@ - Indicates the type of the @MLModel@.
+--
+-- -   @Algorithm@ - Indicates the algorithm that was used for the
+--     @MLModel@.
 newtype DetailsAttributes = DetailsAttributes'
   { fromDetailsAttributes ::
       Core.Text

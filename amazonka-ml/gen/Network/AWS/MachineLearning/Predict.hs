@@ -23,10 +23,8 @@
 -- Generates a prediction for the observation using the specified
 -- @ML Model@.
 --
--- Note
---
--- Not all response parameters will be populated. Whether a response
--- parameter is populated depends on the type of model requested.
+-- __Note:__ Not all response parameters will be populated. Whether a
+-- response parameter is populated depends on the type of model requested.
 module Network.AWS.MachineLearning.Predict
   ( -- * Creating a Request
     Predict (..),

@@ -14,11 +14,6 @@
 module Network.AWS.MachineLearning.Lens
   ( -- * Operations
 
-    -- ** DeleteMLModel
-    deleteMLModel_mLModelId,
-    deleteMLModelResponse_mLModelId,
-    deleteMLModelResponse_httpStatus,
-
     -- ** UpdateMLModel
     updateMLModel_scoreThreshold,
     updateMLModel_mLModelName,
@@ -34,6 +29,17 @@ module Network.AWS.MachineLearning.Lens
     createDataSourceFromSResponse_dataSourceId,
     createDataSourceFromSResponse_httpStatus,
 
+    -- ** DeleteMLModel
+    deleteMLModel_mLModelId,
+    deleteMLModelResponse_mLModelId,
+    deleteMLModelResponse_httpStatus,
+
+    -- ** UpdateDataSource
+    updateDataSource_dataSourceId,
+    updateDataSource_dataSourceName,
+    updateDataSourceResponse_dataSourceId,
+    updateDataSourceResponse_httpStatus,
+
     -- ** CreateDataSourceFromRedshift
     createDataSourceFromRedshift_computeStatistics,
     createDataSourceFromRedshift_dataSourceName,
@@ -42,12 +48,6 @@ module Network.AWS.MachineLearning.Lens
     createDataSourceFromRedshift_roleARN,
     createDataSourceFromRedshiftResponse_dataSourceId,
     createDataSourceFromRedshiftResponse_httpStatus,
-
-    -- ** UpdateDataSource
-    updateDataSource_dataSourceId,
-    updateDataSource_dataSourceName,
-    updateDataSourceResponse_dataSourceId,
-    updateDataSourceResponse_httpStatus,
 
     -- ** DescribeTags
     describeTags_resourceId,
@@ -63,9 +63,9 @@ module Network.AWS.MachineLearning.Lens
     deleteDataSourceResponse_httpStatus,
 
     -- ** DescribeDataSources
-    describeDataSources_sortOrder,
     describeDataSources_eq,
     describeDataSources_nextToken,
+    describeDataSources_sortOrder,
     describeDataSources_filterVariable,
     describeDataSources_gt,
     describeDataSources_ne,
@@ -78,10 +78,18 @@ module Network.AWS.MachineLearning.Lens
     describeDataSourcesResponse_results,
     describeDataSourcesResponse_httpStatus,
 
+    -- ** DeleteTags
+    deleteTags_tagKeys,
+    deleteTags_resourceId,
+    deleteTags_resourceType,
+    deleteTagsResponse_resourceId,
+    deleteTagsResponse_resourceType,
+    deleteTagsResponse_httpStatus,
+
     -- ** DescribeEvaluations
-    describeEvaluations_sortOrder,
     describeEvaluations_eq,
     describeEvaluations_nextToken,
+    describeEvaluations_sortOrder,
     describeEvaluations_filterVariable,
     describeEvaluations_gt,
     describeEvaluations_ne,
@@ -94,14 +102,6 @@ module Network.AWS.MachineLearning.Lens
     describeEvaluationsResponse_results,
     describeEvaluationsResponse_httpStatus,
 
-    -- ** AddTags
-    addTags_tags,
-    addTags_resourceId,
-    addTags_resourceType,
-    addTagsResponse_resourceId,
-    addTagsResponse_resourceType,
-    addTagsResponse_httpStatus,
-
     -- ** GetMLModel
     getMLModel_verbose,
     getMLModel_mLModelId,
@@ -110,17 +110,17 @@ module Network.AWS.MachineLearning.Lens
     getMLModelResponse_schema,
     getMLModelResponse_message,
     getMLModelResponse_recipe,
-    getMLModelResponse_endpointInfo,
-    getMLModelResponse_scoreThresholdLastUpdatedAt,
     getMLModelResponse_createdAt,
+    getMLModelResponse_scoreThresholdLastUpdatedAt,
+    getMLModelResponse_endpointInfo,
     getMLModelResponse_trainingParameters,
+    getMLModelResponse_name,
+    getMLModelResponse_createdByIamUser,
     getMLModelResponse_finishedAt,
     getMLModelResponse_scoreThreshold,
-    getMLModelResponse_createdByIamUser,
-    getMLModelResponse_name,
     getMLModelResponse_mLModelType,
-    getMLModelResponse_mLModelId,
     getMLModelResponse_sizeInBytes,
+    getMLModelResponse_mLModelId,
     getMLModelResponse_inputDataLocationS3,
     getMLModelResponse_computeTime,
     getMLModelResponse_trainingDataSourceId,
@@ -136,24 +136,24 @@ module Network.AWS.MachineLearning.Lens
     getEvaluationResponse_evaluationDataSourceId,
     getEvaluationResponse_message,
     getEvaluationResponse_createdAt,
-    getEvaluationResponse_finishedAt,
-    getEvaluationResponse_createdByIamUser,
     getEvaluationResponse_name,
-    getEvaluationResponse_evaluationId,
+    getEvaluationResponse_createdByIamUser,
+    getEvaluationResponse_finishedAt,
     getEvaluationResponse_mLModelId,
+    getEvaluationResponse_evaluationId,
     getEvaluationResponse_inputDataLocationS3,
     getEvaluationResponse_computeTime,
     getEvaluationResponse_lastUpdatedAt,
     getEvaluationResponse_logUri,
     getEvaluationResponse_httpStatus,
 
-    -- ** DeleteTags
-    deleteTags_tagKeys,
-    deleteTags_resourceId,
-    deleteTags_resourceType,
-    deleteTagsResponse_resourceId,
-    deleteTagsResponse_resourceType,
-    deleteTagsResponse_httpStatus,
+    -- ** AddTags
+    addTags_tags,
+    addTags_resourceId,
+    addTags_resourceType,
+    addTagsResponse_resourceId,
+    addTagsResponse_resourceType,
+    addTagsResponse_httpStatus,
 
     -- ** DeleteRealtimeEndpoint
     deleteRealtimeEndpoint_mLModelId,
@@ -170,31 +170,10 @@ module Network.AWS.MachineLearning.Lens
     createDataSourceFromRDSResponse_dataSourceId,
     createDataSourceFromRDSResponse_httpStatus,
 
-    -- ** GetBatchPrediction
-    getBatchPrediction_batchPredictionId,
-    getBatchPredictionResponse_batchPredictionId,
-    getBatchPredictionResponse_status,
-    getBatchPredictionResponse_startedAt,
-    getBatchPredictionResponse_outputUri,
-    getBatchPredictionResponse_message,
-    getBatchPredictionResponse_createdAt,
-    getBatchPredictionResponse_finishedAt,
-    getBatchPredictionResponse_createdByIamUser,
-    getBatchPredictionResponse_name,
-    getBatchPredictionResponse_invalidRecordCount,
-    getBatchPredictionResponse_totalRecordCount,
-    getBatchPredictionResponse_batchPredictionDataSourceId,
-    getBatchPredictionResponse_mLModelId,
-    getBatchPredictionResponse_inputDataLocationS3,
-    getBatchPredictionResponse_computeTime,
-    getBatchPredictionResponse_lastUpdatedAt,
-    getBatchPredictionResponse_logUri,
-    getBatchPredictionResponse_httpStatus,
-
     -- ** DescribeBatchPredictions
-    describeBatchPredictions_sortOrder,
     describeBatchPredictions_eq,
     describeBatchPredictions_nextToken,
+    describeBatchPredictions_sortOrder,
     describeBatchPredictions_filterVariable,
     describeBatchPredictions_gt,
     describeBatchPredictions_ne,
@@ -218,23 +197,44 @@ module Network.AWS.MachineLearning.Lens
     updateEvaluationResponse_evaluationId,
     updateEvaluationResponse_httpStatus,
 
+    -- ** GetBatchPrediction
+    getBatchPrediction_batchPredictionId,
+    getBatchPredictionResponse_status,
+    getBatchPredictionResponse_batchPredictionId,
+    getBatchPredictionResponse_startedAt,
+    getBatchPredictionResponse_outputUri,
+    getBatchPredictionResponse_message,
+    getBatchPredictionResponse_createdAt,
+    getBatchPredictionResponse_name,
+    getBatchPredictionResponse_createdByIamUser,
+    getBatchPredictionResponse_finishedAt,
+    getBatchPredictionResponse_invalidRecordCount,
+    getBatchPredictionResponse_totalRecordCount,
+    getBatchPredictionResponse_batchPredictionDataSourceId,
+    getBatchPredictionResponse_mLModelId,
+    getBatchPredictionResponse_inputDataLocationS3,
+    getBatchPredictionResponse_computeTime,
+    getBatchPredictionResponse_lastUpdatedAt,
+    getBatchPredictionResponse_logUri,
+    getBatchPredictionResponse_httpStatus,
+
     -- ** GetDataSource
     getDataSource_verbose,
     getDataSource_dataSourceId,
     getDataSourceResponse_status,
     getDataSourceResponse_startedAt,
-    getDataSourceResponse_dataRearrangement,
     getDataSourceResponse_roleARN,
+    getDataSourceResponse_dataRearrangement,
     getDataSourceResponse_redshiftMetadata,
     getDataSourceResponse_message,
     getDataSourceResponse_dataSourceId,
     getDataSourceResponse_computeStatistics,
-    getDataSourceResponse_dataLocationS3,
     getDataSourceResponse_createdAt,
-    getDataSourceResponse_numberOfFiles,
-    getDataSourceResponse_finishedAt,
-    getDataSourceResponse_createdByIamUser,
+    getDataSourceResponse_dataLocationS3,
     getDataSourceResponse_name,
+    getDataSourceResponse_numberOfFiles,
+    getDataSourceResponse_createdByIamUser,
+    getDataSourceResponse_finishedAt,
     getDataSourceResponse_dataSourceSchema,
     getDataSourceResponse_dataSizeInBytes,
     getDataSourceResponse_computeTime,
@@ -242,6 +242,11 @@ module Network.AWS.MachineLearning.Lens
     getDataSourceResponse_lastUpdatedAt,
     getDataSourceResponse_logUri,
     getDataSourceResponse_httpStatus,
+
+    -- ** DeleteBatchPrediction
+    deleteBatchPrediction_batchPredictionId,
+    deleteBatchPredictionResponse_batchPredictionId,
+    deleteBatchPredictionResponse_httpStatus,
 
     -- ** CreateRealtimeEndpoint
     createRealtimeEndpoint_mLModelId,
@@ -255,15 +260,10 @@ module Network.AWS.MachineLearning.Lens
     updateBatchPredictionResponse_batchPredictionId,
     updateBatchPredictionResponse_httpStatus,
 
-    -- ** DeleteBatchPrediction
-    deleteBatchPrediction_batchPredictionId,
-    deleteBatchPredictionResponse_batchPredictionId,
-    deleteBatchPredictionResponse_httpStatus,
-
     -- ** DescribeMLModels
-    describeMLModels_sortOrder,
     describeMLModels_eq,
     describeMLModels_nextToken,
+    describeMLModels_sortOrder,
     describeMLModels_filterVariable,
     describeMLModels_gt,
     describeMLModels_ne,
@@ -276,6 +276,13 @@ module Network.AWS.MachineLearning.Lens
     describeMLModelsResponse_results,
     describeMLModelsResponse_httpStatus,
 
+    -- ** Predict
+    predict_mLModelId,
+    predict_record,
+    predict_predictEndpoint,
+    predictResponse_prediction,
+    predictResponse_httpStatus,
+
     -- ** CreateBatchPrediction
     createBatchPrediction_batchPredictionName,
     createBatchPrediction_batchPredictionId,
@@ -285,12 +292,13 @@ module Network.AWS.MachineLearning.Lens
     createBatchPredictionResponse_batchPredictionId,
     createBatchPredictionResponse_httpStatus,
 
-    -- ** Predict
-    predict_mLModelId,
-    predict_record,
-    predict_predictEndpoint,
-    predictResponse_prediction,
-    predictResponse_httpStatus,
+    -- ** CreateEvaluation
+    createEvaluation_evaluationName,
+    createEvaluation_evaluationId,
+    createEvaluation_mLModelId,
+    createEvaluation_evaluationDataSourceId,
+    createEvaluationResponse_evaluationId,
+    createEvaluationResponse_httpStatus,
 
     -- ** CreateMLModel
     createMLModel_recipeUri,
@@ -303,26 +311,18 @@ module Network.AWS.MachineLearning.Lens
     createMLModelResponse_mLModelId,
     createMLModelResponse_httpStatus,
 
-    -- ** CreateEvaluation
-    createEvaluation_evaluationName,
-    createEvaluation_evaluationId,
-    createEvaluation_mLModelId,
-    createEvaluation_evaluationDataSourceId,
-    createEvaluationResponse_evaluationId,
-    createEvaluationResponse_httpStatus,
-
     -- * Types
 
     -- ** BatchPrediction
-    batchPrediction_batchPredictionId,
     batchPrediction_status,
+    batchPrediction_batchPredictionId,
     batchPrediction_startedAt,
     batchPrediction_outputUri,
     batchPrediction_message,
     batchPrediction_createdAt,
-    batchPrediction_finishedAt,
-    batchPrediction_createdByIamUser,
     batchPrediction_name,
+    batchPrediction_createdByIamUser,
+    batchPrediction_finishedAt,
     batchPrediction_invalidRecordCount,
     batchPrediction_totalRecordCount,
     batchPrediction_batchPredictionDataSourceId,
@@ -334,18 +334,18 @@ module Network.AWS.MachineLearning.Lens
     -- ** DataSource
     dataSource_status,
     dataSource_startedAt,
-    dataSource_dataRearrangement,
     dataSource_roleARN,
+    dataSource_dataRearrangement,
     dataSource_redshiftMetadata,
     dataSource_message,
     dataSource_dataSourceId,
     dataSource_computeStatistics,
-    dataSource_dataLocationS3,
     dataSource_createdAt,
-    dataSource_numberOfFiles,
-    dataSource_finishedAt,
-    dataSource_createdByIamUser,
+    dataSource_dataLocationS3,
     dataSource_name,
+    dataSource_numberOfFiles,
+    dataSource_createdByIamUser,
+    dataSource_finishedAt,
     dataSource_dataSizeInBytes,
     dataSource_computeTime,
     dataSource_rDSMetadata,
@@ -358,11 +358,11 @@ module Network.AWS.MachineLearning.Lens
     evaluation_evaluationDataSourceId,
     evaluation_message,
     evaluation_createdAt,
-    evaluation_finishedAt,
-    evaluation_createdByIamUser,
     evaluation_name,
-    evaluation_evaluationId,
+    evaluation_createdByIamUser,
+    evaluation_finishedAt,
     evaluation_mLModelId,
+    evaluation_evaluationId,
     evaluation_inputDataLocationS3,
     evaluation_computeTime,
     evaluation_lastUpdatedAt,
@@ -372,17 +372,17 @@ module Network.AWS.MachineLearning.Lens
     mLModel_status,
     mLModel_startedAt,
     mLModel_message,
-    mLModel_endpointInfo,
-    mLModel_scoreThresholdLastUpdatedAt,
     mLModel_createdAt,
+    mLModel_scoreThresholdLastUpdatedAt,
+    mLModel_endpointInfo,
     mLModel_trainingParameters,
+    mLModel_name,
+    mLModel_createdByIamUser,
     mLModel_finishedAt,
     mLModel_scoreThreshold,
-    mLModel_createdByIamUser,
-    mLModel_name,
     mLModel_mLModelType,
-    mLModel_mLModelId,
     mLModel_sizeInBytes,
+    mLModel_mLModelId,
     mLModel_inputDataLocationS3,
     mLModel_computeTime,
     mLModel_trainingDataSourceId,
@@ -398,8 +398,8 @@ module Network.AWS.MachineLearning.Lens
     prediction_details,
 
     -- ** RDSDataSpec
-    rDSDataSpec_dataRearrangement,
     rDSDataSpec_dataSchema,
+    rDSDataSpec_dataRearrangement,
     rDSDataSpec_dataSchemaUri,
     rDSDataSpec_databaseInformation,
     rDSDataSpec_selectSqlQuery,
@@ -433,8 +433,8 @@ module Network.AWS.MachineLearning.Lens
     realtimeEndpointInfo_endpointUrl,
 
     -- ** RedshiftDataSpec
-    redshiftDataSpec_dataRearrangement,
     redshiftDataSpec_dataSchema,
+    redshiftDataSpec_dataRearrangement,
     redshiftDataSpec_dataSchemaUri,
     redshiftDataSpec_databaseInformation,
     redshiftDataSpec_selectSqlQuery,
@@ -455,8 +455,8 @@ module Network.AWS.MachineLearning.Lens
     redshiftMetadata_databaseUserName,
 
     -- ** S3DataSpec
-    s3DataSpec_dataRearrangement,
     s3DataSpec_dataSchema,
+    s3DataSpec_dataRearrangement,
     s3DataSpec_dataSchemaLocationS3,
     s3DataSpec_dataLocationS3,
 

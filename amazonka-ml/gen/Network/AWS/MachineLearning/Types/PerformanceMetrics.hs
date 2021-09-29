@@ -39,7 +39,7 @@ import qualified Network.AWS.Prelude as Prelude
 --     technique to measure performance.
 --
 -- For more information about performance metrics, please see the
--- <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
+-- <https://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
 --
 -- /See:/ 'newPerformanceMetrics' smart constructor.
 data PerformanceMetrics = PerformanceMetrics'

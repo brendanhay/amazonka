@@ -33,6 +33,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- the following:
 --
 -- -   @asc@ - Present the information in ascending order (from A-Z).
+--
 -- -   @dsc@ - Present the information in descending order (from Z-A).
 newtype SortOrder = SortOrder'
   { fromSortOrder ::

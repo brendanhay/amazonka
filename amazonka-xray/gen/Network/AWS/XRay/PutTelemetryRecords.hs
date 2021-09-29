@@ -20,15 +20,15 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Used by the AWS X-Ray daemon to upload telemetry.
+-- Used by the Amazon Web Services X-Ray daemon to upload telemetry.
 module Network.AWS.XRay.PutTelemetryRecords
   ( -- * Creating a Request
     PutTelemetryRecords (..),
     newPutTelemetryRecords,
 
     -- * Request Lenses
-    putTelemetryRecords_resourceARN,
     putTelemetryRecords_hostname,
+    putTelemetryRecords_resourceARN,
     putTelemetryRecords_eC2InstanceId,
     putTelemetryRecords_telemetryRecords,
 
@@ -50,8 +50,8 @@ import Network.AWS.XRay.Types
 
 -- | /See:/ 'newPutTelemetryRecords' smart constructor.
 data PutTelemetryRecords = PutTelemetryRecords'
-  { resourceARN :: Prelude.Maybe Prelude.Text,
-    hostname :: Prelude.Maybe Prelude.Text,
+  { hostname :: Prelude.Maybe Prelude.Text,
+    resourceARN :: Prelude.Maybe Prelude.Text,
     eC2InstanceId :: Prelude.Maybe Prelude.Text,
     telemetryRecords :: [TelemetryRecord]
   }
@@ -65,9 +65,9 @@ data PutTelemetryRecords = PutTelemetryRecords'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceARN', 'putTelemetryRecords_resourceARN' -
---
 -- 'hostname', 'putTelemetryRecords_hostname' -
+--
+-- 'resourceARN', 'putTelemetryRecords_resourceARN' -
 --
 -- 'eC2InstanceId', 'putTelemetryRecords_eC2InstanceId' -
 --
@@ -76,19 +76,19 @@ newPutTelemetryRecords ::
   PutTelemetryRecords
 newPutTelemetryRecords =
   PutTelemetryRecords'
-    { resourceARN = Prelude.Nothing,
-      hostname = Prelude.Nothing,
+    { hostname = Prelude.Nothing,
+      resourceARN = Prelude.Nothing,
       eC2InstanceId = Prelude.Nothing,
       telemetryRecords = Prelude.mempty
     }
 
 -- |
-putTelemetryRecords_resourceARN :: Lens.Lens' PutTelemetryRecords (Prelude.Maybe Prelude.Text)
-putTelemetryRecords_resourceARN = Lens.lens (\PutTelemetryRecords' {resourceARN} -> resourceARN) (\s@PutTelemetryRecords' {} a -> s {resourceARN = a} :: PutTelemetryRecords)
-
--- |
 putTelemetryRecords_hostname :: Lens.Lens' PutTelemetryRecords (Prelude.Maybe Prelude.Text)
 putTelemetryRecords_hostname = Lens.lens (\PutTelemetryRecords' {hostname} -> hostname) (\s@PutTelemetryRecords' {} a -> s {hostname = a} :: PutTelemetryRecords)
+
+-- |
+putTelemetryRecords_resourceARN :: Lens.Lens' PutTelemetryRecords (Prelude.Maybe Prelude.Text)
+putTelemetryRecords_resourceARN = Lens.lens (\PutTelemetryRecords' {resourceARN} -> resourceARN) (\s@PutTelemetryRecords' {} a -> s {resourceARN = a} :: PutTelemetryRecords)
 
 -- |
 putTelemetryRecords_eC2InstanceId :: Lens.Lens' PutTelemetryRecords (Prelude.Maybe Prelude.Text)
@@ -121,8 +121,8 @@ instance Core.ToJSON PutTelemetryRecords where
   toJSON PutTelemetryRecords' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ResourceARN" Core..=) Prelude.<$> resourceARN,
-            ("Hostname" Core..=) Prelude.<$> hostname,
+          [ ("Hostname" Core..=) Prelude.<$> hostname,
+            ("ResourceARN" Core..=) Prelude.<$> resourceARN,
             ("EC2InstanceId" Core..=) Prelude.<$> eC2InstanceId,
             Prelude.Just
               ("TelemetryRecords" Core..= telemetryRecords)

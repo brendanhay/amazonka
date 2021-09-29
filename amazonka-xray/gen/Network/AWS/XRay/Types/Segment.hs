@@ -24,13 +24,14 @@ import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
 -- | A segment from a trace that has been ingested by the X-Ray service. The
--- segment can be compiled from documents uploaded with PutTraceSegments,
+-- segment can be compiled from documents uploaded with
+-- <https://docs.aws.amazon.com/xray/latest/api/API_PutTraceSegments.html PutTraceSegments>,
 -- or an @inferred@ segment for a downstream service, generated from a
 -- subsegment sent by the service that called it.
 --
 -- For the full segment document schema, see
--- <https://docs.aws.amazon.com/xray/latest/devguide/xray-api-segmentdocuments.html AWS X-Ray Segment Documents>
--- in the /AWS X-Ray Developer Guide/.
+-- <https://docs.aws.amazon.com/xray/latest/devguide/xray-api-segmentdocuments.html Amazon Web Services X-Ray Segment Documents>
+-- in the /Amazon Web Services X-Ray Developer Guide/.
 --
 -- /See:/ 'newSegment' smart constructor.
 data Segment = Segment'

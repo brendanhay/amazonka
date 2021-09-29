@@ -21,13 +21,16 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a rule to control sampling behavior for instrumented
--- applications. Services retrieve rules with GetSamplingRules, and
--- evaluate each rule in ascending order of /priority/ for each request. If
--- a rule matches, the service records a trace, borrowing it from the
--- reservoir size. After 10 seconds, the service reports back to X-Ray with
--- GetSamplingTargets to get updated versions of each in-use rule. The
--- updated rule contains a trace quota that the service can use instead of
--- borrowing from the reservoir.
+-- applications. Services retrieve rules with
+-- <https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html GetSamplingRules>,
+-- and evaluate each rule in ascending order of /priority/ for each
+-- request. If a rule matches, the service records a trace, borrowing it
+-- from the reservoir size. After 10 seconds, the service reports back to
+-- X-Ray with
+-- <https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html GetSamplingTargets>
+-- to get updated versions of each in-use rule. The updated rule contains a
+-- trace quota that the service can use instead of borrowing from the
+-- reservoir.
 module Network.AWS.XRay.CreateSamplingRule
   ( -- * Creating a Request
     CreateSamplingRule (..),
@@ -58,8 +61,8 @@ import Network.AWS.XRay.Types
 data CreateSamplingRule = CreateSamplingRule'
   { -- | A map that contains one or more tag keys and tag values to attach to an
     -- X-Ray sampling rule. For more information about ways to use tags, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
-    -- in the /AWS General Reference/.
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+    -- in the /Amazon Web Services General Reference/.
     --
     -- The following restrictions apply to tags:
     --
@@ -74,7 +77,8 @@ data CreateSamplingRule = CreateSamplingRule'
     --
     -- -   Tag keys and values are case sensitive.
     --
-    -- -   Don\'t use @aws:@ as a prefix for keys; it\'s reserved for AWS use.
+    -- -   Don\'t use @aws:@ as a prefix for keys; it\'s reserved for Amazon
+    --     Web Services use.
     tags :: Prelude.Maybe [Tag],
     -- | The rule definition.
     samplingRule :: SamplingRule
@@ -91,8 +95,8 @@ data CreateSamplingRule = CreateSamplingRule'
 --
 -- 'tags', 'createSamplingRule_tags' - A map that contains one or more tag keys and tag values to attach to an
 -- X-Ray sampling rule. For more information about ways to use tags, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
--- in the /AWS General Reference/.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+-- in the /Amazon Web Services General Reference/.
 --
 -- The following restrictions apply to tags:
 --
@@ -107,7 +111,8 @@ data CreateSamplingRule = CreateSamplingRule'
 --
 -- -   Tag keys and values are case sensitive.
 --
--- -   Don\'t use @aws:@ as a prefix for keys; it\'s reserved for AWS use.
+-- -   Don\'t use @aws:@ as a prefix for keys; it\'s reserved for Amazon
+--     Web Services use.
 --
 -- 'samplingRule', 'createSamplingRule_samplingRule' - The rule definition.
 newCreateSamplingRule ::
@@ -122,8 +127,8 @@ newCreateSamplingRule pSamplingRule_ =
 
 -- | A map that contains one or more tag keys and tag values to attach to an
 -- X-Ray sampling rule. For more information about ways to use tags, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
--- in the /AWS General Reference/.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+-- in the /Amazon Web Services General Reference/.
 --
 -- The following restrictions apply to tags:
 --
@@ -138,7 +143,8 @@ newCreateSamplingRule pSamplingRule_ =
 --
 -- -   Tag keys and values are case sensitive.
 --
--- -   Don\'t use @aws:@ as a prefix for keys; it\'s reserved for AWS use.
+-- -   Don\'t use @aws:@ as a prefix for keys; it\'s reserved for Amazon
+--     Web Services use.
 createSamplingRule_tags :: Lens.Lens' CreateSamplingRule (Prelude.Maybe [Tag])
 createSamplingRule_tags = Lens.lens (\CreateSamplingRule' {tags} -> tags) (\s@CreateSamplingRule' {} a -> s {tags = a} :: CreateSamplingRule) Prelude.. Lens.mapping Lens._Coerce
 

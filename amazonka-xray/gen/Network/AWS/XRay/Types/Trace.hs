@@ -28,13 +28,13 @@ import Network.AWS.XRay.Types.Segment
 --
 -- /See:/ 'newTrace' smart constructor.
 data Trace = Trace'
-  { -- | LimitExceeded is set to true when the trace has exceeded one of the
-    -- defined quotas. For more information about quotas, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/xray.html AWS X-Ray endpoints and quotas>.
-    limitExceeded :: Prelude.Maybe Prelude.Bool,
-    -- | The length of time in seconds between the start time of the root segment
+  { -- | The length of time in seconds between the start time of the root segment
     -- and the end time of the last segment that completed.
     duration :: Prelude.Maybe Prelude.Double,
+    -- | LimitExceeded is set to true when the trace has exceeded one of the
+    -- defined quotas. For more information about quotas, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/xray.html Amazon Web Services X-Ray endpoints and quotas>.
+    limitExceeded :: Prelude.Maybe Prelude.Bool,
     -- | The unique identifier for the request that generated the trace\'s
     -- segments and subsegments.
     id :: Prelude.Maybe Prelude.Text,
@@ -52,12 +52,12 @@ data Trace = Trace'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'limitExceeded', 'trace_limitExceeded' - LimitExceeded is set to true when the trace has exceeded one of the
--- defined quotas. For more information about quotas, see
--- <https://docs.aws.amazon.com/general/latest/gr/xray.html AWS X-Ray endpoints and quotas>.
---
 -- 'duration', 'trace_duration' - The length of time in seconds between the start time of the root segment
 -- and the end time of the last segment that completed.
+--
+-- 'limitExceeded', 'trace_limitExceeded' - LimitExceeded is set to true when the trace has exceeded one of the
+-- defined quotas. For more information about quotas, see
+-- <https://docs.aws.amazon.com/general/latest/gr/xray.html Amazon Web Services X-Ray endpoints and quotas>.
 --
 -- 'id', 'trace_id' - The unique identifier for the request that generated the trace\'s
 -- segments and subsegments.
@@ -68,22 +68,22 @@ newTrace ::
   Trace
 newTrace =
   Trace'
-    { limitExceeded = Prelude.Nothing,
-      duration = Prelude.Nothing,
+    { duration = Prelude.Nothing,
+      limitExceeded = Prelude.Nothing,
       id = Prelude.Nothing,
       segments = Prelude.Nothing
     }
-
--- | LimitExceeded is set to true when the trace has exceeded one of the
--- defined quotas. For more information about quotas, see
--- <https://docs.aws.amazon.com/general/latest/gr/xray.html AWS X-Ray endpoints and quotas>.
-trace_limitExceeded :: Lens.Lens' Trace (Prelude.Maybe Prelude.Bool)
-trace_limitExceeded = Lens.lens (\Trace' {limitExceeded} -> limitExceeded) (\s@Trace' {} a -> s {limitExceeded = a} :: Trace)
 
 -- | The length of time in seconds between the start time of the root segment
 -- and the end time of the last segment that completed.
 trace_duration :: Lens.Lens' Trace (Prelude.Maybe Prelude.Double)
 trace_duration = Lens.lens (\Trace' {duration} -> duration) (\s@Trace' {} a -> s {duration = a} :: Trace)
+
+-- | LimitExceeded is set to true when the trace has exceeded one of the
+-- defined quotas. For more information about quotas, see
+-- <https://docs.aws.amazon.com/general/latest/gr/xray.html Amazon Web Services X-Ray endpoints and quotas>.
+trace_limitExceeded :: Lens.Lens' Trace (Prelude.Maybe Prelude.Bool)
+trace_limitExceeded = Lens.lens (\Trace' {limitExceeded} -> limitExceeded) (\s@Trace' {} a -> s {limitExceeded = a} :: Trace)
 
 -- | The unique identifier for the request that generated the trace\'s
 -- segments and subsegments.
@@ -101,8 +101,8 @@ instance Core.FromJSON Trace where
       "Trace"
       ( \x ->
           Trace'
-            Prelude.<$> (x Core..:? "LimitExceeded")
-            Prelude.<*> (x Core..:? "Duration")
+            Prelude.<$> (x Core..:? "Duration")
+            Prelude.<*> (x Core..:? "LimitExceeded")
             Prelude.<*> (x Core..:? "Id")
             Prelude.<*> (x Core..:? "Segments" Core..!= Prelude.mempty)
       )

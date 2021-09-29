@@ -29,10 +29,10 @@ import Network.AWS.XRay.Types.ErrorRootCauseEntity
 --
 -- /See:/ 'newErrorRootCauseService' smart constructor.
 data ErrorRootCauseService = ErrorRootCauseService'
-  { -- | A collection of associated service names.
-    names :: Prelude.Maybe [Prelude.Text],
-    -- | The account ID associated to the service.
+  { -- | The account ID associated to the service.
     accountId :: Prelude.Maybe Prelude.Text,
+    -- | A collection of associated service names.
+    names :: Prelude.Maybe [Prelude.Text],
     -- | A Boolean value indicating if the service is inferred from the trace.
     inferred :: Prelude.Maybe Prelude.Bool,
     -- | The service name.
@@ -52,9 +52,9 @@ data ErrorRootCauseService = ErrorRootCauseService'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'names', 'errorRootCauseService_names' - A collection of associated service names.
---
 -- 'accountId', 'errorRootCauseService_accountId' - The account ID associated to the service.
+--
+-- 'names', 'errorRootCauseService_names' - A collection of associated service names.
 --
 -- 'inferred', 'errorRootCauseService_inferred' - A Boolean value indicating if the service is inferred from the trace.
 --
@@ -67,21 +67,21 @@ newErrorRootCauseService ::
   ErrorRootCauseService
 newErrorRootCauseService =
   ErrorRootCauseService'
-    { names = Prelude.Nothing,
-      accountId = Prelude.Nothing,
+    { accountId = Prelude.Nothing,
+      names = Prelude.Nothing,
       inferred = Prelude.Nothing,
       name = Prelude.Nothing,
       entityPath = Prelude.Nothing,
       type' = Prelude.Nothing
     }
 
--- | A collection of associated service names.
-errorRootCauseService_names :: Lens.Lens' ErrorRootCauseService (Prelude.Maybe [Prelude.Text])
-errorRootCauseService_names = Lens.lens (\ErrorRootCauseService' {names} -> names) (\s@ErrorRootCauseService' {} a -> s {names = a} :: ErrorRootCauseService) Prelude.. Lens.mapping Lens._Coerce
-
 -- | The account ID associated to the service.
 errorRootCauseService_accountId :: Lens.Lens' ErrorRootCauseService (Prelude.Maybe Prelude.Text)
 errorRootCauseService_accountId = Lens.lens (\ErrorRootCauseService' {accountId} -> accountId) (\s@ErrorRootCauseService' {} a -> s {accountId = a} :: ErrorRootCauseService)
+
+-- | A collection of associated service names.
+errorRootCauseService_names :: Lens.Lens' ErrorRootCauseService (Prelude.Maybe [Prelude.Text])
+errorRootCauseService_names = Lens.lens (\ErrorRootCauseService' {names} -> names) (\s@ErrorRootCauseService' {} a -> s {names = a} :: ErrorRootCauseService) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A Boolean value indicating if the service is inferred from the trace.
 errorRootCauseService_inferred :: Lens.Lens' ErrorRootCauseService (Prelude.Maybe Prelude.Bool)
@@ -105,8 +105,8 @@ instance Core.FromJSON ErrorRootCauseService where
       "ErrorRootCauseService"
       ( \x ->
           ErrorRootCauseService'
-            Prelude.<$> (x Core..:? "Names" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "AccountId")
+            Prelude.<$> (x Core..:? "AccountId")
+            Prelude.<*> (x Core..:? "Names" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Inferred")
             Prelude.<*> (x Core..:? "Name")
             Prelude.<*> (x Core..:? "EntityPath" Core..!= Prelude.mempty)

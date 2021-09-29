@@ -35,7 +35,7 @@ data Group = Group'
     -- -   The InsightsEnabled boolean can be set to true to enable insights
     --     for the group or false to disable insights for the group.
     --
-    -- -   The NotifcationsEnabled boolean can be set to true to enable
+    -- -   The NotificationsEnabled boolean can be set to true to enable
     --     insights notifications through Amazon EventBridge for the group.
     insightsConfiguration :: Prelude.Maybe InsightsConfiguration,
     -- | The filter expression defining the parameters to include traces.
@@ -61,7 +61,7 @@ data Group = Group'
 -- -   The InsightsEnabled boolean can be set to true to enable insights
 --     for the group or false to disable insights for the group.
 --
--- -   The NotifcationsEnabled boolean can be set to true to enable
+-- -   The NotificationsEnabled boolean can be set to true to enable
 --     insights notifications through Amazon EventBridge for the group.
 --
 -- 'filterExpression', 'group_filterExpression' - The filter expression defining the parameters to include traces.
@@ -87,7 +87,7 @@ group_groupName = Lens.lens (\Group' {groupName} -> groupName) (\s@Group' {} a -
 -- -   The InsightsEnabled boolean can be set to true to enable insights
 --     for the group or false to disable insights for the group.
 --
--- -   The NotifcationsEnabled boolean can be set to true to enable
+-- -   The NotificationsEnabled boolean can be set to true to enable
 --     insights notifications through Amazon EventBridge for the group.
 group_insightsConfiguration :: Lens.Lens' Group (Prelude.Maybe InsightsConfiguration)
 group_insightsConfiguration = Lens.lens (\Group' {insightsConfiguration} -> insightsConfiguration) (\s@Group' {} a -> s {insightsConfiguration = a} :: Group)

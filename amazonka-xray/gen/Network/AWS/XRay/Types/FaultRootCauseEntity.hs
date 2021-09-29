@@ -29,10 +29,10 @@ import Network.AWS.XRay.Types.RootCauseException
 --
 -- /See:/ 'newFaultRootCauseEntity' smart constructor.
 data FaultRootCauseEntity = FaultRootCauseEntity'
-  { -- | The types and messages of the exceptions.
-    exceptions :: Prelude.Maybe [RootCauseException],
-    -- | A flag that denotes a remote subsegment.
+  { -- | A flag that denotes a remote subsegment.
     remote :: Prelude.Maybe Prelude.Bool,
+    -- | The types and messages of the exceptions.
+    exceptions :: Prelude.Maybe [RootCauseException],
     -- | The name of the entity.
     name :: Prelude.Maybe Prelude.Text
   }
@@ -46,27 +46,27 @@ data FaultRootCauseEntity = FaultRootCauseEntity'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'exceptions', 'faultRootCauseEntity_exceptions' - The types and messages of the exceptions.
---
 -- 'remote', 'faultRootCauseEntity_remote' - A flag that denotes a remote subsegment.
+--
+-- 'exceptions', 'faultRootCauseEntity_exceptions' - The types and messages of the exceptions.
 --
 -- 'name', 'faultRootCauseEntity_name' - The name of the entity.
 newFaultRootCauseEntity ::
   FaultRootCauseEntity
 newFaultRootCauseEntity =
   FaultRootCauseEntity'
-    { exceptions = Prelude.Nothing,
-      remote = Prelude.Nothing,
+    { remote = Prelude.Nothing,
+      exceptions = Prelude.Nothing,
       name = Prelude.Nothing
     }
-
--- | The types and messages of the exceptions.
-faultRootCauseEntity_exceptions :: Lens.Lens' FaultRootCauseEntity (Prelude.Maybe [RootCauseException])
-faultRootCauseEntity_exceptions = Lens.lens (\FaultRootCauseEntity' {exceptions} -> exceptions) (\s@FaultRootCauseEntity' {} a -> s {exceptions = a} :: FaultRootCauseEntity) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A flag that denotes a remote subsegment.
 faultRootCauseEntity_remote :: Lens.Lens' FaultRootCauseEntity (Prelude.Maybe Prelude.Bool)
 faultRootCauseEntity_remote = Lens.lens (\FaultRootCauseEntity' {remote} -> remote) (\s@FaultRootCauseEntity' {} a -> s {remote = a} :: FaultRootCauseEntity)
+
+-- | The types and messages of the exceptions.
+faultRootCauseEntity_exceptions :: Lens.Lens' FaultRootCauseEntity (Prelude.Maybe [RootCauseException])
+faultRootCauseEntity_exceptions = Lens.lens (\FaultRootCauseEntity' {exceptions} -> exceptions) (\s@FaultRootCauseEntity' {} a -> s {exceptions = a} :: FaultRootCauseEntity) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The name of the entity.
 faultRootCauseEntity_name :: Lens.Lens' FaultRootCauseEntity (Prelude.Maybe Prelude.Text)
@@ -78,8 +78,8 @@ instance Core.FromJSON FaultRootCauseEntity where
       "FaultRootCauseEntity"
       ( \x ->
           FaultRootCauseEntity'
-            Prelude.<$> (x Core..:? "Exceptions" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "Remote")
+            Prelude.<$> (x Core..:? "Remote")
+            Prelude.<*> (x Core..:? "Exceptions" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "Name")
       )
 

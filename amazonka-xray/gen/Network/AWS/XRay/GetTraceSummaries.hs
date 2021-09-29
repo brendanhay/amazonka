@@ -39,7 +39,7 @@
 -- For a full list of indexed fields and keywords that you can use in
 -- filter expressions, see
 -- <https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html Using Filter Expressions>
--- in the /AWS X-Ray Developer Guide/.
+-- in the /Amazon Web Services X-Ray Developer Guide/.
 --
 -- This operation returns paginated results.
 module Network.AWS.XRay.GetTraceSummaries

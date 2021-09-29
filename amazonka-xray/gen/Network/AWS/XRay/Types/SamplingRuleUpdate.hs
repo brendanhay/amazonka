@@ -27,17 +27,18 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newSamplingRuleUpdate' smart constructor.
 data SamplingRuleUpdate = SamplingRuleUpdate'
-  { -- | Matches the ARN of the AWS resource on which the service runs.
-    resourceARN :: Prelude.Maybe Prelude.Text,
-    -- | Matches the HTTP method of a request.
+  { -- | Matches the HTTP method of a request.
     hTTPMethod :: Prelude.Maybe Prelude.Text,
+    -- | Matches the ARN of the Amazon Web Services resource on which the service
+    -- runs.
+    resourceARN :: Prelude.Maybe Prelude.Text,
+    -- | The percentage of matching requests to instrument, after the reservoir
+    -- is exhausted.
+    fixedRate :: Prelude.Maybe Prelude.Double,
     -- | A fixed number of matching requests to instrument per second, prior to
     -- applying the fixed rate. The reservoir is not used directly by services,
     -- but applies to all services using the rule collectively.
     reservoirSize :: Prelude.Maybe Prelude.Int,
-    -- | The percentage of matching requests to instrument, after the reservoir
-    -- is exhausted.
-    fixedRate :: Prelude.Maybe Prelude.Double,
     -- | The name of the sampling rule. Specify a rule by either name or ARN, but
     -- not both.
     ruleName :: Prelude.Maybe Prelude.Text,
@@ -68,16 +69,17 @@ data SamplingRuleUpdate = SamplingRuleUpdate'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceARN', 'samplingRuleUpdate_resourceARN' - Matches the ARN of the AWS resource on which the service runs.
---
 -- 'hTTPMethod', 'samplingRuleUpdate_hTTPMethod' - Matches the HTTP method of a request.
+--
+-- 'resourceARN', 'samplingRuleUpdate_resourceARN' - Matches the ARN of the Amazon Web Services resource on which the service
+-- runs.
+--
+-- 'fixedRate', 'samplingRuleUpdate_fixedRate' - The percentage of matching requests to instrument, after the reservoir
+-- is exhausted.
 --
 -- 'reservoirSize', 'samplingRuleUpdate_reservoirSize' - A fixed number of matching requests to instrument per second, prior to
 -- applying the fixed rate. The reservoir is not used directly by services,
 -- but applies to all services using the rule collectively.
---
--- 'fixedRate', 'samplingRuleUpdate_fixedRate' - The percentage of matching requests to instrument, after the reservoir
--- is exhausted.
 --
 -- 'ruleName', 'samplingRuleUpdate_ruleName' - The name of the sampling rule. Specify a rule by either name or ARN, but
 -- not both.
@@ -101,10 +103,10 @@ newSamplingRuleUpdate ::
   SamplingRuleUpdate
 newSamplingRuleUpdate =
   SamplingRuleUpdate'
-    { resourceARN = Prelude.Nothing,
-      hTTPMethod = Prelude.Nothing,
-      reservoirSize = Prelude.Nothing,
+    { hTTPMethod = Prelude.Nothing,
+      resourceARN = Prelude.Nothing,
       fixedRate = Prelude.Nothing,
+      reservoirSize = Prelude.Nothing,
       ruleName = Prelude.Nothing,
       ruleARN = Prelude.Nothing,
       serviceName = Prelude.Nothing,
@@ -115,24 +117,25 @@ newSamplingRuleUpdate =
       serviceType = Prelude.Nothing
     }
 
--- | Matches the ARN of the AWS resource on which the service runs.
-samplingRuleUpdate_resourceARN :: Lens.Lens' SamplingRuleUpdate (Prelude.Maybe Prelude.Text)
-samplingRuleUpdate_resourceARN = Lens.lens (\SamplingRuleUpdate' {resourceARN} -> resourceARN) (\s@SamplingRuleUpdate' {} a -> s {resourceARN = a} :: SamplingRuleUpdate)
-
 -- | Matches the HTTP method of a request.
 samplingRuleUpdate_hTTPMethod :: Lens.Lens' SamplingRuleUpdate (Prelude.Maybe Prelude.Text)
 samplingRuleUpdate_hTTPMethod = Lens.lens (\SamplingRuleUpdate' {hTTPMethod} -> hTTPMethod) (\s@SamplingRuleUpdate' {} a -> s {hTTPMethod = a} :: SamplingRuleUpdate)
+
+-- | Matches the ARN of the Amazon Web Services resource on which the service
+-- runs.
+samplingRuleUpdate_resourceARN :: Lens.Lens' SamplingRuleUpdate (Prelude.Maybe Prelude.Text)
+samplingRuleUpdate_resourceARN = Lens.lens (\SamplingRuleUpdate' {resourceARN} -> resourceARN) (\s@SamplingRuleUpdate' {} a -> s {resourceARN = a} :: SamplingRuleUpdate)
+
+-- | The percentage of matching requests to instrument, after the reservoir
+-- is exhausted.
+samplingRuleUpdate_fixedRate :: Lens.Lens' SamplingRuleUpdate (Prelude.Maybe Prelude.Double)
+samplingRuleUpdate_fixedRate = Lens.lens (\SamplingRuleUpdate' {fixedRate} -> fixedRate) (\s@SamplingRuleUpdate' {} a -> s {fixedRate = a} :: SamplingRuleUpdate)
 
 -- | A fixed number of matching requests to instrument per second, prior to
 -- applying the fixed rate. The reservoir is not used directly by services,
 -- but applies to all services using the rule collectively.
 samplingRuleUpdate_reservoirSize :: Lens.Lens' SamplingRuleUpdate (Prelude.Maybe Prelude.Int)
 samplingRuleUpdate_reservoirSize = Lens.lens (\SamplingRuleUpdate' {reservoirSize} -> reservoirSize) (\s@SamplingRuleUpdate' {} a -> s {reservoirSize = a} :: SamplingRuleUpdate)
-
--- | The percentage of matching requests to instrument, after the reservoir
--- is exhausted.
-samplingRuleUpdate_fixedRate :: Lens.Lens' SamplingRuleUpdate (Prelude.Maybe Prelude.Double)
-samplingRuleUpdate_fixedRate = Lens.lens (\SamplingRuleUpdate' {fixedRate} -> fixedRate) (\s@SamplingRuleUpdate' {} a -> s {fixedRate = a} :: SamplingRuleUpdate)
 
 -- | The name of the sampling rule. Specify a rule by either name or ARN, but
 -- not both.
@@ -177,10 +180,10 @@ instance Core.ToJSON SamplingRuleUpdate where
   toJSON SamplingRuleUpdate' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ResourceARN" Core..=) Prelude.<$> resourceARN,
-            ("HTTPMethod" Core..=) Prelude.<$> hTTPMethod,
-            ("ReservoirSize" Core..=) Prelude.<$> reservoirSize,
+          [ ("HTTPMethod" Core..=) Prelude.<$> hTTPMethod,
+            ("ResourceARN" Core..=) Prelude.<$> resourceARN,
             ("FixedRate" Core..=) Prelude.<$> fixedRate,
+            ("ReservoirSize" Core..=) Prelude.<$> reservoirSize,
             ("RuleName" Core..=) Prelude.<$> ruleName,
             ("RuleARN" Core..=) Prelude.<$> ruleARN,
             ("ServiceName" Core..=) Prelude.<$> serviceName,

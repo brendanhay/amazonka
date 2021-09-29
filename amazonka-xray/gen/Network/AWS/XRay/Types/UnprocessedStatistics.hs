@@ -23,8 +23,9 @@ import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
 
--- | Sampling statistics from a call to GetSamplingTargets that X-Ray could
--- not process.
+-- | Sampling statistics from a call to
+-- <https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html GetSamplingTargets>
+-- that X-Ray could not process.
 --
 -- /See:/ 'newUnprocessedStatistics' smart constructor.
 data UnprocessedStatistics = UnprocessedStatistics'

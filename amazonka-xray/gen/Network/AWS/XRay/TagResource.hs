@@ -20,7 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Applies tags to an existing AWS X-Ray group or sampling rule.
+-- Applies tags to an existing Amazon Web Services X-Ray group or sampling
+-- rule.
 module Network.AWS.XRay.TagResource
   ( -- * Creating a Request
     TagResource (..),
@@ -53,8 +54,8 @@ data TagResource = TagResource'
     -- | A map that contains one or more tag keys and tag values to attach to an
     -- X-Ray group or sampling rule. For more information about ways to use
     -- tags, see
-    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
-    -- in the /AWS General Reference/.
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+    -- in the /Amazon Web Services General Reference/.
     --
     -- The following restrictions apply to tags:
     --
@@ -69,8 +70,8 @@ data TagResource = TagResource'
     --
     -- -   Tag keys and values are case sensitive.
     --
-    -- -   Don\'t use @aws:@ as a prefix for keys; it\'s reserved for AWS use.
-    --     You cannot edit or delete system tags.
+    -- -   Don\'t use @aws:@ as a prefix for keys; it\'s reserved for Amazon
+    --     Web Services use. You cannot edit or delete system tags.
     tags :: [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -88,8 +89,8 @@ data TagResource = TagResource'
 -- 'tags', 'tagResource_tags' - A map that contains one or more tag keys and tag values to attach to an
 -- X-Ray group or sampling rule. For more information about ways to use
 -- tags, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
--- in the /AWS General Reference/.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+-- in the /Amazon Web Services General Reference/.
 --
 -- The following restrictions apply to tags:
 --
@@ -104,8 +105,8 @@ data TagResource = TagResource'
 --
 -- -   Tag keys and values are case sensitive.
 --
--- -   Don\'t use @aws:@ as a prefix for keys; it\'s reserved for AWS use.
---     You cannot edit or delete system tags.
+-- -   Don\'t use @aws:@ as a prefix for keys; it\'s reserved for Amazon
+--     Web Services use. You cannot edit or delete system tags.
 newTagResource ::
   -- | 'resourceARN'
   Prelude.Text ->
@@ -123,8 +124,8 @@ tagResource_resourceARN = Lens.lens (\TagResource' {resourceARN} -> resourceARN)
 -- | A map that contains one or more tag keys and tag values to attach to an
 -- X-Ray group or sampling rule. For more information about ways to use
 -- tags, see
--- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources>
--- in the /AWS General Reference/.
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging Amazon Web Services resources>
+-- in the /Amazon Web Services General Reference/.
 --
 -- The following restrictions apply to tags:
 --
@@ -139,8 +140,8 @@ tagResource_resourceARN = Lens.lens (\TagResource' {resourceARN} -> resourceARN)
 --
 -- -   Tag keys and values are case sensitive.
 --
--- -   Don\'t use @aws:@ as a prefix for keys; it\'s reserved for AWS use.
---     You cannot edit or delete system tags.
+-- -   Don\'t use @aws:@ as a prefix for keys; it\'s reserved for Amazon
+--     Web Services use. You cannot edit or delete system tags.
 tagResource_tags :: Lens.Lens' TagResource [Tag]
 tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Lens._Coerce
 

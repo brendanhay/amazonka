@@ -39,23 +39,23 @@ import Test.Tasty
 --         , requestGetTraceGraph $
 --             newGetTraceGraph
 --
---         , requestUntagResource $
---             newUntagResource
---
 --         , requestCreateGroup $
 --             newCreateGroup
 --
---         , requestGetInsight $
---             newGetInsight
+--         , requestUntagResource $
+--             newUntagResource
 --
 --         , requestPutTraceSegments $
 --             newPutTraceSegments
 --
+--         , requestTagResource $
+--             newTagResource
+--
 --         , requestGetTimeSeriesServiceStatistics $
 --             newGetTimeSeriesServiceStatistics
 --
---         , requestTagResource $
---             newTagResource
+--         , requestGetInsight $
+--             newGetInsight
 --
 --         , requestPutTelemetryRecords $
 --             newPutTelemetryRecords
@@ -66,20 +66,17 @@ import Test.Tasty
 --         , requestGetTraceSummaries $
 --             newGetTraceSummaries
 --
---         , requestGetInsightSummaries $
---             newGetInsightSummaries
---
 --         , requestGetGroups $
 --             newGetGroups
 --
---         , requestGetInsightEvents $
---             newGetInsightEvents
+--         , requestGetInsightSummaries $
+--             newGetInsightSummaries
 --
 --         , requestGetServiceGraph $
 --             newGetServiceGraph
 --
---         , requestPutEncryptionConfig $
---             newPutEncryptionConfig
+--         , requestGetInsightEvents $
+--             newGetInsightEvents
 --
 --         , requestDeleteSamplingRule $
 --             newDeleteSamplingRule
@@ -87,17 +84,20 @@ import Test.Tasty
 --         , requestUpdateSamplingRule $
 --             newUpdateSamplingRule
 --
---         , requestGetGroup $
---             newGetGroup
+--         , requestPutEncryptionConfig $
+--             newPutEncryptionConfig
 --
 --         , requestCreateSamplingRule $
 --             newCreateSamplingRule
 --
---         , requestUpdateGroup $
---             newUpdateGroup
+--         , requestGetGroup $
+--             newGetGroup
 --
 --         , requestDeleteGroup $
 --             newDeleteGroup
+--
+--         , requestUpdateGroup $
+--             newUpdateGroup
 --
 --         , requestGetEncryptionConfig $
 --             newGetEncryptionConfig
@@ -123,23 +123,23 @@ import Test.Tasty
 --         , responseGetTraceGraph $
 --             newGetTraceGraphResponse
 --
---         , responseUntagResource $
---             newUntagResourceResponse
---
 --         , responseCreateGroup $
 --             newCreateGroupResponse
 --
---         , responseGetInsight $
---             newGetInsightResponse
+--         , responseUntagResource $
+--             newUntagResourceResponse
 --
 --         , responsePutTraceSegments $
 --             newPutTraceSegmentsResponse
 --
+--         , responseTagResource $
+--             newTagResourceResponse
+--
 --         , responseGetTimeSeriesServiceStatistics $
 --             newGetTimeSeriesServiceStatisticsResponse
 --
---         , responseTagResource $
---             newTagResourceResponse
+--         , responseGetInsight $
+--             newGetInsightResponse
 --
 --         , responsePutTelemetryRecords $
 --             newPutTelemetryRecordsResponse
@@ -150,20 +150,17 @@ import Test.Tasty
 --         , responseGetTraceSummaries $
 --             newGetTraceSummariesResponse
 --
---         , responseGetInsightSummaries $
---             newGetInsightSummariesResponse
---
 --         , responseGetGroups $
 --             newGetGroupsResponse
 --
---         , responseGetInsightEvents $
---             newGetInsightEventsResponse
+--         , responseGetInsightSummaries $
+--             newGetInsightSummariesResponse
 --
 --         , responseGetServiceGraph $
 --             newGetServiceGraphResponse
 --
---         , responsePutEncryptionConfig $
---             newPutEncryptionConfigResponse
+--         , responseGetInsightEvents $
+--             newGetInsightEventsResponse
 --
 --         , responseDeleteSamplingRule $
 --             newDeleteSamplingRuleResponse
@@ -171,17 +168,20 @@ import Test.Tasty
 --         , responseUpdateSamplingRule $
 --             newUpdateSamplingRuleResponse
 --
---         , responseGetGroup $
---             newGetGroupResponse
+--         , responsePutEncryptionConfig $
+--             newPutEncryptionConfigResponse
 --
 --         , responseCreateSamplingRule $
 --             newCreateSamplingRuleResponse
 --
---         , responseUpdateGroup $
---             newUpdateGroupResponse
+--         , responseGetGroup $
+--             newGetGroupResponse
 --
 --         , responseDeleteGroup $
 --             newDeleteGroupResponse
+--
+--         , responseUpdateGroup $
+--             newUpdateGroupResponse
 --
 --         , responseGetEncryptionConfig $
 --             newGetEncryptionConfigResponse
@@ -221,23 +221,17 @@ requestGetTraceGraph =
     "GetTraceGraph"
     "fixture/GetTraceGraph.yaml"
 
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
-
 requestCreateGroup :: CreateGroup -> TestTree
 requestCreateGroup =
   req
     "CreateGroup"
     "fixture/CreateGroup.yaml"
 
-requestGetInsight :: GetInsight -> TestTree
-requestGetInsight =
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
   req
-    "GetInsight"
-    "fixture/GetInsight.yaml"
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
 requestPutTraceSegments :: PutTraceSegments -> TestTree
 requestPutTraceSegments =
@@ -245,17 +239,23 @@ requestPutTraceSegments =
     "PutTraceSegments"
     "fixture/PutTraceSegments.yaml"
 
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
 requestGetTimeSeriesServiceStatistics :: GetTimeSeriesServiceStatistics -> TestTree
 requestGetTimeSeriesServiceStatistics =
   req
     "GetTimeSeriesServiceStatistics"
     "fixture/GetTimeSeriesServiceStatistics.yaml"
 
-requestTagResource :: TagResource -> TestTree
-requestTagResource =
+requestGetInsight :: GetInsight -> TestTree
+requestGetInsight =
   req
-    "TagResource"
-    "fixture/TagResource.yaml"
+    "GetInsight"
+    "fixture/GetInsight.yaml"
 
 requestPutTelemetryRecords :: PutTelemetryRecords -> TestTree
 requestPutTelemetryRecords =
@@ -275,23 +275,17 @@ requestGetTraceSummaries =
     "GetTraceSummaries"
     "fixture/GetTraceSummaries.yaml"
 
-requestGetInsightSummaries :: GetInsightSummaries -> TestTree
-requestGetInsightSummaries =
-  req
-    "GetInsightSummaries"
-    "fixture/GetInsightSummaries.yaml"
-
 requestGetGroups :: GetGroups -> TestTree
 requestGetGroups =
   req
     "GetGroups"
     "fixture/GetGroups.yaml"
 
-requestGetInsightEvents :: GetInsightEvents -> TestTree
-requestGetInsightEvents =
+requestGetInsightSummaries :: GetInsightSummaries -> TestTree
+requestGetInsightSummaries =
   req
-    "GetInsightEvents"
-    "fixture/GetInsightEvents.yaml"
+    "GetInsightSummaries"
+    "fixture/GetInsightSummaries.yaml"
 
 requestGetServiceGraph :: GetServiceGraph -> TestTree
 requestGetServiceGraph =
@@ -299,11 +293,11 @@ requestGetServiceGraph =
     "GetServiceGraph"
     "fixture/GetServiceGraph.yaml"
 
-requestPutEncryptionConfig :: PutEncryptionConfig -> TestTree
-requestPutEncryptionConfig =
+requestGetInsightEvents :: GetInsightEvents -> TestTree
+requestGetInsightEvents =
   req
-    "PutEncryptionConfig"
-    "fixture/PutEncryptionConfig.yaml"
+    "GetInsightEvents"
+    "fixture/GetInsightEvents.yaml"
 
 requestDeleteSamplingRule :: DeleteSamplingRule -> TestTree
 requestDeleteSamplingRule =
@@ -317,11 +311,11 @@ requestUpdateSamplingRule =
     "UpdateSamplingRule"
     "fixture/UpdateSamplingRule.yaml"
 
-requestGetGroup :: GetGroup -> TestTree
-requestGetGroup =
+requestPutEncryptionConfig :: PutEncryptionConfig -> TestTree
+requestPutEncryptionConfig =
   req
-    "GetGroup"
-    "fixture/GetGroup.yaml"
+    "PutEncryptionConfig"
+    "fixture/PutEncryptionConfig.yaml"
 
 requestCreateSamplingRule :: CreateSamplingRule -> TestTree
 requestCreateSamplingRule =
@@ -329,17 +323,23 @@ requestCreateSamplingRule =
     "CreateSamplingRule"
     "fixture/CreateSamplingRule.yaml"
 
-requestUpdateGroup :: UpdateGroup -> TestTree
-requestUpdateGroup =
+requestGetGroup :: GetGroup -> TestTree
+requestGetGroup =
   req
-    "UpdateGroup"
-    "fixture/UpdateGroup.yaml"
+    "GetGroup"
+    "fixture/GetGroup.yaml"
 
 requestDeleteGroup :: DeleteGroup -> TestTree
 requestDeleteGroup =
   req
     "DeleteGroup"
     "fixture/DeleteGroup.yaml"
+
+requestUpdateGroup :: UpdateGroup -> TestTree
+requestUpdateGroup =
+  req
+    "UpdateGroup"
+    "fixture/UpdateGroup.yaml"
 
 requestGetEncryptionConfig :: GetEncryptionConfig -> TestTree
 requestGetEncryptionConfig =
@@ -393,14 +393,6 @@ responseGetTraceGraph =
     defaultService
     (Proxy :: Proxy GetTraceGraph)
 
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
-    defaultService
-    (Proxy :: Proxy UntagResource)
-
 responseCreateGroup :: CreateGroupResponse -> TestTree
 responseCreateGroup =
   res
@@ -409,13 +401,13 @@ responseCreateGroup =
     defaultService
     (Proxy :: Proxy CreateGroup)
 
-responseGetInsight :: GetInsightResponse -> TestTree
-responseGetInsight =
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
   res
-    "GetInsightResponse"
-    "fixture/GetInsightResponse.proto"
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInsight)
+    (Proxy :: Proxy UntagResource)
 
 responsePutTraceSegments :: PutTraceSegmentsResponse -> TestTree
 responsePutTraceSegments =
@@ -425,6 +417,14 @@ responsePutTraceSegments =
     defaultService
     (Proxy :: Proxy PutTraceSegments)
 
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy TagResource)
+
 responseGetTimeSeriesServiceStatistics :: GetTimeSeriesServiceStatisticsResponse -> TestTree
 responseGetTimeSeriesServiceStatistics =
   res
@@ -433,13 +433,13 @@ responseGetTimeSeriesServiceStatistics =
     defaultService
     (Proxy :: Proxy GetTimeSeriesServiceStatistics)
 
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
+responseGetInsight :: GetInsightResponse -> TestTree
+responseGetInsight =
   res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
+    "GetInsightResponse"
+    "fixture/GetInsightResponse.proto"
     defaultService
-    (Proxy :: Proxy TagResource)
+    (Proxy :: Proxy GetInsight)
 
 responsePutTelemetryRecords :: PutTelemetryRecordsResponse -> TestTree
 responsePutTelemetryRecords =
@@ -465,14 +465,6 @@ responseGetTraceSummaries =
     defaultService
     (Proxy :: Proxy GetTraceSummaries)
 
-responseGetInsightSummaries :: GetInsightSummariesResponse -> TestTree
-responseGetInsightSummaries =
-  res
-    "GetInsightSummariesResponse"
-    "fixture/GetInsightSummariesResponse.proto"
-    defaultService
-    (Proxy :: Proxy GetInsightSummaries)
-
 responseGetGroups :: GetGroupsResponse -> TestTree
 responseGetGroups =
   res
@@ -481,13 +473,13 @@ responseGetGroups =
     defaultService
     (Proxy :: Proxy GetGroups)
 
-responseGetInsightEvents :: GetInsightEventsResponse -> TestTree
-responseGetInsightEvents =
+responseGetInsightSummaries :: GetInsightSummariesResponse -> TestTree
+responseGetInsightSummaries =
   res
-    "GetInsightEventsResponse"
-    "fixture/GetInsightEventsResponse.proto"
+    "GetInsightSummariesResponse"
+    "fixture/GetInsightSummariesResponse.proto"
     defaultService
-    (Proxy :: Proxy GetInsightEvents)
+    (Proxy :: Proxy GetInsightSummaries)
 
 responseGetServiceGraph :: GetServiceGraphResponse -> TestTree
 responseGetServiceGraph =
@@ -497,13 +489,13 @@ responseGetServiceGraph =
     defaultService
     (Proxy :: Proxy GetServiceGraph)
 
-responsePutEncryptionConfig :: PutEncryptionConfigResponse -> TestTree
-responsePutEncryptionConfig =
+responseGetInsightEvents :: GetInsightEventsResponse -> TestTree
+responseGetInsightEvents =
   res
-    "PutEncryptionConfigResponse"
-    "fixture/PutEncryptionConfigResponse.proto"
+    "GetInsightEventsResponse"
+    "fixture/GetInsightEventsResponse.proto"
     defaultService
-    (Proxy :: Proxy PutEncryptionConfig)
+    (Proxy :: Proxy GetInsightEvents)
 
 responseDeleteSamplingRule :: DeleteSamplingRuleResponse -> TestTree
 responseDeleteSamplingRule =
@@ -521,13 +513,13 @@ responseUpdateSamplingRule =
     defaultService
     (Proxy :: Proxy UpdateSamplingRule)
 
-responseGetGroup :: GetGroupResponse -> TestTree
-responseGetGroup =
+responsePutEncryptionConfig :: PutEncryptionConfigResponse -> TestTree
+responsePutEncryptionConfig =
   res
-    "GetGroupResponse"
-    "fixture/GetGroupResponse.proto"
+    "PutEncryptionConfigResponse"
+    "fixture/PutEncryptionConfigResponse.proto"
     defaultService
-    (Proxy :: Proxy GetGroup)
+    (Proxy :: Proxy PutEncryptionConfig)
 
 responseCreateSamplingRule :: CreateSamplingRuleResponse -> TestTree
 responseCreateSamplingRule =
@@ -537,13 +529,13 @@ responseCreateSamplingRule =
     defaultService
     (Proxy :: Proxy CreateSamplingRule)
 
-responseUpdateGroup :: UpdateGroupResponse -> TestTree
-responseUpdateGroup =
+responseGetGroup :: GetGroupResponse -> TestTree
+responseGetGroup =
   res
-    "UpdateGroupResponse"
-    "fixture/UpdateGroupResponse.proto"
+    "GetGroupResponse"
+    "fixture/GetGroupResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateGroup)
+    (Proxy :: Proxy GetGroup)
 
 responseDeleteGroup :: DeleteGroupResponse -> TestTree
 responseDeleteGroup =
@@ -552,6 +544,14 @@ responseDeleteGroup =
     "fixture/DeleteGroupResponse.proto"
     defaultService
     (Proxy :: Proxy DeleteGroup)
+
+responseUpdateGroup :: UpdateGroupResponse -> TestTree
+responseUpdateGroup =
+  res
+    "UpdateGroupResponse"
+    "fixture/UpdateGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateGroup)
 
 responseGetEncryptionConfig :: GetEncryptionConfigResponse -> TestTree
 responseGetEncryptionConfig =

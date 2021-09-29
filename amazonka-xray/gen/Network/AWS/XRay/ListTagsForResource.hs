@@ -20,8 +20,8 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of tags that are applied to the specified AWS X-Ray group
--- or sampling rule.
+-- Returns a list of tags that are applied to the specified Amazon Web
+-- Services X-Ray group or sampling rule.
 module Network.AWS.XRay.ListTagsForResource
   ( -- * Creating a Request
     ListTagsForResource (..),

@@ -28,8 +28,8 @@ module Network.AWS.XRay.GetInsightSummaries
     newGetInsightSummaries,
 
     -- * Request Lenses
-    getInsightSummaries_nextToken,
     getInsightSummaries_states,
+    getInsightSummaries_nextToken,
     getInsightSummaries_maxResults,
     getInsightSummaries_groupName,
     getInsightSummaries_groupARN,
@@ -56,10 +56,10 @@ import Network.AWS.XRay.Types
 
 -- | /See:/ 'newGetInsightSummaries' smart constructor.
 data GetInsightSummaries = GetInsightSummaries'
-  { -- | Pagination token.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The list of insight states.
+  { -- | The list of insight states.
     states :: Prelude.Maybe [InsightState],
+    -- | Pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
     -- | The maximum number of results to display.
     maxResults :: Prelude.Maybe Prelude.Natural,
     -- | The name of the group. Required if the GroupARN isn\'t provided.
@@ -84,9 +84,9 @@ data GetInsightSummaries = GetInsightSummaries'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'getInsightSummaries_nextToken' - Pagination token.
---
 -- 'states', 'getInsightSummaries_states' - The list of insight states.
+--
+-- 'nextToken', 'getInsightSummaries_nextToken' - Pagination token.
 --
 -- 'maxResults', 'getInsightSummaries_maxResults' - The maximum number of results to display.
 --
@@ -108,8 +108,8 @@ newGetInsightSummaries ::
   GetInsightSummaries
 newGetInsightSummaries pStartTime_ pEndTime_ =
   GetInsightSummaries'
-    { nextToken = Prelude.Nothing,
-      states = Prelude.Nothing,
+    { states = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
       maxResults = Prelude.Nothing,
       groupName = Prelude.Nothing,
       groupARN = Prelude.Nothing,
@@ -117,13 +117,13 @@ newGetInsightSummaries pStartTime_ pEndTime_ =
       endTime = Core._Time Lens.# pEndTime_
     }
 
--- | Pagination token.
-getInsightSummaries_nextToken :: Lens.Lens' GetInsightSummaries (Prelude.Maybe Prelude.Text)
-getInsightSummaries_nextToken = Lens.lens (\GetInsightSummaries' {nextToken} -> nextToken) (\s@GetInsightSummaries' {} a -> s {nextToken = a} :: GetInsightSummaries)
-
 -- | The list of insight states.
 getInsightSummaries_states :: Lens.Lens' GetInsightSummaries (Prelude.Maybe [InsightState])
 getInsightSummaries_states = Lens.lens (\GetInsightSummaries' {states} -> states) (\s@GetInsightSummaries' {} a -> s {states = a} :: GetInsightSummaries) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Pagination token.
+getInsightSummaries_nextToken :: Lens.Lens' GetInsightSummaries (Prelude.Maybe Prelude.Text)
+getInsightSummaries_nextToken = Lens.lens (\GetInsightSummaries' {nextToken} -> nextToken) (\s@GetInsightSummaries' {} a -> s {nextToken = a} :: GetInsightSummaries)
 
 -- | The maximum number of results to display.
 getInsightSummaries_maxResults :: Lens.Lens' GetInsightSummaries (Prelude.Maybe Prelude.Natural)
@@ -175,8 +175,8 @@ instance Core.ToJSON GetInsightSummaries where
   toJSON GetInsightSummaries' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("NextToken" Core..=) Prelude.<$> nextToken,
-            ("States" Core..=) Prelude.<$> states,
+          [ ("States" Core..=) Prelude.<$> states,
+            ("NextToken" Core..=) Prelude.<$> nextToken,
             ("MaxResults" Core..=) Prelude.<$> maxResults,
             ("GroupName" Core..=) Prelude.<$> groupName,
             ("GroupARN" Core..=) Prelude.<$> groupARN,

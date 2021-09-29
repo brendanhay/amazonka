@@ -21,6 +21,7 @@ module Network.AWS.MediaLive.Types.AudioSelectorSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import Network.AWS.MediaLive.Types.AudioHlsRenditionSelection
 import Network.AWS.MediaLive.Types.AudioLanguageSelection
 import Network.AWS.MediaLive.Types.AudioPidSelection
 import Network.AWS.MediaLive.Types.AudioTrackSelection
@@ -31,6 +32,7 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newAudioSelectorSettings' smart constructor.
 data AudioSelectorSettings = AudioSelectorSettings'
   { audioLanguageSelection :: Prelude.Maybe AudioLanguageSelection,
+    audioHlsRenditionSelection :: Prelude.Maybe AudioHlsRenditionSelection,
     audioPidSelection :: Prelude.Maybe AudioPidSelection,
     audioTrackSelection :: Prelude.Maybe AudioTrackSelection
   }
@@ -46,6 +48,8 @@ data AudioSelectorSettings = AudioSelectorSettings'
 --
 -- 'audioLanguageSelection', 'audioSelectorSettings_audioLanguageSelection' - Undocumented member.
 --
+-- 'audioHlsRenditionSelection', 'audioSelectorSettings_audioHlsRenditionSelection' - Undocumented member.
+--
 -- 'audioPidSelection', 'audioSelectorSettings_audioPidSelection' - Undocumented member.
 --
 -- 'audioTrackSelection', 'audioSelectorSettings_audioTrackSelection' - Undocumented member.
@@ -55,6 +59,7 @@ newAudioSelectorSettings =
   AudioSelectorSettings'
     { audioLanguageSelection =
         Prelude.Nothing,
+      audioHlsRenditionSelection = Prelude.Nothing,
       audioPidSelection = Prelude.Nothing,
       audioTrackSelection = Prelude.Nothing
     }
@@ -62,6 +67,10 @@ newAudioSelectorSettings =
 -- | Undocumented member.
 audioSelectorSettings_audioLanguageSelection :: Lens.Lens' AudioSelectorSettings (Prelude.Maybe AudioLanguageSelection)
 audioSelectorSettings_audioLanguageSelection = Lens.lens (\AudioSelectorSettings' {audioLanguageSelection} -> audioLanguageSelection) (\s@AudioSelectorSettings' {} a -> s {audioLanguageSelection = a} :: AudioSelectorSettings)
+
+-- | Undocumented member.
+audioSelectorSettings_audioHlsRenditionSelection :: Lens.Lens' AudioSelectorSettings (Prelude.Maybe AudioHlsRenditionSelection)
+audioSelectorSettings_audioHlsRenditionSelection = Lens.lens (\AudioSelectorSettings' {audioHlsRenditionSelection} -> audioHlsRenditionSelection) (\s@AudioSelectorSettings' {} a -> s {audioHlsRenditionSelection = a} :: AudioSelectorSettings)
 
 -- | Undocumented member.
 audioSelectorSettings_audioPidSelection :: Lens.Lens' AudioSelectorSettings (Prelude.Maybe AudioPidSelection)
@@ -78,6 +87,7 @@ instance Core.FromJSON AudioSelectorSettings where
       ( \x ->
           AudioSelectorSettings'
             Prelude.<$> (x Core..:? "audioLanguageSelection")
+            Prelude.<*> (x Core..:? "audioHlsRenditionSelection")
             Prelude.<*> (x Core..:? "audioPidSelection")
             Prelude.<*> (x Core..:? "audioTrackSelection")
       )
@@ -92,6 +102,8 @@ instance Core.ToJSON AudioSelectorSettings where
       ( Prelude.catMaybes
           [ ("audioLanguageSelection" Core..=)
               Prelude.<$> audioLanguageSelection,
+            ("audioHlsRenditionSelection" Core..=)
+              Prelude.<$> audioHlsRenditionSelection,
             ("audioPidSelection" Core..=)
               Prelude.<$> audioPidSelection,
             ("audioTrackSelection" Core..=)

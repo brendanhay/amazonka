@@ -30,10 +30,10 @@ import qualified Network.AWS.Prelude as Prelude
 data InputDeviceNetworkSettings = InputDeviceNetworkSettings'
   { -- | The DNS addresses of the input device.
     dnsAddresses :: Prelude.Maybe [Prelude.Text],
-    -- | The IP address of the input device.
-    ipAddress :: Prelude.Maybe Prelude.Text,
     -- | The subnet mask of the input device.
     subnetMask :: Prelude.Maybe Prelude.Text,
+    -- | The IP address of the input device.
+    ipAddress :: Prelude.Maybe Prelude.Text,
     -- | Specifies whether the input device has been configured (outside of
     -- MediaLive) to use a dynamic IP address assignment (DHCP) or a static IP
     -- address.
@@ -53,9 +53,9 @@ data InputDeviceNetworkSettings = InputDeviceNetworkSettings'
 --
 -- 'dnsAddresses', 'inputDeviceNetworkSettings_dnsAddresses' - The DNS addresses of the input device.
 --
--- 'ipAddress', 'inputDeviceNetworkSettings_ipAddress' - The IP address of the input device.
---
 -- 'subnetMask', 'inputDeviceNetworkSettings_subnetMask' - The subnet mask of the input device.
+--
+-- 'ipAddress', 'inputDeviceNetworkSettings_ipAddress' - The IP address of the input device.
 --
 -- 'ipScheme', 'inputDeviceNetworkSettings_ipScheme' - Specifies whether the input device has been configured (outside of
 -- MediaLive) to use a dynamic IP address assignment (DHCP) or a static IP
@@ -68,8 +68,8 @@ newInputDeviceNetworkSettings =
   InputDeviceNetworkSettings'
     { dnsAddresses =
         Prelude.Nothing,
-      ipAddress = Prelude.Nothing,
       subnetMask = Prelude.Nothing,
+      ipAddress = Prelude.Nothing,
       ipScheme = Prelude.Nothing,
       gateway = Prelude.Nothing
     }
@@ -78,13 +78,13 @@ newInputDeviceNetworkSettings =
 inputDeviceNetworkSettings_dnsAddresses :: Lens.Lens' InputDeviceNetworkSettings (Prelude.Maybe [Prelude.Text])
 inputDeviceNetworkSettings_dnsAddresses = Lens.lens (\InputDeviceNetworkSettings' {dnsAddresses} -> dnsAddresses) (\s@InputDeviceNetworkSettings' {} a -> s {dnsAddresses = a} :: InputDeviceNetworkSettings) Prelude.. Lens.mapping Lens._Coerce
 
--- | The IP address of the input device.
-inputDeviceNetworkSettings_ipAddress :: Lens.Lens' InputDeviceNetworkSettings (Prelude.Maybe Prelude.Text)
-inputDeviceNetworkSettings_ipAddress = Lens.lens (\InputDeviceNetworkSettings' {ipAddress} -> ipAddress) (\s@InputDeviceNetworkSettings' {} a -> s {ipAddress = a} :: InputDeviceNetworkSettings)
-
 -- | The subnet mask of the input device.
 inputDeviceNetworkSettings_subnetMask :: Lens.Lens' InputDeviceNetworkSettings (Prelude.Maybe Prelude.Text)
 inputDeviceNetworkSettings_subnetMask = Lens.lens (\InputDeviceNetworkSettings' {subnetMask} -> subnetMask) (\s@InputDeviceNetworkSettings' {} a -> s {subnetMask = a} :: InputDeviceNetworkSettings)
+
+-- | The IP address of the input device.
+inputDeviceNetworkSettings_ipAddress :: Lens.Lens' InputDeviceNetworkSettings (Prelude.Maybe Prelude.Text)
+inputDeviceNetworkSettings_ipAddress = Lens.lens (\InputDeviceNetworkSettings' {ipAddress} -> ipAddress) (\s@InputDeviceNetworkSettings' {} a -> s {ipAddress = a} :: InputDeviceNetworkSettings)
 
 -- | Specifies whether the input device has been configured (outside of
 -- MediaLive) to use a dynamic IP address assignment (DHCP) or a static IP
@@ -103,8 +103,8 @@ instance Core.FromJSON InputDeviceNetworkSettings where
       ( \x ->
           InputDeviceNetworkSettings'
             Prelude.<$> (x Core..:? "dnsAddresses" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "ipAddress")
             Prelude.<*> (x Core..:? "subnetMask")
+            Prelude.<*> (x Core..:? "ipAddress")
             Prelude.<*> (x Core..:? "ipScheme")
             Prelude.<*> (x Core..:? "gateway")
       )

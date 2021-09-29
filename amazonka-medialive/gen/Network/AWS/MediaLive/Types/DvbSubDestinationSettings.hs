@@ -84,9 +84,6 @@ data DvbSubDestinationSettings = DvbSubDestinationSettings'
     -- output. Giving a positive integer will specify the exact font size in
     -- points. All burn-in and DVB-Sub font settings must match.
     fontSize :: Prelude.Maybe Prelude.Text,
-    -- | Specifies the color of the rectangle behind the captions. All burn-in
-    -- and DVB-Sub font settings must match.
-    backgroundColor :: Prelude.Maybe DvbSubDestinationBackgroundColor,
     -- | Specifies the horizontal offset of the shadow relative to the captions
     -- in pixels. A value of -2 would result in a shadow offset 2 pixels to the
     -- left. All burn-in and DVB-Sub font settings must match.
@@ -98,6 +95,9 @@ data DvbSubDestinationSettings = DvbSubDestinationSettings'
     -- sources could cause unexpected display of proportional fonts. All
     -- burn-in and DVB-Sub font settings must match.
     font :: Prelude.Maybe InputLocation,
+    -- | Specifies the color of the rectangle behind the captions. All burn-in
+    -- and DVB-Sub font settings must match.
+    backgroundColor :: Prelude.Maybe DvbSubDestinationBackgroundColor,
     -- | Specifies the vertical position of the caption relative to the top of
     -- the output in pixels. A value of 10 would result in the captions
     -- starting 10 pixels from the top of the output. If no explicit yPosition
@@ -106,21 +106,21 @@ data DvbSubDestinationSettings = DvbSubDestinationSettings'
     -- 608\/embedded or teletext. These source settings are already pre-defined
     -- by the caption stream. All burn-in and DVB-Sub font settings must match.
     yPosition :: Prelude.Maybe Prelude.Natural,
-    -- | Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in
-    -- and DVB-Sub font settings must match.
-    fontResolution :: Prelude.Maybe Prelude.Natural,
     -- | Specifies font outline size in pixels. This option is not valid for
     -- source captions that are either 608\/embedded or teletext. These source
     -- settings are already pre-defined by the caption stream. All burn-in and
     -- DVB-Sub font settings must match.
     outlineSize :: Prelude.Maybe Prelude.Natural,
-    -- | Specifies the opacity of the burned-in captions. 255 is opaque; 0 is
-    -- transparent. All burn-in and DVB-Sub font settings must match.
-    fontOpacity :: Prelude.Maybe Prelude.Natural,
+    -- | Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in
+    -- and DVB-Sub font settings must match.
+    fontResolution :: Prelude.Maybe Prelude.Natural,
     -- | Specifies the vertical offset of the shadow relative to the captions in
     -- pixels. A value of -2 would result in a shadow offset 2 pixels above the
     -- text. All burn-in and DVB-Sub font settings must match.
-    shadowYOffset :: Prelude.Maybe Prelude.Int
+    shadowYOffset :: Prelude.Maybe Prelude.Int,
+    -- | Specifies the opacity of the burned-in captions. 255 is opaque; 0 is
+    -- transparent. All burn-in and DVB-Sub font settings must match.
+    fontOpacity :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -182,9 +182,6 @@ data DvbSubDestinationSettings = DvbSubDestinationSettings'
 -- output. Giving a positive integer will specify the exact font size in
 -- points. All burn-in and DVB-Sub font settings must match.
 --
--- 'backgroundColor', 'dvbSubDestinationSettings_backgroundColor' - Specifies the color of the rectangle behind the captions. All burn-in
--- and DVB-Sub font settings must match.
---
 -- 'shadowXOffset', 'dvbSubDestinationSettings_shadowXOffset' - Specifies the horizontal offset of the shadow relative to the captions
 -- in pixels. A value of -2 would result in a shadow offset 2 pixels to the
 -- left. All burn-in and DVB-Sub font settings must match.
@@ -196,6 +193,9 @@ data DvbSubDestinationSettings = DvbSubDestinationSettings'
 -- sources could cause unexpected display of proportional fonts. All
 -- burn-in and DVB-Sub font settings must match.
 --
+-- 'backgroundColor', 'dvbSubDestinationSettings_backgroundColor' - Specifies the color of the rectangle behind the captions. All burn-in
+-- and DVB-Sub font settings must match.
+--
 -- 'yPosition', 'dvbSubDestinationSettings_yPosition' - Specifies the vertical position of the caption relative to the top of
 -- the output in pixels. A value of 10 would result in the captions
 -- starting 10 pixels from the top of the output. If no explicit yPosition
@@ -204,20 +204,20 @@ data DvbSubDestinationSettings = DvbSubDestinationSettings'
 -- 608\/embedded or teletext. These source settings are already pre-defined
 -- by the caption stream. All burn-in and DVB-Sub font settings must match.
 --
--- 'fontResolution', 'dvbSubDestinationSettings_fontResolution' - Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in
--- and DVB-Sub font settings must match.
---
 -- 'outlineSize', 'dvbSubDestinationSettings_outlineSize' - Specifies font outline size in pixels. This option is not valid for
 -- source captions that are either 608\/embedded or teletext. These source
 -- settings are already pre-defined by the caption stream. All burn-in and
 -- DVB-Sub font settings must match.
 --
--- 'fontOpacity', 'dvbSubDestinationSettings_fontOpacity' - Specifies the opacity of the burned-in captions. 255 is opaque; 0 is
--- transparent. All burn-in and DVB-Sub font settings must match.
+-- 'fontResolution', 'dvbSubDestinationSettings_fontResolution' - Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in
+-- and DVB-Sub font settings must match.
 --
 -- 'shadowYOffset', 'dvbSubDestinationSettings_shadowYOffset' - Specifies the vertical offset of the shadow relative to the captions in
 -- pixels. A value of -2 would result in a shadow offset 2 pixels above the
 -- text. All burn-in and DVB-Sub font settings must match.
+--
+-- 'fontOpacity', 'dvbSubDestinationSettings_fontOpacity' - Specifies the opacity of the burned-in captions. 255 is opaque; 0 is
+-- transparent. All burn-in and DVB-Sub font settings must match.
 newDvbSubDestinationSettings ::
   DvbSubDestinationSettings
 newDvbSubDestinationSettings =
@@ -232,14 +232,14 @@ newDvbSubDestinationSettings =
       xPosition = Prelude.Nothing,
       fontColor = Prelude.Nothing,
       fontSize = Prelude.Nothing,
-      backgroundColor = Prelude.Nothing,
       shadowXOffset = Prelude.Nothing,
       font = Prelude.Nothing,
+      backgroundColor = Prelude.Nothing,
       yPosition = Prelude.Nothing,
-      fontResolution = Prelude.Nothing,
       outlineSize = Prelude.Nothing,
-      fontOpacity = Prelude.Nothing,
-      shadowYOffset = Prelude.Nothing
+      fontResolution = Prelude.Nothing,
+      shadowYOffset = Prelude.Nothing,
+      fontOpacity = Prelude.Nothing
     }
 
 -- | If no explicit xPosition or yPosition is provided, setting alignment to
@@ -310,11 +310,6 @@ dvbSubDestinationSettings_fontColor = Lens.lens (\DvbSubDestinationSettings' {fo
 dvbSubDestinationSettings_fontSize :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe Prelude.Text)
 dvbSubDestinationSettings_fontSize = Lens.lens (\DvbSubDestinationSettings' {fontSize} -> fontSize) (\s@DvbSubDestinationSettings' {} a -> s {fontSize = a} :: DvbSubDestinationSettings)
 
--- | Specifies the color of the rectangle behind the captions. All burn-in
--- and DVB-Sub font settings must match.
-dvbSubDestinationSettings_backgroundColor :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe DvbSubDestinationBackgroundColor)
-dvbSubDestinationSettings_backgroundColor = Lens.lens (\DvbSubDestinationSettings' {backgroundColor} -> backgroundColor) (\s@DvbSubDestinationSettings' {} a -> s {backgroundColor = a} :: DvbSubDestinationSettings)
-
 -- | Specifies the horizontal offset of the shadow relative to the captions
 -- in pixels. A value of -2 would result in a shadow offset 2 pixels to the
 -- left. All burn-in and DVB-Sub font settings must match.
@@ -330,6 +325,11 @@ dvbSubDestinationSettings_shadowXOffset = Lens.lens (\DvbSubDestinationSettings'
 dvbSubDestinationSettings_font :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe InputLocation)
 dvbSubDestinationSettings_font = Lens.lens (\DvbSubDestinationSettings' {font} -> font) (\s@DvbSubDestinationSettings' {} a -> s {font = a} :: DvbSubDestinationSettings)
 
+-- | Specifies the color of the rectangle behind the captions. All burn-in
+-- and DVB-Sub font settings must match.
+dvbSubDestinationSettings_backgroundColor :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe DvbSubDestinationBackgroundColor)
+dvbSubDestinationSettings_backgroundColor = Lens.lens (\DvbSubDestinationSettings' {backgroundColor} -> backgroundColor) (\s@DvbSubDestinationSettings' {} a -> s {backgroundColor = a} :: DvbSubDestinationSettings)
+
 -- | Specifies the vertical position of the caption relative to the top of
 -- the output in pixels. A value of 10 would result in the captions
 -- starting 10 pixels from the top of the output. If no explicit yPosition
@@ -340,11 +340,6 @@ dvbSubDestinationSettings_font = Lens.lens (\DvbSubDestinationSettings' {font} -
 dvbSubDestinationSettings_yPosition :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe Prelude.Natural)
 dvbSubDestinationSettings_yPosition = Lens.lens (\DvbSubDestinationSettings' {yPosition} -> yPosition) (\s@DvbSubDestinationSettings' {} a -> s {yPosition = a} :: DvbSubDestinationSettings)
 
--- | Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in
--- and DVB-Sub font settings must match.
-dvbSubDestinationSettings_fontResolution :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe Prelude.Natural)
-dvbSubDestinationSettings_fontResolution = Lens.lens (\DvbSubDestinationSettings' {fontResolution} -> fontResolution) (\s@DvbSubDestinationSettings' {} a -> s {fontResolution = a} :: DvbSubDestinationSettings)
-
 -- | Specifies font outline size in pixels. This option is not valid for
 -- source captions that are either 608\/embedded or teletext. These source
 -- settings are already pre-defined by the caption stream. All burn-in and
@@ -352,16 +347,21 @@ dvbSubDestinationSettings_fontResolution = Lens.lens (\DvbSubDestinationSettings
 dvbSubDestinationSettings_outlineSize :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe Prelude.Natural)
 dvbSubDestinationSettings_outlineSize = Lens.lens (\DvbSubDestinationSettings' {outlineSize} -> outlineSize) (\s@DvbSubDestinationSettings' {} a -> s {outlineSize = a} :: DvbSubDestinationSettings)
 
--- | Specifies the opacity of the burned-in captions. 255 is opaque; 0 is
--- transparent. All burn-in and DVB-Sub font settings must match.
-dvbSubDestinationSettings_fontOpacity :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe Prelude.Natural)
-dvbSubDestinationSettings_fontOpacity = Lens.lens (\DvbSubDestinationSettings' {fontOpacity} -> fontOpacity) (\s@DvbSubDestinationSettings' {} a -> s {fontOpacity = a} :: DvbSubDestinationSettings)
+-- | Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in
+-- and DVB-Sub font settings must match.
+dvbSubDestinationSettings_fontResolution :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe Prelude.Natural)
+dvbSubDestinationSettings_fontResolution = Lens.lens (\DvbSubDestinationSettings' {fontResolution} -> fontResolution) (\s@DvbSubDestinationSettings' {} a -> s {fontResolution = a} :: DvbSubDestinationSettings)
 
 -- | Specifies the vertical offset of the shadow relative to the captions in
 -- pixels. A value of -2 would result in a shadow offset 2 pixels above the
 -- text. All burn-in and DVB-Sub font settings must match.
 dvbSubDestinationSettings_shadowYOffset :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe Prelude.Int)
 dvbSubDestinationSettings_shadowYOffset = Lens.lens (\DvbSubDestinationSettings' {shadowYOffset} -> shadowYOffset) (\s@DvbSubDestinationSettings' {} a -> s {shadowYOffset = a} :: DvbSubDestinationSettings)
+
+-- | Specifies the opacity of the burned-in captions. 255 is opaque; 0 is
+-- transparent. All burn-in and DVB-Sub font settings must match.
+dvbSubDestinationSettings_fontOpacity :: Lens.Lens' DvbSubDestinationSettings (Prelude.Maybe Prelude.Natural)
+dvbSubDestinationSettings_fontOpacity = Lens.lens (\DvbSubDestinationSettings' {fontOpacity} -> fontOpacity) (\s@DvbSubDestinationSettings' {} a -> s {fontOpacity = a} :: DvbSubDestinationSettings)
 
 instance Core.FromJSON DvbSubDestinationSettings where
   parseJSON =
@@ -378,14 +378,14 @@ instance Core.FromJSON DvbSubDestinationSettings where
             Prelude.<*> (x Core..:? "xPosition")
             Prelude.<*> (x Core..:? "fontColor")
             Prelude.<*> (x Core..:? "fontSize")
-            Prelude.<*> (x Core..:? "backgroundColor")
             Prelude.<*> (x Core..:? "shadowXOffset")
             Prelude.<*> (x Core..:? "font")
+            Prelude.<*> (x Core..:? "backgroundColor")
             Prelude.<*> (x Core..:? "yPosition")
-            Prelude.<*> (x Core..:? "fontResolution")
             Prelude.<*> (x Core..:? "outlineSize")
-            Prelude.<*> (x Core..:? "fontOpacity")
+            Prelude.<*> (x Core..:? "fontResolution")
             Prelude.<*> (x Core..:? "shadowYOffset")
+            Prelude.<*> (x Core..:? "fontOpacity")
       )
 
 instance Prelude.Hashable DvbSubDestinationSettings
@@ -407,15 +407,15 @@ instance Core.ToJSON DvbSubDestinationSettings where
             ("xPosition" Core..=) Prelude.<$> xPosition,
             ("fontColor" Core..=) Prelude.<$> fontColor,
             ("fontSize" Core..=) Prelude.<$> fontSize,
-            ("backgroundColor" Core..=)
-              Prelude.<$> backgroundColor,
             ("shadowXOffset" Core..=) Prelude.<$> shadowXOffset,
             ("font" Core..=) Prelude.<$> font,
+            ("backgroundColor" Core..=)
+              Prelude.<$> backgroundColor,
             ("yPosition" Core..=) Prelude.<$> yPosition,
+            ("outlineSize" Core..=) Prelude.<$> outlineSize,
             ("fontResolution" Core..=)
               Prelude.<$> fontResolution,
-            ("outlineSize" Core..=) Prelude.<$> outlineSize,
-            ("fontOpacity" Core..=) Prelude.<$> fontOpacity,
-            ("shadowYOffset" Core..=) Prelude.<$> shadowYOffset
+            ("shadowYOffset" Core..=) Prelude.<$> shadowYOffset,
+            ("fontOpacity" Core..=) Prelude.<$> fontOpacity
           ]
       )

@@ -21,7 +21,9 @@ module Network.AWS.MediaLive.Types.ReservationSpecialFeature
   ( ReservationSpecialFeature
       ( ..,
         ReservationSpecialFeature_ADVANCED_AUDIO,
-        ReservationSpecialFeature_AUDIO_NORMALIZATION
+        ReservationSpecialFeature_AUDIO_NORMALIZATION,
+        ReservationSpecialFeature_MGHD,
+        ReservationSpecialFeature_MGUHD
       ),
   )
 where
@@ -29,7 +31,8 @@ where
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Prelude as Prelude
 
--- | Special features, \'ADVANCED_AUDIO\' or \'AUDIO_NORMALIZATION\'
+-- | Special features, \'ADVANCED_AUDIO\' \'AUDIO_NORMALIZATION\' \'MGHD\' or
+-- \'MGUHD\'
 newtype ReservationSpecialFeature = ReservationSpecialFeature'
   { fromReservationSpecialFeature ::
       Core.Text
@@ -64,8 +67,16 @@ pattern ReservationSpecialFeature_ADVANCED_AUDIO = ReservationSpecialFeature' "A
 pattern ReservationSpecialFeature_AUDIO_NORMALIZATION :: ReservationSpecialFeature
 pattern ReservationSpecialFeature_AUDIO_NORMALIZATION = ReservationSpecialFeature' "AUDIO_NORMALIZATION"
 
+pattern ReservationSpecialFeature_MGHD :: ReservationSpecialFeature
+pattern ReservationSpecialFeature_MGHD = ReservationSpecialFeature' "MGHD"
+
+pattern ReservationSpecialFeature_MGUHD :: ReservationSpecialFeature
+pattern ReservationSpecialFeature_MGUHD = ReservationSpecialFeature' "MGUHD"
+
 {-# COMPLETE
   ReservationSpecialFeature_ADVANCED_AUDIO,
   ReservationSpecialFeature_AUDIO_NORMALIZATION,
+  ReservationSpecialFeature_MGHD,
+  ReservationSpecialFeature_MGUHD,
   ReservationSpecialFeature'
   #-}

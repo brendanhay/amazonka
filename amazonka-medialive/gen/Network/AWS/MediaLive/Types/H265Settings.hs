@@ -52,10 +52,6 @@ data H265Settings = H265Settings'
     -- | If set to enabled, adjust quantization within each frame to reduce
     -- flicker or \'pop\' on I-frames.
     flickerAq :: Prelude.Maybe H265FlickerAq,
-    -- | Whether or not EML should insert an Alternative Transfer Function SEI
-    -- message to support backwards compatibility with non-HDR decoders and
-    -- displays.
-    alternativeTransferFunction :: Prelude.Maybe H265AlternativeTransferFunction,
     -- | Rate control mode. QVBR: Quality will match the specified quality level
     -- except when it is constrained by the maximum bitrate. Recommended if you
     -- or your viewers pay for bandwidth. CBR: Quality varies, depending on the
@@ -66,6 +62,10 @@ data H265Settings = H265Settings'
     -- configuration is controlled by the properties within the Multiplex
     -- Program.
     rateControlMode :: Prelude.Maybe H265RateControlMode,
+    -- | Whether or not EML should insert an Alternative Transfer Function SEI
+    -- message to support backwards compatibility with non-HDR decoders and
+    -- displays.
+    alternativeTransferFunction :: Prelude.Maybe H265AlternativeTransferFunction,
     -- | Number of slices per picture. Must be less than or equal to the number
     -- of macroblock rows for progressive pictures, and less than or equal to
     -- half the number of macroblock rows for interlaced pictures. This field
@@ -77,25 +77,25 @@ data H265Settings = H265Settings'
     -- | Indicates if the gopSize is specified in frames or seconds. If seconds
     -- the system will convert the gopSize into a frame count at run time.
     gopSizeUnits :: Prelude.Maybe H265GopSizeUnits,
+    -- | Four bit AFD value to write on all frames of video in the output stream.
+    -- Only valid when afdSignaling is set to \'Fixed\'.
+    fixedAfd :: Prelude.Maybe FixedAfd,
     -- | GOP size (keyframe interval) in units of either frames or seconds per
     -- gopSizeUnits. If gopSizeUnits is frames, gopSize must be an integer and
     -- must be greater than or equal to 1. If gopSizeUnits is seconds, gopSize
     -- must be greater than 0, but need not be an integer.
     gopSize :: Prelude.Maybe Prelude.Double,
-    -- | Four bit AFD value to write on all frames of video in the output stream.
-    -- Only valid when afdSignaling is set to \'Fixed\'.
-    fixedAfd :: Prelude.Maybe FixedAfd,
     -- | Optional filters that you can apply to an encode.
     filterSettings :: Prelude.Maybe H265FilterSettings,
     -- | Pixel Aspect Ratio numerator.
     parNumerator :: Prelude.Maybe Prelude.Natural,
-    -- | Scene change detection.
-    sceneChangeDetect :: Prelude.Maybe H265SceneChangeDetect,
     -- | Determines how timecodes should be inserted into the video elementary
     -- stream. - \'disabled\': Do not include timecodes - \'picTimingSei\':
     -- Pass through picture timing SEI messages from the source specified in
     -- Timecode Config
     timecodeInsertion :: Prelude.Maybe H265TimecodeInsertionBehavior,
+    -- | Scene change detection.
+    sceneChangeDetect :: Prelude.Maybe H265SceneChangeDetect,
     -- | Color Space settings
     colorSpaceSettings :: Prelude.Maybe H265ColorSpaceSettings,
     -- | Only meaningful if sceneChangeDetect is set to enabled. Defaults to 5 if
@@ -125,14 +125,14 @@ data H265Settings = H265Settings'
     maxBitrate :: Prelude.Maybe Prelude.Natural,
     -- | H.265 Level.
     level :: Prelude.Maybe H265Level,
+    -- | Amount of lookahead. A value of low can decrease latency and memory
+    -- usage, while high can produce better quality for certain content.
+    lookAheadRateControl :: Prelude.Maybe H265LookAheadRateControl,
     -- | H.265 Profile.
     profile :: Prelude.Maybe H265Profile,
     -- | Adaptive quantization. Allows intra-frame quantizers to vary to improve
     -- visual quality.
     adaptiveQuantization :: Prelude.Maybe H265AdaptiveQuantization,
-    -- | Amount of lookahead. A value of low can decrease latency and memory
-    -- usage, while high can produce better quality for certain content.
-    lookAheadRateControl :: Prelude.Maybe H265LookAheadRateControl,
     -- | Average bitrate in bits\/second. Required when the rate control mode is
     -- VBR or CBR. Not used for QVBR. In an MS Smooth output group, each output
     -- must have a unique value when its bitrate is rounded down to the nearest
@@ -170,10 +170,6 @@ data H265Settings = H265Settings'
 -- 'flickerAq', 'h265Settings_flickerAq' - If set to enabled, adjust quantization within each frame to reduce
 -- flicker or \'pop\' on I-frames.
 --
--- 'alternativeTransferFunction', 'h265Settings_alternativeTransferFunction' - Whether or not EML should insert an Alternative Transfer Function SEI
--- message to support backwards compatibility with non-HDR decoders and
--- displays.
---
 -- 'rateControlMode', 'h265Settings_rateControlMode' - Rate control mode. QVBR: Quality will match the specified quality level
 -- except when it is constrained by the maximum bitrate. Recommended if you
 -- or your viewers pay for bandwidth. CBR: Quality varies, depending on the
@@ -183,6 +179,10 @@ data H265Settings = H265Settings'
 -- delivered to a MediaLive Multiplex in which case the rate control
 -- configuration is controlled by the properties within the Multiplex
 -- Program.
+--
+-- 'alternativeTransferFunction', 'h265Settings_alternativeTransferFunction' - Whether or not EML should insert an Alternative Transfer Function SEI
+-- message to support backwards compatibility with non-HDR decoders and
+-- displays.
 --
 -- 'slices', 'h265Settings_slices' - Number of slices per picture. Must be less than or equal to the number
 -- of macroblock rows for progressive pictures, and less than or equal to
@@ -195,24 +195,24 @@ data H265Settings = H265Settings'
 -- 'gopSizeUnits', 'h265Settings_gopSizeUnits' - Indicates if the gopSize is specified in frames or seconds. If seconds
 -- the system will convert the gopSize into a frame count at run time.
 --
+-- 'fixedAfd', 'h265Settings_fixedAfd' - Four bit AFD value to write on all frames of video in the output stream.
+-- Only valid when afdSignaling is set to \'Fixed\'.
+--
 -- 'gopSize', 'h265Settings_gopSize' - GOP size (keyframe interval) in units of either frames or seconds per
 -- gopSizeUnits. If gopSizeUnits is frames, gopSize must be an integer and
 -- must be greater than or equal to 1. If gopSizeUnits is seconds, gopSize
 -- must be greater than 0, but need not be an integer.
 --
--- 'fixedAfd', 'h265Settings_fixedAfd' - Four bit AFD value to write on all frames of video in the output stream.
--- Only valid when afdSignaling is set to \'Fixed\'.
---
 -- 'filterSettings', 'h265Settings_filterSettings' - Optional filters that you can apply to an encode.
 --
 -- 'parNumerator', 'h265Settings_parNumerator' - Pixel Aspect Ratio numerator.
---
--- 'sceneChangeDetect', 'h265Settings_sceneChangeDetect' - Scene change detection.
 --
 -- 'timecodeInsertion', 'h265Settings_timecodeInsertion' - Determines how timecodes should be inserted into the video elementary
 -- stream. - \'disabled\': Do not include timecodes - \'picTimingSei\':
 -- Pass through picture timing SEI messages from the source specified in
 -- Timecode Config
+--
+-- 'sceneChangeDetect', 'h265Settings_sceneChangeDetect' - Scene change detection.
 --
 -- 'colorSpaceSettings', 'h265Settings_colorSpaceSettings' - Color Space settings
 --
@@ -243,13 +243,13 @@ data H265Settings = H265Settings'
 --
 -- 'level', 'h265Settings_level' - H.265 Level.
 --
+-- 'lookAheadRateControl', 'h265Settings_lookAheadRateControl' - Amount of lookahead. A value of low can decrease latency and memory
+-- usage, while high can produce better quality for certain content.
+--
 -- 'profile', 'h265Settings_profile' - H.265 Profile.
 --
 -- 'adaptiveQuantization', 'h265Settings_adaptiveQuantization' - Adaptive quantization. Allows intra-frame quantizers to vary to improve
 -- visual quality.
---
--- 'lookAheadRateControl', 'h265Settings_lookAheadRateControl' - Amount of lookahead. A value of low can decrease latency and memory
--- usage, while high can produce better quality for certain content.
 --
 -- 'bitrate', 'h265Settings_bitrate' - Average bitrate in bits\/second. Required when the rate control mode is
 -- VBR or CBR. Not used for QVBR. In an MS Smooth output group, each output
@@ -281,17 +281,17 @@ newH265Settings
       { scanType = Prelude.Nothing,
         bufSize = Prelude.Nothing,
         flickerAq = Prelude.Nothing,
-        alternativeTransferFunction = Prelude.Nothing,
         rateControlMode = Prelude.Nothing,
+        alternativeTransferFunction = Prelude.Nothing,
         slices = Prelude.Nothing,
         colorMetadata = Prelude.Nothing,
         gopSizeUnits = Prelude.Nothing,
-        gopSize = Prelude.Nothing,
         fixedAfd = Prelude.Nothing,
+        gopSize = Prelude.Nothing,
         filterSettings = Prelude.Nothing,
         parNumerator = Prelude.Nothing,
-        sceneChangeDetect = Prelude.Nothing,
         timecodeInsertion = Prelude.Nothing,
+        sceneChangeDetect = Prelude.Nothing,
         colorSpaceSettings = Prelude.Nothing,
         minIInterval = Prelude.Nothing,
         qvbrQualityLevel = Prelude.Nothing,
@@ -299,9 +299,9 @@ newH265Settings
         parDenominator = Prelude.Nothing,
         maxBitrate = Prelude.Nothing,
         level = Prelude.Nothing,
+        lookAheadRateControl = Prelude.Nothing,
         profile = Prelude.Nothing,
         adaptiveQuantization = Prelude.Nothing,
-        lookAheadRateControl = Prelude.Nothing,
         bitrate = Prelude.Nothing,
         afdSignaling = Prelude.Nothing,
         tier = Prelude.Nothing,
@@ -323,12 +323,6 @@ h265Settings_bufSize = Lens.lens (\H265Settings' {bufSize} -> bufSize) (\s@H265S
 h265Settings_flickerAq :: Lens.Lens' H265Settings (Prelude.Maybe H265FlickerAq)
 h265Settings_flickerAq = Lens.lens (\H265Settings' {flickerAq} -> flickerAq) (\s@H265Settings' {} a -> s {flickerAq = a} :: H265Settings)
 
--- | Whether or not EML should insert an Alternative Transfer Function SEI
--- message to support backwards compatibility with non-HDR decoders and
--- displays.
-h265Settings_alternativeTransferFunction :: Lens.Lens' H265Settings (Prelude.Maybe H265AlternativeTransferFunction)
-h265Settings_alternativeTransferFunction = Lens.lens (\H265Settings' {alternativeTransferFunction} -> alternativeTransferFunction) (\s@H265Settings' {} a -> s {alternativeTransferFunction = a} :: H265Settings)
-
 -- | Rate control mode. QVBR: Quality will match the specified quality level
 -- except when it is constrained by the maximum bitrate. Recommended if you
 -- or your viewers pay for bandwidth. CBR: Quality varies, depending on the
@@ -340,6 +334,12 @@ h265Settings_alternativeTransferFunction = Lens.lens (\H265Settings' {alternativ
 -- Program.
 h265Settings_rateControlMode :: Lens.Lens' H265Settings (Prelude.Maybe H265RateControlMode)
 h265Settings_rateControlMode = Lens.lens (\H265Settings' {rateControlMode} -> rateControlMode) (\s@H265Settings' {} a -> s {rateControlMode = a} :: H265Settings)
+
+-- | Whether or not EML should insert an Alternative Transfer Function SEI
+-- message to support backwards compatibility with non-HDR decoders and
+-- displays.
+h265Settings_alternativeTransferFunction :: Lens.Lens' H265Settings (Prelude.Maybe H265AlternativeTransferFunction)
+h265Settings_alternativeTransferFunction = Lens.lens (\H265Settings' {alternativeTransferFunction} -> alternativeTransferFunction) (\s@H265Settings' {} a -> s {alternativeTransferFunction = a} :: H265Settings)
 
 -- | Number of slices per picture. Must be less than or equal to the number
 -- of macroblock rows for progressive pictures, and less than or equal to
@@ -358,17 +358,17 @@ h265Settings_colorMetadata = Lens.lens (\H265Settings' {colorMetadata} -> colorM
 h265Settings_gopSizeUnits :: Lens.Lens' H265Settings (Prelude.Maybe H265GopSizeUnits)
 h265Settings_gopSizeUnits = Lens.lens (\H265Settings' {gopSizeUnits} -> gopSizeUnits) (\s@H265Settings' {} a -> s {gopSizeUnits = a} :: H265Settings)
 
+-- | Four bit AFD value to write on all frames of video in the output stream.
+-- Only valid when afdSignaling is set to \'Fixed\'.
+h265Settings_fixedAfd :: Lens.Lens' H265Settings (Prelude.Maybe FixedAfd)
+h265Settings_fixedAfd = Lens.lens (\H265Settings' {fixedAfd} -> fixedAfd) (\s@H265Settings' {} a -> s {fixedAfd = a} :: H265Settings)
+
 -- | GOP size (keyframe interval) in units of either frames or seconds per
 -- gopSizeUnits. If gopSizeUnits is frames, gopSize must be an integer and
 -- must be greater than or equal to 1. If gopSizeUnits is seconds, gopSize
 -- must be greater than 0, but need not be an integer.
 h265Settings_gopSize :: Lens.Lens' H265Settings (Prelude.Maybe Prelude.Double)
 h265Settings_gopSize = Lens.lens (\H265Settings' {gopSize} -> gopSize) (\s@H265Settings' {} a -> s {gopSize = a} :: H265Settings)
-
--- | Four bit AFD value to write on all frames of video in the output stream.
--- Only valid when afdSignaling is set to \'Fixed\'.
-h265Settings_fixedAfd :: Lens.Lens' H265Settings (Prelude.Maybe FixedAfd)
-h265Settings_fixedAfd = Lens.lens (\H265Settings' {fixedAfd} -> fixedAfd) (\s@H265Settings' {} a -> s {fixedAfd = a} :: H265Settings)
 
 -- | Optional filters that you can apply to an encode.
 h265Settings_filterSettings :: Lens.Lens' H265Settings (Prelude.Maybe H265FilterSettings)
@@ -378,16 +378,16 @@ h265Settings_filterSettings = Lens.lens (\H265Settings' {filterSettings} -> filt
 h265Settings_parNumerator :: Lens.Lens' H265Settings (Prelude.Maybe Prelude.Natural)
 h265Settings_parNumerator = Lens.lens (\H265Settings' {parNumerator} -> parNumerator) (\s@H265Settings' {} a -> s {parNumerator = a} :: H265Settings)
 
--- | Scene change detection.
-h265Settings_sceneChangeDetect :: Lens.Lens' H265Settings (Prelude.Maybe H265SceneChangeDetect)
-h265Settings_sceneChangeDetect = Lens.lens (\H265Settings' {sceneChangeDetect} -> sceneChangeDetect) (\s@H265Settings' {} a -> s {sceneChangeDetect = a} :: H265Settings)
-
 -- | Determines how timecodes should be inserted into the video elementary
 -- stream. - \'disabled\': Do not include timecodes - \'picTimingSei\':
 -- Pass through picture timing SEI messages from the source specified in
 -- Timecode Config
 h265Settings_timecodeInsertion :: Lens.Lens' H265Settings (Prelude.Maybe H265TimecodeInsertionBehavior)
 h265Settings_timecodeInsertion = Lens.lens (\H265Settings' {timecodeInsertion} -> timecodeInsertion) (\s@H265Settings' {} a -> s {timecodeInsertion = a} :: H265Settings)
+
+-- | Scene change detection.
+h265Settings_sceneChangeDetect :: Lens.Lens' H265Settings (Prelude.Maybe H265SceneChangeDetect)
+h265Settings_sceneChangeDetect = Lens.lens (\H265Settings' {sceneChangeDetect} -> sceneChangeDetect) (\s@H265Settings' {} a -> s {sceneChangeDetect = a} :: H265Settings)
 
 -- | Color Space settings
 h265Settings_colorSpaceSettings :: Lens.Lens' H265Settings (Prelude.Maybe H265ColorSpaceSettings)
@@ -432,6 +432,11 @@ h265Settings_maxBitrate = Lens.lens (\H265Settings' {maxBitrate} -> maxBitrate) 
 h265Settings_level :: Lens.Lens' H265Settings (Prelude.Maybe H265Level)
 h265Settings_level = Lens.lens (\H265Settings' {level} -> level) (\s@H265Settings' {} a -> s {level = a} :: H265Settings)
 
+-- | Amount of lookahead. A value of low can decrease latency and memory
+-- usage, while high can produce better quality for certain content.
+h265Settings_lookAheadRateControl :: Lens.Lens' H265Settings (Prelude.Maybe H265LookAheadRateControl)
+h265Settings_lookAheadRateControl = Lens.lens (\H265Settings' {lookAheadRateControl} -> lookAheadRateControl) (\s@H265Settings' {} a -> s {lookAheadRateControl = a} :: H265Settings)
+
 -- | H.265 Profile.
 h265Settings_profile :: Lens.Lens' H265Settings (Prelude.Maybe H265Profile)
 h265Settings_profile = Lens.lens (\H265Settings' {profile} -> profile) (\s@H265Settings' {} a -> s {profile = a} :: H265Settings)
@@ -440,11 +445,6 @@ h265Settings_profile = Lens.lens (\H265Settings' {profile} -> profile) (\s@H265S
 -- visual quality.
 h265Settings_adaptiveQuantization :: Lens.Lens' H265Settings (Prelude.Maybe H265AdaptiveQuantization)
 h265Settings_adaptiveQuantization = Lens.lens (\H265Settings' {adaptiveQuantization} -> adaptiveQuantization) (\s@H265Settings' {} a -> s {adaptiveQuantization = a} :: H265Settings)
-
--- | Amount of lookahead. A value of low can decrease latency and memory
--- usage, while high can produce better quality for certain content.
-h265Settings_lookAheadRateControl :: Lens.Lens' H265Settings (Prelude.Maybe H265LookAheadRateControl)
-h265Settings_lookAheadRateControl = Lens.lens (\H265Settings' {lookAheadRateControl} -> lookAheadRateControl) (\s@H265Settings' {} a -> s {lookAheadRateControl = a} :: H265Settings)
 
 -- | Average bitrate in bits\/second. Required when the rate control mode is
 -- VBR or CBR. Not used for QVBR. In an MS Smooth output group, each output
@@ -483,17 +483,17 @@ instance Core.FromJSON H265Settings where
             Prelude.<$> (x Core..:? "scanType")
             Prelude.<*> (x Core..:? "bufSize")
             Prelude.<*> (x Core..:? "flickerAq")
-            Prelude.<*> (x Core..:? "alternativeTransferFunction")
             Prelude.<*> (x Core..:? "rateControlMode")
+            Prelude.<*> (x Core..:? "alternativeTransferFunction")
             Prelude.<*> (x Core..:? "slices")
             Prelude.<*> (x Core..:? "colorMetadata")
             Prelude.<*> (x Core..:? "gopSizeUnits")
-            Prelude.<*> (x Core..:? "gopSize")
             Prelude.<*> (x Core..:? "fixedAfd")
+            Prelude.<*> (x Core..:? "gopSize")
             Prelude.<*> (x Core..:? "filterSettings")
             Prelude.<*> (x Core..:? "parNumerator")
-            Prelude.<*> (x Core..:? "sceneChangeDetect")
             Prelude.<*> (x Core..:? "timecodeInsertion")
+            Prelude.<*> (x Core..:? "sceneChangeDetect")
             Prelude.<*> (x Core..:? "colorSpaceSettings")
             Prelude.<*> (x Core..:? "minIInterval")
             Prelude.<*> (x Core..:? "qvbrQualityLevel")
@@ -501,9 +501,9 @@ instance Core.FromJSON H265Settings where
             Prelude.<*> (x Core..:? "parDenominator")
             Prelude.<*> (x Core..:? "maxBitrate")
             Prelude.<*> (x Core..:? "level")
+            Prelude.<*> (x Core..:? "lookAheadRateControl")
             Prelude.<*> (x Core..:? "profile")
             Prelude.<*> (x Core..:? "adaptiveQuantization")
-            Prelude.<*> (x Core..:? "lookAheadRateControl")
             Prelude.<*> (x Core..:? "bitrate")
             Prelude.<*> (x Core..:? "afdSignaling")
             Prelude.<*> (x Core..:? "tier")
@@ -522,22 +522,22 @@ instance Core.ToJSON H265Settings where
           [ ("scanType" Core..=) Prelude.<$> scanType,
             ("bufSize" Core..=) Prelude.<$> bufSize,
             ("flickerAq" Core..=) Prelude.<$> flickerAq,
-            ("alternativeTransferFunction" Core..=)
-              Prelude.<$> alternativeTransferFunction,
             ("rateControlMode" Core..=)
               Prelude.<$> rateControlMode,
+            ("alternativeTransferFunction" Core..=)
+              Prelude.<$> alternativeTransferFunction,
             ("slices" Core..=) Prelude.<$> slices,
             ("colorMetadata" Core..=) Prelude.<$> colorMetadata,
             ("gopSizeUnits" Core..=) Prelude.<$> gopSizeUnits,
-            ("gopSize" Core..=) Prelude.<$> gopSize,
             ("fixedAfd" Core..=) Prelude.<$> fixedAfd,
+            ("gopSize" Core..=) Prelude.<$> gopSize,
             ("filterSettings" Core..=)
               Prelude.<$> filterSettings,
             ("parNumerator" Core..=) Prelude.<$> parNumerator,
-            ("sceneChangeDetect" Core..=)
-              Prelude.<$> sceneChangeDetect,
             ("timecodeInsertion" Core..=)
               Prelude.<$> timecodeInsertion,
+            ("sceneChangeDetect" Core..=)
+              Prelude.<$> sceneChangeDetect,
             ("colorSpaceSettings" Core..=)
               Prelude.<$> colorSpaceSettings,
             ("minIInterval" Core..=) Prelude.<$> minIInterval,
@@ -549,11 +549,11 @@ instance Core.ToJSON H265Settings where
               Prelude.<$> parDenominator,
             ("maxBitrate" Core..=) Prelude.<$> maxBitrate,
             ("level" Core..=) Prelude.<$> level,
+            ("lookAheadRateControl" Core..=)
+              Prelude.<$> lookAheadRateControl,
             ("profile" Core..=) Prelude.<$> profile,
             ("adaptiveQuantization" Core..=)
               Prelude.<$> adaptiveQuantization,
-            ("lookAheadRateControl" Core..=)
-              Prelude.<$> lookAheadRateControl,
             ("bitrate" Core..=) Prelude.<$> bitrate,
             ("afdSignaling" Core..=) Prelude.<$> afdSignaling,
             ("tier" Core..=) Prelude.<$> tier,

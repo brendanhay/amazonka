@@ -27,12 +27,12 @@ module Network.AWS.MediaLive.UpdateChannel
     newUpdateChannel',
 
     -- * Request Lenses
-    updateChannel'_encoderSettings,
     updateChannel'_roleArn,
+    updateChannel'_encoderSettings,
     updateChannel'_inputSpecification,
     updateChannel'_logLevel,
-    updateChannel'_destinations,
     updateChannel'_name,
+    updateChannel'_destinations,
     updateChannel'_inputAttachments,
     updateChannel'_cdiInputSpecification,
     updateChannel'_channelId,
@@ -58,20 +58,20 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newUpdateChannel'' smart constructor.
 data UpdateChannel' = UpdateChannel''
-  { -- | The encoder settings for this channel.
-    encoderSettings :: Prelude.Maybe EncoderSettings,
-    -- | An optional Amazon Resource Name (ARN) of the role to assume when
+  { -- | An optional Amazon Resource Name (ARN) of the role to assume when
     -- running the Channel. If you do not specify this on an update call but
     -- the role was previously set that role will be removed.
     roleArn :: Prelude.Maybe Prelude.Text,
+    -- | The encoder settings for this channel.
+    encoderSettings :: Prelude.Maybe EncoderSettings,
     -- | Specification of network and file inputs for this channel
     inputSpecification :: Prelude.Maybe InputSpecification,
     -- | The log level to write to CloudWatch Logs.
     logLevel :: Prelude.Maybe LogLevel,
-    -- | A list of output destinations for this channel.
-    destinations :: Prelude.Maybe [OutputDestination],
     -- | The name of the channel.
     name :: Prelude.Maybe Prelude.Text,
+    -- | A list of output destinations for this channel.
+    destinations :: Prelude.Maybe [OutputDestination],
     inputAttachments :: Prelude.Maybe [InputAttachment],
     -- | Specification of CDI inputs for this channel
     cdiInputSpecification :: Prelude.Maybe CdiInputSpecification,
@@ -88,19 +88,19 @@ data UpdateChannel' = UpdateChannel''
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'encoderSettings', 'updateChannel'_encoderSettings' - The encoder settings for this channel.
---
 -- 'roleArn', 'updateChannel'_roleArn' - An optional Amazon Resource Name (ARN) of the role to assume when
 -- running the Channel. If you do not specify this on an update call but
 -- the role was previously set that role will be removed.
+--
+-- 'encoderSettings', 'updateChannel'_encoderSettings' - The encoder settings for this channel.
 --
 -- 'inputSpecification', 'updateChannel'_inputSpecification' - Specification of network and file inputs for this channel
 --
 -- 'logLevel', 'updateChannel'_logLevel' - The log level to write to CloudWatch Logs.
 --
--- 'destinations', 'updateChannel'_destinations' - A list of output destinations for this channel.
---
 -- 'name', 'updateChannel'_name' - The name of the channel.
+--
+-- 'destinations', 'updateChannel'_destinations' - A list of output destinations for this channel.
 --
 -- 'inputAttachments', 'updateChannel'_inputAttachments' - Undocumented member.
 --
@@ -113,26 +113,26 @@ newUpdateChannel' ::
   UpdateChannel'
 newUpdateChannel' pChannelId_ =
   UpdateChannel''
-    { encoderSettings = Prelude.Nothing,
-      roleArn = Prelude.Nothing,
+    { roleArn = Prelude.Nothing,
+      encoderSettings = Prelude.Nothing,
       inputSpecification = Prelude.Nothing,
       logLevel = Prelude.Nothing,
-      destinations = Prelude.Nothing,
       name = Prelude.Nothing,
+      destinations = Prelude.Nothing,
       inputAttachments = Prelude.Nothing,
       cdiInputSpecification = Prelude.Nothing,
       channelId = pChannelId_
     }
-
--- | The encoder settings for this channel.
-updateChannel'_encoderSettings :: Lens.Lens' UpdateChannel' (Prelude.Maybe EncoderSettings)
-updateChannel'_encoderSettings = Lens.lens (\UpdateChannel'' {encoderSettings} -> encoderSettings) (\s@UpdateChannel'' {} a -> s {encoderSettings = a} :: UpdateChannel')
 
 -- | An optional Amazon Resource Name (ARN) of the role to assume when
 -- running the Channel. If you do not specify this on an update call but
 -- the role was previously set that role will be removed.
 updateChannel'_roleArn :: Lens.Lens' UpdateChannel' (Prelude.Maybe Prelude.Text)
 updateChannel'_roleArn = Lens.lens (\UpdateChannel'' {roleArn} -> roleArn) (\s@UpdateChannel'' {} a -> s {roleArn = a} :: UpdateChannel')
+
+-- | The encoder settings for this channel.
+updateChannel'_encoderSettings :: Lens.Lens' UpdateChannel' (Prelude.Maybe EncoderSettings)
+updateChannel'_encoderSettings = Lens.lens (\UpdateChannel'' {encoderSettings} -> encoderSettings) (\s@UpdateChannel'' {} a -> s {encoderSettings = a} :: UpdateChannel')
 
 -- | Specification of network and file inputs for this channel
 updateChannel'_inputSpecification :: Lens.Lens' UpdateChannel' (Prelude.Maybe InputSpecification)
@@ -142,13 +142,13 @@ updateChannel'_inputSpecification = Lens.lens (\UpdateChannel'' {inputSpecificat
 updateChannel'_logLevel :: Lens.Lens' UpdateChannel' (Prelude.Maybe LogLevel)
 updateChannel'_logLevel = Lens.lens (\UpdateChannel'' {logLevel} -> logLevel) (\s@UpdateChannel'' {} a -> s {logLevel = a} :: UpdateChannel')
 
--- | A list of output destinations for this channel.
-updateChannel'_destinations :: Lens.Lens' UpdateChannel' (Prelude.Maybe [OutputDestination])
-updateChannel'_destinations = Lens.lens (\UpdateChannel'' {destinations} -> destinations) (\s@UpdateChannel'' {} a -> s {destinations = a} :: UpdateChannel') Prelude.. Lens.mapping Lens._Coerce
-
 -- | The name of the channel.
 updateChannel'_name :: Lens.Lens' UpdateChannel' (Prelude.Maybe Prelude.Text)
 updateChannel'_name = Lens.lens (\UpdateChannel'' {name} -> name) (\s@UpdateChannel'' {} a -> s {name = a} :: UpdateChannel')
+
+-- | A list of output destinations for this channel.
+updateChannel'_destinations :: Lens.Lens' UpdateChannel' (Prelude.Maybe [OutputDestination])
+updateChannel'_destinations = Lens.lens (\UpdateChannel'' {destinations} -> destinations) (\s@UpdateChannel'' {} a -> s {destinations = a} :: UpdateChannel') Prelude.. Lens.mapping Lens._Coerce
 
 -- | Undocumented member.
 updateChannel'_inputAttachments :: Lens.Lens' UpdateChannel' (Prelude.Maybe [InputAttachment])
@@ -194,14 +194,14 @@ instance Core.ToJSON UpdateChannel' where
   toJSON UpdateChannel'' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("encoderSettings" Core..=)
+          [ ("roleArn" Core..=) Prelude.<$> roleArn,
+            ("encoderSettings" Core..=)
               Prelude.<$> encoderSettings,
-            ("roleArn" Core..=) Prelude.<$> roleArn,
             ("inputSpecification" Core..=)
               Prelude.<$> inputSpecification,
             ("logLevel" Core..=) Prelude.<$> logLevel,
-            ("destinations" Core..=) Prelude.<$> destinations,
             ("name" Core..=) Prelude.<$> name,
+            ("destinations" Core..=) Prelude.<$> destinations,
             ("inputAttachments" Core..=)
               Prelude.<$> inputAttachments,
             ("cdiInputSpecification" Core..=)

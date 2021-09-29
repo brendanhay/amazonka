@@ -29,7 +29,11 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEbuTtDDestinationSettings' smart constructor.
 data EbuTtDDestinationSettings = EbuTtDDestinationSettings'
-  { -- | Specifies how to handle the gap between the lines (in multi-line
+  { -- | Applies only if you plan to convert these source captions to EBU-TT-D or
+    -- TTML in an output. Complete this field if you want to include the name
+    -- of the copyright holder in the copyright metadata tag in the TTML
+    copyrightHolder :: Prelude.Maybe Prelude.Text,
+    -- | Specifies how to handle the gap between the lines (in multi-line
     -- captions). - enabled: Fill with the captions background color (as
     -- specified in the input captions). - disabled: Leave the gap unfilled.
     fillLineGap :: Prelude.Maybe EbuTtDFillLineGapControl,
@@ -66,6 +70,10 @@ data EbuTtDDestinationSettings = EbuTtDDestinationSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'copyrightHolder', 'ebuTtDDestinationSettings_copyrightHolder' - Applies only if you plan to convert these source captions to EBU-TT-D or
+-- TTML in an output. Complete this field if you want to include the name
+-- of the copyright holder in the copyright metadata tag in the TTML
+--
 -- 'fillLineGap', 'ebuTtDDestinationSettings_fillLineGap' - Specifies how to handle the gap between the lines (in multi-line
 -- captions). - enabled: Fill with the captions background color (as
 -- specified in the input captions). - disabled: Leave the gap unfilled.
@@ -95,11 +103,18 @@ newEbuTtDDestinationSettings ::
   EbuTtDDestinationSettings
 newEbuTtDDestinationSettings =
   EbuTtDDestinationSettings'
-    { fillLineGap =
+    { copyrightHolder =
         Prelude.Nothing,
+      fillLineGap = Prelude.Nothing,
       styleControl = Prelude.Nothing,
       fontFamily = Prelude.Nothing
     }
+
+-- | Applies only if you plan to convert these source captions to EBU-TT-D or
+-- TTML in an output. Complete this field if you want to include the name
+-- of the copyright holder in the copyright metadata tag in the TTML
+ebuTtDDestinationSettings_copyrightHolder :: Lens.Lens' EbuTtDDestinationSettings (Prelude.Maybe Prelude.Text)
+ebuTtDDestinationSettings_copyrightHolder = Lens.lens (\EbuTtDDestinationSettings' {copyrightHolder} -> copyrightHolder) (\s@EbuTtDDestinationSettings' {} a -> s {copyrightHolder = a} :: EbuTtDDestinationSettings)
 
 -- | Specifies how to handle the gap between the lines (in multi-line
 -- captions). - enabled: Fill with the captions background color (as
@@ -139,7 +154,8 @@ instance Core.FromJSON EbuTtDDestinationSettings where
       "EbuTtDDestinationSettings"
       ( \x ->
           EbuTtDDestinationSettings'
-            Prelude.<$> (x Core..:? "fillLineGap")
+            Prelude.<$> (x Core..:? "copyrightHolder")
+            Prelude.<*> (x Core..:? "fillLineGap")
             Prelude.<*> (x Core..:? "styleControl")
             Prelude.<*> (x Core..:? "fontFamily")
       )
@@ -152,7 +168,9 @@ instance Core.ToJSON EbuTtDDestinationSettings where
   toJSON EbuTtDDestinationSettings' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("fillLineGap" Core..=) Prelude.<$> fillLineGap,
+          [ ("copyrightHolder" Core..=)
+              Prelude.<$> copyrightHolder,
+            ("fillLineGap" Core..=) Prelude.<$> fillLineGap,
             ("styleControl" Core..=) Prelude.<$> styleControl,
             ("fontFamily" Core..=) Prelude.<$> fontFamily
           ]

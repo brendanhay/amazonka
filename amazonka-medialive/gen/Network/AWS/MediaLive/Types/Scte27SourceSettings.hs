@@ -21,13 +21,18 @@ module Network.AWS.MediaLive.Types.Scte27SourceSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import Network.AWS.MediaLive.Types.Scte27OcrLanguage
 import qualified Network.AWS.Prelude as Prelude
 
 -- | Scte27 Source Settings
 --
 -- /See:/ 'newScte27SourceSettings' smart constructor.
 data Scte27SourceSettings = Scte27SourceSettings'
-  { -- | The pid field is used in conjunction with the caption selector
+  { -- | If you will configure a WebVTT caption description that references this
+    -- caption selector, use this field to provide the language to consider
+    -- when translating the image-based source to text.
+    ocrLanguage :: Prelude.Maybe Scte27OcrLanguage,
+    -- | The pid field is used in conjunction with the caption selector
     -- languageCode field as follows: - Specify PID and Language: Extracts
     -- captions from that PID; the language is \"informational\". - Specify PID
     -- and omit Language: Extracts the specified PID. - Omit PID and specify
@@ -46,6 +51,10 @@ data Scte27SourceSettings = Scte27SourceSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ocrLanguage', 'scte27SourceSettings_ocrLanguage' - If you will configure a WebVTT caption description that references this
+-- caption selector, use this field to provide the language to consider
+-- when translating the image-based source to text.
+--
 -- 'pid', 'scte27SourceSettings_pid' - The pid field is used in conjunction with the caption selector
 -- languageCode field as follows: - Specify PID and Language: Extracts
 -- captions from that PID; the language is \"informational\". - Specify PID
@@ -56,7 +65,17 @@ data Scte27SourceSettings = Scte27SourceSettings'
 newScte27SourceSettings ::
   Scte27SourceSettings
 newScte27SourceSettings =
-  Scte27SourceSettings' {pid = Prelude.Nothing}
+  Scte27SourceSettings'
+    { ocrLanguage =
+        Prelude.Nothing,
+      pid = Prelude.Nothing
+    }
+
+-- | If you will configure a WebVTT caption description that references this
+-- caption selector, use this field to provide the language to consider
+-- when translating the image-based source to text.
+scte27SourceSettings_ocrLanguage :: Lens.Lens' Scte27SourceSettings (Prelude.Maybe Scte27OcrLanguage)
+scte27SourceSettings_ocrLanguage = Lens.lens (\Scte27SourceSettings' {ocrLanguage} -> ocrLanguage) (\s@Scte27SourceSettings' {} a -> s {ocrLanguage = a} :: Scte27SourceSettings)
 
 -- | The pid field is used in conjunction with the caption selector
 -- languageCode field as follows: - Specify PID and Language: Extracts
@@ -73,7 +92,9 @@ instance Core.FromJSON Scte27SourceSettings where
     Core.withObject
       "Scte27SourceSettings"
       ( \x ->
-          Scte27SourceSettings' Prelude.<$> (x Core..:? "pid")
+          Scte27SourceSettings'
+            Prelude.<$> (x Core..:? "ocrLanguage")
+            Prelude.<*> (x Core..:? "pid")
       )
 
 instance Prelude.Hashable Scte27SourceSettings
@@ -83,4 +104,8 @@ instance Prelude.NFData Scte27SourceSettings
 instance Core.ToJSON Scte27SourceSettings where
   toJSON Scte27SourceSettings' {..} =
     Core.object
-      (Prelude.catMaybes [("pid" Core..=) Prelude.<$> pid])
+      ( Prelude.catMaybes
+          [ ("ocrLanguage" Core..=) Prelude.<$> ocrLanguage,
+            ("pid" Core..=) Prelude.<$> pid
+          ]
+      )

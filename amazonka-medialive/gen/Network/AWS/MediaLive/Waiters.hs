@@ -198,36 +198,6 @@ newChannelCreated =
         ]
     }
 
--- | Polls 'Network.AWS.MediaLive.DescribeMultiplex' every 3 seconds until a successful state is reached. An error is returned after 5 failed checks.
-newMultiplexCreated :: Core.Wait DescribeMultiplex
-newMultiplexCreated =
-  Core.Wait
-    { Core._waitName = "MultiplexCreated",
-      Core._waitAttempts = 5,
-      Core._waitDelay = 3,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "IDLE"
-            Core.AcceptSuccess
-            ( describeMultiplexResponse_state Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAll
-            "CREATING"
-            Core.AcceptRetry
-            ( describeMultiplexResponse_state Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchStatus 500 Core.AcceptRetry,
-          Core.matchAll
-            "CREATE_FAILED"
-            Core.AcceptFailure
-            ( describeMultiplexResponse_state Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            )
-        ]
-    }
-
 -- | Polls 'Network.AWS.MediaLive.DescribeInput' every 5 seconds until a successful state is reached. An error is returned after 84 failed checks.
 newInputDetached :: Core.Wait DescribeInput
 newInputDetached =
@@ -255,6 +225,36 @@ newInputDetached =
                 Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchStatus 500 Core.AcceptRetry
+        ]
+    }
+
+-- | Polls 'Network.AWS.MediaLive.DescribeMultiplex' every 3 seconds until a successful state is reached. An error is returned after 5 failed checks.
+newMultiplexCreated :: Core.Wait DescribeMultiplex
+newMultiplexCreated =
+  Core.Wait
+    { Core._waitName = "MultiplexCreated",
+      Core._waitAttempts = 5,
+      Core._waitDelay = 3,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "IDLE"
+            Core.AcceptSuccess
+            ( describeMultiplexResponse_state Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAll
+            "CREATING"
+            Core.AcceptRetry
+            ( describeMultiplexResponse_state Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchStatus 500 Core.AcceptRetry,
+          Core.matchAll
+            "CREATE_FAILED"
+            Core.AcceptFailure
+            ( describeMultiplexResponse_state Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            )
         ]
     }
 

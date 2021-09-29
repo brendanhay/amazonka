@@ -40,13 +40,13 @@ module Network.AWS.MediaLive.DescribeReservation
     describeReservationResponse_arn,
     describeReservationResponse_offeringId,
     describeReservationResponse_currencyCode,
+    describeReservationResponse_name,
     describeReservationResponse_resourceSpecification,
     describeReservationResponse_state,
-    describeReservationResponse_name,
     describeReservationResponse_tags,
     describeReservationResponse_offeringDescription,
-    describeReservationResponse_count,
     describeReservationResponse_fixedPrice,
+    describeReservationResponse_count,
     describeReservationResponse_usagePrice,
     describeReservationResponse_offeringType,
     describeReservationResponse_region,
@@ -110,13 +110,13 @@ instance Core.AWSRequest DescribeReservation where
             Prelude.<*> (x Core..?> "arn")
             Prelude.<*> (x Core..?> "offeringId")
             Prelude.<*> (x Core..?> "currencyCode")
+            Prelude.<*> (x Core..?> "name")
             Prelude.<*> (x Core..?> "resourceSpecification")
             Prelude.<*> (x Core..?> "state")
-            Prelude.<*> (x Core..?> "name")
             Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "offeringDescription")
-            Prelude.<*> (x Core..?> "count")
             Prelude.<*> (x Core..?> "fixedPrice")
+            Prelude.<*> (x Core..?> "count")
             Prelude.<*> (x Core..?> "usagePrice")
             Prelude.<*> (x Core..?> "offeringType")
             Prelude.<*> (x Core..?> "region")
@@ -167,22 +167,22 @@ data DescribeReservationResponse = DescribeReservationResponse'
     -- | Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g.
     -- \'USD\'
     currencyCode :: Prelude.Maybe Prelude.Text,
+    -- | User specified reservation name
+    name :: Prelude.Maybe Prelude.Text,
     -- | Resource configuration details
     resourceSpecification :: Prelude.Maybe ReservationResourceSpecification,
     -- | Current state of reservation, e.g. \'ACTIVE\'
     state :: Prelude.Maybe ReservationState,
-    -- | User specified reservation name
-    name :: Prelude.Maybe Prelude.Text,
     -- | A collection of key-value pairs
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Offering description, e.g. \'HD AVC output at 10-20 Mbps, 30 fps, and
     -- standard VQ in US West (Oregon)\'
     offeringDescription :: Prelude.Maybe Prelude.Text,
-    -- | Number of reserved resources
-    count :: Prelude.Maybe Prelude.Int,
     -- | One-time charge for each reserved resource, e.g. \'0.0\' for a
     -- NO_UPFRONT offering
     fixedPrice :: Prelude.Maybe Prelude.Double,
+    -- | Number of reserved resources
+    count :: Prelude.Maybe Prelude.Int,
     -- | Recurring usage charge for each reserved resource, e.g. \'157.0\'
     usagePrice :: Prelude.Maybe Prelude.Double,
     -- | Offering type, e.g. \'NO_UPFRONT\'
@@ -222,21 +222,21 @@ data DescribeReservationResponse = DescribeReservationResponse'
 -- 'currencyCode', 'describeReservationResponse_currencyCode' - Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g.
 -- \'USD\'
 --
+-- 'name', 'describeReservationResponse_name' - User specified reservation name
+--
 -- 'resourceSpecification', 'describeReservationResponse_resourceSpecification' - Resource configuration details
 --
 -- 'state', 'describeReservationResponse_state' - Current state of reservation, e.g. \'ACTIVE\'
---
--- 'name', 'describeReservationResponse_name' - User specified reservation name
 --
 -- 'tags', 'describeReservationResponse_tags' - A collection of key-value pairs
 --
 -- 'offeringDescription', 'describeReservationResponse_offeringDescription' - Offering description, e.g. \'HD AVC output at 10-20 Mbps, 30 fps, and
 -- standard VQ in US West (Oregon)\'
 --
--- 'count', 'describeReservationResponse_count' - Number of reserved resources
---
 -- 'fixedPrice', 'describeReservationResponse_fixedPrice' - One-time charge for each reserved resource, e.g. \'0.0\' for a
 -- NO_UPFRONT offering
+--
+-- 'count', 'describeReservationResponse_count' - Number of reserved resources
 --
 -- 'usagePrice', 'describeReservationResponse_usagePrice' - Recurring usage charge for each reserved resource, e.g. \'157.0\'
 --
@@ -262,13 +262,13 @@ newDescribeReservationResponse pHttpStatus_ =
       arn = Prelude.Nothing,
       offeringId = Prelude.Nothing,
       currencyCode = Prelude.Nothing,
+      name = Prelude.Nothing,
       resourceSpecification = Prelude.Nothing,
       state = Prelude.Nothing,
-      name = Prelude.Nothing,
       tags = Prelude.Nothing,
       offeringDescription = Prelude.Nothing,
-      count = Prelude.Nothing,
       fixedPrice = Prelude.Nothing,
+      count = Prelude.Nothing,
       usagePrice = Prelude.Nothing,
       offeringType = Prelude.Nothing,
       region = Prelude.Nothing,
@@ -304,6 +304,10 @@ describeReservationResponse_offeringId = Lens.lens (\DescribeReservationResponse
 describeReservationResponse_currencyCode :: Lens.Lens' DescribeReservationResponse (Prelude.Maybe Prelude.Text)
 describeReservationResponse_currencyCode = Lens.lens (\DescribeReservationResponse' {currencyCode} -> currencyCode) (\s@DescribeReservationResponse' {} a -> s {currencyCode = a} :: DescribeReservationResponse)
 
+-- | User specified reservation name
+describeReservationResponse_name :: Lens.Lens' DescribeReservationResponse (Prelude.Maybe Prelude.Text)
+describeReservationResponse_name = Lens.lens (\DescribeReservationResponse' {name} -> name) (\s@DescribeReservationResponse' {} a -> s {name = a} :: DescribeReservationResponse)
+
 -- | Resource configuration details
 describeReservationResponse_resourceSpecification :: Lens.Lens' DescribeReservationResponse (Prelude.Maybe ReservationResourceSpecification)
 describeReservationResponse_resourceSpecification = Lens.lens (\DescribeReservationResponse' {resourceSpecification} -> resourceSpecification) (\s@DescribeReservationResponse' {} a -> s {resourceSpecification = a} :: DescribeReservationResponse)
@@ -311,10 +315,6 @@ describeReservationResponse_resourceSpecification = Lens.lens (\DescribeReservat
 -- | Current state of reservation, e.g. \'ACTIVE\'
 describeReservationResponse_state :: Lens.Lens' DescribeReservationResponse (Prelude.Maybe ReservationState)
 describeReservationResponse_state = Lens.lens (\DescribeReservationResponse' {state} -> state) (\s@DescribeReservationResponse' {} a -> s {state = a} :: DescribeReservationResponse)
-
--- | User specified reservation name
-describeReservationResponse_name :: Lens.Lens' DescribeReservationResponse (Prelude.Maybe Prelude.Text)
-describeReservationResponse_name = Lens.lens (\DescribeReservationResponse' {name} -> name) (\s@DescribeReservationResponse' {} a -> s {name = a} :: DescribeReservationResponse)
 
 -- | A collection of key-value pairs
 describeReservationResponse_tags :: Lens.Lens' DescribeReservationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -325,14 +325,14 @@ describeReservationResponse_tags = Lens.lens (\DescribeReservationResponse' {tag
 describeReservationResponse_offeringDescription :: Lens.Lens' DescribeReservationResponse (Prelude.Maybe Prelude.Text)
 describeReservationResponse_offeringDescription = Lens.lens (\DescribeReservationResponse' {offeringDescription} -> offeringDescription) (\s@DescribeReservationResponse' {} a -> s {offeringDescription = a} :: DescribeReservationResponse)
 
--- | Number of reserved resources
-describeReservationResponse_count :: Lens.Lens' DescribeReservationResponse (Prelude.Maybe Prelude.Int)
-describeReservationResponse_count = Lens.lens (\DescribeReservationResponse' {count} -> count) (\s@DescribeReservationResponse' {} a -> s {count = a} :: DescribeReservationResponse)
-
 -- | One-time charge for each reserved resource, e.g. \'0.0\' for a
 -- NO_UPFRONT offering
 describeReservationResponse_fixedPrice :: Lens.Lens' DescribeReservationResponse (Prelude.Maybe Prelude.Double)
 describeReservationResponse_fixedPrice = Lens.lens (\DescribeReservationResponse' {fixedPrice} -> fixedPrice) (\s@DescribeReservationResponse' {} a -> s {fixedPrice = a} :: DescribeReservationResponse)
+
+-- | Number of reserved resources
+describeReservationResponse_count :: Lens.Lens' DescribeReservationResponse (Prelude.Maybe Prelude.Int)
+describeReservationResponse_count = Lens.lens (\DescribeReservationResponse' {count} -> count) (\s@DescribeReservationResponse' {} a -> s {count = a} :: DescribeReservationResponse)
 
 -- | Recurring usage charge for each reserved resource, e.g. \'157.0\'
 describeReservationResponse_usagePrice :: Lens.Lens' DescribeReservationResponse (Prelude.Maybe Prelude.Double)

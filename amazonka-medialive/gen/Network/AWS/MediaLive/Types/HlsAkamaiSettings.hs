@@ -30,12 +30,12 @@ import qualified Network.AWS.Prelude as Prelude
 data HlsAkamaiSettings = HlsAkamaiSettings'
   { -- | Size in seconds of file cache for streaming outputs.
     filecacheDuration :: Prelude.Maybe Prelude.Natural,
-    -- | Number of retry attempts that will be made before the Live Event is put
-    -- into an error state.
-    numRetries :: Prelude.Maybe Prelude.Natural,
     -- | Specify whether or not to use chunked transfer encoding to Akamai. User
     -- should contact Akamai to enable this feature.
     httpTransferMode :: Prelude.Maybe HlsAkamaiHttpTransferMode,
+    -- | Number of retry attempts that will be made before the Live Event is put
+    -- into an error state.
+    numRetries :: Prelude.Maybe Prelude.Natural,
     -- | Number of seconds to wait before retrying connection to the CDN if the
     -- connection is lost.
     connectionRetryInterval :: Prelude.Maybe Prelude.Natural,
@@ -60,11 +60,11 @@ data HlsAkamaiSettings = HlsAkamaiSettings'
 --
 -- 'filecacheDuration', 'hlsAkamaiSettings_filecacheDuration' - Size in seconds of file cache for streaming outputs.
 --
--- 'numRetries', 'hlsAkamaiSettings_numRetries' - Number of retry attempts that will be made before the Live Event is put
--- into an error state.
---
 -- 'httpTransferMode', 'hlsAkamaiSettings_httpTransferMode' - Specify whether or not to use chunked transfer encoding to Akamai. User
 -- should contact Akamai to enable this feature.
+--
+-- 'numRetries', 'hlsAkamaiSettings_numRetries' - Number of retry attempts that will be made before the Live Event is put
+-- into an error state.
 --
 -- 'connectionRetryInterval', 'hlsAkamaiSettings_connectionRetryInterval' - Number of seconds to wait before retrying connection to the CDN if the
 -- connection is lost.
@@ -82,8 +82,8 @@ newHlsAkamaiSettings =
   HlsAkamaiSettings'
     { filecacheDuration =
         Prelude.Nothing,
-      numRetries = Prelude.Nothing,
       httpTransferMode = Prelude.Nothing,
+      numRetries = Prelude.Nothing,
       connectionRetryInterval = Prelude.Nothing,
       token = Prelude.Nothing,
       restartDelay = Prelude.Nothing,
@@ -94,15 +94,15 @@ newHlsAkamaiSettings =
 hlsAkamaiSettings_filecacheDuration :: Lens.Lens' HlsAkamaiSettings (Prelude.Maybe Prelude.Natural)
 hlsAkamaiSettings_filecacheDuration = Lens.lens (\HlsAkamaiSettings' {filecacheDuration} -> filecacheDuration) (\s@HlsAkamaiSettings' {} a -> s {filecacheDuration = a} :: HlsAkamaiSettings)
 
--- | Number of retry attempts that will be made before the Live Event is put
--- into an error state.
-hlsAkamaiSettings_numRetries :: Lens.Lens' HlsAkamaiSettings (Prelude.Maybe Prelude.Natural)
-hlsAkamaiSettings_numRetries = Lens.lens (\HlsAkamaiSettings' {numRetries} -> numRetries) (\s@HlsAkamaiSettings' {} a -> s {numRetries = a} :: HlsAkamaiSettings)
-
 -- | Specify whether or not to use chunked transfer encoding to Akamai. User
 -- should contact Akamai to enable this feature.
 hlsAkamaiSettings_httpTransferMode :: Lens.Lens' HlsAkamaiSettings (Prelude.Maybe HlsAkamaiHttpTransferMode)
 hlsAkamaiSettings_httpTransferMode = Lens.lens (\HlsAkamaiSettings' {httpTransferMode} -> httpTransferMode) (\s@HlsAkamaiSettings' {} a -> s {httpTransferMode = a} :: HlsAkamaiSettings)
+
+-- | Number of retry attempts that will be made before the Live Event is put
+-- into an error state.
+hlsAkamaiSettings_numRetries :: Lens.Lens' HlsAkamaiSettings (Prelude.Maybe Prelude.Natural)
+hlsAkamaiSettings_numRetries = Lens.lens (\HlsAkamaiSettings' {numRetries} -> numRetries) (\s@HlsAkamaiSettings' {} a -> s {numRetries = a} :: HlsAkamaiSettings)
 
 -- | Number of seconds to wait before retrying connection to the CDN if the
 -- connection is lost.
@@ -130,8 +130,8 @@ instance Core.FromJSON HlsAkamaiSettings where
       ( \x ->
           HlsAkamaiSettings'
             Prelude.<$> (x Core..:? "filecacheDuration")
-            Prelude.<*> (x Core..:? "numRetries")
             Prelude.<*> (x Core..:? "httpTransferMode")
+            Prelude.<*> (x Core..:? "numRetries")
             Prelude.<*> (x Core..:? "connectionRetryInterval")
             Prelude.<*> (x Core..:? "token")
             Prelude.<*> (x Core..:? "restartDelay")
@@ -148,9 +148,9 @@ instance Core.ToJSON HlsAkamaiSettings where
       ( Prelude.catMaybes
           [ ("filecacheDuration" Core..=)
               Prelude.<$> filecacheDuration,
-            ("numRetries" Core..=) Prelude.<$> numRetries,
             ("httpTransferMode" Core..=)
               Prelude.<$> httpTransferMode,
+            ("numRetries" Core..=) Prelude.<$> numRetries,
             ("connectionRetryInterval" Core..=)
               Prelude.<$> connectionRetryInterval,
             ("token" Core..=) Prelude.<$> token,

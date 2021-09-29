@@ -40,12 +40,12 @@ data BlackoutSlate = BlackoutSlate'
     -- is encountered. The Network End and Network Start descriptors must
     -- contain a network ID that matches the value entered in \"Network ID\".
     networkEndBlackout :: Prelude.Maybe BlackoutSlateNetworkEndBlackout,
-    -- | When set to enabled, causes video, audio and captions to be blanked when
-    -- indicated by program metadata.
-    state :: Prelude.Maybe BlackoutSlateState,
     -- | Path to local file to use as Network End Blackout image. Image will be
     -- scaled to fill the entire output raster.
     networkEndBlackoutImage :: Prelude.Maybe InputLocation,
+    -- | When set to enabled, causes video, audio and captions to be blanked when
+    -- indicated by program metadata.
+    state :: Prelude.Maybe BlackoutSlateState,
     -- | Provides Network ID that matches EIDR ID format (e.g.,
     -- \"10.XXXX\/XXXX-XXXX-XXXX-XXXX-XXXX-C\").
     networkId :: Prelude.Maybe Prelude.Text
@@ -70,11 +70,11 @@ data BlackoutSlate = BlackoutSlate'
 -- is encountered. The Network End and Network Start descriptors must
 -- contain a network ID that matches the value entered in \"Network ID\".
 --
--- 'state', 'blackoutSlate_state' - When set to enabled, causes video, audio and captions to be blanked when
--- indicated by program metadata.
---
 -- 'networkEndBlackoutImage', 'blackoutSlate_networkEndBlackoutImage' - Path to local file to use as Network End Blackout image. Image will be
 -- scaled to fill the entire output raster.
+--
+-- 'state', 'blackoutSlate_state' - When set to enabled, causes video, audio and captions to be blanked when
+-- indicated by program metadata.
 --
 -- 'networkId', 'blackoutSlate_networkId' - Provides Network ID that matches EIDR ID format (e.g.,
 -- \"10.XXXX\/XXXX-XXXX-XXXX-XXXX-XXXX-C\").
@@ -85,8 +85,8 @@ newBlackoutSlate =
     { blackoutSlateImage =
         Prelude.Nothing,
       networkEndBlackout = Prelude.Nothing,
-      state = Prelude.Nothing,
       networkEndBlackoutImage = Prelude.Nothing,
+      state = Prelude.Nothing,
       networkId = Prelude.Nothing
     }
 
@@ -104,15 +104,15 @@ blackoutSlate_blackoutSlateImage = Lens.lens (\BlackoutSlate' {blackoutSlateImag
 blackoutSlate_networkEndBlackout :: Lens.Lens' BlackoutSlate (Prelude.Maybe BlackoutSlateNetworkEndBlackout)
 blackoutSlate_networkEndBlackout = Lens.lens (\BlackoutSlate' {networkEndBlackout} -> networkEndBlackout) (\s@BlackoutSlate' {} a -> s {networkEndBlackout = a} :: BlackoutSlate)
 
--- | When set to enabled, causes video, audio and captions to be blanked when
--- indicated by program metadata.
-blackoutSlate_state :: Lens.Lens' BlackoutSlate (Prelude.Maybe BlackoutSlateState)
-blackoutSlate_state = Lens.lens (\BlackoutSlate' {state} -> state) (\s@BlackoutSlate' {} a -> s {state = a} :: BlackoutSlate)
-
 -- | Path to local file to use as Network End Blackout image. Image will be
 -- scaled to fill the entire output raster.
 blackoutSlate_networkEndBlackoutImage :: Lens.Lens' BlackoutSlate (Prelude.Maybe InputLocation)
 blackoutSlate_networkEndBlackoutImage = Lens.lens (\BlackoutSlate' {networkEndBlackoutImage} -> networkEndBlackoutImage) (\s@BlackoutSlate' {} a -> s {networkEndBlackoutImage = a} :: BlackoutSlate)
+
+-- | When set to enabled, causes video, audio and captions to be blanked when
+-- indicated by program metadata.
+blackoutSlate_state :: Lens.Lens' BlackoutSlate (Prelude.Maybe BlackoutSlateState)
+blackoutSlate_state = Lens.lens (\BlackoutSlate' {state} -> state) (\s@BlackoutSlate' {} a -> s {state = a} :: BlackoutSlate)
 
 -- | Provides Network ID that matches EIDR ID format (e.g.,
 -- \"10.XXXX\/XXXX-XXXX-XXXX-XXXX-XXXX-C\").
@@ -127,8 +127,8 @@ instance Core.FromJSON BlackoutSlate where
           BlackoutSlate'
             Prelude.<$> (x Core..:? "blackoutSlateImage")
             Prelude.<*> (x Core..:? "networkEndBlackout")
-            Prelude.<*> (x Core..:? "state")
             Prelude.<*> (x Core..:? "networkEndBlackoutImage")
+            Prelude.<*> (x Core..:? "state")
             Prelude.<*> (x Core..:? "networkId")
       )
 
@@ -144,9 +144,9 @@ instance Core.ToJSON BlackoutSlate where
               Prelude.<$> blackoutSlateImage,
             ("networkEndBlackout" Core..=)
               Prelude.<$> networkEndBlackout,
-            ("state" Core..=) Prelude.<$> state,
             ("networkEndBlackoutImage" Core..=)
               Prelude.<$> networkEndBlackoutImage,
+            ("state" Core..=) Prelude.<$> state,
             ("networkId" Core..=) Prelude.<$> networkId
           ]
       )

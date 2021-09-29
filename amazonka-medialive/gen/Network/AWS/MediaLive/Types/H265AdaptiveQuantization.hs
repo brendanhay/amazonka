@@ -20,6 +20,7 @@
 module Network.AWS.MediaLive.Types.H265AdaptiveQuantization
   ( H265AdaptiveQuantization
       ( ..,
+        H265AdaptiveQuantization_AUTO,
         H265AdaptiveQuantization_HIGH,
         H265AdaptiveQuantization_HIGHER,
         H265AdaptiveQuantization_LOW,
@@ -62,6 +63,9 @@ newtype H265AdaptiveQuantization = H265AdaptiveQuantization'
       Core.ToXML
     )
 
+pattern H265AdaptiveQuantization_AUTO :: H265AdaptiveQuantization
+pattern H265AdaptiveQuantization_AUTO = H265AdaptiveQuantization' "AUTO"
+
 pattern H265AdaptiveQuantization_HIGH :: H265AdaptiveQuantization
 pattern H265AdaptiveQuantization_HIGH = H265AdaptiveQuantization' "HIGH"
 
@@ -81,6 +85,7 @@ pattern H265AdaptiveQuantization_OFF :: H265AdaptiveQuantization
 pattern H265AdaptiveQuantization_OFF = H265AdaptiveQuantization' "OFF"
 
 {-# COMPLETE
+  H265AdaptiveQuantization_AUTO,
   H265AdaptiveQuantization_HIGH,
   H265AdaptiveQuantization_HIGHER,
   H265AdaptiveQuantization_LOW,

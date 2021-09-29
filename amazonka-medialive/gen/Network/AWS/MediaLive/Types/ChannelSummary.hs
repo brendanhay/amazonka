@@ -29,7 +29,7 @@ import Network.AWS.MediaLive.Types.InputAttachment
 import Network.AWS.MediaLive.Types.InputSpecification
 import Network.AWS.MediaLive.Types.LogLevel
 import Network.AWS.MediaLive.Types.OutputDestination
-import Network.AWS.MediaLive.Types.VpcOutputSettings
+import Network.AWS.MediaLive.Types.VpcOutputSettingsDescription
 import qualified Network.AWS.Prelude as Prelude
 
 -- | Placeholder documentation for ChannelSummary
@@ -52,23 +52,23 @@ data ChannelSummary = ChannelSummary'
     channelClass :: Prelude.Maybe ChannelClass,
     -- | The log level being written to CloudWatch Logs.
     logLevel :: Prelude.Maybe LogLevel,
+    -- | The name of the channel. (user-mutable)
+    name :: Prelude.Maybe Prelude.Text,
     -- | A list of destinations of the channel. For UDP outputs, there is one
     -- destination per output. For other types (HLS, for example), there is one
     -- destination per packager.
     destinations :: Prelude.Maybe [OutputDestination],
     state :: Prelude.Maybe ChannelState,
-    -- | The name of the channel. (user-mutable)
-    name :: Prelude.Maybe Prelude.Text,
     -- | List of input attachments for channel.
     inputAttachments :: Prelude.Maybe [InputAttachment],
     -- | A collection of key-value pairs.
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
-    -- | The endpoints where outgoing connections initiate from
-    egressEndpoints :: Prelude.Maybe [ChannelEgressEndpoint],
     -- | Settings for VPC output
-    vpc :: Prelude.Maybe VpcOutputSettings,
+    vpc :: Prelude.Maybe VpcOutputSettingsDescription,
     -- | Specification of CDI inputs for this channel
-    cdiInputSpecification :: Prelude.Maybe CdiInputSpecification
+    cdiInputSpecification :: Prelude.Maybe CdiInputSpecification,
+    -- | The endpoints where outgoing connections initiate from
+    egressEndpoints :: Prelude.Maybe [ChannelEgressEndpoint]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -96,23 +96,23 @@ data ChannelSummary = ChannelSummary'
 --
 -- 'logLevel', 'channelSummary_logLevel' - The log level being written to CloudWatch Logs.
 --
+-- 'name', 'channelSummary_name' - The name of the channel. (user-mutable)
+--
 -- 'destinations', 'channelSummary_destinations' - A list of destinations of the channel. For UDP outputs, there is one
 -- destination per output. For other types (HLS, for example), there is one
 -- destination per packager.
 --
 -- 'state', 'channelSummary_state' - Undocumented member.
 --
--- 'name', 'channelSummary_name' - The name of the channel. (user-mutable)
---
 -- 'inputAttachments', 'channelSummary_inputAttachments' - List of input attachments for channel.
 --
 -- 'tags', 'channelSummary_tags' - A collection of key-value pairs.
 --
--- 'egressEndpoints', 'channelSummary_egressEndpoints' - The endpoints where outgoing connections initiate from
---
 -- 'vpc', 'channelSummary_vpc' - Settings for VPC output
 --
 -- 'cdiInputSpecification', 'channelSummary_cdiInputSpecification' - Specification of CDI inputs for this channel
+--
+-- 'egressEndpoints', 'channelSummary_egressEndpoints' - The endpoints where outgoing connections initiate from
 newChannelSummary ::
   ChannelSummary
 newChannelSummary =
@@ -124,14 +124,14 @@ newChannelSummary =
       pipelinesRunningCount = Prelude.Nothing,
       channelClass = Prelude.Nothing,
       logLevel = Prelude.Nothing,
+      name = Prelude.Nothing,
       destinations = Prelude.Nothing,
       state = Prelude.Nothing,
-      name = Prelude.Nothing,
       inputAttachments = Prelude.Nothing,
       tags = Prelude.Nothing,
-      egressEndpoints = Prelude.Nothing,
       vpc = Prelude.Nothing,
-      cdiInputSpecification = Prelude.Nothing
+      cdiInputSpecification = Prelude.Nothing,
+      egressEndpoints = Prelude.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the role assumed when running the
@@ -164,6 +164,10 @@ channelSummary_channelClass = Lens.lens (\ChannelSummary' {channelClass} -> chan
 channelSummary_logLevel :: Lens.Lens' ChannelSummary (Prelude.Maybe LogLevel)
 channelSummary_logLevel = Lens.lens (\ChannelSummary' {logLevel} -> logLevel) (\s@ChannelSummary' {} a -> s {logLevel = a} :: ChannelSummary)
 
+-- | The name of the channel. (user-mutable)
+channelSummary_name :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.Text)
+channelSummary_name = Lens.lens (\ChannelSummary' {name} -> name) (\s@ChannelSummary' {} a -> s {name = a} :: ChannelSummary)
+
 -- | A list of destinations of the channel. For UDP outputs, there is one
 -- destination per output. For other types (HLS, for example), there is one
 -- destination per packager.
@@ -174,10 +178,6 @@ channelSummary_destinations = Lens.lens (\ChannelSummary' {destinations} -> dest
 channelSummary_state :: Lens.Lens' ChannelSummary (Prelude.Maybe ChannelState)
 channelSummary_state = Lens.lens (\ChannelSummary' {state} -> state) (\s@ChannelSummary' {} a -> s {state = a} :: ChannelSummary)
 
--- | The name of the channel. (user-mutable)
-channelSummary_name :: Lens.Lens' ChannelSummary (Prelude.Maybe Prelude.Text)
-channelSummary_name = Lens.lens (\ChannelSummary' {name} -> name) (\s@ChannelSummary' {} a -> s {name = a} :: ChannelSummary)
-
 -- | List of input attachments for channel.
 channelSummary_inputAttachments :: Lens.Lens' ChannelSummary (Prelude.Maybe [InputAttachment])
 channelSummary_inputAttachments = Lens.lens (\ChannelSummary' {inputAttachments} -> inputAttachments) (\s@ChannelSummary' {} a -> s {inputAttachments = a} :: ChannelSummary) Prelude.. Lens.mapping Lens._Coerce
@@ -186,17 +186,17 @@ channelSummary_inputAttachments = Lens.lens (\ChannelSummary' {inputAttachments}
 channelSummary_tags :: Lens.Lens' ChannelSummary (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
 channelSummary_tags = Lens.lens (\ChannelSummary' {tags} -> tags) (\s@ChannelSummary' {} a -> s {tags = a} :: ChannelSummary) Prelude.. Lens.mapping Lens._Coerce
 
--- | The endpoints where outgoing connections initiate from
-channelSummary_egressEndpoints :: Lens.Lens' ChannelSummary (Prelude.Maybe [ChannelEgressEndpoint])
-channelSummary_egressEndpoints = Lens.lens (\ChannelSummary' {egressEndpoints} -> egressEndpoints) (\s@ChannelSummary' {} a -> s {egressEndpoints = a} :: ChannelSummary) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Settings for VPC output
-channelSummary_vpc :: Lens.Lens' ChannelSummary (Prelude.Maybe VpcOutputSettings)
+channelSummary_vpc :: Lens.Lens' ChannelSummary (Prelude.Maybe VpcOutputSettingsDescription)
 channelSummary_vpc = Lens.lens (\ChannelSummary' {vpc} -> vpc) (\s@ChannelSummary' {} a -> s {vpc = a} :: ChannelSummary)
 
 -- | Specification of CDI inputs for this channel
 channelSummary_cdiInputSpecification :: Lens.Lens' ChannelSummary (Prelude.Maybe CdiInputSpecification)
 channelSummary_cdiInputSpecification = Lens.lens (\ChannelSummary' {cdiInputSpecification} -> cdiInputSpecification) (\s@ChannelSummary' {} a -> s {cdiInputSpecification = a} :: ChannelSummary)
+
+-- | The endpoints where outgoing connections initiate from
+channelSummary_egressEndpoints :: Lens.Lens' ChannelSummary (Prelude.Maybe [ChannelEgressEndpoint])
+channelSummary_egressEndpoints = Lens.lens (\ChannelSummary' {egressEndpoints} -> egressEndpoints) (\s@ChannelSummary' {} a -> s {egressEndpoints = a} :: ChannelSummary) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON ChannelSummary where
   parseJSON =
@@ -211,18 +211,18 @@ instance Core.FromJSON ChannelSummary where
             Prelude.<*> (x Core..:? "pipelinesRunningCount")
             Prelude.<*> (x Core..:? "channelClass")
             Prelude.<*> (x Core..:? "logLevel")
+            Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "destinations" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "name")
             Prelude.<*> ( x Core..:? "inputAttachments"
                             Core..!= Prelude.mempty
                         )
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
+            Prelude.<*> (x Core..:? "vpc")
+            Prelude.<*> (x Core..:? "cdiInputSpecification")
             Prelude.<*> ( x Core..:? "egressEndpoints"
                             Core..!= Prelude.mempty
                         )
-            Prelude.<*> (x Core..:? "vpc")
-            Prelude.<*> (x Core..:? "cdiInputSpecification")
       )
 
 instance Prelude.Hashable ChannelSummary

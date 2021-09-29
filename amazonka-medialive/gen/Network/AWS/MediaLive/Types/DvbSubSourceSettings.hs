@@ -21,13 +21,18 @@ module Network.AWS.MediaLive.Types.DvbSubSourceSettings where
 
 import qualified Network.AWS.Core as Core
 import qualified Network.AWS.Lens as Lens
+import Network.AWS.MediaLive.Types.DvbSubOcrLanguage
 import qualified Network.AWS.Prelude as Prelude
 
 -- | Dvb Sub Source Settings
 --
 -- /See:/ 'newDvbSubSourceSettings' smart constructor.
 data DvbSubSourceSettings = DvbSubSourceSettings'
-  { -- | When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source
+  { -- | If you will configure a WebVTT caption description that references this
+    -- caption selector, use this field to provide the language to consider
+    -- when translating the image-based source to text.
+    ocrLanguage :: Prelude.Maybe DvbSubOcrLanguage,
+    -- | When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source
     -- content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed
     -- through, regardless of selectors.
     pid :: Prelude.Maybe Prelude.Natural
@@ -42,13 +47,27 @@ data DvbSubSourceSettings = DvbSubSourceSettings'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ocrLanguage', 'dvbSubSourceSettings_ocrLanguage' - If you will configure a WebVTT caption description that references this
+-- caption selector, use this field to provide the language to consider
+-- when translating the image-based source to text.
+--
 -- 'pid', 'dvbSubSourceSettings_pid' - When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source
 -- content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed
 -- through, regardless of selectors.
 newDvbSubSourceSettings ::
   DvbSubSourceSettings
 newDvbSubSourceSettings =
-  DvbSubSourceSettings' {pid = Prelude.Nothing}
+  DvbSubSourceSettings'
+    { ocrLanguage =
+        Prelude.Nothing,
+      pid = Prelude.Nothing
+    }
+
+-- | If you will configure a WebVTT caption description that references this
+-- caption selector, use this field to provide the language to consider
+-- when translating the image-based source to text.
+dvbSubSourceSettings_ocrLanguage :: Lens.Lens' DvbSubSourceSettings (Prelude.Maybe DvbSubOcrLanguage)
+dvbSubSourceSettings_ocrLanguage = Lens.lens (\DvbSubSourceSettings' {ocrLanguage} -> ocrLanguage) (\s@DvbSubSourceSettings' {} a -> s {ocrLanguage = a} :: DvbSubSourceSettings)
 
 -- | When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source
 -- content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed
@@ -61,7 +80,9 @@ instance Core.FromJSON DvbSubSourceSettings where
     Core.withObject
       "DvbSubSourceSettings"
       ( \x ->
-          DvbSubSourceSettings' Prelude.<$> (x Core..:? "pid")
+          DvbSubSourceSettings'
+            Prelude.<$> (x Core..:? "ocrLanguage")
+            Prelude.<*> (x Core..:? "pid")
       )
 
 instance Prelude.Hashable DvbSubSourceSettings
@@ -71,4 +92,8 @@ instance Prelude.NFData DvbSubSourceSettings
 instance Core.ToJSON DvbSubSourceSettings where
   toJSON DvbSubSourceSettings' {..} =
     Core.object
-      (Prelude.catMaybes [("pid" Core..=) Prelude.<$> pid])
+      ( Prelude.catMaybes
+          [ ("ocrLanguage" Core..=) Prelude.<$> ocrLanguage,
+            ("pid" Core..=) Prelude.<$> pid
+          ]
+      )

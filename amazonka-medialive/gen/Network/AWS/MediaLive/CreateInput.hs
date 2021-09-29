@@ -31,8 +31,8 @@ module Network.AWS.MediaLive.CreateInput
     createInput'_roleArn,
     createInput'_sources,
     createInput'_mediaConnectFlows,
-    createInput'_destinations,
     createInput'_name,
+    createInput'_destinations,
     createInput'_requestId,
     createInput'_tags,
     createInput'_type,
@@ -75,10 +75,10 @@ data CreateInput' = CreateInput''
     -- separate Availability Zone as this ensures your EML input is redundant
     -- to AZ issues.
     mediaConnectFlows :: Prelude.Maybe [MediaConnectFlowRequest],
-    -- | Destination settings for PUSH type inputs.
-    destinations :: Prelude.Maybe [InputDestinationRequest],
     -- | Name of the input.
     name :: Prelude.Maybe Prelude.Text,
+    -- | Destination settings for PUSH type inputs.
+    destinations :: Prelude.Maybe [InputDestinationRequest],
     -- | Unique identifier of the request to ensure the request is handled
     -- exactly once in case of retries.
     requestId :: Prelude.Maybe Prelude.Text,
@@ -114,9 +114,9 @@ data CreateInput' = CreateInput''
 -- separate Availability Zone as this ensures your EML input is redundant
 -- to AZ issues.
 --
--- 'destinations', 'createInput'_destinations' - Destination settings for PUSH type inputs.
---
 -- 'name', 'createInput'_name' - Name of the input.
+--
+-- 'destinations', 'createInput'_destinations' - Destination settings for PUSH type inputs.
 --
 -- 'requestId', 'createInput'_requestId' - Unique identifier of the request to ensure the request is handled
 -- exactly once in case of retries.
@@ -137,8 +137,8 @@ newCreateInput' =
       roleArn = Prelude.Nothing,
       sources = Prelude.Nothing,
       mediaConnectFlows = Prelude.Nothing,
-      destinations = Prelude.Nothing,
       name = Prelude.Nothing,
+      destinations = Prelude.Nothing,
       requestId = Prelude.Nothing,
       tags = Prelude.Nothing,
       type' = Prelude.Nothing,
@@ -169,13 +169,13 @@ createInput'_sources = Lens.lens (\CreateInput'' {sources} -> sources) (\s@Creat
 createInput'_mediaConnectFlows :: Lens.Lens' CreateInput' (Prelude.Maybe [MediaConnectFlowRequest])
 createInput'_mediaConnectFlows = Lens.lens (\CreateInput'' {mediaConnectFlows} -> mediaConnectFlows) (\s@CreateInput'' {} a -> s {mediaConnectFlows = a} :: CreateInput') Prelude.. Lens.mapping Lens._Coerce
 
--- | Destination settings for PUSH type inputs.
-createInput'_destinations :: Lens.Lens' CreateInput' (Prelude.Maybe [InputDestinationRequest])
-createInput'_destinations = Lens.lens (\CreateInput'' {destinations} -> destinations) (\s@CreateInput'' {} a -> s {destinations = a} :: CreateInput') Prelude.. Lens.mapping Lens._Coerce
-
 -- | Name of the input.
 createInput'_name :: Lens.Lens' CreateInput' (Prelude.Maybe Prelude.Text)
 createInput'_name = Lens.lens (\CreateInput'' {name} -> name) (\s@CreateInput'' {} a -> s {name = a} :: CreateInput')
+
+-- | Destination settings for PUSH type inputs.
+createInput'_destinations :: Lens.Lens' CreateInput' (Prelude.Maybe [InputDestinationRequest])
+createInput'_destinations = Lens.lens (\CreateInput'' {destinations} -> destinations) (\s@CreateInput'' {} a -> s {destinations = a} :: CreateInput') Prelude.. Lens.mapping Lens._Coerce
 
 -- | Unique identifier of the request to ensure the request is handled
 -- exactly once in case of retries.
@@ -234,8 +234,8 @@ instance Core.ToJSON CreateInput' where
             ("sources" Core..=) Prelude.<$> sources,
             ("mediaConnectFlows" Core..=)
               Prelude.<$> mediaConnectFlows,
-            ("destinations" Core..=) Prelude.<$> destinations,
             ("name" Core..=) Prelude.<$> name,
+            ("destinations" Core..=) Prelude.<$> destinations,
             ("requestId" Core..=) Prelude.<$> requestId,
             ("tags" Core..=) Prelude.<$> tags,
             ("type" Core..=) Prelude.<$> type',

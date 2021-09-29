@@ -113,9 +113,11 @@ library
     Network.AWS.MediaLive.Types.AcceptHeader
     Network.AWS.MediaLive.Types.AfdSignaling
     Network.AWS.MediaLive.Types.AncillarySourceSettings
+    Network.AWS.MediaLive.Types.ArchiveCdnSettings
     Network.AWS.MediaLive.Types.ArchiveContainerSettings
     Network.AWS.MediaLive.Types.ArchiveGroupSettings
     Network.AWS.MediaLive.Types.ArchiveOutputSettings
+    Network.AWS.MediaLive.Types.ArchiveS3Settings
     Network.AWS.MediaLive.Types.AribDestinationSettings
     Network.AWS.MediaLive.Types.AribSourceSettings
     Network.AWS.MediaLive.Types.AudioChannelMapping
@@ -123,6 +125,7 @@ library
     Network.AWS.MediaLive.Types.AudioDescription
     Network.AWS.MediaLive.Types.AudioDescriptionAudioTypeControl
     Network.AWS.MediaLive.Types.AudioDescriptionLanguageCodeControl
+    Network.AWS.MediaLive.Types.AudioHlsRenditionSelection
     Network.AWS.MediaLive.Types.AudioLanguageSelection
     Network.AWS.MediaLive.Types.AudioLanguageSelectionPolicy
     Network.AWS.MediaLive.Types.AudioNormalizationAlgorithm
@@ -163,6 +166,7 @@ library
     Network.AWS.MediaLive.Types.CaptionDescription
     Network.AWS.MediaLive.Types.CaptionDestinationSettings
     Network.AWS.MediaLive.Types.CaptionLanguageMapping
+    Network.AWS.MediaLive.Types.CaptionRectangle
     Network.AWS.MediaLive.Types.CaptionSelector
     Network.AWS.MediaLive.Types.CaptionSelectorSettings
     Network.AWS.MediaLive.Types.CdiInputResolution
@@ -186,6 +190,7 @@ library
     Network.AWS.MediaLive.Types.DvbSubDestinationSettings
     Network.AWS.MediaLive.Types.DvbSubDestinationShadowColor
     Network.AWS.MediaLive.Types.DvbSubDestinationTeletextGridControl
+    Network.AWS.MediaLive.Types.DvbSubOcrLanguage
     Network.AWS.MediaLive.Types.DvbSubSourceSettings
     Network.AWS.MediaLive.Types.DvbTdtSettings
     Network.AWS.MediaLive.Types.Eac3AttenuationControl
@@ -225,10 +230,12 @@ library
     Network.AWS.MediaLive.Types.Fmp4TimedMetadataBehavior
     Network.AWS.MediaLive.Types.FollowModeScheduleActionStartSettings
     Network.AWS.MediaLive.Types.FollowPoint
+    Network.AWS.MediaLive.Types.FrameCaptureCdnSettings
     Network.AWS.MediaLive.Types.FrameCaptureGroupSettings
     Network.AWS.MediaLive.Types.FrameCaptureHlsSettings
     Network.AWS.MediaLive.Types.FrameCaptureIntervalUnit
     Network.AWS.MediaLive.Types.FrameCaptureOutputSettings
+    Network.AWS.MediaLive.Types.FrameCaptureS3Settings
     Network.AWS.MediaLive.Types.FrameCaptureSettings
     Network.AWS.MediaLive.Types.GlobalConfiguration
     Network.AWS.MediaLive.Types.GlobalConfigurationInputEndAction
@@ -304,6 +311,8 @@ library
     Network.AWS.MediaLive.Types.HlsOutputSettings
     Network.AWS.MediaLive.Types.HlsProgramDateTime
     Network.AWS.MediaLive.Types.HlsRedundantManifest
+    Network.AWS.MediaLive.Types.HlsS3Settings
+    Network.AWS.MediaLive.Types.HlsScte35SourceType
     Network.AWS.MediaLive.Types.HlsSegmentationMode
     Network.AWS.MediaLive.Types.HlsSettings
     Network.AWS.MediaLive.Types.HlsStreamInfResolution
@@ -312,6 +321,7 @@ library
     Network.AWS.MediaLive.Types.HlsTsFileMode
     Network.AWS.MediaLive.Types.HlsWebdavHttpTransferMode
     Network.AWS.MediaLive.Types.HlsWebdavSettings
+    Network.AWS.MediaLive.Types.HtmlMotionGraphicsSettings
     Network.AWS.MediaLive.Types.IFrameOnlyPlaylistType
     Network.AWS.MediaLive.Types.ImmediateModeScheduleActionStartSettings
     Network.AWS.MediaLive.Types.Input
@@ -401,6 +411,11 @@ library
     Network.AWS.MediaLive.Types.MediaPackageGroupSettings
     Network.AWS.MediaLive.Types.MediaPackageOutputDestinationSettings
     Network.AWS.MediaLive.Types.MediaPackageOutputSettings
+    Network.AWS.MediaLive.Types.MotionGraphicsActivateScheduleActionSettings
+    Network.AWS.MediaLive.Types.MotionGraphicsConfiguration
+    Network.AWS.MediaLive.Types.MotionGraphicsDeactivateScheduleActionSettings
+    Network.AWS.MediaLive.Types.MotionGraphicsInsertion
+    Network.AWS.MediaLive.Types.MotionGraphicsSettings
     Network.AWS.MediaLive.Types.Mp2CodingMode
     Network.AWS.MediaLive.Types.Mp2Settings
     Network.AWS.MediaLive.Types.Mpeg2AdaptiveQuantization
@@ -475,6 +490,7 @@ library
     Network.AWS.MediaLive.Types.RtmpGroupSettings
     Network.AWS.MediaLive.Types.RtmpOutputCertificateMode
     Network.AWS.MediaLive.Types.RtmpOutputSettings
+    Network.AWS.MediaLive.Types.S3CannedAcl
     Network.AWS.MediaLive.Types.ScheduleAction
     Network.AWS.MediaLive.Types.ScheduleActionSettings
     Network.AWS.MediaLive.Types.ScheduleActionStartSettings
@@ -482,6 +498,7 @@ library
     Network.AWS.MediaLive.Types.Scte20PlusEmbeddedDestinationSettings
     Network.AWS.MediaLive.Types.Scte20SourceSettings
     Network.AWS.MediaLive.Types.Scte27DestinationSettings
+    Network.AWS.MediaLive.Types.Scte27OcrLanguage
     Network.AWS.MediaLive.Types.Scte27SourceSettings
     Network.AWS.MediaLive.Types.Scte35AposNoRegionalBlackoutBehavior
     Network.AWS.MediaLive.Types.Scte35AposWebDeliveryAllowedBehavior
@@ -538,14 +555,17 @@ library
     Network.AWS.MediaLive.Types.VideoDescriptionScalingBehavior
     Network.AWS.MediaLive.Types.VideoSelector
     Network.AWS.MediaLive.Types.VideoSelectorColorSpace
+    Network.AWS.MediaLive.Types.VideoSelectorColorSpaceSettings
     Network.AWS.MediaLive.Types.VideoSelectorColorSpaceUsage
     Network.AWS.MediaLive.Types.VideoSelectorPid
     Network.AWS.MediaLive.Types.VideoSelectorProgramId
     Network.AWS.MediaLive.Types.VideoSelectorSettings
     Network.AWS.MediaLive.Types.VpcOutputSettings
+    Network.AWS.MediaLive.Types.VpcOutputSettingsDescription
     Network.AWS.MediaLive.Types.WavCodingMode
     Network.AWS.MediaLive.Types.WavSettings
     Network.AWS.MediaLive.Types.WebvttDestinationSettings
+    Network.AWS.MediaLive.Types.WebvttDestinationStyleControl
     Network.AWS.MediaLive.UpdateChannel
     Network.AWS.MediaLive.UpdateChannelClass
     Network.AWS.MediaLive.UpdateInput

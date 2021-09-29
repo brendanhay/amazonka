@@ -36,20 +36,20 @@ import qualified Network.AWS.Prelude as Prelude
 data InputDeviceSummary = InputDeviceSummary'
   { -- | Settings that describe an input device that is type UHD.
     uhdDeviceSettings :: Prelude.Maybe InputDeviceUhdSettings,
-    -- | Settings that describe an input device that is type HD.
-    hdDeviceSettings :: Prelude.Maybe InputDeviceHdSettings,
     -- | The network MAC address of the input device.
     macAddress :: Prelude.Maybe Prelude.Text,
+    -- | Settings that describe an input device that is type HD.
+    hdDeviceSettings :: Prelude.Maybe InputDeviceHdSettings,
     -- | The state of the connection between the input device and AWS.
     connectionState :: Prelude.Maybe InputDeviceConnectionState,
     -- | Network settings for the input device.
     networkSettings :: Prelude.Maybe InputDeviceNetworkSettings,
+    -- | The status of software on the input device.
+    deviceUpdateStatus :: Prelude.Maybe DeviceUpdateStatus,
     -- | The unique ARN of the input device.
     arn :: Prelude.Maybe Prelude.Text,
     -- | The unique ID of the input device.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The status of software on the input device.
-    deviceUpdateStatus :: Prelude.Maybe DeviceUpdateStatus,
     -- | A name that you specify for the input device.
     name :: Prelude.Maybe Prelude.Text,
     -- | The unique serial number of the input device.
@@ -75,19 +75,19 @@ data InputDeviceSummary = InputDeviceSummary'
 --
 -- 'uhdDeviceSettings', 'inputDeviceSummary_uhdDeviceSettings' - Settings that describe an input device that is type UHD.
 --
--- 'hdDeviceSettings', 'inputDeviceSummary_hdDeviceSettings' - Settings that describe an input device that is type HD.
---
 -- 'macAddress', 'inputDeviceSummary_macAddress' - The network MAC address of the input device.
+--
+-- 'hdDeviceSettings', 'inputDeviceSummary_hdDeviceSettings' - Settings that describe an input device that is type HD.
 --
 -- 'connectionState', 'inputDeviceSummary_connectionState' - The state of the connection between the input device and AWS.
 --
 -- 'networkSettings', 'inputDeviceSummary_networkSettings' - Network settings for the input device.
 --
+-- 'deviceUpdateStatus', 'inputDeviceSummary_deviceUpdateStatus' - The status of software on the input device.
+--
 -- 'arn', 'inputDeviceSummary_arn' - The unique ARN of the input device.
 --
 -- 'id', 'inputDeviceSummary_id' - The unique ID of the input device.
---
--- 'deviceUpdateStatus', 'inputDeviceSummary_deviceUpdateStatus' - The status of software on the input device.
 --
 -- 'name', 'inputDeviceSummary_name' - A name that you specify for the input device.
 --
@@ -106,13 +106,13 @@ newInputDeviceSummary =
   InputDeviceSummary'
     { uhdDeviceSettings =
         Prelude.Nothing,
-      hdDeviceSettings = Prelude.Nothing,
       macAddress = Prelude.Nothing,
+      hdDeviceSettings = Prelude.Nothing,
       connectionState = Prelude.Nothing,
       networkSettings = Prelude.Nothing,
+      deviceUpdateStatus = Prelude.Nothing,
       arn = Prelude.Nothing,
       id = Prelude.Nothing,
-      deviceUpdateStatus = Prelude.Nothing,
       name = Prelude.Nothing,
       serialNumber = Prelude.Nothing,
       type' = Prelude.Nothing,
@@ -123,13 +123,13 @@ newInputDeviceSummary =
 inputDeviceSummary_uhdDeviceSettings :: Lens.Lens' InputDeviceSummary (Prelude.Maybe InputDeviceUhdSettings)
 inputDeviceSummary_uhdDeviceSettings = Lens.lens (\InputDeviceSummary' {uhdDeviceSettings} -> uhdDeviceSettings) (\s@InputDeviceSummary' {} a -> s {uhdDeviceSettings = a} :: InputDeviceSummary)
 
--- | Settings that describe an input device that is type HD.
-inputDeviceSummary_hdDeviceSettings :: Lens.Lens' InputDeviceSummary (Prelude.Maybe InputDeviceHdSettings)
-inputDeviceSummary_hdDeviceSettings = Lens.lens (\InputDeviceSummary' {hdDeviceSettings} -> hdDeviceSettings) (\s@InputDeviceSummary' {} a -> s {hdDeviceSettings = a} :: InputDeviceSummary)
-
 -- | The network MAC address of the input device.
 inputDeviceSummary_macAddress :: Lens.Lens' InputDeviceSummary (Prelude.Maybe Prelude.Text)
 inputDeviceSummary_macAddress = Lens.lens (\InputDeviceSummary' {macAddress} -> macAddress) (\s@InputDeviceSummary' {} a -> s {macAddress = a} :: InputDeviceSummary)
+
+-- | Settings that describe an input device that is type HD.
+inputDeviceSummary_hdDeviceSettings :: Lens.Lens' InputDeviceSummary (Prelude.Maybe InputDeviceHdSettings)
+inputDeviceSummary_hdDeviceSettings = Lens.lens (\InputDeviceSummary' {hdDeviceSettings} -> hdDeviceSettings) (\s@InputDeviceSummary' {} a -> s {hdDeviceSettings = a} :: InputDeviceSummary)
 
 -- | The state of the connection between the input device and AWS.
 inputDeviceSummary_connectionState :: Lens.Lens' InputDeviceSummary (Prelude.Maybe InputDeviceConnectionState)
@@ -139,6 +139,10 @@ inputDeviceSummary_connectionState = Lens.lens (\InputDeviceSummary' {connection
 inputDeviceSummary_networkSettings :: Lens.Lens' InputDeviceSummary (Prelude.Maybe InputDeviceNetworkSettings)
 inputDeviceSummary_networkSettings = Lens.lens (\InputDeviceSummary' {networkSettings} -> networkSettings) (\s@InputDeviceSummary' {} a -> s {networkSettings = a} :: InputDeviceSummary)
 
+-- | The status of software on the input device.
+inputDeviceSummary_deviceUpdateStatus :: Lens.Lens' InputDeviceSummary (Prelude.Maybe DeviceUpdateStatus)
+inputDeviceSummary_deviceUpdateStatus = Lens.lens (\InputDeviceSummary' {deviceUpdateStatus} -> deviceUpdateStatus) (\s@InputDeviceSummary' {} a -> s {deviceUpdateStatus = a} :: InputDeviceSummary)
+
 -- | The unique ARN of the input device.
 inputDeviceSummary_arn :: Lens.Lens' InputDeviceSummary (Prelude.Maybe Prelude.Text)
 inputDeviceSummary_arn = Lens.lens (\InputDeviceSummary' {arn} -> arn) (\s@InputDeviceSummary' {} a -> s {arn = a} :: InputDeviceSummary)
@@ -146,10 +150,6 @@ inputDeviceSummary_arn = Lens.lens (\InputDeviceSummary' {arn} -> arn) (\s@Input
 -- | The unique ID of the input device.
 inputDeviceSummary_id :: Lens.Lens' InputDeviceSummary (Prelude.Maybe Prelude.Text)
 inputDeviceSummary_id = Lens.lens (\InputDeviceSummary' {id} -> id) (\s@InputDeviceSummary' {} a -> s {id = a} :: InputDeviceSummary)
-
--- | The status of software on the input device.
-inputDeviceSummary_deviceUpdateStatus :: Lens.Lens' InputDeviceSummary (Prelude.Maybe DeviceUpdateStatus)
-inputDeviceSummary_deviceUpdateStatus = Lens.lens (\InputDeviceSummary' {deviceUpdateStatus} -> deviceUpdateStatus) (\s@InputDeviceSummary' {} a -> s {deviceUpdateStatus = a} :: InputDeviceSummary)
 
 -- | A name that you specify for the input device.
 inputDeviceSummary_name :: Lens.Lens' InputDeviceSummary (Prelude.Maybe Prelude.Text)
@@ -178,13 +178,13 @@ instance Core.FromJSON InputDeviceSummary where
       ( \x ->
           InputDeviceSummary'
             Prelude.<$> (x Core..:? "uhdDeviceSettings")
-            Prelude.<*> (x Core..:? "hdDeviceSettings")
             Prelude.<*> (x Core..:? "macAddress")
+            Prelude.<*> (x Core..:? "hdDeviceSettings")
             Prelude.<*> (x Core..:? "connectionState")
             Prelude.<*> (x Core..:? "networkSettings")
+            Prelude.<*> (x Core..:? "deviceUpdateStatus")
             Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "id")
-            Prelude.<*> (x Core..:? "deviceUpdateStatus")
             Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "serialNumber")
             Prelude.<*> (x Core..:? "type")

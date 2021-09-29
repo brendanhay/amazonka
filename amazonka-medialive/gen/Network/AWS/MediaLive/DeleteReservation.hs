@@ -40,13 +40,13 @@ module Network.AWS.MediaLive.DeleteReservation
     deleteReservationResponse_arn,
     deleteReservationResponse_offeringId,
     deleteReservationResponse_currencyCode,
+    deleteReservationResponse_name,
     deleteReservationResponse_resourceSpecification,
     deleteReservationResponse_state,
-    deleteReservationResponse_name,
     deleteReservationResponse_tags,
     deleteReservationResponse_offeringDescription,
-    deleteReservationResponse_count,
     deleteReservationResponse_fixedPrice,
+    deleteReservationResponse_count,
     deleteReservationResponse_usagePrice,
     deleteReservationResponse_offeringType,
     deleteReservationResponse_region,
@@ -107,13 +107,13 @@ instance Core.AWSRequest DeleteReservation where
             Prelude.<*> (x Core..?> "arn")
             Prelude.<*> (x Core..?> "offeringId")
             Prelude.<*> (x Core..?> "currencyCode")
+            Prelude.<*> (x Core..?> "name")
             Prelude.<*> (x Core..?> "resourceSpecification")
             Prelude.<*> (x Core..?> "state")
-            Prelude.<*> (x Core..?> "name")
             Prelude.<*> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "offeringDescription")
-            Prelude.<*> (x Core..?> "count")
             Prelude.<*> (x Core..?> "fixedPrice")
+            Prelude.<*> (x Core..?> "count")
             Prelude.<*> (x Core..?> "usagePrice")
             Prelude.<*> (x Core..?> "offeringType")
             Prelude.<*> (x Core..?> "region")
@@ -164,22 +164,22 @@ data DeleteReservationResponse = DeleteReservationResponse'
     -- | Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g.
     -- \'USD\'
     currencyCode :: Prelude.Maybe Prelude.Text,
+    -- | User specified reservation name
+    name :: Prelude.Maybe Prelude.Text,
     -- | Resource configuration details
     resourceSpecification :: Prelude.Maybe ReservationResourceSpecification,
     -- | Current state of reservation, e.g. \'ACTIVE\'
     state :: Prelude.Maybe ReservationState,
-    -- | User specified reservation name
-    name :: Prelude.Maybe Prelude.Text,
     -- | A collection of key-value pairs
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Offering description, e.g. \'HD AVC output at 10-20 Mbps, 30 fps, and
     -- standard VQ in US West (Oregon)\'
     offeringDescription :: Prelude.Maybe Prelude.Text,
-    -- | Number of reserved resources
-    count :: Prelude.Maybe Prelude.Int,
     -- | One-time charge for each reserved resource, e.g. \'0.0\' for a
     -- NO_UPFRONT offering
     fixedPrice :: Prelude.Maybe Prelude.Double,
+    -- | Number of reserved resources
+    count :: Prelude.Maybe Prelude.Int,
     -- | Recurring usage charge for each reserved resource, e.g. \'157.0\'
     usagePrice :: Prelude.Maybe Prelude.Double,
     -- | Offering type, e.g. \'NO_UPFRONT\'
@@ -219,21 +219,21 @@ data DeleteReservationResponse = DeleteReservationResponse'
 -- 'currencyCode', 'deleteReservationResponse_currencyCode' - Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g.
 -- \'USD\'
 --
+-- 'name', 'deleteReservationResponse_name' - User specified reservation name
+--
 -- 'resourceSpecification', 'deleteReservationResponse_resourceSpecification' - Resource configuration details
 --
 -- 'state', 'deleteReservationResponse_state' - Current state of reservation, e.g. \'ACTIVE\'
---
--- 'name', 'deleteReservationResponse_name' - User specified reservation name
 --
 -- 'tags', 'deleteReservationResponse_tags' - A collection of key-value pairs
 --
 -- 'offeringDescription', 'deleteReservationResponse_offeringDescription' - Offering description, e.g. \'HD AVC output at 10-20 Mbps, 30 fps, and
 -- standard VQ in US West (Oregon)\'
 --
--- 'count', 'deleteReservationResponse_count' - Number of reserved resources
---
 -- 'fixedPrice', 'deleteReservationResponse_fixedPrice' - One-time charge for each reserved resource, e.g. \'0.0\' for a
 -- NO_UPFRONT offering
+--
+-- 'count', 'deleteReservationResponse_count' - Number of reserved resources
 --
 -- 'usagePrice', 'deleteReservationResponse_usagePrice' - Recurring usage charge for each reserved resource, e.g. \'157.0\'
 --
@@ -259,13 +259,13 @@ newDeleteReservationResponse pHttpStatus_ =
       arn = Prelude.Nothing,
       offeringId = Prelude.Nothing,
       currencyCode = Prelude.Nothing,
+      name = Prelude.Nothing,
       resourceSpecification = Prelude.Nothing,
       state = Prelude.Nothing,
-      name = Prelude.Nothing,
       tags = Prelude.Nothing,
       offeringDescription = Prelude.Nothing,
-      count = Prelude.Nothing,
       fixedPrice = Prelude.Nothing,
+      count = Prelude.Nothing,
       usagePrice = Prelude.Nothing,
       offeringType = Prelude.Nothing,
       region = Prelude.Nothing,
@@ -301,6 +301,10 @@ deleteReservationResponse_offeringId = Lens.lens (\DeleteReservationResponse' {o
 deleteReservationResponse_currencyCode :: Lens.Lens' DeleteReservationResponse (Prelude.Maybe Prelude.Text)
 deleteReservationResponse_currencyCode = Lens.lens (\DeleteReservationResponse' {currencyCode} -> currencyCode) (\s@DeleteReservationResponse' {} a -> s {currencyCode = a} :: DeleteReservationResponse)
 
+-- | User specified reservation name
+deleteReservationResponse_name :: Lens.Lens' DeleteReservationResponse (Prelude.Maybe Prelude.Text)
+deleteReservationResponse_name = Lens.lens (\DeleteReservationResponse' {name} -> name) (\s@DeleteReservationResponse' {} a -> s {name = a} :: DeleteReservationResponse)
+
 -- | Resource configuration details
 deleteReservationResponse_resourceSpecification :: Lens.Lens' DeleteReservationResponse (Prelude.Maybe ReservationResourceSpecification)
 deleteReservationResponse_resourceSpecification = Lens.lens (\DeleteReservationResponse' {resourceSpecification} -> resourceSpecification) (\s@DeleteReservationResponse' {} a -> s {resourceSpecification = a} :: DeleteReservationResponse)
@@ -308,10 +312,6 @@ deleteReservationResponse_resourceSpecification = Lens.lens (\DeleteReservationR
 -- | Current state of reservation, e.g. \'ACTIVE\'
 deleteReservationResponse_state :: Lens.Lens' DeleteReservationResponse (Prelude.Maybe ReservationState)
 deleteReservationResponse_state = Lens.lens (\DeleteReservationResponse' {state} -> state) (\s@DeleteReservationResponse' {} a -> s {state = a} :: DeleteReservationResponse)
-
--- | User specified reservation name
-deleteReservationResponse_name :: Lens.Lens' DeleteReservationResponse (Prelude.Maybe Prelude.Text)
-deleteReservationResponse_name = Lens.lens (\DeleteReservationResponse' {name} -> name) (\s@DeleteReservationResponse' {} a -> s {name = a} :: DeleteReservationResponse)
 
 -- | A collection of key-value pairs
 deleteReservationResponse_tags :: Lens.Lens' DeleteReservationResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -322,14 +322,14 @@ deleteReservationResponse_tags = Lens.lens (\DeleteReservationResponse' {tags} -
 deleteReservationResponse_offeringDescription :: Lens.Lens' DeleteReservationResponse (Prelude.Maybe Prelude.Text)
 deleteReservationResponse_offeringDescription = Lens.lens (\DeleteReservationResponse' {offeringDescription} -> offeringDescription) (\s@DeleteReservationResponse' {} a -> s {offeringDescription = a} :: DeleteReservationResponse)
 
--- | Number of reserved resources
-deleteReservationResponse_count :: Lens.Lens' DeleteReservationResponse (Prelude.Maybe Prelude.Int)
-deleteReservationResponse_count = Lens.lens (\DeleteReservationResponse' {count} -> count) (\s@DeleteReservationResponse' {} a -> s {count = a} :: DeleteReservationResponse)
-
 -- | One-time charge for each reserved resource, e.g. \'0.0\' for a
 -- NO_UPFRONT offering
 deleteReservationResponse_fixedPrice :: Lens.Lens' DeleteReservationResponse (Prelude.Maybe Prelude.Double)
 deleteReservationResponse_fixedPrice = Lens.lens (\DeleteReservationResponse' {fixedPrice} -> fixedPrice) (\s@DeleteReservationResponse' {} a -> s {fixedPrice = a} :: DeleteReservationResponse)
+
+-- | Number of reserved resources
+deleteReservationResponse_count :: Lens.Lens' DeleteReservationResponse (Prelude.Maybe Prelude.Int)
+deleteReservationResponse_count = Lens.lens (\DeleteReservationResponse' {count} -> count) (\s@DeleteReservationResponse' {} a -> s {count = a} :: DeleteReservationResponse)
 
 -- | Recurring usage charge for each reserved resource, e.g. \'157.0\'
 deleteReservationResponse_usagePrice :: Lens.Lens' DeleteReservationResponse (Prelude.Maybe Prelude.Double)

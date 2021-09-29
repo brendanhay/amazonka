@@ -46,22 +46,22 @@ data Reservation = Reservation'
     -- | Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g.
     -- \'USD\'
     currencyCode :: Prelude.Maybe Prelude.Text,
+    -- | User specified reservation name
+    name :: Prelude.Maybe Prelude.Text,
     -- | Resource configuration details
     resourceSpecification :: Prelude.Maybe ReservationResourceSpecification,
     -- | Current state of reservation, e.g. \'ACTIVE\'
     state :: Prelude.Maybe ReservationState,
-    -- | User specified reservation name
-    name :: Prelude.Maybe Prelude.Text,
     -- | A collection of key-value pairs
     tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
     -- | Offering description, e.g. \'HD AVC output at 10-20 Mbps, 30 fps, and
     -- standard VQ in US West (Oregon)\'
     offeringDescription :: Prelude.Maybe Prelude.Text,
-    -- | Number of reserved resources
-    count :: Prelude.Maybe Prelude.Int,
     -- | One-time charge for each reserved resource, e.g. \'0.0\' for a
     -- NO_UPFRONT offering
     fixedPrice :: Prelude.Maybe Prelude.Double,
+    -- | Number of reserved resources
+    count :: Prelude.Maybe Prelude.Int,
     -- | Recurring usage charge for each reserved resource, e.g. \'157.0\'
     usagePrice :: Prelude.Maybe Prelude.Double,
     -- | Offering type, e.g. \'NO_UPFRONT\'
@@ -99,21 +99,21 @@ data Reservation = Reservation'
 -- 'currencyCode', 'reservation_currencyCode' - Currency code for usagePrice and fixedPrice in ISO-4217 format, e.g.
 -- \'USD\'
 --
+-- 'name', 'reservation_name' - User specified reservation name
+--
 -- 'resourceSpecification', 'reservation_resourceSpecification' - Resource configuration details
 --
 -- 'state', 'reservation_state' - Current state of reservation, e.g. \'ACTIVE\'
---
--- 'name', 'reservation_name' - User specified reservation name
 --
 -- 'tags', 'reservation_tags' - A collection of key-value pairs
 --
 -- 'offeringDescription', 'reservation_offeringDescription' - Offering description, e.g. \'HD AVC output at 10-20 Mbps, 30 fps, and
 -- standard VQ in US West (Oregon)\'
 --
--- 'count', 'reservation_count' - Number of reserved resources
---
 -- 'fixedPrice', 'reservation_fixedPrice' - One-time charge for each reserved resource, e.g. \'0.0\' for a
 -- NO_UPFRONT offering
+--
+-- 'count', 'reservation_count' - Number of reserved resources
 --
 -- 'usagePrice', 'reservation_usagePrice' - Recurring usage charge for each reserved resource, e.g. \'157.0\'
 --
@@ -135,13 +135,13 @@ newReservation =
       arn = Prelude.Nothing,
       offeringId = Prelude.Nothing,
       currencyCode = Prelude.Nothing,
+      name = Prelude.Nothing,
       resourceSpecification = Prelude.Nothing,
       state = Prelude.Nothing,
-      name = Prelude.Nothing,
       tags = Prelude.Nothing,
       offeringDescription = Prelude.Nothing,
-      count = Prelude.Nothing,
       fixedPrice = Prelude.Nothing,
+      count = Prelude.Nothing,
       usagePrice = Prelude.Nothing,
       offeringType = Prelude.Nothing,
       region = Prelude.Nothing,
@@ -176,6 +176,10 @@ reservation_offeringId = Lens.lens (\Reservation' {offeringId} -> offeringId) (\
 reservation_currencyCode :: Lens.Lens' Reservation (Prelude.Maybe Prelude.Text)
 reservation_currencyCode = Lens.lens (\Reservation' {currencyCode} -> currencyCode) (\s@Reservation' {} a -> s {currencyCode = a} :: Reservation)
 
+-- | User specified reservation name
+reservation_name :: Lens.Lens' Reservation (Prelude.Maybe Prelude.Text)
+reservation_name = Lens.lens (\Reservation' {name} -> name) (\s@Reservation' {} a -> s {name = a} :: Reservation)
+
 -- | Resource configuration details
 reservation_resourceSpecification :: Lens.Lens' Reservation (Prelude.Maybe ReservationResourceSpecification)
 reservation_resourceSpecification = Lens.lens (\Reservation' {resourceSpecification} -> resourceSpecification) (\s@Reservation' {} a -> s {resourceSpecification = a} :: Reservation)
@@ -183,10 +187,6 @@ reservation_resourceSpecification = Lens.lens (\Reservation' {resourceSpecificat
 -- | Current state of reservation, e.g. \'ACTIVE\'
 reservation_state :: Lens.Lens' Reservation (Prelude.Maybe ReservationState)
 reservation_state = Lens.lens (\Reservation' {state} -> state) (\s@Reservation' {} a -> s {state = a} :: Reservation)
-
--- | User specified reservation name
-reservation_name :: Lens.Lens' Reservation (Prelude.Maybe Prelude.Text)
-reservation_name = Lens.lens (\Reservation' {name} -> name) (\s@Reservation' {} a -> s {name = a} :: Reservation)
 
 -- | A collection of key-value pairs
 reservation_tags :: Lens.Lens' Reservation (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
@@ -197,14 +197,14 @@ reservation_tags = Lens.lens (\Reservation' {tags} -> tags) (\s@Reservation' {} 
 reservation_offeringDescription :: Lens.Lens' Reservation (Prelude.Maybe Prelude.Text)
 reservation_offeringDescription = Lens.lens (\Reservation' {offeringDescription} -> offeringDescription) (\s@Reservation' {} a -> s {offeringDescription = a} :: Reservation)
 
--- | Number of reserved resources
-reservation_count :: Lens.Lens' Reservation (Prelude.Maybe Prelude.Int)
-reservation_count = Lens.lens (\Reservation' {count} -> count) (\s@Reservation' {} a -> s {count = a} :: Reservation)
-
 -- | One-time charge for each reserved resource, e.g. \'0.0\' for a
 -- NO_UPFRONT offering
 reservation_fixedPrice :: Lens.Lens' Reservation (Prelude.Maybe Prelude.Double)
 reservation_fixedPrice = Lens.lens (\Reservation' {fixedPrice} -> fixedPrice) (\s@Reservation' {} a -> s {fixedPrice = a} :: Reservation)
+
+-- | Number of reserved resources
+reservation_count :: Lens.Lens' Reservation (Prelude.Maybe Prelude.Int)
+reservation_count = Lens.lens (\Reservation' {count} -> count) (\s@Reservation' {} a -> s {count = a} :: Reservation)
 
 -- | Recurring usage charge for each reserved resource, e.g. \'157.0\'
 reservation_usagePrice :: Lens.Lens' Reservation (Prelude.Maybe Prelude.Double)
@@ -239,13 +239,13 @@ instance Core.FromJSON Reservation where
             Prelude.<*> (x Core..:? "arn")
             Prelude.<*> (x Core..:? "offeringId")
             Prelude.<*> (x Core..:? "currencyCode")
+            Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "resourceSpecification")
             Prelude.<*> (x Core..:? "state")
-            Prelude.<*> (x Core..:? "name")
             Prelude.<*> (x Core..:? "tags" Core..!= Prelude.mempty)
             Prelude.<*> (x Core..:? "offeringDescription")
-            Prelude.<*> (x Core..:? "count")
             Prelude.<*> (x Core..:? "fixedPrice")
+            Prelude.<*> (x Core..:? "count")
             Prelude.<*> (x Core..:? "usagePrice")
             Prelude.<*> (x Core..:? "offeringType")
             Prelude.<*> (x Core..:? "region")

@@ -43,10 +43,10 @@ data ReservationResourceSpecification = ReservationResourceSpecification'
     codec :: Prelude.Maybe ReservationCodec,
     -- | Maximum bitrate, e.g. \'MAX_20_MBPS\'
     maximumBitrate :: Prelude.Maybe ReservationMaximumBitrate,
-    -- | Special feature, e.g. \'AUDIO_NORMALIZATION\' (Channels only)
-    specialFeature :: Prelude.Maybe ReservationSpecialFeature,
     -- | Channel class, e.g. \'STANDARD\'
     channelClass :: Prelude.Maybe ChannelClass,
+    -- | Special feature, e.g. \'AUDIO_NORMALIZATION\' (Channels only)
+    specialFeature :: Prelude.Maybe ReservationSpecialFeature,
     -- | Resource type, \'INPUT\', \'OUTPUT\', \'MULTIPLEX\', or \'CHANNEL\'
     resourceType :: Prelude.Maybe ReservationResourceType,
     -- | Resolution, e.g. \'HD\'
@@ -70,9 +70,9 @@ data ReservationResourceSpecification = ReservationResourceSpecification'
 --
 -- 'maximumBitrate', 'reservationResourceSpecification_maximumBitrate' - Maximum bitrate, e.g. \'MAX_20_MBPS\'
 --
--- 'specialFeature', 'reservationResourceSpecification_specialFeature' - Special feature, e.g. \'AUDIO_NORMALIZATION\' (Channels only)
---
 -- 'channelClass', 'reservationResourceSpecification_channelClass' - Channel class, e.g. \'STANDARD\'
+--
+-- 'specialFeature', 'reservationResourceSpecification_specialFeature' - Special feature, e.g. \'AUDIO_NORMALIZATION\' (Channels only)
 --
 -- 'resourceType', 'reservationResourceSpecification_resourceType' - Resource type, \'INPUT\', \'OUTPUT\', \'MULTIPLEX\', or \'CHANNEL\'
 --
@@ -86,8 +86,8 @@ newReservationResourceSpecification =
       videoQuality = Prelude.Nothing,
       codec = Prelude.Nothing,
       maximumBitrate = Prelude.Nothing,
-      specialFeature = Prelude.Nothing,
       channelClass = Prelude.Nothing,
+      specialFeature = Prelude.Nothing,
       resourceType = Prelude.Nothing,
       resolution = Prelude.Nothing
     }
@@ -108,13 +108,13 @@ reservationResourceSpecification_codec = Lens.lens (\ReservationResourceSpecific
 reservationResourceSpecification_maximumBitrate :: Lens.Lens' ReservationResourceSpecification (Prelude.Maybe ReservationMaximumBitrate)
 reservationResourceSpecification_maximumBitrate = Lens.lens (\ReservationResourceSpecification' {maximumBitrate} -> maximumBitrate) (\s@ReservationResourceSpecification' {} a -> s {maximumBitrate = a} :: ReservationResourceSpecification)
 
--- | Special feature, e.g. \'AUDIO_NORMALIZATION\' (Channels only)
-reservationResourceSpecification_specialFeature :: Lens.Lens' ReservationResourceSpecification (Prelude.Maybe ReservationSpecialFeature)
-reservationResourceSpecification_specialFeature = Lens.lens (\ReservationResourceSpecification' {specialFeature} -> specialFeature) (\s@ReservationResourceSpecification' {} a -> s {specialFeature = a} :: ReservationResourceSpecification)
-
 -- | Channel class, e.g. \'STANDARD\'
 reservationResourceSpecification_channelClass :: Lens.Lens' ReservationResourceSpecification (Prelude.Maybe ChannelClass)
 reservationResourceSpecification_channelClass = Lens.lens (\ReservationResourceSpecification' {channelClass} -> channelClass) (\s@ReservationResourceSpecification' {} a -> s {channelClass = a} :: ReservationResourceSpecification)
+
+-- | Special feature, e.g. \'AUDIO_NORMALIZATION\' (Channels only)
+reservationResourceSpecification_specialFeature :: Lens.Lens' ReservationResourceSpecification (Prelude.Maybe ReservationSpecialFeature)
+reservationResourceSpecification_specialFeature = Lens.lens (\ReservationResourceSpecification' {specialFeature} -> specialFeature) (\s@ReservationResourceSpecification' {} a -> s {specialFeature = a} :: ReservationResourceSpecification)
 
 -- | Resource type, \'INPUT\', \'OUTPUT\', \'MULTIPLEX\', or \'CHANNEL\'
 reservationResourceSpecification_resourceType :: Lens.Lens' ReservationResourceSpecification (Prelude.Maybe ReservationResourceType)
@@ -137,8 +137,8 @@ instance
             Prelude.<*> (x Core..:? "videoQuality")
             Prelude.<*> (x Core..:? "codec")
             Prelude.<*> (x Core..:? "maximumBitrate")
-            Prelude.<*> (x Core..:? "specialFeature")
             Prelude.<*> (x Core..:? "channelClass")
+            Prelude.<*> (x Core..:? "specialFeature")
             Prelude.<*> (x Core..:? "resourceType")
             Prelude.<*> (x Core..:? "resolution")
       )

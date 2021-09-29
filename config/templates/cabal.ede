@@ -58,7 +58,7 @@ library
 
     build-depends:
           amazonka == {{ clientVersion }}.*
-        , base     >= 4.13 && < 5
+        , base     >= 4.12 && < 5
       {% for dep in extraDependencies %}
         , {{ dep.value }}
       {% endfor %}

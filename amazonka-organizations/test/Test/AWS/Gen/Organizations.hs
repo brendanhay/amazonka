@@ -33,23 +33,23 @@ import Test.Tasty
 --         , requestCreateOrganization $
 --             newCreateOrganization
 --
---         , requestCreatePolicy $
---             newCreatePolicy
+--         , requestDescribeCreateAccountStatus $
+--             newDescribeCreateAccountStatus
 --
 --         , requestDisablePolicyType $
 --             newDisablePolicyType
 --
---         , requestDescribeCreateAccountStatus $
---             newDescribeCreateAccountStatus
---
 --         , requestListPolicies $
 --             newListPolicies
+--
+--         , requestCreatePolicy $
+--             newCreatePolicy
 --
 --         , requestListHandshakesForAccount $
 --             newListHandshakesForAccount
 --
---         , requestListChildren $
---             newListChildren
+--         , requestUpdatePolicy $
+--             newUpdatePolicy
 --
 --         , requestDeletePolicy $
 --             newDeletePolicy
@@ -57,8 +57,8 @@ import Test.Tasty
 --         , requestEnablePolicyType $
 --             newEnablePolicyType
 --
---         , requestUpdatePolicy $
---             newUpdatePolicy
+--         , requestListChildren $
+--             newListChildren
 --
 --         , requestListAWSServiceAccessForOrganization $
 --             newListAWSServiceAccessForOrganization
@@ -66,20 +66,17 @@ import Test.Tasty
 --         , requestDescribeOrganization $
 --             newDescribeOrganization
 --
---         , requestListCreateAccountStatus $
---             newListCreateAccountStatus
---
 --         , requestUntagResource $
 --             newUntagResource
 --
---         , requestListAccounts $
---             newListAccounts
+--         , requestListCreateAccountStatus $
+--             newListCreateAccountStatus
 --
 --         , requestTagResource $
 --             newTagResource
 --
---         , requestEnableAWSServiceAccess $
---             newEnableAWSServiceAccess
+--         , requestListAccounts $
+--             newListAccounts
 --
 --         , requestDescribeOrganizationalUnit $
 --             newDescribeOrganizationalUnit
@@ -87,8 +84,8 @@ import Test.Tasty
 --         , requestListDelegatedServicesForAccount $
 --             newListDelegatedServicesForAccount
 --
---         , requestRemoveAccountFromOrganization $
---             newRemoveAccountFromOrganization
+--         , requestEnableAWSServiceAccess $
+--             newEnableAWSServiceAccess
 --
 --         , requestCreateGovCloudAccount $
 --             newCreateGovCloudAccount
@@ -96,23 +93,35 @@ import Test.Tasty
 --         , requestDeleteOrganization $
 --             newDeleteOrganization
 --
+--         , requestRemoveAccountFromOrganization $
+--             newRemoveAccountFromOrganization
+--
+--         , requestAcceptHandshake $
+--             newAcceptHandshake
+--
 --         , requestListRoots $
 --             newListRoots
 --
 --         , requestEnableAllFeatures $
 --             newEnableAllFeatures
 --
---         , requestAcceptHandshake $
---             newAcceptHandshake
---
 --         , requestDetachPolicy $
 --             newDetachPolicy
+--
+--         , requestDescribeAccount $
+--             newDescribeAccount
 --
 --         , requestCreateOrganizationalUnit $
 --             newCreateOrganizationalUnit
 --
---         , requestDescribeAccount $
---             newDescribeAccount
+--         , requestRegisterDelegatedAdministrator $
+--             newRegisterDelegatedAdministrator
+--
+--         , requestCancelHandshake $
+--             newCancelHandshake
+--
+--         , requestDeleteOrganizationalUnit $
+--             newDeleteOrganizationalUnit
 --
 --         , requestListDelegatedAdministrators $
 --             newListDelegatedAdministrators
@@ -120,26 +129,14 @@ import Test.Tasty
 --         , requestUpdateOrganizationalUnit $
 --             newUpdateOrganizationalUnit
 --
---         , requestDeleteOrganizationalUnit $
---             newDeleteOrganizationalUnit
---
---         , requestCancelHandshake $
---             newCancelHandshake
---
---         , requestRegisterDelegatedAdministrator $
---             newRegisterDelegatedAdministrator
---
---         , requestListHandshakesForOrganization $
---             newListHandshakesForOrganization
+--         , requestListOrganizationalUnitsForParent $
+--             newListOrganizationalUnitsForParent
 --
 --         , requestListPoliciesForTarget $
 --             newListPoliciesForTarget
 --
---         , requestListOrganizationalUnitsForParent $
---             newListOrganizationalUnitsForParent
---
---         , requestListTargetsForPolicy $
---             newListTargetsForPolicy
+--         , requestListHandshakesForOrganization $
+--             newListHandshakesForOrganization
 --
 --         , requestAttachPolicy $
 --             newAttachPolicy
@@ -147,23 +144,29 @@ import Test.Tasty
 --         , requestDeclineHandshake $
 --             newDeclineHandshake
 --
+--         , requestListTargetsForPolicy $
+--             newListTargetsForPolicy
+--
 --         , requestDescribeEffectivePolicy $
 --             newDescribeEffectivePolicy
---
---         , requestDeregisterDelegatedAdministrator $
---             newDeregisterDelegatedAdministrator
---
---         , requestMoveAccount $
---             newMoveAccount
 --
 --         , requestInviteAccountToOrganization $
 --             newInviteAccountToOrganization
 --
+--         , requestDisableAWSServiceAccess $
+--             newDisableAWSServiceAccess
+--
+--         , requestMoveAccount $
+--             newMoveAccount
+--
 --         , requestLeaveOrganization $
 --             newLeaveOrganization
 --
---         , requestDisableAWSServiceAccess $
---             newDisableAWSServiceAccess
+--         , requestDeregisterDelegatedAdministrator $
+--             newDeregisterDelegatedAdministrator
+--
+--         , requestCreateAccount $
+--             newCreateAccount
 --
 --         , requestListParents $
 --             newListParents
@@ -171,14 +174,11 @@ import Test.Tasty
 --         , requestDescribePolicy $
 --             newDescribePolicy
 --
---         , requestCreateAccount $
---             newCreateAccount
+--         , requestDescribeHandshake $
+--             newDescribeHandshake
 --
 --         , requestListTagsForResource $
 --             newListTagsForResource
---
---         , requestDescribeHandshake $
---             newDescribeHandshake
 --
 --           ]
 
@@ -189,23 +189,23 @@ import Test.Tasty
 --         , responseCreateOrganization $
 --             newCreateOrganizationResponse
 --
---         , responseCreatePolicy $
---             newCreatePolicyResponse
+--         , responseDescribeCreateAccountStatus $
+--             newDescribeCreateAccountStatusResponse
 --
 --         , responseDisablePolicyType $
 --             newDisablePolicyTypeResponse
 --
---         , responseDescribeCreateAccountStatus $
---             newDescribeCreateAccountStatusResponse
---
 --         , responseListPolicies $
 --             newListPoliciesResponse
+--
+--         , responseCreatePolicy $
+--             newCreatePolicyResponse
 --
 --         , responseListHandshakesForAccount $
 --             newListHandshakesForAccountResponse
 --
---         , responseListChildren $
---             newListChildrenResponse
+--         , responseUpdatePolicy $
+--             newUpdatePolicyResponse
 --
 --         , responseDeletePolicy $
 --             newDeletePolicyResponse
@@ -213,8 +213,8 @@ import Test.Tasty
 --         , responseEnablePolicyType $
 --             newEnablePolicyTypeResponse
 --
---         , responseUpdatePolicy $
---             newUpdatePolicyResponse
+--         , responseListChildren $
+--             newListChildrenResponse
 --
 --         , responseListAWSServiceAccessForOrganization $
 --             newListAWSServiceAccessForOrganizationResponse
@@ -222,20 +222,17 @@ import Test.Tasty
 --         , responseDescribeOrganization $
 --             newDescribeOrganizationResponse
 --
---         , responseListCreateAccountStatus $
---             newListCreateAccountStatusResponse
---
 --         , responseUntagResource $
 --             newUntagResourceResponse
 --
---         , responseListAccounts $
---             newListAccountsResponse
+--         , responseListCreateAccountStatus $
+--             newListCreateAccountStatusResponse
 --
 --         , responseTagResource $
 --             newTagResourceResponse
 --
---         , responseEnableAWSServiceAccess $
---             newEnableAWSServiceAccessResponse
+--         , responseListAccounts $
+--             newListAccountsResponse
 --
 --         , responseDescribeOrganizationalUnit $
 --             newDescribeOrganizationalUnitResponse
@@ -243,8 +240,8 @@ import Test.Tasty
 --         , responseListDelegatedServicesForAccount $
 --             newListDelegatedServicesForAccountResponse
 --
---         , responseRemoveAccountFromOrganization $
---             newRemoveAccountFromOrganizationResponse
+--         , responseEnableAWSServiceAccess $
+--             newEnableAWSServiceAccessResponse
 --
 --         , responseCreateGovCloudAccount $
 --             newCreateGovCloudAccountResponse
@@ -252,23 +249,35 @@ import Test.Tasty
 --         , responseDeleteOrganization $
 --             newDeleteOrganizationResponse
 --
+--         , responseRemoveAccountFromOrganization $
+--             newRemoveAccountFromOrganizationResponse
+--
+--         , responseAcceptHandshake $
+--             newAcceptHandshakeResponse
+--
 --         , responseListRoots $
 --             newListRootsResponse
 --
 --         , responseEnableAllFeatures $
 --             newEnableAllFeaturesResponse
 --
---         , responseAcceptHandshake $
---             newAcceptHandshakeResponse
---
 --         , responseDetachPolicy $
 --             newDetachPolicyResponse
+--
+--         , responseDescribeAccount $
+--             newDescribeAccountResponse
 --
 --         , responseCreateOrganizationalUnit $
 --             newCreateOrganizationalUnitResponse
 --
---         , responseDescribeAccount $
---             newDescribeAccountResponse
+--         , responseRegisterDelegatedAdministrator $
+--             newRegisterDelegatedAdministratorResponse
+--
+--         , responseCancelHandshake $
+--             newCancelHandshakeResponse
+--
+--         , responseDeleteOrganizationalUnit $
+--             newDeleteOrganizationalUnitResponse
 --
 --         , responseListDelegatedAdministrators $
 --             newListDelegatedAdministratorsResponse
@@ -276,26 +285,14 @@ import Test.Tasty
 --         , responseUpdateOrganizationalUnit $
 --             newUpdateOrganizationalUnitResponse
 --
---         , responseDeleteOrganizationalUnit $
---             newDeleteOrganizationalUnitResponse
---
---         , responseCancelHandshake $
---             newCancelHandshakeResponse
---
---         , responseRegisterDelegatedAdministrator $
---             newRegisterDelegatedAdministratorResponse
---
---         , responseListHandshakesForOrganization $
---             newListHandshakesForOrganizationResponse
+--         , responseListOrganizationalUnitsForParent $
+--             newListOrganizationalUnitsForParentResponse
 --
 --         , responseListPoliciesForTarget $
 --             newListPoliciesForTargetResponse
 --
---         , responseListOrganizationalUnitsForParent $
---             newListOrganizationalUnitsForParentResponse
---
---         , responseListTargetsForPolicy $
---             newListTargetsForPolicyResponse
+--         , responseListHandshakesForOrganization $
+--             newListHandshakesForOrganizationResponse
 --
 --         , responseAttachPolicy $
 --             newAttachPolicyResponse
@@ -303,23 +300,29 @@ import Test.Tasty
 --         , responseDeclineHandshake $
 --             newDeclineHandshakeResponse
 --
+--         , responseListTargetsForPolicy $
+--             newListTargetsForPolicyResponse
+--
 --         , responseDescribeEffectivePolicy $
 --             newDescribeEffectivePolicyResponse
---
---         , responseDeregisterDelegatedAdministrator $
---             newDeregisterDelegatedAdministratorResponse
---
---         , responseMoveAccount $
---             newMoveAccountResponse
 --
 --         , responseInviteAccountToOrganization $
 --             newInviteAccountToOrganizationResponse
 --
+--         , responseDisableAWSServiceAccess $
+--             newDisableAWSServiceAccessResponse
+--
+--         , responseMoveAccount $
+--             newMoveAccountResponse
+--
 --         , responseLeaveOrganization $
 --             newLeaveOrganizationResponse
 --
---         , responseDisableAWSServiceAccess $
---             newDisableAWSServiceAccessResponse
+--         , responseDeregisterDelegatedAdministrator $
+--             newDeregisterDelegatedAdministratorResponse
+--
+--         , responseCreateAccount $
+--             newCreateAccountResponse
 --
 --         , responseListParents $
 --             newListParentsResponse
@@ -327,14 +330,11 @@ import Test.Tasty
 --         , responseDescribePolicy $
 --             newDescribePolicyResponse
 --
---         , responseCreateAccount $
---             newCreateAccountResponse
+--         , responseDescribeHandshake $
+--             newDescribeHandshakeResponse
 --
 --         , responseListTagsForResource $
 --             newListTagsForResourceResponse
---
---         , responseDescribeHandshake $
---             newDescribeHandshakeResponse
 --
 --           ]
 --     ]
@@ -353,11 +353,11 @@ requestCreateOrganization =
     "CreateOrganization"
     "fixture/CreateOrganization.yaml"
 
-requestCreatePolicy :: CreatePolicy -> TestTree
-requestCreatePolicy =
+requestDescribeCreateAccountStatus :: DescribeCreateAccountStatus -> TestTree
+requestDescribeCreateAccountStatus =
   req
-    "CreatePolicy"
-    "fixture/CreatePolicy.yaml"
+    "DescribeCreateAccountStatus"
+    "fixture/DescribeCreateAccountStatus.yaml"
 
 requestDisablePolicyType :: DisablePolicyType -> TestTree
 requestDisablePolicyType =
@@ -365,17 +365,17 @@ requestDisablePolicyType =
     "DisablePolicyType"
     "fixture/DisablePolicyType.yaml"
 
-requestDescribeCreateAccountStatus :: DescribeCreateAccountStatus -> TestTree
-requestDescribeCreateAccountStatus =
-  req
-    "DescribeCreateAccountStatus"
-    "fixture/DescribeCreateAccountStatus.yaml"
-
 requestListPolicies :: ListPolicies -> TestTree
 requestListPolicies =
   req
     "ListPolicies"
     "fixture/ListPolicies.yaml"
+
+requestCreatePolicy :: CreatePolicy -> TestTree
+requestCreatePolicy =
+  req
+    "CreatePolicy"
+    "fixture/CreatePolicy.yaml"
 
 requestListHandshakesForAccount :: ListHandshakesForAccount -> TestTree
 requestListHandshakesForAccount =
@@ -383,11 +383,11 @@ requestListHandshakesForAccount =
     "ListHandshakesForAccount"
     "fixture/ListHandshakesForAccount.yaml"
 
-requestListChildren :: ListChildren -> TestTree
-requestListChildren =
+requestUpdatePolicy :: UpdatePolicy -> TestTree
+requestUpdatePolicy =
   req
-    "ListChildren"
-    "fixture/ListChildren.yaml"
+    "UpdatePolicy"
+    "fixture/UpdatePolicy.yaml"
 
 requestDeletePolicy :: DeletePolicy -> TestTree
 requestDeletePolicy =
@@ -401,11 +401,11 @@ requestEnablePolicyType =
     "EnablePolicyType"
     "fixture/EnablePolicyType.yaml"
 
-requestUpdatePolicy :: UpdatePolicy -> TestTree
-requestUpdatePolicy =
+requestListChildren :: ListChildren -> TestTree
+requestListChildren =
   req
-    "UpdatePolicy"
-    "fixture/UpdatePolicy.yaml"
+    "ListChildren"
+    "fixture/ListChildren.yaml"
 
 requestListAWSServiceAccessForOrganization :: ListAWSServiceAccessForOrganization -> TestTree
 requestListAWSServiceAccessForOrganization =
@@ -419,23 +419,17 @@ requestDescribeOrganization =
     "DescribeOrganization"
     "fixture/DescribeOrganization.yaml"
 
-requestListCreateAccountStatus :: ListCreateAccountStatus -> TestTree
-requestListCreateAccountStatus =
-  req
-    "ListCreateAccountStatus"
-    "fixture/ListCreateAccountStatus.yaml"
-
 requestUntagResource :: UntagResource -> TestTree
 requestUntagResource =
   req
     "UntagResource"
     "fixture/UntagResource.yaml"
 
-requestListAccounts :: ListAccounts -> TestTree
-requestListAccounts =
+requestListCreateAccountStatus :: ListCreateAccountStatus -> TestTree
+requestListCreateAccountStatus =
   req
-    "ListAccounts"
-    "fixture/ListAccounts.yaml"
+    "ListCreateAccountStatus"
+    "fixture/ListCreateAccountStatus.yaml"
 
 requestTagResource :: TagResource -> TestTree
 requestTagResource =
@@ -443,11 +437,11 @@ requestTagResource =
     "TagResource"
     "fixture/TagResource.yaml"
 
-requestEnableAWSServiceAccess :: EnableAWSServiceAccess -> TestTree
-requestEnableAWSServiceAccess =
+requestListAccounts :: ListAccounts -> TestTree
+requestListAccounts =
   req
-    "EnableAWSServiceAccess"
-    "fixture/EnableAWSServiceAccess.yaml"
+    "ListAccounts"
+    "fixture/ListAccounts.yaml"
 
 requestDescribeOrganizationalUnit :: DescribeOrganizationalUnit -> TestTree
 requestDescribeOrganizationalUnit =
@@ -461,11 +455,11 @@ requestListDelegatedServicesForAccount =
     "ListDelegatedServicesForAccount"
     "fixture/ListDelegatedServicesForAccount.yaml"
 
-requestRemoveAccountFromOrganization :: RemoveAccountFromOrganization -> TestTree
-requestRemoveAccountFromOrganization =
+requestEnableAWSServiceAccess :: EnableAWSServiceAccess -> TestTree
+requestEnableAWSServiceAccess =
   req
-    "RemoveAccountFromOrganization"
-    "fixture/RemoveAccountFromOrganization.yaml"
+    "EnableAWSServiceAccess"
+    "fixture/EnableAWSServiceAccess.yaml"
 
 requestCreateGovCloudAccount :: CreateGovCloudAccount -> TestTree
 requestCreateGovCloudAccount =
@@ -479,6 +473,18 @@ requestDeleteOrganization =
     "DeleteOrganization"
     "fixture/DeleteOrganization.yaml"
 
+requestRemoveAccountFromOrganization :: RemoveAccountFromOrganization -> TestTree
+requestRemoveAccountFromOrganization =
+  req
+    "RemoveAccountFromOrganization"
+    "fixture/RemoveAccountFromOrganization.yaml"
+
+requestAcceptHandshake :: AcceptHandshake -> TestTree
+requestAcceptHandshake =
+  req
+    "AcceptHandshake"
+    "fixture/AcceptHandshake.yaml"
+
 requestListRoots :: ListRoots -> TestTree
 requestListRoots =
   req
@@ -491,17 +497,17 @@ requestEnableAllFeatures =
     "EnableAllFeatures"
     "fixture/EnableAllFeatures.yaml"
 
-requestAcceptHandshake :: AcceptHandshake -> TestTree
-requestAcceptHandshake =
-  req
-    "AcceptHandshake"
-    "fixture/AcceptHandshake.yaml"
-
 requestDetachPolicy :: DetachPolicy -> TestTree
 requestDetachPolicy =
   req
     "DetachPolicy"
     "fixture/DetachPolicy.yaml"
+
+requestDescribeAccount :: DescribeAccount -> TestTree
+requestDescribeAccount =
+  req
+    "DescribeAccount"
+    "fixture/DescribeAccount.yaml"
 
 requestCreateOrganizationalUnit :: CreateOrganizationalUnit -> TestTree
 requestCreateOrganizationalUnit =
@@ -509,11 +515,23 @@ requestCreateOrganizationalUnit =
     "CreateOrganizationalUnit"
     "fixture/CreateOrganizationalUnit.yaml"
 
-requestDescribeAccount :: DescribeAccount -> TestTree
-requestDescribeAccount =
+requestRegisterDelegatedAdministrator :: RegisterDelegatedAdministrator -> TestTree
+requestRegisterDelegatedAdministrator =
   req
-    "DescribeAccount"
-    "fixture/DescribeAccount.yaml"
+    "RegisterDelegatedAdministrator"
+    "fixture/RegisterDelegatedAdministrator.yaml"
+
+requestCancelHandshake :: CancelHandshake -> TestTree
+requestCancelHandshake =
+  req
+    "CancelHandshake"
+    "fixture/CancelHandshake.yaml"
+
+requestDeleteOrganizationalUnit :: DeleteOrganizationalUnit -> TestTree
+requestDeleteOrganizationalUnit =
+  req
+    "DeleteOrganizationalUnit"
+    "fixture/DeleteOrganizationalUnit.yaml"
 
 requestListDelegatedAdministrators :: ListDelegatedAdministrators -> TestTree
 requestListDelegatedAdministrators =
@@ -527,29 +545,11 @@ requestUpdateOrganizationalUnit =
     "UpdateOrganizationalUnit"
     "fixture/UpdateOrganizationalUnit.yaml"
 
-requestDeleteOrganizationalUnit :: DeleteOrganizationalUnit -> TestTree
-requestDeleteOrganizationalUnit =
+requestListOrganizationalUnitsForParent :: ListOrganizationalUnitsForParent -> TestTree
+requestListOrganizationalUnitsForParent =
   req
-    "DeleteOrganizationalUnit"
-    "fixture/DeleteOrganizationalUnit.yaml"
-
-requestCancelHandshake :: CancelHandshake -> TestTree
-requestCancelHandshake =
-  req
-    "CancelHandshake"
-    "fixture/CancelHandshake.yaml"
-
-requestRegisterDelegatedAdministrator :: RegisterDelegatedAdministrator -> TestTree
-requestRegisterDelegatedAdministrator =
-  req
-    "RegisterDelegatedAdministrator"
-    "fixture/RegisterDelegatedAdministrator.yaml"
-
-requestListHandshakesForOrganization :: ListHandshakesForOrganization -> TestTree
-requestListHandshakesForOrganization =
-  req
-    "ListHandshakesForOrganization"
-    "fixture/ListHandshakesForOrganization.yaml"
+    "ListOrganizationalUnitsForParent"
+    "fixture/ListOrganizationalUnitsForParent.yaml"
 
 requestListPoliciesForTarget :: ListPoliciesForTarget -> TestTree
 requestListPoliciesForTarget =
@@ -557,17 +557,11 @@ requestListPoliciesForTarget =
     "ListPoliciesForTarget"
     "fixture/ListPoliciesForTarget.yaml"
 
-requestListOrganizationalUnitsForParent :: ListOrganizationalUnitsForParent -> TestTree
-requestListOrganizationalUnitsForParent =
+requestListHandshakesForOrganization :: ListHandshakesForOrganization -> TestTree
+requestListHandshakesForOrganization =
   req
-    "ListOrganizationalUnitsForParent"
-    "fixture/ListOrganizationalUnitsForParent.yaml"
-
-requestListTargetsForPolicy :: ListTargetsForPolicy -> TestTree
-requestListTargetsForPolicy =
-  req
-    "ListTargetsForPolicy"
-    "fixture/ListTargetsForPolicy.yaml"
+    "ListHandshakesForOrganization"
+    "fixture/ListHandshakesForOrganization.yaml"
 
 requestAttachPolicy :: AttachPolicy -> TestTree
 requestAttachPolicy =
@@ -581,23 +575,17 @@ requestDeclineHandshake =
     "DeclineHandshake"
     "fixture/DeclineHandshake.yaml"
 
+requestListTargetsForPolicy :: ListTargetsForPolicy -> TestTree
+requestListTargetsForPolicy =
+  req
+    "ListTargetsForPolicy"
+    "fixture/ListTargetsForPolicy.yaml"
+
 requestDescribeEffectivePolicy :: DescribeEffectivePolicy -> TestTree
 requestDescribeEffectivePolicy =
   req
     "DescribeEffectivePolicy"
     "fixture/DescribeEffectivePolicy.yaml"
-
-requestDeregisterDelegatedAdministrator :: DeregisterDelegatedAdministrator -> TestTree
-requestDeregisterDelegatedAdministrator =
-  req
-    "DeregisterDelegatedAdministrator"
-    "fixture/DeregisterDelegatedAdministrator.yaml"
-
-requestMoveAccount :: MoveAccount -> TestTree
-requestMoveAccount =
-  req
-    "MoveAccount"
-    "fixture/MoveAccount.yaml"
 
 requestInviteAccountToOrganization :: InviteAccountToOrganization -> TestTree
 requestInviteAccountToOrganization =
@@ -605,17 +593,35 @@ requestInviteAccountToOrganization =
     "InviteAccountToOrganization"
     "fixture/InviteAccountToOrganization.yaml"
 
+requestDisableAWSServiceAccess :: DisableAWSServiceAccess -> TestTree
+requestDisableAWSServiceAccess =
+  req
+    "DisableAWSServiceAccess"
+    "fixture/DisableAWSServiceAccess.yaml"
+
+requestMoveAccount :: MoveAccount -> TestTree
+requestMoveAccount =
+  req
+    "MoveAccount"
+    "fixture/MoveAccount.yaml"
+
 requestLeaveOrganization :: LeaveOrganization -> TestTree
 requestLeaveOrganization =
   req
     "LeaveOrganization"
     "fixture/LeaveOrganization.yaml"
 
-requestDisableAWSServiceAccess :: DisableAWSServiceAccess -> TestTree
-requestDisableAWSServiceAccess =
+requestDeregisterDelegatedAdministrator :: DeregisterDelegatedAdministrator -> TestTree
+requestDeregisterDelegatedAdministrator =
   req
-    "DisableAWSServiceAccess"
-    "fixture/DisableAWSServiceAccess.yaml"
+    "DeregisterDelegatedAdministrator"
+    "fixture/DeregisterDelegatedAdministrator.yaml"
+
+requestCreateAccount :: CreateAccount -> TestTree
+requestCreateAccount =
+  req
+    "CreateAccount"
+    "fixture/CreateAccount.yaml"
 
 requestListParents :: ListParents -> TestTree
 requestListParents =
@@ -629,23 +635,17 @@ requestDescribePolicy =
     "DescribePolicy"
     "fixture/DescribePolicy.yaml"
 
-requestCreateAccount :: CreateAccount -> TestTree
-requestCreateAccount =
+requestDescribeHandshake :: DescribeHandshake -> TestTree
+requestDescribeHandshake =
   req
-    "CreateAccount"
-    "fixture/CreateAccount.yaml"
+    "DescribeHandshake"
+    "fixture/DescribeHandshake.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
 requestListTagsForResource =
   req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
-
-requestDescribeHandshake :: DescribeHandshake -> TestTree
-requestDescribeHandshake =
-  req
-    "DescribeHandshake"
-    "fixture/DescribeHandshake.yaml"
 
 -- Responses
 
@@ -665,13 +665,13 @@ responseCreateOrganization =
     defaultService
     (Proxy :: Proxy CreateOrganization)
 
-responseCreatePolicy :: CreatePolicyResponse -> TestTree
-responseCreatePolicy =
+responseDescribeCreateAccountStatus :: DescribeCreateAccountStatusResponse -> TestTree
+responseDescribeCreateAccountStatus =
   res
-    "CreatePolicyResponse"
-    "fixture/CreatePolicyResponse.proto"
+    "DescribeCreateAccountStatusResponse"
+    "fixture/DescribeCreateAccountStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy CreatePolicy)
+    (Proxy :: Proxy DescribeCreateAccountStatus)
 
 responseDisablePolicyType :: DisablePolicyTypeResponse -> TestTree
 responseDisablePolicyType =
@@ -681,14 +681,6 @@ responseDisablePolicyType =
     defaultService
     (Proxy :: Proxy DisablePolicyType)
 
-responseDescribeCreateAccountStatus :: DescribeCreateAccountStatusResponse -> TestTree
-responseDescribeCreateAccountStatus =
-  res
-    "DescribeCreateAccountStatusResponse"
-    "fixture/DescribeCreateAccountStatusResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeCreateAccountStatus)
-
 responseListPolicies :: ListPoliciesResponse -> TestTree
 responseListPolicies =
   res
@@ -696,6 +688,14 @@ responseListPolicies =
     "fixture/ListPoliciesResponse.proto"
     defaultService
     (Proxy :: Proxy ListPolicies)
+
+responseCreatePolicy :: CreatePolicyResponse -> TestTree
+responseCreatePolicy =
+  res
+    "CreatePolicyResponse"
+    "fixture/CreatePolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreatePolicy)
 
 responseListHandshakesForAccount :: ListHandshakesForAccountResponse -> TestTree
 responseListHandshakesForAccount =
@@ -705,13 +705,13 @@ responseListHandshakesForAccount =
     defaultService
     (Proxy :: Proxy ListHandshakesForAccount)
 
-responseListChildren :: ListChildrenResponse -> TestTree
-responseListChildren =
+responseUpdatePolicy :: UpdatePolicyResponse -> TestTree
+responseUpdatePolicy =
   res
-    "ListChildrenResponse"
-    "fixture/ListChildrenResponse.proto"
+    "UpdatePolicyResponse"
+    "fixture/UpdatePolicyResponse.proto"
     defaultService
-    (Proxy :: Proxy ListChildren)
+    (Proxy :: Proxy UpdatePolicy)
 
 responseDeletePolicy :: DeletePolicyResponse -> TestTree
 responseDeletePolicy =
@@ -729,13 +729,13 @@ responseEnablePolicyType =
     defaultService
     (Proxy :: Proxy EnablePolicyType)
 
-responseUpdatePolicy :: UpdatePolicyResponse -> TestTree
-responseUpdatePolicy =
+responseListChildren :: ListChildrenResponse -> TestTree
+responseListChildren =
   res
-    "UpdatePolicyResponse"
-    "fixture/UpdatePolicyResponse.proto"
+    "ListChildrenResponse"
+    "fixture/ListChildrenResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdatePolicy)
+    (Proxy :: Proxy ListChildren)
 
 responseListAWSServiceAccessForOrganization :: ListAWSServiceAccessForOrganizationResponse -> TestTree
 responseListAWSServiceAccessForOrganization =
@@ -753,14 +753,6 @@ responseDescribeOrganization =
     defaultService
     (Proxy :: Proxy DescribeOrganization)
 
-responseListCreateAccountStatus :: ListCreateAccountStatusResponse -> TestTree
-responseListCreateAccountStatus =
-  res
-    "ListCreateAccountStatusResponse"
-    "fixture/ListCreateAccountStatusResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListCreateAccountStatus)
-
 responseUntagResource :: UntagResourceResponse -> TestTree
 responseUntagResource =
   res
@@ -769,13 +761,13 @@ responseUntagResource =
     defaultService
     (Proxy :: Proxy UntagResource)
 
-responseListAccounts :: ListAccountsResponse -> TestTree
-responseListAccounts =
+responseListCreateAccountStatus :: ListCreateAccountStatusResponse -> TestTree
+responseListCreateAccountStatus =
   res
-    "ListAccountsResponse"
-    "fixture/ListAccountsResponse.proto"
+    "ListCreateAccountStatusResponse"
+    "fixture/ListCreateAccountStatusResponse.proto"
     defaultService
-    (Proxy :: Proxy ListAccounts)
+    (Proxy :: Proxy ListCreateAccountStatus)
 
 responseTagResource :: TagResourceResponse -> TestTree
 responseTagResource =
@@ -785,13 +777,13 @@ responseTagResource =
     defaultService
     (Proxy :: Proxy TagResource)
 
-responseEnableAWSServiceAccess :: EnableAWSServiceAccessResponse -> TestTree
-responseEnableAWSServiceAccess =
+responseListAccounts :: ListAccountsResponse -> TestTree
+responseListAccounts =
   res
-    "EnableAWSServiceAccessResponse"
-    "fixture/EnableAWSServiceAccessResponse.proto"
+    "ListAccountsResponse"
+    "fixture/ListAccountsResponse.proto"
     defaultService
-    (Proxy :: Proxy EnableAWSServiceAccess)
+    (Proxy :: Proxy ListAccounts)
 
 responseDescribeOrganizationalUnit :: DescribeOrganizationalUnitResponse -> TestTree
 responseDescribeOrganizationalUnit =
@@ -809,13 +801,13 @@ responseListDelegatedServicesForAccount =
     defaultService
     (Proxy :: Proxy ListDelegatedServicesForAccount)
 
-responseRemoveAccountFromOrganization :: RemoveAccountFromOrganizationResponse -> TestTree
-responseRemoveAccountFromOrganization =
+responseEnableAWSServiceAccess :: EnableAWSServiceAccessResponse -> TestTree
+responseEnableAWSServiceAccess =
   res
-    "RemoveAccountFromOrganizationResponse"
-    "fixture/RemoveAccountFromOrganizationResponse.proto"
+    "EnableAWSServiceAccessResponse"
+    "fixture/EnableAWSServiceAccessResponse.proto"
     defaultService
-    (Proxy :: Proxy RemoveAccountFromOrganization)
+    (Proxy :: Proxy EnableAWSServiceAccess)
 
 responseCreateGovCloudAccount :: CreateGovCloudAccountResponse -> TestTree
 responseCreateGovCloudAccount =
@@ -833,6 +825,22 @@ responseDeleteOrganization =
     defaultService
     (Proxy :: Proxy DeleteOrganization)
 
+responseRemoveAccountFromOrganization :: RemoveAccountFromOrganizationResponse -> TestTree
+responseRemoveAccountFromOrganization =
+  res
+    "RemoveAccountFromOrganizationResponse"
+    "fixture/RemoveAccountFromOrganizationResponse.proto"
+    defaultService
+    (Proxy :: Proxy RemoveAccountFromOrganization)
+
+responseAcceptHandshake :: AcceptHandshakeResponse -> TestTree
+responseAcceptHandshake =
+  res
+    "AcceptHandshakeResponse"
+    "fixture/AcceptHandshakeResponse.proto"
+    defaultService
+    (Proxy :: Proxy AcceptHandshake)
+
 responseListRoots :: ListRootsResponse -> TestTree
 responseListRoots =
   res
@@ -849,14 +857,6 @@ responseEnableAllFeatures =
     defaultService
     (Proxy :: Proxy EnableAllFeatures)
 
-responseAcceptHandshake :: AcceptHandshakeResponse -> TestTree
-responseAcceptHandshake =
-  res
-    "AcceptHandshakeResponse"
-    "fixture/AcceptHandshakeResponse.proto"
-    defaultService
-    (Proxy :: Proxy AcceptHandshake)
-
 responseDetachPolicy :: DetachPolicyResponse -> TestTree
 responseDetachPolicy =
   res
@@ -864,6 +864,14 @@ responseDetachPolicy =
     "fixture/DetachPolicyResponse.proto"
     defaultService
     (Proxy :: Proxy DetachPolicy)
+
+responseDescribeAccount :: DescribeAccountResponse -> TestTree
+responseDescribeAccount =
+  res
+    "DescribeAccountResponse"
+    "fixture/DescribeAccountResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeAccount)
 
 responseCreateOrganizationalUnit :: CreateOrganizationalUnitResponse -> TestTree
 responseCreateOrganizationalUnit =
@@ -873,13 +881,29 @@ responseCreateOrganizationalUnit =
     defaultService
     (Proxy :: Proxy CreateOrganizationalUnit)
 
-responseDescribeAccount :: DescribeAccountResponse -> TestTree
-responseDescribeAccount =
+responseRegisterDelegatedAdministrator :: RegisterDelegatedAdministratorResponse -> TestTree
+responseRegisterDelegatedAdministrator =
   res
-    "DescribeAccountResponse"
-    "fixture/DescribeAccountResponse.proto"
+    "RegisterDelegatedAdministratorResponse"
+    "fixture/RegisterDelegatedAdministratorResponse.proto"
     defaultService
-    (Proxy :: Proxy DescribeAccount)
+    (Proxy :: Proxy RegisterDelegatedAdministrator)
+
+responseCancelHandshake :: CancelHandshakeResponse -> TestTree
+responseCancelHandshake =
+  res
+    "CancelHandshakeResponse"
+    "fixture/CancelHandshakeResponse.proto"
+    defaultService
+    (Proxy :: Proxy CancelHandshake)
+
+responseDeleteOrganizationalUnit :: DeleteOrganizationalUnitResponse -> TestTree
+responseDeleteOrganizationalUnit =
+  res
+    "DeleteOrganizationalUnitResponse"
+    "fixture/DeleteOrganizationalUnitResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteOrganizationalUnit)
 
 responseListDelegatedAdministrators :: ListDelegatedAdministratorsResponse -> TestTree
 responseListDelegatedAdministrators =
@@ -897,37 +921,13 @@ responseUpdateOrganizationalUnit =
     defaultService
     (Proxy :: Proxy UpdateOrganizationalUnit)
 
-responseDeleteOrganizationalUnit :: DeleteOrganizationalUnitResponse -> TestTree
-responseDeleteOrganizationalUnit =
+responseListOrganizationalUnitsForParent :: ListOrganizationalUnitsForParentResponse -> TestTree
+responseListOrganizationalUnitsForParent =
   res
-    "DeleteOrganizationalUnitResponse"
-    "fixture/DeleteOrganizationalUnitResponse.proto"
+    "ListOrganizationalUnitsForParentResponse"
+    "fixture/ListOrganizationalUnitsForParentResponse.proto"
     defaultService
-    (Proxy :: Proxy DeleteOrganizationalUnit)
-
-responseCancelHandshake :: CancelHandshakeResponse -> TestTree
-responseCancelHandshake =
-  res
-    "CancelHandshakeResponse"
-    "fixture/CancelHandshakeResponse.proto"
-    defaultService
-    (Proxy :: Proxy CancelHandshake)
-
-responseRegisterDelegatedAdministrator :: RegisterDelegatedAdministratorResponse -> TestTree
-responseRegisterDelegatedAdministrator =
-  res
-    "RegisterDelegatedAdministratorResponse"
-    "fixture/RegisterDelegatedAdministratorResponse.proto"
-    defaultService
-    (Proxy :: Proxy RegisterDelegatedAdministrator)
-
-responseListHandshakesForOrganization :: ListHandshakesForOrganizationResponse -> TestTree
-responseListHandshakesForOrganization =
-  res
-    "ListHandshakesForOrganizationResponse"
-    "fixture/ListHandshakesForOrganizationResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListHandshakesForOrganization)
+    (Proxy :: Proxy ListOrganizationalUnitsForParent)
 
 responseListPoliciesForTarget :: ListPoliciesForTargetResponse -> TestTree
 responseListPoliciesForTarget =
@@ -937,21 +937,13 @@ responseListPoliciesForTarget =
     defaultService
     (Proxy :: Proxy ListPoliciesForTarget)
 
-responseListOrganizationalUnitsForParent :: ListOrganizationalUnitsForParentResponse -> TestTree
-responseListOrganizationalUnitsForParent =
+responseListHandshakesForOrganization :: ListHandshakesForOrganizationResponse -> TestTree
+responseListHandshakesForOrganization =
   res
-    "ListOrganizationalUnitsForParentResponse"
-    "fixture/ListOrganizationalUnitsForParentResponse.proto"
+    "ListHandshakesForOrganizationResponse"
+    "fixture/ListHandshakesForOrganizationResponse.proto"
     defaultService
-    (Proxy :: Proxy ListOrganizationalUnitsForParent)
-
-responseListTargetsForPolicy :: ListTargetsForPolicyResponse -> TestTree
-responseListTargetsForPolicy =
-  res
-    "ListTargetsForPolicyResponse"
-    "fixture/ListTargetsForPolicyResponse.proto"
-    defaultService
-    (Proxy :: Proxy ListTargetsForPolicy)
+    (Proxy :: Proxy ListHandshakesForOrganization)
 
 responseAttachPolicy :: AttachPolicyResponse -> TestTree
 responseAttachPolicy =
@@ -969,6 +961,14 @@ responseDeclineHandshake =
     defaultService
     (Proxy :: Proxy DeclineHandshake)
 
+responseListTargetsForPolicy :: ListTargetsForPolicyResponse -> TestTree
+responseListTargetsForPolicy =
+  res
+    "ListTargetsForPolicyResponse"
+    "fixture/ListTargetsForPolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTargetsForPolicy)
+
 responseDescribeEffectivePolicy :: DescribeEffectivePolicyResponse -> TestTree
 responseDescribeEffectivePolicy =
   res
@@ -976,22 +976,6 @@ responseDescribeEffectivePolicy =
     "fixture/DescribeEffectivePolicyResponse.proto"
     defaultService
     (Proxy :: Proxy DescribeEffectivePolicy)
-
-responseDeregisterDelegatedAdministrator :: DeregisterDelegatedAdministratorResponse -> TestTree
-responseDeregisterDelegatedAdministrator =
-  res
-    "DeregisterDelegatedAdministratorResponse"
-    "fixture/DeregisterDelegatedAdministratorResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeregisterDelegatedAdministrator)
-
-responseMoveAccount :: MoveAccountResponse -> TestTree
-responseMoveAccount =
-  res
-    "MoveAccountResponse"
-    "fixture/MoveAccountResponse.proto"
-    defaultService
-    (Proxy :: Proxy MoveAccount)
 
 responseInviteAccountToOrganization :: InviteAccountToOrganizationResponse -> TestTree
 responseInviteAccountToOrganization =
@@ -1001,6 +985,22 @@ responseInviteAccountToOrganization =
     defaultService
     (Proxy :: Proxy InviteAccountToOrganization)
 
+responseDisableAWSServiceAccess :: DisableAWSServiceAccessResponse -> TestTree
+responseDisableAWSServiceAccess =
+  res
+    "DisableAWSServiceAccessResponse"
+    "fixture/DisableAWSServiceAccessResponse.proto"
+    defaultService
+    (Proxy :: Proxy DisableAWSServiceAccess)
+
+responseMoveAccount :: MoveAccountResponse -> TestTree
+responseMoveAccount =
+  res
+    "MoveAccountResponse"
+    "fixture/MoveAccountResponse.proto"
+    defaultService
+    (Proxy :: Proxy MoveAccount)
+
 responseLeaveOrganization :: LeaveOrganizationResponse -> TestTree
 responseLeaveOrganization =
   res
@@ -1009,13 +1009,21 @@ responseLeaveOrganization =
     defaultService
     (Proxy :: Proxy LeaveOrganization)
 
-responseDisableAWSServiceAccess :: DisableAWSServiceAccessResponse -> TestTree
-responseDisableAWSServiceAccess =
+responseDeregisterDelegatedAdministrator :: DeregisterDelegatedAdministratorResponse -> TestTree
+responseDeregisterDelegatedAdministrator =
   res
-    "DisableAWSServiceAccessResponse"
-    "fixture/DisableAWSServiceAccessResponse.proto"
+    "DeregisterDelegatedAdministratorResponse"
+    "fixture/DeregisterDelegatedAdministratorResponse.proto"
     defaultService
-    (Proxy :: Proxy DisableAWSServiceAccess)
+    (Proxy :: Proxy DeregisterDelegatedAdministrator)
+
+responseCreateAccount :: CreateAccountResponse -> TestTree
+responseCreateAccount =
+  res
+    "CreateAccountResponse"
+    "fixture/CreateAccountResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateAccount)
 
 responseListParents :: ListParentsResponse -> TestTree
 responseListParents =
@@ -1033,13 +1041,13 @@ responseDescribePolicy =
     defaultService
     (Proxy :: Proxy DescribePolicy)
 
-responseCreateAccount :: CreateAccountResponse -> TestTree
-responseCreateAccount =
+responseDescribeHandshake :: DescribeHandshakeResponse -> TestTree
+responseDescribeHandshake =
   res
-    "CreateAccountResponse"
-    "fixture/CreateAccountResponse.proto"
+    "DescribeHandshakeResponse"
+    "fixture/DescribeHandshakeResponse.proto"
     defaultService
-    (Proxy :: Proxy CreateAccount)
+    (Proxy :: Proxy DescribeHandshake)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
 responseListTagsForResource =
@@ -1048,11 +1056,3 @@ responseListTagsForResource =
     "fixture/ListTagsForResourceResponse.proto"
     defaultService
     (Proxy :: Proxy ListTagsForResource)
-
-responseDescribeHandshake :: DescribeHandshakeResponse -> TestTree
-responseDescribeHandshake =
-  res
-    "DescribeHandshakeResponse"
-    "fixture/DescribeHandshakeResponse.proto"
-    defaultService
-    (Proxy :: Proxy DescribeHandshake)

@@ -55,8 +55,8 @@ module Network.AWS.Organizations.ListHandshakesForOrganization
     newListHandshakesForOrganizationResponse,
 
     -- * Response Lenses
-    listHandshakesForOrganizationResponse_handshakes,
     listHandshakesForOrganizationResponse_nextToken,
+    listHandshakesForOrganizationResponse_handshakes,
     listHandshakesForOrganizationResponse_httpStatus,
   )
 where
@@ -205,8 +205,8 @@ instance
     Response.receiveJSON
       ( \s h x ->
           ListHandshakesForOrganizationResponse'
-            Prelude.<$> (x Core..?> "Handshakes" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Handshakes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -249,15 +249,15 @@ instance Core.ToQuery ListHandshakesForOrganization where
 
 -- | /See:/ 'newListHandshakesForOrganizationResponse' smart constructor.
 data ListHandshakesForOrganizationResponse = ListHandshakesForOrganizationResponse'
-  { -- | A list of Handshake objects with details about each of the handshakes
-    -- that are associated with an organization.
-    handshakes :: Prelude.Maybe [Handshake],
-    -- | If present, indicates that more output is available than is included in
+  { -- | If present, indicates that more output is available than is included in
     -- the current response. Use this value in the @NextToken@ request
     -- parameter in a subsequent call to the operation to get the next part of
     -- the output. You should repeat this until the @NextToken@ response
     -- element comes back as @null@.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of Handshake objects with details about each of the handshakes
+    -- that are associated with an organization.
+    handshakes :: Prelude.Maybe [Handshake],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -271,14 +271,14 @@ data ListHandshakesForOrganizationResponse = ListHandshakesForOrganizationRespon
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'handshakes', 'listHandshakesForOrganizationResponse_handshakes' - A list of Handshake objects with details about each of the handshakes
--- that are associated with an organization.
---
 -- 'nextToken', 'listHandshakesForOrganizationResponse_nextToken' - If present, indicates that more output is available than is included in
 -- the current response. Use this value in the @NextToken@ request
 -- parameter in a subsequent call to the operation to get the next part of
 -- the output. You should repeat this until the @NextToken@ response
 -- element comes back as @null@.
+--
+-- 'handshakes', 'listHandshakesForOrganizationResponse_handshakes' - A list of Handshake objects with details about each of the handshakes
+-- that are associated with an organization.
 --
 -- 'httpStatus', 'listHandshakesForOrganizationResponse_httpStatus' - The response's http status code.
 newListHandshakesForOrganizationResponse ::
@@ -287,16 +287,11 @@ newListHandshakesForOrganizationResponse ::
   ListHandshakesForOrganizationResponse
 newListHandshakesForOrganizationResponse pHttpStatus_ =
   ListHandshakesForOrganizationResponse'
-    { handshakes =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      handshakes = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of Handshake objects with details about each of the handshakes
--- that are associated with an organization.
-listHandshakesForOrganizationResponse_handshakes :: Lens.Lens' ListHandshakesForOrganizationResponse (Prelude.Maybe [Handshake])
-listHandshakesForOrganizationResponse_handshakes = Lens.lens (\ListHandshakesForOrganizationResponse' {handshakes} -> handshakes) (\s@ListHandshakesForOrganizationResponse' {} a -> s {handshakes = a} :: ListHandshakesForOrganizationResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If present, indicates that more output is available than is included in
 -- the current response. Use this value in the @NextToken@ request
@@ -305,6 +300,11 @@ listHandshakesForOrganizationResponse_handshakes = Lens.lens (\ListHandshakesFor
 -- element comes back as @null@.
 listHandshakesForOrganizationResponse_nextToken :: Lens.Lens' ListHandshakesForOrganizationResponse (Prelude.Maybe Prelude.Text)
 listHandshakesForOrganizationResponse_nextToken = Lens.lens (\ListHandshakesForOrganizationResponse' {nextToken} -> nextToken) (\s@ListHandshakesForOrganizationResponse' {} a -> s {nextToken = a} :: ListHandshakesForOrganizationResponse)
+
+-- | A list of Handshake objects with details about each of the handshakes
+-- that are associated with an organization.
+listHandshakesForOrganizationResponse_handshakes :: Lens.Lens' ListHandshakesForOrganizationResponse (Prelude.Maybe [Handshake])
+listHandshakesForOrganizationResponse_handshakes = Lens.lens (\ListHandshakesForOrganizationResponse' {handshakes} -> handshakes) (\s@ListHandshakesForOrganizationResponse' {} a -> s {handshakes = a} :: ListHandshakesForOrganizationResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listHandshakesForOrganizationResponse_httpStatus :: Lens.Lens' ListHandshakesForOrganizationResponse Prelude.Int

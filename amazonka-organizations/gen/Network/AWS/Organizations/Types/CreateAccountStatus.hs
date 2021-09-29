@@ -37,10 +37,10 @@ data CreateAccountStatus = CreateAccountStatus'
     -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
     -- string requires exactly 12 digits.
     accountId :: Prelude.Maybe Prelude.Text,
-    -- | The date and time that the request was made for the account creation.
-    requestedTimestamp :: Prelude.Maybe Core.POSIX,
     -- | The account name given to the account when it was created.
     accountName :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The date and time that the request was made for the account creation.
+    requestedTimestamp :: Prelude.Maybe Core.POSIX,
     -- | If the account was created successfully, the unique identifier (ID) of
     -- the new account in the AWS GovCloud (US) Region.
     govCloudAccountId :: Prelude.Maybe Prelude.Text,
@@ -55,13 +55,12 @@ data CreateAccountStatus = CreateAccountStatus'
     -- request ID string requires \"car-\" followed by from 8 to 32 lowercase
     -- letters or digits.
     id :: Prelude.Maybe Prelude.Text,
-    -- | The status of the request.
+    -- | The status of the asynchronous request to create an AWS account.
     state :: Prelude.Maybe CreateAccountState,
     -- | If the request failed, a description of the reason for the failure.
     --
-    -- -   ACCOUNT_LIMIT_EXCEEDED: The account could not be created because you
-    --     have reached the limit on the number of accounts in your
-    --     organization.
+    -- -   ACCOUNT_LIMIT_EXCEEDED: The account couldn\'t be created because you
+    --     reached the limit on the number of accounts in your organization.
     --
     -- -   CONCURRENT_ACCOUNT_MODIFICATION: You already submitted a request
     --     with the same information.
@@ -88,7 +87,7 @@ data CreateAccountStatus = CreateAccountStatus'
     --
     -- -   INTERNAL_FAILURE: The account could not be created because of an
     --     internal failure. Try again later. If the problem persists, contact
-    --     Customer Support.
+    --     AWS Customer Support.
     --
     -- -   MISSING_BUSINESS_VALIDATION: The AWS account that owns your
     --     organization has not received Business Validation.
@@ -120,9 +119,9 @@ data CreateAccountStatus = CreateAccountStatus'
 -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID
 -- string requires exactly 12 digits.
 --
--- 'requestedTimestamp', 'createAccountStatus_requestedTimestamp' - The date and time that the request was made for the account creation.
---
 -- 'accountName', 'createAccountStatus_accountName' - The account name given to the account when it was created.
+--
+-- 'requestedTimestamp', 'createAccountStatus_requestedTimestamp' - The date and time that the request was made for the account creation.
 --
 -- 'govCloudAccountId', 'createAccountStatus_govCloudAccountId' - If the account was created successfully, the unique identifier (ID) of
 -- the new account in the AWS GovCloud (US) Region.
@@ -138,13 +137,12 @@ data CreateAccountStatus = CreateAccountStatus'
 -- request ID string requires \"car-\" followed by from 8 to 32 lowercase
 -- letters or digits.
 --
--- 'state', 'createAccountStatus_state' - The status of the request.
+-- 'state', 'createAccountStatus_state' - The status of the asynchronous request to create an AWS account.
 --
 -- 'failureReason', 'createAccountStatus_failureReason' - If the request failed, a description of the reason for the failure.
 --
--- -   ACCOUNT_LIMIT_EXCEEDED: The account could not be created because you
---     have reached the limit on the number of accounts in your
---     organization.
+-- -   ACCOUNT_LIMIT_EXCEEDED: The account couldn\'t be created because you
+--     reached the limit on the number of accounts in your organization.
 --
 -- -   CONCURRENT_ACCOUNT_MODIFICATION: You already submitted a request
 --     with the same information.
@@ -171,7 +169,7 @@ data CreateAccountStatus = CreateAccountStatus'
 --
 -- -   INTERNAL_FAILURE: The account could not be created because of an
 --     internal failure. Try again later. If the problem persists, contact
---     Customer Support.
+--     AWS Customer Support.
 --
 -- -   MISSING_BUSINESS_VALIDATION: The AWS account that owns your
 --     organization has not received Business Validation.
@@ -190,8 +188,8 @@ newCreateAccountStatus ::
 newCreateAccountStatus =
   CreateAccountStatus'
     { accountId = Prelude.Nothing,
-      requestedTimestamp = Prelude.Nothing,
       accountName = Prelude.Nothing,
+      requestedTimestamp = Prelude.Nothing,
       govCloudAccountId = Prelude.Nothing,
       completedTimestamp = Prelude.Nothing,
       id = Prelude.Nothing,
@@ -207,13 +205,13 @@ newCreateAccountStatus =
 createAccountStatus_accountId :: Lens.Lens' CreateAccountStatus (Prelude.Maybe Prelude.Text)
 createAccountStatus_accountId = Lens.lens (\CreateAccountStatus' {accountId} -> accountId) (\s@CreateAccountStatus' {} a -> s {accountId = a} :: CreateAccountStatus)
 
--- | The date and time that the request was made for the account creation.
-createAccountStatus_requestedTimestamp :: Lens.Lens' CreateAccountStatus (Prelude.Maybe Prelude.UTCTime)
-createAccountStatus_requestedTimestamp = Lens.lens (\CreateAccountStatus' {requestedTimestamp} -> requestedTimestamp) (\s@CreateAccountStatus' {} a -> s {requestedTimestamp = a} :: CreateAccountStatus) Prelude.. Lens.mapping Core._Time
-
 -- | The account name given to the account when it was created.
 createAccountStatus_accountName :: Lens.Lens' CreateAccountStatus (Prelude.Maybe Prelude.Text)
 createAccountStatus_accountName = Lens.lens (\CreateAccountStatus' {accountName} -> accountName) (\s@CreateAccountStatus' {} a -> s {accountName = a} :: CreateAccountStatus) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The date and time that the request was made for the account creation.
+createAccountStatus_requestedTimestamp :: Lens.Lens' CreateAccountStatus (Prelude.Maybe Prelude.UTCTime)
+createAccountStatus_requestedTimestamp = Lens.lens (\CreateAccountStatus' {requestedTimestamp} -> requestedTimestamp) (\s@CreateAccountStatus' {} a -> s {requestedTimestamp = a} :: CreateAccountStatus) Prelude.. Lens.mapping Core._Time
 
 -- | If the account was created successfully, the unique identifier (ID) of
 -- the new account in the AWS GovCloud (US) Region.
@@ -235,15 +233,14 @@ createAccountStatus_completedTimestamp = Lens.lens (\CreateAccountStatus' {compl
 createAccountStatus_id :: Lens.Lens' CreateAccountStatus (Prelude.Maybe Prelude.Text)
 createAccountStatus_id = Lens.lens (\CreateAccountStatus' {id} -> id) (\s@CreateAccountStatus' {} a -> s {id = a} :: CreateAccountStatus)
 
--- | The status of the request.
+-- | The status of the asynchronous request to create an AWS account.
 createAccountStatus_state :: Lens.Lens' CreateAccountStatus (Prelude.Maybe CreateAccountState)
 createAccountStatus_state = Lens.lens (\CreateAccountStatus' {state} -> state) (\s@CreateAccountStatus' {} a -> s {state = a} :: CreateAccountStatus)
 
 -- | If the request failed, a description of the reason for the failure.
 --
--- -   ACCOUNT_LIMIT_EXCEEDED: The account could not be created because you
---     have reached the limit on the number of accounts in your
---     organization.
+-- -   ACCOUNT_LIMIT_EXCEEDED: The account couldn\'t be created because you
+--     reached the limit on the number of accounts in your organization.
 --
 -- -   CONCURRENT_ACCOUNT_MODIFICATION: You already submitted a request
 --     with the same information.
@@ -270,7 +267,7 @@ createAccountStatus_state = Lens.lens (\CreateAccountStatus' {state} -> state) (
 --
 -- -   INTERNAL_FAILURE: The account could not be created because of an
 --     internal failure. Try again later. If the problem persists, contact
---     Customer Support.
+--     AWS Customer Support.
 --
 -- -   MISSING_BUSINESS_VALIDATION: The AWS account that owns your
 --     organization has not received Business Validation.
@@ -294,8 +291,8 @@ instance Core.FromJSON CreateAccountStatus where
       ( \x ->
           CreateAccountStatus'
             Prelude.<$> (x Core..:? "AccountId")
-            Prelude.<*> (x Core..:? "RequestedTimestamp")
             Prelude.<*> (x Core..:? "AccountName")
+            Prelude.<*> (x Core..:? "RequestedTimestamp")
             Prelude.<*> (x Core..:? "GovCloudAccountId")
             Prelude.<*> (x Core..:? "CompletedTimestamp")
             Prelude.<*> (x Core..:? "Id")

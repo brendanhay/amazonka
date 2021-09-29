@@ -33,9 +33,9 @@ import qualified Network.AWS.Prelude as Prelude
 -- account (the recipient) to join its organization, the two accounts
 -- exchange information as a series of handshake requests and responses.
 --
--- __Note:__ Handshakes that are CANCELED, ACCEPTED, or DECLINED show up in
--- lists for only 30 days after entering that state After that they are
--- deleted.
+-- __Note:__ Handshakes that are @CANCELED@, @ACCEPTED@, or @DECLINED@ show
+-- up in lists for only 30 days after entering that state After that they
+-- are deleted.
 --
 -- /See:/ 'newHandshake' smart constructor.
 data Handshake = Handshake'

@@ -51,8 +51,8 @@ module Network.AWS.Organizations.ListHandshakesForAccount
     newListHandshakesForAccountResponse,
 
     -- * Response Lenses
-    listHandshakesForAccountResponse_handshakes,
     listHandshakesForAccountResponse_nextToken,
+    listHandshakesForAccountResponse_handshakes,
     listHandshakesForAccountResponse_httpStatus,
   )
 where
@@ -198,8 +198,8 @@ instance Core.AWSRequest ListHandshakesForAccount where
     Response.receiveJSON
       ( \s h x ->
           ListHandshakesForAccountResponse'
-            Prelude.<$> (x Core..?> "Handshakes" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextToken")
+            Prelude.<$> (x Core..?> "NextToken")
+            Prelude.<*> (x Core..?> "Handshakes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -240,15 +240,15 @@ instance Core.ToQuery ListHandshakesForAccount where
 
 -- | /See:/ 'newListHandshakesForAccountResponse' smart constructor.
 data ListHandshakesForAccountResponse = ListHandshakesForAccountResponse'
-  { -- | A list of Handshake objects with details about each of the handshakes
-    -- that is associated with the specified account.
-    handshakes :: Prelude.Maybe [Handshake],
-    -- | If present, indicates that more output is available than is included in
+  { -- | If present, indicates that more output is available than is included in
     -- the current response. Use this value in the @NextToken@ request
     -- parameter in a subsequent call to the operation to get the next part of
     -- the output. You should repeat this until the @NextToken@ response
     -- element comes back as @null@.
     nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of Handshake objects with details about each of the handshakes
+    -- that is associated with the specified account.
+    handshakes :: Prelude.Maybe [Handshake],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -262,14 +262,14 @@ data ListHandshakesForAccountResponse = ListHandshakesForAccountResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'handshakes', 'listHandshakesForAccountResponse_handshakes' - A list of Handshake objects with details about each of the handshakes
--- that is associated with the specified account.
---
 -- 'nextToken', 'listHandshakesForAccountResponse_nextToken' - If present, indicates that more output is available than is included in
 -- the current response. Use this value in the @NextToken@ request
 -- parameter in a subsequent call to the operation to get the next part of
 -- the output. You should repeat this until the @NextToken@ response
 -- element comes back as @null@.
+--
+-- 'handshakes', 'listHandshakesForAccountResponse_handshakes' - A list of Handshake objects with details about each of the handshakes
+-- that is associated with the specified account.
 --
 -- 'httpStatus', 'listHandshakesForAccountResponse_httpStatus' - The response's http status code.
 newListHandshakesForAccountResponse ::
@@ -278,16 +278,11 @@ newListHandshakesForAccountResponse ::
   ListHandshakesForAccountResponse
 newListHandshakesForAccountResponse pHttpStatus_ =
   ListHandshakesForAccountResponse'
-    { handshakes =
+    { nextToken =
         Prelude.Nothing,
-      nextToken = Prelude.Nothing,
+      handshakes = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A list of Handshake objects with details about each of the handshakes
--- that is associated with the specified account.
-listHandshakesForAccountResponse_handshakes :: Lens.Lens' ListHandshakesForAccountResponse (Prelude.Maybe [Handshake])
-listHandshakesForAccountResponse_handshakes = Lens.lens (\ListHandshakesForAccountResponse' {handshakes} -> handshakes) (\s@ListHandshakesForAccountResponse' {} a -> s {handshakes = a} :: ListHandshakesForAccountResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | If present, indicates that more output is available than is included in
 -- the current response. Use this value in the @NextToken@ request
@@ -296,6 +291,11 @@ listHandshakesForAccountResponse_handshakes = Lens.lens (\ListHandshakesForAccou
 -- element comes back as @null@.
 listHandshakesForAccountResponse_nextToken :: Lens.Lens' ListHandshakesForAccountResponse (Prelude.Maybe Prelude.Text)
 listHandshakesForAccountResponse_nextToken = Lens.lens (\ListHandshakesForAccountResponse' {nextToken} -> nextToken) (\s@ListHandshakesForAccountResponse' {} a -> s {nextToken = a} :: ListHandshakesForAccountResponse)
+
+-- | A list of Handshake objects with details about each of the handshakes
+-- that is associated with the specified account.
+listHandshakesForAccountResponse_handshakes :: Lens.Lens' ListHandshakesForAccountResponse (Prelude.Maybe [Handshake])
+listHandshakesForAccountResponse_handshakes = Lens.lens (\ListHandshakesForAccountResponse' {handshakes} -> handshakes) (\s@ListHandshakesForAccountResponse' {} a -> s {handshakes = a} :: ListHandshakesForAccountResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listHandshakesForAccountResponse_httpStatus :: Lens.Lens' ListHandshakesForAccountResponse Prelude.Int

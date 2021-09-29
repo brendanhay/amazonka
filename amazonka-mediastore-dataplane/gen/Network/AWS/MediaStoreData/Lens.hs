@@ -31,8 +31,8 @@ module Network.AWS.MediaStoreData.Lens
     describeObjectResponse_eTag,
     describeObjectResponse_contentType,
     describeObjectResponse_contentLength,
-    describeObjectResponse_lastModified,
     describeObjectResponse_cacheControl,
+    describeObjectResponse_lastModified,
     describeObjectResponse_httpStatus,
 
     -- ** PutObject
@@ -54,8 +54,8 @@ module Network.AWS.MediaStoreData.Lens
     getObjectResponse_contentType,
     getObjectResponse_contentRange,
     getObjectResponse_contentLength,
-    getObjectResponse_lastModified,
     getObjectResponse_cacheControl,
+    getObjectResponse_lastModified,
     getObjectResponse_statusCode,
     getObjectResponse_body,
 

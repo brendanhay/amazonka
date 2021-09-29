@@ -37,8 +37,8 @@ module Network.AWS.MediaStoreData.DescribeObject
     describeObjectResponse_eTag,
     describeObjectResponse_contentType,
     describeObjectResponse_contentLength,
-    describeObjectResponse_lastModified,
     describeObjectResponse_cacheControl,
+    describeObjectResponse_lastModified,
     describeObjectResponse_httpStatus,
   )
 where
@@ -92,8 +92,8 @@ instance Core.AWSRequest DescribeObject where
             Prelude.<$> (h Core..#? "ETag")
             Prelude.<*> (h Core..#? "Content-Type")
             Prelude.<*> (h Core..#? "Content-Length")
-            Prelude.<*> (h Core..#? "Last-Modified")
             Prelude.<*> (h Core..#? "Cache-Control")
+            Prelude.<*> (h Core..#? "Last-Modified")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -119,8 +119,6 @@ data DescribeObjectResponse = DescribeObjectResponse'
     contentType :: Prelude.Maybe Prelude.Text,
     -- | The length of the object in bytes.
     contentLength :: Prelude.Maybe Prelude.Natural,
-    -- | The date and time that the object was last modified.
-    lastModified :: Prelude.Maybe Core.POSIX,
     -- | An optional @CacheControl@ header that allows the caller to control the
     -- object\'s cache behavior. Headers can be passed in as specified in the
     -- HTTP at
@@ -128,6 +126,8 @@ data DescribeObjectResponse = DescribeObjectResponse'
     --
     -- Headers with a custom user-defined value are also accepted.
     cacheControl :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the object was last modified.
+    lastModified :: Prelude.Maybe Core.POSIX,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -147,14 +147,14 @@ data DescribeObjectResponse = DescribeObjectResponse'
 --
 -- 'contentLength', 'describeObjectResponse_contentLength' - The length of the object in bytes.
 --
--- 'lastModified', 'describeObjectResponse_lastModified' - The date and time that the object was last modified.
---
 -- 'cacheControl', 'describeObjectResponse_cacheControl' - An optional @CacheControl@ header that allows the caller to control the
 -- object\'s cache behavior. Headers can be passed in as specified in the
 -- HTTP at
 -- <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9>.
 --
 -- Headers with a custom user-defined value are also accepted.
+--
+-- 'lastModified', 'describeObjectResponse_lastModified' - The date and time that the object was last modified.
 --
 -- 'httpStatus', 'describeObjectResponse_httpStatus' - The response's http status code.
 newDescribeObjectResponse ::
@@ -166,8 +166,8 @@ newDescribeObjectResponse pHttpStatus_ =
     { eTag = Prelude.Nothing,
       contentType = Prelude.Nothing,
       contentLength = Prelude.Nothing,
-      lastModified = Prelude.Nothing,
       cacheControl = Prelude.Nothing,
+      lastModified = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -183,10 +183,6 @@ describeObjectResponse_contentType = Lens.lens (\DescribeObjectResponse' {conten
 describeObjectResponse_contentLength :: Lens.Lens' DescribeObjectResponse (Prelude.Maybe Prelude.Natural)
 describeObjectResponse_contentLength = Lens.lens (\DescribeObjectResponse' {contentLength} -> contentLength) (\s@DescribeObjectResponse' {} a -> s {contentLength = a} :: DescribeObjectResponse)
 
--- | The date and time that the object was last modified.
-describeObjectResponse_lastModified :: Lens.Lens' DescribeObjectResponse (Prelude.Maybe Prelude.UTCTime)
-describeObjectResponse_lastModified = Lens.lens (\DescribeObjectResponse' {lastModified} -> lastModified) (\s@DescribeObjectResponse' {} a -> s {lastModified = a} :: DescribeObjectResponse) Prelude.. Lens.mapping Core._Time
-
 -- | An optional @CacheControl@ header that allows the caller to control the
 -- object\'s cache behavior. Headers can be passed in as specified in the
 -- HTTP at
@@ -195,6 +191,10 @@ describeObjectResponse_lastModified = Lens.lens (\DescribeObjectResponse' {lastM
 -- Headers with a custom user-defined value are also accepted.
 describeObjectResponse_cacheControl :: Lens.Lens' DescribeObjectResponse (Prelude.Maybe Prelude.Text)
 describeObjectResponse_cacheControl = Lens.lens (\DescribeObjectResponse' {cacheControl} -> cacheControl) (\s@DescribeObjectResponse' {} a -> s {cacheControl = a} :: DescribeObjectResponse)
+
+-- | The date and time that the object was last modified.
+describeObjectResponse_lastModified :: Lens.Lens' DescribeObjectResponse (Prelude.Maybe Prelude.UTCTime)
+describeObjectResponse_lastModified = Lens.lens (\DescribeObjectResponse' {lastModified} -> lastModified) (\s@DescribeObjectResponse' {} a -> s {lastModified = a} :: DescribeObjectResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The response's http status code.
 describeObjectResponse_httpStatus :: Lens.Lens' DescribeObjectResponse Prelude.Int

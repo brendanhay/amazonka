@@ -41,8 +41,8 @@ module Network.AWS.MediaStoreData.GetObject
     getObjectResponse_contentType,
     getObjectResponse_contentRange,
     getObjectResponse_contentLength,
-    getObjectResponse_lastModified,
     getObjectResponse_cacheControl,
+    getObjectResponse_lastModified,
     getObjectResponse_statusCode,
     getObjectResponse_body,
   )
@@ -188,8 +188,8 @@ instance Core.AWSRequest GetObject where
             Prelude.<*> (h Core..#? "Content-Type")
             Prelude.<*> (h Core..#? "Content-Range")
             Prelude.<*> (h Core..#? "Content-Length")
-            Prelude.<*> (h Core..#? "Last-Modified")
             Prelude.<*> (h Core..#? "Cache-Control")
+            Prelude.<*> (h Core..#? "Last-Modified")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
@@ -219,8 +219,6 @@ data GetObjectResponse = GetObjectResponse'
     contentRange :: Prelude.Maybe Prelude.Text,
     -- | The length of the object in bytes.
     contentLength :: Prelude.Maybe Prelude.Natural,
-    -- | The date and time that the object was last modified.
-    lastModified :: Prelude.Maybe Core.POSIX,
     -- | An optional @CacheControl@ header that allows the caller to control the
     -- object\'s cache behavior. Headers can be passed in as specified in the
     -- HTTP spec at
@@ -228,6 +226,8 @@ data GetObjectResponse = GetObjectResponse'
     --
     -- Headers with a custom user-defined value are also accepted.
     cacheControl :: Prelude.Maybe Prelude.Text,
+    -- | The date and time that the object was last modified.
+    lastModified :: Prelude.Maybe Core.POSIX,
     -- | The HTML status code of the request. Status codes ranging from 200 to
     -- 299 indicate success. All other status codes indicate the type of error
     -- that occurred.
@@ -253,14 +253,14 @@ data GetObjectResponse = GetObjectResponse'
 --
 -- 'contentLength', 'getObjectResponse_contentLength' - The length of the object in bytes.
 --
--- 'lastModified', 'getObjectResponse_lastModified' - The date and time that the object was last modified.
---
 -- 'cacheControl', 'getObjectResponse_cacheControl' - An optional @CacheControl@ header that allows the caller to control the
 -- object\'s cache behavior. Headers can be passed in as specified in the
 -- HTTP spec at
 -- <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9>.
 --
 -- Headers with a custom user-defined value are also accepted.
+--
+-- 'lastModified', 'getObjectResponse_lastModified' - The date and time that the object was last modified.
 --
 -- 'statusCode', 'getObjectResponse_statusCode' - The HTML status code of the request. Status codes ranging from 200 to
 -- 299 indicate success. All other status codes indicate the type of error
@@ -279,8 +279,8 @@ newGetObjectResponse pStatusCode_ pBody_ =
       contentType = Prelude.Nothing,
       contentRange = Prelude.Nothing,
       contentLength = Prelude.Nothing,
-      lastModified = Prelude.Nothing,
       cacheControl = Prelude.Nothing,
+      lastModified = Prelude.Nothing,
       statusCode = pStatusCode_,
       body = pBody_
     }
@@ -301,10 +301,6 @@ getObjectResponse_contentRange = Lens.lens (\GetObjectResponse' {contentRange} -
 getObjectResponse_contentLength :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Natural)
 getObjectResponse_contentLength = Lens.lens (\GetObjectResponse' {contentLength} -> contentLength) (\s@GetObjectResponse' {} a -> s {contentLength = a} :: GetObjectResponse)
 
--- | The date and time that the object was last modified.
-getObjectResponse_lastModified :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.UTCTime)
-getObjectResponse_lastModified = Lens.lens (\GetObjectResponse' {lastModified} -> lastModified) (\s@GetObjectResponse' {} a -> s {lastModified = a} :: GetObjectResponse) Prelude.. Lens.mapping Core._Time
-
 -- | An optional @CacheControl@ header that allows the caller to control the
 -- object\'s cache behavior. Headers can be passed in as specified in the
 -- HTTP spec at
@@ -313,6 +309,10 @@ getObjectResponse_lastModified = Lens.lens (\GetObjectResponse' {lastModified} -
 -- Headers with a custom user-defined value are also accepted.
 getObjectResponse_cacheControl :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.Text)
 getObjectResponse_cacheControl = Lens.lens (\GetObjectResponse' {cacheControl} -> cacheControl) (\s@GetObjectResponse' {} a -> s {cacheControl = a} :: GetObjectResponse)
+
+-- | The date and time that the object was last modified.
+getObjectResponse_lastModified :: Lens.Lens' GetObjectResponse (Prelude.Maybe Prelude.UTCTime)
+getObjectResponse_lastModified = Lens.lens (\GetObjectResponse' {lastModified} -> lastModified) (\s@GetObjectResponse' {} a -> s {lastModified = a} :: GetObjectResponse) Prelude.. Lens.mapping Core._Time
 
 -- | The HTML status code of the request. Status codes ranging from 200 to
 -- 299 indicate success. All other status codes indicate the type of error

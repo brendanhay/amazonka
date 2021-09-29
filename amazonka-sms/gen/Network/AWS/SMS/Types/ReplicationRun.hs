@@ -36,10 +36,10 @@ data ReplicationRun = ReplicationRun'
     encrypted :: Prelude.Maybe Prelude.Bool,
     -- | The ID of the replication run.
     replicationRunId :: Prelude.Maybe Prelude.Text,
-    -- | The ID of the Amazon Machine Image (AMI) from the replication run.
-    amiId :: Prelude.Maybe Prelude.Text,
     -- | The completion time of the last replication run.
     completedTime :: Prelude.Maybe Core.POSIX,
+    -- | The ID of the Amazon Machine Image (AMI) from the replication run.
+    amiId :: Prelude.Maybe Prelude.Text,
     -- | The state of the replication run.
     state :: Prelude.Maybe ReplicationRunState,
     -- | The ID of the KMS key for replication jobs that produce encrypted AMIs.
@@ -81,9 +81,9 @@ data ReplicationRun = ReplicationRun'
 --
 -- 'replicationRunId', 'replicationRun_replicationRunId' - The ID of the replication run.
 --
--- 'amiId', 'replicationRun_amiId' - The ID of the Amazon Machine Image (AMI) from the replication run.
---
 -- 'completedTime', 'replicationRun_completedTime' - The completion time of the last replication run.
+--
+-- 'amiId', 'replicationRun_amiId' - The ID of the Amazon Machine Image (AMI) from the replication run.
 --
 -- 'state', 'replicationRun_state' - The state of the replication run.
 --
@@ -115,8 +115,8 @@ newReplicationRun =
     { statusMessage = Prelude.Nothing,
       encrypted = Prelude.Nothing,
       replicationRunId = Prelude.Nothing,
-      amiId = Prelude.Nothing,
       completedTime = Prelude.Nothing,
+      amiId = Prelude.Nothing,
       state = Prelude.Nothing,
       kmsKeyId = Prelude.Nothing,
       scheduledStartTime = Prelude.Nothing,
@@ -137,13 +137,13 @@ replicationRun_encrypted = Lens.lens (\ReplicationRun' {encrypted} -> encrypted)
 replicationRun_replicationRunId :: Lens.Lens' ReplicationRun (Prelude.Maybe Prelude.Text)
 replicationRun_replicationRunId = Lens.lens (\ReplicationRun' {replicationRunId} -> replicationRunId) (\s@ReplicationRun' {} a -> s {replicationRunId = a} :: ReplicationRun)
 
--- | The ID of the Amazon Machine Image (AMI) from the replication run.
-replicationRun_amiId :: Lens.Lens' ReplicationRun (Prelude.Maybe Prelude.Text)
-replicationRun_amiId = Lens.lens (\ReplicationRun' {amiId} -> amiId) (\s@ReplicationRun' {} a -> s {amiId = a} :: ReplicationRun)
-
 -- | The completion time of the last replication run.
 replicationRun_completedTime :: Lens.Lens' ReplicationRun (Prelude.Maybe Prelude.UTCTime)
 replicationRun_completedTime = Lens.lens (\ReplicationRun' {completedTime} -> completedTime) (\s@ReplicationRun' {} a -> s {completedTime = a} :: ReplicationRun) Prelude.. Lens.mapping Core._Time
+
+-- | The ID of the Amazon Machine Image (AMI) from the replication run.
+replicationRun_amiId :: Lens.Lens' ReplicationRun (Prelude.Maybe Prelude.Text)
+replicationRun_amiId = Lens.lens (\ReplicationRun' {amiId} -> amiId) (\s@ReplicationRun' {} a -> s {amiId = a} :: ReplicationRun)
 
 -- | The state of the replication run.
 replicationRun_state :: Lens.Lens' ReplicationRun (Prelude.Maybe ReplicationRunState)
@@ -190,8 +190,8 @@ instance Core.FromJSON ReplicationRun where
             Prelude.<$> (x Core..:? "statusMessage")
             Prelude.<*> (x Core..:? "encrypted")
             Prelude.<*> (x Core..:? "replicationRunId")
-            Prelude.<*> (x Core..:? "amiId")
             Prelude.<*> (x Core..:? "completedTime")
+            Prelude.<*> (x Core..:? "amiId")
             Prelude.<*> (x Core..:? "state")
             Prelude.<*> (x Core..:? "kmsKeyId")
             Prelude.<*> (x Core..:? "scheduledStartTime")

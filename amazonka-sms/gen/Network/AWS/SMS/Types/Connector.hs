@@ -32,10 +32,10 @@ import Network.AWS.SMS.Types.VmManagerType
 data Connector = Connector'
   { -- | The status of the connector.
     status :: Prelude.Maybe ConnectorStatus,
-    -- | The MAC address of the connector.
-    macAddress :: Prelude.Maybe Prelude.Text,
     -- | The time the connector was associated.
     associatedOn :: Prelude.Maybe Core.POSIX,
+    -- | The MAC address of the connector.
+    macAddress :: Prelude.Maybe Prelude.Text,
     -- | The ID of the connector.
     connectorId :: Prelude.Maybe Prelude.Text,
     -- | The ID of the VM manager.
@@ -63,9 +63,9 @@ data Connector = Connector'
 --
 -- 'status', 'connector_status' - The status of the connector.
 --
--- 'macAddress', 'connector_macAddress' - The MAC address of the connector.
---
 -- 'associatedOn', 'connector_associatedOn' - The time the connector was associated.
+--
+-- 'macAddress', 'connector_macAddress' - The MAC address of the connector.
 --
 -- 'connectorId', 'connector_connectorId' - The ID of the connector.
 --
@@ -85,8 +85,8 @@ newConnector ::
 newConnector =
   Connector'
     { status = Prelude.Nothing,
-      macAddress = Prelude.Nothing,
       associatedOn = Prelude.Nothing,
+      macAddress = Prelude.Nothing,
       connectorId = Prelude.Nothing,
       vmManagerId = Prelude.Nothing,
       version = Prelude.Nothing,
@@ -100,13 +100,13 @@ newConnector =
 connector_status :: Lens.Lens' Connector (Prelude.Maybe ConnectorStatus)
 connector_status = Lens.lens (\Connector' {status} -> status) (\s@Connector' {} a -> s {status = a} :: Connector)
 
--- | The MAC address of the connector.
-connector_macAddress :: Lens.Lens' Connector (Prelude.Maybe Prelude.Text)
-connector_macAddress = Lens.lens (\Connector' {macAddress} -> macAddress) (\s@Connector' {} a -> s {macAddress = a} :: Connector)
-
 -- | The time the connector was associated.
 connector_associatedOn :: Lens.Lens' Connector (Prelude.Maybe Prelude.UTCTime)
 connector_associatedOn = Lens.lens (\Connector' {associatedOn} -> associatedOn) (\s@Connector' {} a -> s {associatedOn = a} :: Connector) Prelude.. Lens.mapping Core._Time
+
+-- | The MAC address of the connector.
+connector_macAddress :: Lens.Lens' Connector (Prelude.Maybe Prelude.Text)
+connector_macAddress = Lens.lens (\Connector' {macAddress} -> macAddress) (\s@Connector' {} a -> s {macAddress = a} :: Connector)
 
 -- | The ID of the connector.
 connector_connectorId :: Lens.Lens' Connector (Prelude.Maybe Prelude.Text)
@@ -143,8 +143,8 @@ instance Core.FromJSON Connector where
       ( \x ->
           Connector'
             Prelude.<$> (x Core..:? "status")
-            Prelude.<*> (x Core..:? "macAddress")
             Prelude.<*> (x Core..:? "associatedOn")
+            Prelude.<*> (x Core..:? "macAddress")
             Prelude.<*> (x Core..:? "connectorId")
             Prelude.<*> (x Core..:? "vmManagerId")
             Prelude.<*> (x Core..:? "version")

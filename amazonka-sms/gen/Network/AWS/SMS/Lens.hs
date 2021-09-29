@@ -24,15 +24,15 @@ module Network.AWS.SMS.Lens
     importAppCatalog_roleName,
     importAppCatalogResponse_httpStatus,
 
-    -- ** LaunchApp
-    launchApp_appId,
-    launchAppResponse_httpStatus,
-
     -- ** GetAppValidationConfiguration
     getAppValidationConfiguration_appId,
     getAppValidationConfigurationResponse_appValidationConfigurations,
     getAppValidationConfigurationResponse_serverGroupValidationConfigurations,
     getAppValidationConfigurationResponse_httpStatus,
+
+    -- ** LaunchApp
+    launchApp_appId,
+    launchAppResponse_httpStatus,
 
     -- ** PutAppReplicationConfiguration
     putAppReplicationConfiguration_appId,
@@ -46,6 +46,12 @@ module Network.AWS.SMS.Lens
     getConnectorsResponse_connectorList,
     getConnectorsResponse_httpStatus,
 
+    -- ** StartOnDemandReplicationRun
+    startOnDemandReplicationRun_description,
+    startOnDemandReplicationRun_replicationJobId,
+    startOnDemandReplicationRunResponse_replicationRunId,
+    startOnDemandReplicationRunResponse_httpStatus,
+
     -- ** GenerateTemplate
     generateTemplate_appId,
     generateTemplate_templateFormat,
@@ -58,16 +64,6 @@ module Network.AWS.SMS.Lens
     putAppValidationConfiguration_appId,
     putAppValidationConfigurationResponse_httpStatus,
 
-    -- ** StartOnDemandReplicationRun
-    startOnDemandReplicationRun_description,
-    startOnDemandReplicationRun_replicationJobId,
-    startOnDemandReplicationRunResponse_replicationRunId,
-    startOnDemandReplicationRunResponse_httpStatus,
-
-    -- ** TerminateApp
-    terminateApp_appId,
-    terminateAppResponse_httpStatus,
-
     -- ** ListApps
     listApps_appIds,
     listApps_nextToken,
@@ -75,15 +71,6 @@ module Network.AWS.SMS.Lens
     listAppsResponse_nextToken,
     listAppsResponse_apps,
     listAppsResponse_httpStatus,
-
-    -- ** GetReplicationRuns
-    getReplicationRuns_nextToken,
-    getReplicationRuns_maxResults,
-    getReplicationRuns_replicationJobId,
-    getReplicationRunsResponse_nextToken,
-    getReplicationRunsResponse_replicationJob,
-    getReplicationRunsResponse_replicationRunList,
-    getReplicationRunsResponse_httpStatus,
 
     -- ** GetServers
     getServers_nextToken,
@@ -94,6 +81,19 @@ module Network.AWS.SMS.Lens
     getServersResponse_serverList,
     getServersResponse_serverCatalogStatus,
     getServersResponse_httpStatus,
+
+    -- ** GetReplicationRuns
+    getReplicationRuns_nextToken,
+    getReplicationRuns_maxResults,
+    getReplicationRuns_replicationJobId,
+    getReplicationRunsResponse_nextToken,
+    getReplicationRunsResponse_replicationJob,
+    getReplicationRunsResponse_replicationRunList,
+    getReplicationRunsResponse_httpStatus,
+
+    -- ** TerminateApp
+    terminateApp_appId,
+    terminateAppResponse_httpStatus,
 
     -- ** StartAppReplication
     startAppReplication_appId,
@@ -124,15 +124,15 @@ module Network.AWS.SMS.Lens
     createReplicationJobResponse_replicationJobId,
     createReplicationJobResponse_httpStatus,
 
-    -- ** DeleteServerCatalog
-    deleteServerCatalogResponse_httpStatus,
-
     -- ** GetApp
     getApp_appId,
     getAppResponse_appSummary,
     getAppResponse_serverGroups,
     getAppResponse_tags,
     getAppResponse_httpStatus,
+
+    -- ** DeleteServerCatalog
+    deleteServerCatalogResponse_httpStatus,
 
     -- ** DeleteAppReplicationConfiguration
     deleteAppReplicationConfiguration_appId,
@@ -142,11 +142,6 @@ module Network.AWS.SMS.Lens
     disassociateConnector_connectorId,
     disassociateConnectorResponse_httpStatus,
 
-    -- ** NotifyAppValidationOutput
-    notifyAppValidationOutput_notificationContext,
-    notifyAppValidationOutput_appId,
-    notifyAppValidationOutputResponse_httpStatus,
-
     -- ** GetReplicationJobs
     getReplicationJobs_nextToken,
     getReplicationJobs_maxResults,
@@ -155,33 +150,32 @@ module Network.AWS.SMS.Lens
     getReplicationJobsResponse_replicationJobList,
     getReplicationJobsResponse_httpStatus,
 
+    -- ** NotifyAppValidationOutput
+    notifyAppValidationOutput_notificationContext,
+    notifyAppValidationOutput_appId,
+    notifyAppValidationOutputResponse_httpStatus,
+
     -- ** StartOnDemandAppReplication
     startOnDemandAppReplication_description,
     startOnDemandAppReplication_appId,
     startOnDemandAppReplicationResponse_httpStatus,
 
-    -- ** GetAppValidationOutput
-    getAppValidationOutput_appId,
-    getAppValidationOutputResponse_validationOutputList,
-    getAppValidationOutputResponse_httpStatus,
+    -- ** DeleteAppValidationConfiguration
+    deleteAppValidationConfiguration_appId,
+    deleteAppValidationConfigurationResponse_httpStatus,
 
     -- ** GetAppReplicationConfiguration
     getAppReplicationConfiguration_appId,
     getAppReplicationConfigurationResponse_serverGroupReplicationConfigurations,
     getAppReplicationConfigurationResponse_httpStatus,
 
-    -- ** DeleteAppValidationConfiguration
-    deleteAppValidationConfiguration_appId,
-    deleteAppValidationConfigurationResponse_httpStatus,
-
     -- ** ImportServerCatalog
     importServerCatalogResponse_httpStatus,
 
-    -- ** DeleteApp
-    deleteApp_appId,
-    deleteApp_forceStopAppReplication,
-    deleteApp_forceTerminateApp,
-    deleteAppResponse_httpStatus,
+    -- ** GetAppValidationOutput
+    getAppValidationOutput_appId,
+    getAppValidationOutputResponse_validationOutputList,
+    getAppValidationOutputResponse_httpStatus,
 
     -- ** UpdateApp
     updateApp_appId,
@@ -194,6 +188,12 @@ module Network.AWS.SMS.Lens
     updateAppResponse_serverGroups,
     updateAppResponse_tags,
     updateAppResponse_httpStatus,
+
+    -- ** DeleteApp
+    deleteApp_appId,
+    deleteApp_forceStopAppReplication,
+    deleteApp_forceTerminateApp,
+    deleteAppResponse_httpStatus,
 
     -- ** DeleteAppLaunchConfiguration
     deleteAppLaunchConfiguration_appId,
@@ -239,23 +239,23 @@ module Network.AWS.SMS.Lens
 
     -- ** AppSummary
     appSummary_statusMessage,
+    appSummary_totalServers,
     appSummary_appId,
     appSummary_status,
     appSummary_creationTime,
-    appSummary_totalServers,
     appSummary_launchStatus,
     appSummary_replicationStatusMessage,
     appSummary_roleName,
+    appSummary_replicationConfigurationStatus,
     appSummary_replicationStatus,
     appSummary_importedAppId,
-    appSummary_replicationConfigurationStatus,
     appSummary_latestReplicationTime,
-    appSummary_launchDetails,
     appSummary_name,
+    appSummary_launchDetails,
     appSummary_launchConfigurationStatus,
     appSummary_description,
-    appSummary_lastModified,
     appSummary_totalServerGroups,
+    appSummary_lastModified,
     appSummary_launchStatusMessage,
 
     -- ** AppValidationConfiguration
@@ -269,8 +269,8 @@ module Network.AWS.SMS.Lens
 
     -- ** Connector
     connector_status,
-    connector_macAddress,
     connector_associatedOn,
+    connector_macAddress,
     connector_connectorId,
     connector_vmManagerId,
     connector_version,
@@ -291,20 +291,20 @@ module Network.AWS.SMS.Lens
 
     -- ** ReplicationJob
     replicationJob_nextReplicationRunStartTime,
-    replicationJob_statusMessage,
     replicationJob_numberOfRecentAmisToKeep,
+    replicationJob_statusMessage,
     replicationJob_encrypted,
     replicationJob_latestAmiId,
     replicationJob_roleName,
     replicationJob_serverId,
     replicationJob_state,
-    replicationJob_replicationRunList,
     replicationJob_kmsKeyId,
+    replicationJob_replicationRunList,
     replicationJob_frequency,
-    replicationJob_runOnce,
-    replicationJob_description,
     replicationJob_replicationJobId,
+    replicationJob_runOnce,
     replicationJob_seedReplicationTime,
+    replicationJob_description,
     replicationJob_vmServer,
     replicationJob_licenseType,
     replicationJob_serverType,
@@ -313,8 +313,8 @@ module Network.AWS.SMS.Lens
     replicationRun_statusMessage,
     replicationRun_encrypted,
     replicationRun_replicationRunId,
-    replicationRun_amiId,
     replicationRun_completedTime,
+    replicationRun_amiId,
     replicationRun_state,
     replicationRun_kmsKeyId,
     replicationRun_scheduledStartTime,
@@ -350,8 +350,8 @@ module Network.AWS.SMS.Lens
 
     -- ** ServerGroup
     serverGroup_serverGroupId,
-    serverGroup_name,
     serverGroup_serverList,
+    serverGroup_name,
 
     -- ** ServerGroupLaunchConfiguration
     serverGroupLaunchConfiguration_serverGroupId,
@@ -369,8 +369,8 @@ module Network.AWS.SMS.Lens
     -- ** ServerLaunchConfiguration
     serverLaunchConfiguration_configureScript,
     serverLaunchConfiguration_ec2KeyName,
-    serverLaunchConfiguration_instanceType,
     serverLaunchConfiguration_userData,
+    serverLaunchConfiguration_instanceType,
     serverLaunchConfiguration_logicalId,
     serverLaunchConfiguration_subnet,
     serverLaunchConfiguration_iamInstanceProfileName,

@@ -29,14 +29,14 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newHttpEndpointRequestConfiguration' smart constructor.
 data HttpEndpointRequestConfiguration = HttpEndpointRequestConfiguration'
-  { -- | Kinesis Data Firehose uses the content encoding to compress the body of
+  { -- | Describes the metadata sent to the HTTP endpoint destination.
+    commonAttributes :: Prelude.Maybe [HttpEndpointCommonAttribute],
+    -- | Kinesis Data Firehose uses the content encoding to compress the body of
     -- a request before sending the request to the destination. For more
     -- information, see
     -- <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding Content-Encoding>
     -- in MDN Web Docs, the official Mozilla documentation.
-    contentEncoding :: Prelude.Maybe ContentEncoding,
-    -- | Describes the metadata sent to the HTTP endpoint destination.
-    commonAttributes :: Prelude.Maybe [HttpEndpointCommonAttribute]
+    contentEncoding :: Prelude.Maybe ContentEncoding
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
 
@@ -48,21 +48,25 @@ data HttpEndpointRequestConfiguration = HttpEndpointRequestConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'commonAttributes', 'httpEndpointRequestConfiguration_commonAttributes' - Describes the metadata sent to the HTTP endpoint destination.
+--
 -- 'contentEncoding', 'httpEndpointRequestConfiguration_contentEncoding' - Kinesis Data Firehose uses the content encoding to compress the body of
 -- a request before sending the request to the destination. For more
 -- information, see
 -- <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding Content-Encoding>
 -- in MDN Web Docs, the official Mozilla documentation.
---
--- 'commonAttributes', 'httpEndpointRequestConfiguration_commonAttributes' - Describes the metadata sent to the HTTP endpoint destination.
 newHttpEndpointRequestConfiguration ::
   HttpEndpointRequestConfiguration
 newHttpEndpointRequestConfiguration =
   HttpEndpointRequestConfiguration'
-    { contentEncoding =
+    { commonAttributes =
         Prelude.Nothing,
-      commonAttributes = Prelude.Nothing
+      contentEncoding = Prelude.Nothing
     }
+
+-- | Describes the metadata sent to the HTTP endpoint destination.
+httpEndpointRequestConfiguration_commonAttributes :: Lens.Lens' HttpEndpointRequestConfiguration (Prelude.Maybe [HttpEndpointCommonAttribute])
+httpEndpointRequestConfiguration_commonAttributes = Lens.lens (\HttpEndpointRequestConfiguration' {commonAttributes} -> commonAttributes) (\s@HttpEndpointRequestConfiguration' {} a -> s {commonAttributes = a} :: HttpEndpointRequestConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Kinesis Data Firehose uses the content encoding to compress the body of
 -- a request before sending the request to the destination. For more
@@ -71,10 +75,6 @@ newHttpEndpointRequestConfiguration =
 -- in MDN Web Docs, the official Mozilla documentation.
 httpEndpointRequestConfiguration_contentEncoding :: Lens.Lens' HttpEndpointRequestConfiguration (Prelude.Maybe ContentEncoding)
 httpEndpointRequestConfiguration_contentEncoding = Lens.lens (\HttpEndpointRequestConfiguration' {contentEncoding} -> contentEncoding) (\s@HttpEndpointRequestConfiguration' {} a -> s {contentEncoding = a} :: HttpEndpointRequestConfiguration)
-
--- | Describes the metadata sent to the HTTP endpoint destination.
-httpEndpointRequestConfiguration_commonAttributes :: Lens.Lens' HttpEndpointRequestConfiguration (Prelude.Maybe [HttpEndpointCommonAttribute])
-httpEndpointRequestConfiguration_commonAttributes = Lens.lens (\HttpEndpointRequestConfiguration' {commonAttributes} -> commonAttributes) (\s@HttpEndpointRequestConfiguration' {} a -> s {commonAttributes = a} :: HttpEndpointRequestConfiguration) Prelude.. Lens.mapping Lens._Coerce
 
 instance
   Core.FromJSON
@@ -85,10 +85,10 @@ instance
       "HttpEndpointRequestConfiguration"
       ( \x ->
           HttpEndpointRequestConfiguration'
-            Prelude.<$> (x Core..:? "ContentEncoding")
-            Prelude.<*> ( x Core..:? "CommonAttributes"
+            Prelude.<$> ( x Core..:? "CommonAttributes"
                             Core..!= Prelude.mempty
                         )
+            Prelude.<*> (x Core..:? "ContentEncoding")
       )
 
 instance
@@ -103,9 +103,9 @@ instance Core.ToJSON HttpEndpointRequestConfiguration where
   toJSON HttpEndpointRequestConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ContentEncoding" Core..=)
-              Prelude.<$> contentEncoding,
-            ("CommonAttributes" Core..=)
-              Prelude.<$> commonAttributes
+          [ ("CommonAttributes" Core..=)
+              Prelude.<$> commonAttributes,
+            ("ContentEncoding" Core..=)
+              Prelude.<$> contentEncoding
           ]
       )

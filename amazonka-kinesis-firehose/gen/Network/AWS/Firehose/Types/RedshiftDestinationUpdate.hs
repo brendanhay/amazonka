@@ -52,10 +52,10 @@ data RedshiftDestinationUpdate = RedshiftDestinationUpdate'
     cloudWatchLoggingOptions :: Prelude.Maybe CloudWatchLoggingOptions,
     -- | The @COPY@ command.
     copyCommand :: Prelude.Maybe CopyCommand,
-    -- | The Amazon S3 destination for backup.
-    s3BackupUpdate :: Prelude.Maybe S3DestinationUpdate,
     -- | The user password.
     password :: Prelude.Maybe (Core.Sensitive Prelude.Text),
+    -- | The Amazon S3 destination for backup.
+    s3BackupUpdate :: Prelude.Maybe S3DestinationUpdate,
     -- | The name of the user.
     username :: Prelude.Maybe (Core.Sensitive Prelude.Text),
     -- | The retry behavior in case Kinesis Data Firehose is unable to deliver
@@ -95,9 +95,9 @@ data RedshiftDestinationUpdate = RedshiftDestinationUpdate'
 --
 -- 'copyCommand', 'redshiftDestinationUpdate_copyCommand' - The @COPY@ command.
 --
--- 's3BackupUpdate', 'redshiftDestinationUpdate_s3BackupUpdate' - The Amazon S3 destination for backup.
---
 -- 'password', 'redshiftDestinationUpdate_password' - The user password.
+--
+-- 's3BackupUpdate', 'redshiftDestinationUpdate_s3BackupUpdate' - The Amazon S3 destination for backup.
 --
 -- 'username', 'redshiftDestinationUpdate_username' - The name of the user.
 --
@@ -118,8 +118,8 @@ newRedshiftDestinationUpdate =
       processingConfiguration = Prelude.Nothing,
       cloudWatchLoggingOptions = Prelude.Nothing,
       copyCommand = Prelude.Nothing,
-      s3BackupUpdate = Prelude.Nothing,
       password = Prelude.Nothing,
+      s3BackupUpdate = Prelude.Nothing,
       username = Prelude.Nothing,
       retryOptions = Prelude.Nothing,
       s3BackupMode = Prelude.Nothing
@@ -156,13 +156,13 @@ redshiftDestinationUpdate_cloudWatchLoggingOptions = Lens.lens (\RedshiftDestina
 redshiftDestinationUpdate_copyCommand :: Lens.Lens' RedshiftDestinationUpdate (Prelude.Maybe CopyCommand)
 redshiftDestinationUpdate_copyCommand = Lens.lens (\RedshiftDestinationUpdate' {copyCommand} -> copyCommand) (\s@RedshiftDestinationUpdate' {} a -> s {copyCommand = a} :: RedshiftDestinationUpdate)
 
--- | The Amazon S3 destination for backup.
-redshiftDestinationUpdate_s3BackupUpdate :: Lens.Lens' RedshiftDestinationUpdate (Prelude.Maybe S3DestinationUpdate)
-redshiftDestinationUpdate_s3BackupUpdate = Lens.lens (\RedshiftDestinationUpdate' {s3BackupUpdate} -> s3BackupUpdate) (\s@RedshiftDestinationUpdate' {} a -> s {s3BackupUpdate = a} :: RedshiftDestinationUpdate)
-
 -- | The user password.
 redshiftDestinationUpdate_password :: Lens.Lens' RedshiftDestinationUpdate (Prelude.Maybe Prelude.Text)
 redshiftDestinationUpdate_password = Lens.lens (\RedshiftDestinationUpdate' {password} -> password) (\s@RedshiftDestinationUpdate' {} a -> s {password = a} :: RedshiftDestinationUpdate) Prelude.. Lens.mapping Core._Sensitive
+
+-- | The Amazon S3 destination for backup.
+redshiftDestinationUpdate_s3BackupUpdate :: Lens.Lens' RedshiftDestinationUpdate (Prelude.Maybe S3DestinationUpdate)
+redshiftDestinationUpdate_s3BackupUpdate = Lens.lens (\RedshiftDestinationUpdate' {s3BackupUpdate} -> s3BackupUpdate) (\s@RedshiftDestinationUpdate' {} a -> s {s3BackupUpdate = a} :: RedshiftDestinationUpdate)
 
 -- | The name of the user.
 redshiftDestinationUpdate_username :: Lens.Lens' RedshiftDestinationUpdate (Prelude.Maybe Prelude.Text)
@@ -196,9 +196,9 @@ instance Core.ToJSON RedshiftDestinationUpdate where
             ("CloudWatchLoggingOptions" Core..=)
               Prelude.<$> cloudWatchLoggingOptions,
             ("CopyCommand" Core..=) Prelude.<$> copyCommand,
+            ("Password" Core..=) Prelude.<$> password,
             ("S3BackupUpdate" Core..=)
               Prelude.<$> s3BackupUpdate,
-            ("Password" Core..=) Prelude.<$> password,
             ("Username" Core..=) Prelude.<$> username,
             ("RetryOptions" Core..=) Prelude.<$> retryOptions,
             ("S3BackupMode" Core..=) Prelude.<$> s3BackupMode

@@ -20,7 +20,10 @@
 module Network.AWS.Firehose.Types.ProcessorType
   ( ProcessorType
       ( ..,
-        ProcessorType_Lambda
+        ProcessorType_AppendDelimiterToRecord,
+        ProcessorType_Lambda,
+        ProcessorType_MetadataExtraction,
+        ProcessorType_RecordDeAggregation
       ),
   )
 where
@@ -56,10 +59,22 @@ newtype ProcessorType = ProcessorType'
       Core.ToXML
     )
 
+pattern ProcessorType_AppendDelimiterToRecord :: ProcessorType
+pattern ProcessorType_AppendDelimiterToRecord = ProcessorType' "AppendDelimiterToRecord"
+
 pattern ProcessorType_Lambda :: ProcessorType
 pattern ProcessorType_Lambda = ProcessorType' "Lambda"
 
+pattern ProcessorType_MetadataExtraction :: ProcessorType
+pattern ProcessorType_MetadataExtraction = ProcessorType' "MetadataExtraction"
+
+pattern ProcessorType_RecordDeAggregation :: ProcessorType
+pattern ProcessorType_RecordDeAggregation = ProcessorType' "RecordDeAggregation"
+
 {-# COMPLETE
+  ProcessorType_AppendDelimiterToRecord,
   ProcessorType_Lambda,
+  ProcessorType_MetadataExtraction,
+  ProcessorType_RecordDeAggregation,
   ProcessorType'
   #-}

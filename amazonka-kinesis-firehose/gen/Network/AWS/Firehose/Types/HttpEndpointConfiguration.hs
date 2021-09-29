@@ -34,6 +34,10 @@ data HttpEndpointConfiguration = HttpEndpointConfiguration'
     -- | The name of the HTTP endpoint selected as the destination.
     name :: Prelude.Maybe Prelude.Text,
     -- | The URL of the HTTP endpoint selected as the destination.
+    --
+    -- If you choose an HTTP endpoint as your destination, review and follow
+    -- the instructions in the
+    -- <https://docs.aws.amazon.com/firehose/latest/dev/httpdeliveryrequestresponse.html Appendix - HTTP Endpoint Delivery Request and Response Specifications>.
     url :: Core.Sensitive Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Show, Prelude.Generic)
@@ -52,6 +56,10 @@ data HttpEndpointConfiguration = HttpEndpointConfiguration'
 -- 'name', 'httpEndpointConfiguration_name' - The name of the HTTP endpoint selected as the destination.
 --
 -- 'url', 'httpEndpointConfiguration_url' - The URL of the HTTP endpoint selected as the destination.
+--
+-- If you choose an HTTP endpoint as your destination, review and follow
+-- the instructions in the
+-- <https://docs.aws.amazon.com/firehose/latest/dev/httpdeliveryrequestresponse.html Appendix - HTTP Endpoint Delivery Request and Response Specifications>.
 newHttpEndpointConfiguration ::
   -- | 'url'
   Prelude.Text ->
@@ -74,6 +82,10 @@ httpEndpointConfiguration_name :: Lens.Lens' HttpEndpointConfiguration (Prelude.
 httpEndpointConfiguration_name = Lens.lens (\HttpEndpointConfiguration' {name} -> name) (\s@HttpEndpointConfiguration' {} a -> s {name = a} :: HttpEndpointConfiguration)
 
 -- | The URL of the HTTP endpoint selected as the destination.
+--
+-- If you choose an HTTP endpoint as your destination, review and follow
+-- the instructions in the
+-- <https://docs.aws.amazon.com/firehose/latest/dev/httpdeliveryrequestresponse.html Appendix - HTTP Endpoint Delivery Request and Response Specifications>.
 httpEndpointConfiguration_url :: Lens.Lens' HttpEndpointConfiguration Prelude.Text
 httpEndpointConfiguration_url = Lens.lens (\HttpEndpointConfiguration' {url} -> url) (\s@HttpEndpointConfiguration' {} a -> s {url = a} :: HttpEndpointConfiguration) Prelude.. Core._Sensitive
 

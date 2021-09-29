@@ -33,10 +33,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newDestinationDescription' smart constructor.
 data DestinationDescription = DestinationDescription'
-  { -- | The destination in Amazon ES.
-    elasticsearchDestinationDescription :: Prelude.Maybe ElasticsearchDestinationDescription,
-    -- | Describes the specified HTTP endpoint destination.
+  { -- | Describes the specified HTTP endpoint destination.
     httpEndpointDestinationDescription :: Prelude.Maybe HttpEndpointDestinationDescription,
+    -- | The destination in Amazon ES.
+    elasticsearchDestinationDescription :: Prelude.Maybe ElasticsearchDestinationDescription,
     -- | The destination in Amazon S3.
     extendedS3DestinationDescription :: Prelude.Maybe ExtendedS3DestinationDescription,
     -- | The destination in Amazon Redshift.
@@ -58,9 +58,9 @@ data DestinationDescription = DestinationDescription'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'elasticsearchDestinationDescription', 'destinationDescription_elasticsearchDestinationDescription' - The destination in Amazon ES.
---
 -- 'httpEndpointDestinationDescription', 'destinationDescription_httpEndpointDestinationDescription' - Describes the specified HTTP endpoint destination.
+--
+-- 'elasticsearchDestinationDescription', 'destinationDescription_elasticsearchDestinationDescription' - The destination in Amazon ES.
 --
 -- 'extendedS3DestinationDescription', 'destinationDescription_extendedS3DestinationDescription' - The destination in Amazon S3.
 --
@@ -77,9 +77,9 @@ newDestinationDescription ::
   DestinationDescription
 newDestinationDescription pDestinationId_ =
   DestinationDescription'
-    { elasticsearchDestinationDescription =
+    { httpEndpointDestinationDescription =
         Prelude.Nothing,
-      httpEndpointDestinationDescription =
+      elasticsearchDestinationDescription =
         Prelude.Nothing,
       extendedS3DestinationDescription = Prelude.Nothing,
       redshiftDestinationDescription = Prelude.Nothing,
@@ -88,13 +88,13 @@ newDestinationDescription pDestinationId_ =
       destinationId = pDestinationId_
     }
 
--- | The destination in Amazon ES.
-destinationDescription_elasticsearchDestinationDescription :: Lens.Lens' DestinationDescription (Prelude.Maybe ElasticsearchDestinationDescription)
-destinationDescription_elasticsearchDestinationDescription = Lens.lens (\DestinationDescription' {elasticsearchDestinationDescription} -> elasticsearchDestinationDescription) (\s@DestinationDescription' {} a -> s {elasticsearchDestinationDescription = a} :: DestinationDescription)
-
 -- | Describes the specified HTTP endpoint destination.
 destinationDescription_httpEndpointDestinationDescription :: Lens.Lens' DestinationDescription (Prelude.Maybe HttpEndpointDestinationDescription)
 destinationDescription_httpEndpointDestinationDescription = Lens.lens (\DestinationDescription' {httpEndpointDestinationDescription} -> httpEndpointDestinationDescription) (\s@DestinationDescription' {} a -> s {httpEndpointDestinationDescription = a} :: DestinationDescription)
+
+-- | The destination in Amazon ES.
+destinationDescription_elasticsearchDestinationDescription :: Lens.Lens' DestinationDescription (Prelude.Maybe ElasticsearchDestinationDescription)
+destinationDescription_elasticsearchDestinationDescription = Lens.lens (\DestinationDescription' {elasticsearchDestinationDescription} -> elasticsearchDestinationDescription) (\s@DestinationDescription' {} a -> s {elasticsearchDestinationDescription = a} :: DestinationDescription)
 
 -- | The destination in Amazon S3.
 destinationDescription_extendedS3DestinationDescription :: Lens.Lens' DestinationDescription (Prelude.Maybe ExtendedS3DestinationDescription)
@@ -122,8 +122,8 @@ instance Core.FromJSON DestinationDescription where
       "DestinationDescription"
       ( \x ->
           DestinationDescription'
-            Prelude.<$> (x Core..:? "ElasticsearchDestinationDescription")
-            Prelude.<*> (x Core..:? "HttpEndpointDestinationDescription")
+            Prelude.<$> (x Core..:? "HttpEndpointDestinationDescription")
+            Prelude.<*> (x Core..:? "ElasticsearchDestinationDescription")
             Prelude.<*> (x Core..:? "ExtendedS3DestinationDescription")
             Prelude.<*> (x Core..:? "RedshiftDestinationDescription")
             Prelude.<*> (x Core..:? "SplunkDestinationDescription")

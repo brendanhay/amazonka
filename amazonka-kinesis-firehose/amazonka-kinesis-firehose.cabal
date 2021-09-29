@@ -73,6 +73,7 @@ library
     Network.AWS.Firehose.Types.DeliveryStreamType
     Network.AWS.Firehose.Types.Deserializer
     Network.AWS.Firehose.Types.DestinationDescription
+    Network.AWS.Firehose.Types.DynamicPartitioningConfiguration
     Network.AWS.Firehose.Types.ElasticsearchBufferingHints
     Network.AWS.Firehose.Types.ElasticsearchDestinationConfiguration
     Network.AWS.Firehose.Types.ElasticsearchDestinationDescription
@@ -123,6 +124,7 @@ library
     Network.AWS.Firehose.Types.RedshiftDestinationUpdate
     Network.AWS.Firehose.Types.RedshiftRetryOptions
     Network.AWS.Firehose.Types.RedshiftS3BackupMode
+    Network.AWS.Firehose.Types.RetryOptions
     Network.AWS.Firehose.Types.S3BackupMode
     Network.AWS.Firehose.Types.S3DestinationConfiguration
     Network.AWS.Firehose.Types.S3DestinationDescription

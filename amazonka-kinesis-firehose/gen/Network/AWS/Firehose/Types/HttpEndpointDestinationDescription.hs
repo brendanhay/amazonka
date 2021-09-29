@@ -38,9 +38,9 @@ data HttpEndpointDestinationDescription = HttpEndpointDestinationDescription'
   { -- | Kinesis Data Firehose uses this IAM role for all the permissions that
     -- the delivery stream needs.
     roleARN :: Prelude.Maybe Prelude.Text,
-    processingConfiguration :: Prelude.Maybe ProcessingConfiguration,
     -- | The configuration of the specified HTTP endpoint destination.
     endpointConfiguration :: Prelude.Maybe HttpEndpointDescription,
+    processingConfiguration :: Prelude.Maybe ProcessingConfiguration,
     cloudWatchLoggingOptions :: Prelude.Maybe CloudWatchLoggingOptions,
     -- | The configuration of request sent to the HTTP endpoint specified as the
     -- destination.
@@ -78,9 +78,9 @@ data HttpEndpointDestinationDescription = HttpEndpointDestinationDescription'
 -- 'roleARN', 'httpEndpointDestinationDescription_roleARN' - Kinesis Data Firehose uses this IAM role for all the permissions that
 -- the delivery stream needs.
 --
--- 'processingConfiguration', 'httpEndpointDestinationDescription_processingConfiguration' - Undocumented member.
---
 -- 'endpointConfiguration', 'httpEndpointDestinationDescription_endpointConfiguration' - The configuration of the specified HTTP endpoint destination.
+--
+-- 'processingConfiguration', 'httpEndpointDestinationDescription_processingConfiguration' - Undocumented member.
 --
 -- 'cloudWatchLoggingOptions', 'httpEndpointDestinationDescription_cloudWatchLoggingOptions' - Undocumented member.
 --
@@ -112,9 +112,9 @@ newHttpEndpointDestinationDescription =
   HttpEndpointDestinationDescription'
     { roleARN =
         Prelude.Nothing,
+      endpointConfiguration = Prelude.Nothing,
       processingConfiguration =
         Prelude.Nothing,
-      endpointConfiguration = Prelude.Nothing,
       cloudWatchLoggingOptions =
         Prelude.Nothing,
       requestConfiguration = Prelude.Nothing,
@@ -130,13 +130,13 @@ newHttpEndpointDestinationDescription =
 httpEndpointDestinationDescription_roleARN :: Lens.Lens' HttpEndpointDestinationDescription (Prelude.Maybe Prelude.Text)
 httpEndpointDestinationDescription_roleARN = Lens.lens (\HttpEndpointDestinationDescription' {roleARN} -> roleARN) (\s@HttpEndpointDestinationDescription' {} a -> s {roleARN = a} :: HttpEndpointDestinationDescription)
 
--- | Undocumented member.
-httpEndpointDestinationDescription_processingConfiguration :: Lens.Lens' HttpEndpointDestinationDescription (Prelude.Maybe ProcessingConfiguration)
-httpEndpointDestinationDescription_processingConfiguration = Lens.lens (\HttpEndpointDestinationDescription' {processingConfiguration} -> processingConfiguration) (\s@HttpEndpointDestinationDescription' {} a -> s {processingConfiguration = a} :: HttpEndpointDestinationDescription)
-
 -- | The configuration of the specified HTTP endpoint destination.
 httpEndpointDestinationDescription_endpointConfiguration :: Lens.Lens' HttpEndpointDestinationDescription (Prelude.Maybe HttpEndpointDescription)
 httpEndpointDestinationDescription_endpointConfiguration = Lens.lens (\HttpEndpointDestinationDescription' {endpointConfiguration} -> endpointConfiguration) (\s@HttpEndpointDestinationDescription' {} a -> s {endpointConfiguration = a} :: HttpEndpointDestinationDescription)
+
+-- | Undocumented member.
+httpEndpointDestinationDescription_processingConfiguration :: Lens.Lens' HttpEndpointDestinationDescription (Prelude.Maybe ProcessingConfiguration)
+httpEndpointDestinationDescription_processingConfiguration = Lens.lens (\HttpEndpointDestinationDescription' {processingConfiguration} -> processingConfiguration) (\s@HttpEndpointDestinationDescription' {} a -> s {processingConfiguration = a} :: HttpEndpointDestinationDescription)
 
 -- | Undocumented member.
 httpEndpointDestinationDescription_cloudWatchLoggingOptions :: Lens.Lens' HttpEndpointDestinationDescription (Prelude.Maybe CloudWatchLoggingOptions)
@@ -185,8 +185,8 @@ instance
       ( \x ->
           HttpEndpointDestinationDescription'
             Prelude.<$> (x Core..:? "RoleARN")
-            Prelude.<*> (x Core..:? "ProcessingConfiguration")
             Prelude.<*> (x Core..:? "EndpointConfiguration")
+            Prelude.<*> (x Core..:? "ProcessingConfiguration")
             Prelude.<*> (x Core..:? "CloudWatchLoggingOptions")
             Prelude.<*> (x Core..:? "RequestConfiguration")
             Prelude.<*> (x Core..:? "BufferingHints")

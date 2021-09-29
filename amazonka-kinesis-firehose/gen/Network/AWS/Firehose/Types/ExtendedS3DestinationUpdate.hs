@@ -24,6 +24,7 @@ import Network.AWS.Firehose.Types.BufferingHints
 import Network.AWS.Firehose.Types.CloudWatchLoggingOptions
 import Network.AWS.Firehose.Types.CompressionFormat
 import Network.AWS.Firehose.Types.DataFormatConversionConfiguration
+import Network.AWS.Firehose.Types.DynamicPartitioningConfiguration
 import Network.AWS.Firehose.Types.EncryptionConfiguration
 import Network.AWS.Firehose.Types.ProcessingConfiguration
 import Network.AWS.Firehose.Types.S3BackupMode
@@ -47,21 +48,27 @@ data ExtendedS3DestinationUpdate = ExtendedS3DestinationUpdate'
     -- information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
     roleARN :: Prelude.Maybe Prelude.Text,
+    -- | The data processing configuration.
+    processingConfiguration :: Prelude.Maybe ProcessingConfiguration,
     -- | The ARN of the S3 bucket. For more information, see
     -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
     bucketARN :: Prelude.Maybe Prelude.Text,
-    -- | The data processing configuration.
-    processingConfiguration :: Prelude.Maybe ProcessingConfiguration,
+    -- | The Amazon CloudWatch logging options for your delivery stream.
+    cloudWatchLoggingOptions :: Prelude.Maybe CloudWatchLoggingOptions,
     -- | The serializer, deserializer, and schema for converting data from the
     -- JSON format to the Parquet or ORC format before writing it to Amazon S3.
     dataFormatConversionConfiguration :: Prelude.Maybe DataFormatConversionConfiguration,
-    -- | The Amazon CloudWatch logging options for your delivery stream.
-    cloudWatchLoggingOptions :: Prelude.Maybe CloudWatchLoggingOptions,
     -- | The \"YYYY\/MM\/DD\/HH\" time format prefix is automatically used for
     -- delivered Amazon S3 files. You can also specify a custom prefix, as
     -- described in
     -- <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects>.
     prefix :: Prelude.Maybe Prelude.Text,
+    -- | The configuration of the dynamic partitioning mechanism that creates
+    -- smaller data sets from the streaming data by partitioning it based on
+    -- partition keys. Currently, dynamic partitioning is only supported for
+    -- Amazon S3 destinations. For more information, see
+    -- <https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html>
+    dynamicPartitioningConfiguration :: Prelude.Maybe DynamicPartitioningConfiguration,
     -- | The Amazon S3 destination for backup.
     s3BackupUpdate :: Prelude.Maybe S3DestinationUpdate,
     -- | The buffering option.
@@ -96,20 +103,26 @@ data ExtendedS3DestinationUpdate = ExtendedS3DestinationUpdate'
 -- information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
 --
+-- 'processingConfiguration', 'extendedS3DestinationUpdate_processingConfiguration' - The data processing configuration.
+--
 -- 'bucketARN', 'extendedS3DestinationUpdate_bucketARN' - The ARN of the S3 bucket. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
 --
--- 'processingConfiguration', 'extendedS3DestinationUpdate_processingConfiguration' - The data processing configuration.
+-- 'cloudWatchLoggingOptions', 'extendedS3DestinationUpdate_cloudWatchLoggingOptions' - The Amazon CloudWatch logging options for your delivery stream.
 --
 -- 'dataFormatConversionConfiguration', 'extendedS3DestinationUpdate_dataFormatConversionConfiguration' - The serializer, deserializer, and schema for converting data from the
 -- JSON format to the Parquet or ORC format before writing it to Amazon S3.
---
--- 'cloudWatchLoggingOptions', 'extendedS3DestinationUpdate_cloudWatchLoggingOptions' - The Amazon CloudWatch logging options for your delivery stream.
 --
 -- 'prefix', 'extendedS3DestinationUpdate_prefix' - The \"YYYY\/MM\/DD\/HH\" time format prefix is automatically used for
 -- delivered Amazon S3 files. You can also specify a custom prefix, as
 -- described in
 -- <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects>.
+--
+-- 'dynamicPartitioningConfiguration', 'extendedS3DestinationUpdate_dynamicPartitioningConfiguration' - The configuration of the dynamic partitioning mechanism that creates
+-- smaller data sets from the streaming data by partitioning it based on
+-- partition keys. Currently, dynamic partitioning is only supported for
+-- Amazon S3 destinations. For more information, see
+-- <https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html>
 --
 -- 's3BackupUpdate', 'extendedS3DestinationUpdate_s3BackupUpdate' - The Amazon S3 destination for backup.
 --
@@ -129,12 +142,14 @@ newExtendedS3DestinationUpdate =
         Prelude.Nothing,
       encryptionConfiguration = Prelude.Nothing,
       roleARN = Prelude.Nothing,
-      bucketARN = Prelude.Nothing,
       processingConfiguration = Prelude.Nothing,
+      bucketARN = Prelude.Nothing,
+      cloudWatchLoggingOptions = Prelude.Nothing,
       dataFormatConversionConfiguration =
         Prelude.Nothing,
-      cloudWatchLoggingOptions = Prelude.Nothing,
       prefix = Prelude.Nothing,
+      dynamicPartitioningConfiguration =
+        Prelude.Nothing,
       s3BackupUpdate = Prelude.Nothing,
       bufferingHints = Prelude.Nothing,
       s3BackupMode = Prelude.Nothing,
@@ -159,23 +174,23 @@ extendedS3DestinationUpdate_encryptionConfiguration = Lens.lens (\ExtendedS3Dest
 extendedS3DestinationUpdate_roleARN :: Lens.Lens' ExtendedS3DestinationUpdate (Prelude.Maybe Prelude.Text)
 extendedS3DestinationUpdate_roleARN = Lens.lens (\ExtendedS3DestinationUpdate' {roleARN} -> roleARN) (\s@ExtendedS3DestinationUpdate' {} a -> s {roleARN = a} :: ExtendedS3DestinationUpdate)
 
+-- | The data processing configuration.
+extendedS3DestinationUpdate_processingConfiguration :: Lens.Lens' ExtendedS3DestinationUpdate (Prelude.Maybe ProcessingConfiguration)
+extendedS3DestinationUpdate_processingConfiguration = Lens.lens (\ExtendedS3DestinationUpdate' {processingConfiguration} -> processingConfiguration) (\s@ExtendedS3DestinationUpdate' {} a -> s {processingConfiguration = a} :: ExtendedS3DestinationUpdate)
+
 -- | The ARN of the S3 bucket. For more information, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces>.
 extendedS3DestinationUpdate_bucketARN :: Lens.Lens' ExtendedS3DestinationUpdate (Prelude.Maybe Prelude.Text)
 extendedS3DestinationUpdate_bucketARN = Lens.lens (\ExtendedS3DestinationUpdate' {bucketARN} -> bucketARN) (\s@ExtendedS3DestinationUpdate' {} a -> s {bucketARN = a} :: ExtendedS3DestinationUpdate)
 
--- | The data processing configuration.
-extendedS3DestinationUpdate_processingConfiguration :: Lens.Lens' ExtendedS3DestinationUpdate (Prelude.Maybe ProcessingConfiguration)
-extendedS3DestinationUpdate_processingConfiguration = Lens.lens (\ExtendedS3DestinationUpdate' {processingConfiguration} -> processingConfiguration) (\s@ExtendedS3DestinationUpdate' {} a -> s {processingConfiguration = a} :: ExtendedS3DestinationUpdate)
+-- | The Amazon CloudWatch logging options for your delivery stream.
+extendedS3DestinationUpdate_cloudWatchLoggingOptions :: Lens.Lens' ExtendedS3DestinationUpdate (Prelude.Maybe CloudWatchLoggingOptions)
+extendedS3DestinationUpdate_cloudWatchLoggingOptions = Lens.lens (\ExtendedS3DestinationUpdate' {cloudWatchLoggingOptions} -> cloudWatchLoggingOptions) (\s@ExtendedS3DestinationUpdate' {} a -> s {cloudWatchLoggingOptions = a} :: ExtendedS3DestinationUpdate)
 
 -- | The serializer, deserializer, and schema for converting data from the
 -- JSON format to the Parquet or ORC format before writing it to Amazon S3.
 extendedS3DestinationUpdate_dataFormatConversionConfiguration :: Lens.Lens' ExtendedS3DestinationUpdate (Prelude.Maybe DataFormatConversionConfiguration)
 extendedS3DestinationUpdate_dataFormatConversionConfiguration = Lens.lens (\ExtendedS3DestinationUpdate' {dataFormatConversionConfiguration} -> dataFormatConversionConfiguration) (\s@ExtendedS3DestinationUpdate' {} a -> s {dataFormatConversionConfiguration = a} :: ExtendedS3DestinationUpdate)
-
--- | The Amazon CloudWatch logging options for your delivery stream.
-extendedS3DestinationUpdate_cloudWatchLoggingOptions :: Lens.Lens' ExtendedS3DestinationUpdate (Prelude.Maybe CloudWatchLoggingOptions)
-extendedS3DestinationUpdate_cloudWatchLoggingOptions = Lens.lens (\ExtendedS3DestinationUpdate' {cloudWatchLoggingOptions} -> cloudWatchLoggingOptions) (\s@ExtendedS3DestinationUpdate' {} a -> s {cloudWatchLoggingOptions = a} :: ExtendedS3DestinationUpdate)
 
 -- | The \"YYYY\/MM\/DD\/HH\" time format prefix is automatically used for
 -- delivered Amazon S3 files. You can also specify a custom prefix, as
@@ -183,6 +198,14 @@ extendedS3DestinationUpdate_cloudWatchLoggingOptions = Lens.lens (\ExtendedS3Des
 -- <https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html Custom Prefixes for Amazon S3 Objects>.
 extendedS3DestinationUpdate_prefix :: Lens.Lens' ExtendedS3DestinationUpdate (Prelude.Maybe Prelude.Text)
 extendedS3DestinationUpdate_prefix = Lens.lens (\ExtendedS3DestinationUpdate' {prefix} -> prefix) (\s@ExtendedS3DestinationUpdate' {} a -> s {prefix = a} :: ExtendedS3DestinationUpdate)
+
+-- | The configuration of the dynamic partitioning mechanism that creates
+-- smaller data sets from the streaming data by partitioning it based on
+-- partition keys. Currently, dynamic partitioning is only supported for
+-- Amazon S3 destinations. For more information, see
+-- <https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html>
+extendedS3DestinationUpdate_dynamicPartitioningConfiguration :: Lens.Lens' ExtendedS3DestinationUpdate (Prelude.Maybe DynamicPartitioningConfiguration)
+extendedS3DestinationUpdate_dynamicPartitioningConfiguration = Lens.lens (\ExtendedS3DestinationUpdate' {dynamicPartitioningConfiguration} -> dynamicPartitioningConfiguration) (\s@ExtendedS3DestinationUpdate' {} a -> s {dynamicPartitioningConfiguration = a} :: ExtendedS3DestinationUpdate)
 
 -- | The Amazon S3 destination for backup.
 extendedS3DestinationUpdate_s3BackupUpdate :: Lens.Lens' ExtendedS3DestinationUpdate (Prelude.Maybe S3DestinationUpdate)
@@ -216,14 +239,16 @@ instance Core.ToJSON ExtendedS3DestinationUpdate where
             ("EncryptionConfiguration" Core..=)
               Prelude.<$> encryptionConfiguration,
             ("RoleARN" Core..=) Prelude.<$> roleARN,
-            ("BucketARN" Core..=) Prelude.<$> bucketARN,
             ("ProcessingConfiguration" Core..=)
               Prelude.<$> processingConfiguration,
-            ("DataFormatConversionConfiguration" Core..=)
-              Prelude.<$> dataFormatConversionConfiguration,
+            ("BucketARN" Core..=) Prelude.<$> bucketARN,
             ("CloudWatchLoggingOptions" Core..=)
               Prelude.<$> cloudWatchLoggingOptions,
+            ("DataFormatConversionConfiguration" Core..=)
+              Prelude.<$> dataFormatConversionConfiguration,
             ("Prefix" Core..=) Prelude.<$> prefix,
+            ("DynamicPartitioningConfiguration" Core..=)
+              Prelude.<$> dynamicPartitioningConfiguration,
             ("S3BackupUpdate" Core..=)
               Prelude.<$> s3BackupUpdate,
             ("BufferingHints" Core..=)

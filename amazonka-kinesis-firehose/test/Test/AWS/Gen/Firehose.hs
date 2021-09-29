@@ -36,17 +36,17 @@ import Test.Tasty
 --         , requestListDeliveryStreams $
 --             newListDeliveryStreams
 --
---         , requestPutRecordBatch $
---             newPutRecordBatch
---
 --         , requestListTagsForDeliveryStream $
 --             newListTagsForDeliveryStream
 --
---         , requestUpdateDestination $
---             newUpdateDestination
+--         , requestPutRecordBatch $
+--             newPutRecordBatch
 --
 --         , requestDescribeDeliveryStream $
 --             newDescribeDeliveryStream
+--
+--         , requestUpdateDestination $
+--             newUpdateDestination
 --
 --         , requestCreateDeliveryStream $
 --             newCreateDeliveryStream
@@ -54,11 +54,11 @@ import Test.Tasty
 --         , requestPutRecord $
 --             newPutRecord
 --
---         , requestDeleteDeliveryStream $
---             newDeleteDeliveryStream
---
 --         , requestUntagDeliveryStream $
 --             newUntagDeliveryStream
+--
+--         , requestDeleteDeliveryStream $
+--             newDeleteDeliveryStream
 --
 --         , requestTagDeliveryStream $
 --             newTagDeliveryStream
@@ -75,17 +75,17 @@ import Test.Tasty
 --         , responseListDeliveryStreams $
 --             newListDeliveryStreamsResponse
 --
---         , responsePutRecordBatch $
---             newPutRecordBatchResponse
---
 --         , responseListTagsForDeliveryStream $
 --             newListTagsForDeliveryStreamResponse
 --
---         , responseUpdateDestination $
---             newUpdateDestinationResponse
+--         , responsePutRecordBatch $
+--             newPutRecordBatchResponse
 --
 --         , responseDescribeDeliveryStream $
 --             newDescribeDeliveryStreamResponse
+--
+--         , responseUpdateDestination $
+--             newUpdateDestinationResponse
 --
 --         , responseCreateDeliveryStream $
 --             newCreateDeliveryStreamResponse
@@ -93,11 +93,11 @@ import Test.Tasty
 --         , responsePutRecord $
 --             newPutRecordResponse
 --
---         , responseDeleteDeliveryStream $
---             newDeleteDeliveryStreamResponse
---
 --         , responseUntagDeliveryStream $
 --             newUntagDeliveryStreamResponse
+--
+--         , responseDeleteDeliveryStream $
+--             newDeleteDeliveryStreamResponse
 --
 --         , responseTagDeliveryStream $
 --             newTagDeliveryStreamResponse
@@ -125,29 +125,29 @@ requestListDeliveryStreams =
     "ListDeliveryStreams"
     "fixture/ListDeliveryStreams.yaml"
 
-requestPutRecordBatch :: PutRecordBatch -> TestTree
-requestPutRecordBatch =
-  req
-    "PutRecordBatch"
-    "fixture/PutRecordBatch.yaml"
-
 requestListTagsForDeliveryStream :: ListTagsForDeliveryStream -> TestTree
 requestListTagsForDeliveryStream =
   req
     "ListTagsForDeliveryStream"
     "fixture/ListTagsForDeliveryStream.yaml"
 
-requestUpdateDestination :: UpdateDestination -> TestTree
-requestUpdateDestination =
+requestPutRecordBatch :: PutRecordBatch -> TestTree
+requestPutRecordBatch =
   req
-    "UpdateDestination"
-    "fixture/UpdateDestination.yaml"
+    "PutRecordBatch"
+    "fixture/PutRecordBatch.yaml"
 
 requestDescribeDeliveryStream :: DescribeDeliveryStream -> TestTree
 requestDescribeDeliveryStream =
   req
     "DescribeDeliveryStream"
     "fixture/DescribeDeliveryStream.yaml"
+
+requestUpdateDestination :: UpdateDestination -> TestTree
+requestUpdateDestination =
+  req
+    "UpdateDestination"
+    "fixture/UpdateDestination.yaml"
 
 requestCreateDeliveryStream :: CreateDeliveryStream -> TestTree
 requestCreateDeliveryStream =
@@ -161,17 +161,17 @@ requestPutRecord =
     "PutRecord"
     "fixture/PutRecord.yaml"
 
-requestDeleteDeliveryStream :: DeleteDeliveryStream -> TestTree
-requestDeleteDeliveryStream =
-  req
-    "DeleteDeliveryStream"
-    "fixture/DeleteDeliveryStream.yaml"
-
 requestUntagDeliveryStream :: UntagDeliveryStream -> TestTree
 requestUntagDeliveryStream =
   req
     "UntagDeliveryStream"
     "fixture/UntagDeliveryStream.yaml"
+
+requestDeleteDeliveryStream :: DeleteDeliveryStream -> TestTree
+requestDeleteDeliveryStream =
+  req
+    "DeleteDeliveryStream"
+    "fixture/DeleteDeliveryStream.yaml"
 
 requestTagDeliveryStream :: TagDeliveryStream -> TestTree
 requestTagDeliveryStream =
@@ -205,14 +205,6 @@ responseListDeliveryStreams =
     defaultService
     (Proxy :: Proxy ListDeliveryStreams)
 
-responsePutRecordBatch :: PutRecordBatchResponse -> TestTree
-responsePutRecordBatch =
-  res
-    "PutRecordBatchResponse"
-    "fixture/PutRecordBatchResponse.proto"
-    defaultService
-    (Proxy :: Proxy PutRecordBatch)
-
 responseListTagsForDeliveryStream :: ListTagsForDeliveryStreamResponse -> TestTree
 responseListTagsForDeliveryStream =
   res
@@ -221,13 +213,13 @@ responseListTagsForDeliveryStream =
     defaultService
     (Proxy :: Proxy ListTagsForDeliveryStream)
 
-responseUpdateDestination :: UpdateDestinationResponse -> TestTree
-responseUpdateDestination =
+responsePutRecordBatch :: PutRecordBatchResponse -> TestTree
+responsePutRecordBatch =
   res
-    "UpdateDestinationResponse"
-    "fixture/UpdateDestinationResponse.proto"
+    "PutRecordBatchResponse"
+    "fixture/PutRecordBatchResponse.proto"
     defaultService
-    (Proxy :: Proxy UpdateDestination)
+    (Proxy :: Proxy PutRecordBatch)
 
 responseDescribeDeliveryStream :: DescribeDeliveryStreamResponse -> TestTree
 responseDescribeDeliveryStream =
@@ -236,6 +228,14 @@ responseDescribeDeliveryStream =
     "fixture/DescribeDeliveryStreamResponse.proto"
     defaultService
     (Proxy :: Proxy DescribeDeliveryStream)
+
+responseUpdateDestination :: UpdateDestinationResponse -> TestTree
+responseUpdateDestination =
+  res
+    "UpdateDestinationResponse"
+    "fixture/UpdateDestinationResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateDestination)
 
 responseCreateDeliveryStream :: CreateDeliveryStreamResponse -> TestTree
 responseCreateDeliveryStream =
@@ -253,14 +253,6 @@ responsePutRecord =
     defaultService
     (Proxy :: Proxy PutRecord)
 
-responseDeleteDeliveryStream :: DeleteDeliveryStreamResponse -> TestTree
-responseDeleteDeliveryStream =
-  res
-    "DeleteDeliveryStreamResponse"
-    "fixture/DeleteDeliveryStreamResponse.proto"
-    defaultService
-    (Proxy :: Proxy DeleteDeliveryStream)
-
 responseUntagDeliveryStream :: UntagDeliveryStreamResponse -> TestTree
 responseUntagDeliveryStream =
   res
@@ -268,6 +260,14 @@ responseUntagDeliveryStream =
     "fixture/UntagDeliveryStreamResponse.proto"
     defaultService
     (Proxy :: Proxy UntagDeliveryStream)
+
+responseDeleteDeliveryStream :: DeleteDeliveryStreamResponse -> TestTree
+responseDeleteDeliveryStream =
+  res
+    "DeleteDeliveryStreamResponse"
+    "fixture/DeleteDeliveryStreamResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteDeliveryStream)
 
 responseTagDeliveryStream :: TagDeliveryStreamResponse -> TestTree
 responseTagDeliveryStream =

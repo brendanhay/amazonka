@@ -30,7 +30,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newJobParameters' smart constructor.
 data JobParameters = JobParameters'
-  { -- | The byte range to retrieve for an archive retrieval. in the form
+  { -- | When initiating a job to retrieve a vault inventory, you can optionally
+    -- add this parameter to your request to specify the output format. If you
+    -- are initiating an inventory job and do not specify a Format field, JSON
+    -- is the default format. Valid values are \"CSV\" and \"JSON\".
+    format :: Prelude.Maybe Prelude.Text,
+    -- | The byte range to retrieve for an archive retrieval. in the form
     -- \"/StartByteValue/-/EndByteValue/\" If not specified, the whole archive
     -- is retrieved. If specified, the byte range must be megabyte (1024*1024)
     -- aligned which means that /StartByteValue/ must be divisible by 1 MB and
@@ -42,23 +47,18 @@ data JobParameters = JobParameters'
     -- An error occurs if you specify this field for an inventory retrieval job
     -- request.
     retrievalByteRange :: Prelude.Maybe Prelude.Text,
-    -- | When initiating a job to retrieve a vault inventory, you can optionally
-    -- add this parameter to your request to specify the output format. If you
-    -- are initiating an inventory job and do not specify a Format field, JSON
-    -- is the default format. Valid values are \"CSV\" and \"JSON\".
-    format :: Prelude.Maybe Prelude.Text,
     -- | Contains the parameters that define a job.
     selectParameters :: Prelude.Maybe SelectParameters,
-    -- | The ID of the archive that you want to retrieve. This field is required
-    -- only if @Type@ is set to @select@ or @archive-retrieval@code>. An error
-    -- occurs if you specify this request parameter for an inventory retrieval
-    -- job request.
-    archiveId :: Prelude.Maybe Prelude.Text,
     -- | The Amazon SNS topic ARN to which Amazon S3 Glacier sends a notification
     -- when the job is completed and the output is ready for you to download.
     -- The specified topic publishes the notification to its subscribers. The
     -- SNS topic must exist.
     sNSTopic :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the archive that you want to retrieve. This field is required
+    -- only if @Type@ is set to @select@ or @archive-retrieval@code>. An error
+    -- occurs if you specify this request parameter for an inventory retrieval
+    -- job request.
+    archiveId :: Prelude.Maybe Prelude.Text,
     -- | The optional description for the job. The description must be less than
     -- or equal to 1,024 bytes. The allowable characters are 7-bit ASCII
     -- without control codes-specifically, ASCII values 32-126 decimal or
@@ -71,12 +71,12 @@ data JobParameters = JobParameters'
     -- values are \"select\", \"archive-retrieval\" and
     -- \"inventory-retrieval\".
     type' :: Prelude.Maybe Prelude.Text,
-    -- | Contains information about the location where the select job results are
-    -- stored.
-    outputLocation :: Prelude.Maybe OutputLocation,
     -- | The tier to use for a select or an archive retrieval job. Valid values
     -- are @Expedited@, @Standard@, or @Bulk@. @Standard@ is the default.
-    tier :: Prelude.Maybe Prelude.Text
+    tier :: Prelude.Maybe Prelude.Text,
+    -- | Contains information about the location where the select job results are
+    -- stored.
+    outputLocation :: Prelude.Maybe OutputLocation
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -87,6 +87,11 @@ data JobParameters = JobParameters'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'format', 'jobParameters_format' - When initiating a job to retrieve a vault inventory, you can optionally
+-- add this parameter to your request to specify the output format. If you
+-- are initiating an inventory job and do not specify a Format field, JSON
+-- is the default format. Valid values are \"CSV\" and \"JSON\".
 --
 -- 'retrievalByteRange', 'jobParameters_retrievalByteRange' - The byte range to retrieve for an archive retrieval. in the form
 -- \"/StartByteValue/-/EndByteValue/\" If not specified, the whole archive
@@ -100,22 +105,17 @@ data JobParameters = JobParameters'
 -- An error occurs if you specify this field for an inventory retrieval job
 -- request.
 --
--- 'format', 'jobParameters_format' - When initiating a job to retrieve a vault inventory, you can optionally
--- add this parameter to your request to specify the output format. If you
--- are initiating an inventory job and do not specify a Format field, JSON
--- is the default format. Valid values are \"CSV\" and \"JSON\".
---
 -- 'selectParameters', 'jobParameters_selectParameters' - Contains the parameters that define a job.
---
--- 'archiveId', 'jobParameters_archiveId' - The ID of the archive that you want to retrieve. This field is required
--- only if @Type@ is set to @select@ or @archive-retrieval@code>. An error
--- occurs if you specify this request parameter for an inventory retrieval
--- job request.
 --
 -- 'sNSTopic', 'jobParameters_sNSTopic' - The Amazon SNS topic ARN to which Amazon S3 Glacier sends a notification
 -- when the job is completed and the output is ready for you to download.
 -- The specified topic publishes the notification to its subscribers. The
 -- SNS topic must exist.
+--
+-- 'archiveId', 'jobParameters_archiveId' - The ID of the archive that you want to retrieve. This field is required
+-- only if @Type@ is set to @select@ or @archive-retrieval@code>. An error
+-- occurs if you specify this request parameter for an inventory retrieval
+-- job request.
 --
 -- 'description', 'jobParameters_description' - The optional description for the job. The description must be less than
 -- or equal to 1,024 bytes. The allowable characters are 7-bit ASCII
@@ -129,27 +129,33 @@ data JobParameters = JobParameters'
 -- values are \"select\", \"archive-retrieval\" and
 -- \"inventory-retrieval\".
 --
--- 'outputLocation', 'jobParameters_outputLocation' - Contains information about the location where the select job results are
--- stored.
---
 -- 'tier', 'jobParameters_tier' - The tier to use for a select or an archive retrieval job. Valid values
 -- are @Expedited@, @Standard@, or @Bulk@. @Standard@ is the default.
+--
+-- 'outputLocation', 'jobParameters_outputLocation' - Contains information about the location where the select job results are
+-- stored.
 newJobParameters ::
   JobParameters
 newJobParameters =
   JobParameters'
-    { retrievalByteRange =
-        Prelude.Nothing,
-      format = Prelude.Nothing,
+    { format = Prelude.Nothing,
+      retrievalByteRange = Prelude.Nothing,
       selectParameters = Prelude.Nothing,
-      archiveId = Prelude.Nothing,
       sNSTopic = Prelude.Nothing,
+      archiveId = Prelude.Nothing,
       description = Prelude.Nothing,
       inventoryRetrievalParameters = Prelude.Nothing,
       type' = Prelude.Nothing,
-      outputLocation = Prelude.Nothing,
-      tier = Prelude.Nothing
+      tier = Prelude.Nothing,
+      outputLocation = Prelude.Nothing
     }
+
+-- | When initiating a job to retrieve a vault inventory, you can optionally
+-- add this parameter to your request to specify the output format. If you
+-- are initiating an inventory job and do not specify a Format field, JSON
+-- is the default format. Valid values are \"CSV\" and \"JSON\".
+jobParameters_format :: Lens.Lens' JobParameters (Prelude.Maybe Prelude.Text)
+jobParameters_format = Lens.lens (\JobParameters' {format} -> format) (\s@JobParameters' {} a -> s {format = a} :: JobParameters)
 
 -- | The byte range to retrieve for an archive retrieval. in the form
 -- \"/StartByteValue/-/EndByteValue/\" If not specified, the whole archive
@@ -165,23 +171,9 @@ newJobParameters =
 jobParameters_retrievalByteRange :: Lens.Lens' JobParameters (Prelude.Maybe Prelude.Text)
 jobParameters_retrievalByteRange = Lens.lens (\JobParameters' {retrievalByteRange} -> retrievalByteRange) (\s@JobParameters' {} a -> s {retrievalByteRange = a} :: JobParameters)
 
--- | When initiating a job to retrieve a vault inventory, you can optionally
--- add this parameter to your request to specify the output format. If you
--- are initiating an inventory job and do not specify a Format field, JSON
--- is the default format. Valid values are \"CSV\" and \"JSON\".
-jobParameters_format :: Lens.Lens' JobParameters (Prelude.Maybe Prelude.Text)
-jobParameters_format = Lens.lens (\JobParameters' {format} -> format) (\s@JobParameters' {} a -> s {format = a} :: JobParameters)
-
 -- | Contains the parameters that define a job.
 jobParameters_selectParameters :: Lens.Lens' JobParameters (Prelude.Maybe SelectParameters)
 jobParameters_selectParameters = Lens.lens (\JobParameters' {selectParameters} -> selectParameters) (\s@JobParameters' {} a -> s {selectParameters = a} :: JobParameters)
-
--- | The ID of the archive that you want to retrieve. This field is required
--- only if @Type@ is set to @select@ or @archive-retrieval@code>. An error
--- occurs if you specify this request parameter for an inventory retrieval
--- job request.
-jobParameters_archiveId :: Lens.Lens' JobParameters (Prelude.Maybe Prelude.Text)
-jobParameters_archiveId = Lens.lens (\JobParameters' {archiveId} -> archiveId) (\s@JobParameters' {} a -> s {archiveId = a} :: JobParameters)
 
 -- | The Amazon SNS topic ARN to which Amazon S3 Glacier sends a notification
 -- when the job is completed and the output is ready for you to download.
@@ -189,6 +181,13 @@ jobParameters_archiveId = Lens.lens (\JobParameters' {archiveId} -> archiveId) (
 -- SNS topic must exist.
 jobParameters_sNSTopic :: Lens.Lens' JobParameters (Prelude.Maybe Prelude.Text)
 jobParameters_sNSTopic = Lens.lens (\JobParameters' {sNSTopic} -> sNSTopic) (\s@JobParameters' {} a -> s {sNSTopic = a} :: JobParameters)
+
+-- | The ID of the archive that you want to retrieve. This field is required
+-- only if @Type@ is set to @select@ or @archive-retrieval@code>. An error
+-- occurs if you specify this request parameter for an inventory retrieval
+-- job request.
+jobParameters_archiveId :: Lens.Lens' JobParameters (Prelude.Maybe Prelude.Text)
+jobParameters_archiveId = Lens.lens (\JobParameters' {archiveId} -> archiveId) (\s@JobParameters' {} a -> s {archiveId = a} :: JobParameters)
 
 -- | The optional description for the job. The description must be less than
 -- or equal to 1,024 bytes. The allowable characters are 7-bit ASCII
@@ -208,15 +207,15 @@ jobParameters_inventoryRetrievalParameters = Lens.lens (\JobParameters' {invento
 jobParameters_type :: Lens.Lens' JobParameters (Prelude.Maybe Prelude.Text)
 jobParameters_type = Lens.lens (\JobParameters' {type'} -> type') (\s@JobParameters' {} a -> s {type' = a} :: JobParameters)
 
--- | Contains information about the location where the select job results are
--- stored.
-jobParameters_outputLocation :: Lens.Lens' JobParameters (Prelude.Maybe OutputLocation)
-jobParameters_outputLocation = Lens.lens (\JobParameters' {outputLocation} -> outputLocation) (\s@JobParameters' {} a -> s {outputLocation = a} :: JobParameters)
-
 -- | The tier to use for a select or an archive retrieval job. Valid values
 -- are @Expedited@, @Standard@, or @Bulk@. @Standard@ is the default.
 jobParameters_tier :: Lens.Lens' JobParameters (Prelude.Maybe Prelude.Text)
 jobParameters_tier = Lens.lens (\JobParameters' {tier} -> tier) (\s@JobParameters' {} a -> s {tier = a} :: JobParameters)
+
+-- | Contains information about the location where the select job results are
+-- stored.
+jobParameters_outputLocation :: Lens.Lens' JobParameters (Prelude.Maybe OutputLocation)
+jobParameters_outputLocation = Lens.lens (\JobParameters' {outputLocation} -> outputLocation) (\s@JobParameters' {} a -> s {outputLocation = a} :: JobParameters)
 
 instance Prelude.Hashable JobParameters
 
@@ -226,19 +225,19 @@ instance Core.ToJSON JobParameters where
   toJSON JobParameters' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("RetrievalByteRange" Core..=)
+          [ ("Format" Core..=) Prelude.<$> format,
+            ("RetrievalByteRange" Core..=)
               Prelude.<$> retrievalByteRange,
-            ("Format" Core..=) Prelude.<$> format,
             ("SelectParameters" Core..=)
               Prelude.<$> selectParameters,
-            ("ArchiveId" Core..=) Prelude.<$> archiveId,
             ("SNSTopic" Core..=) Prelude.<$> sNSTopic,
+            ("ArchiveId" Core..=) Prelude.<$> archiveId,
             ("Description" Core..=) Prelude.<$> description,
             ("InventoryRetrievalParameters" Core..=)
               Prelude.<$> inventoryRetrievalParameters,
             ("Type" Core..=) Prelude.<$> type',
+            ("Tier" Core..=) Prelude.<$> tier,
             ("OutputLocation" Core..=)
-              Prelude.<$> outputLocation,
-            ("Tier" Core..=) Prelude.<$> tier
+              Prelude.<$> outputLocation
           ]
       )

@@ -514,11 +514,12 @@ fromFilePath profile cred conf =
         else do
           ini <- INI.readIniFile path >>= either (throwInvalid path Nothing) pure
 
-          let regionValueE =
-                INI.lookupValue profile confRegion ini
-                <> INI.lookupValue ("profile " <> profile) confRegion ini
+          let configProfile =
+                if profile == "default"
+                then profile
+                else "profile " <> profile
 
-          case regionValueE of
+          case INI.lookupValue configProfile confRegion ini of
             Left _ -> pure Nothing
             Right regionValue ->
               case fromText regionValue of

@@ -1,13 +1,36 @@
 # Change Log
 
-## [1.7.0](https://github.com/brendanhay/amazonka/tree/1.7.0)
-Released: **unreleased**, Compare: [1.7.0](https://github.com/brendanhay/amazonka/compare/1.6.1...1.7.0)
+## 2.0 RC1 (TODO: Linkify)
+Released: **unreleased**, Compare: 2.0 RC1 (TODO: Linkify)
+
+### Major Changes
+
+- Every service has been regenerated.
+
+- Enums (sum types) have been replaced with pattern synonyms. (Thanks @rossabaker)
+  - This reduces GHC memory usage on some large packages (notably `amazonka-ec2`), as well as makes them more robust against new enum values in regions, responses, etc.
+
+- Naming
+  - Record smart constructors (previously `describeInstances`, `getObject`, etc.) are now strictly prefixed with `new`, such as `newDescribeInstances`.
+  - Generated lenses are no longer exported from the top-level `Network.AWS.<name>` module - instead a `Network.AWS.<name>.Lens` module is provided.
+  - Generated lenses no longer use mnemonic or heuristically assigned prefixes such as `dirsrsInstances` and instead strictly prefix using the type name `describeInstances_instances` - following the form `<type>_<field>`.
+  - You may prefer to use a library like [`generic-lens`](https://hackage.haskell.org/package/generic-lens) instead of the long lens names.
+
+- Exports
+  - Every `amazonka-*` package re-exports the `Network.AWS.Prelude` module.
+  - All type constructors (Such as record constructors) are now exported by default.
+
+- CI
+  - Nix and GitHub Actions are used for CI (thanks @endgame)
+  - `nix-build-uncached` is used to prevent spurious rebuilds in CI [#627](https://github.com/brendanhay/amazonka/pull/627)
+  - CPP supporting GHC < 8.8 has been removed.
+  - While GHC 8.6 is not in the CI matrix, it currently builds, so packages depend on `base >= 4.12`.
 
 ### Fixed
 
 - Fix trailing slash bug in gen model
 [\#528](https://github.com/brendanhay/amazonka/pull/528)
-- Close connections immediately (when we know that we cane
+- Close connections immediately (when we know that we can)
 [\#493](https://github.com/brendanhay/amazonka/pull/493)
 - Remove the Content-Length header when doing V4 streaming signatures
 [\#547](https://github.com/brendanhay/amazonka/pull/547)
@@ -19,8 +42,20 @@ Released: **unreleased**, Compare: [1.7.0](https://github.com/brendanhay/amazonk
 [\#572](https://github.com/brendanhay/amazonka/pull/572)
 - Deduplicate CreateCertificateFromCSR fixtures
 [\#500](https://github.com/brendanhay/amazonka/pull/500)
+- CloudFormation ListChangeSets and DescribeChangeSets are paginated
+[\#620](https://github.com/brendanhay/amazonka/pull/620)
+- Use `signingName`, not `endpointPrefix`, when signing requests
+[\#622](https://github.com/brendanhay/amazonka/pull/622)
+- Add `x-amz-glacier-version` to glacier headers (and extend generator to let `operationPlugins` support wildcards)
+[\#623](https://github.com/brendanhay/amazonka/pull/623)
+- Add required fields for Glacier multipart uploade
+[\#624](https://github.com/brendanhay/amazonka/pull/624)
+- If nonstandard ports are used, include them in signed host header
+[\#625](https://github.com/brendanhay/amazonka/pull/625)
+- Duplicate files that differ only in case have been removed
+[\#637](https://github.com/brendanhay/amazonka/pull/637)
 
-### Changed
+### Other Changes
 
 - Bump the upper bound in the dependency on http-client
 [\#526](https://github.com/brendanhay/amazonka/pull/526)
@@ -40,10 +75,25 @@ Released: **unreleased**, Compare: [1.7.0](https://github.com/brendanhay/amazonk
 [\#576](https://github.com/brendanhay/amazonka/pull/576)
 - Add intelligent tiering S3 type
 [\#570](https://github.com/brendanhay/amazonka/pull/570)
+- AWS service descriptions appear in haddocks
+[\#619](https://github.com/brendanhay/amazonka/pull/619)
+- Drop some `MonadThrow` and `MonadCatch` constraints
+[\#626](https://github.com/brendanhay/amazonka/pull/626)
+- Use an in-tree script to generate services, instead of pulling the repo into the Nix store
+[\#639](https://github.com/brendanhay/amazonka/pull/639)
+- Provide script to audit missing service configurations from boto
+[\#644](https://github.com/brendanhay/amazonka/pull/644)
 
 ### New libraries
 
 - `amazonka-apigatewaymanagementapi`: API management strategies allow you to monitor and manage APIs in a secure and scalable way. [Overview](https://aws.amazon.com/api-gateway/api-management/)
+- `amazonka-eks`: Amazon Elastic Kubernetes Service (Amazon EKS) is a managed container service to run and scale Kubernetes applications in the cloud or on-premises. [Overview](https://aws.amazon.com/eks/)
+[\#618](https://github.com/brendanhay/amazonka/pull/618)
+- `amazonka-qldb`: Fully managed ledger database that provides a transparent, immutable, and cryptographically verifiable transaction log. Owned by a central trusted authority. [Overview](https://aws.amazon.com/qldb/)
+[\#621](https://github.com/brendanhay/amazonka/pull/621)
+- `amazonka-sesv2`: High-scale inbound and outbound cloud email service --- V2 API. [Overview](https://aws.amazon.com/ses/)
+[\#633](https://github.com/brendanhay/amazonka/pull/633)
+- `amazonka-textract`: Easily extract printed text, handwriting, and data from any document. [Overview](https://aws.amazon.com/textract/)
 
 ## [1.6.1](https://github.com/brendanhay/amazonka/tree/1.6.1)
 Released: **03 Feb, 2019**, Compare: [1.6.0](https://github.com/brendanhay/amazonka/compare/1.6.0...1.6.1)

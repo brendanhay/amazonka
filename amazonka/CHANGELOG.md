@@ -54,6 +54,8 @@ Released: **unreleased**, Compare: 2.0 RC1 (TODO: Linkify)
 [\#625](https://github.com/brendanhay/amazonka/pull/625)
 - Duplicate files that differ only in case have been removed
 [\#637](https://github.com/brendanhay/amazonka/pull/637)
+- S3 object sizes are now `Integer` instead of `Int`
+[\#649](https://github.com/brendanhay/amazonka/pull/649)
 
 ### Other Changes
 

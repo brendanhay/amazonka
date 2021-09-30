@@ -32,6 +32,9 @@
                 "FAILED",
                 "REPLICA"
             ]
+        },
+        "Size": {
+            "type": "long"
         }
     }
 }

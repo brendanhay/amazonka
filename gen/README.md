@@ -10,4 +10,4 @@ actual generator code/logic changes.
 
 Generate all models:
 
-    $ nix-build generate.nix
+    $ ./scripts/generate

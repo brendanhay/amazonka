@@ -69,7 +69,7 @@ common base
     TypeFamilies
     ViewPatterns
 
-  build-depends:      base >=4.13 && <5
+  build-depends:      base >=4.12 && <5
 
 library
   import:          base

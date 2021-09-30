@@ -1,6 +1,6 @@
 cabal-version:      2.2
 name:               amazonka
-version:            1.6.1
+version:            2.0
 synopsis:           Comprehensive Amazon Web Services SDK.
 homepage:           https://github.com/brendanhay/amazonka
 bug-reports:        https://github.com/brendanhay/amazonka/issues

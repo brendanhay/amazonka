@@ -1,6 +1,6 @@
 cabal-version:      2.2
 name:               amazonka-gen
-version:            1.6.1
+version:            2.0
 synopsis:           Amazonka Code Generator
 homepage:           https://github.com/brendanhay/amazonka
 license:            MPL-2.0

@@ -17,4 +17,6 @@ packages:
    gen/
    test/
    amazonka/
+
+optional-packages:
    amazonka-*/

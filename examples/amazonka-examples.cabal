@@ -1,6 +1,6 @@
 cabal-version:      2.2
 name:               amazonka-examples
-version:            1.6.1
+version:            2.0
 synopsis:           Basic examples for various amazonka libraries.
 homepage:           https://github.com/brendanhay/amazonka
 license:            MPL-2.0
@@ -32,7 +32,7 @@ library
     Example.SQS
 
   build-depends:
-    , amazonka              >=1.6.1 && <1.6.2
+    , amazonka              >=2.0 && <2.1
     , amazonka-apigateway
     , amazonka-core
     , amazonka-dynamodb

@@ -124,7 +124,7 @@ Released: **16 May, 2018**, Compare: [1.5.0](https://github.com/brendanhay/amazo
 - S3 `BucketName` now has a `FromJSON` instance. [\#452](https://github.com/brendanhay/amazonka/pull/452)
 - S3 `ListObjectsV2` is now named correctly. [\#447](https://github.com/brendanhay/amazonka/pull/447)
 - HTTP `Expect` headers are now stripped when presigning URLs. [\#444](https://github.com/brendanhay/amazonka/pull/444)
-- Duplicate generated files no longer exist on case-insensitive file systems. [\#429](https://github.com/brendanhay/amazonka/pull/429)
+- Duplicate generated files no longer exist on case-insensitive file systems. [\#429](https://github.com/brendanhay/amazonka/pull/429), [\#655](https://github.com/brendanhay/amazonka/pull/655)
 - EC2 metadata's instance identity document now has the correct(er) field types. [\#428](https://github.com/brendanhay/amazonka/pull/428)
 - OpsWorks `DescribeApps` and `DescribeStacks` now correctly handle optional attribute values. [\#436](https://github.com/brendanhay/amazonka/pull/436), [\#438](https://github.com/brendanhay/amazonka/pull/438)
 

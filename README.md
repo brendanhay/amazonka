@@ -51,7 +51,6 @@ This repository is organised into the following directory structure:
 * [`amazonka`](amazonka): Actual operational logic, you'll need to import this to send requests etc.
 * `amazonka-*`: Data types for each of the individual Amazon Web Service libraries.
 * `amazonka-*/test`: Tests and fixtures for each respective library.
-* [`core`](core): The `amazonka-core` library upon which each of the services depends.
 * [`examples`](examples): A currently sparse collection of examples for the various services.
 * [`gen`](gen): The code generation binary, along with configuration, templates, and assets.
 * [`scripts`](scripts): CI scripts to manage the release lifecycle of the service libraries.

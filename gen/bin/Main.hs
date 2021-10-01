@@ -153,6 +153,7 @@ main = do
     tmpl <- flip evalStateT mempty $ do
       lift (title ("Loading templates from " % path) _optionTemplates)
 
+      bazelTemplate <- load "bazel.ede"
       cabalTemplate <- load "cabal.ede"
       tocTemplate <- load "toc.ede"
       waitersTemplate <- load "waiters.ede"
@@ -185,7 +186,7 @@ main = do
       m <- listDir f >>= hoistEither . loadModel f
 
       say
-        ("Using version " % dateDash % " out of " % intercalated ", " dateDash)
+        ("Using version " % dateDash % " out of [" % intercalated ", " dateDash % "]")
         (m ^. modelVersion)
         (m ^. modelVersions)
 

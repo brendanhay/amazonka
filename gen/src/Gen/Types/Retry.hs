@@ -53,9 +53,9 @@ instance FromJSON Policy where
       resp o = When <$> (o .: "applies_when" >>= (.: "response"))
 
 data Delay = Delay
-  { _delayType :: !Text,
-    _delayBase :: !Rational,
-    _delayGrowth :: !Integer
+  { _delayType :: Text,
+    _delayBase :: Rational,
+    _delayGrowth :: Integer
   }
   deriving (Eq, Show, Generic)
 
@@ -72,8 +72,8 @@ instance FromJSON Delay where
         o -> parseJSON o
 
 data Retry = Retry'
-  { _retryAttempts :: !Integer,
-    _retryDelay :: !Delay,
+  { _retryAttempts :: Integer,
+    _retryDelay :: Delay,
     _retryPolicies :: Map Text Policy
   }
   deriving (Eq, Show)

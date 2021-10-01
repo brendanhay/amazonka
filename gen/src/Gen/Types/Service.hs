@@ -164,8 +164,8 @@ data RefF a = RefF
     _refLocationName :: Maybe Text,
     _refResultWrapper :: Maybe Text,
     _refQueryName :: Maybe Text,
-    _refStreaming :: !Bool,
-    _refXMLAttribute :: !Bool,
+    _refStreaming :: Bool,
+    _refXMLAttribute :: Bool,
     _refXMLNamespace :: Maybe XML
   }
   deriving (Functor, Foldable, Traversable, Generic)
@@ -195,8 +195,8 @@ class HasRefs f where
 
 data ErrorInfo = ErrorInfo
   { _errCode :: Maybe Text,
-    _errStatus :: !Int,
-    _errSenderFault :: !Bool
+    _errStatus :: Int,
+    _errSenderFault :: Bool
   }
   deriving (Show, Generic)
 
@@ -213,10 +213,10 @@ data Info = Info
   { _infoDocumentation :: Maybe Help,
     _infoMin :: Maybe Scientific,
     _infoMax :: Maybe Scientific,
-    _infoFlattened :: !Bool,
-    _infoSensitive :: !Bool,
-    _infoStreaming :: !Bool,
-    _infoException :: !Bool,
+    _infoFlattened :: Bool,
+    _infoSensitive :: Bool,
+    _infoStreaming :: Bool,
+    _infoException :: Bool,
     _infoError :: Maybe ErrorInfo
   }
   deriving (Show, Generic)
@@ -380,8 +380,8 @@ instance FromJSON (ShapeF ()) where
 data Operation f a b = Operation
   { _opName :: Id,
     _opDocumentation :: f Help,
-    _opDeprecated :: !Bool,
-    _opHttp :: !HTTP,
+    _opDeprecated :: Bool,
+    _opHttp :: HTTP,
     _opInput :: f a,
     _opOutput :: f a,
     _opPager :: Maybe b
@@ -421,13 +421,13 @@ instance ToJSON a => ToJSON (Operation Identity a b) where
       ]
 
 data Metadata f = Metadata
-  { _protocol :: !Protocol,
+  { _protocol :: Protocol,
     _serviceAbbrev :: Text,
     _serviceConfig :: Text,
     _serviceFullName :: Text,
     _signingName :: Text,
     _apiVersion :: Text,
-    _signatureVersion :: !Signature,
+    _signatureVersion :: Signature,
     _endpointPrefix :: Text,
     _timestampFormat :: f Timestamp,
     _checksumFormat :: f Checksum,

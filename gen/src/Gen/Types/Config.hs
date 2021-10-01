@@ -221,21 +221,22 @@ exposedModules = to f
           x ^.. operations . each . to (operationNS ns . view opName)
 
 data Templates = Templates
-  { cabalTemplate :: !Template,
-    tocTemplate :: !Template,
-    waitersTemplate :: !Template,
-    readmeTemplate :: !Template,
-    operationTemplate :: !Template,
-    typesTemplate :: !Template,
-    lensTemplate :: !Template,
-    sumTemplate :: !Template,
-    productTemplate :: !Template,
-    testMainTemplate :: !Template,
-    testNamespaceTemplate :: !Template,
-    testInternalTemplate :: !Template,
-    fixturesTemplate :: !Template,
-    fixtureRequestTemplate :: !Template,
-    blankTemplate :: !Template
+  { bazelTemplate :: Template,
+    cabalTemplate :: Template,
+    tocTemplate :: Template,
+    waitersTemplate :: Template,
+    readmeTemplate :: Template,
+    operationTemplate :: Template,
+    typesTemplate :: Template,
+    lensTemplate :: Template,
+    sumTemplate :: Template,
+    productTemplate :: Template,
+    testMainTemplate :: Template,
+    testNamespaceTemplate :: Template,
+    testInternalTemplate :: Template,
+    fixturesTemplate :: Template,
+    fixtureRequestTemplate :: Template,
+    blankTemplate :: Template
   }
 
 data Model = Model

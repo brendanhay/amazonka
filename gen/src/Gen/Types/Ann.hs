@@ -49,8 +49,8 @@ instance Monoid Mode where
   mappend = (<>)
 
 data Relation = Relation
-  { _relShared :: !Int, -- FIXME: get around to using something more sensible.
-    _relMode :: !Mode
+  { _relShared :: Int, -- FIXME: get around to using something more sensible.
+    _relMode :: Mode
   }
   deriving (Eq, Show)
 

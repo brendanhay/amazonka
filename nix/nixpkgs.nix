@@ -17,8 +17,25 @@ import sources.nixpkgs {
     (final: prev: rec {
       inherit sources;
 
+      # Set the default ghc to our specified ghcVersion.
       ghc = prev.haskell.compiler.${ghcVersion};
+
+      # Override the haskellPackages attribute to match the ghc version,
+      # so we don't potentially download multiple compiler versions.
       haskellPackages = prev.haskellPackages.override { inherit ghc; };
+
+      bazel = let
+        # Default the ghc used by bazel to ghcVersion.
+        bazelrc = prev.writeText "amazonka-bazelrc" ''
+          build --host_platform=//tools/platforms:${ghcVersion}
+        '';
+      in prev.writeScriptBin "bazel" (''
+        #!${prev.bash}/bin/bash
+      '' + prev.lib.optionalString (prev.buildPlatform.libc == "glibc") ''
+        export LOCALE_ARCHIVE="${prev.glibcLocales}/lib/locale/locale-archive"
+      '' + ''
+        exec ${prev.bazel_4}/bin/bazel --bazelrc "${bazelrc}" "$@"
+      '');
     })
   ];
 }

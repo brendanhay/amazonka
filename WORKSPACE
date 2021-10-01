@@ -70,6 +70,7 @@ versioned_http_archive(
     strip_prefix = "buildtools-{version}",
     url = "https://github.com/bazelbuild/buildtools/archive/{version}.tar.gz",
     version = "d6daef01a1a2f41a4143a314bf1996bf351caa30",
+    sha256 = "143ef233b81286470a14d77e57352cec682a642831423af883e5744e110af642"
 )
 
 #

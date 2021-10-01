@@ -1,3 +1,0 @@
-build --google_default_credentials
-build --action_env=GOOGLE_APPLICATION_CREDENTIALS
-build --remote_upload_local_results

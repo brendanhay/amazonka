@@ -4,23 +4,9 @@ let
 
   pkgs = import ./nix/nixpkgs.nix { inherit system ghcVersion; };
 
-  # Entering a nix-shell and running bazel will use the same GHC versions
-  # because of this rc snippet.
-  bazelrc = pkgs.writeText "amazonka-bazelrc" ''
-    build --host_platform=//tools/platforms:${ghcVersion}
-  '';
-
-  bazel = pkgs.writeScriptBin "bazel" (''
-    #!${pkgs.bash}/bin/bash
-  '' + pkgs.lib.optionalString (pkgs.buildPlatform.libc == "glibc") ''
-    export LOCALE_ARCHIVE="${pkgs.glibcLocales}/lib/locale/locale-archive"
-  '' + ''
-    exec ${pkgs.bazel_4}/bin/bazel --bazelrc "${bazelrc}" "$@"
-  '');
-
 in pkgs.mkShell {
   buildInputs = [
-    bazel
+    pkgs.bazel
     pkgs.cabal-install
     pkgs.coreutils
     pkgs.file

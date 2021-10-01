@@ -187,15 +187,6 @@ rules_haskell_dependencies()
 rules_haskell_worker_dependencies()
 
 haskell_register_ghc_nixpkgs(
-    name = "ghc65",
-    attribute_path = "haskell.compiler.ghc865Binary",
-    exec_constraints = ["@//tools/constraints:ghc865"],
-    repository = "@nixpkgs",
-    target_constraints = ["@//tools/constraints:ghc865"],
-    version = "8.6.5",
-)
-
-haskell_register_ghc_nixpkgs(
     name = "ghc884",
     attribute_path = "haskell.compiler.ghc884",
     exec_constraints = ["@//tools/constraints:ghc884"],

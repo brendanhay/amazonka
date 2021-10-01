@@ -1,5 +1,4 @@
-#!/usr/bin/env nix-shell
-#!nix-shell -i bash ../shell.nix
+#!/usr/bin/env bash
 
 # Usage: generate MODELS
 #
@@ -45,6 +44,9 @@ format_and_replace() {
 export -f say
 export -f format_and_replace
 
+# Build the generator first.
+bazel build //gen
+
 botocore="${BOTOCORE_PATH?}"
 version="$(sed -n '0,/^version: */s///p' amazonka/amazonka.cabal)"
 services="config/services"
@@ -83,8 +85,9 @@ for model in "${models[@]}"; do
 done
 
 # Generate new sources in tmp.
-cabal new-run amazonka-gen -- +RTS -qg0 -RTS "${generator[@]}"
+./bazel-bin/gen/gen +RTS -qg0 -RTS "${generator[@]}"
 
+# Run the format and copy/replace steps in parallel.
 parallel --halt-on-error 2 format_and_replace ::: "$tmp"/amazonka-*
 
 say "Done."

@@ -1,5 +1,4 @@
-#!/usr/bin/env nix-shell
-#!nix-shell -i bash ../shell.nix
+#!/usr/bin/env bash
 
 # Usage: generate-configs OUTPUT
 #

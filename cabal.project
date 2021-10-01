@@ -8,13 +8,8 @@ write-ghc-environment-files: never
 --   cabal new-configure --disable-optimization
 optimization: 1
 
--- Fix for some generator dependencies with >= GHC 8.10
-allow-newer:
-   base
-
 -- Local packages - without amazonka-examples.
 packages:
-   gen/
    test/
    amazonka/
    amazonka-*/

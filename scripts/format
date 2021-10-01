@@ -1,15 +1,128 @@
 #!/usr/bin/env bash
 
-# Usage: format
-
-# Run all formatters and linters ensuring codebase consistency
+# Usage: format [--staged]
+#
+# Calculated the list of un/committed files and perform a file extension or mime
+# match to determine which formatters/linters to run.
+#
+# Pass --staged to only consider files staged for commit.
 
 set -euo pipefail
 
-cd "$(dirname "${BASH_SOURCE[0]}")"
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
-./format-nix
-./format-haskell
-./format-shell
+staged="false"
 
-echo 'Done.'
+case "${1:-}" in
+--staged)
+  staged="true"
+  ;;
+esac
+
+# One array per language we have a formatter for.
+bazel=()
+haskell=()
+nix=()
+shellscript=()
+unknown=()
+
+# Output a message to stderr.
+say() {
+  echo >&2 "$@"
+}
+
+# Run a shell command with logging.
+run() {
+  say "${*%Q}"
+  "$@"
+  code=$?
+
+  if [ "$code" -gt 0 ]; then
+    say "Command failed with return $code"
+    exit "$code"
+  fi
+}
+
+match_mime() {
+  local -r path="$1"
+  local -r mime="$2"
+
+  case "$mime" in
+  text/x-shellscript)
+    shellscript+=("$path")
+    ;;
+  esac
+}
+
+match_path() {
+  local -r path="$1"
+
+  case "$path" in
+  WORKSPACE | BUILD.bazel | *.bzl)
+    bazel+=("$path")
+    ;;
+  amazonka-*/gen* | amazonka-*/test*)
+    # noop
+    ;;
+  *.hs | *.chs | *.hsc)
+    haskell+=("$path")
+    ;;
+  *.nix)
+    nix+=("$path")
+    ;;
+  *.sh | *.bash | *.zsh)
+    shellscript+=("$path")
+    ;;
+  *)
+    unknown+=("$path")
+    ;;
+  esac
+}
+
+# Avoid mapfile due to the bash>=4 requirement.
+if [ "$staged" = "true" ]; then
+  while IFS= read -r path; do
+    match_path "$path"
+  done < <(git diff --name-only --diff-filter=ACM --cached)
+else
+  while IFS= read -r path; do
+    match_path "$path"
+  done < <(git diff --name-only --diff-filter=ACM)
+
+  while IFS= read -r path; do
+    match_path "$path"
+  done < <(git ls-files --others --exclude-standard)
+fi
+
+# Run "file --mime-type" for unrecognised file extensions.
+if [ "${#unknown[@]}" -ne 0 ]; then
+  while IFS=': ' read -r path mime; do
+    match_mime "$path" "$mime"
+  done < <(file -nN --mime-type "${unknown[@]}")
+fi
+
+if [ "${#bazel[@]}" -ne 0 ]; then
+  run bazel run //:buildifier
+fi
+
+if [ "${#haskell[@]}" -ne 0 ]; then
+  run ormolu \
+    --mode=inplace \
+    -o '-XBangPatterns' \
+    -o '-XPatternSynonyms' \
+    -o '-XTypeApplications' \
+    -o '-XPatternSynonyms' \
+    -o '-XMagicHash' \
+    "${haskell[@]}"
+fi
+
+if [ "${#shellscript[@]}" -ne 0 ]; then
+  run shfmt -s -i 2 -ln bash -w "${shellscript[@]}"
+  run shellcheck --shell=bash --format=tty "${shellscript[@]}"
+fi
+
+if [ "${#nix[@]}" -ne 0 ]; then
+  run nixfmt "${nix[@]}"
+fi
+
+say "Done."

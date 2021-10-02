@@ -1,0 +1,20 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library")
+
+haskell_library(
+    name = "amazonka-mediapackage",
+    srcs = glob(["gen/**/*.hs"]) + glob(
+        ["src/**/*.hs"],
+        allow_empty = True,
+    ),
+    ghcopts = [
+        "-Wall",
+        "-Wunused-packages",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+    ],
+    visibility = ["//visibility:public"],
+    deps = [
+        "//amazonka",
+        "@stackage//:base",
+    ],
+)

@@ -18,14 +18,18 @@ import sources.nixpkgs {
       inherit sources;
 
       # Set the default ghc to our specified ghcVersion.
+      # This attribute is used in shell.nix for development/ghci.
       ghc = prev.haskell.compiler.${ghcVersion};
 
       # Override the haskellPackages attribute to match the ghc version,
-      # so we don't potentially download multiple compiler versions.
+      # so we don't potentially download multiple compiler versions when
+      # using this attribute to obtain haskell tools like cabal-fmt.
       haskellPackages = prev.haskellPackages.override { inherit ghc; };
 
+      cabal-fmt = haskellPackages.cabal-fmt;
+
       bazel = let
-        # Default the ghc used by bazel to ghcVersion.
+        # Default the ghc toolchain used by bazel to the same ghcVersion.
         bazelrc = prev.writeText "amazonka-bazelrc" ''
           build --host_platform=//tools/platforms:${ghcVersion}
         '';

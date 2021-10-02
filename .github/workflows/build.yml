@@ -58,5 +58,6 @@ jobs:
              echo "build --remote_upload_local_results=true" >> .bazelrc.local
           fi
 
+          # Avoid using shell.nix because we only need bazel, not all buildInputs.
           nix-shell -p bazel --run \
             'bazel build //... --host_platform=//tools/platforms:${{ matrix.ghc }}'

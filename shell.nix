@@ -7,17 +7,17 @@ let
 in pkgs.mkShell {
   buildInputs = [
     pkgs.bazel
+    pkgs.cabal-fmt
     pkgs.cabal-install
     pkgs.coreutils
     pkgs.file
     pkgs.ghc
-    pkgs.haskellPackages.cabal-fmt
     pkgs.niv
     pkgs.nixfmt
     pkgs.ormolu
     pkgs.parallel
-    pkgs.shfmt
     pkgs.shellcheck
+    pkgs.shfmt
   ];
 
   shellHook = ''

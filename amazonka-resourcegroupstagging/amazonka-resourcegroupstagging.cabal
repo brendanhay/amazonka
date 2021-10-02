@@ -70,7 +70,7 @@ library
   reexported-modules: Network.AWS
   build-depends:
     , amazonka  >=1.6.1 && <1.6.2
-    , base      >=4.13  && <5
+    , base      >=4.12  && <5
 
 test-suite amazonka-resourcegroupstagging-test
   type:             exitcode-stdio-1.0

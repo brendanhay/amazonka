@@ -1,5 +1,5 @@
 # Bazel caching - can be disabled by passing the flag --noremote_accept_cached.
-build --remote_http_cache=https://storage.googleapis.com/tlon-public-bazel-cache
+# build --remote_http_cache=https://storage.googleapis.com/tlon-public-bazel-cache
 
 # Don't push local build results to the remote cache - CI is source of truth.
 build --remote_upload_local_results=false

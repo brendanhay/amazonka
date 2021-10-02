@@ -1,16 +1,4 @@
 {
-    "botocore": {
-        "branch": "develop",
-        "description": "The low-level, core functionality of boto 3.",
-        "homepage": null,
-        "owner": "boto",
-        "repo": "botocore",
-        "rev": "f1d41183e0fad31301ad7331a8962e3af6359a22",
-        "sha256": "1xz6bysc70642bnw59bfh5cgdywa6hj147ra1n9lrl2vkvpf4fwj",
-        "type": "tarball",
-        "url": "https://github.com/boto/botocore/archive/f1d41183e0fad31301ad7331a8962e3af6359a22.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
     "nixpkgs": {
         "branch": "master",
         "builtin": true,

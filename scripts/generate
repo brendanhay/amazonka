@@ -3,7 +3,7 @@
 # Usage: generate MODELS
 #
 # Runs amazonka-gen on the specified MODELS - which are directory names of the
-# services definitions in botocore/data/<MODEL>.
+# services definitions in https://github.com/boto/botocore/botocore/data/<MODEL>.
 #
 # Generates the output per MODEL in a temporary directory, formats .cabal and
 # .hs files, removes the related amazonka-*/gen directories, and finally
@@ -44,10 +44,10 @@ format_and_replace() {
 export -f say
 export -f format_and_replace
 
-# Build the generator first.
-bazel build //gen
+# Build the generator and obtain the botocore repository.
+bazel build //gen @botocore//...
 
-botocore="${BOTOCORE_PATH?}"
+botocore="$(bazel info output_base)/external/botocore"
 version="$(sed -n '0,/^version: */s///p' amazonka/amazonka.cabal)"
 services="config/services"
 models=()

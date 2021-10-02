@@ -19,8 +19,4 @@ in pkgs.mkShell {
     pkgs.shellcheck
     pkgs.shfmt
   ];
-
-  shellHook = ''
-    export BOTOCORE_PATH='${pkgs.sources.botocore}/botocore/data';
-  '';
 }

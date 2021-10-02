@@ -53,9 +53,7 @@ jobs:
       - name: bazel build //...
         run: |
           if [ "${{ github.repository }}" = "brendanhay/amazonka" ]; then
-             echo "build --google_default_credentials" >> .bazelrc.local
-             echo "build --action_env=GOOGLE_APPLICATION_CREDENTIALS" >> .bazelrc.local
-             echo "build --remote_upload_local_results=true" >> .bazelrc.local
+            cp .bazelrc.main .bazelrc.local
           fi
 
           # Avoid using shell.nix because we only need bazel, not all buildInputs.

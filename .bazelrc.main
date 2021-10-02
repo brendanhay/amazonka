@@ -1,0 +1,5 @@
+# Configuration for the canonical (non-forked) main branch when running on CI.
+build --experimental_build_event_upload_strategy=local
+build --remote_upload_local_results=true
+build --google_default_credentials=true
+build --action_env=GOOGLE_APPLICATION_CREDENTIALS

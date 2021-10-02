@@ -67,10 +67,17 @@ versioned_http_archive(
 
 versioned_http_archive(
     name = "com_github_bazelbuild_buildtools",
+    sha256 = "143ef233b81286470a14d77e57352cec682a642831423af883e5744e110af642",
     strip_prefix = "buildtools-{version}",
     url = "https://github.com/bazelbuild/buildtools/archive/{version}.tar.gz",
     version = "d6daef01a1a2f41a4143a314bf1996bf351caa30",
-    sha256 = "143ef233b81286470a14d77e57352cec682a642831423af883e5744e110af642"
+)
+
+versioned_http_archive(
+    name = "io_tweag_gazelle_cabal",
+    strip_prefix = "gazelle_cabal-{version}",
+    url = "https://github.com/tweag/gazelle_cabal/archive/{version}.tar.gz",
+    version = "fbf32ca7344f950e6a79017d80569e7b4b7b540b",
 )
 
 #
@@ -79,13 +86,13 @@ versioned_http_archive(
 
 versioned_http_archive(
     name = "botocore",
+    build_file_content = """
+exports_files(glob(["**/*.json"]))
+""",
+    sha256 = "1e8ab0f11f0df6b1d3bc8f5708150606becc08f20e38da1785a8ab7c0b8c232a",
     strip_prefix = "botocore-{version}/botocore/data",
     url = "https://github.com/boto/botocore/archive/{version}.tar.gz",
     version = "f1d41183e0fad31301ad7331a8962e3af6359a22",
-    sha256 = "1e8ab0f11f0df6b1d3bc8f5708150606becc08f20e38da1785a8ab7c0b8c232a",
-    build_file_content = """
-exports_files(glob(["**/*.json"]))
-"""
 )
 
 #
@@ -138,9 +145,11 @@ load("@io_bazel_rules_go//go:deps.bzl", "go_rules_dependencies")
 load("@io_tweag_rules_nixpkgs//nixpkgs:toolchains/go.bzl", "nixpkgs_go_configure")
 load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies")
 
+nixpkgs_go_configure(repository = "@nixpkgs")
+
 go_rules_dependencies()
 
-nixpkgs_go_configure(repository = "@nixpkgs")
+gazelle_dependencies()
 
 #
 # Nixpkgs
@@ -220,6 +229,10 @@ haskell_register_ghc_nixpkgs(
     version = "8.10.7",
 )
 
+load("@io_tweag_gazelle_cabal//:defs.bzl", "gazelle_cabal_dependencies")
+
+gazelle_cabal_dependencies()
+
 stack_snapshot(
     name = "stackage",
     extra_deps = {
@@ -227,24 +240,31 @@ stack_snapshot(
         "digest": ["@zlib.dev//:zlib"],
     },
     packages = [
-        "aeson",
+        "QuickCheck",
+        "aeson",  # keep
+        "amazonka-core",
         "attoparsec",
         "base",
+        "bifunctors",
         "bytestring",
-        "cabal-doctest",
         "case-insensitive",
         "comonad",
         "conduit",
         "conduit-extra",
         "containers",
         "cryptonite",
+        "data-ordlist",
+        "deepseq",
         "deriving-compat",
-        "digest",
+        "directory",
         "directory-tree",
-        "ede-0.3.2.0",
+        "ede",
+        "ede-0.3.2.0",  # keep
         "errors",
+        "exceptions",
         "formatting",
         "free",
+        "groom",
         "hashable",
         "haskell-src-exts",
         "http-client",
@@ -254,14 +274,24 @@ stack_snapshot(
         "lens",
         "memory",
         "mtl",
-        "optparse-applicative",
+        "optparse-applicative",  # keep
         "pandoc",
+        "path",  # keep
+        "path-io",  # keep
+        "process",
+        "quickcheck-unicode",
         "resourcet",
         "retry",
         "scientific",
+        "semigroups",
         "system-fileio",
         "system-filepath",
         "tagged",
+        "tasty",
+        "tasty-hunit",
+        "tasty-quickcheck",
+        "template-haskell",
+        "temporary",
         "text",
         "time",
         "transformers",
@@ -270,7 +300,7 @@ stack_snapshot(
         "unordered-containers",
         "xml-conduit",
         "xml-types",
-        "zlib",
+        "yaml",
     ],
     setup_deps = {
         "xml-conduit": ["@stackage//:cabal-doctest"],

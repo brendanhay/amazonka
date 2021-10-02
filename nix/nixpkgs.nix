@@ -35,6 +35,8 @@ import sources.nixpkgs {
         '';
       in prev.writeScriptBin "bazel" (''
         #!${prev.bash}/bin/bash
+        export JAVA_HOME=${prev.jdk11.home}
+        export GIT_SSL_CAINFO="${prev.cacert}/etc/ssl/certs/ca-bundle.crt"
       '' + prev.lib.optionalString (prev.buildPlatform.libc == "glibc") ''
         export LOCALE_ARCHIVE="${prev.glibcLocales}/lib/locale/locale-archive"
       '' + ''

@@ -221,8 +221,7 @@ exposedModules = to f
           x ^.. operations . each . to (operationNS ns . view opName)
 
 data Templates = Templates
-  { bazelTemplate :: Template,
-    cabalTemplate :: Template,
+  { cabalTemplate :: Template,
     tocTemplate :: Template,
     waitersTemplate :: Template,
     readmeTemplate :: Template,

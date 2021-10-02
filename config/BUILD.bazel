@@ -1,7 +1,0 @@
-exports_files(["services"])
-
-# filegroup(
-#     name = "services",
-#     srcs = glob(["services/*.json"])
-#     visibility=['//visibility:public'],
-#     )

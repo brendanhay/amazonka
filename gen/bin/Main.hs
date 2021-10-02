@@ -153,7 +153,6 @@ main = do
     tmpl <- flip evalStateT mempty $ do
       lift (title ("Loading templates from " % path) _optionTemplates)
 
-      bazelTemplate <- load "bazel.ede"
       cabalTemplate <- load "cabal.ede"
       tocTemplate <- load "toc.ede"
       waitersTemplate <- load "waiters.ede"

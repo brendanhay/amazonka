@@ -240,68 +240,66 @@ stack_snapshot(
         "digest": ["@zlib.dev//:zlib"],
     },
     packages = [
-        "QuickCheck",
-        "aeson",  # keep
-        "amazonka-core",
-        "attoparsec",
-        "base",
-        "bifunctors",
-        "bytestring",
-        "case-insensitive",
-        "comonad",
-        "conduit",
-        "conduit-extra",
-        "containers",
-        "cryptonite",
-        "data-ordlist",
-        "deepseq",
-        "deriving-compat",
-        "directory",
-        "directory-tree",
-        "ede",
-        "ede-0.3.2.0",  # keep
-        "errors",
-        "exceptions",
-        "formatting",
-        "free",
-        "groom",
-        "hashable",
-        "haskell-src-exts",
-        "http-client",
-        "http-conduit",
-        "http-types",
-        "ini",
-        "lens",
-        "memory",
-        "mtl",
-        "optparse-applicative",  # keep
-        "pandoc",
-        "path",  # keep
-        "path-io",  # keep
-        "process",
-        "quickcheck-unicode",
-        "resourcet",
-        "retry",
-        "scientific",
-        "semigroups",
-        "system-fileio",
-        "system-filepath",
-        "tagged",
-        "tasty",
-        "tasty-hunit",
-        "tasty-quickcheck",
-        "template-haskell",
-        "temporary",
-        "text",
-        "time",
-        "transformers",
-        "unexceptionalio",
-        "unliftio-core",
-        "unordered-containers",
-        "xml-conduit",
-        "xml-types",
-        "yaml",
-    ],
+"QuickCheck",
+"aeson",  # keep
+"attoparsec", # keep
+"base",
+"bifunctors",
+"bytestring", # keep
+"case-insensitive", # keep
+"comonad", # keep
+"conduit",
+"conduit-extra",
+"containers", # keep
+"cryptonite",
+"data-ordlist",
+"deepseq",
+"deriving-compat", # keep
+"directory",
+"directory-tree", # keep
+"ede-0.3.2.0",  # keep
+"errors", # keep
+"exceptions",
+"formatting", # keep
+"free", # keep
+"groom",
+"hashable", # keep
+"haskell-src-exts", # keep
+"http-client",
+"http-conduit",
+"http-types",
+"ini",
+"lens", # keep
+"memory",
+"mtl", # keep
+"optparse-applicative", # keep
+"pandoc", # keep
+"path",  # keep
+"path-io",  # keep
+"process",
+"quickcheck-unicode",
+"resourcet",
+"retry",
+"scientific", # keep
+"semigroups",
+"system-fileio", # keep
+"system-filepath", # keep
+"tagged",
+"tasty",
+"tasty-hunit",
+"tasty-quickcheck",
+"template-haskell",
+"temporary",
+"text", # keep
+"time", # keep
+"transformers", # keep
+"unexceptionalio", # keep
+"unliftio-core",
+"unordered-containers", # keep
+"xml-conduit",
+"xml-types",
+"yaml",
+],
     setup_deps = {
         "xml-conduit": ["@stackage//:cabal-doctest"],
     },

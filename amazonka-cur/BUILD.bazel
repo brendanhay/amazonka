@@ -1,20 +1,69 @@
-load("@rules_haskell//haskell:defs.bzl", "haskell_library")
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 
+# rule generated from amazonka-cur/amazonka-cur.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka-cur",
-    srcs = glob(["gen/**/*.hs"]) + glob(
-        ["src/**/*.hs"],
-        allow_empty = True,
-    ),
-    ghcopts = [
+    srcs = [
+        "gen/Network/AWS/CostAndUsageReport.hs",
+        "gen/Network/AWS/CostAndUsageReport/DeleteReportDefinition.hs",
+        "gen/Network/AWS/CostAndUsageReport/DescribeReportDefinitions.hs",
+        "gen/Network/AWS/CostAndUsageReport/Lens.hs",
+        "gen/Network/AWS/CostAndUsageReport/ModifyReportDefinition.hs",
+        "gen/Network/AWS/CostAndUsageReport/PutReportDefinition.hs",
+        "gen/Network/AWS/CostAndUsageReport/Types.hs",
+        "gen/Network/AWS/CostAndUsageReport/Types/AWSRegion.hs",
+        "gen/Network/AWS/CostAndUsageReport/Types/AdditionalArtifact.hs",
+        "gen/Network/AWS/CostAndUsageReport/Types/CompressionFormat.hs",
+        "gen/Network/AWS/CostAndUsageReport/Types/ReportDefinition.hs",
+        "gen/Network/AWS/CostAndUsageReport/Types/ReportFormat.hs",
+        "gen/Network/AWS/CostAndUsageReport/Types/ReportVersioning.hs",
+        "gen/Network/AWS/CostAndUsageReport/Types/SchemaElement.hs",
+        "gen/Network/AWS/CostAndUsageReport/Types/TimeUnit.hs",
+        "gen/Network/AWS/CostAndUsageReport/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_cur=\"1.6.1\"",
         "-Wall",
-        "-Wunused-packages",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
     ],
+    hidden_modules = [],
+    version = "1.6.1",
     visibility = ["//visibility:public"],
     deps = [
         "//amazonka",
         "@stackage//:base",
+    ],
+)
+
+# rule generated from amazonka-cur/amazonka-cur.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-cur-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/CostAndUsageReport.hs",
+        "test/Test/AWS/CostAndUsageReport/Internal.hs",
+        "test/Test/AWS/Gen/CostAndUsageReport.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_cur=\"1.6.1\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-cur",
+        "//amazonka",
+        "//test:amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
     ],
 )

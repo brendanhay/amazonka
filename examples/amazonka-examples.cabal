@@ -34,7 +34,6 @@ library
   build-depends:
     , amazonka              >=1.6.1 && <1.6.2
     , amazonka-apigateway
-    , amazonka-core
     , amazonka-dynamodb
     , amazonka-ec2
     , amazonka-s3

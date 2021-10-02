@@ -1,20 +1,91 @@
-load("@rules_haskell//haskell:defs.bzl", "haskell_library")
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 
+# rule generated from amazonka-translate/amazonka-translate.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka-translate",
-    srcs = glob(["gen/**/*.hs"]) + glob(
-        ["src/**/*.hs"],
-        allow_empty = True,
-    ),
-    ghcopts = [
+    srcs = [
+        "gen/Network/AWS/Translate.hs",
+        "gen/Network/AWS/Translate/CreateParallelData.hs",
+        "gen/Network/AWS/Translate/DeleteParallelData.hs",
+        "gen/Network/AWS/Translate/DeleteTerminology.hs",
+        "gen/Network/AWS/Translate/DescribeTextTranslationJob.hs",
+        "gen/Network/AWS/Translate/GetParallelData.hs",
+        "gen/Network/AWS/Translate/GetTerminology.hs",
+        "gen/Network/AWS/Translate/ImportTerminology.hs",
+        "gen/Network/AWS/Translate/Lens.hs",
+        "gen/Network/AWS/Translate/ListParallelData.hs",
+        "gen/Network/AWS/Translate/ListTerminologies.hs",
+        "gen/Network/AWS/Translate/ListTextTranslationJobs.hs",
+        "gen/Network/AWS/Translate/StartTextTranslationJob.hs",
+        "gen/Network/AWS/Translate/StopTextTranslationJob.hs",
+        "gen/Network/AWS/Translate/TranslateText.hs",
+        "gen/Network/AWS/Translate/Types.hs",
+        "gen/Network/AWS/Translate/Types/AppliedTerminology.hs",
+        "gen/Network/AWS/Translate/Types/EncryptionKey.hs",
+        "gen/Network/AWS/Translate/Types/EncryptionKeyType.hs",
+        "gen/Network/AWS/Translate/Types/InputDataConfig.hs",
+        "gen/Network/AWS/Translate/Types/JobDetails.hs",
+        "gen/Network/AWS/Translate/Types/JobStatus.hs",
+        "gen/Network/AWS/Translate/Types/MergeStrategy.hs",
+        "gen/Network/AWS/Translate/Types/OutputDataConfig.hs",
+        "gen/Network/AWS/Translate/Types/ParallelDataConfig.hs",
+        "gen/Network/AWS/Translate/Types/ParallelDataDataLocation.hs",
+        "gen/Network/AWS/Translate/Types/ParallelDataFormat.hs",
+        "gen/Network/AWS/Translate/Types/ParallelDataProperties.hs",
+        "gen/Network/AWS/Translate/Types/ParallelDataStatus.hs",
+        "gen/Network/AWS/Translate/Types/Term.hs",
+        "gen/Network/AWS/Translate/Types/TerminologyData.hs",
+        "gen/Network/AWS/Translate/Types/TerminologyDataFormat.hs",
+        "gen/Network/AWS/Translate/Types/TerminologyDataLocation.hs",
+        "gen/Network/AWS/Translate/Types/TerminologyProperties.hs",
+        "gen/Network/AWS/Translate/Types/TextTranslationJobFilter.hs",
+        "gen/Network/AWS/Translate/Types/TextTranslationJobProperties.hs",
+        "gen/Network/AWS/Translate/UpdateParallelData.hs",
+        "gen/Network/AWS/Translate/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_translate=\"1.6.1\"",
         "-Wall",
-        "-Wunused-packages",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
     ],
+    hidden_modules = [],
+    version = "1.6.1",
     visibility = ["//visibility:public"],
     deps = [
         "//amazonka",
         "@stackage//:base",
+    ],
+)
+
+# rule generated from amazonka-translate/amazonka-translate.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-translate-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/Translate.hs",
+        "test/Test/AWS/Translate.hs",
+        "test/Test/AWS/Translate/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_translate=\"1.6.1\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-translate",
+        "//amazonka",
+        "//test:amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
     ],
 )

@@ -1,20 +1,72 @@
-load("@rules_haskell//haskell:defs.bzl", "haskell_library")
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 
+# rule generated from amazonka-cloudsearch-domains/amazonka-cloudsearch-domains.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka-cloudsearch-domains",
-    srcs = glob(["gen/**/*.hs"]) + glob(
-        ["src/**/*.hs"],
-        allow_empty = True,
-    ),
-    ghcopts = [
+    srcs = [
+        "gen/Network/AWS/CloudSearchDomains.hs",
+        "gen/Network/AWS/CloudSearchDomains/Lens.hs",
+        "gen/Network/AWS/CloudSearchDomains/Search.hs",
+        "gen/Network/AWS/CloudSearchDomains/Suggest.hs",
+        "gen/Network/AWS/CloudSearchDomains/Types.hs",
+        "gen/Network/AWS/CloudSearchDomains/Types/Bucket.hs",
+        "gen/Network/AWS/CloudSearchDomains/Types/BucketInfo.hs",
+        "gen/Network/AWS/CloudSearchDomains/Types/ContentType.hs",
+        "gen/Network/AWS/CloudSearchDomains/Types/DocumentServiceWarning.hs",
+        "gen/Network/AWS/CloudSearchDomains/Types/FieldStats.hs",
+        "gen/Network/AWS/CloudSearchDomains/Types/Hit.hs",
+        "gen/Network/AWS/CloudSearchDomains/Types/Hits.hs",
+        "gen/Network/AWS/CloudSearchDomains/Types/QueryParser.hs",
+        "gen/Network/AWS/CloudSearchDomains/Types/SearchStatus.hs",
+        "gen/Network/AWS/CloudSearchDomains/Types/SuggestModel.hs",
+        "gen/Network/AWS/CloudSearchDomains/Types/SuggestStatus.hs",
+        "gen/Network/AWS/CloudSearchDomains/Types/SuggestionMatch.hs",
+        "gen/Network/AWS/CloudSearchDomains/UploadDocuments.hs",
+        "gen/Network/AWS/CloudSearchDomains/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_cloudsearch_domains=\"1.6.1\"",
         "-Wall",
-        "-Wunused-packages",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
     ],
+    hidden_modules = [],
+    version = "1.6.1",
     visibility = ["//visibility:public"],
     deps = [
         "//amazonka",
         "@stackage//:base",
+    ],
+)
+
+# rule generated from amazonka-cloudsearch-domains/amazonka-cloudsearch-domains.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-cloudsearch-domains-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/CloudSearchDomains.hs",
+        "test/Test/AWS/CloudSearchDomains/Internal.hs",
+        "test/Test/AWS/Gen/CloudSearchDomains.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_cloudsearch_domains=\"1.6.1\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-cloudsearch-domains",
+        "//amazonka",
+        "//test:amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
     ],
 )

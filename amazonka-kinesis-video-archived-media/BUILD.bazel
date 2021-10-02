@@ -1,20 +1,82 @@
-load("@rules_haskell//haskell:defs.bzl", "haskell_library")
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 
+# rule generated from amazonka-kinesis-video-archived-media/amazonka-kinesis-video-archived-media.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka-kinesis-video-archived-media",
-    srcs = glob(["gen/**/*.hs"]) + glob(
-        ["src/**/*.hs"],
-        allow_empty = True,
-    ),
-    ghcopts = [
+    srcs = [
+        "gen/Network/AWS/KinesisVideoArchivedMedia.hs",
+        "gen/Network/AWS/KinesisVideoArchivedMedia/GetClip.hs",
+        "gen/Network/AWS/KinesisVideoArchivedMedia/GetDASHStreamingSessionURL.hs",
+        "gen/Network/AWS/KinesisVideoArchivedMedia/GetHLSStreamingSessionURL.hs",
+        "gen/Network/AWS/KinesisVideoArchivedMedia/GetMediaForFragmentList.hs",
+        "gen/Network/AWS/KinesisVideoArchivedMedia/Lens.hs",
+        "gen/Network/AWS/KinesisVideoArchivedMedia/ListFragments.hs",
+        "gen/Network/AWS/KinesisVideoArchivedMedia/Types.hs",
+        "gen/Network/AWS/KinesisVideoArchivedMedia/Types/ClipFragmentSelector.hs",
+        "gen/Network/AWS/KinesisVideoArchivedMedia/Types/ClipFragmentSelectorType.hs",
+        "gen/Network/AWS/KinesisVideoArchivedMedia/Types/ClipTimestampRange.hs",
+        "gen/Network/AWS/KinesisVideoArchivedMedia/Types/ContainerFormat.hs",
+        "gen/Network/AWS/KinesisVideoArchivedMedia/Types/DASHDisplayFragmentNumber.hs",
+        "gen/Network/AWS/KinesisVideoArchivedMedia/Types/DASHDisplayFragmentTimestamp.hs",
+        "gen/Network/AWS/KinesisVideoArchivedMedia/Types/DASHFragmentSelector.hs",
+        "gen/Network/AWS/KinesisVideoArchivedMedia/Types/DASHFragmentSelectorType.hs",
+        "gen/Network/AWS/KinesisVideoArchivedMedia/Types/DASHPlaybackMode.hs",
+        "gen/Network/AWS/KinesisVideoArchivedMedia/Types/DASHTimestampRange.hs",
+        "gen/Network/AWS/KinesisVideoArchivedMedia/Types/Fragment.hs",
+        "gen/Network/AWS/KinesisVideoArchivedMedia/Types/FragmentSelector.hs",
+        "gen/Network/AWS/KinesisVideoArchivedMedia/Types/FragmentSelectorType.hs",
+        "gen/Network/AWS/KinesisVideoArchivedMedia/Types/HLSDiscontinuityMode.hs",
+        "gen/Network/AWS/KinesisVideoArchivedMedia/Types/HLSDisplayFragmentTimestamp.hs",
+        "gen/Network/AWS/KinesisVideoArchivedMedia/Types/HLSFragmentSelector.hs",
+        "gen/Network/AWS/KinesisVideoArchivedMedia/Types/HLSFragmentSelectorType.hs",
+        "gen/Network/AWS/KinesisVideoArchivedMedia/Types/HLSPlaybackMode.hs",
+        "gen/Network/AWS/KinesisVideoArchivedMedia/Types/HLSTimestampRange.hs",
+        "gen/Network/AWS/KinesisVideoArchivedMedia/Types/TimestampRange.hs",
+        "gen/Network/AWS/KinesisVideoArchivedMedia/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_kinesis_video_archived_media=\"1.6.1\"",
         "-Wall",
-        "-Wunused-packages",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
     ],
+    hidden_modules = [],
+    version = "1.6.1",
     visibility = ["//visibility:public"],
     deps = [
         "//amazonka",
         "@stackage//:base",
+    ],
+)
+
+# rule generated from amazonka-kinesis-video-archived-media/amazonka-kinesis-video-archived-media.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-kinesis-video-archived-media-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/KinesisVideoArchivedMedia.hs",
+        "test/Test/AWS/KinesisVideoArchivedMedia.hs",
+        "test/Test/AWS/KinesisVideoArchivedMedia/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_kinesis_video_archived_media=\"1.6.1\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-kinesis-video-archived-media",
+        "//amazonka",
+        "//test:amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
     ],
 )

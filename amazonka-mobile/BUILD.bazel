@@ -1,20 +1,72 @@
-load("@rules_haskell//haskell:defs.bzl", "haskell_library")
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 
+# rule generated from amazonka-mobile/amazonka-mobile.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka-mobile",
-    srcs = glob(["gen/**/*.hs"]) + glob(
-        ["src/**/*.hs"],
-        allow_empty = True,
-    ),
-    ghcopts = [
+    srcs = [
+        "gen/Network/AWS/Mobile.hs",
+        "gen/Network/AWS/Mobile/CreateProject.hs",
+        "gen/Network/AWS/Mobile/DeleteProject.hs",
+        "gen/Network/AWS/Mobile/DescribeBundle.hs",
+        "gen/Network/AWS/Mobile/DescribeProject.hs",
+        "gen/Network/AWS/Mobile/ExportBundle.hs",
+        "gen/Network/AWS/Mobile/ExportProject.hs",
+        "gen/Network/AWS/Mobile/Lens.hs",
+        "gen/Network/AWS/Mobile/ListBundles.hs",
+        "gen/Network/AWS/Mobile/ListProjects.hs",
+        "gen/Network/AWS/Mobile/Types.hs",
+        "gen/Network/AWS/Mobile/Types/BundleDetails.hs",
+        "gen/Network/AWS/Mobile/Types/Platform.hs",
+        "gen/Network/AWS/Mobile/Types/ProjectDetails.hs",
+        "gen/Network/AWS/Mobile/Types/ProjectState.hs",
+        "gen/Network/AWS/Mobile/Types/ProjectSummary.hs",
+        "gen/Network/AWS/Mobile/Types/Resource.hs",
+        "gen/Network/AWS/Mobile/UpdateProject.hs",
+        "gen/Network/AWS/Mobile/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_mobile=\"1.6.1\"",
         "-Wall",
-        "-Wunused-packages",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
     ],
+    hidden_modules = [],
+    version = "1.6.1",
     visibility = ["//visibility:public"],
     deps = [
         "//amazonka",
         "@stackage//:base",
+    ],
+)
+
+# rule generated from amazonka-mobile/amazonka-mobile.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-mobile-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/Mobile.hs",
+        "test/Test/AWS/Mobile.hs",
+        "test/Test/AWS/Mobile/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_mobile=\"1.6.1\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-mobile",
+        "//amazonka",
+        "//test:amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
     ],
 )

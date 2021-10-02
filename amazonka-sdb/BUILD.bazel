@@ -1,20 +1,73 @@
-load("@rules_haskell//haskell:defs.bzl", "haskell_library")
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 
+# rule generated from amazonka-sdb/amazonka-sdb.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka-sdb",
-    srcs = glob(["gen/**/*.hs"]) + glob(
-        ["src/**/*.hs"],
-        allow_empty = True,
-    ),
-    ghcopts = [
+    srcs = [
+        "gen/Network/AWS/SDB.hs",
+        "gen/Network/AWS/SDB/BatchDeleteAttributes.hs",
+        "gen/Network/AWS/SDB/BatchPutAttributes.hs",
+        "gen/Network/AWS/SDB/CreateDomain.hs",
+        "gen/Network/AWS/SDB/DeleteAttributes.hs",
+        "gen/Network/AWS/SDB/DeleteDomain.hs",
+        "gen/Network/AWS/SDB/DomainMetadata.hs",
+        "gen/Network/AWS/SDB/GetAttributes.hs",
+        "gen/Network/AWS/SDB/Lens.hs",
+        "gen/Network/AWS/SDB/ListDomains.hs",
+        "gen/Network/AWS/SDB/PutAttributes.hs",
+        "gen/Network/AWS/SDB/Select.hs",
+        "gen/Network/AWS/SDB/Types.hs",
+        "gen/Network/AWS/SDB/Types/Attribute.hs",
+        "gen/Network/AWS/SDB/Types/DeletableItem.hs",
+        "gen/Network/AWS/SDB/Types/Item.hs",
+        "gen/Network/AWS/SDB/Types/ReplaceableAttribute.hs",
+        "gen/Network/AWS/SDB/Types/ReplaceableItem.hs",
+        "gen/Network/AWS/SDB/Types/UpdateCondition.hs",
+        "gen/Network/AWS/SDB/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_sdb=\"1.6.1\"",
         "-Wall",
-        "-Wunused-packages",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
     ],
+    hidden_modules = [],
+    version = "1.6.1",
     visibility = ["//visibility:public"],
     deps = [
         "//amazonka",
         "@stackage//:base",
+    ],
+)
+
+# rule generated from amazonka-sdb/amazonka-sdb.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-sdb-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/SDB.hs",
+        "test/Test/AWS/SDB.hs",
+        "test/Test/AWS/SDB/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_sdb=\"1.6.1\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-sdb",
+        "//amazonka",
+        "//test:amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
     ],
 )

@@ -1,0 +1,46 @@
+load("@rules_haskell//haskell:defs.bzl", "haskell_library")
+
+# rule generated from test/amazonka-test.cabal by gazelle_cabal
+haskell_library(
+    name = "amazonka-test",
+    srcs = [
+        "src/Test/AWS/Assert.hs",
+        "src/Test/AWS/Diff.hs",
+        "src/Test/AWS/Fixture.hs",
+        "src/Test/AWS/Orphans.hs",
+        "src/Test/AWS/Prelude.hs",
+        "src/Test/AWS/TH.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_test=\"1.6.1\"",
+        "-Wall",
+        "-fwarn-incomplete-uni-patterns",
+        "-fwarn-incomplete-record-updates",
+    ],
+    hidden_modules = [],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//amazonka",
+        "@stackage//:aeson",
+        "@stackage//:base",
+        "@stackage//:bifunctors",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:conduit",
+        "@stackage//:conduit-extra",
+        "@stackage//:groom",
+        "@stackage//:http-client",
+        "@stackage//:http-types",
+        "@stackage//:process",
+        "@stackage//:resourcet",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:template-haskell",
+        "@stackage//:temporary",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
+        "@stackage//:yaml",
+    ],
+)

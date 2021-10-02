@@ -1,20 +1,87 @@
-load("@rules_haskell//haskell:defs.bzl", "haskell_library")
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 
+# rule generated from amazonka-support/amazonka-support.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka-support",
-    srcs = glob(["gen/**/*.hs"]) + glob(
-        ["src/**/*.hs"],
-        allow_empty = True,
-    ),
-    ghcopts = [
+    srcs = [
+        "gen/Network/AWS/Support.hs",
+        "gen/Network/AWS/Support/AddAttachmentsToSet.hs",
+        "gen/Network/AWS/Support/AddCommunicationToCase.hs",
+        "gen/Network/AWS/Support/CreateCase.hs",
+        "gen/Network/AWS/Support/DescribeAttachment.hs",
+        "gen/Network/AWS/Support/DescribeCases.hs",
+        "gen/Network/AWS/Support/DescribeCommunications.hs",
+        "gen/Network/AWS/Support/DescribeServices.hs",
+        "gen/Network/AWS/Support/DescribeSeverityLevels.hs",
+        "gen/Network/AWS/Support/DescribeTrustedAdvisorCheckRefreshStatuses.hs",
+        "gen/Network/AWS/Support/DescribeTrustedAdvisorCheckResult.hs",
+        "gen/Network/AWS/Support/DescribeTrustedAdvisorCheckSummaries.hs",
+        "gen/Network/AWS/Support/DescribeTrustedAdvisorChecks.hs",
+        "gen/Network/AWS/Support/Lens.hs",
+        "gen/Network/AWS/Support/RefreshTrustedAdvisorCheck.hs",
+        "gen/Network/AWS/Support/ResolveCase.hs",
+        "gen/Network/AWS/Support/Types.hs",
+        "gen/Network/AWS/Support/Types/Attachment.hs",
+        "gen/Network/AWS/Support/Types/AttachmentDetails.hs",
+        "gen/Network/AWS/Support/Types/CaseDetails.hs",
+        "gen/Network/AWS/Support/Types/Category.hs",
+        "gen/Network/AWS/Support/Types/Communication.hs",
+        "gen/Network/AWS/Support/Types/RecentCaseCommunications.hs",
+        "gen/Network/AWS/Support/Types/SeverityLevel.hs",
+        "gen/Network/AWS/Support/Types/SupportService.hs",
+        "gen/Network/AWS/Support/Types/TrustedAdvisorCategorySpecificSummary.hs",
+        "gen/Network/AWS/Support/Types/TrustedAdvisorCheckDescription.hs",
+        "gen/Network/AWS/Support/Types/TrustedAdvisorCheckRefreshStatus.hs",
+        "gen/Network/AWS/Support/Types/TrustedAdvisorCheckResult.hs",
+        "gen/Network/AWS/Support/Types/TrustedAdvisorCheckSummary.hs",
+        "gen/Network/AWS/Support/Types/TrustedAdvisorCostOptimizingSummary.hs",
+        "gen/Network/AWS/Support/Types/TrustedAdvisorResourceDetail.hs",
+        "gen/Network/AWS/Support/Types/TrustedAdvisorResourcesSummary.hs",
+        "gen/Network/AWS/Support/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_support=\"1.6.1\"",
         "-Wall",
-        "-Wunused-packages",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
     ],
+    hidden_modules = [],
+    version = "1.6.1",
     visibility = ["//visibility:public"],
     deps = [
         "//amazonka",
         "@stackage//:base",
+    ],
+)
+
+# rule generated from amazonka-support/amazonka-support.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-support-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/Support.hs",
+        "test/Test/AWS/Support.hs",
+        "test/Test/AWS/Support/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_support=\"1.6.1\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-support",
+        "//amazonka",
+        "//test:amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
     ],
 )

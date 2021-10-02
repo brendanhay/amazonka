@@ -1,20 +1,88 @@
-load("@rules_haskell//haskell:defs.bzl", "haskell_library")
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 
+# rule generated from amazonka-application-autoscaling/amazonka-application-autoscaling.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka-application-autoscaling",
-    srcs = glob(["gen/**/*.hs"]) + glob(
-        ["src/**/*.hs"],
-        allow_empty = True,
-    ),
-    ghcopts = [
+    srcs = [
+        "gen/Network/AWS/ApplicationAutoScaling.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/DeleteScalingPolicy.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/DeleteScheduledAction.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/DeregisterScalableTarget.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/DescribeScalableTargets.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/DescribeScalingActivities.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/DescribeScalingPolicies.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/DescribeScheduledActions.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/Lens.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/PutScalingPolicy.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/PutScheduledAction.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/RegisterScalableTarget.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/Types.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/Types/AdjustmentType.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/Types/Alarm.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/Types/CustomizedMetricSpecification.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/Types/MetricAggregationType.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/Types/MetricDimension.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/Types/MetricStatistic.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/Types/MetricType.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/Types/PolicyType.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/Types/PredefinedMetricSpecification.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/Types/ScalableDimension.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/Types/ScalableTarget.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/Types/ScalableTargetAction.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/Types/ScalingActivity.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/Types/ScalingActivityStatusCode.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/Types/ScalingPolicy.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/Types/ScheduledAction.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/Types/ServiceNamespace.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/Types/StepAdjustment.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/Types/StepScalingPolicyConfiguration.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/Types/SuspendedState.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/Types/TargetTrackingScalingPolicyConfiguration.hs",
+        "gen/Network/AWS/ApplicationAutoScaling/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_application_autoscaling=\"1.6.1\"",
         "-Wall",
-        "-Wunused-packages",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
     ],
+    hidden_modules = [],
+    version = "1.6.1",
     visibility = ["//visibility:public"],
     deps = [
         "//amazonka",
         "@stackage//:base",
+    ],
+)
+
+# rule generated from amazonka-application-autoscaling/amazonka-application-autoscaling.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-application-autoscaling-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/ApplicationAutoScaling.hs",
+        "test/Test/AWS/ApplicationAutoScaling/Internal.hs",
+        "test/Test/AWS/Gen/ApplicationAutoScaling.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_application_autoscaling=\"1.6.1\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-application-autoscaling",
+        "//amazonka",
+        "//test:amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
     ],
 )

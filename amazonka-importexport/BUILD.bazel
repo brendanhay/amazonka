@@ -1,20 +1,66 @@
-load("@rules_haskell//haskell:defs.bzl", "haskell_library")
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 
+# rule generated from amazonka-importexport/amazonka-importexport.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka-importexport",
-    srcs = glob(["gen/**/*.hs"]) + glob(
-        ["src/**/*.hs"],
-        allow_empty = True,
-    ),
-    ghcopts = [
+    srcs = [
+        "gen/Network/AWS/ImportExport.hs",
+        "gen/Network/AWS/ImportExport/CancelJob.hs",
+        "gen/Network/AWS/ImportExport/CreateJob.hs",
+        "gen/Network/AWS/ImportExport/GetShippingLabel.hs",
+        "gen/Network/AWS/ImportExport/GetStatus.hs",
+        "gen/Network/AWS/ImportExport/Lens.hs",
+        "gen/Network/AWS/ImportExport/ListJobs.hs",
+        "gen/Network/AWS/ImportExport/Types.hs",
+        "gen/Network/AWS/ImportExport/Types/Artifact.hs",
+        "gen/Network/AWS/ImportExport/Types/Job.hs",
+        "gen/Network/AWS/ImportExport/Types/JobType.hs",
+        "gen/Network/AWS/ImportExport/UpdateJob.hs",
+        "gen/Network/AWS/ImportExport/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_importexport=\"1.6.1\"",
         "-Wall",
-        "-Wunused-packages",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
     ],
+    hidden_modules = [],
+    version = "1.6.1",
     visibility = ["//visibility:public"],
     deps = [
         "//amazonka",
         "@stackage//:base",
+    ],
+)
+
+# rule generated from amazonka-importexport/amazonka-importexport.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-importexport-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/ImportExport.hs",
+        "test/Test/AWS/ImportExport.hs",
+        "test/Test/AWS/ImportExport/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_importexport=\"1.6.1\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-importexport",
+        "//amazonka",
+        "//test:amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
     ],
 )

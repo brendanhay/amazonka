@@ -1,20 +1,90 @@
-load("@rules_haskell//haskell:defs.bzl", "haskell_library")
+load("@rules_haskell//haskell:defs.bzl", "haskell_library", "haskell_test")
 
+# rule generated from amazonka-secretsmanager/amazonka-secretsmanager.cabal by gazelle_cabal
 haskell_library(
     name = "amazonka-secretsmanager",
-    srcs = glob(["gen/**/*.hs"]) + glob(
-        ["src/**/*.hs"],
-        allow_empty = True,
-    ),
-    ghcopts = [
+    srcs = [
+        "gen/Network/AWS/SecretsManager.hs",
+        "gen/Network/AWS/SecretsManager/CancelRotateSecret.hs",
+        "gen/Network/AWS/SecretsManager/CreateSecret.hs",
+        "gen/Network/AWS/SecretsManager/DeleteResourcePolicy.hs",
+        "gen/Network/AWS/SecretsManager/DeleteSecret.hs",
+        "gen/Network/AWS/SecretsManager/DescribeSecret.hs",
+        "gen/Network/AWS/SecretsManager/GetRandomPassword.hs",
+        "gen/Network/AWS/SecretsManager/GetResourcePolicy.hs",
+        "gen/Network/AWS/SecretsManager/GetSecretValue.hs",
+        "gen/Network/AWS/SecretsManager/Lens.hs",
+        "gen/Network/AWS/SecretsManager/ListSecretVersionIds.hs",
+        "gen/Network/AWS/SecretsManager/ListSecrets.hs",
+        "gen/Network/AWS/SecretsManager/PutResourcePolicy.hs",
+        "gen/Network/AWS/SecretsManager/PutSecretValue.hs",
+        "gen/Network/AWS/SecretsManager/RemoveRegionsFromReplication.hs",
+        "gen/Network/AWS/SecretsManager/ReplicateSecretToRegions.hs",
+        "gen/Network/AWS/SecretsManager/RestoreSecret.hs",
+        "gen/Network/AWS/SecretsManager/RotateSecret.hs",
+        "gen/Network/AWS/SecretsManager/StopReplicationToReplica.hs",
+        "gen/Network/AWS/SecretsManager/TagResource.hs",
+        "gen/Network/AWS/SecretsManager/Types.hs",
+        "gen/Network/AWS/SecretsManager/Types/Filter.hs",
+        "gen/Network/AWS/SecretsManager/Types/FilterNameStringType.hs",
+        "gen/Network/AWS/SecretsManager/Types/ReplicaRegionType.hs",
+        "gen/Network/AWS/SecretsManager/Types/ReplicationStatusType.hs",
+        "gen/Network/AWS/SecretsManager/Types/RotationRulesType.hs",
+        "gen/Network/AWS/SecretsManager/Types/SecretListEntry.hs",
+        "gen/Network/AWS/SecretsManager/Types/SecretVersionsListEntry.hs",
+        "gen/Network/AWS/SecretsManager/Types/SortOrderType.hs",
+        "gen/Network/AWS/SecretsManager/Types/StatusType.hs",
+        "gen/Network/AWS/SecretsManager/Types/Tag.hs",
+        "gen/Network/AWS/SecretsManager/Types/ValidationErrorsEntry.hs",
+        "gen/Network/AWS/SecretsManager/UntagResource.hs",
+        "gen/Network/AWS/SecretsManager/UpdateSecret.hs",
+        "gen/Network/AWS/SecretsManager/UpdateSecretVersionStage.hs",
+        "gen/Network/AWS/SecretsManager/ValidateResourcePolicy.hs",
+        "gen/Network/AWS/SecretsManager/Waiters.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_secretsmanager=\"1.6.1\"",
         "-Wall",
-        "-Wunused-packages",
         "-fwarn-incomplete-uni-patterns",
         "-fwarn-incomplete-record-updates",
+        "-funbox-strict-fields",
     ],
+    hidden_modules = [],
+    version = "1.6.1",
     visibility = ["//visibility:public"],
     deps = [
         "//amazonka",
         "@stackage//:base",
+    ],
+)
+
+# rule generated from amazonka-secretsmanager/amazonka-secretsmanager.cabal by gazelle_cabal
+haskell_test(
+    name = "amazonka-secretsmanager-test",
+    srcs = [
+        "test/Main.hs",
+        "test/Test/AWS/Gen/SecretsManager.hs",
+        "test/Test/AWS/SecretsManager.hs",
+        "test/Test/AWS/SecretsManager/Internal.hs",
+    ],
+    compiler_flags = [
+        "-DVERSION_amazonka_secretsmanager=\"1.6.1\"",
+        "-Wall",
+        "-threaded",
+    ],
+    version = "1.6.1",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":amazonka-secretsmanager",
+        "//amazonka",
+        "//test:amazonka-test",
+        "@stackage//:base",
+        "@stackage//:bytestring",
+        "@stackage//:case-insensitive",
+        "@stackage//:tasty",
+        "@stackage//:tasty-hunit",
+        "@stackage//:text",
+        "@stackage//:time",
+        "@stackage//:unordered-containers",
     ],
 )

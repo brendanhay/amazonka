@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# Generate (or update) a corresponding BUILD file for every *.cabal file.
+bazel run //:gazelle
+
+# Update the WORKSPACE's stack_snapshot with any haskell dependencies.
+bazel run //:gazelle-update-repos

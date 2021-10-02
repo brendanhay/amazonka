@@ -90,10 +90,7 @@ done
 # Run the format and copy/replace steps in parallel.
 parallel --halt-on-error 2 format_and_replace ::: "$tmp"/amazonka-*
 
-# Generate a corresponding BUILD file for every *.cabal file.
-bazel run //:gazelle
-
-# Update the WORKSPACE's stack_snapshot with any new dependencies.
-bazel run //:gazelle-update-repos
+# Generate BUILD files for every package.
+./scripts/gazelle
 
 say "Done."

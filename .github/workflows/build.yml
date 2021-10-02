@@ -39,23 +39,12 @@ jobs:
           key: cache-v1
           path: ~/.cache/bazel
 
-      - name: Setup remote bazel cache
-        if: github.repository == 'brendanhay/amazonka'
-        uses: google-github-actions/setup-gcloud@v0.2.0
-        with:
-          service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
-          export_default_credentials: true
-
       - name: Optimise disk space
         if: ${{ matrix.os != 'macos-latest' }}
         run: sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt &
 
       - name: bazel build //...
         run: |
-          if [ "${{ github.repository }}" = "brendanhay/amazonka" ]; then
-            cp .bazelrc.main .bazelrc.local
-          fi
-
           # Avoid using shell.nix because we only need bazel, not all buildInputs.
           nix-shell -p bazel --run \
             'bazel build //... --host_platform=//tools/platforms:${{ matrix.ghc }}'

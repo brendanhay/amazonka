@@ -58,6 +58,8 @@ Released: **unreleased**, Compare: 2.0 RC1 (TODO: Linkify)
 [\#648](https://github.com/brendanhay/amazonka/pull/648)
 - S3 object sizes are now `Integer` instead of `Int`
 [\#649](https://github.com/brendanhay/amazonka/pull/649)
+- amazonka-rds now supports the `DestinationRegion` pseudo-parameter for cross-region requests
+[\#661](https://github.com/brendanhay/amazonka/pull/661)
 
 ### Other Changes
 

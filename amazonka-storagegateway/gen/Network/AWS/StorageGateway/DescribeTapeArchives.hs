@@ -34,9 +34,9 @@ module Network.AWS.StorageGateway.DescribeTapeArchives
     newDescribeTapeArchives,
 
     -- * Request Lenses
-    describeTapeArchives_tapeARNs,
-    describeTapeArchives_limit,
     describeTapeArchives_marker,
+    describeTapeArchives_limit,
+    describeTapeArchives_tapeARNs,
 
     -- * Destructuring the Response
     DescribeTapeArchivesResponse (..),
@@ -60,15 +60,15 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'newDescribeTapeArchives' smart constructor.
 data DescribeTapeArchives = DescribeTapeArchives'
-  { -- | Specifies one or more unique Amazon Resource Names (ARNs) that represent
-    -- the virtual tapes you want to describe.
-    tapeARNs :: Prelude.Maybe [Prelude.Text],
+  { -- | An opaque string that indicates the position at which to begin
+    -- describing virtual tapes.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | Specifies that the number of virtual tapes described be limited to the
     -- specified number.
     limit :: Prelude.Maybe Prelude.Natural,
-    -- | An opaque string that indicates the position at which to begin
-    -- describing virtual tapes.
-    marker :: Prelude.Maybe Prelude.Text
+    -- | Specifies one or more unique Amazon Resource Names (ARNs) that represent
+    -- the virtual tapes you want to describe.
+    tapeARNs :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,37 +80,37 @@ data DescribeTapeArchives = DescribeTapeArchives'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tapeARNs', 'describeTapeArchives_tapeARNs' - Specifies one or more unique Amazon Resource Names (ARNs) that represent
--- the virtual tapes you want to describe.
+-- 'marker', 'describeTapeArchives_marker' - An opaque string that indicates the position at which to begin
+-- describing virtual tapes.
 --
 -- 'limit', 'describeTapeArchives_limit' - Specifies that the number of virtual tapes described be limited to the
 -- specified number.
 --
--- 'marker', 'describeTapeArchives_marker' - An opaque string that indicates the position at which to begin
--- describing virtual tapes.
+-- 'tapeARNs', 'describeTapeArchives_tapeARNs' - Specifies one or more unique Amazon Resource Names (ARNs) that represent
+-- the virtual tapes you want to describe.
 newDescribeTapeArchives ::
   DescribeTapeArchives
 newDescribeTapeArchives =
   DescribeTapeArchives'
-    { tapeARNs = Prelude.Nothing,
+    { marker = Prelude.Nothing,
       limit = Prelude.Nothing,
-      marker = Prelude.Nothing
+      tapeARNs = Prelude.Nothing
     }
 
--- | Specifies one or more unique Amazon Resource Names (ARNs) that represent
--- the virtual tapes you want to describe.
-describeTapeArchives_tapeARNs :: Lens.Lens' DescribeTapeArchives (Prelude.Maybe [Prelude.Text])
-describeTapeArchives_tapeARNs = Lens.lens (\DescribeTapeArchives' {tapeARNs} -> tapeARNs) (\s@DescribeTapeArchives' {} a -> s {tapeARNs = a} :: DescribeTapeArchives) Prelude.. Lens.mapping Lens._Coerce
+-- | An opaque string that indicates the position at which to begin
+-- describing virtual tapes.
+describeTapeArchives_marker :: Lens.Lens' DescribeTapeArchives (Prelude.Maybe Prelude.Text)
+describeTapeArchives_marker = Lens.lens (\DescribeTapeArchives' {marker} -> marker) (\s@DescribeTapeArchives' {} a -> s {marker = a} :: DescribeTapeArchives)
 
 -- | Specifies that the number of virtual tapes described be limited to the
 -- specified number.
 describeTapeArchives_limit :: Lens.Lens' DescribeTapeArchives (Prelude.Maybe Prelude.Natural)
 describeTapeArchives_limit = Lens.lens (\DescribeTapeArchives' {limit} -> limit) (\s@DescribeTapeArchives' {} a -> s {limit = a} :: DescribeTapeArchives)
 
--- | An opaque string that indicates the position at which to begin
--- describing virtual tapes.
-describeTapeArchives_marker :: Lens.Lens' DescribeTapeArchives (Prelude.Maybe Prelude.Text)
-describeTapeArchives_marker = Lens.lens (\DescribeTapeArchives' {marker} -> marker) (\s@DescribeTapeArchives' {} a -> s {marker = a} :: DescribeTapeArchives)
+-- | Specifies one or more unique Amazon Resource Names (ARNs) that represent
+-- the virtual tapes you want to describe.
+describeTapeArchives_tapeARNs :: Lens.Lens' DescribeTapeArchives (Prelude.Maybe [Prelude.Text])
+describeTapeArchives_tapeARNs = Lens.lens (\DescribeTapeArchives' {tapeARNs} -> tapeARNs) (\s@DescribeTapeArchives' {} a -> s {tapeARNs = a} :: DescribeTapeArchives) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager DescribeTapeArchives where
   page rq rs
@@ -171,9 +171,9 @@ instance Core.ToJSON DescribeTapeArchives where
   toJSON DescribeTapeArchives' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TapeARNs" Core..=) Prelude.<$> tapeARNs,
+          [ ("Marker" Core..=) Prelude.<$> marker,
             ("Limit" Core..=) Prelude.<$> limit,
-            ("Marker" Core..=) Prelude.<$> marker
+            ("TapeARNs" Core..=) Prelude.<$> tapeARNs
           ]
       )
 

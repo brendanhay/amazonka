@@ -27,12 +27,12 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newStackConfigurationManager' smart constructor.
 data StackConfigurationManager = StackConfigurationManager'
-  { -- | The Chef version. This parameter must be set to 12, 11.10, or 11.4 for
+  { -- | The name. This parameter must be set to \"Chef\".
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The Chef version. This parameter must be set to 12, 11.10, or 11.4 for
     -- Linux stacks, and to 12.2 for Windows stacks. The default value for
     -- Linux stacks is 11.4.
-    version :: Prelude.Maybe Prelude.Text,
-    -- | The name. This parameter must be set to \"Chef\".
-    name :: Prelude.Maybe Prelude.Text
+    version :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -44,19 +44,22 @@ data StackConfigurationManager = StackConfigurationManager'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'name', 'stackConfigurationManager_name' - The name. This parameter must be set to \"Chef\".
+--
 -- 'version', 'stackConfigurationManager_version' - The Chef version. This parameter must be set to 12, 11.10, or 11.4 for
 -- Linux stacks, and to 12.2 for Windows stacks. The default value for
 -- Linux stacks is 11.4.
---
--- 'name', 'stackConfigurationManager_name' - The name. This parameter must be set to \"Chef\".
 newStackConfigurationManager ::
   StackConfigurationManager
 newStackConfigurationManager =
   StackConfigurationManager'
-    { version =
-        Prelude.Nothing,
-      name = Prelude.Nothing
+    { name = Prelude.Nothing,
+      version = Prelude.Nothing
     }
+
+-- | The name. This parameter must be set to \"Chef\".
+stackConfigurationManager_name :: Lens.Lens' StackConfigurationManager (Prelude.Maybe Prelude.Text)
+stackConfigurationManager_name = Lens.lens (\StackConfigurationManager' {name} -> name) (\s@StackConfigurationManager' {} a -> s {name = a} :: StackConfigurationManager)
 
 -- | The Chef version. This parameter must be set to 12, 11.10, or 11.4 for
 -- Linux stacks, and to 12.2 for Windows stacks. The default value for
@@ -64,18 +67,14 @@ newStackConfigurationManager =
 stackConfigurationManager_version :: Lens.Lens' StackConfigurationManager (Prelude.Maybe Prelude.Text)
 stackConfigurationManager_version = Lens.lens (\StackConfigurationManager' {version} -> version) (\s@StackConfigurationManager' {} a -> s {version = a} :: StackConfigurationManager)
 
--- | The name. This parameter must be set to \"Chef\".
-stackConfigurationManager_name :: Lens.Lens' StackConfigurationManager (Prelude.Maybe Prelude.Text)
-stackConfigurationManager_name = Lens.lens (\StackConfigurationManager' {name} -> name) (\s@StackConfigurationManager' {} a -> s {name = a} :: StackConfigurationManager)
-
 instance Core.FromJSON StackConfigurationManager where
   parseJSON =
     Core.withObject
       "StackConfigurationManager"
       ( \x ->
           StackConfigurationManager'
-            Prelude.<$> (x Core..:? "Version")
-            Prelude.<*> (x Core..:? "Name")
+            Prelude.<$> (x Core..:? "Name")
+            Prelude.<*> (x Core..:? "Version")
       )
 
 instance Prelude.Hashable StackConfigurationManager
@@ -86,7 +85,7 @@ instance Core.ToJSON StackConfigurationManager where
   toJSON StackConfigurationManager' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Version" Core..=) Prelude.<$> version,
-            ("Name" Core..=) Prelude.<$> name
+          [ ("Name" Core..=) Prelude.<$> name,
+            ("Version" Core..=) Prelude.<$> version
           ]
       )

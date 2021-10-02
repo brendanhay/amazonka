@@ -40,17 +40,17 @@ module Network.AWS.StorageGateway.ListTapes
     newListTapes,
 
     -- * Request Lenses
-    listTapes_tapeARNs,
-    listTapes_limit,
     listTapes_marker,
+    listTapes_limit,
+    listTapes_tapeARNs,
 
     -- * Destructuring the Response
     ListTapesResponse (..),
     newListTapesResponse,
 
     -- * Response Lenses
-    listTapesResponse_tapeInfos,
     listTapesResponse_marker,
+    listTapesResponse_tapeInfos,
     listTapesResponse_httpStatus,
   )
 where
@@ -72,13 +72,13 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'newListTapes' smart constructor.
 data ListTapes = ListTapes'
-  { tapeARNs :: Prelude.Maybe [Prelude.Text],
+  { -- | A string that indicates the position at which to begin the returned list
+    -- of tapes.
+    marker :: Prelude.Maybe Prelude.Text,
     -- | An optional number limit for the tapes in the list returned by this
     -- call.
     limit :: Prelude.Maybe Prelude.Natural,
-    -- | A string that indicates the position at which to begin the returned list
-    -- of tapes.
-    marker :: Prelude.Maybe Prelude.Text
+    tapeARNs :: Prelude.Maybe [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -90,35 +90,35 @@ data ListTapes = ListTapes'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tapeARNs', 'listTapes_tapeARNs' - Undocumented member.
+-- 'marker', 'listTapes_marker' - A string that indicates the position at which to begin the returned list
+-- of tapes.
 --
 -- 'limit', 'listTapes_limit' - An optional number limit for the tapes in the list returned by this
 -- call.
 --
--- 'marker', 'listTapes_marker' - A string that indicates the position at which to begin the returned list
--- of tapes.
+-- 'tapeARNs', 'listTapes_tapeARNs' - Undocumented member.
 newListTapes ::
   ListTapes
 newListTapes =
   ListTapes'
-    { tapeARNs = Prelude.Nothing,
+    { marker = Prelude.Nothing,
       limit = Prelude.Nothing,
-      marker = Prelude.Nothing
+      tapeARNs = Prelude.Nothing
     }
 
--- | Undocumented member.
-listTapes_tapeARNs :: Lens.Lens' ListTapes (Prelude.Maybe [Prelude.Text])
-listTapes_tapeARNs = Lens.lens (\ListTapes' {tapeARNs} -> tapeARNs) (\s@ListTapes' {} a -> s {tapeARNs = a} :: ListTapes) Prelude.. Lens.mapping Lens._Coerce
+-- | A string that indicates the position at which to begin the returned list
+-- of tapes.
+listTapes_marker :: Lens.Lens' ListTapes (Prelude.Maybe Prelude.Text)
+listTapes_marker = Lens.lens (\ListTapes' {marker} -> marker) (\s@ListTapes' {} a -> s {marker = a} :: ListTapes)
 
 -- | An optional number limit for the tapes in the list returned by this
 -- call.
 listTapes_limit :: Lens.Lens' ListTapes (Prelude.Maybe Prelude.Natural)
 listTapes_limit = Lens.lens (\ListTapes' {limit} -> limit) (\s@ListTapes' {} a -> s {limit = a} :: ListTapes)
 
--- | A string that indicates the position at which to begin the returned list
--- of tapes.
-listTapes_marker :: Lens.Lens' ListTapes (Prelude.Maybe Prelude.Text)
-listTapes_marker = Lens.lens (\ListTapes' {marker} -> marker) (\s@ListTapes' {} a -> s {marker = a} :: ListTapes)
+-- | Undocumented member.
+listTapes_tapeARNs :: Lens.Lens' ListTapes (Prelude.Maybe [Prelude.Text])
+listTapes_tapeARNs = Lens.lens (\ListTapes' {tapeARNs} -> tapeARNs) (\s@ListTapes' {} a -> s {tapeARNs = a} :: ListTapes) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.AWSPager ListTapes where
   page rq rs
@@ -146,8 +146,8 @@ instance Core.AWSRequest ListTapes where
     Response.receiveJSON
       ( \s h x ->
           ListTapesResponse'
-            Prelude.<$> (x Core..?> "TapeInfos" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "Marker")
+            Prelude.<$> (x Core..?> "Marker")
+            Prelude.<*> (x Core..?> "TapeInfos" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -174,9 +174,9 @@ instance Core.ToJSON ListTapes where
   toJSON ListTapes' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TapeARNs" Core..=) Prelude.<$> tapeARNs,
+          [ ("Marker" Core..=) Prelude.<$> marker,
             ("Limit" Core..=) Prelude.<$> limit,
-            ("Marker" Core..=) Prelude.<$> marker
+            ("TapeARNs" Core..=) Prelude.<$> tapeARNs
           ]
       )
 
@@ -194,12 +194,12 @@ instance Core.ToQuery ListTapes where
 --
 -- /See:/ 'newListTapesResponse' smart constructor.
 data ListTapesResponse = ListTapesResponse'
-  { tapeInfos :: Prelude.Maybe [TapeInfo],
-    -- | A string that indicates the position at which to begin returning the
+  { -- | A string that indicates the position at which to begin returning the
     -- next list of tapes. Use the marker in your next request to continue
     -- pagination of tapes. If there are no more tapes to list, this element
     -- does not appear in the response body.
     marker :: Prelude.Maybe Prelude.Text,
+    tapeInfos :: Prelude.Maybe [TapeInfo],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -213,12 +213,12 @@ data ListTapesResponse = ListTapesResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'tapeInfos', 'listTapesResponse_tapeInfos' - Undocumented member.
---
 -- 'marker', 'listTapesResponse_marker' - A string that indicates the position at which to begin returning the
 -- next list of tapes. Use the marker in your next request to continue
 -- pagination of tapes. If there are no more tapes to list, this element
 -- does not appear in the response body.
+--
+-- 'tapeInfos', 'listTapesResponse_tapeInfos' - Undocumented member.
 --
 -- 'httpStatus', 'listTapesResponse_httpStatus' - The response's http status code.
 newListTapesResponse ::
@@ -227,14 +227,10 @@ newListTapesResponse ::
   ListTapesResponse
 newListTapesResponse pHttpStatus_ =
   ListTapesResponse'
-    { tapeInfos = Prelude.Nothing,
-      marker = Prelude.Nothing,
+    { marker = Prelude.Nothing,
+      tapeInfos = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | Undocumented member.
-listTapesResponse_tapeInfos :: Lens.Lens' ListTapesResponse (Prelude.Maybe [TapeInfo])
-listTapesResponse_tapeInfos = Lens.lens (\ListTapesResponse' {tapeInfos} -> tapeInfos) (\s@ListTapesResponse' {} a -> s {tapeInfos = a} :: ListTapesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A string that indicates the position at which to begin returning the
 -- next list of tapes. Use the marker in your next request to continue
@@ -242,6 +238,10 @@ listTapesResponse_tapeInfos = Lens.lens (\ListTapesResponse' {tapeInfos} -> tape
 -- does not appear in the response body.
 listTapesResponse_marker :: Lens.Lens' ListTapesResponse (Prelude.Maybe Prelude.Text)
 listTapesResponse_marker = Lens.lens (\ListTapesResponse' {marker} -> marker) (\s@ListTapesResponse' {} a -> s {marker = a} :: ListTapesResponse)
+
+-- | Undocumented member.
+listTapesResponse_tapeInfos :: Lens.Lens' ListTapesResponse (Prelude.Maybe [TapeInfo])
+listTapesResponse_tapeInfos = Lens.lens (\ListTapesResponse' {tapeInfos} -> tapeInfos) (\s@ListTapesResponse' {} a -> s {tapeInfos = a} :: ListTapesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listTapesResponse_httpStatus :: Lens.Lens' ListTapesResponse Prelude.Int

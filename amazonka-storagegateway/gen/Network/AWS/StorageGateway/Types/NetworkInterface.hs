@@ -27,13 +27,13 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newNetworkInterface' smart constructor.
 data NetworkInterface = NetworkInterface'
-  { -- | The Media Access Control (MAC) address of the interface.
+  { -- | The Internet Protocol version 6 (IPv6) address of the interface.
+    -- /Currently not supported/.
+    ipv6Address :: Prelude.Maybe Prelude.Text,
+    -- | The Media Access Control (MAC) address of the interface.
     --
     -- This is currently unsupported and will not be returned in output.
     macAddress :: Prelude.Maybe Prelude.Text,
-    -- | The Internet Protocol version 6 (IPv6) address of the interface.
-    -- /Currently not supported/.
-    ipv6Address :: Prelude.Maybe Prelude.Text,
     -- | The Internet Protocol version 4 (IPv4) address of the interface.
     ipv4Address :: Prelude.Maybe Prelude.Text
   }
@@ -47,33 +47,33 @@ data NetworkInterface = NetworkInterface'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'ipv6Address', 'networkInterface_ipv6Address' - The Internet Protocol version 6 (IPv6) address of the interface.
+-- /Currently not supported/.
+--
 -- 'macAddress', 'networkInterface_macAddress' - The Media Access Control (MAC) address of the interface.
 --
 -- This is currently unsupported and will not be returned in output.
---
--- 'ipv6Address', 'networkInterface_ipv6Address' - The Internet Protocol version 6 (IPv6) address of the interface.
--- /Currently not supported/.
 --
 -- 'ipv4Address', 'networkInterface_ipv4Address' - The Internet Protocol version 4 (IPv4) address of the interface.
 newNetworkInterface ::
   NetworkInterface
 newNetworkInterface =
   NetworkInterface'
-    { macAddress = Prelude.Nothing,
-      ipv6Address = Prelude.Nothing,
+    { ipv6Address = Prelude.Nothing,
+      macAddress = Prelude.Nothing,
       ipv4Address = Prelude.Nothing
     }
+
+-- | The Internet Protocol version 6 (IPv6) address of the interface.
+-- /Currently not supported/.
+networkInterface_ipv6Address :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
+networkInterface_ipv6Address = Lens.lens (\NetworkInterface' {ipv6Address} -> ipv6Address) (\s@NetworkInterface' {} a -> s {ipv6Address = a} :: NetworkInterface)
 
 -- | The Media Access Control (MAC) address of the interface.
 --
 -- This is currently unsupported and will not be returned in output.
 networkInterface_macAddress :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
 networkInterface_macAddress = Lens.lens (\NetworkInterface' {macAddress} -> macAddress) (\s@NetworkInterface' {} a -> s {macAddress = a} :: NetworkInterface)
-
--- | The Internet Protocol version 6 (IPv6) address of the interface.
--- /Currently not supported/.
-networkInterface_ipv6Address :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
-networkInterface_ipv6Address = Lens.lens (\NetworkInterface' {ipv6Address} -> ipv6Address) (\s@NetworkInterface' {} a -> s {ipv6Address = a} :: NetworkInterface)
 
 -- | The Internet Protocol version 4 (IPv4) address of the interface.
 networkInterface_ipv4Address :: Lens.Lens' NetworkInterface (Prelude.Maybe Prelude.Text)
@@ -85,8 +85,8 @@ instance Core.FromJSON NetworkInterface where
       "NetworkInterface"
       ( \x ->
           NetworkInterface'
-            Prelude.<$> (x Core..:? "MacAddress")
-            Prelude.<*> (x Core..:? "Ipv6Address")
+            Prelude.<$> (x Core..:? "Ipv6Address")
+            Prelude.<*> (x Core..:? "MacAddress")
             Prelude.<*> (x Core..:? "Ipv4Address")
       )
 

@@ -172,7 +172,7 @@ instance Core.ToQuery DescribeServiceErrors where
 data DescribeServiceErrorsResponse = DescribeServiceErrorsResponse'
   { -- | An array of @ServiceError@ objects that describe the specified service
     -- errors.
-    serviceErrors :: Prelude.Maybe [ServiceError'],
+    serviceErrors :: Prelude.Maybe [ServiceError],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -203,7 +203,7 @@ newDescribeServiceErrorsResponse pHttpStatus_ =
 
 -- | An array of @ServiceError@ objects that describe the specified service
 -- errors.
-describeServiceErrorsResponse_serviceErrors :: Lens.Lens' DescribeServiceErrorsResponse (Prelude.Maybe [ServiceError'])
+describeServiceErrorsResponse_serviceErrors :: Lens.Lens' DescribeServiceErrorsResponse (Prelude.Maybe [ServiceError])
 describeServiceErrorsResponse_serviceErrors = Lens.lens (\DescribeServiceErrorsResponse' {serviceErrors} -> serviceErrors) (\s@DescribeServiceErrorsResponse' {} a -> s {serviceErrors = a} :: DescribeServiceErrorsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.

@@ -27,10 +27,10 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newChefConfiguration' smart constructor.
 data ChefConfiguration = ChefConfiguration'
-  { -- | Whether to enable Berkshelf.
-    manageBerkshelf :: Prelude.Maybe Prelude.Bool,
-    -- | The Berkshelf version.
-    berkshelfVersion :: Prelude.Maybe Prelude.Text
+  { -- | The Berkshelf version.
+    berkshelfVersion :: Prelude.Maybe Prelude.Text,
+    -- | Whether to enable Berkshelf.
+    manageBerkshelf :: Prelude.Maybe Prelude.Bool
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -42,25 +42,25 @@ data ChefConfiguration = ChefConfiguration'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'manageBerkshelf', 'chefConfiguration_manageBerkshelf' - Whether to enable Berkshelf.
---
 -- 'berkshelfVersion', 'chefConfiguration_berkshelfVersion' - The Berkshelf version.
+--
+-- 'manageBerkshelf', 'chefConfiguration_manageBerkshelf' - Whether to enable Berkshelf.
 newChefConfiguration ::
   ChefConfiguration
 newChefConfiguration =
   ChefConfiguration'
-    { manageBerkshelf =
+    { berkshelfVersion =
         Prelude.Nothing,
-      berkshelfVersion = Prelude.Nothing
+      manageBerkshelf = Prelude.Nothing
     }
-
--- | Whether to enable Berkshelf.
-chefConfiguration_manageBerkshelf :: Lens.Lens' ChefConfiguration (Prelude.Maybe Prelude.Bool)
-chefConfiguration_manageBerkshelf = Lens.lens (\ChefConfiguration' {manageBerkshelf} -> manageBerkshelf) (\s@ChefConfiguration' {} a -> s {manageBerkshelf = a} :: ChefConfiguration)
 
 -- | The Berkshelf version.
 chefConfiguration_berkshelfVersion :: Lens.Lens' ChefConfiguration (Prelude.Maybe Prelude.Text)
 chefConfiguration_berkshelfVersion = Lens.lens (\ChefConfiguration' {berkshelfVersion} -> berkshelfVersion) (\s@ChefConfiguration' {} a -> s {berkshelfVersion = a} :: ChefConfiguration)
+
+-- | Whether to enable Berkshelf.
+chefConfiguration_manageBerkshelf :: Lens.Lens' ChefConfiguration (Prelude.Maybe Prelude.Bool)
+chefConfiguration_manageBerkshelf = Lens.lens (\ChefConfiguration' {manageBerkshelf} -> manageBerkshelf) (\s@ChefConfiguration' {} a -> s {manageBerkshelf = a} :: ChefConfiguration)
 
 instance Core.FromJSON ChefConfiguration where
   parseJSON =
@@ -68,8 +68,8 @@ instance Core.FromJSON ChefConfiguration where
       "ChefConfiguration"
       ( \x ->
           ChefConfiguration'
-            Prelude.<$> (x Core..:? "ManageBerkshelf")
-            Prelude.<*> (x Core..:? "BerkshelfVersion")
+            Prelude.<$> (x Core..:? "BerkshelfVersion")
+            Prelude.<*> (x Core..:? "ManageBerkshelf")
       )
 
 instance Prelude.Hashable ChefConfiguration
@@ -80,9 +80,9 @@ instance Core.ToJSON ChefConfiguration where
   toJSON ChefConfiguration' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("ManageBerkshelf" Core..=)
-              Prelude.<$> manageBerkshelf,
-            ("BerkshelfVersion" Core..=)
-              Prelude.<$> berkshelfVersion
+          [ ("BerkshelfVersion" Core..=)
+              Prelude.<$> berkshelfVersion,
+            ("ManageBerkshelf" Core..=)
+              Prelude.<$> manageBerkshelf
           ]
       )

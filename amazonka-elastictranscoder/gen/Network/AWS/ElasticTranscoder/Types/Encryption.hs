@@ -31,23 +31,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newEncryption' smart constructor.
 data Encryption = Encryption'
-  { -- | The data encryption key that you want Elastic Transcoder to use to
-    -- encrypt your output file, or that was used to encrypt your input file.
-    -- The key must be base64-encoded and it must be one of the following bit
-    -- lengths before being base64-encoded:
-    --
-    -- @128@, @192@, or @256@.
-    --
-    -- The key must also be encrypted by using the Amazon Key Management
-    -- Service.
-    key :: Prelude.Maybe Prelude.Text,
-    -- | The MD5 digest of the key that you used to encrypt your input file, or
-    -- that you want Elastic Transcoder to use to encrypt your output file.
-    -- Elastic Transcoder uses the key digest as a checksum to make sure your
-    -- key was not corrupted in transit. The key MD5 must be base64-encoded,
-    -- and it must be exactly 16 bytes long before being base64-encoded.
-    keyMd5 :: Prelude.Maybe Prelude.Text,
-    -- | The specific server-side encryption mode that you want Elastic
+  { -- | The specific server-side encryption mode that you want Elastic
     -- Transcoder to use when decrypting your input files or encrypting your
     -- output files. Elastic Transcoder supports the following options:
     --
@@ -84,6 +68,22 @@ data Encryption = Encryption'
     -- manage your encryption keys. If you lose them, you won\'t be able to
     -- unencrypt your data.
     mode :: Prelude.Maybe Prelude.Text,
+    -- | The MD5 digest of the key that you used to encrypt your input file, or
+    -- that you want Elastic Transcoder to use to encrypt your output file.
+    -- Elastic Transcoder uses the key digest as a checksum to make sure your
+    -- key was not corrupted in transit. The key MD5 must be base64-encoded,
+    -- and it must be exactly 16 bytes long before being base64-encoded.
+    keyMd5 :: Prelude.Maybe Prelude.Text,
+    -- | The data encryption key that you want Elastic Transcoder to use to
+    -- encrypt your output file, or that was used to encrypt your input file.
+    -- The key must be base64-encoded and it must be one of the following bit
+    -- lengths before being base64-encoded:
+    --
+    -- @128@, @192@, or @256@.
+    --
+    -- The key must also be encrypted by using the Amazon Key Management
+    -- Service.
+    key :: Prelude.Maybe Prelude.Text,
     -- | The series of random bits created by a random bit generator, unique for
     -- every encryption operation, that you used to encrypt your input files or
     -- that you want Elastic Transcoder to use to encrypt your output files.
@@ -100,22 +100,6 @@ data Encryption = Encryption'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'key', 'encryption_key' - The data encryption key that you want Elastic Transcoder to use to
--- encrypt your output file, or that was used to encrypt your input file.
--- The key must be base64-encoded and it must be one of the following bit
--- lengths before being base64-encoded:
---
--- @128@, @192@, or @256@.
---
--- The key must also be encrypted by using the Amazon Key Management
--- Service.
---
--- 'keyMd5', 'encryption_keyMd5' - The MD5 digest of the key that you used to encrypt your input file, or
--- that you want Elastic Transcoder to use to encrypt your output file.
--- Elastic Transcoder uses the key digest as a checksum to make sure your
--- key was not corrupted in transit. The key MD5 must be base64-encoded,
--- and it must be exactly 16 bytes long before being base64-encoded.
 --
 -- 'mode', 'encryption_mode' - The specific server-side encryption mode that you want Elastic
 -- Transcoder to use when decrypting your input files or encrypting your
@@ -154,6 +138,22 @@ data Encryption = Encryption'
 -- manage your encryption keys. If you lose them, you won\'t be able to
 -- unencrypt your data.
 --
+-- 'keyMd5', 'encryption_keyMd5' - The MD5 digest of the key that you used to encrypt your input file, or
+-- that you want Elastic Transcoder to use to encrypt your output file.
+-- Elastic Transcoder uses the key digest as a checksum to make sure your
+-- key was not corrupted in transit. The key MD5 must be base64-encoded,
+-- and it must be exactly 16 bytes long before being base64-encoded.
+--
+-- 'key', 'encryption_key' - The data encryption key that you want Elastic Transcoder to use to
+-- encrypt your output file, or that was used to encrypt your input file.
+-- The key must be base64-encoded and it must be one of the following bit
+-- lengths before being base64-encoded:
+--
+-- @128@, @192@, or @256@.
+--
+-- The key must also be encrypted by using the Amazon Key Management
+-- Service.
+--
 -- 'initializationVector', 'encryption_initializationVector' - The series of random bits created by a random bit generator, unique for
 -- every encryption operation, that you used to encrypt your input files or
 -- that you want Elastic Transcoder to use to encrypt your output files.
@@ -163,31 +163,11 @@ newEncryption ::
   Encryption
 newEncryption =
   Encryption'
-    { key = Prelude.Nothing,
+    { mode = Prelude.Nothing,
       keyMd5 = Prelude.Nothing,
-      mode = Prelude.Nothing,
+      key = Prelude.Nothing,
       initializationVector = Prelude.Nothing
     }
-
--- | The data encryption key that you want Elastic Transcoder to use to
--- encrypt your output file, or that was used to encrypt your input file.
--- The key must be base64-encoded and it must be one of the following bit
--- lengths before being base64-encoded:
---
--- @128@, @192@, or @256@.
---
--- The key must also be encrypted by using the Amazon Key Management
--- Service.
-encryption_key :: Lens.Lens' Encryption (Prelude.Maybe Prelude.Text)
-encryption_key = Lens.lens (\Encryption' {key} -> key) (\s@Encryption' {} a -> s {key = a} :: Encryption)
-
--- | The MD5 digest of the key that you used to encrypt your input file, or
--- that you want Elastic Transcoder to use to encrypt your output file.
--- Elastic Transcoder uses the key digest as a checksum to make sure your
--- key was not corrupted in transit. The key MD5 must be base64-encoded,
--- and it must be exactly 16 bytes long before being base64-encoded.
-encryption_keyMd5 :: Lens.Lens' Encryption (Prelude.Maybe Prelude.Text)
-encryption_keyMd5 = Lens.lens (\Encryption' {keyMd5} -> keyMd5) (\s@Encryption' {} a -> s {keyMd5 = a} :: Encryption)
 
 -- | The specific server-side encryption mode that you want Elastic
 -- Transcoder to use when decrypting your input files or encrypting your
@@ -228,6 +208,26 @@ encryption_keyMd5 = Lens.lens (\Encryption' {keyMd5} -> keyMd5) (\s@Encryption' 
 encryption_mode :: Lens.Lens' Encryption (Prelude.Maybe Prelude.Text)
 encryption_mode = Lens.lens (\Encryption' {mode} -> mode) (\s@Encryption' {} a -> s {mode = a} :: Encryption)
 
+-- | The MD5 digest of the key that you used to encrypt your input file, or
+-- that you want Elastic Transcoder to use to encrypt your output file.
+-- Elastic Transcoder uses the key digest as a checksum to make sure your
+-- key was not corrupted in transit. The key MD5 must be base64-encoded,
+-- and it must be exactly 16 bytes long before being base64-encoded.
+encryption_keyMd5 :: Lens.Lens' Encryption (Prelude.Maybe Prelude.Text)
+encryption_keyMd5 = Lens.lens (\Encryption' {keyMd5} -> keyMd5) (\s@Encryption' {} a -> s {keyMd5 = a} :: Encryption)
+
+-- | The data encryption key that you want Elastic Transcoder to use to
+-- encrypt your output file, or that was used to encrypt your input file.
+-- The key must be base64-encoded and it must be one of the following bit
+-- lengths before being base64-encoded:
+--
+-- @128@, @192@, or @256@.
+--
+-- The key must also be encrypted by using the Amazon Key Management
+-- Service.
+encryption_key :: Lens.Lens' Encryption (Prelude.Maybe Prelude.Text)
+encryption_key = Lens.lens (\Encryption' {key} -> key) (\s@Encryption' {} a -> s {key = a} :: Encryption)
+
 -- | The series of random bits created by a random bit generator, unique for
 -- every encryption operation, that you used to encrypt your input files or
 -- that you want Elastic Transcoder to use to encrypt your output files.
@@ -242,9 +242,9 @@ instance Core.FromJSON Encryption where
       "Encryption"
       ( \x ->
           Encryption'
-            Prelude.<$> (x Core..:? "Key")
+            Prelude.<$> (x Core..:? "Mode")
             Prelude.<*> (x Core..:? "KeyMd5")
-            Prelude.<*> (x Core..:? "Mode")
+            Prelude.<*> (x Core..:? "Key")
             Prelude.<*> (x Core..:? "InitializationVector")
       )
 
@@ -256,9 +256,9 @@ instance Core.ToJSON Encryption where
   toJSON Encryption' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Key" Core..=) Prelude.<$> key,
+          [ ("Mode" Core..=) Prelude.<$> mode,
             ("KeyMd5" Core..=) Prelude.<$> keyMd5,
-            ("Mode" Core..=) Prelude.<$> mode,
+            ("Key" Core..=) Prelude.<$> key,
             ("InitializationVector" Core..=)
               Prelude.<$> initializationVector
           ]

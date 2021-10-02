@@ -44,8 +44,8 @@ module Network.AWS.ElasticTranscoder.CreatePreset
     newCreatePreset,
 
     -- * Request Lenses
-    createPreset_thumbnails,
     createPreset_video,
+    createPreset_thumbnails,
     createPreset_description,
     createPreset_audio,
     createPreset_name,
@@ -56,8 +56,8 @@ module Network.AWS.ElasticTranscoder.CreatePreset
     newCreatePresetResponse,
 
     -- * Response Lenses
-    createPresetResponse_preset,
     createPresetResponse_warning,
+    createPresetResponse_preset,
     createPresetResponse_httpStatus,
   )
 where
@@ -73,11 +73,11 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCreatePreset' smart constructor.
 data CreatePreset = CreatePreset'
-  { -- | A section of the request body that specifies the thumbnail parameters,
+  { -- | A section of the request body that specifies the video parameters.
+    video :: Prelude.Maybe VideoParameters,
+    -- | A section of the request body that specifies the thumbnail parameters,
     -- if any.
     thumbnails :: Prelude.Maybe Thumbnails,
-    -- | A section of the request body that specifies the video parameters.
-    video :: Prelude.Maybe VideoParameters,
     -- | A description of the preset.
     description :: Prelude.Maybe Prelude.Text,
     -- | A section of the request body that specifies the audio parameters.
@@ -100,10 +100,10 @@ data CreatePreset = CreatePreset'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'video', 'createPreset_video' - A section of the request body that specifies the video parameters.
+--
 -- 'thumbnails', 'createPreset_thumbnails' - A section of the request body that specifies the thumbnail parameters,
 -- if any.
---
--- 'video', 'createPreset_video' - A section of the request body that specifies the video parameters.
 --
 -- 'description', 'createPreset_description' - A description of the preset.
 --
@@ -123,22 +123,22 @@ newCreatePreset ::
   CreatePreset
 newCreatePreset pName_ pContainer_ =
   CreatePreset'
-    { thumbnails = Prelude.Nothing,
-      video = Prelude.Nothing,
+    { video = Prelude.Nothing,
+      thumbnails = Prelude.Nothing,
       description = Prelude.Nothing,
       audio = Prelude.Nothing,
       name = pName_,
       container = pContainer_
     }
 
+-- | A section of the request body that specifies the video parameters.
+createPreset_video :: Lens.Lens' CreatePreset (Prelude.Maybe VideoParameters)
+createPreset_video = Lens.lens (\CreatePreset' {video} -> video) (\s@CreatePreset' {} a -> s {video = a} :: CreatePreset)
+
 -- | A section of the request body that specifies the thumbnail parameters,
 -- if any.
 createPreset_thumbnails :: Lens.Lens' CreatePreset (Prelude.Maybe Thumbnails)
 createPreset_thumbnails = Lens.lens (\CreatePreset' {thumbnails} -> thumbnails) (\s@CreatePreset' {} a -> s {thumbnails = a} :: CreatePreset)
-
--- | A section of the request body that specifies the video parameters.
-createPreset_video :: Lens.Lens' CreatePreset (Prelude.Maybe VideoParameters)
-createPreset_video = Lens.lens (\CreatePreset' {video} -> video) (\s@CreatePreset' {} a -> s {video = a} :: CreatePreset)
 
 -- | A description of the preset.
 createPreset_description :: Lens.Lens' CreatePreset (Prelude.Maybe Prelude.Text)
@@ -166,8 +166,8 @@ instance Core.AWSRequest CreatePreset where
     Response.receiveJSON
       ( \s h x ->
           CreatePresetResponse'
-            Prelude.<$> (x Core..?> "Preset")
-            Prelude.<*> (x Core..?> "Warning")
+            Prelude.<$> (x Core..?> "Warning")
+            Prelude.<*> (x Core..?> "Preset")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -182,8 +182,8 @@ instance Core.ToJSON CreatePreset where
   toJSON CreatePreset' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Thumbnails" Core..=) Prelude.<$> thumbnails,
-            ("Video" Core..=) Prelude.<$> video,
+          [ ("Video" Core..=) Prelude.<$> video,
+            ("Thumbnails" Core..=) Prelude.<$> thumbnails,
             ("Description" Core..=) Prelude.<$> description,
             ("Audio" Core..=) Prelude.<$> audio,
             Prelude.Just ("Name" Core..= name),
@@ -201,15 +201,15 @@ instance Core.ToQuery CreatePreset where
 --
 -- /See:/ 'newCreatePresetResponse' smart constructor.
 data CreatePresetResponse = CreatePresetResponse'
-  { -- | A section of the response body that provides information about the
-    -- preset that is created.
-    preset :: Prelude.Maybe Preset,
-    -- | If the preset settings don\'t comply with the standards for the video
+  { -- | If the preset settings don\'t comply with the standards for the video
     -- codec but Elastic Transcoder created the preset, this message explains
     -- the reason the preset settings don\'t meet the standard. Elastic
     -- Transcoder created the preset because the settings might produce
     -- acceptable output.
     warning :: Prelude.Maybe Prelude.Text,
+    -- | A section of the response body that provides information about the
+    -- preset that is created.
+    preset :: Prelude.Maybe Preset,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -223,14 +223,14 @@ data CreatePresetResponse = CreatePresetResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'preset', 'createPresetResponse_preset' - A section of the response body that provides information about the
--- preset that is created.
---
 -- 'warning', 'createPresetResponse_warning' - If the preset settings don\'t comply with the standards for the video
 -- codec but Elastic Transcoder created the preset, this message explains
 -- the reason the preset settings don\'t meet the standard. Elastic
 -- Transcoder created the preset because the settings might produce
 -- acceptable output.
+--
+-- 'preset', 'createPresetResponse_preset' - A section of the response body that provides information about the
+-- preset that is created.
 --
 -- 'httpStatus', 'createPresetResponse_httpStatus' - The response's http status code.
 newCreatePresetResponse ::
@@ -239,15 +239,10 @@ newCreatePresetResponse ::
   CreatePresetResponse
 newCreatePresetResponse pHttpStatus_ =
   CreatePresetResponse'
-    { preset = Prelude.Nothing,
-      warning = Prelude.Nothing,
+    { warning = Prelude.Nothing,
+      preset = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | A section of the response body that provides information about the
--- preset that is created.
-createPresetResponse_preset :: Lens.Lens' CreatePresetResponse (Prelude.Maybe Preset)
-createPresetResponse_preset = Lens.lens (\CreatePresetResponse' {preset} -> preset) (\s@CreatePresetResponse' {} a -> s {preset = a} :: CreatePresetResponse)
 
 -- | If the preset settings don\'t comply with the standards for the video
 -- codec but Elastic Transcoder created the preset, this message explains
@@ -256,6 +251,11 @@ createPresetResponse_preset = Lens.lens (\CreatePresetResponse' {preset} -> pres
 -- acceptable output.
 createPresetResponse_warning :: Lens.Lens' CreatePresetResponse (Prelude.Maybe Prelude.Text)
 createPresetResponse_warning = Lens.lens (\CreatePresetResponse' {warning} -> warning) (\s@CreatePresetResponse' {} a -> s {warning = a} :: CreatePresetResponse)
+
+-- | A section of the response body that provides information about the
+-- preset that is created.
+createPresetResponse_preset :: Lens.Lens' CreatePresetResponse (Prelude.Maybe Preset)
+createPresetResponse_preset = Lens.lens (\CreatePresetResponse' {preset} -> preset) (\s@CreatePresetResponse' {} a -> s {preset = a} :: CreatePresetResponse)
 
 -- | The response's http status code.
 createPresetResponse_httpStatus :: Lens.Lens' CreatePresetResponse Prelude.Int

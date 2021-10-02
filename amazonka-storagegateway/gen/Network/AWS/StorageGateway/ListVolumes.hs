@@ -41,8 +41,8 @@ module Network.AWS.StorageGateway.ListVolumes
 
     -- * Request Lenses
     listVolumes_gatewayARN,
-    listVolumes_limit,
     listVolumes_marker,
+    listVolumes_limit,
 
     -- * Destructuring the Response
     ListVolumesResponse (..),
@@ -50,8 +50,8 @@ module Network.AWS.StorageGateway.ListVolumes
 
     -- * Response Lenses
     listVolumesResponse_gatewayARN,
-    listVolumesResponse_volumeInfos,
     listVolumesResponse_marker,
+    listVolumesResponse_volumeInfos,
     listVolumesResponse_httpStatus,
   )
 where
@@ -72,13 +72,13 @@ import Network.AWS.StorageGateway.Types
 -- /See:/ 'newListVolumes' smart constructor.
 data ListVolumes = ListVolumes'
   { gatewayARN :: Prelude.Maybe Prelude.Text,
-    -- | Specifies that the list of volumes returned be limited to the specified
-    -- number of items.
-    limit :: Prelude.Maybe Prelude.Natural,
     -- | A string that indicates the position at which to begin the returned list
     -- of volumes. Obtain the marker from the response of a previous List iSCSI
     -- Volumes request.
-    marker :: Prelude.Maybe Prelude.Text
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | Specifies that the list of volumes returned be limited to the specified
+    -- number of items.
+    limit :: Prelude.Maybe Prelude.Natural
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -92,35 +92,35 @@ data ListVolumes = ListVolumes'
 --
 -- 'gatewayARN', 'listVolumes_gatewayARN' - Undocumented member.
 --
--- 'limit', 'listVolumes_limit' - Specifies that the list of volumes returned be limited to the specified
--- number of items.
---
 -- 'marker', 'listVolumes_marker' - A string that indicates the position at which to begin the returned list
 -- of volumes. Obtain the marker from the response of a previous List iSCSI
 -- Volumes request.
+--
+-- 'limit', 'listVolumes_limit' - Specifies that the list of volumes returned be limited to the specified
+-- number of items.
 newListVolumes ::
   ListVolumes
 newListVolumes =
   ListVolumes'
     { gatewayARN = Prelude.Nothing,
-      limit = Prelude.Nothing,
-      marker = Prelude.Nothing
+      marker = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
 -- | Undocumented member.
 listVolumes_gatewayARN :: Lens.Lens' ListVolumes (Prelude.Maybe Prelude.Text)
 listVolumes_gatewayARN = Lens.lens (\ListVolumes' {gatewayARN} -> gatewayARN) (\s@ListVolumes' {} a -> s {gatewayARN = a} :: ListVolumes)
 
--- | Specifies that the list of volumes returned be limited to the specified
--- number of items.
-listVolumes_limit :: Lens.Lens' ListVolumes (Prelude.Maybe Prelude.Natural)
-listVolumes_limit = Lens.lens (\ListVolumes' {limit} -> limit) (\s@ListVolumes' {} a -> s {limit = a} :: ListVolumes)
-
 -- | A string that indicates the position at which to begin the returned list
 -- of volumes. Obtain the marker from the response of a previous List iSCSI
 -- Volumes request.
 listVolumes_marker :: Lens.Lens' ListVolumes (Prelude.Maybe Prelude.Text)
 listVolumes_marker = Lens.lens (\ListVolumes' {marker} -> marker) (\s@ListVolumes' {} a -> s {marker = a} :: ListVolumes)
+
+-- | Specifies that the list of volumes returned be limited to the specified
+-- number of items.
+listVolumes_limit :: Lens.Lens' ListVolumes (Prelude.Maybe Prelude.Natural)
+listVolumes_limit = Lens.lens (\ListVolumes' {limit} -> limit) (\s@ListVolumes' {} a -> s {limit = a} :: ListVolumes)
 
 instance Core.AWSPager ListVolumes where
   page rq rs
@@ -149,8 +149,8 @@ instance Core.AWSRequest ListVolumes where
       ( \s h x ->
           ListVolumesResponse'
             Prelude.<$> (x Core..?> "GatewayARN")
-            Prelude.<*> (x Core..?> "VolumeInfos" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "Marker")
+            Prelude.<*> (x Core..?> "VolumeInfos" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -178,8 +178,8 @@ instance Core.ToJSON ListVolumes where
     Core.object
       ( Prelude.catMaybes
           [ ("GatewayARN" Core..=) Prelude.<$> gatewayARN,
-            ("Limit" Core..=) Prelude.<$> limit,
-            ("Marker" Core..=) Prelude.<$> marker
+            ("Marker" Core..=) Prelude.<$> marker,
+            ("Limit" Core..=) Prelude.<$> limit
           ]
       )
 
@@ -198,14 +198,14 @@ instance Core.ToQuery ListVolumes where
 -- /See:/ 'newListVolumesResponse' smart constructor.
 data ListVolumesResponse = ListVolumesResponse'
   { gatewayARN :: Prelude.Maybe Prelude.Text,
-    -- | An array of VolumeInfo objects, where each object describes an iSCSI
-    -- volume. If no volumes are defined for the gateway, then @VolumeInfos@ is
-    -- an empty array \"[]\".
-    volumeInfos :: Prelude.Maybe [VolumeInfo],
     -- | Use the marker in your next request to continue pagination of iSCSI
     -- volumes. If there are no more volumes to list, this field does not
     -- appear in the response body.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | An array of VolumeInfo objects, where each object describes an iSCSI
+    -- volume. If no volumes are defined for the gateway, then @VolumeInfos@ is
+    -- an empty array \"[]\".
+    volumeInfos :: Prelude.Maybe [VolumeInfo],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -221,13 +221,13 @@ data ListVolumesResponse = ListVolumesResponse'
 --
 -- 'gatewayARN', 'listVolumesResponse_gatewayARN' - Undocumented member.
 --
--- 'volumeInfos', 'listVolumesResponse_volumeInfos' - An array of VolumeInfo objects, where each object describes an iSCSI
--- volume. If no volumes are defined for the gateway, then @VolumeInfos@ is
--- an empty array \"[]\".
---
 -- 'marker', 'listVolumesResponse_marker' - Use the marker in your next request to continue pagination of iSCSI
 -- volumes. If there are no more volumes to list, this field does not
 -- appear in the response body.
+--
+-- 'volumeInfos', 'listVolumesResponse_volumeInfos' - An array of VolumeInfo objects, where each object describes an iSCSI
+-- volume. If no volumes are defined for the gateway, then @VolumeInfos@ is
+-- an empty array \"[]\".
 --
 -- 'httpStatus', 'listVolumesResponse_httpStatus' - The response's http status code.
 newListVolumesResponse ::
@@ -237,8 +237,8 @@ newListVolumesResponse ::
 newListVolumesResponse pHttpStatus_ =
   ListVolumesResponse'
     { gatewayARN = Prelude.Nothing,
-      volumeInfos = Prelude.Nothing,
       marker = Prelude.Nothing,
+      volumeInfos = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -246,17 +246,17 @@ newListVolumesResponse pHttpStatus_ =
 listVolumesResponse_gatewayARN :: Lens.Lens' ListVolumesResponse (Prelude.Maybe Prelude.Text)
 listVolumesResponse_gatewayARN = Lens.lens (\ListVolumesResponse' {gatewayARN} -> gatewayARN) (\s@ListVolumesResponse' {} a -> s {gatewayARN = a} :: ListVolumesResponse)
 
--- | An array of VolumeInfo objects, where each object describes an iSCSI
--- volume. If no volumes are defined for the gateway, then @VolumeInfos@ is
--- an empty array \"[]\".
-listVolumesResponse_volumeInfos :: Lens.Lens' ListVolumesResponse (Prelude.Maybe [VolumeInfo])
-listVolumesResponse_volumeInfos = Lens.lens (\ListVolumesResponse' {volumeInfos} -> volumeInfos) (\s@ListVolumesResponse' {} a -> s {volumeInfos = a} :: ListVolumesResponse) Prelude.. Lens.mapping Lens._Coerce
-
 -- | Use the marker in your next request to continue pagination of iSCSI
 -- volumes. If there are no more volumes to list, this field does not
 -- appear in the response body.
 listVolumesResponse_marker :: Lens.Lens' ListVolumesResponse (Prelude.Maybe Prelude.Text)
 listVolumesResponse_marker = Lens.lens (\ListVolumesResponse' {marker} -> marker) (\s@ListVolumesResponse' {} a -> s {marker = a} :: ListVolumesResponse)
+
+-- | An array of VolumeInfo objects, where each object describes an iSCSI
+-- volume. If no volumes are defined for the gateway, then @VolumeInfos@ is
+-- an empty array \"[]\".
+listVolumesResponse_volumeInfos :: Lens.Lens' ListVolumesResponse (Prelude.Maybe [VolumeInfo])
+listVolumesResponse_volumeInfos = Lens.lens (\ListVolumesResponse' {volumeInfos} -> volumeInfos) (\s@ListVolumesResponse' {} a -> s {volumeInfos = a} :: ListVolumesResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listVolumesResponse_httpStatus :: Lens.Lens' ListVolumesResponse Prelude.Int

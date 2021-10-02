@@ -41,20 +41,20 @@ module Network.AWS.OpsWorks.CreateLayer
     newCreateLayer,
 
     -- * Request Lenses
-    createLayer_installUpdatesOnBoot,
-    createLayer_customSecurityGroupIds,
     createLayer_customInstanceProfileArn,
-    createLayer_packages,
-    createLayer_enableAutoHealing,
+    createLayer_customSecurityGroupIds,
+    createLayer_installUpdatesOnBoot,
+    createLayer_cloudWatchLogsConfiguration,
+    createLayer_lifecycleEventConfiguration,
+    createLayer_customRecipes,
     createLayer_customJson,
     createLayer_volumeConfigurations,
+    createLayer_enableAutoHealing,
+    createLayer_packages,
     createLayer_attributes,
-    createLayer_cloudWatchLogsConfiguration,
-    createLayer_autoAssignElasticIps,
-    createLayer_useEbsOptimizedInstances,
-    createLayer_customRecipes,
     createLayer_autoAssignPublicIps,
-    createLayer_lifecycleEventConfiguration,
+    createLayer_useEbsOptimizedInstances,
+    createLayer_autoAssignElasticIps,
     createLayer_stackId,
     createLayer_type,
     createLayer_name,
@@ -79,7 +79,13 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newCreateLayer' smart constructor.
 data CreateLayer = CreateLayer'
-  { -- | Whether to install operating system and package updates when the
+  { -- | The ARN of an IAM profile to be used for the layer\'s EC2 instances. For
+    -- more information about IAM ARNs, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
+    customInstanceProfileArn :: Prelude.Maybe Prelude.Text,
+    -- | An array containing the layer custom security group IDs.
+    customSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- | Whether to install operating system and package updates when the
     -- instance boots. The default value is @true@. To control when updates are
     -- installed, set this value to @false@. You must then update your
     -- instances manually by using CreateDeployment to run the
@@ -89,16 +95,15 @@ data CreateLayer = CreateLayer'
     -- To ensure that your instances have the latest security updates, we
     -- strongly recommend using the default value of @true@.
     installUpdatesOnBoot :: Prelude.Maybe Prelude.Bool,
-    -- | An array containing the layer custom security group IDs.
-    customSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
-    -- | The ARN of an IAM profile to be used for the layer\'s EC2 instances. For
-    -- more information about IAM ARNs, see
-    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
-    customInstanceProfileArn :: Prelude.Maybe Prelude.Text,
-    -- | An array of @Package@ objects that describes the layer packages.
-    packages :: Prelude.Maybe [Prelude.Text],
-    -- | Whether to disable auto healing for the layer.
-    enableAutoHealing :: Prelude.Maybe Prelude.Bool,
+    -- | Specifies CloudWatch Logs configuration options for the layer. For more
+    -- information, see CloudWatchLogsLogStream.
+    cloudWatchLogsConfiguration :: Prelude.Maybe CloudWatchLogsConfiguration,
+    -- | A @LifeCycleEventConfiguration@ object that you can use to configure the
+    -- Shutdown event to specify an execution timeout and enable or disable
+    -- Elastic Load Balancer connection draining.
+    lifecycleEventConfiguration :: Prelude.Maybe LifecycleEventConfiguration,
+    -- | A @LayerCustomRecipes@ object that specifies the layer custom recipes.
+    customRecipes :: Prelude.Maybe Recipes,
     -- | A JSON-formatted string containing custom stack configuration and
     -- deployment attributes to be installed on the layer\'s instances. For
     -- more information, see
@@ -108,32 +113,27 @@ data CreateLayer = CreateLayer'
     -- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
     -- volumes.
     volumeConfigurations :: Prelude.Maybe [VolumeConfiguration],
+    -- | Whether to disable auto healing for the layer.
+    enableAutoHealing :: Prelude.Maybe Prelude.Bool,
+    -- | An array of @Package@ objects that describes the layer packages.
+    packages :: Prelude.Maybe [Prelude.Text],
     -- | One or more user-defined key-value pairs to be added to the stack
     -- attributes.
     --
     -- To create a cluster layer, set the @EcsClusterArn@ attribute to the
     -- cluster\'s ARN.
     attributes :: Prelude.Maybe (Prelude.HashMap LayerAttributesKeys (Prelude.Maybe Prelude.Text)),
-    -- | Specifies CloudWatch Logs configuration options for the layer. For more
-    -- information, see CloudWatchLogsLogStream.
-    cloudWatchLogsConfiguration :: Prelude.Maybe CloudWatchLogsConfiguration,
+    -- | For stacks that are running in a VPC, whether to automatically assign a
+    -- public IP address to the layer\'s instances. For more information, see
+    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
+    autoAssignPublicIps :: Prelude.Maybe Prelude.Bool,
+    -- | Whether to use Amazon EBS-optimized instances.
+    useEbsOptimizedInstances :: Prelude.Maybe Prelude.Bool,
     -- | Whether to automatically assign an
     -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address>
     -- to the layer\'s instances. For more information, see
     -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
     autoAssignElasticIps :: Prelude.Maybe Prelude.Bool,
-    -- | Whether to use Amazon EBS-optimized instances.
-    useEbsOptimizedInstances :: Prelude.Maybe Prelude.Bool,
-    -- | A @LayerCustomRecipes@ object that specifies the layer custom recipes.
-    customRecipes :: Prelude.Maybe Recipes,
-    -- | For stacks that are running in a VPC, whether to automatically assign a
-    -- public IP address to the layer\'s instances. For more information, see
-    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
-    autoAssignPublicIps :: Prelude.Maybe Prelude.Bool,
-    -- | A @LifeCycleEventConfiguration@ object that you can use to configure the
-    -- Shutdown event to specify an execution timeout and enable or disable
-    -- Elastic Load Balancer connection draining.
-    lifecycleEventConfiguration :: Prelude.Maybe LifecycleEventConfiguration,
     -- | The layer stack ID.
     stackId :: Prelude.Text,
     -- | The layer type. A stack cannot have more than one built-in layer of the
@@ -164,6 +164,12 @@ data CreateLayer = CreateLayer'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'customInstanceProfileArn', 'createLayer_customInstanceProfileArn' - The ARN of an IAM profile to be used for the layer\'s EC2 instances. For
+-- more information about IAM ARNs, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
+--
+-- 'customSecurityGroupIds', 'createLayer_customSecurityGroupIds' - An array containing the layer custom security group IDs.
+--
 -- 'installUpdatesOnBoot', 'createLayer_installUpdatesOnBoot' - Whether to install operating system and package updates when the
 -- instance boots. The default value is @true@. To control when updates are
 -- installed, set this value to @false@. You must then update your
@@ -174,15 +180,14 @@ data CreateLayer = CreateLayer'
 -- To ensure that your instances have the latest security updates, we
 -- strongly recommend using the default value of @true@.
 --
--- 'customSecurityGroupIds', 'createLayer_customSecurityGroupIds' - An array containing the layer custom security group IDs.
+-- 'cloudWatchLogsConfiguration', 'createLayer_cloudWatchLogsConfiguration' - Specifies CloudWatch Logs configuration options for the layer. For more
+-- information, see CloudWatchLogsLogStream.
 --
--- 'customInstanceProfileArn', 'createLayer_customInstanceProfileArn' - The ARN of an IAM profile to be used for the layer\'s EC2 instances. For
--- more information about IAM ARNs, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
+-- 'lifecycleEventConfiguration', 'createLayer_lifecycleEventConfiguration' - A @LifeCycleEventConfiguration@ object that you can use to configure the
+-- Shutdown event to specify an execution timeout and enable or disable
+-- Elastic Load Balancer connection draining.
 --
--- 'packages', 'createLayer_packages' - An array of @Package@ objects that describes the layer packages.
---
--- 'enableAutoHealing', 'createLayer_enableAutoHealing' - Whether to disable auto healing for the layer.
+-- 'customRecipes', 'createLayer_customRecipes' - A @LayerCustomRecipes@ object that specifies the layer custom recipes.
 --
 -- 'customJson', 'createLayer_customJson' - A JSON-formatted string containing custom stack configuration and
 -- deployment attributes to be installed on the layer\'s instances. For
@@ -193,31 +198,26 @@ data CreateLayer = CreateLayer'
 -- 'volumeConfigurations', 'createLayer_volumeConfigurations' - A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
 -- volumes.
 --
+-- 'enableAutoHealing', 'createLayer_enableAutoHealing' - Whether to disable auto healing for the layer.
+--
+-- 'packages', 'createLayer_packages' - An array of @Package@ objects that describes the layer packages.
+--
 -- 'attributes', 'createLayer_attributes' - One or more user-defined key-value pairs to be added to the stack
 -- attributes.
 --
 -- To create a cluster layer, set the @EcsClusterArn@ attribute to the
 -- cluster\'s ARN.
 --
--- 'cloudWatchLogsConfiguration', 'createLayer_cloudWatchLogsConfiguration' - Specifies CloudWatch Logs configuration options for the layer. For more
--- information, see CloudWatchLogsLogStream.
+-- 'autoAssignPublicIps', 'createLayer_autoAssignPublicIps' - For stacks that are running in a VPC, whether to automatically assign a
+-- public IP address to the layer\'s instances. For more information, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
+--
+-- 'useEbsOptimizedInstances', 'createLayer_useEbsOptimizedInstances' - Whether to use Amazon EBS-optimized instances.
 --
 -- 'autoAssignElasticIps', 'createLayer_autoAssignElasticIps' - Whether to automatically assign an
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address>
 -- to the layer\'s instances. For more information, see
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
---
--- 'useEbsOptimizedInstances', 'createLayer_useEbsOptimizedInstances' - Whether to use Amazon EBS-optimized instances.
---
--- 'customRecipes', 'createLayer_customRecipes' - A @LayerCustomRecipes@ object that specifies the layer custom recipes.
---
--- 'autoAssignPublicIps', 'createLayer_autoAssignPublicIps' - For stacks that are running in a VPC, whether to automatically assign a
--- public IP address to the layer\'s instances. For more information, see
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
---
--- 'lifecycleEventConfiguration', 'createLayer_lifecycleEventConfiguration' - A @LifeCycleEventConfiguration@ object that you can use to configure the
--- Shutdown event to specify an execution timeout and enable or disable
--- Elastic Load Balancer connection draining.
 --
 -- 'stackId', 'createLayer_stackId' - The layer stack ID.
 --
@@ -249,26 +249,36 @@ newCreateLayer ::
   CreateLayer
 newCreateLayer pStackId_ pType_ pName_ pShortname_ =
   CreateLayer'
-    { installUpdatesOnBoot =
+    { customInstanceProfileArn =
         Prelude.Nothing,
       customSecurityGroupIds = Prelude.Nothing,
-      customInstanceProfileArn = Prelude.Nothing,
-      packages = Prelude.Nothing,
-      enableAutoHealing = Prelude.Nothing,
+      installUpdatesOnBoot = Prelude.Nothing,
+      cloudWatchLogsConfiguration = Prelude.Nothing,
+      lifecycleEventConfiguration = Prelude.Nothing,
+      customRecipes = Prelude.Nothing,
       customJson = Prelude.Nothing,
       volumeConfigurations = Prelude.Nothing,
+      enableAutoHealing = Prelude.Nothing,
+      packages = Prelude.Nothing,
       attributes = Prelude.Nothing,
-      cloudWatchLogsConfiguration = Prelude.Nothing,
-      autoAssignElasticIps = Prelude.Nothing,
-      useEbsOptimizedInstances = Prelude.Nothing,
-      customRecipes = Prelude.Nothing,
       autoAssignPublicIps = Prelude.Nothing,
-      lifecycleEventConfiguration = Prelude.Nothing,
+      useEbsOptimizedInstances = Prelude.Nothing,
+      autoAssignElasticIps = Prelude.Nothing,
       stackId = pStackId_,
       type' = pType_,
       name = pName_,
       shortname = pShortname_
     }
+
+-- | The ARN of an IAM profile to be used for the layer\'s EC2 instances. For
+-- more information about IAM ARNs, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
+createLayer_customInstanceProfileArn :: Lens.Lens' CreateLayer (Prelude.Maybe Prelude.Text)
+createLayer_customInstanceProfileArn = Lens.lens (\CreateLayer' {customInstanceProfileArn} -> customInstanceProfileArn) (\s@CreateLayer' {} a -> s {customInstanceProfileArn = a} :: CreateLayer)
+
+-- | An array containing the layer custom security group IDs.
+createLayer_customSecurityGroupIds :: Lens.Lens' CreateLayer (Prelude.Maybe [Prelude.Text])
+createLayer_customSecurityGroupIds = Lens.lens (\CreateLayer' {customSecurityGroupIds} -> customSecurityGroupIds) (\s@CreateLayer' {} a -> s {customSecurityGroupIds = a} :: CreateLayer) Prelude.. Lens.mapping Lens._Coerce
 
 -- | Whether to install operating system and package updates when the
 -- instance boots. The default value is @true@. To control when updates are
@@ -282,23 +292,20 @@ newCreateLayer pStackId_ pType_ pName_ pShortname_ =
 createLayer_installUpdatesOnBoot :: Lens.Lens' CreateLayer (Prelude.Maybe Prelude.Bool)
 createLayer_installUpdatesOnBoot = Lens.lens (\CreateLayer' {installUpdatesOnBoot} -> installUpdatesOnBoot) (\s@CreateLayer' {} a -> s {installUpdatesOnBoot = a} :: CreateLayer)
 
--- | An array containing the layer custom security group IDs.
-createLayer_customSecurityGroupIds :: Lens.Lens' CreateLayer (Prelude.Maybe [Prelude.Text])
-createLayer_customSecurityGroupIds = Lens.lens (\CreateLayer' {customSecurityGroupIds} -> customSecurityGroupIds) (\s@CreateLayer' {} a -> s {customSecurityGroupIds = a} :: CreateLayer) Prelude.. Lens.mapping Lens._Coerce
+-- | Specifies CloudWatch Logs configuration options for the layer. For more
+-- information, see CloudWatchLogsLogStream.
+createLayer_cloudWatchLogsConfiguration :: Lens.Lens' CreateLayer (Prelude.Maybe CloudWatchLogsConfiguration)
+createLayer_cloudWatchLogsConfiguration = Lens.lens (\CreateLayer' {cloudWatchLogsConfiguration} -> cloudWatchLogsConfiguration) (\s@CreateLayer' {} a -> s {cloudWatchLogsConfiguration = a} :: CreateLayer)
 
--- | The ARN of an IAM profile to be used for the layer\'s EC2 instances. For
--- more information about IAM ARNs, see
--- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
-createLayer_customInstanceProfileArn :: Lens.Lens' CreateLayer (Prelude.Maybe Prelude.Text)
-createLayer_customInstanceProfileArn = Lens.lens (\CreateLayer' {customInstanceProfileArn} -> customInstanceProfileArn) (\s@CreateLayer' {} a -> s {customInstanceProfileArn = a} :: CreateLayer)
+-- | A @LifeCycleEventConfiguration@ object that you can use to configure the
+-- Shutdown event to specify an execution timeout and enable or disable
+-- Elastic Load Balancer connection draining.
+createLayer_lifecycleEventConfiguration :: Lens.Lens' CreateLayer (Prelude.Maybe LifecycleEventConfiguration)
+createLayer_lifecycleEventConfiguration = Lens.lens (\CreateLayer' {lifecycleEventConfiguration} -> lifecycleEventConfiguration) (\s@CreateLayer' {} a -> s {lifecycleEventConfiguration = a} :: CreateLayer)
 
--- | An array of @Package@ objects that describes the layer packages.
-createLayer_packages :: Lens.Lens' CreateLayer (Prelude.Maybe [Prelude.Text])
-createLayer_packages = Lens.lens (\CreateLayer' {packages} -> packages) (\s@CreateLayer' {} a -> s {packages = a} :: CreateLayer) Prelude.. Lens.mapping Lens._Coerce
-
--- | Whether to disable auto healing for the layer.
-createLayer_enableAutoHealing :: Lens.Lens' CreateLayer (Prelude.Maybe Prelude.Bool)
-createLayer_enableAutoHealing = Lens.lens (\CreateLayer' {enableAutoHealing} -> enableAutoHealing) (\s@CreateLayer' {} a -> s {enableAutoHealing = a} :: CreateLayer)
+-- | A @LayerCustomRecipes@ object that specifies the layer custom recipes.
+createLayer_customRecipes :: Lens.Lens' CreateLayer (Prelude.Maybe Recipes)
+createLayer_customRecipes = Lens.lens (\CreateLayer' {customRecipes} -> customRecipes) (\s@CreateLayer' {} a -> s {customRecipes = a} :: CreateLayer)
 
 -- | A JSON-formatted string containing custom stack configuration and
 -- deployment attributes to be installed on the layer\'s instances. For
@@ -313,6 +320,14 @@ createLayer_customJson = Lens.lens (\CreateLayer' {customJson} -> customJson) (\
 createLayer_volumeConfigurations :: Lens.Lens' CreateLayer (Prelude.Maybe [VolumeConfiguration])
 createLayer_volumeConfigurations = Lens.lens (\CreateLayer' {volumeConfigurations} -> volumeConfigurations) (\s@CreateLayer' {} a -> s {volumeConfigurations = a} :: CreateLayer) Prelude.. Lens.mapping Lens._Coerce
 
+-- | Whether to disable auto healing for the layer.
+createLayer_enableAutoHealing :: Lens.Lens' CreateLayer (Prelude.Maybe Prelude.Bool)
+createLayer_enableAutoHealing = Lens.lens (\CreateLayer' {enableAutoHealing} -> enableAutoHealing) (\s@CreateLayer' {} a -> s {enableAutoHealing = a} :: CreateLayer)
+
+-- | An array of @Package@ objects that describes the layer packages.
+createLayer_packages :: Lens.Lens' CreateLayer (Prelude.Maybe [Prelude.Text])
+createLayer_packages = Lens.lens (\CreateLayer' {packages} -> packages) (\s@CreateLayer' {} a -> s {packages = a} :: CreateLayer) Prelude.. Lens.mapping Lens._Coerce
+
 -- | One or more user-defined key-value pairs to be added to the stack
 -- attributes.
 --
@@ -321,10 +336,15 @@ createLayer_volumeConfigurations = Lens.lens (\CreateLayer' {volumeConfiguration
 createLayer_attributes :: Lens.Lens' CreateLayer (Prelude.Maybe (Prelude.HashMap LayerAttributesKeys (Prelude.Maybe Prelude.Text)))
 createLayer_attributes = Lens.lens (\CreateLayer' {attributes} -> attributes) (\s@CreateLayer' {} a -> s {attributes = a} :: CreateLayer) Prelude.. Lens.mapping Lens._Coerce
 
--- | Specifies CloudWatch Logs configuration options for the layer. For more
--- information, see CloudWatchLogsLogStream.
-createLayer_cloudWatchLogsConfiguration :: Lens.Lens' CreateLayer (Prelude.Maybe CloudWatchLogsConfiguration)
-createLayer_cloudWatchLogsConfiguration = Lens.lens (\CreateLayer' {cloudWatchLogsConfiguration} -> cloudWatchLogsConfiguration) (\s@CreateLayer' {} a -> s {cloudWatchLogsConfiguration = a} :: CreateLayer)
+-- | For stacks that are running in a VPC, whether to automatically assign a
+-- public IP address to the layer\'s instances. For more information, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
+createLayer_autoAssignPublicIps :: Lens.Lens' CreateLayer (Prelude.Maybe Prelude.Bool)
+createLayer_autoAssignPublicIps = Lens.lens (\CreateLayer' {autoAssignPublicIps} -> autoAssignPublicIps) (\s@CreateLayer' {} a -> s {autoAssignPublicIps = a} :: CreateLayer)
+
+-- | Whether to use Amazon EBS-optimized instances.
+createLayer_useEbsOptimizedInstances :: Lens.Lens' CreateLayer (Prelude.Maybe Prelude.Bool)
+createLayer_useEbsOptimizedInstances = Lens.lens (\CreateLayer' {useEbsOptimizedInstances} -> useEbsOptimizedInstances) (\s@CreateLayer' {} a -> s {useEbsOptimizedInstances = a} :: CreateLayer)
 
 -- | Whether to automatically assign an
 -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address>
@@ -332,26 +352,6 @@ createLayer_cloudWatchLogsConfiguration = Lens.lens (\CreateLayer' {cloudWatchLo
 -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
 createLayer_autoAssignElasticIps :: Lens.Lens' CreateLayer (Prelude.Maybe Prelude.Bool)
 createLayer_autoAssignElasticIps = Lens.lens (\CreateLayer' {autoAssignElasticIps} -> autoAssignElasticIps) (\s@CreateLayer' {} a -> s {autoAssignElasticIps = a} :: CreateLayer)
-
--- | Whether to use Amazon EBS-optimized instances.
-createLayer_useEbsOptimizedInstances :: Lens.Lens' CreateLayer (Prelude.Maybe Prelude.Bool)
-createLayer_useEbsOptimizedInstances = Lens.lens (\CreateLayer' {useEbsOptimizedInstances} -> useEbsOptimizedInstances) (\s@CreateLayer' {} a -> s {useEbsOptimizedInstances = a} :: CreateLayer)
-
--- | A @LayerCustomRecipes@ object that specifies the layer custom recipes.
-createLayer_customRecipes :: Lens.Lens' CreateLayer (Prelude.Maybe Recipes)
-createLayer_customRecipes = Lens.lens (\CreateLayer' {customRecipes} -> customRecipes) (\s@CreateLayer' {} a -> s {customRecipes = a} :: CreateLayer)
-
--- | For stacks that are running in a VPC, whether to automatically assign a
--- public IP address to the layer\'s instances. For more information, see
--- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
-createLayer_autoAssignPublicIps :: Lens.Lens' CreateLayer (Prelude.Maybe Prelude.Bool)
-createLayer_autoAssignPublicIps = Lens.lens (\CreateLayer' {autoAssignPublicIps} -> autoAssignPublicIps) (\s@CreateLayer' {} a -> s {autoAssignPublicIps = a} :: CreateLayer)
-
--- | A @LifeCycleEventConfiguration@ object that you can use to configure the
--- Shutdown event to specify an execution timeout and enable or disable
--- Elastic Load Balancer connection draining.
-createLayer_lifecycleEventConfiguration :: Lens.Lens' CreateLayer (Prelude.Maybe LifecycleEventConfiguration)
-createLayer_lifecycleEventConfiguration = Lens.lens (\CreateLayer' {lifecycleEventConfiguration} -> lifecycleEventConfiguration) (\s@CreateLayer' {} a -> s {lifecycleEventConfiguration = a} :: CreateLayer)
 
 -- | The layer stack ID.
 createLayer_stackId :: Lens.Lens' CreateLayer Prelude.Text
@@ -414,30 +414,30 @@ instance Core.ToJSON CreateLayer where
   toJSON CreateLayer' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("InstallUpdatesOnBoot" Core..=)
-              Prelude.<$> installUpdatesOnBoot,
+          [ ("CustomInstanceProfileArn" Core..=)
+              Prelude.<$> customInstanceProfileArn,
             ("CustomSecurityGroupIds" Core..=)
               Prelude.<$> customSecurityGroupIds,
-            ("CustomInstanceProfileArn" Core..=)
-              Prelude.<$> customInstanceProfileArn,
-            ("Packages" Core..=) Prelude.<$> packages,
-            ("EnableAutoHealing" Core..=)
-              Prelude.<$> enableAutoHealing,
+            ("InstallUpdatesOnBoot" Core..=)
+              Prelude.<$> installUpdatesOnBoot,
+            ("CloudWatchLogsConfiguration" Core..=)
+              Prelude.<$> cloudWatchLogsConfiguration,
+            ("LifecycleEventConfiguration" Core..=)
+              Prelude.<$> lifecycleEventConfiguration,
+            ("CustomRecipes" Core..=) Prelude.<$> customRecipes,
             ("CustomJson" Core..=) Prelude.<$> customJson,
             ("VolumeConfigurations" Core..=)
               Prelude.<$> volumeConfigurations,
+            ("EnableAutoHealing" Core..=)
+              Prelude.<$> enableAutoHealing,
+            ("Packages" Core..=) Prelude.<$> packages,
             ("Attributes" Core..=) Prelude.<$> attributes,
-            ("CloudWatchLogsConfiguration" Core..=)
-              Prelude.<$> cloudWatchLogsConfiguration,
-            ("AutoAssignElasticIps" Core..=)
-              Prelude.<$> autoAssignElasticIps,
-            ("UseEbsOptimizedInstances" Core..=)
-              Prelude.<$> useEbsOptimizedInstances,
-            ("CustomRecipes" Core..=) Prelude.<$> customRecipes,
             ("AutoAssignPublicIps" Core..=)
               Prelude.<$> autoAssignPublicIps,
-            ("LifecycleEventConfiguration" Core..=)
-              Prelude.<$> lifecycleEventConfiguration,
+            ("UseEbsOptimizedInstances" Core..=)
+              Prelude.<$> useEbsOptimizedInstances,
+            ("AutoAssignElasticIps" Core..=)
+              Prelude.<$> autoAssignElasticIps,
             Prelude.Just ("StackId" Core..= stackId),
             Prelude.Just ("Type" Core..= type'),
             Prelude.Just ("Name" Core..= name),

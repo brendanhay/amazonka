@@ -30,10 +30,10 @@ module Network.AWS.StorageGateway.AssociateFileSystem
     newAssociateFileSystem,
 
     -- * Request Lenses
-    associateFileSystem_endpointNetworkConfiguration,
     associateFileSystem_auditDestinationARN,
-    associateFileSystem_tags,
     associateFileSystem_cacheAttributes,
+    associateFileSystem_endpointNetworkConfiguration,
+    associateFileSystem_tags,
     associateFileSystem_userName,
     associateFileSystem_password,
     associateFileSystem_clientToken,
@@ -59,18 +59,18 @@ import Network.AWS.StorageGateway.Types
 
 -- | /See:/ 'newAssociateFileSystem' smart constructor.
 data AssociateFileSystem = AssociateFileSystem'
-  { -- | Specifies the network configuration information for the gateway
+  { -- | The Amazon Resource Name (ARN) of the storage used for the audit logs.
+    auditDestinationARN :: Prelude.Maybe Prelude.Text,
+    cacheAttributes :: Prelude.Maybe CacheAttributes,
+    -- | Specifies the network configuration information for the gateway
     -- associated with the Amazon FSx file system.
     --
     -- If multiple file systems are associated with this gateway, this
     -- parameter\'s @IpAddresses@ field is required.
     endpointNetworkConfiguration :: Prelude.Maybe EndpointNetworkConfiguration,
-    -- | The Amazon Resource Name (ARN) of the storage used for the audit logs.
-    auditDestinationARN :: Prelude.Maybe Prelude.Text,
     -- | A list of up to 50 tags that can be assigned to the file system
     -- association. Each tag is a key-value pair.
     tags :: Prelude.Maybe [Tag],
-    cacheAttributes :: Prelude.Maybe CacheAttributes,
     -- | The user name of the user credential that has permission to access the
     -- root share D$ of the Amazon FSx file system. The user account must
     -- belong to the Amazon FSx delegated admin user group.
@@ -95,18 +95,18 @@ data AssociateFileSystem = AssociateFileSystem'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'auditDestinationARN', 'associateFileSystem_auditDestinationARN' - The Amazon Resource Name (ARN) of the storage used for the audit logs.
+--
+-- 'cacheAttributes', 'associateFileSystem_cacheAttributes' - Undocumented member.
+--
 -- 'endpointNetworkConfiguration', 'associateFileSystem_endpointNetworkConfiguration' - Specifies the network configuration information for the gateway
 -- associated with the Amazon FSx file system.
 --
 -- If multiple file systems are associated with this gateway, this
 -- parameter\'s @IpAddresses@ field is required.
 --
--- 'auditDestinationARN', 'associateFileSystem_auditDestinationARN' - The Amazon Resource Name (ARN) of the storage used for the audit logs.
---
 -- 'tags', 'associateFileSystem_tags' - A list of up to 50 tags that can be assigned to the file system
 -- association. Each tag is a key-value pair.
---
--- 'cacheAttributes', 'associateFileSystem_cacheAttributes' - Undocumented member.
 --
 -- 'userName', 'associateFileSystem_userName' - The user name of the user credential that has permission to access the
 -- root share D$ of the Amazon FSx file system. The user account must
@@ -140,17 +140,25 @@ newAssociateFileSystem
   pGatewayARN_
   pLocationARN_ =
     AssociateFileSystem'
-      { endpointNetworkConfiguration =
+      { auditDestinationARN =
           Prelude.Nothing,
-        auditDestinationARN = Prelude.Nothing,
-        tags = Prelude.Nothing,
         cacheAttributes = Prelude.Nothing,
+        endpointNetworkConfiguration = Prelude.Nothing,
+        tags = Prelude.Nothing,
         userName = pUserName_,
         password = Core._Sensitive Lens.# pPassword_,
         clientToken = pClientToken_,
         gatewayARN = pGatewayARN_,
         locationARN = pLocationARN_
       }
+
+-- | The Amazon Resource Name (ARN) of the storage used for the audit logs.
+associateFileSystem_auditDestinationARN :: Lens.Lens' AssociateFileSystem (Prelude.Maybe Prelude.Text)
+associateFileSystem_auditDestinationARN = Lens.lens (\AssociateFileSystem' {auditDestinationARN} -> auditDestinationARN) (\s@AssociateFileSystem' {} a -> s {auditDestinationARN = a} :: AssociateFileSystem)
+
+-- | Undocumented member.
+associateFileSystem_cacheAttributes :: Lens.Lens' AssociateFileSystem (Prelude.Maybe CacheAttributes)
+associateFileSystem_cacheAttributes = Lens.lens (\AssociateFileSystem' {cacheAttributes} -> cacheAttributes) (\s@AssociateFileSystem' {} a -> s {cacheAttributes = a} :: AssociateFileSystem)
 
 -- | Specifies the network configuration information for the gateway
 -- associated with the Amazon FSx file system.
@@ -160,18 +168,10 @@ newAssociateFileSystem
 associateFileSystem_endpointNetworkConfiguration :: Lens.Lens' AssociateFileSystem (Prelude.Maybe EndpointNetworkConfiguration)
 associateFileSystem_endpointNetworkConfiguration = Lens.lens (\AssociateFileSystem' {endpointNetworkConfiguration} -> endpointNetworkConfiguration) (\s@AssociateFileSystem' {} a -> s {endpointNetworkConfiguration = a} :: AssociateFileSystem)
 
--- | The Amazon Resource Name (ARN) of the storage used for the audit logs.
-associateFileSystem_auditDestinationARN :: Lens.Lens' AssociateFileSystem (Prelude.Maybe Prelude.Text)
-associateFileSystem_auditDestinationARN = Lens.lens (\AssociateFileSystem' {auditDestinationARN} -> auditDestinationARN) (\s@AssociateFileSystem' {} a -> s {auditDestinationARN = a} :: AssociateFileSystem)
-
 -- | A list of up to 50 tags that can be assigned to the file system
 -- association. Each tag is a key-value pair.
 associateFileSystem_tags :: Lens.Lens' AssociateFileSystem (Prelude.Maybe [Tag])
 associateFileSystem_tags = Lens.lens (\AssociateFileSystem' {tags} -> tags) (\s@AssociateFileSystem' {} a -> s {tags = a} :: AssociateFileSystem) Prelude.. Lens.mapping Lens._Coerce
-
--- | Undocumented member.
-associateFileSystem_cacheAttributes :: Lens.Lens' AssociateFileSystem (Prelude.Maybe CacheAttributes)
-associateFileSystem_cacheAttributes = Lens.lens (\AssociateFileSystem' {cacheAttributes} -> cacheAttributes) (\s@AssociateFileSystem' {} a -> s {cacheAttributes = a} :: AssociateFileSystem)
 
 -- | The user name of the user credential that has permission to access the
 -- root share D$ of the Amazon FSx file system. The user account must
@@ -233,13 +233,13 @@ instance Core.ToJSON AssociateFileSystem where
   toJSON AssociateFileSystem' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("EndpointNetworkConfiguration" Core..=)
-              Prelude.<$> endpointNetworkConfiguration,
-            ("AuditDestinationARN" Core..=)
+          [ ("AuditDestinationARN" Core..=)
               Prelude.<$> auditDestinationARN,
-            ("Tags" Core..=) Prelude.<$> tags,
             ("CacheAttributes" Core..=)
               Prelude.<$> cacheAttributes,
+            ("EndpointNetworkConfiguration" Core..=)
+              Prelude.<$> endpointNetworkConfiguration,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("UserName" Core..= userName),
             Prelude.Just ("Password" Core..= password),
             Prelude.Just ("ClientToken" Core..= clientToken),

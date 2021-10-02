@@ -4,14 +4,20 @@ let
 
   pkgs = import ./nix/nixpkgs.nix { inherit system ghcVersion; };
 
+  # Ensure zlib and friends are correctly handled.
+  ghc = pkgs.haskellPackages.ghcWithPackages (self: [
+    self.digest
+    self.zlib
+  ]);
+
 in pkgs.mkShell {
-  buildInputs = [
+  nativeBuildInputs = [
+    ghc
     pkgs.bazel
-    pkgs.cabal-fmt
     pkgs.cabal-install
     pkgs.coreutils
     pkgs.file
-    pkgs.ghc
+    pkgs.haskellPackages.cabal-fmt
     pkgs.niv
     pkgs.nixfmt
     pkgs.ormolu

@@ -184,7 +184,7 @@ data ListJobsByStatusResponse = ListJobsByStatusResponse'
     -- @NextPageToken@ is @null@.
     nextPageToken :: Prelude.Maybe Prelude.Text,
     -- | An array of @Job@ objects that have the specified status.
-    jobs :: Prelude.Maybe [Job'],
+    jobs :: Prelude.Maybe [Job],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -226,7 +226,7 @@ listJobsByStatusResponse_nextPageToken :: Lens.Lens' ListJobsByStatusResponse (P
 listJobsByStatusResponse_nextPageToken = Lens.lens (\ListJobsByStatusResponse' {nextPageToken} -> nextPageToken) (\s@ListJobsByStatusResponse' {} a -> s {nextPageToken = a} :: ListJobsByStatusResponse)
 
 -- | An array of @Job@ objects that have the specified status.
-listJobsByStatusResponse_jobs :: Lens.Lens' ListJobsByStatusResponse (Prelude.Maybe [Job'])
+listJobsByStatusResponse_jobs :: Lens.Lens' ListJobsByStatusResponse (Prelude.Maybe [Job])
 listJobsByStatusResponse_jobs = Lens.lens (\ListJobsByStatusResponse' {jobs} -> jobs) (\s@ListJobsByStatusResponse' {} a -> s {jobs = a} :: ListJobsByStatusResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.

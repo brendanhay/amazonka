@@ -41,9 +41,9 @@ module Network.AWS.StorageGateway.DescribeUploadBuffer
 
     -- * Response Lenses
     describeUploadBufferResponse_uploadBufferAllocatedInBytes,
-    describeUploadBufferResponse_uploadBufferUsedInBytes,
-    describeUploadBufferResponse_diskIds,
     describeUploadBufferResponse_gatewayARN,
+    describeUploadBufferResponse_diskIds,
+    describeUploadBufferResponse_uploadBufferUsedInBytes,
     describeUploadBufferResponse_httpStatus,
   )
 where
@@ -91,9 +91,9 @@ instance Core.AWSRequest DescribeUploadBuffer where
       ( \s h x ->
           DescribeUploadBufferResponse'
             Prelude.<$> (x Core..?> "UploadBufferAllocatedInBytes")
-            Prelude.<*> (x Core..?> "UploadBufferUsedInBytes")
-            Prelude.<*> (x Core..?> "DiskIds" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "GatewayARN")
+            Prelude.<*> (x Core..?> "DiskIds" Core..!@ Prelude.mempty)
+            Prelude.<*> (x Core..?> "UploadBufferUsedInBytes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -133,14 +133,14 @@ instance Core.ToQuery DescribeUploadBuffer where
 data DescribeUploadBufferResponse = DescribeUploadBufferResponse'
   { -- | The total number of bytes allocated in the gateway\'s as upload buffer.
     uploadBufferAllocatedInBytes :: Prelude.Maybe Prelude.Integer,
-    -- | The total number of bytes being used in the gateway\'s upload buffer.
-    uploadBufferUsedInBytes :: Prelude.Maybe Prelude.Integer,
+    gatewayARN :: Prelude.Maybe Prelude.Text,
     -- | An array of the gateway\'s local disk IDs that are configured as working
     -- storage. Each local disk ID is specified as a string (minimum length of
     -- 1 and maximum length of 300). If no local disks are configured as
     -- working storage, then the DiskIds array is empty.
     diskIds :: Prelude.Maybe [Prelude.Text],
-    gatewayARN :: Prelude.Maybe Prelude.Text,
+    -- | The total number of bytes being used in the gateway\'s upload buffer.
+    uploadBufferUsedInBytes :: Prelude.Maybe Prelude.Integer,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -156,14 +156,14 @@ data DescribeUploadBufferResponse = DescribeUploadBufferResponse'
 --
 -- 'uploadBufferAllocatedInBytes', 'describeUploadBufferResponse_uploadBufferAllocatedInBytes' - The total number of bytes allocated in the gateway\'s as upload buffer.
 --
--- 'uploadBufferUsedInBytes', 'describeUploadBufferResponse_uploadBufferUsedInBytes' - The total number of bytes being used in the gateway\'s upload buffer.
+-- 'gatewayARN', 'describeUploadBufferResponse_gatewayARN' - Undocumented member.
 --
 -- 'diskIds', 'describeUploadBufferResponse_diskIds' - An array of the gateway\'s local disk IDs that are configured as working
 -- storage. Each local disk ID is specified as a string (minimum length of
 -- 1 and maximum length of 300). If no local disks are configured as
 -- working storage, then the DiskIds array is empty.
 --
--- 'gatewayARN', 'describeUploadBufferResponse_gatewayARN' - Undocumented member.
+-- 'uploadBufferUsedInBytes', 'describeUploadBufferResponse_uploadBufferUsedInBytes' - The total number of bytes being used in the gateway\'s upload buffer.
 --
 -- 'httpStatus', 'describeUploadBufferResponse_httpStatus' - The response's http status code.
 newDescribeUploadBufferResponse ::
@@ -174,9 +174,9 @@ newDescribeUploadBufferResponse pHttpStatus_ =
   DescribeUploadBufferResponse'
     { uploadBufferAllocatedInBytes =
         Prelude.Nothing,
-      uploadBufferUsedInBytes = Prelude.Nothing,
-      diskIds = Prelude.Nothing,
       gatewayARN = Prelude.Nothing,
+      diskIds = Prelude.Nothing,
+      uploadBufferUsedInBytes = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
@@ -184,9 +184,9 @@ newDescribeUploadBufferResponse pHttpStatus_ =
 describeUploadBufferResponse_uploadBufferAllocatedInBytes :: Lens.Lens' DescribeUploadBufferResponse (Prelude.Maybe Prelude.Integer)
 describeUploadBufferResponse_uploadBufferAllocatedInBytes = Lens.lens (\DescribeUploadBufferResponse' {uploadBufferAllocatedInBytes} -> uploadBufferAllocatedInBytes) (\s@DescribeUploadBufferResponse' {} a -> s {uploadBufferAllocatedInBytes = a} :: DescribeUploadBufferResponse)
 
--- | The total number of bytes being used in the gateway\'s upload buffer.
-describeUploadBufferResponse_uploadBufferUsedInBytes :: Lens.Lens' DescribeUploadBufferResponse (Prelude.Maybe Prelude.Integer)
-describeUploadBufferResponse_uploadBufferUsedInBytes = Lens.lens (\DescribeUploadBufferResponse' {uploadBufferUsedInBytes} -> uploadBufferUsedInBytes) (\s@DescribeUploadBufferResponse' {} a -> s {uploadBufferUsedInBytes = a} :: DescribeUploadBufferResponse)
+-- | Undocumented member.
+describeUploadBufferResponse_gatewayARN :: Lens.Lens' DescribeUploadBufferResponse (Prelude.Maybe Prelude.Text)
+describeUploadBufferResponse_gatewayARN = Lens.lens (\DescribeUploadBufferResponse' {gatewayARN} -> gatewayARN) (\s@DescribeUploadBufferResponse' {} a -> s {gatewayARN = a} :: DescribeUploadBufferResponse)
 
 -- | An array of the gateway\'s local disk IDs that are configured as working
 -- storage. Each local disk ID is specified as a string (minimum length of
@@ -195,9 +195,9 @@ describeUploadBufferResponse_uploadBufferUsedInBytes = Lens.lens (\DescribeUploa
 describeUploadBufferResponse_diskIds :: Lens.Lens' DescribeUploadBufferResponse (Prelude.Maybe [Prelude.Text])
 describeUploadBufferResponse_diskIds = Lens.lens (\DescribeUploadBufferResponse' {diskIds} -> diskIds) (\s@DescribeUploadBufferResponse' {} a -> s {diskIds = a} :: DescribeUploadBufferResponse) Prelude.. Lens.mapping Lens._Coerce
 
--- | Undocumented member.
-describeUploadBufferResponse_gatewayARN :: Lens.Lens' DescribeUploadBufferResponse (Prelude.Maybe Prelude.Text)
-describeUploadBufferResponse_gatewayARN = Lens.lens (\DescribeUploadBufferResponse' {gatewayARN} -> gatewayARN) (\s@DescribeUploadBufferResponse' {} a -> s {gatewayARN = a} :: DescribeUploadBufferResponse)
+-- | The total number of bytes being used in the gateway\'s upload buffer.
+describeUploadBufferResponse_uploadBufferUsedInBytes :: Lens.Lens' DescribeUploadBufferResponse (Prelude.Maybe Prelude.Integer)
+describeUploadBufferResponse_uploadBufferUsedInBytes = Lens.lens (\DescribeUploadBufferResponse' {uploadBufferUsedInBytes} -> uploadBufferUsedInBytes) (\s@DescribeUploadBufferResponse' {} a -> s {uploadBufferUsedInBytes = a} :: DescribeUploadBufferResponse)
 
 -- | The response's http status code.
 describeUploadBufferResponse_httpStatus :: Lens.Lens' DescribeUploadBufferResponse Prelude.Int

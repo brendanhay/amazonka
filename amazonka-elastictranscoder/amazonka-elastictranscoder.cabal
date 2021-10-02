@@ -74,7 +74,7 @@ library
     Network.AWS.ElasticTranscoder.Types.Encryption
     Network.AWS.ElasticTranscoder.Types.HlsContentProtection
     Network.AWS.ElasticTranscoder.Types.InputCaptions
-    Network.AWS.ElasticTranscoder.Types.Job'
+    Network.AWS.ElasticTranscoder.Types.Job
     Network.AWS.ElasticTranscoder.Types.JobAlbumArt
     Network.AWS.ElasticTranscoder.Types.JobInput
     Network.AWS.ElasticTranscoder.Types.JobOutput

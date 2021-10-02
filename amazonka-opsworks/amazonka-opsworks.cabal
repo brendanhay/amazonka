@@ -151,7 +151,7 @@ library
     Network.AWS.OpsWorks.Types.ReportedOs
     Network.AWS.OpsWorks.Types.RootDeviceType
     Network.AWS.OpsWorks.Types.SelfUserProfile
-    Network.AWS.OpsWorks.Types.ServiceError'
+    Network.AWS.OpsWorks.Types.ServiceError
     Network.AWS.OpsWorks.Types.ShutdownEventConfiguration
     Network.AWS.OpsWorks.Types.Source
     Network.AWS.OpsWorks.Types.SourceType

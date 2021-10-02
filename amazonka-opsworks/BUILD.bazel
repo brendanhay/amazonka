@@ -110,7 +110,7 @@ haskell_library(
         "gen/Network/AWS/OpsWorks/Types/ReportedOs.hs",
         "gen/Network/AWS/OpsWorks/Types/RootDeviceType.hs",
         "gen/Network/AWS/OpsWorks/Types/SelfUserProfile.hs",
-        "gen/Network/AWS/OpsWorks/Types/ServiceError'.hs",
+        "gen/Network/AWS/OpsWorks/Types/ServiceError.hs",
         "gen/Network/AWS/OpsWorks/Types/ShutdownEventConfiguration.hs",
         "gen/Network/AWS/OpsWorks/Types/Source.hs",
         "gen/Network/AWS/OpsWorks/Types/SourceType.hs",

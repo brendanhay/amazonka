@@ -32,13 +32,13 @@ module Network.AWS.ElasticTranscoder.UpdatePipeline
     newUpdatePipeline,
 
     -- * Request Lenses
-    updatePipeline_name,
-    updatePipeline_role,
-    updatePipeline_thumbnailConfig,
-    updatePipeline_notifications,
-    updatePipeline_contentConfig,
     updatePipeline_inputBucket,
+    updatePipeline_contentConfig,
+    updatePipeline_role,
+    updatePipeline_name,
     updatePipeline_awsKmsKeyArn,
+    updatePipeline_notifications,
+    updatePipeline_thumbnailConfig,
     updatePipeline_id,
 
     -- * Destructuring the Response
@@ -63,103 +63,9 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newUpdatePipeline' smart constructor.
 data UpdatePipeline = UpdatePipeline'
-  { -- | The name of the pipeline. We recommend that the name be unique within
-    -- the AWS account, but uniqueness is not enforced.
-    --
-    -- Constraints: Maximum 40 characters
-    name :: Prelude.Maybe Prelude.Text,
-    -- | The IAM Amazon Resource Name (ARN) for the role that you want Elastic
-    -- Transcoder to use to transcode jobs for this pipeline.
-    role' :: Prelude.Maybe Prelude.Text,
-    -- | The @ThumbnailConfig@ object specifies several values, including the
-    -- Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail
-    -- files, which users you want to have access to the files, the type of
-    -- access you want users to have, and the storage class that you want to
-    -- assign to the files.
-    --
-    -- If you specify values for @ContentConfig@, you must also specify values
-    -- for @ThumbnailConfig@ even if you don\'t want to create thumbnails.
-    --
-    -- If you specify values for @ContentConfig@ and @ThumbnailConfig@, omit
-    -- the @OutputBucket@ object.
-    --
-    -- -   __Bucket__: The Amazon S3 bucket in which you want Elastic
-    --     Transcoder to save thumbnail files.
-    --
-    -- -   __Permissions__ (Optional): The @Permissions@ object specifies which
-    --     users and\/or predefined Amazon S3 groups you want to have access to
-    --     thumbnail files, and the type of access you want them to have. You
-    --     can grant permissions to a maximum of 30 users and\/or predefined
-    --     Amazon S3 groups.
-    --
-    -- -   __GranteeType__: Specify the type of value that appears in the
-    --     Grantee object:
-    --
-    --     -   __Canonical__: The value in the @Grantee@ object is either the
-    --         canonical user ID for an AWS account or an origin access
-    --         identity for an Amazon CloudFront distribution.
-    --
-    --         A canonical user ID is not the same as an AWS account number.
-    --
-    --     -   __Email__: The value in the @Grantee@ object is the registered
-    --         email address of an AWS account.
-    --
-    --     -   __Group__: The value in the @Grantee@ object is one of the
-    --         following predefined Amazon S3 groups: @AllUsers@,
-    --         @AuthenticatedUsers@, or @LogDelivery@.
-    --
-    -- -   __Grantee__: The AWS user or group that you want to have access to
-    --     thumbnail files. To identify the user or group, you can specify the
-    --     canonical user ID for an AWS account, an origin access identity for
-    --     a CloudFront distribution, the registered email address of an AWS
-    --     account, or a predefined Amazon S3 group.
-    --
-    -- -   __Access__: The permission that you want to give to the AWS user
-    --     that you specified in @Grantee@. Permissions are granted on the
-    --     thumbnail files that Elastic Transcoder adds to the bucket. Valid
-    --     values include:
-    --
-    --     -   @READ@: The grantee can read the thumbnails and metadata for
-    --         objects that Elastic Transcoder adds to the Amazon S3 bucket.
-    --
-    --     -   @READ_ACP@: The grantee can read the object ACL for thumbnails
-    --         that Elastic Transcoder adds to the Amazon S3 bucket.
-    --
-    --     -   @WRITE_ACP@: The grantee can write the ACL for the thumbnails
-    --         that Elastic Transcoder adds to the Amazon S3 bucket.
-    --
-    --     -   @FULL_CONTROL@: The grantee has @READ@, @READ_ACP@, and
-    --         @WRITE_ACP@ permissions for the thumbnails that Elastic
-    --         Transcoder adds to the Amazon S3 bucket.
-    --
-    -- -   __StorageClass__: The Amazon S3 storage class, @Standard@ or
-    --     @ReducedRedundancy@, that you want Elastic Transcoder to assign to
-    --     the thumbnails that it stores in your Amazon S3 bucket.
-    thumbnailConfig :: Prelude.Maybe PipelineOutputConfig,
-    -- | The topic ARN for the Amazon Simple Notification Service (Amazon SNS)
-    -- topic that you want to notify to report job status.
-    --
-    -- To receive notifications, you must also subscribe to the new topic in
-    -- the Amazon SNS console.
-    --
-    -- -   __Progressing__: The topic ARN for the Amazon Simple Notification
-    --     Service (Amazon SNS) topic that you want to notify when Elastic
-    --     Transcoder has started to process jobs that are added to this
-    --     pipeline. This is the ARN that Amazon SNS returned when you created
-    --     the topic.
-    --
-    -- -   __Complete__: The topic ARN for the Amazon SNS topic that you want
-    --     to notify when Elastic Transcoder has finished processing a job.
-    --     This is the ARN that Amazon SNS returned when you created the topic.
-    --
-    -- -   __Warning__: The topic ARN for the Amazon SNS topic that you want to
-    --     notify when Elastic Transcoder encounters a warning condition. This
-    --     is the ARN that Amazon SNS returned when you created the topic.
-    --
-    -- -   __Error__: The topic ARN for the Amazon SNS topic that you want to
-    --     notify when Elastic Transcoder encounters an error condition. This
-    --     is the ARN that Amazon SNS returned when you created the topic.
-    notifications :: Prelude.Maybe Notifications,
+  { -- | The Amazon S3 bucket in which you saved the media files that you want to
+    -- transcode and the graphics that you want to use as watermarks.
+    inputBucket :: Prelude.Maybe Prelude.Text,
     -- | The optional @ContentConfig@ object specifies information about the
     -- Amazon S3 bucket in which you want Elastic Transcoder to save transcoded
     -- files and playlists: which bucket to use, which users you want to have
@@ -231,9 +137,14 @@ data UpdatePipeline = UpdatePipeline'
     --     the video files and playlists that it stores in your Amazon S3
     --     bucket.
     contentConfig :: Prelude.Maybe PipelineOutputConfig,
-    -- | The Amazon S3 bucket in which you saved the media files that you want to
-    -- transcode and the graphics that you want to use as watermarks.
-    inputBucket :: Prelude.Maybe Prelude.Text,
+    -- | The IAM Amazon Resource Name (ARN) for the role that you want Elastic
+    -- Transcoder to use to transcode jobs for this pipeline.
+    role' :: Prelude.Maybe Prelude.Text,
+    -- | The name of the pipeline. We recommend that the name be unique within
+    -- the AWS account, but uniqueness is not enforced.
+    --
+    -- Constraints: Maximum 40 characters
+    name :: Prelude.Maybe Prelude.Text,
     -- | The AWS Key Management Service (AWS KMS) key that you want to use with
     -- this pipeline.
     --
@@ -244,6 +155,95 @@ data UpdatePipeline = UpdatePipeline'
     -- you are using an @Encryption:Mode@ of @aes-cbc-pkcs7@, @aes-ctr@, or
     -- @aes-gcm@.
     awsKmsKeyArn :: Prelude.Maybe Prelude.Text,
+    -- | The topic ARN for the Amazon Simple Notification Service (Amazon SNS)
+    -- topic that you want to notify to report job status.
+    --
+    -- To receive notifications, you must also subscribe to the new topic in
+    -- the Amazon SNS console.
+    --
+    -- -   __Progressing__: The topic ARN for the Amazon Simple Notification
+    --     Service (Amazon SNS) topic that you want to notify when Elastic
+    --     Transcoder has started to process jobs that are added to this
+    --     pipeline. This is the ARN that Amazon SNS returned when you created
+    --     the topic.
+    --
+    -- -   __Complete__: The topic ARN for the Amazon SNS topic that you want
+    --     to notify when Elastic Transcoder has finished processing a job.
+    --     This is the ARN that Amazon SNS returned when you created the topic.
+    --
+    -- -   __Warning__: The topic ARN for the Amazon SNS topic that you want to
+    --     notify when Elastic Transcoder encounters a warning condition. This
+    --     is the ARN that Amazon SNS returned when you created the topic.
+    --
+    -- -   __Error__: The topic ARN for the Amazon SNS topic that you want to
+    --     notify when Elastic Transcoder encounters an error condition. This
+    --     is the ARN that Amazon SNS returned when you created the topic.
+    notifications :: Prelude.Maybe Notifications,
+    -- | The @ThumbnailConfig@ object specifies several values, including the
+    -- Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail
+    -- files, which users you want to have access to the files, the type of
+    -- access you want users to have, and the storage class that you want to
+    -- assign to the files.
+    --
+    -- If you specify values for @ContentConfig@, you must also specify values
+    -- for @ThumbnailConfig@ even if you don\'t want to create thumbnails.
+    --
+    -- If you specify values for @ContentConfig@ and @ThumbnailConfig@, omit
+    -- the @OutputBucket@ object.
+    --
+    -- -   __Bucket__: The Amazon S3 bucket in which you want Elastic
+    --     Transcoder to save thumbnail files.
+    --
+    -- -   __Permissions__ (Optional): The @Permissions@ object specifies which
+    --     users and\/or predefined Amazon S3 groups you want to have access to
+    --     thumbnail files, and the type of access you want them to have. You
+    --     can grant permissions to a maximum of 30 users and\/or predefined
+    --     Amazon S3 groups.
+    --
+    -- -   __GranteeType__: Specify the type of value that appears in the
+    --     Grantee object:
+    --
+    --     -   __Canonical__: The value in the @Grantee@ object is either the
+    --         canonical user ID for an AWS account or an origin access
+    --         identity for an Amazon CloudFront distribution.
+    --
+    --         A canonical user ID is not the same as an AWS account number.
+    --
+    --     -   __Email__: The value in the @Grantee@ object is the registered
+    --         email address of an AWS account.
+    --
+    --     -   __Group__: The value in the @Grantee@ object is one of the
+    --         following predefined Amazon S3 groups: @AllUsers@,
+    --         @AuthenticatedUsers@, or @LogDelivery@.
+    --
+    -- -   __Grantee__: The AWS user or group that you want to have access to
+    --     thumbnail files. To identify the user or group, you can specify the
+    --     canonical user ID for an AWS account, an origin access identity for
+    --     a CloudFront distribution, the registered email address of an AWS
+    --     account, or a predefined Amazon S3 group.
+    --
+    -- -   __Access__: The permission that you want to give to the AWS user
+    --     that you specified in @Grantee@. Permissions are granted on the
+    --     thumbnail files that Elastic Transcoder adds to the bucket. Valid
+    --     values include:
+    --
+    --     -   @READ@: The grantee can read the thumbnails and metadata for
+    --         objects that Elastic Transcoder adds to the Amazon S3 bucket.
+    --
+    --     -   @READ_ACP@: The grantee can read the object ACL for thumbnails
+    --         that Elastic Transcoder adds to the Amazon S3 bucket.
+    --
+    --     -   @WRITE_ACP@: The grantee can write the ACL for the thumbnails
+    --         that Elastic Transcoder adds to the Amazon S3 bucket.
+    --
+    --     -   @FULL_CONTROL@: The grantee has @READ@, @READ_ACP@, and
+    --         @WRITE_ACP@ permissions for the thumbnails that Elastic
+    --         Transcoder adds to the Amazon S3 bucket.
+    --
+    -- -   __StorageClass__: The Amazon S3 storage class, @Standard@ or
+    --     @ReducedRedundancy@, that you want Elastic Transcoder to assign to
+    --     the thumbnails that it stores in your Amazon S3 bucket.
+    thumbnailConfig :: Prelude.Maybe PipelineOutputConfig,
     -- | The ID of the pipeline that you want to update.
     id :: Prelude.Text
   }
@@ -257,102 +257,8 @@ data UpdatePipeline = UpdatePipeline'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'name', 'updatePipeline_name' - The name of the pipeline. We recommend that the name be unique within
--- the AWS account, but uniqueness is not enforced.
---
--- Constraints: Maximum 40 characters
---
--- 'role'', 'updatePipeline_role' - The IAM Amazon Resource Name (ARN) for the role that you want Elastic
--- Transcoder to use to transcode jobs for this pipeline.
---
--- 'thumbnailConfig', 'updatePipeline_thumbnailConfig' - The @ThumbnailConfig@ object specifies several values, including the
--- Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail
--- files, which users you want to have access to the files, the type of
--- access you want users to have, and the storage class that you want to
--- assign to the files.
---
--- If you specify values for @ContentConfig@, you must also specify values
--- for @ThumbnailConfig@ even if you don\'t want to create thumbnails.
---
--- If you specify values for @ContentConfig@ and @ThumbnailConfig@, omit
--- the @OutputBucket@ object.
---
--- -   __Bucket__: The Amazon S3 bucket in which you want Elastic
---     Transcoder to save thumbnail files.
---
--- -   __Permissions__ (Optional): The @Permissions@ object specifies which
---     users and\/or predefined Amazon S3 groups you want to have access to
---     thumbnail files, and the type of access you want them to have. You
---     can grant permissions to a maximum of 30 users and\/or predefined
---     Amazon S3 groups.
---
--- -   __GranteeType__: Specify the type of value that appears in the
---     Grantee object:
---
---     -   __Canonical__: The value in the @Grantee@ object is either the
---         canonical user ID for an AWS account or an origin access
---         identity for an Amazon CloudFront distribution.
---
---         A canonical user ID is not the same as an AWS account number.
---
---     -   __Email__: The value in the @Grantee@ object is the registered
---         email address of an AWS account.
---
---     -   __Group__: The value in the @Grantee@ object is one of the
---         following predefined Amazon S3 groups: @AllUsers@,
---         @AuthenticatedUsers@, or @LogDelivery@.
---
--- -   __Grantee__: The AWS user or group that you want to have access to
---     thumbnail files. To identify the user or group, you can specify the
---     canonical user ID for an AWS account, an origin access identity for
---     a CloudFront distribution, the registered email address of an AWS
---     account, or a predefined Amazon S3 group.
---
--- -   __Access__: The permission that you want to give to the AWS user
---     that you specified in @Grantee@. Permissions are granted on the
---     thumbnail files that Elastic Transcoder adds to the bucket. Valid
---     values include:
---
---     -   @READ@: The grantee can read the thumbnails and metadata for
---         objects that Elastic Transcoder adds to the Amazon S3 bucket.
---
---     -   @READ_ACP@: The grantee can read the object ACL for thumbnails
---         that Elastic Transcoder adds to the Amazon S3 bucket.
---
---     -   @WRITE_ACP@: The grantee can write the ACL for the thumbnails
---         that Elastic Transcoder adds to the Amazon S3 bucket.
---
---     -   @FULL_CONTROL@: The grantee has @READ@, @READ_ACP@, and
---         @WRITE_ACP@ permissions for the thumbnails that Elastic
---         Transcoder adds to the Amazon S3 bucket.
---
--- -   __StorageClass__: The Amazon S3 storage class, @Standard@ or
---     @ReducedRedundancy@, that you want Elastic Transcoder to assign to
---     the thumbnails that it stores in your Amazon S3 bucket.
---
--- 'notifications', 'updatePipeline_notifications' - The topic ARN for the Amazon Simple Notification Service (Amazon SNS)
--- topic that you want to notify to report job status.
---
--- To receive notifications, you must also subscribe to the new topic in
--- the Amazon SNS console.
---
--- -   __Progressing__: The topic ARN for the Amazon Simple Notification
---     Service (Amazon SNS) topic that you want to notify when Elastic
---     Transcoder has started to process jobs that are added to this
---     pipeline. This is the ARN that Amazon SNS returned when you created
---     the topic.
---
--- -   __Complete__: The topic ARN for the Amazon SNS topic that you want
---     to notify when Elastic Transcoder has finished processing a job.
---     This is the ARN that Amazon SNS returned when you created the topic.
---
--- -   __Warning__: The topic ARN for the Amazon SNS topic that you want to
---     notify when Elastic Transcoder encounters a warning condition. This
---     is the ARN that Amazon SNS returned when you created the topic.
---
--- -   __Error__: The topic ARN for the Amazon SNS topic that you want to
---     notify when Elastic Transcoder encounters an error condition. This
---     is the ARN that Amazon SNS returned when you created the topic.
+-- 'inputBucket', 'updatePipeline_inputBucket' - The Amazon S3 bucket in which you saved the media files that you want to
+-- transcode and the graphics that you want to use as watermarks.
 --
 -- 'contentConfig', 'updatePipeline_contentConfig' - The optional @ContentConfig@ object specifies information about the
 -- Amazon S3 bucket in which you want Elastic Transcoder to save transcoded
@@ -425,8 +331,13 @@ data UpdatePipeline = UpdatePipeline'
 --     the video files and playlists that it stores in your Amazon S3
 --     bucket.
 --
--- 'inputBucket', 'updatePipeline_inputBucket' - The Amazon S3 bucket in which you saved the media files that you want to
--- transcode and the graphics that you want to use as watermarks.
+-- 'role'', 'updatePipeline_role' - The IAM Amazon Resource Name (ARN) for the role that you want Elastic
+-- Transcoder to use to transcode jobs for this pipeline.
+--
+-- 'name', 'updatePipeline_name' - The name of the pipeline. We recommend that the name be unique within
+-- the AWS account, but uniqueness is not enforced.
+--
+-- Constraints: Maximum 40 characters
 --
 -- 'awsKmsKeyArn', 'updatePipeline_awsKmsKeyArn' - The AWS Key Management Service (AWS KMS) key that you want to use with
 -- this pipeline.
@@ -438,36 +349,31 @@ data UpdatePipeline = UpdatePipeline'
 -- you are using an @Encryption:Mode@ of @aes-cbc-pkcs7@, @aes-ctr@, or
 -- @aes-gcm@.
 --
--- 'id', 'updatePipeline_id' - The ID of the pipeline that you want to update.
-newUpdatePipeline ::
-  -- | 'id'
-  Prelude.Text ->
-  UpdatePipeline
-newUpdatePipeline pId_ =
-  UpdatePipeline'
-    { name = Prelude.Nothing,
-      role' = Prelude.Nothing,
-      thumbnailConfig = Prelude.Nothing,
-      notifications = Prelude.Nothing,
-      contentConfig = Prelude.Nothing,
-      inputBucket = Prelude.Nothing,
-      awsKmsKeyArn = Prelude.Nothing,
-      id = pId_
-    }
-
--- | The name of the pipeline. We recommend that the name be unique within
--- the AWS account, but uniqueness is not enforced.
+-- 'notifications', 'updatePipeline_notifications' - The topic ARN for the Amazon Simple Notification Service (Amazon SNS)
+-- topic that you want to notify to report job status.
 --
--- Constraints: Maximum 40 characters
-updatePipeline_name :: Lens.Lens' UpdatePipeline (Prelude.Maybe Prelude.Text)
-updatePipeline_name = Lens.lens (\UpdatePipeline' {name} -> name) (\s@UpdatePipeline' {} a -> s {name = a} :: UpdatePipeline)
-
--- | The IAM Amazon Resource Name (ARN) for the role that you want Elastic
--- Transcoder to use to transcode jobs for this pipeline.
-updatePipeline_role :: Lens.Lens' UpdatePipeline (Prelude.Maybe Prelude.Text)
-updatePipeline_role = Lens.lens (\UpdatePipeline' {role'} -> role') (\s@UpdatePipeline' {} a -> s {role' = a} :: UpdatePipeline)
-
--- | The @ThumbnailConfig@ object specifies several values, including the
+-- To receive notifications, you must also subscribe to the new topic in
+-- the Amazon SNS console.
+--
+-- -   __Progressing__: The topic ARN for the Amazon Simple Notification
+--     Service (Amazon SNS) topic that you want to notify when Elastic
+--     Transcoder has started to process jobs that are added to this
+--     pipeline. This is the ARN that Amazon SNS returned when you created
+--     the topic.
+--
+-- -   __Complete__: The topic ARN for the Amazon SNS topic that you want
+--     to notify when Elastic Transcoder has finished processing a job.
+--     This is the ARN that Amazon SNS returned when you created the topic.
+--
+-- -   __Warning__: The topic ARN for the Amazon SNS topic that you want to
+--     notify when Elastic Transcoder encounters a warning condition. This
+--     is the ARN that Amazon SNS returned when you created the topic.
+--
+-- -   __Error__: The topic ARN for the Amazon SNS topic that you want to
+--     notify when Elastic Transcoder encounters an error condition. This
+--     is the ARN that Amazon SNS returned when you created the topic.
+--
+-- 'thumbnailConfig', 'updatePipeline_thumbnailConfig' - The @ThumbnailConfig@ object specifies several values, including the
 -- Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail
 -- files, which users you want to have access to the files, the type of
 -- access you want users to have, and the storage class that you want to
@@ -531,34 +437,28 @@ updatePipeline_role = Lens.lens (\UpdatePipeline' {role'} -> role') (\s@UpdatePi
 -- -   __StorageClass__: The Amazon S3 storage class, @Standard@ or
 --     @ReducedRedundancy@, that you want Elastic Transcoder to assign to
 --     the thumbnails that it stores in your Amazon S3 bucket.
-updatePipeline_thumbnailConfig :: Lens.Lens' UpdatePipeline (Prelude.Maybe PipelineOutputConfig)
-updatePipeline_thumbnailConfig = Lens.lens (\UpdatePipeline' {thumbnailConfig} -> thumbnailConfig) (\s@UpdatePipeline' {} a -> s {thumbnailConfig = a} :: UpdatePipeline)
+--
+-- 'id', 'updatePipeline_id' - The ID of the pipeline that you want to update.
+newUpdatePipeline ::
+  -- | 'id'
+  Prelude.Text ->
+  UpdatePipeline
+newUpdatePipeline pId_ =
+  UpdatePipeline'
+    { inputBucket = Prelude.Nothing,
+      contentConfig = Prelude.Nothing,
+      role' = Prelude.Nothing,
+      name = Prelude.Nothing,
+      awsKmsKeyArn = Prelude.Nothing,
+      notifications = Prelude.Nothing,
+      thumbnailConfig = Prelude.Nothing,
+      id = pId_
+    }
 
--- | The topic ARN for the Amazon Simple Notification Service (Amazon SNS)
--- topic that you want to notify to report job status.
---
--- To receive notifications, you must also subscribe to the new topic in
--- the Amazon SNS console.
---
--- -   __Progressing__: The topic ARN for the Amazon Simple Notification
---     Service (Amazon SNS) topic that you want to notify when Elastic
---     Transcoder has started to process jobs that are added to this
---     pipeline. This is the ARN that Amazon SNS returned when you created
---     the topic.
---
--- -   __Complete__: The topic ARN for the Amazon SNS topic that you want
---     to notify when Elastic Transcoder has finished processing a job.
---     This is the ARN that Amazon SNS returned when you created the topic.
---
--- -   __Warning__: The topic ARN for the Amazon SNS topic that you want to
---     notify when Elastic Transcoder encounters a warning condition. This
---     is the ARN that Amazon SNS returned when you created the topic.
---
--- -   __Error__: The topic ARN for the Amazon SNS topic that you want to
---     notify when Elastic Transcoder encounters an error condition. This
---     is the ARN that Amazon SNS returned when you created the topic.
-updatePipeline_notifications :: Lens.Lens' UpdatePipeline (Prelude.Maybe Notifications)
-updatePipeline_notifications = Lens.lens (\UpdatePipeline' {notifications} -> notifications) (\s@UpdatePipeline' {} a -> s {notifications = a} :: UpdatePipeline)
+-- | The Amazon S3 bucket in which you saved the media files that you want to
+-- transcode and the graphics that you want to use as watermarks.
+updatePipeline_inputBucket :: Lens.Lens' UpdatePipeline (Prelude.Maybe Prelude.Text)
+updatePipeline_inputBucket = Lens.lens (\UpdatePipeline' {inputBucket} -> inputBucket) (\s@UpdatePipeline' {} a -> s {inputBucket = a} :: UpdatePipeline)
 
 -- | The optional @ContentConfig@ object specifies information about the
 -- Amazon S3 bucket in which you want Elastic Transcoder to save transcoded
@@ -633,10 +533,17 @@ updatePipeline_notifications = Lens.lens (\UpdatePipeline' {notifications} -> no
 updatePipeline_contentConfig :: Lens.Lens' UpdatePipeline (Prelude.Maybe PipelineOutputConfig)
 updatePipeline_contentConfig = Lens.lens (\UpdatePipeline' {contentConfig} -> contentConfig) (\s@UpdatePipeline' {} a -> s {contentConfig = a} :: UpdatePipeline)
 
--- | The Amazon S3 bucket in which you saved the media files that you want to
--- transcode and the graphics that you want to use as watermarks.
-updatePipeline_inputBucket :: Lens.Lens' UpdatePipeline (Prelude.Maybe Prelude.Text)
-updatePipeline_inputBucket = Lens.lens (\UpdatePipeline' {inputBucket} -> inputBucket) (\s@UpdatePipeline' {} a -> s {inputBucket = a} :: UpdatePipeline)
+-- | The IAM Amazon Resource Name (ARN) for the role that you want Elastic
+-- Transcoder to use to transcode jobs for this pipeline.
+updatePipeline_role :: Lens.Lens' UpdatePipeline (Prelude.Maybe Prelude.Text)
+updatePipeline_role = Lens.lens (\UpdatePipeline' {role'} -> role') (\s@UpdatePipeline' {} a -> s {role' = a} :: UpdatePipeline)
+
+-- | The name of the pipeline. We recommend that the name be unique within
+-- the AWS account, but uniqueness is not enforced.
+--
+-- Constraints: Maximum 40 characters
+updatePipeline_name :: Lens.Lens' UpdatePipeline (Prelude.Maybe Prelude.Text)
+updatePipeline_name = Lens.lens (\UpdatePipeline' {name} -> name) (\s@UpdatePipeline' {} a -> s {name = a} :: UpdatePipeline)
 
 -- | The AWS Key Management Service (AWS KMS) key that you want to use with
 -- this pipeline.
@@ -649,6 +556,99 @@ updatePipeline_inputBucket = Lens.lens (\UpdatePipeline' {inputBucket} -> inputB
 -- @aes-gcm@.
 updatePipeline_awsKmsKeyArn :: Lens.Lens' UpdatePipeline (Prelude.Maybe Prelude.Text)
 updatePipeline_awsKmsKeyArn = Lens.lens (\UpdatePipeline' {awsKmsKeyArn} -> awsKmsKeyArn) (\s@UpdatePipeline' {} a -> s {awsKmsKeyArn = a} :: UpdatePipeline)
+
+-- | The topic ARN for the Amazon Simple Notification Service (Amazon SNS)
+-- topic that you want to notify to report job status.
+--
+-- To receive notifications, you must also subscribe to the new topic in
+-- the Amazon SNS console.
+--
+-- -   __Progressing__: The topic ARN for the Amazon Simple Notification
+--     Service (Amazon SNS) topic that you want to notify when Elastic
+--     Transcoder has started to process jobs that are added to this
+--     pipeline. This is the ARN that Amazon SNS returned when you created
+--     the topic.
+--
+-- -   __Complete__: The topic ARN for the Amazon SNS topic that you want
+--     to notify when Elastic Transcoder has finished processing a job.
+--     This is the ARN that Amazon SNS returned when you created the topic.
+--
+-- -   __Warning__: The topic ARN for the Amazon SNS topic that you want to
+--     notify when Elastic Transcoder encounters a warning condition. This
+--     is the ARN that Amazon SNS returned when you created the topic.
+--
+-- -   __Error__: The topic ARN for the Amazon SNS topic that you want to
+--     notify when Elastic Transcoder encounters an error condition. This
+--     is the ARN that Amazon SNS returned when you created the topic.
+updatePipeline_notifications :: Lens.Lens' UpdatePipeline (Prelude.Maybe Notifications)
+updatePipeline_notifications = Lens.lens (\UpdatePipeline' {notifications} -> notifications) (\s@UpdatePipeline' {} a -> s {notifications = a} :: UpdatePipeline)
+
+-- | The @ThumbnailConfig@ object specifies several values, including the
+-- Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail
+-- files, which users you want to have access to the files, the type of
+-- access you want users to have, and the storage class that you want to
+-- assign to the files.
+--
+-- If you specify values for @ContentConfig@, you must also specify values
+-- for @ThumbnailConfig@ even if you don\'t want to create thumbnails.
+--
+-- If you specify values for @ContentConfig@ and @ThumbnailConfig@, omit
+-- the @OutputBucket@ object.
+--
+-- -   __Bucket__: The Amazon S3 bucket in which you want Elastic
+--     Transcoder to save thumbnail files.
+--
+-- -   __Permissions__ (Optional): The @Permissions@ object specifies which
+--     users and\/or predefined Amazon S3 groups you want to have access to
+--     thumbnail files, and the type of access you want them to have. You
+--     can grant permissions to a maximum of 30 users and\/or predefined
+--     Amazon S3 groups.
+--
+-- -   __GranteeType__: Specify the type of value that appears in the
+--     Grantee object:
+--
+--     -   __Canonical__: The value in the @Grantee@ object is either the
+--         canonical user ID for an AWS account or an origin access
+--         identity for an Amazon CloudFront distribution.
+--
+--         A canonical user ID is not the same as an AWS account number.
+--
+--     -   __Email__: The value in the @Grantee@ object is the registered
+--         email address of an AWS account.
+--
+--     -   __Group__: The value in the @Grantee@ object is one of the
+--         following predefined Amazon S3 groups: @AllUsers@,
+--         @AuthenticatedUsers@, or @LogDelivery@.
+--
+-- -   __Grantee__: The AWS user or group that you want to have access to
+--     thumbnail files. To identify the user or group, you can specify the
+--     canonical user ID for an AWS account, an origin access identity for
+--     a CloudFront distribution, the registered email address of an AWS
+--     account, or a predefined Amazon S3 group.
+--
+-- -   __Access__: The permission that you want to give to the AWS user
+--     that you specified in @Grantee@. Permissions are granted on the
+--     thumbnail files that Elastic Transcoder adds to the bucket. Valid
+--     values include:
+--
+--     -   @READ@: The grantee can read the thumbnails and metadata for
+--         objects that Elastic Transcoder adds to the Amazon S3 bucket.
+--
+--     -   @READ_ACP@: The grantee can read the object ACL for thumbnails
+--         that Elastic Transcoder adds to the Amazon S3 bucket.
+--
+--     -   @WRITE_ACP@: The grantee can write the ACL for the thumbnails
+--         that Elastic Transcoder adds to the Amazon S3 bucket.
+--
+--     -   @FULL_CONTROL@: The grantee has @READ@, @READ_ACP@, and
+--         @WRITE_ACP@ permissions for the thumbnails that Elastic
+--         Transcoder adds to the Amazon S3 bucket.
+--
+-- -   __StorageClass__: The Amazon S3 storage class, @Standard@ or
+--     @ReducedRedundancy@, that you want Elastic Transcoder to assign to
+--     the thumbnails that it stores in your Amazon S3 bucket.
+updatePipeline_thumbnailConfig :: Lens.Lens' UpdatePipeline (Prelude.Maybe PipelineOutputConfig)
+updatePipeline_thumbnailConfig = Lens.lens (\UpdatePipeline' {thumbnailConfig} -> thumbnailConfig) (\s@UpdatePipeline' {} a -> s {thumbnailConfig = a} :: UpdatePipeline)
 
 -- | The ID of the pipeline that you want to update.
 updatePipeline_id :: Lens.Lens' UpdatePipeline Prelude.Text
@@ -679,14 +679,14 @@ instance Core.ToJSON UpdatePipeline where
   toJSON UpdatePipeline' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Name" Core..=) Prelude.<$> name,
-            ("Role" Core..=) Prelude.<$> role',
-            ("ThumbnailConfig" Core..=)
-              Prelude.<$> thumbnailConfig,
-            ("Notifications" Core..=) Prelude.<$> notifications,
+          [ ("InputBucket" Core..=) Prelude.<$> inputBucket,
             ("ContentConfig" Core..=) Prelude.<$> contentConfig,
-            ("InputBucket" Core..=) Prelude.<$> inputBucket,
-            ("AwsKmsKeyArn" Core..=) Prelude.<$> awsKmsKeyArn
+            ("Role" Core..=) Prelude.<$> role',
+            ("Name" Core..=) Prelude.<$> name,
+            ("AwsKmsKeyArn" Core..=) Prelude.<$> awsKmsKeyArn,
+            ("Notifications" Core..=) Prelude.<$> notifications,
+            ("ThumbnailConfig" Core..=)
+              Prelude.<$> thumbnailConfig
           ]
       )
 

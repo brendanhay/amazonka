@@ -1,8 +1,3 @@
 {
-    "libraryName": "amazonka-storagegateway",
-    "typeOverrides": {
-        "StorageGatewayError": {
-            "renamedTo": "Error'"
-        }
-    }
+    "libraryName": "amazonka-storagegateway"
 }

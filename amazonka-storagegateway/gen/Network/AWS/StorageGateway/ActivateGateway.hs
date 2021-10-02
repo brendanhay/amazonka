@@ -35,10 +35,10 @@ module Network.AWS.StorageGateway.ActivateGateway
     newActivateGateway,
 
     -- * Request Lenses
+    activateGateway_mediumChangerType,
     activateGateway_tapeDriveType,
     activateGateway_gatewayType,
     activateGateway_tags,
-    activateGateway_mediumChangerType,
     activateGateway_activationKey,
     activateGateway_gatewayName,
     activateGateway_gatewayTimezone,
@@ -79,7 +79,12 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'newActivateGateway' smart constructor.
 data ActivateGateway = ActivateGateway'
-  { -- | The value that indicates the type of tape drive to use for tape gateway.
+  { -- | The value that indicates the type of medium changer to use for tape
+    -- gateway. This field is optional.
+    --
+    -- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
+    mediumChangerType :: Prelude.Maybe Prelude.Text,
+    -- | The value that indicates the type of tape drive to use for tape gateway.
     -- This field is optional.
     --
     -- Valid Values: @IBM-ULT3580-TD5@
@@ -98,11 +103,6 @@ data ActivateGateway = ActivateGateway'
     -- characters: + - = . _ : \/ \@. The maximum length of a tag\'s key is 128
     -- characters, and the maximum length for a tag\'s value is 256 characters.
     tags :: Prelude.Maybe [Tag],
-    -- | The value that indicates the type of medium changer to use for tape
-    -- gateway. This field is optional.
-    --
-    -- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
-    mediumChangerType :: Prelude.Maybe Prelude.Text,
     -- | Your gateway activation key. You can obtain the activation key by
     -- sending an HTTP GET request with redirects enabled to the gateway IP
     -- address (port 80). The redirect URL returned in the response provides
@@ -147,6 +147,11 @@ data ActivateGateway = ActivateGateway'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'mediumChangerType', 'activateGateway_mediumChangerType' - The value that indicates the type of medium changer to use for tape
+-- gateway. This field is optional.
+--
+-- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
+--
 -- 'tapeDriveType', 'activateGateway_tapeDriveType' - The value that indicates the type of tape drive to use for tape gateway.
 -- This field is optional.
 --
@@ -165,11 +170,6 @@ data ActivateGateway = ActivateGateway'
 -- can be represented in UTF-8 format, and the following special
 -- characters: + - = . _ : \/ \@. The maximum length of a tag\'s key is 128
 -- characters, and the maximum length for a tag\'s value is 256 characters.
---
--- 'mediumChangerType', 'activateGateway_mediumChangerType' - The value that indicates the type of medium changer to use for tape
--- gateway. This field is optional.
---
--- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
 --
 -- 'activationKey', 'activateGateway_activationKey' - Your gateway activation key. You can obtain the activation key by
 -- sending an HTTP GET request with redirects enabled to the gateway IP
@@ -219,15 +219,23 @@ newActivateGateway
   pGatewayTimezone_
   pGatewayRegion_ =
     ActivateGateway'
-      { tapeDriveType = Prelude.Nothing,
+      { mediumChangerType =
+          Prelude.Nothing,
+        tapeDriveType = Prelude.Nothing,
         gatewayType = Prelude.Nothing,
         tags = Prelude.Nothing,
-        mediumChangerType = Prelude.Nothing,
         activationKey = pActivationKey_,
         gatewayName = pGatewayName_,
         gatewayTimezone = pGatewayTimezone_,
         gatewayRegion = pGatewayRegion_
       }
+
+-- | The value that indicates the type of medium changer to use for tape
+-- gateway. This field is optional.
+--
+-- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
+activateGateway_mediumChangerType :: Lens.Lens' ActivateGateway (Prelude.Maybe Prelude.Text)
+activateGateway_mediumChangerType = Lens.lens (\ActivateGateway' {mediumChangerType} -> mediumChangerType) (\s@ActivateGateway' {} a -> s {mediumChangerType = a} :: ActivateGateway)
 
 -- | The value that indicates the type of tape drive to use for tape gateway.
 -- This field is optional.
@@ -253,13 +261,6 @@ activateGateway_gatewayType = Lens.lens (\ActivateGateway' {gatewayType} -> gate
 -- characters, and the maximum length for a tag\'s value is 256 characters.
 activateGateway_tags :: Lens.Lens' ActivateGateway (Prelude.Maybe [Tag])
 activateGateway_tags = Lens.lens (\ActivateGateway' {tags} -> tags) (\s@ActivateGateway' {} a -> s {tags = a} :: ActivateGateway) Prelude.. Lens.mapping Lens._Coerce
-
--- | The value that indicates the type of medium changer to use for tape
--- gateway. This field is optional.
---
--- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
-activateGateway_mediumChangerType :: Lens.Lens' ActivateGateway (Prelude.Maybe Prelude.Text)
-activateGateway_mediumChangerType = Lens.lens (\ActivateGateway' {mediumChangerType} -> mediumChangerType) (\s@ActivateGateway' {} a -> s {mediumChangerType = a} :: ActivateGateway)
 
 -- | Your gateway activation key. You can obtain the activation key by
 -- sending an HTTP GET request with redirects enabled to the gateway IP
@@ -338,11 +339,11 @@ instance Core.ToJSON ActivateGateway where
   toJSON ActivateGateway' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("TapeDriveType" Core..=) Prelude.<$> tapeDriveType,
+          [ ("MediumChangerType" Core..=)
+              Prelude.<$> mediumChangerType,
+            ("TapeDriveType" Core..=) Prelude.<$> tapeDriveType,
             ("GatewayType" Core..=) Prelude.<$> gatewayType,
             ("Tags" Core..=) Prelude.<$> tags,
-            ("MediumChangerType" Core..=)
-              Prelude.<$> mediumChangerType,
             Prelude.Just ("ActivationKey" Core..= activationKey),
             Prelude.Just ("GatewayName" Core..= gatewayName),
             Prelude.Just

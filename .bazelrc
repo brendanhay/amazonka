@@ -1,10 +1,11 @@
 # Bazel caching - can be disabled by passing the flag --noremote_accept_cached.
-# build --remote_http_cache=https://storage.googleapis.com/tlon-public-bazel-cache
+build --remote_http_cache=https://storage.googleapis.com/tlon-public-bazel-cache
 
-# Don't push local build results to the remote cache - CI is source of truth.
+# Don't push build results to the remote cache - CI is source of truth.
 build --remote_upload_local_results=false
 
-# Push build results to the local disk cache.
+# Push build results to the local disk cache despite
+# --remote_upload_local_results being set.
 build --incompatible_remote_results_ignore_disk=true
 
 # Enable the disk cache in addition to the http cache.
@@ -23,27 +24,15 @@ build --verbose_failures
 build --define use_worker=True
 build --worker_sandboxing
 
-# Do not use a distinct configuration for "host", binaries used at build time
-# should be the same as release binaries.
-build --distinct_host_configuration=false
-
-# Improve remote cache hit rate by exluding environment variables from the
-# sandbox that are not explicitly listed using --action_env.
-build --incompatible_strict_action_env
-
-# Toolchain setup
-build --crosstool_top=@local_config_cc//:toolchain
+# Toolchain configuration.
+# GHC is set by the wrapper in nix/nixpkgs.nix to the following:
+# --host_platform=//tools/platforms:ghc8107
 build --host_javabase=@local_jdk//:jdk
 build --javabase=@local_jdk//:jdk
 
-# Compile with optimization by default.
-build -c opt
-
-# Test environment does not propagate locales by default.
-#
-# some tests reads files written in UTF8, we need to propagate the correct
-# environment variables, such as LOCALE_ARCHIVE.
-test --test_env=LANG=en_US.utf8 --test_env=LOCALE_ARCHIVE --test_env=JAVA_HOME
+# When set, bazel uses PATH=/bin:/usr/bin. This improves cache hits and only
+# environment variables set explicitly using --action_env will be available.
+build --incompatible_strict_action_env
 
 # Print all test output to stdout.
 test --test_output=all

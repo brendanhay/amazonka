@@ -31,29 +31,29 @@ import Network.AWS.StorageGateway.Types.Tag
 --
 -- /See:/ 'newFileSystemAssociationInfo' smart constructor.
 data FileSystemAssociationInfo = FileSystemAssociationInfo'
-  { -- | The Amazon Resource Name (ARN) of the file system association.
+  { -- | The Amazon Resource Name (ARN) of the storage used for the audit logs.
+    auditDestinationARN :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the file system association.
     fileSystemAssociationARN :: Prelude.Maybe Prelude.Text,
-    -- | The ARN of the backend Amazon FSx file system used for storing file
-    -- data. For information, see
-    -- <https://docs.aws.amazon.com/fsx/latest/APIReference/API_FileSystem.html FileSystem>
-    -- in the /Amazon FSx API Reference/.
-    locationARN :: Prelude.Maybe Prelude.Text,
+    gatewayARN :: Prelude.Maybe Prelude.Text,
+    cacheAttributes :: Prelude.Maybe CacheAttributes,
     -- | Specifies network configuration information for the gateway associated
     -- with the Amazon FSx file system.
     --
     -- If multiple file systems are associated with this gateway, this
     -- parameter\'s @IpAddresses@ field is required.
     endpointNetworkConfiguration :: Prelude.Maybe EndpointNetworkConfiguration,
-    -- | The Amazon Resource Name (ARN) of the storage used for the audit logs.
-    auditDestinationARN :: Prelude.Maybe Prelude.Text,
-    -- | A list of up to 50 tags assigned to the SMB file share, sorted
-    -- alphabetically by key name. Each tag is a key-value pair.
-    tags :: Prelude.Maybe [Tag],
+    -- | The ARN of the backend Amazon FSx file system used for storing file
+    -- data. For information, see
+    -- <https://docs.aws.amazon.com/fsx/latest/APIReference/API_FileSystem.html FileSystem>
+    -- in the /Amazon FSx API Reference/.
+    locationARN :: Prelude.Maybe Prelude.Text,
     -- | The status of the file system association. Valid Values: @AVAILABLE@ |
     -- @CREATING@ | @DELETING@ | @FORCE_DELETING@ | @UPDATING@ | @ERROR@
     fileSystemAssociationStatus :: Prelude.Maybe Prelude.Text,
-    cacheAttributes :: Prelude.Maybe CacheAttributes,
-    gatewayARN :: Prelude.Maybe Prelude.Text
+    -- | A list of up to 50 tags assigned to the SMB file share, sorted
+    -- alphabetically by key name. Each tag is a key-value pair.
+    tags :: Prelude.Maybe [Tag]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -65,12 +65,13 @@ data FileSystemAssociationInfo = FileSystemAssociationInfo'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'auditDestinationARN', 'fileSystemAssociationInfo_auditDestinationARN' - The Amazon Resource Name (ARN) of the storage used for the audit logs.
+--
 -- 'fileSystemAssociationARN', 'fileSystemAssociationInfo_fileSystemAssociationARN' - The Amazon Resource Name (ARN) of the file system association.
 --
--- 'locationARN', 'fileSystemAssociationInfo_locationARN' - The ARN of the backend Amazon FSx file system used for storing file
--- data. For information, see
--- <https://docs.aws.amazon.com/fsx/latest/APIReference/API_FileSystem.html FileSystem>
--- in the /Amazon FSx API Reference/.
+-- 'gatewayARN', 'fileSystemAssociationInfo_gatewayARN' - Undocumented member.
+--
+-- 'cacheAttributes', 'fileSystemAssociationInfo_cacheAttributes' - Undocumented member.
 --
 -- 'endpointNetworkConfiguration', 'fileSystemAssociationInfo_endpointNetworkConfiguration' - Specifies network configuration information for the gateway associated
 -- with the Amazon FSx file system.
@@ -78,42 +79,46 @@ data FileSystemAssociationInfo = FileSystemAssociationInfo'
 -- If multiple file systems are associated with this gateway, this
 -- parameter\'s @IpAddresses@ field is required.
 --
--- 'auditDestinationARN', 'fileSystemAssociationInfo_auditDestinationARN' - The Amazon Resource Name (ARN) of the storage used for the audit logs.
---
--- 'tags', 'fileSystemAssociationInfo_tags' - A list of up to 50 tags assigned to the SMB file share, sorted
--- alphabetically by key name. Each tag is a key-value pair.
+-- 'locationARN', 'fileSystemAssociationInfo_locationARN' - The ARN of the backend Amazon FSx file system used for storing file
+-- data. For information, see
+-- <https://docs.aws.amazon.com/fsx/latest/APIReference/API_FileSystem.html FileSystem>
+-- in the /Amazon FSx API Reference/.
 --
 -- 'fileSystemAssociationStatus', 'fileSystemAssociationInfo_fileSystemAssociationStatus' - The status of the file system association. Valid Values: @AVAILABLE@ |
 -- @CREATING@ | @DELETING@ | @FORCE_DELETING@ | @UPDATING@ | @ERROR@
 --
--- 'cacheAttributes', 'fileSystemAssociationInfo_cacheAttributes' - Undocumented member.
---
--- 'gatewayARN', 'fileSystemAssociationInfo_gatewayARN' - Undocumented member.
+-- 'tags', 'fileSystemAssociationInfo_tags' - A list of up to 50 tags assigned to the SMB file share, sorted
+-- alphabetically by key name. Each tag is a key-value pair.
 newFileSystemAssociationInfo ::
   FileSystemAssociationInfo
 newFileSystemAssociationInfo =
   FileSystemAssociationInfo'
-    { fileSystemAssociationARN =
+    { auditDestinationARN =
         Prelude.Nothing,
-      locationARN = Prelude.Nothing,
-      endpointNetworkConfiguration = Prelude.Nothing,
-      auditDestinationARN = Prelude.Nothing,
-      tags = Prelude.Nothing,
-      fileSystemAssociationStatus = Prelude.Nothing,
+      fileSystemAssociationARN = Prelude.Nothing,
+      gatewayARN = Prelude.Nothing,
       cacheAttributes = Prelude.Nothing,
-      gatewayARN = Prelude.Nothing
+      endpointNetworkConfiguration = Prelude.Nothing,
+      locationARN = Prelude.Nothing,
+      fileSystemAssociationStatus = Prelude.Nothing,
+      tags = Prelude.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the storage used for the audit logs.
+fileSystemAssociationInfo_auditDestinationARN :: Lens.Lens' FileSystemAssociationInfo (Prelude.Maybe Prelude.Text)
+fileSystemAssociationInfo_auditDestinationARN = Lens.lens (\FileSystemAssociationInfo' {auditDestinationARN} -> auditDestinationARN) (\s@FileSystemAssociationInfo' {} a -> s {auditDestinationARN = a} :: FileSystemAssociationInfo)
 
 -- | The Amazon Resource Name (ARN) of the file system association.
 fileSystemAssociationInfo_fileSystemAssociationARN :: Lens.Lens' FileSystemAssociationInfo (Prelude.Maybe Prelude.Text)
 fileSystemAssociationInfo_fileSystemAssociationARN = Lens.lens (\FileSystemAssociationInfo' {fileSystemAssociationARN} -> fileSystemAssociationARN) (\s@FileSystemAssociationInfo' {} a -> s {fileSystemAssociationARN = a} :: FileSystemAssociationInfo)
 
--- | The ARN of the backend Amazon FSx file system used for storing file
--- data. For information, see
--- <https://docs.aws.amazon.com/fsx/latest/APIReference/API_FileSystem.html FileSystem>
--- in the /Amazon FSx API Reference/.
-fileSystemAssociationInfo_locationARN :: Lens.Lens' FileSystemAssociationInfo (Prelude.Maybe Prelude.Text)
-fileSystemAssociationInfo_locationARN = Lens.lens (\FileSystemAssociationInfo' {locationARN} -> locationARN) (\s@FileSystemAssociationInfo' {} a -> s {locationARN = a} :: FileSystemAssociationInfo)
+-- | Undocumented member.
+fileSystemAssociationInfo_gatewayARN :: Lens.Lens' FileSystemAssociationInfo (Prelude.Maybe Prelude.Text)
+fileSystemAssociationInfo_gatewayARN = Lens.lens (\FileSystemAssociationInfo' {gatewayARN} -> gatewayARN) (\s@FileSystemAssociationInfo' {} a -> s {gatewayARN = a} :: FileSystemAssociationInfo)
+
+-- | Undocumented member.
+fileSystemAssociationInfo_cacheAttributes :: Lens.Lens' FileSystemAssociationInfo (Prelude.Maybe CacheAttributes)
+fileSystemAssociationInfo_cacheAttributes = Lens.lens (\FileSystemAssociationInfo' {cacheAttributes} -> cacheAttributes) (\s@FileSystemAssociationInfo' {} a -> s {cacheAttributes = a} :: FileSystemAssociationInfo)
 
 -- | Specifies network configuration information for the gateway associated
 -- with the Amazon FSx file system.
@@ -123,27 +128,22 @@ fileSystemAssociationInfo_locationARN = Lens.lens (\FileSystemAssociationInfo' {
 fileSystemAssociationInfo_endpointNetworkConfiguration :: Lens.Lens' FileSystemAssociationInfo (Prelude.Maybe EndpointNetworkConfiguration)
 fileSystemAssociationInfo_endpointNetworkConfiguration = Lens.lens (\FileSystemAssociationInfo' {endpointNetworkConfiguration} -> endpointNetworkConfiguration) (\s@FileSystemAssociationInfo' {} a -> s {endpointNetworkConfiguration = a} :: FileSystemAssociationInfo)
 
--- | The Amazon Resource Name (ARN) of the storage used for the audit logs.
-fileSystemAssociationInfo_auditDestinationARN :: Lens.Lens' FileSystemAssociationInfo (Prelude.Maybe Prelude.Text)
-fileSystemAssociationInfo_auditDestinationARN = Lens.lens (\FileSystemAssociationInfo' {auditDestinationARN} -> auditDestinationARN) (\s@FileSystemAssociationInfo' {} a -> s {auditDestinationARN = a} :: FileSystemAssociationInfo)
-
--- | A list of up to 50 tags assigned to the SMB file share, sorted
--- alphabetically by key name. Each tag is a key-value pair.
-fileSystemAssociationInfo_tags :: Lens.Lens' FileSystemAssociationInfo (Prelude.Maybe [Tag])
-fileSystemAssociationInfo_tags = Lens.lens (\FileSystemAssociationInfo' {tags} -> tags) (\s@FileSystemAssociationInfo' {} a -> s {tags = a} :: FileSystemAssociationInfo) Prelude.. Lens.mapping Lens._Coerce
+-- | The ARN of the backend Amazon FSx file system used for storing file
+-- data. For information, see
+-- <https://docs.aws.amazon.com/fsx/latest/APIReference/API_FileSystem.html FileSystem>
+-- in the /Amazon FSx API Reference/.
+fileSystemAssociationInfo_locationARN :: Lens.Lens' FileSystemAssociationInfo (Prelude.Maybe Prelude.Text)
+fileSystemAssociationInfo_locationARN = Lens.lens (\FileSystemAssociationInfo' {locationARN} -> locationARN) (\s@FileSystemAssociationInfo' {} a -> s {locationARN = a} :: FileSystemAssociationInfo)
 
 -- | The status of the file system association. Valid Values: @AVAILABLE@ |
 -- @CREATING@ | @DELETING@ | @FORCE_DELETING@ | @UPDATING@ | @ERROR@
 fileSystemAssociationInfo_fileSystemAssociationStatus :: Lens.Lens' FileSystemAssociationInfo (Prelude.Maybe Prelude.Text)
 fileSystemAssociationInfo_fileSystemAssociationStatus = Lens.lens (\FileSystemAssociationInfo' {fileSystemAssociationStatus} -> fileSystemAssociationStatus) (\s@FileSystemAssociationInfo' {} a -> s {fileSystemAssociationStatus = a} :: FileSystemAssociationInfo)
 
--- | Undocumented member.
-fileSystemAssociationInfo_cacheAttributes :: Lens.Lens' FileSystemAssociationInfo (Prelude.Maybe CacheAttributes)
-fileSystemAssociationInfo_cacheAttributes = Lens.lens (\FileSystemAssociationInfo' {cacheAttributes} -> cacheAttributes) (\s@FileSystemAssociationInfo' {} a -> s {cacheAttributes = a} :: FileSystemAssociationInfo)
-
--- | Undocumented member.
-fileSystemAssociationInfo_gatewayARN :: Lens.Lens' FileSystemAssociationInfo (Prelude.Maybe Prelude.Text)
-fileSystemAssociationInfo_gatewayARN = Lens.lens (\FileSystemAssociationInfo' {gatewayARN} -> gatewayARN) (\s@FileSystemAssociationInfo' {} a -> s {gatewayARN = a} :: FileSystemAssociationInfo)
+-- | A list of up to 50 tags assigned to the SMB file share, sorted
+-- alphabetically by key name. Each tag is a key-value pair.
+fileSystemAssociationInfo_tags :: Lens.Lens' FileSystemAssociationInfo (Prelude.Maybe [Tag])
+fileSystemAssociationInfo_tags = Lens.lens (\FileSystemAssociationInfo' {tags} -> tags) (\s@FileSystemAssociationInfo' {} a -> s {tags = a} :: FileSystemAssociationInfo) Prelude.. Lens.mapping Lens._Coerce
 
 instance Core.FromJSON FileSystemAssociationInfo where
   parseJSON =
@@ -151,14 +151,14 @@ instance Core.FromJSON FileSystemAssociationInfo where
       "FileSystemAssociationInfo"
       ( \x ->
           FileSystemAssociationInfo'
-            Prelude.<$> (x Core..:? "FileSystemAssociationARN")
-            Prelude.<*> (x Core..:? "LocationARN")
-            Prelude.<*> (x Core..:? "EndpointNetworkConfiguration")
-            Prelude.<*> (x Core..:? "AuditDestinationARN")
-            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "FileSystemAssociationStatus")
-            Prelude.<*> (x Core..:? "CacheAttributes")
+            Prelude.<$> (x Core..:? "AuditDestinationARN")
+            Prelude.<*> (x Core..:? "FileSystemAssociationARN")
             Prelude.<*> (x Core..:? "GatewayARN")
+            Prelude.<*> (x Core..:? "CacheAttributes")
+            Prelude.<*> (x Core..:? "EndpointNetworkConfiguration")
+            Prelude.<*> (x Core..:? "LocationARN")
+            Prelude.<*> (x Core..:? "FileSystemAssociationStatus")
+            Prelude.<*> (x Core..:? "Tags" Core..!= Prelude.mempty)
       )
 
 instance Prelude.Hashable FileSystemAssociationInfo

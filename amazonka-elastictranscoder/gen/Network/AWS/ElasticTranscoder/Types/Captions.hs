@@ -29,13 +29,7 @@ import qualified Network.AWS.Prelude as Prelude
 --
 -- /See:/ 'newCaptions' smart constructor.
 data Captions = Captions'
-  { -- | Source files for the input sidecar captions used during the transcoding
-    -- process. To omit all sidecar captions, leave @CaptionSources@ blank.
-    captionSources :: Prelude.Maybe [CaptionSource],
-    -- | The array of file formats for the output captions. If you leave this
-    -- value blank, Elastic Transcoder returns an error.
-    captionFormats :: Prelude.Maybe [CaptionFormat],
-    -- | A policy that determines how Elastic Transcoder handles the existence of
+  { -- | A policy that determines how Elastic Transcoder handles the existence of
     -- multiple captions.
     --
     -- -   __MergeOverride:__ Elastic Transcoder transcodes both embedded and
@@ -55,7 +49,13 @@ data Captions = Captions'
     --     captions that you specify in @CaptionSources@.
     --
     -- @MergePolicy@ cannot be null.
-    mergePolicy :: Prelude.Maybe Prelude.Text
+    mergePolicy :: Prelude.Maybe Prelude.Text,
+    -- | Source files for the input sidecar captions used during the transcoding
+    -- process. To omit all sidecar captions, leave @CaptionSources@ blank.
+    captionSources :: Prelude.Maybe [CaptionSource],
+    -- | The array of file formats for the output captions. If you leave this
+    -- value blank, Elastic Transcoder returns an error.
+    captionFormats :: Prelude.Maybe [CaptionFormat]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -66,12 +66,6 @@ data Captions = Captions'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'captionSources', 'captions_captionSources' - Source files for the input sidecar captions used during the transcoding
--- process. To omit all sidecar captions, leave @CaptionSources@ blank.
---
--- 'captionFormats', 'captions_captionFormats' - The array of file formats for the output captions. If you leave this
--- value blank, Elastic Transcoder returns an error.
 --
 -- 'mergePolicy', 'captions_mergePolicy' - A policy that determines how Elastic Transcoder handles the existence of
 -- multiple captions.
@@ -93,24 +87,20 @@ data Captions = Captions'
 --     captions that you specify in @CaptionSources@.
 --
 -- @MergePolicy@ cannot be null.
+--
+-- 'captionSources', 'captions_captionSources' - Source files for the input sidecar captions used during the transcoding
+-- process. To omit all sidecar captions, leave @CaptionSources@ blank.
+--
+-- 'captionFormats', 'captions_captionFormats' - The array of file formats for the output captions. If you leave this
+-- value blank, Elastic Transcoder returns an error.
 newCaptions ::
   Captions
 newCaptions =
   Captions'
-    { captionSources = Prelude.Nothing,
-      captionFormats = Prelude.Nothing,
-      mergePolicy = Prelude.Nothing
+    { mergePolicy = Prelude.Nothing,
+      captionSources = Prelude.Nothing,
+      captionFormats = Prelude.Nothing
     }
-
--- | Source files for the input sidecar captions used during the transcoding
--- process. To omit all sidecar captions, leave @CaptionSources@ blank.
-captions_captionSources :: Lens.Lens' Captions (Prelude.Maybe [CaptionSource])
-captions_captionSources = Lens.lens (\Captions' {captionSources} -> captionSources) (\s@Captions' {} a -> s {captionSources = a} :: Captions) Prelude.. Lens.mapping Lens._Coerce
-
--- | The array of file formats for the output captions. If you leave this
--- value blank, Elastic Transcoder returns an error.
-captions_captionFormats :: Lens.Lens' Captions (Prelude.Maybe [CaptionFormat])
-captions_captionFormats = Lens.lens (\Captions' {captionFormats} -> captionFormats) (\s@Captions' {} a -> s {captionFormats = a} :: Captions) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A policy that determines how Elastic Transcoder handles the existence of
 -- multiple captions.
@@ -135,15 +125,27 @@ captions_captionFormats = Lens.lens (\Captions' {captionFormats} -> captionForma
 captions_mergePolicy :: Lens.Lens' Captions (Prelude.Maybe Prelude.Text)
 captions_mergePolicy = Lens.lens (\Captions' {mergePolicy} -> mergePolicy) (\s@Captions' {} a -> s {mergePolicy = a} :: Captions)
 
+-- | Source files for the input sidecar captions used during the transcoding
+-- process. To omit all sidecar captions, leave @CaptionSources@ blank.
+captions_captionSources :: Lens.Lens' Captions (Prelude.Maybe [CaptionSource])
+captions_captionSources = Lens.lens (\Captions' {captionSources} -> captionSources) (\s@Captions' {} a -> s {captionSources = a} :: Captions) Prelude.. Lens.mapping Lens._Coerce
+
+-- | The array of file formats for the output captions. If you leave this
+-- value blank, Elastic Transcoder returns an error.
+captions_captionFormats :: Lens.Lens' Captions (Prelude.Maybe [CaptionFormat])
+captions_captionFormats = Lens.lens (\Captions' {captionFormats} -> captionFormats) (\s@Captions' {} a -> s {captionFormats = a} :: Captions) Prelude.. Lens.mapping Lens._Coerce
+
 instance Core.FromJSON Captions where
   parseJSON =
     Core.withObject
       "Captions"
       ( \x ->
           Captions'
-            Prelude.<$> (x Core..:? "CaptionSources" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "CaptionFormats" Core..!= Prelude.mempty)
-            Prelude.<*> (x Core..:? "MergePolicy")
+            Prelude.<$> (x Core..:? "MergePolicy")
+            Prelude.<*> (x Core..:? "CaptionSources" Core..!= Prelude.mempty)
+            Prelude.<*> ( x Core..:? "CaptionFormats"
+                            Core..!= Prelude.mempty
+                        )
       )
 
 instance Prelude.Hashable Captions
@@ -154,10 +156,10 @@ instance Core.ToJSON Captions where
   toJSON Captions' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("CaptionSources" Core..=)
+          [ ("MergePolicy" Core..=) Prelude.<$> mergePolicy,
+            ("CaptionSources" Core..=)
               Prelude.<$> captionSources,
             ("CaptionFormats" Core..=)
-              Prelude.<$> captionFormats,
-            ("MergePolicy" Core..=) Prelude.<$> mergePolicy
+              Prelude.<$> captionFormats
           ]
       )

@@ -33,7 +33,7 @@ haskell_library(
         "gen/Network/AWS/ElasticTranscoder/Types/Encryption.hs",
         "gen/Network/AWS/ElasticTranscoder/Types/HlsContentProtection.hs",
         "gen/Network/AWS/ElasticTranscoder/Types/InputCaptions.hs",
-        "gen/Network/AWS/ElasticTranscoder/Types/Job'.hs",
+        "gen/Network/AWS/ElasticTranscoder/Types/Job.hs",
         "gen/Network/AWS/ElasticTranscoder/Types/JobAlbumArt.hs",
         "gen/Network/AWS/ElasticTranscoder/Types/JobInput.hs",
         "gen/Network/AWS/ElasticTranscoder/Types/JobOutput.hs",

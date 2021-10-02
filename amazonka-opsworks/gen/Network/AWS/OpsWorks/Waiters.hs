@@ -155,256 +155,37 @@ newInstanceTerminated =
         ]
     }
 
--- | Polls 'Network.AWS.OpsWorks.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newInstanceRegistered :: Core.Wait DescribeInstances
-newInstanceRegistered =
+-- | Polls 'Network.AWS.OpsWorks.DescribeDeployments' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+newDeploymentSuccessful :: Core.Wait DescribeDeployments
+newDeploymentSuccessful =
   Core.Wait
-    { Core._waitName = "InstanceRegistered",
+    { Core._waitName = "DeploymentSuccessful",
       Core._waitAttempts = 40,
       Core._waitDelay = 15,
       Core._waitAcceptors =
         [ Core.matchAll
-            "registered"
+            "successful"
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    ( describeInstancesResponse_instances
+                    ( describeDeploymentsResponse_deployments
                         Prelude.. Lens._Just
                     )
                 )
-                Prelude.. instance_status
+                Prelude.. deployment_status
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
-            "setup_failed"
+            "failed"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    ( describeInstancesResponse_instances
+                    ( describeDeploymentsResponse_deployments
                         Prelude.. Lens._Just
                     )
                 )
-                Prelude.. instance_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "shutting_down"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeInstancesResponse_instances
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. instance_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "stopped"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeInstancesResponse_instances
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. instance_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "stopping"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeInstancesResponse_instances
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. instance_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "terminating"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeInstancesResponse_instances
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. instance_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "terminated"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeInstancesResponse_instances
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. instance_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "stop_failed"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeInstancesResponse_instances
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. instance_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            )
-        ]
-    }
-
--- | Polls 'Network.AWS.OpsWorks.DescribeApps' every 1 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newAppExists :: Core.Wait DescribeApps
-newAppExists =
-  Core.Wait
-    { Core._waitName = "AppExists",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 1,
-      Core._waitAcceptors =
-        [ Core.matchStatus 200 Core.AcceptSuccess,
-          Core.matchStatus 400 Core.AcceptFailure
-        ]
-    }
-
--- | Polls 'Network.AWS.OpsWorks.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newInstanceOnline :: Core.Wait DescribeInstances
-newInstanceOnline =
-  Core.Wait
-    { Core._waitName = "InstanceOnline",
-      Core._waitAttempts = 40,
-      Core._waitDelay = 15,
-      Core._waitAcceptors =
-        [ Core.matchAll
-            "online"
-            Core.AcceptSuccess
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeInstancesResponse_instances
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. instance_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "setup_failed"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeInstancesResponse_instances
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. instance_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "shutting_down"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeInstancesResponse_instances
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. instance_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "start_failed"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeInstancesResponse_instances
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. instance_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "stopped"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeInstancesResponse_instances
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. instance_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "stopping"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeInstancesResponse_instances
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. instance_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "terminating"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeInstancesResponse_instances
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. instance_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "terminated"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeInstancesResponse_instances
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. instance_status
-                Prelude.. Lens._Just
-                Prelude.. Lens.to Core.toTextCI
-            ),
-          Core.matchAny
-            "stop_failed"
-            Core.AcceptFailure
-            ( Lens.folding
-                ( Lens.concatOf
-                    ( describeInstancesResponse_instances
-                        Prelude.. Lens._Just
-                    )
-                )
-                Prelude.. instance_status
+                Prelude.. deployment_status
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             )
@@ -539,37 +320,256 @@ newInstanceStopped =
         ]
     }
 
--- | Polls 'Network.AWS.OpsWorks.DescribeDeployments' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-newDeploymentSuccessful :: Core.Wait DescribeDeployments
-newDeploymentSuccessful =
+-- | Polls 'Network.AWS.OpsWorks.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+newInstanceOnline :: Core.Wait DescribeInstances
+newInstanceOnline =
   Core.Wait
-    { Core._waitName = "DeploymentSuccessful",
+    { Core._waitName = "InstanceOnline",
       Core._waitAttempts = 40,
       Core._waitDelay = 15,
       Core._waitAcceptors =
         [ Core.matchAll
-            "successful"
+            "online"
             Core.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    ( describeDeploymentsResponse_deployments
+                    ( describeInstancesResponse_instances
                         Prelude.. Lens._Just
                     )
                 )
-                Prelude.. deployment_status
+                Prelude.. instance_status
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             ),
           Core.matchAny
-            "failed"
+            "setup_failed"
             Core.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    ( describeDeploymentsResponse_deployments
+                    ( describeInstancesResponse_instances
                         Prelude.. Lens._Just
                     )
                 )
-                Prelude.. deployment_status
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "shutting_down"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeInstancesResponse_instances
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "start_failed"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeInstancesResponse_instances
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "stopped"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeInstancesResponse_instances
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "stopping"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeInstancesResponse_instances
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "terminating"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeInstancesResponse_instances
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "terminated"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeInstancesResponse_instances
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "stop_failed"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeInstancesResponse_instances
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            )
+        ]
+    }
+
+-- | Polls 'Network.AWS.OpsWorks.DescribeApps' every 1 seconds until a successful state is reached. An error is returned after 40 failed checks.
+newAppExists :: Core.Wait DescribeApps
+newAppExists =
+  Core.Wait
+    { Core._waitName = "AppExists",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 1,
+      Core._waitAcceptors =
+        [ Core.matchStatus 200 Core.AcceptSuccess,
+          Core.matchStatus 400 Core.AcceptFailure
+        ]
+    }
+
+-- | Polls 'Network.AWS.OpsWorks.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
+newInstanceRegistered :: Core.Wait DescribeInstances
+newInstanceRegistered =
+  Core.Wait
+    { Core._waitName = "InstanceRegistered",
+      Core._waitAttempts = 40,
+      Core._waitDelay = 15,
+      Core._waitAcceptors =
+        [ Core.matchAll
+            "registered"
+            Core.AcceptSuccess
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeInstancesResponse_instances
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "setup_failed"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeInstancesResponse_instances
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "shutting_down"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeInstancesResponse_instances
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "stopped"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeInstancesResponse_instances
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "stopping"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeInstancesResponse_instances
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "terminating"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeInstancesResponse_instances
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "terminated"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeInstancesResponse_instances
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. instance_status
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Core.toTextCI
+            ),
+          Core.matchAny
+            "stop_failed"
+            Core.AcceptFailure
+            ( Lens.folding
+                ( Lens.concatOf
+                    ( describeInstancesResponse_instances
+                        Prelude.. Lens._Just
+                    )
+                )
+                Prelude.. instance_status
                 Prelude.. Lens._Just
                 Prelude.. Lens.to Core.toTextCI
             )

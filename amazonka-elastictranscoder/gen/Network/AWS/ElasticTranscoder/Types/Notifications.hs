@@ -32,11 +32,11 @@ import qualified Network.AWS.Prelude as Prelude
 -- /See:/ 'newNotifications' smart constructor.
 data Notifications = Notifications'
   { -- | The Amazon SNS topic that you want to notify when Elastic Transcoder
-    -- encounters a warning condition.
-    warning :: Prelude.Maybe Prelude.Text,
-    -- | The Amazon SNS topic that you want to notify when Elastic Transcoder
     -- encounters an error condition.
     error :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon SNS topic that you want to notify when Elastic Transcoder
+    -- encounters a warning condition.
+    warning :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Simple Notification Service (Amazon SNS) topic that you want
     -- to notify when Elastic Transcoder has started to process the job.
     progressing :: Prelude.Maybe Prelude.Text,
@@ -54,11 +54,11 @@ data Notifications = Notifications'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'warning', 'notifications_warning' - The Amazon SNS topic that you want to notify when Elastic Transcoder
--- encounters a warning condition.
---
 -- 'error', 'notifications_error' - The Amazon SNS topic that you want to notify when Elastic Transcoder
 -- encounters an error condition.
+--
+-- 'warning', 'notifications_warning' - The Amazon SNS topic that you want to notify when Elastic Transcoder
+-- encounters a warning condition.
 --
 -- 'progressing', 'notifications_progressing' - The Amazon Simple Notification Service (Amazon SNS) topic that you want
 -- to notify when Elastic Transcoder has started to process the job.
@@ -69,21 +69,21 @@ newNotifications ::
   Notifications
 newNotifications =
   Notifications'
-    { warning = Prelude.Nothing,
-      error = Prelude.Nothing,
+    { error = Prelude.Nothing,
+      warning = Prelude.Nothing,
       progressing = Prelude.Nothing,
       completed = Prelude.Nothing
     }
 
 -- | The Amazon SNS topic that you want to notify when Elastic Transcoder
--- encounters a warning condition.
-notifications_warning :: Lens.Lens' Notifications (Prelude.Maybe Prelude.Text)
-notifications_warning = Lens.lens (\Notifications' {warning} -> warning) (\s@Notifications' {} a -> s {warning = a} :: Notifications)
-
--- | The Amazon SNS topic that you want to notify when Elastic Transcoder
 -- encounters an error condition.
 notifications_error :: Lens.Lens' Notifications (Prelude.Maybe Prelude.Text)
 notifications_error = Lens.lens (\Notifications' {error} -> error) (\s@Notifications' {} a -> s {error = a} :: Notifications)
+
+-- | The Amazon SNS topic that you want to notify when Elastic Transcoder
+-- encounters a warning condition.
+notifications_warning :: Lens.Lens' Notifications (Prelude.Maybe Prelude.Text)
+notifications_warning = Lens.lens (\Notifications' {warning} -> warning) (\s@Notifications' {} a -> s {warning = a} :: Notifications)
 
 -- | The Amazon Simple Notification Service (Amazon SNS) topic that you want
 -- to notify when Elastic Transcoder has started to process the job.
@@ -101,8 +101,8 @@ instance Core.FromJSON Notifications where
       "Notifications"
       ( \x ->
           Notifications'
-            Prelude.<$> (x Core..:? "Warning")
-            Prelude.<*> (x Core..:? "Error")
+            Prelude.<$> (x Core..:? "Error")
+            Prelude.<*> (x Core..:? "Warning")
             Prelude.<*> (x Core..:? "Progressing")
             Prelude.<*> (x Core..:? "Completed")
       )
@@ -115,8 +115,8 @@ instance Core.ToJSON Notifications where
   toJSON Notifications' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Warning" Core..=) Prelude.<$> warning,
-            ("Error" Core..=) Prelude.<$> error,
+          [ ("Error" Core..=) Prelude.<$> error,
+            ("Warning" Core..=) Prelude.<$> warning,
             ("Progressing" Core..=) Prelude.<$> progressing,
             ("Completed" Core..=) Prelude.<$> completed
           ]

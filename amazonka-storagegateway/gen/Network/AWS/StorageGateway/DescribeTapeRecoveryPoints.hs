@@ -35,8 +35,8 @@ module Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
     newDescribeTapeRecoveryPoints,
 
     -- * Request Lenses
-    describeTapeRecoveryPoints_limit,
     describeTapeRecoveryPoints_marker,
+    describeTapeRecoveryPoints_limit,
     describeTapeRecoveryPoints_gatewayARN,
 
     -- * Destructuring the Response
@@ -62,12 +62,12 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'newDescribeTapeRecoveryPoints' smart constructor.
 data DescribeTapeRecoveryPoints = DescribeTapeRecoveryPoints'
-  { -- | Specifies that the number of virtual tape recovery points that are
-    -- described be limited to the specified number.
-    limit :: Prelude.Maybe Prelude.Natural,
-    -- | An opaque string that indicates the position at which to begin
+  { -- | An opaque string that indicates the position at which to begin
     -- describing the virtual tape recovery points.
     marker :: Prelude.Maybe Prelude.Text,
+    -- | Specifies that the number of virtual tape recovery points that are
+    -- described be limited to the specified number.
+    limit :: Prelude.Maybe Prelude.Natural,
     gatewayARN :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
@@ -80,11 +80,11 @@ data DescribeTapeRecoveryPoints = DescribeTapeRecoveryPoints'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'limit', 'describeTapeRecoveryPoints_limit' - Specifies that the number of virtual tape recovery points that are
--- described be limited to the specified number.
---
 -- 'marker', 'describeTapeRecoveryPoints_marker' - An opaque string that indicates the position at which to begin
 -- describing the virtual tape recovery points.
+--
+-- 'limit', 'describeTapeRecoveryPoints_limit' - Specifies that the number of virtual tape recovery points that are
+-- described be limited to the specified number.
 --
 -- 'gatewayARN', 'describeTapeRecoveryPoints_gatewayARN' - Undocumented member.
 newDescribeTapeRecoveryPoints ::
@@ -93,21 +93,21 @@ newDescribeTapeRecoveryPoints ::
   DescribeTapeRecoveryPoints
 newDescribeTapeRecoveryPoints pGatewayARN_ =
   DescribeTapeRecoveryPoints'
-    { limit =
+    { marker =
         Prelude.Nothing,
-      marker = Prelude.Nothing,
+      limit = Prelude.Nothing,
       gatewayARN = pGatewayARN_
     }
-
--- | Specifies that the number of virtual tape recovery points that are
--- described be limited to the specified number.
-describeTapeRecoveryPoints_limit :: Lens.Lens' DescribeTapeRecoveryPoints (Prelude.Maybe Prelude.Natural)
-describeTapeRecoveryPoints_limit = Lens.lens (\DescribeTapeRecoveryPoints' {limit} -> limit) (\s@DescribeTapeRecoveryPoints' {} a -> s {limit = a} :: DescribeTapeRecoveryPoints)
 
 -- | An opaque string that indicates the position at which to begin
 -- describing the virtual tape recovery points.
 describeTapeRecoveryPoints_marker :: Lens.Lens' DescribeTapeRecoveryPoints (Prelude.Maybe Prelude.Text)
 describeTapeRecoveryPoints_marker = Lens.lens (\DescribeTapeRecoveryPoints' {marker} -> marker) (\s@DescribeTapeRecoveryPoints' {} a -> s {marker = a} :: DescribeTapeRecoveryPoints)
+
+-- | Specifies that the number of virtual tape recovery points that are
+-- described be limited to the specified number.
+describeTapeRecoveryPoints_limit :: Lens.Lens' DescribeTapeRecoveryPoints (Prelude.Maybe Prelude.Natural)
+describeTapeRecoveryPoints_limit = Lens.lens (\DescribeTapeRecoveryPoints' {limit} -> limit) (\s@DescribeTapeRecoveryPoints' {} a -> s {limit = a} :: DescribeTapeRecoveryPoints)
 
 -- | Undocumented member.
 describeTapeRecoveryPoints_gatewayARN :: Lens.Lens' DescribeTapeRecoveryPoints Prelude.Text
@@ -175,8 +175,8 @@ instance Core.ToJSON DescribeTapeRecoveryPoints where
   toJSON DescribeTapeRecoveryPoints' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Limit" Core..=) Prelude.<$> limit,
-            ("Marker" Core..=) Prelude.<$> marker,
+          [ ("Marker" Core..=) Prelude.<$> marker,
+            ("Limit" Core..=) Prelude.<$> limit,
             Prelude.Just ("GatewayARN" Core..= gatewayARN)
           ]
       )

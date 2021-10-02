@@ -38,8 +38,8 @@ module Network.AWS.StorageGateway.UpdateSnapshotSchedule
     newUpdateSnapshotSchedule,
 
     -- * Request Lenses
-    updateSnapshotSchedule_tags,
     updateSnapshotSchedule_description,
+    updateSnapshotSchedule_tags,
     updateSnapshotSchedule_volumeARN,
     updateSnapshotSchedule_startAt,
     updateSnapshotSchedule_recurrenceInHours,
@@ -73,7 +73,10 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'newUpdateSnapshotSchedule' smart constructor.
 data UpdateSnapshotSchedule = UpdateSnapshotSchedule'
-  { -- | A list of up to 50 tags that can be assigned to a snapshot. Each tag is
+  { -- | Optional description of the snapshot that overwrites the existing
+    -- description.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A list of up to 50 tags that can be assigned to a snapshot. Each tag is
     -- a key-value pair.
     --
     -- Valid characters for key and value are letters, spaces, and numbers
@@ -81,9 +84,6 @@ data UpdateSnapshotSchedule = UpdateSnapshotSchedule'
     -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
     -- the maximum length for a tag\'s value is 256.
     tags :: Prelude.Maybe [Tag],
-    -- | Optional description of the snapshot that overwrites the existing
-    -- description.
-    description :: Prelude.Maybe Prelude.Text,
     -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
     -- operation to return a list of gateway volumes.
     volumeARN :: Prelude.Text,
@@ -104,6 +104,9 @@ data UpdateSnapshotSchedule = UpdateSnapshotSchedule'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
+-- 'description', 'updateSnapshotSchedule_description' - Optional description of the snapshot that overwrites the existing
+-- description.
+--
 -- 'tags', 'updateSnapshotSchedule_tags' - A list of up to 50 tags that can be assigned to a snapshot. Each tag is
 -- a key-value pair.
 --
@@ -111,9 +114,6 @@ data UpdateSnapshotSchedule = UpdateSnapshotSchedule'
 -- representable in UTF-8 format, and the following special characters: + -
 -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
 -- the maximum length for a tag\'s value is 256.
---
--- 'description', 'updateSnapshotSchedule_description' - Optional description of the snapshot that overwrites the existing
--- description.
 --
 -- 'volumeARN', 'updateSnapshotSchedule_volumeARN' - The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
 -- operation to return a list of gateway volumes.
@@ -136,12 +136,18 @@ newUpdateSnapshotSchedule
   pStartAt_
   pRecurrenceInHours_ =
     UpdateSnapshotSchedule'
-      { tags = Prelude.Nothing,
-        description = Prelude.Nothing,
+      { description =
+          Prelude.Nothing,
+        tags = Prelude.Nothing,
         volumeARN = pVolumeARN_,
         startAt = pStartAt_,
         recurrenceInHours = pRecurrenceInHours_
       }
+
+-- | Optional description of the snapshot that overwrites the existing
+-- description.
+updateSnapshotSchedule_description :: Lens.Lens' UpdateSnapshotSchedule (Prelude.Maybe Prelude.Text)
+updateSnapshotSchedule_description = Lens.lens (\UpdateSnapshotSchedule' {description} -> description) (\s@UpdateSnapshotSchedule' {} a -> s {description = a} :: UpdateSnapshotSchedule)
 
 -- | A list of up to 50 tags that can be assigned to a snapshot. Each tag is
 -- a key-value pair.
@@ -152,11 +158,6 @@ newUpdateSnapshotSchedule
 -- the maximum length for a tag\'s value is 256.
 updateSnapshotSchedule_tags :: Lens.Lens' UpdateSnapshotSchedule (Prelude.Maybe [Tag])
 updateSnapshotSchedule_tags = Lens.lens (\UpdateSnapshotSchedule' {tags} -> tags) (\s@UpdateSnapshotSchedule' {} a -> s {tags = a} :: UpdateSnapshotSchedule) Prelude.. Lens.mapping Lens._Coerce
-
--- | Optional description of the snapshot that overwrites the existing
--- description.
-updateSnapshotSchedule_description :: Lens.Lens' UpdateSnapshotSchedule (Prelude.Maybe Prelude.Text)
-updateSnapshotSchedule_description = Lens.lens (\UpdateSnapshotSchedule' {description} -> description) (\s@UpdateSnapshotSchedule' {} a -> s {description = a} :: UpdateSnapshotSchedule)
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
 -- operation to return a list of gateway volumes.
@@ -209,8 +210,8 @@ instance Core.ToJSON UpdateSnapshotSchedule where
   toJSON UpdateSnapshotSchedule' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("Tags" Core..=) Prelude.<$> tags,
-            ("Description" Core..=) Prelude.<$> description,
+          [ ("Description" Core..=) Prelude.<$> description,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("VolumeARN" Core..= volumeARN),
             Prelude.Just ("StartAt" Core..= startAt),
             Prelude.Just

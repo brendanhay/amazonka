@@ -39,8 +39,8 @@ module Network.AWS.ElasticTranscoder.ListPresets
     newListPresetsResponse,
 
     -- * Response Lenses
-    listPresetsResponse_presets,
     listPresetsResponse_nextPageToken,
+    listPresetsResponse_presets,
     listPresetsResponse_httpStatus,
   )
 where
@@ -130,8 +130,8 @@ instance Core.AWSRequest ListPresets where
     Response.receiveJSON
       ( \s h x ->
           ListPresetsResponse'
-            Prelude.<$> (x Core..?> "Presets" Core..!@ Prelude.mempty)
-            Prelude.<*> (x Core..?> "NextPageToken")
+            Prelude.<$> (x Core..?> "NextPageToken")
+            Prelude.<*> (x Core..?> "Presets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
@@ -156,13 +156,13 @@ instance Core.ToQuery ListPresets where
 --
 -- /See:/ 'newListPresetsResponse' smart constructor.
 data ListPresetsResponse = ListPresetsResponse'
-  { -- | An array of @Preset@ objects.
-    presets :: Prelude.Maybe [Preset],
-    -- | A value that you use to access the second and subsequent pages of
+  { -- | A value that you use to access the second and subsequent pages of
     -- results, if any. When the presets fit on one page or when you\'ve
     -- reached the last page of results, the value of @NextPageToken@ is
     -- @null@.
     nextPageToken :: Prelude.Maybe Prelude.Text,
+    -- | An array of @Preset@ objects.
+    presets :: Prelude.Maybe [Preset],
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
@@ -176,12 +176,12 @@ data ListPresetsResponse = ListPresetsResponse'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'presets', 'listPresetsResponse_presets' - An array of @Preset@ objects.
---
 -- 'nextPageToken', 'listPresetsResponse_nextPageToken' - A value that you use to access the second and subsequent pages of
 -- results, if any. When the presets fit on one page or when you\'ve
 -- reached the last page of results, the value of @NextPageToken@ is
 -- @null@.
+--
+-- 'presets', 'listPresetsResponse_presets' - An array of @Preset@ objects.
 --
 -- 'httpStatus', 'listPresetsResponse_httpStatus' - The response's http status code.
 newListPresetsResponse ::
@@ -190,14 +190,11 @@ newListPresetsResponse ::
   ListPresetsResponse
 newListPresetsResponse pHttpStatus_ =
   ListPresetsResponse'
-    { presets = Prelude.Nothing,
-      nextPageToken = Prelude.Nothing,
+    { nextPageToken =
+        Prelude.Nothing,
+      presets = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
-
--- | An array of @Preset@ objects.
-listPresetsResponse_presets :: Lens.Lens' ListPresetsResponse (Prelude.Maybe [Preset])
-listPresetsResponse_presets = Lens.lens (\ListPresetsResponse' {presets} -> presets) (\s@ListPresetsResponse' {} a -> s {presets = a} :: ListPresetsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | A value that you use to access the second and subsequent pages of
 -- results, if any. When the presets fit on one page or when you\'ve
@@ -205,6 +202,10 @@ listPresetsResponse_presets = Lens.lens (\ListPresetsResponse' {presets} -> pres
 -- @null@.
 listPresetsResponse_nextPageToken :: Lens.Lens' ListPresetsResponse (Prelude.Maybe Prelude.Text)
 listPresetsResponse_nextPageToken = Lens.lens (\ListPresetsResponse' {nextPageToken} -> nextPageToken) (\s@ListPresetsResponse' {} a -> s {nextPageToken = a} :: ListPresetsResponse)
+
+-- | An array of @Preset@ objects.
+listPresetsResponse_presets :: Lens.Lens' ListPresetsResponse (Prelude.Maybe [Preset])
+listPresetsResponse_presets = Lens.lens (\ListPresetsResponse' {presets} -> presets) (\s@ListPresetsResponse' {} a -> s {presets = a} :: ListPresetsResponse) Prelude.. Lens.mapping Lens._Coerce
 
 -- | The response's http status code.
 listPresetsResponse_httpStatus :: Lens.Lens' ListPresetsResponse Prelude.Int

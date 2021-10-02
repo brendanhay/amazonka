@@ -29,8 +29,8 @@ module Network.AWS.StorageGateway.CreateTapePool
 
     -- * Request Lenses
     createTapePool_retentionLockType,
-    createTapePool_tags,
     createTapePool_retentionLockTimeInDays,
+    createTapePool_tags,
     createTapePool_poolName,
     createTapePool_storageClass,
 
@@ -59,6 +59,9 @@ data CreateTapePool = CreateTapePool'
     -- configured in compliance mode, the tape retention lock cannot be removed
     -- by any user, including the root account.
     retentionLockType :: Prelude.Maybe RetentionLockType,
+    -- | Tape retention lock time is set in days. Tape retention lock can be
+    -- enabled for up to 100 years (36,500 days).
+    retentionLockTimeInDays :: Prelude.Maybe Prelude.Natural,
     -- | A list of up to 50 tags that can be assigned to tape pool. Each tag is a
     -- key-value pair.
     --
@@ -67,9 +70,6 @@ data CreateTapePool = CreateTapePool'
     -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
     -- the maximum length for a tag\'s value is 256.
     tags :: Prelude.Maybe [Tag],
-    -- | Tape retention lock time is set in days. Tape retention lock can be
-    -- enabled for up to 100 years (36,500 days).
-    retentionLockTimeInDays :: Prelude.Maybe Prelude.Natural,
     -- | The name of the new custom tape pool.
     poolName :: Prelude.Text,
     -- | The storage class that is associated with the new custom pool. When you
@@ -94,6 +94,9 @@ data CreateTapePool = CreateTapePool'
 -- configured in compliance mode, the tape retention lock cannot be removed
 -- by any user, including the root account.
 --
+-- 'retentionLockTimeInDays', 'createTapePool_retentionLockTimeInDays' - Tape retention lock time is set in days. Tape retention lock can be
+-- enabled for up to 100 years (36,500 days).
+--
 -- 'tags', 'createTapePool_tags' - A list of up to 50 tags that can be assigned to tape pool. Each tag is a
 -- key-value pair.
 --
@@ -101,9 +104,6 @@ data CreateTapePool = CreateTapePool'
 -- representable in UTF-8 format, and the following special characters: + -
 -- = . _ : \/ \@. The maximum length of a tag\'s key is 128 characters, and
 -- the maximum length for a tag\'s value is 256.
---
--- 'retentionLockTimeInDays', 'createTapePool_retentionLockTimeInDays' - Tape retention lock time is set in days. Tape retention lock can be
--- enabled for up to 100 years (36,500 days).
 --
 -- 'poolName', 'createTapePool_poolName' - The name of the new custom tape pool.
 --
@@ -121,8 +121,8 @@ newCreateTapePool pPoolName_ pStorageClass_ =
   CreateTapePool'
     { retentionLockType =
         Prelude.Nothing,
-      tags = Prelude.Nothing,
       retentionLockTimeInDays = Prelude.Nothing,
+      tags = Prelude.Nothing,
       poolName = pPoolName_,
       storageClass = pStorageClass_
     }
@@ -135,6 +135,11 @@ newCreateTapePool pPoolName_ pStorageClass_ =
 createTapePool_retentionLockType :: Lens.Lens' CreateTapePool (Prelude.Maybe RetentionLockType)
 createTapePool_retentionLockType = Lens.lens (\CreateTapePool' {retentionLockType} -> retentionLockType) (\s@CreateTapePool' {} a -> s {retentionLockType = a} :: CreateTapePool)
 
+-- | Tape retention lock time is set in days. Tape retention lock can be
+-- enabled for up to 100 years (36,500 days).
+createTapePool_retentionLockTimeInDays :: Lens.Lens' CreateTapePool (Prelude.Maybe Prelude.Natural)
+createTapePool_retentionLockTimeInDays = Lens.lens (\CreateTapePool' {retentionLockTimeInDays} -> retentionLockTimeInDays) (\s@CreateTapePool' {} a -> s {retentionLockTimeInDays = a} :: CreateTapePool)
+
 -- | A list of up to 50 tags that can be assigned to tape pool. Each tag is a
 -- key-value pair.
 --
@@ -144,11 +149,6 @@ createTapePool_retentionLockType = Lens.lens (\CreateTapePool' {retentionLockTyp
 -- the maximum length for a tag\'s value is 256.
 createTapePool_tags :: Lens.Lens' CreateTapePool (Prelude.Maybe [Tag])
 createTapePool_tags = Lens.lens (\CreateTapePool' {tags} -> tags) (\s@CreateTapePool' {} a -> s {tags = a} :: CreateTapePool) Prelude.. Lens.mapping Lens._Coerce
-
--- | Tape retention lock time is set in days. Tape retention lock can be
--- enabled for up to 100 years (36,500 days).
-createTapePool_retentionLockTimeInDays :: Lens.Lens' CreateTapePool (Prelude.Maybe Prelude.Natural)
-createTapePool_retentionLockTimeInDays = Lens.lens (\CreateTapePool' {retentionLockTimeInDays} -> retentionLockTimeInDays) (\s@CreateTapePool' {} a -> s {retentionLockTimeInDays = a} :: CreateTapePool)
 
 -- | The name of the new custom tape pool.
 createTapePool_poolName :: Lens.Lens' CreateTapePool Prelude.Text
@@ -199,9 +199,9 @@ instance Core.ToJSON CreateTapePool where
       ( Prelude.catMaybes
           [ ("RetentionLockType" Core..=)
               Prelude.<$> retentionLockType,
-            ("Tags" Core..=) Prelude.<$> tags,
             ("RetentionLockTimeInDays" Core..=)
               Prelude.<$> retentionLockTimeInDays,
+            ("Tags" Core..=) Prelude.<$> tags,
             Prelude.Just ("PoolName" Core..= poolName),
             Prelude.Just ("StorageClass" Core..= storageClass)
           ]

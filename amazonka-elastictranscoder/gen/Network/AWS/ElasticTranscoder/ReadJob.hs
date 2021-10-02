@@ -109,7 +109,7 @@ data ReadJobResponse = ReadJobResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
     -- | A section of the response body that provides information about the job.
-    job :: Job'
+    job :: Job
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -128,7 +128,7 @@ newReadJobResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
   -- | 'job'
-  Job' ->
+  Job ->
   ReadJobResponse
 newReadJobResponse pHttpStatus_ pJob_ =
   ReadJobResponse'
@@ -141,7 +141,7 @@ readJobResponse_httpStatus :: Lens.Lens' ReadJobResponse Prelude.Int
 readJobResponse_httpStatus = Lens.lens (\ReadJobResponse' {httpStatus} -> httpStatus) (\s@ReadJobResponse' {} a -> s {httpStatus = a} :: ReadJobResponse)
 
 -- | A section of the response body that provides information about the job.
-readJobResponse_job :: Lens.Lens' ReadJobResponse Job'
+readJobResponse_job :: Lens.Lens' ReadJobResponse Job
 readJobResponse_job = Lens.lens (\ReadJobResponse' {job} -> job) (\s@ReadJobResponse' {} a -> s {job = a} :: ReadJobResponse)
 
 instance Prelude.NFData ReadJobResponse

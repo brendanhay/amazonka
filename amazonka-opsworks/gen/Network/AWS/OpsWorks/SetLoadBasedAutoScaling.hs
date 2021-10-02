@@ -40,9 +40,9 @@ module Network.AWS.OpsWorks.SetLoadBasedAutoScaling
     newSetLoadBasedAutoScaling,
 
     -- * Request Lenses
-    setLoadBasedAutoScaling_downScaling,
-    setLoadBasedAutoScaling_enable,
     setLoadBasedAutoScaling_upScaling,
+    setLoadBasedAutoScaling_enable,
+    setLoadBasedAutoScaling_downScaling,
     setLoadBasedAutoScaling_layerId,
 
     -- * Destructuring the Response
@@ -60,18 +60,18 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'newSetLoadBasedAutoScaling' smart constructor.
 data SetLoadBasedAutoScaling = SetLoadBasedAutoScaling'
-  { -- | An @AutoScalingThresholds@ object with the downscaling threshold
-    -- configuration. If the load falls below these thresholds for a specified
-    -- amount of time, AWS OpsWorks Stacks stops a specified number of
-    -- instances.
-    downScaling :: Prelude.Maybe AutoScalingThresholds,
-    -- | Enables load-based auto scaling for the layer.
-    enable :: Prelude.Maybe Prelude.Bool,
-    -- | An @AutoScalingThresholds@ object with the upscaling threshold
+  { -- | An @AutoScalingThresholds@ object with the upscaling threshold
     -- configuration. If the load exceeds these thresholds for a specified
     -- amount of time, AWS OpsWorks Stacks starts a specified number of
     -- instances.
     upScaling :: Prelude.Maybe AutoScalingThresholds,
+    -- | Enables load-based auto scaling for the layer.
+    enable :: Prelude.Maybe Prelude.Bool,
+    -- | An @AutoScalingThresholds@ object with the downscaling threshold
+    -- configuration. If the load falls below these thresholds for a specified
+    -- amount of time, AWS OpsWorks Stacks stops a specified number of
+    -- instances.
+    downScaling :: Prelude.Maybe AutoScalingThresholds,
     -- | The layer ID.
     layerId :: Prelude.Text
   }
@@ -85,16 +85,16 @@ data SetLoadBasedAutoScaling = SetLoadBasedAutoScaling'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'downScaling', 'setLoadBasedAutoScaling_downScaling' - An @AutoScalingThresholds@ object with the downscaling threshold
--- configuration. If the load falls below these thresholds for a specified
--- amount of time, AWS OpsWorks Stacks stops a specified number of
+-- 'upScaling', 'setLoadBasedAutoScaling_upScaling' - An @AutoScalingThresholds@ object with the upscaling threshold
+-- configuration. If the load exceeds these thresholds for a specified
+-- amount of time, AWS OpsWorks Stacks starts a specified number of
 -- instances.
 --
 -- 'enable', 'setLoadBasedAutoScaling_enable' - Enables load-based auto scaling for the layer.
 --
--- 'upScaling', 'setLoadBasedAutoScaling_upScaling' - An @AutoScalingThresholds@ object with the upscaling threshold
--- configuration. If the load exceeds these thresholds for a specified
--- amount of time, AWS OpsWorks Stacks starts a specified number of
+-- 'downScaling', 'setLoadBasedAutoScaling_downScaling' - An @AutoScalingThresholds@ object with the downscaling threshold
+-- configuration. If the load falls below these thresholds for a specified
+-- amount of time, AWS OpsWorks Stacks stops a specified number of
 -- instances.
 --
 -- 'layerId', 'setLoadBasedAutoScaling_layerId' - The layer ID.
@@ -104,23 +104,12 @@ newSetLoadBasedAutoScaling ::
   SetLoadBasedAutoScaling
 newSetLoadBasedAutoScaling pLayerId_ =
   SetLoadBasedAutoScaling'
-    { downScaling =
+    { upScaling =
         Prelude.Nothing,
       enable = Prelude.Nothing,
-      upScaling = Prelude.Nothing,
+      downScaling = Prelude.Nothing,
       layerId = pLayerId_
     }
-
--- | An @AutoScalingThresholds@ object with the downscaling threshold
--- configuration. If the load falls below these thresholds for a specified
--- amount of time, AWS OpsWorks Stacks stops a specified number of
--- instances.
-setLoadBasedAutoScaling_downScaling :: Lens.Lens' SetLoadBasedAutoScaling (Prelude.Maybe AutoScalingThresholds)
-setLoadBasedAutoScaling_downScaling = Lens.lens (\SetLoadBasedAutoScaling' {downScaling} -> downScaling) (\s@SetLoadBasedAutoScaling' {} a -> s {downScaling = a} :: SetLoadBasedAutoScaling)
-
--- | Enables load-based auto scaling for the layer.
-setLoadBasedAutoScaling_enable :: Lens.Lens' SetLoadBasedAutoScaling (Prelude.Maybe Prelude.Bool)
-setLoadBasedAutoScaling_enable = Lens.lens (\SetLoadBasedAutoScaling' {enable} -> enable) (\s@SetLoadBasedAutoScaling' {} a -> s {enable = a} :: SetLoadBasedAutoScaling)
 
 -- | An @AutoScalingThresholds@ object with the upscaling threshold
 -- configuration. If the load exceeds these thresholds for a specified
@@ -128,6 +117,17 @@ setLoadBasedAutoScaling_enable = Lens.lens (\SetLoadBasedAutoScaling' {enable} -
 -- instances.
 setLoadBasedAutoScaling_upScaling :: Lens.Lens' SetLoadBasedAutoScaling (Prelude.Maybe AutoScalingThresholds)
 setLoadBasedAutoScaling_upScaling = Lens.lens (\SetLoadBasedAutoScaling' {upScaling} -> upScaling) (\s@SetLoadBasedAutoScaling' {} a -> s {upScaling = a} :: SetLoadBasedAutoScaling)
+
+-- | Enables load-based auto scaling for the layer.
+setLoadBasedAutoScaling_enable :: Lens.Lens' SetLoadBasedAutoScaling (Prelude.Maybe Prelude.Bool)
+setLoadBasedAutoScaling_enable = Lens.lens (\SetLoadBasedAutoScaling' {enable} -> enable) (\s@SetLoadBasedAutoScaling' {} a -> s {enable = a} :: SetLoadBasedAutoScaling)
+
+-- | An @AutoScalingThresholds@ object with the downscaling threshold
+-- configuration. If the load falls below these thresholds for a specified
+-- amount of time, AWS OpsWorks Stacks stops a specified number of
+-- instances.
+setLoadBasedAutoScaling_downScaling :: Lens.Lens' SetLoadBasedAutoScaling (Prelude.Maybe AutoScalingThresholds)
+setLoadBasedAutoScaling_downScaling = Lens.lens (\SetLoadBasedAutoScaling' {downScaling} -> downScaling) (\s@SetLoadBasedAutoScaling' {} a -> s {downScaling = a} :: SetLoadBasedAutoScaling)
 
 -- | The layer ID.
 setLoadBasedAutoScaling_layerId :: Lens.Lens' SetLoadBasedAutoScaling Prelude.Text
@@ -165,9 +165,9 @@ instance Core.ToJSON SetLoadBasedAutoScaling where
   toJSON SetLoadBasedAutoScaling' {..} =
     Core.object
       ( Prelude.catMaybes
-          [ ("DownScaling" Core..=) Prelude.<$> downScaling,
+          [ ("UpScaling" Core..=) Prelude.<$> upScaling,
             ("Enable" Core..=) Prelude.<$> enable,
-            ("UpScaling" Core..=) Prelude.<$> upScaling,
+            ("DownScaling" Core..=) Prelude.<$> downScaling,
             Prelude.Just ("LayerId" Core..= layerId)
           ]
       )

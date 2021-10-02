@@ -37,8 +37,8 @@ module Network.AWS.OpsWorks.DescribeVolumes
     -- * Request Lenses
     describeVolumes_instanceId,
     describeVolumes_volumeIds,
-    describeVolumes_stackId,
     describeVolumes_raidArrayId,
+    describeVolumes_stackId,
 
     -- * Destructuring the Response
     DescribeVolumesResponse (..),
@@ -66,12 +66,12 @@ data DescribeVolumes = DescribeVolumes'
     -- returns descriptions of the specified volumes. Otherwise, it returns a
     -- description of every volume.
     volumeIds :: Prelude.Maybe [Prelude.Text],
-    -- | A stack ID. The action describes the stack\'s registered Amazon EBS
-    -- volumes.
-    stackId :: Prelude.Maybe Prelude.Text,
     -- | The RAID array ID. If you use this parameter, @DescribeVolumes@ returns
     -- descriptions of the volumes associated with the specified RAID array.
-    raidArrayId :: Prelude.Maybe Prelude.Text
+    raidArrayId :: Prelude.Maybe Prelude.Text,
+    -- | A stack ID. The action describes the stack\'s registered Amazon EBS
+    -- volumes.
+    stackId :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -90,19 +90,19 @@ data DescribeVolumes = DescribeVolumes'
 -- returns descriptions of the specified volumes. Otherwise, it returns a
 -- description of every volume.
 --
--- 'stackId', 'describeVolumes_stackId' - A stack ID. The action describes the stack\'s registered Amazon EBS
--- volumes.
---
 -- 'raidArrayId', 'describeVolumes_raidArrayId' - The RAID array ID. If you use this parameter, @DescribeVolumes@ returns
 -- descriptions of the volumes associated with the specified RAID array.
+--
+-- 'stackId', 'describeVolumes_stackId' - A stack ID. The action describes the stack\'s registered Amazon EBS
+-- volumes.
 newDescribeVolumes ::
   DescribeVolumes
 newDescribeVolumes =
   DescribeVolumes'
     { instanceId = Prelude.Nothing,
       volumeIds = Prelude.Nothing,
-      stackId = Prelude.Nothing,
-      raidArrayId = Prelude.Nothing
+      raidArrayId = Prelude.Nothing,
+      stackId = Prelude.Nothing
     }
 
 -- | The instance ID. If you use this parameter, @DescribeVolumes@ returns
@@ -116,15 +116,15 @@ describeVolumes_instanceId = Lens.lens (\DescribeVolumes' {instanceId} -> instan
 describeVolumes_volumeIds :: Lens.Lens' DescribeVolumes (Prelude.Maybe [Prelude.Text])
 describeVolumes_volumeIds = Lens.lens (\DescribeVolumes' {volumeIds} -> volumeIds) (\s@DescribeVolumes' {} a -> s {volumeIds = a} :: DescribeVolumes) Prelude.. Lens.mapping Lens._Coerce
 
--- | A stack ID. The action describes the stack\'s registered Amazon EBS
--- volumes.
-describeVolumes_stackId :: Lens.Lens' DescribeVolumes (Prelude.Maybe Prelude.Text)
-describeVolumes_stackId = Lens.lens (\DescribeVolumes' {stackId} -> stackId) (\s@DescribeVolumes' {} a -> s {stackId = a} :: DescribeVolumes)
-
 -- | The RAID array ID. If you use this parameter, @DescribeVolumes@ returns
 -- descriptions of the volumes associated with the specified RAID array.
 describeVolumes_raidArrayId :: Lens.Lens' DescribeVolumes (Prelude.Maybe Prelude.Text)
 describeVolumes_raidArrayId = Lens.lens (\DescribeVolumes' {raidArrayId} -> raidArrayId) (\s@DescribeVolumes' {} a -> s {raidArrayId = a} :: DescribeVolumes)
+
+-- | A stack ID. The action describes the stack\'s registered Amazon EBS
+-- volumes.
+describeVolumes_stackId :: Lens.Lens' DescribeVolumes (Prelude.Maybe Prelude.Text)
+describeVolumes_stackId = Lens.lens (\DescribeVolumes' {stackId} -> stackId) (\s@DescribeVolumes' {} a -> s {stackId = a} :: DescribeVolumes)
 
 instance Core.AWSRequest DescribeVolumes where
   type
@@ -164,8 +164,8 @@ instance Core.ToJSON DescribeVolumes where
       ( Prelude.catMaybes
           [ ("InstanceId" Core..=) Prelude.<$> instanceId,
             ("VolumeIds" Core..=) Prelude.<$> volumeIds,
-            ("StackId" Core..=) Prelude.<$> stackId,
-            ("RaidArrayId" Core..=) Prelude.<$> raidArrayId
+            ("RaidArrayId" Core..=) Prelude.<$> raidArrayId,
+            ("StackId" Core..=) Prelude.<$> stackId
           ]
       )
 

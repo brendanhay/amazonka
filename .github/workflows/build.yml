@@ -52,8 +52,8 @@ jobs:
             "$SERVICE_ACCOUNT"
 
           printf '%s\n' >>.bazelrc.local \
-            "build  --google_credentials=/tmp/credentials.json" \
-            "build  --remote_upload_local_results=true"
+            "build --google_credentials=/tmp/credentials.json" \
+            "build --remote_upload_local_results=true"
 
       - name: bazel build //amazonka
         run: |

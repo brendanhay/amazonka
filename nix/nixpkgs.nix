@@ -32,7 +32,7 @@ import sources.nixpkgs {
         '';
       in prev.writeScriptBin "bazel" ''
         #!${prev.bash}/bin/bash
-        export JAVA_HOME="${prev.jdk11_headless.home}"
+        export JAVA_HOME="${prev.jdk16_headless.home}"
         exec ${prev.bazel_4}/bin/bazel --bazelrc "${bazelrc}" "$@"
       '';
     })

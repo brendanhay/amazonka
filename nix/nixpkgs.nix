@@ -21,6 +21,10 @@ import sources.nixpkgs {
       # This attribute is used in shell.nix for cabal development + ghci.
       ghc = prev.haskell.compiler.${ghcVersion};
 
+      # Probably unnecessary due to fixpoint. Just a sanity check for ensuring
+      # ghcWithPackages uses the same ghc version.
+      haskellPackages = prev.haskellPackages.override { inherit ghc; };
+
       bazel = let
         # Set the ghc toolchain used by bazel to the ghcVersion used by nix-shell.
         bazelrc = prev.writeText "amazonka-bazelrc" ''

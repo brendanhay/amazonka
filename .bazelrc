@@ -1,18 +1,18 @@
 # Bazel caching - can be disabled by passing the flag --noremote_accept_cached.
-build --remote_cache=https://storage.googleapis.com/tlon-public-bazel-cache
+build --remote_cache=https://storage.googleapis.com/tlon-opensource-cache
 
 # Don't push build results to the remote cache - CI is source of truth.
 build --remote_upload_local_results=false
 
-# Push build results to the local disk cache despite
-# --remote_upload_local_results being set.
-build --incompatible_remote_results_ignore_disk=true
+# # Push build results to the local disk cache despite
+# # --remote_upload_local_results being set.
+# build --incompatible_remote_results_ignore_disk=true
 
-# Enable the disk cache in addition to the http cache.
-build --disk_cache=~/.cache/bazel/amazonka/disk
+# # Enable the disk cache in addition to the http cache.
+# build --disk_cache=~/.cache/bazel/amazonka/disk
 
-# Push all results to the repository cache.
-build --repository_cache=~/.cache/bazel/amazonka/repo
+# # Push all results to the repository cache.
+# build --repository_cache=~/.cache/bazel/amazonka/repo
 
 # Prevent silently matching empty file globs.
 common --incompatible_disallow_empty_glob

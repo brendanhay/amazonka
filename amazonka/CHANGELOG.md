@@ -60,6 +60,10 @@ Released: **unreleased**, Compare: 2.0 RC1 (TODO: Linkify)
 [\#649](https://github.com/brendanhay/amazonka/pull/649)
 - Fix getting regions from named profiles
 [\#654](https://github.com/brendanhay/amazonka/pull/654)
+- amazonka-rds now supports the `DestinationRegion` pseudo-parameter for cross-region requests
+[\#661](https://github.com/brendanhay/amazonka/pull/661)
+- `amazonka-cognito-idp`: `UserPoolAddOnsType.AdvancedSecurityMode` is optional for unparsing's sake
+[\#662](https://github.com/brendanhay/amazonka/pull/662)
 
 ### Other Changes
 

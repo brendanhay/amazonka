@@ -1,6 +1,6 @@
 {
-  "__GENERATED_FILE_DO_NOT_MODIFY_MANUALLY": -404123427,
-  "all-cabal-hashes": "https://raw.githubusercontent.com/commercialhaskell/all-cabal-hashes/8d7fd5ecf523fc5c265118be6dd967c203bde5d2",
+  "__GENERATED_FILE_DO_NOT_MODIFY_MANUALLY": 1710974738,
+  "all-cabal-hashes": "https://raw.githubusercontent.com/commercialhaskell/all-cabal-hashes/c354d4e121193e391ffa6c301fb7c27756502c3c",
   "resolved": {
     "Cabal": {"dependencies":[],"location":{"type":"core"},"name":"Cabal","version":"3.2.1.0"},
     "Glob": {"dependencies":["base","containers","directory","dlist","filepath","transformers","transformers-compat"],"location":{"type":"hackage","url":"https://hackage.haskell.org/package/Glob-0.10.1/Glob-0.10.1.tar.gz"},"name":"Glob","pinned":{"url":["https://hackage.haskell.org/package/Glob-0.10.1/Glob-0.10.1.tar.gz","https://s3.amazonaws.com/hackage.fpcomplete.com/package/Glob-0.10.1.tar.gz"],"sha256":"cae4476d944947010705e0b00cf3e36c90ef407f968861f6771b931056b6d315","cabal-sha256":"17cbe8f4f023d3288d168f5eb34f9fd1125348ece2682bad2137ed8a06d5d0d6"},"version":"0.10.1"},

@@ -49,11 +49,14 @@ GHC_OPTS = [
     "-XTypeSynonymInstances",
     "-XViewPatterns",
 ]
+# + select({"@platforms//os:macos": ["-optP-Wno-nonportable-include-path"],
+#     "//conditions:default": [],
+# })
 
 haskell_library(
     name = "lib",
     srcs = glob(["src/**/*.hs"]),
-    ghcopts = GHC_OPTS,
+    compiler_flags = GHC_OPTS,
     deps = [
         "@stackage//:aeson",
         "@stackage//:attoparsec",
@@ -87,7 +90,7 @@ haskell_library(
 haskell_binary(
     name = "gen",
     srcs = glob(["bin/Main.hs"]),
-    ghcopts = GHC_OPTS + [
+    compiler_flags = GHC_OPTS + [
         "-threaded",
         "-rtsopts",
     ],

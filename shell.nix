@@ -2,27 +2,39 @@
 
 let
 
-  pkgs = import ./nix/nixpkgs.nix { inherit system ghcVersion; };
+  pkgs = import ./nix/nixpkgs.nix { inherit system; };
 
-  # Ensure zlib and friends are correctly handled.
-  ghc = pkgs.haskellPackages.ghcWithPackages (self: [
-    self.digest
-    self.zlib
-  ]);
+  bazelrc = pkgs.writeText "amazonka-bazelrc-${ghcVersion}" ''
+    build --host_platform=//tools/platforms:${ghcVersion}
+  '';
+
+  bazel = pkgs.writeScriptBin "bazel" ''
+    #!${pkgs.bash}/bin/bash
+    export JAVA_HOME="${pkgs.jdk11_headless.home}"
+    exec ${pkgs.bazel_4}/bin/bazel --bazelrc=${bazelrc} "$@"
+  '';
+
+
+  # haskellPackages = pkgs.haskellPackages.override {
+  #   ghc = pkgs.haskell.compiler.${ghcVersion};
+  #  };
+
+  # # Ensure zlib and friends are locatable in the shell.
+  # ghc = haskellPackages.ghcWithPackages (self: [ self.digest self.zlib ]);
 
 in pkgs.mkShell {
-  nativeBuildInputs = [
-    ghc
-    pkgs.bazel
-    pkgs.cabal-install
-    pkgs.coreutils
-    pkgs.file
-    pkgs.haskellPackages.cabal-fmt
-    pkgs.niv
-    pkgs.nixfmt
-    pkgs.ormolu
-    pkgs.parallel
-    pkgs.shellcheck
-    pkgs.shfmt
+  buildInputs = [
+    bazel
+    # ghc
+    # haskellPackages.cabal-fmt
+    # pkgs.cabal-install
+    # pkgs.coreutils
+    # pkgs.file
+    # pkgs.niv
+    # pkgs.nixfmt
+    # pkgs.ormolu
+    # pkgs.parallel
+    # pkgs.shellcheck
+    # pkgs.shfmt
   ];
 }

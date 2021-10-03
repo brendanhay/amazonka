@@ -23,7 +23,7 @@ versioned_http_archive(
 
 versioned_http_archive(
     name = "io_tweag_rules_nixpkgs",
-    sha256 = "33fd540d0283cf9956d0a5a640acb1430c81539a84069114beaf9640c96d221a",
+#    sha256 = "33fd540d0283cf9956d0a5a640acb1430c81539a84069114beaf9640c96d221a",
     strip_prefix = "rules_nixpkgs-{version}",
     url = "https://github.com/tweag/rules_nixpkgs/archive/{version}.tar.gz",
     version = "81f61c4b5afcf50665b7073f7fce4c1755b4b9a3",
@@ -75,6 +75,7 @@ versioned_http_archive(
 
 versioned_http_archive(
     name = "io_tweag_gazelle_cabal",
+    sha256 = "65712e680ebb9214b7fecec1c5e4a380df1c4840b508866a0f5a37a82f87a687",
     strip_prefix = "gazelle_cabal-{version}",
     url = "https://github.com/tweag/gazelle_cabal/archive/{version}.tar.gz",
     version = "fbf32ca7344f950e6a79017d80569e7b4b7b540b",
@@ -211,21 +212,21 @@ rules_haskell_dependencies()
 
 rules_haskell_worker_dependencies()
 
-haskell_register_ghc_nixpkgs(
-    name = "ghc884",
-    attribute_path = "haskell.compiler.ghc884",
-    exec_constraints = ["@//tools/constraints:ghc884"],
-    repository = "@nixpkgs",
-    target_constraints = ["@//tools/constraints:ghc884"],
-    version = "8.8.4",
-)
+# haskell_register_ghc_nixpkgs(
+#     name = "ghc884",
+#     attribute_path = "haskell.compiler.ghc884",
+#     repository = "@nixpkgs",
+#     version = "8.8.4",
+#     exec_constraints = ["@//tools/constraints:ghc884"],
+#     target_constraints = ["@//tools/constraints:ghc884"],
+# )
 
 haskell_register_ghc_nixpkgs(
-    name = "ghc8107",
+#    name = "ghc8107",
     attribute_path = "haskell.compiler.ghc8107",
-    exec_constraints = ["@//tools/constraints:ghc8107"],
+    # exec_constraints = ["@//tools/constraints:ghc8107"],
     repository = "@nixpkgs",
-    target_constraints = ["@//tools/constraints:ghc8107"],
+    # target_constraints = ["@//tools/constraints:ghc8107"],
     version = "8.10.7",
 )
 

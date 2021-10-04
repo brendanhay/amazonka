@@ -110,7 +110,7 @@ instance Core.AWSRequest GetIntrospectionSchema where
     Response.receiveBytes
       ( \s h x ->
           GetIntrospectionSchemaResponse'
-            Prelude.<$> (Prelude.pure (Prelude.Just x))
+            Prelude.<$> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 

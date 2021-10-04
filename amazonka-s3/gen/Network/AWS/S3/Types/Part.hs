@@ -36,7 +36,7 @@ data Part = Part'
     -- | Date and time at which the part was uploaded.
     lastModified :: Prelude.Maybe Core.ISO8601,
     -- | Size in bytes of the uploaded part data.
-    size :: Prelude.Maybe Prelude.Int
+    size :: Prelude.Maybe Prelude.Integer
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Generic)
 
@@ -80,7 +80,7 @@ part_lastModified :: Lens.Lens' Part (Prelude.Maybe Prelude.UTCTime)
 part_lastModified = Lens.lens (\Part' {lastModified} -> lastModified) (\s@Part' {} a -> s {lastModified = a} :: Part) Prelude.. Lens.mapping Core._Time
 
 -- | Size in bytes of the uploaded part data.
-part_size :: Lens.Lens' Part (Prelude.Maybe Prelude.Int)
+part_size :: Lens.Lens' Part (Prelude.Maybe Prelude.Integer)
 part_size = Lens.lens (\Part' {size} -> size) (\s@Part' {} a -> s {size = a} :: Part)
 
 instance Core.FromXML Part where

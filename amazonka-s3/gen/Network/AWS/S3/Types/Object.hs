@@ -52,7 +52,7 @@ data Object = Object'
     --     of encryption.
     eTag :: ETag,
     -- | Size in bytes of the object
-    size :: Prelude.Int,
+    size :: Prelude.Integer,
     -- | The name that you assign to an object. You use the object key to
     -- retrieve the object.
     key :: ObjectKey,
@@ -104,7 +104,7 @@ newObject ::
   -- | 'eTag'
   ETag ->
   -- | 'size'
-  Prelude.Int ->
+  Prelude.Integer ->
   -- | 'key'
   ObjectKey ->
   -- | 'storageClass'
@@ -153,7 +153,7 @@ object_eTag :: Lens.Lens' Object ETag
 object_eTag = Lens.lens (\Object' {eTag} -> eTag) (\s@Object' {} a -> s {eTag = a} :: Object)
 
 -- | Size in bytes of the object
-object_size :: Lens.Lens' Object Prelude.Int
+object_size :: Lens.Lens' Object Prelude.Integer
 object_size = Lens.lens (\Object' {size} -> size) (\s@Object' {} a -> s {size = a} :: Object)
 
 -- | The name that you assign to an object. You use the object key to

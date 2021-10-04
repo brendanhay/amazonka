@@ -74,6 +74,7 @@ module Network.AWS.RDS.Lens
     modifyDBInstanceResponse_httpStatus,
 
     -- ** CopyDBSnapshot
+    copyDBSnapshot_destinationRegion,
     copyDBSnapshot_optionGroupName,
     copyDBSnapshot_kmsKeyId,
     copyDBSnapshot_copyTags,
@@ -236,6 +237,7 @@ module Network.AWS.RDS.Lens
     -- ** CreateDBInstanceReadReplica
     createDBInstanceReadReplica_deletionProtection,
     createDBInstanceReadReplica_enablePerformanceInsights,
+    createDBInstanceReadReplica_destinationRegion,
     createDBInstanceReadReplica_maxAllocatedStorage,
     createDBInstanceReadReplica_enableIAMDatabaseAuthentication,
     createDBInstanceReadReplica_useDefaultProcessorFeatures,
@@ -730,6 +732,7 @@ module Network.AWS.RDS.Lens
     createDBCluster_backupRetentionPeriod,
     createDBCluster_storageEncrypted,
     createDBCluster_availabilityZones,
+    createDBCluster_destinationRegion,
     createDBCluster_enableIAMDatabaseAuthentication,
     createDBCluster_enableCloudwatchLogsExports,
     createDBCluster_optionGroupName,
@@ -776,6 +779,7 @@ module Network.AWS.RDS.Lens
 
     -- ** StartDBInstanceAutomatedBackupsReplication
     startDBInstanceAutomatedBackupsReplication_backupRetentionPeriod,
+    startDBInstanceAutomatedBackupsReplication_destinationRegion,
     startDBInstanceAutomatedBackupsReplication_kmsKeyId,
     startDBInstanceAutomatedBackupsReplication_preSignedUrl,
     startDBInstanceAutomatedBackupsReplication_sourceDBInstanceArn,
@@ -1348,6 +1352,7 @@ module Network.AWS.RDS.Lens
     describeInstallationMediaResponse_httpStatus,
 
     -- ** CopyDBClusterSnapshot
+    copyDBClusterSnapshot_destinationRegion,
     copyDBClusterSnapshot_kmsKeyId,
     copyDBClusterSnapshot_copyTags,
     copyDBClusterSnapshot_tags,

@@ -45,10 +45,10 @@ data Activity = Activity'
     description :: Prelude.Maybe Prelude.Text,
     -- | A value between 0 and 100 that indicates the progress of the activity.
     progress :: Prelude.Maybe Prelude.Int,
+    -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Prelude.Maybe Prelude.Text,
     -- | The ID of the activity.
     activityId :: Prelude.Text,
-    -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Prelude.Text,
     -- | The reason the activity began.
     cause :: Prelude.Text,
     -- | The start time of the activity.
@@ -81,9 +81,9 @@ data Activity = Activity'
 --
 -- 'progress', 'activity_progress' - A value between 0 and 100 that indicates the progress of the activity.
 --
--- 'activityId', 'activity_activityId' - The ID of the activity.
---
 -- 'autoScalingGroupName', 'activity_autoScalingGroupName' - The name of the Auto Scaling group.
+--
+-- 'activityId', 'activity_activityId' - The ID of the activity.
 --
 -- 'cause', 'activity_cause' - The reason the activity began.
 --
@@ -92,8 +92,6 @@ data Activity = Activity'
 -- 'statusCode', 'activity_statusCode' - The current status of the activity.
 newActivity ::
   -- | 'activityId'
-  Prelude.Text ->
-  -- | 'autoScalingGroupName'
   Prelude.Text ->
   -- | 'cause'
   Prelude.Text ->
@@ -104,7 +102,6 @@ newActivity ::
   Activity
 newActivity
   pActivityId_
-  pAutoScalingGroupName_
   pCause_
   pStartTime_
   pStatusCode_ =
@@ -116,8 +113,8 @@ newActivity
         details = Prelude.Nothing,
         description = Prelude.Nothing,
         progress = Prelude.Nothing,
+        autoScalingGroupName = Prelude.Nothing,
         activityId = pActivityId_,
-        autoScalingGroupName = pAutoScalingGroupName_,
         cause = pCause_,
         startTime = Core._Time Lens.# pStartTime_,
         statusCode = pStatusCode_
@@ -152,13 +149,13 @@ activity_description = Lens.lens (\Activity' {description} -> description) (\s@A
 activity_progress :: Lens.Lens' Activity (Prelude.Maybe Prelude.Int)
 activity_progress = Lens.lens (\Activity' {progress} -> progress) (\s@Activity' {} a -> s {progress = a} :: Activity)
 
+-- | The name of the Auto Scaling group.
+activity_autoScalingGroupName :: Lens.Lens' Activity (Prelude.Maybe Prelude.Text)
+activity_autoScalingGroupName = Lens.lens (\Activity' {autoScalingGroupName} -> autoScalingGroupName) (\s@Activity' {} a -> s {autoScalingGroupName = a} :: Activity)
+
 -- | The ID of the activity.
 activity_activityId :: Lens.Lens' Activity Prelude.Text
 activity_activityId = Lens.lens (\Activity' {activityId} -> activityId) (\s@Activity' {} a -> s {activityId = a} :: Activity)
-
--- | The name of the Auto Scaling group.
-activity_autoScalingGroupName :: Lens.Lens' Activity Prelude.Text
-activity_autoScalingGroupName = Lens.lens (\Activity' {autoScalingGroupName} -> autoScalingGroupName) (\s@Activity' {} a -> s {autoScalingGroupName = a} :: Activity)
 
 -- | The reason the activity began.
 activity_cause :: Lens.Lens' Activity Prelude.Text
@@ -182,8 +179,8 @@ instance Core.FromXML Activity where
       Prelude.<*> (x Core..@? "Details")
       Prelude.<*> (x Core..@? "Description")
       Prelude.<*> (x Core..@? "Progress")
+      Prelude.<*> (x Core..@? "AutoScalingGroupName")
       Prelude.<*> (x Core..@ "ActivityId")
-      Prelude.<*> (x Core..@ "AutoScalingGroupName")
       Prelude.<*> (x Core..@ "Cause")
       Prelude.<*> (x Core..@ "StartTime")
       Prelude.<*> (x Core..@ "StatusCode")

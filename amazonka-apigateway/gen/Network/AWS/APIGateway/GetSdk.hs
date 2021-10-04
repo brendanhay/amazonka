@@ -143,7 +143,7 @@ instance Core.AWSRequest GetSdk where
           GetSdkResponse'
             Prelude.<$> (h Core..#? "Content-Type")
             Prelude.<*> (h Core..#? "Content-Disposition")
-            Prelude.<*> (Prelude.pure (Prelude.Just x))
+            Prelude.<*> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 

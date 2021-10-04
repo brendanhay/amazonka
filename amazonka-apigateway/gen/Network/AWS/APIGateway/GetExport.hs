@@ -165,7 +165,7 @@ instance Core.AWSRequest GetExport where
           GetExportResponse'
             Prelude.<$> (h Core..#? "Content-Type")
             Prelude.<*> (h Core..#? "Content-Disposition")
-            Prelude.<*> (Prelude.pure (Prelude.Just x))
+            Prelude.<*> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 

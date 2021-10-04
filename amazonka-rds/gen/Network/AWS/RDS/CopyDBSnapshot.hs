@@ -37,6 +37,7 @@ module Network.AWS.RDS.CopyDBSnapshot
     newCopyDBSnapshot,
 
     -- * Request Lenses
+    copyDBSnapshot_destinationRegion,
     copyDBSnapshot_optionGroupName,
     copyDBSnapshot_kmsKeyId,
     copyDBSnapshot_copyTags,
@@ -67,7 +68,13 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCopyDBSnapshot' smart constructor.
 data CopyDBSnapshot = CopyDBSnapshot'
-  { -- | The name of an option group to associate with the copy of the snapshot.
+  { -- | Pseudo-parameter used when populating the @PreSignedUrl@ of a
+    -- cross-region @CopyDBSnapshot@ request. To replicate from region @SRC@ to
+    -- region @DST@, send a request to region @DST@. In that request, pass a
+    -- @PreSignedUrl@ for region @SRC@ with @DestinationRegion@ set to region
+    -- @DST@.
+    destinationRegion :: Prelude.Maybe Prelude.Text,
+    -- | The name of an option group to associate with the copy of the snapshot.
     --
     -- Specify this option if you are copying a snapshot from one Amazon Web
     -- Services Region to another, and your DB instance uses a nondefault
@@ -216,6 +223,12 @@ data CopyDBSnapshot = CopyDBSnapshot'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
+--
+-- 'destinationRegion', 'copyDBSnapshot_destinationRegion' - Pseudo-parameter used when populating the @PreSignedUrl@ of a
+-- cross-region @CopyDBSnapshot@ request. To replicate from region @SRC@ to
+-- region @DST@, send a request to region @DST@. In that request, pass a
+-- @PreSignedUrl@ for region @SRC@ with @DestinationRegion@ set to region
+-- @DST@.
 --
 -- 'optionGroupName', 'copyDBSnapshot_optionGroupName' - The name of an option group to associate with the copy of the snapshot.
 --
@@ -366,7 +379,9 @@ newCopyDBSnapshot
   pSourceDBSnapshotIdentifier_
   pTargetDBSnapshotIdentifier_ =
     CopyDBSnapshot'
-      { optionGroupName = Prelude.Nothing,
+      { destinationRegion =
+          Prelude.Nothing,
+        optionGroupName = Prelude.Nothing,
         kmsKeyId = Prelude.Nothing,
         copyTags = Prelude.Nothing,
         tags = Prelude.Nothing,
@@ -377,6 +392,14 @@ newCopyDBSnapshot
         targetDBSnapshotIdentifier =
           pTargetDBSnapshotIdentifier_
       }
+
+-- | Pseudo-parameter used when populating the @PreSignedUrl@ of a
+-- cross-region @CopyDBSnapshot@ request. To replicate from region @SRC@ to
+-- region @DST@, send a request to region @DST@. In that request, pass a
+-- @PreSignedUrl@ for region @SRC@ with @DestinationRegion@ set to region
+-- @DST@.
+copyDBSnapshot_destinationRegion :: Lens.Lens' CopyDBSnapshot (Prelude.Maybe Prelude.Text)
+copyDBSnapshot_destinationRegion = Lens.lens (\CopyDBSnapshot' {destinationRegion} -> destinationRegion) (\s@CopyDBSnapshot' {} a -> s {destinationRegion = a} :: CopyDBSnapshot)
 
 -- | The name of an option group to associate with the copy of the snapshot.
 --
@@ -565,6 +588,7 @@ instance Core.ToQuery CopyDBSnapshot where
           Core.=: ("CopyDBSnapshot" :: Prelude.ByteString),
         "Version"
           Core.=: ("2014-10-31" :: Prelude.ByteString),
+        "DestinationRegion" Core.=: destinationRegion,
         "OptionGroupName" Core.=: optionGroupName,
         "KmsKeyId" Core.=: kmsKeyId,
         "CopyTags" Core.=: copyTags,

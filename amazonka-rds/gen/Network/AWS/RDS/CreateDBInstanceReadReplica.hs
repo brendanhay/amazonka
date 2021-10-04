@@ -44,6 +44,7 @@ module Network.AWS.RDS.CreateDBInstanceReadReplica
     -- * Request Lenses
     createDBInstanceReadReplica_deletionProtection,
     createDBInstanceReadReplica_enablePerformanceInsights,
+    createDBInstanceReadReplica_destinationRegion,
     createDBInstanceReadReplica_maxAllocatedStorage,
     createDBInstanceReadReplica_enableIAMDatabaseAuthentication,
     createDBInstanceReadReplica_useDefaultProcessorFeatures,
@@ -107,6 +108,12 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html Using Amazon Performance Insights>
     -- in the /Amazon RDS User Guide/.
     enablePerformanceInsights :: Prelude.Maybe Prelude.Bool,
+    -- | Pseudo-parameter used when populating the @PreSignedUrl@ of a
+    -- cross-region @CreateDBInstanceReadReplica@ request. To replicate from
+    -- region @SRC@ to region @DST@, send a request to region @DST@. In that
+    -- request, pass a @PreSignedUrl@ for region @SRC@ with @DestinationRegion@
+    -- set to region @DST@.
+    destinationRegion :: Prelude.Maybe Prelude.Text,
     -- | The upper limit in gibibytes (GiB) to which Amazon RDS can automatically
     -- scale the storage of the DB instance.
     --
@@ -460,6 +467,12 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html Using Amazon Performance Insights>
 -- in the /Amazon RDS User Guide/.
 --
+-- 'destinationRegion', 'createDBInstanceReadReplica_destinationRegion' - Pseudo-parameter used when populating the @PreSignedUrl@ of a
+-- cross-region @CreateDBInstanceReadReplica@ request. To replicate from
+-- region @SRC@ to region @DST@, send a request to region @DST@. In that
+-- request, pass a @PreSignedUrl@ for region @SRC@ with @DestinationRegion@
+-- set to region @DST@.
+--
 -- 'maxAllocatedStorage', 'createDBInstanceReadReplica_maxAllocatedStorage' - The upper limit in gibibytes (GiB) to which Amazon RDS can automatically
 -- scale the storage of the DB instance.
 --
@@ -802,6 +815,7 @@ newCreateDBInstanceReadReplica
       { deletionProtection =
           Prelude.Nothing,
         enablePerformanceInsights = Prelude.Nothing,
+        destinationRegion = Prelude.Nothing,
         maxAllocatedStorage = Prelude.Nothing,
         enableIAMDatabaseAuthentication =
           Prelude.Nothing,
@@ -853,6 +867,14 @@ createDBInstanceReadReplica_deletionProtection = Lens.lens (\CreateDBInstanceRea
 -- in the /Amazon RDS User Guide/.
 createDBInstanceReadReplica_enablePerformanceInsights :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Bool)
 createDBInstanceReadReplica_enablePerformanceInsights = Lens.lens (\CreateDBInstanceReadReplica' {enablePerformanceInsights} -> enablePerformanceInsights) (\s@CreateDBInstanceReadReplica' {} a -> s {enablePerformanceInsights = a} :: CreateDBInstanceReadReplica)
+
+-- | Pseudo-parameter used when populating the @PreSignedUrl@ of a
+-- cross-region @CreateDBInstanceReadReplica@ request. To replicate from
+-- region @SRC@ to region @DST@, send a request to region @DST@. In that
+-- request, pass a @PreSignedUrl@ for region @SRC@ with @DestinationRegion@
+-- set to region @DST@.
+createDBInstanceReadReplica_destinationRegion :: Lens.Lens' CreateDBInstanceReadReplica (Prelude.Maybe Prelude.Text)
+createDBInstanceReadReplica_destinationRegion = Lens.lens (\CreateDBInstanceReadReplica' {destinationRegion} -> destinationRegion) (\s@CreateDBInstanceReadReplica' {} a -> s {destinationRegion = a} :: CreateDBInstanceReadReplica)
 
 -- | The upper limit in gibibytes (GiB) to which Amazon RDS can automatically
 -- scale the storage of the DB instance.
@@ -1280,6 +1302,7 @@ instance Core.ToQuery CreateDBInstanceReadReplica where
         "DeletionProtection" Core.=: deletionProtection,
         "EnablePerformanceInsights"
           Core.=: enablePerformanceInsights,
+        "DestinationRegion" Core.=: destinationRegion,
         "MaxAllocatedStorage" Core.=: maxAllocatedStorage,
         "EnableIAMDatabaseAuthentication"
           Core.=: enableIAMDatabaseAuthentication,

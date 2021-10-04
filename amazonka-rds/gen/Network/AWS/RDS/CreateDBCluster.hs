@@ -44,6 +44,7 @@ module Network.AWS.RDS.CreateDBCluster
     createDBCluster_backupRetentionPeriod,
     createDBCluster_storageEncrypted,
     createDBCluster_availabilityZones,
+    createDBCluster_destinationRegion,
     createDBCluster_enableIAMDatabaseAuthentication,
     createDBCluster_enableCloudwatchLogsExports,
     createDBCluster_optionGroupName,
@@ -134,6 +135,12 @@ data CreateDBCluster = CreateDBCluster'
     -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html Choosing the Regions and Availability Zones>
     -- in the /Amazon Aurora User Guide/.
     availabilityZones :: Prelude.Maybe [Prelude.Text],
+    -- | Pseudo-parameter used when populating the @PreSignedUrl@ of a
+    -- cross-region @CreateDBCluster@ request. To replicate from region @SRC@
+    -- to region @DST@, send a request to region @DST@. In that request, pass a
+    -- @PreSignedUrl@ for region @SRC@ with @DestinationRegion@ set to region
+    -- @DST@.
+    destinationRegion :: Prelude.Maybe Prelude.Text,
     -- | A value that indicates whether to enable mapping of Amazon Web Services
     -- Identity and Access Management (IAM) accounts to database accounts. By
     -- default, mapping is disabled.
@@ -478,6 +485,12 @@ data CreateDBCluster = CreateDBCluster'
 -- <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html Choosing the Regions and Availability Zones>
 -- in the /Amazon Aurora User Guide/.
 --
+-- 'destinationRegion', 'createDBCluster_destinationRegion' - Pseudo-parameter used when populating the @PreSignedUrl@ of a
+-- cross-region @CreateDBCluster@ request. To replicate from region @SRC@
+-- to region @DST@, send a request to region @DST@. In that request, pass a
+-- @PreSignedUrl@ for region @SRC@ with @DestinationRegion@ set to region
+-- @DST@.
+--
 -- 'enableIAMDatabaseAuthentication', 'createDBCluster_enableIAMDatabaseAuthentication' - A value that indicates whether to enable mapping of Amazon Web Services
 -- Identity and Access Management (IAM) accounts to database accounts. By
 -- default, mapping is disabled.
@@ -784,6 +797,7 @@ newCreateDBCluster pDBClusterIdentifier_ pEngine_ =
       backupRetentionPeriod = Prelude.Nothing,
       storageEncrypted = Prelude.Nothing,
       availabilityZones = Prelude.Nothing,
+      destinationRegion = Prelude.Nothing,
       enableIAMDatabaseAuthentication = Prelude.Nothing,
       enableCloudwatchLogsExports = Prelude.Nothing,
       optionGroupName = Prelude.Nothing,
@@ -863,6 +877,14 @@ createDBCluster_storageEncrypted = Lens.lens (\CreateDBCluster' {storageEncrypte
 -- in the /Amazon Aurora User Guide/.
 createDBCluster_availabilityZones :: Lens.Lens' CreateDBCluster (Prelude.Maybe [Prelude.Text])
 createDBCluster_availabilityZones = Lens.lens (\CreateDBCluster' {availabilityZones} -> availabilityZones) (\s@CreateDBCluster' {} a -> s {availabilityZones = a} :: CreateDBCluster) Prelude.. Lens.mapping Lens._Coerce
+
+-- | Pseudo-parameter used when populating the @PreSignedUrl@ of a
+-- cross-region @CreateDBCluster@ request. To replicate from region @SRC@
+-- to region @DST@, send a request to region @DST@. In that request, pass a
+-- @PreSignedUrl@ for region @SRC@ with @DestinationRegion@ set to region
+-- @DST@.
+createDBCluster_destinationRegion :: Lens.Lens' CreateDBCluster (Prelude.Maybe Prelude.Text)
+createDBCluster_destinationRegion = Lens.lens (\CreateDBCluster' {destinationRegion} -> destinationRegion) (\s@CreateDBCluster' {} a -> s {destinationRegion = a} :: CreateDBCluster)
 
 -- | A value that indicates whether to enable mapping of Amazon Web Services
 -- Identity and Access Management (IAM) accounts to database accounts. By
@@ -1255,6 +1277,7 @@ instance Core.ToQuery CreateDBCluster where
             ( Core.toQueryList "AvailabilityZone"
                 Prelude.<$> availabilityZones
             ),
+        "DestinationRegion" Core.=: destinationRegion,
         "EnableIAMDatabaseAuthentication"
           Core.=: enableIAMDatabaseAuthentication,
         "EnableCloudwatchLogsExports"

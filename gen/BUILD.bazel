@@ -1,9 +1,11 @@
-load("@rules_haskell//haskell:cabal.bzl", "haskell_cabal_binary")
+load("@rules_haskell//haskell:defs.bzl", "haskell_binary")
+load("@rules_haskell//haskell:cabal.bzl", "haskell_cabal_library")
 
-haskell_cabal_binary(
-    name = "gen",
+haskell_cabal_library(
+    name = "amazonka-gen",
+    version = "1.6.1",
     visibility = ["//visibility:public"],
-    srcs = ["gen.cabal"] + glob(["src/**/*.hs"]),
+    srcs = ["amazonka-gen.cabal"] + glob(["src/**/*.hs"]),
     deps = [
         "@stackage//:aeson",
         "@stackage//:attoparsec",
@@ -33,4 +35,14 @@ haskell_cabal_binary(
         "@stackage//:unexceptionalio",
         "@stackage//:unordered-containers",
     ],
+)
+
+haskell_binary(
+    name = "gen",
+    srcs = [
+        "bin/Main.hs",
+    ],
+    visibility = ["//visibility:public"],
+    deps = [":amazonka-gen"],
+    ghcopts = ["-threaded", "-rtsopts", "-with-rtsopts=-qg -I0"]
 )

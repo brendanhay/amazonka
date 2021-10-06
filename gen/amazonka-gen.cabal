@@ -123,11 +123,11 @@ library
     , formatting
     , free
     , hashable
-    , haskell-src-exts      >=1.19.0 && <1.22
+    , haskell-src-exts      ^>=1.23
     , lens
     , mtl
     , optparse-applicative
-    , pandoc                ^>=2.13
+    , pandoc                ^>=2.14
     , scientific
     , system-fileio
     , system-filepath

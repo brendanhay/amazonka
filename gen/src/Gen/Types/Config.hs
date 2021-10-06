@@ -12,6 +12,8 @@
 
 module Gen.Types.Config where
 
+import Data.String (fromString)
+import qualified Data.Text as Text
 import Control.Error
 import Control.Lens hiding ((.=))
 import Data.Aeson
@@ -21,8 +23,7 @@ import Data.Text (Text)
 import qualified Data.Text.Lazy as LText
 import qualified Data.Text.Lazy.Builder as Build
 import Data.Time
-import qualified Filesystem.Path.CurrentOS as Path
-import Formatting
+import qualified System.FilePath as FilePath
 import GHC.Generics (Generic)
 import GHC.TypeLits
 import Gen.TH
@@ -35,13 +36,6 @@ import Gen.Types.NS
 import Gen.Types.Service
 import Gen.Types.TypeOf
 import Text.EDE (Template)
-
-type Error = LText.Text
-
-type Path = Path.FilePath
-
-toTextIgnore :: Path -> Text
-toTextIgnore = either id id . Path.toText
 
 data Replace = Replace
   { _replaceName :: Id,
@@ -93,14 +87,11 @@ defaultOverride =
       _renamedFields = mempty
     }
 
-newtype Version (v :: Symbol) = Version Text
+newtype Version (v :: Symbol) = Version { semver :: Text }
   deriving (Eq, Show)
 
 instance ToJSON (Version v) where
   toJSON (Version v) = toJSON v
-
-semver :: Format a (Version v -> a)
-semver = later (\(Version v) -> Build.fromText v)
 
 type LibraryVer = Version "library"
 
@@ -242,28 +233,28 @@ data Model = Model
   { _modelName :: Text,
     _modelVersions :: [UTCTime],
     _modelVersion :: UTCTime,
-    _modelPath :: Path
+    _modelPath :: FilePath
   }
   deriving (Eq, Show)
 
 makeLenses ''Model
 
-configFile, annexFile :: Getter Model Path
-configFile = to (flip Path.addExtension "json" . Path.fromText . _modelName)
+configFile, annexFile :: Getter Model FilePath
+configFile = to (flip FilePath.addExtension "json" . Text.unpack . _modelName)
 annexFile = configFile
 
-serviceFile, waitersFile, pagersFile :: Getter Model Path
-serviceFile = to (flip Path.append "service-2.json" . _modelPath)
-waitersFile = to (flip Path.append "waiters-2.json" . _modelPath)
-pagersFile = to (flip Path.append "paginators-1.json" . _modelPath)
+serviceFile, waitersFile, pagersFile :: Getter Model FilePath
+serviceFile = to (flip FilePath.combine "service-2.json" . _modelPath)
+waitersFile = to (flip FilePath.combine "waiters-2.json" . _modelPath)
+pagersFile = to (flip FilePath.combine "paginators-1.json" . _modelPath)
 
-loadModel :: Path -> [Path] -> Either Error Model
+loadModel :: FilePath -> [FilePath] -> Either String Model
 loadModel p xs =
   uncurry (Model n (map fst vs))
-    <$> headErr (format ("No valid model versions found in " % shown) xs) vs
+    <$> headErr ("No valid model versions found in " ++ show xs) vs
   where
     vs = sortOn Down (mapMaybe parse xs)
-    n = toTextIgnore (Path.filename p)
+    n = fromString (FilePath.takeFileName p)
 
     parse d =
       (,d)
@@ -271,4 +262,4 @@ loadModel p xs =
           True
           defaultTimeLocale
           (iso8601DateFormat Nothing)
-          (Path.encodeString (Path.filename d))
+          (FilePath.takeFileName d)

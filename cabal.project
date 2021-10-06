@@ -1,15 +1,13 @@
--- Ensure deterministic package set.
-index-state: 2021-09-25T23:27:59Z
-
 -- Writing environment files prevents reproducible builds.
 write-ghc-environment-files: never
 
--- 01 by default. You can override this locally via:
+-- O1 by default. You can override this locally via:
 --   cabal new-configure --disable-optimization
 optimization: 1
 
 -- Local packages - without amazonka-examples.
 packages:
+   gen/
    test/
    amazonka/
    amazonka-*/

@@ -1,22 +1,20 @@
 startup --host_jvm_args=-Djdk.tls.client.protocols=TLSv1.2
 
-common --incompatible_require_linker_input_cc_api
-
 # Bazel caching - can be disabled by passing the flag --noremote_accept_cached.
-build --remote_cache=https://storage.googleapis.com/tlon-opensource-cache
+common --remote_cache=https://storage.googleapis.com/tlon-opensource-cache
 
 # Don't push build results to the remote cache - CI is source of truth.
-build --remote_upload_local_results=false
+common --remote_upload_local_results=false
 
 # Push build results to the local disk cache despite
 # --remote_upload_local_results being set.
-build --incompatible_remote_results_ignore_disk=true
+common --incompatible_remote_results_ignore_disk=true
 
 # Enable the disk cache in addition to the http cache.
-build --disk_cache=~/.cache/bazel/amazonka/disk
+common --disk_cache=~/.cache/bazel/amazonka/disk
 
 # Push all results to the repository cache.
-build --repository_cache=~/.cache/bazel/amazonka/repo
+common --repository_cache=~/.cache/bazel/amazonka/repo
 
 # Prevent silently matching empty file globs.
 common --incompatible_disallow_empty_glob
@@ -30,12 +28,12 @@ build --verbose_failures
 build --worker_verbose
 
 # Toolchain configuration.
-build --host_platform=@io_tweag_rules_nixpkgs//nixpkgs/platforms:host
+build --crosstool_top=@local_config_cc//:toolchain
 build --host_javabase=@local_jdk//:jdk
 build --javabase=@local_jdk//:jdk
 
-# # When set, bazel uses PATH=/bin:/usr/bin. This improves cache hits and only
-# # environment variables set explicitly using --action_env will be available.
+# When set, bazel uses PATH=/bin:/usr/bin. This improves cache hits and only
+# environment variables set explicitly using --action_env will be available.
 build --incompatible_strict_action_env
 
 # Print all test output to stdout.

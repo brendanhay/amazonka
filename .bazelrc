@@ -28,7 +28,7 @@ build --verbose_failures
 build --worker_verbose
 
 # Toolchain configuration.
-build --crosstool_top=@local_config_cc//:toolchain
+build --host_platform=@io_tweag_rules_nixpkgs//nixpkgs/platforms:host
 build --host_javabase=@local_jdk//:jdk
 build --javabase=@local_jdk//:jdk
 

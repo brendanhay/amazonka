@@ -4,14 +4,14 @@ let
 
   pkgs = import ./nix/nixpkgs.nix { inherit system; };
 
-  bazelrc = pkgs.writeText "amazonka-bazelrc-${ghcVersion}" ''
-    build --host_platform=//tools/platforms:${ghcVersion}
-  '';
+  # bazelrc = pkgs.writeText "amazonka-bazelrc-${ghcVersion}" ''
+  #   build --host_platform=//tools/platforms:${ghcVersion}
+  # '';
 
   bazel = pkgs.writeScriptBin "bazel" ''
     #!${pkgs.bash}/bin/bash
     export JAVA_HOME="${pkgs.jdk11_headless.home}"
-    exec ${pkgs.bazel_4}/bin/bazel --bazelrc=${bazelrc} "$@"
+    exec ${pkgs.bazel_4}/bin/bazel "$@"
   '';
 
 

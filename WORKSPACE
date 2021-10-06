@@ -23,7 +23,7 @@ versioned_http_archive(
 
 versioned_http_archive(
     name = "io_tweag_rules_nixpkgs",
-#    sha256 = "33fd540d0283cf9956d0a5a640acb1430c81539a84069114beaf9640c96d221a",
+    #    sha256 = "33fd540d0283cf9956d0a5a640acb1430c81539a84069114beaf9640c96d221a",
     strip_prefix = "rules_nixpkgs-{version}",
     url = "https://github.com/tweag/rules_nixpkgs/archive/{version}.tar.gz",
     version = "81f61c4b5afcf50665b7073f7fce4c1755b4b9a3",
@@ -222,7 +222,7 @@ rules_haskell_worker_dependencies()
 # )
 
 haskell_register_ghc_nixpkgs(
-#    name = "ghc8107",
+    #    name = "ghc8107",
     attribute_path = "haskell.compiler.ghc8107",
     # exec_constraints = ["@//tools/constraints:ghc8107"],
     repository = "@nixpkgs",

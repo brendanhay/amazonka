@@ -277,21 +277,20 @@ aesCbc ::
   (IV AES256 -> ByteString -> (IV AES256, ByteString)) ->
   (IV AES256 -> ByteString -> ByteString) ->
   Conduit.ConduitT ByteString ByteString m ()
-aesCbc iv0 nextChunk lastChunk = Conduit.chunksOfCE aesBlockSize .| goChunk iv0 Nothing
+aesCbc iv0 onNextChunk onLastChunk =
+  Conduit.chunksOfCE aesBlockSize .| goChunk iv0 Nothing
   where
-    goChunk iv carryChunk =
+    goChunk iv carry =
       do
-        cs <- Conduit.await
-        case cs of
-          Nothing -> case carryChunk of
-            Nothing -> return ()
-            Just b -> Conduit.yield $ lastChunk iv b
-          Just c -> case carryChunk of
-            Nothing -> goChunk iv (Just c)
-            Just b -> do
-              let (iv', b') = nextChunk iv b
-              Conduit.yield b'
-              goChunk iv' (Just c)
+        carry' <- Conduit.await
+        case carry' of
+          Nothing -> maybe (pure ()) (Conduit.yield . onLastChunk iv) carry
+          Just _ -> case carry of
+            Nothing -> goChunk iv carry'
+            Just chunk -> do
+              let (iv', encrypted) = onNextChunk iv chunk
+              Conduit.yield encrypted
+              goChunk iv' carry'
 
 rsaEncrypt :: KeyPair -> ByteString -> IO ByteString
 rsaEncrypt k =

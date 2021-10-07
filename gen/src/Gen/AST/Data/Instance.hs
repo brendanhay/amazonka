@@ -16,9 +16,9 @@ import Control.Lens
 import Control.Monad.Except
 import Data.Aeson
 import Data.List (find, partition)
+import qualified Data.Text as Text
 import Data.Text (Text)
 import Gen.AST.Data.Field
-import Gen.Formatting
 import Gen.Types
 
 data Inst
@@ -92,7 +92,7 @@ requestInsts ::
   HTTP ->
   Ref ->
   [Field] ->
-  Either Error [Inst]
+  Either String [Inst]
 requestInsts m oname h r fs = do
   path' <- toPath
   concatQuery
@@ -108,7 +108,7 @@ requestInsts m oname h r fs = do
         map Right headers
           ++ map Left protocolHeaders
 
-    toPath :: Either Error Inst
+    toPath :: Either String Inst
     toPath = ToPath <$> uriFields oname h uriPath id fs
 
     toBody :: Maybe Inst
@@ -117,7 +117,7 @@ requestInsts m oname h r fs = do
     body :: Bool
     body = isJust toBody
 
-    concatQuery :: [Inst] -> Either Error [Inst]
+    concatQuery :: [Inst] -> Either String [Inst]
     concatQuery is = do
       xs <- uriFields oname h uriQuery (,Nothing) fs
       return $! merged xs : filter (not . f) is
@@ -133,7 +133,7 @@ requestInsts m oname h r fs = do
         f ToQuery {} = True
         f _ = False
 
-    replaceXML :: [Inst] -> Either Error [Inst]
+    replaceXML :: [Inst] -> Either String [Inst]
     replaceXML is
       | all nonEmptyXML is = return $! filter anyXML is
       | otherwise =
@@ -156,17 +156,13 @@ requestInsts m oname h r fs = do
 
           -- 3. Unknown.
           (ns, e, _) ->
-            throwError $
-              format
-                ( "Error determining root ToElement instance: " % iprimary
-                    % ", namespace: "
-                    % shown
-                    % ", locationName: "
-                    % shown
-                )
-                n
-                ns
-                e
+            Left $
+            "String determining root ToElement instance: "
+              ++ Text.unpack (memberId n)
+                    ++ ", namespace: "
+                    ++ show ns
+                    ++ ", locationName: "
+                    ++ show e
       where
         nonEmptyXML = notXML True
         anyXML = notXML False
@@ -242,7 +238,7 @@ uriFields ::
   Getter s (t Segment) ->
   (Text -> a) ->
   f Field ->
-  Either Error (t (Either a Field))
+  Either String (t (Either a Field))
 uriFields oname h l f fs = traverse go (h ^. l)
   where
     go (Tok t) = return $ Left (f t)
@@ -250,17 +246,12 @@ uriFields oname h l f fs = traverse go (h ^. l)
       where
         match x = memberId v == name x
         missing =
-          format
-            ( "Missing field corresponding to URI variable "
-                % iprimary
-                % " in field names "
-                % shown
-                % "\nfor operation "
-                % iprimary
-            )
-            v
-            ids
-            oname
+            "Missing field corresponding to URI variable "
+                ++ Text.unpack (memberId v)
+                ++ " in field names "
+                ++ show ids
+                ++ "\nfor operation "
+                ++ Text.unpack (memberId oname)
 
     ids :: [Text]
     ids = foldMap ((: []) . name) fs

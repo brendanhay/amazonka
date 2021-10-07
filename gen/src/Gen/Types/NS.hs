@@ -14,7 +14,7 @@ import Data.Aeson
 import Data.String
 import Data.Text (Text)
 import qualified Data.Text as Text
-import qualified Filesystem.Path.CurrentOS as Path
+import System.FilePath ((<.>))
 
 newtype NS = NS [Text]
   deriving (Eq, Ord, Show)
@@ -22,8 +22,8 @@ newtype NS = NS [Text]
 mkNS :: Text -> NS
 mkNS = NS . Text.splitOn "."
 
-nsToPath :: NS -> Path.FilePath
-nsToPath (NS xs) = Path.fromText (Text.intercalate "/" xs) Path.<.> "hs"
+nsToPath :: NS -> FilePath
+nsToPath (NS xs) = Text.unpack (Text.intercalate "/" xs) <.> "hs"
 
 nsHyphenate :: NS -> Text
 nsHyphenate (NS xs) = Text.intercalate "-" xs

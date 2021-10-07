@@ -36,7 +36,6 @@ import qualified Data.Text.Lazy as LText
 import Gen.AST.Data.Field
 import Gen.AST.Data.Instance
 import Gen.AST.Data.Syntax as Syntax
-import Gen.Formatting
 import Gen.Types
 import qualified Language.Haskell.Exts as Exts
 import Language.Haskell.Exts.Pretty (Pretty)
@@ -46,7 +45,7 @@ operationData ::
   Config ->
   a ->
   Operation Identity Ref (Pager Id) ->
-  Either Error (Operation Identity SData (Pager Id))
+  Either String (Operation Identity SData (Pager Id))
 operationData cfg m o = do
   (xa, x) <- struct (xr ^. refAnn)
   (ya, y) <- struct (yr ^. refAnn)
@@ -91,7 +90,7 @@ shapeData ::
   HasMetadata a Identity =>
   a ->
   Shape Solved ->
-  Either Error (Maybe SData)
+  Either String (Maybe SData)
 shapeData m (a :< s) = case s of
   _ | s ^. infoException -> Just <$> errorData m a (s ^. info)
   Enum i vs -> Just <$> sumData p a i vs
@@ -116,7 +115,7 @@ errorData ::
   a ->
   Solved ->
   Info ->
-  Either Error SData
+  Either String SData
 errorData m s i = Fun <$> mk
   where
     mk =
@@ -131,8 +130,8 @@ errorData m s i = Fun <$> mk
         . LText.unpack
         $ format ("Prism for " % iprimary % "' errors.") n
 
-    status = i ^? infoError . _Just . errStatus
-    code = fromMaybe (memberId n) (i ^. infoError . _Just . errCode)
+    status = i ^? infoString . _Just . errStatus
+    code = fromMaybe (memberId n) (i ^. infoString . _Just . errCode)
 
     p = Text.cons '_' (typeId n)
     n = s ^. annId
@@ -142,7 +141,7 @@ sumData ::
   Solved ->
   Info ->
   Map Id Text ->
-  Either Error SData
+  Either String SData
 sumData p s i vs = Sum s <$> mk <*> fmap Map.keys insts
   where
     mk =
@@ -182,7 +181,7 @@ prodData ::
   a ->
   Solved ->
   StructF (Shape Solved) ->
-  Either Error (Prod, [Field])
+  Either String (Prod, [Field])
 prodData m s st = (,fields) <$> mk
   where
     mk =
@@ -242,14 +241,14 @@ prodData m s st = (,fields) <$> mk
     fields :: [Field]
     fields = mkFields m s st
 
-    mkLens :: Field -> Either Error Fun
+    mkLens :: Field -> Either String Fun
     mkLens f =
       Fun' (fieldLens f) (fieldHelp f)
         <$> pp None (lensS m (s ^. annType) f)
         <*> pp None (lensD n f)
         <*> pure (LText.fromStrict (fieldAccessor f))
 
-    mkCtor :: Either Error Fun
+    mkCtor :: Either String Fun
     mkCtor =
       Fun' (smartCtorId n) mkHelp
         <$> (pp None (ctorS m n fields) <&> addParamComments fields)
@@ -301,7 +300,7 @@ prodData m s st = (,fields) <$> mk
 
     n = s ^. annId
 
-renderInsts :: Protocol -> Id -> [Inst] -> Either Error (Map Text LText.Text)
+renderInsts :: Protocol -> Id -> [Inst] -> Either String (Map Text LText.Text)
 renderInsts p n = fmap Map.fromList . traverse go
   where
     go i = (instToText i,) <$> pp Print (instanceD p n i)
@@ -310,7 +309,7 @@ serviceData ::
   HasMetadata a Identity =>
   a ->
   Retry ->
-  Either Error Fun
+  Either String Fun
 serviceData m r =
   Fun' (m ^. serviceConfig) (Help h)
     <$> pp None (serviceS m)
@@ -329,7 +328,7 @@ waiterData ::
   Map Id (Operation Identity Ref b) ->
   Id ->
   Waiter Id ->
-  Either Error WData
+  Either String WData
 waiterData m os n w = do
   o <- note (missingErr k (k, Map.map _opName os)) $ Map.lookup k os
   wf <- waiterFields m o w
@@ -371,12 +370,12 @@ waiterFields ::
   a ->
   Operation Identity Ref b ->
   Waiter Id ->
-  Either Error (Waiter Field)
+  Either String (Waiter Field)
 waiterFields m o = traverseOf (waitAcceptors . each) go
   where
     out = o ^. opOutput . _Identity . refAnn
 
-    go :: Accept Id -> Either Error (Accept Field)
+    go :: Accept Id -> Either String (Accept Field)
     go x = do
       n <- traverse (notation m out) (x ^. acceptArgument)
       return $! x & acceptArgument .~ n
@@ -385,19 +384,19 @@ pagerFields ::
   HasMetadata a Identity =>
   a ->
   Operation Identity Ref (Pager Id) ->
-  Either Error (Maybe (Pager Field))
+  Either String (Maybe (Pager Field))
 pagerFields m o = traverse go (o ^. opPager)
   where
     inp = o ^. opInput . _Identity . refAnn
     out = o ^. opOutput . _Identity . refAnn
 
-    go :: Pager Id -> Either Error (Pager Field)
+    go :: Pager Id -> Either String (Pager Field)
     go = \case
       Only t -> Only <$> token t
       Next ks t -> Next <$> traverse (notation m out) ks <*> token t
       Many k ts -> Many <$> notation m out k <*> traverse token ts
 
-    token :: Token Id -> Either Error (Token Field)
+    token :: Token Id -> Either String (Token Field)
     token (Token x y) =
       Token
         <$> notation m inp x
@@ -408,10 +407,10 @@ notation ::
   a ->
   Shape Solved ->
   Notation Id ->
-  Either Error (Notation Field)
+  Either String (Notation Field)
 notation m = go
   where
-    go :: Shape Solved -> Notation Id -> Either Error (Notation Field)
+    go :: Shape Solved -> Notation Id -> Either String (Notation Field)
     go s = \case
       Access ks -> Access <$> deref ks
       IsEmptyList ks -> NonEmptyList <$> deref ks
@@ -425,19 +424,19 @@ notation m = go
             put (skip (shape k))
             return k
 
-    key :: Shape Solved -> Key Id -> Either Error (Key Field)
+    key :: Shape Solved -> Key Id -> Either String (Key Field)
     key s = \case
       Key n -> Key <$> field' n s
       Each n -> Each <$> field' n s
       Last n -> Last <$> field' n s
 
-    field' :: Id -> Shape Solved -> Either Error Field
+    field' :: Id -> Shape Solved -> Either String Field
     field' n = \case
       a :< Struct st ->
         note (missingErr n (identifier a) (Map.keys (st ^. members)))
           . List.find ((n ==) . _fieldId)
           $ mkFields m a st
-      _ -> throwError (descendErr n)
+      _ -> throwString (descendErr n)
 
     shape :: Key Field -> Shape Solved
     shape =
@@ -463,7 +462,7 @@ data PP
   | None
   deriving (Eq)
 
-pp :: Pretty a => PP -> a -> Either Error Rendered
+pp :: Pretty a => PP -> a -> Either String Rendered
 pp i d
   | otherwise = pure (LText.fromStrict (Text.decodeUtf8 printed))
   where

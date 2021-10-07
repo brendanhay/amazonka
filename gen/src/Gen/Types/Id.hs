@@ -29,17 +29,22 @@ module Gen.Types.Id
     prependId,
     appendId,
     replaceId,
+
+    -- * Utilities
+    partial,
   )
 where
 
 import Control.Comonad
 import Control.Comonad.Cofree
+import qualified Data.HashMap.Strict as Map
 import Control.Lens
 import Data.Aeson
 import qualified Data.Char as Char
 import Data.Hashable
 import Data.Text (Text)
 import qualified Data.Text as Text
+import Data.String 
 import Gen.Text
 
 -- | A class to extract identifiers from arbitrary products.
@@ -77,6 +82,12 @@ mkId t = Id t (format t)
 
 format :: Text -> Text
 format = upperHead . Text.dropWhile (not . Char.isAlpha)
+
+partial :: Show a => Id -> Map.HashMap Id a -> String
+partial p m =
+      let text = Text.take 3 (memberId p)
+          matches = Map.filterWithKey (const . Text.isPrefixOf text . memberId) m
+       in fromString (show (Map.toList matches))
 
 representation :: Lens' Id Text
 representation =

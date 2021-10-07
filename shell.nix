@@ -9,7 +9,7 @@ let
   # '';
 
   bazel = pkgs.writeScriptBin "bazel" ''
-    #!${pkgs.bash}/bin/bash
+    #!${pkgs.stdenvNoCC.shell}
     export JAVA_HOME="${pkgs.jdk11_headless.home}"
     exec ${pkgs.bazel_4}/bin/bazel "$@"
   '';

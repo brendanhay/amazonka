@@ -261,7 +261,6 @@ stack_snapshot(
         "ede",
         "ede-0.3.2.0",  # keep
         "errors",  # keep
-        "formatting",  # keep
         "free",  # keep
         "groom",
         "hashable",  # keep
@@ -282,8 +281,8 @@ stack_snapshot(
         "resourcet",
         "retry",
         "scientific",  # keep
-        "system-fileio",  # keep
-        "system-filepath",  # keep
+        "unliftio", # keep
+        "filepath", # keep
         "tagged",
         "tasty",
         "tasty-hunit",

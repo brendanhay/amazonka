@@ -18,7 +18,6 @@ import           Crypto.Cipher.AES
 import           Crypto.Cipher.Types
 import           Crypto.Error
 import qualified Data.ByteString as BS
-import qualified Data.ByteString.Char8 as BS8
 import           Data.Conduit
 import qualified Data.Conduit.List as CL
 import qualified Data.Foldable as Fold
@@ -27,9 +26,9 @@ import           Network.AWS.S3.Encryption.Envelope
 import           Network.AWS.S3.Encryption.Types
 import           Test.AWS.Prelude
 import qualified Test.QuickCheck.Monadic as QC
-import qualified Test.QuickCheck.Unicode as Unicode
+import           Test.QuickCheck.Instances.ByteString ()
 import           Test.Tasty.HUnit
-import           Test.Tasty.QuickCheck (Arbitrary, Property, testProperty, arbitrary)
+import           Test.Tasty.QuickCheck (Property, testProperty, arbitrary)
 
 
 envelopeTests :: [TestTree]
@@ -69,10 +68,6 @@ testEncryptLeftover = do
     testEncryptDecrypt [b, "a"]
     testEncryptDecrypt [b, b, b, "a"]
     testEncryptDecrypt [b, b<>b<>b, b<>b, "abc"]
-
-
-instance Arbitrary ByteString where
-    arbitrary = BS8.pack <$> Unicode.string
 
 
 testEncryptRandom :: Property

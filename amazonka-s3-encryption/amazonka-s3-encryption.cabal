@@ -128,7 +128,7 @@ test-suite amazonka-s3-encryption-test
     , cryptonite
     , mtl
     , QuickCheck
-    , quickcheck-unicode
+    , quickcheck-instances >= 0.3.25.2
     , resourcet
     , tasty
     , tasty-hunit

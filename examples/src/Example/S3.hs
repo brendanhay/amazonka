@@ -1,4 +1,7 @@
+{-# LANGUAGE DataKinds #-}
+{-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeApplications #-}
 {-# LANGUAGE ViewPatterns #-}
 
 -- |
@@ -13,17 +16,14 @@ module Example.S3 where
 import Control.Lens
 import Control.Monad
 import Control.Monad.IO.Class
-import Control.Monad.Trans.AWS
-import Data.ByteString (ByteString)
 import Data.Conduit
 import qualified Data.Conduit.Binary as CB
 import qualified Data.Conduit.List as CL
 import qualified Data.Foldable as Fold
-import Data.Monoid
-import Data.Text (Text)
+import Data.Generics.Product
 import qualified Data.Text.IO as Text
 import Data.Time
-import Network.AWS.Data
+import Network.AWS
 import Network.AWS.S3
 import System.IO
 
@@ -36,10 +36,9 @@ getPresignedURL ::
   IO ByteString
 getPresignedURL r b k = do
   lgr <- newLogger Trace stdout
-  env <- newEnv Discover <&> set envLogger lgr . set envRegion r
+  env <- newEnv Discover <&> set (field @"envLogger") lgr . set (field @"envRegion") r
   ts <- getCurrentTime
-  runResourceT . runAWST env $
-    presignURL ts 60 (getObject b k)
+  runResourceT $ presignURL env ts 60 (newGetObject b k)
 
 listAll ::
   -- | Region to operate in.
@@ -47,24 +46,25 @@ listAll ::
   IO ()
 listAll r = do
   lgr <- newLogger Debug stdout
-  env <- newEnv Discover <&> set envLogger lgr . set envRegion r
+  env <- newEnv Discover <&> set (field @"envLogger") lgr . set (field @"envRegion") r
 
   let val :: ToText a => Maybe a -> Text
       val = maybe "Nothing" toText
 
-      lat v = maybe mempty (mappend " - " . toText) (v ^. ovIsLatest)
-      key v = val (v ^. ovKey) <> ": " <> val (v ^. ovVersionId) <> lat v
+      lat v = maybe mempty (mappend " - " . toText) (v ^. field @"isLatest")
+      key v = val (v ^. field @"key") <> ": " <> val (v ^. field @"versionId") <> lat v
 
-  runResourceT . runAWST env $ do
+  runResourceT $ do
     say "Listing Buckets .."
-    bs <- view lbrsBuckets <$> send listBuckets
+    Just bs <- view (field @"buckets") <$> send env newListBuckets
     say $ "Found " <> toText (length bs) <> " Buckets."
 
-    forM_ bs $ \(view bName -> b) -> do
+    forM_ bs $ \(view (field @"name") -> b) -> do
       say $ "Listing Object Versions in: " <> toText b
-      paginate (listObjectVersions b)
-        =$= CL.concatMap (view lrsVersions)
-          $$ CL.mapM_ (say . mappend " -> " . key)
+      runConduit $
+        paginate env (newListObjectVersions b)
+        .| CL.concatMap (toListOf $ field @"versions" . _Just . folded)
+        .| CL.mapM_ (say . mappend " -> " . key)
 
 getFile ::
   -- | Region to operate in.
@@ -77,11 +77,11 @@ getFile ::
   IO ()
 getFile r b k f = do
   lgr <- newLogger Debug stdout
-  env <- newEnv Discover <&> set envLogger lgr . set envRegion r
+  env <- newEnv Discover <&> set (field @"envLogger") lgr . set (field @"envRegion") r
 
-  runResourceT . runAWST env $ do
-    rs <- send (getObject b k)
-    view gorsBody rs `sinkBody` CB.sinkFile f
+  runResourceT $ do
+    rs <- send env (newGetObject b k)
+    view (field @"body") rs `sinkBody` CB.sinkFile f
     say $
       "Successfully Download: "
         <> toText b
@@ -97,18 +97,18 @@ putChunkedFile ::
   BucketName ->
   -- | The destination object key.
   ObjectKey ->
-  -- | The chunk size to send.
+  -- | The chunk size to send env.
   ChunkSize ->
   -- | The source file to upload.
   FilePath ->
   IO ()
 putChunkedFile r b k c f = do
   lgr <- newLogger Debug stdout
-  env <- newEnv Discover <&> set envLogger lgr . set envRegion r
+  env <- newEnv Discover <&> set (field @"envLogger") lgr . set (field @"envRegion") r
 
-  runResourceT . runAWST env $ do
+  runResourceT $ do
     bdy <- chunkedFile c f
-    void . send $ putObject b k bdy
+    void . send env $ newPutObject b k bdy
     say $
       "Successfully Uploaded: "
         <> toText f
@@ -127,16 +127,16 @@ tagBucket ::
   IO ()
 tagBucket r bkt xs = do
   lgr <- newLogger Debug stdout
-  env <- newEnv Discover <&> set envLogger lgr . set envRegion r
+  env <- newEnv Discover <&> set (field @"envLogger") lgr . set (field @"envRegion") r
 
-  let tags = map (uncurry tag) xs
-      kv t = toText (t ^. tagKey) <> "=" <> (t ^. tagValue)
+  let tags = map (uncurry newTag) xs
+      kv t = toText (t ^. field @"key") <> "=" <> (t ^. field @"value")
 
-  runResourceT . runAWST env $ do
-    void . send $ putBucketTagging bkt (tagging & tTagSet .~ tags)
+  runResourceT $ do
+    void . send env $ newPutBucketTagging bkt (newTagging & field @"tagSet" .~ tags)
     say $ "Successfully Put Tags: " <> Fold.foldMap kv tags
 
-    ts <- view gbtrsTagSet <$> send (getBucketTagging bkt)
+    ts <- view (field @"tagSet") <$> send env (newGetBucketTagging bkt)
     forM_ ts $ \t ->
       say $ "Found Tag: " <> kv t
 

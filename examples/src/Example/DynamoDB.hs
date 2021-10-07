@@ -1,4 +1,7 @@
+{-# LANGUAGE DataKinds #-}
+{-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeApplications #-}
 
 -- |
 -- Module      : Example.DynamoDB
@@ -16,18 +19,15 @@ module Example.DynamoDB where
 
 import Control.Lens
 import Control.Monad.IO.Class
-import Control.Monad.Trans.AWS
-import Data.ByteString (ByteString)
 import Data.Conduit
 import qualified Data.Conduit.List as CL
+import Data.Generics.Product
 import Data.HashMap.Strict (HashMap)
 import qualified Data.HashMap.Strict as Map
-import Data.Monoid
-import Data.Text (Text)
 import qualified Data.Text as Text
 import qualified Data.Text.IO as Text
-import Network.AWS.Data
-import Network.AWS.DynamoDB
+import Network.AWS
+import Network.AWS.DynamoDB as DynamoDB
 import System.IO
 
 printTables ::
@@ -41,31 +41,18 @@ printTables ::
   Int ->
   IO ()
 printTables region secure host port = do
-  lgr <- newLogger Debug stdout
-  env <- newEnv Discover <&> set envLogger lgr
-
   -- Specify a custom DynamoDB endpoint to communicate with:
-  let dynamo = setEndpoint secure host port dynamoDB
+  let dynamo = setEndpoint secure host port DynamoDB.defaultService
 
-  runResourceT . runAWST env . within region $ do
-    -- Scoping the endpoint change using 'reconfigure':
-    reconfigure dynamo $ do
-      say $ "Listing all tables in region " <> toText region
-      paginate listTables
-        =$= CL.concatMap (view ltrsTableNames)
-          $$ CL.mapM_ (say . mappend "Table: ")
+  lgr <- newLogger Debug stdout
+  env <- newEnv Discover <&> set (field @"envLogger") lgr . configure dynamo . within region
 
-    -- This will _not_ use the redirected endpoint, and will hit AWS directly.
+  runResourceT $ do
     say $ "Listing all tables in region " <> toText region
-    paginate listTables
-      =$= CL.concatMap (view ltrsTableNames)
-        $$ CL.mapM_ (say . mappend "Table: ")
-
--- You can also hardcode the endpoint in the initial environment
--- by manually constructing it:
--- let env' = setEndpoint s h p env
--- runResourceT . runAWST env' $ do
---     ...
+    runConduit $
+      paginate env newListTables
+      .| CL.concatMap (view (field @"tableNames" . _Just))
+      .| CL.mapM_ (say . mappend "Table: ")
 
 insertItem ::
   -- | Region to operate in.
@@ -82,22 +69,20 @@ insertItem ::
   HashMap Text AttributeValue ->
   IO PutItemResponse
 insertItem region secure host port table item = do
-  lgr <- newLogger Debug stdout
-  env <- newEnv Discover <&> set envLogger lgr
-
   -- Specify a custom DynamoDB endpoint to communicate with:
-  let dynamo = setEndpoint secure host port dynamoDB
+  let dynamo = setEndpoint secure host port DynamoDB.defaultService
 
-  runResourceT . runAWST env . within region $ do
-    -- Scoping the endpoint change using 'reconfigure':
-    reconfigure dynamo $ do
-      say $
-        "Inserting item into table '"
-          <> table
-          <> "' with attribute names: "
-          <> Text.intercalate ", " (Map.keys item)
-      -- Insert the new item into the specified table:
-      send $ putItem table & piItem .~ item
+  lgr <- newLogger Debug stdout
+  env <- newEnv Discover <&> set (field @"envLogger") lgr . within region . configure dynamo
+
+  runResourceT $ do
+    say $
+      "Inserting item into table '"
+        <> table
+        <> "' with attribute names: "
+        <> Text.intercalate ", " (Map.keys item)
+    -- Insert the new item into the specified table:
+    send env $ newPutItem table & field @"item" .~ item
 
 say :: MonadIO m => Text -> m ()
 say = liftIO . Text.putStrLn

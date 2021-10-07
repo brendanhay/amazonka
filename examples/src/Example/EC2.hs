@@ -1,4 +1,7 @@
+{-# LANGUAGE DataKinds #-}
+{-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeApplications #-}
 
 -- |
 -- Module      : Example.EC2
@@ -11,31 +14,30 @@ module Example.EC2 where
 
 import Control.Lens
 import Control.Monad.IO.Class
-import Control.Monad.Trans.AWS
 import Data.ByteString.Builder (hPutBuilder)
 import Data.Conduit
 import qualified Data.Conduit.List as CL
-import Data.Monoid
-import Network.AWS.Data
+import Data.Generics.Product
+import Network.AWS
 import Network.AWS.EC2
 import System.IO
 
 instanceOverview :: Region -> IO ()
 instanceOverview r = do
   lgr <- newLogger Info stdout
-  env <- newEnv Discover <&> set envLogger lgr
+  env <- newEnv Discover <&> set (field @"envLogger") lgr . within r
 
   let pp x =
         mconcat
-          [ "[instance:" <> build (x ^. insInstanceId) <> "] {",
-            "\n  public-dns = " <> build (x ^. insPublicDNSName),
-            "\n  tags       = " <> build (x ^. insTags . to show),
-            "\n  state      = " <> build (x ^. insState . isName . to toBS),
+          [ "[instance:" <> build (x ^. field @"instanceId") <> "] {",
+            "\n  public-dns = " <> build (x ^. field @"publicDnsName"),
+            "\n  tags       = " <> build (x ^. field @"tags" . to show),
+            "\n  state      = " <> build (x ^. field @"state" . field @"name" . to toBS),
             "\n}\n"
           ]
 
-  runResourceT . runAWST env . within r $
-    paginate describeInstances
-      =$= CL.concatMap (view dirsReservations)
-      =$= CL.concatMap (view rInstances)
-        $$ CL.mapM_ (liftIO . hPutBuilder stdout . pp)
+  runResourceT . runConduit $
+    paginate env newDescribeInstances
+    .| CL.concatMap (view (field @"reservations" . _Just))
+    .| CL.concatMap (view (field @"instances" . _Just))
+    .| CL.mapM_ (liftIO . hPutBuilder stdout . pp)

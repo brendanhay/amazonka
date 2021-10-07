@@ -1,4 +1,7 @@
+{-# LANGUAGE DataKinds #-}
+{-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeApplications #-}
 
 -- |
 -- Module      : Example.SQS
@@ -12,11 +15,10 @@ module Example.SQS where
 import Control.Lens
 import Control.Monad
 import Control.Monad.IO.Class
-import Control.Monad.Trans.AWS
-import Data.Monoid
-import Data.Text (Text)
+import Data.Generics.Product
 import qualified Data.Text as Text
 import qualified Data.Text.IO as Text
+import Network.AWS
 import Network.AWS.SQS
 import System.IO
 
@@ -30,19 +32,19 @@ roundTrip ::
   IO ()
 roundTrip r name xs = do
   lgr <- newLogger Debug stdout
-  env <- newEnv Discover <&> set envLogger lgr
+  env <- newEnv Discover <&> set (field @"envLogger") lgr . within r
 
   let say = liftIO . Text.putStrLn
 
-  runResourceT . runAWST env . within r $ do
-    void $ send (createQueue name)
-    url <- view gqursQueueURL <$> send (getQueueURL name)
+  runResourceT $ do
+    void $ send env (newCreateQueue name)
+    url <- view (field @"queueUrl") <$> send env (newGetQueueUrl name)
     say $ "Received Queue URL: " <> url
 
     forM_ xs $ \x -> do
-      void $ send (sendMessage url x)
+      void $ send env (newSendMessage url x)
       say $ "Sent '" <> x <> "' to Queue URL: " <> url
 
-    ms <- send (receiveMessage url & rmWaitTimeSeconds ?~ 20)
-    forM_ (ms ^. rmrsMessages) $ \m ->
+    ms <- send env (newReceiveMessage url & field @"waitTimeSeconds" ?~ 20)
+    forM_ (ms ^. field @"messages") $ \m ->
       say $ "Received Message: " <> Text.pack (show m)

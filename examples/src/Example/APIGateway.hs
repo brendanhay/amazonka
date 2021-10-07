@@ -1,34 +1,33 @@
+{-# LANGUAGE DataKinds #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE PartialTypeSignatures #-}
 {-# LANGUAGE ScopedTypeVariables #-}
-{-# OPTIONS_GHC -fno-warn-name-shadowing #-}
-{-# OPTIONS_GHC -fno-warn-partial-type-signatures #-}
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# LANGUAGE TypeApplications #-}
+{-# OPTIONS_GHC -fno-warn-incomplete-uni-patterns #-}
 
 module Example.APIGateway where
 
 import Control.Lens
-import Control.Monad.IO.Class
-import Control.Monad.Trans.AWS
-import Data.Monoid
+import Data.Generics.Product
+import Network.AWS
 import Network.AWS.APIGateway
-import Network.AWS.Data
 import System.IO
 
 main :: Region -> IO Method
 main r = do
   lgr <- newLogger Trace stdout
-  env <- newEnv Discover <&> set envLogger lgr . set envRegion r
-  runResourceT . runAWST env $ do
-    restApi <- send (createRestAPI "myApi")
-    let Just apiId = restApi ^. raId
+  env <- newEnv Discover <&> set (field @"envLogger") lgr . set (field @"envRegion") r
+  runResourceT $ do
+    restApi <- send env (newCreateRestApi "myApi")
+    let Just apiId = restApi ^. field @"id"
 
-    resources :: [Resource] <- (view grrsItems) <$> send (getResources apiId)
-    let Just rootId = head resources ^. rId
+    Just resources :: Maybe [Resource] <-
+      view (field @"items") <$> send env (newGetResources apiId)
+    let Just rootId = head resources ^. field @"id"
 
-    resource :: Resource <- send (createResource apiId rootId "{file}")
+    resource :: Resource <- send env (newCreateResource apiId rootId "{file}")
 
-    let Just fileResourceId = resource ^. rId
-    method :: Method <- send (putMethod apiId fileResourceId "GET" "NONE")
+    let Just fileResourceId = resource ^. field @"id"
+    method :: Method <- send env (newPutMethod apiId fileResourceId "GET" "NONE")
 
     return method

@@ -54,16 +54,12 @@ Released: **unreleased**, Compare: 2.0 RC1 (TODO: Linkify)
 [\#625](https://github.com/brendanhay/amazonka/pull/625)
 - Duplicate files that differ only in case have been removed
 [\#637](https://github.com/brendanhay/amazonka/pull/637)
-- `amazonka-autoscaling`: `AutoScalingGroupName` is optional in `Activity` structures
-[\#648](https://github.com/brendanhay/amazonka/pull/648)
 - S3 object sizes are now `Integer` instead of `Int`
 [\#649](https://github.com/brendanhay/amazonka/pull/649)
 - Fix getting regions from named profiles
 [\#654](https://github.com/brendanhay/amazonka/pull/654)
 - amazonka-rds now supports the `DestinationRegion` pseudo-parameter for cross-region requests
 [\#661](https://github.com/brendanhay/amazonka/pull/661)
-- `amazonka-cognito-idp`: `UserPoolAddOnsType.AdvancedSecurityMode` is optional for unparsing's sake
-[\#662](https://github.com/brendanhay/amazonka/pull/662)
 - Fixed S3 envelope encryption
 [\#669](https://github.com/brendanhay/amazonka/pull/669)
 
